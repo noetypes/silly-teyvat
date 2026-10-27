@@ -1,3 +1,7 @@
+# Silly Teyvat 1.26.2: Cleaner Official Art
+
+- 72 Official Art portraits that had been cut out from a white background now use the genuinely transparent "Character Portrait" files from the genshinimpactresources blog's Google Drive folder. Aether and Lumine also get Official Art sets.
+
 # Silly Teyvat 1.26.1: Official Art registration
 
 - Official Art sets and the Genshin tag are now registered once the character list is loaded (on app ready and on every chat change), not only at startup.
