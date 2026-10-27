@@ -19,6 +19,13 @@ export async function runWardrobeAndCanvasTests(){
     try{
         check('slot numbering avoids existing names regardless of case',nextSlotName('expression',['Expression','expression-1','expression-3'])==='expression-2');
         await open();
+        const faces=()=>[...host.querySelectorAll('.gi-roster button')].map(b=>b.dataset.avatar);
+        check('characters without the Genshin tag are hidden by default, except the selected one',$('#gi-hide-non-genshin').checked&&faces().join()==='Klee.png');
+        $('#gi-hide-non-genshin').click();await pause(15);check('turning off Hide non-Genshin lists every character',faces().join()==='Klee.png,Nahida.png'&&prefs.hideNonGenshin===false);
+        $('#gi-character-search').value='nahi';$('#gi-character-search').dispatchEvent(new Event('input'));check('character search filters the roster by name',faces().join()==='Nahida.png');
+        $('#gi-character-search').value='';$('#gi-character-search').dispatchEvent(new Event('input'));ctx.characters[1].tags=['Genshin'];$('#gi-hide-non-genshin').click();await pause(15);
+        check('Genshin-tagged characters stay visible while hiding non-Genshin',$('#gi-hide-non-genshin').checked&&faces().join()==='Klee.png,Nahida.png');
+        $('#gi-hide-non-genshin').click();await pause(15);delete prefs.hideNonGenshin;
         let grid=$('.gi-expression-grid');check('sprite plus tile is the final tile',grid.lastElementChild.dataset.w==='add-blank-sprite');
         let art=grid.firstElementChild.getBoundingClientRect(),add=grid.lastElementChild.getBoundingClientRect();
         check('sprite plus matches the artwork tile dimensions',Math.abs(art.width-add.width)<2&&Math.abs(art.height-add.height)<2);

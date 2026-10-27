@@ -1,5 +1,6 @@
 import {activeGroup,inPartyChat} from './party.js';
-import {loadCharacterProperties} from './character-properties.js';
+import {loadCharacterProperties,registerGenshinTags} from './character-properties.js';
+import {registerOfficialArt} from './official-art.js';
 import {mountCombat} from './combat.js';
 import {syncCombatPrompt} from './combat-state.js';
 /* Silly Teyvat, integrated suggested replies and native drawer presentation. */
@@ -539,7 +540,7 @@ export async function initialize({ choicesAdapter, spriteAdapter, wardrobeAdapte
             <header class="gi-pm-profile"><button type="button" class="gi-pm-avatar" data-gi-action="traveler" aria-label="Switch Traveler" title="Switch between Aether and Lumine"><img alt=""></button><div class="gi-pm-id"><strong class="gi-pm-name"></strong><span class="gi-pm-place"></span></div></header>
             <button type="button" class="gi-pm-switch" data-gi-action="toggle" aria-pressed="false" aria-label="Silly Teyvat"><span>Silly Teyvat</span><i aria-hidden="true"></i></button>
             <div class="gi-pm-grid">${menuButton('auto', 'Auto')}${menuButton('history', 'Review', 'book')}${menuButton('wardrobe', 'Wardrobe')}${menuButton('map', 'Map')}${menuButton('cg', 'CG Frame')}${menuButton('compose', 'Chat Box')}${menuButton('hide', 'Hide UI')}</div>
-            <footer class="gi-pm-bar">${menuButton('settings', 'Settings')}<span class="gi-pm-version">1.25</span></footer>
+            <footer class="gi-pm-bar">${menuButton('settings', 'Settings')}<span class="gi-pm-version">1.26</span></footer>
         </nav>
         <header id="gi-review-heading" hidden><h2>${svg('history')} Dialogue Review</h2>${button('history', 'Close review', 'close')}</header>
         <nav id="gi-navigation" aria-label="Read existing dialogue" hidden>${button('previous', 'Previous message')}<span id="gi-position"></span>${button('latest', 'Latest message')}${button('next', 'Next message')}<button id="gi-regenerate" type="button" data-gi-action="regenerate" aria-label="Regenerate this character’s reply" hidden>${svg('regenerate')}</button></nav>
@@ -639,6 +640,8 @@ export async function initialize({ choicesAdapter, spriteAdapter, wardrobeAdapte
     subscribe('GROUP_WRAPPER_FINISHED',()=>{groupGenerating=false;schedule();});
     subscribe('GROUP_UPDATED',schedule);
     for (const key of ['GENERATION_STOPPED', 'GENERATION_ENDED']) subscribe(key, () => { if(key==='GENERATION_STOPPED')combatUI?.cancelPending();generating = false; schedule(); announce('Reply ready.'); });
+    try{await registerGenshinTags(context());}catch(error){console.warn('[Silly Teyvat] Genshin tag',error);}
+    try{await registerOfficialArt(context());}catch(error){console.warn('[Silly Teyvat] Official Art',error);}
     try{await loadStarterLocations(context());await loadCharacterHomes(context());}catch(error){console.warn('[Silly Teyvat] Starter locations',error);announce(error.message);}
     try{if(preferences().journeysPurged!==true&&context().getRequestHeaders){const ctx=context(),removed=await purgeLegacyJourneys(ctx);if(removed.length){ctx.groups?.splice(0,ctx.groups.length,...ctx.groups.filter(g=>!removed.includes(g.id)));await ctx.getCharacters?.();}if(!(ctx.groups || []).some(isLegacyJourneyGroup))preferences().journeysPurged=true,ctx.saveSettingsDebounced();}}catch(error){console.warn('[Silly Teyvat] Journey cleanup',error);}
     try{const remove=await journeyAdapter.install();if(!mounted||version!==mountVersion){remove?.();return;}removeJourneyFilter=remove;}catch(error){console.warn('[Silly Teyvat] Journey library',error);announce(error.message);}

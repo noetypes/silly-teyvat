@@ -202,3 +202,6 @@ body.gi-reduced-motion #gi-attack-controls #gi-attack-toggle { animation: none; 
 #gi-attack-dock > * { pointer-events: auto; }
 body:not(.gi-scene) #gi-attack-dock, body.gi-history #gi-attack-dock { display: none; }
 #gi-choices .gi-choices-heading:has(#gi-attack-controls:not([hidden])) { position: static !important; }
+
+/* The roster scrolls sideways, which clips vertically too: pad it so the enlarged selected portrait, its ring and glow stay whole. */
+#gi-wardrobe header .gi-roster { padding-block: 18px; margin-block: -14px; }

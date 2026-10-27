@@ -1,3 +1,12 @@
+# Silly Teyvat 1.26: Official Art, wardrobe search & Genshin tag
+
+- **Official Art sets.** 119 playable characters have an **Official Art** sprite set whose neutral sprite is their official transparent portrait (Genshin Impact Wiki portraits, sized to at most 2000 px). Older portraits came on plain white, so their background was keyed out; the art is otherwise unedited and effect-free. Aether, Lumine and the Manekins have no wiki portrait and were skipped. Forgetting a set keeps it forgotten.
+- **Trimming everywhere.** Empty sprite space is also trimmed in the Wardrobe preview and expression thumbnails.
+- **Wardrobe.** New character search; **Hide non-Genshin** (on by default) hides cards without the "Genshin" tag; the enlarged selected portrait is no longer cut off.
+- **Genshin tag.** Every Genshin card carries a "Genshin" tag, also added to SillyTavern's tag list.
+- **Cards.** Asterisks were removed from greetings, and all enemy cards have a profile picture: their sprite on a flat element colour.
+- **Settings.** The Silly Teyvat staging toggle is aligned again.
+
 # Silly Teyvat 1.25: Groups core, player-only travel
 
 - **Groups are the travel system.** The virtual party and its setting are gone. One hidden group per chat is updated in place, so guest replies use SillyTavern's own group generation and can be regenerated.

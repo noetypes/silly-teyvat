@@ -1,5 +1,6 @@
 import {activeGroup,inPartyChat} from './party.js';
-import {mountCharacterProperties,characterProperties,isFromGenshin} from './character-properties.js';
+import {mountCharacterProperties,characterProperties,hasGenshinTag} from './character-properties.js';
+import {createSpriteTrimmer} from './sprite-trim.js';
 import {newLocalId} from './local-id.js';
 // Outfit registry uses native Character Expressions folder overrides. Sprite files
 // are managed through SillyTavern's existing authenticated upload/delete APIs.
@@ -98,7 +99,7 @@ export function mountWardrobe({host, getContext, onChange = async () => {}, onMe
     const dialog = document.createElement('dialog'); dialog.id = 'gi-wardrobe'; dialog.dataset.tab = 'attributes';
     dialog.setAttribute('aria-labelledby', 'gi-wardrobe-title');
     dialog.innerHTML = `<header><div><h2 id="gi-wardrobe-title">Sprite Wardrobe</h2></div><button type="button" data-w="close" aria-label="Close Sprite Wardrobe">×</button></header>
-        <label class="gi-check gi-roster-filter"><input type="checkbox" id="gi-show-non-genshin">Show characters not from Genshin</label><nav class="gi-roster" aria-label="Choose a character"></nav>
+        <div class="gi-roster-tools"><input type="search" id="gi-character-search" placeholder="Search characters" aria-label="Search characters" autocomplete="off" maxlength="80"><label class="gi-check gi-roster-filter"><input type="checkbox" id="gi-hide-non-genshin">Hide non-Genshin</label></div><nav class="gi-roster" aria-label="Choose a character"></nav>
         <div class="gi-wardrobe-body"><section class="gi-wardrobe-preview"><img alt="Selected sprite preview" hidden><h3></h3><p class="gi-outfit-caption"></p></section>
         <section class="gi-wardrobe-controls"><details class="gi-character-staging" open><summary>Character scale, placement & classification</summary>
         <label>Decide sprites<select id="gi-character-expression-mode"><option value="inherit">Use extension setting</option><option value="page">Once per dialogue page</option><option value="message">Once per complete message</option></select></label>
@@ -130,6 +131,7 @@ export function mountWardrobe({host, getContext, onChange = async () => {}, onMe
     const backgroundPanel=document.createElement('div');backgroundPanel.dataset.panel='backgrounds';backgroundPanel.hidden=true;dialog.querySelector('.gi-wardrobe-controls').append(backgroundPanel);
     host.append(dialog);
     const abort = new AbortController();
+    const trimmer = createSpriteTrimmer({ inventory: folder => adapter.list(folder) });
     const $ = sel => dialog.querySelector(sel);
     let character, sets = [], sprites = [], selected, selectedCG, tab = 'attributes', backup, revision = 0, busy = false, opener,personaRefreshPending=false;
     const status = text => { const p=$('footer p'); p.textContent = text; p.classList.remove('gi-toast'); void p.offsetWidth; p.classList.add('gi-toast'); };
@@ -169,10 +171,22 @@ export function mountWardrobe({host, getContext, onChange = async () => {}, onMe
         $('#gi-upload-expression').replaceChildren(...labels.map(label => new Option(label, label)));
         if (labels.includes('neutral')) $('#gi-upload-expression').value = 'neutral';
     }
+    // Sprites show without their empty padding, matching the stage. The raw art
+    // loads first but stays hidden until the trimmed copy (if any) replaces it.
+    function setArt(img, spriteFolder, path) {
+        img.dataset.art = path; img.src = path;
+        if (mediaSettings(getContext()).trimSprites === false) return;
+        img.style.visibility = 'hidden';
+        trimmer.trim(spriteFolder, path).catch(() => null).then(trimmed => {
+            if (img.dataset.art !== path) return;
+            if (trimmed) img.src = trimmed.url;
+            img.style.visibility = '';
+        });
+    }
     function chooseSprite(sprite) {
         selected = sprite;
         const preview = $('.gi-wardrobe-preview img'); preview.hidden = Boolean(sprite.blank);
-        if(sprite.blank)preview.removeAttribute('src');else preview.src = sprite.path;
+        if(sprite.blank)preview.removeAttribute('src');else setArt(preview, folder(), sprite.path);
         $('.gi-outfit-caption').textContent = `${$('#gi-outfit').selectedOptions[0]?.textContent} · ${spriteIdentity(sprite.path).name}`;
         $('.gi-sprite-detail').hidden = false; $('.gi-sprite-detail span').textContent = spriteIdentity(sprite.path).filename;
         $('button[data-w="use-persona-sprite"]').hidden=!character.isPersona || Boolean(sprite.blank);
@@ -244,13 +258,13 @@ export function mountWardrobe({host, getContext, onChange = async () => {}, onMe
             const name=spriteIdentity(sprite.path).name,button=makeButton('',()=>chooseSprite(sprite));
             button.dataset.path=sprite.path;button.setAttribute('aria-label',`Preview ${name}${sprite.blank?' (empty)':''}`);
             const art=sprite.blank?placeholder():document.createElement('img');
-            if(!sprite.blank){art.src=sprite.path;art.alt='';art.loading='lazy';}
+            if(!sprite.blank){setArt(art,folder(),sprite.path);art.alt='';art.loading='lazy';}
             const label=document.createElement('span');label.textContent=name;button.append(art,label);grid.append(button);
         }
         grid.append(addTile('add-blank-sprite','Add expression'));
     }
     async function load() {
-        const token = ++revision, path = folder(); selected = undefined; $('.gi-sprite-detail').hidden = true; $('.gi-remove-confirm').hidden = true;
+        const token = ++revision, path = folder(); selected = undefined; trimmer.reset(); $('.gi-sprite-detail').hidden = true; $('.gi-remove-confirm').hidden = true;
         $('.gi-selected-sprite-tools').hidden = true;
         $('.gi-expression-grid').replaceChildren(); $('.gi-wardrobe-preview img').hidden = true;
         sprites = await adapter.list(path);
@@ -428,14 +442,19 @@ export function mountWardrobe({host, getContext, onChange = async () => {}, onMe
     },{signal:abort.signal});
     $('#gi-outfit').addEventListener('change', () => { if (!busy) load().catch(e => status(e.message)); }, {signal:abort.signal});
     dialog.addEventListener('close', () => { revision++; opener?.focus(); }, {signal:abort.signal});
-    $('#gi-show-non-genshin').addEventListener('change',event=>{mediaSettings(getContext()).showNonGenshin=event.target.checked;getContext().saveSettingsDebounced();renderRoster().catch(e=>status(e.message));},{signal:abort.signal});
-    async function renderRoster(){
+    // Hidden by default; the old "show" preference carries over when it was set.
+    const hideNonGenshin=ctx=>{const prefs=mediaSettings(ctx);return prefs.hideNonGenshin ?? prefs.showNonGenshin!==true;};
+    const fold=text=>String(text||'').normalize('NFD').replace(/[̀-ͯ]/g,'').toLowerCase();
+    $('#gi-hide-non-genshin').addEventListener('change',event=>{mediaSettings(getContext()).hideNonGenshin=event.target.checked;getContext().saveSettingsDebounced();paintRoster();},{signal:abort.signal});
+    $('#gi-character-search').addEventListener('input',()=>paintRoster(),{signal:abort.signal});
+    function paintRoster(){
         const ctx=getContext(),persona=personaCard(ctx),party=roster(ctx).map(c=>c.avatar);
         const cards=(ctx.characters?.filter(c=>c?.avatar&&c?.name) || []).map((c,i)=>({c,i,p:party.indexOf(c.avatar)})).sort((a,b)=>(a.p<0)-(b.p<0)||(a.p-b.p)||(a.i-b.i)).map(x=>x.c);
-        const showAll=mediaSettings(ctx).showNonGenshin===true,selectedAvatar=character?.avatar;
-        const visible=cards.filter(c=>showAll||isFromGenshin(ctx,c)||c.avatar===selectedAvatar);
-        const characters=persona?[persona,...visible]:visible;
-        $('#gi-show-non-genshin').checked=showAll;
+        const hide=hideNonGenshin(ctx),query=fold($('#gi-character-search').value.trim()),selectedAvatar=character?.avatar ?? ctx.characters?.[ctx.characterId]?.avatar;
+        const matches=c=>!query||fold(c.name).includes(query)||(c.tags || []).some(t=>fold(t).includes(query));
+        const visible=cards.filter(c=>(!hide||hasGenshinTag(ctx,c)||c.avatar===selectedAvatar)&&matches(c));
+        const characters=persona&&matches(persona)?[persona,...visible]:visible;
+        $('#gi-hide-non-genshin').checked=hide;
         $('.gi-roster').replaceChildren(...characters.map(c=>{
             const b=makeButton(c.name,()=>{if(!busy)selectCharacter(c).catch(e=>status(e.message));});b.dataset.avatar=c.avatar;
             b.title=c.isPersona?`${c.name} (your persona)`:c.name;b.setAttribute('aria-label',b.title);
@@ -443,8 +462,14 @@ export function mountWardrobe({host, getContext, onChange = async () => {}, onMe
             if(party.includes(c.avatar))b.dataset.party='true';
             const img=document.createElement('img');img.alt='';img.loading='lazy';
             img.src=c.isPersona?personaPortrait(ctx,c):ctx.getThumbnailUrl?.('avatar',c.avatar)||`/characters/${encodeURIComponent(c.avatar)}`;
-            const face=document.createElement('span');face.className='gi-roster-face';face.append(img);b.prepend(face);return b;
+            const face=document.createElement('span');face.className='gi-roster-face';face.append(img);b.prepend(face);
+            if(c.avatar===character?.avatar)b.setAttribute('aria-pressed','true');
+            return b;
         }));
+        return characters;
+    }
+    async function renderRoster(){
+        const ctx=getContext(),persona=personaCard(ctx),characters=paintRoster();
         const chosen=characters.find(c=>c.avatar===character?.avatar)||persona||ctx.characters?.[ctx.characterId]||characters[0];
         if(chosen)await selectCharacter(chosen);else{switchTab('backgrounds');status('Add regions and backgrounds, or import a character to manage sprites.');}
     }

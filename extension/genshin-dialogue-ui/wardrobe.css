@@ -95,4 +95,6 @@
 #gi-wardrobe [data-panel="backgrounds"][aria-busy] { opacity:.7; }
 #gi-wardrobe #gi-bg-library { min-height:120px; }
 
-#gi-wardrobe .gi-roster-filter { margin: 0; padding: 6px 22px 0; font-size: 14px; }
+#gi-wardrobe .gi-roster-tools { display: flex; align-items: center; flex-wrap: wrap; gap: 8px 16px; padding: 6px 22px 0; }
+#gi-wardrobe .gi-roster-tools input[type="search"] { flex: 0 1 260px; min-width: 140px; min-height: 34px; padding: 4px 14px; border: 1px solid #cfbf9560; border-radius: 18px; background: #0d1220b3; color: inherit; font: inherit; font-size: 14px; }
+#gi-wardrobe .gi-roster-filter { margin: 0; padding: 0; font-size: 14px; }
