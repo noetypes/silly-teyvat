@@ -4,8 +4,8 @@ export function isJourneyGroup(group){
     return Boolean(group?.silly_teyvat_journey?.version===1 ||
         (/^Teyvat journey:/.test(group?.name || '')&&[group.chat_id,...(group.chats || [])].some(id=>String(id).startsWith('Silly-Teyvat-'))));
 }
-// Travel no longer creates groups, so every journey group is a leftover.
-export const isLegacyJourneyGroup=isJourneyGroup;
+// Groups made before the single updating group per chat are leftovers.
+export const isLegacyJourneyGroup=group=>isJourneyGroup(group)&&group.silly_teyvat_journey?.managed!==true;
 // Delete journey groups made before travel moved into a virtual party. Returns the ids removed; the open group is left alone.
 export async function purgeLegacyJourneys(ctx,fetchImpl=fetch){
     const removed=[];

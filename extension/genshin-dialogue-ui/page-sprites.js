@@ -5,6 +5,7 @@ import {enemySpeaker,resolveEnemyScene,enemySceneAvatar} from './enemy-actions.j
 import {openingScene,openingCharacter} from './opening-scene.js';
 import { stageScene, createStageRoster, expressionMode, fitModelHeights, liveSpriteScale } from './staging.js';
 import { previousSpeech } from './narration.js';
+import { createSpriteTrimmer } from './sprite-trim.js';
 const STORE = 'silly_teyvat';
 export const pageSignature = text => {
     let hash = 2166136261;
@@ -52,6 +53,7 @@ export function createNativeSpriteAdapter({ capture = captureScene } = {}) {
     const prepareRoster = createStageRoster(inventory);
     return {
         capture,
+        inventory,
         async preparePersona(ctx,base,isCurrent){return prepareRoster(ctx,base,isCurrent,{onlyPersona:true});},
         async prepare(ctx, base, isCurrent, details) {
             if(ctx.extensionSettings.genshin_dialogue_ui?.nativeStaging)return prepareRoster(ctx,base,isCurrent,details);
@@ -120,7 +122,7 @@ export function createNativeSpriteAdapter({ capture = captureScene } = {}) {
         reset() { inventories.clear(); },
     };
 }
-export function mountPageSprites({ host, getContext, adapter = createNativeSpriteAdapter(), announce = () => {}, renderMessage = () => null, onAppearance = () => {}, decodeImage = image => image.decode?.() || Promise.resolve() }) {
+export function mountPageSprites({ host, getContext, adapter = createNativeSpriteAdapter(), announce = () => {}, renderMessage = () => null, onAppearance = () => {}, decodeImage = image => image.decode?.() || Promise.resolve(), trimmer = adapter.inventory ? createSpriteTrimmer({ inventory: adapter.inventory }) : null }) {
     const stage = document.createElement('div'); stage.id = 'gi-sprite-stage'; stage.setAttribute('aria-hidden', 'true'); host.append(stage);
     let active = false, selection = '', displayed = '', epoch = 0, lastScene = [], lastChat = null, selectedPage;
     let drawVersion=0;
@@ -151,15 +153,29 @@ export function mountPageSprites({ host, getContext, adapter = createNativeSprit
             // Reusing a filtered/transformed <img> with new transparent pixels can
             // leave stale compositor tiles on mobile. Decode a fresh node, then
             // replace the old scene atomically. Same-art focus changes reuse it.
-            const image=prior?.getAttribute('src')===src?prior:document.createElement('img');
-            if(image!==prior){image.src=src;image.hidden=true;decoding.push(Promise.resolve().then(()=>decodeImage(image)).then(()=>{image.hidden=false;},()=>{image.hidden=true;}));}
+            const image=prior?.dataset.source===src?prior:document.createElement('img');
+            const trimEnabled=trimmer&&getContext().extensionSettings.genshin_dialogue_ui?.trimSprites!==false;
+            const place=()=>{
+                // A trimmed copy is exactly the figure, so its box takes the cropped aspect.
+                const aspect=Number(image.dataset.trim) || sprite.aspect;
+                Object.assign(image.style, { left: `${sprite.x * 100}vw`, top: `${sprite.y * 100}dvh`, width: `${sprite.w * 100}vw`, height: `${sprite.h * 100}dvh` });
+                if (aspect && Number.isFinite(sprite.centre)) {
+                    image.style.width = `${sprite.h * aspect * 100}dvh`;
+                    image.style.left = `calc(${sprite.centre * 100}vw - ${sprite.h * aspect * 50}dvh)`;
+                }
+            };
+            if(image!==prior){
+                image.dataset.source=src;image.hidden=true;
+                decoding.push(Promise.resolve().then(async()=>{
+                    const trimmed=trimEnabled?await trimmer.trim(sprite.folder,src):null;
+                    if(trimmed){image.dataset.trim=String(trimmed.aspect);image.src=trimmed.url;place();}else image.src=src;
+                    await decodeImage(image);
+                }).then(()=>{image.hidden=false;},()=>{image.hidden=true;}));
+            }
             image.alt = '';nextImages.push(image);
             image.dataset.avatar = sprite.avatar || '';image.dataset.folder=sprite.folder || ''; image.dataset.expression = sprite.expression || '';
-            Object.assign(image.style, { left: `${sprite.x * 100}vw`, top: `${sprite.y * 100}dvh`, width: `${sprite.w * 100}vw`, height: `${sprite.h * 100}dvh`, zIndex: String(sprite.z), opacity: String(sprite.opacity ?? 1), filter: /url|\\/i.test(sprite.filter || '') ? 'none' : sprite.filter || 'none', objectFit: sprite.fit || 'contain', objectPosition: sprite.position || 'center bottom' });
-            if (sprite.aspect && Number.isFinite(sprite.centre)) {
-                image.style.width = `${sprite.h * sprite.aspect * 100}dvh`;
-                image.style.left = `calc(${sprite.centre * 100}vw - ${sprite.h * sprite.aspect * 50}dvh)`;
-            }
+            Object.assign(image.style, { zIndex: String(sprite.z), opacity: String(sprite.opacity ?? 1), filter: /url|\\/i.test(sprite.filter || '') ? 'none' : sprite.filter || 'none', objectFit: sprite.fit || 'contain', objectPosition: sprite.position || 'center bottom' });
+            place();
             const p=sprite.presentation || {};
             image.style.setProperty('--gi-sprite-scale',scales[scene.indexOf(sprite)]);image.style.setProperty('--gi-focus-scale',p.focusScale ?? 1);
             image.style.setProperty('--gi-focus-duration',`${p.duration ?? .6}s`);image.style.setProperty('--gi-focus-easing',p.easing || 'ease');

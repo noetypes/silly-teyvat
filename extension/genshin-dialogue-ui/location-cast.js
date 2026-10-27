@@ -124,8 +124,51 @@ export function commitTeleportParty(ctx,plan){
     for(const choice of plan.decisions)state.placements[choice.avatar]=choice.take?choice.to:choice.from;
     saveTravel(ctx);return true;
 }
-export function createLocationCastAdapter(getContext,{loadScript=()=>import('/script.js')}={}){
+export function makeGroupSnapshot(ctx,members,cast){
+    const character=ctx.characters?.[ctx.characterId];if(!character)throw new Error('Select a character chat before meeting a resident.');
+    const chatId=`Silly-Teyvat-${newLocalId()}`;
+    const metadata=structuredClone(ctx.chatMetadata || {});delete metadata.main_chat;delete (metadata.silly_teyvat_cast || {}).party;
+    metadata.silly_teyvat_cast={...structuredClone(cast),source:{avatar:character.avatar,chatId:ctx.getCurrentChatId?.() || ctx.chatId || ''}};
+    const messages=structuredClone(ctx.chat || []),stamp=Date.now();
+    messages.forEach((message,index)=>{
+        if(message.is_user||message.is_system||message.force_avatar!==undefined||message.extra?.type==='narrator')return;
+        message.name=character.name;message.original_avatar=character.avatar;
+        message.force_avatar=ctx.getThumbnailUrl?.('avatar',character.avatar) || `/characters/${encodeURIComponent(character.avatar)}`;
+        message.extra ??= {};message.extra.gen_id=stamp+index;
+    });
+    return {chatId,chat:[{chat_metadata:metadata,user_name:'unused',character_name:'unused'},...messages],group:{name:`Teyvat journey: ${character.name}`,silly_teyvat_journey:{version:1,managed:true,source:{avatar:character.avatar,chatId:ctx.getCurrentChatId?.() || ctx.chatId || ''}},members,avatar_url:ctx.getThumbnailUrl?.('avatar',character.avatar),allow_self_responses:false,activation_strategy:0,generation_mode:0,disabled_members:[],fav:false,chat_id:chatId,chats:[chatId],auto_mode_delay:5}};
+}
+export function createLocationCastAdapter(getContext,{loadScript=()=>import('/script.js'),loadGroups=()=>import('/scripts/group-chats.js')}={}){
     const post=async(path,data)=>{const response=await fetch(path,{method:'POST',headers:getContext().getRequestHeaders(),body:JSON.stringify(data)});if(!response.ok)throw new Error(`Could not update the travel party (${response.status}).`);return response.json();};
+    // One updating group per chat: reopen this chat's journey group if it exists,
+    // otherwise copy the chat into a single new one. Later swaps edit it in place.
+    async function enterJourneyGroup(ctx,plan,isCurrent,script){
+        await ctx.saveChat?.();if(!isCurrent())return false;
+        const sourceAvatar=ctx.characters?.[ctx.characterId]?.avatar,sourceChat=ctx.getCurrentChatId?.() || ctx.chatId || '';
+        const native=await loadGroups();
+        const waitSaved=async()=>{for(let attempt=0;attempt<100&&script.isChatSaving;attempt++){await new Promise(resolve=>setTimeout(resolve,100));if(!isCurrent())return false;}return isCurrent();};
+        const reusable=(ctx.groups || []).find(g=>g.silly_teyvat_journey?.managed===true&&g.silly_teyvat_journey.source?.avatar===sourceAvatar&&g.silly_teyvat_journey.source?.chatId===sourceChat);
+        if(reusable){
+            const next={...reusable,members:plan.members,disabled_members:(reusable.disabled_members || []).filter(a=>plan.members.includes(a))};
+            await post('/api/groups/edit',next);Object.assign(reusable,next);
+            if(!await waitSaved())return false;
+            if(await native.openGroupById(reusable.id))return {converted:true};
+            throw new Error(`The group “${reusable.name}” was updated. Open it from Saved journeys on the world map to continue.`);
+        }
+        const state={...structuredClone(locationCastState(ctx)),core:plan.core,managed:plan.managed,pendingGreetings:[...(locationCastState(ctx).pendingGreetings || []),...(plan.greetings || [])]};
+        if(state.arrival)state.arrival.handled=true;
+        const snapshot=makeGroupSnapshot(ctx,plan.members,state);
+        await post('/api/chats/group/save',{id:snapshot.chatId,chat:snapshot.chat});
+        if(!isCurrent())return false;
+        const group=await post('/api/groups/create',snapshot.group);
+        // Native group creation whitelists fields; persist our marker through edit.
+        group.silly_teyvat_journey=snapshot.group.silly_teyvat_journey;
+        try{await post('/api/groups/edit',group);}catch(error){console.warn('[Silly Teyvat] Journey origin marker could not be saved.',error);}
+        if(!isCurrent())return false;
+        await ctx.getCharacters();if(!await waitSaved())return false;
+        if(!await native.openGroupById(group.id))throw new Error(`The group “${snapshot.group.name}” was saved. Open it from Saved journeys on the world map to continue.`);
+        return {converted:true};
+    }
     return {
         greet:(entry,isCurrent)=>deliverLocationGreeting(getContext,entry,isCurrent,{loadScript}),
         async apply(ctx,plan,isCurrent){
@@ -144,6 +187,7 @@ export function createLocationCastAdapter(getContext,{loadScript=()=>import('/sc
                 await ctx.eventSource?.emit?.(ctx.eventTypes.GROUP_UPDATED,existing.id);
                 return true;
             }
+            if(mediaSettings(ctx).travelMode==='group')return enterJourneyGroup(ctx,plan,isCurrent,script);
             // Solo chats keep their party in chat metadata. The conversation stays
             // in one chat file no matter who joins or leaves.
             setVirtualParty(ctx,plan.members);

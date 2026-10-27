@@ -1,3 +1,9 @@
+# Silly Teyvat 1.24: Sprite trimming & travel mode
+
+- **Sprite trimming.** Transparent padding around sprites is cropped using the combined opaque area of every expression in a folder, so figures match their body model and all expressions keep the same relative size. Turn it off with **Trim empty sprite space**.
+- **Travel companions setting.** Choose the virtual party (default) or a single hidden group per chat that is updated in place and reopened when you return to the source chat. Groups allow regenerating guest replies.
+- **New group start.** A new group with no chat or location history starts at a random member's home location.
+
 # Silly Teyvat 1.23: Virtual travel party
 
 - **No more journey groups.** Characters join and leave a party stored in the chat itself, so one chat file keeps the whole history. Older "Teyvat journey" groups are deleted once on first launch.
