@@ -7,11 +7,14 @@ import {rollLocationEncounter} from './location-encounters.js';
 import {saveTravel,travelState} from './backgrounds.js';
 import {beginOpeningScene} from './opening-scene.js';
 
-// Called on a native solo-card open, never on group conversion or history views.
+// Called when a solo card opens a new chat. A chat that already has a saved location
+// resumes there instead, and group conversion or history views never move it.
+export const hasSavedLocation=ctx=>Boolean(travelState(ctx).location?.id);
 export function startCharacterAtHome(ctx){
     if(ctx.groupId)return startGroupAtHome(ctx);
     if(inPartyChat(ctx))return false;
     const character=ctx.characters?.[ctx.characterId];if(!character)return false;
+    if(hasSavedLocation(ctx))return false;
     const points=worldWaypoints(ctx),defaultHome=defaultCharacterLocation(ctx,character.avatar),home=points.find(item=>item.location.id===defaultHome?.id)?.location || points.find(item=>item.location.id===travelState(ctx).location?.id)?.location || points[0]?.location;
     beginOpeningScene(ctx,character.avatar,home?.id);if(!home)return false;
     const state=locationCastState(ctx);

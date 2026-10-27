@@ -1,7 +1,9 @@
 // Opening solitude is independent of sampled encounters or asynchronous roster loads.
 // Only an actual move to a different location releases it.
 export function beginOpeningScene(ctx,avatar,locationId){
-    ctx.chatMetadata ??= {};const state=ctx.chatMetadata.silly_teyvat_cast ??= {core:null,managed:[],placements:{}};
+    ctx.chatMetadata ??= {};
+    // A resumed chat keeps whatever opening state it already saved, and never restarts it.
+    if(ctx.chatMetadata.silly_teyvat_world?.location?.id)return ctx.chatMetadata.silly_teyvat_cast?.opening || null;const state=ctx.chatMetadata.silly_teyvat_cast ??= {core:null,managed:[],placements:{}};
     state.opening={version:1,avatar,locationId:locationId || null,active:true};return state.opening;
 }
 export function openingCharacter(ctx,locationId=ctx.chatMetadata?.silly_teyvat_world?.location?.id){

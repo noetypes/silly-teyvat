@@ -1,3 +1,7 @@
+# Silly Teyvat 1.28.2: Resume where you left off
+
+- Opening a previous chat now returns you to the location where you last left off. Only a new chat with no saved location starts at the character's tied home, and an opening scene is never restarted in a resumed chat.
+
 # Silly Teyvat 1.28.1: Official Art by default
 
 - Characters whose Original set has fewer than two sprites (104 of them) start on their **Official Art** set. This happens once per character and never overrides a set you already equipped.

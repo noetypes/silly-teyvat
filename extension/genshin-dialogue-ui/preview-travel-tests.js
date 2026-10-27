@@ -31,7 +31,9 @@ export async function runTravelTests(){
   pending=cast.prepareTeleport(bubu);await pause();click('cancel');check('cancel leaves the current location and roster intact',await pending===null&&travelState(ctx).location.id==='echoes'&&ctx.groups[0].members.join()==='Kachina.png');
   cast.dispose();cast=null;
   ctx.groupId=null;mediaSettings(ctx).defaultCharacterLocations={'Kachina.png':'echoes'};teleportTo(ctx,'bubu',{record:false});const count=ctx.chat.length;startCharacterAtHome(ctx);
-  check('opening a solo card restores its tied home without a travel message',travelState(ctx).location.id==='echoes'&&ctx.chat.length===count);
+  check('reopening a chat with a saved location resumes there instead of going home',travelState(ctx).location.id==='bubu'&&ctx.chat.length===count);
+  travelState(ctx).location=null;startCharacterAtHome(ctx);
+  check('opening a new solo chat starts at the card’s tied home without a travel message',travelState(ctx).location.id==='echoes'&&ctx.chat.length===count);
   check('default World scale omits other-region waypoint names',!worldScalePrompt(ctx).includes('Bubu Pharmacy'));
   mediaSettings(ctx).worldPromptAllRegions=true;check('entire-world option includes other regions',worldScalePrompt(ctx).includes('Bubu Pharmacy'));mediaSettings(ctx).worldPromptAllRegions=false;
   map=mountWorldMap({host,getContext:()=>ctx});map.sync({on:true});map.open();await pause();
