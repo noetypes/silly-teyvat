@@ -1,3 +1,4 @@
+import {activeGroup} from './party.js';
 import {newLocalId} from './local-id.js';
 
 export function noteLocationArrival(ctx,locationId,{kind='travel',travellers=[]}={}){
@@ -12,7 +13,7 @@ export function noteLocationArrival(ctx,locationId,{kind='travel',travellers=[]}
 export function arrivalReply(ctx,plan,residents,defaultHomes){
     const arrival=ctx.chatMetadata?.silly_teyvat_cast?.arrival;
     if(!arrival||arrival.handled||arrival.kind==='open')return null;
-    const disabled=ctx.groups?.find(g=>g.id==ctx.groupId)?.disabled_members || [];
+    const disabled=activeGroup(ctx)?.disabled_members || [];
     const locals=residents.filter(c=>!arrival.travellers.includes(c.avatar));
     const candidates=locals.filter(c=>plan.members.includes(c.avatar)&&!disabled.includes(c.avatar));
     const character=candidates.find(c=>plan.added.includes(c.avatar)) || candidates[0];

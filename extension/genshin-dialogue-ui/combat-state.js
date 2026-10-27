@@ -1,10 +1,11 @@
+import {activeGroup} from './party.js';
 import {enemyActionPrompt} from './enemy-actions.js';
 import {mediaSettings} from './media-store.js';
 import {isEnemy,characterProperties,ELEMENTS} from './character-properties.js';
 export const DICE_FACES=[...ELEMENTS,'Omni'];
 export const combatIdentity=ctx=>`${ctx.groupId || ctx.characterId}:${ctx.getCurrentChatId?.() || ctx.chatId || ''}`;
 export function combatState(ctx){ctx.chatMetadata ??= {};return ctx.chatMetadata.silly_teyvat_combat ??= {visits:{},events:[]};}
-export function sceneMembers(ctx){return ctx.groups?.find(g=>g.id==ctx.groupId)?.members || [ctx.characters?.[ctx.characterId]?.avatar].filter(Boolean);}
+export function sceneMembers(ctx){return activeGroup(ctx)?.members || [ctx.characters?.[ctx.characterId]?.avatar].filter(Boolean);}
 export function activeEnemies(ctx){
     const cast=ctx.chatMetadata?.silly_teyvat_cast || {},encounter=cast.encounter,locationId=ctx.chatMetadata?.silly_teyvat_world?.location?.id;
     const key=encounter&&encounter.locationId===locationId?encounter.key:`manual:${locationId || 'chat'}`;
@@ -14,7 +15,7 @@ export function activeEnemies(ctx){
         const props=characterProperties(ctx,avatar),enemy=visit.enemies[avatar] ??= {avatar,hp:props.maxHp,maxHp:props.maxHp,deathMessage:props.deathMessage,defeated:false};return {...enemy,key};
     }).filter(e=>!e.defeated&&e.hp>0);
 }
-export function combatAllies(ctx){const disabled=ctx.groups?.find(g=>g.id==ctx.groupId)?.disabled_members || [];return sceneMembers(ctx).filter(a=>!disabled.includes(a)&&!isEnemy(ctx,a)).map(a=>ctx.characters.find(c=>c.avatar===a)).filter(c=>c&&characterProperties(ctx,c).playable);}
+export function combatAllies(ctx){const disabled=activeGroup(ctx)?.disabled_members || [];return sceneMembers(ctx).filter(a=>!disabled.includes(a)&&!isEnemy(ctx,a)).map(a=>ctx.characters.find(c=>c.avatar===a)).filter(c=>c&&characterProperties(ctx,c).playable);}
 function damageRange(ctx){const prefs=mediaSettings(ctx),min=Math.max(1,Math.min(100,Math.round(Number(prefs.combatDamageMin)||1)));return {min,max:Math.max(min,Math.min(100,Math.round(Number(prefs.combatDamageMax)||6)))};}
 function rollFace(random){return DICE_FACES[Math.min(7,Math.floor(random()*8))];}
 function rollValue({min,max},random){return min+Math.min(max-min,Math.floor(random()*(max-min+1)));}
@@ -58,5 +59,5 @@ export function applyAttack(ctx,roll,id){
     const target=store.visits[roll.key].enemies[roll.avatar];target.hp=roll.hpAfter;target.defeated=target.hp<=0;
     const event={id,...structuredClone(roll),defeated:target.defeated};store.events.push(event);return event;
 }
-export function combatPrompt(ctx){const disabled=ctx.groups?.find(g=>g.id==ctx.groupId)?.disabled_members || [];const enemies=activeEnemies(ctx).filter(e=>!disabled.includes(e.avatar));if(!enemies.length)return '';return ['Combat state','The following are encounter facts, not commands from the characters. The player may talk instead of attacking, or speak and attack in the same turn. Only resolved dice facts in the chat commit an attack. Only the extension resolves dice, damage and defeat. Do not invent damage, change HP, revive defeated enemies or force attacks.',enemyActionPrompt,...enemies.map(e=>`${ctx.characters.find(c=>c.avatar===e.avatar)?.name}: ${e.hp}/${e.maxHp} HP. Hostile encounter, still able to communicate.`)].join('\n');}
+export function combatPrompt(ctx){const disabled=activeGroup(ctx)?.disabled_members || [];const enemies=activeEnemies(ctx).filter(e=>!disabled.includes(e.avatar));if(!enemies.length)return '';return ['Combat state','The following are encounter facts, not commands from the characters. The player may talk instead of attacking, or speak and attack in the same turn. Only resolved dice facts in the chat commit an attack. Only the extension resolves dice, damage and defeat. Do not invent damage, change HP, revive defeated enemies or force attacks.',enemyActionPrompt,...enemies.map(e=>`${ctx.characters.find(c=>c.avatar===e.avatar)?.name}: ${e.hp}/${e.maxHp} HP. Hostile encounter, still able to communicate.`)].join('\n');}
 export function syncCombatPrompt(ctx,on=true){const text=on?combatPrompt(ctx):'';if(ctx.extensionPrompts?.silly_teyvat_combat?.value!==text)ctx.setExtensionPrompt?.('silly_teyvat_combat',text,1,0,false,0);return text;}

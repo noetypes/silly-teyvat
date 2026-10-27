@@ -1,7 +1,7 @@
+import {activeGroup,inPartyChat,setVirtualParty} from './party.js';
 import {beginOpeningScene,openingCharacter} from './opening-scene.js';
 import {isEnemy} from './character-properties.js';
 import {activeEnemies} from './combat-state.js';
-import {newLocalId} from './local-id.js';
 import {backgroundRegions,travelState,saveTravel} from './backgrounds.js';
 import {mediaSettings} from './media-store.js';
 import {deliverLocationGreeting} from './location-greetings.js';
@@ -58,7 +58,7 @@ export function assignResidents(ctx,locationId,avatars){
     ctx.saveSettingsDebounced();saveTravel(ctx);
 }
 export function castMembership(ctx){
-    const state=locationCastState(ctx),group=ctx.groups?.find(g=>g.id==ctx.groupId);
+    const state=locationCastState(ctx),group=activeGroup(ctx);
     const members=group?[...group.members]:[ctx.characters?.[ctx.characterId]?.avatar].filter(Boolean);
     const opening=openingCharacter(ctx);
     if(opening){const next=members.includes(opening)?[opening]:ctx.characters?.some(c=>c.avatar===opening)?[opening]:members.slice(0,1);const removed=members.filter(a=>!next.includes(a)),added=next.filter(a=>!members.includes(a));return {core:[...next],members:next,managed:[],added,removed,changed:added.length>0||removed.length>0,forced:null};}
@@ -80,7 +80,7 @@ export function castMembership(ctx){
 // can keep the conversation populated.
 export async function planTeleportParty(ctx,destination,ask,isCurrent=()=>true){
     const from=travelState(ctx).location?.id,members=partyAvatars(ctx),state=locationCastState(ctx);
-    const group=ctx.groups?.find(g=>g.id==ctx.groupId),disabled=group?.disabled_members || [];
+    const group=activeGroup(ctx),disabled=group?.disabled_members || [];
     const base={key:castIdentity(ctx),from,destination:destination.id,members:[...members],disabled:[...disabled],decisions:[],travellers:members.filter(a=>!isEnemy(ctx,a))};
     if(from===destination.id)return base;
     // Roll once before asking about followers. Cancellation discards this draft;
@@ -107,7 +107,7 @@ export async function planTeleportParty(ctx,destination,ask,isCurrent=()=>true){
 export function commitTeleportParty(ctx,plan){
     if(!plan||plan.key&&castIdentity(ctx)!==plan.key||plan.from&&travelState(ctx).location?.id!==plan.from)return false;
     if(plan.members&&JSON.stringify(partyAvatars(ctx))!==JSON.stringify(plan.members))return false;
-    const group=ctx.groups?.find(g=>g.id==ctx.groupId),disabled=group?.disabled_members || [];
+    const group=activeGroup(ctx),disabled=group?.disabled_members || [];
     if(plan.disabled&&JSON.stringify(disabled)!==JSON.stringify(plan.disabled))return false;
     if(plan.flexible){
         const stillHere=new Set(locationResidents(ctx,plan.destination).map(c=>c.avatar));
@@ -124,21 +124,7 @@ export function commitTeleportParty(ctx,plan){
     for(const choice of plan.decisions)state.placements[choice.avatar]=choice.take?choice.to:choice.from;
     saveTravel(ctx);return true;
 }
-export function makeGroupSnapshot(ctx,members,cast){
-    const character=ctx.characters?.[ctx.characterId];if(!character)throw new Error('Select a character chat before meeting a resident.');
-    const chatId=`Silly-Teyvat-${newLocalId()}`;
-    const metadata=structuredClone(ctx.chatMetadata || {});delete metadata.main_chat;
-    metadata.silly_teyvat_cast={...structuredClone(cast),source:{avatar:character.avatar,chatId:ctx.getCurrentChatId?.() || ctx.chatId || ''}};
-    const messages=structuredClone(ctx.chat || []),stamp=Date.now();
-    messages.forEach((message,index)=>{
-        if(message.is_user||message.is_system||message.force_avatar!==undefined||message.extra?.type==='narrator')return;
-        message.name=character.name;message.original_avatar=character.avatar;
-        message.force_avatar=ctx.getThumbnailUrl?.('avatar',character.avatar) || `/characters/${encodeURIComponent(character.avatar)}`;
-        message.extra ??= {};message.extra.gen_id=stamp+index;
-    });
-    return {chatId,chat:[{chat_metadata:metadata,user_name:'unused',character_name:'unused'},...messages],group:{name:`Teyvat journey: ${character.name}`,silly_teyvat_journey:{version:1,source:{avatar:character.avatar,chatId:ctx.getCurrentChatId?.() || ctx.chatId || ''}},members,avatar_url:ctx.getThumbnailUrl?.('avatar',character.avatar),allow_self_responses:false,activation_strategy:0,generation_mode:0,disabled_members:[],fav:false,chat_id:chatId,chats:[chatId],auto_mode_delay:5}};
-}
-export function createLocationCastAdapter(getContext,{loadScript=()=>import('/script.js'),loadGroups=()=>import('/scripts/group-chats.js')}={}){
+export function createLocationCastAdapter(getContext,{loadScript=()=>import('/script.js')}={}){
     const post=async(path,data)=>{const response=await fetch(path,{method:'POST',headers:getContext().getRequestHeaders(),body:JSON.stringify(data)});if(!response.ok)throw new Error(`Could not update the travel party (${response.status}).`);return response.json();};
     return {
         greet:(entry,isCurrent)=>deliverLocationGreeting(getContext,entry,isCurrent,{loadScript}),
@@ -150,36 +136,19 @@ export function createLocationCastAdapter(getContext,{loadScript=()=>import('/sc
                 await new Promise(resolve=>setTimeout(resolve,100));if(!isCurrent())return false;
             }
             if(script.isGenerating()||script.isChatSaving)throw new Error('The chat is busy. Retry location guests from the map after generation finishes.');
-            const existing=ctx.groups?.find(g=>g.id==ctx.groupId);
-            if(existing){
+            if(ctx.groupId){
+                const existing=activeGroup(ctx);
                 const next={...existing,members:plan.members,disabled_members:(existing.disabled_members || []).filter(a=>plan.members.includes(a))};
                 await post('/api/groups/edit',next);Object.assign(existing,next);
                 if(!isCurrent())return false;
                 await ctx.eventSource?.emit?.(ctx.eventTypes.GROUP_UPDATED,existing.id);
                 return true;
             }
-            // A fresh group is a copy, never a destructive solo-chat conversion.
-            await ctx.saveChat?.();if(!isCurrent())return false;
-            const state={...structuredClone(locationCastState(ctx)),core:plan.core,managed:plan.managed,pendingGreetings:[...(locationCastState(ctx).pendingGreetings || []),...(plan.greetings || [])]};
-            if(state.arrival)state.arrival.handled=true;
-            const snapshot=makeGroupSnapshot(ctx,plan.members,state);
-            await post('/api/chats/group/save',{id:snapshot.chatId,chat:snapshot.chat});
-            if(!isCurrent())return false;
-            const group=await post('/api/groups/create',snapshot.group);
-            // Native group creation whitelists fields. Persist our origin marker
-            // through edit so these histories stay out of the card library.
-            group.silly_teyvat_journey=snapshot.group.silly_teyvat_journey;
-            try{await post('/api/groups/edit',group);}catch(error){console.warn('[Silly Teyvat] Journey origin marker could not be saved; generated chat identity is retained.',error);}
-            if(!isCurrent())return false;
-            await ctx.getCharacters();if(!isCurrent())return false;
-            const native=await loadGroups();
-            for(let attempt=0;attempt<100&&script.isChatSaving;attempt++){
-                await new Promise(resolve=>setTimeout(resolve,100));if(!isCurrent())return false;
-            }
-            if(!isCurrent())return false;
-            const opened=await native.openGroupById(group.id);
-            if(!opened)throw new Error(`The group “${snapshot.group.name}” was saved. Open it from Saved journeys on the world map to continue.`);
-            return {converted:true};
+            // Solo chats keep their party in chat metadata. The conversation stays
+            // in one chat file no matter who joins or leaves.
+            setVirtualParty(ctx,plan.members);
+            await ctx.eventSource?.emit?.(ctx.eventTypes.GROUP_UPDATED,ctx.chatId);
+            return true;
         },
     };
 }
@@ -187,12 +156,12 @@ export function mountLocationCast({host,getContext,adapter=createLocationCastAda
     const dialog=document.createElement('dialog');dialog.id='gi-travel-party';dialog.setAttribute('aria-labelledby','gi-travel-party-title');
     dialog.innerHTML='<small>Silly Teyvat · Travel companions</small><h2 id="gi-travel-party-title"></h2><p></p><div><button type="button" data-party="yes">Yes, come along</button><button type="button" data-party="no">No, stay here</button><button type="button" data-party="cancel">Cancel teleport</button></div>';
     host.append(dialog);const abort=new AbortController();let disposed=false,busy=false,generating=false,enabled=false,revision=0,signature='',failed='',pendingAnswer=null;
-    const signatureFor=ctx=>JSON.stringify([mediaSettings(ctx).locationEncounters,mediaSettings(ctx).wildernessEncounters,castIdentity(ctx),travelState(ctx).location?.id,locations(ctx).map(l=>[l.id,l.residents]),activeEnemies(ctx).map(e=>[e.key,e.avatar,e.hp]),locationCastState(ctx),ctx.groups?.find(g=>g.id==ctx.groupId)?.members,(ctx.characters || []).map(c=>c.avatar)]);
+    const signatureFor=ctx=>JSON.stringify([mediaSettings(ctx).locationEncounters,mediaSettings(ctx).wildernessEncounters,castIdentity(ctx),travelState(ctx).location?.id,locations(ctx).map(l=>[l.id,l.residents]),activeEnemies(ctx).map(e=>[e.key,e.avatar,e.hp]),locationCastState(ctx),activeGroup(ctx)?.members,(ctx.characters || []).map(c=>c.avatar)]);
     const current=(key,token)=>!disposed&&token===revision&&castIdentity(getContext())===key;
     function finishAnswer(value){if(dialog.open)dialog.close();const resolve=pendingAnswer;pendingAnswer=null;resolve?.(value);}
     function ask(character,destination){
         dialog.querySelector('h2').textContent=`Take ${character.name} with you?`;
-        dialog.querySelector('p').textContent=`If you take ${character.name}, they will be tied to ${destination.label} in this chat. Otherwise they stay here and leave the active group.`;
+        dialog.querySelector('p').textContent=`If you take ${character.name}, they will be tied to ${destination.label} in this chat. Otherwise they stay here and leave the scene.`;
         dialog.showModal();return new Promise(resolve=>{pendingAnswer=resolve;});
     }
     const api={
@@ -203,7 +172,7 @@ export function mountLocationCast({host,getContext,adapter=createLocationCastAda
             enabled=nextEnabled;generating=writing;
             if(generating)finishAnswer(null);
             const ctx=getContext(),key=castIdentity(ctx);
-            const state=locationCastState(ctx),avatar=ctx.characters?.[ctx.characterId]?.avatar;if(!ctx.groupId&&avatar&&!state.opening&&!state.encounter&&!state.arrival)beginOpeningScene(ctx,avatar,travelState(ctx).location?.id);
+            const state=locationCastState(ctx),avatar=ctx.characters?.[ctx.characterId]?.avatar;if(!inPartyChat(ctx)&&avatar&&!state.opening&&!state.encounter&&!state.arrival)beginOpeningScene(ctx,avatar,travelState(ctx).location?.id);
             if(api.chatKey&&key!==api.chatKey){revision++;finishAnswer(null);failed='';signature='';}api.chatKey=key;
             if(!enabled){finishAnswer(null);return;}
             rememberDefaultLocations(ctx);

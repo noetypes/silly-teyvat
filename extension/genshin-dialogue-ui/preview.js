@@ -157,10 +157,8 @@ const previewAdapters={combatAdapter:{
     async apply(c,plan,current){
         if(!current())return false;
         if(c.groupId){c.groups.find(g=>g.id===c.groupId).members=plan.members;return true;}
-        const {makeGroupSnapshot,locationCastState}=await import('./location-cast.js');
-        const snapshot=makeGroupSnapshot(c,plan.members,{...locationCastState(c),core:plan.core,managed:plan.managed,pendingGreetings:[...(locationCastState(c).pendingGreetings || []),...(plan.greetings || [])]});
-        if(snapshot.chat[0].chat_metadata.silly_teyvat_cast.arrival)snapshot.chat[0].chat_metadata.silly_teyvat_cast.arrival.handled=true;
-        c.groupId='preview-travel-party';c.groups.push({...snapshot.group,id:c.groupId});c.chatMetadata=snapshot.chat[0].chat_metadata;emit(eventTypes.CHAT_CHANGED);return {converted:true};
+        const {setVirtualParty}=await import('./party.js');
+        setVirtualParty(c,plan.members);emit(eventTypes.GROUP_UPDATED);return true;
     },
     async greet(entry,current){
         if(!current())return false;

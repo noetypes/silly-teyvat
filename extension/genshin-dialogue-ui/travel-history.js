@@ -1,3 +1,4 @@
+import {activeGroup} from './party.js';
 import {leaveOpeningScene} from './opening-scene.js';
 import {isEnemy} from './character-properties.js';
 import {newLocalId} from './local-id.js';
@@ -5,12 +6,12 @@ import {mediaSettings} from './media-store.js';
 import {noteLocationArrival} from './arrival-policy.js';
 import {rollLocationEncounter} from './location-encounters.js';
 
-export function partyAvatars(ctx){return ctx.groups?.find(g=>g.id==ctx.groupId)?.members?.slice() || [ctx.characters?.[ctx.characterId]?.avatar].filter(Boolean);}
+export function partyAvatars(ctx){return activeGroup(ctx)?.members?.slice() || [ctx.characters?.[ctx.characterId]?.avatar].filter(Boolean);}
 export function travellingAvatars(ctx,destination,{automatic=false}={}){
     const state=ctx.chatMetadata?.silly_teyvat_cast || {};
     const members=partyAvatars(ctx).filter(a=>!isEnemy(ctx,a)),travellers=members.filter(avatar=>!automatic || !state.managed?.includes(avatar) || state.core?.includes(avatar) || state.placements?.[avatar]===destination.id);
     if(automatic){
-        const disabled=ctx.groups?.find(g=>g.id==ctx.groupId)?.disabled_members || [];
+        const disabled=activeGroup(ctx)?.disabled_members || [];
         const homes=new Map((mediaSettings(ctx).backgroundRegions || []).flatMap(r=>r.locations.flatMap(l=>(l.residents || []).map(a=>[a,l.id]))));
         for(const [avatar,id] of Object.entries(state.placements || {}))homes.set(avatar,id);
         const residents=(mediaSettings(ctx).locationEncounters===false?[]:ctx.characters || []).filter(c=>!isEnemy(ctx,c)&&homes.get(c.avatar)===destination.id&&!disabled.includes(c.avatar));
@@ -33,7 +34,7 @@ export function recordTravel(ctx,from,to,{avatars,reason='teleport',encounter}={
     if(from?.id!==to?.id)leaveOpeningScene(ctx,from,to);
     if(to?.id&&from?.id!==to.id&&ctx.characters?.length){
         const travellers=[...(avatars || partyAvatars(ctx))].filter(a=>!isEnemy(ctx,a)),scene=encounter?.locationId===to.id?{...structuredClone(encounter),travellers:[...travellers]}:rollLocationEncounter(ctx,to.id,travellers);
-        const disabled=ctx.groups?.find(g=>g.id==ctx.groupId)?.disabled_members || [];
+        const disabled=activeGroup(ctx)?.disabled_members || [];
         // Automatic travel also needs a speaker if every resident failed their
         // roll. Record that actual follower in history as well as on stage.
         if(reason!=='teleport'&&![...travellers,...scene.present].some(a=>!disabled.includes(a))){

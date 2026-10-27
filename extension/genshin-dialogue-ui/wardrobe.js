@@ -1,4 +1,5 @@
-import {mountCharacterProperties,characterProperties} from './character-properties.js';
+import {activeGroup,inPartyChat} from './party.js';
+import {mountCharacterProperties,characterProperties,isFromGenshin} from './character-properties.js';
 import {newLocalId} from './local-id.js';
 // Outfit registry uses native Character Expressions folder overrides. Sprite files
 // are managed through SillyTavern's existing authenticated upload/delete APIs.
@@ -79,8 +80,8 @@ export function createWardrobeAdapter(getContext) {
             syncExpressionControls(getContext());
             if (!character) return;
             const ctx = getContext();
-            const group = ctx.groups?.find(x => x.id == ctx.groupId);
-            const present = ctx.groupId ? group?.members.includes(character.avatar) && !group.disabled_members?.includes(character.avatar) : ctx.characters?.[ctx.characterId]?.avatar === character.avatar;
+            const group = activeGroup(ctx);
+            const present = inPartyChat(ctx) ? group?.members.includes(character.avatar) && !group.disabled_members?.includes(character.avatar) : ctx.characters?.[ctx.characterId]?.avatar === character.avatar;
             if (!present) return;
             const folder = ctx.extensionSettings.expressionOverrides?.find(x => x.name === character.avatar.replace(/\.[^.]+$/, ''))?.path || character.name;
             const holder = [...document.querySelectorAll('.expression-holder')].find(x => x.dataset.avatar === character.avatar || !ctx.groupId && x.id !== 'expression-prome-user');
@@ -97,7 +98,7 @@ export function mountWardrobe({host, getContext, onChange = async () => {}, onMe
     const dialog = document.createElement('dialog'); dialog.id = 'gi-wardrobe'; dialog.dataset.tab = 'attributes';
     dialog.setAttribute('aria-labelledby', 'gi-wardrobe-title');
     dialog.innerHTML = `<header><div><h2 id="gi-wardrobe-title">Sprite Wardrobe</h2></div><button type="button" data-w="close" aria-label="Close Sprite Wardrobe">×</button></header>
-        <nav class="gi-roster" aria-label="Choose a character"></nav>
+        <label class="gi-check gi-roster-filter"><input type="checkbox" id="gi-show-non-genshin">Show characters not from Genshin</label><nav class="gi-roster" aria-label="Choose a character"></nav>
         <div class="gi-wardrobe-body"><section class="gi-wardrobe-preview"><img alt="Selected sprite preview" hidden><h3></h3><p class="gi-outfit-caption"></p></section>
         <section class="gi-wardrobe-controls"><details class="gi-character-staging" open><summary>Character scale, placement & classification</summary>
         <label>Decide sprites<select id="gi-character-expression-mode"><option value="inherit">Use extension setting</option><option value="page">Once per dialogue page</option><option value="message">Once per complete message</option></select></label>
@@ -427,10 +428,14 @@ export function mountWardrobe({host, getContext, onChange = async () => {}, onMe
     },{signal:abort.signal});
     $('#gi-outfit').addEventListener('change', () => { if (!busy) load().catch(e => status(e.message)); }, {signal:abort.signal});
     dialog.addEventListener('close', () => { revision++; opener?.focus(); }, {signal:abort.signal});
+    $('#gi-show-non-genshin').addEventListener('change',event=>{mediaSettings(getContext()).showNonGenshin=event.target.checked;getContext().saveSettingsDebounced();renderRoster().catch(e=>status(e.message));},{signal:abort.signal});
     async function renderRoster(){
         const ctx=getContext(),persona=personaCard(ctx),party=roster(ctx).map(c=>c.avatar);
         const cards=(ctx.characters?.filter(c=>c?.avatar&&c?.name) || []).map((c,i)=>({c,i,p:party.indexOf(c.avatar)})).sort((a,b)=>(a.p<0)-(b.p<0)||(a.p-b.p)||(a.i-b.i)).map(x=>x.c);
-        const characters=persona?[persona,...cards]:cards;
+        const showAll=mediaSettings(ctx).showNonGenshin===true,selectedAvatar=character?.avatar;
+        const visible=cards.filter(c=>showAll||isFromGenshin(ctx,c)||c.avatar===selectedAvatar);
+        const characters=persona?[persona,...visible]:visible;
+        $('#gi-show-non-genshin').checked=showAll;
         $('.gi-roster').replaceChildren(...characters.map(c=>{
             const b=makeButton(c.name,()=>{if(!busy)selectCharacter(c).catch(e=>status(e.message));});b.dataset.avatar=c.avatar;
             b.title=c.isPersona?`${c.name} (your persona)`:c.name;b.setAttribute('aria-label',b.title);

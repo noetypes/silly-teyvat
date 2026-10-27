@@ -124,3 +124,19 @@ export function mountPersonaProfile({panel,getContext,getCharacter,adapter=creat
     },{signal:abort.signal});
     return {refresh,dispose(){abort.abort();}};
 }
+
+// Clicking the Traveler icon swaps to the other Traveler and, when a persona
+// carries that name, makes it the active persona.
+export const otherTraveler = icon => icon === 'Lumine' ? 'Aether' : 'Lumine';
+export function findPersonaAvatar(ctx, name) {
+    const personas = ctx.powerUserSettings?.personas || {};
+    return Object.keys(personas).find(avatar => String(personas[avatar]).trim().toLowerCase() === name.toLowerCase()) || '';
+}
+export async function activatePersonaByName(ctx, name) {
+    const avatar = findPersonaAvatar(ctx, name);
+    if (!avatar) return false;
+    if (avatar === activePersonaAvatar(ctx)) return true;
+    nativePersonas ??= await import('/scripts/personas.js');
+    await nativePersonas.setUserAvatar(avatar, { toastPersonaNameChange: false });
+    return true;
+}

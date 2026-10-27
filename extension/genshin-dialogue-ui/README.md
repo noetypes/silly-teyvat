@@ -1,3 +1,10 @@
+# Silly Teyvat 1.23: Virtual travel party
+
+- **No more journey groups.** Characters join and leave a party stored in the chat itself, so one chat file keeps the whole history. Older "Teyvat journey" groups are deleted once on first launch.
+- **Guest replies.** After the main character answers, each guest replies in turn (one extra model call per guest).
+- **Wardrobe.** Characters not from Genshin (such as Aloy) are hidden unless you tick **Show characters not from Genshin**.
+- **Traveler icon.** Click the avatar in the Silly Teyvat menu to switch between Aether and Lumine, and to activate the persona of that name.
+
 # Silly Teyvat 1.22: Persona wardrobe
 
 - Your active persona is the first portrait in the Wardrobe, marked **You**. The separate AI character card remains selectable too.
@@ -78,7 +85,7 @@ A visit produces at most one arrival reply. The card’s written greeting is use
 
 **Assigned characters per location** defaults to 5. The picker displays used slots and rejects over-capacity moves without removing anyone from their previous place. Travelling companions do not use resident slots. Lowering the cap requires moving excess residents first. Seven bundled assignments were redistributed to appropriate meeting points; customized assignments are preserved, and Prune remains at Mondstadt Fountain Plaza.
 
-Automatically created travel groups stay out of Character Management, including its pagination and folder listings. Their chats remain intact. Open the world map and expand **Saved journeys** to resume one. Manual groups stay in the character selector.
+Automatically created travel groups stay out of Character Management, including its pagination and folder listings. Travel no longer creates groups. Characters join and leave a virtual party stored in the chat, so one chat file keeps the whole history. Older Teyvat journey groups are deleted once on first launch. Open the world map and expand **Saved journeys** to resume one. Manual groups stay in the character selector.
 
 Curly apostrophes and quotation marks retain HYWenHei’s original glyph outlines with proportional spacing. Message text and narration parsing are unchanged.
 
@@ -230,7 +237,7 @@ Native background imports reference their original files; uploaded backgrounds u
 4. Keep **Meet characters tied to map locations** enabled in Silly Teyvat settings, or under **World scale & companions** in the map.
 5. Visit the location with **Teleport**, or let location classification move there within the selected region. Its installed residents join the active group. Leaving removes location guests who are staying behind.
 
-The first encounter in a solo chat saves the source and creates a separate **Teyvat journey: {character}** group containing a copy of its history, swipes, scene caches and travel metadata. The original solo conversation remains available. Existing groups update in place. Original and manually added party members stay protected during automatic travel. New guests use the normal native group speaker selection settings, which can be changed in Group Management. Install their expression sprites or enable avatar fallback to show them on the stage.
+In a solo chat, guests join a virtual party kept in the chat itself, with no group and no copied chat. After the main character replies, each guest answers in turn. Existing groups update in place. Original and manually added party members stay protected during automatic travel. New guests use the normal native group speaker selection settings, which can be changed in Group Management. Install their expression sprites or enable avatar fallback to show them on the stage.
 
 **Only Teleport asks “Take {character} with you?”**, one question per location guest. Enable **Allow the main character to stay behind when teleporting** to ask original and manually added members too. Other companions are asked before the main card. A destination resident or accepted follower must remain available; the last enabled speaker follows automatically when the destination is empty. Both this setting and **Include the entire world in the World scale prompt** are also available under **World scale & companions** in the map. Enable **Allow the main character to stay behind when teleporting** to ask original and manually added members too. Other companions are asked before the main card. A destination resident or accepted follower must remain available; the last enabled speaker follows automatically when the destination is empty. Both this setting and **Include the entire world in the World scale prompt** are also available under **World scale & companions** in the map. **Yes** moves that guest to the destination for this chat. **No** leaves them at the previous location and removes them from the active group. **Cancel teleport** changes nothing, even if you answered earlier questions. Model-classified travel never asks and leaves guests at their assigned current location. Following placements are saved in this chat’s metadata; their shared home assignments stay available in other chats. Revisiting old dialogue restores its saved scene without loading or moving today’s party.
 

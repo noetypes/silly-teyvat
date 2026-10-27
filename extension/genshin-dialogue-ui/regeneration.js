@@ -1,3 +1,4 @@
+import {activeGroup,inPartyChat} from './party.js';
 // Use the normal chat generation path, retaining the active model and settings.
 export function regenerationState(ctx, {id, generating=false, editing=false, busy=false}={}) {
     const message=ctx.chat?.[id];
@@ -7,9 +8,13 @@ export function regenerationState(ctx, {id, generating=false, editing=false, bus
     if(editing)return {visible:true,allowed:false,reason:'Finish editing the message first.'};
     if(ctx.onlineStatus==='no_connection')return {visible:true,allowed:false,reason:'Connect an API before regenerating.'};
     let characterId;
+    if(!ctx.groupId&&inPartyChat(ctx)){
+        const main=ctx.characters?.[ctx.characterId];
+        if(message.original_avatar&&message.original_avatar!==main?.avatar)return {visible:true,allowed:false,reason:'Guest replies cannot be regenerated. Send another message or swipe the main character’s reply.'};
+    }
     if(ctx.groupId){
         characterId=ctx.characters.findIndex(c=>message.original_avatar?c.avatar===message.original_avatar:c.name===message.name);
-        const group=ctx.groups?.find(g=>g.id==ctx.groupId),avatar=ctx.characters[characterId]?.avatar;
+        const group=activeGroup(ctx),avatar=ctx.characters[characterId]?.avatar;
         if(!avatar || !group?.members.includes(avatar) || group.disabled_members?.includes(avatar))return {visible:true,allowed:false,reason:'Enable this character in the group before regenerating.'};
     }
     return {visible:true,allowed:true,reason:'Regenerate this character’s latest reply',characterId};

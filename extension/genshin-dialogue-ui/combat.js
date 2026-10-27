@@ -1,3 +1,4 @@
+import {activeGroup} from './party.js';
 import {newLocalId} from './local-id.js';
 import {mediaSettings} from './media-store.js';
 import {activeEnemies,combatIdentity,combatState,rollAttack,rerollAttack,applyAttack,syncCombatPrompt} from './combat-state.js';
@@ -18,7 +19,7 @@ export function createCombatAdapter({loadScript=()=>import('/script.js')}={}){
         if(!event.defeated||!isCurrent())return;
         // A group may already have drafted this enemy before the user-send hook.
         // Prevent both a fresh queue and an in-flight queue from reviving it.
-        const group=ctx.groups?.find(g=>g.id==ctx.groupId);
+        const group=activeGroup(ctx);
         if(group)group.disabled_members=[...new Set([...(group.disabled_members || []),event.avatar])];
         const script=await loadScript();if(isCurrent()&&script.isGenerating())script.stopGeneration?.();
     },async react(getContext,event,isCurrent){
@@ -44,7 +45,7 @@ export function mountCombat({host,getContext,onChange=()=>{},announce=()=>{},ada
     (host.querySelector('#gi-navigation') || host).append(controls);
     const sword=controls.querySelector('button'),targetSelect=controls.querySelector('select'),abort=new AbortController();
     const dice=diceAdapter || mountElementalDice({host});const hits=new Map(),shown=new Map();let disposed=false,busy=false,enabled=false,writing=false,revision=0,key='',paint='',lastId=-1,armed=false,target='',visit='',lastView={};
-    const eligibleEnemies=ctx=>{const disabled=ctx.groups?.find(g=>g.id==ctx.groupId)?.disabled_members || [];return activeEnemies(ctx).filter(e=>!disabled.includes(e.avatar));};
+    const eligibleEnemies=ctx=>{const disabled=activeGroup(ctx)?.disabled_members || [];return activeEnemies(ctx).filter(e=>!disabled.includes(e.avatar));};
     function paintControls(enemies=eligibleEnemies(getContext())){
         controls.hidden=!enabled||!lastView.show||lastId<getContext().chat.length-1||!enemies.length;
         sword.disabled=busy||writing;sword.setAttribute('aria-pressed',String(armed));sword.title=`Attack after sending: ${armed?'on':'off'}`;
@@ -58,7 +59,7 @@ export function mountCombat({host,getContext,onChange=()=>{},announce=()=>{},ada
     async function attack(avatar,{duringSend=false,react=true,attackId}={}){
         if(disposed||busy||writing&&!duringSend||!enabled)return null;
         const ctx=getContext(),enemy=activeEnemies(ctx).find(e=>e.avatar===avatar);if(!enemy)return;
-        const group=ctx.groups?.find(g=>g.id==ctx.groupId);if(group?.disabled_members?.includes(avatar))return;
+        const group=activeGroup(ctx);if(group?.disabled_members?.includes(avatar))return;
         const identity=combatIdentity(ctx),token=++revision,visitKey=enemy.key,id=attackId || newLocalId('attack');busy=true;paintControls();onChange();
         const valid=()=>current(identity,token)&&activeEnemies(getContext()).some(e=>e.key===visitKey&&e.avatar===avatar);
         try{
@@ -108,7 +109,7 @@ export function mountCombat({host,getContext,onChange=()=>{},announce=()=>{},ada
         sync({on,id,generating=false,show=true}={}){
             const ctx=getContext(),nextKey=combatIdentity(ctx);if(nextKey!==key){revision++;dice.cancel?.();key=nextKey;paint='';armed=false;target='';visit='';}if(enabled&&!on){revision++;dice.cancel?.();armed=false;}enabled=Boolean(on);writing=generating;lastId=id;lastView={show};
             syncCombatPrompt(ctx,enabled);
-            const disabled=ctx.groups?.find(g=>g.id==ctx.groupId)?.disabled_members || [];
+            const disabled=activeGroup(ctx)?.disabled_members || [];
             const currentEnemies=enabled?activeEnemies(ctx).filter(e=>!disabled.includes(e.avatar)):[],message=ctx.chat?.[id];
             const nextVisit=[...new Set(currentEnemies.map(e=>e.key))].sort().join('|');
             if(visit&&visit!==nextVisit){revision++;dice.cancel?.();armed=false;}visit=nextVisit;

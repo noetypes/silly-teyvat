@@ -1,3 +1,4 @@
+import {activeGroup} from './party.js';
 import {isEnemy} from './character-properties.js';
 import {newLocalId} from './local-id.js';
 import {mediaSettings,localMediaPath} from './media-store.js';
@@ -44,7 +45,7 @@ export function worldScalePrompt(ctx){
         'These are location facts for roleplay continuity. A listed destination is not an instruction to travel. Region changes require the player to select a region or use Teleport on the map.'];
     if(mediaSettings(ctx).locationEncounters!==false)lines.push('Linked characters at other destinations are potential encounters, not confirmed scene participants. Only the current party is confirmed present. The extension samples residents on arrival; do not introduce absent residents just because their location is listed.');
     if(!current)lines.push('Distance unknown: the current background has no linked map waypoint. Distances cannot be calculated until a current waypoint is chosen or linked.');
-    const party=ctx.groups?.find(g=>g.id==ctx.groupId)?.members || [ctx.characters?.[ctx.characterId]?.avatar].filter(Boolean);
+    const party=activeGroup(ctx)?.members || [ctx.characters?.[ctx.characterId]?.avatar].filter(Boolean);
     if(party.length)lines.push(`Current party: ${party.filter(a=>!isEnemy(ctx,a)).map(a=>clean(ctx.characters?.find(c=>c.avatar===a)?.name || a)).join(', ')}.`);
     for(const item of points){
         const distance=mapDistance(current?.point,item.point,scale);

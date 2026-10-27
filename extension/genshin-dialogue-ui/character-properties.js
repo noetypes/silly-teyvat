@@ -13,6 +13,7 @@ export function characterProperties(ctx,card){
     if(!ELEMENTS.includes(data.element))data.element='None';
     data.maxHp=Math.max(1,Math.min(100000,Math.round(Number(data.maxHp)||30)));return data;
 }
+export const isFromGenshin=(ctx,card)=>characterProperties(ctx,card).fromGenshin!==false;
 export const isEnemy=(ctx,card)=>characterProperties(ctx,card).role==='enemy';
 export function saveCharacterProperties(ctx,card,values){
     const before=characterProperties(ctx,card),next={...before,...values};

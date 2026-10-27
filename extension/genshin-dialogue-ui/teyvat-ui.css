@@ -44,6 +44,7 @@ body.gi-menu-open #gi-menu-scrim { opacity: 1; pointer-events: auto; }
 #gi-toolbar.gi-paimon.gi-open > :nth-child(4) { transition-delay: 160ms; }
 .gi-pm-profile { display: flex; align-items: center; gap: 14px; padding-bottom: 18px; border-bottom: 1px solid var(--ty-line); }
 .gi-pm-avatar { flex: 0 0 auto; width: 64px; height: 64px; border-radius: 50%; padding: 3px; background: conic-gradient(from 210deg, var(--ty-gold), #fff4d6, var(--ty-gold), #8d7b58, var(--ty-gold)); box-shadow: 0 0 0 1px #0006, 0 4px 14px #0007; }
+.gi-pm-avatar { border: 0; cursor: pointer; } .gi-pm-avatar:focus-visible { outline: 2px solid #fff4d6; outline-offset: 2px; }
 .gi-pm-avatar img { width: 100%; height: 100%; border-radius: 50%; object-fit: cover; background: radial-gradient(circle at 50% 35%, #4a5a7a, #222b3d); }
 .gi-pm-id { display: grid; gap: 4px; min-width: 0; }
 .gi-pm-name { font-size: 21px; font-weight: normal; color: #fff; letter-spacing: .02em; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }

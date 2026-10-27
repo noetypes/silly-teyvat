@@ -1,3 +1,4 @@
+import {activeGroup,inPartyChat} from './party.js';
 // Native Silly Teyvat scene staging. Prome's documented feature set informed
 // these independently written controls; no Prome modules or tint filters run here.
 import {openingCharacter} from './opening-scene.js';
@@ -15,8 +16,8 @@ export function characterPreferences(ctx,avatar){const p=mediaSettings(ctx);p.ch
 export function expressionMode(ctx,message){const avatar=message.original_avatar || ctx.characters?.find(c=>c.name===message.name)?.avatar;const mode=ctx.extensionSettings.genshin_dialogue_ui?.characterSprites?.[avatar]?.expressionMode;return ['page','message'].includes(mode)?mode:ctx.extensionSettings.genshin_dialogue_ui?.expressionMode==='message'?'message':'page';}
 export function speakerAvatar(ctx,message){return message?.is_user?'__user__':message?.original_avatar || ctx.characters?.find(c=>c.name===message?.name)?.avatar || (!ctx.groupId?ctx.characters?.[ctx.characterId]?.avatar:'');}
 export function roster(ctx){
-    const group=ctx.groups?.find(g=>g.id==ctx.groupId);
-    const members=ctx.groupId?(group?.members || []).filter(a=>!group.disabled_members?.includes(a) && a!=='prome-user'): [ctx.characters?.[ctx.characterId]?.avatar];
+    const group=activeGroup(ctx);
+    const members=inPartyChat(ctx)?(group?.members || []).filter(a=>!group.disabled_members?.includes(a) && a!=='prome-user'): [ctx.characters?.[ctx.characterId]?.avatar];
     return members.map(a=>ctx.characters?.find(c=>c.avatar===a)).filter(Boolean);
 }
 export function visibleRoster(ctx,scene,message,id=ctx.chat.indexOf(message)){

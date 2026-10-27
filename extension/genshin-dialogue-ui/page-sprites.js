@@ -1,3 +1,4 @@
+import {activeGroup,inPartyChat} from './party.js';
 // Page scenes are stored on message.extra, so chat saves/exports keep exact variants.
 // Native sprite DOM is never rewritten; a replay layer isolates it from background updates.
 import {enemySpeaker,resolveEnemyScene,enemySceneAvatar} from './enemy-actions.js';
@@ -55,7 +56,7 @@ export function createNativeSpriteAdapter({ capture = captureScene } = {}) {
         async prepare(ctx, base, isCurrent, details) {
             if(ctx.extensionSettings.genshin_dialogue_ui?.nativeStaging)return prepareRoster(ctx,base,isCurrent,details);
             if (!ctx.groupId || !ctx.powerUserSettings?.waifuMode || ctx.isMobile?.()) return base;
-            const group = ctx.groups?.find(x => x.id == ctx.groupId);
+            const group = activeGroup(ctx);
             if (!group) return base;
             const expected = (await Promise.all(group.members.filter(avatar => !group.disabled_members?.includes(avatar)).map(async avatar => {
                 const character = ctx.characters.find(x => x.avatar === avatar);
@@ -98,7 +99,7 @@ export function createNativeSpriteAdapter({ capture = captureScene } = {}) {
             });
             const scene = structuredClone(base);
             let target = scene.find(x => avatar && x.avatar === avatar) || scene.find(x => x.avatar!=='__user__' && !x.avatar && x.folder === folder);
-            if (!target && !ctx.groupId) target = scene.find(x => x.avatar !== '__user__');
+            if (!target && !inPartyChat(ctx)) target = scene.find(x => x.avatar !== '__user__');
             if (!matches.length) return { scene, emotion };
             let candidates = matches;
             if (settings.allowMultiple && settings.rerollIfSame && target && matches.length > 1) candidates = matches.filter(x => safeSource(x.path) !== target.src);
@@ -110,7 +111,7 @@ export function createNativeSpriteAdapter({ capture = captureScene } = {}) {
             if (!target) {
                 // A newly active member may not have a native holder yet.
                 const count = scene.length + 1;
-                target = { avatar: avatar || '', folder, x: ctx.groupId ? (count - 1) / count : .2, y: .1, w: ctx.groupId ? 1 / count : .6, h: .82, z: count, opacity: 1, filter: 'none', fit: 'contain', position: 'center bottom' };
+                target = { avatar: avatar || '', folder, x: inPartyChat(ctx) ? (count - 1) / count : .2, y: .1, w: inPartyChat(ctx) ? 1 / count : .6, h: .82, z: count, opacity: 1, filter: 'none', fit: 'contain', position: 'center bottom' };
                 scene.push(target);
             }
             Object.assign(target, { src, expression: emotion, folder,avatar:target.avatar || avatar || '' });
@@ -319,8 +320,8 @@ export function mountPageSprites({ host, getContext, adapter = createNativeSprit
             const old = selectedPage;
             const base = lastScene.length ? lastScene : adapter.capture();
             const target = character.isPersona?base.find(x=>x.avatar==='__user__'):base.find(x=>x.avatar===character.avatar) || base.find(x=>!x.avatar&&(x.folder===character.name||x.folder?.startsWith(character.name+'/')));
-            const group = ctx.groups?.find(x => x.id == ctx.groupId);
-            const present = ctx.groupId ? group?.members.includes(character.avatar) && !group.disabled_members?.includes(character.avatar) : ctx.characters?.[ctx.characterId]?.avatar === character.avatar;
+            const group = activeGroup(ctx);
+            const present = inPartyChat(ctx) ? group?.members.includes(character.avatar) && !group.disabled_members?.includes(character.avatar) : ctx.characters?.[ctx.characterId]?.avatar === character.avatar;
             if (!character.isPersona && !target && !present) return;
             const emotion = target?.expression === renamedFrom ? renamedTo : target?.expression || 'neutral';
             let data;

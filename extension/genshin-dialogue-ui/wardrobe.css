@@ -94,3 +94,5 @@
 #gi-wardrobe.gi-background-wardrobe .gi-wardrobe-preview img { object-fit:contain; }
 #gi-wardrobe [data-panel="backgrounds"][aria-busy] { opacity:.7; }
 #gi-wardrobe #gi-bg-library { min-height:120px; }
+
+#gi-wardrobe .gi-roster-filter { margin: 0; padding: 6px 22px 0; font-size: 14px; }
