@@ -334,6 +334,12 @@ function paintProfile() {
         place.textContent = [where, who].filter(Boolean).join(' · ');
     }
 }
+// Tags and Official Art sets need the character list, which can load after this extension starts.
+async function prepareCardData() {
+    if (!context().characters?.length) return;
+    try { await registerGenshinTags(context()); } catch (error) { console.warn('[Silly Teyvat] Genshin tag', error); }
+    try { await registerOfficialArt(context()); } catch (error) { console.warn('[Silly Teyvat] Official Art', error); }
+}
 function setEnabled(value) {
     preferences().enabled = value;
     if(value)startCharacterAtHome(context());
@@ -630,7 +636,8 @@ export async function initialize({ choicesAdapter, spriteAdapter, wardrobeAdapte
         refresh();schedule();
     });
     subscribe('USER_MESSAGE_RENDERED',async id=>{if(preferences().enabled)await combatUI?.onUserMessage(id);schedule();});
-    subscribe('CHAT_CHANGED',async()=>{const ctx=context(),key=castIdentity(ctx),revision=++homeOpenRevision;openingHome=true;locationCastUI?.sync({on:false});if(preferences().enabled&&!inPartyChat(ctx)&&ctx.characters?.[ctx.characterId])beginOpeningScene(ctx,ctx.characters[ctx.characterId].avatar,ctx.chatMetadata?.silly_teyvat_world?.location?.id);try{await loadStarterLocations(ctx);await loadCharacterHomes(ctx);if(preferences().enabled&&revision===homeOpenRevision&&castIdentity(context())===key)startCharacterAtHome(ctx);}catch(error){console.warn('[Silly Teyvat] Character homes',error);}finally{if(revision===homeOpenRevision)openingHome=false;schedule();}});
+    subscribe('APP_READY',()=>{void prepareCardData();});
+    subscribe('CHAT_CHANGED',async()=>{void prepareCardData();const ctx=context(),key=castIdentity(ctx),revision=++homeOpenRevision;openingHome=true;locationCastUI?.sync({on:false});if(preferences().enabled&&!inPartyChat(ctx)&&ctx.characters?.[ctx.characterId])beginOpeningScene(ctx,ctx.characters[ctx.characterId].avatar,ctx.chatMetadata?.silly_teyvat_world?.location?.id);try{await loadStarterLocations(ctx);await loadCharacterHomes(ctx);if(preferences().enabled&&revision===homeOpenRevision&&castIdentity(context())===key)startCharacterAtHome(ctx);}catch(error){console.warn('[Silly Teyvat] Character homes',error);}finally{if(revision===homeOpenRevision)openingHome=false;schedule();}});
     for (const key of ['CHAT_CHANGED', 'CHAT_LOADED']) subscribe(key, () => {
         choiceUI?.reset(); spriteUI?.reset(); mediaUI?.reset();backgroundUI?.reset(); reveal.reset(); visit++; pageStates = new WeakMap(); current = null; followLatest = true; history = false; hidden = false; generating = false; stopAuto(); schedule();
     });
@@ -640,8 +647,7 @@ export async function initialize({ choicesAdapter, spriteAdapter, wardrobeAdapte
     subscribe('GROUP_WRAPPER_FINISHED',()=>{groupGenerating=false;schedule();});
     subscribe('GROUP_UPDATED',schedule);
     for (const key of ['GENERATION_STOPPED', 'GENERATION_ENDED']) subscribe(key, () => { if(key==='GENERATION_STOPPED')combatUI?.cancelPending();generating = false; schedule(); announce('Reply ready.'); });
-    try{await registerGenshinTags(context());}catch(error){console.warn('[Silly Teyvat] Genshin tag',error);}
-    try{await registerOfficialArt(context());}catch(error){console.warn('[Silly Teyvat] Official Art',error);}
+    await prepareCardData();
     try{await loadStarterLocations(context());await loadCharacterHomes(context());}catch(error){console.warn('[Silly Teyvat] Starter locations',error);announce(error.message);}
     try{if(preferences().journeysPurged!==true&&context().getRequestHeaders){const ctx=context(),removed=await purgeLegacyJourneys(ctx);if(removed.length){ctx.groups?.splice(0,ctx.groups.length,...ctx.groups.filter(g=>!removed.includes(g.id)));await ctx.getCharacters?.();}if(!(ctx.groups || []).some(isLegacyJourneyGroup))preferences().journeysPurged=true,ctx.saveSettingsDebounced();}}catch(error){console.warn('[Silly Teyvat] Journey cleanup',error);}
     try{const remove=await journeyAdapter.install();if(!mounted||version!==mountVersion){remove?.();return;}removeJourneyFilter=remove;}catch(error){console.warn('[Silly Teyvat] Journey library',error);announce(error.message);}

@@ -1,3 +1,7 @@
+# Silly Teyvat 1.26.1: Official Art registration
+
+- Official Art sets and the Genshin tag are now registered once the character list is loaded (on app ready and on every chat change), not only at startup.
+
 # Silly Teyvat 1.26: Official Art, wardrobe search & Genshin tag
 
 - **Official Art sets.** 119 playable characters have an **Official Art** sprite set whose neutral sprite is their official transparent portrait (Genshin Impact Wiki portraits, sized to at most 2000 px). Older portraits came on plain white, so their background was keyed out; the art is otherwise unedited and effect-free. Aether, Lumine and the Manekins have no wiki portrait and were skipped. Forgetting a set keeps it forgotten.
