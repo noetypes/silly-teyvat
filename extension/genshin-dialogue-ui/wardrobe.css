@@ -108,3 +108,5 @@
 #gi-wardrobe .gi-set-editor [data-w="set-delete-files"] { border-color: #e0786f; color: #ffd9d4; background: #8a2f2a66; }
 #gi-wardrobe .gi-set-editor .gi-wardrobe-row { flex-wrap: wrap; }
 #gi-wardrobe .gi-set-editor .gi-wardrobe-row > :first-child { flex: 0 0 auto; }
+#gi-wardrobe .gi-takeover { display: grid; gap: 6px; margin: 0 0 14px; padding: 12px; border: 1px solid #cfbf9540; border-radius: 12px; background: #0d122066; }
+#gi-wardrobe .gi-takeover small { margin: 0; opacity: .8; }

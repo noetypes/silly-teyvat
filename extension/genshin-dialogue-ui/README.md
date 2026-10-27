@@ -1,3 +1,8 @@
+# Silly Teyvat 1.28: Play as a character
+
+- **Play as.** Every character's Profile tab in the Wardrobe has a **Play as {name}** button. It creates (or reuses) a persona from the card's portrait, description and sprites and switches to it. While you play a character they leave the world's random encounters, location rosters and the Wardrobe menu.
+- **Aether and Lumine.** Their personas are linked to their cards from the start. The card is hidden while you play it, and the persona and the card share one set of sprites, outfits and equipped set, so changes in either version show in both.
+
 # Silly Teyvat 1.27: Manage sprite sets
 
 - **Outfits tab.** New set, Rename and Delete buttons manage sprite sets in one inline editor. New set creates `Character/Name` (optionally as a copy of the selected set) and selects it; Rename changes the label and keeps the folder; Delete either removes the set from the list (files kept) or deletes the set and its sprites. The Original and equipped sets are protected. "Link an existing sprite folder" still adds a folder you already have.

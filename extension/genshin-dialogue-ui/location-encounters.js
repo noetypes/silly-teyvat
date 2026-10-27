@@ -3,6 +3,7 @@ import {isEnemy} from './character-properties.js';
 import {rollWilderness} from './wilderness.js';
 import {mediaSettings} from './media-store.js';
 import {newLocalId} from './local-id.js';
+import {playedAvatars} from './persona-link.js';
 
 // Assigned homes and this chat's travelling placements are separate from the
 // sampled scene. Editing a location always shows its full roster.
@@ -10,7 +11,9 @@ export function locationResidents(ctx,id){
     const homes=new Map();
     for(const location of (mediaSettings(ctx).backgroundRegions || []).flatMap(r=>r.locations))for(const avatar of location.residents || [])homes.set(avatar,location.id);
     for(const [avatar,destination] of Object.entries(ctx.chatMetadata?.silly_teyvat_cast?.placements || {}))homes.set(avatar,destination);
-    return (ctx.characters || []).filter(c=>!isEnemy(ctx,c)&&homes.get(c.avatar)===id);
+    // A card the player has taken over as their persona never appears as a resident.
+    const played=playedAvatars(ctx);
+    return (ctx.characters || []).filter(c=>!isEnemy(ctx,c)&&!played.has(c.avatar)&&homes.get(c.avatar)===id);
 }
 export function encounterRate(ctx){
     const value=Number(mediaSettings(ctx).encounterRate ?? 40);

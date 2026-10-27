@@ -546,7 +546,7 @@ export async function initialize({ choicesAdapter, spriteAdapter, wardrobeAdapte
             <header class="gi-pm-profile"><button type="button" class="gi-pm-avatar" data-gi-action="traveler" aria-label="Switch Traveler" title="Switch between Aether and Lumine"><img alt=""></button><div class="gi-pm-id"><strong class="gi-pm-name"></strong><span class="gi-pm-place"></span></div></header>
             <button type="button" class="gi-pm-switch" data-gi-action="toggle" aria-pressed="false" aria-label="Silly Teyvat"><span>Silly Teyvat</span><i aria-hidden="true"></i></button>
             <div class="gi-pm-grid">${menuButton('auto', 'Auto')}${menuButton('history', 'Review', 'book')}${menuButton('wardrobe', 'Wardrobe')}${menuButton('map', 'Map')}${menuButton('cg', 'CG Frame')}${menuButton('compose', 'Chat Box')}${menuButton('hide', 'Hide UI')}</div>
-            <footer class="gi-pm-bar">${menuButton('settings', 'Settings')}<span class="gi-pm-version">1.27</span></footer>
+            <footer class="gi-pm-bar">${menuButton('settings', 'Settings')}<span class="gi-pm-version">1.28</span></footer>
         </nav>
         <header id="gi-review-heading" hidden><h2>${svg('history')} Dialogue Review</h2>${button('history', 'Close review', 'close')}</header>
         <nav id="gi-navigation" aria-label="Read existing dialogue" hidden>${button('previous', 'Previous message')}<span id="gi-position"></span>${button('latest', 'Latest message')}${button('next', 'Next message')}<button id="gi-regenerate" type="button" data-gi-action="regenerate" aria-label="Regenerate this character’s reply" hidden>${svg('regenerate')}</button></nav>

@@ -1,6 +1,7 @@
 import {activeGroup,inPartyChat} from './party.js';
 import {mountCharacterProperties,characterProperties,hasGenshinTag} from './character-properties.js';
 import {createSpriteTrimmer} from './sprite-trim.js';
+import {linkedCard,linkedCardAvatar,linkedPersonaAvatars,playedAvatars} from './persona-link.js';
 import {newLocalId} from './local-id.js';
 // Outfit registry uses native Character Expressions folder overrides. Sprite files
 // are managed through SillyTavern's existing authenticated upload/delete APIs.
@@ -22,12 +23,22 @@ export function spriteIdentity(path) {
 }
 export function applyOutfit(ctx, character, folder) {
     if (!validFolder(folder)) throw new Error('Use a folder name, or Character/Outfit.');
-    if (character.isPersona) {setPersonaSpriteSetting(ctx,'folder',folder,character.personaAvatar);return;}
-    ctx.extensionSettings.expressionOverrides ??= [];
-    const name = character.avatar.replace(/\.[^.]+$/, '');
-    const overrides = ctx.extensionSettings.expressionOverrides;
-    const existing = overrides.find(x => x.name === name);
-    if (existing) existing.path = folder; else overrides.push({ name, path: folder });
+    const setOverride = card => {
+        ctx.extensionSettings.expressionOverrides ??= [];
+        const name = card.avatar.replace(/\.[^.]+$/, '');
+        const overrides = ctx.extensionSettings.expressionOverrides;
+        const existing = overrides.find(x => x.name === name);
+        if (existing) existing.path = folder; else overrides.push({ name, path: folder });
+    };
+    // A persona and the character card it plays share one outfit.
+    if (character.isPersona) {
+        setPersonaSpriteSetting(ctx,'folder',folder,character.personaAvatar);
+        const card = linkedCard(ctx, character.personaAvatar);
+        if (card) { setOverride(card); ctx.saveSettingsDebounced(); }
+        return;
+    }
+    setOverride(character);
+    for (const persona of linkedPersonaAvatars(ctx, character.avatar)) setPersonaSpriteSetting(ctx,'folder',folder,persona);
     ctx.saveSettingsDebounced();
 }
 export function createWardrobeAdapter(getContext) {
@@ -156,10 +167,14 @@ export function mountWardrobe({host, getContext, onChange = async () => {}, onMe
         const sprites=$('[data-panel="sprites"]'),outfits=document.createElement('div');outfits.dataset.panel='outfits';outfits.hidden=true;
         const firstHeading=sprites.querySelector('h3');while(sprites.firstChild&&sprites.firstChild!==firstHeading)outfits.append(sprites.firstChild);sprites.before(outfits);
         const attributes=document.createElement('div');attributes.dataset.panel='attributes';propertiesPanel.open=true;attributes.append(personaPanel,propertiesPanel);
+        const takeOver=document.createElement('section');takeOver.className='gi-takeover';takeOver.innerHTML='<button type="button" data-w="take-over"></button><small>Use this character as your persona. While you play them they leave the world’s random encounters and share one set of sprites with your persona.</small>';attributes.prepend(takeOver);
         const weapon=document.createElement('div');weapon.dataset.panel='weapon';weapon.hidden=true;const staging=$('.gi-character-staging');staging.open=true;weapon.append(staging);
         controls.prepend(attributes,weapon);sprites.hidden=true;
         $('.gi-wardrobe-preview').insertAdjacentHTML('afterbegin','<i class="gi-cs-pedestal" aria-hidden="true"></i>');
     }
+    // A persona that plays a character card shares that card's sprites and sets.
+    const regKey = c => c?.isPersona ? (linkedCardAvatar(getContext(), c.personaAvatar) || c.avatar) : c?.avatar;
+    const origFolder = c => c.isPersona ? (linkedCard(getContext(), c.personaAvatar)?.name ?? personaFolder(c.personaAvatar)) : c.name;
     const folder = () => $('#gi-outfit').value;
     const registry = () => {
         const prefs = getContext().extensionSettings[KEY]; prefs.outfits ??= {}; return prefs.outfits;
@@ -283,22 +298,23 @@ export function mountWardrobe({host, getContext, onChange = async () => {}, onMe
     async function selectCharacter(c) {
         character = c;dialog.dataset.element=characterProperties(getContext(),c).element;propertiesUI.refresh();const cp=characterPreferences(getContext(),c.avatar);$('#gi-character-expression-mode').value=cp.expressionMode || 'inherit';$('#gi-character-scale').value=cp.scale ?? 100;$('#gi-manual-position').checked=cp.positionX!=null;$('#gi-character-x').value=cp.positionX ?? 50;$('#gi-character-x').disabled=cp.positionX==null;$('#gi-character-y').value=cp.offsetY ?? 0; selectedCG=undefined;$('#gi-cg-label').value='';$('#gi-cg-description').value='';$('#gi-cg-classifications').value='';$('.gi-wardrobe-preview h3').textContent = c.name;
         personaProfileUI.refresh();$('#gi-persona-display-control').hidden=!c.isPersona;
+        $('.gi-takeover').hidden=Boolean(c.isPersona);$('[data-w="take-over"]').textContent=`Play as ${c.name}`;
         $('#gi-persona-visible').checked=Boolean(c.isPersona&&personaSpriteSettings(getContext(),c.personaAvatar).enabled);
         $('#gi-character-expression-mode').closest('label').hidden=Boolean(c.isPersona);
         const equipped = currentFolder();
-        sets = [{label:'Original',folder:c.isPersona?personaFolder(c.personaAvatar):c.name}, ...(registry()[c.avatar] || [])];
+        sets = [{label:'Original',folder:origFolder(c)}, ...(registry()[regKey(c)] || [])];
         if (!sets.some(x => x.folder === equipped)) sets.push({label:equipped, folder:equipped});
         $('#gi-outfit').replaceChildren(...sets.map(x => new Option(x.label, x.folder)));
         $('#gi-outfit').value = equipped;
-        $('#gi-outfit-folder').placeholder = c.isPersona?`${personaFolder(c.personaAvatar).split('/')[0]}/Summer`:`${c.name}/Summer`;
+        $('#gi-outfit-folder').placeholder = `${origFolder(c).split('/')[0]}/Summer`;
         dialog.querySelectorAll('.gi-roster button').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.avatar === c.avatar)));
         await load();
     }
     async function changed(path = folder(), options) { await adapter.refreshNative?.(character); if (path === currentFolder()) await onChange(character,options); }
     // Sprite sets: New, Rename and Delete share one inline editor.
     let setMode='';
-    const setBase = () => character.isPersona ? personaFolder(character.personaAvatar).split('/')[0] : character.name;
-    const originalFolder = () => character.isPersona ? personaFolder(character.personaAvatar) : character.name;
+    const setBase = () => origFolder(character).split('/')[0];
+    const originalFolder = () => origFolder(character);
     const selectedSet = () => sets.find(x => x.folder === folder());
     function openSetEditor(mode) {
         const editor = $('.gi-set-editor'), original = folder() === originalFolder(), equipped = folder() === currentFolder();
@@ -321,7 +337,7 @@ export function mountWardrobe({host, getContext, onChange = async () => {}, onMe
     }
     function closeSetEditor() { setMode = ''; $('.gi-set-editor').hidden = true; }
     function uniqueSetName(label, ignore) { return !sets.some(x => x !== ignore && x.label.toLowerCase() === label.toLowerCase()); }
-    function registerSet(entry) { const entries = registry()[character.avatar] ??= []; if (!entries.some(x => x.folder === entry.folder)) entries.push(entry); }
+    function registerSet(entry) { const entries = registry()[regKey(character)] ??= []; if (!entries.some(x => x.folder === entry.folder)) entries.push(entry); }
     async function action(name) {
         if (name === 'close') { dialog.close(); return; }
         if (busy) return;
@@ -344,6 +360,14 @@ export function mountWardrobe({host, getContext, onChange = async () => {}, onMe
                 const entry={id:newLocalId(),label:nextSlotName('scene',cgs().map(c=>c.label)),description:'',classifications:[],audio:[],path:'',blank:true};
                 cgs().push(entry);selectedCG=entry;getContext().saveSettingsDebounced();renderCGs();chooseCG(entry);status(`Empty ${entry.label}. Add artwork when you are ready.`);
             }
+            if (name === 'take-over') {
+                if (character.isPersona) throw new Error('Select a character card to take over.');
+                const taken = character;
+                await personaAdapter.takeOver(taken);
+                await renderRoster();
+                await onChange(personaCard(getContext()), { presentation: true });
+                status(`You are now playing as ${taken.name}. They no longer appear as a random encounter, and the persona shares their sprites.`);
+            }
             if (name === 'equip') { applyOutfit(getContext(), character, folder()); await changed(); await load(); status(`Equipped ${folder()} for ${character.name}. Earlier saved pages keep their outfits.`); }
             if(name==='use-persona-sprite'){
                 if(!character.isPersona || !selected || selected.blank)throw new Error('Select one of your persona’s sprites first.');
@@ -357,7 +381,7 @@ export function mountWardrobe({host, getContext, onChange = async () => {}, onMe
                 const label = $('#gi-outfit-name').value.trim(), path = $('#gi-outfit-folder').value.trim();
                 if (!label || !validFolder(path)) throw new Error('Enter a set name and a folder such as Klee/Summer.');
                 if (sets.some(x => x.folder === path)) throw new Error('That sprite folder is already in the list.');
-                const entries = registry()[character.avatar] ??= []; entries.push({label,folder:path}); sets.push({label,folder:path});
+                const entries = registry()[regKey(character)] ??= []; entries.push({label,folder:path}); sets.push({label,folder:path});
                 getContext().saveSettingsDebounced(); $('#gi-outfit').append(new Option(label,path)); $('#gi-outfit').value = path; await load();
             }
             if (name === 'set-confirm') {
@@ -381,7 +405,7 @@ export function mountWardrobe({host, getContext, onChange = async () => {}, onMe
                     if (!current || folder() === originalFolder()) throw new Error('The Original set cannot be renamed.');
                     if (!uniqueSetName(label, current)) throw new Error('A set with that name already exists.');
                     current.label = label; registerSet({ label, folder: current.folder });
-                    registry()[character.avatar].find(x => x.folder === current.folder).label = label;
+                    registry()[regKey(character)].find(x => x.folder === current.folder).label = label;
                     getContext().saveSettingsDebounced(); $('#gi-outfit').selectedOptions[0].textContent = label;
                     closeSetEditor(); $('.gi-current-outfit').textContent = `Equipped: ${sets.find(x => x.folder === currentFolder())?.label || currentFolder()}`;
                     status(`Renamed the set to ${label}.`);
@@ -396,7 +420,7 @@ export function mountWardrobe({host, getContext, onChange = async () => {}, onMe
                     for (const sprite of sprites.filter(x => !x.blank)) await adapter.remove(target, sprite);
                     spriteDrafts(getContext(), target).splice(0);
                 }
-                registry()[character.avatar] = (registry()[character.avatar] || []).filter(x => x.folder !== target);
+                registry()[regKey(character)] = (registry()[regKey(character)] || []).filter(x => x.folder !== target);
                 getContext().saveSettingsDebounced(); closeSetEditor(); await adapter.refreshNative?.(character); await selectCharacter(character);
                 status(name === 'set-delete-files' ? `Deleted ${label} and its sprites.` : `Removed ${label} from the list. Its files were kept.`);
             }
@@ -520,7 +544,7 @@ export function mountWardrobe({host, getContext, onChange = async () => {}, onMe
         const cards=(ctx.characters?.filter(c=>c?.avatar&&c?.name) || []).map((c,i)=>({c,i,p:party.indexOf(c.avatar)})).sort((a,b)=>(a.p<0)-(b.p<0)||(a.p-b.p)||(a.i-b.i)).map(x=>x.c);
         const hide=hideNonGenshin(ctx),query=fold($('#gi-character-search').value.trim()),selectedAvatar=character?.avatar ?? ctx.characters?.[ctx.characterId]?.avatar;
         const matches=c=>!query||fold(c.name).includes(query)||(c.tags || []).some(t=>fold(t).includes(query));
-        const visible=cards.filter(c=>(!hide||hasGenshinTag(ctx,c)||c.avatar===selectedAvatar)&&matches(c));
+        const played=playedAvatars(ctx),visible=cards.filter(c=>!played.has(c.avatar)&&(!hide||hasGenshinTag(ctx,c)||c.avatar===selectedAvatar)&&matches(c));
         const characters=persona&&matches(persona)?[persona,...visible]:visible;
         $('#gi-hide-non-genshin').checked=hide;
         $('.gi-roster').replaceChildren(...characters.map(c=>{

@@ -1,4 +1,5 @@
 import {mediaSettings} from './media-store.js';
+import {linkedPersonaAvatars,linkPersona} from './persona-link.js';
 
 let nativePersonas;
 export async function loadPersonaSupport(ctx) {
@@ -88,6 +89,35 @@ export function createPersonaAdapter(getContext) {
                 }
                 await nativePersonas.getUserAvatars();
             }
+        },
+        // Make a character card the player's persona. The persona borrows the card's
+        // portrait, description and sprites, and the card leaves the world's encounters.
+        async takeOver(card) {
+            const ctx=getContext(),power=ctx.powerUserSettings;
+            if (!power) throw new Error('Persona settings are unavailable.');
+            power.personas ??= {};power.persona_descriptions ??= {};
+            let avatar=linkedPersonaAvatars(ctx,card.avatar).find(a=>Object.hasOwn(power.personas,a));
+            if (!avatar) {
+                avatar=`takeover-${card.avatar.replace(/\.[^.]+$/,'').replace(/[^\p{L}\p{N}_-]/gu,'_').slice(0,80) || 'character'}.png`;
+                const image=await fetch(`/characters/${encodeURIComponent(card.avatar)}`);
+                if (!image.ok) throw new Error(`Could not read ${card.name}'s portrait (${image.status}).`);
+                const form=new FormData();form.append('overwrite_name',avatar);form.append('avatar',new File([await image.blob()],avatar,{type:'image/png'}));
+                const upload=await fetch('/api/avatars/upload',{method:'POST',headers:ctx.getRequestHeaders({omitContentType:true}),body:form});
+                if (!upload.ok) throw new Error(`Could not create the persona (${upload.status}).`);
+                power.personas[avatar]=card.name;
+                power.persona_descriptions[avatar]={description:card.description || '',title:'',lorebook:'',position:0,depth:2,role:0};
+                linkPersona(ctx,avatar,card.avatar);
+                const folder=ctx.extensionSettings.expressionOverrides?.find(x=>x.name===card.avatar.replace(/\.[^.]+$/,''))?.path || card.name;
+                const prefs=mediaSettings(ctx);prefs.personaSprites ??= {};prefs.personaSprites[avatar]={enabled:true,folder,expression:'neutral'};
+            }
+            if (ctx.userAvatar!==undefined && !nativePersonas) {ctx.userAvatar=avatar;ctx.name1=card.name;}
+            else {
+                nativePersonas ??= await import('/scripts/personas.js');
+                await nativePersonas.getUserAvatars();
+                await nativePersonas.setUserAvatar(avatar,{toastPersonaNameChange:false});
+            }
+            syncPersonaSettings(ctx);ctx.saveSettingsDebounced?.();
+            return avatar;
         },
         async uploadPortrait(card,file) {
             if (!file || !/^image\//.test(file.type)) throw new Error('Choose a portrait image.');
