@@ -26,6 +26,22 @@ export async function runWardrobeAndCanvasTests(){
         $('#gi-character-search').value='';$('#gi-character-search').dispatchEvent(new Event('input'));ctx.characters[1].tags=['Genshin'];$('#gi-hide-non-genshin').click();await pause(15);
         check('Genshin-tagged characters stay visible while hiding non-Genshin',$('#gi-hide-non-genshin').checked&&faces().join()==='Klee.png,Nahida.png');
         $('#gi-hide-non-genshin').click();await pause(15);delete prefs.hideNonGenshin;
+        // Sprite sets: new, copy, rename and delete.
+        const sets=()=>[...host.querySelectorAll('#gi-outfit option')].map(o=>o.textContent+'='+o.value),registered=()=>(prefs.outfits?.['Klee.png'] || []).map(x=>x.label+'='+x.folder);
+        $('[data-w="set-rename"]').click();check('the Original set cannot be renamed',$('.gi-set-editor').hidden);
+        $('[data-w="set-new"]').click();check('New set opens an inline editor',!$('.gi-set-editor').hidden&&!$('.gi-set-copy-row').hidden);
+        $('#gi-set-editor-name').value='Summer';await click('set-confirm');
+        check('a new set gets Character/Name as its folder and becomes the selected set',registered().join()==='Summer=Klee/Summer'&&$('#gi-outfit').value==='Klee/Summer'&&sets().includes('Summer=Klee/Summer'));
+        $('[data-w="set-new"]').click();$('#gi-set-editor-name').value='summer';await click('set-confirm');check('duplicate set names are rejected',registered().length===1);
+        $('[data-w="set-rename"]').click();$('#gi-set-editor-name').value='Beach';await click('set-confirm');
+        check('rename changes the label but keeps the folder',registered().join()==='Beach=Klee/Summer'&&sets().includes('Beach=Klee/Summer'));
+        const uploadsBefore=uploads.length;$('[data-w="set-new"]').click();$('#gi-set-copy').checked=true;$('#gi-set-editor-name').value='Winter';await click('set-confirm');
+        check('a set can start as a copy of the selected one',uploads.length>uploadsBefore&&uploads.at(-1).folder==='Klee/Winter'&&registered().includes('Winter=Klee/Winter'));
+        $('[data-w="set-delete"]').click();await click('set-forget');check('Remove from list keeps files and drops the set',!registered().some(x=>x.startsWith('Winter'))&&removals===0&&$('#gi-outfit').value==='Klee');
+        $('#gi-outfit').value='Klee/Summer';$('#gi-outfit').dispatchEvent(new Event('change'));await pause(30);
+        $('[data-w="set-delete"]').click();await click('set-delete-files');check('Delete set and sprites erases its files and the set',removals>0&&registered().length===0);
+        $('[data-w="set-delete"]').click();check('the Original set cannot be deleted',$('.gi-set-editor').hidden);
+        files.splice(1);uploads.length=0;removals=0;nativeRefreshes=0;delete prefs.outfits;$('#gi-outfit').dispatchEvent(new Event('change'));await pause(30);
         let grid=$('.gi-expression-grid');check('sprite plus tile is the final tile',grid.lastElementChild.dataset.w==='add-blank-sprite');
         let art=grid.firstElementChild.getBoundingClientRect(),add=grid.lastElementChild.getBoundingClientRect();
         check('sprite plus matches the artwork tile dimensions',Math.abs(art.width-add.width)<2&&Math.abs(art.height-add.height)<2);

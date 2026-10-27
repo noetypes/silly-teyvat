@@ -1,3 +1,7 @@
+# Silly Teyvat 1.27: Manage sprite sets
+
+- **Outfits tab.** New set, Rename and Delete buttons manage sprite sets in one inline editor. New set creates `Character/Name` (optionally as a copy of the selected set) and selects it; Rename changes the label and keeps the folder; Delete either removes the set from the list (files kept) or deletes the set and its sprites. The Original and equipped sets are protected. "Link an existing sprite folder" still adds a folder you already have.
+
 # Silly Teyvat 1.26.2: Cleaner Official Art
 
 - 72 Official Art portraits that had been cut out from a white background now use the genuinely transparent "Character Portrait" files from the genshinimpactresources blog's Google Drive folder. Aether and Lumine also get Official Art sets.

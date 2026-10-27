@@ -107,7 +107,10 @@ export function mountWardrobe({host, getContext, onChange = async () => {}, onMe
         <label class="gi-check"><input id="gi-manual-position" type="checkbox">Set this character’s horizontal position</label><label>Horizontal position (% of screen)<input id="gi-character-x" type="number" min="0" max="100" step="1" value="50"></label>
         <label>Raise from bottom (% of screen)<input id="gi-character-y" type="number" min="-40" max="50" step="1" value="0"></label>
         </details><nav class="gi-wardrobe-tabs" aria-label="Wardrobe section"><button type="button" data-w="tab-attributes" aria-pressed="true"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="9" cy="11" r="2.5"/><path d="M5.5 17c.8-2 2-3 3.5-3s2.7 1 3.5 3M15 10h4M15 14h3"/></svg><span>Profile</span></button><button type="button" data-w="tab-weapon" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="5" r="2.5"/><path d="M12 8v7M8 11h8M9.5 21l2.5-6 2.5 6M3 21h18"/></svg><span>Staging</span></button><button type="button" data-w="tab-sprites" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8.5 14.5c1 1.3 2.1 2 3.5 2s2.5-.7 3.5-2"/><path d="M9 9.5h.01M15 9.5h.01"/></svg><span>Expressions</span></button><button type="button" data-w="tab-cgs" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="8.5" cy="10" r="1.6"/><path d="m21 15-5-5-8 9"/></svg><span>Scenes</span></button><button type="button" data-w="tab-outfits" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 3 4 6l2 4 2-1v12h8V9l2 1 2-4-4-3c-.6 1.6-2.2 2.6-4 2.6S8.6 4.6 8 3Z"/></svg><span>Outfits</span></button><button type="button" data-w="tab-backgrounds" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 19 9 9l4 6 3-4 5 8Z"/><circle cx="16" cy="6" r="2"/></svg><span>Backgrounds</span></button></nav><div data-panel="sprites"><label for="gi-outfit">Sprite set</label><div class="gi-wardrobe-row"><select id="gi-outfit"></select><button type="button" data-w="equip">Use set</button></div>
-        <p class="gi-current-outfit"></p><details><summary>Add a sprite set</summary><label>Set name<input id="gi-outfit-name" placeholder="Summer outfit" maxlength="80"></label><label>Sprite folder<input id="gi-outfit-folder" placeholder="Character/Summer" maxlength="257"></label><div class="gi-wardrobe-row"><button type="button" data-w="add-set">Add set</button><button type="button" data-w="forget-set">Forget selected set</button></div></details>
+        <p class="gi-current-outfit"></p>
+        <div class="gi-wardrobe-row gi-set-tools" role="group" aria-label="Manage sprite sets"><button type="button" data-w="set-new">New set</button><button type="button" data-w="set-rename">Rename</button><button type="button" data-w="set-delete">Delete</button></div>
+        <div class="gi-set-editor" hidden><label class="gi-set-name-row"><span class="gi-set-editor-title"></span><input id="gi-set-editor-name" maxlength="80" autocomplete="off"></label><label class="gi-check gi-set-copy-row"><input type="checkbox" id="gi-set-copy">Start from a copy of the selected set</label><p class="gi-set-editor-note"></p><div class="gi-wardrobe-row"><button type="button" data-w="set-confirm">Create set</button><button type="button" data-w="set-forget" hidden>Remove from list</button><button type="button" data-w="set-delete-files" hidden>Delete set and sprites</button><button type="button" data-w="set-cancel">Cancel</button></div></div>
+        <details><summary>Link an existing sprite folder</summary><label>Set name<input id="gi-outfit-name" placeholder="Summer outfit" maxlength="80"></label><label>Sprite folder<input id="gi-outfit-folder" placeholder="Character/Summer" maxlength="257"></label><div class="gi-wardrobe-row"><button type="button" data-w="add-set">Add set</button></div></details>
         <h3>Expressions</h3><div class="gi-expression-grid" aria-label="Sprites in this set"></div>
         <div class="gi-sprite-detail" hidden><span></span><button type="button" data-w="remove">Remove sprite</button></div>
         <div class="gi-selected-sprite-tools" hidden><label>Selected sprite scale (%)<input id="gi-sprite-scale" type="number" min="10" max="300" step="1" value="100"></label><label for="gi-rename-expression">Rename this expression in this set</label><div class="gi-wardrobe-row"><input id="gi-rename-expression" maxlength="60" placeholder="e.g. smug"><button type="button" data-w="rename-expression">Rename</button></div>
@@ -178,7 +181,7 @@ export function mountWardrobe({host, getContext, onChange = async () => {}, onMe
         if (mediaSettings(getContext()).trimSprites === false) return;
         img.style.visibility = 'hidden';
         trimmer.trim(spriteFolder, path).catch(() => null).then(trimmed => {
-            if (img.dataset.art !== path) return;
+            if (img.dataset.art !== path || img.getAttribute('src') !== path) { img.style.visibility = ''; return; }
             if (trimmed) img.src = trimmed.url;
             img.style.visibility = '';
         });
@@ -292,6 +295,33 @@ export function mountWardrobe({host, getContext, onChange = async () => {}, onMe
         await load();
     }
     async function changed(path = folder(), options) { await adapter.refreshNative?.(character); if (path === currentFolder()) await onChange(character,options); }
+    // Sprite sets: New, Rename and Delete share one inline editor.
+    let setMode='';
+    const setBase = () => character.isPersona ? personaFolder(character.personaAvatar).split('/')[0] : character.name;
+    const originalFolder = () => character.isPersona ? personaFolder(character.personaAvatar) : character.name;
+    const selectedSet = () => sets.find(x => x.folder === folder());
+    function openSetEditor(mode) {
+        const editor = $('.gi-set-editor'), original = folder() === originalFolder(), equipped = folder() === currentFolder();
+        if ((mode === 'rename' || mode === 'delete') && original) { status('The Original set cannot be renamed or deleted.'); return; }
+        setMode = mode; editor.hidden = false;
+        $('.gi-set-name-row').hidden = mode === 'delete'; $('.gi-set-copy-row').hidden = mode !== 'new';
+        $('[data-w="set-confirm"]').hidden = mode === 'delete'; $('[data-w="set-delete-files"]').hidden = mode !== 'delete'; $('[data-w="set-forget"]').hidden = mode !== 'delete';
+        $('.gi-set-editor-title').textContent = mode === 'new' ? 'New set name' : 'New name for this set';
+        $('#gi-set-editor-name').value = mode === 'rename' ? selectedSet()?.label || '' : '';
+        $('[data-w="set-confirm"]').textContent = mode === 'new' ? 'Create set' : 'Rename';
+        const note = $('.gi-set-editor-note');
+        if (mode === 'new') note.textContent = `Creates the folder ${setBase()}/<name>. Add sprites to it afterwards.`;
+        if (mode === 'rename') note.textContent = 'Changes the name shown in this list. Sprite files stay in their folder.';
+        if (mode === 'delete') {
+            note.textContent = equipped ? 'This set is equipped. Equip another set first.' : `“${selectedSet()?.label || folder()}” (${sprites.length} sprite${sprites.length === 1 ? '' : 's'}): Remove from list keeps the files; Delete set and sprites erases them.`;
+            $('[data-w="set-delete-files"]').disabled = equipped;
+            $('[data-w="set-forget"]').disabled = equipped;
+        }
+        if (mode !== 'delete') $('#gi-set-editor-name').focus();
+    }
+    function closeSetEditor() { setMode = ''; $('.gi-set-editor').hidden = true; }
+    function uniqueSetName(label, ignore) { return !sets.some(x => x !== ignore && x.label.toLowerCase() === label.toLowerCase()); }
+    function registerSet(entry) { const entries = registry()[character.avatar] ??= []; if (!entries.some(x => x.folder === entry.folder)) entries.push(entry); }
     async function action(name) {
         if (name === 'close') { dialog.close(); return; }
         if (busy) return;
@@ -299,6 +329,8 @@ export function mountWardrobe({host, getContext, onChange = async () => {}, onMe
         if (!character) return;
         if (name === 'remove') { $('.gi-remove-confirm').hidden = false; $('.gi-remove-confirm p').textContent = `Remove ${spriteIdentity(selected.path).filename} from this set? Saved scenes using this image need the file. Undo is available until this page is reloaded.`; return; }
         if (name === 'cancel-remove') { $('.gi-remove-confirm').hidden = true; return; }
+        if (name === 'set-new' || name === 'set-rename' || name === 'set-delete') { openSetEditor(name.slice(4)); return; }
+        if (name === 'set-cancel') { closeSetEditor(); return; }
         let uploaded = 0;
         busy = true; dialog.setAttribute('aria-busy', 'true');
         dialog.querySelectorAll('input, select, textarea, button:not([data-w="close"])').forEach(el => el.disabled = true);
@@ -328,9 +360,45 @@ export function mountWardrobe({host, getContext, onChange = async () => {}, onMe
                 const entries = registry()[character.avatar] ??= []; entries.push({label,folder:path}); sets.push({label,folder:path});
                 getContext().saveSettingsDebounced(); $('#gi-outfit').append(new Option(label,path)); $('#gi-outfit').value = path; await load();
             }
-            if (name === 'forget-set') {
-                if (folder() === (character.isPersona?personaFolder(character.personaAvatar):character.name) || folder() === currentFolder()) throw new Error('Switch away from the equipped set first. The Original set is always available.');
-                registry()[character.avatar] = (registry()[character.avatar] || []).filter(x => x.folder !== folder()); getContext().saveSettingsDebounced(); await selectCharacter(character);
+            if (name === 'set-confirm') {
+                const label = $('#gi-set-editor-name').value.trim();
+                if (!label) throw new Error('Enter a name for the set.');
+                if (setMode === 'new') {
+                    const path = `${setBase()}/${label}`;
+                    if (!validFolder(path)) throw new Error('Use a name without \\ : * ? " < > | characters.');
+                    if (!uniqueSetName(label) || sets.some(x => x.folder.toLowerCase() === path.toLowerCase())) throw new Error('A set with that name already exists.');
+                    const copyFrom = $('#gi-set-copy').checked ? sprites.filter(x => !x.blank) : [];
+                    for (const sprite of copyFrom) {
+                        const info = spriteIdentity(sprite.path), blob = await (await fetch(sprite.path)).blob();
+                        await adapter.upload(path, new File([blob], info.filename, { type: blob.type }), info.name, sprite.label);
+                    }
+                    registerSet({ label, folder: path }); sets.push({ label, folder: path });
+                    getContext().saveSettingsDebounced(); $('#gi-outfit').append(new Option(label, path)); $('#gi-outfit').value = path;
+                    closeSetEditor(); await adapter.refreshNative?.(character); await load();
+                    status(copyFrom.length ? `Created ${label} with ${copyFrom.length} copied sprites. Use set equips it.` : `Created ${label}. Add sprites to fill it, then use Use set.`);
+                } else if (setMode === 'rename') {
+                    const current = selectedSet();
+                    if (!current || folder() === originalFolder()) throw new Error('The Original set cannot be renamed.');
+                    if (!uniqueSetName(label, current)) throw new Error('A set with that name already exists.');
+                    current.label = label; registerSet({ label, folder: current.folder });
+                    registry()[character.avatar].find(x => x.folder === current.folder).label = label;
+                    getContext().saveSettingsDebounced(); $('#gi-outfit').selectedOptions[0].textContent = label;
+                    closeSetEditor(); $('.gi-current-outfit').textContent = `Equipped: ${sets.find(x => x.folder === currentFolder())?.label || currentFolder()}`;
+                    status(`Renamed the set to ${label}.`);
+                }
+            }
+            if (name === 'set-forget' || name === 'set-delete-files') {
+                const target = folder();
+                if (target === originalFolder()) throw new Error('The Original set cannot be deleted.');
+                if (target === currentFolder()) throw new Error('Switch away from the equipped set first.');
+                const label = selectedSet()?.label || target;
+                if (name === 'set-delete-files') {
+                    for (const sprite of sprites.filter(x => !x.blank)) await adapter.remove(target, sprite);
+                    spriteDrafts(getContext(), target).splice(0);
+                }
+                registry()[character.avatar] = (registry()[character.avatar] || []).filter(x => x.folder !== target);
+                getContext().saveSettingsDebounced(); closeSetEditor(); await adapter.refreshNative?.(character); await selectCharacter(character);
+                status(name === 'set-delete-files' ? `Deleted ${label} and its sprites.` : `Removed ${label} from the list. Its files were kept.`);
             }
             if (name === 'add-expression') {
                 const label = $('#gi-new-expression').value.trim().toLowerCase();
@@ -440,7 +508,7 @@ export function mountWardrobe({host, getContext, onChange = async () => {}, onMe
         }
         getContext().saveSettingsDebounced();void onChange(character,classification?{classification:true}:{presentation:true}).then(()=>status(classification?'Sprite classification mode saved.':'Scale and placement saved for this scene and future scenes.')).catch(e=>status(e.message));
     },{signal:abort.signal});
-    $('#gi-outfit').addEventListener('change', () => { if (!busy) load().catch(e => status(e.message)); }, {signal:abort.signal});
+    $('#gi-outfit').addEventListener('change', () => { closeSetEditor(); if (!busy) load().catch(e => status(e.message)); }, {signal:abort.signal});
     dialog.addEventListener('close', () => { revision++; opener?.focus(); }, {signal:abort.signal});
     // Hidden by default; the old "show" preference carries over when it was set.
     const hideNonGenshin=ctx=>{const prefs=mediaSettings(ctx);return prefs.hideNonGenshin ?? prefs.showNonGenshin!==true;};
