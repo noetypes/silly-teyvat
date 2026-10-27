@@ -36,11 +36,10 @@ export async function runTravelTests(){
   mediaSettings(ctx).worldPromptAllRegions=true;check('entire-world option includes other regions',worldScalePrompt(ctx).includes('Bubu Pharmacy'));mediaSettings(ctx).worldPromptAllRegions=false;
   map=mountWorldMap({host,getContext:()=>ctx});map.sync({on:true});map.open();await pause();
   check('map settings expose main-departure and prompt-scope toggles',!!host.querySelector('#gi-map-main-departure')&&!!host.querySelector('#gi-map-world-scope'));map.dispose();map=null;
-  ctx.chat=[{name:'Kachina',mes:'"We reached Bubu."'}];let calls=0;Object.assign(travelState(ctx),{regionId:'liyue',location:structuredClone(road),manualAt:null});
-  background=mountBackgrounds({host,getContext:()=>ctx,adapter:{async classifyBackground(){calls++;return 'bubu';}}});background.sync({on:true,id:0,generating:false});await pause();
-  check('automatic classification saves a measured travel record',ctx.chat.length===2&&ctx.chat[1].extra.silly_teyvat_travel.reason==='automatic'&&ctx.chat[1].mes.includes('travelled 500 m from Liyue road to Bubu Pharmacy.'));
-  background.sync({on:true,id:1,generating:false});await pause();check('travel records never classify themselves into another move',calls===1&&ctx.chat.length===2);
-  background.sync({on:true,id:0,generating:false});await pause();check('viewing old dialogue neither repeats travel history nor moves the live party',calls===1&&ctx.chat.length===2&&travelState(ctx).location.id==='bubu');
+  ctx.chat=[{name:'Kachina',mes:'"We reached Bubu."'}];Object.assign(travelState(ctx),{regionId:'liyue',location:structuredClone(road),manualAt:null});
+  background=mountBackgrounds({host,getContext:()=>ctx,adapter:{}});background.sync({on:true,id:0,generating:false});await pause();
+  check('dialogue mentioning a place neither moves the party nor adds a travel record',ctx.chat.length===1&&travelState(ctx).location.id===road.id);
+  background.sync({on:true,id:0,generating:false});await pause();check('viewing dialogue never moves the live party',ctx.chat.length===1&&travelState(ctx).location.id===road.id);
  }catch(error){results.push(`ERROR ${error.stack || error.message}`);}finally{cast?.dispose();background?.dispose();map?.dispose();host.remove();}
  return results.join('; ');
 }
