@@ -8,10 +8,6 @@ export function regenerationState(ctx, {id, generating=false, editing=false, bus
     if(editing)return {visible:true,allowed:false,reason:'Finish editing the message first.'};
     if(ctx.onlineStatus==='no_connection')return {visible:true,allowed:false,reason:'Connect an API before regenerating.'};
     let characterId;
-    if(!ctx.groupId&&inPartyChat(ctx)){
-        const main=ctx.characters?.[ctx.characterId];
-        if(message.original_avatar&&message.original_avatar!==main?.avatar)return {visible:true,allowed:false,reason:'Guest replies cannot be regenerated. Send another message or swipe the main character’s reply.'};
-    }
     if(ctx.groupId){
         characterId=ctx.characters.findIndex(c=>message.original_avatar?c.avatar===message.original_avatar:c.name===message.name);
         const group=activeGroup(ctx),avatar=ctx.characters[characterId]?.avatar;

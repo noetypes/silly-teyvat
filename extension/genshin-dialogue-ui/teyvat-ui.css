@@ -96,8 +96,8 @@ body.gi-scene:not(.gi-history) #chat > .mes.gi-current .mes_block { animation: t
 #gi-choices .qr--button:hover, #qr--bar .qr--button:hover { translate: 6px 0; }
 
 /* ---------- Combat: attack toggle ---------- */
-#gi-navigation #gi-attack-toggle { transition: color 200ms ease, background 200ms ease, box-shadow 260ms ease, transform 240ms var(--ty-ease); }
-#gi-navigation #gi-attack-toggle[aria-pressed="true"] { animation: ty-armed 1.8s ease-in-out infinite; }
+#gi-attack-controls #gi-attack-toggle { transition: color 200ms ease, background 200ms ease, box-shadow 260ms ease, transform 240ms var(--ty-ease); }
+#gi-attack-controls #gi-attack-toggle[aria-pressed="true"] { animation: ty-armed 1.8s ease-in-out infinite; }
 @keyframes ty-armed { 0%,100% { box-shadow: 0 0 8px #e4bc6050; } 50% { box-shadow: 0 0 16px #f2d794aa; } }
 #gi-attack-target { font-family: var(--ty-font); border-color: var(--ty-gold); background: var(--ty-navy); animation: ty-rise 220ms var(--ty-ease) both; }
 
@@ -288,7 +288,7 @@ body.gi-reduced-motion :is(#gi-toolbar, #gi-toolbar > *, #gi-menu-scrim, .gi-ene
 #gi-settings { font-family: var(--ty-font); }
 #gi-settings .gi-settings-brand { font-weight: normal; letter-spacing: .04em; }
 #gi-settings .inline-drawer-content { padding: 6px 0 10px; }
-#gi-settings .gi-set-tabs { position: sticky; top: 0; z-index: 2; display: flex; gap: 4px; margin: 0 0 10px; padding: 4px; border-radius: 22px; background: #0d1220d9; box-shadow: inset 0 0 0 1px #d3bc8e33; overflow-x: auto; scrollbar-width: none; }
+#gi-settings .gi-set-tabs { position: static; display: flex; gap: 4px; margin: 0 0 10px; padding: 4px; border-radius: 22px; background: #0d1220d9; box-shadow: inset 0 0 0 1px #d3bc8e33; overflow-x: auto; scrollbar-width: none; }
 #gi-settings .gi-set-tabs button { flex: 1 0 auto; min-width: 0; min-height: 34px; padding: 4px 12px; border: 0; border-radius: 18px; background: none; color: #ece5d8b3; font: 13px var(--ty-font); text-shadow: none; white-space: nowrap; }
 #gi-settings .gi-set-tabs button:hover { color: #fff; background: #ece5d814; border: 0; }
 #gi-settings .gi-set-tabs button[aria-selected="true"] { background: var(--ty-cream); color: var(--ty-ink); box-shadow: 0 2px 8px #0006; }

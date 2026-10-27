@@ -24,13 +24,12 @@ import { castIdentity } from './location-cast.js';
 import { startCharacterAtHome } from './character-location.js';
 import { loadStarterLocations } from './starter-locations.js';
 import { setLocationCharacterLimit } from './location-capacity.js';
-import { createGuestReplier } from './guest-replies.js';
 import { createJourneyLibraryAdapter, purgeLegacyJourneys, isLegacyJourneyGroup } from './journey-library.js';
 import { mountCardArt } from './card-art.js';
 import {loadPersonaSupport,personaCard,syncPersonaSettings,setPersonaSpriteSetting,otherTraveler,activatePersonaByName} from './persona-wardrobe.js';
 const KEY = 'genshin_dialogue_ui';
 const FOLDER = 'third-party/genshin-dialogue-ui';
-const defaults = Object.freeze({ ...stagingDefaults, enabled: false, choices: true, composer: true, reducedMotion: false, textScale: 1, scrim: 0.8, revealSpeed: 45, tapAdvance: true, pageExpressions: true, narration: false, narrationMode: 'quotes', narrationKeyword: 'Narrator:', hideDialogueQuotes:false, wardrobe: true, locationEncounters:true, locationCharacterLimit:5, randomEncounters:true, encounterRate:40, allowMainDeparture:false, worldPromptAllRegions:false, wildernessEncounters:true, combatDamageMin:1, combatDamageMax:6, personaIcon: 'Aether', travelMode:'party', trimSprites:true, cgEnabled:true, cgMode:'scene', cgClassifier:'main', cgProfile:'', cgBypassReasoning:true, cgPrompt:defaultCGPrompt, cgAudio:true, spriteAudio:true, spriteVolume:.8, diceSound:true });
+const defaults = Object.freeze({ ...stagingDefaults, enabled: false, choices: true, composer: true, reducedMotion: false, textScale: 1, scrim: 0.8, revealSpeed: 45, tapAdvance: true, pageExpressions: true, narration: false, narrationMode: 'quotes', narrationKeyword: 'Narrator:', hideDialogueQuotes:false, wardrobe: true, locationEncounters:true, locationCharacterLimit:5, randomEncounters:true, encounterRate:40, allowMainDeparture:false, worldPromptAllRegions:false, wildernessEncounters:true, combatDamageMin:1, combatDamageMax:6, personaIcon: 'Aether', trimSprites:true, cgEnabled:true, cgMode:'scene', cgClassifier:'main', cgProfile:'', cgBypassReasoning:true, cgPrompt:defaultCGPrompt, cgAudio:true, spriteAudio:true, spriteVolume:.8, diceSound:true });
 const bodyClasses = ['gi-enabled', 'gi-scene', 'gi-history', 'gi-hidden', 'gi-compose', 'gi-generating', 'gi-reduced-motion', 'gi-reading', 'gi-choices-enabled', 'gi-native-staging'];
 const icons = {
     compass: '<path d="m12 2 3 7 7 3-7 3-3 7-3-7-7-3 7-3Z"/><path d="m12 8 4 4-4 4-4-4Z"/>',
@@ -59,7 +58,6 @@ let backgroundUI;
 let worldMapUI,cardArtUI;
 let locationCastUI;
 let groupGenerating=false;
-let guestReplier;
 let openingHome=true,homeOpenRevision=0;
 let mountVersion = 0;
 let abort;
@@ -147,7 +145,6 @@ function preferences() {
     for (const [key, value] of Object.entries(defaults)) {
         if (typeof store[KEY][key] !== typeof value) store[KEY][key] = value;
     }
-    if (!['party', 'group'].includes(store[KEY].travelMode)) store[KEY].travelMode = 'party';
     if (!['Aether', 'Lumine'].includes(store[KEY].personaIcon)) store[KEY].personaIcon = 'Aether';
     if (!['main','profile','webllm'].includes(store[KEY].cgClassifier)) store[KEY].cgClassifier = 'main';
     if (!['scene','window'].includes(store[KEY].cgMode)) store[KEY].cgMode = 'scene';
@@ -523,7 +520,7 @@ function subscribe(key, handler) {
     subscriptions.push([eventSource, type, handler]);
 }
 
-export async function initialize({ guestScript=()=>import('/script.js'), choicesAdapter, spriteAdapter, wardrobeAdapter, personaAdapter, mediaAdapter, castAdapter, combatAdapter, diceAdapter, journeyAdapter=createJourneyLibraryAdapter(), sound } = {}) {
+export async function initialize({ choicesAdapter, spriteAdapter, wardrobeAdapter, personaAdapter, mediaAdapter, castAdapter, combatAdapter, diceAdapter, journeyAdapter=createJourneyLibraryAdapter(), sound } = {}) {
     if (mounted) return;
     if (!document.querySelector('#chat') || !document.querySelector('#extensions_settings2')) return;
     mounted = true;
@@ -542,7 +539,7 @@ export async function initialize({ guestScript=()=>import('/script.js'), choices
             <header class="gi-pm-profile"><button type="button" class="gi-pm-avatar" data-gi-action="traveler" aria-label="Switch Traveler" title="Switch between Aether and Lumine"><img alt=""></button><div class="gi-pm-id"><strong class="gi-pm-name"></strong><span class="gi-pm-place"></span></div></header>
             <button type="button" class="gi-pm-switch" data-gi-action="toggle" aria-pressed="false" aria-label="Silly Teyvat"><span>Silly Teyvat</span><i aria-hidden="true"></i></button>
             <div class="gi-pm-grid">${menuButton('auto', 'Auto')}${menuButton('history', 'Review', 'book')}${menuButton('wardrobe', 'Wardrobe')}${menuButton('map', 'Map')}${menuButton('cg', 'CG Frame')}${menuButton('compose', 'Chat Box')}${menuButton('hide', 'Hide UI')}</div>
-            <footer class="gi-pm-bar">${menuButton('settings', 'Settings')}<span class="gi-pm-version">1.24</span></footer>
+            <footer class="gi-pm-bar">${menuButton('settings', 'Settings')}<span class="gi-pm-version">1.25</span></footer>
         </nav>
         <header id="gi-review-heading" hidden><h2>${svg('history')} Dialogue Review</h2>${button('history', 'Close review', 'close')}</header>
         <nav id="gi-navigation" aria-label="Read existing dialogue" hidden>${button('previous', 'Previous message')}<span id="gi-position"></span>${button('latest', 'Latest message')}${button('next', 'Next message')}<button id="gi-regenerate" type="button" data-gi-action="regenerate" aria-label="Regenerate this character’s reply" hidden>${svg('regenerate')}</button></nav>
@@ -563,7 +560,7 @@ export async function initialize({ guestScript=()=>import('/script.js'), choices
         onChange:()=>{backgroundUI.refresh();schedule();}});
     mediaUI = mountSceneMedia({host,getContext:context,adapter:mediaAdapter,sound,announce});
     spriteUI = mountPageSprites({ host, getContext: context, adapter: spriteAdapter, announce, renderMessage: id => document.querySelector(`#chat > .mes[mesid="${id}"] .mes_text`), onAppearance:event=>mediaUI?.appearance(event) });
-    wardrobeUI = mountWardrobe({ host, getContext: context, adapter: wardrobeAdapter, personaAdapter, mediaAdapter, openMap:options=>worldMapUI.open(options), previewAudio:files=>mediaUI.previewAudio(files), onMediaChange:(options={})=>{if(options.reclassifyBackground)backgroundUI.reclassifyCurrent();else backgroundUI.refresh();if(options.reclassify)mediaUI.reclassifyCurrent();else mediaUI.refresh();schedule();}, onChange: async (character,options) => { if(options?.classification){schedule();return;}
+    wardrobeUI = mountWardrobe({ host, getContext: context, adapter: wardrobeAdapter, personaAdapter, mediaAdapter, openMap:options=>worldMapUI.open(options), previewAudio:files=>mediaUI.previewAudio(files), onMediaChange:(options={})=>{backgroundUI.refresh();if(options.reclassify)mediaUI.reclassifyCurrent();else mediaUI.refresh();schedule();}, onChange: async (character,options) => { if(options?.classification){schedule();return;}
         if(options?.presentation)await spriteUI?.refreshPresentation();else await spriteUI?.refreshSprite(character,options);schedule(); } });
     combatUI=mountCombat({host,getContext:context,adapter:combatAdapter,diceAdapter,announce,onChange:event=>{if(event?.defeated)locationCastUI?.retry();schedule();}});
     choiceUI = mountChoices({ host, getContext: context, adapter: choicesAdapter, announce });
@@ -642,12 +639,6 @@ export async function initialize({ guestScript=()=>import('/script.js'), choices
     subscribe('GROUP_WRAPPER_FINISHED',()=>{groupGenerating=false;schedule();});
     subscribe('GROUP_UPDATED',schedule);
     for (const key of ['GENERATION_STOPPED', 'GENERATION_ENDED']) subscribe(key, () => { if(key==='GENERATION_STOPPED')combatUI?.cancelPending();generating = false; schedule(); announce('Reply ready.'); });
-    guestReplier=createGuestReplier({getContext:context,loadScript:guestScript,onBusy:busy=>{groupGenerating=busy;schedule();}});
-    subscribe('GENERATION_ENDED',()=>{
-        if(!preferences().enabled||guestReplier.busy)return;
-        const key=castIdentity(context());
-        guestReplier.run(()=>mounted&&castIdentity(context())===key).catch(error=>{announce(error.message);console.warn('[Silly Teyvat] Guest replies',error);});
-    });
     try{await loadStarterLocations(context());await loadCharacterHomes(context());}catch(error){console.warn('[Silly Teyvat] Starter locations',error);announce(error.message);}
     try{if(preferences().journeysPurged!==true&&context().getRequestHeaders){const ctx=context(),removed=await purgeLegacyJourneys(ctx);if(removed.length){ctx.groups?.splice(0,ctx.groups.length,...ctx.groups.filter(g=>!removed.includes(g.id)));await ctx.getCharacters?.();}if(!(ctx.groups || []).some(isLegacyJourneyGroup))preferences().journeysPurged=true,ctx.saveSettingsDebounced();}}catch(error){console.warn('[Silly Teyvat] Journey cleanup',error);}
     try{const remove=await journeyAdapter.install();if(!mounted||version!==mountVersion){remove?.();return;}removeJourneyFilter=remove;}catch(error){console.warn('[Silly Teyvat] Journey library',error);announce(error.message);}

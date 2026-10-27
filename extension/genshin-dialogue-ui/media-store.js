@@ -77,11 +77,6 @@ export function createMediaAdapter(getContext) {
             if(!response.ok)throw new Error(`Background library unavailable (${response.status}).`);
             const data=await response.json();return (data.images || []).map(image=>{const name=typeof image==='string'?image:image.filename;return {name,path:`/backgrounds/${encodeURIComponent(name)}`};});
         },
-        async classifyBackground(ctx,message,categories,signal){
-            const prefs=mediaSettings(ctx);
-            const isolated={...ctx,extensionSettings:{...ctx.extensionSettings,genshin_dialogue_ui:{...prefs,cgClassifier:prefs.backgroundClassifier || 'main',cgProfile:prefs.backgroundProfile || '',cgBypassReasoning:prefs.backgroundBypassReasoning!==false,cgPrompt:prefs.backgroundPrompt || 'Which of these locations is the party currently physically in: {{options}}, None of the above. Choose one option and say nothing else. Use the current scene, not places merely mentioned, remembered or planned. Stay within the selected region.'}}};
-            return this.classifyCG(isolated,message,categories,signal);
-        },
         async upload(file, kind) {
             const extension = file.name.split('.').at(-1).toLowerCase();
             const allowed = kind === 'audio' ? /^(mp3|wav|m4a|ogg|webm|aac|flac)$/ : /^(png|webp|jpe?g|gif|avif)$/;

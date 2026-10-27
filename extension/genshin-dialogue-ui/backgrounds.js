@@ -1,10 +1,8 @@
 import {newLocalId} from './local-id.js';
 import {mediaSettings,localMediaPath,createMediaAdapter} from './media-store.js';
-import {cgCategories} from './scene-media.js';
 import {pageSignature} from './page-sprites.js';
 import {recordTravel,travellingAvatars} from './travel-history.js';
 
-export const defaultBackgroundPrompt='Which of these locations is the party currently physically in: {{options}}, None of the above. Choose one option and say nothing else. Use the current scene, not places merely mentioned, remembered or planned. Stay within the selected region.';
 export function backgroundRegions(ctx){return mediaSettings(ctx).backgroundRegions ??= [];}
 export function travelState(ctx){ctx.chatMetadata ??= {};return ctx.chatMetadata.silly_teyvat_world ??= {regionId:'',epoch:'',location:null};}
 export function saveTravel(ctx){if(ctx.saveMetadataDebounced)ctx.saveMetadataDebounced();else void ctx.saveChat?.();}
@@ -51,22 +49,10 @@ export function mountBackgrounds({host,getContext,adapter=createMediaAdapter(get
             if(record?.signature===signature&&(!latest||record.epoch===state.epoch)){paint(record.location,record.regionId);return;}
             const region=backgroundRegions(ctx).find(r=>r.id===state.regionId),base=previous(ctx,id,state);
             paint(region?base:null);
-            if(region&&latest&&(message.is_user||message.is_system||message.extra?.type==='narrator')&&message.mes?.trim())save(ctx,message,{signature,regionId:region.id,epoch:state.epoch,location:structuredClone(base)});
-            if(!region||!latest||generating||message.is_user||message.is_system||message.extra?.type==='narrator'||!message.mes?.trim()||message.mes.trim()==='...')return;
-            const entries=region.locations.filter(l=>l.path&&!l.blank),categories=cgCategories(entries);
-            if(!categories.length||request||failures.has(key))return;
-            const controller=new AbortController(),token=revision,epoch=state.epoch;request=controller;
-            const context=ctx.chat.slice(Math.max(0,id-2),id).map(m=>`${m.name || 'Speaker'}: ${m.mes}`).join('\n');
-            const input={...message,mes:`Selected region: ${region.name}\nPrevious location: ${base?.label || 'Unknown'}\nRecent context:\n${context}\nCurrent response:\n${message.mes}`};
-            adapter.classifyBackground(ctx,input,categories.map(({id,label,description})=>({id,label,description})),controller.signal).then(result=>{
-                if(controller.signal.aborted||token!==revision||!active||identity(getContext())!==chatKey||travelState(getContext()).epoch!==epoch||!ctx.chat.includes(message)||pageSignature(message.mes || '')!==signature)return;
-                // Validate the result against this region, regardless of model output.
-                const category=categories.find(c=>c.id===result),location=structuredClone(category?.entries[0] || base || null);
-                save(ctx,message,{signature,regionId:region.id,epoch,location});const from=structuredClone(state.location);state.location=location;recordTravel(ctx,from,location,{reason:'automatic',avatars:travellingAvatars(ctx,location || {},{automatic:true})});saveTravel(ctx);paint(location);
-            }).catch(error=>{if(!controller.signal.aborted){failures.add(key);announce(error.message || 'Location classification unavailable.');console.warn('[Silly Teyvat] Background classification',error);}}).finally(()=>{if(request===controller)request=null;});
+            // Locations only change through the player. Record where this message happened.
+            if(region&&latest&&!generating&&!message.is_system&&message.mes?.trim())save(ctx,message,{signature,regionId:region.id,epoch:state.epoch,location:structuredClone(base)});
         },
         refresh(){request?.abort();request=null;revision++;selection='';failures.clear();},
-        reclassifyCurrent(){const message=getContext().chat[selectedId];if(message?.extra?.silly_teyvat?.backgrounds)delete message.extra.silly_teyvat.backgrounds[String(message.swipe_id ?? 0)];api.refresh();},
         reset(){api.refresh();chatKey='';selectedId=undefined;paint(null);},
         dispose(){active=false;api.reset();layer.remove();},
     };return api;

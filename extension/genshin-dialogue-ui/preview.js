@@ -144,7 +144,6 @@ const wardrobeAdapter = {
     },
 };
 const mediaAdapter = {
-    async classifyBackground(_ctx,message,categories,signal){await new Promise(r=>setTimeout(r,80));signal.throwIfAborted();const current=message.mes.split('Current response:\n').at(-1);return categories.find(c=>current.toLowerCase().includes(c.label.toLowerCase()))?.id || null;},
     async listBackgrounds(){return [{name:'Forest picnic.svg',path:new URL('preview-landscape.svg',location.href).pathname}];},
     async upload(file,kind) { return {id:newLocalId(),name:file.name,path:new URL(kind==='audio'?'preview-silence.wav':'preview-landscape.svg',location.href).pathname}; },
     async classifyCG(_ctx,message,categories,signal) { await new Promise(r=>setTimeout(r,80));signal.throwIfAborted();return /picnic/i.test(message.mes)?categories.find(c=>/picnic/i.test(c.label))?.id || null:null; },
@@ -157,8 +156,10 @@ const previewAdapters={combatAdapter:{
     async apply(c,plan,current){
         if(!current())return false;
         if(c.groupId){c.groups.find(g=>g.id===c.groupId).members=plan.members;return true;}
-        const {setVirtualParty}=await import('./party.js');
-        setVirtualParty(c,plan.members);emit(eventTypes.GROUP_UPDATED);return true;
+        const {makeGroupSnapshot,locationCastState}=await import('./location-cast.js');
+        const snapshot=makeGroupSnapshot(c,plan.members,{...locationCastState(c),core:plan.core,managed:plan.managed,pendingGreetings:[...(locationCastState(c).pendingGreetings || []),...(plan.greetings || [])]});
+        if(snapshot.chat[0].chat_metadata.silly_teyvat_cast.arrival)snapshot.chat[0].chat_metadata.silly_teyvat_cast.arrival.handled=true;
+        c.groupId='preview-travel-party';c.groups.push({...snapshot.group,id:c.groupId});c.chatMetadata=snapshot.chat[0].chat_metadata;emit(eventTypes.CHAT_CHANGED);return {converted:true};
     },
     async greet(entry,current){
         if(!current())return false;

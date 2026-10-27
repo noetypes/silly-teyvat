@@ -87,29 +87,29 @@ body.gi-choices-enabled #rightNavHolder { order: 9; }
 /* ---------- Attack toggle: a labelled pill that lights up when armed ---------- */
 #gi-attack-controls { width: max-content; }
 /* Older nav rules visually hide button spans; this label is meant to be seen. */
-#gi-navigation #gi-attack-toggle .gi-attack-label { position: static; flex: none; width: auto; height: auto; overflow: visible; clip: auto; }
-#gi-navigation #gi-attack-toggle {
+#gi-attack-controls #gi-attack-toggle .gi-attack-label { position: static; flex: none; width: auto; height: auto; overflow: visible; clip: auto; }
+#gi-attack-controls #gi-attack-toggle {
     display: inline-flex; align-items: center; gap: 8px; width: auto; min-width: 0; height: var(--gi-action-size, 44px); max-height: 46px;
     padding: 3px 14px 3px 3px; border: 0; border-radius: 999px;
     color: var(--ty-cream); background: #1b2232d9; box-shadow: inset 0 0 0 1.5px #ece5d870, 0 3px 10px #0008;
     font: 14px/1 var(--ty-font); letter-spacing: .06em; text-shadow: none; white-space: nowrap;
     -webkit-backdrop-filter: blur(4px); backdrop-filter: blur(4px);
 }
-#gi-navigation #gi-attack-toggle svg { box-sizing: content-box; flex: none; width: 18px; height: 18px; padding: calc((min(var(--gi-action-size, 44px), 46px) - 6px - 18px) / 2); border-radius: 50%; background: #ece5d824; }
-#gi-navigation #gi-attack-toggle:hover:not(:disabled) { background: #2a3348e6; box-shadow: inset 0 0 0 1.5px var(--ty-cream), 0 4px 14px #0009; transform: translateY(-1px); }
-#gi-navigation #gi-attack-toggle .gi-attack-pip { width: 7px; height: 7px; border-radius: 50%; background: #ece5d84d; transition: background 200ms ease, box-shadow 200ms ease; }
-#gi-navigation #gi-attack-toggle[aria-pressed="true"] {
+#gi-attack-controls #gi-attack-toggle svg { box-sizing: content-box; flex: none; width: 18px; height: 18px; padding: calc((min(var(--gi-action-size, 44px), 46px) - 6px - 18px) / 2); border-radius: 50%; background: #ece5d824; }
+#gi-attack-controls #gi-attack-toggle:hover:not(:disabled) { background: #2a3348e6; box-shadow: inset 0 0 0 1.5px var(--ty-cream), 0 4px 14px #0009; transform: translateY(-1px); }
+#gi-attack-controls #gi-attack-toggle .gi-attack-pip { width: 7px; height: 7px; border-radius: 50%; background: #ece5d84d; transition: background 200ms ease, box-shadow 200ms ease; }
+#gi-attack-controls #gi-attack-toggle[aria-pressed="true"] {
     color: #fff8ea; background: linear-gradient(90deg, #a83a22f2, #e07436f2);
     box-shadow: inset 0 0 0 1.5px #ffd59a, 0 0 18px #ef7a35a6, 0 3px 10px #0008;
     animation: gi-attack-armed 1.8s ease-in-out infinite;
 }
-#gi-navigation #gi-attack-toggle[aria-pressed="true"] svg { background: #fff3; }
-#gi-navigation #gi-attack-toggle[aria-pressed="true"] svg path:first-child { fill: #fff5; }
-#gi-navigation #gi-attack-toggle[aria-pressed="true"] .gi-attack-pip { background: #fff2c4; box-shadow: 0 0 8px #ffe08a; }
+#gi-attack-controls #gi-attack-toggle[aria-pressed="true"] svg { background: #fff3; }
+#gi-attack-controls #gi-attack-toggle[aria-pressed="true"] svg path:first-child { fill: #fff5; }
+#gi-attack-controls #gi-attack-toggle[aria-pressed="true"] .gi-attack-pip { background: #fff2c4; box-shadow: 0 0 8px #ffe08a; }
 @keyframes gi-attack-armed { 50% { box-shadow: inset 0 0 0 1.5px #ffe7bd, 0 0 28px #ef7a35d9, 0 3px 10px #0008; } }
-@media (max-width: 360px) { #gi-navigation #gi-attack-toggle .gi-attack-label { display: none; } #gi-navigation #gi-attack-toggle { padding-right: 9px; } }
-body.gi-reduced-motion #gi-navigation #gi-attack-toggle { animation: none; }
-@media (prefers-reduced-motion: reduce) { #gi-navigation #gi-attack-toggle { animation: none; } }
+@media (max-width: 360px) { #gi-attack-controls #gi-attack-toggle .gi-attack-label { display: none; } #gi-attack-controls #gi-attack-toggle { padding-right: 9px; } }
+body.gi-reduced-motion #gi-attack-controls #gi-attack-toggle { animation: none; }
+@media (prefers-reduced-motion: reduce) { #gi-attack-controls #gi-attack-toggle { animation: none; } }
 
 /* ---------- Reroll Phase ---------- */
 #gi-elemental-roll .gi-roll-actions { display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 12px; margin: 14px 0 max(18px, 3vh); }
@@ -193,3 +193,12 @@ body.gi-reduced-motion #gi-navigation #gi-attack-toggle { animation: none; }
 #gi-wardrobe .gi-persona-depth[hidden] { display: none; }
 #gi-wardrobe input[type="file"] { display: block !important; width: 100%; max-width: 100%; margin: 8px 0; overflow: hidden; font: inherit; font-size: .85em; color: var(--ty-cream); }
 #gi-wardrobe input[type="file"]::file-selector-button { margin-right: 8px; padding: 6px 12px; border: 0; border-radius: 20px; background: var(--ty-cream); color: #364153; font: inherit; cursor: pointer; }
+
+/* Attack lives in the Teyvat Choices column, aligned with the refresh button. */
+#gi-attack-controls { position: static; left: auto; top: auto; display: flex; align-items: center; gap: 6px; width: max-content; }
+#gi-attack-controls[hidden] { display: none !important; }
+#gi-attack-controls #gi-attack-target { position: static; width: min(150px, 32vw); }
+#gi-attack-dock { position: fixed; z-index: 5; right: 4vw; bottom: calc(var(--gi-composer-height, 0px) + var(--gi-dialogue-height, 204px) + 102px + env(safe-area-inset-bottom, 0px)); display: flex; justify-content: flex-end; pointer-events: none; }
+#gi-attack-dock > * { pointer-events: auto; }
+body:not(.gi-scene) #gi-attack-dock, body.gi-history #gi-attack-dock { display: none; }
+#gi-choices .gi-choices-heading:has(#gi-attack-controls:not([hidden])) { position: static !important; }

@@ -6,7 +6,7 @@ export function isJourneyGroup(group){
 }
 // Groups made before the single updating group per chat are leftovers.
 export const isLegacyJourneyGroup=group=>isJourneyGroup(group)&&group.silly_teyvat_journey?.managed!==true;
-// Delete journey groups made before travel moved into a virtual party. Returns the ids removed; the open group is left alone.
+// Delete journey groups made before the single updating group per chat. Returns the ids removed; the open group is left alone.
 export async function purgeLegacyJourneys(ctx,fetchImpl=fetch){
     const removed=[];
     for(const group of [...(ctx.groups || [])].filter(isLegacyJourneyGroup)){

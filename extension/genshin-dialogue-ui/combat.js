@@ -42,11 +42,20 @@ export function mountCombat({host,getContext,onChange=()=>{},announce=()=>{},ada
     const panel=document.createElement('aside');panel.id='gi-combat';panel.setAttribute('aria-label','Hostile encounters');panel.hidden=true;host.append(panel);
     const controls=document.createElement('div');controls.id='gi-attack-controls';controls.hidden=true;
     controls.innerHTML='<button id="gi-attack-toggle" type="button" aria-label="Attack after sending a message" aria-pressed="false" title="Attack after sending: off"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17 3h4v4L10 18l-4-4Z"/><path d="m4 12 8 8M8 16l-5 5M2 22l2-2"/></svg><span class="gi-attack-label">Attack</span><i class="gi-attack-pip" aria-hidden="true"></i></button><select id="gi-attack-target" aria-label="Attack target" hidden></select>';
-    (host.querySelector('#gi-navigation') || host).append(controls);
+    // Attack sits in the Teyvat Choices column: beside the refresh button when
+    // choices are in use, otherwise where the choices panel would be.
+    const dock=document.createElement('div');dock.id='gi-attack-dock';host.append(dock);
+    function placeControls(){
+        const panel=host.querySelector('#gi-choices'),heading=panel?.querySelector('.gi-choices-heading'),refresh=heading?.querySelector('.gi-choice-refresh');
+        if(panel&&refresh&&!panel.hidden&&!refresh.hidden&&panel.getClientRects().length){if(controls.parentElement!==heading||controls.nextElementSibling!==refresh)heading.insertBefore(controls,refresh);}
+        else if(controls.parentElement!==dock)dock.append(controls);
+    }
+    const layout=new MutationObserver(placeControls);layout.observe(host,{subtree:true,childList:true,attributes:true,attributeFilter:['hidden']});layout.observe(document.body,{attributes:true,attributeFilter:['class']});placeControls();
     const sword=controls.querySelector('button'),targetSelect=controls.querySelector('select'),abort=new AbortController();
     const dice=diceAdapter || mountElementalDice({host});const hits=new Map(),shown=new Map();let disposed=false,busy=false,enabled=false,writing=false,revision=0,key='',paint='',lastId=-1,armed=false,target='',visit='',lastView={};
     const eligibleEnemies=ctx=>{const disabled=activeGroup(ctx)?.disabled_members || [];return activeEnemies(ctx).filter(e=>!disabled.includes(e.avatar));};
     function paintControls(enemies=eligibleEnemies(getContext())){
+        placeControls();
         controls.hidden=!enabled||!lastView.show||lastId<getContext().chat.length-1||!enemies.length;
         sword.disabled=busy||writing;sword.setAttribute('aria-pressed',String(armed));sword.title=`Attack after sending: ${armed?'on':'off'}`;
         const signature=JSON.stringify(enemies.map(e=>[e.avatar,getContext().characters.find(c=>c.avatar===e.avatar)?.name]));
@@ -135,6 +144,6 @@ export function mountCombat({host,getContext,onChange=()=>{},announce=()=>{},ada
             }
             if(!historical)for(const a of [...shown.keys()])if(!display.some(e=>e.avatar===a))shown.delete(a);
         },
-        dispose(){disposed=true;enabled=false;revision++;abort.abort();dice.dispose?.();controls.remove();panel.remove();syncCombatPrompt(getContext(),false);},
+        dispose(){disposed=true;enabled=false;revision++;abort.abort();layout.disconnect();dice.dispose?.();controls.remove();dock.remove();panel.remove();syncCombatPrompt(getContext(),false);},
     };
 }

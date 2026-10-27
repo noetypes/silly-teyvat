@@ -1,4 +1,4 @@
-import {activeGroup,inPartyChat,setVirtualParty} from './party.js';
+import {activeGroup,inPartyChat} from './party.js';
 import {beginOpeningScene,openingCharacter} from './opening-scene.js';
 import {isEnemy} from './character-properties.js';
 import {activeEnemies} from './combat-state.js';
@@ -127,7 +127,7 @@ export function commitTeleportParty(ctx,plan){
 export function makeGroupSnapshot(ctx,members,cast){
     const character=ctx.characters?.[ctx.characterId];if(!character)throw new Error('Select a character chat before meeting a resident.');
     const chatId=`Silly-Teyvat-${newLocalId()}`;
-    const metadata=structuredClone(ctx.chatMetadata || {});delete metadata.main_chat;delete (metadata.silly_teyvat_cast || {}).party;
+    const metadata=structuredClone(ctx.chatMetadata || {});delete metadata.main_chat;
     metadata.silly_teyvat_cast={...structuredClone(cast),source:{avatar:character.avatar,chatId:ctx.getCurrentChatId?.() || ctx.chatId || ''}};
     const messages=structuredClone(ctx.chat || []),stamp=Date.now();
     messages.forEach((message,index)=>{
@@ -187,12 +187,7 @@ export function createLocationCastAdapter(getContext,{loadScript=()=>import('/sc
                 await ctx.eventSource?.emit?.(ctx.eventTypes.GROUP_UPDATED,existing.id);
                 return true;
             }
-            if(mediaSettings(ctx).travelMode==='group')return enterJourneyGroup(ctx,plan,isCurrent,script);
-            // Solo chats keep their party in chat metadata. The conversation stays
-            // in one chat file no matter who joins or leaves.
-            setVirtualParty(ctx,plan.members);
-            await ctx.eventSource?.emit?.(ctx.eventTypes.GROUP_UPDATED,ctx.chatId);
-            return true;
+            return enterJourneyGroup(ctx,plan,isCurrent,script);
         },
     };
 }

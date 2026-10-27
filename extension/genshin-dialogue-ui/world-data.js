@@ -41,7 +41,7 @@ export function worldScalePrompt(ctx){
     const lines=['World scale',`Map: Teyvat. Scale: ${scale} metres per native map unit. Coordinates use east-positive x and south-positive y.`,
         `Current location: ${clean(current?.location.label || state.location?.label || 'Unknown')}. Current region: ${clean(region?.name || 'Unknown')}.`,
         `Distances below are straight-line horizontal distances from the current location, independent of map zoom. Walking reference: ${speed} km/h on unobstructed ground. Terrain, roads, water, climbing and pauses can increase travel time.`,
-        `Waypoint scope: ${mediaSettings(ctx).worldPromptAllRegions?'entire world':'current region only'}. Automatic movement stays within the selected region.`,
+        `Waypoint scope: ${mediaSettings(ctx).worldPromptAllRegions?'entire world':'current region only'}.`,
         'These are location facts for roleplay continuity. A listed destination is not an instruction to travel. Region changes require the player to select a region or use Teleport on the map.'];
     if(mediaSettings(ctx).locationEncounters!==false)lines.push('Linked characters at other destinations are potential encounters, not confirmed scene participants. Only the current party is confirmed present. The extension samples residents on arrival; do not introduce absent residents just because their location is listed.');
     if(!current)lines.push('Distance unknown: the current background has no linked map waypoint. Distances cannot be calculated until a current waypoint is chosen or linked.');
