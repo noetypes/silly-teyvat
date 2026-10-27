@@ -1,3 +1,7 @@
+# Silly Teyvat 1.28.1: Official Art by default
+
+- Characters whose Original set has fewer than two sprites (104 of them) start on their **Official Art** set. This happens once per character and never overrides a set you already equipped.
+
 # Silly Teyvat 1.28: Play as a character
 
 - **Play as.** Every character's Profile tab in the Wardrobe has a **Play as {name}** button. It creates (or reuses) a persona from the card's portrait, description and sprites and switches to it. While you play a character they leave the world's random encounters, location rosters and the Wardrobe menu.
