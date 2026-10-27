@@ -1,0 +1,8 @@
+{
+  "mode": "built-in image_gen edit",
+  "reference": "Original game screenshot from HoYoLAB map point 101980",
+  "sourceURL": "https://act-upload.hoyoverse.com/upload/wiki-ys-map/2026/08/23/83669853/fbaebfb181178e6f8e5459754101fa52_5179288501262919583.png",
+  "generatedFile": "svetloledovka.png",
+  "prompt": "Use case: precise-object-edit. Asset type: full-width visual novel location background. Input image is the edit target, a ground-level Genshin Impact screenshot of Svetloledovka. Remove ALL game overlays and ALL people: the central blonde playable character, the NPC beside the crates, all distant people, minimap, quest text, icons, controls, party list, HP bars, names, labels, UID and any captions. Reconstruct the stone floor and scenery where they were. Preserve the exact ground-level camera, crane, hanging rope, stone platform and railing, crates, blue icy mine cliffs, night sky, snow and architecture. This is cleanup only; no new buildings, no changed viewpoint, no aerial shot, no added characters, no lettering or logos. Keep the original stylized in-game rendering and blue nighttime lighting. Wide landscape 16:9 opaque image.",
+  "review": "Ground-level scenery visually inspected. Player, NPCs and game overlays removed. This is an AI-cleaned derivative, not an untouched official screenshot."
+}

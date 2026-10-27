@@ -1,0 +1,12 @@
+#gi-cg-stage { position: fixed; inset: 0; z-index: 2; background: #141c27; pointer-events: none; }
+#gi-cg-stage img { width: 100%; height: 100%; object-fit: contain; }
+#gi-cg-stage[hidden], #gi-cg-window[hidden] { display: none !important; }
+body.gi-cg-replace :is(#expression-wrapper, #visual-novel-wrapper, #gi-sprite-stage) { visibility: hidden !important; }
+#gi-cg-window { box-sizing: border-box; position: fixed; z-index: 102; top: 64px; left: 18vw; width: 64vw; height: 50dvh; min-width: 180px; min-height: 120px; max-width: calc(100vw - 12px); max-height: calc(100dvh - 12px); display: flex; flex-direction: column; overflow: hidden; border: 2px solid #d7bd84; border-radius: 10px; box-shadow: 0 12px 40px #0009,inset 0 0 0 3px #d7bd8426; color: #f6e6c1; background: #202e40; font: 14px/1.3 "Silly Teyvat Dialogue",sans-serif; }
+#gi-cg-window header { display: flex; align-items: center; justify-content: space-between; gap: 8px; padding: 0 6px 0 12px; min-height: 36px; flex: 0 0 auto; cursor: move; touch-action: none; background: linear-gradient(100deg,#40526a,#26374d); }
+#gi-cg-window button { border: 0; color: inherit; background: transparent; cursor: pointer; font: inherit; }
+#gi-cg-window header button { min-width: 36px; min-height: 36px; font-size: 24px; }
+#gi-cg-window > img { display: block; flex: 1; min-height: 0; width: 100%; object-fit: contain; background: #101b2a; }
+#gi-cg-window .gi-cg-resize { position: absolute; right: 0; bottom: 0; width: 32px; height: 32px; cursor: nwse-resize; touch-action: none; background: #26374dcc; }
+#gi-cg-window button:focus-visible { outline: 2px solid #f1d79c; outline-offset: -3px; }
+@media (max-width: 600px) and (orientation: portrait) { #gi-cg-window { left: 6vw; width: 88vw; height: 35dvh; } }

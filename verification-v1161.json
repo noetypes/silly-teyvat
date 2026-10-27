@@ -1,0 +1,64 @@
+{
+  "extension": "Silly Teyvat",
+  "version": "1.16.1",
+  "verified": "2026-10-26",
+  "automatedChecks": 80,
+  "suites": [
+    {
+      "suite": "browser-model",
+      "checks": 25,
+      "passed": true
+    },
+    {
+      "suite": "browser-combat",
+      "checks": 20,
+      "passed": true
+    },
+    {
+      "suite": "check-combat",
+      "checks": 30,
+      "passed": true
+    },
+    {
+      "suite": "check-assets",
+      "checks": 5,
+      "passed": true
+    }
+  ],
+  "javascriptModulesParsed": 54,
+  "previousReleaseBaseline": {
+    "version": "1.16.0",
+    "automatedChecks": 553,
+    "report": "verification-v116.json"
+  },
+  "asset": {
+    "format": "glTF 2.0",
+    "source": "User-supplied Elemental_Dice_-_Genshin_Impact_(TCG) folder",
+    "vertices": 27824,
+    "triangles": 43312,
+    "textures": 4,
+    "textureResolution": [
+      2048,
+      2048
+    ],
+    "meshAndTexturesByteIdentical": true,
+    "renderer": "Three.js 0.186.1 (locally bundled, MIT)",
+    "thirdPartyModelLicense": "No license/creator document included; not covered by project MIT license."
+  },
+  "visualChecks": [
+    "All eight outcomes use the correct textured model face",
+    "1440 \u00d7 900 desktop",
+    "402 \u00d7 874 portrait",
+    "874 \u00d7 402 landscape",
+    "Rotating a visible result preserves the same faces and total",
+    "Normal disposable combat action: 2 allies + 2 dice, 6 damage; Continue updates enemy from 12 HP to 6 HP once"
+  ],
+  "installedFilesMatchRecursively": true,
+  "scope": "Dice model/rendering only; native cards, chats, sprites, world configuration and combat rules were not edited.",
+  "limits": [
+    "No live LLM/API generation was requested; combat preview uses disposable adapters.",
+    "Responsive viewport checks are not physical-device tests.",
+    "The supplied model has no animation clip; motion is a TCG-inspired reconstruction.",
+    "WebGL/model failures preserve the exact result in accessible text."
+  ]
+}

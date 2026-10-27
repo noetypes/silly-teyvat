@@ -1,0 +1,6005 @@
+{
+  "Fatui Cryo Cicin Mage": {
+    "role": "enemy",
+    "playable": false,
+    "maxHp": 30,
+    "deathMessage": "{name} falls still. The threat has passed."
+  },
+  "Fatui Pyro Agent": {
+    "role": "enemy",
+    "playable": false,
+    "maxHp": 30,
+    "deathMessage": "{name} falls still. The threat has passed."
+  },
+  "Hilichurl Fighter": {
+    "role": "enemy",
+    "playable": false,
+    "maxHp": 30,
+    "deathMessage": "{name} falls still. The threat has passed."
+  },
+  "Hilichurl Shooter": {
+    "role": "enemy",
+    "playable": false,
+    "maxHp": 30,
+    "deathMessage": "{name} falls still. The threat has passed."
+  },
+  "Hydro Samachurl": {
+    "role": "enemy",
+    "playable": false,
+    "maxHp": 30,
+    "deathMessage": "{name} falls still. The threat has passed."
+  },
+  "Treasure Hoarders - Marksman": {
+    "role": "enemy",
+    "playable": false,
+    "maxHp": 30,
+    "deathMessage": "{name} falls still. The threat has passed."
+  },
+  "Treasure Hoarders - Scout": {
+    "role": "enemy",
+    "playable": false,
+    "maxHp": 30,
+    "deathMessage": "{name} falls still. The threat has passed."
+  },
+  "Treasure Hoarders: Gravedigger": {
+    "role": "enemy",
+    "playable": false,
+    "maxHp": 30,
+    "deathMessage": "{name} falls still. The threat has passed."
+  },
+  "Treasure Hoarders: Pyro Potioneer": {
+    "role": "enemy",
+    "playable": false,
+    "maxHp": 30,
+    "deathMessage": "{name} falls still. The threat has passed."
+  },
+  "Wooden Shieldwall Mitachurl": {
+    "role": "enemy",
+    "playable": false,
+    "maxHp": 30,
+    "deathMessage": "{name} falls still. The threat has passed."
+  },
+  "Cryo Whopperflower": {
+    "role": "enemy",
+    "playable": false,
+    "maxHp": 30,
+    "deathMessage": "{name} falls still. The threat has passed."
+  },
+  "Eremite Sunfrost": {
+    "role": "enemy",
+    "playable": false,
+    "maxHp": 30,
+    "deathMessage": "{name} falls still. The threat has passed."
+  },
+  "Fatui Skirmisher - Anemoboxer Vanguard": {
+    "role": "enemy",
+    "playable": false,
+    "maxHp": 30,
+    "deathMessage": "{name} falls still. The threat has passed."
+  },
+  "Fatui Skirmisher - Pyroslinger Bracer": {
+    "role": "enemy",
+    "playable": false,
+    "maxHp": 30,
+    "deathMessage": "{name} falls still. The threat has passed."
+  },
+  "Geo Slime": {
+    "role": "enemy",
+    "playable": false,
+    "maxHp": 30,
+    "deathMessage": "{name} falls still. The threat has passed."
+  },
+  "Hydro Slime": {
+    "role": "enemy",
+    "playable": false,
+    "maxHp": 30,
+    "deathMessage": "{name} falls still. The threat has passed."
+  },
+  "Large Electro Slime": {
+    "role": "enemy",
+    "playable": false,
+    "maxHp": 30,
+    "deathMessage": "{name} falls still. The threat has passed."
+  },
+  "Large Pyro Slime": {
+    "role": "enemy",
+    "playable": false,
+    "maxHp": 30,
+    "deathMessage": "{name} falls still. The threat has passed."
+  },
+  "Pyro Abyss Mage": {
+    "role": "enemy",
+    "playable": false,
+    "maxHp": 30,
+    "deathMessage": "{name} falls still. The threat has passed."
+  },
+  "Ruin Guard": {
+    "role": "enemy",
+    "playable": false,
+    "maxHp": 30,
+    "deathMessage": "{name} falls still. The threat has passed."
+  },
+  "Lisa": {
+    "playable": true,
+    "element": "Electro",
+    "elementMode": "fixed",
+    "defaultElement": "Electro",
+    "supportedElements": null,
+    "modelType": "tall female",
+    "modelTypeStatus": "verified-wiki-category",
+    "region": "Mondstadt",
+    "regionStatus": "verified",
+    "visionStatus": "element-tagged; literal possession not separately asserted",
+    "sources": [
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Lisa",
+        "supports": [
+          "playability",
+          "element",
+          "region"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Lisa",
+        "supports": [
+          "modelType"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Character/List",
+        "supports": [
+          "current-roster cross-check"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Category:Tall_Female_Characters",
+        "supports": [
+          "modelType"
+        ],
+        "checked": "2026-10-26"
+      }
+    ],
+    "notes": [],
+    "role": "character"
+  },
+  "Diluc": {
+    "playable": true,
+    "element": "Pyro",
+    "elementMode": "fixed",
+    "defaultElement": "Pyro",
+    "supportedElements": null,
+    "modelType": "tall male",
+    "modelTypeStatus": "verified-wiki-category",
+    "region": "Mondstadt",
+    "regionStatus": "verified",
+    "visionStatus": "element-tagged; literal possession not separately asserted",
+    "sources": [
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Diluc",
+        "supports": [
+          "playability",
+          "element",
+          "region"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Diluc",
+        "supports": [
+          "modelType"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Character/List",
+        "supports": [
+          "current-roster cross-check"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Category:Tall_Male_Characters",
+        "supports": [
+          "modelType"
+        ],
+        "checked": "2026-10-26"
+      }
+    ],
+    "notes": [],
+    "role": "character"
+  },
+  "Diona": {
+    "playable": true,
+    "element": "Cryo",
+    "elementMode": "fixed",
+    "defaultElement": "Cryo",
+    "supportedElements": null,
+    "modelType": "small female",
+    "modelTypeStatus": "verified-wiki-category",
+    "region": "Mondstadt",
+    "regionStatus": "verified",
+    "visionStatus": "element-tagged; literal possession not separately asserted",
+    "sources": [
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Diona",
+        "supports": [
+          "playability",
+          "element",
+          "region"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Diona",
+        "supports": [
+          "modelType"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Character/List",
+        "supports": [
+          "current-roster cross-check"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Category:Short_Female_Characters",
+        "supports": [
+          "modelType"
+        ],
+        "checked": "2026-10-26"
+      }
+    ],
+    "notes": [],
+    "role": "character"
+  },
+  "Jean": {
+    "playable": true,
+    "element": "Anemo",
+    "elementMode": "fixed",
+    "defaultElement": "Anemo",
+    "supportedElements": null,
+    "modelType": "tall female",
+    "modelTypeStatus": "verified-wiki-category",
+    "region": "Mondstadt",
+    "regionStatus": "verified",
+    "visionStatus": "element-tagged; literal possession not separately asserted",
+    "sources": [
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Jean",
+        "supports": [
+          "playability",
+          "element",
+          "region"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Jean",
+        "supports": [
+          "modelType"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Character/List",
+        "supports": [
+          "current-roster cross-check"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Category:Tall_Female_Characters",
+        "supports": [
+          "modelType"
+        ],
+        "checked": "2026-10-26"
+      }
+    ],
+    "notes": [],
+    "role": "character"
+  },
+  "Klee": {
+    "playable": true,
+    "element": "Pyro",
+    "elementMode": "fixed",
+    "defaultElement": "Pyro",
+    "supportedElements": null,
+    "modelType": "small female",
+    "modelTypeStatus": "verified-wiki-category",
+    "region": "Mondstadt",
+    "regionStatus": "verified",
+    "visionStatus": "element-tagged; literal possession not separately asserted",
+    "sources": [
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Klee",
+        "supports": [
+          "playability",
+          "element",
+          "region"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Klee",
+        "supports": [
+          "modelType"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Character/List",
+        "supports": [
+          "current-roster cross-check"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Category:Short_Female_Characters",
+        "supports": [
+          "modelType"
+        ],
+        "checked": "2026-10-26"
+      }
+    ],
+    "notes": [],
+    "role": "character"
+  },
+  "Kaeya": {
+    "playable": true,
+    "element": "Cryo",
+    "elementMode": "fixed",
+    "defaultElement": "Cryo",
+    "supportedElements": null,
+    "modelType": "tall male",
+    "modelTypeStatus": "verified-wiki-category",
+    "region": "Mondstadt",
+    "regionStatus": "verified",
+    "visionStatus": "element-tagged; literal possession not separately asserted",
+    "sources": [
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Kaeya",
+        "supports": [
+          "playability",
+          "element",
+          "region"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Kaeya",
+        "supports": [
+          "modelType"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Character/List",
+        "supports": [
+          "current-roster cross-check"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Category:Tall_Male_Characters",
+        "supports": [
+          "modelType"
+        ],
+        "checked": "2026-10-26"
+      }
+    ],
+    "notes": [],
+    "role": "character"
+  },
+  "Albedo": {
+    "playable": true,
+    "element": "Geo",
+    "elementMode": "fixed",
+    "defaultElement": "Geo",
+    "supportedElements": null,
+    "modelType": "medium male",
+    "modelTypeStatus": "verified-wiki-category",
+    "region": "Mondstadt",
+    "regionStatus": "verified",
+    "visionStatus": "element-tagged; literal possession not separately asserted",
+    "sources": [
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Albedo",
+        "supports": [
+          "playability",
+          "element",
+          "region"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Albedo",
+        "supports": [
+          "modelType"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Character/List",
+        "supports": [
+          "current-roster cross-check"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Category:Medium_Male_Characters",
+        "supports": [
+          "modelType"
+        ],
+        "checked": "2026-10-26"
+      }
+    ],
+    "notes": [],
+    "role": "character"
+  },
+  "Fischl": {
+    "playable": true,
+    "element": "Electro",
+    "elementMode": "fixed",
+    "defaultElement": "Electro",
+    "supportedElements": null,
+    "modelType": "medium female",
+    "modelTypeStatus": "verified-wiki-category",
+    "region": "Mondstadt",
+    "regionStatus": "verified",
+    "visionStatus": "element-tagged; literal possession not separately asserted",
+    "sources": [
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Fischl",
+        "supports": [
+          "playability",
+          "element",
+          "region"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Fischl",
+        "supports": [
+          "modelType"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Character/List",
+        "supports": [
+          "current-roster cross-check"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Category:Medium_Female_Characters",
+        "supports": [
+          "modelType"
+        ],
+        "checked": "2026-10-26"
+      }
+    ],
+    "notes": [],
+    "role": "character"
+  },
+  "Mona": {
+    "playable": true,
+    "element": "Hydro",
+    "elementMode": "fixed",
+    "defaultElement": "Hydro",
+    "supportedElements": null,
+    "modelType": "medium female",
+    "modelTypeStatus": "verified-wiki-category",
+    "region": "Mondstadt",
+    "regionStatus": "verified",
+    "visionStatus": "element-tagged; literal possession not separately asserted",
+    "sources": [
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Mona",
+        "supports": [
+          "playability",
+          "element",
+          "region"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Mona",
+        "supports": [
+          "modelType"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Character/List",
+        "supports": [
+          "current-roster cross-check"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Category:Medium_Female_Characters",
+        "supports": [
+          "modelType"
+        ],
+        "checked": "2026-10-26"
+      }
+    ],
+    "notes": [],
+    "role": "character"
+  },
+  "Sucrose": {
+    "playable": true,
+    "element": "Anemo",
+    "elementMode": "fixed",
+    "defaultElement": "Anemo",
+    "supportedElements": null,
+    "modelType": "medium female",
+    "modelTypeStatus": "verified-wiki-category",
+    "region": "Mondstadt",
+    "regionStatus": "verified",
+    "visionStatus": "element-tagged; literal possession not separately asserted",
+    "sources": [
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Sucrose",
+        "supports": [
+          "playability",
+          "element",
+          "region"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Sucrose",
+        "supports": [
+          "modelType"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Character/List",
+        "supports": [
+          "current-roster cross-check"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Category:Medium_Female_Characters",
+        "supports": [
+          "modelType"
+        ],
+        "checked": "2026-10-26"
+      }
+    ],
+    "notes": [],
+    "role": "character"
+  },
+  "Prune": {
+    "playable": true,
+    "element": "Anemo",
+    "elementMode": "fixed",
+    "defaultElement": "Anemo",
+    "supportedElements": null,
+    "modelType": "small female",
+    "modelTypeStatus": "verified-wiki-category",
+    "region": "Mondstadt",
+    "regionStatus": "verified",
+    "visionStatus": "element-tagged; literal possession not separately asserted",
+    "sources": [
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Prune",
+        "supports": [
+          "playability",
+          "element",
+          "region"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Prune",
+        "supports": [
+          "modelType"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Character/List",
+        "supports": [
+          "current-roster cross-check"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Category:Short_Female_Characters",
+        "supports": [
+          "modelType"
+        ],
+        "checked": "2026-10-26"
+      }
+    ],
+    "notes": [],
+    "role": "character"
+  },
+  "Qiqi": {
+    "playable": true,
+    "element": "Cryo",
+    "elementMode": "fixed",
+    "defaultElement": "Cryo",
+    "supportedElements": null,
+    "modelType": "small female",
+    "modelTypeStatus": "verified-wiki-category",
+    "region": "Liyue",
+    "regionStatus": "verified",
+    "visionStatus": "element-tagged; literal possession not separately asserted",
+    "sources": [
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Qiqi",
+        "supports": [
+          "playability",
+          "element",
+          "region"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Qiqi",
+        "supports": [
+          "modelType"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Character/List",
+        "supports": [
+          "current-roster cross-check"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Category:Short_Female_Characters",
+        "supports": [
+          "modelType"
+        ],
+        "checked": "2026-10-26"
+      }
+    ],
+    "notes": [],
+    "role": "character"
+  },
+  "Baizhu": {
+    "playable": true,
+    "element": "Dendro",
+    "elementMode": "fixed",
+    "defaultElement": "Dendro",
+    "supportedElements": null,
+    "modelType": "tall male",
+    "modelTypeStatus": "verified-wiki-category",
+    "region": "Liyue",
+    "regionStatus": "verified",
+    "visionStatus": "element-tagged; literal possession not separately asserted",
+    "sources": [
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Baizhu",
+        "supports": [
+          "playability",
+          "element",
+          "region"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Baizhu",
+        "supports": [
+          "modelType"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Character/List",
+        "supports": [
+          "current-roster cross-check"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Category:Tall_Male_Characters",
+        "supports": [
+          "modelType"
+        ],
+        "checked": "2026-10-26"
+      }
+    ],
+    "notes": [],
+    "role": "character"
+  },
+  "Hu Tao": {
+    "playable": true,
+    "element": "Pyro",
+    "elementMode": "fixed",
+    "defaultElement": "Pyro",
+    "supportedElements": null,
+    "modelType": "medium female",
+    "modelTypeStatus": "verified-wiki-category",
+    "region": "Liyue",
+    "regionStatus": "verified",
+    "visionStatus": "element-tagged; literal possession not separately asserted",
+    "sources": [
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Hu_Tao",
+        "supports": [
+          "playability",
+          "element",
+          "region"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Hu_Tao",
+        "supports": [
+          "modelType"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Character/List",
+        "supports": [
+          "current-roster cross-check"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Category:Medium_Female_Characters",
+        "supports": [
+          "modelType"
+        ],
+        "checked": "2026-10-26"
+      }
+    ],
+    "notes": [],
+    "role": "character"
+  },
+  "Zhongli": {
+    "playable": true,
+    "element": "Geo",
+    "elementMode": "fixed",
+    "defaultElement": "Geo",
+    "supportedElements": null,
+    "modelType": "tall male",
+    "modelTypeStatus": "verified-wiki-category",
+    "region": "Liyue",
+    "regionStatus": "verified",
+    "visionStatus": "not-asserted",
+    "sources": [
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Zhongli",
+        "supports": [
+          "playability",
+          "element",
+          "region"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Zhongli",
+        "supports": [
+          "modelType"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Character/List",
+        "supports": [
+          "current-roster cross-check"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Category:Tall_Male_Characters",
+        "supports": [
+          "modelType"
+        ],
+        "checked": "2026-10-26"
+      }
+    ],
+    "notes": [
+      "Element is the character’s combat affinity; do not treat it as proof of a literal Vision."
+    ],
+    "role": "character"
+  },
+  "Xiangling": {
+    "playable": true,
+    "element": "Pyro",
+    "elementMode": "fixed",
+    "defaultElement": "Pyro",
+    "supportedElements": null,
+    "modelType": "medium female",
+    "modelTypeStatus": "verified-wiki-category",
+    "region": "Liyue",
+    "regionStatus": "verified",
+    "visionStatus": "element-tagged; literal possession not separately asserted",
+    "sources": [
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Xiangling",
+        "supports": [
+          "playability",
+          "element",
+          "region"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Xiangling",
+        "supports": [
+          "modelType"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Character/List",
+        "supports": [
+          "current-roster cross-check"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Category:Medium_Female_Characters",
+        "supports": [
+          "modelType"
+        ],
+        "checked": "2026-10-26"
+      }
+    ],
+    "notes": [],
+    "role": "character"
+  },
+  "Xiao": {
+    "playable": true,
+    "element": "Anemo",
+    "elementMode": "fixed",
+    "defaultElement": "Anemo",
+    "supportedElements": null,
+    "modelType": "medium male",
+    "modelTypeStatus": "verified-wiki-category",
+    "region": "Liyue",
+    "regionStatus": "verified",
+    "visionStatus": "element-tagged; literal possession not separately asserted",
+    "sources": [
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Xiao",
+        "supports": [
+          "playability",
+          "element",
+          "region"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Xiao",
+        "supports": [
+          "modelType"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Character/List",
+        "supports": [
+          "current-roster cross-check"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Category:Medium_Male_Characters",
+        "supports": [
+          "modelType"
+        ],
+        "checked": "2026-10-26"
+      }
+    ],
+    "notes": [],
+    "role": "character"
+  },
+  "Ningguang": {
+    "playable": true,
+    "element": "Geo",
+    "elementMode": "fixed",
+    "defaultElement": "Geo",
+    "supportedElements": null,
+    "modelType": "tall female",
+    "modelTypeStatus": "verified-wiki-category",
+    "region": "Liyue",
+    "regionStatus": "verified",
+    "visionStatus": "element-tagged; literal possession not separately asserted",
+    "sources": [
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Ningguang",
+        "supports": [
+          "playability",
+          "element",
+          "region"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Ningguang",
+        "supports": [
+          "modelType"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Character/List",
+        "supports": [
+          "current-roster cross-check"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Category:Tall_Female_Characters",
+        "supports": [
+          "modelType"
+        ],
+        "checked": "2026-10-26"
+      }
+    ],
+    "notes": [],
+    "role": "character"
+  },
+  "Yaoyao": {
+    "playable": true,
+    "element": "Dendro",
+    "elementMode": "fixed",
+    "defaultElement": "Dendro",
+    "supportedElements": null,
+    "modelType": "small female",
+    "modelTypeStatus": "verified-wiki-category",
+    "region": "Liyue",
+    "regionStatus": "verified",
+    "visionStatus": "element-tagged; literal possession not separately asserted",
+    "sources": [
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Yaoyao",
+        "supports": [
+          "playability",
+          "element",
+          "region"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Yaoyao",
+        "supports": [
+          "modelType"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Character/List",
+        "supports": [
+          "current-roster cross-check"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Category:Short_Female_Characters",
+        "supports": [
+          "modelType"
+        ],
+        "checked": "2026-10-26"
+      }
+    ],
+    "notes": [],
+    "role": "character"
+  },
+  "Raiden Shogun": {
+    "playable": true,
+    "element": "Electro",
+    "elementMode": "fixed",
+    "defaultElement": "Electro",
+    "supportedElements": null,
+    "modelType": "tall female",
+    "modelTypeStatus": "verified-wiki-category",
+    "region": "Inazuma",
+    "regionStatus": "verified",
+    "visionStatus": "not-asserted",
+    "sources": [
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Raiden_Shogun",
+        "supports": [
+          "playability",
+          "element",
+          "region"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Raiden_Shogun",
+        "supports": [
+          "modelType"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Character/List",
+        "supports": [
+          "current-roster cross-check"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Category:Tall_Female_Characters",
+        "supports": [
+          "modelType"
+        ],
+        "checked": "2026-10-26"
+      }
+    ],
+    "notes": [
+      "Element is the character’s combat affinity; do not treat it as proof of a literal Vision."
+    ],
+    "role": "character"
+  },
+  "Yae Miko": {
+    "playable": true,
+    "element": "Electro",
+    "elementMode": "fixed",
+    "defaultElement": "Electro",
+    "supportedElements": null,
+    "modelType": "tall female",
+    "modelTypeStatus": "verified-wiki-category",
+    "region": "Inazuma",
+    "regionStatus": "verified",
+    "visionStatus": "element-tagged; literal possession not separately asserted",
+    "sources": [
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Yae_Miko",
+        "supports": [
+          "playability",
+          "element",
+          "region"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Yae_Miko",
+        "supports": [
+          "modelType"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Character/List",
+        "supports": [
+          "current-roster cross-check"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Category:Tall_Female_Characters",
+        "supports": [
+          "modelType"
+        ],
+        "checked": "2026-10-26"
+      }
+    ],
+    "notes": [],
+    "role": "character"
+  },
+  "Kamisato Ayaka": {
+    "playable": true,
+    "element": "Cryo",
+    "elementMode": "fixed",
+    "defaultElement": "Cryo",
+    "supportedElements": null,
+    "modelType": "medium female",
+    "modelTypeStatus": "verified-wiki-category",
+    "region": "Inazuma",
+    "regionStatus": "verified",
+    "visionStatus": "element-tagged; literal possession not separately asserted",
+    "sources": [
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Kamisato_Ayaka",
+        "supports": [
+          "playability",
+          "element",
+          "region"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Kamisato_Ayaka",
+        "supports": [
+          "modelType"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Character/List",
+        "supports": [
+          "current-roster cross-check"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Category:Medium_Female_Characters",
+        "supports": [
+          "modelType"
+        ],
+        "checked": "2026-10-26"
+      }
+    ],
+    "notes": [],
+    "role": "character"
+  },
+  "Kamisato Ayato": {
+    "playable": true,
+    "element": "Hydro",
+    "elementMode": "fixed",
+    "defaultElement": "Hydro",
+    "supportedElements": null,
+    "modelType": "tall male",
+    "modelTypeStatus": "verified-wiki-category",
+    "region": "Inazuma",
+    "regionStatus": "verified",
+    "visionStatus": "element-tagged; literal possession not separately asserted",
+    "sources": [
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Kamisato_Ayato",
+        "supports": [
+          "playability",
+          "element",
+          "region"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Kamisato_Ayato",
+        "supports": [
+          "modelType"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Character/List",
+        "supports": [
+          "current-roster cross-check"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Category:Tall_Male_Characters",
+        "supports": [
+          "modelType"
+        ],
+        "checked": "2026-10-26"
+      }
+    ],
+    "notes": [],
+    "role": "character"
+  },
+  "Thoma": {
+    "playable": true,
+    "element": "Pyro",
+    "elementMode": "fixed",
+    "defaultElement": "Pyro",
+    "supportedElements": null,
+    "modelType": "tall male",
+    "modelTypeStatus": "verified-wiki-category",
+    "region": "Inazuma",
+    "regionStatus": "verified",
+    "visionStatus": "element-tagged; literal possession not separately asserted",
+    "sources": [
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Thoma",
+        "supports": [
+          "playability",
+          "element",
+          "region"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Thoma",
+        "supports": [
+          "modelType"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Character/List",
+        "supports": [
+          "current-roster cross-check"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Category:Tall_Male_Characters",
+        "supports": [
+          "modelType"
+        ],
+        "checked": "2026-10-26"
+      }
+    ],
+    "notes": [],
+    "role": "character"
+  },
+  "Taroumaru": {
+    "playable": false,
+    "element": "None",
+    "elementMode": "none",
+    "defaultElement": null,
+    "supportedElements": null,
+    "modelType": "",
+    "modelTypeStatus": "not-applicable-npc-model",
+    "region": "Inazuma",
+    "regionStatus": "verified",
+    "visionStatus": "not-applicable",
+    "sources": [
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Taroumaru",
+        "supports": [
+          "playability",
+          "element",
+          "region"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Taroumaru",
+        "supports": [
+          "modelType"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Character/List",
+        "supports": [
+          "current-roster cross-check"
+        ],
+        "checked": "2026-10-26"
+      }
+    ],
+    "notes": [
+      "Taroumaru is a dog NPC; it does not have a playable body type."
+    ],
+    "role": "character"
+  },
+  "Sangonomiya Kokomi": {
+    "playable": true,
+    "element": "Hydro",
+    "elementMode": "fixed",
+    "defaultElement": "Hydro",
+    "supportedElements": null,
+    "modelType": "medium female",
+    "modelTypeStatus": "verified-wiki-category",
+    "region": "Inazuma",
+    "regionStatus": "verified",
+    "visionStatus": "element-tagged; literal possession not separately asserted",
+    "sources": [
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Sangonomiya_Kokomi",
+        "supports": [
+          "playability",
+          "element",
+          "region"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Sangonomiya_Kokomi",
+        "supports": [
+          "modelType"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Character/List",
+        "supports": [
+          "current-roster cross-check"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Category:Medium_Female_Characters",
+        "supports": [
+          "modelType"
+        ],
+        "checked": "2026-10-26"
+      }
+    ],
+    "notes": [],
+    "role": "character"
+  },
+  "Gorou": {
+    "playable": true,
+    "element": "Geo",
+    "elementMode": "fixed",
+    "defaultElement": "Geo",
+    "supportedElements": null,
+    "modelType": "medium male",
+    "modelTypeStatus": "verified-wiki-category",
+    "region": "Inazuma",
+    "regionStatus": "verified",
+    "visionStatus": "element-tagged; literal possession not separately asserted",
+    "sources": [
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Gorou",
+        "supports": [
+          "playability",
+          "element",
+          "region"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Gorou",
+        "supports": [
+          "modelType"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Character/List",
+        "supports": [
+          "current-roster cross-check"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Category:Medium_Male_Characters",
+        "supports": [
+          "modelType"
+        ],
+        "checked": "2026-10-26"
+      }
+    ],
+    "notes": [],
+    "role": "character"
+  },
+  "Nahida": {
+    "playable": true,
+    "element": "Dendro",
+    "elementMode": "fixed",
+    "defaultElement": "Dendro",
+    "supportedElements": null,
+    "modelType": "small female",
+    "modelTypeStatus": "verified-wiki-category",
+    "region": "Sumeru",
+    "regionStatus": "verified",
+    "visionStatus": "not-asserted",
+    "sources": [
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Nahida",
+        "supports": [
+          "playability",
+          "element",
+          "region"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Nahida",
+        "supports": [
+          "modelType"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Character/List",
+        "supports": [
+          "current-roster cross-check"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Category:Short_Female_Characters",
+        "supports": [
+          "modelType"
+        ],
+        "checked": "2026-10-26"
+      }
+    ],
+    "notes": [
+      "Element is the character’s combat affinity; do not treat it as proof of a literal Vision."
+    ],
+    "role": "character"
+  },
+  "Alhaitham": {
+    "playable": true,
+    "element": "Dendro",
+    "elementMode": "fixed",
+    "defaultElement": "Dendro",
+    "supportedElements": null,
+    "modelType": "tall male",
+    "modelTypeStatus": "verified-wiki-category",
+    "region": "Sumeru",
+    "regionStatus": "verified",
+    "visionStatus": "element-tagged; literal possession not separately asserted",
+    "sources": [
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Alhaitham",
+        "supports": [
+          "playability",
+          "element",
+          "region"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Alhaitham",
+        "supports": [
+          "modelType"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Character/List",
+        "supports": [
+          "current-roster cross-check"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Category:Tall_Male_Characters",
+        "supports": [
+          "modelType"
+        ],
+        "checked": "2026-10-26"
+      }
+    ],
+    "notes": [],
+    "role": "character"
+  },
+  "Kaveh": {
+    "playable": true,
+    "element": "Dendro",
+    "elementMode": "fixed",
+    "defaultElement": "Dendro",
+    "supportedElements": null,
+    "modelType": "tall male",
+    "modelTypeStatus": "verified-wiki-category",
+    "region": "Sumeru",
+    "regionStatus": "verified",
+    "visionStatus": "element-tagged; literal possession not separately asserted",
+    "sources": [
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Kaveh",
+        "supports": [
+          "playability",
+          "element",
+          "region"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Kaveh",
+        "supports": [
+          "modelType"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Character/List",
+        "supports": [
+          "current-roster cross-check"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Category:Tall_Male_Characters",
+        "supports": [
+          "modelType"
+        ],
+        "checked": "2026-10-26"
+      }
+    ],
+    "notes": [],
+    "role": "character"
+  },
+  "Tighnari": {
+    "playable": true,
+    "element": "Dendro",
+    "elementMode": "fixed",
+    "defaultElement": "Dendro",
+    "supportedElements": null,
+    "modelType": "medium male",
+    "modelTypeStatus": "verified-wiki-category",
+    "region": "Sumeru",
+    "regionStatus": "verified",
+    "visionStatus": "element-tagged; literal possession not separately asserted",
+    "sources": [
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Tighnari",
+        "supports": [
+          "playability",
+          "element",
+          "region"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Tighnari",
+        "supports": [
+          "modelType"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Character/List",
+        "supports": [
+          "current-roster cross-check"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Category:Medium_Male_Characters",
+        "supports": [
+          "modelType"
+        ],
+        "checked": "2026-10-26"
+      }
+    ],
+    "notes": [],
+    "role": "character"
+  },
+  "Collei": {
+    "playable": true,
+    "element": "Dendro",
+    "elementMode": "fixed",
+    "defaultElement": "Dendro",
+    "supportedElements": null,
+    "modelType": "medium female",
+    "modelTypeStatus": "verified-wiki-category",
+    "region": "Sumeru",
+    "regionStatus": "verified",
+    "visionStatus": "element-tagged; literal possession not separately asserted",
+    "sources": [
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Collei",
+        "supports": [
+          "playability",
+          "element",
+          "region"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Collei",
+        "supports": [
+          "modelType"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Character/List",
+        "supports": [
+          "current-roster cross-check"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Category:Medium_Female_Characters",
+        "supports": [
+          "modelType"
+        ],
+        "checked": "2026-10-26"
+      }
+    ],
+    "notes": [],
+    "role": "character"
+  },
+  "Nilou": {
+    "playable": true,
+    "element": "Hydro",
+    "elementMode": "fixed",
+    "defaultElement": "Hydro",
+    "supportedElements": null,
+    "modelType": "medium female",
+    "modelTypeStatus": "verified-wiki-category",
+    "region": "Sumeru",
+    "regionStatus": "verified",
+    "visionStatus": "element-tagged; literal possession not separately asserted",
+    "sources": [
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Nilou",
+        "supports": [
+          "playability",
+          "element",
+          "region"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Nilou",
+        "supports": [
+          "modelType"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Character/List",
+        "supports": [
+          "current-roster cross-check"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Category:Medium_Female_Characters",
+        "supports": [
+          "modelType"
+        ],
+        "checked": "2026-10-26"
+      }
+    ],
+    "notes": [],
+    "role": "character"
+  },
+  "Candace": {
+    "playable": true,
+    "element": "Hydro",
+    "elementMode": "fixed",
+    "defaultElement": "Hydro",
+    "supportedElements": null,
+    "modelType": "tall female",
+    "modelTypeStatus": "verified-wiki-category",
+    "region": "Sumeru",
+    "regionStatus": "verified",
+    "visionStatus": "element-tagged; literal possession not separately asserted",
+    "sources": [
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Candace",
+        "supports": [
+          "playability",
+          "element",
+          "region"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Candace",
+        "supports": [
+          "modelType"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Character/List",
+        "supports": [
+          "current-roster cross-check"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Category:Tall_Female_Characters",
+        "supports": [
+          "modelType"
+        ],
+        "checked": "2026-10-26"
+      }
+    ],
+    "notes": [],
+    "role": "character"
+  },
+  "Dehya": {
+    "playable": true,
+    "element": "Pyro",
+    "elementMode": "fixed",
+    "defaultElement": "Pyro",
+    "supportedElements": null,
+    "modelType": "tall female",
+    "modelTypeStatus": "verified-wiki-category",
+    "region": "Sumeru",
+    "regionStatus": "verified",
+    "visionStatus": "element-tagged; literal possession not separately asserted",
+    "sources": [
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Dehya",
+        "supports": [
+          "playability",
+          "element",
+          "region"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Dehya",
+        "supports": [
+          "modelType"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Character/List",
+        "supports": [
+          "current-roster cross-check"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Category:Tall_Female_Characters",
+        "supports": [
+          "modelType"
+        ],
+        "checked": "2026-10-26"
+      }
+    ],
+    "notes": [],
+    "role": "character"
+  },
+  "Neuvillette": {
+    "playable": true,
+    "element": "Hydro",
+    "elementMode": "fixed",
+    "defaultElement": "Hydro",
+    "supportedElements": null,
+    "modelType": "tall male",
+    "modelTypeStatus": "verified-wiki-category",
+    "region": "Fontaine",
+    "regionStatus": "verified",
+    "visionStatus": "not-asserted",
+    "sources": [
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Neuvillette",
+        "supports": [
+          "playability",
+          "element",
+          "region"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Neuvillette",
+        "supports": [
+          "modelType"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Character/List",
+        "supports": [
+          "current-roster cross-check"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Category:Tall_Male_Characters",
+        "supports": [
+          "modelType"
+        ],
+        "checked": "2026-10-26"
+      }
+    ],
+    "notes": [
+      "Element is the character’s combat affinity; do not treat it as proof of a literal Vision."
+    ],
+    "role": "character"
+  },
+  "Furina": {
+    "playable": true,
+    "element": "Hydro",
+    "elementMode": "fixed",
+    "defaultElement": "Hydro",
+    "supportedElements": null,
+    "modelType": "medium female",
+    "modelTypeStatus": "verified-wiki-category",
+    "region": "Fontaine",
+    "regionStatus": "verified",
+    "visionStatus": "element-tagged; literal possession not separately asserted",
+    "sources": [
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Furina",
+        "supports": [
+          "playability",
+          "element",
+          "region"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Furina",
+        "supports": [
+          "modelType"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Character/List",
+        "supports": [
+          "current-roster cross-check"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Category:Medium_Female_Characters",
+        "supports": [
+          "modelType"
+        ],
+        "checked": "2026-10-26"
+      }
+    ],
+    "notes": [],
+    "role": "character"
+  },
+  "Lyney": {
+    "playable": true,
+    "element": "Pyro",
+    "elementMode": "fixed",
+    "defaultElement": "Pyro",
+    "supportedElements": null,
+    "modelType": "medium male",
+    "modelTypeStatus": "verified-wiki-category",
+    "region": "Fontaine",
+    "regionStatus": "verified",
+    "visionStatus": "element-tagged; literal possession not separately asserted",
+    "sources": [
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Lyney",
+        "supports": [
+          "playability",
+          "element",
+          "region"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Lyney",
+        "supports": [
+          "modelType"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Character/List",
+        "supports": [
+          "current-roster cross-check"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Category:Medium_Male_Characters",
+        "supports": [
+          "modelType"
+        ],
+        "checked": "2026-10-26"
+      }
+    ],
+    "notes": [],
+    "role": "character"
+  },
+  "Lynette": {
+    "playable": true,
+    "element": "Anemo",
+    "elementMode": "fixed",
+    "defaultElement": "Anemo",
+    "supportedElements": null,
+    "modelType": "medium female",
+    "modelTypeStatus": "verified-wiki-category",
+    "region": "Fontaine",
+    "regionStatus": "verified",
+    "visionStatus": "element-tagged; literal possession not separately asserted",
+    "sources": [
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Lynette",
+        "supports": [
+          "playability",
+          "element",
+          "region"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Lynette",
+        "supports": [
+          "modelType"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Character/List",
+        "supports": [
+          "current-roster cross-check"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Category:Medium_Female_Characters",
+        "supports": [
+          "modelType"
+        ],
+        "checked": "2026-10-26"
+      }
+    ],
+    "notes": [],
+    "role": "character"
+  },
+  "Wriothesley": {
+    "playable": true,
+    "element": "Cryo",
+    "elementMode": "fixed",
+    "defaultElement": "Cryo",
+    "supportedElements": null,
+    "modelType": "tall male",
+    "modelTypeStatus": "verified-wiki-category",
+    "region": "Fontaine",
+    "regionStatus": "verified",
+    "visionStatus": "element-tagged; literal possession not separately asserted",
+    "sources": [
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Wriothesley",
+        "supports": [
+          "playability",
+          "element",
+          "region"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Wriothesley",
+        "supports": [
+          "modelType"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Character/List",
+        "supports": [
+          "current-roster cross-check"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Category:Tall_Male_Characters",
+        "supports": [
+          "modelType"
+        ],
+        "checked": "2026-10-26"
+      }
+    ],
+    "notes": [],
+    "role": "character"
+  },
+  "Sigewinne": {
+    "playable": true,
+    "element": "Hydro",
+    "elementMode": "fixed",
+    "defaultElement": "Hydro",
+    "supportedElements": null,
+    "modelType": "small female",
+    "modelTypeStatus": "verified-wiki-category",
+    "region": "Fontaine",
+    "regionStatus": "verified",
+    "visionStatus": "element-tagged; literal possession not separately asserted",
+    "sources": [
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Sigewinne",
+        "supports": [
+          "playability",
+          "element",
+          "region"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Sigewinne",
+        "supports": [
+          "modelType"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Character/List",
+        "supports": [
+          "current-roster cross-check"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Category:Short_Female_Characters",
+        "supports": [
+          "modelType"
+        ],
+        "checked": "2026-10-26"
+      }
+    ],
+    "notes": [],
+    "role": "character"
+  },
+  "Navia": {
+    "playable": true,
+    "element": "Geo",
+    "elementMode": "fixed",
+    "defaultElement": "Geo",
+    "supportedElements": null,
+    "modelType": "tall female",
+    "modelTypeStatus": "verified-wiki-category",
+    "region": "Fontaine",
+    "regionStatus": "verified",
+    "visionStatus": "element-tagged; literal possession not separately asserted",
+    "sources": [
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Navia",
+        "supports": [
+          "playability",
+          "element",
+          "region"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Navia",
+        "supports": [
+          "modelType"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Character/List",
+        "supports": [
+          "current-roster cross-check"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Category:Tall_Female_Characters",
+        "supports": [
+          "modelType"
+        ],
+        "checked": "2026-10-26"
+      }
+    ],
+    "notes": [],
+    "role": "character"
+  },
+  "Chiori": {
+    "playable": true,
+    "element": "Geo",
+    "elementMode": "fixed",
+    "defaultElement": "Geo",
+    "supportedElements": null,
+    "modelType": "medium female",
+    "modelTypeStatus": "verified-wiki-category",
+    "region": "Inazuma",
+    "regionStatus": "verified",
+    "visionStatus": "element-tagged; literal possession not separately asserted",
+    "sources": [
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Chiori",
+        "supports": [
+          "playability",
+          "element",
+          "region"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Chiori",
+        "supports": [
+          "modelType"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Character/List",
+        "supports": [
+          "current-roster cross-check"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Category:Medium_Female_Characters",
+        "supports": [
+          "modelType"
+        ],
+        "checked": "2026-10-26"
+      }
+    ],
+    "notes": [],
+    "role": "character"
+  },
+  "Kachina": {
+    "playable": true,
+    "element": "Geo",
+    "elementMode": "fixed",
+    "defaultElement": "Geo",
+    "supportedElements": null,
+    "modelType": "small female",
+    "modelTypeStatus": "verified-wiki-category",
+    "region": "Natlan",
+    "regionStatus": "verified",
+    "visionStatus": "element-tagged; literal possession not separately asserted",
+    "sources": [
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Kachina",
+        "supports": [
+          "playability",
+          "element",
+          "region"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Kachina",
+        "supports": [
+          "modelType"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Character/List",
+        "supports": [
+          "current-roster cross-check"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Category:Short_Female_Characters",
+        "supports": [
+          "modelType"
+        ],
+        "checked": "2026-10-26"
+      }
+    ],
+    "notes": [],
+    "role": "character"
+  },
+  "Xilonen": {
+    "playable": true,
+    "element": "Geo",
+    "elementMode": "fixed",
+    "defaultElement": "Geo",
+    "supportedElements": null,
+    "modelType": "tall female",
+    "modelTypeStatus": "verified-wiki-category",
+    "region": "Natlan",
+    "regionStatus": "verified",
+    "visionStatus": "element-tagged; literal possession not separately asserted",
+    "sources": [
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Xilonen",
+        "supports": [
+          "playability",
+          "element",
+          "region"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Xilonen",
+        "supports": [
+          "modelType"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Character/List",
+        "supports": [
+          "current-roster cross-check"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Category:Tall_Female_Characters",
+        "supports": [
+          "modelType"
+        ],
+        "checked": "2026-10-26"
+      }
+    ],
+    "notes": [],
+    "role": "character"
+  },
+  "Mualani": {
+    "playable": true,
+    "element": "Hydro",
+    "elementMode": "fixed",
+    "defaultElement": "Hydro",
+    "supportedElements": null,
+    "modelType": "medium female",
+    "modelTypeStatus": "verified-wiki-category",
+    "region": "Natlan",
+    "regionStatus": "verified",
+    "visionStatus": "element-tagged; literal possession not separately asserted",
+    "sources": [
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Mualani",
+        "supports": [
+          "playability",
+          "element",
+          "region"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Mualani",
+        "supports": [
+          "modelType"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Character/List",
+        "supports": [
+          "current-roster cross-check"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Category:Medium_Female_Characters",
+        "supports": [
+          "modelType"
+        ],
+        "checked": "2026-10-26"
+      }
+    ],
+    "notes": [],
+    "role": "character"
+  },
+  "Kinich": {
+    "playable": true,
+    "element": "Dendro",
+    "elementMode": "fixed",
+    "defaultElement": "Dendro",
+    "supportedElements": null,
+    "modelType": "medium male",
+    "modelTypeStatus": "verified-wiki-category",
+    "region": "Natlan",
+    "regionStatus": "verified",
+    "visionStatus": "element-tagged; literal possession not separately asserted",
+    "sources": [
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Kinich",
+        "supports": [
+          "playability",
+          "element",
+          "region"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Kinich",
+        "supports": [
+          "modelType"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Character/List",
+        "supports": [
+          "current-roster cross-check"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Category:Medium_Male_Characters",
+        "supports": [
+          "modelType"
+        ],
+        "checked": "2026-10-26"
+      }
+    ],
+    "notes": [],
+    "role": "character"
+  },
+  "Chasca": {
+    "playable": true,
+    "element": "Anemo",
+    "elementMode": "fixed",
+    "defaultElement": "Anemo",
+    "supportedElements": null,
+    "modelType": "tall female",
+    "modelTypeStatus": "verified-wiki-category",
+    "region": "Natlan",
+    "regionStatus": "verified",
+    "visionStatus": "element-tagged; literal possession not separately asserted",
+    "sources": [
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Chasca",
+        "supports": [
+          "playability",
+          "element",
+          "region"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Chasca",
+        "supports": [
+          "modelType"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Character/List",
+        "supports": [
+          "current-roster cross-check"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Category:Tall_Female_Characters",
+        "supports": [
+          "modelType"
+        ],
+        "checked": "2026-10-26"
+      }
+    ],
+    "notes": [],
+    "role": "character"
+  },
+  "Ifa": {
+    "playable": true,
+    "element": "Anemo",
+    "elementMode": "fixed",
+    "defaultElement": "Anemo",
+    "supportedElements": null,
+    "modelType": "tall male",
+    "modelTypeStatus": "verified-wiki-category",
+    "region": "Natlan",
+    "regionStatus": "verified",
+    "visionStatus": "element-tagged; literal possession not separately asserted",
+    "sources": [
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Ifa",
+        "supports": [
+          "playability",
+          "element",
+          "region"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Ifa",
+        "supports": [
+          "modelType"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Character/List",
+        "supports": [
+          "current-roster cross-check"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Category:Tall_Male_Characters",
+        "supports": [
+          "modelType"
+        ],
+        "checked": "2026-10-26"
+      }
+    ],
+    "notes": [],
+    "role": "character"
+  },
+  "Mavuika": {
+    "playable": true,
+    "element": "Pyro",
+    "elementMode": "fixed",
+    "defaultElement": "Pyro",
+    "supportedElements": null,
+    "modelType": "tall female",
+    "modelTypeStatus": "verified-wiki-category",
+    "region": "Natlan",
+    "regionStatus": "verified",
+    "visionStatus": "element-tagged; literal possession not separately asserted",
+    "sources": [
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Mavuika",
+        "supports": [
+          "playability",
+          "element",
+          "region"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Mavuika",
+        "supports": [
+          "modelType"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Character/List",
+        "supports": [
+          "current-roster cross-check"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Category:Tall_Female_Characters",
+        "supports": [
+          "modelType"
+        ],
+        "checked": "2026-10-26"
+      }
+    ],
+    "notes": [],
+    "role": "character"
+  },
+  "Aino": {
+    "playable": true,
+    "element": "Hydro",
+    "elementMode": "fixed",
+    "defaultElement": "Hydro",
+    "supportedElements": null,
+    "modelType": "small female",
+    "modelTypeStatus": "verified-wiki-category",
+    "region": "Nod-Krai",
+    "regionStatus": "verified",
+    "visionStatus": "element-tagged; literal possession not separately asserted",
+    "sources": [
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Aino",
+        "supports": [
+          "playability",
+          "element",
+          "region"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Aino",
+        "supports": [
+          "modelType"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Character/List",
+        "supports": [
+          "current-roster cross-check"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Category:Short_Female_Characters",
+        "supports": [
+          "modelType"
+        ],
+        "checked": "2026-10-26"
+      }
+    ],
+    "notes": [],
+    "role": "character"
+  },
+  "Ineffa": {
+    "playable": true,
+    "element": "Electro",
+    "elementMode": "fixed",
+    "defaultElement": "Electro",
+    "supportedElements": null,
+    "modelType": "medium female",
+    "modelTypeStatus": "verified-wiki-category",
+    "region": "Nod-Krai",
+    "regionStatus": "verified",
+    "visionStatus": "element-tagged; literal possession not separately asserted",
+    "sources": [
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Ineffa",
+        "supports": [
+          "playability",
+          "element",
+          "region"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Ineffa",
+        "supports": [
+          "modelType"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Character/List",
+        "supports": [
+          "current-roster cross-check"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Category:Medium_Female_Characters",
+        "supports": [
+          "modelType"
+        ],
+        "checked": "2026-10-26"
+      }
+    ],
+    "notes": [],
+    "role": "character"
+  },
+  "Columbina": {
+    "playable": true,
+    "element": "Hydro",
+    "elementMode": "fixed",
+    "defaultElement": "Hydro",
+    "supportedElements": null,
+    "modelType": "medium female",
+    "modelTypeStatus": "verified-wiki-category",
+    "region": "Nod-Krai",
+    "regionStatus": "verified",
+    "visionStatus": "element-tagged; literal possession not separately asserted",
+    "sources": [
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Columbina",
+        "supports": [
+          "playability",
+          "element",
+          "region"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Columbina",
+        "supports": [
+          "modelType"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Character/List",
+        "supports": [
+          "current-roster cross-check"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Category:Medium_Female_Characters",
+        "supports": [
+          "modelType"
+        ],
+        "checked": "2026-10-26"
+      }
+    ],
+    "notes": [],
+    "role": "character"
+  },
+  "Nefer": {
+    "playable": true,
+    "element": "Dendro",
+    "elementMode": "fixed",
+    "defaultElement": "Dendro",
+    "supportedElements": null,
+    "modelType": "tall female",
+    "modelTypeStatus": "verified-wiki-category",
+    "region": "Nod-Krai",
+    "regionStatus": "verified",
+    "visionStatus": "element-tagged; literal possession not separately asserted",
+    "sources": [
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Nefer",
+        "supports": [
+          "playability",
+          "element",
+          "region"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Nefer",
+        "supports": [
+          "modelType"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Character/List",
+        "supports": [
+          "current-roster cross-check"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Category:Tall_Female_Characters",
+        "supports": [
+          "modelType"
+        ],
+        "checked": "2026-10-26"
+      }
+    ],
+    "notes": [],
+    "role": "character"
+  },
+  "Jahoda": {
+    "playable": true,
+    "element": "Anemo",
+    "elementMode": "fixed",
+    "defaultElement": "Anemo",
+    "supportedElements": null,
+    "modelType": "medium female",
+    "modelTypeStatus": "verified-wiki-category",
+    "region": "Nod-Krai",
+    "regionStatus": "verified",
+    "visionStatus": "element-tagged; literal possession not separately asserted",
+    "sources": [
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Jahoda",
+        "supports": [
+          "playability",
+          "element",
+          "region"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Jahoda",
+        "supports": [
+          "modelType"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Character/List",
+        "supports": [
+          "current-roster cross-check"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Category:Medium_Female_Characters",
+        "supports": [
+          "modelType"
+        ],
+        "checked": "2026-10-26"
+      }
+    ],
+    "notes": [],
+    "role": "character"
+  },
+  "Lauma": {
+    "playable": true,
+    "element": "Dendro",
+    "elementMode": "fixed",
+    "defaultElement": "Dendro",
+    "supportedElements": null,
+    "modelType": "tall female",
+    "modelTypeStatus": "verified-wiki-category",
+    "region": "Nod-Krai",
+    "regionStatus": "verified",
+    "visionStatus": "element-tagged; literal possession not separately asserted",
+    "sources": [
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Lauma",
+        "supports": [
+          "playability",
+          "element",
+          "region"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Lauma",
+        "supports": [
+          "modelType"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Character/List",
+        "supports": [
+          "current-roster cross-check"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Category:Tall_Female_Characters",
+        "supports": [
+          "modelType"
+        ],
+        "checked": "2026-10-26"
+      }
+    ],
+    "notes": [],
+    "role": "character"
+  },
+  "Flins": {
+    "playable": true,
+    "element": "Electro",
+    "elementMode": "fixed",
+    "defaultElement": "Electro",
+    "supportedElements": null,
+    "modelType": "tall male",
+    "modelTypeStatus": "verified-wiki-category",
+    "region": "Nod-Krai",
+    "regionStatus": "verified",
+    "visionStatus": "element-tagged; literal possession not separately asserted",
+    "sources": [
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Flins",
+        "supports": [
+          "playability",
+          "element",
+          "region"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Flins",
+        "supports": [
+          "modelType"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Character/List",
+        "supports": [
+          "current-roster cross-check"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Category:Tall_Male_Characters",
+        "supports": [
+          "modelType"
+        ],
+        "checked": "2026-10-26"
+      }
+    ],
+    "notes": [],
+    "role": "character"
+  },
+  "Tartaglia": {
+    "playable": true,
+    "element": "Hydro",
+    "elementMode": "fixed",
+    "defaultElement": "Hydro",
+    "supportedElements": null,
+    "modelType": "tall male",
+    "modelTypeStatus": "verified-wiki-category",
+    "region": "Snezhnaya",
+    "regionStatus": "verified",
+    "visionStatus": "element-tagged; literal possession not separately asserted",
+    "sources": [
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Tartaglia",
+        "supports": [
+          "playability",
+          "element",
+          "region"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Tartaglia",
+        "supports": [
+          "modelType"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Character/List",
+        "supports": [
+          "current-roster cross-check"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Category:Tall_Male_Characters",
+        "supports": [
+          "modelType"
+        ],
+        "checked": "2026-10-26"
+      }
+    ],
+    "notes": [],
+    "role": "character"
+  },
+  "Teucer": {
+    "playable": false,
+    "element": "None",
+    "elementMode": "none",
+    "defaultElement": null,
+    "supportedElements": null,
+    "modelType": "",
+    "modelTypeStatus": "not-applicable-npc-model",
+    "region": "Snezhnaya",
+    "regionStatus": "verified",
+    "visionStatus": "not-applicable",
+    "sources": [
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Teucer",
+        "supports": [
+          "playability",
+          "element",
+          "region"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Teucer",
+        "supports": [
+          "modelType"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Character/List",
+        "supports": [
+          "current-roster cross-check"
+        ],
+        "checked": "2026-10-26"
+      }
+    ],
+    "notes": [
+      "Teucer is a non-playable child NPC; its model does not map to one of the five playable body types."
+    ],
+    "role": "character"
+  },
+  "Tonia": {
+    "playable": false,
+    "element": "None",
+    "elementMode": "none",
+    "defaultElement": null,
+    "supportedElements": null,
+    "modelType": "",
+    "modelTypeStatus": "not-applicable-npc-model",
+    "region": "Snezhnaya",
+    "regionStatus": "verified",
+    "visionStatus": "not-applicable",
+    "sources": [
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Tonia",
+        "supports": [
+          "playability",
+          "element",
+          "region"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Tonia",
+        "supports": [
+          "modelType"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Character/List",
+        "supports": [
+          "current-roster cross-check"
+        ],
+        "checked": "2026-10-26"
+      }
+    ],
+    "notes": [
+      "Tonia is a non-playable NPC; its model does not map to one of the five playable body types."
+    ],
+    "role": "character"
+  },
+  "Alyosha": {
+    "playable": true,
+    "element": "Electro",
+    "elementMode": "fixed",
+    "defaultElement": "Electro",
+    "supportedElements": null,
+    "modelType": "medium male",
+    "modelTypeStatus": "verified-wiki-category",
+    "region": "Snezhnaya",
+    "regionStatus": "verified",
+    "visionStatus": "element-tagged; literal possession not separately asserted",
+    "sources": [
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Alyosha",
+        "supports": [
+          "playability",
+          "element",
+          "region"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Alyosha",
+        "supports": [
+          "modelType"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Character/List",
+        "supports": [
+          "current-roster cross-check"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Category:Medium_Male_Characters",
+        "supports": [
+          "modelType"
+        ],
+        "checked": "2026-10-26"
+      }
+    ],
+    "notes": [],
+    "role": "character"
+  },
+  "Odette": {
+    "playable": true,
+    "element": "Cryo",
+    "elementMode": "fixed",
+    "defaultElement": "Cryo",
+    "supportedElements": null,
+    "modelType": "medium female",
+    "modelTypeStatus": "verified-wiki-category",
+    "region": "Snezhnaya",
+    "regionStatus": "verified",
+    "visionStatus": "element-tagged; literal possession not separately asserted",
+    "sources": [
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Odette",
+        "supports": [
+          "playability",
+          "element",
+          "region"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Odette",
+        "supports": [
+          "modelType"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Character/List",
+        "supports": [
+          "current-roster cross-check"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Category:Medium_Female_Characters",
+        "supports": [
+          "modelType"
+        ],
+        "checked": "2026-10-26"
+      }
+    ],
+    "notes": [],
+    "role": "character"
+  },
+  "Aether": {
+    "playable": true,
+    "element": "Anemo",
+    "elementMode": "traveler-resonance",
+    "defaultElement": "Anemo",
+    "supportedElements": [
+      "Anemo",
+      "Geo",
+      "Electro",
+      "Dendro",
+      "Hydro",
+      "Pyro",
+      "Cryo"
+    ],
+    "modelType": "medium male",
+    "modelTypeStatus": "verified-shared-character-page",
+    "region": "Otherworld",
+    "regionStatus": "exception",
+    "visionStatus": "not-asserted",
+    "sources": [
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Aether",
+        "supports": [
+          "playability",
+          "element",
+          "region"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Traveler",
+        "supports": [
+          "modelType"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Character/List",
+        "supports": [
+          "current-roster cross-check"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Traveler",
+        "supports": [
+          "adaptive elemental resonance",
+          "gendered modelType"
+        ],
+        "checked": "2026-10-26"
+      }
+    ],
+    "notes": [
+      "Traveler and Descender; no Teyvat nation affiliation.",
+      "No Vision is asserted: this is the editable default affinity. Supported Traveler elements are Anemo, Geo, Electro, Dendro, Hydro, Pyro and Cryo."
+    ],
+    "role": "character"
+  },
+  "Aloy": {
+    "playable": true,
+    "element": "Cryo",
+    "elementMode": "fixed",
+    "defaultElement": "Cryo",
+    "supportedElements": null,
+    "modelType": "medium female",
+    "modelTypeStatus": "verified-wiki-category",
+    "region": "Otherworld",
+    "regionStatus": "exception",
+    "visionStatus": "element-tagged; literal possession not separately asserted",
+    "sources": [
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Aloy",
+        "supports": [
+          "playability",
+          "element",
+          "region"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Aloy",
+        "supports": [
+          "modelType"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Character/List",
+        "supports": [
+          "current-roster cross-check"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Category:Medium_Female_Characters",
+        "supports": [
+          "modelType"
+        ],
+        "checked": "2026-10-26"
+      }
+    ],
+    "notes": [
+      "Crossover character from Horizon Zero Dawn; no Teyvat nation affiliation."
+    ],
+    "role": "character"
+  },
+  "Amber": {
+    "playable": true,
+    "element": "Pyro",
+    "elementMode": "fixed",
+    "defaultElement": "Pyro",
+    "supportedElements": null,
+    "modelType": "medium female",
+    "modelTypeStatus": "verified-wiki-category",
+    "region": "Mondstadt",
+    "regionStatus": "verified",
+    "visionStatus": "element-tagged; literal possession not separately asserted",
+    "sources": [
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Amber",
+        "supports": [
+          "playability",
+          "element",
+          "region"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Amber",
+        "supports": [
+          "modelType"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Character/List",
+        "supports": [
+          "current-roster cross-check"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Category:Medium_Female_Characters",
+        "supports": [
+          "modelType"
+        ],
+        "checked": "2026-10-26"
+      }
+    ],
+    "notes": [],
+    "role": "character"
+  },
+  "Arataki Itto": {
+    "playable": true,
+    "element": "Geo",
+    "elementMode": "fixed",
+    "defaultElement": "Geo",
+    "supportedElements": null,
+    "modelType": "tall male",
+    "modelTypeStatus": "verified-wiki-category",
+    "region": "Inazuma",
+    "regionStatus": "verified",
+    "visionStatus": "element-tagged; literal possession not separately asserted",
+    "sources": [
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Arataki_Itto",
+        "supports": [
+          "playability",
+          "element",
+          "region"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Arataki_Itto",
+        "supports": [
+          "modelType"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Character/List",
+        "supports": [
+          "current-roster cross-check"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Category:Tall_Male_Characters",
+        "supports": [
+          "modelType"
+        ],
+        "checked": "2026-10-26"
+      }
+    ],
+    "notes": [],
+    "role": "character"
+  },
+  "Arlecchino": {
+    "playable": true,
+    "element": "Pyro",
+    "elementMode": "fixed",
+    "defaultElement": "Pyro",
+    "supportedElements": null,
+    "modelType": "tall female",
+    "modelTypeStatus": "verified-wiki-category",
+    "region": "Snezhnaya",
+    "regionStatus": "verified",
+    "visionStatus": "element-tagged; literal possession not separately asserted",
+    "sources": [
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Arlecchino",
+        "supports": [
+          "playability",
+          "element",
+          "region"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Arlecchino",
+        "supports": [
+          "modelType"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Character/List",
+        "supports": [
+          "current-roster cross-check"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Category:Tall_Female_Characters",
+        "supports": [
+          "modelType"
+        ],
+        "checked": "2026-10-26"
+      }
+    ],
+    "notes": [],
+    "role": "character"
+  },
+  "Barbara": {
+    "playable": true,
+    "element": "Hydro",
+    "elementMode": "fixed",
+    "defaultElement": "Hydro",
+    "supportedElements": null,
+    "modelType": "medium female",
+    "modelTypeStatus": "verified-wiki-category",
+    "region": "Mondstadt",
+    "regionStatus": "verified",
+    "visionStatus": "element-tagged; literal possession not separately asserted",
+    "sources": [
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Barbara",
+        "supports": [
+          "playability",
+          "element",
+          "region"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Barbara",
+        "supports": [
+          "modelType"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Character/List",
+        "supports": [
+          "current-roster cross-check"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Category:Medium_Female_Characters",
+        "supports": [
+          "modelType"
+        ],
+        "checked": "2026-10-26"
+      }
+    ],
+    "notes": [],
+    "role": "character"
+  },
+  "Beidou": {
+    "playable": true,
+    "element": "Electro",
+    "elementMode": "fixed",
+    "defaultElement": "Electro",
+    "supportedElements": null,
+    "modelType": "tall female",
+    "modelTypeStatus": "verified-wiki-category",
+    "region": "Liyue",
+    "regionStatus": "verified",
+    "visionStatus": "element-tagged; literal possession not separately asserted",
+    "sources": [
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Beidou",
+        "supports": [
+          "playability",
+          "element",
+          "region"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Beidou",
+        "supports": [
+          "modelType"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Character/List",
+        "supports": [
+          "current-roster cross-check"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Category:Tall_Female_Characters",
+        "supports": [
+          "modelType"
+        ],
+        "checked": "2026-10-26"
+      }
+    ],
+    "notes": [],
+    "role": "character"
+  },
+  "Bennett": {
+    "playable": true,
+    "element": "Pyro",
+    "elementMode": "fixed",
+    "defaultElement": "Pyro",
+    "supportedElements": null,
+    "modelType": "medium male",
+    "modelTypeStatus": "verified-wiki-category",
+    "region": "Mondstadt",
+    "regionStatus": "verified",
+    "visionStatus": "element-tagged; literal possession not separately asserted",
+    "sources": [
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Bennett",
+        "supports": [
+          "playability",
+          "element",
+          "region"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Bennett",
+        "supports": [
+          "modelType"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Character/List",
+        "supports": [
+          "current-roster cross-check"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Category:Medium_Male_Characters",
+        "supports": [
+          "modelType"
+        ],
+        "checked": "2026-10-26"
+      }
+    ],
+    "notes": [],
+    "role": "character"
+  },
+  "Charlotte": {
+    "playable": true,
+    "element": "Cryo",
+    "elementMode": "fixed",
+    "defaultElement": "Cryo",
+    "supportedElements": null,
+    "modelType": "medium female",
+    "modelTypeStatus": "verified-wiki-category",
+    "region": "Fontaine",
+    "regionStatus": "verified",
+    "visionStatus": "element-tagged; literal possession not separately asserted",
+    "sources": [
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Charlotte",
+        "supports": [
+          "playability",
+          "element",
+          "region"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Charlotte",
+        "supports": [
+          "modelType"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Character/List",
+        "supports": [
+          "current-roster cross-check"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Category:Medium_Female_Characters",
+        "supports": [
+          "modelType"
+        ],
+        "checked": "2026-10-26"
+      }
+    ],
+    "notes": [],
+    "role": "character"
+  },
+  "Chevreuse": {
+    "playable": true,
+    "element": "Pyro",
+    "elementMode": "fixed",
+    "defaultElement": "Pyro",
+    "supportedElements": null,
+    "modelType": "medium female",
+    "modelTypeStatus": "verified-wiki-category",
+    "region": "Fontaine",
+    "regionStatus": "verified",
+    "visionStatus": "element-tagged; literal possession not separately asserted",
+    "sources": [
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Chevreuse",
+        "supports": [
+          "playability",
+          "element",
+          "region"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Chevreuse",
+        "supports": [
+          "modelType"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Character/List",
+        "supports": [
+          "current-roster cross-check"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Category:Medium_Female_Characters",
+        "supports": [
+          "modelType"
+        ],
+        "checked": "2026-10-26"
+      }
+    ],
+    "notes": [],
+    "role": "character"
+  },
+  "Chongyun": {
+    "playable": true,
+    "element": "Cryo",
+    "elementMode": "fixed",
+    "defaultElement": "Cryo",
+    "supportedElements": null,
+    "modelType": "medium male",
+    "modelTypeStatus": "verified-wiki-category",
+    "region": "Liyue",
+    "regionStatus": "verified",
+    "visionStatus": "element-tagged; literal possession not separately asserted",
+    "sources": [
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Chongyun",
+        "supports": [
+          "playability",
+          "element",
+          "region"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Chongyun",
+        "supports": [
+          "modelType"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Character/List",
+        "supports": [
+          "current-roster cross-check"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Category:Medium_Male_Characters",
+        "supports": [
+          "modelType"
+        ],
+        "checked": "2026-10-26"
+      }
+    ],
+    "notes": [],
+    "role": "character"
+  },
+  "Citlali": {
+    "playable": true,
+    "element": "Cryo",
+    "elementMode": "fixed",
+    "defaultElement": "Cryo",
+    "supportedElements": null,
+    "modelType": "medium female",
+    "modelTypeStatus": "verified-wiki-category",
+    "region": "Natlan",
+    "regionStatus": "verified",
+    "visionStatus": "element-tagged; literal possession not separately asserted",
+    "sources": [
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Citlali",
+        "supports": [
+          "playability",
+          "element",
+          "region"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Citlali",
+        "supports": [
+          "modelType"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Character/List",
+        "supports": [
+          "current-roster cross-check"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Category:Medium_Female_Characters",
+        "supports": [
+          "modelType"
+        ],
+        "checked": "2026-10-26"
+      }
+    ],
+    "notes": [],
+    "role": "character"
+  },
+  "Clorinde": {
+    "playable": true,
+    "element": "Electro",
+    "elementMode": "fixed",
+    "defaultElement": "Electro",
+    "supportedElements": null,
+    "modelType": "tall female",
+    "modelTypeStatus": "verified-wiki-category",
+    "region": "Fontaine",
+    "regionStatus": "verified",
+    "visionStatus": "element-tagged; literal possession not separately asserted",
+    "sources": [
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Clorinde",
+        "supports": [
+          "playability",
+          "element",
+          "region"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Clorinde",
+        "supports": [
+          "modelType"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Character/List",
+        "supports": [
+          "current-roster cross-check"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Category:Tall_Female_Characters",
+        "supports": [
+          "modelType"
+        ],
+        "checked": "2026-10-26"
+      }
+    ],
+    "notes": [],
+    "role": "character"
+  },
+  "Cyno": {
+    "playable": true,
+    "element": "Electro",
+    "elementMode": "fixed",
+    "defaultElement": "Electro",
+    "supportedElements": null,
+    "modelType": "medium male",
+    "modelTypeStatus": "verified-wiki-category",
+    "region": "Sumeru",
+    "regionStatus": "verified",
+    "visionStatus": "element-tagged; literal possession not separately asserted",
+    "sources": [
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Cyno",
+        "supports": [
+          "playability",
+          "element",
+          "region"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Cyno",
+        "supports": [
+          "modelType"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Character/List",
+        "supports": [
+          "current-roster cross-check"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Category:Medium_Male_Characters",
+        "supports": [
+          "modelType"
+        ],
+        "checked": "2026-10-26"
+      }
+    ],
+    "notes": [],
+    "role": "character"
+  },
+  "Dahlia": {
+    "playable": true,
+    "element": "Hydro",
+    "elementMode": "fixed",
+    "defaultElement": "Hydro",
+    "supportedElements": null,
+    "modelType": "medium male",
+    "modelTypeStatus": "verified-wiki-category",
+    "region": "Mondstadt",
+    "regionStatus": "verified",
+    "visionStatus": "element-tagged; literal possession not separately asserted",
+    "sources": [
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Dahlia",
+        "supports": [
+          "playability",
+          "element",
+          "region"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Dahlia",
+        "supports": [
+          "modelType"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Character/List",
+        "supports": [
+          "current-roster cross-check"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Category:Medium_Male_Characters",
+        "supports": [
+          "modelType"
+        ],
+        "checked": "2026-10-26"
+      }
+    ],
+    "notes": [],
+    "role": "character"
+  },
+  "Dori": {
+    "playable": true,
+    "element": "Electro",
+    "elementMode": "fixed",
+    "defaultElement": "Electro",
+    "supportedElements": null,
+    "modelType": "small female",
+    "modelTypeStatus": "verified-wiki-category",
+    "region": "Sumeru",
+    "regionStatus": "verified",
+    "visionStatus": "element-tagged; literal possession not separately asserted",
+    "sources": [
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Dori",
+        "supports": [
+          "playability",
+          "element",
+          "region"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Dori",
+        "supports": [
+          "modelType"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Character/List",
+        "supports": [
+          "current-roster cross-check"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Category:Short_Female_Characters",
+        "supports": [
+          "modelType"
+        ],
+        "checked": "2026-10-26"
+      }
+    ],
+    "notes": [],
+    "role": "character"
+  },
+  "Durin": {
+    "playable": true,
+    "element": "Pyro",
+    "elementMode": "fixed",
+    "defaultElement": "Pyro",
+    "supportedElements": null,
+    "modelType": "medium male",
+    "modelTypeStatus": "verified-wiki-category",
+    "region": "Mondstadt",
+    "regionStatus": "verified",
+    "visionStatus": "element-tagged; literal possession not separately asserted",
+    "sources": [
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Durin",
+        "supports": [
+          "playability",
+          "element",
+          "region"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Durin",
+        "supports": [
+          "modelType"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Character/List",
+        "supports": [
+          "current-roster cross-check"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Category:Medium_Male_Characters",
+        "supports": [
+          "modelType"
+        ],
+        "checked": "2026-10-26"
+      }
+    ],
+    "notes": [],
+    "role": "character"
+  },
+  "Emilie": {
+    "playable": true,
+    "element": "Dendro",
+    "elementMode": "fixed",
+    "defaultElement": "Dendro",
+    "supportedElements": null,
+    "modelType": "medium female",
+    "modelTypeStatus": "verified-wiki-category",
+    "region": "Fontaine",
+    "regionStatus": "verified",
+    "visionStatus": "element-tagged; literal possession not separately asserted",
+    "sources": [
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Emilie",
+        "supports": [
+          "playability",
+          "element",
+          "region"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Emilie",
+        "supports": [
+          "modelType"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Character/List",
+        "supports": [
+          "current-roster cross-check"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Category:Medium_Female_Characters",
+        "supports": [
+          "modelType"
+        ],
+        "checked": "2026-10-26"
+      }
+    ],
+    "notes": [],
+    "role": "character"
+  },
+  "Escoffier": {
+    "playable": true,
+    "element": "Cryo",
+    "elementMode": "fixed",
+    "defaultElement": "Cryo",
+    "supportedElements": null,
+    "modelType": "medium female",
+    "modelTypeStatus": "verified-wiki-category",
+    "region": "Fontaine",
+    "regionStatus": "verified",
+    "visionStatus": "element-tagged; literal possession not separately asserted",
+    "sources": [
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Escoffier",
+        "supports": [
+          "playability",
+          "element",
+          "region"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Escoffier",
+        "supports": [
+          "modelType"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Character/List",
+        "supports": [
+          "current-roster cross-check"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Category:Medium_Female_Characters",
+        "supports": [
+          "modelType"
+        ],
+        "checked": "2026-10-26"
+      }
+    ],
+    "notes": [],
+    "role": "character"
+  },
+  "Eula": {
+    "playable": true,
+    "element": "Cryo",
+    "elementMode": "fixed",
+    "defaultElement": "Cryo",
+    "supportedElements": null,
+    "modelType": "tall female",
+    "modelTypeStatus": "verified-wiki-category",
+    "region": "Mondstadt",
+    "regionStatus": "verified",
+    "visionStatus": "element-tagged; literal possession not separately asserted",
+    "sources": [
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Eula",
+        "supports": [
+          "playability",
+          "element",
+          "region"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Eula",
+        "supports": [
+          "modelType"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Character/List",
+        "supports": [
+          "current-roster cross-check"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Category:Tall_Female_Characters",
+        "supports": [
+          "modelType"
+        ],
+        "checked": "2026-10-26"
+      }
+    ],
+    "notes": [],
+    "role": "character"
+  },
+  "Faruzan": {
+    "playable": true,
+    "element": "Anemo",
+    "elementMode": "fixed",
+    "defaultElement": "Anemo",
+    "supportedElements": null,
+    "modelType": "medium female",
+    "modelTypeStatus": "verified-wiki-category",
+    "region": "Sumeru",
+    "regionStatus": "verified",
+    "visionStatus": "element-tagged; literal possession not separately asserted",
+    "sources": [
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Faruzan",
+        "supports": [
+          "playability",
+          "element",
+          "region"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Faruzan",
+        "supports": [
+          "modelType"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Character/List",
+        "supports": [
+          "current-roster cross-check"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Category:Medium_Female_Characters",
+        "supports": [
+          "modelType"
+        ],
+        "checked": "2026-10-26"
+      }
+    ],
+    "notes": [],
+    "role": "character"
+  },
+  "Freminet": {
+    "playable": true,
+    "element": "Cryo",
+    "elementMode": "fixed",
+    "defaultElement": "Cryo",
+    "supportedElements": null,
+    "modelType": "medium male",
+    "modelTypeStatus": "verified-wiki-category",
+    "region": "Fontaine",
+    "regionStatus": "verified",
+    "visionStatus": "element-tagged; literal possession not separately asserted",
+    "sources": [
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Freminet",
+        "supports": [
+          "playability",
+          "element",
+          "region"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Freminet",
+        "supports": [
+          "modelType"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Character/List",
+        "supports": [
+          "current-roster cross-check"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Category:Medium_Male_Characters",
+        "supports": [
+          "modelType"
+        ],
+        "checked": "2026-10-26"
+      }
+    ],
+    "notes": [],
+    "role": "character"
+  },
+  "Gaming": {
+    "playable": true,
+    "element": "Pyro",
+    "elementMode": "fixed",
+    "defaultElement": "Pyro",
+    "supportedElements": null,
+    "modelType": "medium male",
+    "modelTypeStatus": "verified-wiki-category",
+    "region": "Liyue",
+    "regionStatus": "verified",
+    "visionStatus": "element-tagged; literal possession not separately asserted",
+    "sources": [
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Gaming",
+        "supports": [
+          "playability",
+          "element",
+          "region"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Gaming",
+        "supports": [
+          "modelType"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Character/List",
+        "supports": [
+          "current-roster cross-check"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Category:Medium_Male_Characters",
+        "supports": [
+          "modelType"
+        ],
+        "checked": "2026-10-26"
+      }
+    ],
+    "notes": [],
+    "role": "character"
+  },
+  "Ganyu": {
+    "playable": true,
+    "element": "Cryo",
+    "elementMode": "fixed",
+    "defaultElement": "Cryo",
+    "supportedElements": null,
+    "modelType": "medium female",
+    "modelTypeStatus": "verified-wiki-category",
+    "region": "Liyue",
+    "regionStatus": "verified",
+    "visionStatus": "element-tagged; literal possession not separately asserted",
+    "sources": [
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Ganyu",
+        "supports": [
+          "playability",
+          "element",
+          "region"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Ganyu",
+        "supports": [
+          "modelType"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Character/List",
+        "supports": [
+          "current-roster cross-check"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Category:Medium_Female_Characters",
+        "supports": [
+          "modelType"
+        ],
+        "checked": "2026-10-26"
+      }
+    ],
+    "notes": [],
+    "role": "character"
+  },
+  "Iansan": {
+    "playable": true,
+    "element": "Electro",
+    "elementMode": "fixed",
+    "defaultElement": "Electro",
+    "supportedElements": null,
+    "modelType": "small female",
+    "modelTypeStatus": "verified-wiki-category",
+    "region": "Natlan",
+    "regionStatus": "verified",
+    "visionStatus": "element-tagged; literal possession not separately asserted",
+    "sources": [
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Iansan",
+        "supports": [
+          "playability",
+          "element",
+          "region"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Iansan",
+        "supports": [
+          "modelType"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Character/List",
+        "supports": [
+          "current-roster cross-check"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Category:Short_Female_Characters",
+        "supports": [
+          "modelType"
+        ],
+        "checked": "2026-10-26"
+      }
+    ],
+    "notes": [],
+    "role": "character"
+  },
+  "Illuga": {
+    "playable": true,
+    "element": "Geo",
+    "elementMode": "fixed",
+    "defaultElement": "Geo",
+    "supportedElements": null,
+    "modelType": "medium male",
+    "modelTypeStatus": "verified-wiki-category",
+    "region": "Nod-Krai",
+    "regionStatus": "verified",
+    "visionStatus": "element-tagged; literal possession not separately asserted",
+    "sources": [
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Illuga",
+        "supports": [
+          "playability",
+          "element",
+          "region"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Illuga",
+        "supports": [
+          "modelType"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Character/List",
+        "supports": [
+          "current-roster cross-check"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Category:Medium_Male_Characters",
+        "supports": [
+          "modelType"
+        ],
+        "checked": "2026-10-26"
+      }
+    ],
+    "notes": [],
+    "role": "character"
+  },
+  "Kaedehara Kazuha": {
+    "playable": true,
+    "element": "Anemo",
+    "elementMode": "fixed",
+    "defaultElement": "Anemo",
+    "supportedElements": null,
+    "modelType": "medium male",
+    "modelTypeStatus": "verified-wiki-category",
+    "region": "Inazuma",
+    "regionStatus": "verified",
+    "visionStatus": "element-tagged; literal possession not separately asserted",
+    "sources": [
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Kaedehara_Kazuha",
+        "supports": [
+          "playability",
+          "element",
+          "region"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Kaedehara_Kazuha",
+        "supports": [
+          "modelType"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Character/List",
+        "supports": [
+          "current-roster cross-check"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Category:Medium_Male_Characters",
+        "supports": [
+          "modelType"
+        ],
+        "checked": "2026-10-26"
+      }
+    ],
+    "notes": [],
+    "role": "character"
+  },
+  "Keqing": {
+    "playable": true,
+    "element": "Electro",
+    "elementMode": "fixed",
+    "defaultElement": "Electro",
+    "supportedElements": null,
+    "modelType": "medium female",
+    "modelTypeStatus": "verified-wiki-category",
+    "region": "Liyue",
+    "regionStatus": "verified",
+    "visionStatus": "element-tagged; literal possession not separately asserted",
+    "sources": [
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Keqing",
+        "supports": [
+          "playability",
+          "element",
+          "region"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Keqing",
+        "supports": [
+          "modelType"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Character/List",
+        "supports": [
+          "current-roster cross-check"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Category:Medium_Female_Characters",
+        "supports": [
+          "modelType"
+        ],
+        "checked": "2026-10-26"
+      }
+    ],
+    "notes": [],
+    "role": "character"
+  },
+  "Kirara": {
+    "playable": true,
+    "element": "Dendro",
+    "elementMode": "fixed",
+    "defaultElement": "Dendro",
+    "supportedElements": null,
+    "modelType": "medium female",
+    "modelTypeStatus": "verified-wiki-category",
+    "region": "Inazuma",
+    "regionStatus": "verified",
+    "visionStatus": "element-tagged; literal possession not separately asserted",
+    "sources": [
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Kirara",
+        "supports": [
+          "playability",
+          "element",
+          "region"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Kirara",
+        "supports": [
+          "modelType"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Character/List",
+        "supports": [
+          "current-roster cross-check"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Category:Medium_Female_Characters",
+        "supports": [
+          "modelType"
+        ],
+        "checked": "2026-10-26"
+      }
+    ],
+    "notes": [],
+    "role": "character"
+  },
+  "Kujou Sara": {
+    "playable": true,
+    "element": "Electro",
+    "elementMode": "fixed",
+    "defaultElement": "Electro",
+    "supportedElements": null,
+    "modelType": "tall female",
+    "modelTypeStatus": "verified-wiki-category",
+    "region": "Inazuma",
+    "regionStatus": "verified",
+    "visionStatus": "element-tagged; literal possession not separately asserted",
+    "sources": [
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Kujou_Sara",
+        "supports": [
+          "playability",
+          "element",
+          "region"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Kujou_Sara",
+        "supports": [
+          "modelType"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Character/List",
+        "supports": [
+          "current-roster cross-check"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Category:Tall_Female_Characters",
+        "supports": [
+          "modelType"
+        ],
+        "checked": "2026-10-26"
+      }
+    ],
+    "notes": [],
+    "role": "character"
+  },
+  "Kuki Shinobu": {
+    "playable": true,
+    "element": "Electro",
+    "elementMode": "fixed",
+    "defaultElement": "Electro",
+    "supportedElements": null,
+    "modelType": "medium female",
+    "modelTypeStatus": "verified-wiki-category",
+    "region": "Inazuma",
+    "regionStatus": "verified",
+    "visionStatus": "element-tagged; literal possession not separately asserted",
+    "sources": [
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Kuki_Shinobu",
+        "supports": [
+          "playability",
+          "element",
+          "region"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Kuki_Shinobu",
+        "supports": [
+          "modelType"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Character/List",
+        "supports": [
+          "current-roster cross-check"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Category:Medium_Female_Characters",
+        "supports": [
+          "modelType"
+        ],
+        "checked": "2026-10-26"
+      }
+    ],
+    "notes": [],
+    "role": "character"
+  },
+  "Lan Yan": {
+    "playable": true,
+    "element": "Anemo",
+    "elementMode": "fixed",
+    "defaultElement": "Anemo",
+    "supportedElements": null,
+    "modelType": "medium female",
+    "modelTypeStatus": "verified-wiki-category",
+    "region": "Liyue",
+    "regionStatus": "verified",
+    "visionStatus": "element-tagged; literal possession not separately asserted",
+    "sources": [
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Lan_Yan",
+        "supports": [
+          "playability",
+          "element",
+          "region"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Lan_Yan",
+        "supports": [
+          "modelType"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Character/List",
+        "supports": [
+          "current-roster cross-check"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Category:Medium_Female_Characters",
+        "supports": [
+          "modelType"
+        ],
+        "checked": "2026-10-26"
+      }
+    ],
+    "notes": [],
+    "role": "character"
+  },
+  "Layla": {
+    "playable": true,
+    "element": "Cryo",
+    "elementMode": "fixed",
+    "defaultElement": "Cryo",
+    "supportedElements": null,
+    "modelType": "medium female",
+    "modelTypeStatus": "verified-wiki-category",
+    "region": "Sumeru",
+    "regionStatus": "verified",
+    "visionStatus": "element-tagged; literal possession not separately asserted",
+    "sources": [
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Layla",
+        "supports": [
+          "playability",
+          "element",
+          "region"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Layla",
+        "supports": [
+          "modelType"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Character/List",
+        "supports": [
+          "current-roster cross-check"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Category:Medium_Female_Characters",
+        "supports": [
+          "modelType"
+        ],
+        "checked": "2026-10-26"
+      }
+    ],
+    "notes": [],
+    "role": "character"
+  },
+  "Linnea": {
+    "playable": true,
+    "element": "Geo",
+    "elementMode": "fixed",
+    "defaultElement": "Geo",
+    "supportedElements": null,
+    "modelType": "medium female",
+    "modelTypeStatus": "verified-wiki-category",
+    "region": "Nod-Krai",
+    "regionStatus": "verified",
+    "visionStatus": "element-tagged; literal possession not separately asserted",
+    "sources": [
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Linnea",
+        "supports": [
+          "playability",
+          "element",
+          "region"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Linnea",
+        "supports": [
+          "modelType"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Character/List",
+        "supports": [
+          "current-roster cross-check"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Category:Medium_Female_Characters",
+        "supports": [
+          "modelType"
+        ],
+        "checked": "2026-10-26"
+      }
+    ],
+    "notes": [],
+    "role": "character"
+  },
+  "Lohen": {
+    "playable": true,
+    "element": "Cryo",
+    "elementMode": "fixed",
+    "defaultElement": "Cryo",
+    "supportedElements": null,
+    "modelType": "medium male",
+    "modelTypeStatus": "verified-wiki-category",
+    "region": "Mondstadt",
+    "regionStatus": "verified",
+    "visionStatus": "element-tagged; literal possession not separately asserted",
+    "sources": [
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Lohen",
+        "supports": [
+          "playability",
+          "element",
+          "region"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Lohen",
+        "supports": [
+          "modelType"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Character/List",
+        "supports": [
+          "current-roster cross-check"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Category:Medium_Male_Characters",
+        "supports": [
+          "modelType"
+        ],
+        "checked": "2026-10-26"
+      }
+    ],
+    "notes": [],
+    "role": "character"
+  },
+  "Lumine": {
+    "playable": true,
+    "element": "Anemo",
+    "elementMode": "traveler-resonance",
+    "defaultElement": "Anemo",
+    "supportedElements": [
+      "Anemo",
+      "Geo",
+      "Electro",
+      "Dendro",
+      "Hydro",
+      "Pyro",
+      "Cryo"
+    ],
+    "modelType": "medium female",
+    "modelTypeStatus": "verified-shared-character-page",
+    "region": "Otherworld",
+    "regionStatus": "exception",
+    "visionStatus": "not-asserted",
+    "sources": [
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Lumine",
+        "supports": [
+          "playability",
+          "element",
+          "region"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Traveler",
+        "supports": [
+          "modelType"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Character/List",
+        "supports": [
+          "current-roster cross-check"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Traveler",
+        "supports": [
+          "adaptive elemental resonance",
+          "gendered modelType"
+        ],
+        "checked": "2026-10-26"
+      }
+    ],
+    "notes": [
+      "Traveler and Descender; no Teyvat nation affiliation.",
+      "No Vision is asserted: this is the editable default affinity. Supported Traveler elements are Anemo, Geo, Electro, Dendro, Hydro, Pyro and Cryo."
+    ],
+    "role": "character"
+  },
+  "Manekin": {
+    "playable": true,
+    "element": "None",
+    "elementMode": "adaptive-copy",
+    "defaultElement": null,
+    "supportedElements": [
+      "Anemo",
+      "Geo",
+      "Electro",
+      "Dendro",
+      "Hydro",
+      "Pyro",
+      "Cryo"
+    ],
+    "modelType": "medium male",
+    "modelTypeStatus": "verified-shared-character-page",
+    "region": "None",
+    "regionStatus": "exception",
+    "visionStatus": "not-asserted",
+    "sources": [
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Manekin",
+        "supports": [
+          "playability",
+          "element",
+          "region"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Wonderland_Manekin",
+        "supports": [
+          "modelType"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Character/List",
+        "supports": [
+          "current-roster cross-check"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Wonderland_Manekin",
+        "supports": [
+          "Adaptive element",
+          "gendered modelType",
+          "playability"
+        ],
+        "checked": "2026-10-26"
+      }
+    ],
+    "notes": [
+      "Miliastra Wonderland customizable avatar; the character list gives no nation.",
+      "Wonderland Manekin has Adaptive element, not a fixed Vision; combat element should follow the game/current Traveler loadout if modeled."
+    ],
+    "role": "character"
+  },
+  "Manekina": {
+    "playable": true,
+    "element": "None",
+    "elementMode": "adaptive-copy",
+    "defaultElement": null,
+    "supportedElements": [
+      "Anemo",
+      "Geo",
+      "Electro",
+      "Dendro",
+      "Hydro",
+      "Pyro",
+      "Cryo"
+    ],
+    "modelType": "medium female",
+    "modelTypeStatus": "verified-shared-character-page",
+    "region": "None",
+    "regionStatus": "exception",
+    "visionStatus": "not-asserted",
+    "sources": [
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Manekina",
+        "supports": [
+          "playability",
+          "element",
+          "region"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Wonderland_Manekin",
+        "supports": [
+          "modelType"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Character/List",
+        "supports": [
+          "current-roster cross-check"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Wonderland_Manekin",
+        "supports": [
+          "Adaptive element",
+          "gendered modelType",
+          "playability"
+        ],
+        "checked": "2026-10-26"
+      }
+    ],
+    "notes": [
+      "Miliastra Wonderland customizable avatar; the character list gives no nation.",
+      "Wonderland Manekin has Adaptive element, not a fixed Vision; combat element should follow the game/current Traveler loadout if modeled."
+    ],
+    "role": "character"
+  },
+  "Mika": {
+    "playable": true,
+    "element": "Cryo",
+    "elementMode": "fixed",
+    "defaultElement": "Cryo",
+    "supportedElements": null,
+    "modelType": "medium male",
+    "modelTypeStatus": "verified-wiki-category",
+    "region": "Mondstadt",
+    "regionStatus": "verified",
+    "visionStatus": "element-tagged; literal possession not separately asserted",
+    "sources": [
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Mika",
+        "supports": [
+          "playability",
+          "element",
+          "region"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Mika",
+        "supports": [
+          "modelType"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Character/List",
+        "supports": [
+          "current-roster cross-check"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Category:Medium_Male_Characters",
+        "supports": [
+          "modelType"
+        ],
+        "checked": "2026-10-26"
+      }
+    ],
+    "notes": [],
+    "role": "character"
+  },
+  "Nicole": {
+    "playable": true,
+    "element": "Pyro",
+    "elementMode": "fixed",
+    "defaultElement": "Pyro",
+    "supportedElements": null,
+    "modelType": "tall female",
+    "modelTypeStatus": "verified-wiki-category",
+    "region": "Unspecified",
+    "regionStatus": "exception",
+    "visionStatus": "element-tagged; literal possession not separately asserted",
+    "sources": [
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Nicole",
+        "supports": [
+          "playability",
+          "element",
+          "region"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Nicole",
+        "supports": [
+          "modelType"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Character/List",
+        "supports": [
+          "current-roster cross-check"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Category:Tall_Female_Characters",
+        "supports": [
+          "modelType"
+        ],
+        "checked": "2026-10-26"
+      }
+    ],
+    "notes": [
+      "Hexenzirkel member; her profile leaves the nation/region field blank."
+    ],
+    "role": "character"
+  },
+  "Noelle": {
+    "playable": true,
+    "element": "Geo",
+    "elementMode": "fixed",
+    "defaultElement": "Geo",
+    "supportedElements": null,
+    "modelType": "medium female",
+    "modelTypeStatus": "verified-wiki-category",
+    "region": "Mondstadt",
+    "regionStatus": "verified",
+    "visionStatus": "element-tagged; literal possession not separately asserted",
+    "sources": [
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Noelle",
+        "supports": [
+          "playability",
+          "element",
+          "region"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Noelle",
+        "supports": [
+          "modelType"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Character/List",
+        "supports": [
+          "current-roster cross-check"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Category:Medium_Female_Characters",
+        "supports": [
+          "modelType"
+        ],
+        "checked": "2026-10-26"
+      }
+    ],
+    "notes": [],
+    "role": "character"
+  },
+  "Ororon": {
+    "playable": true,
+    "element": "Electro",
+    "elementMode": "fixed",
+    "defaultElement": "Electro",
+    "supportedElements": null,
+    "modelType": "tall male",
+    "modelTypeStatus": "verified-wiki-category",
+    "region": "Natlan",
+    "regionStatus": "verified",
+    "visionStatus": "element-tagged; literal possession not separately asserted",
+    "sources": [
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Ororon",
+        "supports": [
+          "playability",
+          "element",
+          "region"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Ororon",
+        "supports": [
+          "modelType"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Character/List",
+        "supports": [
+          "current-roster cross-check"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Category:Tall_Male_Characters",
+        "supports": [
+          "modelType"
+        ],
+        "checked": "2026-10-26"
+      }
+    ],
+    "notes": [],
+    "role": "character"
+  },
+  "Razor": {
+    "playable": true,
+    "element": "Electro",
+    "elementMode": "fixed",
+    "defaultElement": "Electro",
+    "supportedElements": null,
+    "modelType": "medium male",
+    "modelTypeStatus": "verified-wiki-category",
+    "region": "Mondstadt",
+    "regionStatus": "verified",
+    "visionStatus": "element-tagged; literal possession not separately asserted",
+    "sources": [
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Razor",
+        "supports": [
+          "playability",
+          "element",
+          "region"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Razor",
+        "supports": [
+          "modelType"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Character/List",
+        "supports": [
+          "current-roster cross-check"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Category:Medium_Male_Characters",
+        "supports": [
+          "modelType"
+        ],
+        "checked": "2026-10-26"
+      }
+    ],
+    "notes": [],
+    "role": "character"
+  },
+  "Rosaria": {
+    "playable": true,
+    "element": "Cryo",
+    "elementMode": "fixed",
+    "defaultElement": "Cryo",
+    "supportedElements": null,
+    "modelType": "tall female",
+    "modelTypeStatus": "verified-wiki-category",
+    "region": "Mondstadt",
+    "regionStatus": "verified",
+    "visionStatus": "element-tagged; literal possession not separately asserted",
+    "sources": [
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Rosaria",
+        "supports": [
+          "playability",
+          "element",
+          "region"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Rosaria",
+        "supports": [
+          "modelType"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Character/List",
+        "supports": [
+          "current-roster cross-check"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Category:Tall_Female_Characters",
+        "supports": [
+          "modelType"
+        ],
+        "checked": "2026-10-26"
+      }
+    ],
+    "notes": [],
+    "role": "character"
+  },
+  "Sandrone": {
+    "playable": true,
+    "element": "Cryo",
+    "elementMode": "fixed",
+    "defaultElement": "Cryo",
+    "supportedElements": null,
+    "modelType": "medium female",
+    "modelTypeStatus": "verified-wiki-category",
+    "region": "Snezhnaya",
+    "regionStatus": "verified",
+    "visionStatus": "element-tagged; literal possession not separately asserted",
+    "sources": [
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Sandrone",
+        "supports": [
+          "playability",
+          "element",
+          "region"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Sandrone",
+        "supports": [
+          "modelType"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Character/List",
+        "supports": [
+          "current-roster cross-check"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Category:Medium_Female_Characters",
+        "supports": [
+          "modelType"
+        ],
+        "checked": "2026-10-26"
+      }
+    ],
+    "notes": [],
+    "role": "character"
+  },
+  "Sayu": {
+    "playable": true,
+    "element": "Anemo",
+    "elementMode": "fixed",
+    "defaultElement": "Anemo",
+    "supportedElements": null,
+    "modelType": "small female",
+    "modelTypeStatus": "verified-wiki-category",
+    "region": "Inazuma",
+    "regionStatus": "verified",
+    "visionStatus": "element-tagged; literal possession not separately asserted",
+    "sources": [
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Sayu",
+        "supports": [
+          "playability",
+          "element",
+          "region"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Sayu",
+        "supports": [
+          "modelType"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Character/List",
+        "supports": [
+          "current-roster cross-check"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Category:Short_Female_Characters",
+        "supports": [
+          "modelType"
+        ],
+        "checked": "2026-10-26"
+      }
+    ],
+    "notes": [],
+    "role": "character"
+  },
+  "Sethos": {
+    "playable": true,
+    "element": "Electro",
+    "elementMode": "fixed",
+    "defaultElement": "Electro",
+    "supportedElements": null,
+    "modelType": "medium male",
+    "modelTypeStatus": "verified-wiki-category",
+    "region": "Sumeru",
+    "regionStatus": "verified",
+    "visionStatus": "element-tagged; literal possession not separately asserted",
+    "sources": [
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Sethos",
+        "supports": [
+          "playability",
+          "element",
+          "region"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Sethos",
+        "supports": [
+          "modelType"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Character/List",
+        "supports": [
+          "current-roster cross-check"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Category:Medium_Male_Characters",
+        "supports": [
+          "modelType"
+        ],
+        "checked": "2026-10-26"
+      }
+    ],
+    "notes": [],
+    "role": "character"
+  },
+  "Shenhe": {
+    "playable": true,
+    "element": "Cryo",
+    "elementMode": "fixed",
+    "defaultElement": "Cryo",
+    "supportedElements": null,
+    "modelType": "tall female",
+    "modelTypeStatus": "verified-wiki-category",
+    "region": "Liyue",
+    "regionStatus": "verified",
+    "visionStatus": "element-tagged; literal possession not separately asserted",
+    "sources": [
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Shenhe",
+        "supports": [
+          "playability",
+          "element",
+          "region"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Shenhe",
+        "supports": [
+          "modelType"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Character/List",
+        "supports": [
+          "current-roster cross-check"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Category:Tall_Female_Characters",
+        "supports": [
+          "modelType"
+        ],
+        "checked": "2026-10-26"
+      }
+    ],
+    "notes": [],
+    "role": "character"
+  },
+  "Shikanoin Heizou": {
+    "playable": true,
+    "element": "Anemo",
+    "elementMode": "fixed",
+    "defaultElement": "Anemo",
+    "supportedElements": null,
+    "modelType": "medium male",
+    "modelTypeStatus": "verified-wiki-category",
+    "region": "Inazuma",
+    "regionStatus": "verified",
+    "visionStatus": "element-tagged; literal possession not separately asserted",
+    "sources": [
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Shikanoin_Heizou",
+        "supports": [
+          "playability",
+          "element",
+          "region"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Shikanoin_Heizou",
+        "supports": [
+          "modelType"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Character/List",
+        "supports": [
+          "current-roster cross-check"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Category:Medium_Male_Characters",
+        "supports": [
+          "modelType"
+        ],
+        "checked": "2026-10-26"
+      }
+    ],
+    "notes": [],
+    "role": "character"
+  },
+  "Skirk": {
+    "playable": true,
+    "element": "Cryo",
+    "elementMode": "fixed",
+    "defaultElement": "Cryo",
+    "supportedElements": null,
+    "modelType": "medium female",
+    "modelTypeStatus": "verified-wiki-category",
+    "region": "Unspecified",
+    "regionStatus": "exception",
+    "visionStatus": "element-tagged; literal possession not separately asserted",
+    "sources": [
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Skirk",
+        "supports": [
+          "playability",
+          "element",
+          "region"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Skirk",
+        "supports": [
+          "modelType"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Character/List",
+        "supports": [
+          "current-roster cross-check"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Category:Medium_Female_Characters",
+        "supports": [
+          "modelType"
+        ],
+        "checked": "2026-10-26"
+      }
+    ],
+    "notes": [
+      "Cosmic Calamity affiliation; her profile leaves the nation/region field blank."
+    ],
+    "role": "character"
+  },
+  "Varesa": {
+    "playable": true,
+    "element": "Electro",
+    "elementMode": "fixed",
+    "defaultElement": "Electro",
+    "supportedElements": null,
+    "modelType": "medium female",
+    "modelTypeStatus": "verified-wiki-category",
+    "region": "Natlan",
+    "regionStatus": "verified",
+    "visionStatus": "element-tagged; literal possession not separately asserted",
+    "sources": [
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Varesa",
+        "supports": [
+          "playability",
+          "element",
+          "region"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Varesa",
+        "supports": [
+          "modelType"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Character/List",
+        "supports": [
+          "current-roster cross-check"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Category:Medium_Female_Characters",
+        "supports": [
+          "modelType"
+        ],
+        "checked": "2026-10-26"
+      }
+    ],
+    "notes": [],
+    "role": "character"
+  },
+  "Varka": {
+    "playable": true,
+    "element": "Anemo",
+    "elementMode": "fixed",
+    "defaultElement": "Anemo",
+    "supportedElements": null,
+    "modelType": "tall male",
+    "modelTypeStatus": "verified-wiki-category",
+    "region": "Mondstadt",
+    "regionStatus": "verified",
+    "visionStatus": "element-tagged; literal possession not separately asserted",
+    "sources": [
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Varka",
+        "supports": [
+          "playability",
+          "element",
+          "region"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Varka",
+        "supports": [
+          "modelType"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Character/List",
+        "supports": [
+          "current-roster cross-check"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Category:Tall_Male_Characters",
+        "supports": [
+          "modelType"
+        ],
+        "checked": "2026-10-26"
+      }
+    ],
+    "notes": [],
+    "role": "character"
+  },
+  "Venti": {
+    "playable": true,
+    "element": "Anemo",
+    "elementMode": "fixed",
+    "defaultElement": "Anemo",
+    "supportedElements": null,
+    "modelType": "medium male",
+    "modelTypeStatus": "verified-wiki-category",
+    "region": "Mondstadt",
+    "regionStatus": "verified",
+    "visionStatus": "not-asserted",
+    "sources": [
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Venti",
+        "supports": [
+          "playability",
+          "element",
+          "region"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Venti",
+        "supports": [
+          "modelType"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Character/List",
+        "supports": [
+          "current-roster cross-check"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Category:Medium_Male_Characters",
+        "supports": [
+          "modelType"
+        ],
+        "checked": "2026-10-26"
+      }
+    ],
+    "notes": [
+      "Element is the character’s combat affinity; do not treat it as proof of a literal Vision."
+    ],
+    "role": "character"
+  },
+  "Vesna": {
+    "playable": true,
+    "element": "Anemo",
+    "elementMode": "fixed",
+    "defaultElement": "Anemo",
+    "supportedElements": null,
+    "modelType": "",
+    "modelTypeStatus": "unverified",
+    "region": "Snezhnaya",
+    "regionStatus": "verified",
+    "visionStatus": "element-tagged; literal possession not separately asserted",
+    "sources": [
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Vesna",
+        "supports": [
+          "playability",
+          "element",
+          "region"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Character/List",
+        "supports": [
+          "modelType"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Character/List",
+        "supports": [
+          "current-roster cross-check"
+        ],
+        "checked": "2026-10-26"
+      }
+    ],
+    "notes": [
+      "The current character list has her Anemo element, Snezhnaya region and release data but leaves Model Type blank; not inferred from appearance."
+    ],
+    "role": "character"
+  },
+  "Vodyanitsa": {
+    "playable": true,
+    "element": "Hydro",
+    "elementMode": "fixed",
+    "defaultElement": "Hydro",
+    "supportedElements": null,
+    "modelType": "",
+    "modelTypeStatus": "unverified",
+    "region": "Snezhnaya",
+    "regionStatus": "verified",
+    "visionStatus": "element-tagged; literal possession not separately asserted",
+    "sources": [
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Vodyanitsa",
+        "supports": [
+          "playability",
+          "element",
+          "region"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Character/List",
+        "supports": [
+          "modelType"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Character/List",
+        "supports": [
+          "current-roster cross-check"
+        ],
+        "checked": "2026-10-26"
+      }
+    ],
+    "notes": [
+      "The current character list has her Hydro element, Snezhnaya region and release data but leaves Model Type blank; not inferred from appearance."
+    ],
+    "role": "character"
+  },
+  "Wanderer": {
+    "playable": true,
+    "element": "Anemo",
+    "elementMode": "fixed",
+    "defaultElement": "Anemo",
+    "supportedElements": null,
+    "modelType": "medium male",
+    "modelTypeStatus": "verified-wiki-category",
+    "region": "Sumeru",
+    "regionStatus": "verified",
+    "visionStatus": "element-tagged; literal possession not separately asserted",
+    "sources": [
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Wanderer",
+        "supports": [
+          "playability",
+          "element",
+          "region"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Wanderer",
+        "supports": [
+          "modelType"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Character/List",
+        "supports": [
+          "current-roster cross-check"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Category:Medium_Male_Characters",
+        "supports": [
+          "modelType"
+        ],
+        "checked": "2026-10-26"
+      }
+    ],
+    "notes": [],
+    "role": "character"
+  },
+  "Xianyun": {
+    "playable": true,
+    "element": "Anemo",
+    "elementMode": "fixed",
+    "defaultElement": "Anemo",
+    "supportedElements": null,
+    "modelType": "tall female",
+    "modelTypeStatus": "verified-wiki-category",
+    "region": "Liyue",
+    "regionStatus": "verified",
+    "visionStatus": "element-tagged; literal possession not separately asserted",
+    "sources": [
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Xianyun",
+        "supports": [
+          "playability",
+          "element",
+          "region"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Xianyun",
+        "supports": [
+          "modelType"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Character/List",
+        "supports": [
+          "current-roster cross-check"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Category:Tall_Female_Characters",
+        "supports": [
+          "modelType"
+        ],
+        "checked": "2026-10-26"
+      }
+    ],
+    "notes": [],
+    "role": "character"
+  },
+  "Xingqiu": {
+    "playable": true,
+    "element": "Hydro",
+    "elementMode": "fixed",
+    "defaultElement": "Hydro",
+    "supportedElements": null,
+    "modelType": "medium male",
+    "modelTypeStatus": "verified-wiki-category",
+    "region": "Liyue",
+    "regionStatus": "verified",
+    "visionStatus": "element-tagged; literal possession not separately asserted",
+    "sources": [
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Xingqiu",
+        "supports": [
+          "playability",
+          "element",
+          "region"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Xingqiu",
+        "supports": [
+          "modelType"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Character/List",
+        "supports": [
+          "current-roster cross-check"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Category:Medium_Male_Characters",
+        "supports": [
+          "modelType"
+        ],
+        "checked": "2026-10-26"
+      }
+    ],
+    "notes": [],
+    "role": "character"
+  },
+  "Xinyan": {
+    "playable": true,
+    "element": "Pyro",
+    "elementMode": "fixed",
+    "defaultElement": "Pyro",
+    "supportedElements": null,
+    "modelType": "medium female",
+    "modelTypeStatus": "verified-wiki-category",
+    "region": "Liyue",
+    "regionStatus": "verified",
+    "visionStatus": "element-tagged; literal possession not separately asserted",
+    "sources": [
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Xinyan",
+        "supports": [
+          "playability",
+          "element",
+          "region"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Xinyan",
+        "supports": [
+          "modelType"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Character/List",
+        "supports": [
+          "current-roster cross-check"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Category:Medium_Female_Characters",
+        "supports": [
+          "modelType"
+        ],
+        "checked": "2026-10-26"
+      }
+    ],
+    "notes": [],
+    "role": "character"
+  },
+  "Yanfei": {
+    "playable": true,
+    "element": "Pyro",
+    "elementMode": "fixed",
+    "defaultElement": "Pyro",
+    "supportedElements": null,
+    "modelType": "medium female",
+    "modelTypeStatus": "verified-wiki-category",
+    "region": "Liyue",
+    "regionStatus": "verified",
+    "visionStatus": "element-tagged; literal possession not separately asserted",
+    "sources": [
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Yanfei",
+        "supports": [
+          "playability",
+          "element",
+          "region"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Yanfei",
+        "supports": [
+          "modelType"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Character/List",
+        "supports": [
+          "current-roster cross-check"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Category:Medium_Female_Characters",
+        "supports": [
+          "modelType"
+        ],
+        "checked": "2026-10-26"
+      }
+    ],
+    "notes": [],
+    "role": "character"
+  },
+  "Yelan": {
+    "playable": true,
+    "element": "Hydro",
+    "elementMode": "fixed",
+    "defaultElement": "Hydro",
+    "supportedElements": null,
+    "modelType": "tall female",
+    "modelTypeStatus": "verified-wiki-category",
+    "region": "Liyue",
+    "regionStatus": "verified",
+    "visionStatus": "element-tagged; literal possession not separately asserted",
+    "sources": [
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Yelan",
+        "supports": [
+          "playability",
+          "element",
+          "region"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Yelan",
+        "supports": [
+          "modelType"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Character/List",
+        "supports": [
+          "current-roster cross-check"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Category:Tall_Female_Characters",
+        "supports": [
+          "modelType"
+        ],
+        "checked": "2026-10-26"
+      }
+    ],
+    "notes": [],
+    "role": "character"
+  },
+  "Yoimiya": {
+    "playable": true,
+    "element": "Pyro",
+    "elementMode": "fixed",
+    "defaultElement": "Pyro",
+    "supportedElements": null,
+    "modelType": "medium female",
+    "modelTypeStatus": "verified-wiki-category",
+    "region": "Inazuma",
+    "regionStatus": "verified",
+    "visionStatus": "element-tagged; literal possession not separately asserted",
+    "sources": [
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Yoimiya",
+        "supports": [
+          "playability",
+          "element",
+          "region"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Yoimiya",
+        "supports": [
+          "modelType"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Character/List",
+        "supports": [
+          "current-roster cross-check"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Category:Medium_Female_Characters",
+        "supports": [
+          "modelType"
+        ],
+        "checked": "2026-10-26"
+      }
+    ],
+    "notes": [],
+    "role": "character"
+  },
+  "Yumemizuki Mizuki": {
+    "playable": true,
+    "element": "Anemo",
+    "elementMode": "fixed",
+    "defaultElement": "Anemo",
+    "supportedElements": null,
+    "modelType": "medium female",
+    "modelTypeStatus": "verified-wiki-category",
+    "region": "Inazuma",
+    "regionStatus": "verified",
+    "visionStatus": "element-tagged; literal possession not separately asserted",
+    "sources": [
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Yumemizuki_Mizuki",
+        "supports": [
+          "playability",
+          "element",
+          "region"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Yumemizuki_Mizuki",
+        "supports": [
+          "modelType"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Character/List",
+        "supports": [
+          "current-roster cross-check"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Category:Medium_Female_Characters",
+        "supports": [
+          "modelType"
+        ],
+        "checked": "2026-10-26"
+      }
+    ],
+    "notes": [],
+    "role": "character"
+  },
+  "Yun Jin": {
+    "playable": true,
+    "element": "Geo",
+    "elementMode": "fixed",
+    "defaultElement": "Geo",
+    "supportedElements": null,
+    "modelType": "medium female",
+    "modelTypeStatus": "verified-wiki-category",
+    "region": "Liyue",
+    "regionStatus": "verified",
+    "visionStatus": "element-tagged; literal possession not separately asserted",
+    "sources": [
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Yun_Jin",
+        "supports": [
+          "playability",
+          "element",
+          "region"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Yun_Jin",
+        "supports": [
+          "modelType"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Character/List",
+        "supports": [
+          "current-roster cross-check"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Category:Medium_Female_Characters",
+        "supports": [
+          "modelType"
+        ],
+        "checked": "2026-10-26"
+      }
+    ],
+    "notes": [],
+    "role": "character"
+  },
+  "Zibai": {
+    "playable": true,
+    "element": "Geo",
+    "elementMode": "fixed",
+    "defaultElement": "Geo",
+    "supportedElements": null,
+    "modelType": "tall female",
+    "modelTypeStatus": "verified-wiki-category",
+    "region": "Liyue",
+    "regionStatus": "verified",
+    "visionStatus": "element-tagged; literal possession not separately asserted",
+    "sources": [
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Zibai",
+        "supports": [
+          "playability",
+          "element",
+          "region"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Zibai",
+        "supports": [
+          "modelType"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Character/List",
+        "supports": [
+          "current-roster cross-check"
+        ],
+        "checked": "2026-10-26"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Category:Tall_Female_Characters",
+        "supports": [
+          "modelType"
+        ],
+        "checked": "2026-10-26"
+      }
+    ],
+    "notes": [],
+    "role": "character"
+  }
+}

@@ -1,0 +1,414 @@
+/*
+ * Teyvat Slate 1.19 • SillyTavern 1.19+
+ * An independent, locally rendered fan theme.
+ * Scene composition belongs to the optional Teyvat Dialogue extension.
+ */
+
+:root {
+    --teyvat-slate: #263244;
+    --teyvat-deep: #1c2635;
+    --teyvat-raised: #344259;
+    --teyvat-ivory: #ece5d8;
+    --teyvat-muted: #b4bdca;
+    --teyvat-gold: #d8bf89;
+    --teyvat-line: rgba(216, 191, 137, .28);
+    --teyvat-line-faint: rgba(216, 191, 137, .13);
+    --teyvat-field: rgba(17, 25, 38, .73);
+    --teyvat-focus: #f2d9a6;
+    --interactable-outline-color: var(--teyvat-focus);
+    --interactable-outline-color-faint: var(--teyvat-line);
+    --topBarIconSize: calc(var(--mainFontSize) * 1.55);
+    --topBarBlockPadding: calc(var(--mainFontSize) * .65);
+}
+
+body {
+    color-scheme: dark;
+}
+
+::selection {
+    color: #172232;
+    background: #d8bf89;
+    text-shadow: none;
+}
+
+/* Compact utility strip. Keep SillyTavern's positioning and drawer logic. */
+#top-bar {
+    height: var(--topBarBlockSize);
+    background: linear-gradient(180deg, rgba(43, 56, 75, .98), rgba(31, 43, 60, .96));
+    border: 1px solid var(--teyvat-line);
+    border-top: 0;
+    border-radius: 0 0 12px 12px;
+    box-shadow: 0 8px 28px rgba(9, 15, 25, .25);
+}
+
+#top-settings-holder > .drawer > .drawer-icon {
+    color: var(--teyvat-ivory);
+    text-shadow: 0 1px 3px rgba(0, 0, 0, .3);
+    border-radius: 6px;
+    transition: color 160ms ease, opacity 160ms ease, background-color 160ms ease;
+}
+
+#top-settings-holder > .drawer > .drawer-icon.closedIcon {
+    opacity: .68;
+}
+
+#top-settings-holder > .drawer > .drawer-icon:is(:hover, :focus-visible, .openIcon) {
+    color: var(--teyvat-gold);
+    opacity: 1;
+    background: rgba(216, 191, 137, .09);
+}
+
+/* Blue charcoal panels, with quiet gold rules instead of ornate frames. */
+.drawer-content,
+.popup:not(:has(.img_enlarged_container)),
+#options {
+    color: var(--teyvat-ivory);
+    background: linear-gradient(145deg, rgba(44, 58, 78, .98), rgba(28, 39, 55, .98));
+    border: 1px solid var(--teyvat-line);
+    border-radius: 12px;
+    box-shadow: 0 14px 48px rgba(7, 13, 23, .36), inset 0 0 0 3px rgba(236, 229, 216, .025);
+}
+
+.drawer-content {
+    padding: 12px;
+}
+
+.drawer-content :is(h3, h4),
+.popup .popup-content > :is(h2, h3, h4):first-child {
+    color: var(--teyvat-gold);
+    font-weight: 650;
+    letter-spacing: .015em;
+}
+
+.drawer-content :is(h3, h4) {
+    border-bottom: 1px solid var(--teyvat-line-faint);
+    padding-bottom: 7px;
+}
+
+.drawer-content hr,
+.popup hr {
+    height: 1px;
+    border: 0;
+    background: var(--teyvat-line);
+}
+
+.drawer-content .inline-drawer-header {
+    color: var(--teyvat-ivory);
+    background: rgba(236, 229, 216, .045);
+    border: 1px solid var(--teyvat-line-faint);
+    border-radius: 7px;
+    padding: 8px;
+}
+
+.drawer-content .inline-drawer-header:hover {
+    border-color: var(--teyvat-line);
+    background: rgba(216, 191, 137, .075);
+}
+
+.drawer-content .inline-drawer-icon {
+    color: var(--teyvat-gold);
+}
+
+.drawer-content .inline-drawer-content {
+    padding-top: 9px;
+}
+
+/* Scope native controls to native settings and dialogs, leaving custom UI free. */
+:is(.drawer-content, .popup, #options) :is(.text_pole, select, .popup-input),
+.popup textarea {
+    color: var(--teyvat-ivory);
+    background-color: var(--teyvat-field);
+    border: 1px solid rgba(180, 189, 202, .26);
+    border-radius: 6px;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, .13);
+    text-shadow: none;
+}
+
+:is(.drawer-content, .popup, #options) :is(.text_pole, select, .popup-input):focus-visible,
+.popup textarea:focus-visible {
+    outline: 2px solid var(--teyvat-focus);
+    outline-offset: 2px;
+    border-color: var(--teyvat-gold);
+}
+
+:is(.drawer-content, .popup) :is(input, textarea)::placeholder {
+    color: #9faabb;
+    opacity: 1;
+}
+
+:is(.drawer-content, .popup) select option {
+    color: var(--teyvat-ivory);
+    background: var(--teyvat-deep);
+}
+
+:is(.drawer-content, .popup) input:is([type="checkbox"], [type="radio"], [type="range"]) {
+    accent-color: var(--teyvat-gold);
+}
+
+:is(.drawer-content, .popup, #options) .menu_button:not(.redWarningBG):not(.popup-button-ok) {
+    color: var(--teyvat-ivory);
+    background-color: rgba(236, 229, 216, .07);
+    border-color: var(--teyvat-line);
+    border-radius: 7px;
+    filter: none;
+    text-shadow: none;
+    transition: background-color 150ms ease, border-color 150ms ease, color 150ms ease;
+}
+
+:is(.drawer-content, .popup, #options) .menu_button:not(.disabled):not([disabled]):not(.redWarningBG):not(.popup-button-ok):hover {
+    color: #fff5df;
+    background-color: rgba(216, 191, 137, .17);
+    border-color: rgba(216, 191, 137, .7);
+}
+
+:is(.drawer-content, .popup, #options) .menu_button:focus-visible {
+    outline: 2px solid var(--teyvat-focus);
+    outline-offset: 3px;
+}
+
+.popup .popup-controls .menu_button {
+    min-height: 36px;
+    padding: 7px 22px;
+    border-radius: 999px;
+}
+
+/* Preserve red destructive confirmations. Neutral/default confirmations are ivory. */
+.popup .popup-controls .menu_button.menu_button_default:not(.popup-button-ok):not(.redWarningBG) {
+    color: #293649;
+    background: var(--teyvat-ivory);
+    border-color: #f6eddb;
+    box-shadow: inset 0 0 0 3px rgba(41, 54, 73, .08);
+}
+
+.popup .popup-controls .menu_button.menu_button_default:not(.popup-button-ok):not(.redWarningBG):hover {
+    color: #172232;
+    background: #fff3d8;
+}
+
+.popup[open]::backdrop {
+    background-color: rgba(9, 16, 29, .6);
+}
+
+/* Character lists keep their native layout and avatar aspect ratios. */
+#right-nav-panel .character_select:not(.inline_avatar) {
+    padding: 9px;
+    margin-bottom: 5px;
+    border: 1px solid transparent;
+    border-radius: 8px;
+    background: rgba(15, 25, 40, .15);
+    transition: background-color 150ms ease, border-color 150ms ease;
+}
+
+#right-nav-panel .character_select:not(.inline_avatar):is(:hover, :focus-visible) {
+    background: rgba(216, 191, 137, .09);
+    border-color: var(--teyvat-line);
+}
+
+#right-nav-panel .character_select .ch_name {
+    color: var(--teyvat-ivory);
+    font-weight: 650;
+}
+
+#right-nav-panel .character_select .ch_description {
+    color: var(--teyvat-muted);
+    line-height: 1.45;
+}
+
+#right-nav-panel .character_select .avatar {
+    box-shadow: 0 0 0 1px var(--teyvat-line);
+}
+
+:is(#right-nav-panel, #rm_characters_block) .paginationjs-pages ul li a {
+    color: var(--teyvat-ivory);
+    border-color: var(--teyvat-line-faint);
+    background: rgba(14, 24, 39, .35);
+}
+
+:is(#right-nav-panel, #rm_characters_block) .paginationjs-pages ul li.active a {
+    color: #263244;
+    background: var(--teyvat-gold);
+    border-color: var(--teyvat-gold);
+}
+
+/* Native transcript. The extension owns all cinematic geometry and styling. */
+body:not(.gi-scene) #chat {
+    background: linear-gradient(180deg, rgba(29, 40, 56, .84), rgba(25, 35, 50, .91));
+    border-inline: 1px solid var(--teyvat-line-faint);
+}
+
+body:not(.gi-scene) #chat > .mes {
+    border-bottom: 1px solid var(--teyvat-line-faint);
+}
+
+body:not(.gi-scene) #chat > .mes[is_user="true"] {
+    background-color: rgba(236, 229, 216, .035);
+}
+
+body:not(.gi-scene) #chat .mes .name_text {
+    color: var(--teyvat-gold);
+    font-weight: 650;
+}
+
+body:not(.gi-scene) #chat .mes .timestamp,
+body:not(.gi-scene) #chat .mes .mesIDDisplay {
+    color: var(--teyvat-muted);
+}
+
+body:not(.gi-scene) #chat .mes_text {
+    line-height: 1.65;
+}
+
+body:not(.gi-scene) #chat .mes_text a {
+    color: #e3cfa4;
+    text-underline-offset: .2em;
+}
+
+body:not(.gi-scene) #send_form {
+    background: rgba(29, 40, 57, .97);
+    border-color: var(--teyvat-line);
+    box-shadow: 0 -5px 24px rgba(8, 14, 24, .12);
+}
+
+body:not(.gi-scene) #send_textarea {
+    color: var(--teyvat-ivory);
+    line-height: 1.5;
+}
+
+body:not(.gi-scene) #send_textarea::placeholder {
+    color: #acb5c3;
+}
+
+body:not(.gi-scene) #send_textarea:focus-visible {
+    box-shadow: inset 0 -2px 0 var(--teyvat-gold);
+}
+
+body:not(.gi-scene) #send_form :is(#send_but, #mes_continue, #options_button) {
+    color: var(--teyvat-gold);
+}
+
+body:not(.gi-scene) :is(#qr--bar .qr--button, .last_mes .suggested_reply) {
+    color: var(--teyvat-ivory);
+    background-color: rgba(46, 59, 79, .94);
+    border: 1px solid var(--teyvat-line);
+    border-radius: 999px;
+    padding: 7px 15px;
+    text-shadow: none;
+}
+
+body:not(.gi-scene) :is(#qr--bar .qr--button, .last_mes .suggested_reply):hover {
+    color: #fff1d3;
+    background-color: #41516a;
+    border-color: var(--teyvat-gold);
+}
+
+/* Fine scroll rails, without modifying scroll behavior. */
+:is(.drawer-content, .popup-content, #chat, #options) {
+    scrollbar-color: rgba(216, 191, 137, .48) transparent;
+    scrollbar-width: thin;
+}
+
+:is(.drawer-content, .popup-content, #chat, #options)::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+:is(.drawer-content, .popup-content, #chat, #options)::-webkit-scrollbar-thumb {
+    background: rgba(216, 191, 137, .42);
+    border-radius: 8px;
+}
+
+:is(.drawer-content, .popup-content, #chat, #options)::-webkit-scrollbar-thumb:hover {
+    background: rgba(216, 191, 137, .72);
+}
+
+@media (max-width: 600px) {
+    .drawer-content {
+        padding: 9px;
+        border-radius: 9px;
+    }
+
+    .popup .popup-controls {
+        gap: 10px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .popup .popup-controls .menu_button {
+        padding-inline: 17px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    #top-settings-holder > .drawer > .drawer-icon,
+    #right-nav-panel .character_select,
+    :is(.drawer-content, .popup, #options) .menu_button {
+        transition: none;
+    }
+}
+
+/* ===== Teyvat Slate 1.19: Genshin interface language ===== */
+:root {
+    --mainFontFamily: "Silly Teyvat Dialogue", "HYWenHei 85W", "Noto Sans", sans-serif;
+    --teyvat-navy: #1b2232;
+    --teyvat-ink: #3d4557;
+    --teyvat-ease: cubic-bezier(.22, .8, .24, 1);
+}
+body, .drawer-content, .popup, #options, #send_textarea, select, input, textarea, button { font-family: var(--mainFontFamily); }
+
+/* Top bar: floating icons on a soft dark fade, cream disc on hover like Genshin's HUD buttons. */
+#top-bar { background: linear-gradient(180deg, rgba(14, 19, 30, .78), rgba(14, 19, 30, 0)); border: 0; border-radius: 0; box-shadow: none; }
+#top-settings-holder > .drawer > .drawer-icon { border-radius: 50%; transition: color 180ms ease, background-color 180ms ease, transform 220ms var(--teyvat-ease), opacity 180ms ease; }
+#top-settings-holder > .drawer > .drawer-icon:is(:hover, :focus-visible) { transform: translateY(-1px); }
+#top-settings-holder > .drawer > .drawer-icon.openIcon { color: var(--teyvat-ink); background: var(--teyvat-ivory); opacity: 1; }
+
+/* Panels: deep navy glass with a fine inset gold frame and squared corners. */
+.drawer-content, .popup:not(:has(.img_enlarged_container)), #options {
+    background: linear-gradient(160deg, rgba(31, 39, 57, .97), rgba(22, 28, 43, .98));
+    border: 1px solid rgba(211, 188, 142, .32);
+    border-radius: 4px;
+    box-shadow: 0 18px 60px rgba(4, 8, 16, .5), inset 0 0 0 4px rgba(22, 28, 43, .9), inset 0 0 0 5px rgba(211, 188, 142, .16);
+}
+.drawer-content.openDrawer { animation: teyvat-drawer 320ms var(--teyvat-ease) both; }
+@keyframes teyvat-drawer { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: none; } }
+.popup[open] { animation: teyvat-pop 260ms var(--teyvat-ease) both; }
+@keyframes teyvat-pop { from { opacity: 0; transform: scale(.96); } to { opacity: 1; transform: none; } }
+.popup[open]::backdrop { background-color: rgba(7, 11, 20, .62); backdrop-filter: blur(4px); }
+#options { animation: teyvat-pop 200ms var(--teyvat-ease) both; }
+
+.drawer-content :is(h3, h4) { color: #f2dca0; font-weight: normal; letter-spacing: .04em; }
+.drawer-content .inline-drawer-header { border-radius: 3px; background: linear-gradient(90deg, rgba(236, 229, 216, .07), rgba(236, 229, 216, .02)); border-color: transparent; transition: background 160ms ease; }
+.drawer-content .inline-drawer-header:hover { background: linear-gradient(90deg, rgba(236, 229, 216, .13), rgba(236, 229, 216, .04)); border-color: transparent; }
+.drawer-content .inline-drawer-content { animation: teyvat-drawer 240ms var(--teyvat-ease) both; }
+:is(.drawer-content, .popup, #options) :is(.text_pole, select, .popup-input), .popup textarea { border-radius: 3px; background-color: rgba(13, 18, 32, .82); }
+
+/* Buttons: Genshin cream pills. */
+:is(.drawer-content, .popup, #options) .menu_button:not(.redWarningBG):not(.popup-button-ok) { border-radius: 999px; }
+.popup .popup-controls .menu_button { position: relative; min-height: 42px; min-width: 150px; padding: 6px 28px 6px 50px; border: 0; border-radius: 999px; color: var(--teyvat-ink) !important; background: var(--teyvat-ivory) !important; box-shadow: 0 3px 12px rgba(0, 0, 0, .35); font-weight: normal; transition: background 160ms ease, transform 160ms ease, box-shadow 160ms ease; }
+.popup .popup-controls .menu_button:hover { background: #fff !important; box-shadow: 0 0 0 3px rgba(236, 229, 216, .25), 0 3px 12px rgba(0, 0, 0, .35); }
+.popup .popup-controls .menu_button:active { transform: scale(.97); }
+.popup .popup-controls .menu_button::before { content: ""; position: absolute; left: 5px; top: 50%; width: 32px; height: 32px; margin-top: -16px; border-radius: 50%; background: var(--teyvat-ink) center / 14px no-repeat; }
+.popup .popup-controls .popup-button-ok::before { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 14'%3E%3Cpath d='M2 7.5 5.6 11 12 3' fill='none' stroke='%23f1d48a' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E"); }
+.popup .popup-controls .popup-button-cancel::before { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 14'%3E%3Cpath d='m3 3 8 8M11 3l-8 8' fill='none' stroke='%2368b9e9' stroke-width='2.2' stroke-linecap='round'/%3E%3C/svg%3E"); }
+.popup .popup-controls .menu_button.redWarningBG::before { background-color: #a63c36; }
+
+/* Chat transcript (outside dialogue view) */
+body:not(.gi-scene) #chat { background: linear-gradient(180deg, rgba(22, 28, 43, .82), rgba(18, 24, 37, .9)); }
+body:not(.gi-scene) #chat .mes .name_text { color: #f2dca0; font-weight: normal; letter-spacing: .02em; }
+body:not(.gi-scene) #chat > .mes { animation: teyvat-mes 280ms var(--teyvat-ease) both; }
+@keyframes teyvat-mes { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+body:not(.gi-scene) #send_form { border-radius: 24px 24px 0 0; background: rgba(22, 28, 43, .96); }
+
+/* Character list: Genshin party-select cards */
+#right-nav-panel .character_select:not(.inline_avatar) { border-radius: 4px 4px 18px 4px; background: linear-gradient(90deg, rgba(236, 229, 216, .06), rgba(236, 229, 216, .015)); }
+#right-nav-panel .character_select:not(.inline_avatar):is(:hover, :focus-visible) { background: linear-gradient(90deg, rgba(236, 229, 216, .14), rgba(236, 229, 216, .03)); border-color: rgba(236, 229, 216, .3); }
+#right-nav-panel .character_select .ch_name { font-weight: normal; }
+#right-nav-panel .character_select .avatar { box-shadow: 0 0 0 2px rgba(236, 229, 216, .55); }
+
+/* Toasts */
+#toast-container > div { border-radius: 4px; background-color: rgba(27, 34, 50, .96); border: 1px solid rgba(211, 188, 142, .32); box-shadow: 0 8px 26px rgba(0, 0, 0, .4); opacity: 1; animation: teyvat-toast 320ms var(--teyvat-ease) both; }
+@keyframes teyvat-toast { from { opacity: 0; transform: translateX(18px); } to { opacity: 1; transform: none; } }
+
+@media (prefers-reduced-motion: reduce) {
+    .drawer-content.openDrawer, .drawer-content .inline-drawer-content, .popup[open], #options, body:not(.gi-scene) #chat > .mes, #toast-container > div { animation: none; }
+}
+

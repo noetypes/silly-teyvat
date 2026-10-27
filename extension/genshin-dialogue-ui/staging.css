@@ -1,0 +1,20 @@
+#gi-sprite-stage img { transform-origin: center bottom; transform: scale(calc(var(--gi-sprite-scale,1) * var(--gi-focus-scale,1))); transition: transform var(--gi-focus-duration,.6s) var(--gi-focus-easing,ease), opacity var(--gi-focus-duration,.6s) var(--gi-focus-easing,ease), filter var(--gi-focus-duration,.6s) var(--gi-focus-easing,ease); }
+body.gi-sprite-speaking #gi-sprite-stage img[data-shake="true"] { animation: gi-speaking-shake .35s ease-in-out infinite; }
+@keyframes gi-speaking-shake { 0%,100% { translate: 0; rotate: 0deg; } 25% { translate: 1px; rotate: .1deg; } 75% { translate: -1px; rotate: -.1deg; } }
+body.gi-reduced-motion #gi-sprite-stage img { transition: none; animation: none; }
+#gi-letterbox { position: fixed; inset: 0; z-index: 3; pointer-events: none; }
+#gi-letterbox[hidden] { display: none; }
+#gi-letterbox i { display: block; position: absolute; background: var(--gi-letterbox-color,#000); }
+#gi-letterbox[data-mode="horizontal"] i { height: var(--gi-letterbox-size,8vh); width: 100%; left: 0; }
+#gi-letterbox[data-mode="horizontal"] i:first-child { top: 0; }
+#gi-letterbox[data-mode="horizontal"] i:last-child { bottom: 0; }
+#gi-letterbox[data-mode="vertical"] i { width: var(--gi-letterbox-size,8vw); height: 100%; top: 0; }
+#gi-letterbox[data-mode="vertical"] i:first-child { left: 0; }
+#gi-letterbox[data-mode="vertical"] i:last-child { right: 0; }
+body.gi-cg-replace :is(#gi-sprite-stage,#expression-wrapper,#visual-novel-wrapper) { display: none !important; }
+body.gi-cg-replace .expression-holder { display: none !important; }
+body.gi-cg-replace :is(.expression-holder,.expression-holder img) { visibility: hidden !important; }
+
+/* Keep history available while Prome's optional visibility classes are present. */
+body.gi-native-staging.gi-scene.gi-history #chat > .mes.displayNone { display: flex !important; }
+@media (prefers-reduced-motion: reduce) { #gi-sprite-stage img { transition: none; animation: none !important; } }

@@ -1,0 +1,176 @@
+{
+  "target": "SillyTavern 1.19.0",
+  "extension": "Silly Teyvat",
+  "version": "1.13.0",
+  "verified": "2026-10-26",
+  "automatedChecks": 407,
+  "suites": [
+    {
+      "case": "Reveal, expression history and narration",
+      "checks": 42,
+      "harness": "Installed browser preview",
+      "pass_": true
+    },
+    {
+      "case": "CG, audio and player turns",
+      "checks": 31,
+      "harness": "Installed browser preview",
+      "pass_": true
+    },
+    {
+      "case": "Paragraph and newline pages",
+      "checks": 8,
+      "harness": "Installed browser preview",
+      "pass_": true
+    },
+    {
+      "case": "Text timing, scaling and group staging",
+      "checks": 46,
+      "harness": "Installed browser preview",
+      "pass_": true
+    },
+    {
+      "case": "Wardrobe, sprite swaps and regeneration",
+      "checks": 40,
+      "harness": "Installed browser preview",
+      "pass_": true
+    },
+    {
+      "case": "Regional backgrounds and history",
+      "checks": 30,
+      "harness": "Installed browser preview",
+      "pass_": true
+    },
+    {
+      "case": "Map, teleport, minimap and context",
+      "checks": 30,
+      "harness": "Installed browser preview",
+      "pass_": true
+    },
+    {
+      "case": "Location cast and greeting queue",
+      "checks": 25,
+      "harness": "Installed browser preview",
+      "pass_": true
+    },
+    {
+      "case": "Dialogue quotation presentation",
+      "checks": 10,
+      "harness": "Installed browser preview",
+      "pass_": true
+    },
+    {
+      "case": "page-sprites",
+      "checks": 9,
+      "harness": "Node with API mocks",
+      "pass_": true
+    },
+    {
+      "case": "choices",
+      "checks": 7,
+      "harness": "Node with API mocks",
+      "pass_": true
+    },
+    {
+      "case": "wardrobe",
+      "checks": 10,
+      "harness": "Node with API mocks",
+      "pass_": true
+    },
+    {
+      "case": "cg-prompt",
+      "checks": 14,
+      "harness": "Node with API mocks",
+      "pass_": true
+    },
+    {
+      "case": "rename-recovery",
+      "checks": 2,
+      "harness": "Node with API mocks",
+      "pass_": true
+    },
+    {
+      "case": "background-adapter",
+      "checks": 7,
+      "harness": "Node with API mocks",
+      "pass_": true
+    },
+    {
+      "case": "world-map",
+      "checks": 29,
+      "harness": "Node with API mocks",
+      "pass_": true
+    },
+    {
+      "case": "location-cast",
+      "checks": 17,
+      "harness": "Node with API mocks",
+      "pass_": true
+    },
+    {
+      "case": "cast-adapter",
+      "checks": 9,
+      "harness": "Node with API mocks",
+      "pass_": true
+    },
+    {
+      "case": "arrival-greetings",
+      "checks": 14,
+      "harness": "Node with API mocks",
+      "pass_": true
+    },
+    {
+      "case": "check-asset-refresh",
+      "checks": 11,
+      "harness": "Node",
+      "pass_": true
+    },
+    {
+      "case": "check-dialogue-formatting",
+      "checks": 16,
+      "harness": "Node",
+      "pass_": true
+    }
+  ],
+  "changes": [
+    "User-supplied teleport icon for saved, current and draft waypoints.",
+    "40 backgrounds reviewed; 24 replaced, preserving location IDs and saved paths.",
+    "Safe starter catalog v2 provenance migration preserves custom artwork, deletions, coordinates and character bindings.",
+    "Optional dialogue-only quotation hiding affects presentation, retaining original source text for narration, classification and history."
+  ],
+  "integration": {
+    "installedFilesMatchRecursively": true,
+    "javascriptSyntaxModules": 36,
+    "allJSONValid": true,
+    "waypointImages": {
+      "count": 40,
+      "dimensions": [
+        "36x46"
+      ],
+      "loaded": 40,
+      "paths": [
+        "/scripts/extensions/third-party/genshin-dialogue-ui/assets/icons/Teleport_Waypoint.webp"
+      ]
+    },
+    "quotationUI": {
+      "narration": false,
+      "source": "\u201cWow, traveller! That fish blasting was a lot of fun!\u201d\n\nKlee laughs and looks up at you with admiration.\n\n\u201cCan we do it again? Pretty please?\u201d",
+      "visible": "Can we do it again? Pretty please?"
+    },
+    "settingsMigration": {
+      "catalogVersion": 2,
+      "refreshed": 40,
+      "coordinatesLabelsAndResidentAssignmentsPreserved": true,
+      "defaultHomesPreserved": true,
+      "unrelatedSettingsPreserved": true,
+      "chatAndGroupWriteRequests": false
+    },
+    "noRealChatOrGroupWritesByTests": true
+  },
+  "limits": [
+    "Browser checks used disposable preview chats and mocked model/upload services. No live model request was made.",
+    "The latest UI changes were checked in the desktop browser. Earlier mobile checks remain documented in verification-v111.json; no new physical-phone test is claimed.",
+    "Svetloledovka is a disclosed AI-cleaned reference screenshot. Some other clean scenery sources are lower resolution or nearby ground-level approaches.",
+    "Distances remain straight-line map estimates and regional classification remains region locked."
+  ]
+}

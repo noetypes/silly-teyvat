@@ -1,0 +1,705 @@
+{
+  "reviewed": 40,
+  "replaced": 24,
+  "preservedMapIdentity": true,
+  "changes": [
+    {
+      "id": "starter-knights-of-favonius-library",
+      "label": "Knights of Favonius Library",
+      "asset": "knights-of-favonius-library.webp",
+      "old": {
+        "imageURL": "https://upload-os-bbs.hoyolab.com/upload/2025/06/12/71045277/435dbc5e432d0b8388e2837e8d53c27f_6711889691978247425.webp",
+        "source": "https://www.hoyolab.com/article/39298249",
+        "dimensions": [
+          1608,
+          720
+        ]
+      },
+      "new": {
+        "imageURL": "https://static.wikia.nocookie.net/gensin-impact/images/f/f1/Knights_of_Favonius_Headquarters_Library_4.png/revision/latest?cb=20230724040941",
+        "source": "https://genshin-impact.fandom.com/wiki/File:Knights_of_Favonius_Headquarters_Library_4.png",
+        "dimensions": [
+          1920,
+          1080
+        ],
+        "imageReview": {
+          "reviewed": "2026-10-26",
+          "playableCharacters": false,
+          "gameUI": false,
+          "captions": false,
+          "camera": "Library floor, viewed across the room. No playable characters or HUD."
+        }
+      },
+      "sha256": "d8ec292ffc729e209abc98dbcbc37feaf79b653b36120e78e4f8782983768751"
+    },
+    {
+      "id": "starter-knights-of-favonius-headquarters",
+      "label": "Knights of Favonius Headquarters",
+      "asset": "knights-of-favonius-headquarters.png",
+      "old": {
+        "imageURL": "https://upload-os-bbs.hoyolab.com/upload/2022/11/25/144310667/949dac28307efbcb2a1e6325071dac7a_4358860104863255634.png",
+        "source": "https://www.hoyolab.com/article/13951750",
+        "dimensions": [
+          2224,
+          1668
+        ]
+      },
+      "new": {
+        "imageURL": "https://static.wikia.nocookie.net/gensin-impact/images/3/31/Knights_of_Favonius_Headquarters_Grandmaster%27s_Office.png/revision/latest?cb=20220213025904",
+        "source": "https://genshin-impact.fandom.com/wiki/File:Knights_of_Favonius_Headquarters_Grandmaster's_Office.png",
+        "dimensions": [
+          1920,
+          1080
+        ],
+        "imageReview": {
+          "reviewed": "2026-10-26",
+          "playableCharacters": false,
+          "gameUI": false,
+          "captions": false,
+          "camera": "Empty Grandmaster office, viewed from the floor."
+        }
+      },
+      "sha256": "a2b43558f28f1d90d6b1c9585dcf274a183e810ad33d11eb79b8332fa411628e"
+    },
+    {
+      "id": "starter-albedo-s-campsite",
+      "label": "Albedo's Campsite",
+      "asset": "albedo-s-campsite.png",
+      "old": {
+        "imageURL": "https://cdn.gamerch.com/contents/wiki/4268/entry/nC0I0lx9.png",
+        "source": "https://gamerch.com/genshinwiki/925165",
+        "dimensions": [
+          800,
+          439
+        ]
+      },
+      "new": {
+        "imageURL": "https://static.wikia.nocookie.net/gensin-impact/images/f/fd/Albedo%27s_Campsite.jpeg/revision/latest?cb=20210324150319",
+        "source": "https://genshin-impact.fandom.com/wiki/File:Albedo's_Campsite.jpeg",
+        "dimensions": [
+          1920,
+          1080
+        ],
+        "imageReview": {
+          "reviewed": "2026-10-26",
+          "playableCharacters": false,
+          "gameUI": false,
+          "captions": false,
+          "camera": "Camp workbench and snow at ground height."
+        }
+      },
+      "sha256": "b13d375b919628a3956ce33a107e7a9a58ec4482a354f5fdb092bb141a7d1869"
+    },
+    {
+      "id": "starter-bubu-pharmacy",
+      "label": "Bubu Pharmacy",
+      "asset": "bubu-pharmacy.png",
+      "old": {
+        "imageURL": "https://upload-static.hoyoverse.com/wiki-ys-map/2021/08/15/82974925/60edefa263b38d079578b87deb330b49_2821255063584376002.png",
+        "source": "https://act.hoyolab.com/ys/app/interactive-map/index.html?lang=en-us&map_id=2&point_id=14970",
+        "dimensions": [
+          1920,
+          1080
+        ]
+      },
+      "new": {
+        "imageURL": "https://static.wikia.nocookie.net/gensin-impact/images/4/4d/Bubu_Pharmacy_Back_Room.png/revision/latest?cb=20230412220431",
+        "source": "https://genshin-impact.fandom.com/wiki/File:Bubu_Pharmacy_Back_Room.png",
+        "dimensions": [
+          1920,
+          1080
+        ],
+        "imageReview": {
+          "reviewed": "2026-10-26",
+          "playableCharacters": false,
+          "gameUI": false,
+          "captions": false,
+          "camera": "Pharmacy back room. Herbalist Gui is a world NPC, not a playable character."
+        }
+      },
+      "sha256": "517c7588c6908df1ee8d57e81fd3ecbf0f27999c46cd464fe24239a3d12a37fb"
+    },
+    {
+      "id": "starter-wangsheng-funeral-parlor",
+      "label": "Wangsheng Funeral Parlor",
+      "asset": "wangsheng-funeral-parlor.jpg",
+      "old": {
+        "imageURL": "https://img.game8.jp/5614469/725f83b691c8b551046850bb362744ac.jpeg/original",
+        "source": "https://game8.jp/genshin/373946",
+        "dimensions": [
+          2048,
+          1114
+        ]
+      },
+      "new": {
+        "imageURL": "https://static.wikia.nocookie.net/gensin-impact/images/a/ae/Wangsheng_Funeral_Parlor.png/revision/latest?cb=20221123033535",
+        "source": "https://genshin-impact.fandom.com/wiki/File:Wangsheng_Funeral_Parlor.png",
+        "dimensions": [
+          1920,
+          1080
+        ],
+        "imageReview": {
+          "reviewed": "2026-10-26",
+          "playableCharacters": false,
+          "gameUI": false,
+          "captions": false,
+          "camera": "Street-level entrance, without the player avatar or HUD."
+        }
+      },
+      "sha256": "0be6fd625d27baacac353769cdf8239a319ad57baa09ae6767de03605abfee75"
+    },
+    {
+      "id": "starter-wanmin-restaurant",
+      "label": "Wanmin Restaurant",
+      "asset": "wanmin-restaurant.jpg",
+      "old": {
+        "imageURL": "https://upload-static.hoyoverse.com/map_manage/20210802/37af7370130bfe967704d4f2ee1fcfce_7007305357941205089.jpg",
+        "source": "https://act.hoyolab.com/ys/app/interactive-map/index.html?lang=en-us&map_id=2&point_id=14961",
+        "dimensions": [
+          2400,
+          1080
+        ]
+      },
+      "new": {
+        "imageURL": "https://i.pinimg.com/originals/42/50/1c/42501c97b77cf6593a8ade6f63308d15.jpg",
+        "source": "https://www.pinterest.com/pin/notion--119345458867648204/",
+        "dimensions": [
+          736,
+          414
+        ],
+        "imageReview": {
+          "reviewed": "2026-10-26",
+          "playableCharacters": false,
+          "gameUI": false,
+          "captions": false,
+          "camera": "Ground-level Chihu Rock plaza beside the restaurant district, rather than the obstructed stall close-up. NPCs only. Lower-resolution clean scenery."
+        }
+      },
+      "sha256": "dd1d148918cead2c0f8cdd7144b90243c65ac6bf5719964600406cc29d5df7e6"
+    },
+    {
+      "id": "starter-wangshu-inn",
+      "label": "Wangshu Inn",
+      "asset": "wangshu-inn.jpg",
+      "old": {
+        "imageURL": "https://staticg.sportskeeda.com/editor/2023/01/532fd-16735622377044.png",
+        "source": "https://www.sportskeeda.com/esports/how-old-xiao-genshin-impact-5-important-facts-lore-need-know",
+        "dimensions": [
+          1920,
+          1080
+        ]
+      },
+      "new": {
+        "imageURL": "https://static.icy-veins.com/images/genshin-impact/wiki/vendors/verr-goldet-screenshot.webp",
+        "source": "https://www.icy-veins.com/genshin-impact/wiki/npcs/verr-goldet",
+        "dimensions": [
+          960,
+          540
+        ],
+        "imageReview": {
+          "reviewed": "2026-10-26",
+          "playableCharacters": false,
+          "gameUI": false,
+          "captions": false,
+          "camera": "Reception counter at floor level; only permanent NPCs, a cat and a dog."
+        }
+      },
+      "sha256": "acf218e18e0d6ab5fce9111aa73344eb51106bb66610a2cc045a420b64dad05f"
+    },
+    {
+      "id": "starter-tenshukaku",
+      "label": "Tenshukaku",
+      "asset": "tenshukaku.jpg",
+      "old": {
+        "imageURL": "https://cdn2.unrealengine.com/genshin-impact-landscape-3840x2160-dbfecd33a0cc.jpg",
+        "source": "https://store.epicgames.com/pt-BR/news/genshin-impact-version-2-0-brings-in-the-all-new-inazuma-area-today",
+        "dimensions": [
+          3840,
+          2160
+        ]
+      },
+      "new": {
+        "imageURL": "https://static.wikia.nocookie.net/gensin-impact/images/1/1b/Tenshukaku_Interior.png/revision/latest?cb=20230723192713",
+        "source": "https://genshin-impact.fandom.com/wiki/File:Tenshukaku_Interior.png",
+        "dimensions": [
+          1920,
+          1080
+        ],
+        "imageReview": {
+          "reviewed": "2026-10-26",
+          "playableCharacters": false,
+          "gameUI": false,
+          "captions": false,
+          "camera": "Empty main hall from floor height."
+        }
+      },
+      "sha256": "039ea154356ff53b54199a84030f59c4f8a721eaed281a80441d186f9711fc94"
+    },
+    {
+      "id": "starter-komore-teahouse",
+      "label": "Komore Teahouse",
+      "asset": "komore-teahouse.jpg",
+      "old": {
+        "imageURL": "https://img001.dailiantong.com/News/20220304/zty_20220304130836343.jpg",
+        "source": "https://www.dailiantong.com/news/content_88266.html",
+        "dimensions": [
+          1920,
+          1080
+        ]
+      },
+      "new": {
+        "imageURL": "https://i.pinimg.com/736x/ef/2c/23/ef2c23b3175dbb0db41c4c216ca0f810.jpg",
+        "source": "https://www.pinterest.com/pin/komore-teahouse-in-japanese-architecture--59320920084403251/",
+        "dimensions": [
+          736,
+          414
+        ],
+        "imageReview": {
+          "reviewed": "2026-10-26",
+          "playableCharacters": false,
+          "gameUI": false,
+          "captions": false,
+          "camera": "Entrance corridor from floor height; low-resolution clean mirror. Copyright logo retained."
+        }
+      },
+      "sha256": "89c16f5028aabfdaec84513774f5c20462054be05ff7158df43335c8490db48a"
+    },
+    {
+      "id": "starter-gandharva-ville",
+      "label": "Gandharva Ville",
+      "asset": "gandharva-ville.jpg",
+      "old": {
+        "imageURL": "https://webstatic.hoyoverse.com/upload/wiki-ys-map/2022/08/26/7804220/15302459ea249599e9a1aa1865312e16_1214556770962849842.jpg",
+        "source": "https://act.hoyolab.com/ys/app/interactive-map/index.html?lang=en-us&map_id=2&point_id=30470",
+        "dimensions": [
+          2560,
+          1440
+        ]
+      },
+      "new": {
+        "imageURL": "https://d.itechpost.com/en/full/108394/gandharva-ville.jpg",
+        "source": "https://www.itechpost.com/articles/113543/20220904/genshin-impact-update-3-0-review-sumeru-superb.htm",
+        "dimensions": [
+          640,
+          355
+        ],
+        "imageReview": {
+          "reviewed": "2026-10-26",
+          "playableCharacters": false,
+          "gameUI": false,
+          "captions": false,
+          "camera": "Village footpath at ground height. Lower-resolution original, not artificially enlarged."
+        }
+      },
+      "sha256": "7c7decaf87d52d014a45ab6f9f0ef4e2ade353fd2946d9401f75e90ae227a29c"
+    },
+    {
+      "id": "starter-zubayr-theater",
+      "label": "Zubayr Theater",
+      "asset": "zubayr-theater.png",
+      "old": {
+        "imageURL": "https://upload-os-bbs.hoyolab.com/upload/2022/09/03/68261122/49b026f240f33d39cbad59ea4a9e7ad4_5194495561800409562.png",
+        "source": "https://www.hoyolab.com/article/7996613",
+        "dimensions": [
+          870,
+          547
+        ]
+      },
+      "new": {
+        "imageURL": "https://static.wikia.nocookie.net/gensin-impact/images/c/ce/Zubayr_Theater.png/revision/latest?cb=20220827124428",
+        "source": "https://genshin-impact.fandom.com/wiki/File:Zubayr_Theater.png",
+        "dimensions": [
+          1920,
+          1080
+        ],
+        "imageReview": {
+          "reviewed": "2026-10-26",
+          "playableCharacters": false,
+          "gameUI": false,
+          "captions": false,
+          "camera": "Theater seen from the adjacent upper pedestrian path. Background NPCs only; no playable characters or HUD."
+        }
+      },
+      "sha256": "ed2b8385bc00088177d1d6918bf9d6e43b86c5a71b3aab82afae666d2f70fe5f"
+    },
+    {
+      "id": "starter-aaru-village",
+      "label": "Aaru Village",
+      "asset": "aaru-village.jpg",
+      "old": {
+        "imageURL": "https://www.pockettactics.com/wp-content/sites/pockettactics/2022/08/genshin-impact-sumeru-2.jpg",
+        "source": "https://www.pockettactics.com/genshin-impact/sumeru",
+        "dimensions": [
+          1920,
+          1080
+        ]
+      },
+      "new": {
+        "imageURL": "https://static.wikia.nocookie.net/gensin-impact/images/9/9e/Village_Chief%27s_House_Interior_1.png/revision/latest?cb=20221009215926",
+        "source": "https://genshin-impact.fandom.com/wiki/File:Village_Chief's_House_Interior_1.png",
+        "dimensions": [
+          2560,
+          1440
+        ],
+        "imageReview": {
+          "reviewed": "2026-10-26",
+          "playableCharacters": false,
+          "gameUI": false,
+          "captions": false,
+          "camera": "Village chief's house interior, from floor height."
+        }
+      },
+      "sha256": "b7335b247c2fa0279947325be396dc8164fd6a66bb2322160a226abbc0dda222"
+    },
+    {
+      "id": "starter-palais-mermonia",
+      "label": "Palais Mermonia",
+      "asset": "palais-mermonia.png",
+      "old": {
+        "imageURL": "https://upload-os-bbs.hoyolab.com/upload/2024/04/11/14205457/b406d64808af2759ec6cd37e321861b3_2359367753730651974.png",
+        "source": "https://www.hoyolab.com/article/27059886",
+        "dimensions": [
+          1280,
+          720
+        ]
+      },
+      "new": {
+        "imageURL": "https://static.wikia.nocookie.net/gensin-impact/images/5/54/Palais_Mermonia_Interior.png/revision/latest?cb=20230816042233",
+        "source": "https://genshin-impact.fandom.com/wiki/File:Palais_Mermonia_Interior.png",
+        "dimensions": [
+          2560,
+          1440
+        ],
+        "imageReview": {
+          "reviewed": "2026-10-26",
+          "playableCharacters": false,
+          "gameUI": false,
+          "captions": false,
+          "camera": "Empty interior hall, without cutscene dialogue."
+        }
+      },
+      "sha256": "c6d216b0223973107434aa78cf6920da15857559ceb26e67e582a7637b5a4004"
+    },
+    {
+      "id": "starter-fortress-of-meropide",
+      "label": "Fortress of Meropide",
+      "asset": "fortress-of-meropide.jpg",
+      "old": {
+        "imageURL": "https://images.rpgsite.net/image/da49c9a1/129637/original/Genshin-Impact-4-1_20230915_01.jpg",
+        "source": "https://www.rpgsite.net/news/14836-genshin-impact-version-41-launches-on-september-27-introducing-the-fortress-of-meropide-new-characters-neuvillette-wriothesley-and-more",
+        "dimensions": [
+          3840,
+          2160
+        ]
+      },
+      "new": {
+        "imageURL": "https://static.wikia.nocookie.net/gensin-impact/images/c/cf/Administrative_Area.png/revision/latest?cb=20240428183200",
+        "source": "https://genshin-impact.fandom.com/wiki/File:Administrative_Area.png",
+        "dimensions": [
+          3840,
+          2160
+        ],
+        "imageReview": {
+          "reviewed": "2026-10-26",
+          "playableCharacters": false,
+          "gameUI": false,
+          "captions": false,
+          "camera": "Administrative floor interior, without playable characters."
+        }
+      },
+      "sha256": "61813853e4b46f323bb4760fde57bff3fc7c53437a985f05e3da23e314afbf51"
+    },
+    {
+      "id": "starter-poisson",
+      "label": "Poisson",
+      "asset": "poisson.png",
+      "old": {
+        "imageURL": "https://webstatic.hoyoverse.com/upload/wiki-ys-map/2023/08/18/338185064/77b6c2f6eba9de12786dfdc1ecd85723_5294540982230231069.png",
+        "source": "https://act.hoyolab.com/ys/app/interactive-map/index.html?lang=en-us&map_id=2&point_id=52053",
+        "dimensions": [
+          1915,
+          1079
+        ]
+      },
+      "new": {
+        "imageURL": "https://static.wikia.nocookie.net/gensin-impact/images/d/db/Viewpoint_Where_Dark_Tides_Echo.png/revision/latest?cb=20230818012820",
+        "source": "https://genshin-impact.fandom.com/wiki/File:Viewpoint_Where_Dark_Tides_Echo.png",
+        "dimensions": [
+          1024,
+          512
+        ],
+        "imageReview": {
+          "reviewed": "2026-10-26",
+          "playableCharacters": false,
+          "gameUI": false,
+          "captions": false,
+          "camera": "Raw scenery image from the pedestrian bridge. No viewpoint menu or HUD."
+        }
+      },
+      "sha256": "6896330d4067a55e8c046ce75b4a0839a42369ca53e65f3d5294c0c890beb065"
+    },
+    {
+      "id": "starter-chioriya-boutique",
+      "label": "Chioriya Boutique",
+      "asset": "chioriya-boutique.png",
+      "old": {
+        "imageURL": "https://img.gamewith.net/img/original_41106e9cb0adcf59bd7d3a576615fa12.png",
+        "source": "https://gamewith.net/genshin-impact/article/show/44183",
+        "dimensions": [
+          1920,
+          1007
+        ]
+      },
+      "new": {
+        "imageURL": "https://static.wikia.nocookie.net/gensin-impact/images/a/a5/Chioriya_Boutique_Interior.png/revision/latest?cb=20240313064131",
+        "source": "https://genshin-impact.fandom.com/wiki/File:Chioriya_Boutique_Interior.png",
+        "dimensions": [
+          1920,
+          1080
+        ],
+        "imageReview": {
+          "reviewed": "2026-10-26",
+          "playableCharacters": false,
+          "gameUI": false,
+          "captions": false,
+          "camera": "Interior from the floor, with ordinary shop NPCs only."
+        }
+      },
+      "sha256": "f3b5809bd633bd2ac8eed71f3bffa8fa0bad2119b4ef2caba55f3fb67fa3a647"
+    },
+    {
+      "id": "starter-scions-of-the-canopy",
+      "label": "Scions of the Canopy",
+      "asset": "scions-of-the-canopy.png",
+      "old": {
+        "imageURL": "https://act-upload.hoyoverse.com/upload/wiki-ys-map/2024/08/30/183428582/bdde1beb140db6d329c9c2ec1e1fed15_3208235298046338133.png",
+        "source": "https://act.hoyolab.com/ys/app/interactive-map/index.html?lang=en-us&map_id=2&point_id=71607",
+        "dimensions": [
+          1920,
+          864
+        ]
+      },
+      "new": {
+        "imageURL": "https://genshin.catforest.dev/geshin-pics/scene/scene-Tribal%20Secret%20Space%20Scions%20of%20the%20Canopy%20Location%20Context.webp",
+        "source": "https://genshin.catforest.dev/en/scene/tribal-secret-space-scions-of-the-canopy-location-context",
+        "dimensions": [
+          1600,
+          900
+        ],
+        "imageReview": {
+          "reviewed": "2026-10-26",
+          "playableCharacters": false,
+          "gameUI": false,
+          "captions": false,
+          "camera": "Ground approach to the tribal secret-space entrance. No playable characters, UI, UID or captions."
+        }
+      },
+      "sha256": "d0ea0225c6d9fc1158e3e29249b78ed486d9370970d54bc9b2e2dbd0d2c288b9"
+    },
+    {
+      "id": "starter-flower-feather-clan",
+      "label": "Flower-Feather Clan",
+      "asset": "flower-feather-clan.png",
+      "old": {
+        "imageURL": "https://act-upload.hoyoverse.com/upload/wiki-ys-map/2024/11/24/40645046/eb2e61748bf5f42c3ef4e0528b43d716_4742163149330814626.png",
+        "source": "https://act.hoyolab.com/ys/app/interactive-map/index.html?lang=en-us&map_id=2&point_id=80476",
+        "dimensions": [
+          1920,
+          1080
+        ]
+      },
+      "new": {
+        "imageURL": "https://genshin.catforest.dev/geshin-pics/scene/scene-Tribal%20Secret%20Space%20Flower%20Feather%20Clan%20Location%20Context.webp",
+        "source": "https://genshin.catforest.dev/en/scene/tribal-secret-space-flower-feather-clan-location-context",
+        "dimensions": [
+          1600,
+          900
+        ],
+        "imageReview": {
+          "reviewed": "2026-10-26",
+          "playableCharacters": false,
+          "gameUI": false,
+          "captions": false,
+          "camera": "Ground approach below the tribe, at the secret-space entrance. No playable characters or UI."
+        }
+      },
+      "sha256": "a534e645be3e70644ba19788b94587084e7000182ea65ab9735b01e72b036a37"
+    },
+    {
+      "id": "starter-stadium-of-the-sacred-flame",
+      "label": "Stadium of the Sacred Flame",
+      "asset": "stadium-of-the-sacred-flame.webp",
+      "old": {
+        "imageURL": "https://static.icy-veins.com/images/genshin-impact/exploration/natlan/natlan-basin.webp",
+        "source": "https://www.icy-veins.com/genshin-impact/basin-of-unnumbered-flames",
+        "dimensions": [
+          1920,
+          1080
+        ]
+      },
+      "new": {
+        "imageURL": "https://static.wikia.nocookie.net/gensin-impact/images/d/da/Stadium_of_the_Sacred_Flame_Temple_of_Pax.png/revision/latest?cb=20240902103356",
+        "source": "https://genshin-impact.fandom.com/wiki/File:Stadium_of_the_Sacred_Flame_Temple_of_Pax.png",
+        "dimensions": [
+          2560,
+          1600
+        ],
+        "imageReview": {
+          "reviewed": "2026-10-26",
+          "playableCharacters": false,
+          "gameUI": false,
+          "captions": false,
+          "camera": "Temple of Pax floor inside the stadium, replacing the aerial arena view."
+        }
+      },
+      "sha256": "169acd281ad441ab9af6f3ac44985cf67dd9bbf02a909d889f5881983c879210"
+    },
+    {
+      "id": "starter-morepesok",
+      "label": "Morepesok",
+      "asset": "morepesok.png",
+      "old": {
+        "imageURL": "https://act-upload.hoyoverse.com/upload/wiki-ys-map/2026/09/10/83669853/36c991be26e955b8e026aa7706a83c98_3531281077486558586.png",
+        "source": "https://act.hoyolab.com/ys/app/interactive-map/index.html?lang=en-us&map_id=2&point_id=101993",
+        "dimensions": [
+          1919,
+          1052
+        ]
+      },
+      "new": {
+        "imageURL": "https://static.wikia.nocookie.net/gensin-impact/images/1/1f/Tartaglia%27s_Home.png/revision/latest?cb=20260815110314",
+        "source": "https://genshin-impact.fandom.com/wiki/File:Tartaglia's_Home.png",
+        "dimensions": [
+          2560,
+          1440
+        ],
+        "imageReview": {
+          "reviewed": "2026-10-26",
+          "playableCharacters": false,
+          "gameUI": false,
+          "captions": false,
+          "camera": "Ground-level boardwalk outside Tartaglia's family home. Tonia is a non-playable resident."
+        }
+      },
+      "sha256": "7c9b58ba86acbb980064cbba32c3bec7c57b07b4020e0b2b638488c40e19b391"
+    },
+    {
+      "id": "starter-sretomorozsk",
+      "label": "Sretomorozsk",
+      "asset": "sretomorozsk.jpg",
+      "old": {
+        "imageURL": "https://act-upload.hoyoverse.com/upload/wiki-ys-map/2026/08/12/118757152/a55f7bf72491152bf009c17ec3333f09_1735436072671138300.jpg",
+        "source": "https://act.hoyolab.com/ys/app/interactive-map/index.html?lang=en-us&map_id=2&point_id=101981",
+        "dimensions": [
+          2340,
+          1080
+        ]
+      },
+      "new": {
+        "imageURL": "https://kotaku.com/igdb/image/upload/t_720p/sc14hvl.jpg",
+        "source": "https://kotaku.com/games/genshin-impact-everwinter-without-mercy",
+        "dimensions": [
+          1280,
+          720
+        ],
+        "imageReview": {
+          "reviewed": "2026-10-26",
+          "playableCharacters": false,
+          "gameUI": false,
+          "captions": false,
+          "camera": "Snowy village path at human height, without viewpoint panel or HUD."
+        }
+      },
+      "sha256": "9929c4049f440d90a7342e98869fb12dccb51128740dbb869278281505e0af91"
+    },
+    {
+      "id": "starter-house-of-hesperides",
+      "label": "House of Hesperides",
+      "asset": "house-of-hesperides.png",
+      "old": {
+        "imageURL": "https://act-upload.hoyoverse.com/upload/wiki-ys-map/2026/08/14/481753553/1be21084611ce738aa9625b91c9044dc_9004455308259348248.png",
+        "source": "https://act.hoyolab.com/ys/app/interactive-map/index.html?lang=en-us&map_id=2&point_id=101987",
+        "dimensions": [
+          1920,
+          1080
+        ]
+      },
+      "new": {
+        "imageURL": "https://static.wikia.nocookie.net/gensin-impact/images/c/c9/House_of_Hesperides_Chapel.png/revision/latest?cb=20260815151120",
+        "source": "https://genshin-impact.fandom.com/wiki/File:House_of_Hesperides_Chapel.png",
+        "dimensions": [
+          2560,
+          1440
+        ],
+        "imageReview": {
+          "reviewed": "2026-10-26",
+          "playableCharacters": false,
+          "gameUI": false,
+          "captions": false,
+          "camera": "Chapel interior from floor height, without viewpoint UI."
+        }
+      },
+      "sha256": "a926b3aa32926ff57ef55b746252fcd463b1056973aabc6b1d08a27a42d5bfc4"
+    },
+    {
+      "id": "starter-svetloledovka",
+      "label": "Svetloledovka",
+      "asset": "svetloledovka.png",
+      "old": {
+        "imageURL": "https://act-upload.hoyoverse.com/upload/wiki-ys-map/2026/08/23/83669853/fbaebfb181178e6f8e5459754101fa52_5179288501262919583.png",
+        "source": "https://act.hoyolab.com/ys/app/interactive-map/index.html?lang=en-us&map_id=2&point_id=101980",
+        "dimensions": [
+          1919,
+          1050
+        ]
+      },
+      "new": {
+        "imageURL": "https://act-upload.hoyoverse.com/upload/wiki-ys-map/2026/08/23/83669853/fbaebfb181178e6f8e5459754101fa52_5179288501262919583.png",
+        "source": "https://wiki.hoyolab.com/pc/genshin/interactive-map?mapID=2",
+        "dimensions": [
+          1695,
+          928
+        ],
+        "imageReview": {
+          "reviewed": "2026-10-26",
+          "playableCharacters": false,
+          "gameUI": false,
+          "captions": false,
+          "camera": "Ground-level stone platform beside the excavation crane. AI-cleaned game screenshot: player, NPCs and HUD removed using the built-in image_gen tool. Scenery is an edited reconstruction, not an untouched official screenshot. See svetloledovka-cleanup.json for the reference and full edit prompt.",
+          "editing": "AI-cleaned reference screenshot; built-in image_gen",
+          "promptRecord": "svetloledovka-cleanup.json"
+        }
+      },
+      "sha256": "c73cab22a3905f758aa823a388e8a0a751e774baf6c6a8ef474847cc5d289b8e"
+    },
+    {
+      "id": "starter-sanctuary-of-grief",
+      "label": "Sanctuary of Grief",
+      "asset": "sanctuary-of-grief.png",
+      "old": {
+        "imageURL": "https://act-upload.hoyoverse.com/upload/wiki-ys-map/2026/08/27/83669853/9111efecc9f48ceb23d136115430e38c_3037943993149275827.png",
+        "source": "https://act.hoyolab.com/ys/app/interactive-map/index.html?lang=en-us&map_id=2&point_id=101985",
+        "dimensions": [
+          1919,
+          1049
+        ]
+      },
+      "new": {
+        "imageURL": "https://static.wikia.nocookie.net/gensin-impact/images/e/ed/Sanctuary_of_Grief.png/revision/latest?cb=20260812195636",
+        "source": "https://genshin-impact.fandom.com/wiki/File:Sanctuary_of_Grief.png",
+        "dimensions": [
+          1920,
+          1080
+        ],
+        "imageReview": {
+          "reviewed": "2026-10-26",
+          "playableCharacters": false,
+          "gameUI": false,
+          "captions": false,
+          "camera": "Snowy approach at ground height, without the player or HUD."
+        }
+      },
+      "sha256": "6c2a58f05f7db93419eb4fee6cf620e6b5fa0a3ef253ffda6f759cb1ac11150c"
+    }
+  ]
+}

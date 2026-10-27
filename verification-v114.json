@@ -1,0 +1,204 @@
+{
+  "target": "SillyTavern 1.19.0",
+  "extension": "Silly Teyvat",
+  "version": "1.14.0",
+  "verified": "2026-10-26",
+  "automatedChecks": 454,
+  "suites": [
+    {
+      "case": "feature",
+      "checks": 42,
+      "harness": "Installed browser preview",
+      "passed": true
+    },
+    {
+      "case": "media",
+      "checks": 31,
+      "harness": "Installed browser preview",
+      "passed": true
+    },
+    {
+      "case": "page",
+      "checks": 8,
+      "harness": "Installed browser preview",
+      "passed": true
+    },
+    {
+      "case": "staging",
+      "checks": 46,
+      "harness": "Installed browser preview",
+      "passed": true
+    },
+    {
+      "case": "wardrobe",
+      "checks": 40,
+      "harness": "Installed browser preview",
+      "passed": true
+    },
+    {
+      "case": "background",
+      "checks": 30,
+      "harness": "Installed browser preview",
+      "passed": true
+    },
+    {
+      "case": "world",
+      "checks": 30,
+      "harness": "Installed browser preview",
+      "passed": true
+    },
+    {
+      "case": "cast",
+      "checks": 25,
+      "harness": "Installed browser preview",
+      "passed": true
+    },
+    {
+      "case": "formatting",
+      "checks": 10,
+      "harness": "Installed browser preview",
+      "passed": true
+    },
+    {
+      "case": "travel",
+      "checks": 16,
+      "harness": "Installed browser preview",
+      "passed": true
+    },
+    {
+      "case": "page-sprites",
+      "checks": 9,
+      "harness": "Node / API mocks",
+      "passed": true
+    },
+    {
+      "case": "choices",
+      "checks": 7,
+      "harness": "Node / API mocks",
+      "passed": true
+    },
+    {
+      "case": "wardrobe",
+      "checks": 10,
+      "harness": "Node / API mocks",
+      "passed": true
+    },
+    {
+      "case": "cg-prompt",
+      "checks": 14,
+      "harness": "Node / API mocks",
+      "passed": true
+    },
+    {
+      "case": "rename-recovery",
+      "checks": 2,
+      "harness": "Node / API mocks",
+      "passed": true
+    },
+    {
+      "case": "background-adapter",
+      "checks": 7,
+      "harness": "Node / API mocks",
+      "passed": true
+    },
+    {
+      "case": "world-map",
+      "checks": 29,
+      "harness": "Node / API mocks",
+      "passed": true
+    },
+    {
+      "case": "location-cast",
+      "checks": 17,
+      "harness": "Node / API mocks",
+      "passed": true
+    },
+    {
+      "case": "cast-adapter",
+      "checks": 9,
+      "harness": "Node / API mocks",
+      "passed": true
+    },
+    {
+      "case": "arrival-greetings",
+      "checks": 14,
+      "harness": "Node / API mocks",
+      "passed": true
+    },
+    {
+      "case": "asset-refresh",
+      "checks": 11,
+      "harness": "Node / API mocks",
+      "passed": true
+    },
+    {
+      "case": "dialogue-formatting",
+      "checks": 16,
+      "harness": "Node / API mocks",
+      "passed": true
+    },
+    {
+      "case": "travel",
+      "checks": 22,
+      "harness": "Node / API mocks",
+      "passed": true
+    },
+    {
+      "case": "home-migration",
+      "checks": 9,
+      "harness": "Node / API mocks",
+      "passed": true
+    }
+  ],
+  "changes": [
+    "Solo character opening restores the researched default location, without adding false travel history.",
+    "Optional main-character departure asks other followers first and guarantees an enabled speaker.",
+    "Teleport and automatic travel save measured, model-visible narrator records using the actual followers.",
+    "World scale defaults to the active region, with an optional all-world scope.",
+    "71 mapped backgrounds and 127 character home bindings; Prune corrected to Mondstadt Fountain Plaza.",
+    "122 exact Character card profile images imported with card text, sprites, unrelated cards, chats and groups preserved."
+  ],
+  "integration": {
+    "installedFilesMatchRecursively": true,
+    "javascriptSyntaxModules": 40,
+    "allJSONValid": true,
+    "mapProof": {
+      "loaded": 71,
+      "markers": 71,
+      "settings": [
+        {
+          "checked": false,
+          "id": "gi-map-main-departure",
+          "label": "Allow the main character to stay behind"
+        },
+        {
+          "checked": false,
+          "id": "gi-map-world-scope",
+          "label": "Include the entire world in World scale"
+        }
+      ]
+    },
+    "profileImport": {
+      "updated": 122,
+      "cardTextAndGreetingsUnchanged": true,
+      "spritesByteIdentical": true,
+      "otherCardsByteIdentical": true,
+      "chatsAndGroupsByteIdentical": true
+    },
+    "homeImport": {
+      "existingLocationsPreserved": true,
+      "existingCharacterBindingsPreservedExceptExplicitPruneCorrection": true,
+      "allCharacterHomesUnique": true,
+      "characterCardsSpritesChatsGroupsByteIdentical": true,
+      "unrelatedSettingsUnchanged": true
+    },
+    "noRealChatOrGroupWritesByTests": true
+  },
+  "limits": [
+    "Browser checks used disposable preview chats and mocked model/upload services. No live model request was made.",
+    "The latest controls were checked in the desktop browser. No new physical-phone test is claimed.",
+    "Manekin and Manekina have no exact Character card assets on the specified site, so current profiles were retained.",
+    "Some scenery shows a clearly documented approach or neighborhood rather than the private interior. Itinerant characters have roleplay meeting points rather than invented permanent homes.",
+    "Pins include explicitly approximate building entrances. Distances are straight-line map estimates, with region-locked automatic location classification."
+  ]
+}

@@ -1,0 +1,231 @@
+{
+  "extension": "Silly Teyvat",
+  "version": "1.17.0",
+  "verified": "2026-10-26",
+  "automatedChecks": 613,
+  "suites": [
+    {
+      "suite": "browser-arrival",
+      "checks": 14,
+      "harness": "Disposable browser fixture",
+      "passed": true
+    },
+    {
+      "suite": "browser-background",
+      "checks": 30,
+      "harness": "Disposable browser fixture",
+      "passed": true
+    },
+    {
+      "suite": "browser-cast",
+      "checks": 25,
+      "harness": "Disposable browser fixture",
+      "passed": true
+    },
+    {
+      "suite": "browser-combat",
+      "checks": 20,
+      "harness": "Disposable browser fixture",
+      "passed": true
+    },
+    {
+      "suite": "browser-dice-model",
+      "checks": 25,
+      "harness": "Disposable browser fixture",
+      "passed": true
+    },
+    {
+      "suite": "browser-encounters",
+      "checks": 22,
+      "harness": "Disposable browser fixture",
+      "passed": true
+    },
+    {
+      "suite": "browser-feature",
+      "checks": 42,
+      "harness": "Disposable browser fixture",
+      "passed": true
+    },
+    {
+      "suite": "browser-formatting",
+      "checks": 10,
+      "harness": "Disposable browser fixture",
+      "passed": true
+    },
+    {
+      "suite": "browser-media",
+      "checks": 31,
+      "harness": "Disposable browser fixture",
+      "passed": true
+    },
+    {
+      "suite": "browser-pages",
+      "checks": 8,
+      "harness": "Disposable browser fixture",
+      "passed": true
+    },
+    {
+      "suite": "browser-staging",
+      "checks": 46,
+      "harness": "Disposable browser fixture",
+      "passed": true
+    },
+    {
+      "suite": "browser-travel",
+      "checks": 16,
+      "harness": "Disposable browser fixture",
+      "passed": true
+    },
+    {
+      "suite": "browser-wardrobe",
+      "checks": 40,
+      "harness": "Disposable browser fixture",
+      "passed": true
+    },
+    {
+      "suite": "browser-world",
+      "checks": 30,
+      "harness": "Disposable browser fixture",
+      "passed": true
+    },
+    {
+      "suite": "check-arrival-greetings",
+      "checks": 14,
+      "harness": "Node/API mock or read-only audit",
+      "passed": true
+    },
+    {
+      "suite": "check-arrival-policy",
+      "checks": 27,
+      "harness": "Node/API mock or read-only audit",
+      "passed": true
+    },
+    {
+      "suite": "check-arrivals",
+      "checks": 13,
+      "harness": "Node/API mock or read-only audit",
+      "passed": true
+    },
+    {
+      "suite": "check-asset-refresh",
+      "checks": 11,
+      "harness": "Node/API mock or read-only audit",
+      "passed": true
+    },
+    {
+      "suite": "check-background-adapter",
+      "checks": 7,
+      "harness": "Node/API mock or read-only audit",
+      "passed": true
+    },
+    {
+      "suite": "check-cast-adapter",
+      "checks": 9,
+      "harness": "Node/API mock or read-only audit",
+      "passed": true
+    },
+    {
+      "suite": "check-cg-prompt",
+      "checks": 14,
+      "harness": "Node/API mock or read-only audit",
+      "passed": true
+    },
+    {
+      "suite": "check-choices",
+      "checks": 7,
+      "harness": "Node/API mock or read-only audit",
+      "passed": true
+    },
+    {
+      "suite": "check-combat",
+      "checks": 30,
+      "harness": "Node/API mock or read-only audit",
+      "passed": true
+    },
+    {
+      "suite": "check-dialogue-formatting",
+      "checks": 16,
+      "harness": "Node/API mock or read-only audit",
+      "passed": true
+    },
+    {
+      "suite": "check-home-migration",
+      "checks": 9,
+      "harness": "Node/API mock or read-only audit",
+      "passed": true
+    },
+    {
+      "suite": "check-journey-library",
+      "checks": 8,
+      "harness": "Node/API mock or read-only audit",
+      "passed": true
+    },
+    {
+      "suite": "check-location-cast",
+      "checks": 17,
+      "harness": "Node/API mock or read-only audit",
+      "passed": true
+    },
+    {
+      "suite": "check-page-sprites",
+      "checks": 9,
+      "harness": "Node/API mock or read-only audit",
+      "passed": true
+    },
+    {
+      "suite": "check-rename-recovery",
+      "checks": 2,
+      "harness": "Node/API mock or read-only audit",
+      "passed": true
+    },
+    {
+      "suite": "check-travel",
+      "checks": 22,
+      "harness": "Node/API mock or read-only audit",
+      "passed": true
+    },
+    {
+      "suite": "check-wardrobe",
+      "checks": 10,
+      "harness": "Node/API mock or read-only audit",
+      "passed": true
+    },
+    {
+      "suite": "check-world-map",
+      "checks": 29,
+      "harness": "Node/API mock or read-only audit",
+      "passed": true
+    }
+  ],
+  "javascriptModulesParsed": 57,
+  "sprites": {
+    "enemyCards": 20,
+    "generatedAssets": 40,
+    "transparentAssetsValidated": 40,
+    "nativeFilesByteIdentical": 40,
+    "model": "GPT-6.1 Terra",
+    "effort": "High",
+    "generation": "Built-in image_gen",
+    "existingPlayableProportionReferencesUsed": false,
+    "labels": [
+      "neutral",
+      "attacking"
+    ]
+  },
+  "manualBrowserChecks": [
+    "Fresh Klee demo at Headquarters: five assigned residents, 100 percent chance, one visible sprite and no guest group conversion.",
+    "Actual map Teleport from that opening to Starsnatch Cliff: editor inherits 100 percent, Klee and one neutral Hilichurl Fighter appear, 30/30 HP.",
+    "Attack action paragraph uses attacking.png; the next dialogue page switches back to neutral.png.",
+    "1440 \u00d7 900 desktop, 402 \u00d7 874 portrait and 874 \u00d7 402 landscape smoke checks."
+  ],
+  "installedFilesMatchRecursively": true,
+  "nativeCardTextChanged": false,
+  "nativeChatHistoryRewritten": false,
+  "limits": [
+    "No live roleplay/classification API request was made. Browser chats and model services were disposable fixtures; image generation used the requested built-in tool.",
+    "Attack poses require the enemy action token supplied by the automatic combat prompt. Untagged prose stays neutral; emotion classification is not used for enemy poses.",
+    "No player HP or automatic enemy counterattack rules were added.",
+    "Current visits retain their encounter roll. Changing the rate applies to the next arrival.",
+    "Viewport testing is not a physical iPhone test."
+  ]
+}

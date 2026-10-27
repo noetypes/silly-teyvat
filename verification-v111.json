@@ -1,0 +1,155 @@
+{
+  "target": "SillyTavern 1.19.0",
+  "extension": "Silly Teyvat",
+  "version": "1.11.0",
+  "verified": "2026-10-26",
+  "changes": [
+    "Removed crypto.randomUUID from the extension, including map visits, teleport epochs, region and waypoint creation, encounter chat IDs and related media slots. Local IDs work on LAN HTTP; existing saved identifiers stay valid.",
+    "Map character assignments use an Add character to location button and a searchable wardrobe-style portrait grid. Current residents appear above the grid; selected portraits are blue.",
+    "Moving a character from another location requires an explicit source/destination confirmation. Cancel preserves the assignment. Confirm moves the character uniquely without changing their original default home.",
+    "Recorded the original default locations for 57 previously imported residents. Default locations and current placements are separate.",
+    "New group arrivals away from the default home request a fresh greeting through the native main API, with the exact full character card, chat context, player name and current location. Written card greetings remain unchanged.",
+    "Default-home arrivals use the main written location greeting. Generated greetings are saved as ordinary character messages. Pending arrivals survive solo-to-group copying and can be retried after API failure, without duplicate greetings or wrong-location fallbacks.",
+    "Retained atomic Teleport companion questions, protected party members, deferred group updates, regional classification and historical scene handling."
+  ],
+  "automatedChecks": 370,
+  "suites": [
+    {
+      "case": "Reveal, expression history and narration",
+      "checks": 42,
+      "pass": true,
+      "harness": "browser preview"
+    },
+    {
+      "case": "CG scenes, audio and player turns",
+      "checks": 31,
+      "pass": true,
+      "harness": "browser preview"
+    },
+    {
+      "case": "Newlines and paragraph splitting",
+      "checks": 8,
+      "pass": true,
+      "harness": "browser preview"
+    },
+    {
+      "case": "Text timing, scales and native group staging",
+      "checks": 46,
+      "pass": true,
+      "harness": "browser preview"
+    },
+    {
+      "case": "Wardrobe slots, atomic sprite swaps, regeneration and recovery",
+      "checks": 40,
+      "pass": true,
+      "harness": "browser preview"
+    },
+    {
+      "case": "Regional travel, background history, wardrobe and region locks",
+      "checks": 30,
+      "pass": true,
+      "harness": "browser preview"
+    },
+    {
+      "case": "World map, waypoints, uploads, teleport, minimap, context and cleanup",
+      "checks": 30,
+      "pass": true,
+      "harness": "browser preview"
+    },
+    {
+      "case": "Location picker, confirmed moves, companions, greeting queue and retries",
+      "checks": 25,
+      "pass": true,
+      "harness": "browser preview"
+    },
+    {
+      "case": "Native expression adapter and variants",
+      "checks": 9,
+      "pass": true,
+      "harness": "Node with native API mocks"
+    },
+    {
+      "case": "Choices API and isolated no-thinking request",
+      "checks": 7,
+      "pass": true,
+      "harness": "Node with native API mocks"
+    },
+    {
+      "case": "Wardrobe APIs and outfit registry",
+      "checks": 10,
+      "pass": true,
+      "harness": "Node with native API mocks"
+    },
+    {
+      "case": "Independent CG prompt, aliases and reasoning bypass",
+      "checks": 14,
+      "pass": true,
+      "harness": "Node with native API mocks"
+    },
+    {
+      "case": "Rename recovery and native settings template",
+      "checks": 2,
+      "pass": true,
+      "harness": "Node with native API mocks"
+    },
+    {
+      "case": "Independent background classifier and native background adapter",
+      "checks": 7,
+      "pass": true,
+      "harness": "Node with native API mocks"
+    },
+    {
+      "case": "Map bounds, distances, prompts, waypoint state and travel isolation",
+      "checks": 29,
+      "pass": true,
+      "harness": "Node with native API mocks"
+    },
+    {
+      "case": "Card homes, protected party members, solo copies and starter catalog",
+      "checks": 17,
+      "pass": true,
+      "harness": "Node with native API mocks"
+    },
+    {
+      "case": "Native group save order, CSRF, stale chats, busy guards and recovery",
+      "checks": 9,
+      "pass": true,
+      "harness": "Node with native API mocks"
+    },
+    {
+      "case": "Local IDs without crypto, default homes, dynamic greetings and stale requests",
+      "checks": 14,
+      "pass": true,
+      "harness": "Node with native API mocks"
+    }
+  ],
+  "integration": {
+    "installedFilesMatchRecursively": true,
+    "javascriptSyntaxModules": 34,
+    "allJSONValid": true,
+    "randomUUIDReferencesInExtensionJavaScript": 0,
+    "nativeHomeMigration": {
+      "seeded": 57,
+      "defaultHomes": 57,
+      "unchangedLocationsAndOtherSettings": true
+    },
+    "noRealChatHistoryMutatedByTests": true,
+    "desktop": "Portrait grid, top roster and blue selection inspected in the installed preview at 1207x1259.",
+    "portrait": "402x874: framed picker, resident roster, search, portraits and footer fit the viewport.",
+    "landscape": "874x402: dialog x26.22/y8.04, width821.55/height385.91. Outer clientHeight and scrollHeight both 382; grid scrolls independently.",
+    "desktopViewportRestored": true,
+    "localOverviewTilesValidated": 162,
+    "screenshots": [
+      "screenshots/silly-teyvat-v111-picker-desktop.jpg",
+      "screenshots/silly-teyvat-v111-picker-portrait.jpg",
+      "screenshots/silly-teyvat-v111-picker-landscape.jpg"
+    ]
+  },
+  "limits": [
+    "Model generation and native message integration were tested with mocked APIs and disposable preview chats. No live model call was made.",
+    "Phone viewport checks do not reproduce a physical iPhone Safari keyboard, pinch zoom or compositor behavior.",
+    "Shared location assignments and original default homes are settings; companion travel placements and pending greetings belong to each chat.",
+    "Dynamic arrivals require a connected main API. Failed requests stay queued for Retry location guests rather than using a home greeting in the wrong place.",
+    "Existing map limitations remain: distances are straight-line estimates, classification stays region locked, and high-resolution remote tiles require network access."
+  ]
+}

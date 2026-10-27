@@ -1,0 +1,398 @@
+/* ==========================================================================
+   Silly Teyvat 1.20 — Genshin-style world map and minimap.
+   Appended after teyvat-ui.css so it wins over world-map.css.
+   ========================================================================== */
+
+/* ---------- HUD minimap ---------- */
+#gi-minimap {
+    --gi-mm: 136px;
+    position: fixed; z-index: 102;
+    top: calc(var(--gi-hud-top, 8px) + 2px);
+    left: calc(env(safe-area-inset-left, 0px) + var(--gi-hud-margin, 4px) + var(--gi-hud-cell, 44px) + 10px);
+    display: flex; flex-direction: column; align-items: center; gap: 5px;
+    width: var(--gi-mm); height: auto; padding: 0; border: 0; background: none; box-shadow: none;
+    color: var(--ty-cream); font-family: var(--ty-font); cursor: pointer; touch-action: manipulation; -webkit-tap-highlight-color: transparent;
+}
+#gi-minimap:not([hidden]) { animation: ty-fade 360ms ease both; }
+#gi-minimap:focus-visible { outline: none; }
+#gi-minimap:focus-visible .gi-minimap-ring { box-shadow: 0 0 0 2px var(--ty-gold-hi), 0 4px 16px #0009; }
+.gi-minimap-ring {
+    position: relative; display: block; flex: none; width: var(--gi-mm); height: var(--gi-mm); padding: 3px; border-radius: 50%;
+    background: conic-gradient(from 210deg, #8d7b58, #f2dca0, #d3bc8e, #7a6a4c, #d3bc8e, #fff1c9, #8d7b58);
+    box-shadow: 0 0 0 1px #0008, 0 4px 16px #0009;
+    transition: transform 280ms var(--ty-ease), filter 280ms ease;
+}
+#gi-minimap:hover .gi-minimap-ring { transform: scale(1.04); filter: brightness(1.08); }
+#gi-minimap:active .gi-minimap-ring { transform: scale(.96); }
+#gi-minimap .gi-minimap-glass {
+    position: relative; inset: auto; display: block; width: 100%; height: 100%; border: 0; border-radius: 50%; overflow: hidden; isolation: isolate;
+    background: #22394a; box-shadow: inset 0 0 0 1.5px #1b2232; pointer-events: none;
+}
+#gi-minimap .gi-minimap-canvas { position: absolute; inset: -2px; display: block; pointer-events: none; filter: saturate(.85) brightness(.9); }
+#gi-minimap .gi-minimap-canvas .leaflet-container, #gi-minimap .gi-minimap-canvas.leaflet-container { background: #1d3442; }
+.gi-minimap-vignette { position: absolute; inset: 0; z-index: 800; border-radius: 50%; pointer-events: none; background: radial-gradient(circle, #0000 48%, #0b142270 80%, #0b1422d0 100%); box-shadow: inset 0 0 0 1px #ece5d82e; }
+#gi-minimap .gi-minimap-player { position: absolute; left: 50%; top: 50%; z-index: 900; width: 20px; height: 20px; translate: -50% -50%; transform: none; font-size: 0; color: inherit; filter: none; }
+.gi-minimap-player svg { position: relative; z-index: 1; display: block; width: 100%; height: 100%; fill: #fff; stroke: #2a74b8; stroke-width: 1.3; stroke-linejoin: round; filter: drop-shadow(0 0 3px #57c9ff) drop-shadow(0 1px 1px #000a); }
+.gi-minimap-cone { position: absolute; left: 50%; bottom: 50%; width: calc(var(--gi-mm) * .72); height: calc(var(--gi-mm) * .42); translate: -50% 0; background: radial-gradient(ellipse 50% 100% at 50% 100%, #ffffff5c, #ffffff00 100%); clip-path: polygon(50% 100%, 6% 0, 94% 0); }
+#gi-minimap.gi-minimap-unlocated .gi-minimap-player { display: none; }
+#gi-minimap.gi-minimap-unlocated .gi-minimap-canvas { filter: grayscale(.6) brightness(.7); }
+#gi-minimap .gi-minimap-north {
+    position: absolute; top: -6px; left: 50%; z-index: 2; translate: -50% 0;
+    display: grid; place-items: center; width: 19px; height: 19px; border-radius: 50%;
+    font: 11px/1 var(--ty-font); color: #3a3123; text-shadow: none;
+    background: radial-gradient(circle at 50% 35%, #fff6dc, #d3bc8e); box-shadow: 0 0 0 1px #0007, 0 1px 4px #0009;
+}
+#gi-minimap .gi-minimap-label {
+    position: static; width: auto; max-width: calc(var(--gi-mm) + 36px);
+    font-size: 12px; letter-spacing: .03em; color: #fff; text-shadow: 0 1px 3px #000, 0 0 8px #000b;
+    overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+}
+/* Narrow screens: the HUD row spans the full width, so the minimap tucks below Paimon. */
+@media (max-width: 700px) {
+    #gi-minimap { --gi-mm: 92px; top: calc(var(--gi-hud-top, 8px) + var(--gi-hud-cell, 30px) + 10px); left: calc(env(safe-area-inset-left, 0px) + 10px); gap: 3px; }
+    #gi-minimap .gi-minimap-label { font-size: 10.5px; }
+    #gi-minimap .gi-minimap-north { width: 16px; height: 16px; font-size: 9.5px; top: -5px; }
+    #gi-minimap .gi-minimap-player { width: 16px; height: 16px; }
+    .gi-minimap-ring { padding: 2px; }
+}
+@media (max-height: 550px) and (min-width: 701px) {
+    #gi-minimap { --gi-mm: 86px; gap: 2px; }
+    #gi-minimap .gi-minimap-label { font-size: 10.5px; }
+    #gi-minimap .gi-minimap-north { width: 16px; height: 16px; font-size: 9.5px; top: -5px; }
+    #gi-minimap .gi-minimap-player { width: 16px; height: 16px; }
+    .gi-minimap-ring { padding: 2px; }
+}
+
+/* ---------- Full map: frame and motion ---------- */
+#gi-world-map {
+    --gi-card-w: min(370px, 40vw); --gi-panel-w: min(300px, 84vw);
+    --gi-safe-t: env(safe-area-inset-top, 0px); --gi-safe-r: env(safe-area-inset-right, 0px); --gi-safe-b: env(safe-area-inset-bottom, 0px); --gi-safe-l: env(safe-area-inset-left, 0px);
+    position: fixed; inset: 0; width: 100vw; height: 100dvh; max-width: none; max-height: none; margin: 0; padding: 0;
+    border: 0; border-radius: 0; overflow: hidden; color: var(--ty-cream); background: #0f2433; box-shadow: none;
+    font: 14px/1.45 var(--ty-font);
+    transition: opacity 260ms ease, scale 260ms var(--ty-ease-in), display 260ms allow-discrete, overlay 260ms allow-discrete;
+}
+#gi-world-map[open] { display: block; opacity: 1; scale: 1; }
+/* Outranks teyvat-ui's shared dialog pop (2,2,1). */
+dialog#gi-world-map#gi-world-map[open][data-enter] { animation: gi-map-in 420ms var(--ty-ease) both; }
+dialog#gi-world-map#gi-world-map[open][data-enter="minimap"] { animation: gi-map-reveal 620ms var(--ty-ease) both; }
+#gi-world-map:not([open]) { opacity: 0; scale: 1.03; pointer-events: none; }
+#gi-world-map::backdrop { background: #05080f; backdrop-filter: none; }
+@keyframes gi-map-in { from { opacity: 0; scale: 1.05; } to { opacity: 1; scale: 1; } }
+@keyframes gi-map-reveal {
+    from { clip-path: circle(var(--gi-map-r0, 60px) at var(--gi-map-ox, 90px) var(--gi-map-oy, 90px)); }
+    to { clip-path: circle(160vmax at var(--gi-map-ox, 90px) var(--gi-map-oy, 90px)); }
+}
+#gi-world-map .gi-map-surface { position: absolute; inset: 0; z-index: 0; isolation: isolate; min-width: 0; min-height: 0; overflow: hidden; background: #0f2433; }
+#gi-world-map .gi-map-canvas { position: absolute; inset: 0; background: #0f2433; }
+#gi-world-map .gi-map-canvas:focus-visible { outline: none; }
+.gi-map-vignette { position: absolute; inset: 0; z-index: 401; pointer-events: none; background: linear-gradient(#08111cb3, #0000 110px), linear-gradient(0deg, #08111c99, #0000 90px), radial-gradient(ellipse 130% 110% at 50% 50%, #0000 62%, #08111c80 100%); }
+.gi-map-reticle { display: none; position: absolute; left: 50%; top: 50%; z-index: 402; width: 38px; height: 38px; translate: -50% -50%; border-radius: 50%; pointer-events: none; border: 1.5px solid var(--ty-gold-hi); box-shadow: 0 0 0 1px #0007, 0 0 12px #f2dca066; }
+.gi-map-reticle::before, .gi-map-reticle::after { content: ""; position: absolute; left: 50%; top: 50%; background: var(--ty-gold-hi); translate: -50% -50%; }
+.gi-map-reticle::before { width: 1.5px; height: 54px; } .gi-map-reticle::after { width: 54px; height: 1.5px; }
+#gi-world-map[data-view="place"] .gi-map-reticle { display: block; animation: ty-fade 240ms ease both; }
+
+/* Shared round icon button (cream ring on slate, like Genshin's map tools). */
+#gi-world-map button { font-family: var(--ty-font); }
+#gi-world-map button > svg { width: 100%; height: 100%; fill: none; stroke: currentColor; stroke-width: 1.9; stroke-linecap: round; stroke-linejoin: round; }
+#gi-world-map .gi-map-round {
+    display: grid; place-items: center; flex: none; width: 42px; height: 42px; min-height: 0; padding: 10px; border: 0; border-radius: 50%;
+    color: var(--ty-cream); background: #1b2232b8; box-shadow: inset 0 0 0 1.5px #ece5d84d, 0 3px 10px #0006;
+    -webkit-backdrop-filter: blur(4px); backdrop-filter: blur(4px);
+    transition: background 180ms ease, color 180ms ease, transform 240ms var(--ty-ease);
+}
+#gi-world-map .gi-map-round:hover { background: var(--ty-cream); color: var(--ty-ink); }
+#gi-world-map .gi-map-round:active { transform: scale(.92); }
+#gi-world-map .gi-map-close { background: var(--ty-cream); color: var(--ty-ink); box-shadow: 0 0 0 1px #0004, 0 3px 12px #0008; }
+#gi-world-map .gi-map-close:hover { background: #fff; transform: rotate(90deg); }
+#gi-world-map :is(button, a, input, select, textarea, summary):focus-visible { outline: 2px solid var(--ty-gold-hi); outline-offset: 2px; }
+
+/* ---------- Top bar: title (left) and tools (right) ---------- */
+#gi-world-map .gi-map-head {
+    position: absolute; z-index: 20; top: calc(var(--gi-safe-t) + 14px); left: calc(var(--gi-safe-l) + 16px); right: auto;
+    display: flex; align-items: center; gap: 12px; max-width: calc(100vw - 220px); padding: 0; border: 0; background: none;
+}
+#gi-world-map .gi-map-title { min-width: 0; text-shadow: 0 1px 4px #000c; }
+#gi-world-map .gi-map-title h2 { margin: 0; font: 22px/1.15 var(--ty-font); color: #fff; letter-spacing: .06em; }
+#gi-world-map .gi-map-title p { margin: 2px 0 0; font-size: 12.5px; color: var(--ty-gold-hi); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+#gi-world-map .gi-map-title p:empty { display: none; }
+#gi-world-map [data-map="panel"][aria-expanded="true"] { background: var(--ty-cream); color: var(--ty-ink); }
+#gi-world-map .gi-map-tools { position: absolute; z-index: 20; top: calc(var(--gi-safe-t) + 14px); right: calc(var(--gi-safe-r) + 16px); display: flex; gap: 10px; }
+
+/* ---------- Left panel: regions + waypoints + compact settings ---------- */
+#gi-world-map .gi-map-panel {
+    position: absolute; z-index: 15; top: 0; bottom: 0; left: 0; width: calc(var(--gi-panel-w) + var(--gi-safe-l));
+    padding: calc(var(--gi-safe-t) + 74px) 18px calc(var(--gi-safe-b) + 16px) calc(var(--gi-safe-l) + 16px);
+    overflow: hidden auto; overscroll-behavior: contain; scrollbar-width: thin; scrollbar-color: #d3bc8e55 #0000;
+    background: linear-gradient(90deg, #121826f7, #182033f2); box-shadow: inset -1px 0 0 #d3bc8e40, 8px 0 24px #0006;
+    /* Scrolled rows fade out before they reach the title bar. */
+    -webkit-mask-image: linear-gradient(#0000 calc(var(--gi-safe-t) + 52px), #000 calc(var(--gi-safe-t) + 70px)); mask-image: linear-gradient(#0000 calc(var(--gi-safe-t) + 52px), #000 calc(var(--gi-safe-t) + 70px));
+    transform: translateX(-104%); opacity: 0; visibility: hidden;
+    transition: transform 380ms var(--ty-ease), opacity 240ms ease, visibility 0s linear 380ms;
+}
+#gi-world-map[data-panel="open"] .gi-map-panel { transform: none; opacity: 1; visibility: visible; transition: transform 420ms var(--ty-ease), opacity 220ms ease, visibility 0s; }
+#gi-world-map .gi-map-regions { display: flex; flex-wrap: nowrap; gap: 6px; margin: 0 0 12px; padding: 2px 1px; overflow-x: auto; scrollbar-width: none; }
+#gi-world-map .gi-map-regions::-webkit-scrollbar { display: none; }
+#gi-world-map .gi-map-regions button {
+    flex: none; min-height: 30px; padding: 3px 13px; border: 0; border-radius: 15px; font-size: 12.5px; white-space: nowrap;
+    color: #ece5d8cc; background: #ece5d80f; box-shadow: inset 0 0 0 1px #ece5d82b;
+}
+#gi-world-map .gi-map-regions button:hover { background: #ece5d81f; color: #fff; }
+#gi-world-map .gi-map-regions button[aria-pressed="true"] { background: var(--ty-cream); color: var(--ty-ink); box-shadow: 0 2px 8px #0006; }
+#gi-world-map .gi-map-waypoint-list { display: grid; gap: 4px; margin: 0 0 14px; }
+#gi-world-map .gi-map-waypoint-list > p { margin: 6px 2px; color: #ece5d899; font-size: 13px; }
+#gi-world-map .gi-map-waypoint-list button {
+    position: relative; display: grid; grid-template-columns: 22px minmax(0, 1fr); align-items: center; gap: 10px;
+    min-height: 46px; padding: 5px 12px 5px 10px; border: 0; border-radius: 3px; text-align: left;
+    color: var(--ty-cream); background: linear-gradient(90deg, #ece5d812, #ece5d805);
+    transition: background 160ms ease, translate 220ms var(--ty-ease);
+}
+#gi-world-map .gi-map-waypoint-list button:hover { background: linear-gradient(90deg, #ece5d826, #ece5d80a); translate: 3px 0; }
+#gi-world-map .gi-map-waypoint-list button[aria-current="true"] { background: linear-gradient(90deg, #d3bc8e40, #d3bc8e0d); box-shadow: inset 3px 0 0 var(--ty-gold-hi); }
+#gi-world-map .gi-map-waypoint-list img { width: 22px; height: 28px; object-fit: contain; }
+#gi-world-map .gi-map-waypoint-list span { display: grid; min-width: 0; }
+#gi-world-map .gi-map-waypoint-list b { font-weight: normal; font-size: 14px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+#gi-world-map .gi-map-waypoint-list small { font-size: 11.5px; color: #ece5d888; }
+#gi-world-map .gi-map-waypoint-list button[data-current="true"]::after { content: ""; position: absolute; right: 12px; top: 50%; width: 8px; height: 8px; margin-top: -4px; border-radius: 50%; background: #7fd6ff; box-shadow: 0 0 8px #57c9ff; }
+#gi-world-map[data-panel="open"] .gi-map-panel > * { animation: ty-rise 320ms var(--ty-ease) both; }
+#gi-world-map[data-panel="open"] .gi-map-panel > :nth-child(2) { animation-delay: 50ms; }
+#gi-world-map[data-panel="open"] .gi-map-panel > :nth-child(n+3) { animation-delay: 90ms; }
+
+/* Collapsible sections + compact setting rows (mirrors #gi-settings .gi-row). */
+#gi-world-map .gi-map-panel details { margin: 0; border-top: 1px solid var(--ty-line); }
+#gi-world-map .gi-map-panel summary, #gi-world-map .gi-map-sidebar summary {
+    display: flex; align-items: center; justify-content: space-between; min-height: 40px; padding: 0 4px; list-style: none; cursor: pointer;
+    font-size: 13px; letter-spacing: .08em; color: var(--ty-gold-hi);
+}
+#gi-world-map summary::-webkit-details-marker { display: none; }
+#gi-world-map summary::after { content: ""; width: 7px; height: 7px; margin-right: 4px; border: solid currentColor; border-width: 0 1.5px 1.5px 0; rotate: 45deg; translate: 0 -2px; transition: rotate 220ms var(--ty-ease); }
+#gi-world-map details[open] > summary::after { rotate: 225deg; translate: 0 2px; }
+#gi-world-map details[open] > :not(summary) { animation: ty-rise 240ms var(--ty-ease) both; }
+#gi-world-map .gi-map-row {
+    display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: 10px; min-height: 40px; margin: 3px 0; padding: 4px 6px 4px 12px;
+    border-radius: 3px; background: linear-gradient(90deg, #ece5d80f, #ece5d806); font-size: 13px; color: var(--ty-cream); cursor: pointer;
+}
+#gi-world-map .gi-map-row input[type="number"] { width: 84px; min-height: 30px; padding: 3px 8px; text-align: center; border: 1px solid #ece5d82e; border-radius: 3px; background: #0d1220; color: var(--ty-cream); font: 13px var(--ty-font); }
+#gi-world-map input[type="checkbox"] {
+    appearance: none; -webkit-appearance: none; position: relative; flex: none; width: 42px; height: 22px; margin: 0; border-radius: 11px;
+    background: #0000004d; box-shadow: inset 0 0 0 1px #ece5d840; cursor: pointer; transition: background 220ms ease; accent-color: auto;
+}
+#gi-world-map input[type="checkbox"]::before { content: none !important; display: none !important; }
+#gi-world-map input[type="checkbox"]::after { content: ""; position: absolute; top: 3px; left: 3px; width: 16px; height: 16px; border-radius: 50%; background: var(--ty-cream-2); transition: transform 240ms var(--ty-ease), background 200ms ease; }
+#gi-world-map input[type="checkbox"]:checked { background: var(--ty-gold); }
+#gi-world-map input[type="checkbox"]:checked::after { transform: translateX(20px); background: #fff; }
+#gi-world-map .gi-map-panel details button, #gi-world-map .gi-map-residents button, #gi-world-map .gi-wilderness-editor > button, #gi-world-map .gi-map-form > button, #gi-world-map .gi-map-card-actions > button:not(.gi-map-round):not(.gi-map-teleport) {
+    min-height: 34px; margin: 6px 0; padding: 4px 16px; border: 0; border-radius: 17px; font-size: 13px;
+    color: var(--ty-cream); background: #ece5d81a; box-shadow: inset 0 0 0 1px #ece5d833;
+}
+#gi-world-map .gi-map-panel details button:hover, #gi-world-map .gi-map-residents button:hover, #gi-world-map .gi-wilderness-editor > button:hover, #gi-world-map .gi-map-form > button:hover, #gi-world-map .gi-map-card-actions > button:not(.gi-map-round):not(.gi-map-teleport):hover { background: var(--ty-cream); color: var(--ty-ink); }
+#gi-world-map .gi-saved-journeys select { width: 100%; margin: 2px 0 4px; }
+#gi-world-map .gi-map-prompt { border-top: 0 !important; }
+#gi-world-map .gi-map-prompt summary { min-height: 32px; font-size: 12px; letter-spacing: .04em; color: #ece5d8aa; }
+#gi-world-map .gi-world-prompt { max-height: 180px; margin: 0 0 8px; padding: 10px; border-radius: 3px; background: #0d1220; color: #eee0b8; font: 11px/1.5 ui-monospace, monospace; }
+
+/* ---------- Right detail card (Genshin waypoint panel) ---------- */
+#gi-world-map .gi-map-sidebar {
+    position: absolute; z-index: 18; top: calc(var(--gi-safe-t) + 70px); right: calc(var(--gi-safe-r) + 16px); bottom: calc(var(--gi-safe-b) + 16px);
+    display: flex; flex-direction: column; width: var(--gi-card-w); padding: 0; overflow: hidden;
+    border: 0; border-radius: 6px; color: var(--ty-cream);
+    background: linear-gradient(#1f2738f7, #161c29f7); box-shadow: 0 0 0 1px #d3bc8e40, 0 18px 50px #000b;
+    animation: ty-panel 340ms var(--ty-ease) both;
+}
+#gi-world-map .gi-map-sidebar[hidden] { display: none !important; }
+#gi-world-map .gi-map-card-head {
+    display: grid; grid-template-columns: auto minmax(0, 1fr) auto; align-items: center; gap: 12px; flex: none;
+    padding: 14px 12px 12px 16px; border: 0; border-bottom: 1px solid var(--ty-line);
+    background: linear-gradient(90deg, #d3bc8e2e, #d3bc8e00 80%);
+}
+#gi-world-map .gi-map-card-head > div { display: grid; min-width: 0; }
+#gi-world-map .gi-map-card-head:not(:has(.gi-map-card-glyph)) { grid-template-columns: minmax(0, 1fr) auto; }
+#gi-world-map .gi-map-card-glyph { width: 30px; height: 38px; object-fit: contain; filter: drop-shadow(0 2px 4px #000a); }
+#gi-world-map .gi-map-sidebar h3 { margin: 0; font: 20px/1.25 var(--ty-font); color: #fff; overflow-wrap: anywhere; }
+#gi-world-map .gi-map-card-head small { order: -1; font-size: 11.5px; letter-spacing: .1em; color: var(--ty-gold-hi); }
+#gi-world-map .gi-map-card-close { display: grid; place-items: center; width: 32px; height: 32px; min-height: 0; padding: 8px; border: 0; border-radius: 50%; color: #ece5d8b3; background: none; transition: color 160ms ease, background 160ms ease, rotate 240ms var(--ty-ease); }
+#gi-world-map .gi-map-card-close:hover { color: var(--ty-ink); background: var(--ty-cream); rotate: 90deg; }
+#gi-world-map .gi-map-card-body { flex: 1; min-height: 0; padding: 14px 16px 10px; overflow: auto; overscroll-behavior: contain; scrollbar-width: thin; scrollbar-color: #d3bc8e55 #0000; }
+#gi-world-map .gi-map-card-body > * { animation: ty-rise 300ms var(--ty-ease) both; }
+#gi-world-map .gi-map-card-body > :nth-child(2) { animation-delay: 40ms; }
+#gi-world-map .gi-map-card-body > :nth-child(n+3) { animation-delay: 80ms; }
+#gi-world-map .gi-map-artwork { float: none; display: block; width: 100%; height: auto; max-height: none; aspect-ratio: 16 / 9; margin: 0 0 12px; object-fit: cover; border: 0; border-radius: 3px; box-shadow: 0 0 0 1px #d3bc8e4d, 0 6px 16px #0007; background: #0d1220; }
+#gi-world-map .gi-map-card-body > p { margin: 0 0 10px; font-size: 13.5px; line-height: 1.55; color: #ece5d8d9; }
+#gi-world-map .gi-waypoint-distance { display: flex; align-items: center; gap: 8px; padding: 7px 10px; border-radius: 3px; font-size: 12.5px; color: var(--ty-gold-hi); background: #ece5d80d; }
+#gi-world-map .gi-waypoint-distance::before { content: ""; flex: none; width: 8px; height: 8px; rotate: 45deg; background: var(--ty-gold); box-shadow: 0 0 6px var(--ty-gold-hi); }
+#gi-world-map .gi-map-residents { clear: none; margin: 14px 0 4px; padding: 10px 0 0; border-top: 1px solid var(--ty-line); }
+#gi-world-map .gi-map-residents h4, #gi-world-map .gi-map-sidebar summary { margin: 0 0 6px; font: 13px var(--ty-font); letter-spacing: .08em; color: var(--ty-gold-hi); }
+#gi-world-map .gi-map-chips { display: flex; flex-wrap: wrap; gap: 6px; margin: 0 0 6px; }
+#gi-world-map .gi-map-chips span { padding: 3px 11px; border-radius: 13px; font-size: 12.5px; background: #ece5d814; box-shadow: inset 0 0 0 1px #ece5d82e; }
+#gi-world-map .gi-map-residents small, #gi-world-map .gi-map-form small { display: block; font-size: 12px; color: #ece5d899; }
+#gi-world-map .gi-map-sidebar details { border-top: 1px solid var(--ty-line); margin-top: 8px; }
+#gi-world-map .gi-map-sidebar summary { margin: 0; }
+#gi-world-map .gi-wilderness-editor label { display: flex; align-items: center; justify-content: space-between; gap: 10px; min-height: 38px; margin: 3px 0; padding: 4px 6px 4px 12px; border-radius: 3px; font-size: 13px; background: linear-gradient(90deg, #ece5d80f, #ece5d806); flex-direction: row; }
+#gi-world-map .gi-wilderness-editor label.gi-check { flex-direction: row-reverse; justify-content: flex-end; }
+#gi-world-map .gi-wilderness-editor label.gi-check input { margin-left: auto; }
+#gi-world-map .gi-wilderness-editor .gi-enemy-pool { max-height: 260px; padding: 2px 0; }
+#gi-world-map .gi-map-source { display: inline-block; margin-top: 10px; font-size: 12px; color: #ece5d899; }
+#gi-world-map .gi-map-card-actions {
+    display: flex; align-items: center; gap: 10px; flex: none; padding: 12px 16px 14px;
+    border-top: 1px solid var(--ty-line); background: #121722e6;
+}
+#gi-world-map .gi-map-card-actions > button:not(.gi-map-round):not(.gi-map-teleport) { margin: 0; min-height: 44px; padding: 4px 20px; border-radius: 22px; }
+/* The cream pill with a circled icon, Genshin's primary action button. */
+#gi-world-map .gi-map-teleport {
+    position: relative; flex: 1; display: flex; align-items: center; gap: 10px; min-height: 46px; padding: 4px 18px 4px 5px;
+    border: 0; border-radius: 23px; font-size: 16px; letter-spacing: .04em; color: var(--ty-ink); background: var(--ty-cream);
+    box-shadow: 0 0 0 1px #0004, 0 3px 12px #0008; transition: background 160ms ease, transform 200ms var(--ty-ease), box-shadow 200ms ease;
+}
+#gi-world-map .gi-map-teleport:hover { background: #fff; box-shadow: 0 0 0 3px #ece5d833, 0 4px 16px #0009; }
+#gi-world-map .gi-map-teleport:active { transform: scale(.97); }
+#gi-world-map .gi-map-teleport img { flex: none; width: 36px; height: 36px; padding: 4px 6px; border-radius: 50%; object-fit: contain; background: var(--ty-ink); box-shadow: inset 0 0 0 1.5px #d3bc8e88; }
+#gi-world-map .gi-map-teleport span { flex: 1; text-align: center; padding-right: 36px; }
+#gi-world-map .gi-map-save { justify-content: center; padding: 4px 20px; }
+#gi-world-map[data-busy="teleport"] .gi-map-teleport { opacity: .6; cursor: wait; }
+
+/* Waypoint editor form */
+#gi-world-map .gi-map-form label { display: flex; flex-direction: column; gap: 4px; margin: 0 0 10px; font-size: 12px; letter-spacing: .04em; color: #ece5d8b3; }
+#gi-world-map .gi-map-sidebar :is(input:not([type="file"]):not([type="checkbox"]), select, textarea) { width: 100%; min-width: 0; min-height: 34px; padding: 6px 10px; border: 1px solid #ece5d82e; border-radius: 3px; background: #0d1220; color: var(--ty-cream); font: 13.5px var(--ty-font); }
+#gi-world-map .gi-saved-journeys select { min-height: 34px; padding: 4px 8px; border: 1px solid #ece5d82e; border-radius: 3px; background: #0d1220; color: var(--ty-cream); font: 13px var(--ty-font); }
+#gi-world-map .gi-map-sidebar .gi-wilderness-editor input[type="number"] { width: 72px; flex: none; text-align: center; }
+#gi-world-map .gi-map-form input[type="file"] { font-size: 11.5px; color: #ece5d8b3; }
+#gi-world-map #gi-map-coordinates { margin: 0 0 6px; font: 11px ui-monospace, monospace; color: #ece5d877; }
+
+/* ---------- Zoom slider (bottom-right) ---------- */
+#gi-world-map .gi-map-zoom {
+    position: absolute; z-index: 16; right: calc(var(--gi-safe-r) + 22px); bottom: calc(var(--gi-safe-b) + 24px);
+    display: flex; flex-direction: column; align-items: center; gap: 6px; width: 40px; padding: 6px 0; border-radius: 20px;
+    background: #1b2232b3; box-shadow: inset 0 0 0 1px #ece5d833, 0 4px 14px #0006; -webkit-backdrop-filter: blur(4px); backdrop-filter: blur(4px);
+    transition: right 380ms var(--ty-ease), opacity 200ms ease;
+}
+#gi-world-map .gi-map-zoom button { display: grid; place-items: center; width: 30px; height: 30px; min-height: 0; padding: 7px; border: 0; border-radius: 50%; color: var(--ty-cream); background: none; }
+#gi-world-map .gi-map-zoom button:hover { background: var(--ty-cream); color: var(--ty-ink); }
+.gi-map-zoom-track { position: relative; display: block; width: 28px; height: 132px; }
+#gi-world-map input.gi-map-zoom-range {
+    position: absolute; left: 50%; top: 50%; width: 132px; height: 28px; min-width: 0; margin: 0; padding: 0; border: 0; border-radius: 0; background: none; box-shadow: none;
+    transform: translate(-50%, -50%) rotate(-90deg); -webkit-appearance: none; appearance: none; cursor: pointer;
+}
+#gi-world-map .gi-map-zoom-range::-webkit-slider-runnable-track { height: 3px; border-radius: 2px; background: linear-gradient(90deg, var(--ty-gold) calc(var(--gi-map-zoom, .3) * 100%), #ece5d840 0); }
+#gi-world-map .gi-map-zoom-range::-moz-range-track { height: 3px; border-radius: 2px; background: #ece5d840; }
+#gi-world-map .gi-map-zoom-range::-moz-range-progress { height: 3px; background: var(--ty-gold); }
+#gi-world-map .gi-map-zoom-range::-webkit-slider-thumb { -webkit-appearance: none; width: 15px; height: 15px; margin-top: -6px; border-radius: 50%; background: var(--ty-cream); box-shadow: 0 0 0 2px var(--ty-gold), 0 1px 5px #000a; }
+#gi-world-map .gi-map-zoom-range::-moz-range-thumb { width: 13px; height: 13px; border: 0; border-radius: 50%; background: var(--ty-cream); box-shadow: 0 0 0 2px var(--ty-gold), 0 1px 5px #000a; }
+#gi-world-map:not([data-view="list"]) .gi-map-zoom { right: calc(var(--gi-safe-r) + var(--gi-card-w) + 32px); }
+
+/* ---------- Scale + attribution (bottom-left) ---------- */
+#gi-world-map .gi-map-legal { position: absolute; z-index: 14; left: calc(var(--gi-safe-l) + 18px); bottom: calc(var(--gi-safe-b) + 12px); display: flex; flex-direction: column; align-items: flex-start; gap: 6px; pointer-events: none; transition: left 380ms var(--ty-ease); }
+#gi-world-map .gi-map-scale { position: static; min-width: 25px; max-width: 140px; padding: 0 4px 2px; border: 1.5px solid #ece5d8; border-top: 0; color: var(--ty-cream); font: 11px/1.2 var(--ty-font); text-shadow: 0 1px 3px #000; white-space: nowrap; }
+#gi-world-map .gi-map-attribution { position: static; padding: 2px 9px; border-radius: 10px; background: #0b1220a6; color: #ece5d8a6; font: 10px/1.4 var(--ty-font); pointer-events: auto; }
+#gi-world-map .gi-map-attribution a { color: #f2dca0d9; text-decoration: none; }
+#gi-world-map .gi-map-attribution a:hover { text-decoration: underline; }
+
+/* ---------- Status toast ---------- */
+#gi-world-map footer { position: absolute; z-index: 25; left: 50%; bottom: calc(var(--gi-safe-b) + 26px); translate: -50% 0; width: max-content; max-width: min(520px, 76vw); max-height: none; padding: 0; overflow: visible; border: 0; background: none; pointer-events: none; }
+#gi-world-map footer > p { margin: 0; padding: 8px 46px; min-height: 0; text-align: center; font-size: 13.5px; color: var(--ty-cream); background: linear-gradient(90deg, #0000, #1b2232eb 18%, #1b2232eb 82%, #0000); text-shadow: 0 1px 2px #000; }
+#gi-world-map footer > p:empty { display: none; }
+#gi-world-map:not([data-view="list"]) footer { left: calc((100vw - var(--gi-card-w) - 32px) / 2); }
+#gi-world-map footer > p.gi-toast { animation: ty-rise 260ms var(--ty-ease) both, ty-fade-out 700ms ease 3.6s forwards; }
+
+/* ---------- Markers ---------- */
+#gi-world-map .leaflet-container { background: #0f2433; font-family: var(--ty-font); }
+#gi-world-map .gi-waypoint { overflow: visible; }
+#gi-world-map .gi-waypoint > img { position: relative; z-index: 1; transform-origin: 50% 90%; transition: transform 240ms var(--ty-ease), filter 240ms ease; }
+#gi-world-map .gi-waypoint:hover > img { transform: scale(1.14) translateY(-2px); }
+.gi-waypoint-halo { position: absolute; left: 50%; bottom: 0; width: 30px; height: 11px; translate: -50% 0; border-radius: 50%; opacity: 0; background: radial-gradient(#f2dca0cc, #f2dca000 70%); pointer-events: none; }
+.gi-waypoint-selected > img { transform: scale(1.25) translateY(-4px); filter: drop-shadow(0 0 6px #f2dca0) drop-shadow(0 0 2px #fff) !important; }
+.gi-waypoint-selected .gi-waypoint-halo { opacity: 1; animation: gi-halo 1.8s ease-in-out infinite; }
+@keyframes gi-halo { 50% { scale: 1.5; opacity: .45; } }
+.gi-map-player { background: none !important; border: 0 !important; pointer-events: none !important; }
+.gi-map-player svg { position: absolute; inset: 5px; width: 20px; height: 20px; fill: #fff; stroke: #2a74b8; stroke-width: 1.4; stroke-linejoin: round; filter: drop-shadow(0 0 4px #4ecbff) drop-shadow(0 1px 2px #000a); }
+.gi-map-player-pulse { position: absolute; inset: 0; border-radius: 50%; border: 2px solid #7fd6ff; animation: gi-pulse 2.2s ease-out infinite; }
+@keyframes gi-pulse { from { scale: .5; opacity: .9; } to { scale: 1.9; opacity: 0; } }
+#gi-world-map .leaflet-tooltip { padding: 3px 10px; border: 0; border-radius: 3px; font: 12.5px var(--ty-font); color: var(--ty-cream); background: #1b2232eb; box-shadow: 0 0 0 1px #d3bc8e55, 0 3px 10px #0007; }
+#gi-world-map .leaflet-tooltip-top::before { border-top-color: #1b2232eb; }
+
+/* ---------- Teleport wash ---------- */
+.gi-teleport-veil {
+    position: fixed; inset: 0; z-index: 100000; display: grid; place-items: center; pointer-events: none;
+    background: radial-gradient(circle at 50% 50%, #fffdf6 0%, #f3ecdb 40%, #cfe3ee 100%);
+    animation: gi-veil 1400ms ease both;
+}
+.gi-teleport-veil img { position: relative; width: 56px; animation: gi-veil-glyph 1400ms var(--ty-ease) both; filter: drop-shadow(0 0 18px #8fdcff); }
+.gi-teleport-ring { position: absolute; left: 50%; top: 50%; width: 44px; height: 44px; margin: -22px; border-radius: 50%; border: 2px solid #7fcff5cc; box-shadow: 0 0 12px #a5e2ff; animation: gi-veil-ring 1100ms ease-out both; }
+.gi-teleport-ring + .gi-teleport-ring { animation-delay: 200ms; }
+@keyframes gi-veil { 0% { opacity: 0; } 24% { opacity: 1; } 56% { opacity: 1; } 100% { opacity: 0; } }
+@keyframes gi-veil-ring { from { scale: .2; opacity: 1; } to { scale: 16; opacity: 0; } }
+@keyframes gi-veil-glyph { 0% { opacity: 0; scale: .5; } 30% { opacity: 1; scale: 1; } 60% { opacity: 1; scale: 1.06; } 100% { opacity: 0; scale: 1.5; } }
+
+/* ---------- Region-entry banner (reuses the Roll Phase banner) ---------- */
+.gi-region-banner {
+    position: fixed; left: 0; right: 0; top: calc(env(safe-area-inset-top, 0px) + 15vh); z-index: 3004;
+    display: flex; justify-content: center; pointer-events: none;
+    animation: ty-fade-out 900ms ease calc(var(--gi-banner-delay, 0ms) + 2500ms) forwards;
+}
+.gi-region-banner .gi-roll-banner { margin: 0; animation-duration: 900ms; animation-delay: var(--gi-banner-delay, 0ms); }
+.gi-region-banner h2 { font-size: 30px; letter-spacing: .2em; }
+
+/* ---------- Phone portrait ---------- */
+@media (max-width: 600px) and (orientation: portrait) {
+    #gi-world-map { --gi-panel-w: min(300px, 84vw); font-size: 13px; }
+    #gi-world-map .gi-map-head { top: calc(var(--gi-safe-t) + 10px); left: calc(var(--gi-safe-l) + 10px); gap: 9px; max-width: calc(100vw - 160px); }
+    #gi-world-map .gi-map-tools { top: calc(var(--gi-safe-t) + 10px); right: calc(var(--gi-safe-r) + 10px); gap: 7px; }
+    #gi-world-map .gi-map-round { width: 38px; height: 38px; padding: 9px; }
+    #gi-world-map .gi-map-title h2 { font-size: 18px; }
+    #gi-world-map .gi-map-title p { font-size: 11px; }
+    #gi-world-map .gi-map-panel { padding-top: calc(var(--gi-safe-t) + 62px); -webkit-mask-image: linear-gradient(#0000 calc(var(--gi-safe-t) + 48px), #000 calc(var(--gi-safe-t) + 60px)); mask-image: linear-gradient(#0000 calc(var(--gi-safe-t) + 48px), #000 calc(var(--gi-safe-t) + 60px)); }
+    #gi-world-map .gi-map-sidebar {
+        top: auto; left: 0; right: 0; bottom: 0; width: auto; max-height: 64dvh; border-radius: 14px 14px 0 0;
+        padding-bottom: var(--gi-safe-b); animation: gi-sheet 360ms var(--ty-ease) both;
+    }
+    #gi-world-map .gi-map-card-head { position: relative; padding-top: 16px; }
+    #gi-world-map .gi-map-card-head::before { content: ""; position: absolute; left: 50%; top: 6px; width: 36px; height: 4px; margin-left: -18px; border-radius: 2px; background: #ece5d840; }
+    #gi-world-map .gi-map-artwork { aspect-ratio: 16 / 7; }
+    #gi-world-map .gi-map-zoom { right: calc(var(--gi-safe-r) + 12px); bottom: calc(var(--gi-safe-b) + 54px); width: 36px; }
+    .gi-map-zoom-track { height: 96px; }
+    #gi-world-map input.gi-map-zoom-range { width: 96px; }
+    #gi-world-map:not([data-view="list"]) .gi-map-zoom { right: calc(var(--gi-safe-r) + 12px); opacity: 0; pointer-events: none; }
+    #gi-world-map .gi-map-legal { left: calc(var(--gi-safe-l) + 12px); bottom: calc(var(--gi-safe-b) + 10px); }
+    #gi-world-map footer { top: calc(var(--gi-safe-t) + 60px); bottom: auto; max-width: 92vw; }
+    #gi-world-map:not([data-view="list"]) footer { left: 50%; }
+    #gi-world-map footer > p { padding: 7px 30px; font-size: 12.5px; }
+    .gi-region-banner h2 { font-size: 22px; letter-spacing: .14em; }
+}
+@keyframes gi-sheet { from { translate: 0 40%; opacity: 0; } to { translate: 0 0; opacity: 1; } }
+
+/* ---------- Phone landscape ---------- */
+@media (max-height: 550px) and (orientation: landscape) {
+    #gi-world-map { --gi-card-w: min(330px, 44vw); --gi-panel-w: min(270px, 40vw); font-size: 13px; }
+    #gi-world-map .gi-map-head { top: calc(var(--gi-safe-t) + 8px); gap: 9px; }
+    #gi-world-map .gi-map-tools { top: calc(var(--gi-safe-t) + 8px); gap: 8px; }
+    #gi-world-map .gi-map-round { width: 36px; height: 36px; padding: 8px; }
+    #gi-world-map .gi-map-title h2 { font-size: 17px; }
+    #gi-world-map .gi-map-title p { font-size: 11px; }
+    #gi-world-map .gi-map-panel { padding-top: calc(var(--gi-safe-t) + 54px); -webkit-mask-image: linear-gradient(#0000 calc(var(--gi-safe-t) + 42px), #000 calc(var(--gi-safe-t) + 52px)); mask-image: linear-gradient(#0000 calc(var(--gi-safe-t) + 42px), #000 calc(var(--gi-safe-t) + 52px)); }
+    #gi-world-map .gi-map-waypoint-list button { min-height: 40px; }
+    #gi-world-map .gi-map-sidebar { top: calc(var(--gi-safe-t) + 52px); right: calc(var(--gi-safe-r) + 10px); bottom: calc(var(--gi-safe-b) + 8px); }
+    #gi-world-map .gi-map-card-head { padding: 8px 10px 8px 12px; }
+    #gi-world-map .gi-map-card-glyph { width: 24px; height: 30px; }
+    #gi-world-map .gi-map-sidebar h3 { font-size: 17px; }
+    #gi-world-map .gi-map-card-body { padding: 10px 12px 8px; }
+    #gi-world-map .gi-map-artwork { aspect-ratio: 16 / 7; margin-bottom: 8px; }
+    #gi-world-map .gi-map-card-actions { padding: 8px 12px; }
+    #gi-world-map .gi-map-teleport { min-height: 40px; font-size: 15px; }
+    #gi-world-map .gi-map-teleport img { width: 32px; height: 32px; }
+    #gi-world-map .gi-map-zoom { right: calc(var(--gi-safe-r) + 12px); bottom: calc(var(--gi-safe-b) + 10px); width: 34px; gap: 2px; }
+    #gi-world-map:not([data-view="list"]) .gi-map-zoom { right: calc(var(--gi-safe-r) + var(--gi-card-w) + 20px); }
+    .gi-map-zoom-track { height: 70px; }
+    #gi-world-map input.gi-map-zoom-range { width: 70px; }
+    #gi-world-map .gi-map-legal { bottom: calc(var(--gi-safe-b) + 6px); }
+    #gi-world-map footer { bottom: calc(var(--gi-safe-b) + 12px); }
+    .gi-region-banner { top: calc(env(safe-area-inset-top, 0px) + 10vh); }
+}
+/* Wide enough for the panel to sit beside the map: move the legal strip clear of it. */
+@media (min-width: 601px) and (min-height: 551px) {
+    #gi-world-map[data-panel="open"] .gi-map-legal { left: calc(var(--gi-safe-l) + var(--gi-panel-w) + 22px); }
+}
+
+/* ---------- Reduced motion ---------- */
+@media (prefers-reduced-motion: reduce) {
+    :is(#gi-world-map, #gi-world-map *, #gi-minimap, #gi-minimap *, .gi-region-banner, .gi-region-banner *) { animation-duration: 1ms !important; animation-iteration-count: 1 !important; transition-duration: 1ms !important; }
+}
+body.gi-reduced-motion :is(#gi-world-map, #gi-world-map *, #gi-minimap, #gi-minimap *, .gi-region-banner, .gi-region-banner *) { animation-duration: 1ms !important; animation-iteration-count: 1 !important; transition-duration: 1ms !important; }

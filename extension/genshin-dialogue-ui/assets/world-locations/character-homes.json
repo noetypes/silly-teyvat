@@ -1,0 +1,813 @@
+{
+  "version": 2,
+  "date": "2026-10-26",
+  "notes": "Default resident cap: 5. Bundled overfull locations redistributed to suitable meeting points. Existing user moves are respected by the one-time relocation migration. Prune remains at Mondstadt Fountain Plaza. Travelling companions do not consume resident slots.",
+  "characters": [
+    {
+      "name": "Aether",
+      "locationId": "home-mondstadt-adventurers-guild",
+      "rationale": "The Traveler has no canonical home. Mondstadt is the opening nation and the Adventurers' Guild is the most natural repeatable meeting point for a roaming adventurer. This is an explicit roleplay default, not a claim about Aether's residence.",
+      "loreSource": "https://genshin-impact.fandom.com/wiki/Traveler/Profile"
+    },
+    {
+      "name": "Arataki Itto",
+      "locationId": "home-hanamizaka",
+      "rationale": "Itto is explicitly famed in Hanamizaka, and the bulletin board there contains his messages and his repeated challenges to Sara. A public Hanamizaka waypoint is more defensible than inventing a home for him.",
+      "loreSource": "https://genshin-impact.fandom.com/wiki/Hanamizaka_Bulletin_Board"
+    },
+    {
+      "name": "Beidou",
+      "locationId": "home-the-alcor",
+      "rationale": "The Crux is Beidou's fleet and the Alcor is its flagship, anchored at Guyun Stone Forest. It is her strongest canonical base.",
+      "loreSource": "https://genshin-impact.fandom.com/wiki/The_Crux"
+    },
+    {
+      "name": "Chevreuse",
+      "locationId": "starter-palais-mermonia",
+      "rationale": "Chevreuse has no confirmed residence. Palais Mermonia is an existing waypoint in Fontaine's administrative center, suitable for a work-related roleplay meeting with the captain of the Special Security and Surveillance Patrol. Treat this as a practical encounter point, not her home.",
+      "loreSource": "https://genshin-impact.fandom.com/wiki/Chevreuse/Profile"
+    },
+    {
+      "name": "Clorinde",
+      "locationId": "starter-opera-epiclese",
+      "rationale": "Clorinde is Fontaine's Champion Duelist; the Opera Epiclese is the game's established public venue for her duels. This is a clear work/encounter location even though no canonical residence is given.",
+      "loreSource": "https://genshin-impact.fandom.com/wiki/Clorinde/Profile"
+    },
+    {
+      "name": "Dori",
+      "locationId": "home-palace-of-alcazarzaray",
+      "rationale": "The Palace is Dori's official residence, designed by Kaveh and owned by her. It is the strongest exact home assignment in this batch.",
+      "loreSource": "https://genshin-impact.fandom.com/wiki/The_Palace_of_Alcazarzaray"
+    },
+    {
+      "name": "Escoffier",
+      "locationId": "home-hotel-debord",
+      "rationale": "Hotel Debord is Escoffier's former kitchen and the recurring setting of her story quest. A newer source says she currently runs another restaurant in Fleuve Cendre, but does not identify its exact address; Hotel Debord is the best named, established map destination.",
+      "loreSource": "https://genshin-impact.fandom.com/wiki/Hotel_Debord"
+    },
+    {
+      "name": "Fischl",
+      "locationId": "home-mondstadt-adventurers-guild",
+      "rationale": "Fischl serves the Mondstadt branch of the Adventurers' Guild as an investigator. Use the proposed Mondstadt Guild waypoint; this is her known workplace and a plausible meeting point, not a canonical home.",
+      "loreSource": "https://genshin-impact.fandom.com/wiki/Fischl/Profile"
+    },
+    {
+      "name": "Ganyu",
+      "locationId": "home-yujing-terrace",
+      "rationale": "Official character profile identifies Ganyu as Yuehai Pavilion secretary and says she returns there each day; her work is on Yujing Terrace. Assign the office waypoint rather than the Jade Chamber.",
+      "loreSource": "https://genshin-impact.fandom.com/wiki/Ganyu/Profile"
+    },
+    {
+      "name": "Kaedehara Kazuha",
+      "locationId": "home-the-alcor",
+      "rationale": "Beidou took Kazuha aboard the Alcor as a temporary crewmember when he needed to escape Inazuma. He later sails with the Crux; assign him to the proposed Alcor waypoint with Beidou.",
+      "loreSource": "https://genshin-impact.fandom.com/wiki/The_Crux"
+    },
+    {
+      "name": "Kujou Sara",
+      "locationId": "home-tenryou-commission-headquarters",
+      "rationale": "Sara is the general and leader of the Tenryou Commission's forces, responsible for security in Inazuma City. The commission headquarters is a stronger match than Tenshukaku, where she is only a visitor to the Shogun.",
+      "loreSource": "https://genshin-impact.fandom.com/wiki/Kujou_Sara/Profile"
+    },
+    {
+      "name": "Layla",
+      "locationId": "starter-house-of-daena",
+      "rationale": "Layla is an Rtawahist student at the Akademiya and spends much of her story in the House of Daena. The existing library waypoint is the best map-supported place to meet her; it should be understood as an academic haunt, not a confirmed bedroom.",
+      "loreSource": "https://genshin-impact.fandom.com/wiki/Layla/Profile"
+    },
+    {
+      "name": "Lumine",
+      "locationId": "home-mondstadt-adventurers-guild",
+      "rationale": "The Traveler has no canonical home. Mondstadt is the opening nation and the Adventurers' Guild is a fitting roleplay rendezvous for a traveling adventurer. This is a roleplay default, not a claim about Lumine's residence.",
+      "loreSource": "https://genshin-impact.fandom.com/wiki/Traveler/Profile"
+    },
+    {
+      "name": "Mika",
+      "locationId": "starter-knights-of-favonius-headquarters",
+      "rationale": "Mika is a Knight of Favonius reconnaissance specialist and reports to the Knights. Their headquarters is the closest existing waypoint tied to his official duties.",
+      "loreSource": "https://genshin-impact.fandom.com/wiki/Mika/Profile"
+    },
+    {
+      "name": "Noelle",
+      "locationId": "starter-knights-of-favonius-headquarters",
+      "rationale": "Noelle works as a maid at the Knights' headquarters and is training to become a Knight. This is an exact work location and needs no new waypoint.",
+      "loreSource": "https://genshin-impact.fandom.com/wiki/Noelle/Profile"
+    },
+    {
+      "name": "Rosaria",
+      "locationId": "home-favonius-cathedral",
+      "rationale": "Rosaria is a sister of the Church of Favonius. The cathedral is her public work affiliation; the story does not establish a private residence, so frame this as a work-base default.",
+      "loreSource": "https://genshin-impact.fandom.com/wiki/Rosaria/Profile"
+    },
+    {
+      "name": "Sethos",
+      "locationId": "home-temple-of-silence",
+      "rationale": "Sethos is from the Temple of Silence and became its leader. This is his clearest organizational home, although it is a story-unlocked instance rather than an everyday city residence.",
+      "loreSource": "https://genshin-impact.fandom.com/wiki/Sethos/Profile"
+    },
+    {
+      "name": "Skirk",
+      "locationId": "starter-wanmin-restaurant",
+      "rationale": "Skirk is a wanderer with no fixed Teyvat home. Her current story quest has her encounter the Traveler at Wanmin Restaurant, an existing Liyue waypoint. Mark this as a canon meeting point for roleplay, not her residence.",
+      "loreSource": "https://genshin-impact.fandom.com/wiki/Sinister_Undercurrent"
+    },
+    {
+      "name": "Varka",
+      "locationId": "home-knights-base-dornman-port",
+      "rationale": "The Knights’ Dornman Port base gives their Grand Master an appropriate command meeting point without crowding headquarters.",
+      "loreSource": "https://genshin-impact.fandom.com/wiki/Knights_of_Favonius_Headquarters"
+    },
+    {
+      "name": "Vodyanitsa",
+      "locationId": "starter-morepesok",
+      "rationale": "Vodyanitsa's canonical house is on a street in Snezhnograd, but current published location lore describes the capital as not accessible on the world map. To obey the accessible-map constraint, use the existing Morepesok waypoint as a clearly non-canonical touring stop in Snezhnaya; do not describe Morepesok as her home.",
+      "loreSource": "https://genshin-impact.fandom.com/wiki/Vodyanitsa/Profile"
+    },
+    {
+      "name": "Xingqiu",
+      "locationId": "home-feiyun-commerce-guild",
+      "rationale": "Xingqiu is the second son of the Feiyun Commerce Guild; his story quest has the Traveler visit his residence in Liyue Harbor. Use the outdoor guild-residence waypoint rather than pretending the instance interior has map coordinates.",
+      "loreSource": "https://genshin-impact.fandom.com/wiki/Bookworm_Swordsman"
+    },
+    {
+      "name": "Yaoyao",
+      "locationId": "home-yujing-terrace",
+      "rationale": "Yaoyao trains under Madame Ping in Liyue Harbor and the official profile says she regularly moves between the mountains and city and prefers bustling markets. Yujing Terrace is the best existing lore clue for a meeting place; this does not claim it is her home.",
+      "loreSource": "https://genshin-impact.fandom.com/wiki/Yaoyao/Profile"
+    },
+    {
+      "name": "Yumemizuki Mizuki",
+      "locationId": "home-aisa-bathhouse",
+      "rationale": "Mizuki is the bathhouse's major shareholder and personally treats guests there. Aisa Bathhouse is her strongest canon work/home base.",
+      "loreSource": "https://genshin-impact.fandom.com/wiki/Yumemizuki_Mizuki/Profile"
+    },
+    {
+      "name": "Aloy",
+      "locationId": "home-wolvendom",
+      "rationale": "Wolvendom is a suitable forest trail for a roaming hunter. This is a roleplay encounter point, not a canonical home.",
+      "loreSource": "https://genshin-impact.fandom.com/wiki/Aloy/Profile"
+    },
+    {
+      "name": "Arlecchino",
+      "locationId": "home-hotel-bouffes-dete",
+      "rationale": "The Hotel Bouffes d’ete is the House of the Hearth’s Fontaine base and is associated with Arlecchino. This is her strongest known current home/work location.",
+      "loreSource": "https://genshin-impact.fandom.com/wiki/Hotel_Bouffes_d%27ete"
+    },
+    {
+      "name": "Bennett",
+      "locationId": "home-mondstadt-adventurers-guild",
+      "rationale": "Bennett is a Mondstadt Adventurers’ Guild member and leads Benny’s Adventure Team. The Guild is his best encounter/start point, not a claim about his private residence.",
+      "loreSource": "https://genshin-impact.fandom.com/wiki/Bennett/Storyline"
+    },
+    {
+      "name": "Chongyun",
+      "locationId": "starter-wanmin-restaurant",
+      "rationale": "Chongyun has no fixed home; he travels around Liyue as an exorcist. Wanmin is a familiar public Liyue Harbor meeting point, explicitly a roleplay default.",
+      "loreSource": "https://genshin-impact.fandom.com/wiki/Chongyun/Profile"
+    },
+    {
+      "name": "Cyno",
+      "locationId": "starter-aaru-village",
+      "rationale": "Aaru Village already matches Cyno’s main greeting and his desert patrol scenario.",
+      "loreSource": "https://genshin-impact.fandom.com/wiki/Cyno/Profile"
+    },
+    {
+      "name": "Durin",
+      "locationId": "starter-knights-of-favonius-library",
+      "rationale": "A library visit already matches Durin’s main card greeting and interest in stories.",
+      "loreSource": "https://genshin-impact.fandom.com/wiki/Durin/Profile"
+    },
+    {
+      "name": "Eula",
+      "locationId": "starter-angel-s-share",
+      "rationale": "An off-duty meeting at Angel’s Share fits Eula’s established tavern visits.",
+      "loreSource": "https://genshin-impact.fandom.com/wiki/Eula/Profile"
+    },
+    {
+      "name": "Freminet",
+      "locationId": "home-hotel-bouffes-dete",
+      "rationale": "Freminet is a member of the House of the Hearth and the hotel is its Fontaine base. Tie him here as a current home base.",
+      "loreSource": "https://genshin-impact.fandom.com/wiki/Hotel_Bouffes_d%27ete"
+    },
+    {
+      "name": "Iansan",
+      "locationId": "home-collective-of-plenty",
+      "rationale": "Iansan is from and represents the Collective of Plenty; the tribe’s settlement is the most direct home location.",
+      "loreSource": "https://genshin-impact.fandom.com/wiki/Iansan/Profile"
+    },
+    {
+      "name": "Keqing",
+      "locationId": "home-yujing-terrace",
+      "rationale": "Keqing’s Yuheng duties place her at Yujing Terrace, the Qixing’s administrative terrace. This is a work base rather than a claim about her home.",
+      "loreSource": "https://genshin-impact.fandom.com/wiki/Keqing/Profile"
+    },
+    {
+      "name": "Kuki Shinobu",
+      "locationId": "home-hanamizaka",
+      "rationale": "Kuki has no confirmed residence or gang headquarters address. She is the Arataki Gang’s deputy, and her profile and Hangout quest tie her public appearances and community work to Hanamizaka. This is a clearly roleplay-oriented shared meeting point in that neighborhood, not a claim that she works or lives at the Bantan Sango Detective Agency.",
+      "loreSource": "https://genshin-impact.fandom.com/wiki/Kuki_Shinobu/Profile; https://genshin-impact.fandom.com/wiki/Gang_Bylaws"
+    },
+    {
+      "name": "Linnea",
+      "locationId": "starter-nasha-town",
+      "rationale": "Linnea advises the Nasha Town Adventurers’ Guild and is based there. Tie her to the existing town point as her work base.",
+      "loreSource": "https://genshin-impact.fandom.com/wiki/Linnea/Storyline"
+    },
+    {
+      "name": "Manekin",
+      "locationId": "home-mondstadt-adventurers-guild",
+      "rationale": "The Traveler has no canonical home. Mondstadt’s Adventurers’ Guild is a natural default start for an itinerant adventurer; explicitly a roleplay default, not a residence.",
+      "loreSource": "https://genshin-impact.fandom.com/wiki/Traveler/Storyline"
+    },
+    {
+      "name": "Mona",
+      "locationId": "home-mona-laboratory",
+      "rationale": "Mona lives in the laboratory/house rented to her by Goth at the southern end of Mondstadt City. The waypoint is her actual residence.",
+      "loreSource": "https://genshin-impact.fandom.com/wiki/Mona%27s_Laboratory"
+    },
+    {
+      "name": "Ororon",
+      "locationId": "home-ororon-masters-night-wind-meeting",
+      "rationale": "Ororon is a member of the Masters of the Night-Wind and is shown with a small home/farmstead in Natlan, but the exact present-day farmhouse coordinate is not published. Use the tribe’s settlement approach as a clearly marked roleplay meeting point, not as his exact house or confirmed residence.",
+      "loreSource": "https://genshin-impact.fandom.com/wiki/Ororon/Storyline"
+    },
+    {
+      "name": "Sandrone",
+      "locationId": "home-new-fontaine-research-institute",
+      "rationale": "After the Nod-Krai battle, Sandrone’s core is returned to the Fontaine Research Institute and she reawakens there; this is her best current story-linked meeting point. The game does not establish that it is her permanent residence.",
+      "loreSource": "https://genshin-impact.fandom.com/wiki/Sandrone/Storyline"
+    },
+    {
+      "name": "Shenhe",
+      "locationId": "starter-wanmin-restaurant",
+      "rationale": "Shenhe takes a job at Wanmin Restaurant after Ganyu suggests it. This is her current work/meeting place, not necessarily her home.",
+      "loreSource": "https://genshin-impact.fandom.com/wiki/Shenhe/Profile"
+    },
+    {
+      "name": "Sucrose",
+      "locationId": "starter-albedo-s-campsite",
+      "rationale": "Albedo’s assistant can share his research camp. This is a roleplay research meeting point, not a claim of permanent residence.",
+      "loreSource": "https://genshin-impact.fandom.com/wiki/Sucrose/Profile"
+    },
+    {
+      "name": "Venti",
+      "locationId": "starter-angel-s-share",
+      "rationale": "Venti has no stable home and wanders Mondstadt; Angel’s Share is a familiar public hangout and repeatable encounter point, not his residence.",
+      "loreSource": "https://genshin-impact.fandom.com/wiki/Venti/Profile"
+    },
+    {
+      "name": "Wanderer",
+      "locationId": "starter-house-of-daena",
+      "rationale": "The Wanderer is studying with the Sumeru Akademiya; House of Daena is the most natural work/study meeting point, not a private home.",
+      "loreSource": "https://genshin-impact.fandom.com/wiki/Wanderer/Profile"
+    },
+    {
+      "name": "Xinyan",
+      "locationId": "starter-wanmin-restaurant",
+      "rationale": "Xinyan has no confirmed fixed home and is a traveling Liyue performer. Wanmin is a public harbor meeting point with her Liyue friend circle; use as a roleplay default, not a residence.",
+      "loreSource": "https://genshin-impact.fandom.com/wiki/Xinyan/Profile"
+    },
+    {
+      "name": "Yelan",
+      "locationId": "home-yanshang-teahouse",
+      "rationale": "Yelan took over Yanshang Teahouse after the former owner was imprisoned and uses it as her secret base. This is her strongest established base.",
+      "loreSource": "https://genshin-impact.fandom.com/wiki/Yanshang_Teahouse"
+    },
+    {
+      "name": "Yun Jin",
+      "locationId": "home-heyu-tea-house",
+      "rationale": "Yun Jin performs at Heyu Tea House, and the World Quest “On the Stage, Behind the Stage” explicitly brings her there. This is her performance/meeting venue, not a claimed home.",
+      "loreSource": "https://genshin-impact.fandom.com/wiki/Yun_Jin/Profile"
+    },
+    {
+      "name": "Amber",
+      "locationId": "home-prune-mondstadt-fountain",
+      "rationale": "Mondstadt Fountain Plaza is a public meeting point on the Outrider’s city patrol. This is not a private residence.",
+      "loreSource": "https://genshin-impact.fandom.com/wiki/Amber/Profile"
+    },
+    {
+      "name": "Barbara",
+      "locationId": "home-favonius-cathedral",
+      "rationale": "Barbara serves as a deaconess at the Favonius Cathedral, so the cathedral is her strongest established day-to-day location. This is her workplace and public meeting point, not a private-home claim.",
+      "loreSource": "https://genshin-impact.fandom.com/wiki/Barbara/Lore"
+    },
+    {
+      "name": "Charlotte",
+      "locationId": "home-the-steambird",
+      "rationale": "Charlotte is a reporter for The Steambird. Its office is a strong established work and meeting location, rather than a claim about her home.",
+      "loreSource": "https://genshin-impact.fandom.com/wiki/Charlotte/Companion"
+    },
+    {
+      "name": "Citlali",
+      "locationId": "home-citlali-home",
+      "rationale": "Citlali's Home is an explicitly named, in-game residence in the Masters of the Night-Wind territory, making this an exact canon-home assignment.",
+      "loreSource": "https://genshin-impact.fandom.com/wiki/Citlali%27s_Home"
+    },
+    {
+      "name": "Dahlia",
+      "locationId": "home-favonius-cathedral",
+      "rationale": "Dahlia is a deacon of the Church of Favonius. The cathedral is his established workplace and a sensible public meeting point, not a claimed residence.",
+      "loreSource": "https://genshin-impact.fandom.com/wiki/Dahlia/Profile"
+    },
+    {
+      "name": "Emilie",
+      "locationId": "home-emilie-perfume-shop-vasari-passage",
+      "rationale": "HoYoWiki identifies Emilie's perfume shop as being in the Vasari Passage. This is the best documented workplace/meeting point; the exact shop entrance is not a surveyed map marker, so the waypoint is an approximate point in the passage rather than a claimed private residence.",
+      "loreSource": "https://wiki.hoyolab.com/pc/genshin/entry/5142?lang=en-us"
+    },
+    {
+      "name": "Faruzan",
+      "locationId": "starter-house-of-daena",
+      "rationale": "Faruzan is a Haravatat scholar and is associated with the Akademiya's House of Daena. This is a study/work meeting point, not a claim about her private residence.",
+      "loreSource": "https://genshin-impact.fandom.com/wiki/Faruzan/Profile"
+    },
+    {
+      "name": "Gaming",
+      "locationId": "home-qiaoying-village",
+      "rationale": "Gaming's father Yip Tak runs a tea business in Qiaoying Village, and Gaming's voice-over establishes that he lives with his father there. Qiaoying is therefore the supported home location.",
+      "loreSource": "https://genshin-impact.fandom.com/wiki/Yip_Tak"
+    },
+    {
+      "name": "Illuga",
+      "locationId": "home-piramida-lightkeeper-fortress",
+      "rationale": "Illuga is a Lightkeeper associated with the Lightkeeper fortress at Piramida. The fortress is his established work base, not a claim about a separate private home.",
+      "loreSource": "https://genshin-impact.fandom.com/wiki/Illuga/Profile"
+    },
+    {
+      "name": "Kirara",
+      "locationId": "home-inazuma-city-courier-meet",
+      "rationale": "Kirara is a courier for Komaniya Express and has no confirmed fixed residence in the researched profile. Inazuma City is an explicit roleplay meeting default for her courier work, not a claim that she is always there or lives there.",
+      "loreSource": "https://wiki.hoyolab.com/m/genshin/entry/3719?lang=en-us"
+    },
+    {
+      "name": "Lan Yan",
+      "locationId": "home-qiaoying-village",
+      "rationale": "Lan Yan is from Qiaoying Village and returns to Chenyu Vale. Her exact private home is not identified, so Qiaoying Village is a hometown meeting default rather than a specific house claim.",
+      "loreSource": "https://genshin-impact.fandom.com/wiki/Lan_Yan/Profile"
+    },
+    {
+      "name": "Lohen",
+      "locationId": "home-knights-base-dornman-port",
+      "rationale": "Lohen is stationed at the Knights of Favonius Base in Dornman Port. This is a confirmed duty station and work base, not a claimed residence.",
+      "loreSource": "https://genshin-impact.fandom.com/wiki/Knights_of_Favonius_Base"
+    },
+    {
+      "name": "Manekina",
+      "locationId": "starter-angel-s-share",
+      "rationale": "The Traveler has no canonical home in Teyvat. Angel's Share in the opening nation is an accessible public roleplay meeting default, not a claim about Manekina's residence or an ongoing fixed location.",
+      "loreSource": "https://genshin-impact.fandom.com/wiki/Traveler/Profile"
+    },
+    {
+      "name": "Nicole",
+      "locationId": "roleplay-nicole-voidsea-outlook-meeting-default",
+      "rationale": "Nicole is associated with the Witch's Garden, but the Garden itself is not a mapped waypoint in the available map data. Voidsea Outlook is used only as an explicit roleplay meeting default in the same broad area, not as a claim that the cave or waypoint is the Witch's Garden or her home.",
+      "loreSource": "https://genshin-impact.fandom.com/wiki/Nicole/Profile"
+    },
+    {
+      "name": "Razor",
+      "locationId": "home-wolvendom",
+      "rationale": "Razor was raised by the wolves of Wolvendom and treats the forest as home, so Wolvendom is a clear canon home region and meeting place.",
+      "loreSource": "https://genshin-impact.fandom.com/wiki/Razor/Profile"
+    },
+    {
+      "name": "Sayu",
+      "locationId": "starter-kamisato-estate",
+      "rationale": "Sayu is a Shuumatsuban ninja working under the Yashiro Commission. Kamisato Estate is the closest established employer/commission meeting point among the available waypoints; this is not a claim that she lives at the estate.",
+      "loreSource": "https://genshin-impact.fandom.com/wiki/Shuumatsuban"
+    },
+    {
+      "name": "Shikanoin Heizou",
+      "locationId": "home-tenryou-commission-headquarters",
+      "rationale": "HoYoWiki describes Heizou as a detective from the Tenryou Commission, his actual employer. Use the same Tenryou Commission Headquarters waypoint as Kujou Sara; Bantan Sango is an independent detective agency and a rival workplace, not Heizou’s base.",
+      "loreSource": "https://wiki.hoyolab.com/pc/genshin/entry/2263?lang=en-us"
+    },
+    {
+      "name": "Varesa",
+      "locationId": "home-collective-of-plenty",
+      "rationale": "Varesa's family's orchard is the strongest lore tie, but the available orchard screenshot has a prominent button-shaped HUD glyph at the right edge. Use the clean, low path approach into the nearby Collective of Plenty as an honest roleplay meeting point; it is a settlement approach, not a depiction of her orchard.",
+      "loreSource": "https://genshin-impact.fandom.com/wiki/Varesa%27s_Orchard"
+    },
+    {
+      "name": "Vesna",
+      "locationId": "home-druzhna-hq",
+      "rationale": "Vesna is identified as a Druzhna commander, so Druzhna HQ in Snezhnograd is her most defensible work base. This is not a claim that the HQ is her private home.",
+      "loreSource": "https://genshin.hoyoverse.com/en/news/detail/166134"
+    },
+    {
+      "name": "Xianyun",
+      "locationId": "home-xianyun-liyue-harbor-meeting-default",
+      "rationale": "HoYoverse introduced Xianyun as a new resident of Liyue Harbor, and her story explains that she takes up residence there to understand what draws her disciples to the city. Use a Liyue Harbor meeting point rather than Mt. Aocang; no specific home address is established by these sources.",
+      "loreSource": "https://genshin.hoyoverse.com/en/news/detail/119533"
+    },
+    {
+      "name": "Yanfei",
+      "locationId": "home-yujing-terrace",
+      "rationale": "Yanfei is a legal adviser who works throughout Liyue, and no fixed home or office address is established. Yujing Terrace is a public Liyue Harbor meeting default, not a home claim.",
+      "loreSource": "https://genshin.hoyoverse.com/en/news/detail/12173"
+    },
+    {
+      "name": "Yoimiya",
+      "locationId": "home-naganohara-fireworks",
+      "rationale": "Yoimiya runs Naganohara Fireworks with her family. The shop in Hanamizaka is her established work base and a strong natural home-meeting point, without claiming that the shop itself is her private residence.",
+      "loreSource": "https://genshin-impact.fandom.com/wiki/Naganohara_Fireworks"
+    },
+    {
+      "name": "Zibai",
+      "locationId": "home-qiaoying-village",
+      "rationale": "Zibai's in-game anecdote has her encounter Qiqi west of Qiaoying Village. No fixed home is established, so Qiaoying is an explicit story-based meeting default rather than an invented residence.",
+      "loreSource": "https://genshin-impact.fandom.com/wiki/Zibai%3A_The_Adeptus_Arts%2C_Once_More"
+    },
+    {
+      "name": "Prune",
+      "locationId": "home-prune-mondstadt-fountain",
+      "rationale": "Prune's card describes her as a Nod-Krai witch hunter visiting Mondstadt, and its existing greetings begin at the Mondstadt fountain. AZA identifies Nod-Krai as her point of departure and Mondstadt as her region; HoYoverse's May 2026 character introduction presents her as a self-styled Witch Hunter, while the official Mondstadt character page includes her among Mondstadt's characters. The fountain is therefore a fitting roleplay meeting default consistent with the card's greetings, not a claim that the game establishes it as her home.",
+      "loreSource": "https://genshin.aza.gg/character/10000132?l=en"
+    },
+    {
+      "name": "Aino",
+      "locationId": "starter-clink-clank-krumkake-craftshop",
+      "rationale": "Existing default location retained from the earlier character-library setup.",
+      "loreSource": "Existing library assignment"
+    },
+    {
+      "name": "Albedo",
+      "locationId": "starter-albedo-s-campsite",
+      "rationale": "Existing default location retained from the earlier character-library setup.",
+      "loreSource": "Existing library assignment"
+    },
+    {
+      "name": "Alhaitham",
+      "locationId": "starter-house-of-daena",
+      "rationale": "Existing default location retained from the earlier character-library setup.",
+      "loreSource": "Existing library assignment"
+    },
+    {
+      "name": "Alyosha",
+      "locationId": "starter-sretomorozsk",
+      "rationale": "Existing default location retained from the earlier character-library setup.",
+      "loreSource": "Existing library assignment"
+    },
+    {
+      "name": "Baizhu",
+      "locationId": "starter-bubu-pharmacy",
+      "rationale": "Existing default location retained from the earlier character-library setup.",
+      "loreSource": "Existing library assignment"
+    },
+    {
+      "name": "Candace",
+      "locationId": "starter-aaru-village",
+      "rationale": "Existing default location retained from the earlier character-library setup.",
+      "loreSource": "Existing library assignment"
+    },
+    {
+      "name": "Chasca",
+      "locationId": "starter-flower-feather-clan",
+      "rationale": "Existing default location retained from the earlier character-library setup.",
+      "loreSource": "Existing library assignment"
+    },
+    {
+      "name": "Chiori",
+      "locationId": "starter-chioriya-boutique",
+      "rationale": "Existing default location retained from the earlier character-library setup.",
+      "loreSource": "Existing library assignment"
+    },
+    {
+      "name": "Collei",
+      "locationId": "starter-gandharva-ville",
+      "rationale": "Existing default location retained from the earlier character-library setup.",
+      "loreSource": "Existing library assignment"
+    },
+    {
+      "name": "Columbina",
+      "locationId": "starter-silvermoon-hall",
+      "rationale": "Existing default location retained from the earlier character-library setup.",
+      "loreSource": "Existing library assignment"
+    },
+    {
+      "name": "Dehya",
+      "locationId": "starter-aaru-village",
+      "rationale": "Existing default location retained from the earlier character-library setup.",
+      "loreSource": "Existing library assignment"
+    },
+    {
+      "name": "Diluc",
+      "locationId": "starter-angel-s-share",
+      "rationale": "Existing default location retained from the earlier character-library setup.",
+      "loreSource": "Existing library assignment"
+    },
+    {
+      "name": "Diona",
+      "locationId": "starter-the-cat-s-tail",
+      "rationale": "Existing default location retained from the earlier character-library setup.",
+      "loreSource": "Existing library assignment"
+    },
+    {
+      "name": "Flins",
+      "locationId": "starter-final-night-cemetery",
+      "rationale": "Existing default location retained from the earlier character-library setup.",
+      "loreSource": "Existing library assignment"
+    },
+    {
+      "name": "Furina",
+      "locationId": "starter-opera-epiclese",
+      "rationale": "Existing default location retained from the earlier character-library setup.",
+      "loreSource": "Existing library assignment"
+    },
+    {
+      "name": "Gorou",
+      "locationId": "starter-sangonomiya-shrine",
+      "rationale": "Existing default location retained from the earlier character-library setup.",
+      "loreSource": "Existing library assignment"
+    },
+    {
+      "name": "Hu Tao",
+      "locationId": "starter-wangsheng-funeral-parlor",
+      "rationale": "Existing default location retained from the earlier character-library setup.",
+      "loreSource": "Existing library assignment"
+    },
+    {
+      "name": "Ifa",
+      "locationId": "starter-flower-feather-clan",
+      "rationale": "Existing default location retained from the earlier character-library setup.",
+      "loreSource": "Existing library assignment"
+    },
+    {
+      "name": "Ineffa",
+      "locationId": "starter-clink-clank-krumkake-craftshop",
+      "rationale": "Existing default location retained from the earlier character-library setup.",
+      "loreSource": "Existing library assignment"
+    },
+    {
+      "name": "Jahoda",
+      "locationId": "starter-nasha-town",
+      "rationale": "Existing default location retained from the earlier character-library setup.",
+      "loreSource": "Existing library assignment"
+    },
+    {
+      "name": "Jean",
+      "locationId": "starter-knights-of-favonius-headquarters",
+      "rationale": "Existing default location retained from the earlier character-library setup.",
+      "loreSource": "Existing library assignment"
+    },
+    {
+      "name": "Kachina",
+      "locationId": "starter-children-of-echoes",
+      "rationale": "Existing default location retained from the earlier character-library setup.",
+      "loreSource": "Existing library assignment"
+    },
+    {
+      "name": "Kaeya",
+      "locationId": "starter-knights-of-favonius-headquarters",
+      "rationale": "Existing default location retained from the earlier character-library setup.",
+      "loreSource": "Existing library assignment"
+    },
+    {
+      "name": "Kamisato Ayaka",
+      "locationId": "starter-kamisato-estate",
+      "rationale": "Existing default location retained from the earlier character-library setup.",
+      "loreSource": "Existing library assignment"
+    },
+    {
+      "name": "Kamisato Ayato",
+      "locationId": "starter-kamisato-estate",
+      "rationale": "Existing default location retained from the earlier character-library setup.",
+      "loreSource": "Existing library assignment"
+    },
+    {
+      "name": "Kaveh",
+      "locationId": "starter-house-of-daena",
+      "rationale": "Existing default location retained from the earlier character-library setup.",
+      "loreSource": "Existing library assignment"
+    },
+    {
+      "name": "Kinich",
+      "locationId": "starter-scions-of-the-canopy",
+      "rationale": "Existing default location retained from the earlier character-library setup.",
+      "loreSource": "Existing library assignment"
+    },
+    {
+      "name": "Klee",
+      "locationId": "starter-knights-of-favonius-headquarters",
+      "rationale": "Existing default location retained from the earlier character-library setup.",
+      "loreSource": "Existing library assignment"
+    },
+    {
+      "name": "Lauma",
+      "locationId": "starter-frostmoon-enclave",
+      "rationale": "Existing default location retained from the earlier character-library setup.",
+      "loreSource": "Existing library assignment"
+    },
+    {
+      "name": "Lisa",
+      "locationId": "starter-knights-of-favonius-library",
+      "rationale": "Existing default location retained from the earlier character-library setup.",
+      "loreSource": "Existing library assignment"
+    },
+    {
+      "name": "Lynette",
+      "locationId": "starter-opera-epiclese",
+      "rationale": "Existing default location retained from the earlier character-library setup.",
+      "loreSource": "Existing library assignment"
+    },
+    {
+      "name": "Lyney",
+      "locationId": "starter-opera-epiclese",
+      "rationale": "Existing default location retained from the earlier character-library setup.",
+      "loreSource": "Existing library assignment"
+    },
+    {
+      "name": "Mavuika",
+      "locationId": "starter-stadium-of-the-sacred-flame",
+      "rationale": "Existing default location retained from the earlier character-library setup.",
+      "loreSource": "Existing library assignment"
+    },
+    {
+      "name": "Mualani",
+      "locationId": "starter-people-of-the-springs",
+      "rationale": "Existing default location retained from the earlier character-library setup.",
+      "loreSource": "Existing library assignment"
+    },
+    {
+      "name": "Nahida",
+      "locationId": "starter-sanctuary-of-surasthana",
+      "rationale": "Existing default location retained from the earlier character-library setup.",
+      "loreSource": "Existing library assignment"
+    },
+    {
+      "name": "Navia",
+      "locationId": "starter-poisson",
+      "rationale": "Existing default location retained from the earlier character-library setup.",
+      "loreSource": "Existing library assignment"
+    },
+    {
+      "name": "Nefer",
+      "locationId": "starter-nasha-town",
+      "rationale": "Existing default location retained from the earlier character-library setup.",
+      "loreSource": "Existing library assignment"
+    },
+    {
+      "name": "Neuvillette",
+      "locationId": "starter-palais-mermonia",
+      "rationale": "Existing default location retained from the earlier character-library setup.",
+      "loreSource": "Existing library assignment"
+    },
+    {
+      "name": "Nilou",
+      "locationId": "starter-zubayr-theater",
+      "rationale": "Existing default location retained from the earlier character-library setup.",
+      "loreSource": "Existing library assignment"
+    },
+    {
+      "name": "Ningguang",
+      "locationId": "starter-jade-chamber",
+      "rationale": "Existing default location retained from the earlier character-library setup.",
+      "loreSource": "Existing library assignment"
+    },
+    {
+      "name": "Odette",
+      "locationId": "starter-svetloledovka",
+      "rationale": "Existing default location retained from the earlier character-library setup.",
+      "loreSource": "Existing library assignment"
+    },
+    {
+      "name": "Qiqi",
+      "locationId": "starter-bubu-pharmacy",
+      "rationale": "Existing default location retained from the earlier character-library setup.",
+      "loreSource": "Existing library assignment"
+    },
+    {
+      "name": "Raiden Shogun",
+      "locationId": "starter-tenshukaku",
+      "rationale": "Existing default location retained from the earlier character-library setup.",
+      "loreSource": "Existing library assignment"
+    },
+    {
+      "name": "Sangonomiya Kokomi",
+      "locationId": "starter-sangonomiya-shrine",
+      "rationale": "Existing default location retained from the earlier character-library setup.",
+      "loreSource": "Existing library assignment"
+    },
+    {
+      "name": "Sigewinne",
+      "locationId": "starter-fortress-of-meropide",
+      "rationale": "Existing default location retained from the earlier character-library setup.",
+      "loreSource": "Existing library assignment"
+    },
+    {
+      "name": "Taroumaru",
+      "locationId": "starter-komore-teahouse",
+      "rationale": "Existing default location retained from the earlier character-library setup.",
+      "loreSource": "Existing library assignment"
+    },
+    {
+      "name": "Tartaglia",
+      "locationId": "starter-morepesok",
+      "rationale": "Existing default location retained from the earlier character-library setup.",
+      "loreSource": "Existing library assignment"
+    },
+    {
+      "name": "Teucer",
+      "locationId": "starter-morepesok",
+      "rationale": "Existing default location retained from the earlier character-library setup.",
+      "loreSource": "Existing library assignment"
+    },
+    {
+      "name": "Thoma",
+      "locationId": "starter-kamisato-estate",
+      "rationale": "Existing default location retained from the earlier character-library setup.",
+      "loreSource": "Existing library assignment"
+    },
+    {
+      "name": "Tighnari",
+      "locationId": "starter-gandharva-ville",
+      "rationale": "Existing default location retained from the earlier character-library setup.",
+      "loreSource": "Existing library assignment"
+    },
+    {
+      "name": "Tonia",
+      "locationId": "starter-morepesok",
+      "rationale": "Existing default location retained from the earlier character-library setup.",
+      "loreSource": "Existing library assignment"
+    },
+    {
+      "name": "Wriothesley",
+      "locationId": "starter-fortress-of-meropide",
+      "rationale": "Existing default location retained from the earlier character-library setup.",
+      "loreSource": "Existing library assignment"
+    },
+    {
+      "name": "Xiangling",
+      "locationId": "starter-wanmin-restaurant",
+      "rationale": "Existing default location retained from the earlier character-library setup.",
+      "loreSource": "Existing library assignment"
+    },
+    {
+      "name": "Xiao",
+      "locationId": "starter-wangshu-inn",
+      "rationale": "Existing default location retained from the earlier character-library setup.",
+      "loreSource": "Existing library assignment"
+    },
+    {
+      "name": "Xilonen",
+      "locationId": "starter-children-of-echoes",
+      "rationale": "Existing default location retained from the earlier character-library setup.",
+      "loreSource": "Existing library assignment"
+    },
+    {
+      "name": "Yae Miko",
+      "locationId": "starter-grand-narukami-shrine",
+      "rationale": "Existing default location retained from the earlier character-library setup.",
+      "loreSource": "Existing library assignment"
+    },
+    {
+      "name": "Zhongli",
+      "locationId": "starter-wangsheng-funeral-parlor",
+      "rationale": "Existing default location retained from the earlier character-library setup.",
+      "loreSource": "Existing library assignment"
+    }
+  ],
+  "relocations": [
+    {
+      "name": "Durin",
+      "from": "starter-knights-of-favonius-headquarters",
+      "to": "starter-knights-of-favonius-library",
+      "rationale": "A library visit already matches Durin’s main card greeting and interest in stories."
+    },
+    {
+      "name": "Sucrose",
+      "from": "starter-knights-of-favonius-headquarters",
+      "to": "starter-albedo-s-campsite",
+      "rationale": "Albedo’s assistant can share his research camp. This is a roleplay research meeting point, not a claim of permanent residence."
+    },
+    {
+      "name": "Varka",
+      "from": "starter-knights-of-favonius-headquarters",
+      "to": "home-knights-base-dornman-port",
+      "rationale": "The Knights’ Dornman Port base gives their Grand Master an appropriate command meeting point without crowding headquarters."
+    },
+    {
+      "name": "Eula",
+      "from": "starter-knights-of-favonius-headquarters",
+      "to": "starter-angel-s-share",
+      "rationale": "An off-duty meeting at Angel’s Share fits Eula’s established tavern visits."
+    },
+    {
+      "name": "Amber",
+      "from": "starter-knights-of-favonius-headquarters",
+      "to": "home-prune-mondstadt-fountain",
+      "rationale": "Mondstadt Fountain Plaza is a public meeting point on the Outrider’s city patrol. This is not a private residence."
+    },
+    {
+      "name": "Aloy",
+      "from": "home-mondstadt-adventurers-guild",
+      "to": "home-wolvendom",
+      "rationale": "Wolvendom is a suitable forest trail for a roaming hunter. This is a roleplay encounter point, not a canonical home."
+    },
+    {
+      "name": "Cyno",
+      "from": "starter-house-of-daena",
+      "to": "starter-aaru-village",
+      "rationale": "Aaru Village already matches Cyno’s main greeting and his desert patrol scenario."
+    }
+  ]
+}

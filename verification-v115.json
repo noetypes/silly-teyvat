@@ -1,0 +1,233 @@
+{
+  "target": "SillyTavern 1.19.0",
+  "extension": "Silly Teyvat",
+  "version": "1.15.0",
+  "verified": "2026-10-26",
+  "automatedChecks": 503,
+  "suites": [
+    {
+      "case": "feature",
+      "checks": 42,
+      "harness": "Installed browser preview",
+      "passed": true
+    },
+    {
+      "case": "media",
+      "checks": 31,
+      "harness": "Installed browser preview",
+      "passed": true
+    },
+    {
+      "case": "page",
+      "checks": 8,
+      "harness": "Installed browser preview",
+      "passed": true
+    },
+    {
+      "case": "staging",
+      "checks": 46,
+      "harness": "Installed browser preview",
+      "passed": true
+    },
+    {
+      "case": "wardrobe",
+      "checks": 40,
+      "harness": "Installed browser preview",
+      "passed": true
+    },
+    {
+      "case": "background",
+      "checks": 30,
+      "harness": "Installed browser preview",
+      "passed": true
+    },
+    {
+      "case": "world",
+      "checks": 30,
+      "harness": "Installed browser preview",
+      "passed": true
+    },
+    {
+      "case": "cast",
+      "checks": 25,
+      "harness": "Installed browser preview",
+      "passed": true
+    },
+    {
+      "case": "formatting",
+      "checks": 10,
+      "harness": "Installed browser preview",
+      "passed": true
+    },
+    {
+      "case": "travel",
+      "checks": 16,
+      "harness": "Installed browser preview",
+      "passed": true
+    },
+    {
+      "case": "arrival",
+      "checks": 14,
+      "harness": "Installed browser preview",
+      "passed": true
+    },
+    {
+      "case": "page-sprites",
+      "checks": 9,
+      "harness": "Node / API mocks",
+      "passed": true
+    },
+    {
+      "case": "choices",
+      "checks": 7,
+      "harness": "Node / API mocks",
+      "passed": true
+    },
+    {
+      "case": "wardrobe",
+      "checks": 10,
+      "harness": "Node / API mocks",
+      "passed": true
+    },
+    {
+      "case": "cg-prompt",
+      "checks": 14,
+      "harness": "Node / API mocks",
+      "passed": true
+    },
+    {
+      "case": "rename-recovery",
+      "checks": 2,
+      "harness": "Node / API mocks",
+      "passed": true
+    },
+    {
+      "case": "background-adapter",
+      "checks": 7,
+      "harness": "Node / API mocks",
+      "passed": true
+    },
+    {
+      "case": "world-map",
+      "checks": 29,
+      "harness": "Node / API mocks",
+      "passed": true
+    },
+    {
+      "case": "location-cast",
+      "checks": 17,
+      "harness": "Node / API mocks",
+      "passed": true
+    },
+    {
+      "case": "cast-adapter",
+      "checks": 9,
+      "harness": "Node / API mocks",
+      "passed": true
+    },
+    {
+      "case": "arrival-greetings",
+      "checks": 14,
+      "harness": "Node / API mocks",
+      "passed": true
+    },
+    {
+      "case": "asset-refresh",
+      "checks": 11,
+      "harness": "Node / API mocks",
+      "passed": true
+    },
+    {
+      "case": "dialogue-formatting",
+      "checks": 16,
+      "harness": "Node / API mocks",
+      "passed": true
+    },
+    {
+      "case": "travel",
+      "checks": 22,
+      "harness": "Node / API mocks",
+      "passed": true
+    },
+    {
+      "case": "home-migration",
+      "checks": 9,
+      "harness": "Node / API mocks",
+      "passed": true
+    },
+    {
+      "case": "journey-library",
+      "checks": 8,
+      "harness": "Node / API mocks",
+      "passed": true
+    },
+    {
+      "case": "arrival-policy",
+      "checks": 27,
+      "harness": "Node / API mocks",
+      "passed": true
+    }
+  ],
+  "changes": [
+    "Solo character opening stages only the selected character and suppresses other residents until the next visit.",
+    "Independent saved encounter rolls default to 40% and run before companion choices and the last-speaker safeguard.",
+    "At most one resident reply per visit; contextual arrivals account for companions and the sampled scene.",
+    "Five-resident default cap with atomic roster editing and seven safe bundled-home migrations; custom assignments preserved.",
+    "Generated journey groups are filtered out of the native character library and resumable from Saved journeys.",
+    "HYWenHei curly punctuation uses proportional spacing without changing message text.",
+    "40 new unoccupied waypoint backgrounds, five in each of eight mapped regions, bring the catalog to 111.",
+    "20 specific enemy cards with five third-person greetings each imported; existing character images and sprites preserved."
+  ],
+  "integration": {
+    "installedFilesMatchRecursively": true,
+    "javascriptSyntaxModules": 45,
+    "allJSONValid": true,
+    "mapProof": {
+      "listedWaypoints": 111,
+      "markers": 111,
+      "settings": [
+        {
+          "checked": false,
+          "id": "gi-map-main-departure"
+        },
+        {
+          "checked": false,
+          "id": "gi-map-world-scope"
+        }
+      ],
+      "loaded": 111,
+      "httpOK": true,
+      "sourceBytesMatch": true,
+      "imagesDecode": true,
+      "method": "Local static HTTP responses checked against source hashes, then decoded with Pillow."
+    },
+    "nativeSettings": {
+      "version": "1.15.0",
+      "catalogVersion": 4,
+      "added": 40,
+      "newUnoccupied": 40,
+      "totalWaypoints": 111,
+      "regions": 8,
+      "cap": 5,
+      "randomEncounters": true,
+      "encounterRate": 40,
+      "homeBindings": 127,
+      "pruneLocation": "home-prune-mondstadt-fountain"
+    },
+    "enemyImport": {
+      "nativeV2Schema": true,
+      "readback": true,
+      "greetings": 100,
+      "existingCardsByteIdentical": true,
+      "groupsUnchanged": true
+    },
+    "noRealChatOrGroupWritesByTests": true
+  },
+  "limits": [
+    "Browser checks use disposable preview chats and mocked model/upload services. No live model request was made.",
+    "Encounter controls were checked at desktop and 390px mobile viewport sizes. No physical-phone test is claimed.",
+    "Enemy cards have no sprite pack or map assignment and use the native placeholder avatar.",
+    "Pins are approximate where disclosed, with straight-line map distances; vertical floors share surface coordinates.",
+    "Some backgrounds show a disclosed neighboring scene or approach. Ordinary world NPCs and source logos may remain."
+  ]
+}

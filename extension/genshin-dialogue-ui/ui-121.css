@@ -1,0 +1,195 @@
+/* ==========================================================================
+   Silly Teyvat 1.21 — refinements. Appended after world-map-ui.css.
+   ========================================================================== */
+
+/* ---------- Settings switches: the sliding knob is the only indicator ---------- */
+#gi-settings input.gi-switch::before, #gi-settings input.gi-switch:checked::before { content: none !important; display: none !important; }
+
+/* ---------- Character screen roster: party first, no edge fade ---------- */
+#gi-wardrobe header .gi-roster { justify-content: flex-start; -webkit-mask: none; mask: none; scroll-padding-inline: 8px; }
+#gi-wardrobe header .gi-roster > :first-child { margin-left: auto; }
+#gi-wardrobe header .gi-roster > :last-child { margin-right: auto; }
+/* Portraits: the circle clips a zoomed-in face so the card's square frame never shows. */
+#gi-wardrobe header .gi-roster .gi-roster-face { position: relative; display: block; width: 100%; height: 100%; overflow: hidden; border-radius: 50%; background: radial-gradient(circle at 50% 30%, #5a6b8c, #2a3449); box-shadow: 0 0 0 2px #ece5d833; transition: box-shadow 240ms ease; }
+#gi-wardrobe header .gi-roster button .gi-roster-face img { position: absolute; left: 50%; top: -24%; width: 128%; height: auto; max-width: none; translate: -50% 0; border-radius: 0; box-shadow: none; object-fit: cover; opacity: .78; }
+#gi-wardrobe header .gi-roster button:hover .gi-roster-face img { opacity: .95; }
+#gi-wardrobe header .gi-roster button[data-party="true"] .gi-roster-face { box-shadow: 0 0 0 2px #d3bc8e99; }
+#gi-wardrobe header .gi-roster button[data-party="true"] .gi-roster-face img, #gi-wardrobe header .gi-roster button[aria-pressed="true"] .gi-roster-face img { opacity: 1; }
+#gi-wardrobe header .gi-roster button[aria-pressed="true"] .gi-roster-face { box-shadow: 0 0 0 2px var(--ty-cream), 0 0 0 4px #0006, 0 0 16px #f2d79488; }
+/* A thin divider after the last party member. */
+#gi-wardrobe header .gi-roster button[data-party="true"] + button:not([data-party]) { margin-left: 14px; }
+#gi-wardrobe header .gi-roster button[data-party="true"] + button:not([data-party])::before { content: ""; position: absolute; left: -12px; top: 18%; bottom: 18%; width: 1px; background: #d3bc8e55; }
+
+/* ---------- Pedestal only under a visible character sprite ---------- */
+#gi-wardrobe .gi-cs-pedestal { transition: opacity 260ms ease; }
+#gi-wardrobe:is([data-tab="cgs"], [data-tab="backgrounds"]) .gi-cs-pedestal,
+#gi-wardrobe .gi-wardrobe-preview:has(> img[hidden]) .gi-cs-pedestal,
+#gi-wardrobe .gi-wardrobe-preview:not(:has(> img[src])) .gi-cs-pedestal { opacity: 0; visibility: hidden; }
+
+/* ---------- SillyTavern character views: Genshin card art ---------- */
+/* Card art (208x248) shows whole: its front card is the frame, the tilted back card adds depth.
+   Other avatars take the front card's size (157x211 of 248 high), so every card lines up. */
+body.gi-card-art-on .avatar:is(.gi-card-art, .gi-card-frame, .gi-card-collage) {
+    display: flex; justify-content: center; align-items: center; overflow: visible;
+    /* !important: the theme rings avatars with an ID-scoped box-shadow. */
+    border: 0 !important; border-radius: 0 !important; background: none !important; box-shadow: none !important; outline: 0;
+}
+body.gi-card-art-on .avatar img:is(.gi-card-img, .gi-card-img-frame) {
+    position: static; inset: auto; translate: none; flex: none; max-width: none; max-height: none; margin: 0;
+    width: auto; border: 0; background: none;
+    transition: translate 220ms var(--ty-ease, ease), filter 220ms ease, rotate 220ms var(--ty-ease, ease);
+}
+body.gi-card-art-on .avatar img.gi-card-img { height: 100%; aspect-ratio: 208 / 248; object-fit: contain; border-radius: 0; box-shadow: none; filter: drop-shadow(0 3px 5px #000a); }
+body.gi-card-art-on .avatar img.gi-card-img-frame { height: 85.08%; aspect-ratio: 157 / 211; object-fit: cover; border-radius: 4px; box-shadow: 0 0 0 1.5px #dcd7cc, 0 0 0 2.5px #0008, 0 3px 6px #000a; }
+body.gi-card-art-on #right-nav-panel :is(.character_select, .group_member):is(:hover, :focus-visible) .avatar img:is(.gi-card-img, .gi-card-img-frame) { translate: 0 -3px; }
+body.gi-card-art-on #right-nav-panel :is(.character_select, .group_member):is(:hover, :focus-visible) .avatar img.gi-card-img { filter: drop-shadow(0 6px 8px #000c) brightness(1.05); }
+/* Group collages: the members' cards fan out like a hand. */
+body.gi-card-art-on .avatar.avatar_collage.gi-card-collage { flex-direction: row; flex-wrap: nowrap; }
+body.gi-card-art-on .avatar.avatar_collage.gi-card-collage img { position: relative; inset: auto; }
+/* Overlap so the whole hand is about 1.5 cards wide. */
+body.gi-card-art-on .avatar.avatar_collage.gi-card-collage img + img { margin-left: calc(var(--gi-card-w, 60px) * (-1 + .5 / max(1, var(--gi-cards, 2) - 1))); }
+body.gi-card-art-on .avatar.avatar_collage.gi-card-collage img:nth-child(1) { rotate: -5deg; z-index: 1; }
+body.gi-card-art-on .avatar.avatar_collage.gi-card-collage img:nth-child(2) { rotate: 4deg; z-index: 2; }
+body.gi-card-art-on .avatar.avatar_collage.gi-card-collage img:nth-child(3) { rotate: -2deg; z-index: 3; }
+body.gi-card-art-on .avatar.avatar_collage.gi-card-collage img:nth-child(4) { rotate: 6deg; z-index: 4; }
+body.gi-card-art-on .avatar.avatar_collage.gi-card-collage img.gi-card-img { height: 80%; }
+body.gi-card-art-on .avatar.avatar_collage.gi-card-collage img.gi-card-img-frame { height: 68%; }
+body.gi-card-art-on .avatar.avatar_collage.gi-card-collage:is(.collage_3, .collage_4) img.gi-card-img { height: 70%; }
+body.gi-card-art-on .avatar.avatar_collage.gi-card-collage:is(.collage_3, .collage_4) img.gi-card-img-frame { height: 59.5%; }
+
+/* ---------- Paimon Menu: solid slate side panel with a crisp edge over a light dim ---------- */
+#gi-menu-scrim { background: #05080f5c; backdrop-filter: blur(2px); -webkit-backdrop-filter: blur(2px); }
+#gi-toolbar.gi-paimon, body.gi-scene.gi-hidden #gi-toolbar.gi-paimon {
+    width: min(380px, 86vw);
+    background: linear-gradient(180deg, #171d2cf5, #1b2234f2 60%, #171d2cf5);
+    box-shadow: inset -1px 0 0 #ece5d82e, 12px 0 36px #0008;
+}
+#gi-toolbar.gi-paimon::before { opacity: .45; }
+#gi-toolbar.gi-paimon > * { margin-inline: 28px; }
+@media (max-height: 560px) { #gi-toolbar.gi-paimon, body.gi-scene.gi-hidden #gi-toolbar.gi-paimon { width: min(500px, 78vw); } }
+
+/* ---------- Top-right HUD: SillyTavern's own drawer order, larger icons, tighter spacing ---------- */
+body.gi-shell {
+    --gi-hud-gap: clamp(2px, .45vw, 6px);
+    --gi-hud-cell: min(50px, calc((100vw - env(safe-area-inset-left, 0px) - env(safe-area-inset-right, 0px) - 2 * var(--gi-hud-margin) - var(--gi-hud-count) * var(--gi-hud-gap)) / (var(--gi-hud-count) + 1)));
+}
+body.gi-choices-enabled .gi-hud-icon { width: 86%; height: 86%; }
+body.gi-choices-enabled #ai-config-button { order: 1; }
+body.gi-choices-enabled #sys-settings-button { order: 2; }
+body.gi-choices-enabled #advanced-formatting-button { order: 3; }
+body.gi-choices-enabled #WI-SP-button { order: 4; }
+body.gi-choices-enabled #user-settings-button { order: 5; }
+body.gi-choices-enabled #backgrounds-button { order: 6; }
+body.gi-choices-enabled #extensions-settings-button { order: 7; }
+body.gi-choices-enabled #persona-management-button { order: 8; }
+body.gi-choices-enabled #rightNavHolder { order: 9; }
+
+/* ---------- Attack toggle: a labelled pill that lights up when armed ---------- */
+#gi-attack-controls { width: max-content; }
+/* Older nav rules visually hide button spans; this label is meant to be seen. */
+#gi-navigation #gi-attack-toggle .gi-attack-label { position: static; flex: none; width: auto; height: auto; overflow: visible; clip: auto; }
+#gi-navigation #gi-attack-toggle {
+    display: inline-flex; align-items: center; gap: 8px; width: auto; min-width: 0; height: var(--gi-action-size, 44px); max-height: 46px;
+    padding: 3px 14px 3px 3px; border: 0; border-radius: 999px;
+    color: var(--ty-cream); background: #1b2232d9; box-shadow: inset 0 0 0 1.5px #ece5d870, 0 3px 10px #0008;
+    font: 14px/1 var(--ty-font); letter-spacing: .06em; text-shadow: none; white-space: nowrap;
+    -webkit-backdrop-filter: blur(4px); backdrop-filter: blur(4px);
+}
+#gi-navigation #gi-attack-toggle svg { box-sizing: content-box; flex: none; width: 18px; height: 18px; padding: calc((min(var(--gi-action-size, 44px), 46px) - 6px - 18px) / 2); border-radius: 50%; background: #ece5d824; }
+#gi-navigation #gi-attack-toggle:hover:not(:disabled) { background: #2a3348e6; box-shadow: inset 0 0 0 1.5px var(--ty-cream), 0 4px 14px #0009; transform: translateY(-1px); }
+#gi-navigation #gi-attack-toggle .gi-attack-pip { width: 7px; height: 7px; border-radius: 50%; background: #ece5d84d; transition: background 200ms ease, box-shadow 200ms ease; }
+#gi-navigation #gi-attack-toggle[aria-pressed="true"] {
+    color: #fff8ea; background: linear-gradient(90deg, #a83a22f2, #e07436f2);
+    box-shadow: inset 0 0 0 1.5px #ffd59a, 0 0 18px #ef7a35a6, 0 3px 10px #0008;
+    animation: gi-attack-armed 1.8s ease-in-out infinite;
+}
+#gi-navigation #gi-attack-toggle[aria-pressed="true"] svg { background: #fff3; }
+#gi-navigation #gi-attack-toggle[aria-pressed="true"] svg path:first-child { fill: #fff5; }
+#gi-navigation #gi-attack-toggle[aria-pressed="true"] .gi-attack-pip { background: #fff2c4; box-shadow: 0 0 8px #ffe08a; }
+@keyframes gi-attack-armed { 50% { box-shadow: inset 0 0 0 1.5px #ffe7bd, 0 0 28px #ef7a35d9, 0 3px 10px #0008; } }
+@media (max-width: 360px) { #gi-navigation #gi-attack-toggle .gi-attack-label { display: none; } #gi-navigation #gi-attack-toggle { padding-right: 9px; } }
+body.gi-reduced-motion #gi-navigation #gi-attack-toggle { animation: none; }
+@media (prefers-reduced-motion: reduce) { #gi-navigation #gi-attack-toggle { animation: none; } }
+
+/* ---------- Reroll Phase ---------- */
+#gi-elemental-roll .gi-roll-actions { display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 12px; margin: 14px 0 max(18px, 3vh); }
+#gi-elemental-roll .gi-roll-actions .gi-roll-confirm { margin: 0; }
+#gi-elemental-roll .gi-roll-reroll {
+    order: -1; display: inline-flex; align-items: center; gap: 12px; min-width: 170px; min-height: 46px; padding: 4px 26px 4px 6px;
+    border: 0; border-radius: 26px; color: var(--ty-cream); background: #1b2232e6; font: 16px var(--ty-font); cursor: pointer;
+    box-shadow: inset 0 0 0 1.5px #ece5d870, 0 4px 16px #0007; transition: background 200ms ease, transform 200ms var(--ty-ease), opacity 200ms ease;
+    animation: ty-rise 260ms var(--ty-ease) both;
+}
+#gi-elemental-roll .gi-roll-reroll[hidden] { display: none; }
+#gi-elemental-roll .gi-roll-reroll:hover:not(:disabled) { background: #2a3348; }
+#gi-elemental-roll .gi-roll-reroll:active:not(:disabled) { transform: scale(.97); }
+#gi-elemental-roll .gi-roll-reroll:disabled { opacity: .5; cursor: default; }
+#gi-elemental-roll .gi-roll-reroll:focus-visible { outline: 2px solid var(--ty-gold-hi); outline-offset: 3px; }
+.gi-roll-reroll-icon { position: relative; flex: 0 0 auto; width: 34px; height: 34px; border-radius: 50%; background: var(--ty-cream); }
+.gi-roll-reroll-icon::before { content: ""; position: absolute; inset: 9px; border: 2.5px solid var(--ty-ink); border-right-color: transparent; border-radius: 50%; }
+.gi-roll-reroll-icon::after { content: ""; position: absolute; right: 8px; top: 8px; border: 5px solid transparent; border-left-color: var(--ty-ink); rotate: -40deg; }
+.gi-roll-picks { position: absolute; inset: 0; pointer-events: none; }
+#gi-elemental-roll .gi-roll-picks .gi-die-pick {
+    position: absolute; translate: -50% -50%; min-width: 0; min-height: 0; margin: 0; padding: 0; border: 0; border-radius: 50%; background: none; color: inherit; cursor: pointer; pointer-events: auto; animation: none;
+    box-shadow: inset 0 0 0 1.5px #ece5d826; transition: box-shadow 200ms ease, background 200ms ease;
+}
+#gi-elemental-roll .gi-roll-picks .gi-die-pick:hover { box-shadow: inset 0 0 0 1.5px #ece5d870; }
+#gi-elemental-roll .gi-roll-picks .gi-die-pick[aria-pressed="true"] { background: radial-gradient(closest-side, #0000 70%, #fff1c41f); box-shadow: inset 0 0 0 2px #fff1c4, 0 0 14px #f2dca099; animation: gi-pick 1.4s ease-in-out infinite; }
+#gi-elemental-roll .gi-roll-picks .gi-die-pick[aria-pressed="true"]::after { content: "↻"; position: absolute; right: 4%; top: 4%; display: grid; place-items: center; width: 22px; height: 22px; border-radius: 50%; font: 14px/1 var(--ty-font); color: var(--ty-ink); background: var(--ty-cream); box-shadow: 0 2px 6px #0008; }
+#gi-elemental-roll .gi-roll-picks .gi-die-pick:focus-visible { outline: 2px solid var(--ty-gold-hi); outline-offset: 2px; }
+@keyframes gi-pick { 50% { box-shadow: inset 0 0 0 2px #fff1c4, 0 0 22px #f2dca0cc; } }
+#gi-elemental-roll.gi-can-reroll .gi-roll-board { cursor: default; }
+@media (max-height: 560px) { #gi-elemental-roll .gi-roll-actions { margin: 6px 0 8px; } #gi-elemental-roll .gi-roll-reroll { min-height: 38px; } }
+
+/* ---------- Map: top-middle region selector (after Kongying Tavern's area switcher) ---------- */
+#gi-world-map .gi-map-regionbar { position: absolute; z-index: 22; top: calc(var(--gi-safe-t) + 14px); left: 50%; translate: -50% 0; display: flex; flex-direction: column; align-items: center; }
+#gi-world-map .gi-map-region-current {
+    display: inline-flex; align-items: center; gap: 9px; min-height: 42px; padding: 4px 14px 4px 8px; border: 0; border-radius: 21px;
+    color: var(--ty-cream); background: #1b2232d9; font: 16px var(--ty-font); letter-spacing: .1em; white-space: nowrap;
+    box-shadow: inset 0 0 0 1.5px #ece5d84d, 0 3px 12px #0007; -webkit-backdrop-filter: blur(4px); backdrop-filter: blur(4px);
+    transition: background 180ms ease, box-shadow 180ms ease;
+}
+#gi-world-map .gi-map-region-current:hover, #gi-world-map .gi-map-region-current[aria-expanded="true"] { background: #273046f0; box-shadow: inset 0 0 0 1.5px var(--ty-cream), 0 4px 14px #0008; }
+#gi-world-map .gi-map-region-current svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 2; transition: rotate 240ms var(--ty-ease); }
+#gi-world-map .gi-map-region-current[aria-expanded="true"] svg { rotate: 180deg; }
+#gi-world-map .gi-map-region-current span { animation: ty-fade 260ms ease both; }
+#gi-world-map .gi-map-region-gem { flex: none; width: 14px; height: 14px; rotate: 45deg; border-radius: 3px; background: var(--gem, var(--ty-gold)); box-shadow: 0 0 0 1.5px #fff6, 0 0 10px var(--gem, var(--ty-gold)); }
+#gi-world-map [data-element="anemo"] { --gem: var(--ty-anemo); } #gi-world-map [data-element="geo"] { --gem: var(--ty-geo); }
+#gi-world-map [data-element="electro"] { --gem: var(--ty-electro); } #gi-world-map [data-element="dendro"] { --gem: var(--ty-dendro); }
+#gi-world-map [data-element="hydro"] { --gem: var(--ty-hydro); } #gi-world-map [data-element="pyro"] { --gem: var(--ty-pyro); }
+#gi-world-map [data-element="cryo"] { --gem: var(--ty-cryo); }
+#gi-world-map .gi-map-region-menu {
+    display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 6px; margin-top: 8px; padding: 10px; width: min(460px, 92vw);
+    border-radius: 8px; background: #161c2bf5; box-shadow: 0 0 0 1px #d3bc8e40, 0 16px 40px #000a; animation: ty-rise 240ms var(--ty-ease) both;
+}
+#gi-world-map .gi-map-region-menu[hidden] { display: none; }
+#gi-world-map .gi-map-region-menu button {
+    display: flex; align-items: center; gap: 9px; min-height: 40px; padding: 4px 12px; border: 0; border-radius: 4px; text-align: left;
+    color: var(--ty-cream); background: linear-gradient(90deg, #ece5d812, #ece5d805); font: 13.5px var(--ty-font); white-space: nowrap; overflow: hidden;
+}
+#gi-world-map .gi-map-region-menu button:hover { background: linear-gradient(90deg, #ece5d82b, #ece5d80a); }
+#gi-world-map .gi-map-region-menu button[aria-current="true"] { background: var(--ty-cream); color: var(--ty-ink); }
+#gi-world-map .gi-map-region-menu .gi-map-region-gem { width: 10px; height: 10px; }
+#gi-world-map .gi-map-head { max-width: calc(50vw - 130px); }
+@media (max-width: 600px) and (orientation: portrait) {
+    #gi-world-map .gi-map-head { max-width: calc(100vw - 160px); }
+    #gi-world-map .gi-map-regionbar { top: calc(var(--gi-safe-t) + 58px); }
+    #gi-world-map .gi-map-region-current { min-height: 36px; font-size: 14px; }
+    #gi-world-map .gi-map-region-menu { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    #gi-world-map footer { top: calc(var(--gi-safe-t) + 104px); }
+}
+@media (max-height: 550px) and (orientation: landscape) {
+    #gi-world-map .gi-map-regionbar { top: calc(var(--gi-safe-t) + 8px); }
+    #gi-world-map .gi-map-region-current { min-height: 36px; font-size: 14px; }
+    #gi-world-map .gi-map-region-menu { grid-template-columns: repeat(3, minmax(0, 1fr)); max-height: calc(100dvh - 70px); overflow: auto; }
+}
+
+/* ---------- Persona wardrobe (1.22) ---------- */
+#gi-wardrobe .gi-persona-badge { position: absolute; right: -6px; bottom: -3px; z-index: 2; padding: 2px 5px; border: 1px solid #a9ddf5; border-radius: 9px; background: #356786; color: #fff9e9; font-size: 9px; line-height: 1; letter-spacing: .03em; text-transform: uppercase; }
+#gi-wardrobe header .gi-roster button[data-persona] .gi-roster-face { box-shadow: 0 0 0 2px #a9ddf5aa; }
+#gi-wardrobe .gi-persona-profile { margin-bottom: 20px; }
+#gi-wardrobe .gi-persona-profile textarea { min-height: 150px; max-height: 35dvh; resize: vertical; }
+#gi-wardrobe .gi-persona-depth { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+#gi-wardrobe .gi-persona-depth[hidden] { display: none; }
+#gi-wardrobe input[type="file"] { display: block !important; width: 100%; max-width: 100%; margin: 8px 0; overflow: hidden; font: inherit; font-size: .85em; color: var(--ty-cream); }
+#gi-wardrobe input[type="file"]::file-selector-button { margin-right: 8px; padding: 6px 12px; border: 0; border-radius: 20px; background: var(--ty-cream); color: #364153; font: inherit; cursor: pointer; }

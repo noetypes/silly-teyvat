@@ -1,0 +1,91 @@
+import {newLocalId} from './local-id.js';
+// Disposable UI checks. All upload and generation adapters are in-memory fakes.
+import {mountWardrobe,spriteIdentity} from './wardrobe.js';
+import {nextSlotName,spriteDrafts} from './wardrobe-slots.js';
+import {mountPageSprites} from './page-sprites.js';
+import {mountSceneMedia} from './scene-media.js';
+import {regenerationState,regenerateReply} from './regeneration.js';
+export async function runWardrobeAndCanvasTests(){
+    const results=[],pause=ms=>new Promise(r=>setTimeout(r,ms));
+    const check=(name,ok)=>{results.push(`${ok?'PASS':'FAIL'} ${name}`);if(!ok)throw new Error(name);};
+    const host=document.createElement('div');document.body.append(host);let wardrobe,media,painter;
+    const ctx={characters:[{name:'Klee',avatar:'Klee.png'},{name:'Nahida',avatar:'Nahida.png'}],characterId:0,groupId:null,chatId:'slots-test',chat:[{name:'Klee',original_avatar:'Klee.png',mes:'Hello!'}],extensionSettings:{genshin_dialogue_ui:{cgEnabled:true,cgMode:'scene'},expressions:{custom:[]}},saveChat(){},saveSettingsDebounced(){}};
+    const prefs=ctx.extensionSettings.genshin_dialogue_ui,files=[{label:'neutral',path:new URL('assets/preview/Klee/neutral.png',location.href).pathname}],uploads=[];let removals=0,nativeRefreshes=0,cgCalls=0;
+    const adapter={list:async()=>files,upload:async(folder,file,name,label)=>{uploads.push({folder,name,label});files.push({label,path:`/characters/${folder}/${name}.${file.name.split('.').at(-1)}`});},refreshNative:async()=>nativeRefreshes++,remove:async()=>{removals++;}};
+    const mediaAdapter={upload:async(file,kind)=>({id:newLocalId(),name:file.name,path:new URL(kind==='audio'?'preview-silence.wav':'preview-landscape.svg',location.href).pathname}),classifyCG:async(_ctx,_message,categories)=>{cgCalls++;return categories[0].id;}};
+    const open=async()=>{wardrobe=mountWardrobe({host,getContext:()=>ctx,adapter,mediaAdapter});await wardrobe.open();};
+    const $=selector=>host.querySelector(selector),click=async action=>{$(`[data-w="${action}"]`).click();await pause(15);};
+    const attach=(selector,name,type)=>{const transfer=new DataTransfer();transfer.items.add(new File(['fixture'],name,{type}));$(selector).files=transfer.files;};
+    try{
+        check('slot numbering avoids existing names regardless of case',nextSlotName('expression',['Expression','expression-1','expression-3'])==='expression-2');
+        await open();
+        let grid=$('.gi-expression-grid');check('sprite plus tile is the final tile',grid.lastElementChild.dataset.w==='add-blank-sprite');
+        let art=grid.firstElementChild.getBoundingClientRect(),add=grid.lastElementChild.getBoundingClientRect();
+        check('sprite plus matches the artwork tile dimensions',Math.abs(art.width-add.width)<2&&Math.abs(art.height-add.height)<2);
+        await click('add-blank-sprite');await click('add-blank-sprite');await click('add-blank-sprite');
+        check('plus creates three saved empty numbered expression slots',spriteDrafts(ctx,'Klee').map(d=>d.name).join('|')==='expression|expression-1|expression-2'&&$('.gi-expression-grid').lastElementChild.dataset.w==='add-blank-sprite');
+        check('blank sprite selection has no broken preview or file upload',!uploads.length&&$('.gi-wardrobe-preview img').hidden&&!$('.gi-wardrobe-preview img').hasAttribute('src'));
+        check('new expression registers and refreshes native Character Expressions',ctx.extensionSettings.expressions.custom.includes('expression')&&nativeRefreshes===3);
+        $('.gi-expression-grid [aria-label="Preview expression-1 (empty)"]').click();$('#gi-rename-expression').value='caring';await click('rename-expression');
+        check('an empty expression can be renamed independently',spriteDrafts(ctx,'Klee').some(d=>d.name==='caring-1'&&d.label==='caring')&&spriteDrafts(ctx,'Klee').some(d=>d.name==='expression-2')&&!uploads.length);
+        attach('#gi-sprite-files','unrelated.webp','image/webp');await click('upload');
+        check('upload fills the selected slot using its name and native expression label',uploads.length===1&&uploads[0].name==='caring-1'&&uploads[0].label==='caring'&&spriteDrafts(ctx,'Klee').length===2);
+        check('filling a slot replaces its empty tile and exposes scale and audio tools',!$('.gi-sprite-audio-tools').hidden&&$('.gi-expression-grid [aria-label="Preview caring-1"]')&&!$('.gi-expression-grid [aria-label="Preview caring-1 (empty)"]'));
+        $('.gi-expression-grid [aria-label="Preview expression (empty)"]').click();await click('remove');await click('confirm-remove');
+        check('empty expression removal never calls a file delete API',removals===0&&!spriteDrafts(ctx,'Klee').some(d=>d.name==='expression'));
+        await click('undo');check('Undo restores an empty expression without an image upload',spriteDrafts(ctx,'Klee').some(d=>d.name==='expression')&&uploads.length===1);
+        wardrobe.dispose();await open();check('blank expression slots survive a wardrobe remount',$('.gi-expression-grid [aria-label="Preview expression (empty)"]')&&$('.gi-expression-grid [aria-label="Preview expression-2 (empty)"]'));
+        check('blank slots remain specific to their sprite set',spriteDrafts(ctx,'Klee/Winter').length===0&&spriteDrafts(ctx,'Klee').length===2);
+        await click('tab-cgs');check('empty CG grid still ends with a plus tile',$('.gi-cg-grid').children.length===1&&$('.gi-cg-grid').lastElementChild.dataset.w==='add-blank-cg');
+        await click('add-blank-cg');await click('add-blank-cg');
+        check('CG plus creates saved scene and scene-1 slots',prefs.characterCGs['Klee.png'].map(c=>c.label).join('|')==='scene|scene-1'&&prefs.characterCGs['Klee.png'].every(c=>c.blank&&!c.path));
+        grid=$('.gi-cg-grid');art=grid.firstElementChild.getBoundingClientRect();add=grid.lastElementChild.getBoundingClientRect();
+        check('CG plus matches a scene tile in both dimensions',Math.abs(art.width-add.width)<2&&Math.abs(art.height-add.height)<2);
+        media=mountSceneMedia({host,getContext:()=>ctx,adapter:mediaAdapter,sound:{stop(){},dispose(){},unlock:async()=>{},play:async()=>{}}});
+        media.sync({on:true,id:0,page:0,generating:false});await pause(20);check('empty CG slots never enter classification or replace the scene',cgCalls===0&&$('#gi-cg-stage').hidden);
+        const slot=prefs.characterCGs['Klee.png'][1],slotId=slot.id;
+        attach('#gi-cg-audio-files','scene.wav','audio/wav');await click('upload-cg-audio');
+        attach('#gi-cg-files','artwork.jpg','image/jpeg');await click('upload-cg');
+        check('artwork fills the selected CG slot instead of adding a duplicate',prefs.characterCGs['Klee.png'].length===2&&slot.id===slotId&&!slot.blank&&Boolean(slot.path));
+        check('a CG retains audio assigned before its artwork upload',slot.audio.length===1&&slot.audio[0].name==='scene.wav');
+        media.sync({on:true,id:0,page:0,generating:false});await pause(20);check('a filled CG enters classification without its empty neighbor',cgCalls===1&&ctx.chat[0].extra.silly_teyvat.cgs[0].cg.id===slotId);
+        check('wardrobe controls still scroll within the fixed scene canvas',(()=>{const c=$('.gi-wardrobe-controls');c.scrollTop=c.scrollHeight;return c.scrollTop>0;})());
+        wardrobe.dispose();media.dispose();wardrobe=media=undefined;
+
+        const calls=[];ctx.groupId='group';ctx.groups=[{id:'group',members:['Klee.png','Nahida.png'],disabled_members:[]}];ctx.chat=[{name:'Klee',original_avatar:'Klee.png',mes:'Earlier'},{name:'Nahida',original_avatar:'Nahida.png',mes:'Latest',extra:{silly_teyvat:{saved:'old scene'}}}];let draft='Unsent draft';ctx.generate=async(type,args)=>{calls.push({type,args});const nativeGroupType=['swipe','continue','quiet','impersonate'].includes(type)?type:'normal';if(nativeGroupType==='swipe'){const m=ctx.chat.at(-1);m.swipes.length++;m.mes='Fresh reply';m.swipes[m.swipe_id]=m.mes;m.swipe_info[m.swipe_id]={extra:structuredClone(m.extra)};}else{ctx.chat.push({mes:'Appended incorrectly'});draft='';}};
+        let state=regenerationState(ctx,{id:1});await regenerateReply(ctx,state);
+        check('group regeneration targets only the latest speaking character',calls.length===1&&calls[0].type==='swipe'&&calls[0].args.force_chid===1&&ctx.chat.length===2&&ctx.chat[0].mes==='Earlier'&&ctx.chat[1].mes==='Fresh reply');
+        check('group regeneration preserves the old variant and scene metadata',ctx.chat[1].swipe_id===1&&ctx.chat[1].swipes[0]==='Latest'&&ctx.chat[1].swipe_info[0].extra.silly_teyvat.saved==='old scene'&&!ctx.chat[1].extra.silly_teyvat);
+        check('group regeneration cannot consume an unsent draft',draft==='Unsent draft');
+        const priorGenerate=ctx.generate,beforeFailure=JSON.stringify(ctx.chat[1]);ctx.generate=async()=>{throw new Error('Disconnected');};try{await regenerateReply(ctx,regenerationState(ctx,{id:1}));}catch{}
+        check('a failed group request restores the complete previous reply',JSON.stringify(ctx.chat[1])===beforeFailure);
+        ctx.generate=async()=>{};await regenerateReply(ctx,regenerationState(ctx,{id:1}));check('a canceled or empty group reply restores the previous variant',JSON.stringify(ctx.chat[1])===beforeFailure);ctx.generate=priorGenerate;
+        check('historical replies cannot silently truncate later messages',!regenerationState(ctx,{id:0}).allowed&&regenerationState(ctx,{id:0}).visible);
+        check('regeneration is blocked during streaming or another regeneration',!regenerationState(ctx,{id:1,generating:true}).allowed&&!regenerationState(ctx,{id:1,busy:true}).allowed);
+        check('regeneration respects message editing',!regenerationState(ctx,{id:1,editing:true}).allowed);
+        ctx.groups[0].disabled_members=['Nahida.png'];check('regeneration respects disabled group members',!regenerationState(ctx,{id:1}).allowed);ctx.groups[0].disabled_members=[];
+        ctx.onlineStatus='no_connection';check('offline regeneration is unavailable',!regenerationState(ctx,{id:1}).allowed);delete ctx.onlineStatus;
+        ctx.chat.push({name:'Traveler',mes:'Player',is_user:true});check('the regeneration corner control is hidden for player messages',!regenerationState(ctx,{id:2}).visible);ctx.chat.pop();ctx.groupId=null;state=regenerationState(ctx,{id:1});await regenerateReply(ctx,state);check('single-character regeneration uses normal API parameters without reasoning overrides',calls[1].type==='regenerate'&&Object.keys(calls[1].args).length===0);
+
+        // Explicitly hold image decoding to emulate slow mobile transparent images.
+        ctx.chat=[{name:'Klee',mes:'neutral'}];ctx.extensionSettings.genshin_dialogue_ui={};ctx.chatId='painting';
+        const path=(name,label)=>new URL(`assets/preview/${name}/${label}.png`,location.href).pathname;
+        const scene=[{avatar:'Klee.png',folder:'Klee',src:path('Klee','neutral'),expression:'neutral',x:0,y:0,w:.4,h:.8},{avatar:'Nahida.png',folder:'Nahida',src:path('Nahida','neutral'),expression:'neutral',x:.5,y:0,w:.4,h:.8}];
+        const decodes=[];painter=mountPageSprites({host,getContext:()=>ctx,decodeImage:image=>new Promise((resolve,reject)=>decodes.push({image,resolve,reject})),adapter:{capture:()=>structuredClone(scene),classify:async(_ctx,text)=>text,resolve:async(_ctx,_message,emotion,base)=>{const next=structuredClone(base);next[0].src=path('Klee',emotion);next[0].expression=emotion;return{scene:next,emotion};}}});
+        const show=id=>painter.sync({on:true,id,page:0,text:ctx.chat[id].mes,complete:true,generating:false});
+        show(0);await pause(10);decodes.forEach(d=>d.resolve());await pause(5);
+        check('initial scene commits one decoded image for each group member',$('#gi-sprite-stage').children.length===2);
+        const old=$('#gi-sprite-stage img');ctx.chat.push({name:'Klee',mes:'joy'});show(1);await pause(10);
+        check('sprite swap keeps a complete old image until the replacement is decoded',old.isConnected&&$('#gi-sprite-stage img')===old);
+        const pending=decodes.filter(d=>d.image.dataset.expression==='joy');ctx.chat.push({name:'Klee',mes:'love-1'});show(2);await pause(10);
+        decodes.filter(d=>d.image.dataset.expression==='love-1').forEach(d=>d.resolve());await pause(5);
+        const latest=$('#gi-sprite-stage img');check('transparent sprite replacement removes the old image node atomically',!old.isConnected&&latest.dataset.expression==='love-1'&&$('#gi-sprite-stage').children.length===2);
+        pending.forEach(d=>d.resolve());decodes.filter(d=>d.image.dataset.expression==='joy').forEach(d=>d.resolve());await pause(5);
+        check('late mobile image loads cannot restore a previous sprite or create duplicates',$('#gi-sprite-stage img')===latest&&$('#gi-sprite-stage').children.length===2);
+        show(2);check('same-image replay keeps its node for smooth focus transitions',$('#gi-sprite-stage img')===latest);
+        check('scene canvas locks root overscroll while preserving browser zoom',getComputedStyle(document.body).position==='fixed'&&getComputedStyle(document.documentElement).overscrollBehavior==='none'&&document.querySelector('meta[name=viewport]')?.content.includes('maximum-scale')===false);
+        check('sprite replay layer isolates paints from stale compositor tiles',getComputedStyle($('#gi-sprite-stage')).contain.includes('paint')&&getComputedStyle($('#gi-sprite-stage')).isolation==='isolate');
+    }catch(error){results.push(`ERROR ${error.message}`);}
+    finally{wardrobe?.dispose();media?.dispose();painter?.dispose();host.remove();}
+    return results.join('; ');
+}

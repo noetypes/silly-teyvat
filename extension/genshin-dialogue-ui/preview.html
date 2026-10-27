@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Silly Teyvat · Interactive Preview</title>
+    <link rel="stylesheet" href="preview.css">
+    <link rel="stylesheet" href="preview-theme.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="waifuMode">
+    <div class="demo-landscape" aria-hidden="true"></div>
+    <div id="expression-wrapper"><div class="expression-holder"><img class="demo-sprite expression" data-sprite-folder-name="Klee" data-expression="joy" src="preview-klee.png" alt="Klee sprite from the original fan VN pack"></div></div><div id="visual-novel-wrapper" hidden></div>
+    <div id="top-bar"></div>
+    <div id="top-settings-holder">
+        <div id="ai-config-button" class="drawer"><button type="button" class="drawer-toggle" aria-label="AI Response Configuration"><span class="drawer-icon" title="AI Response Configuration"></span></button></div>
+        <div id="sys-settings-button" class="drawer"><button type="button" class="drawer-toggle" aria-label="API Connections"><span class="drawer-icon" title="API Connections"></span></button></div>
+        <div id="advanced-formatting-button" class="drawer"><button type="button" class="drawer-toggle" aria-label="AI Response Formatting"><span class="drawer-icon" title="AI Response Formatting"></span></button></div>
+        <div id="WI-SP-button" class="drawer"><button type="button" class="drawer-toggle" aria-label="World Info"><span class="drawer-icon" title="World Info"></span></button></div>
+        <div id="user-settings-button" class="drawer"><button type="button" class="drawer-toggle" aria-label="User Settings"><span class="drawer-icon" title="User Settings"></span></button></div>
+        <div id="backgrounds-button" class="drawer"><button type="button" class="drawer-toggle" aria-label="Backgrounds"><span class="drawer-icon" title="Backgrounds"></span></button></div>
+        <div id="extensions-settings-button" class="drawer"><button type="button" class="drawer-toggle" aria-label="Open extension settings"><span class="drawer-icon" title="Extensions"></span></button></div>
+        <div id="persona-management-button" class="drawer"><button type="button" class="drawer-toggle" aria-label="Persona Management"><span class="drawer-icon" title="Persona Management"></span></button></div>
+        <div id="rightNavHolder" class="drawer"><button type="button" class="drawer-toggle" aria-label="Character Management"><span class="drawer-icon" title="Character Management"></span></button></div>
+    </div>
+    <details id="demo-tools">
+        <summary>Interactive preview</summary>
+        <p>A disposable demo. No model, account, or saved chat is used.</p>
+        <div class="demo-tool-grid">
+            <button type="button" data-demo="reset">Reset scene</button>
+            <button type="button" data-demo="narration">Keyword narration</button>
+            <button type="button" data-demo="long">Long reply</button>
+            <button type="button" data-demo="breaks">Mixed line breaks</button>
+            <button type="button" data-demo="feature-tests">Check reveal and sprite scenes</button>
+            <button type="button" data-demo="formatting-tests">Check dialogue quotation display</button>
+            <button type="button" data-demo="v17-tests">Check slots, sprite swaps &amp; regeneration</button>
+            <button type="button" data-demo="background-tests">Check regional backgrounds</button>
+            <button type="button" data-demo="arrival-tests">Run arrival &amp; encounter checks</button>
+            <button type="button" data-demo="travel-tests">Check home openings and flexible travel</button>
+            <button type="button" data-demo="cast-tests">Travel party tests</button><button type="button" data-demo="world-tests">Check waypoints, teleport &amp; World scale</button>
+            <button type="button" data-demo="staging-tests">Check timing, scaling &amp; groups</button>
+            <button type="button" data-demo="persona-tests">Check persona wardrobe and switching</button>
+            <button type="button" data-demo="media-tests">Check CGs, audio & player turns</button>
+            <button type="button" data-demo="cg-scene">Picnic CG demo</button>
+            <button type="button" data-demo="quote-pages">Dialogue / narration / dialogue</button>
+            <button type="button" data-demo="page-tests">Check page splitting</button>
+            <button type="button" data-demo="stream">Simulate streaming</button>
+            <button type="button" data-demo="choices">Toggle choices</button>
+            <button type="button" data-demo="opening-alone-demo">Klee opening alone demo</button><button type="button" data-demo="enemy-action-demo">Enemy attack pose demo</button><button type="button" data-demo="encounter-fix-tests">Opening, encounters &amp; enemy actions checks</button><button type="button" data-demo="combat-demo">Wilderness combat demo</button><button type="button" data-demo="send-attack-tests">Sword toggle and send checks</button><button type="button" data-demo="combat-tests">Combat checks</button><button type="button" data-demo="dice-model-demo">Supplied dice model</button><button type="button" data-demo="dice-model-tests">Dice model checks</button>
+            <button type="button" data-demo="choice-error">Next refresh fails</button>
+            <button type="button" data-demo="group">Group speaker</button>
+            <button type="button" data-demo="empty">Welcome screen</button>
+            <button type="button" data-demo="conflict">Prome conflict</button>
+            <button type="button" data-demo="dispose">Unload extension</button>
+            <button type="button" data-demo="mount">Reload extension</button>
+        </div>
+        <output id="demo-result" aria-live="polite">Ready. Try History, Hide UI, or Reply.</output>
+    </details>
+    <section id="rm_extensions_block" class="drawer-content closedDrawer" hidden>
+        <button type="button" id="demo-close-settings" class="menu_button">Close settings</button>
+        <h3>Extensions</h3>
+        <div id="extensions_settings2"></div>
+    </section>
+    <div id="sheld">
+        <div id="chat" aria-label="Chat messages"></div>
+        <div id="form_sheld">
+            <div id="send_form">
+                <div id="qr--bar"><button id="qr--popoutTrigger" type="button">Pop out</button><div class="qr--buttons"></div></div>
+                <div id="nonQRFormItems">
+                    <div id="leftSendForm"><button type="button" aria-label="Demo menu" id="demo-menu">☰</button></div>
+                    <textarea id="send_textarea" rows="1" placeholder="Write your reply…" aria-label="Write your reply"></textarea>
+                    <div id="rightSendForm"><button type="button" id="mes_stop" hidden aria-label="Stop simulated generation">■</button><button type="button" id="send_but" aria-label="Send demo reply">➤</button></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="module" src="preview.js"></script>
+</body>
+</html>

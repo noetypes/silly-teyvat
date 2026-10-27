@@ -1,0 +1,214 @@
+{
+  "extension": "Silly Teyvat",
+  "version": "1.16.0",
+  "verified": "2026-10-26",
+  "automatedChecks": 553,
+  "suites": [
+    {
+      "case": "browser-arrival",
+      "checks": 14,
+      "harness": "Installed browser preview",
+      "passed": true
+    },
+    {
+      "case": "browser-background",
+      "checks": 30,
+      "harness": "Installed browser preview",
+      "passed": true
+    },
+    {
+      "case": "browser-cast",
+      "checks": 25,
+      "harness": "Installed browser preview",
+      "passed": true
+    },
+    {
+      "case": "browser-combat",
+      "checks": 20,
+      "harness": "Installed browser preview",
+      "passed": true
+    },
+    {
+      "case": "browser-feature",
+      "checks": 42,
+      "harness": "Installed browser preview",
+      "passed": true
+    },
+    {
+      "case": "browser-formatting",
+      "checks": 10,
+      "harness": "Installed browser preview",
+      "passed": true
+    },
+    {
+      "case": "browser-media",
+      "checks": 31,
+      "harness": "Installed browser preview",
+      "passed": true
+    },
+    {
+      "case": "browser-page",
+      "checks": 8,
+      "harness": "Installed browser preview",
+      "passed": true
+    },
+    {
+      "case": "browser-staging",
+      "checks": 46,
+      "harness": "Installed browser preview",
+      "passed": true
+    },
+    {
+      "case": "browser-travel",
+      "checks": 16,
+      "harness": "Installed browser preview",
+      "passed": true
+    },
+    {
+      "case": "browser-wardrobe",
+      "checks": 40,
+      "harness": "Installed browser preview",
+      "passed": true
+    },
+    {
+      "case": "browser-world",
+      "checks": 30,
+      "harness": "Installed browser preview",
+      "passed": true
+    },
+    {
+      "case": "check-arrival-greetings",
+      "checks": 14,
+      "harness": "Node / API mocks",
+      "passed": true
+    },
+    {
+      "case": "check-arrival-policy",
+      "checks": 27,
+      "harness": "Node / API mocks",
+      "passed": true
+    },
+    {
+      "case": "check-asset-refresh",
+      "checks": 11,
+      "harness": "Node / API mocks",
+      "passed": true
+    },
+    {
+      "case": "check-background-adapter",
+      "checks": 7,
+      "harness": "Node / API mocks",
+      "passed": true
+    },
+    {
+      "case": "check-cast-adapter",
+      "checks": 9,
+      "harness": "Node / API mocks",
+      "passed": true
+    },
+    {
+      "case": "check-cg-prompt",
+      "checks": 14,
+      "harness": "Node / API mocks",
+      "passed": true
+    },
+    {
+      "case": "check-choices",
+      "checks": 7,
+      "harness": "Node / API mocks",
+      "passed": true
+    },
+    {
+      "case": "check-dialogue-formatting",
+      "checks": 16,
+      "harness": "Node / API mocks",
+      "passed": true
+    },
+    {
+      "case": "check-home-migration",
+      "checks": 9,
+      "harness": "Node / API mocks",
+      "passed": true
+    },
+    {
+      "case": "check-journey-library",
+      "checks": 8,
+      "harness": "Node / API mocks",
+      "passed": true
+    },
+    {
+      "case": "check-location-cast",
+      "checks": 17,
+      "harness": "Node / API mocks",
+      "passed": true
+    },
+    {
+      "case": "check-page-sprites",
+      "checks": 9,
+      "harness": "Node / API mocks",
+      "passed": true
+    },
+    {
+      "case": "check-rename-recovery",
+      "checks": 2,
+      "harness": "Node / API mocks",
+      "passed": true
+    },
+    {
+      "case": "check-travel",
+      "checks": 22,
+      "harness": "Node / API mocks",
+      "passed": true
+    },
+    {
+      "case": "check-wardrobe",
+      "checks": 10,
+      "harness": "Node / API mocks",
+      "passed": true
+    },
+    {
+      "case": "check-world-map",
+      "checks": 29,
+      "harness": "Node / API mocks",
+      "passed": true
+    },
+    {
+      "case": "combat-and-wilderness",
+      "checks": 30,
+      "harness": "Node / API mocks",
+      "passed": true
+    }
+  ],
+  "nativeAudits": 4,
+  "javascriptModules": 51,
+  "installedFilesMatchRecursively": true,
+  "metadata": {
+    "cards": 147,
+    "playable": 124,
+    "npcs": 3,
+    "enemies": 20,
+    "knownPlayableBodyModels": 122,
+    "unverifiedPlayableBodyModels": [
+      "Vesna",
+      "Vodyanitsa"
+    ],
+    "wildernessWaypoints": 40,
+    "totalWaypoints": 111,
+    "unchangedPortraits": 147,
+    "unchangedGreetings": 735,
+    "unchangedSprites": 435
+  },
+  "visualChecks": [
+    "1440 \u00d7 900 desktop",
+    "402 \u00d7 874 portrait",
+    "874 \u00d7 402 landscape",
+    "portrait/landscape rotation preserves outcome and mesh proportions"
+  ],
+  "limits": [
+    "No live model request was made. Model reactions, group writes and uploads use test adapters in disposable browser fixtures.",
+    "Dice mesh and animation are an original TCG-inspired reconstruction. The researched Thingiverse print model was inaccessible and is not redistributed.",
+    "Random wilderness encounters spawn one enemy per successful visit. Multiple manually present enemies are supported.",
+    "Manekin elemental affinities are adaptive; Traveler defaults to editable Anemo. Two newer body models remain explicitly unverified.",
+    "Viewport testing does not claim a physical phone test."
+  ]
+}

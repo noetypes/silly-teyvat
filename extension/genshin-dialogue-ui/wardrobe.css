@@ -1,0 +1,96 @@
+/* Genshin-inspired collection screen: portrait rail, large preview, outfit tabs. */
+#gi-wardrobe { box-sizing: border-box; width: min(1180px, 96vw); height: min(90dvh, 900px); max-width: none; max-height: none; padding: 0; border: 2px solid #cdb98c; border-radius: 16px; color: #f4efe4; background: radial-gradient(ellipse at 20% 45%, #526d87aa, transparent 60%), linear-gradient(135deg,#2e425c,#1c2a40); box-shadow: 0 20px 90px #030e1dd9,inset 0 0 0 5px #cdb98c18; font: 14px/1.45 "Trebuchet MS",system-ui,sans-serif; overflow: hidden; }
+#gi-wardrobe[open] { display: flex; flex-direction: column; }
+#gi-wardrobe::backdrop { background: #0b1527ad; backdrop-filter: blur(6px); }
+#gi-wardrobe *, #gi-wardrobe *::before { box-sizing: border-box; }
+#gi-wardrobe [hidden] { display: none !important; }
+#gi-wardrobe header { display: flex; align-items: center; justify-content: space-between; padding: 14px 22px; gap: 10px; border-bottom: 1px solid #d7cda344; }
+#gi-wardrobe h2 { margin: 2px 0 0; font-size: 25px; font-weight: normal; color: #f4dfa6; }
+#gi-wardrobe h3 { font-size: 18px; font-weight: normal; margin: 12px 0 8px; }
+#gi-wardrobe small { display: block; margin-block: 6px; opacity: .8; }
+#gi-wardrobe button, #gi-wardrobe select, #gi-wardrobe input, #gi-wardrobe textarea { font: inherit; color: inherit; }
+#gi-wardrobe button { border: 1px solid #cfbf9560; border-radius: 20px; min-height: 38px; padding: 7px 15px; background: #d7e0e711; cursor: pointer; }
+#gi-wardrobe button:hover, #gi-wardrobe button[aria-pressed="true"] { border-color: #f1d79c; color: #fff3d7; background: #ddc48726; }
+#gi-wardrobe button:focus-visible, #gi-wardrobe :is(input,select,textarea):focus-visible { outline: 2px solid #f1d79c; outline-offset: 2px; }
+#gi-wardrobe[aria-busy="true"] :is(button:not([data-w="close"]), input, select, textarea) { opacity: .6; pointer-events: none; }
+#gi-wardrobe select, #gi-wardrobe input:not([type="checkbox"]) { width: 100%; min-height: 38px; padding: 7px 10px; border: 1px solid #c1cbd04d; border-radius: 8px; background: #1c2a3e; }
+#gi-wardrobe input[type="file"] { font-size: 12px; }
+#gi-wardrobe textarea { width: 100%; min-height: 72px; padding: 8px 10px; border: 1px solid #c1cbd04d; border-radius: 8px; background: #1c2a3e; resize: vertical; }
+#gi-wardrobe .gi-wardrobe-tabs { display: flex; gap: 8px; margin-bottom: 16px; }
+#gi-wardrobe :is(.gi-audio-list,.gi-cg-audio-list) { display: grid; gap: 6px; margin-block: 8px; font-size: 12px; }
+#gi-wardrobe .gi-selected-sprite-tools { margin: 12px 0; padding: 10px; border: 1px solid #d7cda344; border-radius: 10px; }
+#gi-wardrobe .gi-cg-grid { display: grid; grid-template-columns: repeat(auto-fill,minmax(120px,1fr)); gap: 8px; }
+#gi-wardrobe .gi-cg-grid button { padding: 4px; border-radius: 8px; display: flex; flex-direction: column; gap: 5px; overflow-wrap: anywhere; }
+#gi-wardrobe .gi-cg-grid img { width: 100%; height: 88px; object-fit: cover; border-radius: 4px; }
+#gi-wardrobe label { display: block; margin: 9px 0 5px; }
+#gi-wardrobe .gi-check { display: flex; align-items: center; gap: 8px; font-size: 12px; }
+#gi-wardrobe input[type="checkbox"] { accent-color: #dbbd79; }
+#gi-wardrobe .gi-roster { flex: 0 0 auto; display: flex; gap: 9px; overflow-x: auto; padding: 10px 22px; border-bottom: 1px solid #d7cda344; }
+#gi-wardrobe .gi-roster button { display: flex; align-items: center; gap: 9px; flex: 0 0 auto; padding: 4px 14px 4px 4px; }
+#gi-wardrobe .gi-roster img { width: 38px; height: 38px; border-radius: 50%; object-fit: cover; background: linear-gradient(#8865a1,#d6a85e); }
+#gi-wardrobe .gi-wardrobe-body { display: grid; grid-template-columns: minmax(200px, 42%) 1fr; flex: 1; min-height: 0; }
+#gi-wardrobe .gi-wardrobe-preview { display: flex; flex-direction: column; align-items: center; justify-content: flex-end; min-height: 0; padding: 20px; background: radial-gradient(ellipse at center, #a6c5dc29,transparent 70%); }
+#gi-wardrobe .gi-wardrobe-preview img { width: 100%; height: 0; min-height: 0; flex: 1; object-fit: contain; filter: drop-shadow(0 5px 20px #111c2d88); }
+#gi-wardrobe .gi-wardrobe-preview h3 { font-family: "Silly Teyvat Dialogue",sans-serif; font-size: 24px; color: #e9cc84; margin-bottom: 0; }
+#gi-wardrobe .gi-outfit-caption { font-size: 12px; opacity: .8; text-align: center; margin: 5px 0 0; }
+#gi-wardrobe .gi-wardrobe-controls { overflow: auto; padding: 14px 22px 24px; border-left: 1px solid #d7cda333; overscroll-behavior: contain; }
+#gi-wardrobe .gi-wardrobe-row { display: flex; gap: 8px; align-items: center; }
+#gi-wardrobe .gi-wardrobe-row > :first-child { flex: 1; min-width: 0; }
+#gi-wardrobe .gi-wardrobe-row button { flex: 0 0 auto; }
+#gi-wardrobe .gi-current-outfit { color: #e3cf9b; font-size: 12px; }
+#gi-wardrobe details { padding: 9px 0; border-block: 1px solid #d7cda333; }
+#gi-wardrobe summary { cursor: pointer; color: #e3cf9b; }
+#gi-wardrobe .gi-expression-grid { display: grid; grid-template-columns: repeat(auto-fill,minmax(76px,1fr)); gap: 8px; }
+#gi-wardrobe .gi-expression-grid button { overflow: hidden; border-radius: 8px; padding: 3px; display: flex; flex-direction: column; align-items: center; background: linear-gradient(#a1b1c233,#89929c0d); }
+#gi-wardrobe .gi-expression-grid img { width: 100%; height: 100px; object-fit: contain; }
+#gi-wardrobe .gi-expression-grid span { display: block; max-width: 100%; overflow-wrap: anywhere; font-size: 11px; padding: 4px 0; }
+#gi-wardrobe .gi-sprite-detail { display: flex; gap: 8px; align-items: center; justify-content: space-between; margin-top: 9px; font-size: 12px; }
+#gi-wardrobe .gi-remove-confirm { padding: 10px; margin-top: 10px; border: 1px solid #d7a18f; border-radius: 8px; background: #4f343980; font-size: 12px; }
+#gi-wardrobe footer { display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 10px 22px; border-top: 1px solid #d7cda344; font-size: 12px; min-height: 48px; }
+#gi-wardrobe footer p { margin: 0; }
+@media (max-width: 600px) and (orientation: portrait) {
+    #gi-wardrobe { height: 94dvh; }
+    #gi-wardrobe header, #gi-wardrobe .gi-roster, #gi-wardrobe footer { padding: 10px 12px; }
+    #gi-wardrobe h2 { font-size: 21px; }
+    #gi-wardrobe .gi-wardrobe-body { grid-template-columns: minmax(100px,30%) 1fr; }
+    #gi-wardrobe .gi-wardrobe-preview { padding: 6px; }
+    #gi-wardrobe .gi-wardrobe-preview h3 { font-size: 19px; }
+    #gi-wardrobe .gi-wardrobe-controls { padding: 8px 10px 20px; }
+    #gi-wardrobe .gi-wardrobe-row { flex-wrap: wrap; }
+    #gi-wardrobe .gi-wardrobe-row > :first-child { flex-basis: 100%; }
+    #gi-wardrobe .gi-expression-grid { grid-template-columns: repeat(auto-fill,minmax(65px,1fr)); gap: 5px; }
+    #gi-wardrobe .gi-expression-grid img { height: 82px; }
+    #gi-wardrobe .gi-sprite-detail { flex-wrap: wrap; }
+}
+@media (max-height: 550px) and (orientation: landscape) {
+    #gi-wardrobe { height: 96dvh; }
+    #gi-wardrobe header, #gi-wardrobe .gi-roster, #gi-wardrobe footer { padding: 5px 14px; }
+    #gi-wardrobe header small { display: none; }
+    #gi-wardrobe h2 { font-size: 20px; }
+    #gi-wardrobe .gi-roster img { width: 28px; height: 28px; }
+    #gi-wardrobe .gi-roster button { min-height: 32px; }
+    #gi-wardrobe .gi-wardrobe-controls { padding-block: 7px; }
+    #gi-wardrobe footer { min-height: 34px; }
+}
+/* Empty slots and the trailing plus occupy the same grid cells as artwork. */
+#gi-wardrobe :is(.gi-expression-grid,.gi-cg-grid) .gi-slot-placeholder { display: grid; place-items: center; width: 100%; height: 100px; padding: 0; font-size: 38px; line-height: 1; color: #e7d19a; background: #15223833; border-radius: 4px; }
+#gi-wardrobe .gi-cg-grid .gi-slot-placeholder { height: 88px; }
+#gi-wardrobe .gi-add-tile .gi-slot-placeholder { font-size: 42px; background: transparent; }
+#gi-wardrobe .gi-add-tile { border-style: dashed; }
+@media (max-width:600px) and (orientation:portrait) { #gi-wardrobe .gi-expression-grid .gi-slot-placeholder { height:82px; } }
+#gi-wardrobe .gi-expression-grid button { height:132px; }
+#gi-wardrobe .gi-cg-grid button { height:126px; }
+#gi-wardrobe :is(.gi-expression-grid,.gi-cg-grid) :is(img,.gi-slot-placeholder) { flex:0 0 auto; }
+#gi-wardrobe :is(.gi-expression-grid,.gi-cg-grid) button > span:not(.gi-slot-placeholder) { flex:1; min-height:0; overflow:hidden; line-height:1.2; }
+@media (max-width:600px) and (orientation:portrait) { #gi-wardrobe .gi-expression-grid button { height:114px; } }
+
+/* Background regions use the same collection tiles as scene artwork. */
+#gi-wardrobe .gi-wardrobe-tabs { flex-wrap:wrap; }
+#gi-wardrobe .gi-bg-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(120px,1fr)); gap:8px; margin-block:12px; }
+#gi-wardrobe .gi-bg-grid button { display:flex; flex-direction:column; padding:4px; border-radius:8px; gap:5px; height:126px; overflow:hidden; }
+#gi-wardrobe .gi-bg-grid :is(img,.gi-slot-placeholder) { width:100%; height:88px; flex:0 0 auto; object-fit:cover; }
+#gi-wardrobe .gi-bg-grid .gi-slot-placeholder { display:grid; place-items:center; padding:0; font-size:38px; line-height:1; }
+#gi-wardrobe .gi-bg-grid button > span:not(.gi-slot-placeholder) { font-size:11px; overflow:hidden; line-height:1.2; }
+#gi-wardrobe.gi-background-wardrobe .gi-wardrobe-preview img { object-fit:contain; }
+#gi-wardrobe [data-panel="backgrounds"][aria-busy] { opacity:.7; }
+#gi-wardrobe #gi-bg-library { min-height:120px; }

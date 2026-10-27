@@ -1,0 +1,56 @@
+{
+  "extension": "Silly Teyvat",
+  "version": "1.18.0",
+  "verified": "2026-10-26",
+  "automatedChecks": 90,
+  "suites": [
+    {
+      "suite": "browser-sword",
+      "checks": 33,
+      "passed": true
+    },
+    {
+      "suite": "browser-combat",
+      "checks": 20,
+      "passed": true
+    },
+    {
+      "suite": "check-combat",
+      "checks": 30,
+      "passed": true
+    },
+    {
+      "suite": "check-choices",
+      "checks": 7,
+      "passed": true
+    }
+  ],
+  "javascriptModulesParsed": 58,
+  "previousBaseline": {
+    "version": "1.17.0",
+    "automatedChecks": 613,
+    "report": "verification-v117.json"
+  },
+  "nativeIntegrationAudit": [
+    "Installed public/script.js awaits USER_MESSAGE_RENDERED after adding/saving the user message and before assembling the normal response prompt.",
+    "Installed group-chats.js can draft a speaker before sending. Lethal results disable that enemy and stop a drafted generation while cast cleanup unloads it.",
+    "Suggested replies call native sendMessageAsUser before normal generation and honor the resolved send record."
+  ],
+  "manualChecks": [
+    "1440 \u00d7 900 desktop: sword toggle aligned with dialogue arrows; three ordinary suggestions and no Attack reply option.",
+    "Suggested reply sends exact original words, four dice resolve, combat facts follow the user text, then one normal contextual reply appears.",
+    "Typed composer sends exact original words and then a four-die attack, retaining both turns in history.",
+    "Armed state persists across the two sends.",
+    "402 \u00d7 874 portrait: sword and navigation arrows are 44 \u00d7 44 at the same y coordinate.",
+    "874 \u00d7 402 landscape: sword remains visible, aligned and usable."
+  ],
+  "installedFilesMatchRecursively": true,
+  "nativeCardTextChanged": false,
+  "existingChatsRewritten": false,
+  "spritesChanged": false,
+  "limits": [
+    "All browser tests use disposable chats and mock model APIs. No live roleplay/classification request was made.",
+    "Physical phones were not used for responsive viewport checks.",
+    "Armed state is per active chat/encounter and resets on switching, disabling the extension or losing the selected target."
+  ]
+}

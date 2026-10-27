@@ -1,0 +1,108 @@
+<div id="gi-settings" class="gi-settings">
+    <div class="inline-drawer">
+        <div class="inline-drawer-toggle inline-drawer-header">
+            <b class="gi-settings-brand">Silly Teyvat</b>
+            <div class="inline-drawer-icon fa-solid fa-circle-chevron-down down"></div>
+        </div>
+        <div class="inline-drawer-content">
+            <nav class="gi-set-tabs" role="tablist" aria-label="Silly Teyvat settings">
+                <button type="button" role="tab" data-gi-action="settings-tab" data-tab="dialogue" aria-selected="true">Dialogue</button>
+                <button type="button" role="tab" data-gi-action="settings-tab" data-tab="stage" aria-selected="false">Stage</button>
+                <button type="button" role="tab" data-gi-action="settings-tab" data-tab="media" aria-selected="false">CG &amp; Audio</button>
+                <button type="button" role="tab" data-gi-action="settings-tab" data-tab="world" aria-selected="false">World</button>
+                <button type="button" role="tab" data-gi-action="settings-tab" data-tab="combat" aria-selected="false">Combat</button>
+            </nav>
+
+            <section class="gi-set-page" data-page="dialogue" role="tabpanel">
+                <h4>Display</h4>
+                <label class="gi-row"><span>Dialogue view</span><input type="checkbox" class="gi-switch" data-gi-setting="enabled"></label>
+                <label class="gi-row"><span>Teyvat Choices &amp; HUD icons</span><input type="checkbox" class="gi-switch" data-gi-setting="choices"></label>
+                <label class="gi-row" for="gi-persona-icon"><span>Traveler icon</span><select id="gi-persona-icon" data-gi-setting="personaIcon"><option value="Aether">Aether</option><option value="Lumine">Lumine</option></select></label>
+                <label class="gi-row"><span>Keep reply box open</span><input type="checkbox" class="gi-switch" data-gi-setting="composer"></label>
+                <label class="gi-row"><span>Reduce motion</span><input type="checkbox" class="gi-switch" data-gi-setting="reducedMotion"></label>
+                <h4>Text</h4>
+                <label class="gi-row gi-row-range" for="gi-reveal-speed"><span>Text speed</span><output id="gi-reveal-speed-value">45</output><input id="gi-reveal-speed" type="range" min="0" max="150" step="5" data-gi-setting="revealSpeed"></label>
+                <label class="gi-row gi-row-range" for="gi-text-scale"><span>Text size</span><output id="gi-text-scale-value">100%</output><input id="gi-text-scale" type="range" min="0.85" max="1.4" step="0.05" data-gi-setting="textScale"></label>
+                <label class="gi-row gi-row-range" for="gi-scrim"><span>Background shade</span><output id="gi-scrim-value">80%</output><input id="gi-scrim" type="range" min="0.4" max="0.95" step="0.05" data-gi-setting="scrim"></label>
+                <label class="gi-row"><span>Tap to advance</span><input type="checkbox" class="gi-switch" data-gi-setting="tapAdvance"></label>
+                <label class="gi-row"><span>Hide quotes on dialogue pages</span><input type="checkbox" class="gi-switch" data-gi-setting="hideDialogueQuotes"></label>
+                <h4>Narration</h4>
+                <label class="gi-row"><span>Narration pages</span><input type="checkbox" class="gi-switch" data-gi-setting="narration"></label>
+                <label class="gi-row" for="gi-narration-mode"><span>Detect by</span><select id="gi-narration-mode" data-gi-setting="narrationMode"><option value="quotes">No quotes on page</option><option value="keyword">Keyword</option></select></label>
+                <label class="gi-row" id="gi-narration-keyword-row" for="gi-narration-keyword"><span>Keyword</span><input id="gi-narration-keyword" type="text" maxlength="100" placeholder="Narrator:" data-gi-setting="narrationKeyword"></label>
+            </section>
+
+            <section class="gi-set-page" data-page="stage" role="tabpanel" hidden>
+                <h4>Expressions</h4>
+                <label class="gi-row"><span>Classify expressions</span><input type="checkbox" class="gi-switch" data-gi-setting="pageExpressions"></label>
+                <label class="gi-row"><span>Decide sprites</span><select data-gi-setting="expressionMode"><option value="page">Per page</option><option value="message">Per message</option></select></label>
+                <label class="gi-row"><span>Wardrobe in menu</span><input type="checkbox" class="gi-switch" data-gi-setting="wardrobe"></label>
+                <h4>Staging</h4>
+                <label class="gi-row"><span>Silly Teyvat staging</span><input type="checkbox" class="gi-switch" data-gi-setting="nativeStaging"></label>
+                <label class="gi-row"><span>Global scale (%)</span><input type="number" min="10" max="300" step="1" data-gi-setting="spriteGlobalScale"></label>
+                <label class="gi-row"><span>Tallest sprite height (%)</span><input type="number" min="20" max="100" step="1" data-gi-setting="spriteBaseHeight"></label>
+                <label class="gi-row"><span>Portrait fallback</span><input type="checkbox" class="gi-switch" data-gi-setting="spriteEmulation"></label>
+                <label class="gi-row"><span>Recent speakers only</span><input type="checkbox" class="gi-switch" data-gi-setting="autoHideSprites"></label>
+                <label class="gi-row"><span>Max visible</span><input type="number" min="1" max="20" step="1" data-gi-setting="maxViewableCharacters"></label>
+                <h4>Speaker focus</h4>
+                <label class="gi-row"><span>Enlarge speaker</span><input type="checkbox" class="gi-switch" data-gi-setting="spriteFocus"></label>
+                <label class="gi-row"><span>Focus scale (%)</span><input type="number" min="100" max="125" step="1" data-gi-setting="spriteFocusScale"></label>
+                <label class="gi-row"><span>Transition (s)</span><input type="number" min="0" max="2" step="0.05" data-gi-setting="spriteFocusDuration"></label>
+                <label class="gi-row"><span>Easing</span><select data-gi-setting="spriteFocusEasing"><option value="ease">Ease</option><option value="ease-in">Ease in</option><option value="ease-out">Ease out</option><option value="ease-in-out">Ease in-out</option><option value="linear">Linear</option></select></label>
+                <label class="gi-row"><span>Dim others</span><input type="checkbox" class="gi-switch" data-gi-setting="spriteDim"></label>
+                <label class="gi-row"><span>Dim opacity</span><input type="number" min="0.1" max="1" step="0.05" data-gi-setting="spriteDimOpacity"></label>
+                <label class="gi-row"><span>Speaking shake</span><input type="checkbox" class="gi-switch" data-gi-setting="spriteShake"></label>
+                <h4>Shadow</h4>
+                <label class="gi-row"><span>Drop shadows</span><input type="checkbox" class="gi-switch" data-gi-setting="spriteShadow"></label>
+                <div class="gi-row gi-row-trio"><span>Offset · Blur</span><input type="number" min="-100" max="100" aria-label="Shadow horizontal offset" data-gi-setting="shadowX"><input type="number" min="-100" max="100" aria-label="Shadow vertical offset" data-gi-setting="shadowY"><input type="number" min="0" max="80" aria-label="Shadow blur" data-gi-setting="shadowBlur"></div>
+                <h4>Active persona sprite</h4>
+                <p class="gi-note">Your persona is the first entry in the Sprite Wardrobe. Each persona keeps its own outfits, expression and appearance settings.</p>
+                <label class="gi-row"><span>Show persona</span><input type="checkbox" class="gi-switch" data-gi-setting="personaSprite"></label>
+                <label class="gi-row"><span>Sprite folder</span><input type="text" placeholder="Traveler" data-gi-setting="personaSpriteFolder"></label>
+                <label class="gi-row"><span>Expression</span><input type="text" placeholder="neutral" data-gi-setting="personaSpriteExpression"></label>
+                <h4>Letterbox</h4>
+                <label class="gi-row"><span>Bars</span><select data-gi-setting="letterbox"><option value="none">Off</option><option value="horizontal">Top &amp; bottom</option><option value="vertical">Sides</option></select></label>
+                <label class="gi-row"><span>Size (%)</span><input type="number" min="1" max="30" data-gi-setting="letterboxSize"></label>
+                <label class="gi-row"><span>Colour</span><input type="text" maxlength="7" placeholder="#000000" data-gi-setting="letterboxColor"></label>
+                <div class="gi-set-actions"><button type="button" class="menu_button" data-gi-action="wardrobe">Open Wardrobe</button></div>
+            </section>
+
+            <section class="gi-set-page" data-page="media" role="tabpanel" hidden>
+                <h4>Audio</h4>
+                <label class="gi-row"><span>Sprite audio</span><input type="checkbox" class="gi-switch" data-gi-setting="spriteAudio"></label>
+                <label class="gi-row"><span>CG audio</span><input type="checkbox" class="gi-switch" data-gi-setting="cgAudio"></label>
+                <label class="gi-row gi-row-range" for="gi-sprite-volume"><span>Volume</span><output id="gi-sprite-volume-value">80%</output><input id="gi-sprite-volume" type="range" min="0" max="1" step="0.05" data-gi-setting="spriteVolume"></label>
+                <div class="gi-set-actions"><button type="button" class="menu_button" data-gi-action="audio-unlock">Allow audio on this device</button></div>
+                <h4>Scene CGs</h4>
+                <label class="gi-row"><span>Classify CGs</span><input type="checkbox" class="gi-switch" data-gi-setting="cgEnabled"></label>
+                <label class="gi-row" for="gi-cg-mode"><span>Presentation</span><select id="gi-cg-mode" data-gi-setting="cgMode"><option value="scene">Replace scene</option><option value="window">Framed window</option></select></label>
+                <label class="gi-row" for="gi-cg-classifier"><span>Classifier</span><select id="gi-cg-classifier" data-gi-setting="cgClassifier"><option value="main">Main API</option><option value="profile">Connection profile</option><option value="webllm">WebLLM</option></select></label>
+                <label class="gi-row" id="gi-cg-profile-row" for="gi-cg-profile"><span>Profile</span><select id="gi-cg-profile" data-gi-setting="cgProfile"></select></label>
+                <label class="gi-row" id="gi-cg-reasoning-row"><span>Skip reasoning</span><input type="checkbox" class="gi-switch" data-gi-setting="cgBypassReasoning"></label>
+                <label class="gi-row gi-row-stack" for="gi-cg-prompt"><span>Classifier prompt</span><textarea id="gi-cg-prompt" rows="4" data-gi-setting="cgPrompt"></textarea></label>
+            </section>
+
+            <section class="gi-set-page" data-page="world" role="tabpanel" hidden>
+                <h4>Residents</h4>
+                <label class="gi-row"><span>Meet location characters</span><input type="checkbox" class="gi-switch" data-gi-setting="locationEncounters"></label>
+                <label class="gi-row"><span>Residents per location</span><input type="number" min="1" max="50" step="1" data-gi-setting="locationCharacterLimit"></label>
+                <label class="gi-row"><span>Roll each arrival</span><input type="checkbox" class="gi-switch" data-gi-setting="randomEncounters"></label>
+                <label class="gi-row"><span>Encounter chance (%)</span><input type="number" min="0" max="100" step="1" data-gi-setting="encounterRate"></label>
+                <h4>Travel</h4>
+                <label class="gi-row"><span>Main character may stay</span><input type="checkbox" class="gi-switch" data-gi-setting="allowMainDeparture"></label>
+                <label class="gi-row"><span>Whole world in prompt</span><input type="checkbox" class="gi-switch" data-gi-setting="worldPromptAllRegions"></label>
+            </section>
+
+            <section class="gi-set-page" data-page="combat" role="tabpanel" hidden>
+                <h4>Wilderness</h4>
+                <label class="gi-row"><span>Enemy encounters</span><input type="checkbox" class="gi-switch" data-gi-setting="wildernessEncounters"></label>
+                <h4>Elemental dice</h4>
+                <label class="gi-row"><span>Dice sounds</span><input type="checkbox" class="gi-switch" data-gi-setting="diceSound"></label>
+                <label class="gi-row"><span>Damage per die · min</span><input type="number" min="1" max="100" step="1" data-gi-setting="combatDamageMin"></label>
+                <label class="gi-row"><span>Damage per die · max</span><input type="number" min="1" max="100" step="1" data-gi-setting="combatDamageMax"></label>
+            </section>
+
+            <footer class="gi-set-footer"><span>1.21</span><button type="button" class="menu_button" data-gi-action="preview">Preview</button></footer>
+        </div>
+    </div>
+</div>

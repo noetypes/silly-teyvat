@@ -1,0 +1,52 @@
+import {mountPageSprites} from './page-sprites.js';
+import {dialoguePages} from './narration.js';
+import {beginOpeningScene,openingScene} from './opening-scene.js';
+import {startCharacterAtHome} from './character-location.js';
+import {castMembership,locationCastState,mountLocationCast} from './location-cast.js';
+import {teleportTo} from './world-data.js';
+import {mountWildernessEditor,wildernessEncounterRate,rollWilderness} from './wilderness.js';
+import {enemySpeaker} from './enemy-actions.js';
+export async function runEncounterFixTests(){
+ const out=[],check=(name,ok)=>{out.push(`${ok?'PASS':'FAIL'} ${name}`);if(!ok)throw Error(out.join('\n'));},waitFor=async test=>{const deadline=performance.now()+5000;while(!test()){if(performance.now()>deadline)throw Error(out.join('\n')+'\nFAIL async scene timed out');await new Promise(r=>requestAnimationFrame(r));}};
+ const host=document.createElement('div');document.body.append(host);let sprites,cast,editor;
+ const url=pose=>new URL(`assets/preview/Hilichurl Fighter/${pose}.png`,import.meta.url).pathname;
+ const ctx={characterId:0,groupId:null,chatId:'encounter-fix',characters:[{name:'Klee',avatar:'Klee.png'},{name:'Jean',avatar:'Jean.png'},{name:'Hilichurl Fighter',avatar:'Enemy.png',data:{extensions:{silly_teyvat:{role:'enemy'}}}},{name:'Hydro Slime',avatar:'Slime.png',data:{extensions:{silly_teyvat:{role:'enemy'}}}}],groups:[],chat:[],chatMetadata:{},extensionSettings:{expressions:{api:2},genshin_dialogue_ui:{nativeStaging:true,encounterRate:100,defaultCharacterLocations:{'Klee.png':'hq'},backgroundRegions:[{id:'m',name:'Mondstadt',locations:[{id:'hq',label:'HQ',path:url('neutral'),waypoint:{mapId:'teyvat',x:0,y:0},residents:['Klee.png','Jean.png']},{id:'cliff',label:'Starsnatch Cliff',path:url('neutral'),waypoint:{mapId:'teyvat',x:100,y:0},residents:[],wilderness:true,enemyEncounterRate:40,enemyPool:['Enemy.png']}]}]}},saveChat:async()=>{},saveSettingsDebounced(){},saveMetadataDebounced(){},setExtensionPrompt(){}};
+ try{
+  startCharacterAtHome(ctx);delete locationCastState(ctx).encounter;
+  check('opening without encounter metadata cannot add headquarters residents',castMembership(ctx).members.join(',')==='Klee.png'&&castMembership(ctx).added.length===0);
+  check('cached opening scenes exclude every other resident',openingScene(ctx,[{avatar:'Klee.png'},{avatar:'Jean.png'}]).length===1);
+  teleportTo(ctx,'cliff');teleportTo(ctx,'hq');check('leaving and returning makes headquarters residents eligible',castMembership(ctx).added.includes('Jean.png'));
+  const cliff=ctx.extensionSettings.genshin_dialogue_ui.backgroundRegions[0].locations[1];
+  check('seeded Starsnatch uses default 100 percent',wildernessEncounterRate(ctx,cliff)===100&&rollWilderness(ctx,'cliff',{random:()=>.9999}).length===1);
+  const panel=document.createElement('details');host.append(panel);editor=mountWildernessEditor({panel,getContext:()=>ctx,getLocation:()=>cliff});editor.refresh();
+  check('waypoint editor clearly shows inherited encounter chance',panel.querySelector('[data-wild="rate"]').value==='100'&&panel.querySelector('[data-wild="rate"]').disabled);
+  const override=panel.querySelector('[data-wild="override"]');override.checked=true;override.dispatchEvent(new Event('change',{bubbles:true}));panel.querySelector('[data-wild="rate"]').value='0';panel.querySelector('[data-wild-save]').click();
+  check('explicit zero percent waypoint override is saved and respected',cliff.enemyEncounterRateOverride===true&&rollWilderness(ctx,'cliff',{random:()=>0}).length===0);
+  override.checked=false;override.dispatchEvent(new Event('change',{bubbles:true}));panel.querySelector('[data-wild-save]').click();check('removing waypoint override restores default 100 percent',cliff.enemyEncounterRateOverride===false&&rollWilderness(ctx,'cliff',{random:()=>.999}).length===1);editor.dispose();editor=null;panel.remove();
+  ctx.extensionSettings.genshin_dialogue_ui.locationEncounters=false;cast=mountLocationCast({host,getContext:()=>ctx,adapter:{async apply(){return true;}}});cast.sync({on:true});await waitFor(()=>!cast.busy);const plan=await cast.prepareTeleport(cliff);check('real Teleport preparation keeps hostile rolls when friendly encounters are off',plan.encounter?.enemies.includes('Enemy.png'));cast.dispose();cast=null;
+  ctx.groupId='g';ctx.groups=[{id:'g',members:['Klee.png','Enemy.png','Slime.png'],disabled_members:[]}];ctx.chatMetadata={};let classifications=0,appearances=0;
+  const scene=[{avatar:'Klee.png',folder:'Klee',src:new URL('preview-klee.png',import.meta.url).pathname,expression:'joy'},{avatar:'Enemy.png',folder:'Hilichurl Fighter',src:url('neutral'),expression:'neutral'},{avatar:'Slime.png',folder:'Hydro Slime',src:url('neutral'),expression:'neutral'}].map((s,i)=>({...s,x:i/3,y:.1,w:.3,h:.8,opacity:1,z:i,filter:'none'}));
+  const adapter={capture:()=>structuredClone(scene),async prepare(_ctx,base){return structuredClone(base);},async classify(){classifications++;return 'anger';},async resolve(_ctx,message,emotion,base){const next=structuredClone(base);const target=next.find(s=>s.avatar===message.original_avatar);if(target){target.expression=emotion;target.src=message.original_avatar==='Klee.png'?new URL('preview-klee.png',import.meta.url).pathname:url(emotion==='attacking'?'attacking':'neutral');}return {scene:next,emotion};}};
+  const root=document.createElement('div');root.textContent='[enemy_attack]\nThe hilichurl swings its club.\n“Ya!”';const pages=dialoguePages(root,{narration:true},{is_enemy:true});
+  check('action marker is hidden and does not add a blank page',pages.length===2&&!pages.some(p=>p.textContent.includes('[enemy_')));
+  check('attack applies to its paragraph and next paragraph returns neutral',pages[0].giEnemyAction==='attacking'&&pages[1].giEnemyAction==='neutral');
+  const userRoot=document.createElement('div');userRoot.textContent='[enemy_attack] My action';check('player text cannot become an enemy action',!dialoguePages(userRoot,{}, {is_user:true})[0].giEnemyAction);
+  ctx.chat=[{name:'Hilichurl Fighter',original_avatar:'Enemy.png',mes:root.textContent}];sprites=mountPageSprites({host,getContext:()=>ctx,adapter,decodeImage:()=>Promise.resolve(),onAppearance(){appearances++;}});
+  const show=(id,page,text,action='neutral',opts={})=>sprites.sync({on:true,id,page,text,enemyAction:action,complete:true,generating:false,classifyPages:true,...opts});
+  const expression=avatar=>host.querySelector(`#gi-sprite-stage img[data-avatar="${avatar}"]`)?.dataset.expression;
+  show(0,0,pages[0].textContent,pages[0].giEnemyAction,{narration:true});await waitFor(()=>expression('Enemy.png')==='attacking');
+  check('enemy attack bypasses emotion classifier even on narration',classifications===0&&expression('Enemy.png')==='attacking');check('other enemy in group remains neutral',expression('Slime.png')==='neutral');
+  show(0,1,pages[1].textContent,pages[1].giEnemyAction);await waitFor(()=>expression('Enemy.png')==='neutral');check('enemy dialogue after attack returns to neutral',classifications===0);
+  const before=appearances;show(0,0,pages[0].textContent,pages[0].giEnemyAction,{narration:true});await waitFor(()=>expression('Enemy.png')==='attacking');check('history restores saved attack pose without reclassifying or replaying appearance',classifications===0&&appearances===before);
+  ctx.chat.push({name:'Traveler',is_user:true,mes:'[enemy_attack] I attack.'});show(1,0,ctx.chat[1].mes,'attacking');await waitFor(()=>expression('Enemy.png')==='neutral');check('player attack text cannot switch an enemy to attacking',classifications===0);
+  ctx.chat.push({name:'Klee',original_avatar:'Klee.png',mes:'Klee says the hilichurl looks angry.'});show(2,0,ctx.chat[2].mes);await waitFor(()=>classifications===1);await waitFor(()=>expression('Enemy.png')==='neutral');check('companion classification remains available without changing enemy pose',classifications===1&&expression('Enemy.png')==='neutral');
+  ctx.chat.push({name:'Hilichurl Fighter',original_avatar:'Enemy.png',mes:'“Angry! Attack later!”'});show(3,0,ctx.chat[3].mes,'neutral',{classifyPages:false});await waitFor(()=>ctx.chat[3].extra?.silly_teyvat);check('anger and threats stay neutral without any enemy classification',classifications===1&&expression('Enemy.png')==='neutral');
+  check('enemy metadata records deterministic neutral and attacking states',ctx.chat[0].extra.silly_teyvat.swipes['0'][0].enemyActionsVersion===1&&ctx.chat[0].extra.silly_teyvat.swipes['0'][0].emotion==='attacking');
+  check('only actual enemy cards qualify for action markers',Boolean(enemySpeaker(ctx,ctx.chat[0]))&&!enemySpeaker(ctx,ctx.chat[1])&&!enemySpeaker(ctx,ctx.chat[2]));
+  sprites.dispose();sprites=null;check('all fixture controllers clean up',!host.querySelector('dialog')&&!host.querySelector('#gi-sprite-stage'));
+  ctx.groupId=null;ctx.chat=[{name:'Klee',original_avatar:'Klee.png',mes:'Opening'}];ctx.chatMetadata={};beginOpeningScene(ctx,'Klee.png','hq');
+  sprites=mountPageSprites({host,getContext:()=>ctx,adapter:{capture:()=>[scene[1]],async classify(){throw Error('Must not classify while loading');}},decodeImage:()=>Promise.resolve()});
+  sprites.sync({on:true,id:0,page:0,text:'Opening',complete:false,generating:true});check('opening hides native stale sprites while the selected sprite is still loading',document.body.classList.contains('gi-sprite-replay')&&host.querySelectorAll('#gi-sprite-stage img').length===0);sprites.dispose();sprites=null;
+  return out.join('\n')+`\n${out.length} opening, encounter and enemy action browser checks passed`;
+ }finally{editor?.dispose();cast?.dispose();sprites?.dispose();host.remove();}
+}

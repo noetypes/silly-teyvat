@@ -1,0 +1,1 @@
+Teyvat Choices is built into the extension as of version 1.2. No Quick Reply preset or script is required. The empty Teyvat Choices.json is only a migration preset: importing it over the old set removes its obsolete generator and copy-to-composer actions. Keep other Quick Reply sets as configured.
