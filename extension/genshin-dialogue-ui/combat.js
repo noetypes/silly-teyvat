@@ -1,7 +1,9 @@
 import {activeGroup} from './party.js';
 import {newLocalId} from './local-id.js';
 import {mediaSettings} from './media-store.js';
-import {activeEnemies,combatIdentity,combatState,rollAttack,rerollAttack,applyAttack,syncCombatPrompt} from './combat-state.js';
+import {activeEnemies,combatIdentity,combatState,rollAttack,rerollAttack,applyAttack,syncCombatPrompt,chooseTarget,rollEnemyAttack,applyEnemyAttack,partyStatus,userDefeated,USER_KEY} from './combat-state.js';
+import {resolveDefeat,defeatNarration} from './defeat.js';
+import {activePersonaAvatar} from './persona-wardrobe.js';
 import {mountElementalDice,ELEMENT_COLORS} from './elemental-dice.js';
 import {characterProperties} from './character-properties.js';
 
@@ -15,7 +17,7 @@ export async function appendCombatMessage(ctx,{name='Narrator',text,avatar,event
     await ctx.saveChat?.();return message;
 }
 export function createCombatAdapter({loadScript=()=>import('/script.js')}={}){
-    return {append:appendCombatMessage,async finishSend(ctx,event,isCurrent){
+    return {append:appendCombatMessage,defeat:async ctx=>resolveDefeat(ctx),async finishSend(ctx,event,isCurrent){
         if(!event.defeated||!isCurrent())return;
         // A group may already have drafted this enemy before the user-send hook.
         // Prevent both a fresh queue and an in-flight queue from reviving it.
@@ -40,6 +42,7 @@ export function createCombatAdapter({loadScript=()=>import('/script.js')}={}){
 }
 export function mountCombat({host,getContext,onChange=()=>{},announce=()=>{},adapter=createCombatAdapter(),diceAdapter}){
     const panel=document.createElement('aside');panel.id='gi-combat';panel.setAttribute('aria-label','Hostile encounters');panel.hidden=true;host.append(panel);
+    const partyPanel=document.createElement('aside');partyPanel.id='gi-party-health';partyPanel.setAttribute('aria-label','Party health');partyPanel.hidden=true;host.append(partyPanel);let partyPaint='';const partyShown=new Map();
     const controls=document.createElement('div');controls.id='gi-attack-controls';controls.hidden=true;
     controls.innerHTML='<button id="gi-attack-toggle" type="button" aria-label="Attack after sending a message" aria-pressed="false" title="Attack after sending: off"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17 3h4v4L10 18l-4-4Z"/><path d="m4 12 8 8M8 16l-5 5M2 22l2-2"/></svg><span class="gi-attack-label">Attack</span><i class="gi-attack-pip" aria-hidden="true"></i></button><select id="gi-attack-target" aria-label="Attack target" hidden></select>';
     // Attack sits in the Teyvat Choices column: beside the refresh button when
@@ -91,9 +94,37 @@ export function mountCombat({host,getContext,onChange=()=>{},announce=()=>{},ada
                 announce(`${name}: ${event.hpAfter} HP.`);onChange();
                 if(react)await adapter.react(getContext,event,()=>current(identity,token)&&activeEnemies(getContext()).some(e=>e.avatar===avatar&&e.key===visitKey));
             }
+            await strikeBack(identity,token);
             return event;
         }catch(error){if(current(identity,token)){announce(error.message);globalThis.toastr?.error?.(error.message,'Silly Teyvat');console.warn('[Silly Teyvat] Combat',error);}}
         finally{busy=false;paintControls();onChange();}
+    }
+    const reduced=ctx=>Boolean(mediaSettings(ctx).reducedMotion||ctx.powerUserSettings?.reduced_motion||globalThis.matchMedia?.('(prefers-reduced-motion: reduce)').matches);
+    const portrait=(ctx,avatar)=>avatar===USER_KEY?(ctx.getThumbnailUrl?.('persona',activePersonaAvatar(ctx)) || `/User%20Avatars/${encodeURIComponent(activePersonaAvatar(ctx))}`):(ctx.getThumbnailUrl?.('avatar',avatar) || `/characters/${encodeURIComponent(avatar)}`);
+    // Every enemy still standing rolls its own elemental dice against a random party member.
+    async function strikeBack(identity,token){
+        if(mediaSettings(getContext()).enemyStrikeBack===false)return false;
+        for(const standing of activeEnemies(getContext())){
+            const ctx=getContext(),enemy=activeEnemies(ctx).find(e=>e.avatar===standing.avatar&&e.key===standing.key),target=chooseTarget(ctx);
+            if(!enemy||!target||!current(identity,token))return false;
+            const roll=rollEnemyAttack(ctx,enemy,target),enemyName=ctx.characters.find(c=>c.avatar===enemy.avatar)?.name || 'Enemy';
+            const describe={allies:[{avatar:enemy.avatar,name:enemyName,img:portrait(ctx,enemy.avatar),element:roll.contributions[0].element}],enemy:{avatar:target.avatar,name:target.name,img:portrait(ctx,target.avatar),maxHp:target.maxHp}};
+            if(!await dice.roll(roll,{describe,volume:mediaSettings(ctx).diceSound===false?0:(mediaSettings(ctx).spriteVolume ?? .8),reducedMotion:reduced(ctx),isCurrent:()=>current(identity,token)})||!current(identity,token))return false;
+            const event=applyEnemyAttack(getContext(),roll,newLocalId('strike'));if(!event)continue;
+            const faces=roll.dice.map(d=>`${d.face}${d.match?` (${d.damage} damage)`:''}`).join(', ');
+            const text=`${enemyName} rolled ${roll.dice.length} elemental dice: ${faces}. ${roll.damage?`${target.name} took ${event.damage} damage.`:`${target.name} was not hurt.`} ${target.name} has ${event.hpAfter}/${target.maxHp} HP${event.downed?' and is downed':''}.`;
+            await adapter.append(getContext(),{text,event:{...event,kind:'enemy-attack'}});syncCombatPrompt(getContext(),enabled);
+            announce(`${target.name}: ${event.hpAfter} HP.`);onChange();
+            if(userDefeated(getContext())){await defeat(identity,token);return true;}
+        }
+        return false;
+    }
+    async function defeat(identity,token){
+        if(!current(identity,token))return;
+        const ctx=getContext(),result=await adapter.defeat?.(ctx);
+        if(!result)return;
+        await adapter.append(getContext(),{text:defeatNarration(result,result.name),event:{id:newLocalId('defeat'),kind:'defeat',guild:result.guild.id}});
+        syncCombatPrompt(getContext(),enabled);announce(`${result.name} was carried to ${result.guild.label} and healed.`);onChange({defeated:USER_KEY,moved:true});
     }
     return {
         get busy(){return busy;},attack,
@@ -127,6 +158,24 @@ export function mountCombat({host,getContext,onChange=()=>{},announce=()=>{},ada
             if(enabled&&!generating&&id===ctx.chat.length-1&&message&&!message.extra?.silly_teyvat_combat_scene){message.extra ??= {};message.extra.silly_teyvat_combat_scene=structuredClone(currentEnemies);Promise.resolve(ctx.saveChat?.()).catch(error=>console.warn('[Silly Teyvat] Combat scene save',error));}
             const historical=id<ctx.chat.length-1,display=historical?message?.extra?.silly_teyvat_combat_scene || []:currentEnemies;
             panel.hidden=!enabled||!show||!display.length;
+            // Party health: shown during an encounter or while anyone is hurt.
+            const party=enabled&&show&&!historical?partyStatus(ctx):[],hurt=party.some(m=>m.hp<m.maxHp);
+            partyPanel.hidden=!party.length||!(currentEnemies.length||hurt);
+            const partySignature=JSON.stringify([partyPanel.hidden,party]);
+            if(partySignature!==partyPaint){
+                partyPaint=partySignature;partyPanel.replaceChildren();
+                for(const m of party){
+                    const item=document.createElement('div');item.className='gi-party-member';item.dataset.member=m.avatar;if(m.downed)item.classList.add('gi-downed');
+                    const name=document.createElement('strong');name.textContent=m.name;const hp=document.createElement('span');hp.textContent=`${m.hp} / ${m.maxHp} HP`;
+                    const bar=document.createElement('div');bar.className='gi-hp';bar.innerHTML='<i class="gi-hp-lag"></i><i class="gi-hp-fill"></i>';
+                    const meter=document.createElement('meter');meter.className='gi-sr-only';meter.min=0;meter.max=m.maxHp;meter.value=m.hp;meter.setAttribute('aria-label',`${m.name} health`);
+                    item.append(name,hp,bar,meter);partyPanel.append(item);
+                    const pct=v=>`${Math.max(0,Math.min(100,v/m.maxHp*100))}%`,lag=bar.firstElementChild,fill=lag.nextElementSibling,before=partyShown.get(m.avatar);
+                    if(before!==undefined&&before>m.hp){fill.style.width=lag.style.width=pct(before);item.classList.add('gi-hurt');requestAnimationFrame(()=>requestAnimationFrame(()=>{fill.style.width=pct(m.hp);setTimeout(()=>{lag.style.width=pct(m.hp);},420);}));}
+                    else fill.style.width=lag.style.width=pct(m.hp);
+                    partyShown.set(m.avatar,m.hp);
+                }
+            }
             const signature=JSON.stringify([panel.hidden,display]);if(signature===paint)return;paint=signature;panel.replaceChildren();
             for(const e of display){const card=ctx.characters.find(c=>c.avatar===e.avatar);if(!card)continue;const item=document.createElement('div');item.className='gi-enemy-health';item.dataset.enemy=e.avatar;
                 const img=document.createElement('img');img.src=ctx.getThumbnailUrl?.('avatar',e.avatar) || `/characters/${encodeURIComponent(e.avatar)}`;img.alt='';
@@ -144,6 +193,6 @@ export function mountCombat({host,getContext,onChange=()=>{},announce=()=>{},ada
             }
             if(!historical)for(const a of [...shown.keys()])if(!display.some(e=>e.avatar===a))shown.delete(a);
         },
-        dispose(){disposed=true;enabled=false;revision++;abort.abort();layout.disconnect();dice.dispose?.();controls.remove();dock.remove();panel.remove();syncCombatPrompt(getContext(),false);},
+        dispose(){disposed=true;enabled=false;revision++;abort.abort();layout.disconnect();dice.dispose?.();controls.remove();dock.remove();panel.remove();partyPanel.remove();syncCombatPrompt(getContext(),false);},
     };
 }

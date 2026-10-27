@@ -1,5 +1,5 @@
 {
-  "version": 5,
+  "version": 6,
   "retrieved": "2026-10-26",
   "coordinateSource": "https://sg-public-api-static.hoyolab.com/common/map_user/ys_obc/v1/map/map_anchor/list?map_id=2&app_sn=ys_obc&lang=en-us",
   "locations": [
@@ -1467,7 +1467,8 @@
           "rationale": "The Traveler has no canonical home. Mondstadt’s Adventurers’ Guild is a natural default start for an itinerant adventurer; explicitly a roleplay default, not a residence.",
           "loreSource": "https://genshin-impact.fandom.com/wiki/Traveler/Storyline"
         }
-      ]
+      ],
+      "guild": true
     },
     {
       "id": "home-hanamizaka",
@@ -4808,6 +4809,242 @@
         "Hilichurl Shooter.png",
         "Cryo Whopperflower.png"
       ]
+    },
+    {
+      "id": "guild-liyue-harbor",
+      "label": "Adventurers' Guild, Liyue Harbor",
+      "region": "Liyue",
+      "description": "Liyue's branch of the Adventurers' Guild, led by Lan, where Katheryne hands out commissions beside the harbor.",
+      "classifications": [
+        "Liyue Adventurers' Guild",
+        "Liyue Guild",
+        "Lan's Guild branch"
+      ],
+      "suggestedCharacters": [
+        "Katheryne"
+      ],
+      "waypoint": {
+        "mapId": "teyvat",
+        "x": -927.0,
+        "y": 2817.0
+      },
+      "coordinateMethod": "Centre of the official map label bounds for Liyue Harbor, nudged 30 units so it never sits on the settlement pin. The Guild is inside Liyue Harbor; no official Guild coordinate was found.",
+      "coordinateSource": "HoYoLAB Teyvat Interactive Map map_id=2 anchor list (map_anchor/list).",
+      "source": "https://genshin-impact.fandom.com/wiki/File:Adventurers'_Guild_Liyue.png",
+      "imageURL": "https://static.wikia.nocookie.net/gensin-impact/images/5/5e/Adventurers%27_Guild_Liyue.png/revision/latest?cb=20220218093442",
+      "loreSource": "https://genshin-impact.fandom.com/wiki/Katheryne",
+      "residents": [],
+      "candidate": false,
+      "dimensions": [
+        1920,
+        1080
+      ],
+      "asset": "guild-liyue-harbor.webp",
+      "introducedVersion": 6,
+      "guild": true,
+      "imageReview": {
+        "reviewed": "2026-10-27",
+        "playableCharacters": false,
+        "gameUI": false,
+        "captions": false,
+        "camera": "Downloaded from the wiki and visually reviewed: ground-level view of the Liyue Harbor Adventurers' Guild branch with Katheryne and generic NPCs only; no playable characters, HUD or captions. A small Genshin Impact logo remains in the lower right."
+      }
+    },
+    {
+      "id": "guild-inazuma-city",
+      "label": "Adventurers' Guild, Inazuma City",
+      "region": "Inazuma",
+      "description": "The Inazuma City branch of the Adventurers' Guild, a lantern-lit hall where Katheryne posts commissions.",
+      "classifications": [
+        "Inazuma Adventurers' Guild",
+        "Inazuma Guild"
+      ],
+      "suggestedCharacters": [
+        "Katheryne"
+      ],
+      "waypoint": {
+        "mapId": "teyvat",
+        "x": 3820.0,
+        "y": 5578.0
+      },
+      "coordinateMethod": "Centre of the official map label bounds for Inazuma City, nudged 30 units so it never sits on the settlement pin. The Guild is inside Inazuma City; no official Guild coordinate was found.",
+      "coordinateSource": "HoYoLAB Teyvat Interactive Map map_id=2 anchor list (map_anchor/list).",
+      "source": "https://genshin-impact.fandom.com/wiki/File:Adventurers'_Guild_Inazuma.png",
+      "imageURL": "https://static.wikia.nocookie.net/gensin-impact/images/e/e3/Adventurers%27_Guild_Inazuma.png/revision/latest?cb=20260528233941",
+      "loreSource": "https://genshin-impact.fandom.com/wiki/Katheryne",
+      "residents": [],
+      "candidate": false,
+      "dimensions": [
+        1920,
+        1080
+      ],
+      "asset": "guild-inazuma-city.webp",
+      "introducedVersion": 6,
+      "guild": true,
+      "imageReview": {
+        "reviewed": "2026-10-27",
+        "playableCharacters": false,
+        "gameUI": false,
+        "captions": false,
+        "camera": "Downloaded from the wiki and visually reviewed: ground-level view of the Inazuma City Adventurers' Guild branch with Katheryne and generic NPCs only; no playable characters, HUD or captions."
+      }
+    },
+    {
+      "id": "guild-sumeru-city",
+      "label": "Adventurers' Guild, Sumeru City",
+      "region": "Sumeru",
+      "description": "Sumeru City's branch of the Adventurers' Guild, led by Kamal, with Katheryne at the commissions desk.",
+      "classifications": [
+        "Sumeru Adventurers' Guild",
+        "Sumeru Guild"
+      ],
+      "suggestedCharacters": [
+        "Katheryne"
+      ],
+      "waypoint": {
+        "mapId": "teyvat",
+        "x": -3489.0,
+        "y": 2718.5
+      },
+      "coordinateMethod": "Centre of the official map label bounds for Sumeru City, nudged 30 units so it never sits on the settlement pin. The Guild is inside Sumeru City; no official Guild coordinate was found.",
+      "coordinateSource": "HoYoLAB Teyvat Interactive Map map_id=2 anchor list (map_anchor/list).",
+      "source": "https://genshin-impact.fandom.com/wiki/File:Adventurers'_Guild_Sumeru.png",
+      "imageURL": "https://static.wikia.nocookie.net/gensin-impact/images/4/4f/Adventurers%27_Guild_Sumeru.png/revision/latest?cb=20260528233953",
+      "loreSource": "https://genshin-impact.fandom.com/wiki/Katheryne",
+      "residents": [],
+      "candidate": false,
+      "dimensions": [
+        1920,
+        1080
+      ],
+      "asset": "guild-sumeru-city.webp",
+      "introducedVersion": 6,
+      "guild": true,
+      "imageReview": {
+        "reviewed": "2026-10-27",
+        "playableCharacters": false,
+        "gameUI": false,
+        "captions": false,
+        "camera": "Downloaded from the wiki and visually reviewed: ground-level view of the Sumeru City Adventurers' Guild branch with Katheryne and generic NPCs only; no playable characters, HUD or captions."
+      }
+    },
+    {
+      "id": "guild-court-of-fontaine",
+      "label": "Adventurers' Guild, Court of Fontaine",
+      "region": "Fontaine",
+      "description": "The Court of Fontaine branch of the Adventurers' Guild, a polished storefront where Katheryne takes commissions.",
+      "classifications": [
+        "Fontaine Adventurers' Guild",
+        "Fontaine Guild"
+      ],
+      "suggestedCharacters": [
+        "Katheryne"
+      ],
+      "waypoint": {
+        "mapId": "teyvat",
+        "x": -5263.0,
+        "y": -1169.0
+      },
+      "coordinateMethod": "Centre of the official map label bounds for Court of Fontaine, nudged 30 units so it never sits on the settlement pin. The Guild is inside Court of Fontaine; no official Guild coordinate was found.",
+      "coordinateSource": "HoYoLAB Teyvat Interactive Map map_id=2 anchor list (map_anchor/list).",
+      "source": "https://genshin-impact.fandom.com/wiki/File:Adventurers'_Guild_Fontaine.png",
+      "imageURL": "https://static.wikia.nocookie.net/gensin-impact/images/f/ff/Adventurers%27_Guild_Fontaine.png/revision/latest?cb=20260528234034",
+      "loreSource": "https://genshin-impact.fandom.com/wiki/Katheryne",
+      "residents": [],
+      "candidate": false,
+      "dimensions": [
+        1920,
+        1080
+      ],
+      "asset": "guild-court-of-fontaine.webp",
+      "introducedVersion": 6,
+      "guild": true,
+      "imageReview": {
+        "reviewed": "2026-10-27",
+        "playableCharacters": false,
+        "gameUI": false,
+        "captions": false,
+        "camera": "Downloaded from the wiki and visually reviewed: ground-level view of the Court of Fontaine Adventurers' Guild branch with Katheryne and generic NPCs only; no playable characters, HUD or captions."
+      }
+    },
+    {
+      "id": "guild-stadium-of-the-sacred-flame",
+      "label": "Adventurers' Guild, Stadium of the Sacred Flame",
+      "region": "Natlan",
+      "description": "Natlan's branch of the Adventurers' Guild, led by Mansa, set up at the Stadium of the Sacred Flame with Katheryne at the counter.",
+      "classifications": [
+        "Natlan Adventurers' Guild",
+        "Natlan Guild"
+      ],
+      "suggestedCharacters": [
+        "Katheryne"
+      ],
+      "waypoint": {
+        "mapId": "teyvat",
+        "x": -9802.0,
+        "y": 4232.0
+      },
+      "coordinateMethod": "Centre of the official map label bounds for Stadium of the Sacred Flame, nudged 30 units so it never sits on the settlement pin. The Guild is inside Stadium of the Sacred Flame; no official Guild coordinate was found.",
+      "coordinateSource": "HoYoLAB Teyvat Interactive Map map_id=2 anchor list (map_anchor/list).",
+      "source": "https://genshin-impact.fandom.com/wiki/File:Adventurers'_Guild_Natlan.png",
+      "imageURL": "https://static.wikia.nocookie.net/gensin-impact/images/d/d1/Adventurers%27_Guild_Natlan.png/revision/latest?cb=20260528234044",
+      "loreSource": "https://genshin-impact.fandom.com/wiki/Katheryne",
+      "residents": [],
+      "candidate": false,
+      "dimensions": [
+        1920,
+        1080
+      ],
+      "asset": "guild-stadium-of-the-sacred-flame.webp",
+      "introducedVersion": 6,
+      "guild": true,
+      "imageReview": {
+        "reviewed": "2026-10-27",
+        "playableCharacters": false,
+        "gameUI": false,
+        "captions": false,
+        "camera": "Downloaded from the wiki and visually reviewed: ground-level view of the Stadium of the Sacred Flame Adventurers' Guild branch with Katheryne and generic NPCs only; no playable characters, HUD or captions."
+      }
+    },
+    {
+      "id": "guild-nasha-town",
+      "label": "Adventurers' Guild, Nasha Town",
+      "region": "Nod-Krai",
+      "description": "Nod-Krai's branch of the Adventurers' Guild in Nasha Town, with Katheryne serving the frontier's commissions.",
+      "classifications": [
+        "Nod-Krai Adventurers' Guild",
+        "Nod-Krai Guild",
+        "Nasha Town Guild"
+      ],
+      "suggestedCharacters": [
+        "Katheryne"
+      ],
+      "waypoint": {
+        "mapId": "teyvat",
+        "x": -10104.0,
+        "y": 821.5
+      },
+      "coordinateMethod": "Centre of the official map label bounds for Nasha Town, nudged 30 units so it never sits on the settlement pin. The Guild is inside Nasha Town; no official Guild coordinate was found.",
+      "coordinateSource": "HoYoLAB Teyvat Interactive Map map_id=2 anchor list (map_anchor/list).",
+      "source": "https://genshin-impact.fandom.com/wiki/File:Adventurers'_Guild_Nod-Krai.png",
+      "imageURL": "https://static.wikia.nocookie.net/gensin-impact/images/a/a8/Adventurers%27_Guild_Nod-Krai.png/revision/latest?cb=20260528234122",
+      "loreSource": "https://genshin-impact.fandom.com/wiki/Katheryne",
+      "residents": [],
+      "candidate": false,
+      "dimensions": [
+        1920,
+        1080
+      ],
+      "asset": "guild-nasha-town.webp",
+      "introducedVersion": 6,
+      "guild": true,
+      "imageReview": {
+        "reviewed": "2026-10-27",
+        "playableCharacters": false,
+        "gameUI": false,
+        "captions": false,
+        "camera": "Downloaded from the wiki and visually reviewed: ground-level view of the Nasha Town Adventurers' Guild branch with Katheryne and generic NPCs only; no playable characters, HUD or captions."
+      }
     }
   ],
   "assetGuidelines": "ASSET-GUIDELINES.md"

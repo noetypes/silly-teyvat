@@ -764,6 +764,12 @@
       "locationId": "starter-wangsheng-funeral-parlor",
       "rationale": "Existing default location retained from the earlier character-library setup.",
       "loreSource": "Existing library assignment"
+    },
+    {
+      "name": "Katheryne",
+      "locationId": "home-mondstadt-adventurers-guild",
+      "rationale": "Katheryne works at every Adventurers' Guild branch. Mondstadt's is the default counter; Teleporting to another Guild or being carried there after a defeat places her at that branch.",
+      "loreSource": "https://genshin-impact.fandom.com/wiki/Katheryne"
     }
   ],
   "relocations": [

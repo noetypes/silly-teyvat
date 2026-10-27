@@ -1,3 +1,10 @@
+# Silly Teyvat 1.29: Party health, enemy attacks and the Adventurers' Guild
+
+- **Party health.** You and your companions have HP. Enemies roll their own elemental dice after your attack and hurt a random party member. See **COMBAT.md**.
+- **Defeat.** At 0 HP you are carried to the nearest Adventurers' Guild, healed, and Katheryne explains how you were found.
+- **Guild waypoints.** Seven Adventurers' Guild locations with artwork across the major regions (Snezhnaya has no art yet).
+- **Katheryne.** New NPC card with an official sprite; install with `tools/install-katheryne.sh`.
+
 # Silly Teyvat 1.28.2: Resume where you left off
 
 - Opening a previous chat now returns you to the location where you last left off. Only a new chat with no saved location starts at the character's tied home, and an opening scene is never restarted in a resumed chat.

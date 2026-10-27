@@ -261,6 +261,7 @@ document.addEventListener('click', async event => {
             case 'cast-tests': {const {runLocationCastTests}=await import('./preview-cast-tests.js');result(await runLocationCastTests());emit(eventTypes.SETTINGS_UPDATED);break;}
             case 'world-tests': {const {runWorldMapTests}=await import('./preview-world-tests.js');result(await runWorldMapTests());emit(eventTypes.SETTINGS_UPDATED);break;}
             case 'staging-tests': {const {runStagingTests}=await import('./preview-staging-tests.js');result(await runStagingTests());emit(eventTypes.SETTINGS_UPDATED);break;}
+            case 'enemy-attack-tests': {const {runEnemyAttackTests}=await import('./preview-enemy-attack-tests.js');result(await runEnemyAttackTests());break;}
             case 'persona-link-tests': {const {runPersonaLinkTests}=await import('./preview-persona-link-tests.js');result(await runPersonaLinkTests());break;}
             case 'persona-tests': {ctx.extensionSettings.genshin_dialogue_ui.choices=false;emit(eventTypes.SETTINGS_UPDATED);const {runPersonaWardrobeTests}=await import('./preview-persona-tests.js');result(await runPersonaWardrobeTests());break;}
             case 'media-tests': {const {runMediaTests}=await import('./preview-media-tests.js');result(await runMediaTests());emit(eventTypes.SETTINGS_UPDATED);break;}

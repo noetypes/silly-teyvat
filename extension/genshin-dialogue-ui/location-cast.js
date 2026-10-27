@@ -1,7 +1,7 @@
 import {activeGroup,inPartyChat} from './party.js';
 import {beginOpeningScene,openingCharacter} from './opening-scene.js';
 import {isEnemy} from './character-properties.js';
-import {activeEnemies} from './combat-state.js';
+import {activeEnemies,healParty} from './combat-state.js';
 import {backgroundRegions,travelState,saveTravel} from './backgrounds.js';
 import {mediaSettings} from './media-store.js';
 import {deliverLocationGreeting} from './location-greetings.js';
@@ -114,6 +114,8 @@ export function commitTeleportParty(ctx,plan){
         const future=[...(plan.travellers || []),...(plan.encounter?.present || residentsAt(ctx,plan.destination).map(c=>c.avatar)).filter(a=>stillHere.has(a))];
         if(!future.some(a=>!disabled.includes(a)))throw new Error('At least one character must travel with you or be present at the destination. Try Teleport again.');
     }
+    // Towns are safe: the party recovers on arrival at any location that is not wilderness.
+    if(!locations(ctx).find(l=>l.id===plan.destination)?.wilderness)healParty(ctx);
     const state=locationCastState(ctx);
     if(plan.encounter)state.encounter={...structuredClone(plan.encounter),travellers:[...(plan.travellers || [])]};
     if(plan.flexible){

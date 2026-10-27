@@ -20,5 +20,6 @@ export function arrivalReply(ctx,plan,residents,defaultHomes){
     if(!character)return null;
     const written=arrival.travellers.length===0&&locals.length===1&&defaultHomes[character.avatar]===arrival.locationId;
     return {key:arrival.key,policyVersion:2,mode:written?'written':'context',avatar:character.avatar,locationId:arrival.locationId,
+        reason:arrival.kind==='defeat'?'defeat':undefined,defeatFrom:arrival.defeat?.from,
         defaultLocationId:defaultHomes[character.avatar] || null,travellers:[...arrival.travellers],residents:locals.map(c=>c.avatar),sceneAvatars:[...plan.members]};
 }

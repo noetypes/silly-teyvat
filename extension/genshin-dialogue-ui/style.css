@@ -2263,3 +2263,16 @@ body:not(.gi-scene) #gi-attack-dock, body.gi-history #gi-attack-dock { display: 
 
 /* The roster scrolls sideways, which clips vertically too: pad it so the enlarged selected portrait, its ring and glow stay whole. */
 #gi-wardrobe header .gi-roster { padding-block: 18px; margin-block: -14px; }
+
+/* ---------- Party health ---------- */
+#gi-party-health { position: fixed; z-index: 31; left: 3vw; bottom: calc(var(--gi-composer-height, 0px) + var(--gi-dialogue-height, 204px) + 102px + env(safe-area-inset-bottom, 0px)); display: flex; flex-direction: column; gap: 6px; width: min(240px, 42vw); pointer-events: none; font-family: var(--ty-font); }
+#gi-party-health[hidden] { display: none !important; }
+body:not(.gi-scene) #gi-party-health, body.gi-history #gi-party-health, body.gi-hidden #gi-party-health { display: none; }
+.gi-party-member { display: grid; grid-template-columns: 1fr auto; gap: 3px 10px; align-items: baseline; padding: 6px 12px 8px; border-radius: 12px; background: #141b2ad9; box-shadow: inset 0 0 0 1px #d3bc8e44, 0 3px 10px #0007; color: var(--ty-cream); }
+.gi-party-member strong { font-size: 13px; font-weight: normal; text-shadow: 0 1px 3px #000; }
+.gi-party-member > span { font-size: 11px; color: var(--ty-cream-2, #d9cdb4); }
+.gi-party-member .gi-hp { grid-column: 1 / -1; height: 6px; }
+.gi-party-member .gi-hp-fill { background: linear-gradient(#8fe08f, #3f9b56); }
+.gi-party-member.gi-downed { opacity: .7; }
+.gi-party-member.gi-downed strong::after { content: " · downed"; font-size: 11px; color: #ff9d92; }
+.gi-party-member.gi-hurt { animation: ty-shake 380ms 60ms ease; }

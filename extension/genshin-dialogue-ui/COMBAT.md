@@ -25,7 +25,19 @@ Health appears in the enemy HUD and is saved per encounter in chat metadata. Res
 
 Wilderness enemies never count as companions who can keep a party populated. Friendly arrival rolls and the last-companion safeguard still run before Teleport commits. Hostile cards leave the scene on travel and do not get a “take with you” question. The system supports several enemy cards already present in a manually assembled group, with a separate target choice and HP for each. Random wilderness arrivals currently select one enemy per successful visit.
 
-This is the requested VN combat layer. It does not introduce player HP, enemy counterattacks, elemental reaction formulas, TCG decks or mana costs. Enemy responses cannot change the stored HP; only the dice resolver does.
+This is the VN combat layer. Elemental reaction formulas, TCG decks and mana costs are not part of it. Enemy responses cannot change stored HP; only the dice resolvers do.
+
+## Party health and enemy attacks
+
+You and every non-hostile member of the scene now have health. Your own maximum is **Your maximum HP** in Silly Teyvat → Wilderness & combat (30 by default). Each character's maximum is **Maximum HP** in Sprite Wardrobe → Profile (30 by default). Health is saved per chat and shown in the party health panel at the lower left while an encounter is active or anyone is hurt.
+
+After your attack resolves, every enemy still standing rolls its own elemental dice. The default is four dice. A die hits when it shows the enemy's element or Omni; enemies without an element are physical and hit on Geo or Omni. Each hit deals 2–6 damage to a random party member who is still standing (you included). Dice count and damage are editable, and **Enemies strike back** turns the whole thing off. The Roll Phase shows the enemy's dice, you cannot reroll them, and the exact result is saved as a narrator message the roleplay model can read. A downed ally stays out of the fight until healed.
+
+If **you** reach 0 HP the encounter ends. You and your party are carried to the nearest Adventurers' Guild by map distance, everyone is healed, and Katheryne is waiting at the counter to explain how you were found and healed. Teleporting to any location that is not wilderness also heals the party.
+
+## Adventurers' Guild
+
+Every major region now has an Adventurers' Guild waypoint with background art: Mondstadt, Liyue Harbor, Inazuma City, Sumeru City, the Court of Fontaine, the Stadium of the Sacred Flame (Natlan) and Nasha Town (Nod-Krai). Snezhnaya's headquarters in Snezhnograd has no usable art on the wiki yet, so it has no waypoint. **Katheryne** is bundled as an NPC card with an official sprite; run `tools/install-katheryne.sh` if she is missing from your characters folder, then restart SillyTavern.
 
 ## Enemy action sprites
 
