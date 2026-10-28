@@ -5,6 +5,8 @@
 import {isBundledCharacter} from './character-properties.js';
 
 const CARD_RATIO = 208 / 248;
+// Genius Invokation TCG character cards (the enemy portraits) are shown whole as well.
+const TCG_RATIO = 420 / 720;
 const TARGETS = [
     '#right-nav-panel .character_select:not(.inline_avatar) .avatar img', // character list
     '#avatar_load_preview', // character editor
@@ -15,7 +17,7 @@ const TARGETS = [
 const full = file => `/characters/${encodeURIComponent(file)}`;
 
 export function mountCardArt({getContext, root = document}) {
-    const verdicts = new Map(); // avatar file -> true (card art) | false
+    const verdicts = new Map(); // avatar file -> true (card art) | 'tcg' (TCG card) | false
     let frame = 0;
     function thumbFile(src) {
         try { const url = new URL(src, location.href); return url.pathname.endsWith('/thumbnail') && url.searchParams.get('type') === 'avatar' ? url.searchParams.get('file') : null; }
@@ -23,14 +25,14 @@ export function mountCardArt({getContext, root = document}) {
     }
     function mark(img, kind) {
         const box = img.closest('.avatar');
-        img.classList.toggle('gi-card-img', kind === 'art');img.classList.toggle('gi-card-img-frame', kind === 'frame');
+        img.classList.toggle('gi-card-img', kind === 'art' || kind === 'tcg');img.classList.toggle('gi-card-img-tcg', kind === 'tcg');img.classList.toggle('gi-card-img-frame', kind === 'frame');
         if (!box) return;
         if (box.classList.contains('avatar_collage')) {
             const count = box.querySelectorAll('img').length;
             box.classList.toggle('gi-card-collage', Boolean(kind)); box.style.setProperty('--gi-cards', count);
             box.style.setProperty('--gi-card-w', `${(box.clientHeight || 90) * CARD_RATIO * (count > 2 ? .7 : .8)}px`); return;
         }
-        box.classList.toggle('gi-card-art', kind === 'art'); box.classList.toggle('gi-card-frame', kind === 'frame');
+        box.classList.toggle('gi-card-art', kind === 'art' || kind === 'tcg'); box.classList.toggle('gi-card-frame', kind === 'frame');
     }
     function clear(img) { delete img.dataset.giThumb; delete img.dataset.giFile; mark(img, null); }
     function apply(img) {
@@ -40,12 +42,13 @@ export function mountCardArt({getContext, root = document}) {
         img.dataset.giThumb = src; img.dataset.giFile = file;
         const card = getContext().characters?.find(c => c.avatar === file);
         if (!card || !isBundledCharacter(card.name) || verdicts.get(file) === false) { mark(img, 'frame'); return; }
-        mark(img, 'art');
-        if (verdicts.get(file) !== true) {
+        mark(img, verdicts.get(file) === 'tcg' ? 'tcg' : 'art');
+        if (!verdicts.has(file)) {
             const check = () => {
                 if (img.dataset.giFile !== file || img.getAttribute('src') !== full(file)) return;
-                const ok = img.naturalWidth > 0 && Math.abs(img.naturalWidth / img.naturalHeight - CARD_RATIO) < .03;
-                verdicts.set(file, ok); if (!ok) img.src = img.dataset.giThumb; // the src change re-runs apply as a frame
+                const ratio = img.naturalWidth > 0 ? img.naturalWidth / img.naturalHeight : 0;
+                const verdict = Math.abs(ratio - CARD_RATIO) < .03 ? true : Math.abs(ratio - TCG_RATIO) < .03 ? 'tcg' : false;
+                verdicts.set(file, verdict); if (verdict === 'tcg') mark(img, 'tcg'); else if (!verdict) img.src = img.dataset.giThumb; // the src change re-runs apply as a frame
             };
             img.addEventListener('load', check, {once: true}); img.addEventListener('error', () => { verdicts.set(file, false); if (img.dataset.giFile === file) img.src = img.dataset.giThumb; }, {once: true});
         }

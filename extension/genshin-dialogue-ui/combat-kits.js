@@ -170,7 +170,7 @@ const TRAVELER={
     Hydro:['Aquacrest Saber',[D(5)],'Rising Waters',[D(3,'all'),SM('Rising Waters',3,2)]],
     Pyro:['Blazing Threshold',[D(4),SM('Scorching Threshold',2,2)],'Plane of Searing Ember',[D(6,'all')]],
 };
-// Enemies: [name, element ('Physical' when none), hp, basic move, special move, special cooldown, extras]
+// Enemies: [name, element ('Physical' when none), hp, basic move, special move, special cooldown, extras, second basic move]
 const ENEMIES=[
     ['Hilichurl Fighter','Physical',26,['Club Swing',[D(4)]],['Frenzied Flurry',[D(2,'one',{hits:3})]],3],
     ['Hilichurl Shooter','Physical',22,['Crossbow Bolt',[D(4)]],['Volley',[D(2,'all')]],3],
@@ -192,6 +192,56 @@ const ENEMIES=[
     ['Treasure Hoarders - Scout','Physical',22,['Dagger Flurry',[D(2,'one',{hits:2})]],['Smoke Bomb',[BF('dodge',40,2),DB('weaken',20,1,'all')]],3,{evasion:20}],
     ['Treasure Hoarders: Gravedigger','Physical',30,['Shovel Smash',[D(5)]],['Ground Burst',[D(3,'all')]],3],
     ['Treasure Hoarders: Pyro Potioneer','Pyro',28,['Potion Toss',[D(3)]],['Firebomb Barrage',[D(3,'all')]],3],
+    // Genius Invokation TCG enemy cards (tools/fetch-tcg-enemies.py): Normal Attack and Elemental Skill
+    // alternate as Attacks (the Skill is the optional last entry), the Elemental Burst is the Special.
+    // A move's third entry overrides its element, e.g. a Physical Normal Attack from an elemental enemy.
+    ['Anemo Samachurl','Anemo',26,['Staff Strike',[D(3)],'Physical'],['Galeforce Shock',[D(7)]],3,{},['Prayer to the Winds',[D(4),SM('Whirlwind',2,2)]]],
+    ['Annihilation Specialist Mek - Ousia','Hydro',56,['Vicious Kicks',[D(4)],'Physical'],['Bladed Waltz',[D(7)]],3,{armor:20},['Whirling Legblades',[D(5)]]],
+    ['Annihilation Specialist Mek - Pneuma','Electro',56,['Piercing Blow',[D(4)],'Physical'],['Leaping Thunder',[D(7)]],3,{armor:20},['Lightning Raid',[D(5)]]],
+    ['Arithmetic Enhancer Mek - Ousia','Physical',26,['Ram',[D(4)]],['Energy Burst: Ousia',[D(5),BF('atk',20,2,'party')]],3,{},['Energy Boost: Ousia',[D(4),BF('atk',20,2,'party')]]],
+    ['Arithmetic Enhancer Mek - Pneuma','Physical',26,['Ram',[D(4)]],['Energy Burst: Pneuma',[D(5),H(3,'lowest')]],3,{},['Energy Boost: Pneuma',[D(4),H(3,'lowest')]]],
+    ['Assault Specialist Mek - Ousia','Electro',56,['Rapid Melee',[D(4)],'Physical'],['Shield Sweep',[D(4),D(2,'all')]],3,{armor:20},['Shield Riposte',[D(5),SH(5)]]],
+    ['Assault Specialist Mek - Pneuma','Pyro',56,['Up-Close Pummelling',[D(4)],'Physical'],['Sprinting Strike',[D(7)]],3,{armor:20},['Multi-Smash',[D(5)]]],
+    ['Blazing Axe Mitachurl','Pyro',46,['Du Plama',[D(4)]],['Oto Tiga',[D(7)]],3,{},['Upa',[D(5)]]],
+    ['Crackling Axe Mitachurl','Electro',46,['Du Plama',[D(4)]],['Oto Tiga',[D(7)]],3,{},['Upa',[D(5)]]],
+    ['Cryo Abyss Mage','Cryo',26,['Cryo Thorns',[D(3)]],['Rimestorm Rite',[D(7)]],3,{shield:12,weakTo:'Pyro'},['Frostdrift Offering',[D(5)]]],
+    ['Cryo Hilichurl Shooter','Cryo',21,['Ice Arrow',[D(3)]],['Multishot',[D(6)]],3,{}],
+    ['Cryo Slime','Cryo',26,['Ram',[D(3)]],['Jumping Slam',[D(6)]],3,{}],
+    ['Dendro Samachurl','Dendro',26,['Staff Strike',[D(3)],'Physical'],['Dendro Field',[D(7)]],3,{},['Venomous Vines',[D(3),SM('Vines',2,2)]]],
+    ['Electro Abyss Mage','Electro',26,['Thunderbolt',[D(3)]],['Rite of Rolling Thunder',[D(6),SM('Tanglebolt Ring',3,2)]],3,{shield:12,weakTo:'Cryo'},['Lingering Light',[D(4),SM('Tanglebolt Ring',3,2)]]],
+    ['Electro Hilichurl Shooter','Electro',21,['Thunder Arrow',[D(3)]],['Multishot',[D(6)]],3,{}],
+    ['Electro Samachurl','Electro',26,['Striking Staff',[D(3)],'Physical'],['Thunderstrike Hex',[D(7)]],3,{},['Thunderclap Totem',[D(4),SM('Thundercall Staff',2,2)]]],
+    ['Electro Slime','Electro',26,['Bounce',[D(3)]],['Slam',[D(6)]],3,{}],
+    ['Eremite Daythunder','Electro',46,['Axe Swipe',[D(4)],'Physical'],['Greataxe Smash',[D(7)],'Physical'],3,{},['Whirling Cleave',[D(5)],'Physical']],
+    ['Eremite Desert Clearwater','Hydro',46,['Agile Thrust',[D(4)],'Physical'],['Whirling Lashes',[D(7)],'Physical'],3,{},['Blitz Strike',[D(5)],'Physical']],
+    ['Eremite Stone Enchanter','Geo',56,['Triple Geosmash',[D(4)],'Physical'],['Ominous Spirit Unleashed (Geo)',[D(5),SM('Spirit of Omen: Stone Drake',2,3)]],3,{},['Splitrock Slam',[D(5)]]],
+    ['Fatui Skirmisher - Cryogunner Legionnaire','Cryo',56,['Close-Range Charge',[D(4)],'Physical'],['Frost Cannon',[D(5),BF('guard',20,2),BF('atk',20,2)]],3,{shield:8},['Freezing Spray',[D(5)]]],
+    ['Fatui Skirmisher - Electrohammer Vanguard','Electro',56,['Rapid Hammer Strike',[D(4)],'Physical'],['Thunderblast Hammer',[D(5),BF('guard',20,2),BF('atk',20,2)]],3,{shield:8},['Raging Charge',[D(5)]]],
+    ['Fatui Skirmisher - Geochanter Bracer','Geo',56,['Rock Projectile',[D(3)]],['Staff of Geo',[D(5),BF('guard',20,2),H(3,'self')]],3,{shield:10},['Geocrystal Beam',[D(5)]]],
+    ['Fatui Skirmisher - Hydrogunner Legionnaire','Hydro',56,['Skilled Charge',[D(4)],'Physical'],['Elemental Buff: Hydro',[D(5),BF('guard',20,2),H(3,'self')]],3,{shield:8},['Curative Bullet',[D(4),H(3,'others')]]],
+    ['Geo Samachurl','Geo',26,['Staff Strike',[D(3)],'Physical'],['Shockwave Smash',[D(7)]],3,{},['Summoning of Stones',[D(4),SH(5)]]],
+    ['Grounded Geoshroom','Geo',41,['Spore Bullet',[D(3)]],['Charging Blast',[D(7)]],3,{weakTo:'Pyro'},['Raging Breath',[D(5)]]],
+    ['Grounded Hydroshroom','Hydro',41,['Spore Bullet',[D(3)]],['Charging Blast',[D(7)]],3,{weakTo:'Pyro'},['Raging Breath',[D(5)]]],
+    ['Hilichurl Berserker','Pyro',26,['Torch Strike',[D(3)]],['Scorching Combo',[D(6)]],3,{},['Hit and Run',[D(4)]]],
+    ['Hydro Abyss Mage','Hydro',26,['Water Ball',[D(3)]],['Rite of Mortal Water',[D(6),DB('weaken',25,1)]],3,{shield:12,weakTo:'Cryo'},['Bubbling Offering',[D(3),DB('weaken',25,1)]]],
+    ['Ice Shieldwall Mitachurl','Cryo',46,['Plata Plama',[D(4)],'Physical'],['Aba Movo',[D(7)],'Physical'],3,{armor:40,armorBreak:'Pyro'},['Da Plama',[D(5)],'Physical']],
+    ['Kairagi: Dancing Thunder','Electro',56,['Three Point Slash',[D(4)]],['Iai: Sheathed',[D(8)]],3,{evasion:10},['Leaping Strike',[D(5)]]],
+    ['Kairagi: Fiery Might','Pyro',56,['Three Point Slash',[D(4)]],['Iai: Sheathed',[D(8)]],3,{evasion:10},['Leaping Strike',[D(5)]]],
+    ['Large Cryo Slime','Cryo',56,['Bounce',[D(3)]],['Slam',[D(7)]],3,{},['Frigid Spray',[D(5)]]],
+    ['Large Hydro Slime','Hydro',56,['Ram',[D(3)]],['Jumping Slam',[D(7)]],3,{},['Bubble Spray',[D(4),DB('weaken',25,1)]]],
+    ['Nobushi: Hitsukeban','Pyro',36,['Combo Slash',[D(4)],'Physical'],['Iai: Sheathed',[D(8)],'Physical'],3,{},['Blaze Bloom',[D(5)]]],
+    ['Nobushi: Jintouban','Physical',36,['Combo Slash',[D(4)]],['Iai: Sheathed',[D(8)]],3,{shield:6},['Leap Attack',[D(5)]]],
+    ['Nobushi: Kikouban','Electro',36,['Combo Slash',[D(4)],'Physical'],['Iai: Sheathed',[D(8)],'Physical'],3,{},['Mechanical Thunderbow',[D(5)]]],
+    ['Pyro Whopperflower','Pyro',56,['Fierce Headbutt',[D(4)],'Physical'],['Roasted Nectar Burst',[D(8)]],3,{weakTo:'Cryo'},['Scorching Leaves',[D(5)]]],
+    ['Rock Shieldwall Mitachurl','Geo',46,['Plata Plama',[D(4)],'Physical'],['Aba Movo',[D(7)],'Physical'],3,{armor:40,armorBreak:'Geo'},['Da Plama',[D(5)],'Physical']],
+    ['Rockfond Rifthound','Geo',56,['Corrosive Claws',[D(3),SM('Corrosion',1,1,'all')]],['Pursuer\'s Mark',[D(8),SM('Corrosion',1,1,'all')]],3,{evasion:15},['Crystal Cracker',[D(4),SM('Corrosion',1,1,'all')]]],
+    ['Ruin Drake: Earthguard','Physical',56,['Close Expulsion',[D(4)]],['Energy Surge',[D(7)]],3,{armor:30},['Sudden Charge',[D(5)]]],
+    ['Suppression Specialist Mek - Ousia','Pyro',56,['Short-Range Snap Fire',[D(3)]],['Combined Fire',[D(8)]],3,{armor:20},['Spread Fire',[D(3),D(2,'all')]]],
+    ['Suppression Specialist Mek - Pneuma','Dendro',56,['Precision Shot',[D(3)]],['Launch Grenade',[D(4),D(2,'all'),SM('Delayed Fuse Munitions',3,1)]],3,{armor:20},['Wildgrass Ball',[D(5)]]],
+    ['Tainted Hydro Phantasm','Hydro',56,['Tainted Water Strike',[D(3)]],['Tainted Water Surge',[D(6)]],3,{weakTo:'Electro'},['Spouting Waves',[D(4)]]],
+    ['Thundercraven Rifthound','Electro',56,['Cankering Claws',[D(3),SM('Corrosion',1,1,'all')]],['Devouring Bite',[D(8),SM('Corrosion',1,1,'all')]],3,{evasion:15},['Corrosive Electro Crystal',[D(4),SM('Corrosion',1,1,'all')]]],
+    ['Winged Cryoshroom','Cryo',36,['Spore Bullet',[D(3)]],['Divebomb',[D(7)]],3,{evasion:15,weakTo:'Pyro'},['Rolling Spray',[D(5)]]],
+    ['Winged Dendroshroom','Dendro',36,['Spore Bullet',[D(3)]],['Divebomb',[D(7)]],3,{evasion:15,weakTo:'Pyro'},['Rolling Spray',[D(5)]]],
 ];
 
 const keyOf=name=>String(name || '').toLowerCase().replace(/[^a-z0-9]+/g,'');
@@ -215,8 +265,10 @@ export function travelerKit(element){
     if(!skill)return {name,weapon:'sword',hp:34,energy:2,role:'DPS',moves:[normal('sword','Foreign Ironwind','Physical'),{kind:'skill',name:'Elemental Strike',cost:2,effects:[D(5)]},{kind:'burst',name:'Elemental Release',cost:3,effects:[D(6,'all')]}]};
     return {name,weapon:'sword',hp:34,energy:2,role:'DPS',moves:[normal('sword','Foreign Ironwind','Physical'),{kind:'skill',name:skill,cost:2,effects:clone(skillFx)},{kind:'burst',name:burst,cost:3,effects:clone(burstFx)}]};
 }
-function enemyKit([name,element,hp,[basic,basicFx],[special,specialFx],cooldown,extra={}]){
-    return {name,enemy:true,element,hp,energy:0,role:'Enemy',miss:10,...clone(extra),moves:[{kind:'basic',name:basic,cost:0,effects:clone(basicFx)},{kind:'special',name:special,cost:0,cooldown,effects:clone(specialFx)}]};
+function enemyKit([name,element,hp,basic,special,cooldown,extra={},skill]){
+    const move=(kind,[moveName,effects,moveElement])=>({kind,name:moveName,cost:0,...(moveElement?{element:moveElement}:{}),effects:clone(effects)});
+    const moves=[move('basic',basic),...(skill?[move('basic',skill)]:[]),{...move('special',special),cooldown}];
+    return {name,enemy:true,element,hp,energy:0,role:'Enemy',miss:10,...clone(extra),moves};
 }
 function genericEnemy(name,element){return {name,enemy:true,element:element||'Physical',hp:30,energy:0,role:'Enemy',miss:10,moves:[{kind:'basic',name:'Strike',cost:0,effects:[D(4)]},{kind:'special',name:'Fury',cost:0,cooldown:3,effects:[D(3,'all')]}]};}
 // The built-in kit for a card name, before user edits.

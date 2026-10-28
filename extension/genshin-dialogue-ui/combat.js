@@ -91,7 +91,14 @@ export function mountCombat({host,getContext,onChange=()=>{},announce=()=>{},ada
             if(!await dice.roll(roll,{describe,reroll:indices=>(roll=rerollFuel(snapshot,roll,indices)),volume:volumeOf(ctx,'diceSound'),reducedMotion:motion,isCurrent:valid})||!valid())return;
             const options={reducedMotion:motion,effects:prefs(ctx).battleEffects!==false,volume:volumeOf(ctx,'battleSound'),isCurrent:valid};
             const player={name:ctx.name1 || 'You',img:portrait(ctx,USER_KEY)};
-            const plan=await battle.plan(snapshot,{dice:roll.dice,targetId:avatar,player,...options});
+            // Toss-Up returns to the Roll Phase with the unspent dice; the rest of the plan waits on the board.
+            const onReroll=async(current,indices)=>{
+                let sub={kind:'fuel',dice:indices.map(i=>({...current[i]})),allies:roll.allies,rerolls:0};
+                const ok=await dice.roll(sub,{describe,heading:'Toss-Up',pickAll:true,reroll:picked=>(sub=rerollFuel(snapshot,sub,picked)),volume:volumeOf(ctx,'diceSound'),reducedMotion:motion,isCurrent:valid});
+                if(!ok||!valid())return null;
+                return current.map((d,i)=>{const k=indices.indexOf(i);return k<0?d:{face:sub.dice[k].face,match:sub.dice[k].match};});
+            };
+            const plan=await battle.plan(snapshot,{dice:roll.dice,targetId:avatar,player,onReroll,...options});
             if(!plan||!valid()){battle.cancel?.();return;}
             const used=(plan.items || []).filter(i=>ITEMS[i.id]);
             const result=resolveRound(snapshot,{steps:Array.isArray(plan)?plan:plan.steps || [],items:used.map(i=>({...i,item:ITEMS[i.id]})),flee:Boolean(plan.flee)},{strikeBack:prefs(ctx).enemyStrikeBack!==false,difficulty:snapshot.difficulty});

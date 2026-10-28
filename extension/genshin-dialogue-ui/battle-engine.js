@@ -369,7 +369,9 @@ export function resolveRound(input,planInput,{random=Math.random,forecast=false,
 // ---- Enemy intents and fleeing ------------------------------------------------------
 // The move an enemy will use next round: its Special when ready (at once when enraged), otherwise its Attack.
 export function planIntent(state,enemy,random=Math.random){
-    const moves=enemy.kit?.moves || [],special=moves.findIndex(m=>m.kind==='special'),basic=Math.max(0,moves.findIndex(m=>m.kind==='basic'));
+    const moves=enemy.kit?.moves || [],special=moves.findIndex(m=>m.kind==='special'),basics=moves.flatMap((m,i)=>m.kind==='basic'?[i]:[]);
+    // Enemies from Genius Invokation cards have two Attacks (Normal Attack and Elemental Skill) and pick one each round.
+    const basic=basics.length>1?basics[Math.min(basics.length-1,Math.floor(clampRandom(random)*basics.length))]:Math.max(0,basics[0] ?? 0);
     enemy.cooldowns ??= {};
     if(special>=0&&enemy.cooldowns[special]===undefined)enemy.cooldowns[special]=Math.max(0,(moves[special].cooldown || 3)-1);
     const ready=special>=0&&(enemy.cooldowns[special]<=0||enemy.enraged&&!enemy.usedRage);

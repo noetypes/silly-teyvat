@@ -13,7 +13,7 @@ export const ITEMS={
     'butter-crab':{name:'Butter Crab',kind:'event',cost:2,target:'party',rarity:3,text:'The whole party takes 30% less damage for 2 rounds.',effects:[{type:'buff',stat:'guard',amount:30,rounds:2}]},
     'starsigns':{name:'Starsigns',kind:'event',cost:2,target:'ally',rarity:2,text:'Gives 1 Energy.',effects:[{type:'energy',amount:1}]},
     'send-off':{name:'Send Off',kind:'event',cost:2,target:'none',rarity:2,text:'Dispels enemy summons and strips 8 shield from every enemy.',effects:[{type:'dispel',amount:8}]},
-    'toss-up':{name:'Toss-Up',kind:'dice',cost:0,target:'none',rarity:1,text:'Rerolls every unspent die that is not Omni or your party\'s element.',dice:'reroll'},
+    'toss-up':{name:'Toss-Up',kind:'dice',cost:0,target:'none',rarity:1,text:'Returns to the Roll Phase: reroll any of your unspent dice.',dice:'reroll'},
     'thunder-eternity':{name:'Thunder and Eternity',kind:'dice',cost:0,target:'none',rarity:3,text:'Turns every unspent die into Omni.',dice:'omni'},
     'woven-flames':{name:'Woven Flames',kind:'dice',cost:0,target:'none',rarity:2,text:'Adds 1 Pyro die.',dice:'add',element:'Pyro'},
     'woven-waters':{name:'Woven Waters',kind:'dice',cost:0,target:'none',rarity:2,text:'Adds 1 Hydro die.',dice:'add',element:'Hydro'},

@@ -3,7 +3,7 @@
 // bottom-right corner, item cards in hand and the round button on the left.
 // Action Phase: pick each member's move and target, play items, or flee. Resolution plays
 // the round back with Burst splash art, impacts, reactions and sound, then a summary.
-import {allocateDice,forecastPlan,canAfford,burstReady,moveNeedsTarget,autoPlan,isStunned,alive,unitById,moveElement,intentPreview,fleeChance,partyElements,REACTIONS,RESONANCE,ELEMENTS} from './battle-engine.js';
+import {allocateDice,forecastPlan,canAfford,moveNeedsTarget,autoPlan,isStunned,alive,unitById,moveElement,intentPreview,fleeChance,partyElements,REACTIONS,RESONANCE,ELEMENTS} from './battle-engine.js';
 import {describeMove,KIND_LABEL} from './combat-kits.js';
 import {ITEMS,itemArt,applyDiceItem} from './battle-items.js';
 import {createBattleSound} from './battle-sound.js';
@@ -45,6 +45,7 @@ export function mountBattle({host,sound=createBattleSound(),onBurst=()=>{},onSto
         <div class="tb-turn"><button type="button" class="tb-auto" aria-label="Auto: pick the strongest affordable moves">${ICON.auto}</button><button type="button" class="tb-end" aria-label="Begin round">${ICON.hourglass}<b class="tb-round">1</b></button><button type="button" class="tb-flee" aria-pressed="false" aria-expanded="false" aria-controls="tb-confirm-flee" aria-label="Flee">${ICON.flee}</button></div>
         <div class="tb-confirm" id="tb-confirm-flee" role="alertdialog" aria-labelledby="tb-confirm-flee-title" aria-describedby="tb-confirm-flee-text" hidden><strong id="tb-confirm-flee-title">Flee the battle?</strong><p id="tb-confirm-flee-text"></p><div><button type="button" class="tb-confirm-no">Stay</button><button type="button" class="tb-confirm-yes">Flee</button></div></div>
         <div class="tb-dice" aria-label="Elemental dice"><b class="tb-dice-count">0</b><div class="tb-dice-list"></div></div>
+        <div class="tb-order" role="group" aria-label="Acting order" hidden><button type="button" data-dir="-1" aria-label="Act earlier">‹</button><span></span><button type="button" data-dir="1" aria-label="Act later">›</button></div>
         <div class="tb-skills" role="group" aria-label="Moves"></div>
         <div class="tb-hand" role="group" aria-label="Items"></div>
         <div class="tb-banner" aria-hidden="true"><small></small><strong></strong></div>
@@ -60,7 +61,7 @@ export function mountBattle({host,sound=createBattleSound(),onBurst=()=>{},onSto
     const $=s=>dialog.querySelector(s),abort=new AbortController(),on=(node,type,fn,opt={})=>node.addEventListener(type,fn,{signal:abort.signal,...opt});
     const particles=createParticles(dialog.querySelector('.gb-particles'));
     let state,dice=[],plan=[],items=[],flee=false,active=null,targeting=null,heldItem=null,finish=null,mode='',opts={},speed=1,skipAll=false,disposed=false,closeTimer=0;
-    const cards=new Map();
+    const cards=new Map(),revived=new Map();
     const say=text=>{$('.tb-log').textContent=text;};
     const reduced=()=>Boolean(opts.reducedMotion);
     const effectsOn=()=>opts.effects!==false&&!reduced();
@@ -156,7 +157,7 @@ export function mountBattle({host,sound=createBattleSound(),onBurst=()=>{},onSto
         const move=u.kit.moves[index];if(!move)return;
         const step=stepOf(u.id),trial=plan.map(p=>p===step?{...p,move:index}:p),f=step?forecastPlan(state,trial,items.map(i=>({item:ITEMS[i.id],...i})))[plan.indexOf(step)]:null;
         const element=moveElement(u,move),reactions=(f?.reactions || []).map(r=>`<b style="color:${REACTIONS[r.split(' + ').at(-1)] || '#fff'}">${r}</b>`).join(' ');
-        showTip(anchor,`${skillIcon(move)?`<img class="tb-tip-icon" src="${skillIcon(move)}" alt="">`:''}<small>${KIND_LABEL[move.kind]}${move.kind==='burst'?` · ${u.energy || 0}/${u.maxEnergy}`:''}</small><strong>${move.name}</strong>${costHtml(u,move)}<p>${describeMove(move,u.element==='None'?'Physical':u.element)}</p>${f&&(f.damage||f.heal||reactions)?`<p class="tb-tip-forecast"><i style="color:${EL_COLORS[element]}">${glyph(element)}</i>${f.damage?` ${f.damage}`:''}${f.heal?` <span class="tb-heal">+${f.heal}</span>`:''} ${reactions}</p>`:''}`);
+        showTip(anchor,`${skillIcon(move)?`<img class="tb-tip-icon" src="${skillIcon(move)}" alt="">`:''}<small>${KIND_LABEL[move.kind]}${move.kind==='burst'?` · ${energyOf(u)}/${u.maxEnergy}`:''}</small><strong>${move.name}</strong>${costHtml(u,move)}<p>${describeMove(move,u.element==='None'?'Physical':u.element)}</p>${f&&(f.damage||f.heal||reactions)?`<p class="tb-tip-forecast"><i style="color:${EL_COLORS[element]}">${glyph(element)}</i>${f.damage?` ${f.damage}`:''}${f.heal?` <span class="tb-heal">+${f.heal}</span>`:''} ${reactions}</p>`:''}`);
     }
     function unitTip(id,card){
         const u=unitById(state,id);if(!u||mode==='')return;
@@ -171,39 +172,54 @@ export function mountBattle({host,sound=createBattleSound(),onBurst=()=>{},onSto
     const itemUses=()=>items.map(i=>({...i,item:ITEMS[i.id]}));
     const paying=()=>items.filter(i=>ITEMS[i.id].kind!=='dice').map(i=>ITEMS[i.id]);
     const allocation=()=>allocateDice(state,dice,plan,paying());
+    // Energy a member will have when the round starts: their own, plus any Starsigns played on them.
+    const energyOf=u=>Math.min(u.maxEnergy || 2,(u.energy || 0)+items.filter(i=>i.target===u.id).flatMap(i=>ITEMS[i.id].effects || []).filter(e=>e.type==='energy').reduce((n,e)=>n+e.amount,0));
+    const readyOf=u=>energyOf(u)>=(u.maxEnergy || 2);
+    // Members who will act, in acting order. A member's place is fixed when their move is first set.
+    const acting=()=>plan.filter(p=>{const u=unitById(state,p.actor);return alive(u)&&!isStunned(u);});
+    const ordered=()=>acting().filter(p=>p.set);
+    const nextUnset=()=>acting().find(p=>!p.set)?.actor || null;
+    function lock(step){
+        if(step.set)return;
+        plan.splice(plan.indexOf(step),1);
+        const last=plan.reduce((n,p,i)=>p.set?i:n,-1);plan.splice(last+1,0,step);step.set=true;
+    }
+    // After a choice, move on to the next member still without a move; once everyone has one, nobody stays focused.
+    function settle(){active=nextUnset();paint();}
+    function reorder(id,delta){
+        const list=ordered(),i=list.findIndex(p=>p.actor===id),j=i+delta;
+        if(i<0||j<0||j>=list.length){deny('.tb-order');return;}
+        const a=plan.indexOf(list[i]),b=plan.indexOf(list[j]);[plan[a],plan[b]]=[plan[b],plan[a]];sound.select();paint();
+    }
     function clickUnit(id){
         if(mode!=='plan')return;
         const u=unitById(state,id);if(!u)return;
         if(heldItem){playItem(heldItem,id);return;}
         if(targeting){
             const ok=targeting.kind==='foe'?u.side==='enemy'&&alive(u):u.side==='party'&&alive(u);
-            if(ok){stepOf(targeting.actor).target=id;sound.assign();const actor=targeting.actor;targeting=null;advanceFrom(actor);return;}
+            if(ok){stepOf(targeting.actor).target=id;sound.assign();targeting=null;settle();return;}
             if(!(u.side==='party'&&targeting.kind==='foe')){sound.deny();return;}
             targeting=null;
         }
         if(u.side==='enemy'){if(!alive(u)||!active||flee)return;const step=stepOf(active);if(step){step.target=id;sound.select();paint();}return;}
-        if(!alive(u)){sound.deny();return;}
-        active=id;sound.select();paint();
-    }
-    function advanceFrom(id){
-        const living=plan.map(p=>p.actor).filter(a=>alive(unitById(state,a))&&!isStunned(unitById(state,a)));
-        const i=living.indexOf(id);active=living.length>1?living[(i+1)%living.length]:id;paint();
+        if(!alive(u)||!stepOf(id)){sound.deny();return;}
+        active=active===id&&stepOf(id).set?null:id;sound.select();paint();
     }
     function deny(selector){sound.deny();const node=dialog.querySelector(selector);if(node){node.classList.remove('tb-shake');void node.offsetWidth;node.classList.add('tb-shake');}}
     function chooseMove(index){
         if(mode!=='plan'||!active||flee)return;
         const u=unitById(state,active),step=stepOf(active),move=u?.kit.moves[index];if(!u||!step||!move)return;
         if(isStunned(u)){deny(`.tb-card[data-id="${CSS.escape(u.id)}"]`);return;}
-        if(index===2&&!burstReady(u)){deny('.tb-skills [data-move="2"]');return;}
+        if(index===2&&!readyOf(u)){deny('.tb-skills [data-move="2"]');return;}
         if(index>0&&!canAfford(state,dice,plan,{...step,move:index},paying())){deny(`.tb-skills [data-move="${index}"]`);deny('.tb-dice');return;}
-        step.move=index;
+        step.move=index;lock(step);
         const need=moveNeedsTarget(move);
         if(need==='ally'){const allies=party().filter(alive);if(!allies.some(a=>a.id===step.target))step.target=allies.reduce((a,b)=>b.hp/b.maxHp<a.hp/a.maxHp?b:a).id;}
         else{const foes=state.units.filter(x=>x.side==='enemy'&&alive(x));if(!foes.some(f=>f.id===step.target))step.target=foes[0]?.id;}
         sound.assign();
         const candidates=need==='foe'?state.units.filter(x=>x.side==='enemy'&&alive(x)):need==='ally'?party().filter(alive):[];
         if(need&&candidates.length>1){targeting={actor:active,kind:need};paint();return;}
-        advanceFrom(active);
+        settle();
     }
     // Items: tap a card to pick it up, then tap a target (or the card again for cards without one).
     function holdItem(id){
@@ -211,6 +227,7 @@ export function mountBattle({host,sound=createBattleSound(),onBurst=()=>{},onSto
         const item=ITEMS[id];if(!item)return;
         if(heldItem===id){if(item.target==='none'||item.target==='party')playItem(id,null);else{heldItem=null;paint();}return;}
         if(!itemAffordable(id)){deny(`.tb-hand [data-item="${id}"]`);return;}
+        if(item.dice==='reroll'&&opts.onReroll){playItem(id,null);return;}
         heldItem=id;targeting=null;sound.select();paint();
         if(item.target==='none'||item.target==='party')return;
     }
@@ -228,14 +245,44 @@ export function mountBattle({host,sound=createBattleSound(),onBurst=()=>{},onSto
             if(!valid||fed){deny(targetId?`.tb-card[data-id="${CSS.escape(targetId)}"]`:'.tb-hand');return;}
         }
         if(!itemAffordable(id)){deny(`.tb-hand [data-item="${id}"]`);heldItem=null;paint();return;}
+        if(item.dice==='reroll'&&opts.onReroll){void tossUp(id);return;}
         if(item.kind==='dice'){dice=applyDiceItem(item,dice,partyElements(state));}
         items.push({id,target:targetId || null});heldItem=null;
+        // A revived member stands up on the board straight away, so they can be given a move this round.
+        const revive=(item.effects || []).find(e=>e.type==='revive');
+        if(revive){
+            const t=unitById(state,targetId);revived.set(t.id,{hp:t.hp,statuses:t.statuses,aura:t.aura});
+            Object.assign(t,{hp:Math.min(t.maxHp,revive.amount),statuses:[],aura:null});paintUnit(t);cards.get(t.id)?.classList.remove('tb-downed');
+            const step=stepOf(t.id),foe=state.units.find(x=>x.side==='enemy'&&alive(x))?.id;
+            if(step)Object.assign(step,{move:0,set:false});else plan.push({actor:t.id,move:0,target:foe,set:false});
+            if(!active)active=t.id;
+        }
         const p=targetId?centerOf(targetId):null;if(p&&effectsOn())(item.kind==='food'?particles.heal(p.x,p.y):particles.buff(p.x,p.y));
         item.kind==='food'?sound.heal():sound.buff();paint();
     }
+    // Toss-Up goes back to the Roll Phase: every die not already paying for a move can be rerolled.
+    async function tossUp(id){
+        const indices=allocation().pool.filter(d=>!d.by).map(d=>d.i);
+        if(!indices.length){heldItem=null;deny(`.tb-hand [data-item="${id}"]`);deny('.tb-dice');paint();return;}
+        items.push({id,target:null});heldItem=null;targeting=null;hideTip();sound.buff();paint();
+        mode='reroll';const token=playRevision;let next=null;
+        try{next=await opts.onReroll(dice.map(d=>({...d})),indices);}catch(error){console.warn('[Silly Teyvat] Toss-Up',error);}
+        if(disposed||token!==playRevision||mode!=='reroll')return;
+        if(Array.isArray(next)&&next.length===dice.length)dice=next.map(d=>({face:d.face,match:d.match}));
+        mode='plan';paint();say(`Toss-Up: ${allocation().unspent} dice ready.`);
+    }
     function unplayItem(index){
         const use=items[index];if(!use||ITEMS[use.id].kind==='dice')return;
-        items.splice(index,1);sound.select();paint();
+        items.splice(index,1);
+        const before=revived.get(use.target);
+        if(before&&(ITEMS[use.id].effects || []).some(e=>e.type==='revive')){
+            const t=unitById(state,use.target);Object.assign(t,before);revived.delete(t.id);paintUnit(t);
+            plan=plan.filter(p=>p.actor!==t.id);items=items.filter(i=>i.target!==t.id);if(active===t.id)active=nextUnset();
+        }
+        // Without the Starsigns, a Burst that needed its Energy falls back to a Normal Attack.
+        for(const step of plan){const u=unitById(state,step.actor);if(step.move===2&&!readyOf(u)){step.move=0;step.set=false;}}
+        if(!active)active=nextUnset();
+        sound.select();paint();
     }
     function paintDice(alloc){
         const list=$('.tb-dice-list');list.replaceChildren();
@@ -271,15 +318,28 @@ export function mountBattle({host,sound=createBattleSound(),onBurst=()=>{},onSto
     function paint(){
         const alloc=allocation();
         paintDice(alloc);paintHand();paintIntents();
-        plan.forEach((step,i)=>{
+        const order=ordered(),pending=acting().filter(p=>!p.set);
+        for(const card of cards.values())card.classList.remove('tb-active','tb-set','tb-pending','tb-reviving');
+        plan.forEach(step=>{
             const card=cards.get(step.actor),u=unitById(state,step.actor);if(!card)return;
-            const move=step.move>=0?u.kit.moves[step.move]:null,badge=card.querySelector('.tb-plan');
+            const move=step.move>=0&&step.set?u.kit.moves[step.move]:null,badge=card.querySelector('.tb-plan');
             badge.dataset.kind=flee?'flee':isStunned(u)?'stun':move?.kind || 'hold';
             badge.querySelector('i').innerHTML=flee?ICON.flee:isStunned(u)?ICON.skip:!move?'':moveIcon(u,move);
-            badge.querySelector('b').textContent=alive(u)&&!flee?String(i+1):'';
+            badge.querySelector('b').textContent=alive(u)&&!flee&&order.includes(step)?String(order.indexOf(step)+1):'';
             card.classList.toggle('tb-active',step.actor===active&&!flee);
+            card.classList.toggle('tb-set',Boolean(step.set&&alive(u)&&!isStunned(u)&&!flee));
+            card.classList.toggle('tb-pending',Boolean(!step.set&&alive(u)&&!isStunned(u)&&!flee));
             card.classList.toggle('tb-short',Boolean(alloc.needs.find(n=>n.actor===step.actor)?.left>0));
+            card.classList.toggle('tb-reviving',revived.has(step.actor));
         });
+        const ready=!flee&&!pending.length&&acting().length>0;
+        $('.tb-end').classList.toggle('tb-go',ready);
+        const orderBox=$('.tb-order'),here=order.findIndex(p=>p.actor===active);
+        orderBox.hidden=flee||here<0||order.length<2;
+        if(!orderBox.hidden){
+            orderBox.querySelector('span').textContent=`Acts ${ordinal(here+1)}`;
+            orderBox.querySelector('[data-dir="-1"]').disabled=here===0;orderBox.querySelector('[data-dir="1"]').disabled=here===order.length-1;
+        }
         const step=stepOf(active),need=moveNeedsTarget(moveOf(active));
         for(const [id,card] of cards){
             const u=unitById(state,id);
@@ -295,20 +355,26 @@ export function mountBattle({host,sound=createBattleSound(),onBurst=()=>{},onSto
             dialog.style.setProperty('--active',EL_COLORS[u.element] || EL_COLORS.None);
             u.kit.moves.forEach((move,index)=>{
                 const b=el('button',`tb-move tb-move-${move.kind}`);b.type='button';b.dataset.move=String(index);
-                const ok=(index===0||canAfford(state,dice,plan,{...step,move:index},paying()))&&(index!==2||burstReady(u));
-                b.classList.toggle('tb-unaffordable',!ok);b.setAttribute('aria-pressed',String(step?.move===index));
+                const ok=(index===0||canAfford(state,dice,plan,{...step,move:index},paying()))&&(index!==2||readyOf(u));
+                b.classList.toggle('tb-unaffordable',!ok);b.setAttribute('aria-pressed',String(Boolean(step?.set)&&step.move===index));
                 const icon=moveIcon(u,move);
-                const ring=index===2?`<i class="tb-ring" style="--fill:${Math.min(1,(u.energy || 0)/(u.maxEnergy || 2))}"></i>`:'';
+                const ring=index===2?`<i class="tb-ring" style="--fill:${Math.min(1,energyOf(u)/(u.maxEnergy || 2))}"></i>`:'';
                 b.innerHTML=`<span class="tb-medal">${ring}${icon}</span><span class="tb-move-cost">${costRow(u,move)}</span>`;
                 b.setAttribute('aria-label',`${KIND_LABEL[move.kind]}: ${move.name}`);
                 on(b,'click',()=>chooseMove(index));on(b,'pointerenter',()=>moveTip(u,index,b));on(b,'focus',()=>moveTip(u,index,b));on(b,'pointerleave',hideTip);on(b,'blur',hideTip);
                 skills.append(b);
             });
+        }else if(ready){
+            dialog.style.removeProperty('--active');
+            const note=el('p','tb-ready-note');note.innerHTML='<strong>Everyone is ready</strong><span>Tap the hourglass to begin, or a character to change their move.</span>';skills.append(note);
         }
         $('.tb-end').disabled=!alloc.ok&&!flee;
+        $('.tb-end').setAttribute('aria-label',ready?'Begin round: everyone is ready':'Begin round');
         $('.tb-plate-you small').textContent=flee?'Fleeing…':'Now Acting';
     }
-    on($('.tb-auto'),'click',()=>{if(mode!=='plan')return;flee=false;plan=autoPlan(state,dice,plan);targeting=null;heldItem=null;sound.assign();paint();});
+    const ordinal=n=>{const s=['th','st','nd','rd'],v=n%100;return n+(s[(v-20)%10] || s[v] || s[0]);};
+    on($('.tb-order'),'click',event=>{const b=event.target.closest('button[data-dir]');if(b&&mode==='plan'&&active)reorder(active,Number(b.dataset.dir));});
+    on($('.tb-auto'),'click',()=>{if(mode!=='plan')return;flee=false;plan=autoPlan(state,dice,plan).map(p=>({...p,set:true}));targeting=null;heldItem=null;active=null;sound.assign();paint();});
     // Flee asks first: the chance shows only once you choose it, and confirming begins the round as an escape.
     const fleeOpen=()=>!$('.tb-confirm').hidden;
     function askFlee(show){
@@ -333,11 +399,12 @@ export function mountBattle({host,sound=createBattleSound(),onBurst=()=>{},onSto
         if(mode!=='plan'||fleeOpen()||event.target.closest?.('input,textarea,select'))return;
         const key=event.key.toLowerCase();
         if(key==='a'||key==='1')chooseMove(0);else if(key==='e'||key==='2')chooseMove(1);else if(key==='q'||key==='3')chooseMove(2);
+        else if((key==='['||key===']')&&active)reorder(active,key==='['?-1:1);
         else if(key==='enter'&&!event.target.closest?.('button'))$('.tb-end').click();else return;
         event.preventDefault();
     });
     // Tapping empty table puts a held item down or stops choosing a target. Buttons re-render as they are used, so detached targets are ignored.
-    on($('.tb-board'),'click',event=>{if(fleeOpen()&&event.target.isConnected&&!event.target.closest('.tb-confirm,.tb-flee'))askFlee(false);if(mode==='plan'&&(heldItem||targeting)&&event.target.isConnected&&!event.target.closest('.tb-card,.tb-item,.tb-turn,.tb-skills,.tb-played')){heldItem=null;targeting=null;paint();}});
+    on($('.tb-board'),'click',event=>{if(fleeOpen()&&event.target.isConnected&&!event.target.closest('.tb-confirm,.tb-flee'))askFlee(false);if(mode==='plan'&&(heldItem||targeting)&&event.target.isConnected&&!event.target.closest('.tb-card,.tb-item,.tb-turn,.tb-skills,.tb-order,.tb-played')){heldItem=null;targeting=null;paint();}});
     function open(){clearTimeout(closeTimer);dialog.classList.remove('gb-closing');if(!dialog.open)dialog.showModal();requestAnimationFrame(()=>particles.fit());}
     function setup(snapshot,player){
         state=structuredClone(snapshot);cards.clear();
@@ -477,14 +544,14 @@ export function mountBattle({host,sound=createBattleSound(),onBurst=()=>{},onSto
     }
     return {
         get open(){return dialog.open;},
-        plan(snapshot,{dice:rolled,targetId,reducedMotion=false,effects=true,volume=.8,isCurrent=()=>true,player}={}){
+        plan(snapshot,{dice:rolled,targetId,reducedMotion=false,effects=true,volume=.8,isCurrent=()=>true,player,onReroll}={}){
             if(disposed||!isCurrent())return Promise.resolve(null);
-            finish?.(null);opts={reducedMotion,effects,volume};sound.setVolume(volume);dialog.classList.toggle('gb-reduced',reducedMotion);
-            setup(snapshot,player);dice=rolled.map(d=>({face:d.face,match:d.match}));items=[];flee=false;heldItem=null;targeting=null;askFlee(false);
+            finish?.(null);opts={reducedMotion,effects,volume,onReroll};sound.setVolume(volume);dialog.classList.toggle('gb-reduced',reducedMotion);
+            setup(snapshot,player);dice=rolled.map(d=>({face:d.face,match:d.match}));items=[];revived.clear();flee=false;heldItem=null;targeting=null;askFlee(false);
             mode='plan';dialog.dataset.mode='plan';$('.tb-skip').hidden=true;setActing('party');
             const target=unitById(state,targetId)&&alive(unitById(state,targetId))?targetId:state.units.find(x=>x.side==='enemy'&&alive(x))?.id;
-            plan=party().filter(alive).map(u=>({actor:u.id,move:isStunned(u)?-1:0,target}));
-            active=plan.find(p=>!isStunned(unitById(state,p.actor)))?.actor || plan[0]?.actor || null;
+            plan=party().filter(alive).map(u=>({actor:u.id,move:isStunned(u)?-1:0,target,set:isStunned(u)}));
+            active=nextUnset();
             open();paint();banner('Action Phase',`Round ${state.round}`);sound.phase();
             requestAnimationFrame(()=>$('.tb-skills button')?.focus());
             return new Promise(resolve=>{finish=resolve;});

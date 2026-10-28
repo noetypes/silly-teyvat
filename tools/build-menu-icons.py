@@ -17,7 +17,7 @@ SIZE = 96
 ICONS = {
     'auto': 'Icon Events', 'book': 'Icon Adventurer Handbook', 'wardrobe': 'Icon Character', 'map': 'Icon Map',
     'cg': 'Icon Photo Mode', 'compose': 'Icon Community', 'hide': 'Icon Photo Mode Settings', 'namecard': 'Icon Character Card',
-    'back': 'Icon Back', 'settings': 'Icon Settings',
+    'back': 'Icon Back', 'settings': 'Icon Settings', 'bag': 'Icon Inventory',
 }
 
 def fetch(url):

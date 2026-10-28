@@ -1,0 +1,141 @@
+// The Inventory: every Genius Invokation card in the party's bag, laid out after Genshin's
+// item screen. Category tabs run along the top bar with the bag count and close button,
+// cards sit under banded group headers on the left, and the selected card's details fill
+// the panel on the right. Tiles keep the cards' portrait shape and are larger than Genshin's
+// item squares, since a Silly Teyvat bag holds a handful of cards rather than hundreds.
+import {ITEMS,itemArt,bagCount} from './battle-items.js';
+import {partyBag} from './battle-state.js';
+import {combatState} from './combat-state.js';
+
+const ICON={
+    bag:'<svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M9 3h6a2 2 0 0 1 2 2v1h1.5A2.5 2.5 0 0 1 21 8.5V19a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8.5A2.5 2.5 0 0 1 5.5 6H7V5a2 2 0 0 1 2-2Zm0 2v1h6V5H9Zm-4 6v2h14v-2H5Zm5 1.5h4V15h-4z"/></svg>',
+    all:'<svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M4 4h7v7H4zM13 4h7v7h-7zM4 13h7v7H4zM13 13h7v7h-7z"/></svg>',
+    food:'<svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M3 12h18a9 9 0 0 1-6 8.5V22H9v-1.5A9 9 0 0 1 3 12Zm4.5-9c1.5 1.5-1 3 .5 4.5M12 2c1.5 1.5-1 3 .5 4.5M16.5 3c1.5 1.5-1 3 .5 4.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>',
+    event:'<svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M6 2h12a1 1 0 0 1 1 1v18a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1Zm6 5-1.5 3.2L7 10.6l2.6 2.3-.7 3.6L12 14.8l3.1 1.7-.7-3.6 2.6-2.3-3.5-.4z"/></svg>',
+    dice:'<svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M12 1.5 21 6.7v10.6L12 22.5 3 17.3V6.7zm0 4.3a1.6 1.6 0 1 0 0 3.2 1.6 1.6 0 0 0 0-3.2Zm-4.5 6.6a1.6 1.6 0 1 0 0 3.2 1.6 1.6 0 0 0 0-3.2Zm9 0a1.6 1.6 0 1 0 0 3.2 1.6 1.6 0 0 0 0-3.2Z"/></svg>',
+    close:'<svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="m6 6 12 12M18 6 6 18"/></svg>',
+    sort:'<svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 4v16M4 8l4-4 4 4M16 20V4M12 16l4 4 4-4"/></svg>',
+};
+export const INVENTORY_GROUPS=[
+    {id:'food',label:'Food',use:'Eaten before anyone acts. Each member can eat one dish per round.'},
+    {id:'event',label:'Event Cards',use:'Played during the Action Phase, before anyone acts.'},
+    {id:'dice',label:'Dice Cards',use:'Changes your elemental dice the moment it is played.'},
+];
+const TABS=[{id:'all',label:'All'},...INVENTORY_GROUPS];
+const SORTS={rarity:'Quality',count:'Quantity',cost:'Cost',name:'Name'};
+const stars=rarity=>rarity+2;
+const quality=rarity=>['blue','purple','gold'][Math.max(0,Math.min(2,rarity-1))];
+const el=(tag,cls,text)=>{const n=document.createElement(tag);if(cls)n.className=cls;if(text!==undefined)n.textContent=text;return n;};
+
+// Cards in the bag with how many there are, and whether any arrived since the bag was last opened.
+export function inventoryCards(bag,seen={}){
+    return Object.entries(bag || {}).filter(([id,n])=>ITEMS[id]&&n>0).map(([id,count])=>({id,count,item:ITEMS[id],isNew:count>(seen[id] || 0)}));
+}
+export function sortCards(cards,sort){
+    const by={
+        rarity:(a,b)=>b.item.rarity-a.item.rarity || Number(b.isNew)-Number(a.isNew) || a.item.name.localeCompare(b.item.name),
+        count:(a,b)=>b.count-a.count || a.item.name.localeCompare(b.item.name),
+        cost:(a,b)=>a.item.cost-b.item.cost || a.item.name.localeCompare(b.item.name),
+        name:(a,b)=>a.item.name.localeCompare(b.item.name),
+    }[sort] || (()=>0);
+    return [...cards].sort(by);
+}
+
+export function mountInventory({host,getContext,announce=()=>{}}){
+    const dialog=document.createElement('dialog');dialog.id='gi-inventory';dialog.setAttribute('aria-labelledby','gi-inv-title');
+    dialog.innerHTML=`<header class="gi-inv-top">
+            <div class="gi-inv-title"><span class="gi-inv-badge">${ICON.bag}</span><h2 id="gi-inv-title">Inventory</h2></div>
+            <nav class="gi-inv-tabs" role="tablist" aria-label="Card types">${TABS.map(t=>`<button type="button" role="tab" data-tab="${t.id}" aria-label="${t.label}" title="${t.label}">${ICON[t.id]}</button>`).join('')}</nav>
+            <div class="gi-inv-meta"><span class="gi-inv-total"></span><button type="button" class="gi-inv-close" aria-label="Close Inventory">${ICON.close}</button></div>
+        </header>
+        <div class="gi-inv-body">
+            <section class="gi-inv-list" aria-label="Cards"><div class="gi-inv-groups"></div><p class="gi-inv-empty" hidden></p></section>
+            <aside class="gi-inv-detail" aria-live="polite"></aside>
+        </div>
+        <footer class="gi-inv-foot">
+            <button type="button" class="gi-inv-order" aria-label="Reverse order">${ICON.sort}</button>
+            <label class="gi-inv-sort"><span>Sort:</span><select aria-label="Sort cards">${Object.entries(SORTS).map(([id,label])=>`<option value="${id}">${label}</option>`).join('')}</select></label>
+        </footer>`;
+    host.append(dialog);
+    const $=s=>dialog.querySelector(s),abort=new AbortController(),on=(node,type,fn)=>node.addEventListener(type,fn,{signal:abort.signal});
+    let tab='all',sort='rarity',reversed=false,selected='',seen={},closeTimer=0;
+    const state=()=>{const ctx=getContext();return ctx?.chatId || ctx?.getCurrentChatId?.()?{ctx,bag:partyBag(ctx)}:{ctx,bag:null};};
+    function tile(card){
+        const {id,count,item,isNew}=card,b=el('button',`gi-inv-card gi-q-${quality(item.rarity)}`);b.type='button';b.dataset.item=id;
+        b.setAttribute('aria-pressed',String(id===selected));b.setAttribute('aria-label',`${item.name}, ${count} in bag${isNew?', new':''}`);
+        b.innerHTML=`<span class="gi-inv-art"><img alt="" loading="lazy" draggable="false"><b class="gi-inv-count">×${count}</b>${isNew?'<i class="gi-inv-new">New</i>':''}<span class="gi-inv-stars" aria-hidden="true">${'★'.repeat(stars(item.rarity))}</span></span><span class="gi-inv-name"></span>`;
+        b.querySelector('img').src=itemArt(id);b.querySelector('.gi-inv-name').textContent=item.name;
+        on(b,'click',()=>{selected=id;paint();});
+        return b;
+    }
+    function detail(card){
+        const box=$('.gi-inv-detail');box.replaceChildren();
+        if(!card){box.hidden=true;return;}
+        box.hidden=false;
+        const {item,count,id}=card,group=INVENTORY_GROUPS.find(g=>g.id===item.kind);
+        box.className=`gi-inv-detail gi-q-${quality(item.rarity)}`;
+        box.innerHTML=`<header class="gi-inv-d-head"><h3></h3></header>
+            <div class="gi-inv-d-hero"><small></small><div class="gi-inv-d-stat"><span>Cost</span><strong></strong></div><span class="gi-inv-d-stars" aria-label="${stars(item.rarity)} stars">${'★'.repeat(stars(item.rarity))}</span><img alt="" draggable="false"></div>
+            <div class="gi-inv-d-body"><div class="gi-inv-d-row"><b class="gi-inv-d-count"></b></div><ul class="gi-inv-d-effects"></ul><p class="gi-inv-d-set"></p><p class="gi-inv-d-use"></p></div>
+            <footer class="gi-inv-d-foot"><span></span></footer>`;
+        box.querySelector('h3').textContent=item.name;
+        box.querySelector('small').textContent=group?.label.replace(/s$/,'') || 'Card';
+        box.querySelector('.gi-inv-d-stat strong').textContent=item.cost?`${item.cost} ${item.cost===1?'die':'dice'}`:'Free';
+        box.querySelector('img').src=itemArt(id);
+        box.querySelector('.gi-inv-d-count').textContent=`×${count}`;
+        box.querySelector('.gi-inv-d-effects').replaceChildren(...item.text.split(/(?<=\.)\s+/).filter(Boolean).map(line=>el('li','',line)));
+        box.querySelector('.gi-inv-d-set').textContent=`${group?.label || 'Card'}:`;
+        box.querySelector('.gi-inv-d-use').textContent=`${group?.use || ''} ${item.target==='ally'?'Choose one party member.':item.target==='downed'?'Choose a downed party member.':item.target==='party'?'Affects the whole party.':''}`.trim();
+        box.querySelector('.gi-inv-d-foot span').textContent=`In your bag: ${count}`;
+    }
+    function paint(){
+        const {bag}=state(),all=sortCards(inventoryCards(bag,seen),sort),cards=reversed?all.reverse():all;
+        for(const b of dialog.querySelectorAll('.gi-inv-tabs [data-tab]')){const onTab=b.dataset.tab===tab;b.setAttribute('aria-selected',String(onTab));b.tabIndex=onTab?0:-1;}
+        $('.gi-inv-total').textContent=bag?`Cards ${bagCount(bag)}`:'';
+        const shown=cards.filter(c=>tab==='all'||c.item.kind===tab),groups=$('.gi-inv-groups');groups.replaceChildren();
+        for(const g of INVENTORY_GROUPS){
+            const list=shown.filter(c=>c.item.kind===g.id);if(!list.length)continue;
+            const section=el('section','gi-inv-group'),head=el('h3','gi-inv-group-head');
+            head.innerHTML=`<span></span><small></small>`;head.querySelector('span').textContent=g.label;head.querySelector('small').textContent=`${list.reduce((n,c)=>n+c.count,0)}`;
+            const grid=el('div','gi-inv-grid');grid.append(...list.map(tile));section.append(head,grid);groups.append(section);
+        }
+        const empty=$('.gi-inv-empty');
+        empty.hidden=shown.length>0;
+        empty.textContent=!bag?'Open a chat to see your party\'s bag.':cards.length?'No cards of this type yet.':'Your bag is empty. Win battles to collect cards.';
+        if(!shown.some(c=>c.id===selected))selected=shown[0]?.id || '';
+        detail(shown.find(c=>c.id===selected));
+        dialog.dataset.empty=String(!shown.length);
+    }
+    for(const b of dialog.querySelectorAll('.gi-inv-tabs [data-tab]'))on(b,'click',()=>{tab=b.dataset.tab;paint();});
+    on($('.gi-inv-tabs'),'keydown',event=>{
+        if(!['ArrowLeft','ArrowRight'].includes(event.key))return;event.preventDefault();
+        const i=TABS.findIndex(t=>t.id===tab),next=TABS[(i+(event.key==='ArrowRight'?1:TABS.length-1))%TABS.length];tab=next.id;paint();
+        dialog.querySelector(`.gi-inv-tabs [data-tab="${next.id}"]`)?.focus();
+    });
+    on($('.gi-inv-sort select'),'change',event=>{sort=event.target.value;paint();});
+    on($('.gi-inv-order'),'click',()=>{reversed=!reversed;$('.gi-inv-order').setAttribute('aria-pressed',String(reversed));paint();});
+    on($('.gi-inv-close'),'click',()=>close());
+    on(dialog,'cancel',event=>{event.preventDefault();close();});
+    on(dialog,'click',event=>{if(event.target===dialog)close();});
+    // Closing marks every card as seen, so New tags only appear on cards won since the last look.
+    function close(){
+        if(!dialog.open)return;
+        const {ctx,bag}=state();
+        if(bag){combatState(ctx).bagSeen={...bag};ctx.saveMetadataDebounced?.();}
+        dialog.classList.add('gi-inv-closing');clearTimeout(closeTimer);
+        closeTimer=setTimeout(()=>{dialog.classList.remove('gi-inv-closing');if(dialog.open)dialog.close();},200);
+    }
+    return {
+        get open(){return dialog.open;},
+        open(){
+            const {ctx,bag}=state();seen=bag?{...(combatState(ctx).bagSeen || {})}:{};
+            clearTimeout(closeTimer);dialog.classList.remove('gi-inv-closing');selected='';
+            paint();if(!dialog.open)dialog.showModal();
+            (dialog.querySelector('.gi-inv-card') || $('.gi-inv-close')).focus({preventScroll:true});
+            announce(bag?`Inventory: ${bagCount(bag)} cards.`:'Inventory: open a chat to see your bag.');
+        },
+        refresh(){if(dialog.open)paint();},
+        close,
+        dispose(){clearTimeout(closeTimer);abort.abort();dialog.remove();},
+    };
+}

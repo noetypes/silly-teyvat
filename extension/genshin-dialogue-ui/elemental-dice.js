@@ -115,10 +115,10 @@ export function mountElementalDice({host,stageFactory=createStage,sound=createDi
         }else{big.textContent='Miss';big.classList.add('gi-hit','gi-miss');}
         if(result.hpAfter<=0)$('.gi-roll-target').classList.add('gi-defeated');
     }
-    return {cancel:()=>stop(),roll(result,{reducedMotion=false,isCurrent=()=>true,describe,volume=0,reroll}={}){
+    return {cancel:()=>stop(),roll(result,{reducedMotion=false,isCurrent=()=>true,describe,volume=0,reroll,pickAll=false,heading='Roll Phase'}={}){
         if(disposed||!isCurrent())return Promise.resolve(false);sequence++;cancelAnimationFrame(frame);frame=0;summaryAbort?.abort();finish?.(false);finish=null;accept=null;redraw=null;const current=++sequence;
         skip=reducedMotion;canvas.hidden=false;canvas.dataset.model='loading';dialog.dataset.phase='loading';
-        dialog.classList.toggle('gi-instant',reducedMotion);dialog.classList.remove('gi-settled','gi-closing','gi-can-reroll');title('Roll Phase');
+        dialog.classList.toggle('gi-instant',reducedMotion);dialog.classList.remove('gi-settled','gi-closing','gi-can-reroll');title(heading);
         $('.gi-roll-summary').hidden=true;$('.gi-roll-tags').replaceChildren();$('.gi-roll-target').classList.remove('gi-shake','gi-defeated');
         const listResults=()=>$('.gi-dice-results').replaceChildren(...result.dice.map(d=>el('li',d.match?'gi-die-match':'',`${d.face}${d.match&&d.damage!==undefined?` +${d.damage}`:''}`)));listResults();
         $('.gi-dice-total').textContent='';$('.gi-roll-confirm-label').textContent='Skip';button.classList.remove('gi-ready');
@@ -140,8 +140,9 @@ export function mountElementalDice({host,stageFactory=createStage,sound=createDi
                 const box=$('.gi-roll-picks');box.replaceChildren();rerollAction=null;
                 const can=typeof reroll==='function'&&(result.rerolls || 0)<1&&visual?.positions&&!canvas.hidden;
                 rerollButton.hidden=!can;dialog.classList.toggle('gi-can-reroll',Boolean(can));if(!can)return;
-                title('Reroll','Select dice to reroll');
-                const picked=new Set(result.dice.flatMap((d,i)=>d.match?[]:[i]));
+                title(pickAll?heading:'Reroll','Select dice to reroll');
+                // Toss-Up offers every die; a normal roll preselects the ones that match nobody.
+                const picked=new Set(result.dice.flatMap((d,i)=>d.match&&!pickAll?[]:[i]));
                 const label=()=>{$('.gi-roll-reroll-label').textContent=picked.size?`Reroll ${picked.size}`:'Reroll';rerollButton.disabled=!picked.size;};
                 for(const p of visual.positions()){
                     const die=result.dice[p.index],pick=el('button','gi-die-pick');pick.type='button';pick.dataset.index=String(p.index);pick.innerHTML=REROLL_MARK;

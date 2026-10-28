@@ -6028,5 +6028,287 @@
       "Katheryne is a non-playable bionic puppet receptionist who works at the Adventurers' Guild in every nation; the wiki lists no single region for her."
     ],
     "role": "character"
+  },
+  "Anemo Samachurl": {
+    "role": "enemy",
+    "playable": false,
+    "maxHp": 26,
+    "deathMessage": "{name} falls still. The threat has passed."
+  },
+  "Annihilation Specialist Mek - Ousia": {
+    "role": "enemy",
+    "playable": false,
+    "maxHp": 56,
+    "deathMessage": "{name} falls still. The threat has passed."
+  },
+  "Annihilation Specialist Mek - Pneuma": {
+    "role": "enemy",
+    "playable": false,
+    "maxHp": 56,
+    "deathMessage": "{name} falls still. The threat has passed."
+  },
+  "Arithmetic Enhancer Mek - Ousia": {
+    "role": "enemy",
+    "playable": false,
+    "maxHp": 26,
+    "deathMessage": "{name} falls still. The threat has passed."
+  },
+  "Arithmetic Enhancer Mek - Pneuma": {
+    "role": "enemy",
+    "playable": false,
+    "maxHp": 26,
+    "deathMessage": "{name} falls still. The threat has passed."
+  },
+  "Assault Specialist Mek - Ousia": {
+    "role": "enemy",
+    "playable": false,
+    "maxHp": 56,
+    "deathMessage": "{name} falls still. The threat has passed."
+  },
+  "Assault Specialist Mek - Pneuma": {
+    "role": "enemy",
+    "playable": false,
+    "maxHp": 56,
+    "deathMessage": "{name} falls still. The threat has passed."
+  },
+  "Blazing Axe Mitachurl": {
+    "role": "enemy",
+    "playable": false,
+    "maxHp": 46,
+    "deathMessage": "{name} falls still. The threat has passed."
+  },
+  "Crackling Axe Mitachurl": {
+    "role": "enemy",
+    "playable": false,
+    "maxHp": 46,
+    "deathMessage": "{name} falls still. The threat has passed."
+  },
+  "Cryo Abyss Mage": {
+    "role": "enemy",
+    "playable": false,
+    "maxHp": 26,
+    "deathMessage": "{name} falls still. The threat has passed."
+  },
+  "Cryo Hilichurl Shooter": {
+    "role": "enemy",
+    "playable": false,
+    "maxHp": 21,
+    "deathMessage": "{name} falls still. The threat has passed."
+  },
+  "Cryo Slime": {
+    "role": "enemy",
+    "playable": false,
+    "maxHp": 26,
+    "deathMessage": "{name} falls still. The threat has passed."
+  },
+  "Dendro Samachurl": {
+    "role": "enemy",
+    "playable": false,
+    "maxHp": 26,
+    "deathMessage": "{name} falls still. The threat has passed."
+  },
+  "Electro Abyss Mage": {
+    "role": "enemy",
+    "playable": false,
+    "maxHp": 26,
+    "deathMessage": "{name} falls still. The threat has passed."
+  },
+  "Electro Hilichurl Shooter": {
+    "role": "enemy",
+    "playable": false,
+    "maxHp": 21,
+    "deathMessage": "{name} falls still. The threat has passed."
+  },
+  "Electro Samachurl": {
+    "role": "enemy",
+    "playable": false,
+    "maxHp": 26,
+    "deathMessage": "{name} falls still. The threat has passed."
+  },
+  "Electro Slime": {
+    "role": "enemy",
+    "playable": false,
+    "maxHp": 26,
+    "deathMessage": "{name} falls still. The threat has passed."
+  },
+  "Eremite Daythunder": {
+    "role": "enemy",
+    "playable": false,
+    "maxHp": 46,
+    "deathMessage": "{name} falls still. The threat has passed."
+  },
+  "Eremite Desert Clearwater": {
+    "role": "enemy",
+    "playable": false,
+    "maxHp": 46,
+    "deathMessage": "{name} falls still. The threat has passed."
+  },
+  "Eremite Stone Enchanter": {
+    "role": "enemy",
+    "playable": false,
+    "maxHp": 56,
+    "deathMessage": "{name} falls still. The threat has passed."
+  },
+  "Fatui Skirmisher - Cryogunner Legionnaire": {
+    "role": "enemy",
+    "playable": false,
+    "maxHp": 56,
+    "deathMessage": "{name} falls still. The threat has passed."
+  },
+  "Fatui Skirmisher - Electrohammer Vanguard": {
+    "role": "enemy",
+    "playable": false,
+    "maxHp": 56,
+    "deathMessage": "{name} falls still. The threat has passed."
+  },
+  "Fatui Skirmisher - Geochanter Bracer": {
+    "role": "enemy",
+    "playable": false,
+    "maxHp": 56,
+    "deathMessage": "{name} falls still. The threat has passed."
+  },
+  "Fatui Skirmisher - Hydrogunner Legionnaire": {
+    "role": "enemy",
+    "playable": false,
+    "maxHp": 56,
+    "deathMessage": "{name} falls still. The threat has passed."
+  },
+  "Geo Samachurl": {
+    "role": "enemy",
+    "playable": false,
+    "maxHp": 26,
+    "deathMessage": "{name} falls still. The threat has passed."
+  },
+  "Grounded Geoshroom": {
+    "role": "enemy",
+    "playable": false,
+    "maxHp": 41,
+    "deathMessage": "{name} falls still. The threat has passed."
+  },
+  "Grounded Hydroshroom": {
+    "role": "enemy",
+    "playable": false,
+    "maxHp": 41,
+    "deathMessage": "{name} falls still. The threat has passed."
+  },
+  "Hilichurl Berserker": {
+    "role": "enemy",
+    "playable": false,
+    "maxHp": 26,
+    "deathMessage": "{name} falls still. The threat has passed."
+  },
+  "Hydro Abyss Mage": {
+    "role": "enemy",
+    "playable": false,
+    "maxHp": 26,
+    "deathMessage": "{name} falls still. The threat has passed."
+  },
+  "Ice Shieldwall Mitachurl": {
+    "role": "enemy",
+    "playable": false,
+    "maxHp": 46,
+    "deathMessage": "{name} falls still. The threat has passed."
+  },
+  "Kairagi: Dancing Thunder": {
+    "role": "enemy",
+    "playable": false,
+    "maxHp": 56,
+    "deathMessage": "{name} falls still. The threat has passed."
+  },
+  "Kairagi: Fiery Might": {
+    "role": "enemy",
+    "playable": false,
+    "maxHp": 56,
+    "deathMessage": "{name} falls still. The threat has passed."
+  },
+  "Large Cryo Slime": {
+    "role": "enemy",
+    "playable": false,
+    "maxHp": 56,
+    "deathMessage": "{name} falls still. The threat has passed."
+  },
+  "Large Hydro Slime": {
+    "role": "enemy",
+    "playable": false,
+    "maxHp": 56,
+    "deathMessage": "{name} falls still. The threat has passed."
+  },
+  "Nobushi: Hitsukeban": {
+    "role": "enemy",
+    "playable": false,
+    "maxHp": 36,
+    "deathMessage": "{name} falls still. The threat has passed."
+  },
+  "Nobushi: Jintouban": {
+    "role": "enemy",
+    "playable": false,
+    "maxHp": 36,
+    "deathMessage": "{name} falls still. The threat has passed."
+  },
+  "Nobushi: Kikouban": {
+    "role": "enemy",
+    "playable": false,
+    "maxHp": 36,
+    "deathMessage": "{name} falls still. The threat has passed."
+  },
+  "Pyro Whopperflower": {
+    "role": "enemy",
+    "playable": false,
+    "maxHp": 56,
+    "deathMessage": "{name} falls still. The threat has passed."
+  },
+  "Rock Shieldwall Mitachurl": {
+    "role": "enemy",
+    "playable": false,
+    "maxHp": 46,
+    "deathMessage": "{name} falls still. The threat has passed."
+  },
+  "Rockfond Rifthound": {
+    "role": "enemy",
+    "playable": false,
+    "maxHp": 56,
+    "deathMessage": "{name} falls still. The threat has passed."
+  },
+  "Ruin Drake: Earthguard": {
+    "role": "enemy",
+    "playable": false,
+    "maxHp": 56,
+    "deathMessage": "{name} falls still. The threat has passed."
+  },
+  "Suppression Specialist Mek - Ousia": {
+    "role": "enemy",
+    "playable": false,
+    "maxHp": 56,
+    "deathMessage": "{name} falls still. The threat has passed."
+  },
+  "Suppression Specialist Mek - Pneuma": {
+    "role": "enemy",
+    "playable": false,
+    "maxHp": 56,
+    "deathMessage": "{name} falls still. The threat has passed."
+  },
+  "Tainted Hydro Phantasm": {
+    "role": "enemy",
+    "playable": false,
+    "maxHp": 56,
+    "deathMessage": "{name} falls still. The threat has passed."
+  },
+  "Thundercraven Rifthound": {
+    "role": "enemy",
+    "playable": false,
+    "maxHp": 56,
+    "deathMessage": "{name} falls still. The threat has passed."
+  },
+  "Winged Cryoshroom": {
+    "role": "enemy",
+    "playable": false,
+    "maxHp": 36,
+    "deathMessage": "{name} falls still. The threat has passed."
+  },
+  "Winged Dendroshroom": {
+    "role": "enemy",
+    "playable": false,
+    "maxHp": 36,
+    "deathMessage": "{name} falls still. The threat has passed."
   }
 }

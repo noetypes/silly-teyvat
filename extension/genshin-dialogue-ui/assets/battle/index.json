@@ -22,6 +22,10 @@
   "Crystallize": "crystallize.webp"
  },
  "skills": {
+  "Aba Movo": {
+   "file": "aba-movo.webp",
+   "kind": "tcg"
+  },
   "Abductive Reasoning": {
    "file": "abductive-reasoning.webp",
    "kind": "tcg"
@@ -40,6 +44,10 @@
   },
   "Adeptus Art: Preserver of Fortune": {
    "file": "adeptus-art-preserver-of-fortune.webp",
+   "kind": "tcg"
+  },
+  "Agile Thrust": {
+   "file": "agile-thrust.webp",
    "kind": "tcg"
   },
   "Airborne Disease Prevention": {
@@ -114,6 +122,10 @@
    "file": "astable-anemohypostasis-creation-6308.webp",
    "kind": "tcg"
   },
+  "Axe Swipe": {
+   "file": "axe-swipe.webp",
+   "kind": "tcg"
+  },
   "Badaboom! Hexbuster Hammer": {
    "file": "badaboom-hexbuster-hammer.webp",
    "kind": "talent"
@@ -150,8 +162,20 @@
    "file": "black-pheasant-strides-on-water.webp",
    "kind": "tcg"
   },
+  "Bladed Waltz": {
+   "file": "bladed-waltz.webp",
+   "kind": "tcg"
+  },
+  "Blaze Bloom": {
+   "file": "blaze-bloom.webp",
+   "kind": "tcg"
+  },
   "Blazing Blessing": {
    "file": "blazing-blessing.webp",
+   "kind": "tcg"
+  },
+  "Blitz Strike": {
+   "file": "blitz-strike.webp",
    "kind": "tcg"
   },
   "Blunt Refusal": {
@@ -174,8 +198,20 @@
    "file": "breastplate.webp",
    "kind": "tcg"
   },
+  "Bubble Spray": {
+   "file": "bubble-spray.webp",
+   "kind": "tcg"
+  },
+  "Bubbling Offering": {
+   "file": "bubbling-offering.webp",
+   "kind": "tcg"
+  },
   "By the Horns": {
    "file": "by-the-horns.webp",
+   "kind": "tcg"
+  },
+  "Cankering Claws": {
+   "file": "cankering-claws.webp",
    "kind": "tcg"
   },
   "Canopy Hunter: Riding High": {
@@ -222,12 +258,24 @@
    "file": "cliffbreaker-s-banner.webp",
    "kind": "tcg"
   },
+  "Close Expulsion": {
+   "file": "close-expulsion.webp",
+   "kind": "tcg"
+  },
+  "Close-Range Charge": {
+   "file": "close-range-charge.webp",
+   "kind": "tcg"
+  },
   "Cloud-Grazing Strike": {
    "file": "cloud-grazing-strike.webp",
    "kind": "tcg"
   },
   "Cloud-Parting Star": {
    "file": "cloud-parting-star.webp",
+   "kind": "tcg"
+  },
+  "Combined Fire": {
+   "file": "combined-fire.webp",
    "kind": "tcg"
   },
   "Compound Sedation Field": {
@@ -242,6 +290,14 @@
    "file": "cooling-treatment.webp",
    "kind": "tcg"
   },
+  "Corrosive Claws": {
+   "file": "corrosive-claws.webp",
+   "kind": "tcg"
+  },
+  "Corrosive Electro Crystal": {
+   "file": "corrosive-electro-crystal.webp",
+   "kind": "tcg"
+  },
   "Countermeasure: Lumi's Battle Cry!": {
    "file": "countermeasure-lumi-s-battle-cry.webp",
    "kind": "talent"
@@ -254,12 +310,28 @@
    "file": "crimson-ooyoroi.webp",
    "kind": "tcg"
   },
+  "Cryo Thorns": {
+   "file": "cryo-thorns.webp",
+   "kind": "tcg"
+  },
+  "Crystal Cracker": {
+   "file": "crystal-cracker.webp",
+   "kind": "tcg"
+  },
+  "Curative Bullet": {
+   "file": "curative-bullet.webp",
+   "kind": "tcg"
+  },
   "Cutting Torrent": {
    "file": "cutting-torrent.webp",
    "kind": "tcg"
   },
   "Cyclonic Duster": {
    "file": "cyclonic-duster.webp",
+   "kind": "tcg"
+  },
+  "Da Plama": {
+   "file": "da-plama.webp",
    "kind": "tcg"
   },
   "Dance of Abzendegi: Distant Dreams, Listening Spring": {
@@ -310,8 +382,20 @@
    "file": "demonbane.webp",
    "kind": "tcg"
   },
+  "Dendro Field": {
+   "file": "dendro-field.webp",
+   "kind": "tcg"
+  },
   "Depth-Clarion Dice": {
    "file": "depth-clarion-dice.webp",
+   "kind": "tcg"
+  },
+  "Devouring Bite": {
+   "file": "devouring-bite.webp",
+   "kind": "tcg"
+  },
+  "Divebomb": {
+   "file": "divebomb.webp",
    "kind": "tcg"
   },
   "Divine Maiden's Deliverance": {
@@ -344,6 +428,30 @@
   },
   "Ehecatl's Roar": {
    "file": "ehecatl-s-roar.webp",
+   "kind": "tcg"
+  },
+  "Elemental Buff: Hydro": {
+   "file": "elemental-buff-hydro.webp",
+   "kind": "tcg"
+  },
+  "Energy Boost: Ousia": {
+   "file": "energy-boost-ousia.webp",
+   "kind": "tcg"
+  },
+  "Energy Boost: Pneuma": {
+   "file": "energy-boost-pneuma.webp",
+   "kind": "tcg"
+  },
+  "Energy Burst: Ousia": {
+   "file": "energy-burst-ousia.webp",
+   "kind": "tcg"
+  },
+  "Energy Burst: Pneuma": {
+   "file": "energy-burst-pneuma.webp",
+   "kind": "tcg"
+  },
+  "Energy Surge": {
+   "file": "energy-surge.webp",
    "kind": "tcg"
   },
   "Enigmatic Feint": {
@@ -389,6 +497,10 @@
   "Favonius Bladework: Dancing Radiance": {
    "file": "favonius-bladework-dancing-radiance.webp",
    "kind": "talent"
+  },
+  "Fierce Headbutt": {
+   "file": "fierce-headbutt.webp",
+   "kind": "tcg"
   },
   "Fiery Rain": {
    "file": "fiery-rain.webp",
@@ -454,6 +566,22 @@
    "file": "fragrance-extraction.webp",
    "kind": "tcg"
   },
+  "Freezing Spray": {
+   "file": "freezing-spray.webp",
+   "kind": "tcg"
+  },
+  "Frigid Spray": {
+   "file": "frigid-spray.webp",
+   "kind": "tcg"
+  },
+  "Frost Cannon": {
+   "file": "frost-cannon.webp",
+   "kind": "tcg"
+  },
+  "Frostdrift Offering": {
+   "file": "frostdrift-offering.webp",
+   "kind": "tcg"
+  },
   "Frostgnaw": {
    "file": "frostgnaw.webp",
    "kind": "tcg"
@@ -470,8 +598,16 @@
    "file": "gale-blade.webp",
    "kind": "tcg"
   },
+  "Galeforce Shock": {
+   "file": "galeforce-shock.webp",
+   "kind": "tcg"
+  },
   "Garyuu Bladework": {
    "file": "garyuu-bladework.webp",
+   "kind": "tcg"
+  },
+  "Geocrystal Beam": {
+   "file": "geocrystal-beam.webp",
    "kind": "tcg"
   },
   "Glacial Illumination": {
@@ -496,6 +632,10 @@
   },
   "Great Secret Art: Tenko Kenshin": {
    "file": "great-secret-art-tenko-kenshin.webp",
+   "kind": "tcg"
+  },
+  "Greataxe Smash": {
+   "file": "greataxe-smash.webp",
    "kind": "tcg"
   },
   "Guardian Vent!": {
@@ -566,6 +706,10 @@
    "file": "hidden-aces-seven-tools-of-the-hunter.webp",
    "kind": "tcg"
   },
+  "Hit and Run": {
+   "file": "hit-and-run.webp",
+   "kind": "tcg"
+  },
   "Hiyoku: Twin Blades": {
    "file": "hiyoku-twin-blades.webp",
    "kind": "tcg"
@@ -584,6 +728,10 @@
   },
   "Hunter's Vigil": {
    "file": "hunter-s-vigil.webp",
+   "kind": "tcg"
+  },
+  "Ice Arrow": {
+   "file": "ice-arrow.webp",
    "kind": "tcg"
   },
   "Icefang Rush": {
@@ -620,6 +768,10 @@
   },
   "Jade Screen": {
    "file": "jade-screen.webp",
+   "kind": "tcg"
+  },
+  "Jumping Slam": {
+   "file": "jumping-slam.webp",
    "kind": "tcg"
   },
   "Jumpy Dumpty": {
@@ -690,6 +842,18 @@
    "file": "last-lightfall.webp",
    "kind": "tcg"
   },
+  "Launch Grenade": {
+   "file": "launch-grenade.webp",
+   "kind": "tcg"
+  },
+  "Leap Attack": {
+   "file": "leap-attack.webp",
+   "kind": "tcg"
+  },
+  "Leaping Thunder": {
+   "file": "leaping-thunder.webp",
+   "kind": "tcg"
+  },
   "Lemniscatic Wind Cycling": {
    "file": "lemniscatic-wind-cycling.webp",
    "kind": "tcg"
@@ -714,6 +878,10 @@
    "file": "lightning-fang.webp",
    "kind": "tcg"
   },
+  "Lightning Raid": {
+   "file": "lightning-raid.webp",
+   "kind": "tcg"
+  },
   "Lightning Rose": {
    "file": "lightning-rose.webp",
    "kind": "tcg"
@@ -728,6 +896,10 @@
   },
   "Lingering Lifeline": {
    "file": "lingering-lifeline.webp",
+   "kind": "tcg"
+  },
+  "Lingering Light": {
+   "file": "lingering-light.webp",
    "kind": "tcg"
   },
   "Liutian Archery": {
@@ -756,6 +928,10 @@
   },
   "Masatsu Zetsugi: Akaushi Burst!": {
    "file": "masatsu-zetsugi-akaushi-burst.webp",
+   "kind": "tcg"
+  },
+  "Mechanical Thunderbow": {
+   "file": "mechanical-thunderbow.webp",
    "kind": "tcg"
   },
   "Memo: Survival Guide in Extreme Conditions": {
@@ -789,6 +965,14 @@
   "Moonlit Melancholy": {
    "file": "moonlit-melancholy.webp",
    "kind": "talent"
+  },
+  "Multi-Smash": {
+   "file": "multi-smash.webp",
+   "kind": "tcg"
+  },
+  "Multishot": {
+   "file": "multishot.webp",
+   "kind": "tcg"
   },
   "Musecatcher": {
    "file": "musecatcher.webp",
@@ -846,6 +1030,10 @@
    "file": "ocelotlicue-point.webp",
    "kind": "tcg"
   },
+  "Ominous Spirit Unleashed (Geo)": {
+   "file": "ominous-spirit-unleashed-geo.webp",
+   "kind": "tcg"
+  },
   "Opening Flourish": {
    "file": "opening-flourish.webp",
    "kind": "tcg"
@@ -882,16 +1070,32 @@
    "file": "phantom-feather-flurry.webp",
    "kind": "tcg"
   },
+  "Piercing Blow": {
+   "file": "piercing-blow.webp",
+   "kind": "tcg"
+  },
   "Planet Befall": {
    "file": "planet-befall.webp",
+   "kind": "tcg"
+  },
+  "Plata Plama": {
+   "file": "plata-plama.webp",
    "kind": "tcg"
   },
   "Pocztowy Demonspear": {
    "file": "pocztowy-demonspear.webp",
    "kind": "tcg"
   },
+  "Prayer to the Winds": {
+   "file": "prayer-to-the-winds.webp",
+   "kind": "tcg"
+  },
   "Precision Hydronic Cooler": {
    "file": "precision-hydronic-cooler.webp",
+   "kind": "tcg"
+  },
+  "Precision Shot": {
+   "file": "precision-shot.webp",
    "kind": "tcg"
   },
   "Pressurized Floe": {
@@ -918,6 +1122,10 @@
    "file": "pure-heart-pure-dreams.webp",
    "kind": "tcg"
   },
+  "Pursuer's Mark": {
+   "file": "pursuer-s-mark.webp",
+   "kind": "tcg"
+  },
   "Pyronado": {
    "file": "pyronado.webp",
    "kind": "tcg"
@@ -930,8 +1138,16 @@
    "file": "radiant-wingslash.webp",
    "kind": "tcg"
   },
+  "Raging Charge": {
+   "file": "raging-charge.webp",
+   "kind": "tcg"
+  },
   "Rain of Stone": {
    "file": "rain-of-stone.webp",
+   "kind": "tcg"
+  },
+  "Ram": {
+   "file": "ram.webp",
    "kind": "tcg"
   },
   "Raphanus Sky Cluster": {
@@ -941,6 +1157,14 @@
   "Rapid Fire": {
    "file": "rapid-fire.webp",
    "kind": "talent"
+  },
+  "Rapid Hammer Strike": {
+   "file": "rapid-hammer-strike.webp",
+   "kind": "tcg"
+  },
+  "Rapid Melee": {
+   "file": "rapid-melee.webp",
+   "kind": "tcg"
   },
   "Rapid Ritesword": {
    "file": "rapid-ritesword.webp",
@@ -978,6 +1202,10 @@
    "file": "riff-revolution.webp",
    "kind": "tcg"
   },
+  "Rimestorm Rite": {
+   "file": "rimestorm-rite.webp",
+   "kind": "tcg"
+  },
   "Ring of Bursting Grenades": {
    "file": "ring-of-bursting-grenades.webp",
    "kind": "tcg"
@@ -1002,13 +1230,33 @@
    "file": "rite-of-dispelling-winds.webp",
    "kind": "tcg"
   },
+  "Rite of Mortal Water": {
+   "file": "rite-of-mortal-water.webp",
+   "kind": "tcg"
+  },
   "Rite of Progeniture: Tectonic Tide": {
    "file": "rite-of-progeniture-tectonic-tide.webp",
+   "kind": "tcg"
+  },
+  "Rite of Rolling Thunder": {
+   "file": "rite-of-rolling-thunder.webp",
    "kind": "tcg"
   },
   "Rites of Termination": {
    "file": "rites-of-termination.webp",
    "kind": "talent"
+  },
+  "Roasted Nectar Burst": {
+   "file": "roasted-nectar-burst.webp",
+   "kind": "tcg"
+  },
+  "Rock Projectile": {
+   "file": "rock-projectile.webp",
+   "kind": "tcg"
+  },
+  "Rolling Spray": {
+   "file": "rolling-spray.webp",
+   "kind": "tcg"
   },
   "Royal Descent: Behold, Itto the Evil!": {
    "file": "royal-descent-behold-itto-the-evil.webp",
@@ -1064,6 +1312,14 @@
   },
   "Schematic Setup": {
    "file": "schematic-setup.webp",
+   "kind": "tcg"
+  },
+  "Scorching Combo": {
+   "file": "scorching-combo.webp",
+   "kind": "tcg"
+  },
+  "Scorching Leaves": {
+   "file": "scorching-leaves.webp",
    "kind": "tcg"
   },
   "Scoring Cuts": {
@@ -1122,6 +1378,14 @@
    "file": "sharpshooter.webp",
    "kind": "tcg"
   },
+  "Shield Riposte": {
+   "file": "shield-riposte.webp",
+   "kind": "tcg"
+  },
+  "Shield Sweep": {
+   "file": "shield-sweep.webp",
+   "kind": "tcg"
+  },
   "Shining Miracle♪": {
    "file": "shining-miracle.webp",
    "kind": "tcg"
@@ -1130,8 +1394,16 @@
    "file": "shinobu-s-shadowsword.webp",
    "kind": "tcg"
   },
+  "Shockwave Smash": {
+   "file": "shockwave-smash.webp",
+   "kind": "tcg"
+  },
   "Short-Range Rapid Interdiction Fire": {
    "file": "short-range-rapid-interdiction-fire.webp",
+   "kind": "tcg"
+  },
+  "Short-Range Snap Fire": {
+   "file": "short-range-snap-fire.webp",
    "kind": "tcg"
   },
   "Shuumatsuban Ninja Blade": {
@@ -1144,6 +1416,10 @@
   },
   "Signed Edict": {
    "file": "signed-edict.webp",
+   "kind": "tcg"
+  },
+  "Skilled Charge": {
+   "file": "skilled-charge.webp",
    "kind": "tcg"
   },
   "Skirmishing Spear": {
@@ -1210,8 +1486,32 @@
    "file": "spiritvessel-snapshot.webp",
    "kind": "tcg"
   },
+  "Splitrock Slam": {
+   "file": "splitrock-slam.webp",
+   "kind": "tcg"
+  },
+  "Spore Bullet": {
+   "file": "spore-bullet.webp",
+   "kind": "tcg"
+  },
+  "Spouting Waves": {
+   "file": "spouting-waves.webp",
+   "kind": "tcg"
+  },
+  "Spread Fire": {
+   "file": "spread-fire.webp",
+   "kind": "tcg"
+  },
   "Spring Spirit Summoning": {
    "file": "spring-spirit-summoning.webp",
+   "kind": "tcg"
+  },
+  "Sprinting Strike": {
+   "file": "sprinting-strike.webp",
+   "kind": "tcg"
+  },
+  "Staff of Geo": {
+   "file": "staff-of-geo.webp",
    "kind": "tcg"
   },
   "Starfell Sword": {
@@ -1274,12 +1574,24 @@
    "file": "striking-serpent.webp",
    "kind": "tcg"
   },
+  "Striking Staff": {
+   "file": "striking-staff.webp",
+   "kind": "tcg"
+  },
   "Suanni's Gilded Dance": {
    "file": "suanni-s-gilded-dance.webp",
    "kind": "tcg"
   },
   "Subjugation: Koukou Sendou": {
    "file": "subjugation-koukou-sendou.webp",
+   "kind": "tcg"
+  },
+  "Sudden Charge": {
+   "file": "sudden-charge.webp",
+   "kind": "tcg"
+  },
+  "Summoning of Stones": {
+   "file": "summoning-of-stones.webp",
    "kind": "tcg"
   },
   "Super Saturated Syringing": {
@@ -1320,6 +1632,14 @@
   },
   "Sword of the Radiant Path": {
    "file": "sword-of-the-radiant-path.webp",
+   "kind": "tcg"
+  },
+  "Tainted Water Strike": {
+   "file": "tainted-water-strike.webp",
+   "kind": "tcg"
+  },
+  "Tainted Water Surge": {
+   "file": "tainted-water-surge.webp",
    "kind": "tcg"
   },
   "Targeted Treatment": {
@@ -1366,6 +1686,18 @@
    "file": "the-wind-s-secret-ways.webp",
    "kind": "tcg"
   },
+  "Thunder Arrow": {
+   "file": "thunder-arrow.webp",
+   "kind": "tcg"
+  },
+  "Thunderblast Hammer": {
+   "file": "thunderblast-hammer.webp",
+   "kind": "tcg"
+  },
+  "Thunderbolt": {
+   "file": "thunderbolt.webp",
+   "kind": "tcg"
+  },
   "Thunderbolt Rush": {
    "file": "thunderbolt-rush.webp",
    "kind": "tcg"
@@ -1374,12 +1706,24 @@
    "file": "thunderbolt-strike.webp",
    "kind": "talent"
   },
+  "Thunderclap Totem": {
+   "file": "thunderclap-totem.webp",
+   "kind": "tcg"
+  },
+  "Thunderstrike Hex": {
+   "file": "thunderstrike-hex.webp",
+   "kind": "tcg"
+  },
   "Tidecaller": {
    "file": "tidecaller.webp",
    "kind": "tcg"
   },
   "Time to Get Serious!": {
    "file": "time-to-get-serious.webp",
+   "kind": "tcg"
+  },
+  "Torch Strike": {
+   "file": "torch-strike.webp",
    "kind": "tcg"
   },
   "Toss 'N' Turn Spear": {
@@ -1398,6 +1742,10 @@
    "file": "tri-sphere-eminence.webp",
    "kind": "talent"
   },
+  "Triple Geosmash": {
+   "file": "triple-geosmash.webp",
+   "kind": "tcg"
+  },
   "Trump-Card Kitty": {
    "file": "trump-card-kitty.webp",
    "kind": "tcg"
@@ -1412,6 +1760,18 @@
   },
   "Universality: An Elaboration on Form": {
    "file": "universality-an-elaboration-on-form.webp",
+   "kind": "tcg"
+  },
+  "Up-Close Pummelling": {
+   "file": "up-close-pummelling.webp",
+   "kind": "tcg"
+  },
+  "Venomous Vines": {
+   "file": "venomous-vines.webp",
+   "kind": "tcg"
+  },
+  "Vicious Kicks": {
+   "file": "vicious-kicks.webp",
    "kind": "tcg"
   },
   "Vijnana-Phala Mine": {
@@ -1430,12 +1790,28 @@
    "file": "wake-of-earth.webp",
    "kind": "talent"
   },
+  "Water Ball": {
+   "file": "water-ball.webp",
+   "kind": "tcg"
+  },
   "Weaving Blade": {
    "file": "weaving-blade.webp",
    "kind": "tcg"
   },
   "Weighted Spike": {
    "file": "weighted-spike.webp",
+   "kind": "tcg"
+  },
+  "Whirling Cleave": {
+   "file": "whirling-cleave.webp",
+   "kind": "tcg"
+  },
+  "Whirling Lashes": {
+   "file": "whirling-lashes.webp",
+   "kind": "tcg"
+  },
+  "Whirling Legblades": {
+   "file": "whirling-legblades.webp",
    "kind": "tcg"
   },
   "Whirlwind Thrust": {
@@ -1448,6 +1824,10 @@
   },
   "White Clouds at Dawn": {
    "file": "white-clouds-at-dawn.webp",
+   "kind": "tcg"
+  },
+  "Wildgrass Ball": {
+   "file": "wildgrass-ball.webp",
    "kind": "tcg"
   },
   "Wind Realm of Nasamjnin": {
@@ -1627,6 +2007,73 @@
   "Yun Jin": "yun-jin.webp",
   "Zibai": "zibai.webp",
   "Paimon": "paimon.webp",
+  "Fatui Cryo Cicin Mage": "fatui-cryo-cicin-mage.webp",
+  "Fatui Pyro Agent": "fatui-pyro-agent.webp",
+  "Hilichurl Fighter": "hilichurl-fighter.webp",
+  "Hilichurl Shooter": "hilichurl-shooter.webp",
+  "Hydro Samachurl": "hydro-samachurl.webp",
+  "Treasure Hoarders - Marksman": "treasure-hoarders-marksman.webp",
+  "Treasure Hoarders - Scout": "treasure-hoarders-scout.webp",
+  "Treasure Hoarders: Gravedigger": "treasure-hoarders-gravedigger.webp",
+  "Treasure Hoarders: Pyro Potioneer": "treasure-hoarders-pyro-potioneer.webp",
+  "Wooden Shieldwall Mitachurl": "wooden-shieldwall-mitachurl.webp",
+  "Cryo Whopperflower": "cryo-whopperflower.webp",
+  "Eremite Sunfrost": "eremite-sunfrost.webp",
+  "Fatui Skirmisher - Anemoboxer Vanguard": "fatui-skirmisher-anemoboxer-vanguard.webp",
+  "Fatui Skirmisher - Pyroslinger Bracer": "fatui-skirmisher-pyroslinger-bracer.webp",
+  "Geo Slime": "geo-slime.webp",
+  "Hydro Slime": "hydro-slime.webp",
+  "Large Electro Slime": "large-electro-slime.webp",
+  "Large Pyro Slime": "large-pyro-slime.webp",
+  "Pyro Abyss Mage": "pyro-abyss-mage.webp",
+  "Ruin Guard": "ruin-guard.webp",
+  "Anemo Samachurl": "anemo-samachurl.webp",
+  "Annihilation Specialist Mek - Ousia": "annihilation-specialist-mek-ousia.webp",
+  "Annihilation Specialist Mek - Pneuma": "annihilation-specialist-mek-pneuma.webp",
+  "Arithmetic Enhancer Mek - Ousia": "arithmetic-enhancer-mek-ousia.webp",
+  "Arithmetic Enhancer Mek - Pneuma": "arithmetic-enhancer-mek-pneuma.webp",
+  "Assault Specialist Mek - Ousia": "assault-specialist-mek-ousia.webp",
+  "Assault Specialist Mek - Pneuma": "assault-specialist-mek-pneuma.webp",
+  "Blazing Axe Mitachurl": "blazing-axe-mitachurl.webp",
+  "Crackling Axe Mitachurl": "crackling-axe-mitachurl.webp",
+  "Cryo Abyss Mage": "cryo-abyss-mage.webp",
+  "Cryo Hilichurl Shooter": "cryo-hilichurl-shooter.webp",
+  "Cryo Slime": "cryo-slime.webp",
+  "Dendro Samachurl": "dendro-samachurl.webp",
+  "Electro Abyss Mage": "electro-abyss-mage.webp",
+  "Electro Hilichurl Shooter": "electro-hilichurl-shooter.webp",
+  "Electro Samachurl": "electro-samachurl.webp",
+  "Electro Slime": "electro-slime.webp",
+  "Eremite Daythunder": "eremite-daythunder.webp",
+  "Eremite Desert Clearwater": "eremite-desert-clearwater.webp",
+  "Eremite Stone Enchanter": "eremite-stone-enchanter.webp",
+  "Fatui Skirmisher - Cryogunner Legionnaire": "fatui-skirmisher-cryogunner-legionnaire.webp",
+  "Fatui Skirmisher - Electrohammer Vanguard": "fatui-skirmisher-electrohammer-vanguard.webp",
+  "Fatui Skirmisher - Geochanter Bracer": "fatui-skirmisher-geochanter-bracer.webp",
+  "Fatui Skirmisher - Hydrogunner Legionnaire": "fatui-skirmisher-hydrogunner-legionnaire.webp",
+  "Geo Samachurl": "geo-samachurl.webp",
+  "Grounded Geoshroom": "grounded-geoshroom.webp",
+  "Grounded Hydroshroom": "grounded-hydroshroom.webp",
+  "Hilichurl Berserker": "hilichurl-berserker.webp",
+  "Hydro Abyss Mage": "hydro-abyss-mage.webp",
+  "Ice Shieldwall Mitachurl": "ice-shieldwall-mitachurl.webp",
+  "Kairagi: Dancing Thunder": "kairagi-dancing-thunder.webp",
+  "Kairagi: Fiery Might": "kairagi-fiery-might.webp",
+  "Large Cryo Slime": "large-cryo-slime.webp",
+  "Large Hydro Slime": "large-hydro-slime.webp",
+  "Nobushi: Hitsukeban": "nobushi-hitsukeban.webp",
+  "Nobushi: Jintouban": "nobushi-jintouban.webp",
+  "Nobushi: Kikouban": "nobushi-kikouban.webp",
+  "Pyro Whopperflower": "pyro-whopperflower.webp",
+  "Rock Shieldwall Mitachurl": "rock-shieldwall-mitachurl.webp",
+  "Rockfond Rifthound": "rockfond-rifthound.webp",
+  "Ruin Drake: Earthguard": "ruin-drake-earthguard.webp",
+  "Suppression Specialist Mek - Ousia": "suppression-specialist-mek-ousia.webp",
+  "Suppression Specialist Mek - Pneuma": "suppression-specialist-mek-pneuma.webp",
+  "Tainted Hydro Phantasm": "tainted-hydro-phantasm.webp",
+  "Thundercraven Rifthound": "thundercraven-rifthound.webp",
+  "Winged Cryoshroom": "winged-cryoshroom.webp",
+  "Winged Dendroshroom": "winged-dendroshroom.webp",
   "Aether": "aether.webp",
   "Lumine": "lumine.webp"
  },
@@ -1653,6 +2100,11 @@
   "Muji-Muji Daruma": "muji-muji-daruma.webp",
   "Talisman Spirit": "talisman-spirit.webp",
   "Stormeye": "stormeye.webp",
-  "Mini Baku": "mini-baku.webp"
+  "Mini Baku": "mini-baku.webp",
+  "Cryo Cicins": "cryo-cicins.webp",
+  "Whirlwind": "whirlwind.webp",
+  "Tanglebolt Ring": "tanglebolt-ring.webp",
+  "Spirit of Omen: Stone Drake": "spirit-of-omen-stone-drake.webp",
+  "Delayed Fuse Munitions": "delayed-fuse-munitions.webp"
  }
 }

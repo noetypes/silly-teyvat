@@ -22,14 +22,20 @@ Chat switches, new encounters, disabling the extension and losing the selected t
 Each armed message plays one round in three phases.
 
 1. **Roll Phase.** The party throws **1 + 2 per fighting member** elemental dice (you count as a member, and one more die with Electro Resonance). The faces are the seven elements and Omni. The summary shows how many dice each member can use: their own element, Omni (wild) and spare dice. Unmatched dice start selected; you may reroll any of them once. Dice are **fuel**, not damage.
-2. **Action Phase.** The battle board is laid out like Genius Invokation TCG: enemies across the top, your party along the bottom, summons on the right, your dice down the right edge, moves in the bottom-right corner, item cards in your hand at the bottom and the round button (hourglass) on the left. Characters that have a TCG card use its art; moves show their Genius Invokation skill icons, and elements, auras, dice and reactions use the game's own icons. Tap a party card to pick who you are planning for, then one of their three moves:
+2. **Action Phase.** The battle board is laid out like Genius Invokation TCG: enemies across the top, your party along the bottom, summons on the right, your dice down the right edge, moves in the bottom-right corner, item cards in your hand at the bottom and the round button (hourglass) on the left. Characters that have a TCG card use its art; moves show their Genius Invokation skill icons, and elements, auras, dice and reactions use the game's own icons. Tap a party card to pick who you are planning for, then one of their three moves. Focus moves on to the next member still without a move; once everyone has one, nobody is highlighted and the hourglass pulses:
    - **Normal Attack** (A): free, but it can miss (each weapon has its own miss chance). A hit gives 1 Energy.
    - **Elemental Skill** (E): costs dice of the member's element and gives 1 Energy.
    - **Elemental Burst** (Q): costs dice and needs full Energy (the gold diamonds on the card's right edge; everyone starts an encounter with 1).
-   The hexagon under each move is its dice cost. Dice are paid from the member's own element first, then Omni, then **elemental tuning**: two spare dice become one. Spent dice dim and the count at the top of the dice column drops. A move you cannot pay for shakes. When a move can hit more than one enemy (or ally), the possible targets pulse; tap one. The small medallion under each party card shows its planned move, and its number is the acting order: tap a member and choose again to change it. Hover or long-press a move, card, item or summon for its details and the forecast (expected damage, healing and reactions for the current order). The **sparkle** button picks the strongest affordable move for everyone. Keyboard: A, E, Q (or 1, 2, 3) and Enter.
+   The hexagon under each move is its dice cost. Dice are paid from the member's own element first, then Omni, then **elemental tuning**: two spare dice become one. Spent dice dim and the count at the top of the dice column drops. A move you cannot pay for shakes. When a move can hit more than one enemy (or ally), the possible targets pulse; tap one. The small medallion under each party card shows its planned move, and its number is the acting order: members act in the order you give them moves. Tap a member who has a move to change it, or use **Act earlier / Act later** above the moves (or [ and ]) to change their place. Hover or long-press a move, card, item or summon for its details and the forecast (expected damage, healing and reactions for the current order). The **sparkle** button picks the strongest affordable move for everyone. Keyboard: A, E, Q (or 1, 2, 3) and Enter.
 3. **Resolution.** Moves play in order with banners, impacts, damage numbers, reactions and sounds. An Elemental Burst first flashes the character's splash art. Then every enemy still standing carries out the move it telegraphed (when **Enemies strike back** is on), and the End Phase runs summons, Dendro Cores, damage over time, regeneration and timers. A summary credits each member's damage and lists the reactions. **Skip** speeds the playback up, and a second press skips it.
 
 The round is saved before it is played back, as a narrator message in plain language (moves, damage, reactions, HP), so the roleplay model can describe it. Enemy HP, party HP, Energy, shields, statuses, elements and summons are saved per encounter in chat metadata. Historical pages show their saved health without replaying anything. An enemy at 0 HP gets its death message and leaves the active group; its card and earlier messages remain.
+
+## Genius Invokation TCG enemies
+
+All 57 enemy character cards from Genius Invokation TCG's PvE challenges are Silly Teyvat enemies (47 were added in 1.40; 10 already existed). Each uses its TCG card as its battle card and as its character card portrait. Their kits follow the card: the Normal Attack and Elemental Skill are both Attacks (the enemy picks one each round), and the Elemental Burst is the Special. Damage, HP and passives are scaled to Silly Teyvat's numbers: shields for Abyss Mages, armour for Shieldwall Mitachurls and meka, Corrosion summons for Rifthounds, and so on. Edit any of them in **Character Customization → Moveset**. To meet them, add them to a wilderness waypoint's enemy pool.
+
+`tools/fetch-tcg-enemies.py` collects the cards from the Genshin Impact Wiki API, and `tools/build-tcg-enemy-cards.py --install <characters folder>` builds the character cards (it only replaces the portrait of a card that already exists, after backing it up).
 
 ## Seeing the enemy's next move
 
@@ -47,14 +53,16 @@ The party shares a bag of Genius Invokation event cards, saved per chat. A new c
 | Lotus Flower Crisp | 1 | Shields 6 damage |
 | Minty Meat Rolls | 1 | Normal Attacks never miss for 2 rounds |
 | Adeptus' Temptation | 2 | One member deals 60% more damage this round |
-| Teyvat Fried Egg | 2 | Revives a downed member with 8 HP |
+| Teyvat Fried Egg | 2 | Revives a downed member with 8 HP; they can act this round |
 | Tandoori Roast Chicken | 2 | The party deals 25% more damage this round |
 | Butter Crab | 2 | The party takes 30% less damage for 2 rounds |
-| Starsigns | 2 | One member gains 1 Energy |
+| Starsigns | 2 | One member gains 1 Energy, in time for a Burst this round |
 | Send Off | 2 | Dispels enemy summons and strips 8 shield from every enemy |
-| Toss-Up | 0 | Rerolls every unspent die that is not Omni or a party element |
+| Toss-Up | 0 | Returns to the Roll Phase to reroll your unspent dice (all start selected) |
 | Thunder and Eternity | 0 | Turns every unspent die into Omni |
 | Woven Flames, Waters, Winds, Thunder, Weeds, Ice, Stone | 0 | Adds one die of that element |
+
+Open **Inventory** from the Paimon menu to see every card in the bag, with its cost, quality and effect. Cards won since you last opened it are tagged *New*.
 
 Winning a battle drops one card per defeated enemy (two from tough ones), weighted towards common food, and elemental enemies sometimes drop the matching Woven card. A rescue at the Adventurers' Guild tops the bag back up to the starter cards.
 

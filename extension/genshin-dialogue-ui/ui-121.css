@@ -40,6 +40,7 @@ body.gi-card-art-on .avatar img:is(.gi-card-img, .gi-card-img-frame) {
     transition: translate 220ms var(--ty-ease, ease), filter 220ms ease, rotate 220ms var(--ty-ease, ease);
 }
 body.gi-card-art-on .avatar img.gi-card-img { height: 100%; aspect-ratio: 208 / 248; object-fit: contain; border-radius: 0; box-shadow: none; filter: drop-shadow(0 3px 5px #000a); }
+body.gi-card-art-on .avatar img.gi-card-img.gi-card-img-tcg { height: 88%; aspect-ratio: 420 / 720; }
 body.gi-card-art-on .avatar img.gi-card-img-frame { height: 85.08%; aspect-ratio: 157 / 211; object-fit: cover; border-radius: 4px; box-shadow: 0 0 0 1.5px #dcd7cc, 0 0 0 2.5px #0008, 0 3px 6px #000a; }
 body.gi-card-art-on #right-nav-panel :is(.character_select, .group_member):is(:hover, :focus-visible) .avatar img:is(.gi-card-img, .gi-card-img-frame) { translate: 0 -3px; }
 body.gi-card-art-on #right-nav-panel :is(.character_select, .group_member):is(:hover, :focus-visible) .avatar img.gi-card-img { filter: drop-shadow(0 6px 8px #000c) brightness(1.05); }

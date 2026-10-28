@@ -1,3 +1,12 @@
+# Silly Teyvat 1.40.0: Acting order, Inventory and 47 new TCG enemies
+
+- **Choose who acts first.** The order you give members their moves is the order they act; the number on each medallion shows it. Tap a member who already has a move and use **‹ Act earlier / Act later ›** (or the [ and ] keys) to change it.
+- **Clear planning.** After choosing, focus moves on to the next member still without a move. Once everyone has one, nobody stays highlighted: the hourglass pulses and "Everyone is ready" shows. Tap any member to change their move; tap them again to put them down.
+- **Toss-Up works like the game.** Playing it goes straight back to the Roll Phase with every die that is not already paying for a move, all selected; reroll them (or deselect some), then return to your plan.
+- **Card fixes.** Starsigns now counts towards a Burst in the same round (taking it back drops that Burst). A member revived with Teyvat Fried Egg stands up on the board and can be given a move that round.
+- **Inventory.** A new Paimon menu tile opens the party's card bag, laid out after Genshin's item screen: type tabs, cards grouped under headers, quality colours and stars, *New* tags on cards won since you last looked, details on the right and sorting at the bottom.
+- **47 new enemies.** Every enemy with a Genius Invokation TCG card now exists in Silly Teyvat, using that card for combat art, its Normal Attack and Elemental Skill as attacks and its Elemental Burst as its Special. Their character cards use the TCG card as the portrait, and the 10 enemies who already existed now do too. Card lists show TCG portraits whole.
+
 # Silly Teyvat 1.39.2: Defeated enemies stay off the stage
 
 - **Gone for good.** After a defeated enemy's sprite plays its fall and leaves, it no longer pops back on the next page of the same message, on later messages, or after the chat reloads. Only a new encounter brings it back.

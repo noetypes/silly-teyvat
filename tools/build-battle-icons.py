@@ -69,9 +69,12 @@ def kits():
     for(const [name,p] of Object.entries(props))if(p.playable&&p.role!=='enemy'&&!/^(Aether|Lumine)$/.test(name))add(name,K.defaultKit(name,{element:p.element}));
     for(const el of ['Anemo','Geo','Electro','Dendro','Hydro','Pyro'])add('Traveler '+el,K.travelerKit(el));
     add('Paimon',K.defaultKit('Paimon',{element:'None'}));
+    // Enemies with a Genius Invokation card use its skills (combat-kits.js lists them after the older enemies).
+    const cards=new Set(JSON.parse((await import('fs')).readFileSync(process.argv[3],'utf8')));
+    for(const [name,p] of Object.entries(props))if(p.role==='enemy'&&cards.has(name))add(name,K.defaultKit(name,{enemy:true}));
     console.log(JSON.stringify({characters:out.characters,summons:[...out.summons]}));
     """
-    result = subprocess.run(['node', '--input-type=module', '-e', script, str(ROOT / 'combat-kits.js'), str(ROOT / 'assets/character-properties.json')], capture_output=True, text=True, check=True)
+    result = subprocess.run(['node', '--input-type=module', '-e', script, str(ROOT / 'combat-kits.js'), str(ROOT / 'assets/character-properties.json'), str(ROOT / 'assets/tcg/characters.json')], capture_output=True, text=True, check=True)
     return json.loads(result.stdout)
 
 def main():
@@ -106,10 +109,13 @@ def main():
         total += save_png(url, OUT / 'skills' / f'{slug(m)}.webp', 128); index['skills'][m] = {'file': f'{slug(m)}.webp', 'kind': kind}
     # Round character icons.
     names = [n for n in data['characters'] if not n.startswith('Traveler')] + ['Aether', 'Lumine']
-    urls = resolve([f'File:{n} Icon.png' for n in names], 128)
+    # Enemies use the wiki's "Enemy <name> Icon"; Ousia and Pneuma meka share their base model's icon.
+    icon_titles = lambda n: [f'File:{n} Icon.png', f"File:Enemy {re.sub(r' - (Ousia|Pneuma)$', '', n)} Icon.png"]
+    urls = resolve([t for n in names for t in icon_titles(n)], 128)
     for n in names:
-        if f'File:{n} Icon.png' in urls:
-            total += save_png(urls[f'File:{n} Icon.png'], OUT / 'icons' / f'{slug(n)}.webp', 128); index['icons'][n] = f'{slug(n)}.webp'
+        title = next((t for t in icon_titles(n) if t in urls), None)
+        if title:
+            total += save_png(urls[title], OUT / 'icons' / f'{slug(n)}.webp', 128); index['icons'][n] = f'{slug(n)}.webp'
     # Summon cards.
     urls = resolve([f'File:{s} Summon.png' for s in data['summons']], 200)
     for s in data['summons']:
