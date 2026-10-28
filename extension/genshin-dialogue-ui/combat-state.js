@@ -22,8 +22,13 @@ export function sceneMembers(ctx){return activeGroup(ctx)?.members || [ctx.chara
 export function activeEnemies(ctx){
     const cast=ctx.chatMetadata?.silly_teyvat_cast || {},encounter=cast.encounter,locationId=ctx.chatMetadata?.silly_teyvat_world?.location?.id;
     const key=encounter&&encounter.locationId===locationId?encounter.key:`manual:${locationId || 'chat'}`;
-    const avatars=[...new Set([...(encounter&&encounter.locationId===locationId?encounter.enemies || []:[]),...sceneMembers(ctx).filter(a=>isEnemy(ctx,a)&&!cast.managed?.includes(a))])];
-    const store=combatState(ctx),visit=store.visits[key] ??= {locationId,enemies:{}};
+    const store=combatState(ctx);
+    // An enemy left in the group from a fight somewhere else (defeated, fled or left behind) does not
+    // follow the party: it is present here only if this location's encounter lists it.
+    const elsewhere=a=>Object.entries(store.visits).some(([k,v])=>k!==key&&v.locationId!==locationId&&v.enemies?.[a]);
+    const listed=encounter&&encounter.locationId===locationId?encounter.enemies || []:[];
+    const avatars=[...new Set([...listed,...sceneMembers(ctx).filter(a=>isEnemy(ctx,a)&&!cast.managed?.includes(a)&&!elsewhere(a))])];
+    const visit=store.visits[key] ??= {locationId,enemies:{}};
     return avatars.filter(a=>!playedAvatars(ctx).has(a)&&isEnemy(ctx,a)&&ctx.characters?.some(c=>c.avatar===a)).map(avatar=>{
         let enemy=visit.enemies[avatar];
         if(!enemy){const props=characterProperties(ctx,avatar),max=enemyMaxHp(ctx,avatar);enemy=visit.enemies[avatar]={avatar,hp:max,maxHp:max,deathMessage:props.deathMessage,defeated:false};}

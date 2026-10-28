@@ -22,6 +22,10 @@ export async function runCombatTests(){
         await ui.attack('Hilichurl Fighter.png');check('defeated enemy cannot be attacked twice',rolls===1&&combatState(ctx).events.length===1);
         ui.sync({on:true,id:ctx.chat.length-1});check('death hides health and attack action',root.querySelector('#gi-combat').hidden&&ui.actions().length===0);
         ui.sync({on:true,id:0});check('old message replays saved HP without reviving enemy',root.querySelector('.gi-enemy-health')?.textContent.includes('5 / 5 HP')&&activeEnemies(ctx).length===0);
+        {const saved=structuredClone(ctx.chatMetadata);ctx.chatMetadata.silly_teyvat_world.location={id:'town'};ctx.chatMetadata.silly_teyvat_cast.encounter={key:'town-visit',locationId:'town',enemies:[],present:[]};
+        check('a defeated enemy left in the group does not respawn at the next location',activeEnemies(ctx).length===0&&!combatState(ctx).visits['town-visit']?.enemies?.['Hilichurl Fighter.png']);
+        ctx.chatMetadata.silly_teyvat_cast.encounter.enemies=['Hilichurl Fighter.png'];check('an encounter that lists the enemy still brings it',activeEnemies(ctx).length===1);
+        ctx.chatMetadata=saved;}
         choices.dispose();choices=null;ui.dispose();check('dispose clears combat prompt and UI',!root.querySelector('#gi-combat')&&ctx.extensionPrompts.silly_teyvat_combat.value==='');
         const panel=document.createElement('details');root.append(panel);const location=ctx.extensionSettings.genshin_dialogue_ui.backgroundRegions[0].locations[0];const wild=mountWildernessEditor({panel,getContext:()=>ctx,getLocation:()=>location});wild.refresh();check('wilderness picker lists enemies only',panel.querySelectorAll('[data-enemy]').length===1&&!panel.textContent.includes('Klee'));
         panel.querySelector('[data-wild="override"]').checked=true;panel.querySelector('[data-wild="rate"]').value='75';panel.querySelector('[data-wild-save]').click();check('per-location encounter chance saves',location.enemyEncounterRate===75);wild.dispose();panel.remove();

@@ -1,3 +1,7 @@
+# Silly Teyvat 1.38.1: Defeated enemies stay defeated
+
+- **No respawning enemies.** An enemy left in the group after a fight elsewhere (defeated, fled or left behind) no longer reappears at the next location with full HP and opens combat. It returns only if that location's own encounter brings it, and the leftover is removed from the group. Chats already affected are repaired when they load.
+
 # Silly Teyvat 1.38: Silly Teyvat prompts in AI Config's prompt order
 
 - **Choose when the AI reads each prompt.** With Chat Completion, Writing style, Characterization, Game systems, World scale and Combat state are entries in **AI Config → Prompts** (named "Silly Teyvat: …"). Drag them to reorder, or toggle them like any other prompt. New entries start next to Main Prompt (Characterization, Game systems) and after Chat History (Writing style, World scale, Combat state); after that, your arrangement is kept.
