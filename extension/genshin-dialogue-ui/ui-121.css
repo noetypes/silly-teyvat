@@ -141,6 +141,47 @@ body.gi-reduced-motion #gi-attack-controls #gi-attack-toggle { animation: none; 
 #gi-elemental-roll.gi-can-reroll .gi-roll-board { cursor: default; }
 @media (max-height: 560px) { #gi-elemental-roll .gi-roll-actions { margin: 6px 0 8px; } #gi-elemental-roll .gi-roll-reroll { min-height: 38px; } }
 
+/* ---------- Roll Phase table (1.35): the Genius Invokation felt, wooden frame and spotlight ---------- */
+#gi-elemental-roll {
+    background:
+        repeating-linear-gradient(45deg, #ffffff09 0 1px, #0000 1px 46px),
+        repeating-linear-gradient(-45deg, #ffffff09 0 1px, #0000 1px 46px),
+        radial-gradient(ellipse 80% 75% at 50% 50%, #4f7d7b 0%, #3f6967 55%, #2c4c4d 100%);
+}
+#gi-elemental-roll::before { inset: 50% auto auto 50%; width: min(56dvh, 46vw); aspect-ratio: 1; translate: -50% -46%; border-radius: 50%; background: none; mask: none; opacity: 1; animation: none;
+    border: 2px solid #e9fbf41a; box-shadow: 0 0 0 18px #e9fbf408, inset 0 0 0 38px #e9fbf40a, inset 0 0 0 40px #e9fbf416; }
+/* Carved wood and gold trim around the table, with the crest at the top and bottom. */
+.gi-roll-frame { position: absolute; inset: 0; pointer-events: none; z-index: 0;
+    box-shadow: inset 0 0 0 max(8px, 1.2vmin) #3b2a1b, inset 0 0 0 calc(max(8px, 1.2vmin) + 3px) #c9a463, inset 0 0 0 calc(max(8px, 1.2vmin) + 5px) #4b341e, inset 0 0 110px #0d1f20d0; }
+.gi-roll-frame::before, .gi-roll-frame::after { content: ""; position: absolute; left: 50%; width: min(320px, 40vw); height: 34px; translate: -50% 0; background: linear-gradient(#e8cf8f, #a77a3d 60%, #6b4a25); filter: drop-shadow(0 3px 4px #0008);
+    clip-path: polygon(0 0, 100% 0, 88% 40%, 60% 50%, 50% 100%, 40% 50%, 12% 40%); top: 0; }
+.gi-roll-frame::after { top: auto; bottom: 0; scale: 1 -1; }
+/* Spotlight on the felt while the dice are thrown; it softens once they settle into rows. */
+.gi-roll-light { position: absolute; left: 50%; top: 52%; width: min(90vh, 80vw); aspect-ratio: 1; translate: -50% -50%; border-radius: 50%; pointer-events: none; z-index: 0;
+    background: radial-gradient(closest-side, #f4fffcb8, #d6efe84d 52%, #0000); mix-blend-mode: soft-light; opacity: .25; transition: opacity 700ms ease, scale 900ms var(--ty-ease); }
+#gi-elemental-roll[data-phase="rolling"] .gi-roll-light, #gi-elemental-roll[data-phase="loading"] .gi-roll-light { opacity: 1; scale: 1.05; }
+#gi-elemental-roll > :not(.gi-roll-frame, .gi-roll-light) { position: relative; z-index: 1; }
+#gi-elemental-roll .gi-roll-board { width: min(1040px, calc(100% - 48px)); }
+.gi-roll-banner { flex-direction: column; gap: 4px; margin-top: max(30px, 6vh); text-align: center; }
+.gi-roll-banner h2 { padding: 0; font-size: clamp(30px, 4.6vh, 46px); font-weight: bold; letter-spacing: .02em; color: #fff; background: none; text-shadow: 0 2px 0 #1d2a2a, 0 0 18px #0007; }
+.gi-roll-sub { min-height: 1.3em; margin: 0; font-size: clamp(15px, 2.2vh, 20px); color: #e8dcc0; text-shadow: 0 1px 2px #000a; }
+.gi-roll-sub:empty { visibility: hidden; }
+/* Chosen dice dim under the reroll arrows, as in the game. */
+#gi-elemental-roll .gi-roll-picks .gi-die-pick { display: grid; place-items: center; box-shadow: none; }
+#gi-elemental-roll .gi-roll-picks .gi-die-pick svg { width: 46%; height: 46%; color: #fff; opacity: 0; scale: .6; filter: drop-shadow(0 1px 3px #000); transition: opacity 180ms ease, scale 220ms var(--ty-ease); }
+#gi-elemental-roll .gi-roll-picks .gi-die-pick:hover { box-shadow: 0 0 0 2px #fff4d655; }
+#gi-elemental-roll .gi-roll-picks .gi-die-pick[aria-pressed="true"] { background: radial-gradient(closest-side, #12201fc0 55%, #12201f00); box-shadow: 0 0 0 2px #fff1c4aa, 0 0 18px #f2dca066; animation: none; }
+#gi-elemental-roll .gi-roll-picks .gi-die-pick[aria-pressed="true"] svg { opacity: 1; scale: 1; }
+#gi-elemental-roll .gi-roll-picks .gi-die-pick[aria-pressed="true"]::after { content: none; }
+/* Summary and buttons sit on the felt like the game's parchment controls. */
+#gi-elemental-roll .gi-roll-summary { border-radius: 14px; background: #10201fa8; box-shadow: inset 0 0 0 1px #e9fbf41f; }
+#gi-elemental-roll .gi-roll-confirm { position: relative; min-width: 300px; justify-content: center; padding-right: 54px; color: #3b4254; background: linear-gradient(#fbf6ea, #e6dcc6); box-shadow: inset 0 0 0 2px #c9a463, inset 0 0 0 4px #fbf6ea, 0 4px 14px #0007; }
+#gi-elemental-roll .gi-roll-confirm .gi-roll-confirm-icon { position: absolute; left: 8px; }
+#gi-elemental-roll .gi-roll-confirm::before, #gi-elemental-roll .gi-roll-confirm::after { content: ""; position: absolute; top: 50%; width: 12px; height: 12px; translate: 0 -50%; rotate: 45deg; background: linear-gradient(135deg, #f0d79a, #9a7139); box-shadow: 0 0 0 1.5px #4b341e; }
+#gi-elemental-roll .gi-roll-confirm::before { left: -7px; } #gi-elemental-roll .gi-roll-confirm::after { right: -7px; }
+@media (max-width: 640px) { #gi-elemental-roll .gi-roll-confirm { min-width: 220px; } .gi-roll-frame::before, .gi-roll-frame::after { height: 22px; } }
+@media (prefers-reduced-motion: reduce) { .gi-roll-light { transition: none; } }
+
 /* ---------- Map: top-middle region selector (after Kongying Tavern's area switcher) ---------- */
 #gi-world-map .gi-map-regionbar { position: absolute; z-index: 22; top: calc(var(--gi-safe-t) + 14px); left: 50%; translate: -50% 0; display: flex; flex-direction: column; align-items: center; }
 #gi-world-map .gi-map-region-current {
@@ -221,3 +262,10 @@ body:not(.gi-scene) #gi-party-health, body.gi-history #gi-party-health, body.gi-
 
 /* 1.30: Omni and spare-dice rows in the fuel summary */
 .gi-roll-face.gi-roll-face-mark { display: grid; place-items: center; font-size: 16px; color: var(--el); }
+
+/* Fuel summary (1.36): small portrait chips with dice counts, names on hover. */
+#gi-elemental-roll .gi-roll-summary.gi-roll-compact { display: flex; justify-content: center; padding: 6px 10px; background: none; box-shadow: none; }
+.gi-roll-compact .gi-roll-party { justify-content: center; gap: 8px; }
+.gi-roll-compact .gi-roll-ally { display: flex; align-items: center; gap: 6px; padding: 3px 12px 3px 3px; border-radius: 22px; background: #10201fb0; box-shadow: inset 0 0 0 1.5px color-mix(in srgb, var(--el) 70%, #0000); }
+.gi-roll-compact .gi-roll-face { width: 32px; height: 32px; }
+.gi-roll-compact .gi-roll-ally-damage { padding: 0; font-size: 20px; }

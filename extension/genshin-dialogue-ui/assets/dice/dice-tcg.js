@@ -2,7 +2,7 @@
 // gravity, bounce off the table, the edges and each other, settle on their
 // rolled face, then glide into a sorted row (Omni first, then matching elements).
 // three.js classes come from the prebuilt bundle so no rebuild is required.
-import {WebGLRenderer,Scene,PerspectiveCamera,Mesh,MeshBasicMaterial,CircleGeometry,RingGeometry,Vector3,Matrix4,Quaternion,Euler,DirectionalLight,HemisphereLight,PMREMGenerator,ACESFilmicToneMapping,GLTFLoader,RoomEnvironment} from './dice-stage.js';
+import {WebGLRenderer,Scene,PerspectiveCamera,Mesh,MeshBasicMaterial,CircleGeometry,RingGeometry,Vector3,Matrix4,Quaternion,Euler,DirectionalLight,HemisphereLight,PMREMGenerator,GLTFLoader,RoomEnvironment} from './dice-stage.js';
 
 const ORDER=['Omni','Cryo','Hydro','Pyro','Electro','Geo','Dendro','Anemo'];
 const clamp=(v,a=0,b=1)=>Math.max(a,Math.min(b,v));
@@ -19,7 +19,8 @@ const GRAVITY=-62,TABLE_E=.42,WALL_E=.62,DIE_E=.6,ROLL_FRICTION=2.6,BOUNCE_FRICT
 export async function createTcgDiceStage(canvas,{modelUrl,orientationsUrl}){
     const renderer=new WebGLRenderer({canvas,alpha:true,antialias:true,powerPreference:'low-power'});
     renderer.setPixelRatio(Math.min(2,devicePixelRatio||1));
-    renderer.setClearColor(0,0);renderer.toneMapping=ACESFilmicToneMapping;renderer.toneMappingExposure=1.05;
+    // Neutral tone mapping (three.js constant 7, not exported by the bundle) keeps the faces saturated; ACES washes them out.
+    renderer.setClearColor(0,0);renderer.toneMapping=7;renderer.toneMappingExposure=1;
     const scene=new Scene(),camera=new PerspectiveCamera(35,1,.1,10000);
     let source,geometry,material,environment,disposed=false,items=[],width=0,height=0,layoutKey='',simTime=0,thrown=false,events=[];
     const shadowGeometry=new CircleGeometry(1,32),haloGeometry=new RingGeometry(1.02,1.12,64);
@@ -36,16 +37,18 @@ export async function createTcgDiceStage(canvas,{modelUrl,orientationsUrl}){
         gltf.scene.traverse(node=>{if(node.isMesh&&!source)source=node;});
         if(!source||Array.isArray(source.material))throw Error('Unsupported elemental dice mesh.');
         geometry=source.geometry.clone();geometry.computeBoundingBox();geometry.translate(...geometry.boundingBox.getCenter(new Vector3()).multiplyScalar(-1).toArray());geometry.computeBoundingSphere();geometry.scale(...Array(3).fill(1/geometry.boundingSphere.radius));
-        material=source.material.clone();material.envMapIntensity=.8;material.emissiveIntensity=.45;
+        // Faces glow like the game's dice under the table spotlight.
+        material=source.material.clone();material.envMapIntensity=.9;material.emissiveIntensity=.85;
         const room=new RoomEnvironment(),pmrem=new PMREMGenerator(renderer);environment=pmrem.fromScene(room,.04);room.dispose();pmrem.dispose();scene.environment=environment.texture;
         scene.add(new HemisphereLight(0xf1f5ff,0x5a4630,.9));const key=new DirectionalLight(0xfff1d2,2.1);key.position.set(-3,5,7);scene.add(key);const fill=new DirectionalLight(0xabc8ff,.7);fill.position.set(5,-1,3);scene.add(fill);
 
+        // The game's Reroll grid: up to four dice a row, two rows for a full hand of eight.
         function layout(w,h){
             const n=items.length;if(!n)return;
-            const perRow=n<=8?n:Math.ceil(n/Math.ceil(n/8));
+            const rowsWanted=n<=4?1:n<=10?2:3,perRow=Math.ceil(n/rowsWanted);
             const rows=Math.ceil(n/perRow);
-            const size=Math.min(w/(perRow+1)*.42,h/(rows+1.6)*.36,64);
-            const gapX=size*2.45,gapY=size*2.5;
+            const size=Math.min(w/(perRow+1)*.44,h/(rows+1)*.5,92);
+            const gapX=size*2.6,gapY=size*2.5;
             items.forEach(item=>{
                 const i=item.slot,row=Math.floor(i/perRow),inRow=Math.min(perRow,n-row*perRow),col=i%perRow;
                 item.target=new Vector3((col-(inRow-1)/2)*gapX,((rows-1)/2-row)*gapY,0);

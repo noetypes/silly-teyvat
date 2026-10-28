@@ -14,5 +14,7 @@ export function elementImg(element,{white=false,cls='tb-el-img'}={}){
 }
 export const reactionIcon=name=>{const file=index.reactions[String(name).split(' + ').at(-1)] || (/Aggravate|Spread/.test(name)?index.reactions.Quicken:'');return file?url(`reactions/${file}`):'';};
 export const skillIcon=move=>{const entry=move&&index.skills[move.name];return entry?url(`skills/${entry.file}`):'';};
+// The same art as a white glyph for the bronze medallions (tools/build-skill-glyphs.py).
+export const skillGlyph=move=>{const entry=move&&index.skills[move.name];return entry?url(`glyphs/${entry.file}`):'';};
 export const characterIcon=name=>index.icons[name]?url(`icons/${index.icons[name]}`):'';
 export const summonArt=name=>index.summons[name]?url(`summons/${index.summons[name]}`):'';

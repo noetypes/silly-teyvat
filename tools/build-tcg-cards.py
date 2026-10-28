@@ -5,6 +5,8 @@ Usage: build-tcg-cards.py
 Needs Pillow. Character cards are fetched for every bundled character or enemy that
 has a TCG card of the same name; event cards are fetched for the battle items listed
 in ITEMS. Writes WebP files to extension/genshin-dialogue-ui/assets/tcg/{characters,items}/.
+Enemies without a TCG card get one drawn from their wiki enemy icon on an element-tinted card.
+build-tcg-cards.py --missing-enemies makes only those.
 """
 import io, json, re, sys, time, urllib.parse, urllib.request
 from pathlib import Path
@@ -71,5 +73,51 @@ def main():
     (OUT / 'characters.json').write_text(json.dumps(sorted(found), indent=1))
     print(f'{len(found)} character cards, {len(ITEMS)} item cards, {total / 1e6:.1f} MB')
 
+TINT = {'Pyro': (150, 62, 30), 'Hydro': (34, 92, 150), 'Anemo': (40, 118, 100), 'Electro': (96, 64, 150), 'Dendro': (82, 116, 30),
+        'Cryo': (70, 128, 150), 'Geo': (150, 112, 30), 'Physical': (88, 84, 80), 'None': (88, 84, 80)}
+
+def enemy_card(name, element):
+    """A card from the wiki enemy icon ("Enemy <Name>.png"), for enemies with no TCG card."""
+    wiki = re.sub(r'^Treasure Hoarders\s*[-:]\s*', 'Treasure Hoarder ', name)
+    data = get({'action': 'query', 'titles': f'File:Enemy {wiki}.png', 'prop': 'imageinfo', 'iiprop': 'url'})
+    info = next(iter(data['query']['pages'].values())).get('imageinfo')
+    if not info: return 0
+    with urllib.request.urlopen(urllib.request.Request(info[0]['url'], headers={'User-Agent': 'SillyTeyvat/1.35'}), timeout=60) as r:
+        icon = Image.open(io.BytesIO(r.read())).convert('RGBA')
+    w, h = WIDTH, round(WIDTH / .583)
+    top, low = TINT.get(element, TINT['None']), (24, 28, 38)
+    card = Image.new('RGBA', (w, h))
+    for y in range(h):
+        t = y / h
+        card.paste(tuple(round(top[i] * (1 - t) + low[i] * t) for i in range(3)) + (255,), (0, y, w, y + 1))
+    # The wiki images are landscape archive shots: fill the card and crop the sides.
+    scale = max(w / icon.width, h * .82 / icon.height)
+    icon = icon.resize((round(icon.width * scale), round(icon.height * scale)), Image.LANCZOS)
+    left = (icon.width - w) // 2
+    icon = icon.crop((left, 0, left + w, icon.height))
+    card.alpha_composite(icon, (0, 0))
+    # Fade the art into the tinted foot of the card, where the name sits.
+    fade = Image.new('RGBA', (w, h))
+    for y in range(round(h * .55), h):
+        t = min(1, (y - h * .55) / (h * .3))
+        fade.paste(low + (round(255 * t),), (0, y, w, y + 1))
+    card.alpha_composite(fade)
+    target = OUT / 'characters' / f'{name.replace(":", "")}.webp'
+    card.convert('RGB').save(target, 'WEBP', quality=82, method=6)
+    return target.stat().st_size
+
+def missing_enemies():
+    props = json.loads((ROOT / 'assets/character-properties.json').read_text())
+    listed = json.loads((OUT / 'characters.json').read_text())
+    # drawn-enemies.json remembers which cards were drawn here, so they are redrawn rather than taken for TCG cards.
+    drawn_file = OUT / 'drawn-enemies.json'
+    drawn = json.loads(drawn_file.read_text()) if drawn_file.exists() else []
+    made = [n for n, v in props.items() if v.get('role') == 'enemy' and (n not in listed or n in drawn) and enemy_card(n, v.get('element', 'None'))]
+    drawn_file.write_text(json.dumps(sorted(made), indent=1))
+    (OUT / 'characters.json').write_text(json.dumps(sorted(set(listed + made)), indent=1))
+    print(f'{len(made)} enemy cards drawn from wiki icons:', ', '.join(made))
+
 if __name__ == '__main__':
-    main()
+    if sys.argv[1:] == ['--missing-enemies']: missing_enemies()
+    else:
+        main(); missing_enemies()

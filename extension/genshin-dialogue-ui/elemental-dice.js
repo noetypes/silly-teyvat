@@ -10,6 +10,8 @@ async function createStage(canvas){
         orientationsUrl:new URL('./assets/dice/supplied/face-orientations.json',import.meta.url).href,
     });
 }
+// Two chasing arrows, drawn over a die chosen for the reroll.
+const REROLL_MARK='<svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 8.5A7.5 7.5 0 0 0 5.6 7.4M5 15.5a7.5 7.5 0 0 0 13.4 1.1"/><path d="M5.2 3.5v4.2h4.2M18.8 20.5v-4.2h-4.2"/></svg>';
 const el=(tag,cls,text)=>{const n=document.createElement(tag);if(cls)n.className=cls;if(text!==undefined)n.textContent=text;return n;};
 const wait=ms=>new Promise(r=>setTimeout(r,ms));
 function countUp(node,to,ms,signal){
@@ -21,13 +23,16 @@ function countUp(node,to,ms,signal){
 }
 export function mountElementalDice({host,stageFactory=createStage,sound=createDiceSound()}){
     const dialog=document.createElement('dialog');dialog.id='gi-elemental-roll';dialog.setAttribute('aria-labelledby','gi-dice-title');
-    dialog.innerHTML=`<div class="gi-roll-banner"><i></i><h2 id="gi-dice-title">Roll Phase</h2><i></i></div>
+    dialog.innerHTML=`<i class="gi-roll-frame" aria-hidden="true"></i><i class="gi-roll-light" aria-hidden="true"></i>
+        <div class="gi-roll-banner"><h2 id="gi-dice-title">Roll Phase</h2><p class="gi-roll-sub"></p></div>
         <div class="gi-roll-board"><canvas aria-label="Elemental dice"></canvas><div class="gi-roll-tags" aria-hidden="true"></div><div class="gi-roll-picks" role="group" aria-label="Choose dice to reroll"></div></div>
         <section class="gi-roll-summary" hidden><ol class="gi-roll-party"></ol><div class="gi-roll-target"><img alt=""><div><strong></strong><div class="gi-roll-hp"><i class="gi-roll-hp-lag"></i><i class="gi-roll-hp-fill"></i></div><span class="gi-roll-hp-text"></span></div><b class="gi-roll-damage" aria-hidden="true"></b></div></section>
         <ul class="gi-dice-results gi-sr-only"></ul><p class="gi-dice-total gi-sr-only" role="status"></p>
         <div class="gi-roll-actions"><button type="button" class="gi-roll-confirm"><span class="gi-roll-confirm-icon" aria-hidden="true"></span><span class="gi-roll-confirm-label">Skip</span></button><button type="button" class="gi-roll-reroll" hidden><span class="gi-roll-reroll-icon" aria-hidden="true"></span><span class="gi-roll-reroll-label">Reroll</span></button></div>`;
     host.append(dialog);
     const $=s=>dialog.querySelector(s);
+    // Like the game: "Roll Phase" while the dice tumble, "Reroll" once dice can be chosen.
+    const title=(text,sub='')=>{$('#gi-dice-title').textContent=text;$('.gi-roll-sub').textContent=sub;};
     const canvas=$('canvas'),button=$('.gi-roll-confirm'),rerollButton=$('.gi-roll-reroll'),abort=new AbortController();
     let rerollAction=null,frame=0,finish,skip=false,disposed=false,stagePromise,stage,accept,redraw,sequence=0,summaryAbort,closeTimer=0;
     function close(animated=false){
@@ -61,13 +66,15 @@ export function mountElementalDice({host,stageFactory=createStage,sound=createDi
         const allies=describe?.allies || [],omni=result.dice.filter(d=>d.face==='Omni').length,owned=new Set(allies.map(a=>a.element));
         const spare=result.dice.filter(d=>d.face!=='Omni'&&!owned.has(d.face)).length;
         const rows=[...allies.map(a=>({...a,faces:result.dice.filter(d=>d.face===a.element).map(d=>d.face)})),{name:'Omni (any element)',element:'Omni',faces:Array(omni).fill('Omni')}];
-        if(spare)rows.push({name:`Spare (2 tune into 1)`,element:'None',faces:result.dice.filter(d=>d.face!=='Omni'&&!owned.has(d.face)).map(d=>d.face)});
+        if(spare)rows.push({name:`Spare: 2 tune into 1`,element:'None',faces:result.dice.filter(d=>d.face!=='Omni'&&!owned.has(d.face)).map(d=>d.face)});
+        // Compact chips: portrait (or mark) and a count; the name is the tooltip.
+        $('.gi-roll-summary').classList.add('gi-roll-compact');
         const nodes=rows.map((a,i)=>{
             const li=el('li','gi-roll-ally');li.style.setProperty('--el',colors[a.element] || '#d3bc8e');li.style.animationDelay=`${i*90}ms`;
             const face=el('span','gi-roll-face');if(a.img){const img=el('img');img.src=a.img;img.alt='';face.append(img);}else{face.textContent=a.element==='Omni'?'✦':'⇄';face.classList.add('gi-roll-face-mark');}
-            const pips=el('span','gi-roll-pips');for(const f of a.faces){const pip=el('i');pip.style.setProperty('--el',colors[f]);pip.title=f;pips.append(pip);}
             const count=el('b','gi-roll-ally-damage','0');if(!a.faces.length)li.classList.add('gi-roll-miss');
-            li.append(face,el('span','gi-roll-name',a.name),pips,count);party.append(li);return count;
+            li.title=a.name;li.setAttribute('aria-label',`${a.name}: ${a.faces.length} ${a.faces.length===1?'die':'dice'}`);
+            li.append(face,count);party.append(li);return count;
         });
         $('.gi-roll-summary').hidden=false;
         if(!fast())await wait(200);
@@ -76,7 +83,7 @@ export function mountElementalDice({host,stageFactory=createStage,sound=createDi
     async function summary(result,describe,reduced){
         const signal=(summaryAbort=new AbortController()).signal,fast=()=>reduced||signal.aborted;
         if(result.kind==='fuel')return fuelSummary(result,describe,fast,signal);
-        $('.gi-roll-target').hidden=false;
+        $('.gi-roll-target').hidden=false;$('.gi-roll-summary').classList.remove('gi-roll-compact');
         const party=$('.gi-roll-party');party.replaceChildren();
         const info=new Map((describe?.allies || []).map(a=>[a.avatar,a]));
         const rows=(result.contributions || result.allies.map(avatar=>({avatar,damage:0,dice:[]})));
@@ -111,7 +118,7 @@ export function mountElementalDice({host,stageFactory=createStage,sound=createDi
     return {cancel:()=>stop(),roll(result,{reducedMotion=false,isCurrent=()=>true,describe,volume=0,reroll}={}){
         if(disposed||!isCurrent())return Promise.resolve(false);sequence++;cancelAnimationFrame(frame);frame=0;summaryAbort?.abort();finish?.(false);finish=null;accept=null;redraw=null;const current=++sequence;
         skip=reducedMotion;canvas.hidden=false;canvas.dataset.model='loading';dialog.dataset.phase='loading';
-        dialog.classList.toggle('gi-instant',reducedMotion);dialog.classList.remove('gi-settled','gi-closing');
+        dialog.classList.toggle('gi-instant',reducedMotion);dialog.classList.remove('gi-settled','gi-closing','gi-can-reroll');title('Roll Phase');
         $('.gi-roll-summary').hidden=true;$('.gi-roll-tags').replaceChildren();$('.gi-roll-target').classList.remove('gi-shake','gi-defeated');
         const listResults=()=>$('.gi-dice-results').replaceChildren(...result.dice.map(d=>el('li',d.match?'gi-die-match':'',`${d.face}${d.match&&d.damage!==undefined?` +${d.damage}`:''}`)));listResults();
         $('.gi-dice-total').textContent='';$('.gi-roll-confirm-label').textContent='Skip';button.classList.remove('gi-ready');
@@ -133,10 +140,11 @@ export function mountElementalDice({host,stageFactory=createStage,sound=createDi
                 const box=$('.gi-roll-picks');box.replaceChildren();rerollAction=null;
                 const can=typeof reroll==='function'&&(result.rerolls || 0)<1&&visual?.positions&&!canvas.hidden;
                 rerollButton.hidden=!can;dialog.classList.toggle('gi-can-reroll',Boolean(can));if(!can)return;
+                title('Reroll','Select dice to reroll');
                 const picked=new Set(result.dice.flatMap((d,i)=>d.match?[]:[i]));
                 const label=()=>{$('.gi-roll-reroll-label').textContent=picked.size?`Reroll ${picked.size}`:'Reroll';rerollButton.disabled=!picked.size;};
                 for(const p of visual.positions()){
-                    const die=result.dice[p.index],pick=el('button','gi-die-pick');pick.type='button';pick.dataset.index=String(p.index);
+                    const die=result.dice[p.index],pick=el('button','gi-die-pick');pick.type='button';pick.dataset.index=String(p.index);pick.innerHTML=REROLL_MARK;
                     pick.style.setProperty('--el',colors[die.face]);pick.setAttribute('aria-label',`${die.face} die${die.match?die.damage===undefined?', matches your party':`, ${die.damage} damage`:''}`);pick.setAttribute('aria-pressed',String(picked.has(p.index)));
                     pick.addEventListener('click',event=>{event.stopPropagation();if(picked.has(p.index))picked.delete(p.index);else picked.add(p.index);pick.setAttribute('aria-pressed',String(picked.has(p.index)));label();},{signal:abort.signal});
                     box.append(pick);
@@ -146,7 +154,7 @@ export function mountElementalDice({host,stageFactory=createStage,sound=createDi
                     if(!picked.size||!valid())return;
                     const next=reroll([...picked]);if(!next||next===result)return;
                     const indices=[...picked];result=next;summaryAbort?.abort();settled=false;accept=null;skip=reducedMotion;rerollAction=null;
-                    box.replaceChildren();rerollButton.hidden=true;dialog.classList.remove('gi-settled','gi-can-reroll');
+                    box.replaceChildren();rerollButton.hidden=true;dialog.classList.remove('gi-settled','gi-can-reroll');title('Roll Phase');
                     $('.gi-roll-summary').hidden=true;$('.gi-roll-tags').replaceChildren();$('.gi-roll-target').classList.remove('gi-shake','gi-defeated');
                     listResults();$('.gi-dice-total').textContent='';$('.gi-roll-confirm-label').textContent='Skip';button.classList.remove('gi-ready');
                     try{if(visual.reroll)visual.reroll(result.dice,indices,colors,{seed:Math.floor(Math.random()*1e9)});else visual.prepare(result.dice,colors,{seed:Math.floor(Math.random()*1e9)});}catch(error){console.warn('[Silly Teyvat] Dice model could not be displayed.',error);unavailable();return;}

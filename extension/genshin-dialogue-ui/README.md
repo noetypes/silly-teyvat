@@ -1,3 +1,20 @@
+# Silly Teyvat 1.36: Every namecard, enemy cards, a quieter top bar and no forced page turns
+
+- **A namecard for every character.** `tools/build-namecards.py` now also downloads each playable character's own namecard from the wiki (133 in all), so **Match companion** works for nearly everyone. The Travelers and Manekin/Manekina have none in the game.
+- **Enemy cards.** Enemies without a Genius Invokation card (Treasure Hoarders, Cryo Whopperflower, Geo, Large Electro and Large Pyro Slimes) get a card drawn from their wiki enemy picture: `tools/build-tcg-cards.py --missing-enemies`.
+- **Quieter top bar.** World Info, Formatting, User Settings, Backgrounds and Extensions move into a SillyTavern row in the Paimon menu; API Connections, AI Response Configuration, Persona and Character Management stay on top. Turn on **Settings → Keep every SillyTavern button on the top bar** for the original layout.
+- **Battle names stay readable.** The move badge sits in the card's bottom-right corner instead of over the name.
+- **Slimmer Roll Phase summary.** Portrait chips with dice counts; names and "2 spare dice tune into 1" are on hover.
+- **Round summaries are hidden.** The battle round recap stays in the chat for the roleplay model to read, but is no longer shown or stepped through as dialogue.
+- **No forced page turns.** A new reply (including an enemy's reaction after a battle) never pulls you off the message you're reading. You move on with Next, or Auto when it finishes the current message.
+
+# Silly Teyvat 1.35: Paimon menu, Genius Invokation table and skill medallions
+
+- **Paimon menu.** The menu now follows Genshin Impact's Paimon menu: an icon rail (back, settings, version), a profile on a namecard with your Traveler, a signature you can type, Adventure Rank with an EXP bar (25 EXP per message in the chat, 200 per rank, up to 60), Location and Companion, then square tiles for Auto, Review, Characters, Map, CG Frame, Chat Box, Hide UI and Namecard. The version label is read from `manifest.json` instead of being hard-coded.
+- **Namecards.** 40 popular namecards (regions, Travel Notes and character cards) downloaded from the Genshin Impact Wiki with `tools/build-namecards.py`. Choose one with the pencil on the profile or the Namecard tile; **Match companion** uses the current character's own namecard when there is one. The choice and signature are saved in the extension settings.
+- **Roll Phase table.** Dice are thrown onto a teal felt table with a carved wooden frame, under a spotlight that softens once they settle into the game's four-a-row grid. The title switches to **Reroll · Select dice to reroll** when a reroll is offered, and chosen dice dim under reroll arrows. Faces render saturated (neutral tone mapping, brighter emission) and the dice are larger.
+- **Skill medallions.** Moves are bronze medallions with white glyphs, made from the Genius Invokation skill icons by `tools/build-skill-glyphs.py`. Dice costs are rimmed hex dice, Bursts show their Energy cost as a gold star, and moves you can't afford turn the game's dull grey-brown.
+
 # Silly Teyvat 1.34: Roleplay system prompts
 
 - **Three editable system prompts.** A writing style guide, a characterization guide and a game systems guide are sent with every roleplay reply while Silly Teyvat is on. Edit them in **Settings → Prompts**; clear one to turn it off, or press **Reset** for the bundled version. Unedited prompts follow future updates.

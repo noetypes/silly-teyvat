@@ -8,7 +8,7 @@ import {mountLocationMusic} from './location-music.js';
 import { createTextReveal } from './text-reveal.js';
 import { mountPageSprites } from './page-sprites.js';
 import { mountChoices } from './choices.js';
-import { syncHudIcons, disposeHudIcons, iconAsset } from './hud-icons.js';
+import { syncHudIcons, disposeHudIcons, iconAsset, TUCKED, tuckedIcon } from './hud-icons.js';
 import { dialoguePages } from './narration.js';
 import { dialoguePresentation } from './dialogue-formatting.js';
 import { mountWardrobe } from './wardrobe.js';
@@ -29,13 +29,17 @@ import { loadStarterLocations } from './starter-locations.js';
 import { setLocationCharacterLimit } from './location-capacity.js';
 import { createJourneyLibraryAdapter, purgeLegacyJourneys, isLegacyJourneyGroup } from './journey-library.js';
 import { mountCardArt } from './card-art.js';
+import {namecardsReady,namecards,namecardUrl,chooseNamecard} from './namecards.js';
 import {loadPersonaSupport,personaCard,syncPersonaSettings,setPersonaSpriteSetting,otherTraveler,activatePersonaByName,findPersonaAvatar} from './persona-wardrobe.js';
 const KEY = 'genshin_dialogue_ui';
 const FOLDER = 'third-party/genshin-dialogue-ui';
-const defaults = Object.freeze({ ...stagingDefaults, enabled: false, choices: true, composer: true, reducedMotion: false, textScale: 1, scrim: 0.8, revealSpeed: 45, tapAdvance: true, pageExpressions: true, narration: false, narrationMode: 'quotes', narrationKeyword: 'Narrator:', hideDialogueQuotes:false, wardrobe: true, locationEncounters:true, locationCharacterLimit:5, randomEncounters:true, encounterRate:40, allowMainDeparture:false, worldPromptAllRegions:false, roleplayPromptsEnabled:true, wildernessEncounters:true, combatDamageMin:1, combatDamageMax:6, enemyStrikeBack:true, enemyDamageMin:2, enemyDamageMax:6, enemyDice:4, userMaxHp:30, combatDifficulty:'normal', battleEffects:true, battleSound:true, personaIcon: 'Aether', trimSprites:true, cgEnabled:true, cgMode:'scene', cgClassifier:'main', cgProfile:'', cgBypassReasoning:true, cgPrompt:defaultCGPrompt, cgAudio:true, spriteAudio:true, spriteVolume:.8, diceSound:true });
+const defaults = Object.freeze({ ...stagingDefaults, enabled: false, choices: true, composer: true, reducedMotion: false, textScale: 1, scrim: 0.8, revealSpeed: 45, tapAdvance: true, pageExpressions: true, narration: false, narrationMode: 'quotes', narrationKeyword: 'Narrator:', hideDialogueQuotes:false, wardrobe: true, locationEncounters:true, locationCharacterLimit:5, randomEncounters:true, encounterRate:40, allowMainDeparture:false, worldPromptAllRegions:false, roleplayPromptsEnabled:true, wildernessEncounters:true, combatDamageMin:1, combatDamageMax:6, enemyStrikeBack:true, enemyDamageMin:2, enemyDamageMax:6, enemyDice:4, userMaxHp:30, combatDifficulty:'normal', battleEffects:true, battleSound:true, personaIcon: 'Aether', hudAllButtons:false, namecard:'', signature:'', trimSprites:true, cgEnabled:true, cgMode:'scene', cgClassifier:'main', cgProfile:'', cgBypassReasoning:true, cgPrompt:defaultCGPrompt, cgAudio:true, spriteAudio:true, spriteVolume:.8, diceSound:true });
 const bodyClasses = ['gi-enabled', 'gi-scene', 'gi-history', 'gi-hidden', 'gi-compose', 'gi-generating', 'gi-reduced-motion', 'gi-reading', 'gi-choices-enabled', 'gi-native-staging'];
 const icons = {
     compass: '<path d="m12 2 3 7 7 3-7 3-3 7-3-7-7-3 7-3Z"/><path d="m12 8 4 4-4 4-4-4Z"/>',
+    back: '<path d="M9 14 4 9l5-5"/><path d="M4 9h10.5a5.5 5.5 0 0 1 0 11H11"/>',
+    edit: '<path d="M4 20h4L19 9l-4-4L4 16Z"/><path d="m13.5 6.5 4 4"/>',
+    namecard: '<rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="8.5" cy="11" r="2.2"/><path d="M5.5 16c.6-1.6 1.6-2.4 3-2.4s2.4.8 3 2.4M14 10h4M14 13.5h3"/>',
     auto: '<circle cx="12" cy="12" r="9"/><path d="m10 8 6 4-6 4Z"/>',
     history: '<path d="M7 4h13v16H7M3 7h9M3 12h9M3 17h9M15 8h2M15 12h2M15 16h2"/>',
     hide: '<path d="M3 3 21 21M10 5a12 12 0 0 1 12 7 14 14 0 0 1-4 5M6 6a17 17 0 0 0-4 6c4 7 12 9 18 5M9 9a4 4 0 0 0 6 6"/>',
@@ -161,9 +165,13 @@ function preferences() {
 function messages() {
     // Native staging reads the full transcript without mutating another extension's classes.
     const own = preferences().enabled && preferences().nativeStaging;
+    const chat = context().chat || [];
     return [...document.querySelectorAll('#chat > .mes[mesid]')]
-        .filter(el => /^\d+$/.test(el.getAttribute('mesid')) && (own || !el.classList.contains('displayNone')));
+        .filter(el => /^\d+$/.test(el.getAttribute('mesid')) && (own || !el.classList.contains('displayNone')))
+        .filter(el => { const log = combatLog(chat[Number(el.getAttribute('mesid'))]); el.classList.toggle('gi-combat-log', log); return !log; });
 }
+// Battle round summaries stay in the chat for the roleplay model to read, but are not shown as dialogue.
+const combatLog = message => message?.extra?.silly_teyvat_combat?.kind === 'round';
 function editing() { return Boolean(document.querySelector('#chat .edit_textarea, #chat .reasoning_edit_textarea')); }
 function deleting() {
     const panel = document.querySelector('#dialogue_del_mes');
@@ -239,7 +247,13 @@ function refresh() {
     const active = prefs.enabled && inChat && list.length > 0;
     if ((editing() || deleting()) && active) { history = true; hidden = false; stopAuto(); }
     if (!list.some(el => el.getAttribute('mesid') === current)) current = list.at(-1)?.getAttribute('mesid') ?? null;
-    else if (followLatest) { const latest = list.at(-1)?.getAttribute('mesid') ?? null; if (!holdsNarration(ctx, latest)) current = latest; }
+    else if (followLatest) {
+        // A new message never pulls the reader away: move on only once the current message is on its
+        // last page and fully revealed. Otherwise Next (or Auto) reaches the new message in turn.
+        const latest = list.at(-1)?.getAttribute('mesid') ?? null, shown = list.find(el => el.getAttribute('mesid') === current);
+        const unread = latest !== current && shown && (pageState(shown).index < pageState(shown).pages.length - 1 || reveal.revealing);
+        if (!unread && !holdsNarration(ctx, latest)) current = latest;
+    }
     const selected = list.find(el => el.getAttribute('mesid') === current);
     const index = list.indexOf(selected);
     const page = pageState(selected);
@@ -260,7 +274,9 @@ function refresh() {
     worldMapUI?.sync({on:Boolean(prefs.enabled&&inChat),show:Boolean(active&&!history&&!hidden&&!menuOpen),location:backgroundUI?.current});
     document.querySelectorAll('[data-gi-action="wardrobe"]').forEach(el => el.hidden = !prefs.wardrobe);
     if (!prefs.wardrobe) wardrobeUI?.close();
-    syncHudIcons(prefs.enabled && prefs.choices, prefs.personaIcon);
+    syncHudIcons(prefs.enabled && prefs.choices, prefs.personaIcon, !prefs.hudAllButtons);
+    const tavern = document.querySelector('#gi-toolbar .gi-pm-tavern');
+    if (tavern) tavern.hidden = !(prefs.enabled && prefs.choices) || prefs.hudAllButtons;
     if (menuOpen) paintProfile();
     combatUI?.sync({on:Boolean(prefs.enabled&&inChat&&!openingHome),id:Number(current),generating:generating||groupGenerating||locationCastUI?.busy,show:Boolean(active&&!history&&!hidden)});
     locationMusicUI?.sync({on:Boolean(prefs.enabled&&inChat&&!openingHome),combat:Boolean(prefs.enabled&&inChat&&!openingHome&&(combatUI?.busy||activeEnemies(ctx).some(enemy=>!activeGroup(ctx)?.disabled_members?.includes(enemy.avatar))))});
@@ -278,7 +294,7 @@ function refresh() {
     if (toolbar.classList.contains('gi-open') !== menuOpen) {
         toolbar.classList.toggle('gi-open', menuOpen); toolbar.inert = !menuOpen; toolbar.setAttribute('aria-hidden', String(!menuOpen));
         document.body.classList.toggle('gi-menu-open', menuOpen);
-        if (menuOpen) paintProfile();
+        if (menuOpen) paintProfile(); else { pickingNamecard = false; paintNamecards(); }
     }
     const toggle = document.querySelector('#gi-toolbar [data-gi-action="toggle"]');
     toggle.setAttribute('aria-pressed', String(prefs.enabled));
@@ -333,12 +349,44 @@ function paintProfile() {
     if (img) img.src = iconAsset(`Persona_Management_${prefs.personaIcon}`);
     const name = document.querySelector('#gi-toolbar .gi-pm-name');
     if (name) name.textContent = findPersonaAvatar(ctx, prefs.personaIcon) ? (ctx.name1 || prefs.personaIcon) : prefs.personaIcon;
-    const place = document.querySelector('#gi-toolbar .gi-pm-place');
-    if (place) {
-        const where = ctx.chatMetadata?.silly_teyvat_world?.location?.label || '';
-        const who = ctx.groupId ? activeGroup(ctx)?.name : ctx.characters?.[ctx.characterId]?.name;
-        place.textContent = [where, who].filter(Boolean).join(' · ');
+    const where = ctx.chatMetadata?.silly_teyvat_world?.location?.label || '';
+    const who = ctx.groupId ? activeGroup(ctx)?.name : ctx.characters?.[ctx.characterId]?.name;
+    const set = (selector, text) => { const node = document.querySelector(`#gi-toolbar ${selector}`); if (node) node.textContent = text || '—'; };
+    set('.gi-pm-place', where); set('.gi-pm-with', who);
+    // Adventure Rank: 25 EXP a message, 200 EXP a rank, capped at 60 as in the game.
+    const exp = (ctx.chat?.length || 0) * 25, rank = Math.min(60, 1 + Math.floor(exp / 200)), into = rank === 60 ? 200 : exp % 200;
+    set('.gi-pm-ar', String(rank));
+    const bar = document.querySelector('#gi-toolbar .gi-pm-exp');
+    if (bar) { bar.style.setProperty('--fill', String(into / 200)); bar.querySelector('small').textContent = `${into} / 200`; }
+    const signature = document.querySelector('#gi-toolbar .gi-pm-signature');
+    if (signature && document.activeElement !== signature) signature.value = prefs.signature;
+    const card = chooseNamecard(prefs.namecard, ctx.groupId ? '' : who), art = document.querySelector('#gi-toolbar .gi-pm-namecard');
+    if (art) { const src = namecardUrl(card); if (art.getAttribute('src') !== src) { if (src) art.src = src; else art.removeAttribute('src'); } art.title = card?.name || ''; }
+    paintNamecards();
+}
+// The namecard picker: "Match companion" first, then every downloaded namecard.
+let pickingNamecard = false;
+function paintNamecards() {
+    const box = document.querySelector('#gi-toolbar .gi-pm-namecards'), toolbar = document.querySelector('#gi-toolbar');
+    if (!box) return;
+    box.hidden = !pickingNamecard; toolbar.classList.toggle('gi-pm-picking', pickingNamecard);
+    document.querySelectorAll('#gi-toolbar [data-gi-action="namecards"]').forEach(b => b.setAttribute('aria-expanded', String(pickingNamecard)));
+    if (!pickingNamecard) return;
+    const chosen = preferences().namecard, list = box.querySelector('.gi-pm-nc-list');
+    if (!list.childElementCount) {
+        const ctx = context(), who = ctx.groupId ? '' : ctx.characters?.[ctx.characterId]?.name;
+        const options = [{ id: '', name: 'Match companion', file: chooseNamecard('', who)?.file }, ...namecards()];
+        list.replaceChildren(...options.map(card => {
+            const option = document.createElement('button');
+            option.type = 'button'; option.dataset.giAction = 'namecard'; option.dataset.namecard = card.id; option.setAttribute('role', 'radio');
+            option.innerHTML = '<img alt="" loading="lazy" draggable="false"><span></span>';
+            if (card.file) option.querySelector('img').src = namecardUrl(card);
+            option.querySelector('span').textContent = card.name; option.title = card.name;
+            if (!card.id) option.classList.add('gi-pm-nc-auto');
+            return option;
+        }));
     }
+    for (const option of list.children) option.setAttribute('aria-checked', String(option.dataset.namecard === chosen));
 }
 // Tags and Official Art sets need the character list, which can load after this extension starts.
 async function prepareCardData() {
@@ -449,6 +497,12 @@ function handleAction(event) {
     const list = messages();
     switch (action) {
         case 'menu': menuOpen = !menuOpen; refresh(); if (menuOpen) document.querySelector('#gi-toolbar .gi-pm-switch')?.focus({ preventScroll: true }); break;
+        case 'namecards':
+            pickingNamecard = !pickingNamecard; paintNamecards();
+            if (pickingNamecard) (document.querySelector('#gi-toolbar .gi-pm-nc-list [aria-checked="true"]') || document.querySelector('#gi-toolbar .gi-pm-nc-list button'))?.focus({ preventScroll: true });
+            break;
+        case 'namecard': preferences().namecard = target.dataset.namecard || ''; context().saveSettingsDebounced(); paintProfile(); announce(`Namecard: ${target.title}.`); break;
+        case 'st-drawer': menuOpen = false; refresh(); document.querySelector(`#${CSS.escape(target.dataset.drawer)} > .drawer-toggle`)?.click(); break;
         case 'traveler': switchTraveler().catch(error => announce(error.message)); break;
         case 'map': menuOpen = false; refresh(); try { worldMapUI?.open(); } catch (error) { announce(error.message); } break;
         case 'toggle': setEnabled(!preferences().enabled); break;
@@ -500,6 +554,7 @@ async function regenerateCurrent(){
     finally{regenerating=false;schedule();}
 }
 function handleKey(event) {
+    if (event.key === 'Escape' && menuOpen && pickingNamecard) { event.preventDefault(); pickingNamecard = false; paintNamecards(); document.querySelector('#gi-toolbar .gi-pm-edit')?.focus(); return; }
     if (event.key === 'Escape' && menuOpen) { event.preventDefault(); menuOpen = false; refresh(); document.querySelector('#gi-launcher').focus(); return; }
     if (event.altKey && !event.ctrlKey && !event.metaKey && event.code === 'KeyG') {
         event.preventDefault(); setEnabled(!preferences().enabled); return;
@@ -548,17 +603,37 @@ export async function initialize({ choicesAdapter, spriteAdapter, wardrobeAdapte
     host.id = 'gi-root';
     host.innerHTML = `<button id="gi-launcher" type="button" data-gi-action="menu" aria-controls="gi-toolbar" aria-expanded="false"><img src="${iconAsset('Silly Teyvat')}" alt="" aria-hidden="true"></button>
         <div id="gi-menu-scrim" aria-hidden="true"></div>
-        <nav id="gi-toolbar" class="gi-paimon" aria-label="Silly Teyvat menu" inert aria-hidden="true">
-            <header class="gi-pm-profile"><button type="button" class="gi-pm-avatar" data-gi-action="traveler" aria-label="Switch Traveler" title="Switch between Aether and Lumine"><img alt=""></button><div class="gi-pm-id"><strong class="gi-pm-name"></strong><span class="gi-pm-place"></span></div></header>
-            <button type="button" class="gi-pm-switch" data-gi-action="toggle" aria-pressed="false" aria-label="Silly Teyvat"><span>Silly Teyvat</span><i aria-hidden="true"></i></button>
-            <div class="gi-pm-grid">${menuButton('auto', 'Auto')}${menuButton('history', 'Review', 'book')}${menuButton('wardrobe', 'Characters')}${menuButton('map', 'Map')}${menuButton('cg', 'CG Frame')}${menuButton('compose', 'Chat Box')}${menuButton('hide', 'Hide UI')}</div>
-            <footer class="gi-pm-bar">${menuButton('settings', 'Settings')}<span class="gi-pm-version">1.31</span></footer>
+        <nav id="gi-toolbar" class="gi-paimon" aria-label="Paimon menu" inert aria-hidden="true">
+            <div class="gi-pm-rail">${menuButton('menu', 'Close menu', 'back')}${menuButton('settings', 'Settings')}<span class="gi-pm-version" title="Silly Teyvat version"></span></div>
+            <div class="gi-pm-main">
+                <header class="gi-pm-card">
+                    <img class="gi-pm-namecard" alt="" draggable="false">
+                    <div class="gi-pm-who"><button type="button" class="gi-pm-avatar" data-gi-action="traveler" aria-label="Switch Traveler" title="Switch between Aether and Lumine"><img alt=""></button></div>
+                    <div class="gi-pm-id">
+                        <strong class="gi-pm-name"></strong>
+                        <input class="gi-pm-signature" type="text" maxlength="60" placeholder="Set a signature…" aria-label="Signature" autocomplete="off" spellcheck="false">
+                        <dl class="gi-pm-stats">
+                            <div class="gi-pm-rank" title="Rises with the messages in this chat"><dt>Adventure Rank</dt><dd class="gi-pm-ar"></dd><span class="gi-pm-exp"><i></i><small></small></span></div>
+                            <div><dt>Location</dt><dd class="gi-pm-place"></dd></div>
+                            <div><dt>Companion</dt><dd class="gi-pm-with"></dd></div>
+                        </dl>
+                    </div>
+                    <button type="button" class="gi-pm-edit" data-gi-action="namecards" aria-label="Change namecard" title="Change namecard" aria-expanded="false" aria-controls="gi-pm-namecards">${svg('edit')}</button>
+                </header>
+                <button type="button" class="gi-pm-switch" data-gi-action="toggle" aria-pressed="false" aria-label="Silly Teyvat"><span>Silly Teyvat</span><i aria-hidden="true"></i></button>
+                <section id="gi-pm-namecards" class="gi-pm-namecards" aria-label="Namecards" hidden><header><h3>Namecard</h3>${menuButton('namecards', 'Done', 'close')}</header><div class="gi-pm-nc-list" role="radiogroup" aria-label="Choose a namecard"></div></section>
+                <div class="gi-pm-grid">${menuButton('auto', 'Auto')}${menuButton('history', 'Review', 'book')}${menuButton('wardrobe', 'Characters')}${menuButton('map', 'Map')}${menuButton('cg', 'CG Frame')}${menuButton('compose', 'Chat Box')}${menuButton('hide', 'Hide UI')}${menuButton('namecards', 'Namecard', 'namecard')}</div>
+                <section class="gi-pm-tavern" aria-label="SillyTavern" hidden><h3>SillyTavern</h3><div class="gi-pm-grid">${TUCKED.map(([id, label]) => `<button type="button" data-gi-action="st-drawer" data-drawer="${id}" aria-label="${label}"><img src="${tuckedIcon(id)}" alt="" aria-hidden="true" draggable="false"><span>${label}</span></button>`).join('')}</div></section>
+            </div>
         </nav>
         <header id="gi-review-heading" hidden><h2>${svg('history')} Dialogue Review</h2>${button('history', 'Close review', 'close')}</header>
         <nav id="gi-navigation" aria-label="Read existing dialogue" hidden>${button('previous', 'Previous message')}<span id="gi-position"></span>${button('latest', 'Latest message')}${button('next', 'Next message')}<button id="gi-regenerate" type="button" data-gi-action="regenerate" aria-label="Regenerate this character’s reply" hidden>${svg('regenerate')}</button></nav>
         <aside id="gi-notice" role="note" hidden><p></p>${button('dismiss', 'Dismiss notice', 'close')}</aside>
         <div id="gi-status" class="gi-sr-only" role="status" aria-live="polite" aria-atomic="true"></div>`;
     document.body.append(host);
+    host.querySelector('.gi-pm-signature').addEventListener('change', event => { preferences().signature = event.target.value.trim().slice(0, 60); context().saveSettingsDebounced(); }, { signal: abort.signal });
+    fetch(new URL('manifest.json', import.meta.url)).then(r => r.json()).then(m => { host.querySelector('.gi-pm-version').textContent = m.version || ''; }).catch(() => {});
+    namecardsReady.then(() => { if (menuOpen) paintProfile(); });
     await loadCharacterProperties();
     stageEffects=mountStageEffects({host,getContext:context});
     cardArtUI=mountCardArt({getContext:context});

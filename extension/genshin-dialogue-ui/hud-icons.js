@@ -6,10 +6,15 @@ const mapping = {
     'backgrounds-button': 'Change Background Image', 'extensions-settings-button': 'Extensions',
     'persona-management-button': 'Persona_Management_Aether', rightNavHolder: 'Character Management',
 };
-export function syncHudIcons(on, persona = 'Aether') {
+// Drawers the Paimon menu holds unless "Keep every SillyTavern button on the top bar" is on.
+// API Connections, AI Response Configuration, Persona and Character Management stay on top.
+export const TUCKED = [['WI-SP-button', 'World Info'], ['advanced-formatting-button', 'Formatting'], ['user-settings-button', 'User Settings'], ['backgrounds-button', 'Backgrounds'], ['extensions-settings-button', 'Extensions']];
+export const tuckedIcon = id => iconAsset(mapping[id]);
+export function syncHudIcons(on, persona = 'Aether', tuck = false) {
+    for (const [id] of TUCKED) document.querySelector(`#${id}`)?.classList.toggle('gi-hud-tucked', Boolean(on && tuck));
     document.body.classList.add('gi-shell');
     document.body.classList.toggle('gi-choices-enabled', on);
-    const drawers = [...document.querySelectorAll('#top-settings-holder > .drawer')].filter(el => getComputedStyle(el).display !== 'none');
+    const drawers = [...document.querySelectorAll('#top-settings-holder > .drawer')].filter(el => getComputedStyle(el).display !== 'none' && !el.classList.contains('gi-hud-tucked'));
     document.body.style.setProperty('--gi-hud-count', Math.max(1, drawers.length));
     if (!on) return;
     for (const [id, name] of Object.entries(mapping)) {
@@ -28,4 +33,5 @@ export function disposeHudIcons() {
     document.body.style.removeProperty('--gi-hud-count');
     document.querySelectorAll('.gi-hud-icon').forEach(el => el.remove());
     document.querySelectorAll('.gi-hud-target').forEach(el => el.classList.remove('gi-hud-target'));
+    document.querySelectorAll('.gi-hud-tucked').forEach(el => el.classList.remove('gi-hud-tucked'));
 }

@@ -1,0 +1,118 @@
+/* ---------- Paimon menu (1.35): icon rail, namecard profile and square tiles, after Genshin Impact ---------- */
+#gi-toolbar.gi-paimon, body.gi-scene.gi-hidden #gi-toolbar.gi-paimon {
+    --pm-rail: 68px; --pm-slate: #4b5366; --pm-slate-hi: #5d6679; --pm-paper: #e9e5dc; --pm-ink: #3d4557;
+    display: grid; grid-template-columns: var(--pm-rail) minmax(0, 1fr); align-items: stretch;
+    width: min(580px, 94vw); padding: 0 0 0 env(safe-area-inset-left, 0px); overflow: hidden;
+    background: var(--pm-paper); box-shadow: 14px 0 40px #0009; color: var(--pm-ink);
+}
+#gi-toolbar.gi-paimon::before { content: none; }
+#gi-toolbar.gi-paimon > * { margin: 0; }
+#gi-toolbar.gi-paimon :is(button, input) { font-family: var(--ty-font); }
+
+/* Left rail: Paimon sits above it, then back and settings, version at the foot. */
+.gi-pm-rail { display: flex; flex-direction: column; align-items: center; gap: 14px; padding: calc(env(safe-area-inset-top, 0px) + 78px) 0 max(16px, env(safe-area-inset-bottom, 0px)); background: linear-gradient(90deg, #2c3343, #353d4f); box-shadow: inset -1px 0 0 #ffffff14; }
+#gi-toolbar .gi-pm-rail button { width: 46px; height: 46px; min-height: 0; padding: 0; border: 0; border-radius: 50%; color: #ece5d8; background: #ffffff10; box-shadow: inset 0 0 0 1.5px #ece5d833; text-shadow: none; transition: background 180ms ease, color 180ms ease, transform 220ms var(--ty-ease); }
+#gi-toolbar .gi-pm-rail button svg { width: 24px; height: 24px; }
+#gi-toolbar .gi-pm-rail button span { display: none; }
+#gi-toolbar .gi-pm-rail button:hover { color: var(--pm-ink); background: #ece5d8; border-color: transparent; }
+#gi-toolbar .gi-pm-rail [data-gi-action="settings"]:hover svg { rotate: 60deg; transition: rotate 300ms var(--ty-ease); }
+.gi-pm-version { margin-top: auto; font-size: 10.5px; letter-spacing: .06em; color: #ece5d8; opacity: .5; writing-mode: vertical-rl; rotate: 180deg; }
+
+.gi-pm-main { display: flex; flex-direction: column; min-height: 0; overflow: hidden auto; scrollbar-width: thin; padding-bottom: max(18px, env(safe-area-inset-bottom, 0px)); }
+
+/* Profile on the chosen namecard. */
+#gi-toolbar .gi-pm-card { position: relative; display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 4px 18px; align-items: start; padding: calc(env(safe-area-inset-top, 0px) + 22px) 22px 20px; border: 0; overflow: hidden; isolation: isolate; color: #fff; background: #7a5a48; }
+.gi-pm-namecard { position: absolute; inset: 0; z-index: -2; width: 100%; height: 100%; object-fit: cover; object-position: 50% 40%; }
+.gi-pm-namecard:not([src]) { display: none; }
+#gi-toolbar .gi-pm-card::before { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(90deg, #0000004d, #00000012 45%, #0000), linear-gradient(0deg, #0000004d, #0000 55%); }
+.gi-pm-who { display: grid; justify-items: center; gap: 10px; padding-top: 6px; }
+#gi-toolbar .gi-pm-avatar { width: 104px; height: 104px; padding: 4px; border-radius: 50%; background: #f6f1e6; box-shadow: 0 0 0 1px #0002, 0 4px 14px #0006; transition: transform 220ms var(--ty-ease); }
+#gi-toolbar .gi-pm-avatar:hover { transform: scale(1.04); background: #fff; }
+#gi-toolbar .gi-pm-avatar img { background: radial-gradient(circle at 50% 35%, #6b7489, #3a4152); }
+.gi-pm-id { display: grid; grid-template-columns: minmax(0, 1fr); gap: 6px; min-width: 0; padding-right: 30px; }
+#gi-toolbar .gi-pm-name { font-size: 28px; line-height: 1.2; color: #fff; text-shadow: 0 2px 4px #0008; }
+#gi-toolbar .gi-pm-signature { width: 100%; min-width: 0; margin: 0 0 4px; padding: 3px 0; border: 0; border-bottom: 1px dashed #fff0; border-radius: 0; background: none; color: #fff; font-size: 15px; text-shadow: 0 1px 3px #0009; outline: none; transition: border-color 160ms ease; }
+#gi-toolbar .gi-pm-signature::placeholder { color: #ffffffa8; font-style: italic; }
+#gi-toolbar .gi-pm-signature:is(:hover, :focus) { border-bottom-color: #fff9; }
+.gi-pm-stats { display: grid; grid-template-columns: minmax(0, 1fr); gap: 2px; margin: 0; }
+.gi-pm-stats > div { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 2px 12px; padding: 5px 0; border-bottom: 1px solid #ffffff38; text-shadow: 0 1px 3px #0009; }
+.gi-pm-stats dt { font-size: 16px; color: #fff; }
+.gi-pm-stats dd { min-width: 0; margin: 0 0 0 auto; overflow: hidden; font-size: 16px; color: #fff; text-align: right; text-overflow: ellipsis; white-space: nowrap; }
+.gi-pm-rank dd { font-size: 22px; }
+.gi-pm-exp { position: relative; flex: 1 0 100%; display: flex; align-items: center; gap: 10px; }
+.gi-pm-exp i { position: relative; flex: 1; height: 5px; border-radius: 3px; background: #0000004d; overflow: hidden; }
+.gi-pm-exp i::after { content: ""; position: absolute; inset: 0 auto 0 0; width: calc(var(--fill, 0) * 100%); border-radius: inherit; background: linear-gradient(90deg, #8fd36b, #c3f27e); transition: width 500ms var(--ty-ease); }
+.gi-pm-exp small { font-size: 12px; color: #ffffffd0; }
+#gi-toolbar .gi-pm-edit { position: absolute; top: calc(env(safe-area-inset-top, 0px) + 14px); right: 14px; width: 40px; height: 40px; min-height: 0; padding: 0; border: 0; border-radius: 6px; color: var(--pm-ink); background: #f3eee3e6; box-shadow: 0 2px 8px #0005; text-shadow: none; }
+#gi-toolbar .gi-pm-edit:hover, #gi-toolbar .gi-pm-edit[aria-expanded="true"] { color: var(--pm-ink); background: #fff; }
+
+/* Silly Teyvat on/off, under the card. */
+#gi-toolbar.gi-paimon .gi-pm-switch { min-height: 48px; margin: 16px 20px 0; padding: 0 14px 0 18px; border: 0; border-radius: 6px; color: #ece5d8; background: var(--pm-slate); box-shadow: inset 0 0 0 1px #ffffff1a; }
+#gi-toolbar.gi-paimon .gi-pm-switch:hover { color: #fff; background: var(--pm-slate-hi); border-color: transparent; }
+#gi-toolbar.gi-paimon .gi-pm-switch:focus-visible { color: #fff; background: var(--pm-slate-hi); outline: 2px solid #c79d4f; outline-offset: 2px; }
+
+/* Tiles: square slate buttons, icon over label, four to a row. */
+#gi-toolbar .gi-pm-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; margin: 14px 20px 0; }
+#gi-toolbar .gi-pm-grid button { justify-content: center; gap: 8px; aspect-ratio: 1 / .92; padding: 8px 4px; border-radius: 4px; color: #ece5d8; background: linear-gradient(#556075, var(--pm-slate)); box-shadow: inset 0 0 0 1px #ffffff1c, 0 2px 4px #0003; font-size: 14px; text-shadow: none; transition: background 160ms ease, box-shadow 160ms ease, transform 200ms var(--ty-ease); }
+#gi-toolbar .gi-pm-grid button svg { box-sizing: border-box; width: 38px; height: 38px; padding: 0; border-radius: 0; background: none; box-shadow: none; stroke-width: 1.4; }
+#gi-toolbar .gi-pm-grid button:hover:not(:disabled) { background: linear-gradient(#6a748a, var(--pm-slate-hi)); box-shadow: inset 0 0 0 1.5px #ece5d899, 0 4px 10px #0004; transform: translateY(-2px); }
+#gi-toolbar .gi-pm-grid button:hover:not(:disabled) svg { color: #fff; background: none; transform: none; box-shadow: none; }
+#gi-toolbar .gi-pm-grid button[aria-pressed="true"] { color: #fff3d4; box-shadow: inset 0 0 0 2px #e6c97f, 0 0 14px #e6c97f55; }
+#gi-toolbar .gi-pm-grid button[aria-pressed="true"] svg { color: #f2d48a; background: none; box-shadow: none; }
+#gi-toolbar .gi-pm-grid button:focus-visible { outline: 2px solid #c79d4f; outline-offset: 2px; }
+#gi-toolbar .gi-pm-grid button:focus-visible svg { outline: none; }
+#gi-toolbar .gi-pm-grid button:disabled { opacity: .45; }
+
+/* Namecard picker replaces the tiles while open. */
+#gi-toolbar.gi-pm-picking .gi-pm-grid, #gi-toolbar.gi-pm-picking .gi-pm-switch { display: none; }
+.gi-pm-namecards { margin: 14px 20px 0; }
+.gi-pm-namecards[hidden] { display: none; }
+.gi-pm-namecards > header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px; }
+.gi-pm-namecards h3 { margin: 0; font-size: 18px; font-weight: normal; color: var(--pm-ink); }
+#gi-toolbar .gi-pm-namecards > header button { flex: none; width: auto; height: auto; min-height: 34px; padding: 4px 14px 4px 10px; border: 0; border-radius: 17px; color: #ece5d8; background: var(--pm-slate); text-shadow: none; font-size: 14px; }
+#gi-toolbar .gi-pm-namecards > header button svg { width: 16px; height: 16px; }
+#gi-toolbar .gi-pm-namecards > header button span { display: inline; }
+.gi-pm-nc-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+#gi-toolbar .gi-pm-nc-list button { position: relative; display: block; width: 100%; height: auto; aspect-ratio: 640 / 305; padding: 0; border: 0; border-radius: 6px; overflow: hidden; background: #8b8f9b; box-shadow: 0 2px 6px #0003; text-shadow: none; transition: transform 200ms var(--ty-ease), box-shadow 160ms ease; }
+#gi-toolbar .gi-pm-nc-list button img { width: 100%; height: 100%; object-fit: cover; }
+#gi-toolbar .gi-pm-nc-list button span { position: absolute; inset: auto 0 0; display: block; padding: 14px 8px 5px; font-size: 12px; color: #fff; text-align: left; background: linear-gradient(#0000, #000a); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+#gi-toolbar .gi-pm-nc-list .gi-pm-nc-auto img { filter: saturate(.4) brightness(.8); }
+#gi-toolbar .gi-pm-nc-list .gi-pm-nc-auto span { inset: 0; display: grid; place-items: center; padding: 0 6px; white-space: normal; font-size: 14px; text-align: center; background: #2c334366; }
+#gi-toolbar .gi-pm-nc-list button:hover { transform: translateY(-2px); box-shadow: 0 0 0 2px #ece5d8, 0 6px 14px #0004; background: #8b8f9b; }
+#gi-toolbar .gi-pm-nc-list button[aria-checked="true"] { box-shadow: 0 0 0 3px #e6c97f, 0 0 16px #e6c97f88; }
+#gi-toolbar .gi-pm-nc-list button[aria-checked="true"]::after { content: "✓"; position: absolute; top: 6px; right: 6px; display: grid; place-items: center; width: 22px; height: 22px; border-radius: 50%; font-size: 13px; color: var(--pm-ink); background: #f2d48a; box-shadow: 0 1px 4px #0006; }
+
+/* Small and short screens. */
+@media (max-width: 520px) {
+    #gi-toolbar.gi-paimon, body.gi-scene.gi-hidden #gi-toolbar.gi-paimon { --pm-rail: 54px; }
+    #gi-toolbar .gi-pm-rail button { width: 40px; height: 40px; }
+    #gi-toolbar .gi-pm-card { grid-template-columns: minmax(0, 1fr); padding: calc(env(safe-area-inset-top, 0px) + 16px) 16px 14px; }
+    .gi-pm-who { justify-items: start; padding-top: 0; }
+    #gi-toolbar .gi-pm-avatar { width: 72px; height: 72px; }
+    .gi-pm-id { padding-right: 0; } #gi-toolbar .gi-pm-name { font-size: 22px; }
+    #gi-toolbar .gi-pm-grid, .gi-pm-namecards, #gi-toolbar.gi-paimon .gi-pm-switch { margin-inline: 14px; }
+    #gi-toolbar .gi-pm-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; } #gi-toolbar .gi-pm-grid button { font-size: 12.5px; } #gi-toolbar .gi-pm-grid button svg { width: 30px; height: 30px; }
+}
+@media (max-height: 560px) {
+    #gi-toolbar.gi-paimon, body.gi-scene.gi-hidden #gi-toolbar.gi-paimon { width: min(680px, 92vw); }
+    .gi-pm-rail { padding-top: calc(env(safe-area-inset-top, 0px) + 60px); gap: 8px; }
+    #gi-toolbar .gi-pm-card { padding-block: 12px; } #gi-toolbar .gi-pm-avatar { width: 72px; height: 72px; }
+    #gi-toolbar .gi-pm-grid { grid-template-columns: repeat(8, minmax(0, 1fr)); gap: 6px; }
+    #gi-toolbar .gi-pm-grid button { font-size: 11px; } #gi-toolbar .gi-pm-grid button svg { width: 26px; height: 26px; }
+    #gi-toolbar.gi-paimon .gi-pm-switch { min-height: 38px; margin-top: 10px; }
+    .gi-pm-nc-list { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+
+/* SillyTavern drawers moved off the top bar: the toggle is hidden, its panel still opens from the menu. */
+body.gi-shell #top-settings-holder > .drawer.gi-hud-tucked { flex: 0 0 0 !important; width: 0 !important; margin: 0 !important; overflow: visible; }
+body.gi-shell #top-settings-holder > .drawer.gi-hud-tucked > .drawer-toggle { display: none !important; }
+.gi-pm-tavern { margin: 18px 20px 0; }
+.gi-pm-tavern[hidden], #gi-toolbar.gi-pm-picking .gi-pm-tavern { display: none; }
+.gi-pm-tavern h3 { margin: 0 0 8px; font-size: 15px; font-weight: normal; color: var(--pm-ink); opacity: .8; }
+#gi-toolbar .gi-pm-tavern .gi-pm-grid { margin: 0; }
+#gi-toolbar .gi-pm-tavern .gi-pm-grid button img { width: 36px; height: 36px; object-fit: contain; }
+@media (max-width: 520px) { .gi-pm-tavern { margin-inline: 14px; } #gi-toolbar .gi-pm-tavern .gi-pm-grid button img { width: 28px; height: 28px; } }
+@media (max-height: 560px) { #gi-toolbar .gi-pm-tavern .gi-pm-grid button img { width: 24px; height: 24px; } }
+
+/* Battle round summaries: kept in the chat for the model, never shown as dialogue. */
+body.gi-enabled #chat > .mes.gi-combat-log { display: none !important; }
