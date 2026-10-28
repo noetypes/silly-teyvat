@@ -2,7 +2,8 @@ import {activeGroup} from './party.js';
 import {enemyActionPrompt} from './enemy-actions.js';
 import {mediaSettings} from './media-store.js';
 import {isEnemy,characterProperties,ELEMENTS} from './character-properties.js';
-import {playedAvatars} from './persona-link.js';
+import {playedAvatars,linkedCard} from './persona-link.js';
+import {personaCard} from './persona-wardrobe.js';
 export const DICE_FACES=[...ELEMENTS,'Omni'];
 export const combatIdentity=ctx=>`${ctx.groupId || ctx.characterId}:${ctx.getCurrentChatId?.() || ctx.chatId || ''}`;
 export function combatState(ctx){ctx.chatMetadata ??= {};return ctx.chatMetadata.silly_teyvat_combat ??= {visits:{},events:[]};}
@@ -16,14 +17,22 @@ export function activeEnemies(ctx){
         const props=characterProperties(ctx,avatar),enemy=visit.enemies[avatar] ??= {avatar,hp:props.maxHp,maxHp:props.maxHp,deathMessage:props.deathMessage,defeated:false};return {...enemy,key};
     }).filter(e=>!e.defeated&&e.hp>0);
 }
-export function combatAllies(ctx){const disabled=activeGroup(ctx)?.disabled_members || [];return sceneMembers(ctx).filter(a=>!disabled.includes(a)&&!isEnemy(ctx,a)).map(a=>ctx.characters.find(c=>c.avatar===a)).filter(c=>c&&characterProperties(ctx,c).playable);}
+// The player's own character fights too: their element comes from the persona, or from the card they are playing.
+export const userAlly=ctx=>({avatar:USER_KEY,name:ctx.name1 || 'You',isUser:true});
+export function allyElement(ctx,ally){
+    if(ally.avatar!==USER_KEY)return characterProperties(ctx,ally).element;
+    const own=characterProperties(ctx,personaCard(ctx)).element;
+    return own!=='None'?own:characterProperties(ctx,linkedCard(ctx)).element;
+}
+export function combatAllies(ctx){const disabled=activeGroup(ctx)?.disabled_members || [],played=playedAvatars(ctx);return [userAlly(ctx),...combatCompanions(ctx,disabled,played)];}
+function combatCompanions(ctx,disabled,played){return sceneMembers(ctx).filter(a=>!disabled.includes(a)&&!played.has(a)&&!isEnemy(ctx,a)).map(a=>ctx.characters.find(c=>c.avatar===a)).filter(c=>c&&characterProperties(ctx,c).playable);}
 function damageRange(ctx){const prefs=mediaSettings(ctx),min=Math.max(1,Math.min(100,Math.round(Number(prefs.combatDamageMin)||1)));return {min,max:Math.max(min,Math.min(100,Math.round(Number(prefs.combatDamageMax)||6)))};}
 function rollFace(random){return DICE_FACES[Math.min(7,Math.floor(random()*8))];}
 function rollValue({min,max},random){return min+Math.min(max-min,Math.floor(random()*(max-min+1)));}
 // Scores faces against the party. Each matching die is credited to one ally of that
 // element (Omni: any elemental ally), spreading damage so the summary shows who dealt what.
 function scoreRoll(ctx,enemy,allies,raw){
-    const elementOf=c=>characterProperties(ctx,c).element,elements=new Set(allies.map(elementOf).filter(x=>ELEMENTS.includes(x)));
+    const elementOf=c=>allyElement(ctx,c),elements=new Set(allies.map(elementOf).filter(x=>ELEMENTS.includes(x)));
     const credits=new Map(allies.map(c=>[c.avatar,0]));
     const dice=raw.map(({face,value})=>{
         const match=elements.size>0&&(face==='Omni'||elements.has(face)),damage=match?value:0;
@@ -49,7 +58,7 @@ export const REROLLS_PER_ATTACK=1;
 export function rerollAttack(ctx,roll,indices,{random=Math.random}={}){
     const chosen=new Set(indices.filter(i=>Number.isInteger(i)&&i>=0&&i<roll.dice.length));
     if((roll.rerolls || 0)>=REROLLS_PER_ATTACK||!chosen.size)return roll;
-    const allies=roll.allies.map(a=>ctx.characters?.find(c=>c.avatar===a)).filter(Boolean),range=damageRange(ctx);
+    const allies=roll.allies.map(a=>a===USER_KEY?userAlly(ctx):ctx.characters?.find(c=>c.avatar===a)).filter(Boolean),range=damageRange(ctx);
     const raw=roll.dice.map((d,i)=>chosen.has(i)?{face:rollFace(random),value:rollValue(range,random)}:{face:d.face,value:d.match?d.damage:rollValue(range,random)});
     return {...scoreRoll(ctx,{avatar:roll.avatar,key:roll.key,hp:roll.hpBefore},allies,raw),rerolls:(roll.rerolls || 0)+1,rerolled:[...chosen]};
 }

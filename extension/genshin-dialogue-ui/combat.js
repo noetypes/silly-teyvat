@@ -1,7 +1,7 @@
 import {activeGroup} from './party.js';
 import {newLocalId} from './local-id.js';
 import {mediaSettings} from './media-store.js';
-import {activeEnemies,combatIdentity,combatState,rollAttack,rerollAttack,applyAttack,syncCombatPrompt,chooseTarget,rollEnemyAttack,applyEnemyAttack,partyStatus,userDefeated,USER_KEY} from './combat-state.js';
+import {activeEnemies,combatIdentity,combatState,rollAttack,rerollAttack,applyAttack,syncCombatPrompt,chooseTarget,rollEnemyAttack,applyEnemyAttack,partyStatus,userDefeated,USER_KEY,allyElement,userAlly} from './combat-state.js';
 import {resolveDefeat,defeatNarration} from './defeat.js';
 import {activePersonaAvatar} from './persona-wardrobe.js';
 import {mountElementalDice,ELEMENT_COLORS} from './elemental-dice.js';
@@ -76,8 +76,8 @@ export function mountCombat({host,getContext,onChange=()=>{},announce=()=>{},ada
         const valid=()=>current(identity,token)&&activeEnemies(getContext()).some(e=>e.key===visitKey&&e.avatar===avatar);
         try{
             let roll=rollAttack(ctx,enemy);
-            const thumb=a=>ctx.getThumbnailUrl?.('avatar',a) || `/characters/${encodeURIComponent(a)}`,card=a=>ctx.characters.find(c=>c.avatar===a);
-            const describe={allies:roll.allies.map(a=>({avatar:a,name:card(a)?.name || a,img:thumb(a),element:characterProperties(ctx,a).element})),enemy:{avatar,name:card(avatar)?.name || 'Enemy',img:thumb(avatar),maxHp:enemy.maxHp}};
+            const thumb=a=>portrait(ctx,a),card=a=>a===USER_KEY?userAlly(ctx):ctx.characters.find(c=>c.avatar===a);
+            const describe={allies:roll.allies.map(a=>({avatar:a,name:card(a)?.name || a,img:thumb(a),element:allyElement(ctx,card(a))})),enemy:{avatar,name:card(avatar)?.name || 'Enemy',img:thumb(avatar),maxHp:enemy.maxHp}};
             if(!await dice.roll(roll,{describe,reroll:indices=>(roll=rerollAttack(getContext(),roll,indices)),volume:mediaSettings(ctx).diceSound===false?0:(mediaSettings(ctx).spriteVolume ?? .8),reducedMotion:Boolean(mediaSettings(ctx).reducedMotion||ctx.powerUserSettings?.reduced_motion||globalThis.matchMedia?.('(prefers-reduced-motion: reduce)').matches),isCurrent:valid})||!valid())return;
             const event=applyAttack(getContext(),roll,id);if(!event)return;event.maxHp=enemy.maxHp;
             const name=getContext().characters.find(c=>c.avatar===avatar)?.name || 'Enemy';
