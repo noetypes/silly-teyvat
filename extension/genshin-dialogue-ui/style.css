@@ -2494,10 +2494,19 @@ body:not(.gi-scene) #gi-party-health, body.gi-history #gi-party-health, body.gi-
 .tb-end:not(:disabled) { animation: tb-end 1.6s ease-in-out infinite alternate; }
 @keyframes tb-end { to { box-shadow: inset 0 0 0 3px #fff3cf, inset 0 0 0 7px #b8863a, 0 0 0 3px #6b4a22, 0 0 40px #f2c94ccc, 0 8px 18px #0009; } }
 .tb-end:disabled { filter: grayscale(.9) brightness(.7); cursor: not-allowed; }
-.tb-round { position: absolute; bottom: -8px; min-width: 26px; height: 22px; padding: 0 6px; border-radius: 11px; font-size: 13px; font-weight: 400; line-height: 22px; color: #fff6e2; background: #3b5d78; box-shadow: 0 0 0 1.5px #f2dca0; }
+.tb-round { position: absolute; top: -4px; right: -6px; min-width: 26px; height: 22px; padding: 0 6px; border-radius: 11px; font-size: 13px; font-weight: 400; line-height: 22px; color: #fff6e2; background: #3b5d78; box-shadow: 0 0 0 1.5px #f2dca0; }
 .tb-auto, .tb-flee { position: relative; display: grid; place-items: center; width: 46px; height: 46px; padding: 0; border: 0; border-radius: 50%; cursor: pointer; color: #fff4d6; background: radial-gradient(circle at 50% 35%, #4f7a86, #27424d); box-shadow: inset 0 0 0 2px #e9d7a8, 0 4px 10px #0009; }
 .tb-auto svg, .tb-flee svg { width: 24px; height: 24px; }
-.tb-flee b { position: absolute; bottom: -12px; font-size: 11px; font-weight: 400; color: #fff6e2; text-shadow: 0 1px 2px #000; }
+.tb-flee[aria-expanded="true"] { background: radial-gradient(circle at 50% 35%, #e07a6a, #8a2a1e); box-shadow: inset 0 0 0 2px #ffd2c8, 0 0 18px #e04a3a; }
+/* Flee confirmation, beside the turn buttons. */
+.tb-confirm { position: absolute; left: calc(1.4% + 120px); top: 50%; translate: 0 -50%; z-index: 30; width: min(260px, 70vw); padding: 14px 16px; border-radius: 12px; color: #f4ead2; background: #142a30f2; box-shadow: 0 0 0 1px #d3bc8e88, 0 10px 30px #000b; animation: ty-fade 140ms ease both; }
+.tb-confirm[hidden] { display: none; }
+.tb-confirm strong { display: block; font-size: 17px; font-weight: 400; color: #fff; }
+.tb-confirm p { margin: 6px 0 12px; font-size: 13px; line-height: 1.4; }
+.tb-confirm div { display: flex; gap: 8px; justify-content: flex-end; }
+#gi-battle .tb-confirm button { min-height: 34px; padding: 0 16px; border: 0; border-radius: 17px; cursor: pointer; font: inherit; font-size: 14px; color: #3b2a14; background: #ece5d8; box-shadow: inset 0 0 0 1.5px #d3bc8e; }
+#gi-battle .tb-confirm .tb-confirm-yes { color: #fff; background: linear-gradient(#e07a6a, #a8392a); box-shadow: inset 0 0 0 1.5px #ffd2c8; }
+#gi-battle .tb-confirm button:hover, #gi-battle .tb-confirm button:focus-visible { filter: brightness(1.1); }
 .tb-flee[aria-pressed="true"] { background: radial-gradient(circle at 50% 35%, #e07a6a, #8a2a1e); box-shadow: inset 0 0 0 2px #ffd2c8, 0 0 18px #e04a3a; }
 #gi-battle:not([data-mode="plan"]) .tb-turn { opacity: .4; pointer-events: none; }
 
@@ -2624,7 +2633,7 @@ body:not(.gi-scene) #gi-party-health, body.gi-history #gi-party-health, body.gi-
 @media (max-aspect-ratio: 4/5) {
     #gi-battle { --ch: min(18dvh, calc((100vw - 64px) / 4.4 / .583)); --gap: 0px; }
     .tb-board { inset: 6px; display: grid; grid-template-columns: minmax(0, 1fr) auto; grid-template-rows: auto auto auto minmax(10px, 1fr) auto auto auto auto auto; grid-template-areas: "plate skip" "foe foe" "fsum fsum" "mid mid" "you you" "ysum ysum" "dice dice" "hand hand" "turn skills"; row-gap: 8px; padding: 10px 10px max(10px, env(safe-area-inset-bottom)); border-radius: 16px; }
-    .tb-board > :not(.tb-tip, .tb-banner, .tb-combo) { position: static !important; translate: none !important; }
+    .tb-board > :not(.tb-tip, .tb-banner, .tb-combo, .tb-confirm) { position: static !important; translate: none !important; }
     .tb-crest, .tb-midline, .tb-emblem, .tb-plate-you, .tb-res { display: none; }
     .tb-plate-foe { grid-area: plate; justify-self: start; max-width: 100%; min-width: 0; padding-right: 30px; } .tb-plate strong { overflow: hidden; text-overflow: ellipsis; } .tb-plate-img { width: 34px; height: 34px; } .tb-plate strong { font-size: 15px; } .tb-plate small { font-size: 11px; }
     .tb-skip { grid-area: skip; width: 38px; height: 38px; }
@@ -2638,6 +2647,7 @@ body:not(.gi-scene) #gi-party-health, body.gi-history #gi-party-health, body.gi-
     .tb-dice-list { display: flex; flex-wrap: wrap; gap: 4px; direction: ltr; } .tb-die { width: 22px; height: 25px; } .tb-die svg { width: 13px; height: 13px; }
     .tb-hand { grid-area: hand; --hh: 92px; justify-content: center; overflow-x: auto; padding: 8px 6px 0; }
     .tb-item { margin: 0 2px; transform: none; } .tb-item:hover { transform: translateY(-6px); } .tb-item.tb-held { transform: translateY(-12px) scale(1.05); }
+    .tb-confirm { left: 12px; right: 12px; top: auto; bottom: 110px; width: auto; translate: none; }
     .tb-turn { grid-area: turn; display: flex; align-items: center; gap: 8px; } .tb-end { width: 56px; height: 56px; } .tb-end svg { width: 26px; height: 26px; } .tb-auto, .tb-flee { width: 36px; height: 36px; } .tb-auto svg, .tb-flee svg { width: 20px; height: 20px; }
     .tb-skills { grid-area: skills; gap: 6px; justify-self: end; } .tb-medal { width: 44px; height: 44px; } .tb-move-burst .tb-medal { width: 52px; height: 52px; } .tb-medal svg { width: 22px; height: 22px; } .tb-cost { width: 22px; height: 25px; } .tb-cost b { font-size: 13px; }
     .tb-hp { left: -9px; top: -10px; width: 28px; height: 32px; } .tb-hp b { font-size: 13px; padding-bottom: 5px; }
@@ -2759,6 +2769,10 @@ body:not(.gi-scene) #gi-party-health, body.gi-history #gi-party-health, body.gi-
 
 /* Left rail: Paimon sits above it, then back and settings, version at the foot. */
 .gi-pm-rail { display: flex; flex-direction: column; align-items: center; gap: 14px; padding: calc(env(safe-area-inset-top, 0px) + 78px) 0 max(16px, env(safe-area-inset-bottom, 0px)); background: linear-gradient(90deg, #2c3343, #353d4f); box-shadow: inset -1px 0 0 #ffffff14; }
+/* With the menu open, Paimon centres over the rail so it lines up with back and settings. */
+body.gi-shell { --pm-rail-width: 68px; }
+#gi-launcher { transition: transform 280ms var(--ty-ease), filter 280ms ease, left 280ms var(--ty-ease); }
+#gi-launcher[aria-expanded="true"] { left: calc(env(safe-area-inset-left, 0px) + (var(--pm-rail-width) - var(--gi-hud-cell)) / 2); }
 #gi-toolbar .gi-pm-rail button { width: 46px; height: 46px; min-height: 0; padding: 0; border: 0; border-radius: 50%; color: #ece5d8; background: #ffffff10; box-shadow: inset 0 0 0 1.5px #ece5d833; text-shadow: none; transition: background 180ms ease, color 180ms ease, transform 220ms var(--ty-ease); }
 #gi-toolbar .gi-pm-rail button svg { width: 24px; height: 24px; }
 #gi-toolbar .gi-pm-rail button span { display: none; }
@@ -2832,7 +2846,7 @@ body:not(.gi-scene) #gi-party-health, body.gi-history #gi-party-health, body.gi-
 
 /* Small and short screens. */
 @media (max-width: 520px) {
-    #gi-toolbar.gi-paimon, body.gi-scene.gi-hidden #gi-toolbar.gi-paimon { --pm-rail: 54px; }
+    #gi-toolbar.gi-paimon, body.gi-scene.gi-hidden #gi-toolbar.gi-paimon { --pm-rail: 54px; } body.gi-shell { --pm-rail-width: 54px; }
     #gi-toolbar .gi-pm-rail button { width: 40px; height: 40px; }
     #gi-toolbar .gi-pm-card { grid-template-columns: minmax(0, 1fr); padding: calc(env(safe-area-inset-top, 0px) + 16px) 16px 14px; }
     .gi-pm-who { justify-items: start; padding-top: 0; }

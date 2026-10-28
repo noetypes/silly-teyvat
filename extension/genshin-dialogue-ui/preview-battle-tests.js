@@ -149,9 +149,11 @@ export async function runBattleTests(){
         check('each member eats only once a round',dialog.querySelectorAll('.tb-played-card').length===1);
         q('.tb-hand [data-item="woven-flames"]').click();q('.tb-hand [data-item="woven-flames"]').click();
         check('a Woven card adds a die at once',dialog.querySelectorAll('.tb-die').length===6&&q('.tb-dice-count').textContent==='2');
+        check('the flee chance is hidden until Flee is chosen',!/%/.test(q('.tb-turn').textContent)&&q('.tb-confirm').hidden);
         q('.tb-flee').click();
-        check('Flee shows its chance and replaces the moves',q('.tb-flee').getAttribute('aria-pressed')==='true'&&/%/.test(q('.tb-flee b').textContent)&&!dialog.querySelector('.tb-skills .tb-move'));
-        q('.tb-flee').click();
+        check('Flee shows its chance and asks for confirmation',!q('.tb-confirm').hidden&&/\d+% chance/.test(q('.tb-confirm p').textContent)&&q('.tb-flee').getAttribute('aria-expanded')==='true'&&q('.tb-flee').getAttribute('aria-pressed')==='false');
+        q('.tb-confirm-no').click();
+        check('Stay closes the confirmation and keeps the plan',q('.tb-confirm').hidden&&dialog.querySelector('.tb-skills .tb-move'));
         q('.tb-end').click();const plan=await planned;
         check('the round button returns moves, items and dice',plan.steps.map(p=>`${p.actor}:${p.move}`).join()==='k:1,x:1'&&plan.items.map(i=>`${i.id}>${i.target || ''}`).join()==='sweet-madame>x,woven-flames>'&&!plan.flee&&plan.dice.length===6);
         const result=resolveRound(screen,{...plan,items:plan.items.map(i=>({...i,item:ITEMS[i.id]}))},opts);
@@ -161,6 +163,8 @@ export async function runBattleTests(){
         check('the summary credits damage and shows loot',dialog.querySelectorAll('.tb-result-party li').length===2&&dialog.querySelectorAll('.tb-loot-card').length===1);
         q('.tb-continue').click();check('Continue closes the board',(await playing)===true&&!dialog.open);
         const cancelled=ui.plan(screen,{dice,targetId:'h',reducedMotion:true,volume:0});ui.cancel();check('cancel ends the Action Phase without a plan',(await cancelled)===null);
+        const fleeing=ui.plan(screen,{dice,targetId:'h',reducedMotion:true,volume:0});q('.tb-flee').click();q('.tb-confirm-yes').click();
+        check('confirming Flee begins the round as an escape',(await fleeing)?.flee===true&&q('.tb-confirm').hidden);ui.cancel();
 
         // Moveset editor
         const ctx={characters:[{name:'Klee',avatar:'Klee.png',data:{extensions:{silly_teyvat:{playable:true,element:'Pyro'}}}}],extensionSettings:{genshin_dialogue_ui:{}},saveSettingsDebounced(){}};

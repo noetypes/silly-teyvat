@@ -11,6 +11,10 @@
 
 /* Left rail: Paimon sits above it, then back and settings, version at the foot. */
 .gi-pm-rail { display: flex; flex-direction: column; align-items: center; gap: 14px; padding: calc(env(safe-area-inset-top, 0px) + 78px) 0 max(16px, env(safe-area-inset-bottom, 0px)); background: linear-gradient(90deg, #2c3343, #353d4f); box-shadow: inset -1px 0 0 #ffffff14; }
+/* With the menu open, Paimon centres over the rail so it lines up with back and settings. */
+body.gi-shell { --pm-rail-width: 68px; }
+#gi-launcher { transition: transform 280ms var(--ty-ease), filter 280ms ease, left 280ms var(--ty-ease); }
+#gi-launcher[aria-expanded="true"] { left: calc(env(safe-area-inset-left, 0px) + (var(--pm-rail-width) - var(--gi-hud-cell)) / 2); }
 #gi-toolbar .gi-pm-rail button { width: 46px; height: 46px; min-height: 0; padding: 0; border: 0; border-radius: 50%; color: #ece5d8; background: #ffffff10; box-shadow: inset 0 0 0 1.5px #ece5d833; text-shadow: none; transition: background 180ms ease, color 180ms ease, transform 220ms var(--ty-ease); }
 #gi-toolbar .gi-pm-rail button svg { width: 24px; height: 24px; }
 #gi-toolbar .gi-pm-rail button span { display: none; }
@@ -84,7 +88,7 @@
 
 /* Small and short screens. */
 @media (max-width: 520px) {
-    #gi-toolbar.gi-paimon, body.gi-scene.gi-hidden #gi-toolbar.gi-paimon { --pm-rail: 54px; }
+    #gi-toolbar.gi-paimon, body.gi-scene.gi-hidden #gi-toolbar.gi-paimon { --pm-rail: 54px; } body.gi-shell { --pm-rail-width: 54px; }
     #gi-toolbar .gi-pm-rail button { width: 40px; height: 40px; }
     #gi-toolbar .gi-pm-card { grid-template-columns: minmax(0, 1fr); padding: calc(env(safe-area-inset-top, 0px) + 16px) 16px 14px; }
     .gi-pm-who { justify-items: start; padding-top: 0; }

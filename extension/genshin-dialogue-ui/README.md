@@ -1,3 +1,9 @@
+# Silly Teyvat 1.39.1: Flee confirmation and tidier menus
+
+- **Flee asks first.** The escape chance is no longer shown under the Flee button. Choosing Flee shows the chance and asks you to confirm; **Flee** begins the round as an escape, **Stay** (or Esc) goes back to your plan.
+- **Evenly spaced turn buttons.** The round number is now a small badge on the hourglass's corner, so Auto, Begin round and Flee line up evenly.
+- **Paimon lines up with the menu.** With the Paimon menu open, the Paimon icon centres over the back and settings buttons.
+
 # Silly Teyvat 1.39.0: Enemy sprite animations and coloured skill medallions
 
 - **Enemies make an entrance.** When an enemy first appears on the stage, its sprite rises in from a dark glow.

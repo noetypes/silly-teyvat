@@ -42,7 +42,8 @@ export function mountBattle({host,sound=createBattleSound(),onBurst=()=>{},onSto
         <div class="tb-zone tb-summons-you" aria-label="Your summons"></div>
         <div class="tb-zone tb-played" aria-label="Items played this round"></div>
         <div class="tb-res"></div>
-        <div class="tb-turn"><button type="button" class="tb-auto" aria-label="Auto: pick the strongest affordable moves">${ICON.auto}</button><button type="button" class="tb-end" aria-label="Begin round">${ICON.hourglass}<b class="tb-round">1</b></button><button type="button" class="tb-flee" aria-pressed="false" aria-label="Flee">${ICON.flee}<b></b></button></div>
+        <div class="tb-turn"><button type="button" class="tb-auto" aria-label="Auto: pick the strongest affordable moves">${ICON.auto}</button><button type="button" class="tb-end" aria-label="Begin round">${ICON.hourglass}<b class="tb-round">1</b></button><button type="button" class="tb-flee" aria-pressed="false" aria-expanded="false" aria-controls="tb-confirm-flee" aria-label="Flee">${ICON.flee}</button></div>
+        <div class="tb-confirm" id="tb-confirm-flee" role="alertdialog" aria-labelledby="tb-confirm-flee-title" aria-describedby="tb-confirm-flee-text" hidden><strong id="tb-confirm-flee-title">Flee the battle?</strong><p id="tb-confirm-flee-text"></p><div><button type="button" class="tb-confirm-no">Stay</button><button type="button" class="tb-confirm-yes">Flee</button></div></div>
         <div class="tb-dice" aria-label="Elemental dice"><b class="tb-dice-count">0</b><div class="tb-dice-list"></div></div>
         <div class="tb-skills" role="group" aria-label="Moves"></div>
         <div class="tb-hand" role="group" aria-label="Items"></div>
@@ -288,7 +289,7 @@ export function mountBattle({host,sound=createBattleSound(),onBurst=()=>{},onSto
             card.classList.toggle('tb-choosable',Boolean(item&&u.side==='party'&&(item.target==='downed'?u.hp<=0:item.target==='ally'&&alive(u))||targeting&&(targeting.kind==='foe'?u.side==='enemy':u.side==='party')&&alive(u)));
         }
         dialog.classList.toggle('tb-fleeing',flee);dialog.classList.toggle('tb-holding',Boolean(heldItem||targeting));
-        const fleeBtn=$('.tb-flee');fleeBtn.setAttribute('aria-pressed',String(flee));fleeBtn.querySelector('b').textContent=`${fleeChance(state)}%`;fleeBtn.setAttribute('aria-label',`Flee, ${fleeChance(state)}% chance`);
+        const fleeBtn=$('.tb-flee');fleeBtn.setAttribute('aria-pressed',String(flee));
         const u=unitById(state,active),skills=$('.tb-skills');skills.replaceChildren();
         if(u&&!flee){
             dialog.style.setProperty('--active',EL_COLORS[u.element] || EL_COLORS.None);
@@ -308,24 +309,35 @@ export function mountBattle({host,sound=createBattleSound(),onBurst=()=>{},onSto
         $('.tb-plate-you small').textContent=flee?'Fleeing…':'Now Acting';
     }
     on($('.tb-auto'),'click',()=>{if(mode!=='plan')return;flee=false;plan=autoPlan(state,dice,plan);targeting=null;heldItem=null;sound.assign();paint();});
-    on($('.tb-flee'),'click',()=>{if(mode!=='plan')return;flee=!flee;targeting=null;heldItem=null;sound.select();paint();});
-    on($('.tb-end'),'click',()=>{
+    // Flee asks first: the chance shows only once you choose it, and confirming begins the round as an escape.
+    const fleeOpen=()=>!$('.tb-confirm').hidden;
+    function askFlee(show){
+        const box=$('.tb-confirm');box.hidden=!show;$('.tb-flee').setAttribute('aria-expanded',String(show));
+        if(!show)return;
+        box.querySelector('p').textContent=`${fleeChance(state)}% chance to escape. If it fails, your party loses this turn.`;
+        targeting=null;heldItem=null;hideTip();sound.select();paint();box.querySelector('.tb-confirm-yes').focus();
+    }
+    on($('.tb-flee'),'click',()=>{if(mode!=='plan')return;askFlee(!fleeOpen());});
+    on($('.tb-confirm-no'),'click',()=>{askFlee(false);$('.tb-flee').focus();});
+    on($('.tb-confirm-yes'),'click',()=>{if(mode!=='plan')return;askFlee(false);flee=true;paint();begin();});
+    on($('.tb-end'),'click',()=>begin());
+    function begin(){
         if(mode!=='plan')return;if(!flee&&!allocation().ok){deny('.tb-dice');return;}
-        sound.unlock();mode='';hideTip();
+        askFlee(false);sound.unlock();mode='';hideTip();
         const result={steps:plan.map(p=>({...p})),items:items.map(i=>({...i})),flee,dice:dice.map(d=>({face:d.face}))};
         finish?.(result);finish=null;
-    });
+    }
     on($('.tb-skip'),'click',()=>{if(speed<3){speed=3;$('.tb-skip').textContent='⏭';}else{skipAll=true;$('.tb-skip').hidden=true;}});
-    on(dialog,'cancel',event=>{event.preventDefault();if(mode==='result')$('.tb-continue').click();else if(mode==='play')$('.tb-skip').click();else if(targeting||heldItem){targeting=null;heldItem=null;paint();}});
+    on(dialog,'cancel',event=>{event.preventDefault();if(mode==='result')$('.tb-continue').click();else if(mode==='play')$('.tb-skip').click();else if(fleeOpen()){askFlee(false);$('.tb-flee').focus();}else if(targeting||heldItem){targeting=null;heldItem=null;paint();}});
     on(dialog,'keydown',event=>{
-        if(mode!=='plan'||event.target.closest?.('input,textarea,select'))return;
+        if(mode!=='plan'||fleeOpen()||event.target.closest?.('input,textarea,select'))return;
         const key=event.key.toLowerCase();
         if(key==='a'||key==='1')chooseMove(0);else if(key==='e'||key==='2')chooseMove(1);else if(key==='q'||key==='3')chooseMove(2);
         else if(key==='enter'&&!event.target.closest?.('button'))$('.tb-end').click();else return;
         event.preventDefault();
     });
     // Tapping empty table puts a held item down or stops choosing a target. Buttons re-render as they are used, so detached targets are ignored.
-    on($('.tb-board'),'click',event=>{if(mode==='plan'&&(heldItem||targeting)&&event.target.isConnected&&!event.target.closest('.tb-card,.tb-item,.tb-turn,.tb-skills,.tb-played')){heldItem=null;targeting=null;paint();}});
+    on($('.tb-board'),'click',event=>{if(fleeOpen()&&event.target.isConnected&&!event.target.closest('.tb-confirm,.tb-flee'))askFlee(false);if(mode==='plan'&&(heldItem||targeting)&&event.target.isConnected&&!event.target.closest('.tb-card,.tb-item,.tb-turn,.tb-skills,.tb-played')){heldItem=null;targeting=null;paint();}});
     function open(){clearTimeout(closeTimer);dialog.classList.remove('gb-closing');if(!dialog.open)dialog.showModal();requestAnimationFrame(()=>particles.fit());}
     function setup(snapshot,player){
         state=structuredClone(snapshot);cards.clear();
@@ -468,7 +480,7 @@ export function mountBattle({host,sound=createBattleSound(),onBurst=()=>{},onSto
         plan(snapshot,{dice:rolled,targetId,reducedMotion=false,effects=true,volume=.8,isCurrent=()=>true,player}={}){
             if(disposed||!isCurrent())return Promise.resolve(null);
             finish?.(null);opts={reducedMotion,effects,volume};sound.setVolume(volume);dialog.classList.toggle('gb-reduced',reducedMotion);
-            setup(snapshot,player);dice=rolled.map(d=>({face:d.face,match:d.match}));items=[];flee=false;heldItem=null;targeting=null;
+            setup(snapshot,player);dice=rolled.map(d=>({face:d.face,match:d.match}));items=[];flee=false;heldItem=null;targeting=null;askFlee(false);
             mode='plan';dialog.dataset.mode='plan';$('.tb-skip').hidden=true;setActing('party');
             const target=unitById(state,targetId)&&alive(unitById(state,targetId))?targetId:state.units.find(x=>x.side==='enemy'&&alive(x))?.id;
             plan=party().filter(alive).map(u=>({actor:u.id,move:isStunned(u)?-1:0,target}));
@@ -478,7 +490,7 @@ export function mountBattle({host,sound=createBattleSound(),onBurst=()=>{},onSto
             return new Promise(resolve=>{finish=resolve;});
         },
         play,
-        cancel(){playRevision++;mode='';skipAll=true;onStopVoice();finish?.(null);finish=null;close(false);},
+        cancel(){playRevision++;mode='';skipAll=true;askFlee(false);onStopVoice();finish?.(null);finish=null;close(false);},
         dispose(){playRevision++;disposed=true;skipAll=true;onStopVoice();finish?.(null);finish=null;clearTimeout(closeTimer);abort.abort();particles.dispose();sound.dispose();dialog.remove();},
     };
 }
