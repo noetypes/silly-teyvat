@@ -102,7 +102,7 @@ export function mountChoices({ host, getContext, adapter = mainApiAdapter, annou
         const latest = ctx.chat?.at(-1);
         const nextChatKey = identity(ctx);
         const nextKey = JSON.stringify([nextChatKey, ctx.chat?.length, latest?.name, latest?.mes, latest?.swipe_id]);
-        const nextEligible = Boolean(on && !generating && latest && !latest.is_user && !latest.is_system && (suggested && latest.extra?.type!=='narrator' && latest.mes?.trim()));
+        const nextEligible = Boolean(on && !generating && latest && !latest.is_user && !latest.is_system && (suggested && latest.mes?.trim()));
         if (key !== nextKey || enabled !== on || eligible && !nextEligible) {
             cancel();
             choices = [];
