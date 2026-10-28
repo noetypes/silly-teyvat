@@ -29,12 +29,12 @@ export async function runEnemyAttackTests(){
     function mount(ctx,{defeats=[]}={}){
         const rolls=[],messages=[];
         const adapter={async append(c,record){messages.push(record);c.chat.push({name:record.name||'Narrator',mes:record.text,is_user:false,extra:{type:'narrator',silly_teyvat_combat:record.event}});},async react(){},async finishSend(){},async defeat(c){const r=resolveDefeat(c);defeats.push(r);return r;}};
-        const plans=[];const instance=mountCombat({host,getContext:()=>ctx,adapter,diceAdapter:{async roll(roll,options){rolls.push({roll,options});return true;},cancel(){},dispose(){}},battleAdapter:{async plan(state,options){plans.push({state,options});return state.units.filter(u=>u.side==='party'&&u.hp>0).map(u=>({actor:u.id,move:0,target:options.targetId}));},async play(){return true;},cancel(){},dispose(){}}});
+        const plans=[];const instance=mountCombat({host,getContext:()=>ctx,adapter,diceAdapter:{async roll(roll,options){rolls.push({roll,options});return true;},cancel(){},dispose(){}},battleAdapter:{async plan(state,options){plans.push({state,options});return {steps:state.units.filter(u=>u.side==='party'&&u.hp>0).map(u=>({actor:u.id,move:0,target:options.targetId})),items:[],flee:false};},async play(){return true;},cancel(){},dispose(){}}});
         instance.sync({on:true,id:ctx.chat.length-1});ui=instance;return {ui:instance,rolls,messages,defeats,plans};
     }
     try{
         let ctx=fixture();
-        check('you and your party members have health',partyStatus(ctx).map(m=>`${m.avatar}:${m.hp}/${m.maxHp}`).join()===`${USER_KEY}:30/30,Klee.png:30/30`);
+        check('you and your party members have health from their movesets',partyStatus(ctx).map(m=>`${m.avatar}:${m.hp}/${m.maxHp}`).join()===`${USER_KEY}:34/34,Klee.png:30/30`);
         check('enemies are never part of the party',!partyStatus(ctx).some(m=>m.avatar==='Slime.png'));
         const snap=battleSnapshot(ctx);
         check('the battle snapshot holds you, your ally and the enemy',snap.units.map(u=>`${u.side}:${u.id}`).join()===`party:${USER_KEY},party:Klee.png,enemy:Slime.png`);
@@ -71,7 +71,7 @@ export async function runEnemyAttackTests(){
         check('enemies only strike back when enabled',c.rolls.length===1&&partyStatus(ctx).every(m=>m.hp===m.maxHp)&&!/Enemies strike back/.test(c.messages.at(-1).text));c.ui.dispose();ui=null;
 
         // Running out of HP.
-        ctx=fixture({userMaxHp:2,solo:true});const defeats=[];c=mount(ctx,{defeats});c.ui.setArmed(true);
+        ctx=fixture({solo:true});combatState(ctx).party={[USER_KEY]:{hp:2,maxHp:34}};const defeats=[];c=mount(ctx,{defeats});c.ui.setArmed(true);
         ctx.chat.push({name:'Traveler',is_user:true,is_system:false,mes:'“Take this!”'});c.ui.sync({on:true,id:ctx.chat.length-1,generating:true});await c.ui.onUserMessage(ctx.chat.length-1);
         const cast=locationCastState(ctx),result=defeats[0];
         check('running out of HP sends you to the nearest Adventurers’ Guild',Boolean(result)&&travelState(ctx).location.id==='guild-near'&&result.from.label==='Wilds');

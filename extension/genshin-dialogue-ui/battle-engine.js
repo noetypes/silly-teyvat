@@ -48,14 +48,17 @@ export function rerollFuel(state,roll,indices,{random=Math.random}={}){
     return {...roll,dice,rerolls:1,rerolled:[...chosen]};
 }
 // Pays every planned move from the pool: own element first, then Omni, then two spare dice per missing die.
-export function allocateDice(state,dice,plan){
+// Items are paid with any dice: spare ones first.
+export function allocateDice(state,dice,plan,items=[]){
     const pool=dice.map((d,i)=>({i,face:d.face,by:null,tuned:false})),elements=partyElements(state);
     const needs=plan.map((step,index)=>{const u=unitById(state,step.actor),move=u?.kit?.moves?.[step.move];const cost=step.move>=0&&alive(u)?Math.max(0,Math.round(Number(move?.cost)||0)):0;return {index,actor:step.actor,element:ELEMENTS.includes(u?.element)?u.element:null,left:cost,cost,dice:[]};});
+    items.forEach((item,index)=>{const cost=Math.max(0,Math.round(Number(item.cost)||0));needs.push({index:plan.length+index,actor:`item:${index}`,item:true,element:null,left:cost,cost,dice:[]});});
     const take=(need,test)=>{for(const die of pool){if(need.left<=0)return;if(!die.by&&test(die)){die.by=need.actor;need.dice.push(die.i);need.left--;}}};
     for(const need of needs)if(need.element)take(need,d=>d.face===need.element);
     for(const need of needs)if(!need.element)take(need,d=>d.face!=='Omni'&&!elements.has(d.face));
-    for(const need of needs)take(need,d=>d.face==='Omni');
+    for(const need of needs)if(need.element)take(need,d=>d.face==='Omni');
     for(const need of needs)if(!need.element)take(need,d=>d.face!=='Omni');
+    for(const need of needs)if(!need.element)take(need,d=>d.face==='Omni');
     // Elemental tuning: two unspent non-Omni dice become one die of the needed element.
     const spare=()=>pool.filter(d=>!d.by&&d.face!=='Omni').sort((a,b)=>Number(elements.has(a.face))-Number(elements.has(b.face)));
     for(const need of needs)while(need.left>0){const two=spare().slice(0,2);if(two.length<2)break;for(const d of two){d.by=need.actor;d.tuned=true;need.dice.push(d.i);}need.left--;}
@@ -73,8 +76,8 @@ export function moveElement(u,move){
     const el=move.element || u.element;return el==='None'?'Physical':el;
 }
 export const moveNeedsTarget=move=>{const t=(move?.effects || []).map(e=>e.target);if(t.includes('one'))return 'foe';if(t.includes('ally'))return 'ally';return null;};
-export function canAfford(state,dice,plan,step){
-    const trial=plan.map(p=>p.actor===step.actor?step:p);return allocateDice(state,dice,trial).needs.find(n=>n.actor===step.actor)?.left<=0;
+export function canAfford(state,dice,plan,step,items=[]){
+    const trial=plan.map(p=>p.actor===step.actor?step:p);return allocateDice(state,dice,trial,items).ok;
 }
 export function burstReady(u){return (u.energy || 0)>=(u.maxEnergy || 2);}
 export function defaultPlan(state,targetId){
@@ -97,7 +100,9 @@ export function autoPlan(state,dice,plan){
 }
 
 // ---- Round resolution ---------------------------------------------------------------
-export function resolveRound(input,plan,{random=Math.random,forecast=false,strikeBack=true,difficulty='normal'}={}){
+// A plan is either the list of party steps, or {steps, items, flee}.
+export function resolveRound(input,planInput,{random=Math.random,forecast=false,strikeBack=true,difficulty='normal'}={}){
+    const plan=Array.isArray(planInput)?planInput:planInput?.steps || [],items=Array.isArray(planInput)?[]:planInput?.items || [],flee=!Array.isArray(planInput)&&Boolean(planInput?.flee);
     const state=structuredClone(input),timeline=[],rand=()=>forecast?.5:clampRandom(random);
     const diff=DIFFICULTY[difficulty] || DIFFICULTY.normal,enemyDamage=diff.damage*partyScale(state.units.filter(u=>u.side==='party').length).damage;
     state.round ||= 1;state.summons ??= [];state.cores=[];state.combo=0;state.resonance=resonanceOf(state.units);
@@ -243,7 +248,7 @@ export function resolveRound(input,plan,{random=Math.random,forecast=false,strik
         if(move.kind==='burst')actor.energy=0;
         if(move.kind==='normal'){
             const t=pickTarget(actor,'one',chosen)[0];
-            const miss=(move.miss ?? 20)-(resonant('Anemo')?10:0)+(t?.evasion || 0)+(t?statusSum(t,'dodge'):0);
+            const miss=statusSum(actor,'focus')>0?0:(move.miss ?? 20)-(resonant('Anemo')?10:0)+(t?.evasion || 0)+(t?statusSum(t,'dodge'):0);
             if(!forecast&&rand()*100<miss){push({type:'miss',actor:actor.id,target:t?.id,step});return;}
             actor.energy=Math.min(actor.maxEnergy || 2,(actor.energy || 0)+1);
         }
@@ -256,28 +261,53 @@ export function resolveRound(input,plan,{random=Math.random,forecast=false,strik
         push({type:'energy',actor:actor.id,target:actor.id,energy:actor.energy || 0,step,quiet:true});
     }
     const enemiesLeft=()=>side(state,'enemy').some(alive),userUp=()=>side(state,'party').some(u=>u.isUser&&alive(u)) || !side(state,'party').some(u=>u.isUser);
+    // Items are used first, in the order they were played.
+    for(const [index,use] of items.entries()){
+        const item=use.item;if(!item?.effects)continue;
+        const user={id:'items',side:'party',statuses:[],kit:{}};
+        push({type:'item',item:use.id,name:item.name,target:use.target || null,index});
+        const targets=item.target==='party'?side(state,'party').filter(alive):item.target==='ally'?[unitById(state,use.target)].filter(alive):item.target==='downed'?[unitById(state,use.target)].filter(u=>u&&u.side==='party'&&u.hp<=0):[];
+        for(const effect of item.effects){
+            if(effect.type==='revive'){for(const t of targets){t.hp=Math.min(t.maxHp,effect.amount);t.statuses=[];t.aura=null;push({type:'heal',actor:'items',target:t.id,amount:t.hp,hpAfter:t.hp,source:item.name,revive:true});}continue;}
+            if(effect.type==='dispel'){
+                const gone=state.summons.filter(x=>x.side==='enemy');state.summons=state.summons.filter(x=>x.side!=='enemy');
+                for(const g of gone)push({type:'dispel',summon:g.id,name:g.name});
+                for(const e of side(state,'enemy').filter(u=>alive(u)&&u.shield>0)){e.shield=Math.max(0,e.shield-effect.amount);push({type:'shield',actor:'items',target:e.id,amount:-effect.amount,shieldAfter:e.shield,source:item.name});}
+                continue;
+            }
+            for(const t of targets){
+                if(effect.type==='heal')heal(user,t,effect.amount,{source:item.name});
+                else if(effect.type==='shield'){t.shield=Math.min(SHIELD_CAP,(t.shield || 0)+effect.amount);push({type:'shield',actor:'items',target:t.id,amount:effect.amount,shieldAfter:t.shield,source:item.name});}
+                else if(effect.type==='energy'){t.energy=Math.min(t.maxEnergy || 2,(t.energy || 0)+effect.amount);push({type:'energy',actor:'items',target:t.id,energy:t.energy});}
+                else if(effect.type==='buff'){addStatus(t,{stat:effect.stat,amount:effect.amount,rounds:effect.rounds,source:`item:${use.id}`,label:item.name});push({type:'buff',actor:'items',target:t.id,stat:effect.stat,amount:effect.amount,rounds:effect.rounds,statuses:structuredClone(t.statuses)});}
+            }
+        }
+    }
+    // Fleeing replaces the party's actions. If it fails, the enemies still act.
+    let fled=false;
+    if(flee){
+        const chance=fleeChance(state),success=!forecast&&rand()*100<chance;
+        push({type:'flee',chance,success});
+        if(success){fled=true;state.fled=true;state.round++;return {state,timeline,stats,victory:false,wiped:false,fled:true};}
+    }
     // Party actions, in the order the player planned them.
-    push({type:'phase',label:'Party Phase',round:state.round});
-    plan.forEach((p,step)=>{
+    if(!flee)push({type:'phase',label:'Party Phase',round:state.round});
+    if(!flee)plan.forEach((p,step)=>{
         const actor=unitById(state,p.actor);if(!alive(actor)||!enemiesLeft())return;
         if(isStunned(actor)){const reason=hasStatus(actor,'frozen')?'Frozen':'Petrified';actor.statuses=actor.statuses.filter(s=>s.stat!=='stun'&&s.stat!=='frozen');push({type:'skip',actor:actor.id,reason,statuses:structuredClone(actor.statuses),step});return;}
         if(p.move<0){push({type:'skip',actor:actor.id,reason:'Holds position',step});return;}
         act(actor,p.move,p.target,step);
     });
-    // Enemy actions: a special move when its cooldown is ready, otherwise the basic attack.
+    // Enemy actions: each enemy carries out the move it telegraphed last round.
     if(strikeBack&&enemiesLeft()&&!forecast){
         push({type:'phase',label:'Enemy Phase',round:state.round});
         for(const enemy of side(state,'enemy')){
             if(!alive(enemy)||!side(state,'party').some(alive)||!userUp())continue;
             if(isStunned(enemy)){const reason=hasStatus(enemy,'frozen')?'Frozen':'Petrified';enemy.statuses=enemy.statuses.filter(s=>s.stat!=='stun'&&s.stat!=='frozen');push({type:'skip',actor:enemy.id,reason,statuses:structuredClone(enemy.statuses)});continue;}
-            enemy.cooldowns ??= {};
-            const special=enemy.kit.moves.findIndex(m=>m.kind==='special');
-            // Below half health an enemy becomes enraged and uses its special move at once.
-            const enraged=!enemy.enraged&&enemy.hp<enemy.maxHp/2;if(enraged){enemy.enraged=true;push({type:'enrage',actor:enemy.id});}
-            const ready=special>=0&&(enraged||(enemy.cooldowns[special] ?? 1)<=0);
-            const index=ready?special:Math.max(0,enemy.kit.moves.findIndex(m=>m.kind==='basic'));
-            if(ready)enemy.cooldowns[special]=enemy.kit.moves[special].cooldown || 3;
-            act(enemy,index,null,undefined);
+            if(!enemy.intent)planIntent(state,enemy,rand);
+            const index=enemy.intent.move,move=enemy.kit.moves[index];
+            if(move?.kind==='special'){enemy.cooldowns ??= {};enemy.cooldowns[index]=move.cooldown || 3;}
+            act(enemy,index,enemy.intent.target,undefined);
         }
     }
     // End Phase: summons, Dendro Cores, damage over time, regeneration and timers.
@@ -319,16 +349,61 @@ export function resolveRound(input,plan,{random=Math.random,forecast=false,strik
             if(u.aura){u.aura.rounds--;if(u.aura.rounds<=0)u.aura=null;}
             if(u.cooldowns)for(const k of Object.keys(u.cooldowns))u.cooldowns[k]=Math.max(0,u.cooldowns[k]-1);
         }
-        push({type:'statuses',units:state.units.map(u=>({id:u.id,aura:u.aura?.element || null,statuses:structuredClone(u.statuses || []),shield:u.shield || 0,energy:u.energy || 0,hp:u.hp}))});
+        // Next round's enemy moves are decided now, so the player can see them coming.
+        for(const enemy of side(state,'enemy').filter(alive)){
+            if(!enemy.enraged&&enemy.hp<enemy.maxHp/2&&enemy.kit.moves.some(m=>m.kind==='special')){enemy.enraged=true;push({type:'enrage',actor:enemy.id});}
+            planIntent(state,enemy,rand);
+        }
+        push({type:'statuses',units:state.units.map(u=>({id:u.id,aura:u.aura?.element || null,statuses:structuredClone(u.statuses || []),shield:u.shield || 0,energy:u.energy || 0,hp:u.hp,intent:u.intent || null}))});
         if(timeline.length===endEvents+2)timeline.splice(endEvents,1);
     }
     const victory=!enemiesLeft(),wiped=!side(state,'party').some(alive)||!userUp();
     if(!forecast){if(victory)push({type:'victory'});else if(wiped)push({type:'wipe'});state.round++;}
     state.summons=state.summons.map(s=>({...s,drew:undefined}));
-    return {state,timeline,stats,victory,wiped};
+    return {state,timeline,stats,victory,wiped,fled};
+}
+// ---- Enemy intents and fleeing ------------------------------------------------------
+// The move an enemy will use next round: its Special when ready (at once when enraged), otherwise its Attack.
+export function planIntent(state,enemy,random=Math.random){
+    const moves=enemy.kit?.moves || [],special=moves.findIndex(m=>m.kind==='special'),basic=Math.max(0,moves.findIndex(m=>m.kind==='basic'));
+    enemy.cooldowns ??= {};
+    if(special>=0&&enemy.cooldowns[special]===undefined)enemy.cooldowns[special]=Math.max(0,(moves[special].cooldown || 3)-1);
+    const ready=special>=0&&(enemy.cooldowns[special]<=0||enemy.enraged&&!enemy.usedRage);
+    if(ready&&enemy.enraged)enemy.usedRage=true;
+    const move=ready?special:basic,effects=moves[move]?.effects || [];
+    const foes=state.units.filter(u=>u.side==='party'&&alive(u));
+    let target=null;
+    if(effects.some(e=>e.target==='one'))target=foes.length?foes[Math.min(foes.length-1,Math.floor(clampRandom(random)*foes.length))].id:null;
+    else if(effects.some(e=>e.target==='weakest'))target=foes.length?foes.reduce((a,b)=>b.hp<a.hp?b:a).id:null;
+    enemy.intent={move,target};
+    return enemy.intent;
+}
+// What an enemy's telegraphed move will do: who it hits and roughly how hard.
+export function intentPreview(state,enemy){
+    if(!alive(enemy))return null;
+    if(isStunned(enemy))return {skip:true,reason:hasStatus(enemy,'frozen')?'Frozen':'Petrified'};
+    const intent=enemy.intent;if(!intent)return null;
+    const move=enemy.kit.moves[intent.move];if(!move)return null;
+    const party=state.units.filter(u=>u.side==='party');
+    const mult=(DIFFICULTY[state.difficulty] || DIFFICULTY.normal).damage*partyScale(party.length).damage*Math.max(.25,1+(statusSum(enemy,'atk')-statusSum(enemy,'weaken'))/100);
+    const element=move.element || enemy.element || 'Physical',damage=[],kinds=new Set();
+    for(const e of move.effects || []){
+        if(e.type==='damage'){
+            const hits=Math.max(1,Number(e.hits)||1),each=Math.max(1,Math.round(e.power*mult));
+            if(e.target==='all'){kinds.add('aoe');for(const u of party.filter(alive))damage.push({target:u.id,amount:each*hits});}
+            else if(e.target==='random'){kinds.add('random');damage.push({target:null,amount:each,hits});}
+            else{kinds.add('attack');const t=unitById(state,intent.target);if(t)damage.push({target:t.id,amount:each*hits});}
+        }else kinds.add(e.type==='summon'?'summon':e.type==='heal'?'heal':e.type==='shield'?'shield':e.type==='debuff'?'debuff':'buff');
+    }
+    return {name:move.name,kind:move.kind,element,damage,kinds:[...kinds],target:intent.target,special:move.kind==='special'};
+}
+export function fleeChance(state){
+    const party=state.units.filter(u=>u.side==='party'&&alive(u)),enemies=state.units.filter(u=>u.side==='enemy'&&alive(u));
+    const held=enemies.length&&enemies.every(isStunned);
+    return Math.max(10,Math.min(95,60+10*party.filter(u=>u.element==='Anemo').length-10*Math.max(0,enemies.length-1)+(held?25:0)));
 }
 // Action Phase preview: expected damage and reactions for each planned step, without randomness.
-export function forecastPlan(state,plan){
-    const {timeline}=resolveRound(state,plan,{forecast:true,strikeBack:false});
+export function forecastPlan(state,plan,items=[]){
+    const {timeline}=resolveRound(state,{steps:plan,items},{forecast:true,strikeBack:false});
     return plan.map((_,step)=>{const hits=timeline.filter(e=>e.step===step);return {damage:hits.filter(e=>e.type==='hit').reduce((n,e)=>n+e.amount+e.shieldHit,0),heal:hits.filter(e=>e.type==='heal').reduce((n,e)=>n+e.amount,0),reactions:[...new Set(hits.map(e=>e.reaction).filter(Boolean))]};});
 }

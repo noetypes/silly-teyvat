@@ -6,7 +6,15 @@ import {characterProperties} from './character-properties.js';
 import {linkedCard} from './persona-link.js';
 import {activePersonaAvatar,personaKey} from './persona-wardrobe.js';
 import {activeGroup} from './party.js';
-import {resonanceOf} from './battle-engine.js';
+import {resonanceOf,planIntent} from './battle-engine.js';
+import {STARTER_BAG,addToBag} from './battle-items.js';
+
+// Genius Invokation TCG card art, for characters and enemies that have a card of the same name.
+let tcgCards=new Set();
+export const tcgCardsReady=fetch(new URL('./assets/tcg/characters.json',import.meta.url)).then(r=>r.ok?r.json():[]).then(list=>{tcgCards=new Set(list);}).catch(()=>{});
+export const tcgArt=name=>name&&tcgCards.has(name)?new URL(`./assets/tcg/characters/${encodeURIComponent(String(name).replace(/:/g,''))}.webp`,import.meta.url).href:'';
+// The party's shared item bag, saved per chat. A new chat starts with a few basics.
+export const partyBag=ctx=>combatState(ctx).bag ??= {...STARTER_BAG};
 
 // Where a fighter's moveset edits are saved: the card avatar, or the persona key for your own persona.
 export function kitKey(ctx,ally){
@@ -39,21 +47,25 @@ export function battleSnapshot(ctx,{portrait=()=>''}={}){
     for(const ally of combatAllies(ctx)){
         const kit=kitForAlly(ctx,ally),m=partyMember(ctx,ally.avatar),keep=saved.units[ally.avatar] || {};
         const card=ally.avatar===USER_KEY?linkedCard(ctx):ctx.characters.find(c=>c.avatar===ally.avatar);
-        units.push({id:ally.avatar,side:'party',name:m.name,card:card?.name || '',img:portrait(ctx,ally.avatar),element:allyElement(ctx,ally),isUser:ally.avatar===USER_KEY,
+        units.push({id:ally.avatar,side:'party',name:m.name,card:card?.name || '',img:portrait(ctx,ally.avatar),art:tcgArt(card?.name),element:allyElement(ctx,ally),isUser:ally.avatar===USER_KEY,
             hp:m.hp,maxHp:m.maxHp,shield:keep.shield || 0,energy:keep.energy ?? 1,maxEnergy:Math.max(1,Math.min(5,Number(kit.energy)||2)),aura:keep.aura || null,statuses:keep.statuses || [],kit});
     }
     for(const e of enemies){
         const card=ctx.characters.find(c=>c.avatar===e.avatar),kit=kitForCard(ctx,card),keep=saved.units[e.avatar];
-        units.push({id:e.avatar,side:'enemy',name:card?.name || 'Enemy',card:card?.name || '',img:portrait(ctx,e.avatar),element:characterProperties(ctx,card).element==='None'?'Physical':characterProperties(ctx,card).element,
-            hp:e.hp,maxHp:e.maxHp,shield:keep?keep.shield || 0:Number(kit.shield)||0,energy:0,maxEnergy:0,aura:keep?.aura || null,statuses:keep?.statuses || [],cooldowns:keep?.cooldowns || {},enraged:Boolean(keep?.enraged),
+        units.push({id:e.avatar,side:'enemy',name:card?.name || 'Enemy',card:card?.name || '',img:portrait(ctx,e.avatar),art:tcgArt(card?.name),element:characterProperties(ctx,card).element==='None'?'Physical':characterProperties(ctx,card).element,
+            hp:e.hp,maxHp:e.maxHp,shield:keep?keep.shield || 0:Number(kit.shield)||0,energy:0,maxEnergy:0,aura:keep?.aura || null,statuses:keep?.statuses || [],cooldowns:structuredClone(keep?.cooldowns || {}),enraged:Boolean(keep?.enraged),usedRage:Boolean(keep?.usedRage),intent:keep?.intent || null,
             armor:keep?.armor ?? (Number(kit.armor)||0),armorBreak:kit.armorBreak || '',weakTo:kit.weakTo || '',evasion:Number(kit.evasion)||0,kit,visit:e.key});
     }
-    const state={key,round:saved.round || 1,units,summons:structuredClone(saved.summons || []),difficulty:combatDifficulty(ctx)};
+    const state={key,round:saved.round || 1,units,summons:structuredClone(saved.summons || []),difficulty:combatDifficulty(ctx),bag:{...partyBag(ctx)}};
     state.resonance=resonanceOf(units);
+    // An enemy without a telegraphed move picks one now, and keeps it until it acts.
+    for(const u of units.filter(u=>u.side==='enemy'&&u.hp>0&&(!u.intent||u.intent.target&&!units.some(p=>p.id===u.intent.target&&p.hp>0)))){
+        planIntent(state,u);saved.units[u.id]={...saved.units[u.id],intent:u.intent,cooldowns:u.cooldowns};
+    }
     return state;
 }
 // Writes a resolved round back. Refuses if anyone's HP changed while the round was being played.
-export function commitRound(ctx,before,result,id){
+export function commitRound(ctx,before,result,id,{items=[],loot=[]}={}){
     const store=combatState(ctx);if(store.events.some(e=>e.id===id))return null;
     const party=partyStore(ctx);
     for(const u of before.units){
@@ -64,10 +76,16 @@ export function commitRound(ctx,before,result,id){
     for(const u of after.units){
         if(u.side==='party'){party[u.id].hp=u.hp;if(u.hp<=0)downed.push(u.id);}
         else{const entry=store.visits[u.visit].enemies[u.id];entry.hp=u.hp;entry.defeated=u.hp<=0;if(entry.defeated)defeated.push(u.id);}
-        saved.units[u.id]={shield:u.shield || 0,energy:u.energy || 0,aura:u.aura || null,statuses:u.statuses || [],cooldowns:u.cooldowns,enraged:u.enraged,armor:u.armor};
+        saved.units[u.id]={shield:u.shield || 0,energy:u.energy || 0,aura:u.aura || null,statuses:u.statuses || [],cooldowns:u.cooldowns,enraged:u.enraged,usedRage:u.usedRage,intent:u.intent || null,armor:u.armor};
+        // Fled enemies leave this visit but stay in the location's pool for later visits.
+        if(result.fled&&u.side==='enemy'&&u.hp>0)store.visits[u.visit].enemies[u.id].fled=true;
     }
     saved.round=after.round;saved.summons=after.summons;
-    const event={id,kind:'round',key:before.key,round:before.round,defeated,downed,victory:result.victory,stats:result.stats};
+    const bag=partyBag(ctx);
+    for(const id of items){if(bag[id]>0)bag[id]--;if(bag[id]===0)delete bag[id];}
+    addToBag(bag,loot);
+    const fled=result.fled?after.units.filter(u=>u.side==='enemy'&&u.hp>0).map(u=>u.id):[];
+    const event={id,kind:result.fled?'flee':'round',key:before.key,round:before.round,defeated,downed,fled,victory:result.victory,stats:result.stats,items,loot};
     store.events.push(event);
     if(store.events.length>200)store.events.splice(0,store.events.length-200);
     return event;
@@ -101,6 +119,9 @@ export function roundNarration(before,result){
             case 'enrage':flush();lines.push(`${name(e.actor)} became enraged.`);break;
             case 'defeat':extra.push(`${name(e.target)} was defeated`);break;
             case 'downed':extra.push(`${name(e.target)} was downed`);break;
+            case 'item':flush();current=`The party used ${e.name}${e.target?` on ${name(e.target)}`:''}`;break;
+            case 'dispel':extra.push(`dispelled ${e.name}`);break;
+            case 'flee':{flush();const foes=list(before.units.filter(u=>u.side==='enemy'&&u.hp>0).map(u=>u.name));lines.push(e.success?`The party fled from ${foes}.`:`The party tried to flee from ${foes} but could not get away.`);break;}
         }
     }
     flush();

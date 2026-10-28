@@ -15,10 +15,10 @@ export function characterProperties(ctx,card){
     data.role=data.role==='enemy'?'enemy':'character';data.playable=data.role!=='enemy'&&data.playable===true;
     if(!ELEMENTS.includes(data.element))data.element='None';
     if(data.role==='enemy'&&data.element==='None'&&ELEMENTS.includes(enemyElement(card.name)))data.element=enemyElement(card.name);
-    // Balanced moveset HP replaces the old 30 HP default; HP chosen by a card author or the user wins.
-    const kitHp=defaultKitHp(card.name,data.role==='enemy'),legacy=v=>v===undefined||Number(v)===30;
-    const savedCustom=saved.hpCustom ?? !legacy(saved.maxHp);
-    if(!savedCustom)data.maxHp=!legacy(fromCard.maxHp)?fromCard.maxHp:kitHp ?? 30;
+    // Maximum HP comes from the moveset unless chosen in Character Customization or by the
+    // card's author (30 was the old default and is treated as unset).
+    const kitHp=defaultKitHp(card.name,data.role==='enemy'),authored=fromCard.maxHp!==undefined&&Number(fromCard.maxHp)!==30;
+    if(!saved.hpCustom)data.maxHp=authored?fromCard.maxHp:kitHp ?? 30;
     data.modelScale=Math.max(MODEL_SCALE_MIN,Math.min(MODEL_SCALE_MAX,Math.round(Number(data.modelScale)||90)));
     data.maxHp=Math.max(1,Math.min(100000,Math.round(Number(data.maxHp)||30)));return data;
 }

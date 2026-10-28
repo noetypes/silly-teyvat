@@ -1,4 +1,4 @@
-# Silly Teyvat 1.30: Wilderness encounters and turn-based elemental combat
+# Silly Teyvat 1.32: Wilderness encounters and turn-based elemental combat
 
 Installed in the local SillyTavern user extension directory. Refresh SillyTavern on each device to load the update and the newly tagged cards. Your chats, portraits, greetings and original sprite files are preserved.
 
@@ -22,14 +22,45 @@ Chat switches, new encounters, disabling the extension and losing the selected t
 Each armed message plays one round in three phases.
 
 1. **Roll Phase.** The party throws **1 + 2 per fighting member** elemental dice (you count as a member, and one more die with Electro Resonance). The faces are the seven elements and Omni. The summary shows how many dice each member can use: their own element, Omni (wild) and spare dice. Unmatched dice start selected; you may reroll any of them once. Dice are **fuel**, not damage.
-2. **Action Phase.** The battle screen shows your party along the bottom and the enemies along the top. Pick each member, then one of their three moves:
+2. **Action Phase.** The battle board is laid out like Genius Invokation TCG: enemies across the top, your party along the bottom, summons on the right, your dice down the right edge, moves in the bottom-right corner, item cards in your hand at the bottom and the round button (hourglass) on the left. Characters that have a TCG card use its art. Tap a party card to pick who you are planning for, then one of their three moves:
    - **Normal Attack** (A): free, but it can miss (each weapon has its own miss chance). A hit gives 1 Energy.
    - **Elemental Skill** (E): costs dice of the member's element and gives 1 Energy.
-   - **Elemental Burst** (Q): costs dice and needs full Energy (usually 2; everyone starts an encounter with 1).
-   Dice are paid from the member's own element first, then Omni, then **elemental tuning**: two spare dice become one. Moves that cannot be paid for are greyed out. Click an enemy (or, for a heal or shield, an ally) to choose the target. The order badges show who acts first; **Act earlier** moves a member up, so you can set up combos. The forecast under each move shows its expected damage, healing and any reaction it will trigger with the current order. **Auto** picks the strongest affordable move for everyone; **Hold** skips a member. Keyboard: A, E, Q (or 1, 2, 3) and Enter.
-3. **Resolution.** Moves play in order with banners, impacts, damage numbers, reactions and sounds. An Elemental Burst first flashes the character's splash art. Then every enemy still standing strikes back (when **Enemies strike back** is on), and the End Phase runs summons, Dendro Cores, damage over time, regeneration and timers. A summary credits each member's damage and lists the reactions. **Skip** speeds the playback up, and a second press skips it.
+   - **Elemental Burst** (Q): costs dice and needs full Energy (the gold diamonds on the card's right edge; everyone starts an encounter with 1).
+   The hexagon under each move is its dice cost. Dice are paid from the member's own element first, then Omni, then **elemental tuning**: two spare dice become one. Spent dice dim and the count at the top of the dice column drops. A move you cannot pay for shakes. When a move can hit more than one enemy (or ally), the possible targets pulse; tap one. The small medallion under each party card shows its planned move, and its number is the acting order: tap a member and choose again to change it. Hover or long-press a move, card, item or summon for its details and the forecast (expected damage, healing and reactions for the current order). The **sparkle** button picks the strongest affordable move for everyone. Keyboard: A, E, Q (or 1, 2, 3) and Enter.
+3. **Resolution.** Moves play in order with banners, impacts, damage numbers, reactions and sounds. An Elemental Burst first flashes the character's splash art. Then every enemy still standing carries out the move it telegraphed (when **Enemies strike back** is on), and the End Phase runs summons, Dendro Cores, damage over time, regeneration and timers. A summary credits each member's damage and lists the reactions. **Skip** speeds the playback up, and a second press skips it.
 
 The round is saved before it is played back, as a narrator message in plain language (moves, damage, reactions, HP), so the roleplay model can describe it. Enemy HP, party HP, Energy, shields, statuses, elements and summons are saved per encounter in chat metadata. Historical pages show their saved health without replaying anything. An enemy at 0 HP gets its death message and leaves the active group; its card and earlier messages remain.
+
+## Seeing the enemy's next move
+
+Each enemy shows the move it will use next round in a badge under its card: a sword with the damage and the portrait of the member it will hit, a starburst for a move that hits the whole party, scattered squares for random hits, or a symbol for a heal, shield or summon. The member in danger shows a red **−damage** marker. An enemy that is Frozen or Petrified shows a snowflake: it will lose that turn. The target is decided at the end of the previous round, so you can shield, heal, freeze or kill that enemy first. Below half health an enemy becomes **enraged**, and its next telegraphed move is its Special.
+
+## Items
+
+The party shares a bag of Genius Invokation event cards, saved per chat. A new chat starts with 3 Sweet Madame, 2 Mondstadt Hash Brown, 1 Lotus Flower Crisp, 1 Toss-Up and 1 Teyvat Fried Egg. Cards sit in your hand during the Action Phase with their dice cost in the corner. Tap a card to pick it up; the members who can use it pulse; tap one to play it (cards without a target play on a second tap). Played cards move to the left of the table; tap one to take it back. Food is eaten before anyone acts, and each member eats once per round.
+
+| Card | Cost | Effect |
+| --- | --- | --- |
+| Sweet Madame | 0 | Heals 4 HP |
+| Mondstadt Hash Brown | 1 | Heals 8 HP |
+| Mushroom Pizza | 1 | Heals 3, then 3 more at each of the next two End Phases |
+| Lotus Flower Crisp | 1 | Shields 6 damage |
+| Minty Meat Rolls | 1 | Normal Attacks never miss for 2 rounds |
+| Adeptus' Temptation | 2 | One member deals 60% more damage this round |
+| Teyvat Fried Egg | 2 | Revives a downed member with 8 HP |
+| Tandoori Roast Chicken | 2 | The party deals 25% more damage this round |
+| Butter Crab | 2 | The party takes 30% less damage for 2 rounds |
+| Starsigns | 2 | One member gains 1 Energy |
+| Send Off | 2 | Dispels enemy summons and strips 8 shield from every enemy |
+| Toss-Up | 0 | Rerolls every unspent die that is not Omni or a party element |
+| Thunder and Eternity | 0 | Turns every unspent die into Omni |
+| Woven Flames, Waters, Winds, Thunder, Weeds, Ice, Stone | 0 | Adds one die of that element |
+
+Winning a battle drops one card per defeated enemy (two from tough ones), weighted towards common food, and elemental enemies sometimes drop the matching Woven card. A rescue at the Adventurers' Guild tops the bag back up to the starter cards.
+
+## Fleeing
+
+The running-figure button under the round button toggles **Flee** and shows the chance: 60%, plus 10% per Anemo member, minus 10% per extra enemy, plus 25% when every enemy is Frozen or Petrified (between 10% and 95%). Items you played still take effect. On success the battle ends before anyone acts, the enemies leave the scene and the chat records the escape; they can appear again on a later visit. On failure your party loses its turn and the enemies act as telegraphed.
 
 ## Movesets
 
@@ -64,19 +95,19 @@ Hitting a target with **its own element is resisted** (half damage), so a Pyro s
 
 ## Enemies
 
-Every enemy has an element (or fights physically), its own HP, an **Attack** used most rounds and a **Special** used when its cooldown is ready. Below half health an enemy becomes **enraged** and uses its Special at once. Some have extra rules: the Pyro Abyss Mage and Pyroslinger Bracer carry Pyro shields that Hydro breaks much faster, the Wooden Shieldwall Mitachurl's shield blocks 40% of damage until Pyro burns it, the Cryo Whopperflower is weak to Pyro, the Ruin Guard is armoured, and Fatui agents and Treasure Hoarder scouts dodge Normal Attacks. Enemies target a random party member (the Marksman aims at the weakest), and decoy summons draw one enemy attack each round.
+Every enemy has an element (or fights physically), its own HP, an **Attack** used most rounds and a **Special** used when its cooldown is ready (round 3 for most, then every few rounds). Below half health an enemy becomes **enraged** and telegraphs its Special for the next round. Some have extra rules: the Pyro Abyss Mage and Pyroslinger Bracer carry Pyro shields that Hydro breaks much faster, the Wooden Shieldwall Mitachurl's shield blocks 40% of damage until Pyro burns it, the Cryo Whopperflower is weak to Pyro, the Ruin Guard is armoured, and Fatui agents and Treasure Hoarder scouts dodge Normal Attacks. Enemies choose a random party member as their target a round ahead (the Marksman aims at the weakest), and decoy summons draw one enemy attack each round.
 
-Enemy HP is fixed when it first appears and scales with the party it meets (×0.6 alone, ×0.9 with one companion, up to ×1.8 for five fighters); enemy damage scales the same way from ×0.65 to ×1.45, so a full party faces harder hits spread over more people. Enemy cards that still carry the old 30 HP default use their balanced HP instead.
+Enemy HP is fixed when it first appears and scales with the party it meets (×0.6 alone, ×0.9 with one companion, up to ×1.8 for five fighters); enemy damage scales the same way from ×0.65 to ×1.45, so a full party faces harder hits spread over more people. Older chats' health and battles from the previous dice combat are discarded: every chat starts this system fresh.
 
 ## Party health and defeat
 
-You and every non-hostile member of the scene have health. Your own maximum is **Your maximum HP** in Silly Teyvat → Wilderness & combat (30 by default). Health is saved per chat and shown in the party health panel at the lower left while an encounter is active or anyone is hurt. A downed ally sits out until healed.
+You and every non-hostile member of the scene have health from their movesets (30 to 42 by role). Your own maximum is that of the character you play, or 34 for the Traveler. A value set in Character Customization → Profile, or by a card's author, wins. Health is saved per chat and shown in the party health panel at the lower left while an encounter is active or anyone is hurt. A downed ally sits out until healed.
 
 If **you** reach 0 HP the encounter ends. You and your party are carried to the nearest Adventurers' Guild by map distance, everyone is healed, and Katheryne is waiting at the counter to explain how you were found. Teleporting to any location that is not wilderness also heals the party.
 
 ## Settings
 
-Silly Teyvat → Wilderness & combat: **Difficulty** (Story: enemies 80% HP and 70% damage; Normal; Hard: 130% of both), **Enemies strike back**, **Burst splash art & effects**, **Battle sounds**, **Dice sounds** and **Your maximum HP**. Reduced motion (Silly Teyvat or SillyTavern setting, or the system preference) keeps all information but drops movement, particles and the splash slide. All battle sounds are synthesised with Web Audio; no game audio is bundled.
+Silly Teyvat → Wilderness & combat: **Difficulty** (Story: enemies 80% HP and 70% damage; Normal; Hard: 130% of both), **Enemies strike back**, **Burst splash art & effects**, **Battle sounds** and **Dice sounds**. Reduced motion (Silly Teyvat or SillyTavern setting, or the system preference) keeps all information but drops movement, particles and the splash slide. All battle sounds are synthesised with Web Audio; no game audio is bundled.
 
 ## Balance notes
 
@@ -110,9 +141,10 @@ Aether and Lumine default to Anemo and can be changed to another supported eleme
 - If the model cannot load or WebGL is unavailable, the exact roll is shown as text and can be committed through Continue. Skipping, reduced motion, rotating the device and cancelling while assets load do not reroll the dice.
 - **Burst splash art** comes from the user's supplied Splash Art folder (120 characters). `tools/build-splash-art.py` trims each PNG and converts it to WebP inside 1100 px under `assets/splash/` (186 MB of PNG to 30 MB). Characters without a file (Aether, Lumine, the Manekins) flash their portrait instead. The art is not covered by this project's MIT code license.
 - Move names for characters released after 5.x were checked against the Genshin Impact Wiki's talent tables.
+- **TCG card art** comes from the [Genshin Impact Wiki's Genius Invokation card gallery](https://genshin-impact.fandom.com/wiki/Genius_Invokation_TCG/Gallery/Cards). `tools/build-tcg-cards.py` downloads the character card for every bundled character or enemy with a card of the same name (120: everyone except the Treasure Hoarders, Cryo Whopperflower, Geo Slime, the Large Slimes, Prune, Alyosha, Odette, Aether, Lumine, Aloy, Linnea, Lohen, the Manekins, Nicole, Sandrone, Varka, Vesna, Vodyanitsa and Zibai, who keep their portraits) and the 20 event cards used as items, sized to 360 px WebP under `assets/tcg/` (6.4 MB). The art belongs to HoYoverse and is not covered by this project's MIT code license.
 
 ## Validation
 
-1.30 adds the **Battle rules, screen & Moveset checks** suite (57 checks: kits, dice payment and tuning, every reaction family, combos, energy, summons, decoys, enrage, the Action Phase controls, playback and the Moveset editor). All 19 preview suites pass. The battle screen was checked at 1280×800 and 375×812.
+The **Battle rules, screen & Moveset checks** suite has 78 checks: kits, dice payment and tuning, every reaction family, combos, energy, summons, decoys, enrage, enemy intents, fleeing, every item type, loot, the board controls, playback and the Moveset editor. The combat, send, enemy-attack and dice suites pass alongside it, and a full preview chat was played through two rounds and a successful escape. The board was checked for overlapping elements at 1440×810, 1280×720, 812×375 and 375×812.
 
 Browser checks use disposable preview chats and mock model services. Native card/settings changes were read back through the local SillyTavern API, and all 147 native portrait pixel buffers were compared with backups. No paid/live model request was made. Desktop, portrait and landscape layouts were checked, including rotating the dice dialog while a result was visible. These are browser viewport checks, not a physical iPhone test.

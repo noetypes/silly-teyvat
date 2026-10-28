@@ -7,6 +7,7 @@ import {activePersonaAvatar} from './persona-wardrobe.js';
 import {mountElementalDice,ELEMENT_COLORS} from './elemental-dice.js';
 import {battleSnapshot,commitRound,roundNarration} from './battle-state.js';
 import {rollFuel,rerollFuel,resolveRound} from './battle-engine.js';
+import {ITEMS,rollLoot} from './battle-items.js';
 import {mountBattle} from './battle-ui.js';
 import {EL_COLORS} from './battle-fx.js';
 
@@ -87,13 +88,17 @@ export function mountCombat({host,getContext,onChange=()=>{},announce=()=>{},ada
             const describe={allies:snapshot.units.filter(u=>u.side==='party'&&u.hp>0).map(u=>({avatar:u.id,name:u.name,img:u.img,element:u.element})),enemy:{avatar,name:snapshot.units.find(u=>u.id===avatar)?.name || 'Enemy',img:portrait(ctx,avatar),maxHp:enemy.maxHp}};
             if(!await dice.roll(roll,{describe,reroll:indices=>(roll=rerollFuel(snapshot,roll,indices)),volume:volumeOf(ctx,'diceSound'),reducedMotion:motion,isCurrent:valid})||!valid())return;
             const options={reducedMotion:motion,effects:prefs(ctx).battleEffects!==false,volume:volumeOf(ctx,'battleSound'),isCurrent:valid};
-            const plan=await battle.plan(snapshot,{dice:roll.dice,targetId:avatar,...options});
+            const player={name:ctx.name1 || 'You',img:portrait(ctx,USER_KEY)};
+            const plan=await battle.plan(snapshot,{dice:roll.dice,targetId:avatar,player,...options});
             if(!plan||!valid()){battle.cancel?.();return;}
-            const result=resolveRound(snapshot,plan,{strikeBack:prefs(ctx).enemyStrikeBack!==false,difficulty:snapshot.difficulty});
+            const used=(plan.items || []).filter(i=>ITEMS[i.id]);
+            const result=resolveRound(snapshot,{steps:Array.isArray(plan)?plan:plan.steps || [],items:used.map(i=>({...i,item:ITEMS[i.id]})),flee:Boolean(plan.flee)},{strikeBack:prefs(ctx).enemyStrikeBack!==false,difficulty:snapshot.difficulty});
+            const loot=result.victory?rollLoot(snapshot.units.filter(u=>u.side==='enemy'&&u.hp>0)):[];
             // Save before the playback, so the round stands even if the chat changes mid-animation.
-            const saved=commitRound(getContext(),snapshot,result,id);if(!saved){battle.cancel?.();return;}
+            const saved=commitRound(getContext(),snapshot,result,id,{items:used.map(i=>i.id),loot});if(!saved){battle.cancel?.();return;}
             const target=result.state.units.find(u=>u.id===avatar),before=snapshot.units.find(u=>u.id===avatar);
-            const event={...saved,avatar,key:visitKey,damage:before.hp-target.hp,hpBefore:before.hp,hpAfter:target.hp,maxHp:before.maxHp,defeated:target.hp<=0,defeatedAvatars:saved.defeated};
+            const gone=[...saved.defeated,...saved.fled];
+            const event={...saved,avatar,key:visitKey,damage:before.hp-target.hp,hpBefore:before.hp,hpAfter:target.hp,maxHp:before.maxHp,defeated:target.hp<=0,fled:saved.fled,defeatedAvatars:gone};
             for(const u of result.state.units.filter(u=>u.side==='enemy'))hits.set(u.id,result.timeline.filter(e=>e.type==='hit'&&e.target===u.id).map(e=>({face:e.element,damage:e.amount+e.shieldHit})));
             await adapter.append(getContext(),{text:roundNarration(snapshot,result),event:{...event,kind:'round'}});syncCombatPrompt(getContext(),enabled);
             for(const fallen of saved.defeated){
@@ -102,9 +107,11 @@ export function mountCombat({host,getContext,onChange=()=>{},announce=()=>{},ada
                 await adapter.append(getContext(),{text:death,event:{id,kind:'death',avatar:fallen}});
             }
             onChange();
-            await battle.play(snapshot,result,options);
+            await battle.play(snapshot,result,{...options,loot});
             for(const fallen of saved.defeated){announce(`${snapshot.units.find(u=>u.id===fallen)?.name || 'Enemy'} defeated.`);onChange({defeated:fallen});}
-            if(!event.defeated){
+            for(const left of saved.fled)onChange({defeated:left});
+            if(result.fled)announce('The party escaped.');
+            else if(!event.defeated){
                 announce(`${before.name}: ${target.hp} HP.`);onChange();
                 if(react&&!result.wiped)await adapter.react(getContext,event,()=>current(identity,token)&&activeEnemies(getContext()).some(e=>e.avatar===avatar&&e.key===visitKey));
             }

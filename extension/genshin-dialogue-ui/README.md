@@ -1,3 +1,11 @@
+# Silly Teyvat 1.32: Genius Invokation battle board, items, fleeing and enemy intents
+
+- **A TCG-style battle board.** Battles now play on a Genius Invokation table: enemies on top, your party below, summons on the right, dice down the right edge, moves bottom right, item cards in hand and the hourglass round button on the left. HP drops, Energy diamonds, element icons and status tokens sit on the cards; details appear on hover or long-press instead of helper text. 120 characters and enemies use their official TCG card art.
+- **See the enemy's next move.** Each enemy telegraphs its move and target for the coming round, and the member in danger shows the damage coming. Freeze or petrify an enemy to cancel its turn.
+- **Items.** A shared bag of 20 TCG event cards: food that heals, shields, revives and empowers (one dish per member per round), dice cards like Toss-Up, Thunder and Eternity and the Woven resonances, and Butter Crab, Starsigns and Send Off. New chats start with basic food; victories drop more.
+- **Flee.** Try to escape instead of fighting; the chance shows on the button. On failure the enemies still act.
+- **Fresh start.** Health and battles from the earlier dice combat are discarded. HP comes from each moveset (your own from the character you play, or 34), so the "Your maximum HP" setting is gone.
+
 # Silly Teyvat 1.31: Location music
 
 - **Music library on the world map.** Upload and label audio in one shared library, preview tracks, and adjust background-music volume independently of voices and effects.
