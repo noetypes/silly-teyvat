@@ -2850,11 +2850,11 @@ body:not(.gi-scene) #gi-party-health, body.gi-history #gi-party-health, body.gi-
     .gi-pm-nc-list { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 }
 
-/* SillyTavern drawers moved off the top bar: the toggle is hidden, its panel still opens from the menu. */
+/* Top-right SillyTavern icons switched off: the toggle is hidden, its panel still opens from the menu. */
 body.gi-shell #top-settings-holder > .drawer.gi-hud-tucked { flex: 0 0 0 !important; width: 0 !important; margin: 0 !important; overflow: visible; }
 body.gi-shell #top-settings-holder > .drawer.gi-hud-tucked > .drawer-toggle { display: none !important; }
 .gi-pm-tavern { margin: 18px 20px 0; }
-.gi-pm-tavern[hidden], #gi-toolbar.gi-pm-picking .gi-pm-tavern { display: none; }
+#gi-toolbar.gi-pm-picking .gi-pm-tavern { display: none; }
 .gi-pm-tavern h3 { margin: 0 0 8px; font-size: 15px; font-weight: normal; color: var(--pm-ink); opacity: .8; }
 #gi-toolbar .gi-pm-tavern .gi-pm-grid { margin: 0; }
 #gi-toolbar .gi-pm-tavern .gi-pm-grid button img { width: 36px; height: 36px; object-fit: contain; }
@@ -2863,3 +2863,13 @@ body.gi-shell #top-settings-holder > .drawer.gi-hud-tucked > .drawer-toggle { di
 
 /* Battle round summaries: kept in the chat for the model, never shown as dialogue. */
 body.gi-enabled #chat > .mes.gi-combat-log { display: none !important; }
+
+/* Game menu icons (tools/build-menu-icons.py) on tiles and the rail. */
+#gi-toolbar .gi-pm-grid button .gi-pm-icon { width: 42px; height: 42px; object-fit: contain; filter: drop-shadow(0 1px 1px #0004); transition: transform 200ms var(--ty-ease); }
+#gi-toolbar .gi-pm-grid button:hover:not(:disabled) .gi-pm-icon { transform: scale(1.06); }
+#gi-toolbar .gi-pm-grid button[aria-pressed="true"] .gi-pm-icon { filter: sepia(1) saturate(2.4) hue-rotate(-8deg) brightness(1.05) drop-shadow(0 0 6px #e6c97f88); }
+#gi-toolbar .gi-pm-rail button .gi-pm-icon { width: 26px; height: 26px; object-fit: contain; }
+#gi-toolbar .gi-pm-rail button:hover .gi-pm-icon { filter: brightness(.3); }
+#gi-toolbar .gi-pm-rail [data-gi-action="settings"]:hover .gi-pm-icon { rotate: 60deg; transition: rotate 300ms var(--ty-ease); }
+@media (max-width: 520px) { #gi-toolbar .gi-pm-grid button .gi-pm-icon { width: 32px; height: 32px; } }
+@media (max-height: 560px) { #gi-toolbar .gi-pm-grid button .gi-pm-icon { width: 26px; height: 26px; } }

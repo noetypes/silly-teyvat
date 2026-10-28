@@ -8,7 +8,7 @@ import {mountLocationMusic} from './location-music.js';
 import { createTextReveal } from './text-reveal.js';
 import { mountPageSprites } from './page-sprites.js';
 import { mountChoices } from './choices.js';
-import { syncHudIcons, disposeHudIcons, iconAsset, TUCKED, tuckedIcon } from './hud-icons.js';
+import { syncHudIcons, disposeHudIcons, iconAsset, ST_DRAWERS, drawerIcon } from './hud-icons.js';
 import { dialoguePages } from './narration.js';
 import { dialoguePresentation } from './dialogue-formatting.js';
 import { mountWardrobe } from './wardrobe.js';
@@ -33,7 +33,7 @@ import {namecardsReady,namecards,namecardUrl,chooseNamecard} from './namecards.j
 import {loadPersonaSupport,personaCard,syncPersonaSettings,setPersonaSpriteSetting,otherTraveler,activatePersonaByName,findPersonaAvatar} from './persona-wardrobe.js';
 const KEY = 'genshin_dialogue_ui';
 const FOLDER = 'third-party/genshin-dialogue-ui';
-const defaults = Object.freeze({ ...stagingDefaults, enabled: false, choices: true, composer: true, reducedMotion: false, textScale: 1, scrim: 0.8, revealSpeed: 45, tapAdvance: true, pageExpressions: true, narration: false, narrationMode: 'quotes', narrationKeyword: 'Narrator:', hideDialogueQuotes:false, wardrobe: true, locationEncounters:true, locationCharacterLimit:5, randomEncounters:true, encounterRate:40, allowMainDeparture:false, worldPromptAllRegions:false, roleplayPromptsEnabled:true, wildernessEncounters:true, combatDamageMin:1, combatDamageMax:6, enemyStrikeBack:true, enemyDamageMin:2, enemyDamageMax:6, enemyDice:4, userMaxHp:30, combatDifficulty:'normal', battleEffects:true, battleSound:true, personaIcon: 'Aether', hudAllButtons:false, namecard:'', signature:'', trimSprites:true, cgEnabled:true, cgMode:'scene', cgClassifier:'main', cgProfile:'', cgBypassReasoning:true, cgPrompt:defaultCGPrompt, cgAudio:true, spriteAudio:true, spriteVolume:.8, diceSound:true });
+const defaults = Object.freeze({ ...stagingDefaults, enabled: false, choices: true, composer: true, reducedMotion: false, textScale: 1, scrim: 0.8, revealSpeed: 45, tapAdvance: true, pageExpressions: true, narration: false, narrationMode: 'quotes', narrationKeyword: 'Narrator:', hideDialogueQuotes:false, wardrobe: true, locationEncounters:true, locationCharacterLimit:5, randomEncounters:true, encounterRate:40, allowMainDeparture:false, worldPromptAllRegions:false, roleplayPromptsEnabled:true, wildernessEncounters:true, combatDamageMin:1, combatDamageMax:6, enemyStrikeBack:true, enemyDamageMin:2, enemyDamageMax:6, enemyDice:4, userMaxHp:30, combatDifficulty:'normal', battleEffects:true, battleSound:true, personaIcon: 'Aether', hudTopIcons:'auto', namecard:'', signature:'', trimSprites:true, cgEnabled:true, cgMode:'scene', cgClassifier:'main', cgProfile:'', cgBypassReasoning:true, cgPrompt:defaultCGPrompt, cgAudio:true, spriteAudio:true, spriteVolume:.8, diceSound:true });
 const bodyClasses = ['gi-enabled', 'gi-scene', 'gi-history', 'gi-hidden', 'gi-compose', 'gi-generating', 'gi-reduced-motion', 'gi-reading', 'gi-choices-enabled', 'gi-native-staging'];
 const icons = {
     compass: '<path d="m12 2 3 7 7 3-7 3-3 7-3-7-7-3 7-3Z"/><path d="m12 8 4 4-4 4-4-4Z"/>',
@@ -58,7 +58,11 @@ const icons = {
 };
 const svg = name => `<svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">${icons[name] || icons.compass}</svg>`;
 const button = (action, label, icon = action, tooltip = true) => `<button type="button" data-gi-action="${action}" aria-label="${label}"${tooltip ? ` title="${label}"` : ''}>${svg(icon)}<span>${label}</span></button>`;
-const menuButton = (action, label, icon = action) => button(action, label, icon, false);
+// Paimon menu tiles and rail use the game's own menu icons (tools/build-menu-icons.py).
+const MENU_ICONS = new Set(['auto', 'book', 'wardrobe', 'map', 'cg', 'compose', 'hide', 'namecard', 'back', 'settings']);
+const menuButton = (action, label, icon = action) => MENU_ICONS.has(icon)
+    ? `<button type="button" data-gi-action="${action}" aria-label="${label}"><img class="gi-pm-icon" src="${new URL(`assets/menu/${icon}.webp`, import.meta.url).href}" alt="" aria-hidden="true" draggable="false"><span>${label}</span></button>`
+    : button(action, label, icon, false);
 let mounted = false;
 let removeJourneyFilter;
 let backgroundUI;
@@ -156,6 +160,7 @@ function preferences() {
     if (!['Aether', 'Lumine'].includes(store[KEY].personaIcon)) store[KEY].personaIcon = 'Aether';
     if (!['main','profile','webllm'].includes(store[KEY].cgClassifier)) store[KEY].cgClassifier = 'main';
     if (!['scene','window'].includes(store[KEY].cgMode)) store[KEY].cgMode = 'scene';
+    if (!['auto','on','off'].includes(store[KEY].hudTopIcons)) store[KEY].hudTopIcons = 'auto';
     store[KEY].spriteVolume = Math.max(0,Math.min(1,Number(store[KEY].spriteVolume) || 0));
     store[KEY].textScale = Math.min(1.4, Math.max(0.85, Number(store[KEY].textScale) || 1));
     store[KEY].revealSpeed = Math.min(150, Math.max(0, Number(store[KEY].revealSpeed) || 0));
@@ -274,9 +279,10 @@ function refresh() {
     worldMapUI?.sync({on:Boolean(prefs.enabled&&inChat),show:Boolean(active&&!history&&!hidden&&!menuOpen),location:backgroundUI?.current});
     document.querySelectorAll('[data-gi-action="wardrobe"]').forEach(el => el.hidden = !prefs.wardrobe);
     if (!prefs.wardrobe) wardrobeUI?.close();
-    syncHudIcons(prefs.enabled && prefs.choices, prefs.personaIcon, !prefs.hudAllButtons);
-    const tavern = document.querySelector('#gi-toolbar .gi-pm-tavern');
-    if (tavern) tavern.hidden = !(prefs.enabled && prefs.choices) || prefs.hudAllButtons;
+    // Top-right SillyTavern icons: shown, hidden, or (Auto) hidden on phones for a clean layout.
+    const hideTop = prefs.hudTopIcons === 'off' || prefs.hudTopIcons === 'auto' && matchMedia('(max-width: 768px)').matches;
+    syncHudIcons(prefs.enabled && prefs.choices, prefs.personaIcon, hideTop);
+    document.querySelectorAll('#gi-toolbar .gi-pm-tavern img[data-persona]').forEach(img => { const src = drawerIcon('persona-management-button', prefs.personaIcon); if (img.src !== src) img.src = src; });
     if (menuOpen) paintProfile();
     combatUI?.sync({on:Boolean(prefs.enabled&&inChat&&!openingHome),id:Number(current),generating:generating||groupGenerating||locationCastUI?.busy,show:Boolean(active&&!history&&!hidden)});
     locationMusicUI?.sync({on:Boolean(prefs.enabled&&inChat&&!openingHome),combat:Boolean(prefs.enabled&&inChat&&!openingHome&&(combatUI?.busy||activeEnemies(ctx).some(enemy=>!activeGroup(ctx)?.disabled_members?.includes(enemy.avatar))))});
@@ -331,7 +337,7 @@ function refresh() {
     const hide = document.querySelector('#gi-toolbar [data-gi-action="hide"]');
     const hideLabel = hidden ? 'Show UI' : 'Hide UI';
     hide.setAttribute('aria-label', hideLabel);
-    hide.innerHTML = `${svg(hidden ? 'show' : 'hide')}<span>${hideLabel}</span>`;
+    hide.querySelector('span').textContent = hideLabel; hide.setAttribute('aria-pressed', String(hidden));
     const notice = document.querySelector('#gi-notice');
     const conflict = conflictText();
     notice.hidden = !prefs.enabled || !conflict || conflict === dismissedNotice || hidden;
@@ -623,7 +629,7 @@ export async function initialize({ choicesAdapter, spriteAdapter, wardrobeAdapte
                 <button type="button" class="gi-pm-switch" data-gi-action="toggle" aria-pressed="false" aria-label="Silly Teyvat"><span>Silly Teyvat</span><i aria-hidden="true"></i></button>
                 <section id="gi-pm-namecards" class="gi-pm-namecards" aria-label="Namecards" hidden><header><h3>Namecard</h3>${menuButton('namecards', 'Done', 'close')}</header><div class="gi-pm-nc-list" role="radiogroup" aria-label="Choose a namecard"></div></section>
                 <div class="gi-pm-grid">${menuButton('auto', 'Auto')}${menuButton('history', 'Review', 'book')}${menuButton('wardrobe', 'Characters')}${menuButton('map', 'Map')}${menuButton('cg', 'CG Frame')}${menuButton('compose', 'Chat Box')}${menuButton('hide', 'Hide UI')}${menuButton('namecards', 'Namecard', 'namecard')}</div>
-                <section class="gi-pm-tavern" aria-label="SillyTavern" hidden><h3>SillyTavern</h3><div class="gi-pm-grid">${TUCKED.map(([id, label]) => `<button type="button" data-gi-action="st-drawer" data-drawer="${id}" aria-label="${label}"><img src="${tuckedIcon(id)}" alt="" aria-hidden="true" draggable="false"><span>${label}</span></button>`).join('')}</div></section>
+                <section class="gi-pm-tavern" aria-label="SillyTavern"><h3>SillyTavern</h3><div class="gi-pm-grid">${ST_DRAWERS.map(([id, label]) => `<button type="button" data-gi-action="st-drawer" data-drawer="${id}" aria-label="${label}"><img src="${drawerIcon(id)}" alt="" aria-hidden="true" draggable="false"${id === 'persona-management-button' ? ' data-persona' : ''}><span>${label}</span></button>`).join('')}</div></section>
             </div>
         </nav>
         <header id="gi-review-heading" hidden><h2>${svg('history')} Dialogue Review</h2>${button('history', 'Close review', 'close')}</header>

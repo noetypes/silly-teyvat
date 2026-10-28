@@ -1,3 +1,9 @@
+# Silly Teyvat 1.37: Every SillyTavern panel in the Paimon menu, game menu icons
+
+- **All of SillyTavern in the Paimon menu.** AI Config, API, Formatting, World Info, User Settings, Backgrounds, Extensions, Persona and Character List each have a tile in the menu's SillyTavern row.
+- **Top-right icons are back as before**, with **Settings → Top-right SillyTavern icons**: Auto (shown on larger screens, hidden on phones for a clean layout), Show or Hide. This replaces 1.36's "Keep every SillyTavern button on the top bar".
+- **Game menu icons.** Auto, Review, Characters, Map, CG Frame, Chat Box, Hide UI, Namecard, Back and Settings use Genshin Impact's Paimon menu icons, downloaded from the wiki with `tools/build-menu-icons.py`.
+
 # Silly Teyvat 1.36: Every namecard, enemy cards, a quieter top bar and no forced page turns
 
 - **A namecard for every character.** `tools/build-namecards.py` now also downloads each playable character's own namecard from the wiki (133 in all), so **Match companion** works for nearly everyone. The Travelers and Manekin/Manekina have none in the game.

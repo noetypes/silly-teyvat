@@ -6,12 +6,12 @@ const mapping = {
     'backgrounds-button': 'Change Background Image', 'extensions-settings-button': 'Extensions',
     'persona-management-button': 'Persona_Management_Aether', rightNavHolder: 'Character Management',
 };
-// Drawers the Paimon menu holds unless "Keep every SillyTavern button on the top bar" is on.
-// API Connections, AI Response Configuration, Persona and Character Management stay on top.
-export const TUCKED = [['WI-SP-button', 'World Info'], ['advanced-formatting-button', 'Formatting'], ['user-settings-button', 'User Settings'], ['backgrounds-button', 'Backgrounds'], ['extensions-settings-button', 'Extensions']];
-export const tuckedIcon = id => iconAsset(mapping[id]);
-export function syncHudIcons(on, persona = 'Aether', tuck = false) {
-    for (const [id] of TUCKED) document.querySelector(`#${id}`)?.classList.toggle('gi-hud-tucked', Boolean(on && tuck));
+// Every SillyTavern drawer, in top-bar order. The Paimon menu always offers them; the top-right
+// icons can be hidden (Settings → Top-right SillyTavern icons), and are by default on phones.
+export const ST_DRAWERS = [['ai-config-button', 'AI Config'], ['sys-settings-button', 'API'], ['advanced-formatting-button', 'Formatting'], ['WI-SP-button', 'World Info'], ['user-settings-button', 'User Settings'], ['backgrounds-button', 'Backgrounds'], ['extensions-settings-button', 'Extensions'], ['persona-management-button', 'Persona'], ['rightNavHolder', 'Character List']];
+export const drawerIcon = (id, persona = 'Aether') => iconAsset(id === 'persona-management-button' ? `Persona_Management_${persona === 'Lumine' ? 'Lumine' : 'Aether'}` : mapping[id]);
+export function syncHudIcons(on, persona = 'Aether', hideTop = false) {
+    for (const [id] of ST_DRAWERS) document.querySelector(`#${id}`)?.classList.toggle('gi-hud-tucked', Boolean(on && hideTop));
     document.body.classList.add('gi-shell');
     document.body.classList.toggle('gi-choices-enabled', on);
     const drawers = [...document.querySelectorAll('#top-settings-holder > .drawer')].filter(el => getComputedStyle(el).display !== 'none' && !el.classList.contains('gi-hud-tucked'));
