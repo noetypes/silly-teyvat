@@ -1,6 +1,6 @@
 import {mediaSettings} from './media-store.js';
 export const ELEMENTS=['Pyro','Hydro','Anemo','Electro','Dendro','Cryo','Geo'];
-export const MODEL_SCALE_MIN=50,MODEL_SCALE_MAX=110;
+export const MODEL_SCALE_MIN=30,MODEL_SCALE_MAX=110;
 export const MODEL_TYPES=['small female','medium female','medium male','tall female','tall male'];
 let bundled={};
 export async function loadCharacterProperties(){const response=await fetch(new URL('./assets/character-properties.json',import.meta.url));if(!response.ok)throw new Error('Character properties unavailable.');bundled=await response.json();}

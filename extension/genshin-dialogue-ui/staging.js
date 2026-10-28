@@ -41,7 +41,8 @@ export function stageScene(ctx,input,message,{id=ctx.chat.indexOf(message)}={}){
     if(native)scene=visibleRoster(ctx,scene,message,id);
     const speaker=speakerAvatar(ctx,message),width=scene.length;
     const cards=scene.map(s=>stageCharacter(ctx,s));
-    const heights=cards.map(c=>modelHeight(ctx,c)),tallest=Math.max(...heights,.01);
+    const heights=cards.map(c=>modelHeight(ctx,c)),custom=cards.some(c=>c&&characterProperties(ctx,c).modelType==='custom'),tallest=Math.max(...heights,custom?1:.01);
+    // A Custom scale is a percentage of a tall male, so it must not be normalised away when a custom model stands alone.
     scene.forEach((s,i)=>{
         const character=cards[i];
         const cp=prefs.characterSprites?.[character?.avatar || s.avatar] || {};
