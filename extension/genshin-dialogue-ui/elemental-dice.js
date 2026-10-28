@@ -1,5 +1,5 @@
 // Genius Invokation style Roll Phase: banner, dice thrown onto the table and sorted,
-// then a party summary showing who dealt what and the target's health draining.
+// then a summary of which party member each die can fuel (or, for a damage roll, who dealt what).
 import {createDiceSound} from './dice-sound.js';
 export const ELEMENT_COLORS={Pyro:'#ef7a35',Hydro:'#4cc2f1',Anemo:'#74c2a8',Electro:'#af8ef3',Dendro:'#a5c83b',Cryo:'#9fd6e3',Geo:'#f2b723',Omni:'#f5e8bd'};
 const colors=ELEMENT_COLORS;
@@ -51,12 +51,32 @@ export function mountElementalDice({host,stageFactory=createStage,sound=createDi
     function tags(visual,result){
         const box=$('.gi-roll-tags');box.replaceChildren();if(!visual?.positions||canvas.hidden)return;
         for(const p of visual.positions()){
-            const die=result.dice[p.index];if(!die?.match)continue;
+            const die=result.dice[p.index];if(!die?.match||die.damage===undefined)continue;
             const tag=el('span','gi-roll-tag',`${die.damage}`);tag.style.left=`${p.x}px`;tag.style.top=`${p.y-p.size*1.55}px`;tag.style.setProperty('--el',colors[die.face]);tag.style.animationDelay=`${p.index*40}ms`;box.append(tag);
         }
     }
+    // Fuel mode: dice pay for Elemental Skills and Bursts, so the summary counts each member's usable dice.
+    async function fuelSummary(result,describe,fast,signal){
+        const party=$('.gi-roll-party');party.replaceChildren();$('.gi-roll-target').hidden=true;
+        const allies=describe?.allies || [],omni=result.dice.filter(d=>d.face==='Omni').length,owned=new Set(allies.map(a=>a.element));
+        const spare=result.dice.filter(d=>d.face!=='Omni'&&!owned.has(d.face)).length;
+        const rows=[...allies.map(a=>({...a,faces:result.dice.filter(d=>d.face===a.element).map(d=>d.face)})),{name:'Omni (any element)',element:'Omni',faces:Array(omni).fill('Omni')}];
+        if(spare)rows.push({name:`Spare (2 tune into 1)`,element:'None',faces:result.dice.filter(d=>d.face!=='Omni'&&!owned.has(d.face)).map(d=>d.face)});
+        const nodes=rows.map((a,i)=>{
+            const li=el('li','gi-roll-ally');li.style.setProperty('--el',colors[a.element] || '#d3bc8e');li.style.animationDelay=`${i*90}ms`;
+            const face=el('span','gi-roll-face');if(a.img){const img=el('img');img.src=a.img;img.alt='';face.append(img);}else{face.textContent=a.element==='Omni'?'✦':'⇄';face.classList.add('gi-roll-face-mark');}
+            const pips=el('span','gi-roll-pips');for(const f of a.faces){const pip=el('i');pip.style.setProperty('--el',colors[f]);pip.title=f;pips.append(pip);}
+            const count=el('b','gi-roll-ally-damage','0');if(!a.faces.length)li.classList.add('gi-roll-miss');
+            li.append(face,el('span','gi-roll-name',a.name),pips,count);party.append(li);return count;
+        });
+        $('.gi-roll-summary').hidden=false;
+        if(!fast())await wait(200);
+        await Promise.all(rows.map((a,i)=>countUp(nodes[i],a.faces.length,fast()?0:500,signal)));
+    }
     async function summary(result,describe,reduced){
         const signal=(summaryAbort=new AbortController()).signal,fast=()=>reduced||signal.aborted;
+        if(result.kind==='fuel')return fuelSummary(result,describe,fast,signal);
+        $('.gi-roll-target').hidden=false;
         const party=$('.gi-roll-party');party.replaceChildren();
         const info=new Map((describe?.allies || []).map(a=>[a.avatar,a]));
         const rows=(result.contributions || result.allies.map(avatar=>({avatar,damage:0,dice:[]})));
@@ -93,7 +113,7 @@ export function mountElementalDice({host,stageFactory=createStage,sound=createDi
         skip=reducedMotion;canvas.hidden=false;canvas.dataset.model='loading';dialog.dataset.phase='loading';
         dialog.classList.toggle('gi-instant',reducedMotion);dialog.classList.remove('gi-settled','gi-closing');
         $('.gi-roll-summary').hidden=true;$('.gi-roll-tags').replaceChildren();$('.gi-roll-target').classList.remove('gi-shake','gi-defeated');
-        const listResults=()=>$('.gi-dice-results').replaceChildren(...result.dice.map(d=>el('li',d.match?'gi-die-match':'',`${d.face}${d.match?` +${d.damage}`:''}`)));listResults();
+        const listResults=()=>$('.gi-dice-results').replaceChildren(...result.dice.map(d=>el('li',d.match?'gi-die-match':'',`${d.face}${d.match&&d.damage!==undefined?` +${d.damage}`:''}`)));listResults();
         $('.gi-dice-total').textContent='';$('.gi-roll-confirm-label').textContent='Skip';button.classList.remove('gi-ready');
         clearTimeout(closeTimer);closeTimer=0;if(!dialog.open)dialog.showModal();
         return new Promise(resolve=>{
@@ -101,10 +121,10 @@ export function mountElementalDice({host,stageFactory=createStage,sound=createDi
             const valid=()=>!disposed&&current===sequence&&isCurrent();
             async function reveal(){
                 if(settled)return;settled=true;dialog.classList.add('gi-settled');dialog.dataset.phase='revealed';
-                $('.gi-dice-total').textContent=`${result.damage} damage · ${result.hpAfter} HP remaining`;
+                $('.gi-dice-total').textContent=result.kind==='fuel'?`${result.dice.filter(d=>d.match).length} of ${result.dice.length} dice match your party`:`${result.damage} damage · ${result.hpAfter} HP remaining`;
                 tags(visual,result);
                 accept=()=>{const ok=valid();finish=null;stop(true);resolve(ok);};
-                $('.gi-roll-confirm-label').textContent='Confirm';button.classList.add('gi-ready');
+                $('.gi-roll-confirm-label').textContent=result.kind==='fuel'?'To Battle':'Confirm';button.classList.add('gi-ready');
                 offerReroll();
                 await summary(result,describe,reducedMotion||skip);
             }
@@ -117,7 +137,7 @@ export function mountElementalDice({host,stageFactory=createStage,sound=createDi
                 const label=()=>{$('.gi-roll-reroll-label').textContent=picked.size?`Reroll ${picked.size}`:'Reroll';rerollButton.disabled=!picked.size;};
                 for(const p of visual.positions()){
                     const die=result.dice[p.index],pick=el('button','gi-die-pick');pick.type='button';pick.dataset.index=String(p.index);
-                    pick.style.setProperty('--el',colors[die.face]);pick.setAttribute('aria-label',`${die.face} die${die.match?`, ${die.damage} damage`:''}`);pick.setAttribute('aria-pressed',String(picked.has(p.index)));
+                    pick.style.setProperty('--el',colors[die.face]);pick.setAttribute('aria-label',`${die.face} die${die.match?die.damage===undefined?', matches your party':`, ${die.damage} damage`:''}`);pick.setAttribute('aria-pressed',String(picked.has(p.index)));
                     pick.addEventListener('click',event=>{event.stopPropagation();if(picked.has(p.index))picked.delete(p.index);else picked.add(p.index);pick.setAttribute('aria-pressed',String(picked.has(p.index)));label();},{signal:abort.signal});
                     box.append(pick);
                 }

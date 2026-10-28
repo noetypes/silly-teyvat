@@ -1,20 +1,22 @@
 import {mountCombat} from './combat.js';
-import {activeEnemies,combatState,partyStatus,rollEnemyAttack,applyEnemyAttack,healParty,chooseTarget,enemyFaces,USER_KEY} from './combat-state.js';
+import {activeEnemies,combatState,partyStatus,healParty,USER_KEY} from './combat-state.js';
+import {battleSnapshot,commitRound} from './battle-state.js';
+import {resolveRound} from './battle-engine.js';
 import {nearestGuild,resolveDefeat,findKatheryne,isGuildLocation} from './defeat.js';
 import {travelState} from './backgrounds.js';
 import {locationCastState} from './location-cast.js';
 
-// Party health, enemy elemental dice and the Guild rescue after a defeat.
+// Party health, enemy moves in the battle round and the Guild rescue after a defeat.
 export async function runEnemyAttackTests(){
     const out=[],check=(name,ok)=>{out.push(`${ok?'PASS':'FAIL'} ${name}`);if(!ok)throw Error(out.join('\n'));};
     const host=document.createElement('div');host.style.cssText='position:fixed;left:-200vw';document.body.append(host);const originalRandom=Math.random;let ui;
     const path=new URL('preview-landscape.svg',location.href).pathname;
     const place=(id,label,x,y,extra={})=>({id,label,path,blank:false,residents:[],waypoint:{mapId:'teyvat',x,y},...extra});
-    function fixture({element='Pyro',userMaxHp=30,klee=30}={}){
+    function fixture({element='Pyro',userMaxHp=30,klee=30,solo=false}={}){
         const card=(name,props)=>({name,avatar:name+'.png',data:{extensions:{silly_teyvat:props}}});
         const ctx={name1:'Traveler',characterId:0,groupId:'g',chatId:'enemy-attack-fixture',
             characters:[card('Klee',{role:'character',playable:true,element:'Pyro',maxHp:klee}),card('Slime',{role:'enemy',maxHp:50,element}),card('Katheryne',{role:'character',playable:false})],
-            groups:[{id:'g',members:['Klee.png','Slime.png'],disabled_members:[]}],
+            groups:[{id:'g',members:solo?['Slime.png']:['Klee.png','Slime.png'],disabled_members:[]}],
             chat:[{name:'Slime',mes:'“Grr.”',is_user:false,original_avatar:'Slime.png'}],
             chatMetadata:{silly_teyvat_world:{regionId:'wild-region',location:place('wild','Wilds',0,0,{wilderness:true})},silly_teyvat_cast:{core:['Klee.png'],managed:['Slime.png'],placements:{},encounter:{key:'visit-a',locationId:'wild',present:[],travellers:['Klee.png'],enemies:['Slime.png']}}},
             extensionSettings:{genshin_dialogue_ui:{combatDamageMin:1,combatDamageMax:1,enemyDamageMin:2,enemyDamageMax:2,enemyDice:4,userMaxHp,reducedMotion:true,backgroundRegions:[
@@ -27,49 +29,49 @@ export async function runEnemyAttackTests(){
     function mount(ctx,{defeats=[]}={}){
         const rolls=[],messages=[];
         const adapter={async append(c,record){messages.push(record);c.chat.push({name:record.name||'Narrator',mes:record.text,is_user:false,extra:{type:'narrator',silly_teyvat_combat:record.event}});},async react(){},async finishSend(){},async defeat(c){const r=resolveDefeat(c);defeats.push(r);return r;}};
-        const instance=mountCombat({host,getContext:()=>ctx,adapter,diceAdapter:{async roll(roll,options){rolls.push({roll,options});return true;},cancel(){},dispose(){}}});
-        instance.sync({on:true,id:ctx.chat.length-1});ui=instance;return {ui:instance,rolls,messages,defeats};
+        const plans=[];const instance=mountCombat({host,getContext:()=>ctx,adapter,diceAdapter:{async roll(roll,options){rolls.push({roll,options});return true;},cancel(){},dispose(){}},battleAdapter:{async plan(state,options){plans.push({state,options});return state.units.filter(u=>u.side==='party'&&u.hp>0).map(u=>({actor:u.id,move:0,target:options.targetId}));},async play(){return true;},cancel(){},dispose(){}}});
+        instance.sync({on:true,id:ctx.chat.length-1});ui=instance;return {ui:instance,rolls,messages,defeats,plans};
     }
     try{
         let ctx=fixture();
         check('you and your party members have health',partyStatus(ctx).map(m=>`${m.avatar}:${m.hp}/${m.maxHp}`).join()===`${USER_KEY}:30/30,Klee.png:30/30`);
         check('enemies are never part of the party',!partyStatus(ctx).some(m=>m.avatar==='Slime.png'));
-        check('an elemental enemy hits on its own element and Omni',[...enemyFaces(ctx,'Slime.png')].sort().join()==='Omni,Pyro');
-        check('an enemy without an element is physical and hits on Geo and Omni',[...enemyFaces(fixture({element:'None'}),'Slime.png')].sort().join()==='Geo,Omni');
-        const enemy=activeEnemies(ctx)[0],target=chooseTarget(ctx,()=>0);
-        check('the enemy picks a living party member at random',target.avatar===USER_KEY&&chooseTarget(ctx,()=>.99).avatar==='Klee.png');
-        const roll=rollEnemyAttack(ctx,enemy,target,{random:()=>0});
-        check('an enemy attack rolls its own dice with matching faces dealing damage',roll.dice.length===4&&roll.dice.every(d=>d.face==='Pyro'&&d.match&&d.damage===2)&&roll.damage===8&&roll.hpAfter===22);
-        const physical=rollEnemyAttack(fixture({element:'None'}),{...enemy,avatar:'Slime.png'},target,{random:()=>0});
-        check('non-matching faces deal no damage',physical.damage===0&&physical.hpAfter===30);
-        const event=applyEnemyAttack(ctx,roll,'strike-1');
-        check('damage reduces the target’s health and is saved in the chat',event.hpAfter===22&&partyStatus(ctx)[0].hp===22&&combatState(ctx).party[USER_KEY].hp===22);
-        check('the same strike cannot be applied twice',applyEnemyAttack(ctx,roll,'strike-1')===null);
-        let stale=false;try{applyEnemyAttack(ctx,roll,'strike-2');}catch{stale=true;}check('a strike rolled against old health is rejected',stale);
+        const snap=battleSnapshot(ctx);
+        check('the battle snapshot holds you, your ally and the enemy',snap.units.map(u=>`${u.side}:${u.id}`).join()===`party:${USER_KEY},party:Klee.png,enemy:Slime.png`);
+        check('an elemental enemy fights with its own element',snap.units.find(u=>u.id==='Slime.png').element==='Pyro');
+        check('an enemy without an element is physical',battleSnapshot(fixture({element:'None'})).units.find(u=>u.id==='Slime.png').element==='Physical');
+        const round=resolveRound(snap,[{actor:USER_KEY,move:-1},{actor:'Klee.png',move:-1}],{random:()=>.5});
+        const strike=round.timeline.find(e=>e.type==='hit'&&e.actor==='Slime.png');
+        check('the enemy strikes a party member with its own move',Boolean(strike)&&round.timeline.some(e=>e.type==='act'&&e.actor==='Slime.png'&&e.name==='Strike'));
+        check('an enemy attack of a member\'s own element is resisted',strike.target!=='Klee.png'||strike.resisted);
+        const event=commitRound(ctx,snap,round,'round-1'),hit=round.state.units.find(u=>u.id===strike.target);
+        check('damage reduces the target’s health and is saved in the chat',partyStatus(ctx).find(m=>m.avatar===strike.target).hp===hit.hp&&combatState(ctx).party[strike.target].hp===hit.hp&&hit.hp<hit.maxHp);
+        check('the same round cannot be applied twice',commitRound(ctx,snap,round,'round-1')===null&&event.kind==='round');
+        let stale=false;try{commitRound(ctx,snap,round,'round-2');}catch{stale=true;}check('a round resolved against old health is rejected',stale);
         healParty(ctx);check('healing restores everyone',partyStatus(ctx).every(m=>m.hp===m.maxHp));
         check('the nearest Adventurers’ Guild is chosen by map distance',nearestGuild(ctx).location.id==='guild-near'&&isGuildLocation(nearestGuild(ctx).location)&&!isGuildLocation({label:'Shop'}));
 
-        // Full flow through the combat UI: attack, enemy counterattack, party health HUD.
-        Math.random=()=>0;
+        // Full flow through the combat UI: round, enemy counterattack, party health HUD.
+        Math.random=()=>.5;
         ctx=fixture();let c=mount(ctx);c.ui.setArmed(true);
         const message={name:'Traveler',is_user:true,is_system:false,mes:'“Back off!”'};ctx.chat.push(message);c.ui.sync({on:true,id:ctx.chat.length-1,generating:true});
         await c.ui.onUserMessage(ctx.chat.length-1);
-        check('the enemy strikes back after your attack with its own dice',c.rolls.length===2&&c.rolls[1].roll.kind==='enemy-attack'&&c.rolls[1].roll.attacker==='Slime.png');
-        check('enemy dice are announced with their effect and cannot be rerolled',c.rolls[1].options.reroll===undefined&&c.rolls[1].options.describe.enemy.name==='Traveler');
-        check('the result is saved as a narrator fact',c.messages.at(-1).event.kind==='enemy-attack'&&/Slime rolled 4 elemental dice/.test(c.messages.at(-1).text)&&/Traveler took 8 damage/.test(c.messages.at(-1).text));
-        check('your health dropped',partyStatus(ctx)[0].hp===22);
+        check('one round rolls the party dice once and plans every member',c.rolls.length===1&&c.rolls[0].roll.kind==='fuel'&&c.plans.length===1&&c.plans[0].options.targetId==='Slime.png');
+        check('the round is saved as a narrator fact with the enemy\'s move',c.messages.at(-1).event.kind==='round'&&/Slime used Strike/.test(c.messages.at(-1).text)&&/Enemies strike back/.test(c.messages.at(-1).text));
+        const hurt=partyStatus(ctx).find(m=>m.hp<m.maxHp);
+        check('a party member\'s health dropped',Boolean(hurt));
         c.ui.sync({on:true,id:ctx.chat.length-1,generating:false});
-        check('a party health panel shows you and your allies',!host.querySelector('#gi-party-health').hidden&&host.querySelectorAll('.gi-party-member').length===2&&/22 \/ 30 HP/.test(host.querySelector('#gi-party-health').textContent));
-        check('the model is told the party’s health',ctx.extensionPrompts.silly_teyvat_combat.value.includes('Traveler: 22/30 HP'));
+        check('a party health panel shows you and your allies',!host.querySelector('#gi-party-health').hidden&&host.querySelectorAll('.gi-party-member').length===2&&host.querySelector('#gi-party-health').textContent.includes(`${hurt.hp} / ${hurt.maxHp} HP`));
+        check('the model is told the party’s health',ctx.extensionPrompts.silly_teyvat_combat.value.includes(`${hurt.name}: ${hurt.hp}/${hurt.maxHp} HP`));
         c.ui.dispose();ui=null;
 
         // Strike-back can be switched off.
         ctx=fixture();ctx.extensionSettings.genshin_dialogue_ui.enemyStrikeBack=false;c=mount(ctx);c.ui.setArmed(true);
         ctx.chat.push({name:'Traveler',is_user:true,is_system:false,mes:'“Hey.”'});c.ui.sync({on:true,id:ctx.chat.length-1,generating:true});await c.ui.onUserMessage(ctx.chat.length-1);
-        check('enemies only strike back when enabled',c.rolls.length===1&&partyStatus(ctx)[0].hp===30);c.ui.dispose();ui=null;
+        check('enemies only strike back when enabled',c.rolls.length===1&&partyStatus(ctx).every(m=>m.hp===m.maxHp)&&!/Enemies strike back/.test(c.messages.at(-1).text));c.ui.dispose();ui=null;
 
         // Running out of HP.
-        ctx=fixture({userMaxHp:5});const defeats=[];c=mount(ctx,{defeats});c.ui.setArmed(true);
+        ctx=fixture({userMaxHp:2,solo:true});const defeats=[];c=mount(ctx,{defeats});c.ui.setArmed(true);
         ctx.chat.push({name:'Traveler',is_user:true,is_system:false,mes:'“Take this!”'});c.ui.sync({on:true,id:ctx.chat.length-1,generating:true});await c.ui.onUserMessage(ctx.chat.length-1);
         const cast=locationCastState(ctx),result=defeats[0];
         check('running out of HP sends you to the nearest Adventurers’ Guild',Boolean(result)&&travelState(ctx).location.id==='guild-near'&&result.from.label==='Wilds');

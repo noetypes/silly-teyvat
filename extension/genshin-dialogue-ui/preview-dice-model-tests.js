@@ -1,5 +1,5 @@
 import {mountElementalDice} from './elemental-dice.js';
-import {rerollAttack} from './combat-state.js';
+import {rerollFuel} from './battle-engine.js';
 const faces=['Pyro','Hydro','Anemo','Electro','Dendro','Cryo','Geo','Omni'];
 export async function runDiceModelTests(){
     const results=[],check=(label,ok)=>{results.push(`${ok?'PASS':'FAIL'} ${label}`);if(!ok)throw Error(results.join('\n'));};
@@ -30,12 +30,12 @@ export async function runDiceModelTests(){
         ui=mountElementalDice({host:root,stageFactory:async()=>({...fake,draw(){throw Error('Simulated rendering failure');}})});const renderFailure=ui.roll(roll,{reducedMotion:true});await waitFor(()=>heading()==='Elements revealed');check('rendering failure leaves result accessible',root.querySelector('canvas').hidden);click();check('rendering failure cannot alter combat outcome',await renderFailure===true&&JSON.stringify(roll)===original);ui.dispose();
         current=true;ui=mountElementalDice({host:root,stageFactory:async()=>fake});const changed=ui.roll(roll,{reducedMotion:true,isCurrent:()=>current});await waitFor(()=>heading()==='Elements revealed');current=false;click();check('Continue after chat switch cannot commit old result',await changed===false);ui.dispose();
         // Reroll Phase: logic keeps the unchosen dice and allows one reroll.
-        {const ctx={characters:[{name:'Klee',avatar:'Klee.png',data:{extensions:{silly_teyvat:{playable:true,element:'Pyro'}}}}],extensionSettings:{genshin_dialogue_ui:{combatDamageMin:3,combatDamageMax:3}}};
-        const base={avatar:'Slime.png',key:'k',allies:['Klee.png'],dice:[{face:'Pyro',match:true,damage:3,by:'Klee.png'},{face:'Hydro',match:false,damage:0},{face:'Geo',match:false,damage:0}],damage:3,hpBefore:20,hpAfter:17};
-        const next=rerollAttack(ctx,base,[1,2],{random:()=>0});
-        check('reroll keeps unchosen dice and rerolls the chosen ones',next.dice[0].face==='Pyro'&&next.dice[0].damage===3&&next.dice[1].face==='Pyro'&&next.dice[2].face==='Pyro'&&next.rerolls===1&&next.rerolled.join()==='1,2');
-        check('reroll rescores damage and health from the new faces',next.damage===9&&next.hpAfter===11&&next.hpBefore===20);
-        check('only one reroll is allowed per attack',rerollAttack(ctx,next,[0])===next);}
+        {const state={units:[{id:'Klee.png',side:'party',element:'Pyro',hp:10}]};
+        const base={kind:'fuel',allies:['Klee.png'],dice:[{face:'Pyro',match:true},{face:'Hydro',match:false},{face:'Geo',match:false}],rerolls:0};
+        const next=rerollFuel(state,base,[1,2],{random:()=>0});
+        check('reroll keeps unchosen dice and rerolls the chosen ones',next.dice[0].face==='Pyro'&&next.dice[1].face==='Pyro'&&next.dice[2].face==='Pyro'&&next.rerolls===1&&next.rerolled.join()==='1,2');
+        check('rerolled dice are matched against the party again',next.dice.every(d=>d.match)&&base.dice[1].match===false);
+        check('only one reroll is allowed per round',rerollFuel(state,next,[0])===next);}
         {let calls=0,rerolled;const stage={prepare(){},draw(){return true;},positions(){return roll.dice.map((d,index)=>({index,x:40+index*30,y:50,size:12}));},reroll(dice,indices){rerolled=indices;},dispose(){}};
         ui=mountElementalDice({host:root,stageFactory:async()=>stage});
         const next={...roll,dice:roll.dice.map(d=>({...d,match:true,damage:2})),damage:16,hpAfter:14,rerolls:1};

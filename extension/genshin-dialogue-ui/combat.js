@@ -1,11 +1,14 @@
 import {activeGroup} from './party.js';
 import {newLocalId} from './local-id.js';
 import {mediaSettings} from './media-store.js';
-import {activeEnemies,combatIdentity,combatState,rollAttack,rerollAttack,applyAttack,syncCombatPrompt,chooseTarget,rollEnemyAttack,applyEnemyAttack,partyStatus,userDefeated,USER_KEY,allyElement,userAlly} from './combat-state.js';
+import {activeEnemies,combatIdentity,syncCombatPrompt,partyStatus,userDefeated,USER_KEY} from './combat-state.js';
 import {resolveDefeat,defeatNarration} from './defeat.js';
 import {activePersonaAvatar} from './persona-wardrobe.js';
 import {mountElementalDice,ELEMENT_COLORS} from './elemental-dice.js';
-import {characterProperties} from './character-properties.js';
+import {battleSnapshot,commitRound,roundNarration} from './battle-state.js';
+import {rollFuel,rerollFuel,resolveRound} from './battle-engine.js';
+import {mountBattle} from './battle-ui.js';
+import {EL_COLORS} from './battle-fx.js';
 
 export async function appendCombatMessage(ctx,{name='Narrator',text,avatar,event}){
     const message={name,is_user:false,is_system:false,send_date:new Date().toISOString(),mes:text,extra:{silly_teyvat_combat:event,silly_teyvat_combat_scene:structuredClone(activeEnemies(ctx))}};
@@ -18,11 +21,12 @@ export async function appendCombatMessage(ctx,{name='Narrator',text,avatar,event
 }
 export function createCombatAdapter({loadScript=()=>import('/script.js')}={}){
     return {append:appendCombatMessage,defeat:async ctx=>resolveDefeat(ctx),async finishSend(ctx,event,isCurrent){
-        if(!event.defeated||!isCurrent())return;
+        const fallen=event.defeatedAvatars || (event.defeated?[event.avatar]:[]);
+        if(!fallen.length||!isCurrent())return;
         // A group may already have drafted this enemy before the user-send hook.
         // Prevent both a fresh queue and an in-flight queue from reviving it.
         const group=activeGroup(ctx);
-        if(group)group.disabled_members=[...new Set([...(group.disabled_members || []),event.avatar])];
+        if(group)group.disabled_members=[...new Set([...(group.disabled_members || []),...fallen])];
         const script=await loadScript();if(isCurrent()&&script.isGenerating())script.stopGeneration?.();
     },async react(getContext,event,isCurrent){
         const script=await loadScript();if(!isCurrent())return false;
@@ -33,14 +37,14 @@ export function createCombatAdapter({loadScript=()=>import('/script.js')}={}){
         syncCombatPrompt(ctx);
         if(ctx.onlineStatus==='no_connection')throw new Error('Connect your main API to hear the enemy react. Its HP and the combat result are saved.');
         const prompt=[`Continue the current scene as ${card.name}. React to the latest resolved attack in the chat history.`,
-            event.damage?`This enemy just took ${event.damage} damage and now has ${event.hpAfter} HP out of ${event.maxHp}. Show its pain, surprise, anger or tactical reaction naturally, according to its character card.`:'The attack failed to match any allied element, so it caused no damage. React naturally without describing an injury.',
+            event.damage?`This enemy just took ${event.damage} damage this round and now has ${event.hpAfter} HP out of ${event.maxHp}. Show its pain, surprise, anger or tactical reaction naturally, according to its character card.`:'The party\'s attacks did not hurt it this round. React naturally without describing an injury.',
             'Do not resolve new attacks, alter HP, die, move locations or control the player or their companions. The player can speak or negotiate as well as fight. Use third-person narration. Put quoted speech and narration on separate lines. Use natural language without em dashes.'];
         const text=String(await ctx.generateQuietPrompt({quietPrompt:prompt.join('\n'),quietToLoud:true,forceChId:ctx.characters.indexOf(card),responseLength:300,removeReasoning:true}) || '').trim();
         if(!isCurrent())return false;if(!text)throw new Error('Combat result saved, but no enemy reaction was returned. You can keep talking or attack again.');
         await appendCombatMessage(getContext(),{name:card.name,avatar:card.avatar,text,event:{id:event.id,kind:'reaction'}});return true;
     }};
 }
-export function mountCombat({host,getContext,onChange=()=>{},announce=()=>{},adapter=createCombatAdapter(),diceAdapter}){
+export function mountCombat({host,getContext,onChange=()=>{},announce=()=>{},adapter=createCombatAdapter(),diceAdapter,battleAdapter}){
     const panel=document.createElement('aside');panel.id='gi-combat';panel.setAttribute('aria-label','Hostile encounters');panel.hidden=true;host.append(panel);
     const partyPanel=document.createElement('aside');partyPanel.id='gi-party-health';partyPanel.setAttribute('aria-label','Party health');partyPanel.hidden=true;host.append(partyPanel);let partyPaint='';const partyShown=new Map();
     const controls=document.createElement('div');controls.id='gi-attack-controls';controls.hidden=true;
@@ -55,7 +59,7 @@ export function mountCombat({host,getContext,onChange=()=>{},announce=()=>{},ada
     }
     const layout=new MutationObserver(placeControls);layout.observe(host,{subtree:true,childList:true,attributes:true,attributeFilter:['hidden']});layout.observe(document.body,{attributes:true,attributeFilter:['class']});placeControls();
     const sword=controls.querySelector('button'),targetSelect=controls.querySelector('select'),abort=new AbortController();
-    const dice=diceAdapter || mountElementalDice({host});const hits=new Map(),shown=new Map();let disposed=false,busy=false,enabled=false,writing=false,revision=0,key='',paint='',lastId=-1,armed=false,target='',visit='',lastView={};
+    const dice=diceAdapter || mountElementalDice({host}),battle=battleAdapter || mountBattle({host});const hits=new Map(),shown=new Map();let disposed=false,busy=false,enabled=false,writing=false,revision=0,key='',paint='',lastId=-1,armed=false,target='',visit='',lastView={};
     const eligibleEnemies=ctx=>{const disabled=activeGroup(ctx)?.disabled_members || [];return activeEnemies(ctx).filter(e=>!disabled.includes(e.avatar));};
     function paintControls(enemies=eligibleEnemies(getContext())){
         placeControls();
@@ -68,6 +72,8 @@ export function mountCombat({host,getContext,onChange=()=>{},announce=()=>{},ada
     function setArmed(value){if(value&&(!enabled||busy||writing||!eligibleEnemies(getContext()).length))return false;armed=Boolean(value);paintControls();announce(armed?'Attack is on. Your next messages will also attack the selected enemy.':'Attack is off. Your messages will only speak.');return armed;}
     sword.addEventListener('click',()=>setArmed(!armed),{signal:abort.signal});targetSelect.addEventListener('change',()=>{target=targetSelect.value;paintControls();},{signal:abort.signal});
     const current=(identity,token)=>!disposed&&enabled&&token===revision&&combatIdentity(getContext())===identity;
+    const prefs=ctx=>mediaSettings(ctx),volumeOf=(ctx,key)=>prefs(ctx)[key]===false?0:(prefs(ctx).spriteVolume ?? .8);
+    // One full round: Roll Phase (dice as fuel), Action Phase (choose moves), then the resolved round is saved and played back.
     async function attack(avatar,{duringSend=false,react=true,attackId}={}){
         if(disposed||busy||writing&&!duringSend||!enabled)return null;
         const ctx=getContext(),enemy=activeEnemies(ctx).find(e=>e.avatar===avatar);if(!enemy)return;
@@ -75,50 +81,44 @@ export function mountCombat({host,getContext,onChange=()=>{},announce=()=>{},ada
         const identity=combatIdentity(ctx),token=++revision,visitKey=enemy.key,id=attackId || newLocalId('attack');busy=true;paintControls();onChange();
         const valid=()=>current(identity,token)&&activeEnemies(getContext()).some(e=>e.key===visitKey&&e.avatar===avatar);
         try{
-            let roll=rollAttack(ctx,enemy);
-            const thumb=a=>portrait(ctx,a),card=a=>a===USER_KEY?userAlly(ctx):ctx.characters.find(c=>c.avatar===a);
-            const describe={allies:roll.allies.map(a=>({avatar:a,name:card(a)?.name || a,img:thumb(a),element:allyElement(ctx,card(a))})),enemy:{avatar,name:card(avatar)?.name || 'Enemy',img:thumb(avatar),maxHp:enemy.maxHp}};
-            if(!await dice.roll(roll,{describe,reroll:indices=>(roll=rerollAttack(getContext(),roll,indices)),volume:mediaSettings(ctx).diceSound===false?0:(mediaSettings(ctx).spriteVolume ?? .8),reducedMotion:Boolean(mediaSettings(ctx).reducedMotion||ctx.powerUserSettings?.reduced_motion||globalThis.matchMedia?.('(prefers-reduced-motion: reduce)').matches),isCurrent:valid})||!valid())return;
-            const event=applyAttack(getContext(),roll,id);if(!event)return;event.maxHp=enemy.maxHp;
-            const name=getContext().characters.find(c=>c.avatar===avatar)?.name || 'Enemy';
-            const faces=roll.dice.map(d=>`${d.face}${d.match?` (${d.damage} damage)`:''}`).join(', ');
-            const dealt=(roll.contributions || []).filter(c=>c.damage>0).map(c=>`${describe.allies.find(a=>a.avatar===c.avatar)?.name} dealt ${c.damage} (${c.dice.join(', ')})`).join('; ');
-            const text=`The party rolled ${roll.dice.length} elemental dice${roll.rerolled?.length?`, rerolling ${roll.rerolled.length}`:''}: ${faces}. ${dealt?dealt+'. ':''}${name} took ${event.damage} damage. ${event.hpAfter}/${enemy.maxHp} HP remains.`;
-            hits.set(avatar,roll.dice.filter(d=>d.match));
-            await adapter.append(getContext(),{text,event:{...event,kind:'attack'}});syncCombatPrompt(getContext(),enabled);
-            if(event.defeated){
-                const death=String(enemy.deathMessage || '{name} falls still. The threat has passed.').replaceAll('{name}',name);
-                await adapter.append(getContext(),{text:death,event:{id,kind:'death',avatar}});
-                announce(`${name} defeated.`);onChange({defeated:avatar});
-            }else{
-                announce(`${name}: ${event.hpAfter} HP.`);onChange();
-                if(react)await adapter.react(getContext,event,()=>current(identity,token)&&activeEnemies(getContext()).some(e=>e.avatar===avatar&&e.key===visitKey));
+            const snapshot=battleSnapshot(ctx,{portrait:fullPortrait}),motion=reduced(ctx);
+            if(!snapshot.units.some(u=>u.side==='party'&&u.hp>0))throw new Error('Nobody in your party can fight. Rest at a town or the Adventurers\' Guild to recover.');
+            let roll=rollFuel(snapshot);
+            const describe={allies:snapshot.units.filter(u=>u.side==='party'&&u.hp>0).map(u=>({avatar:u.id,name:u.name,img:u.img,element:u.element})),enemy:{avatar,name:snapshot.units.find(u=>u.id===avatar)?.name || 'Enemy',img:portrait(ctx,avatar),maxHp:enemy.maxHp}};
+            if(!await dice.roll(roll,{describe,reroll:indices=>(roll=rerollFuel(snapshot,roll,indices)),volume:volumeOf(ctx,'diceSound'),reducedMotion:motion,isCurrent:valid})||!valid())return;
+            const options={reducedMotion:motion,effects:prefs(ctx).battleEffects!==false,volume:volumeOf(ctx,'battleSound'),isCurrent:valid};
+            const plan=await battle.plan(snapshot,{dice:roll.dice,targetId:avatar,...options});
+            if(!plan||!valid()){battle.cancel?.();return;}
+            const result=resolveRound(snapshot,plan,{strikeBack:prefs(ctx).enemyStrikeBack!==false,difficulty:snapshot.difficulty});
+            // Save before the playback, so the round stands even if the chat changes mid-animation.
+            const saved=commitRound(getContext(),snapshot,result,id);if(!saved){battle.cancel?.();return;}
+            const target=result.state.units.find(u=>u.id===avatar),before=snapshot.units.find(u=>u.id===avatar);
+            const event={...saved,avatar,key:visitKey,damage:before.hp-target.hp,hpBefore:before.hp,hpAfter:target.hp,maxHp:before.maxHp,defeated:target.hp<=0,defeatedAvatars:saved.defeated};
+            for(const u of result.state.units.filter(u=>u.side==='enemy'))hits.set(u.id,result.timeline.filter(e=>e.type==='hit'&&e.target===u.id).map(e=>({face:e.element,damage:e.amount+e.shieldHit})));
+            await adapter.append(getContext(),{text:roundNarration(snapshot,result),event:{...event,kind:'round'}});syncCombatPrompt(getContext(),enabled);
+            for(const fallen of saved.defeated){
+                const unit=snapshot.units.find(u=>u.id===fallen),info=activeEnemiesAll(getContext(),fallen) || {};
+                const death=String(info.deathMessage || '{name} falls still. The threat has passed.').replaceAll('{name}',unit?.name || 'Enemy');
+                await adapter.append(getContext(),{text:death,event:{id,kind:'death',avatar:fallen}});
             }
-            await strikeBack(identity,token);
+            onChange();
+            await battle.play(snapshot,result,options);
+            for(const fallen of saved.defeated){announce(`${snapshot.units.find(u=>u.id===fallen)?.name || 'Enemy'} defeated.`);onChange({defeated:fallen});}
+            if(!event.defeated){
+                announce(`${before.name}: ${target.hp} HP.`);onChange();
+                if(react&&!result.wiped)await adapter.react(getContext,event,()=>current(identity,token)&&activeEnemies(getContext()).some(e=>e.avatar===avatar&&e.key===visitKey));
+            }
+            if(current(identity,token)&&userDefeated(getContext()))await defeat(identity,token);
             return event;
-        }catch(error){if(current(identity,token)){announce(error.message);globalThis.toastr?.error?.(error.message,'Silly Teyvat');console.warn('[Silly Teyvat] Combat',error);}}
+        }catch(error){battle.cancel?.();if(current(identity,token)){announce(error.message);globalThis.toastr?.error?.(error.message,'Silly Teyvat');console.warn('[Silly Teyvat] Combat',error);}}
         finally{busy=false;paintControls();onChange();}
     }
+    // Saved encounter record for an enemy, including one that has just been defeated.
+    const activeEnemiesAll=(ctx,avatar)=>Object.values(ctx.chatMetadata?.silly_teyvat_combat?.visits || {}).map(v=>v.enemies?.[avatar]).find(Boolean);
+    // Battle cards are larger than SillyTavern's thumbnails, so they use the full portrait.
+    const fullPortrait=(ctx,avatar)=>{const url=portrait(ctx,avatar),m=/\/thumbnail\?type=(avatar|persona)&file=([^&]+)/.exec(url);return m?(m[1]==='avatar'?`/characters/${m[2]}`:`/User%20Avatars/${m[2]}`):url;};
     const reduced=ctx=>Boolean(mediaSettings(ctx).reducedMotion||ctx.powerUserSettings?.reduced_motion||globalThis.matchMedia?.('(prefers-reduced-motion: reduce)').matches);
     const portrait=(ctx,avatar)=>avatar===USER_KEY?(ctx.getThumbnailUrl?.('persona',activePersonaAvatar(ctx)) || `/User%20Avatars/${encodeURIComponent(activePersonaAvatar(ctx))}`):(ctx.getThumbnailUrl?.('avatar',avatar) || `/characters/${encodeURIComponent(avatar)}`);
-    // Every enemy still standing rolls its own elemental dice against a random party member.
-    async function strikeBack(identity,token){
-        if(mediaSettings(getContext()).enemyStrikeBack===false)return false;
-        for(const standing of activeEnemies(getContext())){
-            const ctx=getContext(),enemy=activeEnemies(ctx).find(e=>e.avatar===standing.avatar&&e.key===standing.key),target=chooseTarget(ctx);
-            if(!enemy||!target||!current(identity,token))return false;
-            const roll=rollEnemyAttack(ctx,enemy,target),enemyName=ctx.characters.find(c=>c.avatar===enemy.avatar)?.name || 'Enemy';
-            const describe={allies:[{avatar:enemy.avatar,name:enemyName,img:portrait(ctx,enemy.avatar),element:roll.contributions[0].element}],enemy:{avatar:target.avatar,name:target.name,img:portrait(ctx,target.avatar),maxHp:target.maxHp}};
-            if(!await dice.roll(roll,{describe,volume:mediaSettings(ctx).diceSound===false?0:(mediaSettings(ctx).spriteVolume ?? .8),reducedMotion:reduced(ctx),isCurrent:()=>current(identity,token)})||!current(identity,token))return false;
-            const event=applyEnemyAttack(getContext(),roll,newLocalId('strike'));if(!event)continue;
-            const faces=roll.dice.map(d=>`${d.face}${d.match?` (${d.damage} damage)`:''}`).join(', ');
-            const text=`${enemyName} rolled ${roll.dice.length} elemental dice: ${faces}. ${roll.damage?`${target.name} took ${event.damage} damage.`:`${target.name} was not hurt.`} ${target.name} has ${event.hpAfter}/${target.maxHp} HP${event.downed?' and is downed':''}.`;
-            await adapter.append(getContext(),{text,event:{...event,kind:'enemy-attack'}});syncCombatPrompt(getContext(),enabled);
-            announce(`${target.name}: ${event.hpAfter} HP.`);onChange();
-            if(userDefeated(getContext())){await defeat(identity,token);return true;}
-        }
-        return false;
-    }
     async function defeat(identity,token){
         if(!current(identity,token))return;
         const ctx=getContext(),result=await adapter.defeat?.(ctx);
@@ -131,7 +131,7 @@ export function mountCombat({host,getContext,onChange=()=>{},announce=()=>{},ada
         get armed(){return armed;},setArmed,
         // Kept as an empty compatibility surface. Attacks are never reply choices.
         actions(){return [];},
-        cancelPending(){revision++;dice.cancel?.();},
+        cancelPending(){revision++;dice.cancel?.();battle.cancel?.();},
         async onUserMessage(id){
             const ctx=getContext(),index=Number.isInteger(Number(id))?Number(id):ctx.chat.length-1,message=ctx.chat[index];
             if(disposed||!enabled||!armed||busy||index!==ctx.chat.length-1||!message?.is_user||message.is_system||!message.mes?.trim()||message.extra?.silly_teyvat_send_attack)return null;
@@ -147,12 +147,12 @@ export function mountCombat({host,getContext,onChange=()=>{},announce=()=>{},ada
             return event;
         },
         sync({on,id,generating=false,show=true}={}){
-            const ctx=getContext(),nextKey=combatIdentity(ctx);if(nextKey!==key){revision++;dice.cancel?.();key=nextKey;paint='';armed=false;target='';visit='';}if(enabled&&!on){revision++;dice.cancel?.();armed=false;}enabled=Boolean(on);writing=generating;lastId=id;lastView={show};
+            const ctx=getContext(),nextKey=combatIdentity(ctx);if(nextKey!==key){revision++;dice.cancel?.();battle.cancel?.();key=nextKey;paint='';armed=false;target='';visit='';}if(enabled&&!on){revision++;dice.cancel?.();battle.cancel?.();armed=false;}enabled=Boolean(on);writing=generating;lastId=id;lastView={show};
             syncCombatPrompt(ctx,enabled);
             const disabled=activeGroup(ctx)?.disabled_members || [];
             const currentEnemies=enabled?activeEnemies(ctx).filter(e=>!disabled.includes(e.avatar)):[],message=ctx.chat?.[id];
             const nextVisit=[...new Set(currentEnemies.map(e=>e.key))].sort().join('|');
-            if(visit&&visit!==nextVisit){revision++;dice.cancel?.();armed=false;}visit=nextVisit;
+            if(visit&&visit!==nextVisit&&!busy){revision++;dice.cancel?.();battle.cancel?.();armed=false;}visit=nextVisit;
             if(!currentEnemies.some(e=>e.avatar===target)){target=currentEnemies[0]?.avatar || '';armed=false;}
             paintControls(currentEnemies);
             if(enabled&&!generating&&id===ctx.chat.length-1&&message&&!message.extra?.silly_teyvat_combat_scene){message.extra ??= {};message.extra.silly_teyvat_combat_scene=structuredClone(currentEnemies);Promise.resolve(ctx.saveChat?.()).catch(error=>console.warn('[Silly Teyvat] Combat scene save',error));}
@@ -187,12 +187,12 @@ export function mountCombat({host,getContext,onChange=()=>{},announce=()=>{},ada
                     fill.style.width=lag.style.width=pct(before);item.classList.add('gi-hurt');
                     requestAnimationFrame(()=>requestAnimationFrame(()=>{fill.style.width=pct(e.hp);setTimeout(()=>{lag.style.width=pct(e.hp);},420);}));
                     const list=hits.get(e.avatar) || [{face:'Omni',damage:before-e.hp}];hits.delete(e.avatar);
-                    list.forEach((d,i)=>{const pop=document.createElement('b');pop.className='gi-damage-pop';pop.setAttribute('aria-hidden','true');pop.textContent=String(d.damage);pop.style.setProperty('--el',ELEMENT_COLORS[d.face] || '#ffd780');pop.style.setProperty('--dx',`${(i%2?1:-1)*(10+i*8)}px`);pop.style.animationDelay=`${i*140}ms`;item.append(pop);setTimeout(()=>pop.remove(),1500+i*140);});
+                    list.forEach((d,i)=>{const pop=document.createElement('b');pop.className='gi-damage-pop';pop.setAttribute('aria-hidden','true');pop.textContent=String(d.damage);pop.style.setProperty('--el',ELEMENT_COLORS[d.face] || EL_COLORS[d.face] || '#ffd780');pop.style.setProperty('--dx',`${(i%2?1:-1)*(10+i*8)}px`);pop.style.animationDelay=`${i*140}ms`;item.append(pop);setTimeout(()=>pop.remove(),1500+i*140);});
                 }else{fill.style.width=lag.style.width=pct(e.hp);}
                 if(!historical)shown.set(e.avatar,e.hp);
             }
             if(!historical)for(const a of [...shown.keys()])if(!display.some(e=>e.avatar===a))shown.delete(a);
         },
-        dispose(){disposed=true;enabled=false;revision++;abort.abort();layout.disconnect();dice.dispose?.();controls.remove();dock.remove();panel.remove();partyPanel.remove();syncCombatPrompt(getContext(),false);},
+        dispose(){disposed=true;enabled=false;revision++;abort.abort();layout.disconnect();dice.dispose?.();battle.dispose?.();controls.remove();dock.remove();panel.remove();partyPanel.remove();syncCombatPrompt(getContext(),false);},
     };
 }

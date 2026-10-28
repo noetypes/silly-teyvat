@@ -19,7 +19,8 @@ const ctx = {
     },
     async renderExtensionTemplateAsync() { return fetch('settings.html').then(response => response.text()); },
 };
-ctx.getThumbnailUrl = (_kind, avatar) => avatar === 'Hilichurl Fighter.png' ? 'assets/preview/Hilichurl Fighter/neutral.png' : avatar === 'Nahida.png' ? 'preview-nahida.png' : 'preview-klee.png';
+const realThumbnails = new Set(['Xingqiu.png','Pyro Abyss Mage.png']);
+ctx.getThumbnailUrl = (_kind, avatar) => avatar === 'Hilichurl Fighter.png' ? 'assets/preview/Hilichurl Fighter/neutral.png' : avatar === 'Nahida.png' ? 'preview-nahida.png' : realThumbnails.has(avatar) ? `/thumbnail?type=avatar&file=${encodeURIComponent(avatar)}` : 'preview-klee.png';
 ctx.updateMessageBlock=(id,record)=>{document.querySelector(`#chat > .mes[mesid="${id}"] .mes_text`).textContent=record.mes;};
 ctx.generate=async(type,args)=>{
     if(!['regenerate','swipe'].includes(type))throw new Error('Only disposable regeneration is supported here.');
@@ -236,11 +237,15 @@ document.addEventListener('click', async event => {
             }
             case 'enemy-action-demo':
             case 'combat-demo': {
-                reset();ctx.characterId=0;ctx.groupId='preview-group';ctx.groups.find(g=>g.id==='preview-group').members=['Klee.png','Nahida.png','Hilichurl Fighter.png'];
-                if(!ctx.characters.some(c=>c.avatar==='Hilichurl Fighter.png'))ctx.characters.push({name:'Hilichurl Fighter',avatar:'Hilichurl Fighter.png',data:{extensions:{silly_teyvat:{role:'enemy',maxHp:12,deathMessage:'The hilichurl drops its club and falls still.'}}}});
+                reset();ctx.characterId=0;ctx.groupId='preview-group';
+                const party=demo==='combat-demo'?['Klee.png','Nahida.png','Xingqiu.png']:['Klee.png','Nahida.png'],foes=demo==='combat-demo'?['Hilichurl Fighter.png','Pyro Abyss Mage.png']:['Hilichurl Fighter.png'];
+                ctx.groups.find(g=>g.id==='preview-group').members=[...party,...foes];
+                if(!ctx.characters.some(c=>c.avatar==='Hilichurl Fighter.png'))ctx.characters.push({name:'Hilichurl Fighter',avatar:'Hilichurl Fighter.png',data:{extensions:{silly_teyvat:{role:'enemy',maxHp:30,deathMessage:'The hilichurl drops its club and falls still.'}}}});
+                if(!ctx.characters.some(c=>c.avatar==='Pyro Abyss Mage.png'))ctx.characters.push({name:'Pyro Abyss Mage',avatar:'Pyro Abyss Mage.png',data:{extensions:{silly_teyvat:{role:'enemy',maxHp:30,deathMessage:'The Abyss Mage bursts into embers and is gone.'}}}});
+                if(!ctx.characters.some(c=>c.avatar==='Xingqiu.png'))ctx.characters.push({name:'Xingqiu',avatar:'Xingqiu.png'});
                 ctx.extensionSettings.genshin_dialogue_ui.revealSpeed=0;ctx.extensionSettings.genshin_dialogue_ui.choices=true;ctx.extensionSettings.genshin_dialogue_ui.backgroundsEnabled=false;
-                ctx.chatMetadata={silly_teyvat_world:{regionId:'demo-wild',location:{id:'demo-woods',label:'Whispering Woods'}},silly_teyvat_cast:{core:['Klee.png','Nahida.png'],managed:['Hilichurl Fighter.png'],placements:{},encounter:{key:'preview-combat-'+Date.now(),locationId:'demo-woods',present:[],travellers:['Klee.png','Nahida.png'],enemies:['Hilichurl Fighter.png']},arrival:{handled:true}}};
-                message('Hilichurl Fighter',demo==='enemy-action-demo'?'[enemy_attack] The hilichurl lunges toward the Traveler and swings its club.\n“Ya! Mosi?”':'The hilichurl plants its club in the path and growls.\n“Ya! Mosi?”');emit(eventTypes.CHAT_CHANGED);emit(eventTypes.CHARACTER_MESSAGE_RENDERED);result('Wilderness encounter ready. Toggle the sword, then send a message or select a suggested reply. The message stays in chat and four dice roll before the model reply. No native chat/model writes.');break;
+                ctx.chatMetadata={silly_teyvat_world:{regionId:'demo-wild',location:{id:'demo-woods',label:'Whispering Woods'}},silly_teyvat_cast:{core:party,managed:foes,placements:{},encounter:{key:'preview-combat-'+Date.now(),locationId:'demo-woods',present:[],travellers:party,enemies:foes},arrival:{handled:true}}};
+                message('Hilichurl Fighter',demo==='enemy-action-demo'?'[enemy_attack] The hilichurl lunges toward the Traveler and swings its club.\n“Ya! Mosi?”':'The hilichurl plants its club in the path and growls.\n“Ya! Mosi?”');emit(eventTypes.CHAT_CHANGED);emit(eventTypes.CHARACTER_MESSAGE_RENDERED);result('Wilderness encounter ready. Toggle Attack, then send a message or select a suggested reply. The message stays in chat, then the Roll Phase, Action Phase and the round play before the model reply. No native chat/model writes.');break;
             }
             case 'encounter-fix-tests': {ctx.extensionSettings.genshin_dialogue_ui.choices=false;emit(eventTypes.SETTINGS_UPDATED);const {runEncounterFixTests}=await import('./preview-encounter-fix-tests.js');result(await runEncounterFixTests().catch(error=>error.message));break;}
             case 'dice-model-demo': {
@@ -261,6 +266,7 @@ document.addEventListener('click', async event => {
             case 'cast-tests': {const {runLocationCastTests}=await import('./preview-cast-tests.js');result(await runLocationCastTests());emit(eventTypes.SETTINGS_UPDATED);break;}
             case 'world-tests': {const {runWorldMapTests}=await import('./preview-world-tests.js');result(await runWorldMapTests());emit(eventTypes.SETTINGS_UPDATED);break;}
             case 'staging-tests': {const {runStagingTests}=await import('./preview-staging-tests.js');result(await runStagingTests());emit(eventTypes.SETTINGS_UPDATED);break;}
+            case 'battle-tests': {const {runBattleTests}=await import('./preview-battle-tests.js');result(await runBattleTests());break;}
             case 'enemy-attack-tests': {const {runEnemyAttackTests}=await import('./preview-enemy-attack-tests.js');result(await runEnemyAttackTests());break;}
             case 'persona-link-tests': {const {runPersonaLinkTests}=await import('./preview-persona-link-tests.js');result(await runPersonaLinkTests());break;}
             case 'persona-tests': {ctx.extensionSettings.genshin_dialogue_ui.choices=false;emit(eventTypes.SETTINGS_UPDATED);const {runPersonaWardrobeTests}=await import('./preview-persona-tests.js');result(await runPersonaWardrobeTests());break;}

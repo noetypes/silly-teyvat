@@ -36,7 +36,7 @@
                 <h4>Expressions</h4>
                 <label class="gi-row"><span>Classify expressions</span><input type="checkbox" class="gi-switch" data-gi-setting="pageExpressions"></label>
                 <label class="gi-row"><span>Decide sprites</span><select data-gi-setting="expressionMode"><option value="page">Per page</option><option value="message">Per message</option></select></label>
-                <label class="gi-row"><span>Wardrobe in menu</span><input type="checkbox" class="gi-switch" data-gi-setting="wardrobe"></label>
+                <label class="gi-row"><span>Characters in menu</span><input type="checkbox" class="gi-switch" data-gi-setting="wardrobe"></label>
                 <h4>Staging</h4>
                 <label class="gi-row"><span>Silly Teyvat staging</span><input type="checkbox" class="gi-switch" data-gi-setting="nativeStaging"></label>
                 <label class="gi-row"><span>Trim empty sprite space</span><input type="checkbox" class="gi-switch" data-gi-setting="trimSprites"></label>
@@ -57,7 +57,7 @@
                 <label class="gi-row"><span>Drop shadows</span><input type="checkbox" class="gi-switch" data-gi-setting="spriteShadow"></label>
                 <div class="gi-row gi-row-trio"><span>Offset · Blur</span><input type="number" min="-100" max="100" aria-label="Shadow horizontal offset" data-gi-setting="shadowX"><input type="number" min="-100" max="100" aria-label="Shadow vertical offset" data-gi-setting="shadowY"><input type="number" min="0" max="80" aria-label="Shadow blur" data-gi-setting="shadowBlur"></div>
                 <h4>Active persona sprite</h4>
-                <p class="gi-note">Your persona is the first entry in the Sprite Wardrobe. Each persona keeps its own outfits, expression and appearance settings.</p>
+                <p class="gi-note">Your persona is the first entry in Character Customization. Each persona keeps its own outfits, expression and appearance settings.</p>
                 <label class="gi-row"><span>Show persona</span><input type="checkbox" class="gi-switch" data-gi-setting="personaSprite"></label>
                 <label class="gi-row"><span>Sprite folder</span><input type="text" placeholder="Traveler" data-gi-setting="personaSpriteFolder"></label>
                 <label class="gi-row"><span>Expression</span><input type="text" placeholder="neutral" data-gi-setting="personaSpriteExpression"></label>
@@ -65,7 +65,7 @@
                 <label class="gi-row"><span>Bars</span><select data-gi-setting="letterbox"><option value="none">Off</option><option value="horizontal">Top &amp; bottom</option><option value="vertical">Sides</option></select></label>
                 <label class="gi-row"><span>Size (%)</span><input type="number" min="1" max="30" data-gi-setting="letterboxSize"></label>
                 <label class="gi-row"><span>Colour</span><input type="text" maxlength="7" placeholder="#000000" data-gi-setting="letterboxColor"></label>
-                <div class="gi-set-actions"><button type="button" class="menu_button" data-gi-action="wardrobe">Open Wardrobe</button></div>
+                <div class="gi-set-actions"><button type="button" class="menu_button" data-gi-action="wardrobe">Open Character Customization</button></div>
             </section>
 
             <section class="gi-set-page" data-page="media" role="tabpanel" hidden>
@@ -97,18 +97,17 @@
             <section class="gi-set-page" data-page="combat" role="tabpanel" hidden>
                 <h4>Wilderness</h4>
                 <label class="gi-row"><span>Enemy encounters</span><input type="checkbox" class="gi-switch" data-gi-setting="wildernessEncounters"></label>
-                <h4>Elemental dice</h4>
-                <label class="gi-row"><span>Dice sounds</span><input type="checkbox" class="gi-switch" data-gi-setting="diceSound"></label>
-                <label class="gi-row"><span>Damage per die · min</span><input type="number" min="1" max="100" step="1" data-gi-setting="combatDamageMin"></label>
-                <label class="gi-row"><span>Damage per die · max</span><input type="number" min="1" max="100" step="1" data-gi-setting="combatDamageMax"></label>
+                <h4>Turn-based battles</h4>
+                <p class="gi-note">Turn on Attack and send a message to fight a round. Dice fuel Elemental Skills and Bursts; Normal Attacks are free but can miss. Edit any moveset in Character Customization → Moveset.</p>
+                <label class="gi-row" for="gi-combat-difficulty"><span>Difficulty</span><select id="gi-combat-difficulty" data-gi-setting="combatDifficulty"><option value="easy">Story (enemies 80% HP, 70% damage)</option><option value="normal">Normal</option><option value="hard">Hard (enemies 130% HP and damage)</option></select></label>
                 <label class="gi-row"><span>Enemies strike back</span><input type="checkbox" class="gi-switch" data-gi-setting="enemyStrikeBack"></label>
-                <label class="gi-row"><span>Enemy dice per attack</span><input type="number" min="1" max="8" step="1" data-gi-setting="enemyDice"></label>
-                <label class="gi-row"><span>Enemy damage per die · min</span><input type="number" min="1" max="100" step="1" data-gi-setting="enemyDamageMin"></label>
-                <label class="gi-row"><span>Enemy damage per die · max</span><input type="number" min="1" max="100" step="1" data-gi-setting="enemyDamageMax"></label>
+                <label class="gi-row"><span>Burst splash art &amp; effects</span><input type="checkbox" class="gi-switch" data-gi-setting="battleEffects"></label>
+                <label class="gi-row"><span>Battle sounds</span><input type="checkbox" class="gi-switch" data-gi-setting="battleSound"></label>
+                <label class="gi-row"><span>Dice sounds</span><input type="checkbox" class="gi-switch" data-gi-setting="diceSound"></label>
                 <label class="gi-row"><span>Your maximum HP</span><input type="number" min="1" max="100000" step="1" data-gi-setting="userMaxHp"></label>
             </section>
 
-            <footer class="gi-set-footer"><span>1.21</span><button type="button" class="menu_button" data-gi-action="preview">Preview</button></footer>
+            <footer class="gi-set-footer"><span>1.30</span><button type="button" class="menu_button" data-gi-action="preview">Preview</button></footer>
         </div>
     </div>
 </div>

@@ -1,3 +1,13 @@
+# Silly Teyvat 1.30: Turn-based elemental combat
+
+- **Full battle rounds.** Attack + send now plays a round: Roll Phase, an Action Phase where every party member picks a Normal Attack, Elemental Skill or Elemental Burst and a target, then an animated resolution with enemy turns and an End Phase. See **COMBAT.md**.
+- **Dice are fuel.** 1 + 2 dice per fighter. Skills and Bursts spend dice of the member's element (Omni is wild, two spare dice tune into one); Normal Attacks are free but can miss. Bursts also need Energy.
+- **Movesets for everyone.** All 124 playable characters, every Traveler element and the 20 enemies have three moves named after their in-game attacks, with damage, healing, shields, buffs, debuffs, summons, decoys and HP costs. Enemies have Attacks, Specials, shields, armour, weaknesses and an enraged state.
+- **Elemental reactions and combos.** Auras, Vaporize, Melt, Overloaded, Superconduct, Electro-Charged, Frozen and Shatter, Bloom, Burning, Quicken (Aggravate and Spread), Swirl and Crystallize; same-element resistance; combo bonus; Elemental Resonance. The Action Phase forecasts reactions for your chosen order.
+- **Burst splash art, effects and sound.** Bursts flash the character's splash art (from the supplied Splash Art folder) with an elemental wash; hits, heals, shields, buffs and debuffs have particles, floating numbers and synthesised sounds.
+- **Character Customization.** The Sprite Wardrobe is renamed, and its new **Moveset** tab edits any character's or enemy's moves and effects.
+- **Settings.** Difficulty, Burst splash art & effects and Battle sounds replace the old damage-per-die controls. Enemy HP and damage scale with party size.
+
 # Silly Teyvat 1.29: Party health, enemy attacks and the Adventurers' Guild
 
 - **Party health.** You and your companions have HP. Enemies roll their own elemental dice after your attack and hurt a random party member. See **COMBAT.md**.
@@ -125,7 +135,7 @@ Elemental rolls now use the supplied textured Genius Invokation glTF model. All 
 
 ## Wilderness and elemental combat (1.16)
 
-Wilderness waypoints can spawn a configured enemy at an editable chance. Choose enemy pools from the map or Backgrounds, and set card roles, elements, body models, regions, HP and death messages in Sprite Wardrobe. Enemy cards and tied-character selectors are kept separate. Forty existing wilderness waypoints have starter pools and a 40% chance.
+Wilderness waypoints can spawn a configured enemy at an editable chance. Choose enemy pools from the map or Backgrounds, and set card roles, elements, body models, regions, HP and death messages in Character Customization. Enemy cards and tied-character selectors are kept separate. Forty existing wilderness waypoints have starter pools and a 40% chance.
 
 Sending a message with the **sword toggle** armed rolls one 3D elemental die per playable ally plus two. Matching elements and Omni deal configurable random damage. Enemy health and attack facts are saved, surviving enemies react through their own cards, and a death message precedes unloading a defeated enemy. Ordinary conversation remains available. [Setup, behavior, metadata exceptions and dice provenance](COMBAT.md).
 
@@ -181,7 +191,7 @@ For matching native menus, import `theme/Teyvat Slate.json` using **User Setting
 
 Enable **Classify expressions and remember sprite scenes** in Silly Teyvat. It is on by default. Select your classifier and fallback in the native **Character Expressions** settings and install the character's sprites there as usual.
 
-Choose the default **Decide sprites** mode in extension settings, or override it for a character in **Sprite Wardrobe → Character scale, placement & classification**. **Once per dialogue page** classifies each visited speech page. A streaming page becomes eligible at its newline or generation end. **Once per complete message** waits for the full response and classifies it once, then uses that same exact sprite across its dialogue pages. Native LLM / WebLLM classifiers wait until reply generation ends in either mode. Narration continues holding the last spoken scene. The visible scene holds its previous expression while classification is pending.
+Choose the default **Decide sprites** mode in extension settings, or override it for a character in **Character Customization → Character scale, placement & classification**. **Once per dialogue page** classifies each visited speech page. A streaming page becomes eligible at its newline or generation end. **Once per complete message** waits for the full response and classifies it once, then uses that same exact sprite across its dialogue pages. Native LLM / WebLLM classifiers wait until reply generation ends in either mode. Narration continues holding the last spoken scene. The visible scene holds its previous expression while classification is pending.
 
 The page saves the exact chosen image, including numbered variants, with every visible character's position, size, layering, focus, opacity and shadow. Group pages retain the other characters while changing the speaker's expression. The scene is saved in the message's `extra.silly_teyvat` data and travels with a normal chat save/export. Back and forward restore saved scenes without classifying or rerolling them again. Swipes have separate caches; edited page text is classified again.
 
@@ -203,7 +213,7 @@ Open **Extensions → Silly Teyvat → Native sprite staging**. Prome VN's visua
 - **Show a persona sprite** loads a chosen native sprite folder and expression on a separate player layer. It never adds a fake character to the group or changes its membership.
 - **Letterbox** adds horizontal or vertical bars with configurable thickness and color. Hide UI removes the bars as well.
 
-In **Sprite Wardrobe → Character scale, placement & classification**, each character has a percentage scale, an optional horizontal position and a vertical offset. Select any sprite tile to set **Selected sprite scale (%)** for that exact file, including numbered variants. The total size is global scale × character scale × selected sprite scale. For example, global 100%, character 80% and sprite 125% give the original size. Speaker focus applies on top of that.
+In **Character Customization → Character scale, placement & classification**, each character has a percentage scale, an optional horizontal position and a vertical offset. Select any sprite tile to set **Selected sprite scale (%)** for that exact file, including numbered variants. The total size is global scale × character scale × selected sprite scale. For example, global 100%, character 80% and sprite 125% give the original size. Speaker focus applies on top of that.
 
 Character scale applies across outfits. Individual sprite scale is stored per folder and filename. Scale or placement changes update the visible recorded page and future scenes; earlier pages retain their saved sizes and positions for faithful replay. These settings and uploaded files should be copied together when moving servers.
 
@@ -218,9 +228,9 @@ Narration has no speaker name and uses muted text. It holds the character's most
 
 **Hide quotation marks on dialogue-only pages** is an optional setting beside Narration handling. It removes the outer speech marks when all text on the current page is quoted dialogue, including a quoted speech stream that has not closed yet. Mixed narration and dialogue keep their marks. Nested quotes and apostrophes inside speech stay. This is a presentation change: the source transcript, saved messages, narration detection, expression input and history retain the original punctuation. It works independently of the narration toggle.
 
-## Sprite Wardrobe
+## Character Customization
 
-Open the Paimon menu → the bottom eye icon (**Sprite Wardrobe**), or its button in the extension settings. The **Enable Sprite Wardrobe** setting controls whether this menu is available.
+Open the Paimon menu → the bottom eye icon (**Character Customization**), or its button in the extension settings. The **Enable Character Customization** setting controls whether this menu is available.
 
 1. Choose a character in the portrait strip. Preview its expressions without changing the scene.
 2. Expand **Add a sprite set**. Give it a name and a native sprite folder such as `Klee/Summer`. Use an existing folder, or upload images to create it. Native folders allow one outfit subfolder.
@@ -234,7 +244,7 @@ Equipping a set updates the visible saved page. Other previously recorded pages 
 
 ## Sprite and CG audio
 
-Under **Sprite Wardrobe → Sprites & audio**, select the exact sprite or numbered variant, choose audio files and press **Add audio to selected sprite**. Under **Scene CGs**, select an artwork and use **Add audio to selected CG**. Multiple files are supported; one is chosen at random each time that sprite changes or that CG is newly selected for a fresh response.
+Under **Character Customization → Sprites & audio**, select the exact sprite or numbered variant, choose audio files and press **Add audio to selected sprite**. Under **Scene CGs**, select an artwork and use **Add audio to selected CG**. Multiple files are supported; one is chosen at random each time that sprite changes or that CG is newly selected for a fresh response.
 
 Each CG audio file has its own **Loop** switch. A looping clip continues across pages while its CG stays visible. In scene replacement mode it ends when you leave that message. In framed mode it can continue into following messages until the frame is closed. Any newly triggered clip stops the previous clip. Opening or returning to historical dialogue never starts audio again; browsing back stops a playing clip. Preview buttons play once, even if Loop is enabled.
 
@@ -244,7 +254,7 @@ Uploads use SillyTavern's authenticated user-file storage, so assignments work o
 
 ## Character CGs
 
-1. Open **Sprite Wardrobe → Scene CGs** and select a character. The final **+** tile creates saved blank entries named `scene`, `scene-1`, `scene-2`, and so on. Empty CG slots stay out of classification. Select one and use **Add scene artwork** to fill it while keeping its labels and audio assignments. Audio can be assigned before artwork is uploaded.
+1. Open **Character Customization → Scene CGs** and select a character. The final **+** tile creates saved blank entries named `scene`, `scene-1`, `scene-2`, and so on. Empty CG slots stay out of classification. Select one and use **Add scene artwork** to fill it while keeping its labels and audio assignments. Audio can be assigned before artwork is uploaded.
 2. Give the artwork a **Scene label**, such as `Lakeside adventure`. Add optional **Additional classifications**, one per line, such as `Picnic` and `Fish Blasting`. The same CG can match any of these names. Add a description explaining which current scene should select it.
 3. Choose artwork files and press **Add scene artwork**. Several artworks can share a classification; one matching artwork is selected at random and saved. Select an artwork to edit its labels, attach audio or unlink it.
 4. Enable **Classify character CG scenes** in **Extensions → Silly Teyvat**. Choose a **CG classifier** independently of the sprite model in Character Expressions:
@@ -266,7 +276,7 @@ Removing an artwork assignment keeps the uploaded file, so saved CG scenes remai
 
 ## Regional backgrounds
 
-Open **Sprite Wardrobe → Backgrounds**. Backgrounds are shared scene locations, independent of the selected character, sprites and CGs.
+Open **Character Customization → Backgrounds**. Backgrounds are shared scene locations, independent of the selected character, sprites and CGs.
 
 1. Enter a region name, such as `Mondstadt`, and press **Add region**. Select it in **Travel region** to enter it. Adding a region alone never takes you out of your current region.
 2. Upload background images or expand **Use existing SillyTavern backgrounds → Load background library** and assign selected images to the region. The final **+** tile creates an empty location slot that can be named before its image is added.
@@ -326,7 +336,7 @@ Only the suggestion request disables thinking; normal generation settings stay i
 
 Travel, waypoint creation, group copies and media uploads use local IDs without browser UUID helpers, including on mobile LAN HTTP connections. Existing saved IDs stay valid.
 
-The round minimap at the top left opens the full Teyvat map. You can also open it through **Sprite Wardrobe → Backgrounds → Open world map**. Drag to pan, pinch or use the plus/minus controls to zoom. Only your own waypoints are shown.
+The round minimap at the top left opens the full Teyvat map. You can also open it through **Character Customization → Backgrounds → Open world map**. Drag to pan, pinch or use the plus/minus controls to zoom. Only your own waypoints are shown.
 
 1. Press **＋ Waypoint**, then click or tap a location on the map. **Place at map centre** also works.
 2. Enter a name and description, choose its region, then upload a background picture. The picture is added to that region in the Backgrounds wardrobe. Region membership comes from your selection. Add aliases under **Additional classifications** to help the location classifier recognize it.

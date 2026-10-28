@@ -1,4 +1,5 @@
 import {mediaSettings} from './media-store.js';
+import {defaultKitHp,enemyElement} from './combat-kits.js';
 export const ELEMENTS=['Pyro','Hydro','Anemo','Electro','Dendro','Cryo','Geo'];
 export const MODEL_SCALE_MIN=30,MODEL_SCALE_MAX=110;
 export const MODEL_TYPES=['small female','medium female','medium male','tall female','tall male'];
@@ -9,9 +10,15 @@ export function characterProperties(ctx,card){
     if(typeof card==='string')card=ctx.characters?.find(c=>c.avatar===card);
     if(!card)return {role:'character',playable:false,element:'None',maxHp:30};
     const base={role:'character',playable:false,element:'None',modelType:'',region:'',maxHp:30,modelScale:90,deathMessage:'{name} falls still. The threat has passed.'};
-    const data={...base,...bundled[card.name],...card.data?.extensions?.silly_teyvat,...mediaSettings(ctx).characterProperties?.[card.avatar]};
+    const fromCard=card.data?.extensions?.silly_teyvat || {},saved=mediaSettings(ctx).characterProperties?.[card.avatar] || {};
+    const data={...base,...bundled[card.name],...fromCard,...saved};
     data.role=data.role==='enemy'?'enemy':'character';data.playable=data.role!=='enemy'&&data.playable===true;
     if(!ELEMENTS.includes(data.element))data.element='None';
+    if(data.role==='enemy'&&data.element==='None'&&ELEMENTS.includes(enemyElement(card.name)))data.element=enemyElement(card.name);
+    // Balanced moveset HP replaces the old 30 HP default; HP chosen by a card author or the user wins.
+    const kitHp=defaultKitHp(card.name,data.role==='enemy'),legacy=v=>v===undefined||Number(v)===30;
+    const savedCustom=saved.hpCustom ?? !legacy(saved.maxHp);
+    if(!savedCustom)data.maxHp=!legacy(fromCard.maxHp)?fromCard.maxHp:kitHp ?? 30;
     data.modelScale=Math.max(MODEL_SCALE_MIN,Math.min(MODEL_SCALE_MAX,Math.round(Number(data.modelScale)||90)));
     data.maxHp=Math.max(1,Math.min(100000,Math.round(Number(data.maxHp)||30)));return data;
 }
@@ -49,10 +56,11 @@ export function saveCharacterProperties(ctx,card,values){
     }
     if(!Number.isInteger(Number(next.maxHp))||Number(next.maxHp)<1||Number(next.maxHp)>100000)throw new Error('Enemy health must be a whole number from 1 to 100000.');
     if(next.role==='enemy')next.playable=false;
+    next.hpCustom=Boolean(before.hpCustom||Number(next.maxHp)!==Number(before.maxHp));
     const prefs=mediaSettings(ctx);prefs.characterProperties ??= {};prefs.characterProperties[card.avatar]=next;ctx.saveSettingsDebounced();return next;
 }
 export function mountCharacterProperties({panel,getContext,getCharacter,onChange=()=>{},status=()=>{}}){
-    panel.innerHTML='<summary>Character & enemy properties</summary><label>Card type<select data-prop="role"><option value="character">Character / companion</option><option value="enemy">Hostile enemy</option></select></label><label class="gi-check"><input type="checkbox" data-prop="playable">Playable ally (counts toward dice)</label><label>Element<select data-prop="element"></select></label><label>Body model<select data-prop="modelType"></select></label><label class="gi-model-scale">Custom scale <output data-model-scale-out></output><input data-prop="modelScale" type="range" min="'+MODEL_SCALE_MIN+'" max="'+MODEL_SCALE_MAX+'" step="1"><small>Height as a percentage of the tallest body model (100%).</small></label><label>Region<input data-prop="region" maxlength="80"></label><label>Maximum HP<input data-prop="maxHp" type="number" min="1" max="100000" step="1"></label><div class="gi-enemy-properties"><label>Death message<textarea data-prop="deathMessage" rows="2" maxlength="1500"></textarea></label><small>Use {name} for the enemy name. Health changes apply to new encounters. Existing encounters keep their HP.</small></div><button type="button" data-save-properties>Save character properties</button>';
+    panel.innerHTML='<summary>Character & enemy properties</summary><label>Card type<select data-prop="role"><option value="character">Character / companion</option><option value="enemy">Hostile enemy</option></select></label><label class="gi-check"><input type="checkbox" data-prop="playable">Playable ally (fights and rolls dice)</label><label>Element<select data-prop="element"></select></label><label>Body model<select data-prop="modelType"></select></label><label class="gi-model-scale">Custom scale <output data-model-scale-out></output><input data-prop="modelScale" type="range" min="'+MODEL_SCALE_MIN+'" max="'+MODEL_SCALE_MAX+'" step="1"><small>Height as a percentage of the tallest body model (100%).</small></label><label>Region<input data-prop="region" maxlength="80"></label><label>Maximum HP<input data-prop="maxHp" type="number" min="1" max="100000" step="1"></label><div class="gi-enemy-properties"><label>Death message<textarea data-prop="deathMessage" rows="2" maxlength="1500"></textarea></label><small>Use {name} for the enemy name. Health changes apply to new encounters. Existing encounters keep their HP.</small></div><button type="button" data-save-properties>Save character properties</button>';
     const abort=new AbortController(),field=key=>panel.querySelector(`[data-prop="${key}"]`);
     field('element').append(...['None',...ELEMENTS].map(x=>new Option(x,x)));field('modelType').append(new Option('Unspecified',''),...MODEL_TYPES.map(x=>new Option(x,x)),new Option('Custom','custom'));
     function visibility(){const scale=field('modelScale');scale.closest('label').hidden=field('modelType').value!=='custom';panel.querySelector('[data-model-scale-out]').textContent=scale.value+'%';const persona=Boolean(getCharacter()?.isPersona);field('role').closest('label').hidden=persona;field('maxHp').closest('label').hidden=persona;if(persona)field('role').value='character';const enemy=field('role').value==='enemy';panel.querySelector('.gi-enemy-properties').hidden=!enemy;field('playable').disabled=enemy;panel.querySelector('summary').textContent=persona?'Persona appearance & element':'Character & enemy properties';}

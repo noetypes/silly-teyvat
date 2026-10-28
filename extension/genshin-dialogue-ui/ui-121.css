@@ -218,3 +218,6 @@ body:not(.gi-scene) #gi-party-health, body.gi-history #gi-party-health, body.gi-
 .gi-party-member.gi-downed { opacity: .7; }
 .gi-party-member.gi-downed strong::after { content: " · downed"; font-size: 11px; color: #ff9d92; }
 .gi-party-member.gi-hurt { animation: ty-shake 380ms 60ms ease; }
+
+/* 1.30: Omni and spare-dice rows in the fuel summary */
+.gi-roll-face.gi-roll-face-mark { display: grid; place-items: center; font-size: 16px; color: var(--el); }
