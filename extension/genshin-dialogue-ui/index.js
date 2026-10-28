@@ -2,7 +2,7 @@ import {activeGroup,inPartyChat} from './party.js';
 import {loadCharacterProperties,registerGenshinTags} from './character-properties.js';
 import {registerOfficialArt} from './official-art.js';
 import {mountCombat} from './combat.js';
-import {syncCombatPrompt,activeEnemies} from './combat-state.js';
+import {syncCombatPrompt,activeEnemies,defeatedHere} from './combat-state.js';
 import {mountLocationMusic} from './location-music.js';
 /* Silly Teyvat, integrated suggested replies and native drawer presentation. */
 import { createTextReveal } from './text-reveal.js';
@@ -657,7 +657,7 @@ export async function initialize({ choicesAdapter, spriteAdapter, wardrobeAdapte
         prepareTeleport:location=>locationCastUI.prepareTeleport(location),commitTeleport:plan=>locationCastUI.commitTeleport(plan),retryCast:()=>locationCastUI.retry(),
         onChange:()=>{backgroundUI.refresh();schedule();}});
     mediaUI = mountSceneMedia({host,getContext:context,adapter:mediaAdapter,sound,announce});
-    spriteUI = mountPageSprites({ host, getContext: context, adapter: spriteAdapter, announce, renderMessage: id => document.querySelector(`#chat > .mes[mesid="${id}"] .mes_text`), onAppearance:event=>mediaUI?.appearance(event) });
+    spriteUI = mountPageSprites({ host, getContext: context, adapter: spriteAdapter, isDefeated: defeatedHere, announce, renderMessage: id => document.querySelector(`#chat > .mes[mesid="${id}"] .mes_text`), onAppearance:event=>mediaUI?.appearance(event) });
     wardrobeUI = mountWardrobe({ host, getContext: context, adapter: wardrobeAdapter, personaAdapter, mediaAdapter, openMap:openWorldMap, previewAudio:files=>mediaUI.previewAudio(files), onMediaChange:(options={})=>{backgroundUI.refresh();if(options.reclassify)mediaUI.reclassifyCurrent();else mediaUI.refresh();schedule();}, onChange: async (character,options) => { if(options?.classification){schedule();return;}
         if(options?.personaChanged)await personaSession.flush({startJourney:true});
         if(options?.presentation)await spriteUI?.refreshPresentation();else await spriteUI?.refreshSprite(character,options);schedule(); } });

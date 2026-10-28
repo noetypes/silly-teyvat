@@ -19,9 +19,12 @@ export function combatState(ctx){
     return store;
 }
 export function sceneMembers(ctx){return activeGroup(ctx)?.members || [ctx.characters?.[ctx.characterId]?.avatar].filter(Boolean);}
+const visitKey=ctx=>{const encounter=ctx.chatMetadata?.silly_teyvat_cast?.encounter,locationId=ctx.chatMetadata?.silly_teyvat_world?.location?.id;return encounter&&encounter.locationId===locationId?encounter.key:`manual:${locationId || 'chat'}`;};
+// An enemy already defeated in the current encounter (a later encounter starts a new visit).
+export const defeatedHere=(ctx,avatar)=>Boolean(ctx.chatMetadata?.silly_teyvat_combat?.visits?.[visitKey(ctx)]?.enemies?.[avatar]?.defeated);
 export function activeEnemies(ctx){
     const cast=ctx.chatMetadata?.silly_teyvat_cast || {},encounter=cast.encounter,locationId=ctx.chatMetadata?.silly_teyvat_world?.location?.id;
-    const key=encounter&&encounter.locationId===locationId?encounter.key:`manual:${locationId || 'chat'}`;
+    const key=visitKey(ctx);
     const store=combatState(ctx);
     // An enemy left in the group from a fight somewhere else (defeated, fled or left behind) does not
     // follow the party: it is present here only if this location's encounter lists it.

@@ -122,11 +122,12 @@ export function createNativeSpriteAdapter({ capture = captureScene } = {}) {
         reset() { inventories.clear(); },
     };
 }
-export function mountPageSprites({ host, getContext, adapter = createNativeSpriteAdapter(), announce = () => {}, renderMessage = () => null, onAppearance = () => {}, decodeImage = image => image.decode?.() || Promise.resolve(), trimmer = adapter.inventory ? createSpriteTrimmer({ inventory: adapter.inventory }) : null }) {
+export function mountPageSprites({ host, getContext, adapter = createNativeSpriteAdapter(), isDefeated = () => false, announce = () => {}, renderMessage = () => null, onAppearance = () => {}, decodeImage = image => image.decode?.() || Promise.resolve(), trimmer = adapter.inventory ? createSpriteTrimmer({ inventory: adapter.inventory }) : null }) {
     const stage = document.createElement('div'); stage.id = 'gi-sprite-stage'; stage.setAttribute('aria-hidden', 'true'); host.append(stage);
     let active = false, selection = '', displayed = '', epoch = 0, lastScene = [], lastChat = null, selectedPage;
     let drawVersion=0;
-    // Defeated enemies stay off the stage until a scene without them (a later encounter brings them back in).
+    // A defeated enemy stays off every later page of its encounter. One still on the stage keeps its
+    // place until its fall has played (the round is saved before the battle screen closes).
     const fallen = new Set();
     const enemyOf = sprite => enemySceneAvatar(getContext(), sprite);
     const enemyImage = avatar => [...stage.children].find(image => image.dataset.leaving !== 'true' && enemyOf({ avatar: image.dataset.avatar, folder: image.dataset.folder }) === avatar);
@@ -149,8 +150,9 @@ export function mountPageSprites({ host, getContext, adapter = createNativeSprit
     }
     function draw(scene, key) {
         scene=openingScene(getContext(),scene);key+=`:opening:${openingCharacter(getContext()) || ''}`;
-        for (const avatar of fallen) if (!scene.some(sprite => enemyOf(sprite) === avatar)) fallen.delete(avatar);
-        scene = scene.filter(sprite => !fallen.has(enemyOf(sprite)));
+        const gone = avatar => avatar && isDefeated(getContext(), avatar) && (fallen.has(avatar) || !enemyImage(avatar));
+        scene = scene.filter(sprite => !gone(enemyOf(sprite)));
+        for (const sprite of scene) fallen.delete(enemyOf(sprite));
         scene=fitModelHeights(refreshModels(getContext(),scene.filter(sprite=>safeSource(sprite.src))));key+=`:models:${scene.map(sprite=>sprite.model).join(',')}`;
         // Sizes come from current settings, so earlier pages follow Wardrobe changes.
         const scales=scene.map(sprite=>sprite.presentation?liveSpriteScale(getContext(),sprite):1);key+=`:scale:${scales.join(',')}`;

@@ -1,3 +1,7 @@
+# Silly Teyvat 1.39.2: Defeated enemies stay off the stage
+
+- **Gone for good.** After a defeated enemy's sprite plays its fall and leaves, it no longer pops back on the next page of the same message, on later messages, or after the chat reloads. Only a new encounter brings it back.
+
 # Silly Teyvat 1.39.1: Flee confirmation and tidier menus
 
 - **Flee asks first.** The escape chance is no longer shown under the Flee button. Choosing Flee shows the chance and asks you to confirm; **Flee** begins the round as an escape, **Stay** (or Esc) goes back to your plan.
