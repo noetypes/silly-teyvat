@@ -9,7 +9,7 @@ import {personaCard,personaSpriteSettings,stageCharacter} from './persona-wardro
 // model's sprite reaches the Sprite height line and the others scale against it.
 export const MODEL_HEIGHTS = Object.freeze({'small female':.72,'medium female':.86,'medium male':.89,'tall female':.94,'tall male':1});
 const UNSPECIFIED_HEIGHT = .9;
-export function modelHeight(ctx,character){return character?MODEL_HEIGHTS[characterProperties(ctx,character).modelType] ?? UNSPECIFIED_HEIGHT:UNSPECIFIED_HEIGHT;}
+export function modelHeight(ctx,character){if(!character)return UNSPECIFIED_HEIGHT;const props=characterProperties(ctx,character);return props.modelType==='custom'?props.modelScale/100:MODEL_HEIGHTS[props.modelType] ?? UNSPECIFIED_HEIGHT;}
 export const stagingDefaults = Object.freeze({nativeStaging:true,expressionMode:'page',spriteGlobalScale:100,spriteBaseHeight:88,spriteFocus:true,spriteFocusScale:105,spriteFocusDuration:.6,spriteFocusEasing:'ease',spriteDim:false,spriteDimOpacity:.6,spriteShadow:true,shadowX:15,shadowY:5,shadowBlur:9,spriteShake:false,spriteEmulation:false,autoHideSprites:false,maxViewableCharacters:5,personaSprite:false,personaSpriteFolder:'',personaSpriteExpression:'neutral',letterbox:'none',letterboxSize:8,letterboxColor:'#000000'});
 export const bounded = (value,min,max,fallback) => Number.isFinite(Number(value)) ? Math.min(max,Math.max(min,Number(value))) : fallback;
 export function characterPreferences(ctx,avatar){const p=mediaSettings(ctx);p.characterSprites ??= {};return p.characterSprites[avatar] ??= {};}
