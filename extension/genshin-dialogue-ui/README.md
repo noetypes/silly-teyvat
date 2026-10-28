@@ -1,3 +1,7 @@
+# Silly Teyvat 1.42.1: Temporary enemy sprites
+
+- All remaining enemy cards receive transparent temporary Official Art sets and default to them once. Most use HoYoWiki game renders; three use small wiki icon portraits. Clockwork variants share their family render, and the Hydro Phantasm uses its Water-Splitting form. Source and image limitations are recorded in the sprite pack manifest.
+
 # Silly Teyvat 1.42.0: Genius Invokation reactions, instant cards and a cleaner board
 
 - **Reactions work like Genius Invokation TCG.** Applied elements stay until a reaction uses them, and a reaction clears both elements. Melt, Vaporize and Overloaded add +2 (TCG), Superconduct and Electro-Charged add +1 and pierce every other character on that side, Frozen stops the target until the End Phase and breaks for +2 under Physical or Pyro, Swirl spreads the element, Crystallize shields the attacker, Bloom leaves a Dendro Core, Quicken a Catalyzing Field and Burning a Burning Flame summon. Cryo and Dendro sit together. One TCG point is 2 here.
@@ -7,6 +11,11 @@
 - **Cleaner target choice.** The enemy you are aiming at grows slightly and glows; the spinning reticle is gone, and so is the "Everyone is ready" note (the hourglass still pulses). The Attack target selector beside the Attack toggle is gone too: every enemy joins the battle, and you choose targets on the board.
 - **Inventory polish.** "No cards of this type yet" sits in the middle of the screen with the tab's icon. The order toggle and Sort pill are centred, and Sort opens a Genshin-style list with the current choice ticked (arrow keys, Enter and Esc work).
 - **Sounds.** New card-play and combat-status cues. Combat audio stays synthesised: the supplied GenshinAudio dump is from game version 3.2, before Genius Invokation TCG existed, and the Genshin Impact Wiki has no TCG sound effects.
+
+# Silly Teyvat 1.41.1: Wiki artwork refresh
+
+- Six enemy cards with transparent wiki Full Artwork get an Official Art sprite set, equipped once by default. You can select another set afterward.
+- Higher-resolution transparent wiki Full Wish artwork replaces the corresponding burst images when its trimmed dimensions exceed the existing image in both directions.
 
 # Silly Teyvat 1.41.0: Regional enemies, group encounters and Genshin HP bars
 

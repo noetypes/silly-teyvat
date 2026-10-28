@@ -728,7 +728,7 @@ Default characters: None. Unoccupied location.
 
 [Background](extension/genshin-dialogue-ui/assets/world-locations/sumeru-port-ormos.webp) · [Image source](https://www.jeuxonline.info/image/158325/genshin-impact-30-port-ormos) · [Lore](https://genshin-impact.fandom.com/wiki/Port_Ormos)
 
-Pin: x -2512.8, y 3196.6. Approximate waypoint within the official HoYoLAB map_id=2 Ardravi Valley (anchor 149) map-anchor bounds, cross-checked against the nearby label_id=3 Teleport Waypoint point at (-2512.8, 3196.6). This is a 2D surface map; vertical floors are not represented.
+Pin: x -3275, y 4246. Approximate center of the named Port Ormos map anchor; the previous pin was a distant Ardravi Valley teleport. The area label does not establish the exact waterfront viewpoint.
 
 Image review: Waterline view of the harbor and paired trees at dusk; no characters, HUD, captions, or logo. The source is a ground-level waterfront screenshot with open water and the port architecture. 
 

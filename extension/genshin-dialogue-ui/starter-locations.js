@@ -2,7 +2,7 @@ import {backgroundRegions} from './backgrounds.js';
 import {mediaSettings} from './media-store.js';
 import {validMapPoint} from './world-data.js';
 
-const starterCatalogVersion=6;
+const starterCatalogVersion=7;
 // Import once per user. Removing or editing a starter remains respected.
 export function seedWorldLocations(ctx,catalog){
     const prefs=mediaSettings(ctx);if(prefs.starterLocationsVersion>=catalog.version)return 0;
@@ -20,6 +20,14 @@ export function seedWorldLocations(ctx,catalog){
                 if(!region){region={id:`starter-region-${record.region.toLowerCase().replace(/[^a-z0-9]+/g,'-')}`,name:record.region,locations:[]};regions.push(region);}
                 if(region.locations.some(l=>l.label.toLowerCase()===record.label.toLowerCase()))continue;
                 const {asset,region:regionName,imageURL,dimensions,...entry}=structuredClone(record);entry.path=bundledPath;entry.blank=false;entry.residents=[];region.locations.push(entry);added++;continue;
+            }
+            // Correct the old Port Ormos pin only if its coordinates are untouched.
+            // Deleted locations and positions moved by the user must stay that way.
+            if(prefs.starterLocationsVersion<7&&record.id==='wilderness-port-ormos'&&location.waypoint?.mapId==='teyvat'&&location.waypoint.x===-2512.8&&location.waypoint.y===3196.6){
+                location.waypoint=structuredClone(record.waypoint);
+                location.coordinateMethod=record.coordinateMethod;
+                location.coordinateSource=record.coordinateSource;
+                delete location.pointSource;
             }
             if(record.wilderness&&location.wilderness==null)Object.assign(location,{wilderness:true,enemyEncounterRate:record.enemyEncounterRate ?? 40,enemyPool:[...(record.enemyPool || [])]});
             if(location.path!==bundledPath)continue;
