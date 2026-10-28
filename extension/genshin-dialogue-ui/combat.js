@@ -184,11 +184,12 @@ export function mountCombat({host,getContext,onChange=()=>{},announce=()=>{},ada
             if(partySignature!==partyPaint){
                 partyPaint=partySignature;partyPanel.replaceChildren();
                 for(const m of party){
-                    const item=document.createElement('div');item.className='gi-party-member';item.dataset.member=m.avatar;if(m.downed)item.classList.add('gi-downed');
-                    const name=document.createElement('strong');name.textContent=m.name;const hp=document.createElement('span');hp.textContent=`${m.hp} / ${m.maxHp} HP`;
+                    const item=document.createElement('div');item.className='gi-party-member';item.dataset.member=m.avatar;if(m.downed)item.classList.add('gi-downed');else if(m.hp<=m.maxHp*.25)item.classList.add('gi-critical');else if(m.hp<=m.maxHp*.5)item.classList.add('gi-low');
+                    const face=document.createElement('img');face.alt='';face.src=portrait(ctx,m.avatar);
+                    const name=document.createElement('strong');name.textContent=m.name;const hp=document.createElement('span');hp.textContent=`${m.hp} / ${m.maxHp}`;
                     const bar=document.createElement('div');bar.className='gi-hp';bar.innerHTML='<i class="gi-hp-lag"></i><i class="gi-hp-fill"></i>';
                     const meter=document.createElement('meter');meter.className='gi-sr-only';meter.min=0;meter.max=m.maxHp;meter.value=m.hp;meter.setAttribute('aria-label',`${m.name} health`);
-                    item.append(name,hp,bar,meter);partyPanel.append(item);
+                    item.append(face,name,hp,bar,meter);partyPanel.append(item);
                     const pct=v=>`${Math.max(0,Math.min(100,v/m.maxHp*100))}%`,lag=bar.firstElementChild,fill=lag.nextElementSibling,before=partyShown.get(m.avatar);
                     if(before!==undefined&&before>m.hp){fill.style.width=lag.style.width=pct(before);item.classList.add('gi-hurt');requestAnimationFrame(()=>requestAnimationFrame(()=>{fill.style.width=pct(m.hp);setTimeout(()=>{lag.style.width=pct(m.hp);},420);}));}
                     else fill.style.width=lag.style.width=pct(m.hp);
@@ -198,7 +199,7 @@ export function mountCombat({host,getContext,onChange=()=>{},announce=()=>{},ada
             const signature=JSON.stringify([panel.hidden,display]);if(signature===paint)return;paint=signature;panel.replaceChildren();
             for(const e of display){const card=ctx.characters.find(c=>c.avatar===e.avatar);if(!card)continue;const item=document.createElement('div');item.className='gi-enemy-health';item.dataset.enemy=e.avatar;
                 const img=document.createElement('img');img.src=ctx.getThumbnailUrl?.('avatar',e.avatar) || `/characters/${encodeURIComponent(e.avatar)}`;img.alt='';
-                const name=document.createElement('strong');name.textContent=card.name;const health=document.createElement('span');health.textContent=`${e.hp} / ${e.maxHp} HP`;
+                const name=document.createElement('strong');name.textContent=card.name;const health=document.createElement('span');health.textContent=`${e.hp} / ${e.maxHp}`;
                 const bar=document.createElement('div');bar.className='gi-hp';bar.innerHTML='<i class="gi-hp-lag"></i><i class="gi-hp-fill"></i>';
                 const meter=document.createElement('meter');meter.className='gi-sr-only';meter.min=0;meter.max=e.maxHp;meter.value=e.hp;meter.setAttribute('aria-label',`${card.name} health`);item.append(img,name,bar,health,meter);panel.append(item);
                 const pct=v=>`${Math.max(0,Math.min(100,v/e.maxHp*100))}%`,lag=bar.firstElementChild,fill=lag.nextElementSibling,before=historical?undefined:shown.get(e.avatar);

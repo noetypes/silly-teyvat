@@ -100,6 +100,8 @@
             <section class="gi-set-page" data-page="combat" role="tabpanel" hidden>
                 <h4>Wilderness</h4>
                 <label class="gi-row"><span>Enemy encounters</span><input type="checkbox" class="gi-switch" data-gi-setting="wildernessEncounters"></label>
+                <label class="gi-row"><span>Maximum enemies per encounter</span><input type="number" min="1" max="5" step="1" data-gi-setting="maxEnemies"></label>
+                <p class="gi-note">When an encounter happens, 1 to this many different enemies from the waypoint's pool appear. Enemies you defeat stay away from that waypoint until you restore them from its map card.</p>
                 <h4>Turn-based battles</h4>
                 <p class="gi-note">Turn on Attack and send a message to fight a round. Dice fuel Elemental Skills and Bursts; Normal Attacks are free but can miss. Edit any moveset in Character Customization → Moveset.</p>
                 <label class="gi-row" for="gi-combat-difficulty"><span>Difficulty</span><select id="gi-combat-difficulty" data-gi-setting="combatDifficulty"><option value="easy">Story (enemies 80% HP, 70% damage)</option><option value="normal">Normal</option><option value="hard">Hard (enemies 130% HP and damage)</option></select></label>

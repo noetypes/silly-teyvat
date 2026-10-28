@@ -1,6 +1,6 @@
 // Bridges chat metadata and the pure battle engine: builds a snapshot of the current
 // encounter, and commits a resolved round back to the saved HP and battle state.
-import {combatState,activeEnemies,combatAllies,allyElement,partyMember,partyStore,USER_KEY,combatDifficulty} from './combat-state.js';
+import {combatState,clearEnemy,activeEnemies,combatAllies,allyElement,partyMember,partyStore,USER_KEY,combatDifficulty} from './combat-state.js';
 import {defaultKit,mergeKit,kitOverrides,travelerKit} from './combat-kits.js';
 import {characterProperties} from './character-properties.js';
 import {linkedCard} from './persona-link.js';
@@ -75,7 +75,7 @@ export function commitRound(ctx,before,result,id,{items=[],loot=[]}={}){
     const saved=battleStore(ctx,before.key),after=result.state,defeated=[],downed=[];
     for(const u of after.units){
         if(u.side==='party'){party[u.id].hp=u.hp;if(u.hp<=0)downed.push(u.id);}
-        else{const entry=store.visits[u.visit].enemies[u.id];entry.hp=u.hp;entry.defeated=u.hp<=0;if(entry.defeated)defeated.push(u.id);}
+        else{const entry=store.visits[u.visit].enemies[u.id];entry.hp=u.hp;entry.defeated=u.hp<=0;if(entry.defeated){defeated.push(u.id);clearEnemy(ctx,store.visits[u.visit].locationId,u.id);}}
         saved.units[u.id]={shield:u.shield || 0,energy:u.energy || 0,aura:u.aura || null,statuses:u.statuses || [],cooldowns:u.cooldowns,enraged:u.enraged,usedRage:u.usedRage,intent:u.intent || null,armor:u.armor};
         // Fled enemies leave this visit but stay in the location's pool for later visits.
         if(result.fled&&u.side==='enemy'&&u.hp>0)store.visits[u.visit].enemies[u.id].fled=true;

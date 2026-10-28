@@ -1,4 +1,5 @@
-import {mountWildernessEditor} from './wilderness.js';
+import {mountWildernessEditor,wildernessPool} from './wilderness.js';
+import {clearedEnemies,restoreEnemies} from './combat-state.js';
 import {localMediaPath,createMediaAdapter} from './media-store.js';
 import {backgroundRegions,travelState} from './backgrounds.js';
 import {REGION_NAMES,worldSettings,worldWaypoints,activeWorldLocation,worldScale,walkingSpeed,mapDistance,directionFrom,formatDistance,syncWorldPrompt,worldScalePrompt,saveWaypoint,unpinWaypoint,teleportTo,validMapPoint} from './world-data.js';
@@ -153,6 +154,18 @@ export function mountWorldMap({host,getContext,adapter=createMediaAdapter(getCon
         const close=document.createElement('button');close.type='button';close.dataset.map='cancel';close.className='gi-map-card-close';close.setAttribute('aria-label','Close details');close.innerHTML=ICON.close;
         head.append(text,close);return head;
     }
+    // Wilderness enemies: who can still be met here, who was defeated in this chat, and a way to bring them back.
+    function enemySection(item){
+        const ctx=getContext(),section=document.createElement('section');section.className='gi-map-residents gi-map-enemies';section.append(element('h4','Enemies'));
+        const name=avatar=>ctx.characters?.find(c=>c.avatar===avatar)?.name || avatar.replace(/\.png$/i,'');
+        const waiting=wildernessPool(ctx,item.location.id),defeated=clearedEnemies(ctx,item.location.id);
+        const chips=document.createElement('div');chips.className='gi-map-chips';
+        chips.append(...waiting.map(a=>element('span',name(a))));
+        for(const a of defeated){const chip=element('span',name(a));chip.className='gi-defeated';chip.title='Defeated here in this journey';chips.append(chip);}
+        if(chips.children.length)section.append(chips);else section.append(element('small','No enemies can appear here.'));
+        const restore=button(defeated.length?`Restore defeated enemies (${defeated.length})`:'No defeated enemies','restore-enemies');restore.disabled=!defeated.length;
+        section.append(restore);return section;
+    }
     function showDetails(item){
         selectedId=item.location.id;const body=document.createElement('div');body.className='gi-map-card-body';
         const img=document.createElement('img');img.src=localMediaPath(item.location.path);img.alt=item.location.label;img.className='gi-map-artwork';body.append(img);
@@ -164,7 +177,9 @@ export function mountWorldMap({host,getContext,adapter=createMediaAdapter(getCon
         if(item.location.suggestedCharacters?.length)section.append(element('small',`Suggested: ${item.location.suggestedCharacters.join(', ')}`));
         if((getContext().characters || []).length)section.append(button('Add character to location','residents'));
         else section.append(element('small','Import a character card to link it here.'));
-        body.append(section);wildUI?.dispose();const wildPanel=document.createElement('details');body.append(wildPanel);wildUI=mountWildernessEditor({panel:wildPanel,getContext,getLocation:()=>item.location,onChange,status});wildUI.refresh();
+        body.append(section);
+        if(item.location.wilderness)body.append(enemySection(item));
+        wildUI?.dispose();const wildPanel=document.createElement('details');body.append(wildPanel);wildUI=mountWildernessEditor({panel:wildPanel,getContext,getLocation:()=>item.location,onChange,status});wildUI.refresh();
         const music=document.createElement('section');music.className='gi-map-music';music.append(element('h4','Music'),element('p',musicSummary(item.location)),button('Choose music','music'));body.append(music);
         if(item.location.source){const source=element('a','Background source');source.href=item.location.source;source.target='_blank';source.rel='noopener';source.className='gi-map-source';body.append(source);}
         const actions=document.createElement('div');actions.className='gi-map-card-actions';
@@ -315,6 +330,7 @@ export function mountWorldMap({host,getContext,adapter=createMediaAdapter(getCon
                 return;
             }
             if(name==='residents'&&item){rosterPicker.open(item.location.id);return;}
+            if(name==='restore-enemies'&&item){const n=restoreEnemies(getContext(),item.location.id);showDetails(item);status(n?`${n} defeated ${n===1?'enemy':'enemies'} can appear at ${item.location.label} again.`:'No defeated enemies here.');return;}
             if(name==='music'&&item){openMusic(item.location.id);return;}
             if(name==='music-library'){openMusicLibrary();return;}
             if(name==='retry-cast'){retryCast();status('Checking the current location’s guests again.');return;}

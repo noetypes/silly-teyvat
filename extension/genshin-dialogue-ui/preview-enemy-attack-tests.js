@@ -61,7 +61,7 @@ export async function runEnemyAttackTests(){
         const hurt=partyStatus(ctx).find(m=>m.hp<m.maxHp);
         check('a party member\'s health dropped',Boolean(hurt));
         c.ui.sync({on:true,id:ctx.chat.length-1,generating:false});
-        check('a party health panel shows you and your allies',!host.querySelector('#gi-party-health').hidden&&host.querySelectorAll('.gi-party-member').length===2&&host.querySelector('#gi-party-health').textContent.includes(`${hurt.hp} / ${hurt.maxHp} HP`));
+        check('a party health panel shows you and your allies',!host.querySelector('#gi-party-health').hidden&&host.querySelectorAll('.gi-party-member').length===2&&host.querySelector('#gi-party-health').textContent.includes(`${hurt.hp} / ${hurt.maxHp}`));
         check('the model is told the party’s health',ctx.extensionPrompts.silly_teyvat_combat.value.includes(`${hurt.name}: ${hurt.hp}/${hurt.maxHp} HP`));
         c.ui.dispose();ui=null;
 

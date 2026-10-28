@@ -18,6 +18,14 @@ export function combatState(ctx){
     if(store.version!==COMBAT_VERSION){store.version=COMBAT_VERSION;store.visits={};store.party={};store.battles={};store.events ??= [];}
     return store;
 }
+// Enemies defeated at each waypoint in this chat. They are not rolled there again until restored from the map.
+export const clearedEnemies=(ctx,locationId)=>combatState(ctx).cleared?.[locationId] || [];
+export function clearEnemy(ctx,locationId,avatar){if(!locationId)return;const list=(combatState(ctx).cleared ??= {})[locationId] ??= [];if(!list.includes(avatar))list.push(avatar);}
+export function restoreEnemies(ctx,locationId){
+    const store=combatState(ctx),count=(store.cleared?.[locationId] || []).length;
+    if(count){delete store.cleared[locationId];ctx.saveMetadataDebounced?.();}
+    return count;
+}
 export function sceneMembers(ctx){return activeGroup(ctx)?.members || [ctx.characters?.[ctx.characterId]?.avatar].filter(Boolean);}
 const visitKey=ctx=>{const encounter=ctx.chatMetadata?.silly_teyvat_cast?.encounter,locationId=ctx.chatMetadata?.silly_teyvat_world?.location?.id;return encounter&&encounter.locationId===locationId?encounter.key:`manual:${locationId || 'chat'}`;};
 // An enemy already defeated in the current encounter (a later encounter starts a new visit).

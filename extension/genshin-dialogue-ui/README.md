@@ -1,3 +1,10 @@
+# Silly Teyvat 1.41.0: Regional enemies, group encounters and Genshin HP bars
+
+- **Enemies live where they belong.** Each enemy has the regions it is found in within Genshin Impact: Eremites and fungi in Sumeru, Kairagi and Nobushi in Inazuma, meka and the Tainted Hydro Phantasm in Fontaine, hilichurls across Mondstadt to Fontaine, Abyss Mages and Rifthounds in Natlan, Fatui and Cryo creatures in Snezhnaya, and so on. All 40 starter wilderness waypoints get pools chosen for their region and terrain (all 67 enemies appear somewhere). Misplaced enemies, such as Ruin Guards in Natlan and Nod-Krai and hilichurls in Snezhnaya, are moved out; enemies you added that belong to the region are kept. A waypoint's editor lists only enemies native to its region, and rolls ignore foreign ones. Your own regions accept any enemy.
+- **Several enemies at once.** Set **Settings → Combat → Maximum enemies per encounter** (1–5, default 3). When an encounter happens, 1 to that many different enemies from the pool appear.
+- **Defeated enemies stay defeated there.** An enemy you defeat at a waypoint is not rolled there again in that journey. The waypoint's map card lists its enemies, crosses out the defeated ones, and **Restore defeated enemies** brings them back.
+- **Genshin-style HP bars.** Enemy and party health use one bar: navy plates with the gold frame of the other menus, a gold-rimmed bar with diamond end caps, a glossy fill and a cream trail that drains after a hit. Party members show their portraits, and their bars turn amber below half and red below a quarter.
+
 # Silly Teyvat 1.40.0: Acting order, Inventory and 47 new TCG enemies
 
 - **Choose who acts first.** The order you give members their moves is the order they act; the number on each medallion shows it. Tap a member who already has a move and use **‹ Act earlier / Act later ›** (or the [ and ] keys) to change it.

@@ -1884,6 +1884,8 @@ dialog#gi-world-map#gi-world-map[open][data-enter="minimap"] { animation: gi-map
 #gi-world-map .gi-map-residents h4, #gi-world-map .gi-map-sidebar summary { margin: 0 0 6px; font: 13px var(--ty-font); letter-spacing: .08em; color: var(--ty-gold-hi); }
 #gi-world-map .gi-map-chips { display: flex; flex-wrap: wrap; gap: 6px; margin: 0 0 6px; }
 #gi-world-map .gi-map-chips span { padding: 3px 11px; border-radius: 13px; font-size: 12.5px; background: #ece5d814; box-shadow: inset 0 0 0 1px #ece5d82e; }
+#gi-world-map .gi-map-chips span.gi-defeated { color: #ece5d880; text-decoration: line-through; background: #00000026; box-shadow: inset 0 0 0 1px #ff9d9233; }
+#gi-world-map .gi-map-enemies button:disabled { opacity: .5; cursor: default; }
 #gi-world-map .gi-map-residents small, #gi-world-map .gi-map-form small { display: block; font-size: 12px; color: #ece5d899; }
 #gi-world-map .gi-map-sidebar details { border-top: 1px solid var(--ty-line); margin-top: 8px; }
 #gi-world-map .gi-map-sidebar summary { margin: 0; }
@@ -2329,6 +2331,40 @@ body:not(.gi-scene) #gi-party-health, body.gi-history #gi-party-health, body.gi-
 .gi-roll-compact .gi-roll-ally { display: flex; align-items: center; gap: 6px; padding: 3px 12px 3px 3px; border-radius: 22px; background: #10201fb0; box-shadow: inset 0 0 0 1.5px color-mix(in srgb, var(--el) 70%, #0000); }
 .gi-roll-compact .gi-roll-face { width: 32px; height: 32px; }
 .gi-roll-compact .gi-roll-ally-damage { padding: 0; font-size: 20px; }
+
+/* ---------- HP bars (1.41): one Genshin-style bar for enemies and party ---------- */
+/* Navy glass plates with the fine gold frame used by Silly Teyvat's menus; the bar has a dark
+   track, a gold rim with diamond end caps, a glossy fill and a cream trail that drains after a hit. */
+.gi-enemy-health, .gi-party-member {
+    --hp-fill: linear-gradient(180deg, #ff9a7e 0%, #f0604e 45%, #c7372e 100%);
+    position: relative; display: grid; grid-template-columns: 40px minmax(0, 1fr) auto; grid-template-rows: auto 10px; align-items: center; gap: 4px 10px;
+    padding: 7px 14px 9px 7px; border: 0; border-radius: 26px 8px 8px 26px; overflow: visible; color: var(--ty-cream);
+    background: linear-gradient(100deg, #222b40f0, #19202ff0 70%, #19202fd9);
+    box-shadow: inset 0 0 0 1px #d3bc8e55, inset 0 1px 0 #ffffff12, 0 4px 14px #0008;
+}
+.gi-party-member { --hp-fill: linear-gradient(180deg, #c9f08a 0%, #8fd14f 45%, #4f9a35 100%); }
+.gi-enemy-health img, .gi-party-member img { grid-row: 1 / span 2; width: 40px; height: 40px; padding: 2px; border-radius: 50%; object-fit: cover; object-position: 50% 15%; background: conic-gradient(from 210deg, var(--ty-gold), #fff4d6, var(--ty-gold), #8d7b58, var(--ty-gold)); box-shadow: 0 0 0 1px #0008, 0 3px 8px #0009; }
+.gi-enemy-health img { background: conic-gradient(from 210deg, #e07a64, #ffd9c8, #c64e48, #6e2a24, #e07a64); }
+.gi-enemy-health strong, .gi-party-member strong { grid-column: 2; grid-row: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: 14px; font-weight: normal; color: #fff; text-shadow: 0 1px 3px #000; }
+.gi-enemy-health > span, .gi-party-member > span { grid-column: 3; grid-row: 1; font-size: 12px; font-variant-numeric: tabular-nums; color: var(--ty-gold-hi); text-shadow: 0 1px 2px #000; }
+.gi-enemy-health .gi-hp, .gi-party-member .gi-hp { grid-column: 2 / span 2; grid-row: 2; position: relative; height: 8px; margin: 0 6px; border-radius: 1px; overflow: visible; background: linear-gradient(#0a0e16, #1a2130); box-shadow: 0 0 0 1px #d3bc8e99, 0 0 0 2px #0009, inset 0 1px 2px #000c; }
+/* Diamond end caps on the rim, as on Genshin's boss bars. */
+.gi-enemy-health .gi-hp::before, .gi-enemy-health .gi-hp::after, .gi-party-member .gi-hp::before, .gi-party-member .gi-hp::after { content: ""; position: absolute; top: 50%; z-index: 2; width: 6px; height: 6px; translate: 0 -50%; rotate: 45deg; background: linear-gradient(135deg, #fff4d6, var(--ty-gold) 60%, #8d7b58); box-shadow: 0 0 0 1px #0009; }
+.gi-enemy-health .gi-hp::before, .gi-party-member .gi-hp::before { left: -7px; }
+.gi-enemy-health .gi-hp::after, .gi-party-member .gi-hp::after { right: -7px; }
+.gi-enemy-health .gi-hp i, .gi-party-member .gi-hp i { position: absolute; inset: 1px auto 1px 1px; max-width: calc(100% - 2px); border-radius: 0; }
+.gi-enemy-health .gi-hp-lag, .gi-party-member .gi-hp-lag { background: linear-gradient(#fffaf0, #e9dcc0); transition: width 520ms ease-out 80ms; }
+.gi-enemy-health .gi-hp-fill, .gi-party-member .gi-hp-fill { background: var(--hp-fill); box-shadow: inset 0 1px #ffffff66, inset 0 -1px #0004; transition: width 260ms var(--ty-ease); }
+/* Low health turns the party bar amber, then red, as in the game. */
+.gi-party-member.gi-low { --hp-fill: linear-gradient(180deg, #ffe08a 0%, #f2b54a 45%, #c9802b 100%); }
+.gi-party-member.gi-critical { --hp-fill: linear-gradient(180deg, #ff9a7e 0%, #f0604e 45%, #c7372e 100%); }
+.gi-party-member.gi-downed { opacity: .72; filter: grayscale(.7); }
+.gi-party-member.gi-downed strong::after { content: " · Downed"; font-size: 11px; color: #ff9d92; }
+#gi-party-health { gap: 8px; width: min(250px, 44vw); }
+#gi-combat { gap: 8px; }
+.gi-enemy-health { min-width: 250px; border-radius: 8px 26px 26px 8px; grid-template-columns: minmax(0, 1fr) auto 40px; padding: 7px 7px 9px 14px; }
+.gi-enemy-health img { grid-column: 3; }
+.gi-enemy-health strong { grid-column: 1; } .gi-enemy-health > span { grid-column: 2; } .gi-enemy-health .gi-hp { grid-column: 1 / span 2; }
 
 /* ==========================================================================
    Silly Teyvat 1.31 — battle board in the style of Genius Invokation TCG.

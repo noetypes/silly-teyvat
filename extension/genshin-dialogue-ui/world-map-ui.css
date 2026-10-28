@@ -224,6 +224,8 @@ dialog#gi-world-map#gi-world-map[open][data-enter="minimap"] { animation: gi-map
 #gi-world-map .gi-map-residents h4, #gi-world-map .gi-map-sidebar summary { margin: 0 0 6px; font: 13px var(--ty-font); letter-spacing: .08em; color: var(--ty-gold-hi); }
 #gi-world-map .gi-map-chips { display: flex; flex-wrap: wrap; gap: 6px; margin: 0 0 6px; }
 #gi-world-map .gi-map-chips span { padding: 3px 11px; border-radius: 13px; font-size: 12.5px; background: #ece5d814; box-shadow: inset 0 0 0 1px #ece5d82e; }
+#gi-world-map .gi-map-chips span.gi-defeated { color: #ece5d880; text-decoration: line-through; background: #00000026; box-shadow: inset 0 0 0 1px #ff9d9233; }
+#gi-world-map .gi-map-enemies button:disabled { opacity: .5; cursor: default; }
 #gi-world-map .gi-map-residents small, #gi-world-map .gi-map-form small { display: block; font-size: 12px; color: #ece5d899; }
 #gi-world-map .gi-map-sidebar details { border-top: 1px solid var(--ty-line); margin-top: 8px; }
 #gi-world-map .gi-map-sidebar summary { margin: 0; }
