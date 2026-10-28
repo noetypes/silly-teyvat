@@ -11,6 +11,7 @@
                 <button type="button" role="tab" data-gi-action="settings-tab" data-tab="media" aria-selected="false">CG &amp; Audio</button>
                 <button type="button" role="tab" data-gi-action="settings-tab" data-tab="world" aria-selected="false">World</button>
                 <button type="button" role="tab" data-gi-action="settings-tab" data-tab="combat" aria-selected="false">Combat</button>
+                <button type="button" role="tab" data-gi-action="settings-tab" data-tab="prompts" aria-selected="false">Prompts</button>
             </nav>
 
             <section class="gi-set-page" data-page="dialogue" role="tabpanel">
@@ -104,6 +105,23 @@
                 <label class="gi-row"><span>Burst splash art &amp; effects</span><input type="checkbox" class="gi-switch" data-gi-setting="battleEffects"></label>
                 <label class="gi-row"><span>Battle sounds</span><input type="checkbox" class="gi-switch" data-gi-setting="battleSound"></label>
                 <label class="gi-row"><span>Dice sounds</span><input type="checkbox" class="gi-switch" data-gi-setting="diceSound"></label>
+            </section>
+
+            <section class="gi-set-page" data-page="prompts" role="tabpanel" hidden>
+                <p class="gi-note">System prompts sent with every roleplay reply while Silly Teyvat is on. &#123;&#123;char&#125;&#125; and &#123;&#123;user&#125;&#125; are filled in. Clear a prompt to turn it off; Reset restores the bundled version.</p>
+                <label class="gi-row"><span>Roleplay prompts</span><input type="checkbox" class="gi-switch" data-gi-setting="roleplayPromptsEnabled"></label>
+                <h4>Writing style</h4>
+                <p class="gi-note">Layout, voice and boundaries. Sent near the latest message so it stays fresh.</p>
+                <textarea class="gi-prompt-text" rows="8" aria-label="Writing style prompt" data-gi-prompt="style"></textarea>
+                <button type="button" class="menu_button" data-gi-prompt-reset="style">Reset</button>
+                <h4>Characterization</h4>
+                <p class="gi-note">Embodiment, what characters know, and how the relationship with &#123;&#123;user&#125;&#125; grows.</p>
+                <textarea class="gi-prompt-text" rows="8" aria-label="Characterization prompt" data-gi-prompt="character"></textarea>
+                <button type="button" class="menu_button" data-gi-prompt-reset="character">Reset</button>
+                <h4>Game systems</h4>
+                <p class="gi-note">How travel, encounters and combat records appear in the chat, and how to narrate them.</p>
+                <textarea class="gi-prompt-text" rows="8" aria-label="Game systems prompt" data-gi-prompt="systems"></textarea>
+                <button type="button" class="menu_button" data-gi-prompt-reset="systems">Reset</button>
             </section>
 
             <footer class="gi-set-footer"><span>1.30</span><button type="button" class="menu_button" data-gi-action="preview">Preview</button></footer>

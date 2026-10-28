@@ -308,6 +308,7 @@ body.gi-reduced-motion :is(#gi-toolbar, #gi-toolbar > *, #gi-menu-scrim, .gi-ene
 #gi-settings .gi-row output { font-size: 12.5px; color: var(--ty-gold-hi); }
 #gi-settings .gi-row-stack { grid-template-columns: 1fr; padding-block: 10px; }
 #gi-settings .gi-row-stack textarea { width: 100%; min-height: 96px; border: 1px solid #ece5d82e; border-radius: 3px; background: #0d1220; color: var(--ty-cream); font: 12.5px/1.45 var(--ty-font); }
+#gi-settings .gi-prompt-text { display: block; box-sizing: border-box; width: 100%; min-height: 160px; margin: 4px 0 6px; padding: 8px 10px; resize: vertical; border: 1px solid #ece5d82e; border-radius: 3px; background: #0d1220; color: var(--ty-cream); font: 12.5px/1.45 var(--ty-font); }
 #gi-settings input.gi-switch { appearance: none; -webkit-appearance: none; position: relative; width: 46px; height: 24px; margin: 0; border-radius: 12px; background: #0000004d; box-shadow: inset 0 0 0 1px #ece5d840; cursor: pointer; transition: background 220ms ease; }
 #gi-settings input.gi-switch::after { content: ""; position: absolute; top: 3px; left: 3px; width: 18px; height: 18px; border-radius: 50%; background: var(--ty-cream-2); transition: transform 240ms var(--ty-ease), background 200ms ease; }
 #gi-settings input.gi-switch:checked { background: var(--ty-gold); }

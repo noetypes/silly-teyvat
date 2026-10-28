@@ -1,3 +1,11 @@
+# Silly Teyvat 1.34: Roleplay system prompts
+
+- **Three editable system prompts.** A writing style guide, a characterization guide and a game systems guide are sent with every roleplay reply while Silly Teyvat is on. Edit them in **Settings → Prompts**; clear one to turn it off, or press **Reset** for the bundled version. Unedited prompts follow future updates.
+- **Writing style.** Visual novel layout (each line is narration or a quote, never both; no asterisks, speaker labels or paragraph blocks), third-person narration, spoken dialogue without em dashes or common AI tropes, and writing only for the speaking character. Sent just above the latest message.
+- **Characterization.** Canon embodiment, characters who only know what they witnessed or were told, and a relationship with {{user}} that grows gradually.
+- **Game systems.** How travel records, World scale and Combat state notes, battle rounds, enemy defeats, fleeing and Guild rescues appear in the chat, and how to narrate them without changing the results.
+- Summaries and classifiers that run quietly in the background do not receive these prompts; in-character enemy reactions and greetings do.
+
 # Silly Teyvat 1.33: Game icons, Traveler and Paimon cards, Paimon in combat
 
 - **Game icons on the battle board.** Moves show their Genius Invokation skill icons, and elements, auras, dice, costs, resonance, reactions, summons and portraits use icons downloaded from the Genshin Impact Wiki with `tools/build-battle-icons.py`.

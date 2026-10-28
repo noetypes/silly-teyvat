@@ -16,6 +16,7 @@ import { mountSceneMedia } from './scene-media.js';
 import { stagingDefaults, mountStageEffects } from './staging.js';
 import { regenerationState, regenerateReply } from './regeneration.js';
 import { defaultCGPrompt } from './media-store.js';
+import {syncRoleplayPrompts,noteGeneration,paintRoleplayPrompts,bindRoleplayPrompts} from './roleplay-prompts.js';
 import { mountBackgrounds } from './backgrounds.js';
 import { mountWorldMap } from './world-map.js';
 import {beginOpeningScene} from './opening-scene.js';
@@ -31,7 +32,7 @@ import { mountCardArt } from './card-art.js';
 import {loadPersonaSupport,personaCard,syncPersonaSettings,setPersonaSpriteSetting,otherTraveler,activatePersonaByName,findPersonaAvatar} from './persona-wardrobe.js';
 const KEY = 'genshin_dialogue_ui';
 const FOLDER = 'third-party/genshin-dialogue-ui';
-const defaults = Object.freeze({ ...stagingDefaults, enabled: false, choices: true, composer: true, reducedMotion: false, textScale: 1, scrim: 0.8, revealSpeed: 45, tapAdvance: true, pageExpressions: true, narration: false, narrationMode: 'quotes', narrationKeyword: 'Narrator:', hideDialogueQuotes:false, wardrobe: true, locationEncounters:true, locationCharacterLimit:5, randomEncounters:true, encounterRate:40, allowMainDeparture:false, worldPromptAllRegions:false, wildernessEncounters:true, combatDamageMin:1, combatDamageMax:6, enemyStrikeBack:true, enemyDamageMin:2, enemyDamageMax:6, enemyDice:4, userMaxHp:30, combatDifficulty:'normal', battleEffects:true, battleSound:true, personaIcon: 'Aether', trimSprites:true, cgEnabled:true, cgMode:'scene', cgClassifier:'main', cgProfile:'', cgBypassReasoning:true, cgPrompt:defaultCGPrompt, cgAudio:true, spriteAudio:true, spriteVolume:.8, diceSound:true });
+const defaults = Object.freeze({ ...stagingDefaults, enabled: false, choices: true, composer: true, reducedMotion: false, textScale: 1, scrim: 0.8, revealSpeed: 45, tapAdvance: true, pageExpressions: true, narration: false, narrationMode: 'quotes', narrationKeyword: 'Narrator:', hideDialogueQuotes:false, wardrobe: true, locationEncounters:true, locationCharacterLimit:5, randomEncounters:true, encounterRate:40, allowMainDeparture:false, worldPromptAllRegions:false, roleplayPromptsEnabled:true, wildernessEncounters:true, combatDamageMin:1, combatDamageMax:6, enemyStrikeBack:true, enemyDamageMin:2, enemyDamageMax:6, enemyDice:4, userMaxHp:30, combatDifficulty:'normal', battleEffects:true, battleSound:true, personaIcon: 'Aether', trimSprites:true, cgEnabled:true, cgMode:'scene', cgClassifier:'main', cgProfile:'', cgBypassReasoning:true, cgPrompt:defaultCGPrompt, cgAudio:true, spriteAudio:true, spriteVolume:.8, diceSound:true });
 const bodyClasses = ['gi-enabled', 'gi-scene', 'gi-history', 'gi-hidden', 'gi-compose', 'gi-generating', 'gi-reduced-motion', 'gi-reading', 'gi-choices-enabled', 'gi-native-staging'];
 const icons = {
     compass: '<path d="m12 2 3 7 7 3-7 3-3 7-3-7-7-3 7-3Z"/><path d="m12 8 4 4-4 4-4-4Z"/>',
@@ -204,6 +205,7 @@ function syncSettings() {
         if (input.type === 'checkbox') input.checked = value;
         else input.value = value;
     });
+    paintRoleplayPrompts(context());
     document.querySelector('#gi-cg-profile-row')?.toggleAttribute('hidden', prefs.cgClassifier !== 'profile');
     document.querySelector('#gi-cg-reasoning-row')?.toggleAttribute('hidden', prefs.cgClassifier !== 'main');
     document.querySelector('#gi-narration-keyword-row')?.toggleAttribute('hidden', prefs.narrationMode !== 'keyword');
@@ -587,6 +589,7 @@ export async function initialize({ choicesAdapter, spriteAdapter, wardrobeAdapte
     if (!mounted || version !== mountVersion) return;
     document.addEventListener('click', handleAction, { signal: abort.signal });
     document.addEventListener('keydown', handleKey, { signal: abort.signal });
+    bindRoleplayPrompts(context, abort.signal);
     document.addEventListener('change', event => {
         const input = event.target.closest('#gi-settings [data-gi-setting]');
         if (!input) return;
@@ -612,6 +615,7 @@ export async function initialize({ choicesAdapter, spriteAdapter, wardrobeAdapte
             if (key === 'composer') composing = value;
             if(Object.hasOwn(stagingDefaults,key))void spriteUI?.refreshPresentation().catch(error=>{console.warn('[Silly Teyvat] Stage controls unavailable',error);announce('Could not update sprite staging. Keeping the recorded scene.');});
             if(['cgClassifier','cgProfile','cgPrompt','cgBypassReasoning','cgEnabled'].includes(key))mediaUI?.refresh();
+            if(key==='roleplayPromptsEnabled')syncRoleplayPrompts(context(),preferences().enabled);
             context().saveSettingsDebounced(); refresh();
         }
     }, { signal: abort.signal });
@@ -655,7 +659,7 @@ export async function initialize({ choicesAdapter, spriteAdapter, wardrobeAdapte
         choiceUI?.reset(); spriteUI?.reset(); mediaUI?.reset();backgroundUI?.reset(); reveal.reset(); visit++; pageStates = new WeakMap(); current = null; followLatest = true; history = false; hidden = false; generating = false; stopAuto(); schedule();
     });
     subscribe('GENERATION_STARTED', type => { if (type === 'quiet') return; generating = true; followLatest = true; hidden = false; stopAuto(); schedule(); announce('Reply is being written. The native Stop button is available.'); });
-    subscribe('GENERATION_AFTER_COMMANDS',()=>{worldMapUI?.syncPrompt(preferences().enabled);syncCombatPrompt(context(),preferences().enabled);});
+    subscribe('GENERATION_AFTER_COMMANDS',(type,params)=>{worldMapUI?.syncPrompt(preferences().enabled);syncCombatPrompt(context(),preferences().enabled);noteGeneration(type,params);syncRoleplayPrompts(context(),preferences().enabled);});
     subscribe('GROUP_WRAPPER_STARTED',()=>{groupGenerating=true;schedule();});
     subscribe('GROUP_WRAPPER_FINISHED',()=>{groupGenerating=false;schedule();});
     subscribe('GROUP_UPDATED',schedule);
@@ -696,6 +700,7 @@ export function dispose() {
     choiceUI?.dispose();
     choiceUI = undefined;
     disposeHudIcons();
+    syncRoleplayPrompts(context(),false);
     abort?.abort();
     for (const [source, type, handler] of subscriptions) source.removeListener(type, handler);
     subscriptions = [];
