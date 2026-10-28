@@ -1,0 +1,25 @@
+# Location music
+
+Open the world map and use **Music library** in its region/waypoint panel. Upload one or more audio files, give each a label, and use Preview to audition it. MP3, WAV, M4A, OGG, WebM, AAC and FLAC use the existing authenticated SillyTavern upload endpoint, with a 50 MB per-file limit. Codec support depends on the browser. Music has an independent enable toggle and volume; character voices, CG audio and battle sound effects keep their existing settings.
+
+Select a waypoint, choose **Choose music**, check its exploration songs, then save. One song repeats; multiple songs play in shuffled cycles without an immediate repeat at a cycle boundary. Cancelling leaves the previous assignment intact. Opening a waypoint's settings does not travel there or replace the active location's music. Music follows the live travel location, including Teleport and region changes, rather than a historical scene being read.
+
+For a **Wilderness** waypoint, choose one **Combat music track**. That track is excluded from exploration, loops during an active hostile encounter/battle, and stops when combat finishes or the party leaves the location. Exploration pauses during combat and resumes its current song at the prior position afterward. If there is no combat track, exploration can continue. A failed track is skipped or falls back to available exploration music; an all-failed list remains silent instead of retrying continuously.
+
+The library is shared across waypoints. Relabelling keeps assignments intact. Removing a library entry unlinks it from playlists and combat assignments while preserving the physical upload. An audio preview temporarily pauses location music and resumes it when the preview ends or closes. If autoplay is blocked, use **Enable audio** in Music library; blocked playback is not retried on every UI refresh.
+
+## Stored data
+
+- `extensionSettings.genshin_dialogue_ui.musicLibrary`: `{id, label, name, path}` entries, referencing same-origin files.
+- `locationMusicEnabled` and `locationMusicVolume`: independent BGM preferences.
+- `backgroundRegions[].locations[].music`: `{tracks: [library IDs], combatTrack: ID | null}`.
+
+Music never alters combat rules, dice, HP or prompts. `index.js` supplies the existing combat controller's busy state and eligible live enemies. The separate player owns exploration, combat and preview channels and clears them on a chat/location change or disposal. No third-party streaming service or additional model request is involved.
+
+## Verification
+
+- `node tools/test-location-music.mjs`: player/assignment checks for shuffle, combat resume, preview isolation, stale events, failures, autoplay, volume and library edits.
+- `preview-music-tests.html`: disposable browser integration tests for upload, labelling, map entry points, playlist saves/cancellation, Wilderness gating, playback transitions, failed uploads, stale waypoint edits and cleanup.
+- `preview-music.html`: disposable UI preview with sample labels and a silent fake audio adapter; no live data is changed.
+
+Styles are in `location-music.css`, appended by `tools/build-css.py`. Raw uploaded files and extension settings must travel together when moving servers.

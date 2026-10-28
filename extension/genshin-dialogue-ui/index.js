@@ -2,7 +2,8 @@ import {activeGroup,inPartyChat} from './party.js';
 import {loadCharacterProperties,registerGenshinTags} from './character-properties.js';
 import {registerOfficialArt} from './official-art.js';
 import {mountCombat} from './combat.js';
-import {syncCombatPrompt} from './combat-state.js';
+import {syncCombatPrompt,activeEnemies} from './combat-state.js';
+import {mountLocationMusic} from './location-music.js';
 /* Silly Teyvat, integrated suggested replies and native drawer presentation. */
 import { createTextReveal } from './text-reveal.js';
 import { mountPageSprites } from './page-sprites.js';
@@ -82,6 +83,7 @@ let dismissedNotice = '';
 let pageStates = new WeakMap();
 let choiceUI;
 let combatUI;
+let locationMusicUI;
 let spriteUI;
 let wardrobeUI;
 let mediaUI;
@@ -259,6 +261,7 @@ function refresh() {
     syncHudIcons(prefs.enabled && prefs.choices, prefs.personaIcon);
     if (menuOpen) paintProfile();
     combatUI?.sync({on:Boolean(prefs.enabled&&inChat&&!openingHome),id:Number(current),generating:generating||groupGenerating||locationCastUI?.busy,show:Boolean(active&&!history&&!hidden)});
+    locationMusicUI?.sync({on:Boolean(prefs.enabled&&inChat&&!openingHome),combat:Boolean(prefs.enabled&&inChat&&!openingHome&&(combatUI?.busy||activeEnemies(ctx).some(enemy=>!activeGroup(ctx)?.disabled_members?.includes(enemy.avatar))))});
     choiceUI?.sync({ on: Boolean(prefs.enabled && inChat), suggested:prefs.choices, generating:generating||groupGenerating||Boolean(combatUI?.busy)||Boolean(locationCastUI?.busy) });
     if (active && !history) {
         const height = document.querySelector('#chat').getBoundingClientRect().height;
@@ -547,7 +550,7 @@ export async function initialize({ choicesAdapter, spriteAdapter, wardrobeAdapte
             <header class="gi-pm-profile"><button type="button" class="gi-pm-avatar" data-gi-action="traveler" aria-label="Switch Traveler" title="Switch between Aether and Lumine"><img alt=""></button><div class="gi-pm-id"><strong class="gi-pm-name"></strong><span class="gi-pm-place"></span></div></header>
             <button type="button" class="gi-pm-switch" data-gi-action="toggle" aria-pressed="false" aria-label="Silly Teyvat"><span>Silly Teyvat</span><i aria-hidden="true"></i></button>
             <div class="gi-pm-grid">${menuButton('auto', 'Auto')}${menuButton('history', 'Review', 'book')}${menuButton('wardrobe', 'Characters')}${menuButton('map', 'Map')}${menuButton('cg', 'CG Frame')}${menuButton('compose', 'Chat Box')}${menuButton('hide', 'Hide UI')}</div>
-            <footer class="gi-pm-bar">${menuButton('settings', 'Settings')}<span class="gi-pm-version">1.29</span></footer>
+            <footer class="gi-pm-bar">${menuButton('settings', 'Settings')}<span class="gi-pm-version">1.31</span></footer>
         </nav>
         <header id="gi-review-heading" hidden><h2>${svg('history')} Dialogue Review</h2>${button('history', 'Close review', 'close')}</header>
         <nav id="gi-navigation" aria-label="Read existing dialogue" hidden>${button('previous', 'Previous message')}<span id="gi-position"></span>${button('latest', 'Latest message')}${button('next', 'Next message')}<button id="gi-regenerate" type="button" data-gi-action="regenerate" aria-label="Regenerate this character’s reply" hidden>${svg('regenerate')}</button></nav>
@@ -562,7 +565,9 @@ export async function initialize({ choicesAdapter, spriteAdapter, wardrobeAdapte
         if(followLatest&&(event.added||event.removed))void spriteUI?.refreshPresentation().catch(error=>console.warn('[Silly Teyvat] Travel stage',error));
         schedule();
     }});
+    locationMusicUI=mountLocationMusic({host,getContext:context,adapter:mediaAdapter,announce,onChange:schedule});
     worldMapUI=mountWorldMap({host,getContext:context,adapter:mediaAdapter,announce,
+        openMusic:id=>locationMusicUI.openLocation(id),openMusicLibrary:()=>locationMusicUI.openLibrary(),
         openJourney:id=>journeyAdapter.open(id),
         prepareTeleport:location=>locationCastUI.prepareTeleport(location),commitTeleport:plan=>locationCastUI.commitTeleport(plan),retryCast:()=>locationCastUI.retry(),
         onChange:()=>{backgroundUI.refresh();schedule();}});
@@ -687,6 +692,7 @@ export function dispose() {
     locationCastUI?.dispose();locationCastUI=undefined;
     removeJourneyFilter?.();removeJourneyFilter=undefined;
     combatUI?.dispose();combatUI=undefined;
+    locationMusicUI?.dispose();locationMusicUI=undefined;
     choiceUI?.dispose();
     choiceUI = undefined;
     disposeHudIcons();

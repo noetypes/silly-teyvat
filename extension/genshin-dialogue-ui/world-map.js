@@ -5,6 +5,7 @@ import {REGION_NAMES,worldSettings,worldWaypoints,activeWorldLocation,worldScale
 import {L,makeMap,toLatLng,toMapPoint,waypointIcon,playerIcon,waypointGlyph} from './map-engine.js';
 import {locationResidents} from './location-encounters.js';
 import {mountLocationRosterPicker} from './location-roster-picker.js';
+import {musicSummary} from './location-music-state.js';
 import {mediaSettings} from './media-store.js';
 import {isJourneyGroup,createJourneyLibraryAdapter} from './journey-library.js';
 
@@ -32,7 +33,7 @@ const NATIONS=[
 ];
 const reducedMotion=()=>document.body.classList.contains('gi-reduced-motion') || Boolean(globalThis.matchMedia?.('(prefers-reduced-motion: reduce)').matches);
 
-export function mountWorldMap({host,getContext,adapter=createMediaAdapter(getContext),onChange=()=>{},announce=()=>{},prepareTeleport=async()=>({decisions:[]}),commitTeleport=()=>true,retryCast=()=>{},openJourney=id=>createJourneyLibraryAdapter().open(id)}){
+export function mountWorldMap({host,getContext,adapter=createMediaAdapter(getContext),onChange=()=>{},announce=()=>{},prepareTeleport=async()=>({decisions:[]}),commitTeleport=()=>true,retryCast=()=>{},openMusic=()=>{},openMusicLibrary=()=>{},openJourney=id=>createJourneyLibraryAdapter().open(id)}){
     const mini=document.createElement('button');mini.id='gi-minimap';mini.type='button';mini.hidden=true;mini.setAttribute('aria-label','Open world map');
     mini.innerHTML='<span class="gi-minimap-ring" aria-hidden="true"><span class="gi-minimap-glass"><span class="gi-minimap-canvas"></span><span class="gi-minimap-vignette"></span><span class="gi-minimap-player"><i class="gi-minimap-cone"></i><svg viewBox="0 0 24 24"><path d="M12 3 19 20l-7-4-7 4z"/></svg></span></span><span class="gi-minimap-north">N</span></span><span class="gi-minimap-label">World map</span>';
     const dialog=document.createElement('dialog');dialog.id='gi-world-map';dialog.setAttribute('aria-labelledby','gi-world-map-title');dialog.dataset.view='list';
@@ -40,7 +41,7 @@ export function mountWorldMap({host,getContext,adapter=createMediaAdapter(getCon
     <header class="gi-map-head"><button type="button" class="gi-map-round" data-map="panel" aria-controls="gi-map-panel" aria-expanded="true" aria-label="Regions and waypoints">${ICON.list}</button><div class="gi-map-title"><h2 id="gi-world-map-title">Teyvat</h2><p class="gi-map-current"></p></div></header>
     <nav id="gi-map-panel" class="gi-map-panel" aria-label="Regions and waypoints"><div class="gi-map-regions" role="toolbar" aria-label="Regions"></div><div class="gi-map-waypoint-list"></div>
     <details class="gi-map-world-settings"><summary>World scale</summary><label class="gi-map-row">Metres per unit<input id="gi-map-metres" type="number" min="0.01" max="10000" step="0.01"></label><label class="gi-map-row">Walking km/h<input id="gi-map-walking" type="number" min="0.1" max="100" step="0.1"></label><button type="button" data-map="scale">Save scale</button><label class="gi-map-row gi-map-cast-toggle">Location guests<input id="gi-map-encounters" type="checkbox"></label><label class="gi-map-row gi-map-cast-toggle">Main character can stay behind<input id="gi-map-main-departure" type="checkbox"></label><label class="gi-map-row gi-map-cast-toggle">Whole world in prompt<input id="gi-map-world-scope" type="checkbox"></label><button type="button" data-map="retry-cast">Retry location guests</button><details class="gi-map-prompt"><summary>Prompt preview</summary><pre class="gi-world-prompt" aria-label="World scale system prompt"></pre></details></details>
-    <details class="gi-saved-journeys"><summary>Saved journeys</summary><select aria-label="Previous journey"></select><button type="button" data-map="resume-journey">Resume journey</button></details></nav>
+    <button type="button" class="gi-map-music-library" data-map="music-library">Music library</button><details class="gi-saved-journeys"><summary>Saved journeys</summary><select aria-label="Previous journey"></select><button type="button" data-map="resume-journey">Resume journey</button></details></nav>
     <div class="gi-map-regionbar"><button type="button" class="gi-map-region-current" data-map="regions" aria-haspopup="true" aria-expanded="false"><i class="gi-map-region-gem" aria-hidden="true"></i><span>Teyvat</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg></button><div class="gi-map-region-menu" role="menu" aria-label="Go to region" hidden></div></div>
     <div class="gi-map-tools"><button type="button" class="gi-map-round" data-map="add" aria-label="Add waypoint" title="Add waypoint">${ICON.pin}</button><button type="button" class="gi-map-round" data-map="current" aria-label="Current location" title="Current location">${ICON.locate}</button><button type="button" class="gi-map-round gi-map-close" data-map="close" aria-label="Close world map">${ICON.close}</button></div>
     <aside class="gi-map-sidebar" aria-label="Waypoint details" hidden></aside>
@@ -164,6 +165,7 @@ export function mountWorldMap({host,getContext,adapter=createMediaAdapter(getCon
         if((getContext().characters || []).length)section.append(button('Add character to location','residents'));
         else section.append(element('small','Import a character card to link it here.'));
         body.append(section);wildUI?.dispose();const wildPanel=document.createElement('details');body.append(wildPanel);wildUI=mountWildernessEditor({panel:wildPanel,getContext,getLocation:()=>item.location,onChange,status});wildUI.refresh();
+        const music=document.createElement('section');music.className='gi-map-music';music.append(element('h4','Music'),element('p',musicSummary(item.location)),button('Choose music','music'));body.append(music);
         if(item.location.source){const source=element('a','Background source');source.href=item.location.source;source.target='_blank';source.rel='noopener';source.className='gi-map-source';body.append(source);}
         const actions=document.createElement('div');actions.className='gi-map-card-actions';
         const edit=button('','edit');edit.className='gi-map-round';edit.innerHTML=ICON.edit;edit.setAttribute('aria-label','Edit waypoint');edit.title='Edit waypoint';
@@ -222,6 +224,14 @@ export function mountWorldMap({host,getContext,adapter=createMediaAdapter(getCon
         if(sidebarRefresh&&!editing&&dialog.dataset.view!=='place'){const item=worldWaypoints(ctx).find(w=>w.location.id===selectedId);if(item)showDetails(item);else listWaypoints();}
     }
     function close(){revision++;regionMenu(false);rosterPicker.close();if(dialog.open)dialog.close();placing=false;editing=false;draft=null;paintDraft();opener?.focus?.();}
+    function removeMap(instance){
+        if(!instance)return;
+        instance.stop();
+        // Bundled Leaflet 1.9 leaves a CSS-zoom fallback timer after remove().
+        // Settle it while the map pane still exists, so teardown cannot crash later.
+        instance._onZoomTransitionEnd?.();
+        instance.remove();
+    }
     // Genshin teleport: the screen washes to light, the scene swaps underneath, then it clears.
     function playTeleport(){
         if(reducedMotion())return;veil?.remove();clearTimeout(veilTimer);
@@ -264,7 +274,7 @@ export function mountWorldMap({host,getContext,adapter=createMediaAdapter(getCon
         },
         syncPrompt(on=enabled){return syncWorldPrompt(getContext(),on);},
         close,
-        dispose(){if(disposed)return;disposed=true;enabled=false;api.syncPrompt(false);abort.abort();close();clearTimeout(veilTimer);clearTimeout(bannerTimer);veil?.remove();banner?.remove();rosterPicker.dispose();wildUI?.dispose();map?.remove();minimap?.remove();mini.remove();dialog.remove();},
+        dispose(){if(disposed)return;disposed=true;enabled=false;api.syncPrompt(false);abort.abort();close();clearTimeout(veilTimer);clearTimeout(bannerTimer);veil?.remove();banner?.remove();rosterPicker.dispose();wildUI?.dispose();removeMap(map);removeMap(minimap);mini.remove();dialog.remove();},
     };
     async function action(name,target){
         if(busy&&name!=='close')return;
@@ -305,6 +315,8 @@ export function mountWorldMap({host,getContext,adapter=createMediaAdapter(getCon
                 return;
             }
             if(name==='residents'&&item){rosterPicker.open(item.location.id);return;}
+            if(name==='music'&&item){openMusic(item.location.id);return;}
+            if(name==='music-library'){openMusicLibrary();return;}
             if(name==='retry-cast'){retryCast();status('Checking the current location’s guests again.');return;}
             if(name==='unpin'&&item){unpinWaypoint(ctx,item.location.id);placing=false;editing=false;draft=null;selectedId=null;paintDraft();onChange();refresh();listWaypoints();status('Map pin removed. Its background picture and saved scenes remain.');return;}
             if(name==='scale'){

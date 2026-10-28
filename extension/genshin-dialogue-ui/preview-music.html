@@ -1,0 +1,13 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Silly Teyvat · Location Music</title><link rel="stylesheet" href="style.css"><style>body{margin:0;background:#111f30;color:#f0e7d2;font:16px system-ui;}#demo-banner{position:fixed;bottom:8px;left:8px;z-index:99999;background:#102035e8;padding:8px 12px;border-radius:6px;font-size:12px;}button{font:inherit;}</style></head><body><div id="gi-root"></div><div id="demo-banner">Disposable music preview · sample labels · no audio uploads or saved chat changes</div><script type="module">
+import {mountWorldMap} from './world-map.js';
+import {mountLocationMusic} from './location-music.js';
+import {createLocationMusicPlayer} from './location-music-player.js';
+const tracks=[{id:'calm-one',label:'The City Favored By Wind',name:'Mondstadt - The City Favored By Wind.mp3',path:'/preview-silence.wav'},{id:'calm-two',label:'Whispering Plain',name:'Mondstadt - Whispering Plain.mp3',path:'/preview-silence.wav'},{id:'battle',label:'Rite of Battle',name:'Mondstadt - Rite of Battle.mp3',path:'/preview-silence.wav'}];
+const forest={id:'woods',label:'Whispering Woods',description:'A quiet woodland trail outside Mondstadt.',path:new URL('preview-landscape.svg',location.href).pathname,wilderness:true,waypoint:{mapId:'teyvat',x:0,y:0},music:{tracks:['calm-one','calm-two'],combatTrack:'battle'}};
+const ctx={characterId:0,chatId:'music-preview',characters:[],chat:[],chatMetadata:{silly_teyvat_world:{regionId:'mondstadt',location:{id:'woods'}}},extensionSettings:{genshin_dialogue_ui:{backgroundRegions:[{id:'mondstadt',name:'Mondstadt',locations:[forest]}],musicLibrary:tracks}},saveSettingsDebounced(){},saveMetadataDebounced(){},extensionPrompts:{},setExtensionPrompt(){}};
+class DemoAudio extends EventTarget{pause(){}play(){return Promise.resolve();}removeAttribute(){}load(){}}
+const host=document.querySelector('#gi-root'),player=createLocationMusicPlayer({makeAudio:()=>new DemoAudio()});
+const music=mountLocationMusic({host,getContext:()=>ctx,player,onChange:()=>map.sync({on:true})});
+const map=mountWorldMap({host,getContext:()=>ctx,openMusic:id=>music.openLocation(id),openMusicLibrary:()=>music.openLibrary()});
+music.sync({on:true});map.sync({on:true});map.open({locationId:'woods'});
+</script></body></html>

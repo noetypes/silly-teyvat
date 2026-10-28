@@ -1,3 +1,10 @@
+# Silly Teyvat 1.31: Location music
+
+- **Music library on the world map.** Upload and label audio in one shared library, preview tracks, and adjust background-music volume independently of voices and effects.
+- **Waypoint playlists.** Choose music from a waypoint's details and select one or more exploration tracks. Multiple tracks shuffle in cycles; cancelling keeps the saved playlist.
+- **Wilderness combat music.** Designate one combat-only track. It loops during a hostile encounter, then the exploration song resumes from its previous position. Leaving the location switches to the destination's playlist.
+- **Safe playback.** History browsing does not change the live location's music. Chat changes, disabled playback, missing files and autoplay restrictions are handled separately from dialogue audio. See [Location music](LOCATION-MUSIC.md).
+
 # Silly Teyvat 1.19: Genshin interface pass
 
 - **Paimon Menu.** The top-left Paimon icon slides in a Genshin-style left panel: Traveler profile and current location, a Silly Teyvat on/off switch, a round-icon grid (Auto, Review, Wardrobe, Map, CG Frame, Chat Box, Hide UI) and Settings in the bottom bar. Click outside, press Escape or tap Paimon again to close.

@@ -1,3 +1,10 @@
+# Silly Teyvat 1.31: Location music
+
+- **Music library on the world map.** Upload and label audio in one shared library, preview tracks, and adjust background-music volume independently of voices and effects.
+- **Waypoint playlists.** Choose music from a waypoint's details and select one or more exploration tracks. Multiple tracks shuffle in cycles; cancelling keeps the saved playlist.
+- **Wilderness combat music.** Designate one combat-only track. It loops during a hostile encounter, then the exploration song resumes from its previous position. Leaving the location switches to the destination's playlist.
+- **Safe playback.** History browsing does not change the live location's music. Chat changes, disabled playback, missing files and autoplay restrictions are handled separately from dialogue audio. See [Location music](LOCATION-MUSIC.md).
+
 # Silly Teyvat 1.30: Turn-based elemental combat
 
 - **Full battle rounds.** Attack + send now plays a round: Roll Phase, an Action Phase where every party member picks a Normal Attack, Elemental Skill or Elemental Burst and a target, then an animated resolution with enemy turns and an End Phase. See **COMBAT.md**.
