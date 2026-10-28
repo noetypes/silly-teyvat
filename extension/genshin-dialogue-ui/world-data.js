@@ -1,6 +1,7 @@
 import {activeGroup} from './party.js';
 import {isEnemy} from './character-properties.js';
 import {newLocalId} from './local-id.js';
+import {syncPromptOrder} from './prompt-order.js';
 import {mediaSettings,localMediaPath} from './media-store.js';
 import {backgroundRegions,travelState,saveTravel} from './backgrounds.js';
 import {pageSignature} from './page-sprites.js';
@@ -58,9 +59,11 @@ export function worldScalePrompt(ctx){
 }
 export function syncWorldPrompt(ctx,enabled=true){
     const value=enabled?worldScalePrompt(ctx):'';
-    if(ctx.extensionPrompts?.[WORLD_PROMPT_KEY]?.value===value)return value;
+    // Chat Completion: the text lives in AI Config's prompt order instead of an extension prompt.
+    const injected=syncPromptOrder(ctx,{[WORLD_PROMPT_KEY]:value})?'':value;
+    if(ctx.extensionPrompts?.[WORLD_PROMPT_KEY]?.value===injected)return value;
     // Native SillyTavern IN_CHAT=1, depth=0, scan=false, SYSTEM=0.
-    ctx.setExtensionPrompt?.(WORLD_PROMPT_KEY,value,1,0,false,0);
+    ctx.setExtensionPrompt?.(WORLD_PROMPT_KEY,injected,1,0,false,0);
     return value;
 }
 export function teleportTo(ctx,locationId,{avatars,record=true,encounter}={}){

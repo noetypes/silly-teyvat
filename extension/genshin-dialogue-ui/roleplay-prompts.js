@@ -2,6 +2,7 @@
 // Each is editable in Settings → Prompts. A saved null means "use the bundled
 // default", so improvements to a default reach anyone who never edited it.
 // An empty string turns that prompt off.
+import {syncPromptOrder,stripPrompts} from './prompt-order.js';
 
 export const DEFAULT_STYLE_PROMPT = `[Silly Teyvat: Writing style]
 This is a Genshin Impact story scene shown as a visual novel. Every line of your reply becomes its own dialogue box, so the layout below matters as much as the words.
@@ -111,9 +112,14 @@ let quietOnly = false;
 export function noteGeneration(type, params = {}) { quietOnly = type === 'quiet' && !params?.quietToLoud; }
 const filter = () => !quietOnly;
 
+const editable = ctx => ({read: id => roleplayPromptText(ctx, id), write: (id, text) => { setRoleplayPrompt(ctx, id, text); paintRoleplayPrompts(ctx); }});
+const active = (ctx, enabled) => enabled && !quietOnly && settingsOf(ctx)?.roleplayPromptsEnabled !== false;
 export function syncRoleplayPrompts(ctx, enabled = true) {
+    // Chat Completion: the prompts are entries in AI Config's prompt order (two-way with Settings → Prompts);
+    // their text stays there and is left out of a prompt by dropRoleplayPrompts when it should not be sent.
+    const ordered = syncPromptOrder(ctx, {}, editable(ctx));
     // getExtensionPrompt ignores async-style filters, so blank the text as well.
-    const on = enabled && !quietOnly && settingsOf(ctx)?.roleplayPromptsEnabled !== false;
+    const on = !ordered && active(ctx, enabled);
     for (const slot of SLOTS) {
         const value = on ? roleplayPromptText(ctx, slot.id).trim() : '';
         const current = ctx.extensionPrompts?.[slot.key];
@@ -121,6 +127,13 @@ export function syncRoleplayPrompts(ctx, enabled = true) {
         // IN_PROMPT=0 sits with the card; IN_CHAT=1 at depth 1 keeps style fresh. SYSTEM role, no WI scan.
         ctx.setExtensionPrompt?.(slot.key, value, slot.position, slot.depth, false, 0, filter);
     }
+}
+
+// CHAT_COMPLETION_PROMPT_READY: quiet summaries, or Silly Teyvat or its prompts switched off, get none of them.
+export function dropRoleplayPrompts(ctx, enabled, chat) {
+    if (active(ctx, enabled)) return;
+    const expand = text => ctx.substituteParams ? ctx.substituteParams(text) : text;
+    stripPrompts(chat, SLOTS.map(slot => expand(roleplayPromptText(ctx, slot.id))));
 }
 
 export function paintRoleplayPrompts(ctx, root = document) {

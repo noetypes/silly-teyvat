@@ -16,7 +16,8 @@ import { mountSceneMedia } from './scene-media.js';
 import { stagingDefaults, mountStageEffects } from './staging.js';
 import { regenerationState, regenerateReply } from './regeneration.js';
 import { defaultCGPrompt } from './media-store.js';
-import {syncRoleplayPrompts,noteGeneration,paintRoleplayPrompts,bindRoleplayPrompts} from './roleplay-prompts.js';
+import {clearPromptOrder} from './prompt-order.js';
+import {syncRoleplayPrompts,noteGeneration,paintRoleplayPrompts,bindRoleplayPrompts,dropRoleplayPrompts} from './roleplay-prompts.js';
 import { mountBackgrounds } from './backgrounds.js';
 import { mountWorldMap } from './world-map.js';
 import {beginOpeningScene} from './opening-scene.js';
@@ -741,6 +742,9 @@ export async function initialize({ choicesAdapter, spriteAdapter, wardrobeAdapte
         choiceUI?.reset(); spriteUI?.reset(); mediaUI?.reset();backgroundUI?.reset(); reveal.reset(); visit++; pageStates = new WeakMap(); current = null; followLatest = true; history = false; hidden = false; generating = false; stopAuto(); schedule();
     });
     subscribe('GENERATION_STARTED', type => { if (type === 'quiet') return; generating = true; followLatest = true; hidden = false; stopAuto(); schedule(); announce('Reply is being written. The native Stop button is available.'); });
+    // AI Config edits and preset switches flow back into Settings → Prompts.
+    for (const key of ['SETTINGS_UPDATED', 'OAI_PRESET_CHANGED_AFTER', 'MAIN_API_CHANGED']) subscribe(key, () => syncRoleplayPrompts(context(), preferences().enabled));
+    subscribe('CHAT_COMPLETION_PROMPT_READY', data => { if (!data?.dryRun) dropRoleplayPrompts(context(), preferences().enabled, data?.chat); });
     subscribe('GENERATION_AFTER_COMMANDS',(type,params)=>{worldMapUI?.syncPrompt(preferences().enabled);syncCombatPrompt(context(),preferences().enabled);noteGeneration(type,params);syncRoleplayPrompts(context(),preferences().enabled);});
     subscribe('GROUP_WRAPPER_STARTED',()=>{groupGenerating=true;schedule();});
     subscribe('GROUP_WRAPPER_FINISHED',()=>{groupGenerating=false;schedule();});
@@ -784,7 +788,7 @@ export function dispose() {
     choiceUI?.dispose();
     choiceUI = undefined;
     disposeHudIcons();
-    syncRoleplayPrompts(context(),false);
+    syncRoleplayPrompts(context(),false);clearPromptOrder(context());
     abort?.abort();
     for (const [source, type, handler] of subscriptions) source.removeListener(type, handler);
     subscriptions = [];

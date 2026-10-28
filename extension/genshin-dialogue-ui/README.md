@@ -1,3 +1,10 @@
+# Silly Teyvat 1.38: Silly Teyvat prompts in AI Config's prompt order
+
+- **Choose when the AI reads each prompt.** With Chat Completion, Writing style, Characterization, Game systems, World scale and Combat state are entries in **AI Config → Prompts** (named "Silly Teyvat: …"). Drag them to reorder, or toggle them like any other prompt. New entries start next to Main Prompt (Characterization, Game systems) and after Chat History (Writing style, World scale, Combat state); after that, your arrangement is kept.
+- **Edits go both ways.** Editing Writing style, Characterization or Game systems in AI Config changes Settings → Prompts, and the other way round. A preset that carries its own version brings it in when you switch to it.
+- World scale and Combat state are rewritten every turn, so only their position and toggle are yours.
+- Quiet summaries, and replies while Silly Teyvat or its roleplay prompts are off, still leave the prompts out. Disabling the extension blanks the entries. Text Completion keeps the previous hidden injections.
+
 # Silly Teyvat 1.38: Shared character personas, solo journeys and Japanese Burst voices
 
 - **One character, either role.** Choose **Play as** in Character Customization. Aether, Lumine and every other card share their body, outfits, appearance, moveset, CG and Burst audio with their linked persona. Existing persona appearance settings migrate without discarding card overrides. Profile name/description edits also update the linked card; native persona prompt placement remains configurable.
