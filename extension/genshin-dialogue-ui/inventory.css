@@ -41,7 +41,18 @@
 .gi-inv-group-head { display: flex; align-items: center; justify-content: space-between; margin: 0 0 16px; padding: 11px 18px; border-radius: 3px; font-size: 19px; font-weight: 400; color: #ece5d8; background: var(--inv-band); box-shadow: inset 0 0 0 1px #ffffff10; }
 .gi-inv-group-head small { font-size: 15px; color: #ece5d8b3; }
 .gi-inv-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(var(--inv-tile), 1fr)); gap: 20px 18px; }
-.gi-inv-empty { margin: 12vh auto 0; max-width: 420px; font-size: 18px; text-align: center; color: #ece5d8b3; }
+/* Nothing to show: the list gives up its column and the message sits in the middle of the screen. */
+#gi-inventory[data-empty="true"] .gi-inv-body { grid-template-columns: minmax(0, 1fr); }
+#gi-inventory[data-empty="true"] .gi-inv-list { display: grid; place-items: center; overflow: hidden; padding: 0; }
+.gi-inv-empty { display: grid; justify-items: center; gap: 18px; max-width: 440px; padding-bottom: 76px; text-align: center; animation: ty-fade 260ms ease both; }
+.gi-inv-empty[hidden] { display: none; }
+.gi-inv-empty-icon { position: relative; display: grid; place-items: center; width: 108px; height: 108px; border-radius: 50%; color: #ece5d8b3; background: radial-gradient(circle, #ece5d814 0 54%, transparent 55%); box-shadow: inset 0 0 0 1.5px #d3bc8e66, 0 0 0 8px #d3bc8e12; }
+.gi-inv-empty-icon::before, .gi-inv-empty-icon::after { content: "✦"; position: absolute; top: 50%; translate: 0 -50%; font-size: 12px; color: #d3bc8e99; }
+.gi-inv-empty-icon::before { left: -26px; } .gi-inv-empty-icon::after { right: -26px; }
+.gi-inv-empty-icon svg { width: 48px; height: 48px; }
+.gi-inv-empty p { position: relative; margin: 0; padding: 0 34px; font-size: 20px; letter-spacing: .02em; color: #ece5d8d9; }
+.gi-inv-empty p::before, .gi-inv-empty p::after { content: ""; position: absolute; top: 50%; width: 24px; height: 1px; background: linear-gradient(90deg, transparent, #d3bc8e99); }
+.gi-inv-empty p::before { left: 0; } .gi-inv-empty p::after { right: 0; rotate: 180deg; }
 
 /* A tile: the card on its quality colour, the count where Genshin shows +level, a cream name strip. */
 .gi-inv-card { --q1: #5a6d9a; --q2: #6b86c6; position: relative; display: grid; grid-template-rows: auto auto; padding: 0; border: 0; border-radius: 8px 8px 6px 6px; overflow: hidden; cursor: pointer; text-align: center; color: var(--inv-ink); background: var(--inv-paper); box-shadow: 0 4px 10px #0007; transition: transform 160ms var(--ty-ease, ease), box-shadow 160ms ease; }
@@ -83,13 +94,30 @@
 .gi-inv-d-use { margin: 0; font-size: 17px; line-height: 1.4; color: #5b6476; }
 .gi-inv-d-foot { padding: 12px 22px; font-size: 18px; background: #fdf3d6; box-shadow: inset 0 1px 0 #d3bc8e66; }
 
-/* Bottom bar: order toggle and the sort pill. */
-.gi-inv-foot { display: flex; align-items: center; gap: 18px; padding: 14px clamp(16px, 5vw, 96px) max(16px, env(safe-area-inset-bottom, 0px)); }
-.gi-inv-order { display: grid; place-items: center; width: 50px; height: 50px; padding: 0; border: 0; border-radius: 50%; cursor: pointer; color: var(--inv-ink); background: var(--inv-paper); box-shadow: 0 4px 10px #0007; }
-.gi-inv-order svg { width: 24px; height: 24px; transition: rotate 200ms ease; }
+/* Bottom bar: the order toggle and sort pill, centred together. The sort list rises from the pill. */
+.gi-inv-foot { display: flex; justify-content: center; padding: 14px clamp(16px, 5vw, 96px) max(16px, env(safe-area-inset-bottom, 0px)); }
+.gi-inv-sortbar { display: flex; align-items: center; gap: 14px; }
+.gi-inv-order { display: grid; place-items: center; width: 50px; height: 50px; padding: 0; border: 0; border-radius: 50%; cursor: pointer; color: var(--inv-ink); background: var(--inv-paper); box-shadow: inset 0 0 0 2px #fff8, 0 0 0 1px #d3bc8e88, 0 4px 10px #0007; transition: transform 160ms var(--ty-ease, ease), filter 160ms; }
+.gi-inv-order svg { width: 24px; height: 24px; transition: rotate 240ms var(--ty-ease, ease); }
 .gi-inv-order[aria-pressed="true"] svg { rotate: 180deg; }
-.gi-inv-sort { display: flex; align-items: center; gap: 6px; height: 48px; padding: 0 8px 0 22px; border-radius: 24px; font-size: 18px; color: var(--inv-ink); background: var(--inv-paper); box-shadow: 0 4px 10px #0007; }
-.gi-inv-sort select { height: 40px; min-width: 120px; padding: 0 10px; border: 0; font: inherit; color: inherit; background: transparent; cursor: pointer; }
+.gi-inv-order:hover, .gi-inv-sort-button:hover { filter: brightness(1.06); }
+.gi-inv-order:active, .gi-inv-sort-button:active { transform: scale(.96); }
+.gi-inv-sort { position: relative; }
+.gi-inv-sort-button { display: flex; align-items: center; gap: 10px; min-width: 240px; height: 50px; padding: 0 20px 0 24px; border: 0; border-radius: 25px; cursor: pointer; font-size: 18px; color: var(--inv-ink); background: var(--inv-paper); box-shadow: inset 0 0 0 2px #fff8, 0 0 0 1px #d3bc8e88, 0 4px 10px #0007; transition: transform 160ms var(--ty-ease, ease), filter 160ms; }
+.gi-inv-sort-label { color: #3d4557a6; }
+.gi-inv-sort-button b { flex: 1; font-weight: 400; text-align: left; }
+.gi-inv-caret { width: 10px; height: 10px; margin-top: -4px; border-right: 2px solid currentColor; border-bottom: 2px solid currentColor; rotate: 45deg; transition: rotate 220ms var(--ty-ease, ease), margin 220ms; }
+.gi-inv-sort-button[aria-expanded="true"] .gi-inv-caret { rotate: 225deg; margin-top: 4px; }
+.gi-inv-sort-button:focus-visible, .gi-inv-order:focus-visible { outline: 3px solid #f2dca0; outline-offset: 3px; }
+.gi-inv-sort-menu { position: absolute; left: 50%; bottom: calc(100% + 12px); z-index: 5; display: grid; gap: 4px; width: 100%; min-width: 240px; margin: 0; padding: 8px; list-style: none; border-radius: 18px; translate: -50% 0; background: #ece5d8f5; box-shadow: inset 0 0 0 1px #fff9, 0 0 0 1px #d3bc8e, 0 14px 34px #000a; transform-origin: 50% 100%; animation: gi-inv-menu 200ms var(--ty-ease, cubic-bezier(.22, 1, .36, 1)) both; }
+.gi-inv-sort-menu::after { content: ""; position: absolute; left: 50%; bottom: -7px; width: 12px; height: 12px; translate: -50% 0; rotate: 45deg; background: #ece5d8; box-shadow: 1px 1px 0 #d3bc8e; }
+.gi-inv-sort-menu[hidden] { display: none; }
+@keyframes gi-inv-menu { from { opacity: 0; transform: translateY(8px) scale(.96); } }
+.gi-inv-sort-menu li { position: relative; display: flex; align-items: center; height: 44px; padding: 0 44px 0 18px; border-radius: 22px; font-size: 18px; color: var(--inv-ink); cursor: pointer; outline: none; transition: background 140ms ease, color 140ms ease; }
+.gi-inv-sort-menu li:hover, .gi-inv-sort-menu li:focus-visible { background: #d3bc8e40; }
+.gi-inv-sort-menu li:focus-visible { box-shadow: inset 0 0 0 2px #d3bc8e; }
+.gi-inv-sort-menu li[aria-selected="true"] { color: #ece5d8; background: linear-gradient(#4a5268, #3d4557); box-shadow: inset 0 0 0 1px #d3bc8e88; }
+.gi-inv-sort-menu li[aria-selected="true"]::after { content: ""; position: absolute; right: 20px; top: 50%; width: 6px; height: 12px; margin-top: -8px; border-right: 2px solid #f2dca0; border-bottom: 2px solid #f2dca0; rotate: 45deg; }
 
 @media (max-width: 860px), (max-aspect-ratio: 4/5) {
     #gi-inventory { --inv-tile: 104px; }
@@ -102,6 +130,7 @@
     .gi-inv-d-hero { min-height: 150px; } .gi-inv-d-stat { margin-top: 8px; } .gi-inv-d-stat strong { font-size: 28px; }
     .gi-inv-d-effects li { font-size: 16px; } .gi-inv-d-set { font-size: 17px; } .gi-inv-d-use, .gi-inv-d-foot { font-size: 15px; }
     .gi-inv-group-head { font-size: 16px; padding: 8px 12px; } .gi-inv-grid { gap: 14px 12px; } .gi-inv-name { font-size: 12px; }
-    .gi-inv-foot { padding: 10px 12px max(10px, env(safe-area-inset-bottom, 0px)); } .gi-inv-order { width: 42px; height: 42px; } .gi-inv-sort { height: 42px; font-size: 15px; }
+    .gi-inv-foot { padding: 10px 12px max(10px, env(safe-area-inset-bottom, 0px)); } .gi-inv-order { width: 42px; height: 42px; } .gi-inv-sort-button { min-width: 200px; height: 42px; font-size: 15px; } .gi-inv-sort-menu { min-width: 200px; } .gi-inv-sort-menu li { height: 40px; font-size: 15px; }
+    .gi-inv-empty { padding-bottom: 40px; } .gi-inv-empty-icon { width: 84px; height: 84px; } .gi-inv-empty-icon svg { width: 38px; height: 38px; } .gi-inv-empty p { font-size: 17px; }
 }
 @media (prefers-reduced-motion: reduce) { #gi-inventory, #gi-inventory * { animation-duration: 1ms !important; transition-duration: 1ms !important; } }

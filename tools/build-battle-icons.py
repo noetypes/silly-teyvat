@@ -9,6 +9,7 @@ extension/genshin-dialogue-ui/assets/battle/:
   skills/     the Genius Invokation skill icon for each move, or the in-game talent icon
   icons/      round character icons
   summons/    Genius Invokation summon cards matching our summons
+  fields/     Dendro Core and Catalyzing Field combat status icons
   index.json  which move, character and summon has an icon
 """
 import io, json, re, subprocess, sys, time, urllib.parse, urllib.request
@@ -77,9 +78,22 @@ def kits():
     result = subprocess.run(['node', '--input-type=module', '-e', script, str(ROOT / 'combat-kits.js'), str(ROOT / 'assets/character-properties.json'), str(ROOT / 'assets/tcg/characters.json')], capture_output=True, text=True, check=True)
     return json.loads(result.stdout)
 
+# Summons and combat statuses that reactions create (Burning, Bloom, Quicken), not any kit.
+REACTION_SUMMONS = ['Burning Flame']
+FIELDS = {'Dendro Core': 'Dendro Core Buff Icon.png', 'Catalyzing Field': 'Catalyzing Field Buff Icon.png'}
+
+def save_fields(index):
+    total = 0
+    urls = resolve([f'File:{f}' for f in FIELDS.values()], 96)
+    for name, f in FIELDS.items():
+        if f'File:{f}' in urls:
+            total += save_png(urls[f'File:{f}'], OUT / 'fields' / f'{slug(name)}.webp', 96); index['fields'][name] = f'{slug(name)}.webp'
+    return total
+
 def main():
     data = kits()
-    index = {'elements': [], 'reactions': {}, 'skills': {}, 'icons': {}, 'summons': {}}
+    data['summons'] += [s for s in REACTION_SUMMONS if s not in data['summons']]
+    index = {'elements': [], 'reactions': {}, 'skills': {}, 'icons': {}, 'summons': {}, 'fields': {}}
     total = 0
     # Elements: coloured and white SVGs, and the TCG Physical icon.
     titles = [f'File:Element {e}.svg' for e in ELEMENTS] + [f'File:Element {e} White.svg' for e in ELEMENTS]
@@ -121,6 +135,7 @@ def main():
     for s in data['summons']:
         if f'File:{s} Summon.png' in urls:
             total += save_png(urls[f'File:{s} Summon.png'], OUT / 'summons' / f'{slug(s)}.webp', 240); index['summons'][s] = f'{slug(s)}.webp'
+    total += save_fields(index)
     (OUT / 'index.json').write_text(json.dumps(index, indent=1, ensure_ascii=False))
     missing = [m for m in moves if m not in index['skills']]
     print(f"{len(index['skills'])}/{len(moves)} skill icons ({sum(v['kind'] == 'tcg' for v in index['skills'].values())} TCG), {len(index['icons'])} character icons, "

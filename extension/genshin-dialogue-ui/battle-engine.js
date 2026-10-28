@@ -21,7 +21,36 @@ export const RESONANCE={
 export const DIFFICULTY={easy:{hp:.8,damage:.7},normal:{hp:1,damage:1},hard:{hp:1.3,damage:1.3}};
 // Bigger parties face tougher enemies: more HP, and harder hits since damage is spread out.
 export const partyScale=members=>{const n=Math.max(1,Math.min(6,members || 1));return {hp:.3+.3*n,damage:.45+.2*n};};
-const COMBO_STEP=.1,CRIT=10,CRIT_MULT=1.5,SHIELD_CAP=20;
+const CRIT=10,CRIT_MULT=1.5,SHIELD_CAP=20;
+// One point of Genius Invokation reaction damage in Silly Teyvat's numbers (TCG skills deal about 3, ours about 5).
+export const REACTION_UNIT=2;
+// Applied elements (auras). Like Genius Invokation, an aura stays until a reaction uses it up; Cryo and Dendro can sit together.
+export function auraList(aura){
+    if(!aura)return [];
+    if(typeof aura==='string')return [aura];
+    if(Array.isArray(aura))return aura.filter(Boolean);
+    return Array.isArray(aura.elements)?aura.elements.filter(Boolean):aura.element?[aura.element]:[];
+}
+const setAura=(u,list)=>{u.aura=list.length?{element:list[0],elements:[...list]}:null;};
+// Enemies made of an element (Hydro Slimes, Pyro Abyss Mages, Electro Cicins…) always carry it: it returns at each End Phase after a reaction clears it.
+// Anemo and Geo never stay applied in Genius Invokation, so those enemies have none.
+export const innateAura=u=>u?.side==='enemy'&&AURA_ELEMENTS.includes(u.element)?u.element:null;
+// Which reaction two elements make, if any. Cryo with Dendro, and Anemo or Geo with Dendro, do not react.
+export function reactionOf(incoming,aura){
+    const pair=new Set([incoming,aura]),is=(a,b)=>pair.has(a)&&pair.has(b);
+    if(incoming===aura||!AURA_ELEMENTS.includes(aura))return '';
+    if(incoming==='Anemo')return aura==='Dendro'?'':'Swirl';
+    if(incoming==='Geo')return aura==='Dendro'?'':'Crystallize';
+    if(is('Pyro','Hydro'))return 'Vaporize';if(is('Pyro','Cryo'))return 'Melt';if(is('Pyro','Electro'))return 'Overloaded';
+    if(is('Electro','Cryo'))return 'Superconduct';if(is('Electro','Hydro'))return 'Electro-Charged';if(is('Hydro','Cryo'))return 'Frozen';
+    if(is('Dendro','Hydro'))return 'Bloom';if(is('Dendro','Pyro'))return 'Burning';if(is('Dendro','Electro'))return 'Quicken';
+    return '';
+}
+// Combat statuses created by reactions, kept per side until used: Dendro Core (Bloom) and Catalyzing Field (Quicken).
+export const FIELDS={
+    'Dendro Core':{element:'Dendro',boosts:['Pyro','Electro'],bonus:2*REACTION_UNIT,usage:1,text:'Your next Pyro or Electro hit deals +4 damage.'},
+    'Catalyzing Field':{element:'Dendro',boosts:['Electro','Dendro'],bonus:REACTION_UNIT,usage:2,text:'Your next two Electro or Dendro hits deal +2 damage.'},
+};
 const clampRandom=random=>{const n=Number(random());return Number.isFinite(n)?Math.max(0,Math.min(.999999,n)):0;};
 export const unitById=(state,id)=>state.units.find(u=>u.id===id);
 export const alive=u=>Boolean(u)&&u.hp>0;
@@ -105,7 +134,8 @@ export function resolveRound(input,planInput,{random=Math.random,forecast=false,
     const plan=Array.isArray(planInput)?planInput:planInput?.steps || [],items=Array.isArray(planInput)?[]:planInput?.items || [],flee=!Array.isArray(planInput)&&Boolean(planInput?.flee);
     const state=structuredClone(input),timeline=[],rand=()=>forecast?.5:clampRandom(random);
     const diff=DIFFICULTY[difficulty] || DIFFICULTY.normal,enemyDamage=diff.damage*partyScale(state.units.filter(u=>u.side==='party').length).damage;
-    state.round ||= 1;state.summons ??= [];state.cores=[];state.combo=0;state.resonance=resonanceOf(state.units);
+    state.round ||= 1;state.summons ??= [];state.fields ??= [];state.combo=0;state.resonance=resonanceOf(state.units);
+    for(const u of state.units)if(alive(u)&&innateAura(u)&&!auraList(u.aura).length)setAura(u,[innateAura(u)]);
     const stats={dealt:{},reactions:[],healed:{}};
     const push=event=>{timeline.push(event);return event;};
     const resonant=el=>state.resonance.includes(el);
@@ -130,48 +160,79 @@ export function resolveRound(input,planInput,{random=Math.random,forecast=false,
         if(same){same.amount=Math.max(same.amount || 0,status.amount || 0);same.rounds=Math.max(same.rounds,status.rounds);same.element=status.element || same.element;}
         else u.statuses.push({...status});
     }
+    // Elemental reactions follow Genius Invokation TCG. Its +1 damage is REACTION_UNIT here.
     function react(attacker,target,element,ctx){
-        const result={name:'',mult:1,flat:0,after:[]};
-        if(hasStatus(target,'quicken')){if(element==='Electro'){result.name='Aggravate';result.flat+=2;}else if(element==='Dendro'){result.name='Spread';result.flat+=3;}}
-        if(hasStatus(target,'frozen')&&(element==='Physical'||element==='Geo'||ctx.blunt)){
-            target.statuses=target.statuses.filter(s=>s.stat!=='frozen'&&s.stat!=='stun');result.name='Shatter';result.flat+=4;
-            if(element==='Physical')return result;
+        const R=REACTION_UNIT,result={name:'',mult:1,flat:0,after:[]};
+        // Physical or Pyro damage breaks Frozen for +2.
+        if(hasStatus(target,'frozen')&&(element==='Physical'||element==='Pyro')){
+            target.statuses=target.statuses.filter(s=>s.stat!=='frozen'&&!(s.stat==='stun'&&s.source==='Frozen'));result.name='Shatter';result.flat+=2*R;
         }
-        if(element==='Physical')return result;
-        const aura=target.aura?.element;
-        if(!aura){if(AURA_ELEMENTS.includes(element))target.aura={element,rounds:2};return result;}
-        if(aura===element){target.aura.rounds=2;return result;}
-        const pair=new Set([element,aura]),is=(a,b)=>pair.has(a)&&pair.has(b);
-        let name='';
-        if(element==='Anemo'&&aura!=='Dendro'){
-            name='Swirl';result.flat+=2;
-            if(!ctx.noSwirl)result.after.push(()=>{for(const other of side(state,target.side).filter(u=>alive(u)&&u!==target))damage(attacker,other,2,aura,{noSwirl:true,source:'Swirl',step:ctx.step});});
-        }else if(element==='Geo'&&aura!=='Dendro'){
-            name='Crystallize';result.flat+=1;
-            result.after.push(()=>{const amount=Math.round(3*(attacker.side==='party'&&resonant('Geo')?1.5:1));attacker.shield=Math.min(SHIELD_CAP,(attacker.shield || 0)+amount);push({type:'shield',actor:attacker.id,target:attacker.id,amount,shieldAfter:attacker.shield,source:'Crystallize',step:ctx.step});});
-        }else if(element==='Anemo'||element==='Geo'){return result;}
-        else if(is('Pyro','Hydro')){name='Vaporize';result.mult*=element==='Hydro'?2:1.5;}
-        else if(is('Pyro','Cryo')){name='Melt';result.mult*=element==='Pyro'?2:1.5;}
-        else if(is('Pyro','Electro')){name='Overloaded';result.flat+=3;result.after.push(()=>{for(const other of side(state,target.side).filter(u=>alive(u)&&u!==target))damage(attacker,other,2,'Pyro',{noReact:true,source:'Overloaded',step:ctx.step});});}
-        else if(is('Electro','Cryo')){name='Superconduct';result.flat+=2;addStatus(target,{stat:'vuln',amount:20,rounds:2,source:'Superconduct',label:'Superconduct'});}
-        else if(is('Electro','Hydro')){name='Electro-Charged';result.flat+=2;addStatus(target,{stat:'charged',amount:2,rounds:2,source:'Electro-Charged',label:'Electro-Charged',by:attacker.id});}
-        else if(is('Hydro','Cryo')){name='Frozen';result.flat+=1;addStatus(target,{stat:'frozen',amount:0,rounds:2,source:'Frozen',label:'Frozen'});addStatus(target,{stat:'stun',amount:0,rounds:2,source:'Frozen',label:'Frozen'});}
-        else if(is('Dendro','Hydro')){name='Bloom';result.flat+=2;state.cores.push({side:attacker.side,by:attacker.id,power:3});}
-        else if(is('Dendro','Pyro')){name='Burning';result.flat+=1;addStatus(target,{stat:'burning',amount:2,rounds:2,source:'Burning',label:'Burning',by:attacker.id});}
-        else if(is('Dendro','Electro')){name='Quicken';result.flat+=1;addStatus(target,{stat:'quicken',amount:0,rounds:2,source:'Quicken',label:'Quicken'});}
-        else{target.aura={element,rounds:2};return result;}
-        target.aura=null;
+        if(element==='Physical'||!ELEMENTS.includes(element))return result;
+        const auras=auraList(target.aura);
+        // The reacting aura: Cryo before a Dendro it shares the card with.
+        const aura=auras.filter(a=>reactionOf(element,a)).sort((a,b)=>Number(a==='Dendro')-Number(b==='Dendro'))[0];
+        if(!aura){
+            if(AURA_ELEMENTS.includes(element)&&!auras.includes(element)&&auras.every(a=>(a==='Cryo'&&element==='Dendro')||(a==='Dendro'&&element==='Cryo')))setAura(target,[...auras,element]);
+            return result;
+        }
+        const name=reactionOf(element,aura),others=()=>side(state,target.side).filter(u=>alive(u)&&u!==target);
+        setAura(target,auras.filter(a=>a!==aura));
+        const field=fieldName=>result.after.push(()=>addField(attacker.side,fieldName,ctx.step));
+        switch(name){
+            case 'Vaporize':case 'Melt':case 'Overloaded':result.flat+=2*R;break;
+            // Superconduct and Electro-Charged: +1, and 1 Piercing damage to every other character on that side.
+            case 'Superconduct':case 'Electro-Charged':result.flat+=R;result.after.push(()=>{for(const other of others())damage(attacker,other,R,'Piercing',{piercing:true,source:name,step:ctx.step});});break;
+            // Frozen: +1, and the target cannot act until the End Phase.
+            case 'Frozen':result.flat+=R;addStatus(target,{stat:'frozen',amount:0,rounds:1,source:'Frozen',label:'Frozen'});addStatus(target,{stat:'stun',amount:0,rounds:1,source:'Frozen',label:'Frozen'});break;
+            // Swirl: no bonus, but 1 damage of the swirled element to every other character on that side, which can react in turn.
+            case 'Swirl':if(!ctx.noSwirl)result.after.push(()=>{for(const other of others())damage(attacker,other,R,aura,{noSwirl:true,source:'Swirl',step:ctx.step});});break;
+            // Crystallize: +1, and a 1-point shield for the attacker that stacks to 2.
+            case 'Crystallize':result.flat+=R;result.after.push(()=>{
+                if(!alive(attacker)||!attacker.side)return;
+                const amount=Math.round(R*(attacker.side==='party'&&resonant('Geo')?1.5:1)),before=attacker.shield || 0;
+                attacker.shield=Math.min(SHIELD_CAP,Math.max(before,Math.min(before+amount,2*amount)));
+                push({type:'shield',actor:attacker.id,target:attacker.id,amount:attacker.shield-before,shieldAfter:attacker.shield,source:'Crystallize',step:ctx.step});
+            });break;
+            case 'Bloom':result.flat+=R;field('Dendro Core');break;
+            case 'Quicken':result.flat+=R;field('Catalyzing Field');break;
+            // Burning: +1, and a Burning Flame summon that deals 1 Pyro damage at the End Phase (stacks to 2 uses).
+            case 'Burning':result.flat+=R;result.after.push(()=>{
+                const id=`${attacker.side}:Burning Flame`,old=state.summons.find(x=>x.id===id);
+                if(old){old.rounds=Math.min(2,old.rounds+1);old.targetId=target.id;}
+                else state.summons.push({id,owner:attacker.id,side:attacker.side,name:'Burning Flame',element:'Pyro',power:R,heal:0,rounds:1,target:'one',targetId:target.id,decoy:false});
+                push({type:'summon',actor:attacker.id,summon:structuredClone(state.summons.find(x=>x.id===id)),step:ctx.step});
+            });break;
+        }
         result.name=result.name?`${result.name} + ${name}`:name;
         if(attacker.side==='party'&&resonant('Dendro'))result.flat+=1;
-        state.combo++;if(state.combo>1)result.mult*=1+COMBO_STEP*(state.combo-1);
-        result.combo=state.combo;
+        state.combo++;result.combo=state.combo;
         return result;
+    }
+    function addField(sideName,name,step){
+        const def=FIELDS[name],old=state.fields.find(f=>f.side===sideName&&f.name===name);
+        if(old)old.usage=def.usage;else state.fields.push({side:sideName,name,usage:def.usage});
+        push({type:'field',side:sideName,name,fields:structuredClone(state.fields),step});
+    }
+    // Dendro Core and Catalyzing Field add to the side's next matching hits, summons included.
+    function fieldBonus(attacker,element,step){
+        let bonus=0;
+        for(const f of state.fields.filter(f=>f.side===attacker.side&&f.usage>0&&FIELDS[f.name]?.boosts.includes(element))){bonus+=FIELDS[f.name].bonus;f.usage--;}
+        if(bonus){state.fields=state.fields.filter(f=>f.usage>0);push({type:'field',side:attacker.side,used:true,fields:structuredClone(state.fields),step});}
+        return bonus;
     }
     function damage(attacker,target,power,element,ctx={}){
         if(!alive(target))return 0;
         // Nimble party members (Paimon) dodge enemy hits outright; damage over time always lands.
         if(target.side==='party'&&attacker.side==='enemy'&&target.evasion>0&&!ctx.exact&&!forecast&&rand()*100<target.evasion+statusSum(target,'dodge')){
             push({type:'miss',actor:attacker.id,target:target.id,step:ctx.step,dodge:true});return 0;
+        }
+        // Piercing damage ignores shields, bonuses and reactions.
+        if(ctx.piercing){
+            const amount=Math.max(1,Math.round(power));target.hp=Math.max(0,target.hp-amount);
+            if(attacker.side==='party')stats.dealt[attacker.id]=(stats.dealt[attacker.id] || 0)+amount;
+            push({type:'hit',actor:attacker.id,target:target.id,amount,shieldHit:0,shieldAfter:target.shield || 0,element:'Piercing',piercing:true,reaction:'',combo:0,source:ctx.source || '',hpAfter:target.hp,aura:auraList(target.aura),statuses:structuredClone(target.statuses || []),step:ctx.step});
+            if(target.hp<=0)push({type:target.side==='enemy'?'defeat':'downed',target:target.id,step:ctx.step});
+            return amount;
         }
         let mult=1;
         const atk=statusSum(attacker,'atk')+(attacker.side==='party'&&resonant('Pyro')?15:0)-statusSum(attacker,'weaken');
@@ -184,6 +245,7 @@ export function resolveRound(input,planInput,{random=Math.random,forecast=false,
         if(target.armor>0){if(target.armorBreak&&target.armorBreak===element){target.armor=0;armorBroken=true;}else mult*=1-target.armor/100;}
         const r=ctx.noReact?{name:'',mult:1,flat:0,after:[]}:react(attacker,target,element,ctx);
         mult*=r.mult;
+        const boost=element==='Physical'?0:fieldBonus(attacker,element,ctx.step);r.flat+=boost;
         const critChance=CRIT+statusSum(attacker,'crit')+(attacker.side==='party'&&resonant('Cryo')?15:0);
         const crit=!forecast&&!ctx.noCrit&&rand()*100<critChance;if(crit)mult*=CRIT_MULT;
         const variance=forecast||ctx.exact?1:.85+rand()*.3;
@@ -197,7 +259,7 @@ export function resolveRound(input,planInput,{random=Math.random,forecast=false,
         const total=amount+shieldHit;
         if(attacker.side==='party')stats.dealt[attacker.id]=(stats.dealt[attacker.id] || 0)+total;
         if(r.name)stats.reactions.push(r.name);
-        push({type:'hit',actor:attacker.id,target:target.id,amount,shieldHit,shieldAfter:target.shield || 0,element,reaction:r.name,combo:r.combo || 0,crit,resisted,weak,armorBroken,source:ctx.source || '',hpAfter:target.hp,aura:target.aura?.element || null,statuses:structuredClone(target.statuses || []),step:ctx.step});
+        push({type:'hit',actor:attacker.id,target:target.id,amount,shieldHit,shieldAfter:target.shield || 0,element,reaction:r.name,combo:r.combo || 0,boost,crit,resisted,weak,armorBroken,source:ctx.source || '',hpAfter:target.hp,aura:auraList(target.aura),statuses:structuredClone(target.statuses || []),step:ctx.step});
         if(target.hp<=0)push({type:target.side==='enemy'?'defeat':'downed',target:target.id,step:ctx.step});
         for(const after of r.after)after();
         return total;
@@ -221,7 +283,7 @@ export function resolveRound(input,planInput,{random=Math.random,forecast=false,
                         const decoy=state.summons.find(s=>s.side==='party'&&s.decoy&&s.rounds>0&&s.drew!==state.round);
                         if(decoy){decoy.drew=state.round;push({type:'decoy',actor:actor.id,summon:decoy.id,name:decoy.name,step});continue;}
                     }
-                    for(const t of list)damage(actor,t,effect.power,element,{step,blunt:actor.kit?.weapon==='claymore'&&move.kind==='normal'});
+                    for(const t of list)damage(actor,t,effect.power,element,{step});
                     if(!foesOf(state,actor).length)break;
                 }
                 break;
@@ -241,7 +303,7 @@ export function resolveRound(input,planInput,{random=Math.random,forecast=false,
                 state.summons.push(summon);push({type:'summon',actor:actor.id,summon:structuredClone(summon),step});break;
             }
             case 'energy':for(const t of targets()){t.energy=Math.min(t.maxEnergy || 2,(t.energy || 0)+effect.amount);push({type:'energy',actor:actor.id,target:t.id,energy:t.energy,step});}break;
-            case 'cleanse':for(const t of targets()){t.statuses=(t.statuses || []).filter(s=>!['vuln','weaken','stun','frozen','burning','charged'].includes(s.stat));t.aura=null;push({type:'cleanse',actor:actor.id,target:t.id,statuses:structuredClone(t.statuses),step});}break;
+            case 'cleanse':for(const t of targets()){t.statuses=(t.statuses || []).filter(s=>!['vuln','weaken','stun','frozen','burning','charged'].includes(s.stat));setAura(t,innateAura(t)?[innateAura(t)]:[]);push({type:'cleanse',actor:actor.id,target:t.id,statuses:structuredClone(t.statuses),step});}break;
             case 'hpcost':for(const t of targets()){const cost=Math.min(t.hp-1,Math.ceil(t.hp*(effect.amount || 0)/100));if(cost>0){t.hp-=cost;push({type:'hpcost',actor:actor.id,target:t.id,amount:cost,hpAfter:t.hp,step});}}break;
         }
     }
@@ -336,21 +398,14 @@ export function resolveRound(input,planInput,{random=Math.random,forecast=false,
             summon.rounds--;
         }
         state.summons=state.summons.filter(s=>s.rounds>0&&(s.side==='party'||alive(unitById(state,s.owner))));
-        for(const core of state.cores){
-            const owner=unitById(state,core.by) || {id:core.by,side:core.side,statuses:[]};
-            for(const t of side(state,core.side==='party'?'enemy':'party').filter(alive))damage(owner,t,core.power,'Dendro',{noReact:true,source:'Dendro Core',noCrit:true,exact:true});
-        }
         for(const u of state.units.filter(alive)){
-            for(const s of (u.statuses || []).filter(s=>s.stat==='burning'||s.stat==='charged')){
-                const by=unitById(state,s.by) || {id:s.by,side:u.side==='party'?'enemy':'party',statuses:[]};
-                damage(by,u,s.amount,s.stat==='burning'?'Pyro':'Electro',{noReact:true,noCrit:true,exact:true,source:s.label});
-            }
             const regen=statusSum(u,'regen');if(alive(u)&&regen>0)heal(u,u,regen,{source:'Regeneration'});
         }
         for(const u of state.units){
             // A stun lasts until the unit's next action is skipped, or two End Phases at most.
             u.statuses=(u.statuses || []).map(s=>({...s,rounds:s.rounds-1})).filter(s=>s.rounds>0);
-            if(u.aura){u.aura.rounds--;if(u.aura.rounds<=0)u.aura=null;}
+            // Frozen thaws now; an elemental enemy takes its own element back.
+            if(alive(u)&&innateAura(u)&&!auraList(u.aura).length)setAura(u,[innateAura(u)]);
             if(u.cooldowns)for(const k of Object.keys(u.cooldowns))u.cooldowns[k]=Math.max(0,u.cooldowns[k]-1);
         }
         // Next round's enemy moves are decided now, so the player can see them coming.
@@ -358,7 +413,7 @@ export function resolveRound(input,planInput,{random=Math.random,forecast=false,
             if(!enemy.enraged&&enemy.hp<enemy.maxHp/2&&enemy.kit.moves.some(m=>m.kind==='special')){enemy.enraged=true;push({type:'enrage',actor:enemy.id});}
             planIntent(state,enemy,rand);
         }
-        push({type:'statuses',units:state.units.map(u=>({id:u.id,aura:u.aura?.element || null,statuses:structuredClone(u.statuses || []),shield:u.shield || 0,energy:u.energy || 0,hp:u.hp,intent:u.intent || null}))});
+        push({type:'statuses',fields:structuredClone(state.fields),units:state.units.map(u=>({id:u.id,aura:auraList(u.aura),statuses:structuredClone(u.statuses || []),shield:u.shield || 0,energy:u.energy || 0,hp:u.hp,intent:u.intent || null}))});
         if(timeline.length===endEvents+2)timeline.splice(endEvents,1);
     }
     const victory=!enemiesLeft(),wiped=!side(state,'party').some(alive)||!userUp();

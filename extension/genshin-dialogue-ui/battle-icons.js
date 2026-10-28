@@ -3,7 +3,7 @@
 // a downloaded icon falls back to Silly Teyvat's own glyphs.
 import {glyph} from './battle-fx.js';
 const ELEMENTS=['Pyro','Hydro','Anemo','Electro','Dendro','Cryo','Geo'];
-let index={reactions:{},skills:{},icons:{},summons:{}};
+let index={reactions:{},skills:{},icons:{},summons:{},fields:{}};
 const url=path=>new URL(`./assets/battle/${path}`,import.meta.url).href;
 export const iconsReady=fetch(url('index.json')).then(r=>r.ok?r.json():null).then(data=>{if(data)index={...index,...data};}).catch(()=>{});
 export const elementIcon=(element,white=false)=>ELEMENTS.includes(element)?url(`elements/${element}${white?'-white':''}.svg`):'';
@@ -18,3 +18,5 @@ export const skillIcon=move=>{const entry=move&&index.skills[move.name];return e
 export const skillGlyph=move=>{const entry=move&&index.skills[move.name];return entry?url(`glyphs/${entry.file}`):'';};
 export const characterIcon=name=>index.icons[name]?url(`icons/${index.icons[name]}`):'';
 export const summonArt=name=>index.summons[name]?url(`summons/${index.summons[name]}`):'';
+// Combat statuses from reactions: Dendro Core and Catalyzing Field.
+export const fieldIcon=name=>index.fields?.[name]?url(`fields/${index.fields[name]}`):'';

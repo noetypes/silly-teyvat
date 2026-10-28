@@ -99,7 +99,6 @@ body.gi-scene:not(.gi-history) #chat > .mes.gi-current .mes_block { animation: t
 #gi-attack-controls #gi-attack-toggle { transition: color 200ms ease, background 200ms ease, box-shadow 260ms ease, transform 240ms var(--ty-ease); }
 #gi-attack-controls #gi-attack-toggle[aria-pressed="true"] { animation: ty-armed 1.8s ease-in-out infinite; }
 @keyframes ty-armed { 0%,100% { box-shadow: 0 0 8px #e4bc6050; } 50% { box-shadow: 0 0 16px #f2d794aa; } }
-#gi-attack-target { font-family: var(--ty-font); border-color: var(--ty-gold); background: var(--ty-navy); animation: ty-rise 220ms var(--ty-ease) both; }
 
 /* ---------- Combat: enemy HUD (Genshin boss bar language) ---------- */
 #gi-combat { gap: 10px; font-family: var(--ty-font); }

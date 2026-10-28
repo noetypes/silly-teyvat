@@ -3,12 +3,12 @@
 // bottom-right corner, item cards in hand and the round button on the left.
 // Action Phase: pick each member's move and target, play items, or flee. Resolution plays
 // the round back with Burst splash art, impacts, reactions and sound, then a summary.
-import {allocateDice,forecastPlan,canAfford,moveNeedsTarget,autoPlan,isStunned,alive,unitById,moveElement,intentPreview,fleeChance,partyElements,REACTIONS,RESONANCE,ELEMENTS} from './battle-engine.js';
+import {resolveRound,allocateDice,forecastPlan,canAfford,moveNeedsTarget,autoPlan,isStunned,alive,unitById,moveElement,intentPreview,fleeChance,partyElements,auraList,innateAura,REACTIONS,RESONANCE,ELEMENTS,FIELDS} from './battle-engine.js';
 import {describeMove,KIND_LABEL} from './combat-kits.js';
 import {ITEMS,itemArt,applyDiceItem} from './battle-items.js';
 import {createBattleSound} from './battle-sound.js';
 import {createParticles,glyph,weaponIcon,EL_COLORS} from './battle-fx.js';
-import {elementImg,reactionIcon,skillIcon,characterIcon,summonArt} from './battle-icons.js';
+import {elementImg,reactionIcon,skillIcon,characterIcon,summonArt,fieldIcon} from './battle-icons.js';
 
 const el=(tag,cls,text)=>{const n=document.createElement(tag);if(cls)n.className=cls;if(text!==undefined)n.textContent=text;return n;};
 export const splashUrl=name=>name?new URL(`./assets/splash/${encodeURIComponent(name)}.webp`,import.meta.url).href:'';
@@ -40,6 +40,8 @@ export function mountBattle({host,sound=createBattleSound(),onBurst=()=>{},onSto
         <div class="tb-row tb-row-you" role="group" aria-label="Your party"></div>
         <div class="tb-zone tb-summons-foe" aria-label="Enemy summons"></div>
         <div class="tb-zone tb-summons-you" aria-label="Your summons"></div>
+        <div class="tb-fields tb-fields-foe" aria-label="Enemy combat statuses"></div>
+        <div class="tb-fields tb-fields-you" aria-label="Your combat statuses"></div>
         <div class="tb-zone tb-played" aria-label="Items played this round"></div>
         <div class="tb-res"></div>
         <div class="tb-turn"><button type="button" class="tb-auto" aria-label="Auto: pick the strongest affordable moves">${ICON.auto}</button><button type="button" class="tb-end" aria-label="Begin round">${ICON.hourglass}<b class="tb-round">1</b></button><button type="button" class="tb-flee" aria-pressed="false" aria-expanded="false" aria-controls="tb-confirm-flee" aria-label="Flee">${ICON.flee}</button></div>
@@ -60,8 +62,8 @@ export function mountBattle({host,sound=createBattleSound(),onBurst=()=>{},onSto
     host.append(dialog);
     const $=s=>dialog.querySelector(s),abort=new AbortController(),on=(node,type,fn,opt={})=>node.addEventListener(type,fn,{signal:abort.signal,...opt});
     const particles=createParticles(dialog.querySelector('.gb-particles'));
-    let state,dice=[],plan=[],items=[],flee=false,active=null,targeting=null,heldItem=null,finish=null,mode='',opts={},speed=1,skipAll=false,disposed=false,closeTimer=0;
-    const cards=new Map(),revived=new Map();
+    let state,base,dice=[],plan=[],items=[],flee=false,active=null,targeting=null,heldItem=null,finish=null,mode='',opts={},speed=1,skipAll=false,disposed=false,closeTimer=0;
+    const cards=new Map(),revived=new Set();
     const say=text=>{$('.tb-log').textContent=text;};
     const reduced=()=>Boolean(opts.reducedMotion);
     const effectsOn=()=>opts.effects!==false&&!reduced();
@@ -83,13 +85,18 @@ export function mountBattle({host,sound=createBattleSound(),onBurst=()=>{},onSto
     }
     function paintUnit(u){
         const card=cards.get(u.id);if(!card)return;
-        const hp=Math.max(0,u.hp),aura=typeof u.aura==='string'?u.aura:u.aura?.element || '';
+        const hp=Math.max(0,u.hp),auras=auraList(u.aura),aura=auras.join(' ');
         const hpNode=card.querySelector('.tb-hp b'),before=Number(hpNode.textContent);
         hpNode.textContent=String(hp);if(Number.isFinite(before)&&hpNode.textContent!==''&&before!==hp){const b=card.querySelector('.tb-hp');b.classList.remove('tb-bump');void b.offsetWidth;b.classList.add('tb-bump');}
         card.classList.toggle('tb-low',hp>0&&hp<=u.maxHp*.3);card.classList.toggle('tb-down',hp<=0);
         const sh=card.querySelector('.tb-shield');sh.hidden=!(u.shield>0);sh.querySelector('b').textContent=u.shield>0?String(u.shield):'';
         const auraNode=card.querySelector('.tb-aura');
-        if(auraNode.dataset.el!==aura){auraNode.dataset.el=aura;auraNode.innerHTML=aura?elementImg(aura):'';auraNode.style.color=EL_COLORS[aura] || '';if(aura){auraNode.classList.remove('tb-pop');void auraNode.offsetWidth;auraNode.classList.add('tb-pop');}}
+        // Applied elements float above the card; an elemental enemy's own element is marked as innate.
+        if(auraNode.dataset.el!==aura){
+            auraNode.dataset.el=aura;auraNode.replaceChildren(...auras.map(a=>{const i=el('i','tb-aura-el');i.dataset.el=a;i.style.color=EL_COLORS[a] || '';i.innerHTML=elementImg(a);if(a===innateAura(u))i.classList.add('tb-innate');return i;}));
+            auraNode.title=auras.length?`${auras.join(' and ')} applied${auras.includes(innateAura(u))?` (${u.name} is made of ${innateAura(u)})`:''}`:'';
+            if(aura){auraNode.classList.remove('tb-pop');void auraNode.offsetWidth;auraNode.classList.add('tb-pop');}
+        }
         if(u.side==='party'){
             const pips=card.querySelector('.tb-energy');pips.replaceChildren(...Array.from({length:u.maxEnergy || 2},(_,i)=>{const pip=el('i');if(i<(u.energy || 0))pip.className='tb-on';return pip;}));
             card.classList.toggle('tb-ready',(u.energy || 0)>=(u.maxEnergy || 2));
@@ -101,7 +108,7 @@ export function mountBattle({host,sound=createBattleSound(),onBurst=()=>{},onSto
             chip.title=`${s.label || label} ${label}${arrow}${s.amount&&!['stun','frozen','quicken','infuse'].includes(s.stat)?` ${s.amount}${['regen','burning','charged'].includes(s.stat)?'':'%'}`:''} · ${s.rounds}`;list.append(chip);
         }
         card.classList.toggle('tb-frozen',(u.statuses || []).some(s=>s.stat==='frozen'));
-        card.setAttribute('aria-label',`${u.name}, ${hp} of ${u.maxHp} HP${u.shield?`, shield ${u.shield}`:''}${aura?`, ${aura} applied`:''}`);
+        card.setAttribute('aria-label',`${u.name}, ${hp} of ${u.maxHp} HP${u.shield?`, shield ${u.shield}`:''}${auras.length?`, ${auras.join(' and ')} applied`:''}`);
     }
     function paintSummons(summons){
         for(const sideName of ['party','enemy']){
@@ -112,6 +119,16 @@ export function mountBattle({host,sound=createBattleSound(),onBurst=()=>{},onSto
                 tile.innerHTML=`<i class="tb-summon-art">${art?'':elementImg(s.element,{white:true})}</i><b class="tb-summon-rounds">${s.rounds}</b>${s.power?`<b class="tb-summon-power">${s.power}</b>`:''}${s.heal?`<b class="tb-summon-heal">+${s.heal}</b>`:''}<span></span>`;
                 tile.querySelector('span').textContent=s.name;tile.title=`${s.name}: ${s.power?`${s.power} ${s.element} damage`:''}${s.heal?` heals ${s.heal}`:''} each round, ${s.rounds} left${s.decoy?'. Draws an enemy attack.':''}`;
                 box.append(tile);
+            }
+        }
+    }
+    function paintFields(fields=[]){
+        for(const sideName of ['party','enemy']){
+            const box=$(`.tb-fields-${sideName==='party'?'you':'foe'}`);box.replaceChildren();
+            for(const f of fields.filter(x=>x.side===sideName)){
+                const chip=el('span','tb-field');chip.dataset.field=f.name;const src=fieldIcon(f.name);
+                chip.innerHTML=`${src?`<img src="${src}" alt="" draggable="false">`:elementImg('Dendro')}<b>${f.usage}</b>`;
+                chip.title=`${f.name}: ${FIELDS[f.name]?.text || ''} (${f.usage} left)`;box.append(chip);
             }
         }
     }
@@ -139,6 +156,21 @@ export function mountBattle({host,sound=createBattleSound(),onBurst=()=>{},onSto
         const p=centerOf(id),node=el('b',`gb-float ${cls || ''}`,text);node.style.left=`${p.x+(Math.random()*24-12)}px`;node.style.top=`${p.y-10}px`;if(color)node.style.setProperty('--c',color);node.style.animationDelay=`${delay}ms`;
         dialog.append(node);setTimeout(()=>node.remove(),1700+delay);return node;
     }
+    // Reaction animation: the reaction's icon blooms over the card with a shockwave, and each reaction has its own motion and particles.
+    const RX_PARTICLES={Vaporize:['#9fd8ff','#ffb46a'],Melt:['#ffb46a','#bff0ff'],Overloaded:['#ff6f6f','#ffd36a'],Superconduct:['#b9a7ff','#cfeaff'],'Electro-Charged':['#c38cf2','#7fc8ff'],Frozen:['#cfeeff','#9fe3ff'],Shatter:['#e6f4ff','#ffffff'],Swirl:['#74e0c0','#ffffff'],Crystallize:['#f2c94c','#fff2b0'],Bloom:['#6fdc7d','#7fc8ff'],Burning:['#ff8f4a','#9be36a'],Quicken:['#7fd36a','#c08cf5']};
+    function reactionFx(id,reaction,delay=0){
+        if(!effectsOn()||skipAll)return;
+        const card=cards.get(id),p=centerOf(id);
+        for(const [k,name] of reaction.split(' + ').entries()){
+            const slug=name.toLowerCase().replace(/[^a-z]+/g,'-'),color=REACTIONS[name] || '#fff',src=reactionIcon(name);
+            const fx=el('div',`gb-rx gb-rx-${slug}`);fx.style.left=`${p.x}px`;fx.style.top=`${p.y}px`;fx.style.setProperty('--c',color);
+            fx.style.setProperty('--d',`${delay+k*160}ms`);
+            fx.innerHTML=`<i class="gb-rx-ring"></i><i class="gb-rx-ring gb-rx-ring-2"></i><i class="gb-rx-flash"></i>${src?`<img class="gb-rx-icon" src="${src}" alt="">`:''}`;
+            dialog.append(fx);setTimeout(()=>fx.remove(),1500+delay+k*160);
+            setTimeout(()=>{const [a,b]=RX_PARTICLES[name] || [color,'#fff'];particles.sparkle(p.x,p.y,a);particles.impact(p.x,p.y,name==='Swirl'?'Anemo':name==='Crystallize'?'Geo':'Physical',.9);if(b)particles.sparkle(p.x,p.y,b);},delay+k*160);
+            if(card){card.dataset.rx=slug;card.classList.remove('tb-rx');void card.offsetWidth;card.classList.add('tb-rx');setTimeout(()=>card.classList.remove('tb-rx'),900);}
+        }
+    }
     // ---- Tooltips -------------------------------------------------------------------
     function showTip(anchor,html){
         const tip=$('.tb-tip');tip.innerHTML=html;tip.hidden=false;
@@ -155,7 +187,8 @@ export function mountBattle({host,sound=createBattleSound(),onBurst=()=>{},onSto
     const costRow=(u,move)=>`${move.cost?costHtml(u,move):'<span class="tb-cost tb-free"><b>0</b></span>'}${move.kind==='burst'?`<span class="tb-energy-cost" title="${u.maxEnergy || 2} Energy"><b>${u.maxEnergy || 2}</b></span>`:''}`;
     function moveTip(u,index,anchor){
         const move=u.kit.moves[index];if(!move)return;
-        const step=stepOf(u.id),trial=plan.map(p=>p===step?{...p,move:index}:p),f=step?forecastPlan(state,trial,items.map(i=>({item:ITEMS[i.id],...i})))[plan.indexOf(step)]:null;
+        // Played items have already taken effect on the board, so the forecast starts from the board as it is.
+        const step=stepOf(u.id),trial=plan.map(p=>p===step?{...p,move:index}:p),f=step?forecastPlan(state,trial,[])[plan.indexOf(step)]:null;
         const element=moveElement(u,move),reactions=(f?.reactions || []).map(r=>`<b style="color:${REACTIONS[r.split(' + ').at(-1)] || '#fff'}">${r}</b>`).join(' ');
         showTip(anchor,`${skillIcon(move)?`<img class="tb-tip-icon" src="${skillIcon(move)}" alt="">`:''}<small>${KIND_LABEL[move.kind]}${move.kind==='burst'?` · ${energyOf(u)}/${u.maxEnergy}`:''}</small><strong>${move.name}</strong>${costHtml(u,move)}<p>${describeMove(move,u.element==='None'?'Physical':u.element)}</p>${f&&(f.damage||f.heal||reactions)?`<p class="tb-tip-forecast"><i style="color:${EL_COLORS[element]}">${glyph(element)}</i>${f.damage?` ${f.damage}`:''}${f.heal?` <span class="tb-heal">+${f.heal}</span>`:''} ${reactions}</p>`:''}`);
     }
@@ -172,8 +205,8 @@ export function mountBattle({host,sound=createBattleSound(),onBurst=()=>{},onSto
     const itemUses=()=>items.map(i=>({...i,item:ITEMS[i.id]}));
     const paying=()=>items.filter(i=>ITEMS[i.id].kind!=='dice').map(i=>ITEMS[i.id]);
     const allocation=()=>allocateDice(state,dice,plan,paying());
-    // Energy a member will have when the round starts: their own, plus any Starsigns played on them.
-    const energyOf=u=>Math.min(u.maxEnergy || 2,(u.energy || 0)+items.filter(i=>i.target===u.id).flatMap(i=>ITEMS[i.id].effects || []).filter(e=>e.type==='energy').reduce((n,e)=>n+e.amount,0));
+    // Energy already includes any Starsigns played this round: items take effect as soon as they are played.
+    const energyOf=u=>Math.min(u.maxEnergy || 2,u.energy || 0);
     const readyOf=u=>energyOf(u)>=(u.maxEnergy || 2);
     // Members who will act, in acting order. A member's place is fixed when their move is first set.
     const acting=()=>plan.filter(p=>{const u=unitById(state,p.actor);return alive(u)&&!isStunned(u);});
@@ -248,17 +281,31 @@ export function mountBattle({host,sound=createBattleSound(),onBurst=()=>{},onSto
         if(item.dice==='reroll'&&opts.onReroll){void tossUp(id);return;}
         if(item.kind==='dice'){dice=applyDiceItem(item,dice,partyElements(state));}
         items.push({id,target:targetId || null});heldItem=null;
+        applyItems();
         // A revived member stands up on the board straight away, so they can be given a move this round.
-        const revive=(item.effects || []).find(e=>e.type==='revive');
-        if(revive){
-            const t=unitById(state,targetId);revived.set(t.id,{hp:t.hp,statuses:t.statuses,aura:t.aura});
-            Object.assign(t,{hp:Math.min(t.maxHp,revive.amount),statuses:[],aura:null});paintUnit(t);cards.get(t.id)?.classList.remove('tb-downed');
+        if((item.effects || []).some(e=>e.type==='revive')){
+            const t=unitById(state,targetId);revived.add(t.id);cards.get(t.id)?.classList.remove('tb-downed');
             const step=stepOf(t.id),foe=state.units.find(x=>x.side==='enemy'&&alive(x))?.id;
             if(step)Object.assign(step,{move:0,set:false});else plan.push({actor:t.id,move:0,target:foe,set:false});
             if(!active)active=t.id;
         }
-        const p=targetId?centerOf(targetId):null;if(p&&effectsOn())(item.kind==='food'?particles.heal(p.x,p.y):particles.buff(p.x,p.y));
-        item.kind==='food'?sound.heal():sound.buff();paint();
+        sound.card();item.kind==='food'?sound.heal():sound.buff();paint();
+    }
+    // Like Genius Invokation, a card works the moment it is played: heals, shields, Energy and buffs land on the board now.
+    // The round itself replays the same items from the saved snapshot, so the result matches what the board shows.
+    function applyItems(){
+        const r=resolveRound(base,{steps:[],items:itemUses()},{forecast:true,strikeBack:false});
+        for(const u of state.units){const after=unitById(r.state,u.id);if(after){Object.assign(u,{hp:after.hp,shield:after.shield,energy:after.energy,statuses:after.statuses,aura:after.aura});paintUnit(u);}}
+        state.summons=r.state.summons;paintSummons(state.summons);
+        const last=r.timeline.findLastIndex(e=>e.type==='item');
+        for(const e of r.timeline.slice(last+1)){
+            if(e.type==='phase')break;
+            const p=e.target?centerOf(e.target):null;
+            if(e.type==='heal'){if(p&&effectsOn())particles.heal(p.x,p.y);floatText(e.target,e.revive?'Revived':`+${e.amount}`,'gb-heal','#9dff9a');cards.get(e.target)?.classList.add('tb-glow-heal');setTimeout(()=>cards.get(e.target)?.classList.remove('tb-glow-heal'),700);}
+            else if(e.type==='shield'){if(p&&effectsOn())particles.shield(p.x,p.y,'#f5d76a');floatText(e.target,e.amount>0?`+${e.amount}`:'Shield broken',e.amount>0?'gb-shield-text':'gb-debuff','#ffe9a6');}
+            else if(e.type==='buff'){if(p&&effectsOn())particles.buff(p.x,p.y);const [label,arrow]=STATUS[e.stat] || [e.stat,''];floatText(e.target,`${label}${arrow}`,'gb-buff');}
+            else if(e.type==='energy'&&e.target){floatText(e.target,'Energy +','gb-buff','#ffe9a6');}
+        }
     }
     // Toss-Up goes back to the Roll Phase: every die not already paying for a move can be rerolled.
     async function tossUp(id){
@@ -270,19 +317,6 @@ export function mountBattle({host,sound=createBattleSound(),onBurst=()=>{},onSto
         if(disposed||token!==playRevision||mode!=='reroll')return;
         if(Array.isArray(next)&&next.length===dice.length)dice=next.map(d=>({face:d.face,match:d.match}));
         mode='plan';paint();say(`Toss-Up: ${allocation().unspent} dice ready.`);
-    }
-    function unplayItem(index){
-        const use=items[index];if(!use||ITEMS[use.id].kind==='dice')return;
-        items.splice(index,1);
-        const before=revived.get(use.target);
-        if(before&&(ITEMS[use.id].effects || []).some(e=>e.type==='revive')){
-            const t=unitById(state,use.target);Object.assign(t,before);revived.delete(t.id);paintUnit(t);
-            plan=plan.filter(p=>p.actor!==t.id);items=items.filter(i=>i.target!==t.id);if(active===t.id)active=nextUnset();
-        }
-        // Without the Starsigns, a Burst that needed its Energy falls back to a Normal Attack.
-        for(const step of plan){const u=unitById(state,step.actor);if(step.move===2&&!readyOf(u)){step.move=0;step.set=false;}}
-        if(!active)active=nextUnset();
-        sound.select();paint();
     }
     function paintDice(alloc){
         const list=$('.tb-dice-list');list.replaceChildren();
@@ -308,11 +342,11 @@ export function mountBattle({host,sound=createBattleSound(),onBurst=()=>{},onSto
             hand.append(card);
         });
         const played=$('.tb-played');played.replaceChildren();
-        items.forEach((use,i)=>{
+        items.forEach(use=>{
             const item=ITEMS[use.id],card=el('button','tb-played-card');card.type='button';card.innerHTML=`<img alt="">${use.target?'<i></i>':''}`;card.querySelector('img').src=itemArt(use.id);
             if(use.target){const t=unitById(state,use.target);card.querySelector('i').style.backgroundImage=`url("${artOf(t)}")`;}
-            card.setAttribute('aria-label',`${item.name}${use.target?` on ${unitById(state,use.target)?.name}`:''}${item.kind!=='dice'?'. Tap to take it back.':''}`);card.disabled=item.kind==='dice';
-            on(card,'click',()=>unplayItem(i));played.append(card);
+            card.setAttribute('aria-label',`${item.name}${use.target?` on ${unitById(state,use.target)?.name}`:''}, played`);card.disabled=true;
+            played.append(card);
         });
     }
     function paint(){
@@ -364,10 +398,7 @@ export function mountBattle({host,sound=createBattleSound(),onBurst=()=>{},onSto
                 on(b,'click',()=>chooseMove(index));on(b,'pointerenter',()=>moveTip(u,index,b));on(b,'focus',()=>moveTip(u,index,b));on(b,'pointerleave',hideTip);on(b,'blur',hideTip);
                 skills.append(b);
             });
-        }else if(ready){
-            dialog.style.removeProperty('--active');
-            const note=el('p','tb-ready-note');note.innerHTML='<strong>Everyone is ready</strong><span>Tap the hourglass to begin, or a character to change their move.</span>';skills.append(note);
-        }
+        }else dialog.style.removeProperty('--active');
         $('.tb-end').disabled=!alloc.ok&&!flee;
         $('.tb-end').setAttribute('aria-label',ready?'Begin round: everyone is ready':'Begin round');
         $('.tb-plate-you small').textContent=flee?'Fleeing…':'Now Acting';
@@ -411,7 +442,7 @@ export function mountBattle({host,sound=createBattleSound(),onBurst=()=>{},onSto
         $('.tb-row-foe').replaceChildren(...state.units.filter(u=>u.side==='enemy').map(buildCard));
         $('.tb-row-you').replaceChildren(...state.units.filter(u=>u.side==='party').map(buildCard));
         for(const u of state.units)paintUnit(u);
-        paintSummons(state.summons || []);
+        paintSummons(state.summons || []);paintFields(state.fields || []);
         $('.tb-round').textContent=String(state.round || 1);
         const foes=state.units.filter(u=>u.side==='enemy'),you={...(state.units.find(u=>u.isUser) || party()[0] || {}),...(player || {})};
         $('.tb-plate-foe img').src=foes[0]?iconOf(foes[0]):'';$('.tb-plate-foe strong').textContent=foes.length>1?`${foes[0].name} +${foes.length-1}`:foes[0]?.name || '';$('.tb-plate-foe small').textContent='Now Waiting…';
@@ -451,7 +482,17 @@ export function mountBattle({host,sound=createBattleSound(),onBurst=()=>{},onSto
         const ids=new Set(snapshot.units.map(u=>u.id));
         state=structuredClone(snapshot);const view=new Map(state.units.map(u=>[u.id,u]));
         let combo=0;const tl=result.timeline;setActing('party');
-        for(let i=0;i<tl.length;i++){
+        // Items took effect while planning, so their part of the timeline is applied without being played again.
+        let start=tl.findIndex(e=>e.type==='phase'||e.type==='flee');if(start<0)start=tl.length;
+        for(const e of tl.slice(0,start)){
+            const t=view.get(e.target);
+            if(e.type==='heal'&&t){t.hp=e.hpAfter;if(e.revive)t.statuses=[];}
+            else if(e.type==='shield'&&t)t.shield=e.shieldAfter;
+            else if(e.type==='energy'&&t)t.energy=e.energy;
+            else if(e.type==='buff'&&t)t.statuses=e.statuses;
+            else if(e.type==='dispel')state.summons=(state.summons || []).filter(s=>s.id!==e.summon);
+        }
+        for(let i=start;i<tl.length;i++){
             const e=tl[i],actor=view.get(e.actor),target=view.get(e.target);
             if(e.target&&!ids.has(e.target)&&!['decoy','item'].includes(e.type))continue;
             switch(e.type){
@@ -479,7 +520,8 @@ export function mountBattle({host,sound=createBattleSound(),onBurst=()=>{},onSto
                         hurt(h.target,t.side==='party');
                         const n=floatText(h.target,String(h.amount+h.shieldHit),`gb-dmg${h.crit?' gb-crit':''}${h.resisted?' gb-resist':''}`,EL_COLORS[h.element],j*70);
                         if(h.crit)n.dataset.tag='CRIT';else if(h.resisted)n.dataset.tag='RES';else if(h.weak)n.dataset.tag='WEAK';
-                        if(h.reaction){const c=REACTIONS[h.reaction.split(' + ').at(-1)],r=floatText(h.target,h.reaction,'gb-reaction',c,j*70+90),src=reactionIcon(h.reaction);if(src)r.insertAdjacentHTML('afterbegin',`<img class="gb-reaction-icon" src="${src}" alt="">`);if(effectsOn())particles.sparkle(p.x,p.y,c || '#fff');}
+                        if(h.reaction){const c=REACTIONS[h.reaction.split(' + ').at(-1)],r=floatText(h.target,h.reaction,'gb-reaction',c,j*70+90),src=reactionIcon(h.reaction);if(src)r.insertAdjacentHTML('afterbegin',`<img class="gb-reaction-icon" src="${src}" alt="">`);reactionFx(h.target,h.reaction,j*70);}
+                        if(h.boost)floatText(h.target,`+${h.boost}`,'gb-boost',REACTIONS.Quicken,j*70+180);
                         if(h.armorBroken)floatText(h.target,'Armor broken!','gb-reaction','#ffb15c',160);
                         if(h.combo>1&&t.side==='enemy'){combo=Math.max(combo,h.combo);const c=$('.tb-combo');c.textContent=`×${h.combo}`;c.classList.remove('tb-pop');void c.offsetWidth;c.classList.add('tb-pop');}
                         sound.hit({element:h.element,amount:h.amount,crit:h.crit,reaction:h.reaction,party:t.side==='party',pan:(p.x/dialog.clientWidth-.5)*1.4});
@@ -500,6 +542,7 @@ export function mountBattle({host,sound=createBattleSound(),onBurst=()=>{},onSto
                 }
                 case 'summon':{state.summons=[...(state.summons || []).filter(s=>s.id!==e.summon.id),e.summon];paintSummons(state.summons);dialog.querySelector(`[data-summon="${CSS.escape(e.summon.id)}"]`)?.classList.add('tb-pop');sound.summon();await wait(440);break;}
                 case 'summon-act':{const tile=dialog.querySelector(`[data-summon="${CSS.escape(e.summon)}"]`);if(tile){tile.classList.remove('tb-pulse');void tile.offsetWidth;tile.classList.add('tb-pulse');}await wait(260);break;}
+                case 'field':{state.fields=e.fields;paintFields(state.fields);if(e.name){dialog.querySelector(`.tb-fields-${e.side==='party'?'you':'foe'} [data-field="${CSS.escape(e.name)}"]`)?.classList.add('tb-pop');sound.field();await wait(320);}break;}
                 case 'dispel':{state.summons=(state.summons || []).filter(s=>s.id!==e.summon);paintSummons(state.summons);sound.debuff();await wait(300);break;}
                 case 'decoy':{const tile=dialog.querySelector(`[data-summon="${CSS.escape(e.summon)}"]`);tile?.classList.add('tb-pulse');banner(e.name,actor?.name,'#ffe9a6');sound.miss();await wait(480);break;}
                 case 'energy':if(target){target.energy=e.energy;paintUnit(target);}else if(actor){actor.energy=e.energy;paintUnit(actor);}break;
@@ -508,14 +551,14 @@ export function mountBattle({host,sound=createBattleSound(),onBurst=()=>{},onSto
                 case 'enrage':{cards.get(e.actor)?.classList.add('tb-enraged');floatText(e.actor,'Enraged!','gb-enrage');sound.enrage();await wait(650);break;}
                 case 'defeat':{const card=cards.get(e.target);const p=centerOf(e.target);if(effectsOn())particles.sparkle(p.x,p.y,EL_COLORS[target?.element] || '#fff');card?.classList.add('tb-defeated');sound.defeat();await wait(720);break;}
                 case 'downed':{cards.get(e.target)?.classList.add('tb-downed');sound.downed();await wait(600);break;}
-                case 'statuses':for(const s of e.units){const u=view.get(s.id);if(!u)continue;Object.assign(u,{aura:s.aura,statuses:s.statuses,shield:s.shield,energy:s.energy,hp:s.hp,intent:s.intent});paintUnit(u);}break;
+                case 'statuses':if(e.fields){state.fields=e.fields;paintFields(state.fields);}for(const s of e.units){const u=view.get(s.id);if(!u)continue;Object.assign(u,{aura:s.aura,statuses:s.statuses,shield:s.shield,energy:s.energy,hp:s.hp,intent:s.intent});paintUnit(u);}break;
             }
             if(disposed||token!==playRevision)return false;
         }
         if(disposed||token!==playRevision)return false;
         for(const card of cards.values())card.classList.remove('tb-acting');
         for(const u of result.state.units){const v=view.get(u.id);if(v){Object.assign(v,u);paintUnit(v);}}
-        state.summons=result.state.summons || [];paintSummons(state.summons);
+        state.summons=result.state.summons || [];paintSummons(state.summons);state.fields=result.state.fields || [];paintFields(state.fields);
         if(!result.victory&&!result.fled&&!result.wiped){mode='plan-preview';paintIntents();}
         $('.tb-skip').hidden=true;
         return showResult(snapshot,result,combo);
@@ -547,7 +590,7 @@ export function mountBattle({host,sound=createBattleSound(),onBurst=()=>{},onSto
         plan(snapshot,{dice:rolled,targetId,reducedMotion=false,effects=true,volume=.8,isCurrent=()=>true,player,onReroll}={}){
             if(disposed||!isCurrent())return Promise.resolve(null);
             finish?.(null);opts={reducedMotion,effects,volume,onReroll};sound.setVolume(volume);dialog.classList.toggle('gb-reduced',reducedMotion);
-            setup(snapshot,player);dice=rolled.map(d=>({face:d.face,match:d.match}));items=[];revived.clear();flee=false;heldItem=null;targeting=null;askFlee(false);
+            setup(snapshot,player);base=structuredClone(state);dice=rolled.map(d=>({face:d.face,match:d.match}));items=[];revived.clear();flee=false;heldItem=null;targeting=null;askFlee(false);
             mode='plan';dialog.dataset.mode='plan';$('.tb-skip').hidden=true;setActing('party');
             const target=unitById(state,targetId)&&alive(unitById(state,targetId))?targetId:state.units.find(x=>x.side==='enemy'&&alive(x))?.id;
             plan=party().filter(alive).map(u=>({actor:u.id,move:isStunned(u)?-1:0,target,set:isStunned(u)}));

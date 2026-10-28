@@ -49,12 +49,17 @@ export function mountInventory({host,getContext,announce=()=>{}}){
             <div class="gi-inv-meta"><span class="gi-inv-total"></span><button type="button" class="gi-inv-close" aria-label="Close Inventory">${ICON.close}</button></div>
         </header>
         <div class="gi-inv-body">
-            <section class="gi-inv-list" aria-label="Cards"><div class="gi-inv-groups"></div><p class="gi-inv-empty" hidden></p></section>
+            <section class="gi-inv-list" aria-label="Cards"><div class="gi-inv-groups"></div><div class="gi-inv-empty" role="status" hidden><span class="gi-inv-empty-icon" aria-hidden="true"></span><p></p></div></section>
             <aside class="gi-inv-detail" aria-live="polite"></aside>
         </div>
         <footer class="gi-inv-foot">
-            <button type="button" class="gi-inv-order" aria-label="Reverse order">${ICON.sort}</button>
-            <label class="gi-inv-sort"><span>Sort:</span><select aria-label="Sort cards">${Object.entries(SORTS).map(([id,label])=>`<option value="${id}">${label}</option>`).join('')}</select></label>
+            <div class="gi-inv-sortbar">
+                <button type="button" class="gi-inv-order" aria-label="Reverse order" aria-pressed="false">${ICON.sort}</button>
+                <div class="gi-inv-sort">
+                    <button type="button" class="gi-inv-sort-button" aria-haspopup="listbox" aria-expanded="false" aria-controls="gi-inv-sort-menu"><span class="gi-inv-sort-label">Sort</span><b></b><i class="gi-inv-caret" aria-hidden="true"></i></button>
+                    <ul class="gi-inv-sort-menu" id="gi-inv-sort-menu" role="listbox" aria-label="Sort cards by" tabindex="-1" hidden>${Object.entries(SORTS).map(([id,label])=>`<li role="option" data-sort="${id}" aria-selected="false"><span>${label}</span></li>`).join('')}</ul>
+                </div>
+            </div>
         </footer>`;
     host.append(dialog);
     const $=s=>dialog.querySelector(s),abort=new AbortController(),on=(node,type,fn)=>node.addEventListener(type,fn,{signal:abort.signal});
@@ -101,7 +106,10 @@ export function mountInventory({host,getContext,announce=()=>{}}){
         }
         const empty=$('.gi-inv-empty');
         empty.hidden=shown.length>0;
-        empty.textContent=!bag?'Open a chat to see your party\'s bag.':cards.length?'No cards of this type yet.':'Your bag is empty. Win battles to collect cards.';
+        empty.querySelector('.gi-inv-empty-icon').innerHTML=ICON[tab] || ICON.bag;
+        empty.querySelector('p').textContent=!bag?'Open a chat to see your party\'s bag.':cards.length?'No cards of this type yet.':'Your bag is empty. Win battles to collect cards.';
+        $('.gi-inv-sort-button b').textContent=SORTS[sort];
+        for(const o of dialog.querySelectorAll('.gi-inv-sort-menu [data-sort]'))o.setAttribute('aria-selected',String(o.dataset.sort===sort));
         if(!shown.some(c=>c.id===selected))selected=shown[0]?.id || '';
         detail(shown.find(c=>c.id===selected));
         dialog.dataset.empty=String(!shown.length);
@@ -112,14 +120,31 @@ export function mountInventory({host,getContext,announce=()=>{}}){
         const i=TABS.findIndex(t=>t.id===tab),next=TABS[(i+(event.key==='ArrowRight'?1:TABS.length-1))%TABS.length];tab=next.id;paint();
         dialog.querySelector(`.gi-inv-tabs [data-tab="${next.id}"]`)?.focus();
     });
-    on($('.gi-inv-sort select'),'change',event=>{sort=event.target.value;paint();});
+    // Sort menu: a Genshin-style list that rises from the pill, with the current order ticked.
+    const sortMenu=$('.gi-inv-sort-menu'),sortButton=$('.gi-inv-sort-button'),menuOpen=()=>!sortMenu.hidden;
+    function openSort(show,{focus=true}={}){
+        sortMenu.hidden=!show;sortButton.setAttribute('aria-expanded',String(show));dialog.classList.toggle('gi-inv-sorting',show);
+        if(show)(sortMenu.querySelector('[aria-selected="true"]') || sortMenu.firstElementChild).focus?.();else if(focus)sortButton.focus({preventScroll:true});
+    }
+    for(const o of sortMenu.querySelectorAll('[data-sort]')){o.tabIndex=-1;on(o,'click',()=>{sort=o.dataset.sort;paint();openSort(false);});}
+    on(sortButton,'click',()=>openSort(!menuOpen()));
+    on(sortButton,'keydown',event=>{if(['ArrowUp','ArrowDown'].includes(event.key)){event.preventDefault();openSort(true);}});
+    on(sortMenu,'keydown',event=>{
+        const options=[...sortMenu.querySelectorAll('[data-sort]')],i=options.indexOf(document.activeElement);
+        if(event.key==='ArrowDown'||event.key==='ArrowUp'){event.preventDefault();options[(i+(event.key==='ArrowDown'?1:options.length-1))%options.length].focus();}
+        else if(event.key==='Home'||event.key==='End'){event.preventDefault();options[event.key==='Home'?0:options.length-1].focus();}
+        else if(event.key==='Enter'||event.key===' '){event.preventDefault();document.activeElement?.click();}
+        else if(event.key==='Tab')openSort(false,{focus:false});
+    });
+    on(dialog,'pointerdown',event=>{if(menuOpen()&&!event.target.closest('.gi-inv-sort'))openSort(false,{focus:false});});
     on($('.gi-inv-order'),'click',()=>{reversed=!reversed;$('.gi-inv-order').setAttribute('aria-pressed',String(reversed));paint();});
     on($('.gi-inv-close'),'click',()=>close());
-    on(dialog,'cancel',event=>{event.preventDefault();close();});
+    on(dialog,'cancel',event=>{event.preventDefault();if(menuOpen())openSort(false);else close();});
     on(dialog,'click',event=>{if(event.target===dialog)close();});
     // Closing marks every card as seen, so New tags only appear on cards won since the last look.
     function close(){
         if(!dialog.open)return;
+        openSort(false,{focus:false});
         const {ctx,bag}=state();
         if(bag){combatState(ctx).bagSeen={...bag};ctx.saveMetadataDebounced?.();}
         dialog.classList.add('gi-inv-closing');clearTimeout(closeTimer);

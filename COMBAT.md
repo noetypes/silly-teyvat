@@ -13,9 +13,9 @@ The 40 scenic wilderness waypoints are marked Wilderness with editable starter p
 
 ## Fight or talk
 
-Use the **Attack** toggle at the left of the dialogue controls to arm an attack. It glows while on. Send a typed message or select a suggested reply: your exact words stay in chat, then one full battle round is played, then the normal AI response receives your dialogue and the round's results. The toggle works even when suggested replies are disabled, and it stays armed for later messages in the same encounter. Turn it off to speak or negotiate without fighting. When several enemies are present, the **Attack target** selector picks the default target for the round.
+Use the **Attack** toggle at the left of the dialogue controls to arm an attack. It glows while on. Send a typed message or select a suggested reply: your exact words stay in chat, then one full battle round is played, then the normal AI response receives your dialogue and the round's results. The toggle works even when suggested replies are disabled, and it stays armed for later messages in the same encounter. Turn it off to speak or negotiate without fighting. Every enemy present joins the battle; you choose whom each member attacks on the battle board.
 
-Chat switches, new encounters, disabling the extension and losing the selected target disarm it. Duplicate render events, history navigation and regenerated AI replies cannot repeat a round. Only a newly sent user message can start one.
+Chat switches, new encounters, disabling the extension and the last enemy leaving disarm it. Duplicate render events, history navigation and regenerated AI replies cannot repeat a round. Only a newly sent user message can start one.
 
 ## A battle round
 
@@ -26,7 +26,7 @@ Each armed message plays one round in three phases.
    - **Normal Attack** (A): free, but it can miss (each weapon has its own miss chance). A hit gives 1 Energy.
    - **Elemental Skill** (E): costs dice of the member's element and gives 1 Energy.
    - **Elemental Burst** (Q): costs dice and needs full Energy (the gold diamonds on the card's right edge; everyone starts an encounter with 1).
-   The hexagon under each move is its dice cost. Dice are paid from the member's own element first, then Omni, then **elemental tuning**: two spare dice become one. Spent dice dim and the count at the top of the dice column drops. A move you cannot pay for shakes. When a move can hit more than one enemy (or ally), the possible targets pulse; tap one. The small medallion under each party card shows its planned move, and its number is the acting order: members act in the order you give them moves. Tap a member who has a move to change it, or use **Act earlier / Act later** above the moves (or [ and ]) to change their place. Hover or long-press a move, card, item or summon for its details and the forecast (expected damage, healing and reactions for the current order). The **sparkle** button picks the strongest affordable move for everyone. Keyboard: A, E, Q (or 1, 2, 3) and Enter.
+   The hexagon under each move is its dice cost. Dice are paid from the member's own element first, then Omni, then **elemental tuning**: two spare dice become one. Spent dice dim and the count at the top of the dice column drops. A move you cannot pay for shakes. When a move can hit more than one enemy (or ally), the possible targets pulse; tap one. The small medallion under each party card shows its planned move, and its number is the acting order: members act in the order you give them moves. Tap a member who has a move to change it, or use **Act earlier / Act later** above the moves (or [ and ]) to change their place. Hover or long-press a move, card, item or summon for its details and the forecast (expected damage, healing and reactions for the current order). The **sparkle** button picks the strongest affordable move for everyone. The enemy you are aiming at grows a little and glows. Keyboard: A, E, Q (or 1, 2, 3) and Enter.
 3. **Resolution.** Moves play in order with banners, impacts, damage numbers, reactions and sounds. An Elemental Burst first flashes the character's splash art. Then every enemy still standing carries out the move it telegraphed (when **Enemies strike back** is on), and the End Phase runs summons, Dendro Cores, damage over time, regeneration and timers. A summary credits each member's damage and lists the reactions. **Skip** speeds the playback up, and a second press skips it.
 
 The round is saved before it is played back, as a narrator message in plain language (moves, damage, reactions, HP), so the roleplay model can describe it. Enemy HP, party HP, Energy, shields, statuses, elements and summons are saved per encounter in chat metadata. Historical pages show their saved health without replaying anything. An enemy at 0 HP gets its death message and leaves the active group; its card and earlier messages remain.
@@ -39,11 +39,11 @@ All 57 enemy character cards from Genius Invokation TCG's PvE challenges are Sil
 
 ## Seeing the enemy's next move
 
-Each enemy shows the move it will use next round in a badge under its card: a sword with the damage and the portrait of the member it will hit, a starburst for a move that hits the whole party, scattered squares for random hits, or a symbol for a heal, shield or summon. The member in danger shows a red **−damage** marker. An enemy that is Frozen or Petrified shows a snowflake: it will lose that turn. The target is decided at the end of the previous round, so you can shield, heal, freeze or kill that enemy first. Below half health an enemy becomes **enraged**, and its next telegraphed move is its Special.
+Each enemy shows the move it will use next round in a badge under its card: a sword with the damage and the portrait of the member it will hit, a starburst for a move that hits the whole party, scattered squares for random hits, or a symbol for a heal, shield or summon. The member in danger shows a red **−damage** marker. An enemy that is Petrified shows a snowflake: it will lose that turn. Freezing an enemy during your Party Phase also costs it that round's attack. The target is decided at the end of the previous round, so you can shield, heal, freeze or kill that enemy first. Below half health an enemy becomes **enraged**, and its next telegraphed move is its Special.
 
 ## Items
 
-The party shares a bag of Genius Invokation event cards, saved per chat. A new chat starts with 3 Sweet Madame, 2 Mondstadt Hash Brown, 1 Lotus Flower Crisp, 1 Toss-Up and 1 Teyvat Fried Egg. Cards sit in your hand during the Action Phase with their dice cost in the corner. Tap a card to pick it up; the members who can use it pulse; tap one to play it (cards without a target play on a second tap). Played cards move to the left of the table; tap one to take it back. Food is eaten before anyone acts, and each member eats once per round.
+The party shares a bag of Genius Invokation event cards, saved per chat. A new chat starts with 3 Sweet Madame, 2 Mondstadt Hash Brown, 1 Lotus Flower Crisp, 1 Toss-Up and 1 Teyvat Fried Egg. Cards sit in your hand during the Action Phase with their dice cost in the corner. Tap a card to pick it up; the members who can use it pulse; tap one to play it (cards without a target play on a second tap). As in Genius Invokation, **a card works the moment it is played**: food heals, Lotus Flower Crisp shields, Starsigns adds Energy and buffs appear on the board straight away, and a played card cannot be taken back. Effects that say otherwise still wait (Mushroom Pizza's later healing comes at the End Phases). Played cards move to the left of the table. Each member eats once per round.
 
 | Card | Cost | Effect |
 | --- | --- | --- |
@@ -90,24 +90,30 @@ She has only 22 HP but **dodges half of all enemy hits** (shown as "Dodged!"); d
 
 ## Elemental reactions
 
-Elements stick to whoever they hit (Pyro, Hydro, Electro, Cryo and Dendro; Anemo, Geo and Physical do not) and fade after two End Phases. The next different element reacts:
+Reactions follow **Genius Invokation TCG**. One point of TCG damage is 2 in Silly Teyvat's numbers (TCG skills deal about 3, ours about 5), so a TCG "+1" is +2 here.
 
-| Reaction | Elements | Effect |
+Pyro, Hydro, Electro, Cryo and Dendro **stay applied** to whoever they hit until a reaction uses them up; the icon floats above the card. Anemo, Geo and Physical never stay applied, and Cryo and Dendro can sit together without reacting. When another element hits, it reacts with the applied one and **both are cleared**. Hitting with the same element does nothing extra.
+
+**Elemental enemies are always infused.** An enemy made of Pyro, Hydro, Electro, Cryo or Dendro (a Hydro Slime, a Pyro Abyss Mage, an Electro Cicin…) enters battle with its own element applied, shown with a slow glow above its card. A reaction clears it like any other, and the enemy takes its element back at the End Phase. Anemo and Geo enemies have none, because those elements never stay applied in the TCG.
+
+| Reaction | Elements | Effect (TCG → Silly Teyvat) |
 | --- | --- | --- |
-| Vaporize | Pyro + Hydro | Hydro on Pyro ×2, Pyro on Hydro ×1.5 |
-| Melt | Pyro + Cryo | Pyro on Cryo ×2, Cryo on Pyro ×1.5 |
-| Overloaded | Pyro + Electro | +3, and 2 Pyro damage to every other enemy |
-| Superconduct | Cryo + Electro | +2, target takes 20% more damage for 2 rounds |
-| Electro-Charged | Hydro + Electro | +2, then 2 Electro damage at the next two End Phases |
-| Frozen | Hydro + Cryo | +1, the target loses its next action |
-| Shatter | Physical, Geo or a claymore hit on a Frozen target | +4, breaks the ice |
-| Bloom | Dendro + Hydro | +2, a Dendro Core deals 3 to every enemy at the End Phase |
-| Burning | Dendro + Pyro | +1, then 2 Pyro damage at the next two End Phases |
-| Quicken | Dendro + Electro | +1; afterwards Electro hits Aggravate (+2) and Dendro hits Spread (+3) |
-| Swirl | Anemo on Pyro, Hydro, Electro or Cryo | +2, and 2 damage of that element to every other enemy, applying it to them |
-| Crystallize | Geo on Pyro, Hydro, Electro or Cryo | +1, the attacker gains a 3 HP shield |
+| Melt | Pyro + Cryo | +2 → +4 damage |
+| Vaporize | Pyro + Hydro | +2 → +4 damage |
+| Overloaded | Pyro + Electro | +2 → +4 damage (the TCG's forced switch has no equivalent here) |
+| Superconduct | Cryo + Electro | +1 → +2, and 1 → 2 Piercing damage to every other character on that side |
+| Electro-Charged | Hydro + Electro | +1 → +2, and 1 → 2 Piercing damage to every other character on that side |
+| Frozen | Hydro + Cryo | +1 → +2; the target cannot act until the End Phase |
+| Shatter | Physical or Pyro on a Frozen target | +2 → +4, and it thaws |
+| Swirl | Anemo on Pyro, Hydro, Electro or Cryo | 1 → 2 damage of that element to every other character on that side, which can react in turn |
+| Crystallize | Geo on Pyro, Hydro, Electro or Cryo | +1 → +2, and the attacker gains a 2-point shield (stacks to 4) |
+| Bloom | Dendro + Hydro | +1 → +2, and a **Dendro Core**: your side's next Pyro or Electro hit deals +4 |
+| Burning | Dendro + Pyro | +1 → +2, and a **Burning Flame** summon: 2 Pyro damage at the End Phase (stacks to 2 uses) |
+| Quicken | Dendro + Electro | +1 → +2, and a **Catalyzing Field**: your side's next two Electro or Dendro hits deal +2 |
 
-Hitting a target with **its own element is resisted** (half damage), so a Pyro slime shrugs off Klee and a Pyro enemy barely hurts Bennett. Reactions in the same round build a **combo**: each one after the first deals 10% more. Swirl spreading auras onto several enemies, followed by another element, is the strongest combo setup. Enemies react too: a soaked party member takes Vaporize from a Pyro attack.
+Piercing damage ignores shields and bonuses. Dendro Cores and Catalyzing Fields show beside each side's name plate with their uses left, and last until used. Every reaction plays its own animation: its icon blooms over the card with a shockwave, and the card jolts, spins, buzzes or ices over to match.
+
+Hitting a target with **its own element is resisted** (half damage), so a Pyro slime shrugs off Klee and a Pyro enemy barely hurts Bennett. The combo counter tallies reactions in a round; it no longer adds damage. Enemies react too: a soaked party member takes Vaporize from a Pyro attack.
 
 **Elemental Resonance** applies when two living party members share an element: Pyro +15% damage, Hydro +25% healing, Electro one extra die, Cryo +15% crit chance, Anemo 10% fewer missed Normal Attacks, Geo 50% stronger shields, Dendro +1 reaction damage. Every hit has a 10% base critical chance for ×1.5 damage.
 
@@ -165,6 +171,6 @@ Aether and Lumine default to Anemo and can be changed to another supported eleme
 
 ## Validation
 
-The **Battle rules, screen & Moveset checks** suite has 78 checks: kits, dice payment and tuning, every reaction family, combos, energy, summons, decoys, enrage, enemy intents, fleeing, every item type, loot, the board controls, playback and the Moveset editor. The combat, send, enemy-attack and dice suites pass alongside it, and a full preview chat was played through two rounds and a successful escape. The board was checked for overlapping elements at 1440×810, 1280×720, 812×375 and 375×812.
+The **Battle rules, screen & Moveset checks** suite has 114 checks: kits, dice payment and tuning, every reaction family and the Genius Invokation reaction rules (persistent and innate auras, Piercing, Dendro Core, Burning Flame, Cryo with Dendro), combos, energy, summons, decoys, enrage, enemy intents, fleeing, every item type, loot, the board controls, playback and the Moveset editor. The combat, send, enemy-attack and dice suites pass alongside it, and a full preview chat was played through two rounds and a successful escape. The board was checked for overlapping elements at 1440×810, 1280×720, 812×375 and 375×812.
 
 Browser checks use disposable preview chats and mock model services. Native card/settings changes were read back through the local SillyTavern API, and all 147 native portrait pixel buffers were compared with backups. No paid/live model request was made. Desktop, portrait and landscape layouts were checked, including rotating the dice dialog while a result was visible. These are browser viewport checks, not a physical iPhone test.

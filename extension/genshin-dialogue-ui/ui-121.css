@@ -239,7 +239,6 @@ body.gi-reduced-motion #gi-attack-controls #gi-attack-toggle { animation: none; 
 /* Attack lives in the Teyvat Choices column, aligned with the refresh button. */
 #gi-attack-controls { position: static; left: auto; top: auto; display: flex; align-items: center; gap: 6px; width: max-content; }
 #gi-attack-controls[hidden] { display: none !important; }
-#gi-attack-controls #gi-attack-target { position: static; width: min(150px, 32vw); }
 #gi-attack-dock { position: fixed; z-index: 5; right: 4vw; bottom: calc(var(--gi-composer-height, 0px) + var(--gi-dialogue-height, 204px) + 102px + env(safe-area-inset-bottom, 0px)); display: flex; justify-content: flex-end; pointer-events: none; }
 #gi-attack-dock > * { pointer-events: auto; }
 body:not(.gi-scene) #gi-attack-dock, body.gi-history #gi-attack-dock { display: none; }

@@ -50,7 +50,7 @@ export function mountCombat({host,getContext,onChange=()=>{},announce=()=>{},ada
     const panel=document.createElement('aside');panel.id='gi-combat';panel.setAttribute('aria-label','Hostile encounters');panel.hidden=true;host.append(panel);
     const partyPanel=document.createElement('aside');partyPanel.id='gi-party-health';partyPanel.setAttribute('aria-label','Party health');partyPanel.hidden=true;host.append(partyPanel);let partyPaint='';const partyShown=new Map();
     const controls=document.createElement('div');controls.id='gi-attack-controls';controls.hidden=true;
-    controls.innerHTML='<button id="gi-attack-toggle" type="button" aria-label="Attack after sending a message" aria-pressed="false" title="Attack after sending: off"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17 3h4v4L10 18l-4-4Z"/><path d="m4 12 8 8M8 16l-5 5M2 22l2-2"/></svg><span class="gi-attack-label">Attack</span><i class="gi-attack-pip" aria-hidden="true"></i></button><select id="gi-attack-target" aria-label="Attack target" hidden></select>';
+    controls.innerHTML='<button id="gi-attack-toggle" type="button" aria-label="Attack after sending a message" aria-pressed="false" title="Attack after sending: off"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17 3h4v4L10 18l-4-4Z"/><path d="m4 12 8 8M8 16l-5 5M2 22l2-2"/></svg><span class="gi-attack-label">Attack</span><i class="gi-attack-pip" aria-hidden="true"></i></button>';
     // Attack sits in the Teyvat Choices column: beside the refresh button when
     // choices are in use, otherwise where the choices panel would be.
     const dock=document.createElement('div');dock.id='gi-attack-dock';host.append(dock);
@@ -60,7 +60,7 @@ export function mountCombat({host,getContext,onChange=()=>{},announce=()=>{},ada
         else if(controls.parentElement!==dock)dock.append(controls);
     }
     const layout=new MutationObserver(placeControls);layout.observe(host,{subtree:true,childList:true,attributes:true,attributeFilter:['hidden']});layout.observe(document.body,{attributes:true,attributeFilter:['class']});placeControls();
-    const sword=controls.querySelector('button'),targetSelect=controls.querySelector('select'),abort=new AbortController();
+    const sword=controls.querySelector('button'),abort=new AbortController();
     const burstVoice=createBurstVoicePlayer({getContext,announce});
     const dice=diceAdapter || mountElementalDice({host}),battle=battleAdapter || mountBattle({host,onBurst:unit=>burstVoice.play(unit),onStopVoice:()=>burstVoice.stop()});const hits=new Map(),shown=new Map();let disposed=false,busy=false,enabled=false,writing=false,revision=0,key='',paint='',lastId=-1,armed=false,target='',visit='',lastView={};
     const eligibleEnemies=ctx=>{const disabled=activeGroup(ctx)?.disabled_members || [];return activeEnemies(ctx).filter(e=>!disabled.includes(e.avatar));};
@@ -68,12 +68,9 @@ export function mountCombat({host,getContext,onChange=()=>{},announce=()=>{},ada
         placeControls();
         controls.hidden=!enabled||!lastView.show||lastId<getContext().chat.length-1||!enemies.length;
         sword.disabled=busy||writing;sword.setAttribute('aria-pressed',String(armed));sword.title=`Attack after sending: ${armed?'on':'off'}`;
-        const signature=JSON.stringify(enemies.map(e=>[e.avatar,getContext().characters.find(c=>c.avatar===e.avatar)?.name]));
-        if(targetSelect.dataset.roster!==signature){targetSelect.replaceChildren(...enemies.map(e=>new Option(getContext().characters.find(c=>c.avatar===e.avatar)?.name || 'Enemy',e.avatar)));targetSelect.dataset.roster=signature;}
-        targetSelect.value=target;targetSelect.hidden=enemies.length<2;targetSelect.disabled=busy||writing;
     }
-    function setArmed(value){if(value&&(!enabled||busy||writing||!eligibleEnemies(getContext()).length))return false;armed=Boolean(value);paintControls();announce(armed?'Attack is on. Your next messages will also attack the selected enemy.':'Attack is off. Your messages will only speak.');return armed;}
-    sword.addEventListener('click',()=>setArmed(!armed),{signal:abort.signal});targetSelect.addEventListener('change',()=>{target=targetSelect.value;paintControls();},{signal:abort.signal});
+    function setArmed(value){if(value&&(!enabled||busy||writing||!eligibleEnemies(getContext()).length))return false;armed=Boolean(value);paintControls();announce(armed?'Attack is on. Your next messages will also start a battle round.':'Attack is off. Your messages will only speak.');return armed;}
+    sword.addEventListener('click',()=>setArmed(!armed),{signal:abort.signal});
     const current=(identity,token)=>!disposed&&enabled&&token===revision&&combatIdentity(getContext())===identity;
     const prefs=ctx=>mediaSettings(ctx),volumeOf=(ctx,key)=>prefs(ctx)[key]===false?0:(prefs(ctx).spriteVolume ?? .8);
     // One full round: Roll Phase (dice as fuel), Action Phase (choose moves), then the resolved round is saved and played back.
@@ -172,7 +169,7 @@ export function mountCombat({host,getContext,onChange=()=>{},announce=()=>{},ada
             const currentEnemies=enabled?activeEnemies(ctx).filter(e=>!disabled.includes(e.avatar)):[],message=ctx.chat?.[id];
             const nextVisit=[...new Set(currentEnemies.map(e=>e.key))].sort().join('|');
             if(visit&&visit!==nextVisit&&!busy){revision++;dice.cancel?.();battle.cancel?.();armed=false;}visit=nextVisit;
-            if(!currentEnemies.some(e=>e.avatar===target)){target=currentEnemies[0]?.avatar || '';armed=false;}
+            if(!currentEnemies.some(e=>e.avatar===target)){target=currentEnemies[0]?.avatar || '';if(!target)armed=false;}
             paintControls(currentEnemies);
             if(enabled&&!generating&&id===ctx.chat.length-1&&message&&!message.extra?.silly_teyvat_combat_scene){message.extra ??= {};message.extra.silly_teyvat_combat_scene=structuredClone(currentEnemies);Promise.resolve(ctx.saveChat?.()).catch(error=>console.warn('[Silly Teyvat] Combat scene save',error));}
             const historical=id<ctx.chat.length-1,display=historical?message?.extra?.silly_teyvat_combat_scene || []:currentEnemies;

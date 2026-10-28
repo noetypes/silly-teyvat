@@ -6,7 +6,7 @@ import {characterProperties} from './character-properties.js';
 import {linkedCard} from './persona-link.js';
 import {activePersonaAvatar,personaKey} from './persona-wardrobe.js';
 import {activeGroup} from './party.js';
-import {resonanceOf,planIntent} from './battle-engine.js';
+import {resonanceOf,planIntent,innateAura,auraList} from './battle-engine.js';
 import {STARTER_BAG,addToBag} from './battle-items.js';
 
 // Genius Invokation TCG card art, for characters and enemies that have a card of the same name.
@@ -56,7 +56,9 @@ export function battleSnapshot(ctx,{portrait=()=>''}={}){
             hp:e.hp,maxHp:e.maxHp,shield:keep?keep.shield || 0:Number(kit.shield)||0,energy:0,maxEnergy:0,aura:keep?.aura || null,statuses:keep?.statuses || [],cooldowns:structuredClone(keep?.cooldowns || {}),enraged:Boolean(keep?.enraged),usedRage:Boolean(keep?.usedRage),intent:keep?.intent || null,
             armor:keep?.armor ?? (Number(kit.armor)||0),armorBreak:kit.armorBreak || '',weakTo:kit.weakTo || '',evasion:Number(kit.evasion)||0,kit,visit:e.key});
     }
-    const state={key,round:saved.round || 1,units,summons:structuredClone(saved.summons || []),difficulty:combatDifficulty(ctx),bag:{...partyBag(ctx)}};
+    // Elemental enemies enter with their own element applied (see innateAura).
+    for(const u of units)if(u.hp>0&&innateAura(u)&&!auraList(u.aura).length)u.aura={element:innateAura(u),elements:[innateAura(u)]};
+    const state={key,round:saved.round || 1,units,summons:structuredClone(saved.summons || []),fields:structuredClone(saved.fields || []),difficulty:combatDifficulty(ctx),bag:{...partyBag(ctx)}};
     state.resonance=resonanceOf(units);
     // An enemy without a telegraphed move picks one now, and keeps it until it acts.
     for(const u of units.filter(u=>u.side==='enemy'&&u.hp>0&&(!u.intent||u.intent.target&&!units.some(p=>p.id===u.intent.target&&p.hp>0)))){
@@ -80,7 +82,7 @@ export function commitRound(ctx,before,result,id,{items=[],loot=[]}={}){
         // Fled enemies leave this visit but stay in the location's pool for later visits.
         if(result.fled&&u.side==='enemy'&&u.hp>0)store.visits[u.visit].enemies[u.id].fled=true;
     }
-    saved.round=after.round;saved.summons=after.summons;
+    saved.round=after.round;saved.summons=after.summons;saved.fields=after.fields || [];
     const bag=partyBag(ctx);
     for(const id of items){if(bag[id]>0)bag[id]--;if(bag[id]===0)delete bag[id];}
     addToBag(bag,loot);
@@ -121,6 +123,7 @@ export function roundNarration(before,result){
             case 'downed':extra.push(`${name(e.target)} was downed`);break;
             case 'item':flush();current=`The party used ${e.name}${e.target?` on ${name(e.target)}`:''}`;break;
             case 'dispel':extra.push(`dispelled ${e.name}`);break;
+            case 'field':if(e.name)extra.push(`created ${e.name==='Dendro Core'?'a Dendro Core':'a Catalyzing Field'}`);break;
             case 'flee':{flush();const foes=list(before.units.filter(u=>u.side==='enemy'&&u.hp>0).map(u=>u.name));lines.push(e.success?`The party fled from ${foes}.`:`The party tried to flee from ${foes} but could not get away.`);break;}
         }
     }

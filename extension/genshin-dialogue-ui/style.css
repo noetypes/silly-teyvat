@@ -1326,13 +1326,12 @@ body.gi-scene:not(.gi-history) #mes_stop:focus-visible { outline:2px solid #f3d8
 @media(max-height:500px) and (orientation:landscape){#gi-combat{top:65px;right:15px}.gi-enemy-health{padding:5px 8px}#gi-elemental-roll{padding:10px}#gi-elemental-roll h2{font-size:1.1rem;margin:2px}#gi-elemental-roll canvas{height:30vh}#gi-elemental-roll p{margin:5px}.gi-dice-results{min-height:20px}#gi-elemental-roll button{padding:5px 25px}}
 /* The sword arms an attack on the next sent messages without consuming a reply. */
 #gi-attack-controls{position:absolute;left:var(--gi-attack-left,calc(-1 * var(--gi-action-width,44px) - 6px));top:var(--gi-action-top,0px);z-index:2;pointer-events:auto}
-#gi-attack-controls[hidden],#gi-attack-target[hidden]{display:none!important}
+#gi-attack-controls[hidden]{display:none!important}
 #gi-navigation #gi-attack-toggle{display:grid;place-items:center;width:var(--gi-action-width,44px);height:var(--gi-action-size,44px);min-height:0;padding:1px;border:1px solid transparent;border-radius:50%;color:#efe6ce;background:transparent;cursor:pointer}
 #gi-navigation #gi-attack-toggle svg{width:min(24px,calc(var(--gi-action-size,44px) - 4px));height:min(24px,calc(var(--gi-action-size,44px) - 4px));fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
 #gi-navigation #gi-attack-toggle[aria-pressed="true"]{color:#ffe398;background:#5d493a8f;border-color:#e7c782;box-shadow:0 0 9px #e4bc6055}
 #gi-navigation #gi-attack-toggle[aria-pressed="true"] svg path:first-child{fill:#ecd19438}
 #gi-attack-toggle:disabled{opacity:.45;cursor:default}
-#gi-attack-target{position:absolute;bottom:calc(100% + 7px);left:0;width:min(190px,45vw);padding:5px 8px;border:1px solid #bda678;border-radius:5px;background:#273343eb;color:#fff2d0;font:12px "Silly Teyvat Dialogue",sans-serif}
 
 /* @@silly-teyvat-1.19-ui@@ */
 /* ==========================================================================
@@ -1436,7 +1435,6 @@ body.gi-scene:not(.gi-history) #chat > .mes.gi-current .mes_block { animation: t
 #gi-attack-controls #gi-attack-toggle { transition: color 200ms ease, background 200ms ease, box-shadow 260ms ease, transform 240ms var(--ty-ease); }
 #gi-attack-controls #gi-attack-toggle[aria-pressed="true"] { animation: ty-armed 1.8s ease-in-out infinite; }
 @keyframes ty-armed { 0%,100% { box-shadow: 0 0 8px #e4bc6050; } 50% { box-shadow: 0 0 16px #f2d794aa; } }
-#gi-attack-target { font-family: var(--ty-font); border-color: var(--ty-gold); background: var(--ty-navy); animation: ty-rise 220ms var(--ty-ease) both; }
 
 /* ---------- Combat: enemy HUD (Genshin boss bar language) ---------- */
 #gi-combat { gap: 10px; font-family: var(--ty-font); }
@@ -2300,7 +2298,6 @@ body.gi-reduced-motion #gi-attack-controls #gi-attack-toggle { animation: none; 
 /* Attack lives in the Teyvat Choices column, aligned with the refresh button. */
 #gi-attack-controls { position: static; left: auto; top: auto; display: flex; align-items: center; gap: 6px; width: max-content; }
 #gi-attack-controls[hidden] { display: none !important; }
-#gi-attack-controls #gi-attack-target { position: static; width: min(150px, 32vw); }
 #gi-attack-dock { position: fixed; z-index: 5; right: 4vw; bottom: calc(var(--gi-composer-height, 0px) + var(--gi-dialogue-height, 204px) + 102px + env(safe-area-inset-bottom, 0px)); display: flex; justify-content: flex-end; pointer-events: none; }
 #gi-attack-dock > * { pointer-events: auto; }
 body:not(.gi-scene) #gi-attack-dock, body.gi-history #gi-attack-dock { display: none; }
@@ -2422,8 +2419,12 @@ body:not(.gi-scene) #gi-party-health, body.gi-history #gi-party-health, body.gi-
 .tb-energy i.tb-on { background: radial-gradient(circle, #fffbe8 0 18%, #ffd76a 45%, #f3a93a); border-color: #fff4cf; box-shadow: 0 0 10px #ffcf5a; }
 .tb-card.tb-ready .tb-energy i { animation: tb-ready 900ms ease-in-out infinite alternate; }
 @keyframes tb-ready { to { box-shadow: 0 0 16px #ffe08a; filter: brightness(1.3); } }
-.tb-aura { position: absolute; top: -34px; left: 50%; translate: -50% 0; width: 26px; height: 26px; z-index: 3; filter: drop-shadow(0 0 7px currentColor); }
+.tb-aura { position: absolute; top: -34px; left: 50%; translate: -50% 0; display: flex; gap: 4px; height: 26px; z-index: 3; }
+.tb-aura-el { display: block; width: 26px; height: 26px; filter: drop-shadow(0 0 7px currentColor); }
 .tb-aura svg, .tb-aura img { width: 100%; height: 100%; display: block; }
+/* An elemental enemy's own element breathes softly, so it reads as part of the enemy rather than a fresh hit. */
+.tb-aura-el.tb-innate { animation: tb-innate 2.4s ease-in-out infinite alternate; }
+@keyframes tb-innate { to { filter: drop-shadow(0 0 12px currentColor) brightness(1.15); } }
 .tb-aura.tb-pop { animation: tb-pop 380ms var(--ty-ease, ease) both; }
 .tb-shield { position: absolute; left: -12px; top: 32px; width: 30px; height: 32px; z-index: 3; display: grid; place-items: center; color: #f2c94c; filter: drop-shadow(0 0 6px #f2c94c99); }
 .tb-shield[hidden] { display: none; }
@@ -2477,9 +2478,6 @@ body:not(.gi-scene) #gi-party-health, body.gi-history #gi-party-health, body.gi-
 .tb-party.tb-reviving .tb-art { box-shadow: 0 0 0 3px #9dff9a, 0 0 22px 4px #9dff9a88, 0 10px 22px #000a; }
 .tb-end.tb-go:not(:disabled) { animation: tb-go 900ms ease-in-out infinite alternate; }
 @keyframes tb-go { to { transform: scale(1.07); box-shadow: inset 0 0 0 3px #fff3cf, inset 0 0 0 7px #b8863a, 0 0 0 3px #6b4a22, 0 0 54px #ffd780, 0 8px 18px #0009; } }
-.tb-ready-note { display: grid; gap: 2px; max-width: 260px; margin: 0; padding: 10px 16px; border-radius: 12px; text-align: right; color: #f5e8bd; background: linear-gradient(#26304acc, #161c2ccc); box-shadow: 0 0 0 1px #e9d9ac66, 0 6px 14px #0008; }
-.tb-ready-note strong { font-size: 17px; font-weight: 400; color: #ffe9a6; }
-.tb-ready-note span { font-size: 12px; opacity: .8; }
 .tb-order { position: absolute; right: calc(72px + 2vw); bottom: calc(2.4% + 124px); z-index: 6; display: flex; align-items: center; gap: 6px; padding: 3px; border-radius: 18px; color: #3a2a08; background: #f6e7bdee; box-shadow: 0 0 0 1px #8a6a43, 0 4px 10px #0009; }
 .tb-order[hidden] { display: none; }
 .tb-order span { min-width: 72px; font-size: 13px; text-align: center; }
@@ -2487,10 +2485,12 @@ body:not(.gi-scene) #gi-party-health, body.gi-history #gi-party-health, body.gi-
 .tb-order button:disabled { opacity: .35; cursor: default; }
 .tb-order button:not(:disabled):hover { filter: brightness(1.15); }
 .tb-party.tb-short .tb-plan { background: radial-gradient(circle at 50% 35%, #e07a6a, #8a2a1e); }
-.tb-targeted .tb-art, .tb-ally-target .tb-art { box-shadow: 0 0 0 3px #fff, 0 0 26px 6px #ff7a5c, 0 10px 22px #000a; }
 .tb-ally-target .tb-art { box-shadow: 0 0 0 3px #fff, 0 0 26px 6px #9dff9a, 0 10px 22px #000a; }
-.tb-targeted::before { content: ""; position: absolute; z-index: 6; left: 50%; top: 42%; width: 52px; height: 52px; translate: -50% -50%; border-radius: 50%; border: 2px solid #ff7a5c; background: radial-gradient(circle, #ff7a5c 0 3px, #0000 4px); box-shadow: 0 0 14px #ff7a5c; animation: tb-reticle 1.4s linear infinite; pointer-events: none; }
-@keyframes tb-reticle { to { rotate: 1turn; } }
+/* The enemy you are aiming at grows a little and glows; the glow breathes slowly while it stays selected. */
+.tb-enemy { transition: transform 380ms cubic-bezier(.22, 1, .36, 1), filter 240ms; }
+.tb-enemy.tb-targeted { transform: scale(1.08); z-index: 3; }
+.tb-enemy.tb-targeted .tb-art { box-shadow: 0 0 0 3px #fff4ea, 0 0 0 6px #ff7a5c99, 0 0 38px 12px #ff6a48cc, 0 12px 26px #000b; animation: tb-aim 1.6s ease-in-out 380ms infinite alternate; }
+@keyframes tb-aim { to { box-shadow: 0 0 0 3px #fff4ea, 0 0 0 7px #ff8a6cbb, 0 0 52px 18px #ff6a48ee, 0 12px 26px #000b; } }
 .tb-choosable .tb-art { animation: tb-choose 800ms ease-in-out infinite alternate; }
 @keyframes tb-choose { to { box-shadow: 0 0 0 3px #fff, 0 0 30px 8px #f6e7bd; } }
 .tb-card.tb-down, .tb-card.tb-downed { filter: grayscale(1) brightness(.55); }
@@ -2688,7 +2688,7 @@ body:not(.gi-scene) #gi-party-health, body.gi-history #gi-party-health, body.gi-
     #gi-battle { --ch: min(18dvh, calc((100vw - 64px) / 4.4 / .583)); --gap: 0px; }
     .tb-board { inset: 6px; display: grid; grid-template-columns: minmax(0, 1fr) auto; grid-template-rows: auto auto auto minmax(10px, 1fr) auto auto auto auto auto; grid-template-areas: "plate skip" "foe foe" "fsum fsum" "mid mid" "you you" "ysum ysum" "dice dice" "hand hand" "turn skills"; row-gap: 8px; padding: 10px 10px max(10px, env(safe-area-inset-bottom)); border-radius: 16px; }
     .tb-board > :not(.tb-tip, .tb-banner, .tb-combo, .tb-confirm, .tb-order) { position: static !important; translate: none !important; }
-    .tb-order { right: 10px; bottom: 88px; } .tb-ready-note { padding: 6px 10px; } .tb-ready-note strong { font-size: 14px; } .tb-ready-note span { display: none; }
+    .tb-order { right: 10px; bottom: 88px; }
     .tb-crest, .tb-midline, .tb-emblem, .tb-plate-you, .tb-res { display: none; }
     .tb-plate-foe { grid-area: plate; justify-self: start; max-width: 100%; min-width: 0; padding-right: 30px; } .tb-plate strong { overflow: hidden; text-overflow: ellipsis; } .tb-plate-img { width: 34px; height: 34px; } .tb-plate strong { font-size: 15px; } .tb-plate small { font-size: 11px; }
     .tb-skip { grid-area: skip; width: 38px; height: 38px; }
@@ -2709,7 +2709,7 @@ body:not(.gi-scene) #gi-party-health, body.gi-history #gi-party-health, body.gi-
     .tb-energy { right: -6px; gap: 4px; } .tb-energy i { width: 10px; height: 10px; }
     .tb-plan { width: 30px; height: 30px; right: -10px; bottom: -10px; } .tb-plan i { width: 16px; height: 16px; }
     .tb-intent { bottom: -18px; padding: 2px 6px; } .tb-intent svg { width: 14px; height: 14px; } .tb-intent b { font-size: 13px; } .tb-intent img { width: 18px; height: 18px; }
-    .tb-aura { top: -26px; width: 20px; height: 20px; } .tb-status { bottom: 18px; } .tb-st { width: 15px; height: 15px; font-size: 9px; }
+    .tb-aura { top: -26px; height: 20px; } .tb-aura-el { width: 20px; height: 20px; } .tb-status { bottom: 18px; } .tb-st { width: 15px; height: 15px; font-size: 9px; }
     .tb-combo { position: absolute !important; right: 8%; top: 42%; font-size: 24px; }
     .tb-result h3 { font-size: 28px; }
 }
@@ -2773,6 +2773,47 @@ body:not(.gi-scene) #gi-party-health, body.gi-history #gi-party-health, body.gi-
 
 /* Reaction icon beside its floating name */
 .gb-reaction-icon { width: auto; height: 22px; margin-right: 4px; vertical-align: -5px; -webkit-text-stroke: 0; filter: drop-shadow(0 0 6px var(--c, #fff)); }
+
+/* Combat statuses from reactions (Dendro Core, Catalyzing Field), by each side's plate */
+.tb-fields { position: absolute; left: 1.6%; z-index: 3; display: flex; gap: 6px; }
+.tb-fields-foe { top: calc(1.6% + 66px); } .tb-fields-you { bottom: calc(1.6% + 66px); }
+.tb-field { position: relative; display: grid; place-items: center; width: 34px; height: 34px; border-radius: 50%; background: radial-gradient(circle, #2a3a2acc, #141c26ee); box-shadow: 0 0 0 2px #d9c99a, 0 0 12px #6fdc7d88, 0 3px 8px #0009; }
+.tb-field img, .tb-field svg { width: 26px; height: 26px; }
+.tb-field b { position: absolute; right: -5px; bottom: -4px; min-width: 16px; padding: 0 3px; border-radius: 8px; font: 11px/16px var(--ty-font, sans-serif); text-align: center; color: #1b2232; background: #f5e8bd; }
+.tb-field.tb-pop { animation: tb-pop 380ms var(--ty-ease, ease) both; }
+@media (max-aspect-ratio: 4/5) { .tb-fields { position: absolute !important; left: 8px; } .tb-fields-foe { top: 52px; } .tb-fields-you { top: auto; bottom: 8px; } }
+
+/* Reactions: the reaction's icon blooms over the card with a double shockwave; each reaction moves the card in its own way. */
+.gb-rx { --d: 0ms; position: absolute; z-index: 9; width: 0; height: 0; pointer-events: none; }
+.gb-rx > * { position: absolute; left: 0; top: 0; translate: -50% -50%; animation-delay: var(--d); animation-fill-mode: both; }
+.gb-rx-ring { width: 160px; height: 160px; border-radius: 50%; border: 3px solid var(--c); box-shadow: 0 0 22px var(--c), inset 0 0 22px var(--c); animation: gb-rx-ring 720ms cubic-bezier(.2, .8, .3, 1); }
+.gb-rx-ring-2 { border-width: 2px; animation-duration: 940ms; animation-delay: calc(var(--d) + 90ms); }
+.gb-rx-flash { width: 200px; height: 200px; border-radius: 50%; background: radial-gradient(circle, color-mix(in srgb, var(--c) 70%, #fff) 0, color-mix(in srgb, var(--c) 45%, transparent) 30%, transparent 65%); mix-blend-mode: screen; animation: gb-rx-flash 620ms ease-out; }
+.gb-rx-icon { width: 76px; height: 76px; object-fit: contain; filter: drop-shadow(0 0 14px var(--c)) drop-shadow(0 4px 8px #000a); animation: gb-rx-icon 1200ms cubic-bezier(.2, .9, .3, 1.2); }
+@keyframes gb-rx-ring { from { scale: .1; opacity: 1; } 70% { opacity: .7; } to { scale: 1.25; opacity: 0; } }
+@keyframes gb-rx-flash { from { scale: .2; opacity: 0; } 25% { opacity: 1; } to { scale: 1.2; opacity: 0; } }
+@keyframes gb-rx-icon { from { scale: .2; opacity: 0; } 22% { scale: 1.25; opacity: 1; } 40% { scale: 1; } 75% { opacity: 1; translate: -50% -60%; } to { scale: .9; opacity: 0; translate: -50% -85%; } }
+/* Per-reaction flavour */
+.gb-rx-swirl .gb-rx-ring { border-style: dashed; animation-name: gb-rx-swirl; }
+@keyframes gb-rx-swirl { from { scale: .1; rotate: 0deg; opacity: 1; } to { scale: 1.3; rotate: 300deg; opacity: 0; } }
+.gb-rx-overloaded .gb-rx-flash { width: 280px; height: 280px; animation-duration: 760ms; }
+.gb-rx-overloaded .gb-rx-ring { border-width: 6px; }
+.gb-rx-frozen .gb-rx-ring, .gb-rx-shatter .gb-rx-ring { border-radius: 18%; rotate: 45deg; }
+.gb-rx-superconduct .gb-rx-ring, .gb-rx-electro-charged .gb-rx-ring { border-style: dotted; border-width: 4px; }
+.gb-rx-crystallize .gb-rx-ring { border-radius: 0; clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%); border-width: 0; background: radial-gradient(circle, transparent 55%, var(--c) 58%, transparent 62%); box-shadow: none; }
+.gb-rx-bloom .gb-rx-flash, .gb-rx-quicken .gb-rx-flash { background: radial-gradient(circle, #e8ffd8 0, color-mix(in srgb, var(--c) 55%, transparent) 35%, transparent 65%); }
+.gb-rx-burning .gb-rx-flash { animation-duration: 900ms; }
+.tb-card.tb-rx { animation: tb-rx-jolt 520ms ease-out; }
+.tb-card.tb-rx[data-rx="overloaded"] { animation: tb-rx-blast 620ms cubic-bezier(.2, .8, .3, 1); }
+.tb-card.tb-rx[data-rx="swirl"] { animation: tb-rx-spin 620ms ease-in-out; }
+.tb-card.tb-rx[data-rx="frozen"] .tb-art, .tb-card.tb-rx[data-rx="shatter"] .tb-art { animation: tb-rx-ice 700ms ease-out; }
+.tb-card.tb-rx[data-rx="electro-charged"], .tb-card.tb-rx[data-rx="superconduct"] { animation: tb-rx-buzz 480ms steps(8); }
+@keyframes tb-rx-jolt { 20% { scale: 1.06; filter: brightness(1.6); } }
+@keyframes tb-rx-blast { 15% { scale: 1.1; filter: brightness(2) saturate(1.4); } 40% { translate: 0 -10px; } }
+@keyframes tb-rx-spin { 50% { rotate: 6deg; scale: 1.05; } }
+@keyframes tb-rx-ice { 20% { filter: brightness(1.8) saturate(.4) hue-rotate(-20deg); } }
+@keyframes tb-rx-buzz { 0%, 100% { translate: 0; } 25% { translate: -3px 1px; } 50% { translate: 3px -1px; } 75% { translate: -2px -1px; filter: brightness(1.5); } }
+.gb-float.gb-boost { font-size: 15px; margin-top: 30px; }
 
 /* Location music is independent of character voices and battle effects. */
 .gi-music-dialog{box-sizing:border-box;width:min(860px,94vw);max-height:90dvh;padding:22px;border:1px solid #bba775;border-radius:12px;background:#132237f5;color:#f3ecd9;font:inherit;box-shadow:0 14px 60px #0009;overflow:auto;}
@@ -2997,7 +3038,18 @@ body.gi-enabled #chat > .mes.gi-combat-log { display: none !important; }
 .gi-inv-group-head { display: flex; align-items: center; justify-content: space-between; margin: 0 0 16px; padding: 11px 18px; border-radius: 3px; font-size: 19px; font-weight: 400; color: #ece5d8; background: var(--inv-band); box-shadow: inset 0 0 0 1px #ffffff10; }
 .gi-inv-group-head small { font-size: 15px; color: #ece5d8b3; }
 .gi-inv-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(var(--inv-tile), 1fr)); gap: 20px 18px; }
-.gi-inv-empty { margin: 12vh auto 0; max-width: 420px; font-size: 18px; text-align: center; color: #ece5d8b3; }
+/* Nothing to show: the list gives up its column and the message sits in the middle of the screen. */
+#gi-inventory[data-empty="true"] .gi-inv-body { grid-template-columns: minmax(0, 1fr); }
+#gi-inventory[data-empty="true"] .gi-inv-list { display: grid; place-items: center; overflow: hidden; padding: 0; }
+.gi-inv-empty { display: grid; justify-items: center; gap: 18px; max-width: 440px; padding-bottom: 76px; text-align: center; animation: ty-fade 260ms ease both; }
+.gi-inv-empty[hidden] { display: none; }
+.gi-inv-empty-icon { position: relative; display: grid; place-items: center; width: 108px; height: 108px; border-radius: 50%; color: #ece5d8b3; background: radial-gradient(circle, #ece5d814 0 54%, transparent 55%); box-shadow: inset 0 0 0 1.5px #d3bc8e66, 0 0 0 8px #d3bc8e12; }
+.gi-inv-empty-icon::before, .gi-inv-empty-icon::after { content: "✦"; position: absolute; top: 50%; translate: 0 -50%; font-size: 12px; color: #d3bc8e99; }
+.gi-inv-empty-icon::before { left: -26px; } .gi-inv-empty-icon::after { right: -26px; }
+.gi-inv-empty-icon svg { width: 48px; height: 48px; }
+.gi-inv-empty p { position: relative; margin: 0; padding: 0 34px; font-size: 20px; letter-spacing: .02em; color: #ece5d8d9; }
+.gi-inv-empty p::before, .gi-inv-empty p::after { content: ""; position: absolute; top: 50%; width: 24px; height: 1px; background: linear-gradient(90deg, transparent, #d3bc8e99); }
+.gi-inv-empty p::before { left: 0; } .gi-inv-empty p::after { right: 0; rotate: 180deg; }
 
 /* A tile: the card on its quality colour, the count where Genshin shows +level, a cream name strip. */
 .gi-inv-card { --q1: #5a6d9a; --q2: #6b86c6; position: relative; display: grid; grid-template-rows: auto auto; padding: 0; border: 0; border-radius: 8px 8px 6px 6px; overflow: hidden; cursor: pointer; text-align: center; color: var(--inv-ink); background: var(--inv-paper); box-shadow: 0 4px 10px #0007; transition: transform 160ms var(--ty-ease, ease), box-shadow 160ms ease; }
@@ -3039,13 +3091,30 @@ body.gi-enabled #chat > .mes.gi-combat-log { display: none !important; }
 .gi-inv-d-use { margin: 0; font-size: 17px; line-height: 1.4; color: #5b6476; }
 .gi-inv-d-foot { padding: 12px 22px; font-size: 18px; background: #fdf3d6; box-shadow: inset 0 1px 0 #d3bc8e66; }
 
-/* Bottom bar: order toggle and the sort pill. */
-.gi-inv-foot { display: flex; align-items: center; gap: 18px; padding: 14px clamp(16px, 5vw, 96px) max(16px, env(safe-area-inset-bottom, 0px)); }
-.gi-inv-order { display: grid; place-items: center; width: 50px; height: 50px; padding: 0; border: 0; border-radius: 50%; cursor: pointer; color: var(--inv-ink); background: var(--inv-paper); box-shadow: 0 4px 10px #0007; }
-.gi-inv-order svg { width: 24px; height: 24px; transition: rotate 200ms ease; }
+/* Bottom bar: the order toggle and sort pill, centred together. The sort list rises from the pill. */
+.gi-inv-foot { display: flex; justify-content: center; padding: 14px clamp(16px, 5vw, 96px) max(16px, env(safe-area-inset-bottom, 0px)); }
+.gi-inv-sortbar { display: flex; align-items: center; gap: 14px; }
+.gi-inv-order { display: grid; place-items: center; width: 50px; height: 50px; padding: 0; border: 0; border-radius: 50%; cursor: pointer; color: var(--inv-ink); background: var(--inv-paper); box-shadow: inset 0 0 0 2px #fff8, 0 0 0 1px #d3bc8e88, 0 4px 10px #0007; transition: transform 160ms var(--ty-ease, ease), filter 160ms; }
+.gi-inv-order svg { width: 24px; height: 24px; transition: rotate 240ms var(--ty-ease, ease); }
 .gi-inv-order[aria-pressed="true"] svg { rotate: 180deg; }
-.gi-inv-sort { display: flex; align-items: center; gap: 6px; height: 48px; padding: 0 8px 0 22px; border-radius: 24px; font-size: 18px; color: var(--inv-ink); background: var(--inv-paper); box-shadow: 0 4px 10px #0007; }
-.gi-inv-sort select { height: 40px; min-width: 120px; padding: 0 10px; border: 0; font: inherit; color: inherit; background: transparent; cursor: pointer; }
+.gi-inv-order:hover, .gi-inv-sort-button:hover { filter: brightness(1.06); }
+.gi-inv-order:active, .gi-inv-sort-button:active { transform: scale(.96); }
+.gi-inv-sort { position: relative; }
+.gi-inv-sort-button { display: flex; align-items: center; gap: 10px; min-width: 240px; height: 50px; padding: 0 20px 0 24px; border: 0; border-radius: 25px; cursor: pointer; font-size: 18px; color: var(--inv-ink); background: var(--inv-paper); box-shadow: inset 0 0 0 2px #fff8, 0 0 0 1px #d3bc8e88, 0 4px 10px #0007; transition: transform 160ms var(--ty-ease, ease), filter 160ms; }
+.gi-inv-sort-label { color: #3d4557a6; }
+.gi-inv-sort-button b { flex: 1; font-weight: 400; text-align: left; }
+.gi-inv-caret { width: 10px; height: 10px; margin-top: -4px; border-right: 2px solid currentColor; border-bottom: 2px solid currentColor; rotate: 45deg; transition: rotate 220ms var(--ty-ease, ease), margin 220ms; }
+.gi-inv-sort-button[aria-expanded="true"] .gi-inv-caret { rotate: 225deg; margin-top: 4px; }
+.gi-inv-sort-button:focus-visible, .gi-inv-order:focus-visible { outline: 3px solid #f2dca0; outline-offset: 3px; }
+.gi-inv-sort-menu { position: absolute; left: 50%; bottom: calc(100% + 12px); z-index: 5; display: grid; gap: 4px; width: 100%; min-width: 240px; margin: 0; padding: 8px; list-style: none; border-radius: 18px; translate: -50% 0; background: #ece5d8f5; box-shadow: inset 0 0 0 1px #fff9, 0 0 0 1px #d3bc8e, 0 14px 34px #000a; transform-origin: 50% 100%; animation: gi-inv-menu 200ms var(--ty-ease, cubic-bezier(.22, 1, .36, 1)) both; }
+.gi-inv-sort-menu::after { content: ""; position: absolute; left: 50%; bottom: -7px; width: 12px; height: 12px; translate: -50% 0; rotate: 45deg; background: #ece5d8; box-shadow: 1px 1px 0 #d3bc8e; }
+.gi-inv-sort-menu[hidden] { display: none; }
+@keyframes gi-inv-menu { from { opacity: 0; transform: translateY(8px) scale(.96); } }
+.gi-inv-sort-menu li { position: relative; display: flex; align-items: center; height: 44px; padding: 0 44px 0 18px; border-radius: 22px; font-size: 18px; color: var(--inv-ink); cursor: pointer; outline: none; transition: background 140ms ease, color 140ms ease; }
+.gi-inv-sort-menu li:hover, .gi-inv-sort-menu li:focus-visible { background: #d3bc8e40; }
+.gi-inv-sort-menu li:focus-visible { box-shadow: inset 0 0 0 2px #d3bc8e; }
+.gi-inv-sort-menu li[aria-selected="true"] { color: #ece5d8; background: linear-gradient(#4a5268, #3d4557); box-shadow: inset 0 0 0 1px #d3bc8e88; }
+.gi-inv-sort-menu li[aria-selected="true"]::after { content: ""; position: absolute; right: 20px; top: 50%; width: 6px; height: 12px; margin-top: -8px; border-right: 2px solid #f2dca0; border-bottom: 2px solid #f2dca0; rotate: 45deg; }
 
 @media (max-width: 860px), (max-aspect-ratio: 4/5) {
     #gi-inventory { --inv-tile: 104px; }
@@ -3058,6 +3127,7 @@ body.gi-enabled #chat > .mes.gi-combat-log { display: none !important; }
     .gi-inv-d-hero { min-height: 150px; } .gi-inv-d-stat { margin-top: 8px; } .gi-inv-d-stat strong { font-size: 28px; }
     .gi-inv-d-effects li { font-size: 16px; } .gi-inv-d-set { font-size: 17px; } .gi-inv-d-use, .gi-inv-d-foot { font-size: 15px; }
     .gi-inv-group-head { font-size: 16px; padding: 8px 12px; } .gi-inv-grid { gap: 14px 12px; } .gi-inv-name { font-size: 12px; }
-    .gi-inv-foot { padding: 10px 12px max(10px, env(safe-area-inset-bottom, 0px)); } .gi-inv-order { width: 42px; height: 42px; } .gi-inv-sort { height: 42px; font-size: 15px; }
+    .gi-inv-foot { padding: 10px 12px max(10px, env(safe-area-inset-bottom, 0px)); } .gi-inv-order { width: 42px; height: 42px; } .gi-inv-sort-button { min-width: 200px; height: 42px; font-size: 15px; } .gi-inv-sort-menu { min-width: 200px; } .gi-inv-sort-menu li { height: 40px; font-size: 15px; }
+    .gi-inv-empty { padding-bottom: 40px; } .gi-inv-empty-icon { width: 84px; height: 84px; } .gi-inv-empty-icon svg { width: 38px; height: 38px; } .gi-inv-empty p { font-size: 17px; }
 }
 @media (prefers-reduced-motion: reduce) { #gi-inventory, #gi-inventory * { animation-duration: 1ms !important; transition-duration: 1ms !important; } }

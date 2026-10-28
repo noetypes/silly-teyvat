@@ -83,6 +83,10 @@ export function createBattleSound() {
             if (crit) chord(at + .03, [1760, 2637], {gain: .07, decay: .3, out});
             for (const name of String(reaction).split(' + ').filter(Boolean)) REACTION[name]?.(at + .06, bus(.85, {pan, wet: .25}));
         },
+        // A card slapped onto the table: a paper flick, a soft felt tap and a small chime.
+        card() { if (!ready()) return; const at = now(), out = bus(.55, {wet: .2}); hiss(at, {freq: 3200, to: 1400, q: 1.4, gain: .35, attack: .006, decay: .07, out}); thud(at + .05, out, .25); tone(at + .07, {type: 'triangle', freq: 1568, gain: .07, decay: .25, out}); },
+        // A reaction's combat status (Dendro Core, Catalyzing Field) settling beside the plate.
+        field() { if (!ready()) return; const at = now(), out = bus(.5, {wet: .4}); chord(at, [659, 988, 1319], {gain: .08, step: .05, decay: .5, out}); },
         miss() { if (!ready()) return; const at = now(), out = bus(.5); hiss(at, {freq: 2000, to: 600, q: 2, gain: .4, attack: .02, decay: .18, out}); },
         heal() { if (!ready()) return; const at = now(), out = bus(.6, {wet: .4}); chord(at, [784, 988, 1175, 1568], {gain: .09, step: .07, decay: .7, out}); },
         shield() { if (!ready()) return; const at = now(), out = bus(.6, {wet: .3}); chord(at, [523, 1046, 1568], {type: 'sine', gain: .12, decay: .8, out}); hiss(at, {type: 'highpass', freq: 5000, gain: .15, decay: .3, out}); },
