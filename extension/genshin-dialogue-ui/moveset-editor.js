@@ -42,8 +42,9 @@ export function mountMovesetEditor({panel,getContext,getCharacter,status=()=>{}}
                 <label>Armor (% less damage)<input data-k="armor" type="number" min="0" max="90" value="${kit.armor || 0}"></label>
                 <label>Armor broken by<select data-k="armorBreak">${opt('','Nothing')}${ELEMENTS.map(x=>opt(x)).join('')}</select></label>
                 <label>Evasion (%)<input data-k="evasion" type="number" min="0" max="80" value="${kit.evasion || 0}"></label>`
-                :`<label>Weapon<select data-k="weapon">${WEAPONS.map(x=>opt(x,x[0].toUpperCase()+x.slice(1))).join('')}</select></label>
-                <label>Burst Energy<input data-k="energy" type="number" min="1" max="5" value="${kit.energy || 2}"></label>`}
+                :`<label>Weapon<select data-k="weapon">${WEAPONS.map(x=>opt(x,x==='none'?'None (unarmed)':x[0].toUpperCase()+x.slice(1))).join('')}</select></label>
+                <label>Burst Energy<input data-k="energy" type="number" min="1" max="5" value="${kit.energy || 2}"></label>
+                <label>Dodge (%)<input data-k="evasion" type="number" min="0" max="90" value="${kit.evasion || 0}"></label>`}
             </div>
             ${kit.moves.map((move,i)=>`<section class="gi-move-edit" data-move="${i}">
                 <div class="gi-move-head"><small>${KIND_LABEL[move.kind]}</small><input data-m="name" maxlength="80" value="${esc(move.name)}" aria-label="${KIND_LABEL[move.kind]} name"></div>
@@ -73,7 +74,7 @@ export function mountMovesetEditor({panel,getContext,getCharacter,status=()=>{}}
         const value=selector=>panel.querySelector(selector)?.value;
         const next={...kit,role:value('[data-k="role"]') || kit.role};
         if(enemy){next.element=value('[data-k="element"]') || kit.element;next.shield=num(value('[data-k="shield"]'),0,99,0);next.weakTo=value('[data-k="weakTo"]') || '';next.armor=num(value('[data-k="armor"]'),0,90,0);next.armorBreak=value('[data-k="armorBreak"]') || '';next.evasion=num(value('[data-k="evasion"]'),0,80,0);}
-        else{next.weapon=value('[data-k="weapon"]') || kit.weapon;next.energy=num(value('[data-k="energy"]'),1,5,2);}
+        else{next.weapon=value('[data-k="weapon"]') || kit.weapon;next.energy=num(value('[data-k="energy"]'),1,5,2);next.evasion=num(value('[data-k="evasion"]'),0,90,0);}
         const element=enemy?next.element:props.element;
         next.moves=kit.moves.map((move,i)=>{
             const section=panel.querySelector(`.gi-move-edit[data-move="${i}"]`),field=name=>section.querySelector(`[data-m="${name}"]`)?.value;

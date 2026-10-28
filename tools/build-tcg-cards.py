@@ -27,6 +27,7 @@ ITEMS = {
     'woven-stone': 'Elemental Resonance: Woven Stone',
 }
 WIDTH = 360
+SUPPLIED = ['Aether', 'Lumine', 'Paimon']
 norm = lambda s: re.sub(r'[^a-z0-9]', '', s.lower())
 
 def get(params):
@@ -65,6 +66,8 @@ def main():
     for item, title in ITEMS.items():
         if title not in actions: print('Missing item card', title, file=sys.stderr); continue
         total += save(actions[title], OUT / 'items' / f'{item}.webp'); time.sleep(.1)
+    # Cards supplied by the user (Aether, Lumine, Paimon) are not on the wiki; keep them listed.
+    found += [n for n in SUPPLIED if (OUT / 'characters' / f'{n}.webp').exists() and n not in found]
     (OUT / 'characters.json').write_text(json.dumps(sorted(found), indent=1))
     print(f'{len(found)} character cards, {len(ITEMS)} item cards, {total / 1e6:.1f} MB')
 

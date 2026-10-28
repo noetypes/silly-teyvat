@@ -8,6 +8,7 @@ import {describeMove,KIND_LABEL} from './combat-kits.js';
 import {ITEMS,itemArt,applyDiceItem} from './battle-items.js';
 import {createBattleSound} from './battle-sound.js';
 import {createParticles,glyph,weaponIcon,EL_COLORS} from './battle-fx.js';
+import {elementImg,reactionIcon,skillIcon,characterIcon,summonArt} from './battle-icons.js';
 
 const el=(tag,cls,text)=>{const n=document.createElement(tag);if(cls)n.className=cls;if(text!==undefined)n.textContent=text;return n;};
 export const splashUrl=name=>name?new URL(`./assets/splash/${encodeURIComponent(name)}.webp`,import.meta.url).href:'';
@@ -64,6 +65,8 @@ export function mountBattle({host,sound=createBattleSound()}){
     const effectsOn=()=>opts.effects!==false&&!reduced();
     const wait=ms=>new Promise(resolve=>{if(skipAll||ms<=0){resolve();return;}setTimeout(resolve,ms/speed);});
     const artOf=u=>u.art || u.img || '';
+    // Round portrait: the wiki's character icon when there is one.
+    const iconOf=u=>characterIcon(u.card) || u.img || u.art || '';
     // ---- Cards ----------------------------------------------------------------------
     function buildCard(u){
         const card=el('button',`tb-card tb-${u.side}`);card.type='button';card.dataset.id=u.id;card.style.setProperty('--el',EL_COLORS[u.element] || EL_COLORS.None);
@@ -84,7 +87,7 @@ export function mountBattle({host,sound=createBattleSound()}){
         card.classList.toggle('tb-low',hp>0&&hp<=u.maxHp*.3);card.classList.toggle('tb-down',hp<=0);
         const sh=card.querySelector('.tb-shield');sh.hidden=!(u.shield>0);sh.querySelector('b').textContent=u.shield>0?String(u.shield):'';
         const auraNode=card.querySelector('.tb-aura');
-        if(auraNode.dataset.el!==aura){auraNode.dataset.el=aura;auraNode.innerHTML=aura?glyph(aura):'';auraNode.style.color=EL_COLORS[aura] || '';if(aura){auraNode.classList.remove('tb-pop');void auraNode.offsetWidth;auraNode.classList.add('tb-pop');}}
+        if(auraNode.dataset.el!==aura){auraNode.dataset.el=aura;auraNode.innerHTML=aura?elementImg(aura):'';auraNode.style.color=EL_COLORS[aura] || '';if(aura){auraNode.classList.remove('tb-pop');void auraNode.offsetWidth;auraNode.classList.add('tb-pop');}}
         if(u.side==='party'){
             const pips=card.querySelector('.tb-energy');pips.replaceChildren(...Array.from({length:u.maxEnergy || 2},(_,i)=>{const pip=el('i');if(i<(u.energy || 0))pip.className='tb-on';return pip;}));
             card.classList.toggle('tb-ready',(u.energy || 0)>=(u.maxEnergy || 2));
@@ -103,7 +106,8 @@ export function mountBattle({host,sound=createBattleSound()}){
             const box=$(`.tb-summons-${sideName==='party'?'you':'foe'}`);box.replaceChildren();
             for(const s of summons.filter(x=>x.side===sideName)){
                 const tile=el('span','tb-summon');tile.dataset.summon=s.id;tile.style.setProperty('--el',EL_COLORS[s.element] || EL_COLORS.None);
-                tile.innerHTML=`<i class="tb-summon-art">${glyph(s.element)}</i><b class="tb-summon-rounds">${s.rounds}</b>${s.power?`<b class="tb-summon-power">${s.power}</b>`:''}${s.heal?`<b class="tb-summon-heal">+${s.heal}</b>`:''}<span></span>`;
+                const art=summonArt(s.name);if(art){tile.classList.add('tb-summon-card');tile.style.backgroundImage=`url("${art}")`;}
+                tile.innerHTML=`<i class="tb-summon-art">${art?'':elementImg(s.element,{white:true})}</i><b class="tb-summon-rounds">${s.rounds}</b>${s.power?`<b class="tb-summon-power">${s.power}</b>`:''}${s.heal?`<b class="tb-summon-heal">+${s.heal}</b>`:''}<span></span>`;
                 tile.querySelector('span').textContent=s.name;tile.title=`${s.name}: ${s.power?`${s.power} ${s.element} damage`:''}${s.heal?` heals ${s.heal}`:''} each round, ${s.rounds} left${s.decoy?'. Draws an enemy attack.':''}`;
                 box.append(tile);
             }
@@ -121,7 +125,7 @@ export function mountBattle({host,sound=createBattleSound()}){
             const icon=ICON[node.dataset.kind] || ICON.buff,total=p.damage.length?p.damage[0].amount*(p.damage[0].hits || 1):0;
             node.innerHTML=`${icon}${total?`<b>${p.damage[0].hits>1?`${p.damage[0].amount}×${p.damage[0].hits}`:total}</b>`:''}`;
             const t=p.target&&unitById(state,p.target);
-            if(t&&node.dataset.kind==='attack'){const img=el('img');img.src=artOf(t);img.alt='';node.append(img);}
+            if(t&&node.dataset.kind==='attack'){const img=el('img');img.src=iconOf(t);img.alt='';node.append(img);}
             if(node.dataset.kind==='aoe'){node.insertAdjacentHTML('beforeend',ICON.party);}
             node.title=`${u.name} will use ${p.name}${p.special?' (Special)':''}${t?` on ${t.name}`:node.dataset.kind==='aoe'?' on everyone':''}.`;
             for(const d of p.damage)if(d.target)incoming.set(d.target,(incoming.get(d.target) || 0)+d.amount);
@@ -142,12 +146,14 @@ export function mountBattle({host,sound=createBattleSound()}){
         tip.style.left=`${x}px`;tip.style.top=`${Math.max(8,Math.min(b.height-t.height-8,y))}px`;
     }
     const hideTip=()=>{$('.tb-tip').hidden=true;};
-    const costHtml=(u,move)=>!move.cost?'':`<span class="tb-cost" style="--el:${EL_COLORS[ELEMENTS.includes(u.element)?u.element:'Omni']}">${glyph(ELEMENTS.includes(u.element)?u.element:'Omni')}<b>${move.cost}</b></span>`;
+    const costHtml=(u,move)=>!move.cost?'':`<span class="tb-cost" style="--el:${EL_COLORS[ELEMENTS.includes(u.element)?u.element:'Omni']}">${ELEMENTS.includes(u.element)?elementImg(u.element,{white:true}):glyph('Omni')}<b>${move.cost}</b></span>`;
+    // A move's icon: its Genius Invokation skill icon, else the weapon (Normal Attack) or element glyph.
+    const moveIcon=(u,move)=>{const src=skillIcon(move);return src?`<img class="tb-skill-img" src="${src}" alt="" draggable="false">`:move.kind==='normal'?weaponIcon(u.kit.weapon):u.element==='None'?glyph('Omni'):elementImg(u.element,{white:true});};
     function moveTip(u,index,anchor){
         const move=u.kit.moves[index];if(!move)return;
         const step=stepOf(u.id),trial=plan.map(p=>p===step?{...p,move:index}:p),f=step?forecastPlan(state,trial,items.map(i=>({item:ITEMS[i.id],...i})))[plan.indexOf(step)]:null;
         const element=moveElement(u,move),reactions=(f?.reactions || []).map(r=>`<b style="color:${REACTIONS[r.split(' + ').at(-1)] || '#fff'}">${r}</b>`).join(' ');
-        showTip(anchor,`<small>${KIND_LABEL[move.kind]}${move.kind==='burst'?` · ${u.energy || 0}/${u.maxEnergy}`:''}</small><strong>${move.name}</strong>${costHtml(u,move)}<p>${describeMove(move,u.element==='None'?'Physical':u.element)}</p>${f&&(f.damage||f.heal||reactions)?`<p class="tb-tip-forecast"><i style="color:${EL_COLORS[element]}">${glyph(element)}</i>${f.damage?` ${f.damage}`:''}${f.heal?` <span class="tb-heal">+${f.heal}</span>`:''} ${reactions}</p>`:''}`);
+        showTip(anchor,`${skillIcon(move)?`<img class="tb-tip-icon" src="${skillIcon(move)}" alt="">`:''}<small>${KIND_LABEL[move.kind]}${move.kind==='burst'?` · ${u.energy || 0}/${u.maxEnergy}`:''}</small><strong>${move.name}</strong>${costHtml(u,move)}<p>${describeMove(move,u.element==='None'?'Physical':u.element)}</p>${f&&(f.damage||f.heal||reactions)?`<p class="tb-tip-forecast"><i style="color:${EL_COLORS[element]}">${glyph(element)}</i>${f.damage?` ${f.damage}`:''}${f.heal?` <span class="tb-heal">+${f.heal}</span>`:''} ${reactions}</p>`:''}`);
     }
     function unitTip(id,card){
         const u=unitById(state,id);if(!u||mode==='')return;
@@ -233,7 +239,7 @@ export function mountBattle({host,sound=createBattleSound()}){
         const owners=new Map(alloc.needs.flatMap(n=>n.dice.map(i=>[i,n.actor])));
         const order=[...alloc.pool].sort((a,b)=>Number(Boolean(owners.get(a.i)))-Number(Boolean(owners.get(b.i)))||(a.face==='Omni'?-1:b.face==='Omni'?1:ELEMENTS.indexOf(a.face)-ELEMENTS.indexOf(b.face)));
         for(const d of order){
-            const die=el('i','tb-die');die.style.setProperty('--el',EL_COLORS[d.face]);die.innerHTML=glyph(d.face);die.title=d.face;
+            const die=el('i','tb-die');die.style.setProperty('--el',EL_COLORS[d.face]);die.innerHTML=d.face==='Omni'?glyph('Omni'):elementImg(d.face,{white:true});die.title=d.face;
             const owner=owners.get(d.i);if(owner){die.classList.add('tb-spent');if(d.tuned)die.classList.add('tb-tuned');}
             list.append(die);
         }
@@ -266,7 +272,7 @@ export function mountBattle({host,sound=createBattleSound()}){
             const card=cards.get(step.actor),u=unitById(state,step.actor);if(!card)return;
             const move=step.move>=0?u.kit.moves[step.move]:null,badge=card.querySelector('.tb-plan');
             badge.dataset.kind=flee?'flee':isStunned(u)?'stun':move?.kind || 'hold';
-            badge.querySelector('i').innerHTML=flee?ICON.flee:isStunned(u)?ICON.skip:!move?'':move.kind==='normal'?weaponIcon(u.kit.weapon):glyph(u.element==='None'?'Physical':u.element);
+            badge.querySelector('i').innerHTML=flee?ICON.flee:isStunned(u)?ICON.skip:!move?'':moveIcon(u,move);
             badge.querySelector('b').textContent=alive(u)&&!flee?String(i+1):'';
             card.classList.toggle('tb-active',step.actor===active&&!flee);
             card.classList.toggle('tb-short',Boolean(alloc.needs.find(n=>n.actor===step.actor)?.left>0));
@@ -288,7 +294,7 @@ export function mountBattle({host,sound=createBattleSound()}){
                 const b=el('button',`tb-move tb-move-${move.kind}`);b.type='button';b.dataset.move=String(index);
                 const ok=(index===0||canAfford(state,dice,plan,{...step,move:index},paying()))&&(index!==2||burstReady(u));
                 b.classList.toggle('tb-unaffordable',!ok);b.setAttribute('aria-pressed',String(step?.move===index));
-                const icon=index===0?weaponIcon(u.kit.weapon):glyph(u.element==='None'?'Physical':u.element);
+                const icon=moveIcon(u,move);
                 const ring=index===2?`<i class="tb-ring" style="--fill:${Math.min(1,(u.energy || 0)/(u.maxEnergy || 2))}"></i>`:'';
                 b.innerHTML=`<span class="tb-medal">${ring}${icon}</span><span class="tb-move-cost">${move.cost?costHtml(u,move):'<span class="tb-cost tb-free"><b>0</b></span>'}</span>`;
                 b.setAttribute('aria-label',`${KIND_LABEL[move.kind]}: ${move.name}`);
@@ -326,10 +332,10 @@ export function mountBattle({host,sound=createBattleSound()}){
         for(const u of state.units)paintUnit(u);
         paintSummons(state.summons || []);
         $('.tb-round').textContent=String(state.round || 1);
-        const foes=state.units.filter(u=>u.side==='enemy'),you=player || state.units.find(u=>u.isUser) || party()[0];
-        $('.tb-plate-foe img').src=foes[0]?.img || foes[0]?.art || '';$('.tb-plate-foe strong').textContent=foes.length>1?`${foes[0].name} +${foes.length-1}`:foes[0]?.name || '';$('.tb-plate-foe small').textContent='Now Waiting…';
-        $('.tb-plate-you img').src=you?.img || '';$('.tb-plate-you strong').textContent=you?.name || '';
-        $('.tb-res').replaceChildren(...(state.resonance || []).map(r=>{const chip=el('i','tb-res-chip');chip.style.setProperty('--el',EL_COLORS[r]);chip.innerHTML=glyph(r);chip.title=`${RESONANCE[r].name}: ${RESONANCE[r].text}`;return chip;}));
+        const foes=state.units.filter(u=>u.side==='enemy'),you={...(state.units.find(u=>u.isUser) || party()[0] || {}),...(player || {})};
+        $('.tb-plate-foe img').src=foes[0]?iconOf(foes[0]):'';$('.tb-plate-foe strong').textContent=foes.length>1?`${foes[0].name} +${foes.length-1}`:foes[0]?.name || '';$('.tb-plate-foe small').textContent='Now Waiting…';
+        $('.tb-plate-you img').src=(you?.card&&characterIcon(you.card)) || you?.img || '';$('.tb-plate-you strong').textContent=you?.name || '';
+        $('.tb-res').replaceChildren(...(state.resonance || []).map(r=>{const chip=el('i','tb-res-chip');chip.style.setProperty('--el',EL_COLORS[r]);chip.innerHTML=elementImg(r);chip.title=`${RESONANCE[r].name}: ${RESONANCE[r].text}`;return chip;}));
         $('.tb-combo').textContent='';$('.tb-result').hidden=true;$('.tb-banner').classList.remove('tb-show');$('.tb-played').replaceChildren();
         for(const u of party().filter(u=>u.card)){const img=new Image();img.src=splashUrl(u.card);}
     }
@@ -377,7 +383,7 @@ export function mountBattle({host,sound=createBattleSound()}){
                     if(e.kind!=='burst')sound.act(e.kind,e.element);
                     await wait(e.kind==='normal'||e.kind==='basic'?360:540);break;
                 }
-                case 'miss':floatText(e.target,'Miss','gb-miss');sound.miss();await wait(420);break;
+                case 'miss':floatText(e.target,e.dodge?'Dodged!':'Miss','gb-miss');sound.miss();await wait(420);break;
                 case 'skip':floatText(e.actor,e.reason,'gb-skip');if(actor){actor.statuses=e.statuses || actor.statuses;paintUnit(actor);}await wait(560);break;
                 case 'hit':{
                     const group=[e];while(tl[i+1]?.type==='hit'&&tl[i+1].actor===e.actor&&tl[i+1].step===e.step&&tl[i+1].source===e.source&&tl[i+1].target!==e.target&&!group.some(g=>g.target===tl[i+1].target))group.push(tl[++i]);
@@ -389,7 +395,7 @@ export function mountBattle({host,sound=createBattleSound()}){
                         hurt(h.target,t.side==='party');
                         const n=floatText(h.target,String(h.amount+h.shieldHit),`gb-dmg${h.crit?' gb-crit':''}${h.resisted?' gb-resist':''}`,EL_COLORS[h.element],j*70);
                         if(h.crit)n.dataset.tag='CRIT';else if(h.resisted)n.dataset.tag='RES';else if(h.weak)n.dataset.tag='WEAK';
-                        if(h.reaction){const c=REACTIONS[h.reaction.split(' + ').at(-1)];floatText(h.target,h.reaction,'gb-reaction',c,j*70+90);if(effectsOn())particles.sparkle(p.x,p.y,c || '#fff');}
+                        if(h.reaction){const c=REACTIONS[h.reaction.split(' + ').at(-1)],r=floatText(h.target,h.reaction,'gb-reaction',c,j*70+90),src=reactionIcon(h.reaction);if(src)r.insertAdjacentHTML('afterbegin',`<img class="gb-reaction-icon" src="${src}" alt="">`);if(effectsOn())particles.sparkle(p.x,p.y,c || '#fff');}
                         if(h.armorBroken)floatText(h.target,'Armor broken!','gb-reaction','#ffb15c',160);
                         if(h.combo>1&&t.side==='enemy'){combo=Math.max(combo,h.combo);const c=$('.tb-combo');c.textContent=`×${h.combo}`;c.classList.remove('tb-pop');void c.offsetWidth;c.classList.add('tb-pop');}
                         sound.hit({element:h.element,amount:h.amount,crit:h.crit,reaction:h.reaction,party:t.side==='party',pan:(p.x/dialog.clientWidth-.5)*1.4});
@@ -436,10 +442,10 @@ export function mountBattle({host,sound=createBattleSound()}){
         const max=Math.max(1,...Object.values(result.stats.dealt));
         box.querySelector('.tb-result-party').replaceChildren(...(result.fled?[]:snapshot.units.filter(u=>u.side==='party').map(u=>{
             const li=el('li');li.style.setProperty('--el',EL_COLORS[u.element] || EL_COLORS.None);const dealt=result.stats.dealt[u.id] || 0,healed=result.stats.healed[u.id] || 0;
-            li.innerHTML=`<img alt=""><i style="--w:${dealt/max}"></i><b>${dealt}</b>${healed?`<small>+${healed}</small>`:''}`;li.querySelector('img').src=artOf(u);li.title=u.name;return li;
+            li.innerHTML=`<img alt=""><i style="--w:${dealt/max}"></i><b>${dealt}</b>${healed?`<small>+${healed}</small>`:''}`;li.querySelector('img').src=iconOf(u);li.title=u.name;return li;
         })));
         const counts={};for(const r of result.stats.reactions)for(const name of r.split(' + '))counts[name]=(counts[name] || 0)+1;
-        box.querySelector('.tb-result-reactions').innerHTML=Object.entries(counts).map(([name,n])=>`<span style="--c:${REACTIONS[name] || '#fff'}">${name}${n>1?` ×${n}`:''}</span>`).join('')+(combo>1?`<span class="tb-best-combo">Combo ×${combo}</span>`:'');
+        box.querySelector('.tb-result-reactions').innerHTML=Object.entries(counts).map(([name,n])=>`<span style="--c:${REACTIONS[name] || '#fff'}">${reactionIcon(name)?`<img src="${reactionIcon(name)}" alt="">`:''}${name}${n>1?` ×${n}`:''}</span>`).join('')+(combo>1?`<span class="tb-best-combo">Combo ×${combo}</span>`:'');
         const loot=box.querySelector('.tb-loot');loot.replaceChildren(...(opts.loot || []).map((id,i)=>{const c=el('span','tb-loot-card');c.style.animationDelay=`${300+i*160}ms`;c.innerHTML='<img alt="">';c.querySelector('img').src=itemArt(id);c.title=ITEMS[id]?.name || id;return c;}));
         if(result.victory)sound.victory();else if(result.wiped)sound.wipe();
         say(`${box.querySelector('h3').textContent}.${opts.loot?.length?` Found ${opts.loot.map(id=>ITEMS[id]?.name).join(', ')}.`:''}`);

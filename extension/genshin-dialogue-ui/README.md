@@ -1,3 +1,9 @@
+# Silly Teyvat 1.33: Game icons, Traveler and Paimon cards, Paimon in combat
+
+- **Game icons on the battle board.** Moves show their Genius Invokation skill icons, and elements, auras, dice, costs, resonance, reactions, summons and portraits use icons downloaded from the Genshin Impact Wiki with `tools/build-battle-icons.py`.
+- **Aether, Lumine and Paimon cards.** The supplied card art is used on the board for the Traveler and Paimon.
+- **Paimon fights.** Whenever Paimon is in the scene she joins battles: a feeble punch, cheering that empowers everyone else, and a pep talk that heals them and gives them Energy. She dodges half of all enemy hits.
+
 # Silly Teyvat 1.32: Genius Invokation battle board, items, fleeing and enemy intents
 
 - **A TCG-style battle board.** Battles now play on a Genius Invokation table: enemies on top, your party below, summons on the right, dice down the right edge, moves bottom right, item cards in hand and the hourglass round button on the left. HP drops, Energy diamonds, element icons and status tokens sit on the cards; details appear on hover or long-press instead of helper text. 120 characters and enemies use their official TCG card art.

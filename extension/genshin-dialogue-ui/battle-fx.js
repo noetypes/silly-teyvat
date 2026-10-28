@@ -19,6 +19,7 @@ const WEAPON={
     polearm:'<path d="M21.5 2.5 3 21M21.5 2.5l-1 5-4-4z"/><path d="m14 7 3 3"/>',
     bow:'<path d="M6 3c9 2 13 8 15 15"/><path d="M6 3 21 18M3 6l3-3M18 21l3-3"/>',
     catalyst:'<circle cx="12" cy="12" r="6.5"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/><circle cx="12" cy="12" r="2.5"/>',
+    none:'<path d="M7 13V8.5a1.5 1.5 0 0 1 3 0V12M10 11V7a1.5 1.5 0 0 1 3 0v4M13 11V8a1.5 1.5 0 0 1 3 0v6c0 3.5-2.5 6-6 6s-5-2-5.5-4L3 13a1.5 1.5 0 0 1 2.5-1.5L7 13"/>',
 };
 export const weaponIcon=weapon=>`<svg class="gb-weapon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">${WEAPON[weapon] || WEAPON.sword}</svg>`;
 

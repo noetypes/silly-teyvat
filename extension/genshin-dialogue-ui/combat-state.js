@@ -6,6 +6,7 @@ import {playedAvatars,linkedCard} from './persona-link.js';
 import {personaCard} from './persona-wardrobe.js';
 import {DIFFICULTY,partyScale} from './battle-engine.js';
 import {STARTER_BAG,restockBag} from './battle-items.js';
+import {COMBAT_COMPANIONS} from './combat-kits.js';
 export const DICE_FACES=[...ELEMENTS,'Omni'];
 export const combatIdentity=ctx=>`${ctx.groupId || ctx.characterId}:${ctx.getCurrentChatId?.() || ctx.chatId || ''}`;
 // Version 2 is the turn-based system. Health and battles saved by the older dice combat are discarded.
@@ -39,7 +40,7 @@ export function allyElement(ctx,ally){
     return own!=='None'?own:characterProperties(ctx,linkedCard(ctx)).element;
 }
 export function combatAllies(ctx){const disabled=activeGroup(ctx)?.disabled_members || [],played=playedAvatars(ctx);return [userAlly(ctx),...combatCompanions(ctx,disabled,played)];}
-function combatCompanions(ctx,disabled,played){return sceneMembers(ctx).filter(a=>!disabled.includes(a)&&!played.has(a)&&!isEnemy(ctx,a)).map(a=>ctx.characters.find(c=>c.avatar===a)).filter(c=>c&&characterProperties(ctx,c).playable);}
+function combatCompanions(ctx,disabled,played){return sceneMembers(ctx).filter(a=>!disabled.includes(a)&&!played.has(a)&&!isEnemy(ctx,a)).map(a=>ctx.characters.find(c=>c.avatar===a)).filter(c=>c&&(characterProperties(ctx,c).playable||COMBAT_COMPANIONS.has(String(c.name).trim().toLowerCase())));}
 // ---- Party health -------------------------------------------------------------
 // You and every non-hostile scene member have health. Enemies strike back with their
 // own elemental dice; health is saved per chat and restored at an Adventurers' Guild.

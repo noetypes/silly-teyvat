@@ -4,14 +4,14 @@
 // any kit in Character Customization → Moveset; edits are saved per card.
 import {mediaSettings} from './media-store.js';
 
-export const WEAPONS=['sword','claymore','polearm','bow','catalyst'];
+export const WEAPONS=['sword','claymore','polearm','bow','catalyst','none'];
 export const ROLES=['DPS','Sub-DPS','Support','Healer','Shielder','Tank'];
 export const EFFECT_TYPES=['damage','heal','shield','buff','debuff','summon','energy','cleanse','hpcost'];
 export const BUFF_STATS=['atk','guard','crit','dodge','regen','infuse'];
 export const DEBUFF_STATS=['vuln','weaken','stun'];
 // Targets are relative to whoever uses the move.
 export const TARGETS={one:'one foe',all:'all foes',random:'random foes',weakest:'the weakest foe',self:'self',ally:'one ally',party:'the whole party',others:'other allies',lowest:'the most injured ally'};
-const WEAPON_NA={sword:{power:3,miss:20},claymore:{power:4,miss:30},polearm:{power:3,miss:20},bow:{power:3,miss:25},catalyst:{power:2,miss:15}};
+const WEAPON_NA={sword:{power:3,miss:20},claymore:{power:4,miss:30},polearm:{power:3,miss:20},bow:{power:3,miss:25},catalyst:{power:2,miss:15},none:{power:1,miss:40}};
 
 // Compact effect builders for the tables below.
 const D=(power,target='one',o={})=>({type:'damage',power,target,...o});
@@ -155,7 +155,12 @@ const TABLE=[
     ['Vodyanitsa',K,34,2,'Sub-DPS','Psyshkhwe Arietta',['Rechitativ: Sonorous Dawn',2,[D(3,'all'),SM('Horn of Spring\'s Call',3,2)]],['Koda: Sink With Thee',3,[D(7,'all')]]],
     // Elsewhere
     ['Aloy',B,32,2,'DPS','Rapid Fire',['Frozen Wilds',2,[D(4),BF('atk',20,2)]],['Prophecies of Dawn',3,[D(9)]]],
+    // Paimon has no Vision or in-game kit, so her moves are Silly Teyvat's own: a feeble punch,
+    // cheering and a pep talk. She is hard to hit and helps by buffing everyone else.
+    ['Paimon','none',22,2,'Support','Paimon Punch!',['Go, Go, Traveler!',1,[BF('atk',20,2,'others'),BF('crit',15,2,'others')]],['Paimon\'s Pep Talk',2,[H(3,'others'),EN(1,'others'),BF('atk',25,1,'others')]],{evasion:50,na:{power:1,miss:45}}],
 ];
+// Companions who fight alongside the party even though their card is not a playable character.
+export const COMBAT_COMPANIONS=new Set(['paimon']);
 // The Traveler's kit depends on the element they resonate with.
 const TRAVELER={
     Anemo:['Palm Vortex',[D(5)],'Gust Surge',[D(6,'all')]],
@@ -196,12 +201,14 @@ export const enemyElement=name=>enemyTable.get(keyOf(name))?.[1];
 export const hasBundledKit=name=>characterTable.has(keyOf(name))||enemyTable.has(keyOf(name))||/^(aether|lumine)$/i.test(String(name).trim());
 const clone=value=>structuredClone(value);
 
-function normal(weapon,name,element){
-    const base=WEAPON_NA[weapon] || WEAPON_NA.sword;
+function normal(weapon,name,element,override={}){
+    const base={...(WEAPON_NA[weapon] || WEAPON_NA.sword),...override};
     return {kind:'normal',name,cost:0,miss:base.miss,element:weapon==='catalyst'?element:'Physical',effects:[D(base.power)]};
 }
-function kitFromRow([name,weapon,hp,energy,role,na,[skill,skillCost,skillFx],[burst,burstCost,burstFx]],element){
-    return {name,weapon,hp,energy,role,moves:[normal(weapon,na,element),{kind:'skill',name:skill,cost:skillCost,effects:clone(skillFx)},{kind:'burst',name:burst,cost:burstCost,effects:clone(burstFx)}]};
+function kitFromRow([name,weapon,hp,energy,role,na,[skill,skillCost,skillFx],[burst,burstCost,burstFx],extra={}],element){
+    const kit={name,weapon,hp,energy,role,moves:[normal(weapon,na,element,extra.na),{kind:'skill',name:skill,cost:skillCost,effects:clone(skillFx)},{kind:'burst',name:burst,cost:burstCost,effects:clone(burstFx)}]};
+    if(extra.evasion)kit.evasion=extra.evasion;
+    return kit;
 }
 export function travelerKit(element){
     const name='Traveler',[skill,skillFx,burst,burstFx]=TRAVELER[element] || [];

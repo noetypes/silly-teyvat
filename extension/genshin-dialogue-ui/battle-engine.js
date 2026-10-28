@@ -169,6 +169,10 @@ export function resolveRound(input,planInput,{random=Math.random,forecast=false,
     }
     function damage(attacker,target,power,element,ctx={}){
         if(!alive(target))return 0;
+        // Nimble party members (Paimon) dodge enemy hits outright; damage over time always lands.
+        if(target.side==='party'&&attacker.side==='enemy'&&target.evasion>0&&!ctx.exact&&!forecast&&rand()*100<target.evasion+statusSum(target,'dodge')){
+            push({type:'miss',actor:attacker.id,target:target.id,step:ctx.step,dodge:true});return 0;
+        }
         let mult=1;
         const atk=statusSum(attacker,'atk')+(attacker.side==='party'&&resonant('Pyro')?15:0)-statusSum(attacker,'weaken');
         mult*=Math.max(.25,1+atk/100);

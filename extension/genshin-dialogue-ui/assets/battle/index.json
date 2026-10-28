@@ -1,0 +1,1658 @@
+{
+ "elements": [
+  "Pyro",
+  "Hydro",
+  "Anemo",
+  "Electro",
+  "Dendro",
+  "Cryo",
+  "Geo"
+ ],
+ "reactions": {
+  "Vaporize": "vaporize.webp",
+  "Melt": "melt.webp",
+  "Overloaded": "overloaded.webp",
+  "Superconduct": "superconduct.webp",
+  "Electro-Charged": "electro-charged.webp",
+  "Frozen": "frozen.webp",
+  "Bloom": "bloom.webp",
+  "Burning": "burning.webp",
+  "Quicken": "quicken.webp",
+  "Swirl": "swirl.webp",
+  "Crystallize": "crystallize.webp"
+ },
+ "skills": {
+  "Abductive Reasoning": {
+   "file": "abductive-reasoning.webp",
+   "kind": "tcg"
+  },
+  "Abiogenesis: Solar Isotoma": {
+   "file": "abiogenesis-solar-isotoma.webp",
+   "kind": "tcg"
+  },
+  "Adagio: Phantom Night Dancers": {
+   "file": "adagio-phantom-night-dancers.webp",
+   "kind": "talent"
+  },
+  "Adeptus Art: Herald of Frost": {
+   "file": "adeptus-art-herald-of-frost.webp",
+   "kind": "tcg"
+  },
+  "Adeptus Art: Preserver of Fortune": {
+   "file": "adeptus-art-preserver-of-fortune.webp",
+   "kind": "tcg"
+  },
+  "Airborne Disease Prevention": {
+   "file": "airborne-disease-prevention.webp",
+   "kind": "tcg"
+  },
+  "Aisa Utamakura Pilgrimage": {
+   "file": "aisa-utamakura-pilgrimage.webp",
+   "kind": "tcg"
+  },
+  "Akara": {
+   "file": "akara.webp",
+   "kind": "tcg"
+  },
+  "Alcazarzaray's Exactitude": {
+   "file": "alcazarzaray-s-exactitude.webp",
+   "kind": "tcg"
+  },
+  "All Is Ash": {
+   "file": "all-is-ash.webp",
+   "kind": "tcg"
+  },
+  "All Schemes to Know": {
+   "file": "all-schemes-to-know.webp",
+   "kind": "tcg"
+  },
+  "Allegoria": {
+   "file": "allegoria.webp",
+   "kind": "talent"
+  },
+  "Ancient Rite: Arcane Light": {
+   "file": "ancient-rite-arcane-light.webp",
+   "kind": "tcg"
+  },
+  "Ancient Rite: The Thundering Sands": {
+   "file": "ancient-rite-the-thundering-sands.webp",
+   "kind": "tcg"
+  },
+  "Ancient Ritual: Cometh the Night": {
+   "file": "ancient-ritual-cometh-the-night.webp",
+   "kind": "tcg"
+  },
+  "Ancient Sword Art": {
+   "file": "ancient-sword-art.webp",
+   "kind": "tcg"
+  },
+  "Anraku Secret Spring Therapy": {
+   "file": "anraku-secret-spring-therapy.webp",
+   "kind": "tcg"
+  },
+  "Aquacrest Saber": {
+   "file": "aquacrest-saber.webp",
+   "kind": "talent"
+  },
+  "Aromatic Explication": {
+   "file": "aromatic-explication.webp",
+   "kind": "tcg"
+  },
+  "Artistic Ingenuity": {
+   "file": "artistic-ingenuity.webp",
+   "kind": "tcg"
+  },
+  "As Water Seeks Equilibrium": {
+   "file": "as-water-seeks-equilibrium.webp",
+   "kind": "tcg"
+  },
+  "As the Sunlit Sky's Singing Salute": {
+   "file": "as-the-sunlit-sky-s-singing-salute.webp",
+   "kind": "tcg"
+  },
+  "Astable Anemohypostasis Creation - 6308": {
+   "file": "astable-anemohypostasis-creation-6308.webp",
+   "kind": "tcg"
+  },
+  "Badaboom! Hexbuster Hammer": {
+   "file": "badaboom-hexbuster-hammer.webp",
+   "kind": "talent"
+  },
+  "Balemoon Rising": {
+   "file": "balemoon-rising.webp",
+   "kind": "tcg"
+  },
+  "Bane of All Evil": {
+   "file": "bane-of-all-evil.webp",
+   "kind": "tcg"
+  },
+  "Bellowing Thunder": {
+   "file": "bellowing-thunder.webp",
+   "kind": "talent"
+  },
+  "Bestial Ascent": {
+   "file": "bestial-ascent.webp",
+   "kind": "tcg"
+  },
+  "Bewildering Lights": {
+   "file": "bewildering-lights.webp",
+   "kind": "tcg"
+  },
+  "Binary Form: Convergence and Division": {
+   "file": "binary-form-convergence-and-division.webp",
+   "kind": "tcg"
+  },
+  "Bish-Bash-Bosh Repair": {
+   "file": "bish-bash-bosh-repair.webp",
+   "kind": "tcg"
+  },
+  "Black Pheasant Strides on Water": {
+   "file": "black-pheasant-strides-on-water.webp",
+   "kind": "tcg"
+  },
+  "Blazing Blessing": {
+   "file": "blazing-blessing.webp",
+   "kind": "tcg"
+  },
+  "Blunt Refusal": {
+   "file": "blunt-refusal.webp",
+   "kind": "tcg"
+  },
+  "Bolts of Downfall": {
+   "file": "bolts-of-downfall.webp",
+   "kind": "tcg"
+  },
+  "Boomsharka-laka": {
+   "file": "boomsharka-laka.webp",
+   "kind": "tcg"
+  },
+  "Boxcutter": {
+   "file": "boxcutter.webp",
+   "kind": "tcg"
+  },
+  "Breastplate": {
+   "file": "breastplate.webp",
+   "kind": "tcg"
+  },
+  "By the Horns": {
+   "file": "by-the-horns.webp",
+   "kind": "tcg"
+  },
+  "Canopy Hunter: Riding High": {
+   "file": "canopy-hunter-riding-high.webp",
+   "kind": "tcg"
+  },
+  "Capture Protocol": {
+   "file": "capture-protocol.webp",
+   "kind": "talent"
+  },
+  "Card Force Translocation": {
+   "file": "card-force-translocation.webp",
+   "kind": "tcg"
+  },
+  "Celestial Shower": {
+   "file": "celestial-shower.webp",
+   "kind": "tcg"
+  },
+  "Ceremonial Bladework": {
+   "file": "ceremonial-bladework.webp",
+   "kind": "tcg"
+  },
+  "Ceremonial Crystalshot": {
+   "file": "ceremonial-crystalshot.webp",
+   "kind": "tcg"
+  },
+  "Chihayaburu": {
+   "file": "chihayaburu.webp",
+   "kind": "tcg"
+  },
+  "Chonghua's Layered Frost": {
+   "file": "chonghua-s-layered-frost.webp",
+   "kind": "tcg"
+  },
+  "Claw and Thunder": {
+   "file": "claw-and-thunder.webp",
+   "kind": "tcg"
+  },
+  "Cleaning Mode: Carrier Frequency": {
+   "file": "cleaning-mode-carrier-frequency.webp",
+   "kind": "tcg"
+  },
+  "Cliffbreaker's Banner": {
+   "file": "cliffbreaker-s-banner.webp",
+   "kind": "tcg"
+  },
+  "Cloud-Grazing Strike": {
+   "file": "cloud-grazing-strike.webp",
+   "kind": "tcg"
+  },
+  "Cloud-Parting Star": {
+   "file": "cloud-parting-star.webp",
+   "kind": "tcg"
+  },
+  "Compound Sedation Field": {
+   "file": "compound-sedation-field.webp",
+   "kind": "tcg"
+  },
+  "Cool-Color Capture": {
+   "file": "cool-color-capture.webp",
+   "kind": "tcg"
+  },
+  "Cooling Treatment": {
+   "file": "cooling-treatment.webp",
+   "kind": "tcg"
+  },
+  "Countermeasure: Lumi's Battle Cry!": {
+   "file": "countermeasure-lumi-s-battle-cry.webp",
+   "kind": "talent"
+  },
+  "Cragbiter": {
+   "file": "cragbiter.webp",
+   "kind": "tcg"
+  },
+  "Crimson Ooyoroi": {
+   "file": "crimson-ooyoroi.webp",
+   "kind": "tcg"
+  },
+  "Cutting Torrent": {
+   "file": "cutting-torrent.webp",
+   "kind": "tcg"
+  },
+  "Cyclonic Duster": {
+   "file": "cyclonic-duster.webp",
+   "kind": "tcg"
+  },
+  "Dance of Abzendegi: Distant Dreams, Listening Spring": {
+   "file": "dance-of-abzendegi-distant-dreams-listening-spring.webp",
+   "kind": "tcg"
+  },
+  "Dance of Haftkarsvar": {
+   "file": "dance-of-haftkarsvar.webp",
+   "kind": "tcg"
+  },
+  "Dance of Samser": {
+   "file": "dance-of-samser.webp",
+   "kind": "tcg"
+  },
+  "Dance on Fire": {
+   "file": "dance-on-fire.webp",
+   "kind": "tcg"
+  },
+  "Dandelion Breeze": {
+   "file": "dandelion-breeze.webp",
+   "kind": "tcg"
+  },
+  "Dark Voices Echo": {
+   "file": "dark-voices-echo.webp",
+   "kind": "tcg"
+  },
+  "Darkgold Wolfbite": {
+   "file": "darkgold-wolfbite.webp",
+   "kind": "tcg"
+  },
+  "Dawn": {
+   "file": "dawn.webp",
+   "kind": "tcg"
+  },
+  "Dawnbearing Songbird": {
+   "file": "dawnbearing-songbird.webp",
+   "kind": "talent"
+  },
+  "Dawnfrost Darkstar": {
+   "file": "dawnfrost-darkstar.webp",
+   "kind": "tcg"
+  },
+  "Dawnstar Piercer": {
+   "file": "dawnstar-piercer.webp",
+   "kind": "tcg"
+  },
+  "Demonbane": {
+   "file": "demonbane.webp",
+   "kind": "tcg"
+  },
+  "Depth-Clarion Dice": {
+   "file": "depth-clarion-dice.webp",
+   "kind": "tcg"
+  },
+  "Divine Maiden's Deliverance": {
+   "file": "divine-maiden-s-deliverance.webp",
+   "kind": "tcg"
+  },
+  "Divine Marksmanship": {
+   "file": "divine-marksmanship.webp",
+   "kind": "tcg"
+  },
+  "Dominus Lapidis": {
+   "file": "dominus-lapidis.webp",
+   "kind": "tcg"
+  },
+  "Done Deal": {
+   "file": "done-deal.webp",
+   "kind": "tcg"
+  },
+  "Dough-Fu": {
+   "file": "dough-fu.webp",
+   "kind": "tcg"
+  },
+  "Dream of the Star-Stream Shaker": {
+   "file": "dream-of-the-star-stream-shaker.webp",
+   "kind": "tcg"
+  },
+  "Edict of Entwined Splendor": {
+   "file": "edict-of-entwined-splendor.webp",
+   "kind": "tcg"
+  },
+  "Ehecatl's Roar": {
+   "file": "ehecatl-s-roar.webp",
+   "kind": "tcg"
+  },
+  "Enigmatic Feint": {
+   "file": "enigmatic-feint.webp",
+   "kind": "tcg"
+  },
+  "Eternal Tides": {
+   "file": "eternal-tides.webp",
+   "kind": "talent"
+  },
+  "Explosive Puppet": {
+   "file": "explosive-puppet.webp",
+   "kind": "tcg"
+  },
+  "Fantastic Voyage": {
+   "file": "fantastic-voyage.webp",
+   "kind": "tcg"
+  },
+  "Fashioner's Tanglevine Shaft": {
+   "file": "fashioner-s-tanglevine-shaft.webp",
+   "kind": "tcg"
+  },
+  "Favonius Bladework": {
+   "file": "favonius-bladework.webp",
+   "kind": "tcg"
+  },
+  "Favonius Bladework - Edel": {
+   "file": "favonius-bladework-edel.webp",
+   "kind": "tcg"
+  },
+  "Favonius Bladework - Maid": {
+   "file": "favonius-bladework-maid.webp",
+   "kind": "tcg"
+  },
+  "Favonius Bladework - Ritual": {
+   "file": "favonius-bladework-ritual.webp",
+   "kind": "tcg"
+  },
+  "Favonius Bladework - Weiss": {
+   "file": "favonius-bladework-weiss.webp",
+   "kind": "tcg"
+  },
+  "Favonius Bladework: Dancing Radiance": {
+   "file": "favonius-bladework-dancing-radiance.webp",
+   "kind": "talent"
+  },
+  "Fiery Rain": {
+   "file": "fiery-rain.webp",
+   "kind": "tcg"
+  },
+  "Fight Club Legend": {
+   "file": "fight-club-legend.webp",
+   "kind": "tcg"
+  },
+  "Firework Flare-Up": {
+   "file": "firework-flare-up.webp",
+   "kind": "tcg"
+  },
+  "Flames Weave Life": {
+   "file": "flames-weave-life.webp",
+   "kind": "tcg"
+  },
+  "Floral Brush": {
+   "file": "floral-brush.webp",
+   "kind": "tcg"
+  },
+  "Flowing Eddies": {
+   "file": "flowing-eddies.webp",
+   "kind": "tcg"
+  },
+  "Fluttering Hasode": {
+   "file": "fluttering-hasode.webp",
+   "kind": "tcg"
+  },
+  "For the Tsaritsa!": {
+   "file": "for-the-tsaritsa.webp",
+   "kind": "talent"
+  },
+  "Forbidden Creation - Isomer 75 / Type II": {
+   "file": "forbidden-creation-isomer-75-type-ii.webp",
+   "kind": "tcg"
+  },
+  "Forceful Fists of Frost": {
+   "file": "forceful-fists-of-frost.webp",
+   "kind": "tcg"
+  },
+  "Foreign Ironwind": {
+   "file": "foreign-ironwind.webp",
+   "kind": "talent"
+  },
+  "Formule Phenomenale: Differential Analysis": {
+   "file": "formule-phenomenale-differential-analysis.webp",
+   "kind": "talent"
+  },
+  "Formule Phenomenale: Q.E.D.": {
+   "file": "formule-phenomenale-q-e-d.webp",
+   "kind": "talent"
+  },
+  "Formule Phenomenale: Self-Evident Proposition": {
+   "file": "formule-phenomenale-self-evident-proposition.webp",
+   "kind": "talent"
+  },
+  "Foul Legacy: Raging Tide": {
+   "file": "foul-legacy-raging-tide.webp",
+   "kind": "tcg"
+  },
+  "Fragrance Extraction": {
+   "file": "fragrance-extraction.webp",
+   "kind": "tcg"
+  },
+  "Frostgnaw": {
+   "file": "frostgnaw.webp",
+   "kind": "tcg"
+  },
+  "Frozen Wilds": {
+   "file": "frozen-wilds.webp",
+   "kind": "talent"
+  },
+  "Fudou Style Martial Arts": {
+   "file": "fudou-style-martial-arts.webp",
+   "kind": "tcg"
+  },
+  "Gale Blade": {
+   "file": "gale-blade.webp",
+   "kind": "tcg"
+  },
+  "Garyuu Bladework": {
+   "file": "garyuu-bladework.webp",
+   "kind": "tcg"
+  },
+  "Glacial Illumination": {
+   "file": "glacial-illumination.webp",
+   "kind": "tcg"
+  },
+  "Glacial Waltz": {
+   "file": "glacial-waltz.webp",
+   "kind": "tcg"
+  },
+  "Gleaming Spear - Guardian Stance": {
+   "file": "gleaming-spear-guardian-stance.webp",
+   "kind": "tcg"
+  },
+  "Go, Go Turbo Twirly!": {
+   "file": "go-go-turbo-twirly.webp",
+   "kind": "tcg"
+  },
+  "Golden Blade's Petaled Touch": {
+   "file": "golden-blade-s-petaled-touch.webp",
+   "kind": "talent"
+  },
+  "Great Secret Art: Tenko Kenshin": {
+   "file": "great-secret-art-tenko-kenshin.webp",
+   "kind": "tcg"
+  },
+  "Guardian Vent!": {
+   "file": "guardian-vent.webp",
+   "kind": "tcg"
+  },
+  "Guhua Style": {
+   "file": "guhua-style.webp",
+   "kind": "tcg"
+  },
+  "Guhua Sword: Fatal Rainscreen": {
+   "file": "guhua-sword-fatal-rainscreen.webp",
+   "kind": "talent"
+  },
+  "Guhua Sword: Raincutter": {
+   "file": "guhua-sword-raincutter.webp",
+   "kind": "talent"
+  },
+  "Guide to Afterlife": {
+   "file": "guide-to-afterlife.webp",
+   "kind": "tcg"
+  },
+  "Guoba Attack": {
+   "file": "guoba-attack.webp",
+   "kind": "tcg"
+  },
+  "Gust Surge": {
+   "file": "gust-surge.webp",
+   "kind": "talent"
+  },
+  "Gyoei Narukami Kariyama Rite": {
+   "file": "gyoei-narukami-kariyama-rite.webp",
+   "kind": "tcg"
+  },
+  "Hail to the Almighty Dragonlord": {
+   "file": "hail-to-the-almighty-dragonlord.webp",
+   "kind": "tcg"
+  },
+  "Hanega: Song of the Wind": {
+   "file": "hanega-song-of-the-wind.webp",
+   "kind": "tcg"
+  },
+  "Havoc: Obliteration": {
+   "file": "havoc-obliteration.webp",
+   "kind": "tcg"
+  },
+  "Havoc: Ruin": {
+   "file": "havoc-ruin.webp",
+   "kind": "tcg"
+  },
+  "Havoc: Sunder": {
+   "file": "havoc-sunder.webp",
+   "kind": "tcg"
+  },
+  "Havoc: Warp": {
+   "file": "havoc-warp.webp",
+   "kind": "tcg"
+  },
+  "Heartstopper Strike": {
+   "file": "heartstopper-strike.webp",
+   "kind": "tcg"
+  },
+  "Heaven and Earth Made Manifest": {
+   "file": "heaven-and-earth-made-manifest.webp",
+   "kind": "talent"
+  },
+  "Hidden Aces: Seven Tools of the Hunter": {
+   "file": "hidden-aces-seven-tools-of-the-hunter.webp",
+   "kind": "tcg"
+  },
+  "Hiyoku: Twin Blades": {
+   "file": "hiyoku-twin-blades.webp",
+   "kind": "tcg"
+  },
+  "Holistic Revivification": {
+   "file": "holistic-revivification.webp",
+   "kind": "tcg"
+  },
+  "Hour of Burning Skies": {
+   "file": "hour-of-burning-skies.webp",
+   "kind": "tcg"
+  },
+  "Hunter's Advance": {
+   "file": "hunter-s-advance.webp",
+   "kind": "talent"
+  },
+  "Hunter's Vigil": {
+   "file": "hunter-s-vigil.webp",
+   "kind": "tcg"
+  },
+  "Icefang Rush": {
+   "file": "icefang-rush.webp",
+   "kind": "tcg"
+  },
+  "Icetide Vortex": {
+   "file": "icetide-vortex.webp",
+   "kind": "tcg"
+  },
+  "Icy Paws": {
+   "file": "icy-paws.webp",
+   "kind": "tcg"
+  },
+  "Illusory Heart": {
+   "file": "illusory-heart.webp",
+   "kind": "tcg"
+  },
+  "Immersive Ordinance": {
+   "file": "immersive-ordinance.webp",
+   "kind": "tcg"
+  },
+  "Inuzaka All-Round Defense": {
+   "file": "inuzaka-all-round-defense.webp",
+   "kind": "tcg"
+  },
+  "Invitation to a Beheading": {
+   "file": "invitation-to-a-beheading.webp",
+   "kind": "tcg"
+  },
+  "Invoker's Spear": {
+   "file": "invoker-s-spear.webp",
+   "kind": "tcg"
+  },
+  "Jade Screen": {
+   "file": "jade-screen.webp",
+   "kind": "tcg"
+  },
+  "Jumpy Dumpty": {
+   "file": "jumpy-dumpty.webp",
+   "kind": "tcg"
+  },
+  "Juuga: Forward Unto Victory": {
+   "file": "juuga-forward-unto-victory.webp",
+   "kind": "tcg"
+  },
+  "Kaboom!": {
+   "file": "kaboom.webp",
+   "kind": "tcg"
+  },
+  "Kamisato Art: Hyouka": {
+   "file": "kamisato-art-hyouka.webp",
+   "kind": "tcg"
+  },
+  "Kamisato Art: Kabuki": {
+   "file": "kamisato-art-kabuki.webp",
+   "kind": "tcg"
+  },
+  "Kamisato Art: Kyouka": {
+   "file": "kamisato-art-kyouka.webp",
+   "kind": "tcg"
+  },
+  "Kamisato Art: Marobashi": {
+   "file": "kamisato-art-marobashi.webp",
+   "kind": "tcg"
+  },
+  "Kamisato Art: Soumetsu": {
+   "file": "kamisato-art-soumetsu.webp",
+   "kind": "tcg"
+  },
+  "Kamisato Art: Suiyuu": {
+   "file": "kamisato-art-suiyuu.webp",
+   "kind": "tcg"
+  },
+  "Kazuha Slash": {
+   "file": "kazuha-slash.webp",
+   "kind": "tcg"
+  },
+  "Khanda Barrier-Buster": {
+   "file": "khanda-barrier-buster.webp",
+   "kind": "tcg"
+  },
+  "Kitchen Skills": {
+   "file": "kitchen-skills.webp",
+   "kind": "tcg"
+  },
+  "Koda: Sink With Thee": {
+   "file": "koda-sink-with-thee.webp",
+   "kind": "talent"
+  },
+  "Kurage's Oath": {
+   "file": "kurage-s-oath.webp",
+   "kind": "tcg"
+  },
+  "Kyougen: Five Ceremonial Plays": {
+   "file": "kyougen-five-ceremonial-plays.webp",
+   "kind": "tcg"
+  },
+  "Kätzlein Style": {
+   "file": "k-tzlein-style.webp",
+   "kind": "tcg"
+  },
+  "Last Lightfall": {
+   "file": "last-lightfall.webp",
+   "kind": "tcg"
+  },
+  "Lemniscatic Wind Cycling": {
+   "file": "lemniscatic-wind-cycling.webp",
+   "kind": "tcg"
+  },
+  "Leonine Bite": {
+   "file": "leonine-bite.webp",
+   "kind": "tcg"
+  },
+  "Let the People Rejoice": {
+   "file": "let-the-people-rejoice.webp",
+   "kind": "tcg"
+  },
+  "Let the Show Begin♪": {
+   "file": "let-the-show-begin.webp",
+   "kind": "tcg"
+  },
+  "Lightning Blade": {
+   "file": "lightning-blade.webp",
+   "kind": "talent"
+  },
+  "Lightning Fang": {
+   "file": "lightning-fang.webp",
+   "kind": "tcg"
+  },
+  "Lightning Rose": {
+   "file": "lightning-rose.webp",
+   "kind": "tcg"
+  },
+  "Lightning Touch": {
+   "file": "lightning-touch.webp",
+   "kind": "tcg"
+  },
+  "Line Bayonet Thrust EX": {
+   "file": "line-bayonet-thrust-ex.webp",
+   "kind": "tcg"
+  },
+  "Lingering Lifeline": {
+   "file": "lingering-lifeline.webp",
+   "kind": "tcg"
+  },
+  "Liutian Archery": {
+   "file": "liutian-archery.webp",
+   "kind": "tcg"
+  },
+  "Low-Temperature Cooking": {
+   "file": "low-temperature-cooking.webp",
+   "kind": "tcg"
+  },
+  "Lustrous Moonrise": {
+   "file": "lustrous-moonrise.webp",
+   "kind": "tcg"
+  },
+  "Magic Trick: Astonishing Shift": {
+   "file": "magic-trick-astonishing-shift.webp",
+   "kind": "tcg"
+  },
+  "Manifest Judgment": {
+   "file": "manifest-judgment.webp",
+   "kind": "talent"
+  },
+  "Marvelous Sword-Dance (Modified)": {
+   "file": "marvelous-sword-dance-modified.webp",
+   "kind": "tcg"
+  },
+  "Masatsu Zetsugi: Akaushi Burst!": {
+   "file": "masatsu-zetsugi-akaushi-burst.webp",
+   "kind": "tcg"
+  },
+  "Memo: Survival Guide in Extreme Conditions": {
+   "file": "memo-survival-guide-in-extreme-conditions.webp",
+   "kind": "talent"
+  },
+  "Meow-teor Kick": {
+   "file": "meow-teor-kick.webp",
+   "kind": "tcg"
+  },
+  "Midnight Phantasmagoria": {
+   "file": "midnight-phantasmagoria.webp",
+   "kind": "tcg"
+  },
+  "Mirror Reflection of Doom": {
+   "file": "mirror-reflection-of-doom.webp",
+   "kind": "tcg"
+  },
+  "Molten Inferno": {
+   "file": "molten-inferno.webp",
+   "kind": "tcg"
+  },
+  "Moondew Cascade": {
+   "file": "moondew-cascade.webp",
+   "kind": "talent"
+  },
+  "Moonjade Descent": {
+   "file": "moonjade-descent.webp",
+   "kind": "tcg"
+  },
+  "Moonlit Melancholy": {
+   "file": "moonlit-melancholy.webp",
+   "kind": "talent"
+  },
+  "Musecatcher": {
+   "file": "musecatcher.webp",
+   "kind": "tcg"
+  },
+  "Nereid's Ascension": {
+   "file": "nereid-s-ascension.webp",
+   "kind": "tcg"
+  },
+  "Night's Sling": {
+   "file": "night-s-sling.webp",
+   "kind": "tcg"
+  },
+  "Nightrider": {
+   "file": "nightrider.webp",
+   "kind": "tcg"
+  },
+  "Nights of Formal Focus": {
+   "file": "nights-of-formal-focus.webp",
+   "kind": "tcg"
+  },
+  "Nightsun Style": {
+   "file": "nightsun-style.webp",
+   "kind": "tcg"
+  },
+  "Niwabi Fire-Dance": {
+   "file": "niwabi-fire-dance.webp",
+   "kind": "tcg"
+  },
+  "Northwind Avatar": {
+   "file": "northwind-avatar.webp",
+   "kind": "talent"
+  },
+  "O Tears, I Shall Repay": {
+   "file": "o-tears-i-shall-repay.webp",
+   "kind": "tcg"
+  },
+  "O Tides, I Have Returned": {
+   "file": "o-tides-i-have-returned.webp",
+   "kind": "tcg"
+  },
+  "Oath of Hunting Shadows": {
+   "file": "oath-of-hunting-shadows.webp",
+   "kind": "tcg"
+  },
+  "Oathkeeper's Spear": {
+   "file": "oathkeeper-s-spear.webp",
+   "kind": "talent"
+  },
+  "Oceanborne": {
+   "file": "oceanborne.webp",
+   "kind": "tcg"
+  },
+  "Ocelotlicue Point!": {
+   "file": "ocelotlicue-point.webp",
+   "kind": "tcg"
+  },
+  "Opening Flourish": {
+   "file": "opening-flourish.webp",
+   "kind": "tcg"
+  },
+  "Origin": {
+   "file": "origin.webp",
+   "kind": "tcg"
+  },
+  "Painted Dome": {
+   "file": "painted-dome.webp",
+   "kind": "tcg"
+  },
+  "Palm Vortex": {
+   "file": "palm-vortex.webp",
+   "kind": "talent"
+  },
+  "Parthian Shot": {
+   "file": "parthian-shot.webp",
+   "kind": "tcg"
+  },
+  "Particular Field: Fetters of Phenomena": {
+   "file": "particular-field-fetters-of-phenomena.webp",
+   "kind": "tcg"
+  },
+  "Passion Overload": {
+   "file": "passion-overload.webp",
+   "kind": "tcg"
+  },
+  "Peregrination of Linnunrata": {
+   "file": "peregrination-of-linnunrata.webp",
+   "kind": "tcg"
+  },
+  "Phantom Feather Flurry": {
+   "file": "phantom-feather-flurry.webp",
+   "kind": "tcg"
+  },
+  "Planet Befall": {
+   "file": "planet-befall.webp",
+   "kind": "tcg"
+  },
+  "Pocztowy Demonspear": {
+   "file": "pocztowy-demonspear.webp",
+   "kind": "tcg"
+  },
+  "Precision Hydronic Cooler": {
+   "file": "precision-hydronic-cooler.webp",
+   "kind": "tcg"
+  },
+  "Pressurized Floe": {
+   "file": "pressurized-floe.webp",
+   "kind": "tcg"
+  },
+  "Presto: Bluebird Finale": {
+   "file": "presto-bluebird-finale.webp",
+   "kind": "talent"
+  },
+  "Principle of Purity: As the Light Shifts": {
+   "file": "principle-of-purity-as-the-light-shifts.webp",
+   "kind": "tcg"
+  },
+  "Prophecies of Dawn": {
+   "file": "prophecies-of-dawn.webp",
+   "kind": "talent"
+  },
+  "Psyshkhwe Arietta": {
+   "file": "psyshkhwe-arietta.webp",
+   "kind": "talent"
+  },
+  "Pure Heart, Pure Dreams": {
+   "file": "pure-heart-pure-dreams.webp",
+   "kind": "tcg"
+  },
+  "Pyronado": {
+   "file": "pyronado.webp",
+   "kind": "tcg"
+  },
+  "Radiant Psalter": {
+   "file": "radiant-psalter.webp",
+   "kind": "tcg"
+  },
+  "Radiant Wingslash": {
+   "file": "radiant-wingslash.webp",
+   "kind": "tcg"
+  },
+  "Rain of Stone": {
+   "file": "rain-of-stone.webp",
+   "kind": "tcg"
+  },
+  "Raphanus Sky Cluster": {
+   "file": "raphanus-sky-cluster.webp",
+   "kind": "tcg"
+  },
+  "Rapid Fire": {
+   "file": "rapid-fire.webp",
+   "kind": "talent"
+  },
+  "Rapid Ritesword": {
+   "file": "rapid-ritesword.webp",
+   "kind": "tcg"
+  },
+  "Ravaging Confession": {
+   "file": "ravaging-confession.webp",
+   "kind": "talent"
+  },
+  "Razorgrass Blade": {
+   "file": "razorgrass-blade.webp",
+   "kind": "talent"
+  },
+  "Rebound Hydrotherapy": {
+   "file": "rebound-hydrotherapy.webp",
+   "kind": "talent"
+  },
+  "Rechitativ: Sonorous Dawn": {
+   "file": "rechitativ-sonorous-dawn.webp",
+   "kind": "talent"
+  },
+  "Revelation: Ladder of Divine Ascent": {
+   "file": "revelation-ladder-of-divine-ascent.webp",
+   "kind": "talent"
+  },
+  "Revelation: Uncreated Light": {
+   "file": "revelation-uncreated-light.webp",
+   "kind": "talent"
+  },
+  "Riding the Night-Rainbow": {
+   "file": "riding-the-night-rainbow.webp",
+   "kind": "tcg"
+  },
+  "Riff Revolution": {
+   "file": "riff-revolution.webp",
+   "kind": "tcg"
+  },
+  "Ring of Bursting Grenades": {
+   "file": "ring-of-bursting-grenades.webp",
+   "kind": "tcg"
+  },
+  "Ring-A-Ding-Ding! Hexhunter Chime": {
+   "file": "ring-a-ding-ding-hexhunter-chime.webp",
+   "kind": "talent"
+  },
+  "Ripping Fang Fletching": {
+   "file": "ripping-fang-fletching.webp",
+   "kind": "tcg"
+  },
+  "Ripple of Fate": {
+   "file": "ripple-of-fate.webp",
+   "kind": "tcg"
+  },
+  "Rising Waters": {
+   "file": "rising-waters.webp",
+   "kind": "talent"
+  },
+  "Rite of Dispelling Winds": {
+   "file": "rite-of-dispelling-winds.webp",
+   "kind": "tcg"
+  },
+  "Rite of Progeniture: Tectonic Tide": {
+   "file": "rite-of-progeniture-tectonic-tide.webp",
+   "kind": "tcg"
+  },
+  "Rites of Termination": {
+   "file": "rites-of-termination.webp",
+   "kind": "talent"
+  },
+  "Royal Descent: Behold, Itto the Evil!": {
+   "file": "royal-descent-behold-itto-the-evil.webp",
+   "kind": "tcg"
+  },
+  "Royal Reed Archery": {
+   "file": "royal-reed-archery.webp",
+   "kind": "tcg"
+  },
+  "Runo: All Hearts Become the Beating Moon": {
+   "file": "runo-all-hearts-become-the-beating-moon.webp",
+   "kind": "tcg"
+  },
+  "Runo: Dawnless Rest of Karsikko": {
+   "file": "runo-dawnless-rest-of-karsikko.webp",
+   "kind": "tcg"
+  },
+  "Ryuukin Saxifrage": {
+   "file": "ryuukin-saxifrage.webp",
+   "kind": "tcg"
+  },
+  "Sacred Rite: Heron's Sanctum": {
+   "file": "sacred-rite-heron-s-sanctum.webp",
+   "kind": "tcg"
+  },
+  "Sacred Rite: Wagtail's Tide": {
+   "file": "sacred-rite-wagtail-s-tide.webp",
+   "kind": "tcg"
+  },
+  "Sacred Rite: Wolf's Swiftness": {
+   "file": "sacred-rite-wolf-s-swiftness.webp",
+   "kind": "tcg"
+  },
+  "Sacred Vow: True Eye's Phantasm": {
+   "file": "sacred-vow-true-eye-s-phantasm.webp",
+   "kind": "tcg"
+  },
+  "Salon Solitaire": {
+   "file": "salon-solitaire.webp",
+   "kind": "tcg"
+  },
+  "Sanctifying Ring": {
+   "file": "sanctifying-ring.webp",
+   "kind": "tcg"
+  },
+  "Sandstorm Assault": {
+   "file": "sandstorm-assault.webp",
+   "kind": "tcg"
+  },
+  "Savvy Strategy: Splitting the Spoils": {
+   "file": "savvy-strategy-splitting-the-spoils.webp",
+   "kind": "tcg"
+  },
+  "Schematic Setup": {
+   "file": "schematic-setup.webp",
+   "kind": "tcg"
+  },
+  "Scoring Cuts": {
+   "file": "scoring-cuts.webp",
+   "kind": "tcg"
+  },
+  "Seal of Approval": {
+   "file": "seal-of-approval.webp",
+   "kind": "tcg"
+  },
+  "Searing Onslaught": {
+   "file": "searing-onslaught.webp",
+   "kind": "tcg"
+  },
+  "Secret Art: Musou Shinsetsu": {
+   "file": "secret-art-musou-shinsetsu.webp",
+   "kind": "tcg"
+  },
+  "Secret Art: Surprise Dispatch": {
+   "file": "secret-art-surprise-dispatch.webp",
+   "kind": "tcg"
+  },
+  "Secret Rite: Chasmic Soulfarer": {
+   "file": "secret-rite-chasmic-soulfarer.webp",
+   "kind": "tcg"
+  },
+  "Secret Rite: Twilight Shadowpiercer": {
+   "file": "secret-rite-twilight-shadowpiercer.webp",
+   "kind": "tcg"
+  },
+  "Secret Spear of Wangsheng": {
+   "file": "secret-spear-of-wangsheng.webp",
+   "kind": "tcg"
+  },
+  "Senet Strategy: Dance of a Thousand Nights": {
+   "file": "senet-strategy-dance-of-a-thousand-nights.webp",
+   "kind": "tcg"
+  },
+  "Shadow-Hunting Spear (Custom)": {
+   "file": "shadow-hunting-spear-custom.webp",
+   "kind": "tcg"
+  },
+  "Shadow-Stealing Spirit Vessel": {
+   "file": "shadow-stealing-spirit-vessel.webp",
+   "kind": "tcg"
+  },
+  "Shadowhunter's Ambush": {
+   "file": "shadowhunter-s-ambush.webp",
+   "kind": "tcg"
+  },
+  "Shadowless Reflection": {
+   "file": "shadowless-reflection.webp",
+   "kind": "talent"
+  },
+  "Sharpshooter": {
+   "file": "sharpshooter.webp",
+   "kind": "tcg"
+  },
+  "Shining Miracle♪": {
+   "file": "shining-miracle.webp",
+   "kind": "tcg"
+  },
+  "Shinobu's Shadowsword": {
+   "file": "shinobu-s-shadowsword.webp",
+   "kind": "tcg"
+  },
+  "Short-Range Rapid Interdiction Fire": {
+   "file": "short-range-rapid-interdiction-fire.webp",
+   "kind": "tcg"
+  },
+  "Shuumatsuban Ninja Blade": {
+   "file": "shuumatsuban-ninja-blade.webp",
+   "kind": "tcg"
+  },
+  "Signature Mix": {
+   "file": "signature-mix.webp",
+   "kind": "tcg"
+  },
+  "Signed Edict": {
+   "file": "signed-edict.webp",
+   "kind": "tcg"
+  },
+  "Skirmishing Spear": {
+   "file": "skirmishing-spear.webp",
+   "kind": "talent"
+  },
+  "Skyfeather Song": {
+   "file": "skyfeather-song.webp",
+   "kind": "tcg"
+  },
+  "Skyward Sonnet": {
+   "file": "skyward-sonnet.webp",
+   "kind": "tcg"
+  },
+  "Snow Swan Variation": {
+   "file": "snow-swan-variation.webp",
+   "kind": "talent"
+  },
+  "Soloist's Solicitation": {
+   "file": "soloist-s-solicitation.webp",
+   "kind": "tcg"
+  },
+  "Soul Reaper's Fatal Round": {
+   "file": "soul-reaper-s-fatal-round.webp",
+   "kind": "tcg"
+  },
+  "Sparkling Scatter": {
+   "file": "sparkling-scatter.webp",
+   "kind": "tcg"
+  },
+  "Sparks 'n' Splash": {
+   "file": "sparks-n-splash.webp",
+   "kind": "tcg"
+  },
+  "Spear of Favonius - Arrow's Passage": {
+   "file": "spear-of-favonius-arrow-s-passage.webp",
+   "kind": "tcg"
+  },
+  "Spear of Favonius — Broken Oath": {
+   "file": "spear-of-favonius-broken-oath.webp",
+   "kind": "talent"
+  },
+  "Spear of the Church": {
+   "file": "spear-of-the-church.webp",
+   "kind": "talent"
+  },
+  "Spirit Reins, Shadow Hunt": {
+   "file": "spirit-reins-shadow-hunt.webp",
+   "kind": "tcg"
+  },
+  "Spirit Soother": {
+   "file": "spirit-soother.webp",
+   "kind": "tcg"
+  },
+  "Spirit-Warding Lamp: Troubleshooter Cannon": {
+   "file": "spirit-warding-lamp-troubleshooter-cannon.webp",
+   "kind": "tcg"
+  },
+  "Spiritfox Sin-Eater": {
+   "file": "spiritfox-sin-eater.webp",
+   "kind": "tcg"
+  },
+  "Spiritvessel Snapshot": {
+   "file": "spiritvessel-snapshot.webp",
+   "kind": "tcg"
+  },
+  "Spring Spirit Summoning": {
+   "file": "spring-spirit-summoning.webp",
+   "kind": "tcg"
+  },
+  "Starfell Sword": {
+   "file": "starfell-sword.webp",
+   "kind": "talent"
+  },
+  "Starfrost Swirl": {
+   "file": "starfrost-swirl.webp",
+   "kind": "tcg"
+  },
+  "Stars Gather at Dusk": {
+   "file": "stars-gather-at-dusk.webp",
+   "kind": "tcg"
+  },
+  "Starshatter": {
+   "file": "starshatter.webp",
+   "kind": "tcg"
+  },
+  "Starward Sword": {
+   "file": "starward-sword.webp",
+   "kind": "tcg"
+  },
+  "Stealthy Bowshot": {
+   "file": "stealthy-bowshot.webp",
+   "kind": "tcg"
+  },
+  "Steel Fang": {
+   "file": "steel-fang.webp",
+   "kind": "tcg"
+  },
+  "Stellar Rend": {
+   "file": "stellar-rend.webp",
+   "kind": "tcg"
+  },
+  "Stellar Restoration": {
+   "file": "stellar-restoration.webp",
+   "kind": "tcg"
+  },
+  "Stellaris Phantasm": {
+   "file": "stellaris-phantasm.webp",
+   "kind": "tcg"
+  },
+  "Still Photo: Comprehensive Confirmation": {
+   "file": "still-photo-comprehensive-confirmation.webp",
+   "kind": "tcg"
+  },
+  "Stormbreaker": {
+   "file": "stormbreaker.webp",
+   "kind": "tcg"
+  },
+  "Strike While the Arrow's Hot": {
+   "file": "strike-while-the-arrow-s-hot.webp",
+   "kind": "tcg"
+  },
+  "Strike of Fortune": {
+   "file": "strike-of-fortune.webp",
+   "kind": "tcg"
+  },
+  "Striking Serpent": {
+   "file": "striking-serpent.webp",
+   "kind": "tcg"
+  },
+  "Suanni's Gilded Dance": {
+   "file": "suanni-s-gilded-dance.webp",
+   "kind": "tcg"
+  },
+  "Subjugation: Koukou Sendou": {
+   "file": "subjugation-koukou-sendou.webp",
+   "kind": "tcg"
+  },
+  "Super Saturated Syringing": {
+   "file": "super-saturated-syringing.webp",
+   "kind": "talent"
+  },
+  "Supplicant's Bowmanship": {
+   "file": "supplicant-s-bowmanship.webp",
+   "kind": "tcg"
+  },
+  "Supreme Instruction: Cyclonic Exterminator": {
+   "file": "supreme-instruction-cyclonic-exterminator.webp",
+   "kind": "tcg"
+  },
+  "Surfshark Wavebreaker": {
+   "file": "surfshark-wavebreaker.webp",
+   "kind": "tcg"
+  },
+  "Surgent Manifestation": {
+   "file": "surgent-manifestation.webp",
+   "kind": "talent"
+  },
+  "Swallow-Wisp Pinion Dance": {
+   "file": "swallow-wisp-pinion-dance.webp",
+   "kind": "tcg"
+  },
+  "Sweeping Fervor": {
+   "file": "sweeping-fervor.webp",
+   "kind": "tcg"
+  },
+  "Sweeping Time": {
+   "file": "sweeping-time.webp",
+   "kind": "tcg"
+  },
+  "Swiftshatter Spear": {
+   "file": "swiftshatter-spear.webp",
+   "kind": "tcg"
+  },
+  "Sword of the Radiant Path": {
+   "file": "sword-of-the-radiant-path.webp",
+   "kind": "tcg"
+  },
+  "Targeted Treatment": {
+   "file": "targeted-treatment.webp",
+   "kind": "tcg"
+  },
+  "Tempered Sword": {
+   "file": "tempered-sword.webp",
+   "kind": "tcg"
+  },
+  "Tengu Bowmanship": {
+   "file": "tengu-bowmanship.webp",
+   "kind": "tcg"
+  },
+  "Tengu Stormcall": {
+   "file": "tengu-stormcall.webp",
+   "kind": "tcg"
+  },
+  "The Art of Victory": {
+   "file": "the-art-of-victory.webp",
+   "kind": "talent"
+  },
+  "The Bell Tolls! The Hunt Is On!": {
+   "file": "the-bell-tolls-the-hunt-is-on.webp",
+   "kind": "talent"
+  },
+  "The Classics of Acupuncture": {
+   "file": "the-classics-of-acupuncture.webp",
+   "kind": "tcg"
+  },
+  "The Named Moment": {
+   "file": "the-named-moment.webp",
+   "kind": "tcg"
+  },
+  "The Shape of Water": {
+   "file": "the-shape-of-water.webp",
+   "kind": "tcg"
+  },
+  "The Three Principles of Power": {
+   "file": "the-three-principles-of-power.webp",
+   "kind": "tcg"
+  },
+  "The Wind's Secret Ways": {
+   "file": "the-wind-s-secret-ways.webp",
+   "kind": "tcg"
+  },
+  "Thunderbolt Rush": {
+   "file": "thunderbolt-rush.webp",
+   "kind": "tcg"
+  },
+  "Thunderbolt Strike": {
+   "file": "thunderbolt-strike.webp",
+   "kind": "talent"
+  },
+  "Tidecaller": {
+   "file": "tidecaller.webp",
+   "kind": "tcg"
+  },
+  "Time to Get Serious!": {
+   "file": "time-to-get-serious.webp",
+   "kind": "tcg"
+  },
+  "Toss 'N' Turn Spear": {
+   "file": "toss-n-turn-spear.webp",
+   "kind": "tcg"
+  },
+  "Trail of the Qilin": {
+   "file": "trail-of-the-qilin.webp",
+   "kind": "tcg"
+  },
+  "Transcendence: Baleful Omen": {
+   "file": "transcendence-baleful-omen.webp",
+   "kind": "tcg"
+  },
+  "Tri-Sphere Eminence": {
+   "file": "tri-sphere-eminence.webp",
+   "kind": "talent"
+  },
+  "Trump-Card Kitty": {
+   "file": "trump-card-kitty.webp",
+   "kind": "tcg"
+  },
+  "Unforeseen Strike": {
+   "file": "unforeseen-strike.webp",
+   "kind": "talent"
+  },
+  "Universal Diagnosis": {
+   "file": "universal-diagnosis.webp",
+   "kind": "tcg"
+  },
+  "Universality: An Elaboration on Form": {
+   "file": "universality-an-elaboration-on-form.webp",
+   "kind": "tcg"
+  },
+  "Vijnana-Phala Mine": {
+   "file": "vijnana-phala-mine.webp",
+   "kind": "tcg"
+  },
+  "Vila Blade Dance": {
+   "file": "vila-blade-dance.webp",
+   "kind": "talent"
+  },
+  "Violet Arc": {
+   "file": "violet-arc.webp",
+   "kind": "tcg"
+  },
+  "Wake of Earth": {
+   "file": "wake-of-earth.webp",
+   "kind": "talent"
+  },
+  "Weaving Blade": {
+   "file": "weaving-blade.webp",
+   "kind": "tcg"
+  },
+  "Weighted Spike": {
+   "file": "weighted-spike.webp",
+   "kind": "tcg"
+  },
+  "Whirlwind Thrust": {
+   "file": "whirlwind-thrust.webp",
+   "kind": "tcg"
+  },
+  "Whisper of Water": {
+   "file": "whisper-of-water.webp",
+   "kind": "tcg"
+  },
+  "White Clouds at Dawn": {
+   "file": "white-clouds-at-dawn.webp",
+   "kind": "tcg"
+  },
+  "Wind Realm of Nasamjnin": {
+   "file": "wind-realm-of-nasamjnin.webp",
+   "kind": "tcg"
+  },
+  "Wind Spirit Creation": {
+   "file": "wind-spirit-creation.webp",
+   "kind": "tcg"
+  },
+  "Wind's Grand Ode": {
+   "file": "wind-s-grand-ode.webp",
+   "kind": "tcg"
+  },
+  "Windbound Execution": {
+   "file": "windbound-execution.webp",
+   "kind": "talent"
+  },
+  "Windmuster Kick": {
+   "file": "windmuster-kick.webp",
+   "kind": "tcg"
+  },
+  "Wondrous Trick: Miracle Parade": {
+   "file": "wondrous-trick-miracle-parade.webp",
+   "kind": "tcg"
+  },
+  "Word of Wind and Flower": {
+   "file": "word-of-wind-and-flower.webp",
+   "kind": "tcg"
+  },
+  "Yakan Evocation: Sesshou Sakura": {
+   "file": "yakan-evocation-sesshou-sakura.webp",
+   "kind": "tcg"
+  },
+  "Yohual's Scratch": {
+   "file": "yohual-s-scratch.webp",
+   "kind": "tcg"
+  },
+  "Yoohoo Art: Fuuin Dash": {
+   "file": "yoohoo-art-fuuin-dash.webp",
+   "kind": "tcg"
+  },
+  "Yoohoo Art: Mujina Flurry": {
+   "file": "yoohoo-art-mujina-flurry.webp",
+   "kind": "tcg"
+  },
+  "Yunlai Swordsmanship": {
+   "file": "yunlai-swordsmanship.webp",
+   "kind": "tcg"
+  },
+  "Yuuban Meigen": {
+   "file": "yuuban-meigen.webp",
+   "kind": "tcg"
+  }
+ },
+ "icons": {
+  "Lisa": "lisa.webp",
+  "Diluc": "diluc.webp",
+  "Diona": "diona.webp",
+  "Jean": "jean.webp",
+  "Klee": "klee.webp",
+  "Kaeya": "kaeya.webp",
+  "Albedo": "albedo.webp",
+  "Fischl": "fischl.webp",
+  "Mona": "mona.webp",
+  "Sucrose": "sucrose.webp",
+  "Prune": "prune.webp",
+  "Qiqi": "qiqi.webp",
+  "Baizhu": "baizhu.webp",
+  "Hu Tao": "hu-tao.webp",
+  "Zhongli": "zhongli.webp",
+  "Xiangling": "xiangling.webp",
+  "Xiao": "xiao.webp",
+  "Ningguang": "ningguang.webp",
+  "Yaoyao": "yaoyao.webp",
+  "Raiden Shogun": "raiden-shogun.webp",
+  "Yae Miko": "yae-miko.webp",
+  "Kamisato Ayaka": "kamisato-ayaka.webp",
+  "Kamisato Ayato": "kamisato-ayato.webp",
+  "Thoma": "thoma.webp",
+  "Sangonomiya Kokomi": "sangonomiya-kokomi.webp",
+  "Gorou": "gorou.webp",
+  "Nahida": "nahida.webp",
+  "Alhaitham": "alhaitham.webp",
+  "Kaveh": "kaveh.webp",
+  "Tighnari": "tighnari.webp",
+  "Collei": "collei.webp",
+  "Nilou": "nilou.webp",
+  "Candace": "candace.webp",
+  "Dehya": "dehya.webp",
+  "Neuvillette": "neuvillette.webp",
+  "Furina": "furina.webp",
+  "Lyney": "lyney.webp",
+  "Lynette": "lynette.webp",
+  "Wriothesley": "wriothesley.webp",
+  "Sigewinne": "sigewinne.webp",
+  "Navia": "navia.webp",
+  "Chiori": "chiori.webp",
+  "Kachina": "kachina.webp",
+  "Xilonen": "xilonen.webp",
+  "Mualani": "mualani.webp",
+  "Kinich": "kinich.webp",
+  "Chasca": "chasca.webp",
+  "Ifa": "ifa.webp",
+  "Mavuika": "mavuika.webp",
+  "Aino": "aino.webp",
+  "Ineffa": "ineffa.webp",
+  "Columbina": "columbina.webp",
+  "Nefer": "nefer.webp",
+  "Jahoda": "jahoda.webp",
+  "Lauma": "lauma.webp",
+  "Flins": "flins.webp",
+  "Tartaglia": "tartaglia.webp",
+  "Alyosha": "alyosha.webp",
+  "Odette": "odette.webp",
+  "Aloy": "aloy.webp",
+  "Amber": "amber.webp",
+  "Arataki Itto": "arataki-itto.webp",
+  "Arlecchino": "arlecchino.webp",
+  "Barbara": "barbara.webp",
+  "Beidou": "beidou.webp",
+  "Bennett": "bennett.webp",
+  "Charlotte": "charlotte.webp",
+  "Chevreuse": "chevreuse.webp",
+  "Chongyun": "chongyun.webp",
+  "Citlali": "citlali.webp",
+  "Clorinde": "clorinde.webp",
+  "Cyno": "cyno.webp",
+  "Dahlia": "dahlia.webp",
+  "Dori": "dori.webp",
+  "Durin": "durin.webp",
+  "Emilie": "emilie.webp",
+  "Escoffier": "escoffier.webp",
+  "Eula": "eula.webp",
+  "Faruzan": "faruzan.webp",
+  "Freminet": "freminet.webp",
+  "Gaming": "gaming.webp",
+  "Ganyu": "ganyu.webp",
+  "Iansan": "iansan.webp",
+  "Illuga": "illuga.webp",
+  "Kaedehara Kazuha": "kaedehara-kazuha.webp",
+  "Keqing": "keqing.webp",
+  "Kirara": "kirara.webp",
+  "Kujou Sara": "kujou-sara.webp",
+  "Kuki Shinobu": "kuki-shinobu.webp",
+  "Lan Yan": "lan-yan.webp",
+  "Layla": "layla.webp",
+  "Linnea": "linnea.webp",
+  "Lohen": "lohen.webp",
+  "Manekin": "manekin.webp",
+  "Manekina": "manekina.webp",
+  "Mika": "mika.webp",
+  "Nicole": "nicole.webp",
+  "Noelle": "noelle.webp",
+  "Ororon": "ororon.webp",
+  "Razor": "razor.webp",
+  "Rosaria": "rosaria.webp",
+  "Sandrone": "sandrone.webp",
+  "Sayu": "sayu.webp",
+  "Sethos": "sethos.webp",
+  "Shenhe": "shenhe.webp",
+  "Shikanoin Heizou": "shikanoin-heizou.webp",
+  "Skirk": "skirk.webp",
+  "Varesa": "varesa.webp",
+  "Varka": "varka.webp",
+  "Venti": "venti.webp",
+  "Vesna": "vesna.webp",
+  "Vodyanitsa": "vodyanitsa.webp",
+  "Wanderer": "wanderer.webp",
+  "Xianyun": "xianyun.webp",
+  "Xingqiu": "xingqiu.webp",
+  "Xinyan": "xinyan.webp",
+  "Yanfei": "yanfei.webp",
+  "Yelan": "yelan.webp",
+  "Yoimiya": "yoimiya.webp",
+  "Yumemizuki Mizuki": "yumemizuki-mizuki.webp",
+  "Yun Jin": "yun-jin.webp",
+  "Zibai": "zibai.webp",
+  "Paimon": "paimon.webp",
+  "Aether": "aether.webp",
+  "Lumine": "lumine.webp"
+ },
+ "summons": {
+  "Lightning Rose": "lightning-rose.webp",
+  "Drunken Mist": "drunken-mist.webp",
+  "Solar Isotoma": "solar-isotoma.webp",
+  "Oz": "oz.webp",
+  "Herald of Frost": "herald-of-frost.webp",
+  "Guoba": "guoba.webp",
+  "Yuegui: Throwing Mode": "yuegui-throwing-mode.webp",
+  "Eye of Stormy Judgment": "eye-of-stormy-judgment.webp",
+  "Sesshou Sakura": "sesshou-sakura.webp",
+  "Bake-Kurage": "bake-kurage.webp",
+  "Cuilein-Anbar": "cuilein-anbar.webp",
+  "Salon Members": "salon-members.webp",
+  "Bogglecat Box": "bogglecat-box.webp",
+  "Cool Your Jets Ducky": "cool-your-jets-ducky.webp",
+  "Birgitta": "birgitta.webp",
+  "Baron Bunny": "baron-bunny.webp",
+  "Ushi": "ushi.webp",
+  "Sacred Cryo Pearl": "sacred-cryo-pearl.webp",
+  "Supersonic Oculus": "supersonic-oculus.webp",
+  "Muji-Muji Daruma": "muji-muji-daruma.webp",
+  "Talisman Spirit": "talisman-spirit.webp",
+  "Stormeye": "stormeye.webp",
+  "Mini Baku": "mini-baku.webp"
+ }
+}

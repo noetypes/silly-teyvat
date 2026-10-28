@@ -48,7 +48,7 @@ export function battleSnapshot(ctx,{portrait=()=>''}={}){
         const kit=kitForAlly(ctx,ally),m=partyMember(ctx,ally.avatar),keep=saved.units[ally.avatar] || {};
         const card=ally.avatar===USER_KEY?linkedCard(ctx):ctx.characters.find(c=>c.avatar===ally.avatar);
         units.push({id:ally.avatar,side:'party',name:m.name,card:card?.name || '',img:portrait(ctx,ally.avatar),art:tcgArt(card?.name),element:allyElement(ctx,ally),isUser:ally.avatar===USER_KEY,
-            hp:m.hp,maxHp:m.maxHp,shield:keep.shield || 0,energy:keep.energy ?? 1,maxEnergy:Math.max(1,Math.min(5,Number(kit.energy)||2)),aura:keep.aura || null,statuses:keep.statuses || [],kit});
+            hp:m.hp,maxHp:m.maxHp,shield:keep.shield || 0,energy:keep.energy ?? 1,maxEnergy:Math.max(1,Math.min(5,Number(kit.energy)||2)),aura:keep.aura || null,statuses:keep.statuses || [],evasion:Math.max(0,Math.min(90,Number(kit.evasion)||0)),kit});
     }
     for(const e of enemies){
         const card=ctx.characters.find(c=>c.avatar===e.avatar),kit=kitForCard(ctx,card),keep=saved.units[e.avatar];

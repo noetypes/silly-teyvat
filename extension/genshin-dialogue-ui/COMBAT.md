@@ -1,4 +1,4 @@
-# Silly Teyvat 1.32: Wilderness encounters and turn-based elemental combat
+# Silly Teyvat 1.33: Wilderness encounters and turn-based elemental combat
 
 Installed in the local SillyTavern user extension directory. Refresh SillyTavern on each device to load the update and the newly tagged cards. Your chats, portraits, greetings and original sprite files are preserved.
 
@@ -22,7 +22,7 @@ Chat switches, new encounters, disabling the extension and losing the selected t
 Each armed message plays one round in three phases.
 
 1. **Roll Phase.** The party throws **1 + 2 per fighting member** elemental dice (you count as a member, and one more die with Electro Resonance). The faces are the seven elements and Omni. The summary shows how many dice each member can use: their own element, Omni (wild) and spare dice. Unmatched dice start selected; you may reroll any of them once. Dice are **fuel**, not damage.
-2. **Action Phase.** The battle board is laid out like Genius Invokation TCG: enemies across the top, your party along the bottom, summons on the right, your dice down the right edge, moves in the bottom-right corner, item cards in your hand at the bottom and the round button (hourglass) on the left. Characters that have a TCG card use its art. Tap a party card to pick who you are planning for, then one of their three moves:
+2. **Action Phase.** The battle board is laid out like Genius Invokation TCG: enemies across the top, your party along the bottom, summons on the right, your dice down the right edge, moves in the bottom-right corner, item cards in your hand at the bottom and the round button (hourglass) on the left. Characters that have a TCG card use its art; moves show their Genius Invokation skill icons, and elements, auras, dice and reactions use the game's own icons. Tap a party card to pick who you are planning for, then one of their three moves:
    - **Normal Attack** (A): free, but it can miss (each weapon has its own miss chance). A hit gives 1 Energy.
    - **Elemental Skill** (E): costs dice of the member's element and gives 1 Energy.
    - **Elemental Burst** (Q): costs dice and needs full Energy (the gold diamonds on the card's right edge; everyone starts an encounter with 1).
@@ -69,6 +69,16 @@ All 124 playable characters, every Traveler element and the 20 bundled enemies h
 Open **Character Customization → Moveset** to edit any character, persona or enemy: role, weapon, Burst Energy, and for each move its name, dice cost (or miss chance, or an enemy's cooldown), element and up to six effects. Effects are damage (power, target, hits), heal, shield, buff (damage dealt, damage taken, crit, dodge, regeneration, elemental infusion), debuff (damage taken, damage dealt, petrify), summon (power or healing each round, duration), Energy, cleanse and HP cost. Targets are one foe, all foes, random foes, the weakest foe, self, one ally, the party, other allies or the most injured ally. The description updates as you edit. **Save moveset** applies from the next round; **Reset to default** restores the bundled kit. Edits are stored in the extension settings per card. A persona playing a character uses that character's kit; otherwise your persona fights with the Traveler kit of its element.
 
 Maximum HP stays in **Profile**. Each character's default comes from their moveset (30 to 42 by role); a value you or a card author chose is kept.
+
+## Paimon
+
+Paimon joins fights whenever she is in the scene, even though her card is not a playable character. She has no Vision, so her moves are Silly Teyvat's own and cost dice of any element:
+
+- **Paimon Punch!** (Normal Attack): 1 Physical damage, misses 45% of the time.
+- **Go, Go, Traveler!** (Elemental Skill, 1 die): everyone else deals 20% more damage and gains 15% critical chance for 2 rounds.
+- **Paimon's Pep Talk** (Elemental Burst, 2 dice): everyone else heals 3 HP, gains 1 Energy and deals 25% more damage this round.
+
+She has only 22 HP but **dodges half of all enemy hits** (shown as "Dodged!"); damage over time still lands. Dodge is editable for any character in Character Customization → Moveset.
 
 ## Elemental reactions
 
@@ -141,6 +151,8 @@ Aether and Lumine default to Anemo and can be changed to another supported eleme
 - If the model cannot load or WebGL is unavailable, the exact roll is shown as text and can be committed through Continue. Skipping, reduced motion, rotating the device and cancelling while assets load do not reroll the dice.
 - **Burst splash art** comes from the user's supplied Splash Art folder (120 characters). `tools/build-splash-art.py` trims each PNG and converts it to WebP inside 1100 px under `assets/splash/` (186 MB of PNG to 30 MB). Characters without a file (Aether, Lumine, the Manekins) flash their portrait instead. The art is not covered by this project's MIT code license.
 - Move names for characters released after 5.x were checked against the Genshin Impact Wiki's talent tables.
+- **Aether, Lumine and Paimon's cards** were supplied by the user (the wiki has no TCG card for them) and are kept by `tools/build-tcg-cards.py`.
+- **Battle icons** come from the same wiki through its API: `tools/build-battle-icons.py` downloads the element icons (colour and white SVGs), the reaction icons, the Genius Invokation skill icon for each move (or the in-game talent icon when there is no TCG card), round character icons and TCG summon cards, and writes `assets/battle/index.json`. Moves without an icon (enemy moves, Paimon's, a few newer characters) use Silly Teyvat's own glyphs. These icons belong to HoYoverse and are not covered by this project's MIT code license.
 - **TCG card art** comes from the [Genshin Impact Wiki's Genius Invokation card gallery](https://genshin-impact.fandom.com/wiki/Genius_Invokation_TCG/Gallery/Cards). `tools/build-tcg-cards.py` downloads the character card for every bundled character or enemy with a card of the same name (120: everyone except the Treasure Hoarders, Cryo Whopperflower, Geo Slime, the Large Slimes, Prune, Alyosha, Odette, Aether, Lumine, Aloy, Linnea, Lohen, the Manekins, Nicole, Sandrone, Varka, Vesna, Vodyanitsa and Zibai, who keep their portraits) and the 20 event cards used as items, sized to 360 px WebP under `assets/tcg/` (6.4 MB). The art belongs to HoYoverse and is not covered by this project's MIT code license.
 
 ## Validation

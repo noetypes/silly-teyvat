@@ -3,7 +3,9 @@ import {ITEMS,rollLoot,applyDiceItem,STARTER_BAG} from './battle-items.js';
 import {defaultKit,describeMove,hasBundledKit,mergeKit} from './combat-kits.js';
 import {mountBattle} from './battle-ui.js';
 import {mountMovesetEditor} from './moveset-editor.js';
-import {kitForCard,roundNarration} from './battle-state.js';
+import {kitForCard,roundNarration,tcgArt,tcgCardsReady} from './battle-state.js';
+import {combatAllies} from './combat-state.js';
+import {iconsReady,skillIcon,reactionIcon,elementIcon,characterIcon,summonArt} from './battle-icons.js';
 
 // Turn-based battle rules, the battle screen and the Moveset editor.
 export async function runBattleTests(){
@@ -101,6 +103,21 @@ export async function runBattleTests(){
         check('Auto picks a Burst when it is ready and paid for',autoPlan(team,[{face:'Pyro'},{face:'Pyro'},{face:'Pyro'}],[{actor:'b',move:0,target:'h'}])[0].move===2);
         const text=roundNarration(kx,resolveRound(kx,[{actor:'x',move:1,target:'h'},{actor:'k',move:1,target:'h'}],{...opts,strikeBack:false}));
         check('the chat narration names moves, damage and reactions',/Xingqiu used Guhua Sword: Fatal Rainscreen \(Elemental Skill\)/.test(text)&&/Vaporize/.test(text)&&/HP: Klee/.test(text));
+
+        // Paimon: a tiny, nimble cheerleader
+        const paimonKit=defaultKit('Paimon',{element:'None'});
+        check('Paimon has her own kit: a weak punch, cheering and a pep talk',paimonKit.moves.map(m=>m.name).join('|')==='Paimon Punch!|Go, Go, Traveler!|Paimon\'s Pep Talk'&&paimonKit.moves[0].effects[0].power===1&&paimonKit.evasion===50&&paimonKit.hp<30);
+        const pai=party(unit('p','party','Paimon','None',{evasion:50}),unit('k','party','Klee','Pyro',{energy:0}),unit('h','enemy','Hilichurl Fighter','Physical',{intent:{move:0,target:'p'}}));
+        r=resolveRound(pai,[{actor:'p',move:1},{actor:'k',move:0,target:'h'}],{random:()=>.3});
+        check('Paimon dodges enemy hits often',r.timeline.some(e=>e.type==='miss'&&e.target==='p'&&e.dodge)&&r.state.units.find(u=>u.id==='p').hp===pai.units[0].hp);
+        check('cheering buffs everyone but Paimon',r.state.units.find(u=>u.id==='k').statuses.some(s=>s.stat==='atk')&&!r.state.units.find(u=>u.id==='p').statuses.some(s=>s.stat==='atk'));
+        r=resolveRound({...pai,units:pai.units.map(u=>u.id==='p'?{...u,energy:2}:u)},[{actor:'p',move:2}],{...opts,strikeBack:false});
+        check('her pep talk gives the others Energy',r.state.units.find(u=>u.id==='k').energy===1);
+        const pctx={characters:[{name:'Paimon',avatar:'Paimon.png',data:{extensions:{silly_teyvat:{role:'character',playable:false,element:'None'}}}},{name:'Klee',avatar:'Klee.png',data:{extensions:{silly_teyvat:{role:'character',playable:true,element:'Pyro'}}}}],characterId:0,groupId:'g',groups:[{id:'g',members:['Paimon.png','Klee.png'],disabled_members:[]}],chatMetadata:{},extensionSettings:{genshin_dialogue_ui:{}},name1:'Traveler'};
+        check('Paimon fights alongside the party even though her card is not playable',combatAllies(pctx).some(a=>a.avatar==='Paimon.png'));
+        await tcgCardsReady;await iconsReady;
+        check('Aether, Lumine and Paimon have card art',['Aether','Lumine','Paimon'].every(n=>tcgArt(n)));
+        check('wiki icons are indexed for skills, reactions, elements, characters and summons',skillIcon({name:'Jumpy Dumpty'})&&reactionIcon('Vaporize')&&reactionIcon('Aggravate')&&elementIcon('Pyro',true)&&characterIcon('Klee')&&summonArt('Oz'));
 
         // Battle board
         ui=mountBattle({host});
