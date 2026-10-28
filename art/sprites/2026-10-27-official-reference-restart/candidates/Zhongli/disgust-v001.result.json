@@ -1,0 +1,19 @@
+{
+  "character": "Zhongli",
+  "emotion": "disgust",
+  "version": "v001",
+  "request": "prompts/Zhongli/disgust-v001.request.json",
+  "raw": "raw/Zhongli/disgust-v001.png",
+  "sprite": "sprites/Zhongli/disgust.png",
+  "result": "candidates/Zhongli/disgust-v001.result.json",
+  "approved_neutral_sha256": "0509ae4516ffe6bd9c71a7968a42771b77b7bc67afdf358a16729895e3fe6a97",
+  "official_reference_sha256": "97611cebdc01dabd73776a97feb5c31e2c2b766b8356d58063dcc6511069178c",
+  "status": "generated_awaiting_user_review",
+  "generated_source": "/Users/alexachan/.codex/generated_images/01a17cac-5902-79a3-9a41-0e54eec9dfd4/exec-f28ad84f-830a-48ea-a590-09650ccd8319.png",
+  "reference_paths": [
+    "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-27-official-reference-restart/references/Zhongli/official.png",
+    "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-27-official-reference-restart/candidates/Zhongli/neutral-v001.png"
+  ],
+  "visual_qa": "not_performed_user_review",
+  "framing_transform": null
+}

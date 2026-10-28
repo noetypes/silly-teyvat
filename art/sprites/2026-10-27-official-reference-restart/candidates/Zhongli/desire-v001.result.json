@@ -1,0 +1,19 @@
+{
+  "character": "Zhongli",
+  "emotion": "desire",
+  "version": "v001",
+  "request": "prompts/Zhongli/desire-v001.request.json",
+  "raw": "raw/Zhongli/desire-v001.png",
+  "sprite": "sprites/Zhongli/desire.png",
+  "result": "candidates/Zhongli/desire-v001.result.json",
+  "approved_neutral_sha256": "0509ae4516ffe6bd9c71a7968a42771b77b7bc67afdf358a16729895e3fe6a97",
+  "official_reference_sha256": "97611cebdc01dabd73776a97feb5c31e2c2b766b8356d58063dcc6511069178c",
+  "status": "generated_awaiting_user_review",
+  "generated_source": "/Users/alexachan/.codex/generated_images/01a17cac-5902-79a3-9a41-0e54eec9dfd4/exec-b7573e7b-0247-41dc-8a82-2788425492f9.png",
+  "reference_paths": [
+    "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-27-official-reference-restart/references/Zhongli/official.png",
+    "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-27-official-reference-restart/candidates/Zhongli/neutral-v001.png"
+  ],
+  "visual_qa": "not_performed_user_review",
+  "framing_transform": null
+}

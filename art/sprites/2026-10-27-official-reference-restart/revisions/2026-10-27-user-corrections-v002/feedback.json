@@ -1,0 +1,152 @@
+{
+  "reported_by": "user",
+  "regenerate": [
+    {
+      "character": "Furina",
+      "emotion": "caring",
+      "user_reported_defect": "hand has two thumbs",
+      "previous": "candidates/Furina/caring-v001.result.json",
+      "new_request": "prompts/Furina/caring-v002.request.json"
+    },
+    {
+      "character": "Furina",
+      "emotion": "disgust",
+      "user_reported_defect": "her left hand being held out has 4 fingers in the wrong positions",
+      "previous": "candidates/Furina/disgust-v001.result.json",
+      "new_request": "prompts/Furina/disgust-v002.request.json"
+    },
+    {
+      "character": "Furina",
+      "emotion": "fear",
+      "user_reported_defect": "left hand has 4 fingers",
+      "previous": "candidates/Furina/fear-v001.result.json",
+      "new_request": "prompts/Furina/fear-v002.request.json"
+    },
+    {
+      "character": "Furina",
+      "emotion": "joy",
+      "user_reported_defect": "left hand perspective is wrong",
+      "previous": "candidates/Furina/joy-v001.result.json",
+      "new_request": "prompts/Furina/joy-v002.request.json"
+    },
+    {
+      "character": "Furina",
+      "emotion": "love-1",
+      "user_reported_defect": "three legs",
+      "previous": "candidates/Furina/love-1-v001.result.json",
+      "new_request": "prompts/Furina/love-1-v002.request.json"
+    },
+    {
+      "character": "Furina",
+      "emotion": "smug",
+      "user_reported_defect": "both hands wrong",
+      "previous": "candidates/Furina/smug-v001.result.json",
+      "new_request": "prompts/Furina/smug-v002.request.json"
+    },
+    {
+      "character": "Raiden Shogun",
+      "emotion": "desire-1",
+      "user_reported_defect": "right hand has messed up fingers, no heart eyes",
+      "previous": "candidates/Raiden Shogun/desire-1-v001.result.json",
+      "new_request": "prompts/Raiden Shogun/desire-1-v002.request.json"
+    },
+    {
+      "character": "Raiden Shogun",
+      "emotion": "desire",
+      "user_reported_defect": "right hand has messed up fingers",
+      "previous": "candidates/Raiden Shogun/desire-v001.result.json",
+      "new_request": "prompts/Raiden Shogun/desire-v002.request.json"
+    },
+    {
+      "character": "Raiden Shogun",
+      "emotion": "disgust",
+      "user_reported_defect": "hand perspective is incorrect",
+      "previous": "candidates/Raiden Shogun/disgust-v001.result.json",
+      "new_request": "prompts/Raiden Shogun/disgust-v002.request.json"
+    },
+    {
+      "character": "Raiden Shogun",
+      "emotion": "fear",
+      "user_reported_defect": "both hands messed up",
+      "previous": "candidates/Raiden Shogun/fear-v001.result.json",
+      "new_request": "prompts/Raiden Shogun/fear-v002.request.json"
+    },
+    {
+      "character": "Raiden Shogun",
+      "emotion": "joy",
+      "user_reported_defect": "left hand messed up",
+      "previous": "candidates/Raiden Shogun/joy-v001.result.json",
+      "new_request": "prompts/Raiden Shogun/joy-v002.request.json"
+    },
+    {
+      "character": "Raiden Shogun",
+      "emotion": "smug",
+      "user_reported_defect": "both hands messed up",
+      "previous": "candidates/Raiden Shogun/smug-v001.result.json",
+      "new_request": "prompts/Raiden Shogun/smug-v002.request.json"
+    },
+    {
+      "character": "Sigewinne",
+      "emotion": "confusion",
+      "user_reported_defect": "right hand messed up",
+      "previous": "candidates/Sigewinne/confusion-v001.result.json",
+      "new_request": "prompts/Sigewinne/confusion-v002.request.json"
+    },
+    {
+      "character": "Sigewinne",
+      "emotion": "disgust",
+      "user_reported_defect": "weird mouth",
+      "previous": "candidates/Sigewinne/disgust-v001.result.json",
+      "new_request": "prompts/Sigewinne/disgust-v002.request.json"
+    },
+    {
+      "character": "Sigewinne",
+      "emotion": "excitement",
+      "user_reported_defect": "left hand messed up",
+      "previous": "candidates/Sigewinne/excitement-v001.result.json",
+      "new_request": "prompts/Sigewinne/excitement-v002.request.json"
+    },
+    {
+      "character": "Sigewinne",
+      "emotion": "fear",
+      "user_reported_defect": "left hand messed up",
+      "previous": "candidates/Sigewinne/fear-v001.result.json",
+      "new_request": "prompts/Sigewinne/fear-v002.request.json"
+    },
+    {
+      "character": "Sigewinne",
+      "emotion": "pride",
+      "user_reported_defect": "right hand has extra finger",
+      "previous": "candidates/Sigewinne/pride-v001.result.json",
+      "new_request": "prompts/Sigewinne/pride-v002.request.json"
+    },
+    {
+      "character": "Zhongli",
+      "emotion": "anger",
+      "user_reported_defect": "right hand has 4 fingers",
+      "previous": "candidates/Zhongli/anger-v001.result.json",
+      "new_request": "prompts/Zhongli/anger-v002.request.json"
+    },
+    {
+      "character": "Zhongli",
+      "emotion": "excitement",
+      "user_reported_defect": "right thumb messed up",
+      "previous": "candidates/Zhongli/excitement-v001.result.json",
+      "new_request": "prompts/Zhongli/excitement-v002.request.json"
+    }
+  ],
+  "remove_without_regeneration": [
+    {
+      "character": "Zhongli",
+      "emotion": "love-1",
+      "reason": "User requested deletion without regeneration; only the ordinary love/desire sprites remain.",
+      "historical_result": "candidates/Zhongli/love-1-v001.result.json"
+    },
+    {
+      "character": "Zhongli",
+      "emotion": "desire-1",
+      "reason": "User requested deletion without regeneration; only the ordinary love/desire sprites remain.",
+      "historical_result": "candidates/Zhongli/desire-1-v001.result.json"
+    }
+  ]
+}

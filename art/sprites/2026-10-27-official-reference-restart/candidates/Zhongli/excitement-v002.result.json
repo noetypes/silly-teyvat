@@ -1,0 +1,21 @@
+{
+  "character": "Zhongli",
+  "emotion": "excitement",
+  "version": "v002",
+  "request": "prompts/Zhongli/excitement-v002.request.json",
+  "raw": "raw/Zhongli/excitement-v002.png",
+  "sprite": "sprites/Zhongli/excitement.png",
+  "result": "candidates/Zhongli/excitement-v002.result.json",
+  "approved_neutral_sha256": "0509ae4516ffe6bd9c71a7968a42771b77b7bc67afdf358a16729895e3fe6a97",
+  "official_reference_sha256": "97611cebdc01dabd73776a97feb5c31e2c2b766b8356d58063dcc6511069178c",
+  "status": "generated_awaiting_user_review",
+  "user_reported_defect": "right thumb messed up",
+  "supersedes_result": "candidates/Zhongli/excitement-v001.result.json",
+  "generated_source": "/Users/alexachan/.codex/generated_images/01a17cac-5902-79a3-9a41-0e54eec9dfd4/exec-3a20131a-d27e-49ba-af1e-3dac14e2b08f.png",
+  "reference_paths": [
+    "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-27-official-reference-restart/references/Zhongli/official.png",
+    "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-27-official-reference-restart/candidates/Zhongli/neutral-v001.png"
+  ],
+  "visual_qa": "not_performed_user_review",
+  "framing_transform": null
+}

@@ -1,0 +1,21 @@
+{
+  "character": "Furina",
+  "emotion": "joy",
+  "version": "v001",
+  "request": "prompts/Furina/joy-v001.request.json",
+  "raw": "raw/Furina/joy-v001.png",
+  "sprite": "sprites/Furina/joy.png",
+  "result": "candidates/Furina/joy-v001.result.json",
+  "approved_neutral_sha256": "891712eb5b8756cf14d2fdee26dcdb6990794b72af125dca2e842fc9219e23d0",
+  "official_reference_sha256": "20c0169d9b83be1e642a9803dd729d6e05350eb5afd4206abc1dcc55d53679bf",
+  "status": "user_reported_defect",
+  "generated_source": "/Users/alexachan/.codex/generated_images/01a17cac-5902-79a3-9a41-0e54eec9dfd4/exec-4068c59f-6cf3-4a5b-8e17-9ae4f618efa4.png",
+  "reference_paths": [
+    "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-27-official-reference-restart/references/Furina/official.png",
+    "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-27-official-reference-restart/candidates/Furina/neutral-v001.png"
+  ],
+  "visual_qa": "not_performed_user_review",
+  "framing_transform": null,
+  "user_reported_defect": "left hand perspective is wrong",
+  "replacement_job": "candidates/Furina/joy-v002.result.json"
+}

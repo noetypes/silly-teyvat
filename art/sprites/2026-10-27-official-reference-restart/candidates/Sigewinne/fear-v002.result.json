@@ -1,0 +1,21 @@
+{
+  "character": "Sigewinne",
+  "emotion": "fear",
+  "version": "v002",
+  "request": "prompts/Sigewinne/fear-v002.request.json",
+  "raw": "raw/Sigewinne/fear-v002.png",
+  "sprite": "sprites/Sigewinne/fear.png",
+  "result": "candidates/Sigewinne/fear-v002.result.json",
+  "approved_neutral_sha256": "b4f12c97d669aca3d73d26dd2134c3b782640aa01966ad572d084e7906d15a7b",
+  "official_reference_sha256": "1f5ebbcb71ded0360849ca9949289e473c65448474a98e36070fc1a07b69e349",
+  "status": "generated_awaiting_user_review",
+  "user_reported_defect": "left hand messed up",
+  "supersedes_result": "candidates/Sigewinne/fear-v001.result.json",
+  "generated_source": "/Users/alexachan/.codex/generated_images/01a17cac-5902-79a3-9a41-0e54eec9dfd4/exec-68790203-1bcb-4ca9-a196-36e33dee98c9.png",
+  "reference_paths": [
+    "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-27-official-reference-restart/references/Sigewinne/official.png",
+    "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-27-official-reference-restart/candidates/Sigewinne/neutral-v001.png"
+  ],
+  "visual_qa": "not_performed_user_review",
+  "framing_transform": null
+}

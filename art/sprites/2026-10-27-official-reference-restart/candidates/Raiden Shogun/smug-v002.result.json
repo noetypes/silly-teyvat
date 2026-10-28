@@ -1,0 +1,21 @@
+{
+  "character": "Raiden Shogun",
+  "emotion": "smug",
+  "version": "v002",
+  "request": "prompts/Raiden Shogun/smug-v002.request.json",
+  "raw": "raw/Raiden Shogun/smug-v002.png",
+  "sprite": "sprites/Raiden Shogun/smug.png",
+  "result": "candidates/Raiden Shogun/smug-v002.result.json",
+  "approved_neutral_sha256": "e4b2ecef73c5c322065054d0ee3d2dc7550d0d15e86db83b4dd2498e776f8bed",
+  "official_reference_sha256": "5b1049c6519458772d2d5a7b1e6f2a3735de34721e7bebacb37d02773bfc3984",
+  "status": "generated_awaiting_user_review",
+  "user_reported_defect": "both hands messed up",
+  "supersedes_result": "candidates/Raiden Shogun/smug-v001.result.json",
+  "generated_source": "/Users/alexachan/.codex/generated_images/01a17cac-5902-79a3-9a41-0e54eec9dfd4/exec-e2d2c7d3-f528-4f68-8fcf-fe11e298cf29.png",
+  "reference_paths": [
+    "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-27-official-reference-restart/references/Raiden Shogun/official.png",
+    "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-27-official-reference-restart/candidates/Raiden Shogun/neutral-v001.png"
+  ],
+  "visual_qa": "not_performed_user_review",
+  "framing_transform": null
+}

@@ -1,0 +1,54 @@
+{
+  "Furina": {
+    "reference": "references/Furina/official.png",
+    "reference_original": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Furina/Official Art/neutral.png",
+    "reference_sha256": "20c0169d9b83be1e642a9803dd729d6e05350eb5afd4206abc1dcc55d53679bf",
+    "candidate": "candidates/Furina/neutral-v001.png",
+    "candidate_sha256": "891712eb5b8756cf14d2fdee26dcdb6990794b72af125dca2e842fc9219e23d0",
+    "approval": {
+      "user_message": "All 4 are perfect, continue!",
+      "date": "2026-10-27",
+      "candidate": "candidates/Furina/neutral-v001.png",
+      "candidate_sha256": "891712eb5b8756cf14d2fdee26dcdb6990794b72af125dca2e842fc9219e23d0"
+    }
+  },
+  "Raiden Shogun": {
+    "reference": "references/Raiden Shogun/official.png",
+    "reference_original": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Raiden Shogun/Official Art/neutral.png",
+    "reference_sha256": "5b1049c6519458772d2d5a7b1e6f2a3735de34721e7bebacb37d02773bfc3984",
+    "candidate": "candidates/Raiden Shogun/neutral-v001.png",
+    "candidate_sha256": "e4b2ecef73c5c322065054d0ee3d2dc7550d0d15e86db83b4dd2498e776f8bed",
+    "approval": {
+      "user_message": "All 4 are perfect, continue!",
+      "date": "2026-10-27",
+      "candidate": "candidates/Raiden Shogun/neutral-v001.png",
+      "candidate_sha256": "e4b2ecef73c5c322065054d0ee3d2dc7550d0d15e86db83b4dd2498e776f8bed"
+    }
+  },
+  "Zhongli": {
+    "reference": "references/Zhongli/official.png",
+    "reference_original": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Zhongli/Official Art/neutral.png",
+    "reference_sha256": "97611cebdc01dabd73776a97feb5c31e2c2b766b8356d58063dcc6511069178c",
+    "candidate": "candidates/Zhongli/neutral-v001.png",
+    "candidate_sha256": "0509ae4516ffe6bd9c71a7968a42771b77b7bc67afdf358a16729895e3fe6a97",
+    "approval": {
+      "user_message": "All 4 are perfect, continue!",
+      "date": "2026-10-27",
+      "candidate": "candidates/Zhongli/neutral-v001.png",
+      "candidate_sha256": "0509ae4516ffe6bd9c71a7968a42771b77b7bc67afdf358a16729895e3fe6a97"
+    }
+  },
+  "Sigewinne": {
+    "reference": "references/Sigewinne/official.png",
+    "reference_original": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Sigewinne/Official Art/neutral.png",
+    "reference_sha256": "1f5ebbcb71ded0360849ca9949289e473c65448474a98e36070fc1a07b69e349",
+    "candidate": "candidates/Sigewinne/neutral-v001.png",
+    "candidate_sha256": "b4f12c97d669aca3d73d26dd2134c3b782640aa01966ad572d084e7906d15a7b",
+    "approval": {
+      "user_message": "All 4 are perfect, continue!",
+      "date": "2026-10-27",
+      "candidate": "candidates/Sigewinne/neutral-v001.png",
+      "candidate_sha256": "b4f12c97d669aca3d73d26dd2134c3b782640aa01966ad572d084e7906d15a7b"
+    }
+  }
+}

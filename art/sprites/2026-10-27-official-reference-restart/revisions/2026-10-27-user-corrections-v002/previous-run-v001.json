@@ -1,0 +1,715 @@
+{
+  "workflow": "../../../SPRITE-GENERATION.md",
+  "status": "generated_awaiting_user_expression_review",
+  "approval_gate": "Explicit user approval of each current neutral is required before any expression generation.",
+  "previous_attempts": "Superseded by the user-requested restart; excluded from this run and from reference inputs.",
+  "reference_policy": "Each expression independently uses official portrait first and this run\u2019s explicitly approved neutral second. No generated expression or repair input.",
+  "characters": {
+    "Furina": {
+      "body_type": "medium female",
+      "reference": "references/Furina/official.png",
+      "reference_original": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Furina/Official Art/neutral.png",
+      "reference_sha256": "20c0169d9b83be1e642a9803dd729d6e05350eb5afd4206abc1dcc55d53679bf",
+      "prompt": "prompts/Furina/neutral-v001.txt",
+      "request": "prompts/Furina/neutral-v001.request.json",
+      "neutral_status": "approved",
+      "approval": {
+        "user_message": "All 4 are perfect, continue!",
+        "date": "2026-10-27",
+        "candidate": "candidates/Furina/neutral-v001.png",
+        "candidate_sha256": "891712eb5b8756cf14d2fdee26dcdb6990794b72af125dca2e842fc9219e23d0"
+      },
+      "expressions_allowed": true,
+      "expression_jobs": [
+        {
+          "emotion": "annoyance",
+          "version": "v001",
+          "request": "prompts/Furina/annoyance-v001.request.json",
+          "status": "generated_awaiting_user_review",
+          "result": "candidates/Furina/annoyance-v001.result.json"
+        },
+        {
+          "emotion": "smug",
+          "version": "v001",
+          "request": "prompts/Furina/smug-v001.request.json",
+          "status": "generated_awaiting_user_review",
+          "result": "candidates/Furina/smug-v001.result.json"
+        },
+        {
+          "emotion": "confusion",
+          "version": "v001",
+          "request": "prompts/Furina/confusion-v001.request.json",
+          "status": "generated_awaiting_user_review",
+          "result": "candidates/Furina/confusion-v001.result.json"
+        },
+        {
+          "emotion": "love",
+          "version": "v001",
+          "request": "prompts/Furina/love-v001.request.json",
+          "status": "generated_awaiting_user_review",
+          "result": "candidates/Furina/love-v001.result.json"
+        },
+        {
+          "emotion": "excitement",
+          "version": "v001",
+          "request": "prompts/Furina/excitement-v001.request.json",
+          "status": "generated_awaiting_user_review",
+          "result": "candidates/Furina/excitement-v001.result.json"
+        },
+        {
+          "emotion": "joy",
+          "version": "v001",
+          "request": "prompts/Furina/joy-v001.request.json",
+          "status": "generated_awaiting_user_review",
+          "result": "candidates/Furina/joy-v001.result.json"
+        },
+        {
+          "emotion": "fear",
+          "version": "v001",
+          "request": "prompts/Furina/fear-v001.request.json",
+          "status": "generated_awaiting_user_review",
+          "result": "candidates/Furina/fear-v001.result.json"
+        },
+        {
+          "emotion": "pride",
+          "version": "v001",
+          "request": "prompts/Furina/pride-v001.request.json",
+          "status": "generated_awaiting_user_review",
+          "result": "candidates/Furina/pride-v001.result.json"
+        },
+        {
+          "emotion": "desire",
+          "version": "v001",
+          "request": "prompts/Furina/desire-v001.request.json",
+          "status": "generated_awaiting_user_review",
+          "result": "candidates/Furina/desire-v001.result.json"
+        },
+        {
+          "emotion": "anger",
+          "version": "v001",
+          "request": "prompts/Furina/anger-v001.request.json",
+          "status": "generated_awaiting_user_review",
+          "result": "candidates/Furina/anger-v001.result.json"
+        },
+        {
+          "emotion": "grief",
+          "version": "v001",
+          "request": "prompts/Furina/grief-v001.request.json",
+          "status": "generated_awaiting_user_review",
+          "result": "candidates/Furina/grief-v001.result.json"
+        },
+        {
+          "emotion": "sadness",
+          "version": "v001",
+          "request": "prompts/Furina/sadness-v001.request.json",
+          "status": "generated_awaiting_user_review",
+          "result": "candidates/Furina/sadness-v001.result.json"
+        },
+        {
+          "emotion": "disgust",
+          "version": "v001",
+          "request": "prompts/Furina/disgust-v001.request.json",
+          "status": "generated_awaiting_user_review",
+          "result": "candidates/Furina/disgust-v001.result.json"
+        },
+        {
+          "emotion": "disappointment",
+          "version": "v001",
+          "request": "prompts/Furina/disappointment-v001.request.json",
+          "status": "generated_awaiting_user_review",
+          "result": "candidates/Furina/disappointment-v001.result.json"
+        },
+        {
+          "emotion": "relief",
+          "version": "v001",
+          "request": "prompts/Furina/relief-v001.request.json",
+          "status": "generated_awaiting_user_review",
+          "result": "candidates/Furina/relief-v001.result.json"
+        },
+        {
+          "emotion": "admiration",
+          "version": "v001",
+          "request": "prompts/Furina/admiration-v001.request.json",
+          "status": "generated_awaiting_user_review",
+          "result": "candidates/Furina/admiration-v001.result.json"
+        },
+        {
+          "emotion": "gratitude",
+          "version": "v001",
+          "request": "prompts/Furina/gratitude-v001.request.json",
+          "status": "generated_awaiting_user_review",
+          "result": "candidates/Furina/gratitude-v001.result.json"
+        },
+        {
+          "emotion": "embarrassment",
+          "version": "v001",
+          "request": "prompts/Furina/embarrassment-v001.request.json",
+          "status": "generated_awaiting_user_review",
+          "result": "candidates/Furina/embarrassment-v001.result.json"
+        },
+        {
+          "emotion": "caring",
+          "version": "v001",
+          "request": "prompts/Furina/caring-v001.request.json",
+          "status": "generated_awaiting_user_review",
+          "result": "candidates/Furina/caring-v001.result.json"
+        },
+        {
+          "emotion": "love-1",
+          "version": "v001",
+          "request": "prompts/Furina/love-1-v001.request.json",
+          "status": "generated_awaiting_user_review",
+          "result": "candidates/Furina/love-1-v001.result.json"
+        },
+        {
+          "emotion": "desire-1",
+          "version": "v001",
+          "request": "prompts/Furina/desire-1-v001.request.json",
+          "status": "generated_awaiting_user_review",
+          "result": "candidates/Furina/desire-1-v001.result.json"
+        }
+      ],
+      "candidate": "candidates/Furina/neutral-v001.png",
+      "raw": "raw/Furina/neutral-v001.png",
+      "generated_source": "/Users/alexachan/.codex/generated_images/01a17cac-5902-79a3-9a41-0e54eec9dfd4/exec-a7ed6c7e-2e9b-4989-8df7-2250b9fa6560.png",
+      "candidate_sha256": "891712eb5b8756cf14d2fdee26dcdb6990794b72af125dca2e842fc9219e23d0",
+      "dimensions": [
+        937,
+        1678
+      ],
+      "mode": "RGBA",
+      "has_alpha": true,
+      "pack_status": "generated_awaiting_user_expression_review"
+    },
+    "Raiden Shogun": {
+      "body_type": "tall female",
+      "reference": "references/Raiden Shogun/official.png",
+      "reference_original": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Raiden Shogun/Official Art/neutral.png",
+      "reference_sha256": "5b1049c6519458772d2d5a7b1e6f2a3735de34721e7bebacb37d02773bfc3984",
+      "prompt": "prompts/Raiden Shogun/neutral-v001.txt",
+      "request": "prompts/Raiden Shogun/neutral-v001.request.json",
+      "neutral_status": "approved",
+      "approval": {
+        "user_message": "All 4 are perfect, continue!",
+        "date": "2026-10-27",
+        "candidate": "candidates/Raiden Shogun/neutral-v001.png",
+        "candidate_sha256": "e4b2ecef73c5c322065054d0ee3d2dc7550d0d15e86db83b4dd2498e776f8bed"
+      },
+      "expressions_allowed": true,
+      "expression_jobs": [
+        {
+          "emotion": "annoyance",
+          "version": "v001",
+          "request": "prompts/Raiden Shogun/annoyance-v001.request.json",
+          "status": "generated_awaiting_user_review",
+          "result": "candidates/Raiden Shogun/annoyance-v001.result.json"
+        },
+        {
+          "emotion": "smug",
+          "version": "v001",
+          "request": "prompts/Raiden Shogun/smug-v001.request.json",
+          "status": "generated_awaiting_user_review",
+          "result": "candidates/Raiden Shogun/smug-v001.result.json"
+        },
+        {
+          "emotion": "confusion",
+          "version": "v001",
+          "request": "prompts/Raiden Shogun/confusion-v001.request.json",
+          "status": "generated_awaiting_user_review",
+          "result": "candidates/Raiden Shogun/confusion-v001.result.json"
+        },
+        {
+          "emotion": "love",
+          "version": "v001",
+          "request": "prompts/Raiden Shogun/love-v001.request.json",
+          "status": "generated_awaiting_user_review",
+          "result": "candidates/Raiden Shogun/love-v001.result.json"
+        },
+        {
+          "emotion": "excitement",
+          "version": "v001",
+          "request": "prompts/Raiden Shogun/excitement-v001.request.json",
+          "status": "generated_awaiting_user_review",
+          "result": "candidates/Raiden Shogun/excitement-v001.result.json"
+        },
+        {
+          "emotion": "joy",
+          "version": "v001",
+          "request": "prompts/Raiden Shogun/joy-v001.request.json",
+          "status": "generated_awaiting_user_review",
+          "result": "candidates/Raiden Shogun/joy-v001.result.json"
+        },
+        {
+          "emotion": "fear",
+          "version": "v001",
+          "request": "prompts/Raiden Shogun/fear-v001.request.json",
+          "status": "generated_awaiting_user_review",
+          "result": "candidates/Raiden Shogun/fear-v001.result.json"
+        },
+        {
+          "emotion": "pride",
+          "version": "v001",
+          "request": "prompts/Raiden Shogun/pride-v001.request.json",
+          "status": "generated_awaiting_user_review",
+          "result": "candidates/Raiden Shogun/pride-v001.result.json"
+        },
+        {
+          "emotion": "desire",
+          "version": "v001",
+          "request": "prompts/Raiden Shogun/desire-v001.request.json",
+          "status": "generated_awaiting_user_review",
+          "result": "candidates/Raiden Shogun/desire-v001.result.json"
+        },
+        {
+          "emotion": "anger",
+          "version": "v001",
+          "request": "prompts/Raiden Shogun/anger-v001.request.json",
+          "status": "generated_awaiting_user_review",
+          "result": "candidates/Raiden Shogun/anger-v001.result.json"
+        },
+        {
+          "emotion": "grief",
+          "version": "v001",
+          "request": "prompts/Raiden Shogun/grief-v001.request.json",
+          "status": "generated_awaiting_user_review",
+          "result": "candidates/Raiden Shogun/grief-v001.result.json"
+        },
+        {
+          "emotion": "sadness",
+          "version": "v001",
+          "request": "prompts/Raiden Shogun/sadness-v001.request.json",
+          "status": "generated_awaiting_user_review",
+          "result": "candidates/Raiden Shogun/sadness-v001.result.json"
+        },
+        {
+          "emotion": "disgust",
+          "version": "v001",
+          "request": "prompts/Raiden Shogun/disgust-v001.request.json",
+          "status": "generated_awaiting_user_review",
+          "result": "candidates/Raiden Shogun/disgust-v001.result.json"
+        },
+        {
+          "emotion": "disappointment",
+          "version": "v001",
+          "request": "prompts/Raiden Shogun/disappointment-v001.request.json",
+          "status": "generated_awaiting_user_review",
+          "result": "candidates/Raiden Shogun/disappointment-v001.result.json"
+        },
+        {
+          "emotion": "relief",
+          "version": "v001",
+          "request": "prompts/Raiden Shogun/relief-v001.request.json",
+          "status": "generated_awaiting_user_review",
+          "result": "candidates/Raiden Shogun/relief-v001.result.json"
+        },
+        {
+          "emotion": "admiration",
+          "version": "v001",
+          "request": "prompts/Raiden Shogun/admiration-v001.request.json",
+          "status": "generated_awaiting_user_review",
+          "result": "candidates/Raiden Shogun/admiration-v001.result.json"
+        },
+        {
+          "emotion": "gratitude",
+          "version": "v001",
+          "request": "prompts/Raiden Shogun/gratitude-v001.request.json",
+          "status": "generated_awaiting_user_review",
+          "result": "candidates/Raiden Shogun/gratitude-v001.result.json"
+        },
+        {
+          "emotion": "embarrassment",
+          "version": "v001",
+          "request": "prompts/Raiden Shogun/embarrassment-v001.request.json",
+          "status": "generated_awaiting_user_review",
+          "result": "candidates/Raiden Shogun/embarrassment-v001.result.json"
+        },
+        {
+          "emotion": "caring",
+          "version": "v001",
+          "request": "prompts/Raiden Shogun/caring-v001.request.json",
+          "status": "generated_awaiting_user_review",
+          "result": "candidates/Raiden Shogun/caring-v001.result.json"
+        },
+        {
+          "emotion": "love-1",
+          "version": "v001",
+          "request": "prompts/Raiden Shogun/love-1-v001.request.json",
+          "status": "generated_awaiting_user_review",
+          "result": "candidates/Raiden Shogun/love-1-v001.result.json"
+        },
+        {
+          "emotion": "desire-1",
+          "version": "v001",
+          "request": "prompts/Raiden Shogun/desire-1-v001.request.json",
+          "status": "generated_awaiting_user_review",
+          "result": "candidates/Raiden Shogun/desire-1-v001.result.json"
+        }
+      ],
+      "candidate": "candidates/Raiden Shogun/neutral-v001.png",
+      "raw": "raw/Raiden Shogun/neutral-v001.png",
+      "generated_source": "/Users/alexachan/.codex/generated_images/01a17cac-5902-79a3-9a41-0e54eec9dfd4/exec-9824ca84-0cd0-48fc-83c6-35336a0f4235.png",
+      "candidate_sha256": "e4b2ecef73c5c322065054d0ee3d2dc7550d0d15e86db83b4dd2498e776f8bed",
+      "dimensions": [
+        1093,
+        1438
+      ],
+      "mode": "RGBA",
+      "has_alpha": true,
+      "pack_status": "generated_awaiting_user_expression_review"
+    },
+    "Zhongli": {
+      "body_type": "tall male",
+      "reference": "references/Zhongli/official.png",
+      "reference_original": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Zhongli/Official Art/neutral.png",
+      "reference_sha256": "97611cebdc01dabd73776a97feb5c31e2c2b766b8356d58063dcc6511069178c",
+      "prompt": "prompts/Zhongli/neutral-v001.txt",
+      "request": "prompts/Zhongli/neutral-v001.request.json",
+      "neutral_status": "approved",
+      "approval": {
+        "user_message": "All 4 are perfect, continue!",
+        "date": "2026-10-27",
+        "candidate": "candidates/Zhongli/neutral-v001.png",
+        "candidate_sha256": "0509ae4516ffe6bd9c71a7968a42771b77b7bc67afdf358a16729895e3fe6a97"
+      },
+      "expressions_allowed": true,
+      "expression_jobs": [
+        {
+          "emotion": "annoyance",
+          "version": "v001",
+          "request": "prompts/Zhongli/annoyance-v001.request.json",
+          "status": "generated_awaiting_user_review",
+          "result": "candidates/Zhongli/annoyance-v001.result.json"
+        },
+        {
+          "emotion": "smug",
+          "version": "v001",
+          "request": "prompts/Zhongli/smug-v001.request.json",
+          "status": "generated_awaiting_user_review",
+          "result": "candidates/Zhongli/smug-v001.result.json"
+        },
+        {
+          "emotion": "confusion",
+          "version": "v001",
+          "request": "prompts/Zhongli/confusion-v001.request.json",
+          "status": "generated_awaiting_user_review",
+          "result": "candidates/Zhongli/confusion-v001.result.json"
+        },
+        {
+          "emotion": "love",
+          "version": "v001",
+          "request": "prompts/Zhongli/love-v001.request.json",
+          "status": "generated_awaiting_user_review",
+          "result": "candidates/Zhongli/love-v001.result.json"
+        },
+        {
+          "emotion": "excitement",
+          "version": "v001",
+          "request": "prompts/Zhongli/excitement-v001.request.json",
+          "status": "generated_awaiting_user_review",
+          "result": "candidates/Zhongli/excitement-v001.result.json"
+        },
+        {
+          "emotion": "joy",
+          "version": "v001",
+          "request": "prompts/Zhongli/joy-v001.request.json",
+          "status": "generated_awaiting_user_review",
+          "result": "candidates/Zhongli/joy-v001.result.json"
+        },
+        {
+          "emotion": "fear",
+          "version": "v001",
+          "request": "prompts/Zhongli/fear-v001.request.json",
+          "status": "generated_awaiting_user_review",
+          "result": "candidates/Zhongli/fear-v001.result.json"
+        },
+        {
+          "emotion": "pride",
+          "version": "v001",
+          "request": "prompts/Zhongli/pride-v001.request.json",
+          "status": "generated_awaiting_user_review",
+          "result": "candidates/Zhongli/pride-v001.result.json"
+        },
+        {
+          "emotion": "desire",
+          "version": "v001",
+          "request": "prompts/Zhongli/desire-v001.request.json",
+          "status": "generated_awaiting_user_review",
+          "result": "candidates/Zhongli/desire-v001.result.json"
+        },
+        {
+          "emotion": "anger",
+          "version": "v001",
+          "request": "prompts/Zhongli/anger-v001.request.json",
+          "status": "generated_awaiting_user_review",
+          "result": "candidates/Zhongli/anger-v001.result.json"
+        },
+        {
+          "emotion": "grief",
+          "version": "v001",
+          "request": "prompts/Zhongli/grief-v001.request.json",
+          "status": "generated_awaiting_user_review",
+          "result": "candidates/Zhongli/grief-v001.result.json"
+        },
+        {
+          "emotion": "sadness",
+          "version": "v001",
+          "request": "prompts/Zhongli/sadness-v001.request.json",
+          "status": "generated_awaiting_user_review",
+          "result": "candidates/Zhongli/sadness-v001.result.json"
+        },
+        {
+          "emotion": "disgust",
+          "version": "v001",
+          "request": "prompts/Zhongli/disgust-v001.request.json",
+          "status": "generated_awaiting_user_review",
+          "result": "candidates/Zhongli/disgust-v001.result.json"
+        },
+        {
+          "emotion": "disappointment",
+          "version": "v001",
+          "request": "prompts/Zhongli/disappointment-v001.request.json",
+          "status": "generated_awaiting_user_review",
+          "result": "candidates/Zhongli/disappointment-v001.result.json"
+        },
+        {
+          "emotion": "relief",
+          "version": "v001",
+          "request": "prompts/Zhongli/relief-v001.request.json",
+          "status": "generated_awaiting_user_review",
+          "result": "candidates/Zhongli/relief-v001.result.json"
+        },
+        {
+          "emotion": "admiration",
+          "version": "v001",
+          "request": "prompts/Zhongli/admiration-v001.request.json",
+          "status": "generated_awaiting_user_review",
+          "result": "candidates/Zhongli/admiration-v001.result.json"
+        },
+        {
+          "emotion": "gratitude",
+          "version": "v001",
+          "request": "prompts/Zhongli/gratitude-v001.request.json",
+          "status": "generated_awaiting_user_review",
+          "result": "candidates/Zhongli/gratitude-v001.result.json"
+        },
+        {
+          "emotion": "embarrassment",
+          "version": "v001",
+          "request": "prompts/Zhongli/embarrassment-v001.request.json",
+          "status": "generated_awaiting_user_review",
+          "result": "candidates/Zhongli/embarrassment-v001.result.json"
+        },
+        {
+          "emotion": "caring",
+          "version": "v001",
+          "request": "prompts/Zhongli/caring-v001.request.json",
+          "status": "generated_awaiting_user_review",
+          "result": "candidates/Zhongli/caring-v001.result.json"
+        },
+        {
+          "emotion": "love-1",
+          "version": "v001",
+          "request": "prompts/Zhongli/love-1-v001.request.json",
+          "status": "generated_awaiting_user_review",
+          "result": "candidates/Zhongli/love-1-v001.result.json"
+        },
+        {
+          "emotion": "desire-1",
+          "version": "v001",
+          "request": "prompts/Zhongli/desire-1-v001.request.json",
+          "status": "generated_awaiting_user_review",
+          "result": "candidates/Zhongli/desire-1-v001.result.json"
+        }
+      ],
+      "candidate": "candidates/Zhongli/neutral-v001.png",
+      "raw": "raw/Zhongli/neutral-v001.png",
+      "generated_source": "/Users/alexachan/.codex/generated_images/01a17cac-5902-79a3-9a41-0e54eec9dfd4/exec-427f624f-e4d0-4dd7-9703-99b01c80e0cb.png",
+      "candidate_sha256": "0509ae4516ffe6bd9c71a7968a42771b77b7bc67afdf358a16729895e3fe6a97",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "has_alpha": true,
+      "pack_status": "generated_awaiting_user_expression_review"
+    },
+    "Sigewinne": {
+      "body_type": "small female",
+      "reference": "references/Sigewinne/official.png",
+      "reference_original": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Sigewinne/Official Art/neutral.png",
+      "reference_sha256": "1f5ebbcb71ded0360849ca9949289e473c65448474a98e36070fc1a07b69e349",
+      "prompt": "prompts/Sigewinne/neutral-v001.txt",
+      "request": "prompts/Sigewinne/neutral-v001.request.json",
+      "neutral_status": "approved",
+      "approval": {
+        "user_message": "All 4 are perfect, continue!",
+        "date": "2026-10-27",
+        "candidate": "candidates/Sigewinne/neutral-v001.png",
+        "candidate_sha256": "b4f12c97d669aca3d73d26dd2134c3b782640aa01966ad572d084e7906d15a7b"
+      },
+      "expressions_allowed": true,
+      "expression_jobs": [
+        {
+          "emotion": "annoyance",
+          "version": "v001",
+          "request": "prompts/Sigewinne/annoyance-v001.request.json",
+          "status": "generated_awaiting_user_review",
+          "result": "candidates/Sigewinne/annoyance-v001.result.json"
+        },
+        {
+          "emotion": "smug",
+          "version": "v001",
+          "request": "prompts/Sigewinne/smug-v001.request.json",
+          "status": "generated_awaiting_user_review",
+          "result": "candidates/Sigewinne/smug-v001.result.json"
+        },
+        {
+          "emotion": "confusion",
+          "version": "v001",
+          "request": "prompts/Sigewinne/confusion-v001.request.json",
+          "status": "generated_awaiting_user_review",
+          "result": "candidates/Sigewinne/confusion-v001.result.json"
+        },
+        {
+          "emotion": "love",
+          "version": "v001",
+          "request": "prompts/Sigewinne/love-v001.request.json",
+          "status": "generated_awaiting_user_review",
+          "result": "candidates/Sigewinne/love-v001.result.json"
+        },
+        {
+          "emotion": "excitement",
+          "version": "v001",
+          "request": "prompts/Sigewinne/excitement-v001.request.json",
+          "status": "generated_awaiting_user_review",
+          "result": "candidates/Sigewinne/excitement-v001.result.json"
+        },
+        {
+          "emotion": "joy",
+          "version": "v001",
+          "request": "prompts/Sigewinne/joy-v001.request.json",
+          "status": "generated_awaiting_user_review",
+          "result": "candidates/Sigewinne/joy-v001.result.json"
+        },
+        {
+          "emotion": "fear",
+          "version": "v001",
+          "request": "prompts/Sigewinne/fear-v001.request.json",
+          "status": "generated_awaiting_user_review",
+          "result": "candidates/Sigewinne/fear-v001.result.json"
+        },
+        {
+          "emotion": "pride",
+          "version": "v001",
+          "request": "prompts/Sigewinne/pride-v001.request.json",
+          "status": "generated_awaiting_user_review",
+          "result": "candidates/Sigewinne/pride-v001.result.json"
+        },
+        {
+          "emotion": "desire",
+          "version": "v001",
+          "request": "prompts/Sigewinne/desire-v001.request.json",
+          "status": "generated_awaiting_user_review",
+          "result": "candidates/Sigewinne/desire-v001.result.json"
+        },
+        {
+          "emotion": "anger",
+          "version": "v001",
+          "request": "prompts/Sigewinne/anger-v001.request.json",
+          "status": "generated_awaiting_user_review",
+          "result": "candidates/Sigewinne/anger-v001.result.json"
+        },
+        {
+          "emotion": "grief",
+          "version": "v001",
+          "request": "prompts/Sigewinne/grief-v001.request.json",
+          "status": "generated_awaiting_user_review",
+          "result": "candidates/Sigewinne/grief-v001.result.json"
+        },
+        {
+          "emotion": "sadness",
+          "version": "v001",
+          "request": "prompts/Sigewinne/sadness-v001.request.json",
+          "status": "generated_awaiting_user_review",
+          "result": "candidates/Sigewinne/sadness-v001.result.json"
+        },
+        {
+          "emotion": "disgust",
+          "version": "v001",
+          "request": "prompts/Sigewinne/disgust-v001.request.json",
+          "status": "generated_awaiting_user_review",
+          "result": "candidates/Sigewinne/disgust-v001.result.json"
+        },
+        {
+          "emotion": "disappointment",
+          "version": "v001",
+          "request": "prompts/Sigewinne/disappointment-v001.request.json",
+          "status": "generated_awaiting_user_review",
+          "result": "candidates/Sigewinne/disappointment-v001.result.json"
+        },
+        {
+          "emotion": "relief",
+          "version": "v001",
+          "request": "prompts/Sigewinne/relief-v001.request.json",
+          "status": "generated_awaiting_user_review",
+          "result": "candidates/Sigewinne/relief-v001.result.json"
+        },
+        {
+          "emotion": "admiration",
+          "version": "v001",
+          "request": "prompts/Sigewinne/admiration-v001.request.json",
+          "status": "generated_awaiting_user_review",
+          "result": "candidates/Sigewinne/admiration-v001.result.json"
+        },
+        {
+          "emotion": "gratitude",
+          "version": "v001",
+          "request": "prompts/Sigewinne/gratitude-v001.request.json",
+          "status": "generated_awaiting_user_review",
+          "result": "candidates/Sigewinne/gratitude-v001.result.json"
+        },
+        {
+          "emotion": "embarrassment",
+          "version": "v001",
+          "request": "prompts/Sigewinne/embarrassment-v001.request.json",
+          "status": "generated_awaiting_user_review",
+          "result": "candidates/Sigewinne/embarrassment-v001.result.json"
+        },
+        {
+          "emotion": "caring",
+          "version": "v001",
+          "request": "prompts/Sigewinne/caring-v001.request.json",
+          "status": "generated_awaiting_user_review",
+          "result": "candidates/Sigewinne/caring-v001.result.json"
+        },
+        {
+          "emotion": "love-1",
+          "version": "v001",
+          "request": "prompts/Sigewinne/love-1-v001.request.json",
+          "status": "generated_awaiting_user_review",
+          "result": "candidates/Sigewinne/love-1-v001.result.json"
+        },
+        {
+          "emotion": "desire-1",
+          "version": "v001",
+          "request": "prompts/Sigewinne/desire-1-v001.request.json",
+          "status": "generated_awaiting_user_review",
+          "result": "candidates/Sigewinne/desire-1-v001.result.json"
+        }
+      ],
+      "candidate": "candidates/Sigewinne/neutral-v001.png",
+      "raw": "raw/Sigewinne/neutral-v001.png",
+      "generated_source": "/Users/alexachan/.codex/generated_images/01a17cac-5902-79a3-9a41-0e54eec9dfd4/exec-dcb45442-5b3e-4b35-8682-3eb0d3d1a995.png",
+      "candidate_sha256": "b4f12c97d669aca3d73d26dd2134c3b782640aa01966ad572d084e7906d15a7b",
+      "dimensions": [
+        993,
+        1583
+      ],
+      "mode": "RGBA",
+      "has_alpha": true,
+      "pack_status": "generated_awaiting_user_expression_review"
+    }
+  },
+  "visual_qa": "Not performed; user is the visual reviewer.",
+  "completed_sprite_count": 88
+}

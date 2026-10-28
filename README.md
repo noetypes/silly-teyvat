@@ -125,6 +125,8 @@ Narration has no speaker name and uses muted text. It holds the character's most
 
 ## Sprite Wardrobe
 
+For creating character artwork, follow [the sprite-generation workflow](SPRITE-GENERATION.md): use Official Art portraits, wait for user approval of each neutral, and regenerate from approved source inputs instead of chaining generated repairs.
+
 Open the Paimon menu → the bottom eye icon (**Sprite Wardrobe**), or its button in the extension settings. The **Enable Sprite Wardrobe** setting controls whether this menu is available.
 
 1. Choose a character in the portrait strip. Preview its expressions without changing the scene.
