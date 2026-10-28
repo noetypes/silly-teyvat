@@ -1,3 +1,10 @@
+# Silly Teyvat 1.39.0: Enemy sprite animations and coloured skill medallions
+
+- **Enemies make an entrance.** When an enemy first appears on the stage, its sprite rises in from a dark glow.
+- **Hits land on the stage too.** After a round that hurt an enemy, its sprite shakes with a red flash once the battle screen closes.
+- **Defeated enemies leave at once.** A defeated enemy's sprite flashes, fades away and exits right after the battle, instead of staying until the party moves on. If a later encounter brings it back, it makes a new entrance. Reduced motion skips the animations.
+- **Coloured skill medallions.** The Normal Attack, Skill and Burst buttons use the same element-coloured skill icons as their tooltips, inside the bronze rim.
+
 # Silly Teyvat 1.38.1: Defeated enemies stay defeated
 
 - **No respawning enemies.** An enemy left in the group after a fight elsewhere (defeated, fled or left behind) no longer reappears at the next location with full HP and opens combat. It returns only if that location's own encounter brings it, and the leftover is removed from the group. Chats already affected are repaired when they load.

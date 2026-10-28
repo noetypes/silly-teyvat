@@ -268,6 +268,7 @@ document.addEventListener('click', async event => {
             case 'staging-tests': {const {runStagingTests}=await import('./preview-staging-tests.js');result(await runStagingTests());emit(eventTypes.SETTINGS_UPDATED);break;}
             case 'battle-tests': {const {runBattleTests}=await import('./preview-battle-tests.js');result(await runBattleTests());break;}
             case 'enemy-attack-tests': {const {runEnemyAttackTests}=await import('./preview-enemy-attack-tests.js');result(await runEnemyAttackTests());break;}
+            case 'enemy-sprite-tests': {const {runEnemySpriteTests}=await import('./preview-enemy-sprite-tests.js');result(await runEnemySpriteTests());break;}
             case 'identity-tests': {ctx.extensionSettings.genshin_dialogue_ui.choices=false;emit(eventTypes.SETTINGS_UPDATED);const {runIdentityTests}=await import('./preview-identity-tests.js');result(await runIdentityTests());break;}
             case 'persona-link-tests': {const {runPersonaLinkTests}=await import('./preview-persona-link-tests.js');result(await runPersonaLinkTests());break;}
             case 'persona-tests': {ctx.extensionSettings.genshin_dialogue_ui.choices=false;emit(eventTypes.SETTINGS_UPDATED);const {runPersonaWardrobeTests}=await import('./preview-persona-tests.js');result(await runPersonaWardrobeTests());break;}

@@ -126,6 +126,17 @@ export function mountPageSprites({ host, getContext, adapter = createNativeSprit
     const stage = document.createElement('div'); stage.id = 'gi-sprite-stage'; stage.setAttribute('aria-hidden', 'true'); host.append(stage);
     let active = false, selection = '', displayed = '', epoch = 0, lastScene = [], lastChat = null, selectedPage;
     let drawVersion=0;
+    // Defeated enemies stay off the stage until a scene without them (a later encounter brings them back in).
+    const fallen = new Set();
+    const enemyOf = sprite => enemySceneAvatar(getContext(), sprite);
+    const enemyImage = avatar => [...stage.children].find(image => image.dataset.leaving !== 'true' && enemyOf({ avatar: image.dataset.avatar, folder: image.dataset.folder }) === avatar);
+    const stillMotion = () => document.body.classList.contains('gi-reduced-motion') || Boolean(globalThis.matchMedia?.('(prefers-reduced-motion: reduce)').matches);
+    function animate(image, cls, done = () => image.classList.remove(cls)) {
+        image.classList.remove(cls); void image.offsetWidth; image.classList.add(cls);
+        let timer = 0;
+        const end = event => { if (event && event.target !== image) return; clearTimeout(timer); image.removeEventListener('animationend', end); done(); };
+        image.addEventListener('animationend', end); timer = setTimeout(end, 1400);
+    }
     let queue = Promise.resolve();
     const pending = new Set();
     const speechSeeds = new Map();
@@ -138,6 +149,8 @@ export function mountPageSprites({ host, getContext, adapter = createNativeSprit
     }
     function draw(scene, key) {
         scene=openingScene(getContext(),scene);key+=`:opening:${openingCharacter(getContext()) || ''}`;
+        for (const avatar of fallen) if (!scene.some(sprite => enemyOf(sprite) === avatar)) fallen.delete(avatar);
+        scene = scene.filter(sprite => !fallen.has(enemyOf(sprite)));
         scene=fitModelHeights(refreshModels(getContext(),scene.filter(sprite=>safeSource(sprite.src))));key+=`:models:${scene.map(sprite=>sprite.model).join(',')}`;
         // Sizes come from current settings, so earlier pages follow Wardrobe changes.
         const scales=scene.map(sprite=>sprite.presentation?liveSpriteScale(getContext(),sprite):1);key+=`:scale:${scales.join(',')}`;
@@ -149,7 +162,7 @@ export function mountPageSprites({ host, getContext, adapter = createNativeSprit
             if (!safeSource(sprite.src)) continue;
             const src=safeSource(getContext().extensionSettings.genshin_dialogue_ui?.archivedSprites?.[safeSource(sprite.src)] || sprite.src);
             if(!src)continue;
-            const prior=previousImages.find(el=>el.dataset.avatar===(sprite.avatar || '')&&el.dataset.folder===(sprite.folder || '')&&!nextImages.includes(el));
+            const prior=previousImages.find(el=>el.dataset.leaving!=='true'&&el.dataset.avatar===(sprite.avatar || '')&&el.dataset.folder===(sprite.folder || '')&&!nextImages.includes(el));
             // Reusing a filtered/transformed <img> with new transparent pixels can
             // leave stale compositor tiles on mobile. Decode a fresh node, then
             // replace the old scene atomically. Same-art focus changes reuse it.
@@ -184,8 +197,11 @@ export function mountPageSprites({ host, getContext, adapter = createNativeSprit
         }
         const commit=()=>{
             if(version!==drawVersion || !active || !stage.isConnected)return;
+            const before=new Set(previousImages.filter(image=>image.dataset.leaving!=='true').map(image=>enemyOf({avatar:image.dataset.avatar,folder:image.dataset.folder})).filter(Boolean));
             for(const image of nextImages)stage.append(image);
-            for(const image of previousImages)if(!nextImages.includes(image))image.remove();
+            for(const image of previousImages)if(!nextImages.includes(image)&&image.dataset.leaving!=='true')image.remove();
+            // An enemy that was not on the previous stage makes an entrance.
+            if(!stillMotion())for(const image of nextImages){const enemy=enemyOf({avatar:image.dataset.avatar,folder:image.dataset.folder});if(enemy&&!before.has(enemy)){before.add(enemy);animate(image,'gi-enemy-enter');}}
         };
         if(decoding.length)void Promise.all(decoding).then(commit);else commit();
     }
@@ -367,7 +383,20 @@ export function mountPageSprites({ host, getContext, adapter = createNativeSprit
             save(old.message,old.page,old.signature,{...data,kind:old.kind,scene},ctx);
             draw(scene,`${identity}:presentation:${token}`);
         },
-        reset() { epoch++;drawVersion++; selection = displayed = ''; pending.clear(); speechSeeds.clear(); selectedPage = undefined; lastScene = []; adapter.reset?.(); stage.replaceChildren(); document.body.classList.remove('gi-sprite-replay'); },
+        // After a round that hurt it: the enemy's sprite flinches.
+        hit(avatar) {
+            const image = enemyImage(avatar);
+            if (image && !stillMotion()) animate(image, 'gi-enemy-hit');
+        },
+        // A defeated enemy's sprite plays its fall and leaves the stage at once.
+        defeat(avatar) {
+            fallen.add(avatar);
+            const image = enemyImage(avatar);
+            if (!image) return;
+            image.dataset.leaving = 'true';
+            if (stillMotion()) image.remove(); else animate(image, 'gi-enemy-defeat', () => image.remove());
+        },
+        reset() { epoch++;drawVersion++;fallen.clear(); selection = displayed = ''; pending.clear(); speechSeeds.clear(); selectedPage = undefined; lastScene = []; adapter.reset?.(); stage.replaceChildren(); document.body.classList.remove('gi-sprite-replay'); },
         dispose() { this.reset(); stage.remove(); },
     };
 }

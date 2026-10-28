@@ -110,7 +110,9 @@ export function mountCombat({host,getContext,onChange=()=>{},announce=()=>{},ada
             }
             onChange();
             await battle.play(snapshot,result,{...options,loot});
-            for(const fallen of saved.defeated){announce(`${snapshot.units.find(u=>u.id===fallen)?.name || 'Enemy'} defeated.`);onChange({defeated:fallen});}
+            // The battle screen has closed: wounded enemies flinch on the stage, fallen ones leave it.
+            for(const u of result.state.units.filter(u=>u.side==='enemy'&&u.hp>0&&!gone.includes(u.id)))if(hits.get(u.id)?.some(h=>h.damage>0))onChange({hit:u.id});
+            for(const fallen of saved.defeated){announce(`${snapshot.units.find(u=>u.id===fallen)?.name || 'Enemy'} defeated.`);onChange({defeated:fallen,slain:true});}
             for(const left of saved.fled)onChange({defeated:left});
             if(result.fled)announce('The party escaped.');
             else if(!event.defeated){

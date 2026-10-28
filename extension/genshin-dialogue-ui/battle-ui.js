@@ -8,7 +8,7 @@ import {describeMove,KIND_LABEL} from './combat-kits.js';
 import {ITEMS,itemArt,applyDiceItem} from './battle-items.js';
 import {createBattleSound} from './battle-sound.js';
 import {createParticles,glyph,weaponIcon,EL_COLORS} from './battle-fx.js';
-import {elementImg,reactionIcon,skillIcon,skillGlyph,characterIcon,summonArt} from './battle-icons.js';
+import {elementImg,reactionIcon,skillIcon,characterIcon,summonArt} from './battle-icons.js';
 
 const el=(tag,cls,text)=>{const n=document.createElement(tag);if(cls)n.className=cls;if(text!==undefined)n.textContent=text;return n;};
 export const splashUrl=name=>name?new URL(`./assets/splash/${encodeURIComponent(name)}.webp`,import.meta.url).href:'';
@@ -147,10 +147,8 @@ export function mountBattle({host,sound=createBattleSound(),onBurst=()=>{},onSto
     }
     const hideTip=()=>{$('.tb-tip').hidden=true;};
     const costHtml=(u,move)=>!move.cost?'':`<span class="tb-cost" style="--el:${EL_COLORS[ELEMENTS.includes(u.element)?u.element:'Omni']}">${ELEMENTS.includes(u.element)?elementImg(u.element,{white:true}):glyph('Omni')}<b>${move.cost}</b></span>`;
-    // A move's icon: its Genius Invokation skill icon, else the weapon (Normal Attack) or element glyph.
+    // A move's icon (plan badges and medallions): its element-coloured Genius Invokation skill icon, else the weapon (Normal Attack) or element glyph.
     const moveIcon=(u,move)=>{const src=skillIcon(move);return src?`<img class="tb-skill-img" src="${src}" alt="" draggable="false">`:move.kind==='normal'?weaponIcon(u.kit.weapon):u.element==='None'?glyph('Omni'):elementImg(u.element,{white:true});};
-    // Medallion art, as in the game: a white glyph on bronze, else the weapon or element glyph.
-    const medalIcon=(u,move)=>{const src=skillGlyph(move);return src?`<img class="tb-skill-glyph" src="${src}" alt="" draggable="false">`:move.kind==='normal'?weaponIcon(u.kit.weapon):u.element==='None'?glyph('Omni'):elementImg(u.element,{white:true});};
     // Costs under a medallion: element dice (grey when free), plus the Energy a Burst needs.
     const costRow=(u,move)=>`${move.cost?costHtml(u,move):'<span class="tb-cost tb-free"><b>0</b></span>'}${move.kind==='burst'?`<span class="tb-energy-cost" title="${u.maxEnergy || 2} Energy"><b>${u.maxEnergy || 2}</b></span>`:''}`;
     function moveTip(u,index,anchor){
@@ -298,7 +296,7 @@ export function mountBattle({host,sound=createBattleSound(),onBurst=()=>{},onSto
                 const b=el('button',`tb-move tb-move-${move.kind}`);b.type='button';b.dataset.move=String(index);
                 const ok=(index===0||canAfford(state,dice,plan,{...step,move:index},paying()))&&(index!==2||burstReady(u));
                 b.classList.toggle('tb-unaffordable',!ok);b.setAttribute('aria-pressed',String(step?.move===index));
-                const icon=medalIcon(u,move);
+                const icon=moveIcon(u,move);
                 const ring=index===2?`<i class="tb-ring" style="--fill:${Math.min(1,(u.energy || 0)/(u.maxEnergy || 2))}"></i>`:'';
                 b.innerHTML=`<span class="tb-medal">${ring}${icon}</span><span class="tb-move-cost">${costRow(u,move)}</span>`;
                 b.setAttribute('aria-label',`${KIND_LABEL[move.kind]}: ${move.name}`);
