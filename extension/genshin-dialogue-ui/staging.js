@@ -41,8 +41,7 @@ export function stageScene(ctx,input,message,{id=ctx.chat.indexOf(message)}={}){
     if(native)scene=visibleRoster(ctx,scene,message,id);
     const speaker=speakerAvatar(ctx,message),width=scene.length;
     const cards=scene.map(s=>stageCharacter(ctx,s));
-    const heights=cards.map(c=>modelHeight(ctx,c)),custom=cards.some(c=>c&&characterProperties(ctx,c).modelType==='custom'),tallest=Math.max(...heights,custom?1:.01);
-    // A Custom scale is a percentage of a tall male, so it must not be normalised away when a custom model stands alone.
+    const heights=cards.map(c=>modelHeight(ctx,c)),tallest=Math.max(...heights,.01);
     scene.forEach((s,i)=>{
         const character=cards[i];
         const cp=prefs.characterSprites?.[character?.avatar || s.avatar] || {};
@@ -60,6 +59,8 @@ export function stageScene(ctx,input,message,{id=ctx.chat.indexOf(message)}={}){
 // Re-fit body-model heights to the sprites actually on screen: the tallest model
 // drawn gets the full height, even when others in the staged scene are hidden
 // (opening scene, missing art), so a lone small model is never left undersized.
+// Saved page scenes keep the body model they were staged with, so refresh it from the character's current properties.
+export function refreshModels(ctx,scene){return scene.map(s=>{if(!(s.model>0))return s;const card=stageCharacter(ctx,s);return card?{...s,model:modelHeight(ctx,card)}:s;});}
 export function fitModelHeights(scene){
     const drawn=scene.filter(s=>s.model>0&&s.baseH>0);
     if(!drawn.length)return scene;

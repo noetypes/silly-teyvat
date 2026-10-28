@@ -3,7 +3,7 @@ import {activeGroup,inPartyChat} from './party.js';
 // Native sprite DOM is never rewritten; a replay layer isolates it from background updates.
 import {enemySpeaker,resolveEnemyScene,enemySceneAvatar} from './enemy-actions.js';
 import {openingScene,openingCharacter} from './opening-scene.js';
-import { stageScene, createStageRoster, expressionMode, fitModelHeights, liveSpriteScale } from './staging.js';
+import { stageScene, createStageRoster, expressionMode, fitModelHeights, refreshModels, liveSpriteScale } from './staging.js';
 import { previousSpeech } from './narration.js';
 import { createSpriteTrimmer } from './sprite-trim.js';
 const STORE = 'silly_teyvat';
@@ -138,7 +138,7 @@ export function mountPageSprites({ host, getContext, adapter = createNativeSprit
     }
     function draw(scene, key) {
         scene=openingScene(getContext(),scene);key+=`:opening:${openingCharacter(getContext()) || ''}`;
-        scene=fitModelHeights(scene.filter(sprite=>safeSource(sprite.src)));
+        scene=fitModelHeights(refreshModels(getContext(),scene.filter(sprite=>safeSource(sprite.src))));key+=`:models:${scene.map(sprite=>sprite.model).join(',')}`;
         // Sizes come from current settings, so earlier pages follow Wardrobe changes.
         const scales=scene.map(sprite=>sprite.presentation?liveSpriteScale(getContext(),sprite):1);key+=`:scale:${scales.join(',')}`;
         document.body.classList.toggle('gi-sprite-replay', active && (scene.length > 0 || Boolean(openingCharacter(getContext()))));
