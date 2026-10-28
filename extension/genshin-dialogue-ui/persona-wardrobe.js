@@ -1,5 +1,5 @@
 import {mediaSettings} from './media-store.js';
-import {linkedPersonaAvatars,linkPersona} from './persona-link.js';
+import {linkedPersonaAvatars,linkPersona,linkedCard} from './persona-link.js';
 
 let nativePersonas;
 export async function loadPersonaSupport(ctx) {
@@ -14,7 +14,8 @@ export const personaKey = avatar => `persona:${avatar}`;
 export function personaCard(ctx, avatar = activePersonaAvatar(ctx)) {
     if (!avatar) return null;
     const power = ctx.powerUserSettings || {};
-    return {isPersona:true, personaAvatar:avatar, avatar:personaKey(avatar), name:power.personas?.[avatar] || ctx.name1 || 'Player'};
+    const card=linkedCard(ctx,avatar);
+    return {...card,isPersona:true, personaAvatar:avatar, avatar:card?.avatar || personaKey(avatar), name:card?.name || power.personas?.[avatar] || ctx.name1 || 'Player'};
 }
 export function personaFolder(avatar) {
     return `Personas/${avatar.replace(/\.[^.]+$/, '').replace(/[^\p{L}\p{N}_. -]/gu, '_').slice(0,120) || 'Player'}`;
@@ -22,8 +23,26 @@ export function personaFolder(avatar) {
 export function personaSpriteSettings(ctx, avatar = activePersonaAvatar(ctx)) {
     const prefs = mediaSettings(ctx);
     if (!avatar) return {enabled:Boolean(prefs.personaSprite), folder:prefs.personaSpriteFolder || '', expression:prefs.personaSpriteExpression || 'neutral'};
-    const saved = prefs.personaSprites?.[avatar];
-    return {enabled:saved?.enabled ?? false, folder:saved?.folder || personaFolder(avatar), expression:saved?.expression || 'neutral'};
+    const saved = prefs.personaSprites?.[avatar],card=linkedCard(ctx,avatar);
+    const equipped=card&&ctx.extensionSettings.expressionOverrides?.find(x=>x.name===card.avatar.replace(/\.[^.]+$/,''))?.path;
+    return {enabled:saved?.enabled ?? Boolean(card), folder:equipped || saved?.folder || card?.name || personaFolder(avatar), expression:saved?.expression || 'neutral'};
+}
+export function migrateUnifiedPersonas(ctx){
+    const prefs=mediaSettings(ctx);if(prefs.unifiedPersonasVersion===1||!ctx.powerUserSettings?.personas||!ctx.characters?.length)return;
+    for(const avatar of Object.keys(ctx.powerUserSettings?.personas || {})){
+        const card=linkedCard(ctx,avatar);if(!card)continue;
+        prefs.personaCharacters ??= {};prefs.personaCharacters[avatar]=card.avatar;
+        const old=personaKey(avatar);
+        for(const key of ['characterSprites','characterProperties','combatKits']){
+            const store=prefs[key];if(store?.[old])store[card.avatar]={...store[old],...store[card.avatar]};
+        }
+        for(const key of ['outfits','characterCGs']){
+            const store=prefs[key];if(!store?.[old])continue;
+            const entries=store[card.avatar] ??= [];
+            for(const entry of store[old])if(!entries.some(x=>(x.folder || x.id || x.path)===(entry.folder || entry.id || entry.path)))entries.push(structuredClone(entry));
+        }
+    }
+    prefs.unifiedPersonasVersion=1;ctx.saveSettingsDebounced?.();
 }
 export function migratePersonaWardrobe(ctx) {
     const avatar = activePersonaAvatar(ctx), prefs = mediaSettings(ctx);
@@ -34,6 +53,7 @@ export function migratePersonaWardrobe(ctx) {
     ctx.saveSettingsDebounced?.();
 }
 export function syncPersonaSettings(ctx) {
+    migrateUnifiedPersonas(ctx);
     const prefs=mediaSettings(ctx), selected=personaSpriteSettings(ctx);
     Object.assign(prefs,{personaSprite:selected.enabled,personaSpriteFolder:selected.folder,personaSpriteExpression:selected.expression});
     return selected;
@@ -68,6 +88,8 @@ export function savePersonaProfile(ctx, card, values) {
     if (![0,2,3,4,9].includes(position)) throw new Error('Choose a description position.');
     if (!Number.isInteger(depth) || depth<0 || depth>9999) throw new Error('Depth must be a whole number from 0 to 9999.');
     if (![0,1,2].includes(role)) throw new Error('Choose a description role.');
+    const canonical=linkedCard(ctx,card.personaAvatar);
+    if(canonical){canonical.name=name;canonical.description=String(values.description || '');if(canonical.data){canonical.data.name=name;canonical.data.description=canonical.description;}}
     power.personas ??= {};power.persona_descriptions ??= {};
     power.personas[card.personaAvatar]=name;
     const descriptor=power.persona_descriptions[card.personaAvatar]={...power.persona_descriptions[card.personaAvatar],description:String(values.description || ''),title:String(values.title || '').trim(),lorebook:String(values.lorebook || '').trim(),position,depth,role};
@@ -81,7 +103,13 @@ export function savePersonaProfile(ctx, card, values) {
 export function createPersonaAdapter(getContext) {
     return {
         async saveProfile(card,values) {
-            const ctx=getContext();savePersonaProfile(ctx,card,values);
+            const ctx=getContext(),canonical=linkedCard(ctx,card.personaAvatar);
+            // Save the canonical card first; a failed write leaves the persona untouched.
+            if(canonical){
+                const response=await fetch('/api/characters/merge-attributes',{method:'POST',headers:ctx.getRequestHeaders(),body:JSON.stringify({avatar:canonical.avatar,name:values.name.trim(),description:String(values.description || ''),data:{name:values.name.trim(),description:String(values.description || '')}})});
+                if(!response.ok)throw new Error(`Character profile could not be saved (${response.status}).`);
+            }
+            savePersonaProfile(ctx,card,values);
             if (nativePersonas) {
                 if (card.personaAvatar===activePersonaAvatar(getContext())) {
                     const {setUserName}=await import('/script.js');
@@ -105,11 +133,16 @@ export function createPersonaAdapter(getContext) {
                 const upload=await fetch('/api/avatars/upload',{method:'POST',headers:ctx.getRequestHeaders({omitContentType:true}),body:form});
                 if (!upload.ok) throw new Error(`Could not create the persona (${upload.status}).`);
                 power.personas[avatar]=card.name;
-                power.persona_descriptions[avatar]={description:card.description || '',title:'',lorebook:'',position:0,depth:2,role:0};
+                power.persona_descriptions[avatar]={description:card.data?.description || card.description || '',title:'',lorebook:card.data?.extensions?.world || '',position:0,depth:2,role:0};
                 linkPersona(ctx,avatar,card.avatar);
                 const folder=ctx.extensionSettings.expressionOverrides?.find(x=>x.name===card.avatar.replace(/\.[^.]+$/,''))?.path || card.name;
                 const prefs=mediaSettings(ctx);prefs.personaSprites ??= {};prefs.personaSprites[avatar]={enabled:true,folder,expression:'neutral'};
             }
+            // The native persona is a transport for the same card identity, not a
+            // second character with independent appearance or combat settings.
+            linkPersona(ctx,avatar,card.avatar);
+            power.personas[avatar]=card.name;
+            power.persona_descriptions[avatar]={...power.persona_descriptions[avatar],description:card.data?.description || card.description || ''};
             if (ctx.userAvatar!==undefined && !nativePersonas) {ctx.userAvatar=avatar;ctx.name1=card.name;}
             else {
                 nativePersonas ??= await import('/scripts/personas.js');

@@ -1,3 +1,4 @@
+import {playedAvatars} from './persona-link.js';
 import {activeGroup,inPartyChat} from './party.js';
 import {defaultCharacterLocation,locationCastState} from './location-cast.js';
 import {isEnemy} from './character-properties.js';
@@ -13,7 +14,7 @@ export const hasSavedLocation=ctx=>Boolean(travelState(ctx).location?.id);
 export function startCharacterAtHome(ctx){
     if(ctx.groupId)return startGroupAtHome(ctx);
     if(inPartyChat(ctx))return false;
-    const character=ctx.characters?.[ctx.characterId];if(!character)return false;
+    const character=ctx.characters?.[ctx.characterId];if(!character||playedAvatars(ctx).has(character.avatar))return false;
     if(hasSavedLocation(ctx))return false;
     const points=worldWaypoints(ctx),defaultHome=defaultCharacterLocation(ctx,character.avatar),home=points.find(item=>item.location.id===defaultHome?.id)?.location || points.find(item=>item.location.id===travelState(ctx).location?.id)?.location || points[0]?.location;
     beginOpeningScene(ctx,character.avatar,home?.id);if(!home)return false;
@@ -32,7 +33,7 @@ export function startGroupAtHome(ctx,random=Math.random){
     const group=activeGroup(ctx);if(!ctx.groupId||!group)return false;
     const state=locationCastState(ctx);
     if(state.groupHomeStart||travelState(ctx).location?.id||ctx.chat?.some(m=>m.is_user))return false;
-    const points=worldWaypoints(ctx),members=(group.members || []).filter(a=>!group.disabled_members?.includes(a)&&!isEnemy(ctx,a));
+    const points=worldWaypoints(ctx),members=(group.members || []).filter(a=>!playedAvatars(ctx).has(a)&&!group.disabled_members?.includes(a)&&!isEnemy(ctx,a));
     const homes=members.map(a=>defaultCharacterLocation(ctx,a)).filter(home=>home&&points.some(p=>p.location.id===home.id));
     state.groupHomeStart=true;
     if(!homes.length){saveTravel(ctx);return false;}

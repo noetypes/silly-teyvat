@@ -11,6 +11,8 @@ import { nextSlotName, spriteDrafts, draftSprite } from './wardrobe-slots.js';
 import { mountBackgroundWardrobe } from './background-wardrobe.js';
 import { mountMovesetEditor } from './moveset-editor.js';
 import {personaCard,personaFolder,personaPortrait,personaSpriteSettings,setPersonaSpriteSetting,mountPersonaProfile,createPersonaAdapter} from './persona-wardrobe.js';
+import {circularCharacterAvatar,characterAvatarsReady} from './character-avatars.js';
+import {mountBurstAudioEditor} from './burst-audio.js';
 const KEY = 'genshin_dialogue_ui';
 export const expressionLabels = 'admiration amusement anger annoyance approval caring confusion curiosity desire disappointment disapproval disgust embarrassment excitement fear gratitude grief joy love nervousness optimism pride realization relief remorse sadness surprise neutral'.split(' ');
 export function validFolder(value) {
@@ -177,6 +179,8 @@ export function mountWardrobe({host, getContext, onChange = async () => {}, onMe
         $('.gi-wardrobe-preview').insertAdjacentHTML('afterbegin','<i class="gi-cs-pedestal" aria-hidden="true"></i>');
     }
     const movesetUI=mountMovesetEditor({panel:$('[data-panel="moveset"]'),getContext,getCharacter:()=>character,status});
+    const burstPanel=document.createElement('section');$('[data-panel="sprites"]').append(burstPanel);
+    const burstAudioUI=mountBurstAudioEditor({panel:burstPanel,getContext,getCharacter:()=>character,adapter:mediaAdapter,previewAudio,status});
     // A persona that plays a character card shares that card's sprites and sets.
     const regKey = c => c?.isPersona ? (linkedCardAvatar(getContext(), c.personaAvatar) || c.avatar) : c?.avatar;
     const origFolder = c => c.isPersona ? (linkedCard(getContext(), c.personaAvatar)?.name ?? personaFolder(c.personaAvatar)) : c.name;
@@ -302,7 +306,7 @@ export function mountWardrobe({host, getContext, onChange = async () => {}, onMe
         status(tab==='backgrounds'?'Choose your travel region and manage its location backgrounds.':sprites.length ? `${sprites.length} sprites in ${path}. Select a sprite to preview it. Use set equips the outfit.` : `No sprites in ${path}. Add images below to create this set.`);
     }
     async function selectCharacter(c) {
-        character = c;dialog.dataset.element=characterProperties(getContext(),c).element;propertiesUI.refresh();if(tab==='moveset')movesetUI.refresh();const cp=characterPreferences(getContext(),c.avatar);$('#gi-character-expression-mode').value=cp.expressionMode || 'inherit';$('#gi-character-scale').value=cp.scale ?? 100;$('#gi-manual-position').checked=cp.positionX!=null;$('#gi-character-x').value=cp.positionX ?? 50;$('#gi-character-x').disabled=cp.positionX==null;$('#gi-character-y').value=cp.offsetY ?? 0; selectedCG=undefined;$('#gi-cg-label').value='';$('#gi-cg-description').value='';$('#gi-cg-classifications').value='';$('.gi-wardrobe-preview h3').textContent = c.name;
+        character = c;burstAudioUI.refresh();dialog.dataset.element=characterProperties(getContext(),c).element;propertiesUI.refresh();if(tab==='moveset')movesetUI.refresh();const cp=characterPreferences(getContext(),c.avatar);$('#gi-character-expression-mode').value=cp.expressionMode || 'inherit';$('#gi-character-scale').value=cp.scale ?? 100;$('#gi-manual-position').checked=cp.positionX!=null;$('#gi-character-x').value=cp.positionX ?? 50;$('#gi-character-x').disabled=cp.positionX==null;$('#gi-character-y').value=cp.offsetY ?? 0; selectedCG=undefined;$('#gi-cg-label').value='';$('#gi-cg-description').value='';$('#gi-cg-classifications').value='';$('.gi-wardrobe-preview h3').textContent = c.name;
         personaProfileUI.refresh();$('#gi-persona-display-control').hidden=!c.isPersona;
         $('.gi-takeover').hidden=Boolean(c.isPersona);$('[data-w="take-over"]').textContent=`Play as ${c.name}`;
         $('#gi-persona-visible').checked=Boolean(c.isPersona&&personaSpriteSettings(getContext(),c.personaAvatar).enabled);
@@ -371,7 +375,7 @@ export function mountWardrobe({host, getContext, onChange = async () => {}, onMe
                 const taken = character;
                 await personaAdapter.takeOver(taken);
                 await renderRoster();
-                await onChange(personaCard(getContext()), { presentation: true });
+                await onChange(personaCard(getContext()), { presentation: true,personaChanged:true });
                 status(`You are now playing as ${taken.name}. They no longer appear as a random encounter, and the persona shares their sprites.`);
             }
             if (name === 'equip') { applyOutfit(getContext(), character, folder()); await changed(); await load(); status(`Equipped ${folder()} for ${character.name}. Earlier saved pages keep their outfits.`); }
@@ -559,27 +563,28 @@ export function mountWardrobe({host, getContext, onChange = async () => {}, onMe
             if(c.isPersona){b.dataset.persona='true';const badge=document.createElement('span');badge.className='gi-persona-badge';badge.textContent='You';b.append(badge);}
             if(party.includes(c.avatar))b.dataset.party='true';
             const img=document.createElement('img');img.alt='';img.loading='lazy';
-            img.src=c.isPersona?personaPortrait(ctx,c):ctx.getThumbnailUrl?.('avatar',c.avatar)||`/characters/${encodeURIComponent(c.avatar)}`;
+            img.src=circularCharacterAvatar(ctx,c);
             const face=document.createElement('span');face.className='gi-roster-face';face.append(img);b.prepend(face);
             if(c.avatar===character?.avatar)b.setAttribute('aria-pressed','true');
             return b;
         }));
         return characters;
     }
-    async function renderRoster(){
+    async function renderRoster(preferred){
         const ctx=getContext(),persona=personaCard(ctx),characters=paintRoster();
-        const chosen=characters.find(c=>c.avatar===character?.avatar)||persona||ctx.characters?.[ctx.characterId]||characters[0];
+        const chosen=characters.find(c=>c.avatar===preferred)||characters.find(c=>c.avatar===character?.avatar)||persona||ctx.characters?.[ctx.characterId]||characters[0];
         if(chosen)await selectCharacter(chosen);else{switchTab('backgrounds');status('Add regions and backgrounds, or import a character to manage sprites.');}
     }
+    characterAvatarsReady.then(()=>{if(!abort.signal.aborted&&dialog.open)paintRoster();});
     return {
-        async open() {
+        async open(options={}) {
             opener = document.activeElement;
             if (!dialog.open) dialog.showModal();
             if (busy) { status('Finishing the current sprite operation…'); return; }
-            await renderRoster();
+            await renderRoster(options.persona?personaCard(getContext())?.avatar:options.avatar);
         },
-        async refreshPersona(){if(!dialog.open)return;if(busy){personaRefreshPending=true;return;}await renderRoster();},
+        async refreshPersona(){if(!dialog.open)return;if(busy){personaRefreshPending=true;return;}await renderRoster(character?.isPersona?personaCard(getContext())?.avatar:undefined);},
         close() { if (dialog.open) dialog.close(); },
-        dispose() { revision++; abort.abort(); propertiesUI.dispose();movesetUI.dispose();personaProfileUI.dispose();backgroundUI.dispose();dialog.close(); dialog.remove(); },
+        dispose() { revision++; abort.abort(); propertiesUI.dispose();movesetUI.dispose();burstAudioUI.dispose();personaProfileUI.dispose();backgroundUI.dispose();dialog.close(); dialog.remove(); },
     };
 }

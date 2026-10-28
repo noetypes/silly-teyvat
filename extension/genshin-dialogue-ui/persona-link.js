@@ -8,7 +8,12 @@ const BUILT_IN = {'teyvat-persona-aether.png':'Aether.png','teyvat-persona-lumin
 export const personaLinks = ctx => ({...BUILT_IN,...mediaSettings(ctx).personaCharacters});
 export function linkedCardAvatar(ctx, personaAvatar = activePersonaAvatar(ctx)) {
     const avatar = personaLinks(ctx)[personaAvatar];
-    return avatar && (ctx.characters || []).some(c => c.avatar === avatar) ? avatar : '';
+    if(avatar && (ctx.characters || []).some(c => c.avatar === avatar))return avatar;
+    // Existing native personas can already embody a card without a legacy link.
+    // Only an unambiguous exact name match is eligible; never guess from substrings.
+    const name=ctx.powerUserSettings?.personas?.[personaAvatar];
+    const matches=name?(ctx.characters || []).filter(c=>c.name?.trim().toLocaleLowerCase()===String(name).trim().toLocaleLowerCase()):[];
+    return matches.length===1?matches[0].avatar:'';
 }
 export const linkedCard = (ctx, personaAvatar) => (ctx.characters || []).find(c => c.avatar === linkedCardAvatar(ctx, personaAvatar));
 // Cards currently played by the active persona.

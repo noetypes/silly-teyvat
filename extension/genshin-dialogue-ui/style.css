@@ -2873,3 +2873,13 @@ body.gi-enabled #chat > .mes.gi-combat-log { display: none !important; }
 #gi-toolbar .gi-pm-rail [data-gi-action="settings"]:hover .gi-pm-icon { rotate: 60deg; transition: rotate 300ms var(--ty-ease); }
 @media (max-width: 520px) { #gi-toolbar .gi-pm-grid button .gi-pm-icon { width: 32px; height: 32px; } }
 @media (max-height: 560px) { #gi-toolbar .gi-pm-grid button .gi-pm-icon { width: 26px; height: 26px; } }
+
+/* Canonical persona identity and per-character Burst audio. */
+.gi-burst-audio-tools { margin-block: 1rem; padding-block-start: 1rem; border-top: 1px solid #cbb79540; min-width: 0; }
+.gi-burst-audio-tools p { color: var(--gi-muted, #b9b7b0); font-size: .85rem; }
+.gi-burst-audio-list { display: grid; gap: .45rem; max-height: 18rem; overflow: auto; }
+.gi-burst-audio-list .gi-wardrobe-row { display: flex; align-items: center; gap: .4rem; min-width: 0; }
+.gi-burst-audio-list .gi-wardrobe-row span { flex: 1; min-width: 0; overflow-wrap: anywhere; }
+.gi-burst-audio-list button { flex: none; }
+.gi-burst-audio-actions { display: flex; flex-wrap: wrap; gap: .5rem; margin-block: .5rem; }
+.gi-burst-audio-tools input, .gi-burst-audio-tools select { max-width: 100%; min-width: 0; }

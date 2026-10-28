@@ -10,6 +10,7 @@ import {arrivalReply} from './arrival-policy.js';
 import {assignedResidents,requireLocationCapacity} from './location-capacity.js';
 import {encounterResidents,rollLocationEncounter,locationResidents} from './location-encounters.js';
 import {newLocalId} from './local-id.js';
+import {playedAvatars} from './persona-link.js';
 
 export const castIdentity=ctx=>`${ctx.groupId || ctx.characterId}:${ctx.getCurrentChatId?.() || ctx.chatId || ''}`;
 export function locationCastState(ctx){
@@ -60,47 +61,39 @@ export function assignResidents(ctx,locationId,avatars){
 }
 export function castMembership(ctx){
     const state=locationCastState(ctx),group=activeGroup(ctx);
-    const members=group?[...group.members]:[ctx.characters?.[ctx.characterId]?.avatar].filter(Boolean);
+    const original=group?[...group.members]:[ctx.characters?.[ctx.characterId]?.avatar].filter(Boolean),played=playedAvatars(ctx);
+    const members=original.filter(a=>!played.has(a)),taken=original.filter(a=>played.has(a));
     const opening=openingCharacter(ctx);
-    if(opening){const next=members.includes(opening)?[opening]:ctx.characters?.some(c=>c.avatar===opening)?[opening]:members.slice(0,1);const removed=members.filter(a=>!next.includes(a)),added=next.filter(a=>!members.includes(a));return {core:[...next],members:next,managed:[],added,removed,changed:added.length>0||removed.length>0,forced:null};}
-    let core=[...(state.core || members.filter(a=>!state.managed.includes(a)))].filter(a=>!isEnemy(ctx,a));
-    const wanted=[...(mediaSettings(ctx).locationEncounters===false?members.filter(a=>!isEnemy(ctx,a)):residentsAt(ctx,travelState(ctx).location?.id).map(c=>c.avatar)),...activeEnemies(ctx).map(e=>e.avatar)];
-    let removed=members.filter(a=>(state.managed.includes(a)||isEnemy(ctx,a))&&!wanted.includes(a)&&!core.includes(a));
+    if(opening){const next=members.includes(opening)?[opening]:ctx.characters?.some(c=>c.avatar===opening)?[opening]:members.slice(0,1);const removed=original.filter(a=>!next.includes(a)),added=next.filter(a=>!members.includes(a));return {core:[...next],members:next,managed:[],added,removed,changed:added.length>0||removed.length>0,forced:null};}
+    let core=[...(state.core || members.filter(a=>!state.managed.includes(a)))].filter(a=>!isEnemy(ctx,a)&&!played.has(a));
+    const wanted=[...(mediaSettings(ctx).locationEncounters===false?members.filter(a=>!isEnemy(ctx,a)):residentsAt(ctx,travelState(ctx).location?.id).map(c=>c.avatar)),...activeEnemies(ctx).map(e=>e.avatar)].filter(a=>!played.has(a));
+    let removed=[...taken,...members.filter(a=>(state.managed.includes(a)||isEnemy(ctx,a))&&!wanted.includes(a)&&!core.includes(a))];
     const added=wanted.filter(a=>!members.includes(a));
     let next=[...new Set([...members.filter(a=>!removed.includes(a)),...added])];
-    const disabled=group?.disabled_members || [];let forced=null;
-    if(!next.some(a=>!disabled.includes(a)&&!isEnemy(ctx,a))){
-        forced=members.find(a=>!disabled.includes(a)&&!isEnemy(ctx,a));
-        if(forced){next=[...new Set([...next,forced])];removed=removed.filter(a=>a!==forced);core.push(forced);}
-    }
+    const forced=null; // The player is a complete party even with no NPC members.
     const managed=[...new Set([...state.managed.filter(a=>wanted.includes(a)&&!core.includes(a)),...added.filter(a=>!core.includes(a))])];
     return {core:[...core],members:next,managed,added,removed,changed:added.length>0||removed.length>0,forced};
 }
-// Non-core companions are asked first. The last available speaker is carried
-// automatically only when neither a destination resident nor a chosen follower
-// can keep the conversation populated.
+// Non-core companions are asked first. Every companion may stay behind; an
+// empty NPC roster is a valid player-only journey.
 export async function planTeleportParty(ctx,destination,ask,isCurrent=()=>true){
     const from=travelState(ctx).location?.id,members=partyAvatars(ctx),state=locationCastState(ctx);
     const group=activeGroup(ctx),disabled=group?.disabled_members || [];
     const base={key:castIdentity(ctx),from,destination:destination.id,members:[...members],disabled:[...disabled],decisions:[],travellers:members.filter(a=>!isEnemy(ctx,a))};
     if(from===destination.id)return base;
     // Roll once before asking about followers. Cancellation discards this draft;
-    // the actual sampled residents, not the full roster, keep a party populated.
+    // Arrival membership uses the sampled residents, even when none are present.
     base.encounter=rollLocationEncounter(ctx,destination.id,base.travellers);
     if(mediaSettings(ctx).locationEncounters===false)return base;
     const flexible=Boolean(mediaSettings(ctx).allowMainDeparture);
     const main=[ctx.characters?.[ctx.characterId]?.avatar,state.source?.avatar,...(state.core || []),members[0]].find(a=>members.includes(a));
     const guestAvatars=residentsAt(ctx,from).filter(c=>state.managed.includes(c.avatar)&&!state.core?.includes(c.avatar)).map(c=>c.avatar);
     const candidates=(ctx.characters || []).filter(c=>members.includes(c.avatar)&&!isEnemy(ctx,c)&&(flexible||guestAvatars.includes(c.avatar))).sort((a,b)=>Number(a.avatar===main)-Number(b.avatar===main));
-    const available=new Set(base.encounter.present.filter(a=>!disabled.includes(a)));
-    for(const avatar of members.filter(a=>!isEnemy(ctx,a)))if(!candidates.some(c=>c.avatar===avatar)&&!disabled.includes(avatar))available.add(avatar);
     for(let index=0;index<candidates.length;index++){
-        const character=candidates[index],remaining=candidates.slice(index).filter(c=>!disabled.includes(c.avatar));
-        const forced=!available.size&&remaining.length===1&&remaining[0].avatar===character.avatar;
-        const answer=forced?true:await ask(character,destination);
+        const character=candidates[index],forced=false;
+        const answer=await ask(character,destination);
         if(answer==null||!isCurrent())return null;
         base.decisions.push({avatar:character.avatar,from,to:destination.id,take:answer,forced});
-        if(answer&&!disabled.includes(character.avatar))available.add(character.avatar);
     }
     base.travellers=members.filter(a=>!isEnemy(ctx,a)&&!base.decisions.some(d=>d.avatar===a&&!d.take));
     base.flexible=flexible;return base;
@@ -110,11 +103,6 @@ export function commitTeleportParty(ctx,plan){
     if(plan.members&&JSON.stringify(partyAvatars(ctx))!==JSON.stringify(plan.members))return false;
     const group=activeGroup(ctx),disabled=group?.disabled_members || [];
     if(plan.disabled&&JSON.stringify(disabled)!==JSON.stringify(plan.disabled))return false;
-    if(plan.flexible){
-        const stillHere=new Set(locationResidents(ctx,plan.destination).map(c=>c.avatar));
-        const future=[...(plan.travellers || []),...(plan.encounter?.present || residentsAt(ctx,plan.destination).map(c=>c.avatar)).filter(a=>stillHere.has(a))];
-        if(!future.some(a=>!disabled.includes(a)))throw new Error('At least one character must travel with you or be present at the destination. Try Teleport again.');
-    }
     // Towns are safe: the party recovers on arrival at any location that is not wilderness.
     if(!locations(ctx).find(l=>l.id===plan.destination)?.wilderness)healParty(ctx);
     const state=locationCastState(ctx);

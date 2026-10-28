@@ -5,18 +5,12 @@ import {newLocalId} from './local-id.js';
 import {mediaSettings} from './media-store.js';
 import {noteLocationArrival} from './arrival-policy.js';
 import {rollLocationEncounter} from './location-encounters.js';
+import {playedAvatars} from './persona-link.js';
 
-export function partyAvatars(ctx){return activeGroup(ctx)?.members?.slice() || [ctx.characters?.[ctx.characterId]?.avatar].filter(Boolean);}
+export function partyAvatars(ctx){const played=playedAvatars(ctx);return (activeGroup(ctx)?.members?.slice() || [ctx.characters?.[ctx.characterId]?.avatar].filter(Boolean)).filter(a=>!played.has(a));}
 export function travellingAvatars(ctx,destination,{automatic=false}={}){
     const state=ctx.chatMetadata?.silly_teyvat_cast || {};
     const members=partyAvatars(ctx).filter(a=>!isEnemy(ctx,a)),travellers=members.filter(avatar=>!automatic || !state.managed?.includes(avatar) || state.core?.includes(avatar) || state.placements?.[avatar]===destination.id);
-    if(automatic){
-        const disabled=activeGroup(ctx)?.disabled_members || [];
-        const homes=new Map((mediaSettings(ctx).backgroundRegions || []).flatMap(r=>r.locations.flatMap(l=>(l.residents || []).map(a=>[a,l.id]))));
-        for(const [avatar,id] of Object.entries(state.placements || {}))homes.set(avatar,id);
-        const residents=(mediaSettings(ctx).locationEncounters===false?[]:ctx.characters || []).filter(c=>!isEnemy(ctx,c)&&homes.get(c.avatar)===destination.id&&!disabled.includes(c.avatar));
-        if(!travellers.some(a=>!disabled.includes(a))&&!residents.length){const last=members.find(a=>!disabled.includes(a));if(last&&!travellers.includes(last))travellers.push(last);}
-    }
     return travellers;
 }
 const list=names=>names.length<2?names[0] || 'The party':`${names.slice(0,-1).join(', ')} and ${names.at(-1)}`;

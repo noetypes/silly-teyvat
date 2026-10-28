@@ -18,7 +18,7 @@
                 <h4>Display</h4>
                 <label class="gi-row"><span>Dialogue view</span><input type="checkbox" class="gi-switch" data-gi-setting="enabled"></label>
                 <label class="gi-row"><span>Teyvat Choices &amp; HUD icons</span><input type="checkbox" class="gi-switch" data-gi-setting="choices"></label>
-                <label class="gi-row" for="gi-persona-icon"><span>Traveler icon</span><select id="gi-persona-icon" data-gi-setting="personaIcon"><option value="Aether">Aether</option><option value="Lumine">Lumine</option></select></label>
+                <label class="gi-row" for="gi-persona-icon"><span>Persona menu icon</span><select id="gi-persona-icon" data-gi-setting="personaIconMode"><option value="auto">Auto (body type)</option><option value="Aether">Aether</option><option value="Lumine">Lumine</option></select></label>
                 <label class="gi-row"><span>Keep reply box open</span><input type="checkbox" class="gi-switch" data-gi-setting="composer"></label>
                 <label class="gi-row"><span>Reduce motion</span><input type="checkbox" class="gi-switch" data-gi-setting="reducedMotion"></label>
                 <h4>Text</h4>
@@ -72,6 +72,7 @@
 
             <section class="gi-set-page" data-page="media" role="tabpanel" hidden>
                 <h4>Audio</h4>
+                <label class="gi-row"><span>Elemental Burst voices</span><input type="checkbox" class="gi-switch" data-gi-setting="burstAudio"></label>
                 <label class="gi-row"><span>Sprite audio</span><input type="checkbox" class="gi-switch" data-gi-setting="spriteAudio"></label>
                 <label class="gi-row"><span>CG audio</span><input type="checkbox" class="gi-switch" data-gi-setting="cgAudio"></label>
                 <label class="gi-row gi-row-range" for="gi-sprite-volume"><span>Volume</span><output id="gi-sprite-volume-value">80%</output><input id="gi-sprite-volume" type="range" min="0" max="1" step="0.05" data-gi-setting="spriteVolume"></label>

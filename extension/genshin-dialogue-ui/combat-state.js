@@ -23,7 +23,7 @@ export function activeEnemies(ctx){
     const key=encounter&&encounter.locationId===locationId?encounter.key:`manual:${locationId || 'chat'}`;
     const avatars=[...new Set([...(encounter&&encounter.locationId===locationId?encounter.enemies || []:[]),...sceneMembers(ctx).filter(a=>isEnemy(ctx,a)&&!cast.managed?.includes(a))])];
     const store=combatState(ctx),visit=store.visits[key] ??= {locationId,enemies:{}};
-    return avatars.filter(a=>isEnemy(ctx,a)&&ctx.characters?.some(c=>c.avatar===a)).map(avatar=>{
+    return avatars.filter(a=>!playedAvatars(ctx).has(a)&&isEnemy(ctx,a)&&ctx.characters?.some(c=>c.avatar===a)).map(avatar=>{
         let enemy=visit.enemies[avatar];
         if(!enemy){const props=characterProperties(ctx,avatar),max=enemyMaxHp(ctx,avatar);enemy=visit.enemies[avatar]={avatar,hp:max,maxHp:max,deathMessage:props.deathMessage,defeated:false};}
         return {...enemy,key};

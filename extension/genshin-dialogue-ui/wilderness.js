@@ -1,3 +1,4 @@
+import {playedAvatars} from './persona-link.js';
 import {mediaSettings} from './media-store.js';
 import {isEnemy,characterProperties} from './character-properties.js';
 export function wildernessLocation(ctx,id){return (mediaSettings(ctx).backgroundRegions || []).flatMap(r=>r.locations).find(l=>l.id===id);}
@@ -9,7 +10,7 @@ export function wildernessEncounterRate(ctx,location){
 export function rollWilderness(ctx,id,{random=Math.random,kind='travel'}={}){
     const location=wildernessLocation(ctx,id),rate=wildernessEncounterRate(ctx,location);
     if(kind==='open'||!location?.wilderness||mediaSettings(ctx).wildernessEncounters===false)return [];
-    const pool=[...new Set(location.enemyPool || [])].filter(a=>ctx.characters?.some(c=>c.avatar===a)&&isEnemy(ctx,a));
+    const pool=[...new Set(location.enemyPool || [])].filter(a=>!playedAvatars(ctx).has(a)&&ctx.characters?.some(c=>c.avatar===a)&&isEnemy(ctx,a));
     if(!pool.length||rate<=0||rate<100&&random()*100>=rate)return [];
     return [pool[Math.min(pool.length-1,Math.floor(random()*pool.length))]];
 }

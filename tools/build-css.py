@@ -8,7 +8,7 @@ appended part of style.css, or the next build discards the change.
 import pathlib, sys
 
 EXT = pathlib.Path(__file__).resolve().parent.parent / 'extension' / 'genshin-dialogue-ui'
-LAYERS = sys.argv[1:] or ['teyvat-ui.css', 'world-map-ui.css', 'ui-121.css', 'battle.css', 'location-music.css', 'paimon-menu.css']
+LAYERS = sys.argv[1:] or ['teyvat-ui.css', 'world-map-ui.css', 'ui-121.css', 'battle.css', 'location-music.css', 'paimon-menu.css', 'character-identity.css']
 MARK = '\n/* @@silly-teyvat-1.19-ui@@ */\n'
 
 style = EXT / 'style.css'

@@ -19,6 +19,7 @@ export function characterProperties(ctx,card){
     // card's author (30 was the old default and is treated as unset).
     const kitHp=defaultKitHp(card.name,data.role==='enemy'),authored=fromCard.maxHp!==undefined&&Number(fromCard.maxHp)!==30;
     if(!saved.hpCustom)data.maxHp=authored?fromCard.maxHp:kitHp ?? 30;
+    if(card.isPersona){data.role='character';data.playable=true;}
     data.modelScale=Math.max(MODEL_SCALE_MIN,Math.min(MODEL_SCALE_MAX,Math.round(Number(data.modelScale)||90)));
     data.maxHp=Math.max(1,Math.min(100000,Math.round(Number(data.maxHp)||30)));return data;
 }
@@ -57,7 +58,9 @@ export function saveCharacterProperties(ctx,card,values){
     if(!Number.isInteger(Number(next.maxHp))||Number(next.maxHp)<1||Number(next.maxHp)>100000)throw new Error('Enemy health must be a whole number from 1 to 100000.');
     if(next.role==='enemy')next.playable=false;
     next.hpCustom=Boolean(before.hpCustom||Number(next.maxHp)!==Number(before.maxHp));
-    const prefs=mediaSettings(ctx);prefs.characterProperties ??= {};prefs.characterProperties[card.avatar]=next;ctx.saveSettingsDebounced();return next;
+    const prefs=mediaSettings(ctx);prefs.characterProperties ??= {};
+    if(card.isPersona){const canonical=ctx.characters?.find(c=>c.avatar===card.avatar);if(canonical){const npc=characterProperties(ctx,canonical);next.role=npc.role;next.playable=npc.playable;}}
+    prefs.characterProperties[card.avatar]=next;ctx.saveSettingsDebounced();return next;
 }
 export function mountCharacterProperties({panel,getContext,getCharacter,onChange=()=>{},status=()=>{}}){
     panel.innerHTML='<summary>Character & enemy properties</summary><label>Card type<select data-prop="role"><option value="character">Character / companion</option><option value="enemy">Hostile enemy</option></select></label><label class="gi-check"><input type="checkbox" data-prop="playable">Playable ally (fights and rolls dice)</label><label>Element<select data-prop="element"></select></label><label>Body model<select data-prop="modelType"></select></label><label class="gi-model-scale">Custom scale <output data-model-scale-out></output><input data-prop="modelScale" type="range" min="'+MODEL_SCALE_MIN+'" max="'+MODEL_SCALE_MAX+'" step="1"><small>Height as a percentage of the tallest body model (100%).</small></label><label>Region<input data-prop="region" maxlength="80"></label><label>Maximum HP<input data-prop="maxHp" type="number" min="1" max="100000" step="1"></label><div class="gi-enemy-properties"><label>Death message<textarea data-prop="deathMessage" rows="2" maxlength="1500"></textarea></label><small>Use {name} for the enemy name. Health changes apply to new encounters. Existing encounters keep their HP.</small></div><button type="button" data-save-properties>Save character properties</button>';

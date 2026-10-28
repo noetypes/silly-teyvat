@@ -30,7 +30,7 @@ const ICON={
     party:'<svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><circle cx="8" cy="8" r="3"/><circle cx="16" cy="8" r="3"/><path d="M2 20c0-4 3-6 6-6s6 2 6 6zM12 20c.3-2.5-.5-4.4-2-5.6 1.7-.9 4.3-1.1 6.4 0 2.4 1.2 3.6 3.2 3.6 5.6z"/></svg>',
 };
 
-export function mountBattle({host,sound=createBattleSound()}){
+export function mountBattle({host,sound=createBattleSound(),onBurst=()=>{},onStopVoice=()=>{}}){
     const dialog=document.createElement('dialog');dialog.id='gi-battle';dialog.setAttribute('aria-label','Battle');
     dialog.innerHTML=`<div class="tb-board">
         <i class="tb-crest" aria-hidden="true"></i><i class="tb-midline" aria-hidden="true"></i><i class="tb-emblem" aria-hidden="true"></i>
@@ -364,7 +364,9 @@ export function mountBattle({host,sound=createBattleSound()}){
         return new Promise(resolve=>{const anim=orb.animate([{transform:'translate(-50%,-50%) scale(.6)'},{transform:`translate(calc(${b.x-a.x}px - 50%),calc(${b.y-a.y}px - 50%)) scale(1.1)`}],{duration:ms,easing:'cubic-bezier(.5,0,.9,.6)'});anim.onfinish=()=>{orb.remove();resolve();};setTimeout(()=>{orb.remove();resolve();},ms+80);});
     }
     function setActing(sideName){$('.tb-plate-you small').textContent=sideName==='party'?'Now Acting':'Now Waiting…';$('.tb-plate-foe small').textContent=sideName==='enemy'?'Now Acting':'Now Waiting…';dialog.dataset.turn=sideName;}
+    let playRevision=0;
     async function play(snapshot,result,options={}){
+        const token=++playRevision;
         opts={...opts,...options};mode='play';speed=1;skipAll=false;hideTip();
         sound.setVolume(opts.volume ?? .8);
         dialog.dataset.mode='play';$('.tb-skip').hidden=false;$('.tb-skip').textContent='⏩';
@@ -382,6 +384,7 @@ export function mountBattle({host,sound=createBattleSound()}){
                 case 'act':{
                     for(const card of cards.values())card.classList.remove('tb-acting');cards.get(e.actor)?.classList.add('tb-acting');
                     const move=actor.kit.moves.find(m=>m.name===e.name&&m.kind===e.kind) || {name:e.name};
+                    if(e.kind==='burst')void Promise.resolve(onBurst(actor,e)).catch(error=>console.warn('[Silly Teyvat] Burst voice',error));
                     if(e.kind==='burst'&&actor.side==='party')await splash(actor,move);
                     banner(e.name,`${actor.name} · ${KIND_LABEL[e.kind] || ''}`,EL_COLORS[e.element]);
                     if(e.kind!=='burst')sound.act(e.kind,e.element);
@@ -430,8 +433,9 @@ export function mountBattle({host,sound=createBattleSound()}){
                 case 'downed':{cards.get(e.target)?.classList.add('tb-downed');sound.downed();await wait(600);break;}
                 case 'statuses':for(const s of e.units){const u=view.get(s.id);if(!u)continue;Object.assign(u,{aura:s.aura,statuses:s.statuses,shield:s.shield,energy:s.energy,hp:s.hp,intent:s.intent});paintUnit(u);}break;
             }
-            if(disposed)return false;
+            if(disposed||token!==playRevision)return false;
         }
+        if(disposed||token!==playRevision)return false;
         for(const card of cards.values())card.classList.remove('tb-acting');
         for(const u of result.state.units){const v=view.get(u.id);if(v){Object.assign(v,u);paintUnit(v);}}
         state.summons=result.state.summons || [];paintSummons(state.summons);
@@ -476,7 +480,7 @@ export function mountBattle({host,sound=createBattleSound()}){
             return new Promise(resolve=>{finish=resolve;});
         },
         play,
-        cancel(){mode='';skipAll=true;finish?.(null);finish=null;close(false);},
-        dispose(){disposed=true;skipAll=true;finish?.(null);finish=null;clearTimeout(closeTimer);abort.abort();particles.dispose();sound.dispose();dialog.remove();},
+        cancel(){playRevision++;mode='';skipAll=true;onStopVoice();finish?.(null);finish=null;close(false);},
+        dispose(){playRevision++;disposed=true;skipAll=true;onStopVoice();finish?.(null);finish=null;clearTimeout(closeTimer);abort.abort();particles.dispose();sound.dispose();dialog.remove();},
     };
 }

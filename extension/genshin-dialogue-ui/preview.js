@@ -1,7 +1,7 @@
 import {newLocalId} from './local-id.js';
 // Disposable integration fixture. No requests to a model or real chat APIs.
 const handlers = new Map();
-const eventTypes = Object.fromEntries(['APP_READY', 'CHAT_CHANGED', 'CHAT_LOADED', 'USER_MESSAGE_RENDERED', 'CHARACTER_MESSAGE_RENDERED', 'MESSAGE_UPDATED', 'MESSAGE_DELETED', 'MESSAGE_SWIPED', 'MESSAGE_SWIPE_DELETED', 'MORE_MESSAGES_LOADED', 'SETTINGS_UPDATED', 'GROUP_UPDATED', 'GROUP_WRAPPER_STARTED', 'GROUP_WRAPPER_FINISHED', 'GENERATION_STARTED', 'GENERATION_AFTER_COMMANDS', 'GENERATION_STOPPED', 'GENERATION_ENDED'].map(key => [key, key]));
+const eventTypes = Object.fromEntries(['PERSONA_CHANGED','APP_READY', 'CHAT_CHANGED', 'CHAT_LOADED', 'USER_MESSAGE_RENDERED', 'CHARACTER_MESSAGE_RENDERED', 'MESSAGE_UPDATED', 'MESSAGE_DELETED', 'MESSAGE_SWIPED', 'MESSAGE_SWIPE_DELETED', 'MORE_MESSAGES_LOADED', 'SETTINGS_UPDATED', 'GROUP_UPDATED', 'GROUP_WRAPPER_STARTED', 'GROUP_WRAPPER_FINISHED', 'GENERATION_STARTED', 'GENERATION_AFTER_COMMANDS', 'GENERATION_STOPPED', 'GENERATION_ENDED'].map(key => [key, key]));
 const emit = (type,...args) => Promise.all((handlers.get(type) || []).map(fn => fn(...args)));
 const ctx = {
     userAvatar:'preview-traveler.png',
@@ -268,6 +268,7 @@ document.addEventListener('click', async event => {
             case 'staging-tests': {const {runStagingTests}=await import('./preview-staging-tests.js');result(await runStagingTests());emit(eventTypes.SETTINGS_UPDATED);break;}
             case 'battle-tests': {const {runBattleTests}=await import('./preview-battle-tests.js');result(await runBattleTests());break;}
             case 'enemy-attack-tests': {const {runEnemyAttackTests}=await import('./preview-enemy-attack-tests.js');result(await runEnemyAttackTests());break;}
+            case 'identity-tests': {ctx.extensionSettings.genshin_dialogue_ui.choices=false;emit(eventTypes.SETTINGS_UPDATED);const {runIdentityTests}=await import('./preview-identity-tests.js');result(await runIdentityTests());break;}
             case 'persona-link-tests': {const {runPersonaLinkTests}=await import('./preview-persona-link-tests.js');result(await runPersonaLinkTests());break;}
             case 'persona-tests': {ctx.extensionSettings.genshin_dialogue_ui.choices=false;emit(eventTypes.SETTINGS_UPDATED);const {runPersonaWardrobeTests}=await import('./preview-persona-tests.js');result(await runPersonaWardrobeTests());break;}
             case 'media-tests': {const {runMediaTests}=await import('./preview-media-tests.js');result(await runMediaTests());emit(eventTypes.SETTINGS_UPDATED);break;}

@@ -35,7 +35,7 @@ export function cgCategories(entries) {
     }
     return categories;
 }
-export function mountSceneMedia({host,getContext,adapter=createMediaAdapter(getContext),sound=createSpriteSoundPlayer(),announce=()=>{}}) {
+export function mountSceneMedia({host,getContext,adapter=createMediaAdapter(getContext),sound=createSpriteSoundPlayer(),announce=()=>{},random=Math.random}) {
     const stage = document.createElement('div'); stage.id = 'gi-cg-stage'; stage.hidden = true; stage.setAttribute('aria-hidden','true');
     const fullImage = document.createElement('img'); fullImage.alt = ''; stage.append(fullImage);
     const frame = document.createElement('section'); frame.id = 'gi-cg-window'; frame.hidden = true;
@@ -44,6 +44,9 @@ export function mountSceneMedia({host,getContext,adapter=createMediaAdapter(getC
     host.append(stage,frame);
     const abort = new AbortController(); let request, revision = 0, chatKey = '', selection = '', pageKey = '', dismissed = '', frameKey = '', activeCG, on = false;
     const failures = new Set();
+    // Paging, expression changes and presentation refreshes all share a message.
+    // Keep the ledger outside reset(): revisiting its pages must not repeat a line.
+    const spoken = new WeakMap();
     let audioKind='',audioCGKey='';
     function stopSound(){sound.stop();audioKind=audioCGKey='';}
     function playSound(files,kind,key=''){audioKind=kind;audioCGKey=key;return sound.play(files,mediaSettings(getContext()).spriteVolume);}
@@ -118,7 +121,18 @@ export function mountSceneMedia({host,getContext,adapter=createMediaAdapter(getC
             const speaker = changed.find(s => s.avatar === message.original_avatar || s.folder === message.name || s.folder?.startsWith(message.name + '/')) || changed.at(-1);
             if (!speaker) return;
             const files = prefs.spriteAudioFiles[spriteAudioKey(speaker.folder,speaker.src)];
-            if (files?.length) playSound(files,'sprite').catch(()=>announce('Sprite audio was blocked. Use Enable audio on this device in Silly Teyvat settings.'));
+            if (!files?.length) return;
+            let heard=spoken.get(message);if(!heard){heard={sprites:new Set(),lines:new Set()};spoken.set(message,heard);}
+            const sprite=spriteAudioKey(speaker.folder,speaker.src),line=file=>/^(voice|burst)-ja-[a-f0-9]{20}$/.test(file.id || '')?file.id.replace(/^(voice|burst)-ja-/,'sha:'):localMediaPath(file.path).split('?')[0];
+            if(heard.sprites.has(sprite))return;
+            const eligible=files.filter(file=>line(file)&&!heard.lines.has(line(file)));
+            if(!eligible.length)return;
+            const file=eligible[Math.min(eligible.length-1,Math.floor(random()*eligible.length))],key=line(file);
+            heard.sprites.add(sprite);heard.lines.add(key);
+            playSound([file],'sprite').catch(()=>{
+                heard.sprites.delete(sprite);heard.lines.delete(key);
+                announce('Sprite audio was blocked. Use Enable audio on this device in Silly Teyvat settings.');
+            });
         },
         previewAudio(files) { return playSound(files.map(file=>({...file,loop:false})),'preview'); },
         unlockAudio() { return sound.unlock(); },

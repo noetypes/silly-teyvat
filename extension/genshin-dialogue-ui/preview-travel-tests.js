@@ -26,8 +26,8 @@ export async function runTravelTests(){
   reset(['Kachina.png','Xilonen.png']);ctx.chatId='second';sync();await pause();pending=cast.prepareTeleport(road);await pause();
   check('other companions are asked before the main card',host.querySelector('h2').textContent==='Take Xilonen with you?');click('yes');await pause();check('taking another speaker unlocks the main-character choice',host.querySelector('h2').textContent==='Take Kachina with you?');click('no');plan=await pending;cast.commitTeleport(plan);teleportTo(ctx,'road',{avatars:plan.travellers});sync();await pause();
   check('Xilonen can become the sole remaining character',ctx.groups[0].members.join()==='Xilonen.png');
-  reset();ctx.chatId='last-speaker';sync();await pause();plan=await cast.prepareTeleport(road);
-  check('the final character is carried automatically to an empty destination',plan.travellers.join()==='Kachina.png'&&!host.querySelector('#gi-travel-party').open);
+  reset();ctx.chatId='last-speaker';sync();await pause();pending=cast.prepareTeleport(road);await pause();check('the last companion is offered the same choice',host.querySelector('#gi-travel-party').open);click('no');plan=await pending;
+  check('the final character may stay at home while the player travels alone',plan.travellers.length===0&&!host.querySelector('#gi-travel-party').open);
   pending=cast.prepareTeleport(bubu);await pause();click('cancel');check('cancel leaves the current location and roster intact',await pending===null&&travelState(ctx).location.id==='echoes'&&ctx.groups[0].members.join()==='Kachina.png');
   cast.dispose();cast=null;
   ctx.groupId=null;mediaSettings(ctx).defaultCharacterLocations={'Kachina.png':'echoes'};teleportTo(ctx,'bubu',{record:false});const count=ctx.chat.length;startCharacterAtHome(ctx);

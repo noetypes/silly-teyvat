@@ -28,7 +28,7 @@ export async function runPersonaLinkTests(){
         check('equipping an outfit on the card also equips it on the persona',personaSpriteSettings(ctx,aether).folder==='Aether/Winter');
         prefs.outfits={'Aether.png':[{label:'Winter',folder:'Aether/Winter'}]};
         wardrobe=mountWardrobe({host,getContext:()=>ctx,adapter,personaAdapter});await wardrobe.open();
-        check('the played card is hidden from the wardrobe menu',!faces().includes('Aether.png')&&faces().includes('persona:'+aether));
+        check('the played card has one unified wardrobe entry',faces().filter(a=>a==='Aether.png').length===1&&!faces().includes('persona:'+aether));
         check('the persona shows the card’s sprite sets, with the card folder as Original',[...host.querySelectorAll('#gi-outfit option')].map(o=>o.textContent+'='+o.value).join()==='Original=Aether,Winter=Aether/Winter');
         ctx.userAvatar=other;wardrobe.dispose();wardrobe=mountWardrobe({host,getContext:()=>ctx,adapter,personaAdapter});await wardrobe.open();
         check('with another persona the Aether card is back in the menu',faces().includes('Aether.png'));
@@ -36,7 +36,7 @@ export async function runPersonaLinkTests(){
         check('a character profile offers Play as',!$('.gi-takeover').hidden&&$('[data-w="take-over"]').textContent==='Play as Klee');
         $('[data-w="take-over"]').click();await pause();await pause();
         check('Play as takes the character over as the persona',takeovers.join()==='Klee'&&ctx.userAvatar==='takeover-Klee.png'&&playedAvatars(ctx).has('Klee.png'));
-        check('the taken character leaves the world and the wardrobe menu',!locationResidents(ctx,'l').some(c=>c.name==='Klee')&&!faces().includes('Klee.png')&&faces()[0]==='persona:takeover-Klee.png');
+        check('the taken character leaves the world and becomes the single persona entry',!locationResidents(ctx,'l').some(c=>c.name==='Klee')&&faces().filter(a=>a==='Klee.png').length===1&&faces()[0]==='Klee.png');
         check('the persona profile has no Play as button',$('.gi-takeover').hidden);
     }catch(error){results.push(`ERROR ${error.message}`);}
     finally{wardrobe?.dispose();host.remove();}

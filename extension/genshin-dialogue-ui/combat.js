@@ -9,6 +9,7 @@ import {battleSnapshot,commitRound,roundNarration} from './battle-state.js';
 import {rollFuel,rerollFuel,resolveRound} from './battle-engine.js';
 import {ITEMS,rollLoot} from './battle-items.js';
 import {mountBattle} from './battle-ui.js';
+import {createBurstVoicePlayer} from './burst-audio.js';
 import {EL_COLORS} from './battle-fx.js';
 
 export async function appendCombatMessage(ctx,{name='Narrator',text,avatar,event}){
@@ -60,7 +61,8 @@ export function mountCombat({host,getContext,onChange=()=>{},announce=()=>{},ada
     }
     const layout=new MutationObserver(placeControls);layout.observe(host,{subtree:true,childList:true,attributes:true,attributeFilter:['hidden']});layout.observe(document.body,{attributes:true,attributeFilter:['class']});placeControls();
     const sword=controls.querySelector('button'),targetSelect=controls.querySelector('select'),abort=new AbortController();
-    const dice=diceAdapter || mountElementalDice({host}),battle=battleAdapter || mountBattle({host});const hits=new Map(),shown=new Map();let disposed=false,busy=false,enabled=false,writing=false,revision=0,key='',paint='',lastId=-1,armed=false,target='',visit='',lastView={};
+    const burstVoice=createBurstVoicePlayer({getContext,announce});
+    const dice=diceAdapter || mountElementalDice({host}),battle=battleAdapter || mountBattle({host,onBurst:unit=>burstVoice.play(unit),onStopVoice:()=>burstVoice.stop()});const hits=new Map(),shown=new Map();let disposed=false,busy=false,enabled=false,writing=false,revision=0,key='',paint='',lastId=-1,armed=false,target='',visit='',lastView={};
     const eligibleEnemies=ctx=>{const disabled=activeGroup(ctx)?.disabled_members || [];return activeEnemies(ctx).filter(e=>!disabled.includes(e.avatar));};
     function paintControls(enemies=eligibleEnemies(getContext())){
         placeControls();
@@ -154,6 +156,7 @@ export function mountCombat({host,getContext,onChange=()=>{},announce=()=>{},ada
             return event;
         },
         sync({on,id,generating=false,show=true}={}){
+            burstVoice.sync({enabled:on});
             const ctx=getContext(),nextKey=combatIdentity(ctx);if(nextKey!==key){revision++;dice.cancel?.();battle.cancel?.();key=nextKey;paint='';armed=false;target='';visit='';}if(enabled&&!on){revision++;dice.cancel?.();battle.cancel?.();armed=false;}enabled=Boolean(on);writing=generating;lastId=id;lastView={show};
             syncCombatPrompt(ctx,enabled);
             const disabled=activeGroup(ctx)?.disabled_members || [];
@@ -200,6 +203,6 @@ export function mountCombat({host,getContext,onChange=()=>{},announce=()=>{},ada
             }
             if(!historical)for(const a of [...shown.keys()])if(!display.some(e=>e.avatar===a))shown.delete(a);
         },
-        dispose(){disposed=true;enabled=false;revision++;abort.abort();layout.disconnect();dice.dispose?.();battle.dispose?.();controls.remove();dock.remove();panel.remove();partyPanel.remove();syncCombatPrompt(getContext(),false);},
+        dispose(){disposed=true;enabled=false;revision++;abort.abort();layout.disconnect();dice.dispose?.();battle.dispose?.();burstVoice.dispose();controls.remove();dock.remove();panel.remove();partyPanel.remove();syncCombatPrompt(getContext(),false);},
     };
 }
