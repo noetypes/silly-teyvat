@@ -27,7 +27,7 @@ import { loadStarterLocations } from './starter-locations.js';
 import { setLocationCharacterLimit } from './location-capacity.js';
 import { createJourneyLibraryAdapter, purgeLegacyJourneys, isLegacyJourneyGroup } from './journey-library.js';
 import { mountCardArt } from './card-art.js';
-import {loadPersonaSupport,personaCard,syncPersonaSettings,setPersonaSpriteSetting,otherTraveler,activatePersonaByName} from './persona-wardrobe.js';
+import {loadPersonaSupport,personaCard,syncPersonaSettings,setPersonaSpriteSetting,otherTraveler,activatePersonaByName,findPersonaAvatar} from './persona-wardrobe.js';
 const KEY = 'genshin_dialogue_ui';
 const FOLDER = 'third-party/genshin-dialogue-ui';
 const defaults = Object.freeze({ ...stagingDefaults, enabled: false, choices: true, composer: true, reducedMotion: false, textScale: 1, scrim: 0.8, revealSpeed: 45, tapAdvance: true, pageExpressions: true, narration: false, narrationMode: 'quotes', narrationKeyword: 'Narrator:', hideDialogueQuotes:false, wardrobe: true, locationEncounters:true, locationCharacterLimit:5, randomEncounters:true, encounterRate:40, allowMainDeparture:false, worldPromptAllRegions:false, wildernessEncounters:true, combatDamageMin:1, combatDamageMax:6, enemyStrikeBack:true, enemyDamageMin:2, enemyDamageMax:6, enemyDice:4, userMaxHp:30, personaIcon: 'Aether', trimSprites:true, cgEnabled:true, cgMode:'scene', cgClassifier:'main', cgProfile:'', cgBypassReasoning:true, cgPrompt:defaultCGPrompt, cgAudio:true, spriteAudio:true, spriteVolume:.8, diceSound:true });
@@ -257,6 +257,7 @@ function refresh() {
     document.querySelectorAll('[data-gi-action="wardrobe"]').forEach(el => el.hidden = !prefs.wardrobe);
     if (!prefs.wardrobe) wardrobeUI?.close();
     syncHudIcons(prefs.enabled && prefs.choices, prefs.personaIcon);
+    if (menuOpen) paintProfile();
     combatUI?.sync({on:Boolean(prefs.enabled&&inChat&&!openingHome),id:Number(current),generating:generating||groupGenerating||locationCastUI?.busy,show:Boolean(active&&!history&&!hidden)});
     choiceUI?.sync({ on: Boolean(prefs.enabled && inChat), suggested:prefs.choices, generating:generating||groupGenerating||Boolean(combatUI?.busy)||Boolean(locationCastUI?.busy) });
     if (active && !history) {
@@ -326,7 +327,7 @@ function paintProfile() {
     const img = document.querySelector('#gi-toolbar .gi-pm-avatar img');
     if (img) img.src = iconAsset(`Persona_Management_${prefs.personaIcon}`);
     const name = document.querySelector('#gi-toolbar .gi-pm-name');
-    if (name) name.textContent = ctx.name1 || 'Traveler';
+    if (name) name.textContent = findPersonaAvatar(ctx, prefs.personaIcon) ? (ctx.name1 || prefs.personaIcon) : prefs.personaIcon;
     const place = document.querySelector('#gi-toolbar .gi-pm-place');
     if (place) {
         const where = ctx.chatMetadata?.silly_teyvat_world?.location?.label || '';
@@ -634,6 +635,9 @@ export async function initialize({ choicesAdapter, spriteAdapter, wardrobeAdapte
     }
     for (const key of ['CHARACTER_MESSAGE_RENDERED', 'MESSAGE_UPDATED', 'MESSAGE_DELETED', 'MESSAGE_SWIPED', 'MESSAGE_SWIPE_DELETED', 'MORE_MESSAGES_LOADED', 'SETTINGS_UPDATED']) subscribe(key, schedule);
     subscribe('PERSONA_CHANGED',async()=>{
+        // Picking Aether or Lumine in SillyTavern's own persona list moves the Traveler icon with it.
+        const traveler=['Aether','Lumine'].find(name=>name.toLowerCase()===String(context().name1||'').trim().toLowerCase());
+        if(traveler&&preferences().personaIcon!==traveler){preferences().personaIcon=traveler;context().saveSettingsDebounced();}
         syncPersonaSettings(context());context().saveSettingsDebounced();
         await wardrobeUI?.refreshPersona();
         const persona=personaCard(context());if(persona)await spriteUI?.refreshSprite(persona);
