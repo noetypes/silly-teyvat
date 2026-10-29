@@ -204,7 +204,10 @@ export function mountWardrobe({host, getContext, onChange = async () => {}, onMe
         img.dataset.art = path; img.src = path;
         if (mediaSettings(getContext()).trimSprites === false) return;
         img.style.visibility = 'hidden';
+        const generation = trimmer.generation;
         trimmer.trim(spriteFolder, path).catch(() => null).then(trimmed => {
+            // A reset while this crop was pending revoked it; crop again instead of showing a dead blob.
+            if (trimmer.generation !== generation) { if (img.dataset.art === path) setArt(img, spriteFolder, path); return; }
             if (img.dataset.art !== path || img.getAttribute('src') !== path) { img.style.visibility = ''; return; }
             if (trimmed) img.src = trimmed.url;
             img.style.visibility = '';
@@ -375,7 +378,7 @@ export function mountWardrobe({host, getContext, onChange = async () => {}, onMe
                 const taken = character;
                 await personaAdapter.takeOver(taken);
                 await renderRoster();
-                await onChange(personaCard(getContext()), { presentation: true,personaChanged:true });
+                await onChange(personaCard(getContext()), { presentation: true });
                 status(`You are now playing as ${taken.name}. They no longer appear as a random encounter, and the persona shares their sprites.`);
             }
             if (name === 'equip') { applyOutfit(getContext(), character, folder()); await changed(); await load(); status(`Equipped ${folder()} for ${character.name}. Earlier saved pages keep their outfits.`); }

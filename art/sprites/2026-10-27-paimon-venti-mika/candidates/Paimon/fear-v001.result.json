@@ -1,0 +1,29 @@
+{
+  "character": "Paimon",
+  "emotion": "fear",
+  "version": "v001",
+  "request": "prompts/Paimon/fear-v001.request.json",
+  "raw": "raw/Paimon/fear-v001.png",
+  "sprite": "sprites/Paimon/fear.png",
+  "result": "candidates/Paimon/fear-v001.result.json",
+  "approved_neutral_sha256": "945949b39c0bf48306e698b27431240f947089a4257ed66013dea6a86711710f",
+  "official_reference_sha256": "bbfb7c8a8e11583bbc1dd441ef0e8aab9e562718dbeb7a5b6cec660e10450534",
+  "status": "generated_awaiting_user_review",
+  "generated_source": "/Users/alexachan/.codex/generated_images/01a17cac-5902-79a3-9a41-0e54eec9dfd4/exec-69f01448-cb28-4eef-84fa-8f6f2c4838a5.png",
+  "reference_paths": [
+    "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-27-paimon-venti-mika/references/Paimon/official.png",
+    "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-27-paimon-venti-mika/candidates/Paimon/neutral-v005.png"
+  ],
+  "sha256": "7ec6dae139157b773d59e4e0b92a3ecf3d3a70f19a52dc0a7fdd02be094b0cfc",
+  "file_metadata": {
+    "format": "PNG",
+    "dimensions": [
+      1024,
+      1536
+    ],
+    "mode": "RGBA",
+    "has_alpha": true
+  },
+  "visual_qa": "not_performed_user_review",
+  "framing_transform": null
+}

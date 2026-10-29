@@ -1,0 +1,977 @@
+{
+  "id": "2026-10-27-paimon-venti-mika",
+  "status": "partial_generation_usage_limit",
+  "workflow": "SPRITE-GENERATION.md",
+  "generation_method": "built-in image_gen",
+  "visual_reviewer": "user",
+  "expression_gate": "Do not generate any expression until the user explicitly approves the exact current neutral for that character.",
+  "excluded_references": [
+    {
+      "attachment": 1,
+      "reason": "User identified the first Paimon image as unofficial and explicitly excluded it."
+    }
+  ],
+  "characters": {
+    "Paimon": {
+      "body_type": "custom tiny floating",
+      "neutral_status": "approved",
+      "references": [
+        {
+          "file": "references/Paimon/official.png",
+          "original": "/var/folders/yb/h8ks0jfd6jl0jdj3npytrx2r0000gn/T/codex-clipboard-0dbb13da-9df7-487b-8783-c433f513305a.png",
+          "sha256": "bbfb7c8a8e11583bbc1dd441ef0e8aab9e562718dbeb7a5b6cec660e10450534",
+          "user_attachment": 3
+        },
+        {
+          "file": "references/Paimon/official-detail-02.png",
+          "original": "/var/folders/yb/h8ks0jfd6jl0jdj3npytrx2r0000gn/T/codex-clipboard-39e53e64-1308-48ac-94e5-f5d706b18978.png",
+          "sha256": "952a5c1cc53a538cc61d520afdd6ec9ad1bca0647d7aadf658731867787c6e9c",
+          "user_attachment": 2
+        },
+        {
+          "file": "references/Paimon/official-detail-04.png",
+          "original": "/var/folders/yb/h8ks0jfd6jl0jdj3npytrx2r0000gn/T/codex-clipboard-bc40bcd0-acbf-498b-93fb-98e30a2ada6e.png",
+          "sha256": "df876ed1fa3693f3b87e515fa8727c9d8117e74c13109090e8de117cfdb9a193",
+          "user_attachment": 4
+        },
+        {
+          "file": "references/Paimon/official-detail-05.png",
+          "original": "/var/folders/yb/h8ks0jfd6jl0jdj3npytrx2r0000gn/T/codex-clipboard-cc9424ef-f10e-4867-88e2-b4675ef3bf77.png",
+          "sha256": "8ce1536cadcedf5129d8c61915f887814d33b36b106b9603579003369d2abf4e",
+          "user_attachment": 5
+        },
+        {
+          "file": "references/Paimon/official-detail-06.png",
+          "original": "/var/folders/yb/h8ks0jfd6jl0jdj3npytrx2r0000gn/T/codex-clipboard-3fce8b53-2079-44d0-ba67-dff69ba0efa0.png",
+          "sha256": "9b5c839ef18b64356e22bf0ce13b9eb265170c78b8563903d79e4998eb0ac2e2",
+          "user_attachment": 6
+        }
+      ],
+      "prompt": "prompts/Paimon/neutral-v005.txt",
+      "request": "prompts/Paimon/neutral-v005.request.json",
+      "candidate": "candidates/Paimon/neutral-v005.png",
+      "raw": "raw/Paimon/neutral-v005.png",
+      "approval": {
+        "user_message": "Good! Use this Paimon and the other approved neutrals to make new sprite sheets.",
+        "date": "2026-10-28",
+        "candidate": "candidates/Paimon/neutral-v005.png",
+        "candidate_sha256": "945949b39c0bf48306e698b27431240f947089a4257ed66013dea6a86711710f"
+      },
+      "visual_qa": "not_performed_user_review",
+      "framing_transform": null,
+      "neutral_history": [
+        {
+          "candidate": "candidates/Paimon/neutral-v001.png",
+          "sha256": "d3ef7b9d213122355967abfc5bace7ca1d74e5f29ab791c2cce645014268da16",
+          "request": "prompts/Paimon/neutral-v001.request.json",
+          "status": "user_reported_defect",
+          "user_reported_defect": "messed up hands"
+        },
+        {
+          "candidate": "candidates/Paimon/neutral-v002.png",
+          "sha256": "d7679a1a0213b632ec8f58080578448255b2d31b26ab85813a45c9cdcd0ce9b9",
+          "request": "prompts/Paimon/neutral-v002.request.json",
+          "status": "user_requested_revision",
+          "user_requested_change": "thighs should be chubbier"
+        },
+        {
+          "candidate": "candidates/Paimon/neutral-v003.png",
+          "sha256": "cfc0fe53d32831c4f03057a0831feeca0f8435c23c785b6b3f65b3ddc6473e49",
+          "request": "prompts/Paimon/neutral-v003.request.json",
+          "status": "user_reported_defect",
+          "user_reported_defect": "hands have issues again",
+          "proportion_feedback": "Fuller thighs are better; retain this direction in the prompt."
+        },
+        {
+          "candidate": "candidates/Paimon/neutral-v004.png",
+          "sha256": "6ec3617a4182dcd5ed3f2e2e6cc386091a06c94c96bb3c89aeb74e7109f821d4",
+          "request": "prompts/Paimon/neutral-v004.request.json",
+          "status": "user_requested_revision",
+          "user_feedback": "Those fists don't look relaxed. Leave her palms open. Experiment with other hand positions. Regenerate."
+        }
+      ],
+      "candidate_sha256": "945949b39c0bf48306e698b27431240f947089a4257ed66013dea6a86711710f",
+      "generated_source": "/Users/alexachan/.codex/generated_images/01a17cac-5902-79a3-9a41-0e54eec9dfd4/exec-307fabfd-31c1-411c-9a92-18720ca00eb8.png",
+      "file_metadata": {
+        "format": "PNG",
+        "dimensions": [
+          1024,
+          1536
+        ],
+        "mode": "RGBA",
+        "has_alpha": true
+      },
+      "actual_reference_paths": [
+        "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-27-paimon-venti-mika/references/Paimon/official.png",
+        "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-27-paimon-venti-mika/references/Paimon/official-detail-02.png",
+        "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-27-paimon-venti-mika/references/Paimon/official-detail-04.png",
+        "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-27-paimon-venti-mika/references/Paimon/official-detail-05.png",
+        "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-27-paimon-venti-mika/references/Paimon/official-detail-06.png"
+      ],
+      "sprite": "sprites/Paimon/neutral.png",
+      "expressions_allowed": true,
+      "expected_sprite_count": 22,
+      "expression_jobs": [
+        {
+          "emotion": "annoyance",
+          "version": "v001",
+          "request": "prompts/Paimon/annoyance-v001.request.json",
+          "result": "candidates/Paimon/annoyance-v001.result.json",
+          "status": "generated_awaiting_user_review"
+        },
+        {
+          "emotion": "smug",
+          "version": "v001",
+          "request": "prompts/Paimon/smug-v001.request.json",
+          "result": "candidates/Paimon/smug-v001.result.json",
+          "status": "generated_awaiting_user_review"
+        },
+        {
+          "emotion": "confusion",
+          "version": "v001",
+          "request": "prompts/Paimon/confusion-v001.request.json",
+          "result": "candidates/Paimon/confusion-v001.result.json",
+          "status": "generated_awaiting_user_review"
+        },
+        {
+          "emotion": "love",
+          "version": "v001",
+          "request": "prompts/Paimon/love-v001.request.json",
+          "result": "candidates/Paimon/love-v001.result.json",
+          "status": "generated_awaiting_user_review"
+        },
+        {
+          "emotion": "excitement",
+          "version": "v001",
+          "request": "prompts/Paimon/excitement-v001.request.json",
+          "result": "candidates/Paimon/excitement-v001.result.json",
+          "status": "generated_awaiting_user_review"
+        },
+        {
+          "emotion": "joy",
+          "version": "v001",
+          "request": "prompts/Paimon/joy-v001.request.json",
+          "result": "candidates/Paimon/joy-v001.result.json",
+          "status": "generated_awaiting_user_review"
+        },
+        {
+          "emotion": "fear",
+          "version": "v001",
+          "request": "prompts/Paimon/fear-v001.request.json",
+          "result": "candidates/Paimon/fear-v001.result.json",
+          "status": "generated_awaiting_user_review"
+        },
+        {
+          "emotion": "pride",
+          "version": "v001",
+          "request": "prompts/Paimon/pride-v001.request.json",
+          "result": "candidates/Paimon/pride-v001.result.json",
+          "status": "generated_awaiting_user_review"
+        },
+        {
+          "emotion": "desire",
+          "version": "v001",
+          "request": "prompts/Paimon/desire-v001.request.json",
+          "result": "candidates/Paimon/desire-v001.result.json",
+          "status": "generated_awaiting_user_review"
+        },
+        {
+          "emotion": "anger",
+          "version": "v001",
+          "request": "prompts/Paimon/anger-v001.request.json",
+          "result": "candidates/Paimon/anger-v001.result.json",
+          "status": "generated_awaiting_user_review"
+        },
+        {
+          "emotion": "grief",
+          "version": "v001",
+          "request": "prompts/Paimon/grief-v001.request.json",
+          "result": "candidates/Paimon/grief-v001.result.json",
+          "status": "generated_awaiting_user_review"
+        },
+        {
+          "emotion": "sadness",
+          "version": "v001",
+          "request": "prompts/Paimon/sadness-v001.request.json",
+          "result": "candidates/Paimon/sadness-v001.result.json",
+          "status": "generated_awaiting_user_review"
+        },
+        {
+          "emotion": "disgust",
+          "version": "v001",
+          "request": "prompts/Paimon/disgust-v001.request.json",
+          "result": "candidates/Paimon/disgust-v001.result.json",
+          "status": "generated_awaiting_user_review"
+        },
+        {
+          "emotion": "disappointment",
+          "version": "v001",
+          "request": "prompts/Paimon/disappointment-v001.request.json",
+          "result": "candidates/Paimon/disappointment-v001.result.json",
+          "status": "generated_awaiting_user_review"
+        },
+        {
+          "emotion": "relief",
+          "version": "v001",
+          "request": "prompts/Paimon/relief-v001.request.json",
+          "result": "candidates/Paimon/relief-v001.result.json",
+          "status": "generated_awaiting_user_review"
+        },
+        {
+          "emotion": "admiration",
+          "version": "v001",
+          "request": "prompts/Paimon/admiration-v001.request.json",
+          "result": "candidates/Paimon/admiration-v001.result.json",
+          "status": "generated_awaiting_user_review"
+        },
+        {
+          "emotion": "gratitude",
+          "version": "v001",
+          "request": "prompts/Paimon/gratitude-v001.request.json",
+          "result": "candidates/Paimon/gratitude-v001.result.json",
+          "status": "generated_awaiting_user_review"
+        },
+        {
+          "emotion": "embarrassment",
+          "version": "v001",
+          "request": "prompts/Paimon/embarrassment-v001.request.json",
+          "result": "candidates/Paimon/embarrassment-v001.result.json",
+          "status": "generated_awaiting_user_review"
+        },
+        {
+          "emotion": "caring",
+          "version": "v001",
+          "request": "prompts/Paimon/caring-v001.request.json",
+          "result": "candidates/Paimon/caring-v001.result.json",
+          "status": "generated_awaiting_user_review"
+        },
+        {
+          "emotion": "love-1",
+          "version": "v001",
+          "request": "prompts/Paimon/love-1-v001.request.json",
+          "result": "candidates/Paimon/love-1-v001.result.json",
+          "status": "generated_awaiting_user_review"
+        },
+        {
+          "emotion": "desire-1",
+          "version": "v001",
+          "request": "prompts/Paimon/desire-1-v001.request.json",
+          "result": "candidates/Paimon/desire-1-v001.result.json",
+          "status": "generated_awaiting_user_review"
+        }
+      ],
+      "active_prompts": [
+        "prompts/Paimon/neutral-v005.txt",
+        "prompts/Paimon/neutral-v005.request.json",
+        "prompts/Paimon/annoyance-v001.txt",
+        "prompts/Paimon/annoyance-v001.request.json",
+        "prompts/Paimon/smug-v001.txt",
+        "prompts/Paimon/smug-v001.request.json",
+        "prompts/Paimon/confusion-v001.txt",
+        "prompts/Paimon/confusion-v001.request.json",
+        "prompts/Paimon/love-v001.txt",
+        "prompts/Paimon/love-v001.request.json",
+        "prompts/Paimon/excitement-v001.txt",
+        "prompts/Paimon/excitement-v001.request.json",
+        "prompts/Paimon/joy-v001.txt",
+        "prompts/Paimon/joy-v001.request.json",
+        "prompts/Paimon/fear-v001.txt",
+        "prompts/Paimon/fear-v001.request.json",
+        "prompts/Paimon/pride-v001.txt",
+        "prompts/Paimon/pride-v001.request.json",
+        "prompts/Paimon/desire-v001.txt",
+        "prompts/Paimon/desire-v001.request.json",
+        "prompts/Paimon/anger-v001.txt",
+        "prompts/Paimon/anger-v001.request.json",
+        "prompts/Paimon/grief-v001.txt",
+        "prompts/Paimon/grief-v001.request.json",
+        "prompts/Paimon/sadness-v001.txt",
+        "prompts/Paimon/sadness-v001.request.json",
+        "prompts/Paimon/disgust-v001.txt",
+        "prompts/Paimon/disgust-v001.request.json",
+        "prompts/Paimon/disappointment-v001.txt",
+        "prompts/Paimon/disappointment-v001.request.json",
+        "prompts/Paimon/relief-v001.txt",
+        "prompts/Paimon/relief-v001.request.json",
+        "prompts/Paimon/admiration-v001.txt",
+        "prompts/Paimon/admiration-v001.request.json",
+        "prompts/Paimon/gratitude-v001.txt",
+        "prompts/Paimon/gratitude-v001.request.json",
+        "prompts/Paimon/embarrassment-v001.txt",
+        "prompts/Paimon/embarrassment-v001.request.json",
+        "prompts/Paimon/caring-v001.txt",
+        "prompts/Paimon/caring-v001.request.json",
+        "prompts/Paimon/love-1-v001.txt",
+        "prompts/Paimon/love-1-v001.request.json",
+        "prompts/Paimon/desire-1-v001.txt",
+        "prompts/Paimon/desire-1-v001.request.json"
+      ],
+      "pack_status": "generated_awaiting_user_expression_review",
+      "completed_sprite_count": 22,
+      "installation": {
+        "status": "installed_and_hash_verified",
+        "record": "installations/20261028T045927Z-venti-paimon/installation.json",
+        "sprite_count": 22
+      },
+      "character_card": {
+        "source": "character-cards/paimon/Paimon.json",
+        "png": "character-cards/paimon/Paimon.png",
+        "live_file": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Paimon.png",
+        "sha256": "0299af4e21c1b43e391f95d23eeb9abd0c4de233ed0312d793248e087c929e99"
+      }
+    },
+    "Venti": {
+      "body_type": "medium male",
+      "neutral_status": "approved",
+      "references": [
+        {
+          "file": "references/Venti/official.png",
+          "original": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Venti/Official Art/neutral.png",
+          "sha256": "0adbc5a77e31319a0b20eecebc53e93bde5e4c5ee0f16b8ba70d659c56788c9c",
+          "user_attachment": null
+        }
+      ],
+      "prompt": "prompts/Venti/neutral-v001.txt",
+      "request": "prompts/Venti/neutral-v001.request.json",
+      "candidate": "candidates/Venti/neutral-v001.png",
+      "raw": "raw/Venti/neutral-v001.png",
+      "approval": {
+        "user_message": "Venti's new neutral is good, save it. Regenerate Mika and Paimon, Paimon has messed up hands and Mika's eyes look weird.",
+        "candidate": "candidates/Venti/neutral-v001.png",
+        "candidate_sha256": "a53f7a14daac8d2c44bbf4006faff01f85a48ab575d3074f09ab0f563bc72403"
+      },
+      "candidate_sha256": "a53f7a14daac8d2c44bbf4006faff01f85a48ab575d3074f09ab0f563bc72403",
+      "generated_source": "/Users/alexachan/.codex/generated_images/01a17cac-5902-79a3-9a41-0e54eec9dfd4/exec-bb58297a-9682-4bfe-9c9d-b3e007b7a8ba.png",
+      "file_metadata": {
+        "format": "PNG",
+        "dimensions": [
+          993,
+          1583
+        ],
+        "mode": "RGBA",
+        "has_alpha": true
+      },
+      "visual_qa": "not_performed_user_review",
+      "framing_transform": null,
+      "actual_reference_paths": [
+        "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-27-paimon-venti-mika/references/Venti/official.png"
+      ],
+      "sprite": "sprites/Venti/neutral.png",
+      "expressions_allowed": true,
+      "expected_sprite_count": 22,
+      "expression_jobs": [
+        {
+          "emotion": "annoyance",
+          "version": "v001",
+          "request": "prompts/Venti/annoyance-v001.request.json",
+          "result": "candidates/Venti/annoyance-v001.result.json",
+          "status": "generated_awaiting_user_review"
+        },
+        {
+          "emotion": "smug",
+          "version": "v001",
+          "request": "prompts/Venti/smug-v001.request.json",
+          "result": "candidates/Venti/smug-v001.result.json",
+          "status": "generated_awaiting_user_review"
+        },
+        {
+          "emotion": "confusion",
+          "version": "v001",
+          "request": "prompts/Venti/confusion-v001.request.json",
+          "result": "candidates/Venti/confusion-v001.result.json",
+          "status": "generated_awaiting_user_review"
+        },
+        {
+          "emotion": "love",
+          "version": "v001",
+          "request": "prompts/Venti/love-v001.request.json",
+          "result": "candidates/Venti/love-v001.result.json",
+          "status": "generated_awaiting_user_review"
+        },
+        {
+          "emotion": "excitement",
+          "version": "v001",
+          "request": "prompts/Venti/excitement-v001.request.json",
+          "result": "candidates/Venti/excitement-v001.result.json",
+          "status": "generated_awaiting_user_review"
+        },
+        {
+          "emotion": "joy",
+          "version": "v001",
+          "request": "prompts/Venti/joy-v001.request.json",
+          "result": "candidates/Venti/joy-v001.result.json",
+          "status": "generated_awaiting_user_review"
+        },
+        {
+          "emotion": "fear",
+          "version": "v001",
+          "request": "prompts/Venti/fear-v001.request.json",
+          "result": "candidates/Venti/fear-v001.result.json",
+          "status": "generated_awaiting_user_review"
+        },
+        {
+          "emotion": "pride",
+          "version": "v001",
+          "request": "prompts/Venti/pride-v001.request.json",
+          "result": "candidates/Venti/pride-v001.result.json",
+          "status": "generated_awaiting_user_review"
+        },
+        {
+          "emotion": "desire",
+          "version": "v001",
+          "request": "prompts/Venti/desire-v001.request.json",
+          "result": "candidates/Venti/desire-v001.result.json",
+          "status": "generated_awaiting_user_review"
+        },
+        {
+          "emotion": "anger",
+          "version": "v001",
+          "request": "prompts/Venti/anger-v001.request.json",
+          "result": "candidates/Venti/anger-v001.result.json",
+          "status": "generated_awaiting_user_review"
+        },
+        {
+          "emotion": "grief",
+          "version": "v001",
+          "request": "prompts/Venti/grief-v001.request.json",
+          "result": "candidates/Venti/grief-v001.result.json",
+          "status": "generated_awaiting_user_review"
+        },
+        {
+          "emotion": "sadness",
+          "version": "v001",
+          "request": "prompts/Venti/sadness-v001.request.json",
+          "result": "candidates/Venti/sadness-v001.result.json",
+          "status": "generated_awaiting_user_review"
+        },
+        {
+          "emotion": "disgust",
+          "version": "v001",
+          "request": "prompts/Venti/disgust-v001.request.json",
+          "result": "candidates/Venti/disgust-v001.result.json",
+          "status": "generated_awaiting_user_review"
+        },
+        {
+          "emotion": "disappointment",
+          "version": "v001",
+          "request": "prompts/Venti/disappointment-v001.request.json",
+          "result": "candidates/Venti/disappointment-v001.result.json",
+          "status": "generated_awaiting_user_review"
+        },
+        {
+          "emotion": "relief",
+          "version": "v001",
+          "request": "prompts/Venti/relief-v001.request.json",
+          "result": "candidates/Venti/relief-v001.result.json",
+          "status": "generated_awaiting_user_review"
+        },
+        {
+          "emotion": "admiration",
+          "version": "v001",
+          "request": "prompts/Venti/admiration-v001.request.json",
+          "result": "candidates/Venti/admiration-v001.result.json",
+          "status": "generated_awaiting_user_review"
+        },
+        {
+          "emotion": "gratitude",
+          "version": "v001",
+          "request": "prompts/Venti/gratitude-v001.request.json",
+          "result": "candidates/Venti/gratitude-v001.result.json",
+          "status": "generated_awaiting_user_review"
+        },
+        {
+          "emotion": "embarrassment",
+          "version": "v001",
+          "request": "prompts/Venti/embarrassment-v001.request.json",
+          "result": "candidates/Venti/embarrassment-v001.result.json",
+          "status": "generated_awaiting_user_review"
+        },
+        {
+          "emotion": "caring",
+          "version": "v001",
+          "request": "prompts/Venti/caring-v001.request.json",
+          "result": "candidates/Venti/caring-v001.result.json",
+          "status": "generated_awaiting_user_review"
+        },
+        {
+          "emotion": "love-1",
+          "version": "v001",
+          "request": "prompts/Venti/love-1-v001.request.json",
+          "result": "candidates/Venti/love-1-v001.result.json",
+          "status": "generated_awaiting_user_review"
+        },
+        {
+          "emotion": "desire-1",
+          "version": "v001",
+          "request": "prompts/Venti/desire-1-v001.request.json",
+          "result": "candidates/Venti/desire-1-v001.result.json",
+          "status": "generated_awaiting_user_review"
+        }
+      ],
+      "active_prompts": [
+        "prompts/Venti/neutral-v001.txt",
+        "prompts/Venti/neutral-v001.request.json",
+        "prompts/Venti/annoyance-v001.txt",
+        "prompts/Venti/annoyance-v001.request.json",
+        "prompts/Venti/smug-v001.txt",
+        "prompts/Venti/smug-v001.request.json",
+        "prompts/Venti/confusion-v001.txt",
+        "prompts/Venti/confusion-v001.request.json",
+        "prompts/Venti/love-v001.txt",
+        "prompts/Venti/love-v001.request.json",
+        "prompts/Venti/excitement-v001.txt",
+        "prompts/Venti/excitement-v001.request.json",
+        "prompts/Venti/joy-v001.txt",
+        "prompts/Venti/joy-v001.request.json",
+        "prompts/Venti/fear-v001.txt",
+        "prompts/Venti/fear-v001.request.json",
+        "prompts/Venti/pride-v001.txt",
+        "prompts/Venti/pride-v001.request.json",
+        "prompts/Venti/desire-v001.txt",
+        "prompts/Venti/desire-v001.request.json",
+        "prompts/Venti/anger-v001.txt",
+        "prompts/Venti/anger-v001.request.json",
+        "prompts/Venti/grief-v001.txt",
+        "prompts/Venti/grief-v001.request.json",
+        "prompts/Venti/sadness-v001.txt",
+        "prompts/Venti/sadness-v001.request.json",
+        "prompts/Venti/disgust-v001.txt",
+        "prompts/Venti/disgust-v001.request.json",
+        "prompts/Venti/disappointment-v001.txt",
+        "prompts/Venti/disappointment-v001.request.json",
+        "prompts/Venti/relief-v001.txt",
+        "prompts/Venti/relief-v001.request.json",
+        "prompts/Venti/admiration-v001.txt",
+        "prompts/Venti/admiration-v001.request.json",
+        "prompts/Venti/gratitude-v001.txt",
+        "prompts/Venti/gratitude-v001.request.json",
+        "prompts/Venti/embarrassment-v001.txt",
+        "prompts/Venti/embarrassment-v001.request.json",
+        "prompts/Venti/caring-v001.txt",
+        "prompts/Venti/caring-v001.request.json",
+        "prompts/Venti/love-1-v001.txt",
+        "prompts/Venti/love-1-v001.request.json",
+        "prompts/Venti/desire-1-v001.txt",
+        "prompts/Venti/desire-1-v001.request.json"
+      ],
+      "pack_status": "generated_awaiting_user_expression_review",
+      "completed_sprite_count": 22,
+      "installation": {
+        "status": "installed_and_hash_verified",
+        "record": "installations/20261028T045927Z-venti-paimon/installation.json",
+        "sprite_count": 22
+      }
+    },
+    "Mika": {
+      "body_type": "medium male",
+      "neutral_status": "approved",
+      "references": [
+        {
+          "file": "references/Mika/official.png",
+          "original": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Mika/Official Art/neutral.png",
+          "sha256": "ed767f4a0f2d4b80a13100f798a9364be4771af4cd29d79fd55f5b259acd7aa8",
+          "user_attachment": null
+        }
+      ],
+      "prompt": "prompts/Mika/neutral-v002.txt",
+      "request": "prompts/Mika/neutral-v002.request.json",
+      "candidate": "candidates/Mika/neutral-v002.png",
+      "raw": "raw/Mika/neutral-v002.png",
+      "approval": {
+        "user_message": "Mika is good! Paimon's thighs should be chubbier",
+        "candidate": "candidates/Mika/neutral-v002.png",
+        "candidate_sha256": "02f557b8140b44f3f7b0325ad64394f237b410aaa924751bf20aaf69132d76cf"
+      },
+      "visual_qa": "not_performed_user_review",
+      "framing_transform": null,
+      "neutral_history": [
+        {
+          "candidate": "candidates/Mika/neutral-v001.png",
+          "sha256": "8ecaaa47bf8c87e2a22d3f8952baff5a9de717934348a2ed3dc3787ae3dc118d",
+          "request": "prompts/Mika/neutral-v001.request.json",
+          "status": "user_reported_defect",
+          "user_reported_defect": "eyes look weird"
+        }
+      ],
+      "candidate_sha256": "02f557b8140b44f3f7b0325ad64394f237b410aaa924751bf20aaf69132d76cf",
+      "generated_source": "/Users/alexachan/.codex/generated_images/01a17cac-5902-79a3-9a41-0e54eec9dfd4/exec-b5db0dfb-cc1d-410f-8074-4c03b4c4eabf.png",
+      "file_metadata": {
+        "format": "PNG",
+        "dimensions": [
+          955,
+          1647
+        ],
+        "mode": "RGBA",
+        "has_alpha": true
+      },
+      "actual_reference_paths": [
+        "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-27-paimon-venti-mika/references/Mika/official.png"
+      ],
+      "sprite": "sprites/Mika/neutral.png",
+      "expressions_allowed": true,
+      "expected_sprite_count": 22,
+      "expression_jobs": [
+        {
+          "emotion": "annoyance",
+          "version": "v001",
+          "request": "prompts/Mika/annoyance-v001.request.json",
+          "result": "candidates/Mika/annoyance-v001.result.json",
+          "status": "pending_usage_limit"
+        },
+        {
+          "emotion": "smug",
+          "version": "v001",
+          "request": "prompts/Mika/smug-v001.request.json",
+          "result": "candidates/Mika/smug-v001.result.json",
+          "status": "pending_usage_limit"
+        },
+        {
+          "emotion": "confusion",
+          "version": "v001",
+          "request": "prompts/Mika/confusion-v001.request.json",
+          "result": "candidates/Mika/confusion-v001.result.json",
+          "status": "generated_awaiting_user_review"
+        },
+        {
+          "emotion": "love",
+          "version": "v001",
+          "request": "prompts/Mika/love-v001.request.json",
+          "result": "candidates/Mika/love-v001.result.json",
+          "status": "pending_usage_limit"
+        },
+        {
+          "emotion": "excitement",
+          "version": "v001",
+          "request": "prompts/Mika/excitement-v001.request.json",
+          "result": "candidates/Mika/excitement-v001.result.json",
+          "status": "pending_usage_limit"
+        },
+        {
+          "emotion": "joy",
+          "version": "v001",
+          "request": "prompts/Mika/joy-v001.request.json",
+          "result": "candidates/Mika/joy-v001.result.json",
+          "status": "pending_usage_limit"
+        },
+        {
+          "emotion": "fear",
+          "version": "v001",
+          "request": "prompts/Mika/fear-v001.request.json",
+          "result": "candidates/Mika/fear-v001.result.json",
+          "status": "pending_usage_limit"
+        },
+        {
+          "emotion": "pride",
+          "version": "v001",
+          "request": "prompts/Mika/pride-v001.request.json",
+          "result": "candidates/Mika/pride-v001.result.json",
+          "status": "pending_usage_limit"
+        },
+        {
+          "emotion": "desire",
+          "version": "v001",
+          "request": "prompts/Mika/desire-v001.request.json",
+          "result": "candidates/Mika/desire-v001.result.json",
+          "status": "pending_usage_limit"
+        },
+        {
+          "emotion": "anger",
+          "version": "v001",
+          "request": "prompts/Mika/anger-v001.request.json",
+          "result": "candidates/Mika/anger-v001.result.json",
+          "status": "pending_usage_limit"
+        },
+        {
+          "emotion": "grief",
+          "version": "v001",
+          "request": "prompts/Mika/grief-v001.request.json",
+          "result": "candidates/Mika/grief-v001.result.json",
+          "status": "pending_usage_limit"
+        },
+        {
+          "emotion": "sadness",
+          "version": "v001",
+          "request": "prompts/Mika/sadness-v001.request.json",
+          "result": "candidates/Mika/sadness-v001.result.json",
+          "status": "pending_usage_limit"
+        },
+        {
+          "emotion": "disgust",
+          "version": "v001",
+          "request": "prompts/Mika/disgust-v001.request.json",
+          "result": "candidates/Mika/disgust-v001.result.json",
+          "status": "pending_usage_limit"
+        },
+        {
+          "emotion": "disappointment",
+          "version": "v001",
+          "request": "prompts/Mika/disappointment-v001.request.json",
+          "result": "candidates/Mika/disappointment-v001.result.json",
+          "status": "pending_usage_limit"
+        },
+        {
+          "emotion": "relief",
+          "version": "v001",
+          "request": "prompts/Mika/relief-v001.request.json",
+          "result": "candidates/Mika/relief-v001.result.json",
+          "status": "pending_usage_limit"
+        },
+        {
+          "emotion": "admiration",
+          "version": "v001",
+          "request": "prompts/Mika/admiration-v001.request.json",
+          "result": "candidates/Mika/admiration-v001.result.json",
+          "status": "pending_usage_limit"
+        },
+        {
+          "emotion": "gratitude",
+          "version": "v001",
+          "request": "prompts/Mika/gratitude-v001.request.json",
+          "result": "candidates/Mika/gratitude-v001.result.json",
+          "status": "pending_usage_limit"
+        },
+        {
+          "emotion": "embarrassment",
+          "version": "v001",
+          "request": "prompts/Mika/embarrassment-v001.request.json",
+          "result": "candidates/Mika/embarrassment-v001.result.json",
+          "status": "pending_usage_limit"
+        },
+        {
+          "emotion": "caring",
+          "version": "v001",
+          "request": "prompts/Mika/caring-v001.request.json",
+          "result": "candidates/Mika/caring-v001.result.json",
+          "status": "pending_usage_limit"
+        },
+        {
+          "emotion": "love-1",
+          "version": "v001",
+          "request": "prompts/Mika/love-1-v001.request.json",
+          "result": "candidates/Mika/love-1-v001.result.json",
+          "status": "pending_usage_limit"
+        },
+        {
+          "emotion": "desire-1",
+          "version": "v001",
+          "request": "prompts/Mika/desire-1-v001.request.json",
+          "result": "candidates/Mika/desire-1-v001.result.json",
+          "status": "pending_usage_limit"
+        }
+      ],
+      "active_prompts": [
+        "prompts/Mika/neutral-v002.txt",
+        "prompts/Mika/neutral-v002.request.json",
+        "prompts/Mika/confusion-v001.txt",
+        "prompts/Mika/confusion-v001.request.json",
+        "prompts/Mika/annoyance-v001.request.json",
+        "prompts/Mika/annoyance-v001.txt",
+        "prompts/Mika/smug-v001.request.json",
+        "prompts/Mika/smug-v001.txt",
+        "prompts/Mika/love-v001.request.json",
+        "prompts/Mika/love-v001.txt",
+        "prompts/Mika/excitement-v001.request.json",
+        "prompts/Mika/excitement-v001.txt",
+        "prompts/Mika/joy-v001.request.json",
+        "prompts/Mika/joy-v001.txt",
+        "prompts/Mika/fear-v001.request.json",
+        "prompts/Mika/fear-v001.txt",
+        "prompts/Mika/pride-v001.request.json",
+        "prompts/Mika/pride-v001.txt",
+        "prompts/Mika/desire-v001.request.json",
+        "prompts/Mika/desire-v001.txt",
+        "prompts/Mika/anger-v001.request.json",
+        "prompts/Mika/anger-v001.txt",
+        "prompts/Mika/grief-v001.request.json",
+        "prompts/Mika/grief-v001.txt",
+        "prompts/Mika/sadness-v001.request.json",
+        "prompts/Mika/sadness-v001.txt",
+        "prompts/Mika/disgust-v001.request.json",
+        "prompts/Mika/disgust-v001.txt",
+        "prompts/Mika/disappointment-v001.request.json",
+        "prompts/Mika/disappointment-v001.txt",
+        "prompts/Mika/relief-v001.request.json",
+        "prompts/Mika/relief-v001.txt",
+        "prompts/Mika/admiration-v001.request.json",
+        "prompts/Mika/admiration-v001.txt",
+        "prompts/Mika/gratitude-v001.request.json",
+        "prompts/Mika/gratitude-v001.txt",
+        "prompts/Mika/embarrassment-v001.request.json",
+        "prompts/Mika/embarrassment-v001.txt",
+        "prompts/Mika/caring-v001.request.json",
+        "prompts/Mika/caring-v001.txt",
+        "prompts/Mika/love-1-v001.request.json",
+        "prompts/Mika/love-1-v001.txt",
+        "prompts/Mika/desire-1-v001.request.json",
+        "prompts/Mika/desire-1-v001.txt"
+      ],
+      "pack_status": "partial_generation_usage_limit",
+      "completed_sprite_count": 2
+    }
+  },
+  "sheet_order": [
+    "neutral",
+    "annoyance",
+    "smug",
+    "confusion",
+    "love",
+    "excitement",
+    "joy",
+    "fear",
+    "pride",
+    "desire",
+    "anger",
+    "grief",
+    "sadness",
+    "disgust",
+    "disappointment",
+    "relief",
+    "admiration",
+    "gratitude",
+    "embarrassment",
+    "caring",
+    "love-1",
+    "desire-1"
+  ],
+  "reference_policy": "Every expression independently uses official portrait first and exact approved neutral second. Paimon uses attachment 3 as the primary full-body official portrait; attachments 2/4/5/6 remain archived official detail references. Never use rejected neutrals or any expression as input.",
+  "completed_sprite_count": 46,
+  "expected_sprite_count": 66,
+  "pending_expressions": [
+    "Mika/annoyance",
+    "Mika/smug",
+    "Mika/love",
+    "Mika/excitement",
+    "Mika/joy",
+    "Mika/fear",
+    "Mika/pride",
+    "Mika/desire",
+    "Mika/anger",
+    "Mika/grief",
+    "Mika/sadness",
+    "Mika/disgust",
+    "Mika/disappointment",
+    "Mika/relief",
+    "Mika/admiration",
+    "Mika/gratitude",
+    "Mika/embarrassment",
+    "Mika/caring",
+    "Mika/love-1",
+    "Mika/desire-1"
+  ],
+  "visual_qa": "Not performed; user is the visual reviewer.",
+  "installed_into_sillytavern": true,
+  "generation_limit": {
+    "error_code": "usage_limit_reached",
+    "service": "built-in image_gen",
+    "reset_at_unix": 1793219524,
+    "generated_expressions": 43,
+    "pending_expressions": [
+      {
+        "character": "Mika",
+        "emotion": "annoyance",
+        "status": "pending_usage_limit"
+      },
+      {
+        "character": "Mika",
+        "emotion": "smug",
+        "status": "pending_usage_limit"
+      },
+      {
+        "character": "Mika",
+        "emotion": "fear",
+        "status": "pending_usage_limit"
+      },
+      {
+        "character": "Mika",
+        "emotion": "love",
+        "status": "pending_usage_limit"
+      },
+      {
+        "character": "Mika",
+        "emotion": "excitement",
+        "status": "pending_usage_limit"
+      },
+      {
+        "character": "Mika",
+        "emotion": "joy",
+        "status": "pending_usage_limit"
+      },
+      {
+        "character": "Mika",
+        "emotion": "anger",
+        "status": "pending_usage_limit"
+      },
+      {
+        "character": "Mika",
+        "emotion": "grief",
+        "status": "pending_usage_limit"
+      },
+      {
+        "character": "Mika",
+        "emotion": "desire",
+        "status": "pending_usage_limit"
+      },
+      {
+        "character": "Mika",
+        "emotion": "pride",
+        "status": "pending_usage_limit"
+      },
+      {
+        "character": "Mika",
+        "emotion": "relief",
+        "status": "pending_usage_limit"
+      },
+      {
+        "character": "Mika",
+        "emotion": "sadness",
+        "status": "pending_usage_limit"
+      },
+      {
+        "character": "Mika",
+        "emotion": "disgust",
+        "status": "pending_usage_limit"
+      },
+      {
+        "character": "Mika",
+        "emotion": "disappointment",
+        "status": "pending_usage_limit"
+      },
+      {
+        "character": "Mika",
+        "emotion": "caring",
+        "status": "pending_usage_limit"
+      },
+      {
+        "character": "Mika",
+        "emotion": "embarrassment",
+        "status": "pending_usage_limit"
+      },
+      {
+        "character": "Mika",
+        "emotion": "gratitude",
+        "status": "pending_usage_limit"
+      },
+      {
+        "character": "Mika",
+        "emotion": "admiration",
+        "status": "pending_usage_limit"
+      },
+      {
+        "character": "Mika",
+        "emotion": "desire-1",
+        "status": "pending_usage_limit"
+      },
+      {
+        "character": "Mika",
+        "emotion": "love-1",
+        "status": "pending_usage_limit"
+      }
+    ],
+    "retry_policy": "Do not retry before the service reset. Resume only missing results with the existing official-plus-approved-neutral requests. No generation-method switch or automatic scheduling is authorised.",
+    "resets_at_toronto": "2026-10-28T16:32:04-04:00"
+  },
+  "installed_characters": [
+    "Paimon",
+    "Venti"
+  ]
+}

@@ -1,0 +1,48 @@
+{
+  "character": "Mika",
+  "body_type": "medium male",
+  "neutral_status": "approved",
+  "references": [
+    {
+      "file": "references/Mika/official.png",
+      "original": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Mika/Official Art/neutral.png",
+      "sha256": "ed767f4a0f2d4b80a13100f798a9364be4771af4cd29d79fd55f5b259acd7aa8",
+      "user_attachment": null
+    }
+  ],
+  "prompt": "prompts/Mika/neutral-v002.txt",
+  "request": "prompts/Mika/neutral-v002.request.json",
+  "candidate": "candidates/Mika/neutral-v002.png",
+  "raw": "raw/Mika/neutral-v002.png",
+  "approval": {
+    "user_message": "Mika is good! Paimon's thighs should be chubbier",
+    "candidate": "candidates/Mika/neutral-v002.png",
+    "candidate_sha256": "02f557b8140b44f3f7b0325ad64394f237b410aaa924751bf20aaf69132d76cf"
+  },
+  "visual_qa": "not_performed_user_review",
+  "framing_transform": null,
+  "neutral_history": [
+    {
+      "candidate": "candidates/Mika/neutral-v001.png",
+      "sha256": "8ecaaa47bf8c87e2a22d3f8952baff5a9de717934348a2ed3dc3787ae3dc118d",
+      "request": "prompts/Mika/neutral-v001.request.json",
+      "status": "user_reported_defect",
+      "user_reported_defect": "eyes look weird"
+    }
+  ],
+  "candidate_sha256": "02f557b8140b44f3f7b0325ad64394f237b410aaa924751bf20aaf69132d76cf",
+  "generated_source": "/Users/alexachan/.codex/generated_images/01a17cac-5902-79a3-9a41-0e54eec9dfd4/exec-b5db0dfb-cc1d-410f-8074-4c03b4c4eabf.png",
+  "file_metadata": {
+    "format": "PNG",
+    "dimensions": [
+      955,
+      1647
+    ],
+    "mode": "RGBA",
+    "has_alpha": true
+  },
+  "actual_reference_paths": [
+    "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-27-paimon-venti-mika/references/Mika/official.png"
+  ],
+  "sprite": "sprites/Mika/neutral.png"
+}

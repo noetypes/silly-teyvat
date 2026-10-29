@@ -13,6 +13,11 @@ const COLD=[...EVERYWHERE,SNEZH];
 const FATUI=[MOND,LIYUE,INA,SUMERU,FONT,NATLAN,NOD,SNEZH];
 const ABYSS=[MOND,LIYUE,INA,SUMERU,FONT,NATLAN,NOD];
 export const ENEMY_REGIONS={
+    'All-Devouring Narwhal':[FONT], 'Azhdaha':[LIYUE], 'Cryo Hypostasis':[MOND], 'Dvalin':[MOND], 'Electro Hypostasis':[MOND],
+    'Emperor of Fire and Iron':[FONT], 'Experimental Field Generator':[FONT], 'Gluttonous Yumkasaur Mountain King':[NATLAN],
+    'Golden Wolflord':[INA], 'Goldflame Qucusaur Tyrant':[NATLAN], "Guardian of Apep's Oasis":[SUMERU], 'Hydro Hypostasis':[INA],
+    'Hydro Tulpa':[FONT], 'Jadeplume Terrorshroom':[SUMERU], 'Lord of Eroded Primal Fire':[NATLAN], 'Maguu Kenki':[INA],
+    'Millennial Pearl Seahorse':[FONT], 'Rhodeia of Loch':[LIYUE], 'Thunder Manifestation':[INA],
     'Hilichurl Fighter':HILICHURL,'Hilichurl Shooter':HILICHURL,'Hilichurl Berserker':HILICHURL,
     'Cryo Hilichurl Shooter':HILICHURL,'Electro Hilichurl Shooter':HILICHURL,
     'Anemo Samachurl':HILICHURL,'Dendro Samachurl':HILICHURL,'Electro Samachurl':HILICHURL,'Geo Samachurl':HILICHURL,'Hydro Samachurl':HILICHURL,

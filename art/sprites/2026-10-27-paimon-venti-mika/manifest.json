@@ -1,0 +1,1287 @@
+[
+  {
+    "character": "Paimon",
+    "emotion": "neutral",
+    "file": "sprites/Paimon/neutral.png",
+    "sha256": "945949b39c0bf48306e698b27431240f947089a4257ed66013dea6a86711710f",
+    "format": "PNG",
+    "dimensions": [
+      1024,
+      1536
+    ],
+    "mode": "RGBA",
+    "has_alpha": true,
+    "visual_review": "user",
+    "framing_transform": null,
+    "approved_neutral": "candidates/Paimon/neutral-v005.png",
+    "approved_neutral_sha256": "945949b39c0bf48306e698b27431240f947089a4257ed66013dea6a86711710f",
+    "official_reference": {
+      "file": "references/Paimon/official.png",
+      "original": "/var/folders/yb/h8ks0jfd6jl0jdj3npytrx2r0000gn/T/codex-clipboard-0dbb13da-9df7-487b-8783-c433f513305a.png",
+      "sha256": "bbfb7c8a8e11583bbc1dd441ef0e8aab9e562718dbeb7a5b6cec660e10450534",
+      "user_attachment": 3
+    },
+    "review_status": "user_approved",
+    "prompt": "prompts/Paimon/neutral-v005.txt",
+    "request": "prompts/Paimon/neutral-v005.request.json",
+    "raw": "raw/Paimon/neutral-v005.png"
+  },
+  {
+    "character": "Paimon",
+    "emotion": "annoyance",
+    "file": "sprites/Paimon/annoyance.png",
+    "sha256": "2f85e4bae277d853be67f268c29c480a1592012c0b81817f2f3d57cf6aee10fe",
+    "format": "PNG",
+    "dimensions": [
+      1024,
+      1536
+    ],
+    "mode": "RGBA",
+    "has_alpha": true,
+    "visual_review": "user",
+    "framing_transform": null,
+    "approved_neutral": "candidates/Paimon/neutral-v005.png",
+    "approved_neutral_sha256": "945949b39c0bf48306e698b27431240f947089a4257ed66013dea6a86711710f",
+    "official_reference": {
+      "file": "references/Paimon/official.png",
+      "original": "/var/folders/yb/h8ks0jfd6jl0jdj3npytrx2r0000gn/T/codex-clipboard-0dbb13da-9df7-487b-8783-c433f513305a.png",
+      "sha256": "bbfb7c8a8e11583bbc1dd441ef0e8aab9e562718dbeb7a5b6cec660e10450534",
+      "user_attachment": 3
+    },
+    "review_status": "awaiting_user_review",
+    "prompt": "prompts/Paimon/annoyance-v001.txt",
+    "request": "prompts/Paimon/annoyance-v001.request.json",
+    "raw": "raw/Paimon/annoyance-v001.png",
+    "result": "candidates/Paimon/annoyance-v001.result.json"
+  },
+  {
+    "character": "Paimon",
+    "emotion": "smug",
+    "file": "sprites/Paimon/smug.png",
+    "sha256": "28c5467ca4137457f4a301e6e0c3736e6f74392564bc0a26562f4d8650f22586",
+    "format": "PNG",
+    "dimensions": [
+      1024,
+      1536
+    ],
+    "mode": "RGBA",
+    "has_alpha": true,
+    "visual_review": "user",
+    "framing_transform": null,
+    "approved_neutral": "candidates/Paimon/neutral-v005.png",
+    "approved_neutral_sha256": "945949b39c0bf48306e698b27431240f947089a4257ed66013dea6a86711710f",
+    "official_reference": {
+      "file": "references/Paimon/official.png",
+      "original": "/var/folders/yb/h8ks0jfd6jl0jdj3npytrx2r0000gn/T/codex-clipboard-0dbb13da-9df7-487b-8783-c433f513305a.png",
+      "sha256": "bbfb7c8a8e11583bbc1dd441ef0e8aab9e562718dbeb7a5b6cec660e10450534",
+      "user_attachment": 3
+    },
+    "review_status": "awaiting_user_review",
+    "prompt": "prompts/Paimon/smug-v001.txt",
+    "request": "prompts/Paimon/smug-v001.request.json",
+    "raw": "raw/Paimon/smug-v001.png",
+    "result": "candidates/Paimon/smug-v001.result.json"
+  },
+  {
+    "character": "Paimon",
+    "emotion": "confusion",
+    "file": "sprites/Paimon/confusion.png",
+    "sha256": "55710eececbd81d3f4897a59286ebf91bc4fee1a1dbeea9f8374b78af060b7d7",
+    "format": "PNG",
+    "dimensions": [
+      1024,
+      1536
+    ],
+    "mode": "RGBA",
+    "has_alpha": true,
+    "visual_review": "user",
+    "framing_transform": null,
+    "approved_neutral": "candidates/Paimon/neutral-v005.png",
+    "approved_neutral_sha256": "945949b39c0bf48306e698b27431240f947089a4257ed66013dea6a86711710f",
+    "official_reference": {
+      "file": "references/Paimon/official.png",
+      "original": "/var/folders/yb/h8ks0jfd6jl0jdj3npytrx2r0000gn/T/codex-clipboard-0dbb13da-9df7-487b-8783-c433f513305a.png",
+      "sha256": "bbfb7c8a8e11583bbc1dd441ef0e8aab9e562718dbeb7a5b6cec660e10450534",
+      "user_attachment": 3
+    },
+    "review_status": "awaiting_user_review",
+    "prompt": "prompts/Paimon/confusion-v001.txt",
+    "request": "prompts/Paimon/confusion-v001.request.json",
+    "raw": "raw/Paimon/confusion-v001.png",
+    "result": "candidates/Paimon/confusion-v001.result.json"
+  },
+  {
+    "character": "Paimon",
+    "emotion": "love",
+    "file": "sprites/Paimon/love.png",
+    "sha256": "65c149f360b714975a7682e7f6bdf678ca73df2622c1781a1e8643aef30eff72",
+    "format": "PNG",
+    "dimensions": [
+      1024,
+      1536
+    ],
+    "mode": "RGBA",
+    "has_alpha": true,
+    "visual_review": "user",
+    "framing_transform": null,
+    "approved_neutral": "candidates/Paimon/neutral-v005.png",
+    "approved_neutral_sha256": "945949b39c0bf48306e698b27431240f947089a4257ed66013dea6a86711710f",
+    "official_reference": {
+      "file": "references/Paimon/official.png",
+      "original": "/var/folders/yb/h8ks0jfd6jl0jdj3npytrx2r0000gn/T/codex-clipboard-0dbb13da-9df7-487b-8783-c433f513305a.png",
+      "sha256": "bbfb7c8a8e11583bbc1dd441ef0e8aab9e562718dbeb7a5b6cec660e10450534",
+      "user_attachment": 3
+    },
+    "review_status": "awaiting_user_review",
+    "prompt": "prompts/Paimon/love-v001.txt",
+    "request": "prompts/Paimon/love-v001.request.json",
+    "raw": "raw/Paimon/love-v001.png",
+    "result": "candidates/Paimon/love-v001.result.json"
+  },
+  {
+    "character": "Paimon",
+    "emotion": "excitement",
+    "file": "sprites/Paimon/excitement.png",
+    "sha256": "2faf29f6f970754c90e348360a8ed5c04c1fa7bbf03368c469e4aa89024d37f2",
+    "format": "PNG",
+    "dimensions": [
+      1024,
+      1536
+    ],
+    "mode": "RGBA",
+    "has_alpha": true,
+    "visual_review": "user",
+    "framing_transform": null,
+    "approved_neutral": "candidates/Paimon/neutral-v005.png",
+    "approved_neutral_sha256": "945949b39c0bf48306e698b27431240f947089a4257ed66013dea6a86711710f",
+    "official_reference": {
+      "file": "references/Paimon/official.png",
+      "original": "/var/folders/yb/h8ks0jfd6jl0jdj3npytrx2r0000gn/T/codex-clipboard-0dbb13da-9df7-487b-8783-c433f513305a.png",
+      "sha256": "bbfb7c8a8e11583bbc1dd441ef0e8aab9e562718dbeb7a5b6cec660e10450534",
+      "user_attachment": 3
+    },
+    "review_status": "awaiting_user_review",
+    "prompt": "prompts/Paimon/excitement-v001.txt",
+    "request": "prompts/Paimon/excitement-v001.request.json",
+    "raw": "raw/Paimon/excitement-v001.png",
+    "result": "candidates/Paimon/excitement-v001.result.json"
+  },
+  {
+    "character": "Paimon",
+    "emotion": "joy",
+    "file": "sprites/Paimon/joy.png",
+    "sha256": "92ab79853e032cd4ab96c311d208fa35698fe1f36b5674c611b80c53b60e35a8",
+    "format": "PNG",
+    "dimensions": [
+      1024,
+      1536
+    ],
+    "mode": "RGBA",
+    "has_alpha": true,
+    "visual_review": "user",
+    "framing_transform": null,
+    "approved_neutral": "candidates/Paimon/neutral-v005.png",
+    "approved_neutral_sha256": "945949b39c0bf48306e698b27431240f947089a4257ed66013dea6a86711710f",
+    "official_reference": {
+      "file": "references/Paimon/official.png",
+      "original": "/var/folders/yb/h8ks0jfd6jl0jdj3npytrx2r0000gn/T/codex-clipboard-0dbb13da-9df7-487b-8783-c433f513305a.png",
+      "sha256": "bbfb7c8a8e11583bbc1dd441ef0e8aab9e562718dbeb7a5b6cec660e10450534",
+      "user_attachment": 3
+    },
+    "review_status": "awaiting_user_review",
+    "prompt": "prompts/Paimon/joy-v001.txt",
+    "request": "prompts/Paimon/joy-v001.request.json",
+    "raw": "raw/Paimon/joy-v001.png",
+    "result": "candidates/Paimon/joy-v001.result.json"
+  },
+  {
+    "character": "Paimon",
+    "emotion": "fear",
+    "file": "sprites/Paimon/fear.png",
+    "sha256": "7ec6dae139157b773d59e4e0b92a3ecf3d3a70f19a52dc0a7fdd02be094b0cfc",
+    "format": "PNG",
+    "dimensions": [
+      1024,
+      1536
+    ],
+    "mode": "RGBA",
+    "has_alpha": true,
+    "visual_review": "user",
+    "framing_transform": null,
+    "approved_neutral": "candidates/Paimon/neutral-v005.png",
+    "approved_neutral_sha256": "945949b39c0bf48306e698b27431240f947089a4257ed66013dea6a86711710f",
+    "official_reference": {
+      "file": "references/Paimon/official.png",
+      "original": "/var/folders/yb/h8ks0jfd6jl0jdj3npytrx2r0000gn/T/codex-clipboard-0dbb13da-9df7-487b-8783-c433f513305a.png",
+      "sha256": "bbfb7c8a8e11583bbc1dd441ef0e8aab9e562718dbeb7a5b6cec660e10450534",
+      "user_attachment": 3
+    },
+    "review_status": "awaiting_user_review",
+    "prompt": "prompts/Paimon/fear-v001.txt",
+    "request": "prompts/Paimon/fear-v001.request.json",
+    "raw": "raw/Paimon/fear-v001.png",
+    "result": "candidates/Paimon/fear-v001.result.json"
+  },
+  {
+    "character": "Paimon",
+    "emotion": "pride",
+    "file": "sprites/Paimon/pride.png",
+    "sha256": "cb7bd5f73040e609cc38e674e18ccfaed4d2abb4438b6cb7752b487c1acf1fac",
+    "format": "PNG",
+    "dimensions": [
+      1024,
+      1536
+    ],
+    "mode": "RGBA",
+    "has_alpha": true,
+    "visual_review": "user",
+    "framing_transform": null,
+    "approved_neutral": "candidates/Paimon/neutral-v005.png",
+    "approved_neutral_sha256": "945949b39c0bf48306e698b27431240f947089a4257ed66013dea6a86711710f",
+    "official_reference": {
+      "file": "references/Paimon/official.png",
+      "original": "/var/folders/yb/h8ks0jfd6jl0jdj3npytrx2r0000gn/T/codex-clipboard-0dbb13da-9df7-487b-8783-c433f513305a.png",
+      "sha256": "bbfb7c8a8e11583bbc1dd441ef0e8aab9e562718dbeb7a5b6cec660e10450534",
+      "user_attachment": 3
+    },
+    "review_status": "awaiting_user_review",
+    "prompt": "prompts/Paimon/pride-v001.txt",
+    "request": "prompts/Paimon/pride-v001.request.json",
+    "raw": "raw/Paimon/pride-v001.png",
+    "result": "candidates/Paimon/pride-v001.result.json"
+  },
+  {
+    "character": "Paimon",
+    "emotion": "desire",
+    "file": "sprites/Paimon/desire.png",
+    "sha256": "486be7f35448c9632d57ed2e4b57de21f901c6293de18439e1f0d2a2f2209d3a",
+    "format": "PNG",
+    "dimensions": [
+      1024,
+      1536
+    ],
+    "mode": "RGBA",
+    "has_alpha": true,
+    "visual_review": "user",
+    "framing_transform": null,
+    "approved_neutral": "candidates/Paimon/neutral-v005.png",
+    "approved_neutral_sha256": "945949b39c0bf48306e698b27431240f947089a4257ed66013dea6a86711710f",
+    "official_reference": {
+      "file": "references/Paimon/official.png",
+      "original": "/var/folders/yb/h8ks0jfd6jl0jdj3npytrx2r0000gn/T/codex-clipboard-0dbb13da-9df7-487b-8783-c433f513305a.png",
+      "sha256": "bbfb7c8a8e11583bbc1dd441ef0e8aab9e562718dbeb7a5b6cec660e10450534",
+      "user_attachment": 3
+    },
+    "review_status": "awaiting_user_review",
+    "prompt": "prompts/Paimon/desire-v001.txt",
+    "request": "prompts/Paimon/desire-v001.request.json",
+    "raw": "raw/Paimon/desire-v001.png",
+    "result": "candidates/Paimon/desire-v001.result.json"
+  },
+  {
+    "character": "Paimon",
+    "emotion": "anger",
+    "file": "sprites/Paimon/anger.png",
+    "sha256": "41fdc21e4e2936a9dbdde182cf30e74db08357894323214c762f4262abdfd830",
+    "format": "PNG",
+    "dimensions": [
+      1024,
+      1536
+    ],
+    "mode": "RGBA",
+    "has_alpha": true,
+    "visual_review": "user",
+    "framing_transform": null,
+    "approved_neutral": "candidates/Paimon/neutral-v005.png",
+    "approved_neutral_sha256": "945949b39c0bf48306e698b27431240f947089a4257ed66013dea6a86711710f",
+    "official_reference": {
+      "file": "references/Paimon/official.png",
+      "original": "/var/folders/yb/h8ks0jfd6jl0jdj3npytrx2r0000gn/T/codex-clipboard-0dbb13da-9df7-487b-8783-c433f513305a.png",
+      "sha256": "bbfb7c8a8e11583bbc1dd441ef0e8aab9e562718dbeb7a5b6cec660e10450534",
+      "user_attachment": 3
+    },
+    "review_status": "awaiting_user_review",
+    "prompt": "prompts/Paimon/anger-v001.txt",
+    "request": "prompts/Paimon/anger-v001.request.json",
+    "raw": "raw/Paimon/anger-v001.png",
+    "result": "candidates/Paimon/anger-v001.result.json"
+  },
+  {
+    "character": "Paimon",
+    "emotion": "grief",
+    "file": "sprites/Paimon/grief.png",
+    "sha256": "3229c51193b1970c90de167761ad6b4e93819983faaec33b7159c6b1f3e9a2c5",
+    "format": "PNG",
+    "dimensions": [
+      1024,
+      1536
+    ],
+    "mode": "RGBA",
+    "has_alpha": true,
+    "visual_review": "user",
+    "framing_transform": null,
+    "approved_neutral": "candidates/Paimon/neutral-v005.png",
+    "approved_neutral_sha256": "945949b39c0bf48306e698b27431240f947089a4257ed66013dea6a86711710f",
+    "official_reference": {
+      "file": "references/Paimon/official.png",
+      "original": "/var/folders/yb/h8ks0jfd6jl0jdj3npytrx2r0000gn/T/codex-clipboard-0dbb13da-9df7-487b-8783-c433f513305a.png",
+      "sha256": "bbfb7c8a8e11583bbc1dd441ef0e8aab9e562718dbeb7a5b6cec660e10450534",
+      "user_attachment": 3
+    },
+    "review_status": "awaiting_user_review",
+    "prompt": "prompts/Paimon/grief-v001.txt",
+    "request": "prompts/Paimon/grief-v001.request.json",
+    "raw": "raw/Paimon/grief-v001.png",
+    "result": "candidates/Paimon/grief-v001.result.json"
+  },
+  {
+    "character": "Paimon",
+    "emotion": "sadness",
+    "file": "sprites/Paimon/sadness.png",
+    "sha256": "e8fdb529164df926265148c9b8b5fcfd1576e273a0e7a57ed886875c921657c6",
+    "format": "PNG",
+    "dimensions": [
+      1024,
+      1536
+    ],
+    "mode": "RGBA",
+    "has_alpha": true,
+    "visual_review": "user",
+    "framing_transform": null,
+    "approved_neutral": "candidates/Paimon/neutral-v005.png",
+    "approved_neutral_sha256": "945949b39c0bf48306e698b27431240f947089a4257ed66013dea6a86711710f",
+    "official_reference": {
+      "file": "references/Paimon/official.png",
+      "original": "/var/folders/yb/h8ks0jfd6jl0jdj3npytrx2r0000gn/T/codex-clipboard-0dbb13da-9df7-487b-8783-c433f513305a.png",
+      "sha256": "bbfb7c8a8e11583bbc1dd441ef0e8aab9e562718dbeb7a5b6cec660e10450534",
+      "user_attachment": 3
+    },
+    "review_status": "awaiting_user_review",
+    "prompt": "prompts/Paimon/sadness-v001.txt",
+    "request": "prompts/Paimon/sadness-v001.request.json",
+    "raw": "raw/Paimon/sadness-v001.png",
+    "result": "candidates/Paimon/sadness-v001.result.json"
+  },
+  {
+    "character": "Paimon",
+    "emotion": "disgust",
+    "file": "sprites/Paimon/disgust.png",
+    "sha256": "fb9fdd5b73faecb6a4035fea14d8e44d5263431f304b4a018a6a614e6ddcc811",
+    "format": "PNG",
+    "dimensions": [
+      1024,
+      1536
+    ],
+    "mode": "RGBA",
+    "has_alpha": true,
+    "visual_review": "user",
+    "framing_transform": null,
+    "approved_neutral": "candidates/Paimon/neutral-v005.png",
+    "approved_neutral_sha256": "945949b39c0bf48306e698b27431240f947089a4257ed66013dea6a86711710f",
+    "official_reference": {
+      "file": "references/Paimon/official.png",
+      "original": "/var/folders/yb/h8ks0jfd6jl0jdj3npytrx2r0000gn/T/codex-clipboard-0dbb13da-9df7-487b-8783-c433f513305a.png",
+      "sha256": "bbfb7c8a8e11583bbc1dd441ef0e8aab9e562718dbeb7a5b6cec660e10450534",
+      "user_attachment": 3
+    },
+    "review_status": "awaiting_user_review",
+    "prompt": "prompts/Paimon/disgust-v001.txt",
+    "request": "prompts/Paimon/disgust-v001.request.json",
+    "raw": "raw/Paimon/disgust-v001.png",
+    "result": "candidates/Paimon/disgust-v001.result.json"
+  },
+  {
+    "character": "Paimon",
+    "emotion": "disappointment",
+    "file": "sprites/Paimon/disappointment.png",
+    "sha256": "e60743c59c243e338b2180797024f4c7cd2ebc3ce4566e71d7609c7a0393d0f0",
+    "format": "PNG",
+    "dimensions": [
+      1024,
+      1536
+    ],
+    "mode": "RGBA",
+    "has_alpha": true,
+    "visual_review": "user",
+    "framing_transform": null,
+    "approved_neutral": "candidates/Paimon/neutral-v005.png",
+    "approved_neutral_sha256": "945949b39c0bf48306e698b27431240f947089a4257ed66013dea6a86711710f",
+    "official_reference": {
+      "file": "references/Paimon/official.png",
+      "original": "/var/folders/yb/h8ks0jfd6jl0jdj3npytrx2r0000gn/T/codex-clipboard-0dbb13da-9df7-487b-8783-c433f513305a.png",
+      "sha256": "bbfb7c8a8e11583bbc1dd441ef0e8aab9e562718dbeb7a5b6cec660e10450534",
+      "user_attachment": 3
+    },
+    "review_status": "awaiting_user_review",
+    "prompt": "prompts/Paimon/disappointment-v001.txt",
+    "request": "prompts/Paimon/disappointment-v001.request.json",
+    "raw": "raw/Paimon/disappointment-v001.png",
+    "result": "candidates/Paimon/disappointment-v001.result.json"
+  },
+  {
+    "character": "Paimon",
+    "emotion": "relief",
+    "file": "sprites/Paimon/relief.png",
+    "sha256": "70521038f80f98efb0f9c1df37e80a796c38619278011c34d0bf18adaae150b1",
+    "format": "PNG",
+    "dimensions": [
+      1024,
+      1536
+    ],
+    "mode": "RGBA",
+    "has_alpha": true,
+    "visual_review": "user",
+    "framing_transform": null,
+    "approved_neutral": "candidates/Paimon/neutral-v005.png",
+    "approved_neutral_sha256": "945949b39c0bf48306e698b27431240f947089a4257ed66013dea6a86711710f",
+    "official_reference": {
+      "file": "references/Paimon/official.png",
+      "original": "/var/folders/yb/h8ks0jfd6jl0jdj3npytrx2r0000gn/T/codex-clipboard-0dbb13da-9df7-487b-8783-c433f513305a.png",
+      "sha256": "bbfb7c8a8e11583bbc1dd441ef0e8aab9e562718dbeb7a5b6cec660e10450534",
+      "user_attachment": 3
+    },
+    "review_status": "awaiting_user_review",
+    "prompt": "prompts/Paimon/relief-v001.txt",
+    "request": "prompts/Paimon/relief-v001.request.json",
+    "raw": "raw/Paimon/relief-v001.png",
+    "result": "candidates/Paimon/relief-v001.result.json"
+  },
+  {
+    "character": "Paimon",
+    "emotion": "admiration",
+    "file": "sprites/Paimon/admiration.png",
+    "sha256": "a79cd56d21ca81635ac45528d1095d4feb9e3b0f22efdb2f8fe1f6b1c8423c78",
+    "format": "PNG",
+    "dimensions": [
+      1024,
+      1536
+    ],
+    "mode": "RGBA",
+    "has_alpha": true,
+    "visual_review": "user",
+    "framing_transform": null,
+    "approved_neutral": "candidates/Paimon/neutral-v005.png",
+    "approved_neutral_sha256": "945949b39c0bf48306e698b27431240f947089a4257ed66013dea6a86711710f",
+    "official_reference": {
+      "file": "references/Paimon/official.png",
+      "original": "/var/folders/yb/h8ks0jfd6jl0jdj3npytrx2r0000gn/T/codex-clipboard-0dbb13da-9df7-487b-8783-c433f513305a.png",
+      "sha256": "bbfb7c8a8e11583bbc1dd441ef0e8aab9e562718dbeb7a5b6cec660e10450534",
+      "user_attachment": 3
+    },
+    "review_status": "awaiting_user_review",
+    "prompt": "prompts/Paimon/admiration-v001.txt",
+    "request": "prompts/Paimon/admiration-v001.request.json",
+    "raw": "raw/Paimon/admiration-v001.png",
+    "result": "candidates/Paimon/admiration-v001.result.json"
+  },
+  {
+    "character": "Paimon",
+    "emotion": "gratitude",
+    "file": "sprites/Paimon/gratitude.png",
+    "sha256": "4f2963b399e9a33e028fea131d54821da69967b772c241521d340f71e24f8604",
+    "format": "PNG",
+    "dimensions": [
+      1024,
+      1536
+    ],
+    "mode": "RGBA",
+    "has_alpha": true,
+    "visual_review": "user",
+    "framing_transform": null,
+    "approved_neutral": "candidates/Paimon/neutral-v005.png",
+    "approved_neutral_sha256": "945949b39c0bf48306e698b27431240f947089a4257ed66013dea6a86711710f",
+    "official_reference": {
+      "file": "references/Paimon/official.png",
+      "original": "/var/folders/yb/h8ks0jfd6jl0jdj3npytrx2r0000gn/T/codex-clipboard-0dbb13da-9df7-487b-8783-c433f513305a.png",
+      "sha256": "bbfb7c8a8e11583bbc1dd441ef0e8aab9e562718dbeb7a5b6cec660e10450534",
+      "user_attachment": 3
+    },
+    "review_status": "awaiting_user_review",
+    "prompt": "prompts/Paimon/gratitude-v001.txt",
+    "request": "prompts/Paimon/gratitude-v001.request.json",
+    "raw": "raw/Paimon/gratitude-v001.png",
+    "result": "candidates/Paimon/gratitude-v001.result.json"
+  },
+  {
+    "character": "Paimon",
+    "emotion": "embarrassment",
+    "file": "sprites/Paimon/embarrassment.png",
+    "sha256": "51cf78c3ecb6164c22cf4b837c6ce5db51d0b308c631442e20cd9377c0b186fd",
+    "format": "PNG",
+    "dimensions": [
+      1024,
+      1536
+    ],
+    "mode": "RGBA",
+    "has_alpha": true,
+    "visual_review": "user",
+    "framing_transform": null,
+    "approved_neutral": "candidates/Paimon/neutral-v005.png",
+    "approved_neutral_sha256": "945949b39c0bf48306e698b27431240f947089a4257ed66013dea6a86711710f",
+    "official_reference": {
+      "file": "references/Paimon/official.png",
+      "original": "/var/folders/yb/h8ks0jfd6jl0jdj3npytrx2r0000gn/T/codex-clipboard-0dbb13da-9df7-487b-8783-c433f513305a.png",
+      "sha256": "bbfb7c8a8e11583bbc1dd441ef0e8aab9e562718dbeb7a5b6cec660e10450534",
+      "user_attachment": 3
+    },
+    "review_status": "awaiting_user_review",
+    "prompt": "prompts/Paimon/embarrassment-v001.txt",
+    "request": "prompts/Paimon/embarrassment-v001.request.json",
+    "raw": "raw/Paimon/embarrassment-v001.png",
+    "result": "candidates/Paimon/embarrassment-v001.result.json"
+  },
+  {
+    "character": "Paimon",
+    "emotion": "caring",
+    "file": "sprites/Paimon/caring.png",
+    "sha256": "4a1a830ff7ec45020b2406e28ef14c7f243877fd95a4a0128292757171d6e0db",
+    "format": "PNG",
+    "dimensions": [
+      1024,
+      1536
+    ],
+    "mode": "RGBA",
+    "has_alpha": true,
+    "visual_review": "user",
+    "framing_transform": null,
+    "approved_neutral": "candidates/Paimon/neutral-v005.png",
+    "approved_neutral_sha256": "945949b39c0bf48306e698b27431240f947089a4257ed66013dea6a86711710f",
+    "official_reference": {
+      "file": "references/Paimon/official.png",
+      "original": "/var/folders/yb/h8ks0jfd6jl0jdj3npytrx2r0000gn/T/codex-clipboard-0dbb13da-9df7-487b-8783-c433f513305a.png",
+      "sha256": "bbfb7c8a8e11583bbc1dd441ef0e8aab9e562718dbeb7a5b6cec660e10450534",
+      "user_attachment": 3
+    },
+    "review_status": "awaiting_user_review",
+    "prompt": "prompts/Paimon/caring-v001.txt",
+    "request": "prompts/Paimon/caring-v001.request.json",
+    "raw": "raw/Paimon/caring-v001.png",
+    "result": "candidates/Paimon/caring-v001.result.json"
+  },
+  {
+    "character": "Paimon",
+    "emotion": "love-1",
+    "file": "sprites/Paimon/love-1.png",
+    "sha256": "54ac64699c9f03a6820288afdeee3707b4e2885ebc6915d75f5353010c9d5b66",
+    "format": "PNG",
+    "dimensions": [
+      1024,
+      1536
+    ],
+    "mode": "RGBA",
+    "has_alpha": true,
+    "visual_review": "user",
+    "framing_transform": null,
+    "approved_neutral": "candidates/Paimon/neutral-v005.png",
+    "approved_neutral_sha256": "945949b39c0bf48306e698b27431240f947089a4257ed66013dea6a86711710f",
+    "official_reference": {
+      "file": "references/Paimon/official.png",
+      "original": "/var/folders/yb/h8ks0jfd6jl0jdj3npytrx2r0000gn/T/codex-clipboard-0dbb13da-9df7-487b-8783-c433f513305a.png",
+      "sha256": "bbfb7c8a8e11583bbc1dd441ef0e8aab9e562718dbeb7a5b6cec660e10450534",
+      "user_attachment": 3
+    },
+    "review_status": "awaiting_user_review",
+    "prompt": "prompts/Paimon/love-1-v001.txt",
+    "request": "prompts/Paimon/love-1-v001.request.json",
+    "raw": "raw/Paimon/love-1-v001.png",
+    "result": "candidates/Paimon/love-1-v001.result.json"
+  },
+  {
+    "character": "Paimon",
+    "emotion": "desire-1",
+    "file": "sprites/Paimon/desire-1.png",
+    "sha256": "8099f12940016e70f948aefa9ce1b3f1a74593aa6808b8a1ff3e1c0e3a895465",
+    "format": "PNG",
+    "dimensions": [
+      1024,
+      1536
+    ],
+    "mode": "RGBA",
+    "has_alpha": true,
+    "visual_review": "user",
+    "framing_transform": null,
+    "approved_neutral": "candidates/Paimon/neutral-v005.png",
+    "approved_neutral_sha256": "945949b39c0bf48306e698b27431240f947089a4257ed66013dea6a86711710f",
+    "official_reference": {
+      "file": "references/Paimon/official.png",
+      "original": "/var/folders/yb/h8ks0jfd6jl0jdj3npytrx2r0000gn/T/codex-clipboard-0dbb13da-9df7-487b-8783-c433f513305a.png",
+      "sha256": "bbfb7c8a8e11583bbc1dd441ef0e8aab9e562718dbeb7a5b6cec660e10450534",
+      "user_attachment": 3
+    },
+    "review_status": "awaiting_user_review",
+    "prompt": "prompts/Paimon/desire-1-v001.txt",
+    "request": "prompts/Paimon/desire-1-v001.request.json",
+    "raw": "raw/Paimon/desire-1-v001.png",
+    "result": "candidates/Paimon/desire-1-v001.result.json"
+  },
+  {
+    "character": "Venti",
+    "emotion": "neutral",
+    "file": "sprites/Venti/neutral.png",
+    "sha256": "a53f7a14daac8d2c44bbf4006faff01f85a48ab575d3074f09ab0f563bc72403",
+    "format": "PNG",
+    "dimensions": [
+      993,
+      1583
+    ],
+    "mode": "RGBA",
+    "has_alpha": true,
+    "visual_review": "user",
+    "framing_transform": null,
+    "approved_neutral": "candidates/Venti/neutral-v001.png",
+    "approved_neutral_sha256": "a53f7a14daac8d2c44bbf4006faff01f85a48ab575d3074f09ab0f563bc72403",
+    "official_reference": {
+      "file": "references/Venti/official.png",
+      "original": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Venti/Official Art/neutral.png",
+      "sha256": "0adbc5a77e31319a0b20eecebc53e93bde5e4c5ee0f16b8ba70d659c56788c9c",
+      "user_attachment": null
+    },
+    "review_status": "user_approved",
+    "prompt": "prompts/Venti/neutral-v001.txt",
+    "request": "prompts/Venti/neutral-v001.request.json",
+    "raw": "raw/Venti/neutral-v001.png"
+  },
+  {
+    "character": "Venti",
+    "emotion": "annoyance",
+    "file": "sprites/Venti/annoyance.png",
+    "sha256": "24af783b0bc0a63412aa959f82ca56bd1a86f67c2ca0f1655fff5fae3bdf588d",
+    "format": "PNG",
+    "dimensions": [
+      993,
+      1584
+    ],
+    "mode": "RGBA",
+    "has_alpha": true,
+    "visual_review": "user",
+    "framing_transform": null,
+    "approved_neutral": "candidates/Venti/neutral-v001.png",
+    "approved_neutral_sha256": "a53f7a14daac8d2c44bbf4006faff01f85a48ab575d3074f09ab0f563bc72403",
+    "official_reference": {
+      "file": "references/Venti/official.png",
+      "original": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Venti/Official Art/neutral.png",
+      "sha256": "0adbc5a77e31319a0b20eecebc53e93bde5e4c5ee0f16b8ba70d659c56788c9c",
+      "user_attachment": null
+    },
+    "review_status": "awaiting_user_review",
+    "prompt": "prompts/Venti/annoyance-v001.txt",
+    "request": "prompts/Venti/annoyance-v001.request.json",
+    "raw": "raw/Venti/annoyance-v001.png",
+    "result": "candidates/Venti/annoyance-v001.result.json"
+  },
+  {
+    "character": "Venti",
+    "emotion": "smug",
+    "file": "sprites/Venti/smug.png",
+    "sha256": "c3cb81bb4511769dbfc43f2a2ee0458fd515c23fb401c09979545b08fa91ea5a",
+    "format": "PNG",
+    "dimensions": [
+      993,
+      1584
+    ],
+    "mode": "RGBA",
+    "has_alpha": true,
+    "visual_review": "user",
+    "framing_transform": null,
+    "approved_neutral": "candidates/Venti/neutral-v001.png",
+    "approved_neutral_sha256": "a53f7a14daac8d2c44bbf4006faff01f85a48ab575d3074f09ab0f563bc72403",
+    "official_reference": {
+      "file": "references/Venti/official.png",
+      "original": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Venti/Official Art/neutral.png",
+      "sha256": "0adbc5a77e31319a0b20eecebc53e93bde5e4c5ee0f16b8ba70d659c56788c9c",
+      "user_attachment": null
+    },
+    "review_status": "awaiting_user_review",
+    "prompt": "prompts/Venti/smug-v001.txt",
+    "request": "prompts/Venti/smug-v001.request.json",
+    "raw": "raw/Venti/smug-v001.png",
+    "result": "candidates/Venti/smug-v001.result.json"
+  },
+  {
+    "character": "Venti",
+    "emotion": "confusion",
+    "file": "sprites/Venti/confusion.png",
+    "sha256": "4665be615940864ed16124356aa593eb5eb7efbed7645093a3620c1d56bada55",
+    "format": "PNG",
+    "dimensions": [
+      993,
+      1584
+    ],
+    "mode": "RGBA",
+    "has_alpha": true,
+    "visual_review": "user",
+    "framing_transform": null,
+    "approved_neutral": "candidates/Venti/neutral-v001.png",
+    "approved_neutral_sha256": "a53f7a14daac8d2c44bbf4006faff01f85a48ab575d3074f09ab0f563bc72403",
+    "official_reference": {
+      "file": "references/Venti/official.png",
+      "original": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Venti/Official Art/neutral.png",
+      "sha256": "0adbc5a77e31319a0b20eecebc53e93bde5e4c5ee0f16b8ba70d659c56788c9c",
+      "user_attachment": null
+    },
+    "review_status": "awaiting_user_review",
+    "prompt": "prompts/Venti/confusion-v001.txt",
+    "request": "prompts/Venti/confusion-v001.request.json",
+    "raw": "raw/Venti/confusion-v001.png",
+    "result": "candidates/Venti/confusion-v001.result.json"
+  },
+  {
+    "character": "Venti",
+    "emotion": "love",
+    "file": "sprites/Venti/love.png",
+    "sha256": "5b3dd4d35387819120a3a7fa115e20696e43fca9fa00846f2369693de6ea6068",
+    "format": "PNG",
+    "dimensions": [
+      993,
+      1584
+    ],
+    "mode": "RGBA",
+    "has_alpha": true,
+    "visual_review": "user",
+    "framing_transform": null,
+    "approved_neutral": "candidates/Venti/neutral-v001.png",
+    "approved_neutral_sha256": "a53f7a14daac8d2c44bbf4006faff01f85a48ab575d3074f09ab0f563bc72403",
+    "official_reference": {
+      "file": "references/Venti/official.png",
+      "original": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Venti/Official Art/neutral.png",
+      "sha256": "0adbc5a77e31319a0b20eecebc53e93bde5e4c5ee0f16b8ba70d659c56788c9c",
+      "user_attachment": null
+    },
+    "review_status": "awaiting_user_review",
+    "prompt": "prompts/Venti/love-v001.txt",
+    "request": "prompts/Venti/love-v001.request.json",
+    "raw": "raw/Venti/love-v001.png",
+    "result": "candidates/Venti/love-v001.result.json"
+  },
+  {
+    "character": "Venti",
+    "emotion": "excitement",
+    "file": "sprites/Venti/excitement.png",
+    "sha256": "420c90474bc6d6169b70e9e1eecc8765ae573207eff3a93ab0305a60ff849b8e",
+    "format": "PNG",
+    "dimensions": [
+      993,
+      1584
+    ],
+    "mode": "RGBA",
+    "has_alpha": true,
+    "visual_review": "user",
+    "framing_transform": null,
+    "approved_neutral": "candidates/Venti/neutral-v001.png",
+    "approved_neutral_sha256": "a53f7a14daac8d2c44bbf4006faff01f85a48ab575d3074f09ab0f563bc72403",
+    "official_reference": {
+      "file": "references/Venti/official.png",
+      "original": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Venti/Official Art/neutral.png",
+      "sha256": "0adbc5a77e31319a0b20eecebc53e93bde5e4c5ee0f16b8ba70d659c56788c9c",
+      "user_attachment": null
+    },
+    "review_status": "awaiting_user_review",
+    "prompt": "prompts/Venti/excitement-v001.txt",
+    "request": "prompts/Venti/excitement-v001.request.json",
+    "raw": "raw/Venti/excitement-v001.png",
+    "result": "candidates/Venti/excitement-v001.result.json"
+  },
+  {
+    "character": "Venti",
+    "emotion": "joy",
+    "file": "sprites/Venti/joy.png",
+    "sha256": "cfe92040edd5a7d43eba89b7ae8aa89cbcddcd68068ee1f1d225add344f47bce",
+    "format": "PNG",
+    "dimensions": [
+      993,
+      1584
+    ],
+    "mode": "RGBA",
+    "has_alpha": true,
+    "visual_review": "user",
+    "framing_transform": null,
+    "approved_neutral": "candidates/Venti/neutral-v001.png",
+    "approved_neutral_sha256": "a53f7a14daac8d2c44bbf4006faff01f85a48ab575d3074f09ab0f563bc72403",
+    "official_reference": {
+      "file": "references/Venti/official.png",
+      "original": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Venti/Official Art/neutral.png",
+      "sha256": "0adbc5a77e31319a0b20eecebc53e93bde5e4c5ee0f16b8ba70d659c56788c9c",
+      "user_attachment": null
+    },
+    "review_status": "awaiting_user_review",
+    "prompt": "prompts/Venti/joy-v001.txt",
+    "request": "prompts/Venti/joy-v001.request.json",
+    "raw": "raw/Venti/joy-v001.png",
+    "result": "candidates/Venti/joy-v001.result.json"
+  },
+  {
+    "character": "Venti",
+    "emotion": "fear",
+    "file": "sprites/Venti/fear.png",
+    "sha256": "8c17fded7ad5270e788ea1f0197a2d89c200694d5b55b44f05542656844a4136",
+    "format": "PNG",
+    "dimensions": [
+      993,
+      1584
+    ],
+    "mode": "RGBA",
+    "has_alpha": true,
+    "visual_review": "user",
+    "framing_transform": null,
+    "approved_neutral": "candidates/Venti/neutral-v001.png",
+    "approved_neutral_sha256": "a53f7a14daac8d2c44bbf4006faff01f85a48ab575d3074f09ab0f563bc72403",
+    "official_reference": {
+      "file": "references/Venti/official.png",
+      "original": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Venti/Official Art/neutral.png",
+      "sha256": "0adbc5a77e31319a0b20eecebc53e93bde5e4c5ee0f16b8ba70d659c56788c9c",
+      "user_attachment": null
+    },
+    "review_status": "awaiting_user_review",
+    "prompt": "prompts/Venti/fear-v001.txt",
+    "request": "prompts/Venti/fear-v001.request.json",
+    "raw": "raw/Venti/fear-v001.png",
+    "result": "candidates/Venti/fear-v001.result.json"
+  },
+  {
+    "character": "Venti",
+    "emotion": "pride",
+    "file": "sprites/Venti/pride.png",
+    "sha256": "e75eac67e13fa19c6ad874cee6b5e67f16bdd94aff06bd30fe3dfaa7034d2db7",
+    "format": "PNG",
+    "dimensions": [
+      993,
+      1584
+    ],
+    "mode": "RGBA",
+    "has_alpha": true,
+    "visual_review": "user",
+    "framing_transform": null,
+    "approved_neutral": "candidates/Venti/neutral-v001.png",
+    "approved_neutral_sha256": "a53f7a14daac8d2c44bbf4006faff01f85a48ab575d3074f09ab0f563bc72403",
+    "official_reference": {
+      "file": "references/Venti/official.png",
+      "original": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Venti/Official Art/neutral.png",
+      "sha256": "0adbc5a77e31319a0b20eecebc53e93bde5e4c5ee0f16b8ba70d659c56788c9c",
+      "user_attachment": null
+    },
+    "review_status": "awaiting_user_review",
+    "prompt": "prompts/Venti/pride-v001.txt",
+    "request": "prompts/Venti/pride-v001.request.json",
+    "raw": "raw/Venti/pride-v001.png",
+    "result": "candidates/Venti/pride-v001.result.json"
+  },
+  {
+    "character": "Venti",
+    "emotion": "desire",
+    "file": "sprites/Venti/desire.png",
+    "sha256": "6968ac4b2884d4649ec70dc32bde1f006dcd55fbcff650bdc4efd25b62afc7a7",
+    "format": "PNG",
+    "dimensions": [
+      993,
+      1584
+    ],
+    "mode": "RGBA",
+    "has_alpha": true,
+    "visual_review": "user",
+    "framing_transform": null,
+    "approved_neutral": "candidates/Venti/neutral-v001.png",
+    "approved_neutral_sha256": "a53f7a14daac8d2c44bbf4006faff01f85a48ab575d3074f09ab0f563bc72403",
+    "official_reference": {
+      "file": "references/Venti/official.png",
+      "original": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Venti/Official Art/neutral.png",
+      "sha256": "0adbc5a77e31319a0b20eecebc53e93bde5e4c5ee0f16b8ba70d659c56788c9c",
+      "user_attachment": null
+    },
+    "review_status": "awaiting_user_review",
+    "prompt": "prompts/Venti/desire-v001.txt",
+    "request": "prompts/Venti/desire-v001.request.json",
+    "raw": "raw/Venti/desire-v001.png",
+    "result": "candidates/Venti/desire-v001.result.json"
+  },
+  {
+    "character": "Venti",
+    "emotion": "anger",
+    "file": "sprites/Venti/anger.png",
+    "sha256": "6c3fa00a94e563978a8d95fe092f86faa15759716613a0d36d3bc32571d88db6",
+    "format": "PNG",
+    "dimensions": [
+      993,
+      1584
+    ],
+    "mode": "RGBA",
+    "has_alpha": true,
+    "visual_review": "user",
+    "framing_transform": null,
+    "approved_neutral": "candidates/Venti/neutral-v001.png",
+    "approved_neutral_sha256": "a53f7a14daac8d2c44bbf4006faff01f85a48ab575d3074f09ab0f563bc72403",
+    "official_reference": {
+      "file": "references/Venti/official.png",
+      "original": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Venti/Official Art/neutral.png",
+      "sha256": "0adbc5a77e31319a0b20eecebc53e93bde5e4c5ee0f16b8ba70d659c56788c9c",
+      "user_attachment": null
+    },
+    "review_status": "awaiting_user_review",
+    "prompt": "prompts/Venti/anger-v001.txt",
+    "request": "prompts/Venti/anger-v001.request.json",
+    "raw": "raw/Venti/anger-v001.png",
+    "result": "candidates/Venti/anger-v001.result.json"
+  },
+  {
+    "character": "Venti",
+    "emotion": "grief",
+    "file": "sprites/Venti/grief.png",
+    "sha256": "86626263fda6a2f95afb0ae9e72fe68f18c372ecea55d2398049d02bb9dc8337",
+    "format": "PNG",
+    "dimensions": [
+      993,
+      1584
+    ],
+    "mode": "RGBA",
+    "has_alpha": true,
+    "visual_review": "user",
+    "framing_transform": null,
+    "approved_neutral": "candidates/Venti/neutral-v001.png",
+    "approved_neutral_sha256": "a53f7a14daac8d2c44bbf4006faff01f85a48ab575d3074f09ab0f563bc72403",
+    "official_reference": {
+      "file": "references/Venti/official.png",
+      "original": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Venti/Official Art/neutral.png",
+      "sha256": "0adbc5a77e31319a0b20eecebc53e93bde5e4c5ee0f16b8ba70d659c56788c9c",
+      "user_attachment": null
+    },
+    "review_status": "awaiting_user_review",
+    "prompt": "prompts/Venti/grief-v001.txt",
+    "request": "prompts/Venti/grief-v001.request.json",
+    "raw": "raw/Venti/grief-v001.png",
+    "result": "candidates/Venti/grief-v001.result.json"
+  },
+  {
+    "character": "Venti",
+    "emotion": "sadness",
+    "file": "sprites/Venti/sadness.png",
+    "sha256": "5a763a276b8449957af04056eeba7b83d122477557fc14b6c25fd88bfb75c294",
+    "format": "PNG",
+    "dimensions": [
+      993,
+      1583
+    ],
+    "mode": "RGBA",
+    "has_alpha": true,
+    "visual_review": "user",
+    "framing_transform": null,
+    "approved_neutral": "candidates/Venti/neutral-v001.png",
+    "approved_neutral_sha256": "a53f7a14daac8d2c44bbf4006faff01f85a48ab575d3074f09ab0f563bc72403",
+    "official_reference": {
+      "file": "references/Venti/official.png",
+      "original": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Venti/Official Art/neutral.png",
+      "sha256": "0adbc5a77e31319a0b20eecebc53e93bde5e4c5ee0f16b8ba70d659c56788c9c",
+      "user_attachment": null
+    },
+    "review_status": "awaiting_user_review",
+    "prompt": "prompts/Venti/sadness-v001.txt",
+    "request": "prompts/Venti/sadness-v001.request.json",
+    "raw": "raw/Venti/sadness-v001.png",
+    "result": "candidates/Venti/sadness-v001.result.json"
+  },
+  {
+    "character": "Venti",
+    "emotion": "disgust",
+    "file": "sprites/Venti/disgust.png",
+    "sha256": "7ba5862421be1bcd6542697f88046ab9a0c91ccbe4a455c4b7d06162092c51c4",
+    "format": "PNG",
+    "dimensions": [
+      993,
+      1584
+    ],
+    "mode": "RGBA",
+    "has_alpha": true,
+    "visual_review": "user",
+    "framing_transform": null,
+    "approved_neutral": "candidates/Venti/neutral-v001.png",
+    "approved_neutral_sha256": "a53f7a14daac8d2c44bbf4006faff01f85a48ab575d3074f09ab0f563bc72403",
+    "official_reference": {
+      "file": "references/Venti/official.png",
+      "original": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Venti/Official Art/neutral.png",
+      "sha256": "0adbc5a77e31319a0b20eecebc53e93bde5e4c5ee0f16b8ba70d659c56788c9c",
+      "user_attachment": null
+    },
+    "review_status": "awaiting_user_review",
+    "prompt": "prompts/Venti/disgust-v001.txt",
+    "request": "prompts/Venti/disgust-v001.request.json",
+    "raw": "raw/Venti/disgust-v001.png",
+    "result": "candidates/Venti/disgust-v001.result.json"
+  },
+  {
+    "character": "Venti",
+    "emotion": "disappointment",
+    "file": "sprites/Venti/disappointment.png",
+    "sha256": "6f49516d34aee53dbddc3fa9379fc541ff84db256ea04c5f35cacb5641755939",
+    "format": "PNG",
+    "dimensions": [
+      993,
+      1584
+    ],
+    "mode": "RGBA",
+    "has_alpha": true,
+    "visual_review": "user",
+    "framing_transform": null,
+    "approved_neutral": "candidates/Venti/neutral-v001.png",
+    "approved_neutral_sha256": "a53f7a14daac8d2c44bbf4006faff01f85a48ab575d3074f09ab0f563bc72403",
+    "official_reference": {
+      "file": "references/Venti/official.png",
+      "original": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Venti/Official Art/neutral.png",
+      "sha256": "0adbc5a77e31319a0b20eecebc53e93bde5e4c5ee0f16b8ba70d659c56788c9c",
+      "user_attachment": null
+    },
+    "review_status": "awaiting_user_review",
+    "prompt": "prompts/Venti/disappointment-v001.txt",
+    "request": "prompts/Venti/disappointment-v001.request.json",
+    "raw": "raw/Venti/disappointment-v001.png",
+    "result": "candidates/Venti/disappointment-v001.result.json"
+  },
+  {
+    "character": "Venti",
+    "emotion": "relief",
+    "file": "sprites/Venti/relief.png",
+    "sha256": "cb417e132083fd0e16bd7c36cb40b80d822a8ed2fdee790a08c13f73a01a8951",
+    "format": "PNG",
+    "dimensions": [
+      993,
+      1584
+    ],
+    "mode": "RGBA",
+    "has_alpha": true,
+    "visual_review": "user",
+    "framing_transform": null,
+    "approved_neutral": "candidates/Venti/neutral-v001.png",
+    "approved_neutral_sha256": "a53f7a14daac8d2c44bbf4006faff01f85a48ab575d3074f09ab0f563bc72403",
+    "official_reference": {
+      "file": "references/Venti/official.png",
+      "original": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Venti/Official Art/neutral.png",
+      "sha256": "0adbc5a77e31319a0b20eecebc53e93bde5e4c5ee0f16b8ba70d659c56788c9c",
+      "user_attachment": null
+    },
+    "review_status": "awaiting_user_review",
+    "prompt": "prompts/Venti/relief-v001.txt",
+    "request": "prompts/Venti/relief-v001.request.json",
+    "raw": "raw/Venti/relief-v001.png",
+    "result": "candidates/Venti/relief-v001.result.json"
+  },
+  {
+    "character": "Venti",
+    "emotion": "admiration",
+    "file": "sprites/Venti/admiration.png",
+    "sha256": "f647e9b5ac316c5c48fec5caf44f08f325eb62c0f79a6030e12961b1e7833e34",
+    "format": "PNG",
+    "dimensions": [
+      993,
+      1584
+    ],
+    "mode": "RGBA",
+    "has_alpha": true,
+    "visual_review": "user",
+    "framing_transform": null,
+    "approved_neutral": "candidates/Venti/neutral-v001.png",
+    "approved_neutral_sha256": "a53f7a14daac8d2c44bbf4006faff01f85a48ab575d3074f09ab0f563bc72403",
+    "official_reference": {
+      "file": "references/Venti/official.png",
+      "original": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Venti/Official Art/neutral.png",
+      "sha256": "0adbc5a77e31319a0b20eecebc53e93bde5e4c5ee0f16b8ba70d659c56788c9c",
+      "user_attachment": null
+    },
+    "review_status": "awaiting_user_review",
+    "prompt": "prompts/Venti/admiration-v001.txt",
+    "request": "prompts/Venti/admiration-v001.request.json",
+    "raw": "raw/Venti/admiration-v001.png",
+    "result": "candidates/Venti/admiration-v001.result.json"
+  },
+  {
+    "character": "Venti",
+    "emotion": "gratitude",
+    "file": "sprites/Venti/gratitude.png",
+    "sha256": "0b34babdaffae2ae80d7a4a0159d4aee78415bbc723b1768106f2dc3b2eabe4b",
+    "format": "PNG",
+    "dimensions": [
+      993,
+      1583
+    ],
+    "mode": "RGBA",
+    "has_alpha": true,
+    "visual_review": "user",
+    "framing_transform": null,
+    "approved_neutral": "candidates/Venti/neutral-v001.png",
+    "approved_neutral_sha256": "a53f7a14daac8d2c44bbf4006faff01f85a48ab575d3074f09ab0f563bc72403",
+    "official_reference": {
+      "file": "references/Venti/official.png",
+      "original": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Venti/Official Art/neutral.png",
+      "sha256": "0adbc5a77e31319a0b20eecebc53e93bde5e4c5ee0f16b8ba70d659c56788c9c",
+      "user_attachment": null
+    },
+    "review_status": "awaiting_user_review",
+    "prompt": "prompts/Venti/gratitude-v001.txt",
+    "request": "prompts/Venti/gratitude-v001.request.json",
+    "raw": "raw/Venti/gratitude-v001.png",
+    "result": "candidates/Venti/gratitude-v001.result.json"
+  },
+  {
+    "character": "Venti",
+    "emotion": "embarrassment",
+    "file": "sprites/Venti/embarrassment.png",
+    "sha256": "bc3887e818d3d9661d56fdcc515c3e0e1dd4241e8fb54ae9f192d45b628395c5",
+    "format": "PNG",
+    "dimensions": [
+      993,
+      1584
+    ],
+    "mode": "RGBA",
+    "has_alpha": true,
+    "visual_review": "user",
+    "framing_transform": null,
+    "approved_neutral": "candidates/Venti/neutral-v001.png",
+    "approved_neutral_sha256": "a53f7a14daac8d2c44bbf4006faff01f85a48ab575d3074f09ab0f563bc72403",
+    "official_reference": {
+      "file": "references/Venti/official.png",
+      "original": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Venti/Official Art/neutral.png",
+      "sha256": "0adbc5a77e31319a0b20eecebc53e93bde5e4c5ee0f16b8ba70d659c56788c9c",
+      "user_attachment": null
+    },
+    "review_status": "awaiting_user_review",
+    "prompt": "prompts/Venti/embarrassment-v001.txt",
+    "request": "prompts/Venti/embarrassment-v001.request.json",
+    "raw": "raw/Venti/embarrassment-v001.png",
+    "result": "candidates/Venti/embarrassment-v001.result.json"
+  },
+  {
+    "character": "Venti",
+    "emotion": "caring",
+    "file": "sprites/Venti/caring.png",
+    "sha256": "b2e3d658cae9d411ef2ec8078ce0f8dddd23c8a553857810ad9324e294db29f7",
+    "format": "PNG",
+    "dimensions": [
+      993,
+      1584
+    ],
+    "mode": "RGBA",
+    "has_alpha": true,
+    "visual_review": "user",
+    "framing_transform": null,
+    "approved_neutral": "candidates/Venti/neutral-v001.png",
+    "approved_neutral_sha256": "a53f7a14daac8d2c44bbf4006faff01f85a48ab575d3074f09ab0f563bc72403",
+    "official_reference": {
+      "file": "references/Venti/official.png",
+      "original": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Venti/Official Art/neutral.png",
+      "sha256": "0adbc5a77e31319a0b20eecebc53e93bde5e4c5ee0f16b8ba70d659c56788c9c",
+      "user_attachment": null
+    },
+    "review_status": "awaiting_user_review",
+    "prompt": "prompts/Venti/caring-v001.txt",
+    "request": "prompts/Venti/caring-v001.request.json",
+    "raw": "raw/Venti/caring-v001.png",
+    "result": "candidates/Venti/caring-v001.result.json"
+  },
+  {
+    "character": "Venti",
+    "emotion": "love-1",
+    "file": "sprites/Venti/love-1.png",
+    "sha256": "ecc035ea3f69f691fdb0050cf9f67d9a9121f9b49e67aed4c9b0504a0a18ba11",
+    "format": "PNG",
+    "dimensions": [
+      993,
+      1584
+    ],
+    "mode": "RGBA",
+    "has_alpha": true,
+    "visual_review": "user",
+    "framing_transform": null,
+    "approved_neutral": "candidates/Venti/neutral-v001.png",
+    "approved_neutral_sha256": "a53f7a14daac8d2c44bbf4006faff01f85a48ab575d3074f09ab0f563bc72403",
+    "official_reference": {
+      "file": "references/Venti/official.png",
+      "original": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Venti/Official Art/neutral.png",
+      "sha256": "0adbc5a77e31319a0b20eecebc53e93bde5e4c5ee0f16b8ba70d659c56788c9c",
+      "user_attachment": null
+    },
+    "review_status": "awaiting_user_review",
+    "prompt": "prompts/Venti/love-1-v001.txt",
+    "request": "prompts/Venti/love-1-v001.request.json",
+    "raw": "raw/Venti/love-1-v001.png",
+    "result": "candidates/Venti/love-1-v001.result.json"
+  },
+  {
+    "character": "Venti",
+    "emotion": "desire-1",
+    "file": "sprites/Venti/desire-1.png",
+    "sha256": "0119062d77e9053048040f30bc588dc7a9408cbb320d7ed186d62642986b43b1",
+    "format": "PNG",
+    "dimensions": [
+      993,
+      1584
+    ],
+    "mode": "RGBA",
+    "has_alpha": true,
+    "visual_review": "user",
+    "framing_transform": null,
+    "approved_neutral": "candidates/Venti/neutral-v001.png",
+    "approved_neutral_sha256": "a53f7a14daac8d2c44bbf4006faff01f85a48ab575d3074f09ab0f563bc72403",
+    "official_reference": {
+      "file": "references/Venti/official.png",
+      "original": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Venti/Official Art/neutral.png",
+      "sha256": "0adbc5a77e31319a0b20eecebc53e93bde5e4c5ee0f16b8ba70d659c56788c9c",
+      "user_attachment": null
+    },
+    "review_status": "awaiting_user_review",
+    "prompt": "prompts/Venti/desire-1-v001.txt",
+    "request": "prompts/Venti/desire-1-v001.request.json",
+    "raw": "raw/Venti/desire-1-v001.png",
+    "result": "candidates/Venti/desire-1-v001.result.json"
+  },
+  {
+    "character": "Mika",
+    "emotion": "neutral",
+    "file": "sprites/Mika/neutral.png",
+    "sha256": "02f557b8140b44f3f7b0325ad64394f237b410aaa924751bf20aaf69132d76cf",
+    "format": "PNG",
+    "dimensions": [
+      955,
+      1647
+    ],
+    "mode": "RGBA",
+    "has_alpha": true,
+    "visual_review": "user",
+    "framing_transform": null,
+    "approved_neutral": "candidates/Mika/neutral-v002.png",
+    "approved_neutral_sha256": "02f557b8140b44f3f7b0325ad64394f237b410aaa924751bf20aaf69132d76cf",
+    "official_reference": {
+      "file": "references/Mika/official.png",
+      "original": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Mika/Official Art/neutral.png",
+      "sha256": "ed767f4a0f2d4b80a13100f798a9364be4771af4cd29d79fd55f5b259acd7aa8",
+      "user_attachment": null
+    },
+    "review_status": "user_approved",
+    "prompt": "prompts/Mika/neutral-v002.txt",
+    "request": "prompts/Mika/neutral-v002.request.json",
+    "raw": "raw/Mika/neutral-v002.png"
+  },
+  {
+    "character": "Mika",
+    "emotion": "confusion",
+    "file": "sprites/Mika/confusion.png",
+    "sha256": "3611a1372a82e179037221e5f9817b07bfeeaaa9ccb120d0fe54f8aac7e8e695",
+    "format": "PNG",
+    "dimensions": [
+      955,
+      1647
+    ],
+    "mode": "RGBA",
+    "has_alpha": true,
+    "visual_review": "user",
+    "framing_transform": null,
+    "approved_neutral": "candidates/Mika/neutral-v002.png",
+    "approved_neutral_sha256": "02f557b8140b44f3f7b0325ad64394f237b410aaa924751bf20aaf69132d76cf",
+    "official_reference": {
+      "file": "references/Mika/official.png",
+      "original": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Mika/Official Art/neutral.png",
+      "sha256": "ed767f4a0f2d4b80a13100f798a9364be4771af4cd29d79fd55f5b259acd7aa8",
+      "user_attachment": null
+    },
+    "review_status": "awaiting_user_review",
+    "prompt": "prompts/Mika/confusion-v001.txt",
+    "request": "prompts/Mika/confusion-v001.request.json",
+    "raw": "raw/Mika/confusion-v001.png",
+    "result": "candidates/Mika/confusion-v001.result.json"
+  }
+]

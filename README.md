@@ -1,3 +1,10 @@
+# Silly Teyvat 1.44.2: External game data
+
+Images, audio, fonts and model buffers now live in a separate local data pack.
+Git contains source and catalogs; old media and research downloads have also
+been removed from its history. See [GAME-DATA.md](GAME-DATA.md) for setup and
+backup instructions. Existing extension URLs and saved scene paths are preserved.
+
 # Silly Teyvat 1.31: Location music
 
 - **Music library on the world map.** Upload and label audio in one shared library, preview tracks, and adjust background-music volume independently of voices and effects.
@@ -70,7 +77,12 @@ A Genshin Impact inspired dialogue interface and matching SillyTavern theme for 
 
 ## Install or update
 
-Copy the complete `extension/genshin-dialogue-ui` folder into `SillyTavern/data/<your-user>/extensions/genshin-dialogue-ui/`, replacing the existing version. Keep that folder name: the extension is now called **Silly Teyvat** in the interface, while its folder and settings key stay compatible with earlier installations. Do not install a second copy under another name.
+Obtain the separate data pack and follow [the data setup guide](GAME-DATA.md).
+Run `python3 tools/game-data.py link`, then `bash tools/sync-live.sh` to copy
+source and link media into `SillyTavern/data/<your-user>/extensions/genshin-dialogue-ui/`.
+Set `SILLY_TEYVAT_LIVE` for a different server directory. Keep that folder name:
+the extension is called **Silly Teyvat** in the interface, while its folder and
+settings key stay compatible with earlier installations.
 
 Refresh SillyTavern. Open **Extensions → Silly Teyvat** and enable dialogue view, or open the top-left Paimon menu and select the compass icon (**Silly Teyvat: On** for screen readers). **Alt+G** also toggles dialogue view. Opening or closing the menu does not change whether the extension is enabled. Select a character or group chat.
 

@@ -30,6 +30,7 @@ export function unionBox(boxes) {
     return list.length ? { left: Math.min(...list.map(b => b.left)), top: Math.min(...list.map(b => b.top)), right: Math.max(...list.map(b => b.right)), bottom: Math.max(...list.map(b => b.bottom)) } : null;
 }
 export function createSpriteTrimmer({ inventory, scan = loadPixels, ttl = 60000 }) {
+    let generation = 0;
     const scans = new Map(), folders = new Map(), crops = new Map();
     const scanOnce = src => { if (!scans.has(src)) scans.set(src, scan(src).then(p => p && { width: p.width, height: p.height, box: opaqueBox(p.data) }).catch(() => null)); return scans.get(src); };
     async function folderBox(folder, dims) {
@@ -61,6 +62,8 @@ export function createSpriteTrimmer({ inventory, scan = loadPixels, ttl = 60000 
             crops.set(src, job);
             return job;
         },
-        reset() { scans.clear(); folders.clear(); for (const job of crops.values()) job.then(c => c && URL.revokeObjectURL(c.url)); crops.clear(); },
+        // Changes on every reset, so callers can tell that a crop they were waiting for has been revoked.
+        get generation() { return generation; },
+        reset() { generation++; scans.clear(); folders.clear(); for (const job of crops.values()) job.then(c => c && URL.revokeObjectURL(c.url)); crops.clear(); },
     };
 }

@@ -1,6 +1,7 @@
 // Battle items, drawn from Genius Invokation TCG event cards. Food heals or protects one
 // member (one dish per member per round); other cards bend the dice or the battlefield.
 // The party carries a shared bag saved per chat; victories drop more cards.
+import {isTcgBoss} from './boss-kits.js';
 export const ITEMS={
     'sweet-madame':{name:'Sweet Madame',kind:'food',cost:0,target:'ally',rarity:1,text:'Heals 4 HP.',effects:[{type:'heal',amount:4}]},
     'hash-brown':{name:'Mondstadt Hash Brown',kind:'food',cost:1,target:'ally',rarity:1,text:'Heals 8 HP.',effects:[{type:'heal',amount:8}]},
@@ -27,6 +28,15 @@ export const STARTER_BAG={'sweet-madame':3,'hash-brown':2,'lotus-crisp':1,'toss-
 export const itemArt=id=>new URL(`./assets/tcg/items/${id}.webp`,import.meta.url).href;
 const WOVEN={Pyro:'woven-flames',Hydro:'woven-waters',Anemo:'woven-winds',Electro:'woven-thunder',Dendro:'woven-weeds',Cryo:'woven-ice',Geo:'woven-stone'};
 export const bagCount=bag=>Object.values(bag || {}).reduce((n,c)=>n+c,0);
+export function rollBossLoot(defeated,{random=Math.random}={}){
+    const rare=Object.entries(ITEMS).filter(([,item])=>item.rarity===3).map(([id])=>id),loot=[];
+    for(const enemy of defeated){
+        if(!isTcgBoss(enemy.card || enemy.name))continue;
+        loot.push(rare[Math.min(rare.length-1,Math.floor(random()*rare.length))]);
+        if(WOVEN[enemy.element])loot.push(WOVEN[enemy.element]);
+    }
+    return loot;
+}
 // Victory loot: one card per defeated enemy (two from tough ones), weighted towards common
 // food, plus a Woven card matching each elemental enemy now and then.
 export function rollLoot(defeated,{random=Math.random}={}){
@@ -36,6 +46,8 @@ export function rollLoot(defeated,{random=Math.random}={}){
         const count=enemy.maxHp>=45?2:1;
         for(let i=0;i<count;i++)loot.push(pool[Math.min(pool.length-1,Math.floor(random()*pool.length))]);
         if(WOVEN[enemy.element]&&random()<.5)loot.push(WOVEN[enemy.element]);
+        // Bosses guarantee one useful rare card and a die matching their element.
+        loot.push(...rollBossLoot([enemy],{random}));
     }
     return loot;
 }

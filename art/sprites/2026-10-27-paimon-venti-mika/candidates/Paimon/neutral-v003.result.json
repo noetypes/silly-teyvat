@@ -1,0 +1,82 @@
+{
+  "character": "Paimon",
+  "body_type": "custom tiny floating",
+  "neutral_status": "user_reported_defect",
+  "references": [
+    {
+      "file": "references/Paimon/official.png",
+      "original": "/var/folders/yb/h8ks0jfd6jl0jdj3npytrx2r0000gn/T/codex-clipboard-0dbb13da-9df7-487b-8783-c433f513305a.png",
+      "sha256": "bbfb7c8a8e11583bbc1dd441ef0e8aab9e562718dbeb7a5b6cec660e10450534",
+      "user_attachment": 3
+    },
+    {
+      "file": "references/Paimon/official-detail-02.png",
+      "original": "/var/folders/yb/h8ks0jfd6jl0jdj3npytrx2r0000gn/T/codex-clipboard-39e53e64-1308-48ac-94e5-f5d706b18978.png",
+      "sha256": "952a5c1cc53a538cc61d520afdd6ec9ad1bca0647d7aadf658731867787c6e9c",
+      "user_attachment": 2
+    },
+    {
+      "file": "references/Paimon/official-detail-04.png",
+      "original": "/var/folders/yb/h8ks0jfd6jl0jdj3npytrx2r0000gn/T/codex-clipboard-bc40bcd0-acbf-498b-93fb-98e30a2ada6e.png",
+      "sha256": "df876ed1fa3693f3b87e515fa8727c9d8117e74c13109090e8de117cfdb9a193",
+      "user_attachment": 4
+    },
+    {
+      "file": "references/Paimon/official-detail-05.png",
+      "original": "/var/folders/yb/h8ks0jfd6jl0jdj3npytrx2r0000gn/T/codex-clipboard-cc9424ef-f10e-4867-88e2-b4675ef3bf77.png",
+      "sha256": "8ce1536cadcedf5129d8c61915f887814d33b36b106b9603579003369d2abf4e",
+      "user_attachment": 5
+    },
+    {
+      "file": "references/Paimon/official-detail-06.png",
+      "original": "/var/folders/yb/h8ks0jfd6jl0jdj3npytrx2r0000gn/T/codex-clipboard-3fce8b53-2079-44d0-ba67-dff69ba0efa0.png",
+      "sha256": "9b5c839ef18b64356e22bf0ce13b9eb265170c78b8563903d79e4998eb0ac2e2",
+      "user_attachment": 6
+    }
+  ],
+  "prompt": "prompts/Paimon/neutral-v003.txt",
+  "request": "prompts/Paimon/neutral-v003.request.json",
+  "candidate": "candidates/Paimon/neutral-v003.png",
+  "raw": "raw/Paimon/neutral-v003.png",
+  "approval": null,
+  "visual_qa": "not_performed_user_review",
+  "framing_transform": null,
+  "neutral_history": [
+    {
+      "candidate": "candidates/Paimon/neutral-v001.png",
+      "sha256": "d3ef7b9d213122355967abfc5bace7ca1d74e5f29ab791c2cce645014268da16",
+      "request": "prompts/Paimon/neutral-v001.request.json",
+      "status": "user_reported_defect",
+      "user_reported_defect": "messed up hands"
+    },
+    {
+      "candidate": "candidates/Paimon/neutral-v002.png",
+      "sha256": "d7679a1a0213b632ec8f58080578448255b2d31b26ab85813a45c9cdcd0ce9b9",
+      "request": "prompts/Paimon/neutral-v002.request.json",
+      "status": "user_requested_revision",
+      "user_requested_change": "thighs should be chubbier"
+    }
+  ],
+  "user_requested_change": "thighs should be chubbier",
+  "candidate_sha256": "cfc0fe53d32831c4f03057a0831feeca0f8435c23c785b6b3f65b3ddc6473e49",
+  "generated_source": "/Users/alexachan/.codex/generated_images/01a17cac-5902-79a3-9a41-0e54eec9dfd4/exec-5c4c7d09-e55e-4bc6-960c-26b958d34ff2.png",
+  "file_metadata": {
+    "format": "PNG",
+    "dimensions": [
+      1083,
+      1453
+    ],
+    "mode": "RGBA",
+    "has_alpha": true
+  },
+  "actual_reference_paths": [
+    "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-27-paimon-venti-mika/references/Paimon/official.png",
+    "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-27-paimon-venti-mika/references/Paimon/official-detail-02.png",
+    "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-27-paimon-venti-mika/references/Paimon/official-detail-04.png",
+    "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-27-paimon-venti-mika/references/Paimon/official-detail-05.png",
+    "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-27-paimon-venti-mika/references/Paimon/official-detail-06.png"
+  ],
+  "user_reported_defect": "hands have issues again",
+  "user_feedback": "Better! But hands now have issues again. Regenerate one more time",
+  "superseded_by": "candidates/Paimon/neutral-v004.png"
+}

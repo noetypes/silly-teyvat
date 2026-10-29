@@ -201,12 +201,22 @@ export function mountPageSprites({ host, getContext, adapter = createNativeSprit
         const base = visible(nav) ? nav.getBoundingClientRect().top : visible(form) ? form.getBoundingClientRect().top : H;
         return base - Math.min(150, Math.max(70, H * .17));
     }
+    // The on-screen keyboard shrinks the viewport but should not re-frame the sprites: while a text
+    // field has focus on a touch device and only the height has dropped, keep the last real layout.
+    let stable = null;
+    function keyboardUp() {
+        if (!stable || !matchMedia('(pointer: coarse)').matches) return false;
+        const field = document.activeElement;
+        if (!field?.matches?.('textarea, input:not([type=checkbox]):not([type=radio]):not([type=button]):not([type=range]), [contenteditable=""], [contenteditable="true"]')) return false;
+        return (stage.clientWidth || innerWidth) === stable.W && (stage.clientHeight || innerHeight) < stable.H - 80;
+    }
     function arrange(images, scene, fresh = new Set()) {
         arranged = { images, scene, top: NaN };
         const ctx = getContext(), p = prefsNow();
         const staged = images.map((image, i) => ({ image, sprite: scene[i] })).filter(x => x.sprite?.model > 0 && x.sprite.baseH > 0);
         if (!staged.length) return;
-        const W = stage.clientWidth || innerWidth, H = stage.clientHeight || innerHeight;
+        const typing = keyboardUp();
+        const W = stage.clientWidth || innerWidth, H = typing ? stable.H : stage.clientHeight || innerHeight;
         // Party on the left (you first), enemies on the right, as in a Genshin standoff.
         const order = { user: 0, companion: 1, enemy: 2 };
         staged.sort((a, b) => order[kindOf(a.sprite)] - order[kindOf(b.sprite)] || scene.indexOf(a.sprite) - scene.indexOf(b.sprite));
@@ -218,8 +228,11 @@ export function mountPageSprites({ host, getContext, adapter = createNativeSprit
         });
         // On a phone on its side the HUD runs along the top edge; frame faces just under it.
         const topInset = H <= 500 && W > H ? Math.min(56, H * .14) : Math.min(16, H * .03);
-        arranged.top = dialogueTop(H);
+        arranged.top = typing ? stable.top : dialogueTop(H);
+        if (!typing) stable = { W, H, top: arranged.top };
         const boxes = layoutStage(items, { width: W, height: H, dialogueTop: arranged.top, topInset });
+        // Same size and spacing, raised by what the keyboard took, never above the top margin.
+        const lift = typing ? Math.max(0, Math.min(H - (stage.clientHeight || innerHeight), Math.min(...boxes.map(box => box.top)) - topInset)) : 0;
         staged.forEach(({ image, sprite }, i) => {
             const box = boxes[i], focus = Boolean(sprite.presentation?.focus);
             if (fresh.has(image)) image.classList.add('gi-sprite-placing');
@@ -227,7 +240,7 @@ export function mountPageSprites({ host, getContext, adapter = createNativeSprit
             // Focus size is included in the fitted box, so it shares the baseline
             // and cannot grow beyond the height limit after layout.
             image.style.setProperty('--gi-focus-scale', 1);
-            Object.assign(image.style, { left: `${box.left}px`, top: `${box.top}px`, width: `${box.width}px`, height: `${box.height}px`, zIndex: String(focus ? staged.length + 1 : box.z) });
+            Object.assign(image.style, { left: `${box.left}px`, top: `${box.top - lift}px`, width: `${box.width}px`, height: `${box.height}px`, zIndex: String(focus ? staged.length + 1 : box.z) });
         });
         if (fresh.size) { void stage.offsetWidth; requestAnimationFrame(() => { for (const image of fresh) image.classList.remove('gi-sprite-placing'); }); }
     }
@@ -260,7 +273,7 @@ export function mountPageSprites({ host, getContext, adapter = createNativeSprit
             // Reusing a filtered/transformed <img> with new transparent pixels can
             // leave stale compositor tiles on mobile. Decode a fresh node, then
             // replace the old scene atomically. Same-art focus changes reuse it.
-            const image=prior?.dataset.source===src?prior:document.createElement('img');
+            const image=prior?.dataset.spriteSrc===src?prior:document.createElement('img');
             if(prior&&image!==prior){
                 // A new expression takes over the old one's place and look, then eases to its own.
                 swaps.set(image,prior);image.style.cssText=prior.style.cssText;image.dataset.layout=prior.dataset.layout || '';
@@ -279,7 +292,7 @@ export function mountPageSprites({ host, getContext, adapter = createNativeSprit
                 }
             };
             if(image!==prior){
-                image.dataset.source=src;image.hidden=true;
+                image.dataset.spriteSrc=src;image.hidden=true;
                 decoding.push(Promise.resolve().then(async()=>{
                     const trimmed=trimEnabled?await trimmer.trim(sprite.folder,src):null;
                     if(trimmed){image.dataset.trim=String(trimmed.aspect);image.src=trimmed.url;place();}else{delete image.dataset.trim;image.src=src;}
@@ -329,19 +342,6 @@ export function mountPageSprites({ host, getContext, adapter = createNativeSprit
         };
         if(decoding.length)void Promise.all(decoding).then(commit);else commit();
     }
-    function stageFresh(ctx,scene,message,id){return ctx.extensionSettings.genshin_dialogue_ui?.nativeStaging===undefined?scene:stageScene(ctx,scene,message,{id});}
-    function record(message, page, signature, kind = 'dialogue') {
-        const swipe = String(message.swipe_id ?? 0);
-        const saved = message.extra?.[STORE]?.swipes?.[swipe]?.[page];
-        return saved?.signature === signature && (saved.kind || 'dialogue') === kind && Array.isArray(saved.scene) ? saved : null;
-    }
-    function save(message, page, signature, data, ctx) {
-        message.extra ??= {}; message.extra[STORE] ??= { version: 1, swipes: {} };
-        const swipes = message.extra[STORE].swipes; swipes[String(message.swipe_id ?? 0)] ??= {};
-        swipes[String(message.swipe_id ?? 0)][page] = { signature, messageSignature: pageSignature(message.mes || ''), ...data };
-        const swipeInfo = message.swipe_info?.[message.swipe_id ?? 0];
-        if (swipeInfo) { swipeInfo.extra ??= {}; swipeInfo.extra[STORE] = structuredClone(message.extra[STORE]); }
-        persist(ctx);
     // One classification request per page of text. A page that is classified again for any reason
     // (a refresh cancelled it, a narration page needed the line before it) reuses the first answer.
     const labels = new Map();
@@ -355,6 +355,19 @@ export function mountPageSprites({ host, getContext, adapter = createNativeSprit
         }
         return labels.get(key);
     }
+    function stageFresh(ctx,scene,message,id){return ctx.extensionSettings.genshin_dialogue_ui?.nativeStaging===undefined?scene:stageScene(ctx,scene,message,{id});}
+    function record(message, page, signature, kind = 'dialogue') {
+        const swipe = String(message.swipe_id ?? 0);
+        const saved = message.extra?.[STORE]?.swipes?.[swipe]?.[page];
+        return saved?.signature === signature && (saved.kind || 'dialogue') === kind && Array.isArray(saved.scene) ? saved : null;
+    }
+    function save(message, page, signature, data, ctx) {
+        message.extra ??= {}; message.extra[STORE] ??= { version: 1, swipes: {} };
+        const swipes = message.extra[STORE].swipes; swipes[String(message.swipe_id ?? 0)] ??= {};
+        swipes[String(message.swipe_id ?? 0)][page] = { signature, messageSignature: pageSignature(message.mes || ''), ...data };
+        const swipeInfo = message.swipe_info?.[message.swipe_id ?? 0];
+        if (swipeInfo) { swipeInfo.extra ??= {}; swipeInfo.extra[STORE] = structuredClone(message.extra[STORE]); }
+        persist(ctx);
     }
     function previousScene(ctx, id, page) {
         const current = ctx.chat[id];
@@ -404,7 +417,7 @@ export function mountPageSprites({ host, getContext, adapter = createNativeSprit
             if (!on) { selection = ''; document.body.classList.remove('gi-sprite-replay'); stage.hidden = true; return; }
             stage.hidden = false;
             // The dialogue box moved (the scene opened, the reply box appeared, the UI was hidden): re-fit.
-            if (arranged.images.length && arranged.images.every(image => image.isConnected) && Math.abs(dialogueTop(stage.clientHeight || innerHeight) - arranged.top) > 12) arrange(arranged.images, arranged.scene);
+            if (arranged.images.length && arranged.images.every(image => image.isConnected) && !keyboardUp() && Math.abs(dialogueTop(stage.clientHeight || innerHeight) - arranged.top) > 12) arrange(arranged.images, arranged.scene);
             const message = ctx.chat[id];
             if (!message) return;
             stageAt = id;

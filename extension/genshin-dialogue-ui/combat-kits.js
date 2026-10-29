@@ -3,6 +3,7 @@
 // Numbers are Silly Teyvat's own balance, not the game's scaling. Users can edit
 // any kit in Character Customization → Moveset; edits are saved per card.
 import {mediaSettings} from './media-store.js';
+import {BOSS_ROWS} from './boss-kits.js';
 
 export const WEAPONS=['sword','claymore','polearm','bow','catalyst','none'];
 export const ROLES=['DPS','Sub-DPS','Support','Healer','Shielder','Tank'];
@@ -246,7 +247,7 @@ const ENEMIES=[
 
 const keyOf=name=>String(name || '').toLowerCase().replace(/[^a-z0-9]+/g,'');
 const characterTable=new Map(TABLE.map(row=>[keyOf(row[0]),row]));
-const enemyTable=new Map(ENEMIES.map(row=>[keyOf(row[0]),row]));
+const enemyTable=new Map([...ENEMIES,...BOSS_ROWS].map(row=>[keyOf(row[0]),row]));
 export const enemyElement=name=>enemyTable.get(keyOf(name))?.[1];
 export const hasBundledKit=name=>characterTable.has(keyOf(name))||enemyTable.has(keyOf(name))||/^(aether|lumine)$/i.test(String(name).trim());
 const clone=value=>structuredClone(value);
@@ -265,9 +266,9 @@ export function travelerKit(element){
     if(!skill)return {name,weapon:'sword',hp:34,energy:2,role:'DPS',moves:[normal('sword','Foreign Ironwind','Physical'),{kind:'skill',name:'Elemental Strike',cost:2,effects:[D(5)]},{kind:'burst',name:'Elemental Release',cost:3,effects:[D(6,'all')]}]};
     return {name,weapon:'sword',hp:34,energy:2,role:'DPS',moves:[normal('sword','Foreign Ironwind','Physical'),{kind:'skill',name:skill,cost:2,effects:clone(skillFx)},{kind:'burst',name:burst,cost:3,effects:clone(burstFx)}]};
 }
-function enemyKit([name,element,hp,basic,special,cooldown,extra={},skill]){
+function enemyKit([name,element,hp,basic,special,cooldown,extra={},skill,additional=[]]){
     const move=(kind,[moveName,effects,moveElement])=>({kind,name:moveName,cost:0,...(moveElement?{element:moveElement}:{}),effects:clone(effects)});
-    const moves=[move('basic',basic),...(skill?[move('basic',skill)]:[]),{...move('special',special),cooldown}];
+    const moves=[move('basic',basic),...(skill?[move('basic',skill)]:[]),...additional.map(m=>move('basic',m)),{...move('special',special),cooldown}];
     return {name,enemy:true,element,hp,energy:0,role:'Enemy',miss:10,...clone(extra),moves};
 }
 function genericEnemy(name,element){return {name,enemy:true,element:element||'Physical',hp:30,energy:0,role:'Enemy',miss:10,moves:[{kind:'basic',name:'Strike',cost:0,effects:[D(4)]},{kind:'special',name:'Fury',cost:0,cooldown:3,effects:[D(3,'all')]}]};}

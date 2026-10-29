@@ -1,0 +1,110 @@
+{
+  "error_code": "usage_limit_reached",
+  "service": "built-in image_gen",
+  "reset_at_unix": 1793219524,
+  "generated_expressions": 43,
+  "pending_expressions": [
+    {
+      "character": "Mika",
+      "emotion": "annoyance",
+      "status": "pending_usage_limit"
+    },
+    {
+      "character": "Mika",
+      "emotion": "smug",
+      "status": "pending_usage_limit"
+    },
+    {
+      "character": "Mika",
+      "emotion": "fear",
+      "status": "pending_usage_limit"
+    },
+    {
+      "character": "Mika",
+      "emotion": "love",
+      "status": "pending_usage_limit"
+    },
+    {
+      "character": "Mika",
+      "emotion": "excitement",
+      "status": "pending_usage_limit"
+    },
+    {
+      "character": "Mika",
+      "emotion": "joy",
+      "status": "pending_usage_limit"
+    },
+    {
+      "character": "Mika",
+      "emotion": "anger",
+      "status": "pending_usage_limit"
+    },
+    {
+      "character": "Mika",
+      "emotion": "grief",
+      "status": "pending_usage_limit"
+    },
+    {
+      "character": "Mika",
+      "emotion": "desire",
+      "status": "pending_usage_limit"
+    },
+    {
+      "character": "Mika",
+      "emotion": "pride",
+      "status": "pending_usage_limit"
+    },
+    {
+      "character": "Mika",
+      "emotion": "relief",
+      "status": "pending_usage_limit"
+    },
+    {
+      "character": "Mika",
+      "emotion": "sadness",
+      "status": "pending_usage_limit"
+    },
+    {
+      "character": "Mika",
+      "emotion": "disgust",
+      "status": "pending_usage_limit"
+    },
+    {
+      "character": "Mika",
+      "emotion": "disappointment",
+      "status": "pending_usage_limit"
+    },
+    {
+      "character": "Mika",
+      "emotion": "caring",
+      "status": "pending_usage_limit"
+    },
+    {
+      "character": "Mika",
+      "emotion": "embarrassment",
+      "status": "pending_usage_limit"
+    },
+    {
+      "character": "Mika",
+      "emotion": "gratitude",
+      "status": "pending_usage_limit"
+    },
+    {
+      "character": "Mika",
+      "emotion": "admiration",
+      "status": "pending_usage_limit"
+    },
+    {
+      "character": "Mika",
+      "emotion": "desire-1",
+      "status": "pending_usage_limit"
+    },
+    {
+      "character": "Mika",
+      "emotion": "love-1",
+      "status": "pending_usage_limit"
+    }
+  ],
+  "retry_policy": "Do not retry before the service reset. Resume only missing results with the existing official-plus-approved-neutral requests. No generation-method switch or automatic scheduling is authorised.",
+  "resets_at_toronto": "2026-10-28T16:32:04-04:00"
+}

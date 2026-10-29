@@ -11,7 +11,7 @@ import {circularCharacterAvatar,characterAvatarsReady} from './character-avatars
 import {mountElementalDice,ELEMENT_COLORS} from './elemental-dice.js';
 import {battleSnapshot,commitRound,roundNarration,partyBag} from './battle-state.js';
 import {rollFuel,rerollFuel,resolveRound} from './battle-engine.js';
-import {ITEMS,rollLoot} from './battle-items.js';
+import {ITEMS,rollLoot,rollBossLoot} from './battle-items.js';
 import {mountBattle} from './battle-ui.js';
 import {createBurstVoicePlayer} from './burst-audio.js';
 import {EL_COLORS,SWORD_SVG} from './battle-fx.js';
@@ -152,7 +152,9 @@ export function mountCombat({host,getContext,onChange=()=>{},announce=()=>{},ada
             if(!plan||!valid()){battle.cancel?.();return;}
             const used=(plan.items || []).filter(i=>ITEMS[i.id]);
             const result=resolveRound(snapshot,{steps:Array.isArray(plan)?plan:plan.steps || [],items:used.map(i=>({...i,item:ITEMS[i.id]})),flee:Boolean(plan.flee)},{strikeBack:prefs(ctx).enemyStrikeBack!==false,difficulty:snapshot.difficulty,enemyFirst});
-            const loot=result.victory&&!duel?rollLoot(snapshot.units.filter(u=>u.side==='enemy'&&u.hp>0)):[];
+            const enemies=snapshot.units.filter(u=>u.side==='enemy'&&u.hp>0);
+            const fallen=result.state.units.filter(u=>u.side==='enemy'&&u.hp<=0);
+            const loot=duel?[]:result.victory?rollLoot(enemies):rollBossLoot(enemies.filter(u=>fallen.some(f=>f.id===u.id)));
             // Save before the playback, so the round stands even if the chat changes mid-animation.
             const saved=commitRound(getContext(),snapshot,result,id,{items:used.map(i=>i.id),loot});if(!saved){battle.cancel?.();return;}
             const target=result.state.units.find(u=>u.id===avatar),before=snapshot.units.find(u=>u.id===avatar);

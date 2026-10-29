@@ -1,3 +1,10 @@
+# Silly Teyvat 1.44.2: External game data
+
+Media is installed as links to a separate local data pack. Existing same-origin
+URLs, audio assignments and saved scenes continue to work. Use the repository's
+`tools/game-data.py link` and `tools/sync-live.sh` with the pack available; see
+`GAME-DATA.md` in the repository for installation and relocation instructions.
+
 # Silly Teyvat 1.44.1: More places to explore
 
 - **42 additional destinations.** New locations and exploration playlists fill gaps across all eight mapped regions. Their source links, marker methods and image limitations are recorded in the location catalog.
@@ -333,7 +340,12 @@ A Genshin Impact inspired dialogue interface and matching SillyTavern theme for 
 
 ## Install or update
 
-Copy the complete `extension/genshin-dialogue-ui` folder into `SillyTavern/data/<your-user>/extensions/genshin-dialogue-ui/`, replacing the existing version. Keep that folder name: the extension is now called **Silly Teyvat** in the interface, while its folder and settings key stay compatible with earlier installations. Do not install a second copy under another name.
+Install the separate data pack and run `python3 tools/game-data.py link`, then
+`bash tools/sync-live.sh` from the repository. The installer copies source and
+links external media into `SillyTavern/data/<your-user>/extensions/genshin-dialogue-ui/`.
+See `GAME-DATA.md` in the repository. Set `SILLY_TEYVAT_LIVE` for another server
+directory and `SILLY_TEYVAT_DATA` for another data pack location. Keep the
+extension folder name for compatibility with existing settings.
 
 Refresh SillyTavern. Open **Extensions → Silly Teyvat** and enable dialogue view, or open the top-left Paimon menu and select the compass icon (**Silly Teyvat: On** for screen readers). **Alt+G** also toggles dialogue view. Opening or closing the menu does not change whether the extension is enabled. Select a character or group chat.
 

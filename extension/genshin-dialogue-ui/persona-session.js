@@ -3,6 +3,8 @@ import {linkedCard,playedAvatars} from './persona-link.js';
 import {activePersonaAvatar,personaCard,personaPortrait} from './persona-wardrobe.js';
 import {castIdentity,createLocationCastAdapter,locationCastState} from './location-cast.js';
 import {newLocalId} from './local-id.js';
+import {homeRegionName,regionGuild} from './defeat.js';
+import {teleportTo} from './world-data.js';
 
 export function inheritCharacterHistory(ctx,card){
     if(!card)return 0;let count=0;
@@ -34,7 +36,12 @@ export function makeSoloJourney(ctx){
     const card=personaCard(ctx),chatId='Silly-Teyvat-'+newLocalId('solo'),name=card?.name || ctx.name1 || 'Player';
     const metadata=structuredClone(ctx.chatMetadata || {});delete metadata.main_chat;
     metadata.silly_teyvat_cast={core:[],managed:[],placements:{},source:{avatar:card?.avatar || '__user__',chatId:'solo:'+chatId}};
-    const messages=structuredClone(ctx.chat || []);
+    // A solo journey begins at the Adventurers' Guild of the region the player's character calls home.
+    const guild=regionGuild(ctx,homeRegionName(ctx,linkedCard(ctx) || card));
+    if(guild){delete metadata.silly_teyvat_world;try{teleportTo({...ctx,chat:[],chatMetadata:metadata,saveMetadataDebounced:null,saveChat:null,setExtensionPrompt:null},guild.location.id,{record:false});}catch(error){console.warn('[Silly Teyvat] Solo journey start',error);}}
+    // SillyTavern's own notices (its "SillyTavern System" welcome lines) stay out of the journey; only Silly Teyvat's tagged notices carry over.
+    const ownNotice=message=>Object.keys(message.extra || {}).some(key=>key.startsWith('silly_teyvat'));
+    const messages=structuredClone(ctx.chat || []).filter(message=>!message.is_system || ownNotice(message));
     if(!messages.length)messages.push({name:'Narrator',is_user:false,is_system:true,mes:'You are travelling alone. Choose a destination on the world map.',send_date:new Date().toISOString(),extra:{isSmallSys:true,silly_teyvat_solo:true}});
     return {chatId,chat:[{chat_metadata:metadata,user_name:'unused',character_name:'unused'},...messages],group:{name:'Teyvat journey: '+name,members:[],disabled_members:[],allow_self_responses:false,activation_strategy:0,generation_mode:0,chat_id:chatId,chats:[chatId],auto_mode_delay:5,silly_teyvat_journey:{version:1,managed:true,source:metadata.silly_teyvat_cast.source}}};
 }

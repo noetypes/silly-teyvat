@@ -1,0 +1,29 @@
+{
+  "character": "Venti",
+  "emotion": "love-1",
+  "version": "v001",
+  "request": "prompts/Venti/love-1-v001.request.json",
+  "raw": "raw/Venti/love-1-v001.png",
+  "sprite": "sprites/Venti/love-1.png",
+  "result": "candidates/Venti/love-1-v001.result.json",
+  "approved_neutral_sha256": "a53f7a14daac8d2c44bbf4006faff01f85a48ab575d3074f09ab0f563bc72403",
+  "official_reference_sha256": "0adbc5a77e31319a0b20eecebc53e93bde5e4c5ee0f16b8ba70d659c56788c9c",
+  "status": "generated_awaiting_user_review",
+  "generated_source": "/Users/alexachan/.codex/generated_images/01a17cac-5902-79a3-9a41-0e54eec9dfd4/exec-47a0bce9-3000-4ebc-a3a2-494d8f30f89a.png",
+  "reference_paths": [
+    "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-27-paimon-venti-mika/references/Venti/official.png",
+    "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-27-paimon-venti-mika/candidates/Venti/neutral-v001.png"
+  ],
+  "sha256": "ecc035ea3f69f691fdb0050cf9f67d9a9121f9b49e67aed4c9b0504a0a18ba11",
+  "file_metadata": {
+    "format": "PNG",
+    "dimensions": [
+      993,
+      1584
+    ],
+    "mode": "RGBA",
+    "has_alpha": true
+  },
+  "visual_qa": "not_performed_user_review",
+  "framing_transform": null
+}

@@ -321,6 +321,10 @@ function refresh() {
     toggle.setAttribute('aria-label', prefs.enabled ? 'Silly Teyvat: On' : 'Silly Teyvat: Off');
     const mapButton = document.querySelector('#gi-toolbar [data-gi-action="map"]');
     if (mapButton) mapButton.disabled = !prefs.enabled;
+    // Only a welcome page with no character or journey open can start a solo journey.
+    const soloButton = document.querySelector('#gi-toolbar [data-gi-action="solo-journey"]');
+    soloButton.hidden = !prefs.enabled || inChat;
+    soloButton.disabled = Boolean(personaSession?.busy);
     const cgToggle=document.querySelector('#gi-toolbar [data-gi-action="cg"]');
     cgToggle.setAttribute('aria-pressed',String(prefs.cgMode==='window'));
     cgToggle.setAttribute('aria-label',prefs.cgMode==='window'?'CGs: Framed window. Switch to scene replacement':'CGs: Scene replacement. Switch to framed window');
@@ -519,6 +523,7 @@ function handleAction(event) {
         case 'persona': menuOpen=false;refresh();wardrobeUI?.open({persona:true}).catch(error=>announce(error.message));break;
         case 'map': menuOpen = false; refresh(); void openWorldMap().catch(error=>announce(error.message)); break;
         case 'toggle': setEnabled(!preferences().enabled); break;
+        case 'solo-journey': menuOpen = false; refresh(); void personaSession?.flush({ startJourney: true }); break;
         case 'history': toggleHistory(); break;
         case 'hide': hidden = !hidden; if (hidden) menuOpen = false; history = false; stopAuto(); refresh(); break;
         case 'compose':
@@ -635,6 +640,7 @@ export async function initialize({ choicesAdapter, spriteAdapter, wardrobeAdapte
                     <button type="button" class="gi-pm-edit" data-gi-action="namecards" aria-label="Change namecard" title="Change namecard" aria-expanded="false" aria-controls="gi-pm-namecards">${svg('edit')}</button>
                 </header>
                 <button type="button" class="gi-pm-switch" data-gi-action="toggle" aria-pressed="false" aria-label="Silly Teyvat"><span>Silly Teyvat</span><i aria-hidden="true"></i></button>
+                <button type="button" class="gi-pm-switch gi-pm-solo" data-gi-action="solo-journey" hidden><span>Start solo journey</span></button>
                 <section id="gi-pm-namecards" class="gi-pm-namecards" aria-label="Namecards" hidden><header><h3>Namecard</h3>${menuButton('namecards', 'Done', 'close')}</header><div class="gi-pm-nc-list" role="radiogroup" aria-label="Choose a namecard"></div></section>
                 <div class="gi-pm-grid">${menuButton('auto', 'Auto')}${menuButton('history', 'Review', 'book')}${menuButton('wardrobe', 'Characters')}${menuButton('inventory', 'Inventory', 'bag')}${menuButton('map', 'Map')}${menuButton('cg', 'CG Frame')}${menuButton('compose', 'Chat Box')}${menuButton('hide', 'Hide UI')}${menuButton('namecards', 'Namecard', 'namecard')}</div>
                 <section class="gi-pm-tavern" aria-label="SillyTavern"><h3>SillyTavern</h3><div class="gi-pm-grid">${ST_DRAWERS.map(([id, label]) => `<button type="button" data-gi-action="st-drawer" data-drawer="${id}" aria-label="${label}"><img src="${drawerIcon(id)}" alt="" aria-hidden="true" draggable="false"${id === 'persona-management-button' ? ' data-persona' : ''}><span>${label}</span></button>`).join('')}</div></section>
@@ -668,7 +674,6 @@ export async function initialize({ choicesAdapter, spriteAdapter, wardrobeAdapte
     mediaUI = mountSceneMedia({host,getContext:context,adapter:mediaAdapter,sound,announce});
     spriteUI = mountPageSprites({ host, getContext: context, adapter: spriteAdapter, isDefeated: defeatedHere, announce, renderMessage: id => document.querySelector(`#chat > .mes[mesid="${id}"] .mes_text`), onAppearance:event=>mediaUI?.appearance(event) });
     wardrobeUI = mountWardrobe({ host, getContext: context, adapter: wardrobeAdapter, personaAdapter, mediaAdapter, openMap:openWorldMap, previewAudio:files=>mediaUI.previewAudio(files), onMediaChange:(options={})=>{backgroundUI.refresh();if(options.reclassify)mediaUI.reclassifyCurrent();else mediaUI.refresh();schedule();}, onChange: async (character,options) => { if(options?.classification){schedule();return;}
-        if(options?.personaChanged)await personaSession.flush({startJourney:true});
         if(options?.presentation)await spriteUI?.refreshPresentation();else await spriteUI?.refreshSprite(character,options);schedule(); } });
     combatUI=mountCombat({host,getContext:context,adapter:combatAdapter,diceAdapter,announce,onChange:event=>{inventoryUI?.refresh();if(event?.hit)spriteUI?.hit(event.hit);if(event?.hurt)spriteUI?.hurt(event.hurt);if(event?.healed)spriteUI?.heal(event.healed);if(event?.slain)spriteUI?.defeat(event.defeated);if(event?.defeated)locationCastUI?.retry();if(event?.removed)void spriteUI?.refreshPresentation().catch(error=>console.warn('[Silly Teyvat] Party stage',error));schedule();}});
     choiceUI = mountChoices({ host, getContext: context, adapter: choicesAdapter, announce });

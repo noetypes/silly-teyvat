@@ -1,0 +1,39 @@
+{
+  "character": "Venti",
+  "body_type": "medium male",
+  "neutral_status": "approved",
+  "references": [
+    {
+      "file": "references/Venti/official.png",
+      "original": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Venti/Official Art/neutral.png",
+      "sha256": "0adbc5a77e31319a0b20eecebc53e93bde5e4c5ee0f16b8ba70d659c56788c9c",
+      "user_attachment": null
+    }
+  ],
+  "prompt": "prompts/Venti/neutral-v001.txt",
+  "request": "prompts/Venti/neutral-v001.request.json",
+  "candidate": "candidates/Venti/neutral-v001.png",
+  "raw": "raw/Venti/neutral-v001.png",
+  "approval": {
+    "user_message": "Venti's new neutral is good, save it. Regenerate Mika and Paimon, Paimon has messed up hands and Mika's eyes look weird.",
+    "candidate": "candidates/Venti/neutral-v001.png",
+    "candidate_sha256": "a53f7a14daac8d2c44bbf4006faff01f85a48ab575d3074f09ab0f563bc72403"
+  },
+  "candidate_sha256": "a53f7a14daac8d2c44bbf4006faff01f85a48ab575d3074f09ab0f563bc72403",
+  "generated_source": "/Users/alexachan/.codex/generated_images/01a17cac-5902-79a3-9a41-0e54eec9dfd4/exec-bb58297a-9682-4bfe-9c9d-b3e007b7a8ba.png",
+  "file_metadata": {
+    "format": "PNG",
+    "dimensions": [
+      993,
+      1583
+    ],
+    "mode": "RGBA",
+    "has_alpha": true
+  },
+  "visual_qa": "not_performed_user_review",
+  "framing_transform": null,
+  "actual_reference_paths": [
+    "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-27-paimon-venti-mika/references/Venti/official.png"
+  ],
+  "sprite": "sprites/Venti/neutral.png"
+}

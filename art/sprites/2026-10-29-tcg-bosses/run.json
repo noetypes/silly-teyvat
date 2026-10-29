@@ -1,0 +1,600 @@
+{
+  "characters": {
+    "All-Devouring Narwhal": {
+      "name": "All-Devouring Narwhal",
+      "folder": "All-Devouring Narwhal",
+      "card": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/All-Devouring Narwhal.png",
+      "official": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/All-Devouring Narwhal/Official Art/neutral.png",
+      "reference": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-tcg-bosses/references/All-Devouring Narwhal/official.png",
+      "reference_sha256": "bc9078842e8cd20088cff9d8bbf49f85c5c4195ff8381b2af34e793920088357",
+      "source": "https://wiki.hoyolab.com/pc/genshin/entry/4572?lang=en-us",
+      "reference_url": "https://upload-static.hoyoverse.com/hoyolab-wiki/2023/11/09/35428890/811d8a4d8fb7d529fd2de0686ddeb092_5562026055614776607.png",
+      "card_source": "https://genshin-impact.fandom.com/wiki/All-Devouring_Narwhal_(Character_Card)",
+      "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-tcg-bosses/prompts/All-Devouring Narwhal/neutral-v001.txt",
+      "tool": "image_gen.imagegen",
+      "tool_arguments": {
+        "prompt": "Use case: stylized-concept. Asset: full-body neutral visual-novel boss sprite of All-Devouring Narwhal from Genshin Impact. The supplied official game portrait is the primary reference: preserve the identifiable design, silhouette, colors, anatomy, and equipment. Depict the boss in a threatening, alert idle pose appropriate to its form, ready for confrontation rather than mid-attack. Preserve its creature or machine anatomy; do not humanize it. Show the entire creature and all extremities, with roughly 2–4% padding at the top and bottom. Polished Genshin-inspired anime game artwork on a genuinely transparent background. No scenery, text, UI, watermark, unrelated subjects, detached effects, or ground shadow.",
+        "referenced_image_paths": [
+          "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-tcg-bosses/references/All-Devouring Narwhal/official.png"
+        ],
+        "transparent_background": true
+      },
+      "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-tcg-bosses/raw/All-Devouring Narwhal/neutral-v001.png",
+      "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-tcg-bosses/candidates/All-Devouring Narwhal/neutral-v001.png",
+      "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-tcg-bosses/sprites/All-Devouring Narwhal/neutral.png",
+      "live_sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/All-Devouring Narwhal/neutral.png",
+      "candidate_sha256": "2946644b47b9f9194256f7d2708977c864f3510985684d8b3aa0a099211002f8",
+      "size": [
+        1554,
+        1012
+      ],
+      "png_color_type": 6,
+      "review": "deferred at user request"
+    },
+    "Azhdaha": {
+      "name": "Azhdaha",
+      "folder": "Azhdaha",
+      "card": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Azhdaha.png",
+      "official": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Azhdaha/Official Art/neutral.png",
+      "reference": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-tcg-bosses/references/Azhdaha/official.png",
+      "reference_sha256": "21d6505c68426eaaeaeb42b8cbf9520acc668b13a04366c3a988adec0fb4dd77",
+      "source": "https://wiki.hoyolab.com/pc/genshin/entry/2212?lang=en-us",
+      "reference_url": "https://act-upload.hoyoverse.com/event-ugc-hoyowiki/2025/04/14/35428890/a2e8720078588bc584dae720727c89ce_7033624349940005810.png",
+      "card_source": "https://genshin-impact.fandom.com/wiki/Azhdaha_(Character_Card)",
+      "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-tcg-bosses/prompts/Azhdaha/neutral-v001.txt",
+      "tool": "image_gen.imagegen",
+      "tool_arguments": {
+        "prompt": "Use case: stylized-concept. Asset: full-body neutral visual-novel boss sprite of Azhdaha from Genshin Impact. The supplied official game portrait is the primary reference: preserve the identifiable design, silhouette, colors, anatomy, and equipment. Depict the boss in a threatening, alert idle pose appropriate to its form, ready for confrontation rather than mid-attack. Preserve its creature or machine anatomy; do not humanize it. Show the entire creature and all extremities, with roughly 2–4% padding at the top and bottom. Polished Genshin-inspired anime game artwork on a genuinely transparent background. No scenery, text, UI, watermark, unrelated subjects, detached effects, or ground shadow.",
+        "referenced_image_paths": [
+          "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-tcg-bosses/references/Azhdaha/official.png"
+        ],
+        "transparent_background": true
+      },
+      "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-tcg-bosses/raw/Azhdaha/neutral-v001.png",
+      "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-tcg-bosses/candidates/Azhdaha/neutral-v001.png",
+      "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-tcg-bosses/sprites/Azhdaha/neutral.png",
+      "live_sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Azhdaha/neutral.png",
+      "candidate_sha256": "7ab602c82ef936ffafe939d9cb83b6f206e933e18bdc88a6ed9d4231053780e6",
+      "size": [
+        1503,
+        1047
+      ],
+      "png_color_type": 6,
+      "review": "deferred at user request"
+    },
+    "Cryo Hypostasis": {
+      "name": "Cryo Hypostasis",
+      "folder": "Cryo Hypostasis",
+      "card": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Cryo Hypostasis.png",
+      "official": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Cryo Hypostasis/Official Art/neutral.png",
+      "reference": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-tcg-bosses/references/Cryo Hypostasis/official.png",
+      "reference_sha256": "8b9985839467d288cab03e9251aa402e95a35481b3fa2963272c7b5466c4a40f",
+      "source": "https://wiki.hoyolab.com/pc/genshin/entry/2158?lang=en-us",
+      "reference_url": "https://act-upload.hoyoverse.com/event-ugc-hoyowiki/2025/04/16/35428890/9ba3b0774abb42241643966e8d4ec819_3331457317602069243.png",
+      "card_source": "https://genshin-impact.fandom.com/wiki/Cryo_Hypostasis_(Character_Card)",
+      "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-tcg-bosses/prompts/Cryo Hypostasis/neutral-v001.txt",
+      "tool": "image_gen.imagegen",
+      "tool_arguments": {
+        "prompt": "Use case: stylized-concept. Asset: full-body neutral visual-novel boss sprite of Cryo Hypostasis from Genshin Impact. The supplied official game portrait is the primary reference: preserve the identifiable design, silhouette, colors, anatomy, and equipment. Depict the boss in a threatening, alert idle pose appropriate to its form, ready for confrontation rather than mid-attack. Preserve its creature or machine anatomy; do not humanize it. Show the entire creature and all extremities, with roughly 2–4% padding at the top and bottom. Polished Genshin-inspired anime game artwork on a genuinely transparent background. No scenery, text, UI, watermark, unrelated subjects, detached effects, or ground shadow.",
+        "referenced_image_paths": [
+          "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-tcg-bosses/references/Cryo Hypostasis/official.png"
+        ],
+        "transparent_background": true
+      },
+      "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-tcg-bosses/raw/Cryo Hypostasis/neutral-v001.png",
+      "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-tcg-bosses/candidates/Cryo Hypostasis/neutral-v001.png",
+      "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-tcg-bosses/sprites/Cryo Hypostasis/neutral.png",
+      "live_sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Cryo Hypostasis/neutral.png",
+      "candidate_sha256": "b02fc4c3a400e4236ecbb244ebbe67c775c98da90c8d9df8ba306b3c83d5fbff",
+      "size": [
+        1288,
+        1221
+      ],
+      "png_color_type": 6,
+      "review": "deferred at user request"
+    },
+    "Dvalin": {
+      "name": "Dvalin",
+      "folder": "Dvalin",
+      "card": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Dvalin.png",
+      "official": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Dvalin/Official Art/neutral.png",
+      "reference": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-tcg-bosses/references/Dvalin/official.png",
+      "reference_sha256": "8557ff993dcae90f45a15c484bda69bcb4c8f0d0eceaec1f17c58a25ff2bc58a",
+      "source": "https://wiki.hoyolab.com/pc/genshin/entry/2217?lang=en-us",
+      "reference_url": "https://act-upload.hoyoverse.com/event-ugc-hoyowiki/2025/04/14/35428890/cb82786f242246a8a264f86efda98c07_5451031171593193352.png",
+      "card_source": "https://genshin-impact.fandom.com/wiki/Dvalin_(Character_Card)",
+      "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-tcg-bosses/prompts/Dvalin/neutral-v001.txt",
+      "tool": "image_gen.imagegen",
+      "tool_arguments": {
+        "prompt": "Use case: stylized-concept. Asset: full-body neutral visual-novel boss sprite of Dvalin from Genshin Impact. The supplied official game portrait is the primary reference: preserve the identifiable design, silhouette, colors, anatomy, and equipment. Depict the boss in a threatening, alert idle pose appropriate to its form, ready for confrontation rather than mid-attack. Preserve its creature or machine anatomy; do not humanize it. Show the entire creature and all extremities, with roughly 2–4% padding at the top and bottom. Polished Genshin-inspired anime game artwork on a genuinely transparent background. No scenery, text, UI, watermark, unrelated subjects, detached effects, or ground shadow.",
+        "referenced_image_paths": [
+          "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-tcg-bosses/references/Dvalin/official.png"
+        ],
+        "transparent_background": true
+      },
+      "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-tcg-bosses/raw/Dvalin/neutral-v001.png",
+      "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-tcg-bosses/candidates/Dvalin/neutral-v001.png",
+      "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-tcg-bosses/sprites/Dvalin/neutral.png",
+      "live_sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Dvalin/neutral.png",
+      "candidate_sha256": "f60b3033e271b0b49fa4e2d0273e6ae66990cc75afe1f2f1465a26312c409db2",
+      "size": [
+        1378,
+        1141
+      ],
+      "png_color_type": 6,
+      "review": "deferred at user request"
+    },
+    "Electro Hypostasis": {
+      "name": "Electro Hypostasis",
+      "folder": "Electro Hypostasis",
+      "card": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Electro Hypostasis.png",
+      "official": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Electro Hypostasis/Official Art/neutral.png",
+      "reference": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-tcg-bosses/references/Electro Hypostasis/official.png",
+      "reference_sha256": "946a5d1c9003234e66d42a6ea3d5290bff6729c835c36d58dfe912a7b4163636",
+      "source": "https://wiki.hoyolab.com/pc/genshin/entry/2162?lang=en-us",
+      "reference_url": "https://act-upload.hoyoverse.com/event-ugc-hoyowiki/2025/04/16/35428890/26029044bd838dacf0f7f0dfb12df885_7849922836302531651.png",
+      "card_source": "https://genshin-impact.fandom.com/wiki/Electro_Hypostasis_(Character_Card)",
+      "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-tcg-bosses/prompts/Electro Hypostasis/neutral-v001.txt",
+      "tool": "image_gen.imagegen",
+      "tool_arguments": {
+        "prompt": "Use case: stylized-concept. Asset: full-body neutral visual-novel boss sprite of Electro Hypostasis from Genshin Impact. The supplied official game portrait is the primary reference: preserve the identifiable design, silhouette, colors, anatomy, and equipment. Depict the boss in a threatening, alert idle pose appropriate to its form, ready for confrontation rather than mid-attack. Preserve its creature or machine anatomy; do not humanize it. Show the entire creature and all extremities, with roughly 2–4% padding at the top and bottom. Polished Genshin-inspired anime game artwork on a genuinely transparent background. No scenery, text, UI, watermark, unrelated subjects, detached effects, or ground shadow.",
+        "referenced_image_paths": [
+          "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-tcg-bosses/references/Electro Hypostasis/official.png"
+        ],
+        "transparent_background": true
+      },
+      "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-tcg-bosses/raw/Electro Hypostasis/neutral-v001.png",
+      "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-tcg-bosses/candidates/Electro Hypostasis/neutral-v001.png",
+      "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-tcg-bosses/sprites/Electro Hypostasis/neutral.png",
+      "live_sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Electro Hypostasis/neutral.png",
+      "candidate_sha256": "b4d76046b9cebd33e91b3268bebe674e7a101bf61e9c390e1021491b01f372d6",
+      "size": [
+        1362,
+        1155
+      ],
+      "png_color_type": 6,
+      "review": "deferred at user request"
+    },
+    "Emperor of Fire and Iron": {
+      "name": "Emperor of Fire and Iron",
+      "folder": "Emperor of Fire and Iron",
+      "card": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Emperor of Fire and Iron.png",
+      "official": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Emperor of Fire and Iron/Official Art/neutral.png",
+      "reference": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-tcg-bosses/references/Emperor of Fire and Iron/official.png",
+      "reference_sha256": "7eba168988519e356ffdacf563c4c21a9279deb2898c4b851c035e9c84071d7a",
+      "source": "https://wiki.hoyolab.com/pc/genshin/entry/3992?lang=en-us",
+      "reference_url": "https://act-upload.hoyoverse.com/event-ugc-hoyowiki/2025/04/16/35428890/21b87f03929d95558267a28da41ba876_2065671397146732279.png",
+      "card_source": "https://genshin-impact.fandom.com/wiki/Emperor_of_Fire_and_Iron_(Character_Card)",
+      "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-tcg-bosses/prompts/Emperor of Fire and Iron/neutral-v001.txt",
+      "tool": "image_gen.imagegen",
+      "tool_arguments": {
+        "prompt": "Use case: stylized-concept. Asset: full-body neutral visual-novel boss sprite of Emperor of Fire and Iron from Genshin Impact. The supplied official game portrait is the primary reference: preserve the identifiable design, silhouette, colors, anatomy, and equipment. Depict the boss in a threatening, alert idle pose appropriate to its form, ready for confrontation rather than mid-attack. Preserve its creature or machine anatomy; do not humanize it. Show the entire creature and all extremities, with roughly 2–4% padding at the top and bottom. Polished Genshin-inspired anime game artwork on a genuinely transparent background. No scenery, text, UI, watermark, unrelated subjects, detached effects, or ground shadow.",
+        "referenced_image_paths": [
+          "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-tcg-bosses/references/Emperor of Fire and Iron/official.png"
+        ],
+        "transparent_background": true
+      },
+      "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-tcg-bosses/raw/Emperor of Fire and Iron/neutral-v001.png",
+      "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-tcg-bosses/candidates/Emperor of Fire and Iron/neutral-v001.png",
+      "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-tcg-bosses/sprites/Emperor of Fire and Iron/neutral.png",
+      "live_sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Emperor of Fire and Iron/neutral.png",
+      "candidate_sha256": "57a5c9cad7e67d2e6a70eaa0c5f2bdafd72de59db71972ba2ef36420bb4099ef",
+      "size": [
+        1515,
+        1038
+      ],
+      "png_color_type": 6,
+      "review": "deferred at user request"
+    },
+    "Experimental Field Generator": {
+      "name": "Experimental Field Generator",
+      "folder": "Experimental Field Generator",
+      "card": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Experimental Field Generator.png",
+      "official": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Experimental Field Generator/Official Art/neutral.png",
+      "reference": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-tcg-bosses/references/Experimental Field Generator/official.png",
+      "reference_sha256": "8619854e5c700806bc25de988857bcafa9b6d6f20b473aa6bf1410caf250389b",
+      "source": "https://wiki.hoyolab.com/pc/genshin/entry/4343?lang=en-us",
+      "reference_url": "https://act-upload.hoyoverse.com/event-ugc-hoyowiki/2025/04/16/35428890/e40c2dd75e97916e1ced4abe6a70012e_942408293675031493.png",
+      "card_source": "https://genshin-impact.fandom.com/wiki/Experimental_Field_Generator_(Character_Card)",
+      "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-tcg-bosses/prompts/Experimental Field Generator/neutral-v001.txt",
+      "tool": "image_gen.imagegen",
+      "tool_arguments": {
+        "prompt": "Use case: stylized-concept. Asset: full-body neutral visual-novel boss sprite of Experimental Field Generator from Genshin Impact. The supplied official game portrait is the primary reference: preserve the identifiable design, silhouette, colors, anatomy, and equipment. Depict the boss in a threatening, alert idle pose appropriate to its form, ready for confrontation rather than mid-attack. Preserve its creature or machine anatomy; do not humanize it. Show the entire creature and all extremities, with roughly 2–4% padding at the top and bottom. Polished Genshin-inspired anime game artwork on a genuinely transparent background. No scenery, text, UI, watermark, unrelated subjects, detached effects, or ground shadow.",
+        "referenced_image_paths": [
+          "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-tcg-bosses/references/Experimental Field Generator/official.png"
+        ],
+        "transparent_background": true
+      },
+      "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-tcg-bosses/raw/Experimental Field Generator/neutral-v001.png",
+      "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-tcg-bosses/candidates/Experimental Field Generator/neutral-v001.png",
+      "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-tcg-bosses/sprites/Experimental Field Generator/neutral.png",
+      "live_sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Experimental Field Generator/neutral.png",
+      "candidate_sha256": "d04152bcb7dbb414507cd4effd37cf70ced65c7140cb46596b6bf2c92c8a4e4c",
+      "size": [
+        1430,
+        1100
+      ],
+      "png_color_type": 6,
+      "review": "deferred at user request"
+    },
+    "Gluttonous Yumkasaur Mountain King": {
+      "name": "Gluttonous Yumkasaur Mountain King",
+      "folder": "Gluttonous Yumkasaur Mountain King",
+      "card": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Gluttonous Yumkasaur Mountain King.png",
+      "official": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Gluttonous Yumkasaur Mountain King/Official Art/neutral.png",
+      "reference": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-tcg-bosses/references/Gluttonous Yumkasaur Mountain King/official.png",
+      "reference_sha256": "fa220fa5a94e81d9176a14d74c3d6138f3d48bff67d2c8f3ac50c1aa04c7460f",
+      "source": "https://wiki.hoyolab.com/pc/genshin/entry/6583?lang=en-us",
+      "reference_url": "https://act-upload.hoyoverse.com/event-ugc-hoyowiki/2025/04/16/35428890/89bd4c368077401177fcfc5efdb0458d_6218384140036125671.png",
+      "card_source": "https://genshin-impact.fandom.com/wiki/Gluttonous_Yumkasaur_Mountain_King_(Character_Card)",
+      "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-tcg-bosses/prompts/Gluttonous Yumkasaur Mountain King/neutral-v002.txt",
+      "tool": "image_gen.imagegen",
+      "tool_arguments": {
+        "prompt": "Use case: stylized-concept. Full-body neutral visual-novel boss sprite of Gluttonous Yumkasaur Mountain King from Genshin Impact, using the supplied official game portrait as the sole identity reference. Preserve its green and cream saurian body, leaf-like mane, colorful leafy tail and imposing broad proportions. Threatening, alert idle stance facing forward. Exactly two forelimbs: one distinct left arm and one distinct right arm, each attached to its own shoulder, resting separately at its sides. Exactly two hind legs beneath its body. The tail and foliage must not resemble extra limbs. Show the complete silhouette with about 2–4% top and bottom padding. Polished Genshin-inspired anime game art, genuinely transparent background; no scenery, UI, text, watermark, detached effects, or ground shadow.",
+        "referenced_image_paths": [
+          "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-tcg-bosses/references/Gluttonous Yumkasaur Mountain King/official.png"
+        ],
+        "transparent_background": true
+      },
+      "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-tcg-bosses/raw/Gluttonous Yumkasaur Mountain King/neutral-v002.png",
+      "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-tcg-bosses/candidates/Gluttonous Yumkasaur Mountain King/neutral-v002.png",
+      "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-tcg-bosses/sprites/Gluttonous Yumkasaur Mountain King/neutral.png",
+      "live_sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Gluttonous Yumkasaur Mountain King/neutral.png",
+      "candidate_sha256": "4df9aa76b43bc63be724d52c36ae8851b9e68c8edd99b2b719a89872b2c610f9",
+      "size": [
+        1372,
+        1147
+      ],
+      "png_color_type": 6,
+      "review": "deferred at user request",
+      "rejected_candidates": [
+        {
+          "file": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-tcg-bosses/candidates/Gluttonous Yumkasaur Mountain King/neutral-v001.png",
+          "sha256": "7f910ab608c75ee3879e25102cfe78421c22bacaadfe214c5aa669ad7d06c562",
+          "user_feedback": "You gave the Gluttonous Yumkasaur Mountain King 3 arms"
+        }
+      ]
+    },
+    "Golden Wolflord": {
+      "name": "Golden Wolflord",
+      "folder": "Golden Wolflord",
+      "card": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Golden Wolflord.png",
+      "official": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Golden Wolflord/Official Art/neutral.png",
+      "reference": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-tcg-bosses/references/Golden Wolflord/official.png",
+      "reference_sha256": "da92c3da04e5490e036b615f1982009178e4d383949e6db0e8fd7b6dc47c9f81",
+      "source": "https://wiki.hoyolab.com/pc/genshin/entry/2247?lang=en-us",
+      "reference_url": "https://act-upload.hoyoverse.com/event-ugc-hoyowiki/2025/04/16/35428890/3c59071d37bceb9dad14387cd2fffd3a_2302546129828269604.png",
+      "card_source": "https://genshin-impact.fandom.com/wiki/Golden_Wolflord_(Character_Card)",
+      "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-tcg-bosses/prompts/Golden Wolflord/neutral-v001.txt",
+      "tool": "image_gen.imagegen",
+      "tool_arguments": {
+        "prompt": "Use case: stylized-concept. Asset: full-body neutral visual-novel boss sprite of Golden Wolflord from Genshin Impact. The supplied official game portrait is the primary reference: preserve the identifiable design, silhouette, colors, anatomy, and equipment. Depict the boss in a threatening, alert idle pose appropriate to its form, ready for confrontation rather than mid-attack. Preserve its creature or machine anatomy; do not humanize it. Show the entire creature and all extremities, with roughly 2–4% padding at the top and bottom. Polished Genshin-inspired anime game artwork on a genuinely transparent background. No scenery, text, UI, watermark, unrelated subjects, detached effects, or ground shadow.",
+        "referenced_image_paths": [
+          "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-tcg-bosses/references/Golden Wolflord/official.png"
+        ],
+        "transparent_background": true
+      },
+      "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-tcg-bosses/raw/Golden Wolflord/neutral-v001.png",
+      "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-tcg-bosses/candidates/Golden Wolflord/neutral-v001.png",
+      "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-tcg-bosses/sprites/Golden Wolflord/neutral.png",
+      "live_sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Golden Wolflord/neutral.png",
+      "candidate_sha256": "0316dff5d80a5a02aa5d860de440bc22e363f22b7d319b1709fb341650c2ca2c",
+      "size": [
+        1312,
+        1199
+      ],
+      "png_color_type": 6,
+      "review": "deferred at user request"
+    },
+    "Goldflame Qucusaur Tyrant": {
+      "name": "Goldflame Qucusaur Tyrant",
+      "folder": "Goldflame Qucusaur Tyrant",
+      "card": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Goldflame Qucusaur Tyrant.png",
+      "official": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Goldflame Qucusaur Tyrant/Official Art/neutral.png",
+      "reference": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-tcg-bosses/references/Goldflame Qucusaur Tyrant/official.png",
+      "reference_sha256": "9019bf285be81ab8c0e2a6ae613644ce2cc9a47a7d47567b6c33563917aae9c0",
+      "source": "https://wiki.hoyolab.com/pc/genshin/entry/6584?lang=en-us",
+      "reference_url": "https://act-upload.hoyoverse.com/event-ugc-hoyowiki/2025/04/16/35428890/284657e0240fcdf6229b518dbddd347d_1805163402181374370.png",
+      "card_source": "https://genshin-impact.fandom.com/wiki/Goldflame_Qucusaur_Tyrant_(Character_Card)",
+      "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-tcg-bosses/prompts/Goldflame Qucusaur Tyrant/neutral-v001.txt",
+      "tool": "image_gen.imagegen",
+      "tool_arguments": {
+        "prompt": "Use case: stylized-concept. Asset: full-body neutral visual-novel boss sprite of Goldflame Qucusaur Tyrant from Genshin Impact. The supplied official game portrait is the primary reference: preserve the identifiable design, silhouette, colors, anatomy, and equipment. Depict the boss in a threatening, alert idle pose appropriate to its form, ready for confrontation rather than mid-attack. Preserve its creature or machine anatomy; do not humanize it. Show the entire creature and all extremities, with roughly 2–4% padding at the top and bottom. Polished Genshin-inspired anime game artwork on a genuinely transparent background. No scenery, text, UI, watermark, unrelated subjects, detached effects, or ground shadow.",
+        "referenced_image_paths": [
+          "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-tcg-bosses/references/Goldflame Qucusaur Tyrant/official.png"
+        ],
+        "transparent_background": true
+      },
+      "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-tcg-bosses/raw/Goldflame Qucusaur Tyrant/neutral-v001.png",
+      "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-tcg-bosses/candidates/Goldflame Qucusaur Tyrant/neutral-v001.png",
+      "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-tcg-bosses/sprites/Goldflame Qucusaur Tyrant/neutral.png",
+      "live_sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Goldflame Qucusaur Tyrant/neutral.png",
+      "candidate_sha256": "15eef5d268cb04f087e8173e982708ec94b81ea60093a9027676101e7715481b",
+      "size": [
+        1473,
+        1068
+      ],
+      "png_color_type": 6,
+      "review": "deferred at user request"
+    },
+    "Guardian of Apep's Oasis": {
+      "name": "Guardian of Apep's Oasis",
+      "folder": "Guardian of Apep's Oasis",
+      "card": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Guardian of Apep's Oasis.png",
+      "official": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Guardian of Apep's Oasis/Official Art/neutral.png",
+      "reference": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-tcg-bosses/references/Guardian of Apep's Oasis/official.png",
+      "reference_sha256": "12f1e072efdc1e32f4623122e6365d4855f1af1a3c069138aa1ec5ba679ee55e",
+      "source": "https://wiki.hoyolab.com/pc/genshin/entry/3695?lang=en-us",
+      "reference_url": "https://act-upload.hoyoverse.com/event-ugc-hoyowiki/2025/04/14/35428890/ed8c6ef5ae3d10d959f98964db2393bc_5240747728829605918.png",
+      "card_source": "https://genshin-impact.fandom.com/wiki/Guardian_of_Apep's_Oasis_(Character_Card)",
+      "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-tcg-bosses/prompts/Guardian of Apep's Oasis/neutral-v001.txt",
+      "tool": "image_gen.imagegen",
+      "tool_arguments": {
+        "prompt": "Use case: stylized-concept. Asset: full-body neutral visual-novel boss sprite of Guardian of Apep's Oasis from Genshin Impact. The supplied official game portrait is the primary reference: preserve the identifiable design, silhouette, colors, anatomy, and equipment. Depict the boss in a threatening, alert idle pose appropriate to its form, ready for confrontation rather than mid-attack. Preserve its creature or machine anatomy; do not humanize it. Show the entire creature and all extremities, with roughly 2–4% padding at the top and bottom. Polished Genshin-inspired anime game artwork on a genuinely transparent background. No scenery, text, UI, watermark, unrelated subjects, detached effects, or ground shadow.",
+        "referenced_image_paths": [
+          "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-tcg-bosses/references/Guardian of Apep's Oasis/official.png"
+        ],
+        "transparent_background": true
+      },
+      "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-tcg-bosses/raw/Guardian of Apep's Oasis/neutral-v001.png",
+      "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-tcg-bosses/candidates/Guardian of Apep's Oasis/neutral-v001.png",
+      "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-tcg-bosses/sprites/Guardian of Apep's Oasis/neutral.png",
+      "live_sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Guardian of Apep's Oasis/neutral.png",
+      "candidate_sha256": "622e1d8db96d8f8f400a43859eb0ba48f3eed63cab59dc6837006391ac121bc4",
+      "size": [
+        1323,
+        1189
+      ],
+      "png_color_type": 6,
+      "review": "deferred at user request"
+    },
+    "Hydro Hypostasis": {
+      "name": "Hydro Hypostasis",
+      "folder": "Hydro Hypostasis",
+      "card": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Hydro Hypostasis.png",
+      "official": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Hydro Hypostasis/Official Art/neutral.png",
+      "reference": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-tcg-bosses/references/Hydro Hypostasis/official.png",
+      "reference_sha256": "70d5c170b6503e756637e0c7b806fdfd8ffa3567f311ce1fabebb961ad55c06c",
+      "source": "https://wiki.hoyolab.com/pc/genshin/entry/2160?lang=en-us",
+      "reference_url": "https://act-upload.hoyoverse.com/event-ugc-hoyowiki/2025/04/16/35428890/29636aec2ef0c864a34c8fcc65d1dcb8_6463285974750348523.png",
+      "card_source": "https://genshin-impact.fandom.com/wiki/Hydro_Hypostasis_(Character_Card)",
+      "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-tcg-bosses/prompts/Hydro Hypostasis/neutral-v001.txt",
+      "tool": "image_gen.imagegen",
+      "tool_arguments": {
+        "prompt": "Use case: stylized-concept. Asset: full-body neutral visual-novel boss sprite of Hydro Hypostasis from Genshin Impact. The supplied official game portrait is the primary reference: preserve the identifiable design, silhouette, colors, anatomy, and equipment. Depict the boss in a threatening, alert idle pose appropriate to its form, ready for confrontation rather than mid-attack. Preserve its creature or machine anatomy; do not humanize it. Show the entire creature and all extremities, with roughly 2–4% padding at the top and bottom. Polished Genshin-inspired anime game artwork on a genuinely transparent background. No scenery, text, UI, watermark, unrelated subjects, detached effects, or ground shadow.",
+        "referenced_image_paths": [
+          "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-tcg-bosses/references/Hydro Hypostasis/official.png"
+        ],
+        "transparent_background": true
+      },
+      "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-tcg-bosses/raw/Hydro Hypostasis/neutral-v001.png",
+      "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-tcg-bosses/candidates/Hydro Hypostasis/neutral-v001.png",
+      "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-tcg-bosses/sprites/Hydro Hypostasis/neutral.png",
+      "live_sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Hydro Hypostasis/neutral.png",
+      "candidate_sha256": "630e6ad13f8ee47397a80409299fda74d167e5edb48c65fc7642ceb02fd8c6f7",
+      "size": [
+        1288,
+        1221
+      ],
+      "png_color_type": 6,
+      "review": "deferred at user request"
+    },
+    "Hydro Tulpa": {
+      "name": "Hydro Tulpa",
+      "folder": "Hydro Tulpa",
+      "card": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Hydro Tulpa.png",
+      "official": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Hydro Tulpa/Official Art/neutral.png",
+      "reference": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-tcg-bosses/references/Hydro Tulpa/official.png",
+      "reference_sha256": "a62c1ee80712958e2cd5c7d3dac2a44d01272d4f4702d6b9548771d87e6acfab",
+      "source": "https://wiki.hoyolab.com/pc/genshin/entry/4571?lang=en-us",
+      "reference_url": "https://upload-static.hoyoverse.com/hoyolab-wiki/2023/11/09/35428890/7c449fb52823e32c87ac880d87812efa_4634166586208400992.png",
+      "card_source": "https://genshin-impact.fandom.com/wiki/Hydro_Tulpa_(Character_Card)",
+      "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-tcg-bosses/prompts/Hydro Tulpa/neutral-v001.txt",
+      "tool": "image_gen.imagegen",
+      "tool_arguments": {
+        "prompt": "Use case: stylized-concept. Asset: full-body neutral visual-novel boss sprite of Hydro Tulpa from Genshin Impact. The supplied official game portrait is the primary reference: preserve the identifiable design, silhouette, colors, anatomy, and equipment. Depict the boss in a threatening, alert idle pose appropriate to its form, ready for confrontation rather than mid-attack. Preserve its creature or machine anatomy; do not humanize it. Show the entire creature and all extremities, with roughly 2–4% padding at the top and bottom. Polished Genshin-inspired anime game artwork on a genuinely transparent background. No scenery, text, UI, watermark, unrelated subjects, detached effects, or ground shadow.",
+        "referenced_image_paths": [
+          "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-tcg-bosses/references/Hydro Tulpa/official.png"
+        ],
+        "transparent_background": true
+      },
+      "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-tcg-bosses/raw/Hydro Tulpa/neutral-v001.png",
+      "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-tcg-bosses/candidates/Hydro Tulpa/neutral-v001.png",
+      "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-tcg-bosses/sprites/Hydro Tulpa/neutral.png",
+      "live_sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Hydro Tulpa/neutral.png",
+      "candidate_sha256": "6c464bb324a9560358ad57988f47f05cd029249a20e0040abb6b9d145e64b6fc",
+      "size": [
+        1515,
+        1038
+      ],
+      "png_color_type": 6,
+      "review": "deferred at user request"
+    },
+    "Jadeplume Terrorshroom": {
+      "name": "Jadeplume Terrorshroom",
+      "folder": "Jadeplume Terrorshroom",
+      "card": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Jadeplume Terrorshroom.png",
+      "official": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Jadeplume Terrorshroom/Official Art/neutral.png",
+      "reference": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-tcg-bosses/references/Jadeplume Terrorshroom/official.png",
+      "reference_sha256": "dfdac8476f834d8b295a634fa84a96ec713a006a88c9534a62f8f17f5072969d",
+      "source": "https://wiki.hoyolab.com/pc/genshin/entry/2716?lang=en-us",
+      "reference_url": "https://act-upload.hoyoverse.com/event-ugc-hoyowiki/2025/04/16/35428890/cc0d77afe6449a8cfed6c1f6500fe5c5_819793732519633656.png",
+      "card_source": "https://genshin-impact.fandom.com/wiki/Jadeplume_Terrorshroom_(Character_Card)",
+      "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-tcg-bosses/prompts/Jadeplume Terrorshroom/neutral-v001.txt",
+      "tool": "image_gen.imagegen",
+      "tool_arguments": {
+        "prompt": "Use case: stylized-concept. Asset: full-body neutral visual-novel boss sprite of Jadeplume Terrorshroom from Genshin Impact. The supplied official game portrait is the primary reference: preserve the identifiable design, silhouette, colors, anatomy, and equipment. Depict the boss in a threatening, alert idle pose appropriate to its form, ready for confrontation rather than mid-attack. Preserve its creature or machine anatomy; do not humanize it. Show the entire creature and all extremities, with roughly 2–4% padding at the top and bottom. Polished Genshin-inspired anime game artwork on a genuinely transparent background. No scenery, text, UI, watermark, unrelated subjects, detached effects, or ground shadow.",
+        "referenced_image_paths": [
+          "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-tcg-bosses/references/Jadeplume Terrorshroom/official.png"
+        ],
+        "transparent_background": true
+      },
+      "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-tcg-bosses/raw/Jadeplume Terrorshroom/neutral-v001.png",
+      "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-tcg-bosses/candidates/Jadeplume Terrorshroom/neutral-v001.png",
+      "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-tcg-bosses/sprites/Jadeplume Terrorshroom/neutral.png",
+      "live_sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Jadeplume Terrorshroom/neutral.png",
+      "candidate_sha256": "0272706e53ca5a9c0030c66f8538e99dc109d5c840da86012723a25ebdc1917c",
+      "size": [
+        1340,
+        1174
+      ],
+      "png_color_type": 6,
+      "review": "deferred at user request"
+    },
+    "Lord of Eroded Primal Fire": {
+      "name": "Lord of Eroded Primal Fire",
+      "folder": "Lord of Eroded Primal Fire",
+      "card": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Lord of Eroded Primal Fire.png",
+      "official": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Lord of Eroded Primal Fire/Official Art/neutral.png",
+      "reference": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-tcg-bosses/references/Lord of Eroded Primal Fire/official.png",
+      "reference_sha256": "eae57eaf8897705fe7edd10b8e8aac955ade83106ac38d1cdfed96b83f55e2cd",
+      "source": "https://wiki.hoyolab.com/pc/genshin/entry/7368?lang=en-us",
+      "reference_url": "https://act-webstatic.hoyoverse.com/event-static-hoyowiki-admin/2024/12/26/b4317e98e513ab901f6b9504ec2fcc38_6097332495522279984.png",
+      "card_source": "https://genshin-impact.fandom.com/wiki/Lord_of_Eroded_Primal_Fire_(Character_Card)",
+      "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-tcg-bosses/prompts/Lord of Eroded Primal Fire/neutral-v001.txt",
+      "tool": "image_gen.imagegen",
+      "tool_arguments": {
+        "prompt": "Use case: stylized-concept. Asset: full-body neutral visual-novel boss sprite of Lord of Eroded Primal Fire from Genshin Impact. The supplied official game portrait is the primary reference: preserve the identifiable design, silhouette, colors, anatomy, and equipment. Depict the boss in a threatening, alert idle pose appropriate to its form, ready for confrontation rather than mid-attack. Preserve its creature or machine anatomy; do not humanize it. Show the entire creature and all extremities, with roughly 2–4% padding at the top and bottom. Polished Genshin-inspired anime game artwork on a genuinely transparent background. No scenery, text, UI, watermark, unrelated subjects, detached effects, or ground shadow.",
+        "referenced_image_paths": [
+          "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-tcg-bosses/references/Lord of Eroded Primal Fire/official.png"
+        ],
+        "transparent_background": true
+      },
+      "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-tcg-bosses/raw/Lord of Eroded Primal Fire/neutral-v001.png",
+      "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-tcg-bosses/candidates/Lord of Eroded Primal Fire/neutral-v001.png",
+      "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-tcg-bosses/sprites/Lord of Eroded Primal Fire/neutral.png",
+      "live_sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Lord of Eroded Primal Fire/neutral.png",
+      "candidate_sha256": "187cdf3332bdd2f6fd1f136060b92d4c64358fc21d3ec049154f568567653333",
+      "size": [
+        1254,
+        1254
+      ],
+      "png_color_type": 6,
+      "review": "deferred at user request"
+    },
+    "Maguu Kenki": {
+      "name": "Maguu Kenki",
+      "folder": "Maguu Kenki",
+      "card": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Maguu Kenki.png",
+      "official": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Maguu Kenki/Official Art/neutral.png",
+      "reference": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-tcg-bosses/references/Maguu Kenki/official.png",
+      "reference_sha256": "300620442857f41b9b517ef280a71dcf3b5a18dd4e725d3f75864b101d13ec93",
+      "source": "https://wiki.hoyolab.com/pc/genshin/entry/2243?lang=en-us",
+      "reference_url": "https://act-upload.hoyoverse.com/event-ugc-hoyowiki/2025/04/16/35428890/eed7d8fa67bcc9e7167cbd6cf3ba2257_6903362597196322416.png",
+      "card_source": "https://genshin-impact.fandom.com/wiki/Maguu_Kenki_(Character_Card)",
+      "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-tcg-bosses/prompts/Maguu Kenki/neutral-v001.txt",
+      "tool": "image_gen.imagegen",
+      "tool_arguments": {
+        "prompt": "Use case: stylized-concept. Asset: full-body neutral visual-novel boss sprite of Maguu Kenki from Genshin Impact. The supplied official game portrait is the primary reference: preserve the identifiable design, silhouette, colors, anatomy, and equipment. Depict the boss in a threatening, alert idle pose appropriate to its form, ready for confrontation rather than mid-attack. Preserve its creature or machine anatomy; do not humanize it. Show the entire creature and all extremities, with roughly 2–4% padding at the top and bottom. Polished Genshin-inspired anime game artwork on a genuinely transparent background. No scenery, text, UI, watermark, unrelated subjects, detached effects, or ground shadow.",
+        "referenced_image_paths": [
+          "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-tcg-bosses/references/Maguu Kenki/official.png"
+        ],
+        "transparent_background": true
+      },
+      "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-tcg-bosses/raw/Maguu Kenki/neutral-v001.png",
+      "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-tcg-bosses/candidates/Maguu Kenki/neutral-v001.png",
+      "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-tcg-bosses/sprites/Maguu Kenki/neutral.png",
+      "live_sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Maguu Kenki/neutral.png",
+      "candidate_sha256": "e0be2340e58122590c3c20c7bacbc7f22ebf28d605efd2c2a2e09b4644eb1112",
+      "size": [
+        1140,
+        1380
+      ],
+      "png_color_type": 6,
+      "review": "deferred at user request"
+    },
+    "Millennial Pearl Seahorse": {
+      "name": "Millennial Pearl Seahorse",
+      "folder": "Millennial Pearl Seahorse",
+      "card": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Millennial Pearl Seahorse.png",
+      "official": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Millennial Pearl Seahorse/Official Art/neutral.png",
+      "reference": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-tcg-bosses/references/Millennial Pearl Seahorse/official.png",
+      "reference_sha256": "4162649fb7f8ba0ca57704b5e094a560943c432911ff560d0023b57da1a3d005",
+      "source": "https://wiki.hoyolab.com/pc/genshin/entry/4344?lang=en-us",
+      "reference_url": "https://act-upload.hoyoverse.com/event-ugc-hoyowiki/2025/04/16/35428890/6bc766e3f60a0369b56e8bc75bb6190e_6843751668023619274.png",
+      "card_source": "https://genshin-impact.fandom.com/wiki/Millennial_Pearl_Seahorse_(Character_Card)",
+      "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-tcg-bosses/prompts/Millennial Pearl Seahorse/neutral-v001.txt",
+      "tool": "image_gen.imagegen",
+      "tool_arguments": {
+        "prompt": "Use case: stylized-concept. Asset: full-body neutral visual-novel boss sprite of Millennial Pearl Seahorse from Genshin Impact. The supplied official game portrait is the primary reference: preserve the identifiable design, silhouette, colors, anatomy, and equipment. Depict the boss in a threatening, alert idle pose appropriate to its form, ready for confrontation rather than mid-attack. Preserve its creature or machine anatomy; do not humanize it. Show the entire creature and all extremities, with roughly 2–4% padding at the top and bottom. Polished Genshin-inspired anime game artwork on a genuinely transparent background. No scenery, text, UI, watermark, unrelated subjects, detached effects, or ground shadow.",
+        "referenced_image_paths": [
+          "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-tcg-bosses/references/Millennial Pearl Seahorse/official.png"
+        ],
+        "transparent_background": true
+      },
+      "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-tcg-bosses/raw/Millennial Pearl Seahorse/neutral-v001.png",
+      "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-tcg-bosses/candidates/Millennial Pearl Seahorse/neutral-v001.png",
+      "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-tcg-bosses/sprites/Millennial Pearl Seahorse/neutral.png",
+      "live_sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Millennial Pearl Seahorse/neutral.png",
+      "candidate_sha256": "8f2c5351713308dcc718bfe37923468c68e96a77be7ed341864ee53bb0d99a2c",
+      "size": [
+        1443,
+        1090
+      ],
+      "png_color_type": 6,
+      "review": "deferred at user request"
+    },
+    "Rhodeia of Loch": {
+      "name": "Rhodeia of Loch",
+      "folder": "Rhodeia of Loch",
+      "card": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Rhodeia of Loch.png",
+      "official": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Rhodeia of Loch/Official Art/neutral.png",
+      "reference": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-tcg-bosses/references/Rhodeia of Loch/official.png",
+      "reference_sha256": "e77ec03f59d93a338919ad5e0249f961bb201e8b5456f00dc774eb0c7a614910",
+      "source": "https://wiki.hoyolab.com/pc/genshin/entry/2211?lang=en-us",
+      "reference_url": "https://act-upload.hoyoverse.com/event-ugc-hoyowiki/2025/04/16/35428890/c08666dd59a1a8d30bc9ba0590bbad49_4188553397546033707.png",
+      "card_source": "https://genshin-impact.fandom.com/wiki/Rhodeia_of_Loch_(Character_Card)",
+      "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-tcg-bosses/prompts/Rhodeia of Loch/neutral-v001.txt",
+      "tool": "image_gen.imagegen",
+      "tool_arguments": {
+        "prompt": "Use case: stylized-concept. Asset: full-body neutral visual-novel boss sprite of Rhodeia of Loch from Genshin Impact. The supplied official game portrait is the primary reference: preserve the identifiable design, silhouette, colors, anatomy, and equipment. Depict the boss in a threatening, alert idle pose appropriate to its form, ready for confrontation rather than mid-attack. Preserve its creature or machine anatomy; do not humanize it. Show the entire creature and all extremities, with roughly 2–4% padding at the top and bottom. Polished Genshin-inspired anime game artwork on a genuinely transparent background. No scenery, text, UI, watermark, unrelated subjects, detached effects, or ground shadow.",
+        "referenced_image_paths": [
+          "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-tcg-bosses/references/Rhodeia of Loch/official.png"
+        ],
+        "transparent_background": true
+      },
+      "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-tcg-bosses/raw/Rhodeia of Loch/neutral-v001.png",
+      "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-tcg-bosses/candidates/Rhodeia of Loch/neutral-v001.png",
+      "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-tcg-bosses/sprites/Rhodeia of Loch/neutral.png",
+      "live_sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Rhodeia of Loch/neutral.png",
+      "candidate_sha256": "ebdb93d66c2c9dd0d0a9c75a3fea8fac57e44c3f02e33a6cd40ddfe6ed9e546b",
+      "size": [
+        1620,
+        971
+      ],
+      "png_color_type": 6,
+      "review": "deferred at user request"
+    },
+    "Thunder Manifestation": {
+      "name": "Thunder Manifestation",
+      "folder": "Thunder Manifestation",
+      "card": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Thunder Manifestation.png",
+      "official": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Thunder Manifestation/Official Art/neutral.png",
+      "reference": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-tcg-bosses/references/Thunder Manifestation/official.png",
+      "reference_sha256": "104e82fde5ca332e955d8852f24b794bcfce548eee88ebcd481e344964bef0a1",
+      "source": "https://wiki.hoyolab.com/pc/genshin/entry/2238?lang=en-us",
+      "reference_url": "https://act-upload.hoyoverse.com/event-ugc-hoyowiki/2025/04/16/35428890/d4682b7a4f662b63c0d0116777da9f80_46754942656902562.png",
+      "card_source": "https://genshin-impact.fandom.com/wiki/Thunder_Manifestation_(Character_Card)",
+      "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-tcg-bosses/prompts/Thunder Manifestation/neutral-v001.txt",
+      "tool": "image_gen.imagegen",
+      "tool_arguments": {
+        "prompt": "Use case: stylized-concept. Asset: full-body neutral visual-novel boss sprite of Thunder Manifestation from Genshin Impact. The supplied official game portrait is the primary reference: preserve its recognizable avian elemental form, purple palette, angular wings and distinctive silhouette. Depict a threatening, alert hovering idle pose, ready for confrontation rather than mid-attack. Preserve its creature anatomy; do not humanize it. Show the entire creature and wings with roughly 2–4% padding. Polished Genshin-inspired anime game artwork on a genuinely transparent background. No scenery, text, UI, watermark, unrelated subjects, detached effects, or ground shadow.",
+        "referenced_image_paths": [
+          "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-tcg-bosses/references/Thunder Manifestation/official.png"
+        ],
+        "transparent_background": true
+      },
+      "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-tcg-bosses/raw/Thunder Manifestation/neutral-v001.png",
+      "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-tcg-bosses/candidates/Thunder Manifestation/neutral-v001.png",
+      "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-tcg-bosses/sprites/Thunder Manifestation/neutral.png",
+      "live_sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Thunder Manifestation/neutral.png",
+      "candidate_sha256": "3fd87a62a2cb57a6b79fc6a7abaff7db127377f07d8b55d75e7797a84fe0264b",
+      "size": [
+        1672,
+        941
+      ],
+      "png_color_type": 6,
+      "review": "deferred at user request"
+    }
+  }
+}

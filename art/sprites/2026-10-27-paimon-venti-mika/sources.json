@@ -1,0 +1,75 @@
+{
+  "Paimon": {
+    "references": [
+      {
+        "file": "references/Paimon/official.png",
+        "original": "/var/folders/yb/h8ks0jfd6jl0jdj3npytrx2r0000gn/T/codex-clipboard-0dbb13da-9df7-487b-8783-c433f513305a.png",
+        "sha256": "bbfb7c8a8e11583bbc1dd441ef0e8aab9e562718dbeb7a5b6cec660e10450534",
+        "user_attachment": 3
+      },
+      {
+        "file": "references/Paimon/official-detail-02.png",
+        "original": "/var/folders/yb/h8ks0jfd6jl0jdj3npytrx2r0000gn/T/codex-clipboard-39e53e64-1308-48ac-94e5-f5d706b18978.png",
+        "sha256": "952a5c1cc53a538cc61d520afdd6ec9ad1bca0647d7aadf658731867787c6e9c",
+        "user_attachment": 2
+      },
+      {
+        "file": "references/Paimon/official-detail-04.png",
+        "original": "/var/folders/yb/h8ks0jfd6jl0jdj3npytrx2r0000gn/T/codex-clipboard-bc40bcd0-acbf-498b-93fb-98e30a2ada6e.png",
+        "sha256": "df876ed1fa3693f3b87e515fa8727c9d8117e74c13109090e8de117cfdb9a193",
+        "user_attachment": 4
+      },
+      {
+        "file": "references/Paimon/official-detail-05.png",
+        "original": "/var/folders/yb/h8ks0jfd6jl0jdj3npytrx2r0000gn/T/codex-clipboard-cc9424ef-f10e-4867-88e2-b4675ef3bf77.png",
+        "sha256": "8ce1536cadcedf5129d8c61915f887814d33b36b106b9603579003369d2abf4e",
+        "user_attachment": 5
+      },
+      {
+        "file": "references/Paimon/official-detail-06.png",
+        "original": "/var/folders/yb/h8ks0jfd6jl0jdj3npytrx2r0000gn/T/codex-clipboard-3fce8b53-2079-44d0-ba67-dff69ba0efa0.png",
+        "sha256": "9b5c839ef18b64356e22bf0ce13b9eb265170c78b8563903d79e4998eb0ac2e2",
+        "user_attachment": 6
+      }
+    ],
+    "candidate": "candidates/Paimon/neutral-v005.png",
+    "approval": {
+      "user_message": "Good! Use this Paimon and the other approved neutrals to make new sprite sheets.",
+      "date": "2026-10-28",
+      "candidate": "candidates/Paimon/neutral-v005.png",
+      "candidate_sha256": "945949b39c0bf48306e698b27431240f947089a4257ed66013dea6a86711710f"
+    }
+  },
+  "Venti": {
+    "references": [
+      {
+        "file": "references/Venti/official.png",
+        "original": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Venti/Official Art/neutral.png",
+        "sha256": "0adbc5a77e31319a0b20eecebc53e93bde5e4c5ee0f16b8ba70d659c56788c9c",
+        "user_attachment": null
+      }
+    ],
+    "candidate": "candidates/Venti/neutral-v001.png",
+    "approval": {
+      "user_message": "Venti's new neutral is good, save it. Regenerate Mika and Paimon, Paimon has messed up hands and Mika's eyes look weird.",
+      "candidate": "candidates/Venti/neutral-v001.png",
+      "candidate_sha256": "a53f7a14daac8d2c44bbf4006faff01f85a48ab575d3074f09ab0f563bc72403"
+    }
+  },
+  "Mika": {
+    "references": [
+      {
+        "file": "references/Mika/official.png",
+        "original": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Mika/Official Art/neutral.png",
+        "sha256": "ed767f4a0f2d4b80a13100f798a9364be4771af4cd29d79fd55f5b259acd7aa8",
+        "user_attachment": null
+      }
+    ],
+    "candidate": "candidates/Mika/neutral-v002.png",
+    "approval": {
+      "user_message": "Mika is good! Paimon's thighs should be chubbier",
+      "candidate": "candidates/Mika/neutral-v002.png",
+      "candidate_sha256": "02f557b8140b44f3f7b0325ad64394f237b410aaa924751bf20aaf69132d76cf"
+    }
+  }
+}
