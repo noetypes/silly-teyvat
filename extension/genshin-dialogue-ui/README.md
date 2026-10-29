@@ -1,3 +1,9 @@
+# Silly Teyvat 1.44.1: More places to explore
+
+- **42 additional destinations.** New locations and exploration playlists fill gaps across all eight mapped regions. Their source links, marker methods and image limitations are recorded in the location catalog.
+- **Safer coordinate corrections.** Foggy Forest Path, Lumidouce Harbor, the Fortress of Meropide, the Fane of Ashvattha, Fort Charybdis and Lumberpick Valley now use location-specific markers. Saved pins move only if they still match the old bundled coordinates; custom positions, artwork and playlists are preserved. Underground floors remain projected onto the surface map.
+- **Music files.** New bundled assignments register their local audio files when those files are available. Existing music names, custom playlists and intentionally empty playlists are preserved.
+
 # Silly Teyvat 1.44.0: Quieter combat, duels and enemy-started fights
 
 - **Sprite staging.** On a phone on its side and on a desktop, neighbours now stand close together (slightly overlapping, with a wider gap where your party meets the enemies) instead of spreading to the edges. On an upright phone, three or more sprites are drawn smaller and overlap less, so the row is no longer cramped.

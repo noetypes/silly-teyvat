@@ -1,5 +1,5 @@
 {
-  "version": 7,
+  "version": 10,
   "retrieved": "2026-10-26",
   "coordinateSource": "https://sg-public-api-static.hoyolab.com/common/map_user/ys_obc/v1/map/map_anchor/list?map_id=2&app_sn=ys_obc&lang=en-us",
   "locations": [
@@ -789,10 +789,10 @@
       "description": "The underwater fortress administered by Wriothesley. Sigewinne cares for its residents as head nurse.",
       "waypoint": {
         "mapId": "teyvat",
-        "x": -5412,
-        "y": -2340
+        "x": -5322.5,
+        "y": -2133.25
       },
-      "coordinateMethod": "Approximate building entrance on the shared surface map; interior height is not represented.",
+      "coordinateMethod": "HoYoLAB point 88120 identifies the underwater entrance to the Fortress of Meropide. The background is an interior; this surface-map pin represents the entrance and does not encode its floor.",
       "imageURL": "https://static.wikia.nocookie.net/gensin-impact/images/c/cf/Administrative_Area.png/revision/latest?cb=20240428183200",
       "source": "https://genshin-impact.fandom.com/wiki/File:Administrative_Area.png",
       "loreSource": "https://genshin-impact.fandom.com/wiki/Fortress_of_Meropide",
@@ -810,7 +810,9 @@
         "gameUI": false,
         "captions": false,
         "camera": "Administrative floor interior, without playable characters."
-      }
+      },
+      "coordinateSource": "https://sg-public-api-static.hoyolab.com/common/map_user/ys_obc/v1/map/point/info?map_id=2&app_sn=ys_obc&lang=en-us&point_id=88120",
+      "pointSource": "https://sg-public-api-static.hoyolab.com/common/map_user/ys_obc/v1/map/point/info?map_id=2&app_sn=ys_obc&lang=en-us&point_id=88120"
     },
     {
       "id": "starter-poisson",
@@ -3182,11 +3184,11 @@
       "description": "A timber-planked mine trail crosses a shelf of the Chasm, with broken rail tracks and weathered scaffolds threading between the stone walls. It is a quiet worksite above the old underground routes.",
       "waypoint": {
         "mapId": "teyvat",
-        "x": -2518.0,
-        "y": 2993.0
+        "x": -2408.3632011208138,
+        "y": 2610.571790446288
       },
-      "coordinateMethod": "Center of the official HoYoLAB map anchor bounds for The Chasm. Lumberpick Valley has no separate anchor in the exported map data, so this is an approximate point within the Chasm; native map units.",
-      "coordinateSource": "https://sg-public-api-static.hoyolab.com/common/map_user/ys_obc/v1/map/map_anchor/list?map_id=2&app_sn=ys_obc&lang=en-us",
+      "coordinateMethod": "HoYoLAB point 26445 is a teleport waypoint within the Lumberpick Valley map label bounds. The background depicts nearby mine tracks, not the precise teleport platform.",
+      "coordinateSource": "https://sg-public-api-static.hoyolab.com/common/map_user/ys_obc/v1/map/point/info?map_id=2&app_sn=ys_obc&lang=en-us&point_id=26445",
       "imageURL": "https://static.wikia.nocookie.net/gensin-impact/images/a/a8/Lumberpick_Valley.png/revision/latest?cb=20220330032756",
       "source": "https://genshin-impact.fandom.com/wiki/File:Lumberpick_Valley.png",
       "loreSource": "https://genshin-impact.fandom.com/wiki/The_Chasm_(Area)",
@@ -3217,7 +3219,8 @@
         "Hilichurl Fighter.png",
         "Hilichurl Shooter.png",
         "Hydro Slime.png"
-      ]
+      ],
+      "pointSource": "https://sg-public-api-static.hoyolab.com/common/map_user/ys_obc/v1/map/point/info?map_id=2&app_sn=ys_obc&lang=en-us&point_id=26445"
     },
     {
       "id": "wild-liyue-mt-hulao",
@@ -3769,12 +3772,12 @@
       "description": "A hidden chamber in Vissudha Field surrounds the ancient Ashvattha Tree with old stonework, roots, and a narrow stair. Aranara stories and the Varuna Gatha quest lead to this secluded underground sanctuary.",
       "waypoint": {
         "mapId": "teyvat",
-        "x": -4320.0,
-        "y": 3120.0
+        "x": -4372.0836026359075,
+        "y": 2934
       },
-      "coordinateMethod": "Approximate waypoint within the official HoYoLAB map_id=2 Vissudha Field (anchor 153) map-anchor bounds, cross-checked against the nearby label_id=3 Teleport Waypoint point at (-4320.0, 3120.0). This is a 2D surface map; vertical floors are not represented.",
-      "coordinateSource": "https://sg-public-api-static.hoyolab.com/common/map_user/ys_obc/v1/map/map_anchor/list?map_id=2&app_sn=ys_obc&lang=en-us",
-      "pointSource": "https://sg-public-api-static.hoyolab.com/common/map_user/ys_obc/v1/map/point/list?map_id=2&app_sn=ys_obc&lang=en-us",
+      "coordinateMethod": "HoYoLAB point 30445 marks the For the Children of the Past quest entrance near the Fane of Ashvattha. The underground tree scene is nearby; the surface map cannot encode its floor.",
+      "coordinateSource": "https://sg-public-api-static.hoyolab.com/common/map_user/ys_obc/v1/map/point/info?map_id=2&app_sn=ys_obc&lang=en-us&point_id=30445",
+      "pointSource": "https://sg-public-api-static.hoyolab.com/common/map_user/ys_obc/v1/map/point/info?map_id=2&app_sn=ys_obc&lang=en-us&point_id=30445",
       "imageURL": "https://static.wikia.nocookie.net/gensin-impact/images/8/89/Fane_of_Ashvattha.png/revision/latest?cb=20220827093927",
       "source": "https://genshin-impact.fandom.com/wiki/Fane_of_Ashvattha",
       "loreSource": "https://genshin-impact.fandom.com/wiki/Fane_of_Ashvattha",
@@ -3864,12 +3867,12 @@
       "description": "A misted path cuts through the pine forest of Erinnyes, winding past a strange Hydro altar and luminous flowers. The quiet glade feels remote from Fontaine’s busy streets and hides old paths beneath its roots.",
       "waypoint": {
         "mapId": "teyvat",
-        "x": -4215.5,
-        "y": -1366.0
+        "x": -4071.5017495309758,
+        "y": -974.2472724081645
       },
-      "coordinateMethod": "Approximate waypoint within the official HoYoLAB map_id=2 Erinnyes Forest (anchor 233) map-anchor bounds, cross-checked against the nearby label_id=3 Teleport Waypoint point at (-4215.5, -1366.0). This is a 2D surface map; vertical floors are not represented.",
-      "coordinateSource": "https://sg-public-api-static.hoyolab.com/common/map_user/ys_obc/v1/map/map_anchor/list?map_id=2&app_sn=ys_obc&lang=en-us",
-      "pointSource": "https://sg-public-api-static.hoyolab.com/common/map_user/ys_obc/v1/map/point/list?map_id=2&app_sn=ys_obc&lang=en-us",
+      "coordinateMethod": "HoYoLAB point 56766 identifies the Mysterious Altar in Foggy Forest Path, matching the pictured quest location.",
+      "coordinateSource": "https://sg-public-api-static.hoyolab.com/common/map_user/ys_obc/v1/map/point/info?map_id=2&app_sn=ys_obc&lang=en-us&point_id=56766",
+      "pointSource": "https://sg-public-api-static.hoyolab.com/common/map_user/ys_obc/v1/map/point/info?map_id=2&app_sn=ys_obc&lang=en-us&point_id=56766",
       "imageURL": "https://static.wikia.nocookie.net/gensin-impact/images/c/cc/Foggy_Forest_Path.png/revision/latest?cb=20231112093554",
       "source": "https://genshin-impact.fandom.com/wiki/Foggy_Forest_Path_%28Quest%29",
       "loreSource": "https://genshin-impact.fandom.com/wiki/Foggy_Forest_Path_%28Quest%29",
@@ -3912,12 +3915,12 @@
       "description": "A small port on Erinnyes Forest’s coast, with a stone quay, gardens, and calm water. Lumidouce connects Fontaine’s coastal trade with routes toward Liyue and offers a quieter meeting place than the Court.",
       "waypoint": {
         "mapId": "teyvat",
-        "x": -3622.1,
-        "y": -1181.9
+        "x": -3642.7483533826107,
+        "y": -890.7525597400299
       },
-      "coordinateMethod": "Approximate waypoint within the official HoYoLAB map_id=2 Erinnyes Forest (anchor 233) map-anchor bounds, cross-checked against the nearby label_id=3 Teleport Waypoint point at (-3622.1, -1181.9). This is a 2D surface map; vertical floors are not represented.",
-      "coordinateSource": "https://sg-public-api-static.hoyolab.com/common/map_user/ys_obc/v1/map/map_anchor/list?map_id=2&app_sn=ys_obc&lang=en-us",
-      "pointSource": "https://sg-public-api-static.hoyolab.com/common/map_user/ys_obc/v1/map/point/list?map_id=2&app_sn=ys_obc&lang=en-us",
+      "coordinateMethod": "HoYoLAB point 56253: the named Lumidouce Harbor viewpoint, at the harbor approach. The background shows nearby harbor scenery, not necessarily the exact viewpoint.",
+      "coordinateSource": "https://sg-public-api-static.hoyolab.com/common/map_user/ys_obc/v1/map/point/info?map_id=2&app_sn=ys_obc&lang=en-us&point_id=56253",
+      "pointSource": "https://sg-public-api-static.hoyolab.com/common/map_user/ys_obc/v1/map/point/info?map_id=2&app_sn=ys_obc&lang=en-us&point_id=56253",
       "imageURL": "https://gamerbraves.sgp1.cdn.digitaloceanspaces.com/2023/11/Genshin-Impact-4.2-New-Area-Lumidouce-Harbor.jpg",
       "source": "https://www.gamerbraves.com/genshin-impact-version-4-2-special-program-livestream-highlights/",
       "loreSource": "https://genshin-impact.fandom.com/wiki/Lumidouce_Harbor",
@@ -4007,12 +4010,12 @@
       "description": "An old stone fort and its broken halls stand on the Morte Region’s rocky island. Water and weather have worn the ruins down, leaving a quiet place for exploring Fontaine’s older stories and forgotten routes.",
       "waypoint": {
         "mapId": "teyvat",
-        "x": -3834.5,
-        "y": -316.0
+        "x": -4087.9999485432063,
+        "y": -484.8754615924645
       },
-      "coordinateMethod": "Approximate waypoint within the official HoYoLAB map_id=2 Morte Region (anchor 238) map-anchor bounds, cross-checked against the nearby label_id=3 Teleport Waypoint point at (-3834.5, -316.0). This is a 2D surface map; vertical floors are not represented.",
-      "coordinateSource": "https://sg-public-api-static.hoyolab.com/common/map_user/ys_obc/v1/map/map_anchor/list?map_id=2&app_sn=ys_obc&lang=en-us",
-      "pointSource": "https://sg-public-api-static.hoyolab.com/common/map_user/ys_obc/v1/map/point/list?map_id=2&app_sn=ys_obc&lang=en-us",
+      "coordinateMethod": "HoYoLAB point 56770 marks the Meteoric Lance quest location in the Fort Charybdis ruins. The background shows a nearby underground ruin; the surface map cannot encode its floor.",
+      "coordinateSource": "https://sg-public-api-static.hoyolab.com/common/map_user/ys_obc/v1/map/point/info?map_id=2&app_sn=ys_obc&lang=en-us&point_id=56770",
+      "pointSource": "https://sg-public-api-static.hoyolab.com/common/map_user/ys_obc/v1/map/point/info?map_id=2&app_sn=ys_obc&lang=en-us&point_id=56770",
       "imageURL": "https://static.wikia.nocookie.net/gensin-impact/images/b/bd/Fort_Charybdis_Ruins.png/revision/latest?cb=20231112093702",
       "source": "https://genshin-impact.fandom.com/wiki/Fort_Charybdis_Ruins",
       "loreSource": "https://genshin-impact.fandom.com/wiki/Fort_Charybdis_Ruins",
@@ -5044,7 +5047,2197 @@
         "captions": false,
         "camera": "Downloaded from the wiki and visually reviewed: ground-level view of the Nasha Town Adventurers' Guild branch with Katheryne and generic NPCs only; no playable characters, HUD or captions."
       }
+    },
+    {
+      "id": "expansion-luhua-pool",
+      "label": "Luhua Pool",
+      "region": "Liyue",
+      "description": "A fishing spot at Luhua Pool, near the ruins and landscapes associated with Vermeer. The pin marks the pictured fishing bank.",
+      "classifications": [
+        "Luhua Pool",
+        "Luhua fishing bank"
+      ],
+      "suggestedCharacters": [],
+      "waypoint": {
+        "mapId": "teyvat",
+        "x": -1272.5,
+        "y": 2178.5
+      },
+      "coordinateMethod": "HoYoLAB map 2 point 17684: the Luhua Pool fishing spot shown in the background.",
+      "coordinateSource": "https://sg-public-api-static.hoyolab.com/common/map_user/ys_obc/v1/map/point/info?point_id=17684&map_id=2&app_sn=ys_obc&lang=en-us",
+      "source": "https://genshin-impact.fandom.com/wiki/File:Fishing_Point_Luhua_Pool_Context.png",
+      "imageURL": "https://static.wikia.nocookie.net/gensin-impact/images/5/5b/Fishing_Point_Luhua_Pool_Context.png/revision/latest?cb=20231004011322",
+      "loreSource": "https://genshin-impact.fandom.com/wiki/Luhua_Pool",
+      "asset": "expansion-luhua-pool.webp",
+      "dimensions": [
+        1920,
+        1080
+      ],
+      "candidate": false,
+      "introducedVersion": 8,
+      "imageReview": {
+        "reviewed": "2026-10-28",
+        "playableCharacters": false,
+        "gameUI": false,
+        "captions": false,
+        "camera": "Visually reviewed at full size. Ground-level or walkable shore/interior view; original image and logo retained. See description for nearby-viewpoint limitations."
+      },
+      "musicResearch": {
+        "recommended": [
+          "Another Hopeful Tomorrow"
+        ],
+        "source": "https://genshin-impact.fandom.com/wiki/Luhua_Pool#Soundtracks",
+        "note": "Suggested location cues; only library tracks that are already available are assigned."
+      },
+      "music": {
+        "tracks": [
+          "music-game-7b9fd1030829aa867075"
+        ],
+        "combatTrack": null
+      }
+    },
+    {
+      "id": "expansion-chinju-forest",
+      "label": "Chinju Forest",
+      "region": "Inazuma",
+      "description": "A lantern-lit forest on Narukami Island, home to bake-danuki and the old sacred-cleansing story. The marker is the named in-game forest viewpoint.",
+      "classifications": [
+        "Chinju Forest",
+        "Chinju woodland",
+        "Sacred Forest in the Moonlight"
+      ],
+      "suggestedCharacters": [],
+      "waypoint": {
+        "mapId": "teyvat",
+        "x": 3692.4999389648438,
+        "y": 5122.333297729492
+      },
+      "coordinateMethod": "HoYoLAB map 2 point 12147 (Chinju Forest | The Sacred Forest in the Moonlight). It is a viewpoint, not a surveyed building entrance; underground floors are not encoded.",
+      "coordinateSource": "https://sg-public-api-static.hoyolab.com/common/map_user/ys_obc/v1/map/point/info?point_id=12147&map_id=2&app_sn=ys_obc&lang=en-us",
+      "source": "https://genshin-impact.fandom.com/wiki/File:Chinju_Forest.png",
+      "imageURL": "https://static.wikia.nocookie.net/gensin-impact/images/5/53/Chinju_Forest.png/revision/latest?cb=20220612141514",
+      "loreSource": "https://genshin-impact.fandom.com/wiki/Chinju_Forest",
+      "asset": "expansion-chinju-forest.webp",
+      "dimensions": [
+        1920,
+        1080
+      ],
+      "candidate": false,
+      "introducedVersion": 8,
+      "imageReview": {
+        "reviewed": "2026-10-28",
+        "playableCharacters": false,
+        "gameUI": false,
+        "captions": false,
+        "camera": "Visually reviewed at full size. Ground-level or walkable shore/interior view; original image and logo retained. See description for nearby-viewpoint limitations."
+      },
+      "musicResearch": {
+        "recommended": [
+          "Murmuring Creek"
+        ],
+        "source": "https://music.kuutar.moe/soundtrack/murmuring-creek",
+        "note": "Location-specific cue; imported as a local audio file when available."
+      },
+      "music": {
+        "tracks": [
+          "music-game-20b44a89549fa271294a"
+        ],
+        "combatTrack": null
+      }
+    },
+    {
+      "id": "expansion-vanarana",
+      "label": "Vanarana",
+      "region": "Sumeru",
+      "description": "The Aranara village in its dream state. A silapna stands among the little houses and luminous plants; the marked viewpoint is nearby.",
+      "classifications": [
+        "Vanarana",
+        "Mahavanaranapna",
+        "Aranara village"
+      ],
+      "suggestedCharacters": [],
+      "waypoint": {
+        "mapId": "teyvat",
+        "x": -4267.250428737213,
+        "y": 2515.500166905077
+      },
+      "coordinateMethod": "HoYoLAB map 2 point 30476 (Vanarana | The World of the Aranara). It is a viewpoint, not a surveyed building entrance; underground floors are not encoded.",
+      "coordinateSource": "https://sg-public-api-static.hoyolab.com/common/map_user/ys_obc/v1/map/point/info?point_id=30476&map_id=2&app_sn=ys_obc&lang=en-us",
+      "source": "https://genshin-impact.fandom.com/wiki/File:Vanarana_Silapna_State_Switch_Location_Context.png",
+      "imageURL": "https://static.wikia.nocookie.net/gensin-impact/images/9/90/Vanarana_Silapna_State_Switch_Location_Context.png/revision/latest?cb=20260709103158",
+      "loreSource": "https://genshin-impact.fandom.com/wiki/Vanarana_(Subarea)",
+      "asset": "expansion-vanarana.webp",
+      "dimensions": [
+        1920,
+        1080
+      ],
+      "candidate": false,
+      "introducedVersion": 8,
+      "imageReview": {
+        "reviewed": "2026-10-28",
+        "playableCharacters": false,
+        "gameUI": false,
+        "captions": false,
+        "camera": "Visually reviewed at full size. Ground-level or walkable shore/interior view; original image and logo retained. See description for nearby-viewpoint limitations."
+      },
+      "musicResearch": {
+        "recommended": [
+          "Melody of Bright New Buds"
+        ],
+        "source": "https://music.kuutar.moe/soundtrack/melody-of-bright-new-buds",
+        "note": "Location-specific cue; imported as a local audio file when available."
+      },
+      "music": {
+        "tracks": [
+          "music-game-c825bb8caa45872d53f0"
+        ],
+        "combatTrack": null
+      }
+    },
+    {
+      "id": "expansion-weeping-willow-of-the-lake",
+      "label": "Weeping Willow of the Lake",
+      "region": "Fontaine",
+      "description": "A luminous willow in Erinnyes Forest, restored during the Wild Fairy of Erinnyes. The marker is the in-game viewpoint; the image shows the nearby ground beneath the willow.",
+      "classifications": [
+        "Weeping Willow of the Lake",
+        "Erinnyes willow"
+      ],
+      "suggestedCharacters": [],
+      "waypoint": {
+        "mapId": "teyvat",
+        "x": -4066.375771851901,
+        "y": -1310.3761329996855
+      },
+      "coordinateMethod": "HoYoLAB map 2 point 56251 (Weeping Willow of the Lake | Erinnyes's Watery Weeping Willow). It is a viewpoint, not a surveyed building entrance; underground floors are not encoded.",
+      "coordinateSource": "https://sg-public-api-static.hoyolab.com/common/map_user/ys_obc/v1/map/point/info?point_id=56251&map_id=2&app_sn=ys_obc&lang=en-us",
+      "source": "https://genshin-impact.fandom.com/wiki/File:Mementos_of_Teyvat_Prelude_of_the_Frozen_Veil_Weeping_Willow_of_the_Lake_Location_Context.png",
+      "imageURL": "https://static.wikia.nocookie.net/gensin-impact/images/b/ba/Mementos_of_Teyvat_Prelude_of_the_Frozen_Veil_Weeping_Willow_of_the_Lake_Location_Context.png/revision/latest?cb=20250822205042",
+      "loreSource": "https://genshin-impact.fandom.com/wiki/Weeping_Willow_of_the_Lake",
+      "asset": "expansion-weeping-willow-of-the-lake.webp",
+      "dimensions": [
+        2560,
+        1440
+      ],
+      "candidate": false,
+      "introducedVersion": 8,
+      "imageReview": {
+        "reviewed": "2026-10-28",
+        "playableCharacters": false,
+        "gameUI": false,
+        "captions": false,
+        "camera": "Visually reviewed at full size. Ground-level or walkable shore/interior view; original image and logo retained. See description for nearby-viewpoint limitations."
+      },
+      "musicResearch": {
+        "recommended": [
+          "Loch's Revitalization"
+        ],
+        "source": "https://music.kuutar.moe/soundtrack/loch-s-revitalization",
+        "note": "Location-specific cue; imported as a local audio file when available."
+      },
+      "music": {
+        "tracks": [
+          "music-game-e66e8d4e6f6b377781c8"
+        ],
+        "combatTrack": null
+      }
+    },
+    {
+      "id": "expansion-firethief-s-secret-isle",
+      "label": "Firethief's Secret Isle",
+      "region": "Natlan",
+      "description": "A small island south of Coatepec Mountain, reached during a series of trials. The marker is the named viewpoint; the background shows the island from the waterline.",
+      "classifications": [
+        "Firethief's Secret Isle",
+        "Firethief island"
+      ],
+      "suggestedCharacters": [],
+      "waypoint": {
+        "mapId": "teyvat",
+        "x": -8626.25,
+        "y": 5075.75
+      },
+      "coordinateMethod": "HoYoLAB map 2 point 71599 (Next to the teleport waypoint). It is a viewpoint, not a surveyed building entrance; underground floors are not encoded.",
+      "coordinateSource": "https://sg-public-api-static.hoyolab.com/common/map_user/ys_obc/v1/map/point/info?point_id=71599&map_id=2&app_sn=ys_obc&lang=en-us",
+      "source": "https://genshin-impact.fandom.com/wiki/File:Firethief%27s_Secret_Isle.png",
+      "imageURL": "https://static.wikia.nocookie.net/gensin-impact/images/3/34/Firethief%27s_Secret_Isle.png/revision/latest?cb=20240901234219",
+      "loreSource": "https://genshin-impact.fandom.com/wiki/Firethief%27s_Secret_Isle",
+      "asset": "expansion-firethief-s-secret-isle.webp",
+      "dimensions": [
+        2560,
+        1600
+      ],
+      "candidate": false,
+      "introducedVersion": 8,
+      "imageReview": {
+        "reviewed": "2026-10-28",
+        "playableCharacters": false,
+        "gameUI": false,
+        "captions": false,
+        "camera": "Visually reviewed at full size. Ground-level or walkable shore/interior view; original image and logo retained. See description for nearby-viewpoint limitations."
+      },
+      "musicResearch": {
+        "recommended": [
+          "Chasing Flames Like Strings",
+          "Eventide Chant"
+        ],
+        "source": "https://genshin-impact.fandom.com/wiki/Coatepec_Mountain#Soundtracks",
+        "note": "Containing-area fallback; a cue specific to the depicted location has not been verified."
+      },
+      "music": {
+        "tracks": [
+          "music-game-04eab984df971d2da3e9",
+          "music-game-1bf9677854a7faee1868"
+        ],
+        "combatTrack": null
+      }
+    },
+    {
+      "id": "expansion-wavey-bay",
+      "label": "Wavey Bay",
+      "region": "Natlan",
+      "description": "A sandy bay in the Easybreeze Holiday Resort, with water activities and a sunny beach. The marker is the in-game bay viewpoint; the background shows nearby beach activities.",
+      "classifications": [
+        "Wavey Bay",
+        "Easybreeze beach"
+      ],
+      "suggestedCharacters": [],
+      "waypoint": {
+        "mapId": "teyvat",
+        "x": -14868.5,
+        "y": 1529.5
+      },
+      "coordinateMethod": "HoYoLAB map 2 point 86345 (Summer Bay by the Sea - Wavey Bay). It is a viewpoint, not a surveyed building entrance; underground floors are not encoded.",
+      "coordinateSource": "https://sg-public-api-static.hoyolab.com/common/map_user/ys_obc/v1/map/point/info?point_id=86345&map_id=2&app_sn=ys_obc&lang=en-us",
+      "source": "https://genshin-impact.fandom.com/wiki/File:Landmark_Memento_Wavey_Bay_Landmark_Context.png",
+      "imageURL": "https://static.wikia.nocookie.net/gensin-impact/images/0/0d/Landmark_Memento_Wavey_Bay_Landmark_Context.png/revision/latest?cb=20260529150435",
+      "loreSource": "https://genshin-impact.fandom.com/wiki/Wavey_Bay",
+      "asset": "expansion-wavey-bay.webp",
+      "dimensions": [
+        1920,
+        1080
+      ],
+      "candidate": false,
+      "introducedVersion": 8,
+      "imageReview": {
+        "reviewed": "2026-10-28",
+        "playableCharacters": false,
+        "gameUI": false,
+        "captions": false,
+        "camera": "Visually reviewed at full size. Ground-level or walkable shore/interior view; original image and logo retained. See description for nearby-viewpoint limitations."
+      },
+      "musicResearch": {
+        "recommended": [
+          "Waves Curl Over Drifting Sand"
+        ],
+        "source": "https://music.kuutar.moe/soundtrack/waves-curl-over-drifting-sand",
+        "note": "Location-specific cue; imported as a local audio file when available."
+      },
+      "music": {
+        "tracks": [
+          "music-game-4a725d48fc6921dd359f"
+        ],
+        "combatTrack": null
+      }
+    },
+    {
+      "id": "expansion-tidesong-cavern",
+      "label": "Tidesong Cavern",
+      "region": "Snezhnaya",
+      "description": "A cavern in Fellfrost Peak with an unusual shell-like formation and a sheltered waterside path. The pin uses its in-game viewpoint; the surface map does not distinguish the cavern floor.",
+      "classifications": [
+        "Tidesong Cavern",
+        "Cavern of Melodic Tides"
+      ],
+      "suggestedCharacters": [],
+      "waypoint": {
+        "mapId": "teyvat",
+        "x": -7206.557259447716,
+        "y": -5671.362630796535
+      },
+      "coordinateMethod": "HoYoLAB map 2 point 101994 (\"Cavern of Melodic Tides\" should appear after raising Meeting point to max lvl). It is a viewpoint, not a surveyed building entrance; underground floors are not encoded.",
+      "coordinateSource": "https://sg-public-api-static.hoyolab.com/common/map_user/ys_obc/v1/map/point/info?point_id=101994&map_id=2&app_sn=ys_obc&lang=en-us",
+      "source": "https://genshin-impact.fandom.com/wiki/File:Tidesong_Cavern.png",
+      "imageURL": "https://static.wikia.nocookie.net/gensin-impact/images/d/da/Tidesong_Cavern.png/revision/latest?cb=20260813000218",
+      "loreSource": "https://genshin-impact.fandom.com/wiki/Tidesong_Cavern",
+      "asset": "expansion-tidesong-cavern.webp",
+      "dimensions": [
+        1360,
+        768
+      ],
+      "candidate": false,
+      "introducedVersion": 8,
+      "imageReview": {
+        "reviewed": "2026-10-28",
+        "playableCharacters": false,
+        "gameUI": false,
+        "captions": false,
+        "camera": "Visually reviewed at full size. Ground-level or walkable shore/interior view; original image and logo retained. See description for nearby-viewpoint limitations."
+      },
+      "musicResearch": {
+        "recommended": [
+          "On Snow-Clad Heights"
+        ],
+        "source": "https://music.kuutar.moe/soundtrack/on-snow-clad-heights",
+        "note": "Containing-area fallback; a cue specific to the depicted location has not been verified."
+      },
+      "music": {
+        "tracks": [
+          "music-game-0074b5354c3b97f5d6f0"
+        ],
+        "combatTrack": null
+      }
+    },
+    {
+      "id": "expansion-the-korolevskiy-theater",
+      "label": "The Korolevskiy Theater",
+      "region": "Snezhnaya",
+      "description": "The Korolevskiy Troupe's theater in Snezhnograd. The marker is the viewpoint on the bridge in front of the theater, matching the approach shown in the background.",
+      "classifications": [
+        "Korolevskiy Theater",
+        "Korolevskiy Theatre",
+        "Snezhnograd theater"
+      ],
+      "suggestedCharacters": [],
+      "waypoint": {
+        "mapId": "teyvat",
+        "x": -7297.864572406717,
+        "y": -7066.793750762939
+      },
+      "coordinateMethod": "HoYoLAB map 2 point 101982 (At the end of the bridge in front of Korolevskiy Theater). It is a viewpoint, not a surveyed building entrance; underground floors are not encoded.",
+      "coordinateSource": "https://sg-public-api-static.hoyolab.com/common/map_user/ys_obc/v1/map/point/info?point_id=101982&map_id=2&app_sn=ys_obc&lang=en-us",
+      "source": "https://genshin-impact.fandom.com/wiki/File:The_Korolevskiy_Theater.png",
+      "imageURL": "https://static.wikia.nocookie.net/gensin-impact/images/d/d4/The_Korolevskiy_Theater.png/revision/latest?cb=20260813100003",
+      "loreSource": "https://genshin-impact.fandom.com/wiki/Korolevskiy_Theater",
+      "asset": "expansion-the-korolevskiy-theater.webp",
+      "dimensions": [
+        1920,
+        1080
+      ],
+      "candidate": false,
+      "introducedVersion": 8,
+      "imageReview": {
+        "reviewed": "2026-10-28",
+        "playableCharacters": false,
+        "gameUI": false,
+        "captions": false,
+        "camera": "Visually reviewed at full size. Ground-level or walkable shore/interior view; original image and logo retained. See description for nearby-viewpoint limitations."
+      },
+      "musicResearch": {
+        "recommended": [
+          "A Day Filled With Frigid Light",
+          "Night Fades, Dawn Breaks"
+        ],
+        "source": "https://genshin-impact.fandom.com/wiki/Snezhnograd#Soundtracks",
+        "note": "Containing-area fallback; a cue specific to the depicted location has not been verified."
+      },
+      "music": {
+        "tracks": [
+          "music-game-03c4fdf21aca241a1808",
+          "music-game-8e8a607910b0e111ca9b"
+        ],
+        "combatTrack": null
+      }
+    },
+    {
+      "id": "expansion-stormterror-s-lair",
+      "label": "Stormterror's Lair",
+      "region": "Mondstadt",
+      "description": "A quiet pond among the ruins of Old Mondstadt, once the capital of Decarabian and later Dvalin's lair. The pin and image identify the northern fishing spot, not the distant viewpoint overlooking the ruins.",
+      "classifications": [
+        "Stormterror's Lair",
+        "Dvalin lair",
+        "Old Mondstadt ruins"
+      ],
+      "suggestedCharacters": [],
+      "waypoint": {
+        "mapId": "teyvat",
+        "x": -816,
+        "y": -564
+      },
+      "coordinateMethod": "HoYoLAB map 2 point 17671: Stormterror's Lair. Exact marker coordinates; see the description for the represented scene.",
+      "coordinateSource": "https://sg-public-api-static.hoyolab.com/common/map_user/ys_obc/v1/map/point/info?point_id=17671&map_id=2&app_sn=ys_obc&lang=en-us",
+      "source": "https://genshin-impact.fandom.com/wiki/File:Fishing_Point_Stormterror%27s_Lair_(2)_Context.png",
+      "imageURL": "https://static.wikia.nocookie.net/gensin-impact/images/d/db/Fishing_Point_Stormterror%27s_Lair_%282%29_Context.png/revision/latest?cb=20231006050110",
+      "loreSource": "https://genshin-impact.fandom.com/wiki/Stormterror%27s_Lair",
+      "asset": "expansion-stormterror-s-lair.webp",
+      "dimensions": [
+        1920,
+        1080
+      ],
+      "candidate": false,
+      "introducedVersion": 8,
+      "imageReview": {
+        "reviewed": "2026-10-28",
+        "playableCharacters": false,
+        "gameUI": false,
+        "captions": false,
+        "camera": "Full-size ground-level or walkable platform view; original artwork and logo retained."
+      },
+      "musicResearch": {
+        "recommended": [
+          "Forlorn Child of Archaic Winds (Dvalin's Nest)"
+        ],
+        "source": "https://music.kuutar.moe/soundtrack/forlorn-child-of-archaic-winds-dvalin-s-nest",
+        "note": "Location-specific cue; imported as a local audio file when available."
+      },
+      "music": {
+        "tracks": [
+          "music-game-6aea958872831b27645e"
+        ],
+        "combatTrack": null
+      }
+    },
+    {
+      "id": "expansion-guili-plains",
+      "label": "Guili Plains",
+      "region": "Liyue",
+      "description": "A waterside ruin in the Guili Plains, near the remains associated with the ancient Guili Assembly. The pin marks the fishing spot pictured by the bridge.",
+      "classifications": [
+        "Guili Plains",
+        "Guili Assembly",
+        "Guili ruins"
+      ],
+      "suggestedCharacters": [],
+      "waypoint": {
+        "mapId": "teyvat",
+        "x": -803,
+        "y": 1679.5
+      },
+      "coordinateMethod": "HoYoLAB map 2 point 17685: \"Guili Plains\". Exact marker coordinates; see the description for the represented scene.",
+      "coordinateSource": "https://sg-public-api-static.hoyolab.com/common/map_user/ys_obc/v1/map/point/info?point_id=17685&map_id=2&app_sn=ys_obc&lang=en-us",
+      "source": "https://genshin-impact.fandom.com/wiki/File:Fishing_Point_Guili_Plains_Context.png",
+      "imageURL": "https://static.wikia.nocookie.net/gensin-impact/images/4/41/Fishing_Point_Guili_Plains_Context.png/revision/latest?cb=20231004013135",
+      "loreSource": "https://genshin-impact.fandom.com/wiki/Guili_Plains",
+      "asset": "expansion-guili-plains.webp",
+      "dimensions": [
+        1920,
+        1080
+      ],
+      "candidate": false,
+      "introducedVersion": 8,
+      "imageReview": {
+        "reviewed": "2026-10-28",
+        "playableCharacters": false,
+        "gameUI": false,
+        "captions": false,
+        "camera": "Full-size ground-level or walkable platform view; original artwork and logo retained."
+      },
+      "musicResearch": {
+        "recommended": [
+          "Secluded Sanctuary"
+        ],
+        "source": "https://genshin-impact.fandom.com/wiki/Qiongji_Estuary#Soundtracks",
+        "note": "Qiongji Estuary rain ambience fallback; a distinct location cue has not been verified."
+      },
+      "music": {
+        "tracks": [
+          "music-game-06ed414af6bd23bb70a0"
+        ],
+        "combatTrack": null
+      }
+    },
+    {
+      "id": "expansion-ritou",
+      "label": "Ritou",
+      "region": "Inazuma",
+      "description": "The port of entry to Narukami Island, with docks and streets used by travelers and merchants. The pin identifies the fishing spot by the docks, as shown in the background.",
+      "classifications": [
+        "Ritou",
+        "Ritou docks",
+        "Narukami port"
+      ],
+      "suggestedCharacters": [],
+      "waypoint": {
+        "mapId": "teyvat",
+        "x": 2951,
+        "y": 4871.5
+      },
+      "coordinateMethod": "HoYoLAB map 2 point 17692: \"Ritou\" Fishing Spot. Exact marker coordinates; see the description for the represented scene.",
+      "coordinateSource": "https://sg-public-api-static.hoyolab.com/common/map_user/ys_obc/v1/map/point/info?point_id=17692&map_id=2&app_sn=ys_obc&lang=en-us",
+      "source": "https://genshin-impact.fandom.com/wiki/File:Fishing_Point_Ritou_Context.png",
+      "imageURL": "https://static.wikia.nocookie.net/gensin-impact/images/6/6e/Fishing_Point_Ritou_Context.png/revision/latest?cb=20231004022824",
+      "loreSource": "https://genshin-impact.fandom.com/wiki/Ritou",
+      "asset": "expansion-ritou.webp",
+      "dimensions": [
+        1920,
+        1080
+      ],
+      "candidate": false,
+      "introducedVersion": 8,
+      "imageReview": {
+        "reviewed": "2026-10-28",
+        "playableCharacters": false,
+        "gameUI": false,
+        "captions": false,
+        "camera": "Full-size ground-level or walkable platform view; original artwork and logo retained."
+      },
+      "musicResearch": {
+        "recommended": [
+          "Dream of Homeland"
+        ],
+        "source": "https://genshin-impact.fandom.com/wiki/Ritou#Soundtracks",
+        "note": "Suggested location cues; only tracks already in the audio library are assigned."
+      },
+      "music": {
+        "tracks": [
+          "music-game-940141856ef3d06b4ec2"
+        ],
+        "combatTrack": null
+      }
+    },
+    {
+      "id": "expansion-easybreeze-market",
+      "label": "Easybreeze Market",
+      "region": "Natlan",
+      "description": "A lively market in the Easybreeze Holiday Resort. The pin marks the in-game market viewpoint; the background shows a nearby pier and water activity area.",
+      "classifications": [
+        "Easybreeze Market",
+        "Easybreeze market pier",
+        "resort market"
+      ],
+      "suggestedCharacters": [],
+      "waypoint": {
+        "mapId": "teyvat",
+        "x": -14508,
+        "y": 1919
+      },
+      "coordinateMethod": "HoYoLAB map 2 point 86344: Pleasant Street - Easybreeze Market. Exact marker coordinates; see the description for the represented scene.",
+      "coordinateSource": "https://sg-public-api-static.hoyolab.com/common/map_user/ys_obc/v1/map/point/info?point_id=86344&map_id=2&app_sn=ys_obc&lang=en-us",
+      "source": "https://genshin-impact.fandom.com/wiki/File:Landmark_Memento_Easybreeze_Market_Pier_Context.png",
+      "imageURL": "https://static.wikia.nocookie.net/gensin-impact/images/9/99/Landmark_Memento_Easybreeze_Market_Pier_Context.png/revision/latest?cb=20260529150352",
+      "loreSource": "https://genshin-impact.fandom.com/wiki/Easybreeze_Market",
+      "asset": "expansion-easybreeze-market.webp",
+      "dimensions": [
+        1920,
+        1080
+      ],
+      "candidate": false,
+      "introducedVersion": 8,
+      "imageReview": {
+        "reviewed": "2026-10-28",
+        "playableCharacters": false,
+        "gameUI": false,
+        "captions": false,
+        "camera": "Full-size ground-level or walkable platform view; original artwork and logo retained."
+      },
+      "musicResearch": {
+        "recommended": [
+          "Indulgence Beneath the Sun"
+        ],
+        "source": "https://music.kuutar.moe/soundtrack/indulgence-beneath-the-sun",
+        "note": "Location-specific cue; imported as a local audio file when available."
+      },
+      "music": {
+        "tracks": [
+          "music-game-2903a592f10d2139397a"
+        ],
+        "combatTrack": null
+      }
+    },
+    {
+      "id": "expansion-windrise",
+      "label": "Windrise",
+      "region": "Mondstadt",
+      "description": "A fishing bank at Windrise, near the great tree associated with Vennessa and Mondstadt’s heroes. The pin identifies the pictured fishing location.",
+      "classifications": [
+        "Windrise",
+        "Windrise tree",
+        "Windrise fishing bank"
+      ],
+      "suggestedCharacters": [],
+      "waypoint": {
+        "mapId": "teyvat",
+        "x": 529,
+        "y": 470.5
+      },
+      "coordinateMethod": "HoYoLAB map 2 point 17668: \"Windrise\". The description identifies the viewpoint or fishing position.",
+      "coordinateSource": "https://sg-public-api-static.hoyolab.com/common/map_user/ys_obc/v1/map/point/info?point_id=17668&map_id=2&app_sn=ys_obc&lang=en-us",
+      "source": "https://genshin-impact.fandom.com/wiki/File:Fishing_Point_Windrise_Context.png",
+      "imageURL": "https://static.wikia.nocookie.net/gensin-impact/images/d/d1/Fishing_Point_Windrise_Context.png/revision/latest?cb=20231001170048",
+      "loreSource": "https://genshin-impact.fandom.com/wiki/Windrise",
+      "asset": "expansion-windrise.webp",
+      "dimensions": [
+        1920,
+        1080
+      ],
+      "candidate": false,
+      "introducedVersion": 8,
+      "imageReview": {
+        "reviewed": "2026-10-28",
+        "playableCharacters": false,
+        "gameUI": false,
+        "captions": false,
+        "camera": "Full-size human-height ground or shoreline view; original artwork and any logo retained. The Vourukasha image is a low-resolution source."
+      },
+      "musicResearch": {
+        "recommended": [
+          "Whispering Plain",
+          "Wayfarer's Peace"
+        ],
+        "source": "https://genshin-impact.fandom.com/wiki/Mondstadt#Soundtracks",
+        "note": "Mondstadt day exploration fallback."
+      },
+      "music": {
+        "tracks": [
+          "music-game-3a8f2fd16184d9601d6c",
+          "music-game-7c9576560d2c6bf65af0"
+        ],
+        "combatTrack": null
+      }
+    },
+    {
+      "id": "expansion-seiraimaru",
+      "label": "\"Seiraimaru\"",
+      "region": "Inazuma",
+      "description": "The wreck of the Seiraimaru on Seirai Island. The pin marks the named in-game viewpoint; the background shows the nearby shore and wreck.",
+      "classifications": [
+        "Seiraimaru",
+        "Seirai shipwreck"
+      ],
+      "suggestedCharacters": [],
+      "waypoint": {
+        "mapId": "teyvat",
+        "x": 2920.6666870117188,
+        "y": 6716.499984741211
+      },
+      "coordinateMethod": "HoYoLAB map 2 point 16810: \"Seiraimaru\" | The Stranded Flagship. The description identifies the viewpoint or fishing position.",
+      "coordinateSource": "https://sg-public-api-static.hoyolab.com/common/map_user/ys_obc/v1/map/point/info?point_id=16810&map_id=2&app_sn=ys_obc&lang=en-us",
+      "source": "https://genshin-impact.fandom.com/wiki/File:Seiraimaru.png",
+      "imageURL": "https://static.wikia.nocookie.net/gensin-impact/images/1/17/Seiraimaru.png/revision/latest?cb=20210901044514",
+      "loreSource": "https://genshin-impact.fandom.com/wiki/%22Seiraimaru%22",
+      "asset": "expansion-seiraimaru.webp",
+      "dimensions": [
+        1920,
+        1080
+      ],
+      "candidate": false,
+      "introducedVersion": 8,
+      "imageReview": {
+        "reviewed": "2026-10-28",
+        "playableCharacters": false,
+        "gameUI": false,
+        "captions": false,
+        "camera": "Full-size human-height ground or shoreline view; original artwork and any logo retained. The Vourukasha image is a low-resolution source."
+      },
+      "musicResearch": {
+        "recommended": [
+          "What Now Remains",
+          "Roaming in Silence"
+        ],
+        "source": "https://genshin-impact.fandom.com/wiki/Seirai_Island#Soundtracks",
+        "note": "Seirai Island exploration fallback."
+      },
+      "music": {
+        "tracks": [
+          "music-game-c71e3a01c359f9a58307",
+          "music-game-fc4986dd34692657a380"
+        ],
+        "combatTrack": null
+      }
+    },
+    {
+      "id": "expansion-the-mausoleum-of-king-deshret",
+      "label": "The Mausoleum of King Deshret",
+      "region": "Sumeru",
+      "description": "King Deshret’s monumental mausoleum in the desert. The point marks its in-game viewpoint before the entrance.",
+      "classifications": [
+        "Mausoleum of King Deshret",
+        "King Deshret mausoleum"
+      ],
+      "suggestedCharacters": [],
+      "waypoint": {
+        "mapId": "teyvat",
+        "x": -5921,
+        "y": 4674.75
+      },
+      "coordinateMethod": "HoYoLAB map 2 point 38861: The Mausoleum of King Deshret. The description identifies the viewpoint or fishing position.",
+      "coordinateSource": "https://sg-public-api-static.hoyolab.com/common/map_user/ys_obc/v1/map/point/info?point_id=38861&map_id=2&app_sn=ys_obc&lang=en-us",
+      "source": "https://genshin-impact.fandom.com/wiki/File:The_Mausoleum_of_King_Deshret.png",
+      "imageURL": "https://static.wikia.nocookie.net/gensin-impact/images/b/b6/The_Mausoleum_of_King_Deshret.png/revision/latest?cb=20220930031204",
+      "loreSource": "https://genshin-impact.fandom.com/wiki/The_Mausoleum_of_King_Deshret",
+      "asset": "expansion-the-mausoleum-of-king-deshret.webp",
+      "dimensions": [
+        1920,
+        1080
+      ],
+      "candidate": false,
+      "introducedVersion": 8,
+      "imageReview": {
+        "reviewed": "2026-10-28",
+        "playableCharacters": false,
+        "gameUI": false,
+        "captions": false,
+        "camera": "Full-size human-height ground or shoreline view; original artwork and any logo retained. The Vourukasha image is a low-resolution source."
+      },
+      "musicResearch": {
+        "recommended": [
+          "Smoldering Glow",
+          "Ruins of Scorching Might"
+        ],
+        "source": "https://genshin-impact.fandom.com/wiki/Hypostyle_Desert#Soundtracks",
+        "note": "Hypostyle Desert ruins fallback; specific outdoor entrance cue is unverified."
+      },
+      "music": {
+        "tracks": [
+          "music-game-e4b5969cd78560a6cd90",
+          "music-game-e388041c05976e42bb39"
+        ],
+        "combatTrack": null
+      }
+    },
+    {
+      "id": "expansion-vourukasha-oasis",
+      "label": "Vourukasha Oasis",
+      "region": "Sumeru",
+      "description": "A hidden oasis and refuge of the Pari, connected to the Khvarena of Good and Evil quest. The pin is the named viewpoint; the background shows the nearby pool.",
+      "classifications": [
+        "Vourukasha Oasis",
+        "Pari oasis"
+      ],
+      "suggestedCharacters": [],
+      "waypoint": {
+        "mapId": "teyvat",
+        "x": -6690.5,
+        "y": 1747
+      },
+      "coordinateMethod": "HoYoLAB map 2 point 46723: Vourukasha Oasis | Amrita-Nourished Nest. The description identifies the viewpoint or fishing position.",
+      "coordinateSource": "https://sg-public-api-static.hoyolab.com/common/map_user/ys_obc/v1/map/point/info?point_id=46723&map_id=2&app_sn=ys_obc&lang=en-us",
+      "source": "https://genshin-impact.fandom.com/wiki/File:Vourukasha_Oasis.png",
+      "imageURL": "https://static.wikia.nocookie.net/gensin-impact/images/b/b8/Vourukasha_Oasis.png/revision/latest?cb=20230407000858",
+      "loreSource": "https://genshin-impact.fandom.com/wiki/Vourukasha_Oasis",
+      "asset": "expansion-vourukasha-oasis.webp",
+      "dimensions": [
+        1089,
+        569
+      ],
+      "candidate": false,
+      "introducedVersion": 8,
+      "imageReview": {
+        "reviewed": "2026-10-28",
+        "playableCharacters": false,
+        "gameUI": false,
+        "captions": false,
+        "camera": "Full-size human-height ground or shoreline view; original artwork and any logo retained. The Vourukasha image is a low-resolution source."
+      },
+      "musicResearch": {
+        "recommended": [
+          "Sorush's Purity"
+        ],
+        "source": "https://music.kuutar.moe/soundtrack/sorush-s-purity",
+        "note": "Location-specific cue; imported as a local audio file when available."
+      },
+      "music": {
+        "tracks": [
+          "music-game-99b7563c8a6b235a9d08"
+        ],
+        "combatTrack": null
+      }
+    },
+    {
+      "id": "expansion-dawn-winery",
+      "label": "Dawn Winery",
+      "region": "Mondstadt",
+      "description": "The Ragnvindr family’s winery in Windwail Highland. The waypoint is the official approach viewpoint; the background shows the nearby manor entrance.",
+      "classifications": [
+        "Dawn Winery",
+        "Dawn Winery Manor"
+      ],
+      "suggestedCharacters": [],
+      "waypoint": {
+        "mapId": "teyvat",
+        "x": -411.9443291406742,
+        "y": 451.73489245815426
+      },
+      "coordinateMethod": "HoYoLAB map 2 point 5040: Dawn Winery | Manor of Daybreak. This marks the viewpoint and does not encode altitude or underground floors.",
+      "coordinateSource": "https://sg-public-api-static.hoyolab.com/common/map_user/ys_obc/v1/map/point/info?point_id=5040&map_id=2&app_sn=ys_obc&lang=en-us",
+      "source": "https://genshin-impact.fandom.com/wiki/File:Winery_exterior.jpeg",
+      "imageURL": "https://static.wikia.nocookie.net/gensin-impact/images/2/25/Winery_exterior.jpeg/revision/latest?cb=20210424115317",
+      "loreSource": "https://genshin-impact.fandom.com/wiki/Dawn_Winery",
+      "asset": "expansion-dawn-winery.webp",
+      "dimensions": [
+        1920,
+        1080
+      ],
+      "candidate": false,
+      "introducedVersion": 9,
+      "imageReview": {
+        "reviewed": "2026-10-29",
+        "playableCharacters": false,
+        "gameUI": false,
+        "captions": false,
+        "camera": "Visually inspected at full size. Walkable ground, platform or approach; the in-game archive viewpoints use low-resolution originals and no watermark was removed."
+      },
+      "musicResearch": {
+        "recommended": [
+          "Dawn Winery Theme"
+        ],
+        "source": "https://genshin-impact.fandom.com/wiki/Dawn_Winery#Soundtracks",
+        "note": "Rankova Zorya uses a documented Volkodlak Tundra fallback. An empty list has no verified assigned track."
+      },
+      "music": {
+        "tracks": [
+          "music-game-cecfcc7b495e9ccfc146"
+        ],
+        "combatTrack": null
+      }
+    },
+    {
+      "id": "expansion-springvale",
+      "label": "Springvale",
+      "region": "Mondstadt",
+      "description": "A village in Windwail Highland, known for its spring, windmill and hunters. The pin is the official viewpoint at the village approach.",
+      "classifications": [
+        "Springvale",
+        "Springvale village"
+      ],
+      "suggestedCharacters": [],
+      "waypoint": {
+        "mapId": "teyvat",
+        "x": 68.9983908913091,
+        "y": 313.50478081952406
+      },
+      "coordinateMethod": "HoYoLAB map 2 point 5033: Springvale | Land of Clear Springs. This marks the viewpoint and does not encode altitude or underground floors.",
+      "coordinateSource": "https://sg-public-api-static.hoyolab.com/common/map_user/ys_obc/v1/map/point/info?point_id=5033&map_id=2&app_sn=ys_obc&lang=en-us",
+      "source": "https://genshin-impact.fandom.com/wiki/File:Springvale.png",
+      "imageURL": "https://static.wikia.nocookie.net/gensin-impact/images/4/4d/Springvale.png/revision/latest?cb=20220628002003",
+      "loreSource": "https://genshin-impact.fandom.com/wiki/Springvale",
+      "asset": "expansion-springvale.webp",
+      "dimensions": [
+        1920,
+        1080
+      ],
+      "candidate": false,
+      "introducedVersion": 9,
+      "imageReview": {
+        "reviewed": "2026-10-29",
+        "playableCharacters": false,
+        "gameUI": false,
+        "captions": false,
+        "camera": "Visually inspected at full size. Walkable ground, platform or approach; the in-game archive viewpoints use low-resolution originals and no watermark was removed."
+      },
+      "musicResearch": {
+        "recommended": [
+          "Whence the Flow Cometh"
+        ],
+        "source": "https://genshin-impact.fandom.com/wiki/Springvale#Soundtracks",
+        "note": "Rankova Zorya uses a documented Volkodlak Tundra fallback. An empty list has no verified assigned track."
+      },
+      "music": {
+        "tracks": [
+          "music-game-9f2631f9405862cc4919"
+        ],
+        "combatTrack": null
+      }
+    },
+    {
+      "id": "expansion-asase-shrine",
+      "label": "Asase Shrine",
+      "region": "Inazuma",
+      "description": "A shrine on Seirai Island tended by the cat Neko. The marker is the named in-game viewpoint; the background shows the shrine grounds.",
+      "classifications": [
+        "Asase Shrine",
+        "Neko shrine"
+      ],
+      "suggestedCharacters": [],
+      "waypoint": {
+        "mapId": "teyvat",
+        "x": 2959,
+        "y": 7010.5
+      },
+      "coordinateMethod": "HoYoLAB map 2 point 20283: Asase Shrine | Where the Provisional Head Priestess Lives. This marks the viewpoint and does not encode altitude or underground floors.",
+      "coordinateSource": "https://sg-public-api-static.hoyolab.com/common/map_user/ys_obc/v1/map/point/info?point_id=20283&map_id=2&app_sn=ys_obc&lang=en-us",
+      "source": "https://genshin-impact.fandom.com/wiki/File:NPC_Location_Neko_Context.png",
+      "imageURL": "https://static.wikia.nocookie.net/gensin-impact/images/b/b3/NPC_Location_Neko_Context.png/revision/latest?cb=20251018134446",
+      "loreSource": "https://genshin-impact.fandom.com/wiki/Asase_Shrine",
+      "asset": "expansion-asase-shrine.webp",
+      "dimensions": [
+        5120,
+        2880
+      ],
+      "candidate": false,
+      "introducedVersion": 9,
+      "imageReview": {
+        "reviewed": "2026-10-29",
+        "playableCharacters": false,
+        "gameUI": false,
+        "captions": false,
+        "camera": "Visually inspected at full size. Walkable ground, platform or approach; the in-game archive viewpoints use low-resolution originals and no watermark was removed."
+      },
+      "musicResearch": {
+        "recommended": [
+          "A Fragment of Peace"
+        ],
+        "source": "https://genshin-impact.fandom.com/wiki/Asase_Shrine#Soundtracks",
+        "note": "Rankova Zorya uses a documented Volkodlak Tundra fallback. An empty list has no verified assigned track."
+      },
+      "music": {
+        "tracks": [
+          "music-game-afb123975f6d2d75bcb0"
+        ],
+        "combatTrack": null
+      }
+    },
+    {
+      "id": "expansion-kujou-encampment",
+      "label": "Kujou Encampment",
+      "region": "Inazuma",
+      "description": "A Tenryou Commission encampment on Kannazuka. The pin is the named in-game viewpoint; the image shows a nearby guarded building.",
+      "classifications": [
+        "Kujou Encampment",
+        "Kannazuka camp"
+      ],
+      "suggestedCharacters": [],
+      "waypoint": {
+        "mapId": "teyvat",
+        "x": 2764.2447964602006,
+        "y": 5581.121143431776
+      },
+      "coordinateMethod": "HoYoLAB map 2 point 12130: Kujou Encampment | Front Line, Kannazuka. This marks the viewpoint and does not encode altitude or underground floors.",
+      "coordinateSource": "https://sg-public-api-static.hoyolab.com/common/map_user/ys_obc/v1/map/point/info?point_id=12130&map_id=2&app_sn=ys_obc&lang=en-us",
+      "source": "https://genshin-impact.fandom.com/wiki/File:NPC_Location_Kujou_Masahito_Context.png",
+      "imageURL": "https://static.wikia.nocookie.net/gensin-impact/images/8/83/NPC_Location_Kujou_Masahito_Context.png/revision/latest?cb=20210804214944",
+      "loreSource": "https://genshin-impact.fandom.com/wiki/Kujou_Encampment",
+      "asset": "expansion-kujou-encampment.webp",
+      "dimensions": [
+        1920,
+        1080
+      ],
+      "candidate": false,
+      "introducedVersion": 9,
+      "imageReview": {
+        "reviewed": "2026-10-29",
+        "playableCharacters": false,
+        "gameUI": false,
+        "captions": false,
+        "camera": "Visually inspected at full size. Walkable ground, platform or approach; the in-game archive viewpoints use low-resolution originals and no watermark was removed."
+      },
+      "musicResearch": {
+        "recommended": [
+          "Valor & Prowess"
+        ],
+        "source": "https://music.kuutar.moe/soundtrack/valor-prowess",
+        "note": "Documented location exploration cue."
+      },
+      "music": {
+        "tracks": [
+          "music-game-6e34f9655f1ed0bf2e76"
+        ],
+        "combatTrack": null
+      }
+    },
+    {
+      "id": "expansion-caravan-ribat",
+      "label": "Caravan Ribat",
+      "region": "Sumeru",
+      "description": "A fortified trading outpost beneath the Wall of Samiel between Sumeru’s forest and desert. The pin and background depict the named approach viewpoint.",
+      "classifications": [
+        "Caravan Ribat",
+        "Wall of Samiel outpost"
+      ],
+      "suggestedCharacters": [],
+      "waypoint": {
+        "mapId": "teyvat",
+        "x": -4498.001200464198,
+        "y": 3844.500111270051
+      },
+      "coordinateMethod": "HoYoLAB map 2 point 30474: Caravan Ribat | The Frontier Beneath the High Wall . This marks the viewpoint and does not encode altitude or underground floors.",
+      "coordinateSource": "https://sg-public-api-static.hoyolab.com/common/map_user/ys_obc/v1/map/point/info?point_id=30474&map_id=2&app_sn=ys_obc&lang=en-us",
+      "source": "https://genshin-impact.fandom.com/wiki/File:Viewpoint_The_Frontier_Beneath_the_High_Wall.png",
+      "imageURL": "https://static.wikia.nocookie.net/gensin-impact/images/a/a1/Viewpoint_The_Frontier_Beneath_the_High_Wall.png/revision/latest?cb=20220826094937",
+      "loreSource": "https://genshin-impact.fandom.com/wiki/Caravan_Ribat",
+      "asset": "expansion-caravan-ribat.webp",
+      "dimensions": [
+        1024,
+        512
+      ],
+      "candidate": false,
+      "introducedVersion": 9,
+      "imageReview": {
+        "reviewed": "2026-10-29",
+        "playableCharacters": false,
+        "gameUI": false,
+        "captions": false,
+        "camera": "Visually inspected at full size. Walkable ground, platform or approach; the in-game archive viewpoints use low-resolution originals and no watermark was removed."
+      },
+      "musicResearch": {
+        "recommended": [
+          "Scorching Outpost"
+        ],
+        "source": "https://genshin-impact.fandom.com/wiki/Caravan_Ribat#Soundtracks",
+        "note": "Rankova Zorya uses a documented Volkodlak Tundra fallback. An empty list has no verified assigned track."
+      },
+      "music": {
+        "tracks": [
+          "music-game-4014fcfd80cd700011b3"
+        ],
+        "combatTrack": null
+      }
+    },
+    {
+      "id": "expansion-petrichor",
+      "label": "Petrichor",
+      "region": "Fontaine",
+      "description": "A small musical village on Petrichor Island in the Nostoi Region. The pin is its named in-game viewpoint; the background shows the village approach.",
+      "classifications": [
+        "Petrichor",
+        "Petrichor village"
+      ],
+      "suggestedCharacters": [],
+      "waypoint": {
+        "mapId": "teyvat",
+        "x": -5200,
+        "y": 1072
+      },
+      "coordinateMethod": "HoYoLAB map 2 point 68401: Viewpoint: The Lovely Legends of Petrichor. This marks the viewpoint and does not encode altitude or underground floors.",
+      "coordinateSource": "https://sg-public-api-static.hoyolab.com/common/map_user/ys_obc/v1/map/point/info?point_id=68401&map_id=2&app_sn=ys_obc&lang=en-us",
+      "source": "https://genshin-impact.fandom.com/wiki/File:Petrichor.png",
+      "imageURL": "https://static.wikia.nocookie.net/gensin-impact/images/3/3e/Petrichor.png/revision/latest?cb=20240429093912",
+      "loreSource": "https://genshin-impact.fandom.com/wiki/Petrichor",
+      "asset": "expansion-petrichor.webp",
+      "dimensions": [
+        3840,
+        2160
+      ],
+      "candidate": false,
+      "introducedVersion": 9,
+      "imageReview": {
+        "reviewed": "2026-10-29",
+        "playableCharacters": false,
+        "gameUI": false,
+        "captions": false,
+        "camera": "Visually inspected at full size. Walkable ground, platform or approach; the in-game archive viewpoints use low-resolution originals and no watermark was removed."
+      },
+      "musicResearch": {
+        "recommended": [
+          "Regali teneri"
+        ],
+        "source": "https://music.kuutar.moe/soundtrack/regali-teneri",
+        "note": "Documented location exploration cue."
+      },
+      "music": {
+        "tracks": [
+          "music-game-8e304593b929c57c068e"
+        ],
+        "combatTrack": null
+      }
+    },
+    {
+      "id": "expansion-central-laboratory-ruins",
+      "label": "Central Laboratory Ruins",
+      "region": "Fontaine",
+      "description": "Floating ruins left by the Fontaine Research Institute’s disaster. The pin marks the in-game viewpoint on the high ruins; the surface map does not encode its altitude.",
+      "classifications": [
+        "Central Laboratory Ruins",
+        "Fontaine laboratory ruins"
+      ],
+      "suggestedCharacters": [],
+      "waypoint": {
+        "mapId": "teyvat",
+        "x": -4720.246295110875,
+        "y": -2395.2531891842996
+      },
+      "coordinateMethod": "HoYoLAB map 2 point 54433: Central Laboratory Ruins | The Wreck of Shattered Dreams. . This marks the viewpoint and does not encode altitude or underground floors.",
+      "coordinateSource": "https://sg-public-api-static.hoyolab.com/common/map_user/ys_obc/v1/map/point/info?point_id=54433&map_id=2&app_sn=ys_obc&lang=en-us",
+      "source": "https://genshin-impact.fandom.com/wiki/File:Viewpoint_The_Wreck_of_Shattered_Dreams.png",
+      "imageURL": "https://static.wikia.nocookie.net/gensin-impact/images/6/6a/Viewpoint_The_Wreck_of_Shattered_Dreams.png/revision/latest?cb=20231010200349",
+      "loreSource": "https://genshin-impact.fandom.com/wiki/Central_Laboratory_Ruins",
+      "asset": "expansion-central-laboratory-ruins.webp",
+      "dimensions": [
+        1000,
+        500
+      ],
+      "candidate": false,
+      "introducedVersion": 9,
+      "imageReview": {
+        "reviewed": "2026-10-29",
+        "playableCharacters": false,
+        "gameUI": false,
+        "captions": false,
+        "camera": "Visually inspected at full size. Walkable ground, platform or approach; the in-game archive viewpoints use low-resolution originals and no watermark was removed."
+      },
+      "musicResearch": {
+        "recommended": [
+          "Par les soirs bleus d'ete"
+        ],
+        "source": "https://genshin-impact.fandom.com/wiki/Central_Laboratory_Ruins#Soundtracks",
+        "note": "Rankova Zorya uses a documented Volkodlak Tundra fallback. An empty list has no verified assigned track."
+      },
+      "music": {
+        "tracks": [
+          "music-game-75bd9be4e9f8fbb59004"
+        ],
+        "combatTrack": null
+      }
+    },
+    {
+      "id": "expansion-dunanna-forward-station",
+      "label": "Dunanna Forward Station",
+      "region": "Nod-Krai",
+      "description": "A forward station at Dunanna Pit, where traces of an older civilization remain. The pin is the named in-game viewpoint.",
+      "classifications": [
+        "Dunanna Forward Station",
+        "Dunanna Pit"
+      ],
+      "suggestedCharacters": [],
+      "waypoint": {
+        "mapId": "teyvat",
+        "x": -9377.6008483862,
+        "y": -3352.1823527189854
+      },
+      "coordinateMethod": "HoYoLAB map 2 point 99239: named viewpoint. This marks the viewpoint and does not encode altitude or underground floors.",
+      "coordinateSource": "https://sg-public-api-static.hoyolab.com/common/map_user/ys_obc/v1/map/point/info?point_id=99239&map_id=2&app_sn=ys_obc&lang=en-us",
+      "source": "https://genshin-impact.fandom.com/wiki/File:Viewpoint_Mystery_Pit_of_the_Misty_Isle.png",
+      "imageURL": "https://static.wikia.nocookie.net/gensin-impact/images/3/31/Viewpoint_Mystery_Pit_of_the_Misty_Isle.png/revision/latest?cb=20260701022942",
+      "loreSource": "https://genshin-impact.fandom.com/wiki/Dunanna_Forward_Station",
+      "asset": "expansion-dunanna-forward-station.webp",
+      "dimensions": [
+        1024,
+        512
+      ],
+      "candidate": false,
+      "introducedVersion": 9,
+      "imageReview": {
+        "reviewed": "2026-10-29",
+        "playableCharacters": false,
+        "gameUI": false,
+        "captions": false,
+        "camera": "Visually inspected at full size. Walkable ground, platform or approach; the in-game archive viewpoints use low-resolution originals and no watermark was removed."
+      },
+      "musicResearch": {
+        "recommended": [
+          "From the Great Sky"
+        ],
+        "source": "https://music.kuutar.moe/soundtrack/from-the-great-sky",
+        "note": "Dunanna uses the documented containing-area exploration cue."
+      },
+      "music": {
+        "tracks": [
+          "music-game-eb92ffbd37285cfff691"
+        ],
+        "combatTrack": null
+      }
+    },
+    {
+      "id": "expansion-the-witch-s-garden",
+      "label": "The Witch's Garden",
+      "region": "Nod-Krai",
+      "description": "A secluded garden and meeting point in Voidsea Outlook, containing Nicole’s Witch’s Lodge. The pin is the in-game viewpoint inside the garden; underground floors are not encoded on the surface map.",
+      "classifications": [
+        "The Witch's Garden",
+        "Witch garden",
+        "Witch's Lodge"
+      ],
+      "suggestedCharacters": [],
+      "waypoint": {
+        "mapId": "teyvat",
+        "x": -10425.25,
+        "y": -3159.25
+      },
+      "coordinateMethod": "HoYoLAB map 2 point 93861: 'Wonderland in the Rabbit Hole'. This marks the viewpoint and does not encode altitude or underground floors.",
+      "coordinateSource": "https://sg-public-api-static.hoyolab.com/common/map_user/ys_obc/v1/map/point/info?point_id=93861&map_id=2&app_sn=ys_obc&lang=en-us",
+      "source": "https://genshin-impact.fandom.com/wiki/File:Viewpoint_Wonderland_in_the_Rabbit_Hole.png",
+      "imageURL": "https://static.wikia.nocookie.net/gensin-impact/images/7/72/Viewpoint_Wonderland_in_the_Rabbit_Hole.png/revision/latest?cb=20260121185126",
+      "loreSource": "https://genshin-impact.fandom.com/wiki/The_Witch%27s_Garden",
+      "asset": "expansion-the-witch-s-garden.webp",
+      "dimensions": [
+        1024,
+        512
+      ],
+      "candidate": false,
+      "introducedVersion": 9,
+      "imageReview": {
+        "reviewed": "2026-10-29",
+        "playableCharacters": false,
+        "gameUI": false,
+        "captions": false,
+        "camera": "Visually inspected at full size. Walkable ground, platform or approach; the in-game archive viewpoints use low-resolution originals and no watermark was removed."
+      },
+      "musicResearch": {
+        "recommended": [
+          "After Tea Party"
+        ],
+        "source": "https://genshin-impact.fandom.com/wiki/The_Witch%27s_Garden#Soundtracks",
+        "note": "Rankova Zorya uses a documented Volkodlak Tundra fallback. An empty list has no verified assigned track."
+      },
+      "music": {
+        "tracks": [
+          "music-game-b521a1d9bb2ee1532ac0"
+        ],
+        "combatTrack": null
+      }
+    },
+    {
+      "id": "expansion-underground-research-center",
+      "label": "Underground Research Center",
+      "region": "Nod-Krai",
+      "description": "A classified Fatui research facility under Paha Isle. The pin marks the named viewpoint in the underground complex, projected onto the surface map.",
+      "classifications": [
+        "Underground Research Center",
+        "Paha underground research"
+      ],
+      "suggestedCharacters": [],
+      "waypoint": {
+        "mapId": "teyvat",
+        "x": -10960,
+        "y": -992.5
+      },
+      "coordinateMethod": "HoYoLAB map 2 point 89207: Viewpoint: Secret Research. This marks the viewpoint and does not encode altitude or underground floors.",
+      "coordinateSource": "https://sg-public-api-static.hoyolab.com/common/map_user/ys_obc/v1/map/point/info?point_id=89207&map_id=2&app_sn=ys_obc&lang=en-us",
+      "source": "https://genshin-impact.fandom.com/wiki/File:Viewpoint_Secret_Research.png",
+      "imageURL": "https://static.wikia.nocookie.net/gensin-impact/images/c/ca/Viewpoint_Secret_Research.png/revision/latest?cb=20250910125547",
+      "loreSource": "https://genshin-impact.fandom.com/wiki/Underground_Research_Center",
+      "asset": "expansion-underground-research-center.webp",
+      "dimensions": [
+        1024,
+        512
+      ],
+      "candidate": false,
+      "introducedVersion": 9,
+      "imageReview": {
+        "reviewed": "2026-10-29",
+        "playableCharacters": false,
+        "gameUI": false,
+        "captions": false,
+        "camera": "Visually inspected at full size. Walkable ground, platform or approach; the in-game archive viewpoints use low-resolution originals and no watermark was removed."
+      },
+      "musicResearch": {
+        "recommended": [
+          "The Forbidding Ground"
+        ],
+        "source": "https://genshin-impact.fandom.com/wiki/Underground_Research_Center#Soundtracks",
+        "note": "Rankova Zorya uses a documented Volkodlak Tundra fallback. An empty list has no verified assigned track."
+      },
+      "music": {
+        "tracks": [
+          "music-game-a0b1db463dd6db10ccc8"
+        ],
+        "combatTrack": null
+      }
+    },
+    {
+      "id": "expansion-maroon-basin",
+      "label": "Maroon Basin",
+      "region": "Nod-Krai",
+      "description": "A pink-tinted basin on Paha Isle with abandoned steel structures. The pin is the Silent Shallows viewpoint, not Starsand Shoal.",
+      "classifications": [
+        "Maroon Basin",
+        "Silent Shallows",
+        "Paha marsh"
+      ],
+      "suggestedCharacters": [],
+      "waypoint": {
+        "mapId": "teyvat",
+        "x": -10069.653661846402,
+        "y": -911.309665871122
+      },
+      "coordinateMethod": "HoYoLAB map 2 point 89211: Silent Shallows. This marks the viewpoint and does not encode altitude or underground floors.",
+      "coordinateSource": "https://sg-public-api-static.hoyolab.com/common/map_user/ys_obc/v1/map/point/info?point_id=89211&map_id=2&app_sn=ys_obc&lang=en-us",
+      "source": "https://genshin-impact.fandom.com/wiki/File:Viewpoint_Silent_Shallows.png",
+      "imageURL": "https://static.wikia.nocookie.net/gensin-impact/images/1/1d/Viewpoint_Silent_Shallows.png/revision/latest?cb=20250910125549",
+      "loreSource": "https://genshin-impact.fandom.com/wiki/Maroon_Basin",
+      "asset": "expansion-maroon-basin.webp",
+      "dimensions": [
+        1024,
+        512
+      ],
+      "candidate": false,
+      "introducedVersion": 9,
+      "imageReview": {
+        "reviewed": "2026-10-29",
+        "playableCharacters": false,
+        "gameUI": false,
+        "captions": false,
+        "camera": "Visually inspected at full size. Walkable ground, platform or approach; the in-game archive viewpoints use low-resolution originals and no watermark was removed."
+      },
+      "musicResearch": {
+        "recommended": [
+          "Rosy Marshland"
+        ],
+        "source": "https://genshin-impact.fandom.com/wiki/Maroon_Basin#Soundtracks",
+        "note": "Rankova Zorya uses a documented Volkodlak Tundra fallback. An empty list has no verified assigned track."
+      },
+      "music": {
+        "tracks": [
+          "music-game-b1d119a78eb5df46a3a3"
+        ],
+        "combatTrack": null
+      }
+    },
+    {
+      "id": "expansion-rankova-zorya",
+      "label": "Rankova Zorya",
+      "region": "Snezhnaya",
+      "description": "A settlement in the Volkodlak Tundra. The point is the Where the First Dawn Breaks viewpoint, unlocked after Daybreak After the Snow.",
+      "classifications": [
+        "Rankova Zorya",
+        "Where the First Dawn Breaks"
+      ],
+      "suggestedCharacters": [],
+      "waypoint": {
+        "mapId": "teyvat",
+        "x": -8597.857609143717,
+        "y": -6152.464370245428
+      },
+      "coordinateMethod": "HoYoLAB map 2 point 105221: On the pavement. This marks the viewpoint and does not encode altitude or underground floors.",
+      "coordinateSource": "https://sg-public-api-static.hoyolab.com/common/map_user/ys_obc/v1/map/point/info?point_id=105221&map_id=2&app_sn=ys_obc&lang=en-us",
+      "source": "https://genshin-impact.fandom.com/wiki/File:Viewpoint_Where_the_First_Dawn_Breaks.png",
+      "imageURL": "https://static.wikia.nocookie.net/gensin-impact/images/7/74/Viewpoint_Where_the_First_Dawn_Breaks.png/revision/latest?cb=20260824185928",
+      "loreSource": "https://genshin-impact.fandom.com/wiki/Rankova_Zorya",
+      "asset": "expansion-rankova-zorya.webp",
+      "dimensions": [
+        1024,
+        512
+      ],
+      "candidate": false,
+      "introducedVersion": 9,
+      "imageReview": {
+        "reviewed": "2026-10-29",
+        "playableCharacters": false,
+        "gameUI": false,
+        "captions": false,
+        "camera": "Visually inspected at full size. Walkable ground, platform or approach; the in-game archive viewpoints use low-resolution originals and no watermark was removed."
+      },
+      "musicResearch": {
+        "recommended": [
+          "Rising Smoke, Crowded Streets"
+        ],
+        "source": "https://genshin-impact.fandom.com/wiki/Rankova_Zorya#Soundtracks",
+        "note": "Rankova Zorya uses a documented Volkodlak Tundra fallback. An empty list has no verified assigned track."
+      },
+      "music": {
+        "tracks": [
+          "music-game-cee53e203220e40c4e1c"
+        ],
+        "combatTrack": null
+      }
+    },
+    {
+      "id": "expansion-yilong-wharf",
+      "label": "Yilong Wharf",
+      "region": "Liyue",
+      "description": "A busy wharf in Chenyu Vale. The marker identifies Fengtai General Goods, the pictured shop in the wharf.",
+      "classifications": [
+        "Yilong Wharf",
+        "Fengtai General Goods"
+      ],
+      "suggestedCharacters": [],
+      "waypoint": {
+        "mapId": "teyvat",
+        "x": -3168.1285329718485,
+        "y": -151.70567953017962
+      },
+      "coordinateMethod": "HoYoLAB map 2 point 67282. See description for the viewpoint, surface projection or exact pictured marker.",
+      "coordinateSource": "https://sg-public-api-static.hoyolab.com/common/map_user/ys_obc/v1/map/point/info?point_id=67282&map_id=2&app_sn=ys_obc&lang=en-us",
+      "source": "https://genshin-impact.fandom.com/wiki/File:Fengtai_General_Goods.png",
+      "imageURL": "https://static.wikia.nocookie.net/gensin-impact/images/2/22/Fengtai_General_Goods.png/revision/latest?cb=20240312110845",
+      "loreSource": "https://genshin-impact.fandom.com/wiki/Yilong_Wharf",
+      "asset": "expansion-yilong-wharf.webp",
+      "dimensions": [
+        1920,
+        1080
+      ],
+      "candidate": false,
+      "introducedVersion": 9,
+      "imageReview": {
+        "reviewed": "2026-10-29",
+        "playableCharacters": false,
+        "gameUI": false,
+        "captions": false,
+        "camera": "Inspected full-size. Walkable floor, shoreline, ridge or viewpoint; original image and any logo retained. Archive and domain images are low-resolution."
+      },
+      "music": {
+        "tracks": [
+          "music-game-263ed99a13f94f2830bd"
+        ],
+        "combatTrack": null
+      },
+      "musicResearch": {
+        "recommended": [
+          "What a Delightful Scenery"
+        ],
+        "source": "https://genshin-impact.fandom.com/wiki/Yilong_Wharf#Soundtracks",
+        "note": "location"
+      }
+    },
+    {
+      "id": "expansion-cuijue-slope",
+      "label": "Cuijue Slope",
+      "region": "Liyue",
+      "description": "The Nine Pillars of Peace stand around a ruin in Cuijue Slope. The marker is the named viewpoint on the slope.",
+      "classifications": [
+        "Cuijue Slope",
+        "Nine Pillars of Peace"
+      ],
+      "suggestedCharacters": [],
+      "waypoint": {
+        "mapId": "teyvat",
+        "x": -1520.9991628442206,
+        "y": 1891.992303700952
+      },
+      "coordinateMethod": "HoYoLAB map 2 point 5044. See description for the viewpoint, surface projection or exact pictured marker.",
+      "coordinateSource": "https://sg-public-api-static.hoyolab.com/common/map_user/ys_obc/v1/map/point/info?point_id=5044&map_id=2&app_sn=ys_obc&lang=en-us",
+      "source": "https://genshin-impact.fandom.com/wiki/File:Viewpoint_Nine_Pillars_of_Peace.png",
+      "imageURL": "https://static.wikia.nocookie.net/gensin-impact/images/f/fe/Viewpoint_Nine_Pillars_of_Peace.png/revision/latest?cb=20210415173003",
+      "loreSource": "https://genshin-impact.fandom.com/wiki/Cuijue_Slope",
+      "asset": "expansion-cuijue-slope.webp",
+      "dimensions": [
+        1024,
+        512
+      ],
+      "candidate": false,
+      "introducedVersion": 9,
+      "imageReview": {
+        "reviewed": "2026-10-29",
+        "playableCharacters": false,
+        "gameUI": false,
+        "captions": false,
+        "camera": "Inspected full-size. Walkable floor, shoreline, ridge or viewpoint; original image and any logo retained. Archive and domain images are low-resolution."
+      },
+      "music": {
+        "tracks": [
+          "music-game-06ed414af6bd23bb70a0"
+        ],
+        "combatTrack": null
+      },
+      "musicResearch": {
+        "recommended": [
+          "Secluded Sanctuary"
+        ],
+        "source": "https://genshin-impact.fandom.com/wiki/Cuijue_Slope#Soundtracks",
+        "note": "Minlin rain exploration fallback"
+      }
+    },
+    {
+      "id": "expansion-qingxu-pool",
+      "label": "Qingxu Pool",
+      "region": "Liyue",
+      "description": "Qingxu Pool contains old Liyue ruins and the underground quest domain visited with Yelan. The marker is the surface viewpoint; the low-resolution background shows the quest domain interior.",
+      "classifications": [
+        "Qingxu Pool",
+        "Qingxu Pool Underground Ruins"
+      ],
+      "suggestedCharacters": [],
+      "waypoint": {
+        "mapId": "teyvat",
+        "x": -1899.4157263182137,
+        "y": 3215.26237973398
+      },
+      "coordinateMethod": "HoYoLAB map 2 point 5053. See description for the viewpoint, surface projection or exact pictured marker.",
+      "coordinateSource": "https://sg-public-api-static.hoyolab.com/common/map_user/ys_obc/v1/map/point/info?point_id=5053&map_id=2&app_sn=ys_obc&lang=en-us",
+      "source": "https://genshin-impact.fandom.com/wiki/File:Domain_Qingxu_Pool_Underground_Ruins.png",
+      "imageURL": "https://static.wikia.nocookie.net/gensin-impact/images/6/62/Domain_Qingxu_Pool_Underground_Ruins.png/revision/latest?cb=20220603020032",
+      "loreSource": "https://genshin-impact.fandom.com/wiki/Qingxu_Pool",
+      "asset": "expansion-qingxu-pool.webp",
+      "dimensions": [
+        512,
+        256
+      ],
+      "candidate": false,
+      "introducedVersion": 9,
+      "imageReview": {
+        "reviewed": "2026-10-29",
+        "playableCharacters": false,
+        "gameUI": false,
+        "captions": false,
+        "camera": "Inspected full-size. Walkable floor, shoreline, ridge or viewpoint; original image and any logo retained. Archive and domain images are low-resolution."
+      },
+      "music": {
+        "tracks": [
+          "music-game-5db3da6ba8ba7048fd9c"
+        ],
+        "combatTrack": null
+      },
+      "musicResearch": {
+        "recommended": [
+          "Beats of Water Drops"
+        ],
+        "source": "https://genshin-impact.fandom.com/wiki/Qingxu_Pool#Soundtracks",
+        "note": "documented domain cue"
+      }
+    },
+    {
+      "id": "expansion-merusea-village",
+      "label": "Merusea Village",
+      "region": "Fontaine",
+      "description": "A Melusine village inside Elynas, reached during Ancient Colors. The marker is the Foamy Home viewpoint, projected onto the surface map; underground height is not represented.",
+      "classifications": [
+        "Merusea Village",
+        "Melusine village"
+      ],
+      "suggestedCharacters": [],
+      "waypoint": {
+        "mapId": "teyvat",
+        "x": -5652.625,
+        "y": -108.25
+      },
+      "coordinateMethod": "HoYoLAB map 2 point 52056. See description for the viewpoint, surface projection or exact pictured marker.",
+      "coordinateSource": "https://sg-public-api-static.hoyolab.com/common/map_user/ys_obc/v1/map/point/info?point_id=52056&map_id=2&app_sn=ys_obc&lang=en-us",
+      "source": "https://genshin-impact.fandom.com/wiki/File:Viewpoint_Foamy_Home.png",
+      "imageURL": "https://static.wikia.nocookie.net/gensin-impact/images/f/fc/Viewpoint_Foamy_Home.png/revision/latest?cb=20230818012258",
+      "loreSource": "https://genshin-impact.fandom.com/wiki/Merusea_Village",
+      "asset": "expansion-merusea-village.webp",
+      "dimensions": [
+        1024,
+        512
+      ],
+      "candidate": false,
+      "introducedVersion": 9,
+      "imageReview": {
+        "reviewed": "2026-10-29",
+        "playableCharacters": false,
+        "gameUI": false,
+        "captions": false,
+        "camera": "Inspected full-size. Walkable floor, shoreline, ridge or viewpoint; original image and any logo retained. Archive and domain images are low-resolution."
+      },
+      "music": {
+        "tracks": [
+          "music-game-2cd30a6ae2445fe79470"
+        ],
+        "combatTrack": null
+      },
+      "musicResearch": {
+        "recommended": [
+          "Melody of Merusea"
+        ],
+        "source": "https://genshin-impact.fandom.com/wiki/Merusea_Village#Soundtracks",
+        "note": "location"
+      }
+    },
+    {
+      "id": "expansion-the-rusty-rudder",
+      "label": "The Rusty Rudder",
+      "region": "Fontaine",
+      "description": "A beached ship used as a tavern near the Foggy Forest Path. The marker and low-resolution background identify the Drunkard’s Ship viewpoint.",
+      "classifications": [
+        "The Rusty Rudder",
+        "Rusty Rudder tavern"
+      ],
+      "suggestedCharacters": [],
+      "waypoint": {
+        "mapId": "teyvat",
+        "x": -3811.3764407902154,
+        "y": -1002.75
+      },
+      "coordinateMethod": "HoYoLAB map 2 point 56252. See description for the viewpoint, surface projection or exact pictured marker.",
+      "coordinateSource": "https://sg-public-api-static.hoyolab.com/common/map_user/ys_obc/v1/map/point/info?point_id=56252&map_id=2&app_sn=ys_obc&lang=en-us",
+      "source": "https://genshin-impact.fandom.com/wiki/File:Viewpoint_The_Drunkard%27s_Ship.png",
+      "imageURL": "https://static.wikia.nocookie.net/gensin-impact/images/b/b8/Viewpoint_The_Drunkard%27s_Ship.png/revision/latest?cb=20231108141855",
+      "loreSource": "https://genshin-impact.fandom.com/wiki/The_Rusty_Rudder",
+      "asset": "expansion-the-rusty-rudder.webp",
+      "dimensions": [
+        1024,
+        512
+      ],
+      "candidate": false,
+      "introducedVersion": 9,
+      "imageReview": {
+        "reviewed": "2026-10-29",
+        "playableCharacters": false,
+        "gameUI": false,
+        "captions": false,
+        "camera": "Inspected full-size. Walkable floor, shoreline, ridge or viewpoint; original image and any logo retained. Archive and domain images are low-resolution."
+      },
+      "music": {
+        "tracks": [
+          "music-game-2e3ac5d16aeda98a3f54"
+        ],
+        "combatTrack": null
+      },
+      "musicResearch": {
+        "recommended": [
+          "Toast to Coast"
+        ],
+        "source": "https://genshin-impact.fandom.com/wiki/The_Rusty_Rudder#Soundtracks",
+        "note": "location"
+      }
+    },
+    {
+      "id": "expansion-ancestral-temple",
+      "label": "Ancestral Temple",
+      "region": "Natlan",
+      "description": "An ancient temple among the cliffs of Coatepec Mountain. The pin and low-resolution image identify the Temple of Ancient Forebears viewpoint on a walkable platform.",
+      "classifications": [
+        "Ancestral Temple",
+        "Temple of Ancient Forebears"
+      ],
+      "suggestedCharacters": [],
+      "waypoint": {
+        "mapId": "teyvat",
+        "x": -8805.25,
+        "y": 4444.5
+      },
+      "coordinateMethod": "HoYoLAB map 2 point 71601. See description for the viewpoint, surface projection or exact pictured marker.",
+      "coordinateSource": "https://sg-public-api-static.hoyolab.com/common/map_user/ys_obc/v1/map/point/info?point_id=71601&map_id=2&app_sn=ys_obc&lang=en-us",
+      "source": "https://genshin-impact.fandom.com/wiki/File:Viewpoint_Temple_of_Ancient_Forebears.png",
+      "imageURL": "https://static.wikia.nocookie.net/gensin-impact/images/1/17/Viewpoint_Temple_of_Ancient_Forebears.png/revision/latest?cb=20240828063032",
+      "loreSource": "https://genshin-impact.fandom.com/wiki/Ancestral_Temple",
+      "asset": "expansion-ancestral-temple.webp",
+      "dimensions": [
+        1024,
+        512
+      ],
+      "candidate": false,
+      "introducedVersion": 9,
+      "imageReview": {
+        "reviewed": "2026-10-29",
+        "playableCharacters": false,
+        "gameUI": false,
+        "captions": false,
+        "camera": "Inspected full-size. Walkable floor, shoreline, ridge or viewpoint; original image and any logo retained. Archive and domain images are low-resolution."
+      },
+      "music": {
+        "tracks": [
+          "music-game-9670b6316e37dfddd666",
+          "music-game-dc4bd9992e886487c069"
+        ],
+        "combatTrack": null
+      },
+      "musicResearch": {
+        "recommended": [
+          "Striving for the Wind",
+          "Glow of Nawpa Pacha"
+        ],
+        "source": "https://genshin-impact.fandom.com/wiki/Ancestral_Temple#Soundtracks",
+        "note": "location"
+      }
+    },
+    {
+      "id": "expansion-pillar-of-embla-overlook",
+      "label": "Pillar of Embla Overlook",
+      "region": "Nod-Krai",
+      "description": "A viewpoint east of the Pillar of Embla, the tower associated with Rauthvangi and the Wild Hunt. This overlooks the pillar and is distinct from the existing Moonlit Pillar Sanctuary marker.",
+      "classifications": [
+        "Pillar of Embla overlook",
+        "Tower Piercing at the Sky"
+      ],
+      "suggestedCharacters": [],
+      "waypoint": {
+        "mapId": "teyvat",
+        "x": -10426,
+        "y": -3237.75
+      },
+      "coordinateMethod": "HoYoLAB map 2 point 93355. See description for the viewpoint, surface projection or exact pictured marker.",
+      "coordinateSource": "https://sg-public-api-static.hoyolab.com/common/map_user/ys_obc/v1/map/point/info?point_id=93355&map_id=2&app_sn=ys_obc&lang=en-us",
+      "source": "https://genshin-impact.fandom.com/wiki/File:Viewpoint_Tower_Piercing_at_the_Sky.png",
+      "imageURL": "https://static.wikia.nocookie.net/gensin-impact/images/d/d2/Viewpoint_Tower_Piercing_at_the_Sky.png/revision/latest?cb=20260114041516",
+      "loreSource": "https://genshin-impact.fandom.com/wiki/Pillar_of_Embla_Overlook",
+      "asset": "expansion-pillar-of-embla-overlook.webp",
+      "dimensions": [
+        1024,
+        512
+      ],
+      "candidate": false,
+      "introducedVersion": 9,
+      "imageReview": {
+        "reviewed": "2026-10-29",
+        "playableCharacters": false,
+        "gameUI": false,
+        "captions": false,
+        "camera": "Inspected full-size. Walkable floor, shoreline, ridge or viewpoint; original image and any logo retained. Archive and domain images are low-resolution."
+      },
+      "music": {
+        "tracks": [
+          "music-game-db54432a45c8ab29b77b",
+          "music-game-5d75258b8abad8170b2e"
+        ],
+        "combatTrack": null
+      },
+      "musicResearch": {
+        "recommended": [
+          "The Distant Moon Sits Alone",
+          "Hymn to the Moon"
+        ],
+        "source": "https://genshin-impact.fandom.com/wiki/Pillar_of_Embla_Overlook#Soundtracks",
+        "note": "location"
+      }
+    },
+    {
+      "id": "expansion-white-birch-snowgrave",
+      "label": "White Birch Snowgrave",
+      "region": "Snezhnaya",
+      "description": "An ancient royal landscape in White Birch Snowgrave. The marker is the Shadow Realm treasure-vault entrance pictured in the background.",
+      "classifications": [
+        "White Birch Snowgrave",
+        "Snow-Entombed Crownlands"
+      ],
+      "suggestedCharacters": [],
+      "waypoint": {
+        "mapId": "teyvat",
+        "x": -6354.5,
+        "y": -7428.5
+      },
+      "coordinateMethod": "HoYoLAB map 2 point 101943. See description for the viewpoint, surface projection or exact pictured marker.",
+      "coordinateSource": "https://sg-public-api-static.hoyolab.com/common/map_user/ys_obc/v1/map/point/info?point_id=101943&map_id=2&app_sn=ys_obc&lang=en-us",
+      "source": "https://genshin-impact.fandom.com/wiki/File:Shadow_Realm_Treasure_Vault_White_Birch_Snowgrave_Location_Context.png",
+      "imageURL": "https://static.wikia.nocookie.net/gensin-impact/images/3/3b/Shadow_Realm_Treasure_Vault_White_Birch_Snowgrave_Location_Context.png/revision/latest?cb=20260817213159",
+      "loreSource": "https://genshin-impact.fandom.com/wiki/White_Birch_Snowgrave",
+      "asset": "expansion-white-birch-snowgrave.webp",
+      "dimensions": [
+        1680,
+        1050
+      ],
+      "candidate": false,
+      "introducedVersion": 9,
+      "imageReview": {
+        "reviewed": "2026-10-29",
+        "playableCharacters": false,
+        "gameUI": false,
+        "captions": false,
+        "camera": "Inspected full-size. Walkable floor, shoreline, ridge or viewpoint; original image and any logo retained. Archive and domain images are low-resolution."
+      },
+      "music": {
+        "tracks": [
+          "music-game-2e9b6c20762775eb1dd0"
+        ],
+        "combatTrack": null
+      },
+      "musicResearch": {
+        "recommended": [
+          "High Court of Enduring Ice"
+        ],
+        "source": "https://genshin-impact.fandom.com/wiki/White_Birch_Snowgrave#Soundtracks",
+        "note": "White Birch area fallback"
+      }
+    },
+    {
+      "id": "expansion-house-of-hesperides-overlook",
+      "label": "House of Hesperides Overlook",
+      "region": "Snezhnaya",
+      "description": "A snowy ridge overlooking the House of Hesperides. This viewpoint is separate from the existing House of Hesperides waypoint at the estate.",
+      "classifications": [
+        "Hesperides overlook",
+        "Lonely Mansion Against the Whiteout"
+      ],
+      "suggestedCharacters": [],
+      "waypoint": {
+        "mapId": "teyvat",
+        "x": -7465.499845478826,
+        "y": -5818.498865030218
+      },
+      "coordinateMethod": "HoYoLAB map 2 point 101987. See description for the viewpoint, surface projection or exact pictured marker.",
+      "coordinateSource": "https://sg-public-api-static.hoyolab.com/common/map_user/ys_obc/v1/map/point/info?point_id=101987&map_id=2&app_sn=ys_obc&lang=en-us",
+      "source": "https://genshin-impact.fandom.com/wiki/File:Viewpoint_A_Lonely_Mansion_Against_the_Whiteout.png",
+      "imageURL": "https://static.wikia.nocookie.net/gensin-impact/images/0/09/Viewpoint_A_Lonely_Mansion_Against_the_Whiteout.png/revision/latest?cb=20260817233527",
+      "loreSource": "https://genshin-impact.fandom.com/wiki/House_of_Hesperides_Overlook",
+      "asset": "expansion-house-of-hesperides-overlook.webp",
+      "dimensions": [
+        1024,
+        512
+      ],
+      "candidate": false,
+      "introducedVersion": 9,
+      "imageReview": {
+        "reviewed": "2026-10-29",
+        "playableCharacters": false,
+        "gameUI": false,
+        "captions": false,
+        "camera": "Inspected full-size. Walkable floor, shoreline, ridge or viewpoint; original image and any logo retained. Archive and domain images are low-resolution."
+      },
+      "music": {
+        "tracks": [
+          "music-game-0074b5354c3b97f5d6f0"
+        ],
+        "combatTrack": null
+      },
+      "musicResearch": {
+        "recommended": [
+          "On Snow-Clad Heights"
+        ],
+        "source": "https://genshin-impact.fandom.com/wiki/House_of_Hesperides_Overlook#Soundtracks",
+        "note": "Fellfrost Peak area fallback"
+      }
+    },
+    {
+      "id": "expansion-starfell-lake",
+      "label": "Starfell Lake",
+      "region": "Mondstadt",
+      "description": "A lake in Starfell Valley, with a Statue of The Seven on the island. The point and archive image show the in-game overlook.",
+      "classifications": [
+        "Starfell Lake",
+        "Starfell Lake overlook"
+      ],
+      "suggestedCharacters": [],
+      "waypoint": {
+        "mapId": "teyvat",
+        "x": 665.5738092345446,
+        "y": -171.7010911231464
+      },
+      "coordinateMethod": "HoYoLAB map 2 point 5030; in-game viewpoint. Background may show a nearby part of the area, as described.",
+      "coordinateSource": "https://sg-public-api-static.hoyolab.com/common/map_user/ys_obc/v1/map/point/info?point_id=5030&map_id=2&app_sn=ys_obc&lang=en-us",
+      "source": "https://genshin-impact.fandom.com/wiki/File:Viewpoint_The_Marsh_of_Celestial_Guardians.png",
+      "imageURL": "https://static.wikia.nocookie.net/gensin-impact/images/f/f6/Viewpoint_The_Marsh_of_Celestial_Guardians.png/revision/latest?cb=20210415173025",
+      "loreSource": "https://genshin-impact.fandom.com/wiki/Starfell_Lake",
+      "asset": "expansion-starfell-lake.webp",
+      "dimensions": [
+        1024,
+        512
+      ],
+      "candidate": false,
+      "introducedVersion": 9,
+      "imageReview": {
+        "reviewed": "2026-10-29",
+        "playableCharacters": false,
+        "gameUI": false,
+        "captions": false,
+        "camera": "Reviewed at full size; original wiki image. The Starfell and Ochkanatlan archive images are low-resolution viewpoints; Tanit shows a nearby vault."
+      },
+      "music": {
+        "tracks": [
+          "music-game-3a8f2fd16184d9601d6c",
+          "music-game-7c9576560d2c6bf65af0"
+        ],
+        "combatTrack": null
+      },
+      "musicResearch": {
+        "recommended": [
+          "Whispering Plain",
+          "Wayfarer's Peace"
+        ],
+        "source": "https://genshin-impact.fandom.com/wiki/Starfell_Lake#Soundtracks",
+        "note": "Mondstadt area fallback"
+      }
+    },
+    {
+      "id": "expansion-tanit-camps",
+      "label": "Tanit Camps",
+      "region": "Sumeru",
+      "description": "The Tanit tribe’s desert encampment and setting of the Dirge of Bilqis story. The map pin is the in-game camp viewpoint; the background shows the nearby camp vault.",
+      "classifications": [
+        "Tanit Camps",
+        "Tanit camp",
+        "Tanit vault"
+      ],
+      "suggestedCharacters": [],
+      "waypoint": {
+        "mapId": "teyvat",
+        "x": -5772,
+        "y": 3873.5
+      },
+      "coordinateMethod": "HoYoLAB map 2 point 42401; in-game viewpoint. Background may show a nearby part of the area, as described.",
+      "coordinateSource": "https://sg-public-api-static.hoyolab.com/common/map_user/ys_obc/v1/map/point/info?point_id=42401&map_id=2&app_sn=ys_obc&lang=en-us",
+      "source": "https://genshin-impact.fandom.com/wiki/File:Tanit_Camps_Vault_Context.png",
+      "imageURL": "https://static.wikia.nocookie.net/gensin-impact/images/a/a5/Tanit_Camps_Vault_Context.png/revision/latest?cb=20230206063139",
+      "loreSource": "https://genshin-impact.fandom.com/wiki/Tanit_Camps",
+      "asset": "expansion-tanit-camps.webp",
+      "dimensions": [
+        3840,
+        2160
+      ],
+      "candidate": false,
+      "introducedVersion": 9,
+      "imageReview": {
+        "reviewed": "2026-10-29",
+        "playableCharacters": false,
+        "gameUI": false,
+        "captions": false,
+        "camera": "Reviewed at full size; original wiki image. The Starfell and Ochkanatlan archive images are low-resolution viewpoints; Tanit shows a nearby vault."
+      },
+      "music": {
+        "tracks": [
+          "music-game-2479338f02c2c8b15805"
+        ],
+        "combatTrack": null
+      },
+      "musicResearch": {
+        "recommended": [
+          "Gold Cup of Oases"
+        ],
+        "source": "https://genshin-impact.fandom.com/wiki/Tanit_Camps#Soundtracks",
+        "note": "location cue"
+      }
+    },
+    {
+      "id": "expansion-ochkanatlan",
+      "label": "Ochkanatlan",
+      "region": "Natlan",
+      "description": "The ruined city of Ochkanatlan, explored during Lost Traveler in the Ashen Realm. The marker and archive image represent the Unfinished Ashen City viewpoint.",
+      "classifications": [
+        "Ochkanatlan",
+        "Ashflow Street",
+        "Unfinished Ashen City"
+      ],
+      "suggestedCharacters": [],
+      "waypoint": {
+        "mapId": "teyvat",
+        "x": -10516.625,
+        "y": 2920.375
+      },
+      "coordinateMethod": "HoYoLAB map 2 point 80472; in-game viewpoint. Background may show a nearby part of the area, as described.",
+      "coordinateSource": "https://sg-public-api-static.hoyolab.com/common/map_user/ys_obc/v1/map/point/info?point_id=80472&map_id=2&app_sn=ys_obc&lang=en-us",
+      "source": "https://genshin-impact.fandom.com/wiki/File:Viewpoint_The_Unfinished_Ashen_City.png",
+      "imageURL": "https://static.wikia.nocookie.net/gensin-impact/images/2/27/Viewpoint_The_Unfinished_Ashen_City.png/revision/latest?cb=20241217083435",
+      "loreSource": "https://genshin-impact.fandom.com/wiki/Ochkanatlan",
+      "asset": "expansion-ochkanatlan.webp",
+      "dimensions": [
+        1024,
+        512
+      ],
+      "candidate": false,
+      "introducedVersion": 9,
+      "imageReview": {
+        "reviewed": "2026-10-29",
+        "playableCharacters": false,
+        "gameUI": false,
+        "captions": false,
+        "camera": "Reviewed at full size; original wiki image. The Starfell and Ochkanatlan archive images are low-resolution viewpoints; Tanit shows a nearby vault."
+      },
+      "music": {
+        "tracks": [
+          "music-game-22db5a53ba4a47b53c5c"
+        ],
+        "combatTrack": null
+      },
+      "musicResearch": {
+        "recommended": [
+          "Someone Walked These Paths"
+        ],
+        "source": "https://genshin-impact.fandom.com/wiki/Ochkanatlan#Soundtracks",
+        "note": "Ashflow Street location cue"
+      }
+    },
+    {
+      "id": "expansion-jueyun-karst",
+      "label": "Jueyun Karst",
+      "region": "Liyue",
+      "description": "The mountainous home of Liyue’s adepti, with an in-game viewpoint among the peaks. The low-resolution archive image shows the mountain view.",
+      "classifications": [
+        "Jueyun Karst",
+        "Jueyun mountains"
+      ],
+      "suggestedCharacters": [],
+      "waypoint": {
+        "mapId": "teyvat",
+        "x": -1839.911401013354,
+        "y": 1654.1347085712628
+      },
+      "coordinateMethod": "HoYoLAB map 2 point 5045, the named in-game viewpoint.",
+      "coordinateSource": "https://sg-public-api-static.hoyolab.com/common/map_user/ys_obc/v1/map/point/info?point_id=5045&map_id=2&app_sn=ys_obc&lang=en-us",
+      "source": "https://genshin-impact.fandom.com/wiki/File:Viewpoint_Where_Mountains_Peak_Beyond_the_Clouds.png",
+      "imageURL": "https://static.wikia.nocookie.net/gensin-impact/images/1/1e/Viewpoint_Where_Mountains_Peak_Beyond_the_Clouds.png/revision/latest?cb=20230117120757",
+      "loreSource": "https://genshin-impact.fandom.com/wiki/Jueyun_Karst",
+      "asset": "expansion-jueyun-karst.webp",
+      "dimensions": [
+        1024,
+        512
+      ],
+      "candidate": false,
+      "introducedVersion": 9,
+      "imageReview": {
+        "reviewed": "2026-10-29",
+        "playableCharacters": false,
+        "gameUI": false,
+        "captions": false,
+        "camera": "Reviewed original low-resolution in-game archive view; no alterations."
+      },
+      "music": {
+        "tracks": [
+          "music-game-06ed414af6bd23bb70a0"
+        ],
+        "combatTrack": null
+      },
+      "musicResearch": {
+        "recommended": [
+          "Secluded Sanctuary"
+        ],
+        "source": "https://genshin-impact.fandom.com/wiki/Jueyun_Karst#Soundtracks",
+        "note": "Minlin rain exploration fallback"
+      }
+    },
+    {
+      "id": "expansion-nazuchi-beach",
+      "label": "Nazuchi Beach",
+      "region": "Inazuma",
+      "description": "A beach between Kannazuka and Yashiori Island scarred by past fighting. The pin and image show the Tidal Flat Amidst the Flames of War viewpoint.",
+      "classifications": [
+        "Nazuchi Beach",
+        "Nazuchi battlefield"
+      ],
+      "suggestedCharacters": [],
+      "waypoint": {
+        "mapId": "teyvat",
+        "x": 1943,
+        "y": 5732
+      },
+      "coordinateMethod": "HoYoLAB map 2 point 12116, the named in-game viewpoint.",
+      "coordinateSource": "https://sg-public-api-static.hoyolab.com/common/map_user/ys_obc/v1/map/point/info?point_id=12116&map_id=2&app_sn=ys_obc&lang=en-us",
+      "source": "https://genshin-impact.fandom.com/wiki/File:Viewpoint_Tidal_Flat_Amidst_the_Flames_of_War.png",
+      "imageURL": "https://static.wikia.nocookie.net/gensin-impact/images/9/93/Viewpoint_Tidal_Flat_Amidst_the_Flames_of_War.png/revision/latest?cb=20210723005616",
+      "loreSource": "https://genshin-impact.fandom.com/wiki/Nazuchi_Beach",
+      "asset": "expansion-nazuchi-beach.webp",
+      "dimensions": [
+        1024,
+        512
+      ],
+      "candidate": false,
+      "introducedVersion": 9,
+      "imageReview": {
+        "reviewed": "2026-10-29",
+        "playableCharacters": false,
+        "gameUI": false,
+        "captions": false,
+        "camera": "Reviewed original low-resolution in-game archive view; no alterations."
+      },
+      "music": {
+        "tracks": [
+          "music-game-528553940524637b705c"
+        ],
+        "combatTrack": null
+      },
+      "musicResearch": {
+        "recommended": [
+          "Caress of the Spirit"
+        ],
+        "source": "https://genshin-impact.fandom.com/wiki/Nazuchi_Beach#Soundtracks",
+        "note": "location cue"
+      }
     }
   ],
-  "assetGuidelines": "ASSET-GUIDELINES.md"
+  "assetGuidelines": "ASSET-GUIDELINES.md",
+  "defaultMusicLibrary": [
+    {
+      "id": "music-game-20b44a89549fa271294a",
+      "name": "Murmuring Creek.m4a",
+      "label": "Inazuma · Murmuring Creek",
+      "path": "/user/files/silly-teyvat-music-inazuma-murmuring-creek-20b44a89549f.m4a"
+    },
+    {
+      "id": "music-game-c825bb8caa45872d53f0",
+      "name": "Melody of Bright New Buds.m4a",
+      "label": "Sumeru · Melody of Bright New Buds",
+      "path": "/user/files/silly-teyvat-music-sumeru-melody-of-bright-new-buds-c825bb8caa45.m4a"
+    },
+    {
+      "id": "music-game-e66e8d4e6f6b377781c8",
+      "name": "Loch's Revitalization.m4a",
+      "label": "Fontaine · Loch's Revitalization",
+      "path": "/user/files/silly-teyvat-music-fontaine-loch-s-revitalization-e66e8d4e6f6b.m4a"
+    },
+    {
+      "id": "music-game-4a725d48fc6921dd359f",
+      "name": "Waves Curl Over Drifting Sand.m4a",
+      "label": "Natlan · Waves Curl Over Drifting Sand",
+      "path": "/user/files/silly-teyvat-music-natlan-waves-curl-over-drifting-sand-4a725d48fc69.m4a"
+    },
+    {
+      "id": "music-game-2903a592f10d2139397a",
+      "name": "Indulgence Beneath the Sun.m4a",
+      "label": "Natlan · Indulgence Beneath the Sun",
+      "path": "/user/files/silly-teyvat-music-natlan-indulgence-beneath-the-sun-2903a592f10d.m4a"
+    },
+    {
+      "id": "music-game-99b7563c8a6b235a9d08",
+      "name": "Sorush's Purity.m4a",
+      "label": "Sumeru · Sorush's Purity",
+      "path": "/user/files/silly-teyvat-music-sumeru-sorush-s-purity-99b7563c8a6b.m4a"
+    },
+    {
+      "id": "music-game-6aea958872831b27645e",
+      "name": "Forlorn Child of Archaic Winds (Dvalin's Nest).m4a",
+      "label": "Mondstadt · Forlorn Child of Archaic Winds (Dvalin's Nest)",
+      "path": "/user/files/silly-teyvat-music-mondstadt-forlorn-child-of-archaic-winds-dvalin-s-nest-6aea95887283.m4a"
+    },
+    {
+      "id": "music-game-cecfcc7b495e9ccfc146",
+      "name": "Dawn Winery Theme.m4a",
+      "label": "Mondstadt · Dawn Winery Theme",
+      "path": "/user/files/silly-teyvat-music-mondstadt-dawn-winery-theme-cecfcc7b495e.m4a"
+    },
+    {
+      "id": "music-game-9f2631f9405862cc4919",
+      "name": "Whence the Flow Cometh.m4a",
+      "label": "Mondstadt · Whence the Flow Cometh",
+      "path": "/user/files/silly-teyvat-music-mondstadt-whence-the-flow-cometh-9f2631f94058.m4a"
+    },
+    {
+      "id": "music-game-afb123975f6d2d75bcb0",
+      "name": "A Fragment of Peace.m4a",
+      "label": "Inazuma · A Fragment of Peace",
+      "path": "/user/files/silly-teyvat-music-inazuma-a-fragment-of-peace-afb123975f6d.m4a"
+    },
+    {
+      "id": "music-game-4014fcfd80cd700011b3",
+      "name": "Scorching Outpost.m4a",
+      "label": "Sumeru · Scorching Outpost",
+      "path": "/user/files/silly-teyvat-music-sumeru-scorching-outpost-4014fcfd80cd.m4a"
+    },
+    {
+      "id": "music-game-75bd9be4e9f8fbb59004",
+      "name": "Par les soirs bleus d'ete.m4a",
+      "label": "Fontaine · Par les soirs bleus d'ete",
+      "path": "/user/files/silly-teyvat-music-fontaine-par-les-soirs-bleus-d-ete-75bd9be4e9f8.m4a"
+    },
+    {
+      "id": "music-game-b521a1d9bb2ee1532ac0",
+      "name": "After Tea Party.m4a",
+      "label": "Nod-Krai · After Tea Party",
+      "path": "/user/files/silly-teyvat-music-nod-krai-after-tea-party-b521a1d9bb2e.m4a"
+    },
+    {
+      "id": "music-game-b1d119a78eb5df46a3a3",
+      "name": "Rosy Marshland.m4a",
+      "label": "Nod-Krai · Rosy Marshland",
+      "path": "/user/files/silly-teyvat-music-nod-krai-rosy-marshland-b1d119a78eb5.m4a"
+    },
+    {
+      "id": "music-game-6e34f9655f1ed0bf2e76",
+      "name": "Valor & Prowess.m4a",
+      "label": "Inazuma · Valor & Prowess",
+      "path": "/user/files/silly-teyvat-music-inazuma-valor-prowess-6e34f9655f1e.m4a"
+    },
+    {
+      "id": "music-game-8e304593b929c57c068e",
+      "name": "Regali teneri.m4a",
+      "label": "Fontaine · Regali teneri",
+      "path": "/user/files/silly-teyvat-music-fontaine-regali-teneri-8e304593b929.m4a"
+    },
+    {
+      "id": "music-game-eb92ffbd37285cfff691",
+      "name": "From the Great Sky.m4a",
+      "label": "Nod-Krai · From the Great Sky",
+      "path": "/user/files/silly-teyvat-music-nod-krai-from-the-great-sky-eb92ffbd3728.m4a"
+    },
+    {
+      "id": "music-game-263ed99a13f94f2830bd",
+      "name": "What a Delightful Scenery.m4a",
+      "label": "Liyue · What a Delightful Scenery",
+      "path": "/user/files/silly-teyvat-music-liyue-what-a-delightful-scenery-263ed99a13f9.m4a"
+    },
+    {
+      "id": "music-game-5db3da6ba8ba7048fd9c",
+      "name": "Beats of Water Drops.m4a",
+      "label": "Mondstadt · Beats of Water Drops",
+      "path": "/user/files/silly-teyvat-music-mondstadt-beats-of-water-drops-5db3da6ba8ba.m4a"
+    },
+    {
+      "id": "music-game-2cd30a6ae2445fe79470",
+      "name": "Melody of Merusea.m4a",
+      "label": "Fontaine · Melody of Merusea",
+      "path": "/user/files/silly-teyvat-music-fontaine-melody-of-merusea-2cd30a6ae244.m4a"
+    },
+    {
+      "id": "music-game-2e3ac5d16aeda98a3f54",
+      "name": "Toast to Coast.m4a",
+      "label": "Fontaine · Toast to Coast",
+      "path": "/user/files/silly-teyvat-music-fontaine-toast-to-coast-2e3ac5d16aed.m4a"
+    },
+    {
+      "id": "music-game-2479338f02c2c8b15805",
+      "name": "Gold Cup of Oases.m4a",
+      "label": "Sumeru · Gold Cup of Oases",
+      "path": "/user/files/silly-teyvat-music-sumeru-gold-cup-of-oases-2479338f02c2.m4a"
+    },
+    {
+      "id": "music-game-22db5a53ba4a47b53c5c",
+      "name": "Someone Walked These Paths.m4a",
+      "label": "Natlan · Someone Walked These Paths",
+      "path": "/user/files/silly-teyvat-music-natlan-someone-walked-these-paths-22db5a53ba4a.m4a"
+    },
+    {
+      "id": "music-game-528553940524637b705c",
+      "name": "Caress of the Spirit.m4a",
+      "label": "Inazuma · Caress of the Spirit",
+      "path": "/user/files/silly-teyvat-music-inazuma-caress-of-the-spirit-528553940524.m4a"
+    }
+  ]
 }

@@ -27,6 +27,12 @@ Map artwork is © HoYoverse. Its ownership is separate from the open-source soft
 
 The map version and origin are pinned together. A future art update must update the grid/origin contract and overview consistently, with coordinate migration if the origin changes. Existing waypoints should not be silently interpreted against a new origin.
 
+### Referencing HoYoLAB coordinates directly
+
+Silly Teyvat already stores the HoYoLAB Teyvat map 2 coordinate grid 1:1: copy a marker's `x_pos` to `waypoint.x` and `y_pos` to `waypoint.y`, without scaling, axis swapping, or adding the tile origin. `map-engine.js` applies the tile origin for display. This is a different grid from Kongying Tavern v3; do not copy its raw positions as HoYoLAB values. The Kongying transform previously fitted from nearby viewpoints is approximate and is useful for discovery, not as proof of an exact match.
+
+Use `python3 tools/map-reference.py --point 5032` to retrieve a public marker's native coordinates, description and image. `--anchor 'Port Ormos'` finds named label bounds, while `--near X Y --label 85 --radius 200` lists nearby viewpoints. The helper needs `curl` and network access; no account is needed. A label bounding box is not a surveyed building outline, and a viewpoint marks where the observer stands, not necessarily the landmark in the picture. Read each point description and inspect the location before using its coordinates. Community markers can be mislabeled or refer to underground locations; the surface grid does not encode floors. Preserve the point ID, source, and layer/precision limitations in the catalog.
+
 ## Scale and travel context
 
 The [KeqingMains Theorycrafting Library's overworld evidence](https://library.keqingmains.com/evidence/general-mechanics/overworld), “Coordinates Units Descriptions” by Mcpie, documents official map coordinate units as metres. Silly Teyvat therefore defaults to one metre per native coordinate unit. This is an in-game map measurement, not a claim about the fictional world's full lore scale.
