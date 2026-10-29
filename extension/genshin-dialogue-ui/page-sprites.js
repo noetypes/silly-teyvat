@@ -8,7 +8,14 @@ import { chooseVisible, layoutStage, compactViewport } from './stage-layout.js';
 import { stageCharacter } from './persona-wardrobe.js';
 import { previousSpeech, expressionContext } from './narration.js';
 import { createSpriteTrimmer } from './sprite-trim.js';
+import { sceneMembers, activeEnemies } from './combat-state.js';
 const STORE = 'silly_teyvat';
+// A narration inherits the scene before it, which may still show someone who has since left (for
+// example a companion left behind after teleporting). Only the current cast may remain on stage.
+function presentOnly(ctx, scene) {
+    const present = new Set([...sceneMembers(ctx), ...activeEnemies(ctx).map(e => e.avatar)]);
+    return scene.filter(x => !x.avatar || x.avatar === '__user__' || present.has(x.avatar));
+}
 export const pageSignature = text => {
     let hash = 2166136261;
     for (let i = 0; i < text.length; i++) hash = Math.imul(hash ^ text.charCodeAt(i), 16777619);
@@ -469,7 +476,7 @@ export function mountPageSprites({ host, getContext, adapter = createNativeSprit
                     // mobile, where native expression holders may never exist.
                     const initialize = !recorded && ctx.extensionSettings.genshin_dialogue_ui?.nativeStaging;
                     if(initialize)previous=await adapter.prepare?.(ctx,previous,isCurrent,{message,id}) || previous;
-                    let scene = await narrationScene(ctx, id, page, previous, isCurrent);
+                    let scene = presentOnly(ctx, await narrationScene(ctx, id, page, presentOnly(ctx, previous), isCurrent));
                     scene=await resolveEnemyScene(ctx,adapter,scene,message);
                     if(initialize)scene=stageFresh(ctx,scene,message,id);
                     if (!isCurrent() || !ctx.chat.includes(message)) return;

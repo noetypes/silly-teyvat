@@ -1,3 +1,8 @@
+# Silly Teyvat 1.44.5: Companions left behind stay gone
+
+A narration page no longer inherits the sprites of characters who are no longer in the scene,
+such as a companion you chose to leave behind when teleporting.
+
 # Silly Teyvat 1.44.4: Review and delete also start clean
 
 A chat opened in a travel party without the journey's origin marker, such as the new chat made
