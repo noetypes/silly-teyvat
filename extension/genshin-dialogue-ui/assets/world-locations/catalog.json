@@ -1,5 +1,5 @@
 {
-  "version": 10,
+  "version": 11,
   "retrieved": "2026-10-26",
   "coordinateSource": "https://sg-public-api-static.hoyolab.com/common/map_user/ys_obc/v1/map/map_anchor/list?map_id=2&app_sn=ys_obc&lang=en-us",
   "locations": [
@@ -7091,6 +7091,1082 @@
         "source": "https://genshin-impact.fandom.com/wiki/Nazuchi_Beach#Soundtracks",
         "note": "location cue"
       }
+    },
+    {
+      "id": "boss-rhodeia-of-loch",
+      "label": "Rhodeia of Loch's Arena",
+      "region": "Liyue",
+      "description": "The glowing spot at Wuwang Hill where Rhodeia of Loch, the Oceanid, rises from the pool and calls its Hydro mimics.",
+      "classifications": [
+        "Rhodeia of Loch's Arena",
+        "Rhodeia of Loch",
+        "boss arena"
+      ],
+      "suggestedCharacters": [],
+      "residents": [],
+      "waypoint": {
+        "mapId": "teyvat",
+        "x": -1024,
+        "y": 538.5018814675445
+      },
+      "coordinateMethod": "HoYoLAB map 2 point 5989: Oceanid world boss marker, copied directly without conversion. The marker does not encode altitude or underground floors.",
+      "coordinateSource": "https://sg-public-api-static.hoyolab.com/common/map_user/ys_obc/v1/map/point/info?map_id=2&app_sn=ys_obc&lang=en-us&point_id=5989",
+      "source": "https://genshin-impact.fandom.com/wiki/File:Wuwang_Hill.png",
+      "imageURL": "https://static.wikia.nocookie.net/gensin-impact/images/6/6d/Wuwang_Hill.png/revision/latest?cb=20220612173337",
+      "loreSource": "https://genshin-impact.fandom.com/wiki/Oceanid",
+      "asset": "boss-rhodeia-of-loch.webp",
+      "dimensions": [
+        1920,
+        1080
+      ],
+      "candidate": false,
+      "introducedVersion": 11,
+      "imageReview": {
+        "reviewed": "2026-10-29",
+        "playableCharacters": false,
+        "gameUI": false,
+        "captions": false,
+        "camera": "Wuwang Hill from ground level at night. The arena is inside this subarea; no boss, HUD or playable character is shown. Genshin Impact Wiki file retrieved through its API and recompressed to WebP at the original dimensions; the game logo, where present, is untouched."
+      },
+      "musicResearch": {
+        "recommended": [
+          "Rapid as Wildfires"
+        ],
+        "source": "https://genshin-impact.fandom.com/wiki/Rapid_as_Wildfires#Soundtrack_Usage",
+        "note": "Combat track from the wiki's Soundtrack Usage for this boss or its domain/region combat theme. Exploration playlist reuses the nearest documented waypoint (wild-liyue-wuwang-hill)."
+      },
+      "music": {
+        "tracks": [
+          "music-game-2cfb81eb0cd1f6ef33b4",
+          "music-game-06ed414af6bd23bb70a0"
+        ],
+        "combatTrack": "music-game-961b9aea787f89d35266"
+      },
+      "wilderness": true,
+      "enemyEncounterRate": 100,
+      "enemyEncounterRateOverride": true,
+      "enemyPool": [
+        "Rhodeia of Loch.png"
+      ]
+    },
+    {
+      "id": "boss-electro-hypostasis",
+      "label": "Electro Hypostasis's Arena",
+      "region": "Mondstadt",
+      "description": "The Electro Hypostasis's arena in Galesong Hill, Mondstadt, marked on the HoYoLAB map as a world boss.",
+      "classifications": [
+        "Electro Hypostasis's Arena",
+        "Electro Hypostasis",
+        "boss arena"
+      ],
+      "suggestedCharacters": [],
+      "residents": [],
+      "waypoint": {
+        "mapId": "teyvat",
+        "x": 1194.000216536072,
+        "y": 1013.498792435299
+      },
+      "coordinateMethod": "HoYoLAB map 2 point 5988: Electro Hypostasis world boss marker, copied directly without conversion. The marker does not encode altitude or underground floors.",
+      "coordinateSource": "https://sg-public-api-static.hoyolab.com/common/map_user/ys_obc/v1/map/point/info?map_id=2&app_sn=ys_obc&lang=en-us&point_id=5988",
+      "source": "https://genshin-impact.fandom.com/wiki/File:Galesong_Hill.png",
+      "imageURL": "https://static.wikia.nocookie.net/gensin-impact/images/4/4e/Galesong_Hill.png/revision/latest?cb=20220612160601",
+      "loreSource": "https://genshin-impact.fandom.com/wiki/Electro_Hypostasis",
+      "asset": "boss-electro-hypostasis.webp",
+      "dimensions": [
+        1920,
+        1080
+      ],
+      "candidate": false,
+      "introducedVersion": 11,
+      "imageReview": {
+        "reviewed": "2026-10-29",
+        "playableCharacters": false,
+        "gameUI": false,
+        "captions": false,
+        "camera": "Galesong Hill, a grassy ground-level view with a ruin at left. The arena lies within this hill; no boss or HUD is shown. Genshin Impact Wiki file retrieved through its API and recompressed to WebP at the original dimensions; the game logo, where present, is untouched."
+      },
+      "musicResearch": {
+        "recommended": [
+          "Rite of Battle"
+        ],
+        "source": "https://genshin-impact.fandom.com/wiki/Rite_of_Battle#Soundtrack_Usage",
+        "note": "Combat track from the wiki's Soundtrack Usage for this boss or its domain/region combat theme. Exploration playlist reuses the nearest documented waypoint (wild-mondstadt-cape-oath)."
+      },
+      "music": {
+        "tracks": [
+          "music-game-3a8f2fd16184d9601d6c",
+          "music-game-7c9576560d2c6bf65af0"
+        ],
+        "combatTrack": "music-game-c9f040240e3ec2351e17"
+      },
+      "wilderness": true,
+      "enemyEncounterRate": 100,
+      "enemyEncounterRateOverride": true,
+      "enemyPool": [
+        "Electro Hypostasis.png"
+      ]
+    },
+    {
+      "id": "boss-cryo-hypostasis",
+      "label": "Cryo Hypostasis's Arena",
+      "region": "Mondstadt",
+      "description": "The snowfield by a Dragonspine waypoint where the Cryo Hypostasis waits once the quest 'In the Mountains' is done.",
+      "classifications": [
+        "Cryo Hypostasis's Arena",
+        "Cryo Hypostasis",
+        "boss arena"
+      ],
+      "suggestedCharacters": [],
+      "residents": [],
+      "waypoint": {
+        "mapId": "teyvat",
+        "x": -199,
+        "y": 1149
+      },
+      "coordinateMethod": "HoYoLAB map 2 point 10004: Cryo Hypostasis world boss marker, copied directly without conversion. The marker does not encode altitude or underground floors.",
+      "coordinateSource": "https://sg-public-api-static.hoyolab.com/common/map_user/ys_obc/v1/map/point/info?map_id=2&app_sn=ys_obc&lang=en-us&point_id=10004",
+      "source": "https://genshin-impact.fandom.com/wiki/File:Dragonspine.png",
+      "imageURL": "https://static.wikia.nocookie.net/gensin-impact/images/4/4c/Dragonspine.png/revision/latest?cb=20260505094748",
+      "loreSource": "https://genshin-impact.fandom.com/wiki/Cryo_Hypostasis",
+      "asset": "boss-cryo-hypostasis.webp",
+      "dimensions": [
+        3840,
+        2160
+      ],
+      "candidate": false,
+      "introducedVersion": 11,
+      "imageReview": {
+        "reviewed": "2026-10-29",
+        "playableCharacters": false,
+        "gameUI": false,
+        "captions": false,
+        "camera": "Dragonspine as seen from a snowy lake shore below the peak. It is an elevated, scenic approach rather than the exact arena floor. Genshin Impact Wiki file retrieved through its API and recompressed to WebP at the original dimensions; the game logo, where present, is untouched."
+      },
+      "musicResearch": {
+        "recommended": [
+          "Rite of Battle"
+        ],
+        "source": "https://genshin-impact.fandom.com/wiki/Rite_of_Battle#Soundtrack_Usage",
+        "note": "Combat track from the wiki's Soundtrack Usage for this boss or its domain/region combat theme. Exploration playlist reuses the nearest documented waypoint (starter-albedo-s-campsite)."
+      },
+      "music": {
+        "tracks": [
+          "music-game-a03c1485c74b38542abc",
+          "music-game-be7609da6418d6897589"
+        ],
+        "combatTrack": "music-game-c9f040240e3ec2351e17"
+      },
+      "wilderness": true,
+      "enemyEncounterRate": 100,
+      "enemyEncounterRateOverride": true,
+      "enemyPool": [
+        "Cryo Hypostasis.png"
+      ]
+    },
+    {
+      "id": "boss-dvalin",
+      "label": "Confront Stormterror",
+      "region": "Mondstadt",
+      "description": "The domain entrance at Stormterror's Lair, where the memory of the fight against Dvalin, the Anemo dragon, can be relived.",
+      "classifications": [
+        "Confront Stormterror",
+        "Dvalin",
+        "boss arena"
+      ],
+      "suggestedCharacters": [],
+      "residents": [],
+      "waypoint": {
+        "mapId": "teyvat",
+        "x": -873.5,
+        "y": -331.5
+      },
+      "coordinateMethod": "HoYoLAB map 2 point 7111: Confront Stormterror trounce domain entrance, copied directly without conversion. The marker does not encode altitude or underground floors.",
+      "coordinateSource": "https://sg-public-api-static.hoyolab.com/common/map_user/ys_obc/v1/map/point/info?map_id=2&app_sn=ys_obc&lang=en-us&point_id=7111",
+      "source": "https://genshin-impact.fandom.com/wiki/File:Confront_Stormterror_Entrance.png",
+      "imageURL": "https://static.wikia.nocookie.net/gensin-impact/images/4/4f/Confront_Stormterror_Entrance.png/revision/latest?cb=20240617045742",
+      "loreSource": "https://genshin-impact.fandom.com/wiki/Confront_Stormterror",
+      "asset": "boss-dvalin.webp",
+      "dimensions": [
+        2560,
+        1440
+      ],
+      "candidate": false,
+      "introducedVersion": 11,
+      "imageReview": {
+        "reviewed": "2026-10-29",
+        "playableCharacters": false,
+        "gameUI": false,
+        "captions": false,
+        "camera": "The glowing domain portal inside the lair, at human height. No boss, HUD or playable character is shown. Genshin Impact Wiki file retrieved through its API and recompressed to WebP at the original dimensions; the game logo, where present, is untouched."
+      },
+      "musicResearch": {
+        "recommended": [
+          "Caelestinum Finale Termini"
+        ],
+        "source": "https://genshin-impact.fandom.com/wiki/Caelestinum_Finale_Termini#Soundtrack_Usage",
+        "note": "Combat track from the wiki's Soundtrack Usage for this boss or its domain/region combat theme. Exploration playlist reuses the nearest documented waypoint (expansion-stormterror-s-lair)."
+      },
+      "music": {
+        "tracks": [
+          "music-game-6aea958872831b27645e"
+        ],
+        "combatTrack": "music-game-09a5c62f33f11746128c"
+      },
+      "wilderness": true,
+      "enemyEncounterRate": 100,
+      "enemyEncounterRateOverride": true,
+      "enemyPool": [
+        "Dvalin.png"
+      ]
+    },
+    {
+      "id": "boss-azhdaha",
+      "label": "Beneath the Dragon-Queller",
+      "region": "Liyue",
+      "description": "The Nantianmen domain beneath the Dragon-Queller, where the sealed Geo dragon Azhdaha is fought.",
+      "classifications": [
+        "Beneath the Dragon-Queller",
+        "Azhdaha",
+        "boss arena"
+      ],
+      "suggestedCharacters": [],
+      "residents": [],
+      "waypoint": {
+        "mapId": "teyvat",
+        "x": -2511,
+        "y": 1701
+      },
+      "coordinateMethod": "HoYoLAB map 2 point 18048: Beneath the Dragon-Queller trounce domain entrance, copied directly without conversion. The marker does not encode altitude or underground floors.",
+      "coordinateSource": "https://sg-public-api-static.hoyolab.com/common/map_user/ys_obc/v1/map/point/info?map_id=2&app_sn=ys_obc&lang=en-us&point_id=18048",
+      "source": "https://genshin-impact.fandom.com/wiki/File:Beneath_the_Dragon-Queller_Entrance.png",
+      "imageURL": "https://static.wikia.nocookie.net/gensin-impact/images/e/e6/Beneath_the_Dragon-Queller_Entrance.png/revision/latest?cb=20240617045745",
+      "loreSource": "https://genshin-impact.fandom.com/wiki/Beneath_the_Dragon-Queller",
+      "asset": "boss-azhdaha.webp",
+      "dimensions": [
+        2560,
+        1440
+      ],
+      "candidate": false,
+      "introducedVersion": 11,
+      "imageReview": {
+        "reviewed": "2026-10-29",
+        "playableCharacters": false,
+        "gameUI": false,
+        "captions": false,
+        "camera": "The ground-level cavern passage leading to the domain gate. No boss, HUD or playable character is shown. Genshin Impact Wiki file retrieved through its API and recompressed to WebP at the original dimensions; the game logo, where present, is untouched."
+      },
+      "musicResearch": {
+        "recommended": [
+          "Ode to Azhdaha"
+        ],
+        "source": "https://genshin-impact.fandom.com/wiki/Ode_to_Azhdaha#Soundtrack_Usage",
+        "note": "Combat track from the wiki's Soundtrack Usage for this boss or its domain/region combat theme. Exploration playlist reuses the nearest documented waypoint (wild-liyue-mt-hulao)."
+      },
+      "music": {
+        "tracks": [
+          "music-game-869579a640b79a90849d",
+          "music-game-5efa1dcc07fc4c19e7bd"
+        ],
+        "combatTrack": "music-game-87871ecc1abbfc1fbff3"
+      },
+      "wilderness": true,
+      "enemyEncounterRate": 100,
+      "enemyEncounterRateOverride": true,
+      "enemyPool": [
+        "Azhdaha.png"
+      ]
+    },
+    {
+      "id": "boss-hydro-hypostasis",
+      "label": "Hydro Hypostasis's Arena",
+      "region": "Inazuma",
+      "description": "The Hydro Hypostasis's hidden arena at Suigetsu Pool on Watatsumi Island, entered from near a waterfall.",
+      "classifications": [
+        "Hydro Hypostasis's Arena",
+        "Hydro Hypostasis",
+        "boss arena"
+      ],
+      "suggestedCharacters": [],
+      "residents": [],
+      "waypoint": {
+        "mapId": "teyvat",
+        "x": 216.5,
+        "y": 5879.5
+      },
+      "coordinateMethod": "HoYoLAB map 2 point 17703: Hydro Hypostasis world boss marker, copied directly without conversion. The marker does not encode altitude or underground floors.",
+      "coordinateSource": "https://sg-public-api-static.hoyolab.com/common/map_user/ys_obc/v1/map/point/info?map_id=2&app_sn=ys_obc&lang=en-us&point_id=17703",
+      "source": "https://genshin-impact.fandom.com/wiki/File:Suigetsu_Pool.png",
+      "imageURL": "https://static.wikia.nocookie.net/gensin-impact/images/9/9c/Suigetsu_Pool.png/revision/latest?cb=20210901044520",
+      "loreSource": "https://genshin-impact.fandom.com/wiki/Hydro_Hypostasis",
+      "asset": "boss-hydro-hypostasis.webp",
+      "dimensions": [
+        1920,
+        1080
+      ],
+      "candidate": false,
+      "introducedVersion": 11,
+      "imageReview": {
+        "reviewed": "2026-10-29",
+        "playableCharacters": false,
+        "gameUI": false,
+        "captions": false,
+        "camera": "Suigetsu Pool, the arena itself, seen from a raised step. This is a slightly elevated view rather than a floor-level shot; no boss or HUD is shown. Genshin Impact Wiki file retrieved through its API and recompressed to WebP at the original dimensions; the game logo, where present, is untouched."
+      },
+      "musicResearch": {
+        "recommended": [
+          "Fiery Pursuit"
+        ],
+        "source": "https://genshin-impact.fandom.com/wiki/Fiery_Pursuit#Soundtrack_Usage",
+        "note": "Combat track from the wiki's Soundtrack Usage for this boss or its domain/region combat theme. Exploration playlist reuses the nearest documented waypoint (starter-sangonomiya-shrine)."
+      },
+      "music": {
+        "tracks": [
+          "music-game-1dda7c7cebad1d48e42c",
+          "music-game-20825a5f32cb2d2ed470"
+        ],
+        "combatTrack": "music-game-3fea11f8ed0789ff2eb9"
+      },
+      "wilderness": true,
+      "enemyEncounterRate": 100,
+      "enemyEncounterRateOverride": true,
+      "enemyPool": [
+        "Hydro Hypostasis.png"
+      ]
+    },
+    {
+      "id": "boss-thunder-manifestation",
+      "label": "Thunder Manifestation's Arena",
+      "region": "Inazuma",
+      "description": "The thundercloud-ringed ledge on Seirai Island's Amakumo Peak where the Thunder Manifestation, born of lingering regret, strikes.",
+      "classifications": [
+        "Thunder Manifestation's Arena",
+        "Thunder Manifestation",
+        "boss arena"
+      ],
+      "suggestedCharacters": [],
+      "residents": [],
+      "waypoint": {
+        "mapId": "teyvat",
+        "x": 3510.5,
+        "y": 7030.5
+      },
+      "coordinateMethod": "HoYoLAB map 2 point 17704: Thunder Manifestation world boss marker, copied directly without conversion. The marker does not encode altitude or underground floors.",
+      "coordinateSource": "https://sg-public-api-static.hoyolab.com/common/map_user/ys_obc/v1/map/point/info?map_id=2&app_sn=ys_obc&lang=en-us&point_id=17704",
+      "source": "https://genshin-impact.fandom.com/wiki/File:Seirai_Stormchasers_-_Part_IV.png",
+      "imageURL": "https://static.wikia.nocookie.net/gensin-impact/images/9/9d/World_Quest_Seirai_Stormchasers_Part_IV.png/revision/latest?cb=20210901082940",
+      "loreSource": "https://genshin-impact.fandom.com/wiki/Thunder_Manifestation",
+      "asset": "boss-thunder-manifestation.webp",
+      "dimensions": [
+        3840,
+        2160
+      ],
+      "candidate": false,
+      "introducedVersion": 11,
+      "imageReview": {
+        "reviewed": "2026-10-29",
+        "playableCharacters": false,
+        "gameUI": false,
+        "captions": false,
+        "camera": "The arena ledge at night, from the quest 'Seirai Stormchasers'. The Genshin Impact mark is in the corner; no boss, HUD or playable character is shown. Genshin Impact Wiki file retrieved through its API and recompressed to WebP at the original dimensions; the game logo, where present, is untouched."
+      },
+      "musicResearch": {
+        "recommended": [
+          "Fiery Pursuit"
+        ],
+        "source": "https://genshin-impact.fandom.com/wiki/Fiery_Pursuit#Soundtrack_Usage",
+        "note": "Combat track from the wiki's Soundtrack Usage for this boss or its domain/region combat theme. Exploration playlist reuses the nearest documented waypoint (wild-inazuma-koseki-village)."
+      },
+      "music": {
+        "tracks": [
+          "music-game-c71e3a01c359f9a58307",
+          "music-game-fc4986dd34692657a380"
+        ],
+        "combatTrack": "music-game-3fea11f8ed0789ff2eb9"
+      },
+      "wilderness": true,
+      "enemyEncounterRate": 100,
+      "enemyEncounterRateOverride": true,
+      "enemyPool": [
+        "Thunder Manifestation.png"
+      ]
+    },
+    {
+      "id": "boss-golden-wolflord",
+      "label": "Golden Wolflord's Arena",
+      "region": "Inazuma",
+      "description": "The southern peninsula of Tsurumi Island, where the Golden Wolflord leads its pack of Wolves of the Rift.",
+      "classifications": [
+        "Golden Wolflord's Arena",
+        "Golden Wolflord",
+        "boss arena"
+      ],
+      "suggestedCharacters": [],
+      "residents": [],
+      "waypoint": {
+        "mapId": "teyvat",
+        "x": 1915,
+        "y": 8978
+      },
+      "coordinateMethod": "HoYoLAB map 2 point 20368: Golden Wolflord world boss marker, copied directly without conversion. The marker does not encode altitude or underground floors.",
+      "coordinateSource": "https://sg-public-api-static.hoyolab.com/common/map_user/ys_obc/v1/map/point/info?map_id=2&app_sn=ys_obc&lang=en-us&point_id=20368",
+      "source": "https://genshin-impact.fandom.com/wiki/File:Tsurumi_Island.png",
+      "imageURL": "https://static.wikia.nocookie.net/gensin-impact/images/e/e0/Tsurumi_Island.png/revision/latest?cb=20230910105754",
+      "loreSource": "https://genshin-impact.fandom.com/wiki/Golden_Wolflord",
+      "asset": "boss-golden-wolflord.webp",
+      "dimensions": [
+        1920,
+        1080
+      ],
+      "candidate": false,
+      "introducedVersion": 11,
+      "imageReview": {
+        "reviewed": "2026-10-29",
+        "playableCharacters": false,
+        "gameUI": false,
+        "captions": false,
+        "camera": "Tsurumi Island shoreline in mist, at ground level. The arena is on the same island; no boss or HUD is shown. Genshin Impact Wiki file retrieved through its API and recompressed to WebP at the original dimensions; the game logo, where present, is untouched."
+      },
+      "musicResearch": {
+        "recommended": [
+          "Fiery Pursuit"
+        ],
+        "source": "https://genshin-impact.fandom.com/wiki/Fiery_Pursuit#Soundtrack_Usage",
+        "note": "Combat track from the wiki's Soundtrack Usage for this boss or its domain/region combat theme. Exploration playlist reuses the nearest documented waypoint (wild-inazuma-chirai-shrine)."
+      },
+      "music": {
+        "tracks": [
+          "music-game-0c6bfeea2a45220c74d4",
+          "music-game-675c3bb796de290fca71"
+        ],
+        "combatTrack": "music-game-3fea11f8ed0789ff2eb9"
+      },
+      "wilderness": true,
+      "enemyEncounterRate": 100,
+      "enemyEncounterRateOverride": true,
+      "enemyPool": [
+        "Golden Wolflord.png"
+      ]
+    },
+    {
+      "id": "boss-maguu-kenki",
+      "label": "Maguu Kenki's Arena",
+      "region": "Inazuma",
+      "description": "Jakotsu Mine on Yashiori Island, where the Maguu Kenki, the masked blade automaton, stands against challengers.",
+      "classifications": [
+        "Maguu Kenki's Arena",
+        "Maguu Kenki",
+        "boss arena"
+      ],
+      "suggestedCharacters": [],
+      "residents": [],
+      "waypoint": {
+        "mapId": "teyvat",
+        "x": 1589.5,
+        "y": 6270.5
+      },
+      "coordinateMethod": "HoYoLAB map 2 point 13668: Maguu Kenki world boss marker, copied directly without conversion. The marker does not encode altitude or underground floors.",
+      "coordinateSource": "https://sg-public-api-static.hoyolab.com/common/map_user/ys_obc/v1/map/point/info?map_id=2&app_sn=ys_obc&lang=en-us&point_id=13668",
+      "source": "https://genshin-impact.fandom.com/wiki/File:Jakotsu_Mine.png",
+      "imageURL": "https://static.wikia.nocookie.net/gensin-impact/images/e/ef/Jakotsu_Mine.png/revision/latest?cb=20210723115639",
+      "loreSource": "https://genshin-impact.fandom.com/wiki/Maguu_Kenki",
+      "asset": "boss-maguu-kenki.webp",
+      "dimensions": [
+        1920,
+        1080
+      ],
+      "candidate": false,
+      "introducedVersion": 11,
+      "imageReview": {
+        "reviewed": "2026-10-29",
+        "playableCharacters": false,
+        "gameUI": false,
+        "captions": false,
+        "camera": "Inside Jakotsu Mine at ground level, a teleport gateway among glowing flora. No boss or HUD is shown. Genshin Impact Wiki file retrieved through its API and recompressed to WebP at the original dimensions; the game logo, where present, is untouched."
+      },
+      "musicResearch": {
+        "recommended": [
+          "Fiery Pursuit"
+        ],
+        "source": "https://genshin-impact.fandom.com/wiki/Fiery_Pursuit#Soundtrack_Usage",
+        "note": "Combat track from the wiki's Soundtrack Usage for this boss or its domain/region combat theme. Exploration playlist reuses the nearest documented waypoint (wild-inazuma-fort-fujitou)."
+      },
+      "music": {
+        "tracks": [
+          "music-game-a4cfd5bd9a8c7a818d84",
+          "music-game-a34b08960e28fa5a42c7"
+        ],
+        "combatTrack": "music-game-3fea11f8ed0789ff2eb9"
+      },
+      "wilderness": true,
+      "enemyEncounterRate": 100,
+      "enemyEncounterRateOverride": true,
+      "enemyPool": [
+        "Maguu Kenki.png"
+      ]
+    },
+    {
+      "id": "boss-jadeplume-terrorshroom",
+      "label": "Jadeplume Terrorshroom's Arena",
+      "region": "Sumeru",
+      "description": "A portal in the canopy of Vanarana, entered from above, to the arena where the Jadeplume Terrorshroom rules the fungi.",
+      "classifications": [
+        "Jadeplume Terrorshroom's Arena",
+        "Jadeplume Terrorshroom",
+        "boss arena"
+      ],
+      "suggestedCharacters": [],
+      "residents": [],
+      "waypoint": {
+        "mapId": "teyvat",
+        "x": -4627.75,
+        "y": 2434.5
+      },
+      "coordinateMethod": "HoYoLAB map 2 point 30174: Jadeplume Terrorshroom world boss marker, copied directly without conversion. The marker does not encode altitude or underground floors.",
+      "coordinateSource": "https://sg-public-api-static.hoyolab.com/common/map_user/ys_obc/v1/map/point/info?map_id=2&app_sn=ys_obc&lang=en-us&point_id=30174",
+      "source": "https://genshin-impact.fandom.com/wiki/File:Vanarana.png",
+      "imageURL": "https://static.wikia.nocookie.net/gensin-impact/images/d/d3/Vanarana.png/revision/latest?cb=20240308190015",
+      "loreSource": "https://genshin-impact.fandom.com/wiki/Jadeplume_Terrorshroom",
+      "asset": "boss-jadeplume-terrorshroom.webp",
+      "dimensions": [
+        1920,
+        1080
+      ],
+      "candidate": false,
+      "introducedVersion": 11,
+      "imageReview": {
+        "reviewed": "2026-10-29",
+        "playableCharacters": false,
+        "gameUI": false,
+        "captions": false,
+        "camera": "Vanarana subarea seen from a leaf-covered path. The arena sits within this subarea; no boss or HUD is shown. Genshin Impact Wiki file retrieved through its API and recompressed to WebP at the original dimensions; the game logo, where present, is untouched."
+      },
+      "musicResearch": {
+        "recommended": [
+          "Jolts in the Forest"
+        ],
+        "source": "https://genshin-impact.fandom.com/wiki/Jolts_in_the_Forest#Soundtrack_Usage",
+        "note": "Combat track from the wiki's Soundtrack Usage for this boss or its domain/region combat theme. Exploration playlist reuses the nearest documented waypoint (expansion-vanarana)."
+      },
+      "music": {
+        "tracks": [
+          "music-game-c825bb8caa45872d53f0"
+        ],
+        "combatTrack": "music-game-6255736180b0dec1dfc1"
+      },
+      "wilderness": true,
+      "enemyEncounterRate": 100,
+      "enemyEncounterRateOverride": true,
+      "enemyPool": [
+        "Jadeplume Terrorshroom.png"
+      ]
+    },
+    {
+      "id": "boss-guardian-of-apep-s-oasis",
+      "label": "The Realm of Beginnings",
+      "region": "Sumeru",
+      "description": "The Apep's Resort domain entrance in the Desert of Hadramaveth, where the Guardian of Apep's Oasis is fought.",
+      "classifications": [
+        "The Realm of Beginnings",
+        "Guardian of Apep's Oasis",
+        "boss arena"
+      ],
+      "suggestedCharacters": [],
+      "residents": [],
+      "waypoint": {
+        "mapId": "teyvat",
+        "x": -6498.75,
+        "y": 2527.75
+      },
+      "coordinateMethod": "HoYoLAB map 2 point 46534: The Realm of Beginnings trounce domain entrance, copied directly without conversion. The marker does not encode altitude or underground floors.",
+      "coordinateSource": "https://sg-public-api-static.hoyolab.com/common/map_user/ys_obc/v1/map/point/info?map_id=2&app_sn=ys_obc&lang=en-us&point_id=46534",
+      "source": "https://genshin-impact.fandom.com/wiki/File:The_Realm_of_Beginnings_Entrance.png",
+      "imageURL": "https://static.wikia.nocookie.net/gensin-impact/images/c/ca/The_Realm_of_Beginnings_Entrance.png/revision/latest?cb=20240617045805",
+      "loreSource": "https://genshin-impact.fandom.com/wiki/The_Realm_of_Beginnings",
+      "asset": "boss-guardian-of-apep-s-oasis.webp",
+      "dimensions": [
+        2560,
+        1440
+      ],
+      "candidate": false,
+      "introducedVersion": 11,
+      "imageReview": {
+        "reviewed": "2026-10-29",
+        "playableCharacters": false,
+        "gameUI": false,
+        "captions": false,
+        "camera": "The sunlit cave mouth at the domain entrance. No boss, HUD or playable character is shown. Genshin Impact Wiki file retrieved through its API and recompressed to WebP at the original dimensions; the game logo, where present, is untouched."
+      },
+      "musicResearch": {
+        "recommended": [
+          "God-Devouring Mania"
+        ],
+        "source": "https://genshin-impact.fandom.com/wiki/God-Devouring_Mania#Soundtrack_Usage",
+        "note": "Combat track from the wiki's Soundtrack Usage for this boss or its domain/region combat theme. Exploration playlist reuses the nearest documented waypoint (expansion-vourukasha-oasis)."
+      },
+      "music": {
+        "tracks": [
+          "music-game-99b7563c8a6b235a9d08"
+        ],
+        "combatTrack": "music-game-b0f1b88803fbbbd519f3"
+      },
+      "wilderness": true,
+      "enemyEncounterRate": 100,
+      "enemyEncounterRateOverride": true,
+      "enemyPool": [
+        "Guardian of Apep's Oasis.png"
+      ]
+    },
+    {
+      "id": "boss-emperor-of-fire-and-iron",
+      "label": "Emperor of Fire and Iron's Arena",
+      "region": "Fontaine",
+      "description": "The cave in the Belleau Region reached beneath the 'Pass 6 rings' time trial, where the Emperor of Fire and Iron claims its throne.",
+      "classifications": [
+        "Emperor of Fire and Iron's Arena",
+        "Emperor of Fire and Iron",
+        "boss arena"
+      ],
+      "suggestedCharacters": [],
+      "residents": [],
+      "waypoint": {
+        "mapId": "teyvat",
+        "x": -5140.75,
+        "y": 154.5
+      },
+      "coordinateMethod": "HoYoLAB map 2 point 51287: Emperor of Fire and Iron world boss marker, copied directly without conversion. The marker does not encode altitude or underground floors.",
+      "coordinateSource": "https://sg-public-api-static.hoyolab.com/common/map_user/ys_obc/v1/map/point/info?map_id=2&app_sn=ys_obc&lang=en-us&point_id=51287",
+      "source": "https://genshin-impact.fandom.com/wiki/File:Belleau_Region.png",
+      "imageURL": "https://static.wikia.nocookie.net/gensin-impact/images/b/b6/Belleau_Region.png/revision/latest?cb=20230818145900",
+      "loreSource": "https://genshin-impact.fandom.com/wiki/Emperor_of_Fire_and_Iron",
+      "asset": "boss-emperor-of-fire-and-iron.webp",
+      "dimensions": [
+        2560,
+        1440
+      ],
+      "candidate": false,
+      "introducedVersion": 11,
+      "imageReview": {
+        "reviewed": "2026-10-29",
+        "playableCharacters": false,
+        "gameUI": false,
+        "captions": false,
+        "camera": "Belleau Region coastline with a tower in the distance. This is a distant surface view of the region above the cave arena, not the cavern floor. Genshin Impact Wiki file retrieved through its API and recompressed to WebP at the original dimensions; the game logo, where present, is untouched."
+      },
+      "musicResearch": {
+        "recommended": [
+          "Ex Favilla Incendi"
+        ],
+        "source": "https://genshin-impact.fandom.com/wiki/Ex_Favilla_Incendi#Soundtrack_Usage",
+        "note": "Combat track from the wiki's Soundtrack Usage for this boss or its domain/region combat theme. Exploration playlist reuses the nearest documented waypoint (expansion-merusea-village)."
+      },
+      "music": {
+        "tracks": [
+          "music-game-2cd30a6ae2445fe79470"
+        ],
+        "combatTrack": "music-game-323903461ee86da08fac"
+      },
+      "wilderness": true,
+      "enemyEncounterRate": 100,
+      "enemyEncounterRateOverride": true,
+      "enemyPool": [
+        "Emperor of Fire and Iron.png"
+      ]
+    },
+    {
+      "id": "boss-experimental-field-generator",
+      "label": "Experimental Field Generator's Arena",
+      "region": "Fontaine",
+      "description": "The ruined hall of the Fontaine Research Institute of Kinetic Energy Engineering, where the Experimental Field Generator waits to bend gravity.",
+      "classifications": [
+        "Experimental Field Generator's Arena",
+        "Experimental Field Generator",
+        "boss arena"
+      ],
+      "suggestedCharacters": [],
+      "residents": [],
+      "waypoint": {
+        "mapId": "teyvat",
+        "x": -4867.25,
+        "y": -2017.5
+      },
+      "coordinateMethod": "HoYoLAB map 2 point 54909: Experimental Field Generator world boss marker, copied directly without conversion. The marker does not encode altitude or underground floors.",
+      "coordinateSource": "https://sg-public-api-static.hoyolab.com/common/map_user/ys_obc/v1/map/point/info?map_id=2&app_sn=ys_obc&lang=en-us&point_id=54909",
+      "source": "https://genshin-impact.fandom.com/wiki/File:Fontaine_Research_Institute.png",
+      "imageURL": "https://static.wikia.nocookie.net/gensin-impact/images/e/e1/Fontaine_Research_Institute.png/revision/latest?cb=20230922103459",
+      "loreSource": "https://genshin-impact.fandom.com/wiki/Prototype_Cal._Breguet",
+      "asset": "boss-experimental-field-generator.webp",
+      "dimensions": [
+        1600,
+        900
+      ],
+      "candidate": false,
+      "introducedVersion": 11,
+      "imageReview": {
+        "reviewed": "2026-10-29",
+        "playableCharacters": false,
+        "gameUI": false,
+        "captions": false,
+        "camera": "Floating cubes above the institute, from a raised viewpoint. This is a scenic approach rather than the ruined hall floor; no boss or HUD is shown. Genshin Impact Wiki file retrieved through its API and recompressed to WebP at the original dimensions; the game logo, where present, is untouched."
+      },
+      "musicResearch": {
+        "recommended": [
+          "Rondeau des fleurs et des rapieres"
+        ],
+        "source": "https://genshin-impact.fandom.com/wiki/Rondeau_des_fleurs_et_des_rapieres#Soundtrack_Usage",
+        "note": "Combat track from the wiki's Soundtrack Usage for this boss or its domain/region combat theme. Exploration playlist reuses the nearest documented waypoint (expansion-central-laboratory-ruins)."
+      },
+      "music": {
+        "tracks": [
+          "music-game-75bd9be4e9f8fbb59004"
+        ],
+        "combatTrack": "music-game-d2a298becacbb74de618"
+      },
+      "wilderness": true,
+      "enemyEncounterRate": 100,
+      "enemyEncounterRateOverride": true,
+      "enemyPool": [
+        "Experimental Field Generator.png"
+      ]
+    },
+    {
+      "id": "boss-millennial-pearl-seahorse",
+      "label": "Millennial Pearl Seahorse's Arena",
+      "region": "Fontaine",
+      "description": "The chasm in the Liffey Region where the Millennial Pearl Seahorse lurks, a great Fontemer beast of the depths.",
+      "classifications": [
+        "Millennial Pearl Seahorse's Arena",
+        "Millennial Pearl Seahorse",
+        "boss arena"
+      ],
+      "suggestedCharacters": [],
+      "residents": [],
+      "waypoint": {
+        "mapId": "teyvat",
+        "x": -5508.5,
+        "y": -2460.5
+      },
+      "coordinateMethod": "HoYoLAB map 2 point 54757: Millennial Pearl Seahorse world boss marker, copied directly without conversion. The marker does not encode altitude or underground floors.",
+      "coordinateSource": "https://sg-public-api-static.hoyolab.com/common/map_user/ys_obc/v1/map/point/info?map_id=2&app_sn=ys_obc&lang=en-us&point_id=54757",
+      "source": "https://genshin-impact.fandom.com/wiki/File:Liffey_Region.png",
+      "imageURL": "https://static.wikia.nocookie.net/gensin-impact/images/5/55/Liffey_Region.png/revision/latest?cb=20230929174823",
+      "loreSource": "https://genshin-impact.fandom.com/wiki/Millennial_Pearl_Seahorse",
+      "asset": "boss-millennial-pearl-seahorse.webp",
+      "dimensions": [
+        2560,
+        1440
+      ],
+      "candidate": false,
+      "introducedVersion": 11,
+      "imageReview": {
+        "reviewed": "2026-10-29",
+        "playableCharacters": false,
+        "gameUI": false,
+        "captions": false,
+        "camera": "Liffey Region seen across the water from a bridge. This is a scenic, elevated view of the region above the chasm, not the arena floor. Genshin Impact Wiki file retrieved through its API and recompressed to WebP at the original dimensions; the game logo, where present, is untouched."
+      },
+      "musicResearch": {
+        "recommended": [
+          "Rondeau des fleurs et des rapieres"
+        ],
+        "source": "https://genshin-impact.fandom.com/wiki/Rondeau_des_fleurs_et_des_rapieres#Soundtrack_Usage",
+        "note": "Combat track from the wiki's Soundtrack Usage for this boss or its domain/region combat theme. Exploration playlist reuses the nearest documented waypoint (home-new-fontaine-research-institute)."
+      },
+      "music": {
+        "tracks": [
+          "music-game-5170e07d203224a7bae9"
+        ],
+        "combatTrack": "music-game-d2a298becacbb74de618"
+      },
+      "wilderness": true,
+      "enemyEncounterRate": 100,
+      "enemyEncounterRateOverride": true,
+      "enemyPool": [
+        "Millennial Pearl Seahorse.png"
+      ]
+    },
+    {
+      "id": "boss-hydro-tulpa",
+      "label": "Hydro Tulpa's Arena",
+      "region": "Fontaine",
+      "description": "The Hydro Tulpa's arena in the Court of Fontaine Region, Fontaine, marked on the HoYoLAB map as a world boss.",
+      "classifications": [
+        "Hydro Tulpa's Arena",
+        "Hydro Tulpa",
+        "boss arena"
+      ],
+      "suggestedCharacters": [],
+      "residents": [],
+      "waypoint": {
+        "mapId": "teyvat",
+        "x": -5990.5,
+        "y": -1074
+      },
+      "coordinateMethod": "HoYoLAB map 2 point 56280: Hydro Tulpa world boss marker, copied directly without conversion. The marker does not encode altitude or underground floors.",
+      "coordinateSource": "https://sg-public-api-static.hoyolab.com/common/map_user/ys_obc/v1/map/point/info?map_id=2&app_sn=ys_obc&lang=en-us&point_id=56280",
+      "source": "https://genshin-impact.fandom.com/wiki/File:Court_of_Fontaine_Region.png",
+      "imageURL": "https://static.wikia.nocookie.net/gensin-impact/images/d/dd/Court_of_Fontaine_Region.png/revision/latest?cb=20230818145847",
+      "loreSource": "https://genshin-impact.fandom.com/wiki/Hydro_Tulpa",
+      "asset": "boss-hydro-tulpa.webp",
+      "dimensions": [
+        2560,
+        1440
+      ],
+      "candidate": false,
+      "introducedVersion": 11,
+      "imageReview": {
+        "reviewed": "2026-10-29",
+        "playableCharacters": false,
+        "gameUI": false,
+        "captions": false,
+        "camera": "The Court of Fontaine Region seen from the water. This is a distant scenic view of the surroundings, not the arena floor. Genshin Impact Wiki file retrieved through its API and recompressed to WebP at the original dimensions; the game logo, where present, is untouched."
+      },
+      "musicResearch": {
+        "recommended": [
+          "Rondeau des fleurs et des rapieres"
+        ],
+        "source": "https://genshin-impact.fandom.com/wiki/Rondeau_des_fleurs_et_des_rapieres#Soundtrack_Usage",
+        "note": "Combat track from the wiki's Soundtrack Usage for this boss or its domain/region combat theme. Exploration playlist reuses the nearest documented waypoint (starter-chioriya-boutique)."
+      },
+      "music": {
+        "tracks": [
+          "music-game-37b7e1b95e54f0f3f7d7"
+        ],
+        "combatTrack": "music-game-d2a298becacbb74de618"
+      },
+      "wilderness": true,
+      "enemyEncounterRate": 100,
+      "enemyEncounterRateOverride": true,
+      "enemyPool": [
+        "Hydro Tulpa.png"
+      ]
+    },
+    {
+      "id": "boss-all-devouring-narwhal",
+      "label": "Shadow of Another World",
+      "region": "Fontaine",
+      "description": "The Salacia Plain domain entrance where the memory of the All-Devouring Narwhal, a visitor from the far side of the sea of stars, can be fought.",
+      "classifications": [
+        "Shadow of Another World",
+        "All-Devouring Narwhal",
+        "boss arena"
+      ],
+      "suggestedCharacters": [],
+      "residents": [],
+      "waypoint": {
+        "mapId": "teyvat",
+        "x": -4781.25,
+        "y": -727.375
+      },
+      "coordinateMethod": "HoYoLAB map 2 point 56792: Shadow of Another World trounce domain entrance, copied directly without conversion. The marker does not encode altitude or underground floors.",
+      "coordinateSource": "https://sg-public-api-static.hoyolab.com/common/map_user/ys_obc/v1/map/point/info?map_id=2&app_sn=ys_obc&lang=en-us&point_id=56792",
+      "source": "https://genshin-impact.fandom.com/wiki/File:Shadow_of_Another_World_Entrance.png",
+      "imageURL": "https://static.wikia.nocookie.net/gensin-impact/images/7/71/Shadow_of_Another_World_Entrance.png/revision/latest?cb=20240617045802",
+      "loreSource": "https://genshin-impact.fandom.com/wiki/Shadow_of_Another_World",
+      "asset": "boss-all-devouring-narwhal.webp",
+      "dimensions": [
+        2560,
+        1440
+      ],
+      "candidate": false,
+      "introducedVersion": 11,
+      "imageReview": {
+        "reviewed": "2026-10-29",
+        "playableCharacters": false,
+        "gameUI": false,
+        "captions": false,
+        "camera": "The glowing fissure of the domain entrance, ground level. No boss, HUD or playable character is shown. Genshin Impact Wiki file retrieved through its API and recompressed to WebP at the original dimensions; the game logo, where present, is untouched."
+      },
+      "musicResearch": {
+        "recommended": [
+          "Eschatologia Iudicata"
+        ],
+        "source": "https://genshin-impact.fandom.com/wiki/Eschatologia_Iudicata#Soundtrack_Usage",
+        "note": "Combat track from the wiki's Soundtrack Usage for this boss or its domain/region combat theme. Exploration playlist reuses the nearest documented waypoint (wilderness-salacia-plain)."
+      },
+      "music": {
+        "tracks": [
+          "music-game-beac5f726e29fbb37156",
+          "music-game-a0be814632496ad98877"
+        ],
+        "combatTrack": "music-game-d5ad455e3d83849cf7f1"
+      },
+      "wilderness": true,
+      "enemyEncounterRate": 100,
+      "enemyEncounterRateOverride": true,
+      "enemyPool": [
+        "All-Devouring Narwhal.png"
+      ]
+    },
+    {
+      "id": "boss-goldflame-qucusaur-tyrant",
+      "label": "Goldflame Qucusaur Tyrant's Arena",
+      "region": "Natlan",
+      "description": "The arena below the clouds on Huitztli Hill where the Goldflame Qucusaur Tyrant appears as soon as you approach.",
+      "classifications": [
+        "Goldflame Qucusaur Tyrant's Arena",
+        "Goldflame Qucusaur Tyrant",
+        "boss arena"
+      ],
+      "suggestedCharacters": [],
+      "residents": [],
+      "waypoint": {
+        "mapId": "teyvat",
+        "x": -9694.5,
+        "y": 3761.75
+      },
+      "coordinateMethod": "HoYoLAB map 2 point 72501: Goldflame Qucusaur Tyrant world boss marker, copied directly without conversion. The marker does not encode altitude or underground floors.",
+      "coordinateSource": "https://sg-public-api-static.hoyolab.com/common/map_user/ys_obc/v1/map/point/info?map_id=2&app_sn=ys_obc&lang=en-us&point_id=72501",
+      "source": "https://genshin-impact.fandom.com/wiki/File:Huitztli_Hill.png",
+      "imageURL": "https://static.wikia.nocookie.net/gensin-impact/images/3/3c/Huitztli_Hill.png/revision/latest?cb=20240902095601",
+      "loreSource": "https://genshin-impact.fandom.com/wiki/Holawaqa_Ngoubou",
+      "asset": "boss-goldflame-qucusaur-tyrant.webp",
+      "dimensions": [
+        2560,
+        1600
+      ],
+      "candidate": false,
+      "introducedVersion": 11,
+      "imageReview": {
+        "reviewed": "2026-10-29",
+        "playableCharacters": false,
+        "gameUI": false,
+        "captions": false,
+        "camera": "Huitztli Hill from the cliff edge. It is an elevated scenic view of the hill above the arena, not the arena floor; no boss or HUD is shown. Genshin Impact Wiki file retrieved through its API and recompressed to WebP at the original dimensions; the game logo, where present, is untouched."
+      },
+      "musicResearch": {
+        "recommended": [
+          "Anthem of the Savannah"
+        ],
+        "source": "https://genshin-impact.fandom.com/wiki/Anthem_of_the_Savannah#Soundtrack_Usage",
+        "note": "Combat track from the wiki's Soundtrack Usage for this boss or its domain/region combat theme. Exploration playlist reuses the nearest documented waypoint (starter-stadium-of-the-sacred-flame)."
+      },
+      "music": {
+        "tracks": [
+          "music-game-e6c1002159213acdac19",
+          "music-game-d2a425ddba78f8650447"
+        ],
+        "combatTrack": "music-game-b779bea3247a427e7e31"
+      },
+      "wilderness": true,
+      "enemyEncounterRate": 100,
+      "enemyEncounterRateOverride": true,
+      "enemyPool": [
+        "Goldflame Qucusaur Tyrant.png"
+      ]
+    },
+    {
+      "id": "boss-gluttonous-yumkasaur-mountain-king",
+      "label": "Gluttonous Yumkasaur Mountain King's Arena",
+      "region": "Natlan",
+      "description": "The Natlan canyon floor where the Gluttonous Yumkasaur Mountain King rules, spitting Flamegranates at intruders.",
+      "classifications": [
+        "Gluttonous Yumkasaur Mountain King's Arena",
+        "Gluttonous Yumkasaur Mountain King",
+        "boss arena"
+      ],
+      "suggestedCharacters": [],
+      "residents": [],
+      "waypoint": {
+        "mapId": "teyvat",
+        "x": -9274.25,
+        "y": 4180.25
+      },
+      "coordinateMethod": "HoYoLAB map 2 point 71518: Gluttonous Yumkasaur Mountain King world boss marker, copied directly without conversion. The marker does not encode altitude or underground floors.",
+      "coordinateSource": "https://sg-public-api-static.hoyolab.com/common/map_user/ys_obc/v1/map/point/info?map_id=2&app_sn=ys_obc&lang=en-us&point_id=71518",
+      "source": "https://genshin-impact.fandom.com/wiki/File:Sulfurous_Veins.png",
+      "imageURL": "https://static.wikia.nocookie.net/gensin-impact/images/6/6d/Sulfurous_Veins.png/revision/latest?cb=20240901235945",
+      "loreSource": "https://genshin-impact.fandom.com/wiki/Kongamato",
+      "asset": "boss-gluttonous-yumkasaur-mountain-king.webp",
+      "dimensions": [
+        2560,
+        1600
+      ],
+      "candidate": false,
+      "introducedVersion": 11,
+      "imageReview": {
+        "reviewed": "2026-10-29",
+        "playableCharacters": false,
+        "gameUI": false,
+        "captions": false,
+        "camera": "Sulfurous Veins, the nearest named subarea of Natlan's canyon country, at ground level. No boss or HUD is shown. Genshin Impact Wiki file retrieved through its API and recompressed to WebP at the original dimensions; the game logo, where present, is untouched."
+      },
+      "musicResearch": {
+        "recommended": [
+          "Anthem of the Savannah"
+        ],
+        "source": "https://genshin-impact.fandom.com/wiki/Anthem_of_the_Savannah#Soundtrack_Usage",
+        "note": "Combat track from the wiki's Soundtrack Usage for this boss or its domain/region combat theme. Exploration playlist reuses the nearest documented waypoint (starter-scions-of-the-canopy)."
+      },
+      "music": {
+        "tracks": [
+          "music-game-e0324ebb283e9c391c7c",
+          "music-game-762064a76ff5d2fd0926"
+        ],
+        "combatTrack": "music-game-b779bea3247a427e7e31"
+      },
+      "wilderness": true,
+      "enemyEncounterRate": 100,
+      "enemyEncounterRateOverride": true,
+      "enemyPool": [
+        "Gluttonous Yumkasaur Mountain King.png"
+      ]
+    },
+    {
+      "id": "boss-lord-of-eroded-primal-fire",
+      "label": "Stone Stele Records",
+      "region": "Natlan",
+      "description": "The giant stele of Tezcatepetonco Range, the domain entrance where the Lord of Eroded Primal Fire is fought.",
+      "classifications": [
+        "Stone Stele Records",
+        "Lord of Eroded Primal Fire",
+        "boss arena"
+      ],
+      "suggestedCharacters": [],
+      "residents": [],
+      "waypoint": {
+        "mapId": "teyvat",
+        "x": -10227,
+        "y": 4266.5
+      },
+      "coordinateMethod": "HoYoLAB map 2 point 81383: Stone Stele Records trounce domain entrance, copied directly without conversion. The marker does not encode altitude or underground floors.",
+      "coordinateSource": "https://sg-public-api-static.hoyolab.com/common/map_user/ys_obc/v1/map/point/info?map_id=2&app_sn=ys_obc&lang=en-us&point_id=81383",
+      "source": "https://genshin-impact.fandom.com/wiki/File:Stone_Stele_Records_Entrance.png",
+      "imageURL": "https://static.wikia.nocookie.net/gensin-impact/images/2/2c/Stone_Stele_Records_Entrance.png/revision/latest?cb=20250103230916",
+      "loreSource": "https://genshin-impact.fandom.com/wiki/Stone_Stele_Records",
+      "asset": "boss-lord-of-eroded-primal-fire.webp",
+      "dimensions": [
+        2560,
+        1440
+      ],
+      "candidate": false,
+      "introducedVersion": 11,
+      "imageReview": {
+        "reviewed": "2026-10-29",
+        "playableCharacters": false,
+        "gameUI": false,
+        "captions": false,
+        "camera": "The stele and its stairway at the domain entrance, ground level. No boss, HUD or playable character is shown. Genshin Impact Wiki file retrieved through its API and recompressed to WebP at the original dimensions; the game logo, where present, is untouched."
+      },
+      "musicResearch": {
+        "recommended": [
+          "Vitas Corrodens Pestis"
+        ],
+        "source": "https://genshin-impact.fandom.com/wiki/Vitas_Corrodens_Pestis#Soundtrack_Usage",
+        "note": "Combat track from the wiki's Soundtrack Usage for this boss or its domain/region combat theme. Exploration playlist reuses the nearest documented waypoint (east-natlan-night-kingdom-causeway)."
+      },
+      "music": {
+        "tracks": [
+          "music-game-d485354da07a131772cc",
+          "music-game-41b57c8802206436c43d"
+        ],
+        "combatTrack": "music-game-2a262ac066954d26a915"
+      },
+      "wilderness": true,
+      "enemyEncounterRate": 100,
+      "enemyEncounterRateOverride": true,
+      "enemyPool": [
+        "Lord of Eroded Primal Fire.png"
+      ]
     }
   ],
   "assetGuidelines": "ASSET-GUIDELINES.md",
@@ -7238,6 +8314,234 @@
       "name": "Caress of the Spirit.m4a",
       "label": "Inazuma · Caress of the Spirit",
       "path": "/user/files/silly-teyvat-music-inazuma-caress-of-the-spirit-528553940524.m4a"
+    },
+    {
+      "id": "music-game-06ed414af6bd23bb70a0",
+      "name": "Secluded Sanctuary.m4a",
+      "label": "Liyue · Secluded Sanctuary",
+      "path": "/user/files/silly-teyvat-music-liyue-secluded-sanctuary-06ed414af6bd.m4a"
+    },
+    {
+      "id": "music-game-09a5c62f33f11746128c",
+      "name": "Caelestinum Finale Termini.m4a",
+      "label": "Mondstadt · Caelestinum Finale Termini",
+      "path": "/user/files/silly-teyvat-music-mondstadt-caelestinum-finale-termini-09a5c62f33f1.m4a"
+    },
+    {
+      "id": "music-game-0c6bfeea2a45220c74d4",
+      "name": "A Sepulchral Gloom.m4a",
+      "label": "Inazuma · A Sepulchral Gloom",
+      "path": "/user/files/silly-teyvat-music-inazuma-a-sepulchral-gloom-0c6bfeea2a45.m4a"
+    },
+    {
+      "id": "music-game-1dda7c7cebad1d48e42c",
+      "name": "Island of Crystal and Pearl.m4a",
+      "label": "Inazuma · Island of Crystal and Pearl",
+      "path": "/user/files/silly-teyvat-music-inazuma-island-of-crystal-and-pearl-1dda7c7cebad.m4a"
+    },
+    {
+      "id": "music-game-20825a5f32cb2d2ed470",
+      "name": "Illuminated Coral Palace.m4a",
+      "label": "Inazuma · Illuminated Coral Palace",
+      "path": "/user/files/silly-teyvat-music-inazuma-illuminated-coral-palace-20825a5f32cb.m4a"
+    },
+    {
+      "id": "music-game-2a262ac066954d26a915",
+      "name": "Vitas Corrodens Pestis.m4a",
+      "label": "Natlan · Vitas Corrodens Pestis",
+      "path": "/user/files/silly-teyvat-music-natlan-vitas-corrodens-pestis-2a262ac06695.m4a"
+    },
+    {
+      "id": "music-game-2cfb81eb0cd1f6ef33b4",
+      "name": "Humming Amidst Rocks.m4a",
+      "label": "Liyue · Humming Amidst Rocks",
+      "path": "/user/files/silly-teyvat-music-liyue-humming-amidst-rocks-2cfb81eb0cd1.m4a"
+    },
+    {
+      "id": "music-game-323903461ee86da08fac",
+      "name": "Ex Favilla Incendi.m4a",
+      "label": "Fontaine · Ex Favilla Incendi",
+      "path": "/user/files/silly-teyvat-music-fontaine-ex-favilla-incendi-323903461ee8.m4a"
+    },
+    {
+      "id": "music-game-37b7e1b95e54f0f3f7d7",
+      "name": "Coruscating Street.m4a",
+      "label": "Fontaine · Coruscating Street",
+      "path": "/user/files/silly-teyvat-music-fontaine-coruscating-street-37b7e1b95e54.m4a"
+    },
+    {
+      "id": "music-game-3a8f2fd16184d9601d6c",
+      "name": "Whispering Plain.m4a",
+      "label": "Mondstadt · Whispering Plain",
+      "path": "/user/files/silly-teyvat-music-mondstadt-whispering-plain-3a8f2fd16184.m4a"
+    },
+    {
+      "id": "music-game-3fea11f8ed0789ff2eb9",
+      "name": "Fiery Pursuit.m4a",
+      "label": "Inazuma · Fiery Pursuit",
+      "path": "/user/files/silly-teyvat-music-inazuma-fiery-pursuit-3fea11f8ed07.m4a"
+    },
+    {
+      "id": "music-game-41b57c8802206436c43d",
+      "name": "Dust of Dusklands.m4a",
+      "label": "Natlan · Dust of Dusklands",
+      "path": "/user/files/silly-teyvat-music-natlan-dust-of-dusklands-41b57c880220.m4a"
+    },
+    {
+      "id": "music-game-5170e07d203224a7bae9",
+      "name": "Un nouvel espoir.m4a",
+      "label": "Fontaine · Un nouvel espoir",
+      "path": "/user/files/silly-teyvat-music-fontaine-un-nouvel-espoir-5170e07d2032.m4a"
+    },
+    {
+      "id": "music-game-5efa1dcc07fc4c19e7bd",
+      "name": "Adeptus' Retirement.m4a",
+      "label": "Liyue · Adeptus' Retirement",
+      "path": "/user/files/silly-teyvat-music-liyue-adeptus-retirement-5efa1dcc07fc.m4a"
+    },
+    {
+      "id": "music-game-6255736180b0dec1dfc1",
+      "name": "Jolts in the Forest.m4a",
+      "label": "Sumeru · Jolts in the Forest",
+      "path": "/user/files/silly-teyvat-music-sumeru-jolts-in-the-forest-6255736180b0.m4a"
+    },
+    {
+      "id": "music-game-675c3bb796de290fca71",
+      "name": "When All Has Elapsed.m4a",
+      "label": "Inazuma · When All Has Elapsed",
+      "path": "/user/files/silly-teyvat-music-inazuma-when-all-has-elapsed-675c3bb796de.m4a"
+    },
+    {
+      "id": "music-game-762064a76ff5d2fd0926",
+      "name": "The Heights of Rumikunamanta.m4a",
+      "label": "Natlan · The Heights of Rumikunamanta",
+      "path": "/user/files/silly-teyvat-music-natlan-the-heights-of-rumikunamanta-762064a76ff5.m4a"
+    },
+    {
+      "id": "music-game-7c9576560d2c6bf65af0",
+      "name": "Wayfarer's Peace.m4a",
+      "label": "Mondstadt · Wayfarer's Peace",
+      "path": "/user/files/silly-teyvat-music-mondstadt-wayfarer-s-peace-7c9576560d2c.m4a"
+    },
+    {
+      "id": "music-game-869579a640b79a90849d",
+      "name": "Above the Sea of Clouds.m4a",
+      "label": "Liyue · Above the Sea of Clouds",
+      "path": "/user/files/silly-teyvat-music-liyue-above-the-sea-of-clouds-869579a640b7.m4a"
+    },
+    {
+      "id": "music-game-87871ecc1abbfc1fbff3",
+      "name": "Ode to Azhdaha.m4a",
+      "label": "Liyue · Ode to Azhdaha",
+      "path": "/user/files/silly-teyvat-music-liyue-ode-to-azhdaha-87871ecc1abb.m4a"
+    },
+    {
+      "id": "music-game-961b9aea787f89d35266",
+      "name": "Rapid as Wildfires.m4a",
+      "label": "Liyue · Rapid as Wildfires",
+      "path": "/user/files/silly-teyvat-music-liyue-rapid-as-wildfires-961b9aea787f.m4a"
+    },
+    {
+      "id": "music-game-a03c1485c74b38542abc",
+      "name": "Moonlike Smile.m4a",
+      "label": "Mondstadt · Moonlike Smile",
+      "path": "/user/files/silly-teyvat-music-mondstadt-moonlike-smile-a03c1485c74b.m4a"
+    },
+    {
+      "id": "music-game-a0be814632496ad98877",
+      "name": "Where All Waters Converge.m4a",
+      "label": "Fontaine · Where All Waters Converge",
+      "path": "/user/files/silly-teyvat-music-fontaine-where-all-waters-converge-a0be81463249.m4a"
+    },
+    {
+      "id": "music-game-a34b08960e28fa5a42c7",
+      "name": "Unwavering March.m4a",
+      "label": "Inazuma · Unwavering March",
+      "path": "/user/files/silly-teyvat-music-inazuma-unwavering-march-a34b08960e28.m4a"
+    },
+    {
+      "id": "music-game-a4cfd5bd9a8c7a818d84",
+      "name": "Fortification of Resistance.m4a",
+      "label": "Inazuma · Fortification of Resistance",
+      "path": "/user/files/silly-teyvat-music-inazuma-fortification-of-resistance-a4cfd5bd9a8c.m4a"
+    },
+    {
+      "id": "music-game-b0f1b88803fbbbd519f3",
+      "name": "God-Devouring Mania.m4a",
+      "label": "Sumeru · God-Devouring Mania",
+      "path": "/user/files/silly-teyvat-music-sumeru-god-devouring-mania-b0f1b88803fb.m4a"
+    },
+    {
+      "id": "music-game-b779bea3247a427e7e31",
+      "name": "Anthem of the Savannah.m4a",
+      "label": "Natlan · Anthem of the Savannah",
+      "path": "/user/files/silly-teyvat-music-natlan-anthem-of-the-savannah-b779bea3247a.m4a"
+    },
+    {
+      "id": "music-game-be7609da6418d6897589",
+      "name": "Glistening Shards.m4a",
+      "label": "Mondstadt · Glistening Shards",
+      "path": "/user/files/silly-teyvat-music-mondstadt-glistening-shards-be7609da6418.m4a"
+    },
+    {
+      "id": "music-game-beac5f726e29fbb37156",
+      "name": "Clair de lune.m4a",
+      "label": "Fontaine · Clair de lune",
+      "path": "/user/files/silly-teyvat-music-fontaine-clair-de-lune-beac5f726e29.m4a"
+    },
+    {
+      "id": "music-game-c71e3a01c359f9a58307",
+      "name": "What Now Remains.m4a",
+      "label": "Inazuma · What Now Remains",
+      "path": "/user/files/silly-teyvat-music-inazuma-what-now-remains-c71e3a01c359.m4a"
+    },
+    {
+      "id": "music-game-c9f040240e3ec2351e17",
+      "name": "Rite of Battle.m4a",
+      "label": "Mondstadt · Rite of Battle",
+      "path": "/user/files/silly-teyvat-music-mondstadt-rite-of-battle-c9f040240e3e.m4a"
+    },
+    {
+      "id": "music-game-d2a298becacbb74de618",
+      "name": "Rondeau des fleurs et des rapieres.m4a",
+      "label": "Fontaine · Rondeau des fleurs et des rapieres",
+      "path": "/user/files/silly-teyvat-music-fontaine-rondeau-des-fleurs-et-des-rapieres-d2a298becacb.m4a"
+    },
+    {
+      "id": "music-game-d2a425ddba78f8650447",
+      "name": "Scarlet Song.m4a",
+      "label": "Natlan · Scarlet Song",
+      "path": "/user/files/silly-teyvat-music-natlan-scarlet-song-d2a425ddba78.m4a"
+    },
+    {
+      "id": "music-game-d485354da07a131772cc",
+      "name": "Silent Voices of the Night.m4a",
+      "label": "Natlan · Silent Voices of the Night",
+      "path": "/user/files/silly-teyvat-music-natlan-silent-voices-of-the-night-d485354da07a.m4a"
+    },
+    {
+      "id": "music-game-d5ad455e3d83849cf7f1",
+      "name": "Eschatologia Iudicata.m4a",
+      "label": "Fontaine · Eschatologia Iudicata",
+      "path": "/user/files/silly-teyvat-music-fontaine-eschatologia-iudicata-d5ad455e3d83.m4a"
+    },
+    {
+      "id": "music-game-e0324ebb283e9c391c7c",
+      "name": "Baba we Twasali.m4a",
+      "label": "Natlan · Baba we Twasali",
+      "path": "/user/files/silly-teyvat-music-natlan-baba-we-twasali-e0324ebb283e.m4a"
+    },
+    {
+      "id": "music-game-e6c1002159213acdac19",
+      "name": "Jubilation of Calcine.m4a",
+      "label": "Natlan · Jubilation of Calcine",
+      "path": "/user/files/silly-teyvat-music-natlan-jubilation-of-calcine-e6c100215921.m4a"
+    },
+    {
+      "id": "music-game-fc4986dd34692657a380",
+      "name": "Roaming in Silence.m4a",
+      "label": "Inazuma · Roaming in Silence",
+      "path": "/user/files/silly-teyvat-music-inazuma-roaming-in-silence-fc4986dd3469.m4a"
     }
   ]
 }

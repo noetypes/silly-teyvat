@@ -11082,8 +11082,8 @@
       "sha256": "f53e030c12934201c8a08ceeeff723aa4e630df7e7ac4b62cbef2ac4e2368170"
     },
     "extension/genshin-dialogue-ui/assets/tcg/characters/Paimon.webp": {
-      "bytes": 52488,
-      "sha256": "33cd3edd1f8d38a89fb9af30bf73b9fb7d2cb98162a6061ff95366fffab8bf84"
+      "bytes": 46116,
+      "sha256": "1dfa99ac42a37bc10798e9771bc011550c42aac2443b3261c41af472ae9b4d2f"
     },
     "extension/genshin-dialogue-ui/assets/tcg/characters/Pyro Abyss Mage.webp": {
       "bytes": 40808,
@@ -11384,6 +11384,82 @@
     "extension/genshin-dialogue-ui/assets/world-locations/angel-s-share.png": {
       "bytes": 2677497,
       "sha256": "19bf33596160578b89a7f5d8673c51071536aeba45223dc60cba8e0cd470ae31"
+    },
+    "extension/genshin-dialogue-ui/assets/world-locations/boss-all-devouring-narwhal.webp": {
+      "bytes": 227442,
+      "sha256": "a2404836ac418ce734ec6f25018de5c9020fab58b2f9a129769de43f23fcf118"
+    },
+    "extension/genshin-dialogue-ui/assets/world-locations/boss-azhdaha.webp": {
+      "bytes": 138180,
+      "sha256": "4447207f729ccb1211211828a12d96c1ab4b904d6d5a22bfa059eb571ec001e6"
+    },
+    "extension/genshin-dialogue-ui/assets/world-locations/boss-cryo-hypostasis.webp": {
+      "bytes": 653336,
+      "sha256": "09356eca2013f70b850848307a5754582cc4d9ff4dc9277f16c9b6e2bb8bc2dc"
+    },
+    "extension/genshin-dialogue-ui/assets/world-locations/boss-dvalin.webp": {
+      "bytes": 260472,
+      "sha256": "31314d814906b6ffccfa3cdfcdf715a5080fcbcc547cce011eb7de06f2bf7bfb"
+    },
+    "extension/genshin-dialogue-ui/assets/world-locations/boss-electro-hypostasis.webp": {
+      "bytes": 228938,
+      "sha256": "114593e7a1bdc3ce4332240a8b495faf685369c4b9eaf9447a508ace50bdeecc"
+    },
+    "extension/genshin-dialogue-ui/assets/world-locations/boss-emperor-of-fire-and-iron.webp": {
+      "bytes": 159540,
+      "sha256": "398a1dc245d76f548f647e304149625eebc9b8c70171e71a83a8875d771a0863"
+    },
+    "extension/genshin-dialogue-ui/assets/world-locations/boss-experimental-field-generator.webp": {
+      "bytes": 165884,
+      "sha256": "c2bd2903ec4515f0e73ad07cf4d72746714fea3d43427a7bb0c948e35234c4bc"
+    },
+    "extension/genshin-dialogue-ui/assets/world-locations/boss-gluttonous-yumkasaur-mountain-king.webp": {
+      "bytes": 222358,
+      "sha256": "51c1881ca075c1de50ae19bb53acace617b080483adaaf153237b913f496a254"
+    },
+    "extension/genshin-dialogue-ui/assets/world-locations/boss-golden-wolflord.webp": {
+      "bytes": 95902,
+      "sha256": "eab283d4f3a96baa1ffac481e15b4cf0dc2bb63329e35260c9433f48b59edfdc"
+    },
+    "extension/genshin-dialogue-ui/assets/world-locations/boss-goldflame-qucusaur-tyrant.webp": {
+      "bytes": 360572,
+      "sha256": "5b8f43ad0504f5e816062338fd5e7092547cce947622c09db8a8437a468d97a3"
+    },
+    "extension/genshin-dialogue-ui/assets/world-locations/boss-guardian-of-apep-s-oasis.webp": {
+      "bytes": 163772,
+      "sha256": "96813903db173eaa716dd4d02b9cc6ba665079c6c0df20cec4eb26652fa029a9"
+    },
+    "extension/genshin-dialogue-ui/assets/world-locations/boss-hydro-hypostasis.webp": {
+      "bytes": 287374,
+      "sha256": "3550a338a80bdfd3cd825150a498af2a03d052471b075397662f6eda0742f9be"
+    },
+    "extension/genshin-dialogue-ui/assets/world-locations/boss-hydro-tulpa.webp": {
+      "bytes": 149260,
+      "sha256": "c7daf5f0d82b3d2a5c9fe5d75ede5dc8e48b2ad6a4fce577416ba2d7ab50b321"
+    },
+    "extension/genshin-dialogue-ui/assets/world-locations/boss-jadeplume-terrorshroom.webp": {
+      "bytes": 177744,
+      "sha256": "88d436ab9d8d2c1a5733a6981ffce81dc5999052213f6353970942cd33ca16d0"
+    },
+    "extension/genshin-dialogue-ui/assets/world-locations/boss-lord-of-eroded-primal-fire.webp": {
+      "bytes": 257750,
+      "sha256": "cf9a3feb457087341ff502e095f19aa464d2d1e0e6c9ed36b02c9eb188c67a78"
+    },
+    "extension/genshin-dialogue-ui/assets/world-locations/boss-maguu-kenki.webp": {
+      "bytes": 159882,
+      "sha256": "e88cd42753a53222438a0219dfd094c44dba60f6c04d6249f2fdddfc5a66b0a1"
+    },
+    "extension/genshin-dialogue-ui/assets/world-locations/boss-millennial-pearl-seahorse.webp": {
+      "bytes": 225386,
+      "sha256": "d2e49c13738cd83c1b3e63f8197d3faa19ddf7477ce0cec8197989241c705531"
+    },
+    "extension/genshin-dialogue-ui/assets/world-locations/boss-rhodeia-of-loch.webp": {
+      "bytes": 84176,
+      "sha256": "130fe0cb8210e1931bec0321d2e05eab52f3d4667ac42a5fcdc455cc0ed97821"
+    },
+    "extension/genshin-dialogue-ui/assets/world-locations/boss-thunder-manifestation.webp": {
+      "bytes": 172180,
+      "sha256": "591f3084856740015b770637ca94232368f203f07c16f3a854326126c292bc56"
     },
     "extension/genshin-dialogue-ui/assets/world-locations/bubu-pharmacy.png": {
       "bytes": 1562202,

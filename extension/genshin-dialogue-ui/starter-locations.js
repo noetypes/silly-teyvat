@@ -2,7 +2,7 @@ import {backgroundRegions} from './backgrounds.js';
 import {mediaSettings} from './media-store.js';
 import {validMapPoint} from './world-data.js';
 
-const starterCatalogVersion=10;
+const starterCatalogVersion=11;
 // Import once per user. Removing or editing a starter remains respected.
 export function seedWorldLocations(ctx,catalog,availableMusic=[]){
     const prefs=mediaSettings(ctx);if(prefs.starterLocationsVersion>=catalog.version)return 0;

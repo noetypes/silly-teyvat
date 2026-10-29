@@ -1,3 +1,11 @@
+# Silly Teyvat 1.45.0: Boss arenas
+
+- **19 boss arenas on the world map.** Rhodeia of Loch, the Electro, Cryo and Hydro Hypostases, Thunder Manifestation, Golden Wolflord, Maguu Kenki, Jadeplume Terrorshroom, the Emperor of Fire and Iron, Experimental Field Generator, Millennial Pearl Seahorse, Hydro Tulpa, Goldflame Qucusaur Tyrant, Gluttonous Yumkasaur Mountain King, Dvalin, Azhdaha, the All-Devouring Narwhal, the Lord of Eroded Primal Fire and the Guardian of Apep's Oasis each have a Wilderness waypoint at the HoYoLAB marker of their arena or domain entrance. The boss is the only enemy there, at a fixed 100% chance, so arriving always starts the fight.
+- **Music and backgrounds.** Each arena has a Genshin Impact Wiki background and plays the boss's combat theme (Caelestinum Finale Termini, Ode to Azhdaha, Eschatologia Iudicata and others) during the fight, with exploration music from the nearest documented waypoint.
+- **Tougher bosses.** HP and damage were retuned in simulated fights so every boss is a real fight; see `COMBAT.md`. Card-authored boss HP no longer overrides the balance.
+- **Paimon's Genius Invokation card** is now the Genshin Impact Wiki's Paimon support card.
+- Existing players get the new waypoints once, on the next load; removed or moved waypoints are left alone.
+
 # Silly Teyvat 1.44.3: New chats start with one character
 
 Choosing New Chat inside a travel party no longer carries the party's enemies, sprites or
