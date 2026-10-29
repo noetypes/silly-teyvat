@@ -1,3 +1,9 @@
+# Silly Teyvat 1.44.4: Review and delete also start clean
+
+A chat opened in a travel party without the journey's origin marker, such as the new chat made
+by Dialogue Review or the chat that replaces a deleted one, is now treated as new even if the
+extension had already written scene data into it, and becomes a fresh solo chat.
+
 # Silly Teyvat 1.45.0: Boss arenas
 
 - **19 boss arenas on the world map.** Rhodeia of Loch, the Electro, Cryo and Hydro Hypostases, Thunder Manifestation, Golden Wolflord, Maguu Kenki, Jadeplume Terrorshroom, the Emperor of Fire and Iron, Experimental Field Generator, Millennial Pearl Seahorse, Hydro Tulpa, Goldflame Qucusaur Tyrant, Gluttonous Yumkasaur Mountain King, Dvalin, Azhdaha, the All-Devouring Narwhal, the Lord of Eroded Primal Fire and the Guardian of Apep's Oasis each have a Wilderness waypoint at the HoYoLAB marker of their arena or domain entrance. The boss is the only enemy there, at a fixed 100% chance, so arriving always starts the fight.

@@ -6,7 +6,10 @@ import {activeGroup} from './party.js';
 // solo chat of the card the journey started from. The old chat stays in the group untouched.
 export function freshJourneySource(ctx){
     const group=activeGroup(ctx),journey=group?.silly_teyvat_journey;
-    if(!journey?.managed||ctx.chatMetadata?.silly_teyvat_cast||(ctx.chat || []).length)return null;
+    // Every chat the extension builds for a journey carries its origin in the cast marker. A chat without
+    // it was started afterwards (New Chat, or Review after deleting the open chat), whatever else the
+    // extension has already written into its metadata by now.
+    if(!journey?.managed||ctx.chatMetadata?.silly_teyvat_cast?.source||(ctx.chat || []).some(m=>m.is_user))return null;
     return journey.source?.avatar || null;
 }
 export async function openFreshSoloChat(ctx,avatar,{loadScript=()=>import('/script.js')}={}){
