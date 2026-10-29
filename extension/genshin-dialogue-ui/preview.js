@@ -257,6 +257,7 @@ document.addEventListener('click', async event => {
             }
             case 'dice-model-tests': {ctx.extensionSettings.genshin_dialogue_ui.choices=false;emit(eventTypes.SETTINGS_UPDATED);const {runDiceModelTests}=await import('./preview-dice-model-tests.js');result(await runDiceModelTests());break;}
             case 'send-attack-tests': {ctx.extensionSettings.genshin_dialogue_ui.choices=false;emit(eventTypes.SETTINGS_UPDATED);const {runSendAttackTests}=await import('./preview-send-attack-tests.js');result(await runSendAttackTests().catch(error=>error.message));break;}
+            case 'duel-tests': {ctx.extensionSettings.genshin_dialogue_ui.choices=false;emit(eventTypes.SETTINGS_UPDATED);await new Promise(r=>setTimeout(r,40));const {runDuelTests}=await import('./preview-duel-tests.js');result(await runDuelTests());break;}
             case 'combat-tests': {ctx.extensionSettings.genshin_dialogue_ui.choices=false;emit(eventTypes.SETTINGS_UPDATED);await new Promise(r=>setTimeout(r,40));const {runCombatTests}=await import('./preview-combat-tests.js');result(await runCombatTests());break;}
             case 'feature-tests': { const { runFeatureTests } = await import('./preview-tests.js'); const { runNarrationTests } = await import('./preview-narration-tests.js'); result((await runFeatureTests()) + '; ' + (await runNarrationTests())); emit(eventTypes.SETTINGS_UPDATED); break; }
             case 'formatting-tests': {const {runDialogueFormattingTests}=await import('./preview-formatting-tests.js');result(runDialogueFormattingTests());break;}

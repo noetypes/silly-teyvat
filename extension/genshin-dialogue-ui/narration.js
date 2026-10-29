@@ -15,7 +15,7 @@ export function plainMessage(message) {
     return node.textContent || '';
 }
 export function dialoguePages(root, prefs, message = {}) {
-    const pages = enemyDialoguePages(splitDialoguePages(root),message);
+    const pages = enemyDialoguePages(splitDialoguePages(root),message,typeof prefs.combatTriggerPhrase === 'string' ? prefs.combatTriggerPhrase.trim() : undefined);
     if(message.is_narrator || message.extra?.type==='narrator'){for(const page of pages)page.giNarration=true;return pages;}
     if (!prefs.narration || message.is_user || message.is_system) return pages;
     if (prefs.narrationMode !== 'keyword') {

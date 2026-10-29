@@ -213,7 +213,7 @@ export function mountPageSprites({ host, getContext, adapter = createNativeSprit
         const items = staged.map(({ image, sprite }) => {
             const card = stageCharacter(ctx, sprite), cp = p.characterSprites?.[card?.avatar || sprite.avatar] || {};
             const look = livePresentation(sprite, staged.length >= 3 && staged.some(x => x.sprite.presentation?.focus) && compactViewport(W, H));
-            return { h: sprite.h, aspect: Number(image.dataset.trim) || sprite.aspect, scale: (sprite.presentation ? liveSpriteScale(ctx, sprite, card) : 1) * look.focusScale,
+            return { group: kindOf(sprite) === 'enemy' ? 1 : 0, h: sprite.h, aspect: Number(image.dataset.trim) || sprite.aspect, scale: (sprite.presentation ? liveSpriteScale(ctx, sprite, card) : 1) * look.focusScale,
                 lift: Math.max(-.4, Math.min(.5, 1 - sprite.h - sprite.y)), pinned: cp.positionX == null ? null : bounded(cp.positionX, 0, 100, 50) / 100 };
         });
         // On a phone on its side the HUD runs along the top edge; frame faces just under it.
@@ -342,6 +342,19 @@ export function mountPageSprites({ host, getContext, adapter = createNativeSprit
         const swipeInfo = message.swipe_info?.[message.swipe_id ?? 0];
         if (swipeInfo) { swipeInfo.extra ??= {}; swipeInfo.extra[STORE] = structuredClone(message.extra[STORE]); }
         persist(ctx);
+    // One classification request per page of text. A page that is classified again for any reason
+    // (a refresh cancelled it, a narration page needed the line before it) reuses the first answer.
+    const labels = new Map();
+    function classifyOnce(ctx, message, page, text) {
+        const key = `${chatKey(ctx)}:${ctx.chat.indexOf(message)}:${message.swipe_id ?? 0}:${page}:${pageSignature(text)}`;
+        if (!labels.has(key)) {
+            const request = Promise.resolve(adapter.classify(ctx, text));
+            labels.set(key, request);
+            request.then(label => { if (!label) labels.delete(key); }, () => labels.delete(key));
+            while (labels.size > 64) labels.delete(labels.keys().next().value);
+        }
+        return labels.get(key);
+    }
     }
     function previousScene(ctx, id, page) {
         const current = ctx.chat[id];
@@ -368,7 +381,7 @@ export function mountPageSprites({ host, getContext, adapter = createNativeSprit
             // An unvisited older line has no exact scene. Seed from its last
             // spoken page, never from the narration's emotion or native result.
             const text = contextText;
-            const emotion = enemySpeaker(ctx,prior.message)?'neutral':await adapter.classify(ctx, text);
+            const emotion = enemySpeaker(ctx,prior.message)?'neutral':await classifyOnce(ctx, prior.message, prior.page, text);
             if (!isCurrent()) return base;
             spoken = (await adapter.resolve(ctx, prior.message, emotion || 'neutral', base.length ? base : adapter.capture())).scene;
             speechSeeds.set(seedKey, spoken);
@@ -456,7 +469,7 @@ export function mountPageSprites({ host, getContext, adapter = createNativeSprit
                 if(whole?.signature===fullSignature&&(!hasEnemy(whole.data.scene)||whole.data.enemyActionsVersion===1)){save(message,page,signature,{...whole.data,kind},ctx);if(selection===identity)draw(whole.data.scene,identity);return;}
                 const prepared = await adapter.prepare?.(ctx, base, () => token === epoch && active && chatKey(getContext()) === key,{message,id}) || base;
                 if (token !== epoch || chatKey(getContext()) !== key || !active) return;
-                const emotion = enemy?action:classifyPages ? await adapter.classify(ctx, mode==='message'?message.mes:contextText) : null;
+                const emotion = enemy?action:classifyPages ? await classifyOnce(ctx, message, mode==='message'?'message':page, mode==='message'?message.mes:contextText) : null;
                 if (token !== epoch || chatKey(getContext()) !== key || !active || (message.swipe_id ?? 0) !== swipe) return;
                 const data = emotion ? await adapter.resolve(ctx, message, emotion, prepared) : { scene: prepared, emotion: null };
                 if (token !== epoch || chatKey(getContext()) !== key || !active || !ctx.chat.includes(message)) return;

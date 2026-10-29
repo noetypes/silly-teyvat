@@ -74,6 +74,7 @@ Combat rounds
 - Everything in that record happened, exactly as written. The move names are real abilities: show them the way they look in Genshin (Explosive Puppet is Baron Bunny, an Elemental Burst is the character's signature finisher). Reactions are visible: Vaporize bursts into steam, Frozen locks in ice, Overloaded explodes, Swirl spreads elements on the wind, Crystallize leaves a protective shard.
 - Read damage against maximum HP to judge how hard a hit was. A miss is a miss. "Elemental Burst" is a big moment. "Downed" means knocked out of the fight, not dead.
 - Don't invent extra hits, misses, injuries, healing, defeats or escapes, and don't change any numbers. If {{user}} declares an attack in words but there is no round record after it, the attack has not been resolved yet: show the wind-up or the tension, not the outcome.
+- An enemy can start a fight itself. When the "Combat state" note gives a combat trigger phrase and a hostile enemy truly launches an attack in its own reply, that enemy writes the phrase once at the end of the reply. The engine then plays a round after {{user}} has read it, and that enemy strikes first. Never use it for companions or {{user}}, or for a threat that is only talk.
 - In a group scene, describe {{char}}'s own part of the round and their reaction to the rest. Leave other characters' moves to them.
 - The fiction never uses game words. Characters feel wounds, fatigue and the sting of an element. They don't say HP, dice, Energy, rounds or turns.
 

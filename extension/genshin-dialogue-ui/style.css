@@ -3386,27 +3386,6 @@ body.gi-shell .welcomePanel .chatStats { flex: 0 0 auto; }
 /* A hidden enemy preview must stay hidden in fuel rolls. */
 #gi-elemental-roll .gi-roll-target[hidden], #gi-elemental-roll .gi-roll-target img[hidden] { display: none; }
 
-#gi-health-drawer {
-    --health-width: min(300px, calc(100vw - 66px));
-    position: fixed; z-index: 12; left: env(safe-area-inset-left, 0px); top: 50%; translate: 0 -50%;
-    width: var(--health-width); transform: translateX(-100%); transition: transform 250ms var(--ty-ease);
-    color: #ece5d8; font-family: var(--ty-font); pointer-events: auto;
-}
-#gi-health-drawer[data-open="true"] { transform: translateX(0); }
-#gi-health-drawer[hidden], body:not(.gi-scene) #gi-health-drawer, body.gi-history #gi-health-drawer, body.gi-hidden #gi-health-drawer { display: none; }
-#gi-health-content { max-height: min(54dvh, 460px); overflow: auto; padding: 12px; background: #263044f5; border: 1px solid #d3bc8e88; border-radius: 0 14px 14px 0; box-shadow: 4px 6px 20px #0006; }
-#gi-health-content h3 { margin: 4px 0 10px; font: 15px var(--ty-font); color: #f2dca0; }
-#gi-health-content h3[hidden] { display: none; }
-#gi-health-drawer .gi-health-toggle { position: absolute; left: 100%; top: 50%; translate: 0 -50%; display: grid; justify-items: center; gap: 2px; width: 38px; min-height: 76px; padding: 8px 4px; border: 1px solid #d3bc8e88; border-left: 0; border-radius: 0 18px 18px 0; color: #f2dca0; background: #263044ed; cursor: pointer; }
-#gi-health-drawer .gi-health-toggle span { font-size: 19px; } #gi-health-drawer .gi-health-toggle small { font: 11px var(--ty-font); } #gi-health-drawer .gi-health-toggle i { font-size: 20px; font-style: normal; line-height: 1; }
-#gi-health-drawer .gi-health-toggle:focus-visible { outline: 2px solid #f2dca0; outline-offset: 2px; }
-body.gi-scene #gi-health-drawer :is(#gi-party-health, #gi-combat) { position: static; inset: auto; width: auto; max-width: none; display: flex; flex-direction: column; gap: 8px; margin: 0 0 12px; pointer-events: auto; }
-body.gi-scene #gi-health-drawer :is(#gi-party-health, #gi-combat)[hidden] { display: none; }
-body.gi-scene #gi-health-drawer :is(.gi-party-member, .gi-enemy-health) { width: auto; min-width: 0; }
-body.gi-scene #gi-health-drawer .gi-party-member { grid-template-columns: 34px minmax(0, 1fr) auto; padding: 6px 9px; }
-body.gi-scene #gi-health-drawer .gi-party-member img { width: 34px; height: 34px; }
-@media (prefers-reduced-motion: reduce) { #gi-health-drawer { transition: none; } }
-body.gi-reduced-motion #gi-health-drawer { transition: none; }
 @media (max-width: 520px) {
     body.gi-shell .welcomePanel .recentChat { gap: 12px; padding: 10px; }
     body.gi-shell .welcomePanel .recentChat .avatar { --gi-recent-avatar-height: 82px; flex-basis: 64px; width: 64px; min-width: 64px; max-width: 64px; }
@@ -3464,3 +3443,91 @@ body.gi-reduced-motion #gi-health-drawer { transition: none; }
 @media (max-aspect-ratio: 4/5), (max-height: 560px) {
     #gi-battle .tb-party.tb-active { transform: translateY(-8px); }
 }
+
+/* ---------- 1.44: quieter combat HUD ---------- */
+/* Attack: a small circle with a sword beside the refresh button. No text. */
+body #gi-attack-controls { position: static; display: flex; align-items: center; width: auto; }
+body #gi-attack-controls #gi-attack-toggle {
+    display: grid; place-items: center; box-sizing: border-box; flex: 0 0 40px; width: 40px; height: 40px; min-width: 0; min-height: 0; max-height: none; padding: 0; gap: 0;
+    border: 0; border-radius: 50%; color: #ece5d8; background: #262c38d9; box-shadow: inset 0 0 0 1.5px #ffffff26, 0 2px 8px #0005;
+    -webkit-backdrop-filter: none; backdrop-filter: none; animation: none; text-shadow: none;
+    transition: background 160ms ease, color 160ms ease, box-shadow 200ms ease, transform 200ms var(--ty-ease);
+}
+body #gi-attack-controls #gi-attack-toggle svg { box-sizing: border-box; flex: none; width: 20px; height: 20px; padding: 0; border-radius: 0; background: none; }
+body #gi-attack-controls #gi-attack-toggle:hover:not(:disabled) { color: #3d4557; background: #ece5d8; box-shadow: inset 0 0 0 1.5px #ffffff26, 0 2px 8px #0005; transform: none; }
+body #gi-attack-controls #gi-attack-toggle:focus-visible { outline: 2px solid #f2dca0; outline-offset: 2px; }
+body #gi-attack-controls #gi-attack-toggle[aria-pressed="true"] { color: #f2dca0; background: #3b3526e6; box-shadow: inset 0 0 0 1.5px #d3bc8e, 0 0 10px #d3bc8e55; animation: none; }
+body #gi-attack-controls #gi-attack-toggle[aria-pressed="true"]:hover:not(:disabled) { color: #f2dca0; background: #4a4230e6; box-shadow: inset 0 0 0 1.5px #d3bc8e, 0 0 10px #d3bc8e55; }
+body #gi-attack-controls #gi-attack-toggle[aria-pressed="true"] svg path:first-child { fill: currentColor; }
+body #gi-attack-controls #gi-attack-toggle:disabled { opacity: .45; cursor: default; }
+#gi-choices .gi-choices-heading { gap: 8px; }
+
+/* Enemy health: a slim bar and name at the top centre, as on Genshin's boss bars. */
+body.gi-scene #gi-combat {
+    position: fixed; z-index: 31; top: calc(env(safe-area-inset-top, 0px) + 12px); left: 50%; right: auto; translate: -50% 0;
+    width: min(44vw, 330px); max-width: none; display: flex; flex-direction: column; gap: 7px; pointer-events: none;
+}
+body.gi-scene #gi-combat[hidden] { display: none; }
+body.gi-scene #gi-combat .gi-enemy-health {
+    position: relative; display: grid; grid-template-columns: minmax(0, 1fr) auto; grid-template-rows: auto 5px; align-items: end; gap: 3px 8px; min-width: 0; width: auto;
+    padding: 0; border: 0; border-radius: 0; background: none; box-shadow: none; overflow: visible;
+}
+body.gi-scene #gi-combat .gi-enemy-health img { display: none; }
+body.gi-scene #gi-combat .gi-enemy-health strong { grid-column: 1; grid-row: 1; font: 13px/1.1 var(--ty-font); letter-spacing: .02em; color: #fff; text-shadow: 0 1px 3px #000, 0 0 8px #0009; }
+body.gi-scene #gi-combat .gi-enemy-health > span:not(.gi-sr-only) { grid-column: 2; grid-row: 1; font: 11px/1.1 var(--ty-font); font-variant-numeric: tabular-nums; color: #f2dca0d9; text-shadow: 0 1px 3px #000; }
+body.gi-scene #gi-combat .gi-enemy-health .gi-hp { grid-column: 1 / -1; grid-row: 2; height: 5px; margin: 0; border-radius: 3px; overflow: hidden; background: #0b0f179e; box-shadow: 0 0 0 1px #ffffff2e, 0 1px 4px #0007; }
+body.gi-scene #gi-combat .gi-enemy-health .gi-hp::before, body.gi-scene #gi-combat .gi-enemy-health .gi-hp::after { display: none; }
+body.gi-scene #gi-combat .gi-enemy-health .gi-hp i { inset: 0 auto 0 0; max-width: 100%; border-radius: inherit; }
+body.gi-scene #gi-combat .gi-damage-pop { top: -6px; }
+
+/* Party health: Genshin's party column. Small portraits down the right edge, each with a thin bar; names and numbers on hover. */
+body.gi-scene #gi-party-health {
+    position: fixed; z-index: 31; top: calc(env(safe-area-inset-top, 0px) + 66px); right: calc(env(safe-area-inset-right, 0px) + 10px); left: auto; bottom: auto;
+    width: auto; max-width: none; display: flex; flex-direction: column; align-items: center; gap: 8px; pointer-events: none;
+}
+body.gi-scene #gi-party-health[hidden] { display: none; }
+body.gi-scene #gi-party-health .gi-party-member {
+    position: relative; display: grid; grid-template-columns: 34px; grid-template-rows: 34px 4px; justify-items: stretch; gap: 3px; width: 34px; padding: 0;
+    border: 0; border-radius: 0; background: none; box-shadow: none; overflow: visible; pointer-events: auto; opacity: .92;
+}
+body.gi-scene #gi-party-health .gi-party-member .gi-circle-face { grid-column: 1; grid-row: 1; width: 34px; height: 34px; }
+body.gi-scene #gi-party-health .gi-party-member strong, body.gi-scene #gi-party-health .gi-party-member > span:not(.gi-circle-face) { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+body.gi-scene #gi-party-health .gi-party-member .gi-hp { grid-column: 1; grid-row: 2; width: 100%; height: 4px; margin: 0; border-radius: 2px; overflow: hidden; background: #0b0f179e; box-shadow: 0 0 0 1px #ffffff2e; }
+body.gi-scene #gi-party-health .gi-party-member .gi-hp::before, body.gi-scene #gi-party-health .gi-party-member .gi-hp::after { display: none; }
+body.gi-scene #gi-party-health .gi-party-member .gi-hp i { inset: 0 auto 0 0; max-width: 100%; border-radius: inherit; }
+body.gi-scene #gi-party-health .gi-party-member.gi-downed { opacity: .6; }
+body.gi-scene #gi-party-health .gi-party-member.gi-downed strong::after { content: none; }
+@media (max-height: 520px) {
+    body.gi-scene #gi-combat { top: calc(env(safe-area-inset-top, 0px) + 8px); width: min(40vw, 300px); gap: 5px; }
+    body.gi-scene #gi-combat .gi-enemy-health strong { font-size: 12px; }
+    body.gi-scene #gi-party-health { top: calc(env(safe-area-inset-top, 0px) + 12px); gap: 5px; }
+    body.gi-scene #gi-party-health .gi-party-member { grid-template-columns: 28px; grid-template-rows: 28px 3px; width: 28px; gap: 2px; }
+    body.gi-scene #gi-party-health .gi-party-member .gi-circle-face { width: 28px; height: 28px; }
+    body.gi-scene #gi-party-health .gi-party-member .gi-hp { height: 3px; }
+}
+
+/* Round character cutouts use the Sprite wardrobe's circular icons, cropped the way its roster crops them. */
+.gi-circle-face { position: relative; display: block; overflow: hidden; border-radius: 50%; background: radial-gradient(circle at 50% 30%, #5a6b8c, #2a3449); box-shadow: 0 0 0 2px #d3bc8e99, 0 2px 6px #0007; }
+:is(.gi-circle-face, .gi-roll-face:has(img), .tb-plate-img) { position: relative; }
+:is(.gi-circle-face, .gi-roll-face, .tb-plate-img) img { position: absolute; left: 50%; top: -24%; width: 128%; height: auto; max-width: none; translate: -50% 0; padding: 0; border: 0; border-radius: 0; box-shadow: none; background: none; object-fit: cover; object-position: 50% 0; }
+
+/* Asking which party members to battle, or whether to revive one. */
+#gi-combat-ask { box-sizing: border-box; width: min(420px, calc(100vw - 32px)); max-height: calc(100dvh - 32px); overflow: auto; padding: 18px 20px 16px; border: 1px solid #d3bc8e88; border-radius: 14px; color: #ece5d8; background: #263044f5; box-shadow: 0 12px 48px #000a; font-family: var(--ty-font); }
+#gi-combat-ask::backdrop { background: #101928b8; backdrop-filter: blur(4px); }
+#gi-combat-ask small { display: block; font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: #d7c59c; }
+#gi-combat-ask h2 { margin: 6px 0 8px; font: 20px/1.2 var(--ty-font); color: #f2dca0; }
+#gi-combat-ask p { margin: 0 0 12px; font-size: 14px; line-height: 1.45; color: #e3dccb; }
+#gi-combat-ask .gi-ask-list { display: flex; flex-direction: column; gap: 6px; margin: 0 0 14px; }
+#gi-combat-ask .gi-ask-row { display: grid; grid-template-columns: 20px 38px minmax(0, 1fr) auto; align-items: center; gap: 10px; padding: 6px 10px; border-radius: 10px; background: #1a2232b8; box-shadow: inset 0 0 0 1px #d3bc8e33; cursor: pointer; }
+#gi-combat-ask .gi-ask-row:has(input:checked) { background: #3b3526d9; box-shadow: inset 0 0 0 1.5px #d3bc8e; }
+#gi-combat-ask .gi-ask-row input { width: 18px; height: 18px; margin: 0; accent-color: #d3bc8e; }
+#gi-combat-ask .gi-ask-row .gi-circle-face { width: 40px; height: 40px; }
+#gi-combat-ask .gi-ask-row strong { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-weight: normal; font-size: 15px; }
+#gi-combat-ask .gi-ask-row small { font-size: 12px; letter-spacing: 0; text-transform: none; color: #cfc6b0; }
+#gi-combat-ask .gi-ask-actions { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 8px; }
+#gi-combat-ask .gi-ask-actions button { box-sizing: border-box; min-height: 40px; padding: 8px 18px; border: 0; border-radius: 999px; color: #ece5d8; background: #262c38; box-shadow: inset 0 0 0 1.5px #ffffff30; font: 15px var(--ty-font); cursor: pointer; }
+#gi-combat-ask .gi-ask-actions button:hover:not(:disabled) { color: #3d4557; background: #ece5d8; }
+#gi-combat-ask .gi-ask-actions .gi-ask-primary { color: #2d2718; background: #e6cf98; box-shadow: none; }
+#gi-combat-ask .gi-ask-actions .gi-ask-primary:hover:not(:disabled) { background: #f4e2b4; color: #2d2718; }
+#gi-combat-ask .gi-ask-actions button:disabled { opacity: .45; cursor: default; }
+#gi-combat-ask :is(button, input):focus-visible { outline: 2px solid #f2dca0; outline-offset: 2px; }

@@ -70,7 +70,7 @@ export function mountBattle({host,sound=createBattleSound(),onBurst=()=>{},onSto
     const wait=ms=>new Promise(resolve=>{if(skipAll||ms<=0){resolve();return;}setTimeout(resolve,ms/speed);});
     const artOf=u=>u.art || u.img || '';
     // Round portrait: the wiki's character icon when there is one.
-    const iconOf=u=>characterIcon(u.card) || u.img || u.art || '';
+    const iconOf=u=>u.circle || characterIcon(u.card) || u.img || u.art || '';
     // ---- Cards ----------------------------------------------------------------------
     function buildCard(u){
         const card=el('button',`tb-card tb-${u.side}`);card.type='button';card.dataset.id=u.id;card.style.setProperty('--el',EL_COLORS[u.element] || EL_COLORS.None);
@@ -446,7 +446,7 @@ export function mountBattle({host,sound=createBattleSound(),onBurst=()=>{},onSto
         $('.tb-round').textContent=String(state.round || 1);
         const foes=state.units.filter(u=>u.side==='enemy'),you={...(state.units.find(u=>u.isUser) || party()[0] || {}),...(player || {})};
         $('.tb-plate-foe img').src=foes[0]?iconOf(foes[0]):'';$('.tb-plate-foe strong').textContent=foes.length>1?`${foes[0].name} +${foes.length-1}`:foes[0]?.name || '';$('.tb-plate-foe small').textContent='Now Waiting…';
-        $('.tb-plate-you img').src=(you?.card&&characterIcon(you.card)) || you?.img || '';$('.tb-plate-you strong').textContent=you?.name || '';
+        $('.tb-plate-you img').src=you?iconOf(you):'';$('.tb-plate-you strong').textContent=you?.name || '';
         $('.tb-res').replaceChildren(...(state.resonance || []).map(r=>{const chip=el('i','tb-res-chip');chip.style.setProperty('--el',EL_COLORS[r]);chip.innerHTML=elementImg(r);chip.title=`${RESONANCE[r].name}: ${RESONANCE[r].text}`;return chip;}));
         $('.tb-combo').textContent='';$('.tb-result').hidden=true;$('.tb-banner').classList.remove('tb-show');$('.tb-played').replaceChildren();
         for(const u of party().filter(u=>u.card)){const img=new Image();img.src=splashUrl(u.card);}

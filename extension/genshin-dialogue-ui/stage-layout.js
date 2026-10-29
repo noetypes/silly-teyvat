@@ -31,9 +31,10 @@ export function chooseVisible(actors, { recent = [], crowd = 'auto', limit = 5, 
     return new Set(shown.map(a => a.key));
 }
 
-// items: [{h, aspect, scale, lift, pinned}] — h is the figure's height as a fraction of the
+// items: [{h, aspect, scale, lift, pinned, group}] — h is the figure's height as a fraction of the
 // viewport (tallest body model = Sprite height), lift a fraction of the viewport, pinned an
-// optional fixed centre (0..1). view: {width, height, dialogueTop, topInset}.
+// optional fixed centre (0..1), group a side of the standoff (0 your party, 1 the enemies).
+// view: {width, height, dialogueTop, topInset}.
 // Returns [{left, top, width, height, z}] in pixels.
 export function layoutStage(items, { width: W, height: H, dialogueTop, topInset = 0 } = {}) {
     const n = items.length;
@@ -50,7 +51,10 @@ export function layoutStage(items, { width: W, height: H, dialogueTop, topInset 
     let factor = Math.min(H, (H - ceiling) / tallest, maxHeight / tallest);
     const aspect = i => Number.isFinite(i.aspect) && i.aspect > 0 ? i.aspect : 2 / 3;
     const gutter = Math.max(6, W * .015), room = W - gutter * 2;
-    const compact = compactViewport(W, H), overlap = compact ? .68 : .62;
+    // An upright phone with three or more on stage gets smaller figures with less overlap, so the
+    // row is not a pile; elsewhere figures stand close together instead of spreading to the edges.
+    const compact = compactViewport(W, H), upright = H > W, crowded = upright && compact && n >= 3;
+    const overlap = crowded ? .46 : compact ? .68 : .62;
     const widths = items.map((i, x) => natural[x] * factor * Math.min(aspect(i), .62));
     const span = widths.reduce((a, b) => a + b, 0) - widths.slice(1).reduce((sum, v, x) => sum + overlap * Math.min(v, widths[x]), 0);
     factor *= Math.min(1, room / span);
@@ -61,8 +65,17 @@ export function layoutStage(items, { width: W, height: H, dialogueTop, topInset 
     const w = items.map((i, x) => heights[x] * Math.min(aspect(i), .62));
     const slot = room / n;
     let centres = w.map((_, x) => gutter + slot * (x + .5));
+    // A sparse row (the even slots are wider than the figures) is pulled together: neighbours stand
+    // a little over their own width apart, with a wider gap where the party meets the enemies.
+    let packed = false;
+    if (n > 1) {
+        const pitch = compact ? (upright ? .8 : .84) : .86, offsets = [0];
+        for (let x = 1; x < n; x++) offsets.push(offsets[x - 1] + (w[x - 1] + w[x]) / 2 * pitch + (items[x].group !== items[x - 1].group ? Math.min(w[x - 1], w[x]) * .3 : 0));
+        const left = -w[0] / 2, right = offsets[n - 1] + w[n - 1] / 2;
+        if (right - left <= room) { const shift = W / 2 - (left + right) / 2; centres = offsets.map(o => o + shift); packed = true; }
+    }
     const fits = centres.every((c, x) => c - w[x] / 2 >= -.5 && c + w[x] / 2 <= W + .5) && w.slice(1).every((v, x) => (v + w[x]) / 2 - slot <= overlap * Math.min(v, w[x]) + .5);
-    if (!fits && n > 1) {
+    if (!packed && !fits && n > 1) {
         const first = w[0] / 2 + gutter, last = Math.max(first, W - gutter - w[n - 1] / 2);
         centres = w.map((_, x) => first + (last - first) * x / (n - 1));
     }

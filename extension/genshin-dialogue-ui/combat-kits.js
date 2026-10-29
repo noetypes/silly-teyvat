@@ -271,6 +271,11 @@ function enemyKit([name,element,hp,basic,special,cooldown,extra={},skill]){
     return {name,enemy:true,element,hp,energy:0,role:'Enemy',miss:10,...clone(extra),moves};
 }
 function genericEnemy(name,element){return {name,enemy:true,element:element||'Physical',hp:30,energy:0,role:'Enemy',miss:10,moves:[{kind:'basic',name:'Strike',cost:0,effects:[D(4)]},{kind:'special',name:'Fury',cost:0,cooldown:3,effects:[D(3,'all')]}]};}
+// A party member's moveset as an opponent: both attacks become Attacks (one is picked each round) and the Burst a Special on a cooldown.
+export function foeKit(kit){
+    const moves=kit.moves.map(move=>move.kind==='burst'?{...clone(move),kind:'special',cost:0,cooldown:3}:{...clone(move),kind:'basic',cost:0});
+    return {...kit,enemy:true,energy:0,miss:kit.miss ?? 10,moves};
+}
 // The built-in kit for a card name, before user edits.
 export function defaultKit(name,{element='None',enemy=false}={}){
     if(enemy){const row=enemyTable.get(keyOf(name));return row?enemyKit(row):genericEnemy(name,element==='None'?'Physical':element);}

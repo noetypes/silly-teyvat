@@ -34,7 +34,7 @@ export function auraList(aura){
 const setAura=(u,list)=>{u.aura=list.length?{element:list[0],elements:[...list]}:null;};
 // Enemies made of an element (Hydro Slimes, Pyro Abyss Mages, Electro Cicins…) always carry it: it returns at each End Phase after a reaction clears it.
 // Anemo and Geo never stay applied in Genius Invokation, so those enemies have none.
-export const innateAura=u=>u?.side==='enemy'&&AURA_ELEMENTS.includes(u.element)?u.element:null;
+export const innateAura=u=>u?.side==='enemy'&&!u.duel&&AURA_ELEMENTS.includes(u.element)?u.element:null;
 // Which reaction two elements make, if any. Cryo with Dendro, and Anemo or Geo with Dendro, do not react.
 export function reactionOf(incoming,aura){
     const pair=new Set([incoming,aura]),is=(a,b)=>pair.has(a)&&pair.has(b);
@@ -130,7 +130,8 @@ export function autoPlan(state,dice,plan){
 
 // ---- Round resolution ---------------------------------------------------------------
 // A plan is either the list of party steps, or {steps, items, flee}.
-export function resolveRound(input,planInput,{random=Math.random,forecast=false,strikeBack=true,difficulty='normal'}={}){
+// enemyFirst: an enemy that started the fight (see enemy-actions.js) strikes before the party's plan is carried out.
+export function resolveRound(input,planInput,{random=Math.random,forecast=false,strikeBack=true,difficulty='normal',enemyFirst=false}={}){
     const plan=Array.isArray(planInput)?planInput:planInput?.steps || [],items=Array.isArray(planInput)?[]:planInput?.items || [],flee=!Array.isArray(planInput)&&Boolean(planInput?.flee);
     const state=structuredClone(input),timeline=[],rand=()=>forecast?.5:clampRandom(random);
     const diff=DIFFICULTY[difficulty] || DIFFICULTY.normal,enemyDamage=diff.damage*partyScale(state.units.filter(u=>u.side==='party').length).damage;
@@ -356,15 +357,8 @@ export function resolveRound(input,planInput,{random=Math.random,forecast=false,
         push({type:'flee',chance,success});
         if(success){fled=true;state.fled=true;state.round++;return {state,timeline,stats,victory:false,wiped:false,fled:true};}
     }
-    // Party actions, in the order the player planned them.
-    if(!flee)push({type:'phase',label:'Party Phase',round:state.round});
-    if(!flee)plan.forEach((p,step)=>{
-        const actor=unitById(state,p.actor);if(!alive(actor)||!enemiesLeft())return;
-        if(isStunned(actor)){const reason=hasStatus(actor,'frozen')?'Frozen':'Petrified';actor.statuses=actor.statuses.filter(s=>s.stat!=='stun'&&s.stat!=='frozen');push({type:'skip',actor:actor.id,reason,statuses:structuredClone(actor.statuses),step});return;}
-        if(p.move<0){push({type:'skip',actor:actor.id,reason:'Holds position',step});return;}
-        act(actor,p.move,p.target,step);
-    });
     // Enemy actions: each enemy carries out the move it telegraphed last round.
+    const enemyPhase=()=>{
     if(strikeBack&&enemiesLeft()&&!forecast){
         push({type:'phase',label:'Enemy Phase',round:state.round});
         for(const enemy of side(state,'enemy')){
@@ -376,6 +370,18 @@ export function resolveRound(input,planInput,{random=Math.random,forecast=false,
             act(enemy,index,enemy.intent.target,undefined);
         }
     }
+    };
+    // Party actions, in the order the player planned them.
+    const partyPhase=()=>{
+    if(!flee)push({type:'phase',label:'Party Phase',round:state.round});
+    if(!flee)plan.forEach((p,step)=>{
+        const actor=unitById(state,p.actor);if(!alive(actor)||!enemiesLeft())return;
+        if(isStunned(actor)){const reason=hasStatus(actor,'frozen')?'Frozen':'Petrified';actor.statuses=actor.statuses.filter(s=>s.stat!=='stun'&&s.stat!=='frozen');push({type:'skip',actor:actor.id,reason,statuses:structuredClone(actor.statuses),step});return;}
+        if(p.move<0){push({type:'skip',actor:actor.id,reason:'Holds position',step});return;}
+        act(actor,p.move,p.target,step);
+    });
+    };
+    if(enemyFirst&&!flee){enemyPhase();partyPhase();}else{partyPhase();enemyPhase();}
     // End Phase: summons, Dendro Cores, damage over time, regeneration and timers.
     if(!forecast){
         const endEvents=timeline.length;push({type:'phase',label:'End Phase',round:state.round});

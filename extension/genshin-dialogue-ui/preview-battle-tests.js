@@ -39,6 +39,12 @@ export async function runBattleTests(){
         check('the forecast predicts the same reaction',forecastPlan(kx,[{actor:'x',move:1,target:'h'},{actor:'k',move:1,target:'h'}])[1].reactions.includes('Vaporize'));
         check('Pyro then Hydro also Vaporizes, as in Genius Invokation',hits(resolveRound(kx,[{actor:'k',move:1,target:'h'},{actor:'x',move:1,target:'h'}],{...opts,strikeBack:false})).some(e=>e.actor==='x'&&e.reaction==='Vaporize'));
         const slime=party(unit('k','party','Klee','Pyro'),unit('s','enemy','Large Pyro Slime','Pyro'));
+        {const phases=(input,o)=>resolveRound(input,[{actor:'k',move:1,target:'h'}],{...opts,...o}).timeline.filter(e=>e.type==='phase').map(e=>e.label).join('>');
+        const duo=()=>party(unit('k','party','Klee','Pyro'),unit('h','enemy','Hilichurl Fighter','Physical'));
+        check('the party normally acts before the enemies',phases(duo(),{}).startsWith('Party Phase>Enemy Phase'));
+        check('an enemy that started the fight acts before the party',phases(duo(),{enemyFirst:true}).startsWith('Enemy Phase>Party Phase'));
+        const struck=resolveRound(party(unit('k','party','Klee','Pyro'),unit('h','enemy','Hilichurl Fighter','Physical')),[{actor:'k',move:1,target:'h'}],{...opts,enemyFirst:true});
+        check('enemy-first damage lands before the party’s first move',struck.timeline.findIndex(e=>e.type==='hit'&&e.target==='k')<struck.timeline.findIndex(e=>e.type==='act'&&e.actor==='k'));}
         r=resolveRound(slime,[{actor:'k',move:1,target:'s'}],{...opts,strikeBack:false});
         check('attacking with the target\'s own element is resisted',hits(r)[0].resisted&&hits(r)[0].amount<=3);
         const swirl=party(unit('v','party','Venti','Anemo'),unit('a','enemy','Hydro Slime','Hydro',{aura:{element:'Pyro',rounds:2}}),unit('b','enemy','Hilichurl Fighter','Physical'));

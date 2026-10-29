@@ -1,11 +1,15 @@
 import {activeGroup} from './party.js';
 import {newLocalId} from './local-id.js';
 import {mediaSettings} from './media-store.js';
-import {activeEnemies,combatIdentity,syncCombatPrompt,partyStatus,userDefeated,USER_KEY} from './combat-state.js';
+import {activeEnemies,combatIdentity,syncCombatPrompt,partyStatus,partyMembers,partyMember,partyStore,userDefeated,USER_KEY} from './combat-state.js';
+import {enemySpeaker,combatTrigger,hasCombatTrigger} from './enemy-actions.js';
+import {createLocationCastAdapter,locationCastState} from './location-cast.js';
+import {saveTravel} from './backgrounds.js';
 import {resolveDefeat,defeatNarration} from './defeat.js';
-import {activePersonaAvatar} from './persona-wardrobe.js';
+import {activePersonaAvatar,personaCard} from './persona-wardrobe.js';
+import {circularCharacterAvatar,characterAvatarsReady} from './character-avatars.js';
 import {mountElementalDice,ELEMENT_COLORS} from './elemental-dice.js';
-import {battleSnapshot,commitRound,roundNarration} from './battle-state.js';
+import {battleSnapshot,commitRound,roundNarration,partyBag} from './battle-state.js';
 import {rollFuel,rerollFuel,resolveRound} from './battle-engine.js';
 import {ITEMS,rollLoot} from './battle-items.js';
 import {mountBattle} from './battle-ui.js';
@@ -22,7 +26,17 @@ export async function appendCombatMessage(ctx,{name='Narrator',text,avatar,event
     await ctx.saveChat?.();return message;
 }
 export function createCombatAdapter({loadScript=()=>import('/script.js')}={}){
-    return {append:appendCombatMessage,defeat:async ctx=>resolveDefeat(ctx),async finishSend(ctx,event,isCurrent){
+    return {append:appendCombatMessage,defeat:async ctx=>resolveDefeat(ctx),
+        // A party member beaten in a duel who is not revived leaves the group and is untied from this place in this chat.
+        async removeAlly(ctx,avatar){
+            const group=activeGroup(ctx);if(!group?.members?.includes(avatar))return false;
+            const state=locationCastState(ctx);
+            state.placements ??= {};state.placements[avatar]='';
+            state.core=(state.core || group.members.filter(a=>!state.managed?.includes(a))).filter(a=>a!==avatar);
+            state.managed=(state.managed || []).filter(a=>a!==avatar);
+            saveTravel(ctx);
+            return Boolean(await createLocationCastAdapter(()=>ctx,{loadScript}).apply(ctx,{members:group.members.filter(a=>a!==avatar)},()=>true));
+        },async finishSend(ctx,event,isCurrent){
         const fallen=event.defeatedAvatars || (event.defeated?[event.avatar]:[]);
         if(!fallen.length||!isCurrent())return;
         // A group may already have drafted this enemy before the user-send hook.
@@ -47,21 +61,13 @@ export function createCombatAdapter({loadScript=()=>import('/script.js')}={}){
     }};
 }
 export function mountCombat({host,getContext,onChange=()=>{},announce=()=>{},adapter=createCombatAdapter(),diceAdapter,battleAdapter}){
+    // Enemy health sits at the top like a Genshin boss bar; the party's portraits stand along the right edge.
     const panel=document.createElement('aside');panel.id='gi-combat';panel.setAttribute('aria-label','Hostile encounters');panel.hidden=true;host.append(panel);
     const partyPanel=document.createElement('aside');partyPanel.id='gi-party-health';partyPanel.setAttribute('aria-label','Party health');partyPanel.hidden=true;host.append(partyPanel);let partyPaint='';const partyShown=new Map();
-    const healthDrawer=document.createElement('aside');healthDrawer.id='gi-health-drawer';healthDrawer.hidden=true;healthDrawer.setAttribute('aria-label','Health');
-    healthDrawer.innerHTML='<button type="button" class="gi-health-toggle" aria-controls="gi-health-content" aria-expanded="false" aria-label="Show health bars" title="Show health bars"><span aria-hidden="true">♥</span><small>HP</small><i aria-hidden="true">›</i></button><div id="gi-health-content" inert><h3>Party health</h3><h3>Enemies</h3></div>';
-    host.append(healthDrawer);
-    const healthContent=healthDrawer.querySelector('#gi-health-content'),healthToggle=healthDrawer.querySelector('button'),healthTitles=healthContent.querySelectorAll('h3');
-    healthTitles[0].after(partyPanel);healthTitles[1].after(panel);
-    function paintHealthDrawer(){
-        const open=Boolean(mediaSettings(getContext()).healthDrawerOpen);
-        if(healthDrawer.dataset.open===String(open))return;
-        healthDrawer.dataset.open=String(open);healthToggle.setAttribute('aria-expanded',String(open));healthContent.inert=!open;healthContent.setAttribute('aria-hidden',String(!open));
-        healthToggle.title=open?'Hide health bars':'Show health bars';healthToggle.setAttribute('aria-label',healthToggle.title);healthToggle.querySelector('i').textContent=open?'‹':'›';
-    }
+    // A small circle with a sword, no text. It arms an attack on the next message you send, or, with no enemies
+    // in the scene, asks which party members to fight.
     const controls=document.createElement('div');controls.id='gi-attack-controls';controls.hidden=true;
-    controls.innerHTML=`<button id="gi-attack-toggle" type="button" aria-label="Attack after sending a message" aria-pressed="false" title="Attack after sending: off"><svg viewBox="0 0 24 24" aria-hidden="true" style="fill:currentColor;stroke:none">${SWORD_SVG}</svg><span class="gi-attack-label">Attack</span><i class="gi-attack-pip" aria-hidden="true"></i></button>`;
+    controls.innerHTML=`<button id="gi-attack-toggle" type="button" aria-label="Attack after sending a message" aria-pressed="false" title="Attack after sending: off"><svg viewBox="0 0 24 24" aria-hidden="true" style="fill:currentColor;stroke:none">${SWORD_SVG}</svg></button>`;
     // Attack sits in the Teyvat Choices column: beside the refresh button when
     // choices are in use, otherwise where the choices panel would be.
     const dock=document.createElement('div');dock.id='gi-attack-dock';host.append(dock);
@@ -72,32 +78,66 @@ export function mountCombat({host,getContext,onChange=()=>{},announce=()=>{},ada
     }
     const layout=new MutationObserver(placeControls);layout.observe(host,{subtree:true,childList:true,attributes:true,attributeFilter:['hidden']});layout.observe(document.body,{attributes:true,attributeFilter:['class']});placeControls();
     const sword=controls.querySelector('button'),abort=new AbortController();
-    healthToggle.addEventListener('click',()=>{const ctx=getContext(),p=mediaSettings(ctx);p.healthDrawerOpen=!p.healthDrawerOpen;ctx.saveSettingsDebounced?.();paintHealthDrawer();},{signal:abort.signal});
-    healthDrawer.addEventListener('keydown',event=>{if(event.key==='Escape'&&healthDrawer.dataset.open==='true'){event.preventDefault();event.stopPropagation();mediaSettings(getContext()).healthDrawerOpen=false;getContext().saveSettingsDebounced?.();paintHealthDrawer();healthToggle.focus();}},{signal:abort.signal});
+    // One dialog asks every combat question: which party members to fight, and whether to revive a fallen one.
+    const dialog=document.createElement('dialog');dialog.id='gi-combat-ask';dialog.setAttribute('aria-labelledby','gi-combat-ask-title');host.append(dialog);
+    let settle=null,locked=false;
+    function closeAsk(value){if(dialog.open)dialog.close();const done=settle;settle=null;done?.(value);}
+    // options: checkbox rows for choosing several; buttons: the answers. Resolves {value,picks}, or null when dismissed.
+    function ask({title,text,options=[],buttons,pickNeeded=false}){
+        closeAsk(null);locked=!buttons.some(b=>b.dismiss);
+        const el=(tag,cls,content)=>{const node=document.createElement(tag);if(cls)node.className=cls;if(content!==undefined)node.textContent=content;return node;};
+        const heading=el('h2','',title);heading.id='gi-combat-ask-title';
+        const list=el('div','gi-ask-list');list.setAttribute('role','group');list.setAttribute('aria-label',title);
+        for(const option of options){
+            const row=el('label','gi-ask-row'),box=document.createElement('input');box.type='checkbox';box.value=option.value;
+            const face=el('span','gi-circle-face'),img=document.createElement('img');img.alt='';img.src=option.img;face.append(img);
+            const name=el('strong','',option.label),note=el('small','',option.note || '');
+            row.append(box,face,name,note);list.append(row);
+        }
+        const actions=el('div','gi-ask-actions'),answer=value=>closeAsk({value,picks:[...list.querySelectorAll('input:checked')].map(i=>i.value)});
+        for(const b of buttons){const button=el('button',b.primary?'gi-ask-primary':'',b.label);button.type='button';button.dataset.answer=b.value;button.addEventListener('click',()=>b.dismiss?closeAsk(null):answer(b.value));actions.append(button);}
+        const confirm=actions.querySelector('.gi-ask-primary');
+        if(pickNeeded&&confirm){confirm.disabled=true;list.addEventListener('change',()=>{confirm.disabled=!list.querySelector('input:checked');});}
+        dialog.replaceChildren(el('small','','Silly Teyvat · Combat'),heading,...(text?[el('p','',text)]:[]),...(options.length?[list]:[]),actions);
+        dialog.showModal();dialog.querySelector('input,button')?.focus();
+        return new Promise(resolve=>{settle=resolve;});
+    }
+    dialog.addEventListener('cancel',event=>{event.preventDefault();if(!locked)closeAsk(null);},{signal:abort.signal});
+    sword.addEventListener('click',()=>{
+        if(eligibleEnemies(getContext()).length)setArmed(!armed);
+        else void startDuel().catch(error=>{announce(error.message);globalThis.toastr?.error?.(error.message,'Silly Teyvat');});
+    },{signal:abort.signal});
     const burstVoice=createBurstVoicePlayer({getContext,announce});
     const dice=diceAdapter || mountElementalDice({host}),battle=battleAdapter || mountBattle({host,onBurst:unit=>burstVoice.play(unit),onStopVoice:()=>burstVoice.stop()});const hits=new Map(),shown=new Map();let disposed=false,busy=false,enabled=false,writing=false,revision=0,key='',paint='',lastId=-1,armed=false,target='',visit='',lastView={};
     const eligibleEnemies=ctx=>{const disabled=activeGroup(ctx)?.disabled_members || [];return activeEnemies(ctx).filter(e=>!disabled.includes(e.avatar));};
+    // Party members you can square off against when no enemies are about: everyone present who is on their feet.
+    const duelCandidates=ctx=>partyMembers(ctx).filter(a=>a!==USER_KEY&&partyMember(ctx,a).hp>0);
     function paintControls(enemies=eligibleEnemies(getContext())){
         placeControls();
-        controls.hidden=!enabled||!lastView.show||lastId<getContext().chat.length-1||!enemies.length;
-        sword.disabled=busy||writing;sword.setAttribute('aria-pressed',String(armed));sword.title=`Attack after sending: ${armed?'on':'off'}`;
+        const ctx=getContext();
+        controls.hidden=!enabled||!lastView.show||lastView.idle===false||writing||lastId<ctx.chat.length-1||!(enemies.length||duelCandidates(ctx).length);
+        sword.disabled=busy||writing;sword.setAttribute('aria-pressed',String(armed));
+        const duelOnly=!enemies.length;
+        sword.title=duelOnly?'Battle a party member':`Attack after sending: ${armed?'on':'off'}`;sword.setAttribute('aria-label',duelOnly?'Battle a party member':'Attack after sending a message');
     }
     function setArmed(value){if(value&&(!enabled||busy||writing||!eligibleEnemies(getContext()).length))return false;armed=Boolean(value);paintControls();announce(armed?'Attack is on. Your next messages will also start a battle round.':'Attack is off. Your messages will only speak.');return armed;}
-    sword.addEventListener('click',()=>setArmed(!armed),{signal:abort.signal});
     const current=(identity,token)=>!disposed&&enabled&&token===revision&&combatIdentity(getContext())===identity;
     const prefs=ctx=>mediaSettings(ctx),volumeOf=(ctx,key)=>prefs(ctx)[key]===false?0:(prefs(ctx).spriteVolume ?? .8);
     // One full round: Roll Phase (dice as fuel), Action Phase (choose moves), then the resolved round is saved and played back.
-    async function attack(avatar,{duringSend=false,react=true,attackId}={}){
+    // enemyFirst: the enemy started this fight, so it strikes before the party. duel: party members fought on your own.
+    async function attack(avatar,{duringSend=false,react=true,attackId,enemyFirst=false,duel=null}={}){
         if(disposed||busy||writing&&!duringSend||!enabled)return null;
-        const ctx=getContext(),enemy=activeEnemies(ctx).find(e=>e.avatar===avatar);if(!enemy)return;
-        const group=activeGroup(ctx);if(group?.disabled_members?.includes(avatar))return;
-        const identity=combatIdentity(ctx),token=++revision,visitKey=enemy.key,id=attackId || newLocalId('attack');busy=true;paintControls();onChange();
-        const valid=()=>current(identity,token)&&activeEnemies(getContext()).some(e=>e.key===visitKey&&e.avatar===avatar);
+        const ctx=getContext(),enemy=duel?{key:'duel'}:activeEnemies(ctx).find(e=>e.avatar===avatar);if(!enemy)return;
+        const group=activeGroup(ctx);if(!duel&&group?.disabled_members?.includes(avatar))return;
+        const identity=combatIdentity(ctx),token=++revision,visitKey=enemy.key,id=attackId || newLocalId(duel?'duel':'attack');busy=true;paintControls();onChange();
+        const stillThere=ctx=>duel?duel.every(a=>partyMembers(ctx).includes(a)):activeEnemies(ctx).some(e=>e.key===visitKey&&e.avatar===avatar);
+        const valid=()=>current(identity,token)&&stillThere(getContext());
         try{
-            const snapshot=battleSnapshot(ctx,{portrait:fullPortrait}),motion=reduced(ctx);
+            const snapshot=battleSnapshot(ctx,{portrait:fullPortrait,duel}),motion=reduced(ctx);
+            if(enemyFirst)snapshot.enemyFirst=true;
             if(!snapshot.units.some(u=>u.side==='party'&&u.hp>0))throw new Error('Nobody in your party can fight. Rest at a town or the Adventurers\' Guild to recover.');
             let roll=rollFuel(snapshot);
-            const describe={allies:snapshot.units.filter(u=>u.side==='party'&&u.hp>0).map(u=>({avatar:u.id,name:u.name,img:u.img,element:u.element})),enemy:{avatar,name:snapshot.units.find(u=>u.id===avatar)?.name || 'Enemy',img:portrait(ctx,avatar),maxHp:enemy.maxHp}};
+            const describe={allies:snapshot.units.filter(u=>u.side==='party'&&u.hp>0).map(u=>({avatar:u.id,name:u.name,img:u.circle || u.img,element:u.element})),enemy:{avatar,name:snapshot.units.find(u=>u.id===avatar)?.name || 'Enemy',img:portrait(ctx,avatar),maxHp:snapshot.units.find(u=>u.id===avatar)?.maxHp}};
             if(!await dice.roll(roll,{describe,reroll:indices=>(roll=rerollFuel(snapshot,roll,indices)),volume:volumeOf(ctx,'diceSound'),reducedMotion:motion,isCurrent:valid})||!valid())return;
             const options={reducedMotion:motion,effects:prefs(ctx).battleEffects!==false,volume:volumeOf(ctx,'battleSound'),isCurrent:valid};
             const player={name:ctx.name1 || 'You',img:portrait(ctx,USER_KEY)};
@@ -111,8 +151,8 @@ export function mountCombat({host,getContext,onChange=()=>{},announce=()=>{},ada
             const plan=await battle.plan(snapshot,{dice:roll.dice,targetId:avatar,player,onReroll,...options});
             if(!plan||!valid()){battle.cancel?.();return;}
             const used=(plan.items || []).filter(i=>ITEMS[i.id]);
-            const result=resolveRound(snapshot,{steps:Array.isArray(plan)?plan:plan.steps || [],items:used.map(i=>({...i,item:ITEMS[i.id]})),flee:Boolean(plan.flee)},{strikeBack:prefs(ctx).enemyStrikeBack!==false,difficulty:snapshot.difficulty});
-            const loot=result.victory?rollLoot(snapshot.units.filter(u=>u.side==='enemy'&&u.hp>0)):[];
+            const result=resolveRound(snapshot,{steps:Array.isArray(plan)?plan:plan.steps || [],items:used.map(i=>({...i,item:ITEMS[i.id]})),flee:Boolean(plan.flee)},{strikeBack:prefs(ctx).enemyStrikeBack!==false,difficulty:snapshot.difficulty,enemyFirst});
+            const loot=result.victory&&!duel?rollLoot(snapshot.units.filter(u=>u.side==='enemy'&&u.hp>0)):[];
             // Save before the playback, so the round stands even if the chat changes mid-animation.
             const saved=commitRound(getContext(),snapshot,result,id,{items:used.map(i=>i.id),loot});if(!saved){battle.cancel?.();return;}
             const target=result.state.units.find(u=>u.id===avatar),before=snapshot.units.find(u=>u.id===avatar);
@@ -120,7 +160,7 @@ export function mountCombat({host,getContext,onChange=()=>{},announce=()=>{},ada
             const event={...saved,avatar,key:visitKey,damage:before.hp-target.hp,hpBefore:before.hp,hpAfter:target.hp,maxHp:before.maxHp,defeated:target.hp<=0,fled:saved.fled,defeatedAvatars:gone};
             for(const u of result.state.units.filter(u=>u.side==='enemy'))hits.set(u.id,result.timeline.filter(e=>e.type==='hit'&&e.target===u.id).map(e=>({face:e.element,damage:e.amount+e.shieldHit})));
             await adapter.append(getContext(),{text:roundNarration(snapshot,result),event:{...event,kind:'round'}});syncCombatPrompt(getContext(),enabled);
-            for(const fallen of saved.defeated){
+            if(!duel)for(const fallen of saved.defeated){
                 const unit=snapshot.units.find(u=>u.id===fallen),info=activeEnemiesAll(getContext(),fallen) || {};
                 const death=String(info.deathMessage || '{name} falls still. The threat has passed.').replaceAll('{name}',unit?.name || 'Enemy');
                 await adapter.append(getContext(),{text:death,event:{id,kind:'death',avatar:fallen}});
@@ -128,15 +168,16 @@ export function mountCombat({host,getContext,onChange=()=>{},announce=()=>{},ada
             onChange();
             await battle.play(snapshot,result,{...options,loot});
             // The battle screen has closed: wounded enemies flinch on the stage, fallen ones leave it.
-            for(const u of result.state.units.filter(u=>u.side==='enemy'&&u.hp>0&&!gone.includes(u.id)))if(hits.get(u.id)?.some(h=>h.damage>0))onChange({hit:u.id});
+            for(const u of result.state.units.filter(u=>u.side==='enemy'&&u.hp>0&&!gone.includes(u.id)))if(hits.get(u.id)?.some(h=>h.damage>0))onChange(u.duel?{hurt:u.id}:{hit:u.id});
             // Party members on the stage: a shake for anyone who ended the round hurt, a glow for anyone healed.
             for(const u of result.state.units.filter(u=>u.side==='party')){const was=snapshot.units.find(x=>x.id===u.id);if(!was)continue;if(u.hp<was.hp)onChange({hurt:u.id});else if(u.hp>was.hp)onChange({healed:u.id});}
-            for(const fallen of saved.defeated){announce(`${snapshot.units.find(u=>u.id===fallen)?.name || 'Enemy'} defeated.`);onChange({defeated:fallen,slain:true});}
+            if(duel){for(const fallen of saved.defeated)if(valid())await settleAlly(snapshot,fallen,id);}
+            else for(const fallen of saved.defeated){announce(`${snapshot.units.find(u=>u.id===fallen)?.name || 'Enemy'} defeated.`);onChange({defeated:fallen,slain:true});}
             for(const left of saved.fled)onChange({defeated:left});
             if(result.fled)announce('The party escaped.');
             else if(!event.defeated){
                 announce(`${before.name}: ${target.hp} HP.`);onChange();
-                if(react&&!result.wiped)await adapter.react(getContext,event,()=>current(identity,token)&&activeEnemies(getContext()).some(e=>e.avatar===avatar&&e.key===visitKey));
+                if(react&&!result.wiped)await adapter.react(getContext,event,()=>current(identity,token)&&stillThere(getContext()));
             }
             if(current(identity,token)&&userDefeated(getContext()))await defeat(identity,token);
             return event;
@@ -148,7 +189,64 @@ export function mountCombat({host,getContext,onChange=()=>{},announce=()=>{},ada
     // Battle cards are larger than SillyTavern's thumbnails, so they use the full portrait.
     const fullPortrait=(ctx,avatar)=>{const url=portrait(ctx,avatar),m=/\/thumbnail\?type=(avatar|persona)&file=([^&]+)/.exec(url);return m?(m[1]==='avatar'?`/characters/${m[2]}`:`/User%20Avatars/${m[2]}`):url;};
     const reduced=ctx=>Boolean(mediaSettings(ctx).reducedMotion||ctx.powerUserSettings?.reduced_motion||globalThis.matchMedia?.('(prefers-reduced-motion: reduce)').matches);
+    // The circular icon the Sprite wardrobe shows for a character, for every round cutout.
+    const circle=(ctx,avatar)=>circularCharacterAvatar(ctx,avatar===USER_KEY?personaCard(ctx):ctx.characters?.find(c=>c.avatar===avatar)) || portrait(ctx,avatar);
+    characterAvatarsReady.then(()=>{partyPaint='';paint='';});
     const portrait=(ctx,avatar)=>avatar===USER_KEY?(ctx.getThumbnailUrl?.('persona',activePersonaAvatar(ctx)) || `/User%20Avatars/${encodeURIComponent(activePersonaAvatar(ctx))}`):(ctx.getThumbnailUrl?.('avatar',avatar) || `/characters/${encodeURIComponent(avatar)}`);
+    // Pressing Attack with only friends in the scene: choose who to fight, then fight them alone.
+    async function startDuel(){
+        const ctx=getContext(),candidates=duelCandidates(ctx);
+        if(!enabled||busy||writing||!candidates.length)return null;
+        const answer=await ask({title:'Who do you want to battle?',            options:candidates.map(a=>{const m=partyMember(ctx,a);return {value:a,label:m.name,note:`${m.hp} / ${m.maxHp} HP`,img:circle(ctx,a)};}),
+            buttons:[{label:'Battle',value:'battle',primary:true},{label:'Not now',value:'cancel',dismiss:true}],pickNeeded:true});
+        const foes=answer?.picks?.filter(a=>duelCandidates(getContext()).includes(a)) || [];
+        if(!foes.length)return null;
+        return attack(foes[0],{duel:foes});
+    }
+    // A party member you beat: revive them with a Teyvat Fried Egg if you have one and want to, otherwise they leave.
+    async function settleAlly(snapshot,fallen,id){
+        const ctx=getContext(),name=snapshot.units.find(u=>u.id===fallen)?.name || 'Your friend',user=ctx.name1 || 'You',bag=partyBag(ctx);
+        const [itemId,item]=Object.entries(ITEMS).find(([key,value])=>value.target==='downed'&&bag[key]>0) || [];
+        let revive=false;
+        if(item){
+            const answer=await ask({title:`${name} is down`,buttons:[{label:`Use ${item.name}`,value:'revive',primary:true},{label:`Let ${name} go`,value:'leave'}]});
+            revive=answer?.value==='revive';
+        }
+        let text;
+        if(revive){
+            const hp=Math.max(1,item.effects.find(e=>e.type==='revive')?.amount || 1),entry=partyStore(ctx)[fallen];
+            entry.hp=Math.min(entry.maxHp,hp);bag[itemId]--;if(bag[itemId]<=0)delete bag[itemId];
+            text=`${user} defeated ${name} in the duel, then used ${item.name} to bring ${name} back on their feet. ${name} is still with the party.`;
+            announce(`${name} was revived.`);
+        }else{
+            const gone=await adapter.removeAlly?.(ctx,fallen);
+            text=gone?`${user} defeated ${name} in the duel and ${name} left the party. They no longer belong to this place in this story.`:`${user} defeated ${name} in the duel. ${name} is down and cannot go on until healed.`;
+            announce(gone?`${name} left the party.`:`${name} is down.`);
+        }
+        await adapter.append(getContext(),{text,event:{id,kind:'ally',avatar:fallen,revived:revive}});
+        syncCombatPrompt(getContext(),enabled);onChange(revive?{healed:fallen}:{defeated:fallen,removed:[fallen]});
+    }
+    // An enemy wrote the combat trigger phrase in its last reply: once the reply has been read, a round starts and it strikes first.
+    let forcing=false;
+    const hashOf=text=>{let h=2166136261;for(let i=0;i<text.length;i++)h=Math.imul(h^text.charCodeAt(i),16777619);return (h>>>0).toString(36);};
+    function pendingTrigger(ctx){
+        const phrase=combatTrigger(ctx),index=ctx.chat.length-1,message=ctx.chat[index];
+        if(!phrase||!message||message.is_user||message.is_system||message.extra?.type==='narrator'||message.extra?.silly_teyvat_combat)return null;
+        const card=enemySpeaker(ctx,message);
+        if(!card||!hasCombatTrigger(message.mes,phrase)||!eligibleEnemies(ctx).some(e=>e.avatar===card.avatar))return null;
+        const key=`${message.swipe_id ?? 0}:${hashOf(message.mes)}`;
+        return message.extra?.silly_teyvat_forced?.key===key?null:{message,card,key};
+    }
+    async function forceStart({message,card,key}){
+        forcing=true;
+        const record={key,avatar:card.avatar,status:'rolling'};message.extra ??= {};message.extra.silly_teyvat_forced=record;
+        try{
+            announce(`${card.name} attacks first.`);
+            const event=await attack(card.avatar,{enemyFirst:true,attackId:newLocalId('forced')});
+            record.status=event?'resolved':'cancelled';
+        }finally{forcing=false;}
+        await getContext().saveChat?.();
+    }
     async function defeat(identity,token){
         if(!current(identity,token))return;
         const ctx=getContext(),result=await adapter.defeat?.(ctx);
@@ -176,9 +274,9 @@ export function mountCombat({host,getContext,onChange=()=>{},announce=()=>{},ada
             if(event)await adapter.finishSend?.(getContext(),event,same);
             return event;
         },
-        sync({on,id,generating=false,show=true}={}){
+        sync({on,id,generating=false,show=true,idle=true}={}){
             burstVoice.sync({enabled:on});
-            const ctx=getContext(),nextKey=combatIdentity(ctx);if(nextKey!==key){revision++;dice.cancel?.();battle.cancel?.();key=nextKey;paint='';armed=false;target='';visit='';}if(enabled&&!on){revision++;dice.cancel?.();battle.cancel?.();armed=false;}enabled=Boolean(on);writing=generating;lastId=id;lastView={show};
+            const ctx=getContext(),nextKey=combatIdentity(ctx);if(nextKey!==key){revision++;dice.cancel?.();battle.cancel?.();key=nextKey;paint='';armed=false;target='';visit='';}if(enabled&&!on){revision++;dice.cancel?.();battle.cancel?.();armed=false;}enabled=Boolean(on);writing=generating;lastId=id;lastView={show,idle};
             syncCombatPrompt(ctx,enabled);
             const disabled=activeGroup(ctx)?.disabled_members || [];
             const currentEnemies=enabled?activeEnemies(ctx).filter(e=>!disabled.includes(e.avatar)):[],message=ctx.chat?.[id];
@@ -186,19 +284,19 @@ export function mountCombat({host,getContext,onChange=()=>{},announce=()=>{},ada
             if(visit&&visit!==nextVisit&&!busy){revision++;dice.cancel?.();battle.cancel?.();armed=false;}visit=nextVisit;
             if(!currentEnemies.some(e=>e.avatar===target)){target=currentEnemies[0]?.avatar || '';if(!target)armed=false;}
             paintControls(currentEnemies);
+            if(enabled&&show&&idle&&!generating&&!busy&&!forcing&&id===ctx.chat.length-1){const trigger=pendingTrigger(ctx);if(trigger)void forceStart(trigger).catch(error=>{console.warn('[Silly Teyvat] Enemy-started combat',error);announce(error.message);});}
             if(enabled&&!generating&&id===ctx.chat.length-1&&message&&!message.extra?.silly_teyvat_combat_scene){message.extra ??= {};message.extra.silly_teyvat_combat_scene=structuredClone(currentEnemies);Promise.resolve(ctx.saveChat?.()).catch(error=>console.warn('[Silly Teyvat] Combat scene save',error));}
             const historical=id<ctx.chat.length-1,display=historical?message?.extra?.silly_teyvat_combat_scene || []:currentEnemies;
             panel.hidden=!enabled||!show||!display.length;
             // Party health: shown during an encounter or while anyone is hurt.
             const party=enabled&&show&&!historical?partyStatus(ctx):[],hurt=party.some(m=>m.hp<m.maxHp);
             partyPanel.hidden=!party.length||!(currentEnemies.length||hurt);
-            healthTitles[0].hidden=partyPanel.hidden;healthTitles[1].hidden=panel.hidden;healthDrawer.hidden=partyPanel.hidden&&panel.hidden;paintHealthDrawer();
             const partySignature=JSON.stringify([partyPanel.hidden,party]);
             if(partySignature!==partyPaint){
                 partyPaint=partySignature;partyPanel.replaceChildren();
                 for(const m of party){
-                    const item=document.createElement('div');item.className='gi-party-member';item.dataset.member=m.avatar;if(m.downed)item.classList.add('gi-downed');else if(m.hp<=m.maxHp*.25)item.classList.add('gi-critical');else if(m.hp<=m.maxHp*.5)item.classList.add('gi-low');
-                    const face=document.createElement('img');face.alt='';face.src=portrait(ctx,m.avatar);
+                    const item=document.createElement('div');item.className='gi-party-member';item.dataset.member=m.avatar;item.title=`${m.name}: ${m.hp} / ${m.maxHp} HP`;if(m.downed)item.classList.add('gi-downed');else if(m.hp<=m.maxHp*.25)item.classList.add('gi-critical');else if(m.hp<=m.maxHp*.5)item.classList.add('gi-low');
+                    const face=document.createElement('span');face.className='gi-circle-face';const faceImg=document.createElement('img');faceImg.alt='';faceImg.src=circle(ctx,m.avatar);face.append(faceImg);
                     const name=document.createElement('strong');name.textContent=m.name;const hp=document.createElement('span');hp.textContent=`${m.hp} / ${m.maxHp}`;
                     const bar=document.createElement('div');bar.className='gi-hp';bar.innerHTML='<i class="gi-hp-lag"></i><i class="gi-hp-fill"></i>';
                     const meter=document.createElement('meter');meter.className='gi-sr-only';meter.min=0;meter.max=m.maxHp;meter.value=m.hp;meter.setAttribute('aria-label',`${m.name} health`);
@@ -210,7 +308,7 @@ export function mountCombat({host,getContext,onChange=()=>{},announce=()=>{},ada
                 }
             }
             const signature=JSON.stringify([panel.hidden,display]);if(signature===paint)return;paint=signature;panel.replaceChildren();
-            for(const e of display){const card=ctx.characters.find(c=>c.avatar===e.avatar);if(!card)continue;const item=document.createElement('div');item.className='gi-enemy-health';item.dataset.enemy=e.avatar;
+            for(const e of display){const card=ctx.characters.find(c=>c.avatar===e.avatar);if(!card)continue;const item=document.createElement('div');item.className='gi-enemy-health';item.dataset.enemy=e.avatar;item.title=`${card.name}: ${e.hp} / ${e.maxHp} HP`;
                 const img=document.createElement('img');img.src=ctx.getThumbnailUrl?.('avatar',e.avatar) || `/characters/${encodeURIComponent(e.avatar)}`;img.alt='';
                 const name=document.createElement('strong');name.textContent=card.name;const health=document.createElement('span');health.textContent=`${e.hp} / ${e.maxHp}`;
                 const bar=document.createElement('div');bar.className='gi-hp';bar.innerHTML='<i class="gi-hp-lag"></i><i class="gi-hp-fill"></i>';
@@ -226,6 +324,6 @@ export function mountCombat({host,getContext,onChange=()=>{},announce=()=>{},ada
             }
             if(!historical)for(const a of [...shown.keys()])if(!display.some(e=>e.avatar===a))shown.delete(a);
         },
-        dispose(){disposed=true;enabled=false;revision++;abort.abort();layout.disconnect();dice.dispose?.();battle.dispose?.();burstVoice.dispose();controls.remove();dock.remove();healthDrawer.remove();syncCombatPrompt(getContext(),false);},
+        dispose(){disposed=true;enabled=false;revision++;abort.abort();layout.disconnect();dice.dispose?.();battle.dispose?.();burstVoice.dispose();controls.remove();dock.remove();closeAsk(null);dialog.remove();panel.remove();partyPanel.remove();syncCombatPrompt(getContext(),false);},
     };
 }

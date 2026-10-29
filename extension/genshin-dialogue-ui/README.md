@@ -1,3 +1,12 @@
+# Silly Teyvat 1.44.0: Quieter combat, duels and enemy-started fights
+
+- **Sprite staging.** On a phone on its side and on a desktop, neighbours now stand close together (slightly overlapping, with a wider gap where your party meets the enemies) instead of spreading to the edges. On an upright phone, three or more sprites are drawn smaller and overlap less, so the row is no longer cramped.
+- **One classification per page.** A dialogue page is classified once, together with the narration page that precedes it. A request that was cancelled by a refresh, or needed by a narration page for the line before it, reuses the first answer instead of being sent again. SillyTavern's own Expressions extension still classifies each new message separately; turn that off there if you do not want its extra request.
+- **Attack.** A small circle with a sword and no text, beside the refresh button in Teyvat Choices. It shows on the last page of the latest message, with or without enemies. With enemies it arms the attack for your next message, as before.
+- **Fight a party member.** With no enemies, Attack asks which party members to battle, then puts you in a one-on-one battle against them with their own moves. If you defeat one, you are asked whether to use a Teyvat Fried Egg to revive them. If you decline, or have none, they leave the group and are untied from the location in this chat.
+- **Enemy-started fights.** A hostile enemy that writes the **Enemy battle phrase** (Settings → Combat, default `[start_combat]`) starts a battle round once you have read its reply, and acts before your party in that round. A bracketed phrase is hidden from the dialogue; plain words stay visible. The roleplay model is told the phrase in the Combat state note and in Game systems. Leave the phrase empty to turn this off.
+- **Health.** The sliding drawer is gone. Enemy health is a slim bar at the top centre; your party is a column of small portraits down the right edge, with names and HP on hover. Round character cutouts (this column, the battle picker, dice and battle plates) use the Sprite wardrobe's circular icons.
+
 # Silly Teyvat 1.43.1: Layout and dialogue focus corrections
 
 - **Welcome screen.** Transparent outer containers keep the rounded panels clear. Recent-chat portraits have their own column, including group collages, without extra rectangular image rings.

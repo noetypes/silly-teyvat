@@ -83,7 +83,7 @@ export async function runStagingTests(){
         const enemyTalks=chooseVisible([A('s','enemy',true),A('m','enemy'),A('me','user')],{recent:['m'],crowd:'all',soloEnemy:true});check('a speaking enemy is the one enemy shown',enemyTalks.size===2&&enemyTalks.has('s'));
         const limited=chooseVisible(six,{recent,crowd:'recent',limit:2});check('Recent speakers keeps the limit plus your own sprite',limited.size===2&&limited.has('me')&&limited.has('k'));
         const W=393,H=660,items=[1,1,1].map(()=>({h:.88,aspect:.53,scale:1,lift:0}));const boxes=layoutStage(items,{width:W,height:H,dialogueTop:400});
-        check('three sprites on an upright phone stay on screen and keep their faces above the dialogue',boxes.every(b=>b.left>=-1&&b.left+b.width<=W+1&&b.top+b.height*.35<400));
+        check('three sprites on an upright phone stay on screen and keep their faces above the dialogue',boxes.every(b=>b.left>=-1&&b.left+b.width<=W+1&&b.top+b.height*.35<=400.01));
         const wide=layoutStage([{h:.88,aspect:.5,scale:1,lift:0},{h:.88,aspect:.5,scale:1,lift:0}],{width:852,height:350,dialogueTop:170});
         check('a phone on its side keeps the tallest head at the configured limit',wide.every(b=>b.top>=42-.01&&b.top+b.height*.35<=170));
         for(const [width,height,dialogueTop] of [[393,660,400],[852,350,170],[1700,1000,700],[375,568,310]]){
@@ -92,7 +92,14 @@ export async function runStagingTests(){
         }
         const enlarged=layoutStage([{h:.88,aspect:.5,scale:2.1},{h:.88*.72,aspect:.5,scale:.88}],{width:1700,height:1000,dialogueTop:700});
         check('large global and focus scales stay below the height limit with aligned feet',enlarged.every(b=>b.top>=120-.01)&&Math.abs(enlarged[0].top+enlarged[0].height-enlarged[1].top-enlarged[1].height)<.01);
-        const desktop=layoutStage([{h:.88,aspect:.5,scale:1,lift:0}],{width:1700,height:1000,dialogueTop:700});check('a desktop keeps the full figure at the height line',Math.abs(desktop[0].height-880)<1&&Math.abs(desktop[0].top-120)<1);}
+        const desktop=layoutStage([{h:.88,aspect:.5,scale:1,lift:0}],{width:1700,height:1000,dialogueTop:700});check('a desktop keeps the full figure at the height line',Math.abs(desktop[0].height-880)<1&&Math.abs(desktop[0].top-120)<1);
+        {const trio=[1,1,1].map(i=>({h:.88,aspect:.5,scale:1,lift:0,group:i===2?1:0}));
+        const gaps=boxes=>boxes.slice(1).map((b,i)=>b.left-(boxes[i].left+boxes[i].width));
+        const landscape=layoutStage(trio,{width:852,height:350,dialogueTop:170,topInset:49}),desk=layoutStage(trio,{width:1700,height:1000,dialogueTop:700});
+        check('on a phone on its side the row stands close together instead of spreading to the edges',Math.max(...gaps(landscape))<landscape[0].width*.45&&landscape[0].left>40&&Math.abs((landscape[0].left+landscape[2].left+landscape[2].width)/2-426)<2);
+        check('on a desktop neighbours stand close, with a wider gap before the enemy',Math.max(...gaps(desk))<desk[0].width*.7&&gaps(desk)[1]>gaps(desk)[0]);
+        const upright=layoutStage([1,1,1].map(()=>({h:.88,aspect:.53,scale:1,lift:0})),{width:393,height:660,dialogueTop:400}),crowd=layoutStage([1,1,1,1].map(()=>({h:.88,aspect:.53,scale:1,lift:0})),{width:393,height:660,dialogueTop:400}),pair=layoutStage([1,1].map(()=>({h:.88,aspect:.53,scale:1,lift:0})),{width:393,height:660,dialogueTop:400});
+        check('three or more on an upright phone are smaller and overlap less than a pair',upright[0].width<pair[0].width*.8&&crowd[0].width<upright[0].width&&upright.every((b,i)=>i===0||b.left<upright[i-1].left+upright[i-1].width*.75));}}
         prefs.spriteDim=false;prefs.spriteGlobalScale=100;prefs.characterSprites={};prefs.spriteScales={};
         check('classification defaults to per page',expressionMode(ctx,ctx.chat[0])==='page');
         prefs.characterSprites['Klee.png']={expressionMode:'message'};check('a character can override classification to whole messages',expressionMode(ctx,ctx.chat[0])==='message');
@@ -123,6 +130,8 @@ export async function runStagingTests(){
         check('per page mode separately classifies each page',calls.slice(-2).join('|')==='Joy|Sad');
         check('expression swaps never apply focus enlargement twice', [...host.querySelectorAll('#gi-sprite-stage img[data-layout="stage"]:not([data-leaving="true"])')].every(img=>img.style.getPropertyValue('--gi-focus-scale')==='1'));
         ctx.chat[0].swipe_id=3;sync(0,'Pending');await sprites.refreshPresentation();await pause(35);check('changing presentation while classifying does not save a neutral placeholder',ctx.chat[0].extra.silly_teyvat.swipes[3][0].emotion==='joy');
+        {ctx.chat[0].swipe_id=4;const sent=calls.length;sync(0,'Cancelled');await pause(2);await sprites.refreshSprite(chars[0]);sync(0,'Cancelled');await pause(60);
+        check('a classification cancelled by a refresh is not sent a second time',calls.length===sent+1&&calls.at(-1)==='Cancelled');}
         sprites.reset();ctx.chatId='narration-first';ctx.chat=[{name:'Klee',original_avatar:'Klee.png',mes:'A quiet morning.'}];
         sprites.sync({on:true,id:0,page:0,text:'A quiet morning.',narration:true,complete:true,generating:false});await pause(35);
         check('a narration-only fresh group stages every enabled member without classifying narration',host.querySelectorAll('#gi-sprite-stage img').length===3&&ctx.chat[0].extra.silly_teyvat.swipes[0][0].kind==='narration');
