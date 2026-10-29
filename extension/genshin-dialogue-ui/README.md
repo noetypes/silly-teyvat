@@ -1,3 +1,9 @@
+# Silly Teyvat 1.44.3: New chats start with one character
+
+Choosing New Chat inside a travel party no longer carries the party's enemies, sprites or
+scene into the new conversation. The empty chat is replaced by a fresh solo chat with the
+card the journey started from. The previous chat keeps its party and messages.
+
 # Silly Teyvat 1.44.2: External game data
 
 Media is installed as links to a separate local data pack. Existing same-origin
