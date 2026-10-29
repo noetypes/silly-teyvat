@@ -19,3 +19,26 @@ export async function openFreshSoloChat(ctx,avatar,{loadScript=()=>import('/scri
     await script.doNewChat();
     return true;
 }
+
+// A new solo chat opens on the card's first greeting with the alternates as swipes. Start on a
+// random one instead. Returns whether the greeting changed, so the caller can redraw the chat.
+export function randomizeGreeting(ctx,random=Math.random){
+    if(ctx.groupId||(ctx.chat || []).length!==1)return false;
+    const message=ctx.chat[0],swipes=message.swipes;
+    if(message.is_user||message.is_system||!Array.isArray(swipes)||swipes.length<2||(message.swipe_id ?? 0)!==0)return false;
+    const index=Math.floor(random()*swipes.length);if(!index)return false;
+    message.swipe_id=index;message.mes=swipes[index];
+    return true;
+}
+
+// SillyTavern shows the chat it was on while a switch is in progress. The cover hides the stage
+// (including the previous chat's location) until the new chat has settled at its own location.
+let coverTimer;
+export function coverStage(){
+    document.body.classList.add('gi-opening-cover');
+    clearTimeout(coverTimer);coverTimer=setTimeout(uncoverStage,8000);
+}
+export function uncoverStage(delay=0){
+    clearTimeout(coverTimer);
+    coverTimer=setTimeout(()=>document.body.classList.remove('gi-opening-cover'),delay);
+}

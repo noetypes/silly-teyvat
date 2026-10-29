@@ -3543,3 +3543,5 @@ body.gi-scene #gi-party-health .gi-party-member.gi-downed strong::after { conten
 #gi-combat-ask .gi-ask-actions .gi-ask-primary:hover:not(:disabled) { background: #f4e2b4; color: #2d2718; }
 #gi-combat-ask .gi-ask-actions button:disabled { opacity: .45; cursor: default; }
 #gi-combat-ask :is(button, input):focus-visible { outline: 2px solid #f2dca0; outline-offset: 2px; }
+
+body.gi-opening-cover::after{content:'';position:fixed;inset:0;z-index:99999;background:#0b0d12;pointer-events:none}

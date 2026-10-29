@@ -1,3 +1,11 @@
+# Silly Teyvat 1.45.0: Random greetings, no location flash
+
+- **Random greeting.** A new solo chat starts on a randomly chosen greeting from the card's first
+  message and alternates, instead of always the first.
+- **No flash of the previous location.** The stage is covered while a chat opens, so the previous
+  chat's location (shown while SillyTavern switches or Silly Teyvat starts a fresh chat) never
+  appears before the new chat settles at the character's home.
+
 # Silly Teyvat 1.44.5: Companions left behind stay gone
 
 A narration page no longer inherits the sprites of characters who are no longer in the scene,
