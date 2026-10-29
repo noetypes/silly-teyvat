@@ -15,6 +15,11 @@ export async function runCombatTests(){
     let choices;
     try{
         ui.sync({on:true,id:0});check('enemy HUD shows configured health scaled to the party',root.querySelector('.gi-enemy-health')?.textContent.includes('5 / 5'));
+        const drawer=root.querySelector('#gi-health-drawer'),toggle=drawer.querySelector('button'),content=drawer.querySelector('#gi-health-content');
+        check('one collapsed drawer holds both party and enemy health',!drawer.hidden&&content.contains(root.querySelector('#gi-party-health'))&&content.contains(root.querySelector('#gi-combat'))&&content.inert);
+        toggle.click();check('health handle opens the drawer and exposes its meters',toggle.getAttribute('aria-expanded')==='true'&&!content.inert&&ctx.extensionSettings.genshin_dialogue_ui.healthDrawerOpen);
+        ui.sync({on:true,id:0});check('health stays open during a normal scene refresh',toggle.getAttribute('aria-expanded')==='true');
+        toggle.dispatchEvent(new KeyboardEvent('keydown',{key:'Escape',bubbles:true}));check('Escape collapses the health drawer',content.inert&&toggle.getAttribute('aria-expanded')==='false');
         check('sword toggle is available without replacing dialogue',!root.querySelector('#gi-attack-controls').hidden&&root.querySelector('#gi-attack-toggle svg'));check('combat prompt allows conversation',ctx.extensionPrompts.silly_teyvat_combat.value.includes('talk instead'));
         choices=mountChoices({host:root,getContext:()=>ctx,adapter:{generate:async()=>{throw Error('Suggestions should be disabled');},send:async()=>{}},announce:()=>{},getActions:()=>ui.actions()});choices.sync({on:true,generating:false,suggested:false});check('sword remains available with suggested replies disabled',!root.querySelector('#gi-attack-controls').hidden&&!root.querySelector('.gi-attack-choice'));
         const originalRandom=Math.random;Math.random=()=>0;try{await ui.attack('Hilichurl Fighter.png');}finally{Math.random=originalRandom;}

@@ -3,6 +3,7 @@ import {createTextReveal} from './text-reveal.js';
 import {mountPageSprites} from './page-sprites.js';
 import {stagingDefaults,stageScene,createStageRoster,expressionMode,mountStageEffects,fitModelHeights} from './staging.js';
 import {spriteAudioKey} from './media-store.js';
+import {chooseVisible,layoutStage} from './stage-layout.js';
 import {mountSceneMedia} from './scene-media.js';
 export async function runStagingTests(){
     const results=[],pause=ms=>new Promise(r=>setTimeout(r,ms));
@@ -67,14 +68,32 @@ export async function runStagingTests(){
         const alone=fitModelHeights([mixed[0]]);check('a small model alone on screen is re-fitted to full height and keeps its raise',Math.abs(alone[0].h-base88)<1e-9&&Math.abs((1-alone[0].h-alone[0].y)-(1-mixed[0].h-mixed[0].y))<1e-9&&mixed[0].h<base88);
         const both=fitModelHeights(mixed);check('with the tallest model on screen the relative sizes are unchanged',both.every((x,i)=>Math.abs(x.h-mixed[i].h)<1e-9));
         for(const a of [scene[0].avatar,...others])delete prefs.characterProperties[a];}
-        prefs.spriteDim=true;prefs.spriteDimOpacity=.4;prefs.spriteShake=true;
+        prefs.spriteDim=true;prefs.spriteDimBrightness=.4;prefs.spriteShake=true;
         scene=stageScene(ctx,base,ctx.chat[0]);
-        check('optional inactive fade uses opacity and speaking shake follows focus',scene[1].presentation.opacity===.4&&scene[0].presentation.shake&&!scene[1].presentation.shake);
-        prefs.autoHideSprites=true;prefs.maxViewableCharacters=2;ctx.chat.push({name:'Nahida',original_avatar:'Nahida.png',mes:'Future'},{name:'Fischl',original_avatar:'Fischl.png',mes:'Later'});
-        scene=stageScene(ctx,base,ctx.chat[0],{id:0});
-        check('visibility limits use historical speakers without leaking future messages',scene.length===2&&scene[0].avatar==='Klee.png'&&scene[1].avatar==='Nahida.png');
-        scene=stageScene(ctx,base,ctx.chat[2],{id:2});check('recent active group speakers stay visible at the limit',scene.some(s=>s.avatar==='Fischl.png')&&scene.some(s=>s.avatar==='Nahida.png'));
-        prefs.autoHideSprites=false;prefs.spriteDim=false;prefs.spriteGlobalScale=100;prefs.characterSprites={};prefs.spriteScales={};
+        check('listeners are darkened, never faded, and speaking shake follows focus',scene[1].presentation.dim===.4&&scene[1].presentation.opacity===1&&scene[0].presentation.dim===1&&scene[0].presentation.shake&&!scene[1].presentation.shake);
+        check('the saved scene keeps every present member, and who is shown is decided on screen',stageScene(ctx,base,ctx.chat[0]).length===base.length);
+        {const A=(key,kind,speaking=false)=>({key,kind,speaking}),six=[A('me','user'),A('k','companion',true),A('n','companion'),A('f','companion'),A('a','companion'),A('s','enemy'),A('m','enemy')];
+        const recent=['k','m','f'];
+        const phone=chooseVisible(six,{recent,compact:true}),desk=chooseVisible(six,{recent,compact:false});
+        check('Auto keeps 3 sprites on a phone: you, the speaker and the most recent speaker',phone.size===3&&phone.has('me')&&phone.has('k')&&phone.has('m'));
+        check('Auto keeps 5 sprites on a desktop',desk.size===5&&desk.has('me')&&desk.has('k')&&!desk.has('a'));
+        const few=chooseVisible(six.slice(0,3),{compact:true});check('Auto leaves a scene within the limit alone',few.size===3);
+        const solo=chooseVisible(six,{recent,crowd:'all',soloEnemy:true,soloCompanion:true});
+        check('only the speaking companion and the most recent enemy stay with your sprite',solo.size===3&&solo.has('me')&&solo.has('k')&&solo.has('m'));
+        const enemyTalks=chooseVisible([A('s','enemy',true),A('m','enemy'),A('me','user')],{recent:['m'],crowd:'all',soloEnemy:true});check('a speaking enemy is the one enemy shown',enemyTalks.size===2&&enemyTalks.has('s'));
+        const limited=chooseVisible(six,{recent,crowd:'recent',limit:2});check('Recent speakers keeps the limit plus your own sprite',limited.size===2&&limited.has('me')&&limited.has('k'));
+        const W=393,H=660,items=[1,1,1].map(()=>({h:.88,aspect:.53,scale:1,lift:0}));const boxes=layoutStage(items,{width:W,height:H,dialogueTop:400});
+        check('three sprites on an upright phone stay on screen and keep their faces above the dialogue',boxes.every(b=>b.left>=-1&&b.left+b.width<=W+1&&b.top+b.height*.35<400));
+        const wide=layoutStage([{h:.88,aspect:.5,scale:1,lift:0},{h:.88,aspect:.5,scale:1,lift:0}],{width:852,height:350,dialogueTop:170});
+        check('a phone on its side keeps the tallest head at the configured limit',wide.every(b=>b.top>=42-.01&&b.top+b.height*.35<=170));
+        for(const [width,height,dialogueTop] of [[393,660,400],[852,350,170],[1700,1000,700],[375,568,310]]){
+            const row=layoutStage([{h:.88*.72,aspect:.5},{h:.88,aspect:.5},{h:.88*.86,aspect:.5}],{width,height,dialogueTop,topInset:16});
+            check(`mixed body models share feet and clear the dialogue at ${width}×${height}`,Math.max(...row.map(b=>b.top+b.height))-Math.min(...row.map(b=>b.top+b.height))<.01&&row.every(b=>b.top+b.height*.35<=dialogueTop+.01)&&Math.min(...row.map(b=>b.top))>=height*.12-.01);
+        }
+        const enlarged=layoutStage([{h:.88,aspect:.5,scale:2.1},{h:.88*.72,aspect:.5,scale:.88}],{width:1700,height:1000,dialogueTop:700});
+        check('large global and focus scales stay below the height limit with aligned feet',enlarged.every(b=>b.top>=120-.01)&&Math.abs(enlarged[0].top+enlarged[0].height-enlarged[1].top-enlarged[1].height)<.01);
+        const desktop=layoutStage([{h:.88,aspect:.5,scale:1,lift:0}],{width:1700,height:1000,dialogueTop:700});check('a desktop keeps the full figure at the height line',Math.abs(desktop[0].height-880)<1&&Math.abs(desktop[0].top-120)<1);}
+        prefs.spriteDim=false;prefs.spriteGlobalScale=100;prefs.characterSprites={};prefs.spriteScales={};
         check('classification defaults to per page',expressionMode(ctx,ctx.chat[0])==='page');
         prefs.characterSprites['Klee.png']={expressionMode:'message'};check('a character can override classification to whole messages',expressionMode(ctx,ctx.chat[0])==='message');
         prefs.expressionMode='message';prefs.characterSprites['Klee.png'].expressionMode='page';check('a character can override whole message defaults to pages',expressionMode(ctx,ctx.chat[0])==='page');
@@ -102,10 +121,23 @@ export async function runStagingTests(){
         const oldImage=host.querySelector('#gi-sprite-stage img');sync(0,'Edited');check('scene refresh reuses sprite elements for smooth focus transitions',host.querySelector('#gi-sprite-stage img')===oldImage);
         ctx.chat[0].swipe_id=2;prefs.expressionMode='page';sync(0,'Joy');await pause(35);sync(1,'Sad');await pause(35);
         check('per page mode separately classifies each page',calls.slice(-2).join('|')==='Joy|Sad');
+        check('expression swaps never apply focus enlargement twice', [...host.querySelectorAll('#gi-sprite-stage img[data-layout="stage"]:not([data-leaving="true"])')].every(img=>img.style.getPropertyValue('--gi-focus-scale')==='1'));
         ctx.chat[0].swipe_id=3;sync(0,'Pending');await sprites.refreshPresentation();await pause(35);check('changing presentation while classifying does not save a neutral placeholder',ctx.chat[0].extra.silly_teyvat.swipes[3][0].emotion==='joy');
         sprites.reset();ctx.chatId='narration-first';ctx.chat=[{name:'Klee',original_avatar:'Klee.png',mes:'A quiet morning.'}];
         sprites.sync({on:true,id:0,page:0,text:'A quiet morning.',narration:true,complete:true,generating:false});await pause(35);
         check('a narration-only fresh group stages every enabled member without classifying narration',host.querySelectorAll('#gi-sprite-stage img').length===3&&ctx.chat[0].extra.silly_teyvat.swipes[0][0].kind==='narration');
+        check('page focus dims every sprite during narration', [...host.querySelectorAll('#gi-sprite-stage img')].every(img=>img.dataset.focus==='false'));
+        prefs.spriteFocusMode='message';sprites.sync({on:true,id:0,page:0,text:'A quiet morning.',narration:true,complete:true,generating:false});await pause(35);
+        check('message focus lights the author on a cached narration page',host.querySelector('img[data-avatar="Klee.png"]')?.dataset.focus==='true');
+        prefs.personaSprite=true;prefs.personaSpriteFolder='Traveler';
+        ctx.chat.push({name:'Traveler',is_user:true,mes:'My turn.'});
+        // Add the persona through a normal roster refresh before replaying a user page.
+        await sprites.refreshPresentation();
+        ctx.chat[0].extra.silly_teyvat.swipes[0][0].scene.push(stageScene(ctx,[{avatar:'__user__',folder:'Traveler',src:'/characters/Traveler/neutral.png'}],ctx.chat[0])[0]);
+        sprites.sync({on:true,id:1,page:0,text:'My turn.',complete:true,generating:false});await pause(35);
+        check('the controlled persona lights up on player messages and companions dim',host.querySelector('img[data-avatar="__user__"]')?.dataset.focus==='true'&&host.querySelector('img[data-avatar="Klee.png"]')?.dataset.focus==='false');
+        sprites.sync({on:true,id:0,page:0,text:'A quiet morning.',narration:true,complete:true,generating:false});await pause(35);
+        check('history restores author focus independently of the last player turn',host.querySelector('img[data-avatar="Klee.png"]')?.dataset.focus==='true');
         effects=mountStageEffects({host,getContext:()=>ctx});prefs.letterbox='horizontal';prefs.letterboxSize=12;effects.sync(true,true);
         check('native letterboxing supports horizontal bars and speaking animation state',!host.querySelector('#gi-letterbox').hidden&&host.querySelector('#gi-letterbox').style.getPropertyValue('--gi-letterbox-size')==='12vh'&&document.body.classList.contains('gi-sprite-speaking'));
         prefs.letterbox='vertical';effects.sync(true,false);check('vertical bars follow viewport width',host.querySelector('#gi-letterbox').style.getPropertyValue('--gi-letterbox-size')==='12vw');

@@ -3,8 +3,10 @@ import {activeGroup,inPartyChat} from './party.js';
 // Native sprite DOM is never rewritten; a replay layer isolates it from background updates.
 import {enemySpeaker,resolveEnemyScene,enemySceneAvatar} from './enemy-actions.js';
 import {openingScene,openingCharacter} from './opening-scene.js';
-import { stageScene, createStageRoster, expressionMode, fitModelHeights, refreshModels, liveSpriteScale } from './staging.js';
-import { previousSpeech } from './narration.js';
+import { stageScene, createStageRoster, expressionMode, fitModelHeights, refreshModels, liveSpriteScale, stagingDefaults, bounded, speakerAvatar } from './staging.js';
+import { chooseVisible, layoutStage, compactViewport } from './stage-layout.js';
+import { stageCharacter } from './persona-wardrobe.js';
+import { previousSpeech, expressionContext } from './narration.js';
 import { createSpriteTrimmer } from './sprite-trim.js';
 const STORE = 'silly_teyvat';
 export const pageSignature = text => {
@@ -85,7 +87,7 @@ export function createNativeSpriteAdapter({ capture = captureScene } = {}) {
             if (!settings || settings.api === 99) return null;
             api ??= await import('/scripts/extensions/expressions/index.js');
             // Explicit text in the prompt also scopes the native LLM's "full context" mode.
-            const customPrompt = `${settings.llmPrompt || 'Choose the emotion. Output only one label from {{labels}}.'}\nClassify ONLY the following dialogue page, regardless of other chat messages:\n<dialogue-page>\n${text}\n</dialogue-page>\nOutput one label from {{labels}}.`;
+            const customPrompt = `${settings.llmPrompt || 'Choose the emotion. Output only one label from {{labels}}.'}\nClassify the final dialogue in the following excerpt. Preceding narration is context for that dialogue. Ignore other chat messages:\n<dialogue-page>\n${text}\n</dialogue-page>\nOutput one label from {{labels}}.`;
             return api.getExpressionLabel(text, settings.api, { customPrompt });
         },
         async resolve(ctx, message, emotion, base, { keepVariant = false } = {}) {
@@ -130,7 +132,8 @@ export function mountPageSprites({ host, getContext, adapter = createNativeSprit
     // place until its fall has played (the round is saved before the battle screen closes).
     const fallen = new Set();
     const enemyOf = sprite => enemySceneAvatar(getContext(), sprite);
-    const enemyImage = avatar => [...stage.children].find(image => image.dataset.leaving !== 'true' && enemyOf({ avatar: image.dataset.avatar, folder: image.dataset.folder }) === avatar);
+    const enemyImage = avatar => [...stage.children].find(image => image.tagName === 'IMG' && image.dataset.leaving !== 'true' && enemyOf({ avatar: image.dataset.avatar, folder: image.dataset.folder }) === avatar);
+    const actorImage = avatar => enemyImage(avatar) || [...stage.children].find(image => image.tagName === 'IMG' && image.dataset.leaving !== 'true' && image.dataset.avatar === avatar);
     const stillMotion = () => document.body.classList.contains('gi-reduced-motion') || Boolean(globalThis.matchMedia?.('(prefers-reduced-motion: reduce)').matches);
     function animate(image, cls, done = () => image.classList.remove(cls)) {
         image.classList.remove(cls); void image.offsetWidth; image.classList.add(cls);
@@ -148,18 +151,107 @@ export function mountPageSprites({ host, getContext, adapter = createNativeSprit
         // quick chat switch does not discard the scene during a debounce window.
         if (chatKey(getContext()) === key) Promise.resolve(ctx.saveChat?.()).catch(error => console.warn('[Silly Teyvat] Could not save page scenes', error));
     }
+    // Draw-time presentation follows the current settings, so earlier pages pick up changes
+    // to focus, dimming and shadows without rewriting their saved scenes.
+    const prefsNow = () => ({ ...stagingDefaults, ...getContext().extensionSettings?.genshin_dialogue_ui });
+    const kindOf = sprite => sprite.avatar === '__user__' ? 'user' : enemyOf(sprite) ? 'enemy' : 'companion';
+    const actorOf = sprite => enemyOf(sprite) || sprite.avatar || sprite.folder || '';
+    let stageAt = -1, lastDraw = null, arranged = { images: [], scene: [] };
+    function focusScene(scene) {
+        const ctx = getContext(), message = ctx.chat?.[stageAt], p = prefsNow();
+        if (!message) return scene;
+        const speaking = !message.is_system && message.extra?.type !== 'narrator' &&
+            (selectedPage?.kind !== 'narration' || p.spriteFocusMode === 'message');
+        const avatar = speaking ? speakerAvatar(ctx, message) : '';
+        return scene.map(sprite => sprite.presentation ? { ...sprite, presentation: { ...sprite.presentation, focus: Boolean(avatar) && (sprite.avatar === avatar || !sprite.avatar && stageCharacter(ctx, sprite)?.avatar === avatar) } } : sprite);
+    }
+    // Who stands on the stage on this screen: the "only the speaking enemy/companion" options,
+    // then Auto hides listeners above 5 sprites on a desktop or 3 on a phone (or Recent speakers).
+    function crowd(scene) {
+        const ctx = getContext(), p = prefsNow();
+        if (!p.nativeStaging || scene.length < 2) return scene;
+        const chat = ctx.chat || [];
+        const recent = [];
+        for (let i = Math.min(stageAt, chat.length - 1); i >= 0; i--) {
+            const m = chat[i];
+            if (!m || m.is_system || m.extra?.type === 'narrator') continue;
+            const avatar = speakerAvatar(ctx, m);
+            if (avatar && !recent.includes(avatar)) recent.push(avatar);
+        }
+        const actors = scene.map((sprite, i) => ({ key: String(i), actor: actorOf(sprite), kind: kindOf(sprite), speaking: Boolean(sprite.presentation?.focus) }));
+        const keep = chooseVisible(actors, { recent: recent.flatMap(a => actors.filter(x => x.actor === a).map(x => x.key)), crowd: p.spriteCrowd, limit: bounded(p.maxViewableCharacters, 1, 20, 5),
+            compact: compactViewport(stage.clientWidth || innerWidth, stage.clientHeight || innerHeight), soloEnemy: Boolean(p.soloEnemySprite), soloCompanion: Boolean(p.soloCompanionSprite) });
+        return scene.filter((_, i) => keep.has(String(i)));
+    }
+    // On a phone with three or more on stage, listeners also step back a little (smaller and
+    // darker) so the speaker stands out without the row having to shrink.
+    function livePresentation(sprite, depth = false) {
+        const p = prefsNow(), focus = Boolean(sprite.presentation?.focus), staged = Boolean(sprite.presentation);
+        return { focus, focusScale: staged && p.spriteFocus && focus ? bounded(p.spriteFocusScale, 100, 125, 105) / 100 : staged && p.spriteFocus && depth ? .88 : 1,
+            dim: staged && p.spriteDim && !focus ? bounded(p.spriteDimBrightness, .15, 1, .55) : 1,
+            shadow: staged && p.spriteShadow ? `drop-shadow(${bounded(p.shadowX, -100, 100, 15)}px ${bounded(p.shadowY, -100, 100, 5)}px ${bounded(p.shadowBlur, 0, 80, 9)}px #1119)` : '',
+            duration: bounded(p.spriteFocusDuration, 0, 2, .6), easing: ['ease', 'ease-in', 'ease-out', 'ease-in-out', 'linear'].includes(p.spriteFocusEasing) ? p.spriteFocusEasing : 'ease', shake: Boolean(staged && p.spriteShake && focus) };
+    }
+    // The top of the dialogue box. The page text changes height from page to page, so frame
+    // against the controls under it plus a typical three-line box, which keeps sprites steady.
+    function dialogueTop(H) {
+        if (!document.body.classList.contains('gi-scene') || document.body.classList.contains('gi-history') || document.body.classList.contains('gi-hidden')) return H;
+        const visible = node => node && !node.hidden && node.getClientRects().length && getComputedStyle(node).display !== 'none';
+        const nav = document.querySelector('#gi-navigation'), form = document.querySelector('#form_sheld');
+        const base = visible(nav) ? nav.getBoundingClientRect().top : visible(form) ? form.getBoundingClientRect().top : H;
+        return base - Math.min(150, Math.max(70, H * .17));
+    }
+    function arrange(images, scene, fresh = new Set()) {
+        arranged = { images, scene, top: NaN };
+        const ctx = getContext(), p = prefsNow();
+        const staged = images.map((image, i) => ({ image, sprite: scene[i] })).filter(x => x.sprite?.model > 0 && x.sprite.baseH > 0);
+        if (!staged.length) return;
+        const W = stage.clientWidth || innerWidth, H = stage.clientHeight || innerHeight;
+        // Party on the left (you first), enemies on the right, as in a Genshin standoff.
+        const order = { user: 0, companion: 1, enemy: 2 };
+        staged.sort((a, b) => order[kindOf(a.sprite)] - order[kindOf(b.sprite)] || scene.indexOf(a.sprite) - scene.indexOf(b.sprite));
+        const items = staged.map(({ image, sprite }) => {
+            const card = stageCharacter(ctx, sprite), cp = p.characterSprites?.[card?.avatar || sprite.avatar] || {};
+            const look = livePresentation(sprite, staged.length >= 3 && staged.some(x => x.sprite.presentation?.focus) && compactViewport(W, H));
+            return { h: sprite.h, aspect: Number(image.dataset.trim) || sprite.aspect, scale: (sprite.presentation ? liveSpriteScale(ctx, sprite, card) : 1) * look.focusScale,
+                lift: Math.max(-.4, Math.min(.5, 1 - sprite.h - sprite.y)), pinned: cp.positionX == null ? null : bounded(cp.positionX, 0, 100, 50) / 100 };
+        });
+        // On a phone on its side the HUD runs along the top edge; frame faces just under it.
+        const topInset = H <= 500 && W > H ? Math.min(56, H * .14) : Math.min(16, H * .03);
+        arranged.top = dialogueTop(H);
+        const boxes = layoutStage(items, { width: W, height: H, dialogueTop: arranged.top, topInset });
+        staged.forEach(({ image, sprite }, i) => {
+            const box = boxes[i], focus = Boolean(sprite.presentation?.focus);
+            if (fresh.has(image)) image.classList.add('gi-sprite-placing');
+            image.dataset.layout = 'stage';
+            // Focus size is included in the fitted box, so it shares the baseline
+            // and cannot grow beyond the height limit after layout.
+            image.style.setProperty('--gi-focus-scale', 1);
+            Object.assign(image.style, { left: `${box.left}px`, top: `${box.top}px`, width: `${box.width}px`, height: `${box.height}px`, zIndex: String(focus ? staged.length + 1 : box.z) });
+        });
+        if (fresh.size) { void stage.offsetWidth; requestAnimationFrame(() => { for (const image of fresh) image.classList.remove('gi-sprite-placing'); }); }
+    }
+    function relayout() { if (!active || !lastDraw) return; displayed = ''; draw(lastDraw.scene, lastDraw.key); }
+    let resizeFrame = 0;
+    const onResize = () => { if (resizeFrame) return; resizeFrame = requestAnimationFrame(() => { resizeFrame = 0; relayout(); }); };
+    addEventListener('resize', onResize, { passive: true });
+    globalThis.visualViewport?.addEventListener('resize', onResize, { passive: true });
     function draw(scene, key) {
+        lastDraw = { scene, key };
         scene=openingScene(getContext(),scene);key+=`:opening:${openingCharacter(getContext()) || ''}`;
         const gone = avatar => avatar && isDefeated(getContext(), avatar) && (fallen.has(avatar) || !enemyImage(avatar));
         scene = scene.filter(sprite => !gone(enemyOf(sprite)));
         for (const sprite of scene) fallen.delete(enemyOf(sprite));
-        scene=fitModelHeights(refreshModels(getContext(),scene.filter(sprite=>safeSource(sprite.src))));key+=`:models:${scene.map(sprite=>sprite.model).join(',')}`;
+        scene=crowd(focusScene(scene.filter(sprite=>safeSource(sprite.src))));
+        scene=fitModelHeights(refreshModels(getContext(),scene));key+=`:models:${scene.map(sprite=>`${sprite.avatar}/${sprite.model}`).join(',')}`;
         // Sizes come from current settings, so earlier pages follow Wardrobe changes.
         const scales=scene.map(sprite=>sprite.presentation?liveSpriteScale(getContext(),sprite):1);key+=`:scale:${scales.join(',')}`;
+        const depth=scene.length>=3&&scene.some(sprite=>sprite.presentation?.focus)&&compactViewport(stage.clientWidth || innerWidth,stage.clientHeight || innerHeight);
+        const looks=scene.map(sprite=>livePresentation(sprite,depth));key+=`:look:${JSON.stringify(looks)}:${stage.clientWidth}x${stage.clientHeight}`;
         document.body.classList.toggle('gi-sprite-replay', active && (scene.length > 0 || Boolean(openingCharacter(getContext()))));
         if (displayed === key) return;
         displayed = key; lastScene = scene;
-        const version=++drawVersion,previousImages=[...stage.children],nextImages=[],decoding=[];
+        const version=++drawVersion,previousImages=[...stage.children].filter(el=>el.tagName==='IMG'),nextImages=[],decoding=[],swaps=new Map();
         for (const sprite of scene) {
             if (!safeSource(sprite.src)) continue;
             const src=safeSource(getContext().extensionSettings.genshin_dialogue_ui?.archivedSprites?.[safeSource(sprite.src)] || sprite.src);
@@ -169,8 +261,15 @@ export function mountPageSprites({ host, getContext, adapter = createNativeSprit
             // leave stale compositor tiles on mobile. Decode a fresh node, then
             // replace the old scene atomically. Same-art focus changes reuse it.
             const image=prior?.dataset.source===src?prior:document.createElement('img');
+            if(prior&&image!==prior){
+                // A new expression takes over the old one's place and look, then eases to its own.
+                swaps.set(image,prior);image.style.cssText=prior.style.cssText;image.dataset.layout=prior.dataset.layout || '';
+                if(prior.dataset.trim)image.dataset.trim=prior.dataset.trim;
+            }
             const trimEnabled=trimmer&&getContext().extensionSettings.genshin_dialogue_ui?.trimSprites!==false;
+            const native=sprite.model>0&&sprite.baseH>0;
             const place=()=>{
+                if(native)return;
                 // A trimmed copy is exactly the figure, so its box takes the cropped aspect.
                 const aspect=Number(image.dataset.trim) || sprite.aspect;
                 Object.assign(image.style, { left: `${sprite.x * 100}vw`, top: `${sprite.y * 100}dvh`, width: `${sprite.w * 100}vw`, height: `${sprite.h * 100}dvh` });
@@ -183,27 +282,50 @@ export function mountPageSprites({ host, getContext, adapter = createNativeSprit
                 image.dataset.source=src;image.hidden=true;
                 decoding.push(Promise.resolve().then(async()=>{
                     const trimmed=trimEnabled?await trimmer.trim(sprite.folder,src):null;
-                    if(trimmed){image.dataset.trim=String(trimmed.aspect);image.src=trimmed.url;place();}else image.src=src;
+                    if(trimmed){image.dataset.trim=String(trimmed.aspect);image.src=trimmed.url;place();}else{delete image.dataset.trim;image.src=src;}
                     await decodeImage(image);
                 }).then(()=>{image.hidden=false;},()=>{image.hidden=true;}));
             }
             image.alt = '';nextImages.push(image);
-            image.dataset.avatar = sprite.avatar || '';image.dataset.folder=sprite.folder || ''; image.dataset.expression = sprite.expression || '';
-            Object.assign(image.style, { zIndex: String(sprite.z), opacity: String(sprite.opacity ?? 1), filter: /url|\\/i.test(sprite.filter || '') ? 'none' : sprite.filter || 'none', objectFit: sprite.fit || 'contain', objectPosition: sprite.position || 'center bottom' });
+            image.dataset.avatar = sprite.avatar || '';image.dataset.folder=sprite.folder || ''; image.dataset.expression = sprite.expression || '';image.dataset.kind=kindOf(sprite);
+            Object.assign(image.style, { opacity: String(sprite.opacity ?? 1), objectFit: sprite.fit || 'contain', objectPosition: sprite.position || 'center bottom' });
+            if(!swaps.has(image))image.style.zIndex=String(sprite.z);
             place();
-            const p=sprite.presentation || {};
-            image.style.setProperty('--gi-sprite-scale',scales[scene.indexOf(sprite)]);image.style.setProperty('--gi-focus-scale',p.focusScale ?? 1);
-            image.style.setProperty('--gi-focus-duration',`${p.duration ?? .6}s`);image.style.setProperty('--gi-focus-easing',p.easing || 'ease');
-            image.style.opacity=String((sprite.opacity ?? 1)*(p.opacity ?? 1));image.style.filter=[image.style.filter==='none'?'':image.style.filter,p.shadow || ''].filter(Boolean).join(' ') || 'none';
-            image.dataset.focus=String(Boolean(p.focus));image.dataset.shake=String(Boolean(p.shake));
+            const look=looks[scene.indexOf(sprite)],base=/url|\\/i.test(sprite.filter || '') || !sprite.filter || sprite.filter==='none'?'':sprite.filter;
+            image.style.setProperty('--gi-sprite-scale',scales[scene.indexOf(sprite)]);
+            const apply=()=>{
+                image.style.setProperty('--gi-focus-scale',native ? 1 : look.focusScale);
+                image.style.setProperty('--gi-focus-duration',`${look.duration}s`);image.style.setProperty('--gi-focus-easing',look.easing);
+                // Listeners are darkened rather than faded, so the background never shows through them.
+                image.style.filter=[base,`brightness(${look.dim})`,look.shadow].filter(Boolean).join(' ');
+                image.dataset.focus=String(look.focus);image.dataset.shake=String(look.shake);
+            };
+            if(swaps.has(image))image.giApply=apply;else apply();
         }
         const commit=()=>{
             if(version!==drawVersion || !active || !stage.isConnected)return;
-            const before=new Set(previousImages.filter(image=>image.dataset.leaving!=='true').map(image=>enemyOf({avatar:image.dataset.avatar,folder:image.dataset.folder})).filter(Boolean));
+            const live=previousImages.filter(image=>image.dataset.leaving!=='true');
+            const before=new Set(live.map(image=>enemyOf({avatar:image.dataset.avatar,folder:image.dataset.folder})).filter(Boolean));
+            const fresh=new Set(nextImages.filter(image=>!image.isConnected&&!swaps.has(image)));
             for(const image of nextImages)stage.append(image);
-            for(const image of previousImages)if(!nextImages.includes(image)&&image.dataset.leaving!=='true')image.remove();
-            // An enemy that was not on the previous stage makes an entrance.
-            if(!stillMotion())for(const image of nextImages){const enemy=enemyOf({avatar:image.dataset.avatar,folder:image.dataset.folder});if(enemy&&!before.has(enemy)){before.add(enemy);animate(image,'gi-enemy-enter');}}
+            for(const image of [...stage.children])if(image.dataset.leaving==='true')stage.append(image);
+            const motion=!stillMotion();
+            for(const image of live)if(!nextImages.includes(image)){
+                // A new expression replaces the old node at once (see above) and eases from its
+                // look to its own. A character leaving the stage fades away behind the scene.
+                if(!motion||[...swaps.values()].includes(image)){image.remove();continue;}
+                image.dataset.leaving='true';stage.append(image);
+                animate(image,'gi-sprite-exit',()=>image.remove());
+            }
+            arrange(nextImages,scene,fresh);
+            if(swaps.size){void stage.offsetWidth;requestAnimationFrame(()=>{for(const image of swaps.keys()){image.giApply?.();delete image.giApply;}});}
+            if(!motion)return;
+            for(const image of fresh){
+                // An enemy that was not on the previous stage makes an entrance; others step in.
+                const enemy=enemyOf({avatar:image.dataset.avatar,folder:image.dataset.folder});
+                if(enemy&&!before.has(enemy)){before.add(enemy);animate(image,'gi-enemy-enter');}
+                else if(!enemy&&previousImages.length)animate(image,'gi-sprite-enter');
+            }
         };
         if(decoding.length)void Promise.all(decoding).then(commit);else commit();
     }
@@ -237,13 +359,15 @@ export function mountPageSprites({ host, getContext, adapter = createNativeSprit
     async function narrationScene(ctx, id, page, base, isCurrent) {
         const prior = previousSpeech(ctx.chat, id, ctx.extensionSettings.genshin_dialogue_ui, page, renderMessage);
         if (!prior) return base.length ? base : (await adapter.resolve(ctx, ctx.chat[id], 'neutral', adapter.capture())).scene;
-        const seedKey = `${prior.id}:${prior.page}:${prior.message.swipe_id || 0}:${pageSignature(prior.text)}`;
+        const contextText = expressionContext(ctx.chat, prior.id, prior.page, prior.text, ctx.extensionSettings.genshin_dialogue_ui, renderMessage);
+        const priorSignature = pageSignature(prior.text) + (contextText !== prior.text ? `:context-v1:${pageSignature(contextText)}` : '');
+        const seedKey = `${prior.id}:${prior.page}:${prior.message.swipe_id || 0}:${priorSignature}`;
         const priorRecord = prior.message.extra?.[STORE]?.swipes?.[String(prior.message.swipe_id ?? 0)]?.[prior.page];
-        let spoken = record(prior.message, prior.page, pageSignature(prior.text))?.scene || (priorRecord?.messageSignature === pageSignature(prior.message.mes || '') && (priorRecord.kind || 'dialogue') === 'dialogue' ? priorRecord.scene : null) || speechSeeds.get(seedKey);
+        let spoken = record(prior.message, prior.page, priorSignature)?.scene || (expressionMode(ctx, prior.message) === 'message' && priorRecord?.messageSignature === pageSignature(prior.message.mes || '') && (priorRecord.kind || 'dialogue') === 'dialogue' ? priorRecord.scene : null) || speechSeeds.get(seedKey);
         if (!spoken) {
             // An unvisited older line has no exact scene. Seed from its last
             // spoken page, never from the narration's emotion or native result.
-            const text = prior.text;
+            const text = contextText;
             const emotion = enemySpeaker(ctx,prior.message)?'neutral':await adapter.classify(ctx, text);
             if (!isCurrent()) return base;
             spoken = (await adapter.resolve(ctx, prior.message, emotion || 'neutral', base.length ? base : adapter.capture())).scene;
@@ -266,16 +390,20 @@ export function mountPageSprites({ host, getContext, adapter = createNativeSprit
             active = on;
             if (!on) { selection = ''; document.body.classList.remove('gi-sprite-replay'); stage.hidden = true; return; }
             stage.hidden = false;
+            // The dialogue box moved (the scene opened, the reply box appeared, the UI was hidden): re-fit.
+            if (arranged.images.length && arranged.images.every(image => image.isConnected) && Math.abs(dialogueTop(stage.clientHeight || innerHeight) - arranged.top) > 12) arrange(arranged.images, arranged.scene);
             const message = ctx.chat[id];
             if (!message) return;
+            stageAt = id;
             const prior = narration ? previousSpeech(ctx.chat, id, ctx.extensionSettings.genshin_dialogue_ui, page, renderMessage) : null;
-            const anchor = prior ? `${prior.id}:${prior.page}:${prior.message.swipe_id || 0}:${pageSignature(prior.text)}` : 'none';
+            const anchor = prior ? `${prior.id}:${prior.page}:${prior.message.swipe_id || 0}:${pageSignature(expressionContext(ctx.chat, prior.id, prior.page, prior.text, ctx.extensionSettings.genshin_dialogue_ui, renderMessage))}` : 'none';
             const passive = message.is_user || message.is_system || message.extra?.type==='narrator';
             const kind = passive ? 'passive' : narration ? 'narration' : 'dialogue';
             const enemy=enemySpeaker(ctx,message),mode=enemy?'page':expressionMode(ctx,message);
             const fullSignature=pageSignature(message.mes || '');
             const action=enemy&&enemyAction==='attacking'?'attacking':'neutral';
-            const signature = pageSignature(text) + (enemy?`:enemy-action:${action}`:'') + (mode==='message'?`:message:${fullSignature}`:'') + (narration ? `:narration:${anchor}` : '');
+            const contextText = !enemy && !passive && !narration && mode === 'page' ? expressionContext(ctx.chat, id, page, text, ctx.extensionSettings.genshin_dialogue_ui, renderMessage) : text;
+            const signature = pageSignature(text) + (contextText !== text ? `:context-v1:${pageSignature(contextText)}` : '') + (enemy?`:enemy-action:${action}`:'') + (mode==='message'?`:message:${fullSignature}`:'') + (narration ? `:narration:${anchor}` : '');
             const identity = `${key}:${id}:${message.swipe_id ?? 0}:${page}:${signature}`;
             selection = identity;
             selectedPage = { message, page, signature, kind, identity };
@@ -328,7 +456,7 @@ export function mountPageSprites({ host, getContext, adapter = createNativeSprit
                 if(whole?.signature===fullSignature&&(!hasEnemy(whole.data.scene)||whole.data.enemyActionsVersion===1)){save(message,page,signature,{...whole.data,kind},ctx);if(selection===identity)draw(whole.data.scene,identity);return;}
                 const prepared = await adapter.prepare?.(ctx, base, () => token === epoch && active && chatKey(getContext()) === key,{message,id}) || base;
                 if (token !== epoch || chatKey(getContext()) !== key || !active) return;
-                const emotion = enemy?action:classifyPages ? await adapter.classify(ctx, mode==='message'?message.mes:text) : null;
+                const emotion = enemy?action:classifyPages ? await adapter.classify(ctx, mode==='message'?message.mes:contextText) : null;
                 if (token !== epoch || chatKey(getContext()) !== key || !active || (message.swipe_id ?? 0) !== swipe) return;
                 const data = emotion ? await adapter.resolve(ctx, message, emotion, prepared) : { scene: prepared, emotion: null };
                 if (token !== epoch || chatKey(getContext()) !== key || !active || !ctx.chat.includes(message)) return;
@@ -390,6 +518,22 @@ export function mountPageSprites({ host, getContext, adapter = createNativeSprit
             const image = enemyImage(avatar);
             if (image && !stillMotion()) animate(image, 'gi-enemy-hit');
         },
+        // A party member hurt in the round shakes; one who was healed glows and sparkles.
+        hurt(avatar) {
+            const image = actorImage(avatar);
+            if (image && !stillMotion()) animate(image, 'gi-sprite-hurt');
+        },
+        heal(avatar) {
+            const image = actorImage(avatar);
+            if (!image || stillMotion()) return;
+            animate(image, 'gi-sprite-heal');
+            const glow = document.createElement('div'); glow.className = 'gi-heal-fx'; glow.setAttribute('aria-hidden', 'true');
+            const r = image.getBoundingClientRect(), s = stage.getBoundingClientRect();
+            Object.assign(glow.style, { left: `${r.left - s.left}px`, top: `${Math.max(0, r.top - s.top)}px`, width: `${r.width}px`, height: `${Math.min(r.height, s.height - Math.max(0, r.top - s.top))}px`, zIndex: String((Number(image.style.zIndex) || 1) + 1) });
+            for (let i = 0; i < 14; i++) { const spark = document.createElement('i'); spark.style.setProperty('--x', `${8 + Math.random() * 84}%`); spark.style.setProperty('--d', `${Math.round(Math.random() * 700)}ms`); spark.style.setProperty('--s', `${.6 + Math.random() * .8}`); glow.append(spark); }
+            stage.append(glow); setTimeout(() => glow.remove(), 2000);
+        },
+        relayout,
         // A defeated enemy's sprite plays its fall and leaves the stage at once.
         defeat(avatar) {
             fallen.add(avatar);
@@ -398,7 +542,7 @@ export function mountPageSprites({ host, getContext, adapter = createNativeSprit
             image.dataset.leaving = 'true';
             if (stillMotion()) image.remove(); else animate(image, 'gi-enemy-defeat', () => image.remove());
         },
-        reset() { epoch++;drawVersion++;fallen.clear(); selection = displayed = ''; pending.clear(); speechSeeds.clear(); selectedPage = undefined; lastScene = []; adapter.reset?.(); stage.replaceChildren(); document.body.classList.remove('gi-sprite-replay'); },
-        dispose() { this.reset(); stage.remove(); },
+        reset() { epoch++;drawVersion++;fallen.clear(); selection = displayed = ''; pending.clear(); speechSeeds.clear(); selectedPage = undefined; lastScene = []; lastDraw = null; stageAt = -1; adapter.reset?.(); stage.replaceChildren(); document.body.classList.remove('gi-sprite-replay'); },
+        dispose() { this.reset(); removeEventListener('resize', onResize); globalThis.visualViewport?.removeEventListener('resize', onResize); cancelAnimationFrame(resizeFrame); stage.remove(); },
     };
 }

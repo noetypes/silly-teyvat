@@ -10,7 +10,7 @@ import {rollFuel,rerollFuel,resolveRound} from './battle-engine.js';
 import {ITEMS,rollLoot} from './battle-items.js';
 import {mountBattle} from './battle-ui.js';
 import {createBurstVoicePlayer} from './burst-audio.js';
-import {EL_COLORS} from './battle-fx.js';
+import {EL_COLORS,SWORD_SVG} from './battle-fx.js';
 
 export async function appendCombatMessage(ctx,{name='Narrator',text,avatar,event}){
     const message={name,is_user:false,is_system:false,send_date:new Date().toISOString(),mes:text,extra:{silly_teyvat_combat:event,silly_teyvat_combat_scene:structuredClone(activeEnemies(ctx))}};
@@ -49,8 +49,19 @@ export function createCombatAdapter({loadScript=()=>import('/script.js')}={}){
 export function mountCombat({host,getContext,onChange=()=>{},announce=()=>{},adapter=createCombatAdapter(),diceAdapter,battleAdapter}){
     const panel=document.createElement('aside');panel.id='gi-combat';panel.setAttribute('aria-label','Hostile encounters');panel.hidden=true;host.append(panel);
     const partyPanel=document.createElement('aside');partyPanel.id='gi-party-health';partyPanel.setAttribute('aria-label','Party health');partyPanel.hidden=true;host.append(partyPanel);let partyPaint='';const partyShown=new Map();
+    const healthDrawer=document.createElement('aside');healthDrawer.id='gi-health-drawer';healthDrawer.hidden=true;healthDrawer.setAttribute('aria-label','Health');
+    healthDrawer.innerHTML='<button type="button" class="gi-health-toggle" aria-controls="gi-health-content" aria-expanded="false" aria-label="Show health bars" title="Show health bars"><span aria-hidden="true">♥</span><small>HP</small><i aria-hidden="true">›</i></button><div id="gi-health-content" inert><h3>Party health</h3><h3>Enemies</h3></div>';
+    host.append(healthDrawer);
+    const healthContent=healthDrawer.querySelector('#gi-health-content'),healthToggle=healthDrawer.querySelector('button'),healthTitles=healthContent.querySelectorAll('h3');
+    healthTitles[0].after(partyPanel);healthTitles[1].after(panel);
+    function paintHealthDrawer(){
+        const open=Boolean(mediaSettings(getContext()).healthDrawerOpen);
+        if(healthDrawer.dataset.open===String(open))return;
+        healthDrawer.dataset.open=String(open);healthToggle.setAttribute('aria-expanded',String(open));healthContent.inert=!open;healthContent.setAttribute('aria-hidden',String(!open));
+        healthToggle.title=open?'Hide health bars':'Show health bars';healthToggle.setAttribute('aria-label',healthToggle.title);healthToggle.querySelector('i').textContent=open?'‹':'›';
+    }
     const controls=document.createElement('div');controls.id='gi-attack-controls';controls.hidden=true;
-    controls.innerHTML='<button id="gi-attack-toggle" type="button" aria-label="Attack after sending a message" aria-pressed="false" title="Attack after sending: off"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17 3h4v4L10 18l-4-4Z"/><path d="m4 12 8 8M8 16l-5 5M2 22l2-2"/></svg><span class="gi-attack-label">Attack</span><i class="gi-attack-pip" aria-hidden="true"></i></button>';
+    controls.innerHTML=`<button id="gi-attack-toggle" type="button" aria-label="Attack after sending a message" aria-pressed="false" title="Attack after sending: off"><svg viewBox="0 0 24 24" aria-hidden="true" style="fill:currentColor;stroke:none">${SWORD_SVG}</svg><span class="gi-attack-label">Attack</span><i class="gi-attack-pip" aria-hidden="true"></i></button>`;
     // Attack sits in the Teyvat Choices column: beside the refresh button when
     // choices are in use, otherwise where the choices panel would be.
     const dock=document.createElement('div');dock.id='gi-attack-dock';host.append(dock);
@@ -61,6 +72,8 @@ export function mountCombat({host,getContext,onChange=()=>{},announce=()=>{},ada
     }
     const layout=new MutationObserver(placeControls);layout.observe(host,{subtree:true,childList:true,attributes:true,attributeFilter:['hidden']});layout.observe(document.body,{attributes:true,attributeFilter:['class']});placeControls();
     const sword=controls.querySelector('button'),abort=new AbortController();
+    healthToggle.addEventListener('click',()=>{const ctx=getContext(),p=mediaSettings(ctx);p.healthDrawerOpen=!p.healthDrawerOpen;ctx.saveSettingsDebounced?.();paintHealthDrawer();},{signal:abort.signal});
+    healthDrawer.addEventListener('keydown',event=>{if(event.key==='Escape'&&healthDrawer.dataset.open==='true'){event.preventDefault();event.stopPropagation();mediaSettings(getContext()).healthDrawerOpen=false;getContext().saveSettingsDebounced?.();paintHealthDrawer();healthToggle.focus();}},{signal:abort.signal});
     const burstVoice=createBurstVoicePlayer({getContext,announce});
     const dice=diceAdapter || mountElementalDice({host}),battle=battleAdapter || mountBattle({host,onBurst:unit=>burstVoice.play(unit),onStopVoice:()=>burstVoice.stop()});const hits=new Map(),shown=new Map();let disposed=false,busy=false,enabled=false,writing=false,revision=0,key='',paint='',lastId=-1,armed=false,target='',visit='',lastView={};
     const eligibleEnemies=ctx=>{const disabled=activeGroup(ctx)?.disabled_members || [];return activeEnemies(ctx).filter(e=>!disabled.includes(e.avatar));};
@@ -116,6 +129,8 @@ export function mountCombat({host,getContext,onChange=()=>{},announce=()=>{},ada
             await battle.play(snapshot,result,{...options,loot});
             // The battle screen has closed: wounded enemies flinch on the stage, fallen ones leave it.
             for(const u of result.state.units.filter(u=>u.side==='enemy'&&u.hp>0&&!gone.includes(u.id)))if(hits.get(u.id)?.some(h=>h.damage>0))onChange({hit:u.id});
+            // Party members on the stage: a shake for anyone who ended the round hurt, a glow for anyone healed.
+            for(const u of result.state.units.filter(u=>u.side==='party')){const was=snapshot.units.find(x=>x.id===u.id);if(!was)continue;if(u.hp<was.hp)onChange({hurt:u.id});else if(u.hp>was.hp)onChange({healed:u.id});}
             for(const fallen of saved.defeated){announce(`${snapshot.units.find(u=>u.id===fallen)?.name || 'Enemy'} defeated.`);onChange({defeated:fallen,slain:true});}
             for(const left of saved.fled)onChange({defeated:left});
             if(result.fled)announce('The party escaped.');
@@ -177,6 +192,7 @@ export function mountCombat({host,getContext,onChange=()=>{},announce=()=>{},ada
             // Party health: shown during an encounter or while anyone is hurt.
             const party=enabled&&show&&!historical?partyStatus(ctx):[],hurt=party.some(m=>m.hp<m.maxHp);
             partyPanel.hidden=!party.length||!(currentEnemies.length||hurt);
+            healthTitles[0].hidden=partyPanel.hidden;healthTitles[1].hidden=panel.hidden;healthDrawer.hidden=partyPanel.hidden&&panel.hidden;paintHealthDrawer();
             const partySignature=JSON.stringify([partyPanel.hidden,party]);
             if(partySignature!==partyPaint){
                 partyPaint=partySignature;partyPanel.replaceChildren();
@@ -210,6 +226,6 @@ export function mountCombat({host,getContext,onChange=()=>{},announce=()=>{},ada
             }
             if(!historical)for(const a of [...shown.keys()])if(!display.some(e=>e.avatar===a))shown.delete(a);
         },
-        dispose(){disposed=true;enabled=false;revision++;abort.abort();layout.disconnect();dice.dispose?.();battle.dispose?.();burstVoice.dispose();controls.remove();dock.remove();panel.remove();partyPanel.remove();syncCombatPrompt(getContext(),false);},
+        dispose(){disposed=true;enabled=false;revision++;abort.abort();layout.disconnect();dice.dispose?.();battle.dispose?.();burstVoice.dispose();controls.remove();dock.remove();healthDrawer.remove();syncCombatPrompt(getContext(),false);},
     };
 }

@@ -3131,3 +3131,336 @@ body.gi-enabled #chat > .mes.gi-combat-log { display: none !important; }
     .gi-inv-empty { padding-bottom: 40px; } .gi-inv-empty-icon { width: 84px; height: 84px; } .gi-inv-empty-icon svg { width: 38px; height: 38px; } .gi-inv-empty p { font-size: 17px; }
 }
 @media (prefers-reduced-motion: reduce) { #gi-inventory, #gi-inventory * { animation-duration: 1ms !important; transition-duration: 1ms !important; } }
+
+/* ==========================================================================
+   Silly Teyvat 1.43 — mobile layout and interface pass.
+   Appended last: Paimon menu sizing, Genshin dialogue options, the composer,
+   SillyTavern's welcome page, Roll Phase and battle icons, board fit.
+   ========================================================================== */
+
+/* ---------- Paimon menu ---------- */
+/* The namecard was a flex item that shrank to 30px on short screens, clipping the profile. */
+#gi-toolbar .gi-pm-main > * { flex-shrink: 0; }
+/* Rail buttons match the Paimon launcher above them, with one even gap all the way down. */
+#gi-toolbar.gi-paimon { --pm-gap: 12px; }
+#gi-toolbar .gi-pm-rail { gap: var(--pm-gap); padding-top: calc(var(--gi-hud-top, 6px) + var(--gi-hud-cell, 46px) + var(--pm-gap)); }
+#gi-toolbar .gi-pm-rail button { width: var(--gi-hud-cell, 46px); height: var(--gi-hud-cell, 46px); }
+#gi-toolbar .gi-pm-rail button .gi-pm-icon { width: 56%; height: 56%; }
+/* "Companion" sat on the card's bottom edge. */
+#gi-toolbar .gi-pm-card { padding-bottom: 28px; }
+.gi-pm-stats > div:last-child { border-bottom: 0; }
+
+@media (max-width: 520px) {
+    /* A side sheet that leaves a strip of the scene visible, with everything in one screen. */
+    #gi-toolbar.gi-paimon, body.gi-scene.gi-hidden #gi-toolbar.gi-paimon { --pm-rail: 54px; --pm-gap: 10px; width: min(360px, calc(100vw - 30px)); }
+    #gi-toolbar .gi-pm-card { grid-template-columns: auto minmax(0, 1fr); gap: 10px 12px; align-items: center; padding: calc(env(safe-area-inset-top, 0px) + 14px) 14px 18px; }
+    .gi-pm-who { padding-top: 0; }
+    #gi-toolbar .gi-pm-avatar { width: 60px; height: 60px; padding: 3px; }
+    .gi-pm-id { gap: 2px; padding-right: 34px; }
+    #gi-toolbar .gi-pm-name { font-size: 19px; }
+    #gi-toolbar .gi-pm-signature { font-size: 13px; margin-bottom: 0; }
+    .gi-pm-stats { grid-column: 1 / -1; }
+    .gi-pm-stats > div { padding: 3px 0; }
+    .gi-pm-stats dt, .gi-pm-stats dd { font-size: 13.5px; } .gi-pm-rank dd { font-size: 17px; }
+    #gi-toolbar .gi-pm-edit { width: 34px; height: 34px; top: calc(env(safe-area-inset-top, 0px) + 12px); right: 10px; }
+    #gi-toolbar.gi-paimon .gi-pm-switch { min-height: 38px; margin: 10px 12px 0; }
+    #gi-toolbar .gi-pm-grid, #gi-toolbar .gi-pm-tavern .gi-pm-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 6px; }
+    #gi-toolbar .gi-pm-grid { margin: 10px 12px 0; }
+    .gi-pm-tavern, .gi-pm-namecards { margin: 14px 12px 0; }
+    .gi-pm-tavern h3 { margin-bottom: 6px; font-size: 13px; }
+    #gi-toolbar .gi-pm-grid button { aspect-ratio: auto; min-height: 56px; gap: 3px; padding: 6px 2px 5px; font-size: 11.5px; line-height: 1.15; }
+    #gi-toolbar .gi-pm-grid button .gi-pm-icon, #gi-toolbar .gi-pm-tavern .gi-pm-grid button img { width: 26px; height: 26px; }
+    #gi-toolbar .gi-pm-grid button svg { width: 26px; height: 26px; }
+    .gi-pm-version { font-size: 9.5px; }
+}
+/* Phones on their side: a wider sheet, the card beside the tiles would be too tall. */
+@media (max-height: 560px) and (orientation: landscape) {
+    #gi-toolbar.gi-paimon, body.gi-scene.gi-hidden #gi-toolbar.gi-paimon { --pm-gap: 8px; width: min(640px, calc(100vw - 60px)); }
+    #gi-toolbar .gi-pm-card { grid-template-columns: auto minmax(0, 1fr); align-items: center; padding: calc(env(safe-area-inset-top, 0px) + 10px) 16px 14px; }
+    #gi-toolbar .gi-pm-avatar { width: 58px; height: 58px; }
+    #gi-toolbar .gi-pm-name { font-size: 20px; }
+    .gi-pm-stats > div { padding: 2px 0; } .gi-pm-stats dt, .gi-pm-stats dd { font-size: 13px; } .gi-pm-rank dd { font-size: 16px; }
+    #gi-toolbar .gi-pm-grid, #gi-toolbar .gi-pm-tavern .gi-pm-grid { grid-template-columns: repeat(auto-fill, minmax(64px, 1fr)); gap: 6px; }
+    #gi-toolbar .gi-pm-grid button { aspect-ratio: auto; min-height: 58px; gap: 3px; padding: 6px 2px; font-size: 10.5px; line-height: 1.15; }
+    #gi-toolbar .gi-pm-grid button .gi-pm-icon, #gi-toolbar .gi-pm-tavern .gi-pm-grid button img, #gi-toolbar .gi-pm-grid button svg { width: 24px; height: 24px; }
+    .gi-pm-tavern { margin-top: 12px; }
+}
+
+/* ---------- Teyvat Choices: Genshin dialogue options ---------- */
+#gi-choices, body.gi-scene:not(.gi-history) #gi-choices .qr--button { font-family: var(--ty-font); }
+body.gi-scene:not(.gi-history) #gi-choices > .qr--buttons { align-items: flex-start; gap: 8px; }
+body.gi-scene:not(.gi-history) #gi-choices .qr--button {
+    position: relative; align-items: center; gap: 12px; width: fit-content; max-width: 100%; min-height: 48px;
+    padding: 8px 22px 8px 9px; border: 0; border-radius: 26px;
+    color: #f7f3ea; background: linear-gradient(90deg, #262c38d9, #2d3442c7);
+    box-shadow: inset 0 0 0 1.5px #ffffff26, 0 2px 10px #0005;
+    font-size: clamp(15px, 1.2vw, 19px); font-weight: 400; line-height: 1.3; letter-spacing: .01em; text-shadow: 0 1px 2px #000a;
+    transition: background 160ms ease, box-shadow 160ms ease, color 160ms ease, translate 220ms var(--ty-ease);
+}
+/* The white speech bubble with three dots. */
+body.gi-scene:not(.gi-history) #gi-choices .qr--button::before {
+    content: ""; flex: 0 0 30px; width: 30px; height: 30px; border-radius: 50%;
+    background: center / 30px 30px no-repeat url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cpath fill='%23f6f2ea' d='M15 3.5C8.1 3.5 2.5 8.2 2.5 14c0 3.1 1.6 5.9 4.2 7.8l-1.3 4.6 5.3-2.6c1.3.4 2.8.6 4.3.6 6.9 0 12.5-4.7 12.5-10.4S21.9 3.5 15 3.5Z'/%3E%3Ccircle cx='9.5' cy='14' r='1.9' fill='%233b4253'/%3E%3Ccircle cx='15' cy='14' r='1.9' fill='%233b4253'/%3E%3Ccircle cx='20.5' cy='14' r='1.9' fill='%233b4253'/%3E%3C/svg%3E");
+    filter: drop-shadow(0 1px 1px #0006); font-size: 0; color: transparent;
+}
+body.gi-scene:not(.gi-history) #gi-choices .qr--button:is(:hover, :focus-visible):not(:disabled) {
+    translate: 4px 0; outline: none; color: #fff;
+    background: linear-gradient(90deg, #e6d4a2f2, #cdb47fe6 60%, #b99d68d9);
+    box-shadow: inset 0 0 0 1.5px #fff3cf, 0 0 14px #f2dca066, 0 2px 10px #0005; text-shadow: 0 1px 2px #5a4320cc;
+}
+body.gi-scene:not(.gi-history) #gi-choices .qr--button:active:not(:disabled) { translate: 2px 0; filter: brightness(.95); }
+#gi-choices .gi-choice-status { font-family: var(--ty-font); font-size: 13px; color: #f4ecd8; }
+#gi-choices .gi-choice-refresh { width: 40px; height: 40px; flex-basis: 40px; color: #ece5d8; background: #262c38d9; box-shadow: inset 0 0 0 1.5px #ffffff26, 0 2px 8px #0005; transition: background 160ms ease, rotate 300ms var(--ty-ease); }
+#gi-choices .gi-choice-refresh:hover:not(:disabled) { color: #3d4557; background: #ece5d8; rotate: -60deg; }
+@media (max-width: 760px) {
+    body.gi-scene:not(.gi-history) #gi-choices .qr--button { min-height: 42px; padding: 6px 16px 6px 7px; gap: 9px; font-size: 14.5px; }
+    body.gi-scene:not(.gi-history) #gi-choices .qr--button::before { flex-basis: 26px; width: 26px; height: 26px; background-size: 26px 26px; }
+}
+
+/* ---------- Composer: the reply box in the same slate, ivory and gold, in scenes, Review and the welcome page ---------- */
+body.gi-shell #nonQRFormItems {
+    gap: 4px; min-height: 50px; padding: 3px 5px; border: 0; border-radius: 26px;
+    background: linear-gradient(180deg, #2a3141f0, #1f2533f2);
+    box-shadow: inset 0 0 0 1.5px #d3bc8e8c, inset 0 0 0 4px #1b2130, inset 0 0 0 5px #d3bc8e2e, 0 6px 22px #0006;
+}
+body.gi-shell #nonQRFormItems:focus-within { box-shadow: inset 0 0 0 1.5px #f2dca0, inset 0 0 0 4px #1b2130, inset 0 0 0 5px #f2dca055, 0 0 18px #f2dca033, 0 6px 22px #0006; }
+body.gi-shell #send_textarea { font-family: var(--ty-font); font-size: 16px; color: #ece5d8; letter-spacing: .01em; }
+body.gi-shell #send_textarea::placeholder { color: #ece5d880; }
+body.gi-shell #leftSendForm > div { align-items: center; justify-content: center; width: 38px; min-width: 38px; height: 38px; min-height: 38px; border-radius: 50%; color: #d3bc8e; font-size: 17px; transition: background 160ms ease, color 160ms ease; }
+body.gi-shell #leftSendForm > div:hover { color: #3d4557; background: #ece5d8; }
+body.gi-shell #rightSendForm > #send_but {
+    align-items: center; justify-content: center; width: 40px; min-width: 40px; height: 40px; min-height: 40px; border-radius: 50%; font-size: 17px; color: #2b3242;
+    background: radial-gradient(circle at 50% 32%, #fff6dc, #e9cf8f 55%, #b8904c); box-shadow: inset 0 0 0 1.5px #fff7df, 0 0 0 1.5px #6b4f26, 0 3px 8px #0007;
+    transition: transform 160ms var(--ty-ease), filter 160ms ease;
+}
+body.gi-shell #rightSendForm > #send_but:hover { transform: scale(1.06); filter: brightness(1.06); }
+body.gi-shell #rightSendForm > #send_but:active { transform: scale(.94); }
+body.gi-shell #rightSendForm > #mes_stop { width: 40px; min-width: 40px; height: 40px; min-height: 40px; align-items: center; justify-content: center; border-radius: 50%; color: #ffe2cf; background: #b16b5166; box-shadow: inset 0 0 0 1.5px #ffb59c88; }
+@media (max-width: 760px) {
+    body.gi-shell #nonQRFormItems { min-height: 46px; }
+    body.gi-shell #leftSendForm > div { width: 34px; min-width: 34px; height: 34px; min-height: 34px; font-size: 15px; }
+    body.gi-shell #rightSendForm > #send_but, body.gi-shell #rightSendForm > #mes_stop { width: 36px; min-width: 36px; height: 36px; min-height: 36px; font-size: 15px; }
+}
+
+/* ---------- SillyTavern's welcome page, in Teyvat colours ---------- */
+/* Clear the Paimon launcher and the top-right icons instead of sliding under them. */
+body.gi-shell #chat:has(> .welcomePanel) { padding-top: max(0px, calc(var(--gi-hud-top, 6px) + var(--gi-hud-cell, 46px) + 10px - var(--topBarBlockSize, 33px))); }
+body.gi-shell #chat:has(> .welcomePanel) { font-family: var(--ty-font); }
+body.gi-shell #chat > .welcomePanel {
+    flex-shrink: 0; margin: 0 0 12px; padding: 0 0 12px; border: 0; border-radius: 14px; overflow: hidden;
+    color: var(--ty-ink); background: var(--ty-cream); box-shadow: 0 0 0 1px #d3bc8e, 0 0 0 4px #ece5d833, 0 10px 34px #0008;
+    backdrop-filter: none;
+}
+body.gi-shell .welcomePanel .welcomeHeaderTitle { margin: 0; padding: 12px 14px; gap: 10px; color: #ece5d8; background: linear-gradient(90deg, #3d4557, #4b5366); box-shadow: inset 0 -2px 0 #d3bc8e; }
+body.gi-shell .welcomePanel .welcomeHeaderVersionDisplay { font-size: 17px; color: #ece5d8; text-shadow: 0 1px 2px #0006; }
+body.gi-shell .welcomePanel .welcomeHeaderLogo { filter: drop-shadow(0 1px 2px #0008); }
+body.gi-shell .welcomePanel .welcomeHeaderTitle .mes_button { display: grid; place-items: center; width: 32px; height: 32px; border-radius: 50%; color: #ece5d8; opacity: .85; transition: background 160ms ease, color 160ms ease; }
+body.gi-shell .welcomePanel .welcomeHeaderTitle .mes_button:hover { opacity: 1; color: var(--ty-ink); background: #ece5d8; }
+body.gi-shell .welcomePanel .welcomeHeader { padding: 12px 14px 4px; gap: 8px; flex-wrap: wrap; }
+body.gi-shell .welcomePanel .recentChatsTitle { font-size: 18px; color: var(--ty-ink); }
+body.gi-shell .welcomePanel .welcomeShortcuts { flex-wrap: wrap; gap: 6px; }
+body.gi-shell .welcomePanel :is(.menu_button, .showMoreChats) { margin: 0; padding: 5px 12px; border: 0; border-radius: 16px; font-family: var(--ty-font); font-size: 13.5px; color: #ece5d8; background: linear-gradient(#556075, #4b5366); box-shadow: inset 0 0 0 1px #ffffff1c, 0 1px 3px #0003; filter: none; opacity: 1; }
+body.gi-shell .welcomePanel :is(.menu_button, .showMoreChats):hover { color: #fff; background: linear-gradient(#6a748a, #5d6679); box-shadow: inset 0 0 0 1.5px #d3bc8e; }
+body.gi-shell .welcomePanel .welcomeShortcutsSeparator { color: #3d455755; }
+body.gi-shell .welcomePanel .welcomeRecent, body.gi-shell .welcomePanel .recentChatList { padding-inline: 10px; gap: 8px; }
+body.gi-shell .welcomePanel .recentChat {
+    margin: 0; padding: 8px 10px; border: 0; border-radius: 8px; color: var(--ty-ink);
+    background: #f6f2ea; box-shadow: inset 0 0 0 1px #d9cfbd, 0 1px 3px #3d455722;
+    transition: transform 180ms var(--ty-ease), box-shadow 160ms ease, background 160ms ease;
+}
+body.gi-shell .welcomePanel .recentChat:hover { transform: translateY(-1px); background: #fff; box-shadow: inset 0 0 0 1.5px #d3bc8e, 0 4px 12px #3d455733; }
+body.gi-shell .welcomePanel .recentChat :is(.chatName, strong) { color: var(--ty-ink); }
+body.gi-shell .welcomePanel .recentChat :is(.chatMessage, .chatStats, .chatDate, small) { color: #4f5a70; opacity: 1; }
+body.gi-shell .welcomePanel .recentChat .avatar img { box-shadow: 0 0 0 2px #d3bc8e; }
+body.gi-shell .welcomePanel .recentChat .mes_button, body.gi-shell .welcomePanel .recentChat .menu_button { color: #3d4557; background: #e3dccd; box-shadow: none; }
+body.gi-shell .welcomePanel .recentChat .mes_button:hover { color: #fff; background: #4b5366; }
+body.gi-shell #chat:has(> .welcomePanel) > .mes {
+    margin-inline: 0; border: 0; border-radius: 12px; color: #ece5d8; font-family: var(--ty-font);
+    background: linear-gradient(180deg, #273046e6, #1b2232eb); box-shadow: inset 0 0 0 1px #d3bc8e66, 0 6px 20px #0006;
+}
+body.gi-shell #chat:has(> .welcomePanel) > .mes .ch_name .name_text { color: #f2dca0; }
+body.gi-shell #chat:has(> .welcomePanel) > .mes .menu_button { border: 0; border-radius: 16px; font-family: var(--ty-font); color: #3d4557; background: #ece5d8; }
+body.gi-shell #chat:has(> .welcomePanel) > .mes .menu_button:hover { background: #fff; box-shadow: 0 0 0 1.5px #d3bc8e; }
+@media (max-width: 520px) {
+    body.gi-shell .welcomePanel .welcomeHeaderVersionDisplay { font-size: 14px; }
+    body.gi-shell .welcomePanel .welcomeHeader { flex-direction: column; align-items: flex-start; }
+}
+
+/* ---------- Roll Phase icons ---------- */
+/* Reroll, confirm and skip were drawn from CSS borders and read as a "C" and a slash. */
+#gi-elemental-roll .gi-roll-reroll-icon::before, #gi-elemental-roll .gi-roll-confirm-icon::after {
+    content: ""; position: absolute; inset: 7px; border: 0; border-radius: 0; rotate: none; transform: none; background: currentColor;
+    -webkit-mask: center / contain no-repeat var(--gi-icon); mask: center / contain no-repeat var(--gi-icon);
+}
+#gi-elemental-roll .gi-roll-reroll-icon { color: var(--ty-ink); --gi-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M19.4 9A7.8 7.8 0 0 0 5.3 7.1M4.6 15a7.8 7.8 0 0 0 14.1 1.9'/%3E%3Cpath d='M5 2.8v4.6h4.6M19 21.2v-4.6h-4.6'/%3E%3C/svg%3E"); }
+#gi-elemental-roll .gi-roll-reroll-icon::after { content: none; }
+#gi-elemental-roll .gi-roll-confirm-icon { color: #f1d48a; --gi-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 6 6 6-6 6M13 6l6 6-6 6'/%3E%3C/svg%3E"); }
+#gi-elemental-roll .gi-roll-confirm.gi-ready .gi-roll-confirm-icon { --gi-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m4.5 12.5 5 5 10-11'/%3E%3C/svg%3E"); }
+#gi-elemental-roll .gi-roll-confirm.gi-ready .gi-roll-confirm-icon::after { inset: 8px; }
+/* A die chosen for the reroll stays visible under a light veil and a clear arrows badge. */
+#gi-elemental-roll .gi-roll-picks .gi-die-pick[aria-pressed="true"] { background: radial-gradient(closest-side, #0f1a1a55 60%, #0f1a1a00); box-shadow: 0 0 0 2px #fff1c4cc, 0 0 16px #f2dca077; }
+#gi-elemental-roll .gi-roll-picks .gi-die-pick svg { position: absolute; right: 2%; bottom: 2%; box-sizing: border-box; width: 36%; height: 36%; padding: 6%; border-radius: 50%; color: var(--ty-ink); background: #fff6dcf2; box-shadow: 0 0 0 1.5px #b8904c, 0 2px 6px #0008; filter: none; }
+/* Short screens (phones on their side): the banner, dice and buttons all inside the frame. */
+@media (max-height: 560px) {
+    #gi-elemental-roll .gi-roll-banner { margin-top: calc(max(8px, 1.2vmin) + 10px); gap: 0; }
+    #gi-elemental-roll .gi-roll-banner h2 { font-size: clamp(20px, 6vh, 28px); line-height: 1.15; }
+    #gi-elemental-roll .gi-roll-sub { font-size: 13px; }
+    #gi-elemental-roll .gi-roll-actions { margin: 4px 0 calc(max(8px, 1.2vmin) + 12px); gap: 10px; }
+    #gi-elemental-roll .gi-roll-confirm { min-width: 220px; min-height: 40px; }
+    #gi-elemental-roll .gi-roll-reroll { min-height: 40px; }
+    #gi-elemental-roll .gi-roll-confirm-icon, #gi-elemental-roll .gi-roll-reroll-icon { width: 30px; height: 30px; }
+    .gi-roll-frame::before, .gi-roll-frame::after { height: 20px; width: min(240px, 34vw); }
+}
+
+/* ---------- Battle board on short landscape screens ---------- */
+/* Rows are placed from the top: enemy cards, room for their intent badges and the party's danger
+   markers, the party, then the hand peeking up from the bottom edge. */
+@media (max-height: 560px) and (orientation: landscape) {
+    #gi-battle { --top: 24px; --mid: 44px; --ch: max(60px, min(calc((100dvh - 2 * max(8px, 1.2vmin) - var(--top) - var(--mid) - 72px) / 2), 12vw)); --gap: 0px; }
+    #gi-battle .tb-row-foe, #gi-battle .tb-summons-foe { top: var(--top); bottom: auto; align-items: flex-start; align-content: flex-start; }
+    #gi-battle .tb-row-you, #gi-battle .tb-summons-you, #gi-battle .tb-played { top: calc(var(--top) + var(--ch) + var(--mid)); }
+    #gi-battle .tb-midline, #gi-battle .tb-emblem { top: calc(var(--top) + var(--ch) + var(--mid) / 2); }
+    #gi-battle .tb-hand { --hh: 66px; bottom: -14px; }
+    #gi-battle .tb-intent { bottom: -19px; padding: 2px 6px 2px 5px; } #gi-battle .tb-intent b { font-size: 13px; } #gi-battle .tb-intent svg { width: 14px; height: 14px; } #gi-battle .tb-intent img { width: 18px; height: 18px; }
+    #gi-battle .tb-crest { height: 26px; }
+    #gi-battle .tb-row { gap: clamp(8px, 1.4vw, 18px); }
+}
+/* Phones held upright: the hand keeps its height (it scrolls sideways, which let the grid crush it). */
+@media (max-aspect-ratio: 4/5) {
+    #gi-battle .tb-hand { min-height: calc(var(--hh) + 8px); }
+}
+@media (max-aspect-ratio: 4/5) and (max-height: 620px) {
+    #gi-battle { --ch: min(15dvh, calc((100vw - 64px) / 4.4 / .583)); }
+    #gi-battle .tb-hand { --hh: 78px; }
+    #gi-battle .tb-board { row-gap: 6px; }
+    #gi-battle .tb-row-foe { margin-top: 26px; } #gi-battle .tb-row-you { margin-top: 24px; }
+}
+
+/* ---------- Inventory: eat between battles ---------- */
+.gi-inv-d-eat { display: grid; gap: 8px; padding: 14px 22px 16px; background: #e3dccd; box-shadow: inset 0 1px 0 #d3bc8e66, inset 0 -1px 0 #d3bc8e66; }
+.gi-inv-d-eat[hidden] { display: none; }
+.gi-inv-d-eat h4 { margin: 0; font: 16px var(--ty-font); color: var(--inv-ink, #3d4557); }
+.gi-inv-d-party { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 8px; }
+#gi-inventory .gi-inv-eat { display: grid; grid-template-columns: 40px minmax(0, 1fr); align-items: center; gap: 8px; min-height: 52px; padding: 6px 10px 6px 6px; border: 0; border-radius: 26px; text-align: left; cursor: pointer;
+    color: #ece5d8; background: linear-gradient(#556075, #4b5366); box-shadow: inset 0 0 0 1px #ffffff1c, 0 2px 4px #0003; transition: background 160ms ease, box-shadow 160ms ease, transform 200ms var(--ty-ease); }
+#gi-inventory .gi-inv-eat:hover:not(:disabled) { background: linear-gradient(#6a748a, #5d6679); box-shadow: inset 0 0 0 1.5px #f2dca0, 0 4px 10px #0004; transform: translateY(-1px); }
+#gi-inventory .gi-inv-eat:focus-visible { outline: 2px solid #c79d4f; outline-offset: 2px; }
+#gi-inventory .gi-inv-eat:disabled { opacity: .5; cursor: default; }
+#gi-inventory .gi-inv-eat img { width: 40px; height: 40px; border-radius: 50%; object-fit: cover; object-position: 50% 15%; background: #3a4152; box-shadow: 0 0 0 2px #ece5d8; }
+#gi-inventory .gi-inv-eat > span { display: grid; gap: 3px; min-width: 0; }
+#gi-inventory .gi-inv-eat b { overflow: hidden; font-size: 14px; font-weight: 400; white-space: nowrap; text-overflow: ellipsis; }
+#gi-inventory .gi-inv-eat small { font-size: 12px; color: #ece5d8cc; }
+.gi-inv-eat-hp { position: relative; display: block; height: 5px; border-radius: 3px; background: #0006; overflow: hidden; }
+.gi-inv-eat-hp > i { position: absolute; inset: 0 auto 0 0; width: calc(var(--hp, 0) * 100%); border-radius: inherit; background: linear-gradient(90deg, #8fd36b, #c3f27e); transition: width 500ms var(--ty-ease); }
+#gi-inventory .gi-inv-eat.gi-inv-eaten { animation: gi-inv-eaten 900ms ease-out; }
+@keyframes gi-inv-eaten { 30% { box-shadow: inset 0 0 0 2px #c3f27e, 0 0 18px #9ef07a99; } }
+@media (max-width: 860px), (max-aspect-ratio: 4/5) { .gi-inv-d-eat { padding: 12px 14px 14px; } .gi-inv-d-party { grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); } }
+
+/* ---------- Review fixes: welcome page, round rail and optional health drawer ---------- */
+/* Remove the native rectangular surfaces behind the rounded welcome controls. */
+body.gi-shell #sheld:has(.welcomePanel), body.gi-shell #chat:has(> .welcomePanel),
+body.gi-shell #sheld:has(.welcomePanel) :is(#form_sheld, #send_form) {
+    background: transparent; border: 0; box-shadow: none; backdrop-filter: none;
+}
+body.gi-shell #sheld:has(.welcomePanel) { overflow: visible; }
+body.gi-shell #chat:has(> .welcomePanel) { padding-inline: 8px; scrollbar-gutter: stable both-edges; }
+body.gi-shell .welcomePanel .recentChat { gap: 16px; padding: 12px 14px; }
+body.gi-shell .welcomePanel .recentChat .avatar { --gi-recent-avatar-height: 94px; flex: 0 0 86px; width: 86px; min-width: 86px; max-width: 86px; height: var(--gi-recent-avatar-height); }
+/* The fan spacing follows CSS height on rotation, including collages mounted before resizing. */
+body.gi-shell .welcomePanel .recentChat .avatar.gi-card-collage { --gi-card-w: calc(var(--gi-recent-avatar-height) * 208 / 248 * .8) !important; }
+body.gi-shell .welcomePanel .recentChat .avatar.gi-card-collage:is(.collage_3, .collage_4) { --gi-card-w: calc(var(--gi-recent-avatar-height) * 208 / 248 * .7) !important; }
+body.gi-shell .welcomePanel .recentChat .avatar img { border: 0; outline: 0; box-shadow: none; }
+body.gi-shell .welcomePanel .recentChat .recentChatInfo { flex: 1 1 0; min-width: 0; align-self: center; }
+body.gi-shell .welcomePanel .chatNameContainer { flex-wrap: wrap; }
+body.gi-shell .welcomePanel .chatNameContainer .chatName { flex-basis: 55%; min-width: 0; }
+body.gi-shell .welcomePanel .chatMessageContainer { align-items: flex-end; }
+body.gi-shell .welcomePanel .chatMessage { min-width: 0; overflow-wrap: anywhere; }
+body.gi-shell .welcomePanel .chatStats { flex: 0 0 auto; }
+/* min-width:44px and a base width:100% previously overruled the intended circles. */
+#gi-toolbar.gi-paimon .gi-pm-rail button {
+    flex: 0 0 var(--gi-hud-cell); width: var(--gi-hud-cell); height: var(--gi-hud-cell);
+    min-width: 0; max-width: var(--gi-hud-cell); min-height: 0; max-height: var(--gi-hud-cell);
+    aspect-ratio: 1; border-radius: 50%; transform: none;
+}
+#gi-launcher[aria-expanded="true"] { transform: none; }
+/* A hidden enemy preview must stay hidden in fuel rolls. */
+#gi-elemental-roll .gi-roll-target[hidden], #gi-elemental-roll .gi-roll-target img[hidden] { display: none; }
+
+#gi-health-drawer {
+    --health-width: min(300px, calc(100vw - 66px));
+    position: fixed; z-index: 12; left: env(safe-area-inset-left, 0px); top: 50%; translate: 0 -50%;
+    width: var(--health-width); transform: translateX(-100%); transition: transform 250ms var(--ty-ease);
+    color: #ece5d8; font-family: var(--ty-font); pointer-events: auto;
+}
+#gi-health-drawer[data-open="true"] { transform: translateX(0); }
+#gi-health-drawer[hidden], body:not(.gi-scene) #gi-health-drawer, body.gi-history #gi-health-drawer, body.gi-hidden #gi-health-drawer { display: none; }
+#gi-health-content { max-height: min(54dvh, 460px); overflow: auto; padding: 12px; background: #263044f5; border: 1px solid #d3bc8e88; border-radius: 0 14px 14px 0; box-shadow: 4px 6px 20px #0006; }
+#gi-health-content h3 { margin: 4px 0 10px; font: 15px var(--ty-font); color: #f2dca0; }
+#gi-health-content h3[hidden] { display: none; }
+#gi-health-drawer .gi-health-toggle { position: absolute; left: 100%; top: 50%; translate: 0 -50%; display: grid; justify-items: center; gap: 2px; width: 38px; min-height: 76px; padding: 8px 4px; border: 1px solid #d3bc8e88; border-left: 0; border-radius: 0 18px 18px 0; color: #f2dca0; background: #263044ed; cursor: pointer; }
+#gi-health-drawer .gi-health-toggle span { font-size: 19px; } #gi-health-drawer .gi-health-toggle small { font: 11px var(--ty-font); } #gi-health-drawer .gi-health-toggle i { font-size: 20px; font-style: normal; line-height: 1; }
+#gi-health-drawer .gi-health-toggle:focus-visible { outline: 2px solid #f2dca0; outline-offset: 2px; }
+body.gi-scene #gi-health-drawer :is(#gi-party-health, #gi-combat) { position: static; inset: auto; width: auto; max-width: none; display: flex; flex-direction: column; gap: 8px; margin: 0 0 12px; pointer-events: auto; }
+body.gi-scene #gi-health-drawer :is(#gi-party-health, #gi-combat)[hidden] { display: none; }
+body.gi-scene #gi-health-drawer :is(.gi-party-member, .gi-enemy-health) { width: auto; min-width: 0; }
+body.gi-scene #gi-health-drawer .gi-party-member { grid-template-columns: 34px minmax(0, 1fr) auto; padding: 6px 9px; }
+body.gi-scene #gi-health-drawer .gi-party-member img { width: 34px; height: 34px; }
+@media (prefers-reduced-motion: reduce) { #gi-health-drawer { transition: none; } }
+body.gi-reduced-motion #gi-health-drawer { transition: none; }
+@media (max-width: 520px) {
+    body.gi-shell .welcomePanel .recentChat { gap: 12px; padding: 10px; }
+    body.gi-shell .welcomePanel .recentChat .avatar { --gi-recent-avatar-height: 82px; flex-basis: 64px; width: 64px; min-width: 64px; max-width: 64px; }
+    body.gi-shell .welcomePanel .chatMessageContainer { flex-wrap: wrap; }
+    body.gi-shell .welcomePanel .chatMessage { flex-basis: 100%; }
+    body.gi-shell .welcomePanel .chatNameContainer .chatName { flex-basis: 100%; }
+}
+
+/* ---------- Combat: one central phase line at every aspect ratio ---------- */
+#gi-battle .tb-midline, #gi-battle .tb-emblem, #gi-battle .tb-turn { top: 50%; }
+#gi-battle .tb-hand { --hh: calc(var(--ch) * .76); }
+@media (max-height: 560px) and (orientation: landscape) {
+    #gi-battle { --ch: min(23dvh, 12vw); --gap: 30px; }
+    #gi-battle .tb-row-foe, #gi-battle .tb-summons-foe { top: auto; bottom: calc(50% + var(--gap)); }
+    #gi-battle .tb-row-you, #gi-battle .tb-summons-you, #gi-battle .tb-played { top: calc(50% + var(--gap)); }
+    #gi-battle .tb-hand { --hh: clamp(72px, 21dvh, 100px); bottom: -20px; }
+    #gi-battle .tb-turn { gap: 4px; }
+    #gi-battle .tb-end { width: 54px; height: 54px; }
+    #gi-battle .tb-auto, #gi-battle .tb-flee { width: 30px; height: 30px; }
+}
+@media (max-aspect-ratio: 4/5) {
+    #gi-battle { --ch: min(19dvh, calc((100vw - 78px) / 4.4 / .583)); --gap: 56px; }
+    #gi-battle .tb-board { display: block; padding: 0; }
+    #gi-battle .tb-board > :not(.tb-tip, .tb-banner, .tb-combo, .tb-confirm, .tb-order) { position: absolute !important; }
+    #gi-battle .tb-midline { display: block; }
+    #gi-battle .tb-emblem { display: block; width: 100px; translate: -50% -50% !important; }
+    #gi-battle .tb-row { left: 50%; translate: -50% 0 !important; margin: 0; gap: 10px; }
+    #gi-battle .tb-row-foe { top: auto; bottom: calc(50% + var(--gap)); }
+    #gi-battle .tb-row-you { top: calc(50% + var(--gap)); }
+    #gi-battle .tb-turn { left: 10px; translate: 0 -50% !important; display: flex; gap: 5px; }
+    #gi-battle .tb-end { width: 48px; height: 48px; }
+    #gi-battle .tb-auto, #gi-battle .tb-flee { width: 30px; height: 30px; }
+    #gi-battle .tb-dice { top: 50%; right: 8px; left: auto; translate: 0 -50% !important; gap: 4px; max-width: calc(100% - 145px); }
+    #gi-battle .tb-dice-list { max-width: 140px; justify-content: flex-end; }
+    #gi-battle .tb-hand { --hh: clamp(96px, 15dvh, 128px); min-height: 0; width: calc(100% - 174px); left: 10px; bottom: -4px; translate: none !important; padding: 10px 12px 0; justify-content: safe center; touch-action: pan-x; }
+    #gi-battle .tb-skills { right: 10px; bottom: 16px; }
+    #gi-battle .tb-order { right: 10px; left: auto; bottom: clamp(118px, 17dvh, 148px); }
+    #gi-battle .tb-plate-foe { top: 12px; left: 12px; max-width: calc(100% - 60px); }
+    #gi-battle .tb-skip { right: 8px; top: 12px; }
+    #gi-battle .tb-summons-foe, #gi-battle .tb-summons-you { right: 10px; left: 10px; justify-content: flex-end; }
+    #gi-battle .tb-summons-foe { top: 70px; bottom: auto; }
+    #gi-battle .tb-summons-you { top: auto; bottom: clamp(112px, 17dvh, 144px); justify-content: flex-start; max-width: calc(100% - 180px); margin: 0; }
+    #gi-battle .tb-played { left: 12px; top: 74px; }
+}
+@media (max-aspect-ratio: 4/5) and (max-height: 640px) {
+    #gi-battle { --ch: min(14dvh, calc((100vw - 78px) / 4.4 / .583)); --gap: 50px; }
+    #gi-battle .tb-hand { --hh: 94px; }
+    #gi-battle .tb-skills { bottom: 16px; }
+    #gi-battle .tb-order { bottom: 114px; }
+    #gi-battle .tb-summons-you { bottom: 108px; }
+    #gi-battle .tb-summon { height: 40px; width: 34px; }
+    #gi-battle .tb-medal { width: 36px; height: 36px; } #gi-battle .tb-move-burst .tb-medal { width: 42px; height: 42px; }
+}
+
+@media (max-aspect-ratio: 4/5), (max-height: 560px) {
+    #gi-battle .tb-party.tb-active { transform: translateY(-8px); }
+}

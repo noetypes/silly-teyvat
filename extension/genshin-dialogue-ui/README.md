@@ -1,3 +1,28 @@
+# Silly Teyvat 1.43.1: Layout and dialogue focus corrections
+
+- **Welcome screen.** Transparent outer containers keep the rounded panels clear. Recent-chat portraits have their own column, including group collages, without extra rectangular image rings.
+- **Paimon menu.** Back and Settings are true circles matching the open launcher. Opening Paimon after Hide UI restores the menu and scene controls. Inventory uses the bundled bag icon resolved from the Genshin Impact Wiki API (`File:Icon Inventory.png`).
+- **Health drawer.** Party and enemy HP share one sliding panel. Tap the side **♥ HP** handle to open or close it; Escape also closes it. The open/closed choice is remembered.
+- **Staging.** Sprites share a foot baseline. The shortest visible body model keeps its head and shoulders above the dialogue; the tallest stays below the configured height limit, including focus enlargement. Explicit Wardrobe vertical offsets remain available.
+- **Light up speaker.** In **Settings → Stage → Speaker focus**, choose **Per page** to dim everyone during narration, or **Per message** to keep the reply's author lit through narration. The controlled persona lights up on player turns, including cached history.
+- **Page expression context.** A dialogue page is classified together with the immediately preceding narration page, including narration in the previous message. Narration holds the previous expression; the new expression appears only on the dialogue page. Editing that context invalidates the affected classification.
+- **Combat.** Larger item cards and a central phase line across desktop, portrait and landscape layouts. Portrait hands scroll beside the skill controls. Fuel rolls no longer show an empty red enemy portrait ring; that portrait belonged to the older damage preview.
+- **Validation.** Automated battle layout checks cover nine viewports from 375×568 through 1920×1080. **Interactive preview → Responsive battle demo** opens a disposable four-member, three-enemy board for resizing. These are browser viewport checks, not physical-device tests.
+
+# Silly Teyvat 1.43.0: Phone layout, sprite staging and Genshin-style menus
+
+- **Sprite staging fits the screen it is shown on.** Sprites are sized and placed when a page is drawn, from the real window: your own sprite and companions on the left, enemies on the right, spread out on a desktop and overlapped from edge to edge on a phone. Faces clear the dialogue box, wide official art no longer shrinks everyone else, and body models keep a shared baseline under the height limit. Rotating or resizing re-fits the scene.
+- **Crowded scenes.** **Settings → Staging → Listeners shown**: *Auto* hides characters who are not speaking when more than 5 sprites would be on a desktop screen or more than 3 on a phone; *Recent speakers only* keeps the old limit; *Everyone* shows all. **Only the speaking enemy** and **Only the speaking companion** show one of each at a time (the one talking, or whoever spoke last). Your own sprite always stays.
+- **Darken listeners.** Characters who are not speaking are now darkened (Listener brightness, default 0.55) instead of turned see-through, and it is on by default. On a phone with three or more on stage, listeners also step back slightly.
+- **Sprite animations.** The speaker grows and listeners darken with a smooth ease; characters step in and fade out when they join or leave; everyone breathes gently while standing (Idle breathing). After a battle round, a party member who was hurt shakes with a red flash and one who was healed glows with rising motes.
+- **Eat between battles.** In the Inventory, dishes that heal or revive show **Eat now** with your party's health: tap a member to eat. Mushroom Pizza's healing over time arrives at once, Teyvat Fried Egg revives a downed member. The member glows on the stage when the bag closes.
+- **Paimon menu on phones.** The namecard no longer gets cut off at the top; the menu is a narrower sheet with a 3 × 3 tile grid. Back and Settings match Paimon's size and spacing, and "Companion" has room under it on the namecard.
+- **Teyvat Choices look like Genshin's dialogue options**, in the dialogue font, with the white speech-bubble icon and a gold highlight. The reply box uses the same slate, ivory and gold, with a gold send button, in scenes, Review and the welcome page.
+- **SillyTavern's welcome page** is restyled in Teyvat colours and no longer slides under Paimon or the top-right icons.
+- **Phones.** Party and enemy health use the optional side drawer. The top-right SillyTavern icons are tucked into the Paimon menu (Auto), and Attack stays beside the suggested-reply controls.
+- **Battle board.** On phones held sideways, enemy intents no longer cover the party and the hand of cards shows; on short upright phones the hand keeps its height. The Roll Phase fits inside its frame on short screens.
+- **Icons.** New filled sword, claymore, polearm, bow and catalyst icons (the Attack toggle, enemy intent badges and Normal Attacks without a wiki icon); proper reroll, skip and confirm icons in the Roll Phase; dice picked for a reroll stay visible under a small arrows badge.
+
 # Silly Teyvat 1.42.1: Temporary enemy sprites
 
 - All remaining enemy cards receive transparent temporary Official Art sets and default to them once. Most use HoYoWiki game renders; three use small wiki icon portraits. Clockwork variants share their family render, and the Hydro Phantasm uses its Water-Splitting form. Source and image limitations are recorded in the sprite pack manifest.

@@ -1,6 +1,8 @@
 // Battle visuals shared by the battle screen: element glyphs, weapon icons and a
 // lightweight canvas particle system for impacts, heals, buffs and reactions.
 export const EL_COLORS={Pyro:'#ff8a4c',Hydro:'#4cc2f1',Anemo:'#74e0c0',Electro:'#c08cf5',Dendro:'#a5d34b',Cryo:'#a8e4f2',Geo:'#f5c542',Omni:'#f5e8bd',Physical:'#e8e2d4',None:'#d3bc8e'};
+// A straight sword, filled so it reads at any size (Attack toggle, intent badges, Physical).
+export const SWORD_SVG='<g transform="rotate(45 12 12)"><path fill-rule="evenodd" d="M12 .8 14.1 3.6v11H9.9v-11ZM11.6 4.4v9.4h.8V4.4Z"/><path d="M6.2 14.6h11.6a1.1 1.1 0 0 1 0 2.2H6.2a1.1 1.1 0 0 1 0-2.2Z"/><path d="M10.9 16.8h2.2v4.3h-2.2Z"/><circle cx="12" cy="22.3" r="1.5"/></g>';
 const GLYPH={
     Pyro:'<path d="M12 2c.8 3.6 5.6 5.4 5.6 10.6A5.6 5.6 0 0 1 6.4 13c0-2.6 1.6-4 2.7-5.6.3 1.8 1 2.9 2.4 3.4C12.4 7.8 11 5.2 12 2z"/>',
     Hydro:'<path d="M12 2.4C9.2 6.8 6 10.4 6 14.2a6 6 0 0 0 12 0C18 10.4 14.8 6.8 12 2.4zm-2.6 11.4c.2 1.6 1.2 2.7 2.8 3.1-2 .4-3.6-.9-2.8-3.1z"/>',
@@ -10,18 +12,19 @@ const GLYPH={
     Cryo:'<path d="M12 2l1.9 6.2 6.4-1.5-4.5 4.8 4.5 4.8-6.4-1.5L12 21l-1.9-6.2-6.4 1.5 4.5-4.8-4.5-4.8 6.4 1.5z"/>',
     Geo:'<path d="M12 2.2 20.4 9 12 21.8 3.6 9zM12 5.4 7 9.4l5 8.2 5-8.2z" fill-rule="evenodd"/>',
     Omni:'<path d="M12 1.8l2.6 7.6L22.2 12l-7.6 2.6L12 22.2l-2.6-7.6L1.8 12l7.6-2.6z"/>',
-    Physical:'<path d="M17.5 2.5h4v4L10.4 17.6l-4-4zM3.2 15.4l5.4 5.4-1.6 1.6-1.9-1.9-2.2 2.2-1.4-1.4 2.2-2.2-1.9-1.9z"/>',
+    Physical:SWORD_SVG,
 };
 export const glyph=(element,cls='gb-glyph')=>`<svg class="${cls}" viewBox="0 0 24 24" aria-hidden="true" fill="currentColor">${GLYPH[element] || GLYPH.Physical}</svg>`;
+// Weapon-type silhouettes after Genshin's weapon icons, drawn filled.
 const WEAPON={
-    sword:'<path d="M18.5 2.5h3v3L9 18l-3-3z"/><path d="m4 13 7 7M6.5 17.5 3 21"/>',
-    claymore:'<path d="M20.5 1.5 22.5 3.5 10.5 17l-4-4z"/><path d="m3.5 11.5 9 9M6 18l-3 3"/>',
-    polearm:'<path d="M21.5 2.5 3 21M21.5 2.5l-1 5-4-4z"/><path d="m14 7 3 3"/>',
-    bow:'<path d="M6 3c9 2 13 8 15 15"/><path d="M6 3 21 18M3 6l3-3M18 21l3-3"/>',
-    catalyst:'<circle cx="12" cy="12" r="6.5"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/><circle cx="12" cy="12" r="2.5"/>',
-    none:'<path d="M7 13V8.5a1.5 1.5 0 0 1 3 0V12M10 11V7a1.5 1.5 0 0 1 3 0v4M13 11V8a1.5 1.5 0 0 1 3 0v6c0 3.5-2.5 6-6 6s-5-2-5.5-4L3 13a1.5 1.5 0 0 1 2.5-1.5L7 13"/>',
+    sword:SWORD_SVG,
+    claymore:'<g transform="rotate(45 12 12)"><path fill-rule="evenodd" d="M12 .5 15.1 3.4v10.9H8.9V3.4ZM11.5 4v9.6h1V4Z"/><path d="M5.3 14.2h13.4l-1.3 2.6H6.6Z"/><path d="M10.8 16.8h2.4v4.5h-2.4Z"/><path d="m12 21 1.7 1.5-1.7 1.4-1.7-1.4Z"/></g>',
+    polearm:'<g transform="rotate(45 12 12)"><path d="M12 .2 14.4 4.7 13 7.6h-2L9.6 4.7Z"/><path d="M9.2 7.6h5.6l-1 1.5h-3.6Z"/><path d="M11.3 9.1h1.4v14.7h-1.4Z"/><path d="M10.5 13.2h3v1.3h-3Z"/></g>',
+    bow:'<path d="M4.6 3.2c8.4.9 15.3 7.8 16.2 16.2l-2.1.3C17.9 12.5 11.5 6.1 4.3 5.3Z"/><path d="M4.4 4.3 19.7 19.6" fill="none" stroke="currentColor" stroke-width=".9"/><path d="m2.6 21.4 10.6-10.6" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="m15.6 8.4-3.9.9 3 3Z"/><path d="m2.2 19.4 1.4 1.4-2 .6Zm2.4 2.4-1.4-1.4-.6 2Z"/>',
+    catalyst:'<path fill-rule="evenodd" d="M12 3.3a8.7 8.7 0 1 1 0 17.4 8.7 8.7 0 0 1 0-17.4Zm0 1.5a7.2 7.2 0 1 0 0 14.4 7.2 7.2 0 0 0 0-14.4Z" opacity=".6"/><circle cx="12" cy="12" r="4.8"/><path d="m12 .6 1 2.2-1 1-1-1Zm0 22.8-1-2.2 1-1 1 1ZM.6 12l2.2-1 1 1-1 1Zm22.8 0-2.2 1-1-1 1-1Z"/><circle cx="10.4" cy="10.4" r="1.4" fill="#fff" opacity=".55"/>',
+    none:'<path d="M7 13V8.5a1.5 1.5 0 0 1 3 0V12M10 11V7a1.5 1.5 0 0 1 3 0v4M13 11V8a1.5 1.5 0 0 1 3 0v6c0 3.5-2.5 6-6 6s-5-2-5.5-4L3 13a1.5 1.5 0 0 1 2.5-1.5L7 13" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>',
 };
-export const weaponIcon=weapon=>`<svg class="gb-weapon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">${WEAPON[weapon] || WEAPON.sword}</svg>`;
+export const weaponIcon=weapon=>`<svg class="gb-weapon" viewBox="0 0 24 24" aria-hidden="true" style="fill:currentColor;stroke:none">${WEAPON[weapon] || WEAPON.sword}</svg>`;
 
 export function createParticles(canvas){
     const ctx=canvas.getContext('2d'),parts=[],bolts=[];let frame=0,last=0,scale=1;

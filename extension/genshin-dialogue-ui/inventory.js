@@ -5,7 +5,8 @@
 // item squares, since a Silly Teyvat bag holds a handful of cards rather than hundreds.
 import {ITEMS,itemArt,bagCount} from './battle-items.js';
 import {partyBag} from './battle-state.js';
-import {combatState} from './combat-state.js';
+import {combatState,partyStatus,partyStore,USER_KEY} from './combat-state.js';
+import {activePersonaAvatar} from './persona-wardrobe.js';
 
 const ICON={
     bag:'<svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M9 3h6a2 2 0 0 1 2 2v1h1.5A2.5 2.5 0 0 1 21 8.5V19a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8.5A2.5 2.5 0 0 1 5.5 6H7V5a2 2 0 0 1 2-2Zm0 2v1h6V5H9Zm-4 6v2h14v-2H5Zm5 1.5h4V15h-4z"/></svg>',
@@ -17,7 +18,7 @@ const ICON={
     sort:'<svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 4v16M4 8l4-4 4 4M16 20V4M12 16l4 4 4-4"/></svg>',
 };
 export const INVENTORY_GROUPS=[
-    {id:'food',label:'Food',use:'Eaten before anyone acts. Each member can eat one dish per round.'},
+    {id:'food',label:'Food',use:'In battle, eaten before anyone acts, one dish per member each round. Dishes that heal or revive can also be eaten here between battles.'},
     {id:'event',label:'Event Cards',use:'Played during the Action Phase, before anyone acts.'},
     {id:'dice',label:'Dice Cards',use:'Changes your elemental dice the moment it is played.'},
 ];
@@ -26,6 +27,24 @@ const SORTS={rarity:'Quality',count:'Quantity',cost:'Cost',name:'Name'};
 const stars=rarity=>rarity+2;
 const quality=rarity=>['blue','purple','gold'][Math.max(0,Math.min(2,rarity-1))];
 const el=(tag,cls,text)=>{const n=document.createElement(tag);if(cls)n.className=cls;if(text!==undefined)n.textContent=text;return n;};
+// Outside battle, dishes that restore health can be eaten from the bag. Healing over time
+// (Mushroom Pizza) arrives all at once, since no rounds pass between battles.
+export function fieldUse(item){
+    if(!item||item.kind!=='food')return null;
+    const heal=(item.effects || []).reduce((n,e)=>n+(e.type==='heal'?e.amount:e.type==='buff'&&e.stat==='regen'?e.amount*(e.rounds || 1):0),0);
+    const revive=(item.effects || []).find(e=>e.type==='revive')?.amount || 0;
+    return revive?{revive}:heal?{heal}:null;
+}
+// Applies a dish to one party member out of combat. Returns the HP restored, or 0 if it would do nothing.
+export function eatOutsideBattle(ctx,id,avatar){
+    const item=ITEMS[id],use=fieldUse(item),bag=partyBag(ctx),member=partyStatus(ctx).find(m=>m.avatar===avatar);
+    if(!use||!member||!(bag[id]>0))return 0;
+    if(use.revive?!member.downed:member.downed||member.hp>=member.maxHp)return 0;
+    const hp=use.revive?Math.min(member.maxHp,use.revive):Math.min(member.maxHp,member.hp+use.heal);
+    partyStore(ctx)[avatar].hp=hp;bag[id]-=1;if(bag[id]<=0)delete bag[id];
+    ctx.saveMetadataDebounced?.();
+    return hp-member.hp;
+}
 
 // Cards in the bag with how many there are, and whether any arrived since the bag was last opened.
 export function inventoryCards(bag,seen={}){
@@ -41,7 +60,7 @@ export function sortCards(cards,sort){
     return [...cards].sort(by);
 }
 
-export function mountInventory({host,getContext,announce=()=>{}}){
+export function mountInventory({host,getContext,announce=()=>{},onEat=()=>{},onClose=()=>{}}){
     const dialog=document.createElement('dialog');dialog.id='gi-inventory';dialog.setAttribute('aria-labelledby','gi-inv-title');
     dialog.innerHTML=`<header class="gi-inv-top">
             <div class="gi-inv-title"><span class="gi-inv-badge">${ICON.bag}</span><h2 id="gi-inv-title">Inventory</h2></div>
@@ -81,6 +100,7 @@ export function mountInventory({host,getContext,announce=()=>{}}){
         box.className=`gi-inv-detail gi-q-${quality(item.rarity)}`;
         box.innerHTML=`<header class="gi-inv-d-head"><h3></h3></header>
             <div class="gi-inv-d-hero"><small></small><div class="gi-inv-d-stat"><span>Cost</span><strong></strong></div><span class="gi-inv-d-stars" aria-label="${stars(item.rarity)} stars">${'★'.repeat(stars(item.rarity))}</span><img alt="" draggable="false"></div>
+            <section class="gi-inv-d-eat" hidden><h4></h4><div class="gi-inv-d-party" role="group"></div></section>
             <div class="gi-inv-d-body"><div class="gi-inv-d-row"><b class="gi-inv-d-count"></b></div><ul class="gi-inv-d-effects"></ul><p class="gi-inv-d-set"></p><p class="gi-inv-d-use"></p></div>
             <footer class="gi-inv-d-foot"><span></span></footer>`;
         box.querySelector('h3').textContent=item.name;
@@ -92,6 +112,35 @@ export function mountInventory({host,getContext,announce=()=>{}}){
         box.querySelector('.gi-inv-d-set').textContent=`${group?.label || 'Card'}:`;
         box.querySelector('.gi-inv-d-use').textContent=`${group?.use || ''} ${item.target==='ally'?'Choose one party member.':item.target==='downed'?'Choose a downed party member.':item.target==='party'?'Affects the whole party.':''}`.trim();
         box.querySelector('.gi-inv-d-foot span').textContent=`In your bag: ${count}`;
+        paintEat(box,card);
+    }
+    // "Use on": the party with their health, for dishes that heal or revive between battles.
+    function paintEat(box,{id,item}){
+        const {ctx,bag}=state(),use=fieldUse(item),section=box.querySelector('.gi-inv-d-eat');
+        if(!use||!bag){section.hidden=true;return;}
+        section.hidden=false;
+        section.querySelector('h4').textContent=use.revive?'Revive a downed member':`Eat now · restores ${use.heal} HP`;
+        const party=section.querySelector('.gi-inv-d-party');party.setAttribute('aria-label',`Use ${item.name} on`);
+        party.replaceChildren(...partyStatus(ctx).map(member=>{
+            const b=el('button','gi-inv-eat');b.type='button';
+            const usable=use.revive?member.downed:!member.downed&&member.hp<member.maxHp;
+            b.disabled=!usable;b.dataset.avatar=member.avatar;
+            b.innerHTML='<img alt="" draggable="false"><span><b></b><i class="gi-inv-eat-hp"><i></i></i><small></small></span>';
+            const img=b.querySelector('img');img.src=member.avatar===USER_KEY?(ctx.getThumbnailUrl?.('persona',activePersonaAvatar(ctx)) || `/User%20Avatars/${encodeURIComponent(activePersonaAvatar(ctx))}`):(ctx.getThumbnailUrl?.('avatar',member.avatar) || `/characters/${encodeURIComponent(member.avatar)}`);
+            img.addEventListener('error',()=>{img.removeAttribute('src');},{once:true});
+            b.querySelector('b').textContent=member.name;
+            b.querySelector('.gi-inv-eat-hp').style.setProperty('--hp',String(member.maxHp?member.hp/member.maxHp:0));
+            b.querySelector('small').textContent=member.downed?'Downed':`${member.hp} / ${member.maxHp}`;
+            b.setAttribute('aria-label',`${member.name}, ${member.downed?'downed':`${member.hp} of ${member.maxHp} HP`}${usable?'':use.revive?', not downed':member.downed?', downed: needs a revive':', already at full health'}`);
+            on(b,'click',()=>{
+                const healed=eatOutsideBattle(getContext(),id,member.avatar);if(!healed)return;
+                const after=partyStatus(getContext()).find(m=>m.avatar===member.avatar);
+                announce(use.revive?`${member.name} is back on their feet with ${after.hp} HP.`:`${member.name} ate ${item.name}: +${healed} HP (${after.hp}/${after.maxHp}).`);
+                onEat({avatar:member.avatar,item:id,healed});
+                paint();dialog.querySelector(`.gi-inv-eat[data-avatar="${CSS.escape(member.avatar)}"]`)?.classList.add('gi-inv-eaten');
+            });
+            return b;
+        }));
     }
     function paint(){
         const {bag}=state(),all=sortCards(inventoryCards(bag,seen),sort),cards=reversed?all.reverse():all;
@@ -148,7 +197,7 @@ export function mountInventory({host,getContext,announce=()=>{}}){
         const {ctx,bag}=state();
         if(bag){combatState(ctx).bagSeen={...bag};ctx.saveMetadataDebounced?.();}
         dialog.classList.add('gi-inv-closing');clearTimeout(closeTimer);
-        closeTimer=setTimeout(()=>{dialog.classList.remove('gi-inv-closing');if(dialog.open)dialog.close();},200);
+        closeTimer=setTimeout(()=>{dialog.classList.remove('gi-inv-closing');if(dialog.open)dialog.close();onClose();},200);
     }
     return {
         get open(){return dialog.open;},

@@ -66,3 +66,17 @@ export function previousSpeech(chat, id, prefs = {}, beforePage = Infinity, rend
     }
     return null;
 }
+
+// Only the immediately preceding narration page supplies context. It is never
+// classified on its own and cannot preview the expression of an unread line.
+export function expressionContext(chat, id, page, text, prefs = {}, renderMessage = () => null) {
+    const pagesAt = i => {
+        const message = chat[i];
+        if (!message || message.is_user || message.is_system) return [];
+        let root = renderMessage(i);
+        if (!root) { root = document.createElement('div'); root.textContent = plainMessage(message); }
+        return dialoguePages(root, prefs, message);
+    };
+    const previous = page > 0 ? pagesAt(id)[page - 1] : pagesAt(id - 1).at(-1);
+    return previous?.giNarration && previous.textContent.trim() ? `${previous.textContent.trim()}\n${text}` : text;
+}

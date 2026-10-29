@@ -247,6 +247,7 @@ document.addEventListener('click', async event => {
                 ctx.chatMetadata={silly_teyvat_world:{regionId:'demo-wild',location:{id:'demo-woods',label:'Whispering Woods'}},silly_teyvat_cast:{core:party,managed:foes,placements:{},encounter:{key:'preview-combat-'+Date.now(),locationId:'demo-woods',present:[],travellers:party,enemies:foes},arrival:{handled:true}}};
                 message('Hilichurl Fighter',demo==='enemy-action-demo'?'[enemy_attack] The hilichurl lunges toward the Traveler and swings its club.\n“Ya! Mosi?”':'The hilichurl plants its club in the path and growls.\n“Ya! Mosi?”');emit(eventTypes.CHAT_CHANGED);emit(eventTypes.CHARACTER_MESSAGE_RENDERED);result('Wilderness encounter ready. Toggle Attack, then send a message or select a suggested reply. The message stays in chat, then the Roll Phase, Action Phase and the round play before the model reply. No native chat/model writes.');break;
             }
+            case 'battle-layout': {const {showBattleLayout}=await import('./preview-battle-layout.js');await showBattleLayout();break;}
             case 'encounter-fix-tests': {ctx.extensionSettings.genshin_dialogue_ui.choices=false;emit(eventTypes.SETTINGS_UPDATED);const {runEncounterFixTests}=await import('./preview-encounter-fix-tests.js');result(await runEncounterFixTests().catch(error=>error.message));break;}
             case 'dice-model-demo': {
                 const {mountElementalDice}=await import('./elemental-dice.js');const ui=mountElementalDice({host:document.body});

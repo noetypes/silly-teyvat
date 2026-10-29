@@ -7,7 +7,7 @@ import {resolveRound,allocateDice,forecastPlan,canAfford,moveNeedsTarget,autoPla
 import {describeMove,KIND_LABEL} from './combat-kits.js';
 import {ITEMS,itemArt,applyDiceItem} from './battle-items.js';
 import {createBattleSound} from './battle-sound.js';
-import {createParticles,glyph,weaponIcon,EL_COLORS} from './battle-fx.js';
+import {createParticles,glyph,weaponIcon,EL_COLORS,SWORD_SVG} from './battle-fx.js';
 import {elementImg,reactionIcon,skillIcon,characterIcon,summonArt,fieldIcon} from './battle-icons.js';
 
 const el=(tag,cls,text)=>{const n=document.createElement(tag);if(cls)n.className=cls;if(text!==undefined)n.textContent=text;return n;};
@@ -19,7 +19,7 @@ const ICON={
     flee:'<svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="15" cy="4.5" r="2"/><path d="m8 21 3-6 3 2v5M6 11l4-3 4 1 2 4 3 1M11 15l-2-4"/><path d="M2 8h4M1 12h3" opacity=".6"/></svg>',
     auto:'<svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M12 2l1.8 5.2L19 9l-5.2 1.8L12 16l-1.8-5.2L5 9l5.2-1.8zM19 14l.9 2.1L22 17l-2.1.9L19 20l-.9-2.1L16 17l2.1-.9zM5 15l.7 1.6 1.6.7-1.6.7L5 19.6l-.7-1.6L2.7 17.3l1.6-.7z"/></svg>',
     drop:'<svg viewBox="0 0 30 34" aria-hidden="true"><path d="M15 1.5C15 1.5 3 14 3 21.5a12 12 0 0 0 24 0C27 14 15 1.5 15 1.5Z"/></svg>',
-    attack:'<svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M17.5 2.5h4v4L10.4 17.6l-4-4zM3.2 15.4l5.4 5.4-1.6 1.6-1.9-1.9-2.2 2.2-1.4-1.4 2.2-2.2-1.9-1.9z"/></svg>',
+    attack:`<svg viewBox="0 0 24 24" aria-hidden="true" style="fill:currentColor;stroke:none">${SWORD_SVG}</svg>`,
     aoe:'<svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M12 2l2.2 6.3L20.5 6l-3.1 5.9L23 14l-6.3.9L17 22l-5-4.6L7 22l.3-7.1L1 14l5.6-2.1L3.5 6l6.3 2.3z"/></svg>',
     random:'<svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M4 4h6v6H4zM14 4h6v6h-6zM4 14h6v6H4zM14 14h6v6h-6z" opacity=".9"/></svg>',
     heal:'<svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M9 3h6v6h6v6h-6v6H9v-6H3V9h6z"/></svg>',

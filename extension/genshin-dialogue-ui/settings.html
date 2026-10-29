@@ -45,16 +45,22 @@
                 <label class="gi-row"><span>Global scale (%)</span><input type="number" min="10" max="300" step="1" data-gi-setting="spriteGlobalScale"></label>
                 <label class="gi-row"><span>Tallest sprite height (%)</span><input type="number" min="20" max="100" step="1" data-gi-setting="spriteBaseHeight"></label>
                 <label class="gi-row"><span>Portrait fallback</span><input type="checkbox" class="gi-switch" data-gi-setting="spriteEmulation"></label>
-                <label class="gi-row"><span>Recent speakers only</span><input type="checkbox" class="gi-switch" data-gi-setting="autoHideSprites"></label>
-                <label class="gi-row"><span>Max visible</span><input type="number" min="1" max="20" step="1" data-gi-setting="maxViewableCharacters"></label>
+                <h4>Crowded scenes</h4>
+                <label class="gi-row" title="Auto hides characters who are not speaking when more than 5 sprites would be on a desktop screen, or more than 3 on a phone"><span>Listeners shown</span><select data-gi-setting="spriteCrowd"><option value="auto">Auto (5 on desktop, 3 on phones)</option><option value="recent">Recent speakers only</option><option value="all">Everyone</option></select></label>
+                <label class="gi-row" id="gi-crowd-max-row"><span>Max visible</span><input type="number" min="1" max="20" step="1" data-gi-setting="maxViewableCharacters"></label>
+                <label class="gi-row" title="Only the enemy who is speaking is shown; between their lines, the one who spoke last"><span>Only the speaking enemy</span><input type="checkbox" class="gi-switch" data-gi-setting="soloEnemySprite"></label>
+                <label class="gi-row" title="Only the companion who is speaking is shown; between their lines, the one who spoke last"><span>Only the speaking companion</span><input type="checkbox" class="gi-switch" data-gi-setting="soloCompanionSprite"></label>
+                <p class="gi-note">Your own sprite always stays when Show persona is on.</p>
                 <h4>Speaker focus</h4>
+                <label class="gi-row" title="Per page dims everyone during narration. Per message keeps the author lit throughout their reply, including narration. Your persona lights up on your own messages."><span>Light up speaker</span><select data-gi-setting="spriteFocusMode"><option value="page">Per page (dialogue only)</option><option value="message">Per message (including narration)</option></select></label>
                 <label class="gi-row"><span>Enlarge speaker</span><input type="checkbox" class="gi-switch" data-gi-setting="spriteFocus"></label>
                 <label class="gi-row"><span>Focus scale (%)</span><input type="number" min="100" max="125" step="1" data-gi-setting="spriteFocusScale"></label>
                 <label class="gi-row"><span>Transition (s)</span><input type="number" min="0" max="2" step="0.05" data-gi-setting="spriteFocusDuration"></label>
                 <label class="gi-row"><span>Easing</span><select data-gi-setting="spriteFocusEasing"><option value="ease">Ease</option><option value="ease-in">Ease in</option><option value="ease-out">Ease out</option><option value="ease-in-out">Ease in-out</option><option value="linear">Linear</option></select></label>
-                <label class="gi-row"><span>Dim others</span><input type="checkbox" class="gi-switch" data-gi-setting="spriteDim"></label>
-                <label class="gi-row"><span>Dim opacity</span><input type="number" min="0.1" max="1" step="0.05" data-gi-setting="spriteDimOpacity"></label>
+                <label class="gi-row"><span>Darken listeners</span><input type="checkbox" class="gi-switch" data-gi-setting="spriteDim"></label>
+                <label class="gi-row" title="1 is full brightness"><span>Listener brightness</span><input type="number" min="0.15" max="1" step="0.05" data-gi-setting="spriteDimBrightness"></label>
                 <label class="gi-row"><span>Speaking shake</span><input type="checkbox" class="gi-switch" data-gi-setting="spriteShake"></label>
+                <label class="gi-row"><span>Idle breathing</span><input type="checkbox" class="gi-switch" data-gi-setting="spriteIdle"></label>
                 <h4>Shadow</h4>
                 <label class="gi-row"><span>Drop shadows</span><input type="checkbox" class="gi-switch" data-gi-setting="spriteShadow"></label>
                 <div class="gi-row gi-row-trio"><span>Offset · Blur</span><input type="number" min="-100" max="100" aria-label="Shadow horizontal offset" data-gi-setting="shadowX"><input type="number" min="-100" max="100" aria-label="Shadow vertical offset" data-gi-setting="shadowY"><input type="number" min="0" max="80" aria-label="Shadow blur" data-gi-setting="shadowBlur"></div>

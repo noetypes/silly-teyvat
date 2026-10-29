@@ -1,4 +1,4 @@
-import { dialoguePages, hasSpeech, previousSpeech } from './narration.js';
+import { dialoguePages, hasSpeech, previousSpeech, expressionContext } from './narration.js';
 import { mountPageSprites } from './page-sprites.js';
 export async function runNarrationTests() {
     const results = [], pause = ms => new Promise(r => setTimeout(r,ms));
@@ -29,6 +29,8 @@ export async function runNarrationTests() {
         check('history inheritance uses rendered speech rather than Markdown markers', previousSpeech([{name:'Klee',mes:'*“Hello”*'},{name:'Klee',mes:'Narrator: Wind.'}],1,keyword,0,id => id === 0 ? rendered : null)?.text === '“Hello”');
         const scene = [{avatar:'Klee.png',folder:'Klee',src:'/characters/Klee/joy.png',expression:'joy',x:.1,y:.1,w:.4,h:.8},{avatar:'Nahida.png',folder:'Nahida',src:'/characters/Nahida/neutral.png',expression:'neutral',x:.55,y:.1,w:.35,h:.8}];
         const calls = [];
+        check('page classification includes only its immediately preceding narration',expressionContext(ctx.chat,0,2,'“Sad”',ctx.extensionSettings.genshin_dialogue_ui)==='The wind passes.\n“Sad”'&&expressionContext(ctx.chat,0,0,'“Joy”',ctx.extensionSettings.genshin_dialogue_ui)==='“Joy”');
+        check('a separate narration message supplies context to the next dialogue',expressionContext([{name:'Narrator',mes:'Leaves fall.',extra:{type:'narrator'}},{name:'Klee',mes:'“Wow!”'}],1,0,'“Wow!”',ctx.extensionSettings.genshin_dialogue_ui)==='Leaves fall.\n“Wow!”');
         const adapter = {capture:()=>structuredClone(scene),classify:async(_ctx,text)=>{calls.push(text);return text.includes('Sad') ? 'sadness':'joy';},resolve:async(_ctx,msg,emotion,base)=>{const copy=structuredClone(base); const target=copy.find(x=>x.avatar===msg.original_avatar) || copy[0];target.expression=emotion;target.src=`/characters/${msg.name}/${emotion}.png`;return {scene:copy,emotion};}};
         ui = mountPageSprites({decodeImage:()=>Promise.resolve(),host,getContext:()=>ctx,adapter});
         const show=(id,page,text,narration=false,extra={})=>ui.sync({on:true,id,page,text,narration,complete:true,generating:false,...extra});
@@ -42,13 +44,21 @@ export async function runNarrationTests() {
         show(0,1,' The wind passes.',false); await pause(30);
         check('changing narration mode invalidates its old page cache', calls.length===2 && ctx.chat[0].extra.silly_teyvat.swipes[0][1].kind!=='narration');
         show(2,0,' Dodoco waits.',true); await pause(30);
-        check('unvisited earlier speech seeds narration, never narrative text', calls.at(-1)==='“Sad”' && !calls.includes(' Dodoco waits.'));
+        check('unvisited earlier speech seeds narration with its preceding context', calls.at(-1)==='The wind passes.\n“Sad”' && !calls.includes(' Dodoco waits.'));
         const before=calls.length; show(2,0,' Dodoco waits.',true,{classifyPages:false}); await pause(30);
         check('narration works with per-page classification disabled', calls.length===before && host.querySelector('img').dataset.expression==='sadness');
         const old=JSON.stringify(ctx.chat[0].extra.silly_teyvat); await ui.refreshSprite({name:'Nahida',avatar:'Nahida.png'});
         check('manual sprite changes preserve earlier saved pages', JSON.stringify(ctx.chat[0].extra.silly_teyvat)===old);
         const beforeScene = JSON.stringify(ctx.chat[2].extra.silly_teyvat); await ui.refreshSprite({name:'Lisa',avatar:'Lisa.png'});
         check('equipping an absent character does not add it to the current scene', JSON.stringify(ctx.chat[2].extra.silly_teyvat)===beforeScene);
+        ctx.chatId='context-regression';ctx.chat=[{name:'Klee',original_avatar:'Klee.png',mes:'“Joy”\nNarrator: Sad rain falls.\n“Hello”'}];
+        show(0,0,'“Joy”');await pause(30);const count=calls.length;
+        show(0,1,'Sad rain falls.',true);await pause(30);
+        check('context does not change the expression before its dialogue page',calls.length===count&&host.querySelector('img').dataset.expression==='joy');
+        show(0,2,'“Hello”');await pause(30);
+        check('the dialogue page changes expression using preceding narration',calls.at(-1)==='Sad rain falls.\n“Hello”'&&host.querySelector('img').dataset.expression==='sadness');
+        ctx.chat[0].mes='“Joy”\nNarrator: Sun returns.\n“Hello”';show(0,2,'“Hello”');await pause(30);
+        check('editing the preceding narration invalidates the dialogue classification',calls.at(-1)==='Sun returns.\n“Hello”'&&host.querySelector('img').dataset.expression==='joy');
     } catch(error) { results.push(`ERROR ${error.message}`); }
     finally {ui?.dispose();host.remove();}
     return results.join('; ');

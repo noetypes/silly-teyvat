@@ -40,7 +40,7 @@ import {mountSoloChat} from './solo-chat.js';
 const KEY = 'genshin_dialogue_ui';
 const FOLDER = 'third-party/genshin-dialogue-ui';
 const defaults = Object.freeze({ ...stagingDefaults, enabled: false, choices: true, composer: true, reducedMotion: false, textScale: 1, scrim: 0.8, revealSpeed: 45, tapAdvance: true, pageExpressions: true, narration: false, narrationMode: 'quotes', narrationKeyword: 'Narrator:', hideDialogueQuotes:false, wardrobe: true, locationEncounters:true, locationCharacterLimit:5, randomEncounters:true, encounterRate:40, allowMainDeparture:false, worldPromptAllRegions:false, roleplayPromptsEnabled:true, wildernessEncounters:true, maxEnemies:3, combatDamageMin:1, combatDamageMax:6, enemyStrikeBack:true, enemyDamageMin:2, enemyDamageMax:6, enemyDice:4, userMaxHp:30, combatDifficulty:'normal', battleEffects:true, battleSound:true, personaIcon: 'Aether', personaIconMode:'auto', hudTopIcons:'auto', namecard:'', signature:'', trimSprites:true, cgEnabled:true, cgMode:'scene', cgClassifier:'main', cgProfile:'', cgBypassReasoning:true, cgPrompt:defaultCGPrompt, cgAudio:true, spriteAudio:true, burstAudio:true, spriteVolume:.8, diceSound:true });
-const bodyClasses = ['gi-enabled', 'gi-scene', 'gi-history', 'gi-hidden', 'gi-compose', 'gi-generating', 'gi-reduced-motion', 'gi-reading', 'gi-choices-enabled', 'gi-native-staging'];
+const bodyClasses = ['gi-enabled', 'gi-scene', 'gi-history', 'gi-hidden', 'gi-compose', 'gi-generating', 'gi-reduced-motion', 'gi-reading', 'gi-choices-enabled', 'gi-native-staging', 'gi-sprite-idle', 'gi-hud-top-off'];
 const icons = {
     compass: '<path d="m12 2 3 7 7 3-7 3-3 7-3-7-7-3 7-3Z"/><path d="m12 8 4 4-4 4-4-4Z"/>',
     back: '<path d="M9 14 4 9l5-5"/><path d="M4 9h10.5a5.5 5.5 0 0 1 0 11H11"/>',
@@ -65,7 +65,7 @@ const icons = {
 const svg = name => `<svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">${icons[name] || icons.compass}</svg>`;
 const button = (action, label, icon = action, tooltip = true) => `<button type="button" data-gi-action="${action}" aria-label="${label}"${tooltip ? ` title="${label}"` : ''}>${svg(icon)}<span>${label}</span></button>`;
 // Paimon menu tiles and rail use the game's own menu icons (tools/build-menu-icons.py).
-const MENU_ICONS = new Set(['auto', 'book', 'wardrobe', 'map', 'cg', 'compose', 'hide', 'namecard', 'back', 'settings']);
+const MENU_ICONS = new Set(['auto', 'book', 'wardrobe', 'map', 'cg', 'compose', 'hide', 'namecard', 'back', 'settings', 'bag']);
 const menuButton = (action, label, icon = action) => MENU_ICONS.has(icon)
     ? `<button type="button" data-gi-action="${action}" aria-label="${label}"><img class="gi-pm-icon" src="${new URL(`assets/menu/${icon}.webp`, import.meta.url).href}" alt="" aria-hidden="true" draggable="false"><span>${label}</span></button>`
     : button(action, label, icon, false);
@@ -158,9 +158,14 @@ function announcePage(selected) {
 }
 
 function context() { return SillyTavern.getContext(); }
+// Auto hides the top-right SillyTavern icons on phones, upright or on their side; every panel is also in the Paimon menu.
+const topIconsHidden = prefs => prefs.hudTopIcons === 'off' || prefs.hudTopIcons === 'auto' && matchMedia('(max-width: 768px), (max-height: 500px)').matches;
 function preferences() {
     const store = context().extensionSettings;
     if (!store[KEY] || typeof store[KEY] !== 'object') store[KEY] = { ...defaults };
+    // 1.43: "Recent speakers only" became one of the Crowded scenes choices.
+    if (store[KEY].spriteCrowd === undefined && store[KEY].autoHideSprites) store[KEY].spriteCrowd = 'recent';
+    if (!['auto', 'recent', 'all'].includes(store[KEY].spriteCrowd ?? 'auto')) store[KEY].spriteCrowd = 'auto';
     for (const [key, value] of Object.entries(defaults)) {
         if (typeof store[KEY][key] !== typeof value) store[KEY][key] = value;
     }
@@ -229,6 +234,7 @@ function syncSettings() {
     document.querySelector('#gi-cg-profile-row')?.toggleAttribute('hidden', prefs.cgClassifier !== 'profile');
     document.querySelector('#gi-cg-reasoning-row')?.toggleAttribute('hidden', prefs.cgClassifier !== 'main');
     document.querySelector('#gi-narration-keyword-row')?.toggleAttribute('hidden', prefs.narrationMode !== 'keyword');
+    document.querySelector('#gi-crowd-max-row')?.toggleAttribute('hidden', prefs.spriteCrowd !== 'recent');
     const scale = document.querySelector('#gi-text-scale-value');
     const scrim = document.querySelector('#gi-scrim-value');
     if (scale) scale.value = `${Math.round(prefs.textScale * 100)}%`;
@@ -276,7 +282,7 @@ function refresh() {
     presentPage(selected, page, active && !history);
     document.querySelectorAll('#chat > .mes.gi-current').forEach(el => { if (el !== selected || !active) el.classList.remove('gi-current'); });
     if (active && selected) selected.classList.add('gi-current');
-    const flags = { 'gi-native-staging': prefs.enabled && prefs.nativeStaging, 'gi-enabled': prefs.enabled, 'gi-scene': active, 'gi-history': active && history, 'gi-hidden': active && hidden, 'gi-compose': active && (composing || history), 'gi-generating': active && generating, 'gi-reading': active && (morePages || index < list.length - 1 || generating || reveal.revealing), 'gi-reduced-motion': prefs.enabled && (prefs.reducedMotion || Boolean(ctx.powerUserSettings?.reduced_motion)) };
+    const flags = { 'gi-native-staging': prefs.enabled && prefs.nativeStaging, 'gi-sprite-idle': prefs.enabled && prefs.spriteIdle !== false, 'gi-hud-top-off': prefs.enabled && prefs.choices && topIconsHidden(prefs), 'gi-enabled': prefs.enabled, 'gi-scene': active, 'gi-history': active && history, 'gi-hidden': active && hidden, 'gi-compose': active && (composing || history), 'gi-generating': active && generating, 'gi-reading': active && (morePages || index < list.length - 1 || generating || reveal.revealing), 'gi-reduced-motion': prefs.enabled && (prefs.reducedMotion || Boolean(ctx.powerUserSettings?.reduced_motion)) };
     for (const [name, value] of Object.entries(flags)) document.body.classList.toggle(name, Boolean(value));
     spriteUI?.sync({ on: Boolean(active && !history && (prefs.nativeStaging || prefs.pageExpressions || prefs.narration)), id: Number(current), page: page.index, text: page.pages[page.index]?.textContent || '', narration: narrated, classifyPages: prefs.pageExpressions, enemyAction:page.pages[page.index]?.giEnemyAction || 'neutral', complete: !generating || index < list.length - 1 || morePages, generating });
     stageEffects?.sync(Boolean(active&&!history&&!hidden),Boolean(reveal.revealing||generating));
@@ -287,7 +293,7 @@ function refresh() {
     document.querySelectorAll('[data-gi-action="wardrobe"]').forEach(el => el.hidden = !prefs.wardrobe);
     if (!prefs.wardrobe) wardrobeUI?.close();
     // Top-right SillyTavern icons: shown, hidden, or (Auto) hidden on phones for a clean layout.
-    const hideTop = prefs.hudTopIcons === 'off' || prefs.hudTopIcons === 'auto' && matchMedia('(max-width: 768px)').matches;
+    const hideTop = topIconsHidden(prefs);
     syncHudIcons(prefs.enabled && prefs.choices, personaMenuIcon(ctx), hideTop);
     document.querySelectorAll('#gi-toolbar .gi-pm-tavern img[data-persona]').forEach(img => { const src = drawerIcon('persona-management-button', personaMenuIcon(ctx)); if (img.src !== src) img.src = src; });
     if (menuOpen) paintProfile();
@@ -503,7 +509,7 @@ function handleAction(event) {
     const action = target.dataset.giAction;
     const list = messages();
     switch (action) {
-        case 'menu': menuOpen = !menuOpen; refresh(); if (menuOpen) document.querySelector('#gi-toolbar .gi-pm-switch')?.focus({ preventScroll: true }); break;
+        case 'menu': menuOpen = hidden || !menuOpen; if (menuOpen) hidden = false; refresh(); if (menuOpen) document.querySelector('#gi-toolbar .gi-pm-switch')?.focus({ preventScroll: true }); break;
         case 'namecards':
             pickingNamecard = !pickingNamecard; paintNamecards();
             if (pickingNamecard) (document.querySelector('#gi-toolbar .gi-pm-nc-list [aria-checked="true"]') || document.querySelector('#gi-toolbar .gi-pm-nc-list button'))?.focus({ preventScroll: true });
@@ -514,7 +520,7 @@ function handleAction(event) {
         case 'map': menuOpen = false; refresh(); void openWorldMap().catch(error=>announce(error.message)); break;
         case 'toggle': setEnabled(!preferences().enabled); break;
         case 'history': toggleHistory(); break;
-        case 'hide': hidden = !hidden; history = false; stopAuto(); refresh(); break;
+        case 'hide': hidden = !hidden; if (hidden) menuOpen = false; history = false; stopAuto(); refresh(); break;
         case 'compose':
             composing = !composing; preferences().composer = composing; context().saveSettingsDebounced(); hidden = false; stopAuto(); refresh();
             if (composing) document.querySelector('#send_textarea')?.focus();
@@ -664,9 +670,11 @@ export async function initialize({ choicesAdapter, spriteAdapter, wardrobeAdapte
     wardrobeUI = mountWardrobe({ host, getContext: context, adapter: wardrobeAdapter, personaAdapter, mediaAdapter, openMap:openWorldMap, previewAudio:files=>mediaUI.previewAudio(files), onMediaChange:(options={})=>{backgroundUI.refresh();if(options.reclassify)mediaUI.reclassifyCurrent();else mediaUI.refresh();schedule();}, onChange: async (character,options) => { if(options?.classification){schedule();return;}
         if(options?.personaChanged)await personaSession.flush({startJourney:true});
         if(options?.presentation)await spriteUI?.refreshPresentation();else await spriteUI?.refreshSprite(character,options);schedule(); } });
-    combatUI=mountCombat({host,getContext:context,adapter:combatAdapter,diceAdapter,announce,onChange:event=>{inventoryUI?.refresh();if(event?.hit)spriteUI?.hit(event.hit);if(event?.slain)spriteUI?.defeat(event.defeated);if(event?.defeated)locationCastUI?.retry();schedule();}});
+    combatUI=mountCombat({host,getContext:context,adapter:combatAdapter,diceAdapter,announce,onChange:event=>{inventoryUI?.refresh();if(event?.hit)spriteUI?.hit(event.hit);if(event?.hurt)spriteUI?.hurt(event.hurt);if(event?.healed)spriteUI?.heal(event.healed);if(event?.slain)spriteUI?.defeat(event.defeated);if(event?.defeated)locationCastUI?.retry();schedule();}});
     choiceUI = mountChoices({ host, getContext: context, adapter: choicesAdapter, announce });
-    inventoryUI = mountInventory({ host, getContext: context, announce });
+    // Members fed from the Inventory glow on the stage once the bag closes and the scene is visible again.
+    const fed = new Set();
+    inventoryUI = mountInventory({ host, getContext: context, announce, onEat: ({ avatar }) => { fed.add(avatar); schedule(); }, onClose: () => { for (const avatar of fed) spriteUI?.heal(avatar); fed.clear(); } });
     try {
         const html = await context().renderExtensionTemplateAsync(FOLDER, 'settings');
         if (!mounted || version !== mountVersion) return;
@@ -704,7 +712,7 @@ export async function initialize({ choicesAdapter, spriteAdapter, wardrobeAdapte
                 setPersonaSpriteSetting(context(),{personaSprite:'enabled',personaSpriteFolder:'folder',personaSpriteExpression:'expression'}[key],value);
             }else preferences()[key] = value;
             if (key === 'composer') composing = value;
-            if(Object.hasOwn(stagingDefaults,key))void spriteUI?.refreshPresentation().catch(error=>{console.warn('[Silly Teyvat] Stage controls unavailable',error);announce('Could not update sprite staging. Keeping the recorded scene.');});
+            if(Object.hasOwn(stagingDefaults,key))spriteUI?.relayout?.();if(Object.hasOwn(stagingDefaults,key))void spriteUI?.refreshPresentation().catch(error=>{console.warn('[Silly Teyvat] Stage controls unavailable',error);announce('Could not update sprite staging. Keeping the recorded scene.');});
             if(['cgClassifier','cgProfile','cgPrompt','cgBypassReasoning','cgEnabled'].includes(key))mediaUI?.refresh();
             if(key==='roleplayPromptsEnabled')syncRoleplayPrompts(context(),preferences().enabled);
             context().saveSettingsDebounced(); refresh();

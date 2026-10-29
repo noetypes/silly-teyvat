@@ -11,7 +11,7 @@ import {playedAvatars} from './persona-link.js';
 export const MODEL_HEIGHTS = Object.freeze({'small female':.72,'medium female':.86,'medium male':.89,'tall female':.94,'tall male':1});
 const UNSPECIFIED_HEIGHT = .9;
 export function modelHeight(ctx,character){if(!character)return UNSPECIFIED_HEIGHT;const props=characterProperties(ctx,character);return props.modelType==='custom'?props.modelScale/100:MODEL_HEIGHTS[props.modelType] ?? UNSPECIFIED_HEIGHT;}
-export const stagingDefaults = Object.freeze({nativeStaging:true,expressionMode:'page',spriteGlobalScale:100,spriteBaseHeight:88,spriteFocus:true,spriteFocusScale:105,spriteFocusDuration:.6,spriteFocusEasing:'ease',spriteDim:false,spriteDimOpacity:.6,spriteShadow:true,shadowX:15,shadowY:5,shadowBlur:9,spriteShake:false,spriteEmulation:false,autoHideSprites:false,maxViewableCharacters:5,personaSprite:false,personaSpriteFolder:'',personaSpriteExpression:'neutral',letterbox:'none',letterboxSize:8,letterboxColor:'#000000'});
+export const stagingDefaults = Object.freeze({nativeStaging:true,expressionMode:'page',spriteFocusMode:'page',spriteGlobalScale:100,spriteBaseHeight:88,spriteFocus:true,spriteFocusScale:105,spriteFocusDuration:.6,spriteFocusEasing:'ease',spriteDim:true,spriteDimOpacity:.6,spriteDimBrightness:.55,spriteIdle:true,spriteCrowd:'auto',soloEnemySprite:false,soloCompanionSprite:false,spriteShadow:true,shadowX:15,shadowY:5,shadowBlur:9,spriteShake:false,spriteEmulation:false,autoHideSprites:false,maxViewableCharacters:5,personaSprite:false,personaSpriteFolder:'',personaSpriteExpression:'neutral',letterbox:'none',letterboxSize:8,letterboxColor:'#000000'});
 export const bounded = (value,min,max,fallback) => Number.isFinite(Number(value)) ? Math.min(max,Math.max(min,Number(value))) : fallback;
 export function characterPreferences(ctx,avatar){const p=mediaSettings(ctx);p.characterSprites ??= {};return p.characterSprites[avatar] ??= {};}
 export function expressionMode(ctx,message){const avatar=message.original_avatar || ctx.characters?.find(c=>c.name===message.name)?.avatar;const mode=ctx.extensionSettings.genshin_dialogue_ui?.characterSprites?.[avatar]?.expressionMode;return ['page','message'].includes(mode)?mode:ctx.extensionSettings.genshin_dialogue_ui?.expressionMode==='message'?'message':'page';}
@@ -39,8 +39,9 @@ export function liveSpriteScale(ctx,s,character=stageCharacter(ctx,s)){
 }
 export function stageScene(ctx,input,message,{id=ctx.chat.indexOf(message)}={}){
     const prefs={...stagingDefaults,...ctx.extensionSettings.genshin_dialogue_ui},native=prefs.nativeStaging;
-    let scene=structuredClone(input);
-    if(native)scene=visibleRoster(ctx,scene,message,id);
+    // Who is shown is decided when the page is drawn (stage-layout.js), since a phone shows
+    // fewer listeners than a desktop; the saved scene keeps everyone present.
+    const scene=structuredClone(input);
     const speaker=speakerAvatar(ctx,message),width=scene.length;
     const cards=scene.map(s=>stageCharacter(ctx,s));
     const heights=cards.map(c=>modelHeight(ctx,c)),tallest=Math.max(...heights,.01);
@@ -54,7 +55,7 @@ export function stageScene(ctx,input,message,{id=ctx.chat.indexOf(message)}={}){
             Object.assign(s,{model:heights[i],baseH,x:centre-.3,y:1-h-bounded(cp.offsetY,-40,50,0)/100,w:.6,h,centre,aspect:2/3,z:focus?width+1:i+1,opacity:1,filter:'none',fit:'contain',position:'center bottom'});
         }
         const scale=liveSpriteScale(ctx,s,character);
-        s.presentation={scale,focus,focusScale:prefs.spriteFocus&&focus?bounded(prefs.spriteFocusScale,100,125,105)/100:1,opacity:prefs.spriteDim&&!focus?bounded(prefs.spriteDimOpacity,.1,1,.6):1,shadow:prefs.spriteShadow?`drop-shadow(${bounded(prefs.shadowX,-100,100,15)}px ${bounded(prefs.shadowY,-100,100,5)}px ${bounded(prefs.shadowBlur,0,80,9)}px #1119)`:'',duration:bounded(prefs.spriteFocusDuration,0,2,.6),easing:['ease','ease-in','ease-out','ease-in-out','linear'].includes(prefs.spriteFocusEasing)?prefs.spriteFocusEasing:'ease',shake:Boolean(prefs.spriteShake&&focus)};
+        s.presentation={scale,focus,focusScale:prefs.spriteFocus&&focus?bounded(prefs.spriteFocusScale,100,125,105)/100:1,opacity:1,dim:prefs.spriteDim&&!focus?bounded(prefs.spriteDimBrightness,.15,1,.55):1,shadow:prefs.spriteShadow?`drop-shadow(${bounded(prefs.shadowX,-100,100,15)}px ${bounded(prefs.shadowY,-100,100,5)}px ${bounded(prefs.shadowBlur,0,80,9)}px #1119)`:'',duration:bounded(prefs.spriteFocusDuration,0,2,.6),easing:['ease','ease-in','ease-out','ease-in-out','linear'].includes(prefs.spriteFocusEasing)?prefs.spriteFocusEasing:'ease',shake:Boolean(prefs.spriteShake&&focus)};
     });
     return scene;
 }

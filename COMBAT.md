@@ -64,6 +64,8 @@ The party shares a bag of Genius Invokation event cards, saved per chat. A new c
 
 Open **Inventory** from the Paimon menu to see every card in the bag, with its cost, quality and effect. Cards won since you last opened it are tagged *New*.
 
+Between battles, dishes that heal or revive can be eaten from the Inventory: select the dish and tap a party member under **Eat now**. Healing over time (Mushroom Pizza) arrives at once, and Teyvat Fried Egg revives a downed member with 8 HP. Shields, buffs, Energy and dice cards only work in battle.
+
 Winning a battle drops one card per defeated enemy (two from tough ones), weighted towards common food, and elemental enemies sometimes drop the matching Woven card. A rescue at the Adventurers' Guild tops the bag back up to the starter cards.
 
 ## Fleeing
