@@ -240,14 +240,20 @@ export function mountPageSprites({ host, getContext, adapter = createNativeSprit
         const boxes = layoutStage(items, { width: W, height: H, dialogueTop: arranged.top, topInset });
         // Same size and spacing, raised by what the keyboard took, never above the top margin.
         const lift = typing ? Math.max(0, Math.min(H - (stage.clientHeight || innerHeight), Math.min(...boxes.map(box => box.top)) - topInset)) : 0;
+        // Whoever spoke last stays in front of the others, through narration and silence, until someone else speaks.
+        let front = '';
+        for (let i = Math.min(stageAt, ctx.chat.length - 1); i >= 0 && !front; i--) {
+            const m = ctx.chat[i];
+            if (m && !m.is_system && m.extra?.type !== 'narrator') front = speakerAvatar(ctx, m) || '';
+        }
         staged.forEach(({ image, sprite }, i) => {
-            const box = boxes[i], focus = Boolean(sprite.presentation?.focus);
+            const box = boxes[i], card = stageCharacter(ctx, sprite), focus = Boolean(sprite.presentation?.focus) || Boolean(front) && (sprite.avatar === front || card?.avatar === front);
             if (fresh.has(image)) image.classList.add('gi-sprite-placing');
             image.dataset.layout = 'stage';
             // Focus size is included in the fitted box, so it shares the baseline
             // and cannot grow beyond the height limit after layout.
             image.style.setProperty('--gi-focus-scale', 1);
-            Object.assign(image.style, { left: `${box.left}px`, top: `${box.top - lift}px`, width: `${box.width}px`, height: `${box.height}px`, zIndex: String(focus ? staged.length + 1 : box.z) });
+            Object.assign(image.style, { left: `${box.left}px`, top: `${box.top - lift}px`, width: `${box.width}px`, height: `${box.height}px`, zIndex: String(focus ? staged.length + 1 : Math.min(box.z, staged.length)) });
         });
         if (fresh.size) { void stage.offsetWidth; requestAnimationFrame(() => { for (const image of fresh) image.classList.remove('gi-sprite-placing'); }); }
     }

@@ -1,3 +1,8 @@
+# Silly Teyvat 1.46.1: Last speaker stays in front
+
+The character who spoke last stays in front of the others on stage, through narration and
+silence, until someone else speaks.
+
 # Silly Teyvat 1.46.0: Loading screen
 
 A Genshin-style loading screen now covers the stage while a chat opens and while the party
