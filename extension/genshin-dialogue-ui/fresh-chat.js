@@ -30,15 +30,3 @@ export function randomizeGreeting(ctx,random=Math.random){
     message.swipe_id=index;message.mes=swipes[index];
     return true;
 }
-
-// SillyTavern shows the chat it was on while a switch is in progress. The cover hides the stage
-// (including the previous chat's location) until the new chat has settled at its own location.
-let coverTimer;
-export function coverStage(){
-    document.body.classList.add('gi-opening-cover');
-    clearTimeout(coverTimer);coverTimer=setTimeout(uncoverStage,8000);
-}
-export function uncoverStage(delay=0){
-    clearTimeout(coverTimer);
-    coverTimer=setTimeout(()=>document.body.classList.remove('gi-opening-cover'),delay);
-}

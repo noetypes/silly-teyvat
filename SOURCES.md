@@ -131,3 +131,7 @@ The installed `public/scripts/group-chats.js` can draft a speaker before the use
 - Genshin Impact Wiki namecards: https://genshin-impact.fandom.com/api.php (`Namecard Background <name>.png` files), downloaded at 640 px by `tools/build-namecards.py` for the Paimon menu. Namecard artwork belongs to HoYoverse.
 - Skill medallion glyphs: derived locally from the Genius Invokation skill icons already downloaded by `tools/build-battle-icons.py`, by `tools/build-skill-glyphs.py` (no extra downloads).
 - Genshin Impact Wiki Paimon menu icons (`Icon Events`, `Icon Adventurer Handbook`, `Icon Character`, `Icon Map`, `Icon Photo Mode`, `Icon Community`, `Icon Photo Mode Settings`, `Icon Character Card`, `Icon Back`, `Icon Settings`), downloaded by `tools/build-menu-icons.py`. Icon artwork belongs to HoYoverse.
+
+## Loading screen
+
+- Region emblems (`assets/regions/`) are the white `Emblem_<Region>_White` files from the [Genshin Impact Wiki API](https://genshin-impact.fandom.com/api.php), downloaded by `tools/fetch-region-emblems.py` into the external data pack. Layout and colours follow the game's loading screen, estimated visually. Element icons reuse the battle assets.

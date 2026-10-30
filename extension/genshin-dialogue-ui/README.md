@@ -1,3 +1,11 @@
+# Silly Teyvat 1.46.0: Loading screen
+
+A Genshin-style loading screen now covers the stage while a chat opens and while the party
+travels to another place, so unloaded sprites and the previous location never show. The centre
+emblem is the destination's region, the seven element icons fill white from left to right, and a
+tip above them is either the destination's description or a note on how a system works. The
+region emblems come from the Genshin Impact Wiki API (`tools/fetch-region-emblems.py`).
+
 # Silly Teyvat 1.45.0: Random greetings, no location flash
 
 - **Random greeting.** A new solo chat starts on a randomly chosen greeting from the card's first
