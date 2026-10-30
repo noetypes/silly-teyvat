@@ -137,11 +137,11 @@ export function mountWardrobe({host, getContext, onChange = async () => {}, onMe
         <button type="button" data-w="upload">Add sprites</button>
         <div class="gi-wardrobe-row"><input id="gi-new-expression" aria-label="New expression name" placeholder="New expression, e.g. smug" maxlength="60"><button type="button" data-w="add-expression">Add expression</button></div>
         </div>
-        <div data-panel="cgs" hidden><div class="gi-cg-grid" aria-label="Character scene artworks"></div>
-        <label>Scene label<input id="gi-cg-label" maxlength="60" placeholder="Fish Blasting"></label><label>Additional classifications (one per line)<textarea id="gi-cg-classifications" rows="2" maxlength="1200" placeholder="Fish Blasting&#10;Fishing adventure"></textarea></label><label>When should this artwork appear?<textarea id="gi-cg-description" rows="3" maxlength="1200" placeholder="Klee is actively blasting fish by the lake."></textarea></label>
-        <div class="gi-wardrobe-row"><button type="button" data-w="save-cg">Save label & details</button><button type="button" data-w="remove-cg">Remove selected CG</button></div>
-        <div class="gi-cg-audio-tools" hidden><h3>CG audio</h3><div class="gi-cg-audio-list" aria-label="Audio assigned to selected CG"></div><label>CG audio files<input id="gi-cg-audio-files" type="file" accept="audio/*,.m4a,.flac" multiple></label><button type="button" data-w="upload-cg-audio">Add audio to selected CG</button></div>
-        <label>Artwork files<input id="gi-cg-files" type="file" accept="image/png,image/webp,image/jpeg,image/gif,image/avif" multiple></label><button type="button" data-w="upload-cg">Add scene artwork</button><button type="button" data-w="recheck-cg">Recheck visible message</button>
+        <div data-panel="cgs" hidden><p class="gi-cg-intro">Scene artworks replace the stage when a reply matches one. The classifier reads each label and its description.</p><div class="gi-cg-grid" aria-label="Character scene artworks"></div>
+        <section class="gi-cg-section gi-cg-details"><h3>Scene details</h3><label>Scene label<input id="gi-cg-label" maxlength="60" placeholder="Fish Blasting"></label><label>Additional classifications (one per line)<textarea id="gi-cg-classifications" rows="2" maxlength="1200" placeholder="Fish Blasting&#10;Fishing adventure"></textarea></label><label>When should this artwork appear?<textarea id="gi-cg-description" rows="4" maxlength="1200" placeholder="Klee is actively blasting fish by the lake."></textarea></label>
+        <div class="gi-wardrobe-row"><button type="button" data-w="save-cg">Save label & details</button><button type="button" data-w="remove-cg">Remove selected CG</button></div></section>
+        <section class="gi-cg-section gi-cg-audio-tools" hidden><h3>CG audio</h3><div class="gi-cg-audio-list" aria-label="Audio assigned to selected CG"></div><label>CG audio files<input id="gi-cg-audio-files" type="file" accept="audio/*,.m4a,.flac" multiple></label><button type="button" data-w="upload-cg-audio">Add audio to selected CG</button></section>
+        <section class="gi-cg-section"><h3>Add artwork</h3><label>Artwork files<input id="gi-cg-files" type="file" accept="image/png,image/webp,image/jpeg,image/gif,image/avif" multiple></label><div class="gi-wardrobe-row"><button type="button" data-w="upload-cg">Add scene artwork</button><button type="button" data-w="recheck-cg">Recheck visible message</button></div></section>
         </div>
         </section></div><footer><p role="status" aria-live="polite"></p><button type="button" data-w="undo" hidden>Undo remove</button></footer>`;
     const backgroundTab=document.createElement('button');backgroundTab.type='button';backgroundTab.dataset.w='tab-backgrounds';backgroundTab.textContent='Backgrounds';backgroundTab.setAttribute('aria-pressed','false');void backgroundTab;
@@ -258,7 +258,7 @@ export function mountWardrobe({host, getContext, onChange = async () => {}, onMe
     }
     function renderCGs() {
         $('.gi-cg-grid').replaceChildren(...cgs().map(cg=>{
-            const b=makeButton('',()=>chooseCG(cg));b.dataset.cg=cg.id;b.setAttribute('aria-label',`Preview CG ${cg.label}`);
+            const b=makeButton('',()=>chooseCG(cg));b.dataset.cg=cg.id;b.title=cg.label;b.setAttribute('aria-label',`Preview CG ${cg.label}`);
             const art=cg.path?document.createElement('img'):placeholder();if(cg.path){art.src=cg.path;art.alt='';}const label=document.createElement('span');label.textContent=cg.label;b.append(art,label);return b;
         }));
         $('.gi-cg-grid').append(addTile('add-blank-cg','Add scene'));
@@ -272,7 +272,7 @@ export function mountWardrobe({host, getContext, onChange = async () => {}, onMe
         if(tab==='backgrounds'){backgroundUI.refresh();return;}
         if(tab==='moveset')movesetUI.refresh();
         $('.gi-wardrobe-preview h3').textContent=character?.name || '';
-        if(tab==='cgs'){renderCGs();if(!selectedCG&&cgs().length)chooseCG(cgs()[0]);else if(!selectedCG){$('.gi-wardrobe-preview img').hidden=true;$('.gi-outfit-caption').textContent='Scene artwork';}}
+        if(tab==='cgs'){renderCGs();if(!selectedCG&&cgs().length)chooseCG(cgs()[0]);else if(!selectedCG){$('.gi-wardrobe-preview img').hidden=true;$('.gi-outfit-caption').textContent='Scene artwork';}const n=cgs().filter(cg=>cg.path).length;status(n?`${n} scene ${n===1?'artwork':'artworks'} for ${character?.name || 'this character'}.`:`No scene artwork for ${character?.name || 'this character'} yet. Add some below.`);}
         else if(selected)chooseSprite(selected);
     }
     function placeholder(symbol='◇') {

@@ -3544,17 +3544,51 @@ body.gi-scene #gi-party-health .gi-party-member.gi-downed strong::after { conten
 #gi-combat-ask .gi-ask-actions button:disabled { opacity: .45; cursor: default; }
 #gi-combat-ask :is(button, input):focus-visible { outline: 2px solid #f2dca0; outline-offset: 2px; }
 
-/* Loading screen shown while a chat opens or the party travels. */
-#gi-loading{position:fixed;inset:0;z-index:99999;display:grid;grid-template-rows:1fr auto auto;justify-items:center;background:#25252b;color:#d3bc8e;font-family:"Silly Teyvat Dialogue",serif;opacity:1;transition:opacity .35s ease;pointer-events:all}
+
+/* Loading screen shown while a chat opens or the party travels. It covers the stage, the dialogue
+   and the HUD, but sits below SillyTavern's own panels, drawers, popups and toasts (2000+), so a
+   window opened while a place loads stays usable on top of it. */
+#gi-loading{position:fixed;inset:0;z-index:1990;display:grid;grid-template-rows:1fr auto auto;justify-items:center;background:#25252b;color:#d3bc8e;font-family:"Silly Teyvat Dialogue",serif;opacity:0;transition:opacity .4s ease;pointer-events:all;contain:strict}
 #gi-loading[hidden]{display:none}
-#gi-loading.gi-loading-out{opacity:0;pointer-events:none}
-#gi-loading .gi-loading-emblem{align-self:center;width:clamp(120px,19vmin,210px);aspect-ratio:1;background:#d3bc8e;-webkit-mask:var(--gi-emblem) center/contain no-repeat;mask:var(--gi-emblem) center/contain no-repeat}
-#gi-loading .gi-loading-tip{max-width:min(820px,86vw);text-align:center;padding-bottom:1.6rem;min-height:9.5rem}
+#gi-loading.gi-loading-in{opacity:1}
+#gi-loading.gi-loading-out{opacity:0;pointer-events:none;transition-duration:.55s}
+#gi-loading .gi-loading-emblem{align-self:center;width:clamp(120px,19vmin,210px);aspect-ratio:1;background:#d3bc8e;-webkit-mask:var(--gi-emblem) center/contain no-repeat;mask:var(--gi-emblem) center/contain no-repeat;transition:opacity .3s ease}
+#gi-loading .gi-loading-emblem.gi-loading-swap{opacity:0}
+#gi-loading .gi-loading-tip{box-sizing:border-box;max-width:min(820px,86vw);text-align:center;padding:0 0 1.6rem;min-height:9.5rem;transition:opacity .3s ease}
+#gi-loading .gi-loading-tip.gi-loading-swap{opacity:0}
 #gi-loading h2{margin:0 0 .55rem;font-size:clamp(1.15rem,2.6vmin,1.6rem);font-weight:700;color:#d3bc8e}
 #gi-loading p{margin:0;font-size:clamp(.95rem,2.2vmin,1.3rem);line-height:1.5;color:#d3bc8e}
-#gi-loading .gi-loading-elements{position:relative;display:flex;justify-content:center;gap:clamp(.6rem,1.6vmin,1.1rem);width:100%;padding:.9rem 0 calc(1.4rem + env(safe-area-inset-bottom));border-top:1px solid rgba(255,255,255,.14)}
+#gi-loading .gi-loading-elements{box-sizing:border-box;position:relative;display:flex;justify-content:center;gap:clamp(.6rem,1.6vmin,1.1rem);width:100%;padding:.9rem 0 calc(1.4rem + env(safe-area-inset-bottom));border-top:1px solid rgba(255,255,255,.14)}
 #gi-loading .gi-loading-elements span{position:relative;width:clamp(26px,4.2vmin,40px);aspect-ratio:1}
 #gi-loading .gi-loading-elements img{position:absolute;inset:0;width:100%;height:100%}
 #gi-loading .gi-loading-dim{opacity:.18}
 #gi-loading .gi-loading-fill{clip-path:inset(0 100% 0 0)}
-@media (prefers-reduced-motion:reduce){#gi-loading{transition:none}}
+@media (max-height:520px){#gi-loading .gi-loading-tip{min-height:6.5rem;padding-bottom:.9rem}#gi-loading .gi-loading-emblem{width:clamp(84px,24vmin,150px)}}
+/* Silly Teyvat's own HUD (Paimon, the minimap, the top-right drawer icons) waits under the screen.
+   Open SillyTavern panels keep their place above it. */
+body.gi-loading-active :is(#gi-launcher,#gi-toolbar,#gi-minimap,.gi-region-banner,#gi-choices,#gi-cg-window){visibility:hidden !important}
+body.gi-loading-active #top-settings-holder>.drawer>.drawer-toggle,body.gi-loading-active #top-bar{visibility:hidden}
+@media (prefers-reduced-motion:reduce){#gi-loading,#gi-loading .gi-loading-tip,#gi-loading .gi-loading-emblem{transition:none}}
+body.gi-reduced-motion #gi-loading,body.gi-reduced-motion #gi-loading .gi-loading-tip{transition-duration:.01s}
+/* Phone keyboard open (keyboard-frame.js): the scene layers keep their pre-keyboard height, anchored
+   to the bottom, so the background, sprites and CG rise together with the dialogue and reply box. */
+body.gi-keyboard :is(#gi-background-stage,#gi-sprite-stage,#gi-cg-stage,#gi-letterbox){top:auto !important;bottom:0 !important;height:var(--gi-scene-height,100%) !important}
+/* Character Customization → Scenes: compact artwork tiles with two-line labels, and the editor in
+   titled sections like the other panels. */
+#gi-wardrobe .gi-cg-intro{margin:0 0 10px;font-size:12.5px;line-height:1.45;color:var(--ty-cream-2,#d8cfbd)}
+#gi-wardrobe .gi-cg-grid{grid-template-columns:repeat(auto-fill,minmax(108px,1fr));gap:10px;margin-bottom:4px}
+#gi-wardrobe .gi-cg-grid button{height:auto;min-height:0;padding:4px 4px 6px;gap:6px;overflow:hidden}
+#gi-wardrobe .gi-cg-grid :is(img,.gi-slot-placeholder){height:auto;aspect-ratio:1;width:100%;object-fit:cover}
+#gi-wardrobe .gi-cg-grid button>span:not(.gi-slot-placeholder){display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;line-clamp:2;overflow:hidden;min-height:2.4em;padding:0 3px;font-size:12px;line-height:1.2;text-align:center;overflow-wrap:normal;word-break:normal}
+#gi-wardrobe .gi-cg-section{margin-top:6px}
+#gi-wardrobe .gi-cg-section>label{display:grid;gap:5px;margin-bottom:10px}
+#gi-wardrobe .gi-cg-section .gi-wardrobe-row{flex-wrap:wrap}
+#gi-wardrobe .gi-cg-section .gi-wardrobe-row>button{flex:1 1 auto}
+@media (max-width:600px) and (orientation:portrait){#gi-wardrobe .gi-cg-grid{grid-template-columns:repeat(auto-fill,minmax(92px,1fr));gap:8px}#gi-wardrobe .gi-cg-section .gi-wardrobe-row>:first-child{flex-basis:auto}}
+/* Side-by-side wardrobe (desktop and phones on their side): every column is bounded by the body, so
+   a short screen scrolls the tab rail instead of running it under the status bar. */
+@media (orientation:landscape){
+    #gi-wardrobe .gi-wardrobe-body{grid-template-rows:minmax(0,1fr)}
+    #gi-wardrobe .gi-wardrobe-tabs{min-height:0;overflow-y:auto;justify-content:safe center;scrollbar-width:none}
+    #gi-wardrobe .gi-wardrobe-preview{min-height:0;overflow:hidden}
+}

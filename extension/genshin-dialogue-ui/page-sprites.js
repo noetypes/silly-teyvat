@@ -5,6 +5,7 @@ import {enemySpeaker,resolveEnemyScene,enemySceneAvatar} from './enemy-actions.j
 import {openingScene,openingCharacter} from './opening-scene.js';
 import { stageScene, createStageRoster, expressionMode, fitModelHeights, refreshModels, liveSpriteScale, stagingDefaults, bounded, speakerAvatar } from './staging.js';
 import { chooseVisible, layoutStage, compactViewport } from './stage-layout.js';
+import { keyboardShown } from './keyboard-frame.js';
 import { stageCharacter } from './persona-wardrobe.js';
 import { previousSpeech, expressionContext } from './narration.js';
 import { createSpriteTrimmer } from './sprite-trim.js';
@@ -134,7 +135,7 @@ export function createNativeSpriteAdapter({ capture = captureScene } = {}) {
 export function mountPageSprites({ host, getContext, adapter = createNativeSpriteAdapter(), isDefeated = () => false, announce = () => {}, renderMessage = () => null, onAppearance = () => {}, decodeImage = image => image.decode?.() || Promise.resolve(), trimmer = adapter.inventory ? createSpriteTrimmer({ inventory: adapter.inventory }) : null }) {
     const stage = document.createElement('div'); stage.id = 'gi-sprite-stage'; stage.setAttribute('aria-hidden', 'true'); host.append(stage);
     let active = false, selection = '', displayed = '', epoch = 0, lastScene = [], lastChat = null, selectedPage;
-    let drawVersion=0;
+    let drawVersion=0,committedVersion=0;
     // A defeated enemy stays off every later page of its encounter. One still on the stage keeps its
     // place until its fall has played (the round is saved before the battle screen closes).
     const fallen = new Set();
@@ -208,14 +209,15 @@ export function mountPageSprites({ host, getContext, adapter = createNativeSprit
         const base = visible(nav) ? nav.getBoundingClientRect().top : visible(form) ? form.getBoundingClientRect().top : H;
         return base - Math.min(150, Math.max(70, H * .17));
     }
-    // The on-screen keyboard shrinks the viewport but should not re-frame the sprites: while a text
-    // field has focus on a touch device and only the height has dropped, keep the last real layout.
+    // The on-screen keyboard shrinks the viewport but should not re-frame the sprites. keyboard-frame.js
+    // keeps the stage at its pre-keyboard height, anchored to the bottom, so the sprites rise with the
+    // dialogue and background; here the last real layout is kept while a field has focus on a touch
+    // device and only the height has dropped.
     let stable = null;
     function keyboardUp() {
-        if (!stable || !matchMedia('(pointer: coarse)').matches) return false;
-        const field = document.activeElement;
-        if (!field?.matches?.('textarea, input:not([type=checkbox]):not([type=radio]):not([type=button]):not([type=range]), [contenteditable=""], [contenteditable="true"]')) return false;
-        return (stage.clientWidth || innerWidth) === stable.W && (stage.clientHeight || innerHeight) < stable.H - 80;
+        if (!stable) return false;
+        if (document.body.classList.contains('gi-keyboard')) return true;
+        return keyboardShown({ width: innerWidth, height: innerHeight, stable: stable.view, coarse: matchMedia('(pointer: coarse)').matches, typing: Boolean(document.activeElement?.matches?.('textarea, input:not([type=checkbox]):not([type=radio]):not([type=button]):not([type=range]), [contenteditable=""], [contenteditable="true"]')) });
     }
     function arrange(images, scene, fresh = new Set()) {
         arranged = { images, scene, top: NaN };
@@ -236,10 +238,8 @@ export function mountPageSprites({ host, getContext, adapter = createNativeSprit
         // On a phone on its side the HUD runs along the top edge; frame faces just under it.
         const topInset = H <= 500 && W > H ? Math.min(56, H * .14) : Math.min(16, H * .03);
         arranged.top = typing ? stable.top : dialogueTop(H);
-        if (!typing) stable = { W, H, top: arranged.top };
+        if (!typing) stable = { W, H, top: arranged.top, view: { width: innerWidth, height: innerHeight } };
         const boxes = layoutStage(items, { width: W, height: H, dialogueTop: arranged.top, topInset });
-        // Same size and spacing, raised by what the keyboard took, never above the top margin.
-        const lift = typing ? Math.max(0, Math.min(H - (stage.clientHeight || innerHeight), Math.min(...boxes.map(box => box.top)) - topInset)) : 0;
         // Whoever spoke last stays in front of the others, through narration and silence, until someone else speaks.
         let front = '';
         for (let i = Math.min(stageAt, ctx.chat.length - 1); i >= 0 && !front; i--) {
@@ -253,7 +253,7 @@ export function mountPageSprites({ host, getContext, adapter = createNativeSprit
             // Focus size is included in the fitted box, so it shares the baseline
             // and cannot grow beyond the height limit after layout.
             image.style.setProperty('--gi-focus-scale', 1);
-            Object.assign(image.style, { left: `${box.left}px`, top: `${box.top - lift}px`, width: `${box.width}px`, height: `${box.height}px`, zIndex: String(focus ? staged.length + 1 : Math.min(box.z, staged.length)) });
+            Object.assign(image.style, { left: `${box.left}px`, top: `${box.top}px`, width: `${box.width}px`, height: `${box.height}px`, zIndex: String(focus ? staged.length + 1 : Math.min(box.z, staged.length)) });
         });
         if (fresh.size) { void stage.offsetWidth; requestAnimationFrame(() => { for (const image of fresh) image.classList.remove('gi-sprite-placing'); }); }
     }
@@ -330,6 +330,7 @@ export function mountPageSprites({ host, getContext, adapter = createNativeSprit
         }
         const commit=()=>{
             if(version!==drawVersion || !active || !stage.isConnected)return;
+            committedVersion=version;
             const live=previousImages.filter(image=>image.dataset.leaving!=='true');
             const before=new Set(live.map(image=>enemyOf({avatar:image.dataset.avatar,folder:image.dataset.folder})).filter(Boolean));
             const fresh=new Set(nextImages.filter(image=>!image.isConnected&&!swaps.has(image)));
@@ -573,6 +574,8 @@ export function mountPageSprites({ host, getContext, adapter = createNativeSprit
             stage.append(glow); setTimeout(() => glow.remove(), 2000);
         },
         relayout,
+        // The latest scene has decoded and is on stage (the loading screen waits for this).
+        get settled() { return !active || (displayed !== '' && committedVersion === drawVersion); },
         // A defeated enemy's sprite plays its fall and leaves the stage at once.
         defeat(avatar) {
             fallen.add(avatar);

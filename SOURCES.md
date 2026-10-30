@@ -135,3 +135,7 @@ The installed `public/scripts/group-chats.js` can draft a speaker before the use
 ## Loading screen
 
 - Region emblems (`assets/regions/`) are the white `Emblem_<Region>_White` files from the [Genshin Impact Wiki API](https://genshin-impact.fandom.com/api.php), downloaded by `tools/fetch-region-emblems.py` into the external data pack. Layout and colours follow the game's loading screen, estimated visually. Element icons reuse the battle assets.
+
+## Starter scene artworks
+
+- Birthday artworks for Klee (2025), Hu Tao (2024), Nahida (2025), Venti (2024), the Raiden Shogun (2025), Kaedehara Kazuha (2025), Yoimiya (2024) and Albedo (2025), from the `File:<Name> Birthday <year>.png` pages of the [Genshin Impact Wiki API](https://genshin-impact.fandom.com/api.php). They were resized to 1600 px WebP in `assets/cgs/birthday/` (external data pack). Each wiki file name is recorded in `assets/cgs/catalog.json`. The artwork belongs to HoYoverse/COGNOSPHERE; the scene labels and descriptions are original project text.

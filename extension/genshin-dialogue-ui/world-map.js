@@ -52,7 +52,7 @@ export function mountWorldMap({host,getContext,adapter=createMediaAdapter(getCon
     host.append(mini,dialog);
     const abort=new AbortController(),$=s=>dialog.querySelector(s),sidebar=$('.gi-map-sidebar'),list=$('.gi-map-waypoint-list');
     let wildUI;
-    let map,minimap,markers,player,draftMarker,selectedId,draft,editing=false,placing=false,busy=false,visible=false,enabled=false,disposed=false,opener,revision=0,chatKey='',signature='',miniKey='',viewLocation=null,regionFilter='',lastRegion=null,veil,banner,bannerTimer,veilTimer;
+    let map,minimap,markers,player,draftMarker,selectedId,draft,editing=false,placing=false,busy=false,visible=false,enabled=false,disposed=false,opener,revision=0,chatKey='',signature='',miniKey='',viewLocation=null,regionFilter='',lastRegion=null,pendingBanner='',veil,banner,bannerTimer,veilTimer;
     const rosterPicker=mountLocationRosterPicker({host,getContext,onChange:()=>{onChange();refresh({sidebarRefresh:true});}});
     const identity=ctx=>`${ctx.groupId || ctx.characterId}:${ctx.getCurrentChatId?.() || ctx.chatId || ''}`;
     const status=text=>{const p=$('footer > p');p.textContent=text;p.classList.remove('gi-toast');void p.offsetWidth;p.classList.toggle('gi-toast',Boolean(text));};
@@ -274,15 +274,17 @@ export function mountWorldMap({host,getContext,adapter=createMediaAdapter(getCon
             else {listWaypoints();status('');if(current){map.setView(toLatLng(current.point),from?-1.5:-2);if(from&&!reducedMotion())setTimeout(()=>{if(dialog.open&&dialog.dataset.view==='list')map.flyTo(toLatLng(current.point),-2.5,{duration:.7});},180);}}
             updateScale();
         },
-        sync({on,show=true,location}={}){
+        sync({on,show=true,location,loading=false}={}){
             if(disposed)return;
-            const ctx=getContext(),nextChat=identity(ctx);if(chatKey&&nextChat!==chatKey){close();signature='';lastRegion=null;}chatKey=nextChat;enabled=Boolean(on);visible=Boolean(on&&show);viewLocation=location || null;mini.hidden=!visible;
+            const ctx=getContext(),nextChat=identity(ctx);if(chatKey&&nextChat!==chatKey){close();signature='';lastRegion=null;pendingBanner='';}chatKey=nextChat;enabled=Boolean(on);visible=Boolean(on&&show);viewLocation=location || null;mini.hidden=!visible;
             api.syncPrompt(enabled);rosterPicker.sync();
             const current=currentForView(),key=JSON.stringify([current?.point,current?.location.label,visible]);
             if(key!==miniKey){miniKey=key;mini.dataset.location=current?.location.id || '';mini.dataset.mapX=current?.point.x ?? '';mini.dataset.mapY=current?.point.y ?? '';mini.classList.toggle('gi-minimap-unlocated',!current);mini.querySelector('.gi-minimap-label').textContent=current?.location.label || 'World map';mini.setAttribute('aria-label',current?`Open world map. ${current.location.label}`:'Open world map. Current background is not mapped.');if(visible){minimap ??= makeMap(mini.querySelector('.gi-minimap-canvas'),{interactive:false});minimap.invalidateSize();minimap.setView(current?toLatLng(current.point):[1700,500],current?-1.5:-3);}}
             // Region-entry banner, only for real travel (not history browsing or the first look at a chat).
             const regionId=travelState(ctx).regionId || '';
-            if(enabled&&lastRegion!==null&&regionId&&regionId!==lastRegion&&visible){const name=backgroundRegions(ctx).find(r=>r.id===regionId)?.name;if(name)showRegionBanner(name);}
+            if(enabled&&lastRegion!==null&&regionId&&regionId!==lastRegion&&visible){const name=backgroundRegions(ctx).find(r=>r.id===regionId)?.name;if(name)pendingBanner=name;}
+            // Behind a loading screen the banner waits, so it plays once the new place is visible.
+            if(pendingBanner&&!loading&&visible){showRegionBanner(pendingBanner);pendingBanner='';}else if(!enabled)pendingBanner='';
             if(enabled)lastRegion=regionId;
             const nextSignature=JSON.stringify([worldWaypoints(ctx),travelState(ctx),worldScale(ctx),walkingSpeed(ctx),mediaSettings(ctx).worldPromptAllRegions,mediaSettings(ctx).allowMainDeparture,ctx.chatMetadata?.silly_teyvat_cast,ctx.characters?.map(c=>[c.avatar,c.name])]);
             if(nextSignature!==signature){signature=nextSignature;if(dialog.open)refresh({sidebarRefresh:true});}

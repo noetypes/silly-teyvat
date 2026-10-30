@@ -1,4 +1,5 @@
-/* Uses the active main Chat Completion connection, with request-local settings. */
+/* Uses the active main Chat Completion connection with request-local settings, or a saved Connection
+   Manager profile chosen in Silly Teyvat settings (Teyvat Choices → Connection). */
 export function parseChoices(text) {
     const clean = String(text).replace(/<think>[\s\S]*?<\/think>/gi, '').trim().replace(/^```(?:json)?\s*/i, '').replace(/\s*```$/, '');
     let choices;
@@ -52,9 +53,26 @@ export function finalizeChoiceRequest(data, yaml) {
     return data;
 }
 
+// A saved profile keeps Choices off the roleplay connection. Reasoning models spend part of the
+// budget thinking, so this allows more tokens than the main path; the reply is still three lines.
+export async function generateWithProfile(ctx, profileId, signal, { service } = {}) {
+    service ??= (await import('../../shared.js')).ConnectionManagerRequestService;
+    const profile = ctx.extensionSettings.connectionManager?.profiles?.find(p => p.id === profileId);
+    if (!profile) throw new Error('The Teyvat Choices connection profile no longer exists. Choose another in Silly Teyvat settings.');
+    const prompt = service.constructPrompt(choicePrompt(ctx), profileId);
+    signal.throwIfAborted();
+    let result;
+    try { result = await service.sendRequest(profileId, prompt, 600, { stream: false, signal, includePreset: true }); }
+    catch (cause) { if (signal.aborted) throw cause; throw new Error(`Choices could not be generated with ${profile.name || 'the selected profile'}. ${cause?.message || ''}`.trim()); }
+    signal.throwIfAborted();
+    return parseChoices(typeof result === 'string' ? result : result?.content);
+}
+
 export const mainApiAdapter = {
     async generate(ctx, signal) {
-        if (ctx.mainApi !== 'openai') throw new Error('Select your main Chat Completion API connection to use Teyvat Choices.');
+        const profileId = ctx.extensionSettings?.genshin_dialogue_ui?.choicesProfile;
+        if (profileId) return generateWithProfile(ctx, profileId, signal);
+        if (ctx.mainApi !== 'openai') throw new Error('Teyvat Choices needs a Chat Completion main API, or a Choices connection profile in Silly Teyvat settings.');
         const [{ oai_settings, getChatCompletionModel, createGenerationParameters }, { yaml }] = await Promise.all([
             import('../../../openai.js'), import('../../../../lib.js'),
         ]);

@@ -1,3 +1,28 @@
+# Silly Teyvat 1.47.0: Smooth loading, steady phone keyboard, Choices connection, starter scenes
+
+- **Smoother loading screen.** Opening a chat, starting a new one, switching characters and
+  travelling each show one continuous loading screen. It now appears in the same moment SillyTavern
+  clears the old chat, so the bare interface no longer flashes. It stays up until the new place's
+  background has loaded and its sprites are on stage, then fades once; steps that follow each
+  other no longer make it cut out and back in. Tips and region emblems cross-fade instead of
+  jumping. The region banner waits until the screen has gone.
+- **Below SillyTavern's windows.** The loading screen covers the stage, dialogue and Silly
+  Teyvat's HUD, but SillyTavern panels, drawers, popups and toasts stay on top and usable.
+- **Phone keyboard.** Opening the on-screen keyboard no longer re-sizes or shifts the sprites on
+  their own. The background, sprites and CG keep their size and rise with the dialogue and reply
+  box as one scene, then settle back when the keyboard closes.
+- **Choices connection.** *Dialogue → Choices connection* runs Teyvat Choices on a saved
+  Connection Manager profile (Chat or Text Completion) instead of the main API. Main API remains
+  the default. A deleted profile falls back to the main API.
+- **Starter scene artworks.** Eight official birthday artworks (Klee, Hu Tao, Nahida, Venti, the
+  Raiden Shogun, Kazuha, Yoimiya and Albedo) are added once to those characters' Scenes, with
+  labels and descriptions written for the CG classifier. Removing or editing one is respected.
+- **Scenes panel.** Character Customization → Scenes has titled sections, tiles whose labels stay
+  readable, and its own status line. Phones on their side no longer run the tab rail under the
+  status bar.
+- Model suggestions for the CG classifier and Choices are in `CLASSIFIER-MODELS.md` in the
+  repository.
+
 # Silly Teyvat 1.46.1: Last speaker stays in front
 
 The character who spoke last stays in front of the others on stage, through narration and
