@@ -1,3 +1,14 @@
+# Silly Teyvat 1.49.0: Complete tester packages
+
+- **No chats or journeys.** Exports no longer offer saved journeys, and imports ignore them.
+- **Theme and quick replies.** Game data now carries Teyvat Slate and Teyvat Choices. Import switches
+  them on the first time they arrive.
+- **Every character's settings.** Import now adds character scenes, sprite sets, voices, properties,
+  locations, tags and lorebook links without needing **Use the file's preferences**.
+- **New content follows automatically.** Sets, scenes and audio are found from everything in the
+  settings, so anything added in Character Customization is exported without further work.
+  Installing warns about sprite folders that were copied in by hand and never registered.
+
 # Silly Teyvat 1.48.0: Share with testers
 
 - **Share tab in settings.** New buttons export the extension, export game data and import game
@@ -10,8 +21,7 @@
   it can be repeated after an interruption. It can also replace existing files or use the file's
   settings.
 - **Private by default.** API keys, connection profiles and your signature are never exported, and
-  cards unrelated to the game stay out. Saved journeys contain full chats, so they are included
-  only when you turn that on.
+  cards unrelated to the game stay out.
 
 # Silly Teyvat 1.47.0: Smooth loading, steady phone keyboard, Choices connection, starter scenes
 

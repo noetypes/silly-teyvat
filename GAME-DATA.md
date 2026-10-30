@@ -58,12 +58,18 @@ The **Share** tab in the extension settings makes two ZIP files. Testers need bo
    unzips it into `data/default-user/extensions/`, keeping the `genshin-dialogue-ui` folder name,
    and reloads SillyTavern. A first run takes on the packaged settings; an existing install keeps
    its own.
-2. **Export game data** contains the game's character cards, sprite folders, referenced uploads,
-   lorebooks and personas. The tester chooses **Import game data** and reloads when it finishes.
+2. **Export game data** contains the game's character cards and settings, sprite sets, scenes,
+   referenced uploads, lorebooks, personas, tags, the Teyvat Slate theme and Teyvat Choices. The
+   tester chooses **Import game data** and reloads when it finishes. Import adds whatever is new
+   and keeps the rest unless told to replace it.
 
-API keys, connection profiles, the namecard signature and cards unrelated to the game are left out.
-Saved journeys are optional because they contain full chats. Files stay uncompressed, up to the
-4 GB ZIP limit. Large downloads need a normal browser window; private windows can fail silently.
+Chats, saved journeys, API keys, connection profiles, the namecard signature and cards unrelated to
+the game are left out. Files stay uncompressed, up to the 4 GB ZIP limit. Large downloads need a
+normal browser window; private windows can fail silently.
+
+Sets, scenes and audio are discovered from the whole of the settings, so anything added in
+Character Customization exports automatically. A browser cannot list folders, so a sprite folder
+copied in by hand must be registered as a set. `tools/sync-live.sh` warns about any that are not.
 
 ## Add or update media
 

@@ -1,16 +1,17 @@
 // Tester packages. The extension export is the installed folder plus the player's settings. Game
-// data is what SillyTavern stores outside that folder: cards, sprites, uploads and lorebooks.
+// data is what SillyTavern stores outside that folder: cards, sprites, uploads, lorebooks, the theme
+// and quick replies. Chats and saved journeys are never packaged.
 import {hasGenshinTag} from './character-properties.js';
-import {isJourneyGroup} from './journey-library.js';
 import {createZipWriter,readZip} from './zip-store.js';
 const KEY='genshin_dialogue_ui';
 export const FILE_LIST='package-files.json',CONFIG_FILE='configured-settings.json',GAME_MANIFEST='silly-teyvat-game-data.json';
-const FOLDER='genshin-dialogue-ui',FORMAT=1,SET_FOLDERS=['Official Art','Chibi'];
+const FOLDER='genshin-dialogue-ui',FORMAT=1,SET_FOLDERS=['Official Art','Chibi'],THEME='Teyvat Slate',QUICK_REPLIES='Teyvat Choices';
 // Connections belong to the player's own API setup, and the signature is personal.
 const PRIVATE_SETTINGS=['choicesProfile','cgProfile','signature'];
 const extensionRoot=new URL('./',import.meta.url);
 const segments=path=>path.split('/').map(encodeURIComponent).join('/');
 const stem=name=>name.replace(/\.[^.]+$/,'');
+const IMAGE_FILE=/\.(png|webp|jpe?g|gif|avif)$/i;
 // The server stores a folder under its sanitized name, but lists it under the name it was asked for.
 export const diskFolder=folder=>folder.split('/').map(part=>part.replace(/[?<>\\:*|"\x00-\x1f]/g,'')).join('/');
 export function shareableSettings(prefs){
@@ -22,19 +23,46 @@ export function referencedPaths(text,prefix){
     const found=String(text).match(new RegExp(`${prefix.replace(/[/]/g,'\\/')}[^"\\\\?#]+`,'g')) || [];
     return [...new Set(found)];
 }
+// Adds what the file has and this player lacks, however deep, so every character's scenes, sets,
+// voices and properties arrive without naming them here. Lists match on an entry's identity.
+const identity=item=>item?.id ?? item?.folder ?? item?.path ?? (typeof item==='string'?item:JSON.stringify(item));
+const isRecord=value=>value&&typeof value==='object'&&!Array.isArray(value);
+export function mergeSettings(target,source,replace=false,depth=0){
+    for(const [key,value] of Object.entries(source || {})){
+        const current=target[key];
+        if(isRecord(value)&&isRecord(current))mergeSettings(current,value,replace,depth+1);
+        else if(Array.isArray(value)&&Array.isArray(current)){
+            for(const item of value){
+                const index=current.findIndex(entry=>identity(entry)===identity(item));
+                if(index<0)current.push(structuredClone(item));
+                else if(isRecord(item)&&isRecord(current[index]))mergeSettings(current[index],item,replace,depth+1);
+            }
+        }
+        // General preferences stay the player's own; only values under a setting can be replaced.
+        else if(current===undefined||(replace&&depth>0))target[key]=structuredClone(value);
+    }
+    return target;
+}
 export const gameCards=(ctx,prefs)=>{
     const text=JSON.stringify(prefs);
     return (ctx.characters || []).filter(card=>hasGenshinTag(ctx,card)||text.includes(JSON.stringify(card.avatar)));
 };
+function walkStrings(value,visit){
+    if(typeof value==='string')visit(value);
+    else if(Array.isArray(value))for(const item of value)walkStrings(item,visit);
+    else if(value&&typeof value==='object')for(const [key,item] of Object.entries(value)){visit(key);walkStrings(item,visit);}
+}
+// Sets are found from the whole of the settings, not from a list of keys, so a new kind of
+// assignment cannot quietly drop out of the export. Any path under a character's folder counts.
 export function spriteFolders(ctx,prefs,cards){
-    const folders=new Set(),overrides=ctx.extensionSettings.expressionOverrides || [];
-    for(const card of cards){
-        const override=overrides.find(item=>item.name===stem(card.avatar))?.path;
-        for(const folder of [card.name,override])if(folder)folders.add(folder);
-        for(const set of SET_FOLDERS)folders.add(`${card.name}/${set}`);
-        for(const outfit of prefs.outfits?.[card.avatar] || [])if(outfit.folder)folders.add(outfit.folder);
-    }
-    for(const sprite of Object.values(prefs.personaSprites || {}))if(sprite?.folder)folders.add(sprite.folder);
+    const overrides=ctx.extensionSettings.expressionOverrides || [],folders=new Set(),personaFolders=Object.values(prefs.personaSprites || {}).map(sprite=>sprite?.folder).filter(Boolean);
+    const roots=new Set([...cards.map(card=>card.name),...cards.map(card=>overrides.find(item=>item.name===stem(card.avatar))?.path?.split('/')[0]),...personaFolders.map(folder=>folder.split('/')[0])].filter(Boolean));
+    for(const root of roots){folders.add(root);for(const set of SET_FOLDERS)folders.add(`${root}/${set}`);}
+    walkStrings([prefs,overrides.filter(item=>roots.has(item.path?.split('/')[0]))],text=>{
+        if(text.length>200)return;
+        const [root,set]=text.replace(/^\/characters\//,'').replace(/[?#].*$/,'').split('/').map(part=>{try{return decodeURIComponent(part);}catch{return part;}});
+        if(set&&roots.has(root))folders.add(IMAGE_FILE.test(set)?root:`${root}/${set}`);
+    });
     return [...new Set([...folders].map(diskFolder))];
 }
 export const gamePersonas=prefs=>[...new Set([...Object.keys(prefs.personaCharacters || {}),...Object.keys(prefs.personaSprites || {})])];
@@ -78,14 +106,6 @@ export async function exportExtension({ctx,sink,report=()=>{},signal}){
     await zip.close();
     return {files:files.length+1};
 }
-async function readJourneys(ctx,post){
-    const journeys=[];
-    for(const group of (ctx.groups || []).filter(isJourneyGroup)){
-        const chats={};for(const id of new Set([group.chat_id,...(group.chats || [])].filter(Boolean)))chats[id]=await post('/api/chats/group/get',{id});
-        journeys.push({group:structuredClone(group),chats});
-    }
-    return journeys;
-}
 async function listSprites(ctx,folders,signal){
     const files=[];
     for(const folder of folders){
@@ -98,10 +118,13 @@ async function listSprites(ctx,folders,signal){
     }
     return files;
 }
-export async function exportGameData({ctx,sink,includeJourneys=false,report=()=>{},signal,version=''}){
-    const post=api(ctx,signal),prefs=ctx.extensionSettings[KEY] || {},cards=gameCards(ctx,prefs),journeys=includeJourneys?await readJourneys(ctx,post):[];
-    const text=JSON.stringify([prefs,journeys]),personas=gamePersonas(prefs),power=ctx.powerUserSettings || {};
-    const worlds=[...new Set([...cards.map(card=>card.data?.extensions?.world),...(await post('/api/settings/get')).world_names?.filter(name=>/genshin|paimon|teyvat/i.test(name)) || []].filter(name=>name&&typeof name==='string'))];
+const worldSettings=settings=>JSON.parse(settings || '{}').world_info_settings?.world_info || {};
+const named=(list,name)=>(list || []).find(item=>item.name===name) || null;
+export async function exportGameData({ctx,sink,report=()=>{},signal,version=''}){
+    const post=api(ctx,signal),prefs=ctx.extensionSettings[KEY] || {},cards=gameCards(ctx,prefs),server=await post('/api/settings/get'),world=worldSettings(server.settings);
+    const text=JSON.stringify(prefs),personas=gamePersonas(prefs),power=ctx.powerUserSettings || {},avatars=new Set(cards.map(card=>card.avatar));
+    const characterLore=(world.charLore || []).filter(item=>avatars.has(item.name)),activeLorebooks=world.globalSelect || [];
+    const lorebookNames=[...new Set([...cards.map(card=>card.data?.extensions?.world),...(server.world_names || []).filter(name=>/genshin|paimon|teyvat/i.test(name)),...activeLorebooks,...characterLore.flatMap(item=>item.extraBooks || [])].filter(name=>name&&typeof name==='string'))];
     const files=[
         ...cards.map(card=>({name:`cards/${card.avatar}`,url:`/characters/${encodeURIComponent(card.avatar)}`})),
         ...await listSprites(ctx,spriteFolders(ctx,prefs,cards),signal),
@@ -110,17 +133,19 @@ export async function exportGameData({ctx,sink,includeJourneys=false,report=()=>
         ...personas.map(avatar=>({name:`avatars/${avatar}`,url:`/User%20Avatars/${encodeURIComponent(avatar)}`})),
     ];
     const zip=createZipWriter(sink),missing=await exportFiles(zip,files,report,signal),lorebooks={};
-    for(const name of worlds){signal?.throwIfAborted();lorebooks[name]=await post('/api/worldinfo/get',{name});}
-    const avatars=new Set(cards.map(card=>stem(card.avatar)));
+    for(const name of lorebookNames){signal?.throwIfAborted();lorebooks[name]=await post('/api/worldinfo/get',{name});}
     await zip.add(GAME_MANIFEST,JSON.stringify({
-        format:FORMAT,version,lorebooks,journeys,
+        format:FORMAT,version,lorebooks,activeLorebooks,characterLore,
+        theme:named(server.themes,THEME),quickReplies:named(server.quickReplyPresets,QUICK_REPLIES),
         settings:shareableSettings(prefs),
         expressions:ctx.extensionSettings.expressions?.custom || [],
-        overrides:(ctx.extensionSettings.expressionOverrides || []).filter(item=>avatars.has(item.name)),
+        overrides:(ctx.extensionSettings.expressionOverrides || []).filter(item=>avatars.has(`${item.name}.png`)),
+        tags:(ctx.tags || []).filter(tag=>cards.some(card=>ctx.tagMap?.[card.avatar]?.includes(tag.id))),
+        tagMap:Object.fromEntries(cards.map(card=>[card.avatar,ctx.tagMap?.[card.avatar]]).filter(([,list])=>list?.length)),
         personas:personas.map(avatar=>({avatar,name:power.personas?.[avatar] || stem(avatar),description:power.persona_descriptions?.[avatar] || null})),
     }));
     await zip.close();
-    return {cards:cards.length,files:files.length-missing.length,missing,journeys:journeys.length};
+    return {cards:cards.length,files:files.length-missing.length,missing};
 }
 function formFor(ctx,fields,file){
     const form=new FormData();for(const [key,value] of Object.entries(fields))form.append(key,value);
@@ -158,11 +183,26 @@ async function existingFiles(ctx,post,paths,signal){
     for(const {name} of await listSprites(ctx,[...folders],signal))present.add(name);
     return present;
 }
-function mergeNative(ctx,manifest){
+function mergeTags(ctx,manifest){
+    const ids=new Map();
+    for(const tag of manifest.tags || []){
+        const same=(ctx.tags || []).find(item=>item.name?.toLowerCase()===tag.name?.toLowerCase());
+        if(same)ids.set(tag.id,same.id);
+        else{const added={...tag,id:crypto.randomUUID()};ctx.tags?.push(added);ids.set(tag.id,added.id);}
+    }
+    if(!ctx.tagMap)return;
+    for(const [avatar,list] of Object.entries(manifest.tagMap || {}))ctx.tagMap[avatar]=[...new Set([...(ctx.tagMap[avatar] || []),...list.map(id=>ids.get(id)).filter(Boolean)])];
+}
+function mergeNative(ctx,manifest,replace){
     const settings=ctx.extensionSettings,power=ctx.powerUserSettings;
     settings.expressions ??= {};settings.expressions.custom=[...new Set([...(settings.expressions.custom || []),...(manifest.expressions || [])])];
     settings.expressionOverrides ??= [];
-    for(const item of manifest.overrides || [])if(!settings.expressionOverrides.some(x=>x.name===item.name))settings.expressionOverrides.push(item);
+    for(const item of manifest.overrides || []){
+        const current=settings.expressionOverrides.find(x=>x.name===item.name);
+        if(!current)settings.expressionOverrides.push(item);
+        else if(replace)current.path=item.path;
+    }
+    mergeTags(ctx,manifest);
     if(!power)return;
     power.personas ??= {};power.persona_descriptions ??= {};
     for(const persona of manifest.personas || []){
@@ -170,18 +210,35 @@ function mergeNative(ctx,manifest){
         if(persona.description)power.persona_descriptions[persona.avatar] ??= persona.description;
     }
 }
-async function importJourneys(ctx,post,journeys,signal){
-    let added=0;
-    for(const {group,chats} of journeys || []){
-        signal?.throwIfAborted();
-        if((ctx.groups || []).some(item=>item.chat_id===group.chat_id))continue;
-        for(const [id,chat] of Object.entries(chats))await post('/api/chats/group/save',{id,chat});
-        const created=await post('/api/groups/create',group);
-        // Native group creation whitelists fields; persist our marker through edit.
-        await post('/api/groups/edit',{...created,silly_teyvat_journey:group.silly_teyvat_journey});
-        added++;
+// Runs last, on the live module: SillyTavern swaps this list out whenever its lorebook picker refreshes.
+async function mergeLorebookSettings(manifest,info){
+    await info.updateWorldInfoList();
+    const world=info.world_info,selected=info.selected_world_info;
+    for(const name of manifest.activeLorebooks || [])if(!selected.includes(name))selected.push(name);
+    world.globalSelect=selected;
+    world.charLore ??= [];
+    for(const lore of manifest.characterLore || []){
+        const current=world.charLore.find(item=>item.name===lore.name);
+        if(current)current.extraBooks=[...new Set([...current.extraBooks,...lore.extraBooks])];
+        else world.charLore.push(structuredClone(lore));
     }
-    return added;
+}
+// The theme and quick replies switch on only when they are new here, so a later import cannot undo a player's choice.
+async function importLook(ctx,saved,server,manifest,replace){
+    if(manifest.theme){
+        const isNew=!named(server.themes,manifest.theme.name);
+        if(isNew||replace)await saved('/api/themes/save',manifest.theme);
+        // SillyTavern starts from the look saved in the player's settings, not from the theme file.
+        if(isNew&&ctx.powerUserSettings){const {name,...look}=manifest.theme;Object.assign(ctx.powerUserSettings,look,{theme:name});}
+    }
+    if(manifest.quickReplies){
+        const isNew=!named(server.quickReplyPresets,manifest.quickReplies.name);
+        if(isNew||replace)await saved('/api/quick-replies/save',manifest.quickReplies);
+        if(isNew){
+            const quick=ctx.extensionSettings.quickReplyV2 ??= {};quick.isEnabled=true;quick.config ??= {};quick.config.setList ??= [];
+            if(!quick.config.setList.some(item=>item.set===manifest.quickReplies.name))quick.config.setList.push({set:manifest.quickReplies.name,isVisible:true});
+        }
+    }
 }
 const KINDS=['cards','sprites','files','backgrounds','avatars'];
 export async function importGameData({ctx,file,replace=false,useSettings=false,report=()=>{},signal}){
@@ -202,9 +259,14 @@ export async function importGameData({ctx,file,replace=false,useSettings=false,r
     }
     const worlds=new Set((await post('/api/worldinfo/list')).map(world=>world.file_id));
     for(const [name,data] of Object.entries(manifest.lorebooks || {}))if(replace||!worlds.has(name))await post('/api/worldinfo/edit',{name,data});
-    const journeys=await importJourneys(ctx,post,manifest.journeys,signal);
-    mergeNative(ctx,manifest);
-    if(useSettings)ctx.extensionSettings[KEY]={...manifest.settings,...Object.fromEntries(PRIVATE_SETTINGS.filter(key=>key in (ctx.extensionSettings[KEY] || {})).map(key=>[key,ctx.extensionSettings[KEY][key]]))};
-    ctx.saveSettingsDebounced();
-    return {added,skipped,failed,journeys};
+    const saved=async(url,body)=>ok(await fetch(url,{method:'POST',headers:ctx.getRequestHeaders(),body:JSON.stringify(body),signal}),url);
+    await importLook(ctx,saved,await post('/api/settings/get'),manifest,replace);
+    mergeNative(ctx,manifest,replace);
+    const prefs=ctx.extensionSettings[KEY] ??= {};
+    if(useSettings)ctx.extensionSettings[KEY]={...manifest.settings,...Object.fromEntries(PRIVATE_SETTINGS.filter(key=>key in prefs).map(key=>[key,prefs[key]]))};
+    else mergeSettings(prefs,manifest.settings,replace);
+    await ctx.getCharacters?.();
+    await mergeLorebookSettings(manifest,await import('/scripts/world-info.js'));
+    await (await import('/script.js')).saveSettings();
+    return {added,skipped,failed};
 }

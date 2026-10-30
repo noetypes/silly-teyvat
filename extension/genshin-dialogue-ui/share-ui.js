@@ -44,11 +44,11 @@ export function mountShare({getContext,announce,signal:mountSignal}){
             });
         },
         async exportGameData(){
-            const number=await version(),includeJourneys=Boolean($('#gi-share-journeys')?.checked);
+            const number=await version();
             await download(`silly-teyvat-game-data-${stamp()}.zip`,'Exporting game data',async(sink,options)=>{
-                const result=await exportGameData({ctx:getContext(),sink,includeJourneys,version:number,...options});
+                const result=await exportGameData({ctx:getContext(),sink,version:number,...options});
                 const skipped=result.missing.length?` ${result.missing.length} referenced files were not found and were left out.`:'';
-                paint(`Exported ${result.cards} characters, ${result.files} files and ${result.journeys} journeys.${skipped}`);
+                paint(`Exported ${result.cards} characters and ${result.files} files.${skipped}`);
                 if(result.missing.length)console.warn('[Silly Teyvat] Missing from export',result.missing);
             });
         },
@@ -60,10 +60,8 @@ export function mountShare({getContext,announce,signal:mountSignal}){
                 if(!file)return;
                 void run('Importing game data',async options=>{
                     const result=await importGameData({ctx:getContext(),file,replace:Boolean($('#gi-share-replace')?.checked),useSettings:Boolean($('#gi-share-settings')?.checked),...options});
-                    await getContext().getCharacters?.();
-                    await (await import('/script.js')).saveSettings();
                     const failed=result.failed.length?` ${result.failed.length} could not be imported; run it again to retry.`:'';
-                    paint(`Added ${result.added} files and ${result.journeys} journeys, kept ${result.skipped} you already had.${failed} Reload the page to finish.`);
+                    paint(`Added ${result.added} files and kept ${result.skipped} you already had.${failed} Reload the page to finish.`);
                     announce('Game data imported. Reload the page to finish.');
                     if(result.failed.length)console.warn('[Silly Teyvat] Import failures',result.failed);
                 });

@@ -12,11 +12,28 @@ data = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(data)
 PREFIX = 'extension/genshin-dialogue-ui/'
 FILE_LIST = 'package-files.json'
+BUILT_IN_SETS = {'Official Art', 'Chibi'}
 
 
 def file_list(names):
     """The browser cannot list a folder, so the extension export reads this inventory."""
     return json.dumps({'files': sorted(names)}, indent=1).encode() + b'\n'
+
+
+def unregistered_sets(destination):
+    """Sprite folders placed on disk but in no setting: neither the game nor an export can see them."""
+    user = destination.parent.parent
+    settings, characters = user / 'settings.json', user / 'characters'
+    if not settings.is_file() or not characters.is_dir():
+        return []
+    extensions = json.loads(settings.read_text())['extension_settings']
+    prefs = extensions.get('genshin_dialogue_ui') or {}
+    sets = [outfit.get('folder') for outfits in (prefs.get('outfits') or {}).values() for outfit in outfits]
+    sets += [item.get('path') for item in extensions.get('expressionOverrides') or []]
+    sets += [sprite.get('folder') for sprite in (prefs.get('personaSprites') or {}).values()]
+    return sorted(f'{path.parent.name}/{path.name}' for path in characters.glob('*/*')
+                  if path.is_dir() and path.name not in BUILT_IN_SETS and any(path.iterdir())
+                  and f'{path.parent.name}/{path.name}' not in sets)
 
 
 def main():
@@ -62,6 +79,8 @@ def main():
         shutil.copy2(path, target)
     (destination / FILE_LIST).write_bytes(inventory)
     print(f'Installed {len(code)} source files and linked {len(media)} media files from {root} to {destination}')
+    for folder in unregistered_sets(destination):
+        print(f'Warning: {folder} is not a registered sprite set. Add it in Character Customization to play and export it.')
 
 
 if __name__ == '__main__':
