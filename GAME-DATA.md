@@ -50,6 +50,21 @@ Native character folders, user uploads, chats and settings remain in SillyTavern
 own data directory. A plain source-only clone or ZIP is insufficient to run the
 extension without the separate pack.
 
+## Share with testers
+
+The **Share** tab in the extension settings makes two ZIP files. Testers need both.
+
+1. **Export extension** contains the installed extension, its media and your settings. The tester
+   unzips it into `data/default-user/extensions/`, keeping the `genshin-dialogue-ui` folder name,
+   and reloads SillyTavern. A first run takes on the packaged settings; an existing install keeps
+   its own.
+2. **Export game data** contains the game's character cards, sprite folders, referenced uploads,
+   lorebooks and personas. The tester chooses **Import game data** and reloads when it finishes.
+
+API keys, connection profiles, the namecard signature and cards unrelated to the game are left out.
+Saved journeys are optional because they contain full chats. Files stay uncompressed, up to the
+4 GB ZIP limit. Large downloads need a normal browser window; private windows can fail silently.
+
 ## Add or update media
 
 Create media at its usual workspace path, replacing an existing link with a new

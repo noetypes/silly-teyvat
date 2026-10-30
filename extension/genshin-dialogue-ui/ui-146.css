@@ -46,3 +46,10 @@ body.gi-keyboard :is(#gi-background-stage,#gi-sprite-stage,#gi-cg-stage,#gi-lett
     #gi-wardrobe .gi-wardrobe-tabs{min-height:0;overflow-y:auto;justify-content:safe center;scrollbar-width:none}
     #gi-wardrobe .gi-wardrobe-preview{min-height:0;overflow:hidden}
 }
+
+/* Settings > Share */
+#gi-settings .gi-set-tabs { flex-wrap: wrap; justify-content: center; }
+#gi-settings .gi-set-tabs button { padding-inline: 4px; font-size: 12px; }
+#gi-settings .gi-set-actions .menu_button { width: auto; white-space: nowrap; }
+#gi-settings .gi-share-progress { display: block; width: 100%; height: 8px; margin: 10px 0 4px; accent-color: var(--ty-cream); }
+#gi-settings .gi-share-progress[hidden] { display: none; }

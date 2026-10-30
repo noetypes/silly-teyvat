@@ -15,6 +15,10 @@ verification and adding assets. Never commit media binaries or research caches.
 5. Open `http://localhost:8000/scripts/extensions/third-party/genshin-dialogue-ui/preview.html` and run the `preview-*-tests.js` suites. In a background tab, shim `requestAnimationFrame` with `setTimeout` first, or the tests stall.
 6. Commit with the version bump in `manifest.json` and a short section at the top of the extension `README.md`.
 
+## Tester packages
+
+`tools/sync-live.sh` writes `package-files.json` into the installed extension. The browser cannot list a folder, so **Export extension** reads this inventory. Run `node tools/test-share-package.mjs` after changing the export or import code. See [GAME-DATA.md](GAME-DATA.md#share-with-testers) for what each package contains.
+
 ## Responsive interface checks
 
 Run `node tools/test-starter-cgs.mjs` for the bundled scene artworks and keyboard detection.

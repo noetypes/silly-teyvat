@@ -1,7 +1,9 @@
 #!/usr/bin/env python3
 """Install source plus external media links without changing native user data."""
 import argparse
+import hashlib
 import importlib.util
+import json
 from pathlib import Path
 import shutil
 
@@ -9,6 +11,12 @@ spec = importlib.util.spec_from_file_location('game_data', Path(__file__).with_n
 data = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(data)
 PREFIX = 'extension/genshin-dialogue-ui/'
+FILE_LIST = 'package-files.json'
+
+
+def file_list(names):
+    """The browser cannot list a folder, so the extension export reads this inventory."""
+    return json.dumps({'files': sorted(names)}, indent=1).encode() + b'\n'
 
 
 def main():
@@ -27,10 +35,12 @@ def main():
     code = {p.relative_to(source).as_posix(): p for p in source.rglob('*')
             if p.is_file() and not p.is_symlink() and p.name != '.DS_Store' and '__pycache__' not in p.parts}
     media = {name[len(PREFIX):]: info for name, info in files.items() if name.startswith(PREFIX)}
+    inventory = file_list([*code, *media])
     if args.check:
         differences = []
         expected = {**{name: data.digest(path) for name, path in code.items()},
-                    **{name: info['sha256'] for name, info in media.items()}}
+                    **{name: info['sha256'] for name, info in media.items()},
+                    FILE_LIST: hashlib.sha256(inventory).hexdigest()}
         for name, sha in expected.items():
             path = destination / name
             if not path.is_file() or data.digest(path) != sha:
@@ -50,6 +60,7 @@ def main():
         if target.is_symlink():
             target.unlink()
         shutil.copy2(path, target)
+    (destination / FILE_LIST).write_bytes(inventory)
     print(f'Installed {len(code)} source files and linked {len(media)} media files from {root} to {destination}')
 
 

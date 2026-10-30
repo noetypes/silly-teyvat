@@ -41,6 +41,8 @@ import {mountSoloChat} from './solo-chat.js';
 import {freshJourneySource,openFreshSoloChat,randomizeGreeting} from './fresh-chat.js';
 import {createLoadingScreen} from './loading-screen.js';
 import {createKeyboardFrame} from './keyboard-frame.js';
+import {applyPackagedSettings} from './share-package.js';
+import {mountShare} from './share-ui.js';
 const KEY = 'genshin_dialogue_ui';
 const FOLDER = 'third-party/genshin-dialogue-ui';
 const defaults = Object.freeze({ ...stagingDefaults, enabled: false, choices: true, composer: true, reducedMotion: false, textScale: 1, scrim: 0.8, revealSpeed: 45, tapAdvance: true, pageExpressions: true, narration: false, narrationMode: 'quotes', narrationKeyword: 'Narrator:', hideDialogueQuotes:false, wardrobe: true, locationEncounters:true, locationCharacterLimit:5, randomEncounters:true, encounterRate:40, allowMainDeparture:false, worldPromptAllRegions:false, roleplayPromptsEnabled:true, wildernessEncounters:true, maxEnemies:3, combatDamageMin:1, combatDamageMax:6, enemyStrikeBack:true,combatTriggerPhrase:'[start_combat]', enemyDamageMin:2, enemyDamageMax:6, enemyDice:4, userMaxHp:30, combatDifficulty:'normal', battleEffects:true, battleSound:true, personaIcon: 'Aether', personaIconMode:'auto', hudTopIcons:'auto', namecard:'', signature:'', trimSprites:true, cgEnabled:true, cgMode:'scene', cgClassifier:'main', cgProfile:'', choicesProfile:'', cgBypassReasoning:true, cgPrompt:defaultCGPrompt, cgAudio:true, spriteAudio:true, burstAudio:true, spriteVolume:.8, diceSound:true });
@@ -106,7 +108,7 @@ let locationMusicUI;
 let spriteUI;
 let wardrobeUI,inventoryUI;
 let personaSession,soloChatUI,loadingUI,keyboardFrame,lastPlaceId='';
-let mediaUI;
+let mediaUI,shareUI;
 let stageEffects;
 let visit = 0;
 const reveal = createTextReveal(schedule);
@@ -601,6 +603,10 @@ function handleAction(event) {
         case 'wardrobe': menuOpen = false; refresh(); wardrobeUI?.open().catch(error => announce(error.message)); break;
         case 'inventory': menuOpen = false; refresh(); inventoryUI?.open(); break;
         case 'cg': preferences().cgMode=preferences().cgMode==='window'?'scene':'window'; context().saveSettingsDebounced(); refresh(); announce(preferences().cgMode==='window'?'CGs open in a framed window.':'CGs replace the background and sprites.'); break;
+        case 'share-extension': void shareUI?.exportExtension(); break;
+        case 'share-export': void shareUI?.exportGameData(); break;
+        case 'share-import': shareUI?.chooseImport(); break;
+        case 'share-cancel': shareUI?.cancel(); break;
         case 'audio-unlock': mediaUI?.unlockAudio().then(()=>announce('Sprite audio enabled on this device.')).catch(()=>announce('Audio is blocked by this browser. Check its sound permissions.')); break;
         case 'settings':
             menuOpen = false; refresh();
@@ -665,6 +671,8 @@ export async function initialize({ choicesAdapter, spriteAdapter, wardrobeAdapte
     mounted = true;
     const version = ++mountVersion;
     abort = new AbortController();
+    try{await applyPackagedSettings(context());}catch(error){console.warn('[Silly Teyvat] Packaged settings',error);}
+    if(!mounted || version!==mountVersion)return;
     await loadPersonaSupport(context());
     if(!mounted || version!==mountVersion)return;
     syncPersonaSettings(context());
@@ -744,6 +752,7 @@ export async function initialize({ choicesAdapter, spriteAdapter, wardrobeAdapte
         console.warn('[Silly Teyvat] Settings panel unavailable. Alt+G and the compass still work.', error);
     }
     if (!mounted || version !== mountVersion) return;
+    shareUI=mountShare({getContext:context,announce,signal:abort.signal});shareUI.bind();
     document.addEventListener('click', handleAction, { signal: abort.signal });
     document.addEventListener('keydown', handleKey, { signal: abort.signal });
     bindRoleplayPrompts(context, abort.signal);

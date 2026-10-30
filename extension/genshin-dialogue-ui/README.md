@@ -1,3 +1,18 @@
+# Silly Teyvat 1.48.0: Share with testers
+
+- **Share tab in settings.** New buttons export the extension, export game data and import game
+  data, with progress and a Stop button.
+- **Export extension.** Saves the installed version, including its art and sounds and your current
+  settings, as a ZIP. Unzipped into SillyTavern's `data/default-user/extensions` folder, it starts
+  with those settings on the first run.
+- **Export and import game data.** Saves the character cards, sprites, voices, music, lorebooks and
+  game personas that SillyTavern keeps outside the extension. Import adds only what is missing, so
+  it can be repeated after an interruption. It can also replace existing files or use the file's
+  settings.
+- **Private by default.** API keys, connection profiles and your signature are never exported, and
+  cards unrelated to the game stay out. Saved journeys contain full chats, so they are included
+  only when you turn that on.
+
 # Silly Teyvat 1.47.0: Smooth loading, steady phone keyboard, Choices connection, starter scenes
 
 - **Smoother loading screen.** Opening a chat, starting a new one, switching characters and
