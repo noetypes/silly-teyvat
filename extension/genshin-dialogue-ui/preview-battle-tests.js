@@ -1,6 +1,6 @@
 import {resolveRound,allocateDice,forecastPlan,autoPlan,rollFuel,diceCount,resonanceOf,partyScale,planIntent,intentPreview,fleeChance,auraList,REACTION_UNIT} from './battle-engine.js';
 import {ITEMS,rollLoot,applyDiceItem,STARTER_BAG} from './battle-items.js';
-import {defaultKit,describeMove,hasBundledKit,mergeKit} from './combat-kits.js';
+import {defaultKit,describeMove,escapeHtml,hasBundledKit,mergeKit} from './combat-kits.js';
 import {mountBattle} from './battle-ui.js';
 import {mountMovesetEditor} from './moveset-editor.js';
 import {kitForCard,roundNarration,tcgArt,tcgCardsReady} from './battle-state.js';
@@ -136,6 +136,9 @@ export async function runBattleTests(){
         check('victories drop item cards',rollLoot([{element:'Pyro',maxHp:50}],{random:()=>.1}).length===3&&rollLoot([{element:'Physical',maxHp:20}]).every(id=>ITEMS[id]));
         check('every item has card art and a starter bag exists',Object.keys(ITEMS).length>=20&&Object.keys(STARTER_BAG).every(id=>ITEMS[id]));
         check('bigger parties face tougher enemies',partyScale(4).hp>partyScale(2).hp&&partyScale(1).damage<1);
+        check('Auto leaves the dice that played items already spent',autoPlan(team,[{face:'Pyro'},{face:'Pyro'},{face:'Pyro'}],[{actor:'b',move:0,target:'h'}],[{cost:3}])[0].move===0);
+        {const foe=unit('h','enemy','Hilichurl Fighter','Physical'),me=unit('k','party','Klee','Pyro');foe.kit={...foe.kit,miss:100};foe.intent={move:0,target:'k'};
+        check('an enemy kit sets how often its attacks miss',resolveRound(party(me,foe),[],{random:()=>.5}).timeline.some(e=>e.type==='miss'&&e.actor==='h'));}
         check('Auto picks a Burst when it is ready and paid for',autoPlan(team,[{face:'Pyro'},{face:'Pyro'},{face:'Pyro'}],[{actor:'b',move:0,target:'h'}])[0].move===2);
         const text=roundNarration(kx,resolveRound(kx,[{actor:'x',move:1,target:'h'},{actor:'k',move:1,target:'h'}],{...opts,strikeBack:false}));
         check('the chat narration names moves, damage and reactions',/Xingqiu used Guhua Sword: Fatal Rainscreen \(Elemental Skill\)/.test(text)&&/Vaporize/.test(text)&&/HP: Klee/.test(text));
@@ -156,6 +159,7 @@ export async function runBattleTests(){
         check('wiki icons are indexed for skills, reactions, elements, characters and summons',skillIcon({name:'Jumpy Dumpty'})&&reactionIcon('Vaporize')&&reactionIcon('Aggravate')&&elementIcon('Pyro',true)&&characterIcon('Klee')&&summonArt('Oz'));
 
         // Battle board
+        check('names reach tooltips as text',escapeHtml('<img src=x onerror="a()">&')==='&lt;img src=x onerror=&quot;a()&quot;&gt;&amp;');
         ui=mountBattle({host});
         const screen=party(unit('k','party','Klee','Pyro',{energy:2}),unit('x','party','Xingqiu','Hydro',{hp:10}),unit('h','enemy','Hilichurl Fighter','Physical'),unit('s','enemy','Hydro Slime','Hydro'));
         screen.bag={'sweet-madame':2,'woven-flames':1,'adeptus-temptation':1};
@@ -243,6 +247,11 @@ export async function runBattleTests(){
         check('saving stores the edited moveset for the card',saved.custom&&saved.moves[1].name==='Super Jumpy'&&saved.moves[1].cost===1&&saved.moves[1].effects.some(e=>e.type==='heal')&&/saved/.test(note));
         panel.querySelector('[data-reset-kit]').click();
         check('reset restores the default moveset',kitForCard(ctx,ctx.characters[0]).moves[1].name==='Jumpy Dumpty'&&!kitForCard(ctx,ctx.characters[0]).custom);
+        ctx.characters[0]={name:'Eula',avatar:'Eula.png',data:{extensions:{silly_teyvat:{playable:true,element:'Cryo'}}}};editor.refresh();panel.querySelector('[data-save-kit]').click();
+        check('saving keeps an effect option the form has no field for',kitForCard(ctx,ctx.characters[0]).moves[2].effects[0].element==='Physical');
+        ctx.characters[0]={name:'Hilichurl Fighter',avatar:'Hilichurl Fighter.png',data:{extensions:{silly_teyvat:{role:'enemy'}}}};editor.refresh();
+        panel.querySelector('[data-k="element"]').value='Cryo';panel.querySelector('[data-save-kit]').click();
+        check('an enemy keeps the element chosen in its moveset',kitForCard(ctx,ctx.characters[0]).element==='Cryo'&&panel.querySelector('[data-k="element"]').value==='Cryo');
         editor.dispose();
         return out.join('\n')+`\n${out.length} battle checks passed`;
     }catch(error){out.push(`ERROR ${error.message}`);return out.join('\n');}

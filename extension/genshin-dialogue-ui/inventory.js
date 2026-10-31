@@ -200,7 +200,6 @@ export function mountInventory({host,getContext,announce=()=>{},onEat=()=>{},onC
         closeTimer=setTimeout(()=>{dialog.classList.remove('gi-inv-closing');if(dialog.open)dialog.close();onClose();},200);
     }
     return {
-        get open(){return dialog.open;},
         open(){
             const {ctx,bag}=state();seen=bag?{...(combatState(ctx).bagSeen || {})}:{};
             clearTimeout(closeTimer);dialog.classList.remove('gi-inv-closing');selected='';

@@ -14,7 +14,7 @@ export function locationResidents(ctx,id){
     for(const [avatar,destination] of Object.entries(ctx.chatMetadata?.silly_teyvat_cast?.placements || {}))homes.set(avatar,destination);
     // A card the player has taken over as their persona never appears as a resident.
     const played=playedAvatars(ctx);
-    return (ctx.characters || []).filter(c=>!isEnemy(ctx,c)&&!played.has(c.avatar)&&homes.get(c.avatar)===id);
+    return (ctx.characters || []).filter(c=>homes.get(c.avatar)===id&&!played.has(c.avatar)&&!isEnemy(ctx,c));
 }
 export function encounterRate(ctx){
     const value=Number(mediaSettings(ctx).encounterRate ?? 40);

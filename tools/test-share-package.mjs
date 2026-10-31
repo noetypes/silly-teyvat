@@ -61,6 +61,10 @@ assert.deepEqual(mine.regions[0].locations.map(x=>x.id),['x','y']);assert.deepEq
 mergeSettings(mine,theirs,true);
 assert.equal(mine.characterCGs['Klee.png'][0].label,'Theirs','replace updates character settings');
 assert.equal(mine.locations['Klee.png'],'theirs');assert.equal(mine.volume,.2,'and still leaves general preferences');
+const hostile=JSON.parse('{"__proto__":{"polluted":true},"constructor":{"prototype":{"polluted":true}},"safe":1}');
+mergeSettings({},hostile);mergeSettings({},hostile,true);
+assert.equal({}.polluted,undefined,'a package cannot reach Object.prototype');
+assert.deepEqual(Object.keys(mergeSettings({},hostile)),['safe'],'ordinary keys still arrive');
 for(const bad of ['../secrets.json','/etc/passwd','sprites/../../x','a\\b','a//b'])assert.equal(isSafeEntry(bad),false,bad);
 assert.equal(isSafeEntry('sprites/Hu Tao/Official Art/joy.png'),true);
 assert.deepEqual(spriteUpload('Hu Tao/Official Art/Joy-2.png'),{folder:'Hu Tao/Official Art',file:'Joy-2.png',spriteName:'Joy-2',label:'joy'});

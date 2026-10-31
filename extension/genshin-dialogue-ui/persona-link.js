@@ -15,7 +15,7 @@ export function linkedCardAvatar(ctx, personaAvatar = activePersonaAvatar(ctx)) 
     const matches=name?(ctx.characters || []).filter(c=>c.name?.trim().toLocaleLowerCase()===String(name).trim().toLocaleLowerCase()):[];
     return matches.length===1?matches[0].avatar:'';
 }
-export const linkedCard = (ctx, personaAvatar) => (ctx.characters || []).find(c => c.avatar === linkedCardAvatar(ctx, personaAvatar));
+export const linkedCard = (ctx, personaAvatar) => { const avatar = linkedCardAvatar(ctx, personaAvatar); return avatar ? ctx.characters.find(c => c.avatar === avatar) : undefined; };
 // Cards currently played by the active persona.
 export function playedAvatars(ctx) {
     const avatar = linkedCardAvatar(ctx);

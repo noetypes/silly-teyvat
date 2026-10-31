@@ -6,7 +6,7 @@ Reads the "Unobtainable" table of Genius_Invokation_TCG/Card_List/Character_Card
 monster, Fatui, Eremite, Kairagi and Nobushi cards used by the game's PvE challenges), then
 each card page for its health, element and skills, the card art's original URL, and the
 matching enemy page's archive description. Writes JSON (default work/tcg-enemies/cards.json)
-for build-tcg-enemies.py.
+for build-tcg-enemy-cards.py.
 """
 import html, json, re, sys, time, urllib.parse, urllib.request
 from pathlib import Path

@@ -10,7 +10,7 @@ import { characterPreferences, bounded, roster } from './staging.js';
 import { nextSlotName, spriteDrafts, draftSprite } from './wardrobe-slots.js';
 import { mountBackgroundWardrobe } from './background-wardrobe.js';
 import { mountMovesetEditor } from './moveset-editor.js';
-import {personaCard,personaFolder,personaPortrait,personaSpriteSettings,setPersonaSpriteSetting,mountPersonaProfile,createPersonaAdapter} from './persona-wardrobe.js';
+import {personaCard,personaFolder,personaSpriteSettings,setPersonaSpriteSetting,mountPersonaProfile,createPersonaAdapter} from './persona-wardrobe.js';
 import {circularCharacterAvatar,characterAvatarsReady} from './character-avatars.js';
 import {mountBurstAudioEditor} from './burst-audio.js';
 const KEY = 'genshin_dialogue_ui';
@@ -145,7 +145,6 @@ export function mountWardrobe({host, getContext, onChange = async () => {}, onMe
         <section class="gi-cg-section"><h3>Add artwork</h3><label>Artwork files<input id="gi-cg-files" type="file" accept="image/png,image/webp,image/jpeg,image/gif,image/avif,video/mp4,video/webm,video/quicktime,.m4v,.mov" multiple></label><div class="gi-wardrobe-row"><button type="button" data-w="upload-cg">Add scene artwork</button><button type="button" data-w="recheck-cg">Recheck visible message</button></div></section>
         </div>
         </section></div><footer><p role="status" aria-live="polite"></p><button type="button" data-w="undo" hidden>Undo remove</button></footer>`;
-    const backgroundTab=document.createElement('button');backgroundTab.type='button';backgroundTab.dataset.w='tab-backgrounds';backgroundTab.textContent='Backgrounds';backgroundTab.setAttribute('aria-pressed','false');void backgroundTab;
     const backgroundPanel=document.createElement('div');backgroundPanel.dataset.panel='backgrounds';backgroundPanel.hidden=true;dialog.querySelector('.gi-wardrobe-controls').append(backgroundPanel);
     host.append(dialog);
     const abort = new AbortController();
@@ -153,8 +152,8 @@ export function mountWardrobe({host, getContext, onChange = async () => {}, onMe
     const $ = sel => dialog.querySelector(sel);
     let character, sets = [], sprites = [], selected, selectedCG, tab = 'attributes', backup, revision = 0, busy = false, opener,personaRefreshPending=false;
     const status = text => { const p=$('footer p'); p.textContent = text; p.classList.remove('gi-toast'); void p.offsetWidth; p.classList.add('gi-toast'); };
-    const backgroundUI=mountBackgroundWardrobe({panel:backgroundPanel,getContext,adapter:mediaAdapter,onChange:onMediaChange,status,openMap:options=>{dialog.close();openMap(options);},preview:(location,region)=>{
-        if(tab!=='backgrounds')return;const img=$('.gi-wardrobe-preview img');img.hidden=!location?.path;if(location?.path)img.src=localMediaPath(location.path);else img.removeAttribute('src');$('.gi-wardrobe-preview h3').textContent=region?.name || 'World travel';$('.gi-outfit-caption').textContent=location?.label || 'Choose a region and add locations';
+    const backgroundUI=mountBackgroundWardrobe({panel:backgroundPanel,getContext,adapter:mediaAdapter,onChange:onMediaChange,status,openMap:options=>{dialog.close();return openMap(options);},preview:(location,region)=>{
+        if(tab!=='backgrounds')return;const img=$('.gi-wardrobe-preview img');clearArt(img);img.hidden=!location?.path;if(location?.path)img.src=localMediaPath(location.path);else img.removeAttribute('src');$('.gi-wardrobe-preview h3').textContent=region?.name || 'World travel';$('.gi-outfit-caption').textContent=location?.label || 'Choose a region and add locations';
     }});
     const propertiesPanel=document.createElement('details');propertiesPanel.className='gi-card-properties';$('.gi-character-staging').before(propertiesPanel);
     const propertiesUI=mountCharacterProperties({panel:propertiesPanel,getContext,getCharacter:()=>character,status,onChange:()=>onChange(character,{classification:true})});
@@ -201,6 +200,8 @@ export function mountWardrobe({host, getContext, onChange = async () => {}, onMe
     }
     // Sprites show without their empty padding, matching the stage. The raw art
     // loads first but stays hidden until the trimmed copy (if any) replaces it.
+    // Whatever replaces a sprite in a shared preview also cancels any crop still on its way to it.
+    function clearArt(img) { delete img.dataset.art; img.style.visibility = ''; }
     function setArt(img, spriteFolder, path) {
         img.dataset.art = path; img.src = path;
         if (mediaSettings(getContext()).trimSprites === false) return;
@@ -217,7 +218,7 @@ export function mountWardrobe({host, getContext, onChange = async () => {}, onMe
     function chooseSprite(sprite) {
         selected = sprite;
         const preview = $('.gi-wardrobe-preview img'); preview.hidden = Boolean(sprite.blank);
-        if(sprite.blank)preview.removeAttribute('src');else setArt(preview, folder(), sprite.path);
+        if(sprite.blank){clearArt(preview);preview.removeAttribute('src');}else setArt(preview, folder(), sprite.path);
         $('.gi-outfit-caption').textContent = `${$('#gi-outfit').selectedOptions[0]?.textContent} · ${spriteIdentity(sprite.path).name}`;
         $('.gi-sprite-detail').hidden = false; $('.gi-sprite-detail span').textContent = spriteIdentity(sprite.path).filename;
         $('button[data-w="use-persona-sprite"]').hidden=!character.isPersona || Boolean(sprite.blank);
@@ -240,7 +241,7 @@ export function mountWardrobe({host, getContext, onChange = async () => {}, onMe
         }
         if (!list.children.length) list.textContent = 'No audio assigned.';
     }
-    const cgs = () => mediaSettings(getContext()).characterCGs[character.avatar] ??= [];
+    const cgs = () => character ? mediaSettings(getContext()).characterCGs[character.avatar] ??= [] : [];
     function renderCGAudio(){
         const list=$('.gi-cg-audio-list');list.replaceChildren();$('.gi-cg-audio-tools').hidden=!selectedCG;
         for(const file of selectedCG?.audio || []){
@@ -259,7 +260,7 @@ export function mountWardrobe({host, getContext, onChange = async () => {}, onMe
     }
     function classifications(){return [...new Set($('#gi-cg-classifications').value.split(/[\n,;]/).map(x=>x.trim()).filter(Boolean))];}
     function chooseCG(cg) {
-        selectedCG = cg; const img=$('.gi-wardrobe-preview img'),isVideo=isVideoCG(cg);img.hidden=!cg.path||isVideo;if(cg.path&&!isVideo)img.src=cg.path;else if(!cg.path)img.removeAttribute('src');
+        selectedCG = cg; const img=$('.gi-wardrobe-preview img'),isVideo=isVideoCG(cg);clearArt(img);img.hidden=!cg.path||isVideo;if(cg.path&&!isVideo)img.src=cg.path;else if(!cg.path)img.removeAttribute('src');
         showCGVideo(isVideo?cg:null);$('#gi-cg-display').value=cg.display==='frame'?'frame':'scene';$('.gi-cg-video-tools').hidden=!isVideo;$('#gi-cg-video-loop').checked=Boolean(cg.videoLoop);
         paintCGVolume('video',cg.videoVolume ?? 100);paintCGVolume('audio',cg.audioVolume ?? 100);
         $('.gi-outfit-caption').textContent=cg.label;$('#gi-cg-label').value=cg.label;$('#gi-cg-description').value=cg.description || '';$('#gi-cg-classifications').value=(cg.classifications || []).join('\n');renderCGAudio();
@@ -415,7 +416,9 @@ export function mountWardrobe({host, getContext, onChange = async () => {}, onMe
                     if (!uniqueSetName(label) || sets.some(x => x.folder.toLowerCase() === path.toLowerCase())) throw new Error('A set with that name already exists.');
                     const copyFrom = $('#gi-set-copy').checked ? sprites.filter(x => !x.blank) : [];
                     for (const sprite of copyFrom) {
-                        const info = spriteIdentity(sprite.path), blob = await (await fetch(sprite.path)).blob();
+                        const info = spriteIdentity(sprite.path), response = await fetch(sprite.path);
+                        if (!response.ok) throw new Error(`Could not copy ${info.filename} (${response.status}).`);
+                        const blob = await response.blob();
                         await adapter.upload(path, new File([blob], info.filename, { type: blob.type }), info.name, sprite.label);
                     }
                     registerSet({ label, folder: path }); sets.push({ label, folder: path });
@@ -469,7 +472,7 @@ export function mountWardrobe({host, getContext, onChange = async () => {}, onMe
                 const copies=await adapter.rename(folder(),sprites,old,label),prefs=mediaSettings(getContext());
                 for(const copy of copies){prefs.archivedSprites[localMediaPath(copy.sprite.path)]=copy.archive.path;const files=prefs.spriteAudioFiles[spriteAudioKey(folder(),copy.sprite.path)];if(files)prefs.spriteAudioFiles[spriteAudioKey(folder(),copy.newPath)]=structuredClone(files);if(prefs.spriteScales?.[spriteAudioKey(folder(),copy.sprite.path)]!=null)prefs.spriteScales[spriteAudioKey(folder(),copy.newPath)]=prefs.spriteScales[spriteAudioKey(folder(),copy.sprite.path)];}
                 if(!expressionLabels.includes(label))registerExpression(getContext(),label);
-                if(getContext().extensionSettings.expressions.fallback_expression===old)getContext().extensionSettings.expressions.fallback_expression=label;
+                const native=getContext().extensionSettings.expressions;if(native?.fallback_expression===old)native.fallback_expression=label;
                 getContext().saveSettingsDebounced();await changed(folder(),{renamedFrom:old,renamedTo:label});await load();status(`Renamed ${old} to ${label} in ${folder()}. Character Expressions has the new label.`);
             }
             if (name === 'upload-audio') {
@@ -601,11 +604,11 @@ export function mountWardrobe({host, getContext, onChange = async () => {}, onMe
         async open(options={}) {
             opener = document.activeElement;
             if (!dialog.open) dialog.showModal();
-            if (busy) { status('Finishing the current sprite operation…'); return; }
+            if (busy) { status('Finishing the current sprite operation…'); personaRefreshPending = true; return; }
             await renderRoster(options.persona?personaCard(getContext())?.avatar:options.avatar);
         },
         async refreshPersona(){if(!dialog.open)return;if(busy){personaRefreshPending=true;return;}await renderRoster(character?.isPersona?personaCard(getContext())?.avatar:undefined);},
         close() { if (dialog.open) dialog.close(); },
-        dispose() { revision++; abort.abort(); propertiesUI.dispose();movesetUI.dispose();burstAudioUI.dispose();personaProfileUI.dispose();backgroundUI.dispose();dialog.close(); dialog.remove(); },
+        dispose() { revision++; abort.abort(); trimmer.reset(); propertiesUI.dispose();movesetUI.dispose();burstAudioUI.dispose();personaProfileUI.dispose();backgroundUI.dispose();dialog.close(); dialog.remove(); },
     };
 }

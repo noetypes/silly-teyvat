@@ -4,7 +4,7 @@
 // Action Phase: pick each member's move and target, play items, or flee. Resolution plays
 // the round back with Burst splash art, impacts, reactions and sound, then a summary.
 import {resolveRound,allocateDice,forecastPlan,canAfford,moveNeedsTarget,autoPlan,isStunned,alive,unitById,moveElement,intentPreview,fleeChance,partyElements,auraList,innateAura,REACTIONS,RESONANCE,ELEMENTS,FIELDS} from './battle-engine.js';
-import {describeMove,KIND_LABEL} from './combat-kits.js';
+import {describeMove,escapeHtml,KIND_LABEL} from './combat-kits.js';
 import {ITEMS,itemArt,applyDiceItem} from './battle-items.js';
 import {createBattleSound} from './battle-sound.js';
 import {createParticles,glyph,weaponIcon,EL_COLORS,SWORD_SVG} from './battle-fx.js';
@@ -190,13 +190,13 @@ export function mountBattle({host,sound=createBattleSound(),onBurst=()=>{},onSto
         // Played items have already taken effect on the board, so the forecast starts from the board as it is.
         const step=stepOf(u.id),trial=plan.map(p=>p===step?{...p,move:index}:p),f=step?forecastPlan(state,trial,[])[plan.indexOf(step)]:null;
         const element=moveElement(u,move),reactions=(f?.reactions || []).map(r=>`<b style="color:${REACTIONS[r.split(' + ').at(-1)] || '#fff'}">${r}</b>`).join(' ');
-        showTip(anchor,`${skillIcon(move)?`<img class="tb-tip-icon" src="${skillIcon(move)}" alt="">`:''}<small>${KIND_LABEL[move.kind]}${move.kind==='burst'?` · ${energyOf(u)}/${u.maxEnergy}`:''}</small><strong>${move.name}</strong>${costHtml(u,move)}<p>${describeMove(move,u.element==='None'?'Physical':u.element)}</p>${f&&(f.damage||f.heal||reactions)?`<p class="tb-tip-forecast"><i style="color:${EL_COLORS[element]}">${glyph(element)}</i>${f.damage?` ${f.damage}`:''}${f.heal?` <span class="tb-heal">+${f.heal}</span>`:''} ${reactions}</p>`:''}`);
+        showTip(anchor,`${skillIcon(move)?`<img class="tb-tip-icon" src="${skillIcon(move)}" alt="">`:''}<small>${KIND_LABEL[move.kind]}${move.kind==='burst'?` · ${energyOf(u)}/${u.maxEnergy}`:''}</small><strong>${escapeHtml(move.name)}</strong>${costHtml(u,move)}<p>${escapeHtml(describeMove(move,u.element==='None'?'Physical':u.element))}</p>${f&&(f.damage||f.heal||reactions)?`<p class="tb-tip-forecast"><i style="color:${EL_COLORS[element]}">${glyph(element)}</i>${f.damage?` ${f.damage}`:''}${f.heal?` <span class="tb-heal">+${f.heal}</span>`:''} ${reactions}</p>`:''}`);
     }
     function unitTip(id,card){
         const u=unitById(state,id);if(!u||mode==='')return;
         const intent=u.side==='enemy'&&mode==='plan'?intentPreview(state,u):null;
-        const statuses=(u.statuses || []).map(s=>`${s.label || s.stat}`).filter((v,i,a)=>a.indexOf(v)===i).join(', ');
-        showTip(card,`<small>${u.side==='enemy'?(u.element==='Physical'?'Enemy':`${u.element} enemy`):u.kit.role || ''}</small><strong>${u.name}</strong><p>${Math.max(0,u.hp)} / ${u.maxHp} HP${u.shield?` · Shield ${u.shield}`:''}${u.weakTo?` · Weak to ${u.weakTo}`:''}${u.armor?` · Armor ${u.armor}%`:''}${u.evasion?` · Evasion ${u.evasion}%`:''}</p>${statuses?`<p>${statuses}</p>`:''}${intent&&!intent.skip?`<p class="tb-tip-intent">Next: <b>${intent.name}</b></p>`:''}`);
+        const statuses=escapeHtml((u.statuses || []).map(s=>`${s.label || s.stat}`).filter((v,i,a)=>a.indexOf(v)===i).join(', '));
+        showTip(card,`<small>${u.side==='enemy'?(u.element==='Physical'?'Enemy':`${u.element} enemy`):escapeHtml(u.kit.role)}</small><strong>${escapeHtml(u.name)}</strong><p>${Math.max(0,u.hp)} / ${u.maxHp} HP${u.shield?` · Shield ${u.shield}`:''}${u.weakTo?` · Weak to ${u.weakTo}`:''}${u.armor?` · Armor ${u.armor}%`:''}${u.evasion?` · Evasion ${u.evasion}%`:''}</p>${statuses?`<p>${statuses}</p>`:''}${intent&&!intent.skip?`<p class="tb-tip-intent">Next: <b>${escapeHtml(intent.name)}</b></p>`:''}`);
     }
     // ---- Action Phase -------------------------------------------------------------------
     const party=()=>state.units.filter(u=>u.side==='party');
@@ -405,7 +405,7 @@ export function mountBattle({host,sound=createBattleSound(),onBurst=()=>{},onSto
     }
     const ordinal=n=>{const s=['th','st','nd','rd'],v=n%100;return n+(s[(v-20)%10] || s[v] || s[0]);};
     on($('.tb-order'),'click',event=>{const b=event.target.closest('button[data-dir]');if(b&&mode==='plan'&&active)reorder(active,Number(b.dataset.dir));});
-    on($('.tb-auto'),'click',()=>{if(mode!=='plan')return;flee=false;plan=autoPlan(state,dice,plan).map(p=>({...p,set:true}));targeting=null;heldItem=null;active=null;sound.assign();paint();});
+    on($('.tb-auto'),'click',()=>{if(mode!=='plan')return;flee=false;plan=autoPlan(state,dice,plan,paying()).map(p=>({...p,set:true}));targeting=null;heldItem=null;active=null;sound.assign();paint();});
     // Flee asks first: the chance shows only once you choose it, and confirming begins the round as an escape.
     const fleeOpen=()=>!$('.tb-confirm').hidden;
     function askFlee(show){
@@ -436,6 +436,7 @@ export function mountBattle({host,sound=createBattleSound(),onBurst=()=>{},onSto
     });
     // Tapping empty table puts a held item down or stops choosing a target. Buttons re-render as they are used, so detached targets are ignored.
     on($('.tb-board'),'click',event=>{if(fleeOpen()&&event.target.isConnected&&!event.target.closest('.tb-confirm,.tb-flee'))askFlee(false);if(mode==='plan'&&(heldItem||targeting)&&event.target.isConnected&&!event.target.closest('.tb-card,.tb-item,.tb-turn,.tb-skills,.tb-order,.tb-played')){heldItem=null;targeting=null;paint();}});
+    on(window,'resize',()=>{if(dialog.open)particles.fit();},{passive:true});
     function open(){clearTimeout(closeTimer);dialog.classList.remove('gb-closing');if(!dialog.open)dialog.showModal();requestAnimationFrame(()=>particles.fit());}
     function setup(snapshot,player){
         state=structuredClone(snapshot);cards.clear();

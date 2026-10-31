@@ -3,7 +3,7 @@
 const LOCAL=0x04034b50,CENTRAL=0x02014b50,END=0x06054b50,UTF8_NAMES=0x0800,ZIP_LIMIT=0xffffffff;
 const encoder=new TextEncoder(),decoder=new TextDecoder();
 const crcTable=Uint32Array.from({length:256},(_,index)=>{let c=index;for(let bit=0;bit<8;bit++)c=c&1?0xedb88320^(c>>>1):c>>>1;return c>>>0;});
-export function crc32(bytes){let crc=0xffffffff;for(const byte of bytes)crc=crcTable[(crc^byte)&255]^(crc>>>8);return (crc^0xffffffff)>>>0;}
+export function crc32(bytes){let crc=0xffffffff;for(let i=0,n=bytes.length;i<n;i++)crc=crcTable[(crc^bytes[i])&255]^(crc>>>8);return (crc^0xffffffff)>>>0;}
 function header(size,fill){const bytes=new Uint8Array(size),view=new DataView(bytes.buffer);fill(view);return bytes;}
 function dosStamp(date){return {time:date.getHours()<<11|date.getMinutes()<<5|date.getSeconds()>>1,day:Math.max(0,date.getFullYear()-1980)<<9|date.getMonth()+1<<5|date.getDate()};}
 function tooLarge(){return new Error('This export is over the 4 GB ZIP limit.');}
@@ -17,7 +17,7 @@ export function createZipWriter(sink,now=new Date()){
             if(offset+30+path.length+bytes.length>=ZIP_LIMIT||entries.length>=0xfffe)throw tooLarge();
             const start=offset;
             await write(header(30,view=>{view.setUint32(0,LOCAL,true);view.setUint16(4,20,true);view.setUint16(6,UTF8_NAMES,true);view.setUint16(10,time,true);view.setUint16(12,day,true);view.setUint32(14,crc,true);view.setUint32(18,bytes.length,true);view.setUint32(22,bytes.length,true);view.setUint16(26,path.length,true);}));
-            await write(path);await write(bytes);
+            await write(path);await write(blob);
             entries.push({path,crc,size:bytes.length,start});
         },
         async close(){

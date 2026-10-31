@@ -52,14 +52,18 @@ export function createCombatAdapter({loadScript=()=>import('/script.js')}={}){
         const card=ctx.characters.find(c=>c.avatar===event.avatar);if(!card)return false;
         syncCombatPrompt(ctx);
         if(ctx.onlineStatus==='no_connection')throw new Error('Connect your main API to hear the enemy react. Its HP and the combat result are saved.');
+        // In a duel the one reacting is a friend who chose to spar, not an enemy.
         const prompt=[`Continue the current scene as ${card.name}. React to the latest resolved attack in the chat history.`,
-            event.damage?`This enemy just took ${event.damage} damage this round and now has ${event.hpAfter} HP out of ${event.maxHp}. Show its pain, surprise, anger or tactical reaction naturally, according to its character card.`:'The party\'s attacks did not hurt it this round. React naturally without describing an injury.',
+            event.damage?`${event.duel?card.name:'This enemy'} just took ${event.damage} damage this round and now has ${event.hpAfter} HP out of ${event.maxHp}. Show ${event.duel?'their':'its'} pain, surprise, anger or tactical reaction naturally, according to ${event.duel?'their':'its'} character card.`:`${event.duel?'The attacks':'The party\'s attacks'} did not hurt ${event.duel?card.name:'it'} this round. React naturally without describing an injury.`,
             'Do not resolve new attacks, alter HP, die, move locations or control the player or their companions. The player can speak or negotiate as well as fight. Use third-person narration. Put quoted speech and narration on separate lines. Use natural language without em dashes.'];
         const text=String(await ctx.generateQuietPrompt({quietPrompt:prompt.join('\n'),quietToLoud:true,forceChId:ctx.characters.indexOf(card),responseLength:300,removeReasoning:true}) || '').trim();
         if(!isCurrent())return false;if(!text)throw new Error('Combat result saved, but no enemy reaction was returned. You can keep talking or attack again.');
         await appendCombatMessage(getContext(),{name:card.name,avatar:card.avatar,text,event:{id:event.id,kind:'reaction'}});return true;
     }};
 }
+// Round summaries stay in the chat for the model but are never shown as dialogue, so a fight that
+// ends on one (a flee, or a reaction that failed) is still looking at the latest page.
+const latestShown=ctx=>{let id=ctx.chat.length-1;while(id>0&&ctx.chat[id]?.extra?.silly_teyvat_combat?.kind==='round')id--;return id;};
 export function mountCombat({host,getContext,onChange=()=>{},announce=()=>{},adapter=createCombatAdapter(),diceAdapter,battleAdapter}){
     // Enemy health sits at the top like a Genshin boss bar; the party's portraits stand along the right edge.
     const panel=document.createElement('aside');panel.id='gi-combat';panel.setAttribute('aria-label','Hostile encounters');panel.hidden=true;host.append(panel);
@@ -115,7 +119,7 @@ export function mountCombat({host,getContext,onChange=()=>{},announce=()=>{},ada
     function paintControls(enemies=eligibleEnemies(getContext())){
         placeControls();
         const ctx=getContext();
-        controls.hidden=!enabled||!lastView.show||lastView.idle===false||writing||lastId<ctx.chat.length-1||!(enemies.length||duelCandidates(ctx).length);
+        controls.hidden=!enabled||!lastView.show||lastView.idle===false||writing||lastId<latestShown(ctx)||!(enemies.length||duelCandidates(ctx).length);
         sword.disabled=busy||writing;sword.setAttribute('aria-pressed',String(armed));
         const duelOnly=!enemies.length;
         sword.title=duelOnly?'Battle a party member':`Attack after sending: ${armed?'on':'off'}`;sword.setAttribute('aria-label',duelOnly?'Battle a party member':'Attack after sending a message');
@@ -173,7 +177,7 @@ export function mountCombat({host,getContext,onChange=()=>{},announce=()=>{},ada
             for(const u of result.state.units.filter(u=>u.side==='enemy'&&u.hp>0&&!gone.includes(u.id)))if(hits.get(u.id)?.some(h=>h.damage>0))onChange(u.duel?{hurt:u.id}:{hit:u.id});
             // Party members on the stage: a shake for anyone who ended the round hurt, a glow for anyone healed.
             for(const u of result.state.units.filter(u=>u.side==='party')){const was=snapshot.units.find(x=>x.id===u.id);if(!was)continue;if(u.hp<was.hp)onChange({hurt:u.id});else if(u.hp>was.hp)onChange({healed:u.id});}
-            if(duel){for(const fallen of saved.defeated)if(valid())await settleAlly(snapshot,fallen,id);}
+            if(duel){for(const fallen of saved.defeated)if(current(identity,token))await settleAlly(snapshot,fallen,id);}
             else for(const fallen of saved.defeated){announce(`${snapshot.units.find(u=>u.id===fallen)?.name || 'Enemy'} defeated.`);onChange({defeated:fallen,slain:true});}
             for(const left of saved.fled)onChange({defeated:left});
             if(result.fled)announce('The party escaped.');
@@ -212,6 +216,7 @@ export function mountCombat({host,getContext,onChange=()=>{},announce=()=>{},ada
         let revive=false;
         if(item){
             const answer=await ask({title:`${name} is down`,buttons:[{label:`Use ${item.name}`,value:'revive',primary:true},{label:`Let ${name} go`,value:'leave'}]});
+            if(disposed)return;
             revive=answer?.value==='revive';
         }
         let text;
@@ -288,7 +293,7 @@ export function mountCombat({host,getContext,onChange=()=>{},announce=()=>{},ada
             paintControls(currentEnemies);
             if(enabled&&show&&idle&&!generating&&!busy&&!forcing&&id===ctx.chat.length-1){const trigger=pendingTrigger(ctx);if(trigger)void forceStart(trigger).catch(error=>{console.warn('[Silly Teyvat] Enemy-started combat',error);announce(error.message);});}
             if(enabled&&!generating&&id===ctx.chat.length-1&&message&&!message.extra?.silly_teyvat_combat_scene){message.extra ??= {};message.extra.silly_teyvat_combat_scene=structuredClone(currentEnemies);Promise.resolve(ctx.saveChat?.()).catch(error=>console.warn('[Silly Teyvat] Combat scene save',error));}
-            const historical=id<ctx.chat.length-1,display=historical?message?.extra?.silly_teyvat_combat_scene || []:currentEnemies;
+            const historical=id<latestShown(ctx),display=historical?message?.extra?.silly_teyvat_combat_scene || []:currentEnemies;
             panel.hidden=!enabled||!show||!display.length;
             // Party health: shown during an encounter or while anyone is hurt.
             const party=enabled&&show&&!historical?partyStatus(ctx):[],hurt=party.some(m=>m.hp<m.maxHp);

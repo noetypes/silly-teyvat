@@ -291,7 +291,7 @@ export const defaultKitHp=(name,enemy)=>{const row=enemy?enemyTable.get(keyOf(na
 // Saved edits replace whole moves; anything missing falls back to the default.
 export function mergeKit(base,saved){
     if(!saved)return base;
-    const kit={...base,...Object.fromEntries(['weapon','energy','role','miss','armor','armorBreak','shield','weakTo','evasion'].filter(k=>saved[k]!==undefined).map(k=>[k,saved[k]]))};
+    const kit={...base,...Object.fromEntries(['weapon','energy','role','miss','armor','armorBreak','shield','weakTo','evasion','element'].filter(k=>saved[k]!==undefined).map(k=>[k,saved[k]]))};
     kit.moves=base.moves.map((move,i)=>saved.moves?.[i]?{...move,...clone(saved.moves[i]),kind:move.kind}:move);
     kit.custom=true;return kit;
 }
@@ -326,6 +326,7 @@ export function describeEffect(effect,element){
         default:return '';
     }
 }
+export const escapeHtml=text=>String(text ?? '').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 export function describeMove(move,element){
     const el=move.element || element,lines=(move.effects || []).map(e=>describeEffect(e,el)).filter(Boolean);
     if(move.kind==='normal')lines.push(`Costs no dice. ${move.miss ?? 20}% chance to miss.`);

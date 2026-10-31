@@ -1,4 +1,4 @@
-import { dialoguePages, hasSpeech, previousSpeech, expressionContext } from './narration.js';
+import { dialoguePages, hasSpeech, plainMessage, previousSpeech, expressionContext } from './narration.js';
 import { mountPageSprites } from './page-sprites.js';
 export async function runNarrationTests() {
     const results = [], pause = ms => new Promise(r => setTimeout(r,ms));
@@ -7,6 +7,8 @@ export async function runNarrationTests() {
     const pages = (html, prefs = {}, message = {}) => { root.innerHTML = html; return dialoguePages(root,{narration:true,narrationMode:'quotes',...prefs},message); };
     let ui; const host = document.createElement('div'); host.style.cssText = 'position:fixed;left:-200vw'; document.body.append(host);
     try {
+        globalThis.__teyvatProbe = false; plainMessage({ mes: '<img src="/gi-missing-probe.png" onerror="globalThis.__teyvatProbe=true">Hello' }); await pause(150);
+        check('raw chat text is read without loading or running its markup', globalThis.__teyvatProbe === false && plainMessage({ mes: 'Hello<br>there' }) === 'Hello\nthere'); delete globalThis.__teyvatProbe;
         check('unquoted narration hides speaker on all pages', pages('<p>Wind rises.</p><p>Leaves fall.</p>').every(x => x.giNarration));
         const mixedQuotes = pages('<p>“Wow, traveller!”</p><p>Klee laughs and looks up with admiration.</p><p>“Can we do it again?”</p>');
         check('quoted dialogue surrounds a narrator page in one response', mixedQuotes.length===3 && !mixedQuotes[0].giNarration && mixedQuotes[1].giNarration && !mixedQuotes[2].giNarration);

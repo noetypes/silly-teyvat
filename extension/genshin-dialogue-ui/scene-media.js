@@ -136,7 +136,7 @@ export function mountSceneMedia({host,getContext,adapter=createMediaAdapter(getC
             const ctx = getContext(), prefs = mediaSettings(ctx), nextChat = identity(ctx);
             if (nextChat !== chatKey) { api.reset(); chatKey = nextChat; }
             on = enabled;
-            if (!on) { request?.abort();request=null;revision++;clearFull(); closeFrame(); stopSound(); return; }
+            if (!on) { request?.abort();request=null;revision++;clearFull(); closeFrame(); if(audioKind&&audioKind!=='preview')stopSound(); return; }
             const message = ctx.chat[id]; if (!message) return;
             const nextPage = `${id}:${message.swipe_id || 0}:${page}`;
             if (nextPage !== pageKey) { if(audioKind==='sprite' || id < ctx.chat.length-1)stopSound(); pageKey = nextPage; }

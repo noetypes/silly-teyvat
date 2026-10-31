@@ -46,7 +46,7 @@ import {mountShare} from './share-ui.js';
 const KEY = 'genshin_dialogue_ui';
 const FOLDER = 'third-party/genshin-dialogue-ui';
 const defaults = Object.freeze({ ...stagingDefaults, enabled: false, choices: true, composer: true, reducedMotion: false, textScale: 1, scrim: 0.8, revealSpeed: 45, tapAdvance: true, pageExpressions: true, narration: false, narrationMode: 'quotes', narrationKeyword: 'Narrator:', hideDialogueQuotes:false, wardrobe: true, locationEncounters:true, locationCharacterLimit:5, randomEncounters:true, encounterRate:40, allowMainDeparture:false, worldPromptAllRegions:false, roleplayPromptsEnabled:true, wildernessEncounters:true, maxEnemies:3, combatDamageMin:1, combatDamageMax:6, enemyStrikeBack:true,combatTriggerPhrase:'[start_combat]', enemyDamageMin:2, enemyDamageMax:6, enemyDice:4, userMaxHp:30, combatDifficulty:'normal', battleEffects:true, battleSound:true, personaIcon: 'Aether', personaIconMode:'auto', hudTopIcons:'auto', namecard:'', signature:'', trimSprites:true, cgEnabled:true, cgClassifier:'main', cgProfile:'', choicesProfile:'', cgBypassReasoning:true, cgPrompt:defaultCGPrompt, cgAudio:true, spriteAudio:true, burstAudio:true, spriteVolume:.8, diceSound:true });
-const bodyClasses = ['gi-enabled', 'gi-scene', 'gi-history', 'gi-hidden', 'gi-compose', 'gi-generating', 'gi-reduced-motion', 'gi-reading', 'gi-choices-enabled', 'gi-native-staging', 'gi-sprite-idle', 'gi-hud-top-off'];
+const bodyClasses = ['gi-menu-open', 'gi-enabled', 'gi-scene', 'gi-history', 'gi-hidden', 'gi-compose', 'gi-generating', 'gi-reduced-motion', 'gi-reading', 'gi-choices-enabled', 'gi-native-staging', 'gi-sprite-idle', 'gi-hud-top-off'];
 const icons = {
     compass: '<path d="m12 2 3 7 7 3-7 3-3 7-3-7-7-3 7-3Z"/><path d="m12 8 4 4-4 4-4-4Z"/>',
     back: '<path d="M9 14 4 9l5-5"/><path d="M4 9h10.5a5.5 5.5 0 0 1 0 11H11"/>',
@@ -409,16 +409,17 @@ function refresh() {
     notice.hidden = !prefs.enabled || !conflict || conflict === dismissedNotice || hidden;
     notice.querySelector('p').textContent = conflict;
     syncSettings();
-    const arrow=document.querySelector('#gi-navigation [data-gi-action="next"]').getBoundingClientRect();
+    // Measure everything first: reading layout between these writes would force a reflow for each one.
+    const arrow=document.querySelector('#gi-navigation [data-gi-action="next"]').getBoundingClientRect(),nav=document.querySelector('#gi-navigation').getBoundingClientRect();
     const dialogue=(selected?.querySelector('.gi-page') || selected?.querySelector('.mes_block') || document.querySelector('#chat')).getBoundingClientRect();
     const actionLeft=Math.max(arrow.right+5,Math.min(innerWidth-8,dialogue.right)-(arrow.width || 44));
-    document.body.style.setProperty('--gi-stop-left',`${actionLeft}px`);document.body.style.setProperty('--gi-stop-top',`${arrow.top}px`);document.body.style.setProperty('--gi-action-size',`${arrow.height || 44}px`);document.body.style.setProperty('--gi-action-width',`${arrow.width || 44}px`);document.body.style.setProperty('--gi-action-left',`${actionLeft-document.querySelector('#gi-navigation').getBoundingClientRect().left}px`);document.body.style.setProperty('--gi-attack-left',`${Math.max(8,dialogue.left)-document.querySelector('#gi-navigation').getBoundingClientRect().left}px`);document.body.style.setProperty('--gi-action-top',`${arrow.top-document.querySelector('#gi-navigation').getBoundingClientRect().top}px`);
+    document.body.style.setProperty('--gi-stop-left',`${actionLeft}px`);document.body.style.setProperty('--gi-stop-top',`${arrow.top}px`);document.body.style.setProperty('--gi-action-size',`${arrow.height || 44}px`);document.body.style.setProperty('--gi-action-width',`${arrow.width || 44}px`);document.body.style.setProperty('--gi-action-left',`${actionLeft-nav.left}px`);document.body.style.setProperty('--gi-attack-left',`${Math.max(8,dialogue.left)-nav.left}px`);document.body.style.setProperty('--gi-action-top',`${arrow.top-nav.top}px`);
     if (!active || history || hidden || generating) stopAuto();
 }
 function paintProfile() {
     const ctx = context(), prefs = preferences();
     const img = document.querySelector('#gi-toolbar .gi-pm-avatar img');
-    if (img) img.src = circularCharacterAvatar(ctx);
+    if (img) { const src = circularCharacterAvatar(ctx); if (img.getAttribute('src') !== src) img.src = src; }
     const name = document.querySelector('#gi-toolbar .gi-pm-name');
     if (name) name.textContent = personaCard(ctx)?.name || ctx.name1 || 'Traveler';
     const where = ctx.chatMetadata?.silly_teyvat_world?.location?.label || '';
@@ -445,9 +446,10 @@ function paintNamecards() {
     document.querySelectorAll('#gi-toolbar [data-gi-action="namecards"]').forEach(b => b.setAttribute('aria-expanded', String(pickingNamecard)));
     if (!pickingNamecard) return;
     const chosen = preferences().namecard, list = box.querySelector('.gi-pm-nc-list');
-    if (!list.childElementCount) {
-        const ctx = context(), who = ctx.groupId ? '' : ctx.characters?.[ctx.characterId]?.name;
-        const options = [{ id: '', name: 'Match companion', file: chooseNamecard('', who)?.file }, ...namecards()];
+    const ctx = context(), companion = chooseNamecard('', ctx.groupId ? '' : ctx.characters?.[ctx.characterId]?.name);
+    // Built once the namecards have loaded. The first tile follows the companion of the open chat.
+    if (list.childElementCount !== namecards().length + 1) {
+        const options = [{ id: '', name: 'Match companion' }, ...namecards()];
         list.replaceChildren(...options.map(card => {
             const option = document.createElement('button');
             option.type = 'button'; option.dataset.giAction = 'namecard'; option.dataset.namecard = card.id; option.setAttribute('role', 'radio');
@@ -458,6 +460,8 @@ function paintNamecards() {
             return option;
         }));
     }
+    const auto = list.querySelector('.gi-pm-nc-auto img'), autoSrc = namecardUrl(companion);
+    if (auto && auto.getAttribute('src') !== autoSrc) { if (autoSrc) auto.src = autoSrc; else auto.removeAttribute('src'); }
     for (const option of list.children) option.setAttribute('aria-checked', String(option.dataset.namecard === chosen));
 }
 // Tags and Official Art sets need the character list, which can load after this extension starts.
@@ -715,6 +719,7 @@ export async function initialize({ choicesAdapter, spriteAdapter, wardrobeAdapte
     characterAvatarsReady.then(()=>{if(mounted&&menuOpen)paintProfile();});
     namecardsReady.then(() => { if (menuOpen) paintProfile(); });
     await loadCharacterProperties();
+    if(!mounted||version!==mountVersion)return;
     stageEffects=mountStageEffects({host,getContext:context});
     cardArtUI=mountCardArt({getContext:context});
     loadingUI=createLoadingScreen({isReady:stageReady,onChange:schedule});
@@ -732,7 +737,7 @@ export async function initialize({ choicesAdapter, spriteAdapter, wardrobeAdapte
         onChange:()=>{backgroundUI.refresh();schedule();}});
     mediaUI = mountSceneMedia({host,getContext:context,adapter:mediaAdapter,sound,announce});
     spriteUI = mountPageSprites({ host, getContext: context, adapter: spriteAdapter, isDefeated: defeatedHere, announce, renderMessage: id => document.querySelector(`#chat > .mes[mesid="${id}"] .mes_text`), onAppearance:event=>mediaUI?.appearance(event) });
-    wardrobeUI = mountWardrobe({ host, getContext: context, adapter: wardrobeAdapter, personaAdapter, mediaAdapter, openMap:openWorldMap, previewAudio:files=>mediaUI.previewAudio(files), previewCG:cg=>mediaUI.previewCG(cg), onMediaChange:(options={})=>{backgroundUI.refresh();if(options.reclassify)mediaUI.reclassifyCurrent();else mediaUI.refresh();schedule();}, onChange: async (character,options) => { if(options?.classification){schedule();return;}
+    wardrobeUI = mountWardrobe({ host, getContext: context, adapter: wardrobeAdapter, personaAdapter, mediaAdapter, openMap:options=>openWorldMap(options).catch(error=>announce(error.message)), previewAudio:files=>mediaUI.previewAudio(files), previewCG:cg=>mediaUI.previewCG(cg), onMediaChange:(options={})=>{backgroundUI.refresh();if(options.reclassify)mediaUI.reclassifyCurrent();else mediaUI.refresh();schedule();}, onChange: async (character,options) => { if(options?.classification){schedule();return;}
         if(options?.presentation)await spriteUI?.refreshPresentation();else await spriteUI?.refreshSprite(character,options);schedule(); } });
     combatUI=mountCombat({host,getContext:context,adapter:combatAdapter,diceAdapter,announce,onChange:event=>{inventoryUI?.refresh();if(event?.hit)spriteUI?.hit(event.hit);if(event?.hurt)spriteUI?.hurt(event.hurt);if(event?.healed)spriteUI?.heal(event.healed);if(event?.slain)spriteUI?.defeat(event.defeated);if(event?.defeated)locationCastUI?.retry();if(event?.removed)void spriteUI?.refreshPresentation().catch(error=>console.warn('[Silly Teyvat] Party stage',error));schedule();}});
     choiceUI = mountChoices({ host, getContext: context, adapter: choicesAdapter, announce });
@@ -907,7 +912,7 @@ export function dispose() {
     document.querySelectorAll('#chat .gi-page').forEach(el => el.remove());
     document.querySelectorAll('#chat .gi-paginated').forEach(el => el.classList.remove('gi-paginated'));
     pageStates = new WeakMap();
-    current = null; followLatest = true; menuOpen = false; history = false; hidden = false; generating = false;
+    current = null; followLatest = true; menuOpen = false; pickingNamecard = false; history = false; hidden = false; generating = false;
 }
 
 // APP_READY also fires immediately for a late listener. Defer to avoid blocking ST's event chain.

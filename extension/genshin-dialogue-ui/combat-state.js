@@ -39,8 +39,8 @@ export function activeEnemies(ctx){
     const elsewhere=a=>Object.entries(store.visits).some(([k,v])=>k!==key&&v.locationId!==locationId&&v.enemies?.[a]);
     const listed=encounter&&encounter.locationId===locationId?encounter.enemies || []:[];
     const avatars=[...new Set([...listed,...sceneMembers(ctx).filter(a=>isEnemy(ctx,a)&&!cast.managed?.includes(a)&&!elsewhere(a))])];
-    const visit=store.visits[key] ??= {locationId,enemies:{}};
-    return avatars.filter(a=>!playedAvatars(ctx).has(a)&&isEnemy(ctx,a)&&ctx.characters?.some(c=>c.avatar===a)).map(avatar=>{
+    const visit=store.visits[key] ??= {locationId,enemies:{}},played=playedAvatars(ctx);
+    return avatars.filter(a=>!played.has(a)&&isEnemy(ctx,a)&&ctx.characters?.some(c=>c.avatar===a)).map(avatar=>{
         let enemy=visit.enemies[avatar];
         if(!enemy){const props=characterProperties(ctx,avatar),max=enemyMaxHp(ctx,avatar);enemy=visit.enemies[avatar]={avatar,hp:max,maxHp:max,deathMessage:props.deathMessage,defeated:false};}
         return {...enemy,key};

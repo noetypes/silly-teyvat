@@ -1,4 +1,4 @@
-import {activeGroup,inPartyChat} from './party.js';
+import {activeGroup} from './party.js';
 // Use the normal chat generation path, retaining the active model and settings.
 export function regenerationState(ctx, {id, generating=false, editing=false, busy=false}={}) {
     const message=ctx.chat?.[id];

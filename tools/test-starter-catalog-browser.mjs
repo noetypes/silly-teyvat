@@ -26,7 +26,7 @@ try{
       const {loadStarterLocations}=await import('./starter-locations.js');
       const added=await loadStarterLocations(ctx),again=await loadStarterLocations(ctx);
       const prefs=ctx.extensionSettings.genshin_dialogue_ui,all=prefs.backgroundRegions.flatMap(r=>r.locations);
-      return {added,again,version:prefs.starterLocationsVersion,expectedVersion:catalog.version,count:all.length,expectedNew:catalog.locations.filter(x=>x.introducedVersion===9).length,
+      return {added,again,version:prefs.starterLocationsVersion,expectedVersion:catalog.version,count:all.length,expectedNew:catalog.locations.filter(x=>x.introducedVersion>8).length,
         deletedRestored:all.some(x=>x.id===version8[0].id),windrise:all.find(x=>x.label==='Windrise'),
         registered:prefs.musicLibrary.length,expectedRegistered:catalog.defaultMusicLibrary.length-1,missingRegistered:prefs.musicLibrary.some(t=>t.id===missing.id)};
     }finally{window.fetch=original;}

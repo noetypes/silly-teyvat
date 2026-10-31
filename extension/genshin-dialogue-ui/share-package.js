@@ -11,6 +11,7 @@ const PRIVATE_SETTINGS=['choicesProfile','cgProfile','signature'];
 const extensionRoot=new URL('./',import.meta.url);
 const segments=path=>path.split('/').map(encodeURIComponent).join('/');
 const stem=name=>name.replace(/\.[^.]+$/,'');
+const decoded=part=>{try{return decodeURIComponent(part);}catch{return part;}};
 const IMAGE_FILE=/\.(png|webp|jpe?g|gif|avif)$/i;
 // The server stores a folder under its sanitized name, but lists it under the name it was asked for.
 export const diskFolder=folder=>folder.split('/').map(part=>part.replace(/[?<>\\:*|"\x00-\x1f]/g,'')).join('/');
@@ -27,9 +28,11 @@ export function referencedPaths(text,prefix){
 // voices and properties arrive without naming them here. Lists match on an entry's identity.
 const identity=item=>item?.id ?? item?.folder ?? item?.path ?? (typeof item==='string'?item:JSON.stringify(item));
 const isRecord=value=>value&&typeof value==='object'&&!Array.isArray(value);
+const UNSAFE_KEYS=new Set(['__proto__','constructor','prototype']);
 export function mergeSettings(target,source,replace=false,depth=0){
     for(const [key,value] of Object.entries(source || {})){
-        const current=target[key];
+        if(UNSAFE_KEYS.has(key))continue;
+        const current=Object.hasOwn(target,key)?target[key]:undefined;
         if(isRecord(value)&&isRecord(current))mergeSettings(current,value,replace,depth+1);
         else if(Array.isArray(value)&&Array.isArray(current)){
             for(const item of value){
@@ -60,7 +63,7 @@ export function spriteFolders(ctx,prefs,cards){
     for(const root of roots){folders.add(root);for(const set of SET_FOLDERS)folders.add(`${root}/${set}`);}
     walkStrings([prefs,overrides.filter(item=>roots.has(item.path?.split('/')[0]))],text=>{
         if(text.length>200)return;
-        const [root,set]=text.replace(/^\/characters\//,'').replace(/[?#].*$/,'').split('/').map(part=>{try{return decodeURIComponent(part);}catch{return part;}});
+        const [root,set]=text.replace(/^\/characters\//,'').replace(/[?#].*$/,'').split('/').map(decoded);
         if(set&&roots.has(root))folders.add(IMAGE_FILE.test(set)?root:`${root}/${set}`);
     });
     return [...new Set([...folders].map(diskFolder))];
@@ -128,8 +131,8 @@ export async function exportGameData({ctx,sink,report=()=>{},signal,version=''})
     const files=[
         ...cards.map(card=>({name:`cards/${card.avatar}`,url:`/characters/${encodeURIComponent(card.avatar)}`})),
         ...await listSprites(ctx,spriteFolders(ctx,prefs,cards),signal),
-        ...referencedPaths(text,'/user/files/').map(path=>({name:`files/${decodeURIComponent(path.split('/').at(-1))}`,url:path})),
-        ...referencedPaths(text,'/backgrounds/').map(path=>({name:`backgrounds/${decodeURIComponent(path.split('/').at(-1))}`,url:path})),
+        ...referencedPaths(text,'/user/files/').map(path=>({name:`files/${decoded(path.split('/').at(-1))}`,url:path})),
+        ...referencedPaths(text,'/backgrounds/').map(path=>({name:`backgrounds/${decoded(path.split('/').at(-1))}`,url:path})),
         ...personas.map(avatar=>({name:`avatars/${avatar}`,url:`/User%20Avatars/${encodeURIComponent(avatar)}`})),
     ];
     const zip=createZipWriter(sink),missing=await exportFiles(zip,files,report,signal),lorebooks={};

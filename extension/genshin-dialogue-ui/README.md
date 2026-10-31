@@ -1,3 +1,21 @@
+# Silly Teyvat 1.52.2: Code review fixes
+
+- **Smoother streaming.** The World scale prompt is rebuilt before each generation instead of on every
+  screen refresh, which spent about 7 ms a frame on a full map (19 ms with every region in scope).
+- **Chat and card text stays text.** Message text is read without running any markup in it, and card,
+  persona and move names in battle tooltips are escaped. A shared settings file can no longer alter
+  JavaScript's built-in objects.
+- **Duels finish cleanly.** Two friends beaten in the same round are both settled, and a friend who
+  reacts to a duel is no longer described to the model as an enemy.
+- **Health stays up after a fight ends on a round summary.** Fleeing, or a reaction that failed, no
+  longer hides the Attack circle and party health until the next message.
+- **Movesets save what you see.** Saving a moveset no longer changes an effect's own element (Eula's
+  Physical burst stayed Physical), and an enemy's Element choice now applies in battle. Auto leaves
+  the dice that played item cards already spent.
+- **Smaller fixes.** The namecard picker fills in if it was opened before namecards loaded, and "Match
+  companion" follows the open chat. Wardrobe previews keep playing during Dialogue Review. Replaced
+  sprites are cropped afresh, and a late crop can no longer cover an empty slot or a scene preview. Exports hold less in memory and survive an oddly encoded file name.
+
 # Silly Teyvat 1.52.1: Your own card images
 
 - **Any card image counts.** A character image shaped like a playable or NPC card now shows as a whole

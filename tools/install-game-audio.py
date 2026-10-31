@@ -37,7 +37,7 @@ def merge_settings(settings, plan):
         region, location = locations[row['id']]
         if region != row['region']:
             raise ValueError('Waypoint changed region; review its music again: ' + row['id'])
-        ids = row['tracks'] + [row['combatTrack']]
+        ids = row['tracks'] + ([row['combatTrack']] if row['combatTrack'] else [])
         if not row['tracks'] or any(track not in existing for track in ids):
             raise ValueError('Waypoint references an unavailable music file: ' + row['id'])
         if row['combatTrack'] in row['tracks']:

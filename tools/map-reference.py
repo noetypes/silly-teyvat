@@ -42,13 +42,13 @@ def main():
     parser.add_argument('--radius', type=float, default=150, help='Native-coordinate search radius (default 150)')
     parser.add_argument('--limit', type=int, default=25, help='Maximum nearby results (default 25)')
     args = parser.parse_args()
-    if args.point:
+    if args.point is not None:
         point = fetch('point/info', {'point_id': args.point})['info']
         print(json.dumps({'pointId': point['id'], 'mapId': point['map_id'], 'labelId': point['label_id'],
                           'x': point['x_pos'], 'y': point['y_pos'], 'content': point.get('content'),
                           'image': point.get('img'), 'zLevel': point.get('z_level'),
                           'source': BASE + 'point/info?' + urllib.parse.urlencode({**COMMON, 'point_id': args.point})}, ensure_ascii=False, indent=2))
-    elif args.anchor:
+    elif args.anchor is not None:
         matches = [a for a in all_anchors(fetch('map_anchor/list', {})['list']) if args.anchor.casefold() in a['name'].casefold()]
         print(json.dumps([{'id': a['id'], 'name': a['name'], 'bounds': [a['l_x'], a['l_y'], a['r_x'], a['r_y']]} for a in matches], ensure_ascii=False, indent=2))
     else:

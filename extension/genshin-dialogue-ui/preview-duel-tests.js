@@ -1,6 +1,6 @@
-import {mountCombat} from './combat.js';
+import {mountCombat,createCombatAdapter} from './combat.js';
 import {combatState,partyStore,partyMember} from './combat-state.js';
-import {partyBag} from './battle-state.js';
+import {partyBag,battleSnapshot} from './battle-state.js';
 import {dialoguePages} from './narration.js';
 import {combatTrigger,hasCombatTrigger,combatTriggerPrompt} from './enemy-actions.js';
 
@@ -19,9 +19,9 @@ export async function runDuelTests(){
             extensionSettings:{genshin_dialogue_ui:{reducedMotion:true,characterProperties:{},backgroundRegions:[{id:'r',locations:[{id:'wild',label:'Woods',wilderness:true,enemyPool:['Hilichurl Fighter.png']}]}]}},
             getThumbnailUrl:()=>'preview-klee.png',saveChat:async()=>{},saveSettingsDebounced(){},extensionPrompts:{},setExtensionPrompt(key,value){this.extensionPrompts[key]={value};},getCurrentChatId:()=>'duel-chat'};
         const log={rolls:0,plans:[],removed:[],messages:[],reactions:0};
-        const ui=mountCombat({host:root,getContext:()=>ctx,adapter:{async append(c,record){log.messages.push(record);c.chat.push({name:record.name || 'Narrator',mes:record.text,extra:{type:record.avatar?undefined:'narrator',silly_teyvat_combat:record.event}});},async react(){log.reactions++;},async removeAlly(c,avatar){log.removed.push(avatar);return true;}},
+        const ui=mountCombat({host:root,getContext:()=>ctx,adapter:{async append(c,record){log.messages.push(record);c.chat.push({name:record.name || 'Narrator',mes:record.text,extra:{type:record.avatar?undefined:'narrator',silly_teyvat_combat:record.event}});},async react(){log.reactions++;},async removeAlly(c,avatar){log.removed.push(avatar);c.groups[0].members=c.groups[0].members.filter(a=>a!==avatar);return true;}},
             diceAdapter:{async roll(){log.rolls++;return true;},dispose(){}},
-            battleAdapter:{async plan(state){log.plans.push(state);const foe=state.units.find(u=>u.side==='enemy');return state.units.filter(u=>u.side==='party').map(u=>({actor:u.id,move:1,target:foe.id}));},async play(){return true;},cancel(){},dispose(){}}});
+            battleAdapter:{async plan(state){log.plans.push(state);log.onPlan?.(state);const foe=state.units.find(u=>u.side==='enemy');return state.units.filter(u=>u.side==='party').map(u=>({actor:u.id,move:1,target:foe.id}));},async play(){return true;},cancel(){},dispose(){}}});
         return {ctx,ui,log};
     };
     const sword=()=>root.querySelector('#gi-attack-toggle'),controls=()=>root.querySelector('#gi-attack-controls'),dialog=()=>root.querySelector('#gi-combat-ask');
@@ -41,6 +41,13 @@ export async function runDuelTests(){
         ui.dispose();}
         {const {ctx,ui}=fixture();ctx.groups[0].members=[];ctx.chatMetadata.silly_teyvat_cast.core=[];ui.sync({on:true,id:0,idle:true});
         check('Attack is hidden when nobody is there to fight',controls().hidden);ui.dispose();}
+        {const {ctx,ui}=fixture({enemy:true});ctx.chat.push({name:'Narrator',mes:'Round 1.',extra:{type:'narrator',silly_teyvat_combat:{kind:'round'}}});
+        ui.sync({on:true,id:0,idle:true});
+        check('a hidden round summary at the end of the chat still counts as the latest page',!controls().hidden&&!root.querySelector('#gi-combat').hidden&&root.querySelector('.gi-enemy-health')?.textContent.includes('Hilichurl Fighter'));
+        ui.dispose();}
+
+        {const {ctx,ui}=fixture({enemy:true});ctx.extensionSettings.genshin_dialogue_ui.combatKits={'Hilichurl Fighter.png':{element:'Cryo'}};
+        check('an element set in the Moveset editor reaches the battle',battleSnapshot(ctx).units.find(u=>u.side==='enemy').element==='Cryo');ui.dispose();}
 
         // ---- Fighting a party member alone ----
         {const {ctx,ui,log}=fixture();
@@ -74,6 +81,20 @@ export async function runDuelTests(){
         await until(()=>log.removed.length===1,'the friend leaving without an item');
         check('without a revive item the friend leaves at once',log.removed[0]==='Nahida.png'&&!dialog().open);
         Math.random=originalRandom;ui.dispose();}
+        // Two friends can fall in one round. The first one leaving must not abandon the second.
+        {const {ctx,ui,log}=fixture();delete partyBag(ctx)['fried-egg'];
+        for(const avatar of ['Klee.png','Nahida.png']){partyMember(ctx,avatar);partyStore(ctx)[avatar].hp=1;}
+        log.onPlan=state=>{const me=state.units.find(u=>u.side==='party');me.kit={...me.kit,moves:me.kit.moves.map((move,i)=>i===1?{...move,effects:[{type:'damage',target:'all',power:50}]}:move)};};
+        ui.sync({on:true,id:0,idle:true});sword().click();await until(()=>dialog().open,'the battle picker');
+        for(const box of dialog().querySelectorAll('.gi-ask-row input'))box.click();
+        Math.random=()=>0;dialog().querySelector('[data-answer="battle"]').click();
+        await until(()=>!ui.busy&&log.plans.length===1,'the round to finish');
+        check('both friends beaten in one round are settled',log.removed.join()==='Klee.png,Nahida.png'&&log.messages.filter(m=>m.event.kind==='ally').length===2);
+        Math.random=originalRandom;ui.dispose();}
+        {const prompts=[],ctx={characters:[{name:'Klee',avatar:'Klee.png'}],chat:[],chatMetadata:{},extensionSettings:{genshin_dialogue_ui:{}},generateQuietPrompt:async({quietPrompt})=>{prompts.push(quietPrompt);return 'Ouch!';}};
+        const adapter=createCombatAdapter({loadScript:async()=>({isGenerating:()=>false,isChatSaving:false})});
+        adapter.react=adapter.react.bind(adapter);await adapter.react(()=>ctx,{avatar:'Klee.png',id:'a',damage:4,hpAfter:6,maxHp:10,duel:true},()=>true);
+        check('a friend sparring in a duel is never described to the model as an enemy',prompts.length===1&&prompts[0].includes('Klee just took 4 damage')&&!/enemy/i.test(prompts[0]));}
 
         // ---- Enemies that start the fight ----
         {const phrase=combatTrigger({extensionSettings:{genshin_dialogue_ui:{}}});

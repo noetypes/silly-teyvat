@@ -179,12 +179,13 @@ export function mountPageSprites({ host, getContext, adapter = createNativeSprit
         const ctx = getContext(), p = prefsNow();
         if (!p.nativeStaging || scene.length < 2) return scene;
         const chat = ctx.chat || [];
-        const recent = [];
-        for (let i = Math.min(stageAt, chat.length - 1); i >= 0; i--) {
+        const recent = [], unseen = new Set(scene.map(actorOf));
+        // Runs on every draw: stop reading history once everyone on stage has been placed.
+        for (let i = Math.min(stageAt, chat.length - 1); i >= 0 && unseen.size; i--) {
             const m = chat[i];
             if (!m || m.is_system || m.extra?.type === 'narrator') continue;
             const avatar = speakerAvatar(ctx, m);
-            if (avatar && !recent.includes(avatar)) recent.push(avatar);
+            if (avatar && !recent.includes(avatar)) { recent.push(avatar); unseen.delete(avatar); }
         }
         const actors = scene.map((sprite, i) => ({ key: String(i), actor: actorOf(sprite), kind: kindOf(sprite), speaking: Boolean(sprite.presentation?.focus) }));
         const keep = chooseVisible(actors, { recent: recent.flatMap(a => actors.filter(x => x.actor === a).map(x => x.key)), crowd: p.spriteCrowd, limit: bounded(p.maxViewableCharacters, 1, 20, 5),
@@ -515,7 +516,7 @@ export function mountPageSprites({ host, getContext, adapter = createNativeSprit
             }).catch(error => { console.warn('[Silly Teyvat] Page expression unavailable', error); if (selection === identity) announce('Page expression unavailable. Keeping the previous sprites.'); }).finally(() => pending.delete(identity));
         },
         async refreshSprite(character, {renamedFrom,renamedTo} = {}) {
-            adapter.reset?.();
+            adapter.reset?.(); trimmer?.reset?.();
             if (!active || !selectedPage) return;
             const ctx = getContext(), identity = selection, token = ++epoch;
             pending.clear();
@@ -585,6 +586,6 @@ export function mountPageSprites({ host, getContext, adapter = createNativeSprit
             if (stillMotion()) image.remove(); else animate(image, 'gi-enemy-defeat', () => image.remove());
         },
         reset() { epoch++;drawVersion++;fallen.clear(); selection = displayed = ''; pending.clear(); speechSeeds.clear(); selectedPage = undefined; lastScene = []; lastDraw = null; stageAt = -1; adapter.reset?.(); stage.replaceChildren(); document.body.classList.remove('gi-sprite-replay'); },
-        dispose() { this.reset(); removeEventListener('resize', onResize); globalThis.visualViewport?.removeEventListener('resize', onResize); cancelAnimationFrame(resizeFrame); stage.remove(); },
+        dispose() { this.reset(); trimmer?.reset?.(); removeEventListener('resize', onResize); globalThis.visualViewport?.removeEventListener('resize', onResize); cancelAnimationFrame(resizeFrame); stage.remove(); },
     };
 }

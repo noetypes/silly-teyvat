@@ -295,8 +295,9 @@ export function mountWorldMap({host,getContext,adapter=createMediaAdapter(getCon
         },
         sync({on,show=true,location,loading=false}={}){
             if(disposed)return;
-            const ctx=getContext(),nextChat=identity(ctx);if(chatKey&&nextChat!==chatKey){close();signature='';lastRegion=null;pendingBanner='';}chatKey=nextChat;enabled=Boolean(on);visible=Boolean(on&&show);viewLocation=location || null;mini.hidden=!visible;
-            api.syncPrompt(enabled);rosterPicker.sync();
+            const ctx=getContext(),nextChat=identity(ctx),promptStale=nextChat!==chatKey||Boolean(on)!==enabled;if(chatKey&&nextChat!==chatKey){close();signature='';lastRegion=null;pendingBanner='';}chatKey=nextChat;enabled=Boolean(on);visible=Boolean(on&&show);viewLocation=location || null;mini.hidden=!visible;
+            // This runs on every refresh, so the World scale text is rebuilt only here and before each generation.
+            if(promptStale)api.syncPrompt(enabled);rosterPicker.sync();
             const current=currentForView(),key=JSON.stringify([current?.point,current?.location.label,visible]);
             if(key!==miniKey){miniKey=key;mini.dataset.location=current?.location.id || '';mini.dataset.mapX=current?.point.x ?? '';mini.dataset.mapY=current?.point.y ?? '';mini.classList.toggle('gi-minimap-unlocated',!current);mini.querySelector('.gi-minimap-label').textContent=current?.location.label || 'World map';mini.setAttribute('aria-label',current?`Open world map. ${current.location.label}`:'Open world map. Current background is not mapped.');if(visible){minimap ??= makeMap(mini.querySelector('.gi-minimap-canvas'),{interactive:false});minimap.invalidateSize();minimap.setView(current?toLatLng(current.point):[1700,500],current?-1.5:-3);}}
             // Region-entry banner, only for real travel (not history browsing or the first look at a chat).
@@ -305,8 +306,9 @@ export function mountWorldMap({host,getContext,adapter=createMediaAdapter(getCon
             // Behind a loading screen the banner waits, so it plays once the new place is visible.
             if(pendingBanner&&!loading&&visible){showRegionBanner(pendingBanner);pendingBanner='';}else if(!enabled)pendingBanner='';
             if(enabled)lastRegion=regionId;
+            if(!dialog.open)return;
             const nextSignature=JSON.stringify([worldWaypoints(ctx),travelState(ctx),worldScale(ctx),walkingSpeed(ctx),mediaSettings(ctx).worldPromptAllRegions,mediaSettings(ctx).allowMainDeparture,ctx.chatMetadata?.silly_teyvat_cast,ctx.characters?.map(c=>[c.avatar,c.name])]);
-            if(nextSignature!==signature){signature=nextSignature;if(dialog.open)refresh({sidebarRefresh:true});}
+            if(nextSignature!==signature){signature=nextSignature;refresh({sidebarRefresh:true});}
         },
         syncPrompt(on=enabled){return syncWorldPrompt(getContext(),on);},
         close,
@@ -379,7 +381,7 @@ export function mountWorldMap({host,getContext,adapter=createMediaAdapter(getCon
     mini.addEventListener('click',()=>api.open({from:mini.querySelector('.gi-minimap-ring')}),{signal:abort.signal,capture:true});
     dialog.addEventListener('click',event=>{const b=event.target.closest('[data-map]');if(b){event.stopPropagation();void action(b.dataset.map,b);}},{signal:abort.signal});
     dialog.addEventListener('input',event=>{if(event.target.matches('.gi-map-zoom-range')&&map)map.setZoom(Number(event.target.value));},{signal:abort.signal});
-    dialog.addEventListener('change',event=>{const pref={'gi-map-main-departure':'allowMainDeparture','gi-map-world-scope':'worldPromptAllRegions'}[event.target.id];if(pref){mediaSettings(getContext())[pref]=event.target.checked;getContext().saveSettingsDebounced();api.syncPrompt();onChange();refresh();}if(event.target.id==='gi-map-encounters'){mediaSettings(getContext()).locationEncounters=event.target.checked;getContext().saveSettingsDebounced();onChange();}if(event.target.id==='gi-map-region'){updateLinks();}if(event.target.id==='gi-map-link'){const location=backgroundRegions(getContext()).flatMap(r=>r.locations).find(l=>l.id===event.target.value);if(location){$('#gi-map-name').value=location.label;$('#gi-map-description').value=location.description || '';$('#gi-map-aliases').value=(location.classifications || []).join('\n');}}},{signal:abort.signal});
+    dialog.addEventListener('change',event=>{const pref={'gi-map-main-departure':'allowMainDeparture','gi-map-world-scope':'worldPromptAllRegions'}[event.target.id];if(pref){mediaSettings(getContext())[pref]=event.target.checked;getContext().saveSettingsDebounced();api.syncPrompt();onChange();refresh();}if(event.target.id==='gi-map-encounters'){mediaSettings(getContext()).locationEncounters=event.target.checked;getContext().saveSettingsDebounced();onChange();refresh();}if(event.target.id==='gi-map-region'){updateLinks();}if(event.target.id==='gi-map-link'){const location=backgroundRegions(getContext()).flatMap(r=>r.locations).find(l=>l.id===event.target.value);if(location){$('#gi-map-name').value=location.label;$('#gi-map-description').value=location.description || '';$('#gi-map-aliases').value=(location.classifications || []).join('\n');}}},{signal:abort.signal});
     dialog.addEventListener('cancel',event=>{event.preventDefault();if(!$('.gi-map-region-menu').hidden)regionMenu(false);else if(dialog.dataset.view!=='list'&&!busy)void action('cancel');else close();},{signal:abort.signal});
     dialog.addEventListener('pointerdown',event=>{if(!$('.gi-map-region-menu').hidden&&!event.target.closest('.gi-map-regionbar'))regionMenu(false);},{signal:abort.signal});
     window.addEventListener('resize',()=>{if(dialog.open){map?.invalidateSize();updateScale();}if(!mini.hidden)minimap?.invalidateSize();},{signal:abort.signal,passive:true});

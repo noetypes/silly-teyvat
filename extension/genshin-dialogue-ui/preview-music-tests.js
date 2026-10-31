@@ -37,7 +37,7 @@ export async function runLocationMusicTests(){
         check('designated combat music is visibly excluded from exploration',all('[data-music-track]')[2].disabled&&!all('[data-music-track]')[2].checked);
         await click('[data-music="save"]');
         check('waypoint persists multiple exploration tracks and one combat track',wild.music.tracks.length===2&&wild.music.combatTrack===tracks[2].id);
-        check('music summary updates on the map',$('.gi-map-music').textContent.includes('2 exploration tracks')&&$('.gi-map-music').textContent.includes('combat track set'));
+        check('music summary updates on the map',all('.gi-map-music').some(section=>section.textContent.includes('2 exploration tracks')&&section.textContent.includes('combat track set')));
         ui.sync({on:true,combat:false});await wait();audio[0].currentTime=23;const original=audio[0].src;
         ui.sync({on:true,combat:true});await wait();check('Wilderness combat switches to its designated looping track',player.status.mode==='combat'&&audio[1].loop&&audio[0].paused);
         ui.sync({on:true,combat:false});await wait();check('combat end resumes the exploration song at the prior position',audio[0].src===original&&audio[0].currentTime===23&&!audio[0].paused);

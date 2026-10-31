@@ -114,13 +114,13 @@ export function defaultPlan(state,targetId){
     return side(state,'party').filter(alive).map(u=>({actor:u.id,move:isStunned(u)?-1:0,target}));
 }
 // Picks the strongest affordable move for each member: Burst, then Skill, then Normal Attack.
-export function autoPlan(state,dice,plan){
+export function autoPlan(state,dice,plan,items=[]){
     const next=plan.map(p=>({...p}));
     for(const step of next){
         const u=unitById(state,step.actor);if(!alive(u)||isStunned(u))continue;
         for(const move of [2,1,0]){
             if(move===2&&!burstReady(u))continue;
-            const trial={...step,move};if(move===0||canAfford(state,dice,next,trial)){step.move=move;break;}
+            const trial={...step,move};if(move===0||canAfford(state,dice,next,trial,items)){step.move=move;break;}
         }
         const kit=u.kit.moves[step.move];if(moveNeedsTarget(kit)==='ally')step.target=side(state,'party').filter(alive).sort((a,b)=>a.hp/a.maxHp-b.hp/b.maxHp)[0]?.id;
         else if(!foesOf(state,u).some(f=>f.id===step.target))step.target=foesOf(state,u)[0]?.id;
@@ -321,7 +321,7 @@ export function resolveRound(input,planInput,{random=Math.random,forecast=false,
         }
         if(move.kind==='skill')actor.energy=Math.min(actor.maxEnergy || 2,(actor.energy || 0)+1);
         if(actor.side==='enemy'&&move.kind==='basic'){
-            const t=pickTarget(actor,'one',chosen)[0],dodge=(actor.miss ?? 10)+(t?statusSum(t,'dodge'):0);
+            const t=pickTarget(actor,'one',chosen)[0],dodge=(actor.kit.miss ?? 10)+(t?statusSum(t,'dodge'):0);
             if(t&&!forecast&&rand()*100<dodge&&(move.effects || []).every(e=>e.type==='damage'&&e.target==='one')){push({type:'miss',actor:actor.id,target:t.id,step});return;}
         }
         for(const effect of move.effects || [])apply(actor,move,effect,chosen,step);

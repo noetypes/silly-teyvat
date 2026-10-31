@@ -60,8 +60,9 @@ export function battleSnapshot(ctx,{portrait=()=>'',duel=null}={}){
             hp:m.hp,maxHp:m.maxHp,shield:0,energy:0,maxEnergy:0,aura:null,statuses:[],cooldowns:{},enraged:false,usedRage:false,intent:null,armor:0,armorBreak:'',weakTo:'',evasion:Number(kit.evasion)||0,kit,visit:'duel'});
     }
     for(const e of enemies){
-        const card=ctx.characters.find(c=>c.avatar===e.avatar),kit=kitForCard(ctx,card),keep=saved.units[e.avatar];
-        units.push({id:e.avatar,side:'enemy',name:card?.name || 'Enemy',card:card?.name || '',img:portrait(ctx,e.avatar),circle:card?circularCharacterAvatar(ctx,card) || portrait(ctx,e.avatar):'',art:tcgArt(card?.name),element:characterProperties(ctx,card).element==='None'?'Physical':characterProperties(ctx,card).element,
+        const card=ctx.characters.find(c=>c.avatar===e.avatar),kit=kitForCard(ctx,card),keep=saved.units[e.avatar],own=characterProperties(ctx,card).element;
+        // An element chosen in the Moveset editor wins over the card's.
+        units.push({id:e.avatar,side:'enemy',name:card?.name || 'Enemy',card:card?.name || '',img:portrait(ctx,e.avatar),circle:card?circularCharacterAvatar(ctx,card) || portrait(ctx,e.avatar):'',art:tcgArt(card?.name),element:kit.custom&&kit.element || (own==='None'?'Physical':own),
             hp:e.hp,maxHp:e.maxHp,shield:keep?keep.shield || 0:Number(kit.shield)||0,energy:0,maxEnergy:0,aura:keep?.aura || null,statuses:keep?.statuses || [],cooldowns:structuredClone(keep?.cooldowns || {}),enraged:Boolean(keep?.enraged),usedRage:Boolean(keep?.usedRage),intent:keep?.intent || null,
             armor:keep?.armor ?? (Number(kit.armor)||0),armorBreak:kit.armorBreak || '',weakTo:kit.weakTo || '',evasion:Number(kit.evasion)||0,kit,visit:e.key});
     }

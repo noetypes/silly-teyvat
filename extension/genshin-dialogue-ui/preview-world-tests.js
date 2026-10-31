@@ -35,7 +35,7 @@ export async function runWorldMapTests(){
         runtime.sync({on:true,id:0,generating:false});sync();await pause();check('old dialogue cannot undo an explicit teleport',calls===0&&runtime.current.location.id===port.location.id);
         check('minimap centres on the teleported waypoint', $('#gi-minimap').dataset.location===port.location.id&&$('#gi-minimap').dataset.mapX==='-1500'&&$('#gi-minimap').dataset.mapY==='1000');
         check('Teleport refreshes World scale as a system-role extension prompt',ctx.extensionPrompts[WORLD_PROMPT_KEY].role===0&&ctx.extensionPrompts[WORLD_PROMPT_KEY].value.includes('Current region: "Liyue"'));
-        selectRegion(ctx,tree.region.id);ctx.chat.push({name:'Klee',mes:'At Cider Lake.'});visitLocation(ctx,lake.location.id);runtime.sync({on:true,id:1,generating:false});await pause();sync();
+        selectRegion(ctx,tree.region.id);ctx.chat.push({name:'Klee',mes:'At Cider Lake.'});visitLocation(ctx,lake.location.id);runtime.sync({on:true,id:1,generating:false});await pause();sync();mapUI.syncPrompt();
         check('visiting a location moves the minimap to its linked waypoint',runtime.current.location.id===lake.location.id&&$('#gi-minimap').dataset.location===lake.location.id&&$('#gi-minimap').dataset.mapX==='300');
         check('visiting refreshes origin distances for the next model request',ctx.extensionPrompts[WORLD_PROMPT_KEY].value.includes('500 m; direction NW'));
         const n=calls;runtime.sync({on:true,id:0,generating:false});sync();await pause();check('history can show its saved map position without moving the active party',calls===n&&travelState(ctx).location.id===lake.location.id&&ctx.extensionPrompts[WORLD_PROMPT_KEY].value.includes('Current location: "Cider Lake"'));
@@ -62,6 +62,8 @@ export async function runWorldMapTests(){
         mapUI.close();release({name:'replacement.webp',path});await pause();
         check('closing the map while uploading cannot commit a late waypoint',!$('#gi-world-map').open&&worldWaypoints(ctx).length===beforeLate&&!worldWaypoints(ctx).some(w=>w.location.label==='Late upload'));adapter.upload=upload;
         mapUI.sync({on:true,show:false,location:runtime.current});check('Hide UI hides the minimap without clearing World scale', $('#gi-minimap').hidden&&ctx.extensionPrompts[WORLD_PROMPT_KEY].value.includes('World scale'));
+        {const label=lake.location.label;lake.location.label='Renamed Lake';mapUI.sync({on:true,location:runtime.current});const kept=!ctx.extensionPrompts[WORLD_PROMPT_KEY].value.includes('Renamed Lake');mapUI.syncPrompt();
+        check('a refresh does not rebuild World scale; the generation hook does',kept&&ctx.extensionPrompts[WORLD_PROMPT_KEY].value.includes('Renamed Lake'));lake.location.label=label;}
         mapUI.sync({on:false});check('disabling Silly Teyvat clears its system injection',ctx.extensionPrompts[WORLD_PROMPT_KEY].value==='');
         mapUI.sync({on:true});mapUI.open();ctx.chatId='another-chat';ctx.chatMetadata={};mapUI.sync({on:true});check('switching chats closes the map and never inherits the previous current location',!$('#gi-world-map').open&&travelState(ctx).regionId===''&&ctx.extensionPrompts[WORLD_PROMPT_KEY].value.includes('Distance unknown'));
         mapUI.dispose();mapUI=null;runtime.dispose();runtime=null;check('disposal removes map layers and its prompt without touching artwork',!$('#gi-minimap')&&!$('#gi-world-map')&&ctx.extensionPrompts[WORLD_PROMPT_KEY].value===''&&plain.path===path);

@@ -8,7 +8,7 @@ import {deliverLocationGreeting} from './location-greetings.js';
 import {partyAvatars} from './travel-history.js';
 import {arrivalReply} from './arrival-policy.js';
 import {assignedResidents,requireLocationCapacity} from './location-capacity.js';
-import {encounterResidents,rollLocationEncounter,locationResidents} from './location-encounters.js';
+import {encounterResidents,rollLocationEncounter} from './location-encounters.js';
 import {newLocalId} from './local-id.js';
 import {playedAvatars} from './persona-link.js';
 

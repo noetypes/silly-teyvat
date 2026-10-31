@@ -1,13 +1,13 @@
 // Character Customization → Moveset: edit a character's or enemy's three moves and
 // their effects. Saved per card (or per persona) and used from the next battle round.
-import {WEAPONS,ROLES,EFFECT_TYPES,BUFF_STATS,DEBUFF_STATS,TARGETS,KIND_LABEL,describeMove,saveKitOverride,resetKitOverride} from './combat-kits.js';
+import {WEAPONS,ROLES,EFFECT_TYPES,BUFF_STATS,DEBUFF_STATS,TARGETS,KIND_LABEL,describeMove,escapeHtml,saveKitOverride,resetKitOverride} from './combat-kits.js';
 import {kitForCard} from './battle-state.js';
 import {characterProperties} from './character-properties.js';
 import {linkedCard} from './persona-link.js';
 import {ELEMENTS} from './battle-engine.js';
 
 const opt=(value,label=value)=>`<option value="${value}">${label}</option>`;
-const esc=text=>String(text ?? '').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const esc=escapeHtml;
 const STAT_NAMES={atk:'Damage dealt ↑',guard:'Damage taken ↓',crit:'Crit chance ↑',dodge:'Dodge ↑',regen:'Regeneration',infuse:'Elemental infusion',vuln:'Damage taken ↑',weaken:'Damage dealt ↓',stun:'Petrify (skip turn)'};
 const TYPE_NAMES={damage:'Damage',heal:'Heal',shield:'Shield',buff:'Buff',debuff:'Debuff',summon:'Summon',energy:'Energy',cleanse:'Cleanse',hpcost:'HP cost (%)'};
 const num=(value,min,max,fallback)=>{const n=Math.round(Number(value));return Number.isFinite(n)?Math.max(min,Math.min(max,n)):fallback;};
@@ -84,10 +84,11 @@ export function mountMovesetEditor({panel,getContext,getCharacter,status=()=>{}}
             if(move.kind==='special')out.cooldown=num(field('cooldown'),1,9,3);
             const chosen=field('element');out.element=chosen || (move.kind==='normal'&&!enemy?(next.weapon==='catalyst'?element:'Physical'):undefined);if(!out.element)delete out.element;
             out.effects=[...section.querySelectorAll('.gi-effect')].map(row=>{
-                const f=name=>row.querySelector(`[data-f="${name}"]`),type=f('type').value,e={type,target:f('target').value};
+                // Options the form has no field for (a decoy, or an element of its own) stay with their effect.
+                const f=name=>row.querySelector(`[data-f="${name}"]`),type=f('type').value,original=move.effects?.[Number(row.dataset.effect)];
+                const e={...(original?.type===type?original:{}),type,target:f('target').value};
                 if(f('stat'))e.stat=f('stat').value;if(f('name'))e.name=String(f('name').value || 'Summon').slice(0,60);
                 for(const key of ['power','amount','rounds','hits','heal'])if(f(key))e[key]=num(f(key).value,key==='rounds'||key==='hits'?1:0,key==='amount'&&['buff','debuff','hpcost'].includes(type)?100:99,0);
-                if(type==='summon'){const original=move.effects?.[Number(row.dataset.effect)];if(original?.type==='summon'&&original.decoy)e.decoy=true;}
                 return e;
             });
             return out;

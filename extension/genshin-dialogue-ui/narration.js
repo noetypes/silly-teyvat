@@ -9,7 +9,9 @@ export function isNarration(message, text = message?.mes || '') {
     return Boolean(message && !message.is_user && !message.is_system && text.trim() && !hasSpeech(text));
 }
 export function plainMessage(message) {
-    const node = document.createElement('div'); node.innerHTML = message.mes || '';
+    // Raw chat text: a template is inert, while a detached div would still load images and run their handlers.
+    const template = document.createElement('template'); template.innerHTML = message.mes || '';
+    const node = template.content;
     node.querySelectorAll('br').forEach(el => el.replaceWith('\n'));
     node.querySelectorAll('p, div, blockquote').forEach(el => el.append('\n'));
     return node.textContent || '';
