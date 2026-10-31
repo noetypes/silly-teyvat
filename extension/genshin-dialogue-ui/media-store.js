@@ -2,6 +2,7 @@ import {newLocalId} from './local-id.js';
 // Files live in SillyTavern's authenticated user-file store. Settings contain
 // assignments only, so audio and CGs work on other devices using this server.
 import { finalizeChoiceRequest } from './choices-api.js';
+import { defaultPrompt } from './prompt-templates.js';
 export function mediaSettings(ctx) {
     const prefs = ctx.extensionSettings.genshin_dialogue_ui ??= {};
     prefs.spriteAudioFiles ??= {}; prefs.characterCGs ??= {}; prefs.archivedSprites ??= {};
@@ -51,7 +52,7 @@ export function syncExpressionControls(ctx) {
         fallback.value = ctx.extensionSettings.expressions?.fallback_expression || fallback.value;
     }
 }
-export const defaultCGPrompt = 'Which of these options is this message about: {{options}}, None of the above. Choose one option and say nothing else.';
+export const defaultCGPrompt = defaultPrompt('cg');
 export function cgPromptMessages(message, categories, template = defaultCGPrompt) {
     const options = categories.map(c => c.label).join(', ');
     const prompt = (template.trim() || defaultCGPrompt).replace(/\{\{options\}\}/g, () => options).replace(/\{\{message\}\}/g, () => message.mes || '');

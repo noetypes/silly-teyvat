@@ -17,7 +17,7 @@ import { stagingDefaults, mountStageEffects } from './staging.js';
 import { regenerationState, regenerateReply } from './regeneration.js';
 import { defaultCGPrompt, localMediaPath, mediaSettings, migrateCGDisplay } from './media-store.js';
 import {clearPromptOrder} from './prompt-order.js';
-import {syncRoleplayPrompts,noteGeneration,paintRoleplayPrompts,bindRoleplayPrompts,dropRoleplayPrompts} from './roleplay-prompts.js';
+import {syncRoleplayPrompts,noteGeneration,paintRoleplayPrompts,bindRoleplayPrompts,dropRoleplayPrompts,renderPromptLibrary} from './roleplay-prompts.js';
 import { mountBackgrounds, backgroundRegions, travelState } from './backgrounds.js';
 import { mountWorldMap } from './world-map.js';
 import {beginOpeningScene} from './opening-scene.js';
@@ -35,6 +35,7 @@ import { mountCardArt } from './card-art.js';
 import { mountInventory } from './inventory.js';
 import {trustEnabled,presentCharacters,syncTrustPrompt,trustPrompt,stripPromptTrustTags} from './trust.js';
 import {hideTrustTags} from './trust-tags.js';
+import {abyssGreeting,freshenTwinPersonas,restoreTwinCards,syncTwinPrompt,twinRolesPrompt,wearTwinCards} from './twin-roles.js';
 import {mountTrust} from './trust-ui.js';
 import {giveGift} from './gifts.js';
 import {namecardsReady,namecards,namecardUrl,chooseNamecard} from './namecards.js';
@@ -49,7 +50,7 @@ import {applyPackagedSettings} from './share-package.js';
 import {mountShare} from './share-ui.js';
 const KEY = 'genshin_dialogue_ui';
 const FOLDER = 'third-party/genshin-dialogue-ui';
-const defaults = Object.freeze({ ...stagingDefaults, enabled: false, choices: true, composer: true, reducedMotion: false, textScale: 1, scrim: 0.8, revealSpeed: 45, tapAdvance: true, pageExpressions: true, narration: false, narrationMode: 'quotes', narrationKeyword: 'Narrator:', hideDialogueQuotes:false, wardrobe: true, locationEncounters:true, locationCharacterLimit:5, randomEncounters:true, encounterRate:40, allowMainDeparture:false, worldPromptAllRegions:false, roleplayPromptsEnabled:true, wildernessEncounters:true, maxEnemies:3, combatDamageMin:1, combatDamageMax:6, enemyStrikeBack:true,combatTriggerPhrase:'[start_combat]', enemyDamageMin:2, enemyDamageMax:6, enemyDice:4, userMaxHp:30, combatDifficulty:'normal', battleEffects:true, battleSound:true, personaIcon: 'Aether', personaIconMode:'auto', hudTopIcons:'auto', namecard:'', signature:'', trimSprites:true, cgEnabled:true, cgClassifier:'main', cgProfile:'', choicesProfile:'', cgBypassReasoning:true, cgPrompt:defaultCGPrompt, cgAudio:true, spriteAudio:true, burstAudio:true, spriteVolume:.8, diceSound:true, trustSystem:false });
+const defaults = Object.freeze({ ...stagingDefaults, enabled: false, choices: true, composer: true, reducedMotion: false, textScale: 1, scrim: 0.8, revealSpeed: 45, tapAdvance: true, pageExpressions: true, narration: false, narrationMode: 'quotes', narrationKeyword: 'Narrator:', hideDialogueQuotes:false, wardrobe: true, locationEncounters:true, locationCharacterLimit:5, randomEncounters:true, encounterRate:40, allowMainDeparture:false, worldPromptAllRegions:false, roleplayPromptsEnabled:true, wildernessEncounters:true, maxEnemies:3, combatDamageMin:1, combatDamageMax:6, enemyStrikeBack:true,combatTriggerPhrase:'[start_combat]', enemyDamageMin:2, enemyDamageMax:6, enemyDice:4, userMaxHp:30, combatDifficulty:'normal', battleEffects:true, battleSound:true, personaIcon: 'Aether', personaIconMode:'auto', hudTopIcons:'auto', namecard:'', signature:'', trimSprites:true, cgEnabled:true, cgClassifier:'main', cgProfile:'', choicesProfile:'', cgBypassReasoning:true, cgPrompt:defaultCGPrompt, cgAudio:true, spriteAudio:true, burstAudio:true, spriteVolume:.8, diceSound:true, trustSystem:false, travelerTwin:'Aether' });
 const bodyClasses = ['gi-menu-open', 'gi-enabled', 'gi-scene', 'gi-history', 'gi-hidden', 'gi-compose', 'gi-generating', 'gi-reduced-motion', 'gi-reading', 'gi-choices-enabled', 'gi-native-staging', 'gi-sprite-idle', 'gi-hud-top-off'];
 const icons = {
     compass: '<path d="m12 2 3 7 7 3-7 3-3 7-3-7-7-3 7-3Z"/><path d="m12 8 4 4-4 4-4-4Z"/>',
@@ -117,6 +118,7 @@ let stageEffects;
 let visit = 0;
 const reveal = createTextReveal(schedule);
 
+const hideChatTrustTags=()=>{for(const text of document.querySelectorAll('#chat .mes:not([is_user="true"]) .mes_text'))hideTrustTags(text);};
 function pageState(message) {
     const source = message?.querySelector('.mes_text');
     if (!source) return { index: 0, pages: [], source: null };
@@ -685,6 +687,7 @@ export async function initialize({ choicesAdapter, spriteAdapter, wardrobeAdapte
     abort = new AbortController();
     try{await applyPackagedSettings(context());}catch(error){console.warn('[Silly Teyvat] Packaged settings',error);}
     if(migrateCGDisplay(mediaSettings(context())))context().saveSettingsDebounced();
+    freshenTwinPersonas(context());
     if(!mounted || version!==mountVersion)return;
     await loadPersonaSupport(context());
     if(!mounted || version!==mountVersion)return;
@@ -771,6 +774,7 @@ export async function initialize({ choicesAdapter, spriteAdapter, wardrobeAdapte
     shareUI=mountShare({getContext:context,announce,signal:abort.signal});shareUI.bind();
     document.addEventListener('click', handleAction, { signal: abort.signal });
     document.addEventListener('keydown', handleKey, { signal: abort.signal });
+    renderPromptLibrary();
     bindRoleplayPrompts(context, abort.signal);
     document.addEventListener('change', event => {
         const input = event.target.closest('#gi-settings [data-gi-setting]');
@@ -841,6 +845,8 @@ export async function initialize({ choicesAdapter, spriteAdapter, wardrobeAdapte
         refresh();schedule();
     });
     subscribe('CHARACTER_MESSAGE_RENDERED',id=>trustUI?.noteMessage(Number(id)));
+    // Dialogue pages hide tags as they are shown. This covers the native chat, for when the dialogue view is off.
+    for(const key of ['CHARACTER_MESSAGE_RENDERED','MESSAGE_UPDATED','MESSAGE_SWIPED','MORE_MESSAGES_LOADED','CHAT_CHANGED','CHAT_LOADED'])subscribe(key,hideChatTrustTags);
     subscribe('USER_MESSAGE_RENDERED',async id=>{if(preferences().enabled)await combatUI?.onUserMessage(id);schedule();});
     subscribe('APP_READY',()=>{void prepareCardData();void loadStarterCGs(context()).catch(error=>console.warn('[Silly Teyvat] Starter scenes',error));});
     subscribe('CHAT_CHANGED',async()=>{
@@ -870,8 +876,10 @@ export async function initialize({ choicesAdapter, spriteAdapter, wardrobeAdapte
     subscribe('GENERATION_STARTED', type => { if (type === 'quiet') return; generating = true; followLatest = true; hidden = false; stopAuto(); schedule(); announce('Reply is being written. The native Stop button is available.'); });
     // AI Config edits and preset switches flow back into Settings → Prompts.
     for (const key of ['SETTINGS_UPDATED', 'OAI_PRESET_CHANGED_AFTER', 'MAIN_API_CHANGED']) subscribe(key, () => syncRoleplayPrompts(context(), preferences().enabled));
-    subscribe('CHAT_COMPLETION_PROMPT_READY', data => { if (data?.dryRun) return; dropRoleplayPrompts(context(), preferences().enabled, data?.chat, [trustPrompt(context())]); stripPromptTrustTags(data?.chat); });
-    subscribe('GENERATION_AFTER_COMMANDS',(type,params)=>{worldMapUI?.syncPrompt(preferences().enabled);syncCombatPrompt(context(),preferences().enabled);syncTrustPrompt(context(),preferences().enabled);noteGeneration(type,params);syncRoleplayPrompts(context(),preferences().enabled);});
+    subscribe('CHAT_COMPLETION_PROMPT_READY', data => { if (data?.dryRun) return; dropRoleplayPrompts(context(), preferences().enabled, data?.chat, [trustPrompt(context()),twinRolesPrompt(context())]); stripPromptTrustTags(data?.chat); });
+    subscribe('GENERATION_AFTER_COMMANDS',(type,params)=>{worldMapUI?.syncPrompt(preferences().enabled);syncCombatPrompt(context(),preferences().enabled);syncTrustPrompt(context(),preferences().enabled);syncTwinPrompt(context(),preferences().enabled);noteGeneration(type,params);syncRoleplayPrompts(context(),preferences().enabled);if(preferences().enabled)wearTwinCards(context());});
+    for(const key of ['GENERATE_AFTER_DATA','GENERATION_ENDED','GENERATION_STOPPED','CHAT_CHANGED'])subscribe(key,restoreTwinCards);
+    subscribe('CHARACTER_FIRST_MESSAGE_SELECTED',args=>{const text=preferences().enabled&&abyssGreeting(context(),args?.character);if(text)args.output=text;});
     subscribe('GROUP_WRAPPER_STARTED',()=>{groupGenerating=true;schedule();});
     subscribe('GROUP_WRAPPER_FINISHED',()=>{groupGenerating=false;schedule();});
     subscribe('GROUP_UPDATED',()=>{if(preferences().enabled)personaSession?.request();schedule();});
@@ -917,7 +925,7 @@ export function dispose() {
     choiceUI?.dispose();
     choiceUI = undefined;
     disposeHudIcons();
-    syncRoleplayPrompts(context(),false);syncTrustPrompt(context(),false);clearPromptOrder(context());
+    syncRoleplayPrompts(context(),false);syncTrustPrompt(context(),false);syncTwinPrompt(context(),false);restoreTwinCards();clearPromptOrder(context());
     abort?.abort();
     for (const [source, type, handler] of subscriptions) source.removeListener(type, handler);
     subscriptions = [];

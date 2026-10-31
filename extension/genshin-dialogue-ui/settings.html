@@ -103,9 +103,12 @@
                 <h4>Travel</h4>
                 <label class="gi-row"><span>Main character may stay</span><input type="checkbox" class="gi-switch" data-gi-setting="allowMainDeparture"></label>
                 <label class="gi-row"><span>Whole world in prompt</span><input type="checkbox" class="gi-switch" data-gi-setting="worldPromptAllRegions"></label>
+                <h4>The twins</h4>
+                <label class="gi-row" for="gi-traveler-twin"><span>Traveler when you play neither twin</span><select id="gi-traveler-twin" data-gi-setting="travelerTwin"><option value="Aether">Aether (Lumine leads the Abyss)</option><option value="Lumine">Lumine (Aether leads the Abyss)</option></select></label>
+                <p class="gi-note">Play either twin and you are the Traveler, while the other twin leads the Abyss Order and is found in the Chasm. Their Abyss cards are in the Prompts tab.</p>
                 <h4>Trust</h4>
                 <label class="gi-row"><span>Trust system</span><input type="checkbox" class="gi-switch" data-gi-setting="trustSystem"></label>
-                <p class="gi-note">Each character's trust runs from 0 to 5 hearts in each chat. Characters earn or lose it through the roleplay and through gifts from your Inventory. Open Trust from the Paimon menu to see it, and to ask what they think of you. Only a new chat starts it again.</p>
+                <p class="gi-note">Each character's trust runs from 0 to 5 hearts in each chat. Characters earn or lose it through the roleplay and through gifts from your Inventory. Open Trust from the Paimon menu to see it, and to ask what they think of you. Only a new chat starts it again, and characters who already know the one you play start higher: set this per character in Character Customization → Starting trust.</p>
             </section>
 
             <section class="gi-set-page" data-page="combat" role="tabpanel" hidden>
@@ -127,7 +130,7 @@
             <section class="gi-set-page" data-page="prompts" role="tabpanel" hidden>
                 <p class="gi-note">System prompts sent with every roleplay reply while Silly Teyvat is on. &#123;&#123;char&#125;&#125; and &#123;&#123;user&#125;&#125; are filled in. Clear a prompt to turn it off; Reset restores the bundled version.</p>
                 <label class="gi-row"><span>Roleplay prompts</span><input type="checkbox" class="gi-switch" data-gi-setting="roleplayPromptsEnabled"></label>
-                <p class="gi-note">With Chat Completion, these prompts and the World scale and Combat state notes are also entries in <b>AI Config → Prompts</b>. Drag them there to choose when the AI reads them; editing a prompt in either place changes both.</p>
+                <p class="gi-note">With Chat Completion, these prompts and the World scale, Combat state and Trust notes are also entries in <b>AI Config → Prompts</b>. Drag them there to choose when the AI reads them; editing a prompt in either place changes both.</p>
                 <h4>Writing style</h4>
                 <p class="gi-note">Layout, voice and boundaries. Sent near the latest message so it stays fresh.</p>
                 <textarea class="gi-prompt-text" rows="8" aria-label="Writing style prompt" data-gi-prompt="style"></textarea>
@@ -140,6 +143,9 @@
                 <p class="gi-note">How travel, encounters and combat records appear in the chat, and how to narrate them.</p>
                 <textarea class="gi-prompt-text" rows="8" aria-label="Game systems prompt" data-gi-prompt="systems"></textarea>
                 <button type="button" class="menu_button" data-gi-prompt-reset="systems">Reset</button>
+                <h4>Other prompts</h4>
+                <p class="gi-note">Everything else Silly Teyvat asks the model. Words in single braces, such as &#123;character&#125;, are filled in by the game. Reset restores the bundled version. Clearing a prompt the game needs does the same; an optional note is simply no longer sent.</p>
+                <div id="gi-prompt-library"></div>
             </section>
 
             <section class="gi-set-page" data-page="share" role="tabpanel" hidden>

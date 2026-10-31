@@ -1,7 +1,7 @@
 import {activeGroup} from './party.js';
 import {newLocalId} from './local-id.js';
 import {mediaSettings} from './media-store.js';
-import {activeEnemies,combatIdentity,syncCombatPrompt,partyStatus,partyMembers,partyMember,partyStore,userDefeated,USER_KEY} from './combat-state.js';
+import {activeEnemies,combatIdentity,combatState,syncCombatPrompt,partyStatus,partyMembers,partyMember,partyStore,userDefeated,USER_KEY} from './combat-state.js';
 import {enemySpeaker,combatTrigger,hasCombatTrigger} from './enemy-actions.js';
 import {createLocationCastAdapter,locationCastState} from './location-cast.js';
 import {saveTravel} from './backgrounds.js';
@@ -9,12 +9,14 @@ import {resolveDefeat,defeatNarration} from './defeat.js';
 import {activePersonaAvatar,personaCard} from './persona-wardrobe.js';
 import {circularCharacterAvatar,characterAvatarsReady} from './character-avatars.js';
 import {mountElementalDice,ELEMENT_COLORS} from './elemental-dice.js';
-import {battleSnapshot,commitRound,roundNarration,partyBag} from './battle-state.js';
+import {battleSnapshot,commitRound,roundNarration,partyBag,unpaidEnemies} from './battle-state.js';
 import {rollFuel,rerollFuel,resolveRound} from './battle-engine.js';
 import {ITEMS,rollLoot,rollBossLoot} from './battle-items.js';
 import {mountBattle} from './battle-ui.js';
 import {createBurstVoicePlayer} from './burst-audio.js';
 import {EL_COLORS,SWORD_SVG} from './battle-fx.js';
+import {renderPrompt} from './prompt-templates.js';
+import {locationCardPool} from './card-pools.js';
 
 export async function appendCombatMessage(ctx,{name='Narrator',text,avatar,event}){
     const message={name,is_user:false,is_system:false,send_date:new Date().toISOString(),mes:text,extra:{silly_teyvat_combat:event,silly_teyvat_combat_scene:structuredClone(activeEnemies(ctx))}};
@@ -53,10 +55,8 @@ export function createCombatAdapter({loadScript=()=>import('/script.js')}={}){
         syncCombatPrompt(ctx);
         if(ctx.onlineStatus==='no_connection')throw new Error('Connect your main API to hear the enemy react. Its HP and the combat result are saved.');
         // In a duel the one reacting is a friend who chose to spar, not an enemy.
-        const prompt=[`Continue the current scene as ${card.name}. React to the latest resolved attack in the chat history.`,
-            event.damage?`${event.duel?card.name:'This enemy'} just took ${event.damage} damage this round and now has ${event.hpAfter} HP out of ${event.maxHp}. Show ${event.duel?'their':'its'} pain, surprise, anger or tactical reaction naturally, according to ${event.duel?'their':'its'} character card.`:`${event.duel?'The attacks':'The party\'s attacks'} did not hurt ${event.duel?card.name:'it'} this round. React naturally without describing an injury.`,
-            'Do not resolve new attacks, alter HP, die, move locations or control the player or their companions. The player can speak or negotiate as well as fight. Use third-person narration. Put quoted speech and narration on separate lines. Use natural language without em dashes.'];
-        const text=String(await ctx.generateQuietPrompt({quietPrompt:prompt.join('\n'),quietToLoud:true,forceChId:ctx.characters.indexOf(card),responseLength:300,removeReasoning:true}) || '').trim();
+        const result=event.damage?renderPrompt(ctx,'reaction_hurt',{subject:event.duel?card.name:'This enemy',damage:event.damage,hp:event.hpAfter,max_hp:event.maxHp,its:event.duel?'their':'its'}):renderPrompt(ctx,'reaction_unhurt',{attackers:event.duel?'The attacks':'The party\'s attacks',target:event.duel?card.name:'it'});
+        const text=String(await ctx.generateQuietPrompt({quietPrompt:renderPrompt(ctx,'reaction',{character:card.name,result}),quietToLoud:true,forceChId:ctx.characters.indexOf(card),responseLength:300,removeReasoning:true}) || '').trim();
         if(!isCurrent())return false;if(!text)throw new Error('Combat result saved, but no enemy reaction was returned. You can keep talking or attack again.');
         await appendCombatMessage(getContext(),{name:card.name,avatar:card.avatar,text,event:{id:event.id,kind:'reaction'}});return true;
     }};
@@ -158,7 +158,8 @@ export function mountCombat({host,getContext,onChange=()=>{},announce=()=>{},ada
             const result=resolveRound(snapshot,{steps:Array.isArray(plan)?plan:plan.steps || [],items:used.map(i=>({...i,item:ITEMS[i.id]})),flee:Boolean(plan.flee)},{strikeBack:prefs(ctx).enemyStrikeBack!==false,difficulty:snapshot.difficulty,enemyFirst});
             const enemies=snapshot.units.filter(u=>u.side==='enemy'&&u.hp>0);
             const fallen=result.state.units.filter(u=>u.side==='enemy'&&u.hp<=0);
-            const loot=duel?[]:result.victory?rollLoot(enemies):rollBossLoot(enemies.filter(u=>fallen.some(f=>f.id===u.id)));
+            const visitStore=duel?null:combatState(ctx).visits[visitKey],pool=locationCardPool(ctx,visitStore?.locationId);
+            const loot=duel?[]:result.victory?rollLoot([...enemies,...unpaidEnemies(visitStore)],{pool,size:Object.keys(visitStore?.enemies || {}).length}):rollBossLoot(enemies.filter(u=>fallen.some(f=>f.id===u.id)),{pool});
             // Save before the playback, so the round stands even if the chat changes mid-animation.
             const saved=commitRound(getContext(),snapshot,result,id,{items:used.map(i=>i.id),loot});if(!saved){battle.cancel?.();return;}
             const target=result.state.units.find(u=>u.id===avatar),before=snapshot.units.find(u=>u.id===avatar);

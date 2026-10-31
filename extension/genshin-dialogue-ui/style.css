@@ -3742,3 +3742,41 @@ body.gi-keyboard :is(#gi-background-stage,#gi-sprite-stage,#gi-cg-stage,#gi-lett
 :is(#gi-world-map,#gi-wardrobe) .gi-wilderness-menu .gi-enemy-pool small{display:block !important;font-size:10px;color:#cdd6df}
 :is(#gi-world-map,#gi-wardrobe) .gi-wilderness-menu .gi-wilderness-panel>button{flex:none;width:100%;min-height:38px;margin:0;padding:8px 16px;border:0;border-radius:19px;color:var(--ty-ink,#20283a);background:var(--ty-cream,#ece5d8);font:inherit;cursor:pointer}
 :is(#gi-world-map,#gi-wardrobe) .gi-wilderness-menu footer{flex:none;min-height:30px;margin:0;padding:6px 18px;border:0;border-top:1px solid #d7cda344;background:none;font-size:12px}
+
+/* 1.54: the card drops window, Other prompts, and Starting trust */
+.gi-card-pool-menu .gi-pool-odds{flex:none;width:100%;border-collapse:collapse;font-size:13px;color:#ece5d8}
+.gi-card-pool-menu .gi-pool-odds caption{padding:0 0 4px;font-size:12px;text-align:left;color:#cdd6df}
+.gi-card-pool-menu .gi-pool-odds th,.gi-card-pool-menu .gi-pool-odds td{padding:3px 8px;border-bottom:1px solid #cfbf9533;font-weight:400;text-align:right;white-space:nowrap}
+.gi-card-pool-menu .gi-pool-odds th:first-child{text-align:left;white-space:normal}
+.gi-card-pool-menu .gi-pool-odds thead th{font-size:11px}
+.gi-card-pool-menu .gi-q-blue{--gi-pool-star:#8fb8ea}
+.gi-card-pool-menu .gi-q-purple{--gi-pool-star:#c7a2ee}
+.gi-card-pool-menu .gi-q-gold{--gi-pool-star:#f1d797}
+.gi-card-pool-menu thead th[class]{color:var(--gi-pool-star)}
+:is(#gi-world-map,#gi-wardrobe) .gi-card-pool-menu .gi-pool-note{display:block !important;flex:none;font-size:12px;line-height:1.4;color:#cdd6df}
+:is(#gi-world-map,#gi-wardrobe) .gi-card-pool-menu input[type="search"]{flex:none;width:100%;min-height:36px;margin:0;padding:6px 12px;border:1px solid #cfbf9560;border-radius:18px;background:#0b1a2b;color:#ece5d8}
+.gi-card-pool-menu .gi-pool-grid{display:grid;flex:1;grid-template-columns:repeat(auto-fill,minmax(96px,1fr));grid-auto-rows:max-content;gap:8px;min-height:120px;padding:2px;overflow-y:auto}
+:is(#gi-world-map,#gi-wardrobe) .gi-card-pool-menu .gi-pool-grid button{display:flex;flex-direction:column;align-items:center;gap:2px;width:auto;min-width:0;min-height:0;margin:0;padding:6px 4px;border:2px solid transparent;border-radius:8px;background:#ffffff0d;color:#ece5d8;opacity:.5;filter:saturate(.45)}
+:is(#gi-world-map,#gi-wardrobe) .gi-card-pool-menu .gi-pool-grid button[hidden]{display:none}
+:is(#gi-world-map,#gi-wardrobe) .gi-card-pool-menu .gi-pool-grid button[aria-pressed="true"]{border-color:var(--gi-pool-star);background:#ffffff1a;opacity:1;filter:none}
+:is(#gi-world-map,#gi-wardrobe) .gi-card-pool-menu .gi-pool-grid button:focus-visible{outline:2px solid #f1d797;outline-offset:1px}
+.gi-card-pool-menu .gi-pool-grid img{width:68px;aspect-ratio:7/12;object-fit:cover;border-radius:4px}
+.gi-card-pool-menu .gi-pool-grid span{font-size:12px;line-height:1.2;text-align:center}
+:is(#gi-world-map,#gi-wardrobe) .gi-card-pool-menu .gi-pool-grid small{display:block !important;font-size:11px;letter-spacing:-1px;color:var(--gi-pool-star)}
+.gi-card-pool-menu .gi-pool-actions{display:flex;flex:none;justify-content:space-between;gap:8px;padding-top:6px}
+:is(#gi-world-map,#gi-wardrobe) .gi-card-pool-menu .gi-pool-actions button{width:auto;min-height:38px;margin:0;padding:6px 14px}
+#gi-settings .gi-prompt-group{margin:6px 0;border:1px solid #ece5d82e;border-radius:3px}
+#gi-settings .gi-prompt-group>summary{padding:8px 10px;cursor:pointer;font-weight:600}
+#gi-settings .gi-prompt-group[open]{padding:0 10px 10px}
+#gi-settings .gi-prompt-group[open]>summary{margin:0 -10px}
+#gi-settings .gi-prompt-group h5{margin:12px 0 2px;font-size:1em}
+#gi-settings .gi-prompt-fills{overflow-wrap:anywhere;font-size:.85em}
+#gi-wardrobe .gi-start-trust>small,#gi-wardrobe .gi-start-trust-list>small{display:block !important;font-size:.85em;line-height:1.4;color:#d8d6cb}
+#gi-wardrobe .gi-start-trust-list{display:flex;flex-direction:column;gap:4px;max-height:280px;margin:8px 0;overflow-y:auto}
+#gi-wardrobe .gi-start-trust-row,#gi-wardrobe .gi-start-trust-add{display:flex;flex-wrap:nowrap;align-items:center;gap:6px;min-width:0;margin:0}
+#gi-wardrobe .gi-start-trust-row span{display:block;flex:1 1 0;min-width:0;overflow:hidden;font-size:.92em;text-overflow:ellipsis;white-space:nowrap;color:var(--ty-cream)}
+#gi-wardrobe .gi-start-trust input[type="number"]{flex:0 0 64px;box-sizing:border-box;width:64px;min-width:0;height:32px;min-height:0;margin:0;padding:2px 4px;text-align:center}
+#gi-wardrobe .gi-start-trust input[type="text"]{flex:1 1 0;box-sizing:border-box;width:auto;min-width:0;height:32px;min-height:0;margin:0;padding:2px 8px}
+#gi-wardrobe .gi-start-trust-row button{flex:0 0 30px;width:30px;min-width:0;height:30px;min-height:0;margin:0;padding:0;line-height:1}
+#gi-wardrobe .gi-start-trust-add button{flex:none;width:auto;min-height:32px;margin:0;padding:2px 14px}
+#gi-wardrobe .gi-start-trust [data-start-trust-reset]{display:block;width:auto;min-height:32px;margin:8px 0 0;padding:2px 14px}

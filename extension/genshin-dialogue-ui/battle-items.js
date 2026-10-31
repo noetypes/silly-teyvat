@@ -1,7 +1,8 @@
 // Battle items, drawn from Genius Invokation TCG event cards. Food heals or protects one
 // member (one dish per member per round); other cards bend the dice or the battlefield.
-// The party carries a shared bag saved per chat; victories drop more cards.
+// The party carries a shared bag saved per chat; victories drop cards from the location's pool (card-pools.js).
 import {isTcgBoss} from './boss-kits.js';
+import {defaultKitHp} from './combat-kits.js';
 export const ITEMS={
     'sweet-madame':{name:'Sweet Madame',kind:'food',cost:0,target:'ally',rarity:1,text:'Heals 4 HP.',effects:[{type:'heal',amount:4}]},
     'hash-brown':{name:'Mondstadt Hash Brown',kind:'food',cost:1,target:'ally',rarity:1,text:'Heals 8 HP.',effects:[{type:'heal',amount:8}]},
@@ -59,28 +60,59 @@ export const STARTER_BAG={'sweet-madame':3,'hash-brown':2,'lotus-crisp':1,'toss-
 export const itemArt=id=>new URL(`./assets/tcg/items/${id}.webp`,import.meta.url).href;
 const WOVEN={Pyro:'woven-flames',Hydro:'woven-waters',Anemo:'woven-winds',Electro:'woven-thunder',Dendro:'woven-weeds',Cryo:'woven-ice',Geo:'woven-stone'};
 export const bagCount=bag=>Object.values(bag || {}).reduce((n,c)=>n+c,0);
-export function rollBossLoot(defeated,{random=Math.random}={}){
-    const rare=Object.entries(ITEMS).filter(([,item])=>item.rarity===3).map(([id])=>id),loot=[];
+// How strong an enemy is, from its base health: live health also scales with the party and the difficulty.
+export const ENEMY_TIERS=[
+    {id:'weak',label:'Weak enemies',hint:'Hilichurls, small slimes, samachurls and Treasure Hoarders',odds:{1:90,2:9,3:1},cards:1},
+    {id:'standard',label:'Standard enemies',hint:'Nobushi, Fatui agents, mushrooms and medium slimes',odds:{1:60,2:32,3:8},cards:1},
+    {id:'tough',label:'Tough enemies',hint:'Mitachurls, Ruin machines, Rifthounds, Kairagi and large slimes',odds:{1:30,2:45,3:25},cards:2},
+    {id:'boss',label:'Bosses',hint:'World and weekly bosses',odds:{1:5,2:35,3:60},cards:2},
+];
+export const WEAK_TIER=0,STANDARD_TIER=1,TOUGH_TIER=2,BOSS_TIER=3;
+export function enemyTier(enemy){
+    const name=enemy.card || enemy.name;
+    if(isTcgBoss(name))return BOSS_TIER;
+    const hp=defaultKitHp(name,true) ?? enemy.maxHp;
+    return hp<=30?WEAK_TIER:hp<45?STANDARD_TIER:TOUGH_TIER;
+}
+// Three enemies at once are a harder fight than any one of them alone.
+const encounterTier=(enemy,size)=>{const tier=enemyTier(enemy);return size>=3&&tier<TOUGH_TIER?tier+1:tier;};
+// Each rarity's share of a tier's drops, shared out among the rarities this pool holds.
+export function rarityOdds(tier,pool){
+    const have=[1,2,3].filter(rarity=>pool.some(id=>ITEMS[id]?.rarity===rarity)),odds=ENEMY_TIERS[tier].odds,total=have.reduce((sum,rarity)=>sum+odds[rarity],0);
+    return Object.fromEntries(have.map(rarity=>[rarity,odds[rarity]/total]));
+}
+const ofRarity=(pool,rarity)=>pool.filter(id=>ITEMS[id]?.rarity===rarity);
+const pick=(list,random)=>list[Math.min(list.length-1,Math.floor(random()*list.length))];
+function rollCard(tier,pool,random){
+    const odds=Object.entries(rarityOdds(tier,pool));let roll=random(),rarity=odds.at(-1)?.[0];
+    for(const [key,share] of odds){roll-=share;if(roll<0){rarity=key;break;}}
+    return rarity?pick(ofRarity(pool,Number(rarity)),random):undefined;
+}
+const everyCard=Object.keys(ITEMS);
+export function rollBossLoot(defeated,{random=Math.random,pool=everyCard}={}){
+    const top=Math.max(0,...pool.map(id=>ITEMS[id]?.rarity || 0)),rare=ofRarity(pool,top),loot=[];
+    if(!rare.length)return loot;
     for(const enemy of defeated){
-        if(!isTcgBoss(enemy.card || enemy.name))continue;
-        loot.push(rare[Math.min(rare.length-1,Math.floor(random()*rare.length))]);
+        if(enemy.bossPaid||!isTcgBoss(enemy.card || enemy.name))continue;
+        loot.push(pick(rare,random));
         if(WOVEN[enemy.element])loot.push(WOVEN[enemy.element]);
     }
     return loot;
 }
-// Victory loot: one card per defeated enemy (two from tough ones), weighted towards common
-// food, plus a Woven card matching each elemental enemy now and then.
-export function rollLoot(defeated,{random=Math.random}={}){
-    const pool=Object.entries(ITEMS).filter(([id,item])=>!id.startsWith('woven-')).flatMap(([id,item])=>Array((4-item.rarity)**2).fill(id));
+// Victory loot: cards from this location's pool, rarer the stronger the enemy, plus a Woven card
+// matching each elemental enemy now and then. size is how many enemies the encounter had.
+// A boss beaten in an earlier round carries bossPaid: its guaranteed drop came when it fell.
+export function rollLoot(defeated,{random=Math.random,pool=everyCard,size=defeated.length}={}){
     const loot=[];
+    if(!pool.length)return loot;
     for(const enemy of defeated){
-        const count=enemy.maxHp>=45?2:1;
-        for(let i=0;i<count;i++)loot.push(pool[Math.min(pool.length-1,Math.floor(random()*pool.length))]);
+        const tier=encounterTier(enemy,size);
+        for(let i=0;i<ENEMY_TIERS[tier].cards;i++)loot.push(rollCard(tier,pool,random));
         if(WOVEN[enemy.element]&&random()<.5)loot.push(WOVEN[enemy.element]);
         // Bosses guarantee one useful rare card and a die matching their element.
-        loot.push(...rollBossLoot([enemy],{random}));
+        loot.push(...rollBossLoot([enemy],{random,pool}));
     }
-    return loot;
+    return loot.filter(Boolean);
 }
 export function addToBag(bag,ids){for(const id of ids)if(ITEMS[id])bag[id]=(bag[id] || 0)+1;return bag;}
 // After a rescue at the Guild the bag is topped up to the starter amounts.

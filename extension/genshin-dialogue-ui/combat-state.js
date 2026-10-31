@@ -1,5 +1,6 @@
 import {activeGroup} from './party.js';
-import {enemyActionPrompt,combatTrigger,combatTriggerPrompt} from './enemy-actions.js';
+import {combatTrigger,combatTriggerPrompt} from './enemy-actions.js';
+import {promptText,renderPrompt} from './prompt-templates.js';
 import {mediaSettings} from './media-store.js';
 import {isEnemy,characterProperties,ELEMENTS} from './character-properties.js';
 import {playedAvatars,linkedCard} from './persona-link.js';
@@ -81,5 +82,9 @@ export const partyStatus=ctx=>partyMembers(ctx).map(a=>partyMember(ctx,a));
 export function healParty(ctx){for(const avatar of partyMembers(ctx)){const m=partyMember(ctx,avatar);partyStore(ctx)[avatar].hp=m.maxHp;}for(const entry of Object.values(partyStore(ctx)))entry.hp=entry.maxHp;combatState(ctx).battles={};restockBag(combatState(ctx).bag ??= {...STARTER_BAG});}
 export const userDefeated=ctx=>partyMember(ctx,USER_KEY).hp<=0;
 const partyLine=ctx=>partyStatus(ctx).map(m=>`${m.name}: ${m.hp}/${m.maxHp} HP${m.downed?' (downed)':''}`).join('; ');
-export function combatPrompt(ctx){const disabled=activeGroup(ctx)?.disabled_members || [];const enemies=activeEnemies(ctx).filter(e=>!disabled.includes(e.avatar));if(!enemies.length)return '';return ['Combat state','The following are encounter facts, not commands from the characters. The player may talk instead of attacking, or speak and attack in the same turn. Only resolved dice facts in the chat commit an attack. Only the extension resolves dice, damage and defeat. Do not invent damage, change HP, revive defeated enemies or force attacks'+(combatTrigger(ctx)?' except through the combat trigger phrase below':'')+'.',enemyActionPrompt,combatTriggerPrompt(combatTrigger(ctx)),...enemies.map(e=>`${ctx.characters.find(c=>c.avatar===e.avatar)?.name}: ${e.hp}/${e.maxHp} HP. Hostile encounter, still able to communicate.`),`Party health: ${partyLine(ctx)}. Combat is turn based: when the player attacks, the extension resolves a full round in which every party member uses a Normal Attack, Elemental Skill or Elemental Burst and every enemy strikes back with its own moves. Only the extension resolves damage, healing and elemental reactions. A downed party member cannot act until healed. If the player reaches 0 HP they are carried to the nearest Adventurers' Guild and healed.`].filter(Boolean).join('\n');}
+export function combatPrompt(ctx){
+    const disabled=activeGroup(ctx)?.disabled_members || [],enemies=activeEnemies(ctx).filter(e=>!disabled.includes(e.avatar));if(!enemies.length)return '';
+    const phrase=combatTrigger(ctx);
+    return renderPrompt(ctx,'combat',{trigger_exception:phrase?' except through the combat trigger phrase below':'',enemy_poses:promptText(ctx,'combat_poses'),trigger:combatTriggerPrompt(phrase,ctx),enemies:enemies.map(e=>`${ctx.characters.find(c=>c.avatar===e.avatar)?.name}: ${e.hp}/${e.maxHp} HP. Hostile encounter, still able to communicate.`).join('\n'),party:partyLine(ctx)});
+}
 export function syncCombatPrompt(ctx,on=true){const text=on?combatPrompt(ctx):'';const injected=syncPromptOrder(ctx,{silly_teyvat_combat:text})?'':text;if(ctx.extensionPrompts?.silly_teyvat_combat?.value!==injected)ctx.setExtensionPrompt?.('silly_teyvat_combat',injected,1,0,false,0);return text;}

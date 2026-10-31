@@ -1,4 +1,5 @@
 import {isEnemy} from './character-properties.js';
+import {renderPrompt} from './prompt-templates.js';
 export const ENEMY_ATTACK_MARKER='[enemy_attack]';
 // An enemy can start a fight itself: the phrase below, written in its own reply, starts a battle round
 // once the reply has been read, and the enemy acts first in it. Empty turns this off.
@@ -41,7 +42,5 @@ export async function resolveEnemyScene(ctx,adapter,scene,message,action='neutra
     for(const avatar of cards){const card=ctx.characters?.find(c=>c.avatar===avatar);if(!card)continue;const expression=actor?.avatar===avatar&&action==='attacking'?'attacking':'neutral';next=(await adapter.resolve(ctx,{name:card.name,original_avatar:avatar},expression,next)).scene;}
     return next;
 }
-export const enemyActionPrompt='Enemy poses are action controlled. Only an enemy that is actually attempting an attack in its own current reply may put the exact token [enemy_attack] at the start of that action paragraph. Describe an attempt without deciding the player’s response or inventing damage. Other paragraphs and ordinary conversation use the neutral pose. Never add this token for companions, player actions, pain, anger, threats, memories or merely discussing an attack. The UI hides this token and shows the attacking sprite for that paragraph. Otherwise the enemy uses neutral.';
-
 // Said to the roleplay model while hostile enemies are present (see combatPrompt).
-export const combatTriggerPrompt=phrase=>phrase?`Starting a fight: when an enemy decides to attack first, at the end of that enemy's own reply it writes the exact combat trigger phrase ${phrase} once. The interface ${markerPhrase(phrase)?'hides it and ':''}starts a battle round after the player has read that reply, and that enemy acts before the party in it. Use it only for an enemy that is truly launching an attack in its own reply, never for companions or the player, never when merely threatening or talking, and never twice. Do not write results, damage or HP: the extension resolves the round.`:'';
+export const combatTriggerPrompt=(phrase,ctx)=>phrase?renderPrompt(ctx,'combat_trigger',{phrase,hides:markerPhrase(phrase)?'hides it and ':''}):'';

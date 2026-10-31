@@ -1,8 +1,9 @@
 // Roleplay system prompts: writing style, characterization and game systems.
 // Each is editable in Settings → Prompts. A saved null means "use the bundled
 // default", so improvements to a default reach anyone who never edited it.
-// An empty string turns that prompt off.
+// An empty string turns that prompt off. The other prompts are in prompt-templates.js.
 import {syncPromptOrder,stripPrompts} from './prompt-order.js';
+import {PROMPT_GROUPS,promptText,setPromptText} from './prompt-templates.js';
 
 export const DEFAULT_STYLE_PROMPT = `[Silly Teyvat: Writing style]
 This is a Genshin Impact story scene shown as a visual novel. Every line of your reply becomes its own dialogue box, so the layout below matters as much as the words.
@@ -98,11 +99,12 @@ function store(ctx) {
 }
 export function roleplayPromptText(ctx, id) {
     const slot = SLOTS.find(s => s.id === id), saved = store(ctx)[id];
-    return typeof saved === 'string' ? saved : slot?.text ?? '';
+    if (!slot) return promptText(ctx, id);
+    return typeof saved === 'string' ? saved : slot.text;
 }
 export function setRoleplayPrompt(ctx, id, value) {
     const slot = SLOTS.find(s => s.id === id);
-    if (!slot) return;
+    if (!slot) { setPromptText(ctx, id, value); return; }
     // Matching the default keeps following future versions of it.
     store(ctx)[id] = value == null || value === slot.text ? null : String(value);
 }
@@ -135,6 +137,28 @@ export function dropRoleplayPrompts(ctx, enabled, chat, also = []) {
     if (active(ctx, enabled)) return;
     const expand = text => ctx.substituteParams ? ctx.substituteParams(text) : text;
     stripPrompts(chat, [...SLOTS.map(slot => expand(roleplayPromptText(ctx, slot.id))), ...also]);
+}
+
+// The rest of the Prompts tab, drawn from the same list the game reads.
+export function renderPromptLibrary(root = document) {
+    const box = root.querySelector('#gi-prompt-library');
+    if (!box || box.childElementCount) return;
+    const el = (tag, cls, text) => { const node = document.createElement(tag); if (cls) node.className = cls; if (text !== undefined) node.textContent = text; return node; };
+    for (const group of PROMPT_GROUPS) {
+        const details = el('details', 'gi-prompt-group');
+        details.append(el('summary', '', group.label));
+        for (const prompt of group.prompts) {
+            const input = el('textarea', 'gi-prompt-text'), reset = el('button', 'menu_button', 'Reset');
+            input.rows = 6; input.dataset.giPrompt = prompt.id; input.setAttribute('aria-label', `${prompt.label} prompt`);
+            reset.type = 'button'; reset.dataset.giPromptReset = prompt.id;
+            details.append(el('h5', '', prompt.label));
+            if (prompt.note) details.append(el('p', 'gi-note', prompt.note));
+            details.append(input);
+            if (prompt.fills) details.append(el('p', 'gi-note gi-prompt-fills', `Filled in by the game: ${prompt.fills.map(word => `{${word}}`).join(' ')}`));
+            details.append(reset);
+        }
+        box.append(details);
+    }
 }
 
 export function paintRoleplayPrompts(ctx, root = document) {

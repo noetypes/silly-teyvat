@@ -97,7 +97,7 @@ Open **Inventory** from the Paimon menu to see every card in the bag, with its c
 
 Between battles, dishes that heal or revive can be eaten from the Inventory: select the dish and tap a party member under **Eat now**. Healing over time (Mushroom Pizza) arrives at once, and Teyvat Fried Egg revives a downed member with 8 HP. Shields, buffs, Energy and dice cards only work in battle.
 
-Winning a battle drops one card per defeated enemy (two from tough ones), weighted towards common food, and elemental enemies sometimes drop the matching Woven card. A rescue at the Adventurers' Guild tops the bag back up to the starter cards.
+Winning a battle drops cards from the location's pool (see **View card drops** on any waypoint). Weak enemies (30 base HP or less) drop 1 card with odds of 90/9/1 for 3/4/5 stars, standard enemies 1 card at 60/32/8, tough enemies (45 HP or more) 2 cards at 30/45/25, and bosses 2 cards at 5/35/60. Odds use base HP, so party size and difficulty don't change them. Three enemies in one encounter count as one tier harder, up to tough. If a pool has no card of some rarity, that rarity's share goes to the others. Elemental enemies sometimes drop the matching Woven card. A victory pays for every enemy beaten in the encounter once, whichever round it fell in; a boss leaves its guaranteed cards when it falls and the rest at the victory. Run away and the enemies you had already beaten drop nothing. A rescue at the Adventurers' Guild tops the bag back up to the starter cards.
 
 ## Gifts and Trust
 

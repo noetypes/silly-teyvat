@@ -42,6 +42,8 @@ export function kitForAlly(ctx,ally){
 }
 export const battleKey=enemies=>[...new Set(enemies.map(e=>e.key))].sort().join('|') || 'none';
 export const duelKey=avatars=>`duel:${[...avatars].sort().join('|')}`;
+// Enemies beaten in earlier rounds of this encounter, still owed their victory cards.
+export const unpaidEnemies=visit=>Object.values(visit?.enemies || {}).map(e=>e.spoils).filter(Boolean);
 const battleStore=(ctx,key)=>{const store=combatState(ctx);store.battles ??= {};return store.battles[key] ??= {round:1,units:{},summons:[]};};
 // duel: party members the player fights on their own. They take the enemy side with their own HP.
 export function battleSnapshot(ctx,{portrait=()=>'',duel=null}={}){
@@ -87,11 +89,20 @@ export function commitRound(ctx,before,result,id,{items=[],loot=[]}={}){
     const saved=battleStore(ctx,before.key),after=result.state,defeated=[],downed=[];
     for(const u of after.units){
         if(u.side==='party'||u.duel){party[u.id].hp=u.hp;if(u.hp<=0)(u.duel?defeated:downed).push(u.id);}
-        else{const entry=store.visits[u.visit].enemies[u.id];entry.hp=u.hp;entry.defeated=u.hp<=0;if(entry.defeated){defeated.push(u.id);clearEnemy(ctx,store.visits[u.visit].locationId,u.id);}}
+        else{
+            const entry=store.visits[u.visit].enemies[u.id];entry.hp=u.hp;entry.defeated=u.hp<=0;
+            if(entry.defeated){
+                defeated.push(u.id);clearEnemy(ctx,store.visits[u.visit].locationId,u.id);
+                // Its cards wait for the victory, so keep what the roll needs: the card may be gone by then.
+                if(!result.victory&&!result.fled)entry.spoils={name:u.name,card:u.card,element:u.element,maxHp:u.maxHp,bossPaid:true};
+            }
+        }
         saved.units[u.id]={shield:u.shield || 0,energy:u.energy || 0,aura:u.aura || null,statuses:u.statuses || [],cooldowns:u.cooldowns,enraged:u.enraged,usedRage:u.usedRage,intent:u.intent || null,armor:u.armor};
         // Fled enemies leave this visit but stay in the location's pool for later visits.
         if(result.fled&&u.side==='enemy'&&!u.duel&&u.hp>0)store.visits[u.visit].enemies[u.id].fled=true;
     }
+    // The fight is over: what was owed has been paid, or was left behind by running away.
+    if(result.victory||result.fled)for(const entry of Object.values(store.visits[before.key]?.enemies || {}))delete entry.spoils;
     saved.round=after.round;saved.summons=after.summons;saved.fields=after.fields || [];
     const bag=partyBag(ctx);
     for(const id of items){if(bag[id]>0)bag[id]--;if(bag[id]===0)delete bag[id];}

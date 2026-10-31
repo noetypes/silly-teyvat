@@ -6,8 +6,9 @@ import {tastesOf} from './character-tastes.js';
 import {TRUST_MAX,presentCharacters,trustOf,trustBand} from './trust.js';
 import {stripTrustTags} from './trust-tags.js';
 import {syncWorldPrompt} from './world-data.js';
+import {renderPrompt} from './prompt-templates.js';
 
-export const GIFT_CHANGE={liked:.5,disliked:-.5,neutral:0};
+export const GIFT_CHANGE={liked:.5,disliked:-.5,neutral:.1};
 export function giftVerdict(name,id){
     const tastes=tastesOf(name);
     return tastes?.likes.includes(id)?'liked':tastes?.dislikes.includes(id)?'disliked':'neutral';
@@ -16,17 +17,8 @@ export function giftNarration(ctx,card,item){
     return `${ctx.name1 || 'The player'} took ${item.name} from the bag and ${item.kind==='food'?'offered it to':'handed it to'} ${card.name}.`;
 }
 export function giftReplyPrompt(ctx,card,item,verdict,level){
-    const player=ctx.name1 || 'the player',note=tastesOf(card.name)?.note;
-    const reaction={
-        liked:`${card.name} really likes this. Let them be pleased in their own way, which may be loud, quiet or flustered.`,
-        disliked:`${card.name} does not like this. Let them react honestly in their own way, which may be polite, awkward or blunt.`,
-        neutral:`${card.name} has no strong feelings about this. They accept it as they would accept anything from ${player}.`,
-    }[verdict];
-    return [`Write one in-character reply as ${card.name} to the gift ${player} has just given them: ${item.name}. In the story this is the real thing, not a card.`,
-        reaction,note?`${card.name}'s tastes: ${note}`:'',
-        `${card.name} trusts ${player} ${level} of ${TRUST_MAX} (${trustBand(level).name}), which shapes how warmly they respond.`,
-        'Continue the existing conversation. Do not speak, act, decide or describe feelings for the player. Do not move the scene elsewhere. Do not write a trust tag: the game has already counted this gift.',
-        'Use natural language. Narrate actions in third person, using the character’s name or pronouns, never first-person narration. Every nonblank line must be either narration or a spoken line in quotation marks, never both on the same line. Separate lines with a newline. No headings, commentary or em dashes.'].filter(Boolean).join('\n');
+    const player=ctx.name1 || 'the player',note=tastesOf(card.name)?.note,names={character:card.name,player};
+    return renderPrompt(ctx,'gift',{...names,gift:item.name,reaction:renderPrompt(ctx,`gift_${verdict}`,names),tastes:note?`${card.name}'s tastes: ${note}`:'',level,max:TRUST_MAX,band:trustBand(level).name});
 }
 async function appendReply(getContext,card,text,id){
     const ctx=getContext();

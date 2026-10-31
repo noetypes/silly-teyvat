@@ -1,3 +1,33 @@
+# Silly Teyvat 1.54.0: Card drops by location, starting trust and every prompt
+
+- **Card drops by location.** Every waypoint has its own pool of cards, drawn from its region's food and
+  event cards, so Liyue and Natlan drop different things and two places in one region differ too. Open a
+  waypoint on the map and choose **View card drops** to see every card with its rarity, the odds, and
+  to add or remove cards. Reset brings the default back.
+- **Rarity follows the fight.** Weak enemies such as hilichurls and small slimes drop a 5-star card about
+  1% of the time, standard enemies 8%, tough ones 25%, and bosses 60%, plus the rare card they always
+  leave. Three enemies at once count as one step harder. The odds are shown in the same window.
+- **Every enemy pays.** A victory now drops cards for every enemy in the fight, not only those still
+  standing when the last round began, so a three-enemy fight no longer pays less than a single enemy.
+- **Starting trust.** Characters who already know the one you're playing no longer start at 0. Every
+  Relationships entry in the character cards has a rating from 0.5 to 5 depending on how warm it is, so
+  playing Klee starts Albedo at 4.5. Edit a character's list, or add anyone, in Character Customization
+  → **Starting trust**.
+- **A fresh start for the Travelers.** The game opens as Aether and Lumine arrive in Teyvat, so everyone
+  starts at 0 with them and with Paimon. Only the twins trust each other, at 5. The character cards no
+  longer mention shared history with the Traveler, and Aether's and Lumine's own cards begin at the
+  start of the story. Originals are in `silly-teyvat-data/backups/card-fresh-start-2026-10-31`.
+- **The twins.** Each twin has a Traveler card and an Abyss card. Play either twin and the other one takes
+  the Abyss role and is found in the Chasm. Play someone else, and Settings → World chooses who is who.
+  The Abyss cards are in Settings → Prompts. Everything the lorebook says about the Abyss twin stays
+  true for the model, marked as something other characters don't know.
+- **Every prompt is editable.** Settings → Prompts → Other prompts now holds Teyvat Choices, What do they
+  think of you, the Trust rules and level meanings, gift replies, arrival greetings, World scale, Combat
+  state, enemy reactions and both classifiers. Each has a Reset.
+- **Small changes.** A gift they feel nothing about adds 0.1 trust. The Trust menu's footer is shorter.
+  Trust tags are now also hidden in SillyTavern's own chat when the dialogue view is off, and they no
+  longer reach the Teyvat Choices model.
+
 # Silly Teyvat 1.53.0: Trust, gifts and a fresh start with Paimon
 
 - **The Trust system.** Turn it on in Settings → World. Every character has five hearts of Trust with

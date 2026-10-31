@@ -4,6 +4,7 @@ import {wildernessCandidates,wildernessEncounterRate,wildernessLocation,maxEnemi
 import {mediaSettings} from './media-store.js';
 import {newLocalId} from './local-id.js';
 import {playedAvatars} from './persona-link.js';
+import {ABYSS_HOME,abyssAvatar} from './twin-roles.js';
 
 const MAX_ENCOUNTERED=3;
 // Assigned homes and this chat's travelling placements are separate from the
@@ -11,6 +12,7 @@ const MAX_ENCOUNTERED=3;
 export function locationResidents(ctx,id){
     const homes=new Map();
     for(const location of (mediaSettings(ctx).backgroundRegions || []).flatMap(r=>r.locations))for(const avatar of location.residents || [])homes.set(avatar,location.id);
+    const abyss=abyssAvatar(ctx);if(abyss)homes.set(abyss,ABYSS_HOME);
     for(const [avatar,destination] of Object.entries(ctx.chatMetadata?.silly_teyvat_cast?.placements || {}))homes.set(avatar,destination);
     // A card the player has taken over as their persona never appears as a resident.
     const played=playedAvatars(ctx);

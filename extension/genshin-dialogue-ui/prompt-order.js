@@ -3,12 +3,13 @@
 // users can drag it, toggle it and edit it there; the extension writes the text instead of
 // injecting hidden extension prompts. Writing style, Characterization and Game systems are
 // two-way: an edit in AI Config becomes the Silly Teyvat setting and the other way round.
-// World scale, Combat state and Trust are rewritten every turn; only their place and toggle are the user's.
+// World scale, Combat state, Trust and Twin roles are rewritten every turn; only their place and toggle are the user's.
 // Text Completion has no prompt order, so it keeps the extension-prompt injections.
 export const ORDERED = [
     {key:'silly_teyvat_rp_character',name:'Silly Teyvat: Characterization',editable:'character',after:'main'},
     {key:'silly_teyvat_rp_systems',name:'Silly Teyvat: Game systems',editable:'systems',after:'silly_teyvat_rp_character'},
     {key:'silly_teyvat_trust',name:'Silly Teyvat: Trust (updates each turn)',after:'silly_teyvat_rp_systems'},
+    {key:'silly_teyvat_twins',name:'Silly Teyvat: Twin roles (updates each turn)',after:'silly_teyvat_trust'},
     {key:'silly_teyvat_rp_style',name:'Silly Teyvat: Writing style',editable:'style',after:'chatHistory'},
     {key:'silly_teyvat_world_scale',name:'Silly Teyvat: World scale (updates each turn)',after:'silly_teyvat_rp_style'},
     {key:'silly_teyvat_combat',name:'Silly Teyvat: Combat state (updates each turn)',after:'silly_teyvat_world_scale'},

@@ -269,6 +269,7 @@ document.addEventListener('click', async event => {
             case 'world-tests': {const {runWorldMapTests}=await import('./preview-world-tests.js');result(await runWorldMapTests());emit(eventTypes.SETTINGS_UPDATED);break;}
             case 'staging-tests': {const {runStagingTests}=await import('./preview-staging-tests.js');result(await runStagingTests());emit(eventTypes.SETTINGS_UPDATED);break;}
             case 'trust-tests': {const {runTrustTests}=await import('./preview-trust-tests.js');result(await runTrustTests());break;}
+            case 'card-pool-tests': {const {runCardPoolTests}=await import('./preview-card-pool-tests.js');result(await runCardPoolTests());break;}
             case 'battle-tests': {const {runBattleTests}=await import('./preview-battle-tests.js');result(await runBattleTests());break;}
             case 'enemy-attack-tests': {const {runEnemyAttackTests}=await import('./preview-enemy-attack-tests.js');result(await runEnemyAttackTests());break;}
             case 'enemy-sprite-tests': {const {runEnemySpriteTests}=await import('./preview-enemy-sprite-tests.js');result(await runEnemySpriteTests());break;}

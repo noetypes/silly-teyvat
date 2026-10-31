@@ -1,4 +1,5 @@
 import {activeGroup,inPartyChat} from './party.js';
+import {renderPrompt} from './prompt-templates.js';
 // Page scenes are stored on message.extra, so chat saves/exports keep exact variants.
 // Native sprite DOM is never rewritten; a replay layer isolates it from background updates.
 import {enemySpeaker,resolveEnemyScene,enemySceneAvatar} from './enemy-actions.js';
@@ -95,7 +96,7 @@ export function createNativeSpriteAdapter({ capture = captureScene } = {}) {
             if (!settings || settings.api === 99) return null;
             api ??= await import('/scripts/extensions/expressions/index.js');
             // Explicit text in the prompt also scopes the native LLM's "full context" mode.
-            const customPrompt = `${settings.llmPrompt || 'Choose the emotion. Output only one label from {{labels}}.'}\nClassify the final dialogue in the following excerpt. Preceding narration is context for that dialogue. Ignore other chat messages:\n<dialogue-page>\n${text}\n</dialogue-page>\nOutput one label from {{labels}}.`;
+            const customPrompt = renderPrompt(ctx, 'expression', { native_prompt: settings.llmPrompt || 'Choose the emotion. Output only one label from {{labels}}.', text });
             return api.getExpressionLabel(text, settings.api, { customPrompt });
         },
         async resolve(ctx, message, emotion, base, { keepVariant = false } = {}) {

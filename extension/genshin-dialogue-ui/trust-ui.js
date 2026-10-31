@@ -2,6 +2,8 @@
 // think of the player. A small toast marks each change as it happens.
 import {TRUST_MAX,trustBand,trustEnabled,trustRoster,messageTrust,askThoughts,savedThoughts} from './trust.js';
 import {circularCharacterAvatar} from './character-avatars.js';
+import {startingTrustList,setStartingTrust,resetStartingTrust} from './relationship-trust.js';
+import {isEnemy} from './character-properties.js';
 
 const CLOSE='<svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="m6 6 12 12M18 6 6 18"/></svg>';
 const el=(tag,cls,text)=>{const n=document.createElement(tag);if(cls)n.className=cls;if(text!==undefined)n.textContent=text;return n;};
@@ -17,7 +19,7 @@ export function mountTrust({host,getContext,announce=()=>{}}){
     const dialog=document.createElement('dialog');dialog.id='gi-trust';dialog.setAttribute('aria-labelledby','gi-trust-title');
     dialog.innerHTML=`<header class="gi-trust-top"><div class="gi-trust-title"><span class="gi-trust-badge" aria-hidden="true"></span><h2 id="gi-trust-title">Trust</h2></div><button type="button" class="gi-trust-close" aria-label="Close Trust">${CLOSE}</button></header>
         <div class="gi-trust-body"><section class="gi-trust-list" aria-label="Characters you have met"></section><section class="gi-trust-detail" aria-live="polite"></section></div>
-        <footer class="gi-trust-foot">Low trust doesn't mean they dislike you. It stays the same for this whole adventure, even if you part ways, and only a new chat starts it again.</footer>`;
+        <footer class="gi-trust-foot">Trust resets when you start a new chat.</footer>`;
     host.append(dialog);
     const toasts=el('div','gi-trust-toasts');toasts.setAttribute('aria-hidden','true');host.append(toasts);
     const abort=new AbortController(),on=(node,type,fn)=>node.addEventListener(type,fn,{signal:abort.signal}),$=s=>dialog.querySelector(s);
@@ -88,4 +90,37 @@ export function mountTrust({host,getContext,announce=()=>{}}){
         },
         dispose(){token++;abort.abort();if(dialog.open)dialog.close();dialog.remove();toasts.remove();},
     };
+}
+// Character Customization: who this character already trusts when the player arrives as them.
+export function mountStartingTrust({panel,getContext,getCharacter,status=()=>{}}){
+    panel.innerHTML=`<summary>Starting trust</summary><small>Where trust begins in a new chat when you play as one of these characters, from 0 to ${TRUST_MAX}. Anyone else starts at 0.</small><div class="gi-start-trust-list"></div>
+        <form class="gi-start-trust-add"><input type="text" maxlength="80" list="gi-start-trust-names" aria-label="Character or persona" placeholder="Add a character or persona"><input type="number" min="0" max="${TRUST_MAX}" step="0.1" value="1" aria-label="Starting trust"><button type="submit">Add</button><datalist id="gi-start-trust-names"></datalist></form>
+        <button type="button" data-start-trust-reset>Reset to the card</button>`;
+    const abort=new AbortController(),$=s=>panel.querySelector(s),on=(node,type,fn)=>node.addEventListener(type,fn,{signal:abort.signal});
+    const list=$('.gi-start-trust-list'),add=$('.gi-start-trust-add'),[addName,addValue]=add.querySelectorAll('input');
+    const value=(card,name,input)=>{try{setStartingTrust(getContext(),card,name,input.value);refresh();}catch(error){status(error.message);}};
+    function row(card,{name,value:trust}){
+        const line=el('div','gi-start-trust-row'),input=document.createElement('input'),remove=el('button','','×');
+        input.type='number';input.min=0;input.max=TRUST_MAX;input.step=.1;input.value=trust;input.setAttribute('aria-label',`Starting trust as ${name}`);
+        remove.type='button';remove.setAttribute('aria-label',`Remove ${name}`);
+        on(input,'change',()=>value(card,name,input));
+        on(remove,'click',()=>{setStartingTrust(getContext(),card,name,null);refresh();status(`${name} removed from ${card.name}'s starting trust.`);});
+        line.append(el('span','',name),input,remove);
+        return line;
+    }
+    function refresh(){
+        const ctx=getContext(),card=getCharacter();
+        panel.hidden=!card||Boolean(card.isPersona)||isEnemy(ctx,card);if(panel.hidden)return;
+        const rows=startingTrustList(ctx,card),taken=new Set(rows.map(r=>r.name));
+        list.replaceChildren(...rows.map(entry=>row(card,entry)));
+        if(!rows.length)list.append(el('small','','Nobody yet. Everyone starts at 0.'));
+        const names=[...(ctx.characters || []).filter(c=>c.name!==card.name&&!isEnemy(ctx,c)).map(c=>c.name),...Object.values(ctx.powerUserSettings?.personas || {})];
+        $('datalist').replaceChildren(...[...new Set(names)].filter(name=>name&&!taken.has(name)).map(name=>new Option(name,name)));
+    }
+    on(add,'submit',event=>{
+        event.preventDefault();event.stopPropagation();const card=getCharacter(),name=addName.value.trim();if(!card||!name)return;
+        try{setStartingTrust(getContext(),card,name,addValue.value);addName.value='';refresh();status(`${name} added to ${card.name}'s starting trust.`);}catch(error){status(error.message);}
+    });
+    on($('[data-start-trust-reset]'),'click',()=>{const card=getCharacter();if(!card)return;resetStartingTrust(getContext(),card);refresh();status(`${card.name}'s starting trust is back to the card.`);});
+    return {refresh,dispose(){abort.abort();}};
 }

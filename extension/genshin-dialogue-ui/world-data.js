@@ -7,6 +7,8 @@ import {backgroundRegions,travelState,saveTravel} from './backgrounds.js';
 import {pageSignature} from './page-sprites.js';
 import {residentsAt} from './location-cast.js';
 import {recordTravel} from './travel-history.js';
+import {promptText,renderPrompt} from './prompt-templates.js';
+import {abyssAvatar} from './twin-roles.js';
 
 // Coordinates are native HoYoLAB map units, not screen pixels or latitude.
 export const TEYVAT_MAP=Object.freeze({id:'teyvat',mapId:2,width:36864,height:18432,origin:[24206,8918],version:'eea752b746ae1f2e0c1988a574f2b7b0',metresPerUnit:1});
@@ -39,23 +41,17 @@ export function worldScalePrompt(ctx){
     const points=mediaSettings(ctx).worldPromptAllRegions?all:all.filter(item=>item.region.id===scope);if(!all.length)return '';
     const current=activeWorldLocation(ctx),scale=worldScale(ctx),speed=walkingSpeed(ctx),state=travelState(ctx);
     const region=backgroundRegions(ctx).find(r=>r.id===state.regionId);
-    const lines=['World scale',`Map: Teyvat. Scale: ${scale} metres per native map unit. Coordinates use east-positive x and south-positive y.`,
-        `Current location: ${clean(current?.location.label || state.location?.label || 'Unknown')}. Current region: ${clean(region?.name || 'Unknown')}.`,
-        `Distances below are straight-line horizontal distances from the current location, independent of map zoom. Walking reference: ${speed} km/h on unobstructed ground. Terrain, roads, water, climbing and pauses can increase travel time.`,
-        `Waypoint scope: ${mediaSettings(ctx).worldPromptAllRegions?'entire world':'current region only'}.`,
-        'These are location facts for roleplay continuity. A listed destination is not an instruction to travel. Region changes require the player to select a region or use Teleport on the map.'];
-    if(mediaSettings(ctx).locationEncounters!==false)lines.push('Linked characters at other destinations are potential encounters, not confirmed scene participants. Only the current party is confirmed present. The extension samples residents on arrival; do not introduce absent residents just because their location is listed.');
-    if(!current)lines.push('Distance unknown: the current background has no linked map waypoint. Distances cannot be calculated until a current waypoint is chosen or linked.');
     const party=activeGroup(ctx)?.members || [ctx.characters?.[ctx.characterId]?.avatar].filter(Boolean);
-    if(party.length)lines.push(`Current party: ${party.filter(a=>!isEnemy(ctx,a)).map(a=>clean(ctx.characters?.find(c=>c.avatar===a)?.name || a)).join(', ')}.`);
-    for(const item of points){
+    const rows=points.flatMap(item=>{
         const distance=mapDistance(current?.point,item.point,scale);
         const minutes=distance==null?null:distance/(speed*1000/60);
-        const residents=residentsAt(ctx,item.location.id);
-        if(item.location.wilderness)lines.push(`Wilderness: ${clean(item.location.label)}. Hostile encounters are possible, but only enemies confirmed in Combat state are present.`);
-        lines.push(`- ${clean(item.location.label)} | Region: ${clean(item.region.name)} | ${distance==null?'Distance unknown':`${Math.round(distance)} m; direction ${directionFrom(current.point,item.point)}; baseline walking ${minutes.toFixed(1)} min`} | Coordinates: (${item.point.x.toFixed(1)}, ${item.point.y.toFixed(1)})${item.location.description?` | Description: ${clean(item.location.description)}`:''}${residents.length?` | Linked characters here: ${residents.map(c=>clean(c.name)).join(', ')}`:''}`);
-    }
-    return lines.join('\n');
+        const residents=residentsAt(ctx,item.location.id).filter(c=>c.avatar!==abyssAvatar(ctx));
+        return [item.location.wilderness?renderPrompt(ctx,'world_wilderness',{location:clean(item.location.label)}):'',
+            `- ${clean(item.location.label)} | Region: ${clean(item.region.name)} | ${distance==null?'Distance unknown':`${Math.round(distance)} m; direction ${directionFrom(current.point,item.point)}; baseline walking ${minutes.toFixed(1)} min`} | Coordinates: (${item.point.x.toFixed(1)}, ${item.point.y.toFixed(1)})${item.location.description?` | Description: ${clean(item.location.description)}`:''}${residents.length?` | Linked characters here: ${residents.map(c=>clean(c.name)).join(', ')}`:''}`].filter(Boolean);
+    });
+    return renderPrompt(ctx,'world',{scale,location:clean(current?.location.label || state.location?.label || 'Unknown'),region:clean(region?.name || 'Unknown'),speed,scope:mediaSettings(ctx).worldPromptAllRegions?'entire world':'current region only',
+        guests_note:mediaSettings(ctx).locationEncounters!==false?promptText(ctx,'world_guests'):'',unknown_note:current?'':promptText(ctx,'world_unknown'),
+        party:party.length?`Current party: ${party.filter(a=>!isEnemy(ctx,a)).map(a=>clean(ctx.characters?.find(c=>c.avatar===a)?.name || a)).join(', ')}.`:'',waypoints:rows.join('\n')});
 }
 export function syncWorldPrompt(ctx,enabled=true){
     const value=enabled?worldScalePrompt(ctx):'';

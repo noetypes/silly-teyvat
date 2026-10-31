@@ -1,5 +1,6 @@
 import {activeGroup,inPartyChat} from './party.js';
 import {mountCharacterProperties,characterProperties,hasGenshinTag} from './character-properties.js';
+import {mountStartingTrust} from './trust-ui.js';
 import {createSpriteTrimmer} from './sprite-trim.js';
 import {linkedCard,linkedCardAvatar,linkedPersonaAvatars,playedAvatars} from './persona-link.js';
 import {newLocalId} from './local-id.js';
@@ -156,7 +157,9 @@ export function mountWardrobe({host, getContext, onChange = async () => {}, onMe
         if(tab!=='backgrounds')return;const img=$('.gi-wardrobe-preview img');clearArt(img);img.hidden=!location?.path;if(location?.path)img.src=localMediaPath(location.path);else img.removeAttribute('src');$('.gi-wardrobe-preview h3').textContent=region?.name || 'World travel';$('.gi-outfit-caption').textContent=location?.label || 'Choose a region and add locations';
     }});
     const propertiesPanel=document.createElement('details');propertiesPanel.className='gi-card-properties';$('.gi-character-staging').before(propertiesPanel);
-    const propertiesUI=mountCharacterProperties({panel:propertiesPanel,getContext,getCharacter:()=>character,status,onChange:()=>onChange(character,{classification:true})});
+    const propertiesUI=mountCharacterProperties({panel:propertiesPanel,getContext,getCharacter:()=>character,status,onChange:()=>{startingTrustUI.refresh();onChange(character,{classification:true});}});
+    const trustPanel=document.createElement('details');trustPanel.className='gi-card-properties gi-start-trust';propertiesPanel.after(trustPanel);
+    const startingTrustUI=mountStartingTrust({panel:trustPanel,getContext,getCharacter:()=>character,status});
     const personaPanel=document.createElement('section');
     $('.gi-sprite-detail').insertAdjacentHTML('afterbegin','<button type="button" data-w="use-persona-sprite" hidden>Use this expression</button>');
     $('.gi-character-staging').insertAdjacentHTML('afterbegin','<label class="gi-check" id="gi-persona-display-control" hidden><input id="gi-persona-visible" type="checkbox">Show your persona in the scene</label>');
@@ -319,7 +322,7 @@ export function mountWardrobe({host, getContext, onChange = async () => {}, onMe
         status(tab==='backgrounds'?'Choose your travel region and manage its location backgrounds.':sprites.length ? `${sprites.length} sprites in ${path}. Select a sprite to preview it. Use set equips the outfit.` : `No sprites in ${path}. Add images below to create this set.`);
     }
     async function selectCharacter(c) {
-        character = c;burstAudioUI.refresh();dialog.dataset.element=characterProperties(getContext(),c).element;propertiesUI.refresh();if(tab==='moveset')movesetUI.refresh();const cp=characterPreferences(getContext(),c.avatar);$('#gi-character-expression-mode').value=cp.expressionMode || 'inherit';$('#gi-character-scale').value=cp.scale ?? 100;$('#gi-manual-position').checked=cp.positionX!=null;$('#gi-character-x').value=cp.positionX ?? 50;$('#gi-character-x').disabled=cp.positionX==null;$('#gi-character-y').value=cp.offsetY ?? 0; selectedCG=undefined;$('#gi-cg-label').value='';$('#gi-cg-description').value='';$('#gi-cg-classifications').value='';$('.gi-wardrobe-preview h3').textContent = c.name;
+        character = c;burstAudioUI.refresh();dialog.dataset.element=characterProperties(getContext(),c).element;propertiesUI.refresh();startingTrustUI.refresh();if(tab==='moveset')movesetUI.refresh();const cp=characterPreferences(getContext(),c.avatar);$('#gi-character-expression-mode').value=cp.expressionMode || 'inherit';$('#gi-character-scale').value=cp.scale ?? 100;$('#gi-manual-position').checked=cp.positionX!=null;$('#gi-character-x').value=cp.positionX ?? 50;$('#gi-character-x').disabled=cp.positionX==null;$('#gi-character-y').value=cp.offsetY ?? 0; selectedCG=undefined;$('#gi-cg-label').value='';$('#gi-cg-description').value='';$('#gi-cg-classifications').value='';$('.gi-wardrobe-preview h3').textContent = c.name;
         personaProfileUI.refresh();$('#gi-persona-display-control').hidden=!c.isPersona;
         $('.gi-takeover').hidden=Boolean(c.isPersona);$('[data-w="take-over"]').textContent=`Play as ${c.name}`;
         $('#gi-persona-visible').checked=Boolean(c.isPersona&&personaSpriteSettings(getContext(),c.personaAvatar).enabled);
@@ -609,6 +612,6 @@ export function mountWardrobe({host, getContext, onChange = async () => {}, onMe
         },
         async refreshPersona(){if(!dialog.open)return;if(busy){personaRefreshPending=true;return;}await renderRoster(character?.isPersona?personaCard(getContext())?.avatar:undefined);},
         close() { if (dialog.open) dialog.close(); },
-        dispose() { revision++; abort.abort(); trimmer.reset(); propertiesUI.dispose();movesetUI.dispose();burstAudioUI.dispose();personaProfileUI.dispose();backgroundUI.dispose();dialog.close(); dialog.remove(); },
+        dispose() { revision++; abort.abort(); trimmer.reset(); propertiesUI.dispose();startingTrustUI.dispose();movesetUI.dispose();burstAudioUI.dispose();personaProfileUI.dispose();backgroundUI.dispose();dialog.close(); dialog.remove(); },
     };
 }

@@ -9,6 +9,7 @@ import {mountLocationRosterPicker} from './location-roster-picker.js';
 import {musicSummary} from './location-music-state.js';
 import {mediaSettings} from './media-store.js';
 import {isJourneyGroup,createJourneyLibraryAdapter} from './journey-library.js';
+import {mountCardPoolMenu,locationCardPool,cardPoolSummary} from './card-pools.js';
 
 const svg=path=>`<svg viewBox="0 0 24 24" aria-hidden="true">${path}</svg>`;
 const ICON={
@@ -55,6 +56,7 @@ export function mountWorldMap({host,getContext,adapter=createMediaAdapter(getCon
     let map,minimap,markers,player,draftMarker,selectedId,draft,editing=false,placing=false,busy=false,visible=false,enabled=false,disposed=false,opener,revision=0,chatKey='',signature='',miniKey='',viewLocation=null,regionFilter='',lastRegion=null,pendingBanner='',veil,banner,bannerTimer,veilTimer;
     const rosterPicker=mountLocationRosterPicker({host,getContext,onChange:()=>{onChange();refresh({sidebarRefresh:true});}});
     const wildMenu=mountWildernessMenu({host:dialog,getContext,getLocation:()=>wildLocation,onChange:()=>{onChange();refresh({sidebarRefresh:true});},status:text=>status(text)});
+    const cardPoolMenu=mountCardPoolMenu({host:dialog,getContext,getLocation:()=>wildLocation,onChange:()=>{onChange();refresh({sidebarRefresh:true});},status:text=>status(text)});
     const identity=ctx=>`${ctx.groupId || ctx.characterId}:${ctx.getCurrentChatId?.() || ctx.chatId || ''}`;
     const status=text=>{const p=$('footer > p');p.textContent=text;p.classList.remove('gi-toast');void p.offsetWidth;p.classList.toggle('gi-toast',Boolean(text));};
     const element=(tag,text)=>{const e=document.createElement(tag);e.textContent=text;return e;};
@@ -199,6 +201,7 @@ export function mountWorldMap({host,getContext,adapter=createMediaAdapter(getCon
         body.append(section);
         if(item.location.wilderness)body.append(enemySection(item));
         const wild=document.createElement('section');wild.className='gi-map-music';wild.append(element('h4','Wilderness encounters'),element('p',wildernessSummary(getContext(),item.location)),button('Edit wilderness encounters','wilderness'));body.append(wild);
+        const cards=document.createElement('section');cards.className='gi-map-music';cards.append(element('h4','Card drops'),element('p',cardPoolSummary(locationCardPool(getContext(),item.location.id))),button('View card drops','card-drops'));body.append(cards);
         const music=document.createElement('section');music.className='gi-map-music';music.append(element('h4','Music'),element('p',musicSummary(item.location)),button('Choose music','music'));body.append(music);
         const actions=document.createElement('div');actions.className='gi-map-card-actions';
         const edit=button('','edit');edit.className='gi-map-round';edit.innerHTML=ICON.edit;edit.setAttribute('aria-label','Edit waypoint');edit.title='Edit waypoint';
@@ -312,7 +315,7 @@ export function mountWorldMap({host,getContext,adapter=createMediaAdapter(getCon
         },
         syncPrompt(on=enabled){return syncWorldPrompt(getContext(),on);},
         close,
-        dispose(){if(disposed)return;disposed=true;enabled=false;api.syncPrompt(false);abort.abort();close();clearTimeout(veilTimer);clearTimeout(bannerTimer);veil?.remove();banner?.remove();rosterPicker.dispose();wildMenu.dispose();removeMap(map);removeMap(minimap);mini.remove();dialog.remove();},
+        dispose(){if(disposed)return;disposed=true;enabled=false;api.syncPrompt(false);abort.abort();close();clearTimeout(veilTimer);clearTimeout(bannerTimer);veil?.remove();banner?.remove();rosterPicker.dispose();wildMenu.dispose();cardPoolMenu.dispose();removeMap(map);removeMap(minimap);mini.remove();dialog.remove();},
     };
     async function action(name,target){
         if(busy&&name!=='close')return;
@@ -357,6 +360,7 @@ export function mountWorldMap({host,getContext,adapter=createMediaAdapter(getCon
             if(name==='bypass'&&item){const on=toggleEncounterBypass(ctx,item.location.id);saveTravel(ctx);showDetails(item);status(on?`Encounters bypassed at ${item.location.label}. Applies on your next arrival.`:`Encounters restored at ${item.location.label}. Applies on your next arrival.`);return;}
             if(name==='music'&&item){openMusic(item.location.id);return;}
             if(name==='wilderness'&&item){wildLocation=item.location;wildMenu.open();return;}
+            if(name==='card-drops'&&item){wildLocation=item.location;cardPoolMenu.open();return;}
             if(name==='music-library'){openMusicLibrary();return;}
             if(name==='retry-cast'){retryCast();status('Checking the current location’s guests again.');return;}
             if(name==='unpin'&&item){unpinWaypoint(ctx,item.location.id);placing=false;editing=false;draft=null;selectedId=null;paintDraft();onChange();refresh();listWaypoints();status('Map pin removed. Its background picture and saved scenes remain.');return;}
