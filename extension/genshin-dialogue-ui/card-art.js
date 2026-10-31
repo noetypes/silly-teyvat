@@ -1,8 +1,7 @@
 // SillyTavern crops avatars to 2:3 thumbnails, which slices Genshin card art (a
-// front card over a tilted back card). For bundled Genshin cards these views show
-// the full card image so its own frame is the border and the back card adds depth.
+// front card over a tilted back card). For images shaped like a card these views show
+// the full image so its own frame is the border and the back card adds depth, whoever made it.
 // Other avatars get a frame the size of the card art's front card.
-import {isBundledCharacter} from './character-properties.js';
 import {linkedCard} from './persona-link.js';
 
 const CARD_RATIO = 208 / 248;
@@ -25,6 +24,7 @@ function thumbFile(src, type = 'avatar') {
     catch { return null; }
 }
 const verdictOf = ratio => Math.abs(ratio - CARD_RATIO) < .03 ? true : Math.abs(ratio - TCG_RATIO) < .03 ? 'tcg' : false;
+export const cardShape = (width, height) => height > 0 ? verdictOf(width / height) : false;
 function mark(img, kind) {
     const box = img.closest('.avatar');
     img.classList.toggle('gi-card-img', kind === 'art' || kind === 'tcg');img.classList.toggle('gi-card-img-tcg', kind === 'tcg');img.classList.toggle('gi-card-img-frame', kind === 'frame');
@@ -44,7 +44,7 @@ function apply(img, ctx) {
     // A new thumbnail (first render, or SillyTavern reusing this element for another card).
     img.dataset.giThumb = src; img.dataset.giFile = file;
     const card = ctx.characters?.find(c => c.avatar === file);
-    if (!card || !isBundledCharacter(card.name) || verdicts.get(file) === false) { mark(img, 'frame'); return; }
+    if (!card || verdicts.get(file) === false) { mark(img, 'frame'); return; }
     mark(img, verdicts.get(file) === 'tcg' ? 'tcg' : 'art');
     if (!verdicts.has(file)) {
         const check = () => {
@@ -69,7 +69,7 @@ function applyMessage(img, ctx) {
         if (verdict) { box.style.setProperty('--gi-mes-card', `url("${full(file)}")`); mark(img, null); box.classList.add('gi-card-art'); }
         else mark(img, persona || file ? 'frame' : null);
     };
-    if (!card || !isBundledCharacter(card.name)) { paint(false); return; }
+    if (!card) { paint(false); return; }
     if (verdicts.has(file)) { paint(verdicts.get(file)); return; }
     const probe = new Image();
     probe.onload = () => { verdicts.set(file, verdictOf(probe.naturalWidth / probe.naturalHeight)); paint(verdicts.get(file)); };
@@ -84,8 +84,41 @@ export function cardPortrait(ctx, card) {
     box.append(img); apply(img, ctx); return box;
 }
 
-export function mountCardArt({getContext, root = document}) {
-    let frame = 0;
+// One read of the setting answers true, so SillyTavern's next upload keeps the whole image.
+function skipCropOnce(settings) {
+    const saved = settings.never_resize_avatars;
+    Object.defineProperty(settings, 'never_resize_avatars', {configurable: true, enumerable: true, get() {
+        Object.defineProperty(settings, 'never_resize_avatars', {configurable: true, enumerable: true, writable: true, value: saved});
+        return true;
+    }});
+}
+async function isCardImage(file) {
+    try { const image = await createImageBitmap(file), shape = cardShape(image.width, image.height); image.close(); return Boolean(shape); }
+    catch { return false; }
+}
+
+export function mountCardArt({getContext, root = document, loadPowerUser = () => import('/scripts/power-user.js')}) {
+    let frame = 0, passing = false, replaced = '';
+    // SillyTavern's crop dialog cuts every upload to 2:3, which would stop a card image being a card.
+    async function keepCardShape(event) {
+        const input = event.target;
+        if (passing || input.id !== 'add_avatar_button' || !input.files?.[0]) return;
+        event.stopImmediatePropagation();
+        replaced = root.querySelector('#avatar_url_pole')?.value || '';
+        if (await isCardImage(input.files[0])) { try { skipCropOnce((await loadPowerUser()).power_user); } catch (error) { console.warn('[Silly Teyvat] Card upload', error); } }
+        passing = true; input.dispatchEvent(new Event('change', {bubbles: true})); passing = false;
+    }
+    // A replaced image can change the card's shape, so look at it afresh.
+    async function cardEdited(event) {
+        const file = event?.detail?.character?.avatar;
+        if (!file || file !== replaced) return;
+        replaced = ''; verdicts.delete(file);
+        await fetch(full(file), {cache: 'reload'}).catch(() => {});
+        for (const img of root.querySelectorAll('img[data-gi-file]')) if (img.dataset.giFile === file) img.src = img.dataset.giThumb;
+        const preview = root.querySelector('#avatar_load_preview');
+        if (preview?.getAttribute('src')?.startsWith('data:')) preview.src = `/thumbnail?type=avatar&file=${encodeURIComponent(file)}`;
+        scan();
+    }
     function scan() { frame = 0; const ctx = getContext(); for (const img of root.querySelectorAll(TARGETS)) apply(img, ctx); }
     const queue = () => { if (!frame) frame = requestAnimationFrame(scan); };
     const observer = new MutationObserver(queue);
@@ -95,11 +128,16 @@ export function mountCardArt({getContext, root = document}) {
     const chat = root.querySelector('#chat');
     const recent = new MutationObserver(list => { if (document.body.classList.contains('gi-history') || list.some(m => m.target.closest?.('.recentChatList') || [...m.addedNodes].some(n => n.nodeType === 1 && (n.matches('.recentChat, .recentChatList') || n.querySelector('.recentChat'))))) queue(); });
     if (chat) recent.observe(chat, {childList: true, subtree: true});
+    const {eventSource, eventTypes} = getContext();
+    root.addEventListener('change', keepCardShape, true);
+    eventSource?.on?.(eventTypes?.CHARACTER_EDITED, cardEdited);
     document.body.classList.add('gi-card-art-on'); scan();
     return {
         refresh: scan,
         dispose() {
             observer.disconnect(); recent.disconnect(); cancelAnimationFrame(frame);
+            root.removeEventListener('change', keepCardShape, true);
+            eventSource?.removeListener?.(eventTypes?.CHARACTER_EDITED, cardEdited);
             for (const img of root.querySelectorAll(TARGETS)) { if (img.dataset.giThumb && img.getAttribute('src') === full(img.dataset.giFile)) img.src = img.dataset.giThumb; clear(img); }
             document.body.classList.remove('gi-card-art-on');
         },

@@ -1,3 +1,10 @@
+# Silly Teyvat 1.52.1: Your own card images
+
+- **Any card image counts.** A character image shaped like a playable or NPC card now shows as a whole
+  card wherever character cards appear, not only on the bundled characters.
+- **Card uploads keep their shape.** Uploading a card-shaped image for a character skips SillyTavern's
+  crop dialog, so the whole card is kept. Other images still go through it.
+
 # Silly Teyvat 1.52.0: Guaranteed encounters and full cards everywhere
 
 - **Someone is always there.** A location with a character or enemy always brings at least one of

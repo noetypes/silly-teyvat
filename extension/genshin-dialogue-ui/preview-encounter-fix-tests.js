@@ -8,7 +8,7 @@ import {mountWildernessEditor,wildernessEncounterRate} from './wilderness.js';
 import {enemySpeaker} from './enemy-actions.js';
 import {rollLocationEncounter,encountersBypassed,toggleEncounterBypass} from './location-encounters.js';
 import {recordTravel} from './travel-history.js';
-import {cardPortrait} from './card-art.js';
+import {cardPortrait,cardShape} from './card-art.js';
 function encounterRuleChecks(check){
  const names=['Amber','Barbara','Chongyun','Diona','Eula'],enemies=['Slime','Shooter','Whopper','Mage'];
  const card=(name,extra={})=>({name,avatar:`${name}.png`,...extra}),foe=name=>card(name,{data:{extensions:{silly_teyvat:{role:'enemy'}}}});
@@ -50,8 +50,9 @@ function encounterRuleChecks(check){
  check('finding them again clears the memory',ctx.chatMetadata.silly_teyvat_cast.encounter.present.includes('Barbara.png')&&!('Barbara.png' in left()));
  const box=cardPortrait({characters:[card('Klee')]},card('Klee'));
  check('menu portraits are SillyTavern avatar boxes with a lazy thumbnail',box.matches('span.avatar.gi-card-art')&&box.firstChild.loading==='lazy'&&box.firstChild.getAttribute('src')==='/characters/Klee.png'&&box.firstChild.dataset.giThumb.includes('/thumbnail?type=avatar&file=Klee.png'));
- const stranger=cardPortrait({characters:[card('Somebody')]},card('Somebody'));
- check('cards without card art get the same frame as the character list',stranger.classList.contains('gi-card-frame')&&stranger.firstChild.classList.contains('gi-card-img-frame'));
+ const stranger=cardPortrait({characters:[]},card('Somebody'));
+ check('avatars that are not installed cards get the same frame as the character list',stranger.classList.contains('gi-card-frame')&&stranger.firstChild.classList.contains('gi-card-img-frame'));
+ check('uploaded images are recognised by their shape alone',cardShape(208,248)===true&&cardShape(420,720)==='tcg'&&cardShape(1000,1800)==='tcg'&&cardShape(512,768)===false&&cardShape(0,0)===false);
 }
 export async function runEncounterFixTests(){
  const out=[],check=(name,ok)=>{out.push(`${ok?'PASS':'FAIL'} ${name}`);if(!ok)throw Error(out.join('\n'));},waitFor=async test=>{const deadline=performance.now()+5000;while(!test()){if(performance.now()>deadline)throw Error(out.join('\n')+'\nFAIL async scene timed out');await new Promise(r=>requestAnimationFrame(r));}};
