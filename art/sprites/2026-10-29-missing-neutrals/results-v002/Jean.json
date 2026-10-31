@@ -1,0 +1,27 @@
+{
+  "version": "v002",
+  "reference_original": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Jean/Official Art/neutral.png",
+  "reference": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/references/Jean/official.png",
+  "reference_sha256": "33cd18f8fa330e6337545e9c36fdc5b2b79ab051debae4426ba8f76fcf9842ec",
+  "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/prompts/Jean/neutral-v002.txt",
+  "tool": "image_gen.imagegen",
+  "tool_arguments": {
+    "prompt": "Use case: stylized-concept. Asset: full-body neutral visual-novel character sprite of Jean from Genshin Impact. Use only the supplied installed official transparent portrait as the image reference. Preserve the character's official face, skin tone, hair, costume, colors, accessories, and appropriate body type. Both hands empty, no sword, blade, weapon, or handheld prop. Preserve her blonde hair, uniform and tall-female proportions. For this non-enemy character, show no handheld weapons, companions, or props unless explicitly part of the worn costume. Keep a relaxed neutral expression and a complete silhouette including headwear, hair, hands and shoes, with roughly 2\u20134% top and bottom padding without stretching the body. Polished Genshin-inspired anime game art on a genuinely transparent background. No scenery, UI, labels, watermark, unrelated subjects, detached effects or ground shadow.",
+    "referenced_image_paths": [
+      "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/references/Jean/official.png"
+    ],
+    "transparent_background": true
+  },
+  "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/raw/Jean/neutral-v002.png",
+  "tool_output": "/Users/alexachan/.codex/generated_images/01a18ab4-9b84-7b52-968f-6df209e09510/exec-e52fd401-b6b2-4391-a622-89f29e0fd9fa.png",
+  "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Jean/neutral-v002.png",
+  "candidate_sha256": "d6fd779c9a11b673d53ee9fc41d0a4c3e9524691b3dcbe1158381ef758783b7d",
+  "size": [
+    1011,
+    1555
+  ],
+  "png_color_type": 6,
+  "approval": {
+    "status": "pending"
+  }
+}

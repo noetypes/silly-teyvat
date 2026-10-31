@@ -1,0 +1,27 @@
+{
+  "version": "v003",
+  "reference_original": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Yun Jin/Official Art/neutral.png",
+  "reference": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/references/Yun Jin/official.png",
+  "reference_sha256": "b9b713809005cba8f7d43d8e591953cae1ce86c02abaf5fd0c632c174f842ce2",
+  "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/prompts/Yun Jin/neutral-v003.txt",
+  "tool": "image_gen.imagegen",
+  "tool_arguments": {
+    "prompt": "Use case: stylized-concept. Asset: full-body neutral visual-novel sprite of Yun Jin from Genshin Impact. Use only the supplied installed official transparent portrait as the image input and primary identity reference. Faithfully preserve the official face, skin tone, hair, costume, colors, accessories, and body type. Give her a graceful, characterful opera performer idle pose rather than a rigid stance: torso slightly angled toward the viewer, one foot lightly stepped to the side, left forearm raised diagonally near the chest beneath its draping sleeve, right arm extended modestly to the side with its sleeve flowing. Keep both hands simple, fingers naturally together and wrists visible; no elaborate finger fan. Preserve her ornate headdress, face, costume, and petite medium-female proportions. Both hands empty. Keep the complete silhouette including headwear, hair, hands and shoes, with roughly 2\u20134% top and bottom padding without stretching the body. Polished Genshin-inspired anime game art on a genuinely transparent background. No scenery, UI, labels, watermark, unrelated subjects, detached effects, or ground shadow.",
+    "referenced_image_paths": [
+      "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/references/Yun Jin/official.png"
+    ],
+    "transparent_background": true
+  },
+  "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/raw/Yun Jin/neutral-v003.png",
+  "tool_output": "/Users/alexachan/.codex/generated_images/01a18ab4-9b84-7b52-968f-6df209e09510/exec-b0fc93ab-bd96-47c3-acf1-9157e63ed028.png",
+  "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Yun Jin/neutral-v003.png",
+  "candidate_sha256": "94e1993dfed768080a82831529a05cc83935d6560b6ba52611be4440c83ad3de",
+  "size": [
+    1006,
+    1564
+  ],
+  "png_color_type": 6,
+  "approval": {
+    "status": "pending"
+  }
+}

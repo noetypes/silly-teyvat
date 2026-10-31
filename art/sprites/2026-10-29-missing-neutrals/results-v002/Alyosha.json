@@ -1,0 +1,27 @@
+{
+  "version": "v002",
+  "reference_original": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Alyosha/Official Art/neutral.png",
+  "reference": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/references/Alyosha/official.png",
+  "reference_sha256": "5ab6d04c8ebf195896a575bad5a03038ab6207b2fff9da5d79ba64950324027e",
+  "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/prompts/Alyosha/neutral-v002.txt",
+  "tool": "image_gen.imagegen",
+  "tool_arguments": {
+    "prompt": "Use case: stylized-concept. Asset: full-body neutral visual-novel character sprite of Alyosha from Genshin Impact. Use only the supplied installed official transparent portrait as the image reference. Preserve the character's official face, skin tone, hair, costume, colors, accessories, and appropriate body type. Depict Alyosha alone. Exclude the dog and every other companion. Remove the bow, arrows, and all handheld weapons and props; both hands empty. Preserve his mint hair, fur cape, blue clothing, red-and-white costume accents, boots, and compact male proportions. For this non-enemy character, show no handheld weapons, companions, or props unless explicitly part of the worn costume. Keep a relaxed neutral expression and a complete silhouette including headwear, hair, hands and shoes, with roughly 2\u20134% top and bottom padding without stretching the body. Polished Genshin-inspired anime game art on a genuinely transparent background. No scenery, UI, labels, watermark, unrelated subjects, detached effects or ground shadow.",
+    "referenced_image_paths": [
+      "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/references/Alyosha/official.png"
+    ],
+    "transparent_background": true
+  },
+  "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/raw/Alyosha/neutral-v002.png",
+  "tool_output": "/Users/alexachan/.codex/generated_images/01a18ab4-9b84-7b52-968f-6df209e09510/exec-dfebee3b-2ef7-4351-ba7a-7d39ba4a7e7b.png",
+  "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Alyosha/neutral-v002.png",
+  "candidate_sha256": "3a1df6da84b531700d388e239494c45fb63219239a6710c74c0c69ca3cc818d7",
+  "size": [
+    1024,
+    1536
+  ],
+  "png_color_type": 6,
+  "approval": {
+    "status": "pending"
+  }
+}

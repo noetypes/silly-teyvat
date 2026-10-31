@@ -1,0 +1,27 @@
+{
+  "version": "v002",
+  "reference_original": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Kirara/Official Art/neutral.png",
+  "reference": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/references/Kirara/official.png",
+  "reference_sha256": "6d7c59dc5c6cdd4d0af6ea8c1a223c7d3d99c9fd82c90caf56088792e1720213",
+  "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/prompts/Kirara/neutral-v002.txt",
+  "tool": "image_gen.imagegen",
+  "tool_arguments": {
+    "prompt": "Use case: stylized-concept. Asset: full-body neutral visual-novel character sprite of Kirara from Genshin Impact. Use only the supplied installed official transparent portrait as the image reference. Preserve the character's official face, skin tone, hair, costume, colors, accessories, and appropriate body type. Face Kirara more directly toward the camera in a simple front-facing or gentle three-quarter stance. Keep shoulders and face readable and feet uncrossed. Preserve ears, tails, outfit, and petite medium-female proportions. Both hands empty. For this non-enemy character, show no handheld weapons, companions, or props unless explicitly part of the worn costume. Keep a relaxed neutral expression and a complete silhouette including headwear, hair, hands and shoes, with roughly 2\u20134% top and bottom padding without stretching the body. Polished Genshin-inspired anime game art on a genuinely transparent background. No scenery, UI, labels, watermark, unrelated subjects, detached effects or ground shadow.",
+    "referenced_image_paths": [
+      "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/references/Kirara/official.png"
+    ],
+    "transparent_background": true
+  },
+  "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/raw/Kirara/neutral-v002.png",
+  "tool_output": "/Users/alexachan/.codex/generated_images/01a18ab4-9b84-7b52-968f-6df209e09510/exec-423c30b8-612c-44e9-875d-4c4a8261422a.png",
+  "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Kirara/neutral-v002.png",
+  "candidate_sha256": "793cda5e95a21ddd1efaeadc46990a3bb964e2a0434596636fa3bf9cffd221ef",
+  "size": [
+    940,
+    1673
+  ],
+  "png_color_type": 6,
+  "approval": {
+    "status": "pending"
+  }
+}

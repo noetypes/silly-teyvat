@@ -1,0 +1,939 @@
+{
+  "workflow": "SPRITE-GENERATION.md",
+  "ordering": "row-major, four columns, no labels",
+  "emotions": [
+    "neutral",
+    "annoyance",
+    "smug",
+    "confusion",
+    "love",
+    "excitement",
+    "joy",
+    "fear",
+    "pride",
+    "desire",
+    "anger",
+    "grief",
+    "sadness",
+    "disgust",
+    "disappointment",
+    "relief",
+    "admiration",
+    "gratitude",
+    "embarrassment",
+    "caring",
+    "love-1",
+    "desire-1"
+  ],
+  "characters": {
+    "Kirara": {
+      "approved_neutral_source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-petite-neutral-alternate/candidates/Kirara/neutral-v001.png",
+      "approved_neutral_sha256": "445748ee9d3ee7092a64f9d2547783a1a83c98b40b742ee2ff21829f3538b528",
+      "approval": {
+        "status": "approved",
+        "message": "Petite Kirara is APPROVED, Continue with the 3 sprite sheets",
+        "date": "2026-10-30",
+        "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-petite-neutral-alternate/candidates/Kirara/neutral-v001.png",
+        "candidate_sha256": "445748ee9d3ee7092a64f9d2547783a1a83c98b40b742ee2ff21829f3538b528"
+      },
+      "sprites": [
+        {
+          "emotion": "neutral",
+          "path": "sprites/Kirara/neutral.png",
+          "sha256": "445748ee9d3ee7092a64f9d2547783a1a83c98b40b742ee2ff21829f3538b528",
+          "dimensions": [
+            941,
+            1672
+          ],
+          "alpha_range": [
+            0,
+            255
+          ]
+        },
+        {
+          "emotion": "annoyance",
+          "path": "sprites/Kirara/annoyance.png",
+          "sha256": "88652eca75280fa3bb18ba394722bb316fb0fc11a297c156b601e24b89082db8",
+          "dimensions": [
+            941,
+            1672
+          ],
+          "alpha_range": [
+            0,
+            255
+          ]
+        },
+        {
+          "emotion": "smug",
+          "path": "sprites/Kirara/smug.png",
+          "sha256": "82478bf88a4786de591b1060a50aa7fe1818d482f7a5c14facb021913fddf429",
+          "dimensions": [
+            941,
+            1672
+          ],
+          "alpha_range": [
+            0,
+            255
+          ]
+        },
+        {
+          "emotion": "confusion",
+          "path": "sprites/Kirara/confusion.png",
+          "sha256": "1fd72b81698fcaa84d3971a9cefed6d264b9b9e7fa52b138340f18f5587943ca",
+          "dimensions": [
+            941,
+            1672
+          ],
+          "alpha_range": [
+            0,
+            255
+          ]
+        },
+        {
+          "emotion": "love",
+          "path": "sprites/Kirara/love.png",
+          "sha256": "4f2c90ffd0c9df3110070bc949eb902d2fa6c6f0a0d6bf6d6cbb13d78557586c",
+          "dimensions": [
+            941,
+            1672
+          ],
+          "alpha_range": [
+            0,
+            255
+          ]
+        },
+        {
+          "emotion": "excitement",
+          "path": "sprites/Kirara/excitement.png",
+          "sha256": "414e167872e31308dca8e210d000ef4d6c17955b2393eb0274bcaa01c3b4962d",
+          "dimensions": [
+            941,
+            1670
+          ],
+          "alpha_range": [
+            0,
+            255
+          ]
+        },
+        {
+          "emotion": "joy",
+          "path": "sprites/Kirara/joy.png",
+          "sha256": "51959dadaa157ecc221de4f6610d135f60cd8e8c18f6d857a35d422e20746534",
+          "dimensions": [
+            941,
+            1672
+          ],
+          "alpha_range": [
+            0,
+            255
+          ]
+        },
+        {
+          "emotion": "fear",
+          "path": "sprites/Kirara/fear.png",
+          "sha256": "d44914bb942072778f85dec4032596a3405e4f2b9860e3ad7b249eb021cf19bb",
+          "dimensions": [
+            941,
+            1672
+          ],
+          "alpha_range": [
+            0,
+            255
+          ]
+        },
+        {
+          "emotion": "pride",
+          "path": "sprites/Kirara/pride.png",
+          "sha256": "f54a3ad6edb7b137eb85579b28157f2dd25aa6ab74abcca65d733a4af46990e1",
+          "dimensions": [
+            941,
+            1672
+          ],
+          "alpha_range": [
+            0,
+            255
+          ]
+        },
+        {
+          "emotion": "desire",
+          "path": "sprites/Kirara/desire.png",
+          "sha256": "59ae0aa1a0befca1f7c22792c709c8200e279525d634be25fea8e0b158740986",
+          "dimensions": [
+            941,
+            1672
+          ],
+          "alpha_range": [
+            0,
+            255
+          ]
+        },
+        {
+          "emotion": "anger",
+          "path": "sprites/Kirara/anger.png",
+          "sha256": "4fbc49e391f6c0972d712b74a85af67ad7383f3d4c84bac9eb37111cd0c3f77c",
+          "dimensions": [
+            941,
+            1672
+          ],
+          "alpha_range": [
+            0,
+            255
+          ]
+        },
+        {
+          "emotion": "grief",
+          "path": "sprites/Kirara/grief.png",
+          "sha256": "6397a51380998b03926a4d28cd39f123d154766a5ec7a3122a79c55585b81160",
+          "dimensions": [
+            941,
+            1672
+          ],
+          "alpha_range": [
+            0,
+            255
+          ]
+        },
+        {
+          "emotion": "sadness",
+          "path": "sprites/Kirara/sadness.png",
+          "sha256": "926207d67f7a9132ca441fa2e4ad6b1171942e27a12e36052c70f6bc4e3b7d67",
+          "dimensions": [
+            941,
+            1672
+          ],
+          "alpha_range": [
+            0,
+            255
+          ]
+        },
+        {
+          "emotion": "disgust",
+          "path": "sprites/Kirara/disgust.png",
+          "sha256": "f64e6dba564cc33eb6d3920d68440bbbd07f2aebfcd52836047202fd6b657ccd",
+          "dimensions": [
+            941,
+            1672
+          ],
+          "alpha_range": [
+            0,
+            255
+          ]
+        },
+        {
+          "emotion": "disappointment",
+          "path": "sprites/Kirara/disappointment.png",
+          "sha256": "0e88228a13a2fab60713ab0bdadd85cf9a3b51f18c1d49f9ac36e37a601ef642",
+          "dimensions": [
+            941,
+            1672
+          ],
+          "alpha_range": [
+            0,
+            255
+          ]
+        },
+        {
+          "emotion": "relief",
+          "path": "sprites/Kirara/relief.png",
+          "sha256": "8194ff6cd0e3de362db4e2819ce5d84a9f3d3e842d4ce92db6cf2a8bde420f99",
+          "dimensions": [
+            941,
+            1672
+          ],
+          "alpha_range": [
+            0,
+            255
+          ]
+        },
+        {
+          "emotion": "admiration",
+          "path": "sprites/Kirara/admiration.png",
+          "sha256": "a34fd8f936f01460435c1d88f7ff9ac1995ca81c7a0898834ad37d7bee418b68",
+          "dimensions": [
+            941,
+            1672
+          ],
+          "alpha_range": [
+            0,
+            255
+          ]
+        },
+        {
+          "emotion": "gratitude",
+          "path": "sprites/Kirara/gratitude.png",
+          "sha256": "835445b070ba192c8a268cf2bcb97c663f12b12a0b7128baf5b5fdcb38094d42",
+          "dimensions": [
+            941,
+            1672
+          ],
+          "alpha_range": [
+            0,
+            255
+          ]
+        },
+        {
+          "emotion": "embarrassment",
+          "path": "sprites/Kirara/embarrassment.png",
+          "sha256": "241eae47fe034fa2f3d927ca73f492214be8150b1cb92c61e2be8f844403030d",
+          "dimensions": [
+            941,
+            1672
+          ],
+          "alpha_range": [
+            0,
+            255
+          ]
+        },
+        {
+          "emotion": "caring",
+          "path": "sprites/Kirara/caring.png",
+          "sha256": "63e16992dea23138ab6901488a1610fab200189ad3f5715683cdfeb45977a7c8",
+          "dimensions": [
+            941,
+            1672
+          ],
+          "alpha_range": [
+            0,
+            255
+          ]
+        },
+        {
+          "emotion": "love-1",
+          "path": "sprites/Kirara/love-1.png",
+          "sha256": "21394a8f8c470ff643fac6fd2b85fbe3927b94a57d32ebd5129fd7c7ba47262d",
+          "dimensions": [
+            941,
+            1672
+          ],
+          "alpha_range": [
+            0,
+            255
+          ]
+        },
+        {
+          "emotion": "desire-1",
+          "path": "sprites/Kirara/desire-1.png",
+          "sha256": "7b0fe85ae6d469bcdddcca7d212cb71f328eb483ef0d5a169f6a0572b1992371",
+          "dimensions": [
+            941,
+            1672
+          ],
+          "alpha_range": [
+            0,
+            255
+          ]
+        }
+      ],
+      "previews": {
+        "full_body": "previews/kirara-full-body-sheet.png",
+        "face": "previews/kirara-face-sheet.png"
+      }
+    },
+    "Layla": {
+      "approved_neutral_source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Layla/neutral-v001.png",
+      "approved_neutral_sha256": "9aa24d3bde1a14b363029fc61ce5d83ad09234fc7f07385c73378417e9bf72e1",
+      "approval": {
+        "status": "approved",
+        "message": "All others are ACCEPTED.",
+        "date": "2026-10-30",
+        "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Layla/neutral-v001.png",
+        "candidate_sha256": "9aa24d3bde1a14b363029fc61ce5d83ad09234fc7f07385c73378417e9bf72e1"
+      },
+      "sprites": [
+        {
+          "emotion": "neutral",
+          "path": "sprites/Layla/neutral.png",
+          "sha256": "9aa24d3bde1a14b363029fc61ce5d83ad09234fc7f07385c73378417e9bf72e1",
+          "dimensions": [
+            1024,
+            1536
+          ],
+          "alpha_range": [
+            0,
+            254
+          ]
+        },
+        {
+          "emotion": "annoyance",
+          "path": "sprites/Layla/annoyance.png",
+          "sha256": "2a8294bd99421c1bb8f647d5039ac71bc744dcb8b3ffc9dee5258f3cf585078d",
+          "dimensions": [
+            1024,
+            1536
+          ],
+          "alpha_range": [
+            0,
+            254
+          ]
+        },
+        {
+          "emotion": "smug",
+          "path": "sprites/Layla/smug.png",
+          "sha256": "0c93ca71d32489560a6f692193118464fd513feb220ffe9e36305844ef5a3ace",
+          "dimensions": [
+            1024,
+            1536
+          ],
+          "alpha_range": [
+            0,
+            254
+          ]
+        },
+        {
+          "emotion": "confusion",
+          "path": "sprites/Layla/confusion.png",
+          "sha256": "fd8014b553e575ed062a532c3c5d4dec49bb8d0e11aff55330d372191f4f03db",
+          "dimensions": [
+            1024,
+            1536
+          ],
+          "alpha_range": [
+            0,
+            254
+          ]
+        },
+        {
+          "emotion": "love",
+          "path": "sprites/Layla/love.png",
+          "sha256": "80846416d5c7be76927bd5c1fd0b2fe2202e0b76a41cdeeb78a8d71a7e2bd2ce",
+          "dimensions": [
+            1024,
+            1536
+          ],
+          "alpha_range": [
+            0,
+            254
+          ]
+        },
+        {
+          "emotion": "excitement",
+          "path": "sprites/Layla/excitement.png",
+          "sha256": "12965fe5ec968bbead36c5e0ef053b05851293227ac57b82591cba745e6dcb2f",
+          "dimensions": [
+            1024,
+            1536
+          ],
+          "alpha_range": [
+            0,
+            254
+          ]
+        },
+        {
+          "emotion": "joy",
+          "path": "sprites/Layla/joy.png",
+          "sha256": "85ff0d82644064ecc7a185aaf64b185123ec2d73f6f240f23c4d3fe98c7497ca",
+          "dimensions": [
+            1024,
+            1536
+          ],
+          "alpha_range": [
+            0,
+            254
+          ]
+        },
+        {
+          "emotion": "fear",
+          "path": "sprites/Layla/fear.png",
+          "sha256": "25f0c67d29e4cf7994dfb267d5b368c9da71f98d069a18d7ce533ecefe052d91",
+          "dimensions": [
+            1024,
+            1536
+          ],
+          "alpha_range": [
+            0,
+            254
+          ]
+        },
+        {
+          "emotion": "pride",
+          "path": "sprites/Layla/pride.png",
+          "sha256": "c556e4c1a4183f84ac83ceedaa9b1aa94cc02cf24caaa15a4b7ba353604299e2",
+          "dimensions": [
+            1024,
+            1536
+          ],
+          "alpha_range": [
+            0,
+            254
+          ]
+        },
+        {
+          "emotion": "desire",
+          "path": "sprites/Layla/desire.png",
+          "sha256": "b3da0063ca3a6086fc6c72187266f973c1f76cd449c1989254e464ac9df5987d",
+          "dimensions": [
+            1024,
+            1536
+          ],
+          "alpha_range": [
+            0,
+            254
+          ]
+        },
+        {
+          "emotion": "anger",
+          "path": "sprites/Layla/anger.png",
+          "sha256": "ba48e383801fa9e7ccbc662844ca71544355cd12ecc0a80c61f58cd869230708",
+          "dimensions": [
+            1024,
+            1536
+          ],
+          "alpha_range": [
+            0,
+            254
+          ]
+        },
+        {
+          "emotion": "grief",
+          "path": "sprites/Layla/grief.png",
+          "sha256": "006cfc4f6b66343de418a00f6a36bb63f430072411d33b6d3fa89430b79614a5",
+          "dimensions": [
+            1024,
+            1536
+          ],
+          "alpha_range": [
+            0,
+            254
+          ]
+        },
+        {
+          "emotion": "sadness",
+          "path": "sprites/Layla/sadness.png",
+          "sha256": "c484d042658a355d9515a1d8c0f5f8982ac23344d5b3f24b0c0e578e81054155",
+          "dimensions": [
+            1024,
+            1536
+          ],
+          "alpha_range": [
+            0,
+            254
+          ]
+        },
+        {
+          "emotion": "disgust",
+          "path": "sprites/Layla/disgust.png",
+          "sha256": "42bece548e10611c62bfd88bf52e0853879e0de24541999d59c34ab35d79ce0d",
+          "dimensions": [
+            1024,
+            1536
+          ],
+          "alpha_range": [
+            0,
+            254
+          ]
+        },
+        {
+          "emotion": "disappointment",
+          "path": "sprites/Layla/disappointment.png",
+          "sha256": "971c42f192cbed440ff8d351aac7a1c787a9d8e028f8518d0a5054b00a9e20ca",
+          "dimensions": [
+            1024,
+            1536
+          ],
+          "alpha_range": [
+            0,
+            254
+          ]
+        },
+        {
+          "emotion": "relief",
+          "path": "sprites/Layla/relief.png",
+          "sha256": "8826f48c9d49a79d4756a79a167ebfb7dd5966b7ba4c30da42c55c9e65853fb9",
+          "dimensions": [
+            1024,
+            1536
+          ],
+          "alpha_range": [
+            0,
+            254
+          ]
+        },
+        {
+          "emotion": "admiration",
+          "path": "sprites/Layla/admiration.png",
+          "sha256": "8af9868b96468b7a04b98661e27263d6380dc2038a27bae6abf95f54a908d2ca",
+          "dimensions": [
+            1024,
+            1536
+          ],
+          "alpha_range": [
+            0,
+            254
+          ]
+        },
+        {
+          "emotion": "gratitude",
+          "path": "sprites/Layla/gratitude.png",
+          "sha256": "d4875bd3b554e69166e067d06e25855f2aa43914863519ed4443f5089245de74",
+          "dimensions": [
+            1024,
+            1536
+          ],
+          "alpha_range": [
+            0,
+            254
+          ]
+        },
+        {
+          "emotion": "embarrassment",
+          "path": "sprites/Layla/embarrassment.png",
+          "sha256": "7c729ba13af967dd8f065c2ea4fb6013e9a7083e0aa4216f3f44f117c41ac740",
+          "dimensions": [
+            1024,
+            1536
+          ],
+          "alpha_range": [
+            0,
+            254
+          ]
+        },
+        {
+          "emotion": "caring",
+          "path": "sprites/Layla/caring.png",
+          "sha256": "19670c3a65003d7d08d5ae239846115e69c71293f4b797b26a80230422b92c26",
+          "dimensions": [
+            1024,
+            1536
+          ],
+          "alpha_range": [
+            0,
+            254
+          ]
+        },
+        {
+          "emotion": "love-1",
+          "path": "sprites/Layla/love-1.png",
+          "sha256": "8dceb6baae105f633a0788de3cb7befc341b9519bb0a30299740451dd7a88c00",
+          "dimensions": [
+            1024,
+            1536
+          ],
+          "alpha_range": [
+            0,
+            254
+          ]
+        },
+        {
+          "emotion": "desire-1",
+          "path": "sprites/Layla/desire-1.png",
+          "sha256": "bbdf100a435ffa181607c899a4faa9b14c311b50fcb702af969f016213c16cf4",
+          "dimensions": [
+            1024,
+            1536
+          ],
+          "alpha_range": [
+            0,
+            254
+          ]
+        }
+      ],
+      "previews": {
+        "full_body": "previews/layla-full-body-sheet.png",
+        "face": "previews/layla-face-sheet.png"
+      }
+    },
+    "Yae Miko": {
+      "approved_neutral_source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Yae Miko/neutral-v002.png",
+      "approved_neutral_sha256": "d8f85e814fc780e1f036e29ac9bc969196430753cdab101438f7bee8ddc31409",
+      "approval": {
+        "status": "approved",
+        "message": "All others are ACCEPTED.",
+        "date": "2026-10-30",
+        "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Yae Miko/neutral-v002.png",
+        "candidate_sha256": "d8f85e814fc780e1f036e29ac9bc969196430753cdab101438f7bee8ddc31409"
+      },
+      "sprites": [
+        {
+          "emotion": "neutral",
+          "path": "sprites/Yae Miko/neutral.png",
+          "sha256": "d8f85e814fc780e1f036e29ac9bc969196430753cdab101438f7bee8ddc31409",
+          "dimensions": [
+            1122,
+            1402
+          ],
+          "alpha_range": [
+            0,
+            255
+          ]
+        },
+        {
+          "emotion": "annoyance",
+          "path": "sprites/Yae Miko/annoyance.png",
+          "sha256": "cd19b233fb3f40aa64ea7627aa5f51bc817d7e1176cd37ba32951c502baa5e55",
+          "dimensions": [
+            1122,
+            1402
+          ],
+          "alpha_range": [
+            0,
+            255
+          ]
+        },
+        {
+          "emotion": "smug",
+          "path": "sprites/Yae Miko/smug.png",
+          "sha256": "c6206db32090dc90fc3079ba1450667ac60e03f1c54827f818eb5eeab542e797",
+          "dimensions": [
+            1122,
+            1402
+          ],
+          "alpha_range": [
+            0,
+            255
+          ]
+        },
+        {
+          "emotion": "confusion",
+          "path": "sprites/Yae Miko/confusion.png",
+          "sha256": "3f5d3f00e1a19481639efe18139527290a886ba43e8d9f75ac408f57d87bee67",
+          "dimensions": [
+            1122,
+            1402
+          ],
+          "alpha_range": [
+            0,
+            255
+          ]
+        },
+        {
+          "emotion": "love",
+          "path": "sprites/Yae Miko/love.png",
+          "sha256": "1fa83003bb465389c999ef66a2789ff4cd5cc5b87e11d81def9020dd0dee7ad2",
+          "dimensions": [
+            1122,
+            1402
+          ],
+          "alpha_range": [
+            0,
+            255
+          ]
+        },
+        {
+          "emotion": "excitement",
+          "path": "sprites/Yae Miko/excitement.png",
+          "sha256": "ec1940d0f7b05ea204745a36ddebbe4aa6493ad5fd012e6ccafb757595255111",
+          "dimensions": [
+            1122,
+            1402
+          ],
+          "alpha_range": [
+            0,
+            255
+          ]
+        },
+        {
+          "emotion": "joy",
+          "path": "sprites/Yae Miko/joy.png",
+          "sha256": "0fed439d32eee84df69fe3f93951b0de7345fcbb7608b6a90713fff64da9ba08",
+          "dimensions": [
+            1122,
+            1402
+          ],
+          "alpha_range": [
+            0,
+            255
+          ]
+        },
+        {
+          "emotion": "fear",
+          "path": "sprites/Yae Miko/fear.png",
+          "sha256": "58d228ea7ff9726aa427f5fefb0e289a8533e6ce40fcbfc818ec5605db0d76dc",
+          "dimensions": [
+            1122,
+            1402
+          ],
+          "alpha_range": [
+            0,
+            255
+          ]
+        },
+        {
+          "emotion": "pride",
+          "path": "sprites/Yae Miko/pride.png",
+          "sha256": "13204105c3c34e94c306a071f9ad8607cf2eda6a43b0852cbcaeaa9004774886",
+          "dimensions": [
+            1122,
+            1402
+          ],
+          "alpha_range": [
+            0,
+            255
+          ]
+        },
+        {
+          "emotion": "desire",
+          "path": "sprites/Yae Miko/desire.png",
+          "sha256": "b9c2be68ef000f40e1489e044cc309a593ab47d3ba45f3e24ead14e525af3ac5",
+          "dimensions": [
+            1122,
+            1402
+          ],
+          "alpha_range": [
+            0,
+            255
+          ]
+        },
+        {
+          "emotion": "anger",
+          "path": "sprites/Yae Miko/anger.png",
+          "sha256": "7031fe350bd6186c26313dfc4d2602350453e69a097a9a683f4762c04c600622",
+          "dimensions": [
+            1122,
+            1402
+          ],
+          "alpha_range": [
+            0,
+            255
+          ]
+        },
+        {
+          "emotion": "grief",
+          "path": "sprites/Yae Miko/grief.png",
+          "sha256": "9b91dc660b20cc8047cf89613f9def19c25efef389a442bdd01e0e13e84ff5ca",
+          "dimensions": [
+            1122,
+            1402
+          ],
+          "alpha_range": [
+            0,
+            255
+          ]
+        },
+        {
+          "emotion": "sadness",
+          "path": "sprites/Yae Miko/sadness.png",
+          "sha256": "15a5a0bb117832f77030cab0ddda90957c48fba0c8ad93484a53116b24f2d566",
+          "dimensions": [
+            1122,
+            1402
+          ],
+          "alpha_range": [
+            0,
+            255
+          ]
+        },
+        {
+          "emotion": "disgust",
+          "path": "sprites/Yae Miko/disgust.png",
+          "sha256": "70363509395cbf531232b861862aa5b958d513cae5349235512839803c1dd7d1",
+          "dimensions": [
+            1122,
+            1402
+          ],
+          "alpha_range": [
+            0,
+            255
+          ]
+        },
+        {
+          "emotion": "disappointment",
+          "path": "sprites/Yae Miko/disappointment.png",
+          "sha256": "53b0d13e84884c5f675a6602eaf11123429047021361b041095fedd02a948fbb",
+          "dimensions": [
+            1122,
+            1402
+          ],
+          "alpha_range": [
+            0,
+            255
+          ]
+        },
+        {
+          "emotion": "relief",
+          "path": "sprites/Yae Miko/relief.png",
+          "sha256": "141b8c4b0fe824007606dbfb017b82a340df098f0982f8091cce65c435f3f8df",
+          "dimensions": [
+            1122,
+            1402
+          ],
+          "alpha_range": [
+            0,
+            255
+          ]
+        },
+        {
+          "emotion": "admiration",
+          "path": "sprites/Yae Miko/admiration.png",
+          "sha256": "18e75da17ac4b303ccb3d36102335297299001fdfe08db682b91da3ea4abf923",
+          "dimensions": [
+            1122,
+            1402
+          ],
+          "alpha_range": [
+            0,
+            255
+          ]
+        },
+        {
+          "emotion": "gratitude",
+          "path": "sprites/Yae Miko/gratitude.png",
+          "sha256": "b5acfa3e03f6e79f2f486db170ea37ee560faa0449cc0a214489820613f8ab96",
+          "dimensions": [
+            1122,
+            1402
+          ],
+          "alpha_range": [
+            0,
+            255
+          ]
+        },
+        {
+          "emotion": "embarrassment",
+          "path": "sprites/Yae Miko/embarrassment.png",
+          "sha256": "820e07bd6fac40a4ecf9df143a611f3b052c61b8525f587948984250df134c89",
+          "dimensions": [
+            1122,
+            1402
+          ],
+          "alpha_range": [
+            0,
+            255
+          ]
+        },
+        {
+          "emotion": "caring",
+          "path": "sprites/Yae Miko/caring.png",
+          "sha256": "abeff0674f05735d3456334e0a2442564d86396840672ff28d4f5320d8ae4014",
+          "dimensions": [
+            1122,
+            1402
+          ],
+          "alpha_range": [
+            0,
+            255
+          ]
+        },
+        {
+          "emotion": "love-1",
+          "path": "sprites/Yae Miko/love-1.png",
+          "sha256": "e58bbe476f7449b93178f4cc712f92067e1804bfc9f4c1f7b74ffc74c9b7c54b",
+          "dimensions": [
+            1122,
+            1402
+          ],
+          "alpha_range": [
+            0,
+            255
+          ]
+        },
+        {
+          "emotion": "desire-1",
+          "path": "sprites/Yae Miko/desire-1.png",
+          "sha256": "1cb59c757568f5d5fb2423beb67a10bb1857e0b3d2319c914707880af07ed3c0",
+          "dimensions": [
+            1122,
+            1402
+          ],
+          "alpha_range": [
+            0,
+            255
+          ]
+        }
+      ],
+      "previews": {
+        "full_body": "previews/yae-miko-full-body-sheet.png",
+        "face": "previews/yae-miko-face-sheet.png"
+      }
+    }
+  }
+}

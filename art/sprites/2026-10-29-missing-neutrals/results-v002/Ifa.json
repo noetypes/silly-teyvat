@@ -1,0 +1,27 @@
+{
+  "version": "v002",
+  "reference_original": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Ifa/Official Art/neutral.png",
+  "reference": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/references/Ifa/official.png",
+  "reference_sha256": "2a3ced35df3f947445613522691143a264e48882489da04a126c7cd42857cb8c",
+  "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/prompts/Ifa/neutral-v002.txt",
+  "tool": "image_gen.imagegen",
+  "tool_arguments": {
+    "prompt": "Use case: stylized-concept. Asset: full-body neutral visual-novel character sprite of Ifa from Genshin Impact. Use only the supplied installed official transparent portrait as the image reference. Preserve the character's official face, skin tone, hair, costume, colors, accessories, and appropriate body type. Depict Ifa alone, with no animal, companion or second figure. Both hands empty and no handheld prop. Preserve the official hair, outfit, skin tone and proportions. For this non-enemy character, show no handheld weapons, companions, or props unless explicitly part of the worn costume. Keep a relaxed neutral expression and a complete silhouette including headwear, hair, hands and shoes, with roughly 2\u20134% top and bottom padding without stretching the body. Polished Genshin-inspired anime game art on a genuinely transparent background. No scenery, UI, labels, watermark, unrelated subjects, detached effects or ground shadow.",
+    "referenced_image_paths": [
+      "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/references/Ifa/official.png"
+    ],
+    "transparent_background": true
+  },
+  "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/raw/Ifa/neutral-v002.png",
+  "tool_output": "/Users/alexachan/.codex/generated_images/01a18ab4-9b84-7b52-968f-6df209e09510/exec-94f4e2ac-cf25-409e-b8cf-636283332e33.png",
+  "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Ifa/neutral-v002.png",
+  "candidate_sha256": "fcad0c7f6d2fa49ccaa615d83af96a400a697481988d228db4c186378f34b1dd",
+  "size": [
+    1024,
+    1536
+  ],
+  "png_color_type": 6,
+  "approval": {
+    "status": "pending"
+  }
+}

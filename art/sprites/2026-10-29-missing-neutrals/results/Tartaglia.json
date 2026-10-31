@@ -1,0 +1,26 @@
+{
+  "reference_original": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Tartaglia/Official Art/neutral.png",
+  "reference": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/references/Tartaglia/official.png",
+  "reference_sha256": "e885cfb5189d106f6b9cafe5a1a03ceb34090dd6287c9e6a660657a6623e52de",
+  "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/prompts/Tartaglia/neutral-v001.txt",
+  "tool": "image_gen.imagegen",
+  "tool_arguments": {
+    "prompt": "Use case: stylized-concept. Asset: full-body neutral visual-novel sprite of Tartaglia from Genshin Impact. The supplied installed official transparent character portrait is the primary identity and costume reference. Faithfully preserve the character's face, skin tone, hair, eyes, exact outfit, colors, accessories, and distinctive body type and proportions shown there. Depict a character-appropriate relaxed standing or floating idle pose with a calm natural expression; simple readable hands near the torso, one thumb per hand, two coherent legs and feet where applicable. Show the entire silhouette including headwear, hair, hands, accessories and shoes with about 2\u20134% top and bottom padding. Polished Genshin-inspired anime game artwork on a genuinely transparent background. No scenery, text, UI, watermark, unrelated subjects, detached effects or ground shadow.",
+    "referenced_image_paths": [
+      "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/references/Tartaglia/official.png"
+    ],
+    "transparent_background": true
+  },
+  "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/raw/Tartaglia/neutral-v001.png",
+  "tool_output": "/Users/alexachan/.codex/generated_images/01a18ab4-9b84-7b52-968f-6df209e09510/exec-35114191-a080-4669-9ba4-66be154fb74f.png",
+  "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Tartaglia/neutral-v001.png",
+  "candidate_sha256": "1ebc7d9f3d27068c043a94782e7cc9d03bb976d4a609a146fdfd5182a76c355c",
+  "size": [
+    907,
+    1733
+  ],
+  "png_color_type": 6,
+  "approval": {
+    "status": "pending"
+  }
+}

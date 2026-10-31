@@ -1,0 +1,26 @@
+{
+  "reference_original": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Kirara/Official Art/neutral.png",
+  "reference": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/references/Kirara/official.png",
+  "reference_sha256": "6d7c59dc5c6cdd4d0af6ea8c1a223c7d3d99c9fd82c90caf56088792e1720213",
+  "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/prompts/Kirara/neutral-v001.txt",
+  "tool": "image_gen.imagegen",
+  "tool_arguments": {
+    "prompt": "Use case: stylized-concept. Asset: full-body neutral visual-novel sprite of Kirara from Genshin Impact. The supplied installed official transparent character portrait is the primary identity and costume reference. Faithfully preserve the character's face, skin tone, hair, eyes, exact outfit, colors, accessories, and distinctive body type and proportions shown there. Depict a character-appropriate relaxed standing or floating idle pose with a calm natural expression; simple readable hands near the torso, one thumb per hand, two coherent legs and feet where applicable. Show the entire silhouette including headwear, hair, hands, accessories and shoes with about 2\u20134% top and bottom padding. Polished Genshin-inspired anime game artwork on a genuinely transparent background. No scenery, text, UI, watermark, unrelated subjects, detached effects or ground shadow.",
+    "referenced_image_paths": [
+      "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/references/Kirara/official.png"
+    ],
+    "transparent_background": true
+  },
+  "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/raw/Kirara/neutral-v001.png",
+  "tool_output": "/Users/alexachan/.codex/generated_images/01a18ab4-9b84-7b52-968f-6df209e09510/exec-88c0540d-dfb9-4254-844f-cc1c1afc68f1.png",
+  "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Kirara/neutral-v001.png",
+  "candidate_sha256": "94d73b982d26ff45439d67800b8ddf14cba9a1c6882f4ea0e91a354004d4b1a9",
+  "size": [
+    940,
+    1672
+  ],
+  "png_color_type": 6,
+  "approval": {
+    "status": "pending"
+  }
+}

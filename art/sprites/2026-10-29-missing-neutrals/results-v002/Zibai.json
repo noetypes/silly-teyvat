@@ -1,0 +1,27 @@
+{
+  "version": "v002",
+  "reference_original": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Zibai/Official Art/neutral.png",
+  "reference": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/references/Zibai/official.png",
+  "reference_sha256": "461d9e5f2301990b496370aba9b07ff1fcaf08727a248b0f4a46090177381b11",
+  "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/prompts/Zibai/neutral-v002.txt",
+  "tool": "image_gen.imagegen",
+  "tool_arguments": {
+    "prompt": "Use case: stylized-concept. Asset: full-body neutral visual-novel character sprite of Zibai from Genshin Impact. Use only the supplied installed official transparent portrait as the image reference. Preserve the character's official face, skin tone, hair, costume, colors, accessories, and appropriate body type. Face Zibai more directly toward the camera in a simple front-facing or gentle three-quarter stance. Keep both arms down, empty hands near the torso, fingers naturally together, one thumb and four fingers per visible hand connected to a single palm and wrist. Preserve hair, facial features and outfit. For this non-enemy character, show no handheld weapons, companions, or props unless explicitly part of the worn costume. Keep a relaxed neutral expression and a complete silhouette including headwear, hair, hands and shoes, with roughly 2\u20134% top and bottom padding without stretching the body. Polished Genshin-inspired anime game art on a genuinely transparent background. No scenery, UI, labels, watermark, unrelated subjects, detached effects or ground shadow.",
+    "referenced_image_paths": [
+      "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/references/Zibai/official.png"
+    ],
+    "transparent_background": true
+  },
+  "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/raw/Zibai/neutral-v002.png",
+  "tool_output": "/Users/alexachan/.codex/generated_images/01a18ab4-9b84-7b52-968f-6df209e09510/exec-a2a8c748-ff41-413f-b36c-2c361f74ac28.png",
+  "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Zibai/neutral-v002.png",
+  "candidate_sha256": "2dfd5c594e1e2aeb07695c6e46133e4089f866dcf9e394c4eed12b1a6c355610",
+  "size": [
+    1145,
+    1374
+  ],
+  "png_color_type": 6,
+  "approval": {
+    "status": "pending"
+  }
+}

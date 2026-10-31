@@ -1,0 +1,26 @@
+{
+  "reference_original": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Kaveh/Official Art/neutral.png",
+  "reference": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/references/Kaveh/official.png",
+  "reference_sha256": "2238a6d91354d54f6a7e1699ffbabf8f617b21c2d513c4fbb2831507dd48496b",
+  "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/prompts/Kaveh/neutral-v001.txt",
+  "tool": "image_gen.imagegen",
+  "tool_arguments": {
+    "prompt": "Use case: stylized-concept. Asset: full-body neutral visual-novel sprite of Kaveh from Genshin Impact. The supplied installed official transparent character portrait is the primary identity and costume reference. Faithfully preserve the character's face, skin tone, hair, eyes, exact outfit, colors, accessories, and distinctive body type and proportions shown there. Depict a character-appropriate relaxed standing or floating idle pose with a calm natural expression; simple readable hands near the torso, one thumb per hand, two coherent legs and feet where applicable. Show the entire silhouette including headwear, hair, hands, accessories and shoes with about 2\u20134% top and bottom padding. Polished Genshin-inspired anime game artwork on a genuinely transparent background. No scenery, text, UI, watermark, unrelated subjects, detached effects or ground shadow.",
+    "referenced_image_paths": [
+      "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/references/Kaveh/official.png"
+    ],
+    "transparent_background": true
+  },
+  "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/raw/Kaveh/neutral-v001.png",
+  "tool_output": "/Users/alexachan/.codex/generated_images/01a18ab4-9b84-7b52-968f-6df209e09510/exec-7fae2fa1-13da-4bab-a98f-14fb695987ff.png",
+  "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Kaveh/neutral-v001.png",
+  "candidate_sha256": "dbb4108c4c26960199264e70b754828abd0de48a5441e086f0336bfddfbd22c6",
+  "size": [
+    1005,
+    1565
+  ],
+  "png_color_type": 6,
+  "approval": {
+    "status": "pending"
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "reference_original": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Dahlia/Official Art/neutral.png",
+  "reference": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/references/Dahlia/official.png",
+  "reference_sha256": "7cf3b37b42ec9bc12b07fb7e630af194fda223bb419b4bd414246019266e0714",
+  "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/prompts/Dahlia/neutral-v001.txt",
+  "tool": "image_gen.imagegen",
+  "tool_arguments": {
+    "prompt": "Use case: stylized-concept. Asset: full-body neutral visual-novel sprite of Dahlia from Genshin Impact. The supplied installed official transparent character portrait is the primary identity and costume reference. Faithfully preserve the character's face, skin tone, hair, eyes, exact outfit, colors, accessories, and distinctive body type and proportions shown there. Depict a character-appropriate relaxed standing or floating idle pose with a calm natural expression; simple readable hands near the torso, one thumb per hand, two coherent legs and feet where applicable. Show the entire silhouette including headwear, hair, hands, accessories and shoes with about 2\u20134% top and bottom padding. Polished Genshin-inspired anime game artwork on a genuinely transparent background. No scenery, text, UI, watermark, unrelated subjects, detached effects or ground shadow.",
+    "referenced_image_paths": [
+      "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/references/Dahlia/official.png"
+    ],
+    "transparent_background": true
+  },
+  "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/raw/Dahlia/neutral-v001.png",
+  "tool_output": "/Users/alexachan/.codex/generated_images/01a18ab4-9b84-7b52-968f-6df209e09510/exec-a9b4b907-6016-4a13-b849-24733e9240ca.png",
+  "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Dahlia/neutral-v001.png",
+  "candidate_sha256": "060e97d7ba0abddca72d6ac0747edf38b53406a888687ac3017da95c4dfb03d8",
+  "size": [
+    1052,
+    1494
+  ],
+  "png_color_type": 6,
+  "approval": {
+    "status": "pending"
+  }
+}

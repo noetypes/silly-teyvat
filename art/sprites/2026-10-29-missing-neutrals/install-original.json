@@ -1,0 +1,732 @@
+{
+  "date": "2026-10-30",
+  "source_run": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/run.json",
+  "live_root": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters",
+  "settings": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/settings.json",
+  "backup": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/backups/silly-teyvat-original-neutrals-2026-10-30-01",
+  "settings_sha256_before": "502e8e284ddedf8b40423cffb97b21b3337ae0eb5b35bf72cc028ef114136647",
+  "settings_sha256_after": "1f6b7b8c8af3954afd818dfbb2c93664b9cfe63b4f10305c2af9613e1bd38ba8",
+  "installed": {
+    "Alhaitham": {
+      "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Alhaitham/neutral-v002.png",
+      "candidate_sha256": "34dd6fc22b5a4b6e107d468f4c92bf2a3a99f2c8a16da4fed1cd182e58784ae0",
+      "live_sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Alhaitham/neutral.png",
+      "backup_sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/backups/silly-teyvat-original-neutrals-2026-10-30-01/neutral-before/Alhaitham/neutral.png",
+      "previous_sha256": "ccc311e8e4fd499b165d92e16201e2222f3af1a31b1b558bcaa7df82bc205b7c"
+    },
+    "Alyosha": {
+      "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Alyosha/neutral-v002.png",
+      "candidate_sha256": "3a1df6da84b531700d388e239494c45fb63219239a6710c74c0c69ca3cc818d7",
+      "live_sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Alyosha/neutral.png",
+      "backup_sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/backups/silly-teyvat-original-neutrals-2026-10-30-01/neutral-before/Alyosha/neutral.png",
+      "previous_sha256": "1c617af4ae1622b924017773fed61c678d5cb16a630a2c6ae3752bb0a0e0f753"
+    },
+    "Amber": {
+      "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Amber/neutral-v001.png",
+      "candidate_sha256": "b70f10083fc6164fb9afdcdea15d9030f7e96055b4e13f3a50b1c660e1a47315",
+      "live_sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Amber/neutral.png",
+      "backup_sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/backups/silly-teyvat-original-neutrals-2026-10-30-01/neutral-before/Amber/neutral.png",
+      "previous_sha256": "ac2cad911bf76fd6ca67a97c0c89b87de65ce2fcb7e76e6d5976732fc24a9638"
+    },
+    "Arataki Itto": {
+      "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Arataki Itto/neutral-v002.png",
+      "candidate_sha256": "4bee713cd9c143280ede7d01938c8061ac8c73c6983c1df23e92934199329cc5",
+      "live_sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Arataki Itto/neutral.png",
+      "backup_sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/backups/silly-teyvat-original-neutrals-2026-10-30-01/neutral-before/Arataki Itto/neutral.png",
+      "previous_sha256": "c1dbf3996fa898d00f7ab4f589d5ec7a844894057d5ce85171082371120e4633"
+    },
+    "Arlecchino": {
+      "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Arlecchino/neutral-v001.png",
+      "candidate_sha256": "19d423631a6568da0ebdd471faabc63d89824fc655fc7b632ab3f6958f1e4270",
+      "live_sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Arlecchino/neutral.png",
+      "backup_sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/backups/silly-teyvat-original-neutrals-2026-10-30-01/neutral-before/Arlecchino/neutral.png",
+      "previous_sha256": "d9f74e85730c23bce82eacb0b19e2336a36eda6d308015b1eb8eecffa57f7874"
+    },
+    "Baizhu": {
+      "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Baizhu/neutral-v001.png",
+      "candidate_sha256": "50037d76097a74c06d7f37825aa2b2bea288daea272902eda72e58feb049c0c0",
+      "live_sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Baizhu/neutral.png",
+      "backup_sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/backups/silly-teyvat-original-neutrals-2026-10-30-01/neutral-before/Baizhu/neutral.png",
+      "previous_sha256": "6130dd090ca94e39574ad97e42a1be3fcdf08f5dd585f45eaff7378daf15305f"
+    },
+    "Barbara": {
+      "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Barbara/neutral-v002.png",
+      "candidate_sha256": "711a63ba44d70684865cfd39cec15bcca0a39caeeded94f5ab0338b9073fc060",
+      "live_sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Barbara/neutral.png",
+      "backup_sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/backups/silly-teyvat-original-neutrals-2026-10-30-01/neutral-before/Barbara/neutral.png",
+      "previous_sha256": "9e88efaa3935dd162ba2616d78add39462c5f68592cf44518e7790b5abfc4424"
+    },
+    "Beidou": {
+      "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Beidou/neutral-v001.png",
+      "candidate_sha256": "8f3222078fbb7dceef309cf5d7824e0df8a5f6031a911a375fd926770c0b88bf",
+      "live_sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Beidou/neutral.png",
+      "backup_sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/backups/silly-teyvat-original-neutrals-2026-10-30-01/neutral-before/Beidou/neutral.png",
+      "previous_sha256": "147cbe469e3b09823cd84295dd7703686a5e8bd91d60bf18714a8560618ed9af"
+    },
+    "Bennett": {
+      "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Bennett/neutral-v001.png",
+      "candidate_sha256": "a034c840229cf357d9e3a22189e6f8e2e43fdd0ff2d2d3bed6e11aab0d10d432",
+      "live_sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Bennett/neutral.png",
+      "backup_sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/backups/silly-teyvat-original-neutrals-2026-10-30-01/neutral-before/Bennett/neutral.png",
+      "previous_sha256": "d701f8404549212166218f6abc51e4ce53af7de14e4a4e615ff12df891d3f003"
+    },
+    "Candace": {
+      "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Candace/neutral-v002.png",
+      "candidate_sha256": "0130233f06109fe39476c313f0ad47b8b1562086ed2bfb7ce1c66af1d08ee626",
+      "live_sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Candace/neutral.png",
+      "backup_sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/backups/silly-teyvat-original-neutrals-2026-10-30-01/neutral-before/Candace/neutral.png",
+      "previous_sha256": "efec51418fa6dcc9fd0a64827f5cbd1a41d7c323f8f8374291aafdd181503e5c"
+    },
+    "Charlotte": {
+      "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Charlotte/neutral-v001.png",
+      "candidate_sha256": "43f2924e2f0e81658356bfdee4b0637d9ecf4c0b7163730b8c9c476aaab78128",
+      "live_sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Charlotte/neutral.png",
+      "backup_sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/backups/silly-teyvat-original-neutrals-2026-10-30-01/neutral-before/Charlotte/neutral.png",
+      "previous_sha256": "3da987876451261266bc8a98bc182ca285563ed7c7f10fc5354cc64fb589adc6"
+    },
+    "Chasca": {
+      "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Chasca/neutral-v001.png",
+      "candidate_sha256": "61752792e854680d36a6bbf3562efd757bf5b11e5bdd71c1799be9998b69000f",
+      "live_sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Chasca/neutral.png",
+      "backup_sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/backups/silly-teyvat-original-neutrals-2026-10-30-01/neutral-before/Chasca/neutral.png",
+      "previous_sha256": "4c46d2b53c5c024d7ccf269aa1a0f1351d522c7dd67efb5b9a81fbee34ef01f1"
+    },
+    "Chevreuse": {
+      "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Chevreuse/neutral-v004.png",
+      "candidate_sha256": "156354cb2dc89c1b46bcd12a18aa84a3d36c561a854198e6432a42ba106a8fea",
+      "live_sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Chevreuse/neutral.png",
+      "backup_sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/backups/silly-teyvat-original-neutrals-2026-10-30-01/neutral-before/Chevreuse/neutral.png",
+      "previous_sha256": "0aad48c9ef49d6ea562b43d21d1862ce9b9f2cd12c32cdc6b8e56acc33e370c4"
+    },
+    "Chiori": {
+      "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Chiori/neutral-v001.png",
+      "candidate_sha256": "822c057ed6ea5d45e4fb38367f4c0de194e442043f11578b37c93fb4bd6eb2f8",
+      "live_sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Chiori/neutral.png",
+      "backup_sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/backups/silly-teyvat-original-neutrals-2026-10-30-01/neutral-before/Chiori/neutral.png",
+      "previous_sha256": "53a94f18506e9564e89c5daf3a92726c71f56a34531619c75602670a8f8ad6c9"
+    },
+    "Chongyun": {
+      "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Chongyun/neutral-v001.png",
+      "candidate_sha256": "d041985227f3173f6d4eaadee38561a6efa1039708e52a3109cdd18e36ebcc10",
+      "live_sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Chongyun/neutral.png",
+      "backup_sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/backups/silly-teyvat-original-neutrals-2026-10-30-01/neutral-before/Chongyun/neutral.png",
+      "previous_sha256": "6eee4e1803583f744d8931b8451170a77ca739bf05dbe893a25b951b8281d6d7"
+    },
+    "Citlali": {
+      "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Citlali/neutral-v001.png",
+      "candidate_sha256": "e577b8bfa86e7bca020e29b230c7b4ad3a3a2571268033500edb1730f408ceef",
+      "live_sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Citlali/neutral.png",
+      "backup_sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/backups/silly-teyvat-original-neutrals-2026-10-30-01/neutral-before/Citlali/neutral.png",
+      "previous_sha256": "e83fc7fd9f4200d6d43fe7cbbdc918a942e900f7b8f1f40e46ae84a1e0a2aaca"
+    },
+    "Clorinde": {
+      "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Clorinde/neutral-v001.png",
+      "candidate_sha256": "3b58dec293abdcc6694c97ce03c5dff4a7bc134ad6bb824023491c91119dba8f",
+      "live_sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Clorinde/neutral.png",
+      "backup_sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/backups/silly-teyvat-original-neutrals-2026-10-30-01/neutral-before/Clorinde/neutral.png",
+      "previous_sha256": "fa2146b4dbafcdf1f7ac9f12da155a273d29ab8fac00398f1808bf564809e9c2"
+    },
+    "Collei": {
+      "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Collei/neutral-v002.png",
+      "candidate_sha256": "2ed11f5e0a5742bd63ebb1dfe93e461e9a6e476a9afa5b0906fb0de46e6fe564",
+      "live_sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Collei/neutral.png",
+      "backup_sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/backups/silly-teyvat-original-neutrals-2026-10-30-01/neutral-before/Collei/neutral.png",
+      "previous_sha256": "d9fcf4785b8dcb0090df5ac9d4227784dcaf7154af121154aa25be9a6e36eebc"
+    },
+    "Columbina": {
+      "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Columbina/neutral-v002.png",
+      "candidate_sha256": "01e0ad8587e320d30a74d76b541a2b0fa71d730c7ec783e084428ca0f8a2f42d",
+      "live_sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Columbina/neutral.png",
+      "backup_sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/backups/silly-teyvat-original-neutrals-2026-10-30-01/neutral-before/Columbina/neutral.png",
+      "previous_sha256": "92c391fb6e529af4b66346438ac26d4479ca6aef5e31490dfb10d7c9ff891011"
+    },
+    "Cyno": {
+      "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Cyno/neutral-v002.png",
+      "candidate_sha256": "56c57a72bd2fcf280e9c334df5cd9f601a31214f08683ce01f681763da5b4fd3",
+      "live_sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Cyno/neutral.png",
+      "backup_sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/backups/silly-teyvat-original-neutrals-2026-10-30-01/neutral-before/Cyno/neutral.png",
+      "previous_sha256": "93dc27fbeb9211c8371c95fda56563a90b5e58cb908a52232254fa98d370f454"
+    },
+    "Dahlia": {
+      "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Dahlia/neutral-v001.png",
+      "candidate_sha256": "060e97d7ba0abddca72d6ac0747edf38b53406a888687ac3017da95c4dfb03d8",
+      "live_sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Dahlia/neutral.png",
+      "backup_sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/backups/silly-teyvat-original-neutrals-2026-10-30-01/neutral-before/Dahlia/neutral.png",
+      "previous_sha256": "46f6aa0f7b17242cd973bf027e71c71a04d4de5df89aeae61dad8b9e67f34bfb"
+    },
+    "Dehya": {
+      "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Dehya/neutral-v001.png",
+      "candidate_sha256": "936fa34007f161bea0e8912a15151abb7ec619dc129d717fc162c960ee0dc00c",
+      "live_sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Dehya/neutral.png",
+      "backup_sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/backups/silly-teyvat-original-neutrals-2026-10-30-01/neutral-before/Dehya/neutral.png",
+      "previous_sha256": "fbffca1099218ae9ecdfa4d882b3ea8d42e81dc087fbbc05eb223798fa9026d9"
+    },
+    "Durin": {
+      "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Durin/neutral-v002.png",
+      "candidate_sha256": "ef4a731b1126f5e66ccdb522415dc9a5079a68b07aecf58f3a68f2bba3cd133d",
+      "live_sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Durin/neutral.png",
+      "backup_sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/backups/silly-teyvat-original-neutrals-2026-10-30-01/neutral-before/Durin/neutral.png",
+      "previous_sha256": "db07db0c05c2ee7c46e52397f912b0844496319e18c1570c3abf6373e42d61b9"
+    },
+    "Emilie": {
+      "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Emilie/neutral-v001.png",
+      "candidate_sha256": "ad9fde9a5479a1e2d581ab05eaca7d496cc16e9555b81d32a6028d7f9a1cc49c",
+      "live_sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Emilie/neutral.png",
+      "backup_sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/backups/silly-teyvat-original-neutrals-2026-10-30-01/neutral-before/Emilie/neutral.png",
+      "previous_sha256": "c56c76228cf9ac176442b71691885d63900baef20c1e3dacee9087fd9e8423b6"
+    },
+    "Escoffier": {
+      "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Escoffier/neutral-v001.png",
+      "candidate_sha256": "0d5e7d3b4c13fbfdafc2a9d78669da6931b45a006aa937d7605297fdb5bf5970",
+      "live_sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Escoffier/neutral.png",
+      "backup_sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/backups/silly-teyvat-original-neutrals-2026-10-30-01/neutral-before/Escoffier/neutral.png",
+      "previous_sha256": "ea649753fd22c764517c8e1ef9d32f74b5adb40c4f04152a89f64774d721fecb"
+    },
+    "Eula": {
+      "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Eula/neutral-v001.png",
+      "candidate_sha256": "cf63b6d2b7224339c13d5e473dbd1b56301ff1e916f33ede7ec12fefa442d415",
+      "live_sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Eula/neutral.png",
+      "backup_sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/backups/silly-teyvat-original-neutrals-2026-10-30-01/neutral-before/Eula/neutral.png",
+      "previous_sha256": "9d8641487b6193ee693f9210802cdec08fab674d1f88b658f587f280379de8cc"
+    },
+    "Faruzan": {
+      "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Faruzan/neutral-v001.png",
+      "candidate_sha256": "3e1a896d29667a270d4fb874488693c421e5821bbe0590b9db8112d5c6a354c6",
+      "live_sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Faruzan/neutral.png",
+      "backup_sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/backups/silly-teyvat-original-neutrals-2026-10-30-01/neutral-before/Faruzan/neutral.png",
+      "previous_sha256": "b75550215de91a6bd9de58f59a2f712e531c18503a486770a79b8bf691cea8da"
+    },
+    "Flins": {
+      "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Flins/neutral-v005.png",
+      "candidate_sha256": "fd0d46fba81aa6eb15bf6f3f18b9a5dc2ceafcb85dd6a25ef821b156f1314cf6",
+      "live_sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Flins/neutral.png",
+      "backup_sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/backups/silly-teyvat-original-neutrals-2026-10-30-01/neutral-before/Flins/neutral.png",
+      "previous_sha256": "0dc4f0de88be15a7791e1e39158733109ff58aa6e85873438956b352d125aedd"
+    },
+    "Freminet": {
+      "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Freminet/neutral-v001.png",
+      "candidate_sha256": "a8aa545f700391dec8c5fdf865233abac86a3e888f312583444b1a8d36e94a3a",
+      "live_sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Freminet/neutral.png",
+      "backup_sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/backups/silly-teyvat-original-neutrals-2026-10-30-01/neutral-before/Freminet/neutral.png",
+      "previous_sha256": "7076ba520d8f0a59d354bf920c8cdaf9a8379dd0965c10dc75f2f4e6c50ca5d2"
+    },
+    "Gaming": {
+      "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Gaming/neutral-v001.png",
+      "candidate_sha256": "c1f0b13d1d2c6856d098b24ce4d791768ded641b9ed0fb119ad3ce2436b1fc0e",
+      "live_sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Gaming/neutral.png",
+      "backup_sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/backups/silly-teyvat-original-neutrals-2026-10-30-01/neutral-before/Gaming/neutral.png",
+      "previous_sha256": "5f6ad33c7b908ed290c79526fa00351767740b146548973097ed6bee8e12fa91"
+    },
+    "Ganyu": {
+      "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Ganyu/neutral-v002.png",
+      "candidate_sha256": "b306ce5bb5dbf301a4cbc3c28e16092f7d6c5e7b8729b8fa43a96c77b9f060af",
+      "live_sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Ganyu/neutral.png",
+      "backup_sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/backups/silly-teyvat-original-neutrals-2026-10-30-01/neutral-before/Ganyu/neutral.png",
+      "previous_sha256": "ad95a6d88900e407682fa33b2c35bb6419e57b83f43fd3ba2288e4951a335c55"
+    },
+    "Gorou": {
+      "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Gorou/neutral-v002.png",
+      "candidate_sha256": "73d90dae01ed6990c092aac8f54e4b0f3981b9d285eccc1ef109f62f724b0663",
+      "live_sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Gorou/neutral.png",
+      "backup_sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/backups/silly-teyvat-original-neutrals-2026-10-30-01/neutral-before/Gorou/neutral.png",
+      "previous_sha256": "aa0dd607be3b15200bca0bcd6d8dfa027d0d8cedf25ab94a835550055365a01c"
+    },
+    "Grounded Hydroshroom": {
+      "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Grounded Hydroshroom/neutral-v001.png",
+      "candidate_sha256": "8f1d70b4c2899c13588942e476e646e93ad3eedf9d95f10a79dd7ac44b1de784",
+      "live_sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Grounded Hydroshroom/neutral.png",
+      "backup_sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/backups/silly-teyvat-original-neutrals-2026-10-30-01/neutral-before/Grounded Hydroshroom/neutral.png",
+      "previous_sha256": "7478793ae52dc144576f614a5de682b37814a8154ba1b44f5b3df6cdfee53de7"
+    },
+    "Ifa": {
+      "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Ifa/neutral-v002.png",
+      "candidate_sha256": "fcad0c7f6d2fa49ccaa615d83af96a400a697481988d228db4c186378f34b1dd",
+      "live_sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Ifa/neutral.png",
+      "backup_sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/backups/silly-teyvat-original-neutrals-2026-10-30-01/neutral-before/Ifa/neutral.png",
+      "previous_sha256": "0cb2da4aae4dfecb21aa998c46157e053be91eb0fea8727e4f889701913c3545"
+    },
+    "Illuga": {
+      "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Illuga/neutral-v001.png",
+      "candidate_sha256": "9d1c902f98172411dbd8f11c76129cc8d2d0da53d67f3cf936b358161e1b7ff8",
+      "live_sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Illuga/neutral.png",
+      "backup_sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/backups/silly-teyvat-original-neutrals-2026-10-30-01/neutral-before/Illuga/neutral.png",
+      "previous_sha256": "518f744dd7b71c4263ddda716f631eee28aaf62afc0e77d709aabc71cd6e26fe"
+    },
+    "Ineffa": {
+      "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Ineffa/neutral-v001.png",
+      "candidate_sha256": "ac5596480ccda14b05b86bcaa04b06a4e86d1fe2a0b0606dd6a4a816c370b400",
+      "live_sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Ineffa/neutral.png",
+      "backup_sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/backups/silly-teyvat-original-neutrals-2026-10-30-01/neutral-before/Ineffa/neutral.png",
+      "previous_sha256": "d87705ca0a0a3318340bc703432f1bada1f97ff0230f48403002c476e6a835f0"
+    },
+    "Jahoda": {
+      "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Jahoda/neutral-v001.png",
+      "candidate_sha256": "135e58cfad8fa511cde8844016f3f8a6b6fb0d6e3d78b33341a637bac9d8aaf3",
+      "live_sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Jahoda/neutral.png",
+      "backup_sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/backups/silly-teyvat-original-neutrals-2026-10-30-01/neutral-before/Jahoda/neutral.png",
+      "previous_sha256": "272d0d3316d573f7890f0c8ca6ad53ac6cc5dd1ea9d6387796bf07804dce6584"
+    },
+    "Jean": {
+      "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Jean/neutral-v002.png",
+      "candidate_sha256": "d6fd779c9a11b673d53ee9fc41d0a4c3e9524691b3dcbe1158381ef758783b7d",
+      "live_sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Jean/neutral.png",
+      "backup_sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/backups/silly-teyvat-original-neutrals-2026-10-30-01/neutral-before/Jean/neutral.png",
+      "previous_sha256": "33cd18f8fa330e6337545e9c36fdc5b2b79ab051debae4426ba8f76fcf9842ec"
+    },
+    "Kaedehara Kazuha": {
+      "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Kaedehara Kazuha/neutral-v001.png",
+      "candidate_sha256": "48cf108593cef630e228a787e41fff0bcbe49cf7e6aebc20929e6c0a807f07ab",
+      "live_sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Kaedehara Kazuha/neutral.png",
+      "backup_sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/backups/silly-teyvat-original-neutrals-2026-10-30-01/neutral-before/Kaedehara Kazuha/neutral.png",
+      "previous_sha256": "ce9893c8e72df3d27ddedf350e23c28b6fe294dd02f5832041d9dceff8fe349a"
+    },
+    "Kaeya": {
+      "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Kaeya/neutral-v001.png",
+      "candidate_sha256": "7efaf3537463789688e903f99c3b4c6488a4be681b502d44b1a523f7bbb4811c",
+      "live_sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Kaeya/neutral.png",
+      "backup_sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/backups/silly-teyvat-original-neutrals-2026-10-30-01/neutral-before/Kaeya/neutral.png",
+      "previous_sha256": "2c8c4287342e4a46d427c122d006b905cc74ef28baf47bd9b255bf9f5a9b966f"
+    },
+    "Kairagi Dancing Thunder": {
+      "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Kairagi Dancing Thunder/neutral-v001.png",
+      "candidate_sha256": "7d169a1fe6faf5b1f377fb53d7b9d5a75837d0fee072f0c39d491d492aeb8eef",
+      "live_sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Kairagi Dancing Thunder/neutral.png",
+      "backup_sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/backups/silly-teyvat-original-neutrals-2026-10-30-01/neutral-before/Kairagi Dancing Thunder/neutral.png",
+      "previous_sha256": "d873dc6a751ec218807f84c9d7ee59da252795ed686f6ab84b827e532418d39b"
+    },
+    "Kairagi Fiery Might": {
+      "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Kairagi Fiery Might/neutral-v001.png",
+      "candidate_sha256": "0f08346dfb9ea3a3523291dc6356556b4ba4d585753b907fa689be045c672930",
+      "live_sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Kairagi Fiery Might/neutral.png",
+      "backup_sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/backups/silly-teyvat-original-neutrals-2026-10-30-01/neutral-before/Kairagi Fiery Might/neutral.png",
+      "previous_sha256": "a2e6859fe6d5286902a6b6b2a72a513617f5c599a08980a7a439ea78572cc340"
+    },
+    "Kamisato Ayaka": {
+      "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Kamisato Ayaka/neutral-v002.png",
+      "candidate_sha256": "25cd519ef584e3393eef5e1e7e484a70ce82da83ee4eae92609adaee8b28cc7c",
+      "live_sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Kamisato Ayaka/neutral.png",
+      "backup_sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/backups/silly-teyvat-original-neutrals-2026-10-30-01/neutral-before/Kamisato Ayaka/neutral.png",
+      "previous_sha256": "6cb998c4d3ce2e7d721dceece73036cf9e60430286f5ed0253a6d7995f3ca123"
+    },
+    "Kamisato Ayato": {
+      "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Kamisato Ayato/neutral-v001.png",
+      "candidate_sha256": "6779c52f68ee814c8dc888e988fc1fa82a26bcdec9bc0a23595caaf9a144f18a",
+      "live_sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Kamisato Ayato/neutral.png",
+      "backup_sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/backups/silly-teyvat-original-neutrals-2026-10-30-01/neutral-before/Kamisato Ayato/neutral.png",
+      "previous_sha256": "958373d8c6b551bc0c4ecd2698aa37abaca406aa07964f49cff14109a6fbabc1"
+    },
+    "Kaveh": {
+      "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Kaveh/neutral-v001.png",
+      "candidate_sha256": "dbb4108c4c26960199264e70b754828abd0de48a5441e086f0336bfddfbd22c6",
+      "live_sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Kaveh/neutral.png",
+      "backup_sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/backups/silly-teyvat-original-neutrals-2026-10-30-01/neutral-before/Kaveh/neutral.png",
+      "previous_sha256": "6fe9e09def5cf56105a8b745b2bcb477543a074488d88697f38cc4d955969b65"
+    },
+    "Keqing": {
+      "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Keqing/neutral-v001.png",
+      "candidate_sha256": "b5b52e521ecb52a46c34f5ed5d56a478766efcc0581e38fc69bd40ecd0d147f2",
+      "live_sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Keqing/neutral.png",
+      "backup_sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/backups/silly-teyvat-original-neutrals-2026-10-30-01/neutral-before/Keqing/neutral.png",
+      "previous_sha256": "8bc924a70586c046cc5c56c1df8cb84a4b3b60aeebe7a3bba5e1f30755f1dc3d"
+    },
+    "Kinich": {
+      "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Kinich/neutral-v001.png",
+      "candidate_sha256": "45fcdd3e3c59eba880fe1c06e224b6a1c9266f0c64f7d6e7c751239da5de862d",
+      "live_sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Kinich/neutral.png",
+      "backup_sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/backups/silly-teyvat-original-neutrals-2026-10-30-01/neutral-before/Kinich/neutral.png",
+      "previous_sha256": "216dc4f78bd9e820356211a9c5aecec816eb36d5ac6905701e922f7c0344673f"
+    },
+    "Kirara": {
+      "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Kirara/neutral-v002.png",
+      "candidate_sha256": "793cda5e95a21ddd1efaeadc46990a3bb964e2a0434596636fa3bf9cffd221ef",
+      "live_sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Kirara/neutral.png",
+      "backup_sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/backups/silly-teyvat-original-neutrals-2026-10-30-01/neutral-before/Kirara/neutral.png",
+      "previous_sha256": "0402b4712ad0321a17c6dfd1c854879b610621c53613e1ffe382b25ec9b92f97"
+    },
+    "Kujou Sara": {
+      "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Kujou Sara/neutral-v001.png",
+      "candidate_sha256": "584c0907d3ed5340c838b0fb4ac4072f3eedb2c1f31bc1a36259b847548c9560",
+      "live_sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Kujou Sara/neutral.png",
+      "backup_sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/backups/silly-teyvat-original-neutrals-2026-10-30-01/neutral-before/Kujou Sara/neutral.png",
+      "previous_sha256": "d260330b3e57211627b13b4760c91f0756cd151d8b673d86925723570bfc33a1"
+    },
+    "Kuki Shinobu": {
+      "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Kuki Shinobu/neutral-v001.png",
+      "candidate_sha256": "be128c9b3e026a988baf331524b219341fd46733b019ef31c5c8c9bd74244bb1",
+      "live_sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Kuki Shinobu/neutral.png",
+      "backup_sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/backups/silly-teyvat-original-neutrals-2026-10-30-01/neutral-before/Kuki Shinobu/neutral.png",
+      "previous_sha256": "e06f037681e6951260da3720a856dafbdb40336f3308a254e11bc9ea937aa8bb"
+    },
+    "Lan Yan": {
+      "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Lan Yan/neutral-v001.png",
+      "candidate_sha256": "b9aac544ee606341210c2b1592bb26a1f2f5dd6c12fa5d97326261c3ee1b5699",
+      "live_sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Lan Yan/neutral.png",
+      "backup_sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/backups/silly-teyvat-original-neutrals-2026-10-30-01/neutral-before/Lan Yan/neutral.png",
+      "previous_sha256": "e3e87db153eeab7b6d4f2d33449cd302565c37990bbdd31404567e3cdfb9b97a"
+    },
+    "Lauma": {
+      "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Lauma/neutral-v001.png",
+      "candidate_sha256": "6d2f176dd61354d6f28b8f39708aa4e495edfd9f99fd071c2aa615f6c8e311d3",
+      "live_sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Lauma/neutral.png",
+      "backup_sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/backups/silly-teyvat-original-neutrals-2026-10-30-01/neutral-before/Lauma/neutral.png",
+      "previous_sha256": "d46a47fbb8a9069a45866a16832e7eef789160eb0e370b956b78abc543df2a75"
+    },
+    "Layla": {
+      "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Layla/neutral-v001.png",
+      "candidate_sha256": "9aa24d3bde1a14b363029fc61ce5d83ad09234fc7f07385c73378417e9bf72e1",
+      "live_sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Layla/neutral.png",
+      "backup_sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/backups/silly-teyvat-original-neutrals-2026-10-30-01/neutral-before/Layla/neutral.png",
+      "previous_sha256": "144ee0a4013da0a0048ddda5b02a6d7d9baa92523d36a9343e00a8338bbeb273"
+    },
+    "Linnea": {
+      "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Linnea/neutral-v001.png",
+      "candidate_sha256": "f75e9b5a6e70a75d8c25026a292fd4b08e9c80417d8492396726544ef65fba03",
+      "live_sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Linnea/neutral.png",
+      "backup_sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/backups/silly-teyvat-original-neutrals-2026-10-30-01/neutral-before/Linnea/neutral.png",
+      "previous_sha256": "0a0efb31fdc829418b8bc1691dff3cab3e999921c6c41f9df57aee11117b097f"
+    },
+    "Lohen": {
+      "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Lohen/neutral-v001.png",
+      "candidate_sha256": "a139092e0e87fdaac90db63089e547442e082ffbf381543763dfbf412ab2b97a",
+      "live_sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Lohen/neutral.png",
+      "backup_sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/backups/silly-teyvat-original-neutrals-2026-10-30-01/neutral-before/Lohen/neutral.png",
+      "previous_sha256": "5c702bfb36abd832b6f810c02aaa935248f589acadcddbb1768380686014f8d8"
+    },
+    "Lynette": {
+      "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Lynette/neutral-v002.png",
+      "candidate_sha256": "ef58c642ae0ecef482e1495b476fb0259e51c3ec5a1641450df49c26ec84f74e",
+      "live_sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Lynette/neutral.png",
+      "backup_sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/backups/silly-teyvat-original-neutrals-2026-10-30-01/neutral-before/Lynette/neutral.png",
+      "previous_sha256": "e222660f6b01595b43af13240b246eee271a82e9795918566df75073231a22b9"
+    },
+    "Lyney": {
+      "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Lyney/neutral-v001.png",
+      "candidate_sha256": "6438314e7e517427314eb599a70da22a8fdabce717403fa7b662057158492da5",
+      "live_sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Lyney/neutral.png",
+      "backup_sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/backups/silly-teyvat-original-neutrals-2026-10-30-01/neutral-before/Lyney/neutral.png",
+      "previous_sha256": "de3d72d036f121829f37a8b2874d4ad0a033248349d1c4a900afa9a9fb9d7fdc"
+    },
+    "Mavuika": {
+      "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Mavuika/neutral-v002.png",
+      "candidate_sha256": "8c72d12bfaae1cd3d49dd5d1b0701e976bf0b1e84e1b7be22bf10712ce464291",
+      "live_sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Mavuika/neutral.png",
+      "backup_sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/backups/silly-teyvat-original-neutrals-2026-10-30-01/neutral-before/Mavuika/neutral.png",
+      "previous_sha256": "c22d2b7b22c6c243230f606957243c4aab8ed04013208b6278ef608c210c27ad"
+    },
+    "Navia": {
+      "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Navia/neutral-v002.png",
+      "candidate_sha256": "05347c1d1ae1cd8fc6fe1e3ee9d1b2816ed02291f765d3603a3313d28fca534a",
+      "live_sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Navia/neutral.png",
+      "backup_sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/backups/silly-teyvat-original-neutrals-2026-10-30-01/neutral-before/Navia/neutral.png",
+      "previous_sha256": "b40790d1f4675d99ad67c3f49ac908e92dcc8dc8ca83510561cf07ee056cbab9"
+    },
+    "Nefer": {
+      "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Nefer/neutral-v001.png",
+      "candidate_sha256": "932d546bdcb1eb2f9aa8aadc5d8de90355c574bbdea7d9d64ca2bfe34e9bb9a4",
+      "live_sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Nefer/neutral.png",
+      "backup_sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/backups/silly-teyvat-original-neutrals-2026-10-30-01/neutral-before/Nefer/neutral.png",
+      "previous_sha256": "cf5a7f09c572c9e1c436b55f6e3f82adde60fcbb641b29638cd58e0786b0543e"
+    },
+    "Neuvillette": {
+      "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Neuvillette/neutral-v003.png",
+      "candidate_sha256": "ef0811d3de345db5b16e2bdb77ce12714897909ea2df765ea2867e6f8b1817cd",
+      "live_sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Neuvillette/neutral.png",
+      "backup_sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/backups/silly-teyvat-original-neutrals-2026-10-30-01/neutral-before/Neuvillette/neutral.png",
+      "previous_sha256": "f1f9b81c37c20bc7f5e3426d8cf860a4d5e0089909ac172f25f4545b3c492a8b"
+    },
+    "Nicole": {
+      "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Nicole/neutral-v001.png",
+      "candidate_sha256": "e49495533680f4c165a37c6dd7a2ae0067752b60a9550b37656a849041b6edcf",
+      "live_sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Nicole/neutral.png",
+      "backup_sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/backups/silly-teyvat-original-neutrals-2026-10-30-01/neutral-before/Nicole/neutral.png",
+      "previous_sha256": "568b696f7e71d559459433bb95ea78b93fe3371a14e8a55902f080f47bf5dcc0"
+    },
+    "Nilou": {
+      "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Nilou/neutral-v002.png",
+      "candidate_sha256": "159d39e5f595d2137e3b9303745202560aeabb4cde1860e57fa9c7fe58d0cd6d",
+      "live_sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Nilou/neutral.png",
+      "backup_sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/backups/silly-teyvat-original-neutrals-2026-10-30-01/neutral-before/Nilou/neutral.png",
+      "previous_sha256": "53506009f2d0e816bd0ae31662437e1bb862370687bf4a5ac845b153516bc61c"
+    },
+    "Ningguang": {
+      "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Ningguang/neutral-v002.png",
+      "candidate_sha256": "df8b63e71689d4a7936daafad5235d95219bfdd6f46a53419ab6cf8b7b06b43f",
+      "live_sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Ningguang/neutral.png",
+      "backup_sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/backups/silly-teyvat-original-neutrals-2026-10-30-01/neutral-before/Ningguang/neutral.png",
+      "previous_sha256": "b79edb7fd213598d743a33c3874f1048f5191f83bb753d4fd06d2d084b934178"
+    },
+    "Nobushi Hitsukeban": {
+      "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Nobushi Hitsukeban/neutral-v001.png",
+      "candidate_sha256": "3d728d8c3f598c99de421a676b58ac51554b04584cb412857451ee55bf16bb21",
+      "live_sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Nobushi Hitsukeban/neutral.png",
+      "backup_sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/backups/silly-teyvat-original-neutrals-2026-10-30-01/neutral-before/Nobushi Hitsukeban/neutral.png",
+      "previous_sha256": "782ca7f48e937588a4eb94ee9ad64d62f5f5b0a5318bceaaba94b494623f833b"
+    },
+    "Nobushi Jintouban": {
+      "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Nobushi Jintouban/neutral-v001.png",
+      "candidate_sha256": "31d986f26156208a7c9edcaa0bba37ef82ff6abea61745452fe5e367e88f3965",
+      "live_sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Nobushi Jintouban/neutral.png",
+      "backup_sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/backups/silly-teyvat-original-neutrals-2026-10-30-01/neutral-before/Nobushi Jintouban/neutral.png",
+      "previous_sha256": "7ceea1884dd95df2eb960f5fc47fd799de539a0323c0644ebc1bfccfce55cfac"
+    },
+    "Nobushi Kikouban": {
+      "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Nobushi Kikouban/neutral-v001.png",
+      "candidate_sha256": "7c1c2352edbaef82b310f19ecdde7115790f506156b140e810880939a9ff69c2",
+      "live_sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Nobushi Kikouban/neutral.png",
+      "backup_sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/backups/silly-teyvat-original-neutrals-2026-10-30-01/neutral-before/Nobushi Kikouban/neutral.png",
+      "previous_sha256": "24e5b970e12366abc7da7ccaa621986ae184e043ea637c5e4ad15655d0e93f33"
+    },
+    "Noelle": {
+      "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Noelle/neutral-v001.png",
+      "candidate_sha256": "8457cd4fe3f448b007d466d12fa7eb9d86b85cfae0f95cc32fa1d6d6ade2c12b",
+      "live_sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Noelle/neutral.png",
+      "backup_sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/backups/silly-teyvat-original-neutrals-2026-10-30-01/neutral-before/Noelle/neutral.png",
+      "previous_sha256": "b803ee9032e631b4de89b82a89df358e770f953acc656de7e71aa39d01fd4af8"
+    },
+    "Odette": {
+      "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Odette/neutral-v001.png",
+      "candidate_sha256": "9c07165383b38b0a3b8798b1cd63ca3f29f0d4cffc2d2b75f054dc57eed73935",
+      "live_sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Odette/neutral.png",
+      "backup_sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/backups/silly-teyvat-original-neutrals-2026-10-30-01/neutral-before/Odette/neutral.png",
+      "previous_sha256": "b06d5bb30ddde75f509e2eb98430d63107a2c08b0b436fdfc057a7f9cb848202"
+    },
+    "Ororon": {
+      "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Ororon/neutral-v001.png",
+      "candidate_sha256": "7206a6d006a94e70ff66a72db633523949e1a054039ec7a85d61d7cd9459dc60",
+      "live_sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Ororon/neutral.png",
+      "backup_sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/backups/silly-teyvat-original-neutrals-2026-10-30-01/neutral-before/Ororon/neutral.png",
+      "previous_sha256": "06da65f450f282eedb7972bf243e0b913656b89cc3a6f25dd895ad13bc5df046"
+    },
+    "Razor": {
+      "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Razor/neutral-v001.png",
+      "candidate_sha256": "5ef17ee5d1e4a2e1da3bf4051ae06e4c8dd073caff8be5f4e4cf0790270948a0",
+      "live_sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Razor/neutral.png",
+      "backup_sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/backups/silly-teyvat-original-neutrals-2026-10-30-01/neutral-before/Razor/neutral.png",
+      "previous_sha256": "2cf76204f71896c246733940a4d59807deead7c9ecec69a40cf124e9bd4cd3ad"
+    },
+    "Rosaria": {
+      "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Rosaria/neutral-v001.png",
+      "candidate_sha256": "5ccb70fb828797a6329c903178199c84c704605691dbedeb6c55e8259a5a380a",
+      "live_sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Rosaria/neutral.png",
+      "backup_sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/backups/silly-teyvat-original-neutrals-2026-10-30-01/neutral-before/Rosaria/neutral.png",
+      "previous_sha256": "909657ac8eda52da01375aabf3e8bd683c63a0edeb029be07caea83f97bbe59a"
+    },
+    "Ruin Drake Earthguard": {
+      "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Ruin Drake Earthguard/neutral-v001.png",
+      "candidate_sha256": "d5238b669ffe5234141624452b3b3766d306725cb794a3b7d89a473dd2cb0cac",
+      "live_sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Ruin Drake Earthguard/neutral.png",
+      "backup_sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/backups/silly-teyvat-original-neutrals-2026-10-30-01/neutral-before/Ruin Drake Earthguard/neutral.png",
+      "previous_sha256": "9d40170083a02be20fb8ab454175c264104c1a2dab278640524f534027a83b7f"
+    },
+    "Sandrone": {
+      "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Sandrone/neutral-v001.png",
+      "candidate_sha256": "a92d1ef447655e89ef8e41c1d1e16b49a35007333fbd6d92e4c31b334cbcde66",
+      "live_sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Sandrone/neutral.png",
+      "backup_sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/backups/silly-teyvat-original-neutrals-2026-10-30-01/neutral-before/Sandrone/neutral.png",
+      "previous_sha256": "371c979966a6e1538af57cd74db6bbd6541effacd054a302349ec624d88720d8"
+    },
+    "Sangonomiya Kokomi": {
+      "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Sangonomiya Kokomi/neutral-v001.png",
+      "candidate_sha256": "f92d1a8b317b15064da6e39e1fbe8c9f6845e622c6c8de2a81ab997fa91004e8",
+      "live_sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Sangonomiya Kokomi/neutral.png",
+      "backup_sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/backups/silly-teyvat-original-neutrals-2026-10-30-01/neutral-before/Sangonomiya Kokomi/neutral.png",
+      "previous_sha256": "574e05d2d3481226a61d8488d6f6bf73cb488d0eb305b909c660233ede8583be"
+    },
+    "Sethos": {
+      "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Sethos/neutral-v001.png",
+      "candidate_sha256": "21032ae87ede6147b7427b2718ca96d17e44a4c629ec7c9e7aa12088d2e88fa0",
+      "live_sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Sethos/neutral.png",
+      "backup_sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/backups/silly-teyvat-original-neutrals-2026-10-30-01/neutral-before/Sethos/neutral.png",
+      "previous_sha256": "22c4df9b5b4b9f641f182e172545b69baded0677fdfb8cf45dc2851e0cb0456c"
+    },
+    "Shenhe": {
+      "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Shenhe/neutral-v001.png",
+      "candidate_sha256": "27c6ba868c29cd49abb2e2c0709d2d8fa64d2c8b5cc062dfdeab9e7e83c67004",
+      "live_sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Shenhe/neutral.png",
+      "backup_sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/backups/silly-teyvat-original-neutrals-2026-10-30-01/neutral-before/Shenhe/neutral.png",
+      "previous_sha256": "4c9128a17366d9fc4a4ddd430d2036e7ccc6eff24e6defe2b890054c713059ff"
+    },
+    "Shikanoin Heizou": {
+      "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Shikanoin Heizou/neutral-v001.png",
+      "candidate_sha256": "ef39c8253865145e25c47cd2a6706142fb864250d5a58fcff5ea6591d091b2ca",
+      "live_sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Shikanoin Heizou/neutral.png",
+      "backup_sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/backups/silly-teyvat-original-neutrals-2026-10-30-01/neutral-before/Shikanoin Heizou/neutral.png",
+      "previous_sha256": "499020290284f893f6ffb4cbb02396f87dca9d621b5dce5676ac2dbe4c15701d"
+    },
+    "Skirk": {
+      "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Skirk/neutral-v002.png",
+      "candidate_sha256": "c446885dfd29081cf90643f807aa5324dfd713435cb378be838223c257c3d666",
+      "live_sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Skirk/neutral.png",
+      "backup_sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/backups/silly-teyvat-original-neutrals-2026-10-30-01/neutral-before/Skirk/neutral.png",
+      "previous_sha256": "e9ff3fd671716f1c6642cdb7759bbf47f479ae99df9c76ed4432e8cbbba2637f"
+    },
+    "Tartaglia": {
+      "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Tartaglia/neutral-v001.png",
+      "candidate_sha256": "1ebc7d9f3d27068c043a94782e7cc9d03bb976d4a609a146fdfd5182a76c355c",
+      "live_sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Tartaglia/neutral.png",
+      "backup_sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/backups/silly-teyvat-original-neutrals-2026-10-30-01/neutral-before/Tartaglia/neutral.png",
+      "previous_sha256": "e885cfb5189d106f6b9cafe5a1a03ceb34090dd6287c9e6a660657a6623e52de"
+    },
+    "Thoma": {
+      "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Thoma/neutral-v002.png",
+      "candidate_sha256": "ad0fb914f79a0fece602e40efac476669b8871df1d149f32bb1368f21850172d",
+      "live_sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Thoma/neutral.png",
+      "backup_sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/backups/silly-teyvat-original-neutrals-2026-10-30-01/neutral-before/Thoma/neutral.png",
+      "previous_sha256": "232a2055804059464d27a8f42096c98bc14fa01d70c36d14dc340d55002241d3"
+    },
+    "Tighnari": {
+      "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Tighnari/neutral-v001.png",
+      "candidate_sha256": "524b7aa233fca1f82d644882a2d2fa869530e051d27af725b6e9b889594e1c5b",
+      "live_sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Tighnari/neutral.png",
+      "backup_sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/backups/silly-teyvat-original-neutrals-2026-10-30-01/neutral-before/Tighnari/neutral.png",
+      "previous_sha256": "83bc0ec1a8e7b33f3dba49020aab7b2948b7fda82efd57a847872b8f0c33509b"
+    },
+    "Varesa": {
+      "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Varesa/neutral-v001.png",
+      "candidate_sha256": "5fb116cfc861aa375eb4c709f0f76c191b08c5052bf9857d77b8f576a960f3ca",
+      "live_sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Varesa/neutral.png",
+      "backup_sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/backups/silly-teyvat-original-neutrals-2026-10-30-01/neutral-before/Varesa/neutral.png",
+      "previous_sha256": "167d9a6c15c394ceb8f978b25c95ee9fbff792c1a2332d05d73be30bb99f3527"
+    },
+    "Varka": {
+      "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Varka/neutral-v001.png",
+      "candidate_sha256": "14e242b5c802807c7d9dbe7e3352ef05f3452af49aac5b6f48f9b9d6fc46426f",
+      "live_sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Varka/neutral.png",
+      "backup_sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/backups/silly-teyvat-original-neutrals-2026-10-30-01/neutral-before/Varka/neutral.png",
+      "previous_sha256": "a7afdf13e1289ce35ac9cff51272dda176302104ff954f1f78cedd8553fa0070"
+    },
+    "Vesna": {
+      "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Vesna/neutral-v001.png",
+      "candidate_sha256": "34f2da3beb9802a3a787a0905b2401120a8797a61f56d4502f212503f9c72cb5",
+      "live_sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Vesna/neutral.png",
+      "backup_sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/backups/silly-teyvat-original-neutrals-2026-10-30-01/neutral-before/Vesna/neutral.png",
+      "previous_sha256": "747acf89e99ba1e671eee7dad7537e4a49bc24ce4bc34a0c048e5c02401f1752"
+    },
+    "Vodyanitsa": {
+      "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Vodyanitsa/neutral-v001.png",
+      "candidate_sha256": "a6859b8dd44820ea3df112d9600c4df6c482bc7f297d394c48dc8574c553ee4a",
+      "live_sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Vodyanitsa/neutral.png",
+      "backup_sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/backups/silly-teyvat-original-neutrals-2026-10-30-01/neutral-before/Vodyanitsa/neutral.png",
+      "previous_sha256": "931c71f490b93a05959068194231598701442a29e4dc0b9dc2261d6de955f3a3"
+    },
+    "Wanderer": {
+      "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Wanderer/neutral-v005.png",
+      "candidate_sha256": "e61a5bd3eb1bcc24c74c036cae6005e0a95cb4d088148b5febf85a29d7082b9e",
+      "live_sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Wanderer/neutral.png",
+      "backup_sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/backups/silly-teyvat-original-neutrals-2026-10-30-01/neutral-before/Wanderer/neutral.png",
+      "previous_sha256": "e746c4a4b0941b3ccd46497ce1f6cc0aa585db1420d4deb2f5d50bd93ed94a00"
+    },
+    "Wriothesley": {
+      "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Wriothesley/neutral-v001.png",
+      "candidate_sha256": "8e8db0c2e058aa1db7a656a2675b3816e1be04eedbfd4d39f8d86e8345e83c84",
+      "live_sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Wriothesley/neutral.png",
+      "backup_sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/backups/silly-teyvat-original-neutrals-2026-10-30-01/neutral-before/Wriothesley/neutral.png",
+      "previous_sha256": "55bec5c57b87a0c553ca6dca5d5e1900f522b4b69776d3f477578e1da57b0792"
+    },
+    "Xiangling": {
+      "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Xiangling/neutral-v002.png",
+      "candidate_sha256": "df367abe4f6fecdfbe79571f05c46b4bc17a02e04b2bc9550b68e73e818ff8e6",
+      "live_sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Xiangling/neutral.png",
+      "backup_sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/backups/silly-teyvat-original-neutrals-2026-10-30-01/neutral-before/Xiangling/neutral.png",
+      "previous_sha256": "055a3b616c7910c4005aa65473f7502c67dd422fdf10927b1f3700c0aff579d2"
+    },
+    "Xianyun": {
+      "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Xianyun/neutral-v002.png",
+      "candidate_sha256": "4faa9f8c56921f0cfab096362be860e37afb7318662f45132ca074a600c3e423",
+      "live_sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Xianyun/neutral.png",
+      "backup_sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/backups/silly-teyvat-original-neutrals-2026-10-30-01/neutral-before/Xianyun/neutral.png",
+      "previous_sha256": "6c2f16b2031a600c57e8a30944427aa8a8a9ed8b2aa2b4d4bf4f956636665dfe"
+    },
+    "Xiao": {
+      "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Xiao/neutral-v002.png",
+      "candidate_sha256": "cac9f02ac93cfa411f20a2729b2427adc177aa6f00f6b6befdb2cebcc48d1104",
+      "live_sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Xiao/neutral.png",
+      "backup_sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/backups/silly-teyvat-original-neutrals-2026-10-30-01/neutral-before/Xiao/neutral.png",
+      "previous_sha256": "777541c915dcda10c2ea5abaef62f01244b30e98a10d8308c505b7a5f0067b21"
+    },
+    "Xilonen": {
+      "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Xilonen/neutral-v001.png",
+      "candidate_sha256": "be1677f773c39105e0b3d7818fe9f4a7cf5e42bc2b42fc8ee8a02e63ac0294fe",
+      "live_sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Xilonen/neutral.png",
+      "backup_sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/backups/silly-teyvat-original-neutrals-2026-10-30-01/neutral-before/Xilonen/neutral.png",
+      "previous_sha256": "c5eee7b3e25c58cd92c5bedcd6dc7096fab4ed57b2444549048db56b9140dbe2"
+    },
+    "Xingqiu": {
+      "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Xingqiu/neutral-v001.png",
+      "candidate_sha256": "e43efda870321c02f2cfc6b29caed14df032ce71b53130b222bf0d8a0163d327",
+      "live_sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Xingqiu/neutral.png",
+      "backup_sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/backups/silly-teyvat-original-neutrals-2026-10-30-01/neutral-before/Xingqiu/neutral.png",
+      "previous_sha256": "6df27b2a284fc82d6c8c77defc369676f626a4e50e6377ebf06431cfefe01318"
+    },
+    "Xinyan": {
+      "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Xinyan/neutral-v002.png",
+      "candidate_sha256": "89f07fa5ca2f83c6acdd3b93f37528f3ac7b6ea8c9c154531eed8ada908da1eb",
+      "live_sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Xinyan/neutral.png",
+      "backup_sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/backups/silly-teyvat-original-neutrals-2026-10-30-01/neutral-before/Xinyan/neutral.png",
+      "previous_sha256": "3c388124bf4bfaa56ecc3c777e0ffbfbf4b0e73570fa3a413104048c7d45f669"
+    },
+    "Yae Miko": {
+      "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Yae Miko/neutral-v002.png",
+      "candidate_sha256": "d8f85e814fc780e1f036e29ac9bc969196430753cdab101438f7bee8ddc31409",
+      "live_sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Yae Miko/neutral.png",
+      "backup_sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/backups/silly-teyvat-original-neutrals-2026-10-30-01/neutral-before/Yae Miko/neutral.png",
+      "previous_sha256": "6e7529e96bd8d6aace243a4bb63c43690632a47ed2c1fc85b1a2a42da3a76648"
+    },
+    "Yanfei": {
+      "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Yanfei/neutral-v002.png",
+      "candidate_sha256": "856a3cbf5961b53feaffd4b57d3a100fe379c3092424c0391147df25c5d1197d",
+      "live_sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Yanfei/neutral.png",
+      "backup_sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/backups/silly-teyvat-original-neutrals-2026-10-30-01/neutral-before/Yanfei/neutral.png",
+      "previous_sha256": "f12ec506b9ad7433974adb01ec35e635fe66741e537c5d4c0551a776b8b2e240"
+    },
+    "Yelan": {
+      "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Yelan/neutral-v003.png",
+      "candidate_sha256": "97e8c29e386877584609c5323739ff39fda6a07ab70204bb26d3381d6de666d2",
+      "live_sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Yelan/neutral.png",
+      "backup_sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/backups/silly-teyvat-original-neutrals-2026-10-30-01/neutral-before/Yelan/neutral.png",
+      "previous_sha256": "21872073bc967b5f8249dfb133b345868611dc757f04e0d8ff518dd6954de4fe"
+    },
+    "Yoimiya": {
+      "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Yoimiya/neutral-v003.png",
+      "candidate_sha256": "b6b83c23bd97193076bf5086df53226935a7a492153961d655a1b0cc02bedaa0",
+      "live_sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Yoimiya/neutral.png",
+      "backup_sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/backups/silly-teyvat-original-neutrals-2026-10-30-01/neutral-before/Yoimiya/neutral.png",
+      "previous_sha256": "6016df5aabf8d2e8a5dac00567a1740431db99851d5dc0683cfd5a4372ec9004"
+    },
+    "Yumemizuki Mizuki": {
+      "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Yumemizuki Mizuki/neutral-v003.png",
+      "candidate_sha256": "d5a86636948679e7b240e60f32ba120669a82af1173144fab675449eb282a073",
+      "live_sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Yumemizuki Mizuki/neutral.png",
+      "backup_sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/backups/silly-teyvat-original-neutrals-2026-10-30-01/neutral-before/Yumemizuki Mizuki/neutral.png",
+      "previous_sha256": "2d05ca1a6e4bc4661dbe37e0bf1654407e1ae119199062383a05a4f9a10574a1"
+    },
+    "Yun Jin": {
+      "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Yun Jin/neutral-v003.png",
+      "candidate_sha256": "94e1993dfed768080a82831529a05cc83935d6560b6ba52611be4440c83ad3de",
+      "live_sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Yun Jin/neutral.png",
+      "backup_sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/backups/silly-teyvat-original-neutrals-2026-10-30-01/neutral-before/Yun Jin/neutral.png",
+      "previous_sha256": "1b078e4b8b947ec699e9e984b24d9c88728b05e12a91cee02f7419fa218a22a6"
+    },
+    "Zibai": {
+      "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Zibai/neutral-v002.png",
+      "candidate_sha256": "2dfd5c594e1e2aeb07695c6e46133e4089f866dcf9e394c4eed12b1a6c355610",
+      "live_sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Zibai/neutral.png",
+      "backup_sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/backups/silly-teyvat-original-neutrals-2026-10-30-01/neutral-before/Zibai/neutral.png",
+      "previous_sha256": "461d9e5f2301990b496370aba9b07ff1fcaf08727a248b0f4a46090177381b11"
+    }
+  },
+  "card_count": 217,
+  "overrides_before": 173,
+  "overrides_after": 217,
+  "linked_personas_updated": 8,
+  "old_persona_folders": {
+    "teyvat-persona-aether.png": "Aether/Traveler Persona",
+    "teyvat-persona-lumine.png": "Lumine/Traveler Persona",
+    "takeover-Blazing_Axe_Mitachurl.png": "Blazing Axe Mitachurl/Official Art",
+    "takeover-Diluc.png": "Diluc",
+    "takeover-Kachina.png": "Kachina",
+    "takeover-Aino.png": "Aino/Official Art",
+    "takeover-Klee.png": "Klee",
+    "takeover-Hu_Tao.png": "Hu Tao"
+  }
+}

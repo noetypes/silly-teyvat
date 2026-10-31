@@ -1,0 +1,26 @@
+{
+  "reference_original": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Xinyan/Official Art/neutral.png",
+  "reference": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/references/Xinyan/official.png",
+  "reference_sha256": "a576dad7fbba74c49422c9e6e5533892909d5f1eace03a48b2f5356c673a0557",
+  "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/prompts/Xinyan/neutral-v001.txt",
+  "tool": "image_gen.imagegen",
+  "tool_arguments": {
+    "prompt": "Use case: stylized-concept. Asset: full-body neutral visual-novel sprite of Xinyan from Genshin Impact. The supplied installed official transparent character portrait is the primary identity and costume reference. Faithfully preserve the character's face, skin tone, hair, eyes, exact outfit, colors, accessories, and distinctive body type and proportions shown there. Depict a character-appropriate relaxed standing or floating idle pose with a calm natural expression; simple readable hands near the torso, one thumb per hand, two coherent legs and feet where applicable. Show the entire silhouette including headwear, hair, hands, accessories and shoes with about 2\u20134% top and bottom padding. Polished Genshin-inspired anime game artwork on a genuinely transparent background. No scenery, text, UI, watermark, unrelated subjects, detached effects or ground shadow.",
+    "referenced_image_paths": [
+      "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/references/Xinyan/official.png"
+    ],
+    "transparent_background": true
+  },
+  "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/raw/Xinyan/neutral-v001.png",
+  "tool_output": "/Users/alexachan/.codex/generated_images/01a18ab4-9b84-7b52-968f-6df209e09510/exec-f6e259c1-d4bc-4f88-96ba-369ec56c8c6c.png",
+  "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Xinyan/neutral-v001.png",
+  "candidate_sha256": "f7a5eb7b8c9f375608638df73d28868659fc2b8e830ab8118f309922364ead66",
+  "size": [
+    956,
+    1646
+  ],
+  "png_color_type": 6,
+  "approval": {
+    "status": "pending"
+  }
+}

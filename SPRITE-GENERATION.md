@@ -4,7 +4,7 @@ This workflow records the user's instructions from 2026-10-27. It replaces the o
 
 ## Reference graph: keep it shallow
 
-Use the character's **official transparent portrait as the primary image reference**. The installed sources are normally:
+For a new neutral, use the character's **official transparent portrait as the sole image reference**. The installed sources are normally:
 
 ```text
 /Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/<Character>/Official Art/neutral.png
@@ -19,10 +19,10 @@ official portrait -> neutral candidate -> user-approved neutral -> expression
 ```
 
 - New neutrals use the official portrait. Do not feed a previous generated neutral candidate, repair, expression, contact sheet, or generated proportion guide back into the image generator.
-- Expressions may use the explicitly approved neutral, with the official portrait retained as the primary identity reference. Every expression independently starts from these same approved inputs.
+- Expressions use **only the explicitly approved neutral** as their image reference. Do not include the official portrait. Every expression independently starts from that same approved neutral so the character's proportions remain consistent.
 - Never use one expression as the reference for another. Never make repair chains such as neutral -> repair -> repair or expression -> repair -> repair.
 - If the user reports a defect in an unapproved neutral, revise the **prompt** and regenerate from the **official portrait**. Do not use the defective candidate as an input.
-- If the user reports a defect in an expression, revise the **prompt** and regenerate from the **approved neutral and official portrait**. Do not use the defective expression as an input.
+- If the user reports a defect in an expression, revise the **prompt** and regenerate from the **approved neutral only**. Do not use the defective expression as an input.
 - If the user reports a defect in an approved neutral itself, treat its approval as revoked, regenerate from official art, and wait for approval of the replacement.
 
 Generated images are terminal candidates, not evolving source artwork. Preserve rejected attempts for provenance, but exclude them from all subsequent input lists.
@@ -57,7 +57,7 @@ Use the user's 2026-10-27 review as prompt-design feedback for all future sprite
 - Specify exactly two legs and two feet belonging to one pelvis. For poses prone to overlapping legs, use an uncomplicated stance with feet separated or only slightly staggered; do not let crossed legs, stockings or coat tails read as an additional limb.
 - Give the face one coherent mouth with a simple readable lip shape. For disgust, a small closed displeased mouth or restrained nose scrunch is preferable to a twisted open mouth, extra lip contours or exaggerated teeth.
 - Heart alternates need **both eyes visibly open** and filled heart-shaped pupils clearly placed inside the retained irises. State the actual pupil colour. They are pupils, not catchlights, eye replacements or floating symbols. Keep these instructions out of ordinary expression prompts.
-- These are construction choices for new prompts. If the user flags a result, record the exact reported defect, change the pose description and prompt as needed, and regenerate independently from Official Art plus the approved neutral. Never feed the defective sprite back into generation.
+- These are construction choices for new prompts. If the user flags a result, record the exact reported defect, change the pose description and prompt as needed, and regenerate independently from the approved neutral only. Never feed the defective sprite back into generation.
 
 The active Zhongli pack is an explicit exception to the default 22-file list: the user removed `love-1` and `desire-1`. Keep only `love.png` and `desire.png` for those emotions, for 20 active Zhongli sprites. Do not regenerate or reintroduce his heart alternates unless the user explicitly requests them. Removed files may remain in historical raw/provenance archives, but never in active sprite folders, current previews or delivery packs.
 

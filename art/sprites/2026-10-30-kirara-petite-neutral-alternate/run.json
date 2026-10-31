@@ -1,0 +1,35 @@
+{
+  "status": "approved",
+  "workflow": "SPRITE-GENERATION.md",
+  "reason": "User requested a more petite alternate Kirara neutral on 2026-10-30; prior approved neutral is not approved for continued expressions.",
+  "character": "Kirara",
+  "source_reference_original": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Kirara/Official Art/neutral.png",
+  "source_reference_sha256": "6d7c59dc5c6cdd4d0af6ea8c1a223c7d3d99c9fd82c90caf56088792e1720213",
+  "reference": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-petite-neutral-alternate/references/Kirara/official.png",
+  "reference_sha256": "6d7c59dc5c6cdd4d0af6ea8c1a223c7d3d99c9fd82c90caf56088792e1720213",
+  "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-petite-neutral-alternate/prompts/Kirara/neutral-v001.txt",
+  "tool": "image_gen.imagegen",
+  "tool_arguments": {
+    "prompt": "Use case: stylized-concept. Asset: one full-body neutral visual-novel character sprite of Kirara from Genshin Impact. The supplied installed official transparent Kirara portrait is the sole image reference. Preserve her recognizable face, green eyes, sandy-blond hair, patterned cat ears, curled dark tail, exact blue-and-gold courier outfit, paw-like footwear, colors and accessories. Give her a noticeably more petite Medium Female anime build than the previous neutral: compact torso and limbs, shorter legs relative to her head and body, slightly larger head-to-body ratio, narrow relaxed shoulders, and an overall small nimble silhouette. Keep her anatomy coherent and natural, without shrinking just the canvas or cropping the figure. Face mostly toward the viewer in a relaxed neutral standing pose with simple empty hands near the torso, feet apart and uncrossed, and a calm natural expression. Show the complete silhouette including ears, tail, hair, hands and shoes with roughly 2\u20134% top and bottom padding. Polished Genshin-inspired anime game artwork on a genuinely transparent background. No scenery, UI, labels, text, watermark, weapon, handheld prop, detached effect or ground shadow.",
+    "referenced_image_paths": [
+      "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-petite-neutral-alternate/references/Kirara/official.png"
+    ],
+    "transparent_background": true
+  },
+  "approval": {
+    "status": "approved",
+    "message": "Petite Kirara is APPROVED, Continue with the 3 sprite sheets",
+    "date": "2026-10-30",
+    "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-petite-neutral-alternate/candidates/Kirara/neutral-v001.png",
+    "candidate_sha256": "445748ee9d3ee7092a64f9d2547783a1a83c98b40b742ee2ff21829f3538b528"
+  },
+  "tool_output": "/Users/alexachan/.codex/generated_images/01a18f4f-81b5-7563-af9a-c0b247c8db69/exec-2429fc4d-2b5b-461d-8060-73879292c671.png",
+  "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-petite-neutral-alternate/raw/Kirara/neutral-v001.png",
+  "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-petite-neutral-alternate/candidates/Kirara/neutral-v001.png",
+  "candidate_sha256": "445748ee9d3ee7092a64f9d2547783a1a83c98b40b742ee2ff21829f3538b528",
+  "size": [
+    941,
+    1672
+  ],
+  "png_color_type": 6
+}

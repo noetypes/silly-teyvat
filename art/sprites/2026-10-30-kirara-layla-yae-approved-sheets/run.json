@@ -1,0 +1,1364 @@
+{
+  "status": "complete",
+  "workflow": "SPRITE-GENERATION.md",
+  "emotions": [
+    "neutral",
+    "annoyance",
+    "smug",
+    "confusion",
+    "love",
+    "excitement",
+    "joy",
+    "fear",
+    "pride",
+    "desire",
+    "anger",
+    "grief",
+    "sadness",
+    "disgust",
+    "disappointment",
+    "relief",
+    "admiration",
+    "gratitude",
+    "embarrassment",
+    "caring",
+    "love-1",
+    "desire-1"
+  ],
+  "characters": {
+    "Kirara": {
+      "approved_neutral_source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-petite-neutral-alternate/candidates/Kirara/neutral-v001.png",
+      "approved_neutral_sha256": "445748ee9d3ee7092a64f9d2547783a1a83c98b40b742ee2ff21829f3538b528",
+      "approval": {
+        "status": "approved",
+        "message": "Petite Kirara is APPROVED, Continue with the 3 sprite sheets",
+        "date": "2026-10-30",
+        "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-petite-neutral-alternate/candidates/Kirara/neutral-v001.png",
+        "candidate_sha256": "445748ee9d3ee7092a64f9d2547783a1a83c98b40b742ee2ff21829f3538b528"
+      },
+      "reference": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/references/Kirara/approved-neutral.png",
+      "sprites": {
+        "neutral": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/sprites/Kirara/neutral.png",
+          "sha256": "445748ee9d3ee7092a64f9d2547783a1a83c98b40b742ee2ff21829f3538b528",
+          "source": "approved neutral copy"
+        },
+        "annoyance": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/sprites/Kirara/annoyance.png",
+          "sha256": "88652eca75280fa3bb18ba394722bb316fb0fc11a297c156b601e24b89082db8",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/raw/Kirara/annoyance.png",
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a18f4f-81b5-7563-af9a-c0b247c8db69/exec-b4f385dc-c838-4103-887d-08f5eda5b859.png",
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/prompts/Kirara/annoyance.txt",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Asset: one full-body transparent visual-novel expression sprite of Kirara from Genshin Impact, emotion: annoyance. Input image: the sole reference is the user's approved neutral Kirara sprite. Keep her exact face, green eyes, sandy-blond hair, cat ears, curled tail, blue-and-gold outfit, paw-like footwear, petite medium-female build, rendering style and overall identity. Change her acting: mildly irritated knitted brows, a small closed displeased mouth, one hand resting at her hip and the other raised near her torso with a simple restrained gesture. Show two coherent legs and feet in a clear uncrossed stance. Preserve the entire silhouette with roughly 2\u20134% top and bottom padding. True transparent background. No other references, scenery, text, UI, watermark, handheld prop, detached effect, or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/references/Kirara/approved-neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "size": [
+            941,
+            1672
+          ],
+          "png_color_type": 6
+        },
+        "smug": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/sprites/Kirara/smug.png",
+          "sha256": "82478bf88a4786de591b1060a50aa7fe1818d482f7a5c14facb021913fddf429",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/raw/Kirara/smug.png",
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a18f4f-81b5-7563-af9a-c0b247c8db69/exec-ef4d18fb-fc87-4222-a785-dd16b349c7b0.png",
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/prompts/Kirara/smug.txt",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Asset: one full-body transparent visual-novel expression sprite of Kirara from Genshin Impact, emotion: smug. Input image: the sole reference is the user-approved neutral sprite of Kirara. Faithfully preserve that image\u2019s exact face, skin tone, hair, eyes, costume, accessories, silhouette, proportions and rendering style. Character: petite medium-female courier with sandy-blond hair, green eyes, cat ears, curled tail, blue-and-gold outfit and paw-like footwear. Acting: A knowing half-smile and raised brow; one hand lightly at the hip, the other poised near the chest. Use simple coherent hands near the torso, one thumb per hand, two legs and two feet in an uncomplicated stance. Keep the complete silhouette including hair, headwear, hands and shoes with roughly 2\u20134% top and bottom padding. Genuinely transparent background. No official portrait or other image references, scenery, text, UI, watermark, weapons, handheld props, companions, detached effects, or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/references/Kirara/approved-neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "size": [
+            941,
+            1672
+          ],
+          "png_color_type": 6
+        },
+        "confusion": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/sprites/Kirara/confusion.png",
+          "sha256": "1fd72b81698fcaa84d3971a9cefed6d264b9b9e7fa52b138340f18f5587943ca",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/raw/Kirara/confusion.png",
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a18f4f-81b5-7563-af9a-c0b247c8db69/exec-9197adf2-3912-421f-b5ee-aa259a20e6f0.png",
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/prompts/Kirara/confusion.txt",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Asset: one full-body transparent visual-novel expression sprite of Kirara from Genshin Impact, emotion: confusion. Input image: the sole reference is the user-approved neutral sprite of Kirara. Faithfully preserve that image\u2019s exact face, skin tone, hair, eyes, costume, accessories, silhouette, proportions and rendering style. Character: petite medium-female courier with sandy-blond hair, green eyes, cat ears, curled tail, blue-and-gold outfit and paw-like footwear. Acting: Curious tilted head, lifted brows and slightly parted mouth; one hand near the chin, the other relaxed. Use simple coherent hands near the torso, one thumb per hand, two legs and two feet in an uncomplicated stance. Keep the complete silhouette including hair, headwear, hands and shoes with roughly 2\u20134% top and bottom padding. Genuinely transparent background. No official portrait or other image references, scenery, text, UI, watermark, weapons, handheld props, companions, detached effects, or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/references/Kirara/approved-neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "size": [
+            941,
+            1672
+          ],
+          "png_color_type": 6
+        },
+        "love": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/sprites/Kirara/love.png",
+          "sha256": "4f2c90ffd0c9df3110070bc949eb902d2fa6c6f0a0d6bf6d6cbb13d78557586c",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/raw/Kirara/love.png",
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a18f4f-81b5-7563-af9a-c0b247c8db69/exec-0a033175-ff49-4437-ba11-b5e5484d2b73.png",
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/prompts/Kirara/love.txt",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Asset: one full-body transparent visual-novel expression sprite of Kirara from Genshin Impact, emotion: love. Input image: the sole reference is the user-approved neutral sprite of Kirara. Faithfully preserve that image\u2019s exact face, skin tone, hair, eyes, costume, accessories, silhouette, proportions and rendering style. Character: petite medium-female courier with sandy-blond hair, green eyes, cat ears, curled tail, blue-and-gold outfit and paw-like footwear. Acting: Tender open-eyed affectionate smile; one hand softly over the heart and the other gently extended nearby. Normal pupils. Use simple coherent hands near the torso, one thumb per hand, two legs and two feet in an uncomplicated stance. Keep the complete silhouette including hair, headwear, hands and shoes with roughly 2\u20134% top and bottom padding. Genuinely transparent background. No official portrait or other image references, scenery, text, UI, watermark, weapons, handheld props, companions, detached effects, or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/references/Kirara/approved-neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "size": [
+            941,
+            1672
+          ],
+          "png_color_type": 6
+        },
+        "excitement": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/sprites/Kirara/excitement.png",
+          "sha256": "414e167872e31308dca8e210d000ef4d6c17955b2393eb0274bcaa01c3b4962d",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/raw/Kirara/excitement.png",
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a18f4f-81b5-7563-af9a-c0b247c8db69/exec-e3ba508d-9868-4f97-a3cd-8a81f5404482.png",
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/prompts/Kirara/excitement.txt",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Asset: one full-body transparent visual-novel expression sprite of Kirara from Genshin Impact, emotion: excitement. Input image: the sole reference is the user-approved neutral sprite of Kirara. Faithfully preserve that image\u2019s exact face, skin tone, hair, eyes, costume, accessories, silhouette, proportions and rendering style. Character: petite medium-female courier with sandy-blond hair, green eyes, cat ears, curled tail, blue-and-gold outfit and paw-like footwear. Acting: Bright eager grin and lively eyes; both hands lifted in small clear celebratory gestures near the shoulders. Use simple coherent hands near the torso, one thumb per hand, two legs and two feet in an uncomplicated stance. Keep the complete silhouette including hair, headwear, hands and shoes with roughly 2\u20134% top and bottom padding. Genuinely transparent background. No official portrait or other image references, scenery, text, UI, watermark, weapons, handheld props, companions, detached effects, or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/references/Kirara/approved-neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "size": [
+            941,
+            1670
+          ],
+          "png_color_type": 6
+        },
+        "joy": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/sprites/Kirara/joy.png",
+          "sha256": "51959dadaa157ecc221de4f6610d135f60cd8e8c18f6d857a35d422e20746534",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/raw/Kirara/joy.png",
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a18f4f-81b5-7563-af9a-c0b247c8db69/exec-442353d4-7eff-4db7-be5d-8172de9e18fb.png",
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/prompts/Kirara/joy.txt",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Asset: one full-body transparent visual-novel expression sprite of Kirara from Genshin Impact, emotion: joy. Input image: the sole reference is the user-approved neutral sprite of Kirara. Faithfully preserve that image\u2019s exact face, skin tone, hair, eyes, costume, accessories, silhouette, proportions and rendering style. Character: petite medium-female courier with sandy-blond hair, green eyes, cat ears, curled tail, blue-and-gold outfit and paw-like footwear. Acting: Warm beaming smile, relaxed shoulders; one hand lifted in a friendly wave and the other at the torso. Use simple coherent hands near the torso, one thumb per hand, two legs and two feet in an uncomplicated stance. Keep the complete silhouette including hair, headwear, hands and shoes with roughly 2\u20134% top and bottom padding. Genuinely transparent background. No official portrait or other image references, scenery, text, UI, watermark, weapons, handheld props, companions, detached effects, or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/references/Kirara/approved-neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "size": [
+            941,
+            1672
+          ],
+          "png_color_type": 6
+        },
+        "fear": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/sprites/Kirara/fear.png",
+          "sha256": "d44914bb942072778f85dec4032596a3405e4f2b9860e3ad7b249eb021cf19bb",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/raw/Kirara/fear.png",
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a18f4f-81b5-7563-af9a-c0b247c8db69/exec-9e949330-22cb-438e-91b2-adf339761afd.png",
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/prompts/Kirara/fear.txt",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Asset: one full-body transparent visual-novel expression sprite of Kirara from Genshin Impact, emotion: fear. Input image: the sole reference is the user-approved neutral sprite of Kirara. Faithfully preserve that image\u2019s exact face, skin tone, hair, eyes, costume, accessories, silhouette, proportions and rendering style. Character: petite medium-female courier with sandy-blond hair, green eyes, cat ears, curled tail, blue-and-gold outfit and paw-like footwear. Acting: Wide worried eyes, tense brows and small open mouth; shoulders drawn in, both hands held close to the chest. Use simple coherent hands near the torso, one thumb per hand, two legs and two feet in an uncomplicated stance. Keep the complete silhouette including hair, headwear, hands and shoes with roughly 2\u20134% top and bottom padding. Genuinely transparent background. No official portrait or other image references, scenery, text, UI, watermark, weapons, handheld props, companions, detached effects, or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/references/Kirara/approved-neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "size": [
+            941,
+            1672
+          ],
+          "png_color_type": 6
+        },
+        "pride": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/sprites/Kirara/pride.png",
+          "sha256": "f54a3ad6edb7b137eb85579b28157f2dd25aa6ab74abcca65d733a4af46990e1",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/raw/Kirara/pride.png",
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a18f4f-81b5-7563-af9a-c0b247c8db69/exec-0ba80c77-d094-477e-b481-43218c8bf5f4.png",
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/prompts/Kirara/pride.txt",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Asset: one full-body transparent visual-novel expression sprite of Kirara from Genshin Impact, emotion: pride. Input image: the sole reference is the user-approved neutral sprite of Kirara. Faithfully preserve that image\u2019s exact face, skin tone, hair, eyes, costume, accessories, silhouette, proportions and rendering style. Character: petite medium-female courier with sandy-blond hair, green eyes, cat ears, curled tail, blue-and-gold outfit and paw-like footwear. Acting: Confident upright posture, pleased smile and lifted chin; one hand at the hip and the other resting near the chest. Use simple coherent hands near the torso, one thumb per hand, two legs and two feet in an uncomplicated stance. Keep the complete silhouette including hair, headwear, hands and shoes with roughly 2\u20134% top and bottom padding. Genuinely transparent background. No official portrait or other image references, scenery, text, UI, watermark, weapons, handheld props, companions, detached effects, or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/references/Kirara/approved-neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "size": [
+            941,
+            1672
+          ],
+          "png_color_type": 6
+        },
+        "desire": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/sprites/Kirara/desire.png",
+          "sha256": "59ae0aa1a0befca1f7c22792c709c8200e279525d634be25fea8e0b158740986",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/raw/Kirara/desire.png",
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a18f4f-81b5-7563-af9a-c0b247c8db69/exec-517b302c-7962-47eb-837d-f9f7debc3635.png",
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/prompts/Kirara/desire.txt",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Asset: one full-body transparent visual-novel expression sprite of Kirara from Genshin Impact, emotion: desire. Input image: the sole reference is the user-approved neutral sprite of Kirara. Faithfully preserve that image\u2019s exact face, skin tone, hair, eyes, costume, accessories, silhouette, proportions and rendering style. Character: petite medium-female courier with sandy-blond hair, green eyes, cat ears, curled tail, blue-and-gold outfit and paw-like footwear. Acting: Quiet romantic longing with soft open eyes and a restrained smile; one hand over the heart, the other relaxed near the waist. Normal pupils. Use simple coherent hands near the torso, one thumb per hand, two legs and two feet in an uncomplicated stance. Keep the complete silhouette including hair, headwear, hands and shoes with roughly 2\u20134% top and bottom padding. Genuinely transparent background. No official portrait or other image references, scenery, text, UI, watermark, weapons, handheld props, companions, detached effects, or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/references/Kirara/approved-neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "size": [
+            941,
+            1672
+          ],
+          "png_color_type": 6
+        },
+        "anger": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/sprites/Kirara/anger.png",
+          "sha256": "4fbc49e391f6c0972d712b74a85af67ad7383f3d4c84bac9eb37111cd0c3f77c",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/raw/Kirara/anger.png",
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a18f4f-81b5-7563-af9a-c0b247c8db69/exec-49e86bbb-a451-4167-ba74-73c99d085949.png",
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/prompts/Kirara/anger.txt",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Asset: one full-body transparent visual-novel expression sprite of Kirara from Genshin Impact, emotion: anger. Input image: the sole reference is the user-approved neutral sprite of Kirara. Faithfully preserve that image\u2019s exact face, skin tone, hair, eyes, costume, accessories, silhouette, proportions and rendering style. Character: petite medium-female courier with sandy-blond hair, green eyes, cat ears, curled tail, blue-and-gold outfit and paw-like footwear. Acting: Firm angry brows, sharp but coherent mouth and squared shoulders; one hand at the hip, the other a simple closed fist near the torso. Use simple coherent hands near the torso, one thumb per hand, two legs and two feet in an uncomplicated stance. Keep the complete silhouette including hair, headwear, hands and shoes with roughly 2\u20134% top and bottom padding. Genuinely transparent background. No official portrait or other image references, scenery, text, UI, watermark, weapons, handheld props, companions, detached effects, or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/references/Kirara/approved-neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "size": [
+            941,
+            1672
+          ],
+          "png_color_type": 6
+        },
+        "grief": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/sprites/Kirara/grief.png",
+          "sha256": "6397a51380998b03926a4d28cd39f123d154766a5ec7a3122a79c55585b81160",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/raw/Kirara/grief.png",
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a18f4f-81b5-7563-af9a-c0b247c8db69/exec-48487049-c691-48fd-97dd-c0709a2f47cc.png",
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/prompts/Kirara/grief.txt",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Asset: one full-body transparent visual-novel expression sprite of Kirara from Genshin Impact, emotion: grief. Input image: the sole reference is the user-approved neutral sprite of Kirara. Faithfully preserve that image\u2019s exact face, skin tone, hair, eyes, costume, accessories, silhouette, proportions and rendering style. Character: petite medium-female courier with sandy-blond hair, green eyes, cat ears, curled tail, blue-and-gold outfit and paw-like footwear. Acting: Deep sorrow, lowered brows and tearful eyes; shoulders slumped, one hand over the heart and the other hanging softly. Use simple coherent hands near the torso, one thumb per hand, two legs and two feet in an uncomplicated stance. Keep the complete silhouette including hair, headwear, hands and shoes with roughly 2\u20134% top and bottom padding. Genuinely transparent background. No official portrait or other image references, scenery, text, UI, watermark, weapons, handheld props, companions, detached effects, or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/references/Kirara/approved-neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "size": [
+            941,
+            1672
+          ],
+          "png_color_type": 6
+        },
+        "sadness": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/sprites/Kirara/sadness.png",
+          "sha256": "926207d67f7a9132ca441fa2e4ad6b1171942e27a12e36052c70f6bc4e3b7d67",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/raw/Kirara/sadness.png",
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a18f4f-81b5-7563-af9a-c0b247c8db69/exec-74a4526a-bddd-4470-9c6e-fbf9dd48079e.png",
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/prompts/Kirara/sadness.txt",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Asset: one full-body transparent visual-novel expression sprite of Kirara from Genshin Impact, emotion: sadness. Input image: the sole reference is the user-approved neutral sprite of Kirara. Faithfully preserve that image\u2019s exact face, skin tone, hair, eyes, costume, accessories, silhouette, proportions and rendering style. Character: petite medium-female courier with sandy-blond hair, green eyes, cat ears, curled tail, blue-and-gold outfit and paw-like footwear. Acting: Downcast eyes, small sad mouth and lowered shoulders; one hand near the chest and the other relaxed. Use simple coherent hands near the torso, one thumb per hand, two legs and two feet in an uncomplicated stance. Keep the complete silhouette including hair, headwear, hands and shoes with roughly 2\u20134% top and bottom padding. Genuinely transparent background. No official portrait or other image references, scenery, text, UI, watermark, weapons, handheld props, companions, detached effects, or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/references/Kirara/approved-neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "size": [
+            941,
+            1672
+          ],
+          "png_color_type": 6
+        },
+        "disgust": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/sprites/Kirara/disgust.png",
+          "sha256": "f64e6dba564cc33eb6d3920d68440bbbd07f2aebfcd52836047202fd6b657ccd",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/raw/Kirara/disgust.png",
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a18f4f-81b5-7563-af9a-c0b247c8db69/exec-8046eac5-5e8e-4ef7-922a-1e2ea5c93c55.png",
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/prompts/Kirara/disgust.txt",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Asset: one full-body transparent visual-novel expression sprite of Kirara from Genshin Impact, emotion: disgust. Input image: the sole reference is the user-approved neutral sprite of Kirara. Faithfully preserve that image\u2019s exact face, skin tone, hair, eyes, costume, accessories, silhouette, proportions and rendering style. Character: petite medium-female courier with sandy-blond hair, green eyes, cat ears, curled tail, blue-and-gold outfit and paw-like footwear. Acting: Restrained nose scrunch, narrowed eyes and one small closed displeased mouth; torso leaning slightly back, one hand held away near the waist. Use simple coherent hands near the torso, one thumb per hand, two legs and two feet in an uncomplicated stance. Keep the complete silhouette including hair, headwear, hands and shoes with roughly 2\u20134% top and bottom padding. Genuinely transparent background. No official portrait or other image references, scenery, text, UI, watermark, weapons, handheld props, companions, detached effects, or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/references/Kirara/approved-neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "size": [
+            941,
+            1672
+          ],
+          "png_color_type": 6
+        },
+        "disappointment": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/sprites/Kirara/disappointment.png",
+          "sha256": "0e88228a13a2fab60713ab0bdadd85cf9a3b51f18c1d49f9ac36e37a601ef642",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/raw/Kirara/disappointment.png",
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a18f4f-81b5-7563-af9a-c0b247c8db69/exec-33d53d2a-96dc-4b04-bfd1-6d86377eaf8a.png",
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/prompts/Kirara/disappointment.txt",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Asset: one full-body transparent visual-novel expression sprite of Kirara from Genshin Impact, emotion: disappointment. Input image: the sole reference is the user-approved neutral sprite of Kirara. Faithfully preserve that image\u2019s exact face, skin tone, hair, eyes, costume, accessories, silhouette, proportions and rendering style. Character: petite medium-female courier with sandy-blond hair, green eyes, cat ears, curled tail, blue-and-gold outfit and paw-like footwear. Acting: Tired lowered gaze and faint frown; shoulders settle, one hand at the waist and the other loosely at the side. Use simple coherent hands near the torso, one thumb per hand, two legs and two feet in an uncomplicated stance. Keep the complete silhouette including hair, headwear, hands and shoes with roughly 2\u20134% top and bottom padding. Genuinely transparent background. No official portrait or other image references, scenery, text, UI, watermark, weapons, handheld props, companions, detached effects, or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/references/Kirara/approved-neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "size": [
+            941,
+            1672
+          ],
+          "png_color_type": 6
+        },
+        "relief": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/sprites/Kirara/relief.png",
+          "sha256": "8194ff6cd0e3de362db4e2819ce5d84a9f3d3e842d4ce92db6cf2a8bde420f99",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/raw/Kirara/relief.png",
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a18f4f-81b5-7563-af9a-c0b247c8db69/exec-90035a56-40eb-4e10-9ffe-036bf326ee0f.png",
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/prompts/Kirara/relief.txt",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Asset: one full-body transparent visual-novel expression sprite of Kirara from Genshin Impact, emotion: relief. Input image: the sole reference is the user-approved neutral sprite of Kirara. Faithfully preserve that image\u2019s exact face, skin tone, hair, eyes, costume, accessories, silhouette, proportions and rendering style. Character: petite medium-female courier with sandy-blond hair, green eyes, cat ears, curled tail, blue-and-gold outfit and paw-like footwear. Acting: Gentle exhale and relieved smile; shoulders relax, one hand over the chest and the other open near the waist. Use simple coherent hands near the torso, one thumb per hand, two legs and two feet in an uncomplicated stance. Keep the complete silhouette including hair, headwear, hands and shoes with roughly 2\u20134% top and bottom padding. Genuinely transparent background. No official portrait or other image references, scenery, text, UI, watermark, weapons, handheld props, companions, detached effects, or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/references/Kirara/approved-neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "size": [
+            941,
+            1672
+          ],
+          "png_color_type": 6
+        },
+        "admiration": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/sprites/Kirara/admiration.png",
+          "sha256": "a34fd8f936f01460435c1d88f7ff9ac1995ca81c7a0898834ad37d7bee418b68",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/raw/Kirara/admiration.png",
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a18f4f-81b5-7563-af9a-c0b247c8db69/exec-7354d4b1-0ca1-40dc-9cb0-f9855eb8ce28.png",
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/prompts/Kirara/admiration.txt",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Asset: one full-body transparent visual-novel expression sprite of Kirara from Genshin Impact, emotion: admiration. Input image: the sole reference is the user-approved neutral sprite of Kirara. Faithfully preserve that image\u2019s exact face, skin tone, hair, eyes, costume, accessories, silhouette, proportions and rendering style. Character: petite medium-female courier with sandy-blond hair, green eyes, cat ears, curled tail, blue-and-gold outfit and paw-like footwear. Acting: Bright attentive eyes and respectful smile; head slightly raised, one open hand near the chest and the other relaxed. Use simple coherent hands near the torso, one thumb per hand, two legs and two feet in an uncomplicated stance. Keep the complete silhouette including hair, headwear, hands and shoes with roughly 2\u20134% top and bottom padding. Genuinely transparent background. No official portrait or other image references, scenery, text, UI, watermark, weapons, handheld props, companions, detached effects, or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/references/Kirara/approved-neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "size": [
+            941,
+            1672
+          ],
+          "png_color_type": 6
+        },
+        "gratitude": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/sprites/Kirara/gratitude.png",
+          "sha256": "835445b070ba192c8a268cf2bcb97c663f12b12a0b7128baf5b5fdcb38094d42",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/raw/Kirara/gratitude.png",
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a18f4f-81b5-7563-af9a-c0b247c8db69/exec-5de22b9c-e66c-4cb4-88ba-db9e5556c861.png",
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/prompts/Kirara/gratitude.txt",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Asset: one full-body transparent visual-novel expression sprite of Kirara from Genshin Impact, emotion: gratitude. Input image: the sole reference is the user-approved neutral sprite of Kirara. Faithfully preserve that image\u2019s exact face, skin tone, hair, eyes, costume, accessories, silhouette, proportions and rendering style. Character: petite medium-female courier with sandy-blond hair, green eyes, cat ears, curled tail, blue-and-gold outfit and paw-like footwear. Acting: Sincere warm smile and slight respectful incline; one hand over the heart, the other open at the side. Use simple coherent hands near the torso, one thumb per hand, two legs and two feet in an uncomplicated stance. Keep the complete silhouette including hair, headwear, hands and shoes with roughly 2\u20134% top and bottom padding. Genuinely transparent background. No official portrait or other image references, scenery, text, UI, watermark, weapons, handheld props, companions, detached effects, or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/references/Kirara/approved-neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "size": [
+            941,
+            1672
+          ],
+          "png_color_type": 6
+        },
+        "embarrassment": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/sprites/Kirara/embarrassment.png",
+          "sha256": "241eae47fe034fa2f3d927ca73f492214be8150b1cb92c61e2be8f844403030d",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/raw/Kirara/embarrassment.png",
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a18f4f-81b5-7563-af9a-c0b247c8db69/exec-e4923a71-1b0e-4885-9c38-cd960a69fca0.png",
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/prompts/Kirara/embarrassment.txt",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Asset: one full-body transparent visual-novel expression sprite of Kirara from Genshin Impact, emotion: embarrassment. Input image: the sole reference is the user-approved neutral sprite of Kirara. Faithfully preserve that image\u2019s exact face, skin tone, hair, eyes, costume, accessories, silhouette, proportions and rendering style. Character: petite medium-female courier with sandy-blond hair, green eyes, cat ears, curled tail, blue-and-gold outfit and paw-like footwear. Acting: Soft blush, shy averted gaze and small smile; one hand near the cheek and the other close to the torso. Use simple coherent hands near the torso, one thumb per hand, two legs and two feet in an uncomplicated stance. Keep the complete silhouette including hair, headwear, hands and shoes with roughly 2\u20134% top and bottom padding. Genuinely transparent background. No official portrait or other image references, scenery, text, UI, watermark, weapons, handheld props, companions, detached effects, or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/references/Kirara/approved-neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "size": [
+            941,
+            1672
+          ],
+          "png_color_type": 6
+        },
+        "caring": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/sprites/Kirara/caring.png",
+          "sha256": "63e16992dea23138ab6901488a1610fab200189ad3f5715683cdfeb45977a7c8",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/raw/Kirara/caring.png",
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a18f4f-81b5-7563-af9a-c0b247c8db69/exec-26b6ab67-1f4c-40d7-a4aa-5144ea2b848c.png",
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/prompts/Kirara/caring.txt",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Asset: one full-body transparent visual-novel expression sprite of Kirara from Genshin Impact, emotion: caring. Input image: the sole reference is the user-approved neutral sprite of Kirara. Faithfully preserve that image\u2019s exact face, skin tone, hair, eyes, costume, accessories, silhouette, proportions and rendering style. Character: petite medium-female courier with sandy-blond hair, green eyes, cat ears, curled tail, blue-and-gold outfit and paw-like footwear. Acting: Compassionate reassuring gaze and gentle smile; one hand softly extended at chest height, the other over the heart. Use simple coherent hands near the torso, one thumb per hand, two legs and two feet in an uncomplicated stance. Keep the complete silhouette including hair, headwear, hands and shoes with roughly 2\u20134% top and bottom padding. Genuinely transparent background. No official portrait or other image references, scenery, text, UI, watermark, weapons, handheld props, companions, detached effects, or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/references/Kirara/approved-neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "size": [
+            941,
+            1672
+          ],
+          "png_color_type": 6
+        },
+        "love-1": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/sprites/Kirara/love-1.png",
+          "sha256": "21394a8f8c470ff643fac6fd2b85fbe3927b94a57d32ebd5129fd7c7ba47262d",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/raw/Kirara/love-1.png",
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a18f4f-81b5-7563-af9a-c0b247c8db69/exec-a696015d-be5b-42f3-a3b3-e0fdc078f390.png",
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/prompts/Kirara/love-1.txt",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Asset: one full-body transparent visual-novel expression sprite of Kirara from Genshin Impact, emotion: love-1. Input image: the sole reference is the user-approved neutral sprite of Kirara. Faithfully preserve that image\u2019s exact face, skin tone, hair, eyes, costume, accessories, silhouette, proportions and rendering style. Character: petite medium-female courier with sandy-blond hair, green eyes, cat ears, curled tail, blue-and-gold outfit and paw-like footwear. Acting: Tender open-eyed affectionate smile; one hand softly over the heart and the other gently extended nearby. Both eyes visibly open. Keep the original iris colour and detail; change only each pupil to a clearly filled heart shape in pale green. Hearts are pupils inside the irises, not catchlights or floating symbols. Use simple coherent hands near the torso, one thumb per hand, two legs and two feet in an uncomplicated stance. Keep the complete silhouette including hair, headwear, hands and shoes with roughly 2\u20134% top and bottom padding. Genuinely transparent background. No official portrait or other image references, scenery, text, UI, watermark, weapons, handheld props, companions, detached effects, or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/references/Kirara/approved-neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "size": [
+            941,
+            1672
+          ],
+          "png_color_type": 6
+        },
+        "desire-1": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/sprites/Kirara/desire-1.png",
+          "sha256": "7b0fe85ae6d469bcdddcca7d212cb71f328eb483ef0d5a169f6a0572b1992371",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/raw/Kirara/desire-1.png",
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a18f4f-81b5-7563-af9a-c0b247c8db69/exec-1897b29c-061b-4472-982b-6d36ef5011f9.png",
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/prompts/Kirara/desire-1.txt",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Asset: one full-body transparent visual-novel expression sprite of Kirara from Genshin Impact, emotion: desire-1. Input image: the sole reference is the user-approved neutral sprite of Kirara. Faithfully preserve that image\u2019s exact face, skin tone, hair, eyes, costume, accessories, silhouette, proportions and rendering style. Character: petite medium-female courier with sandy-blond hair, green eyes, cat ears, curled tail, blue-and-gold outfit and paw-like footwear. Acting: Quiet romantic longing with soft open eyes and a restrained smile; one hand over the heart, the other relaxed near the waist. Both eyes visibly open. Keep the original iris colour and detail; change only each pupil to a clearly filled heart shape in pale green. Hearts are pupils inside the irises, not catchlights or floating symbols. Use simple coherent hands near the torso, one thumb per hand, two legs and two feet in an uncomplicated stance. Keep the complete silhouette including hair, headwear, hands and shoes with roughly 2\u20134% top and bottom padding. Genuinely transparent background. No official portrait or other image references, scenery, text, UI, watermark, weapons, handheld props, companions, detached effects, or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/references/Kirara/approved-neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "size": [
+            941,
+            1672
+          ],
+          "png_color_type": 6
+        }
+      },
+      "previews": {
+        "full_body": "previews/kirara-full-body-sheet.png",
+        "face": "previews/kirara-face-sheet.png"
+      },
+      "archive": "archives/kirara-sprites.zip"
+    },
+    "Layla": {
+      "approved_neutral_source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Layla/neutral-v001.png",
+      "approved_neutral_sha256": "9aa24d3bde1a14b363029fc61ce5d83ad09234fc7f07385c73378417e9bf72e1",
+      "approval": {
+        "status": "approved",
+        "message": "All others are ACCEPTED.",
+        "date": "2026-10-30",
+        "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Layla/neutral-v001.png",
+        "candidate_sha256": "9aa24d3bde1a14b363029fc61ce5d83ad09234fc7f07385c73378417e9bf72e1"
+      },
+      "reference": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/references/Layla/approved-neutral.png",
+      "sprites": {
+        "neutral": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/sprites/Layla/neutral.png",
+          "sha256": "9aa24d3bde1a14b363029fc61ce5d83ad09234fc7f07385c73378417e9bf72e1",
+          "source": "approved neutral copy"
+        },
+        "annoyance": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/sprites/Layla/annoyance.png",
+          "sha256": "2a8294bd99421c1bb8f647d5039ac71bc744dcb8b3ffc9dee5258f3cf585078d",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/raw/Layla/annoyance.png",
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a18f4f-81b5-7563-af9a-c0b247c8db69/exec-b7c5e3cc-9351-4cc7-97cf-a00c890effc4.png",
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/prompts/Layla/annoyance.txt",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Asset: one full-body transparent visual-novel expression sprite of Layla from Genshin Impact, emotion: annoyance. Input image: the sole reference is the user-approved neutral sprite of Layla. Faithfully preserve that image\u2019s exact face, skin tone, hair, eyes, costume, accessories, silhouette, proportions and rendering style. Character: petite medium-female scholar with blue hair, amber eyes, starry navy hood, blue-and-white costume, gold ornaments and white stockings. Acting: Mildly irritated knitted brows and a small closed displeased mouth; one hand at the hip, the other making a restrained gesture near the torso. Use simple coherent hands near the torso, one thumb per hand, two legs and two feet in an uncomplicated stance. Keep the complete silhouette including hair, headwear, hands and shoes with roughly 2\u20134% top and bottom padding. Genuinely transparent background. No official portrait or other image references, scenery, text, UI, watermark, weapons, handheld props, companions, detached effects, or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/references/Layla/approved-neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "size": [
+            1024,
+            1536
+          ],
+          "png_color_type": 6
+        },
+        "smug": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/sprites/Layla/smug.png",
+          "sha256": "0c93ca71d32489560a6f692193118464fd513feb220ffe9e36305844ef5a3ace",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/raw/Layla/smug.png",
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a18f4f-81b5-7563-af9a-c0b247c8db69/exec-dd53a020-d16b-4dc2-8142-07d7c1186ef2.png",
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/prompts/Layla/smug.txt",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Asset: one full-body transparent visual-novel expression sprite of Layla from Genshin Impact, emotion: smug. Input image: the sole reference is the user-approved neutral sprite of Layla. Faithfully preserve that image\u2019s exact face, skin tone, hair, eyes, costume, accessories, silhouette, proportions and rendering style. Character: petite medium-female scholar with blue hair, amber eyes, starry navy hood, blue-and-white costume, gold ornaments and white stockings. Acting: A knowing half-smile and raised brow; one hand lightly at the hip, the other poised near the chest. Use simple coherent hands near the torso, one thumb per hand, two legs and two feet in an uncomplicated stance. Keep the complete silhouette including hair, headwear, hands and shoes with roughly 2\u20134% top and bottom padding. Genuinely transparent background. No official portrait or other image references, scenery, text, UI, watermark, weapons, handheld props, companions, detached effects, or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/references/Layla/approved-neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "size": [
+            1024,
+            1536
+          ],
+          "png_color_type": 6
+        },
+        "confusion": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/sprites/Layla/confusion.png",
+          "sha256": "fd8014b553e575ed062a532c3c5d4dec49bb8d0e11aff55330d372191f4f03db",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/raw/Layla/confusion.png",
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a18f4f-81b5-7563-af9a-c0b247c8db69/exec-cd60d694-ba17-44e1-b56a-748974bda137.png",
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/prompts/Layla/confusion.txt",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Asset: one full-body transparent visual-novel expression sprite of Layla from Genshin Impact, emotion: confusion. Input image: the sole reference is the user-approved neutral sprite of Layla. Faithfully preserve that image\u2019s exact face, skin tone, hair, eyes, costume, accessories, silhouette, proportions and rendering style. Character: petite medium-female scholar with blue hair, amber eyes, starry navy hood, blue-and-white costume, gold ornaments and white stockings. Acting: Curious tilted head, lifted brows and slightly parted mouth; one hand near the chin, the other relaxed. Use simple coherent hands near the torso, one thumb per hand, two legs and two feet in an uncomplicated stance. Keep the complete silhouette including hair, headwear, hands and shoes with roughly 2\u20134% top and bottom padding. Genuinely transparent background. No official portrait or other image references, scenery, text, UI, watermark, weapons, handheld props, companions, detached effects, or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/references/Layla/approved-neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "size": [
+            1024,
+            1536
+          ],
+          "png_color_type": 6
+        },
+        "love": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/sprites/Layla/love.png",
+          "sha256": "80846416d5c7be76927bd5c1fd0b2fe2202e0b76a41cdeeb78a8d71a7e2bd2ce",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/raw/Layla/love.png",
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a18f4f-81b5-7563-af9a-c0b247c8db69/exec-7cbbface-4f01-405b-9d05-d4cee98fa794.png",
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/prompts/Layla/love.txt",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Asset: one full-body transparent visual-novel expression sprite of Layla from Genshin Impact, emotion: love. Input image: the sole reference is the user-approved neutral sprite of Layla. Faithfully preserve that image\u2019s exact face, skin tone, hair, eyes, costume, accessories, silhouette, proportions and rendering style. Character: petite medium-female scholar with blue hair, amber eyes, starry navy hood, blue-and-white costume, gold ornaments and white stockings. Acting: Tender open-eyed affectionate smile; one hand softly over the heart and the other gently extended nearby. Normal pupils. Use simple coherent hands near the torso, one thumb per hand, two legs and two feet in an uncomplicated stance. Keep the complete silhouette including hair, headwear, hands and shoes with roughly 2\u20134% top and bottom padding. Genuinely transparent background. No official portrait or other image references, scenery, text, UI, watermark, weapons, handheld props, companions, detached effects, or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/references/Layla/approved-neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "size": [
+            1024,
+            1536
+          ],
+          "png_color_type": 6
+        },
+        "excitement": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/sprites/Layla/excitement.png",
+          "sha256": "12965fe5ec968bbead36c5e0ef053b05851293227ac57b82591cba745e6dcb2f",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/raw/Layla/excitement.png",
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a18f4f-81b5-7563-af9a-c0b247c8db69/exec-062f45f2-49c1-4256-bb3d-42e0b49767cb.png",
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/prompts/Layla/excitement.txt",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Asset: one full-body transparent visual-novel expression sprite of Layla from Genshin Impact, emotion: excitement. Input image: the sole reference is the user-approved neutral sprite of Layla. Faithfully preserve that image\u2019s exact face, skin tone, hair, eyes, costume, accessories, silhouette, proportions and rendering style. Character: petite medium-female scholar with blue hair, amber eyes, starry navy hood, blue-and-white costume, gold ornaments and white stockings. Acting: Bright eager grin and lively eyes; both hands lifted in small clear celebratory gestures near the shoulders. Use simple coherent hands near the torso, one thumb per hand, two legs and two feet in an uncomplicated stance. Keep the complete silhouette including hair, headwear, hands and shoes with roughly 2\u20134% top and bottom padding. Genuinely transparent background. No official portrait or other image references, scenery, text, UI, watermark, weapons, handheld props, companions, detached effects, or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/references/Layla/approved-neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "size": [
+            1024,
+            1536
+          ],
+          "png_color_type": 6
+        },
+        "joy": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/sprites/Layla/joy.png",
+          "sha256": "85ff0d82644064ecc7a185aaf64b185123ec2d73f6f240f23c4d3fe98c7497ca",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/raw/Layla/joy.png",
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a18f4f-81b5-7563-af9a-c0b247c8db69/exec-fb2c5a00-261a-4c3f-8505-50040fa545e4.png",
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/prompts/Layla/joy.txt",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Asset: one full-body transparent visual-novel expression sprite of Layla from Genshin Impact, emotion: joy. Input image: the sole reference is the user-approved neutral sprite of Layla. Faithfully preserve that image\u2019s exact face, skin tone, hair, eyes, costume, accessories, silhouette, proportions and rendering style. Character: petite medium-female scholar with blue hair, amber eyes, starry navy hood, blue-and-white costume, gold ornaments and white stockings. Acting: Warm beaming smile, relaxed shoulders; one hand lifted in a friendly wave and the other at the torso. Use simple coherent hands near the torso, one thumb per hand, two legs and two feet in an uncomplicated stance. Keep the complete silhouette including hair, headwear, hands and shoes with roughly 2\u20134% top and bottom padding. Genuinely transparent background. No official portrait or other image references, scenery, text, UI, watermark, weapons, handheld props, companions, detached effects, or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/references/Layla/approved-neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "size": [
+            1024,
+            1536
+          ],
+          "png_color_type": 6
+        },
+        "fear": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/sprites/Layla/fear.png",
+          "sha256": "25f0c67d29e4cf7994dfb267d5b368c9da71f98d069a18d7ce533ecefe052d91",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/raw/Layla/fear.png",
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a18f4f-81b5-7563-af9a-c0b247c8db69/exec-0d7cc334-87ae-4db7-9709-d2998f09bec2.png",
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/prompts/Layla/fear.txt",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Asset: one full-body transparent visual-novel expression sprite of Layla from Genshin Impact, emotion: fear. Input image: the sole reference is the user-approved neutral sprite of Layla. Faithfully preserve that image\u2019s exact face, skin tone, hair, eyes, costume, accessories, silhouette, proportions and rendering style. Character: petite medium-female scholar with blue hair, amber eyes, starry navy hood, blue-and-white costume, gold ornaments and white stockings. Acting: Wide worried eyes, tense brows and small open mouth; shoulders drawn in, both hands held close to the chest. Use simple coherent hands near the torso, one thumb per hand, two legs and two feet in an uncomplicated stance. Keep the complete silhouette including hair, headwear, hands and shoes with roughly 2\u20134% top and bottom padding. Genuinely transparent background. No official portrait or other image references, scenery, text, UI, watermark, weapons, handheld props, companions, detached effects, or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/references/Layla/approved-neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "size": [
+            1024,
+            1536
+          ],
+          "png_color_type": 6
+        },
+        "pride": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/sprites/Layla/pride.png",
+          "sha256": "c556e4c1a4183f84ac83ceedaa9b1aa94cc02cf24caaa15a4b7ba353604299e2",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/raw/Layla/pride.png",
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a18f4f-81b5-7563-af9a-c0b247c8db69/exec-4d158ff2-4ece-4ff4-bee7-82353eab89f8.png",
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/prompts/Layla/pride.txt",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Asset: one full-body transparent visual-novel expression sprite of Layla from Genshin Impact, emotion: pride. Input image: the sole reference is the user-approved neutral sprite of Layla. Faithfully preserve that image\u2019s exact face, skin tone, hair, eyes, costume, accessories, silhouette, proportions and rendering style. Character: petite medium-female scholar with blue hair, amber eyes, starry navy hood, blue-and-white costume, gold ornaments and white stockings. Acting: Confident upright posture, pleased smile and lifted chin; one hand at the hip and the other resting near the chest. Use simple coherent hands near the torso, one thumb per hand, two legs and two feet in an uncomplicated stance. Keep the complete silhouette including hair, headwear, hands and shoes with roughly 2\u20134% top and bottom padding. Genuinely transparent background. No official portrait or other image references, scenery, text, UI, watermark, weapons, handheld props, companions, detached effects, or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/references/Layla/approved-neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "size": [
+            1024,
+            1536
+          ],
+          "png_color_type": 6
+        },
+        "desire": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/sprites/Layla/desire.png",
+          "sha256": "b3da0063ca3a6086fc6c72187266f973c1f76cd449c1989254e464ac9df5987d",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/raw/Layla/desire.png",
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a18f4f-81b5-7563-af9a-c0b247c8db69/exec-c8e3983d-21c1-4ddd-9535-01df5f506031.png",
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/prompts/Layla/desire.txt",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Asset: one full-body transparent visual-novel expression sprite of Layla from Genshin Impact, emotion: desire. Input image: the sole reference is the user-approved neutral sprite of Layla. Faithfully preserve that image\u2019s exact face, skin tone, hair, eyes, costume, accessories, silhouette, proportions and rendering style. Character: petite medium-female scholar with blue hair, amber eyes, starry navy hood, blue-and-white costume, gold ornaments and white stockings. Acting: Quiet romantic longing with soft open eyes and a restrained smile; one hand over the heart, the other relaxed near the waist. Normal pupils. Use simple coherent hands near the torso, one thumb per hand, two legs and two feet in an uncomplicated stance. Keep the complete silhouette including hair, headwear, hands and shoes with roughly 2\u20134% top and bottom padding. Genuinely transparent background. No official portrait or other image references, scenery, text, UI, watermark, weapons, handheld props, companions, detached effects, or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/references/Layla/approved-neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "size": [
+            1024,
+            1536
+          ],
+          "png_color_type": 6
+        },
+        "anger": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/sprites/Layla/anger.png",
+          "sha256": "ba48e383801fa9e7ccbc662844ca71544355cd12ecc0a80c61f58cd869230708",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/raw/Layla/anger.png",
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a18f4f-81b5-7563-af9a-c0b247c8db69/exec-068e662f-25cc-4ae2-8da6-88cd8c32e996.png",
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/prompts/Layla/anger.txt",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Asset: one full-body transparent visual-novel expression sprite of Layla from Genshin Impact, emotion: anger. Input image: the sole reference is the user-approved neutral sprite of Layla. Faithfully preserve that image\u2019s exact face, skin tone, hair, eyes, costume, accessories, silhouette, proportions and rendering style. Character: petite medium-female scholar with blue hair, amber eyes, starry navy hood, blue-and-white costume, gold ornaments and white stockings. Acting: Firm angry brows, sharp but coherent mouth and squared shoulders; one hand at the hip, the other a simple closed fist near the torso. Use simple coherent hands near the torso, one thumb per hand, two legs and two feet in an uncomplicated stance. Keep the complete silhouette including hair, headwear, hands and shoes with roughly 2\u20134% top and bottom padding. Genuinely transparent background. No official portrait or other image references, scenery, text, UI, watermark, weapons, handheld props, companions, detached effects, or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/references/Layla/approved-neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "size": [
+            1024,
+            1536
+          ],
+          "png_color_type": 6
+        },
+        "grief": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/sprites/Layla/grief.png",
+          "sha256": "006cfc4f6b66343de418a00f6a36bb63f430072411d33b6d3fa89430b79614a5",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/raw/Layla/grief.png",
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a18f4f-81b5-7563-af9a-c0b247c8db69/exec-076ea11d-5520-44ca-8531-0cc26201156b.png",
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/prompts/Layla/grief.txt",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Asset: one full-body transparent visual-novel expression sprite of Layla from Genshin Impact, emotion: grief. Input image: the sole reference is the user-approved neutral sprite of Layla. Faithfully preserve that image\u2019s exact face, skin tone, hair, eyes, costume, accessories, silhouette, proportions and rendering style. Character: petite medium-female scholar with blue hair, amber eyes, starry navy hood, blue-and-white costume, gold ornaments and white stockings. Acting: Deep sorrow, lowered brows and tearful eyes; shoulders slumped, one hand over the heart and the other hanging softly. Use simple coherent hands near the torso, one thumb per hand, two legs and two feet in an uncomplicated stance. Keep the complete silhouette including hair, headwear, hands and shoes with roughly 2\u20134% top and bottom padding. Genuinely transparent background. No official portrait or other image references, scenery, text, UI, watermark, weapons, handheld props, companions, detached effects, or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/references/Layla/approved-neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "size": [
+            1024,
+            1536
+          ],
+          "png_color_type": 6
+        },
+        "sadness": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/sprites/Layla/sadness.png",
+          "sha256": "c484d042658a355d9515a1d8c0f5f8982ac23344d5b3f24b0c0e578e81054155",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/raw/Layla/sadness.png",
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a18f4f-81b5-7563-af9a-c0b247c8db69/exec-0e1206e0-6c07-4fb6-8f44-503c154003bd.png",
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/prompts/Layla/sadness.txt",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Asset: one full-body transparent visual-novel expression sprite of Layla from Genshin Impact, emotion: sadness. Input image: the sole reference is the user-approved neutral sprite of Layla. Faithfully preserve that image\u2019s exact face, skin tone, hair, eyes, costume, accessories, silhouette, proportions and rendering style. Character: petite medium-female scholar with blue hair, amber eyes, starry navy hood, blue-and-white costume, gold ornaments and white stockings. Acting: Downcast eyes, small sad mouth and lowered shoulders; one hand near the chest and the other relaxed. Use simple coherent hands near the torso, one thumb per hand, two legs and two feet in an uncomplicated stance. Keep the complete silhouette including hair, headwear, hands and shoes with roughly 2\u20134% top and bottom padding. Genuinely transparent background. No official portrait or other image references, scenery, text, UI, watermark, weapons, handheld props, companions, detached effects, or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/references/Layla/approved-neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "size": [
+            1024,
+            1536
+          ],
+          "png_color_type": 6
+        },
+        "disgust": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/sprites/Layla/disgust.png",
+          "sha256": "42bece548e10611c62bfd88bf52e0853879e0de24541999d59c34ab35d79ce0d",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/raw/Layla/disgust.png",
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a18f4f-81b5-7563-af9a-c0b247c8db69/exec-dfd9a982-810b-46a2-8a11-c0bf3c43e545.png",
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/prompts/Layla/disgust.txt",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Asset: one full-body transparent visual-novel expression sprite of Layla from Genshin Impact, emotion: disgust. Input image: the sole reference is the user-approved neutral sprite of Layla. Faithfully preserve that image\u2019s exact face, skin tone, hair, eyes, costume, accessories, silhouette, proportions and rendering style. Character: petite medium-female scholar with blue hair, amber eyes, starry navy hood, blue-and-white costume, gold ornaments and white stockings. Acting: Restrained nose scrunch, narrowed eyes and one small closed displeased mouth; torso leaning slightly back, one hand held away near the waist. Use simple coherent hands near the torso, one thumb per hand, two legs and two feet in an uncomplicated stance. Keep the complete silhouette including hair, headwear, hands and shoes with roughly 2\u20134% top and bottom padding. Genuinely transparent background. No official portrait or other image references, scenery, text, UI, watermark, weapons, handheld props, companions, detached effects, or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/references/Layla/approved-neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "size": [
+            1024,
+            1536
+          ],
+          "png_color_type": 6
+        },
+        "disappointment": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/sprites/Layla/disappointment.png",
+          "sha256": "971c42f192cbed440ff8d351aac7a1c787a9d8e028f8518d0a5054b00a9e20ca",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/raw/Layla/disappointment.png",
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a18f4f-81b5-7563-af9a-c0b247c8db69/exec-547db46a-63ff-4496-9a4f-5d3b2fe33244.png",
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/prompts/Layla/disappointment.txt",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Asset: one full-body transparent visual-novel expression sprite of Layla from Genshin Impact, emotion: disappointment. Input image: the sole reference is the user-approved neutral sprite of Layla. Faithfully preserve that image\u2019s exact face, skin tone, hair, eyes, costume, accessories, silhouette, proportions and rendering style. Character: petite medium-female scholar with blue hair, amber eyes, starry navy hood, blue-and-white costume, gold ornaments and white stockings. Acting: Tired lowered gaze and faint frown; shoulders settle, one hand at the waist and the other loosely at the side. Use simple coherent hands near the torso, one thumb per hand, two legs and two feet in an uncomplicated stance. Keep the complete silhouette including hair, headwear, hands and shoes with roughly 2\u20134% top and bottom padding. Genuinely transparent background. No official portrait or other image references, scenery, text, UI, watermark, weapons, handheld props, companions, detached effects, or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/references/Layla/approved-neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "size": [
+            1024,
+            1536
+          ],
+          "png_color_type": 6
+        },
+        "relief": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/sprites/Layla/relief.png",
+          "sha256": "8826f48c9d49a79d4756a79a167ebfb7dd5966b7ba4c30da42c55c9e65853fb9",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/raw/Layla/relief.png",
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a18f4f-81b5-7563-af9a-c0b247c8db69/exec-a95695e6-a534-42f1-b748-cd5b68aaa280.png",
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/prompts/Layla/relief.txt",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Asset: one full-body transparent visual-novel expression sprite of Layla from Genshin Impact, emotion: relief. Input image: the sole reference is the user-approved neutral sprite of Layla. Faithfully preserve that image\u2019s exact face, skin tone, hair, eyes, costume, accessories, silhouette, proportions and rendering style. Character: petite medium-female scholar with blue hair, amber eyes, starry navy hood, blue-and-white costume, gold ornaments and white stockings. Acting: Gentle exhale and relieved smile; shoulders relax, one hand over the chest and the other open near the waist. Use simple coherent hands near the torso, one thumb per hand, two legs and two feet in an uncomplicated stance. Keep the complete silhouette including hair, headwear, hands and shoes with roughly 2\u20134% top and bottom padding. Genuinely transparent background. No official portrait or other image references, scenery, text, UI, watermark, weapons, handheld props, companions, detached effects, or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/references/Layla/approved-neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "size": [
+            1024,
+            1536
+          ],
+          "png_color_type": 6
+        },
+        "admiration": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/sprites/Layla/admiration.png",
+          "sha256": "8af9868b96468b7a04b98661e27263d6380dc2038a27bae6abf95f54a908d2ca",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/raw/Layla/admiration.png",
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a18f4f-81b5-7563-af9a-c0b247c8db69/exec-61921102-465d-4857-8fcb-86e4d787a938.png",
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/prompts/Layla/admiration.txt",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Asset: one full-body transparent visual-novel expression sprite of Layla from Genshin Impact, emotion: admiration. Input image: the sole reference is the user-approved neutral sprite of Layla. Faithfully preserve that image\u2019s exact face, skin tone, hair, eyes, costume, accessories, silhouette, proportions and rendering style. Character: petite medium-female scholar with blue hair, amber eyes, starry navy hood, blue-and-white costume, gold ornaments and white stockings. Acting: Bright attentive eyes and respectful smile; head slightly raised, one open hand near the chest and the other relaxed. Use simple coherent hands near the torso, one thumb per hand, two legs and two feet in an uncomplicated stance. Keep the complete silhouette including hair, headwear, hands and shoes with roughly 2\u20134% top and bottom padding. Genuinely transparent background. No official portrait or other image references, scenery, text, UI, watermark, weapons, handheld props, companions, detached effects, or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/references/Layla/approved-neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "size": [
+            1024,
+            1536
+          ],
+          "png_color_type": 6
+        },
+        "gratitude": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/sprites/Layla/gratitude.png",
+          "sha256": "d4875bd3b554e69166e067d06e25855f2aa43914863519ed4443f5089245de74",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/raw/Layla/gratitude.png",
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a18f4f-81b5-7563-af9a-c0b247c8db69/exec-70c0c2f3-d5ae-429d-acde-935171fccbc3.png",
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/prompts/Layla/gratitude.txt",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Asset: one full-body transparent visual-novel expression sprite of Layla from Genshin Impact, emotion: gratitude. Input image: the sole reference is the user-approved neutral sprite of Layla. Faithfully preserve that image\u2019s exact face, skin tone, hair, eyes, costume, accessories, silhouette, proportions and rendering style. Character: petite medium-female scholar with blue hair, amber eyes, starry navy hood, blue-and-white costume, gold ornaments and white stockings. Acting: Sincere warm smile and slight respectful incline; one hand over the heart, the other open at the side. Use simple coherent hands near the torso, one thumb per hand, two legs and two feet in an uncomplicated stance. Keep the complete silhouette including hair, headwear, hands and shoes with roughly 2\u20134% top and bottom padding. Genuinely transparent background. No official portrait or other image references, scenery, text, UI, watermark, weapons, handheld props, companions, detached effects, or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/references/Layla/approved-neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "size": [
+            1024,
+            1536
+          ],
+          "png_color_type": 6
+        },
+        "embarrassment": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/sprites/Layla/embarrassment.png",
+          "sha256": "7c729ba13af967dd8f065c2ea4fb6013e9a7083e0aa4216f3f44f117c41ac740",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/raw/Layla/embarrassment.png",
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a18f4f-81b5-7563-af9a-c0b247c8db69/exec-99579588-2ebd-4527-b52f-8b78a036fff7.png",
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/prompts/Layla/embarrassment.txt",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Asset: one full-body transparent visual-novel expression sprite of Layla from Genshin Impact, emotion: embarrassment. Input image: the sole reference is the user-approved neutral sprite of Layla. Faithfully preserve that image\u2019s exact face, skin tone, hair, eyes, costume, accessories, silhouette, proportions and rendering style. Character: petite medium-female scholar with blue hair, amber eyes, starry navy hood, blue-and-white costume, gold ornaments and white stockings. Acting: Soft blush, shy averted gaze and small smile; one hand near the cheek and the other close to the torso. Use simple coherent hands near the torso, one thumb per hand, two legs and two feet in an uncomplicated stance. Keep the complete silhouette including hair, headwear, hands and shoes with roughly 2\u20134% top and bottom padding. Genuinely transparent background. No official portrait or other image references, scenery, text, UI, watermark, weapons, handheld props, companions, detached effects, or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/references/Layla/approved-neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "size": [
+            1024,
+            1536
+          ],
+          "png_color_type": 6
+        },
+        "caring": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/sprites/Layla/caring.png",
+          "sha256": "19670c3a65003d7d08d5ae239846115e69c71293f4b797b26a80230422b92c26",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/raw/Layla/caring.png",
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a18f4f-81b5-7563-af9a-c0b247c8db69/exec-5ee8a6af-1c86-45c7-9ee0-0c02beeea98f.png",
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/prompts/Layla/caring.txt",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Asset: one full-body transparent visual-novel expression sprite of Layla from Genshin Impact, emotion: caring. Input image: the sole reference is the user-approved neutral sprite of Layla. Faithfully preserve that image\u2019s exact face, skin tone, hair, eyes, costume, accessories, silhouette, proportions and rendering style. Character: petite medium-female scholar with blue hair, amber eyes, starry navy hood, blue-and-white costume, gold ornaments and white stockings. Acting: Compassionate reassuring gaze and gentle smile; one hand softly extended at chest height, the other over the heart. Use simple coherent hands near the torso, one thumb per hand, two legs and two feet in an uncomplicated stance. Keep the complete silhouette including hair, headwear, hands and shoes with roughly 2\u20134% top and bottom padding. Genuinely transparent background. No official portrait or other image references, scenery, text, UI, watermark, weapons, handheld props, companions, detached effects, or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/references/Layla/approved-neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "size": [
+            1024,
+            1536
+          ],
+          "png_color_type": 6
+        },
+        "love-1": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/sprites/Layla/love-1.png",
+          "sha256": "8dceb6baae105f633a0788de3cb7befc341b9519bb0a30299740451dd7a88c00",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/raw/Layla/love-1.png",
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a18f4f-81b5-7563-af9a-c0b247c8db69/exec-51f45362-465b-4a84-b0fc-38ba6a48197e.png",
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/prompts/Layla/love-1.txt",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Asset: one full-body transparent visual-novel expression sprite of Layla from Genshin Impact, emotion: love-1. Input image: the sole reference is the user-approved neutral sprite of Layla. Faithfully preserve that image\u2019s exact face, skin tone, hair, eyes, costume, accessories, silhouette, proportions and rendering style. Character: petite medium-female scholar with blue hair, amber eyes, starry navy hood, blue-and-white costume, gold ornaments and white stockings. Acting: Tender open-eyed affectionate smile; one hand softly over the heart and the other gently extended nearby. Both eyes visibly open. Keep the original iris colour and detail; change only each pupil to a clearly filled heart shape in pale amber-gold. Hearts are pupils inside the irises, not catchlights or floating symbols. Use simple coherent hands near the torso, one thumb per hand, two legs and two feet in an uncomplicated stance. Keep the complete silhouette including hair, headwear, hands and shoes with roughly 2\u20134% top and bottom padding. Genuinely transparent background. No official portrait or other image references, scenery, text, UI, watermark, weapons, handheld props, companions, detached effects, or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/references/Layla/approved-neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "size": [
+            1024,
+            1536
+          ],
+          "png_color_type": 6
+        },
+        "desire-1": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/sprites/Layla/desire-1.png",
+          "sha256": "bbdf100a435ffa181607c899a4faa9b14c311b50fcb702af969f016213c16cf4",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/raw/Layla/desire-1.png",
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a18f4f-81b5-7563-af9a-c0b247c8db69/exec-3eb99622-0211-4eac-bf21-d23424bf76ad.png",
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/prompts/Layla/desire-1.txt",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Asset: one full-body transparent visual-novel expression sprite of Layla from Genshin Impact, emotion: desire-1. Input image: the sole reference is the user-approved neutral sprite of Layla. Faithfully preserve that image\u2019s exact face, skin tone, hair, eyes, costume, accessories, silhouette, proportions and rendering style. Character: petite medium-female scholar with blue hair, amber eyes, starry navy hood, blue-and-white costume, gold ornaments and white stockings. Acting: Quiet romantic longing with soft open eyes and a restrained smile; one hand over the heart, the other relaxed near the waist. Both eyes visibly open. Keep the original iris colour and detail; change only each pupil to a clearly filled heart shape in pale amber-gold. Hearts are pupils inside the irises, not catchlights or floating symbols. Use simple coherent hands near the torso, one thumb per hand, two legs and two feet in an uncomplicated stance. Keep the complete silhouette including hair, headwear, hands and shoes with roughly 2\u20134% top and bottom padding. Genuinely transparent background. No official portrait or other image references, scenery, text, UI, watermark, weapons, handheld props, companions, detached effects, or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/references/Layla/approved-neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "size": [
+            1024,
+            1536
+          ],
+          "png_color_type": 6
+        }
+      },
+      "previews": {
+        "full_body": "previews/layla-full-body-sheet.png",
+        "face": "previews/layla-face-sheet.png"
+      },
+      "archive": "archives/layla-sprites.zip"
+    },
+    "Yae Miko": {
+      "approved_neutral_source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Yae Miko/neutral-v002.png",
+      "approved_neutral_sha256": "d8f85e814fc780e1f036e29ac9bc969196430753cdab101438f7bee8ddc31409",
+      "approval": {
+        "status": "approved",
+        "message": "All others are ACCEPTED.",
+        "date": "2026-10-30",
+        "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Yae Miko/neutral-v002.png",
+        "candidate_sha256": "d8f85e814fc780e1f036e29ac9bc969196430753cdab101438f7bee8ddc31409"
+      },
+      "reference": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/references/Yae Miko/approved-neutral.png",
+      "sprites": {
+        "neutral": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/sprites/Yae Miko/neutral.png",
+          "sha256": "d8f85e814fc780e1f036e29ac9bc969196430753cdab101438f7bee8ddc31409",
+          "source": "approved neutral copy"
+        },
+        "annoyance": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/sprites/Yae Miko/annoyance.png",
+          "sha256": "cd19b233fb3f40aa64ea7627aa5f51bc817d7e1176cd37ba32951c502baa5e55",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/raw/Yae Miko/annoyance.png",
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a18f4f-81b5-7563-af9a-c0b247c8db69/exec-8a90f75f-eb30-4cda-a117-18a672d495bf.png",
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/prompts/Yae Miko/annoyance.txt",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Asset: one full-body transparent visual-novel expression sprite of Yae Miko from Genshin Impact, emotion: annoyance. Input image: the sole reference is the user-approved neutral sprite of Yae Miko. Faithfully preserve that image\u2019s exact face, skin tone, hair, eyes, costume, accessories, silhouette, proportions and rendering style. Character: tall shrine maiden with pink hair, violet eyes, ornate gold headpiece, red-and-white shrine outfit and sandals. Acting: Mildly irritated knitted brows and a small closed displeased mouth; one hand at the hip, the other making a restrained gesture near the torso. Use simple coherent hands near the torso, one thumb per hand, two legs and two feet in an uncomplicated stance. Keep the complete silhouette including hair, headwear, hands and shoes with roughly 2\u20134% top and bottom padding. Genuinely transparent background. No official portrait or other image references, scenery, text, UI, watermark, weapons, handheld props, companions, detached effects, or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/references/Yae Miko/approved-neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "size": [
+            1122,
+            1402
+          ],
+          "png_color_type": 6
+        },
+        "smug": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/sprites/Yae Miko/smug.png",
+          "sha256": "c6206db32090dc90fc3079ba1450667ac60e03f1c54827f818eb5eeab542e797",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/raw/Yae Miko/smug.png",
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a18f4f-81b5-7563-af9a-c0b247c8db69/exec-ed35bb88-b508-4933-87ba-b8cafcb8aace.png",
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/prompts/Yae Miko/smug.txt",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Asset: one full-body transparent visual-novel expression sprite of Yae Miko from Genshin Impact, emotion: smug. Input image: the sole reference is the user-approved neutral sprite of Yae Miko. Faithfully preserve that image\u2019s exact face, skin tone, hair, eyes, costume, accessories, silhouette, proportions and rendering style. Character: tall shrine maiden with pink hair, violet eyes, ornate gold headpiece, red-and-white shrine outfit and sandals. Acting: A knowing half-smile and raised brow; one hand lightly at the hip, the other poised near the chest. Use simple coherent hands near the torso, one thumb per hand, two legs and two feet in an uncomplicated stance. Keep the complete silhouette including hair, headwear, hands and shoes with roughly 2\u20134% top and bottom padding. Genuinely transparent background. No official portrait or other image references, scenery, text, UI, watermark, weapons, handheld props, companions, detached effects, or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/references/Yae Miko/approved-neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "size": [
+            1122,
+            1402
+          ],
+          "png_color_type": 6
+        },
+        "confusion": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/sprites/Yae Miko/confusion.png",
+          "sha256": "3f5d3f00e1a19481639efe18139527290a886ba43e8d9f75ac408f57d87bee67",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/raw/Yae Miko/confusion.png",
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a18f4f-81b5-7563-af9a-c0b247c8db69/exec-8f32f218-ec42-4251-b54b-c61d8844266b.png",
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/prompts/Yae Miko/confusion.txt",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Asset: one full-body transparent visual-novel expression sprite of Yae Miko from Genshin Impact, emotion: confusion. Input image: the sole reference is the user-approved neutral sprite of Yae Miko. Faithfully preserve that image\u2019s exact face, skin tone, hair, eyes, costume, accessories, silhouette, proportions and rendering style. Character: tall shrine maiden with pink hair, violet eyes, ornate gold headpiece, red-and-white shrine outfit and sandals. Acting: Curious tilted head, lifted brows and slightly parted mouth; one hand near the chin, the other relaxed. Use simple coherent hands near the torso, one thumb per hand, two legs and two feet in an uncomplicated stance. Keep the complete silhouette including hair, headwear, hands and shoes with roughly 2\u20134% top and bottom padding. Genuinely transparent background. No official portrait or other image references, scenery, text, UI, watermark, weapons, handheld props, companions, detached effects, or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/references/Yae Miko/approved-neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "size": [
+            1122,
+            1402
+          ],
+          "png_color_type": 6
+        },
+        "love": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/sprites/Yae Miko/love.png",
+          "sha256": "1fa83003bb465389c999ef66a2789ff4cd5cc5b87e11d81def9020dd0dee7ad2",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/raw/Yae Miko/love.png",
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a18f4f-81b5-7563-af9a-c0b247c8db69/exec-322b460c-c790-4a72-82c4-ecc02352d8ee.png",
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/prompts/Yae Miko/love.txt",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Asset: one full-body transparent visual-novel expression sprite of Yae Miko from Genshin Impact, emotion: love. Input image: the sole reference is the user-approved neutral sprite of Yae Miko. Faithfully preserve that image\u2019s exact face, skin tone, hair, eyes, costume, accessories, silhouette, proportions and rendering style. Character: tall shrine maiden with pink hair, violet eyes, ornate gold headpiece, red-and-white shrine outfit and sandals. Acting: Tender open-eyed affectionate smile; one hand softly over the heart and the other gently extended nearby. Normal pupils. Use simple coherent hands near the torso, one thumb per hand, two legs and two feet in an uncomplicated stance. Keep the complete silhouette including hair, headwear, hands and shoes with roughly 2\u20134% top and bottom padding. Genuinely transparent background. No official portrait or other image references, scenery, text, UI, watermark, weapons, handheld props, companions, detached effects, or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/references/Yae Miko/approved-neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "size": [
+            1122,
+            1402
+          ],
+          "png_color_type": 6
+        },
+        "excitement": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/sprites/Yae Miko/excitement.png",
+          "sha256": "ec1940d0f7b05ea204745a36ddebbe4aa6493ad5fd012e6ccafb757595255111",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/raw/Yae Miko/excitement.png",
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a18f4f-81b5-7563-af9a-c0b247c8db69/exec-6221c9e0-c455-4ea6-9a26-55d03b820ef8.png",
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/prompts/Yae Miko/excitement.txt",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Asset: one full-body transparent visual-novel expression sprite of Yae Miko from Genshin Impact, emotion: excitement. Input image: the sole reference is the user-approved neutral sprite of Yae Miko. Faithfully preserve that image\u2019s exact face, skin tone, hair, eyes, costume, accessories, silhouette, proportions and rendering style. Character: tall shrine maiden with pink hair, violet eyes, ornate gold headpiece, red-and-white shrine outfit and sandals. Acting: Bright eager grin and lively eyes; both hands lifted in small clear celebratory gestures near the shoulders. Use simple coherent hands near the torso, one thumb per hand, two legs and two feet in an uncomplicated stance. Keep the complete silhouette including hair, headwear, hands and shoes with roughly 2\u20134% top and bottom padding. Genuinely transparent background. No official portrait or other image references, scenery, text, UI, watermark, weapons, handheld props, companions, detached effects, or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/references/Yae Miko/approved-neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "size": [
+            1122,
+            1402
+          ],
+          "png_color_type": 6
+        },
+        "joy": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/sprites/Yae Miko/joy.png",
+          "sha256": "0fed439d32eee84df69fe3f93951b0de7345fcbb7608b6a90713fff64da9ba08",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/raw/Yae Miko/joy.png",
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a18f4f-81b5-7563-af9a-c0b247c8db69/exec-ec25fca0-6ab5-4422-bcb2-b895601145e9.png",
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/prompts/Yae Miko/joy.txt",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Asset: one full-body transparent visual-novel expression sprite of Yae Miko from Genshin Impact, emotion: joy. Input image: the sole reference is the user-approved neutral sprite of Yae Miko. Faithfully preserve that image\u2019s exact face, skin tone, hair, eyes, costume, accessories, silhouette, proportions and rendering style. Character: tall shrine maiden with pink hair, violet eyes, ornate gold headpiece, red-and-white shrine outfit and sandals. Acting: Warm beaming smile, relaxed shoulders; one hand lifted in a friendly wave and the other at the torso. Use simple coherent hands near the torso, one thumb per hand, two legs and two feet in an uncomplicated stance. Keep the complete silhouette including hair, headwear, hands and shoes with roughly 2\u20134% top and bottom padding. Genuinely transparent background. No official portrait or other image references, scenery, text, UI, watermark, weapons, handheld props, companions, detached effects, or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/references/Yae Miko/approved-neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "size": [
+            1122,
+            1402
+          ],
+          "png_color_type": 6
+        },
+        "fear": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/sprites/Yae Miko/fear.png",
+          "sha256": "58d228ea7ff9726aa427f5fefb0e289a8533e6ce40fcbfc818ec5605db0d76dc",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/raw/Yae Miko/fear.png",
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a18f4f-81b5-7563-af9a-c0b247c8db69/exec-8c819831-e7c0-4f1d-a263-83b58b5dded2.png",
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/prompts/Yae Miko/fear.txt",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Asset: one full-body transparent visual-novel expression sprite of Yae Miko from Genshin Impact, emotion: fear. Input image: the sole reference is the user-approved neutral sprite of Yae Miko. Faithfully preserve that image\u2019s exact face, skin tone, hair, eyes, costume, accessories, silhouette, proportions and rendering style. Character: tall shrine maiden with pink hair, violet eyes, ornate gold headpiece, red-and-white shrine outfit and sandals. Acting: Wide worried eyes, tense brows and small open mouth; shoulders drawn in, both hands held close to the chest. Use simple coherent hands near the torso, one thumb per hand, two legs and two feet in an uncomplicated stance. Keep the complete silhouette including hair, headwear, hands and shoes with roughly 2\u20134% top and bottom padding. Genuinely transparent background. No official portrait or other image references, scenery, text, UI, watermark, weapons, handheld props, companions, detached effects, or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/references/Yae Miko/approved-neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "size": [
+            1122,
+            1402
+          ],
+          "png_color_type": 6
+        },
+        "pride": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/sprites/Yae Miko/pride.png",
+          "sha256": "13204105c3c34e94c306a071f9ad8607cf2eda6a43b0852cbcaeaa9004774886",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/raw/Yae Miko/pride.png",
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a18f4f-81b5-7563-af9a-c0b247c8db69/exec-8ec59fcd-8ffd-4d03-9956-909f736c4e76.png",
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/prompts/Yae Miko/pride.txt",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Asset: one full-body transparent visual-novel expression sprite of Yae Miko from Genshin Impact, emotion: pride. Input image: the sole reference is the user-approved neutral sprite of Yae Miko. Faithfully preserve that image\u2019s exact face, skin tone, hair, eyes, costume, accessories, silhouette, proportions and rendering style. Character: tall shrine maiden with pink hair, violet eyes, ornate gold headpiece, red-and-white shrine outfit and sandals. Acting: Confident upright posture, pleased smile and lifted chin; one hand at the hip and the other resting near the chest. Use simple coherent hands near the torso, one thumb per hand, two legs and two feet in an uncomplicated stance. Keep the complete silhouette including hair, headwear, hands and shoes with roughly 2\u20134% top and bottom padding. Genuinely transparent background. No official portrait or other image references, scenery, text, UI, watermark, weapons, handheld props, companions, detached effects, or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/references/Yae Miko/approved-neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "size": [
+            1122,
+            1402
+          ],
+          "png_color_type": 6
+        },
+        "desire": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/sprites/Yae Miko/desire.png",
+          "sha256": "b9c2be68ef000f40e1489e044cc309a593ab47d3ba45f3e24ead14e525af3ac5",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/raw/Yae Miko/desire.png",
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a18f4f-81b5-7563-af9a-c0b247c8db69/exec-e0f91e04-412e-4bf6-baef-d37e07f32109.png",
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/prompts/Yae Miko/desire.txt",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Asset: one full-body transparent visual-novel expression sprite of Yae Miko from Genshin Impact, emotion: desire. Input image: the sole reference is the user-approved neutral sprite of Yae Miko. Faithfully preserve that image\u2019s exact face, skin tone, hair, eyes, costume, accessories, silhouette, proportions and rendering style. Character: tall shrine maiden with pink hair, violet eyes, ornate gold headpiece, red-and-white shrine outfit and sandals. Acting: Quiet romantic longing with soft open eyes and a restrained smile; one hand over the heart, the other relaxed near the waist. Normal pupils. Use simple coherent hands near the torso, one thumb per hand, two legs and two feet in an uncomplicated stance. Keep the complete silhouette including hair, headwear, hands and shoes with roughly 2\u20134% top and bottom padding. Genuinely transparent background. No official portrait or other image references, scenery, text, UI, watermark, weapons, handheld props, companions, detached effects, or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/references/Yae Miko/approved-neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "size": [
+            1122,
+            1402
+          ],
+          "png_color_type": 6
+        },
+        "anger": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/sprites/Yae Miko/anger.png",
+          "sha256": "7031fe350bd6186c26313dfc4d2602350453e69a097a9a683f4762c04c600622",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/raw/Yae Miko/anger.png",
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a18f4f-81b5-7563-af9a-c0b247c8db69/exec-c9771396-b622-455c-8bb9-2e9c6da25f43.png",
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/prompts/Yae Miko/anger.txt",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Asset: one full-body transparent visual-novel expression sprite of Yae Miko from Genshin Impact, emotion: anger. Input image: the sole reference is the user-approved neutral sprite of Yae Miko. Faithfully preserve that image\u2019s exact face, skin tone, hair, eyes, costume, accessories, silhouette, proportions and rendering style. Character: tall shrine maiden with pink hair, violet eyes, ornate gold headpiece, red-and-white shrine outfit and sandals. Acting: Firm angry brows, sharp but coherent mouth and squared shoulders; one hand at the hip, the other a simple closed fist near the torso. Use simple coherent hands near the torso, one thumb per hand, two legs and two feet in an uncomplicated stance. Keep the complete silhouette including hair, headwear, hands and shoes with roughly 2\u20134% top and bottom padding. Genuinely transparent background. No official portrait or other image references, scenery, text, UI, watermark, weapons, handheld props, companions, detached effects, or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/references/Yae Miko/approved-neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "size": [
+            1122,
+            1402
+          ],
+          "png_color_type": 6
+        },
+        "grief": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/sprites/Yae Miko/grief.png",
+          "sha256": "9b91dc660b20cc8047cf89613f9def19c25efef389a442bdd01e0e13e84ff5ca",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/raw/Yae Miko/grief.png",
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a18f4f-81b5-7563-af9a-c0b247c8db69/exec-370d8da6-ccd7-49b2-b980-16131720f5ff.png",
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/prompts/Yae Miko/grief.txt",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Asset: one full-body transparent visual-novel expression sprite of Yae Miko from Genshin Impact, emotion: grief. Input image: the sole reference is the user-approved neutral sprite of Yae Miko. Faithfully preserve that image\u2019s exact face, skin tone, hair, eyes, costume, accessories, silhouette, proportions and rendering style. Character: tall shrine maiden with pink hair, violet eyes, ornate gold headpiece, red-and-white shrine outfit and sandals. Acting: Deep sorrow, lowered brows and tearful eyes; shoulders slumped, one hand over the heart and the other hanging softly. Use simple coherent hands near the torso, one thumb per hand, two legs and two feet in an uncomplicated stance. Keep the complete silhouette including hair, headwear, hands and shoes with roughly 2\u20134% top and bottom padding. Genuinely transparent background. No official portrait or other image references, scenery, text, UI, watermark, weapons, handheld props, companions, detached effects, or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/references/Yae Miko/approved-neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "size": [
+            1122,
+            1402
+          ],
+          "png_color_type": 6
+        },
+        "sadness": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/sprites/Yae Miko/sadness.png",
+          "sha256": "15a5a0bb117832f77030cab0ddda90957c48fba0c8ad93484a53116b24f2d566",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/raw/Yae Miko/sadness.png",
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a18f4f-81b5-7563-af9a-c0b247c8db69/exec-caa8cb5b-24a9-421f-b0d5-01ffd055c959.png",
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/prompts/Yae Miko/sadness.txt",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Asset: one full-body transparent visual-novel expression sprite of Yae Miko from Genshin Impact, emotion: sadness. Input image: the sole reference is the user-approved neutral sprite of Yae Miko. Faithfully preserve that image\u2019s exact face, skin tone, hair, eyes, costume, accessories, silhouette, proportions and rendering style. Character: tall shrine maiden with pink hair, violet eyes, ornate gold headpiece, red-and-white shrine outfit and sandals. Acting: Downcast eyes, small sad mouth and lowered shoulders; one hand near the chest and the other relaxed. Use simple coherent hands near the torso, one thumb per hand, two legs and two feet in an uncomplicated stance. Keep the complete silhouette including hair, headwear, hands and shoes with roughly 2\u20134% top and bottom padding. Genuinely transparent background. No official portrait or other image references, scenery, text, UI, watermark, weapons, handheld props, companions, detached effects, or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/references/Yae Miko/approved-neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "size": [
+            1122,
+            1402
+          ],
+          "png_color_type": 6
+        },
+        "disgust": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/sprites/Yae Miko/disgust.png",
+          "sha256": "70363509395cbf531232b861862aa5b958d513cae5349235512839803c1dd7d1",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/raw/Yae Miko/disgust.png",
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a18f4f-81b5-7563-af9a-c0b247c8db69/exec-51b9e312-4aec-4059-9b10-7dd4ce8e423b.png",
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/prompts/Yae Miko/disgust.txt",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Asset: one full-body transparent visual-novel expression sprite of Yae Miko from Genshin Impact, emotion: disgust. Input image: the sole reference is the user-approved neutral sprite of Yae Miko. Faithfully preserve that image\u2019s exact face, skin tone, hair, eyes, costume, accessories, silhouette, proportions and rendering style. Character: tall shrine maiden with pink hair, violet eyes, ornate gold headpiece, red-and-white shrine outfit and sandals. Acting: Restrained nose scrunch, narrowed eyes and one small closed displeased mouth; torso leaning slightly back, one hand held away near the waist. Use simple coherent hands near the torso, one thumb per hand, two legs and two feet in an uncomplicated stance. Keep the complete silhouette including hair, headwear, hands and shoes with roughly 2\u20134% top and bottom padding. Genuinely transparent background. No official portrait or other image references, scenery, text, UI, watermark, weapons, handheld props, companions, detached effects, or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/references/Yae Miko/approved-neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "size": [
+            1122,
+            1402
+          ],
+          "png_color_type": 6
+        },
+        "disappointment": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/sprites/Yae Miko/disappointment.png",
+          "sha256": "53b0d13e84884c5f675a6602eaf11123429047021361b041095fedd02a948fbb",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/raw/Yae Miko/disappointment.png",
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a18f4f-81b5-7563-af9a-c0b247c8db69/exec-4b64d967-d48e-4138-a840-e6812fde5cf9.png",
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/prompts/Yae Miko/disappointment.txt",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Asset: one full-body transparent visual-novel expression sprite of Yae Miko from Genshin Impact, emotion: disappointment. Input image: the sole reference is the user-approved neutral sprite of Yae Miko. Faithfully preserve that image\u2019s exact face, skin tone, hair, eyes, costume, accessories, silhouette, proportions and rendering style. Character: tall shrine maiden with pink hair, violet eyes, ornate gold headpiece, red-and-white shrine outfit and sandals. Acting: Tired lowered gaze and faint frown; shoulders settle, one hand at the waist and the other loosely at the side. Use simple coherent hands near the torso, one thumb per hand, two legs and two feet in an uncomplicated stance. Keep the complete silhouette including hair, headwear, hands and shoes with roughly 2\u20134% top and bottom padding. Genuinely transparent background. No official portrait or other image references, scenery, text, UI, watermark, weapons, handheld props, companions, detached effects, or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/references/Yae Miko/approved-neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "size": [
+            1122,
+            1402
+          ],
+          "png_color_type": 6
+        },
+        "relief": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/sprites/Yae Miko/relief.png",
+          "sha256": "141b8c4b0fe824007606dbfb017b82a340df098f0982f8091cce65c435f3f8df",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/raw/Yae Miko/relief.png",
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a18f4f-81b5-7563-af9a-c0b247c8db69/exec-5f276a38-337b-4646-b12b-b839c3d8438f.png",
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/prompts/Yae Miko/relief.txt",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Asset: one full-body transparent visual-novel expression sprite of Yae Miko from Genshin Impact, emotion: relief. Input image: the sole reference is the user-approved neutral sprite of Yae Miko. Faithfully preserve that image\u2019s exact face, skin tone, hair, eyes, costume, accessories, silhouette, proportions and rendering style. Character: tall shrine maiden with pink hair, violet eyes, ornate gold headpiece, red-and-white shrine outfit and sandals. Acting: Gentle exhale and relieved smile; shoulders relax, one hand over the chest and the other open near the waist. Use simple coherent hands near the torso, one thumb per hand, two legs and two feet in an uncomplicated stance. Keep the complete silhouette including hair, headwear, hands and shoes with roughly 2\u20134% top and bottom padding. Genuinely transparent background. No official portrait or other image references, scenery, text, UI, watermark, weapons, handheld props, companions, detached effects, or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/references/Yae Miko/approved-neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "size": [
+            1122,
+            1402
+          ],
+          "png_color_type": 6
+        },
+        "admiration": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/sprites/Yae Miko/admiration.png",
+          "sha256": "18e75da17ac4b303ccb3d36102335297299001fdfe08db682b91da3ea4abf923",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/raw/Yae Miko/admiration.png",
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a18f4f-81b5-7563-af9a-c0b247c8db69/exec-bf15ca1e-e30d-4c2a-850d-950deebfcf72.png",
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/prompts/Yae Miko/admiration.txt",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Asset: one full-body transparent visual-novel expression sprite of Yae Miko from Genshin Impact, emotion: admiration. Input image: the sole reference is the user-approved neutral sprite of Yae Miko. Faithfully preserve that image\u2019s exact face, skin tone, hair, eyes, costume, accessories, silhouette, proportions and rendering style. Character: tall shrine maiden with pink hair, violet eyes, ornate gold headpiece, red-and-white shrine outfit and sandals. Acting: Bright attentive eyes and respectful smile; head slightly raised, one open hand near the chest and the other relaxed. Use simple coherent hands near the torso, one thumb per hand, two legs and two feet in an uncomplicated stance. Keep the complete silhouette including hair, headwear, hands and shoes with roughly 2\u20134% top and bottom padding. Genuinely transparent background. No official portrait or other image references, scenery, text, UI, watermark, weapons, handheld props, companions, detached effects, or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/references/Yae Miko/approved-neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "size": [
+            1122,
+            1402
+          ],
+          "png_color_type": 6
+        },
+        "gratitude": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/sprites/Yae Miko/gratitude.png",
+          "sha256": "b5acfa3e03f6e79f2f486db170ea37ee560faa0449cc0a214489820613f8ab96",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/raw/Yae Miko/gratitude.png",
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a18f4f-81b5-7563-af9a-c0b247c8db69/exec-e58fbb21-5c67-47f8-8873-22719534abe6.png",
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/prompts/Yae Miko/gratitude.txt",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Asset: one full-body transparent visual-novel expression sprite of Yae Miko from Genshin Impact, emotion: gratitude. Input image: the sole reference is the user-approved neutral sprite of Yae Miko. Faithfully preserve that image\u2019s exact face, skin tone, hair, eyes, costume, accessories, silhouette, proportions and rendering style. Character: tall shrine maiden with pink hair, violet eyes, ornate gold headpiece, red-and-white shrine outfit and sandals. Acting: Sincere warm smile and slight respectful incline; one hand over the heart, the other open at the side. Use simple coherent hands near the torso, one thumb per hand, two legs and two feet in an uncomplicated stance. Keep the complete silhouette including hair, headwear, hands and shoes with roughly 2\u20134% top and bottom padding. Genuinely transparent background. No official portrait or other image references, scenery, text, UI, watermark, weapons, handheld props, companions, detached effects, or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/references/Yae Miko/approved-neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "size": [
+            1122,
+            1402
+          ],
+          "png_color_type": 6
+        },
+        "embarrassment": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/sprites/Yae Miko/embarrassment.png",
+          "sha256": "820e07bd6fac40a4ecf9df143a611f3b052c61b8525f587948984250df134c89",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/raw/Yae Miko/embarrassment.png",
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a18f4f-81b5-7563-af9a-c0b247c8db69/exec-ec545c83-7e1e-477d-9ed0-65fbcf9b6311.png",
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/prompts/Yae Miko/embarrassment.txt",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Asset: one full-body transparent visual-novel expression sprite of Yae Miko from Genshin Impact, emotion: embarrassment. Input image: the sole reference is the user-approved neutral sprite of Yae Miko. Faithfully preserve that image\u2019s exact face, skin tone, hair, eyes, costume, accessories, silhouette, proportions and rendering style. Character: tall shrine maiden with pink hair, violet eyes, ornate gold headpiece, red-and-white shrine outfit and sandals. Acting: Soft blush, shy averted gaze and small smile; one hand near the cheek and the other close to the torso. Use simple coherent hands near the torso, one thumb per hand, two legs and two feet in an uncomplicated stance. Keep the complete silhouette including hair, headwear, hands and shoes with roughly 2\u20134% top and bottom padding. Genuinely transparent background. No official portrait or other image references, scenery, text, UI, watermark, weapons, handheld props, companions, detached effects, or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/references/Yae Miko/approved-neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "size": [
+            1122,
+            1402
+          ],
+          "png_color_type": 6
+        },
+        "caring": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/sprites/Yae Miko/caring.png",
+          "sha256": "abeff0674f05735d3456334e0a2442564d86396840672ff28d4f5320d8ae4014",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/raw/Yae Miko/caring.png",
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a18f4f-81b5-7563-af9a-c0b247c8db69/exec-e85b8d6e-0c50-430d-9e6b-285576f866a2.png",
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/prompts/Yae Miko/caring.txt",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Asset: one full-body transparent visual-novel expression sprite of Yae Miko from Genshin Impact, emotion: caring. Input image: the sole reference is the user-approved neutral sprite of Yae Miko. Faithfully preserve that image\u2019s exact face, skin tone, hair, eyes, costume, accessories, silhouette, proportions and rendering style. Character: tall shrine maiden with pink hair, violet eyes, ornate gold headpiece, red-and-white shrine outfit and sandals. Acting: Compassionate reassuring gaze and gentle smile; one hand softly extended at chest height, the other over the heart. Use simple coherent hands near the torso, one thumb per hand, two legs and two feet in an uncomplicated stance. Keep the complete silhouette including hair, headwear, hands and shoes with roughly 2\u20134% top and bottom padding. Genuinely transparent background. No official portrait or other image references, scenery, text, UI, watermark, weapons, handheld props, companions, detached effects, or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/references/Yae Miko/approved-neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "size": [
+            1122,
+            1402
+          ],
+          "png_color_type": 6
+        },
+        "love-1": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/sprites/Yae Miko/love-1.png",
+          "sha256": "e58bbe476f7449b93178f4cc712f92067e1804bfc9f4c1f7b74ffc74c9b7c54b",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/raw/Yae Miko/love-1.png",
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a18f4f-81b5-7563-af9a-c0b247c8db69/exec-12869bd9-c0db-4e9b-a1c9-4c40e4156061.png",
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/prompts/Yae Miko/love-1.txt",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Asset: one full-body transparent visual-novel expression sprite of Yae Miko from Genshin Impact, emotion: love-1. Input image: the sole reference is the user-approved neutral sprite of Yae Miko. Faithfully preserve that image\u2019s exact face, skin tone, hair, eyes, costume, accessories, silhouette, proportions and rendering style. Character: tall shrine maiden with pink hair, violet eyes, ornate gold headpiece, red-and-white shrine outfit and sandals. Acting: Tender open-eyed affectionate smile; one hand softly over the heart and the other gently extended nearby. Both eyes visibly open. Keep the original iris colour and detail; change only each pupil to a clearly filled heart shape in pale violet. Hearts are pupils inside the irises, not catchlights or floating symbols. Use simple coherent hands near the torso, one thumb per hand, two legs and two feet in an uncomplicated stance. Keep the complete silhouette including hair, headwear, hands and shoes with roughly 2\u20134% top and bottom padding. Genuinely transparent background. No official portrait or other image references, scenery, text, UI, watermark, weapons, handheld props, companions, detached effects, or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/references/Yae Miko/approved-neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "size": [
+            1122,
+            1402
+          ],
+          "png_color_type": 6
+        },
+        "desire-1": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/sprites/Yae Miko/desire-1.png",
+          "sha256": "1cb59c757568f5d5fb2423beb67a10bb1857e0b3d2319c914707880af07ed3c0",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/raw/Yae Miko/desire-1.png",
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a18f4f-81b5-7563-af9a-c0b247c8db69/exec-3746988f-67f9-4dc3-a4a0-4de8a182f257.png",
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/prompts/Yae Miko/desire-1.txt",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Asset: one full-body transparent visual-novel expression sprite of Yae Miko from Genshin Impact, emotion: desire-1. Input image: the sole reference is the user-approved neutral sprite of Yae Miko. Faithfully preserve that image\u2019s exact face, skin tone, hair, eyes, costume, accessories, silhouette, proportions and rendering style. Character: tall shrine maiden with pink hair, violet eyes, ornate gold headpiece, red-and-white shrine outfit and sandals. Acting: Quiet romantic longing with soft open eyes and a restrained smile; one hand over the heart, the other relaxed near the waist. Both eyes visibly open. Keep the original iris colour and detail; change only each pupil to a clearly filled heart shape in pale violet. Hearts are pupils inside the irises, not catchlights or floating symbols. Use simple coherent hands near the torso, one thumb per hand, two legs and two feet in an uncomplicated stance. Keep the complete silhouette including hair, headwear, hands and shoes with roughly 2\u20134% top and bottom padding. Genuinely transparent background. No official portrait or other image references, scenery, text, UI, watermark, weapons, handheld props, companions, detached effects, or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/references/Yae Miko/approved-neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "size": [
+            1122,
+            1402
+          ],
+          "png_color_type": 6
+        }
+      },
+      "previews": {
+        "full_body": "previews/yae-miko-full-body-sheet.png",
+        "face": "previews/yae-miko-face-sheet.png"
+      },
+      "archive": "archives/yae-miko-sprites.zip"
+    }
+  },
+  "completed_count": 66,
+  "full_archive": "archives/kirara-layla-yae-complete.zip"
+}

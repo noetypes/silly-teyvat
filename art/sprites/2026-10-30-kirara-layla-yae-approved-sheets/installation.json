@@ -1,0 +1,608 @@
+{
+  "date": "2026-10-30",
+  "source_run": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/run.json",
+  "live_root": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters",
+  "backup_root": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/backups/silly-teyvat-kirara-layla-yae-sheets-2026-10-30-01",
+  "counts": {
+    "already_installed": 2,
+    "add": 63,
+    "replace": 1
+  },
+  "files": [
+    {
+      "character": "Kirara",
+      "emotion": "neutral",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/sprites/Kirara/neutral.png",
+      "source_sha256": "445748ee9d3ee7092a64f9d2547783a1a83c98b40b742ee2ff21829f3538b528",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Kirara/neutral.png",
+      "previous_sha256": "793cda5e95a21ddd1efaeadc46990a3bb964e2a0434596636fa3bf9cffd221ef",
+      "action": "replace",
+      "backup": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/backups/silly-teyvat-kirara-layla-yae-sheets-2026-10-30-01/Kirara/neutral.png"
+    },
+    {
+      "character": "Kirara",
+      "emotion": "annoyance",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/sprites/Kirara/annoyance.png",
+      "source_sha256": "88652eca75280fa3bb18ba394722bb316fb0fc11a297c156b601e24b89082db8",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Kirara/annoyance.png",
+      "previous_sha256": null,
+      "action": "add"
+    },
+    {
+      "character": "Kirara",
+      "emotion": "smug",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/sprites/Kirara/smug.png",
+      "source_sha256": "82478bf88a4786de591b1060a50aa7fe1818d482f7a5c14facb021913fddf429",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Kirara/smug.png",
+      "previous_sha256": null,
+      "action": "add"
+    },
+    {
+      "character": "Kirara",
+      "emotion": "confusion",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/sprites/Kirara/confusion.png",
+      "source_sha256": "1fd72b81698fcaa84d3971a9cefed6d264b9b9e7fa52b138340f18f5587943ca",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Kirara/confusion.png",
+      "previous_sha256": null,
+      "action": "add"
+    },
+    {
+      "character": "Kirara",
+      "emotion": "love",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/sprites/Kirara/love.png",
+      "source_sha256": "4f2c90ffd0c9df3110070bc949eb902d2fa6c6f0a0d6bf6d6cbb13d78557586c",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Kirara/love.png",
+      "previous_sha256": null,
+      "action": "add"
+    },
+    {
+      "character": "Kirara",
+      "emotion": "excitement",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/sprites/Kirara/excitement.png",
+      "source_sha256": "414e167872e31308dca8e210d000ef4d6c17955b2393eb0274bcaa01c3b4962d",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Kirara/excitement.png",
+      "previous_sha256": null,
+      "action": "add"
+    },
+    {
+      "character": "Kirara",
+      "emotion": "joy",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/sprites/Kirara/joy.png",
+      "source_sha256": "51959dadaa157ecc221de4f6610d135f60cd8e8c18f6d857a35d422e20746534",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Kirara/joy.png",
+      "previous_sha256": null,
+      "action": "add"
+    },
+    {
+      "character": "Kirara",
+      "emotion": "fear",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/sprites/Kirara/fear.png",
+      "source_sha256": "d44914bb942072778f85dec4032596a3405e4f2b9860e3ad7b249eb021cf19bb",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Kirara/fear.png",
+      "previous_sha256": null,
+      "action": "add"
+    },
+    {
+      "character": "Kirara",
+      "emotion": "pride",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/sprites/Kirara/pride.png",
+      "source_sha256": "f54a3ad6edb7b137eb85579b28157f2dd25aa6ab74abcca65d733a4af46990e1",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Kirara/pride.png",
+      "previous_sha256": null,
+      "action": "add"
+    },
+    {
+      "character": "Kirara",
+      "emotion": "desire",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/sprites/Kirara/desire.png",
+      "source_sha256": "59ae0aa1a0befca1f7c22792c709c8200e279525d634be25fea8e0b158740986",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Kirara/desire.png",
+      "previous_sha256": null,
+      "action": "add"
+    },
+    {
+      "character": "Kirara",
+      "emotion": "anger",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/sprites/Kirara/anger.png",
+      "source_sha256": "4fbc49e391f6c0972d712b74a85af67ad7383f3d4c84bac9eb37111cd0c3f77c",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Kirara/anger.png",
+      "previous_sha256": null,
+      "action": "add"
+    },
+    {
+      "character": "Kirara",
+      "emotion": "grief",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/sprites/Kirara/grief.png",
+      "source_sha256": "6397a51380998b03926a4d28cd39f123d154766a5ec7a3122a79c55585b81160",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Kirara/grief.png",
+      "previous_sha256": null,
+      "action": "add"
+    },
+    {
+      "character": "Kirara",
+      "emotion": "sadness",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/sprites/Kirara/sadness.png",
+      "source_sha256": "926207d67f7a9132ca441fa2e4ad6b1171942e27a12e36052c70f6bc4e3b7d67",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Kirara/sadness.png",
+      "previous_sha256": null,
+      "action": "add"
+    },
+    {
+      "character": "Kirara",
+      "emotion": "disgust",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/sprites/Kirara/disgust.png",
+      "source_sha256": "f64e6dba564cc33eb6d3920d68440bbbd07f2aebfcd52836047202fd6b657ccd",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Kirara/disgust.png",
+      "previous_sha256": null,
+      "action": "add"
+    },
+    {
+      "character": "Kirara",
+      "emotion": "disappointment",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/sprites/Kirara/disappointment.png",
+      "source_sha256": "0e88228a13a2fab60713ab0bdadd85cf9a3b51f18c1d49f9ac36e37a601ef642",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Kirara/disappointment.png",
+      "previous_sha256": null,
+      "action": "add"
+    },
+    {
+      "character": "Kirara",
+      "emotion": "relief",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/sprites/Kirara/relief.png",
+      "source_sha256": "8194ff6cd0e3de362db4e2819ce5d84a9f3d3e842d4ce92db6cf2a8bde420f99",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Kirara/relief.png",
+      "previous_sha256": null,
+      "action": "add"
+    },
+    {
+      "character": "Kirara",
+      "emotion": "admiration",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/sprites/Kirara/admiration.png",
+      "source_sha256": "a34fd8f936f01460435c1d88f7ff9ac1995ca81c7a0898834ad37d7bee418b68",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Kirara/admiration.png",
+      "previous_sha256": null,
+      "action": "add"
+    },
+    {
+      "character": "Kirara",
+      "emotion": "gratitude",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/sprites/Kirara/gratitude.png",
+      "source_sha256": "835445b070ba192c8a268cf2bcb97c663f12b12a0b7128baf5b5fdcb38094d42",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Kirara/gratitude.png",
+      "previous_sha256": null,
+      "action": "add"
+    },
+    {
+      "character": "Kirara",
+      "emotion": "embarrassment",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/sprites/Kirara/embarrassment.png",
+      "source_sha256": "241eae47fe034fa2f3d927ca73f492214be8150b1cb92c61e2be8f844403030d",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Kirara/embarrassment.png",
+      "previous_sha256": null,
+      "action": "add"
+    },
+    {
+      "character": "Kirara",
+      "emotion": "caring",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/sprites/Kirara/caring.png",
+      "source_sha256": "63e16992dea23138ab6901488a1610fab200189ad3f5715683cdfeb45977a7c8",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Kirara/caring.png",
+      "previous_sha256": null,
+      "action": "add"
+    },
+    {
+      "character": "Kirara",
+      "emotion": "love-1",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/sprites/Kirara/love-1.png",
+      "source_sha256": "21394a8f8c470ff643fac6fd2b85fbe3927b94a57d32ebd5129fd7c7ba47262d",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Kirara/love-1.png",
+      "previous_sha256": null,
+      "action": "add"
+    },
+    {
+      "character": "Kirara",
+      "emotion": "desire-1",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/sprites/Kirara/desire-1.png",
+      "source_sha256": "7b0fe85ae6d469bcdddcca7d212cb71f328eb483ef0d5a169f6a0572b1992371",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Kirara/desire-1.png",
+      "previous_sha256": null,
+      "action": "add"
+    },
+    {
+      "character": "Layla",
+      "emotion": "neutral",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/sprites/Layla/neutral.png",
+      "source_sha256": "9aa24d3bde1a14b363029fc61ce5d83ad09234fc7f07385c73378417e9bf72e1",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Layla/neutral.png",
+      "previous_sha256": "9aa24d3bde1a14b363029fc61ce5d83ad09234fc7f07385c73378417e9bf72e1",
+      "action": "already_installed"
+    },
+    {
+      "character": "Layla",
+      "emotion": "annoyance",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/sprites/Layla/annoyance.png",
+      "source_sha256": "2a8294bd99421c1bb8f647d5039ac71bc744dcb8b3ffc9dee5258f3cf585078d",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Layla/annoyance.png",
+      "previous_sha256": null,
+      "action": "add"
+    },
+    {
+      "character": "Layla",
+      "emotion": "smug",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/sprites/Layla/smug.png",
+      "source_sha256": "0c93ca71d32489560a6f692193118464fd513feb220ffe9e36305844ef5a3ace",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Layla/smug.png",
+      "previous_sha256": null,
+      "action": "add"
+    },
+    {
+      "character": "Layla",
+      "emotion": "confusion",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/sprites/Layla/confusion.png",
+      "source_sha256": "fd8014b553e575ed062a532c3c5d4dec49bb8d0e11aff55330d372191f4f03db",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Layla/confusion.png",
+      "previous_sha256": null,
+      "action": "add"
+    },
+    {
+      "character": "Layla",
+      "emotion": "love",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/sprites/Layla/love.png",
+      "source_sha256": "80846416d5c7be76927bd5c1fd0b2fe2202e0b76a41cdeeb78a8d71a7e2bd2ce",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Layla/love.png",
+      "previous_sha256": null,
+      "action": "add"
+    },
+    {
+      "character": "Layla",
+      "emotion": "excitement",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/sprites/Layla/excitement.png",
+      "source_sha256": "12965fe5ec968bbead36c5e0ef053b05851293227ac57b82591cba745e6dcb2f",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Layla/excitement.png",
+      "previous_sha256": null,
+      "action": "add"
+    },
+    {
+      "character": "Layla",
+      "emotion": "joy",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/sprites/Layla/joy.png",
+      "source_sha256": "85ff0d82644064ecc7a185aaf64b185123ec2d73f6f240f23c4d3fe98c7497ca",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Layla/joy.png",
+      "previous_sha256": null,
+      "action": "add"
+    },
+    {
+      "character": "Layla",
+      "emotion": "fear",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/sprites/Layla/fear.png",
+      "source_sha256": "25f0c67d29e4cf7994dfb267d5b368c9da71f98d069a18d7ce533ecefe052d91",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Layla/fear.png",
+      "previous_sha256": null,
+      "action": "add"
+    },
+    {
+      "character": "Layla",
+      "emotion": "pride",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/sprites/Layla/pride.png",
+      "source_sha256": "c556e4c1a4183f84ac83ceedaa9b1aa94cc02cf24caaa15a4b7ba353604299e2",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Layla/pride.png",
+      "previous_sha256": null,
+      "action": "add"
+    },
+    {
+      "character": "Layla",
+      "emotion": "desire",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/sprites/Layla/desire.png",
+      "source_sha256": "b3da0063ca3a6086fc6c72187266f973c1f76cd449c1989254e464ac9df5987d",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Layla/desire.png",
+      "previous_sha256": null,
+      "action": "add"
+    },
+    {
+      "character": "Layla",
+      "emotion": "anger",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/sprites/Layla/anger.png",
+      "source_sha256": "ba48e383801fa9e7ccbc662844ca71544355cd12ecc0a80c61f58cd869230708",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Layla/anger.png",
+      "previous_sha256": null,
+      "action": "add"
+    },
+    {
+      "character": "Layla",
+      "emotion": "grief",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/sprites/Layla/grief.png",
+      "source_sha256": "006cfc4f6b66343de418a00f6a36bb63f430072411d33b6d3fa89430b79614a5",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Layla/grief.png",
+      "previous_sha256": null,
+      "action": "add"
+    },
+    {
+      "character": "Layla",
+      "emotion": "sadness",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/sprites/Layla/sadness.png",
+      "source_sha256": "c484d042658a355d9515a1d8c0f5f8982ac23344d5b3f24b0c0e578e81054155",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Layla/sadness.png",
+      "previous_sha256": null,
+      "action": "add"
+    },
+    {
+      "character": "Layla",
+      "emotion": "disgust",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/sprites/Layla/disgust.png",
+      "source_sha256": "42bece548e10611c62bfd88bf52e0853879e0de24541999d59c34ab35d79ce0d",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Layla/disgust.png",
+      "previous_sha256": null,
+      "action": "add"
+    },
+    {
+      "character": "Layla",
+      "emotion": "disappointment",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/sprites/Layla/disappointment.png",
+      "source_sha256": "971c42f192cbed440ff8d351aac7a1c787a9d8e028f8518d0a5054b00a9e20ca",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Layla/disappointment.png",
+      "previous_sha256": null,
+      "action": "add"
+    },
+    {
+      "character": "Layla",
+      "emotion": "relief",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/sprites/Layla/relief.png",
+      "source_sha256": "8826f48c9d49a79d4756a79a167ebfb7dd5966b7ba4c30da42c55c9e65853fb9",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Layla/relief.png",
+      "previous_sha256": null,
+      "action": "add"
+    },
+    {
+      "character": "Layla",
+      "emotion": "admiration",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/sprites/Layla/admiration.png",
+      "source_sha256": "8af9868b96468b7a04b98661e27263d6380dc2038a27bae6abf95f54a908d2ca",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Layla/admiration.png",
+      "previous_sha256": null,
+      "action": "add"
+    },
+    {
+      "character": "Layla",
+      "emotion": "gratitude",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/sprites/Layla/gratitude.png",
+      "source_sha256": "d4875bd3b554e69166e067d06e25855f2aa43914863519ed4443f5089245de74",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Layla/gratitude.png",
+      "previous_sha256": null,
+      "action": "add"
+    },
+    {
+      "character": "Layla",
+      "emotion": "embarrassment",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/sprites/Layla/embarrassment.png",
+      "source_sha256": "7c729ba13af967dd8f065c2ea4fb6013e9a7083e0aa4216f3f44f117c41ac740",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Layla/embarrassment.png",
+      "previous_sha256": null,
+      "action": "add"
+    },
+    {
+      "character": "Layla",
+      "emotion": "caring",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/sprites/Layla/caring.png",
+      "source_sha256": "19670c3a65003d7d08d5ae239846115e69c71293f4b797b26a80230422b92c26",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Layla/caring.png",
+      "previous_sha256": null,
+      "action": "add"
+    },
+    {
+      "character": "Layla",
+      "emotion": "love-1",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/sprites/Layla/love-1.png",
+      "source_sha256": "8dceb6baae105f633a0788de3cb7befc341b9519bb0a30299740451dd7a88c00",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Layla/love-1.png",
+      "previous_sha256": null,
+      "action": "add"
+    },
+    {
+      "character": "Layla",
+      "emotion": "desire-1",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/sprites/Layla/desire-1.png",
+      "source_sha256": "bbdf100a435ffa181607c899a4faa9b14c311b50fcb702af969f016213c16cf4",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Layla/desire-1.png",
+      "previous_sha256": null,
+      "action": "add"
+    },
+    {
+      "character": "Yae Miko",
+      "emotion": "neutral",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/sprites/Yae Miko/neutral.png",
+      "source_sha256": "d8f85e814fc780e1f036e29ac9bc969196430753cdab101438f7bee8ddc31409",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Yae Miko/neutral.png",
+      "previous_sha256": "d8f85e814fc780e1f036e29ac9bc969196430753cdab101438f7bee8ddc31409",
+      "action": "already_installed"
+    },
+    {
+      "character": "Yae Miko",
+      "emotion": "annoyance",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/sprites/Yae Miko/annoyance.png",
+      "source_sha256": "cd19b233fb3f40aa64ea7627aa5f51bc817d7e1176cd37ba32951c502baa5e55",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Yae Miko/annoyance.png",
+      "previous_sha256": null,
+      "action": "add"
+    },
+    {
+      "character": "Yae Miko",
+      "emotion": "smug",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/sprites/Yae Miko/smug.png",
+      "source_sha256": "c6206db32090dc90fc3079ba1450667ac60e03f1c54827f818eb5eeab542e797",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Yae Miko/smug.png",
+      "previous_sha256": null,
+      "action": "add"
+    },
+    {
+      "character": "Yae Miko",
+      "emotion": "confusion",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/sprites/Yae Miko/confusion.png",
+      "source_sha256": "3f5d3f00e1a19481639efe18139527290a886ba43e8d9f75ac408f57d87bee67",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Yae Miko/confusion.png",
+      "previous_sha256": null,
+      "action": "add"
+    },
+    {
+      "character": "Yae Miko",
+      "emotion": "love",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/sprites/Yae Miko/love.png",
+      "source_sha256": "1fa83003bb465389c999ef66a2789ff4cd5cc5b87e11d81def9020dd0dee7ad2",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Yae Miko/love.png",
+      "previous_sha256": null,
+      "action": "add"
+    },
+    {
+      "character": "Yae Miko",
+      "emotion": "excitement",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/sprites/Yae Miko/excitement.png",
+      "source_sha256": "ec1940d0f7b05ea204745a36ddebbe4aa6493ad5fd012e6ccafb757595255111",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Yae Miko/excitement.png",
+      "previous_sha256": null,
+      "action": "add"
+    },
+    {
+      "character": "Yae Miko",
+      "emotion": "joy",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/sprites/Yae Miko/joy.png",
+      "source_sha256": "0fed439d32eee84df69fe3f93951b0de7345fcbb7608b6a90713fff64da9ba08",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Yae Miko/joy.png",
+      "previous_sha256": null,
+      "action": "add"
+    },
+    {
+      "character": "Yae Miko",
+      "emotion": "fear",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/sprites/Yae Miko/fear.png",
+      "source_sha256": "58d228ea7ff9726aa427f5fefb0e289a8533e6ce40fcbfc818ec5605db0d76dc",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Yae Miko/fear.png",
+      "previous_sha256": null,
+      "action": "add"
+    },
+    {
+      "character": "Yae Miko",
+      "emotion": "pride",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/sprites/Yae Miko/pride.png",
+      "source_sha256": "13204105c3c34e94c306a071f9ad8607cf2eda6a43b0852cbcaeaa9004774886",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Yae Miko/pride.png",
+      "previous_sha256": null,
+      "action": "add"
+    },
+    {
+      "character": "Yae Miko",
+      "emotion": "desire",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/sprites/Yae Miko/desire.png",
+      "source_sha256": "b9c2be68ef000f40e1489e044cc309a593ab47d3ba45f3e24ead14e525af3ac5",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Yae Miko/desire.png",
+      "previous_sha256": null,
+      "action": "add"
+    },
+    {
+      "character": "Yae Miko",
+      "emotion": "anger",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/sprites/Yae Miko/anger.png",
+      "source_sha256": "7031fe350bd6186c26313dfc4d2602350453e69a097a9a683f4762c04c600622",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Yae Miko/anger.png",
+      "previous_sha256": null,
+      "action": "add"
+    },
+    {
+      "character": "Yae Miko",
+      "emotion": "grief",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/sprites/Yae Miko/grief.png",
+      "source_sha256": "9b91dc660b20cc8047cf89613f9def19c25efef389a442bdd01e0e13e84ff5ca",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Yae Miko/grief.png",
+      "previous_sha256": null,
+      "action": "add"
+    },
+    {
+      "character": "Yae Miko",
+      "emotion": "sadness",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/sprites/Yae Miko/sadness.png",
+      "source_sha256": "15a5a0bb117832f77030cab0ddda90957c48fba0c8ad93484a53116b24f2d566",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Yae Miko/sadness.png",
+      "previous_sha256": null,
+      "action": "add"
+    },
+    {
+      "character": "Yae Miko",
+      "emotion": "disgust",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/sprites/Yae Miko/disgust.png",
+      "source_sha256": "70363509395cbf531232b861862aa5b958d513cae5349235512839803c1dd7d1",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Yae Miko/disgust.png",
+      "previous_sha256": null,
+      "action": "add"
+    },
+    {
+      "character": "Yae Miko",
+      "emotion": "disappointment",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/sprites/Yae Miko/disappointment.png",
+      "source_sha256": "53b0d13e84884c5f675a6602eaf11123429047021361b041095fedd02a948fbb",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Yae Miko/disappointment.png",
+      "previous_sha256": null,
+      "action": "add"
+    },
+    {
+      "character": "Yae Miko",
+      "emotion": "relief",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/sprites/Yae Miko/relief.png",
+      "source_sha256": "141b8c4b0fe824007606dbfb017b82a340df098f0982f8091cce65c435f3f8df",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Yae Miko/relief.png",
+      "previous_sha256": null,
+      "action": "add"
+    },
+    {
+      "character": "Yae Miko",
+      "emotion": "admiration",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/sprites/Yae Miko/admiration.png",
+      "source_sha256": "18e75da17ac4b303ccb3d36102335297299001fdfe08db682b91da3ea4abf923",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Yae Miko/admiration.png",
+      "previous_sha256": null,
+      "action": "add"
+    },
+    {
+      "character": "Yae Miko",
+      "emotion": "gratitude",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/sprites/Yae Miko/gratitude.png",
+      "source_sha256": "b5acfa3e03f6e79f2f486db170ea37ee560faa0449cc0a214489820613f8ab96",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Yae Miko/gratitude.png",
+      "previous_sha256": null,
+      "action": "add"
+    },
+    {
+      "character": "Yae Miko",
+      "emotion": "embarrassment",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/sprites/Yae Miko/embarrassment.png",
+      "source_sha256": "820e07bd6fac40a4ecf9df143a611f3b052c61b8525f587948984250df134c89",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Yae Miko/embarrassment.png",
+      "previous_sha256": null,
+      "action": "add"
+    },
+    {
+      "character": "Yae Miko",
+      "emotion": "caring",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/sprites/Yae Miko/caring.png",
+      "source_sha256": "abeff0674f05735d3456334e0a2442564d86396840672ff28d4f5320d8ae4014",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Yae Miko/caring.png",
+      "previous_sha256": null,
+      "action": "add"
+    },
+    {
+      "character": "Yae Miko",
+      "emotion": "love-1",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/sprites/Yae Miko/love-1.png",
+      "source_sha256": "e58bbe476f7449b93178f4cc712f92067e1804bfc9f4c1f7b74ffc74c9b7c54b",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Yae Miko/love-1.png",
+      "previous_sha256": null,
+      "action": "add"
+    },
+    {
+      "character": "Yae Miko",
+      "emotion": "desire-1",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-kirara-layla-yae-approved-sheets/sprites/Yae Miko/desire-1.png",
+      "source_sha256": "1cb59c757568f5d5fb2423beb67a10bb1857e0b3d2319c914707880af07ed3c0",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Yae Miko/desire-1.png",
+      "previous_sha256": null,
+      "action": "add"
+    }
+  ]
+}

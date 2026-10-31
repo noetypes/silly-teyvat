@@ -1,0 +1,27 @@
+{
+  "version": "v002",
+  "reference_original": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Columbina/Official Art/neutral.png",
+  "reference": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/references/Columbina/official.png",
+  "reference_sha256": "05d3e3b77c8c48c12f91b9ae4388cbc19451c596cdee32fc0d72abb12f31ea24",
+  "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/prompts/Columbina/neutral-v002.txt",
+  "tool": "image_gen.imagegen",
+  "tool_arguments": {
+    "prompt": "Use case: stylized-concept. Asset: full-body neutral visual-novel character sprite of Columbina from Genshin Impact. Use only the supplied installed official transparent portrait as the image reference. Preserve the character's official face, skin tone, hair, costume, colors, accessories, and appropriate body type. Use a clearly small, petite medium-female body rather than an elongated tall-female silhouette: compact torso and legs, a relatively larger head, delicate shoulders and limbs. Retain her dark hair, white winglike headpiece and flowing blue, white and magenta costume. A gentle compact floating pose is suitable; do not stretch the legs to fill the canvas. For this non-enemy character, show no handheld weapons, companions, or props unless explicitly part of the worn costume. Keep a relaxed neutral expression and a complete silhouette including headwear, hair, hands and shoes, with roughly 2\u20134% top and bottom padding without stretching the body. Polished Genshin-inspired anime game art on a genuinely transparent background. No scenery, UI, labels, watermark, unrelated subjects, detached effects or ground shadow.",
+    "referenced_image_paths": [
+      "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/references/Columbina/official.png"
+    ],
+    "transparent_background": true
+  },
+  "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/raw/Columbina/neutral-v002.png",
+  "tool_output": "/Users/alexachan/.codex/generated_images/01a18ab4-9b84-7b52-968f-6df209e09510/exec-ba9ed830-15aa-4f7b-97fa-1bee2fac1107.png",
+  "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Columbina/neutral-v002.png",
+  "candidate_sha256": "01e0ad8587e320d30a74d76b541a2b0fa71d730c7ec783e084428ca0f8a2f42d",
+  "size": [
+    1330,
+    1183
+  ],
+  "png_color_type": 6,
+  "approval": {
+    "status": "pending"
+  }
+}

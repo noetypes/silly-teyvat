@@ -1,0 +1,26 @@
+{
+  "reference_original": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Nobushi Hitsukeban/Official Art/neutral.png",
+  "reference": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/references/Nobushi Hitsukeban/official.png",
+  "reference_sha256": "749a20beb377ee9a1bb1ddb7ade062a9e08a539eda6aaf34e9425c979b741e39",
+  "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/prompts/Nobushi Hitsukeban/neutral-v001.txt",
+  "tool": "image_gen.imagegen",
+  "tool_arguments": {
+    "prompt": "Use case: stylized-concept. Asset: full-body neutral visual-novel enemy sprite of Nobushi Hitsukeban from Genshin Impact. The supplied installed official transparent artwork is the primary identity reference. Preserve the exact headwear or mask, costume, colors, weapons, build and proportions. Depict a threatening but still idle stance, facing toward the viewer, with clear hands, two legs and feet, and equipment wholly visible. Polished Genshin-inspired anime game artwork, about 2\u20134% top and bottom padding, genuinely transparent background. No scenery, lettering, UI, watermark, unrelated subjects, detached effects or ground shadow.",
+    "referenced_image_paths": [
+      "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/references/Nobushi Hitsukeban/official.png"
+    ],
+    "transparent_background": true
+  },
+  "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/raw/Nobushi Hitsukeban/neutral-v001.png",
+  "tool_output": "/Users/alexachan/.codex/generated_images/01a18ab4-9b84-7b52-968f-6df209e09510/exec-60caa356-eac4-4599-b328-100fd084f5ac.png",
+  "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Nobushi Hitsukeban/neutral-v001.png",
+  "candidate_sha256": "3d728d8c3f598c99de421a676b58ac51554b04584cb412857451ee55bf16bb21",
+  "size": [
+    1024,
+    1536
+  ],
+  "png_color_type": 6,
+  "approval": {
+    "status": "pending"
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "version": "v003",
+  "reference_original": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Yelan/Official Art/neutral.png",
+  "reference": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/references/Yelan/official.png",
+  "reference_sha256": "fb8da428b9d063b9e8b183e3e13f7521a4ad23c1eebddef599d3885f140fdf0e",
+  "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/prompts/Yelan/neutral-v003.txt",
+  "tool": "image_gen.imagegen",
+  "tool_arguments": {
+    "prompt": "Use case: stylized-concept. Asset: full-body neutral visual-novel sprite of Yelan from Genshin Impact. Use only the supplied installed official transparent portrait as the image input and primary identity reference. Faithfully preserve the official face, skin tone, hair, costume, colors, accessories, and body type. Her hairstyle is an asymmetrical dark navy bob with distinct blue highlights and a clean crown. The hair must contain no bracelet, bangle, wrist ring, blue circular ornament, or hand-shaped object. Put both arms below shoulder level: left wrist beside the left hip and right wrist beside the right hip, clearly far from her head and separated from the hair by transparent space. The bracelet is a small accessory encircling only her wrist, visibly attached to her forearm, never touching the hair. Preserve her teal eyes, dark-blue hair, white fur-trimmed cape and blue-black outfit. Both hands empty and simple, fingers naturally together. No props or weapons. Keep the complete silhouette including headwear, hair, hands and shoes, with roughly 2\u20134% top and bottom padding without stretching the body. Polished Genshin-inspired anime game art on a genuinely transparent background. No scenery, UI, labels, watermark, unrelated subjects, detached effects, or ground shadow.",
+    "referenced_image_paths": [
+      "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/references/Yelan/official.png"
+    ],
+    "transparent_background": true
+  },
+  "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/raw/Yelan/neutral-v003.png",
+  "tool_output": "/Users/alexachan/.codex/generated_images/01a18ab4-9b84-7b52-968f-6df209e09510/exec-cd904ed9-380a-4985-8eaf-b72a6c6b2c33.png",
+  "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Yelan/neutral-v003.png",
+  "candidate_sha256": "97e8c29e386877584609c5323739ff39fda6a07ab70204bb26d3381d6de666d2",
+  "size": [
+    916,
+    1717
+  ],
+  "png_color_type": 6,
+  "approval": {
+    "status": "pending"
+  }
+}

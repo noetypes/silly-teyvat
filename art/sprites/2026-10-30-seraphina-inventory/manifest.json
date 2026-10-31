@@ -1,0 +1,297 @@
+{
+  "source_folder": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Seraphina",
+  "sprite_count": 28,
+  "card_found": false,
+  "card_check": "No Seraphina filename or embedded card name among 217 live character card PNGs.",
+  "preview": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-30-seraphina-inventory/Seraphina-28-sprites-contact-sheet.png",
+  "columns": 5,
+  "tile_size": [
+    320,
+    480
+  ],
+  "order": "alphabetical by filename, left to right, top to bottom",
+  "transform": "non-generative Lanczos thumbnail and grid composition; source sprites unchanged",
+  "labels": false,
+  "sprites": [
+    {
+      "index": 1,
+      "filename": "admiration.png",
+      "source": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Seraphina/admiration.png",
+      "sha256": "e451994487b3a5b7c72d6e6025c8cbe6bbcfbf01a490042b8b581522e6ba4f96",
+      "size": [
+        608,
+        920
+      ]
+    },
+    {
+      "index": 2,
+      "filename": "amusement.png",
+      "source": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Seraphina/amusement.png",
+      "sha256": "1cedaee06fb1c740c5c8c52de8973f733789d51fe9b23fcb633635e755ae6e6f",
+      "size": [
+        608,
+        920
+      ]
+    },
+    {
+      "index": 3,
+      "filename": "anger.png",
+      "source": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Seraphina/anger.png",
+      "sha256": "d657d77b1bce609dd6006582cf687691871411eb041f9f4c41da4765b12ea069",
+      "size": [
+        608,
+        920
+      ]
+    },
+    {
+      "index": 4,
+      "filename": "annoyance.png",
+      "source": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Seraphina/annoyance.png",
+      "sha256": "ee268f03244c8194abcc18664bde83f4488630a6a9095717eead8cfdb36048fe",
+      "size": [
+        608,
+        920
+      ]
+    },
+    {
+      "index": 5,
+      "filename": "approval.png",
+      "source": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Seraphina/approval.png",
+      "sha256": "9ae62282e0b1dfd5b0ea0874f89b59814de4b031919ed44ed4cc3f848d5bf5ed",
+      "size": [
+        608,
+        920
+      ]
+    },
+    {
+      "index": 6,
+      "filename": "caring.png",
+      "source": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Seraphina/caring.png",
+      "sha256": "3f0a3dd0c795b1a05660f55a3fd54219b2408e740354e8a15970d8e00ac0b1f2",
+      "size": [
+        608,
+        920
+      ]
+    },
+    {
+      "index": 7,
+      "filename": "confusion.png",
+      "source": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Seraphina/confusion.png",
+      "sha256": "d731ca04495b13e14e7df5c5b304a93c63769387131c995b1cbef6fdda39105b",
+      "size": [
+        608,
+        920
+      ]
+    },
+    {
+      "index": 8,
+      "filename": "curiosity.png",
+      "source": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Seraphina/curiosity.png",
+      "sha256": "31275000dbcf06e6deca10971e8e48bb1605ab5aa26c177d836f5be4c9c0879e",
+      "size": [
+        608,
+        920
+      ]
+    },
+    {
+      "index": 9,
+      "filename": "desire.png",
+      "source": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Seraphina/desire.png",
+      "sha256": "f77e1b8b6c2684011e81262c0ad5a28437da4ea1fef05ba8d073bec0988b725b",
+      "size": [
+        608,
+        920
+      ]
+    },
+    {
+      "index": 10,
+      "filename": "disappointment.png",
+      "source": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Seraphina/disappointment.png",
+      "sha256": "e9a5e328ebaf3d36c8a69653f5c65b408cfbb4f65d4f24dee935e5eb2aa21c15",
+      "size": [
+        608,
+        920
+      ]
+    },
+    {
+      "index": 11,
+      "filename": "disapproval.png",
+      "source": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Seraphina/disapproval.png",
+      "sha256": "690600866c8f31ad6acfc9db22769eede7a5b6a65b56e2706c6af868da2b38d5",
+      "size": [
+        608,
+        920
+      ]
+    },
+    {
+      "index": 12,
+      "filename": "disgust.png",
+      "source": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Seraphina/disgust.png",
+      "sha256": "a7717a440287608b12d1e4be0011b067554339b39803ea85a555c50b0502dd35",
+      "size": [
+        608,
+        920
+      ]
+    },
+    {
+      "index": 13,
+      "filename": "embarrassment.png",
+      "source": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Seraphina/embarrassment.png",
+      "sha256": "8400d251049220134cecd5dba6dc94268348db04bbf801e5d1b8a62b6d1ea441",
+      "size": [
+        608,
+        920
+      ]
+    },
+    {
+      "index": 14,
+      "filename": "excitement.png",
+      "source": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Seraphina/excitement.png",
+      "sha256": "1b82905f656458a2acff10c23b2cd4348c10e60f677f1dbd69be82b773b7d745",
+      "size": [
+        608,
+        920
+      ]
+    },
+    {
+      "index": 15,
+      "filename": "fear.png",
+      "source": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Seraphina/fear.png",
+      "sha256": "baa30eebddb5913a006e322137d9b24b90a2ab99f8d2c2dbcf641b923df5cb76",
+      "size": [
+        608,
+        920
+      ]
+    },
+    {
+      "index": 16,
+      "filename": "gratitude.png",
+      "source": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Seraphina/gratitude.png",
+      "sha256": "1693052da628f5a63e5de0dee18a67d8e1014e8680247eaede612a6edef18d63",
+      "size": [
+        608,
+        920
+      ]
+    },
+    {
+      "index": 17,
+      "filename": "grief.png",
+      "source": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Seraphina/grief.png",
+      "sha256": "cbab6c5a10edbf20ed04350dbec06dc6177719904ab7b01ce30e65ac51d0638a",
+      "size": [
+        608,
+        920
+      ]
+    },
+    {
+      "index": 18,
+      "filename": "joy.png",
+      "source": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Seraphina/joy.png",
+      "sha256": "b8da43db84d73a795a5f6044971bae9dfcc163684ab7078673b71ff2138ef716",
+      "size": [
+        608,
+        920
+      ]
+    },
+    {
+      "index": 19,
+      "filename": "love.png",
+      "source": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Seraphina/love.png",
+      "sha256": "830f0fffb386d4a152386fde6f49440b79daef40bbb7a4d1c164de560a03f95e",
+      "size": [
+        608,
+        920
+      ]
+    },
+    {
+      "index": 20,
+      "filename": "nervousness.png",
+      "source": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Seraphina/nervousness.png",
+      "sha256": "abce8853dc1b75af7a9eca1d3cbd36e40a4830d3ed10cce52c0005cfd57c000c",
+      "size": [
+        608,
+        920
+      ]
+    },
+    {
+      "index": 21,
+      "filename": "neutral.png",
+      "source": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Seraphina/neutral.png",
+      "sha256": "aeefd83cd8768d9701d914dbe78775ad92e93c175079c33072c2ec22fbba7d26",
+      "size": [
+        608,
+        920
+      ]
+    },
+    {
+      "index": 22,
+      "filename": "optimism.png",
+      "source": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Seraphina/optimism.png",
+      "sha256": "4aa443a4446ca577cdd2e434ae949f599c624e907303c0744b73868e027d789d",
+      "size": [
+        608,
+        920
+      ]
+    },
+    {
+      "index": 23,
+      "filename": "pride.png",
+      "source": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Seraphina/pride.png",
+      "sha256": "e6852d60291a6a37d1f29ca159ac80816d1c9ba24239601a76de2af12d36d34a",
+      "size": [
+        608,
+        920
+      ]
+    },
+    {
+      "index": 24,
+      "filename": "realization.png",
+      "source": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Seraphina/realization.png",
+      "sha256": "597d3a5cf6e5a142dd9329559263e0a77a5aa26f8ef6d19e6e5b6d9000d6afb2",
+      "size": [
+        608,
+        920
+      ]
+    },
+    {
+      "index": 25,
+      "filename": "relief.png",
+      "source": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Seraphina/relief.png",
+      "sha256": "89aba575c32b9341871a906ebd64b66fe0031b281108f9eee8c3734d70ec5e00",
+      "size": [
+        608,
+        920
+      ]
+    },
+    {
+      "index": 26,
+      "filename": "remorse.png",
+      "source": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Seraphina/remorse.png",
+      "sha256": "26e65c298abc03da60688a8b891e54d1faa701bb47a439ba817ecf1a72a65c31",
+      "size": [
+        608,
+        920
+      ]
+    },
+    {
+      "index": 27,
+      "filename": "sadness.png",
+      "source": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Seraphina/sadness.png",
+      "sha256": "3819c2bca59224f67767eb3762c846e35d5eb5272be03f35c21fc32163df67a6",
+      "size": [
+        608,
+        920
+      ]
+    },
+    {
+      "index": 28,
+      "filename": "surprise.png",
+      "source": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Seraphina/surprise.png",
+      "sha256": "f6a9f657d081f670a961649a5a21526ec251262ca06adf99626509059fbbb103",
+      "size": [
+        608,
+        920
+      ]
+    }
+  ]
+}
