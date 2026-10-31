@@ -1,3 +1,8 @@
+# Silly Teyvat 1.50.1: CG frames match their art
+
+- **Frames fit the CG.** A framed CG, image or video, now takes the shape of its art at about the
+  same size on screen, including in **Preview CG**. Resizing keeps that shape.
+
 # Silly Teyvat 1.50.0: Video CGs and per-CG display
 
 - **Each CG chooses how it appears.** Character Customization > Scenes now sets every CG to replace

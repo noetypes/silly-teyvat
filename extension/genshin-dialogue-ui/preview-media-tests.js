@@ -1,5 +1,5 @@
 import { mountPageSprites } from './page-sprites.js';
-import { mountSceneMedia, createSpriteSoundPlayer, cgCategories } from './scene-media.js';
+import { mountSceneMedia, createSpriteSoundPlayer, cgCategories, fittedFrame } from './scene-media.js';
 import { mediaSettings, spriteAudioKey, registerExpression, migrateCGDisplay } from './media-store.js';
 export async function runMediaTests() {
     const results=[],pause=ms=>new Promise(r=>setTimeout(r,ms));
@@ -87,6 +87,21 @@ export async function runMediaTests() {
         await media.previewCG(prefs.characterCGs['Klee.png'][0]);const previewDialog=host.querySelector('#gi-cg-preview');
         check('preview opens the chosen CG in its own display mode',previewDialog.open&&previewDialog.dataset.display==='frame'&&previewDialog.querySelector('img').getAttribute('src')===art);
         previewDialog.querySelector('header button').click();await pause(10);check('preview closes',!previewDialog.open);
+        const shape={width:640,height:400,extraWidth:4,extraHeight:40,maxWidth:1000,maxHeight:800};
+        const tall=fittedFrame({...shape,ratio:.5}),wide=fittedFrame({...shape,ratio:2}),huge=fittedFrame({...shape,ratio:.5,height:2000});
+        check('a frame takes the media shape at the same area',Math.abs((tall.width-4)/(tall.height-40)-.5)<.001&&Math.abs((wide.width-4)/(wide.height-40)-2)<.001&&Math.abs((tall.width-4)*(tall.height-40)-(wide.width-4)*(wide.height-40))<1);
+        check('a fitted frame stays on screen with its shape',huge.height<=800&&Math.abs((huge.width-4)/(huge.height-40)-.5)<.001);
+        const sliver=fittedFrame({...shape,width:200,height:150,ratio:.25});check('a very tall frame keeps its shape at the smallest size',sliver.width>=179.9&&Math.abs((sliver.width-4)/(sliver.height-40)-.25)<.001);
+        const portrait=new URL('preview-klee.png',location.href).pathname;Object.assign(prefs.characterCGs['Klee.png'][0],{path:portrait,display:'frame'});
+        media.reset();choose='art';ctx.chat=[{name:'Klee',original_avatar:'Klee.png',mes:'“Three”'}];sync(0);
+        const framed=host.querySelector('#gi-cg-window'),framedImage=framed.querySelector('img');for(let i=0;i<50&&!(framedImage.complete&&framedImage.naturalWidth);i++)await pause(20);await pause(20);
+        const framedShape=framedImage.getBoundingClientRect(),imageRatio=framedImage.naturalWidth/framedImage.naturalHeight;
+        check('the frame matches its image',Math.abs(framedShape.width/framedShape.height-imageRatio)<.02);
+        const handle=framed.querySelector('.gi-cg-resize');handle.dispatchEvent(new KeyboardEvent('keydown',{key:'ArrowRight',bubbles:true}));const grown=framedImage.getBoundingClientRect();
+        check('resizing keeps the image ratio',grown.width>framedShape.width&&Math.abs(grown.width/grown.height-imageRatio)<.02);
+        host.querySelector('#gi-cg-window header button').click();
+        media.previewCG(prefs.characterCGs['Klee.png'][0]);await pause(40);const previewImage=host.querySelector('#gi-cg-preview img').getBoundingClientRect();
+        check('a framed preview matches its image',Math.abs(previewImage.width/previewImage.height-imageRatio)<.02);host.querySelector('#gi-cg-preview header button').click();await pause(10);
         const legacy={cgMode:'window',characterCGs:{'Klee.png':[{id:'a'},{id:'b',display:'scene'}]}};
         check('the old global mode moves onto each CG',migrateCGDisplay(legacy)&&legacy.cgMode===undefined&&legacy.characterCGs['Klee.png'][0].display==='frame'&&legacy.characterCGs['Klee.png'][1].display==='scene'&&!migrateCGDisplay(legacy));
     } catch(error) {results.push(`ERROR ${error.message}`);}

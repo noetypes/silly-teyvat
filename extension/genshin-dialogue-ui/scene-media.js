@@ -35,6 +35,14 @@ export function cgCategories(entries) {
     }
     return categories;
 }
+// Gives a frame the media's shape at about the same on-screen area, so wide and tall CGs look alike in size.
+// extraWidth and extraHeight are the borders and title bar around the media.
+export function fittedFrame({width,height,extraWidth,extraHeight,ratio,maxWidth,maxHeight}){
+    const area=Math.max(1,(width-extraWidth)*(height-extraHeight)),mediaWidth=Math.sqrt(area*ratio),mediaHeight=mediaWidth/ratio;
+    // A very tall or wide CG grows to the frame's smallest size before the screen limits apply.
+    const scale=Math.min(Math.max(1,(180-extraWidth)/mediaWidth,(120-extraHeight)/mediaHeight),(maxWidth-extraWidth)/mediaWidth,(maxHeight-extraHeight)/mediaHeight);
+    return {width:mediaWidth*scale+extraWidth,height:mediaHeight*scale+extraHeight};
+}
 // One place to show a CG: an image (GIFs animate on their own) or a video with its sound.
 function createCGMedia(image){
     const video=document.createElement('video');video.hidden=true;video.playsInline=true;video.preload='auto';image.after(video);
@@ -60,6 +68,11 @@ function createCGMedia(image){
         stop(){if(!shown)return;shown='';blocked=false;video.pause();video.removeAttribute('src');video.load();},
         pause(){if(shown)video.pause();},
         resume(){if(shown&&!video.ended)video.play().catch(()=>{});},
+        ratio(){
+            const width=video.hidden?image.naturalWidth:video.videoWidth,height=video.hidden?image.naturalHeight:video.videoHeight;
+            return width&&height?width/height:0;
+        },
+        onResize(fit,signal){image.addEventListener('load',fit,{signal});video.addEventListener('loadedmetadata',fit,{signal});},
     };
     return media;
 }
@@ -100,9 +113,10 @@ export function mountSceneMedia({host,getContext,adapter=createMediaAdapter(getC
             if (frameKey !== key) {
                 if(audioKind==='cg' && audioCGKey!==key)stopSound();
                 frameKey = key; frame.querySelector('header span').textContent = cg.label; frame.hidden = false;
-                clampFrame();
+                shown = frameMedia.show(cg,videoSound(prefs,cg));
+                fitFrame();
             }
-            shown = frameMedia.show(cg,videoSound(prefs,cg));
+            shown ??= frameMedia.show(cg,videoSound(prefs,cg));
         } else {
             hideFrame();
             stage.hidden = false; document.body.classList.add('gi-cg-replace');
@@ -178,7 +192,7 @@ export function mountSceneMedia({host,getContext,adapter=createMediaAdapter(getC
             preview.dataset.display=cgDisplay(cg,isPhone());preview.querySelector('header span').textContent=cg.label;
             stageMedia.pause();frameMedia.pause();
             if(!preview.open)preview.showModal();
-            previewMedia.stop();previewMedia.show(cg,videoSound(prefs,cg));
+            previewMedia.stop();previewMedia.show(cg,videoSound(prefs,cg));fitPreview();
             if(cg.audio?.length&&prefs.cgAudio!==false)return playSound(cg.audio,'preview','',cgVolume(prefs,cg.audioVolume));
             if(audioKind==='preview')stopSound();
             return Promise.resolve();
@@ -198,6 +212,24 @@ export function mountSceneMedia({host,getContext,adapter=createMediaAdapter(getC
     preview.querySelector('header button').addEventListener('click',()=>preview.close(),{signal:abort.signal});
     preview.addEventListener('close',()=>{previewMedia.stop();if(audioKind==='preview')stopSound();stageMedia.resume();frameMedia.resume();},{signal:abort.signal});
     globalThis.matchMedia?.('(max-width: 768px), (max-height: 500px)').addEventListener('change',()=>{if(activeCG)paint(activeCG,selection);},{signal:abort.signal});
+    const frameLimits = () => ({maxWidth:innerWidth-12,maxHeight:innerHeight-12});
+    const frameExtras = (box,bar) => {const extraWidth=box.offsetWidth-box.clientWidth;return {extraWidth,extraHeight:extraWidth+bar.offsetHeight};};
+    // Each surface sizes itself as its image or video reports its shape, including a cached one.
+    function fitFrame() {
+        const ratio=frameMedia.ratio();
+        if(ratio){
+            const r=frame.getBoundingClientRect(),size=fittedFrame({width:r.width,height:r.height,ratio,...frameExtras(frame,frame.querySelector('header')),...frameLimits()});
+            frame.style.width=`${size.width}px`;frame.style.height=`${size.height}px`;
+        }
+        clampFrame();
+    }
+    function fitPreview() {
+        preview.style.width=preview.style.height='';
+        const ratio=previewMedia.ratio();if(!ratio||preview.dataset.display!=='frame')return;
+        const saved=mediaSettings(getContext()).cgFrame,r=preview.getBoundingClientRect();
+        const size=fittedFrame({width:saved?.width || r.width,height:saved?.height || r.height,ratio,...frameExtras(preview,preview.querySelector('header')),...frameLimits()});
+        preview.style.width=`${size.width}px`;preview.style.height=`${size.height}px`;
+    }
     function clampFrame() {
         const r = frame.getBoundingClientRect();
         frame.style.width = `${Math.min(Math.max(180,r.width),innerWidth-12)}px`;
@@ -207,6 +239,10 @@ export function mountSceneMedia({host,getContext,adapter=createMediaAdapter(getC
     }
     const remembered = mediaSettings(getContext()).cgFrame;
     if (remembered) for (const k of ['left','top','width','height']) if(Number.isFinite(remembered[k]))frame.style[k]=`${remembered[k]}px`;
+    function resizeFrame(width,ratio) {
+        const extras=frameExtras(frame,frame.querySelector('header')),next=Math.max(180,width),size=fittedFrame({width:next,height:(next-extras.extraWidth)/ratio+extras.extraHeight,ratio,...extras,...frameLimits()});
+        frame.style.width=`${size.width}px`;frame.style.height=`${size.height}px`;
+    }
     let drag;
     frame.addEventListener('pointerdown',event=>{
         const resize = event.target.closest('.gi-cg-resize');
@@ -217,15 +253,22 @@ export function mountSceneMedia({host,getContext,adapter=createMediaAdapter(getC
     frame.addEventListener('pointermove',event=>{
         if (!drag) return;
         const dx=event.clientX-drag.x,dy=event.clientY-drag.y;
-        Object.assign(frame.style,drag.resize?{width:`${drag.width+dx}px`,height:`${drag.height+dy}px`}:{left:`${drag.left+dx}px`,top:`${drag.top+dy}px`});clampFrame();
+        const ratio=frameMedia.ratio();
+        if(drag.resize&&ratio)resizeFrame(drag.width+(Math.abs(dx)>=Math.abs(dy)*ratio?dx:dy*ratio),ratio);
+        else Object.assign(frame.style,drag.resize?{width:`${drag.width+dx}px`,height:`${drag.height+dy}px`}:{left:`${drag.left+dx}px`,top:`${drag.top+dy}px`});
+        clampFrame();
     },{signal:abort.signal});
     function saveFrame(){const r=frame.getBoundingClientRect();mediaSettings(getContext()).cgFrame={left:r.left,top:r.top,width:r.width,height:r.height};getContext().saveSettingsDebounced();}
     function rememberFrame() { if(!drag)return;drag=null;saveFrame(); }
     frame.addEventListener('pointerup',rememberFrame,{signal:abort.signal}); frame.addEventListener('pointercancel',rememberFrame,{signal:abort.signal});
     frame.querySelector('.gi-cg-resize').addEventListener('keydown',event=>{
-        if(!/^Arrow/.test(event.key))return;event.preventDefault();const r=frame.getBoundingClientRect();
-        frame.style.width=`${r.width+({ArrowLeft:-20,ArrowRight:20}[event.key]||0)}px`;frame.style.height=`${r.height+({ArrowUp:-20,ArrowDown:20}[event.key]||0)}px`;clampFrame();saveFrame();
+        if(!/^Arrow/.test(event.key))return;event.preventDefault();const r=frame.getBoundingClientRect(),ratio=frameMedia.ratio();
+        if(ratio)resizeFrame(r.width+({ArrowLeft:-20,ArrowDown:-20,ArrowRight:20,ArrowUp:20}[event.key]),ratio);
+        else{frame.style.width=`${r.width+({ArrowLeft:-20,ArrowRight:20}[event.key]||0)}px`;frame.style.height=`${r.height+({ArrowUp:-20,ArrowDown:20}[event.key]||0)}px`;}
+        clampFrame();saveFrame();
     },{signal:abort.signal});
-    window.addEventListener('resize',()=>{if(!frame.hidden)clampFrame();},{signal:abort.signal});
+    window.addEventListener('resize',()=>{if(!frame.hidden)fitFrame();if(preview.open)fitPreview();},{signal:abort.signal});
+    frameMedia.onResize(()=>{if(!frame.hidden)fitFrame();},abort.signal);
+    previewMedia.onResize(()=>{if(preview.open)fitPreview();},abort.signal);
     return api;
 }
