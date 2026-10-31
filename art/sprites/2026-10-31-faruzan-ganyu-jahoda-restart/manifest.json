@@ -1,0 +1,558 @@
+{
+  "order": [
+    "neutral",
+    "annoyance",
+    "smug",
+    "confusion",
+    "love",
+    "excitement",
+    "joy",
+    "fear",
+    "pride",
+    "desire",
+    "anger",
+    "grief",
+    "sadness",
+    "disgust",
+    "disappointment",
+    "relief",
+    "admiration",
+    "gratitude",
+    "embarrassment",
+    "caring",
+    "love-1",
+    "desire-1"
+  ],
+  "characters": {
+    "Faruzan": {
+      "neutral": {
+        "path": "sprites/Faruzan/neutral.png",
+        "sha256": "2f0218799b3049f91e4d9d8e2372c92a9817effc4b6b13ae299205b4a67a1fdf",
+        "dimensions": [
+          1024,
+          1536
+        ]
+      },
+      "annoyance": {
+        "path": "sprites/Faruzan/annoyance.png",
+        "sha256": "52ddc99919cf442656ab94e0271b92d1d491fdedce3570b7feb84eaf293c458a",
+        "dimensions": [
+          1024,
+          1536
+        ]
+      },
+      "smug": {
+        "path": "sprites/Faruzan/smug.png",
+        "sha256": "1324ec851267f39c5562c2a3b4855eef551edcae09109ff3e2a10466cfb3feaa",
+        "dimensions": [
+          1024,
+          1536
+        ]
+      },
+      "confusion": {
+        "path": "sprites/Faruzan/confusion.png",
+        "sha256": "a172fdc941cdd40560dc13ddc3d95b40334922862b01e5a3a8697bb43c9a9f83",
+        "dimensions": [
+          1024,
+          1536
+        ]
+      },
+      "love": {
+        "path": "sprites/Faruzan/love.png",
+        "sha256": "5c99b42d23a06a9179e0139c02e0a141c7f0733c79ca780b9bd1b70a27ed5f09",
+        "dimensions": [
+          1024,
+          1536
+        ]
+      },
+      "excitement": {
+        "path": "sprites/Faruzan/excitement.png",
+        "sha256": "468f959dc024620815ad6e4e2f28b8886ca588a92e7c14fcfb776449c538b756",
+        "dimensions": [
+          1024,
+          1536
+        ]
+      },
+      "joy": {
+        "path": "sprites/Faruzan/joy.png",
+        "sha256": "7b14a05e9ca2216680b23d475916280d56695479061fd076537bf36ad0e1519f",
+        "dimensions": [
+          1024,
+          1536
+        ]
+      },
+      "fear": {
+        "path": "sprites/Faruzan/fear.png",
+        "sha256": "e17a3bd761e37af6d0904478e9a118f01c964051781d3beb9817736baf0b1be1",
+        "dimensions": [
+          1024,
+          1536
+        ]
+      },
+      "pride": {
+        "path": "sprites/Faruzan/pride.png",
+        "sha256": "8df95521d3914b8688ce5468685caa586a20123ff8c6ff1138f26765b72ac994",
+        "dimensions": [
+          1024,
+          1536
+        ]
+      },
+      "desire": {
+        "path": "sprites/Faruzan/desire.png",
+        "sha256": "9e091c9cc2c52530882929d65f964899807e6b955bab8f8d7a6538e92f45d4fc",
+        "dimensions": [
+          1024,
+          1536
+        ]
+      },
+      "anger": {
+        "path": "sprites/Faruzan/anger.png",
+        "sha256": "1dfa4192e47168f42598a4a9bbb10c3b3c59439ac8ed922996fdef63c9917a83",
+        "dimensions": [
+          1024,
+          1536
+        ]
+      },
+      "grief": {
+        "path": "sprites/Faruzan/grief.png",
+        "sha256": "afe762810f8f47e47a487c04aa8a957d1fa525f7521592770279bfaccfdb8587",
+        "dimensions": [
+          1024,
+          1536
+        ]
+      },
+      "sadness": {
+        "path": "sprites/Faruzan/sadness.png",
+        "sha256": "da137eed12fa53a4f152f888e611409c1893fdb3710d271e7706eb117ba1f2ac",
+        "dimensions": [
+          1024,
+          1536
+        ]
+      },
+      "disgust": {
+        "path": "sprites/Faruzan/disgust.png",
+        "sha256": "74fa1ebc9a77a6977a127be982ba1390cc0a7d2b5a92a1af84de9638e73d29a9",
+        "dimensions": [
+          1024,
+          1536
+        ]
+      },
+      "disappointment": {
+        "path": "sprites/Faruzan/disappointment.png",
+        "sha256": "afcc08c195ff1f3877f31e3f4586f59fc222be18062977b769f9bbfb2712ae2f",
+        "dimensions": [
+          1024,
+          1536
+        ]
+      },
+      "relief": {
+        "path": "sprites/Faruzan/relief.png",
+        "sha256": "e1af9699f2bbeed79df114bdb5d559b82166c0faadf1c4600eb56a9c7f4b159f",
+        "dimensions": [
+          1024,
+          1536
+        ]
+      },
+      "admiration": {
+        "path": "sprites/Faruzan/admiration.png",
+        "sha256": "77082d05399dd4653a6fb0eff5d0250421e86a7dc20aea6565b74fb5f64e2d0c",
+        "dimensions": [
+          1024,
+          1536
+        ]
+      },
+      "gratitude": {
+        "path": "sprites/Faruzan/gratitude.png",
+        "sha256": "e5ad853c117cae1980c682e970c1768a1a2b6fab7368b9aa222d3823fe12e435",
+        "dimensions": [
+          1024,
+          1536
+        ]
+      },
+      "embarrassment": {
+        "path": "sprites/Faruzan/embarrassment.png",
+        "sha256": "e4e0f5dc984fdd14828cdc3c032bab62192033a4e6b0a9d22b81bfc55371c105",
+        "dimensions": [
+          1024,
+          1536
+        ]
+      },
+      "caring": {
+        "path": "sprites/Faruzan/caring.png",
+        "sha256": "a1566544df0a311c980e1416e22396348d7345680451a61a025328ffe9bfd80a",
+        "dimensions": [
+          1024,
+          1536
+        ]
+      },
+      "love-1": {
+        "path": "sprites/Faruzan/love-1.png",
+        "sha256": "93c1ee98ada9271ed1c652cd37f78ff574791ae1f39d96f5e8e64b023be003e9",
+        "dimensions": [
+          1024,
+          1536
+        ]
+      },
+      "desire-1": {
+        "path": "sprites/Faruzan/desire-1.png",
+        "sha256": "180676f97fdcf8223f0463cec7dc3218ef641db5fd6759f5d0c1e00d460c276f",
+        "dimensions": [
+          1024,
+          1536
+        ]
+      }
+    },
+    "Ganyu": {
+      "neutral": {
+        "path": "sprites/Ganyu/neutral.png",
+        "sha256": "b306ce5bb5dbf301a4cbc3c28e16092f7d6c5e7b8729b8fa43a96c77b9f060af",
+        "dimensions": [
+          881,
+          1786
+        ]
+      },
+      "annoyance": {
+        "path": "sprites/Ganyu/annoyance.png",
+        "sha256": "9510134163b67a2bec0ddf9ed70d3f2afbb46e88a937a61c3e9098bec5381eac",
+        "dimensions": [
+          881,
+          1786
+        ]
+      },
+      "smug": {
+        "path": "sprites/Ganyu/smug.png",
+        "sha256": "f904f499f9bd02f1780e60a0540df015f726bdb37c1a4fdba7f40b7515e861d3",
+        "dimensions": [
+          881,
+          1785
+        ]
+      },
+      "confusion": {
+        "path": "sprites/Ganyu/confusion.png",
+        "sha256": "3c84797b469cce3a6778465e271febda29aa4a2ed686edf5b0f027baef59259b",
+        "dimensions": [
+          881,
+          1785
+        ]
+      },
+      "love": {
+        "path": "sprites/Ganyu/love.png",
+        "sha256": "e8f82f831376a4687b9c6676230e5e68ce596d18f80aa7ea139517e41eaaa4a0",
+        "dimensions": [
+          881,
+          1786
+        ]
+      },
+      "excitement": {
+        "path": "sprites/Ganyu/excitement.png",
+        "sha256": "e6e0e17481d8a0b355c4b6f6e3c4171986679855f71a0ad303960667e564aa32",
+        "dimensions": [
+          881,
+          1785
+        ]
+      },
+      "joy": {
+        "path": "sprites/Ganyu/joy.png",
+        "sha256": "e9b519b14f50e1359f34ed94197f1a0c2068afa608132df9422c34e6a8bb04b1",
+        "dimensions": [
+          881,
+          1786
+        ]
+      },
+      "fear": {
+        "path": "sprites/Ganyu/fear.png",
+        "sha256": "ef3e3a06121a59879af7a58d32df030eb04709f4fb854f8815a0c18c30706df0",
+        "dimensions": [
+          881,
+          1786
+        ]
+      },
+      "pride": {
+        "path": "sprites/Ganyu/pride.png",
+        "sha256": "a5ba4b12e70f3a450a00f79e85adc3f4becbe649e4b9bd2cb461d33f9b2a5d3b",
+        "dimensions": [
+          881,
+          1785
+        ]
+      },
+      "desire": {
+        "path": "sprites/Ganyu/desire.png",
+        "sha256": "198208620e6ebeee1edb3b7ed681dc83a2840f784299e6b7dfa08531253dd7e4",
+        "dimensions": [
+          881,
+          1786
+        ]
+      },
+      "anger": {
+        "path": "sprites/Ganyu/anger.png",
+        "sha256": "28f3455b179286148d922333b4df1756d7c6ea1c31b5aa615caa192d7ea4ddb9",
+        "dimensions": [
+          881,
+          1785
+        ]
+      },
+      "grief": {
+        "path": "sprites/Ganyu/grief.png",
+        "sha256": "d8e6e65ea4b3cb0e3160891da50d9e5d7fc2bd4b4886d33c4d2efeb29fa164a5",
+        "dimensions": [
+          881,
+          1785
+        ]
+      },
+      "sadness": {
+        "path": "sprites/Ganyu/sadness.png",
+        "sha256": "649539c90e164fb6a0ed0b93ccdd5f0a57250335b5877be962befca9467b100c",
+        "dimensions": [
+          881,
+          1785
+        ]
+      },
+      "disgust": {
+        "path": "sprites/Ganyu/disgust.png",
+        "sha256": "3c158101bb5af530a916e692be233344bba0a8dcdc19f7c5e23a3ec81461512a",
+        "dimensions": [
+          881,
+          1785
+        ]
+      },
+      "disappointment": {
+        "path": "sprites/Ganyu/disappointment.png",
+        "sha256": "2fd181d9dca061e5a7f3855587639ed51b6c3aae704243674f5be305f4c42667",
+        "dimensions": [
+          881,
+          1786
+        ]
+      },
+      "relief": {
+        "path": "sprites/Ganyu/relief.png",
+        "sha256": "c304d8f3a39300d4d4c80d54b26d8314550289d9e1ce4be4cd9b235fa3d996df",
+        "dimensions": [
+          881,
+          1786
+        ]
+      },
+      "admiration": {
+        "path": "sprites/Ganyu/admiration.png",
+        "sha256": "fa6bbaabb48e6a23a4a5f93ca6e8c64cecabff3961e7034954682d8fd043f2ae",
+        "dimensions": [
+          881,
+          1785
+        ]
+      },
+      "gratitude": {
+        "path": "sprites/Ganyu/gratitude.png",
+        "sha256": "cff95d8eca5c98d52b4280f968f8d77220f4e433b36151e9a2266b66b7a67142",
+        "dimensions": [
+          881,
+          1785
+        ]
+      },
+      "embarrassment": {
+        "path": "sprites/Ganyu/embarrassment.png",
+        "sha256": "2be46a83148cf2e4ed236bac1996d7fd6c48702ff385e9ad13e123563eb31e89",
+        "dimensions": [
+          881,
+          1786
+        ]
+      },
+      "caring": {
+        "path": "sprites/Ganyu/caring.png",
+        "sha256": "c06307420f7e39fb7e9fbbb3e2eaacfaafa51465f10017bc75d42fae0df2e4f5",
+        "dimensions": [
+          881,
+          1786
+        ]
+      },
+      "love-1": {
+        "path": "sprites/Ganyu/love-1.png",
+        "sha256": "0f33786e9db73b54072f1ae3e3efb3d4d4a0caeccb5eb1af82d51aa919917ee5",
+        "dimensions": [
+          881,
+          1786
+        ]
+      },
+      "desire-1": {
+        "path": "sprites/Ganyu/desire-1.png",
+        "sha256": "967dfdc0e7b4463ce2c3095477b41e088da34d7c7ad9756bda1aa3bbc92b3334",
+        "dimensions": [
+          881,
+          1785
+        ]
+      }
+    },
+    "Jahoda": {
+      "neutral": {
+        "path": "sprites/Jahoda/neutral.png",
+        "sha256": "135e58cfad8fa511cde8844016f3f8a6b6fb0d6e3d78b33341a637bac9d8aaf3",
+        "dimensions": [
+          1145,
+          1374
+        ]
+      },
+      "annoyance": {
+        "path": "sprites/Jahoda/annoyance.png",
+        "sha256": "61fdb9cccbc451ad53fc50edd7d6e91da82d1f1eefbba72a7bef4af2172695d5",
+        "dimensions": [
+          1145,
+          1374
+        ]
+      },
+      "smug": {
+        "path": "sprites/Jahoda/smug.png",
+        "sha256": "02ba79e76dc9b3e4962f7b59e60ba67232bb1a17a4f47148a636237bc080efbe",
+        "dimensions": [
+          1145,
+          1374
+        ]
+      },
+      "confusion": {
+        "path": "sprites/Jahoda/confusion.png",
+        "sha256": "74b9f32dda61c69e76ce54351ad2736267180c483f691a48078eec451b48146a",
+        "dimensions": [
+          1144,
+          1375
+        ]
+      },
+      "love": {
+        "path": "sprites/Jahoda/love.png",
+        "sha256": "9da23a0a92f0587df8de46e1ad9caf4a524af47f440ed3ee82ccea296c22f8c0",
+        "dimensions": [
+          1145,
+          1374
+        ]
+      },
+      "excitement": {
+        "path": "sprites/Jahoda/excitement.png",
+        "sha256": "725e1e2c8f3f606a6b477fac45a66f35c5afd7c41562ebf88c7147c893409bdc",
+        "dimensions": [
+          1144,
+          1375
+        ]
+      },
+      "joy": {
+        "path": "sprites/Jahoda/joy.png",
+        "sha256": "357b7088aa2223df00895e1020ee82b40847c8a435eb40f36e62a96012e73329",
+        "dimensions": [
+          1145,
+          1374
+        ]
+      },
+      "fear": {
+        "path": "sprites/Jahoda/fear.png",
+        "sha256": "f394983e1e0ea628b7ab3075c68d809e69373f1cb979d2a2bb52f30135dc6fb2",
+        "dimensions": [
+          1145,
+          1374
+        ]
+      },
+      "pride": {
+        "path": "sprites/Jahoda/pride.png",
+        "sha256": "f9945edcc3ec7dd2d608c69aacfc59e8611ab55cb60c34a5163986a19c158378",
+        "dimensions": [
+          1145,
+          1374
+        ]
+      },
+      "desire": {
+        "path": "sprites/Jahoda/desire.png",
+        "sha256": "f842d86d170f8bb699385d30c39043bbd7097997a3a4e86f2e57e22af6e6e2d8",
+        "dimensions": [
+          1145,
+          1374
+        ]
+      },
+      "anger": {
+        "path": "sprites/Jahoda/anger.png",
+        "sha256": "3d21c1a5f8d52e3c9b6294e00c93ac1e601aeaeb4eaaa1e2dd1fd20cfda6a73d",
+        "dimensions": [
+          1145,
+          1374
+        ]
+      },
+      "grief": {
+        "path": "sprites/Jahoda/grief.png",
+        "sha256": "a6bc5f286ef8a32dad322358da02b224e04b2af50d1d6bedb288d3adcaa8f66d",
+        "dimensions": [
+          1145,
+          1374
+        ]
+      },
+      "sadness": {
+        "path": "sprites/Jahoda/sadness.png",
+        "sha256": "96a87d6d77b02e725cfe08e76e56b51e8aff33272f060343d92f9a9282df1f41",
+        "dimensions": [
+          1145,
+          1374
+        ]
+      },
+      "disgust": {
+        "path": "sprites/Jahoda/disgust.png",
+        "sha256": "30637e78348351b9c94dd37e181c86a6956e3bd0d0e59fc961718e2b3f9beb57",
+        "dimensions": [
+          1144,
+          1375
+        ]
+      },
+      "disappointment": {
+        "path": "sprites/Jahoda/disappointment.png",
+        "sha256": "fb5299ab165711a8211c0eb75cdefee7bfcca8a19ecb968bca44b52b00372275",
+        "dimensions": [
+          1145,
+          1374
+        ]
+      },
+      "relief": {
+        "path": "sprites/Jahoda/relief.png",
+        "sha256": "61744030650c0b73c077c4c5df2cdc28aa8c4661c317bba5f9a1890ef0a7d1de",
+        "dimensions": [
+          1145,
+          1374
+        ]
+      },
+      "admiration": {
+        "path": "sprites/Jahoda/admiration.png",
+        "sha256": "abbe0cac6f749f10764c6a73a33e7b1155608bafb61b20273f959e6d71976cc4",
+        "dimensions": [
+          1145,
+          1374
+        ]
+      },
+      "gratitude": {
+        "path": "sprites/Jahoda/gratitude.png",
+        "sha256": "db8258e0d0fb90719dca619cf6569afb15ba98b7e5c5c90650d566e36b097f3a",
+        "dimensions": [
+          1145,
+          1374
+        ]
+      },
+      "embarrassment": {
+        "path": "sprites/Jahoda/embarrassment.png",
+        "sha256": "fb2298d80b3a612dd5d68cde593e22d85a27f57c4f492756dd0ae8e72fed261e",
+        "dimensions": [
+          1145,
+          1374
+        ]
+      },
+      "caring": {
+        "path": "sprites/Jahoda/caring.png",
+        "sha256": "e1a2369f92791239e5a742fbbdc56acade885e09a106542fae26578f21ed0c54",
+        "dimensions": [
+          1145,
+          1374
+        ]
+      },
+      "love-1": {
+        "path": "sprites/Jahoda/love-1.png",
+        "sha256": "5a9be66fd01d8ff5b5738c403c33971682ade27b5b8860ea0a00d2d2cbe8c768",
+        "dimensions": [
+          1145,
+          1374
+        ]
+      },
+      "desire-1": {
+        "status": "generation_failed",
+        "reason": "Image service safety rejection"
+      }
+    }
+  }
+}

@@ -1,0 +1,154 @@
+{
+  "status": "partial_pending_user_review",
+  "request": "Regenerate love-1 and desire-1 with white heart pupils",
+  "characters": {
+    "Faruzan": {
+      "approval": {
+        "status": "approved",
+        "message": "This Faruzan neutral is much better, go for it!",
+        "date": "2026-10-31",
+        "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-31-faruzan-neutral-restart/candidates/Faruzan/neutral-v001.png",
+        "candidate_sha256": "2f0218799b3049f91e4d9d8e2372c92a9817effc4b6b13ae299205b4a67a1fdf"
+      },
+      "references": [
+        "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-31-white-heart-alternates/references/Faruzan/neutral.png"
+      ],
+      "reference_sha256": {
+        "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-31-white-heart-alternates/references/Faruzan/neutral.png": "2f0218799b3049f91e4d9d8e2372c92a9817effc4b6b13ae299205b4a67a1fdf"
+      },
+      "expressions": {
+        "love-1": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-31-white-heart-alternates/prompts/Faruzan/love-1.txt",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body love-1 visual-novel sprite of Faruzan. Use the supplied approved neutral as the sole image reference. Preserve her identity, skin tone, hair, costume, colours, accessories and rendering. Keep her at least as petite as the neutral with the same compact general body proportions; do not lengthen torso or legs. Give her a warm affectionate smile and open eyes, one hand over her heart; allow a genuinely different pose appropriate to the emotion. Both eyes visibly open; preserve the original irises and their colour and detail, with filled white heart-shaped pupils inside the irises, not floating symbols or catchlights. Her skirt and fabric panels hang naturally downward at rest; no windblown fabric. Keep gestures simple, hands near the torso with coherent palms and naturally grouped fingers, exactly two legs and feet, with feet separated or slightly staggered. Show the entire silhouette including hair, accessories and shoes, with roughly 2\u20134% top and bottom padding. Genuinely transparent background. No scenery, text, labels, UI, props, companions, detached effects, watermark or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-31-white-heart-alternates/references/Faruzan/neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "status": "candidate",
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a190ff-8066-7c41-aeb5-1927eec757f4/exec-fb986c15-2dde-4d9a-b9e5-e5df2caec272.png",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-31-white-heart-alternates/raw/Faruzan/love-1.png",
+          "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-31-white-heart-alternates/sprites/Faruzan/love-1.png",
+          "sha256": "cf3b61c8578de7423950749dc6dae1a63cd9d5bcbd033286aafe87916325ecf2"
+        },
+        "desire-1": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-31-white-heart-alternates/prompts/Faruzan/desire-1.txt",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body desire-1 visual-novel sprite of Faruzan. Use the supplied approved neutral as the sole image reference. Preserve her identity, skin tone, hair, costume, colours, accessories and rendering. Keep her at least as petite as the neutral with the same compact general body proportions; do not lengthen torso or legs. Give her a tender longing expression and open eyes, a subtle shy tilt and one hand near her collarbone; allow a genuinely different pose appropriate to the emotion. Both eyes visibly open; preserve the original irises and their colour and detail, with filled white heart-shaped pupils inside the irises, not floating symbols or catchlights. Her skirt and fabric panels hang naturally downward at rest; no windblown fabric. Keep gestures simple, hands near the torso with coherent palms and naturally grouped fingers, exactly two legs and feet, with feet separated or slightly staggered. Show the entire silhouette including hair, accessories and shoes, with roughly 2\u20134% top and bottom padding. Genuinely transparent background. No scenery, text, labels, UI, props, companions, detached effects, watermark or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-31-white-heart-alternates/references/Faruzan/neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "status": "candidate",
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a190ff-8066-7c41-aeb5-1927eec757f4/exec-3db2dfeb-9736-4461-8a11-f48bf255de65.png",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-31-white-heart-alternates/raw/Faruzan/desire-1.png",
+          "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-31-white-heart-alternates/sprites/Faruzan/desire-1.png",
+          "sha256": "14f86f5507bc3904d8937724afe4f049a338930f55f4ef255c5d373a17b327e2"
+        }
+      }
+    },
+    "Ganyu": {
+      "approval": {
+        "status": "approved",
+        "message": "All others are ACCEPTED.",
+        "date": "2026-10-30",
+        "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Ganyu/neutral-v002.png",
+        "candidate_sha256": "b306ce5bb5dbf301a4cbc3c28e16092f7d6c5e7b8729b8fa43a96c77b9f060af"
+      },
+      "references": [
+        "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-31-white-heart-alternates/references/Ganyu/neutral.png",
+        "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-31-white-heart-alternates/references/Ganyu/official.png"
+      ],
+      "reference_sha256": {
+        "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-31-white-heart-alternates/references/Ganyu/neutral.png": "b306ce5bb5dbf301a4cbc3c28e16092f7d6c5e7b8729b8fa43a96c77b9f060af",
+        "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-31-white-heart-alternates/references/Ganyu/official.png": "6c31321356f4621b3cbacdeb4df841da59f4417e0ab1ba2a0bd1f4947929adae"
+      },
+      "expressions": {
+        "love-1": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-31-white-heart-alternates/prompts/Ganyu/love-1.txt",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body love-1 visual-novel sprite of Ganyu. Use image 1 (approved neutral) as the body proportion and rendering reference and image 2 (official portrait) for identity, face, costume detail and polish. Do not copy the orb. Preserve her identity, skin tone, hair, costume, colours, accessories and rendering. Keep her at least as petite as the neutral with the same compact general body proportions; do not lengthen torso or legs. Give her a warm affectionate smile and open eyes, one hand over her heart; allow a genuinely different pose appropriate to the emotion. Both eyes visibly open; preserve the original irises and their colour and detail, with filled white heart-shaped pupils inside the irises, not floating symbols or catchlights. Keep gestures simple, hands near the torso with coherent palms and naturally grouped fingers, exactly two legs and feet, with feet separated or slightly staggered. Show the entire silhouette including hair, accessories and shoes, with roughly 2\u20134% top and bottom padding. Genuinely transparent background. No scenery, text, labels, UI, props, companions, detached effects, watermark or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-31-white-heart-alternates/references/Ganyu/neutral.png",
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-31-white-heart-alternates/references/Ganyu/official.png"
+            ],
+            "transparent_background": true
+          },
+          "status": "candidate",
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a190ff-8066-7c41-aeb5-1927eec757f4/exec-206befe7-9da0-40ad-a588-eaa9694d04d0.png",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-31-white-heart-alternates/raw/Ganyu/love-1.png",
+          "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-31-white-heart-alternates/sprites/Ganyu/love-1.png",
+          "sha256": "39a23460dd24d46351d002d95557015c2f18c6a3d41fe37e611531f67a29b62b"
+        },
+        "desire-1": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-31-white-heart-alternates/prompts/Ganyu/desire-1.txt",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body desire-1 visual-novel sprite of Ganyu. Use image 1 (approved neutral) as the body proportion and rendering reference and image 2 (official portrait) for identity, face, costume detail and polish. Do not copy the orb. Preserve her identity, skin tone, hair, costume, colours, accessories and rendering. Keep her at least as petite as the neutral with the same compact general body proportions; do not lengthen torso or legs. Give her a tender longing expression and open eyes, a subtle shy tilt and one hand near her collarbone; allow a genuinely different pose appropriate to the emotion. Both eyes visibly open; preserve the original irises and their colour and detail, with filled white heart-shaped pupils inside the irises, not floating symbols or catchlights. Keep gestures simple, hands near the torso with coherent palms and naturally grouped fingers, exactly two legs and feet, with feet separated or slightly staggered. Show the entire silhouette including hair, accessories and shoes, with roughly 2\u20134% top and bottom padding. Genuinely transparent background. No scenery, text, labels, UI, props, companions, detached effects, watermark or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-31-white-heart-alternates/references/Ganyu/neutral.png",
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-31-white-heart-alternates/references/Ganyu/official.png"
+            ],
+            "transparent_background": true
+          },
+          "status": "candidate",
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a190ff-8066-7c41-aeb5-1927eec757f4/exec-0dd04a13-9473-4377-8fa8-75257b293b60.png",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-31-white-heart-alternates/raw/Ganyu/desire-1.png",
+          "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-31-white-heart-alternates/sprites/Ganyu/desire-1.png",
+          "sha256": "ec529c47142c96ab19a34a0c3c2ca9e9069d001ce32cffb52cb38eaa4fcbaa15"
+        }
+      }
+    },
+    "Jahoda": {
+      "approval": {
+        "status": "approved",
+        "message": "All others are ACCEPTED.",
+        "date": "2026-10-30",
+        "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Jahoda/neutral-v001.png",
+        "candidate_sha256": "135e58cfad8fa511cde8844016f3f8a6b6fb0d6e3d78b33341a637bac9d8aaf3"
+      },
+      "references": [
+        "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-31-white-heart-alternates/references/Jahoda/neutral.png"
+      ],
+      "reference_sha256": {
+        "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-31-white-heart-alternates/references/Jahoda/neutral.png": "135e58cfad8fa511cde8844016f3f8a6b6fb0d6e3d78b33341a637bac9d8aaf3"
+      },
+      "expressions": {
+        "love-1": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-31-white-heart-alternates/prompts/Jahoda/love-1.txt",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body love-1 visual-novel sprite of Jahoda. Use the supplied approved neutral as the sole image reference. Preserve her identity, skin tone, hair, costume, colours, accessories and rendering. Keep her at least as petite as the neutral with the same compact general body proportions; do not lengthen torso or legs. Give her a warm affectionate smile and open eyes, one hand over her heart; allow a genuinely different pose appropriate to the emotion. Both eyes visibly open; preserve the original irises and their colour and detail, with filled white heart-shaped pupils inside the irises, not floating symbols or catchlights. Keep gestures simple, hands near the torso with coherent palms and naturally grouped fingers, exactly two legs and feet, with feet separated or slightly staggered. Show the entire silhouette including hair, accessories and shoes, with roughly 2\u20134% top and bottom padding. Genuinely transparent background. No scenery, text, labels, UI, props, companions, detached effects, watermark or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-31-white-heart-alternates/references/Jahoda/neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "status": "candidate",
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a190ff-8066-7c41-aeb5-1927eec757f4/exec-3c725580-8eda-4d75-85bd-fb73020837f5.png",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-31-white-heart-alternates/raw/Jahoda/love-1.png",
+          "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-31-white-heart-alternates/sprites/Jahoda/love-1.png",
+          "sha256": "31f5f0bb209b9792b37f97eb01d45884c79bdd8fa77c6d96179e7504c200e3ef"
+        },
+        "desire-1": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-31-white-heart-alternates/prompts/Jahoda/desire-1.txt",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body desire-1 visual-novel sprite of Jahoda. Use the supplied approved neutral as the sole image reference. Preserve her identity, skin tone, hair, costume, colours, accessories and rendering. Keep her at least as petite as the neutral with the same compact general body proportions; do not lengthen torso or legs. Give her a tender longing expression and open eyes, a subtle shy tilt and one hand near her collarbone; allow a genuinely different pose appropriate to the emotion. Both eyes visibly open; preserve the original irises and their colour and detail, with filled white heart-shaped pupils inside the irises, not floating symbols or catchlights. Keep gestures simple, hands near the torso with coherent palms and naturally grouped fingers, exactly two legs and feet, with feet separated or slightly staggered. Show the entire silhouette including hair, accessories and shoes, with roughly 2\u20134% top and bottom padding. Genuinely transparent background. No scenery, text, labels, UI, props, companions, detached effects, watermark or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-31-white-heart-alternates/references/Jahoda/neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "status": "generation_failed",
+          "error": "image generation failed: http 400 Bad Request: Some(\"{\\n  \\\"error\\\": {\\n    \\\"message\\\": \\\"Your request was rejected by the safety system. If you believe this is an error, contact us at help.openai.com and include the request ID 41b979a1-76b7-4ed6-9fd5-bb2a41082aaa. safety_violations=[sexual].\\\",\\n    \\\"type\\\": \\\"image_generation_user_error\\\",\\n    \\\"param\\\": null,\\n    \\\"code\\\": \\\"moderation_blocked\\\",\\n    \\\"moderation_details\\\": {\\n      \\\"moderation_stage\\\": \\\"output\\\",\\n      \\\"categories\\\": [\\n        \\\"sexual\\\"\\n      ]\\n    }\\n  }\\n}\")"
+        }
+      }
+    }
+  }
+}

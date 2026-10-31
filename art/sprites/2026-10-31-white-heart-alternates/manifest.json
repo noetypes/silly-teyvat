@@ -1,0 +1,53 @@
+{
+  "characters": {
+    "Faruzan": {
+      "love-1": {
+        "path": "sprites/Faruzan/love-1.png",
+        "sha256": "cf3b61c8578de7423950749dc6dae1a63cd9d5bcbd033286aafe87916325ecf2",
+        "dimensions": [
+          1024,
+          1536
+        ]
+      },
+      "desire-1": {
+        "path": "sprites/Faruzan/desire-1.png",
+        "sha256": "14f86f5507bc3904d8937724afe4f049a338930f55f4ef255c5d373a17b327e2",
+        "dimensions": [
+          1024,
+          1536
+        ]
+      }
+    },
+    "Ganyu": {
+      "love-1": {
+        "path": "sprites/Ganyu/love-1.png",
+        "sha256": "39a23460dd24d46351d002d95557015c2f18c6a3d41fe37e611531f67a29b62b",
+        "dimensions": [
+          881,
+          1785
+        ]
+      },
+      "desire-1": {
+        "path": "sprites/Ganyu/desire-1.png",
+        "sha256": "ec529c47142c96ab19a34a0c3c2ca9e9069d001ce32cffb52cb38eaa4fcbaa15",
+        "dimensions": [
+          881,
+          1786
+        ]
+      }
+    },
+    "Jahoda": {
+      "love-1": {
+        "path": "sprites/Jahoda/love-1.png",
+        "sha256": "31f5f0bb209b9792b37f97eb01d45884c79bdd8fa77c6d96179e7504c200e3ef",
+        "dimensions": [
+          1144,
+          1375
+        ]
+      },
+      "desire-1": {
+        "status": "generation_failed"
+      }
+    }
+  }
+}

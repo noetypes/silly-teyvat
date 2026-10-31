@@ -1,0 +1,37 @@
+{
+  "status": "approved",
+  "reference_exception": "User explicitly requested attached in-game appearance together with official art for Faruzan neutral.",
+  "references": {
+    "official": {
+      "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-31-faruzan-neutral-restart/references/Faruzan/official.png",
+      "original": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/references/Faruzan/official.png",
+      "sha256": "0f791a88de6229bb460a771fa840f58753ca607ba91bdbc923eadf009075e087"
+    },
+    "in-game": {
+      "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-31-faruzan-neutral-restart/references/Faruzan/in-game.png",
+      "original": "/private/var/folders/yb/h8ks0jfd6jl0jdj3npytrx2r0000gn/T/codex-clipboard-fd81c343-ce9a-467b-868f-f040773c65ac.png",
+      "sha256": "9d95485ac4b1f4273327121f1b43b7a5b4dad1634189a9db003dfee7e6610a9f"
+    }
+  },
+  "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-31-faruzan-neutral-restart/prompts/Faruzan/neutral-v001.txt",
+  "tool": "image_gen.imagegen",
+  "tool_arguments": {
+    "prompt": "Use case: stylized-concept. Create a full-body neutral visual-novel sprite of Faruzan. Image 1 is her official transparent portrait for identity, face, colours, costume details and polished anime illustration style. Image 2 is the user-supplied in-game appearance reference for how her clothing and hair hang naturally at rest: the skirt, back panels and fabric fall down close to her body under gravity, with no wind blowing them outward or upward. Do not reproduce the blue background. Preserve her turquoise hair, gold accessories, geometric white and navy outfit, patterned skirt, shoes and petite medium-female proportions. Show a relaxed, characterful front-facing or slight three-quarter standing pose with simple naturally positioned hands and two separated feet. Maintain a compact petite build, not elongated. Complete silhouette including hair, costume, hands and shoes with 2\u20134% top and bottom padding. Genuine transparent background. No wind, floating effects, scenery, text, labels, watermark, props or ground shadow.",
+    "referenced_image_paths": [
+      "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-31-faruzan-neutral-restart/references/Faruzan/official.png",
+      "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-31-faruzan-neutral-restart/references/Faruzan/in-game.png"
+    ],
+    "transparent_background": true
+  },
+  "tool_output": "/Users/alexachan/.codex/generated_images/01a190ff-8066-7c41-aeb5-1927eec757f4/exec-73c4c91a-0fc2-49d5-8b8b-f973e936af38.png",
+  "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-31-faruzan-neutral-restart/raw/Faruzan/neutral-v001.png",
+  "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-31-faruzan-neutral-restart/candidates/Faruzan/neutral-v001.png",
+  "candidate_sha256": "2f0218799b3049f91e4d9d8e2372c92a9817effc4b6b13ae299205b4a67a1fdf",
+  "approval": {
+    "status": "approved",
+    "message": "This Faruzan neutral is much better, go for it!",
+    "date": "2026-10-31",
+    "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-31-faruzan-neutral-restart/candidates/Faruzan/neutral-v001.png",
+    "candidate_sha256": "2f0218799b3049f91e4d9d8e2372c92a9817effc4b6b13ae299205b4a67a1fdf"
+  }
+}

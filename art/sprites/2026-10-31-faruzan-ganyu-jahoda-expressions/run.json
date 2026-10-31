@@ -1,0 +1,172 @@
+{
+  "status": "superseded",
+  "workflow": "../../../SPRITE-GENERATION.md",
+  "characters": {
+    "Faruzan": {
+      "reference": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-31-faruzan-ganyu-jahoda-expressions/references/Faruzan/neutral.png",
+      "reference_sha256": "3e1a896d29667a270d4fb874488693c421e5821bbe0590b9db8112d5c6a354c6",
+      "approval": {
+        "status": "revoked",
+        "message": "All others are ACCEPTED.",
+        "date": "2026-10-30",
+        "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Faruzan/neutral-v001.png",
+        "candidate_sha256": "3e1a896d29667a270d4fb874488693c421e5821bbe0590b9db8112d5c6a354c6",
+        "reason": "User reported windblown clothes issue and requested a new neutral on 2026-10-31; existing expressions are superseded."
+      },
+      "expressions": {
+        "annoyance": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-31-faruzan-ganyu-jahoda-expressions/prompts/Faruzan/annoyance.txt",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body annoyance expression visual-novel sprite of Faruzan using the supplied approved neutral as the sole reference. Preserve her identity, costume, colours, rendering and petite body proportions; make her at least as petite as the reference, without lengthening her legs or torso. Give her a characterful mildly annoyed expression, one hand resting on her hip and the other lowered, feet comfortably separated. Simple coherent hands and two legs. Complete silhouette with 2\u20134% top and bottom padding, genuine transparent background. No text, scenery, effects, props, watermark or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Faruzan/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a190ff-8066-7c41-aeb5-1927eec757f4/exec-7d568e35-3888-4ce7-9628-76a95e22a120.png",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-31-faruzan-ganyu-jahoda-expressions/raw/Faruzan/annoyance.png",
+          "sha256": "4caebb43cf8f7dc5a1eee07c2c33b2d5513cbf961adc25c51800de1a2b95740a"
+        },
+        "smug": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-31-faruzan-ganyu-jahoda-expressions/prompts/Faruzan/smug.txt",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body smug visual-novel sprite of Faruzan using the supplied approved neutral as the sole image reference. Preserve her identity, skin tone, hair, costume, colours, accessories and rendering. Keep her at least as petite as the neutral with the same compact general body proportions; do not lengthen torso or legs. Give her a self-assured smirk, chin slightly raised, one hand on her hip; allow a genuinely different pose appropriate to the emotion. Use her normal pupils. Keep gestures simple, hands near the torso with coherent palms and naturally grouped fingers, exactly two legs and feet, with feet separated or slightly staggered. Show the entire silhouette including hair, accessories and shoes, with roughly 2\u20134% top and bottom padding. Genuinely transparent background. No scenery, text, labels, UI, props, companions, detached effects, watermark or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-31-faruzan-ganyu-jahoda-expressions/references/Faruzan/neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a190ff-8066-7c41-aeb5-1927eec757f4/exec-8a2aa855-4aa9-4c51-b5b9-51ad77a017b8.png",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-31-faruzan-ganyu-jahoda-expressions/raw/Faruzan/smug.png",
+          "sha256": "8602c2c3833d4ca3620f25e584ae1e18b4d87e91730caf67e8abfcfb36345406"
+        },
+        "confusion": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-31-faruzan-ganyu-jahoda-expressions/prompts/Faruzan/confusion.txt",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body confusion visual-novel sprite of Faruzan using the supplied approved neutral as the sole image reference. Preserve her identity, skin tone, hair, costume, colours, accessories and rendering. Keep her at least as petite as the neutral with the same compact general body proportions; do not lengthen torso or legs. Give her a puzzled expression and a slight head tilt, one hand raised near her chest; allow a genuinely different pose appropriate to the emotion. Use her normal pupils. Keep gestures simple, hands near the torso with coherent palms and naturally grouped fingers, exactly two legs and feet, with feet separated or slightly staggered. Show the entire silhouette including hair, accessories and shoes, with roughly 2\u20134% top and bottom padding. Genuinely transparent background. No scenery, text, labels, UI, props, companions, detached effects, watermark or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-31-faruzan-ganyu-jahoda-expressions/references/Faruzan/neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a190ff-8066-7c41-aeb5-1927eec757f4/exec-6d7be306-d8e8-4e18-923f-df87eff4ddc7.png",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-31-faruzan-ganyu-jahoda-expressions/raw/Faruzan/confusion.png",
+          "sha256": "5140ea6d45feb73922ab601a82589684173628765cf5698f96b13bfaa299b002"
+        },
+        "love": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-31-faruzan-ganyu-jahoda-expressions/prompts/Faruzan/love.txt",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body love visual-novel sprite of Faruzan using the supplied approved neutral as the sole image reference. Preserve her identity, skin tone, hair, costume, colours, accessories and rendering. Keep her at least as petite as the neutral with the same compact general body proportions; do not lengthen torso or legs. Give her a warm affectionate smile, one hand resting gently over her heart; allow a genuinely different pose appropriate to the emotion. Use her normal pupils. Keep gestures simple, hands near the torso with coherent palms and naturally grouped fingers, exactly two legs and feet, with feet separated or slightly staggered. Show the entire silhouette including hair, accessories and shoes, with roughly 2\u20134% top and bottom padding. Genuinely transparent background. No scenery, text, labels, UI, props, companions, detached effects, watermark or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-31-faruzan-ganyu-jahoda-expressions/references/Faruzan/neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a190ff-8066-7c41-aeb5-1927eec757f4/exec-c034a920-e853-48f8-a1f6-4ee62600b9f6.png",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-31-faruzan-ganyu-jahoda-expressions/raw/Faruzan/love.png",
+          "sha256": "5f04307b3280166162850e24a43fb5e5abe3c2b37f87232be8893d5ad83edd68"
+        },
+        "excitement": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-31-faruzan-ganyu-jahoda-expressions/prompts/Faruzan/excitement.txt",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body excitement visual-novel sprite of Faruzan using the supplied approved neutral as the sole image reference. Preserve her identity, skin tone, hair, costume, colours, accessories and rendering. Keep her at least as petite as the neutral with the same compact general body proportions; do not lengthen torso or legs. Give her an eager bright expression, both forearms lifted near her torso in an animated gesture; allow a genuinely different pose appropriate to the emotion. Use her normal pupils. Keep gestures simple, hands near the torso with coherent palms and naturally grouped fingers, exactly two legs and feet, with feet separated or slightly staggered. Show the entire silhouette including hair, accessories and shoes, with roughly 2\u20134% top and bottom padding. Genuinely transparent background. No scenery, text, labels, UI, props, companions, detached effects, watermark or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-31-faruzan-ganyu-jahoda-expressions/references/Faruzan/neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a190ff-8066-7c41-aeb5-1927eec757f4/exec-debfab29-a064-4b2b-81de-4c499ffad7f2.png",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-31-faruzan-ganyu-jahoda-expressions/raw/Faruzan/excitement.png",
+          "sha256": "21f2e1ec19ff510d769680d0a73017a3bff96a59bc3a2493c890821981f25b37"
+        }
+      }
+    },
+    "Ganyu": {
+      "reference": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-31-faruzan-ganyu-jahoda-expressions/references/Ganyu/neutral.png",
+      "reference_sha256": "b306ce5bb5dbf301a4cbc3c28e16092f7d6c5e7b8729b8fa43a96c77b9f060af",
+      "approval": {
+        "status": "approved",
+        "message": "All others are ACCEPTED.",
+        "date": "2026-10-30",
+        "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Ganyu/neutral-v002.png",
+        "candidate_sha256": "b306ce5bb5dbf301a4cbc3c28e16092f7d6c5e7b8729b8fa43a96c77b9f060af"
+      },
+      "expressions": {
+        "annoyance": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-31-faruzan-ganyu-jahoda-expressions/prompts/Ganyu/annoyance.txt",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body annoyance visual-novel sprite of Ganyu using the supplied approved neutral as the sole image reference. Preserve her identity, skin tone, hair, costume, colours, accessories and rendering. Keep her at least as petite as the neutral with the same compact general body proportions; do not lengthen torso or legs. Give her a mildly annoyed look, one hand at her hip and the other lowered; allow a genuinely different pose appropriate to the emotion. Use her normal pupils. Keep gestures simple, hands near the torso with coherent palms and naturally grouped fingers, exactly two legs and feet, with feet separated or slightly staggered. Show the entire silhouette including hair, accessories and shoes, with roughly 2\u20134% top and bottom padding. Genuinely transparent background. No scenery, text, labels, UI, props, companions, detached effects, watermark or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-31-faruzan-ganyu-jahoda-expressions/references/Ganyu/neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a190ff-8066-7c41-aeb5-1927eec757f4/exec-58c6ca24-6786-4398-9b8a-0fb97e897fae.png",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-31-faruzan-ganyu-jahoda-expressions/raw/Ganyu/annoyance.png",
+          "sha256": "5a39a33b7ec53ee63f76bd9e36fbbfa60260c54fd33bf74c9fa2a74baca4b609"
+        },
+        "smug": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-31-faruzan-ganyu-jahoda-expressions/prompts/Ganyu/smug.txt",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body smug visual-novel sprite of Ganyu using the supplied approved neutral as the sole image reference. Preserve her identity, skin tone, hair, costume, colours, accessories and rendering. Keep her at least as petite as the neutral with the same compact general body proportions; do not lengthen torso or legs. Give her a self-assured smirk, chin slightly raised, one hand on her hip; allow a genuinely different pose appropriate to the emotion. Use her normal pupils. Keep gestures simple, hands near the torso with coherent palms and naturally grouped fingers, exactly two legs and feet, with feet separated or slightly staggered. Show the entire silhouette including hair, accessories and shoes, with roughly 2\u20134% top and bottom padding. Genuinely transparent background. No scenery, text, labels, UI, props, companions, detached effects, watermark or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-31-faruzan-ganyu-jahoda-expressions/references/Ganyu/neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a190ff-8066-7c41-aeb5-1927eec757f4/exec-18b7ede8-36b7-41d4-bae4-cb3394448e96.png",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-31-faruzan-ganyu-jahoda-expressions/raw/Ganyu/smug.png",
+          "sha256": "9ba2bb631a7bed425c6c1a4c40febb88bdc8d4d285a7e68f16efe0626ffadfc8"
+        },
+        "confusion": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-31-faruzan-ganyu-jahoda-expressions/prompts/Ganyu/confusion.txt",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body confusion visual-novel sprite of Ganyu using the supplied approved neutral as the sole image reference. Preserve her identity, skin tone, hair, costume, colours, accessories and rendering. Keep her at least as petite as the neutral with the same compact general body proportions; do not lengthen torso or legs. Give her a puzzled expression and a slight head tilt, one hand raised near her chest; allow a genuinely different pose appropriate to the emotion. Use her normal pupils. Keep gestures simple, hands near the torso with coherent palms and naturally grouped fingers, exactly two legs and feet, with feet separated or slightly staggered. Show the entire silhouette including hair, accessories and shoes, with roughly 2\u20134% top and bottom padding. Genuinely transparent background. No scenery, text, labels, UI, props, companions, detached effects, watermark or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-31-faruzan-ganyu-jahoda-expressions/references/Ganyu/neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a190ff-8066-7c41-aeb5-1927eec757f4/exec-fc593d0f-eaf4-4f04-ace0-ad0302ade03d.png",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-31-faruzan-ganyu-jahoda-expressions/raw/Ganyu/confusion.png",
+          "sha256": "a8e8a82e40d9ae550ec2d02c0c368e5190029434ff2f1c4020776f5484ae9ca0"
+        },
+        "love": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-31-faruzan-ganyu-jahoda-expressions/prompts/Ganyu/love.txt",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body love visual-novel sprite of Ganyu using the supplied approved neutral as the sole image reference. Preserve her identity, skin tone, hair, costume, colours, accessories and rendering. Keep her at least as petite as the neutral with the same compact general body proportions; do not lengthen torso or legs. Give her a warm affectionate smile, one hand resting gently over her heart; allow a genuinely different pose appropriate to the emotion. Use her normal pupils. Keep gestures simple, hands near the torso with coherent palms and naturally grouped fingers, exactly two legs and feet, with feet separated or slightly staggered. Show the entire silhouette including hair, accessories and shoes, with roughly 2\u20134% top and bottom padding. Genuinely transparent background. No scenery, text, labels, UI, props, companions, detached effects, watermark or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-31-faruzan-ganyu-jahoda-expressions/references/Ganyu/neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a190ff-8066-7c41-aeb5-1927eec757f4/exec-2ae89174-435a-41b4-99f2-ec90b434193e.png",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-31-faruzan-ganyu-jahoda-expressions/raw/Ganyu/love.png",
+          "sha256": "6ee86b5691e9085d3caed7bd1b2f7bfca5760ccad6b3db575af01e9f6709af1b"
+        }
+      },
+      "superseded_reason": "User requested both official portrait and approved neutral as expression references due to quality"
+    },
+    "Jahoda": {
+      "reference": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-31-faruzan-ganyu-jahoda-expressions/references/Jahoda/neutral.png",
+      "reference_sha256": "135e58cfad8fa511cde8844016f3f8a6b6fb0d6e3d78b33341a637bac9d8aaf3",
+      "approval": {
+        "status": "approved",
+        "message": "All others are ACCEPTED.",
+        "date": "2026-10-30",
+        "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Jahoda/neutral-v001.png",
+        "candidate_sha256": "135e58cfad8fa511cde8844016f3f8a6b6fb0d6e3d78b33341a637bac9d8aaf3"
+      },
+      "expressions": {}
+    }
+  }
+}

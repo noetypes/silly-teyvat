@@ -1,0 +1,26 @@
+{
+  "workflow": "SPRITE-GENERATION.md",
+  "characters": {
+    "Amber": {
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Amber/neutral-v001.png",
+      "reference": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-31-amber-barbara-columbina-expressions/references/Amber/approved-neutral.png",
+      "sha256": "b70f10083fc6164fb9afdcdea15d9030f7e96055b4e13f3a50b1c660e1a47315",
+      "approval_message": "All others are ACCEPTED.",
+      "approval_date": "2026-10-30"
+    },
+    "Barbara": {
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Barbara/neutral-v002.png",
+      "reference": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-31-amber-barbara-columbina-expressions/references/Barbara/approved-neutral.png",
+      "sha256": "711a63ba44d70684865cfd39cec15bcca0a39caeeded94f5ab0338b9073fc060",
+      "approval_message": "All others are ACCEPTED.",
+      "approval_date": "2026-10-30"
+    },
+    "Columbina": {
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Columbina/neutral-v002.png",
+      "reference": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-31-amber-barbara-columbina-expressions/references/Columbina/approved-neutral.png",
+      "sha256": "01e0ad8587e320d30a74d76b541a2b0fa71d730c7ec783e084428ca0f8a2f42d",
+      "approval_message": "All others are ACCEPTED.",
+      "approval_date": "2026-10-30"
+    }
+  }
+}

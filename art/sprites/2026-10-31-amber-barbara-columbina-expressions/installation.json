@@ -1,0 +1,608 @@
+{
+  "approval_message": "All approved, put the in.",
+  "installed_at_local": "2026-10-31T02:06:47.553028-04:00",
+  "source_run": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-31-amber-barbara-columbina-expressions/run.json",
+  "live_root": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters",
+  "backup_root": null,
+  "counts": {
+    "already_installed": 3,
+    "add": 63,
+    "replace": 0
+  },
+  "files": [
+    {
+      "character": "Amber",
+      "emotion": "neutral",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-31-amber-barbara-columbina-expressions/sprites/Amber/neutral.png",
+      "source_sha256": "b70f10083fc6164fb9afdcdea15d9030f7e96055b4e13f3a50b1c660e1a47315",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Amber/neutral.png",
+      "previous_sha256": "b70f10083fc6164fb9afdcdea15d9030f7e96055b4e13f3a50b1c660e1a47315",
+      "action": "already_installed"
+    },
+    {
+      "character": "Amber",
+      "emotion": "annoyance",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-31-amber-barbara-columbina-expressions/sprites/Amber/annoyance.png",
+      "source_sha256": "b5bbd8cd153c1f499d4b40893f2714c77b7c7036070a940ba9eb9657a9c19d84",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Amber/annoyance.png",
+      "previous_sha256": null,
+      "action": "add"
+    },
+    {
+      "character": "Amber",
+      "emotion": "smug",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-31-amber-barbara-columbina-expressions/sprites/Amber/smug.png",
+      "source_sha256": "78a87f327c8d3eb53b18ecfdd9413b69a0cf26c5132b6a3b7ddab27a13d82f6a",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Amber/smug.png",
+      "previous_sha256": null,
+      "action": "add"
+    },
+    {
+      "character": "Amber",
+      "emotion": "confusion",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-31-amber-barbara-columbina-expressions/sprites/Amber/confusion.png",
+      "source_sha256": "d7465774a14d1c140c6f0b157a5a9a5707a0e2e92af6702b0d0755a6daef0d1c",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Amber/confusion.png",
+      "previous_sha256": null,
+      "action": "add"
+    },
+    {
+      "character": "Amber",
+      "emotion": "love",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-31-amber-barbara-columbina-expressions/sprites/Amber/love.png",
+      "source_sha256": "69e5c16356f824c0e0928a6fa6e57b0e83c9a8322b6bdbbe61ca816323084cb6",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Amber/love.png",
+      "previous_sha256": null,
+      "action": "add"
+    },
+    {
+      "character": "Amber",
+      "emotion": "excitement",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-31-amber-barbara-columbina-expressions/sprites/Amber/excitement.png",
+      "source_sha256": "e6d929d7538388f7f14a3728d6ad914734ec42e4bc201787723f5a63e61572d2",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Amber/excitement.png",
+      "previous_sha256": null,
+      "action": "add"
+    },
+    {
+      "character": "Amber",
+      "emotion": "joy",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-31-amber-barbara-columbina-expressions/sprites/Amber/joy.png",
+      "source_sha256": "ef9e534e276612c6dbd09747844c759ae7aedd37a7c9655ae448d3d6ceb4d168",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Amber/joy.png",
+      "previous_sha256": null,
+      "action": "add"
+    },
+    {
+      "character": "Amber",
+      "emotion": "fear",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-31-amber-barbara-columbina-expressions/sprites/Amber/fear.png",
+      "source_sha256": "5952d22086c8006b0f8212daefefeb7162f70ca5170244b60a20ac1d18657dd7",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Amber/fear.png",
+      "previous_sha256": null,
+      "action": "add"
+    },
+    {
+      "character": "Amber",
+      "emotion": "pride",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-31-amber-barbara-columbina-expressions/sprites/Amber/pride.png",
+      "source_sha256": "4160b71ef34e2edacc1321e646973c38e88d438783c46c37544301e0ee72d9ec",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Amber/pride.png",
+      "previous_sha256": null,
+      "action": "add"
+    },
+    {
+      "character": "Amber",
+      "emotion": "desire",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-31-amber-barbara-columbina-expressions/sprites/Amber/desire.png",
+      "source_sha256": "c48664be92dc7e780aa719c5443341dbd75df64c39afd963c6089c90a8d0cafc",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Amber/desire.png",
+      "previous_sha256": null,
+      "action": "add"
+    },
+    {
+      "character": "Amber",
+      "emotion": "anger",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-31-amber-barbara-columbina-expressions/sprites/Amber/anger.png",
+      "source_sha256": "0e941c50faa988090e889c68836bd7133ee730a50aa9228e9727c99a95c7dc8c",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Amber/anger.png",
+      "previous_sha256": null,
+      "action": "add"
+    },
+    {
+      "character": "Amber",
+      "emotion": "grief",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-31-amber-barbara-columbina-expressions/sprites/Amber/grief.png",
+      "source_sha256": "52c9d9808cbf5d870acf927b0c28c14d540040cfeef22111a55c92b002bcbea7",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Amber/grief.png",
+      "previous_sha256": null,
+      "action": "add"
+    },
+    {
+      "character": "Amber",
+      "emotion": "sadness",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-31-amber-barbara-columbina-expressions/sprites/Amber/sadness.png",
+      "source_sha256": "83f4272cff4ab38b4521df463ddbfad8fab4c3978c03e1808cfe9cc7950e9544",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Amber/sadness.png",
+      "previous_sha256": null,
+      "action": "add"
+    },
+    {
+      "character": "Amber",
+      "emotion": "disgust",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-31-amber-barbara-columbina-expressions/sprites/Amber/disgust.png",
+      "source_sha256": "01a43ae92041b3f6cb526f9e5484d48e78a7b5dcdaa876353d5aeeea4ee245af",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Amber/disgust.png",
+      "previous_sha256": null,
+      "action": "add"
+    },
+    {
+      "character": "Amber",
+      "emotion": "disappointment",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-31-amber-barbara-columbina-expressions/sprites/Amber/disappointment.png",
+      "source_sha256": "5dd99460825b09d3396dff96ca08869c833a306a88cd7b28abcfdcce5a23440a",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Amber/disappointment.png",
+      "previous_sha256": null,
+      "action": "add"
+    },
+    {
+      "character": "Amber",
+      "emotion": "relief",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-31-amber-barbara-columbina-expressions/sprites/Amber/relief.png",
+      "source_sha256": "ab7092f8b02f04c2636cd36e2b74bcc397790f00be4ea29b2d75e174e7869b0b",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Amber/relief.png",
+      "previous_sha256": null,
+      "action": "add"
+    },
+    {
+      "character": "Amber",
+      "emotion": "admiration",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-31-amber-barbara-columbina-expressions/sprites/Amber/admiration.png",
+      "source_sha256": "9f91e002c26f8fa93287b705506426471c56ca9725e0b2a1f94c0944c8af17f5",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Amber/admiration.png",
+      "previous_sha256": null,
+      "action": "add"
+    },
+    {
+      "character": "Amber",
+      "emotion": "gratitude",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-31-amber-barbara-columbina-expressions/sprites/Amber/gratitude.png",
+      "source_sha256": "1588d7054baf11f176a189d50cbb0e976dd8325726bf5fe4791d097b51f734f2",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Amber/gratitude.png",
+      "previous_sha256": null,
+      "action": "add"
+    },
+    {
+      "character": "Amber",
+      "emotion": "embarrassment",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-31-amber-barbara-columbina-expressions/sprites/Amber/embarrassment.png",
+      "source_sha256": "dc01c50baa1d82bedd91b5497f73f9d566c9a636e88bd1565647834952cbfd70",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Amber/embarrassment.png",
+      "previous_sha256": null,
+      "action": "add"
+    },
+    {
+      "character": "Amber",
+      "emotion": "caring",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-31-amber-barbara-columbina-expressions/sprites/Amber/caring.png",
+      "source_sha256": "06991d58d901782ddb224a776305339d937f0ca73ab351229ae5859be8636b9c",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Amber/caring.png",
+      "previous_sha256": null,
+      "action": "add"
+    },
+    {
+      "character": "Amber",
+      "emotion": "love-1",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-31-amber-barbara-columbina-expressions/sprites/Amber/love-1.png",
+      "source_sha256": "e05d10edd57d4acc7f393332bc36523a52ce45b486218ba4df63460d8fd1e57e",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Amber/love-1.png",
+      "previous_sha256": null,
+      "action": "add"
+    },
+    {
+      "character": "Amber",
+      "emotion": "desire-1",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-31-amber-barbara-columbina-expressions/sprites/Amber/desire-1.png",
+      "source_sha256": "431769d0489b5d3b6d6e8258d84b9feb7a42426aa9eabe61bd24f162b858f6df",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Amber/desire-1.png",
+      "previous_sha256": null,
+      "action": "add"
+    },
+    {
+      "character": "Barbara",
+      "emotion": "neutral",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-31-amber-barbara-columbina-expressions/sprites/Barbara/neutral.png",
+      "source_sha256": "711a63ba44d70684865cfd39cec15bcca0a39caeeded94f5ab0338b9073fc060",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Barbara/neutral.png",
+      "previous_sha256": "711a63ba44d70684865cfd39cec15bcca0a39caeeded94f5ab0338b9073fc060",
+      "action": "already_installed"
+    },
+    {
+      "character": "Barbara",
+      "emotion": "annoyance",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-31-amber-barbara-columbina-expressions/sprites/Barbara/annoyance.png",
+      "source_sha256": "a0c2c13416eb3686e3d949640858381859632af8259efeea982d6fa5d464d0dc",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Barbara/annoyance.png",
+      "previous_sha256": null,
+      "action": "add"
+    },
+    {
+      "character": "Barbara",
+      "emotion": "smug",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-31-amber-barbara-columbina-expressions/sprites/Barbara/smug.png",
+      "source_sha256": "5665cb0410c21854680876dd8803ffda14769bcfe9be66608870cc6461bdb6ec",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Barbara/smug.png",
+      "previous_sha256": null,
+      "action": "add"
+    },
+    {
+      "character": "Barbara",
+      "emotion": "confusion",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-31-amber-barbara-columbina-expressions/sprites/Barbara/confusion.png",
+      "source_sha256": "8942e852964c9240cba822e3933d0ac0b5fb133d7202fc446cb08460ef76cff4",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Barbara/confusion.png",
+      "previous_sha256": null,
+      "action": "add"
+    },
+    {
+      "character": "Barbara",
+      "emotion": "love",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-31-amber-barbara-columbina-expressions/sprites/Barbara/love.png",
+      "source_sha256": "7d5bb9cd25be26de5ec34a15d82c450bc58120bc56325ba621fb2c3a8bf33d10",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Barbara/love.png",
+      "previous_sha256": null,
+      "action": "add"
+    },
+    {
+      "character": "Barbara",
+      "emotion": "excitement",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-31-amber-barbara-columbina-expressions/sprites/Barbara/excitement.png",
+      "source_sha256": "ef6eb0e3445d02a8e28e555baed990fb9f50977221e45af7b62959dd6ad082e5",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Barbara/excitement.png",
+      "previous_sha256": null,
+      "action": "add"
+    },
+    {
+      "character": "Barbara",
+      "emotion": "joy",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-31-amber-barbara-columbina-expressions/sprites/Barbara/joy.png",
+      "source_sha256": "e83e59abea61d75a484d78242c2c2c57a0036dee2ae411f13de74f741fb9a786",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Barbara/joy.png",
+      "previous_sha256": null,
+      "action": "add"
+    },
+    {
+      "character": "Barbara",
+      "emotion": "fear",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-31-amber-barbara-columbina-expressions/sprites/Barbara/fear.png",
+      "source_sha256": "d3c06b91ffe4feb9f680d50b35f05964d6f5e2c5d802aed114652d3f2f1f3e00",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Barbara/fear.png",
+      "previous_sha256": null,
+      "action": "add"
+    },
+    {
+      "character": "Barbara",
+      "emotion": "pride",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-31-amber-barbara-columbina-expressions/sprites/Barbara/pride.png",
+      "source_sha256": "ec9b34fd6649363a9c03121be05ea277e7b52fc1289983efe6ddec1d09b83a3f",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Barbara/pride.png",
+      "previous_sha256": null,
+      "action": "add"
+    },
+    {
+      "character": "Barbara",
+      "emotion": "desire",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-31-amber-barbara-columbina-expressions/sprites/Barbara/desire.png",
+      "source_sha256": "48154c6cba7a901109ed9ba453d4d75d08b848fb219d4b09597233ebc4f26701",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Barbara/desire.png",
+      "previous_sha256": null,
+      "action": "add"
+    },
+    {
+      "character": "Barbara",
+      "emotion": "anger",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-31-amber-barbara-columbina-expressions/sprites/Barbara/anger.png",
+      "source_sha256": "402e815a64c7724d8df93939db215035ca3c5908909c65867c58e65d9638a598",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Barbara/anger.png",
+      "previous_sha256": null,
+      "action": "add"
+    },
+    {
+      "character": "Barbara",
+      "emotion": "grief",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-31-amber-barbara-columbina-expressions/sprites/Barbara/grief.png",
+      "source_sha256": "d4a792dba4fae71f3acd3e4cba69d3db8daec40f68ddf5aacf48ef93306b7030",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Barbara/grief.png",
+      "previous_sha256": null,
+      "action": "add"
+    },
+    {
+      "character": "Barbara",
+      "emotion": "sadness",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-31-amber-barbara-columbina-expressions/sprites/Barbara/sadness.png",
+      "source_sha256": "b27a7e279cbddf1020462a9847280dd6ceb97618d869d430a34f5cee2e5a9a0d",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Barbara/sadness.png",
+      "previous_sha256": null,
+      "action": "add"
+    },
+    {
+      "character": "Barbara",
+      "emotion": "disgust",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-31-amber-barbara-columbina-expressions/sprites/Barbara/disgust.png",
+      "source_sha256": "b9f07e9c2416326fb0771902848104687479455407a18ff100b359c9adeb4dc4",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Barbara/disgust.png",
+      "previous_sha256": null,
+      "action": "add"
+    },
+    {
+      "character": "Barbara",
+      "emotion": "disappointment",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-31-amber-barbara-columbina-expressions/sprites/Barbara/disappointment.png",
+      "source_sha256": "80c104fb7c4f41ccae25075560821a9bcbddbac1833734bfb6b6db995678535f",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Barbara/disappointment.png",
+      "previous_sha256": null,
+      "action": "add"
+    },
+    {
+      "character": "Barbara",
+      "emotion": "relief",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-31-amber-barbara-columbina-expressions/sprites/Barbara/relief.png",
+      "source_sha256": "aa02c5b2cb25b8cf5cd6f41adc793f798c8ca5ba7f8a60ee358f26b0b6cdb504",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Barbara/relief.png",
+      "previous_sha256": null,
+      "action": "add"
+    },
+    {
+      "character": "Barbara",
+      "emotion": "admiration",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-31-amber-barbara-columbina-expressions/sprites/Barbara/admiration.png",
+      "source_sha256": "4e66680d3378f733f4c1202635bc88c5f98cea799b640f95981ba7bf0093734e",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Barbara/admiration.png",
+      "previous_sha256": null,
+      "action": "add"
+    },
+    {
+      "character": "Barbara",
+      "emotion": "gratitude",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-31-amber-barbara-columbina-expressions/sprites/Barbara/gratitude.png",
+      "source_sha256": "f63bc3fbb9d04037a515a8804f67234790fda556f82426e81346abf5a04bf5e8",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Barbara/gratitude.png",
+      "previous_sha256": null,
+      "action": "add"
+    },
+    {
+      "character": "Barbara",
+      "emotion": "embarrassment",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-31-amber-barbara-columbina-expressions/sprites/Barbara/embarrassment.png",
+      "source_sha256": "b2894e591b3e4927e1bee63660714e4f03c1aaa5f0d68675d38bf4dd2455c246",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Barbara/embarrassment.png",
+      "previous_sha256": null,
+      "action": "add"
+    },
+    {
+      "character": "Barbara",
+      "emotion": "caring",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-31-amber-barbara-columbina-expressions/sprites/Barbara/caring.png",
+      "source_sha256": "f12c874cef36f6b80f75f6b7e20001b3d592a3542ca153e30b60911f1d829dda",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Barbara/caring.png",
+      "previous_sha256": null,
+      "action": "add"
+    },
+    {
+      "character": "Barbara",
+      "emotion": "love-1",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-31-amber-barbara-columbina-expressions/sprites/Barbara/love-1.png",
+      "source_sha256": "23c95e79dae5e02d401461980163cbeba608e2410aa04c02b9ffb265233e0c53",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Barbara/love-1.png",
+      "previous_sha256": null,
+      "action": "add"
+    },
+    {
+      "character": "Barbara",
+      "emotion": "desire-1",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-31-amber-barbara-columbina-expressions/sprites/Barbara/desire-1.png",
+      "source_sha256": "671674e2f0f01176528708adfd374493525975a67635940b76fd06c37dd0e1a9",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Barbara/desire-1.png",
+      "previous_sha256": null,
+      "action": "add"
+    },
+    {
+      "character": "Columbina",
+      "emotion": "neutral",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-31-amber-barbara-columbina-expressions/sprites/Columbina/neutral.png",
+      "source_sha256": "01e0ad8587e320d30a74d76b541a2b0fa71d730c7ec783e084428ca0f8a2f42d",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Columbina/neutral.png",
+      "previous_sha256": "01e0ad8587e320d30a74d76b541a2b0fa71d730c7ec783e084428ca0f8a2f42d",
+      "action": "already_installed"
+    },
+    {
+      "character": "Columbina",
+      "emotion": "annoyance",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-31-amber-barbara-columbina-expressions/sprites/Columbina/annoyance.png",
+      "source_sha256": "1d30b2c9a37d8afe210618e8fc8469c93c887e17b71b899083ce41e94f50602f",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Columbina/annoyance.png",
+      "previous_sha256": null,
+      "action": "add"
+    },
+    {
+      "character": "Columbina",
+      "emotion": "smug",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-31-amber-barbara-columbina-expressions/sprites/Columbina/smug.png",
+      "source_sha256": "f23fdadb0dbf7c15b64270f35e1b81788ddc8ccbd263b1c50e3d5830b7b24128",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Columbina/smug.png",
+      "previous_sha256": null,
+      "action": "add"
+    },
+    {
+      "character": "Columbina",
+      "emotion": "confusion",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-31-amber-barbara-columbina-expressions/sprites/Columbina/confusion.png",
+      "source_sha256": "76a4fecd54fb17d9e81529c5a3da72aafa73f0916a741de01e061838f303a2a5",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Columbina/confusion.png",
+      "previous_sha256": null,
+      "action": "add"
+    },
+    {
+      "character": "Columbina",
+      "emotion": "love",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-31-amber-barbara-columbina-expressions/sprites/Columbina/love.png",
+      "source_sha256": "c525256569a06a675f239deef064044739b80ab74a2b771d7726cc4064d5fd7c",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Columbina/love.png",
+      "previous_sha256": null,
+      "action": "add"
+    },
+    {
+      "character": "Columbina",
+      "emotion": "excitement",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-31-amber-barbara-columbina-expressions/sprites/Columbina/excitement.png",
+      "source_sha256": "969bd3804415e28bed7624ba1dadddaf1e57fd5dee57dee756aa6318c91ea809",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Columbina/excitement.png",
+      "previous_sha256": null,
+      "action": "add"
+    },
+    {
+      "character": "Columbina",
+      "emotion": "joy",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-31-amber-barbara-columbina-expressions/sprites/Columbina/joy.png",
+      "source_sha256": "b46f5656591f67188ed7334fd563ece4b5bcf9a28e67b78d566f7edbde4f6237",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Columbina/joy.png",
+      "previous_sha256": null,
+      "action": "add"
+    },
+    {
+      "character": "Columbina",
+      "emotion": "fear",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-31-amber-barbara-columbina-expressions/sprites/Columbina/fear.png",
+      "source_sha256": "9b05407d06dff727ff1c62f9c683a637031f78349d814805818087169d75c822",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Columbina/fear.png",
+      "previous_sha256": null,
+      "action": "add"
+    },
+    {
+      "character": "Columbina",
+      "emotion": "pride",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-31-amber-barbara-columbina-expressions/sprites/Columbina/pride.png",
+      "source_sha256": "1a42bcdf2281e363b123ae249fb953f97a604cff636f0c80b500fc9d64a169cb",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Columbina/pride.png",
+      "previous_sha256": null,
+      "action": "add"
+    },
+    {
+      "character": "Columbina",
+      "emotion": "desire",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-31-amber-barbara-columbina-expressions/sprites/Columbina/desire.png",
+      "source_sha256": "19dddcb1bdc639c103996c0deb92241303a96f595bd52ba99e668b220d2c5ba7",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Columbina/desire.png",
+      "previous_sha256": null,
+      "action": "add"
+    },
+    {
+      "character": "Columbina",
+      "emotion": "anger",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-31-amber-barbara-columbina-expressions/sprites/Columbina/anger.png",
+      "source_sha256": "26f8093bd6debcfd44cb82e4fee45ce4e76cf44e5a1e2402da0ecaeceab483f6",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Columbina/anger.png",
+      "previous_sha256": null,
+      "action": "add"
+    },
+    {
+      "character": "Columbina",
+      "emotion": "grief",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-31-amber-barbara-columbina-expressions/sprites/Columbina/grief.png",
+      "source_sha256": "00f45d85298f4baa83f75bc9c34e098c1ba1f12aed25e4c279ddb6ab4ca7170a",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Columbina/grief.png",
+      "previous_sha256": null,
+      "action": "add"
+    },
+    {
+      "character": "Columbina",
+      "emotion": "sadness",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-31-amber-barbara-columbina-expressions/sprites/Columbina/sadness.png",
+      "source_sha256": "e1fbec38b82449116a2c33f8ca4da57fe9569a67e1bb9d0baa19f8e5428a68c3",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Columbina/sadness.png",
+      "previous_sha256": null,
+      "action": "add"
+    },
+    {
+      "character": "Columbina",
+      "emotion": "disgust",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-31-amber-barbara-columbina-expressions/sprites/Columbina/disgust.png",
+      "source_sha256": "8d99a7d818781bebf2d6e1b1c1083fb0a022f84a42b603cbcd3c9bed92966fa0",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Columbina/disgust.png",
+      "previous_sha256": null,
+      "action": "add"
+    },
+    {
+      "character": "Columbina",
+      "emotion": "disappointment",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-31-amber-barbara-columbina-expressions/sprites/Columbina/disappointment.png",
+      "source_sha256": "f61284d0498d765769f12d0fd05e9c69e2c3d3ece611874b8f663aa4f630d4ab",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Columbina/disappointment.png",
+      "previous_sha256": null,
+      "action": "add"
+    },
+    {
+      "character": "Columbina",
+      "emotion": "relief",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-31-amber-barbara-columbina-expressions/sprites/Columbina/relief.png",
+      "source_sha256": "b138854e092da69920a8fd35cda709775717f6ef01614afa35e6d8dbcac3578e",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Columbina/relief.png",
+      "previous_sha256": null,
+      "action": "add"
+    },
+    {
+      "character": "Columbina",
+      "emotion": "admiration",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-31-amber-barbara-columbina-expressions/sprites/Columbina/admiration.png",
+      "source_sha256": "87b8db91b3595b46230ae9de93dbbd18dc77ab1effa95643639f24b708265f77",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Columbina/admiration.png",
+      "previous_sha256": null,
+      "action": "add"
+    },
+    {
+      "character": "Columbina",
+      "emotion": "gratitude",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-31-amber-barbara-columbina-expressions/sprites/Columbina/gratitude.png",
+      "source_sha256": "767adf6aa05b6e17e043b3c7716546016154bda095a995ebfe750a55ea61af5c",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Columbina/gratitude.png",
+      "previous_sha256": null,
+      "action": "add"
+    },
+    {
+      "character": "Columbina",
+      "emotion": "embarrassment",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-31-amber-barbara-columbina-expressions/sprites/Columbina/embarrassment.png",
+      "source_sha256": "0ae04d930e5f498dc7d455cfdc4a65f2e12dbe60e84efbc28637d1b2178d82c7",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Columbina/embarrassment.png",
+      "previous_sha256": null,
+      "action": "add"
+    },
+    {
+      "character": "Columbina",
+      "emotion": "caring",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-31-amber-barbara-columbina-expressions/sprites/Columbina/caring.png",
+      "source_sha256": "268f8d63df5578e585d0bfed8cd06a3ce9aa7956ff4f0e83aad13afcc8b9cea5",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Columbina/caring.png",
+      "previous_sha256": null,
+      "action": "add"
+    },
+    {
+      "character": "Columbina",
+      "emotion": "love-1",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-31-amber-barbara-columbina-expressions/sprites/Columbina/love-1.png",
+      "source_sha256": "d4330e65c46e6ed0e6c97ee48bf0a960550990dbe15b58da85c35620d0c43267",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Columbina/love-1.png",
+      "previous_sha256": null,
+      "action": "add"
+    },
+    {
+      "character": "Columbina",
+      "emotion": "desire-1",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-31-amber-barbara-columbina-expressions/sprites/Columbina/desire-1.png",
+      "source_sha256": "c79f4c28ab34a237fe8740ac9fb2399788774e817321c97533521dfe1f7e0103",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Columbina/desire-1.png",
+      "previous_sha256": null,
+      "action": "add"
+    }
+  ]
+}
