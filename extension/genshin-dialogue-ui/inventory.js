@@ -7,6 +7,7 @@ import {ITEMS,itemArt,bagCount} from './battle-items.js';
 import {partyBag} from './battle-state.js';
 import {combatState,partyStatus,partyStore,USER_KEY} from './combat-state.js';
 import {activePersonaAvatar} from './persona-wardrobe.js';
+import {circularCharacterAvatar} from './character-avatars.js';
 
 const ICON={
     bag:'<svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M9 3h6a2 2 0 0 1 2 2v1h1.5A2.5 2.5 0 0 1 21 8.5V19a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8.5A2.5 2.5 0 0 1 5.5 6H7V5a2 2 0 0 1 2-2Zm0 2v1h6V5H9Zm-4 6v2h14v-2H5Zm5 1.5h4V15h-4z"/></svg>',
@@ -60,7 +61,7 @@ export function sortCards(cards,sort){
     return [...cards].sort(by);
 }
 
-export function mountInventory({host,getContext,announce=()=>{},onEat=()=>{},onClose=()=>{}}){
+export function mountInventory({host,getContext,announce=()=>{},onEat=()=>{},onClose=()=>{},gift=null}){
     const dialog=document.createElement('dialog');dialog.id='gi-inventory';dialog.setAttribute('aria-labelledby','gi-inv-title');
     dialog.innerHTML=`<header class="gi-inv-top">
             <div class="gi-inv-title"><span class="gi-inv-badge">${ICON.bag}</span><h2 id="gi-inv-title">Inventory</h2></div>
@@ -102,6 +103,7 @@ export function mountInventory({host,getContext,announce=()=>{},onEat=()=>{},onC
             <div class="gi-inv-d-hero"><small></small><div class="gi-inv-d-stat"><span>Cost</span><strong></strong></div><span class="gi-inv-d-stars" aria-label="${stars(item.rarity)} stars">${'★'.repeat(stars(item.rarity))}</span><img alt="" draggable="false"></div>
             <section class="gi-inv-d-eat" hidden><h4></h4><div class="gi-inv-d-party" role="group"></div></section>
             <div class="gi-inv-d-body"><div class="gi-inv-d-row"><b class="gi-inv-d-count"></b></div><ul class="gi-inv-d-effects"></ul><p class="gi-inv-d-set"></p><p class="gi-inv-d-use"></p></div>
+            <section class="gi-inv-d-gift" hidden><button type="button" class="gi-inv-gift-open" aria-expanded="false">Gift</button><div class="gi-inv-gift-people" role="group" hidden></div></section>
             <footer class="gi-inv-d-foot"><span></span></footer>`;
         box.querySelector('h3').textContent=item.name;
         box.querySelector('small').textContent=group?.label.replace(/s$/,'') || 'Card';
@@ -113,6 +115,25 @@ export function mountInventory({host,getContext,announce=()=>{},onEat=()=>{},onC
         box.querySelector('.gi-inv-d-use').textContent=`${group?.use || ''} ${item.target==='ally'?'Choose one party member.':item.target==='downed'?'Choose a downed party member.':item.target==='party'?'Affects the whole party.':''}`.trim();
         box.querySelector('.gi-inv-d-foot span').textContent=`In your bag: ${count}`;
         paintEat(box,card);
+        paintGift(box,card);
+    }
+    // Gift: everyone in the scene. The Trust system supplies them, and this section stays hidden without it.
+    function paintGift(box,{id,item}){
+        const {ctx,bag}=state(),section=box.querySelector('.gi-inv-d-gift'),people=bag?gift?.people(ctx):null;
+        if(!people){section.hidden=true;return;}
+        section.hidden=false;
+        const open=section.querySelector('.gi-inv-gift-open'),list=section.querySelector('.gi-inv-gift-people');
+        open.disabled=!people.length;open.title=people.length?'':'There is nobody here to give it to.';
+        list.setAttribute('aria-label',`Give ${item.name} to`);
+        list.replaceChildren(...people.map(card=>{
+            const b=el('button','gi-inv-gift-to');b.type='button';b.dataset.avatar=card.avatar;
+            const img=el('img');img.alt='';img.draggable=false;img.src=circularCharacterAvatar(ctx,card) || ctx.getThumbnailUrl?.('avatar',card.avatar) || `/characters/${encodeURIComponent(card.avatar)}`;
+            img.addEventListener('error',()=>{img.removeAttribute('src');},{once:true});
+            b.append(img,el('span','',card.name));
+            on(b,'click',()=>{close();gift.give(id,card.avatar);});
+            return b;
+        }));
+        on(open,'click',()=>{const show=list.hidden;list.hidden=!show;open.setAttribute('aria-expanded',String(show));});
     }
     // "Use on": the party with their health, for dishes that heal or revive between battles.
     function paintEat(box,{id,item}){

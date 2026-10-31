@@ -1,5 +1,5 @@
 {
-  "version": 2,
+  "version": 3,
   "date": "2026-10-26",
   "notes": "Default resident cap: 5. Bundled overfull locations redistributed to suitable meeting points. Existing user moves are respected by the one-time relocation migration. Prune remains at Mondstadt Fountain Plaza. Travelling companions do not consume resident slots.",
   "characters": [
@@ -770,6 +770,12 @@
       "locationId": "home-mondstadt-adventurers-guild",
       "rationale": "Katheryne works at every Adventurers' Guild branch. Mondstadt's is the default counter; Teleporting to another Guild or being carried there after a defeat places her at that branch.",
       "loreSource": "https://genshin-impact.fandom.com/wiki/Katheryne"
+    },
+    {
+      "name": "Paimon",
+      "locationId": "expansion-starfell-lake",
+      "rationale": "Paimon is first met at Starfell Lake, caught in a whirlpool. Her card is set at that moment.",
+      "loreSource": "https://genshin-impact.fandom.com/wiki/Paimon"
     }
   ],
   "relocations": [

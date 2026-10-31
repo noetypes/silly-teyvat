@@ -1,5 +1,6 @@
 import {enemyDialoguePages} from './enemy-actions.js';
 import { splitDialoguePages } from './dialogue-pages.js';
+import { hideTrustTags } from './trust-tags.js';
 // Quotes in HTML attributes are excluded by the caller. Apostrophes inside
 // words aren't speech marks. One double quote also counts while streaming.
 export function hasSpeech(text = '') {
@@ -17,6 +18,7 @@ export function plainMessage(message) {
     return node.textContent || '';
 }
 export function dialoguePages(root, prefs, message = {}) {
+    if (!message.is_user) hideTrustTags(root);
     const pages = enemyDialoguePages(splitDialoguePages(root),message,typeof prefs.combatTriggerPhrase === 'string' ? prefs.combatTriggerPhrase.trim() : undefined);
     if(message.is_narrator || message.extra?.type==='narrator'){for(const page of pages)page.giNarration=true;return pages;}
     if (!prefs.narration || message.is_user || message.is_system) return pages;

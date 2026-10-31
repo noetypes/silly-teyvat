@@ -7,7 +7,7 @@ const store={style:'S1',character:'C1',systems:'Y1'};const ed={read:id=>store[id
 check('text completion is left alone',syncPromptOrder({mainApi:'textgenerationwebui'},{},ed)===false);
 check('chat completion uses the order',syncPromptOrder(ctx,{silly_teyvat_world_scale:'W',silly_teyvat_combat:'K'},ed)===true);
 const order=settings.prompt_order[0].order.map(e=>e.identifier);
-check('entries inserted next to anchors',JSON.stringify(order)===JSON.stringify(['main','silly_teyvat_rp_character','silly_teyvat_rp_systems','chatHistory','silly_teyvat_rp_style','silly_teyvat_world_scale','silly_teyvat_combat','jailbreak']));
+check('entries inserted next to anchors',JSON.stringify(order)===JSON.stringify(['main','silly_teyvat_rp_character','silly_teyvat_rp_systems','silly_teyvat_trust','chatHistory','silly_teyvat_rp_style','silly_teyvat_world_scale','silly_teyvat_combat','jailbreak']));
 const p=k=>settings.prompts.find(x=>x.identifier===k);
 check('text written',p('silly_teyvat_rp_style').content==='S1'&&p('silly_teyvat_world_scale').content==='W');
 // user reorders and edits in AI Config

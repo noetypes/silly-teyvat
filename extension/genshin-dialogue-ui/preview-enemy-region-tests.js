@@ -27,7 +27,7 @@ export async function runEnemyRegionTests(){
         check('realignment moves Ruin Guard and hilichurls out of Natlan',!natlan.enemyPool.includes(av('Ruin Guard'))&&!natlan.enemyPool.includes(av('Hilichurl Fighter'))&&natlan.enemyPool.includes(av('Pyro Abyss Mage')));
         check('realignment runs once',settings.enemyPoolsVersion===2&&(chirai.enemyPool.push(av('Hydro Slime')),alignEnemyPools(ctx))===0&&chirai.enemyPool.includes(av('Hydro Slime')));
         const quiet={id:'quiet',label:'Quiet',wilderness:true,enemyPool:[av('Ruin Guard')]};
-        const lake={id:'expansion-starfell-lake',label:'Starfell Lake',residents:[]},home={id:'expansion-windrise',label:'Windrise',residents:['Klee.png']},off={id:'wild-liyue-qingce-village',label:'Qingce',wilderness:false};
+        const lake={id:'expansion-stormterror-s-lair',label:"Stormterror's Lair",residents:[]},home={id:'expansion-windrise',label:'Windrise',residents:['Klee.png']},off={id:'wild-liyue-qingce-village',label:'Qingce',wilderness:false};
         const fresh={backgroundRegions:[{id:'m',name:'Mondstadt',locations:[lake,home,off,quiet]}],enemyPoolsVersion:1},freshCtx={...ctx,extensionSettings:{genshin_dialogue_ui:fresh}};
         alignEnemyPools(freshCtx);
         check('an empty place in the catalog becomes wilderness with its pool',lake.wilderness===true&&lake.enemyPool.length>0&&lake.enemyPool.every(a=>ctx.characters.some(c=>c.avatar===a)));

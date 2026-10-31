@@ -1,6 +1,21 @@
 {
-  "checked": "2026-10-28",
+  "checked": "2026-10-31",
   "sources": [
+    {
+      "url": "https://genshin-impact.fandom.com/wiki/Paimon",
+      "title": "Genshin Impact Wiki: Paimon",
+      "supports": "The Traveler fished Paimon out of the water, and she would otherwise have drowned."
+    },
+    {
+      "url": "https://genshin-impact.fandom.com/wiki/Wanderer%27s_Trail",
+      "title": "Genshin Impact Wiki: Wanderer's Trail",
+      "supports": "The opening of the game, and Paimon meeting the Traveler as a stranger."
+    },
+    {
+      "url": "https://genshin-impact.fandom.com/wiki/Starfell_Lake",
+      "title": "Genshin Impact Wiki: Starfell Lake",
+      "supports": "The lake, its island and its Statue of The Seven."
+    },
     {
       "url": "https://wiki.hoyolab.com/pc/genshin/entry/7467?lang=en-us",
       "title": "HoYoWiki: Paimon",
@@ -15,26 +30,6 @@
       "url": "https://wiki.hoyolab.com/pc/genshin/entry/5798",
       "title": "HoYoWiki: Unbegun, Unending Story",
       "supports": "Emergency-food teasing and conversational curiosity."
-    },
-    {
-      "url": "https://wiki.hoyolab.com/pc/genshin/entry/9002?lang=en-us",
-      "title": "HoYoWiki: Echoes of Fate",
-      "supports": "Concern for the Traveler, practical help, and valuing company above a meal."
-    },
-    {
-      "url": "https://wiki.hoyolab.com/m/genshin/entry/23?lang=en-us",
-      "title": "HoYoWiki: Venti",
-      "supports": "Established familiar nickname and shared social banter."
-    },
-    {
-      "url": "https://wiki.hoyolab.com/pc/genshin/entry/7039?lang=en-us",
-      "title": "HoYoWiki: Ronova",
-      "supports": "Later-story Celestia connection must not be replaced by blanket fan theories; chronology is gated."
-    },
-    {
-      "url": "https://wiki.hoyolab.com/pc/genshin/entry/7474?lang=en-us",
-      "title": "HoYoWiki: Pierro",
-      "supports": "Later-history revelations exist; do not import them into an early scene or invent recovered memories."
     }
   ],
   "local_context": "Compared native metadata conventions with Venti, Mika, Sigewinne and Teucer cards and read only the Paimon entry of the installed shared Genshin lorebook. Shared lorebook left unchanged.",

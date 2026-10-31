@@ -1,9 +1,11 @@
 #!/usr/bin/env python3
-"""Convert the user's burst splash art PNGs into compact WebP files for the extension.
+"""Convert burst splash art PNGs into WebP files for the extension.
 
 Usage: build-splash-art.py "<Splash Art folder>"
 Needs Pillow. Writes extension/genshin-dialogue-ui/assets/splash/<Card name>.webp,
-trimmed to the opaque area and fitted inside 1100 px.
+trimmed to the opaque area and fitted inside 2048 px, the width of the game's wish art.
+Use the wiki's lossless "Character <Name> Full Wish.png" files as the source. The larger
+"<Name> Portrait.png" files are a different image, without the Elemental Burst effects.
 """
 import sys
 from pathlib import Path
@@ -15,7 +17,7 @@ PICKS = {
     'Mavuika - Cropped': 'Mavuika',
 }
 SKIP = {'Amber - Alternate Outfit', 'Jean - Small', 'Mavuika - Complete', 'Mona - Alternate Outfit'}
-LIMIT = 1100
+LIMIT = 2048
 
 def main():
     src = Path(sys.argv[1])
@@ -32,7 +34,7 @@ def main():
             image = image.crop(box)
         image.thumbnail((LIMIT, LIMIT), Image.LANCZOS)
         target = out / f'{name}.webp'
-        image.save(target, 'WEBP', quality=78, method=6)
+        image.save(target, 'WEBP', quality=92, method=6)
         total += target.stat().st_size
         print(f'{name}: {image.size[0]}x{image.size[1]} {target.stat().st_size // 1024} KB')
     print(f'Total {total / 1e6:.1f} MB')

@@ -131,10 +131,10 @@ export function syncRoleplayPrompts(ctx, enabled = true) {
 }
 
 // CHAT_COMPLETION_PROMPT_READY: quiet summaries, or Silly Teyvat or its prompts switched off, get none of them.
-export function dropRoleplayPrompts(ctx, enabled, chat) {
+export function dropRoleplayPrompts(ctx, enabled, chat, also = []) {
     if (active(ctx, enabled)) return;
     const expand = text => ctx.substituteParams ? ctx.substituteParams(text) : text;
-    stripPrompts(chat, SLOTS.map(slot => expand(roleplayPromptText(ctx, slot.id))));
+    stripPrompts(chat, [...SLOTS.map(slot => expand(roleplayPromptText(ctx, slot.id))), ...also]);
 }
 
 export function paintRoleplayPrompts(ctx, root = document) {

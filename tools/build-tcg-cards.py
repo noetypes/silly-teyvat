@@ -7,6 +7,7 @@ has a TCG card of the same name; event cards are fetched for the battle items li
 in ITEMS. Writes WebP files to extension/genshin-dialogue-ui/assets/tcg/{characters,items}/.
 Enemies without a TCG card get one drawn from their wiki enemy icon on an element-tinted card.
 build-tcg-cards.py --missing-enemies makes only those.
+build-tcg-cards.py --missing-items fetches only item cards that have no art yet.
 """
 import io, json, re, sys, time, urllib.parse, urllib.request
 from pathlib import Path
@@ -27,6 +28,21 @@ ITEMS = {
     'woven-winds': 'Elemental Resonance: Woven Winds', 'woven-thunder': 'Elemental Resonance: Woven Thunder',
     'woven-weeds': 'Elemental Resonance: Woven Weeds', 'woven-ice': 'Elemental Resonance: Woven Ice',
     'woven-stone': 'Elemental Resonance: Woven Stone',
+    'northern-chicken': 'Northern Smoked Chicken (Event Card)', 'jueyun-guoba': 'Jueyun Guoba (Event Card)',
+    'sashimi-platter': 'Sashimi Platter (Event Card)', 'gilded-hall': 'Gilded Hall (Event Card)',
+    'chenyu-brew': 'Chenyu Brew (Event Card)', 'autumn-frost': 'Autumn Frost (Event Card)',
+    'glittering-gemstones': 'Glittering Gemstones (Event Card)', 'harvest-boon': "Harvest's Boon (Event Card)",
+    'hot-spring-oclock': "Hot Spring O'Clock (Event Card)", 'lakkaberry-pie': 'Lakkaberry Pie (Event Card)',
+    'matsutake-rolls': 'Matsutake Meat Rolls (Event Card)', 'mystique-soup': 'Mystique Soup (Event Card)',
+    'puff-pops': 'Puff Pops (Event Card)', 'rainbow-macarons': 'Rainbow Macarons (Event Card)',
+    'roulette-special': 'Roulette Special (Event Card)', 'saurus-crackers': 'Saurus Crackers (Event Card)',
+    'sing-heart-out': 'Sing Your Heart Out (Event Card)', 'verdant-gift': 'Verdant Gift (Event Card)',
+    'wave-kissed-sands': 'Wave-Kissed Sands (Event Card)', 'yumemi-snacks': 'Yumemi Style Special Snacks',
+    'fish-and-chips': 'Fish and Chips (Event Card)', 'nre': 'NRE',
+    'treasure-seelie': 'Treasure-Seeking Seelie (Support Card)', 'parametric-transformer': 'Parametric Transformer (Support Card)',
+    'red-feather-fan': 'Red Feather Fan (Support Card)', 'memento-lens': 'Memento Lens (Support Card)',
+    'seed-dispensary': 'Seed Dispensary (Support Card)', 'kusava': 'Kusava (Support Card)',
+    'lumenstone-adjuvant': 'Lumenstone Adjuvant (Support Card)',
 }
 WIDTH = 360
 SUPPLIED = ['Aether', 'Lumine', 'Paimon']
@@ -55,6 +71,14 @@ def save(url, target):
     target.parent.mkdir(parents=True, exist_ok=True)
     image.save(target, 'WEBP', quality=82, method=6)
     return target.stat().st_size
+
+def missing_items():
+    actions = category('Category:Genius Invokation TCG Action Cards')
+    for item, title in ITEMS.items():
+        target = OUT / 'items' / f'{item}.webp'
+        if target.exists(): continue
+        if title not in actions: print('Missing item card', title, file=sys.stderr); continue
+        print(item, save(actions[title], target)); time.sleep(.1)
 
 def main():
     names = [n for n, v in json.loads((ROOT / 'assets/character-properties.json').read_text()).items() if v.get('playable') or v.get('role') == 'enemy']
@@ -119,5 +143,6 @@ def missing_enemies():
 
 if __name__ == '__main__':
     if sys.argv[1:] == ['--missing-enemies']: missing_enemies()
+    elif sys.argv[1:] == ['--missing-items']: missing_items()
     else:
         main(); missing_enemies()

@@ -22,4 +22,4 @@ Preserve existing location IDs, waypoint coordinates, filenames, recognition lab
 
 ## This refresh
 
-All 40 starter backgrounds were visually reviewed on 26 October 2026. Twenty-four were replaced. Svetloledovka is a disclosed AI-cleaned ground-level game screenshot; its edit prompt is in `svetloledovka-cleanup.json`. Wanmin uses the nearby Chihu Rock plaza. Komore Teahouse and Gandharva Ville use clean lower-resolution sources. Background NPCs and original copyright marks may remain.
+All 40 starter backgrounds were visually reviewed on 26 October 2026. Twenty-four were replaced. Svetloledovka is a disclosed AI-cleaned ground-level game screenshot; its edit prompt is in `svetloledovka-cleanup.json`. Wanmin uses the nearby Chihu Rock plaza. Komore Teahouse and Gandharva Ville used clean lower-resolution sources until the art refresh of 31 October 2026 replaced them (see SOURCES.md). Background NPCs and original copyright marks may remain.

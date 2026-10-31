@@ -3150,6 +3150,92 @@ body.gi-enabled #chat > .mes.gi-combat-log { display: none !important; }
 }
 @media (prefers-reduced-motion: reduce) { #gi-inventory, #gi-inventory * { animation-duration: 1ms !important; transition-duration: 1ms !important; } }
 
+/* ---------- Trust (1.53): five hearts per character, and a thought box in the style of Genshin's paper dialogs ---------- */
+.gi-hearts { display: inline-flex; gap: 2px; filter: drop-shadow(0 0 1px #8a6b3f); vertical-align: middle; }
+.gi-hearts i { display: block; width: var(--heart, 18px); aspect-ratio: 1; background: linear-gradient(90deg, #f28aa6 var(--fill), var(--heart-empty, #d9cdb8) var(--fill)); -webkit-mask: var(--gi-heart-mask) center / contain no-repeat; mask: var(--gi-heart-mask) center / contain no-repeat; }
+#gi-root { --gi-heart-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 21.2 3.4 12.6a5.4 5.4 0 0 1 7.6-7.6l1 1 1-1a5.4 5.4 0 0 1 7.6 7.6Z'/%3E%3C/svg%3E"); }
+
+#gi-trust { --trust-paper: #ece5d8; --trust-ink: #3d4557; position: fixed; inset: 0; box-sizing: border-box; width: min(960px, calc(100vw - 32px)); height: min(680px, calc(100dvh - 32px)); max-width: none; max-height: none; margin: auto; padding: 0; border: 0; border-radius: 18px; overflow: hidden; color: var(--trust-paper); font-family: var(--ty-font); background: radial-gradient(ellipse 80% 60% at 70% 0%, #f28aa633, transparent 70%), linear-gradient(160deg, #2a3147f7, #1b2030fa); box-shadow: 0 0 0 1px #d3bc8e66, 0 24px 60px #0009; }
+#gi-trust[open] { display: grid; grid-template-rows: auto minmax(0, 1fr) auto; animation: ty-fade 220ms ease both; }
+#gi-trust::backdrop { background: #0b1527b3; backdrop-filter: blur(6px); }
+#gi-trust *, #gi-trust *::before, #gi-trust *::after { box-sizing: border-box; }
+#gi-trust button { font-family: inherit; }
+.gi-trust-top { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 14px 20px; box-shadow: inset 0 -1px 0 #d3bc8e44; }
+.gi-trust-title { display: flex; align-items: center; gap: 12px; min-width: 0; }
+.gi-trust-title h2 { margin: 0; font-size: 22px; font-weight: 400; color: var(--trust-paper); letter-spacing: .02em; }
+.gi-trust-badge { width: 30px; height: 30px; background: linear-gradient(#f7a9bd, #e36f8f); -webkit-mask: var(--gi-heart-mask) center / contain no-repeat; mask: var(--gi-heart-mask) center / contain no-repeat; }
+.gi-trust-close { display: grid; place-items: center; width: 40px; height: 40px; padding: 8px; border: 0; border-radius: 50%; color: var(--trust-paper); background: #ece5d81f; cursor: pointer; }
+.gi-trust-close:hover { background: #ece5d833; } .gi-trust-close svg { width: 100%; height: 100%; }
+.gi-trust-body { display: grid; grid-template-columns: minmax(230px, 300px) minmax(0, 1fr); min-height: 0; }
+.gi-trust-list { display: flex; flex-direction: column; gap: 8px; padding: 14px; overflow-y: auto; box-shadow: inset -1px 0 0 #d3bc8e33; }
+.gi-trust-person { display: flex; align-items: center; gap: 10px; flex: none; width: 100%; padding: 8px 10px; border: 0; border-radius: 12px; text-align: left; color: var(--trust-paper); background: #ece5d812; cursor: pointer; transition: background 160ms ease, transform 160ms ease; }
+.gi-trust-person:hover { background: #ece5d822; transform: translateX(2px); }
+.gi-trust-person[aria-pressed="true"] { --heart-empty: #b8ab94; color: var(--trust-ink); background: var(--trust-paper); box-shadow: 0 0 0 2px #d3bc8e; }
+.gi-trust-person:focus-visible, .gi-trust-ask:focus-visible, .gi-trust-close:focus-visible { outline: 2px solid #f2dca0; outline-offset: 2px; }
+.gi-trust-person img { flex: none; width: 48px; height: 48px; border-radius: 50%; object-fit: cover; background: #ece5d822; }
+.gi-trust-person > span { display: grid; gap: 2px; min-width: 0; }
+.gi-trust-person b { overflow: hidden; font-size: 15px; font-weight: 400; white-space: nowrap; text-overflow: ellipsis; }
+.gi-trust-person small { font-size: 11px; opacity: .72; }
+.gi-trust-person .gi-hearts { --heart: 15px; }
+.gi-trust-empty { margin: 8px; font-size: 15px; line-height: 1.5; color: #ece5d8bb; }
+.gi-trust-detail { display: flex; flex-direction: column; align-items: center; gap: 10px; min-width: 0; padding: 20px 24px; overflow-y: auto; text-align: center; }
+.gi-trust-who { display: flex; align-items: center; gap: 14px; }
+.gi-trust-who img { width: 76px; height: 76px; border-radius: 50%; object-fit: cover; background: #ece5d822; box-shadow: 0 0 0 2px #d3bc8e, 0 0 16px #f28aa655; }
+.gi-trust-who > div { display: grid; gap: 2px; text-align: left; }
+.gi-trust-who h3 { margin: 0; font-size: 22px; font-weight: 400; color: var(--trust-paper); }
+.gi-trust-who strong { font-size: 14px; font-weight: 400; color: #f2dca0; }
+.gi-trust-meter { display: flex; align-items: center; gap: 10px; }
+.gi-trust-meter .gi-hearts { --heart: 30px; }
+.gi-trust-meter b { font-size: 15px; font-weight: 400; color: #ece5d8cc; font-variant-numeric: tabular-nums; }
+.gi-trust-hint { margin: 0; max-width: 42ch; font-size: 15px; line-height: 1.45; color: #ece5d8cc; }
+.gi-trust-ask { padding: 10px 26px; border: 0; border-radius: 999px; font-size: 16px; color: var(--trust-ink); background: linear-gradient(#f4ecdd, #e4d8c1); box-shadow: 0 0 0 2px #d3bc8e, 0 3px 8px #0005; cursor: pointer; transition: transform 160ms ease, filter 160ms ease; }
+.gi-trust-ask:hover:not(:disabled) { transform: translateY(-1px); filter: brightness(1.05); }
+.gi-trust-ask:disabled { opacity: .68; cursor: default; }
+/* The thought box: a sheet of Genshin dialog paper with the character's portrait as its stamp. */
+.gi-thought { position: relative; width: min(100%, 520px); margin: 22px 0 6px; padding: 18px 22px 12px 22px; border-radius: 16px; color: var(--trust-ink); text-align: left; background: radial-gradient(circle at 92% 12%, #f7c6d24d, transparent 34%), linear-gradient(#fbf6ea, #ece5d8); box-shadow: inset 0 0 0 1.5px #fff, inset 0 0 0 3px #d3bc8e, 0 8px 20px #0006; animation: gi-thought-in 320ms var(--ty-ease, ease) both; }
+.gi-thought::before, .gi-thought::after { content: "✦"; position: absolute; font-size: 15px; color: #c9a86a; }
+.gi-thought::before { top: 8px; right: 12px; } .gi-thought::after { bottom: 8px; left: 12px; }
+.gi-thought-stamp { position: absolute; top: -20px; left: 16px; width: 46px; height: 46px; border-radius: 50%; object-fit: cover; background: #ece5d8; box-shadow: 0 0 0 2px #d3bc8e, 0 2px 6px #0005; }
+.gi-thought-body { padding-top: 16px; }
+.gi-thought h4 { margin: 0 0 6px; font-size: 15px; font-weight: 400; color: #a5763f; }
+.gi-thought p { margin: 0 0 8px; font-size: 16px; line-height: 1.55; font-style: italic; color: var(--trust-ink); }
+.gi-thought small { display: block; padding-left: 16px; font-size: 12px; text-align: right; color: #8a7a60; }
+.gi-thought-wait { display: flex; justify-content: center; gap: 8px; padding: 20px; }
+.gi-thought-wait::before, .gi-thought-wait::after { content: none; }
+.gi-thought-wait i { width: 12px; aspect-ratio: 1; background: #e77f9b; -webkit-mask: var(--gi-heart-mask) center / contain no-repeat; mask: var(--gi-heart-mask) center / contain no-repeat; animation: gi-thought-bob 900ms ease-in-out infinite; }
+.gi-thought-wait i:nth-child(2) { animation-delay: 150ms; } .gi-thought-wait i:nth-child(3) { animation-delay: 300ms; }
+.gi-trust-foot { padding: 10px 20px; font-size: 13px; line-height: 1.4; color: #ece5d8a6; box-shadow: inset 0 1px 0 #d3bc8e33; }
+@keyframes gi-thought-in { from { opacity: 0; transform: translateY(8px) scale(.98); } }
+@keyframes gi-thought-bob { 50% { transform: translateY(-6px); } }
+@media (max-width: 720px) {
+    #gi-trust { width: calc(100vw - 16px); height: calc(100dvh - 16px); }
+    .gi-trust-body { grid-template-columns: minmax(0, 1fr); grid-template-rows: auto minmax(0, 1fr); }
+    .gi-trust-list { flex-direction: row; overflow: auto hidden; padding: 10px 12px; box-shadow: inset 0 -1px 0 #d3bc8e33; }
+    .gi-trust-person { width: 196px; } .gi-trust-person:hover { transform: none; }
+    .gi-trust-detail { padding: 14px 16px; } .gi-trust-meter .gi-hearts { --heart: 26px; }
+}
+/* A small heart rises from the top of the stage when trust changes. */
+.gi-trust-toasts { position: fixed; top: max(14px, env(safe-area-inset-top, 0px)); left: 50%; z-index: 40; display: grid; justify-items: center; gap: 6px; translate: -50% 0; pointer-events: none; }
+.gi-trust-toast { display: flex; align-items: center; gap: 8px; padding: 6px 16px 6px 10px; border-radius: 999px; font-family: var(--ty-font); font-size: 15px; color: #3d4557; background: linear-gradient(#fbf6ea, #ece5d8); box-shadow: 0 0 0 1.5px #d3bc8e, 0 6px 14px #0006; animation: gi-trust-toast 3200ms ease both; }
+.gi-trust-toast i { width: 20px; aspect-ratio: 1; background: #e77f9b; -webkit-mask: var(--gi-heart-mask) center / contain no-repeat; mask: var(--gi-heart-mask) center / contain no-repeat; }
+.gi-trust-down i { background: #7f8aa3; }
+@keyframes gi-trust-toast { 0% { opacity: 0; transform: translateY(-10px) scale(.94); } 8%, 86% { opacity: 1; transform: none; } 100% { opacity: 0; transform: translateY(-6px); } }
+body.gi-reduced-motion .gi-trust-toast { animation-name: ty-fade; }
+#gi-toolbar .gi-pm-grid button[data-gi-action="trust"] svg { fill: currentColor; }
+/* Gift, in the Inventory's detail panel. */
+.gi-inv-d-gift { position: sticky; bottom: 0; z-index: 1; display: grid; gap: 10px; padding: 12px 22px; background: #fdf3d6; box-shadow: inset 0 1px 0 #d3bc8e66; }
+.gi-inv-d-gift[hidden] { display: none; }
+.gi-inv-gift-open { display: flex; align-items: center; justify-content: center; gap: 8px; width: 100%; padding: 9px 16px; border: 0; border-radius: 999px; font-size: 17px; color: #ece5d8; background: linear-gradient(#5b6378, #3c4357); box-shadow: 0 0 0 1.5px #d3bc8e; cursor: pointer; }
+.gi-inv-gift-open::before { content: ""; width: 18px; aspect-ratio: 1; background: #f7a9bd; -webkit-mask: var(--gi-heart-mask) center / contain no-repeat; mask: var(--gi-heart-mask) center / contain no-repeat; }
+.gi-inv-gift-open:hover:not(:disabled) { filter: brightness(1.15); }
+.gi-inv-gift-open:disabled { opacity: .55; cursor: default; }
+.gi-inv-gift-open:focus-visible, .gi-inv-gift-to:focus-visible { outline: 2px solid #c79d4f; outline-offset: 2px; }
+.gi-inv-gift-people { display: flex; flex-wrap: wrap; gap: 8px; }
+.gi-inv-gift-people[hidden] { display: none; }
+.gi-inv-gift-to { display: flex; align-items: center; gap: 8px; padding: 6px 12px 6px 6px; border: 0; border-radius: 999px; font-size: 15px; color: #3d4557; background: #ece5d8; box-shadow: 0 0 0 1px #d3bc8e; cursor: pointer; }
+.gi-inv-gift-to:hover { background: #fff; }
+.gi-inv-gift-to img { width: 34px; height: 34px; border-radius: 50%; object-fit: cover; }
+
 /* ==========================================================================
    Silly Teyvat 1.43 — mobile layout and interface pass.
    Appended last: Paimon menu sizing, Genshin dialogue options, the composer,

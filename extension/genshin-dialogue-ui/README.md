@@ -1,3 +1,34 @@
+# Silly Teyvat 1.53.0: Trust, gifts and a fresh start with Paimon
+
+- **The Trust system.** Turn it on in Settings → World. Every character has five hearts of Trust with
+  you in each chat, from 0 to 5. Characters earn or lose it through the roleplay: the model ends a reply
+  with `[Trust +0.5]` or `[Trust -1]`, up to 1 either way in steps of 0.1, and the interface hides the
+  tag and shows a small heart instead. Low Trust doesn't mean they dislike you, only that they don't
+  know you yet or you've given them a reason to be careful. High Trust makes them more willing to do
+  what you ask, even things they'd normally refuse. The levels of everyone in your party are added to
+  the prompt on every turn, as **Silly Teyvat: Trust** beside Game systems in AI Config.
+- **Trust belongs to the chat.** It is read from the messages themselves, so regenerating, editing or
+  deleting a reply changes it correctly. Leaving someone behind and coming back changes nothing, and
+  only a new chat starts it again.
+- **The Trust menu.** Open Trust from the Paimon menu to see everyone you've met. **What do they think
+  of you?** asks the model for that character's private thoughts, using the chat, their card, their
+  Trust and whoever you're playing as, and shows them on a sheet of Genshin dialog paper.
+- **Gifts.** Every card in the Inventory has a **Gift** button while Trust is on. A narrator line
+  records the gift, then the character replies. A card they like adds 0.5, one they dislike takes 0.5
+  away.
+- **Likes and dislikes.** Everyone has favourite and least favourite cards, based on their Favorite
+  Food and Least Favorite Food voice-overs on the Genshin Impact Wiki where those fit a card. The
+  rest are plausible guesses, marked `guessed` in `character-tastes.js`. Present characters know
+  their own, and will tell you if you ask.
+- **29 new cards.** All of the wiki's remaining food cards and item cards, and they all work in
+  combat. See `COMBAT.md`.
+- **Starfell Lake is a safe location now**, and Paimon lives there. Her card is set at the very start
+  of the game: she has just been pulled out of a whirlpool in the lake, all five greetings show that
+  first meeting, and she knows nothing about you or anyone else. Update her card with the one in
+  `character-cards/paimon/` if you have another copy of it. Your current chats are not changed.
+- **Sharper art.** 27 location backgrounds now use larger wiki images, including Starfell Lake, and
+  the burst splash art of 71 characters is rebuilt from the wiki's lossless originals.
+
 # Silly Teyvat 1.52.2: Code review fixes
 
 - **Smoother streaming.** The World scale prompt is rebuilt before each generation instead of on every

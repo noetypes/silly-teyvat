@@ -139,3 +139,16 @@ The installed `public/scripts/group-chats.js` can draft a speaker before the use
 ## Starter scene artworks
 
 - Birthday artworks for Klee (2025), Hu Tao (2024), Nahida (2025), Venti (2024), the Raiden Shogun (2025), Kaedehara Kazuha (2025), Yoimiya (2024) and Albedo (2025), from the `File:<Name> Birthday <year>.png` pages of the [Genshin Impact Wiki API](https://genshin-impact.fandom.com/api.php). They were resized to 1600 px WebP in `assets/cgs/birthday/` (external data pack). Each wiki file name is recorded in `assets/cgs/catalog.json`. The artwork belongs to HoYoverse/COGNOSPHERE; the scene labels and descriptions are original project text.
+
+## Trust, gifts and new cards (31 October 2026)
+
+- Character likes and dislikes in `character-tastes.js` come from the Favorite Food and Least Favorite Food lines on each character's `/Voice-Overs` page on the [Genshin Impact Wiki](https://genshin-impact.fandom.com/wiki/Genshin_Impact_Wiki), matched to the nearest card. Entries marked `guessed` are partly or wholly made up. The notes are paraphrased, not quoted.
+- The 29 new item cards are the members of [Category:Food Cards](https://genshin-impact.fandom.com/wiki/Category:Food_Cards) and [Category:Item Cards](https://genshin-impact.fandom.com/wiki/Category:Item_Cards) that were not already in the game, without the Mystique Soup variants. `tools/build-tcg-cards.py --missing-items` downloads their art.
+- Paimon's first meeting follows the [Paimon](https://genshin-impact.fandom.com/wiki/Paimon) and [Wanderer's Trail](https://genshin-impact.fandom.com/wiki/Wanderer%27s_Trail) wiki pages, which say she was fished out of the water and would have drowned. Silly Teyvat sets the rescue in a whirlpool in Starfell Lake.
+
+## Art refresh (31 October 2026)
+
+- 27 location images under about 1,500 px wide were replaced with larger wiki images after a visual review, recorded per location in `catalog.json`. The Komore Teahouse image is cropped to remove a development caption, and Wanmin Restaurant is cropped from Liyue Harbor concept art to leave out the Traveler and Paimon. Replaced files are kept in `silly-teyvat-data/backups/replaced-media-2026-10-31/`.
+- Nothing suitable was found for Dunanna Forward Station, Maroon Basin, Underground Research Center, Place of Illusory Drawings, Barrowmoss Barrens, Tidesong Cavern or Xianyun's Liyue Harbor scene, so they are unchanged. Sretomorozsk keeps its concept art, which suits a scene better than the larger overlook.
+- Burst splash art: the wiki's `Character <Name> Full Wish.png` files match the existing art at the same size, because the game's wish art has a 2048 by 1024 canvas. 71 images under 1,400 px were rebuilt from those lossless files at higher quality. Chevreuse, Chongyun and Ganyu use different art from the wiki's and were left alone. The wiki's larger `<Name> Portrait.png` files lack the Elemental Burst effects, so they were not used.
+

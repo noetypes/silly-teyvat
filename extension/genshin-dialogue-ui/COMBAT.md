@@ -61,12 +61,47 @@ The party shares a bag of Genius Invokation event cards, saved per chat. A new c
 | Toss-Up | 0 | Returns to the Roll Phase to reroll your unspent dice (all start selected) |
 | Thunder and Eternity | 0 | Turns every unspent die into Omni |
 | Woven Flames, Waters, Winds, Thunder, Weeds, Ice, Stone | 0 | Adds one die of that element |
+| Northern Smoked Chicken | 0 | Normal Attacks never miss this round |
+| Jueyun Guoba | 0 | One member deals 20% more damage this round |
+| Saurus Crackers | 0 | One member gains 25% critical hit chance this round |
+| Chenyu Brew | 0 | Heals 2 HP at each of the next two End Phases |
+| Yumemi Style Special Snacks | 0 | Heals 5 HP |
+| Gilded Hall | 0 | One member deals 40% more damage this round |
+| Autumn Frost | 0 | Heals 4 HP and shields 4 damage |
+| Sashimi Platter | 1 | One member deals 20% more damage for 2 rounds |
+| Glittering Gemstones | 1 | Shields 8 damage |
+| Harvest's Boon | 1 | Heals 4, then 2 more at each of the next two End Phases |
+| Mystique Soup | 1 | Heals 4 HP and deals 20% more damage this round |
+| Puff Pops | 1 | Heals 3 HP at each of the next three End Phases |
+| Matsutake Meat Rolls | 2 | Heals 6, then 3 more at each of the next three End Phases |
+| Rainbow Macarons | 2 | Heals 4 HP and takes 30% less damage for 2 rounds |
+| Lakkaberry Pie | 3 | One member gains 2 Energy |
+| Roulette Special | 3 | Heals 8 HP, shields 4 damage and deals 20% more damage this round |
+| Hot Spring O'Clock | 1 | Heals the whole party 3 HP |
+| Verdant Gift | 1 | The party deals 15% more damage this round |
+| Fish and Chips | 2 | The party gains 30% critical hit chance this round |
+| Wave-Kissed Sands | 2 | The party is 20% harder to hit for 2 rounds |
+| Sing Your Heart Out | 3 | The party gains 1 Energy |
+| NRE | 1 | Heals 6 HP |
+| Memento Lens | 1 | One member gains 30% critical hit chance for 2 rounds |
+| Seed Dispensary | 1 | Heals 2 HP at each of the next three End Phases |
+| Red Feather Fan | 1 | The party is 15% harder to hit this round |
+| Kusava | 2 | One member gains 1 Energy |
+| Lumenstone Adjuvant | 2 | Shields the whole party from 3 damage |
+| Treasure-Seeking Seelie | 0 | Adds 1 Omni die |
+| Parametric Transformer | 0 | Adds 2 Omni dice |
+
+The 29 cards from Northern Smoked Chicken down were added in 1.53. Silly Teyvat has no dice discounts, card draw or Max HP, so cards built on those have the nearest effect the battle engine offers.
 
 Open **Inventory** from the Paimon menu to see every card in the bag, with its cost, quality and effect. Cards won since you last opened it are tagged *New*.
 
 Between battles, dishes that heal or revive can be eaten from the Inventory: select the dish and tap a party member under **Eat now**. Healing over time (Mushroom Pizza) arrives at once, and Teyvat Fried Egg revives a downed member with 8 HP. Shields, buffs, Energy and dice cards only work in battle.
 
 Winning a battle drops one card per defeated enemy (two from tough ones), weighted towards common food, and elemental enemies sometimes drop the matching Woven card. A rescue at the Adventurers' Guild tops the bag back up to the starter cards.
+
+## Gifts and Trust
+
+With the **Trust system** on (Settings → World), every card in the Inventory has a **Gift** button. Choose someone in the scene and the card leaves your bag. A narrator line records the gift, then the character answers in a new reply. A card they like adds 0.5 Trust, a card they dislike takes 0.5 away, and anything else changes nothing. Ask a character what they like and they will tell you. See the extension `README.md` for how Trust works.
 
 ## Fleeing
 

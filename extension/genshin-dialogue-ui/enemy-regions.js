@@ -49,7 +49,6 @@ export const LOCATION_POOLS={
     'wild-mondstadt-thousand-winds-temple':['Ruin Guard','Ice Shieldwall Mitachurl','Cryo Hilichurl Shooter','Cryo Slime','Cryo Whopperflower','Treasure Hoarders Gravedigger','Electro Samachurl'],
     'expansion-stormterror-s-lair':['Ruin Guard','Hydro Abyss Mage','Electro Abyss Mage','Large Cryo Slime','Crackling Axe Mitachurl','Anemo Samachurl','Hilichurl Berserker'],
     'expansion-windrise':['Hilichurl Shooter','Hilichurl Fighter','Hydro Slime','Wooden Shieldwall Mitachurl','Pyro Whopperflower','Dendro Samachurl','Geo Slime'],
-    'expansion-starfell-lake':['Hydro Slime','Dendro Samachurl','Hilichurl Fighter','Cryo Whopperflower','Electro Slime','Fatui Skirmisher - Geochanter Bracer','Treasure Hoarders - Scout'],
     'wild-liyue-lumberpick-valley':['Hilichurl Fighter','Wooden Shieldwall Mitachurl','Geo Samachurl','Treasure Hoarders Gravedigger','Pyro Whopperflower','Geo Slime','Dendro Samachurl'],
     'wild-liyue-mt-hulao':['Hilichurl Shooter','Rock Shieldwall Mitachurl','Ruin Guard','Fatui Skirmisher - Geochanter Bracer','Thundercraven Rifthound','Geo Samachurl','Electro Slime'],
     'wild-liyue-stone-gate':['Treasure Hoarders - Marksman','Treasure Hoarders Pyro Potioneer','Fatui Pyro Agent','Fatui Skirmisher - Hydrogunner Legionnaire','Large Pyro Slime','Hilichurl Berserker','Blazing Axe Mitachurl'],

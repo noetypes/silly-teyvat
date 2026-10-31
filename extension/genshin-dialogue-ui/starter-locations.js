@@ -2,7 +2,8 @@ import {backgroundRegions} from './backgrounds.js';
 import {mediaSettings} from './media-store.js';
 import {validMapPoint} from './world-data.js';
 
-const starterCatalogVersion=11;
+const starterCatalogVersion=12;
+const OLD_STARFELL_DESCRIPTION='A lake in Starfell Valley, with a Statue of The Seven on the island. The point and archive image show the in-game overlook.';
 // Import once per user. Removing or editing a starter remains respected.
 export function seedWorldLocations(ctx,catalog,availableMusic=[]){
     const prefs=mediaSettings(ctx);if(prefs.starterLocationsVersion>=catalog.version)return 0;
@@ -74,6 +75,13 @@ export function seedWorldLocations(ctx,catalog,availableMusic=[]){
             // An explicit empty playlist is a user choice and stays empty.
             if(prefs.starterLocationsVersion<9&&record.introducedVersion===8&&location.music==null&&record.music){
                 location.music=structuredClone(record.music);
+            }
+            // Starfell Lake is Paimon's home now, so it stops being wilderness. An enemy pool the
+            // user edited is cleared too: only a non-wilderness location can hold a resident safely.
+            if(prefs.starterLocationsVersion<12&&record.id==='expansion-starfell-lake'){
+                location.wilderness=false;location.enemyPool=[];
+                location.suggestedCharacters=structuredClone(record.suggestedCharacters);
+                if(location.description===OLD_STARFELL_DESCRIPTION)location.description=record.description;
             }
             if(record.wilderness&&location.wilderness==null)Object.assign(location,{wilderness:true,enemyEncounterRate:record.enemyEncounterRate ?? 40,enemyPool:[...(record.enemyPool || [])]});
             if(location.path!==bundledPath)continue;
