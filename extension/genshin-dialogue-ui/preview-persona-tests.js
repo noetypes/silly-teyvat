@@ -68,7 +68,7 @@ export async function runPersonaWardrobeTests(){
         check('changing the persona leaves earlier page snapshots intact',JSON.stringify(ctx.chat[0].extra.silly_teyvat.swipes[0][0].scene)===previous);
         const beforeInactive=resolves;await painter.refreshSprite(ctx.characters.find(c=>c.name==='Lumine'));
         check('an inactive same-named NPC cannot claim the persona’s sprite layer',resolves===beforeInactive&&$('#gi-sprite-stage img[data-avatar="__user__"]').getAttribute('src').endsWith('/joy.png'));
-        let categories=[];prefs.cgEnabled=true;prefs.cgMode='window';prefs.characterCGs['Lumine.png']=[{id:'player-scene',label:'Traveler picnic',path:'/preview-art.png'}];
+        let categories=[];prefs.cgEnabled=true;prefs.characterCGs['Lumine.png']=[{id:'player-scene',label:'Traveler picnic',path:'/preview-art.png',display:'frame'}];
         media=mountSceneMedia({host,getContext:()=>ctx,adapter:{classifyCG:async(_ctx,_message,options)=>{categories=options;return null;}},sound:{stop(){},dispose(){},play:async()=>{},unlock:async()=>{}}});
         media.sync({on:true,id:1,page:0,generating:false});await pause();
         check('persona scene CGs are available to the separate scene classifier',categories.some(c=>c.label==='Traveler picnic'));media.dispose();media=undefined;

@@ -1,3 +1,16 @@
+# Silly Teyvat 1.50.0: Video CGs and per-CG display
+
+- **Each CG chooses how it appears.** Character Customization > Scenes now sets every CG to replace
+  the background and sprites or open in a framed window. The CG Frame button in the Paimon menu and
+  the Presentation setting are gone; existing CGs keep the mode that was in use.
+- **Framed on phones.** CGs always open in a frame on phones, so the background stays visible.
+- **Preview CG.** A new button shows the selected CG as it will appear, with its sound.
+- **Videos and GIFs.** Scenes accept MP4, M4V, WebM and MOV videos up to 300 MB, and animated GIFs.
+  Videos play once and hold their last frame unless **Loop video** is on. They are packaged with
+  game data like any other upload.
+- **CG volumes.** Each CG has its own video volume and linked audio volume. Both scale the master
+  volume, and turning off CG audio mutes videos too.
+
 # Silly Teyvat 1.49.0: Complete tester packages
 
 - **No chats or journeys.** Exports no longer offer saved journeys, and imports ignore them.

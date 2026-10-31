@@ -3599,3 +3599,21 @@ body.gi-keyboard :is(#gi-background-stage,#gi-sprite-stage,#gi-cg-stage,#gi-lett
 #gi-settings .gi-set-actions .menu_button { width: auto; white-space: nowrap; }
 #gi-settings .gi-share-progress { display: block; width: 100%; height: 8px; margin: 10px 0 4px; accent-color: var(--ty-cream); }
 #gi-settings .gi-share-progress[hidden] { display: none; }
+
+/* Video CGs and the per-CG preview */
+#gi-cg-stage video{width:100%;height:100%;object-fit:contain}
+#gi-cg-window>video{display:block;flex:1;min-height:0;width:100%;object-fit:contain;background:#101b2a}
+:is(#gi-cg-stage,#gi-cg-window,#gi-cg-preview) :is(img,video)[hidden]{display:none !important}
+#gi-cg-preview{box-sizing:border-box;width:64vw;height:50dvh;max-width:calc(100vw - 12px);max-height:calc(100dvh - 12px);padding:0;overflow:hidden;border:2px solid #d7bd84;border-radius:10px;color:#f6e6c1;background:#101b2a;box-shadow:0 12px 40px #0009}
+#gi-cg-preview[open]{display:flex;flex-direction:column}
+#gi-cg-preview::backdrop{background:#0009}
+#gi-cg-preview header{display:flex;flex:0 0 auto;align-items:center;justify-content:space-between;gap:8px;min-height:36px;padding:0 6px 0 12px;background:linear-gradient(100deg,#40526a,#26374d);font:14px/1.3 "Silly Teyvat Dialogue",sans-serif}
+#gi-cg-preview header button{min-width:36px;min-height:36px;border:0;color:inherit;background:transparent;cursor:pointer;font-size:24px}
+#gi-cg-preview :is(img,video){display:block;flex:1;min-height:0;width:100%;object-fit:contain}
+#gi-cg-preview[data-display="scene"]{width:100vw;height:100dvh;max-width:none;max-height:none;border:0;border-radius:0;background:#141c27}
+#gi-wardrobe .gi-cg-grid video{display:block;height:auto;aspect-ratio:1;width:100%;object-fit:cover}
+#gi-wardrobe .gi-cg-video-preview{width:100%;height:100%;object-fit:contain}
+#gi-wardrobe:not([data-tab="cgs"]) .gi-cg-video-preview{display:none}
+#gi-wardrobe .gi-cg-section small{opacity:.75;font-size:11.5px}
+#gi-wardrobe .gi-cg-video-tools{display:grid;gap:8px;margin-bottom:10px}
+#gi-wardrobe .gi-cg-section :is(output){float:right}

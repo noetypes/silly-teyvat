@@ -17,6 +17,23 @@ export function localMediaPath(value) {
 export function spriteAudioKey(folder, src) {
     return `${folder}/${decodeURIComponent(new URL(src, location.href).pathname.split('/').at(-1))}`;
 }
+const VIDEO_FILE=/\.(mp4|m4v|webm|mov)([?#]|$)/i,MEDIA_TYPES={audio:/^(mp3|wav|m4a|ogg|webm|aac|flac)$/,image:/^(png|webp|jpe?g|gif|avif)$/,cg:/^(png|webp|jpe?g|gif|avif|mp4|m4v|webm|mov)$/};
+export const isVideoCG=cg=>VIDEO_FILE.test(cg?.path || '');
+export const phoneLayout=()=>matchMedia('(max-width: 768px), (max-height: 500px)').matches;
+// Phones have no room to replace the scene, so every CG is framed there.
+export const cgDisplay=(cg,phone=phoneLayout())=>phone||cg?.display==='frame'?'frame':'scene';
+// Per-CG percentages scale the master volume in Silly Teyvat's settings.
+export const cgVolume=(prefs,percent)=>Math.max(0,Math.min(1,(prefs.spriteVolume ?? .8)*(percent ?? 100)/100));
+// 1.50: framed or full-scene used to be one global setting; each CG now keeps its own.
+export function migrateCGDisplay(prefs){
+    if(prefs.cgMode===undefined)return false;
+    const display=prefs.cgMode==='window'?'frame':'scene';
+    for(const list of Object.values(prefs.characterCGs || {}))for(const cg of list)cg.display ??= display;
+    delete prefs.cgMode;return true;
+}
+function base64Of(file){
+    return new Promise((resolve,reject)=>{const reader=new FileReader();reader.onerror=()=>reject(reader.error);reader.onload=()=>resolve(String(reader.result).split(',')[1]);reader.readAsDataURL(file);});
+}
 export const validExpression = value => /^[a-z][a-z0-9_]{0,59}$/.test(value);
 export function registerExpression(ctx, label) {
     if (!validExpression(label)) throw new Error('Use letters, digits or underscores, starting with a letter.');
@@ -79,12 +96,10 @@ export function createMediaAdapter(getContext) {
         },
         async upload(file, kind) {
             const extension = file.name.split('.').at(-1).toLowerCase();
-            const allowed = kind === 'audio' ? /^(mp3|wav|m4a|ogg|webm|aac|flac)$/ : /^(png|webp|jpe?g|gif|avif)$/;
-            if (!allowed.test(extension)) throw new Error(`Unsupported ${kind} file: ${file.name}`);
-            if (!file.size || file.size > 50 * 1024 * 1024) throw new Error('Choose a nonempty file smaller than 50 MB.');
-            const bytes = new Uint8Array(await file.arrayBuffer());
-            let binary = ''; for (let i=0;i<bytes.length;i+=16384) binary += String.fromCharCode(...bytes.subarray(i,i+16384));
-            const response = await fetch('/api/files/upload', { method:'POST', headers:getContext().getRequestHeaders(), body:JSON.stringify({name:`silly-teyvat-${newLocalId()}.${extension}`,data:btoa(binary)}) });
+            if (!MEDIA_TYPES[kind].test(extension)) throw new Error(`Unsupported ${kind === 'cg' ? 'artwork' : kind} file: ${file.name}`);
+            const limit = VIDEO_FILE.test(file.name) ? 300 : 50;
+            if (!file.size || file.size > limit * 1024 * 1024) throw new Error(`Choose a nonempty file smaller than ${limit} MB.`);
+            const response = await fetch('/api/files/upload', { method:'POST', headers:getContext().getRequestHeaders(), body:JSON.stringify({name:`silly-teyvat-${newLocalId()}.${extension}`,data:await base64Of(file)}) });
             if (!response.ok) throw new Error(`Upload failed (${response.status}).`);
             const data = await response.json(), path = localMediaPath(data.path);
             if (!path) throw new Error('The server returned an invalid file path.');

@@ -1,4 +1,4 @@
-import { mediaSettings, localMediaPath, spriteAudioKey, createMediaAdapter } from './media-store.js';
+import { mediaSettings, localMediaPath, spriteAudioKey, createMediaAdapter, isVideoCG, phoneLayout, cgDisplay, cgVolume } from './media-store.js';
 import { pageSignature } from './page-sprites.js';
 import {personaCard} from './persona-wardrobe.js';
 
@@ -35,13 +35,44 @@ export function cgCategories(entries) {
     }
     return categories;
 }
-export function mountSceneMedia({host,getContext,adapter=createMediaAdapter(getContext),sound=createSpriteSoundPlayer(),announce=()=>{},random=Math.random}) {
+// One place to show a CG: an image (GIFs animate on their own) or a video with its sound.
+function createCGMedia(image){
+    const video=document.createElement('video');video.hidden=true;video.playsInline=true;video.preload='auto';image.after(video);
+    let shown='',blocked=false;
+    async function start(sound){
+        video.muted=!sound;
+        try{await video.play();return true;}
+        catch(error){
+            if(error?.name==='AbortError'||!sound)return true;
+            blocked=true;video.muted=true;await video.play().catch(()=>{});return false;
+        }
+    }
+    const media={
+        // Repeating this with the same CG only updates its sound, so a playing video never restarts.
+        show(cg,{volume,sound}){
+            const path=localMediaPath(cg.path),isVideo=isVideoCG(cg);
+            image.hidden=isVideo;video.hidden=!isVideo;
+            if(!isVideo){media.stop();if(image.getAttribute('src')!==path)image.src=path;image.alt=cg.label;return Promise.resolve(true);}
+            video.loop=Boolean(cg.videoLoop);video.volume=volume;video.muted=blocked||!sound;
+            if(shown===path)return Promise.resolve(true);
+            shown=path;blocked=false;video.src=path;return start(sound);
+        },
+        stop(){if(!shown)return;shown='';blocked=false;video.pause();video.removeAttribute('src');video.load();},
+        pause(){if(shown)video.pause();},
+        resume(){if(shown&&!video.ended)video.play().catch(()=>{});},
+    };
+    return media;
+}
+export function mountSceneMedia({host,getContext,adapter=createMediaAdapter(getContext),sound=createSpriteSoundPlayer(),announce=()=>{},random=Math.random,isPhone=phoneLayout}) {
     const stage = document.createElement('div'); stage.id = 'gi-cg-stage'; stage.hidden = true; stage.setAttribute('aria-hidden','true');
     const fullImage = document.createElement('img'); fullImage.alt = ''; stage.append(fullImage);
     const frame = document.createElement('section'); frame.id = 'gi-cg-window'; frame.hidden = true;
     frame.setAttribute('aria-label','Character scene artwork');
     frame.innerHTML = '<header><span></span><button type="button" aria-label="Close scene artwork">×</button></header><img alt=""><button type="button" class="gi-cg-resize" aria-label="Resize scene artwork" title="Drag to resize; arrow keys also resize">◢</button>';
-    host.append(stage,frame);
+    const preview = document.createElement('dialog'); preview.id = 'gi-cg-preview'; preview.setAttribute('aria-label','CG preview');
+    preview.innerHTML = '<header><span></span><button type="button" aria-label="Close preview">×</button></header><img alt="">';
+    host.append(stage,frame,preview);
+    const stageMedia=createCGMedia(fullImage),frameMedia=createCGMedia(frame.querySelector('img')),previewMedia=createCGMedia(preview.querySelector('img'));
     const abort = new AbortController(); let request, revision = 0, chatKey = '', selection = '', pageKey = '', dismissed = '', frameKey = '', activeCG, on = false;
     const failures = new Set();
     // Paging, expression changes and presentation refreshes all share a message.
@@ -49,28 +80,35 @@ export function mountSceneMedia({host,getContext,adapter=createMediaAdapter(getC
     const spoken = new WeakMap();
     let audioKind='',audioCGKey='';
     function stopSound(){sound.stop();audioKind=audioCGKey='';}
-    function playSound(files,kind,key=''){audioKind=kind;audioCGKey=key;return sound.play(files,mediaSettings(getContext()).spriteVolume);}
+    function playSound(files,kind,key='',volume=mediaSettings(getContext()).spriteVolume){audioKind=kind;audioCGKey=key;return sound.play(files,volume);}
     const identity = ctx => `${ctx.groupId || ctx.characterId}:${ctx.getCurrentChatId?.() || ctx.chatId || ''}`;
-    function clearFull() { if(!stage.hidden && audioKind==='cg' && frame.hidden)stopSound(); stage.hidden = true; document.body.classList.remove('gi-cg-replace'); }
-    function closeFrame() { if(!frame.hidden && audioKind==='cg' && stage.hidden)stopSound();frame.hidden = true; frameKey = ''; }
-    function paint(cg, key) {
+    function hideStage() { stage.hidden = true; document.body.classList.remove('gi-cg-replace'); stageMedia.stop(); }
+    function hideFrame() { frame.hidden = true; frameKey = ''; frameMedia.stop(); }
+    function clearFull() { if(!stage.hidden && audioKind==='cg' && frame.hidden)stopSound(); hideStage(); }
+    function closeFrame() { if(!frame.hidden && audioKind==='cg' && stage.hidden)stopSound(); hideFrame(); }
+    // A saved message keeps a copy of its CG; its current settings still apply unless the CG was removed.
+    const liveCG = (prefs,cg) => Object.values(prefs.characterCGs).flat().find(entry=>entry.id===cg.id) || cg;
+    const videoSound = (prefs,cg) => ({volume:cgVolume(prefs,cg.videoVolume),sound:prefs.cgAudio !== false});
+    function paint(saved, key, fresh=false) {
         const prefs = mediaSettings(getContext());
         if (!on || !prefs.cgEnabled) { clearFull(); closeFrame(); return; }
-        if (prefs.cgMode === 'window') {
-            stage.hidden=true;document.body.classList.remove('gi-cg-replace');
-            if (!cg || dismissed === key) return;
+        if (!saved) { if(frame.hidden && audioKind==='cg')stopSound(); hideStage(); return; }
+        const cg = liveCG(prefs,saved); let shown;
+        if (cgDisplay(cg,isPhone()) === 'frame') {
+            hideStage();
+            if (dismissed === key) return;
             if (frameKey !== key) {
                 if(audioKind==='cg' && audioCGKey!==key)stopSound();
-                frameKey = key; frame.querySelector('img').src = localMediaPath(cg.path); frame.querySelector('img').alt = cg.label;
-                frame.querySelector('header span').textContent = cg.label; frame.hidden = false;
+                frameKey = key; frame.querySelector('header span').textContent = cg.label; frame.hidden = false;
                 clampFrame();
             }
+            shown = frameMedia.show(cg,videoSound(prefs,cg));
         } else {
-            if(!cg && audioKind==='cg')stopSound();
-            frame.hidden=true;frameKey='';
-            stage.hidden = !cg; document.body.classList.toggle('gi-cg-replace',Boolean(cg));
-            if (cg && fullImage.getAttribute('src') !== localMediaPath(cg.path)) fullImage.src = localMediaPath(cg.path);
+            hideFrame();
+            stage.hidden = false; document.body.classList.add('gi-cg-replace');
+            shown = stageMedia.show(cg,videoSound(prefs,cg));
         }
+        shown.then(allowed=>{if(!allowed&&fresh)announce('CG sound was blocked. Use Enable audio on this device in Silly Teyvat settings.');});
     }
     function save(ctx,message,data) {
         message.extra ??= {}; message.extra.silly_teyvat ??= {version:1,swipes:{}};
@@ -108,8 +146,8 @@ export function mountSceneMedia({host,getContext,adapter=createMediaAdapter(getC
                 if (controller.signal.aborted || token !== revision || !on || !ctx.chat.includes(message) || pageSignature(message.mes || '') !== signature) return;
                 const category = categories.find(c => c.id === result);
                 const cg = category ? structuredClone(category.entries[Math.floor(Math.random()*category.entries.length)]) : null;
-                save(ctx,message,{signature,cg}); activeCG = cg; paint(cg,key);
-                if(cg?.audio?.length && prefs.cgAudio !== false && message===ctx.chat.at(-1))playSound(cg.audio,'cg',key).catch(()=>announce('CG audio was blocked. Use Enable audio on this device in Silly Teyvat settings.'));
+                save(ctx,message,{signature,cg}); activeCG = cg; paint(cg,key,true);
+                if(cg?.audio?.length && prefs.cgAudio !== false && message===ctx.chat.at(-1))playSound(cg.audio,'cg',key,cgVolume(prefs,cg.audioVolume)).catch(()=>announce('CG audio was blocked. Use Enable audio on this device in Silly Teyvat settings.'));
             }).catch(error => {
                 if (!controller.signal.aborted) { failures.add(failureKey); console.warn('[Silly Teyvat] CG classification',error); announce(error.message || 'CG classification unavailable.'); }
             }).finally(()=>{if(request === controller)request=null;});
@@ -134,6 +172,17 @@ export function mountSceneMedia({host,getContext,adapter=createMediaAdapter(getC
                 announce('Sprite audio was blocked. Use Enable audio on this device in Silly Teyvat settings.');
             });
         },
+        // Shows a CG as the game would, without touching the chat. Closing it restores whatever was playing.
+        previewCG(cg) {
+            const prefs=mediaSettings(getContext());
+            preview.dataset.display=cgDisplay(cg,isPhone());preview.querySelector('header span').textContent=cg.label;
+            stageMedia.pause();frameMedia.pause();
+            if(!preview.open)preview.showModal();
+            previewMedia.stop();previewMedia.show(cg,videoSound(prefs,cg));
+            if(cg.audio?.length&&prefs.cgAudio!==false)return playSound(cg.audio,'preview','',cgVolume(prefs,cg.audioVolume));
+            if(audioKind==='preview')stopSound();
+            return Promise.resolve();
+        },
         previewAudio(files) { return playSound(files.map(file=>({...file,loop:false})),'preview'); },
         unlockAudio() { return sound.unlock(); },
         refresh() { failures.clear(); request?.abort(); request=null; revision++; },
@@ -143,9 +192,12 @@ export function mountSceneMedia({host,getContext,adapter=createMediaAdapter(getC
             api.refresh();
         },
         reset() { request?.abort(); request=null; revision++; selection=pageKey=frameKey=dismissed=''; activeCG=undefined; failures.clear(); stopSound(); clearFull(); closeFrame(); },
-        dispose() { api.reset(); abort.abort(); sound.dispose(); stage.remove(); frame.remove(); },
+        dispose() { api.reset(); abort.abort(); sound.dispose(); if(preview.open)preview.close(); stage.remove(); frame.remove(); preview.remove(); },
     };
     frame.querySelector('header button').addEventListener('click',()=>{dismissed=frameKey;closeFrame();},{signal:abort.signal});
+    preview.querySelector('header button').addEventListener('click',()=>preview.close(),{signal:abort.signal});
+    preview.addEventListener('close',()=>{previewMedia.stop();if(audioKind==='preview')stopSound();stageMedia.resume();frameMedia.resume();},{signal:abort.signal});
+    globalThis.matchMedia?.('(max-width: 768px), (max-height: 500px)').addEventListener('change',()=>{if(activeCG)paint(activeCG,selection);},{signal:abort.signal});
     function clampFrame() {
         const r = frame.getBoundingClientRect();
         frame.style.width = `${Math.min(Math.max(180,r.width),innerWidth-12)}px`;

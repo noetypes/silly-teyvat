@@ -5,7 +5,7 @@ import {linkedCard,linkedCardAvatar,linkedPersonaAvatars,playedAvatars} from './
 import {newLocalId} from './local-id.js';
 // Outfit registry uses native Character Expressions folder overrides. Sprite files
 // are managed through SillyTavern's existing authenticated upload/delete APIs.
-import { createMediaAdapter, mediaSettings, spriteAudioKey, localMediaPath, registerExpression, syncExpressionControls } from './media-store.js';
+import { createMediaAdapter, mediaSettings, spriteAudioKey, localMediaPath, isVideoCG, registerExpression, syncExpressionControls } from './media-store.js';
 import { characterPreferences, bounded, roster } from './staging.js';
 import { nextSlotName, spriteDrafts, draftSprite } from './wardrobe-slots.js';
 import { mountBackgroundWardrobe } from './background-wardrobe.js';
@@ -109,7 +109,7 @@ export function createWardrobeAdapter(getContext) {
     };
     return adapter;
 }
-export function mountWardrobe({host, getContext, onChange = async () => {}, onMediaChange = () => {}, openMap = () => {}, previewAudio = async () => {}, mediaAdapter = createMediaAdapter(getContext), adapter = createWardrobeAdapter(getContext), personaAdapter = createPersonaAdapter(getContext)}) {
+export function mountWardrobe({host, getContext, onChange = async () => {}, onMediaChange = () => {}, openMap = () => {}, previewAudio = async () => {}, previewCG = async () => {}, mediaAdapter = createMediaAdapter(getContext), adapter = createWardrobeAdapter(getContext), personaAdapter = createPersonaAdapter(getContext)}) {
     const dialog = document.createElement('dialog'); dialog.id = 'gi-wardrobe'; dialog.dataset.tab = 'attributes';
     dialog.setAttribute('aria-labelledby', 'gi-wardrobe-title');
     dialog.innerHTML = `<header><div><h2 id="gi-wardrobe-title">Character Customization</h2></div><button type="button" data-w="close" aria-label="Close Character Customization">×</button></header>
@@ -137,11 +137,12 @@ export function mountWardrobe({host, getContext, onChange = async () => {}, onMe
         <button type="button" data-w="upload">Add sprites</button>
         <div class="gi-wardrobe-row"><input id="gi-new-expression" aria-label="New expression name" placeholder="New expression, e.g. smug" maxlength="60"><button type="button" data-w="add-expression">Add expression</button></div>
         </div>
-        <div data-panel="cgs" hidden><p class="gi-cg-intro">Scene artworks replace the stage when a reply matches one. The classifier reads each label and its description.</p><div class="gi-cg-grid" aria-label="Character scene artworks"></div>
-        <section class="gi-cg-section gi-cg-details"><h3>Scene details</h3><label>Scene label<input id="gi-cg-label" maxlength="60" placeholder="Fish Blasting"></label><label>Additional classifications (one per line)<textarea id="gi-cg-classifications" rows="2" maxlength="1200" placeholder="Fish Blasting&#10;Fishing adventure"></textarea></label><label>When should this artwork appear?<textarea id="gi-cg-description" rows="4" maxlength="1200" placeholder="Klee is actively blasting fish by the lake."></textarea></label>
-        <div class="gi-wardrobe-row"><button type="button" data-w="save-cg">Save label & details</button><button type="button" data-w="remove-cg">Remove selected CG</button></div></section>
-        <section class="gi-cg-section gi-cg-audio-tools" hidden><h3>CG audio</h3><div class="gi-cg-audio-list" aria-label="Audio assigned to selected CG"></div><label>CG audio files<input id="gi-cg-audio-files" type="file" accept="audio/*,.m4a,.flac" multiple></label><button type="button" data-w="upload-cg-audio">Add audio to selected CG</button></section>
-        <section class="gi-cg-section"><h3>Add artwork</h3><label>Artwork files<input id="gi-cg-files" type="file" accept="image/png,image/webp,image/jpeg,image/gif,image/avif" multiple></label><div class="gi-wardrobe-row"><button type="button" data-w="upload-cg">Add scene artwork</button><button type="button" data-w="recheck-cg">Recheck visible message</button></div></section>
+        <div data-panel="cgs" hidden><p class="gi-cg-intro">A scene appears when a reply matches it. The classifier reads each label and its description. Scenes can be images, GIFs or videos.</p><div class="gi-cg-grid" aria-label="Character scene artworks"></div>
+        <section class="gi-cg-section gi-cg-details"><h3>Scene details</h3><label>Scene label<input id="gi-cg-label" maxlength="60" placeholder="Fish Blasting"></label><label>Additional classifications (one per line)<textarea id="gi-cg-classifications" rows="2" maxlength="1200" placeholder="Fish Blasting&#10;Fishing adventure"></textarea></label><label>When should this artwork appear?<textarea id="gi-cg-description" rows="4" maxlength="1200" placeholder="Klee is actively blasting fish by the lake."></textarea></label><label>How it appears<select id="gi-cg-display"><option value="scene">Replace background and sprites</option><option value="frame">Framed window</option></select><small>Phones always use a framed window.</small></label>
+        <div class="gi-cg-video-tools" hidden><label>Video volume <output id="gi-cg-video-volume-value">100%</output><input id="gi-cg-video-volume" type="range" min="0" max="100" step="5"></label><label class="gi-check"><input id="gi-cg-video-loop" type="checkbox">Loop video</label></div>
+        <div class="gi-wardrobe-row"><button type="button" data-w="save-cg">Save label & details</button><button type="button" data-w="preview-cg">Preview CG</button><button type="button" data-w="remove-cg">Remove selected CG</button></div></section>
+        <section class="gi-cg-section gi-cg-audio-tools" hidden><h3>CG audio</h3><div class="gi-cg-audio-list" aria-label="Audio assigned to selected CG"></div><label>Linked audio volume <output id="gi-cg-audio-volume-value">100%</output><input id="gi-cg-audio-volume" type="range" min="0" max="100" step="5"></label><label>CG audio files<input id="gi-cg-audio-files" type="file" accept="audio/*,.m4a,.flac" multiple></label><button type="button" data-w="upload-cg-audio">Add audio to selected CG</button></section>
+        <section class="gi-cg-section"><h3>Add artwork</h3><label>Artwork files<input id="gi-cg-files" type="file" accept="image/png,image/webp,image/jpeg,image/gif,image/avif,video/mp4,video/webm,video/quicktime,.m4v,.mov" multiple></label><div class="gi-wardrobe-row"><button type="button" data-w="upload-cg">Add scene artwork</button><button type="button" data-w="recheck-cg">Recheck visible message</button></div></section>
         </div>
         </section></div><footer><p role="status" aria-live="polite"></p><button type="button" data-w="undo" hidden>Undo remove</button></footer>`;
     const backgroundTab=document.createElement('button');backgroundTab.type='button';backgroundTab.dataset.w='tab-backgrounds';backgroundTab.textContent='Backgrounds';backgroundTab.setAttribute('aria-pressed','false');void backgroundTab;
@@ -250,20 +251,28 @@ export function mountWardrobe({host, getContext, onChange = async () => {}, onMe
         }
         if(!list.children.length)list.textContent='No CG audio assigned.';
     }
+    function paintCGVolume(kind,value){$(`#gi-cg-${kind}-volume`).value=value;$(`#gi-cg-${kind}-volume-value`).textContent=`${value}%`;}
+    function cgThumbnail(path){const video=document.createElement('video');video.muted=true;video.preload='metadata';video.playsInline=true;video.src=`${path}#t=0.1`;return video;}
+    function showCGVideo(cg){
+        const pane=$('.gi-wardrobe-preview');pane.querySelector('.gi-cg-video-preview')?.remove();
+        if(cg){const video=cgThumbnail(cg.path);video.className='gi-cg-video-preview';pane.append(video);}
+    }
     function classifications(){return [...new Set($('#gi-cg-classifications').value.split(/[\n,;]/).map(x=>x.trim()).filter(Boolean))];}
     function chooseCG(cg) {
-        selectedCG = cg; const img=$('.gi-wardrobe-preview img');img.hidden=!cg.path;if(cg.path)img.src=cg.path;else img.removeAttribute('src');
+        selectedCG = cg; const img=$('.gi-wardrobe-preview img'),isVideo=isVideoCG(cg);img.hidden=!cg.path||isVideo;if(cg.path&&!isVideo)img.src=cg.path;else if(!cg.path)img.removeAttribute('src');
+        showCGVideo(isVideo?cg:null);$('#gi-cg-display').value=cg.display==='frame'?'frame':'scene';$('.gi-cg-video-tools').hidden=!isVideo;$('#gi-cg-video-loop').checked=Boolean(cg.videoLoop);
+        paintCGVolume('video',cg.videoVolume ?? 100);paintCGVolume('audio',cg.audioVolume ?? 100);
         $('.gi-outfit-caption').textContent=cg.label;$('#gi-cg-label').value=cg.label;$('#gi-cg-description').value=cg.description || '';$('#gi-cg-classifications').value=(cg.classifications || []).join('\n');renderCGAudio();
         $('.gi-cg-grid').querySelectorAll('button:not(.gi-add-tile)').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.cg===cg.id)));
     }
     function renderCGs() {
         $('.gi-cg-grid').replaceChildren(...cgs().map(cg=>{
             const b=makeButton('',()=>chooseCG(cg));b.dataset.cg=cg.id;b.title=cg.label;b.setAttribute('aria-label',`Preview CG ${cg.label}`);
-            const art=cg.path?document.createElement('img'):placeholder();if(cg.path){art.src=cg.path;art.alt='';}const label=document.createElement('span');label.textContent=cg.label;b.append(art,label);return b;
+            const art=isVideoCG(cg)?cgThumbnail(cg.path):cg.path?document.createElement('img'):placeholder();if(cg.path&&!isVideoCG(cg)){art.src=cg.path;art.alt='';}const label=document.createElement('span');label.textContent=cg.label;b.append(art,label);return b;
         }));
         $('.gi-cg-grid').append(addTile('add-blank-cg','Add scene'));
         selectedCG = cgs().find(c=>c.id===selectedCG?.id);
-        if(selectedCG)chooseCG(selectedCG);else renderCGAudio();
+        if(selectedCG)chooseCG(selectedCG);else{renderCGAudio();showCGVideo(null);$('.gi-cg-video-tools').hidden=true;}
     }
     function switchTab(next) {
         tab=next;dialog.dataset.tab=tab;for(const panel of dialog.querySelectorAll('[data-panel]'))panel.hidden=panel.dataset.panel!==tab;
@@ -477,12 +486,16 @@ export function mountWardrobe({host, getContext, onChange = async () => {}, onMe
                 const label=$('#gi-cg-label').value.trim(),description=$('#gi-cg-description').value.trim(),files=[...$('#gi-cg-files').files];
                 if(!label)throw new Error('Give this scene a label first.');if(!files.length)throw new Error('Choose artwork files first.');
                 for(const file of files){
-                    const artwork=await mediaAdapter.upload(file,'image');
+                    const artwork=await mediaAdapter.upload(file,'cg');
                     if(selectedCG?.blank){const id=selectedCG.id;Object.assign(selectedCG,artwork,{id,label,description,classifications:classifications(),blank:false});}
                     else{const entry={...artwork,label,description,classifications:classifications(),audio:[]};cgs().push(entry);selectedCG=entry;}
                     getContext().saveSettingsDebounced();
                 }
                 $('#gi-cg-files').value='';renderCGs();onMediaChange();status(`Added ${files.length} CG artworks for ${character.name}.`);
+            }
+            if (name === 'preview-cg') {
+                if(!selectedCG?.path)throw new Error('Select a CG with artwork first.');
+                await previewCG(selectedCG);
             }
             if (name === 'save-cg') {
                 if(!selectedCG)throw new Error('Select a CG first.');const label=$('#gi-cg-label').value.trim();if(!label)throw new Error('Enter a scene label.');
@@ -531,6 +544,11 @@ export function mountWardrobe({host, getContext, onChange = async () => {}, onMe
         finally { busy = false; dialog.removeAttribute('aria-busy'); dialog.querySelectorAll('input, select, textarea, button').forEach(el => el.disabled = false);$('#gi-character-x').disabled=!$('#gi-manual-position').checked;if(personaRefreshPending){personaRefreshPending=false;void renderRoster().catch(e=>status(e.message));} }
     }
     dialog.addEventListener('click', e => { const name = e.target.closest('[data-w]')?.dataset.w; if (name) void action(name); }, {signal:abort.signal});
+    const editCG=(id,event,apply)=>$(id).addEventListener(event,e=>{if(!selectedCG)return;apply(e.target);getContext().saveSettingsDebounced();},{signal:abort.signal});
+    editCG('#gi-cg-display','change',input=>{selectedCG.display=input.value;});
+    editCG('#gi-cg-video-loop','change',input=>{selectedCG.videoLoop=input.checked;});
+    editCG('#gi-cg-video-volume','input',input=>{selectedCG.videoVolume=Number(input.value);paintCGVolume('video',selectedCG.videoVolume);});
+    editCG('#gi-cg-audio-volume','input',input=>{selectedCG.audioVolume=Number(input.value);paintCGVolume('audio',selectedCG.audioVolume);});
     dialog.addEventListener('change',event=>{
         if(busy||!character)return;const cp=characterPreferences(getContext(),character.avatar);let classification=false;
         switch(event.target.id){

@@ -15,7 +15,7 @@ import { mountWardrobe } from './wardrobe.js';
 import { mountSceneMedia } from './scene-media.js';
 import { stagingDefaults, mountStageEffects } from './staging.js';
 import { regenerationState, regenerateReply } from './regeneration.js';
-import { defaultCGPrompt, localMediaPath } from './media-store.js';
+import { defaultCGPrompt, localMediaPath, mediaSettings, migrateCGDisplay } from './media-store.js';
 import {clearPromptOrder} from './prompt-order.js';
 import {syncRoleplayPrompts,noteGeneration,paintRoleplayPrompts,bindRoleplayPrompts,dropRoleplayPrompts} from './roleplay-prompts.js';
 import { mountBackgrounds, backgroundRegions, travelState } from './backgrounds.js';
@@ -45,7 +45,7 @@ import {applyPackagedSettings} from './share-package.js';
 import {mountShare} from './share-ui.js';
 const KEY = 'genshin_dialogue_ui';
 const FOLDER = 'third-party/genshin-dialogue-ui';
-const defaults = Object.freeze({ ...stagingDefaults, enabled: false, choices: true, composer: true, reducedMotion: false, textScale: 1, scrim: 0.8, revealSpeed: 45, tapAdvance: true, pageExpressions: true, narration: false, narrationMode: 'quotes', narrationKeyword: 'Narrator:', hideDialogueQuotes:false, wardrobe: true, locationEncounters:true, locationCharacterLimit:5, randomEncounters:true, encounterRate:40, allowMainDeparture:false, worldPromptAllRegions:false, roleplayPromptsEnabled:true, wildernessEncounters:true, maxEnemies:3, combatDamageMin:1, combatDamageMax:6, enemyStrikeBack:true,combatTriggerPhrase:'[start_combat]', enemyDamageMin:2, enemyDamageMax:6, enemyDice:4, userMaxHp:30, combatDifficulty:'normal', battleEffects:true, battleSound:true, personaIcon: 'Aether', personaIconMode:'auto', hudTopIcons:'auto', namecard:'', signature:'', trimSprites:true, cgEnabled:true, cgMode:'scene', cgClassifier:'main', cgProfile:'', choicesProfile:'', cgBypassReasoning:true, cgPrompt:defaultCGPrompt, cgAudio:true, spriteAudio:true, burstAudio:true, spriteVolume:.8, diceSound:true });
+const defaults = Object.freeze({ ...stagingDefaults, enabled: false, choices: true, composer: true, reducedMotion: false, textScale: 1, scrim: 0.8, revealSpeed: 45, tapAdvance: true, pageExpressions: true, narration: false, narrationMode: 'quotes', narrationKeyword: 'Narrator:', hideDialogueQuotes:false, wardrobe: true, locationEncounters:true, locationCharacterLimit:5, randomEncounters:true, encounterRate:40, allowMainDeparture:false, worldPromptAllRegions:false, roleplayPromptsEnabled:true, wildernessEncounters:true, maxEnemies:3, combatDamageMin:1, combatDamageMax:6, enemyStrikeBack:true,combatTriggerPhrase:'[start_combat]', enemyDamageMin:2, enemyDamageMax:6, enemyDice:4, userMaxHp:30, combatDifficulty:'normal', battleEffects:true, battleSound:true, personaIcon: 'Aether', personaIconMode:'auto', hudTopIcons:'auto', namecard:'', signature:'', trimSprites:true, cgEnabled:true, cgClassifier:'main', cgProfile:'', choicesProfile:'', cgBypassReasoning:true, cgPrompt:defaultCGPrompt, cgAudio:true, spriteAudio:true, burstAudio:true, spriteVolume:.8, diceSound:true });
 const bodyClasses = ['gi-enabled', 'gi-scene', 'gi-history', 'gi-hidden', 'gi-compose', 'gi-generating', 'gi-reduced-motion', 'gi-reading', 'gi-choices-enabled', 'gi-native-staging', 'gi-sprite-idle', 'gi-hud-top-off'];
 const icons = {
     compass: '<path d="m12 2 3 7 7 3-7 3-3 7-3-7-7-3 7-3Z"/><path d="m12 8 4 4-4 4-4-4Z"/>',
@@ -58,7 +58,6 @@ const icons = {
     show: '<path d="M2 12C7 3 17 3 22 12c-5 9-15 9-20 0Z"/><circle cx="12" cy="12" r="3"/>',
     compose: '<path d="M4 4h16v12H9l-5 4ZM8 8h8M8 12h5"/>',
     settings: '<path d="m12 2 2 4 4-1 1 4 3 3-3 3-1 4-4-1-2 4-2-4-4 1-1-4-3-3 3-3 1-4 4 1Z"/><circle cx="12" cy="12" r="3"/>',
-    cg: '<rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="8" cy="9" r="2"/><path d="m4 18 6-5 4 3 3-5 4 7"/>',
     regenerate: '<path d="M20 8a8 8 0 1 0 0 8M20 3v6h-6"/>',
     close: '<path d="m6 6 12 12M18 6 6 18"/>',
     previous: '<path d="m14 5-7 7 7 7"/>',
@@ -71,7 +70,7 @@ const icons = {
 const svg = name => `<svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">${icons[name] || icons.compass}</svg>`;
 const button = (action, label, icon = action, tooltip = true) => `<button type="button" data-gi-action="${action}" aria-label="${label}"${tooltip ? ` title="${label}"` : ''}>${svg(icon)}<span>${label}</span></button>`;
 // Paimon menu tiles and rail use the game's own menu icons (tools/build-menu-icons.py).
-const MENU_ICONS = new Set(['auto', 'book', 'wardrobe', 'map', 'cg', 'compose', 'hide', 'namecard', 'back', 'settings', 'bag']);
+const MENU_ICONS = new Set(['auto', 'book', 'wardrobe', 'map', 'compose', 'hide', 'namecard', 'back', 'settings', 'bag']);
 const menuButton = (action, label, icon = action) => MENU_ICONS.has(icon)
     ? `<button type="button" data-gi-action="${action}" aria-label="${label}"><img class="gi-pm-icon" src="${new URL(`assets/menu/${icon}.webp`, import.meta.url).href}" alt="" aria-hidden="true" draggable="false"><span>${label}</span></button>`
     : button(action, label, icon, false);
@@ -177,7 +176,6 @@ function preferences() {
     }
     if (!['auto','Aether','Lumine'].includes(store[KEY].personaIconMode)) store[KEY].personaIconMode = 'auto';
     if (!['main','profile','webllm'].includes(store[KEY].cgClassifier)) store[KEY].cgClassifier = 'main';
-    if (!['scene','window'].includes(store[KEY].cgMode)) store[KEY].cgMode = 'scene';
     if (!['auto','on','off'].includes(store[KEY].hudTopIcons)) store[KEY].hudTopIcons = 'auto';
     store[KEY].spriteVolume = Math.max(0,Math.min(1,Number(store[KEY].spriteVolume) || 0));
     store[KEY].textScale = Math.min(1.4, Math.max(0.85, Number(store[KEY].textScale) || 1));
@@ -378,9 +376,6 @@ function refresh() {
     const soloButton = document.querySelector('#gi-toolbar [data-gi-action="solo-journey"]');
     soloButton.hidden = !prefs.enabled || inChat;
     soloButton.disabled = Boolean(personaSession?.busy);
-    const cgToggle=document.querySelector('#gi-toolbar [data-gi-action="cg"]');
-    cgToggle.setAttribute('aria-pressed',String(prefs.cgMode==='window'));
-    cgToggle.setAttribute('aria-label',prefs.cgMode==='window'?'CGs: Framed window. Switch to scene replacement':'CGs: Scene replacement. Switch to framed window');
     for (const action of ['auto', 'history', 'hide']) document.querySelector(`#gi-toolbar [data-gi-action="${action}"]`).disabled = !active;
     document.querySelector('#gi-review-heading').hidden = !active || !history;
     document.querySelector('#gi-navigation').hidden = !active || history || hidden;
@@ -602,7 +597,6 @@ function handleAction(event) {
         }
         case 'wardrobe': menuOpen = false; refresh(); wardrobeUI?.open().catch(error => announce(error.message)); break;
         case 'inventory': menuOpen = false; refresh(); inventoryUI?.open(); break;
-        case 'cg': preferences().cgMode=preferences().cgMode==='window'?'scene':'window'; context().saveSettingsDebounced(); refresh(); announce(preferences().cgMode==='window'?'CGs open in a framed window.':'CGs replace the background and sprites.'); break;
         case 'share-extension': void shareUI?.exportExtension(); break;
         case 'share-export': void shareUI?.exportGameData(); break;
         case 'share-import': shareUI?.chooseImport(); break;
@@ -672,6 +666,7 @@ export async function initialize({ choicesAdapter, spriteAdapter, wardrobeAdapte
     const version = ++mountVersion;
     abort = new AbortController();
     try{await applyPackagedSettings(context());}catch(error){console.warn('[Silly Teyvat] Packaged settings',error);}
+    if(migrateCGDisplay(mediaSettings(context())))context().saveSettingsDebounced();
     if(!mounted || version!==mountVersion)return;
     await loadPersonaSupport(context());
     if(!mounted || version!==mountVersion)return;
@@ -702,7 +697,7 @@ export async function initialize({ choicesAdapter, spriteAdapter, wardrobeAdapte
                 <button type="button" class="gi-pm-switch" data-gi-action="toggle" aria-pressed="false" aria-label="Silly Teyvat"><span>Silly Teyvat</span><i aria-hidden="true"></i></button>
                 <button type="button" class="gi-pm-switch gi-pm-solo" data-gi-action="solo-journey" hidden><span>Start solo journey</span></button>
                 <section id="gi-pm-namecards" class="gi-pm-namecards" aria-label="Namecards" hidden><header><h3>Namecard</h3>${menuButton('namecards', 'Done', 'close')}</header><div class="gi-pm-nc-list" role="radiogroup" aria-label="Choose a namecard"></div></section>
-                <div class="gi-pm-grid">${menuButton('auto', 'Auto')}${menuButton('history', 'Review', 'book')}${menuButton('wardrobe', 'Characters')}${menuButton('inventory', 'Inventory', 'bag')}${menuButton('map', 'Map')}${menuButton('cg', 'CG Frame')}${menuButton('compose', 'Chat Box')}${menuButton('hide', 'Hide UI')}${menuButton('namecards', 'Namecard', 'namecard')}</div>
+                <div class="gi-pm-grid">${menuButton('auto', 'Auto')}${menuButton('history', 'Review', 'book')}${menuButton('wardrobe', 'Characters')}${menuButton('inventory', 'Inventory', 'bag')}${menuButton('map', 'Map')}${menuButton('compose', 'Chat Box')}${menuButton('hide', 'Hide UI')}${menuButton('namecards', 'Namecard', 'namecard')}</div>
                 <section class="gi-pm-tavern" aria-label="SillyTavern"><h3>SillyTavern</h3><div class="gi-pm-grid">${ST_DRAWERS.map(([id, label]) => `<button type="button" data-gi-action="st-drawer" data-drawer="${id}" aria-label="${label}"><img src="${drawerIcon(id)}" alt="" aria-hidden="true" draggable="false"${id === 'persona-management-button' ? ' data-persona' : ''}><span>${label}</span></button>`).join('')}</div></section>
             </div>
         </nav>
@@ -736,7 +731,7 @@ export async function initialize({ choicesAdapter, spriteAdapter, wardrobeAdapte
         onChange:()=>{backgroundUI.refresh();schedule();}});
     mediaUI = mountSceneMedia({host,getContext:context,adapter:mediaAdapter,sound,announce});
     spriteUI = mountPageSprites({ host, getContext: context, adapter: spriteAdapter, isDefeated: defeatedHere, announce, renderMessage: id => document.querySelector(`#chat > .mes[mesid="${id}"] .mes_text`), onAppearance:event=>mediaUI?.appearance(event) });
-    wardrobeUI = mountWardrobe({ host, getContext: context, adapter: wardrobeAdapter, personaAdapter, mediaAdapter, openMap:openWorldMap, previewAudio:files=>mediaUI.previewAudio(files), onMediaChange:(options={})=>{backgroundUI.refresh();if(options.reclassify)mediaUI.reclassifyCurrent();else mediaUI.refresh();schedule();}, onChange: async (character,options) => { if(options?.classification){schedule();return;}
+    wardrobeUI = mountWardrobe({ host, getContext: context, adapter: wardrobeAdapter, personaAdapter, mediaAdapter, openMap:openWorldMap, previewAudio:files=>mediaUI.previewAudio(files), previewCG:cg=>mediaUI.previewCG(cg), onMediaChange:(options={})=>{backgroundUI.refresh();if(options.reclassify)mediaUI.reclassifyCurrent();else mediaUI.refresh();schedule();}, onChange: async (character,options) => { if(options?.classification){schedule();return;}
         if(options?.presentation)await spriteUI?.refreshPresentation();else await spriteUI?.refreshSprite(character,options);schedule(); } });
     combatUI=mountCombat({host,getContext:context,adapter:combatAdapter,diceAdapter,announce,onChange:event=>{inventoryUI?.refresh();if(event?.hit)spriteUI?.hit(event.hit);if(event?.hurt)spriteUI?.hurt(event.hurt);if(event?.healed)spriteUI?.heal(event.healed);if(event?.slain)spriteUI?.defeat(event.defeated);if(event?.defeated)locationCastUI?.retry();if(event?.removed)void spriteUI?.refreshPresentation().catch(error=>console.warn('[Silly Teyvat] Party stage',error));schedule();}});
     choiceUI = mountChoices({ host, getContext: context, adapter: choicesAdapter, announce });

@@ -152,7 +152,7 @@ export async function runStagingTests(){
         prefs.letterbox='vertical';effects.sync(true,false);check('vertical bars follow viewport width',host.querySelector('#gi-letterbox').style.getPropertyValue('--gi-letterbox-size')==='12vw');
         effects.sync(false,false);check('hiding the UI removes letterbox and speaking effects',host.querySelector('#gi-letterbox').hidden&&!document.body.classList.contains('gi-sprite-speaking'));
 
-        prefs.cgEnabled=true;prefs.cgMode='scene';prefs.characterCGs={'Klee.png':[{id:'picnic',label:'Picnic',path:new URL('preview-landscape.svg',location.href).pathname}]};
+        prefs.cgEnabled=true;prefs.characterCGs={'Klee.png':[{id:'picnic',label:'Picnic',path:new URL('preview-landscape.svg',location.href).pathname}]};
         ctx.chat=[{name:'Klee',original_avatar:'Klee.png',mes:'A picnic\nWith friends'}];
         media=mountSceneMedia({host,getContext:()=>ctx,adapter:{classifyCG:async()=>{await pause(10);return 'picnic';}},sound:{stop(){},dispose(){},unlock:async()=>{},play:async()=>{}}});
         media.sync({on:true,id:0,page:0,generating:false});await pause(35);
@@ -160,8 +160,8 @@ export async function runStagingTests(){
         const native=document.createElement('div');native.className='expression-holder';native.innerHTML='<img style="visibility:visible!important" src="preview-klee.png">';host.append(native);
         check('CG replacement hides other group members despite native visible image overrides',getComputedStyle(native).display==='none'&&native.querySelector('img').getBoundingClientRect().height===0);
         media.sync({on:true,id:0,page:1,generating:false});check('all group sprites stay hidden on later pages of the CG message',getComputedStyle(host.querySelector('#gi-sprite-stage')).display==='none');
-        prefs.cgMode='window';media.sync({on:true,id:0,page:1,generating:false});check('window CG keeps every staged group sprite visible',!document.body.classList.contains('gi-cg-replace')&&getComputedStyle(host.querySelector('#gi-sprite-stage')).display!=='none');
-        prefs.cgMode='scene';media.sync({on:true,id:0,page:1,generating:false});ctx.chat.push({name:'Nahida',original_avatar:'Nahida.png',mes:'Hello'});media.sync({on:true,id:1,page:0,generating:false});await pause(35);
+        Object.values(prefs.characterCGs).flat().forEach(c=>c.display='frame');media.sync({on:true,id:0,page:1,generating:false});check('window CG keeps every staged group sprite visible',!document.body.classList.contains('gi-cg-replace')&&getComputedStyle(host.querySelector('#gi-sprite-stage')).display!=='none');
+        Object.values(prefs.characterCGs).flat().forEach(c=>c.display='scene');media.sync({on:true,id:0,page:1,generating:false});ctx.chat.push({name:'Nahida',original_avatar:'Nahida.png',mes:'Hello'});media.sync({on:true,id:1,page:0,generating:false});await pause(35);
         check('group sprites return when the CG characters message ends',!document.body.classList.contains('gi-cg-replace'));
     }catch(error){results.push(`ERROR ${error.message}`);}
     finally{reveal.reset();sprites?.dispose();media?.dispose();effects?.dispose();host.remove();for(const name of ['gi-cg-replace','gi-sprite-replay','gi-sprite-speaking'])document.body.classList.toggle(name,clsBefore.includes(name));}
