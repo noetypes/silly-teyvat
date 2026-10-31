@@ -95,6 +95,14 @@ export function saveWaypoint(ctx,{id,regionId,regionName,label,description='',cl
     if(state.location?.id===location.id){state.regionId=region.id;state.location=structuredClone(location);state.entry=structuredClone(location);saveTravel(ctx);}
     ctx.saveSettingsDebounced();syncWorldPrompt(ctx);return {region,location,point:location.waypoint};
 }
+export function setWaypointArtwork(ctx,id,path){
+    const artwork=localMediaPath(path),location=backgroundRegions(ctx).flatMap(r=>r.locations).find(l=>l.id===id);
+    if(!artwork||!location)throw new Error('This image could not be saved to the waypoint.');
+    Object.assign(location,{path:artwork,blank:false});
+    const state=travelState(ctx);
+    if(state.location?.id===id){state.location.path=artwork;if(state.entry?.id===id)state.entry.path=artwork;saveTravel(ctx);}
+    ctx.saveSettingsDebounced();
+}
 export function unpinWaypoint(ctx,id){
     const item=worldWaypoints(ctx).find(w=>w.location.id===id);if(!item)return;
     delete item.location.waypoint;

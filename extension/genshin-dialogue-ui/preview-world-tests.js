@@ -1,6 +1,6 @@
 import {mountWorldMap} from './world-map.js';
 import {mountBackgrounds,travelState,selectRegion,visitLocation} from './backgrounds.js';
-import {saveWaypoint,teleportTo,worldWaypoints,WORLD_PROMPT_KEY,mapDistance} from './world-data.js';
+import {saveWaypoint,setWaypointArtwork,teleportTo,worldWaypoints,WORLD_PROMPT_KEY,mapDistance} from './world-data.js';
 import {mapCRS,toMapPoint,toLatLng} from './map-engine.js';
 
 export async function runWorldMapTests(){
@@ -25,7 +25,12 @@ export async function runWorldMapTests(){
         check('all saved regions appear as clickable waypoint choices',sidebarButtons().length===3&&$('#gi-world-map').dataset.view==='list'&&$$('[data-map="region"]').length===3);
         function sidebarButtons(){return [...$('.gi-map-waypoint-list').querySelectorAll('[data-map="select"]')];}
         sidebarButtons().find(b=>b.dataset.location===port.location.id).click();await pause();check('existing waypoint details show its description and Teleport action',$('#gi-world-map').dataset.view==='details'&&!$('.gi-map-sidebar').hidden&&$('.gi-map-sidebar').textContent.includes('The port.')&&!!$('[data-map="teleport"]'));
+        check('waypoint details have no source link and the picture is a button',!$('.gi-map-source')&&!!$('.gi-map-artwork-button img')&&!$('.gi-map-sidebar').textContent.includes('Background source'));
+        const oldArt=port.location.path,chooser=$('.gi-map-artwork-button + input'),artFiles=new DataTransfer(),realUpload=adapter.upload;adapter.upload=async()=>({path:'/user/files/new-art.png'});artFiles.items.add(new File(['x'],'new.png',{type:'image/png'}));chooser.files=artFiles.files;chooser.dispatchEvent(new Event('change'));await pause();await pause();adapter.upload=realUpload;
+        check('choosing a file replaces the waypoint picture',port.location.path==='/user/files/new-art.png'&&$('.gi-map-artwork-button img').getAttribute('src')==='/user/files/new-art.png');
+        port.location.path=oldArt;
         await click('teleport');check('Teleport explicitly changes region and background and closes the map',travelState(ctx).regionId===port.region.id&&travelState(ctx).location.id===port.location.id&&!$('#gi-world-map').open);
+        setWaypointArtwork(ctx,port.location.id,'/user/files/here.png');check('changing the current waypoint picture updates the live scene',travelState(ctx).location.path==='/user/files/here.png'&&port.location.path==='/user/files/here.png');setWaypointArtwork(ctx,port.location.id,oldArt);
         check('Teleport plays the wash and announces the new region with a banner',!!$('.gi-teleport-veil')&&$('.gi-region-banner')?.dataset.region==='Liyue');
         runtime.sync({on:true,id:0,generating:false});sync();await pause();check('old dialogue cannot undo an explicit teleport',calls===0&&runtime.current.location.id===port.location.id);
         check('minimap centres on the teleported waypoint', $('#gi-minimap').dataset.location===port.location.id&&$('#gi-minimap').dataset.mapX==='-1500'&&$('#gi-minimap').dataset.mapY==='1000');

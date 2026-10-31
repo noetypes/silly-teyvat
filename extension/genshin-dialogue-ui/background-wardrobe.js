@@ -1,4 +1,4 @@
-import {mountWildernessEditor} from './wilderness.js';
+import {mountWildernessMenu,wildernessSummary} from './wilderness.js';
 import {newLocalId} from './local-id.js';
 import {mediaSettings,localMediaPath} from './media-store.js';
 import {backgroundRegions,travelState,selectRegion,visitLocation} from './backgrounds.js';
@@ -16,9 +16,12 @@ export function mountBackgroundWardrobe({panel,getContext,adapter,onChange=()=>{
     <details><summary>Use existing SillyTavern backgrounds</summary><button type="button" data-bg="load-library">Load background library</button><label>Existing backgrounds<select id="gi-bg-library" multiple size="5" aria-label="Existing backgrounds"></select></label><button type="button" data-bg="import-library">Add selected backgrounds to this region</button></details>
     <small>Earlier messages keep their recorded backgrounds. Removing assignments keeps the artwork files and saved scenes.</small>`;
     const abort=new AbortController(),$=s=>panel.querySelector(s);let selected,busy=false,library=[];
-    const wildPanel=document.createElement('details');$('.gi-bg-details').append(wildPanel);const wildUI=mountWildernessEditor({panel:wildPanel,getContext,getLocation:()=>selected,onChange,status});
+    const wildRow=document.createElement('section'),wildNote=document.createElement('small'),wildOpen=document.createElement('button');wildOpen.type='button';wildOpen.textContent='Edit wilderness encounters';wildRow.append(wildNote,wildOpen);$('.gi-bg-details').append(wildRow);
+    const paintWild=()=>{wildNote.textContent=wildernessSummary(getContext(),selected);};
+    const wildMenu=mountWildernessMenu({host:panel,getContext,getLocation:()=>selected,onChange:()=>{paintWild();onChange();},status});
+    wildOpen.addEventListener('click',()=>wildMenu.open(),{signal:abort.signal});
     const region=()=>backgroundRegions(getContext()).find(r=>r.id===$('#gi-bg-region').value);
-    function choose(location){selected=location;wildUI.refresh();$('.gi-bg-details').hidden=!location;if(location){$('#gi-bg-label').value=location.label;$('#gi-bg-aliases').value=(location.classifications || []).join('\n');$('#gi-bg-description').value=location.description || '';preview(location,region());}else preview(null,region());for(const b of $('.gi-bg-grid').querySelectorAll('[data-location]'))b.setAttribute('aria-pressed',String(b.dataset.location===location?.id));}
+    function choose(location){selected=location;if(location)paintWild();$('.gi-bg-details').hidden=!location;if(location){$('#gi-bg-label').value=location.label;$('#gi-bg-aliases').value=(location.classifications || []).join('\n');$('#gi-bg-description').value=location.description || '';preview(location,region());}else preview(null,region());for(const b of $('.gi-bg-grid').querySelectorAll('[data-location]'))b.setAttribute('aria-pressed',String(b.dataset.location===location?.id));}
     function grid(){
         const r=region(),container=$('.gi-bg-grid');container.replaceChildren();
         for(const location of r?.locations || []){
@@ -73,5 +76,5 @@ export function mountBackgroundWardrobe({panel,getContext,adapter,onChange=()=>{
         if(event.target.id==='gi-bg-region'){selectRegion(getContext(),event.target.value);selected=undefined;onChange();refresh();status(region()?`Travel region: ${region().name}. Classification cannot leave this region.`:'Choose a region to enable travel.');}
         if(event.target.id==='gi-bg-enabled'){mediaSettings(getContext()).backgroundsEnabled=event.target.checked;save();}
     },{signal:abort.signal});
-    return {refresh,dispose(){abort.abort();wildUI.dispose();}};
+    return {refresh,dispose(){abort.abort();wildMenu.dispose();}};
 }

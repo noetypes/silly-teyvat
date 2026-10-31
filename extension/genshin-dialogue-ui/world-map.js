@@ -1,8 +1,8 @@
-import {mountWildernessEditor,wildernessPool} from './wilderness.js';
+import {mountWildernessMenu,wildernessSummary,wildernessPool} from './wilderness.js';
 import {clearedEnemies,restoreEnemies} from './combat-state.js';
 import {localMediaPath,createMediaAdapter} from './media-store.js';
 import {backgroundRegions,travelState} from './backgrounds.js';
-import {REGION_NAMES,worldSettings,worldWaypoints,activeWorldLocation,worldScale,walkingSpeed,mapDistance,directionFrom,formatDistance,syncWorldPrompt,worldScalePrompt,saveWaypoint,unpinWaypoint,teleportTo,validMapPoint} from './world-data.js';
+import {REGION_NAMES,worldSettings,worldWaypoints,activeWorldLocation,worldScale,walkingSpeed,mapDistance,directionFrom,formatDistance,syncWorldPrompt,worldScalePrompt,saveWaypoint,unpinWaypoint,teleportTo,validMapPoint,setWaypointArtwork} from './world-data.js';
 import {L,makeMap,toLatLng,toMapPoint,waypointIcon,playerIcon,waypointGlyph} from './map-engine.js';
 import {locationResidents} from './location-encounters.js';
 import {mountLocationRosterPicker} from './location-roster-picker.js';
@@ -51,9 +51,10 @@ export function mountWorldMap({host,getContext,adapter=createMediaAdapter(getCon
     <footer><p role="status" aria-live="polite"></p></footer>`;
     host.append(mini,dialog);
     const abort=new AbortController(),$=s=>dialog.querySelector(s),sidebar=$('.gi-map-sidebar'),list=$('.gi-map-waypoint-list');
-    let wildUI;
+    let wildLocation;
     let map,minimap,markers,player,draftMarker,selectedId,draft,editing=false,placing=false,busy=false,visible=false,enabled=false,disposed=false,opener,revision=0,chatKey='',signature='',miniKey='',viewLocation=null,regionFilter='',lastRegion=null,pendingBanner='',veil,banner,bannerTimer,veilTimer;
     const rosterPicker=mountLocationRosterPicker({host,getContext,onChange:()=>{onChange();refresh({sidebarRefresh:true});}});
+    const wildMenu=mountWildernessMenu({host:dialog,getContext,getLocation:()=>wildLocation,onChange:()=>{onChange();refresh({sidebarRefresh:true});},status:text=>status(text)});
     const identity=ctx=>`${ctx.groupId || ctx.characterId}:${ctx.getCurrentChatId?.() || ctx.chatId || ''}`;
     const status=text=>{const p=$('footer > p');p.textContent=text;p.classList.remove('gi-toast');void p.offsetWidth;p.classList.toggle('gi-toast',Boolean(text));};
     const element=(tag,text)=>{const e=document.createElement(tag);e.textContent=text;return e;};
@@ -146,7 +147,7 @@ export function mountWorldMap({host,getContext,adapter=createMediaAdapter(getCon
         }));
         if(!points.length)list.append(element('p','No waypoints yet.'));
     }
-    function listWaypoints(){selectedId=null;wildUI?.dispose();wildUI=null;sidebar.replaceChildren();setView('list');renderList();paintMarkers();}
+    function listWaypoints(){selectedId=null;sidebar.replaceChildren();setView('list');renderList();paintMarkers();}
     function cardHead(title,subtitle,glyph=true){
         const head=document.createElement('header');head.className='gi-map-card-head';
         if(glyph){const img=document.createElement('img');img.src=waypointGlyph;img.alt='';img.className='gi-map-card-glyph';head.append(img);}
@@ -166,9 +167,27 @@ export function mountWorldMap({host,getContext,adapter=createMediaAdapter(getCon
         const restore=button(defeated.length?`Restore defeated enemies (${defeated.length})`:'No defeated enemies','restore-enemies');restore.disabled=!defeated.length;
         section.append(restore);return section;
     }
+    // The picture is its own control: choosing a file replaces this waypoint's background straight away.
+    function artworkPicker(item){
+        const art=document.createElement('button'),input=document.createElement('input'),holder=document.createElement('div');
+        art.type='button';art.className='gi-map-artwork-button';art.setAttribute('aria-label',`Change the image for ${item.location.label}`);art.title='Change image';
+        if(item.location.path){const img=document.createElement('img');img.src=localMediaPath(item.location.path);img.alt='';img.className='gi-map-artwork';art.append(img);}
+        art.append(element('span','Change image'));
+        input.type='file';input.accept='image/png,image/webp,image/jpeg,image/gif,image/avif';input.hidden=true;input.setAttribute('aria-label',`Image file for ${item.location.label}`);
+        art.addEventListener('click',()=>input.click());
+        input.addEventListener('change',()=>{const file=input.files[0];input.value='';if(file)void replaceArtwork(item,file);});
+        holder.append(art,input);return holder;
+    }
+    async function replaceArtwork(item,file){
+        status('Uploading image...');
+        try{
+            const {path}=await adapter.upload(file,'image');
+            setWaypointArtwork(getContext(),item.location.id,path);onChange();refresh({sidebarRefresh:true});status(`Image updated for ${item.location.label}.`);
+        }catch(error){status(error.message || 'Could not change the image.');}
+    }
     function showDetails(item){
         selectedId=item.location.id;const body=document.createElement('div');body.className='gi-map-card-body';
-        const img=document.createElement('img');img.src=localMediaPath(item.location.path);img.alt=item.location.label;img.className='gi-map-artwork';body.append(img);
+        body.append(artworkPicker(item));
         if(item.location.description)body.append(element('p',item.location.description));
         const distance=element('p',distances(item));distance.className='gi-waypoint-distance';body.append(distance);
         const section=document.createElement('section');section.className='gi-map-residents';section.append(element('h4','Residents'));
@@ -179,9 +198,8 @@ export function mountWorldMap({host,getContext,adapter=createMediaAdapter(getCon
         else section.append(element('small','Import a character card to link it here.'));
         body.append(section);
         if(item.location.wilderness)body.append(enemySection(item));
-        wildUI?.dispose();const wildPanel=document.createElement('details');body.append(wildPanel);wildUI=mountWildernessEditor({panel:wildPanel,getContext,getLocation:()=>item.location,onChange,status});wildUI.refresh();
+        const wild=document.createElement('section');wild.className='gi-map-music';wild.append(element('h4','Wilderness encounters'),element('p',wildernessSummary(getContext(),item.location)),button('Edit wilderness encounters','wilderness'));body.append(wild);
         const music=document.createElement('section');music.className='gi-map-music';music.append(element('h4','Music'),element('p',musicSummary(item.location)),button('Choose music','music'));body.append(music);
-        if(item.location.source){const source=element('a','Background source');source.href=item.location.source;source.target='_blank';source.rel='noopener';source.className='gi-map-source';body.append(source);}
         const actions=document.createElement('div');actions.className='gi-map-card-actions';
         const edit=button('','edit');edit.className='gi-map-round';edit.innerHTML=ICON.edit;edit.setAttribute('aria-label','Edit waypoint');edit.title='Edit waypoint';
         const teleport=button('','teleport');teleport.className='gi-map-teleport';const glyph=document.createElement('img');glyph.src=waypointGlyph;glyph.alt='';teleport.append(glyph,element('span','Teleport'));
@@ -291,7 +309,7 @@ export function mountWorldMap({host,getContext,adapter=createMediaAdapter(getCon
         },
         syncPrompt(on=enabled){return syncWorldPrompt(getContext(),on);},
         close,
-        dispose(){if(disposed)return;disposed=true;enabled=false;api.syncPrompt(false);abort.abort();close();clearTimeout(veilTimer);clearTimeout(bannerTimer);veil?.remove();banner?.remove();rosterPicker.dispose();wildUI?.dispose();removeMap(map);removeMap(minimap);mini.remove();dialog.remove();},
+        dispose(){if(disposed)return;disposed=true;enabled=false;api.syncPrompt(false);abort.abort();close();clearTimeout(veilTimer);clearTimeout(bannerTimer);veil?.remove();banner?.remove();rosterPicker.dispose();wildMenu.dispose();removeMap(map);removeMap(minimap);mini.remove();dialog.remove();},
     };
     async function action(name,target){
         if(busy&&name!=='close')return;
@@ -334,6 +352,7 @@ export function mountWorldMap({host,getContext,adapter=createMediaAdapter(getCon
             if(name==='residents'&&item){rosterPicker.open(item.location.id);return;}
             if(name==='restore-enemies'&&item){const n=restoreEnemies(getContext(),item.location.id);showDetails(item);status(n?`${n} defeated ${n===1?'enemy':'enemies'} can appear at ${item.location.label} again.`:'No defeated enemies here.');return;}
             if(name==='music'&&item){openMusic(item.location.id);return;}
+            if(name==='wilderness'&&item){wildLocation=item.location;wildMenu.open();return;}
             if(name==='music-library'){openMusicLibrary();return;}
             if(name==='retry-cast'){retryCast();status('Checking the current location’s guests again.');return;}
             if(name==='unpin'&&item){unpinWaypoint(ctx,item.location.id);placing=false;editing=false;draft=null;selectedId=null;paintDraft();onChange();refresh();listWaypoints();status('Map pin removed. Its background picture and saved scenes remain.');return;}

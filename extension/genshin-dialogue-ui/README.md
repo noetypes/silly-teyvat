@@ -1,3 +1,15 @@
+# Silly Teyvat 1.51.0: Quicker waypoint images and a wider wilderness
+
+- **Change a waypoint's image by clicking it.** Select a waypoint and click its picture to replace
+  the background straight away. The Background source link is gone.
+- **Wilderness encounters menu.** Wilderness settings now open in their own window, with a search
+  box for the enemy list, from both the map and the Backgrounds tab.
+- **More variety.** Every regular wilderness location has a new enemy pool, so enemies appear in
+  more places and the same few slimes and hilichurls turn up less often. Treasure Hoarder
+  Gravediggers and Pyro Potioneers can now spawn.
+- **More wilderness.** Unsettled places with no characters tied to them, such as Stormterror's Lair,
+  Luhua Pool, Nazuchi Beach and the Mausoleum of King Deshret, are now wilderness.
+
 # Silly Teyvat 1.50.1: CG frames match their art
 
 - **Frames fit the CG.** A framed CG, image or video, now takes the shape of its art at about the

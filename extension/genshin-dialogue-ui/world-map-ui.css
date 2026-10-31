@@ -233,7 +233,6 @@ dialog#gi-world-map#gi-world-map[open][data-enter="minimap"] { animation: gi-map
 #gi-world-map .gi-wilderness-editor label.gi-check { flex-direction: row-reverse; justify-content: flex-end; }
 #gi-world-map .gi-wilderness-editor label.gi-check input { margin-left: auto; }
 #gi-world-map .gi-wilderness-editor .gi-enemy-pool { max-height: 260px; padding: 2px 0; }
-#gi-world-map .gi-map-source { display: inline-block; margin-top: 10px; font-size: 12px; color: #ece5d899; }
 #gi-world-map .gi-map-card-actions {
     display: flex; align-items: center; gap: 10px; flex: none; padding: 12px 16px 14px;
     border-top: 1px solid var(--ty-line); background: #121722e6;

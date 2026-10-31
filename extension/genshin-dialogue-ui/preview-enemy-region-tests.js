@@ -24,7 +24,16 @@ export async function runEnemyRegionTests(){
         const chirai=settings.backgroundRegions[0].locations[0],natlan=settings.backgroundRegions[1].locations[0];
         check('realignment gives Chirai Shrine its Inazuman enemies',['Kairagi: Dancing Thunder','Nobushi: Kikouban','Electro Samachurl','Ruin Guard'].every(n=>chirai.enemyPool.includes(av(n)))&&!chirai.enemyPool.includes(av('Eremite Sunfrost'))&&!chirai.enemyPool.includes(av('Hilichurl Shooter')));
         check('realignment moves Ruin Guard and hilichurls out of Natlan',!natlan.enemyPool.includes(av('Ruin Guard'))&&!natlan.enemyPool.includes(av('Hilichurl Fighter'))&&natlan.enemyPool.includes(av('Pyro Abyss Mage')));
-        check('realignment runs once',settings.enemyPoolsVersion===1&&(chirai.enemyPool.push(av('Hydro Slime')),alignEnemyPools(ctx))===0&&chirai.enemyPool.includes(av('Hydro Slime')));
+        check('realignment runs once',settings.enemyPoolsVersion===2&&(chirai.enemyPool.push(av('Hydro Slime')),alignEnemyPools(ctx))===0&&chirai.enemyPool.includes(av('Hydro Slime')));
+        const quiet={id:'quiet',label:'Quiet',wilderness:true,enemyPool:[av('Ruin Guard')]};
+        const lake={id:'expansion-starfell-lake',label:'Starfell Lake',residents:[]},home={id:'expansion-windrise',label:'Windrise',residents:['Klee.png']},off={id:'wild-liyue-qingce-village',label:'Qingce',wilderness:false};
+        const fresh={backgroundRegions:[{id:'m',name:'Mondstadt',locations:[lake,home,off,quiet]}],enemyPoolsVersion:1},freshCtx={...ctx,extensionSettings:{genshin_dialogue_ui:fresh}};
+        alignEnemyPools(freshCtx);
+        check('an empty place in the catalog becomes wilderness with its pool',lake.wilderness===true&&lake.enemyPool.length>0&&lake.enemyPool.every(a=>ctx.characters.some(c=>c.avatar===a)));
+        check('a place with residents never becomes wilderness',!home.wilderness&&!home.enemyPool);
+        check('a village outside the catalog stays safe',off.wilderness===false);
+        check('every pool has at least five enemies, without repeats',Object.values(LOCATION_POOLS).every(list=>list.length>=5&&new Set(list).size===list.length));
+        check('enemy names match their cards',!Object.keys(ENEMY_REGIONS).some(n=>/^Treasure Hoarders:/.test(n)));
         let seq=[.99,0,0,0],i=0;const random=()=>seq[i++ % seq.length];
         const many=rollWilderness(ctx,'wild-inazuma-chirai-shrine',{random});
         check('a roll can bring up to the maximum number of different enemies',many.length===3&&new Set(many).size===3);
