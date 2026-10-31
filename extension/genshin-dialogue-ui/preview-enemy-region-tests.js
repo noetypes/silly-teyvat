@@ -1,5 +1,6 @@
 // Regional enemy pools, several enemies per encounter, and enemies defeated at a waypoint.
-import {rollWilderness,wildernessPool,maxEnemies} from './wilderness.js';
+import {wildernessPool,maxEnemies} from './wilderness.js';
+import {rollLocationEncounter} from './location-encounters.js';
 import {clearedEnemies,clearEnemy,restoreEnemies} from './combat-state.js';
 import {alignEnemyPools,enemyNative,locationRegion,LOCATION_POOLS,ENEMY_REGIONS} from './enemy-regions.js';
 
@@ -35,14 +36,14 @@ export async function runEnemyRegionTests(){
         check('every pool has at least five enemies, without repeats',Object.values(LOCATION_POOLS).every(list=>list.length>=5&&new Set(list).size===list.length));
         check('enemy names match their cards',!Object.keys(ENEMY_REGIONS).some(n=>/^Treasure Hoarders:/.test(n)));
         let seq=[.99,0,0,0],i=0;const random=()=>seq[i++ % seq.length];
-        const many=rollWilderness(ctx,'wild-inazuma-chirai-shrine',{random});
-        check('a roll can bring up to the maximum number of different enemies',many.length===3&&new Set(many).size===3);
+        const roll=(random)=>rollLocationEncounter(ctx,'wild-inazuma-chirai-shrine',[],{random}).enemies;const many=roll(random);
+        check('extra rolls fill up to the maximum number of different enemies',many.length===3&&new Set(many).size===3);
         settings.maxEnemies=1;i=0;
-        check('Maximum enemies 1 brings a single enemy',rollWilderness(ctx,'wild-inazuma-chirai-shrine',{random}).length===1&&maxEnemies(ctx)===1);
-        settings.maxEnemies=9;check('the maximum is limited to 5',maxEnemies(ctx)===5);settings.maxEnemies=3;
+        check('Maximum enemies 1 brings a single enemy',roll(random).length===1&&maxEnemies(ctx)===1);
+        settings.maxEnemies=9;check('the maximum is limited to 3',maxEnemies(ctx)===3);settings.maxEnemies=3;
         clearEnemy(ctx,'wild-inazuma-chirai-shrine',av('Ruin Guard'));
         check('a defeated enemy is remembered for that waypoint',clearedEnemies(ctx,'wild-inazuma-chirai-shrine').includes(av('Ruin Guard'))&&!wildernessPool(ctx,'wild-inazuma-chirai-shrine').includes(av('Ruin Guard')));
-        check('it is never rolled there again',Array.from({length:40},(_,k)=>rollWilderness(ctx,'wild-inazuma-chirai-shrine',{random:()=>(k*.137)%1})).flat().every(a=>a!==av('Ruin Guard')));
+        check('it is never rolled there again',Array.from({length:40},(_,k)=>roll(()=>(k*.137)%1)).flat().every(a=>a!==av('Ruin Guard')));
         check('restoring brings it back',restoreEnemies(ctx,'wild-inazuma-chirai-shrine')===1&&wildernessPool(ctx,'wild-inazuma-chirai-shrine').includes(av('Ruin Guard')));
         return out.join('\n')+`\n${out.length} enemy region checks passed`;
     }catch(error){out.push(`ERROR ${error.message}`);return out.join('\n');}

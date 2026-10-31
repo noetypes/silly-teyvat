@@ -1,3 +1,19 @@
+# Silly Teyvat 1.52.0: Guaranteed encounters and full cards everywhere
+
+- **Someone is always there.** A location with a character or enemy always brings at least one of
+  them, and a location with both brings one of each. Anyone else there rolls the encounter chance,
+  up to 3 met at once.
+- **Favorites always appear.** A favorited character is always met at their location, even past the
+  limit of 3.
+- **Left-behind companions wait for you.** A character you leave at a location is there when you come
+  back. If more than 3 characters are at that location, it's a random roll unless they are a favorite.
+- **Bypass Encounters.** Toggle this on a waypoint's map card to arrive there without meeting anyone.
+  It stays on for that waypoint in this chat until you turn it off.
+- **Full cards in more menus.** Add character to location, Wilderness encounters, Dialogue Review and
+  the favorites row above the character list now show the same uncropped cards as the character list.
+- **Enemy limit.** Maximum enemies per encounter now goes up to 3 to match the new limit. A saved
+  higher value counts as 3.
+
 # Silly Teyvat 1.51.0: Quicker waypoint images and a wider wilderness
 
 - **Change a waypoint's image by clicking it.** Select a waypoint and click its picture to replace

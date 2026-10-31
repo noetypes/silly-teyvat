@@ -40,7 +40,7 @@ export function placeResident(ctx,avatar,locationId){
     if(target&&!Object.hasOwn(defaults,avatar))defaults[avatar]=target.id;
     for(const location of locations(ctx))location.residents=(location.residents || []).filter(a=>a!==avatar);
     if(target)target.residents.push(avatar);
-    delete locationCastState(ctx).placements[avatar];ctx.saveSettingsDebounced();saveTravel(ctx);
+    delete locationCastState(ctx).placements[avatar];delete locationCastState(ctx).leftBehind?.[avatar];ctx.saveSettingsDebounced();saveTravel(ctx);
 }
 export function residentsAt(ctx,id){
     return id?encounterResidents(ctx,id):[];

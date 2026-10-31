@@ -544,6 +544,7 @@ function toggleHistory() {
     hidden = false;
     stopAuto();
     refresh();
+    cardArtUI?.refresh();
     if (history) {
         document.querySelector('#chat .gi-current')?.scrollIntoView({ block: 'center' });
         document.querySelector('#gi-review-heading button')?.focus();
@@ -768,7 +769,7 @@ export async function initialize({ choicesAdapter, spriteAdapter, wardrobeAdapte
                 if(!Number.isInteger(value)||value<1||value>100||key==='combatDamageMin'&&value>preferences().combatDamageMax||key==='combatDamageMax'&&value<preferences().combatDamageMin){input.value=preferences()[key];announce('Damage must be whole numbers from 1 to 100, with maximum at least minimum.');return;}
                 preferences()[key]=value;
             }else if(key==='maxEnemies'){
-                if(!Number.isInteger(value)||value<1||value>5){input.value=preferences().maxEnemies;announce('Choose from 1 to 5 enemies.');return;}
+                if(!Number.isInteger(value)||value<1||value>3){input.value=preferences().maxEnemies;announce('Choose from 1 to 3 enemies.');return;}
                 preferences()[key]=value;
             }else if(key==='encounterRate'){
                 if(!Number.isFinite(value)||value<0||value>100){input.value=preferences().encounterRate;announce('Choose an encounter chance from 0 to 100 percent.');return;}

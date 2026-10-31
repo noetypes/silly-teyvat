@@ -234,10 +234,12 @@ dialog#gi-world-map#gi-world-map[open][data-enter="minimap"] { animation: gi-map
 #gi-world-map .gi-wilderness-editor label.gi-check input { margin-left: auto; }
 #gi-world-map .gi-wilderness-editor .gi-enemy-pool { max-height: 260px; padding: 2px 0; }
 #gi-world-map .gi-map-card-actions {
-    display: flex; align-items: center; gap: 10px; flex: none; padding: 12px 16px 14px;
+    display: flex; flex-wrap: wrap; align-items: center; gap: 10px; flex: none; padding: 12px 16px 14px;
     border-top: 1px solid var(--ty-line); background: #121722e6;
 }
 #gi-world-map .gi-map-card-actions > button:not(.gi-map-round):not(.gi-map-teleport) { margin: 0; min-height: 44px; padding: 4px 20px; border-radius: 22px; }
+#gi-world-map .gi-map-card-actions > .gi-map-bypass { flex: 1 0 100%; }
+#gi-world-map .gi-map-card-actions > button.gi-map-bypass[aria-pressed="true"]:not(.gi-map-round):not(.gi-map-teleport) { color: var(--ty-ink); background: #d3bc8e; border-color: #f1d797; }
 /* The cream pill with a circled icon, Genshin's primary action button. */
 #gi-world-map .gi-map-teleport {
     position: relative; flex: 1; display: flex; align-items: center; gap: 10px; min-height: 46px; padding: 4px 18px 4px 5px;

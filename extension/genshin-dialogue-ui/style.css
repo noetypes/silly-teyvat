@@ -1892,10 +1892,12 @@ dialog#gi-world-map#gi-world-map[open][data-enter="minimap"] { animation: gi-map
 #gi-world-map .gi-wilderness-editor label.gi-check input { margin-left: auto; }
 #gi-world-map .gi-wilderness-editor .gi-enemy-pool { max-height: 260px; padding: 2px 0; }
 #gi-world-map .gi-map-card-actions {
-    display: flex; align-items: center; gap: 10px; flex: none; padding: 12px 16px 14px;
+    display: flex; flex-wrap: wrap; align-items: center; gap: 10px; flex: none; padding: 12px 16px 14px;
     border-top: 1px solid var(--ty-line); background: #121722e6;
 }
 #gi-world-map .gi-map-card-actions > button:not(.gi-map-round):not(.gi-map-teleport) { margin: 0; min-height: 44px; padding: 4px 20px; border-radius: 22px; }
+#gi-world-map .gi-map-card-actions > .gi-map-bypass { flex: 1 0 100%; }
+#gi-world-map .gi-map-card-actions > button.gi-map-bypass[aria-pressed="true"]:not(.gi-map-round):not(.gi-map-teleport) { color: var(--ty-ink); background: #d3bc8e; border-color: #f1d797; }
 /* The cream pill with a circled icon, Genshin's primary action button. */
 #gi-world-map .gi-map-teleport {
     position: relative; flex: 1; display: flex; align-items: center; gap: 10px; min-height: 46px; padding: 4px 18px 4px 5px;
@@ -2099,6 +2101,11 @@ body.gi-card-art-on .avatar img:is(.gi-card-img, .gi-card-img-frame) {
 }
 body.gi-card-art-on .avatar img.gi-card-img { height: 100%; aspect-ratio: 208 / 248; object-fit: contain; border-radius: 0; box-shadow: none; filter: drop-shadow(0 3px 5px #000a); }
 body.gi-card-art-on .avatar img.gi-card-img.gi-card-img-tcg { height: 88%; aspect-ratio: 420 / 720; }
+/* Review paints the card itself: the native thumbnail stays in place, invisible. */
+body.gi-card-art-on .avatar.gi-mes-card { position: relative; }
+body.gi-card-art-on .avatar.gi-mes-card img { opacity: 0; }
+body.gi-card-art-on .avatar.gi-mes-card::before { content: ''; position: absolute; top: 0; left: 50%; translate: -50% 0; height: 100%; aspect-ratio: 208 / 248; background: var(--gi-mes-card) center / contain no-repeat; filter: drop-shadow(0 3px 5px #000a); pointer-events: none; }
+body.gi-card-art-on .avatar.gi-mes-card.gi-mes-card-tcg::before { top: 6%; height: 88%; aspect-ratio: 420 / 720; }
 body.gi-card-art-on .avatar img.gi-card-img-frame { height: 85.08%; aspect-ratio: 157 / 211; object-fit: cover; border-radius: 4px; box-shadow: 0 0 0 1.5px #dcd7cc, 0 0 0 2.5px #0008, 0 3px 6px #000a; }
 body.gi-card-art-on #right-nav-panel :is(.character_select, .group_member):is(:hover, :focus-visible) .avatar img:is(.gi-card-img, .gi-card-img-frame) { translate: 0 -3px; }
 body.gi-card-art-on #right-nav-panel :is(.character_select, .group_member):is(:hover, :focus-visible) .avatar img.gi-card-img { filter: drop-shadow(0 6px 8px #000c) brightness(1.05); }
@@ -3645,7 +3652,6 @@ body.gi-keyboard :is(#gi-background-stage,#gi-sprite-stage,#gi-cg-stage,#gi-lett
 :is(#gi-world-map,#gi-wardrobe) .gi-wilderness-menu .gi-enemy-pool button{display:flex;flex-direction:column;align-items:center;justify-content:flex-start;gap:3px;width:auto;min-width:0;height:158px;min-height:0;margin:0;padding:4px;overflow:hidden;border:1px solid #cfbf9560;border-radius:8px;color:#f4efe4;background:#d7e0e711;box-shadow:none;font:inherit;text-align:center;cursor:pointer}
 :is(#gi-world-map,#gi-wardrobe) .gi-wilderness-menu .gi-enemy-pool button[hidden]{display:none}
 :is(#gi-world-map,#gi-wardrobe) .gi-wilderness-menu .gi-enemy-pool button[aria-pressed="true"]{padding:3px;border:2px solid #85d8ff;background:linear-gradient(#3b9ddb99,#245b9d77)}
-:is(#gi-world-map,#gi-wardrobe) .gi-wilderness-menu .gi-enemy-pool img{flex:none;width:100%;height:91px;object-fit:cover;object-position:top;border-radius:5px}
 :is(#gi-world-map,#gi-wardrobe) .gi-wilderness-menu .gi-enemy-pool span{font-size:11.5px;line-height:1.15;overflow-wrap:break-word}
 :is(#gi-world-map,#gi-wardrobe) .gi-wilderness-menu .gi-enemy-pool small{display:block !important;font-size:10px;color:#cdd6df}
 :is(#gi-world-map,#gi-wardrobe) .gi-wilderness-menu .gi-wilderness-panel>button{flex:none;width:100%;min-height:38px;margin:0;padding:8px 16px;border:0;border-radius:19px;color:var(--ty-ink,#20283a);background:var(--ty-cream,#ece5d8);font:inherit;cursor:pointer}

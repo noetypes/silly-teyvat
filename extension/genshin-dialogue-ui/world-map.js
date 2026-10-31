@@ -1,10 +1,10 @@
 import {mountWildernessMenu,wildernessSummary,wildernessPool} from './wilderness.js';
 import {clearedEnemies,restoreEnemies} from './combat-state.js';
 import {localMediaPath,createMediaAdapter} from './media-store.js';
-import {backgroundRegions,travelState} from './backgrounds.js';
+import {backgroundRegions,travelState,saveTravel} from './backgrounds.js';
 import {REGION_NAMES,worldSettings,worldWaypoints,activeWorldLocation,worldScale,walkingSpeed,mapDistance,directionFrom,formatDistance,syncWorldPrompt,worldScalePrompt,saveWaypoint,unpinWaypoint,teleportTo,validMapPoint,setWaypointArtwork} from './world-data.js';
 import {L,makeMap,toLatLng,toMapPoint,waypointIcon,playerIcon,waypointGlyph} from './map-engine.js';
-import {locationResidents} from './location-encounters.js';
+import {locationResidents,encountersBypassed,toggleEncounterBypass} from './location-encounters.js';
 import {mountLocationRosterPicker} from './location-roster-picker.js';
 import {musicSummary} from './location-music-state.js';
 import {mediaSettings} from './media-store.js';
@@ -203,7 +203,8 @@ export function mountWorldMap({host,getContext,adapter=createMediaAdapter(getCon
         const actions=document.createElement('div');actions.className='gi-map-card-actions';
         const edit=button('','edit');edit.className='gi-map-round';edit.innerHTML=ICON.edit;edit.setAttribute('aria-label','Edit waypoint');edit.title='Edit waypoint';
         const teleport=button('','teleport');teleport.className='gi-map-teleport';const glyph=document.createElement('img');glyph.src=waypointGlyph;glyph.alt='';teleport.append(glyph,element('span','Teleport'));
-        actions.append(edit,teleport);
+        const bypass=button('Bypass Encounters','bypass');bypass.className='gi-map-bypass';bypass.setAttribute('aria-pressed',String(encountersBypassed(getContext(),item.location.id)));bypass.title='Arrive here without meeting any characters or enemies';
+        actions.append(bypass,edit,teleport);
         sidebar.replaceChildren(cardHead(item.location.label,item.region.name),body,actions);setView('details');
     }
     function regionChoices(select,selected){
@@ -351,6 +352,7 @@ export function mountWorldMap({host,getContext,adapter=createMediaAdapter(getCon
             }
             if(name==='residents'&&item){rosterPicker.open(item.location.id);return;}
             if(name==='restore-enemies'&&item){const n=restoreEnemies(getContext(),item.location.id);showDetails(item);status(n?`${n} defeated ${n===1?'enemy':'enemies'} can appear at ${item.location.label} again.`:'No defeated enemies here.');return;}
+            if(name==='bypass'&&item){const on=toggleEncounterBypass(ctx,item.location.id);saveTravel(ctx);showDetails(item);status(on?`Encounters bypassed at ${item.location.label}. Applies on your next arrival.`:`Encounters restored at ${item.location.label}. Applies on your next arrival.`);return;}
             if(name==='music'&&item){openMusic(item.location.id);return;}
             if(name==='wilderness'&&item){wildLocation=item.location;wildMenu.open();return;}
             if(name==='music-library'){openMusicLibrary();return;}

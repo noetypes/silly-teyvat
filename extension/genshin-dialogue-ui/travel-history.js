@@ -36,7 +36,10 @@ export function recordTravel(ctx,from,to,{avatars,reason='teleport',encounter}={
         }
         scene.travellers=[...travellers];avatars=travellers;
         noteLocationArrival(ctx,to.id,{travellers});
-        ctx.chatMetadata.silly_teyvat_cast.encounter=scene;
+        const cast=ctx.chatMetadata.silly_teyvat_cast,left=cast.leftBehind ??= {};cast.encounter=scene;
+        // Companions who stayed are remembered there until the party finds them again.
+        if(from?.id)for(const avatar of partyAvatars(ctx))if(!isEnemy(ctx,avatar)&&!travellers.includes(avatar))left[avatar]=from.id;
+        for(const avatar of [...travellers,...scene.present])delete left[avatar];
     }
     if(!from?.id||!to?.id||from.id===to.id||!Array.isArray(ctx.chat)||!ctx.characters?.length)return null;
     const message={name:'Narrator',is_user:false,is_system:false,send_date:new Date().toISOString(),mes:travelHistoryText(ctx,from,to,avatars),extra:{type:'narrator',silly_teyvat_travel:{id:newLocalId('travel'),reason,from:structuredClone(from),to:structuredClone(to),avatars:[...(avatars || partyAvatars(ctx))]}}};

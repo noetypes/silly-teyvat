@@ -109,12 +109,12 @@
 .gi-picker-current {padding:12px 20px;border-bottom:1px solid #d7cda333;max-height:25%;overflow:auto;overscroll-behavior:contain;flex:none;}
 .gi-location-roster {display:flex;gap:7px;flex-wrap:wrap;}
 .gi-location-character-chip {display:inline-flex;align-items:center;gap:6px;border:1px solid #85caff88;border-radius:20px;padding:3px 10px 3px 3px;background:#3078a93b;font-size:12px;}
-.gi-location-character-chip img {width:28px;height:28px;object-fit:cover;border-radius:50%;}
+.gi-location-character-chip .avatar {flex:none;}
 .gi-picker-search {display:flex;align-items:center;gap:12px;padding:10px 20px;font-size:12px;}
 .gi-picker-search input {min-width:0;flex:1;background:#18283e;color:#f4efe4;border:1px solid #b4c6d355;border-radius:7px;padding:8px 10px;font:inherit;}
 #gi-location-characters .gi-location-character-grid {display:grid;grid-template-columns:repeat(auto-fill,minmax(90px,1fr));gap:8px;align-content:start;min-height:0;flex:1;overflow:auto;overscroll-behavior:contain;padding:4px 20px 16px;}
 #gi-location-characters .gi-location-character-grid button {display:flex;flex-direction:column;align-items:center;justify-content:flex-start;gap:4px;height:151px;min-width:0;padding:4px;border-radius:8px;overflow:hidden;background:linear-gradient(#a1b1c233,#89929c0d);}
-.gi-location-character-grid img {width:100%;height:91px;flex:none;object-fit:cover;object-position:top;border-radius:5px;background:linear-gradient(#8166a177,#a19a8f22);}
+.gi-location-character-grid .avatar {flex:none;}
 .gi-location-character-grid span {font-size:12px;line-height:1.15;overflow-wrap:anywhere;}
 #gi-location-characters .gi-location-character-grid small {font-size:10px;line-height:1.15;max-width:100%;overflow:hidden;}
 #gi-location-characters .gi-location-character-grid button[aria-pressed=true] {background:linear-gradient(#3b9ddb99,#245b9d77);border:2px solid #85d8ff;padding:3px;box-shadow:inset 0 0 10px #60bfff44,0 0 5px #67c2ff55;}
@@ -127,9 +127,8 @@
  #gi-location-characters h2 {font-size:19px;}
  .gi-picker-current {padding:10px 12px;max-height:22%;}
  .gi-picker-search {padding:9px 12px;gap:7px;}
- #gi-location-characters .gi-location-character-grid {grid-template-columns:repeat(auto-fill,minmax(72px,1fr));gap:6px;padding:3px 12px 12px;}
+ #gi-location-characters .gi-location-character-grid {grid-template-columns:repeat(auto-fill,minmax(84px,1fr));gap:6px;padding:3px 12px 12px;}
  #gi-location-characters .gi-location-character-grid button {height:140px;}
- .gi-location-character-grid img {height:82px;}
  #gi-location-characters footer {padding:8px 12px;}
 }
 @media (max-height:500px) and (orientation:landscape) {

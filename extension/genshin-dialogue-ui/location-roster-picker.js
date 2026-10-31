@@ -4,6 +4,7 @@ import {placeResident,residentLocation,rememberDefaultLocations} from './locatio
 import {locationResidents} from './location-encounters.js';
 import {backgroundRegions} from './backgrounds.js';
 import {assignedResidents,locationCharacterLimit} from './location-capacity.js';
+import {cardPortrait} from './card-art.js';
 
 export function mountLocationRosterPicker({host,getContext,onChange=()=>{}}){
     const dialog=document.createElement('dialog');dialog.id='gi-location-characters';dialog.setAttribute('aria-labelledby','gi-location-characters-title');
@@ -12,20 +13,16 @@ export function mountLocationRosterPicker({host,getContext,onChange=()=>{}}){
     const identity=ctx=>`${ctx.groupId || ctx.characterId}:${ctx.getCurrentChatId?.() || ctx.chatId || ''}`;
     const target=()=>backgroundRegions(getContext()).flatMap(r=>r.locations).find(l=>l.id===selectedId);
     const status=text=>{$('footer p').textContent=text;};
-    function portrait(card){
-        const img=document.createElement('img');img.alt='';img.loading='lazy';
-        img.src=getContext().getThumbnailUrl?.('avatar',card.avatar) || `/characters/${encodeURIComponent(card.avatar)}`;return img;
-    }
     function render(){
         const ctx=getContext(),location=target();if(!location){close();return;}
         $('.gi-picker-location').textContent=`${location.label} · ${assignedResidents(ctx,location).length} / ${locationCharacterLimit(ctx)} assigned characters. Travelling companions use no slots.`;
         const current=locationResidents(ctx,location.id),roster=$('.gi-location-roster');roster.replaceChildren();
         if(!current.length){const p=document.createElement('p');p.textContent='No characters here yet.';roster.append(p);}
-        for(const card of current){const chip=document.createElement('span');chip.className='gi-location-character-chip';const name=document.createElement('span');name.textContent=card.name;chip.append(portrait(card),name);roster.append(chip);}
+        for(const card of current){const chip=document.createElement('span');chip.className='gi-location-character-chip';const name=document.createElement('span');name.textContent=card.name;chip.append(cardPortrait(ctx,card),name);roster.append(chip);}
         const grid=$('.gi-location-character-grid'),query=$('input').value.trim().toLocaleLowerCase();grid.replaceChildren();
         for(const card of (ctx.characters || []).filter(c=>c.avatar&&!isEnemy(ctx,c)&&!playedAvatars(ctx).has(c.avatar)&&c.name.toLocaleLowerCase().includes(query))){
             const b=document.createElement('button');b.type='button';b.dataset.character=card.avatar;b.setAttribute('aria-label',card.name);b.setAttribute('aria-pressed',String(current.some(c=>c.avatar===card.avatar)));
-            const name=document.createElement('span');name.textContent=card.name;const place=document.createElement('small');place.textContent=residentLocation(ctx,card.avatar)?.label || 'Unassigned';b.append(portrait(card),name,place);grid.append(b);
+            const name=document.createElement('span');name.textContent=card.name;const place=document.createElement('small');place.textContent=residentLocation(ctx,card.avatar)?.label || 'Unassigned';b.append(cardPortrait(ctx,card),name,place);grid.append(b);
         }
         $('.gi-character-move-prompt').hidden=!pending;grid.hidden=Boolean(pending);$('.gi-picker-search').hidden=Boolean(pending);
         if(pending)$('#gi-character-move-question').textContent=`This character is currently in ${pending.from}. Move to ${location.label}?`;
