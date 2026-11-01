@@ -8,6 +8,8 @@ import {syncPromptOrder} from './prompt-order.js';
 import {promptText,renderPrompt} from './prompt-templates.js';
 
 export const TWINS=['Aether','Lumine'];
+// Both twins' default home is Traveler's Cove, where their cards open. Playing a twin hides them, and this
+// override takes the Abyss twin out, so whichever twin is left is the Traveler, and is the only one found there.
 // The sibling is first met in the Chasm, so that is the only place the Abyss twin is found.
 export const ABYSS_HOME="wild-liyue-lumberpick-valley";
 const otherTwin=name=>TWINS.find(twin=>twin!==name);
@@ -45,6 +47,15 @@ export function wearTwinCards(ctx){
 export function abyssGreeting(ctx,card){
     const {abyss}=twinRoles(ctx);
     return card?.name===abyss?promptText(ctx,`abyss_${abyss.toLowerCase()}_greeting`):'';
+}
+// SillyTavern asks extensions for a first message only in group chats, so a new solo chat is corrected
+// once it exists. Dropping the swipes leaves no way back to the Traveler's greetings on the card.
+export function keepAbyssGreeting(ctx){
+    const message=ctx.chat?.[0],text=abyssGreeting(ctx,ctx.characters?.[ctx.characterId]);
+    if(ctx.groupId||ctx.chat?.length!==1||message.is_user||!text)return false;
+    message.mes=ctx.substituteParams?.(text) ?? text;
+    delete message.swipes;delete message.swipe_id;delete message.swipe_info;
+    return true;
 }
 // 1.54: the two Traveler personas were copies of later-story text, and the model reads a persona every turn.
 const AETHER_HEAD="Which twin became the playable Traveler is chosen by the player; the other woke first in Teyvat and became deeply involved in the world's history. Their names and roles are fixed, but the point of view and exact chapter are not. This card";

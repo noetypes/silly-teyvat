@@ -1,3 +1,14 @@
+# Silly Teyvat 1.55.0: Traveler's Cove
+
+- **Traveler's Cove.** A new waypoint on the beach just north of Starsnatch Cliff.
+- **The Traveler starts there.** Play neither twin and the one who isn't the Abyss twin is found at the
+  Cove, whichever way round Settings → World has them. If you moved a twin yourself, they stay put.
+- **The Abyss twin stays in the Abyss.** A new chat with them opens in the Chasm on their Abyss greeting,
+  with no swipes back to the Traveler's scenes. Before, a new solo chat used a random Traveler greeting.
+- **Aether's and Lumine's cards open like the game.** Each card and all five greetings begin the moment
+  the twin wakes alone on the beach, with their power gone and their sibling missing. Saved chats keep
+  their old greeting. Originals are in `silly-teyvat-data/backups/card-travelers-cove-2026-10-31`.
+
 # Silly Teyvat 1.54.0: Card drops by location, starting trust and every prompt
 
 - **Card drops by location.** Every waypoint has its own pool of cards, drawn from its region's food and

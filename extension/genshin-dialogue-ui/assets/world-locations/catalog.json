@@ -1,5 +1,5 @@
 {
-  "version": 12,
+  "version": 13,
   "retrieved": "2026-10-26",
   "coordinateSource": "https://sg-public-api-static.hoyolab.com/common/map_user/ys_obc/v1/map/map_anchor/list?map_id=2&app_sn=ys_obc&lang=en-us",
   "locations": [
@@ -3129,6 +3129,60 @@
         "Hilichurl Shooter.png",
         "Hydro Slime.png"
       ]
+    },
+    {
+      "id": "home-mondstadt-travelers-cove",
+      "label": "Traveler's Cove",
+      "region": "Mondstadt",
+      "suggestedCharacters": [
+        "Aether",
+        "Lumine"
+      ],
+      "description": "A quiet sandy beach under the sea cliffs north of Starsnatch Cliff. Clear turquoise water runs over the shallows, and a broken tower stands far out on the horizon. There is no town or road in sight.",
+      "waypoint": {
+        "mapId": "teyvat",
+        "x": 995.0,
+        "y": -455.0
+      },
+      "coordinateMethod": "Placed by eye on the sand of the beach north of Starsnatch Cliff, using the bundled official map overview. Traveler's Cove is a Silly Teyvat name, not an official map label.",
+      "coordinateSource": "https://sg-public-api-static.hoyolab.com/common/map_user/ys_obc/v1/map/map_anchor/list?map_id=2&app_sn=ys_obc&lang=en-us",
+      "source": "User-supplied game image, 2026-10-31.",
+      "loreSource": "https://genshin-impact.fandom.com/wiki/Starsnatch_Cliff",
+      "classifications": [
+        "Traveler's Cove",
+        "Mondstadt beach",
+        "beach below the cliffs"
+      ],
+      "residents": [],
+      "candidate": false,
+      "dimensions": [
+        2000,
+        1125
+      ],
+      "asset": "home-travelers-cove.webp",
+      "imageReview": {
+        "reviewed": "2026-10-31",
+        "playableCharacters": false,
+        "gameUI": false,
+        "captions": false,
+        "camera": "Human-height view along the sand toward a sea cliff, with the shallows on the right. No playable characters, HUD, captions, or subtitles; the image has a small Genshin wordmark at lower right."
+      },
+      "introducedVersion": 13,
+      "music": {
+        "tracks": [
+          "music-game-3a8f2fd16184d9601d6c",
+          "music-game-7c9576560d2c6bf65af0"
+        ],
+        "combatTrack": null
+      },
+      "musicResearch": {
+        "recommended": [
+          "Whispering Plain",
+          "Wayfarer's Peace"
+        ],
+        "source": "https://genshin-impact.fandom.com/wiki/Starfell_Lake#Soundtracks",
+        "note": "Mondstadt area fallback, shared with nearby Starfell Lake"
+      }
     },
     {
       "id": "wild-mondstadt-thousand-winds-temple",

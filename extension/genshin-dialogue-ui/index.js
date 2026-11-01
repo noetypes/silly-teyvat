@@ -35,7 +35,7 @@ import { mountCardArt } from './card-art.js';
 import { mountInventory } from './inventory.js';
 import {trustEnabled,presentCharacters,syncTrustPrompt,trustPrompt,stripPromptTrustTags} from './trust.js';
 import {hideTrustTags} from './trust-tags.js';
-import {abyssGreeting,freshenTwinPersonas,restoreTwinCards,syncTwinPrompt,twinRolesPrompt,wearTwinCards} from './twin-roles.js';
+import {abyssGreeting,freshenTwinPersonas,keepAbyssGreeting,restoreTwinCards,syncTwinPrompt,twinRolesPrompt,wearTwinCards} from './twin-roles.js';
 import {mountTrust} from './trust-ui.js';
 import {giveGift} from './gifts.js';
 import {namecardsReady,namecards,namecardUrl,chooseNamecard} from './namecards.js';
@@ -865,7 +865,7 @@ export async function initialize({ choicesAdapter, spriteAdapter, wardrobeAdapte
         }finally{release?.();}
     });
     subscribe('CHAT_CREATED',async()=>{
-        if(!preferences().enabled)return;const ctx=context();if(!randomizeGreeting(ctx))return;
+        if(!preferences().enabled)return;const ctx=context();if(!keepAbyssGreeting(ctx)&&!randomizeGreeting(ctx))return;
         const release=loadingUI?.hold(loadingPlace(ctx),{instant:true});
         try{await ctx.saveChat?.();await ctx.reloadCurrentChat?.();}finally{release?.();}
     });

@@ -8,8 +8,9 @@ export function seedCharacterHomes(ctx,catalog){
  if((prefs.homeBindingsVersion || 0)<catalog.version)for(const move of catalog.relocations || []){
   const character=ctx.characters?.find(c=>c.name===move.name),from=locations.find(l=>l.id===move.from),to=locations.find(l=>l.id===move.to);
   // Apply only the old bundled assignment, never a user-moved character.
-  if(!character||!from?.residents?.includes(character.avatar)||!to||defaults[character.avatar]!==from.id||assignedResidents(ctx,to).length>=locationCharacterLimit(ctx))continue;
-  from.residents=from.residents.filter(a=>a!==character.avatar);to.residents=[...new Set([...(to.residents || []),character.avatar])];defaults[character.avatar]=to.id;changed=true;
+  const placed=from?.residents?.includes(character?.avatar)||move.unplaced&&!locations.some(l=>l.residents?.includes(character?.avatar));
+  if(!character||!placed||!to||defaults[character.avatar]!==from?.id||assignedResidents(ctx,to).length>=locationCharacterLimit(ctx))continue;
+  from.residents=(from.residents || []).filter(a=>a!==character.avatar);to.residents=[...new Set([...(to.residents || []),character.avatar])];defaults[character.avatar]=to.id;changed=true;
  }
  for(const binding of catalog.characters || []){
   const location=locations.find(l=>l.id===binding.locationId);if(!location)continue;

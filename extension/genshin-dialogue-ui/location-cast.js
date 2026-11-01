@@ -11,6 +11,7 @@ import {assignedResidents,requireLocationCapacity} from './location-capacity.js'
 import {encounterResidents,rollLocationEncounter} from './location-encounters.js';
 import {newLocalId} from './local-id.js';
 import {playedAvatars} from './persona-link.js';
+import {ABYSS_HOME,abyssAvatar} from './twin-roles.js';
 
 export const castIdentity=ctx=>`${ctx.groupId || ctx.characterId}:${ctx.getCurrentChatId?.() || ctx.chatId || ''}`;
 export function locationCastState(ctx){
@@ -30,7 +31,15 @@ export function residentLocation(ctx,avatar){
     const id=Object.hasOwn(placements,avatar)?placements[avatar]:locations(ctx).find(l=>l.residents?.includes(avatar))?.id;
     return locations(ctx).find(l=>l.id===id) || null;
 }
-export function defaultCharacterLocation(ctx,avatar){return locations(ctx).find(l=>l.id===rememberDefaultLocations(ctx)[avatar]) || null;}
+// Where each card belongs, with the Abyss twin in the Chasm whatever their saved default says.
+export function homeDefaults(ctx){
+    const abyss=abyssAvatar(ctx);
+    return abyss?{...rememberDefaultLocations(ctx),[abyss]:ABYSS_HOME}:rememberDefaultLocations(ctx);
+}
+export function defaultCharacterLocation(ctx,avatar){
+    const defaults=rememberDefaultLocations(ctx),id=avatar&&avatar===abyssAvatar(ctx)?ABYSS_HOME:defaults[avatar];
+    return locations(ctx).find(l=>l.id===id) || locations(ctx).find(l=>l.id===defaults[avatar]) || null;
+}
 export function placeResident(ctx,avatar,locationId){
     if(!ctx.characters?.some(c=>c.avatar===avatar))throw new Error('This character card is no longer installed.');
     if(isEnemy(ctx,avatar)&&locationId)throw new Error('Enemy cards belong in Wilderness encounters, not tied characters.');
@@ -220,7 +229,7 @@ export function mountLocationCast({host,getContext,adapter=createLocationCastAda
                 state.pendingGreetings=(state.pendingGreetings || []).filter(entry=>entry.policyVersion===2);
                 const arrival=state.arrival?.locationId===travelState(ctx).location.id&&!state.arrival.handled?state.arrival:null;
                 const sceneResidents=[...(mediaSettings(ctx).locationEncounters===false?[]:residentsAt(ctx,arrival?.locationId)),...activeEnemies(ctx).map(e=>ctx.characters.find(c=>c.avatar===e.avatar)).filter(Boolean)];
-                const reply=arrival?arrivalReply(ctx,plan,sceneResidents,rememberDefaultLocations(ctx)):null;
+                const reply=arrival?arrivalReply(ctx,plan,sceneResidents,homeDefaults(ctx)):null;
                 plan.greetings=reply?[reply]:[];
                 if(plan.changed){
                     const applied=await adapter.apply(ctx,plan,()=>current(key,token)&&enabled&&!generating);

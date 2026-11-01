@@ -7,8 +7,9 @@ import {renderPromptLibrary,roleplayPromptText,setRoleplayPrompt} from './rolepl
 import {choicePrompt} from './choices-api.js';
 import {combatTriggerPrompt} from './enemy-actions.js';
 import {worldScalePrompt} from './world-data.js';
-import {ABYSS_HOME,abyssAvatar,abyssGreeting,freshenTwinPersonas,playedTwin,restoreTwinCards,syncTwinPrompt,twinRoles,twinRolesPrompt,wearTwinCards} from './twin-roles.js';
+import {ABYSS_HOME,abyssAvatar,abyssGreeting,freshenTwinPersonas,keepAbyssGreeting,playedTwin,restoreTwinCards,syncTwinPrompt,twinRoles,twinRolesPrompt,wearTwinCards} from './twin-roles.js';
 import {locationResidents} from './location-encounters.js';
+import {defaultCharacterLocation,homeDefaults} from './location-cast.js';
 import {CHARACTER_TASTES,tastesOf} from './character-tastes.js';
 import {ITEMS,addToBag,applyDiceItem,itemArt,rollLoot} from './battle-items.js';
 import {resolveRound,resonanceOf} from './battle-engine.js';
@@ -227,6 +228,21 @@ export async function runTrustTests(){
         ctx=twins('Lumine');ctx.extensionSettings.genshin_dialogue_ui.backgroundRegions=[{id:'m',name:'Mondstadt',locations:[{id:'guild',label:'Guild',residents:['Aether.png','Jean.png']},{id:ABYSS_HOME,label:'Chasm',residents:[]}]}];
         check('the Abyss twin leaves their usual home for the Chasm',abyssAvatar(ctx)==='Aether.png'&&homeOf(ctx,'guild').join()==='Jean'&&homeOf(ctx,ABYSS_HOME).join()==='Aether');
         ctx.name1='Aether';ctx.userAvatar='a.png';ctx.powerUserSettings={personas:{'a.png':'Aether'}};check('and the twin you play is never a resident',homeOf(ctx,'guild').join()==='Jean'&&!homeOf(ctx,ABYSS_HOME).includes('Aether'));
+        ctx=twins('Klee');const cove='home-mondstadt-travelers-cove',moves=['Aether','Lumine'].map(name=>({name,from:'guild',to:cove,unplaced:true}));
+        const covePrefs=ctx.extensionSettings.genshin_dialogue_ui;covePrefs.travelerTwin='Lumine';covePrefs.defaultCharacterLocations={'Aether.png':'guild','Lumine.png':'guild'};
+        covePrefs.backgroundRegions=[{id:'m',name:'Mondstadt',locations:[{id:'guild',label:'Guild',residents:['Lumine.png']},{id:cove,label:'Cove',residents:[]},{id:ABYSS_HOME,label:'Chasm',residents:[]}]}];
+        seedCharacterHomes(ctx,{version:4,relocations:moves,characters:[]});
+        check('the Traveler you do not play is found at the Cove, unplaced or not, and the Abyss twin is not',homeOf(ctx,cove).join()==='Lumine'&&homeOf(ctx,ABYSS_HOME).join()==='Aether'&&homeOf(ctx,'guild').length===0);
+        check('a chat with either twin opens where they are found',defaultCharacterLocation(ctx,'Lumine.png')?.id===cove&&defaultCharacterLocation(ctx,'Aether.png')?.id===ABYSS_HOME);
+        covePrefs.travelerTwin='Aether';check('and swapping the roles swaps them',homeOf(ctx,cove).join()==='Aether'&&homeOf(ctx,ABYSS_HOME).join()==='Lumine');
+        ctx=twins('Klee');ctx.extensionSettings.genshin_dialogue_ui.defaultCharacterLocations={'Aether.png':'guild'};ctx.extensionSettings.genshin_dialogue_ui.backgroundRegions=[{id:'m',name:'Mondstadt',locations:[{id:'guild',label:'Guild',residents:[]},{id:'inn',label:'Inn',residents:['Aether.png']},{id:cove,label:'Cove',residents:[]}]}];
+        seedCharacterHomes(ctx,{version:4,relocations:moves,characters:[]});check('a Traveler the user moved stays put',homeOf(ctx,'inn').join()==='Aether'&&homeOf(ctx,cove).length===0);
+        ctx=twins('Klee',{travelerTwin:'Aether'});ctx.characterId=ctx.characters.findIndex(c=>c.name==='Lumine');ctx.groupId=null;
+        ctx.chat=[{mes:'The tide slides up the sand',swipes:['The tide slides up the sand','Beach','Mondstadt'],swipe_id:1,swipe_info:[{},{},{}]}];
+        check('a new solo chat with the Abyss twin opens on the Abyss greeting, with no Traveler swipes left',keepAbyssGreeting(ctx)&&ctx.chat[0].mes.includes('edge of the dark')&&!('swipes' in ctx.chat[0])&&!('swipe_id' in ctx.chat[0]));
+        check('and their home for arrivals is the Chasm',homeDefaults(ctx)['Lumine.png']===ABYSS_HOME);
+        ctx.characterId=ctx.characters.findIndex(c=>c.name==='Aether');ctx.chat=[{mes:'Tide',swipes:['Tide','Other'],swipe_id:0}];check('the Traveler keeps their greetings',!keepAbyssGreeting(ctx)&&ctx.chat[0].swipes.length===2);
+        ctx.characterId=ctx.characters.findIndex(c=>c.name==='Lumine');ctx.chat=[{mes:'a'},{mes:'b'}];check('and a chat already under way is left alone',!keepAbyssGreeting(ctx)&&ctx.chat[0].mes==='a');
         ctx=twins('Aether');ctx.powerUserSettings={persona_descriptions:{'teyvat-persona-aether.png':{description:"Keep this. His story is not a single frozen search. Across the game's quests he meets his twin, learns more about Teyvat and Khaenri'ah, and faces difficult questions about their separate paths. Later chapters add new meetings and complications. Set the relationship with Lumine, the Abyss Order, and Dainsleif according to the chosen point in the story."}},persona_description:'If the player chooses a later timeline'};
         check('the personas lose their later-story text, once',freshenTwinPersonas(ctx)===true&&ctx.powerUserSettings.persona_descriptions['teyvat-persona-aether.png'].description==='Keep this. This is the very beginning of his story. He knows almost nothing about Teyvat, its nations or its gods, and he has not met anyone here. All he knows is that his twin is gone, and finding her matters more to him than anything else.'&&freshenTwinPersonas(ctx)===false);
 

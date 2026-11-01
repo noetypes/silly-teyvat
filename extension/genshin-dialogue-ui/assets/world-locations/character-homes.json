@@ -1,13 +1,13 @@
 {
-  "version": 3,
-  "date": "2026-10-26",
+  "version": 4,
+  "date": "2026-10-31",
   "notes": "Default resident cap: 5. Bundled overfull locations redistributed to suitable meeting points. Existing user moves are respected by the one-time relocation migration. Prune remains at Mondstadt Fountain Plaza. Travelling companions do not consume resident slots.",
   "characters": [
     {
       "name": "Aether",
-      "locationId": "home-mondstadt-adventurers-guild",
-      "rationale": "The Traveler has no canonical home. Mondstadt is the opening nation and the Adventurers' Guild is the most natural repeatable meeting point for a roaming adventurer. This is an explicit roleplay default, not a claim about Aether's residence.",
-      "loreSource": "https://genshin-impact.fandom.com/wiki/Traveler/Profile"
+      "locationId": "home-mondstadt-travelers-cove",
+      "rationale": "Aether's card opens on this beach, at the moment the game does. Only the Traveler is found here: the other twin has the Abyss role and is found in the Chasm, and a twin the player plays is never a resident.",
+      "loreSource": "https://genshin-impact.fandom.com/wiki/Traveler"
     },
     {
       "name": "Arataki Itto",
@@ -77,9 +77,9 @@
     },
     {
       "name": "Lumine",
-      "locationId": "home-mondstadt-adventurers-guild",
-      "rationale": "The Traveler has no canonical home. Mondstadt is the opening nation and the Adventurers' Guild is a fitting roleplay rendezvous for a traveling adventurer. This is a roleplay default, not a claim about Lumine's residence.",
-      "loreSource": "https://genshin-impact.fandom.com/wiki/Traveler/Profile"
+      "locationId": "home-mondstadt-travelers-cove",
+      "rationale": "Lumine's card opens on this beach, at the moment the game does. Only the Traveler is found here: the other twin has the Abyss role and is found in the Chasm, and a twin the player plays is never a resident.",
+      "loreSource": "https://genshin-impact.fandom.com/wiki/Traveler"
     },
     {
       "name": "Mika",
@@ -820,6 +820,20 @@
       "from": "starter-house-of-daena",
       "to": "starter-aaru-village",
       "rationale": "Aaru Village already matches Cyno’s main greeting and his desert patrol scenario."
+    },
+    {
+      "name": "Aether",
+      "from": "home-mondstadt-adventurers-guild",
+      "to": "home-mondstadt-travelers-cove",
+      "unplaced": true,
+      "rationale": "The Traveler's card now opens on this beach. Also applies to a twin with no location, who still has the old Guild default."
+    },
+    {
+      "name": "Lumine",
+      "from": "home-mondstadt-adventurers-guild",
+      "to": "home-mondstadt-travelers-cove",
+      "unplaced": true,
+      "rationale": "The Traveler's card now opens on this beach. Also applies to a twin with no location, who still has the old Guild default."
     }
   ]
 }

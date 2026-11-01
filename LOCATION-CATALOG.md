@@ -186,6 +186,18 @@ Pin: x 995.0, y -256.0. Center of the official HoYoLAB map anchor bounds for Sta
 
 Image review: Human-height view from a grassy cliff edge toward the ocean and rocky coast. No playable characters, HUD, captions, or subtitles; the source image has a small Genshin wordmark at lower right.  
 
+### Traveler's Cove
+
+A quiet sandy beach under the sea cliffs north of Starsnatch Cliff. Clear turquoise water runs over the shallows, and a broken tower stands far out on the horizon. There is no town or road in sight.
+
+Default characters: Aether, Lumine. Only the twin with the Traveler role is found here, and only while you play neither twin.
+
+[Background](extension/genshin-dialogue-ui/assets/world-locations/home-travelers-cove.webp) · Image source: user-supplied game image, 2026-10-31 · [Lore](https://genshin-impact.fandom.com/wiki/Starsnatch_Cliff)
+
+Pin: x 995.0, y -455.0. Placed by eye on the sand of the beach north of Starsnatch Cliff, using the bundled official map overview. Traveler's Cove is a Silly Teyvat name, not an official map label.
+
+Image review: Human-height view along the sand toward a sea cliff, with the shallows on the right. No playable characters, HUD, captions, or subtitles; the image has a small Genshin wordmark at lower right.  
+
 ### Thousand Winds Temple
 
 A broken stone temple in the Stormbearer region, open to the sky and ringed by old columns. Weathered carvings and a quiet sundial give the ruins a strong sense of Mondstadt’s distant past.
