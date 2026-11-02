@@ -7,7 +7,8 @@ import {burstAudioReady,burstAudioFiles,setBurstAudioFiles,createBurstVoicePlaye
 import {mountSceneMedia} from './scene-media.js';
 import {spriteAudioKey,mediaSettings} from './media-store.js';
 import {castMembership,planTeleportParty,commitTeleportParty} from './location-cast.js';
-import {rollLocationEncounter} from './location-encounters.js';
+import {startGroupAtHome} from './character-location.js';
+import {encounterResidents,locationResidents,rollLocationEncounter} from './location-encounters.js';
 import {mountWardrobe} from './wardrobe.js';
 import {mountBattle} from './battle-ui.js';
 import {defaultKit} from './combat-kits.js';
@@ -33,6 +34,15 @@ export async function runIdentityTests(){
   await session.flush();check('history adoption is idempotent and native event reentry completes',saved===1&&reloaded===1&&inheritCharacterHistory(ctx,personaCard(ctx))===0);
   ctx.userAvatar='take-furina.png';ctx.powerUserSettings.personas[ctx.userAvatar]='Furina';prefs.personaCharacters={[ctx.userAvatar]:'Furina.png'};await session.flush();check('taking over the final companion creates a valid solo group',soloParty(ctx)&&ctx.groups[0].members.length===0&&ctx.chat[1].is_user);
   const snapshot=makeSoloJourney({...ctx,chat:[]});check('new solo journey has an empty cast and a native system introduction',snapshot.group.members.length===0&&snapshot.chat[1].is_system&&snapshot.chat[0].chat_metadata.silly_teyvat_cast.core.length===0);
+  const homeWorld=()=>{const world=fixture();world.groupId=null;world.chat=[];world.extensionSettings??={};world.extensionSettings.genshin_dialogue_ui={...world.extensionSettings.genshin_dialogue_ui,defaultCharacterLocations:{'Aether.png':'cove','Furina.png':'cove','Klee.png':'guild'},backgroundRegions:[{id:'m',name:'Mondstadt',locations:[{id:'guild',label:'Mondstadt Adventurers\' Guild',path:'/guild.webp',waypoint:{mapId:'teyvat',x:0,y:0},residents:['Klee.png']},{id:'cove',label:'Traveler\'s Cove',path:'/cove.webp',waypoint:{mapId:'teyvat',x:10,y:0},residents:['Furina.png']}]}]};return world;};
+  const inJourney=(world,snapshot)=>({...world,chat:snapshot.chat.slice(1),chatMetadata:snapshot.chat[0].chat_metadata});
+  let world=homeWorld(),journey=inJourney(world,makeSoloJourney(world));
+  check('a solo journey as a Traveler twin starts at their home',journey.chatMetadata.silly_teyvat_world.location.id==='cove');
+  check('and no one who lives there is in the scene',locationResidents(journey,'cove').some(c=>c.name==='Furina')&&encounterResidents(journey,'cove').length===0&&castMembership(journey).members.length===0);
+  world=homeWorld();world.userAvatar='teyvat-persona-lumine.png';world.name1='Lumine';world.extensionSettings.genshin_dialogue_ui.defaultCharacterLocations['Lumine.png']='cove';check('and the same for the other twin',inJourney(world,makeSoloJourney(world)).chatMetadata.silly_teyvat_world.location.id==='cove');
+  world=homeWorld();world.extensionSettings.genshin_dialogue_ui.defaultCharacterLocations={'Klee.png':'guild'};journey=inJourney(world,makeSoloJourney(world));check('a player with no home starts alone at the Guild',journey.chatMetadata.silly_teyvat_world.location.id==='guild'&&encounterResidents(journey,'guild').length===0);
+  world=homeWorld();world.groupId='g';world.groups=[{id:'g',members:[],disabled_members:[]}];world.chat=[{is_user:true,mes:'Hello',extra:{silly_teyvat_inherited:{card:'Aether.png'}}}];world.chatMetadata={};world.saveSettingsDebounced=()=>{};
+  check('a journey made from your own card starts at home, alone',startGroupAtHome(world)&&world.chatMetadata.silly_teyvat_world.location.id==='cove'&&encounterResidents(world,'cove').length===0);
   const welcomed=makeSoloJourney({...ctx,chat:[{name:'SillyTavern System',is_system:true,mes:'Welcome back.'},{name:'Traveler',is_user:true,mes:'Hello'}]});check('a solo journey started from the past-chats page leaves out SillyTavern System notices',welcomed.chat.length===2&&!welcomed.chat.some(m=>m.is_system)&&welcomed.chat[1].mes==='Hello');
   session.dispose();session=undefined;
   ctx=fixture();ctx.groupId=null;ctx.characterId=undefined;ctx.chat=[];let soloStarts=0;session=createPersonaSession({getContext:()=>ctx,adapter:{busy:async()=>false,createSolo:async()=>{soloStarts++;return false;},apply:async()=>{throw Error('unexpected apply');}}});

@@ -46,12 +46,12 @@ export function saveLocationMusic(ctx,id,{tracks=[],combatTrack=null}={}){
     location.music={tracks:[...new Set(tracks)].filter(track=>track!==combatTrack),combatTrack};
     ctx.saveSettingsDebounced();return location.music;
 }
-export function locationMusicCue(ctx){
-    // Read the live travel location, never the historical background being viewed.
-    const state=ctx.chatMetadata?.silly_teyvat_world,location=musicLocation(ctx,state?.location?.id);
+// The music follows the scene on screen: rereading an earlier message plays what was playing there.
+export function locationMusicCue(ctx,viewed=null){
+    const state=ctx.chatMetadata?.silly_teyvat_world,location=musicLocation(ctx,viewed?.id || state?.location?.id);
     const library=new Map(musicLibrary(ctx).map(track=>[track.id,track]));
     const combatId=location?.wilderness?location.music?.combatTrack:null;
     const tracks=[...new Set(location?.music?.tracks || [])].filter(id=>id!==combatId).map(id=>library.get(id)).filter(Boolean);
-    return {location,tracks,combatTrack:library.get(combatId) || null,key:JSON.stringify([ctx.groupId ?? ctx.characterId,ctx.getCurrentChatId?.() || ctx.chatId || '',state?.regionId || '',location?.id || ''])};
+    return {location,tracks,combatTrack:library.get(combatId) || null,key:JSON.stringify([ctx.groupId ?? ctx.characterId,ctx.getCurrentChatId?.() || ctx.chatId || '',viewed?.id?'':state?.regionId || '',location?.id || ''])};
 }
 export function musicSummary(location){const count=new Set(location?.music?.tracks || []).size;return `${count?`${count} exploration track${count===1?'':'s'}${count>1?' · shuffled':''}`:'No exploration music'}${location?.wilderness&&location.music?.combatTrack?' · combat track set':''}`;}

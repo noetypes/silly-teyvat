@@ -1,4 +1,4 @@
-import {playedAvatars} from './persona-link.js';
+import {linkedCard,playedAvatars} from './persona-link.js';
 import {activeGroup,inPartyChat} from './party.js';
 import {defaultCharacterLocation,locationCastState} from './location-cast.js';
 import {isEnemy} from './character-properties.js';
@@ -7,6 +7,7 @@ import {noteLocationArrival} from './arrival-policy.js';
 import {rollLocationEncounter} from './location-encounters.js';
 import {saveTravel,travelState} from './backgrounds.js';
 import {beginOpeningScene} from './opening-scene.js';
+import {isNarrator} from './narrator.js';
 
 // Called when a solo card opens a new chat. A chat that already has a saved location
 // resumes there instead, and group conversion or history views never move it.
@@ -32,9 +33,10 @@ export function startCharacterAtHome(ctx){
 export function startGroupAtHome(ctx,random=Math.random){
     const group=activeGroup(ctx);if(!ctx.groupId||!group)return false;
     const state=locationCastState(ctx);
-    if(state.groupHomeStart||travelState(ctx).location?.id||ctx.chat?.some(m=>m.is_user))return false;
-    const points=worldWaypoints(ctx),members=(group.members || []).filter(a=>!playedAvatars(ctx).has(a)&&!group.disabled_members?.includes(a)&&!isEnemy(ctx,a));
-    const homes=members.map(a=>defaultCharacterLocation(ctx,a)).filter(home=>home&&points.some(p=>p.location.id===home.id));
+    if(state.groupHomeStart||travelState(ctx).location?.id||ctx.chat?.some(m=>m.is_user&&!m.extra?.silly_teyvat_inherited))return false;
+    const points=worldWaypoints(ctx),members=(group.members || []).filter(a=>!playedAvatars(ctx).has(a)&&!group.disabled_members?.includes(a)&&!isEnemy(ctx,a)&&!isNarrator(a));
+    // A journey with no one else in it is a solo journey, which starts at the played card's home.
+    const homes=(members.length?members:[linkedCard(ctx)?.avatar]).map(a=>defaultCharacterLocation(ctx,a)).filter(home=>home&&points.some(p=>p.location.id===home.id));
     state.groupHomeStart=true;
     if(!homes.length){saveTravel(ctx);return false;}
     const home=homes[Math.floor(random()*homes.length)];

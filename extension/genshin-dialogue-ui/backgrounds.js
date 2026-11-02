@@ -25,8 +25,15 @@ export function mountBackgrounds({host,getContext,adapter=createMediaAdapter(get
     const cached=(message)=>message?.extra?.silly_teyvat?.backgrounds?.[String(message.swipe_id ?? 0)];
     function paint(location,regionId=travelState(getContext()).regionId){const path=localMediaPath(location?.path);layer.hidden=!active||!path;layer.style.backgroundImage=path?`url(${JSON.stringify(path)})`:'';layer.dataset.location=location?.label || '';current=active&&location?{location,regionId}:null;const key=JSON.stringify(current);if(key!==paintKey){paintKey=key;onChange();}}
     function previous(ctx,id,state){
-        for(let i=id-1;i>=0;i--){const record=cached(ctx.chat[i]);if(record&&(id<ctx.chat.length-1||record.epoch===state.epoch)&&record.signature===pageSignature(ctx.chat[i].mes || ''))return record.location;}
-        return id<ctx.chat.length-1 ? state.entry : state.location;
+        const latest=id===ctx.chat.length-1,travel=i=>ctx.chat[i]?.extra?.silly_teyvat_travel;
+        if(!latest&&travel(id)?.to)return travel(id).to;
+        for(let i=id-1;i>=0;i--){
+            const record=cached(ctx.chat[i]);if(record&&(!latest||record.epoch===state.epoch)&&record.signature===pageSignature(ctx.chat[i].mes || ''))return record.location;
+            if(!latest&&travel(i)?.to)return travel(i).to;
+        }
+        // A message skipped by a teleport was never drawn, so the journey record says where it happened.
+        if(!latest)for(let i=id+1;i<ctx.chat.length;i++)if(travel(i)?.from)return travel(i).from;
+        return latest ? state.location : state.entry;
     }
     function save(ctx,message,data){
         message.extra ??= {};message.extra.silly_teyvat ??= {version:1,swipes:{}};message.extra.silly_teyvat.backgrounds ??= {};

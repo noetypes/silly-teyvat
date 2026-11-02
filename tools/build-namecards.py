@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """Download namecards from the Genshin Impact Wiki (genshin-impact.fandom.com API).
 
-The curated CARDS come first in the menu, then every playable character's own namecard
-(found by listing "Namecard Background <Character> <Title>.png" files on the wiki).
+The curated CARDS come first in the menu, then every other namecard on the wiki
+(found by listing its "Namecard Background <Title>.png" files).
 
 Usage: build-namecards.py
 Needs Pillow. Writes to extension/genshin-dialogue-ui/assets/namecards/:
@@ -81,6 +81,7 @@ def resolve(titles, width):
     return found
 
 ALIASES = {'Childe': 'Tartaglia', 'Itto': 'Arataki Itto'}
+GROUPS = ['Achievement', 'Celebration', 'Travel Notes', 'Mondstadt', 'Liyue', 'Inazuma', 'Sumeru', 'Fontaine', 'Natlan', 'Nod-Krai', 'Snezhnaya']
 
 def character_cards():
     """(file suffix, display name, character) for every playable character's namecard."""
@@ -94,16 +95,17 @@ def character_cards():
         cont = data['continue']
     out = []
     for f in files:
-        if re.search(r'Banner|Profile|Celebration', f): continue
         owner = next((n for n in names + list(ALIASES) if f.startswith(n + ' ')), None)
-        if not owner: continue
-        character = ALIASES.get(owner, owner)
-        out.append((f, f'{owner}: {f[len(owner) + 1:]}', character))
+        if owner:
+            out.append((f, f'{owner}: {f[len(owner) + 1:]}', ALIASES.get(owner, owner)))
+            continue
+        group = next((g for g in GROUPS if f.startswith(g + ' ')), None)
+        out.append((f, f'{group}: {f[len(group) + 1:]}' if group else f, ''))
     return out
 
 def main():
-    have = {c for _, _, c in CARDS if c}
-    cards = CARDS + [c for c in character_cards() if c[2] not in have]
+    have = {f for f, _, _ in CARDS}
+    cards = CARDS + [c for c in character_cards() if c[0] not in have]
     titles = [f'File:Namecard Background {f}.png' for f, _, _ in cards]
     urls = resolve(titles, WIDTH)
     OUT.mkdir(parents=True, exist_ok=True)
@@ -111,10 +113,12 @@ def main():
     for (f, name, character), title in zip(cards, titles):
         if title not in urls:
             print('Missing:', title); continue
-        image = Image.open(io.BytesIO(fetch(urls[title]))).convert('RGB')
-        if image.width > WIDTH: image = image.resize((WIDTH, round(image.height * WIDTH / image.width)), Image.LANCZOS)
         target = OUT / f'{slug(f)}.webp'
-        image.save(target, 'WEBP', quality=82, method=6); total += target.stat().st_size
+        if not target.exists():
+            image = Image.open(io.BytesIO(fetch(urls[title]))).convert('RGB')
+            if image.width > WIDTH: image = image.resize((WIDTH, round(image.height * WIDTH / image.width)), Image.LANCZOS)
+            image.save(target, 'WEBP', quality=82, method=6)
+        total += target.stat().st_size
         entry = {'id': slug(f), 'name': name, 'file': target.name}
         if character: entry['character'] = character
         index.append(entry)

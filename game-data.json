@@ -12432,6 +12432,694 @@
     "silly-teyvat-v142-portrait.jpg": {
       "bytes": 58310,
       "sha256": "f8f22d319b7c38f89f8aaa138d745cbaade1cd646f73f897d1a133aa84aba188"
+    },
+    "extension/genshin-dialogue-ui/assets/ui-sound/screen.mp3": {
+      "bytes": 72142,
+      "sha256": "9bf7bb97e0bdb4fde05bc12d6ce01125a63181668b03f34cc0d1045e3c5ed8f5"
+    },
+    "extension/genshin-dialogue-ui/assets/ui-sound/section-profile.mp3": {
+      "bytes": 49154,
+      "sha256": "49113b5b42fa74e428db9cb28945f6c7e424362716c9d715d19ad1b6f7656f30"
+    },
+    "extension/genshin-dialogue-ui/assets/ui-sound/section-artifact.mp3": {
+      "bytes": 47064,
+      "sha256": "e4458dd49b09d47064fdcce43f1dca5c8ef383cd6686a934ba397046a1c6c700"
+    },
+    "extension/genshin-dialogue-ui/assets/ui-sound/section-constellation.mp3": {
+      "bytes": 65872,
+      "sha256": "2057e800b5ec81430662a5ee71fc7f0e9a9196844dca195a39a7638eb5a7f2d2"
+    },
+    "extension/genshin-dialogue-ui/assets/ui-sound/waypoint.mp3": {
+      "bytes": 29301,
+      "sha256": "8aee52b9122e5e7d17545497be948fa8bb95de6111439e648b3be7bc59426922"
+    },
+    "extension/genshin-dialogue-ui/assets/ui-sound/map.mp3": {
+      "bytes": 56468,
+      "sha256": "04d05a33660ee7ca2d282a3b401c752991cd4b69b5e24feeaa2b62e3b4c0a5c2"
+    },
+    "extension/genshin-dialogue-ui/assets/namecards/achievement-adeptal-valley.webp": {
+      "bytes": 20754,
+      "sha256": "a1f11c8a327838643fad789bb5d9254e271bbb98558d013cf55eb05004c32ed5"
+    },
+    "extension/genshin-dialogue-ui/assets/namecards/achievement-all-seeing.webp": {
+      "bytes": 27298,
+      "sha256": "3edd40f54efc59f55f3928a8a767cccced19cc3c5a59345bff2562a38a3d4ce6"
+    },
+    "extension/genshin-dialogue-ui/assets/namecards/achievement-blaze.webp": {
+      "bytes": 27628,
+      "sha256": "c3315561d38de85899915aeb83fc36e0c0d80971345f6cf33fd8e802b9bcbc1c"
+    },
+    "extension/genshin-dialogue-ui/assets/namecards/achievement-bowmaster.webp": {
+      "bytes": 6442,
+      "sha256": "fb11449670243394d7218917c44809fd6d166db96fc54e11189375b0e57b2182"
+    },
+    "extension/genshin-dialogue-ui/assets/namecards/achievement-challenger-ii.webp": {
+      "bytes": 10676,
+      "sha256": "ef2a799241630f37e8e4db7cba88ebd3c20aaa4b4638fd7ba773514b551e6ee6"
+    },
+    "extension/genshin-dialogue-ui/assets/namecards/achievement-challenger-iii.webp": {
+      "bytes": 7394,
+      "sha256": "7ea7d63bd18b3369d45082519c3a6d85254a372d21d98a52e8c861c107431ea3"
+    },
+    "extension/genshin-dialogue-ui/assets/namecards/achievement-challenger.webp": {
+      "bytes": 6392,
+      "sha256": "3804fd76fa05ebba43d6e9c0d9dd66d4c1b839f6e741bdc7b1b98d76beb7e625"
+    },
+    "extension/genshin-dialogue-ui/assets/namecards/achievement-chasm.webp": {
+      "bytes": 18260,
+      "sha256": "40bcaca73352f4f2945edd3da3b00f1caf51db515099fe7492547fa02fa6ed8b"
+    },
+    "extension/genshin-dialogue-ui/assets/namecards/achievement-cliffhanger.webp": {
+      "bytes": 6876,
+      "sha256": "af8a0abdabc801f9e5fb80cb4fd94983327d5b5e09ae39da4cef38b160aed871"
+    },
+    "extension/genshin-dialogue-ui/assets/namecards/achievement-colors-of-the-rainbow.webp": {
+      "bytes": 8086,
+      "sha256": "940b35b953f4aa336594ff59c6ea0859662a498416f64b0b104e315d458e68c8"
+    },
+    "extension/genshin-dialogue-ui/assets/namecards/achievement-deep-dark.webp": {
+      "bytes": 15924,
+      "sha256": "a3501b482a0ca9450fb262fc46eddccb72c06542cf40cc256faad1e3322dc4ff"
+    },
+    "extension/genshin-dialogue-ui/assets/namecards/achievement-endpoint.webp": {
+      "bytes": 15662,
+      "sha256": "cf7af94642fdbf883e5b482980074ac0d20cfbb0c13aff8675d8ddfb9b322144"
+    },
+    "extension/genshin-dialogue-ui/assets/namecards/achievement-enigmatic-core.webp": {
+      "bytes": 22982,
+      "sha256": "9f74ff075f4fcd77c8efa8a92ec6de279a633c96bbed57081ecf30559e887766"
+    },
+    "extension/genshin-dialogue-ui/assets/namecards/achievement-explorer.webp": {
+      "bytes": 6848,
+      "sha256": "a2c9c03166d1960fc4b2a91bf7ef079821d84a9b2c8802fb5f938762170f2953"
+    },
+    "extension/genshin-dialogue-ui/assets/namecards/achievement-far-sighted.webp": {
+      "bytes": 30084,
+      "sha256": "be5d3a6191847c6cdbd34ac1598f6fa4da900c4c5fe77ab8836abf5a236b8d16"
+    },
+    "extension/genshin-dialogue-ui/assets/namecards/achievement-feline-fortune.webp": {
+      "bytes": 25902,
+      "sha256": "45cd57ede7b6674ae6a56c6fd6e755bf2f1f487e79750a046b05a6ae34b504d9"
+    },
+    "extension/genshin-dialogue-ui/assets/namecards/achievement-fighting-spirit.webp": {
+      "bytes": 28386,
+      "sha256": "b273b03063ed0471edd51a883f72e12e186388aa00d179eae7183bd47f235667"
+    },
+    "extension/genshin-dialogue-ui/assets/namecards/achievement-full-bloom.webp": {
+      "bytes": 12014,
+      "sha256": "f5a62a66f8eaa825d73d97d7c295477a776f1ba4e2a263fdfc2e37b2ef8880e6"
+    },
+    "extension/genshin-dialogue-ui/assets/namecards/achievement-gate.webp": {
+      "bytes": 9538,
+      "sha256": "13691f348b64b5ac092cbb877beafe887bbf7ae0fb74378b3f47959dc686c9b1"
+    },
+    "extension/genshin-dialogue-ui/assets/namecards/achievement-hero.webp": {
+      "bytes": 14040,
+      "sha256": "93fdb05dc386deebce7de71c6d94266056deba57032a12c1e50246ca280efc87"
+    },
+    "extension/genshin-dialogue-ui/assets/namecards/achievement-hill-dwellers.webp": {
+      "bytes": 6436,
+      "sha256": "b334b1bcb757c5716a6c2de7da001e423e8bbdc18958251c065a3fe9a624b5af"
+    },
+    "extension/genshin-dialogue-ui/assets/namecards/achievement-infinitum.webp": {
+      "bytes": 16432,
+      "sha256": "45c4e63fee613d26c0fe125411f8d2ff9201b1172eaf421fb6bde6c0c8556aa9"
+    },
+    "extension/genshin-dialogue-ui/assets/namecards/achievement-invoker.webp": {
+      "bytes": 11568,
+      "sha256": "25973ac56084a9698b2cb169da1b5e8b250718a6f060e7a6c065063b1c781ecd"
+    },
+    "extension/genshin-dialogue-ui/assets/namecards/achievement-lord-of-the-night.webp": {
+      "bytes": 16640,
+      "sha256": "f362318d68b19ee3045bea8ad83c56a05a6a1b1413e8547a59b6ba848547ba42"
+    },
+    "extension/genshin-dialogue-ui/assets/namecards/achievement-mariner.webp": {
+      "bytes": 14188,
+      "sha256": "c00d6e2dfc49a94aec24fffcedef43e03fb4dd3739c2ac8910423a1ad67a4636"
+    },
+    "extension/genshin-dialogue-ui/assets/namecards/achievement-mirrored-dreams.webp": {
+      "bytes": 23284,
+      "sha256": "c885d1b233f13aceb742ac0c053d8eb66bd5a9ca9fc07243a0019f125480b2d5"
+    },
+    "extension/genshin-dialogue-ui/assets/namecards/achievement-nails.webp": {
+      "bytes": 10920,
+      "sha256": "8177f6d0850f90ac02a96466c5c49d68110868a548ea92221d6666e23ee7101a"
+    },
+    "extension/genshin-dialogue-ui/assets/namecards/achievement-orbits.webp": {
+      "bytes": 19714,
+      "sha256": "70b19d3c6ce194059a852c88e3557bb006788909bd3788f1dc350b7182d3d0f4"
+    },
+    "extension/genshin-dialogue-ui/assets/namecards/achievement-perpetual.webp": {
+      "bytes": 20184,
+      "sha256": "ce6ed51b13ab62b8b493c0651f258c32e0a938d4eea4a643cbbcb4f1cf78d496"
+    },
+    "extension/genshin-dialogue-ui/assets/namecards/achievement-poetic-pages.webp": {
+      "bytes": 30766,
+      "sha256": "72aece77db277fd120214940b2d9d66ca160b00a8ed2b337d455d7f032fc16a3"
+    },
+    "extension/genshin-dialogue-ui/assets/namecards/achievement-repertoire.webp": {
+      "bytes": 37348,
+      "sha256": "72028116f44aaaf25b13b482953ca4fb46aa4b26e07c9287daa925f90eb42772"
+    },
+    "extension/genshin-dialogue-ui/assets/namecards/achievement-resplendence.webp": {
+      "bytes": 23782,
+      "sha256": "d689ce74151d163451358a59d477faa76b31b1a09fd813712ea64200c4af012b"
+    },
+    "extension/genshin-dialogue-ui/assets/namecards/achievement-reunion.webp": {
+      "bytes": 5540,
+      "sha256": "c4cbe438a2abcfa6a63eccd8e6940320a25bccc903383d910593cc336b19dea6"
+    },
+    "extension/genshin-dialogue-ui/assets/namecards/achievement-roaming.webp": {
+      "bytes": 18526,
+      "sha256": "a0e81a3d679a8efee5af269b2c264ceff0e566c40729b44ebd080f448554c55a"
+    },
+    "extension/genshin-dialogue-ui/assets/namecards/achievement-seven-lights.webp": {
+      "bytes": 9018,
+      "sha256": "5d8074c268f0ef08a961cb3c108f41135587fd3bbb8aa6517f72791e93cd181d"
+    },
+    "extension/genshin-dialogue-ui/assets/namecards/achievement-snowy-land.webp": {
+      "bytes": 6690,
+      "sha256": "5cc30521b569d80851418a78f829937550939994188214c5a5a698d2acdb094b"
+    },
+    "extension/genshin-dialogue-ui/assets/namecards/achievement-snowy-summit.webp": {
+      "bytes": 12094,
+      "sha256": "ff2d58a793c2ca4a9e94d4f9a6dee7d979a9a3f70171ddf927149452fbecb9a3"
+    },
+    "extension/genshin-dialogue-ui/assets/namecards/achievement-stone-dragon.webp": {
+      "bytes": 14870,
+      "sha256": "ab2ba80309562b84c2ce3bcaf6dab8cea81149cf57532232e3c7a3855b226143"
+    },
+    "extension/genshin-dialogue-ui/assets/namecards/achievement-tea-time.webp": {
+      "bytes": 14230,
+      "sha256": "a2e260357e59f01ec94d2b99b5c79e7d49d64529350dc2a60822afb3b8d9b42a"
+    },
+    "extension/genshin-dialogue-ui/assets/namecards/achievement-thunderclap.webp": {
+      "bytes": 13690,
+      "sha256": "5350fdc8703c9e9ec846ef02eccafa766ffb869fc99d9d79f6fe0a92eeb883fb"
+    },
+    "extension/genshin-dialogue-ui/assets/namecards/achievement-time-apart.webp": {
+      "bytes": 20544,
+      "sha256": "29a79f38c4116a2e720020dfeca3597ff4be4fa6a46dfbc7fdaa14a08fd1c32c"
+    },
+    "extension/genshin-dialogue-ui/assets/namecards/achievement-tranquil-peace.webp": {
+      "bytes": 10552,
+      "sha256": "6861bf16621126465781188d21cd2a76b221d16da437395fa8213bafa531be54"
+    },
+    "extension/genshin-dialogue-ui/assets/namecards/achievement-transient-twilight.webp": {
+      "bytes": 18488,
+      "sha256": "15580275fb8b3f82296c65a78f00075e0f926f0983649f6cbfeadb8f3a222224"
+    },
+    "extension/genshin-dialogue-ui/assets/namecards/achievement-traversal.webp": {
+      "bytes": 8256,
+      "sha256": "9b1bea33c5177bd04d255b44e70d2f4d5c9f225d824698bb74bac7824f8269f3"
+    },
+    "extension/genshin-dialogue-ui/assets/namecards/achievement-treading-snow.webp": {
+      "bytes": 18482,
+      "sha256": "fbd59d100da83460c65d01018033069a9299daa272bb0073df995c03ac0bf066"
+    },
+    "extension/genshin-dialogue-ui/assets/namecards/achievement-vacation-home.webp": {
+      "bytes": 12364,
+      "sha256": "7723467548b82c1bc5409f8c67786d5b0b3a80c9911849fe896942de2b73c2b8"
+    },
+    "extension/genshin-dialogue-ui/assets/namecards/achievement-virtuoso.webp": {
+      "bytes": 7362,
+      "sha256": "8595912c53cf482a1b6270c9852f510e563d55437f381680619b089524349959"
+    },
+    "extension/genshin-dialogue-ui/assets/namecards/achievement-whalewrangler.webp": {
+      "bytes": 27862,
+      "sha256": "6cc6f6e2ca027bfaaec3382c75e307824c92fba841b8dc6d8458f6a0dec11178"
+    },
+    "extension/genshin-dialogue-ui/assets/namecards/album-the-stellar-moments.webp": {
+      "bytes": 20388,
+      "sha256": "5fa548d52ac405e5b2d722abc0ed7c40b50ccdaa635c59e511dfa88b5aba990d"
+    },
+    "extension/genshin-dialogue-ui/assets/namecards/celebration-battlesong.webp": {
+      "bytes": 11154,
+      "sha256": "e363040f3b011464020b1c52fc7023759dd591f10d81b2a96d2ad48a5066785e"
+    },
+    "extension/genshin-dialogue-ui/assets/namecards/celebration-binge-vessel.webp": {
+      "bytes": 10078,
+      "sha256": "87d88f81a567d6483b92e260afa28e51379b3e1d13d919fc6558de7a49ead995"
+    },
+    "extension/genshin-dialogue-ui/assets/namecards/celebration-crispy-and-sweet.webp": {
+      "bytes": 14994,
+      "sha256": "a8880b33e11cd0f053b39e661edbd81d719703f924d50f662d4cd62b2868f8f8"
+    },
+    "extension/genshin-dialogue-ui/assets/namecards/celebration-dream-reader.webp": {
+      "bytes": 21066,
+      "sha256": "9848d831dc20b304ba8e09151aae5e87f3b285ac4d08087838dc93f8c0486224"
+    },
+    "extension/genshin-dialogue-ui/assets/namecards/celebration-euphonia.webp": {
+      "bytes": 22234,
+      "sha256": "076fb81363b01aa39d779582770a2431bcc4d91a2c8faa8202f5c682e10da16e"
+    },
+    "extension/genshin-dialogue-ui/assets/namecards/celebration-feast-ii.webp": {
+      "bytes": 20962,
+      "sha256": "ca47d4cdb35c963486df5b3c6bed88bba9c1a75cc0275a47c484fbba801620f2"
+    },
+    "extension/genshin-dialogue-ui/assets/namecards/celebration-feast.webp": {
+      "bytes": 12160,
+      "sha256": "a0d9de8ca17abe30981c38ded9034f979052f6b1c3203110ad86eb63d5048da9"
+    },
+    "extension/genshin-dialogue-ui/assets/namecards/celebration-fruit-of-wisdom.webp": {
+      "bytes": 11998,
+      "sha256": "fb92de7cabba3ea58e21adbd7241c25e925bdf75ead9c5a3eba950e47215196e"
+    },
+    "extension/genshin-dialogue-ui/assets/namecards/celebration-hypostasis.webp": {
+      "bytes": 5876,
+      "sha256": "23c33ba73235fb920a9ef25fb40dcb15a408e2df69af017ada1da6844becc9c7"
+    },
+    "extension/genshin-dialogue-ui/assets/namecards/celebration-ikki.webp": {
+      "bytes": 10270,
+      "sha256": "142a24c156e72b039afb3b9bec87734b7f9a6f913ae28bfef8e35c7068c0cce0"
+    },
+    "extension/genshin-dialogue-ui/assets/namecards/celebration-kaboomball.webp": {
+      "bytes": 16898,
+      "sha256": "27bdefe5cfd964fb5d3b30e38394becd848ddd384fb9b467e74db0f8d034efca"
+    },
+    "extension/genshin-dialogue-ui/assets/namecards/celebration-lantern-light.webp": {
+      "bytes": 12774,
+      "sha256": "6b32f24e572f2549728f8839a2b771c8d1c576fade1fea0119c86a0eb078c3ef"
+    },
+    "extension/genshin-dialogue-ui/assets/namecards/celebration-lavish-gala.webp": {
+      "bytes": 30120,
+      "sha256": "c944a15549663949b06b58cbacca5107e394be90c8f7c41060ff3050f5346976"
+    },
+    "extension/genshin-dialogue-ui/assets/namecards/celebration-lenticular-clouds.webp": {
+      "bytes": 14112,
+      "sha256": "5d1aee4ff30121b872300540f5392d6c5692ccac930cb259a2d1d33c72a61740"
+    },
+    "extension/genshin-dialogue-ui/assets/namecards/celebration-mechanicus.webp": {
+      "bytes": 10944,
+      "sha256": "887355288ec6d0a06d5f315f69b5e147019c1d37605ae5155d4c9ab45c8b4d63"
+    },
+    "extension/genshin-dialogue-ui/assets/namecards/celebration-peekaboo.webp": {
+      "bytes": 9152,
+      "sha256": "24f2e132a3e875b83248bc016fe5d08e88919c5a965820cdb3cd626c0e10e03b"
+    },
+    "extension/genshin-dialogue-ui/assets/namecards/celebration-scorch.webp": {
+      "bytes": 25350,
+      "sha256": "395e7cd190b713a483af8796debc825c068cfa20c935f03401d0262399cd2441"
+    },
+    "extension/genshin-dialogue-ui/assets/namecards/celebration-shining-scale.webp": {
+      "bytes": 3576,
+      "sha256": "c070a98dfb6db12862496db5233ccf505863722650f2b2e3553f003fca78bea1"
+    },
+    "extension/genshin-dialogue-ui/assets/namecards/celebration-tuna-on-rice.webp": {
+      "bytes": 18090,
+      "sha256": "2ca85dc1ecdbf485d371b6d2d8625a97d510721960061c04263560fb92ce20cc"
+    },
+    "extension/genshin-dialogue-ui/assets/namecards/celebration-vastness.webp": {
+      "bytes": 8318,
+      "sha256": "31c4f798799110d306fc4785e146977ee68dde441103df050beeea0467086eef"
+    },
+    "extension/genshin-dialogue-ui/assets/namecards/celebration-wondrous-calculation.webp": {
+      "bytes": 9388,
+      "sha256": "b4ae9a73dd3b7c514a48a74c2b0d55b01de89c602f5b3188a0cac9b7da3f8e2d"
+    },
+    "extension/genshin-dialogue-ui/assets/namecards/chenyu-rainjade-rite.webp": {
+      "bytes": 23810,
+      "sha256": "893f8364bf91300843c5c3b31b48a86034ec5492d7f566aeb89cb9d8d96f8e8d"
+    },
+    "extension/genshin-dialogue-ui/assets/namecards/empty-temple-overflowing-memories.webp": {
+      "bytes": 15558,
+      "sha256": "17146bc4e044ec119ef3bf02411ddafdfc6f4756401463d97f8d36b5d0606a19"
+    },
+    "extension/genshin-dialogue-ui/assets/namecards/fontaine-attunement.webp": {
+      "bytes": 26248,
+      "sha256": "3359b9d41433aa4f2fbe6e46ca156dbcaee2590c97b30f272426314a9e3be3fe"
+    },
+    "extension/genshin-dialogue-ui/assets/namecards/fontaine-big-news.webp": {
+      "bytes": 12546,
+      "sha256": "6210e8a38e1347aa2c4c84e7c2479ea04f6264098d65560ab24a7febaea41676"
+    },
+    "extension/genshin-dialogue-ui/assets/namecards/fontaine-completeness.webp": {
+      "bytes": 25300,
+      "sha256": "fae3f0ac52373888f82c0375a3774ca1c150053e344c6fc4c9c55900eba029fd"
+    },
+    "extension/genshin-dialogue-ui/assets/namecards/fontaine-judgment.webp": {
+      "bytes": 21554,
+      "sha256": "df60594af86c3e77b3ab437b54024ead4ca6450aeb86f314c0c34797b0007b7f"
+    },
+    "extension/genshin-dialogue-ui/assets/namecards/fontaine-redemption.webp": {
+      "bytes": 14224,
+      "sha256": "de66bec83a0056cb21b220dff0174dfe4bd90f67d50e633b3a1eff8b4d88dd4f"
+    },
+    "extension/genshin-dialogue-ui/assets/namecards/fontaine-wondrous-machine.webp": {
+      "bytes": 13460,
+      "sha256": "412bcf292e7bf2ba6f2e50f91a609daeec857468470588ef54e54214770a06a6"
+    },
+    "extension/genshin-dialogue-ui/assets/namecards/frostbearing-ancient-tree.webp": {
+      "bytes": 7674,
+      "sha256": "1d9debdc3b45462e847cf03a7289f860a31891f5369c3d31f66eb94aff1c78f6"
+    },
+    "extension/genshin-dialogue-ui/assets/namecards/inazuma-eagleplume.webp": {
+      "bytes": 15502,
+      "sha256": "c70e515e03077074c898edd7093047a380597ad8663103b97d01d1c05dd4ebe7"
+    },
+    "extension/genshin-dialogue-ui/assets/namecards/inazuma-kamisato-crest.webp": {
+      "bytes": 14436,
+      "sha256": "7914221d8e46b284882bab85cd183654aa01822a8fd7dc58c391220655db84a1"
+    },
+    "extension/genshin-dialogue-ui/assets/namecards/inazuma-kujou-insignia.webp": {
+      "bytes": 10856,
+      "sha256": "3db90f8577519f51670122856c3a3c868654889e7cb22afc63c7a415bffd4678"
+    },
+    "extension/genshin-dialogue-ui/assets/namecards/inazuma-raiden-emblem.webp": {
+      "bytes": 16010,
+      "sha256": "baeaae2463defb95bf6f2d24e26b54b56234cf5f374529eb8e23bf0ce35efe9b"
+    },
+    "extension/genshin-dialogue-ui/assets/namecards/inazuma-sangonomiya-crest.webp": {
+      "bytes": 15728,
+      "sha256": "899bdce22f73e9a6ee5bf254e7f1fabbb2f810166ab053dd1142b33535193f04"
+    },
+    "extension/genshin-dialogue-ui/assets/namecards/inazuma-tokoyo.webp": {
+      "bytes": 9110,
+      "sha256": "f0edd56075670ded9a36f171b1f5bc1824704b1971947b4196be3c183ac4920c"
+    },
+    "extension/genshin-dialogue-ui/assets/namecards/liyue-a-thousand-ships.webp": {
+      "bytes": 8970,
+      "sha256": "9a57a6138116b0c1e199f3b2124f13bffc1cfbedc3108b49e7a34a256fed9102"
+    },
+    "extension/genshin-dialogue-ui/assets/namecards/liyue-stillness-of-stone.webp": {
+      "bytes": 16026,
+      "sha256": "b394cff3351b6c68e310b39b6f652c81966009e3ba24e73d554f43229e37df84"
+    },
+    "extension/genshin-dialogue-ui/assets/namecards/lumens-stone-of-light.webp": {
+      "bytes": 9448,
+      "sha256": "f43e03ab59e9749cb0c09d842c1812ca2c11aacb1c5655fe2b19996e3c35c9c6"
+    },
+    "extension/genshin-dialogue-ui/assets/namecards/mondstadt-blessing.webp": {
+      "bytes": 10918,
+      "sha256": "fd92ff508fa0fe913385abf5e353e406222bc223ec2bbc8776c173f16ea291aa"
+    },
+    "extension/genshin-dialogue-ui/assets/namecards/mondstadt-hero-s-fame.webp": {
+      "bytes": 11410,
+      "sha256": "90a0cdd80123ebba10fd26690fa7825d1fd29259ef03058458d03585ffc827cd"
+    },
+    "extension/genshin-dialogue-ui/assets/namecards/mondstadt-watchtower.webp": {
+      "bytes": 13768,
+      "sha256": "f5a57da963221f71192013359a249cb5d69cf4c741c39c26c9b7aaa4a6f404d8"
+    },
+    "extension/genshin-dialogue-ui/assets/namecards/natlan-chasing-the-wind.webp": {
+      "bytes": 28928,
+      "sha256": "85185a9ff6468005505f0a02e46be19495c356cd94e52d68f84d297e8f20d059"
+    },
+    "extension/genshin-dialogue-ui/assets/namecards/natlan-divine-army.webp": {
+      "bytes": 16686,
+      "sha256": "b538611ac1e66111e4952951a0f60d240dec7559a4b5dca4dd4082e4f5c6ef5c"
+    },
+    "extension/genshin-dialogue-ui/assets/namecards/natlan-draconic-gaze.webp": {
+      "bytes": 24554,
+      "sha256": "fef296a166859dd6ec4206e8c40c482191ab8fa3b156524d35cf7b0e44cb8cfd"
+    },
+    "extension/genshin-dialogue-ui/assets/namecards/natlan-fleeting-dreams.webp": {
+      "bytes": 28182,
+      "sha256": "5c7f12a904721e852511543371608e6b8d9e39fb12e773c6a7eca28a668a032f"
+    },
+    "extension/genshin-dialogue-ui/assets/namecards/natlan-return-of-the-flame.webp": {
+      "bytes": 22286,
+      "sha256": "5108ee1bbbeef2e96e97f6d2205739cf64e0be0d7c92245ad3425214d12832e8"
+    },
+    "extension/genshin-dialogue-ui/assets/namecards/natlan-wheel-of-flame.webp": {
+      "bytes": 27970,
+      "sha256": "262c724cfab3186569bbb4d5c42622b7a4b3f495ac6bfef06d8594ac5e8182d6"
+    },
+    "extension/genshin-dialogue-ui/assets/namecards/nod-krai-lantern-of-longest-night.webp": {
+      "bytes": 20858,
+      "sha256": "a53a33710a774190bebb995ce274f722382d3cbcc87c8d7c6cc37140ede6e7b8"
+    },
+    "extension/genshin-dialogue-ui/assets/namecards/nod-krai-moonbright.webp": {
+      "bytes": 27490,
+      "sha256": "1e4b0e1aa67c8f57af06518bf2d8eb8650b0bd2915afdf84d5dff714b6637170"
+    },
+    "extension/genshin-dialogue-ui/assets/namecards/nod-krai-sacred-realm.webp": {
+      "bytes": 21742,
+      "sha256": "14670b98cfa5423b755f47441fdd0ff48c0d7a307fa2a04e26b4299d9f5e0018"
+    },
+    "extension/genshin-dialogue-ui/assets/namecards/snezhnaya-fleeting-glimpses.webp": {
+      "bytes": 14646,
+      "sha256": "abd85d753e219bdd01135ca70c38cdd420bb5261a5e882a9eb7eb59cc651755d"
+    },
+    "extension/genshin-dialogue-ui/assets/namecards/snezhnaya-frostfall.webp": {
+      "bytes": 20382,
+      "sha256": "bf5baaf37b5101bd20ff81aa8e1e87ffc9bdd43fa7e275595669015cc4fccf07"
+    },
+    "extension/genshin-dialogue-ui/assets/namecards/sumeru-amrita.webp": {
+      "bytes": 14596,
+      "sha256": "66fe29e0e313e13bb4c11fd4656200e48f9a16b4a0b08cf28c2298ac2de81e0c"
+    },
+    "extension/genshin-dialogue-ui/assets/namecards/sumeru-observance.webp": {
+      "bytes": 16988,
+      "sha256": "c511a2e0cd6af3d9f6fd5433d3cba933807265d13c2c3b013406ebd32ae0ecf7"
+    },
+    "extension/genshin-dialogue-ui/assets/namecards/sumeru-sandstorm.webp": {
+      "bytes": 9330,
+      "sha256": "a28a58e13ffb413d1191ba97e69f31d543834dab5734c0b7a53ee402e36d9fd0"
+    },
+    "extension/genshin-dialogue-ui/assets/namecards/sumeru-sandtreader.webp": {
+      "bytes": 8224,
+      "sha256": "b8122d69679923efc910e37745ea7189d3d304bbcf70ac5a66fdfb944598f9f7"
+    },
+    "extension/genshin-dialogue-ui/assets/namecards/sumeru-shimmering-woods.webp": {
+      "bytes": 19490,
+      "sha256": "190062581b7c8b5c46dd03762873da6da2c1d9b1ce02aeae59e629fea6f851c9"
+    },
+    "extension/genshin-dialogue-ui/assets/namecards/sumeru-unsullied.webp": {
+      "bytes": 16894,
+      "sha256": "b54df6ab3b29a3e950a1329dc2bd640d379c7f22ec86510761345d8ae17e800c"
+    },
+    "extension/genshin-dialogue-ui/assets/namecards/travel-notes-arcane-amassing.webp": {
+      "bytes": 18686,
+      "sha256": "6c6a831eff2d5a3130763aee83c2b76bc2d9eb4cde7ba88e7fc3d11f8b84c946"
+    },
+    "extension/genshin-dialogue-ui/assets/namecards/travel-notes-artful-intent.webp": {
+      "bytes": 33600,
+      "sha256": "2b82858da8b8909589b56428608a2089d6e739b9f21fc9c9ab061fd1e9c90e23"
+    },
+    "extension/genshin-dialogue-ui/assets/namecards/travel-notes-awakening.webp": {
+      "bytes": 19678,
+      "sha256": "12c4826fb147c4cf6d2aaaa1eb0bc16b90e7fa7582626cb1cc798e15541e2f8f"
+    },
+    "extension/genshin-dialogue-ui/assets/namecards/travel-notes-azure-main.webp": {
+      "bytes": 25398,
+      "sha256": "4677759f88f9924661f75bb38fbfe0e91f10d9aa82ad40cf4c444b3c8601902a"
+    },
+    "extension/genshin-dialogue-ui/assets/namecards/travel-notes-balletica.webp": {
+      "bytes": 20050,
+      "sha256": "872e5e9572c5ca8df6d461b3b0d6647545c487567ac9b427b7e81e0d147918ee"
+    },
+    "extension/genshin-dialogue-ui/assets/namecards/travel-notes-blazing-snow.webp": {
+      "bytes": 33080,
+      "sha256": "00ea11505935aa098c1c1d54c4d21a2afe76aa1d462528484e4da06b9df78240"
+    },
+    "extension/genshin-dialogue-ui/assets/namecards/travel-notes-blooming-glory.webp": {
+      "bytes": 27122,
+      "sha256": "911c3bfd1f9ed1aa94d296df2e52cc5532096d84d9c85a7c511eb834816adfb0"
+    },
+    "extension/genshin-dialogue-ui/assets/namecards/travel-notes-bygone-ruins.webp": {
+      "bytes": 19056,
+      "sha256": "b8db751163a9f5de4c54367c1aec543195d440f5bd7a2fc8a3dc99a5ed68bc2e"
+    },
+    "extension/genshin-dialogue-ui/assets/namecards/travel-notes-chalk.webp": {
+      "bytes": 7724,
+      "sha256": "a68b54852ebf5d0e6cd71228d048fce1111dd35f288dc190b16e1c49ce3dce46"
+    },
+    "extension/genshin-dialogue-ui/assets/namecards/travel-notes-crown-of-glory.webp": {
+      "bytes": 23320,
+      "sha256": "65bcd6dc6c592a71de51c9fe534eed471783c8e24b3387040ccabd7560f69d7e"
+    },
+    "extension/genshin-dialogue-ui/assets/namecards/travel-notes-divine-will.webp": {
+      "bytes": 15448,
+      "sha256": "066c45257ebad116a16e97e2504e09e1adca83289aab692692ab5528cba43be3"
+    },
+    "extension/genshin-dialogue-ui/assets/namecards/travel-notes-easy-breezy.webp": {
+      "bytes": 21836,
+      "sha256": "7d845e86ca59bd32162e5f6587be53f5a03c5e528607eb06808f3defe097a609"
+    },
+    "extension/genshin-dialogue-ui/assets/namecards/travel-notes-fading-star.webp": {
+      "bytes": 11194,
+      "sha256": "9bbebfa5a70198fdbb844a24724dcbac2ec660559faee8c7332b85a115792de3"
+    },
+    "extension/genshin-dialogue-ui/assets/namecards/travel-notes-falling-star.webp": {
+      "bytes": 17404,
+      "sha256": "34f64012860b20996a24b62004456918efb05c7f24ef6bce1700253bf9624df1"
+    },
+    "extension/genshin-dialogue-ui/assets/namecards/travel-notes-fanciful-fabrication.webp": {
+      "bytes": 26046,
+      "sha256": "054387475168ee01e904b2e92d818bf4e80d257bf4490abafc9c3d2d5e01be03"
+    },
+    "extension/genshin-dialogue-ui/assets/namecards/travel-notes-flowing-hues.webp": {
+      "bytes": 23634,
+      "sha256": "6da989f9d45f283f167083beadcaa6c4d088eed7f402bb7f420231e87c7630fc"
+    },
+    "extension/genshin-dialogue-ui/assets/namecards/travel-notes-frostfarer.webp": {
+      "bytes": 25220,
+      "sha256": "73e972f41cf2d2954a33f3cdea860e344878e3c584424b0e29da720589503cfb"
+    },
+    "extension/genshin-dialogue-ui/assets/namecards/travel-notes-fungus-land.webp": {
+      "bytes": 15058,
+      "sha256": "54ef393f784fd052ba106456836474b206669a98ffdc8f001b6725b070556be5"
+    },
+    "extension/genshin-dialogue-ui/assets/namecards/travel-notes-gift-of-splendor.webp": {
+      "bytes": 29264,
+      "sha256": "2d4326318e98010ae8578bace036f3b5ce1f6ce2741c6d85473faddc899580fc"
+    },
+    "extension/genshin-dialogue-ui/assets/namecards/travel-notes-glacial-moon.webp": {
+      "bytes": 36136,
+      "sha256": "6f4795666db2ef73c91c669740afa01766352c45c16e019217070749909bfa8c"
+    },
+    "extension/genshin-dialogue-ui/assets/namecards/travel-notes-grand-narukami-shrine.webp": {
+      "bytes": 11838,
+      "sha256": "fb08ab32f6e0e00b4fb7b49f321aba5a019e533f30b97175c89d68d0f610a6c2"
+    },
+    "extension/genshin-dialogue-ui/assets/namecards/travel-notes-heavenly-general.webp": {
+      "bytes": 10420,
+      "sha256": "7443d135a5baf3db8713eb5515aa8a8d53f8695be6cf44a2fc47a5d129f233f9"
+    },
+    "extension/genshin-dialogue-ui/assets/namecards/travel-notes-homecoming.webp": {
+      "bytes": 30464,
+      "sha256": "5fc1258696efa2770650fd6b5e32175d1f25a0ba690a7836446c01201cd56aa6"
+    },
+    "extension/genshin-dialogue-ui/assets/namecards/travel-notes-irodori.webp": {
+      "bytes": 23958,
+      "sha256": "9689e45fc6b14667b6945be2a061c7aa3af2beaac68a1a79ab4cb2111a0d2c48"
+    },
+    "extension/genshin-dialogue-ui/assets/namecards/travel-notes-lyratum.webp": {
+      "bytes": 10722,
+      "sha256": "29430121dbbaa8a7108ed86ee81217ebb76947f0f8e3b4a1dc91c5a33e77c2af"
+    },
+    "extension/genshin-dialogue-ui/assets/namecards/travel-notes-midsummer.webp": {
+      "bytes": 10506,
+      "sha256": "869830d1ec44c40ca4be9179c4801f1d6cecdd1931b92c1855613422b86b9a45"
+    },
+    "extension/genshin-dialogue-ui/assets/namecards/travel-notes-mingxiao.webp": {
+      "bytes": 14870,
+      "sha256": "6b8298cba1ebc237b4de15a2b774e42aec0f7c781e4a231ad1b9e77284d61472"
+    },
+    "extension/genshin-dialogue-ui/assets/namecards/travel-notes-moonchaser.webp": {
+      "bytes": 17756,
+      "sha256": "46371cdb87a9c59f903f3760857f6bbea3eeed568a4430c54539ad533b911a02"
+    },
+    "extension/genshin-dialogue-ui/assets/namecards/travel-notes-moontrace.webp": {
+      "bytes": 14346,
+      "sha256": "149eaf5e6036c4f707065269cba61e8adc13d139ceb4664bb36d6efd7a03dd06"
+    },
+    "extension/genshin-dialogue-ui/assets/namecards/travel-notes-northerly-winds.webp": {
+      "bytes": 22962,
+      "sha256": "f31c53d41551e896c00da8a637c56d9f4700d3f799b4d6f5ff87b8dd6a981ddd"
+    },
+    "extension/genshin-dialogue-ui/assets/namecards/travel-notes-primal-fire.webp": {
+      "bytes": 30498,
+      "sha256": "a3baf5dd47093a91e4d947042e7b43aca63db639a0d51022832ab9658cc95c55"
+    },
+    "extension/genshin-dialogue-ui/assets/namecards/travel-notes-primordial-waters.webp": {
+      "bytes": 22840,
+      "sha256": "bc3c06b418208e9b4df1be9b97f563826d8562c2bd091cd5770c5f9c9413dab1"
+    },
+    "extension/genshin-dialogue-ui/assets/namecards/travel-notes-returning-winds.webp": {
+      "bytes": 34178,
+      "sha256": "32f30265e5b5c6640843932a4e36b72b1a931c942e167b1a83a661eb6648deaa"
+    },
+    "extension/genshin-dialogue-ui/assets/namecards/travel-notes-rhythm-and-rhyme.webp": {
+      "bytes": 15478,
+      "sha256": "8203e1d3d2af24455fca45c1ced9bce87c05934be476ffe3ed6475577287e607"
+    },
+    "extension/genshin-dialogue-ui/assets/namecards/travel-notes-sabzeruz.webp": {
+      "bytes": 24758,
+      "sha256": "e5df41a5d711ca41eaeec99da939a78f72d148458924f7ba01eaba7818e9bddb"
+    },
+    "extension/genshin-dialogue-ui/assets/namecards/travel-notes-secrets.webp": {
+      "bytes": 19364,
+      "sha256": "37d980c05ad182bee20b8c4d773f304f254736b182c3a844cad31745cc02713a"
+    },
+    "extension/genshin-dialogue-ui/assets/namecards/travel-notes-simulnation.webp": {
+      "bytes": 15724,
+      "sha256": "8d2c81589d12837f0b310415b55091dd2d8dd2d6a34d6a5f15ec11dc14c8daf2"
+    },
+    "extension/genshin-dialogue-ui/assets/namecards/travel-notes-speculation.webp": {
+      "bytes": 21292,
+      "sha256": "85fc67955ea54d48ec04182367ee6cf0fbab5198286d7ef1bc57f08b7edc9ea6"
+    },
+    "extension/genshin-dialogue-ui/assets/namecards/travel-notes-spiritweaver.webp": {
+      "bytes": 23238,
+      "sha256": "76efce25eed02c369a85cd995e2e8f9eb715d6c1346d83d42ada82a9879e215c"
+    },
+    "extension/genshin-dialogue-ui/assets/namecards/travel-notes-stellar-rivers.webp": {
+      "bytes": 16366,
+      "sha256": "8d1e5eba64bd32f02bcc0bd2c6f3caa9a90a93b88e87601b76de788ea6991ac2"
+    },
+    "extension/genshin-dialogue-ui/assets/namecards/travel-notes-sub-space-recreation.webp": {
+      "bytes": 12222,
+      "sha256": "c35cdf94aa2798ef55244f419e3c06856f60b167de14a829072cbd74c6b83b0a"
+    },
+    "extension/genshin-dialogue-ui/assets/namecards/travel-notes-sunny-summer.webp": {
+      "bytes": 25908,
+      "sha256": "8a5ecbc48af4b829259c2c6c936db4f9af20dad8b6080fe7f5c7eaaa82b53a88"
+    },
+    "extension/genshin-dialogue-ui/assets/namecards/travel-notes-the-flame-renewed.webp": {
+      "bytes": 24424,
+      "sha256": "badd03b2e6c13718b17d3e861ab086aefe799d51db27ffe8401a382528dfa705"
+    },
+    "extension/genshin-dialogue-ui/assets/namecards/travel-notes-the-realms-rocked.webp": {
+      "bytes": 26636,
+      "sha256": "88feeeb63e490a922ef0f12774446e1c39d013c07bbb1583e1fcea07c126b410"
+    },
+    "extension/genshin-dialogue-ui/assets/namecards/travel-notes-time-inscribed.webp": {
+      "bytes": 15376,
+      "sha256": "ef7be060e8a8915890dd439e6978ee58ff021d2723287f3d23fd7aff1028989c"
+    },
+    "extension/genshin-dialogue-ui/assets/namecards/travel-notes-vibrant-harriers.webp": {
+      "bytes": 27012,
+      "sha256": "8f3d930897b488f521678587a1a6b91b07a5e1778a754665ff136a10ccf5e574"
+    },
+    "extension/genshin-dialogue-ui/assets/namecards/travel-notes-vivid-illumination.webp": {
+      "bytes": 16528,
+      "sha256": "26046789abd23416c3a1230ef9a15b97efff22c0d656ef44aeecbf26cb35fe67"
+    },
+    "extension/genshin-dialogue-ui/assets/namecards/travel-notes-whirling-waltz.webp": {
+      "bytes": 27162,
+      "sha256": "6a902975623f4d2d869b77ae1e0fee265e271c5a99e1f2dfd15d6f1d4093825c"
+    },
+    "extension/genshin-dialogue-ui/assets/namecards/travel-notes-wondrous-reverie.webp": {
+      "bytes": 19238,
+      "sha256": "dc6c6284c7b202c0ec30c2eae83fb440cc189b7a1b52e030a54a7e64634fc116"
+    },
+    "extension/genshin-dialogue-ui/assets/namecards/travel-notes-woodlands.webp": {
+      "bytes": 26606,
+      "sha256": "9df21f1bfd0612e95a9a352249984e172dbf37663e961791d2bdf361a94bb3a4"
+    },
+    "extension/genshin-dialogue-ui/assets/ui-sound/press.mp3": {
+      "bytes": 11538,
+      "sha256": "5e6d880d3978918c6a778c4702078ca0bf1f0bad3937a65179af92e190a5b56c"
+    },
+    "extension/genshin-dialogue-ui/assets/ui-sound/drawer.mp3": {
+      "bytes": 19897,
+      "sha256": "d733b21cfee00a2a0ed044372979f1426be5481b90cc2e7e82343f814cb20456"
+    },
+    "extension/genshin-dialogue-ui/assets/ui-sound/close.mp3": {
+      "bytes": 9448,
+      "sha256": "1b2eb30ce95c74e280a916aaf77cc031426b524c8cdf169a6b192d3c9d9551d5"
+    },
+    "extension/genshin-dialogue-ui/assets/ui-sound/toggle-on.mp3": {
+      "bytes": 20942,
+      "sha256": "bcc376b972a3312fc0aba8b7ccd9c7bab63ab97ce86e650f3912a99da6a19649"
+    },
+    "extension/genshin-dialogue-ui/assets/ui-sound/choice.mp3": {
+      "bytes": 21987,
+      "sha256": "fff90b0d13c2e42abd55574b6e437b7efe5fab053e534a49577b2fdb96d03ae3"
+    },
+    "extension/genshin-dialogue-ui/assets/ui-sound/use.mp3": {
+      "bytes": 37660,
+      "sha256": "bb9a6ee2aad020aadfe3ac5945c7122af238936991ad6a2414249332bbdf4f11"
+    },
+    "extension/genshin-dialogue-ui/assets/ui-sound/trust-up.mp3": {
+      "bytes": 82591,
+      "sha256": "3bdedf9a08b10b360caf5eb3f7174b71524a9e622a378c7c3503e7210a544400"
+    },
+    "extension/genshin-dialogue-ui/assets/ui-sound/teleport.mp3": {
+      "bytes": 84680,
+      "sha256": "13cdb60c23b7473ec1fa790bf2aee9fd8b68f2ea0d5cf239812265d8f7d09de9"
     }
   }
 }

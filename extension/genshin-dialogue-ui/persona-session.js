@@ -1,10 +1,14 @@
 import {activeGroup,inPartyChat} from './party.js';
 import {linkedCard,playedAvatars} from './persona-link.js';
 import {activePersonaAvatar,personaCard,personaPortrait} from './persona-wardrobe.js';
-import {castIdentity,createLocationCastAdapter,locationCastState} from './location-cast.js';
+import {castIdentity,createLocationCastAdapter,defaultCharacterLocation,locationCastState} from './location-cast.js';
+import {rollLocationEncounter} from './location-encounters.js';
+import {noteLocationArrival} from './arrival-policy.js';
+import {ensureNarrator,narratorAvatar} from './narrator.js';
 import {newLocalId} from './local-id.js';
 import {homeRegionName,regionGuild} from './defeat.js';
-import {teleportTo} from './world-data.js';
+import {loadCharacterHomes} from './character-homes.js';
+import {teleportTo,worldWaypoints} from './world-data.js';
 
 export function inheritCharacterHistory(ctx,card){
     if(!card)return 0;let count=0;
@@ -32,18 +36,46 @@ export function soloParty(ctx){
     const group=activeGroup(ctx),played=playedAvatars(ctx);
     return Boolean(group)&&!(group.members || []).some(a=>!played.has(a)&&!group.disabled_members?.includes(a)&&ctx.characters?.some(c=>c.avatar===a));
 }
+// A solo journey has no party to draw a portrait from, so past chats show who the player is playing.
+// SillyTavern only accepts a group portrait stored as a data URL, so the thumbnail is kept that way.
+function journeyPortrait(ctx,card){
+    if(!card)return '';
+    return ctx.characters?.some(c=>c.avatar===card.avatar)?ctx.getThumbnailUrl?.('avatar',card.avatar):ctx.getThumbnailUrl?.('persona',card.personaAvatar);
+}
+async function portraitData(url,fetchImpl=fetch){
+    if(!url)return undefined;
+    try{
+        const response=await fetchImpl(url);if(!response.ok)return undefined;
+        const blob=await response.blob();
+        return await new Promise((done,fail)=>{const reader=new FileReader();reader.onload=()=>done(reader.result);reader.onerror=fail;reader.readAsDataURL(blob);});
+    }catch(error){console.warn('[Silly Teyvat] Journey portrait',error);return undefined;}
+}
+export async function repairSoloPortraits(ctx,fetchImpl=fetch){
+    let repaired=0;
+    for(const group of ctx.groups || []){
+        const avatar=group.silly_teyvat_journey?.source?.avatar,solo=group.silly_teyvat_journey?.source?.chatId?.startsWith('solo:');
+        if(!solo||group.avatar_url||!ctx.characters?.some(c=>c.avatar===avatar))continue;
+        const avatar_url=await portraitData(ctx.getThumbnailUrl?.('avatar',avatar),fetchImpl);if(!avatar_url)continue;
+        const next={...group,avatar_url};
+        const response=await fetchImpl('/api/groups/edit',{method:'POST',headers:ctx.getRequestHeaders(),body:JSON.stringify(next)});
+        if(response.ok){Object.assign(group,next);repaired++;}
+    }
+    return repaired;
+}
 export function makeSoloJourney(ctx){
     const card=personaCard(ctx),chatId='Silly-Teyvat-'+newLocalId('solo'),name=card?.name || ctx.name1 || 'Player';
     const metadata=structuredClone(ctx.chatMetadata || {});delete metadata.main_chat;
     metadata.silly_teyvat_cast={core:[],managed:[],placements:{},source:{avatar:card?.avatar || '__user__',chatId:'solo:'+chatId}};
-    // A solo journey begins at the Adventurers' Guild of the region the player's character calls home.
-    const guild=regionGuild(ctx,homeRegionName(ctx,linkedCard(ctx) || card));
-    if(guild){delete metadata.silly_teyvat_world;try{teleportTo({...ctx,chat:[],chatMetadata:metadata,saveMetadataDebounced:null,saveChat:null,setExtensionPrompt:null},guild.location.id,{record:false});}catch(error){console.warn('[Silly Teyvat] Solo journey start',error);}}
-    // SillyTavern's own notices (its "SillyTavern System" welcome lines) stay out of the journey; only Silly Teyvat's tagged notices carry over.
+    // A solo journey begins alone at the player's character's home. A persona with no card, or a card
+    // with no home on the map, begins at the Adventurers' Guild of their region. The empty opening
+    // scene is what keeps the people who live there out until the player comes back later.
+    const home=defaultCharacterLocation(ctx,card?.avatar),start=worldWaypoints(ctx).find(w=>w.location.id===home?.id) || regionGuild(ctx,homeRegionName(ctx,linkedCard(ctx) || card));
+    if(start){delete metadata.silly_teyvat_world;try{teleportTo({...ctx,chat:[],chatMetadata:metadata,saveMetadataDebounced:null,saveChat:null,setExtensionPrompt:null},start.location.id,{record:false});metadata.silly_teyvat_cast.encounter=rollLocationEncounter(ctx,start.location.id,[],{kind:'open'});noteLocationArrival({chatMetadata:metadata},start.location.id,{kind:'open'});}catch(error){console.warn('[Silly Teyvat] Solo journey start',error);}}
+    // SillyTavern's own welcome page (its "SillyTavern System" lines and Assistant greeting) stays out of the journey; only what the player wrote and Silly Teyvat's tagged notices carry over.
     const ownNotice=message=>Object.keys(message.extra || {}).some(key=>key.startsWith('silly_teyvat'));
-    const messages=structuredClone(ctx.chat || []).filter(message=>!message.is_system || ownNotice(message));
-    if(!messages.length)messages.push({name:'Narrator',is_user:false,is_system:true,mes:'You are travelling alone. Choose a destination on the world map.',send_date:new Date().toISOString(),extra:{isSmallSys:true,silly_teyvat_solo:true}});
-    return {chatId,chat:[{chat_metadata:metadata,user_name:'unused',character_name:'unused'},...messages],group:{name:'Teyvat journey: '+name,members:[],disabled_members:[],allow_self_responses:false,activation_strategy:0,generation_mode:0,chat_id:chatId,chats:[chatId],auto_mode_delay:5,silly_teyvat_journey:{version:1,managed:true,source:metadata.silly_teyvat_cast.source}}};
+    const narrator=narratorAvatar(ctx),messages=structuredClone(ctx.chat || []).filter(message=>message.is_user || ownNotice(message));
+    if(!messages.length&&!narrator)messages.push({name:'Narrator',is_user:false,is_system:true,mes:'You are travelling alone. Choose a destination on the world map.',send_date:new Date().toISOString(),extra:{isSmallSys:true,silly_teyvat_solo:true}});
+    return {chatId,portrait:journeyPortrait(ctx,card),chat:[{chat_metadata:metadata,user_name:'unused',character_name:'unused'},...messages],group:{name:'Teyvat journey: '+name,members:narrator?[narrator]:[],disabled_members:[],allow_self_responses:false,activation_strategy:0,generation_mode:0,chat_id:chatId,chats:[chatId],auto_mode_delay:5,silly_teyvat_journey:{version:1,managed:true,source:metadata.silly_teyvat_cast.source}}};
 }
 export function createPersonaSessionAdapter(getContext,{loadScript=()=>import('/script.js'),loadGroups=()=>import('/scripts/group-chats.js')}={}){
     const cast=createLocationCastAdapter(getContext,{loadScript,loadGroups});
@@ -55,7 +87,8 @@ export function createPersonaSessionAdapter(getContext,{loadScript=()=>import('/
         async createSolo(ctx,isCurrent){
             const script=await loadScript();
             if(script.isGenerating()||script.isChatSaving)throw new Error('Wait for the current chat operation to finish before starting a solo journey.');
-            const snapshot=makeSoloJourney(ctx);await post('/api/chats/group/save',{id:snapshot.chatId,chat:snapshot.chat});if(!isCurrent())return false;
+            await loadCharacterHomes(ctx);await ensureNarrator(ctx);if(!isCurrent())return false;
+            const snapshot=makeSoloJourney(getContext());snapshot.group.avatar_url=await portraitData(snapshot.portrait);await post('/api/chats/group/save',{id:snapshot.chatId,chat:snapshot.chat});if(!isCurrent())return false;
             const group=await post('/api/groups/create',snapshot.group);group.silly_teyvat_journey=snapshot.group.silly_teyvat_journey;await post('/api/groups/edit',group);
             if(!isCurrent())return false;await ctx.getCharacters();
             const native=await loadGroups();if(!isCurrent())return false;

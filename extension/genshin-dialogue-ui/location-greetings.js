@@ -2,6 +2,7 @@ import {isEnemy} from './character-properties.js';
 import {backgroundRegions} from './backgrounds.js';
 import {syncWorldPrompt} from './world-data.js';
 import {promptText,renderPrompt} from './prompt-templates.js';
+import {queueSoloHint} from './narrator.js';
 
 export function locationGreetingPrompt(ctx,character,destination,home,entry={}){
     const names=avatars=>(avatars || []).map(a=>ctx.characters.find(c=>c.avatar===a)?.name).filter(Boolean);
@@ -9,6 +10,11 @@ export function locationGreetingPrompt(ctx,character,destination,home,entry={}){
         defeat_note:entry.reason==='defeat'?renderPrompt(ctx,'greeting_defeat',{place:entry.defeatFrom || 'the wilds'}):'',
         enemy_note:isEnemy(ctx,character)?promptText(ctx,'greeting_enemy'):'',
         scene_data:JSON.stringify({character:character.name,player:ctx.name1 || 'the player',currentLocation:destination.label,description:destination.description || '',usualLocation:home?.label || 'Elsewhere',arrivingCompanions:names(entry.travellers),residents:names(entry.residents),everyonePresent:names(entry.sceneAvatars)})});
+}
+
+export function narratorGreetingPrompt(ctx,destination,region,entry={}){
+    return renderPrompt(ctx,'greeting_narrator',{player:ctx.name1 || 'the player',location:destination.label,region:region?.name || 'Teyvat',description:destination.description || '',
+        defeat_note:entry.reason==='defeat'?renderPrompt(ctx,'greeting_narrator_defeat',{player:ctx.name1 || 'the player',place:entry.defeatFrom || 'the wilds'}):''});
 }
 
 // Quiet generation uses the selected character's complete native card and chat
@@ -28,6 +34,7 @@ export async function deliverLocationGreeting(getContext,entry,isCurrent,{loadSc
     await script.unshallowCharacter?.(index);
     if(!isCurrent())return false;ctx=getContext();
     const character=ctx.characters.find(c=>c.avatar===entry.avatar);
+    const narrated=entry.mode==='narrator',region=backgroundRegions(ctx).find(r=>r.locations.some(l=>l.id===entry.locationId));
     const locations=backgroundRegions(ctx).flatMap(r=>r.locations),destination=locations.find(l=>l.id===entry.locationId),home=locations.find(l=>l.id===entry.defaultLocationId);
     if(!character||!destination)return true;
     const dynamic=!(entry.mode==='written'&&entry.locationId===entry.defaultLocationId&&entry.travellers?.length===0&&entry.residents?.length===1&&entry.residents[0]===entry.avatar);
@@ -35,7 +42,7 @@ export async function deliverLocationGreeting(getContext,entry,isCurrent,{loadSc
     if(dynamic){
         syncWorldPrompt(ctx);
         if(ctx.onlineStatus==='no_connection')throw new Error(`Connect your main API, then use Retry location guests to generate ${character.name}'s arrival greeting.`);
-        text=await ctx.generateQuietPrompt({quietPrompt:locationGreetingPrompt(ctx,character,destination,home,entry),quietToLoud:true,forceChId:ctx.characters.indexOf(character),responseLength:350,removeReasoning:true});
+        text=await ctx.generateQuietPrompt({quietPrompt:narrated?narratorGreetingPrompt(ctx,destination,region,entry):locationGreetingPrompt(ctx,character,destination,home,entry),quietToLoud:true,forceChId:ctx.characters.indexOf(character),responseLength:350,removeReasoning:true});
     }else{
         const options=[character.first_mes || character.data?.first_mes,...(character.data?.alternate_greetings || [])].filter(s=>typeof s==='string'&&s.trim());
         text=options[0] || '';
@@ -50,6 +57,7 @@ export async function deliverLocationGreeting(getContext,entry,isCurrent,{loadSc
     if(ctx.substituteParams)text=ctx.substituteParams(text,{name2Override:character.name});
     const message={name:character.name,is_user:false,is_system:false,send_date:new Date().toISOString(),original_avatar:character.avatar,force_avatar:ctx.getThumbnailUrl?.('avatar',character.avatar) || `/characters/${encodeURIComponent(character.avatar)}`,mes:text,
         extra:{gen_id:Date.now()*Math.random()*1000000,silly_teyvat_arrival:{key:entry.key,locationId:entry.locationId,defaultLocationId:entry.defaultLocationId,dynamic}}};
+    if(narrated){message.extra.type='narrator';queueSoloHint(ctx,entry.key,destination.label,region?.name || 'Teyvat');}
     ctx.chat.push(message);const id=ctx.chat.length-1;
     if(ctx.eventTypes?.MESSAGE_RECEIVED)await ctx.eventSource?.emit?.(ctx.eventTypes.MESSAGE_RECEIVED,id,'first_message');
     ctx.addOneMessage(message);

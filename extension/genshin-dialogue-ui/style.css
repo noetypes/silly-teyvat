@@ -1423,13 +1423,13 @@ body.gi-scene:not(.gi-history) #chat > .mes.gi-current .mes_block { animation: t
 #gi-review-heading:not([hidden]) { animation: ty-drop 300ms var(--ty-ease) both; }
 #gi-notice:not([hidden]) { animation: ty-rise 320ms var(--ty-ease) both; }
 @keyframes ty-drop { from { opacity: 0; translate: 0 -12px; } to { opacity: 1; translate: 0 0; } }
-#gi-choices .qr--button, #qr--bar .qr--button { animation: ty-choice 340ms var(--ty-ease) both; }
-#gi-choices .qr--button:nth-child(2), #qr--bar .qr--button:nth-child(2) { animation-delay: 60ms; }
-#gi-choices .qr--button:nth-child(3), #qr--bar .qr--button:nth-child(3) { animation-delay: 120ms; }
-#gi-choices .qr--button:nth-child(4), #qr--bar .qr--button:nth-child(4) { animation-delay: 180ms; }
+#gi-choices .qr--button, body.gi-enabled #qr--bar .qr--button { animation: ty-choice 340ms var(--ty-ease) both; }
+#gi-choices .qr--button:nth-child(2), body.gi-enabled #qr--bar .qr--button:nth-child(2) { animation-delay: 60ms; }
+#gi-choices .qr--button:nth-child(3), body.gi-enabled #qr--bar .qr--button:nth-child(3) { animation-delay: 120ms; }
+#gi-choices .qr--button:nth-child(4), body.gi-enabled #qr--bar .qr--button:nth-child(4) { animation-delay: 180ms; }
 @keyframes ty-choice { from { opacity: 0; translate: 24px 0; } to { opacity: 1; translate: 0 0; } }
-#gi-choices .qr--button, #qr--bar .qr--button { transition: background 180ms ease, translate 220ms var(--ty-ease), box-shadow 180ms ease; }
-#gi-choices .qr--button:hover, #qr--bar .qr--button:hover { translate: 6px 0; }
+#gi-choices .qr--button, body.gi-enabled #qr--bar .qr--button { transition: background 180ms ease, translate 220ms var(--ty-ease), box-shadow 180ms ease; }
+#gi-choices .qr--button:hover, body.gi-enabled #qr--bar .qr--button:hover { translate: 6px 0; }
 
 /* ---------- Combat: attack toggle ---------- */
 #gi-attack-controls #gi-attack-toggle { transition: color 200ms ease, background 200ms ease, box-shadow 260ms ease, transform 240ms var(--ty-ease); }
@@ -1649,6 +1649,16 @@ body.gi-reduced-motion :is(#gi-toolbar, #gi-toolbar > *, #gi-menu-scrim, .gi-ene
 #gi-settings input.gi-switch:checked { background: var(--ty-gold); }
 #gi-settings input.gi-switch:checked::after { transform: translateX(22px); background: #fff; }
 #gi-settings input.gi-switch:focus-visible { outline: 2px solid var(--ty-gold-hi); outline-offset: 2px; }
+/* A set with only some of its settings on: the knob rests halfway. */
+#gi-settings input.gi-switch:indeterminate { background: color-mix(in srgb, var(--ty-gold) 45%, #0000004d); }
+#gi-settings input.gi-switch:indeterminate::after { transform: translateX(11px); background: var(--ty-cream); }
+/* The master switch, and the panel with Silly Teyvat off: nothing but that switch. */
+#gi-settings .gi-features { margin-bottom: 12px; }
+#gi-settings .gi-master { min-height: 48px; background: linear-gradient(90deg, #d3bc8e2e, #d3bc8e0d); box-shadow: inset 0 0 0 1px #d3bc8e40; }
+#gi-settings .gi-master > span { color: var(--ty-gold-hi); font-size: 15px; letter-spacing: .04em; }
+#gi-settings .gi-master-note { display: none; }
+#gi-settings[data-master="off"] .gi-master-note { display: block; }
+#gi-settings[data-master="off"] :is(.gi-features > h4, .gi-feature-groups, .gi-features > .gi-note:last-child, .gi-set-tabs, .gi-set-page, .gi-set-footer) { display: none; }
 #gi-settings .gi-set-actions { display: flex; gap: 8px; margin: 8px 0 4px; }
 #gi-settings .menu_button { min-height: 38px; margin: 0; padding: 6px 22px; border: 0; border-radius: 20px; background: var(--ty-cream); color: var(--ty-ink); font: 13.5px var(--ty-font); text-shadow: none; box-shadow: 0 2px 8px #0005; }
 #gi-settings .menu_button:hover { background: #fff; color: var(--ty-ink); }
@@ -2107,6 +2117,9 @@ body.gi-card-art-on .avatar.gi-mes-card img { opacity: 0; }
 body.gi-card-art-on .avatar.gi-mes-card::before { content: ''; position: absolute; top: 0; left: 50%; translate: -50% 0; height: 100%; aspect-ratio: 208 / 248; background: var(--gi-mes-card) center / contain no-repeat; filter: drop-shadow(0 3px 5px #000a); pointer-events: none; }
 body.gi-card-art-on .avatar.gi-mes-card.gi-mes-card-tcg::before { top: 6%; height: 88%; aspect-ratio: 420 / 720; }
 body.gi-card-art-on .avatar img.gi-card-img-frame { height: 85.08%; aspect-ratio: 157 / 211; object-fit: cover; border-radius: 4px; box-shadow: 0 0 0 1.5px #dcd7cc, 0 0 0 2.5px #0008, 0 3px 6px #000a; }
+/* Persona Management sizes its images by ID, so the cards are sized to match the character list here. */
+body.gi-card-art-on #user_avatar_block .avatar img.gi-card-img { width: auto; height: 100%; }
+body.gi-card-art-on #user_avatar_block .avatar img.gi-card-img-frame { width: auto; height: 85.08%; }
 body.gi-card-art-on #right-nav-panel :is(.character_select, .group_member):is(:hover, :focus-visible) .avatar img:is(.gi-card-img, .gi-card-img-frame) { translate: 0 -3px; }
 body.gi-card-art-on #right-nav-panel :is(.character_select, .group_member):is(:hover, :focus-visible) .avatar img.gi-card-img { filter: drop-shadow(0 6px 8px #000c) brightness(1.05); }
 /* Group collages: the members' cards fan out like a hand. */
@@ -2260,7 +2273,7 @@ body.gi-reduced-motion #gi-attack-controls #gi-attack-toggle { animation: none; 
 #gi-world-map .gi-map-region-current svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 2; transition: rotate 240ms var(--ty-ease); }
 #gi-world-map .gi-map-region-current[aria-expanded="true"] svg { rotate: 180deg; }
 #gi-world-map .gi-map-region-current span { animation: ty-fade 260ms ease both; }
-#gi-world-map .gi-map-region-gem { flex: none; width: 14px; height: 14px; rotate: 45deg; border-radius: 3px; background: var(--gem, var(--ty-gold)); box-shadow: 0 0 0 1.5px #fff6, 0 0 10px var(--gem, var(--ty-gold)); }
+#gi-world-map .gi-map-region-gem { flex: none; width: 26px; height: 26px; background: currentColor; -webkit-mask: var(--gi-emblem) center / contain no-repeat; mask: var(--gi-emblem) center / contain no-repeat; }
 #gi-world-map [data-element="anemo"] { --gem: var(--ty-anemo); } #gi-world-map [data-element="geo"] { --gem: var(--ty-geo); }
 #gi-world-map [data-element="electro"] { --gem: var(--ty-electro); } #gi-world-map [data-element="dendro"] { --gem: var(--ty-dendro); }
 #gi-world-map [data-element="hydro"] { --gem: var(--ty-hydro); } #gi-world-map [data-element="pyro"] { --gem: var(--ty-pyro); }
@@ -2276,7 +2289,7 @@ body.gi-reduced-motion #gi-attack-controls #gi-attack-toggle { animation: none; 
 }
 #gi-world-map .gi-map-region-menu button:hover { background: linear-gradient(90deg, #ece5d82b, #ece5d80a); }
 #gi-world-map .gi-map-region-menu button[aria-current="true"] { background: var(--ty-cream); color: var(--ty-ink); }
-#gi-world-map .gi-map-region-menu .gi-map-region-gem { width: 10px; height: 10px; }
+#gi-world-map .gi-map-region-menu .gi-map-region-gem { width: 24px; height: 24px; }
 #gi-world-map .gi-map-head { max-width: calc(50vw - 130px); }
 @media (max-width: 600px) and (orientation: portrait) {
     #gi-world-map .gi-map-head { max-width: calc(100vw - 160px); }
@@ -3780,3 +3793,231 @@ body.gi-keyboard :is(#gi-background-stage,#gi-sprite-stage,#gi-cg-stage,#gi-lett
 #gi-wardrobe .gi-start-trust-row button{flex:0 0 30px;width:30px;min-width:0;height:30px;min-height:0;margin:0;padding:0;line-height:1}
 #gi-wardrobe .gi-start-trust-add button{flex:none;width:auto;min-height:32px;margin:0;padding:2px 14px}
 #gi-wardrobe .gi-start-trust [data-start-trust-reset]{display:block;width:auto;min-height:32px;margin:8px 0 0;padding:2px 14px}
+
+/* Character screen, after the game's: an element gradient with nebulae rolling left to right, stars and
+   element motes (character-backdrop.js), text sections on the left and details floating on the right. */
+@property --cs-g0 { syntax: "<color>"; inherits: true; initial-value: #141b2f; }
+@property --cs-g1 { syntax: "<color>"; inherits: true; initial-value: #1f2a47; }
+@property --cs-g2 { syntax: "<color>"; inherits: true; initial-value: #2c3a5d; }
+@property --cs-g3 { syntax: "<color>"; inherits: true; initial-value: #3a4a6b; }
+@property --cs-g4 { syntax: "<color>"; inherits: true; initial-value: #222c41; }
+@property --cs-g5 { syntax: "<color>"; inherits: true; initial-value: #1a2336; }
+@property --cs-g6 { syntax: "<color>"; inherits: true; initial-value: #151c2c; }
+@property --cs-cloud { syntax: "<color>"; inherits: true; initial-value: #7f93c8; }
+@property --cs-shade { syntax: "<color>"; inherits: true; initial-value: #0b1228; }
+@property --cs-hi { syntax: "<color>"; inherits: true; initial-value: #f2dca0; }
+
+#gi-wardrobe {
+    --cs-g0: #141b2f; --cs-g1: #1f2a47; --cs-g2: #2c3a5d; --cs-g3: #3a4a6b; --cs-g4: #222c41; --cs-g5: #1a2336; --cs-g6: #151c2c; --cs-cloud: #7f93c8; --cs-shade: #0b1228; --cs-hi: #f2dca0; --cs-band: #0a0f1e73;
+    --cs-side: clamp(340px, 31vw, 580px); --cs-gutter: clamp(56px, 5vw, 96px);
+    overflow: hidden;
+    background: linear-gradient(180deg, var(--cs-g0), var(--cs-g1) 32%, var(--cs-g2) 50%, var(--cs-g3) 61%, var(--cs-g4) 73%, var(--cs-g5) 88%, var(--cs-g6));
+    transition: --cs-g0 110ms linear, --cs-g1 110ms linear, --cs-g2 110ms linear, --cs-g3 110ms linear, --cs-g4 110ms linear, --cs-g5 110ms linear, --cs-g6 110ms linear, --cs-cloud 110ms linear, --cs-shade 110ms linear, --cs-hi 110ms linear;
+}
+/* Sky stops measured from the game's character screen. The bright band ends in a dark horizon at about 72%. */
+#gi-wardrobe[data-element="Pyro"] { --cs-g0: #7d2226; --cs-g1: #772b2e; --cs-g2: #9e5049; --cs-g3: #b36559; --cs-g4: #813a36; --cs-g5: #58181c; --cs-g6: #69181e; --cs-cloud: #ff8d70; --cs-shade: #3f0d12; --cs-hi: #ffc48a; --cs-band: #2a0c0a80; }
+#gi-wardrobe[data-element="Hydro"] { --cs-g0: #1c3588; --cs-g1: #224da1; --cs-g2: #3075b9; --cs-g3: #368ac2; --cs-g4: #1c478d; --cs-g5: #112978; --cs-g6: #112d80; --cs-cloud: #6fd0ff; --cs-shade: #0a2064; --cs-hi: #7fe0ff; --cs-band: #0a194a80; }
+#gi-wardrobe[data-element="Anemo"] { --cs-g0: #24716a; --cs-g1: #349a91; --cs-g2: #46b1a6; --cs-g3: #53c4b0; --cs-g4: #2f8c81; --cs-g5: #28887f; --cs-g6: #1e6b62; --cs-cloud: #a8ffe6; --cs-shade: #0c4a4c; --cs-hi: #a4f5e0; --cs-band: #0a2c3480; }
+#gi-wardrobe[data-element="Electro"] { --cs-g0: #571b78; --cs-g1: #653091; --cs-g2: #a05dc3; --cs-g3: #a562c4; --cs-g4: #4f236e; --cs-g5: #5a1874; --cs-g6: #61167c; --cs-cloud: #c77bff; --cs-shade: #26064a; --cs-hi: #dcb4ff; --cs-band: #15063480; }
+#gi-wardrobe[data-element="Dendro"] { --cs-g0: #528b35; --cs-g1: #65a841; --cs-g2: #69ac44; --cs-g3: #7cc04f; --cs-g4: #539032; --cs-g5: #52922b; --cs-g6: #498225; --cs-cloud: #d8ff8a; --cs-shade: #2f6a22; --cs-hi: #dcff8e; --cs-band: #25441b73; }
+#gi-wardrobe[data-element="Cryo"] { --cs-g0: #297d97; --cs-g1: #3d8ca1; --cs-g2: #68c3ce; --cs-g3: #7edae6; --cs-g4: #4ea0b3; --cs-g5: #24708f; --cs-g6: #1e688d; --cs-cloud: #d6f6ff; --cs-shade: #174a68; --cs-hi: #c2f2ff; --cs-band: #10324873; }
+#gi-wardrobe[data-element="Geo"] { --cs-g0: #876d30; --cs-g1: #9c8439; --cs-g2: #b2994b; --cs-g3: #b69e4f; --cs-g4: #88722a; --cs-g5: #8b7328; --cs-g6: #705f20; --cs-cloud: #ffe9a0; --cs-shade: #5e4816; --cs-hi: #ffe79c; --cs-band: #43361473; }
+
+/* ---------- Sky: nebulae drawn from a seamless mask, moved by the compositor ---------- */
+#gi-wardrobe .gi-cs-sky { position: absolute; inset: 0; z-index: 0; overflow: hidden; pointer-events: none; }
+#gi-wardrobe :is(.gi-cs-sky canvas, canvas.gi-cs-motes) { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
+#gi-wardrobe .gi-cs-nebula { position: absolute; top: -6%; left: -100%; width: 200%; height: 112%; opacity: 0; will-change: transform; animation: cs-roll var(--cs-roll) linear infinite; transition: opacity 900ms ease; background: var(--cs-cloud); -webkit-mask: var(--cs-mask) 0 0 / 50% 100% repeat-x; mask: var(--cs-mask) 0 0 / 50% 100% repeat-x; }
+/* In the game the clouds barely move while the stars drift across them, so the rolls here are minutes long. */
+#gi-wardrobe .gi-cs-nebula-shade { --cs-mask: var(--cs-nebula-b); --cs-roll: 720s; background: var(--cs-shade); animation-delay: -200s; }
+#gi-wardrobe .gi-cs-nebula-far { --cs-mask: var(--cs-nebula-a); --cs-roll: 600s; animation-delay: -120s; }
+#gi-wardrobe .gi-cs-nebula-near { --cs-mask: var(--cs-nebula-b); --cs-roll: 420s; scale: 1 -1; }
+#gi-wardrobe .gi-cs-sky[style*="--cs-nebula-b"] .gi-cs-nebula-shade { opacity: .56; }
+#gi-wardrobe .gi-cs-sky[style*="--cs-nebula-b"] .gi-cs-nebula-far { opacity: .26; }
+#gi-wardrobe .gi-cs-sky[style*="--cs-nebula-b"] .gi-cs-nebula-near { opacity: .17; }
+@keyframes cs-roll { to { transform: translate3d(50%, 0, 0); } }
+@keyframes cs-rail-dim { 16%, 66% { opacity: .36; } }
+@keyframes cs-streak { 0% { opacity: 0; transform: scaleX(.2); } 26% { opacity: 1; transform: scaleX(1); } 100% { opacity: 0; transform: scaleX(1.16); } }
+#gi-wardrobe canvas.gi-cs-motes { z-index: 3; }
+
+/* ---------- Top band: crest, breadcrumb, Q portraits E, close ---------- */
+#gi-wardrobe header { z-index: 5; flex: none; grid-template-columns: minmax(0, 1fr) auto minmax(0, auto) auto minmax(0, 1fr); align-items: center; gap: 12px; min-height: 84px; padding: env(safe-area-inset-top, 0px) calc(env(safe-area-inset-right, 0px) + 28px) 0 calc(env(safe-area-inset-left, 0px) + 22px); background: linear-gradient(var(--cs-band), var(--cs-band)); box-shadow: 0 1px 0 #ffffff12; }
+.gi-cs-title { gap: 16px; }
+#gi-wardrobe .gi-cs-emblem { position: relative; flex: none; width: 76px; height: 76px; margin: 3px 0 -2px; rotate: none; border-radius: 0; background: none; box-shadow: none; filter: drop-shadow(0 2px 5px #0007); animation: none; }
+#gi-wardrobe .gi-cs-emblem:empty { width: 26px; height: 26px; rotate: 45deg; border-radius: 5px; background: radial-gradient(circle at 35% 35%, #fff9, var(--el-c) 45%, color-mix(in srgb, var(--el-c) 60%, #000)); }
+.gi-cs-crest { position: absolute; inset: 0; width: 100%; height: 100%; fill: #e4e0da; stroke: none; }
+.gi-cs-crest .line { fill: none; stroke: #e4e0da; stroke-width: 3.6; stroke-linecap: round; stroke-linejoin: round; }
+.gi-cs-orb { position: absolute; inset: 23%; display: grid; place-items: center; overflow: hidden; border-radius: 50%; background: radial-gradient(circle at 34% 28%, #fffc, transparent 26%), radial-gradient(circle at 50% 55%, color-mix(in srgb, var(--el-c) 82%, #fff), var(--el-c) 58%, color-mix(in srgb, var(--el-c) 52%, #000)); box-shadow: inset 0 0 0 1.5px #0003, 0 0 12px color-mix(in srgb, var(--el-c) 75%, transparent); }
+.gi-cs-orb img { width: 78%; height: 78%; object-fit: contain; opacity: .94; filter: drop-shadow(0 1px 1px #0005); }
+#gi-wardrobe h2 { overflow: hidden; font-size: clamp(19px, 1.6vw, 27px); font-weight: normal; letter-spacing: .02em; color: #efe3bf; text-shadow: 0 1px 6px #0007; text-overflow: ellipsis; white-space: nowrap; }
+#gi-wardrobe header .gi-roster { align-self: stretch; align-items: center; gap: 6px; max-width: min(58vw, 980px); margin-block: 0; padding: 0 6px; }
+#gi-wardrobe header .gi-roster button { width: 64px; height: 100%; min-height: 0; overflow: visible; scroll-snap-align: center; transform: none; transition: none; }
+#gi-wardrobe header .gi-roster button:hover { box-shadow: none; background: none; }
+#gi-wardrobe header .gi-roster .gi-roster-face { position: absolute; left: 7px; top: 50%; width: 50px; height: 50px; translate: 0 -50%; background: radial-gradient(circle at 50% 30%, #ffffff40, #0003); box-shadow: 0 0 0 1px #0004; transition: width 200ms var(--ty-ease), height 200ms var(--ty-ease), left 200ms var(--ty-ease), box-shadow 200ms ease; }
+#gi-wardrobe header .gi-roster button[data-party="true"] .gi-roster-face { box-shadow: 0 0 0 2.5px #93b45a; }
+#gi-wardrobe header .gi-roster button[data-persona] .gi-roster-face { box-shadow: 0 0 0 2.5px #a9ddf5aa; }
+/* The portrait strip scrolls, so anything past its edge is clipped: the label sits on the portrait's lower rim. */
+#gi-wardrobe header .gi-roster .gi-persona-badge { right: auto; left: 50%; bottom: max(1px, calc(50% - 34px)); translate: -50% 0; }
+#gi-wardrobe header .gi-roster button[aria-pressed="true"] .gi-roster-face { left: 3px; width: 58px; height: 58px; background: radial-gradient(circle at 50% 35%, var(--cs-hi), color-mix(in srgb, var(--el-c) 70%, #000)); box-shadow: 0 0 0 2.5px #fff, 0 0 16px var(--cs-hi); }
+#gi-wardrobe header .gi-roster button[aria-pressed="true"]::after { left: 0; right: 0; bottom: 0; width: auto; height: 3px; rotate: none; translate: none; border-radius: 2px 2px 0 0; background: var(--cs-hi); box-shadow: 0 0 10px var(--cs-hi); }
+#gi-wardrobe .gi-cs-key { display: grid; place-items: center; flex: none; width: 26px; height: 26px; min-height: 0; padding: 0; border: 0; border-radius: 5px; background: #ece5d8; color: #2e3648; font-size: 15px; line-height: 1; box-shadow: 0 1px 4px #0005; }
+#gi-wardrobe .gi-cs-key:hover { background: #fff; box-shadow: 0 0 0 3px #ffffff30; color: #2e3648; }
+#gi-wardrobe[data-tab="backgrounds"] :is(header .gi-cs-key, .gi-cs-step, .gi-cs-archive-open) { display: none; }
+#gi-wardrobe header > button[data-w="close"] { grid-column: 5; justify-self: end; width: 48px; height: 48px; border: 3px solid #0000; background: var(--ty-cream) padding-box; box-shadow: 0 0 0 1.5px #ece5d8a0; font-size: 30px; }
+#gi-wardrobe header > button[data-w="close"]:hover { box-shadow: 0 0 0 1.5px #fff, 0 0 12px #fff8; }
+
+/* ---------- Stage ---------- */
+#gi-wardrobe .gi-wardrobe-body { position: static; flex: 1; min-height: 0; }
+#gi-wardrobe .gi-wardrobe-preview { z-index: 1; min-width: 0; }
+#gi-wardrobe .gi-wardrobe-preview > img { will-change: transform; transform: var(--cs-camera, none); transform-origin: 50% 6%; object-position: 50% 100%; transition: transform 420ms var(--ty-ease); filter: drop-shadow(0 6px 18px #0004); }
+#gi-wardrobe .gi-cs-pedestal { bottom: var(--cs-floor, 34px); width: min(56%, 340px); aspect-ratio: 5 / 1; translate: -50% 42%; background: radial-gradient(closest-side, #0006, #0000); box-shadow: none; animation: none; }
+#gi-wardrobe:is([data-tab="moveset"]) { --cs-camera: scale(1.16); }
+#gi-wardrobe[data-tab="sprites"][data-zoom="on"] { --cs-camera: scale(1.62); }
+#gi-wardrobe .gi-cs-zoom { position: absolute; left: 50%; bottom: calc(var(--cs-floor, 34px) - 26px); z-index: 3; display: none; place-items: center; width: 42px; height: 42px; min-height: 0; padding: 0; border: 3px solid #0000; border-radius: 50%; background: #3d4557 padding-box; box-shadow: 0 0 0 1.5px #ece5d8a0; color: #ece5d8; translate: -50% 0; }
+#gi-wardrobe[data-tab="sprites"] .gi-cs-zoom { display: grid; }
+#gi-wardrobe .gi-cs-zoom svg { width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; }
+#gi-wardrobe .gi-cs-zoom:hover, #gi-wardrobe .gi-cs-zoom[aria-pressed="true"] { background: #4f5a70 padding-box; color: #fff; box-shadow: 0 0 0 1.5px #fff; }
+#gi-wardrobe .gi-cs-zoom[aria-pressed="true"] svg path { d: path("m15.5 15.5 5 5M7.5 10.5h6"); }
+/* The screen opens through a few shards of itself, over the scene it interrupts. */
+#gi-wardrobe[open] { animation: cs-open 340ms cubic-bezier(.3, .6, .3, 1) backwards; }
+#gi-wardrobe::backdrop { animation: cs-backdrop 340ms ease backwards; }
+@keyframes cs-open {
+    0% { opacity: .2; clip-path: polygon(0 58%, 34% 40%, 58% 74%, 72% 100%, 72% 100%, 18% 100%, 0 100%, 0 100%, 0 30%, 24% 12%, 30% 0, 0 0); }
+    55% { opacity: 1; }
+    100% { opacity: 1; clip-path: polygon(0 0, 40% 0, 100% 0, 100% 50%, 100% 100%, 50% 100%, 0 100%, 0 100%, 0 30%, 0 0, 0 0, 0 0); }
+}
+@keyframes cs-backdrop { from { background: #070b1400; } }
+/* A character arrives washed in their element's light, which drains away as the beams thin. */
+#gi-wardrobe .gi-cs-tint { position: absolute; display: none; pointer-events: none; transform: var(--cs-camera, none); transform-origin: 50% 6%; background: linear-gradient(color-mix(in srgb, var(--cs-g3) 70%, #fff), color-mix(in srgb, var(--cs-g3) 86%, #fff)); -webkit-mask: var(--cs-sprite) 50% 100% / contain no-repeat; mask: var(--cs-sprite) 50% 100% / contain no-repeat; }
+#gi-wardrobe.gi-cs-arrive .gi-cs-tint { display: block; animation: cs-tint 560ms cubic-bezier(.3, .3, .4, 1) both; }
+#gi-wardrobe.gi-cs-arrive .gi-wardrobe-preview > img { animation: ty-fade 90ms linear both; }
+@keyframes cs-tint { 0% { opacity: .96; } 100% { opacity: 0; } }
+/* Text never needs to fight the backdrop: everything sits on a shadow rather than a box. */
+#gi-wardrobe .gi-cs-side { position: relative; z-index: 4; display: flex; flex-direction: column; min-width: 0; min-height: 0; text-shadow: 0 1px 4px #0006; }
+#gi-wardrobe .gi-cs-identity { flex: none; padding-bottom: 12px; border-bottom: 3px solid var(--cs-hi); box-shadow: 0 1px 0 #0002; }
+#gi-wardrobe .gi-cs-identity h3 { margin: 0; padding: 0; overflow: hidden; border: 0; font-size: clamp(25px, 2.3vw, 38px); font-weight: normal; line-height: 1.2; color: #fff; text-overflow: ellipsis; white-space: nowrap; }
+#gi-wardrobe .gi-outfit-caption { margin: 3px 0 0; font-size: clamp(14px, 1.15vw, 18px); text-align: left; color: #fffc; opacity: 1; }
+#gi-wardrobe .gi-wardrobe-controls { flex: 1; min-height: 0; margin: 0; padding: 12px 8px 12px 0; border-radius: 0; background: none; box-shadow: none; scrollbar-width: thin; scrollbar-color: #fff5 transparent; -webkit-mask: linear-gradient(#000 calc(100% - 22px), #0000); mask: linear-gradient(#000 calc(100% - 22px), #0000); }
+#gi-wardrobe .gi-cs-actions { flex: none; display: flex; justify-content: flex-end; }
+/* A new section clears the right side at once, then fades in after the camera has started to move. */
+#gi-wardrobe .gi-wardrobe-controls.gi-panel-in > [data-panel]:not([hidden]) { animation: cs-panel 210ms var(--ty-ease) 130ms both; }
+#gi-wardrobe.gi-cs-sweep :is(.gi-cs-identity, .gi-cs-actions) { animation: cs-panel 210ms var(--ty-ease) 130ms both; }
+@keyframes cs-panel { from { opacity: 0; translate: 18px 0; } to { opacity: 1; translate: 0 0; } }
+#gi-wardrobe:not([data-tab="attributes"]) .gi-cs-actions { display: none; }
+#gi-wardrobe .gi-takeover { margin: 8px 0 0; padding: 0; border: 0; background: none; }
+#gi-wardrobe .gi-takeover button { min-width: 190px; min-height: 44px; padding-inline: 26px; }
+#gi-wardrobe label { color: #ffffffe0; }
+#gi-wardrobe h3 { color: #fff; border-bottom-color: #ffffff38; }
+#gi-wardrobe summary { color: #fff; }
+#gi-wardrobe details:not([data-panel] > details) { border-color: #ffffff2e; background: #0000001a; }
+#gi-wardrobe select, #gi-wardrobe input:not([type="checkbox"]):not([type="file"]):not([type="range"]), #gi-wardrobe textarea { border-color: #ffffff30; background: #00000038; color: #fff; text-shadow: none; }
+#gi-wardrobe select option { background: #1b2232; color: #ece5d8; }
+#gi-wardrobe .gi-current-outfit { color: #fff; }
+/* Card details read as the game's attribute rows: name on the left, value on the right. */
+#gi-wardrobe .gi-card-properties > label:not(.gi-check, :has(textarea)) { display: grid; grid-template-columns: minmax(0, 32%) minmax(0, 1fr); align-items: center; gap: 10px; margin: 0; padding: 7px 0; border-bottom: 1px solid #ffffff1f; font-size: clamp(14px, 1.05vw, 16px); }
+#gi-wardrobe .gi-card-properties > .gi-check { margin: 0; padding: 9px 0; border-bottom: 1px solid #ffffff1f; }
+#gi-wardrobe .gi-card-properties > button { margin-top: 12px; }
+#gi-wardrobe:focus { outline: none; }
+#gi-wardrobe .gi-move-edit { border: 1px solid #ffffff26; border-left: 3px solid var(--cs-hi); background: #0000002e; }
+#gi-wardrobe :is(.gi-moveset-head label, .gi-move-edit label, .gi-move-head small) { color: #ffffffd8; }
+#gi-wardrobe :is(.gi-moveset-note, .gi-move-desc) { color: #ffffffe6; }
+
+/* ---------- Bottom: character list button, status ---------- */
+#gi-wardrobe footer { position: relative; z-index: 5; flex: none; gap: 14px; justify-content: flex-start; text-shadow: 0 1px 4px #0008; color: #fff; }
+#gi-wardrobe footer [data-w="undo"] { margin-left: auto; }
+#gi-wardrobe .gi-cs-archive-open { display: grid; place-items: center; flex: none; width: 44px; height: 44px; min-height: 0; padding: 0; border: 3px solid #0000; border-radius: 50%; background: #3d4557 padding-box; box-shadow: 0 0 0 1.5px #ece5d8a0; color: #ece5d8; }
+#gi-wardrobe .gi-cs-archive-open svg { width: 26px; height: 26px; fill: currentColor; stroke: none; }
+#gi-wardrobe .gi-cs-archive-open:hover { background: #4f5a70 padding-box; color: #fff; box-shadow: 0 0 0 1.5px #fff; }
+
+/* ---------- Character list ---------- */
+#gi-wardrobe .gi-cs-archive { position: absolute; inset: 0; z-index: 6; display: flex; flex-direction: column; gap: 14px; padding: calc(env(safe-area-inset-top, 0px) + 18px) clamp(14px, 4vw, 72px) 20px; background: color-mix(in srgb, var(--cs-g0) 72%, transparent); backdrop-filter: blur(10px); animation: ty-fade 200ms ease both; }
+#gi-wardrobe .gi-cs-archive-top { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 20px; }
+#gi-wardrobe .gi-cs-archive-title { font-size: clamp(20px, 2vw, 28px); color: #efe3bf; }
+#gi-wardrobe .gi-roster-tools { flex: 1; min-width: 200px; padding: 0; }
+/* Filters and sorting. A dot on the list button says the strip of portraits is filtered too. */
+#gi-wardrobe .gi-roster-view { display: flex; flex-wrap: wrap; align-items: end; gap: 8px 10px; flex-basis: 100%; }
+#gi-wardrobe .gi-roster-view label { display: grid; gap: 2px; margin: 0; font-size: 12px; color: #d8cfb8; }
+#gi-wardrobe .gi-roster-view select { min-width: 96px; min-height: 32px; padding: 3px 26px 3px 12px; border: 1px solid #cfbf9560; border-radius: 16px; background-color: #0d1220b3; color: #ece5d8; font: inherit; font-size: 13px; }
+#gi-wardrobe .gi-roster-reset { min-height: 32px; padding: 3px 14px; border-radius: 16px; font-size: 13px; }
+#gi-wardrobe .gi-roster-count { align-self: center; color: #d8cfb8; font-size: 13px; }
+#gi-wardrobe .gi-cs-archive-open { position: relative; }
+#gi-wardrobe .gi-cs-archive-open[data-filtered]::after { content: ''; position: absolute; right: -1px; top: -1px; width: 11px; height: 11px; border-radius: 50%; background: #f2c561; box-shadow: 0 0 0 2px #232a39; }
+#gi-wardrobe .gi-cs-archive-close { flex: none; width: 44px; height: 44px; min-height: 0; padding: 0; font-size: 28px; line-height: 1; border-radius: 50%; }
+#gi-wardrobe .gi-cs-archive-grid { display: grid; flex: 1; grid-template-columns: repeat(auto-fill, minmax(112px, 1fr)); grid-auto-rows: max-content; gap: 12px; min-height: 0; overflow-y: auto; padding: 4px; scrollbar-width: thin; }
+#gi-wardrobe .gi-cs-archive-grid button { position: relative; display: flex; flex-direction: column; min-height: 0; padding: 0; overflow: hidden; border: 0; border-radius: 6px 6px 16px 6px; background: linear-gradient(170deg, #6c5a46, #37415a 62%, #262f42); color: var(--ty-ink); box-shadow: 0 2px 8px #0005; }
+#gi-wardrobe .gi-cs-archive-grid button[aria-pressed="true"] { box-shadow: 0 0 0 2.5px #fff, 0 0 14px var(--cs-hi); }
+#gi-wardrobe .gi-cs-archive-grid button:hover { box-shadow: 0 0 0 2.5px #ece5d8; transform: translateY(-2px); }
+.gi-cs-archive-face { display: block; aspect-ratio: 1; overflow: hidden; }
+.gi-cs-archive-face img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: 50% 12%; }
+.gi-cs-archive-name { display: block; padding: 4px 6px; overflow: hidden; background: #ece5d8; font-size: 13px; line-height: 1.25; text-align: center; text-overflow: ellipsis; white-space: nowrap; }
+.gi-cs-archive-element { position: absolute; left: 5px; top: 5px; width: 24px; height: 24px; filter: drop-shadow(0 1px 2px #0009); }
+
+/* The breadcrumb needs more of the band than the close button does once the portraits fill it. */
+@media (max-width: 1280px) { #gi-wardrobe header { grid-template-columns: minmax(0, 3fr) auto minmax(0, auto) auto minmax(44px, 1fr); } }
+
+/* ---------- Wide screens: the game's own layout ---------- */
+.gi-cs-step { display: none; }
+@media (min-width: 901px) and (min-height: 551px) {
+    #gi-wardrobe { --cs-floor: clamp(64px, 9dvh, 100px); }
+    #gi-wardrobe .gi-wardrobe-body { grid-template-columns: var(--cs-side) minmax(0, 1fr) var(--cs-side); grid-template-rows: minmax(0, 1fr); }
+    #gi-wardrobe .gi-cs-rail { position: relative; z-index: 2; display: flex; flex-direction: column; min-width: 0; min-height: 0; padding: clamp(10px, 3dvh, 30px) 8px 76px calc(env(safe-area-inset-left, 0px) + clamp(30px, 4.6vw, 92px)); }
+    #gi-wardrobe .gi-cs-keys { position: absolute; left: calc(env(safe-area-inset-left, 0px) + clamp(8px, 1.5vw, 32px)); top: clamp(22px, 4.4dvh, 42px); display: grid; gap: 3px; }
+    #gi-wardrobe .gi-cs-keys .gi-cs-key { width: 24px; height: 24px; font-size: 13px; }
+    #gi-wardrobe .gi-wardrobe-tabs { flex: 1; justify-content: flex-start; align-items: flex-start; gap: clamp(0px, .6dvh, 6px); padding: 0; overflow: hidden auto; scrollbar-width: none; }
+    #gi-wardrobe .gi-wardrobe-tabs button { position: relative; flex: none; height: clamp(42px, 7.2dvh, 66px); min-height: 0; padding: 0 12px 0 28px; border-radius: 0; background: none; box-shadow: none; color: #ffffffcc; font-size: clamp(19px, 1.75vw, 31px); text-shadow: 0 1px 6px #0006; transform-origin: 8px 50%; transition: transform 240ms var(--ty-ease), color 160ms ease; }
+    #gi-wardrobe .gi-wardrobe-tabs button svg { display: none; }
+    #gi-wardrobe .gi-wardrobe-tabs button::before { content: ""; position: absolute; left: 7px; top: 50%; width: 8px; height: 8px; rotate: 45deg; translate: 0 -50%; background: #ffffffb0; transition: all 180ms ease; }
+    #gi-wardrobe .gi-wardrobe-tabs button:hover { background: none; color: #fff; box-shadow: none; }
+    #gi-wardrobe .gi-wardrobe-tabs button[aria-pressed="true"] { translate: none; transform: scale(1.16); background: none; box-shadow: none; color: #fff; text-shadow: 0 0 12px #fff8, 0 1px 6px #0006; }
+    #gi-wardrobe .gi-wardrobe-tabs button[aria-pressed="true"]::before { left: 3px; width: 13px; height: 13px; background: #fff0; box-shadow: inset 0 0 0 1.5px #fff, inset 0 0 0 4px #0000, 0 0 8px #fff8; }
+    /* Choosing a section dims the others and sends a streak of light out from its name. */
+    #gi-wardrobe.gi-cs-sweep .gi-wardrobe-tabs button:not([aria-pressed="true"]) { animation: cs-rail-dim 430ms ease both; }
+    #gi-wardrobe.gi-cs-sweep .gi-wardrobe-tabs button[aria-pressed="true"] span::after { content: ""; position: absolute; left: 22px; top: 50%; width: min(17vw, 280px); height: 7px; translate: 0 -50%; transform-origin: 0 50%; clip-path: polygon(0 50%, 24% 0, 100% 50%, 24% 100%); background: linear-gradient(90deg, #fff0, #fff 22%, #ffffff90 52%, #fff0); filter: blur(.8px); pointer-events: none; animation: cs-streak 430ms ease-out both; }
+    #gi-wardrobe .gi-wardrobe-preview { position: relative; overflow: visible; padding: 2dvh 0 var(--cs-floor); }
+    #gi-wardrobe .gi-wardrobe-preview > img { -webkit-box-reflect: below 1px linear-gradient(#0000 76%, #ffffff40); }
+    #gi-wardrobe:is([data-tab="sprites"][data-zoom="on"], [data-tab="moveset"], [data-tab="cgs"], [data-tab="backgrounds"]) .gi-wardrobe-preview > img { -webkit-box-reflect: unset; }
+    #gi-wardrobe .gi-cs-side { padding: clamp(14px, 3.2dvh, 34px) calc(env(safe-area-inset-right, 0px) + var(--cs-gutter)) 76px 8px; }
+    #gi-wardrobe footer { position: absolute; left: 0; right: 0; bottom: 0; min-height: 0; padding: 0 calc(env(safe-area-inset-right, 0px) + 28px) calc(env(safe-area-inset-bottom, 0px) + 16px) calc(env(safe-area-inset-left, 0px) + 22px); pointer-events: none; }
+    #gi-wardrobe footer > * { pointer-events: auto; }
+    #gi-wardrobe .gi-cs-step { position: absolute; left: calc(env(safe-area-inset-left, 0px) + 6px); top: 50%; z-index: 5; display: grid; place-items: center; width: 44px; height: 60px; min-height: 0; padding: 0; border: 0; border-radius: 8px; background: none; color: #ffffffd0; translate: 0 -50%; filter: drop-shadow(0 1px 3px #0007); }
+    #gi-wardrobe .gi-cs-step svg { width: 38px; height: 38px; fill: currentColor; }
+    #gi-wardrobe .gi-cs-step:hover { background: none; box-shadow: none; color: #fff; }
+    #gi-wardrobe .gi-cs-step-next { left: auto; right: calc(env(safe-area-inset-right, 0px) + 6px); }
+    #gi-wardrobe .gi-cs-step-next svg { rotate: 180deg; }
+}
+
+/* ---------- Narrow screens keep their stacked layout, on a darker glass so forms stay readable ---------- */
+@media (max-width: 900px), (max-height: 550px) {
+    #gi-wardrobe .gi-cs-rail { position: relative; z-index: 2; display: flex; min-width: 0; min-height: 0; }
+    #gi-wardrobe .gi-cs-keys { display: none; }
+    #gi-wardrobe .gi-wardrobe-tabs button { color: #ffffffd8; }
+    #gi-wardrobe .gi-cs-side { margin: 0 calc(env(safe-area-inset-right, 0px) + 8px) 6px 0; padding: 10px 12px 8px; border-radius: 6px; background: #05091469; backdrop-filter: blur(6px); }
+    #gi-wardrobe .gi-cs-identity { padding-bottom: 6px; border-bottom-width: 2px; }
+    #gi-wardrobe .gi-cs-identity h3 { font-size: 20px; }
+    #gi-wardrobe .gi-outfit-caption { font-size: 12px; }
+    #gi-wardrobe header { min-height: 58px; gap: 8px; padding-inline: calc(env(safe-area-inset-left, 0px) + 10px) calc(env(safe-area-inset-right, 0px) + 10px); }
+    #gi-wardrobe .gi-cs-emblem { width: 52px; height: 52px; margin: 0; }
+    #gi-wardrobe header .gi-roster button { width: 52px; }
+    #gi-wardrobe header .gi-roster .gi-roster-face { left: 6px; width: 40px; height: 40px; }
+    #gi-wardrobe header .gi-roster button[aria-pressed="true"] .gi-roster-face { left: 3px; width: 46px; height: 46px; }
+    #gi-wardrobe header > button[data-w="close"] { width: 40px; height: 40px; font-size: 24px; }
+    #gi-wardrobe footer { padding-inline: 10px; }
+    #gi-wardrobe .gi-cs-archive-open { width: 36px; height: 36px; }
+    #gi-wardrobe .gi-cs-archive-open svg { width: 20px; height: 20px; }
+    #gi-wardrobe[data-tab="moveset"] { --cs-camera: none; }
+    #gi-wardrobe[data-tab="sprites"][data-zoom="on"] { --cs-camera: scale(1.4); }
+}
+@media (max-width: 600px) and (orientation: portrait) {
+    #gi-wardrobe header { grid-template-columns: minmax(0, 1fr) auto; }
+    #gi-wardrobe header > button[data-w="close"] { grid-column: 2; }
+    #gi-wardrobe header > .gi-cs-key { display: none; }
+    #gi-wardrobe header .gi-roster { max-width: none; height: 56px; }
+    #gi-wardrobe .gi-cs-side { margin-inline: 8px; }
+}
+@media (max-height: 550px) and (orientation: landscape) {
+    #gi-wardrobe header { min-height: 46px; }
+    #gi-wardrobe .gi-cs-emblem { width: 40px; height: 40px; }
+    #gi-wardrobe header .gi-roster button { width: 44px; }
+    #gi-wardrobe header .gi-roster .gi-roster-face { left: 5px; width: 34px; height: 34px; }
+    #gi-wardrobe header .gi-roster button[aria-pressed="true"] .gi-roster-face { left: 3px; width: 38px; height: 38px; }
+}
+@media (hover: none) { #gi-wardrobe .gi-cs-keys, #gi-wardrobe header > .gi-cs-key { display: none; } }

@@ -1,5 +1,7 @@
 // The Trust menu: everyone met in this chat with their hearts, and a thought box for what they privately
 // think of the player. A small toast marks each change as it happens.
+import {cue} from './ui-sound.js';
+import {isNarrator} from './narrator.js';
 import {TRUST_MAX,trustBand,trustEnabled,trustRoster,messageTrust,askThoughts,savedThoughts} from './trust.js';
 import {circularCharacterAvatar} from './character-avatars.js';
 import {startingTrustList,setStartingTrust,resetStartingTrust} from './relationship-trust.js';
@@ -72,7 +74,7 @@ export function mountTrust({host,getContext,announce=()=>{}}){
     function toast(name,change){
         const up=change>0,item=el('div',`gi-trust-toast ${up?'gi-trust-up':'gi-trust-down'}`);
         item.append(el('i'),el('span','',`${name} ${up?'+':''}${change}`));toasts.append(item);
-        announce(`${name}'s trust ${up?'rose':'fell'} by ${Math.abs(change)}.`);
+        if(up)cue('trust-up');announce(`${name}'s trust ${up?'rose':'fell'} by ${Math.abs(change)}.`);
         item.addEventListener('animationend',()=>item.remove(),{once:true});
     }
     on($('.gi-trust-close'),'click',()=>dialog.close());
@@ -114,7 +116,7 @@ export function mountStartingTrust({panel,getContext,getCharacter,status=()=>{}}
         const rows=startingTrustList(ctx,card),taken=new Set(rows.map(r=>r.name));
         list.replaceChildren(...rows.map(entry=>row(card,entry)));
         if(!rows.length)list.append(el('small','','Nobody yet. Everyone starts at 0.'));
-        const names=[...(ctx.characters || []).filter(c=>c.name!==card.name&&!isEnemy(ctx,c)).map(c=>c.name),...Object.values(ctx.powerUserSettings?.personas || {})];
+        const names=[...(ctx.characters || []).filter(c=>c.name!==card.name&&!isEnemy(ctx,c)&&!isNarrator(c)).map(c=>c.name),...Object.values(ctx.powerUserSettings?.personas || {})];
         $('datalist').replaceChildren(...[...new Set(names)].filter(name=>name&&!taken.has(name)).map(name=>new Option(name,name)));
     }
     on(add,'submit',event=>{

@@ -12,6 +12,7 @@ import { syncHudIcons, disposeHudIcons, iconAsset, ST_DRAWERS, drawerIcon } from
 import { dialoguePages } from './narration.js';
 import { dialoguePresentation } from './dialogue-formatting.js';
 import { mountWardrobe } from './wardrobe.js';
+import { createUiSound, mountUiSound } from './ui-sound.js';
 import { mountSceneMedia } from './scene-media.js';
 import { stagingDefaults, mountStageEffects } from './staging.js';
 import { regenerationState, regenerateReply } from './regeneration.js';
@@ -39,10 +40,12 @@ import {abyssGreeting,freshenTwinPersonas,keepAbyssGreeting,restoreTwinCards,syn
 import {mountTrust} from './trust-ui.js';
 import {giveGift} from './gifts.js';
 import {namecardsReady,namecards,namecardUrl,chooseNamecard} from './namecards.js';
+import {renderFeatureSwitches,paintFeatureSwitches,setGroup} from './feature-switches.js';
 import {loadPersonaSupport,personaCard,syncPersonaSettings,setPersonaSpriteSetting} from './persona-wardrobe.js';
 import {circularCharacterAvatar,characterAvatarsReady,personaMenuIcon} from './character-avatars.js';
-import {createPersonaSession} from './persona-session.js';
+import {createPersonaSession,repairSoloPortraits} from './persona-session.js';
 import {mountSoloChat} from './solo-chat.js';
+import {ensureNarrator,narratorMessage,soloHintFor,tagNarratorMessage} from './narrator.js';
 import {freshJourneySource,openFreshSoloChat,randomizeGreeting} from './fresh-chat.js';
 import {createLoadingScreen} from './loading-screen.js';
 import {createKeyboardFrame} from './keyboard-frame.js';
@@ -50,7 +53,7 @@ import {applyPackagedSettings} from './share-package.js';
 import {mountShare} from './share-ui.js';
 const KEY = 'genshin_dialogue_ui';
 const FOLDER = 'third-party/genshin-dialogue-ui';
-const defaults = Object.freeze({ ...stagingDefaults, enabled: false, choices: true, composer: true, reducedMotion: false, textScale: 1, scrim: 0.8, revealSpeed: 45, tapAdvance: true, pageExpressions: true, narration: false, narrationMode: 'quotes', narrationKeyword: 'Narrator:', hideDialogueQuotes:false, wardrobe: true, locationEncounters:true, locationCharacterLimit:5, randomEncounters:true, encounterRate:40, allowMainDeparture:false, worldPromptAllRegions:false, roleplayPromptsEnabled:true, wildernessEncounters:true, maxEnemies:3, combatDamageMin:1, combatDamageMax:6, enemyStrikeBack:true,combatTriggerPhrase:'[start_combat]', enemyDamageMin:2, enemyDamageMax:6, enemyDice:4, userMaxHp:30, combatDifficulty:'normal', battleEffects:true, battleSound:true, personaIcon: 'Aether', personaIconMode:'auto', hudTopIcons:'auto', namecard:'', signature:'', trimSprites:true, cgEnabled:true, cgClassifier:'main', cgProfile:'', choicesProfile:'', cgBypassReasoning:true, cgPrompt:defaultCGPrompt, cgAudio:true, spriteAudio:true, burstAudio:true, spriteVolume:.8, diceSound:true, trustSystem:false, travelerTwin:'Aether' });
+const defaults = Object.freeze({ ...stagingDefaults, enabled: false, choices: true, composer: true, reducedMotion: false, textScale: 1, scrim: 0.8, revealSpeed: 45, tapAdvance: true, pageExpressions: true, narration: false, narrationMode: 'quotes', narrationKeyword: 'Narrator:', hideDialogueQuotes:false, wardrobe: true, locationEncounters:true, locationCharacterLimit:5, randomEncounters:true, encounterRate:40, allowMainDeparture:false, worldPromptAllRegions:false, roleplayPromptsEnabled:true, wildernessEncounters:true, maxEnemies:3, combatDamageMin:1, combatDamageMax:6, enemyStrikeBack:true,combatTriggerPhrase:'[start_combat]', enemyDamageMin:2, enemyDamageMax:6, enemyDice:4, userMaxHp:30, combatDifficulty:'normal', battleEffects:true, battleSound:true,uiSound:true,uiSoundVolume:.7, personaIcon: 'Aether', personaIconMode:'auto', hudTopIcons:'auto', namecard:'', signature:'', trimSprites:true, cgEnabled:true, cgClassifier:'main', cgProfile:'', choicesProfile:'', cgBypassReasoning:true, cgPrompt:defaultCGPrompt, cgAudio:true, spriteAudio:true, burstAudio:true, spriteVolume:.8, diceSound:true, trustSystem:false, travelerTwin:'Aether', master:true, cardArt:true });
 const bodyClasses = ['gi-menu-open', 'gi-enabled', 'gi-scene', 'gi-history', 'gi-hidden', 'gi-compose', 'gi-generating', 'gi-reduced-motion', 'gi-reading', 'gi-choices-enabled', 'gi-native-staging', 'gi-sprite-idle', 'gi-hud-top-off'];
 const icons = {
     compass: '<path d="m12 2 3 7 7 3-7 3-3 7-3-7-7-3 7-3Z"/><path d="m12 8 4 4-4 4-4-4Z"/>',
@@ -80,6 +83,9 @@ const MENU_ICONS = new Set(['auto', 'book', 'wardrobe', 'map', 'compose', 'hide'
 const menuButton = (action, label, icon = action) => MENU_ICONS.has(icon)
     ? `<button type="button" data-gi-action="${action}" aria-label="${label}"><img class="gi-pm-icon" src="${new URL(`assets/menu/${icon}.webp`, import.meta.url).href}" alt="" aria-hidden="true" draggable="false"><span>${label}</span></button>`
     : button(action, label, icon, false);
+// Trust has no icon in the game, so its heart is drawn to match them: their white, their outline.
+const TRUST_ICON = `data:image/svg+xml,${encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 21.2 3.6 12.8a5.4 5.4 0 0 1 7.6-7.6l.8.8.8-.8a5.4 5.4 0 0 1 7.6 7.6Z" fill="#fff" stroke="#1c1c1c" stroke-width="1" stroke-linejoin="round"/></svg>')}`;
+const trustButton = () => `<button type="button" data-gi-action="trust" aria-label="Trust"><img class="gi-pm-icon" src="${TRUST_ICON}" alt="" aria-hidden="true" draggable="false"><span>Trust</span></button>`;
 let mounted = false;
 let removeJourneyFilter;
 let backgroundUI;
@@ -113,7 +119,7 @@ let locationMusicUI;
 let spriteUI;
 let wardrobeUI,inventoryUI,trustUI;
 let personaSession,soloChatUI,loadingUI,keyboardFrame,lastPlaceId='';
-let mediaUI,shareUI;
+let mediaUI,shareUI,uiSound;
 let stageEffects;
 let visit = 0;
 const reveal = createTextReveal(schedule);
@@ -126,11 +132,13 @@ function pageState(message) {
     let state = pageStates.get(source);
     if (!state) { state = { source, index: 0 }; pageStates.set(source, state); }
     const prefs = preferences();
-    const mode = `${prefs.narration}:${prefs.narrationMode}:${prefs.narrationKeyword}:${prefs.combatTriggerPhrase}`;
+    const entry = context().chat?.[Number(message.getAttribute('mesid'))], hint = soloHintFor(entry);
+    const mode = `${prefs.narration}:${prefs.narrationMode}:${prefs.narrationKeyword}:${prefs.combatTriggerPhrase}:${hint}`;
     if (state.html !== source.innerHTML || state.mode !== mode) {
         state.mode = mode;
         state.html = source.innerHTML;
-        state.pages = dialoguePages(source, prefs, { is_user: message.getAttribute('is_user') === 'true', is_system: message.getAttribute('is_system') === 'true', is_narrator:context().chat?.[Number(message.getAttribute('mesid'))]?.extra?.type==='narrator',is_enemy:Boolean(enemySpeaker(context(),context().chat?.[Number(message.getAttribute('mesid'))])) });
+        state.pages = dialoguePages(source, prefs, { is_user: message.getAttribute('is_user') === 'true', is_system: message.getAttribute('is_system') === 'true', is_narrator:entry?.extra?.type==='narrator'||narratorMessage(entry),is_enemy:Boolean(enemySpeaker(context(),entry)) });
+        if (hint) { const page = document.createDocumentFragment(); page.append(hint); page.giNarration = true; state.pages.push(page); }
         state.index = Math.max(0, Math.min(state.index, state.pages.length - 1));
     }
     return state;
@@ -186,6 +194,7 @@ function preferences() {
     if (!['main','profile','webllm'].includes(store[KEY].cgClassifier)) store[KEY].cgClassifier = 'main';
     if (!['auto','on','off'].includes(store[KEY].hudTopIcons)) store[KEY].hudTopIcons = 'auto';
     store[KEY].spriteVolume = Math.max(0,Math.min(1,Number(store[KEY].spriteVolume) || 0));
+    store[KEY].uiSoundVolume = Math.max(0,Math.min(1,Number(store[KEY].uiSoundVolume) || 0));
     store[KEY].textScale = Math.min(1.4, Math.max(0.85, Number(store[KEY].textScale) || 1));
     store[KEY].revealSpeed = Math.min(150, Math.max(0, Number(store[KEY].revealSpeed) || 0));
     store[KEY].scrim = Math.min(0.95, Math.max(0.4, Number(store[KEY].scrim) || 0.8));
@@ -287,6 +296,7 @@ function syncSettings() {
         if (input.type === 'checkbox') input.checked = value;
         else input.value = value;
     });
+    paintFeatureSwitches(document.querySelector('#gi-settings'),prefs);
     paintRoleplayPrompts(context());
     document.querySelector('#gi-cg-profile-row')?.toggleAttribute('hidden', prefs.cgClassifier !== 'profile');
     document.querySelector('#gi-cg-reasoning-row')?.toggleAttribute('hidden', prefs.cgClassifier !== 'main');
@@ -299,6 +309,7 @@ function syncSettings() {
     if (speed) speed.value = prefs.revealSpeed ? `${prefs.revealSpeed}/s` : 'Instant';
     if (scrim) scrim.value = `${Math.round(prefs.scrim * 100)}%`;
     const volume=document.querySelector('#gi-sprite-volume-value');if(volume)volume.value=`${Math.round(prefs.spriteVolume*100)}%`;
+    const uiVolume=document.querySelector('#gi-ui-sound-volume-value');if(uiVolume)uiVolume.value=`${Math.round(prefs.uiSoundVolume*100)}%`;
 }
 // Event narration (attacks, reactions, travel and teleports) is appended moments
 // before the AI reply starts streaming. Keep it on screen until the reader
@@ -358,7 +369,7 @@ function refresh() {
     document.querySelectorAll('#gi-toolbar .gi-pm-tavern img[data-persona]').forEach(img => { const src = drawerIcon('persona-management-button', personaMenuIcon(ctx)); if (img.src !== src) img.src = src; });
     if (menuOpen) paintProfile();
     combatUI?.sync({on:Boolean(prefs.enabled&&inChat&&!openingHome),id:Number(current),generating:generating||groupGenerating||locationCastUI?.busy||personaSession?.busy,show:Boolean(active&&!history&&!hidden),idle:!(morePages||index<list.length-1||generating||reveal.revealing)});
-    locationMusicUI?.sync({on:Boolean(prefs.enabled&&inChat&&!openingHome),combat:Boolean(prefs.enabled&&inChat&&!openingHome&&(combatUI?.busy||activeEnemies(ctx).some(enemy=>!activeGroup(ctx)?.disabled_members?.includes(enemy.avatar))))});
+    locationMusicUI?.sync({on:Boolean(prefs.enabled&&inChat&&!openingHome),viewed:placeNow?.location || null,combat:Boolean(prefs.enabled&&inChat&&!openingHome&&(combatUI?.busy||activeEnemies(ctx).some(enemy=>!activeGroup(ctx)?.disabled_members?.includes(enemy.avatar))))});
     soloChatUI?.sync({on:Boolean(prefs.enabled && inChat)});
     choiceUI?.sync({ on: Boolean(prefs.enabled && inChat && !soloChatUI?.solo), suggested:prefs.choices, generating:generating||groupGenerating||Boolean(combatUI?.busy)||Boolean(locationCastUI?.busy) });
     if (active && !history) {
@@ -506,6 +517,11 @@ function selectMessage(index, pageIndex = 0) {
     const text = selected.querySelector('.mes_text');
     if (text) text.scrollTop = 0;
     announcePage(selected);
+}
+// A teleport moves the story on, however much was still unread. Earlier messages stay a step back.
+function jumpToArrival() {
+    if (!context().chat?.at(-1)?.extra?.silly_teyvat_travel) return;
+    stopAuto(); reveal.finish(); selectMessage(messages().length - 1);
 }
 function retreat() {
     if (history || hidden) return;
@@ -679,12 +695,39 @@ function subscribe(key, handler) {
     subscriptions.push([eventSource, type, handler]);
 }
 
-export async function initialize({ choicesAdapter, spriteAdapter, wardrobeAdapter, personaAdapter, personaSessionAdapter, soloAdapter, mediaAdapter, castAdapter, combatAdapter, diceAdapter, journeyAdapter=createJourneyLibraryAdapter(), sound } = {}) {
+// With Silly Teyvat switched off, only its settings panel is drawn, so it can be switched back on.
+async function mountDormant(version){
+    try{
+        const html=await context().renderExtensionTemplateAsync(FOLDER,'settings');
+        if(!mounted||version!==mountVersion)return;
+        document.querySelector('#extensions_settings2').insertAdjacentHTML('beforeend',html);
+    }catch(error){console.warn('[Silly Teyvat] Settings panel unavailable',error);return;}
+    const panel=document.querySelector('#gi-settings');renderFeatureSwitches(panel);paintFeatureSwitches(panel,preferences());
+    document.addEventListener('change',masterChanged,{signal:abort.signal});
+}
+function masterChanged(event){
+    if(event.target.matches?.('#gi-settings [data-gi-master]'))void setMaster(event.target.checked);
+}
+async function setMaster(on){
+    const content=document.querySelector('#gi-settings .inline-drawer-content'),open=content&&getComputedStyle(content).display!=='none';
+    preferences().master=on;context().saveSettingsDebounced();
+    dispose();
+    try{await initialize(mountOptions);}catch(error){console.error('[Silly Teyvat]',error);}
+    // The panel was drawn afresh; keep it open where the switch was.
+    const panel=document.querySelector('#gi-settings');
+    if(open&&panel){panel.querySelector('.inline-drawer-content').style.display='block';panel.querySelector('.inline-drawer-icon')?.classList.replace('fa-circle-chevron-down','fa-circle-chevron-up');panel.querySelector('.inline-drawer-icon')?.classList.replace('down','up');panel.querySelector('[data-gi-master]')?.focus();}
+    globalThis.toastr?.info?.(on?'Silly Teyvat is on.':'Silly Teyvat is off. SillyTavern is running without it.','Silly Teyvat');
+}
+let mountOptions = {};
+export async function initialize(options = {}) {
     if (mounted) return;
     if (!document.querySelector('#chat') || !document.querySelector('#extensions_settings2')) return;
+    const { choicesAdapter, spriteAdapter, wardrobeAdapter, personaAdapter, personaSessionAdapter, soloAdapter, mediaAdapter, castAdapter, combatAdapter, diceAdapter, journeyAdapter=createJourneyLibraryAdapter(), sound } = options;
+    mountOptions = options;
     mounted = true;
     const version = ++mountVersion;
     abort = new AbortController();
+    if (preferences().master === false) { await mountDormant(version); return; }
     try{await applyPackagedSettings(context());}catch(error){console.warn('[Silly Teyvat] Packaged settings',error);}
     if(migrateCGDisplay(mediaSettings(context())))context().saveSettingsDebounced();
     freshenTwinPersonas(context());
@@ -718,7 +761,7 @@ export async function initialize({ choicesAdapter, spriteAdapter, wardrobeAdapte
                 <button type="button" class="gi-pm-switch" data-gi-action="toggle" aria-pressed="false" aria-label="Silly Teyvat"><span>Silly Teyvat</span><i aria-hidden="true"></i></button>
                 <button type="button" class="gi-pm-switch gi-pm-solo" data-gi-action="solo-journey" hidden><span>Start solo journey</span></button>
                 <section id="gi-pm-namecards" class="gi-pm-namecards" aria-label="Namecards" hidden><header><h3>Namecard</h3>${menuButton('namecards', 'Done', 'close')}</header><div class="gi-pm-nc-list" role="radiogroup" aria-label="Choose a namecard"></div></section>
-                <div class="gi-pm-grid">${menuButton('auto', 'Auto')}${menuButton('history', 'Review', 'book')}${menuButton('wardrobe', 'Characters')}${menuButton('inventory', 'Inventory', 'bag')}${menuButton('trust', 'Trust', 'heart')}${menuButton('map', 'Map')}${menuButton('compose', 'Chat Box')}${menuButton('hide', 'Hide UI')}${menuButton('namecards', 'Namecard', 'namecard')}</div>
+                <div class="gi-pm-grid">${menuButton('auto', 'Auto')}${menuButton('history', 'Review', 'book')}${menuButton('wardrobe', 'Characters')}${menuButton('inventory', 'Inventory', 'bag')}${trustButton()}${menuButton('map', 'Map')}${menuButton('compose', 'Chat Box')}${menuButton('hide', 'Hide UI')}${menuButton('namecards', 'Namecard', 'namecard')}</div>
                 <section class="gi-pm-tavern" aria-label="SillyTavern"><h3>SillyTavern</h3><div class="gi-pm-grid">${ST_DRAWERS.map(([id, label]) => `<button type="button" data-gi-action="st-drawer" data-drawer="${id}" aria-label="${label}"><img src="${drawerIcon(id)}" alt="" aria-hidden="true" draggable="false"${id === 'persona-management-button' ? ' data-persona' : ''}><span>${label}</span></button>`).join('')}</div></section>
             </div>
         </nav>
@@ -737,7 +780,7 @@ export async function initialize({ choicesAdapter, spriteAdapter, wardrobeAdapte
     await loadCharacterProperties();
     if(!mounted||version!==mountVersion)return;
     stageEffects=mountStageEffects({host,getContext:context});
-    cardArtUI=mountCardArt({getContext:context});
+    if(preferences().cardArt)cardArtUI=mountCardArt({getContext:context});
     loadingUI=createLoadingScreen({isReady:stageReady,onChange:schedule});
     keyboardFrame=createKeyboardFrame({onChange:()=>{spriteUI?.relayout();schedule();}});
     backgroundUI=mountBackgrounds({host,getContext:context,adapter:mediaAdapter,announce,onChange:schedule});
@@ -749,7 +792,7 @@ export async function initialize({ choicesAdapter, spriteAdapter, wardrobeAdapte
     worldMapUI=mountWorldMap({host,getContext:context,adapter:mediaAdapter,announce,
         openMusic:id=>locationMusicUI.openLocation(id),openMusicLibrary:()=>locationMusicUI.openLibrary(),
         openJourney:id=>journeyAdapter.open(id),
-        prepareTeleport:location=>locationCastUI.prepareTeleport(location),commitTeleport:plan=>locationCastUI.commitTeleport(plan),retryCast:()=>locationCastUI.retry(),
+        prepareTeleport:location=>locationCastUI.prepareTeleport(location),commitTeleport:plan=>locationCastUI.commitTeleport(plan),onTeleport:jumpToArrival,retryCast:()=>locationCastUI.retry(),
         onChange:()=>{backgroundUI.refresh();schedule();}});
     mediaUI = mountSceneMedia({host,getContext:context,adapter:mediaAdapter,sound,announce});
     spriteUI = mountPageSprites({ host, getContext: context, adapter: spriteAdapter, isDefeated: defeatedHere, announce, renderMessage: id => document.querySelector(`#chat > .mes[mesid="${id}"] .mes_text`), onAppearance:event=>mediaUI?.appearance(event) });
@@ -766,17 +809,22 @@ export async function initialize({ choicesAdapter, spriteAdapter, wardrobeAdapte
         const html = await context().renderExtensionTemplateAsync(FOLDER, 'settings');
         if (!mounted || version !== mountVersion) return;
         document.querySelector('#extensions_settings2').insertAdjacentHTML('beforeend', html);
+        renderFeatureSwitches(document.querySelector('#gi-settings'));
         manifest.then(m => { const footer = document.querySelector('#gi-settings .gi-set-footer span'); if (footer) footer.textContent = m.version || ''; }).catch(() => {});
     } catch (error) {
         console.warn('[Silly Teyvat] Settings panel unavailable. Alt+G and the compass still work.', error);
     }
     if (!mounted || version !== mountVersion) return;
     shareUI=mountShare({getContext:context,announce,signal:abort.signal});shareUI.bind();
+    uiSound=createUiSound({getVolume:()=>preferences().uiSound?preferences().uiSoundVolume:0});mountUiSound({sound:uiSound,signal:abort.signal});
     document.addEventListener('click', handleAction, { signal: abort.signal });
     document.addEventListener('keydown', handleKey, { signal: abort.signal });
     renderPromptLibrary();
     bindRoleplayPrompts(context, abort.signal);
+    document.addEventListener('change', masterChanged, { signal: abort.signal });
     document.addEventListener('change', event => {
+        const group = event.target.closest?.('#gi-settings [data-gi-group]');
+        if (group) { setGroup(document.querySelector('#gi-settings'), group.dataset.giGroup, group.checked); refresh(); return; }
         const input = event.target.closest('#gi-settings [data-gi-setting]');
         if (!input) return;
         const key = input.dataset.giSetting;
@@ -805,6 +853,7 @@ export async function initialize({ choicesAdapter, spriteAdapter, wardrobeAdapte
             if(Object.hasOwn(stagingDefaults,key))spriteUI?.relayout?.();if(Object.hasOwn(stagingDefaults,key))void spriteUI?.refreshPresentation().catch(error=>{console.warn('[Silly Teyvat] Stage controls unavailable',error);announce('Could not update sprite staging. Keeping the recorded scene.');});
             if(['cgClassifier','cgProfile','cgPrompt','cgBypassReasoning','cgEnabled'].includes(key))mediaUI?.refresh();
             if(key==='choicesProfile')choiceUI?.reset();
+            if(key==='cardArt'){if(value)cardArtUI??=mountCardArt({getContext:context});else{cardArtUI?.dispose();cardArtUI=undefined;}}
             if(key==='roleplayPromptsEnabled')syncRoleplayPrompts(context(),preferences().enabled);
             if(key==='trustSystem'){syncTrustPrompt(context(),preferences().enabled);if(!value)trustUI?.close();}
             context().saveSettingsDebounced(); refresh();
@@ -844,6 +893,7 @@ export async function initialize({ choicesAdapter, spriteAdapter, wardrobeAdapte
         const persona=personaCard(context());if(persona)await spriteUI?.refreshSprite(persona);
         refresh();schedule();
     });
+    subscribe('MESSAGE_RECEIVED',id=>tagNarratorMessage(context(),id));
     subscribe('CHARACTER_MESSAGE_RENDERED',id=>trustUI?.noteMessage(Number(id)));
     // Dialogue pages hide tags as they are shown. This covers the native chat, for when the dialogue view is off.
     for(const key of ['CHARACTER_MESSAGE_RENDERED','MESSAGE_UPDATED','MESSAGE_SWIPED','MORE_MESSAGES_LOADED','CHAT_CHANGED','CHAT_LOADED'])subscribe(key,hideChatTrustTags);
@@ -859,7 +909,7 @@ export async function initialize({ choicesAdapter, spriteAdapter, wardrobeAdapte
             if(freshSource){try{if(await openFreshSoloChat(ctx,freshSource))return;}catch(error){console.warn('[Silly Teyvat] Fresh solo chat',error);}}
             const key=castIdentity(ctx),revision=++homeOpenRevision;openingHome=true;locationCastUI?.sync({on:false});
             if(preferences().enabled&&!inPartyChat(ctx)&&ctx.characters?.[ctx.characterId])beginOpeningScene(ctx,ctx.characters[ctx.characterId].avatar,ctx.chatMetadata?.silly_teyvat_world?.location?.id);
-            try{await loadStarterLocations(ctx);alignEnemyPools(ctx);await loadCharacterHomes(ctx);if(preferences().enabled&&revision===homeOpenRevision&&castIdentity(context())===key)startCharacterAtHome(ctx);}
+            try{await loadStarterLocations(ctx);alignEnemyPools(ctx);await loadCharacterHomes(ctx);if(preferences().enabled&&ctx.characters?.length)await ensureNarrator(ctx);if(preferences().enabled&&revision===homeOpenRevision&&castIdentity(context())===key)startCharacterAtHome(ctx);}
             catch(error){console.warn('[Silly Teyvat] Character homes',error);}
             finally{if(revision===homeOpenRevision)openingHome=false;schedule();}
         }finally{release?.();}
@@ -887,7 +937,7 @@ export async function initialize({ choicesAdapter, spriteAdapter, wardrobeAdapte
     await prepareCardData();
     try{await loadStarterLocations(context());alignEnemyPools(context());await loadCharacterHomes(context());}catch(error){console.warn('[Silly Teyvat] Starter locations',error);announce(error.message);}
     try{await loadStarterCGs(context());}catch(error){console.warn('[Silly Teyvat] Starter scenes',error);}
-    try{if(preferences().journeysPurged!==true&&context().getRequestHeaders){const ctx=context(),removed=await purgeLegacyJourneys(ctx);if(removed.length){ctx.groups?.splice(0,ctx.groups.length,...ctx.groups.filter(g=>!removed.includes(g.id)));await ctx.getCharacters?.();}if(!(ctx.groups || []).some(isLegacyJourneyGroup))preferences().journeysPurged=true,ctx.saveSettingsDebounced();}}catch(error){console.warn('[Silly Teyvat] Journey cleanup',error);}
+    try{if(preferences().journeysPurged!==true&&context().getRequestHeaders){const ctx=context(),removed=await purgeLegacyJourneys(ctx);if(removed.length){ctx.groups?.splice(0,ctx.groups.length,...ctx.groups.filter(g=>!removed.includes(g.id)));await ctx.getCharacters?.();}if(!(ctx.groups || []).some(isLegacyJourneyGroup))preferences().journeysPurged=true,ctx.saveSettingsDebounced();}if(context().getRequestHeaders)await repairSoloPortraits(context());}catch(error){console.warn('[Silly Teyvat] Journey cleanup',error);}
     try{const remove=await journeyAdapter.install();if(!mounted||version!==mountVersion){remove?.();return;}removeJourneyFilter=remove;}catch(error){console.warn('[Silly Teyvat] Journey library',error);announce(error.message);}
     if(!mounted||version!==mountVersion)return;
     if(preferences().enabled)startCharacterAtHome(context());
@@ -915,6 +965,7 @@ export function dispose() {
     spriteUI?.dispose(); spriteUI = undefined;
     stageEffects?.dispose();stageEffects=undefined;
     cardArtUI?.dispose();cardArtUI=undefined;
+    uiSound?.dispose(); uiSound=undefined;
     mediaUI?.dispose(); mediaUI=undefined;
     backgroundUI?.dispose();backgroundUI=undefined;
     worldMapUI?.dispose();worldMapUI=undefined;

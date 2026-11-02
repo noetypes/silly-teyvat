@@ -1,5 +1,6 @@
 import {activeGroup} from './party.js';
 import {newLocalId} from './local-id.js';
+import {narratorAvatar} from './narrator.js';
 
 export function noteLocationArrival(ctx,locationId,{kind='travel',travellers=[]}={}){
     ctx.chatMetadata ??= {};
@@ -9,6 +10,11 @@ export function noteLocationArrival(ctx,locationId,{kind='travel',travellers=[]}
     return state.arrival;
 }
 
+// With no card to greet them, the Narrator sets the scene, for every kind of arrival.
+export function narratorArrival(ctx,plan,arrival){
+    const avatar=plan.members[0];if(arrival.handled||plan.members.length!==1||avatar!==narratorAvatar(ctx))return null;
+    return {key:arrival.key,policyVersion:2,mode:'narrator',avatar,locationId:arrival.locationId,reason:arrival.kind==='defeat'?'defeat':undefined,defeatFrom:arrival.defeat?.from,defaultLocationId:null,travellers:[],residents:[],sceneAvatars:[avatar]};
+}
 // Arrival is a single scene event, not one introduction per added group member.
 export function arrivalReply(ctx,plan,residents,defaultHomes){
     const arrival=ctx.chatMetadata?.silly_teyvat_cast?.arrival;

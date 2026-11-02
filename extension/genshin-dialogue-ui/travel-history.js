@@ -6,8 +6,9 @@ import {mediaSettings} from './media-store.js';
 import {noteLocationArrival} from './arrival-policy.js';
 import {rollLocationEncounter} from './location-encounters.js';
 import {playedAvatars} from './persona-link.js';
+import {NARRATOR_AVATAR} from './narrator.js';
 
-export function partyAvatars(ctx){const played=playedAvatars(ctx);return (activeGroup(ctx)?.members?.slice() || [ctx.characters?.[ctx.characterId]?.avatar].filter(Boolean)).filter(a=>!played.has(a));}
+export function partyAvatars(ctx){const played=playedAvatars(ctx);return (activeGroup(ctx)?.members?.slice() || [ctx.characters?.[ctx.characterId]?.avatar].filter(Boolean)).filter(a=>!played.has(a)&&a!==NARRATOR_AVATAR);}
 export function travellingAvatars(ctx,destination,{automatic=false}={}){
     const state=ctx.chatMetadata?.silly_teyvat_cast || {};
     const members=partyAvatars(ctx).filter(a=>!isEnemy(ctx,a)),travellers=members.filter(avatar=>!automatic || !state.managed?.includes(avatar) || state.core?.includes(avatar) || state.placements?.[avatar]===destination.id);

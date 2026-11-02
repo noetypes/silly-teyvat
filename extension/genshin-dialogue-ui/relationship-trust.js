@@ -4,6 +4,7 @@
 // 0.5 hostile or wary, 1 knows of them, 1.5 cordial, 2 friendly or dependable, 2.5 good friend or trusted
 // colleague, 3 close, 3.5 very close, 4 family or a deep bond, 4.5 a parent, child or sibling, 5 a twin.
 // Each character's list can be changed in Character Customization. A saved null removes a row.
+import {isNarrator} from './narrator.js';
 import {mediaSettings} from './media-store.js';
 import {linkedCard} from './persona-link.js';
 import {isEnemy} from './character-properties.js';
@@ -142,7 +143,7 @@ const SECTION=/^\s*\**relationships?\**\s*:?\s*\**\s*$/im;
 export function relationshipNames(ctx,card){
     const description=String(card?.data?.description ?? card?.description ?? ''),heading=SECTION.exec(description);
     if(!heading)return [];
-    const others=(ctx.characters || []).filter(c=>c.name!==card.name&&!isEnemy(ctx,c)).map(c=>c.name),found=new Set();
+    const others=(ctx.characters || []).filter(c=>c.name!==card.name&&!isEnemy(ctx,c)&&!isNarrator(c)).map(c=>c.name),found=new Set();
     for(const line of description.slice(heading.index+heading[0].length).split('\n')){
         const label=/^[-*\s]*([^:\n]{1,70}):\s*\S/.exec(line)?.[1];if(!label)continue;
         for(const part of label.split(/,|&|\band\b/).map(s=>s.replace(/\*/g,'').trim())){

@@ -1,3 +1,5 @@
+import {regionEmblem} from './loading-screen.js';
+import {cue} from './ui-sound.js';
 import {mountWildernessMenu,wildernessSummary,wildernessPool} from './wilderness.js';
 import {clearedEnemies,restoreEnemies} from './combat-state.js';
 import {localMediaPath,createMediaAdapter} from './media-store.js';
@@ -35,8 +37,8 @@ const NATIONS=[
 ];
 const reducedMotion=()=>document.body.classList.contains('gi-reduced-motion') || Boolean(globalThis.matchMedia?.('(prefers-reduced-motion: reduce)').matches);
 
-export function mountWorldMap({host,getContext,adapter=createMediaAdapter(getContext),onChange=()=>{},announce=()=>{},prepareTeleport=async()=>({decisions:[]}),commitTeleport=()=>true,retryCast=()=>{},openMusic=()=>{},openMusicLibrary=()=>{},openJourney=id=>createJourneyLibraryAdapter().open(id)}){
-    const mini=document.createElement('button');mini.id='gi-minimap';mini.type='button';mini.hidden=true;mini.setAttribute('aria-label','Open world map');
+export function mountWorldMap({host,getContext,adapter=createMediaAdapter(getContext),onChange=()=>{},announce=()=>{},prepareTeleport=async()=>({decisions:[]}),commitTeleport=()=>true,onTeleport=()=>{},retryCast=()=>{},openMusic=()=>{},openMusicLibrary=()=>{},openJourney=id=>createJourneyLibraryAdapter().open(id)}){
+    const mini=document.createElement('button');mini.id='gi-minimap';mini.type='button';mini.dataset.giSound='none';mini.hidden=true;mini.setAttribute('aria-label','Open world map');
     mini.innerHTML='<span class="gi-minimap-ring" aria-hidden="true"><span class="gi-minimap-glass"><span class="gi-minimap-canvas"></span><span class="gi-minimap-vignette"></span><span class="gi-minimap-player"><i class="gi-minimap-cone"></i><svg viewBox="0 0 24 24"><path d="M12 3 19 20l-7-4-7 4z"/></svg></span></span><span class="gi-minimap-north">N</span></span><span class="gi-minimap-label">World map</span>';
     const dialog=document.createElement('dialog');dialog.id='gi-world-map';dialog.setAttribute('aria-labelledby','gi-world-map-title');dialog.dataset.view='list';
     dialog.innerHTML=`<section class="gi-map-surface" aria-label="Interactive Teyvat map"><div class="gi-map-canvas" tabindex="0" aria-label="Teyvat map"></div><div class="gi-map-vignette" aria-hidden="true"></div><div class="gi-map-reticle" aria-hidden="true"></div></section>
@@ -88,6 +90,8 @@ export function mountWorldMap({host,getContext,adapter=createMediaAdapter(getCon
         if(reducedMotion()||!dialog.open)map.setView(target,zoom);else map.flyTo(target,zoom,{duration:.85,easeLinearity:.2});
     }
     // Top region selector: nations plus any custom regions that have waypoints.
+    // The loading screen's region emblems; Teyvat itself and custom regions share its plain one.
+    const emblemOf=name=>regionEmblem(NATIONS.some(n=>n.name===name)?name:'');
     function regionTargets(){
         const pad=b=>L.latLngBounds([b[2],b[0]],[b[3],b[1]]).pad(.12),own=new Map();
         for(const w of worldWaypoints(getContext())){const key=w.region.name.toLowerCase();if(!own.has(key))own.set(key,{name:w.region.name,points:[]});own.get(key).points.push(toLatLng(w.point));}
@@ -100,11 +104,11 @@ export function mountWorldMap({host,getContext,adapter=createMediaAdapter(getCon
         return regionTargets().filter(r=>r.bounds.contains(c)).sort((a,b)=>{const area=x=>{const s=x.bounds.getSouthWest(),n=x.bounds.getNorthEast();return (n.lat-s.lat)*(n.lng-s.lng);};return area(a)-area(b);})[0] || null;
     }
     function paintRegionBar(){
-        const region=regionAtView(),bar=$('.gi-map-region-current');bar.querySelector('span').textContent=region?.name || 'Teyvat';bar.dataset.element=region?.element || '';
+        const region=regionAtView(),bar=$('.gi-map-region-current');bar.querySelector('span').textContent=region?.name || 'Teyvat';bar.dataset.element=region?.element || '';bar.querySelector('.gi-map-region-gem').style.setProperty('--gi-emblem',`url("${emblemOf(region?.name)}")`);
     }
     function regionMenu(open){
         const menu=$('.gi-map-region-menu'),bar=$('.gi-map-region-current');
-        if(open){const here=regionAtView()?.name;menu.replaceChildren(...[{name:'Teyvat',element:''},...regionTargets()].map(r=>{const b=button('','goto-region');b.setAttribute('role','menuitem');b.dataset.regionName=r.name;b.dataset.element=r.element;b.setAttribute('aria-current',String((here || 'Teyvat')===r.name));const gem=document.createElement('i');gem.className='gi-map-region-gem';gem.setAttribute('aria-hidden','true');b.append(gem,element('span',r.name));return b;}));}
+        if(open){const here=regionAtView()?.name;menu.replaceChildren(...[{name:'Teyvat',element:''},...regionTargets()].map(r=>{const b=button('','goto-region');b.setAttribute('role','menuitem');b.dataset.regionName=r.name;b.dataset.element=r.element;b.setAttribute('aria-current',String((here || 'Teyvat')===r.name));const gem=document.createElement('i');gem.className='gi-map-region-gem';gem.setAttribute('aria-hidden','true');gem.style.setProperty('--gi-emblem',`url("${emblemOf(r.name)}")`);b.append(gem,element('span',r.name));return b;}));}
         menu.hidden=!open;bar.setAttribute('aria-expanded',String(open));dialog.classList.toggle('gi-region-menu-open',open);
         if(open)menu.querySelector('[aria-current="true"]')?.focus?.();
     }
@@ -128,7 +132,7 @@ export function mountWorldMap({host,getContext,adapter=createMediaAdapter(getCon
         for(const item of worldWaypoints(getContext())){
             const marker=L.marker(toLatLng(item.point),{icon:waypointIcon({current:current?.location.id===item.location.id,selected:dialog.dataset.view==='details'&&selectedId===item.location.id}),title:item.location.label,alt:item.location.label,keyboard:true});
             const tooltip=element('span',item.location.label);marker.bindTooltip(tooltip,{direction:'top',offset:[0,-30]}).addTo(markers);
-            marker.on('click',event=>{L.DomEvent.stopPropagation(event);if(busy)return;select(item);});
+            marker.on('click',event=>{L.DomEvent.stopPropagation(event);if(busy)return;cue('waypoint');select(item);});
         }
         if(current)L.marker(toLatLng(current.point),{icon:playerIcon(),interactive:false,keyboard:false,zIndexOffset:1000}).addTo(markers);
         $('.gi-map-canvas').classList.toggle('gi-placing-waypoint',placing);
@@ -141,7 +145,7 @@ export function mountWorldMap({host,getContext,adapter=createMediaAdapter(getCon
         $('.gi-map-regions').replaceChildren(...chips);$('#gi-world-map-title').textContent=regions.find(r=>r.id===regionFilter)?.name || 'Teyvat';
         const shown=points.filter(p=>!regionFilter||p.region.id===regionFilter);
         list.replaceChildren(...shown.map(item=>{
-            const b=document.createElement('button');b.type='button';b.dataset.map='select';b.dataset.location=item.location.id;
+            const b=document.createElement('button');b.type='button';b.dataset.map='select';b.dataset.location=item.location.id;b.dataset.giSound='waypoint';
             const img=document.createElement('img');img.src=waypointGlyph;img.alt='';
             const text=document.createElement('span');text.append(element('b',item.location.label),element('small',item.region.name));b.append(img,text);
             if(current?.location.id===item.location.id)b.dataset.current='true';
@@ -205,7 +209,7 @@ export function mountWorldMap({host,getContext,adapter=createMediaAdapter(getCon
         const music=document.createElement('section');music.className='gi-map-music';music.append(element('h4','Music'),element('p',musicSummary(item.location)),button('Choose music','music'));body.append(music);
         const actions=document.createElement('div');actions.className='gi-map-card-actions';
         const edit=button('','edit');edit.className='gi-map-round';edit.innerHTML=ICON.edit;edit.setAttribute('aria-label','Edit waypoint');edit.title='Edit waypoint';
-        const teleport=button('','teleport');teleport.className='gi-map-teleport';const glyph=document.createElement('img');glyph.src=waypointGlyph;glyph.alt='';teleport.append(glyph,element('span','Teleport'));
+        const teleport=button('','teleport');teleport.className='gi-map-teleport';teleport.dataset.giSound='none';const glyph=document.createElement('img');glyph.src=waypointGlyph;glyph.alt='';teleport.append(glyph,element('span','Teleport'));
         const bypass=button('Bypass Encounters','bypass');bypass.className='gi-map-bypass';bypass.setAttribute('aria-pressed',String(encountersBypassed(getContext(),item.location.id)));bypass.title='Arrive here without meeting any characters or enemies';
         actions.append(bypass,edit,teleport);
         sidebar.replaceChildren(cardHead(item.location.label,item.region.name),body,actions);setView('details');
@@ -271,7 +275,7 @@ export function mountWorldMap({host,getContext,adapter=createMediaAdapter(getCon
     }
     // Genshin teleport: the screen washes to light, the scene swaps underneath, then it clears.
     function playTeleport(){
-        if(reducedMotion())return;veil?.remove();clearTimeout(veilTimer);
+        cue('teleport');if(reducedMotion())return;veil?.remove();clearTimeout(veilTimer);
         veil=document.createElement('div');veil.className='gi-teleport-veil';veil.setAttribute('aria-hidden','true');veil.innerHTML=`<i class="gi-teleport-ring"></i><i class="gi-teleport-ring"></i><img src="${waypointGlyph}" alt="">`;
         host.append(veil);veilTimer=setTimeout(()=>{veil?.remove();veil=null;},1500);
     }
@@ -351,7 +355,7 @@ export function mountWorldMap({host,getContext,adapter=createMediaAdapter(getCon
                     if(!plan||disposed||token!==revision||startChat!==identity(getContext()))return;
                     if(!worldWaypoints(ctx).some(w=>w.location.id===item.location.id))throw new Error('This waypoint was removed while choosing companions.');
                     if(!commitTeleport(plan))return;
-                    playTeleport();teleportTo(ctx,item.location.id,{avatars:plan.travellers,encounter:plan.encounter});onChange();announce(`Teleported to ${item.location.label}, ${item.region.name}.`);close();
+                    playTeleport();teleportTo(ctx,item.location.id,{avatars:plan.travellers,encounter:plan.encounter});onTeleport();onChange();announce(`Teleported to ${item.location.label}, ${item.region.name}.`);close();
                 }finally{busy=false;delete dialog.dataset.busy;}
                 return;
             }

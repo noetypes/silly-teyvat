@@ -15,8 +15,10 @@ const TARGETS = [
     '#right-nav-panel .avatar_collage img', // group avatar collages
     '#chat .recentChat .avatar img', // Recent Chats on the welcome screen
     'body.gi-history #chat .mes .avatar img', // Dialogue Review
+    '#user_avatar_block .avatar img', // Persona Management
 ].join(',');
 const full = file => `/characters/${encodeURIComponent(file)}`;
+const personaFull = file => `/User Avatars/${encodeURIComponent(file)}`;
 const verdicts = new Map(); // avatar file -> true (card art) | 'tcg' (TCG card) | false
 
 function thumbFile(src, type = 'avatar') {
@@ -36,25 +38,38 @@ function mark(img, kind) {
     }
     box.classList.toggle('gi-card-art', kind === 'art' || kind === 'tcg'); box.classList.toggle('gi-card-frame', kind === 'frame');
 }
-function clear(img) { delete img.dataset.giThumb; delete img.dataset.giFile; mark(img, null); }
+function clear(img) { delete img.dataset.giThumb; delete img.dataset.giFile; delete img.dataset.giUrl; mark(img, null); }
+// A solo journey's portrait is a cropped copy stored in the group, so it is drawn from the card it was taken from.
+function journeyCard(img, ctx) {
+    const row = img.closest('[data-group], .group_select'), id = row?.dataset.group ?? row?.dataset.grid ?? row?.getAttribute('grid');
+    return id ? ctx.groups?.find(group => String(group.id) === String(id))?.silly_teyvat_journey?.source?.avatar : null;
+}
+// What an avatar shows: a character card, or a persona's own image, which is often card art too.
+function sourceOf(img, src, ctx) {
+    const persona = thumbFile(src, 'persona');
+    if (persona) return {key: `persona:${persona}`, url: personaFull(persona)};
+    const file = thumbFile(src) || (src.startsWith('data:') ? journeyCard(img, ctx) : null);
+    if (!file) return null;
+    return {key: file, url: ctx.characters?.some(c => c.avatar === file) ? full(file) : ''};
+}
 function apply(img, ctx) {
     if (img.closest('.mes')) { applyMessage(img, ctx); return; }
-    const src = img.getAttribute('src') || '', file = thumbFile(src);
-    if (!file) { if (!(img.dataset.giFile && src === full(img.dataset.giFile))) clear(img); return; }
+    const src = img.getAttribute('src') || '', found = sourceOf(img, src, ctx);
+    if (!found) { if (!(img.dataset.giUrl && src === img.dataset.giUrl)) clear(img); return; }
     // A new thumbnail (first render, or SillyTavern reusing this element for another card).
-    img.dataset.giThumb = src; img.dataset.giFile = file;
-    const card = ctx.characters?.find(c => c.avatar === file);
-    if (!card || verdicts.get(file) === false) { mark(img, 'frame'); return; }
-    mark(img, verdicts.get(file) === 'tcg' ? 'tcg' : 'art');
-    if (!verdicts.has(file)) {
+    const {key, url} = found;
+    img.dataset.giThumb = src; img.dataset.giFile = key; img.dataset.giUrl = url;
+    if (!url || verdicts.get(key) === false) { mark(img, 'frame'); return; }
+    mark(img, verdicts.get(key) === 'tcg' ? 'tcg' : 'art');
+    if (!verdicts.has(key)) {
         const check = () => {
-            if (img.dataset.giFile !== file || img.getAttribute('src') !== full(file)) return;
+            if (img.dataset.giFile !== key || img.getAttribute('src') !== url) return;
             const verdict = verdictOf(img.naturalWidth > 0 ? img.naturalWidth / img.naturalHeight : 0);
-            verdicts.set(file, verdict); if (verdict === 'tcg') mark(img, 'tcg'); else if (!verdict) { img.src = img.dataset.giThumb; apply(img, ctx); } // shown as a frame
+            verdicts.set(key, verdict); if (verdict === 'tcg') mark(img, 'tcg'); else if (!verdict) { img.src = img.dataset.giThumb; apply(img, ctx); } // shown as a frame
         };
-        img.addEventListener('load', check, {once: true}); img.addEventListener('error', () => { verdicts.set(file, false); if (img.dataset.giFile === file) { img.src = img.dataset.giThumb; apply(img, ctx); } }, {once: true});
+        img.addEventListener('load', check, {once: true}); img.addEventListener('error', () => { verdicts.set(key, false); if (img.dataset.giFile === key) { img.src = img.dataset.giThumb; apply(img, ctx); } }, {once: true});
     }
-    img.src = full(file);
+    img.src = url;
 }
 // Chat avatars keep their native src: SillyTavern's zoom reads it, and other extensions rewrite it.
 // The card is painted behind the invisible thumbnail instead. Review also lines up the player's own
@@ -124,6 +139,8 @@ export function mountCardArt({getContext, root = document, loadPowerUser = () =>
     const observer = new MutationObserver(queue);
     const panel = root.querySelector('#right-nav-panel') || root.body;
     if (panel) observer.observe(panel, {childList: true, subtree: true, attributes: true, attributeFilter: ['src']});
+    const personas = root.querySelector('#persona-management-block');
+    if (personas && personas !== panel) observer.observe(personas, {childList: true, subtree: true, attributes: true, attributeFilter: ['src']});
     // The chat streams constantly; only react when the welcome screen's Recent Chats change.
     const chat = root.querySelector('#chat');
     const recent = new MutationObserver(list => { if (document.body.classList.contains('gi-history') || list.some(m => m.target.closest?.('.recentChatList') || [...m.addedNodes].some(n => n.nodeType === 1 && (n.matches('.recentChat, .recentChatList') || n.querySelector('.recentChat'))))) queue(); });
@@ -138,7 +155,7 @@ export function mountCardArt({getContext, root = document, loadPowerUser = () =>
             observer.disconnect(); recent.disconnect(); cancelAnimationFrame(frame);
             root.removeEventListener('change', keepCardShape, true);
             eventSource?.removeListener?.(eventTypes?.CHARACTER_EDITED, cardEdited);
-            for (const img of root.querySelectorAll(TARGETS)) { if (img.dataset.giThumb && img.getAttribute('src') === full(img.dataset.giFile)) img.src = img.dataset.giThumb; clear(img); }
+            for (const img of root.querySelectorAll(TARGETS)) { if (img.dataset.giThumb && img.dataset.giUrl && img.getAttribute('src') === img.dataset.giUrl) img.src = img.dataset.giThumb; clear(img); }
             document.body.classList.remove('gi-card-art-on');
         },
     };

@@ -6,6 +6,7 @@ import { mediaSettings, spriteAudioKey } from './media-store.js';
 import { characterProperties } from './character-properties.js';
 import {personaCard,personaSpriteSettings,stageCharacter} from './persona-wardrobe.js';
 import {playedAvatars} from './persona-link.js';
+import {NARRATOR_AVATAR} from './narrator.js';
 // Relative standing heights of Genshin's body models. In every scene the tallest
 // model's sprite reaches the Sprite height line and the others scale against it.
 export const MODEL_HEIGHTS = Object.freeze({'small female':.72,'medium female':.86,'medium male':.89,'tall female':.94,'tall male':1});
@@ -20,7 +21,7 @@ export function roster(ctx){
     const group=activeGroup(ctx);
     const members=inPartyChat(ctx)?(group?.members || []).filter(a=>!group.disabled_members?.includes(a) && a!=='prome-user'): [ctx.characters?.[ctx.characterId]?.avatar];
     const played=playedAvatars(ctx);
-    return members.filter(a=>!played.has(a)).map(a=>ctx.characters?.find(c=>c.avatar===a)).filter(Boolean);
+    return members.filter(a=>!played.has(a)&&a!==NARRATOR_AVATAR).map(a=>ctx.characters?.find(c=>c.avatar===a)).filter(Boolean);
 }
 export function visibleRoster(ctx,scene,message,id=ctx.chat.indexOf(message)){
     const prefs=ctx.extensionSettings.genshin_dialogue_ui || {};

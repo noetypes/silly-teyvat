@@ -1,4 +1,6 @@
-// Hide only our generated groups. Their chat files and native group records
+import {isNarrator} from './narrator.js';
+
+// Hide only our generated groups and the hidden Narrator card. Their chat files and native group records
 // remain intact and can be resumed from the map's Saved journeys menu.
 export function isJourneyGroup(group){
     return Boolean(group?.silly_teyvat_journey?.version===1 ||
@@ -16,7 +18,7 @@ export async function purgeLegacyJourneys(ctx,fetchImpl=fetch){
     }
     return removed;
 }
-export const filterJourneyEntities=entities=>entities.filter(entity=>entity.type!=='group'||!isJourneyGroup(entity.item));
+export const filterJourneyEntities=entities=>entities.filter(entity=>entity.type==='group'?!isJourneyGroup(entity.item):!isNarrator(entity.item));
 export function createJourneyLibraryAdapter({loadScript=()=>import('/script.js'),loadGroups=()=>import('/scripts/group-chats.js')}={}){
     return {
         async install(){

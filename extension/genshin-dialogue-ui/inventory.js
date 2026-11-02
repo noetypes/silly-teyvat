@@ -3,6 +3,7 @@
 // cards sit under banded group headers on the left, and the selected card's details fill
 // the panel on the right. Tiles keep the cards' portrait shape and are larger than Genshin's
 // item squares, since a Silly Teyvat bag holds a handful of cards rather than hundreds.
+import {cue} from './ui-sound.js';
 import {ITEMS,itemArt,bagCount} from './battle-items.js';
 import {partyBag} from './battle-state.js';
 import {combatState,partyStatus,partyStore,USER_KEY} from './combat-state.js';
@@ -65,7 +66,7 @@ export function mountInventory({host,getContext,announce=()=>{},onEat=()=>{},onC
     const dialog=document.createElement('dialog');dialog.id='gi-inventory';dialog.setAttribute('aria-labelledby','gi-inv-title');
     dialog.innerHTML=`<header class="gi-inv-top">
             <div class="gi-inv-title"><span class="gi-inv-badge">${ICON.bag}</span><h2 id="gi-inv-title">Inventory</h2></div>
-            <nav class="gi-inv-tabs" role="tablist" aria-label="Card types">${TABS.map(t=>`<button type="button" role="tab" data-tab="${t.id}" aria-label="${t.label}" title="${t.label}">${ICON[t.id]}</button>`).join('')}</nav>
+            <nav class="gi-inv-tabs" role="tablist" aria-label="Card types">${TABS.map(t=>`<button type="button" role="tab" data-tab="${t.id}" data-gi-sound="section-artifact" aria-label="${t.label}" title="${t.label}">${ICON[t.id]}</button>`).join('')}</nav>
             <div class="gi-inv-meta"><span class="gi-inv-total"></span><button type="button" class="gi-inv-close" aria-label="Close Inventory">${ICON.close}</button></div>
         </header>
         <div class="gi-inv-body">
@@ -156,7 +157,7 @@ export function mountInventory({host,getContext,announce=()=>{},onEat=()=>{},onC
             on(b,'click',()=>{
                 const healed=eatOutsideBattle(getContext(),id,member.avatar);if(!healed)return;
                 const after=partyStatus(getContext()).find(m=>m.avatar===member.avatar);
-                announce(use.revive?`${member.name} is back on their feet with ${after.hp} HP.`:`${member.name} ate ${item.name}: +${healed} HP (${after.hp}/${after.maxHp}).`);
+                cue('use');announce(use.revive?`${member.name} is back on their feet with ${after.hp} HP.`:`${member.name} ate ${item.name}: +${healed} HP (${after.hp}/${after.maxHp}).`);
                 onEat({avatar:member.avatar,item:id,healed});
                 paint();dialog.querySelector(`.gi-inv-eat[data-avatar="${CSS.escape(member.avatar)}"]`)?.classList.add('gi-inv-eaten');
             });

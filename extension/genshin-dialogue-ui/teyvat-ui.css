@@ -87,13 +87,13 @@ body.gi-scene:not(.gi-history) #chat > .mes.gi-current .mes_block { animation: t
 #gi-review-heading:not([hidden]) { animation: ty-drop 300ms var(--ty-ease) both; }
 #gi-notice:not([hidden]) { animation: ty-rise 320ms var(--ty-ease) both; }
 @keyframes ty-drop { from { opacity: 0; translate: 0 -12px; } to { opacity: 1; translate: 0 0; } }
-#gi-choices .qr--button, #qr--bar .qr--button { animation: ty-choice 340ms var(--ty-ease) both; }
-#gi-choices .qr--button:nth-child(2), #qr--bar .qr--button:nth-child(2) { animation-delay: 60ms; }
-#gi-choices .qr--button:nth-child(3), #qr--bar .qr--button:nth-child(3) { animation-delay: 120ms; }
-#gi-choices .qr--button:nth-child(4), #qr--bar .qr--button:nth-child(4) { animation-delay: 180ms; }
+#gi-choices .qr--button, body.gi-enabled #qr--bar .qr--button { animation: ty-choice 340ms var(--ty-ease) both; }
+#gi-choices .qr--button:nth-child(2), body.gi-enabled #qr--bar .qr--button:nth-child(2) { animation-delay: 60ms; }
+#gi-choices .qr--button:nth-child(3), body.gi-enabled #qr--bar .qr--button:nth-child(3) { animation-delay: 120ms; }
+#gi-choices .qr--button:nth-child(4), body.gi-enabled #qr--bar .qr--button:nth-child(4) { animation-delay: 180ms; }
 @keyframes ty-choice { from { opacity: 0; translate: 24px 0; } to { opacity: 1; translate: 0 0; } }
-#gi-choices .qr--button, #qr--bar .qr--button { transition: background 180ms ease, translate 220ms var(--ty-ease), box-shadow 180ms ease; }
-#gi-choices .qr--button:hover, #qr--bar .qr--button:hover { translate: 6px 0; }
+#gi-choices .qr--button, body.gi-enabled #qr--bar .qr--button { transition: background 180ms ease, translate 220ms var(--ty-ease), box-shadow 180ms ease; }
+#gi-choices .qr--button:hover, body.gi-enabled #qr--bar .qr--button:hover { translate: 6px 0; }
 
 /* ---------- Combat: attack toggle ---------- */
 #gi-attack-controls #gi-attack-toggle { transition: color 200ms ease, background 200ms ease, box-shadow 260ms ease, transform 240ms var(--ty-ease); }
@@ -313,6 +313,16 @@ body.gi-reduced-motion :is(#gi-toolbar, #gi-toolbar > *, #gi-menu-scrim, .gi-ene
 #gi-settings input.gi-switch:checked { background: var(--ty-gold); }
 #gi-settings input.gi-switch:checked::after { transform: translateX(22px); background: #fff; }
 #gi-settings input.gi-switch:focus-visible { outline: 2px solid var(--ty-gold-hi); outline-offset: 2px; }
+/* A set with only some of its settings on: the knob rests halfway. */
+#gi-settings input.gi-switch:indeterminate { background: color-mix(in srgb, var(--ty-gold) 45%, #0000004d); }
+#gi-settings input.gi-switch:indeterminate::after { transform: translateX(11px); background: var(--ty-cream); }
+/* The master switch, and the panel with Silly Teyvat off: nothing but that switch. */
+#gi-settings .gi-features { margin-bottom: 12px; }
+#gi-settings .gi-master { min-height: 48px; background: linear-gradient(90deg, #d3bc8e2e, #d3bc8e0d); box-shadow: inset 0 0 0 1px #d3bc8e40; }
+#gi-settings .gi-master > span { color: var(--ty-gold-hi); font-size: 15px; letter-spacing: .04em; }
+#gi-settings .gi-master-note { display: none; }
+#gi-settings[data-master="off"] .gi-master-note { display: block; }
+#gi-settings[data-master="off"] :is(.gi-features > h4, .gi-feature-groups, .gi-features > .gi-note:last-child, .gi-set-tabs, .gi-set-page, .gi-set-footer) { display: none; }
 #gi-settings .gi-set-actions { display: flex; gap: 8px; margin: 8px 0 4px; }
 #gi-settings .menu_button { min-height: 38px; margin: 0; padding: 6px 22px; border: 0; border-radius: 20px; background: var(--ty-cream); color: var(--ty-ink); font: 13.5px var(--ty-font); text-shadow: none; box-shadow: 0 2px 8px #0005; }
 #gi-settings .menu_button:hover { background: #fff; color: var(--ty-ink); }

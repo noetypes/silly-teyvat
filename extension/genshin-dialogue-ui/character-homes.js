@@ -4,6 +4,8 @@ import {rememberDefaultLocations} from './location-cast.js';
 import {assignedResidents,locationCharacterLimit} from './location-capacity.js';
 
 export function seedCharacterHomes(ctx,catalog){
+ // Cards load after the extension starts. Marking the catalog as done before then would lose its one-time moves.
+ if(!ctx.characters?.length)return 0;
  const prefs=mediaSettings(ctx),defaults=rememberDefaultLocations(ctx),locations=backgroundRegions(ctx).flatMap(r=>r.locations);let added=0,changed=false;
  if((prefs.homeBindingsVersion || 0)<catalog.version)for(const move of catalog.relocations || []){
   const character=ctx.characters?.find(c=>c.name===move.name),from=locations.find(l=>l.id===move.from),to=locations.find(l=>l.id===move.to);

@@ -26,19 +26,20 @@ export function characterProperties(ctx,card){
     data.maxHp=Math.max(1,Math.min(100000,Math.round(Number(data.maxHp)||30)));return data;
 }
 export const GENSHIN_TAG='Genshin';
-const sameTag=(a,b)=>String(a ?? '').trim().toLowerCase()===String(b).toLowerCase();
+// Some cards, Aloy's among them, spell the tag out in full.
+const sameTag=tag=>['genshin','genshin impact'].includes(String(tag ?? '').trim().toLowerCase());
 // Genshin characters carry a "Genshin" tag, from the card file or SillyTavern's tag map.
 export function hasGenshinTag(ctx,card){
     if(!card)return false;
-    if((card.tags || card.data?.tags || []).some(tag=>sameTag(tag,GENSHIN_TAG)))return true;
-    return (ctx.tagMap?.[card.avatar] || []).some(id=>sameTag(ctx.tags?.find(tag=>tag.id===id)?.name,GENSHIN_TAG));
+    if((card.tags || card.data?.tags || []).some(tag=>sameTag(tag)))return true;
+    return (ctx.tagMap?.[card.avatar] || []).some(id=>sameTag(ctx.tags?.find(tag=>tag.id===id)?.name));
 }
 // Card tags are only read when a card is imported. Add the Genshin tag to SillyTavern's own tag map too, so it appears in its tag filters.
 export async function registerGenshinTags(ctx,load=()=>import('/scripts/tags.js')){
-    const targets=(ctx.characters || []).filter(card=>(card.tags || card.data?.tags || []).some(tag=>sameTag(tag,GENSHIN_TAG)));
+    const targets=(ctx.characters || []).filter(card=>(card.tags || card.data?.tags || []).some(tag=>sameTag(tag)));
     if(!targets.length)return 0;
     const {tags,tag_map}=await load();
-    let tag=tags.find(item=>sameTag(item.name,GENSHIN_TAG)),changed=0;
+    let tag=tags.find(item=>String(item.name).trim().toLowerCase()==='genshin') ?? tags.find(item=>sameTag(item.name)),changed=0;
     if(!tag){tag={id:crypto.randomUUID(),name:GENSHIN_TAG,folder_type:'NONE',filter_state:'UNDEFINED',sort_order:tags.length,is_hidden_on_character_card:false,color:'',color2:'',create_date:Date.now()};tags.push(tag);changed++;}
     for(const card of targets){const list=tag_map[card.avatar] ??= [];if(!list.includes(tag.id)){list.push(tag.id);changed++;}}
     if(changed)ctx.saveSettingsDebounced();

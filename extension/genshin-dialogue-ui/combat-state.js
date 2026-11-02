@@ -4,6 +4,7 @@ import {promptText,renderPrompt} from './prompt-templates.js';
 import {mediaSettings} from './media-store.js';
 import {isEnemy,characterProperties,ELEMENTS} from './character-properties.js';
 import {playedAvatars,linkedCard} from './persona-link.js';
+import {NARRATOR_AVATAR} from './narrator.js';
 import {personaCard} from './persona-wardrobe.js';
 import {syncPromptOrder} from './prompt-order.js';
 import {DIFFICULTY,partyScale} from './battle-engine.js';
@@ -27,7 +28,7 @@ export function restoreEnemies(ctx,locationId){
     if(count){delete store.cleared[locationId];ctx.saveMetadataDebounced?.();}
     return count;
 }
-export function sceneMembers(ctx){return activeGroup(ctx)?.members || [ctx.characters?.[ctx.characterId]?.avatar].filter(Boolean);}
+export function sceneMembers(ctx){return (activeGroup(ctx)?.members || [ctx.characters?.[ctx.characterId]?.avatar]).filter(a=>a&&a!==NARRATOR_AVATAR);}
 const visitKey=ctx=>{const encounter=ctx.chatMetadata?.silly_teyvat_cast?.encounter,locationId=ctx.chatMetadata?.silly_teyvat_world?.location?.id;return encounter&&encounter.locationId===locationId?encounter.key:`manual:${locationId || 'chat'}`;};
 // An enemy already defeated in the current encounter (a later encounter starts a new visit).
 export const defeatedHere=(ctx,avatar)=>Boolean(ctx.chatMetadata?.silly_teyvat_combat?.visits?.[visitKey(ctx)]?.enemies?.[avatar]?.defeated);

@@ -6,12 +6,13 @@ import {backgroundRegions,travelState,saveTravel} from './backgrounds.js';
 import {mediaSettings} from './media-store.js';
 import {deliverLocationGreeting} from './location-greetings.js';
 import {partyAvatars} from './travel-history.js';
-import {arrivalReply} from './arrival-policy.js';
+import {arrivalReply,narratorArrival} from './arrival-policy.js';
 import {assignedResidents,requireLocationCapacity} from './location-capacity.js';
 import {encounterResidents,rollLocationEncounter} from './location-encounters.js';
 import {newLocalId} from './local-id.js';
 import {playedAvatars} from './persona-link.js';
 import {ABYSS_HOME,abyssAvatar} from './twin-roles.js';
+import {NARRATOR_AVATAR,narratorAvatar} from './narrator.js';
 
 export const castIdentity=ctx=>`${ctx.groupId || ctx.characterId}:${ctx.getCurrentChatId?.() || ctx.chatId || ''}`;
 export function locationCastState(ctx){
@@ -70,7 +71,7 @@ export function assignResidents(ctx,locationId,avatars){
 }
 export function castMembership(ctx){
     const state=locationCastState(ctx),group=activeGroup(ctx);
-    const original=group?[...group.members]:[ctx.characters?.[ctx.characterId]?.avatar].filter(Boolean),played=playedAvatars(ctx);
+    const original=(group?group.members:[ctx.characters?.[ctx.characterId]?.avatar]).filter(a=>a&&a!==NARRATOR_AVATAR),played=playedAvatars(ctx);
     const members=original.filter(a=>!played.has(a)),taken=original.filter(a=>played.has(a));
     const opening=openingCharacter(ctx);
     if(opening){const next=members.includes(opening)?[opening]:ctx.characters?.some(c=>c.avatar===opening)?[opening]:members.slice(0,1);const removed=original.filter(a=>!next.includes(a)),added=next.filter(a=>!members.includes(a));return {core:[...next],members:next,managed:[],added,removed,changed:added.length>0||removed.length>0,forced:null};}
@@ -81,6 +82,9 @@ export function castMembership(ctx){
     let next=[...new Set([...members.filter(a=>!removed.includes(a)),...added])];
     const forced=null; // The player is a complete party even with no NPC members.
     const managed=[...new Set([...state.managed.filter(a=>wanted.includes(a)&&!core.includes(a)),...added.filter(a=>!core.includes(a))])];
+    // The Narrator is the party only while no other card is in it, and is never one of its members in any other sense.
+    const narrator=narratorAvatar(ctx),alone=Boolean(group&&narrator&&!next.length),had=Boolean(group?.members?.includes(NARRATOR_AVATAR));
+    if(alone){next=[narrator];if(!had)added.push(narrator);}else if(had)removed=[...removed,NARRATOR_AVATAR];
     return {core:[...core],members:next,managed,added,removed,changed:added.length>0||removed.length>0,forced};
 }
 // Non-core companions are asked first. Every companion may stay behind; an
@@ -206,7 +210,7 @@ export function mountLocationCast({host,getContext,adapter=createLocationCastAda
     const api={
         get busy(){return busy;},
         sync({on,generating:writing=false}={}){
-            const nextEnabled=Boolean(on&&(mediaSettings(getContext()).locationEncounters!==false||mediaSettings(getContext()).wildernessEncounters!==false||partyAvatars(getContext()).some(a=>isEnemy(getContext(),a))));
+            const nextEnabled=Boolean(on&&(mediaSettings(getContext()).locationEncounters!==false||mediaSettings(getContext()).wildernessEncounters!==false||partyAvatars(getContext()).some(a=>isEnemy(getContext(),a))||inPartyChat(getContext())&&!partyAvatars(getContext()).length));
             if(nextEnabled!==enabled||(generating&&!writing))signature='';
             enabled=nextEnabled;generating=writing;
             if(generating)finishAnswer(null);
@@ -229,7 +233,7 @@ export function mountLocationCast({host,getContext,adapter=createLocationCastAda
                 state.pendingGreetings=(state.pendingGreetings || []).filter(entry=>entry.policyVersion===2);
                 const arrival=state.arrival?.locationId===travelState(ctx).location.id&&!state.arrival.handled?state.arrival:null;
                 const sceneResidents=[...(mediaSettings(ctx).locationEncounters===false?[]:residentsAt(ctx,arrival?.locationId)),...activeEnemies(ctx).map(e=>ctx.characters.find(c=>c.avatar===e.avatar)).filter(Boolean)];
-                const reply=arrival?arrivalReply(ctx,plan,sceneResidents,homeDefaults(ctx)):null;
+                const reply=arrival?narratorArrival(ctx,plan,arrival) || arrivalReply(ctx,plan,sceneResidents,homeDefaults(ctx)):null;
                 plan.greetings=reply?[reply]:[];
                 if(plan.changed){
                     const applied=await adapter.apply(ctx,plan,()=>current(key,token)&&enabled&&!generating);
@@ -237,14 +241,15 @@ export function mountLocationCast({host,getContext,adapter=createLocationCastAda
                     if(applied.converted){signature='';onChange({converted:true});return;}
                     if(!current(key,token))return;
                     state.core=plan.core;state.managed=plan.managed;if(plan.forced)state.placements[plan.forced]=travelState(ctx).location.id;
-                    announce([plan.added.length?`${plan.added.map(a=>ctx.characters.find(c=>c.avatar===a)?.name || a).join(', ')} joined the party.`:'',plan.removed.length?`${plan.removed.map(a=>ctx.characters.find(c=>c.avatar===a)?.name || a).join(', ')} left the scene.`:''].filter(Boolean).join(' '));
+                    const names=list=>list.filter(a=>a!==NARRATOR_AVATAR).map(a=>ctx.characters.find(c=>c.avatar===a)?.name || a).join(', ');
+                    announce([names(plan.added)?`${names(plan.added)} joined the party.`:'',names(plan.removed)?`${names(plan.removed)} left the scene.`:''].filter(Boolean).join(' '));
                     onChange({added:plan.added,removed:plan.removed});
                 }else if(!state.core){state.core=plan.core;saveTravel(ctx);}
                 if(arrival){arrival.handled=true;state.pendingGreetings.push(...plan.greetings);}
                 saveTravel(ctx);
                 while(state.pendingGreetings?.length&&adapter.greet){
                     const entry=state.pendingGreetings[0];
-                    const valid=()=>current(key,token)&&enabled&&locationCastState(getContext()).arrival?.key===entry.key&&travelState(getContext()).location?.id===entry.locationId&&[...residentsAt(getContext(),entry.locationId).map(c=>c.avatar),...activeEnemies(getContext()).map(e=>e.avatar)].includes(entry.avatar);
+                    const valid=()=>current(key,token)&&enabled&&locationCastState(getContext()).arrival?.key===entry.key&&travelState(getContext()).location?.id===entry.locationId&&(entry.mode==='narrator'?activeGroup(getContext())?.members:[...residentsAt(getContext(),entry.locationId).map(c=>c.avatar),...activeEnemies(getContext()).map(e=>e.avatar)])?.includes(entry.avatar);
                     if(!valid()){if(!current(key,token)||!enabled)return;state.pendingGreetings.shift();saveTravel(ctx);continue;}
                     if(!await adapter.greet(entry,valid))return;
                     if(!current(key,token))return;

@@ -17,7 +17,7 @@ export function mountLocationMusic({host,getContext,adapter=createMediaAdapter(g
         <footer><button type="button" data-music="library">Manage music library</button><button type="button" data-music="close-picker">Cancel</button><button type="button" data-music="save">Save waypoint music</button></footer>`;
     host.append(library,picker);
     const abort=new AbortController(),on=(node,type,handler)=>node.addEventListener(type,handler,{signal:abort.signal});
-    let disposed=false,busy=false,locationId='',draft=new Set(),combatDraft=null,lastOn=false,lastCombat=false,chatKey='';
+    let disposed=false,busy=false,locationId='',draft=new Set(),combatDraft=null,lastOn=false,lastCombat=false,lastViewed=null,chatKey='';
     const status=(dialog,text)=>{dialog.querySelector('.gi-music-status').textContent=text;};
     const player=providedPlayer || createLocationMusicPlayer({onState:paintPlaying,onError:text=>{if(!disposed){status(library,text);status(picker,text);announce(text);}}});
     function paintPlaying(){
@@ -29,7 +29,7 @@ export function mountLocationMusic({host,getContext,adapter=createMediaAdapter(g
     }
     function sync(){
         if(disposed)return;
-        const ctx=getContext(),prefs=musicSettings(ctx),cue=locationMusicCue(ctx);
+        const ctx=getContext(),prefs=musicSettings(ctx),cue=locationMusicCue(ctx,lastViewed);
         const identity=JSON.stringify([ctx.groupId ?? ctx.characterId,ctx.getCurrentChatId?.() || ctx.chatId || '']);
         if(chatKey&&chatKey!==identity){library.close();picker.close();player.stopPreview();}
         chatKey=identity;
@@ -102,7 +102,7 @@ export function mountLocationMusic({host,getContext,adapter=createMediaAdapter(g
     on(library.querySelector('[data-music-volume]'),'input',event=>{musicSettings(getContext()).locationMusicVolume=Number(event.target.value)/100;library.querySelector('[data-music-volume-value]').textContent=event.target.value+'%';getContext().saveSettingsDebounced();changed();});
     on(picker,'change',event=>{const id=event.target.dataset.musicTrack;if(id){if(event.target.checked)draft.add(id);else draft.delete(id);}if(event.target.matches('[data-music-combat]')){combatDraft=event.target.value || null;if(combatDraft)draft.delete(combatDraft);renderPicker();}});
     const api={
-        sync({on,combat=false}){lastOn=Boolean(on);lastCombat=Boolean(combat);sync();},
+        sync({on,combat=false,viewed=null}){lastOn=Boolean(on);lastCombat=Boolean(combat);lastViewed=viewed;sync();},
         openLibrary(){if(disposed)return;renderLibrary();status(library,'');if(!library.open)library.showModal();},
         openLocation(id){if(disposed)return;const location=musicLocation(getContext(),id);if(!location){announce('This waypoint is no longer available.');return;}locationId=id;draft=new Set(location.music?.tracks || []);combatDraft=location.wilderness?location.music?.combatTrack || null:null;renderPicker();status(picker,'');if(!picker.open)picker.showModal();},
         dispose(){if(disposed)return;disposed=true;abort.abort();library.close();picker.close();player.dispose();library.remove();picker.remove();},

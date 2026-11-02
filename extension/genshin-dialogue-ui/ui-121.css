@@ -47,6 +47,9 @@ body.gi-card-art-on .avatar.gi-mes-card img { opacity: 0; }
 body.gi-card-art-on .avatar.gi-mes-card::before { content: ''; position: absolute; top: 0; left: 50%; translate: -50% 0; height: 100%; aspect-ratio: 208 / 248; background: var(--gi-mes-card) center / contain no-repeat; filter: drop-shadow(0 3px 5px #000a); pointer-events: none; }
 body.gi-card-art-on .avatar.gi-mes-card.gi-mes-card-tcg::before { top: 6%; height: 88%; aspect-ratio: 420 / 720; }
 body.gi-card-art-on .avatar img.gi-card-img-frame { height: 85.08%; aspect-ratio: 157 / 211; object-fit: cover; border-radius: 4px; box-shadow: 0 0 0 1.5px #dcd7cc, 0 0 0 2.5px #0008, 0 3px 6px #000a; }
+/* Persona Management sizes its images by ID, so the cards are sized to match the character list here. */
+body.gi-card-art-on #user_avatar_block .avatar img.gi-card-img { width: auto; height: 100%; }
+body.gi-card-art-on #user_avatar_block .avatar img.gi-card-img-frame { width: auto; height: 85.08%; }
 body.gi-card-art-on #right-nav-panel :is(.character_select, .group_member):is(:hover, :focus-visible) .avatar img:is(.gi-card-img, .gi-card-img-frame) { translate: 0 -3px; }
 body.gi-card-art-on #right-nav-panel :is(.character_select, .group_member):is(:hover, :focus-visible) .avatar img.gi-card-img { filter: drop-shadow(0 6px 8px #000c) brightness(1.05); }
 /* Group collages: the members' cards fan out like a hand. */
@@ -200,7 +203,7 @@ body.gi-reduced-motion #gi-attack-controls #gi-attack-toggle { animation: none; 
 #gi-world-map .gi-map-region-current svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 2; transition: rotate 240ms var(--ty-ease); }
 #gi-world-map .gi-map-region-current[aria-expanded="true"] svg { rotate: 180deg; }
 #gi-world-map .gi-map-region-current span { animation: ty-fade 260ms ease both; }
-#gi-world-map .gi-map-region-gem { flex: none; width: 14px; height: 14px; rotate: 45deg; border-radius: 3px; background: var(--gem, var(--ty-gold)); box-shadow: 0 0 0 1.5px #fff6, 0 0 10px var(--gem, var(--ty-gold)); }
+#gi-world-map .gi-map-region-gem { flex: none; width: 26px; height: 26px; background: currentColor; -webkit-mask: var(--gi-emblem) center / contain no-repeat; mask: var(--gi-emblem) center / contain no-repeat; }
 #gi-world-map [data-element="anemo"] { --gem: var(--ty-anemo); } #gi-world-map [data-element="geo"] { --gem: var(--ty-geo); }
 #gi-world-map [data-element="electro"] { --gem: var(--ty-electro); } #gi-world-map [data-element="dendro"] { --gem: var(--ty-dendro); }
 #gi-world-map [data-element="hydro"] { --gem: var(--ty-hydro); } #gi-world-map [data-element="pyro"] { --gem: var(--ty-pyro); }
@@ -216,7 +219,7 @@ body.gi-reduced-motion #gi-attack-controls #gi-attack-toggle { animation: none; 
 }
 #gi-world-map .gi-map-region-menu button:hover { background: linear-gradient(90deg, #ece5d82b, #ece5d80a); }
 #gi-world-map .gi-map-region-menu button[aria-current="true"] { background: var(--ty-cream); color: var(--ty-ink); }
-#gi-world-map .gi-map-region-menu .gi-map-region-gem { width: 10px; height: 10px; }
+#gi-world-map .gi-map-region-menu .gi-map-region-gem { width: 24px; height: 24px; }
 #gi-world-map .gi-map-head { max-width: calc(50vw - 130px); }
 @media (max-width: 600px) and (orientation: portrait) {
     #gi-world-map .gi-map-head { max-width: calc(100vw - 160px); }

@@ -4,7 +4,7 @@ import {renderPrompt} from './prompt-templates.js';
 // Native sprite DOM is never rewritten; a replay layer isolates it from background updates.
 import {enemySpeaker,resolveEnemyScene,enemySceneAvatar} from './enemy-actions.js';
 import {openingScene,openingCharacter} from './opening-scene.js';
-import { stageScene, createStageRoster, expressionMode, fitModelHeights, refreshModels, liveSpriteScale, stagingDefaults, bounded, speakerAvatar } from './staging.js';
+import { stageScene, createStageRoster, expressionMode, fitModelHeights, refreshModels, liveSpriteScale, stagingDefaults, bounded, speakerAvatar, roster } from './staging.js';
 import { chooseVisible, layoutStage, compactViewport } from './stage-layout.js';
 import { keyboardShown } from './keyboard-frame.js';
 import { stageCharacter } from './persona-wardrobe.js';
@@ -133,6 +133,10 @@ export function createNativeSpriteAdapter({ capture = captureScene } = {}) {
         reset() { inventories.clear(); },
     };
 }
+const travelled = message => Boolean(message?.extra?.silly_teyvat_travel);
+const beforeArrival = (ctx, id) => ctx.chat.slice(id + 1).some(travelled);
+// The newest arrival, while the party is still there. Its sprites follow the party as it settles in.
+const liveArrival = (ctx, id) => travelled(ctx.chat[id]) && !beforeArrival(ctx, id) && ctx.chatMetadata?.silly_teyvat_world?.location?.id === ctx.chat[id].extra.silly_teyvat_travel.to?.id;
 export function mountPageSprites({ host, getContext, adapter = createNativeSpriteAdapter(), isDefeated = () => false, announce = () => {}, renderMessage = () => null, onAppearance = () => {}, decodeImage = image => image.decode?.() || Promise.resolve(), trimmer = adapter.inventory ? createSpriteTrimmer({ inventory: adapter.inventory }) : null }) {
     const stage = document.createElement('div'); stage.id = 'gi-sprite-stage'; stage.setAttribute('aria-hidden', 'true'); host.append(stage);
     let active = false, selection = '', displayed = '', epoch = 0, lastScene = [], lastChat = null, selectedPage;
@@ -391,7 +395,8 @@ export function mountPageSprites({ host, getContext, adapter = createNativeSprit
         for (let i = page - 1; i >= 0; i--) if (pages?.[i]?.scene) return pages[i].scene;
         for (let i = id - 1; i >= 0; i--) {
             const message = ctx.chat[i];
-            if (message.is_user || message.is_system || message.extra?.type==='narrator') continue;
+            // An arrival starts a new scene, so nobody before it carries past it.
+            if ((message.is_user || message.is_system || message.extra?.type==='narrator') && !travelled(message)) continue;
             const pages = message.extra?.[STORE]?.swipes?.[String(message.swipe_id ?? 0)];
             const keys = Object.keys(pages || {}).map(Number).sort((a, b) => b - a);
             if (keys.length) return pages[keys[0]].scene;
@@ -446,11 +451,27 @@ export function mountPageSprites({ host, getContext, adapter = createNativeSprit
             const action=enemy&&enemyAction==='attacking'?'attacking':'neutral';
             const contextText = !enemy && !passive && !narration && mode === 'page' ? expressionContext(ctx.chat, id, page, text, ctx.extensionSettings.genshin_dialogue_ui, renderMessage) : text;
             const signature = pageSignature(text) + (contextText !== text ? `:context-v1:${pageSignature(contextText)}` : '') + (enemy?`:enemy-action:${action}`:'') + (mode==='message'?`:message:${fullSignature}`:'') + (narration ? `:narration:${anchor}` : '');
-            const identity = `${key}:${id}:${message.swipe_id ?? 0}:${page}:${signature}`;
+            const arriving = liveArrival(ctx, id), party = arriving ? roster(ctx).map(c => c.avatar).join() : '';
+            const identity = `${key}:${id}:${message.swipe_id ?? 0}:${page}:${signature}${arriving ? `:party:${party}` : ''}`;
             selection = identity;
             selectedPage = { message, page, signature, kind, identity };
             const cached = record(message, page, signature, kind);
             const hasEnemy=scene=>scene.some(s=>enemySceneAvatar(ctx,s));
+            if (arriving && cached?.party !== party) {
+                // Nothing from the last scene crosses over, however far behind the reader was. This
+                // skips the queue so a classification of an old page cannot hold up the arrival.
+                draw(cached?.scene || [], `${identity}:arriving`);
+                if (pending.has(identity)) return;
+                pending.add(identity);
+                const token = epoch, isCurrent = () => token === epoch && active && chatKey(getContext()) === key;
+                void Promise.resolve(adapter.prepare?.(ctx, [], isCurrent, { message, id })).then(prepared => {
+                    if (!isCurrent() || !ctx.chat.includes(message)) return;
+                    const scene = stageFresh(ctx, prepared || [], message, id);
+                    save(message, page, signature, { scene, emotion: null, kind, party, enemyActionsVersion: 1 }, ctx);
+                    if (selection === identity) draw(scene, identity);
+                }).catch(error => console.warn('[Silly Teyvat] Arrival sprites', error)).finally(() => pending.delete(identity));
+                return;
+            }
             if (cached && (cached.enemyActionsVersion===1 || !hasEnemy(cached.scene))) { draw(cached.scene, identity); return; }
             const previous = previousScene(ctx, id, page);
             const native = adapter.capture();
@@ -458,10 +479,14 @@ export function mountPageSprites({ host, getContext, adapter = createNativeSprit
             // Native workers may already be reacting to the player's text or
             // an unfinished response. Only completed character dialogue may
             // replace a saved scene, including between different group speakers.
-            const base = cached?.scene || previous || lastScene.length && lastScene || native;
+            // A message from before an arrival never borrows the people standing here now.
+            const past = beforeArrival(ctx, id);
+            const base = cached?.scene || previous || (past ? [] : lastScene.length && lastScene || native);
             draw(base, `${identity}:pending`);
-            if (!complete || pending.has(identity)) return;
-            if (passive&&!hasEnemy(base)) { const held=message.is_user && ctx.extensionSettings.genshin_dialogue_ui?.personaSprite?stageFresh(ctx,base,message,id):structuredClone(base);save(message, page, signature, { scene: held, emotion: null, kind }, ctx); draw(held, identity); return; }
+            // The first narration of a chat has nobody before it to inherit, so it seats the party itself.
+            const seat = passive && !message.is_user && !past && !base.length && Boolean(ctx.extensionSettings.genshin_dialogue_ui?.nativeStaging);
+            if (!complete && !seat || pending.has(identity)) return;
+            if (passive&&!hasEnemy(base)&&!seat) { const held=message.is_user && ctx.extensionSettings.genshin_dialogue_ui?.personaSprite?stageFresh(ctx,base,message,id):structuredClone(base);save(message, page, signature, { scene: held, emotion: null, kind }, ctx); draw(held, identity); return; }
             if (!text.trim() || text.trim() === '...') return;
             // LLM classifiers share the main API. Wait for reply generation to finish.
             if (!enemy && generating && mode==='message') return;
@@ -472,7 +497,8 @@ export function mountPageSprites({ host, getContext, adapter = createNativeSprit
                 if (token !== epoch || chatKey(getContext()) !== key || !active) return;
                 const isCurrent = () => token === epoch && active && chatKey(getContext()) === key && (message.swipe_id ?? 0) === swipe;
                 if(cached || passive){
-                    const scene=await resolveEnemyScene(ctx,adapter,structuredClone(base),message,action);
+                    const start=seat?stageFresh(ctx,await adapter.prepare?.(ctx,[],isCurrent,{message,id}) || [],message,id):structuredClone(base);
+                    const scene=await resolveEnemyScene(ctx,adapter,start,message,action);
                     if(!isCurrent()||!ctx.chat.includes(message))return;
                     const data={...(cached || {}),scene,emotion:enemy?action:cached?.emotion || null,kind,enemyActionsVersion:1};save(message,page,signature,data,ctx);if(selection===identity)draw(scene,identity);return;
                 }
@@ -483,9 +509,10 @@ export function mountPageSprites({ host, getContext, adapter = createNativeSprit
                     let previous = recorded || base;
                     // A fresh narration-only group must still stage all members on
                     // mobile, where native expression holders may never exist.
-                    const initialize = !recorded && ctx.extensionSettings.genshin_dialogue_ui?.nativeStaging;
+                    const initialize = !recorded && !past && ctx.extensionSettings.genshin_dialogue_ui?.nativeStaging;
                     if(initialize)previous=await adapter.prepare?.(ctx,previous,isCurrent,{message,id}) || previous;
-                    let scene = presentOnly(ctx, await narrationScene(ctx, id, page, presentOnly(ctx, previous), isCurrent));
+                    const here = scene => past ? scene : presentOnly(ctx, scene);
+                    let scene = here(await narrationScene(ctx, id, page, here(previous), isCurrent));
                     scene=await resolveEnemyScene(ctx,adapter,scene,message);
                     if(initialize)scene=stageFresh(ctx,scene,message,id);
                     if (!isCurrent() || !ctx.chat.includes(message)) return;
@@ -496,7 +523,7 @@ export function mountPageSprites({ host, getContext, adapter = createNativeSprit
                 }
                 const whole=mode==='message'?message.extra?.[STORE]?.expressions?.[String(swipe)]:null;
                 if(whole?.signature===fullSignature&&(!hasEnemy(whole.data.scene)||whole.data.enemyActionsVersion===1)){save(message,page,signature,{...whole.data,kind},ctx);if(selection===identity)draw(whole.data.scene,identity);return;}
-                const prepared = await adapter.prepare?.(ctx, base, () => token === epoch && active && chatKey(getContext()) === key,{message,id}) || base;
+                const prepared = past ? base : await adapter.prepare?.(ctx, base, () => token === epoch && active && chatKey(getContext()) === key,{message,id}) || base;
                 if (token !== epoch || chatKey(getContext()) !== key || !active) return;
                 const emotion = enemy?action:classifyPages ? await classifyOnce(ctx, message, mode==='message'?'message':page, mode==='message'?message.mes:contextText) : null;
                 if (token !== epoch || chatKey(getContext()) !== key || !active || (message.swipe_id ?? 0) !== swipe) return;

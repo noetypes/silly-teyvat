@@ -1,3 +1,38 @@
+# Silly Teyvat 1.56.0: The Narrator, a game-style character screen, menu sounds and an off switch
+
+- **An off switch.** The **Silly Teyvat** switch at the top of Settings unloads the whole extension, so
+  SillyTavern runs as if it weren't installed. Below it, ten switches turn sets of features on or off
+  together: Story view, Choices & HUD, Sprites & staging, Scene CGs, Sounds, Location encounters, Enemies
+  & battles, Trust, Roleplay prompts and Card art in SillyTavern. A set that is only partly on shows a
+  half-way switch. Card art in SillyTavern's lists can now be turned off on its own.
+- **The Narrator.** A hidden Narrator card keeps you company wherever no other character is in your party.
+  It sets the scene when you start a solo journey and whenever you arrive somewhere with nobody there,
+  then narrates what you do and the world around you. It never writes dialogue or talks to you, and it
+  leaves the moment anyone else joins, enemies included. Edit its arrival prompt in Settings → Prompts.
+- **Solo journeys start at home, alone.** Start solo journey now begins at your character's home with nobody
+  else in the scene, so either twin begins alone at Traveler's Cove. Anyone who lives there appears when you
+  come back later. A persona with no card or no home begins alone at their region's Adventurers' Guild.
+  Your character appears as soon as the Narrator's first message starts, and your first solo narration ends
+  with a hint about the map that is never saved to the chat or sent to the model.
+- **A character screen like the game's.** Character Customization has each element's sky, drifting
+  clouds, stars and tumbling particles, crests in the top left, text tabs on the left, the character on a
+  reflective floor and details floating on the right. Q/E change character and W/S change section.
+  Expressions open on the full body with a magnifier to zoom in.
+- **Filters and sorting.** The All characters list (the grid button) filters by type, element, body,
+  gender and region, and sorts by name, element, body type, region or type. The portrait strip follows the
+  same filters, and a gold dot on the grid button shows when they're on.
+- **Aloy counts as Genshin.** Cards tagged "Genshin Impact" are treated like "Genshin", so Hide non-Genshin
+  no longer hides her.
+- **Menu sounds from the game.** Menus, section tabs, buttons, toggles, choices, items, rising trust,
+  waypoints and teleporting play clips from the game. Settings → CG & Audio has an **Interface sounds**
+  switch and volume. The clips are listed in `GAME-AUDIO.md`.
+- **Teleporting jumps to the new place.** Teleport goes straight to the travel message with the new
+  background and sprites. Stepping back shows the earlier scene's background, sprites and music.
+- **Cards and namecards.** Persona cards in Persona Management, and solo journeys in Recent Chats, show
+  as whole cards like characters. The namecard list has all 291 namecards from the wiki.
+- **Smaller fixes.** The trust icon matches the other icons, the map's region menu uses each region's
+  emblem, and Starting trust appears only on Profile.
+
 # Silly Teyvat 1.55.0: Traveler's Cove
 
 - **Traveler's Cove.** A new waypoint on the beach just north of Starsnatch Cliff.

@@ -25,7 +25,16 @@ export async function runWardrobeAndCanvasTests(){
         $('#gi-character-search').value='nahi';$('#gi-character-search').dispatchEvent(new Event('input'));check('character search filters the roster by name',faces().join()==='Nahida.png');
         $('#gi-character-search').value='';$('#gi-character-search').dispatchEvent(new Event('input'));ctx.characters[1].tags=['Genshin'];$('#gi-hide-non-genshin').click();await pause(15);
         check('Genshin-tagged characters stay visible while hiding non-Genshin',$('#gi-hide-non-genshin').checked&&faces().join()==='Klee.png,Nahida.png');
+        ctx.characters[1].tags=['Genshin Impact'];$('#gi-character-search').dispatchEvent(new Event('input'));
+        check('a card tagged "Genshin Impact", as Aloy\'s is, counts as Genshin',$('#gi-hide-non-genshin').checked&&faces().join()==='Klee.png,Nahida.png');
         $('#gi-hide-non-genshin').click();await pause(15);delete prefs.hideNonGenshin;
+        prefs.hideNonGenshin=false;prefs.characterProperties={'Klee.png':{element:'Pyro',modelType:'small female'},'Nahida.png':{element:'Dendro',modelType:'small female'}};
+        const roster=(key,value)=>{const select=$(`[data-roster="${key}"]`);select.value=value;select.dispatchEvent(new Event('change'));};
+        roster('element','Dendro');check('the character list filters by element',faces().join()==='Nahida.png'&&prefs.rosterView.element==='Dendro'&&!$('.gi-roster-reset').hidden&&$('.gi-roster-count').textContent==='1 shown');
+        roster('element','');roster('sort','element');check('sorting by element follows the game\'s element order',faces().join()==='Klee.png,Nahida.png');
+        roster('gender','male');check('body type and gender come from the body model, and filters combine',faces().length===0);
+        $('.gi-roster-reset').click();await pause(15);check('Reset clears every filter and the sort',faces().join()==='Klee.png,Nahida.png'&&!Object.keys(prefs.rosterView).length&&$('.gi-roster-reset').hidden);
+        delete prefs.hideNonGenshin;delete prefs.characterProperties;delete prefs.rosterView;
         // Sprite sets: new, copy, rename and delete.
         const sets=()=>[...host.querySelectorAll('#gi-outfit option')].map(o=>o.textContent+'='+o.value),registered=()=>(prefs.outfits?.['Klee.png'] || []).map(x=>x.label+'='+x.folder);
         $('[data-w="set-rename"]').click();check('the Original set cannot be renamed',$('.gi-set-editor').hidden);
