@@ -1,0 +1,1561 @@
+{
+  "status": "all three expression sets generated; awaiting user review",
+  "request": "Charlotte, Chevreuse, Chidori",
+  "characters": {
+    "Charlotte": {
+      "neutral_source": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Charlotte/neutral.png",
+      "reference": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/references/Charlotte/neutral.png",
+      "sha256": "43f2924e2f0e81658356bfdee4b0637d9ecf4c0b7163730b8c9c476aaab78128",
+      "approval": {
+        "status": "approved",
+        "message": "All others are ACCEPTED.",
+        "date": "2026-10-30",
+        "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Charlotte/neutral-v001.png",
+        "candidate_sha256": "43f2924e2f0e81658356bfdee4b0637d9ecf4c0b7163730b8c9c476aaab78128"
+      },
+      "expressions": {
+        "neutral": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/sprites/Charlotte/neutral.png",
+          "sha256": "43f2924e2f0e81658356bfdee4b0637d9ecf4c0b7163730b8c9c476aaab78128",
+          "size": [
+            1145,
+            1374
+          ],
+          "mode": "RGBA",
+          "has_alpha": true,
+          "status": "approved neutral"
+        },
+        "annoyance": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/sprites/Charlotte/annoyance.png",
+          "sha256": "559dd3340689c3fc52997756d02968bf0c29354592356e43aa21777e83d10a12",
+          "size": [
+            1145,
+            1374
+          ],
+          "mode": "RGBA",
+          "has_alpha": true,
+          "status": "candidate awaiting user review",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Charlotte expressing annoyance, using only the supplied approved neutral as image reference. Preserve identity, face, skin tone, hair, eyes, costume, accessories, colors and rendering. Preserve her petite Medium Female proportions, pink hair, reporter's hat and red outfit. Give this emotion its own expressive full-body acting, genuinely varying leg positions, stance, body angle and gestures rather than locking the neutral pose: a small frown and drawn brows, weight shifted to one side, one hand resting at the waist. Keep normal pupils. Hands should be simple and readable; each visible hand has one anatomically correct thumb and four fingers connected to one palm and wrist. Do not force hidden digits into view. Exactly two coherent legs and feet; varied bends, steps, stances and angles are welcome. Keep the complete silhouette including hair, headwear, accessories, hands and shoes visible, roughly 2–4% top and bottom padding, without lengthening the body. True transparent background. No scenery, text, UI, weapons, handheld objects, companions, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/references/Charlotte/neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a19670-0586-7a72-bb94-26f3777d6c7a/exec-b6628a8f-24cf-41ef-a4b3-f78b2299374b.png",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/raw/Charlotte/annoyance.png",
+          "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/sprites/Charlotte/annoyance.png",
+          "prompt_file": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/prompts/Charlotte/annoyance.txt"
+        },
+        "smug": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/sprites/Charlotte/smug.png",
+          "sha256": "b6d787ba54632a7b13b6bcfa757b46fbfbf21d32c3a1433029afdeb35ce353bc",
+          "size": [
+            1145,
+            1374
+          ],
+          "mode": "RGBA",
+          "has_alpha": true,
+          "status": "candidate awaiting user review",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Charlotte expressing smug, using only the supplied approved neutral as image reference. Preserve identity, face, skin tone, hair, eyes, costume, accessories, colors and rendering. Preserve her petite Medium Female proportions, pink hair, reporter's hat and red outfit. Give this emotion its own expressive full-body acting, genuinely varying leg positions, stance, body angle and gestures rather than locking the neutral pose: a knowing smile, slightly lifted chin, one hand at the hip and the other near the chest. Keep normal pupils. Hands should be simple and readable; each visible hand has one anatomically correct thumb and four fingers connected to one palm and wrist. Do not force hidden digits into view. Exactly two coherent legs and feet; varied bends, steps, stances and angles are welcome. Keep the complete silhouette including hair, headwear, accessories, hands and shoes visible, roughly 2–4% top and bottom padding, without lengthening the body. True transparent background. No scenery, text, UI, weapons, handheld objects, companions, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/references/Charlotte/neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a19670-0586-7a72-bb94-26f3777d6c7a/exec-d27254bd-e7d1-4f4f-8b69-139c0129a250.png",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/raw/Charlotte/smug.png",
+          "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/sprites/Charlotte/smug.png",
+          "prompt_file": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/prompts/Charlotte/smug.txt"
+        },
+        "confusion": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/sprites/Charlotte/confusion.png",
+          "sha256": "df89b88d75dfe71dba5660dd2a11b62bb1855c20618b80c83a880eb61e420c57",
+          "size": [
+            1145,
+            1374
+          ],
+          "mode": "RGBA",
+          "has_alpha": true,
+          "status": "candidate awaiting user review",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Charlotte expressing confusion, using only the supplied approved neutral as image reference. Preserve identity, face, skin tone, hair, eyes, costume, accessories, colors and rendering. Preserve her petite Medium Female proportions, pink hair, reporter's hat and red outfit. Give this emotion its own expressive full-body acting, genuinely varying leg positions, stance, body angle and gestures rather than locking the neutral pose: puzzled brows and a head tilt, one hand turned gently upward near the waist, weight on one leg with the other foot set lightly to the side. Keep normal pupils. Hands should be simple and readable; each visible hand has one anatomically correct thumb and four fingers connected to one palm and wrist. Do not force hidden digits into view. Exactly two coherent legs and feet; varied bends, steps, stances and angles are welcome. Keep the complete silhouette including hair, headwear, accessories, hands and shoes visible, roughly 2–4% top and bottom padding, without lengthening the body. True transparent background. No scenery, text, UI, weapons, handheld objects, companions, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/references/Charlotte/neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a19670-0586-7a72-bb94-26f3777d6c7a/exec-9e35eb50-558a-47be-aced-03702fd0b5c4.png",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/raw/Charlotte/confusion.png",
+          "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/sprites/Charlotte/confusion.png",
+          "prompt_file": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/prompts/Charlotte/confusion.txt"
+        },
+        "love": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/sprites/Charlotte/love.png",
+          "sha256": "519616743e0b02400aed0b0cfd1411c0c55ebfe03c5d9fc40264e7b30af9072d",
+          "size": [
+            1145,
+            1374
+          ],
+          "mode": "RGBA",
+          "has_alpha": true,
+          "status": "candidate awaiting user review",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Charlotte expressing love, using only the supplied approved neutral as image reference. Preserve identity, face, skin tone, hair, eyes, costume, accessories, colors and rendering. Preserve her petite Medium Female proportions, pink hair, reporter's hat and red outfit. Give this emotion its own expressive full-body acting, genuinely varying leg positions, stance, body angle and gestures rather than locking the neutral pose: a visibly tender affectionate smile and softly focused eyes, a gentle turn of the shoulders, one hand near the heart and feet gently staggered. Keep normal pupils. Hands should be simple and readable; each visible hand has one anatomically correct thumb and four fingers connected to one palm and wrist. Do not force hidden digits into view. Exactly two coherent legs and feet; varied bends, steps, stances and angles are welcome. Keep the complete silhouette including hair, headwear, accessories, hands and shoes visible, roughly 2–4% top and bottom padding, without lengthening the body. True transparent background. No scenery, text, UI, weapons, handheld objects, companions, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/references/Charlotte/neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a19670-0586-7a72-bb94-26f3777d6c7a/exec-c4cf42cc-6d3b-4642-8246-d359f068d404.png",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/raw/Charlotte/love.png",
+          "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/sprites/Charlotte/love.png",
+          "prompt_file": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/prompts/Charlotte/love.txt"
+        },
+        "excitement": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/sprites/Charlotte/excitement.png",
+          "sha256": "923e5c7b1493755d13de839e0213e8351edf9af1f5bcfae8209db09a97a60ad2",
+          "size": [
+            1145,
+            1374
+          ],
+          "mode": "RGBA",
+          "has_alpha": true,
+          "status": "candidate awaiting user review",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Charlotte expressing excitement, using only the supplied approved neutral as image reference. Preserve identity, face, skin tone, hair, eyes, costume, accessories, colors and rendering. Preserve her petite Medium Female proportions, pink hair, reporter's hat and red outfit. Give this emotion its own expressive full-body acting, genuinely varying leg positions, stance, body angle and gestures rather than locking the neutral pose: a delighted smile; rise onto the ball of one foot, bend the other knee slightly, lift one arm in celebration. Keep normal pupils. Hands should be simple and readable; each visible hand has one anatomically correct thumb and four fingers connected to one palm and wrist. Do not force hidden digits into view. Exactly two coherent legs and feet; varied bends, steps, stances and angles are welcome. Keep the complete silhouette including hair, headwear, accessories, hands and shoes visible, roughly 2–4% top and bottom padding, without lengthening the body. True transparent background. No scenery, text, UI, weapons, handheld objects, companions, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/references/Charlotte/neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a19670-0586-7a72-bb94-26f3777d6c7a/exec-8f9fd5c5-e145-4f9e-bf8f-564459ef76b6.png",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/raw/Charlotte/excitement.png",
+          "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/sprites/Charlotte/excitement.png",
+          "prompt_file": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/prompts/Charlotte/excitement.txt"
+        },
+        "joy": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/sprites/Charlotte/joy.png",
+          "sha256": "39f3d1cf3982af5aa1d4a7fe6512578ab53bfb01b9b39d70753486e2c45ce06f",
+          "size": [
+            1145,
+            1374
+          ],
+          "mode": "RGBA",
+          "has_alpha": true,
+          "status": "candidate awaiting user review",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Charlotte expressing joy, using only the supplied approved neutral as image reference. Preserve identity, face, skin tone, hair, eyes, costume, accessories, colors and rendering. Preserve her petite Medium Female proportions, pink hair, reporter's hat and red outfit. Give this emotion its own expressive full-body acting, genuinely varying leg positions, stance, body angle and gestures rather than locking the neutral pose: a warm open smile, light sideways lean and a jaunty step, one arm lifted in a friendly wave. Keep normal pupils. Hands should be simple and readable; each visible hand has one anatomically correct thumb and four fingers connected to one palm and wrist. Do not force hidden digits into view. Exactly two coherent legs and feet; varied bends, steps, stances and angles are welcome. Keep the complete silhouette including hair, headwear, accessories, hands and shoes visible, roughly 2–4% top and bottom padding, without lengthening the body. True transparent background. No scenery, text, UI, weapons, handheld objects, companions, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/references/Charlotte/neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a19670-0586-7a72-bb94-26f3777d6c7a/exec-9f38e863-74f4-43fc-859c-317def6d09fc.png",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/raw/Charlotte/joy.png",
+          "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/sprites/Charlotte/joy.png",
+          "prompt_file": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/prompts/Charlotte/joy.txt"
+        },
+        "fear": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/sprites/Charlotte/fear.png",
+          "sha256": "d66c6345e4015c27513df086d804d1c94d2d4847c6c575fc0e76218cce79f94b",
+          "size": [
+            1145,
+            1374
+          ],
+          "mode": "RGBA",
+          "has_alpha": true,
+          "status": "candidate awaiting user review",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Charlotte expressing fear, using only the supplied approved neutral as image reference. Preserve identity, face, skin tone, hair, eyes, costume, accessories, colors and rendering. Preserve her petite Medium Female proportions, pink hair, reporter's hat and red outfit. Give this emotion its own expressive full-body acting, genuinely varying leg positions, stance, body angle and gestures rather than locking the neutral pose: wide worried eyes; recoil with a cautious backward step, bent knees and one hand near the chest. Keep normal pupils. Hands should be simple and readable; each visible hand has one anatomically correct thumb and four fingers connected to one palm and wrist. Do not force hidden digits into view. Exactly two coherent legs and feet; varied bends, steps, stances and angles are welcome. Keep the complete silhouette including hair, headwear, accessories, hands and shoes visible, roughly 2–4% top and bottom padding, without lengthening the body. True transparent background. No scenery, text, UI, weapons, handheld objects, companions, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/references/Charlotte/neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a19670-0586-7a72-bb94-26f3777d6c7a/exec-650f1731-41f8-4fb8-9aa9-7b463e8a25d9.png",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/raw/Charlotte/fear.png",
+          "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/sprites/Charlotte/fear.png",
+          "prompt_file": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/prompts/Charlotte/fear.txt"
+        },
+        "pride": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/sprites/Charlotte/pride.png",
+          "sha256": "112617e104b466ce29b7d8af6cb9717fa14ba428b752432f980eb05b6c3cb3ac",
+          "size": [
+            1145,
+            1374
+          ],
+          "mode": "RGBA",
+          "has_alpha": true,
+          "status": "candidate awaiting user review",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Charlotte expressing pride, using only the supplied approved neutral as image reference. Preserve identity, face, skin tone, hair, eyes, costume, accessories, colors and rendering. Preserve her petite Medium Female proportions, pink hair, reporter's hat and red outfit. Give this emotion its own expressive full-body acting, genuinely varying leg positions, stance, body angle and gestures rather than locking the neutral pose: a proud smile; turn the body confidently in three-quarter view, feet planted apart, one hand at the waist. Keep normal pupils. Hands should be simple and readable; each visible hand has one anatomically correct thumb and four fingers connected to one palm and wrist. Do not force hidden digits into view. Exactly two coherent legs and feet; varied bends, steps, stances and angles are welcome. Keep the complete silhouette including hair, headwear, accessories, hands and shoes visible, roughly 2–4% top and bottom padding, without lengthening the body. True transparent background. No scenery, text, UI, weapons, handheld objects, companions, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/references/Charlotte/neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a19670-0586-7a72-bb94-26f3777d6c7a/exec-a98eb166-55a0-44ab-bb70-1ede6e54e25e.png",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/raw/Charlotte/pride.png",
+          "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/sprites/Charlotte/pride.png",
+          "prompt_file": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/prompts/Charlotte/pride.txt"
+        },
+        "desire": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/sprites/Charlotte/desire.png",
+          "sha256": "90be8e82e111d63157d733bd1db78f35f4dd631930f9290815469082a010548c",
+          "size": [
+            1145,
+            1374
+          ],
+          "mode": "RGBA",
+          "has_alpha": true,
+          "status": "candidate awaiting user review",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Charlotte expressing desire, using only the supplied approved neutral as image reference. Preserve identity, face, skin tone, hair, eyes, costume, accessories, colors and rendering. Preserve her petite Medium Female proportions, pink hair, reporter's hat and red outfit. Give this emotion its own expressive full-body acting, genuinely varying leg positions, stance, body angle and gestures rather than locking the neutral pose: clearly legible yearning affection, flushed cheeks, parted lips, raised inner brows and an intent hopeful gaze, a slight forward lean and one foot subtly ahead, one hand near the heart and the other relaxed; tasteful and fully clothed. Keep normal pupils. Hands should be simple and readable; each visible hand has one anatomically correct thumb and four fingers connected to one palm and wrist. Do not force hidden digits into view. Exactly two coherent legs and feet; varied bends, steps, stances and angles are welcome. Keep the complete silhouette including hair, headwear, accessories, hands and shoes visible, roughly 2–4% top and bottom padding, without lengthening the body. True transparent background. No scenery, text, UI, weapons, handheld objects, companions, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/references/Charlotte/neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a19670-0586-7a72-bb94-26f3777d6c7a/exec-e5f1d79c-2dea-4da4-adfd-3747ce256ee3.png",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/raw/Charlotte/desire.png",
+          "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/sprites/Charlotte/desire.png",
+          "prompt_file": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/prompts/Charlotte/desire.txt"
+        },
+        "anger": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/sprites/Charlotte/anger.png",
+          "sha256": "720fd326c307b57b4d706bcc6b7700d8607728668357a422d14e959fd3fc22a3",
+          "size": [
+            1145,
+            1374
+          ],
+          "mode": "RGBA",
+          "has_alpha": true,
+          "status": "candidate awaiting user review",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Charlotte expressing anger, using only the supplied approved neutral as image reference. Preserve identity, face, skin tone, hair, eyes, costume, accessories, colors and rendering. Preserve her petite Medium Female proportions, pink hair, reporter's hat and red outfit. Give this emotion its own expressive full-body acting, genuinely varying leg positions, stance, body angle and gestures rather than locking the neutral pose: firm brows and a determined frown; take a grounded stance with one leg set forward and arms bent decisively at the sides. Keep normal pupils. Hands should be simple and readable; each visible hand has one anatomically correct thumb and four fingers connected to one palm and wrist. Do not force hidden digits into view. Exactly two coherent legs and feet; varied bends, steps, stances and angles are welcome. Keep the complete silhouette including hair, headwear, accessories, hands and shoes visible, roughly 2–4% top and bottom padding, without lengthening the body. True transparent background. No scenery, text, UI, weapons, handheld objects, companions, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/references/Charlotte/neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a19670-0586-7a72-bb94-26f3777d6c7a/exec-ef8ae9d8-18cb-4863-b18a-0c30ee97536d.png",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/raw/Charlotte/anger.png",
+          "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/sprites/Charlotte/anger.png",
+          "prompt_file": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/prompts/Charlotte/anger.txt"
+        },
+        "grief": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/sprites/Charlotte/grief.png",
+          "sha256": "580d1752f864cb2805e6638a53fb1911d25f7a247429318883efe72e8fe4c708",
+          "size": [
+            1145,
+            1374
+          ],
+          "mode": "RGBA",
+          "has_alpha": true,
+          "status": "candidate awaiting user review",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Charlotte expressing grief, using only the supplied approved neutral as image reference. Preserve identity, face, skin tone, hair, eyes, costume, accessories, colors and rendering. Preserve her petite Medium Female proportions, pink hair, reporter's hat and red outfit. Give this emotion its own expressive full-body acting, genuinely varying leg positions, stance, body angle and gestures rather than locking the neutral pose: sorrowful brows and lowered head; round the shoulders, bend slightly forward, feet close but distinct and arms near the body. Keep normal pupils. Hands should be simple and readable; each visible hand has one anatomically correct thumb and four fingers connected to one palm and wrist. Do not force hidden digits into view. Exactly two coherent legs and feet; varied bends, steps, stances and angles are welcome. Keep the complete silhouette including hair, headwear, accessories, hands and shoes visible, roughly 2–4% top and bottom padding, without lengthening the body. True transparent background. No scenery, text, UI, weapons, handheld objects, companions, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/references/Charlotte/neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a19670-0586-7a72-bb94-26f3777d6c7a/exec-cf9d3fcb-1bee-45fb-bff4-e53d3ae95cae.png",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/raw/Charlotte/grief.png",
+          "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/sprites/Charlotte/grief.png",
+          "prompt_file": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/prompts/Charlotte/grief.txt"
+        },
+        "sadness": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/sprites/Charlotte/sadness.png",
+          "sha256": "ed54a0cb517c1833a56a34a2290ab35a52c58fb5ef1226cd60d8be7591414468",
+          "size": [
+            1145,
+            1374
+          ],
+          "mode": "RGBA",
+          "has_alpha": true,
+          "status": "candidate awaiting user review",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Charlotte expressing sadness, using only the supplied approved neutral as image reference. Preserve identity, face, skin tone, hair, eyes, costume, accessories, colors and rendering. Preserve her petite Medium Female proportions, pink hair, reporter's hat and red outfit. Give this emotion its own expressive full-body acting, genuinely varying leg positions, stance, body angle and gestures rather than locking the neutral pose: subdued frown and lowered eyes; turn slightly away, a gentle head tilt and weight resting on one leg. Keep normal pupils. Hands should be simple and readable; each visible hand has one anatomically correct thumb and four fingers connected to one palm and wrist. Do not force hidden digits into view. Exactly two coherent legs and feet; varied bends, steps, stances and angles are welcome. Keep the complete silhouette including hair, headwear, accessories, hands and shoes visible, roughly 2–4% top and bottom padding, without lengthening the body. True transparent background. No scenery, text, UI, weapons, handheld objects, companions, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/references/Charlotte/neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a19670-0586-7a72-bb94-26f3777d6c7a/exec-1de43ca2-bb84-4444-bc2c-9952f5a812a5.png",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/raw/Charlotte/sadness.png",
+          "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/sprites/Charlotte/sadness.png",
+          "prompt_file": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/prompts/Charlotte/sadness.txt"
+        },
+        "disgust": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/sprites/Charlotte/disgust.png",
+          "sha256": "0375c721c5b9a8bb7fb1952d06ef68988d95f9a81e617cdfc8ba34983f8aa339",
+          "size": [
+            1145,
+            1374
+          ],
+          "mode": "RGBA",
+          "has_alpha": true,
+          "status": "candidate awaiting user review",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Charlotte expressing disgust, using only the supplied approved neutral as image reference. Preserve identity, face, skin tone, hair, eyes, costume, accessories, colors and rendering. Preserve her petite Medium Female proportions, pink hair, reporter's hat and red outfit. Give this emotion its own expressive full-body acting, genuinely varying leg positions, stance, body angle and gestures rather than locking the neutral pose: a restrained nose scrunch and small closed displeased mouth; lean away with a backward foot and one arm withdrawn. Keep normal pupils. Hands should be simple and readable; each visible hand has one anatomically correct thumb and four fingers connected to one palm and wrist. Do not force hidden digits into view. Exactly two coherent legs and feet; varied bends, steps, stances and angles are welcome. Keep the complete silhouette including hair, headwear, accessories, hands and shoes visible, roughly 2–4% top and bottom padding, without lengthening the body. True transparent background. No scenery, text, UI, weapons, handheld objects, companions, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/references/Charlotte/neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a19670-0586-7a72-bb94-26f3777d6c7a/exec-c1bbc92b-b1e5-41be-8fde-a02547a7e8b3.png",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/raw/Charlotte/disgust.png",
+          "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/sprites/Charlotte/disgust.png",
+          "prompt_file": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/prompts/Charlotte/disgust.txt"
+        },
+        "disappointment": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/sprites/Charlotte/disappointment.png",
+          "sha256": "6cae81f0b34d81263aa1d87929347412bd0e068ca9d5df80a5f9f7dc11f971a5",
+          "size": [
+            1145,
+            1374
+          ],
+          "mode": "RGBA",
+          "has_alpha": true,
+          "status": "candidate awaiting user review",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Charlotte expressing disappointment, using only the supplied approved neutral as image reference. Preserve identity, face, skin tone, hair, eyes, costume, accessories, colors and rendering. Preserve her petite Medium Female proportions, pink hair, reporter's hat and red outfit. Give this emotion its own expressive full-body acting, genuinely varying leg positions, stance, body angle and gestures rather than locking the neutral pose: downturned mouth and lowered shoulders; shift weight onto one hip with the other foot relaxed, one hand open beside the body. Keep normal pupils. Hands should be simple and readable; each visible hand has one anatomically correct thumb and four fingers connected to one palm and wrist. Do not force hidden digits into view. Exactly two coherent legs and feet; varied bends, steps, stances and angles are welcome. Keep the complete silhouette including hair, headwear, accessories, hands and shoes visible, roughly 2–4% top and bottom padding, without lengthening the body. True transparent background. No scenery, text, UI, weapons, handheld objects, companions, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/references/Charlotte/neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a19670-0586-7a72-bb94-26f3777d6c7a/exec-a9691283-edde-48c0-b164-a4d9a4c267c0.png",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/raw/Charlotte/disappointment.png",
+          "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/sprites/Charlotte/disappointment.png",
+          "prompt_file": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/prompts/Charlotte/disappointment.txt"
+        },
+        "relief": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/sprites/Charlotte/relief.png",
+          "sha256": "946d9bc4fe0ee523f6fdd751e8c9512aa80a9d719f4b82f863b6f89b8b68256d",
+          "size": [
+            1145,
+            1374
+          ],
+          "mode": "RGBA",
+          "has_alpha": true,
+          "status": "candidate awaiting user review",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Charlotte expressing relief, using only the supplied approved neutral as image reference. Preserve identity, face, skin tone, hair, eyes, costume, accessories, colors and rendering. Preserve her petite Medium Female proportions, pink hair, reporter's hat and red outfit. Give this emotion its own expressive full-body acting, genuinely varying leg positions, stance, body angle and gestures rather than locking the neutral pose: relieved smile and relaxed shoulders; settle back onto one leg with the opposite knee relaxed, one hand over the chest. Keep normal pupils. Hands should be simple and readable; each visible hand has one anatomically correct thumb and four fingers connected to one palm and wrist. Do not force hidden digits into view. Exactly two coherent legs and feet; varied bends, steps, stances and angles are welcome. Keep the complete silhouette including hair, headwear, accessories, hands and shoes visible, roughly 2–4% top and bottom padding, without lengthening the body. True transparent background. No scenery, text, UI, weapons, handheld objects, companions, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/references/Charlotte/neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a19670-0586-7a72-bb94-26f3777d6c7a/exec-e2d6a177-1df3-4f0c-bbd1-74f858351c23.png",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/raw/Charlotte/relief.png",
+          "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/sprites/Charlotte/relief.png",
+          "prompt_file": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/prompts/Charlotte/relief.txt"
+        },
+        "admiration": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/sprites/Charlotte/admiration.png",
+          "sha256": "840698fc1a8a421243eb9570f1dd02566b359b6d8830ff091b9f5ca0ff50035c",
+          "size": [
+            1145,
+            1374
+          ],
+          "mode": "RGBA",
+          "has_alpha": true,
+          "status": "candidate awaiting user review",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Charlotte expressing admiration, using only the supplied approved neutral as image reference. Preserve identity, face, skin tone, hair, eyes, costume, accessories, colors and rendering. Preserve her petite Medium Female proportions, pink hair, reporter's hat and red outfit. Give this emotion its own expressive full-body acting, genuinely varying leg positions, stance, body angle and gestures rather than locking the neutral pose: bright attentive eyes and impressed smile; lean forward slightly, one foot set ahead and one hand near the cheek. Keep normal pupils. Hands should be simple and readable; each visible hand has one anatomically correct thumb and four fingers connected to one palm and wrist. Do not force hidden digits into view. Exactly two coherent legs and feet; varied bends, steps, stances and angles are welcome. Keep the complete silhouette including hair, headwear, accessories, hands and shoes visible, roughly 2–4% top and bottom padding, without lengthening the body. True transparent background. No scenery, text, UI, weapons, handheld objects, companions, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/references/Charlotte/neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a19670-0586-7a72-bb94-26f3777d6c7a/exec-32bf3bd4-7728-472b-acc3-a5a206701ae7.png",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/raw/Charlotte/admiration.png",
+          "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/sprites/Charlotte/admiration.png",
+          "prompt_file": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/prompts/Charlotte/admiration.txt"
+        },
+        "gratitude": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/sprites/Charlotte/gratitude.png",
+          "sha256": "3bcb3635ab1be3aeec61a12aa0674fd77f14b8a45f3a761793b123335046a30b",
+          "size": [
+            1145,
+            1374
+          ],
+          "mode": "RGBA",
+          "has_alpha": true,
+          "status": "candidate awaiting user review",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Charlotte expressing gratitude, using only the supplied approved neutral as image reference. Preserve identity, face, skin tone, hair, eyes, costume, accessories, colors and rendering. Preserve her petite Medium Female proportions, pink hair, reporter's hat and red outfit. Give this emotion its own expressive full-body acting, genuinely varying leg positions, stance, body angle and gestures rather than locking the neutral pose: a sincere smile; a gentle appreciative bow with staggered feet and one hand over the heart. Keep normal pupils. Hands should be simple and readable; each visible hand has one anatomically correct thumb and four fingers connected to one palm and wrist. Do not force hidden digits into view. Exactly two coherent legs and feet; varied bends, steps, stances and angles are welcome. Keep the complete silhouette including hair, headwear, accessories, hands and shoes visible, roughly 2–4% top and bottom padding, without lengthening the body. True transparent background. No scenery, text, UI, weapons, handheld objects, companions, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/references/Charlotte/neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a19670-0586-7a72-bb94-26f3777d6c7a/exec-73f29e81-03c2-4ee9-ad8a-820305b286da.png",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/raw/Charlotte/gratitude.png",
+          "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/sprites/Charlotte/gratitude.png",
+          "prompt_file": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/prompts/Charlotte/gratitude.txt"
+        },
+        "embarrassment": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/sprites/Charlotte/embarrassment.png",
+          "sha256": "34e291c9eaa556c10559e7664d8ec8ac4cca9e9e77ae3d5e45160f61fde59b13",
+          "size": [
+            1145,
+            1374
+          ],
+          "mode": "RGBA",
+          "has_alpha": true,
+          "status": "candidate awaiting user review",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Charlotte expressing embarrassment, using only the supplied approved neutral as image reference. Preserve identity, face, skin tone, hair, eyes, costume, accessories, colors and rendering. Preserve her petite Medium Female proportions, pink hair, reporter's hat and red outfit. Give this emotion its own expressive full-body acting, genuinely varying leg positions, stance, body angle and gestures rather than locking the neutral pose: flushed cheeks, bashful smile and averted gaze; shoulders turned inward, knees relaxed, one foot slightly turned in and one hand near the cheek. Keep normal pupils. Hands should be simple and readable; each visible hand has one anatomically correct thumb and four fingers connected to one palm and wrist. Do not force hidden digits into view. Exactly two coherent legs and feet; varied bends, steps, stances and angles are welcome. Keep the complete silhouette including hair, headwear, accessories, hands and shoes visible, roughly 2–4% top and bottom padding, without lengthening the body. True transparent background. No scenery, text, UI, weapons, handheld objects, companions, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/references/Charlotte/neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a19670-0586-7a72-bb94-26f3777d6c7a/exec-5fdee50e-4ef4-4c4e-925e-52ffdfa9a9ee.png",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/raw/Charlotte/embarrassment.png",
+          "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/sprites/Charlotte/embarrassment.png",
+          "prompt_file": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/prompts/Charlotte/embarrassment.txt"
+        },
+        "caring": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/sprites/Charlotte/caring.png",
+          "sha256": "c19333932a1b159bbfb6cded362784e489a2ba02e8b19978df70088d2e7930e3",
+          "size": [
+            1145,
+            1374
+          ],
+          "mode": "RGBA",
+          "has_alpha": true,
+          "status": "candidate awaiting user review",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Charlotte expressing caring, using only the supplied approved neutral as image reference. Preserve identity, face, skin tone, hair, eyes, costume, accessories, colors and rendering. Preserve her petite Medium Female proportions, pink hair, reporter's hat and red outfit. Give this emotion its own expressive full-body acting, genuinely varying leg positions, stance, body angle and gestures rather than locking the neutral pose: gentle concerned eyes and reassuring smile; incline body toward the viewer with a small step, one open hand near the chest. Keep normal pupils. Hands should be simple and readable; each visible hand has one anatomically correct thumb and four fingers connected to one palm and wrist. Do not force hidden digits into view. Exactly two coherent legs and feet; varied bends, steps, stances and angles are welcome. Keep the complete silhouette including hair, headwear, accessories, hands and shoes visible, roughly 2–4% top and bottom padding, without lengthening the body. True transparent background. No scenery, text, UI, weapons, handheld objects, companions, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/references/Charlotte/neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a19670-0586-7a72-bb94-26f3777d6c7a/exec-58ce39cc-76c2-4eaa-82a7-15d8782240da.png",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/raw/Charlotte/caring.png",
+          "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/sprites/Charlotte/caring.png",
+          "prompt_file": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/prompts/Charlotte/caring.txt"
+        },
+        "love-1": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/sprites/Charlotte/love-1.png",
+          "sha256": "f598661a74ff7770d7d8b8894708f7a7d6bb3e0b149a4e23a11791ce66132f4c",
+          "size": [
+            1145,
+            1374
+          ],
+          "mode": "RGBA",
+          "has_alpha": true,
+          "status": "candidate awaiting user review",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Charlotte expressing love-1, using only the supplied approved neutral as image reference. Preserve identity, face, skin tone, hair, eyes, costume, accessories, colors and rendering. Preserve her petite Medium Female proportions, pink hair, reporter's hat and red outfit. Give this emotion its own expressive full-body acting, varying leg positions, stance, body angle and gestures: a visibly tender affectionate smile and softly focused eyes; lean gently to one side, feet staggered and one hand near the heart. Heart eyes, hearts in eyes: both eyes visibly open; retain the original turquoise irises, outlines, shading and a visible colored border, with one solid pale aqua heart-shaped pupil centered in each iris. Hearts are pupils, not highlights or floating symbols. Hands should be simple and readable; each visible hand has one anatomically correct thumb and four fingers connected to one palm and wrist. Exactly two coherent legs and feet. Keep the complete silhouette including hair, headwear, accessories, hands and shoes visible, roughly 2–4% top and bottom padding. True transparent background. No scenery, text, UI, weapons, handheld objects, companions, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/references/Charlotte/neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a19670-0586-7a72-bb94-26f3777d6c7a/exec-ff5d5302-0b5a-4d51-832f-039011888304.png",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/raw/Charlotte/love-1.png",
+          "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/sprites/Charlotte/love-1.png",
+          "prompt_file": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/prompts/Charlotte/love-1.txt"
+        },
+        "desire-1": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/sprites/Charlotte/desire-1.png",
+          "sha256": "f891dd2f4916d3fd8878379a5fe81f964cab9be061e0ef09ce88b69f956baae3",
+          "size": [
+            1145,
+            1374
+          ],
+          "mode": "RGBA",
+          "has_alpha": true,
+          "status": "candidate awaiting user review",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Charlotte expressing desire-1, using only the supplied approved neutral as image reference. Preserve identity, face, skin tone, hair, eyes, costume, accessories, colors and rendering. Preserve her petite Medium Female proportions, pink hair, reporter's hat and red outfit. Give this emotion its own expressive full-body acting, varying leg positions, stance, body angle and gestures: clearly legible yearning affection, flushed cheeks, parted lips, raised inner brows and an intent hopeful gaze, a slight forward lean and one foot subtly ahead, one hand near the heart and the other relaxed; tasteful and fully clothed. Heart eyes, hearts in eyes: both eyes visibly open; retain the original turquoise irises, outlines, shading and a visible colored border, with one solid pale aqua heart-shaped pupil centered in each iris. Hearts are pupils, not highlights or floating symbols. Hands should be simple and readable; each visible hand has one anatomically correct thumb and four fingers connected to one palm and wrist. Exactly two coherent legs and feet. Keep the complete silhouette including hair, headwear, accessories, hands and shoes visible, roughly 2–4% top and bottom padding. True transparent background. No scenery, text, UI, weapons, handheld objects, companions, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/references/Charlotte/neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a19670-0586-7a72-bb94-26f3777d6c7a/exec-800e0fa7-b29c-447f-9132-8dda7b307525.png",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/raw/Charlotte/desire-1.png",
+          "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/sprites/Charlotte/desire-1.png",
+          "prompt_file": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/prompts/Charlotte/desire-1.txt"
+        }
+      }
+    },
+    "Chevreuse": {
+      "neutral_source": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Chevreuse/neutral.png",
+      "reference": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/references/Chevreuse/neutral.png",
+      "sha256": "156354cb2dc89c1b46bcd12a18aa84a3d36c561a854198e6432a42ba106a8fea",
+      "approval": {
+        "status": "approved",
+        "message": "Chevreuse is accepted.",
+        "date": "2026-10-30",
+        "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Chevreuse/neutral-v004.png",
+        "candidate_sha256": "156354cb2dc89c1b46bcd12a18aa84a3d36c561a854198e6432a42ba106a8fea"
+      },
+      "expressions": {
+        "neutral": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/sprites/Chevreuse/neutral.png",
+          "sha256": "156354cb2dc89c1b46bcd12a18aa84a3d36c561a854198e6432a42ba106a8fea",
+          "size": [
+            1024,
+            1536
+          ],
+          "mode": "RGBA",
+          "has_alpha": true,
+          "status": "approved neutral"
+        },
+        "annoyance": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/sprites/Chevreuse/annoyance.png",
+          "sha256": "c01a9103e4eec58a206d513100abc5c388536f60ad9581df080f982a7d54de7d",
+          "size": [
+            1024,
+            1536
+          ],
+          "mode": "RGBA",
+          "has_alpha": true,
+          "status": "candidate awaiting user review",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Chevreuse expressing annoyance, using only the supplied approved neutral as image reference. Preserve identity, face, skin tone, hair, eyes, costume, accessories, colors and rendering. Preserve her petite Medium Female proportions, purple hair, eyepatch and red-black uniform. Give this emotion its own expressive full-body acting, genuinely varying leg positions, stance, body angle and gestures rather than locking the neutral pose: a small frown and drawn brows, weight shifted to one side, one hand resting at the waist. Keep normal pupils. Hands should be simple and readable; each visible hand has one anatomically correct thumb and four fingers connected to one palm and wrist. Do not force hidden digits into view. Exactly two coherent legs and feet; varied bends, steps, stances and angles are welcome. Keep the complete silhouette including hair, headwear, accessories, hands and shoes visible, roughly 2–4% top and bottom padding, without lengthening the body. True transparent background. No scenery, text, UI, weapons, handheld objects, companions, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/references/Chevreuse/neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a19670-0586-7a72-bb94-26f3777d6c7a/exec-5796e8c9-5d3c-4ac7-af9e-7403eeb77b97.png",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/raw/Chevreuse/annoyance.png",
+          "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/sprites/Chevreuse/annoyance.png",
+          "prompt_file": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/prompts/Chevreuse/annoyance.txt"
+        },
+        "smug": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/sprites/Chevreuse/smug.png",
+          "sha256": "3464e9c7a04bc1e5c5f2ebf44a2864ec8e96b1a8691ad4c33291f5571a75d0bb",
+          "size": [
+            1024,
+            1536
+          ],
+          "mode": "RGBA",
+          "has_alpha": true,
+          "status": "candidate awaiting user review",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Chevreuse expressing smug, using only the supplied approved neutral as image reference. Preserve identity, face, skin tone, hair, eyes, costume, accessories, colors and rendering. Preserve her petite Medium Female proportions, purple hair, eyepatch and red-black uniform. Give this emotion its own expressive full-body acting, genuinely varying leg positions, stance, body angle and gestures rather than locking the neutral pose: a knowing smile, slightly lifted chin, one hand at the hip and the other near the chest. Keep normal pupils. Hands should be simple and readable; each visible hand has one anatomically correct thumb and four fingers connected to one palm and wrist. Do not force hidden digits into view. Exactly two coherent legs and feet; varied bends, steps, stances and angles are welcome. Keep the complete silhouette including hair, headwear, accessories, hands and shoes visible, roughly 2–4% top and bottom padding, without lengthening the body. True transparent background. No scenery, text, UI, weapons, handheld objects, companions, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/references/Chevreuse/neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a19670-0586-7a72-bb94-26f3777d6c7a/exec-787e9744-e3fa-443d-b94a-5d81fa645977.png",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/raw/Chevreuse/smug.png",
+          "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/sprites/Chevreuse/smug.png",
+          "prompt_file": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/prompts/Chevreuse/smug.txt"
+        },
+        "confusion": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/sprites/Chevreuse/confusion.png",
+          "sha256": "dedb145b87cdd96c9142999030368fbab697b55f70ecce5cbdc1d9d097a38ea3",
+          "size": [
+            1024,
+            1536
+          ],
+          "mode": "RGBA",
+          "has_alpha": true,
+          "status": "candidate awaiting user review",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Chevreuse expressing confusion, using only the supplied approved neutral as image reference. Preserve identity, face, skin tone, hair, eyes, costume, accessories, colors and rendering. Preserve her petite Medium Female proportions, purple hair, eyepatch and red-black uniform. Give this emotion its own expressive full-body acting, genuinely varying leg positions, stance, body angle and gestures rather than locking the neutral pose: puzzled brows and a head tilt, one hand turned gently upward near the waist, weight on one leg with the other foot set lightly to the side. Keep normal pupils. Hands should be simple and readable; each visible hand has one anatomically correct thumb and four fingers connected to one palm and wrist. Do not force hidden digits into view. Exactly two coherent legs and feet; varied bends, steps, stances and angles are welcome. Keep the complete silhouette including hair, headwear, accessories, hands and shoes visible, roughly 2–4% top and bottom padding, without lengthening the body. True transparent background. No scenery, text, UI, weapons, handheld objects, companions, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/references/Chevreuse/neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a19670-0586-7a72-bb94-26f3777d6c7a/exec-6aba00d8-4e9e-4ebb-b03c-6d2333d305cb.png",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/raw/Chevreuse/confusion.png",
+          "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/sprites/Chevreuse/confusion.png",
+          "prompt_file": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/prompts/Chevreuse/confusion.txt"
+        },
+        "love": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/sprites/Chevreuse/love.png",
+          "sha256": "e252a14792b409352c6e0dea9d57c39d4fd0ef641f4cc3e9ee6eba57e698bc9a",
+          "size": [
+            1024,
+            1536
+          ],
+          "mode": "RGBA",
+          "has_alpha": true,
+          "status": "candidate awaiting user review",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Chevreuse expressing love, using only the supplied approved neutral as image reference. Preserve identity, face, skin tone, hair, eyes, costume, accessories, colors and rendering. Preserve her petite Medium Female proportions, purple hair, eyepatch and red-black uniform. Give this emotion its own expressive full-body acting, genuinely varying leg positions, stance, body angle and gestures rather than locking the neutral pose: a visibly tender affectionate smile and softly focused eyes, a gentle turn of the shoulders, one hand near the heart and feet gently staggered. Keep normal pupils. Hands should be simple and readable; each visible hand has one anatomically correct thumb and four fingers connected to one palm and wrist. Do not force hidden digits into view. Exactly two coherent legs and feet; varied bends, steps, stances and angles are welcome. Keep the complete silhouette including hair, headwear, accessories, hands and shoes visible, roughly 2–4% top and bottom padding, without lengthening the body. True transparent background. No scenery, text, UI, weapons, handheld objects, companions, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/references/Chevreuse/neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a19670-0586-7a72-bb94-26f3777d6c7a/exec-595e9e99-43e0-45b3-bfb4-daa4083ea675.png",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/raw/Chevreuse/love.png",
+          "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/sprites/Chevreuse/love.png",
+          "prompt_file": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/prompts/Chevreuse/love.txt"
+        },
+        "excitement": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/sprites/Chevreuse/excitement.png",
+          "sha256": "7930e99d92d170419cd2395f1306f052602b5d530af5c4594266460432dfb939",
+          "size": [
+            1024,
+            1536
+          ],
+          "mode": "RGBA",
+          "has_alpha": true,
+          "status": "candidate awaiting user review",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Chevreuse expressing excitement, using only the supplied approved neutral as image reference. Preserve identity, face, skin tone, hair, eyes, costume, accessories, colors and rendering. Preserve her petite Medium Female proportions, purple hair, eyepatch and red-black uniform. Give this emotion its own expressive full-body acting, genuinely varying leg positions, stance, body angle and gestures rather than locking the neutral pose: a delighted smile; rise onto the ball of one foot, bend the other knee slightly, lift one arm in celebration. Keep normal pupils. Hands should be simple and readable; each visible hand has one anatomically correct thumb and four fingers connected to one palm and wrist. Do not force hidden digits into view. Exactly two coherent legs and feet; varied bends, steps, stances and angles are welcome. Keep the complete silhouette including hair, headwear, accessories, hands and shoes visible, roughly 2–4% top and bottom padding, without lengthening the body. True transparent background. No scenery, text, UI, weapons, handheld objects, companions, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/references/Chevreuse/neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a19670-0586-7a72-bb94-26f3777d6c7a/exec-0960a607-9481-48a4-94c4-fdbf32a99e06.png",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/raw/Chevreuse/excitement.png",
+          "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/sprites/Chevreuse/excitement.png",
+          "prompt_file": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/prompts/Chevreuse/excitement.txt"
+        },
+        "joy": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/sprites/Chevreuse/joy.png",
+          "sha256": "ff8d66037b896380b8d23bf9ecb6fbf3a1977337354e97418da15f8968684c88",
+          "size": [
+            1024,
+            1536
+          ],
+          "mode": "RGBA",
+          "has_alpha": true,
+          "status": "candidate awaiting user review",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Chevreuse expressing joy, using only the supplied approved neutral as image reference. Preserve identity, face, skin tone, hair, eyes, costume, accessories, colors and rendering. Preserve her petite Medium Female proportions, purple hair, eyepatch and red-black uniform. Give this emotion its own expressive full-body acting, genuinely varying leg positions, stance, body angle and gestures rather than locking the neutral pose: a warm open smile, light sideways lean and a jaunty step, one arm lifted in a friendly wave. Keep normal pupils. Hands should be simple and readable; each visible hand has one anatomically correct thumb and four fingers connected to one palm and wrist. Do not force hidden digits into view. Exactly two coherent legs and feet; varied bends, steps, stances and angles are welcome. Keep the complete silhouette including hair, headwear, accessories, hands and shoes visible, roughly 2–4% top and bottom padding, without lengthening the body. True transparent background. No scenery, text, UI, weapons, handheld objects, companions, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/references/Chevreuse/neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a19670-0586-7a72-bb94-26f3777d6c7a/exec-181f8b1e-9687-41f8-bf56-0b292cfe9ae2.png",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/raw/Chevreuse/joy.png",
+          "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/sprites/Chevreuse/joy.png",
+          "prompt_file": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/prompts/Chevreuse/joy.txt"
+        },
+        "fear": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/sprites/Chevreuse/fear.png",
+          "sha256": "c348c5fa1a699433f81029afd1d31472696b88a14761a16b6c28f373b1f7d59f",
+          "size": [
+            1024,
+            1536
+          ],
+          "mode": "RGBA",
+          "has_alpha": true,
+          "status": "candidate awaiting user review",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Chevreuse expressing fear, using only the supplied approved neutral as image reference. Preserve identity, face, skin tone, hair, eyes, costume, accessories, colors and rendering. Preserve her petite Medium Female proportions, purple hair, eyepatch and red-black uniform. Give this emotion its own expressive full-body acting, genuinely varying leg positions, stance, body angle and gestures rather than locking the neutral pose: wide worried eyes; recoil with a cautious backward step, bent knees and one hand near the chest. Keep normal pupils. Hands should be simple and readable; each visible hand has one anatomically correct thumb and four fingers connected to one palm and wrist. Do not force hidden digits into view. Exactly two coherent legs and feet; varied bends, steps, stances and angles are welcome. Keep the complete silhouette including hair, headwear, accessories, hands and shoes visible, roughly 2–4% top and bottom padding, without lengthening the body. True transparent background. No scenery, text, UI, weapons, handheld objects, companions, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/references/Chevreuse/neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a19670-0586-7a72-bb94-26f3777d6c7a/exec-f6dfaf30-7a19-4d9b-8273-d021c772e6e2.png",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/raw/Chevreuse/fear.png",
+          "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/sprites/Chevreuse/fear.png",
+          "prompt_file": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/prompts/Chevreuse/fear.txt"
+        },
+        "pride": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/sprites/Chevreuse/pride.png",
+          "sha256": "e7f3545fe931e5bd42ee0e4cabafe72d83654b1f8b349a55a8e6c66bf70c8765",
+          "size": [
+            1024,
+            1536
+          ],
+          "mode": "RGBA",
+          "has_alpha": true,
+          "status": "candidate awaiting user review",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Chevreuse expressing pride, using only the supplied approved neutral as image reference. Preserve identity, face, skin tone, hair, eyes, costume, accessories, colors and rendering. Preserve her petite Medium Female proportions, purple hair, eyepatch and red-black uniform. Give this emotion its own expressive full-body acting, genuinely varying leg positions, stance, body angle and gestures rather than locking the neutral pose: a proud smile; turn the body confidently in three-quarter view, feet planted apart, one hand at the waist. Keep normal pupils. Hands should be simple and readable; each visible hand has one anatomically correct thumb and four fingers connected to one palm and wrist. Do not force hidden digits into view. Exactly two coherent legs and feet; varied bends, steps, stances and angles are welcome. Keep the complete silhouette including hair, headwear, accessories, hands and shoes visible, roughly 2–4% top and bottom padding, without lengthening the body. True transparent background. No scenery, text, UI, weapons, handheld objects, companions, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/references/Chevreuse/neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a19670-0586-7a72-bb94-26f3777d6c7a/exec-0bfb2dd6-91fd-4afc-a0cf-553fe1eb2cfe.png",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/raw/Chevreuse/pride.png",
+          "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/sprites/Chevreuse/pride.png",
+          "prompt_file": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/prompts/Chevreuse/pride.txt"
+        },
+        "desire": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/sprites/Chevreuse/desire.png",
+          "sha256": "d38480220c3beb143f6f9005eafcac7c36a2ff4c47f271cb7aa17df2f3e39f39",
+          "size": [
+            1024,
+            1536
+          ],
+          "mode": "RGBA",
+          "has_alpha": true,
+          "status": "candidate awaiting user review",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Chevreuse expressing desire, using only the supplied approved neutral as image reference. Preserve identity, face, skin tone, hair, eyes, costume, accessories, colors and rendering. Preserve her petite Medium Female proportions, purple hair, eyepatch and red-black uniform. Give this emotion its own expressive full-body acting, genuinely varying leg positions, stance, body angle and gestures rather than locking the neutral pose: clearly legible yearning affection, flushed cheeks, parted lips, raised inner brows and an intent hopeful gaze, a slight forward lean and one foot subtly ahead, one hand near the heart and the other relaxed; tasteful and fully clothed. Keep normal pupils. Hands should be simple and readable; each visible hand has one anatomically correct thumb and four fingers connected to one palm and wrist. Do not force hidden digits into view. Exactly two coherent legs and feet; varied bends, steps, stances and angles are welcome. Keep the complete silhouette including hair, headwear, accessories, hands and shoes visible, roughly 2–4% top and bottom padding, without lengthening the body. True transparent background. No scenery, text, UI, weapons, handheld objects, companions, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/references/Chevreuse/neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a19670-0586-7a72-bb94-26f3777d6c7a/exec-bbf54b55-d273-4a7b-8f72-77eb350e1caf.png",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/raw/Chevreuse/desire.png",
+          "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/sprites/Chevreuse/desire.png",
+          "prompt_file": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/prompts/Chevreuse/desire.txt"
+        },
+        "anger": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/sprites/Chevreuse/anger.png",
+          "sha256": "1460613eb1b7238748c5e3779cd76d4ed3bab84bd01ea66cf5cdb2a4de08fc40",
+          "size": [
+            1024,
+            1536
+          ],
+          "mode": "RGBA",
+          "has_alpha": true,
+          "status": "candidate awaiting user review",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Chevreuse expressing anger, using only the supplied approved neutral as image reference. Preserve identity, face, skin tone, hair, eyes, costume, accessories, colors and rendering. Preserve her petite Medium Female proportions, purple hair, eyepatch and red-black uniform. Give this emotion its own expressive full-body acting, genuinely varying leg positions, stance, body angle and gestures rather than locking the neutral pose: firm brows and a determined frown; take a grounded stance with one leg set forward and arms bent decisively at the sides. Keep normal pupils. Hands should be simple and readable; each visible hand has one anatomically correct thumb and four fingers connected to one palm and wrist. Do not force hidden digits into view. Exactly two coherent legs and feet; varied bends, steps, stances and angles are welcome. Keep the complete silhouette including hair, headwear, accessories, hands and shoes visible, roughly 2–4% top and bottom padding, without lengthening the body. True transparent background. No scenery, text, UI, weapons, handheld objects, companions, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/references/Chevreuse/neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a19670-0586-7a72-bb94-26f3777d6c7a/exec-ea4c0e59-e2ca-4878-9440-c5704e365c1e.png",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/raw/Chevreuse/anger.png",
+          "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/sprites/Chevreuse/anger.png",
+          "prompt_file": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/prompts/Chevreuse/anger.txt"
+        },
+        "grief": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/sprites/Chevreuse/grief.png",
+          "sha256": "b613de78ce3b11f3c1ce9e23839ad0470d4e394bb61ed185e49eca9dd9edd1c2",
+          "size": [
+            1024,
+            1536
+          ],
+          "mode": "RGBA",
+          "has_alpha": true,
+          "status": "candidate awaiting user review",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Chevreuse expressing grief, using only the supplied approved neutral as image reference. Preserve identity, face, skin tone, hair, eyes, costume, accessories, colors and rendering. Preserve her petite Medium Female proportions, purple hair, eyepatch and red-black uniform. Give this emotion its own expressive full-body acting, genuinely varying leg positions, stance, body angle and gestures rather than locking the neutral pose: sorrowful brows and lowered head; round the shoulders, bend slightly forward, feet close but distinct and arms near the body. Keep normal pupils. Hands should be simple and readable; each visible hand has one anatomically correct thumb and four fingers connected to one palm and wrist. Do not force hidden digits into view. Exactly two coherent legs and feet; varied bends, steps, stances and angles are welcome. Keep the complete silhouette including hair, headwear, accessories, hands and shoes visible, roughly 2–4% top and bottom padding, without lengthening the body. True transparent background. No scenery, text, UI, weapons, handheld objects, companions, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/references/Chevreuse/neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a19670-0586-7a72-bb94-26f3777d6c7a/exec-70daab97-2002-4db8-ba00-4ad4ed946800.png",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/raw/Chevreuse/grief.png",
+          "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/sprites/Chevreuse/grief.png",
+          "prompt_file": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/prompts/Chevreuse/grief.txt"
+        },
+        "sadness": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/sprites/Chevreuse/sadness.png",
+          "sha256": "e373c5b9c07bc43d6df44503f5ac62b5f003b14450d257e612b5250bdc2817d6",
+          "size": [
+            1024,
+            1536
+          ],
+          "mode": "RGBA",
+          "has_alpha": true,
+          "status": "candidate awaiting user review",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Chevreuse expressing sadness, using only the supplied approved neutral as image reference. Preserve identity, face, skin tone, hair, eyes, costume, accessories, colors and rendering. Preserve her petite Medium Female proportions, purple hair, eyepatch and red-black uniform. Give this emotion its own expressive full-body acting, genuinely varying leg positions, stance, body angle and gestures rather than locking the neutral pose: subdued frown and lowered eyes; turn slightly away, a gentle head tilt and weight resting on one leg. Keep normal pupils. Hands should be simple and readable; each visible hand has one anatomically correct thumb and four fingers connected to one palm and wrist. Do not force hidden digits into view. Exactly two coherent legs and feet; varied bends, steps, stances and angles are welcome. Keep the complete silhouette including hair, headwear, accessories, hands and shoes visible, roughly 2–4% top and bottom padding, without lengthening the body. True transparent background. No scenery, text, UI, weapons, handheld objects, companions, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/references/Chevreuse/neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a19670-0586-7a72-bb94-26f3777d6c7a/exec-9a618633-f576-47ad-b81f-00350e61b33e.png",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/raw/Chevreuse/sadness.png",
+          "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/sprites/Chevreuse/sadness.png",
+          "prompt_file": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/prompts/Chevreuse/sadness.txt"
+        },
+        "disgust": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/sprites/Chevreuse/disgust.png",
+          "sha256": "ed0c18967fe0bceaaaa51dbee2b71c80898498f78073e965cadd35f7674cbbd5",
+          "size": [
+            1024,
+            1536
+          ],
+          "mode": "RGBA",
+          "has_alpha": true,
+          "status": "candidate awaiting user review",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Chevreuse expressing disgust, using only the supplied approved neutral as image reference. Preserve identity, face, skin tone, hair, eyes, costume, accessories, colors and rendering. Preserve her petite Medium Female proportions, purple hair, eyepatch and red-black uniform. Give this emotion its own expressive full-body acting, genuinely varying leg positions, stance, body angle and gestures rather than locking the neutral pose: a restrained nose scrunch and small closed displeased mouth; lean away with a backward foot and one arm withdrawn. Keep normal pupils. Hands should be simple and readable; each visible hand has one anatomically correct thumb and four fingers connected to one palm and wrist. Do not force hidden digits into view. Exactly two coherent legs and feet; varied bends, steps, stances and angles are welcome. Keep the complete silhouette including hair, headwear, accessories, hands and shoes visible, roughly 2–4% top and bottom padding, without lengthening the body. True transparent background. No scenery, text, UI, weapons, handheld objects, companions, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/references/Chevreuse/neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a19670-0586-7a72-bb94-26f3777d6c7a/exec-138c6f79-0ed7-4755-8eb1-89579253f032.png",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/raw/Chevreuse/disgust.png",
+          "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/sprites/Chevreuse/disgust.png",
+          "prompt_file": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/prompts/Chevreuse/disgust.txt"
+        },
+        "disappointment": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/sprites/Chevreuse/disappointment.png",
+          "sha256": "3039c4dd605d3bd1e5dfc24801a0ddf49eb2142e4c23f1decbf649ac44764fba",
+          "size": [
+            1024,
+            1536
+          ],
+          "mode": "RGBA",
+          "has_alpha": true,
+          "status": "candidate awaiting user review",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Chevreuse expressing disappointment, using only the supplied approved neutral as image reference. Preserve identity, face, skin tone, hair, eyes, costume, accessories, colors and rendering. Preserve her petite Medium Female proportions, purple hair, eyepatch and red-black uniform. Give this emotion its own expressive full-body acting, genuinely varying leg positions, stance, body angle and gestures rather than locking the neutral pose: downturned mouth and lowered shoulders; shift weight onto one hip with the other foot relaxed, one hand open beside the body. Keep normal pupils. Hands should be simple and readable; each visible hand has one anatomically correct thumb and four fingers connected to one palm and wrist. Do not force hidden digits into view. Exactly two coherent legs and feet; varied bends, steps, stances and angles are welcome. Keep the complete silhouette including hair, headwear, accessories, hands and shoes visible, roughly 2–4% top and bottom padding, without lengthening the body. True transparent background. No scenery, text, UI, weapons, handheld objects, companions, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/references/Chevreuse/neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a19670-0586-7a72-bb94-26f3777d6c7a/exec-9c5f94cd-91fb-44f6-81d2-6812ac6eacf1.png",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/raw/Chevreuse/disappointment.png",
+          "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/sprites/Chevreuse/disappointment.png",
+          "prompt_file": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/prompts/Chevreuse/disappointment.txt"
+        },
+        "relief": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/sprites/Chevreuse/relief.png",
+          "sha256": "e75709029fe6f33789463244591efab965ded8b06662f50f97c489f9ebc26a8c",
+          "size": [
+            1024,
+            1536
+          ],
+          "mode": "RGBA",
+          "has_alpha": true,
+          "status": "candidate awaiting user review",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Chevreuse expressing relief, using only the supplied approved neutral as image reference. Preserve identity, face, skin tone, hair, eyes, costume, accessories, colors and rendering. Preserve her petite Medium Female proportions, purple hair, eyepatch and red-black uniform. Give this emotion its own expressive full-body acting, genuinely varying leg positions, stance, body angle and gestures rather than locking the neutral pose: relieved smile and relaxed shoulders; settle back onto one leg with the opposite knee relaxed, one hand over the chest. Keep normal pupils. Hands should be simple and readable; each visible hand has one anatomically correct thumb and four fingers connected to one palm and wrist. Do not force hidden digits into view. Exactly two coherent legs and feet; varied bends, steps, stances and angles are welcome. Keep the complete silhouette including hair, headwear, accessories, hands and shoes visible, roughly 2–4% top and bottom padding, without lengthening the body. True transparent background. No scenery, text, UI, weapons, handheld objects, companions, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/references/Chevreuse/neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a19670-0586-7a72-bb94-26f3777d6c7a/exec-428f6898-3d15-4e4c-90fd-71ac1d385bfa.png",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/raw/Chevreuse/relief.png",
+          "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/sprites/Chevreuse/relief.png",
+          "prompt_file": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/prompts/Chevreuse/relief.txt"
+        },
+        "admiration": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/sprites/Chevreuse/admiration.png",
+          "sha256": "8212281a31d8c6945511cde66ebb7670d5e1983c286ec8b1820a4955d490bb5f",
+          "size": [
+            1024,
+            1536
+          ],
+          "mode": "RGBA",
+          "has_alpha": true,
+          "status": "candidate awaiting user review",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Chevreuse expressing admiration, using only the supplied approved neutral as image reference. Preserve identity, face, skin tone, hair, eyes, costume, accessories, colors and rendering. Preserve her petite Medium Female proportions, purple hair, eyepatch and red-black uniform. Give this emotion its own expressive full-body acting, genuinely varying leg positions, stance, body angle and gestures rather than locking the neutral pose: bright attentive eyes and impressed smile; lean forward slightly, one foot set ahead and one hand near the cheek. Keep normal pupils. Hands should be simple and readable; each visible hand has one anatomically correct thumb and four fingers connected to one palm and wrist. Do not force hidden digits into view. Exactly two coherent legs and feet; varied bends, steps, stances and angles are welcome. Keep the complete silhouette including hair, headwear, accessories, hands and shoes visible, roughly 2–4% top and bottom padding, without lengthening the body. True transparent background. No scenery, text, UI, weapons, handheld objects, companions, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/references/Chevreuse/neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a19670-0586-7a72-bb94-26f3777d6c7a/exec-77781bb7-6344-42dc-95b7-fd503269e998.png",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/raw/Chevreuse/admiration.png",
+          "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/sprites/Chevreuse/admiration.png",
+          "prompt_file": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/prompts/Chevreuse/admiration.txt"
+        },
+        "gratitude": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/sprites/Chevreuse/gratitude.png",
+          "sha256": "c8bd1087003f692ee926c95ddbf279a9d10be4d4dfc209d5e3c4377e42bad3b8",
+          "size": [
+            1024,
+            1536
+          ],
+          "mode": "RGBA",
+          "has_alpha": true,
+          "status": "candidate awaiting user review",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Chevreuse expressing gratitude, using only the supplied approved neutral as image reference. Preserve identity, face, skin tone, hair, eyes, costume, accessories, colors and rendering. Preserve her petite Medium Female proportions, purple hair, eyepatch and red-black uniform. Give this emotion its own expressive full-body acting, genuinely varying leg positions, stance, body angle and gestures rather than locking the neutral pose: a sincere smile; a gentle appreciative bow with staggered feet and one hand over the heart. Keep normal pupils. Hands should be simple and readable; each visible hand has one anatomically correct thumb and four fingers connected to one palm and wrist. Do not force hidden digits into view. Exactly two coherent legs and feet; varied bends, steps, stances and angles are welcome. Keep the complete silhouette including hair, headwear, accessories, hands and shoes visible, roughly 2–4% top and bottom padding, without lengthening the body. True transparent background. No scenery, text, UI, weapons, handheld objects, companions, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/references/Chevreuse/neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a19670-0586-7a72-bb94-26f3777d6c7a/exec-9d311875-a41d-4c6e-9843-6342527dbd3f.png",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/raw/Chevreuse/gratitude.png",
+          "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/sprites/Chevreuse/gratitude.png",
+          "prompt_file": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/prompts/Chevreuse/gratitude.txt"
+        },
+        "embarrassment": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/sprites/Chevreuse/embarrassment.png",
+          "sha256": "f4cee38c749ca40a53180979f5b729891f587a82f89073576eb81f4151b03137",
+          "size": [
+            1024,
+            1536
+          ],
+          "mode": "RGBA",
+          "has_alpha": true,
+          "status": "candidate awaiting user review",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Chevreuse expressing embarrassment, using only the supplied approved neutral as image reference. Preserve identity, face, skin tone, hair, eyes, costume, accessories, colors and rendering. Preserve her petite Medium Female proportions, purple hair, eyepatch and red-black uniform. Give this emotion its own expressive full-body acting, genuinely varying leg positions, stance, body angle and gestures rather than locking the neutral pose: flushed cheeks, bashful smile and averted gaze; shoulders turned inward, knees relaxed, one foot slightly turned in and one hand near the cheek. Keep normal pupils. Hands should be simple and readable; each visible hand has one anatomically correct thumb and four fingers connected to one palm and wrist. Do not force hidden digits into view. Exactly two coherent legs and feet; varied bends, steps, stances and angles are welcome. Keep the complete silhouette including hair, headwear, accessories, hands and shoes visible, roughly 2–4% top and bottom padding, without lengthening the body. True transparent background. No scenery, text, UI, weapons, handheld objects, companions, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/references/Chevreuse/neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a19670-0586-7a72-bb94-26f3777d6c7a/exec-1740ab31-4416-4356-9734-d468d347b38e.png",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/raw/Chevreuse/embarrassment.png",
+          "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/sprites/Chevreuse/embarrassment.png",
+          "prompt_file": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/prompts/Chevreuse/embarrassment.txt"
+        },
+        "caring": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/sprites/Chevreuse/caring.png",
+          "sha256": "904fe72bef0e5da884af6218d74ca0284a5eea8def8ba685d8b717d99e08f51c",
+          "size": [
+            1024,
+            1536
+          ],
+          "mode": "RGBA",
+          "has_alpha": true,
+          "status": "candidate awaiting user review",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Chevreuse expressing caring, using only the supplied approved neutral as image reference. Preserve identity, face, skin tone, hair, eyes, costume, accessories, colors and rendering. Preserve her petite Medium Female proportions, purple hair, eyepatch and red-black uniform. Give this emotion its own expressive full-body acting, genuinely varying leg positions, stance, body angle and gestures rather than locking the neutral pose: gentle concerned eyes and reassuring smile; incline body toward the viewer with a small step, one open hand near the chest. Keep normal pupils. Hands should be simple and readable; each visible hand has one anatomically correct thumb and four fingers connected to one palm and wrist. Do not force hidden digits into view. Exactly two coherent legs and feet; varied bends, steps, stances and angles are welcome. Keep the complete silhouette including hair, headwear, accessories, hands and shoes visible, roughly 2–4% top and bottom padding, without lengthening the body. True transparent background. No scenery, text, UI, weapons, handheld objects, companions, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/references/Chevreuse/neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a19670-0586-7a72-bb94-26f3777d6c7a/exec-db209593-f9af-4c19-9bed-50fc1b8a9912.png",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/raw/Chevreuse/caring.png",
+          "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/sprites/Chevreuse/caring.png",
+          "prompt_file": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/prompts/Chevreuse/caring.txt"
+        },
+        "love-1": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/sprites/Chevreuse/love-1.png",
+          "sha256": "e86edcef0ff6043d474f5033999d82f23d0f971619afc5a923f188f1166cc881",
+          "size": [
+            1024,
+            1536
+          ],
+          "mode": "RGBA",
+          "has_alpha": true,
+          "status": "candidate awaiting user review",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Chevreuse expressing love-1, using only the supplied approved neutral as image reference. Preserve her identity, face, skin tone, purple hair, eyepatch, red-black uniform, accessories, colors, rendering and petite Medium Female proportions. Show varied full-body acting: a visibly tender affectionate smile and softened gaze; a gentle body angle, one hand near the heart and feet staggered. Retain her eyepatch covering the same eye as the reference. Heart eyes: keep the visible uncovered eye open, preserve its original violet iris, outline, detail, shading and a visible colored border, and place one solid pale violet heart-shaped pupil centered in that iris. The heart is the pupil, not a floating symbol or highlight. Keep the eyepatch in place. Simple readable hands, each visible hand with one anatomically correct thumb and four fingers connected to one palm and wrist; do not force hidden digits into view. Exactly two coherent legs and feet. Keep the complete silhouette including hair, headwear, hands and shoes visible, roughly 2–4% top and bottom padding. True transparent background. No scenery, text, UI, weapons, handheld objects, companions, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/references/Chevreuse/neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a19670-0586-7a72-bb94-26f3777d6c7a/exec-8fe509ed-85a9-436c-a412-76d52a41ddf3.png",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/raw/Chevreuse/love-1.png",
+          "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/sprites/Chevreuse/love-1.png",
+          "prompt_file": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/prompts/Chevreuse/love-1.txt"
+        },
+        "desire-1": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/sprites/Chevreuse/desire-1.png",
+          "sha256": "cbe58f0e0ce0f692d24b965f3633a78c579e968a6686fc9bb8012180f64052a1",
+          "size": [
+            1024,
+            1536
+          ],
+          "mode": "RGBA",
+          "has_alpha": true,
+          "status": "candidate awaiting user review",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Chevreuse expressing desire-1, using only the supplied approved neutral as image reference. Preserve her identity, face, skin tone, purple hair, eyepatch, red-black uniform, accessories, colors, rendering and petite Medium Female proportions. Show varied full-body acting: hopeful yearning affection, a soft blush, a slight forward lean and one foot subtly ahead, one hand near the heart and the other relaxed; tasteful and fully clothed. Retain her eyepatch covering the same eye as the reference. Heart eyes: keep the visible uncovered eye open, preserve its original violet iris, outline, detail, shading and a visible colored border, and place one solid pale violet heart-shaped pupil centered in that iris. The heart is the pupil, not a floating symbol or highlight. Keep the eyepatch in place. Simple readable hands, each visible hand with one anatomically correct thumb and four fingers connected to one palm and wrist; do not force hidden digits into view. Exactly two coherent legs and feet. Keep the complete silhouette including hair, headwear, hands and shoes visible, roughly 2–4% top and bottom padding. True transparent background. No scenery, text, UI, weapons, handheld objects, companions, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/references/Chevreuse/neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a19670-0586-7a72-bb94-26f3777d6c7a/exec-3ce32d6c-a1c0-433f-92f9-1c9725a6e2e7.png",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/raw/Chevreuse/desire-1.png",
+          "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/sprites/Chevreuse/desire-1.png",
+          "prompt_file": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/prompts/Chevreuse/desire-1.txt"
+        }
+      },
+      "heart_eye_exception": {
+        "user_request": "Keep chevreuse's eyepatch and put the heart pupil in her visible eye.",
+        "scope": "love-1 and desire-1"
+      }
+    },
+    "Chiori": {
+      "neutral_source": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Chiori/neutral.png",
+      "reference": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/references/Chiori/neutral.png",
+      "sha256": "822c057ed6ea5d45e4fb38367f4c0de194e442043f11578b37c93fb4bd6eb2f8",
+      "approval": {
+        "status": "approved",
+        "message": "All others are ACCEPTED.",
+        "date": "2026-10-30",
+        "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Chiori/neutral-v001.png",
+        "candidate_sha256": "822c057ed6ea5d45e4fb38367f4c0de194e442043f11578b37c93fb4bd6eb2f8"
+      },
+      "expressions": {
+        "neutral": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/sprites/Chiori/neutral.png",
+          "sha256": "822c057ed6ea5d45e4fb38367f4c0de194e442043f11578b37c93fb4bd6eb2f8",
+          "size": [
+            1145,
+            1374
+          ],
+          "mode": "RGBA",
+          "has_alpha": true,
+          "status": "approved neutral"
+        },
+        "annoyance": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/sprites/Chiori/annoyance.png",
+          "sha256": "858840fb512a9bd00733898af38b61aa0342c7855a2c9be4568d273c621743f9",
+          "size": [
+            1145,
+            1374
+          ],
+          "mode": "RGBA",
+          "has_alpha": true,
+          "status": "candidate awaiting user review",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Chiori expressing annoyance, using only the supplied approved neutral as image reference. Preserve identity, face, skin tone, hair, eyes, costume, accessories, colors and rendering, petite Medium Female proportions and her fashion-designer outfit. Give this emotion its own expressive full-body acting, genuinely varying leg positions, stance, body angle and gestures rather than locking the neutral pose: a small frown and drawn brows, weight shifted to one side, one hand resting at the waist. Keep normal pupils. Hands should be simple and readable; each visible hand has one anatomically correct thumb and four fingers connected to one palm and wrist. Do not force hidden digits into view. Exactly two coherent legs and feet; varied bends, steps, stances and angles are welcome. Keep the complete silhouette including hair, headwear, accessories, hands and shoes visible, roughly 2–4% top and bottom padding, without lengthening the body. True transparent background. No scenery, text, UI, weapons, handheld objects, companions, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/references/Chiori/neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a19670-0586-7a72-bb94-26f3777d6c7a/exec-bb03c2e7-db3b-4c36-8b97-4d5cfac59959.png",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/raw/Chiori/annoyance.png",
+          "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/sprites/Chiori/annoyance.png",
+          "prompt_file": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/prompts/Chiori/annoyance.txt"
+        },
+        "smug": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/sprites/Chiori/smug.png",
+          "sha256": "b2376a3892626d4227fb48239d8d3dbb866e82152441e63391426b3b2947e758",
+          "size": [
+            1145,
+            1374
+          ],
+          "mode": "RGBA",
+          "has_alpha": true,
+          "status": "candidate awaiting user review",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Chiori expressing smug, using only the supplied approved neutral as image reference. Preserve identity, face, skin tone, hair, eyes, costume, accessories, colors and rendering, petite Medium Female proportions and her fashion-designer outfit. Give this emotion its own expressive full-body acting, genuinely varying leg positions, stance, body angle and gestures rather than locking the neutral pose: a knowing smile, slightly lifted chin, one hand at the hip and the other near the chest. Keep normal pupils. Hands should be simple and readable; each visible hand has one anatomically correct thumb and four fingers connected to one palm and wrist. Do not force hidden digits into view. Exactly two coherent legs and feet; varied bends, steps, stances and angles are welcome. Keep the complete silhouette including hair, headwear, accessories, hands and shoes visible, roughly 2–4% top and bottom padding, without lengthening the body. True transparent background. No scenery, text, UI, weapons, handheld objects, companions, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/references/Chiori/neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a19670-0586-7a72-bb94-26f3777d6c7a/exec-c8f65b18-139e-4a15-8ed2-3f373d6cd920.png",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/raw/Chiori/smug.png",
+          "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/sprites/Chiori/smug.png",
+          "prompt_file": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/prompts/Chiori/smug.txt"
+        },
+        "confusion": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/sprites/Chiori/confusion.png",
+          "sha256": "ee5dbf67933ddeacb82d90d1406fbfc7b5642e843d915293b6fd81b60605e0d4",
+          "size": [
+            1145,
+            1374
+          ],
+          "mode": "RGBA",
+          "has_alpha": true,
+          "status": "candidate awaiting user review",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Chiori expressing confusion, using only the supplied approved neutral as image reference. Preserve identity, face, skin tone, hair, eyes, costume, accessories, colors and rendering, petite Medium Female proportions and her fashion-designer outfit. Give this emotion its own expressive full-body acting, genuinely varying leg positions, stance, body angle and gestures rather than locking the neutral pose: puzzled brows and a head tilt, one hand turned gently upward near the waist, weight on one leg with the other foot set lightly to the side. Keep normal pupils. Hands should be simple and readable; each visible hand has one anatomically correct thumb and four fingers connected to one palm and wrist. Do not force hidden digits into view. Exactly two coherent legs and feet; varied bends, steps, stances and angles are welcome. Keep the complete silhouette including hair, headwear, accessories, hands and shoes visible, roughly 2–4% top and bottom padding, without lengthening the body. True transparent background. No scenery, text, UI, weapons, handheld objects, companions, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/references/Chiori/neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a19670-0586-7a72-bb94-26f3777d6c7a/exec-e5ed1a96-932a-4147-a596-89bd81499882.png",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/raw/Chiori/confusion.png",
+          "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/sprites/Chiori/confusion.png",
+          "prompt_file": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/prompts/Chiori/confusion.txt"
+        },
+        "love": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/sprites/Chiori/love.png",
+          "sha256": "ed3954e0e6f30653043c43ef40a34b2a6c314e7fb89d70cfdcaf6695341d7669",
+          "size": [
+            1145,
+            1374
+          ],
+          "mode": "RGBA",
+          "has_alpha": true,
+          "status": "candidate awaiting user review",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Chiori expressing love, using only the supplied approved neutral as image reference. Preserve identity, face, skin tone, hair, eyes, costume, accessories, colors and rendering, petite Medium Female proportions and her fashion-designer outfit. Give this emotion its own expressive full-body acting, genuinely varying leg positions, stance, body angle and gestures rather than locking the neutral pose: a visibly tender affectionate smile and softly focused eyes, a gentle turn of the shoulders, one hand near the heart and feet gently staggered. Keep normal pupils. Hands should be simple and readable; each visible hand has one anatomically correct thumb and four fingers connected to one palm and wrist. Do not force hidden digits into view. Exactly two coherent legs and feet; varied bends, steps, stances and angles are welcome. Keep the complete silhouette including hair, headwear, accessories, hands and shoes visible, roughly 2–4% top and bottom padding, without lengthening the body. True transparent background. No scenery, text, UI, weapons, handheld objects, companions, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/references/Chiori/neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a19670-0586-7a72-bb94-26f3777d6c7a/exec-ca9dc724-e658-4ead-80a8-d686516c38e0.png",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/raw/Chiori/love.png",
+          "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/sprites/Chiori/love.png",
+          "prompt_file": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/prompts/Chiori/love.txt"
+        },
+        "excitement": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/sprites/Chiori/excitement.png",
+          "sha256": "f3ca298666539793044badd4b8148e904ec98f6ffd66f9425fc847071a9e2209",
+          "size": [
+            1145,
+            1374
+          ],
+          "mode": "RGBA",
+          "has_alpha": true,
+          "status": "candidate awaiting user review",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Chiori expressing excitement, using only the supplied approved neutral as image reference. Preserve identity, face, skin tone, hair, eyes, costume, accessories, colors and rendering, petite Medium Female proportions and her fashion-designer outfit. Give this emotion its own expressive full-body acting, genuinely varying leg positions, stance, body angle and gestures rather than locking the neutral pose: a pleased smile and lively posture, one arm raised in a modest gesture of excitement, one foot forward. Keep normal pupils. Hands should be simple and readable; each visible hand has one anatomically correct thumb and four fingers connected to one palm and wrist. Do not force hidden digits into view. Exactly two coherent legs and feet; varied bends, steps, stances and angles are welcome. Keep the complete silhouette including hair, headwear, accessories, hands and shoes visible, roughly 2–4% top and bottom padding, without lengthening the body. True transparent background. No scenery, text, UI, weapons, handheld objects, companions, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/references/Chiori/neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a19670-0586-7a72-bb94-26f3777d6c7a/exec-ffff26bf-6890-4d26-827f-d456bd5cf7ab.png",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/raw/Chiori/excitement.png",
+          "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/sprites/Chiori/excitement.png",
+          "prompt_file": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/prompts/Chiori/excitement.txt"
+        },
+        "joy": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/sprites/Chiori/joy.png",
+          "sha256": "ff0af1b37b5fe8de87c5aa683d49e9f0cefd64b9039cc4cff2dfb541e0fe8ce1",
+          "size": [
+            1145,
+            1374
+          ],
+          "mode": "RGBA",
+          "has_alpha": true,
+          "status": "candidate awaiting user review",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Chiori expressing joy, using only the supplied approved neutral as image reference. Preserve identity, face, skin tone, hair, eyes, costume, accessories, colors and rendering, petite Medium Female proportions and her fashion-designer outfit. Give this emotion its own expressive full-body acting, genuinely varying leg positions, stance, body angle and gestures rather than locking the neutral pose: a warm open smile, light sideways lean and a jaunty step, one arm lifted in a friendly wave. Keep normal pupils. Hands should be simple and readable; each visible hand has one anatomically correct thumb and four fingers connected to one palm and wrist. Do not force hidden digits into view. Exactly two coherent legs and feet; varied bends, steps, stances and angles are welcome. Keep the complete silhouette including hair, headwear, accessories, hands and shoes visible, roughly 2–4% top and bottom padding, without lengthening the body. True transparent background. No scenery, text, UI, weapons, handheld objects, companions, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/references/Chiori/neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a19670-0586-7a72-bb94-26f3777d6c7a/exec-8514c8a2-2d9f-4c81-a44c-787d89fde27b.png",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/raw/Chiori/joy.png",
+          "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/sprites/Chiori/joy.png",
+          "prompt_file": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/prompts/Chiori/joy.txt"
+        },
+        "fear": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/sprites/Chiori/fear.png",
+          "sha256": "f44eb668a047623ffc64fd77f63933b7ac1319bdd2f2e9d23ef466f24a2def3d",
+          "size": [
+            1145,
+            1374
+          ],
+          "mode": "RGBA",
+          "has_alpha": true,
+          "status": "candidate awaiting user review",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Chiori expressing fear, using only the supplied approved neutral as image reference. Preserve identity, face, skin tone, hair, eyes, costume, accessories, colors and rendering, petite Medium Female proportions and her fashion-designer outfit. Give this emotion its own expressive full-body acting, genuinely varying leg positions, stance, body angle and gestures rather than locking the neutral pose: wide worried eyes; recoil with a cautious backward step, bent knees and one hand near the chest. Keep normal pupils. Hands should be simple and readable; each visible hand has one anatomically correct thumb and four fingers connected to one palm and wrist. Do not force hidden digits into view. Exactly two coherent legs and feet; varied bends, steps, stances and angles are welcome. Keep the complete silhouette including hair, headwear, accessories, hands and shoes visible, roughly 2–4% top and bottom padding, without lengthening the body. True transparent background. No scenery, text, UI, weapons, handheld objects, companions, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/references/Chiori/neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a19670-0586-7a72-bb94-26f3777d6c7a/exec-482d4da8-ea8d-44d9-8262-3b6689233ea4.png",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/raw/Chiori/fear.png",
+          "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/sprites/Chiori/fear.png",
+          "prompt_file": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/prompts/Chiori/fear.txt"
+        },
+        "pride": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/sprites/Chiori/pride.png",
+          "sha256": "a9bfd9ed685c99d45feb660e93e012b57aeb0d16bf9733532d821979dad8c406",
+          "size": [
+            1145,
+            1374
+          ],
+          "mode": "RGBA",
+          "has_alpha": true,
+          "status": "candidate awaiting user review",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Chiori expressing pride, using only the supplied approved neutral as image reference. Preserve identity, face, skin tone, hair, eyes, costume, accessories, colors and rendering, petite Medium Female proportions and her fashion-designer outfit. Give this emotion its own expressive full-body acting, genuinely varying leg positions, stance, body angle and gestures rather than locking the neutral pose: a proud smile; turn the body confidently in three-quarter view, feet planted apart, one hand at the waist. Keep normal pupils. Hands should be simple and readable; each visible hand has one anatomically correct thumb and four fingers connected to one palm and wrist. Do not force hidden digits into view. Exactly two coherent legs and feet; varied bends, steps, stances and angles are welcome. Keep the complete silhouette including hair, headwear, accessories, hands and shoes visible, roughly 2–4% top and bottom padding, without lengthening the body. True transparent background. No scenery, text, UI, weapons, handheld objects, companions, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/references/Chiori/neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a19670-0586-7a72-bb94-26f3777d6c7a/exec-da5550e8-7806-4b94-a4cf-aa1466a83595.png",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/raw/Chiori/pride.png",
+          "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/sprites/Chiori/pride.png",
+          "prompt_file": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/prompts/Chiori/pride.txt"
+        },
+        "desire": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/sprites/Chiori/desire.png",
+          "sha256": "1796e73ac439ec3af065e1b6222d4afce5a5c3ecd9da82b9641c288ef3dac4aa",
+          "size": [
+            1145,
+            1374
+          ],
+          "mode": "RGBA",
+          "has_alpha": true,
+          "status": "candidate awaiting user review",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Chiori expressing desire, using only the supplied approved neutral as image reference. Preserve identity, face, skin tone, hair, eyes, costume, accessories, colors and rendering, petite Medium Female proportions and her fashion-designer outfit. Give this emotion its own expressive full-body acting, genuinely varying leg positions, stance, body angle and gestures rather than locking the neutral pose: clearly legible yearning affection, flushed cheeks, parted lips, raised inner brows and an intent hopeful gaze, a slight forward lean and one foot subtly ahead, one hand near the heart and the other relaxed; tasteful and fully clothed. Keep normal pupils. Hands should be simple and readable; each visible hand has one anatomically correct thumb and four fingers connected to one palm and wrist. Do not force hidden digits into view. Exactly two coherent legs and feet; varied bends, steps, stances and angles are welcome. Keep the complete silhouette including hair, headwear, accessories, hands and shoes visible, roughly 2–4% top and bottom padding, without lengthening the body. True transparent background. No scenery, text, UI, weapons, handheld objects, companions, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/references/Chiori/neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a19670-0586-7a72-bb94-26f3777d6c7a/exec-bd16187e-6af3-45e5-94fa-bf6ff4fdc151.png",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/raw/Chiori/desire.png",
+          "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/sprites/Chiori/desire.png",
+          "prompt_file": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/prompts/Chiori/desire.txt"
+        },
+        "anger": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/sprites/Chiori/anger.png",
+          "sha256": "50465e807bb88067fa587de0ef96753552ad68dd59f23931f81e8016be551099",
+          "size": [
+            1145,
+            1374
+          ],
+          "mode": "RGBA",
+          "has_alpha": true,
+          "status": "candidate awaiting user review",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Chiori expressing anger, using only the supplied approved neutral as image reference. Preserve identity, face, skin tone, hair, eyes, costume, accessories, colors and rendering, petite Medium Female proportions and her fashion-designer outfit. Give this emotion its own expressive full-body acting, genuinely varying leg positions, stance, body angle and gestures rather than locking the neutral pose: firm brows and a determined frown; take a grounded stance with one leg set forward and arms bent decisively at the sides. Keep normal pupils. Hands should be simple and readable; each visible hand has one anatomically correct thumb and four fingers connected to one palm and wrist. Do not force hidden digits into view. Exactly two coherent legs and feet; varied bends, steps, stances and angles are welcome. Keep the complete silhouette including hair, headwear, accessories, hands and shoes visible, roughly 2–4% top and bottom padding, without lengthening the body. True transparent background. No scenery, text, UI, weapons, handheld objects, companions, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/references/Chiori/neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a19670-0586-7a72-bb94-26f3777d6c7a/exec-9114675d-e01b-4f86-b7b4-d62cdf7149db.png",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/raw/Chiori/anger.png",
+          "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/sprites/Chiori/anger.png",
+          "prompt_file": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/prompts/Chiori/anger.txt"
+        },
+        "grief": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/sprites/Chiori/grief.png",
+          "sha256": "284adf348b63b10fe07a0baba689386b83cceef6d421918be86280f872eca20c",
+          "size": [
+            1145,
+            1374
+          ],
+          "mode": "RGBA",
+          "has_alpha": true,
+          "status": "candidate awaiting user review",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Chiori expressing grief, using only the supplied approved neutral as image reference. Preserve identity, face, skin tone, hair, eyes, costume, accessories, colors and rendering, petite Medium Female proportions and her fashion-designer outfit. Give this emotion its own expressive full-body acting, genuinely varying leg positions, stance, body angle and gestures rather than locking the neutral pose: sorrowful brows and lowered head; round the shoulders, bend slightly forward, feet close but distinct and arms near the body. Keep normal pupils. Hands should be simple and readable; each visible hand has one anatomically correct thumb and four fingers connected to one palm and wrist. Do not force hidden digits into view. Exactly two coherent legs and feet; varied bends, steps, stances and angles are welcome. Keep the complete silhouette including hair, headwear, accessories, hands and shoes visible, roughly 2–4% top and bottom padding, without lengthening the body. True transparent background. No scenery, text, UI, weapons, handheld objects, companions, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/references/Chiori/neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a19670-0586-7a72-bb94-26f3777d6c7a/exec-1e3692e1-ed44-441b-9743-5f855e49be53.png",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/raw/Chiori/grief.png",
+          "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/sprites/Chiori/grief.png",
+          "prompt_file": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/prompts/Chiori/grief.txt"
+        },
+        "sadness": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/sprites/Chiori/sadness.png",
+          "sha256": "727b87a37d66e97fcb8d35c459a495c2472cb9f105f031cc1f238d9c91c14fa2",
+          "size": [
+            1145,
+            1374
+          ],
+          "mode": "RGBA",
+          "has_alpha": true,
+          "status": "candidate awaiting user review",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Chiori expressing sadness, using only the supplied approved neutral as image reference. Preserve identity, face, skin tone, hair, eyes, costume, accessories, colors and rendering, petite Medium Female proportions and her fashion-designer outfit. Give this emotion its own expressive full-body acting, genuinely varying leg positions, stance, body angle and gestures rather than locking the neutral pose: subdued frown and lowered eyes; turn slightly away, a gentle head tilt and weight resting on one leg. Keep normal pupils. Hands should be simple and readable; each visible hand has one anatomically correct thumb and four fingers connected to one palm and wrist. Do not force hidden digits into view. Exactly two coherent legs and feet; varied bends, steps, stances and angles are welcome. Keep the complete silhouette including hair, headwear, accessories, hands and shoes visible, roughly 2–4% top and bottom padding, without lengthening the body. True transparent background. No scenery, text, UI, weapons, handheld objects, companions, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/references/Chiori/neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a19670-0586-7a72-bb94-26f3777d6c7a/exec-ab96194e-d4b9-404e-8902-4a54869abb34.png",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/raw/Chiori/sadness.png",
+          "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/sprites/Chiori/sadness.png",
+          "prompt_file": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/prompts/Chiori/sadness.txt"
+        },
+        "disgust": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/sprites/Chiori/disgust.png",
+          "sha256": "eb13fb07793179cf840df98cb67b07365a5b010afa74e5548a53a6817d69b93a",
+          "size": [
+            1145,
+            1374
+          ],
+          "mode": "RGBA",
+          "has_alpha": true,
+          "status": "candidate awaiting user review",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Chiori expressing disgust, using only the supplied approved neutral as image reference. Preserve identity, face, skin tone, hair, eyes, costume, accessories, colors and rendering, petite Medium Female proportions and her fashion-designer outfit. Give this emotion its own expressive full-body acting, genuinely varying leg positions, stance, body angle and gestures rather than locking the neutral pose: a restrained nose scrunch and small closed displeased mouth; lean away with a backward foot and one arm withdrawn. Keep normal pupils. Hands should be simple and readable; each visible hand has one anatomically correct thumb and four fingers connected to one palm and wrist. Do not force hidden digits into view. Exactly two coherent legs and feet; varied bends, steps, stances and angles are welcome. Keep the complete silhouette including hair, headwear, accessories, hands and shoes visible, roughly 2–4% top and bottom padding, without lengthening the body. True transparent background. No scenery, text, UI, weapons, handheld objects, companions, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/references/Chiori/neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a19670-0586-7a72-bb94-26f3777d6c7a/exec-299914b5-7e17-4be4-a14c-ce0a275892e0.png",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/raw/Chiori/disgust.png",
+          "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/sprites/Chiori/disgust.png",
+          "prompt_file": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/prompts/Chiori/disgust.txt"
+        },
+        "disappointment": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/sprites/Chiori/disappointment.png",
+          "sha256": "a1df3853cbc93b03d9251adb38a24641f2cd9499eafd7c2459574d3d228903e2",
+          "size": [
+            1145,
+            1374
+          ],
+          "mode": "RGBA",
+          "has_alpha": true,
+          "status": "candidate awaiting user review",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Chiori expressing disappointment, using only the supplied approved neutral as image reference. Preserve identity, face, skin tone, hair, eyes, costume, accessories, colors and rendering, petite Medium Female proportions and her fashion-designer outfit. Give this emotion its own expressive full-body acting, genuinely varying leg positions, stance, body angle and gestures rather than locking the neutral pose: downturned mouth and lowered shoulders; shift weight onto one hip with the other foot relaxed, one hand open beside the body. Keep normal pupils. Hands should be simple and readable; each visible hand has one anatomically correct thumb and four fingers connected to one palm and wrist. Do not force hidden digits into view. Exactly two coherent legs and feet; varied bends, steps, stances and angles are welcome. Keep the complete silhouette including hair, headwear, accessories, hands and shoes visible, roughly 2–4% top and bottom padding, without lengthening the body. True transparent background. No scenery, text, UI, weapons, handheld objects, companions, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/references/Chiori/neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a19670-0586-7a72-bb94-26f3777d6c7a/exec-2d420459-3388-4735-9f53-70297b0800e9.png",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/raw/Chiori/disappointment.png",
+          "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/sprites/Chiori/disappointment.png",
+          "prompt_file": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/prompts/Chiori/disappointment.txt"
+        },
+        "relief": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/sprites/Chiori/relief.png",
+          "sha256": "b64ed837603416c17d64c4d3bbdb6a9ed30ea6d1ea206c678ade6ffcbdad9202",
+          "size": [
+            1145,
+            1374
+          ],
+          "mode": "RGBA",
+          "has_alpha": true,
+          "status": "candidate awaiting user review",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Chiori expressing relief, using only the supplied approved neutral as image reference. Preserve identity, face, skin tone, hair, eyes, costume, accessories, colors and rendering, petite Medium Female proportions and her fashion-designer outfit. Give this emotion its own expressive full-body acting, genuinely varying leg positions, stance, body angle and gestures rather than locking the neutral pose: relieved smile and relaxed shoulders; settle back onto one leg with the opposite knee relaxed, one hand over the chest. Keep normal pupils. Hands should be simple and readable; each visible hand has one anatomically correct thumb and four fingers connected to one palm and wrist. Do not force hidden digits into view. Exactly two coherent legs and feet; varied bends, steps, stances and angles are welcome. Keep the complete silhouette including hair, headwear, accessories, hands and shoes visible, roughly 2–4% top and bottom padding, without lengthening the body. True transparent background. No scenery, text, UI, weapons, handheld objects, companions, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/references/Chiori/neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a19670-0586-7a72-bb94-26f3777d6c7a/exec-fcc9d670-ee37-4f9a-8566-d1025c6a794e.png",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/raw/Chiori/relief.png",
+          "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/sprites/Chiori/relief.png",
+          "prompt_file": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/prompts/Chiori/relief.txt"
+        },
+        "admiration": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/sprites/Chiori/admiration.png",
+          "sha256": "777a6097b1e9f690065426a3259858d429ac182bae18c92e5335d82a7596e4c3",
+          "size": [
+            1145,
+            1374
+          ],
+          "mode": "RGBA",
+          "has_alpha": true,
+          "status": "candidate awaiting user review",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Chiori expressing admiration, using only the supplied approved neutral as image reference. Preserve identity, face, skin tone, hair, eyes, costume, accessories, colors and rendering, petite Medium Female proportions and her fashion-designer outfit. Give this emotion its own expressive full-body acting, genuinely varying leg positions, stance, body angle and gestures rather than locking the neutral pose: bright attentive eyes and impressed smile; lean forward slightly, one foot set ahead and one hand near the cheek. Keep normal pupils. Hands should be simple and readable; each visible hand has one anatomically correct thumb and four fingers connected to one palm and wrist. Do not force hidden digits into view. Exactly two coherent legs and feet; varied bends, steps, stances and angles are welcome. Keep the complete silhouette including hair, headwear, accessories, hands and shoes visible, roughly 2–4% top and bottom padding, without lengthening the body. True transparent background. No scenery, text, UI, weapons, handheld objects, companions, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/references/Chiori/neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a19670-0586-7a72-bb94-26f3777d6c7a/exec-5670fab0-af2c-47d7-8c33-e2066450fa74.png",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/raw/Chiori/admiration.png",
+          "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/sprites/Chiori/admiration.png",
+          "prompt_file": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/prompts/Chiori/admiration.txt"
+        },
+        "gratitude": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/sprites/Chiori/gratitude.png",
+          "sha256": "f140d696dc790fe0da0bf0cd1af14432568fed5f207551b7b5264c967998c2d1",
+          "size": [
+            1145,
+            1374
+          ],
+          "mode": "RGBA",
+          "has_alpha": true,
+          "status": "candidate awaiting user review",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Chiori expressing gratitude, using only the supplied approved neutral as image reference. Preserve identity, face, skin tone, hair, eyes, costume, accessories, colors and rendering, petite Medium Female proportions and her fashion-designer outfit. Give this emotion its own expressive full-body acting, genuinely varying leg positions, stance, body angle and gestures rather than locking the neutral pose: a sincere smile; a gentle appreciative bow with staggered feet and one hand over the heart. Keep normal pupils. Hands should be simple and readable; each visible hand has one anatomically correct thumb and four fingers connected to one palm and wrist. Do not force hidden digits into view. Exactly two coherent legs and feet; varied bends, steps, stances and angles are welcome. Keep the complete silhouette including hair, headwear, accessories, hands and shoes visible, roughly 2–4% top and bottom padding, without lengthening the body. True transparent background. No scenery, text, UI, weapons, handheld objects, companions, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/references/Chiori/neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a19670-0586-7a72-bb94-26f3777d6c7a/exec-e3db4cd7-ab17-447b-9135-8f0e3989375c.png",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/raw/Chiori/gratitude.png",
+          "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/sprites/Chiori/gratitude.png",
+          "prompt_file": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/prompts/Chiori/gratitude.txt"
+        },
+        "embarrassment": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/sprites/Chiori/embarrassment.png",
+          "sha256": "1bdc50a2b2768c0df9ca87a13ab0978091c62ef108f1668873085370ebe7d995",
+          "size": [
+            1145,
+            1374
+          ],
+          "mode": "RGBA",
+          "has_alpha": true,
+          "status": "candidate awaiting user review",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Chiori expressing embarrassment, using only the supplied approved neutral as image reference. Preserve identity, face, skin tone, hair, eyes, costume, accessories, colors and rendering, petite Medium Female proportions and her fashion-designer outfit. Give this emotion its own expressive full-body acting, genuinely varying leg positions, stance, body angle and gestures rather than locking the neutral pose: flushed cheeks, bashful smile and averted gaze; shoulders turned inward, knees relaxed, one foot slightly turned in and one hand near the cheek. Keep normal pupils. Hands should be simple and readable; each visible hand has one anatomically correct thumb and four fingers connected to one palm and wrist. Do not force hidden digits into view. Exactly two coherent legs and feet; varied bends, steps, stances and angles are welcome. Keep the complete silhouette including hair, headwear, accessories, hands and shoes visible, roughly 2–4% top and bottom padding, without lengthening the body. True transparent background. No scenery, text, UI, weapons, handheld objects, companions, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/references/Chiori/neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a19670-0586-7a72-bb94-26f3777d6c7a/exec-1cb5bdc0-ac49-4f05-9965-3ecbd2917baf.png",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/raw/Chiori/embarrassment.png",
+          "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/sprites/Chiori/embarrassment.png",
+          "prompt_file": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/prompts/Chiori/embarrassment.txt"
+        },
+        "caring": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/sprites/Chiori/caring.png",
+          "sha256": "c1b2a04c5e37fed8ca28aa6ec57cee796e1e3b14f2286300906463639eb30105",
+          "size": [
+            1145,
+            1374
+          ],
+          "mode": "RGBA",
+          "has_alpha": true,
+          "status": "candidate awaiting user review",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Chiori expressing caring, using only the supplied approved neutral as image reference. Preserve identity, face, skin tone, hair, eyes, costume, accessories, colors and rendering, petite Medium Female proportions and her fashion-designer outfit. Give this emotion its own expressive full-body acting, genuinely varying leg positions, stance, body angle and gestures rather than locking the neutral pose: gentle concerned eyes and reassuring smile; incline body toward the viewer with a small step, one open hand near the chest. Keep normal pupils. Hands should be simple and readable; each visible hand has one anatomically correct thumb and four fingers connected to one palm and wrist. Do not force hidden digits into view. Exactly two coherent legs and feet; varied bends, steps, stances and angles are welcome. Keep the complete silhouette including hair, headwear, accessories, hands and shoes visible, roughly 2–4% top and bottom padding, without lengthening the body. True transparent background. No scenery, text, UI, weapons, handheld objects, companions, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/references/Chiori/neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a19670-0586-7a72-bb94-26f3777d6c7a/exec-a6936540-ff81-4f46-9b33-54a3865c1101.png",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/raw/Chiori/caring.png",
+          "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/sprites/Chiori/caring.png",
+          "prompt_file": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/prompts/Chiori/caring.txt"
+        },
+        "love-1": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/sprites/Chiori/love-1.png",
+          "sha256": "71a7e2ff58a93668860864e4739b17be33ae25162fbba16e30db1a7ef3d9e1ad",
+          "size": [
+            1145,
+            1374
+          ],
+          "mode": "RGBA",
+          "has_alpha": true,
+          "status": "candidate awaiting user review",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Chiori expressing love-1, using only the supplied approved neutral as image reference. Preserve identity, face, skin tone, hair, eyes, costume, accessories, colors and rendering, petite Medium Female proportions and her fashion-designer outfit. Give this emotion its own expressive full-body acting, genuinely varying leg positions, stance, body angle and gestures rather than locking the neutral pose: a visibly tender affectionate smile and softly focused eyes; lean gently to one side, feet staggered and one hand near the heart. Heart eyes, hearts in eyes: both eyes visibly open; retain original iris colors, outlines, shading and a visible colored border, with one solid pale rose-red heart-shaped pupil centered in each iris. Hearts are pupils, not highlights or floating symbols. Hands should be simple and readable; each visible hand has one anatomically correct thumb and four fingers connected to one palm and wrist. Do not force hidden digits into view. Exactly two coherent legs and feet; varied bends, steps, stances and angles are welcome. Keep the complete silhouette including hair, headwear, accessories, hands and shoes visible, roughly 2–4% top and bottom padding, without lengthening the body. True transparent background. No scenery, text, UI, weapons, handheld objects, companions, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/references/Chiori/neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a19670-0586-7a72-bb94-26f3777d6c7a/exec-bb97f780-7488-4b38-897e-0c084d7ab75a.png",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/raw/Chiori/love-1.png",
+          "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/sprites/Chiori/love-1.png",
+          "prompt_file": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/prompts/Chiori/love-1.txt"
+        },
+        "desire-1": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/sprites/Chiori/desire-1.png",
+          "sha256": "550790344bda7ca7387cb509cb92f7f847ceab680ebe01a0d7fe653703d1ecca",
+          "size": [
+            1145,
+            1374
+          ],
+          "mode": "RGBA",
+          "has_alpha": true,
+          "status": "candidate awaiting user review",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Chiori expressing desire-1, using only the supplied approved neutral as image reference. Preserve identity, face, skin tone, hair, eyes, costume, accessories, colors and rendering, petite Medium Female proportions and her fashion-designer outfit. Give this emotion its own expressive full-body acting, genuinely varying leg positions, stance, body angle and gestures rather than locking the neutral pose: clearly legible yearning affection, flushed cheeks, parted lips, raised inner brows and an intent hopeful gaze, a slight forward lean and one foot subtly ahead, one hand near the heart and the other relaxed; tasteful and fully clothed. Heart eyes, hearts in eyes: both eyes visibly open; retain original iris colors, outlines, shading and a visible colored border, with one solid pale rose-red heart-shaped pupil centered in each iris. Hearts are pupils, not highlights or floating symbols. Hands should be simple and readable; each visible hand has one anatomically correct thumb and four fingers connected to one palm and wrist. Do not force hidden digits into view. Exactly two coherent legs and feet; varied bends, steps, stances and angles are welcome. Keep the complete silhouette including hair, headwear, accessories, hands and shoes visible, roughly 2–4% top and bottom padding, without lengthening the body. True transparent background. No scenery, text, UI, weapons, handheld objects, companions, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/references/Chiori/neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a19670-0586-7a72-bb94-26f3777d6c7a/exec-82537502-a99e-4bcc-8192-60aadf006628.png",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/raw/Chiori/desire-1.png",
+          "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/sprites/Chiori/desire-1.png",
+          "prompt_file": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/prompts/Chiori/desire-1.txt"
+        }
+      }
+    }
+  },
+  "missing": [],
+  "technical_issues": [],
+  "preview_order": [
+    "neutral",
+    "annoyance",
+    "smug",
+    "confusion",
+    "love",
+    "excitement",
+    "joy",
+    "fear",
+    "pride",
+    "desire",
+    "anger",
+    "grief",
+    "sadness",
+    "disgust",
+    "disappointment",
+    "relief",
+    "admiration",
+    "gratitude",
+    "embarrassment",
+    "caring",
+    "love-1",
+    "desire-1"
+  ],
+  "request_clarification": "I mean Chiori, not Chidori."
+}

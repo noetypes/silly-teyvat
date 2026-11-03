@@ -1,13 +1,21 @@
 /* ==========================================================================
    Silly Teyvat 1.31 — battle board in the style of Genius Invokation TCG.
    ========================================================================== */
-#gi-battle { --el: #d3bc8e; --active: #d3bc8e; --ch: min(31dvh, 16.5vw); --cw: calc(var(--ch) * .583); --gap: 5dvh; width: 100vw; height: 100dvh; max-width: none; max-height: none; margin: 0; padding: 0; inset: 0; border: 0; border-radius: 0; box-shadow: none; overflow: hidden; color: #fff6e2; font-family: var(--ty-font, sans-serif); background: transparent; }
+/* Rows sit in the lane between the side zones (turn buttons and played cards on the left, summons
+   and dice on the right). --n, the larger side's card count, shrinks cards only when a row would
+   not fit in that lane; --k is each row's own count. */
+#gi-battle { --el: #d3bc8e; --active: #d3bc8e; --n: 4; --rg: clamp(22px, 1.8vw, 30px);
+    --fit: calc((100vw - 2 * max(8px, 1.2vmin) - 4.4vw - 206px - (var(--n) - 1) * var(--rg)) / (var(--n) * .583 + 1.65));
+    --lane-l: calc(1.4% + 122px + var(--ch) * .7); --lane-r: calc(84px + 3vw + var(--ch) * .95);
+    --ch: min(31dvh, 16.5vw, var(--fit)); --cw: calc(var(--ch) * .583); --gap: 5dvh; width: 100vw; height: 100dvh; max-width: none; max-height: none; margin: 0; padding: 0; inset: 0; border: 0; border-radius: 0; box-shadow: none; overflow: hidden; color: #fff6e2; font-family: var(--ty-font, sans-serif); background: transparent; }
 #gi-battle[open] { display: block; animation: ty-fade 260ms ease both; }
 #gi-battle.gb-closing { animation: ty-fade-out 240ms ease both; }
 #gi-battle::backdrop { background: #070b14d9; backdrop-filter: blur(8px); }
 #gi-battle button { font-family: inherit; color: inherit; }
 #gi-battle.gb-quake .tb-board { animation: tb-quake 260ms linear; }
 @keyframes tb-quake { 20% { translate: 3px -2px; } 40% { translate: -3px 2px; } 60% { translate: 2px 1px; } 80% { translate: -1px -1px; } }
+#gi-battle.gb-quake-big .tb-board { animation: tb-quake-big 620ms cubic-bezier(.2, .7, .3, 1); }
+@keyframes tb-quake-big { 8% { translate: 10px -7px; scale: 1.012; } 18% { translate: -11px 6px; } 30% { translate: 8px 5px; } 44% { translate: -6px -4px; } 60% { translate: 4px 2px; } 78% { translate: -2px -1px; } }
 
 /* Table and frame */
 .tb-board { position: absolute; inset: max(8px, 1.2vmin); border-radius: 22px; overflow: hidden;
@@ -31,7 +39,7 @@
 .tb-plate small { font-size: 13px; color: #f4ead2cc; }
 
 /* Character cards */
-.tb-row { position: absolute; left: 50%; translate: -50% 0; display: flex; gap: clamp(12px, 1.8vw, 30px); z-index: 2; }
+.tb-row { --k: 4; --rw: calc(var(--k) * var(--cw) + (var(--k) - 1) * var(--rg)); position: absolute; left: clamp(var(--lane-l), calc(50% - var(--rw) / 2), calc(100% - var(--lane-r) - var(--rw))); display: flex; gap: var(--rg); z-index: 2; }
 .tb-row-foe { bottom: calc(50% + var(--gap)); align-items: flex-end; }
 .tb-row-you { top: calc(50% + var(--gap)); align-items: flex-start; }
 .tb-card { position: relative; flex: none; width: var(--cw); height: var(--ch); padding: 0; border: 0; background: none; cursor: pointer; transition: transform 240ms var(--ty-ease, ease), filter 240ms; }
@@ -152,8 +160,9 @@
 .tb-summons-foe, .tb-summons-you { right: calc(72px + 3vw); width: calc(var(--ch) * .95); }
 .tb-summons-foe { bottom: calc(50% + var(--gap)); align-content: flex-end; }
 .tb-summons-you { top: calc(50% + var(--gap)); }
-.tb-summon { position: relative; display: grid; place-items: center; width: calc(var(--ch) * .42); height: calc(var(--ch) * .52); border-radius: 7px; background: radial-gradient(circle at 50% 40%, color-mix(in srgb, var(--el) 70%, #fff) 0%, color-mix(in srgb, var(--el) 60%, #1b2232) 55%, #1b2232); box-shadow: 0 0 0 3px #efe4c9, 0 0 0 4px #8d6d3f, 0 6px 14px #0009; }
-.tb-summon-art svg, .tb-summon-art img { width: calc(var(--ch) * .2); height: calc(var(--ch) * .2); color: #fff; filter: drop-shadow(0 0 8px var(--el)); }
+.tb-zone { --zs: var(--zh, calc(var(--ch) * .52)); }
+.tb-summon { position: relative; display: grid; place-items: center; width: calc(var(--zs) * .81); height: var(--zs); border-radius: 7px; background: radial-gradient(circle at 50% 40%, color-mix(in srgb, var(--el) 70%, #fff) 0%, color-mix(in srgb, var(--el) 60%, #1b2232) 55%, #1b2232); box-shadow: 0 0 0 3px #efe4c9, 0 0 0 4px #8d6d3f, 0 6px 14px #0009; }
+.tb-summon-art svg, .tb-summon-art img { width: calc(var(--zs) * .38); height: calc(var(--zs) * .38); color: #fff; filter: drop-shadow(0 0 8px var(--el)); }
 .tb-summon.tb-summon-card { background: center / cover no-repeat; border-radius: 6px; }
 .tb-summon.tb-summon-card span { padding-top: 8px; background: linear-gradient(#0000, #0b1020cc); border-radius: 0 0 5px 5px; bottom: 0; left: 0; right: 0; padding-bottom: 3px; }
 .tb-summon span { position: absolute; left: 2px; right: 2px; bottom: 3px; font-size: 10px; text-align: center; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; text-shadow: 0 1px 2px #000; }
@@ -163,10 +172,15 @@
 .tb-summon.tb-pop { animation: tb-pop 420ms var(--ty-ease, ease) both; }
 .tb-summon.tb-pulse { animation: tb-pulse 420ms ease; }
 @keyframes tb-pulse { 40% { transform: scale(1.15); box-shadow: 0 0 0 3px #fff, 0 0 26px var(--el); } }
+/* Many summons: smaller tiles, names left to the tooltip, badges tucked in. */
+.tb-zone.tb-dense { gap: 6px; }
+.tb-dense .tb-summon span { display: none; }
+.tb-dense .tb-summon-rounds { right: -6px; top: -6px; width: 18px; height: 20px; font-size: 11px; }
+.tb-dense .tb-summon-power, .tb-dense .tb-summon-heal { min-width: 18px; height: 18px; bottom: 4px; font-size: 10px; }
 
 /* Items played this round (support zone) */
-.tb-played { left: calc(1.4% + 110px); top: calc(50% + var(--gap)); max-width: calc(var(--ch) * 1.1); }
-.tb-played-card { position: relative; width: calc(var(--ch) * .3); height: calc(var(--ch) * .52); padding: 0; border: 0; background: none; cursor: pointer; animation: tb-pop 380ms var(--ty-ease, ease) both; }
+.tb-played { left: calc(1.4% + 110px); top: calc(50% + var(--gap)); max-width: calc(var(--ch) * .7); }
+.tb-played-card { position: relative; width: calc(var(--zs) * .577); height: var(--zs); padding: 0; border: 0; background: none; cursor: pointer; animation: tb-pop 380ms var(--ty-ease, ease) both; }
 .tb-played-card:disabled { cursor: default; }
 .tb-played-card img { width: 100%; height: 100%; object-fit: cover; border-radius: 6px; box-shadow: 0 6px 12px #0009; }
 .tb-played-card i { position: absolute; right: -7px; bottom: -7px; width: 24px; height: 24px; border-radius: 50%; background: center 15% / cover; box-shadow: 0 0 0 2px #fff6d8; }
@@ -306,28 +320,36 @@
 #gi-battle.gb-reduced *, #gi-battle.gb-reduced { animation-duration: 1ms !important; transition-duration: 1ms !important; }
 #gi-battle.gb-reduced .gb-float { animation: none !important; opacity: 1; }
 @media (prefers-reduced-motion: reduce) { #gi-battle *, #gi-battle { animation-duration: 1ms !important; transition-duration: 1ms !important; } }
+#gi-battle.gb-reduced .tb-card::before { display: none; }
+@media (prefers-reduced-motion: reduce) { #gi-battle .tb-card::before { display: none; } }
 
 /* Short landscape screens */
 @media (max-height: 560px) and (orientation: landscape) {
-    #gi-battle { --ch: min(29dvh, 12vw); --gap: 3dvh; }
+    /* The moves reach up beside the party here, so the right lane keeps clear of them too. */
+    #gi-battle { --ch: min(29dvh, 12vw, var(--fit)); --gap: 3dvh; --lane-l: calc(1.4% + 78px + var(--ch) * .7); --lane-r: max(calc(70px + var(--ch) * .95), 236px);
+        --fit: calc((100vw - 2 * max(8px, 1.2vmin) - 1.4vw - 314px - (var(--n) - 1) * var(--rg)) / (var(--n) * .583 + .7)); }
+    .tb-played { left: calc(1.4% + 66px); }
     .tb-order { right: 58px; bottom: calc(2.4% + 92px); }
     .tb-skills { right: 58px; gap: 8px; } .tb-summons-foe, .tb-summons-you { right: 58px; } .tb-hand { --hh: calc(var(--ch) * .5); }
     .tb-plate { padding-right: 24px; } .tb-plate-img { width: 36px; height: 36px; } .tb-plate strong { font-size: 14px; } .tb-plate small { font-size: 11px; }
     .tb-end { width: 64px; height: 64px; } .tb-end svg { width: 30px; height: 30px; } .tb-auto, .tb-flee { width: 36px; height: 36px; }
     .tb-medal { width: 48px; height: 48px; } .tb-move-burst .tb-medal { width: 56px; height: 56px; } .tb-medal svg { width: 22px; height: 22px; }
-    .tb-dice-list { grid-template-rows: repeat(6, auto); } .tb-die { width: 22px; height: 25px; } .tb-dice-count { width: 38px; height: 38px; font-size: 18px; }
+    /* A big party's dice grow the column downwards rather than into the summons. */
+    .tb-dice-list { grid-template-rows: repeat(var(--dr, 6), auto); } .tb-die { width: 22px; height: 25px; } .tb-dice-count { width: 38px; height: 38px; font-size: 18px; }
     .tb-banner strong { font-size: 20px; }
+    #gi-battle[data-crowd] .tb-hp { scale: .8; transform-origin: 0 0; } #gi-battle[data-crowd] .tb-energy { scale: .8; transform-origin: 100% 0; }
 }
 /* Phones held upright: the same zones, stacked */
 @media (max-aspect-ratio: 4/5) {
-    #gi-battle { --ch: min(18dvh, calc((100vw - 64px) / 4.4 / .583)); --gap: 0px; }
+    #gi-battle { --rg: 16px; --ch: min(18dvh, calc((100vw - 44px - (max(var(--n), 4) - 1) * var(--rg)) / max(var(--n), 4) / .583)); --gap: 0px; }
+    #gi-battle[data-crowd] .tb-hp { scale: .8; transform-origin: 0 0; } #gi-battle[data-crowd] .tb-energy { scale: .8; transform-origin: 100% 0; }
     .tb-board { inset: 6px; display: grid; grid-template-columns: minmax(0, 1fr) auto; grid-template-rows: auto auto auto minmax(10px, 1fr) auto auto auto auto auto; grid-template-areas: "plate skip" "foe foe" "fsum fsum" "mid mid" "you you" "ysum ysum" "dice dice" "hand hand" "turn skills"; row-gap: 8px; padding: 10px 10px max(10px, env(safe-area-inset-bottom)); border-radius: 16px; }
     .tb-board > :not(.tb-tip, .tb-banner, .tb-combo, .tb-confirm, .tb-order) { position: static !important; translate: none !important; }
     .tb-order { right: 10px; bottom: 88px; }
     .tb-crest, .tb-midline, .tb-emblem, .tb-plate-you, .tb-res { display: none; }
     .tb-plate-foe { grid-area: plate; justify-self: start; max-width: 100%; min-width: 0; padding-right: 30px; } .tb-plate strong { overflow: hidden; text-overflow: ellipsis; } .tb-plate-img { width: 34px; height: 34px; } .tb-plate strong { font-size: 15px; } .tb-plate small { font-size: 11px; }
     .tb-skip { grid-area: skip; width: 38px; height: 38px; }
-    .tb-row { justify-content: center; gap: 10px; } .tb-row-foe { grid-area: foe; margin-top: 30px; } .tb-row-you { grid-area: you; margin-top: 26px; }
+    .tb-row { justify-content: center; gap: var(--rg); } .tb-row-foe { grid-area: foe; margin-top: 30px; } .tb-row-you { grid-area: you; margin-top: 26px; }
     .tb-summons-foe { grid-area: fsum; width: auto; justify-content: center; } .tb-summons-you { grid-area: ysum; width: auto; justify-content: center; margin-top: 18px; }
     .tb-summons-foe:empty, .tb-summons-you:empty, .tb-played:empty { display: none; }
     .tb-summon { width: 44px; height: 54px; } .tb-summon-art svg { width: 24px; height: 24px; } .tb-summon span { display: none; }
@@ -369,7 +391,11 @@
 .gb-splash { position: absolute; inset: 0; z-index: 40; pointer-events: none; overflow: hidden; visibility: hidden; }
 .gb-splash.gb-play, .gb-splash.gb-still { visibility: visible; }
 .gb-splash-wash { position: absolute; inset: -20%; background: linear-gradient(105deg, #0000 22%, color-mix(in srgb, var(--el) 70%, #0b1020) 38%, color-mix(in srgb, var(--el) 45%, #0b1020) 62%, #0000 78%); opacity: 0; }
-.gb-splash-lines { position: absolute; inset: -30%; opacity: 0; background: repeating-linear-gradient(105deg, #fff0 0 18px, #ffffff18 18px 20px, #fff0 20px 44px); }
+.gb-splash-lines { position: absolute; inset: -30%; opacity: 0; background: repeating-linear-gradient(105deg, #fff0 0 18px, color-mix(in srgb, var(--el) 35%, #ffffff30) 18px 21px, #fff0 21px 44px), repeating-linear-gradient(105deg, #fff0 0 70px, #ffffff40 70px 71px, #fff0 71px 130px); }
+/* The element's emblem turns slowly behind the splash art. */
+.gb-splash-glyph { position: absolute; left: 42%; top: 50%; width: min(86dvh, 70vw); aspect-ratio: 1; translate: -50% -50%; opacity: 0; filter: drop-shadow(0 0 40px var(--el)); }
+.gb-splash-glyph svg, .gb-splash-glyph img { width: 100%; height: 100%; display: block; }
+.gb-splash.gb-play .gb-splash-glyph { animation: gb-glyph 1650ms var(--ty-ease, ease) both; }
 .gb-splash img { position: absolute; right: 4%; top: 50%; height: min(92dvh, 120vw); max-width: 92vw; object-fit: contain; translate: 0 -50%; opacity: 0; filter: drop-shadow(0 0 24px color-mix(in srgb, var(--el) 70%, #0000)) drop-shadow(0 10px 30px #000c); }
 .gb-splash-text { position: absolute; left: 6%; bottom: 14%; display: grid; gap: 4px; opacity: 0; text-shadow: 0 0 18px var(--el), 0 3px 4px #000; }
 .gb-splash-text small { font-size: 14px; letter-spacing: .2em; text-transform: uppercase; color: #fff3d4; }
@@ -387,6 +413,72 @@
 @keyframes gb-splash-text { 0%, 15% { opacity: 0; transform: translateX(-40px); } 30% { opacity: 1; transform: none; } 80% { opacity: 1; } to { opacity: 0; } }
 @keyframes gb-white { 0%, 82% { opacity: 0; } 86% { opacity: .85; } to { opacity: 0; } }
 @keyframes gb-still { 0% { opacity: 0; } 20%, 80% { opacity: 1; } to { opacity: 0; } }
+@keyframes gb-glyph { 0% { opacity: 0; transform: scale(.4) rotate(-40deg); } 20% { opacity: .26; transform: scale(1) rotate(0); } 80% { opacity: .22; transform: scale(1.06) rotate(10deg); } to { opacity: 0; transform: scale(1.5) rotate(18deg); } }
+
+/* Burst build-up: light rays turn behind the card while it gathers its element. */
+.tb-card::before { content: ""; position: absolute; inset: -45%; z-index: -1; border-radius: 50%; pointer-events: none; opacity: 0; background: repeating-conic-gradient(color-mix(in srgb, var(--el) 75%, #fff) 0 5deg, #0000 5deg 20deg); mask: radial-gradient(closest-side, #000 18%, #0000 72%); }
+.tb-card.tb-charging::before { animation: tb-rays-in 560ms ease-out both, tb-rays-spin 2.4s linear infinite; }
+.tb-card.tb-bursting::before { opacity: .5; animation: tb-rays-spin 3.2s linear infinite; }
+@keyframes tb-rays-in { from { opacity: 0; scale: .3; } to { opacity: 1; scale: 1; } }
+@keyframes tb-rays-spin { to { rotate: 1turn; } }
+.tb-charging .tb-art { animation: tb-charge 560ms ease-in both; }
+@keyframes tb-charge { from { box-shadow: 0 0 0 3px #fff6d8, 0 0 20px 4px var(--el); } to { box-shadow: 0 0 0 4px #fff, 0 0 60px 22px var(--el), 0 0 120px 40px color-mix(in srgb, var(--el) 50%, #0000); filter: brightness(1.35) saturate(1.2); } }
+.tb-charging .tb-energy i.tb-on { animation: tb-drain 560ms ease-in both; }
+@keyframes tb-drain { 60% { filter: brightness(2); box-shadow: 0 0 18px #fff3b0; } to { opacity: .2; } }
+.tb-casting .tb-art { animation: tb-cast 480ms ease-out; }
+@keyframes tb-cast { 30% { box-shadow: 0 0 0 3px #fff, 0 0 40px 12px var(--el); filter: brightness(1.3); } }
+/* A Burst's hits land harder: a white-hot flash, a bigger recoil and larger numbers. */
+.tb-hurt-big .tb-art { animation: tb-hurt-big 560ms cubic-bezier(.2, .8, .3, 1); }
+.tb-hurt-big .tb-flash { animation: tb-flash-big 560ms ease; }
+@keyframes tb-hurt-big { 0% { transform: scale(1.08); filter: brightness(2.4) saturate(.3); } 12% { transform: translate(-10px, 4px) rotate(-3deg) scale(1.04); } 30% { transform: translate(9px, -3px) rotate(2deg); filter: none; } 50% { transform: translate(-5px, 2px); } 70% { transform: translate(3px, 0); } }
+@keyframes tb-flash-big { 0% { opacity: 1; background: #fff; } 30% { opacity: .7; background: #ff4a3a; } to { opacity: 0; } }
+.gb-float.gb-big { font-size: 44px; -webkit-text-stroke: 1.5px #0b1020; text-shadow: 0 0 18px var(--c, #fff), 0 0 36px color-mix(in srgb, var(--c, #fff) 60%, #0000), 0 3px 3px #000; animation-name: gb-float-big; }
+.gb-float.gb-big.gb-crit { font-size: 56px; }
+@keyframes gb-float-big { 0% { opacity: 0; transform: scale(2.4); filter: blur(4px) brightness(2); } 10% { opacity: 1; transform: scale(.92); filter: none; } 18% { transform: scale(1.08); } 26% { transform: scale(1); } 78% { opacity: 1; transform: translateY(-14px); } to { opacity: 0; transform: translateY(-50px) scale(.95); } }
+
+/* The Burst landing: a flash into the element's colour, then a layer of that element over the board. */
+.gb-burst { position: absolute; inset: 0; z-index: 26; pointer-events: none; opacity: 0; overflow: hidden; }
+.gb-burst::before, .gb-burst::after, .gb-burst i { content: ""; position: absolute; inset: 0; }
+.gb-burst.gb-on { animation: gb-burst 1150ms ease-out both; }
+@keyframes gb-burst { 0% { opacity: 0; } 5% { opacity: 1; } 60% { opacity: .85; } to { opacity: 0; } }
+.gb-burst::before { background: radial-gradient(circle at 50% 45%, #fff 0, color-mix(in srgb, var(--el) 70%, #fff) 16%, color-mix(in srgb, var(--el) 35%, #0000) 42%, #0000 70%); mix-blend-mode: screen; }
+.gb-burst.gb-on::before { animation: gb-burst-core 720ms ease-out both; }
+@keyframes gb-burst-core { from { opacity: 1; transform: scale(.4); } 40% { opacity: .8; } to { opacity: 0; transform: scale(1.7); } }
+.gb-burst::after { background: radial-gradient(ellipse at 50% 50%, #0000 38%, color-mix(in srgb, var(--el) 40%, #000b) 100%); }
+.gb-burst i { mix-blend-mode: screen; }
+.gb-burst.gb-on i { animation: gb-layer 1150ms ease-out both; }
+@keyframes gb-layer { from { opacity: 0; } 15% { opacity: 1; } to { opacity: 0; } }
+.gb-burst[data-el="Pyro"] i { background: linear-gradient(0deg, #ff5a3a99, #ff8a4c40 35%, #0000 70%); }
+.gb-burst[data-el="Pyro"].gb-on i { animation: gb-heat 1150ms ease-out both; }
+@keyframes gb-heat { from { opacity: 0; transform: translateY(40%); } 20% { opacity: 1; transform: none; } to { opacity: 0; transform: translateY(-10%) scaleY(1.2); } }
+.gb-burst[data-el="Hydro"] i { background: repeating-radial-gradient(ellipse at 50% 60%, #0000 0 26px, #9fe0ff40 28px 31px, #0000 33px 64px); }
+.gb-burst[data-el="Hydro"].gb-on i { animation: gb-ripple 1150ms ease-out both; }
+@keyframes gb-ripple { from { opacity: 0; transform: scale(.5); } 20% { opacity: 1; } to { opacity: 0; transform: scale(1.5); } }
+.gb-burst[data-el="Anemo"] i { inset: -50%; background: repeating-conic-gradient(#d8fff22a 0 7deg, #0000 7deg 26deg); mask: radial-gradient(closest-side, #000 10%, #0000 75%); }
+.gb-burst[data-el="Anemo"].gb-on i { animation: gb-vortex 1150ms ease-out both; }
+@keyframes gb-vortex { from { opacity: 0; transform: rotate(0) scale(.4); } 20% { opacity: 1; } to { opacity: 0; transform: rotate(240deg) scale(1.2); } }
+.gb-burst[data-el="Electro"] i { background: radial-gradient(circle at 50% 30%, #f2e4ff, #c08cf5aa 40%, #6a3aa833); }
+.gb-burst[data-el="Electro"].gb-on i { animation: gb-flicker 700ms steps(1) both; }
+@keyframes gb-flicker { 0% { opacity: .9; } 8% { opacity: 0; } 18% { opacity: .65; } 26% { opacity: 0; } 42% { opacity: .5; } 50%, 100% { opacity: 0; } }
+.gb-burst[data-el="Dendro"] i { background: radial-gradient(circle at 50% 55%, #e3ff9e66, #6fbf3a33 30%, #0000 60%), repeating-conic-gradient(from 10deg at 50% 55%, #c6f27a1c 0 12deg, #0000 12deg 30deg); }
+.gb-burst[data-el="Dendro"].gb-on i { animation: gb-bloom 1150ms var(--ty-ease, ease) both; }
+@keyframes gb-bloom { from { opacity: 0; transform: scale(.3) rotate(-20deg); } 25% { opacity: 1; } to { opacity: 0; transform: scale(1.4) rotate(10deg); } }
+.gb-burst[data-el="Cryo"] i { background: radial-gradient(ellipse at 50% 50%, #0000 45%, #c8f3ff66 100%); box-shadow: inset 0 0 140px 40px #e6fbffaa; }
+.gb-burst[data-el="Cryo"].gb-on i { animation: gb-frost 1150ms ease-out both; }
+@keyframes gb-frost { from { opacity: 0; transform: scale(1.15); } 25% { opacity: 1; transform: none; } 70% { opacity: .8; } to { opacity: 0; } }
+.gb-burst[data-el="Geo"] i { background: radial-gradient(circle at 50% 60%, #ffe08a77, #f5c54226 35%, #0000 60%), repeating-linear-gradient(60deg, #0000 0 60px, #ffe08a14 60px 62px), repeating-linear-gradient(-60deg, #0000 0 60px, #ffe08a14 60px 62px); }
+.gb-burst[data-el="Geo"].gb-on i { animation: gb-ripple 1150ms cubic-bezier(.2, .8, .3, 1) .3s both; }
+.gb-burst[data-el="Physical"] i { background: repeating-linear-gradient(-30deg, #0000 0 90px, #ffffff22 90px 93px); }
+
+/* Projectiles take their element's shape. */
+.gb-proj[data-el="Pyro"] { width: 36px; height: 22px; background: radial-gradient(ellipse at 70% 50%, #fff 0 16%, #ffd27a 30%, #ff5a3a 55%, #0000 72%); }
+.gb-proj[data-el="Hydro"] { background: radial-gradient(circle at 60% 40%, #fff 0 14%, #9fe0ff 34%, #3aa7e8 58%, #0000 72%); }
+.gb-proj[data-el="Cryo"] { width: 34px; height: 18px; border-radius: 0; clip-path: polygon(0 50%, 70% 0, 100% 50%, 70% 100%); background: linear-gradient(90deg, #9fe3f5, #fff); }
+.gb-proj[data-el="Electro"] { animation: gb-zap 90ms steps(2) infinite; }
+@keyframes gb-zap { 50% { box-shadow: 0 0 30px 12px #e2c2ff, 0 0 6px 2px #fff; } }
+.gb-proj[data-el="Anemo"] { background: conic-gradient(#d8fff2, #74e0c0 30%, #0000 50%, #d8fff2 70%, #74e0c0); mask: radial-gradient(closest-side, #000 60%, #0000); }
+.gb-proj[data-el="Dendro"] { width: 30px; height: 18px; border-radius: 0 70% 0 70%; background: radial-gradient(circle, #f0ffc0 0 18%, #a5d34b 50%, #5b9a2a 72%); }
+.gb-proj[data-el="Geo"] { width: 24px; height: 24px; border-radius: 4px; background: linear-gradient(135deg, #fff2c4, #f5c542 45%, #b5893a); }
 
 /* Character Customization: Moveset editor */
 .gi-moveset { display: grid; gap: 12px; }

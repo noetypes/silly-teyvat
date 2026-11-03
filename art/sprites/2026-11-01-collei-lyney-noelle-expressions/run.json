@@ -1,0 +1,2022 @@
+{
+  "status": "approved and installed",
+  "request": "Next: Collei, Lyney, Noelle; varied poses for each emotion",
+  "characters": {
+    "Collei": {
+      "neutral_source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-neutral-replacement/candidates/Collei/neutral-v002.png",
+      "reference": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/references/Collei/neutral.png",
+      "sha256": "26440767f4384d7683820829781fcc1688c111125f73cbe49199725e99e4d40e",
+      "approval": {
+        "status": "approved",
+        "message": "Collei neutral accepted.",
+        "candidate_sha256": "26440767f4384d7683820829781fcc1688c111125f73cbe49199725e99e4d40e"
+      },
+      "expressions": {
+        "neutral": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/sprites/Collei/neutral.png",
+          "sha256": "26440767f4384d7683820829781fcc1688c111125f73cbe49199725e99e4d40e",
+          "size": [
+            1024,
+            1536
+          ],
+          "mode": "RGBA",
+          "has_alpha": true,
+          "status": "approved",
+          "approval": "All approved."
+        },
+        "annoyance": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/sprites/Collei/annoyance.png",
+          "sha256": "63064b1ff516f88db78a91b84b560ed36e927a666c41aa4a49fd10e9d2752087",
+          "size": [
+            1024,
+            1536
+          ],
+          "mode": "RGBA",
+          "has_alpha": true,
+          "status": "approved",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Collei expressing annoyance, using only the supplied approved neutral as image reference. Preserve identity, face, skin tone, hair, eyes, costume, accessories, colors and rendering. Preserve her cute petite Medium Female proportions and ranger clothing. Show distinct expressive acting with a genuinely varied pose: small frown, knitted brows, weight shifted aside, one hand at the waist. Keep normal pupils. Simple, readable hands near the torso; each visible hand has one anatomically correct thumb and four fingers connected to one palm and wrist. Do not force hidden digits into view. Exactly two legs and feet with an uncomplicated stance. Keep the entire silhouette including hair, headwear, accessories, hands and shoes visible, roughly 2–4% top and bottom padding, without lengthening the body. True transparent background. No scenery, text, UI, weapons, companions, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/references/Collei/neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a19670-0586-7a72-bb94-26f3777d6c7a/exec-6e7b9508-1087-4b9e-b7a6-8b89a78e1cb4.png",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/raw/Collei/annoyance.png",
+          "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/sprites/Collei/annoyance.png",
+          "prompt_file": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/prompts/Collei/annoyance-v002.txt",
+          "approval": "All approved."
+        },
+        "smug": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/sprites/Collei/smug.png",
+          "sha256": "fc53f2fe3aec4bf5209467e1c3cca7dce04d0c85b2c1de43e57f6ba43ac8f0fe",
+          "size": [
+            1024,
+            1536
+          ],
+          "mode": "RGBA",
+          "has_alpha": true,
+          "status": "approved",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Collei expressing smug, using only the supplied approved neutral as image reference. Preserve identity, face, skin tone, hair, eyes, costume, accessories, colors and rendering. Preserve her cute petite Medium Female proportions and ranger clothing. Show distinct expressive acting with a genuinely varied pose: knowing smile, chin raised, one hand at the hip and the other near the chest. Keep normal pupils. Simple, readable hands near the torso; each visible hand has one anatomically correct thumb and four fingers connected to one palm and wrist. Do not force hidden digits into view. Exactly two legs and feet with an uncomplicated stance. Keep the entire silhouette including hair, headwear, accessories, hands and shoes visible, roughly 2–4% top and bottom padding, without lengthening the body. True transparent background. No scenery, text, UI, weapons, companions, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/references/Collei/neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a19670-0586-7a72-bb94-26f3777d6c7a/exec-e6f56fee-50dc-4deb-8445-7e738ee003cf.png",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/raw/Collei/smug.png",
+          "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/sprites/Collei/smug.png",
+          "prompt_file": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/prompts/Collei/smug-v002.txt",
+          "approval": "All approved."
+        },
+        "confusion": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/sprites/Collei/confusion.png",
+          "sha256": "a6718647e339b0ac9040192344414c8a630c330d2d57d91626735d098dfd368d",
+          "size": [
+            1024,
+            1536
+          ],
+          "mode": "RGBA",
+          "has_alpha": true,
+          "status": "approved",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Collei expressing confusion, using only the supplied approved neutral as image reference. Preserve identity, face, skin tone, hair, eyes, costume, accessories, colors and rendering. Preserve her cute petite Medium Female proportions and ranger clothing. Show distinct expressive acting with a genuinely varied pose: puzzled brows and head tilt, one hand turned upward near the waist. Keep normal pupils. Simple, readable hands near the torso; each visible hand has one anatomically correct thumb and four fingers connected to one palm and wrist. Do not force hidden digits into view. Exactly two legs and feet with an uncomplicated stance. Keep the entire silhouette including hair, headwear, accessories, hands and shoes visible, roughly 2–4% top and bottom padding, without lengthening the body. True transparent background. No scenery, text, UI, weapons, companions, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/references/Collei/neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a19670-0586-7a72-bb94-26f3777d6c7a/exec-22d31ab5-f68e-4c59-9ab0-01234bdcce68.png",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/raw/Collei/confusion.png",
+          "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/sprites/Collei/confusion.png",
+          "prompt_file": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/prompts/Collei/confusion-v002.txt",
+          "approval": "All approved."
+        },
+        "love": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/sprites/Collei/love.png",
+          "sha256": "71924bcdce7f235bd642822a7f5645075da2817fe3bfc9514a580f8442a651b4",
+          "size": [
+            1024,
+            1536
+          ],
+          "mode": "RGBA",
+          "has_alpha": true,
+          "status": "approved",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Collei expressing love, using only the supplied approved neutral as image reference. Preserve identity, face, skin tone, hair, eyes, costume, accessories, colors and rendering. Preserve her cute petite Medium Female proportions and ranger clothing. Show distinct expressive acting with a genuinely varied pose: warm affectionate smile, a gentle turn of the shoulders, one hand near the heart. Keep normal pupils. Simple, readable hands near the torso; each visible hand has one anatomically correct thumb and four fingers connected to one palm and wrist. Do not force hidden digits into view. Exactly two legs and feet with an uncomplicated stance. Keep the entire silhouette including hair, headwear, accessories, hands and shoes visible, roughly 2–4% top and bottom padding, without lengthening the body. True transparent background. No scenery, text, UI, weapons, companions, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/references/Collei/neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a19670-0586-7a72-bb94-26f3777d6c7a/exec-76be5d4a-9258-4743-bbe5-26d4177dc3f4.png",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/raw/Collei/love.png",
+          "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/sprites/Collei/love.png",
+          "prompt_file": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/prompts/Collei/love-v002.txt",
+          "approval": "All approved."
+        },
+        "excitement": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/sprites/Collei/excitement.png",
+          "sha256": "2953f748f153232c1b4056273d971f84b4e198f3f4b4d28514ee16e647bfd99a",
+          "size": [
+            1024,
+            1536
+          ],
+          "mode": "RGBA",
+          "has_alpha": true,
+          "status": "approved",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Collei expressing excitement, using only the supplied approved neutral as image reference. Preserve identity, face, skin tone, hair, eyes, costume, accessories, colors and rendering. Preserve her cute petite Medium Female proportions and ranger clothing. Show distinct expressive acting with a genuinely varied pose: wide delighted smile and lively posture, one arm raised in celebration. Keep normal pupils. Simple, readable hands near the torso; each visible hand has one anatomically correct thumb and four fingers connected to one palm and wrist. Do not force hidden digits into view. Exactly two legs and feet with an uncomplicated stance. Keep the entire silhouette including hair, headwear, accessories, hands and shoes visible, roughly 2–4% top and bottom padding, without lengthening the body. True transparent background. No scenery, text, UI, weapons, companions, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/references/Collei/neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a19670-0586-7a72-bb94-26f3777d6c7a/exec-65f6c6ec-68a5-4b73-b7f0-2e2dd9ff5b24.png",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/raw/Collei/excitement.png",
+          "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/sprites/Collei/excitement.png",
+          "prompt_file": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/prompts/Collei/excitement-v002.txt",
+          "approval": "All approved."
+        },
+        "joy": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/sprites/Collei/joy.png",
+          "sha256": "04b48dc61ea37c585a1b00b4360b2c1c8083f706abb60f3758b6b6372aaa2fb8",
+          "size": [
+            1024,
+            1536
+          ],
+          "mode": "RGBA",
+          "has_alpha": true,
+          "status": "approved",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Collei expressing joy, using only the supplied approved neutral as image reference. Preserve identity, face, skin tone, hair, eyes, costume, accessories, colors and rendering. Preserve her cute petite Medium Female proportions and ranger clothing. Show distinct expressive acting with a genuinely varied pose: bright smile, light sideways lean, one arm lifted in a friendly wave. Keep normal pupils. Simple, readable hands near the torso; each visible hand has one anatomically correct thumb and four fingers connected to one palm and wrist. Do not force hidden digits into view. Exactly two legs and feet with an uncomplicated stance. Keep the entire silhouette including hair, headwear, accessories, hands and shoes visible, roughly 2–4% top and bottom padding, without lengthening the body. True transparent background. No scenery, text, UI, weapons, companions, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/references/Collei/neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a19670-0586-7a72-bb94-26f3777d6c7a/exec-f8bdb4be-c6fe-45d1-ba33-82d02b52db1c.png",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/raw/Collei/joy.png",
+          "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/sprites/Collei/joy.png",
+          "prompt_file": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/prompts/Collei/joy-v002.txt",
+          "approval": "All approved."
+        },
+        "fear": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/sprites/Collei/fear.png",
+          "sha256": "e096ee8cc4904a58ade9d51b6a53b63d8eb7256458dd2ba967ca29de55f41805",
+          "size": [
+            1024,
+            1536
+          ],
+          "mode": "RGBA",
+          "has_alpha": true,
+          "status": "approved",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Collei expressing fear, using only the supplied approved neutral as image reference. Preserve identity, face, skin tone, hair, eyes, costume, accessories, colors and rendering. Preserve her cute petite Medium Female proportions and ranger clothing. Show distinct expressive acting with a genuinely varied pose: wide worried eyes, cautious backward lean, one hand near the chest. Keep normal pupils. Simple, readable hands near the torso; each visible hand has one anatomically correct thumb and four fingers connected to one palm and wrist. Do not force hidden digits into view. Exactly two legs and feet with an uncomplicated stance. Keep the entire silhouette including hair, headwear, accessories, hands and shoes visible, roughly 2–4% top and bottom padding, without lengthening the body. True transparent background. No scenery, text, UI, weapons, companions, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/references/Collei/neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a19670-0586-7a72-bb94-26f3777d6c7a/exec-972daee8-70b4-47ce-b3fe-78eff0b71bf6.png",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/raw/Collei/fear.png",
+          "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/sprites/Collei/fear.png",
+          "prompt_file": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/prompts/Collei/fear-v002.txt",
+          "approval": "All approved."
+        },
+        "pride": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/sprites/Collei/pride.png",
+          "sha256": "8f4d100ff2f04a3abad23757d2b22a2b1cfd6229a853706e28c1097c32ee5095",
+          "size": [
+            1024,
+            1536
+          ],
+          "mode": "RGBA",
+          "has_alpha": true,
+          "status": "approved",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Collei expressing pride, using only the supplied approved neutral as image reference. Preserve identity, face, skin tone, hair, eyes, costume, accessories, colors and rendering. Preserve her cute petite Medium Female proportions and ranger clothing. Show distinct expressive acting with a genuinely varied pose: proud smile and upright posture, one hand confidently at the waist. Keep normal pupils. Simple, readable hands near the torso; each visible hand has one anatomically correct thumb and four fingers connected to one palm and wrist. Do not force hidden digits into view. Exactly two legs and feet with an uncomplicated stance. Keep the entire silhouette including hair, headwear, accessories, hands and shoes visible, roughly 2–4% top and bottom padding, without lengthening the body. True transparent background. No scenery, text, UI, weapons, companions, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/references/Collei/neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a19670-0586-7a72-bb94-26f3777d6c7a/exec-fb02768b-492d-436a-88e6-9ae1798beb1a.png",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/raw/Collei/pride.png",
+          "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/sprites/Collei/pride.png",
+          "prompt_file": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/prompts/Collei/pride-v002.txt",
+          "approval": "All approved."
+        },
+        "desire": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/sprites/Collei/desire.png",
+          "sha256": "94e1980f08427489296963ae7b487f784e5a090b91e6cffd574d8e93f32c5af8",
+          "size": [
+            1024,
+            1536
+          ],
+          "mode": "RGBA",
+          "has_alpha": true,
+          "status": "approved",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Collei expressing desire, using only the supplied approved neutral as image reference. Preserve identity, face, skin tone, hair, eyes, costume, accessories, colors and rendering. Preserve her cute petite Medium Female proportions and ranger clothing. Show distinct expressive acting with a genuinely varied pose: hopeful longing, flushed cheeks, open eyes, a slight forward lean, one hand near the heart and the other relaxed; wholesome and fully clothed. Keep normal pupils. Simple, readable hands near the torso; each visible hand has one anatomically correct thumb and four fingers connected to one palm and wrist. Do not force hidden digits into view. Exactly two legs and feet with an uncomplicated stance. Keep the entire silhouette including hair, headwear, accessories, hands and shoes visible, roughly 2–4% top and bottom padding, without lengthening the body. True transparent background. No scenery, text, UI, weapons, companions, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/references/Collei/neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a19670-0586-7a72-bb94-26f3777d6c7a/exec-7cf04c90-a5e6-4318-a85c-9ed92aaabb5f.png",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/raw/Collei/desire.png",
+          "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/sprites/Collei/desire.png",
+          "prompt_file": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/prompts/Collei/desire-v002.txt",
+          "approval": "All approved."
+        },
+        "anger": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/sprites/Collei/anger.png",
+          "sha256": "b04a3de848ceacf6c0a3a3ea57d71e0f630f03abfcde4be04702830ebd910932",
+          "size": [
+            1024,
+            1536
+          ],
+          "mode": "RGBA",
+          "has_alpha": true,
+          "status": "approved",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Collei expressing anger, using only the supplied approved neutral as image reference. Preserve identity, face, skin tone, hair, eyes, costume, accessories, colors and rendering. Preserve her cute petite Medium Female proportions and ranger clothing. Show distinct expressive acting with a genuinely varied pose: firm brows, determined frown, feet apart and arms bent decisively at the sides. Keep normal pupils. Simple, readable hands near the torso; each visible hand has one anatomically correct thumb and four fingers connected to one palm and wrist. Do not force hidden digits into view. Exactly two legs and feet with an uncomplicated stance. Keep the entire silhouette including hair, headwear, accessories, hands and shoes visible, roughly 2–4% top and bottom padding, without lengthening the body. True transparent background. No scenery, text, UI, weapons, companions, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/references/Collei/neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a19670-0586-7a72-bb94-26f3777d6c7a/exec-9675c21e-b238-4042-b550-fc6f5268282a.png",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/raw/Collei/anger.png",
+          "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/sprites/Collei/anger.png",
+          "prompt_file": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/prompts/Collei/anger-v002.txt",
+          "approval": "All approved."
+        },
+        "grief": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/sprites/Collei/grief.png",
+          "sha256": "bfbf541e23d974dddf6998531f45883d3d4fe8f1eab3f0ce168288943ba25736",
+          "size": [
+            1024,
+            1536
+          ],
+          "mode": "RGBA",
+          "has_alpha": true,
+          "status": "approved",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Collei expressing grief, using only the supplied approved neutral as image reference. Preserve identity, face, skin tone, hair, eyes, costume, accessories, colors and rendering. Preserve her cute petite Medium Female proportions and ranger clothing. Show distinct expressive acting with a genuinely varied pose: sorrowful brows, lowered head and shoulders, arms close to the body. Keep normal pupils. Simple, readable hands near the torso; each visible hand has one anatomically correct thumb and four fingers connected to one palm and wrist. Do not force hidden digits into view. Exactly two legs and feet with an uncomplicated stance. Keep the entire silhouette including hair, headwear, accessories, hands and shoes visible, roughly 2–4% top and bottom padding, without lengthening the body. True transparent background. No scenery, text, UI, weapons, companions, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/references/Collei/neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a19670-0586-7a72-bb94-26f3777d6c7a/exec-b51f32e4-f216-49fa-a020-1b1029931c2b.png",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/raw/Collei/grief.png",
+          "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/sprites/Collei/grief.png",
+          "prompt_file": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/prompts/Collei/grief-v002.txt",
+          "approval": "All approved."
+        },
+        "sadness": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/sprites/Collei/sadness.png",
+          "sha256": "1cc584bc54c7d9e4a408d3141f3958da2d197335e376c7e30eba58313f3cdf86",
+          "size": [
+            1024,
+            1536
+          ],
+          "mode": "RGBA",
+          "has_alpha": true,
+          "status": "approved",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Collei expressing sadness, using only the supplied approved neutral as image reference. Preserve identity, face, skin tone, hair, eyes, costume, accessories, colors and rendering. Preserve her cute petite Medium Female proportions and ranger clothing. Show distinct expressive acting with a genuinely varied pose: subdued frown, downcast eyes, gentle head tilt and hands resting separately. Keep normal pupils. Simple, readable hands near the torso; each visible hand has one anatomically correct thumb and four fingers connected to one palm and wrist. Do not force hidden digits into view. Exactly two legs and feet with an uncomplicated stance. Keep the entire silhouette including hair, headwear, accessories, hands and shoes visible, roughly 2–4% top and bottom padding, without lengthening the body. True transparent background. No scenery, text, UI, weapons, companions, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/references/Collei/neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a19670-0586-7a72-bb94-26f3777d6c7a/exec-620f6383-daaa-491d-a495-b27ce392ec4c.png",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/raw/Collei/sadness.png",
+          "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/sprites/Collei/sadness.png",
+          "prompt_file": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/prompts/Collei/sadness-v002.txt",
+          "approval": "All approved."
+        },
+        "disgust": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/sprites/Collei/disgust.png",
+          "sha256": "da260c261cca1c9a59449bd0e1245f315a27a3ba4ee941af8c65fa9a1e0d0987",
+          "size": [
+            1024,
+            1536
+          ],
+          "mode": "RGBA",
+          "has_alpha": true,
+          "status": "approved",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Collei expressing disgust, using only the supplied approved neutral as image reference. Preserve identity, face, skin tone, hair, eyes, costume, accessories, colors and rendering. Preserve her cute petite Medium Female proportions and ranger clothing. Show distinct expressive acting with a genuinely varied pose: restrained nose scrunch and small closed displeased mouth, slight backward lean. Keep normal pupils. Simple, readable hands near the torso; each visible hand has one anatomically correct thumb and four fingers connected to one palm and wrist. Do not force hidden digits into view. Exactly two legs and feet with an uncomplicated stance. Keep the entire silhouette including hair, headwear, accessories, hands and shoes visible, roughly 2–4% top and bottom padding, without lengthening the body. True transparent background. No scenery, text, UI, weapons, companions, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/references/Collei/neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a19670-0586-7a72-bb94-26f3777d6c7a/exec-06ce2dc7-4ad3-4808-ba61-3716e7ac6b4a.png",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/raw/Collei/disgust.png",
+          "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/sprites/Collei/disgust.png",
+          "prompt_file": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/prompts/Collei/disgust-v002.txt",
+          "approval": "All approved."
+        },
+        "disappointment": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/sprites/Collei/disappointment.png",
+          "sha256": "280c99b96e3da9c98354d0234a3fc5b4a69037ea04be0dba8409cb71f705eb51",
+          "size": [
+            1024,
+            1536
+          ],
+          "mode": "RGBA",
+          "has_alpha": true,
+          "status": "approved",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Collei expressing disappointment, using only the supplied approved neutral as image reference. Preserve identity, face, skin tone, hair, eyes, costume, accessories, colors and rendering. Preserve her cute petite Medium Female proportions and ranger clothing. Show distinct expressive acting with a genuinely varied pose: downturned mouth, lowered shoulders, one hand open at the side. Keep normal pupils. Simple, readable hands near the torso; each visible hand has one anatomically correct thumb and four fingers connected to one palm and wrist. Do not force hidden digits into view. Exactly two legs and feet with an uncomplicated stance. Keep the entire silhouette including hair, headwear, accessories, hands and shoes visible, roughly 2–4% top and bottom padding, without lengthening the body. True transparent background. No scenery, text, UI, weapons, companions, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/references/Collei/neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a19670-0586-7a72-bb94-26f3777d6c7a/exec-b539035a-f75f-4ff0-8c4f-06ae4c52364e.png",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/raw/Collei/disappointment.png",
+          "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/sprites/Collei/disappointment.png",
+          "prompt_file": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/prompts/Collei/disappointment-v002.txt",
+          "approval": "All approved."
+        },
+        "relief": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/sprites/Collei/relief.png",
+          "sha256": "6b261dba5480155113833b31c1fb56e58309af8fe59e4d080870716b6bd94157",
+          "size": [
+            1024,
+            1536
+          ],
+          "mode": "RGBA",
+          "has_alpha": true,
+          "status": "approved",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Collei expressing relief, using only the supplied approved neutral as image reference. Preserve identity, face, skin tone, hair, eyes, costume, accessories, colors and rendering. Preserve her cute petite Medium Female proportions and ranger clothing. Show distinct expressive acting with a genuinely varied pose: relieved smile and relaxed shoulders, one hand on the chest and the other down at the side. Keep normal pupils. Simple, readable hands near the torso; each visible hand has one anatomically correct thumb and four fingers connected to one palm and wrist. Do not force hidden digits into view. Exactly two legs and feet with an uncomplicated stance. Keep the entire silhouette including hair, headwear, accessories, hands and shoes visible, roughly 2–4% top and bottom padding, without lengthening the body. True transparent background. No scenery, text, UI, weapons, companions, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/references/Collei/neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a19670-0586-7a72-bb94-26f3777d6c7a/exec-bc6bea06-09da-4ec2-83a0-0ef1c1cbceab.png",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/raw/Collei/relief.png",
+          "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/sprites/Collei/relief.png",
+          "prompt_file": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/prompts/Collei/relief-v002.txt",
+          "approval": "All approved."
+        },
+        "admiration": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/sprites/Collei/admiration.png",
+          "sha256": "e23db5494772421060ed0197b13c25b898a689b7abb3da8c9f5794e7f00b3cd1",
+          "size": [
+            1024,
+            1536
+          ],
+          "mode": "RGBA",
+          "has_alpha": true,
+          "status": "approved",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Collei expressing admiration, using only the supplied approved neutral as image reference. Preserve identity, face, skin tone, hair, eyes, costume, accessories, colors and rendering. Preserve her cute petite Medium Female proportions and ranger clothing. Show distinct expressive acting with a genuinely varied pose: bright attentive eyes, impressed smile, head raised slightly and one hand near the cheek. Keep normal pupils. Simple, readable hands near the torso; each visible hand has one anatomically correct thumb and four fingers connected to one palm and wrist. Do not force hidden digits into view. Exactly two legs and feet with an uncomplicated stance. Keep the entire silhouette including hair, headwear, accessories, hands and shoes visible, roughly 2–4% top and bottom padding, without lengthening the body. True transparent background. No scenery, text, UI, weapons, companions, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/references/Collei/neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a19670-0586-7a72-bb94-26f3777d6c7a/exec-eaea61b4-8aa1-4584-87ae-05c54c75cb5d.png",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/raw/Collei/admiration.png",
+          "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/sprites/Collei/admiration.png",
+          "prompt_file": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/prompts/Collei/admiration-v002.txt",
+          "approval": "All approved."
+        },
+        "gratitude": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/sprites/Collei/gratitude.png",
+          "sha256": "7bbb287b89c5941fe2808fc22bbec6169fbcdca71a6bf3a1582d431736c5306c",
+          "size": [
+            1024,
+            1536
+          ],
+          "mode": "RGBA",
+          "has_alpha": true,
+          "status": "approved",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Collei expressing gratitude, using only the supplied approved neutral as image reference. Preserve identity, face, skin tone, hair, eyes, costume, accessories, colors and rendering. Preserve her cute petite Medium Female proportions and ranger clothing. Show distinct expressive acting with a genuinely varied pose: sincere smile, gentle appreciative bow and one hand over the heart. Keep normal pupils. Simple, readable hands near the torso; each visible hand has one anatomically correct thumb and four fingers connected to one palm and wrist. Do not force hidden digits into view. Exactly two legs and feet with an uncomplicated stance. Keep the entire silhouette including hair, headwear, accessories, hands and shoes visible, roughly 2–4% top and bottom padding, without lengthening the body. True transparent background. No scenery, text, UI, weapons, companions, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/references/Collei/neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a19670-0586-7a72-bb94-26f3777d6c7a/exec-b17fa8eb-b6d4-44f6-b536-183d23d5ec04.png",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/raw/Collei/gratitude.png",
+          "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/sprites/Collei/gratitude.png",
+          "prompt_file": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/prompts/Collei/gratitude-v002.txt",
+          "approval": "All approved."
+        },
+        "embarrassment": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/sprites/Collei/embarrassment.png",
+          "sha256": "c9a8240233163f168f1eac2fe8d105ed08437ce939fdde3361b3089c040a5355",
+          "size": [
+            1024,
+            1536
+          ],
+          "mode": "RGBA",
+          "has_alpha": true,
+          "status": "approved",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Collei expressing embarrassment, using only the supplied approved neutral as image reference. Preserve identity, face, skin tone, hair, eyes, costume, accessories, colors and rendering. Preserve her cute petite Medium Female proportions and ranger clothing. Show distinct expressive acting with a genuinely varied pose: flushed cheeks, bashful smile and averted gaze, one hand near the cheek. Keep normal pupils. Simple, readable hands near the torso; each visible hand has one anatomically correct thumb and four fingers connected to one palm and wrist. Do not force hidden digits into view. Exactly two legs and feet with an uncomplicated stance. Keep the entire silhouette including hair, headwear, accessories, hands and shoes visible, roughly 2–4% top and bottom padding, without lengthening the body. True transparent background. No scenery, text, UI, weapons, companions, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/references/Collei/neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a19670-0586-7a72-bb94-26f3777d6c7a/exec-14bbee2a-dd0c-4de2-81f9-aafc0733c4d8.png",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/raw/Collei/embarrassment.png",
+          "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/sprites/Collei/embarrassment.png",
+          "prompt_file": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/prompts/Collei/embarrassment-v002.txt",
+          "approval": "All approved."
+        },
+        "caring": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/sprites/Collei/caring.png",
+          "sha256": "54acdc767a89c2b4d2a2ee19eb4c34c4eef55ee246b90ef9ddb174515c023930",
+          "size": [
+            1024,
+            1536
+          ],
+          "mode": "RGBA",
+          "has_alpha": true,
+          "status": "approved",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Collei expressing caring, using only the supplied approved neutral as image reference. Preserve identity, face, skin tone, hair, eyes, costume, accessories, colors and rendering. Preserve her cute petite Medium Female proportions and ranger clothing. Show distinct expressive acting with a genuinely varied pose: gentle concerned eyes and reassuring smile, body angled kindly and one open hand near the chest. Keep normal pupils. Simple, readable hands near the torso; each visible hand has one anatomically correct thumb and four fingers connected to one palm and wrist. Do not force hidden digits into view. Exactly two legs and feet with an uncomplicated stance. Keep the entire silhouette including hair, headwear, accessories, hands and shoes visible, roughly 2–4% top and bottom padding, without lengthening the body. True transparent background. No scenery, text, UI, weapons, companions, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/references/Collei/neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a19670-0586-7a72-bb94-26f3777d6c7a/exec-56692ec6-e417-4aa0-893a-b3d6b70e5d18.png",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/raw/Collei/caring.png",
+          "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/sprites/Collei/caring.png",
+          "prompt_file": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/prompts/Collei/caring-v002.txt",
+          "approval": "All approved."
+        },
+        "love-1": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/sprites/Collei/love-1.png",
+          "sha256": "1ba3ea82e09617636fa94b1136bf6f74989b8607d900f56d7b40be219fe3bb81",
+          "size": [
+            1024,
+            1536
+          ],
+          "mode": "RGBA",
+          "has_alpha": true,
+          "status": "approved",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Collei expressing love-1, using only the supplied approved neutral as image reference. Preserve identity, face, skin tone, hair, eyes, costume, accessories, colors and rendering. Preserve her cute petite Medium Female proportions and ranger clothing. Show distinct expressive acting with a genuinely varied pose: warm affectionate smile and bright eyes, gentle sideways lean and one hand near the heart. Both eyes visibly open; retain original iris color, outlines, shading and a visible colored border, with one solid pale violet heart-shaped pupil centered in each iris. Hearts are pupils, not highlights or floating symbols. Simple, readable hands near the torso; each visible hand has one anatomically correct thumb and four fingers connected to one palm and wrist. Do not force hidden digits into view. Exactly two legs and feet with an uncomplicated stance. Keep the entire silhouette including hair, headwear, accessories, hands and shoes visible, roughly 2–4% top and bottom padding, without lengthening the body. True transparent background. No scenery, text, UI, weapons, companions, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/references/Collei/neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a19670-0586-7a72-bb94-26f3777d6c7a/exec-a236e839-5130-4255-a85e-ccdeaae4df2f.png",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/raw/Collei/love-1.png",
+          "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/sprites/Collei/love-1.png",
+          "prompt_file": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/prompts/Collei/love-1-v002.txt",
+          "approval": "All approved."
+        },
+        "desire-1": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/sprites/Collei/desire-1.png",
+          "sha256": "254baafd2faab977c8c85c438af26c6fd380b7b4872317fa62f997e67ee1f4e4",
+          "size": [
+            1024,
+            1536
+          ],
+          "mode": "RGBA",
+          "has_alpha": true,
+          "status": "approved",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Collei expressing desire-1, using only the supplied approved neutral as image reference. Preserve identity, face, skin tone, hair, eyes, costume, accessories, colors and rendering. Preserve her cute petite Medium Female proportions and ranger clothing. Show distinct expressive acting with a genuinely varied pose: hopeful longing, flushed cheeks, open eyes, slight forward lean, one hand near the heart and the other relaxed; wholesome and fully clothed. Both eyes visibly open; retain original iris color, outlines, shading and a visible colored border, with one solid pale violet heart-shaped pupil centered in each iris. Hearts are pupils, not highlights or floating symbols. Simple, readable hands near the torso; each visible hand has one anatomically correct thumb and four fingers connected to one palm and wrist. Do not force hidden digits into view. Exactly two legs and feet with an uncomplicated stance. Keep the entire silhouette including hair, headwear, accessories, hands and shoes visible, roughly 2–4% top and bottom padding, without lengthening the body. True transparent background. No scenery, text, UI, weapons, companions, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/references/Collei/neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a19670-0586-7a72-bb94-26f3777d6c7a/exec-001041e0-89c3-4041-b15f-11f1e911f16a.png",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/raw/Collei/desire-1.png",
+          "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/sprites/Collei/desire-1.png",
+          "prompt_file": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/prompts/Collei/desire-1-v002.txt",
+          "approval": "All approved."
+        }
+      },
+      "revoked_prior_neutral": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/references/Collei/revoked-neutral.png"
+    },
+    "Lyney": {
+      "neutral_source": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Lyney/neutral.png",
+      "reference": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/references/Lyney/neutral.png",
+      "sha256": "6438314e7e517427314eb599a70da22a8fdabce717403fa7b662057158492da5",
+      "approval": {
+        "status": "approved",
+        "message": "The other two neutrals are good.",
+        "candidate_sha256": "6438314e7e517427314eb599a70da22a8fdabce717403fa7b662057158492da5"
+      },
+      "expressions": {
+        "neutral": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/sprites/Lyney/neutral.png",
+          "sha256": "6438314e7e517427314eb599a70da22a8fdabce717403fa7b662057158492da5",
+          "size": [
+            1145,
+            1374
+          ],
+          "mode": "RGBA",
+          "has_alpha": true,
+          "status": "approved",
+          "approval": "All approved."
+        },
+        "annoyance": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/sprites/Lyney/annoyance.png",
+          "sha256": "4f220865094d964e57ed4c0ea034ea58055a50775142d32a3af054c67dc3794b",
+          "size": [
+            1145,
+            1374
+          ],
+          "mode": "RGBA",
+          "has_alpha": true,
+          "status": "approved",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Lyney expressing annoyance, using only the supplied approved neutral as image reference. Preserve identity, face, skin tone, hair, eyes, costume, accessories, colors and rendering. Preserve his petite Medium Male proportions, magician's hat and clothing. Show distinct expressive acting with a genuinely varied pose: small frown, knitted brows, weight shifted aside, one hand at the waist. Keep normal pupils. Simple, readable hands near the torso; each visible hand has one anatomically correct thumb and four fingers connected to one palm and wrist. Do not force hidden digits into view. Exactly two legs and feet with an uncomplicated stance. Keep the entire silhouette including hair, headwear, accessories, hands and shoes visible, roughly 2–4% top and bottom padding, without lengthening the body. True transparent background. No scenery, text, UI, weapons, companions, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/references/Lyney/neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a19670-0586-7a72-bb94-26f3777d6c7a/exec-be5958f3-cf6d-462d-8ab2-1af7d3721714.png",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/raw/Lyney/annoyance.png",
+          "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/sprites/Lyney/annoyance.png",
+          "prompt_file": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/prompts/Lyney/annoyance.txt",
+          "approval": "All approved."
+        },
+        "smug": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/sprites/Lyney/smug.png",
+          "sha256": "c416f20cd49e28236801fb1e62f115f76f0ff53194cf5ed322fd0da4aed1ecbe",
+          "size": [
+            1145,
+            1374
+          ],
+          "mode": "RGBA",
+          "has_alpha": true,
+          "status": "approved",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Lyney expressing smug, using only the supplied approved neutral as image reference. Preserve identity, face, skin tone, hair, eyes, costume, accessories, colors and rendering. Preserve his petite Medium Male proportions, magician's hat and clothing. Show distinct expressive acting with a genuinely varied pose: knowing smile, chin raised, one hand at the hip and the other near the chest. Keep normal pupils. Simple, readable hands near the torso; each visible hand has one anatomically correct thumb and four fingers connected to one palm and wrist. Do not force hidden digits into view. Exactly two legs and feet with an uncomplicated stance. Keep the entire silhouette including hair, headwear, accessories, hands and shoes visible, roughly 2–4% top and bottom padding, without lengthening the body. True transparent background. No scenery, text, UI, weapons, companions, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/references/Lyney/neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a19670-0586-7a72-bb94-26f3777d6c7a/exec-9cee6cd9-a2e6-4acc-9f31-7073ff29da59.png",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/raw/Lyney/smug.png",
+          "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/sprites/Lyney/smug.png",
+          "prompt_file": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/prompts/Lyney/smug.txt",
+          "approval": "All approved."
+        },
+        "confusion": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/sprites/Lyney/confusion.png",
+          "sha256": "4571f77f30cbcffc08badd16f4e2ecc5fc4d1bdf5854a8ce405cc00d26dddd52",
+          "size": [
+            1145,
+            1374
+          ],
+          "mode": "RGBA",
+          "has_alpha": true,
+          "status": "approved",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Lyney expressing confusion, using only the supplied approved neutral as image reference. Preserve identity, face, skin tone, hair, eyes, costume, accessories, colors and rendering. Preserve his petite Medium Male proportions, magician's hat and clothing. Show distinct expressive acting with a genuinely varied pose: puzzled brows and head tilt, one hand turned upward near the waist. Keep normal pupils. Simple, readable hands near the torso; each visible hand has one anatomically correct thumb and four fingers connected to one palm and wrist. Do not force hidden digits into view. Exactly two legs and feet with an uncomplicated stance. Keep the entire silhouette including hair, headwear, accessories, hands and shoes visible, roughly 2–4% top and bottom padding, without lengthening the body. True transparent background. No scenery, text, UI, weapons, companions, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/references/Lyney/neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a19670-0586-7a72-bb94-26f3777d6c7a/exec-6465776f-5129-48ec-b6fe-30048c8dc4c7.png",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/raw/Lyney/confusion.png",
+          "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/sprites/Lyney/confusion.png",
+          "prompt_file": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/prompts/Lyney/confusion.txt",
+          "approval": "All approved."
+        },
+        "love": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/sprites/Lyney/love.png",
+          "sha256": "8ef785f12571975ca4bbb1b343a52b3e3bb8ee621933a2dc8f3fbbe54a36c2ed",
+          "size": [
+            1145,
+            1374
+          ],
+          "mode": "RGBA",
+          "has_alpha": true,
+          "status": "approved",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Lyney expressing love, using only the supplied approved neutral as image reference. Preserve identity, face, skin tone, hair, eyes, costume, accessories, colors and rendering. Preserve his petite Medium Male proportions, magician's hat and clothing. Show distinct expressive acting with a genuinely varied pose: warm affectionate smile, a gentle turn of the shoulders, one hand near the heart. Keep normal pupils. Simple, readable hands near the torso; each visible hand has one anatomically correct thumb and four fingers connected to one palm and wrist. Do not force hidden digits into view. Exactly two legs and feet with an uncomplicated stance. Keep the entire silhouette including hair, headwear, accessories, hands and shoes visible, roughly 2–4% top and bottom padding, without lengthening the body. True transparent background. No scenery, text, UI, weapons, companions, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/references/Lyney/neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a19670-0586-7a72-bb94-26f3777d6c7a/exec-99f1d005-9631-4df4-9d24-e05b1834eb89.png",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/raw/Lyney/love.png",
+          "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/sprites/Lyney/love.png",
+          "prompt_file": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/prompts/Lyney/love.txt",
+          "approval": "All approved."
+        },
+        "excitement": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/sprites/Lyney/excitement.png",
+          "sha256": "921c40fee41b2574e59af92a61626a71986dab9db072c82f5c6ae43ec7315161",
+          "size": [
+            1145,
+            1374
+          ],
+          "mode": "RGBA",
+          "has_alpha": true,
+          "status": "approved",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Lyney expressing excitement, using only the supplied approved neutral as image reference. Preserve identity, face, skin tone, hair, eyes, costume, accessories, colors and rendering. Preserve his petite Medium Male proportions, magician's hat and clothing. Show distinct expressive acting with a genuinely varied pose: wide delighted smile and lively posture, one arm raised in celebration. Keep normal pupils. Simple, readable hands near the torso; each visible hand has one anatomically correct thumb and four fingers connected to one palm and wrist. Do not force hidden digits into view. Exactly two legs and feet with an uncomplicated stance. Keep the entire silhouette including hair, headwear, accessories, hands and shoes visible, roughly 2–4% top and bottom padding, without lengthening the body. True transparent background. No scenery, text, UI, weapons, companions, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/references/Lyney/neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a19670-0586-7a72-bb94-26f3777d6c7a/exec-8f7e778d-56c7-441e-b9e5-7268c932e6af.png",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/raw/Lyney/excitement.png",
+          "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/sprites/Lyney/excitement.png",
+          "prompt_file": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/prompts/Lyney/excitement.txt",
+          "approval": "All approved."
+        },
+        "joy": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/sprites/Lyney/joy.png",
+          "sha256": "3857865bd847ee8905007435f55c4622aa9c1915b770909e57e7e2b90a959560",
+          "size": [
+            1145,
+            1374
+          ],
+          "mode": "RGBA",
+          "has_alpha": true,
+          "status": "approved",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Lyney expressing joy, using only the supplied approved neutral as image reference. Preserve identity, face, skin tone, hair, eyes, costume, accessories, colors and rendering. Preserve his petite Medium Male proportions, magician's hat and clothing. Show distinct expressive acting with a genuinely varied pose: bright smile, light sideways lean, one arm lifted in a friendly wave. Keep normal pupils. Simple, readable hands near the torso; each visible hand has one anatomically correct thumb and four fingers connected to one palm and wrist. Do not force hidden digits into view. Exactly two legs and feet with an uncomplicated stance. Keep the entire silhouette including hair, headwear, accessories, hands and shoes visible, roughly 2–4% top and bottom padding, without lengthening the body. True transparent background. No scenery, text, UI, weapons, companions, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/references/Lyney/neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a19670-0586-7a72-bb94-26f3777d6c7a/exec-ffc9e487-cd88-4927-bc63-a0f6e86a3ba2.png",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/raw/Lyney/joy.png",
+          "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/sprites/Lyney/joy.png",
+          "prompt_file": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/prompts/Lyney/joy.txt",
+          "approval": "All approved."
+        },
+        "fear": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/sprites/Lyney/fear.png",
+          "sha256": "0d68cf814b091729dc1868a212b324fa7e5591c5c2f8f0ea8d8745cc95b7a889",
+          "size": [
+            1145,
+            1374
+          ],
+          "mode": "RGBA",
+          "has_alpha": true,
+          "status": "approved",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Lyney expressing fear, using only the supplied approved neutral as image reference. Preserve identity, face, skin tone, hair, eyes, costume, accessories, colors and rendering. Preserve his petite Medium Male proportions, magician's hat and clothing. Show distinct expressive acting with a genuinely varied pose: wide worried eyes, cautious backward lean, one hand near the chest. Keep normal pupils. Simple, readable hands near the torso; each visible hand has one anatomically correct thumb and four fingers connected to one palm and wrist. Do not force hidden digits into view. Exactly two legs and feet with an uncomplicated stance. Keep the entire silhouette including hair, headwear, accessories, hands and shoes visible, roughly 2–4% top and bottom padding, without lengthening the body. True transparent background. No scenery, text, UI, weapons, companions, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/references/Lyney/neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a19670-0586-7a72-bb94-26f3777d6c7a/exec-8bd6411f-18f5-4354-9500-a8bb59d51bcb.png",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/raw/Lyney/fear.png",
+          "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/sprites/Lyney/fear.png",
+          "prompt_file": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/prompts/Lyney/fear.txt",
+          "approval": "All approved."
+        },
+        "pride": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/sprites/Lyney/pride.png",
+          "sha256": "b6d757a2e3598769157903a5a28253416a065d214ee128f8b9138c7ec0b06aa0",
+          "size": [
+            1145,
+            1374
+          ],
+          "mode": "RGBA",
+          "has_alpha": true,
+          "status": "approved",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Lyney expressing pride, using only the supplied approved neutral as image reference. Preserve identity, face, skin tone, hair, eyes, costume, accessories, colors and rendering. Preserve his petite Medium Male proportions, magician's hat and clothing. Show distinct expressive acting with a genuinely varied pose: proud smile and upright posture, one hand confidently at the waist. Keep normal pupils. Simple, readable hands near the torso; each visible hand has one anatomically correct thumb and four fingers connected to one palm and wrist. Do not force hidden digits into view. Exactly two legs and feet with an uncomplicated stance. Keep the entire silhouette including hair, headwear, accessories, hands and shoes visible, roughly 2–4% top and bottom padding, without lengthening the body. True transparent background. No scenery, text, UI, weapons, companions, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/references/Lyney/neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a19670-0586-7a72-bb94-26f3777d6c7a/exec-608c362c-43f9-47e5-be2e-2b8dc24978e6.png",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/raw/Lyney/pride.png",
+          "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/sprites/Lyney/pride.png",
+          "prompt_file": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/prompts/Lyney/pride.txt",
+          "approval": "All approved."
+        },
+        "desire": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/sprites/Lyney/desire.png",
+          "sha256": "7a14a9801e61f0a44d378acfcac4f2a77e520c31cb2ea08b794a1961a268c0f6",
+          "size": [
+            1145,
+            1374
+          ],
+          "mode": "RGBA",
+          "has_alpha": true,
+          "status": "approved",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Lyney expressing desire, using only the supplied approved neutral as image reference. Preserve identity, face, skin tone, hair, eyes, costume, accessories, colors and rendering. Preserve his petite Medium Male proportions, magician's hat and clothing. Show distinct expressive acting with a genuinely varied pose: hopeful longing, flushed cheeks, open eyes, a slight forward lean, one hand near the heart and the other relaxed; wholesome and fully clothed. Keep normal pupils. Simple, readable hands near the torso; each visible hand has one anatomically correct thumb and four fingers connected to one palm and wrist. Do not force hidden digits into view. Exactly two legs and feet with an uncomplicated stance. Keep the entire silhouette including hair, headwear, accessories, hands and shoes visible, roughly 2–4% top and bottom padding, without lengthening the body. True transparent background. No scenery, text, UI, weapons, companions, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/references/Lyney/neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a19670-0586-7a72-bb94-26f3777d6c7a/exec-4669cd63-e27e-4190-b75a-2e3d571c921d.png",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/raw/Lyney/desire.png",
+          "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/sprites/Lyney/desire.png",
+          "prompt_file": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/prompts/Lyney/desire.txt",
+          "approval": "All approved."
+        },
+        "anger": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/sprites/Lyney/anger.png",
+          "sha256": "187ac33db2ea00ddbe17fadeb9c6044527cf07e2cf6ae96644d8e502dc4ecc68",
+          "size": [
+            1145,
+            1374
+          ],
+          "mode": "RGBA",
+          "has_alpha": true,
+          "status": "approved",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Lyney expressing anger, using only the supplied approved neutral as image reference. Preserve identity, face, skin tone, hair, eyes, costume, accessories, colors and rendering. Preserve his petite Medium Male proportions, magician's hat and clothing. Show distinct expressive acting with a genuinely varied pose: firm brows, determined frown, feet apart and arms bent decisively at the sides. Keep normal pupils. Simple, readable hands near the torso; each visible hand has one anatomically correct thumb and four fingers connected to one palm and wrist. Do not force hidden digits into view. Exactly two legs and feet with an uncomplicated stance. Keep the entire silhouette including hair, headwear, accessories, hands and shoes visible, roughly 2–4% top and bottom padding, without lengthening the body. True transparent background. No scenery, text, UI, weapons, companions, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/references/Lyney/neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a19670-0586-7a72-bb94-26f3777d6c7a/exec-43af77ba-5844-4930-960b-1ab0b2659e10.png",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/raw/Lyney/anger.png",
+          "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/sprites/Lyney/anger.png",
+          "prompt_file": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/prompts/Lyney/anger.txt",
+          "approval": "All approved."
+        },
+        "grief": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/sprites/Lyney/grief.png",
+          "sha256": "c98f6e14a144bb6db65fbd6fc8de2ecf223e802ec8ba8429540a47b1f21e5bbc",
+          "size": [
+            1145,
+            1374
+          ],
+          "mode": "RGBA",
+          "has_alpha": true,
+          "status": "approved",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Lyney expressing grief, using only the supplied approved neutral as image reference. Preserve identity, face, skin tone, hair, eyes, costume, accessories, colors and rendering. Preserve his petite Medium Male proportions, magician's hat and clothing. Show distinct expressive acting with a genuinely varied pose: sorrowful brows, lowered head and shoulders, arms close to the body. Keep normal pupils. Simple, readable hands near the torso; each visible hand has one anatomically correct thumb and four fingers connected to one palm and wrist. Do not force hidden digits into view. Exactly two legs and feet with an uncomplicated stance. Keep the entire silhouette including hair, headwear, accessories, hands and shoes visible, roughly 2–4% top and bottom padding, without lengthening the body. True transparent background. No scenery, text, UI, weapons, companions, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/references/Lyney/neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a19670-0586-7a72-bb94-26f3777d6c7a/exec-35d507d2-cfe1-4563-9c0f-46668bd3e6d0.png",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/raw/Lyney/grief.png",
+          "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/sprites/Lyney/grief.png",
+          "prompt_file": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/prompts/Lyney/grief.txt",
+          "approval": "All approved."
+        },
+        "sadness": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/sprites/Lyney/sadness.png",
+          "sha256": "2918e158cfbc1a999b1ef961d60ea11648289ccc67df5c81a80ea011a4525562",
+          "size": [
+            1145,
+            1374
+          ],
+          "mode": "RGBA",
+          "has_alpha": true,
+          "status": "approved",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Lyney expressing sadness, using only the supplied approved neutral as image reference. Preserve identity, face, skin tone, hair, eyes, costume, accessories, colors and rendering. Preserve his petite Medium Male proportions, magician's hat and clothing. Show distinct expressive acting with a genuinely varied pose: subdued frown, downcast eyes, gentle head tilt and hands resting separately. Keep normal pupils. Simple, readable hands near the torso; each visible hand has one anatomically correct thumb and four fingers connected to one palm and wrist. Do not force hidden digits into view. Exactly two legs and feet with an uncomplicated stance. Keep the entire silhouette including hair, headwear, accessories, hands and shoes visible, roughly 2–4% top and bottom padding, without lengthening the body. True transparent background. No scenery, text, UI, weapons, companions, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/references/Lyney/neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a19670-0586-7a72-bb94-26f3777d6c7a/exec-86d19230-3ec0-4955-a22f-f250e5fbc950.png",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/raw/Lyney/sadness.png",
+          "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/sprites/Lyney/sadness.png",
+          "prompt_file": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/prompts/Lyney/sadness.txt",
+          "approval": "All approved."
+        },
+        "disgust": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/sprites/Lyney/disgust.png",
+          "sha256": "60779daac3fef5f32ae01029657bd31eef3f504a52b8207012347541bd7c485f",
+          "size": [
+            1145,
+            1374
+          ],
+          "mode": "RGBA",
+          "has_alpha": true,
+          "status": "approved",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Lyney expressing disgust, using only the supplied approved neutral as image reference. Preserve identity, face, skin tone, hair, eyes, costume, accessories, colors and rendering. Preserve his petite Medium Male proportions, magician's hat and clothing. Show distinct expressive acting with a genuinely varied pose: restrained nose scrunch and small closed displeased mouth, slight backward lean. Keep normal pupils. Simple, readable hands near the torso; each visible hand has one anatomically correct thumb and four fingers connected to one palm and wrist. Do not force hidden digits into view. Exactly two legs and feet with an uncomplicated stance. Keep the entire silhouette including hair, headwear, accessories, hands and shoes visible, roughly 2–4% top and bottom padding, without lengthening the body. True transparent background. No scenery, text, UI, weapons, companions, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/references/Lyney/neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a19670-0586-7a72-bb94-26f3777d6c7a/exec-ae7ad851-091b-47b2-9c47-94ca602549c5.png",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/raw/Lyney/disgust.png",
+          "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/sprites/Lyney/disgust.png",
+          "prompt_file": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/prompts/Lyney/disgust.txt",
+          "approval": "All approved."
+        },
+        "disappointment": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/sprites/Lyney/disappointment.png",
+          "sha256": "901d174bf132490cd238e4e9c3f27b5b0d7511f023644d900f8d8cbedd4e521c",
+          "size": [
+            1145,
+            1374
+          ],
+          "mode": "RGBA",
+          "has_alpha": true,
+          "status": "approved",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Lyney expressing disappointment, using only the supplied approved neutral as image reference. Preserve identity, face, skin tone, hair, eyes, costume, accessories, colors and rendering. Preserve his petite Medium Male proportions, magician's hat and clothing. Show distinct expressive acting with a genuinely varied pose: downturned mouth, lowered shoulders, one hand open at the side. Keep normal pupils. Simple, readable hands near the torso; each visible hand has one anatomically correct thumb and four fingers connected to one palm and wrist. Do not force hidden digits into view. Exactly two legs and feet with an uncomplicated stance. Keep the entire silhouette including hair, headwear, accessories, hands and shoes visible, roughly 2–4% top and bottom padding, without lengthening the body. True transparent background. No scenery, text, UI, weapons, companions, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/references/Lyney/neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a19670-0586-7a72-bb94-26f3777d6c7a/exec-d5c727ce-3bc6-4a61-9209-58d1035d8aae.png",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/raw/Lyney/disappointment.png",
+          "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/sprites/Lyney/disappointment.png",
+          "prompt_file": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/prompts/Lyney/disappointment.txt",
+          "approval": "All approved."
+        },
+        "relief": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/sprites/Lyney/relief.png",
+          "sha256": "9e2a68f7aa067b818017bc44ef7dd61e39da50e9a1d6a807b239f3328a5fa73e",
+          "size": [
+            1145,
+            1374
+          ],
+          "mode": "RGBA",
+          "has_alpha": true,
+          "status": "approved",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Lyney expressing relief, using only the supplied approved neutral as image reference. Preserve identity, face, skin tone, hair, eyes, costume, accessories, colors and rendering. Preserve his petite Medium Male proportions, magician's hat and clothing. Show distinct expressive acting with a genuinely varied pose: relieved smile and relaxed shoulders, one hand on the chest and the other down at the side. Keep normal pupils. Simple, readable hands near the torso; each visible hand has one anatomically correct thumb and four fingers connected to one palm and wrist. Do not force hidden digits into view. Exactly two legs and feet with an uncomplicated stance. Keep the entire silhouette including hair, headwear, accessories, hands and shoes visible, roughly 2–4% top and bottom padding, without lengthening the body. True transparent background. No scenery, text, UI, weapons, companions, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/references/Lyney/neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a19670-0586-7a72-bb94-26f3777d6c7a/exec-77b5b9db-59c3-4ed7-97e6-46a7937bc7ca.png",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/raw/Lyney/relief.png",
+          "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/sprites/Lyney/relief.png",
+          "prompt_file": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/prompts/Lyney/relief.txt",
+          "approval": "All approved."
+        },
+        "admiration": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/sprites/Lyney/admiration.png",
+          "sha256": "e1bc63327a1d13b29c147e74e98236558d72a613d562d0ecfe2090011278cabd",
+          "size": [
+            1145,
+            1374
+          ],
+          "mode": "RGBA",
+          "has_alpha": true,
+          "status": "approved",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Lyney expressing admiration, using only the supplied approved neutral as image reference. Preserve identity, face, skin tone, hair, eyes, costume, accessories, colors and rendering. Preserve his petite Medium Male proportions, magician's hat and clothing. Show distinct expressive acting with a genuinely varied pose: bright attentive eyes, impressed smile, head raised slightly and one hand near the cheek. Keep normal pupils. Simple, readable hands near the torso; each visible hand has one anatomically correct thumb and four fingers connected to one palm and wrist. Do not force hidden digits into view. Exactly two legs and feet with an uncomplicated stance. Keep the entire silhouette including hair, headwear, accessories, hands and shoes visible, roughly 2–4% top and bottom padding, without lengthening the body. True transparent background. No scenery, text, UI, weapons, companions, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/references/Lyney/neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a19670-0586-7a72-bb94-26f3777d6c7a/exec-4a29c19f-82a0-4a59-a6f6-1640b94cb2cd.png",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/raw/Lyney/admiration.png",
+          "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/sprites/Lyney/admiration.png",
+          "prompt_file": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/prompts/Lyney/admiration.txt",
+          "approval": "All approved."
+        },
+        "gratitude": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/sprites/Lyney/gratitude.png",
+          "sha256": "11186d4bf07857e330fa7c01b58bd9b9245bae711c4db13949c24b40fb0d5ff2",
+          "size": [
+            1145,
+            1374
+          ],
+          "mode": "RGBA",
+          "has_alpha": true,
+          "status": "approved",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Lyney expressing gratitude, using only the supplied approved neutral as image reference. Preserve identity, face, skin tone, hair, eyes, costume, accessories, colors and rendering. Preserve his petite Medium Male proportions, magician's hat and clothing. Show distinct expressive acting with a genuinely varied pose: sincere smile, gentle appreciative bow and one hand over the heart. Keep normal pupils. Simple, readable hands near the torso; each visible hand has one anatomically correct thumb and four fingers connected to one palm and wrist. Do not force hidden digits into view. Exactly two legs and feet with an uncomplicated stance. Keep the entire silhouette including hair, headwear, accessories, hands and shoes visible, roughly 2–4% top and bottom padding, without lengthening the body. True transparent background. No scenery, text, UI, weapons, companions, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/references/Lyney/neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a19670-0586-7a72-bb94-26f3777d6c7a/exec-78204a3f-d92b-4937-8de0-1d1d7e027766.png",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/raw/Lyney/gratitude.png",
+          "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/sprites/Lyney/gratitude.png",
+          "prompt_file": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/prompts/Lyney/gratitude.txt",
+          "approval": "All approved."
+        },
+        "embarrassment": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/sprites/Lyney/embarrassment.png",
+          "sha256": "7529f5d1d98232d7513fc1566d335bc1fbb67f31792c56c6cf67380f1091d521",
+          "size": [
+            1145,
+            1374
+          ],
+          "mode": "RGBA",
+          "has_alpha": true,
+          "status": "approved",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Lyney expressing embarrassment, using only the supplied approved neutral as image reference. Preserve identity, face, skin tone, hair, eyes, costume, accessories, colors and rendering. Preserve his petite Medium Male proportions, magician's hat and clothing. Show distinct expressive acting with a genuinely varied pose: flushed cheeks, bashful smile and averted gaze, one hand near the cheek. Keep normal pupils. Simple, readable hands near the torso; each visible hand has one anatomically correct thumb and four fingers connected to one palm and wrist. Do not force hidden digits into view. Exactly two legs and feet with an uncomplicated stance. Keep the entire silhouette including hair, headwear, accessories, hands and shoes visible, roughly 2–4% top and bottom padding, without lengthening the body. True transparent background. No scenery, text, UI, weapons, companions, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/references/Lyney/neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a19670-0586-7a72-bb94-26f3777d6c7a/exec-e367dfa0-8799-4e51-8b0c-1ff358d3e46e.png",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/raw/Lyney/embarrassment.png",
+          "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/sprites/Lyney/embarrassment.png",
+          "prompt_file": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/prompts/Lyney/embarrassment.txt",
+          "approval": "All approved."
+        },
+        "caring": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/sprites/Lyney/caring.png",
+          "sha256": "b2b50de8d944f729434dae782dae669b42865c1503a2c7c16dd98d8366edda06",
+          "size": [
+            1145,
+            1374
+          ],
+          "mode": "RGBA",
+          "has_alpha": true,
+          "status": "approved",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Lyney expressing caring, using only the supplied approved neutral as image reference. Preserve identity, face, skin tone, hair, eyes, costume, accessories, colors and rendering. Preserve his petite Medium Male proportions, magician's hat and clothing. Show distinct expressive acting with a genuinely varied pose: gentle concerned eyes and reassuring smile, body angled kindly and one open hand near the chest. Keep normal pupils. Simple, readable hands near the torso; each visible hand has one anatomically correct thumb and four fingers connected to one palm and wrist. Do not force hidden digits into view. Exactly two legs and feet with an uncomplicated stance. Keep the entire silhouette including hair, headwear, accessories, hands and shoes visible, roughly 2–4% top and bottom padding, without lengthening the body. True transparent background. No scenery, text, UI, weapons, companions, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/references/Lyney/neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a19670-0586-7a72-bb94-26f3777d6c7a/exec-e4cb386d-612d-494d-8253-14f9098f32d3.png",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/raw/Lyney/caring.png",
+          "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/sprites/Lyney/caring.png",
+          "prompt_file": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/prompts/Lyney/caring.txt",
+          "approval": "All approved."
+        },
+        "love-1": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/sprites/Lyney/love-1.png",
+          "sha256": "087e3f5c0bd352c646c6c6f6621e0041c873d0e28bbeaf7d8332a619bdfdb565",
+          "size": [
+            1145,
+            1374
+          ],
+          "mode": "RGBA",
+          "has_alpha": true,
+          "status": "approved",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Lyney expressing love-1, using only the supplied approved neutral as image reference. Preserve identity, face, skin tone, hair, eyes, costume, accessories, colors and rendering. Preserve his petite Medium Male proportions, magician's hat and clothing. Show distinct expressive acting with a genuinely varied pose: warm affectionate smile and bright eyes, gentle sideways lean and one hand near the heart. Both eyes visibly open; retain original iris color, outlines, shading and a visible colored border, with one solid pale violet heart-shaped pupil centered in each iris. Hearts are pupils, not highlights or floating symbols. Simple, readable hands near the torso; each visible hand has one anatomically correct thumb and four fingers connected to one palm and wrist. Do not force hidden digits into view. Exactly two legs and feet with an uncomplicated stance. Keep the entire silhouette including hair, headwear, accessories, hands and shoes visible, roughly 2–4% top and bottom padding, without lengthening the body. True transparent background. No scenery, text, UI, weapons, companions, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/references/Lyney/neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a19670-0586-7a72-bb94-26f3777d6c7a/exec-1d85a289-a887-4f72-a799-c0012e0272e1.png",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/raw/Lyney/love-1.png",
+          "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/sprites/Lyney/love-1.png",
+          "prompt_file": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/prompts/Lyney/love-1.txt",
+          "approval": "All approved."
+        },
+        "desire-1": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/sprites/Lyney/desire-1.png",
+          "sha256": "09f8764beb87dc7ea611035d27a22b5c8683e2785bae0d2ec2444ec7cc527564",
+          "size": [
+            1145,
+            1374
+          ],
+          "mode": "RGBA",
+          "has_alpha": true,
+          "status": "approved",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Lyney expressing desire-1, using only the supplied approved neutral as image reference. Preserve identity, face, skin tone, hair, eyes, costume, accessories, colors and rendering. Preserve his petite Medium Male proportions, magician's hat and clothing. Show distinct expressive acting with a genuinely varied pose: hopeful longing, flushed cheeks, open eyes, slight forward lean, one hand near the heart and the other relaxed; wholesome and fully clothed. Both eyes visibly open; retain original iris color, outlines, shading and a visible colored border, with one solid pale violet heart-shaped pupil centered in each iris. Hearts are pupils, not highlights or floating symbols. Simple, readable hands near the torso; each visible hand has one anatomically correct thumb and four fingers connected to one palm and wrist. Do not force hidden digits into view. Exactly two legs and feet with an uncomplicated stance. Keep the entire silhouette including hair, headwear, accessories, hands and shoes visible, roughly 2–4% top and bottom padding, without lengthening the body. True transparent background. No scenery, text, UI, weapons, companions, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/references/Lyney/neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a19670-0586-7a72-bb94-26f3777d6c7a/exec-ec9e7f41-5f4a-40dd-a08b-c270818fd778.png",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/raw/Lyney/desire-1.png",
+          "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/sprites/Lyney/desire-1.png",
+          "prompt_file": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/prompts/Lyney/desire-1.txt",
+          "approval": "All approved."
+        }
+      }
+    },
+    "Noelle": {
+      "neutral_source": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Noelle/neutral.png",
+      "reference": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/references/Noelle/neutral.png",
+      "sha256": "8457cd4fe3f448b007d466d12fa7eb9d86b85cfae0f95cc32fa1d6d6ade2c12b",
+      "approval": {
+        "status": "approved",
+        "message": "The other two neutrals are good.",
+        "candidate_sha256": "8457cd4fe3f448b007d466d12fa7eb9d86b85cfae0f95cc32fa1d6d6ade2c12b"
+      },
+      "expressions": {
+        "neutral": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/sprites/Noelle/neutral.png",
+          "sha256": "8457cd4fe3f448b007d466d12fa7eb9d86b85cfae0f95cc32fa1d6d6ade2c12b",
+          "size": [
+            860,
+            1829
+          ],
+          "mode": "RGBA",
+          "has_alpha": true,
+          "status": "approved",
+          "approval": "All approved."
+        },
+        "annoyance": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/sprites/Noelle/annoyance.png",
+          "sha256": "cb21c1e04ebb6d0c908d28fa519c26d669b5aea27ca36607c693446b773d9abb",
+          "size": [
+            860,
+            1828
+          ],
+          "mode": "RGBA",
+          "has_alpha": true,
+          "status": "approved",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Noelle expressing annoyance, using only the supplied approved neutral as image reference. Preserve identity, face, skin tone, hair, eyes, costume, accessories, colors and rendering. Preserve her petite Medium Female proportions, maid's armor and roses. Show distinct expressive acting with a genuinely varied pose: small frown, knitted brows, weight shifted aside, one hand at the waist. Keep normal pupils. Simple, readable hands near the torso; each visible hand has one anatomically correct thumb and four fingers connected to one palm and wrist. Do not force hidden digits into view. Exactly two legs and feet with an uncomplicated stance. Keep the entire silhouette including hair, headwear, accessories, hands and shoes visible, roughly 2–4% top and bottom padding, without lengthening the body. True transparent background. No scenery, text, UI, weapons, companions, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/references/Noelle/neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a19670-0586-7a72-bb94-26f3777d6c7a/exec-efc742da-1c98-4532-8a4c-a4c81e3a4e04.png",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/raw/Noelle/annoyance.png",
+          "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/sprites/Noelle/annoyance.png",
+          "prompt_file": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/prompts/Noelle/annoyance.txt",
+          "approval": "All approved."
+        },
+        "smug": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/sprites/Noelle/smug.png",
+          "sha256": "92ea539c73eee9836a79e9d68ee85c75dadaa9fe047ecd83956a2825bc31123f",
+          "size": [
+            860,
+            1828
+          ],
+          "mode": "RGBA",
+          "has_alpha": true,
+          "status": "approved",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Noelle expressing smug, using only the supplied approved neutral as image reference. Preserve identity, face, skin tone, hair, eyes, costume, accessories, colors and rendering. Preserve her petite Medium Female proportions, maid's armor and roses. Show distinct expressive acting with a genuinely varied pose: knowing smile, chin raised, one hand at the hip and the other near the chest. Keep normal pupils. Simple, readable hands near the torso; each visible hand has one anatomically correct thumb and four fingers connected to one palm and wrist. Do not force hidden digits into view. Exactly two legs and feet with an uncomplicated stance. Keep the entire silhouette including hair, headwear, accessories, hands and shoes visible, roughly 2–4% top and bottom padding, without lengthening the body. True transparent background. No scenery, text, UI, weapons, companions, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/references/Noelle/neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a19670-0586-7a72-bb94-26f3777d6c7a/exec-2e041ceb-0911-4bdc-aba4-97e32ab38e06.png",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/raw/Noelle/smug.png",
+          "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/sprites/Noelle/smug.png",
+          "prompt_file": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/prompts/Noelle/smug.txt",
+          "approval": "All approved."
+        },
+        "confusion": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/sprites/Noelle/confusion.png",
+          "sha256": "3237ff418c7bb58670d269f1eac283709708f794ff158fbdb69a8361368ea146",
+          "size": [
+            860,
+            1829
+          ],
+          "mode": "RGBA",
+          "has_alpha": true,
+          "status": "approved",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Noelle expressing confusion, using only the supplied approved neutral as image reference. Preserve identity, face, skin tone, hair, eyes, costume, accessories, colors and rendering. Preserve her petite Medium Female proportions, maid's armor and roses. Show distinct expressive acting with a genuinely varied pose: puzzled brows and head tilt, one hand turned upward near the waist. Keep normal pupils. Simple, readable hands near the torso; each visible hand has one anatomically correct thumb and four fingers connected to one palm and wrist. Do not force hidden digits into view. Exactly two legs and feet with an uncomplicated stance. Keep the entire silhouette including hair, headwear, accessories, hands and shoes visible, roughly 2–4% top and bottom padding, without lengthening the body. True transparent background. No scenery, text, UI, weapons, companions, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/references/Noelle/neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a19670-0586-7a72-bb94-26f3777d6c7a/exec-9d65cbfd-b4e6-4357-ae08-d9fa7b93e36f.png",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/raw/Noelle/confusion.png",
+          "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/sprites/Noelle/confusion.png",
+          "prompt_file": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/prompts/Noelle/confusion.txt",
+          "approval": "All approved."
+        },
+        "love": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/sprites/Noelle/love.png",
+          "sha256": "1fe975cf7788eb3d31686ae8e8b60b861539f9f32361af5925ca1e66bf01b659",
+          "size": [
+            860,
+            1828
+          ],
+          "mode": "RGBA",
+          "has_alpha": true,
+          "status": "approved",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Noelle expressing love, using only the supplied approved neutral as image reference. Preserve identity, face, skin tone, hair, eyes, costume, accessories, colors and rendering. Preserve her petite Medium Female proportions, maid's armor and roses. Show distinct expressive acting with a genuinely varied pose: warm affectionate smile, a gentle turn of the shoulders, one hand near the heart. Keep normal pupils. Simple, readable hands near the torso; each visible hand has one anatomically correct thumb and four fingers connected to one palm and wrist. Do not force hidden digits into view. Exactly two legs and feet with an uncomplicated stance. Keep the entire silhouette including hair, headwear, accessories, hands and shoes visible, roughly 2–4% top and bottom padding, without lengthening the body. True transparent background. No scenery, text, UI, weapons, companions, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/references/Noelle/neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a19670-0586-7a72-bb94-26f3777d6c7a/exec-bc087e61-be9d-4a73-817a-dde869b31659.png",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/raw/Noelle/love.png",
+          "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/sprites/Noelle/love.png",
+          "prompt_file": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/prompts/Noelle/love.txt",
+          "approval": "All approved."
+        },
+        "excitement": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/sprites/Noelle/excitement.png",
+          "sha256": "feb71a462475a6dc5feacbedf33717f7b4a81fae5f2f09c6863c5b67065e3b98",
+          "size": [
+            862,
+            1825
+          ],
+          "mode": "RGBA",
+          "has_alpha": true,
+          "status": "approved",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Noelle expressing excitement, using only the supplied approved neutral as image reference. Preserve identity, face, skin tone, hair, eyes, costume, accessories, colors and rendering. Preserve her petite Medium Female proportions, maid's armor and roses. Show distinct expressive acting with a genuinely varied pose: wide delighted smile and lively posture, one arm raised in celebration. Keep normal pupils. Simple, readable hands near the torso; each visible hand has one anatomically correct thumb and four fingers connected to one palm and wrist. Do not force hidden digits into view. Exactly two legs and feet with an uncomplicated stance. Keep the entire silhouette including hair, headwear, accessories, hands and shoes visible, roughly 2–4% top and bottom padding, without lengthening the body. True transparent background. No scenery, text, UI, weapons, companions, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/references/Noelle/neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a19670-0586-7a72-bb94-26f3777d6c7a/exec-f6758ae7-3e5d-49a3-b6d8-22fd329ec0dd.png",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/raw/Noelle/excitement.png",
+          "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/sprites/Noelle/excitement.png",
+          "prompt_file": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/prompts/Noelle/excitement.txt",
+          "approval": "All approved."
+        },
+        "joy": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/sprites/Noelle/joy.png",
+          "sha256": "b49060c4a64c1c475fc6057cb395903bc86e894d5ba46a944e28ae35f7734c7d",
+          "size": [
+            860,
+            1828
+          ],
+          "mode": "RGBA",
+          "has_alpha": true,
+          "status": "approved",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Noelle expressing joy, using only the supplied approved neutral as image reference. Preserve identity, face, skin tone, hair, eyes, costume, accessories, colors and rendering. Preserve her petite Medium Female proportions, maid's armor and roses. Show distinct expressive acting with a genuinely varied pose: bright smile, light sideways lean, one arm lifted in a friendly wave. Keep normal pupils. Simple, readable hands near the torso; each visible hand has one anatomically correct thumb and four fingers connected to one palm and wrist. Do not force hidden digits into view. Exactly two legs and feet with an uncomplicated stance. Keep the entire silhouette including hair, headwear, accessories, hands and shoes visible, roughly 2–4% top and bottom padding, without lengthening the body. True transparent background. No scenery, text, UI, weapons, companions, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/references/Noelle/neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a19670-0586-7a72-bb94-26f3777d6c7a/exec-3ccb72f9-9740-4df1-8b8d-7c8110bb8a65.png",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/raw/Noelle/joy.png",
+          "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/sprites/Noelle/joy.png",
+          "prompt_file": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/prompts/Noelle/joy.txt",
+          "approval": "All approved."
+        },
+        "fear": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/sprites/Noelle/fear.png",
+          "sha256": "37130e0bf290b146a957ce42aaa5b03ecaa842f6324feff804344b7e4ad5e323",
+          "size": [
+            860,
+            1828
+          ],
+          "mode": "RGBA",
+          "has_alpha": true,
+          "status": "approved",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Noelle expressing fear, using only the supplied approved neutral as image reference. Preserve identity, face, skin tone, hair, eyes, costume, accessories, colors and rendering. Preserve her petite Medium Female proportions, maid's armor and roses. Show distinct expressive acting with a genuinely varied pose: wide worried eyes, cautious backward lean, one hand near the chest. Keep normal pupils. Simple, readable hands near the torso; each visible hand has one anatomically correct thumb and four fingers connected to one palm and wrist. Do not force hidden digits into view. Exactly two legs and feet with an uncomplicated stance. Keep the entire silhouette including hair, headwear, accessories, hands and shoes visible, roughly 2–4% top and bottom padding, without lengthening the body. True transparent background. No scenery, text, UI, weapons, companions, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/references/Noelle/neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a19670-0586-7a72-bb94-26f3777d6c7a/exec-8267c21e-b9a5-435b-a0a3-62e31decd909.png",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/raw/Noelle/fear.png",
+          "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/sprites/Noelle/fear.png",
+          "prompt_file": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/prompts/Noelle/fear.txt",
+          "approval": "All approved."
+        },
+        "pride": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/sprites/Noelle/pride.png",
+          "sha256": "414794d5184f02d11219f31dfbb5a0ed7baea0a532cccd8b10879d443cb55027",
+          "size": [
+            860,
+            1828
+          ],
+          "mode": "RGBA",
+          "has_alpha": true,
+          "status": "approved",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Noelle expressing pride, using only the supplied approved neutral as image reference. Preserve identity, face, skin tone, hair, eyes, costume, accessories, colors and rendering. Preserve her petite Medium Female proportions, maid's armor and roses. Show distinct expressive acting with a genuinely varied pose: proud smile and upright posture, one hand confidently at the waist. Keep normal pupils. Simple, readable hands near the torso; each visible hand has one anatomically correct thumb and four fingers connected to one palm and wrist. Do not force hidden digits into view. Exactly two legs and feet with an uncomplicated stance. Keep the entire silhouette including hair, headwear, accessories, hands and shoes visible, roughly 2–4% top and bottom padding, without lengthening the body. True transparent background. No scenery, text, UI, weapons, companions, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/references/Noelle/neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a19670-0586-7a72-bb94-26f3777d6c7a/exec-11a8222f-2f01-4268-9ea9-d136a82358c4.png",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/raw/Noelle/pride.png",
+          "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/sprites/Noelle/pride.png",
+          "prompt_file": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/prompts/Noelle/pride.txt",
+          "approval": "All approved."
+        },
+        "desire": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/sprites/Noelle/desire.png",
+          "sha256": "403f5b86d3c154bcea9b6d6e4a410c87f4cc9a3fbc01477376659ebe607dbdc6",
+          "size": [
+            860,
+            1828
+          ],
+          "mode": "RGBA",
+          "has_alpha": true,
+          "status": "approved",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Noelle expressing desire, using only the supplied approved neutral as image reference. Preserve identity, face, skin tone, hair, eyes, costume, accessories, colors and rendering. Preserve her petite Medium Female proportions, maid's armor and roses. Show distinct expressive acting with a genuinely varied pose: hopeful longing, flushed cheeks, open eyes, a slight forward lean, one hand near the heart and the other relaxed; wholesome and fully clothed. Keep normal pupils. Simple, readable hands near the torso; each visible hand has one anatomically correct thumb and four fingers connected to one palm and wrist. Do not force hidden digits into view. Exactly two legs and feet with an uncomplicated stance. Keep the entire silhouette including hair, headwear, accessories, hands and shoes visible, roughly 2–4% top and bottom padding, without lengthening the body. True transparent background. No scenery, text, UI, weapons, companions, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/references/Noelle/neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a19670-0586-7a72-bb94-26f3777d6c7a/exec-50d34016-37d8-41d0-9d3b-a9e8775b3277.png",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/raw/Noelle/desire.png",
+          "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/sprites/Noelle/desire.png",
+          "prompt_file": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/prompts/Noelle/desire.txt",
+          "approval": "All approved."
+        },
+        "anger": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/sprites/Noelle/anger.png",
+          "sha256": "7bc7ea085d26c4a9108bf8993ff8c3cd51560e00b6eeaa814415506b9cbb2945",
+          "size": [
+            860,
+            1828
+          ],
+          "mode": "RGBA",
+          "has_alpha": true,
+          "status": "approved",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Noelle expressing anger, using only the supplied approved neutral as image reference. Preserve identity, face, skin tone, hair, eyes, costume, accessories, colors and rendering. Preserve her petite Medium Female proportions, maid's armor and roses. Show distinct expressive acting with a genuinely varied pose: firm brows, determined frown, feet apart and arms bent decisively at the sides. Keep normal pupils. Simple, readable hands near the torso; each visible hand has one anatomically correct thumb and four fingers connected to one palm and wrist. Do not force hidden digits into view. Exactly two legs and feet with an uncomplicated stance. Keep the entire silhouette including hair, headwear, accessories, hands and shoes visible, roughly 2–4% top and bottom padding, without lengthening the body. True transparent background. No scenery, text, UI, weapons, companions, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/references/Noelle/neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a19670-0586-7a72-bb94-26f3777d6c7a/exec-3d6d4cbd-685d-482a-a51b-8e8073839e50.png",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/raw/Noelle/anger.png",
+          "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/sprites/Noelle/anger.png",
+          "prompt_file": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/prompts/Noelle/anger.txt",
+          "approval": "All approved."
+        },
+        "grief": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/sprites/Noelle/grief.png",
+          "sha256": "a5f14562826fac080e60354b75bfe6a642ac97badeb410bd46faf46afb43e94b",
+          "size": [
+            860,
+            1828
+          ],
+          "mode": "RGBA",
+          "has_alpha": true,
+          "status": "approved",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Noelle expressing grief, using only the supplied approved neutral as image reference. Preserve identity, face, skin tone, hair, eyes, costume, accessories, colors and rendering. Preserve her petite Medium Female proportions, maid's armor and roses. Show distinct expressive acting with a genuinely varied pose: sorrowful brows, lowered head and shoulders, arms close to the body. Keep normal pupils. Simple, readable hands near the torso; each visible hand has one anatomically correct thumb and four fingers connected to one palm and wrist. Do not force hidden digits into view. Exactly two legs and feet with an uncomplicated stance. Keep the entire silhouette including hair, headwear, accessories, hands and shoes visible, roughly 2–4% top and bottom padding, without lengthening the body. True transparent background. No scenery, text, UI, weapons, companions, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/references/Noelle/neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a19670-0586-7a72-bb94-26f3777d6c7a/exec-b6333d09-f6bd-4a9a-aef8-efbd83b0451e.png",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/raw/Noelle/grief.png",
+          "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/sprites/Noelle/grief.png",
+          "prompt_file": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/prompts/Noelle/grief.txt",
+          "approval": "All approved."
+        },
+        "sadness": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/sprites/Noelle/sadness.png",
+          "sha256": "76b3f4b4dd928650a90adddb90f1216130893929a8c64d64135cf065be74627f",
+          "size": [
+            860,
+            1828
+          ],
+          "mode": "RGBA",
+          "has_alpha": true,
+          "status": "approved",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Noelle expressing sadness, using only the supplied approved neutral as image reference. Preserve identity, face, skin tone, hair, eyes, costume, accessories, colors and rendering. Preserve her petite Medium Female proportions, maid's armor and roses. Show distinct expressive acting with a genuinely varied pose: subdued frown, downcast eyes, gentle head tilt and hands resting separately. Keep normal pupils. Simple, readable hands near the torso; each visible hand has one anatomically correct thumb and four fingers connected to one palm and wrist. Do not force hidden digits into view. Exactly two legs and feet with an uncomplicated stance. Keep the entire silhouette including hair, headwear, accessories, hands and shoes visible, roughly 2–4% top and bottom padding, without lengthening the body. True transparent background. No scenery, text, UI, weapons, companions, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/references/Noelle/neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a19670-0586-7a72-bb94-26f3777d6c7a/exec-b5e1357c-cbb2-44a0-ac71-8412f56416ae.png",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/raw/Noelle/sadness.png",
+          "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/sprites/Noelle/sadness.png",
+          "prompt_file": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/prompts/Noelle/sadness.txt",
+          "approval": "All approved."
+        },
+        "disgust": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/sprites/Noelle/disgust.png",
+          "sha256": "3b40c6232916bfcc1ccf962cf56f6546637db0374e3d03332987cf9d4a6029e3",
+          "size": [
+            860,
+            1828
+          ],
+          "mode": "RGBA",
+          "has_alpha": true,
+          "status": "approved",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Noelle expressing disgust, using only the supplied approved neutral as image reference. Preserve identity, face, skin tone, hair, eyes, costume, accessories, colors and rendering. Preserve her petite Medium Female proportions, maid's armor and roses. Show distinct expressive acting with a genuinely varied pose: restrained nose scrunch and small closed displeased mouth, slight backward lean. Keep normal pupils. Simple, readable hands near the torso; each visible hand has one anatomically correct thumb and four fingers connected to one palm and wrist. Do not force hidden digits into view. Exactly two legs and feet with an uncomplicated stance. Keep the entire silhouette including hair, headwear, accessories, hands and shoes visible, roughly 2–4% top and bottom padding, without lengthening the body. True transparent background. No scenery, text, UI, weapons, companions, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/references/Noelle/neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a19670-0586-7a72-bb94-26f3777d6c7a/exec-aabdc639-62bb-48bd-94ec-e79dee85cf70.png",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/raw/Noelle/disgust.png",
+          "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/sprites/Noelle/disgust.png",
+          "prompt_file": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/prompts/Noelle/disgust.txt",
+          "approval": "All approved."
+        },
+        "disappointment": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/sprites/Noelle/disappointment.png",
+          "sha256": "fdeaf87632b52de37b17790f842781d92d7f2aae8822841144518498afa26a59",
+          "size": [
+            860,
+            1828
+          ],
+          "mode": "RGBA",
+          "has_alpha": true,
+          "status": "approved",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Noelle expressing disappointment, using only the supplied approved neutral as image reference. Preserve identity, face, skin tone, hair, eyes, costume, accessories, colors and rendering. Preserve her petite Medium Female proportions, maid's armor and roses. Show distinct expressive acting with a genuinely varied pose: downturned mouth, lowered shoulders, one hand open at the side. Keep normal pupils. Simple, readable hands near the torso; each visible hand has one anatomically correct thumb and four fingers connected to one palm and wrist. Do not force hidden digits into view. Exactly two legs and feet with an uncomplicated stance. Keep the entire silhouette including hair, headwear, accessories, hands and shoes visible, roughly 2–4% top and bottom padding, without lengthening the body. True transparent background. No scenery, text, UI, weapons, companions, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/references/Noelle/neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a19670-0586-7a72-bb94-26f3777d6c7a/exec-388d77e4-5b0a-4110-9729-b7a79a86faed.png",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/raw/Noelle/disappointment.png",
+          "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/sprites/Noelle/disappointment.png",
+          "prompt_file": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/prompts/Noelle/disappointment.txt",
+          "approval": "All approved."
+        },
+        "relief": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/sprites/Noelle/relief.png",
+          "sha256": "0f3daaab2afa92197f620cdcd7465d5eb4d183b6fa4d01abc1fd5dcdc35f48d4",
+          "size": [
+            860,
+            1828
+          ],
+          "mode": "RGBA",
+          "has_alpha": true,
+          "status": "approved",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Noelle expressing relief, using only the supplied approved neutral as image reference. Preserve identity, face, skin tone, hair, eyes, costume, accessories, colors and rendering. Preserve her petite Medium Female proportions, maid's armor and roses. Show distinct expressive acting with a genuinely varied pose: relieved smile and relaxed shoulders, one hand on the chest and the other down at the side. Keep normal pupils. Simple, readable hands near the torso; each visible hand has one anatomically correct thumb and four fingers connected to one palm and wrist. Do not force hidden digits into view. Exactly two legs and feet with an uncomplicated stance. Keep the entire silhouette including hair, headwear, accessories, hands and shoes visible, roughly 2–4% top and bottom padding, without lengthening the body. True transparent background. No scenery, text, UI, weapons, companions, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/references/Noelle/neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a19670-0586-7a72-bb94-26f3777d6c7a/exec-fa69d349-eae5-4799-84bd-84cbbb3802f7.png",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/raw/Noelle/relief.png",
+          "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/sprites/Noelle/relief.png",
+          "prompt_file": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/prompts/Noelle/relief.txt",
+          "approval": "All approved."
+        },
+        "admiration": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/sprites/Noelle/admiration.png",
+          "sha256": "bc3e29dc287712143561c5a7528a474d9eb52464828679ff75507d86ee3440c7",
+          "size": [
+            860,
+            1828
+          ],
+          "mode": "RGBA",
+          "has_alpha": true,
+          "status": "approved",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Noelle expressing admiration, using only the supplied approved neutral as image reference. Preserve identity, face, skin tone, hair, eyes, costume, accessories, colors and rendering. Preserve her petite Medium Female proportions, maid's armor and roses. Show distinct expressive acting with a genuinely varied pose: bright attentive eyes, impressed smile, head raised slightly and one hand near the cheek. Keep normal pupils. Simple, readable hands near the torso; each visible hand has one anatomically correct thumb and four fingers connected to one palm and wrist. Do not force hidden digits into view. Exactly two legs and feet with an uncomplicated stance. Keep the entire silhouette including hair, headwear, accessories, hands and shoes visible, roughly 2–4% top and bottom padding, without lengthening the body. True transparent background. No scenery, text, UI, weapons, companions, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/references/Noelle/neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a19670-0586-7a72-bb94-26f3777d6c7a/exec-726c33c0-89cf-4b03-8b90-a8d78f6b2072.png",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/raw/Noelle/admiration.png",
+          "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/sprites/Noelle/admiration.png",
+          "prompt_file": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/prompts/Noelle/admiration.txt",
+          "approval": "All approved."
+        },
+        "gratitude": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/sprites/Noelle/gratitude.png",
+          "sha256": "fa90ad8b3c50065ee62e0ddaf84862457aa7c8ad351469c2112febb7bf9f39c9",
+          "size": [
+            860,
+            1829
+          ],
+          "mode": "RGBA",
+          "has_alpha": true,
+          "status": "approved",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Noelle expressing gratitude, using only the supplied approved neutral as image reference. Preserve identity, face, skin tone, hair, eyes, costume, accessories, colors and rendering. Preserve her petite Medium Female proportions, maid's armor and roses. Show distinct expressive acting with a genuinely varied pose: sincere smile, gentle appreciative bow and one hand over the heart. Keep normal pupils. Simple, readable hands near the torso; each visible hand has one anatomically correct thumb and four fingers connected to one palm and wrist. Do not force hidden digits into view. Exactly two legs and feet with an uncomplicated stance. Keep the entire silhouette including hair, headwear, accessories, hands and shoes visible, roughly 2–4% top and bottom padding, without lengthening the body. True transparent background. No scenery, text, UI, weapons, companions, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/references/Noelle/neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a19670-0586-7a72-bb94-26f3777d6c7a/exec-253fcf5a-20c1-4d12-b070-c5112fa3ea81.png",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/raw/Noelle/gratitude.png",
+          "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/sprites/Noelle/gratitude.png",
+          "prompt_file": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/prompts/Noelle/gratitude.txt",
+          "approval": "All approved."
+        },
+        "embarrassment": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/sprites/Noelle/embarrassment.png",
+          "sha256": "fe330509d97011abc3e9407949a4cca4aeb849997935e7dea09bff91a404af42",
+          "size": [
+            860,
+            1828
+          ],
+          "mode": "RGBA",
+          "has_alpha": true,
+          "status": "approved",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Noelle expressing embarrassment, using only the supplied approved neutral as image reference. Preserve identity, face, skin tone, hair, eyes, costume, accessories, colors and rendering. Preserve her petite Medium Female proportions, maid's armor and roses. Show distinct expressive acting with a genuinely varied pose: flushed cheeks, bashful smile and averted gaze, one hand near the cheek. Keep normal pupils. Simple, readable hands near the torso; each visible hand has one anatomically correct thumb and four fingers connected to one palm and wrist. Do not force hidden digits into view. Exactly two legs and feet with an uncomplicated stance. Keep the entire silhouette including hair, headwear, accessories, hands and shoes visible, roughly 2–4% top and bottom padding, without lengthening the body. True transparent background. No scenery, text, UI, weapons, companions, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/references/Noelle/neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a19670-0586-7a72-bb94-26f3777d6c7a/exec-f6b9b2c9-acd2-46a0-8611-875377ed089a.png",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/raw/Noelle/embarrassment.png",
+          "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/sprites/Noelle/embarrassment.png",
+          "prompt_file": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/prompts/Noelle/embarrassment.txt",
+          "approval": "All approved."
+        },
+        "caring": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/sprites/Noelle/caring.png",
+          "sha256": "06b09b4e9ae8844a8de362b3ddc1929a8c27395b6561fb49d6fe193c9901437d",
+          "size": [
+            861,
+            1827
+          ],
+          "mode": "RGBA",
+          "has_alpha": true,
+          "status": "approved",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Noelle expressing caring, using only the supplied approved neutral as image reference. Preserve identity, face, skin tone, hair, eyes, costume, accessories, colors and rendering. Preserve her petite Medium Female proportions, maid's armor and roses. Show distinct expressive acting with a genuinely varied pose: gentle concerned eyes and reassuring smile, body angled kindly and one open hand near the chest. Keep normal pupils. Simple, readable hands near the torso; each visible hand has one anatomically correct thumb and four fingers connected to one palm and wrist. Do not force hidden digits into view. Exactly two legs and feet with an uncomplicated stance. Keep the entire silhouette including hair, headwear, accessories, hands and shoes visible, roughly 2–4% top and bottom padding, without lengthening the body. True transparent background. No scenery, text, UI, weapons, companions, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/references/Noelle/neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a19670-0586-7a72-bb94-26f3777d6c7a/exec-8245c857-a2cf-49f3-a28c-8cb923f8c87c.png",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/raw/Noelle/caring.png",
+          "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/sprites/Noelle/caring.png",
+          "prompt_file": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/prompts/Noelle/caring.txt",
+          "approval": "All approved."
+        },
+        "love-1": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/sprites/Noelle/love-1.png",
+          "sha256": "2ced91a1bf631c95bdc5c1bbda66b434d8e04b3fb0b115f32082fe3311ba74f9",
+          "size": [
+            860,
+            1828
+          ],
+          "mode": "RGBA",
+          "has_alpha": true,
+          "status": "approved",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Noelle expressing love-1, using only the supplied approved neutral as image reference. Preserve identity, face, skin tone, hair, eyes, costume, accessories, colors and rendering. Preserve her petite Medium Female proportions, maid's armor and roses. Show distinct expressive acting with a genuinely varied pose: warm affectionate smile and bright eyes, gentle sideways lean and one hand near the heart. Both eyes visibly open; retain original iris color, outlines, shading and a visible colored border, with one solid pale green heart-shaped pupil centered in each iris. Hearts are pupils, not highlights or floating symbols. Simple, readable hands near the torso; each visible hand has one anatomically correct thumb and four fingers connected to one palm and wrist. Do not force hidden digits into view. Exactly two legs and feet with an uncomplicated stance. Keep the entire silhouette including hair, headwear, accessories, hands and shoes visible, roughly 2–4% top and bottom padding, without lengthening the body. True transparent background. No scenery, text, UI, weapons, companions, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/references/Noelle/neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a19670-0586-7a72-bb94-26f3777d6c7a/exec-684f6805-34d0-4ade-91cc-254a1170c699.png",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/raw/Noelle/love-1.png",
+          "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/sprites/Noelle/love-1.png",
+          "prompt_file": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/prompts/Noelle/love-1.txt",
+          "approval": "All approved."
+        },
+        "desire-1": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/sprites/Noelle/desire-1.png",
+          "sha256": "8d7e217efa6e147e4616c564682200ef28768580060b8c09208db1996fbd9fde",
+          "size": [
+            860,
+            1828
+          ],
+          "mode": "RGBA",
+          "has_alpha": true,
+          "status": "approved",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Noelle expressing desire-1, using only the supplied approved neutral as image reference. Preserve identity, face, skin tone, hair, eyes, costume, accessories, colors and rendering. Preserve her petite Medium Female proportions, maid's armor and roses. Show distinct expressive acting with a genuinely varied pose: hopeful longing, flushed cheeks, open eyes, slight forward lean, one hand near the heart and the other relaxed; wholesome and fully clothed. Both eyes visibly open; retain original iris color, outlines, shading and a visible colored border, with one solid pale green heart-shaped pupil centered in each iris. Hearts are pupils, not highlights or floating symbols. Simple, readable hands near the torso; each visible hand has one anatomically correct thumb and four fingers connected to one palm and wrist. Do not force hidden digits into view. Exactly two legs and feet with an uncomplicated stance. Keep the entire silhouette including hair, headwear, accessories, hands and shoes visible, roughly 2–4% top and bottom padding, without lengthening the body. True transparent background. No scenery, text, UI, weapons, companions, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/references/Noelle/neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a19670-0586-7a72-bb94-26f3777d6c7a/exec-7e9dc37f-b164-4c8d-a043-694daae5d578.png",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/raw/Noelle/desire-1.png",
+          "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/sprites/Noelle/desire-1.png",
+          "prompt_file": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/prompts/Noelle/desire-1.txt",
+          "approval": "All approved."
+        }
+      }
+    }
+  },
+  "missing": [],
+  "technical_checks": {
+    "alpha_missing": []
+  },
+  "preview_order": [
+    "neutral",
+    "annoyance",
+    "smug",
+    "confusion",
+    "love",
+    "excitement",
+    "joy",
+    "fear",
+    "pride",
+    "desire",
+    "anger",
+    "grief",
+    "sadness",
+    "disgust",
+    "disappointment",
+    "relief",
+    "admiration",
+    "gratitude",
+    "embarrassment",
+    "caring",
+    "love-1",
+    "desire-1"
+  ],
+  "final_approval": "All approved. Put in their respective folders",
+  "installation": {
+    "count": 66,
+    "backup": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-collei-lyney-noelle-expressions/installation-backup",
+    "files": [
+      {
+        "character": "Collei",
+        "emotion": "neutral",
+        "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Collei/neutral.png",
+        "sha256": "26440767f4384d7683820829781fcc1688c111125f73cbe49199725e99e4d40e"
+      },
+      {
+        "character": "Collei",
+        "emotion": "annoyance",
+        "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Collei/annoyance.png",
+        "sha256": "63064b1ff516f88db78a91b84b560ed36e927a666c41aa4a49fd10e9d2752087"
+      },
+      {
+        "character": "Collei",
+        "emotion": "smug",
+        "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Collei/smug.png",
+        "sha256": "fc53f2fe3aec4bf5209467e1c3cca7dce04d0c85b2c1de43e57f6ba43ac8f0fe"
+      },
+      {
+        "character": "Collei",
+        "emotion": "confusion",
+        "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Collei/confusion.png",
+        "sha256": "a6718647e339b0ac9040192344414c8a630c330d2d57d91626735d098dfd368d"
+      },
+      {
+        "character": "Collei",
+        "emotion": "love",
+        "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Collei/love.png",
+        "sha256": "71924bcdce7f235bd642822a7f5645075da2817fe3bfc9514a580f8442a651b4"
+      },
+      {
+        "character": "Collei",
+        "emotion": "excitement",
+        "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Collei/excitement.png",
+        "sha256": "2953f748f153232c1b4056273d971f84b4e198f3f4b4d28514ee16e647bfd99a"
+      },
+      {
+        "character": "Collei",
+        "emotion": "joy",
+        "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Collei/joy.png",
+        "sha256": "04b48dc61ea37c585a1b00b4360b2c1c8083f706abb60f3758b6b6372aaa2fb8"
+      },
+      {
+        "character": "Collei",
+        "emotion": "fear",
+        "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Collei/fear.png",
+        "sha256": "e096ee8cc4904a58ade9d51b6a53b63d8eb7256458dd2ba967ca29de55f41805"
+      },
+      {
+        "character": "Collei",
+        "emotion": "pride",
+        "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Collei/pride.png",
+        "sha256": "8f4d100ff2f04a3abad23757d2b22a2b1cfd6229a853706e28c1097c32ee5095"
+      },
+      {
+        "character": "Collei",
+        "emotion": "desire",
+        "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Collei/desire.png",
+        "sha256": "94e1980f08427489296963ae7b487f784e5a090b91e6cffd574d8e93f32c5af8"
+      },
+      {
+        "character": "Collei",
+        "emotion": "anger",
+        "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Collei/anger.png",
+        "sha256": "b04a3de848ceacf6c0a3a3ea57d71e0f630f03abfcde4be04702830ebd910932"
+      },
+      {
+        "character": "Collei",
+        "emotion": "grief",
+        "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Collei/grief.png",
+        "sha256": "bfbf541e23d974dddf6998531f45883d3d4fe8f1eab3f0ce168288943ba25736"
+      },
+      {
+        "character": "Collei",
+        "emotion": "sadness",
+        "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Collei/sadness.png",
+        "sha256": "1cc584bc54c7d9e4a408d3141f3958da2d197335e376c7e30eba58313f3cdf86"
+      },
+      {
+        "character": "Collei",
+        "emotion": "disgust",
+        "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Collei/disgust.png",
+        "sha256": "da260c261cca1c9a59449bd0e1245f315a27a3ba4ee941af8c65fa9a1e0d0987"
+      },
+      {
+        "character": "Collei",
+        "emotion": "disappointment",
+        "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Collei/disappointment.png",
+        "sha256": "280c99b96e3da9c98354d0234a3fc5b4a69037ea04be0dba8409cb71f705eb51"
+      },
+      {
+        "character": "Collei",
+        "emotion": "relief",
+        "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Collei/relief.png",
+        "sha256": "6b261dba5480155113833b31c1fb56e58309af8fe59e4d080870716b6bd94157"
+      },
+      {
+        "character": "Collei",
+        "emotion": "admiration",
+        "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Collei/admiration.png",
+        "sha256": "e23db5494772421060ed0197b13c25b898a689b7abb3da8c9f5794e7f00b3cd1"
+      },
+      {
+        "character": "Collei",
+        "emotion": "gratitude",
+        "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Collei/gratitude.png",
+        "sha256": "7bbb287b89c5941fe2808fc22bbec6169fbcdca71a6bf3a1582d431736c5306c"
+      },
+      {
+        "character": "Collei",
+        "emotion": "embarrassment",
+        "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Collei/embarrassment.png",
+        "sha256": "c9a8240233163f168f1eac2fe8d105ed08437ce939fdde3361b3089c040a5355"
+      },
+      {
+        "character": "Collei",
+        "emotion": "caring",
+        "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Collei/caring.png",
+        "sha256": "54acdc767a89c2b4d2a2ee19eb4c34c4eef55ee246b90ef9ddb174515c023930"
+      },
+      {
+        "character": "Collei",
+        "emotion": "love-1",
+        "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Collei/love-1.png",
+        "sha256": "1ba3ea82e09617636fa94b1136bf6f74989b8607d900f56d7b40be219fe3bb81"
+      },
+      {
+        "character": "Collei",
+        "emotion": "desire-1",
+        "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Collei/desire-1.png",
+        "sha256": "254baafd2faab977c8c85c438af26c6fd380b7b4872317fa62f997e67ee1f4e4"
+      },
+      {
+        "character": "Lyney",
+        "emotion": "neutral",
+        "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Lyney/neutral.png",
+        "sha256": "6438314e7e517427314eb599a70da22a8fdabce717403fa7b662057158492da5"
+      },
+      {
+        "character": "Lyney",
+        "emotion": "annoyance",
+        "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Lyney/annoyance.png",
+        "sha256": "4f220865094d964e57ed4c0ea034ea58055a50775142d32a3af054c67dc3794b"
+      },
+      {
+        "character": "Lyney",
+        "emotion": "smug",
+        "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Lyney/smug.png",
+        "sha256": "c416f20cd49e28236801fb1e62f115f76f0ff53194cf5ed322fd0da4aed1ecbe"
+      },
+      {
+        "character": "Lyney",
+        "emotion": "confusion",
+        "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Lyney/confusion.png",
+        "sha256": "4571f77f30cbcffc08badd16f4e2ecc5fc4d1bdf5854a8ce405cc00d26dddd52"
+      },
+      {
+        "character": "Lyney",
+        "emotion": "love",
+        "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Lyney/love.png",
+        "sha256": "8ef785f12571975ca4bbb1b343a52b3e3bb8ee621933a2dc8f3fbbe54a36c2ed"
+      },
+      {
+        "character": "Lyney",
+        "emotion": "excitement",
+        "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Lyney/excitement.png",
+        "sha256": "921c40fee41b2574e59af92a61626a71986dab9db072c82f5c6ae43ec7315161"
+      },
+      {
+        "character": "Lyney",
+        "emotion": "joy",
+        "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Lyney/joy.png",
+        "sha256": "3857865bd847ee8905007435f55c4622aa9c1915b770909e57e7e2b90a959560"
+      },
+      {
+        "character": "Lyney",
+        "emotion": "fear",
+        "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Lyney/fear.png",
+        "sha256": "0d68cf814b091729dc1868a212b324fa7e5591c5c2f8f0ea8d8745cc95b7a889"
+      },
+      {
+        "character": "Lyney",
+        "emotion": "pride",
+        "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Lyney/pride.png",
+        "sha256": "b6d757a2e3598769157903a5a28253416a065d214ee128f8b9138c7ec0b06aa0"
+      },
+      {
+        "character": "Lyney",
+        "emotion": "desire",
+        "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Lyney/desire.png",
+        "sha256": "7a14a9801e61f0a44d378acfcac4f2a77e520c31cb2ea08b794a1961a268c0f6"
+      },
+      {
+        "character": "Lyney",
+        "emotion": "anger",
+        "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Lyney/anger.png",
+        "sha256": "187ac33db2ea00ddbe17fadeb9c6044527cf07e2cf6ae96644d8e502dc4ecc68"
+      },
+      {
+        "character": "Lyney",
+        "emotion": "grief",
+        "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Lyney/grief.png",
+        "sha256": "c98f6e14a144bb6db65fbd6fc8de2ecf223e802ec8ba8429540a47b1f21e5bbc"
+      },
+      {
+        "character": "Lyney",
+        "emotion": "sadness",
+        "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Lyney/sadness.png",
+        "sha256": "2918e158cfbc1a999b1ef961d60ea11648289ccc67df5c81a80ea011a4525562"
+      },
+      {
+        "character": "Lyney",
+        "emotion": "disgust",
+        "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Lyney/disgust.png",
+        "sha256": "60779daac3fef5f32ae01029657bd31eef3f504a52b8207012347541bd7c485f"
+      },
+      {
+        "character": "Lyney",
+        "emotion": "disappointment",
+        "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Lyney/disappointment.png",
+        "sha256": "901d174bf132490cd238e4e9c3f27b5b0d7511f023644d900f8d8cbedd4e521c"
+      },
+      {
+        "character": "Lyney",
+        "emotion": "relief",
+        "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Lyney/relief.png",
+        "sha256": "9e2a68f7aa067b818017bc44ef7dd61e39da50e9a1d6a807b239f3328a5fa73e"
+      },
+      {
+        "character": "Lyney",
+        "emotion": "admiration",
+        "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Lyney/admiration.png",
+        "sha256": "e1bc63327a1d13b29c147e74e98236558d72a613d562d0ecfe2090011278cabd"
+      },
+      {
+        "character": "Lyney",
+        "emotion": "gratitude",
+        "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Lyney/gratitude.png",
+        "sha256": "11186d4bf07857e330fa7c01b58bd9b9245bae711c4db13949c24b40fb0d5ff2"
+      },
+      {
+        "character": "Lyney",
+        "emotion": "embarrassment",
+        "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Lyney/embarrassment.png",
+        "sha256": "7529f5d1d98232d7513fc1566d335bc1fbb67f31792c56c6cf67380f1091d521"
+      },
+      {
+        "character": "Lyney",
+        "emotion": "caring",
+        "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Lyney/caring.png",
+        "sha256": "b2b50de8d944f729434dae782dae669b42865c1503a2c7c16dd98d8366edda06"
+      },
+      {
+        "character": "Lyney",
+        "emotion": "love-1",
+        "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Lyney/love-1.png",
+        "sha256": "087e3f5c0bd352c646c6c6f6621e0041c873d0e28bbeaf7d8332a619bdfdb565"
+      },
+      {
+        "character": "Lyney",
+        "emotion": "desire-1",
+        "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Lyney/desire-1.png",
+        "sha256": "09f8764beb87dc7ea611035d27a22b5c8683e2785bae0d2ec2444ec7cc527564"
+      },
+      {
+        "character": "Noelle",
+        "emotion": "neutral",
+        "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Noelle/neutral.png",
+        "sha256": "8457cd4fe3f448b007d466d12fa7eb9d86b85cfae0f95cc32fa1d6d6ade2c12b"
+      },
+      {
+        "character": "Noelle",
+        "emotion": "annoyance",
+        "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Noelle/annoyance.png",
+        "sha256": "cb21c1e04ebb6d0c908d28fa519c26d669b5aea27ca36607c693446b773d9abb"
+      },
+      {
+        "character": "Noelle",
+        "emotion": "smug",
+        "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Noelle/smug.png",
+        "sha256": "92ea539c73eee9836a79e9d68ee85c75dadaa9fe047ecd83956a2825bc31123f"
+      },
+      {
+        "character": "Noelle",
+        "emotion": "confusion",
+        "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Noelle/confusion.png",
+        "sha256": "3237ff418c7bb58670d269f1eac283709708f794ff158fbdb69a8361368ea146"
+      },
+      {
+        "character": "Noelle",
+        "emotion": "love",
+        "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Noelle/love.png",
+        "sha256": "1fe975cf7788eb3d31686ae8e8b60b861539f9f32361af5925ca1e66bf01b659"
+      },
+      {
+        "character": "Noelle",
+        "emotion": "excitement",
+        "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Noelle/excitement.png",
+        "sha256": "feb71a462475a6dc5feacbedf33717f7b4a81fae5f2f09c6863c5b67065e3b98"
+      },
+      {
+        "character": "Noelle",
+        "emotion": "joy",
+        "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Noelle/joy.png",
+        "sha256": "b49060c4a64c1c475fc6057cb395903bc86e894d5ba46a944e28ae35f7734c7d"
+      },
+      {
+        "character": "Noelle",
+        "emotion": "fear",
+        "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Noelle/fear.png",
+        "sha256": "37130e0bf290b146a957ce42aaa5b03ecaa842f6324feff804344b7e4ad5e323"
+      },
+      {
+        "character": "Noelle",
+        "emotion": "pride",
+        "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Noelle/pride.png",
+        "sha256": "414794d5184f02d11219f31dfbb5a0ed7baea0a532cccd8b10879d443cb55027"
+      },
+      {
+        "character": "Noelle",
+        "emotion": "desire",
+        "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Noelle/desire.png",
+        "sha256": "403f5b86d3c154bcea9b6d6e4a410c87f4cc9a3fbc01477376659ebe607dbdc6"
+      },
+      {
+        "character": "Noelle",
+        "emotion": "anger",
+        "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Noelle/anger.png",
+        "sha256": "7bc7ea085d26c4a9108bf8993ff8c3cd51560e00b6eeaa814415506b9cbb2945"
+      },
+      {
+        "character": "Noelle",
+        "emotion": "grief",
+        "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Noelle/grief.png",
+        "sha256": "a5f14562826fac080e60354b75bfe6a642ac97badeb410bd46faf46afb43e94b"
+      },
+      {
+        "character": "Noelle",
+        "emotion": "sadness",
+        "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Noelle/sadness.png",
+        "sha256": "76b3f4b4dd928650a90adddb90f1216130893929a8c64d64135cf065be74627f"
+      },
+      {
+        "character": "Noelle",
+        "emotion": "disgust",
+        "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Noelle/disgust.png",
+        "sha256": "3b40c6232916bfcc1ccf962cf56f6546637db0374e3d03332987cf9d4a6029e3"
+      },
+      {
+        "character": "Noelle",
+        "emotion": "disappointment",
+        "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Noelle/disappointment.png",
+        "sha256": "fdeaf87632b52de37b17790f842781d92d7f2aae8822841144518498afa26a59"
+      },
+      {
+        "character": "Noelle",
+        "emotion": "relief",
+        "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Noelle/relief.png",
+        "sha256": "0f3daaab2afa92197f620cdcd7465d5eb4d183b6fa4d01abc1fd5dcdc35f48d4"
+      },
+      {
+        "character": "Noelle",
+        "emotion": "admiration",
+        "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Noelle/admiration.png",
+        "sha256": "bc3e29dc287712143561c5a7528a474d9eb52464828679ff75507d86ee3440c7"
+      },
+      {
+        "character": "Noelle",
+        "emotion": "gratitude",
+        "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Noelle/gratitude.png",
+        "sha256": "fa90ad8b3c50065ee62e0ddaf84862457aa7c8ad351469c2112febb7bf9f39c9"
+      },
+      {
+        "character": "Noelle",
+        "emotion": "embarrassment",
+        "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Noelle/embarrassment.png",
+        "sha256": "fe330509d97011abc3e9407949a4cca4aeb849997935e7dea09bff91a404af42"
+      },
+      {
+        "character": "Noelle",
+        "emotion": "caring",
+        "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Noelle/caring.png",
+        "sha256": "06b09b4e9ae8844a8de362b3ddc1929a8c27395b6561fb49d6fe193c9901437d"
+      },
+      {
+        "character": "Noelle",
+        "emotion": "love-1",
+        "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Noelle/love-1.png",
+        "sha256": "2ced91a1bf631c95bdc5c1bbda66b434d8e04b3fb0b115f32082fe3311ba74f9"
+      },
+      {
+        "character": "Noelle",
+        "emotion": "desire-1",
+        "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Noelle/desire-1.png",
+        "sha256": "8d7e217efa6e147e4616c564682200ef28768580060b8c09208db1996fbd9fde"
+      }
+    ]
+  }
+}

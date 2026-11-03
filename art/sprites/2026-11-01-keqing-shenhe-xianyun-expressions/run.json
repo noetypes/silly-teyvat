@@ -1,0 +1,1834 @@
+{
+  "status": "approved; Xianyun heart alternates removed",
+  "request": "Keqing, Shenhe and Xianyun expression sets with varied poses",
+  "characters": {
+    "Keqing": {
+      "neutral_source": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Keqing/neutral.png",
+      "reference": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/references/Keqing/neutral.png",
+      "sha256": "b5b52e521ecb52a46c34f5ed5d56a478766efcc0581e38fc69bd40ecd0d147f2",
+      "approval": {
+        "status": "approved",
+        "message": "All others are ACCEPTED.",
+        "date": "2026-10-30",
+        "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Keqing/neutral-v001.png",
+        "candidate_sha256": "b5b52e521ecb52a46c34f5ed5d56a478766efcc0581e38fc69bd40ecd0d147f2"
+      },
+      "expressions": {
+        "neutral": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/sprites/Keqing/neutral.png",
+          "sha256": "b5b52e521ecb52a46c34f5ed5d56a478766efcc0581e38fc69bd40ecd0d147f2",
+          "size": [
+            1080,
+            1456
+          ],
+          "mode": "RGBA",
+          "has_alpha": true,
+          "status": "approved",
+          "approval": "All others approved."
+        },
+        "annoyance": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/sprites/Keqing/annoyance.png",
+          "sha256": "0f4ed1dd0b502b21b754e60ecffb4d83f777784227d4bd13a8f2ef51277323a1",
+          "size": [
+            1080,
+            1456
+          ],
+          "mode": "RGBA",
+          "has_alpha": true,
+          "status": "approved",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Keqing expressing annoyance, using only the supplied approved neutral as image reference. Preserve identity, face, skin tone, hair, eyes, costume, accessories, colors and rendering. Preserve her petite Medium Female proportions, hair ornaments and outfit. Show distinct expressive acting with a genuinely varied pose: a small frown and drawn brows, weight shifted to one side, one hand resting at the waist. Keep normal pupils. Simple, readable hands near the torso; each visible hand has one anatomically correct thumb and four fingers connected to one palm and wrist. Do not force hidden digits into view. Exactly two legs and feet with an uncomplicated stance. Keep the entire silhouette including hair, headwear, accessories, hands and shoes visible, roughly 2–4% top and bottom padding, without lengthening the body. True transparent background. No scenery, text, UI, weapons, companions, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/references/Keqing/neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a19670-0586-7a72-bb94-26f3777d6c7a/exec-f09f7b3a-6885-4a15-8b48-c17ddfbe4619.png",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/raw/Keqing/annoyance.png",
+          "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/sprites/Keqing/annoyance.png",
+          "prompt_file": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/prompts/Keqing/annoyance.txt",
+          "approval": "All others approved."
+        },
+        "smug": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/sprites/Keqing/smug.png",
+          "sha256": "e58a669c8e9c87bc006c71aec8fc375264214f2bfd960cb6c3cd752530b7f89c",
+          "size": [
+            1080,
+            1456
+          ],
+          "mode": "RGBA",
+          "has_alpha": true,
+          "status": "approved",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Keqing expressing smug, using only the supplied approved neutral as image reference. Preserve identity, face, skin tone, hair, eyes, costume, accessories, colors and rendering. Preserve her petite Medium Female proportions, hair ornaments and outfit. Show distinct expressive acting with a genuinely varied pose: a knowing smile, slightly lifted chin, one hand at the hip and the other near the chest. Keep normal pupils. Simple, readable hands near the torso; each visible hand has one anatomically correct thumb and four fingers connected to one palm and wrist. Do not force hidden digits into view. Exactly two legs and feet with an uncomplicated stance. Keep the entire silhouette including hair, headwear, accessories, hands and shoes visible, roughly 2–4% top and bottom padding, without lengthening the body. True transparent background. No scenery, text, UI, weapons, companions, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/references/Keqing/neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a19670-0586-7a72-bb94-26f3777d6c7a/exec-c775ebe3-8f3c-479d-9c75-b263b05ccab0.png",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/raw/Keqing/smug.png",
+          "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/sprites/Keqing/smug.png",
+          "prompt_file": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/prompts/Keqing/smug.txt",
+          "approval": "All others approved."
+        },
+        "confusion": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/sprites/Keqing/confusion.png",
+          "sha256": "b8e697d7578d9df55e9754e80b693c20fa2ea2cd2bc6d1e87e450f29be939a40",
+          "size": [
+            1080,
+            1456
+          ],
+          "mode": "RGBA",
+          "has_alpha": true,
+          "status": "approved",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Keqing expressing confusion, using only the supplied approved neutral as image reference. Preserve identity, face, skin tone, hair, eyes, costume, accessories, colors and rendering. Preserve her petite Medium Female proportions, hair ornaments and outfit. Show distinct expressive acting with a genuinely varied pose: puzzled brows and a head tilt, one hand turned gently upward near the waist. Keep normal pupils. Simple, readable hands near the torso; each visible hand has one anatomically correct thumb and four fingers connected to one palm and wrist. Do not force hidden digits into view. Exactly two legs and feet with an uncomplicated stance. Keep the entire silhouette including hair, headwear, accessories, hands and shoes visible, roughly 2–4% top and bottom padding, without lengthening the body. True transparent background. No scenery, text, UI, weapons, companions, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/references/Keqing/neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a19670-0586-7a72-bb94-26f3777d6c7a/exec-0a3ebebc-599e-43a1-972d-e3446efd9435.png",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/raw/Keqing/confusion.png",
+          "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/sprites/Keqing/confusion.png",
+          "prompt_file": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/prompts/Keqing/confusion.txt",
+          "approval": "All others approved."
+        },
+        "love": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/sprites/Keqing/love.png",
+          "sha256": "483efd57cb23237f9f6c4873c7d051577deee7a592be0b93278894eeb931c864",
+          "size": [
+            1080,
+            1456
+          ],
+          "mode": "RGBA",
+          "has_alpha": true,
+          "status": "approved",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Keqing expressing love, using only the supplied approved neutral as image reference. Preserve identity, face, skin tone, hair, eyes, costume, accessories, colors and rendering. Preserve her petite Medium Female proportions, hair ornaments and outfit. Show distinct expressive acting with a genuinely varied pose: an openly joyful affectionate smile, raised brows, a gentle turn of the shoulders and one hand near the heart. Keep normal pupils. Simple, readable hands near the torso; each visible hand has one anatomically correct thumb and four fingers connected to one palm and wrist. Do not force hidden digits into view. Exactly two legs and feet with an uncomplicated stance. Keep the entire silhouette including hair, headwear, accessories, hands and shoes visible, roughly 2–4% top and bottom padding, without lengthening the body. True transparent background. No scenery, text, UI, weapons, companions, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/references/Keqing/neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a19670-0586-7a72-bb94-26f3777d6c7a/exec-ce543904-70c4-49fb-8f5d-81d503bffb6f.png",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/raw/Keqing/love.png",
+          "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/sprites/Keqing/love.png",
+          "prompt_file": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/prompts/Keqing/love.txt",
+          "approval": "All others approved."
+        },
+        "excitement": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/sprites/Keqing/excitement.png",
+          "sha256": "c30ed34483c98a4fe789378daea59cbfd95de19a552ca691a9808452cdd80b66",
+          "size": [
+            1080,
+            1456
+          ],
+          "mode": "RGBA",
+          "has_alpha": true,
+          "status": "approved",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Keqing expressing excitement, using only the supplied approved neutral as image reference. Preserve identity, face, skin tone, hair, eyes, costume, accessories, colors and rendering. Preserve her petite Medium Female proportions, hair ornaments and outfit. Show distinct expressive acting with a genuinely varied pose: a bright delighted smile and lively posture, one arm raised in celebration. Keep normal pupils. Simple, readable hands near the torso; each visible hand has one anatomically correct thumb and four fingers connected to one palm and wrist. Do not force hidden digits into view. Exactly two legs and feet with an uncomplicated stance. Keep the entire silhouette including hair, headwear, accessories, hands and shoes visible, roughly 2–4% top and bottom padding, without lengthening the body. True transparent background. No scenery, text, UI, weapons, companions, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/references/Keqing/neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a19670-0586-7a72-bb94-26f3777d6c7a/exec-bbbcab19-b41e-4fd8-8ffb-b9f91bb745d7.png",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/raw/Keqing/excitement.png",
+          "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/sprites/Keqing/excitement.png",
+          "prompt_file": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/prompts/Keqing/excitement.txt",
+          "approval": "All others approved."
+        },
+        "joy": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/sprites/Keqing/joy.png",
+          "sha256": "7c8f5cd4ebea92e9628e88926b2f5c48713f33674c8f12f0db9919b28ad23d77",
+          "size": [
+            1080,
+            1456
+          ],
+          "mode": "RGBA",
+          "has_alpha": true,
+          "status": "approved",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Keqing expressing joy, using only the supplied approved neutral as image reference. Preserve identity, face, skin tone, hair, eyes, costume, accessories, colors and rendering. Preserve her petite Medium Female proportions, hair ornaments and outfit. Show distinct expressive acting with a genuinely varied pose: a warm open smile, light sideways lean and one arm lifted in a friendly wave. Keep normal pupils. Simple, readable hands near the torso; each visible hand has one anatomically correct thumb and four fingers connected to one palm and wrist. Do not force hidden digits into view. Exactly two legs and feet with an uncomplicated stance. Keep the entire silhouette including hair, headwear, accessories, hands and shoes visible, roughly 2–4% top and bottom padding, without lengthening the body. True transparent background. No scenery, text, UI, weapons, companions, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/references/Keqing/neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a19670-0586-7a72-bb94-26f3777d6c7a/exec-1a15850d-87df-4cba-9cd6-3ca638a6e49d.png",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/raw/Keqing/joy.png",
+          "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/sprites/Keqing/joy.png",
+          "prompt_file": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/prompts/Keqing/joy.txt",
+          "approval": "All others approved."
+        },
+        "fear": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/sprites/Keqing/fear.png",
+          "sha256": "186e0e04cafd969846de6dea72225f34b72e053934dc08df179102a3b6a652ad",
+          "size": [
+            1080,
+            1456
+          ],
+          "mode": "RGBA",
+          "has_alpha": true,
+          "status": "approved",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Keqing expressing fear, using only the supplied approved neutral as image reference. Preserve identity, face, skin tone, hair, eyes, costume, accessories, colors and rendering. Preserve her petite Medium Female proportions, hair ornaments and outfit. Show distinct expressive acting with a genuinely varied pose: wide worried eyes, a cautious backward lean and one hand near the chest. Keep normal pupils. Simple, readable hands near the torso; each visible hand has one anatomically correct thumb and four fingers connected to one palm and wrist. Do not force hidden digits into view. Exactly two legs and feet with an uncomplicated stance. Keep the entire silhouette including hair, headwear, accessories, hands and shoes visible, roughly 2–4% top and bottom padding, without lengthening the body. True transparent background. No scenery, text, UI, weapons, companions, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/references/Keqing/neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a19670-0586-7a72-bb94-26f3777d6c7a/exec-8dce590a-0977-460b-b46a-fee45326e088.png",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/raw/Keqing/fear.png",
+          "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/sprites/Keqing/fear.png",
+          "prompt_file": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/prompts/Keqing/fear.txt",
+          "approval": "All others approved."
+        },
+        "pride": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/sprites/Keqing/pride.png",
+          "sha256": "033930cb3c8e0d6f56fe7430d3aeb96766cf4e8d39e669dd1f34da57581c19a3",
+          "size": [
+            1080,
+            1456
+          ],
+          "mode": "RGBA",
+          "has_alpha": true,
+          "status": "approved",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Keqing expressing pride, using only the supplied approved neutral as image reference. Preserve identity, face, skin tone, hair, eyes, costume, accessories, colors and rendering. Preserve her petite Medium Female proportions, hair ornaments and outfit. Show distinct expressive acting with a genuinely varied pose: a proud smile and upright confident posture, one hand resting at the waist. Keep normal pupils. Simple, readable hands near the torso; each visible hand has one anatomically correct thumb and four fingers connected to one palm and wrist. Do not force hidden digits into view. Exactly two legs and feet with an uncomplicated stance. Keep the entire silhouette including hair, headwear, accessories, hands and shoes visible, roughly 2–4% top and bottom padding, without lengthening the body. True transparent background. No scenery, text, UI, weapons, companions, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/references/Keqing/neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a19670-0586-7a72-bb94-26f3777d6c7a/exec-0191d27f-17d8-4626-99dd-f1bdfcc5b009.png",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/raw/Keqing/pride.png",
+          "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/sprites/Keqing/pride.png",
+          "prompt_file": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/prompts/Keqing/pride.txt",
+          "approval": "All others approved."
+        },
+        "desire": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/sprites/Keqing/desire.png",
+          "sha256": "b28d5101fccf8dfd27c99beae343ab38893477b1e3b541e4afc8f99d3f809124",
+          "size": [
+            1080,
+            1456
+          ],
+          "mode": "RGBA",
+          "has_alpha": true,
+          "status": "approved",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Keqing expressing desire, using only the supplied approved neutral as image reference. Preserve identity, face, skin tone, hair, eyes, costume, accessories, colors and rendering. Preserve her petite Medium Female proportions, hair ornaments and outfit. Show distinct expressive acting with a genuinely varied pose: openly yearning affection, flushed cheeks, parted lips, raised inner brows and intent hopeful gaze, a slight forward lean, one hand near the heart and the other relaxed; tasteful and fully clothed. Keep normal pupils. Simple, readable hands near the torso; each visible hand has one anatomically correct thumb and four fingers connected to one palm and wrist. Do not force hidden digits into view. Exactly two legs and feet with an uncomplicated stance. Keep the entire silhouette including hair, headwear, accessories, hands and shoes visible, roughly 2–4% top and bottom padding, without lengthening the body. True transparent background. No scenery, text, UI, weapons, companions, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/references/Keqing/neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a19670-0586-7a72-bb94-26f3777d6c7a/exec-9e81277a-b7f7-4b18-859c-4fac8aa27b99.png",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/raw/Keqing/desire.png",
+          "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/sprites/Keqing/desire.png",
+          "prompt_file": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/prompts/Keqing/desire.txt",
+          "approval": "All others approved."
+        },
+        "anger": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/sprites/Keqing/anger.png",
+          "sha256": "4b184718358a965732e2805ee1d2ac368c5227c96b960b9a8a3b4fee63e68e09",
+          "size": [
+            1080,
+            1456
+          ],
+          "mode": "RGBA",
+          "has_alpha": true,
+          "status": "approved",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Keqing expressing anger, using only the supplied approved neutral as image reference. Preserve identity, face, skin tone, hair, eyes, costume, accessories, colors and rendering. Preserve her petite Medium Female proportions, hair ornaments and outfit. Show distinct expressive acting with a genuinely varied pose: firm brows and determined frown, feet planted apart and arms bent decisively at the sides. Keep normal pupils. Simple, readable hands near the torso; each visible hand has one anatomically correct thumb and four fingers connected to one palm and wrist. Do not force hidden digits into view. Exactly two legs and feet with an uncomplicated stance. Keep the entire silhouette including hair, headwear, accessories, hands and shoes visible, roughly 2–4% top and bottom padding, without lengthening the body. True transparent background. No scenery, text, UI, weapons, companions, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/references/Keqing/neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a19670-0586-7a72-bb94-26f3777d6c7a/exec-b15b7fe4-a983-404b-97aa-5311c0e46c4a.png",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/raw/Keqing/anger.png",
+          "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/sprites/Keqing/anger.png",
+          "prompt_file": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/prompts/Keqing/anger.txt",
+          "prior_attempt": {
+            "status": "missing",
+            "reason": "image service rejected output (request 358a165d-ca13-469c-8eea-5ac2516a4736)"
+          },
+          "approval": "All others approved."
+        },
+        "grief": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/sprites/Keqing/grief.png",
+          "sha256": "8d88bf015340c3dcfe1516fa88405ac2c9c06f4a3f19fb0767ff4aa7256fa630",
+          "size": [
+            1080,
+            1456
+          ],
+          "mode": "RGBA",
+          "has_alpha": true,
+          "status": "approved",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Keqing expressing grief, using only the supplied approved neutral as image reference. Preserve identity, face, skin tone, hair, eyes, costume, accessories, colors and rendering. Preserve her petite Medium Female proportions, hair ornaments and outfit. Show distinct expressive acting with a genuinely varied pose: sorrowful brows, lowered head and shoulders, arms resting close to the body. Keep normal pupils. Simple, readable hands near the torso; each visible hand has one anatomically correct thumb and four fingers connected to one palm and wrist. Do not force hidden digits into view. Exactly two legs and feet with an uncomplicated stance. Keep the entire silhouette including hair, headwear, accessories, hands and shoes visible, roughly 2–4% top and bottom padding, without lengthening the body. True transparent background. No scenery, text, UI, weapons, companions, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/references/Keqing/neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a19670-0586-7a72-bb94-26f3777d6c7a/exec-216efefd-bf68-44b8-a8bc-91a7d2111f03.png",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/raw/Keqing/grief.png",
+          "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/sprites/Keqing/grief.png",
+          "prompt_file": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/prompts/Keqing/grief.txt",
+          "approval": "All others approved."
+        },
+        "sadness": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/sprites/Keqing/sadness.png",
+          "sha256": "fbdbf4a91e23250d217ae248afa07274204ed98d534b1c24f182d755250c123e",
+          "size": [
+            1080,
+            1456
+          ],
+          "mode": "RGBA",
+          "has_alpha": true,
+          "status": "approved",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Keqing expressing sadness, using only the supplied approved neutral as image reference. Preserve identity, face, skin tone, hair, eyes, costume, accessories, colors and rendering. Preserve her petite Medium Female proportions, hair ornaments and outfit. Show distinct expressive acting with a genuinely varied pose: subdued frown and lowered eyes, a gentle head tilt, hands resting separately. Keep normal pupils. Simple, readable hands near the torso; each visible hand has one anatomically correct thumb and four fingers connected to one palm and wrist. Do not force hidden digits into view. Exactly two legs and feet with an uncomplicated stance. Keep the entire silhouette including hair, headwear, accessories, hands and shoes visible, roughly 2–4% top and bottom padding, without lengthening the body. True transparent background. No scenery, text, UI, weapons, companions, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/references/Keqing/neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a19670-0586-7a72-bb94-26f3777d6c7a/exec-43daaf9c-2258-4fa7-bfc9-611182ef44aa.png",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/raw/Keqing/sadness.png",
+          "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/sprites/Keqing/sadness.png",
+          "prompt_file": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/prompts/Keqing/sadness.txt",
+          "approval": "All others approved."
+        },
+        "disgust": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/sprites/Keqing/disgust.png",
+          "sha256": "3839c23c74246cbab7dee7c7cc41331964aa0b6d526c8f9a45094da3c218c382",
+          "size": [
+            1080,
+            1456
+          ],
+          "mode": "RGBA",
+          "has_alpha": true,
+          "status": "approved",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Keqing expressing disgust, using only the supplied approved neutral as image reference. Preserve identity, face, skin tone, hair, eyes, costume, accessories, colors and rendering. Preserve her petite Medium Female proportions, hair ornaments and outfit. Show distinct expressive acting with a genuinely varied pose: a restrained nose scrunch and small closed displeased mouth, slight backward lean. Keep normal pupils. Simple, readable hands near the torso; each visible hand has one anatomically correct thumb and four fingers connected to one palm and wrist. Do not force hidden digits into view. Exactly two legs and feet with an uncomplicated stance. Keep the entire silhouette including hair, headwear, accessories, hands and shoes visible, roughly 2–4% top and bottom padding, without lengthening the body. True transparent background. No scenery, text, UI, weapons, companions, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/references/Keqing/neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a19670-0586-7a72-bb94-26f3777d6c7a/exec-208b571e-df03-497c-9199-4c1f2add5672.png",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/raw/Keqing/disgust.png",
+          "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/sprites/Keqing/disgust.png",
+          "prompt_file": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/prompts/Keqing/disgust.txt",
+          "approval": "All others approved."
+        },
+        "disappointment": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/sprites/Keqing/disappointment.png",
+          "sha256": "7d1e1bed825e93a9c46163986de139e573525f4d0f86c0e46840156052ffdf2f",
+          "size": [
+            1080,
+            1456
+          ],
+          "mode": "RGBA",
+          "has_alpha": true,
+          "status": "approved",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Keqing expressing disappointment, using only the supplied approved neutral as image reference. Preserve identity, face, skin tone, hair, eyes, costume, accessories, colors and rendering. Preserve her petite Medium Female proportions, hair ornaments and outfit. Show distinct expressive acting with a genuinely varied pose: downturned mouth and lowered shoulders, one hand open beside the body. Keep normal pupils. Simple, readable hands near the torso; each visible hand has one anatomically correct thumb and four fingers connected to one palm and wrist. Do not force hidden digits into view. Exactly two legs and feet with an uncomplicated stance. Keep the entire silhouette including hair, headwear, accessories, hands and shoes visible, roughly 2–4% top and bottom padding, without lengthening the body. True transparent background. No scenery, text, UI, weapons, companions, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/references/Keqing/neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a19670-0586-7a72-bb94-26f3777d6c7a/exec-54bc8f51-55ce-461b-bb61-6ed21de0f09e.png",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/raw/Keqing/disappointment.png",
+          "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/sprites/Keqing/disappointment.png",
+          "prompt_file": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/prompts/Keqing/disappointment.txt",
+          "approval": "All others approved."
+        },
+        "relief": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/sprites/Keqing/relief.png",
+          "sha256": "81abe7437eb6f29c1e5650aae37233a796cd52ef7ad149d80534c1c54fb1f124",
+          "size": [
+            1080,
+            1456
+          ],
+          "mode": "RGBA",
+          "has_alpha": true,
+          "status": "approved",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Keqing expressing relief, using only the supplied approved neutral as image reference. Preserve identity, face, skin tone, hair, eyes, costume, accessories, colors and rendering. Preserve her petite Medium Female proportions, hair ornaments and outfit. Show distinct expressive acting with a genuinely varied pose: relieved smile and relaxed shoulders, one hand over the chest and the other at the side. Keep normal pupils. Simple, readable hands near the torso; each visible hand has one anatomically correct thumb and four fingers connected to one palm and wrist. Do not force hidden digits into view. Exactly two legs and feet with an uncomplicated stance. Keep the entire silhouette including hair, headwear, accessories, hands and shoes visible, roughly 2–4% top and bottom padding, without lengthening the body. True transparent background. No scenery, text, UI, weapons, companions, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/references/Keqing/neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a19670-0586-7a72-bb94-26f3777d6c7a/exec-949883bf-407a-46d9-b8f0-954f55081a93.png",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/raw/Keqing/relief.png",
+          "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/sprites/Keqing/relief.png",
+          "prompt_file": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/prompts/Keqing/relief.txt",
+          "prior_attempt": {
+            "status": "missing",
+            "reason": "image generation usage limit reached"
+          },
+          "approval": "All others approved."
+        },
+        "admiration": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/sprites/Keqing/admiration.png",
+          "sha256": "52037f3c68e10df15f44b792adde18998166fc9deec1dc0831f5f3e3e19eff1d",
+          "size": [
+            1080,
+            1456
+          ],
+          "mode": "RGBA",
+          "has_alpha": true,
+          "status": "approved",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Keqing expressing admiration, using only the supplied approved neutral as image reference. Preserve identity, face, skin tone, hair, eyes, costume, accessories, colors and rendering. Preserve her petite Medium Female proportions, hair ornaments and outfit. Show distinct expressive acting with a genuinely varied pose: bright attentive eyes, impressed smile, head slightly raised and one hand near the cheek. Keep normal pupils. Simple, readable hands near the torso; each visible hand has one anatomically correct thumb and four fingers connected to one palm and wrist. Do not force hidden digits into view. Exactly two legs and feet with an uncomplicated stance. Keep the entire silhouette including hair, headwear, accessories, hands and shoes visible, roughly 2–4% top and bottom padding, without lengthening the body. True transparent background. No scenery, text, UI, weapons, companions, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/references/Keqing/neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a19670-0586-7a72-bb94-26f3777d6c7a/exec-00392908-1eb9-4e47-b5d6-3321956d190e.png",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/raw/Keqing/admiration.png",
+          "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/sprites/Keqing/admiration.png",
+          "prompt_file": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/prompts/Keqing/admiration.txt",
+          "prior_attempt": {
+            "status": "missing",
+            "reason": "image generation usage limit reached"
+          },
+          "approval": "All others approved."
+        },
+        "gratitude": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/sprites/Keqing/gratitude.png",
+          "sha256": "7691c308088aba4192cf01f59f131ea54e5a527f049d76c89dfe402d48342910",
+          "size": [
+            1080,
+            1456
+          ],
+          "mode": "RGBA",
+          "has_alpha": true,
+          "status": "approved",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Keqing expressing gratitude, using only the supplied approved neutral as image reference. Preserve identity, face, skin tone, hair, eyes, costume, accessories, colors and rendering. Preserve her petite Medium Female proportions, hair ornaments and outfit. Show distinct expressive acting with a genuinely varied pose: a sincere smile, a gentle appreciative bow and one hand over the heart. Keep normal pupils. Simple, readable hands near the torso; each visible hand has one anatomically correct thumb and four fingers connected to one palm and wrist. Do not force hidden digits into view. Exactly two legs and feet with an uncomplicated stance. Keep the entire silhouette including hair, headwear, accessories, hands and shoes visible, roughly 2–4% top and bottom padding, without lengthening the body. True transparent background. No scenery, text, UI, weapons, companions, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/references/Keqing/neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a19670-0586-7a72-bb94-26f3777d6c7a/exec-d6882a36-d7ca-463b-a2f5-6b5d49691718.png",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/raw/Keqing/gratitude.png",
+          "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/sprites/Keqing/gratitude.png",
+          "prompt_file": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/prompts/Keqing/gratitude.txt",
+          "prior_attempt": {
+            "status": "missing",
+            "reason": "image generation usage limit reached"
+          },
+          "approval": "All others approved."
+        },
+        "embarrassment": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/sprites/Keqing/embarrassment.png",
+          "sha256": "c68d105f06cfa1f8482e85f3553e910f13dba3bc7a2763ab9c7da45df440530e",
+          "size": [
+            1080,
+            1456
+          ],
+          "mode": "RGBA",
+          "has_alpha": true,
+          "status": "approved",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Keqing expressing embarrassment, using only the supplied approved neutral as image reference. Preserve identity, face, skin tone, hair, eyes, costume, accessories, colors and rendering. Preserve her petite Medium Female proportions, hair ornaments and outfit. Show distinct expressive acting with a genuinely varied pose: flushed cheeks, bashful smile and averted gaze, one hand near the cheek. Keep normal pupils. Simple, readable hands near the torso; each visible hand has one anatomically correct thumb and four fingers connected to one palm and wrist. Do not force hidden digits into view. Exactly two legs and feet with an uncomplicated stance. Keep the entire silhouette including hair, headwear, accessories, hands and shoes visible, roughly 2–4% top and bottom padding, without lengthening the body. True transparent background. No scenery, text, UI, weapons, companions, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/references/Keqing/neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a19670-0586-7a72-bb94-26f3777d6c7a/exec-beea3697-54d6-476d-9988-ae48f146f0ba.png",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/raw/Keqing/embarrassment.png",
+          "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/sprites/Keqing/embarrassment.png",
+          "prompt_file": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/prompts/Keqing/embarrassment.txt",
+          "prior_attempt": {
+            "status": "missing",
+            "reason": "image generation usage limit reached"
+          },
+          "approval": "All others approved."
+        },
+        "caring": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/sprites/Keqing/caring.png",
+          "sha256": "9d8655cb8b5442f0c1e934031708adfa37d43013762d80caee61490e09397335",
+          "size": [
+            1080,
+            1456
+          ],
+          "mode": "RGBA",
+          "has_alpha": true,
+          "status": "approved",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Keqing expressing caring, using only the supplied approved neutral as image reference. Preserve identity, face, skin tone, hair, eyes, costume, accessories, colors and rendering. Preserve her petite Medium Female proportions, hair ornaments and outfit. Show distinct expressive acting with a genuinely varied pose: gentle concerned eyes and a reassuring smile, body angled kindly, one open hand near the chest. Keep normal pupils. Simple, readable hands near the torso; each visible hand has one anatomically correct thumb and four fingers connected to one palm and wrist. Do not force hidden digits into view. Exactly two legs and feet with an uncomplicated stance. Keep the entire silhouette including hair, headwear, accessories, hands and shoes visible, roughly 2–4% top and bottom padding, without lengthening the body. True transparent background. No scenery, text, UI, weapons, companions, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/references/Keqing/neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a19670-0586-7a72-bb94-26f3777d6c7a/exec-4499972c-f5f0-4ecf-8489-e7c363681a64.png",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/raw/Keqing/caring.png",
+          "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/sprites/Keqing/caring.png",
+          "prompt_file": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/prompts/Keqing/caring.txt",
+          "prior_attempt": {
+            "status": "missing",
+            "reason": "image generation usage limit reached"
+          },
+          "approval": "All others approved."
+        },
+        "love-1": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/sprites/Keqing/love-1.png",
+          "sha256": "b70f073c27cc7d80db186e741264cdde9a31e3808bcba8650b1dda76aef41640",
+          "size": [
+            1080,
+            1456
+          ],
+          "mode": "RGBA",
+          "has_alpha": true,
+          "status": "approved",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Keqing expressing love-1, using only the supplied approved neutral as image reference. Preserve identity, face, skin tone, hair, eyes, costume, accessories, colors and rendering. Preserve her petite Medium Female proportions, hair ornaments and outfit. Show distinct expressive acting with a genuinely varied pose: an openly joyful affectionate smile, raised brows, gentle sideways lean and one hand near the heart. Both eyes visibly open; retain original iris colors, outlines, shading and a visible colored border, with one solid pale rose-violet heart-shaped pupil centered in each iris. Hearts are pupils, not highlights or floating symbols. Simple, readable hands near the torso; each visible hand has one anatomically correct thumb and four fingers connected to one palm and wrist. Do not force hidden digits into view. Exactly two legs and feet with an uncomplicated stance. Keep the entire silhouette including hair, headwear, accessories, hands and shoes visible, roughly 2–4% top and bottom padding, without lengthening the body. True transparent background. No scenery, text, UI, weapons, companions, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/references/Keqing/neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a19670-0586-7a72-bb94-26f3777d6c7a/exec-28aa8f42-ec80-46c9-940d-61f812947f3a.png",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/raw/Keqing/love-1.png",
+          "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/sprites/Keqing/love-1.png",
+          "prompt_file": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/prompts/Keqing/love-1.txt",
+          "prior_attempt": {
+            "status": "missing",
+            "reason": "image generation usage limit reached"
+          },
+          "approval": "All others approved."
+        },
+        "desire-1": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/sprites/Keqing/desire-1.png",
+          "sha256": "5a81f7b26fd5153e13d4c4e3e9fb9d15f65fc6c9c9710f5bad66116dd7dd3eee",
+          "size": [
+            1080,
+            1456
+          ],
+          "mode": "RGBA",
+          "has_alpha": true,
+          "status": "approved",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Keqing expressing desire-1, using only the supplied approved neutral as image reference. Preserve identity, face, skin tone, hair, eyes, costume, accessories, colors and rendering. Preserve her petite Medium Female proportions, hair ornaments and outfit. Show distinct expressive acting with a genuinely varied pose: openly yearning affection, flushed cheeks, parted lips, raised inner brows and intent hopeful gaze, a slight forward lean, one hand near the heart and the other relaxed; tasteful and fully clothed. Both eyes visibly open; retain original iris colors, outlines, shading and a visible colored border, with one solid pale rose-violet heart-shaped pupil centered in each iris. Hearts are pupils, not highlights or floating symbols. Simple, readable hands near the torso; each visible hand has one anatomically correct thumb and four fingers connected to one palm and wrist. Do not force hidden digits into view. Exactly two legs and feet with an uncomplicated stance. Keep the entire silhouette including hair, headwear, accessories, hands and shoes visible, roughly 2–4% top and bottom padding, without lengthening the body. True transparent background. No scenery, text, UI, weapons, companions, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/references/Keqing/neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a19670-0586-7a72-bb94-26f3777d6c7a/exec-f008bb64-c5f1-4bf2-a44c-27ee868b28a1.png",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/raw/Keqing/desire-1.png",
+          "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/sprites/Keqing/desire-1.png",
+          "prompt_file": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/prompts/Keqing/desire-1.txt",
+          "prior_attempt": {
+            "status": "missing",
+            "reason": "image generation usage limit reached"
+          },
+          "approval": "All others approved."
+        }
+      }
+    },
+    "Shenhe": {
+      "neutral_source": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Shenhe/neutral.png",
+      "reference": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/references/Shenhe/neutral.png",
+      "sha256": "27c6ba868c29cd49abb2e2c0709d2d8fa64d2c8b5cc062dfdeab9e7e83c67004",
+      "approval": {
+        "status": "approved",
+        "message": "All others are ACCEPTED.",
+        "date": "2026-10-30",
+        "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Shenhe/neutral-v001.png",
+        "candidate_sha256": "27c6ba868c29cd49abb2e2c0709d2d8fa64d2c8b5cc062dfdeab9e7e83c67004"
+      },
+      "expressions": {
+        "neutral": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/sprites/Shenhe/neutral.png",
+          "sha256": "27c6ba868c29cd49abb2e2c0709d2d8fa64d2c8b5cc062dfdeab9e7e83c67004",
+          "size": [
+            1017,
+            1546
+          ],
+          "mode": "RGBA",
+          "has_alpha": true,
+          "status": "approved",
+          "approval": "All others approved."
+        },
+        "annoyance": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/sprites/Shenhe/annoyance.png",
+          "sha256": "95feb8aa5c4f67ad7a3b11b1f78bc3346c291636abe7e8facb4aa62699614dbb",
+          "size": [
+            1017,
+            1546
+          ],
+          "mode": "RGBA",
+          "has_alpha": true,
+          "status": "approved",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Shenhe expressing annoyance, using the approved neutral as the identity, costume, proportion and rendering reference, and the supplied in-game image as an additional hair behavior reference. Let her long braid and hair hang naturally downward with the pose, guided by the in-game model, instead of perpetually streaming sideways in wind. Preserve identity, face, skin tone, hair, eyes, costume, accessories, colors and rendering. Preserve her Tall Female proportions, long braid and outfit. Show distinct expressive acting with a genuinely varied pose: a small frown and drawn brows, weight shifted to one side, one hand resting at the waist. Keep normal pupils. Simple, readable hands near the torso; each visible hand has one anatomically correct thumb and four fingers connected to one palm and wrist. Do not force hidden digits into view. Exactly two legs and feet with an uncomplicated stance. Keep the entire silhouette including hair, headwear, accessories, hands and shoes visible, roughly 2–4% top and bottom padding, without lengthening the body. True transparent background. No scenery, text, UI, weapons, companions, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/references/Shenhe/neutral.png",
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/references/Shenhe/in-game.png"
+            ],
+            "transparent_background": true
+          },
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a19670-0586-7a72-bb94-26f3777d6c7a/exec-8a5dc540-7a2d-4c7b-9ad8-29ac41eec6d7.png",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/raw/Shenhe/annoyance.png",
+          "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/sprites/Shenhe/annoyance.png",
+          "prompt_file": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/prompts/Shenhe/annoyance.txt",
+          "approval": "All others approved."
+        },
+        "smug": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/sprites/Shenhe/smug.png",
+          "sha256": "3febc3dbb1ad0c93645953c1923912bf73d8880b0fc52ea22213caf5567d115b",
+          "size": [
+            1017,
+            1546
+          ],
+          "mode": "RGBA",
+          "has_alpha": true,
+          "status": "approved",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Shenhe expressing smug, using the approved neutral as the identity, costume, proportion and rendering reference, and the supplied in-game image as an additional hair behavior reference. Let her long braid and hair hang naturally downward with the pose, guided by the in-game model, instead of perpetually streaming sideways in wind. Preserve identity, face, skin tone, hair, eyes, costume, accessories, colors and rendering. Preserve her Tall Female proportions, long braid and outfit. Show distinct expressive acting with a genuinely varied pose: a knowing smile, slightly lifted chin, one hand at the hip and the other near the chest. Keep normal pupils. Simple, readable hands near the torso; each visible hand has one anatomically correct thumb and four fingers connected to one palm and wrist. Do not force hidden digits into view. Exactly two legs and feet with an uncomplicated stance. Keep the entire silhouette including hair, headwear, accessories, hands and shoes visible, roughly 2–4% top and bottom padding, without lengthening the body. True transparent background. No scenery, text, UI, weapons, companions, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/references/Shenhe/neutral.png",
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/references/Shenhe/in-game.png"
+            ],
+            "transparent_background": true
+          },
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a19670-0586-7a72-bb94-26f3777d6c7a/exec-4cb73352-93e1-4eb5-b61f-2ad10c208bb4.png",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/raw/Shenhe/smug.png",
+          "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/sprites/Shenhe/smug.png",
+          "prompt_file": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/prompts/Shenhe/smug.txt",
+          "approval": "All others approved."
+        },
+        "confusion": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/sprites/Shenhe/confusion.png",
+          "sha256": "e9fe41ddb3d8cb12bdcdf41d554b5c1836b72190c6fea4ed3a389f2cd89ee652",
+          "size": [
+            1016,
+            1547
+          ],
+          "mode": "RGBA",
+          "has_alpha": true,
+          "status": "approved",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Shenhe expressing confusion, using the approved neutral as the identity, costume, proportion and rendering reference, and the supplied in-game image as an additional hair behavior reference. Let her long braid and hair hang naturally downward with the pose, guided by the in-game model, instead of perpetually streaming sideways in wind. Preserve identity, face, skin tone, hair, eyes, costume, accessories, colors and rendering. Preserve her Tall Female proportions, long braid and outfit. Show distinct expressive acting with a genuinely varied pose: puzzled brows and a head tilt, one hand turned gently upward near the waist. Keep normal pupils. Simple, readable hands near the torso; each visible hand has one anatomically correct thumb and four fingers connected to one palm and wrist. Do not force hidden digits into view. Exactly two legs and feet with an uncomplicated stance. Keep the entire silhouette including hair, headwear, accessories, hands and shoes visible, roughly 2–4% top and bottom padding, without lengthening the body. True transparent background. No scenery, text, UI, weapons, companions, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/references/Shenhe/neutral.png",
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/references/Shenhe/in-game.png"
+            ],
+            "transparent_background": true
+          },
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a19670-0586-7a72-bb94-26f3777d6c7a/exec-337bc372-732a-4476-83ca-57dbe72c00d3.png",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/raw/Shenhe/confusion.png",
+          "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/sprites/Shenhe/confusion.png",
+          "prompt_file": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/prompts/Shenhe/confusion.txt",
+          "approval": "All others approved."
+        },
+        "love": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/sprites/Shenhe/love.png",
+          "sha256": "490fa1ed36caa7e339e24e5f9328f6ef1872aa4d6b5c6fcb504c60a97e7e1a85",
+          "size": [
+            1024,
+            1536
+          ],
+          "mode": "RGBA",
+          "has_alpha": true,
+          "status": "approved",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Shenhe expressing love, using the approved neutral as the identity, costume, proportion and rendering reference, and the supplied in-game image as an additional hair behavior reference. Let her long braid and hair hang naturally downward with the pose, guided by the in-game model, instead of perpetually streaming sideways in wind. Preserve identity, face, skin tone, hair, eyes, costume, accessories, colors and rendering. Preserve her Tall Female proportions, long braid and outfit. Show distinct expressive acting with a genuinely varied pose: an openly joyful affectionate smile, raised brows, a gentle turn of the shoulders and one hand near the heart. Keep normal pupils. Simple, readable hands near the torso; each visible hand has one anatomically correct thumb and four fingers connected to one palm and wrist. Do not force hidden digits into view. Exactly two legs and feet with an uncomplicated stance. Keep the entire silhouette including hair, headwear, accessories, hands and shoes visible, roughly 2–4% top and bottom padding, without lengthening the body. True transparent background. No scenery, text, UI, weapons, companions, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/references/Shenhe/neutral.png",
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/references/Shenhe/in-game.png"
+            ],
+            "transparent_background": true
+          },
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a19670-0586-7a72-bb94-26f3777d6c7a/exec-6b800de1-def8-45fa-9013-159e281fcf79.png",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/raw/Shenhe/love.png",
+          "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/sprites/Shenhe/love.png",
+          "prompt_file": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/prompts/Shenhe/love.txt",
+          "approval": "All others approved."
+        },
+        "excitement": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/sprites/Shenhe/excitement.png",
+          "sha256": "d3a3878292c30686d39aa48fbb7a1aa10d14b361c866178512d66597bd30d530",
+          "size": [
+            1017,
+            1546
+          ],
+          "mode": "RGBA",
+          "has_alpha": true,
+          "status": "approved",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Shenhe expressing excitement, using the approved neutral as the identity, costume, proportion and rendering reference, and the supplied in-game image as an additional hair behavior reference. Let her long braid and hair hang naturally downward with the pose, guided by the in-game model, instead of perpetually streaming sideways in wind. Preserve identity, face, skin tone, hair, eyes, costume, accessories, colors and rendering. Preserve her Tall Female proportions, long braid and outfit. Show distinct expressive acting with a genuinely varied pose: a bright delighted smile and lively posture, one arm raised in celebration. Keep normal pupils. Simple, readable hands near the torso; each visible hand has one anatomically correct thumb and four fingers connected to one palm and wrist. Do not force hidden digits into view. Exactly two legs and feet with an uncomplicated stance. Keep the entire silhouette including hair, headwear, accessories, hands and shoes visible, roughly 2–4% top and bottom padding, without lengthening the body. True transparent background. No scenery, text, UI, weapons, companions, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/references/Shenhe/neutral.png",
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/references/Shenhe/in-game.png"
+            ],
+            "transparent_background": true
+          },
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a19670-0586-7a72-bb94-26f3777d6c7a/exec-3feffb4d-08cf-4860-8b83-8b02a77cf17f.png",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/raw/Shenhe/excitement.png",
+          "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/sprites/Shenhe/excitement.png",
+          "prompt_file": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/prompts/Shenhe/excitement.txt",
+          "approval": "All others approved."
+        },
+        "joy": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/sprites/Shenhe/joy.png",
+          "sha256": "c3c9945a937bfb611170070a427f23fdef168eef819d3b5dfd73974a7c254a1c",
+          "size": [
+            1017,
+            1547
+          ],
+          "mode": "RGBA",
+          "has_alpha": true,
+          "status": "approved",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Shenhe expressing joy, using the approved neutral as the identity, costume, proportion and rendering reference, and the supplied in-game image as an additional hair behavior reference. Let her long braid and hair hang naturally downward with the pose, guided by the in-game model, instead of perpetually streaming sideways in wind. Preserve identity, face, skin tone, hair, eyes, costume, accessories, colors and rendering. Preserve her Tall Female proportions, long braid and outfit. Show distinct expressive acting with a genuinely varied pose: a warm open smile, light sideways lean and one arm lifted in a friendly wave. Keep normal pupils. Simple, readable hands near the torso; each visible hand has one anatomically correct thumb and four fingers connected to one palm and wrist. Do not force hidden digits into view. Exactly two legs and feet with an uncomplicated stance. Keep the entire silhouette including hair, headwear, accessories, hands and shoes visible, roughly 2–4% top and bottom padding, without lengthening the body. True transparent background. No scenery, text, UI, weapons, companions, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/references/Shenhe/neutral.png",
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/references/Shenhe/in-game.png"
+            ],
+            "transparent_background": true
+          },
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a19670-0586-7a72-bb94-26f3777d6c7a/exec-7e3e4061-f4f4-4804-a56f-e2ba03e32d38.png",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/raw/Shenhe/joy.png",
+          "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/sprites/Shenhe/joy.png",
+          "prompt_file": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/prompts/Shenhe/joy.txt",
+          "approval": "All others approved."
+        },
+        "fear": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/sprites/Shenhe/fear.png",
+          "sha256": "7575e14bb81ce4eda06d3f0471e09c7412b5dd0e6349cce153b8c4e685c894cd",
+          "size": [
+            1017,
+            1546
+          ],
+          "mode": "RGBA",
+          "has_alpha": true,
+          "status": "approved",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Shenhe expressing fear, using the approved neutral as the identity, costume, proportion and rendering reference, and the supplied in-game image as an additional hair behavior reference. Let her long braid and hair hang naturally downward with the pose, guided by the in-game model, instead of perpetually streaming sideways in wind. Preserve identity, face, skin tone, hair, eyes, costume, accessories, colors and rendering. Preserve her Tall Female proportions, long braid and outfit. Show distinct expressive acting with a genuinely varied pose: wide worried eyes, a cautious backward lean and one hand near the chest. Keep normal pupils. Simple, readable hands near the torso; each visible hand has one anatomically correct thumb and four fingers connected to one palm and wrist. Do not force hidden digits into view. Exactly two legs and feet with an uncomplicated stance. Keep the entire silhouette including hair, headwear, accessories, hands and shoes visible, roughly 2–4% top and bottom padding, without lengthening the body. True transparent background. No scenery, text, UI, weapons, companions, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/references/Shenhe/neutral.png",
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/references/Shenhe/in-game.png"
+            ],
+            "transparent_background": true
+          },
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a19670-0586-7a72-bb94-26f3777d6c7a/exec-2988acae-044f-4a25-ae7b-dcf030093a96.png",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/raw/Shenhe/fear.png",
+          "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/sprites/Shenhe/fear.png",
+          "prompt_file": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/prompts/Shenhe/fear.txt",
+          "approval": "All others approved."
+        },
+        "pride": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/sprites/Shenhe/pride.png",
+          "sha256": "47051e80ab95274d292c9266cb28f367184ddd83a30aadf2a20efa4b19bbab1e",
+          "size": [
+            1017,
+            1546
+          ],
+          "mode": "RGBA",
+          "has_alpha": true,
+          "status": "approved",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Shenhe expressing pride, using the approved neutral as the identity, costume, proportion and rendering reference, and the supplied in-game image as an additional hair behavior reference. Let her long braid and hair hang naturally downward with the pose, guided by the in-game model, instead of perpetually streaming sideways in wind. Preserve identity, face, skin tone, hair, eyes, costume, accessories, colors and rendering. Preserve her Tall Female proportions, long braid and outfit. Show distinct expressive acting with a genuinely varied pose: a proud smile and upright confident posture, one hand resting at the waist. Keep normal pupils. Simple, readable hands near the torso; each visible hand has one anatomically correct thumb and four fingers connected to one palm and wrist. Do not force hidden digits into view. Exactly two legs and feet with an uncomplicated stance. Keep the entire silhouette including hair, headwear, accessories, hands and shoes visible, roughly 2–4% top and bottom padding, without lengthening the body. True transparent background. No scenery, text, UI, weapons, companions, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/references/Shenhe/neutral.png",
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/references/Shenhe/in-game.png"
+            ],
+            "transparent_background": true
+          },
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a19670-0586-7a72-bb94-26f3777d6c7a/exec-40ac3477-e4fe-4a6e-bef3-07f623a419da.png",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/raw/Shenhe/pride.png",
+          "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/sprites/Shenhe/pride.png",
+          "prompt_file": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/prompts/Shenhe/pride.txt",
+          "approval": "All others approved."
+        },
+        "desire": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/sprites/Shenhe/desire.png",
+          "sha256": "f43cced8773b7c690f930eba2d56d938194a82a2e6c3e6f722fb1056b13c5aff",
+          "size": [
+            1017,
+            1546
+          ],
+          "mode": "RGBA",
+          "has_alpha": true,
+          "status": "approved",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Shenhe expressing desire, using the approved neutral as the identity, costume, proportion and rendering reference, and the supplied in-game image as an additional hair behavior reference. Let her long braid and hair hang naturally downward with the pose, guided by the in-game model, instead of perpetually streaming sideways in wind. Preserve identity, face, skin tone, hair, eyes, costume, accessories, colors and rendering. Preserve her Tall Female proportions, long braid and outfit. Show distinct expressive acting with a genuinely varied pose: openly yearning affection, flushed cheeks, parted lips, raised inner brows and intent hopeful gaze, a slight forward lean, one hand near the heart and the other relaxed; tasteful and fully clothed. Keep normal pupils. Simple, readable hands near the torso; each visible hand has one anatomically correct thumb and four fingers connected to one palm and wrist. Do not force hidden digits into view. Exactly two legs and feet with an uncomplicated stance. Keep the entire silhouette including hair, headwear, accessories, hands and shoes visible, roughly 2–4% top and bottom padding, without lengthening the body. True transparent background. No scenery, text, UI, weapons, companions, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/references/Shenhe/neutral.png",
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/references/Shenhe/in-game.png"
+            ],
+            "transparent_background": true
+          },
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a19670-0586-7a72-bb94-26f3777d6c7a/exec-4e34d381-0804-4d5a-afa6-a74bfd95553d.png",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/raw/Shenhe/desire.png",
+          "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/sprites/Shenhe/desire.png",
+          "prompt_file": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/prompts/Shenhe/desire.txt",
+          "approval": "All others approved."
+        },
+        "anger": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/sprites/Shenhe/anger.png",
+          "sha256": "ff450bde09366e196fdfd02791a76212d94b29380a6635bca871df5bced451c2",
+          "size": [
+            1017,
+            1546
+          ],
+          "mode": "RGBA",
+          "has_alpha": true,
+          "status": "approved",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Shenhe expressing anger, using the approved neutral as the identity, costume, proportion and rendering reference, and the supplied in-game image as an additional hair behavior reference. Let her long braid and hair hang naturally downward with the pose, guided by the in-game model, instead of perpetually streaming sideways in wind. Preserve identity, face, skin tone, hair, eyes, costume, accessories, colors and rendering. Preserve her Tall Female proportions, long braid and outfit. Show distinct expressive acting with a genuinely varied pose: firm brows and determined frown, feet planted apart and arms bent decisively at the sides. Keep normal pupils. Simple, readable hands near the torso; each visible hand has one anatomically correct thumb and four fingers connected to one palm and wrist. Do not force hidden digits into view. Exactly two legs and feet with an uncomplicated stance. Keep the entire silhouette including hair, headwear, accessories, hands and shoes visible, roughly 2–4% top and bottom padding, without lengthening the body. True transparent background. No scenery, text, UI, weapons, companions, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/references/Shenhe/neutral.png",
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/references/Shenhe/in-game.png"
+            ],
+            "transparent_background": true
+          },
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a19670-0586-7a72-bb94-26f3777d6c7a/exec-85ab771c-9797-4525-a82d-afd454f008be.png",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/raw/Shenhe/anger.png",
+          "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/sprites/Shenhe/anger.png",
+          "prompt_file": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/prompts/Shenhe/anger.txt",
+          "approval": "All others approved."
+        },
+        "grief": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/sprites/Shenhe/grief.png",
+          "sha256": "7da74250c0a5864bc33b4623aa5644e57b81b95fe30529ca8b7ce6c68ebcbe58",
+          "size": [
+            1017,
+            1546
+          ],
+          "mode": "RGBA",
+          "has_alpha": true,
+          "status": "approved",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Shenhe expressing grief, using the approved neutral as the identity, costume, proportion and rendering reference, and the supplied in-game image as an additional hair behavior reference. Let her long braid and hair hang naturally downward with the pose, guided by the in-game model, instead of perpetually streaming sideways in wind. Preserve identity, face, skin tone, hair, eyes, costume, accessories, colors and rendering. Preserve her Tall Female proportions, long braid and outfit. Show distinct expressive acting with a genuinely varied pose: sorrowful brows, lowered head and shoulders, arms resting close to the body. Keep normal pupils. Simple, readable hands near the torso; each visible hand has one anatomically correct thumb and four fingers connected to one palm and wrist. Do not force hidden digits into view. Exactly two legs and feet with an uncomplicated stance. Keep the entire silhouette including hair, headwear, accessories, hands and shoes visible, roughly 2–4% top and bottom padding, without lengthening the body. True transparent background. No scenery, text, UI, weapons, companions, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/references/Shenhe/neutral.png",
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/references/Shenhe/in-game.png"
+            ],
+            "transparent_background": true
+          },
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a19670-0586-7a72-bb94-26f3777d6c7a/exec-7d6f30c6-0bcf-4481-a4f0-a9dd0ac28cc3.png",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/raw/Shenhe/grief.png",
+          "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/sprites/Shenhe/grief.png",
+          "prompt_file": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/prompts/Shenhe/grief.txt",
+          "approval": "All others approved."
+        },
+        "sadness": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/sprites/Shenhe/sadness.png",
+          "sha256": "984ecd1b5a7378d51dd80bd85b3f199917c4f18aa301d7a43d07b3a8a051a1c4",
+          "size": [
+            1017,
+            1546
+          ],
+          "mode": "RGBA",
+          "has_alpha": true,
+          "status": "approved",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Shenhe expressing sadness, using the approved neutral as the identity, costume, proportion and rendering reference, and the supplied in-game image as an additional hair behavior reference. Let her long braid and hair hang naturally downward with the pose, guided by the in-game model, instead of perpetually streaming sideways in wind. Preserve identity, face, skin tone, hair, eyes, costume, accessories, colors and rendering. Preserve her Tall Female proportions, long braid and outfit. Show distinct expressive acting with a genuinely varied pose: subdued frown and lowered eyes, a gentle head tilt, hands resting separately. Keep normal pupils. Simple, readable hands near the torso; each visible hand has one anatomically correct thumb and four fingers connected to one palm and wrist. Do not force hidden digits into view. Exactly two legs and feet with an uncomplicated stance. Keep the entire silhouette including hair, headwear, accessories, hands and shoes visible, roughly 2–4% top and bottom padding, without lengthening the body. True transparent background. No scenery, text, UI, weapons, companions, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/references/Shenhe/neutral.png",
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/references/Shenhe/in-game.png"
+            ],
+            "transparent_background": true
+          },
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a19670-0586-7a72-bb94-26f3777d6c7a/exec-e9689806-66a9-4ee3-8725-75248bf901f3.png",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/raw/Shenhe/sadness.png",
+          "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/sprites/Shenhe/sadness.png",
+          "prompt_file": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/prompts/Shenhe/sadness.txt",
+          "approval": "All others approved."
+        },
+        "disgust": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/sprites/Shenhe/disgust.png",
+          "sha256": "28603c1e654eafaf0e83638cd0dbcbdd7671bc6251257c46077b5dd8954b1485",
+          "size": [
+            1017,
+            1546
+          ],
+          "mode": "RGBA",
+          "has_alpha": true,
+          "status": "approved",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Shenhe expressing disgust, using the approved neutral as the identity, costume, proportion and rendering reference, and the supplied in-game image as an additional hair behavior reference. Let her long braid and hair hang naturally downward with the pose, guided by the in-game model, instead of perpetually streaming sideways in wind. Preserve identity, face, skin tone, hair, eyes, costume, accessories, colors and rendering. Preserve her Tall Female proportions, long braid and outfit. Show distinct expressive acting with a genuinely varied pose: a restrained nose scrunch and small closed displeased mouth, slight backward lean. Keep normal pupils. Simple, readable hands near the torso; each visible hand has one anatomically correct thumb and four fingers connected to one palm and wrist. Do not force hidden digits into view. Exactly two legs and feet with an uncomplicated stance. Keep the entire silhouette including hair, headwear, accessories, hands and shoes visible, roughly 2–4% top and bottom padding, without lengthening the body. True transparent background. No scenery, text, UI, weapons, companions, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/references/Shenhe/neutral.png",
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/references/Shenhe/in-game.png"
+            ],
+            "transparent_background": true
+          },
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a19670-0586-7a72-bb94-26f3777d6c7a/exec-66da1ce0-0914-4b63-b5f8-55c20a4bbb36.png",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/raw/Shenhe/disgust.png",
+          "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/sprites/Shenhe/disgust.png",
+          "prompt_file": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/prompts/Shenhe/disgust.txt",
+          "approval": "All others approved."
+        },
+        "disappointment": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/sprites/Shenhe/disappointment.png",
+          "sha256": "cc08c1b7f552f36581089f29a46fcf67b73b34a54d54f52a611d96b8fc720c8b",
+          "size": [
+            1017,
+            1546
+          ],
+          "mode": "RGBA",
+          "has_alpha": true,
+          "status": "approved",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Shenhe expressing disappointment, using the approved neutral as the identity, costume, proportion and rendering reference, and the supplied in-game image as an additional hair behavior reference. Let her long braid and hair hang naturally downward with the pose, guided by the in-game model, instead of perpetually streaming sideways in wind. Preserve identity, face, skin tone, hair, eyes, costume, accessories, colors and rendering. Preserve her Tall Female proportions, long braid and outfit. Show distinct expressive acting with a genuinely varied pose: downturned mouth and lowered shoulders, one hand open beside the body. Keep normal pupils. Simple, readable hands near the torso; each visible hand has one anatomically correct thumb and four fingers connected to one palm and wrist. Do not force hidden digits into view. Exactly two legs and feet with an uncomplicated stance. Keep the entire silhouette including hair, headwear, accessories, hands and shoes visible, roughly 2–4% top and bottom padding, without lengthening the body. True transparent background. No scenery, text, UI, weapons, companions, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/references/Shenhe/neutral.png",
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/references/Shenhe/in-game.png"
+            ],
+            "transparent_background": true
+          },
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a19670-0586-7a72-bb94-26f3777d6c7a/exec-84fd3240-517b-4d66-bade-a7795fbde978.png",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/raw/Shenhe/disappointment.png",
+          "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/sprites/Shenhe/disappointment.png",
+          "prompt_file": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/prompts/Shenhe/disappointment.txt",
+          "approval": "All others approved."
+        },
+        "relief": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/sprites/Shenhe/relief.png",
+          "sha256": "1aa81b68a858aca3ae5bd39ba8d6438dda9380af8904619f717189cab9b5202e",
+          "size": [
+            1017,
+            1546
+          ],
+          "mode": "RGBA",
+          "has_alpha": true,
+          "status": "approved",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Shenhe expressing relief, using the approved neutral as the identity, costume, proportion and rendering reference, and the supplied in-game image as an additional hair behavior reference. Let her long braid and hair hang naturally downward with the pose, guided by the in-game model, instead of perpetually streaming sideways in wind. Preserve identity, face, skin tone, hair, eyes, costume, accessories, colors and rendering. Preserve her Tall Female proportions, long braid and outfit. Show distinct expressive acting with a genuinely varied pose: relieved smile and relaxed shoulders, one hand over the chest and the other at the side. Keep normal pupils. Simple, readable hands near the torso; each visible hand has one anatomically correct thumb and four fingers connected to one palm and wrist. Do not force hidden digits into view. Exactly two legs and feet with an uncomplicated stance. Keep the entire silhouette including hair, headwear, accessories, hands and shoes visible, roughly 2–4% top and bottom padding, without lengthening the body. True transparent background. No scenery, text, UI, weapons, companions, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/references/Shenhe/neutral.png",
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/references/Shenhe/in-game.png"
+            ],
+            "transparent_background": true
+          },
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a19670-0586-7a72-bb94-26f3777d6c7a/exec-99afd5c1-168d-42af-ab86-6ed07f6fec03.png",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/raw/Shenhe/relief.png",
+          "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/sprites/Shenhe/relief.png",
+          "prompt_file": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/prompts/Shenhe/relief.txt",
+          "prior_attempt": {
+            "status": "missing",
+            "reason": "image generation usage limit reached"
+          },
+          "approval": "All others approved."
+        },
+        "admiration": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/sprites/Shenhe/admiration.png",
+          "sha256": "de01984b5d36907dfec806516178199c5a767cf3fbc9982c44c5402a15da70fa",
+          "size": [
+            1017,
+            1547
+          ],
+          "mode": "RGBA",
+          "has_alpha": true,
+          "status": "approved",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Shenhe expressing admiration, using the approved neutral as the identity, costume, proportion and rendering reference, and the supplied in-game image as an additional hair behavior reference. Let her long braid and hair hang naturally downward with the pose, guided by the in-game model, instead of perpetually streaming sideways in wind. Preserve identity, face, skin tone, hair, eyes, costume, accessories, colors and rendering. Preserve her Tall Female proportions, long braid and outfit. Show distinct expressive acting with a genuinely varied pose: bright attentive eyes, impressed smile, head slightly raised and one hand near the cheek. Keep normal pupils. Simple, readable hands near the torso; each visible hand has one anatomically correct thumb and four fingers connected to one palm and wrist. Do not force hidden digits into view. Exactly two legs and feet with an uncomplicated stance. Keep the entire silhouette including hair, headwear, accessories, hands and shoes visible, roughly 2–4% top and bottom padding, without lengthening the body. True transparent background. No scenery, text, UI, weapons, companions, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/references/Shenhe/neutral.png",
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/references/Shenhe/in-game.png"
+            ],
+            "transparent_background": true
+          },
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a19670-0586-7a72-bb94-26f3777d6c7a/exec-2aca9924-d82a-4016-8a01-a77c36ad1aff.png",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/raw/Shenhe/admiration.png",
+          "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/sprites/Shenhe/admiration.png",
+          "prompt_file": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/prompts/Shenhe/admiration.txt",
+          "prior_attempt": {
+            "status": "missing",
+            "reason": "image generation usage limit reached"
+          },
+          "approval": "All others approved."
+        },
+        "gratitude": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/sprites/Shenhe/gratitude.png",
+          "sha256": "6229b322a79a38c648b813b27e621d8616d49f68a13c5ea67d5ea9d81619aa75",
+          "size": [
+            1017,
+            1546
+          ],
+          "mode": "RGBA",
+          "has_alpha": true,
+          "status": "approved",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Shenhe expressing gratitude, using the approved neutral as the identity, costume, proportion and rendering reference, and the supplied in-game image as an additional hair behavior reference. Let her long braid and hair hang naturally downward with the pose, guided by the in-game model, instead of perpetually streaming sideways in wind. Preserve identity, face, skin tone, hair, eyes, costume, accessories, colors and rendering. Preserve her Tall Female proportions, long braid and outfit. Show distinct expressive acting with a genuinely varied pose: a sincere smile, a gentle appreciative bow and one hand over the heart. Keep normal pupils. Simple, readable hands near the torso; each visible hand has one anatomically correct thumb and four fingers connected to one palm and wrist. Do not force hidden digits into view. Exactly two legs and feet with an uncomplicated stance. Keep the entire silhouette including hair, headwear, accessories, hands and shoes visible, roughly 2–4% top and bottom padding, without lengthening the body. True transparent background. No scenery, text, UI, weapons, companions, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/references/Shenhe/neutral.png",
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/references/Shenhe/in-game.png"
+            ],
+            "transparent_background": true
+          },
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a19670-0586-7a72-bb94-26f3777d6c7a/exec-2621ec5f-017e-4aa4-81ff-8195a600d4e7.png",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/raw/Shenhe/gratitude.png",
+          "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/sprites/Shenhe/gratitude.png",
+          "prompt_file": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/prompts/Shenhe/gratitude.txt",
+          "prior_attempt": {
+            "status": "missing",
+            "reason": "image generation usage limit reached"
+          },
+          "approval": "All others approved."
+        },
+        "embarrassment": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/sprites/Shenhe/embarrassment.png",
+          "sha256": "6b4f7b66acebbb92f5ace8ad32100a379780fa15d31073187cae7142d81b440c",
+          "size": [
+            1017,
+            1546
+          ],
+          "mode": "RGBA",
+          "has_alpha": true,
+          "status": "approved",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Shenhe expressing embarrassment, using the approved neutral as the identity, costume, proportion and rendering reference, and the supplied in-game image as an additional hair behavior reference. Let her long braid and hair hang naturally downward with the pose, guided by the in-game model, instead of perpetually streaming sideways in wind. Preserve identity, face, skin tone, hair, eyes, costume, accessories, colors and rendering. Preserve her Tall Female proportions, long braid and outfit. Show distinct expressive acting with a genuinely varied pose: flushed cheeks, bashful smile and averted gaze, one hand near the cheek. Keep normal pupils. Simple, readable hands near the torso; each visible hand has one anatomically correct thumb and four fingers connected to one palm and wrist. Do not force hidden digits into view. Exactly two legs and feet with an uncomplicated stance. Keep the entire silhouette including hair, headwear, accessories, hands and shoes visible, roughly 2–4% top and bottom padding, without lengthening the body. True transparent background. No scenery, text, UI, weapons, companions, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/references/Shenhe/neutral.png",
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/references/Shenhe/in-game.png"
+            ],
+            "transparent_background": true
+          },
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a19670-0586-7a72-bb94-26f3777d6c7a/exec-8afc4642-433d-42ae-8369-aa20a64ca21a.png",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/raw/Shenhe/embarrassment.png",
+          "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/sprites/Shenhe/embarrassment.png",
+          "prompt_file": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/prompts/Shenhe/embarrassment.txt",
+          "prior_attempt": {
+            "status": "missing",
+            "reason": "image generation usage limit reached"
+          },
+          "approval": "All others approved."
+        },
+        "caring": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/sprites/Shenhe/caring.png",
+          "sha256": "d753f197cd0552244f438dab965de979298196541e4ad748f9716102cc2237cf",
+          "size": [
+            1017,
+            1546
+          ],
+          "mode": "RGBA",
+          "has_alpha": true,
+          "status": "approved",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Shenhe expressing caring, using the approved neutral as the identity, costume, proportion and rendering reference, and the supplied in-game image as an additional hair behavior reference. Let her long braid and hair hang naturally downward with the pose, guided by the in-game model, instead of perpetually streaming sideways in wind. Preserve identity, face, skin tone, hair, eyes, costume, accessories, colors and rendering. Preserve her Tall Female proportions, long braid and outfit. Show distinct expressive acting with a genuinely varied pose: gentle concerned eyes and a reassuring smile, body angled kindly, one open hand near the chest. Keep normal pupils. Simple, readable hands near the torso; each visible hand has one anatomically correct thumb and four fingers connected to one palm and wrist. Do not force hidden digits into view. Exactly two legs and feet with an uncomplicated stance. Keep the entire silhouette including hair, headwear, accessories, hands and shoes visible, roughly 2–4% top and bottom padding, without lengthening the body. True transparent background. No scenery, text, UI, weapons, companions, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/references/Shenhe/neutral.png",
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/references/Shenhe/in-game.png"
+            ],
+            "transparent_background": true
+          },
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a19670-0586-7a72-bb94-26f3777d6c7a/exec-39c4b947-789c-4a59-be70-df58183a7228.png",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/raw/Shenhe/caring.png",
+          "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/sprites/Shenhe/caring.png",
+          "prompt_file": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/prompts/Shenhe/caring.txt",
+          "prior_attempt": {
+            "status": "missing",
+            "reason": "image generation usage limit reached"
+          },
+          "approval": "All others approved."
+        },
+        "love-1": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/sprites/Shenhe/love-1.png",
+          "sha256": "f2dc12a2843fa966ecf2a493fd2e9d4a5bfa0d1a6caf3e7d21c03c45a0beedd6",
+          "size": [
+            1017,
+            1546
+          ],
+          "mode": "RGBA",
+          "has_alpha": true,
+          "status": "approved",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Shenhe expressing love-1, using the approved neutral as the identity, costume, proportion and rendering reference, and the supplied in-game image as an additional hair behavior reference. Let her long braid and hair hang naturally downward with the pose, guided by the in-game model, instead of perpetually streaming sideways in wind. Preserve identity, face, skin tone, hair, eyes, costume, accessories, colors and rendering. Preserve her Tall Female proportions, long braid and outfit. Show distinct expressive acting with a genuinely varied pose: an openly joyful affectionate smile, raised brows, gentle sideways lean and one hand near the heart. Both eyes visibly open; retain original iris colors, outlines, shading and a visible colored border, with one solid white heart-shaped pupil centered in each iris. Hearts are pupils, not highlights or floating symbols. Simple, readable hands near the torso; each visible hand has one anatomically correct thumb and four fingers connected to one palm and wrist. Do not force hidden digits into view. Exactly two legs and feet with an uncomplicated stance. Keep the entire silhouette including hair, headwear, accessories, hands and shoes visible, roughly 2–4% top and bottom padding, without lengthening the body. True transparent background. No scenery, text, UI, weapons, companions, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/references/Shenhe/neutral.png",
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/references/Shenhe/in-game.png"
+            ],
+            "transparent_background": true
+          },
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a19670-0586-7a72-bb94-26f3777d6c7a/exec-daa9e1f8-454e-486a-87ea-4adb440bbce7.png",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/raw/Shenhe/love-1.png",
+          "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/sprites/Shenhe/love-1.png",
+          "prompt_file": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/prompts/Shenhe/love-1.txt",
+          "prior_attempt": {
+            "status": "missing",
+            "reason": "image generation usage limit reached"
+          },
+          "approval": "All others approved."
+        },
+        "desire-1": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/sprites/Shenhe/desire-1.png",
+          "sha256": "04900c75a768a14065ce85a23fffdec3ae845a91a891983b76650de69ea00155",
+          "size": [
+            1017,
+            1546
+          ],
+          "mode": "RGBA",
+          "has_alpha": true,
+          "status": "approved",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Shenhe expressing desire-1, using the approved neutral as the identity, costume, proportion and rendering reference, and the supplied in-game image as an additional hair behavior reference. Let her long braid and hair hang naturally downward with the pose, guided by the in-game model, instead of perpetually streaming sideways in wind. Preserve identity, face, skin tone, hair, eyes, costume, accessories, colors and rendering. Preserve her Tall Female proportions, long braid and outfit. Show distinct expressive acting with a genuinely varied pose: openly yearning affection, flushed cheeks, parted lips, raised inner brows and intent hopeful gaze, a slight forward lean, one hand near the heart and the other relaxed; tasteful and fully clothed. Both eyes visibly open; retain original iris colors, outlines, shading and a visible colored border, with one solid white heart-shaped pupil centered in each iris. Hearts are pupils, not highlights or floating symbols. Simple, readable hands near the torso; each visible hand has one anatomically correct thumb and four fingers connected to one palm and wrist. Do not force hidden digits into view. Exactly two legs and feet with an uncomplicated stance. Keep the entire silhouette including hair, headwear, accessories, hands and shoes visible, roughly 2–4% top and bottom padding, without lengthening the body. True transparent background. No scenery, text, UI, weapons, companions, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/references/Shenhe/neutral.png",
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/references/Shenhe/in-game.png"
+            ],
+            "transparent_background": true
+          },
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a19670-0586-7a72-bb94-26f3777d6c7a/exec-de9da8d0-0c88-4c08-b5c4-eb0dced574af.png",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/raw/Shenhe/desire-1.png",
+          "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/sprites/Shenhe/desire-1.png",
+          "prompt_file": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/prompts/Shenhe/desire-1.txt",
+          "prior_attempt": {
+            "status": "missing",
+            "reason": "image generation usage limit reached"
+          },
+          "approval": "All others approved."
+        }
+      },
+      "additional_reference": {
+        "original": "/var/folders/yb/h8ks0jfd6jl0jdj3npytrx2r0000gn/T/codex-clipboard-d9269a5e-b006-469e-94e9-26e5c01faf9b.png",
+        "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/references/Shenhe/in-game.png",
+        "sha256": "ff3dc7e52ecf03ed0e580d22d2c6a0bd5a39f8d58c7efe531ed7c0adb6e9b652",
+        "purpose": "User-supplied in-game model reference to guide naturally hanging hair and vary wind direction.",
+        "authorization": "Shenhe’s hair doesn’t have to be wind-swept to the side in every single generation; I’ve attached a secondary reference of her in-game model in addition to her portrait so you can use both."
+      }
+    },
+    "Xianyun": {
+      "neutral_source": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Xianyun/neutral.png",
+      "reference": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/references/Xianyun/neutral.png",
+      "sha256": "4faa9f8c56921f0cfab096362be860e37afb7318662f45132ca074a600c3e423",
+      "approval": {
+        "status": "approved",
+        "message": "All others are ACCEPTED.",
+        "date": "2026-10-30",
+        "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Xianyun/neutral-v002.png",
+        "candidate_sha256": "4faa9f8c56921f0cfab096362be860e37afb7318662f45132ca074a600c3e423"
+      },
+      "expressions": {
+        "neutral": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/sprites/Xianyun/neutral.png",
+          "sha256": "4faa9f8c56921f0cfab096362be860e37afb7318662f45132ca074a600c3e423",
+          "size": [
+            1145,
+            1374
+          ],
+          "mode": "RGBA",
+          "has_alpha": true,
+          "status": "approved",
+          "approval": "All others approved."
+        },
+        "annoyance": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/sprites/Xianyun/annoyance.png",
+          "sha256": "a9689495e8f154be50a3ae78d1aa902e23ce5ae2fe1acd5455e31bf615a8a9f4",
+          "size": [
+            1145,
+            1374
+          ],
+          "mode": "RGBA",
+          "has_alpha": true,
+          "status": "approved",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Xianyun expressing annoyance, using only the supplied approved neutral as image reference. Preserve identity, face, skin tone, hair, eyes, costume, accessories, colors and rendering. Preserve her Tall Female proportions, glasses, hair ornaments and outfit. Show distinct expressive acting with a genuinely varied pose: a small frown and drawn brows, weight shifted to one side, one hand resting at the waist. Keep normal pupils. Simple, readable hands near the torso; each visible hand has one anatomically correct thumb and four fingers connected to one palm and wrist. Do not force hidden digits into view. Exactly two legs and feet with an uncomplicated stance. Keep the entire silhouette including hair, headwear, accessories, hands and shoes visible, roughly 2–4% top and bottom padding, without lengthening the body. True transparent background. No scenery, text, UI, weapons, companions, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/references/Xianyun/neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a19670-0586-7a72-bb94-26f3777d6c7a/exec-f453ab7b-6e3c-4a2c-bbfa-0dcd52d496d4.png",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/raw/Xianyun/annoyance.png",
+          "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/sprites/Xianyun/annoyance.png",
+          "prompt_file": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/prompts/Xianyun/annoyance.txt",
+          "approval": "All others approved."
+        },
+        "smug": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/sprites/Xianyun/smug.png",
+          "sha256": "1cab24b49a9063f07de65f26a0814d2e72f41c4e0227f2d1773e54a44d0459bb",
+          "size": [
+            1145,
+            1374
+          ],
+          "mode": "RGBA",
+          "has_alpha": true,
+          "status": "approved",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Xianyun expressing smug, using only the supplied approved neutral as image reference. Preserve identity, face, skin tone, hair, eyes, costume, accessories, colors and rendering. Preserve her Tall Female proportions, glasses, hair ornaments and outfit. Show distinct expressive acting with a genuinely varied pose: a knowing smile, slightly lifted chin, one hand at the hip and the other near the chest. Keep normal pupils. Simple, readable hands near the torso; each visible hand has one anatomically correct thumb and four fingers connected to one palm and wrist. Do not force hidden digits into view. Exactly two legs and feet with an uncomplicated stance. Keep the entire silhouette including hair, headwear, accessories, hands and shoes visible, roughly 2–4% top and bottom padding, without lengthening the body. True transparent background. No scenery, text, UI, weapons, companions, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/references/Xianyun/neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a19670-0586-7a72-bb94-26f3777d6c7a/exec-0596125a-0559-4d8f-b55f-ec2fded5f00c.png",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/raw/Xianyun/smug.png",
+          "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/sprites/Xianyun/smug.png",
+          "prompt_file": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/prompts/Xianyun/smug.txt",
+          "approval": "All others approved."
+        },
+        "confusion": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/sprites/Xianyun/confusion.png",
+          "sha256": "262d821da7d438864cb3755270adda45c371be711c135f97198a1675c2e9a0a4",
+          "size": [
+            1145,
+            1374
+          ],
+          "mode": "RGBA",
+          "has_alpha": true,
+          "status": "approved",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Xianyun expressing confusion, using only the supplied approved neutral as image reference. Preserve identity, face, skin tone, hair, eyes, costume, accessories, colors and rendering. Preserve her Tall Female proportions, glasses, hair ornaments and outfit. Show distinct expressive acting with a genuinely varied pose: puzzled brows and a head tilt, one hand turned gently upward near the waist. Keep normal pupils. Simple, readable hands near the torso; each visible hand has one anatomically correct thumb and four fingers connected to one palm and wrist. Do not force hidden digits into view. Exactly two legs and feet with an uncomplicated stance. Keep the entire silhouette including hair, headwear, accessories, hands and shoes visible, roughly 2–4% top and bottom padding, without lengthening the body. True transparent background. No scenery, text, UI, weapons, companions, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/references/Xianyun/neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a19670-0586-7a72-bb94-26f3777d6c7a/exec-81aceb40-293a-4c51-b06a-a6defd182e42.png",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/raw/Xianyun/confusion.png",
+          "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/sprites/Xianyun/confusion.png",
+          "prompt_file": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/prompts/Xianyun/confusion.txt",
+          "approval": "All others approved."
+        },
+        "love": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/sprites/Xianyun/love.png",
+          "sha256": "38f852b234a9d629f22e9e5b78b90f9364893433c0398c4347b8d7d51a67b129",
+          "size": [
+            1145,
+            1374
+          ],
+          "mode": "RGBA",
+          "has_alpha": true,
+          "status": "approved",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Xianyun expressing love, using only the supplied approved neutral as image reference. Preserve identity, face, skin tone, hair, eyes, costume, accessories, colors and rendering. Preserve her Tall Female proportions, glasses, hair ornaments and outfit. Show distinct expressive acting with a genuinely varied pose: an openly joyful affectionate smile, raised brows, a gentle turn of the shoulders and one hand near the heart. Keep normal pupils. Simple, readable hands near the torso; each visible hand has one anatomically correct thumb and four fingers connected to one palm and wrist. Do not force hidden digits into view. Exactly two legs and feet with an uncomplicated stance. Keep the entire silhouette including hair, headwear, accessories, hands and shoes visible, roughly 2–4% top and bottom padding, without lengthening the body. True transparent background. No scenery, text, UI, weapons, companions, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/references/Xianyun/neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a19670-0586-7a72-bb94-26f3777d6c7a/exec-cfd0ebe0-3309-4ad0-8382-ea7d7063ca86.png",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/raw/Xianyun/love.png",
+          "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/sprites/Xianyun/love.png",
+          "prompt_file": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/prompts/Xianyun/love.txt",
+          "approval": "All others approved."
+        },
+        "excitement": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/sprites/Xianyun/excitement.png",
+          "sha256": "041f2b650e2c6b9036aa7102adbee1d268595e699a0c54236b55d1f90d4c677d",
+          "size": [
+            1145,
+            1374
+          ],
+          "mode": "RGBA",
+          "has_alpha": true,
+          "status": "approved",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Xianyun expressing excitement, using only the supplied approved neutral as image reference. Preserve identity, face, skin tone, hair, eyes, costume, accessories, colors and rendering. Preserve her Tall Female proportions, glasses, hair ornaments and outfit. Show distinct expressive acting with a genuinely varied pose: a bright delighted smile and lively posture, one arm raised in celebration. Keep normal pupils. Simple, readable hands near the torso; each visible hand has one anatomically correct thumb and four fingers connected to one palm and wrist. Do not force hidden digits into view. Exactly two legs and feet with an uncomplicated stance. Keep the entire silhouette including hair, headwear, accessories, hands and shoes visible, roughly 2–4% top and bottom padding, without lengthening the body. True transparent background. No scenery, text, UI, weapons, companions, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/references/Xianyun/neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a19670-0586-7a72-bb94-26f3777d6c7a/exec-d80efc45-1aed-465b-8186-0470387463a2.png",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/raw/Xianyun/excitement.png",
+          "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/sprites/Xianyun/excitement.png",
+          "prompt_file": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/prompts/Xianyun/excitement.txt",
+          "approval": "All others approved."
+        },
+        "joy": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/sprites/Xianyun/joy.png",
+          "sha256": "39898eb5ad4d7d86d163d3b9c18dd204c899c6b932fd94c174b4a3a3f8e529b0",
+          "size": [
+            1145,
+            1374
+          ],
+          "mode": "RGBA",
+          "has_alpha": true,
+          "status": "approved",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Xianyun expressing joy, using only the supplied approved neutral as image reference. Preserve identity, face, skin tone, hair, eyes, costume, accessories, colors and rendering. Preserve her Tall Female proportions, glasses, hair ornaments and outfit. Show distinct expressive acting with a genuinely varied pose: a warm open smile, light sideways lean and one arm lifted in a friendly wave. Keep normal pupils. Simple, readable hands near the torso; each visible hand has one anatomically correct thumb and four fingers connected to one palm and wrist. Do not force hidden digits into view. Exactly two legs and feet with an uncomplicated stance. Keep the entire silhouette including hair, headwear, accessories, hands and shoes visible, roughly 2–4% top and bottom padding, without lengthening the body. True transparent background. No scenery, text, UI, weapons, companions, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/references/Xianyun/neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a19670-0586-7a72-bb94-26f3777d6c7a/exec-96d37761-5e87-4eab-a5c8-a4684950572d.png",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/raw/Xianyun/joy.png",
+          "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/sprites/Xianyun/joy.png",
+          "prompt_file": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/prompts/Xianyun/joy.txt",
+          "approval": "All others approved."
+        },
+        "fear": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/sprites/Xianyun/fear.png",
+          "sha256": "67017f5c9790168cd9729852a4bcbc60749a0b56eec4253444c73ac73a7f788e",
+          "size": [
+            1145,
+            1374
+          ],
+          "mode": "RGBA",
+          "has_alpha": true,
+          "status": "approved",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Xianyun expressing fear, using only the supplied approved neutral as image reference. Preserve identity, face, skin tone, hair, eyes, costume, accessories, colors and rendering. Preserve her Tall Female proportions, glasses, hair ornaments and outfit. Show distinct expressive acting with a genuinely varied pose: wide worried eyes, a cautious backward lean and one hand near the chest. Keep normal pupils. Simple, readable hands near the torso; each visible hand has one anatomically correct thumb and four fingers connected to one palm and wrist. Do not force hidden digits into view. Exactly two legs and feet with an uncomplicated stance. Keep the entire silhouette including hair, headwear, accessories, hands and shoes visible, roughly 2–4% top and bottom padding, without lengthening the body. True transparent background. No scenery, text, UI, weapons, companions, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/references/Xianyun/neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a19670-0586-7a72-bb94-26f3777d6c7a/exec-55c0447d-1e46-46d2-a133-226c38bc244b.png",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/raw/Xianyun/fear.png",
+          "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/sprites/Xianyun/fear.png",
+          "prompt_file": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/prompts/Xianyun/fear.txt",
+          "approval": "All others approved."
+        },
+        "pride": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/sprites/Xianyun/pride.png",
+          "sha256": "b0822939eda81e922a69ce896e74da228b3d80124ea3274d860dfc986f125d6c",
+          "size": [
+            1145,
+            1374
+          ],
+          "mode": "RGBA",
+          "has_alpha": true,
+          "status": "approved",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Xianyun expressing pride, using only the supplied approved neutral as image reference. Preserve identity, face, skin tone, hair, eyes, costume, accessories, colors and rendering. Preserve her Tall Female proportions, glasses, hair ornaments and outfit. Show distinct expressive acting with a genuinely varied pose: a proud smile and upright confident posture, one hand resting at the waist. Keep normal pupils. Simple, readable hands near the torso; each visible hand has one anatomically correct thumb and four fingers connected to one palm and wrist. Do not force hidden digits into view. Exactly two legs and feet with an uncomplicated stance. Keep the entire silhouette including hair, headwear, accessories, hands and shoes visible, roughly 2–4% top and bottom padding, without lengthening the body. True transparent background. No scenery, text, UI, weapons, companions, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/references/Xianyun/neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a19670-0586-7a72-bb94-26f3777d6c7a/exec-f8738028-c291-404f-8dd0-64a334fc6259.png",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/raw/Xianyun/pride.png",
+          "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/sprites/Xianyun/pride.png",
+          "prompt_file": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/prompts/Xianyun/pride.txt",
+          "approval": "All others approved."
+        },
+        "desire": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/sprites/Xianyun/desire.png",
+          "sha256": "e1aeb4a86cf5b0be8ea2646920c23dd684bdb8b83f7e3371f14d49b55b9a19d6",
+          "size": [
+            1145,
+            1374
+          ],
+          "mode": "RGBA",
+          "has_alpha": true,
+          "status": "approved",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Xianyun expressing desire, using only the supplied approved neutral as image reference. Preserve identity, face, skin tone, hair, eyes, costume, accessories, colors and rendering. Preserve her Tall Female proportions, glasses, hair ornaments and outfit. Show distinct expressive acting with a genuinely varied pose: openly yearning affection, flushed cheeks, parted lips, raised inner brows and intent hopeful gaze, a slight forward lean, one hand near the heart and the other relaxed; tasteful and fully clothed. Keep normal pupils. Simple, readable hands near the torso; each visible hand has one anatomically correct thumb and four fingers connected to one palm and wrist. Do not force hidden digits into view. Exactly two legs and feet with an uncomplicated stance. Keep the entire silhouette including hair, headwear, accessories, hands and shoes visible, roughly 2–4% top and bottom padding, without lengthening the body. True transparent background. No scenery, text, UI, weapons, companions, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/references/Xianyun/neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a19670-0586-7a72-bb94-26f3777d6c7a/exec-78299b68-6465-4cfa-88b6-8831fd656bce.png",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/raw/Xianyun/desire.png",
+          "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/sprites/Xianyun/desire.png",
+          "prompt_file": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/prompts/Xianyun/desire.txt",
+          "approval": "All others approved."
+        },
+        "anger": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/sprites/Xianyun/anger.png",
+          "sha256": "be9fc1c666e0efcc42edfec1e3bb93c38ebc4a0edf6ec125c89fb3b055c36b76",
+          "size": [
+            1145,
+            1374
+          ],
+          "mode": "RGBA",
+          "has_alpha": true,
+          "status": "approved",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Xianyun expressing anger, using only the supplied approved neutral as image reference. Preserve identity, face, skin tone, hair, eyes, costume, accessories, colors and rendering. Preserve her Tall Female proportions, glasses, hair ornaments and outfit. Show distinct expressive acting with a genuinely varied pose: firm brows and determined frown, feet planted apart and arms bent decisively at the sides. Keep normal pupils. Simple, readable hands near the torso; each visible hand has one anatomically correct thumb and four fingers connected to one palm and wrist. Do not force hidden digits into view. Exactly two legs and feet with an uncomplicated stance. Keep the entire silhouette including hair, headwear, accessories, hands and shoes visible, roughly 2–4% top and bottom padding, without lengthening the body. True transparent background. No scenery, text, UI, weapons, companions, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/references/Xianyun/neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a19670-0586-7a72-bb94-26f3777d6c7a/exec-9cc7d08f-c96a-4a7c-8eb9-2679a16a3faa.png",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/raw/Xianyun/anger.png",
+          "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/sprites/Xianyun/anger.png",
+          "prompt_file": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/prompts/Xianyun/anger.txt",
+          "approval": "All others approved."
+        },
+        "grief": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/sprites/Xianyun/grief.png",
+          "sha256": "b8365fd33b536af5915ac32c95535c0f47c986cb8221d0c1fe2208f43f71dc55",
+          "size": [
+            1145,
+            1374
+          ],
+          "mode": "RGBA",
+          "has_alpha": true,
+          "status": "approved",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Xianyun expressing grief, using only the supplied approved neutral as image reference. Preserve identity, face, skin tone, hair, eyes, costume, accessories, colors and rendering. Preserve her Tall Female proportions, glasses, hair ornaments and outfit. Show distinct expressive acting with a genuinely varied pose: sorrowful brows, lowered head and shoulders, arms resting close to the body. Keep normal pupils. Simple, readable hands near the torso; each visible hand has one anatomically correct thumb and four fingers connected to one palm and wrist. Do not force hidden digits into view. Exactly two legs and feet with an uncomplicated stance. Keep the entire silhouette including hair, headwear, accessories, hands and shoes visible, roughly 2–4% top and bottom padding, without lengthening the body. True transparent background. No scenery, text, UI, weapons, companions, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/references/Xianyun/neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a19670-0586-7a72-bb94-26f3777d6c7a/exec-09742db1-cc55-4515-9b08-e43e1b5ce1d4.png",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/raw/Xianyun/grief.png",
+          "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/sprites/Xianyun/grief.png",
+          "prompt_file": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/prompts/Xianyun/grief.txt",
+          "approval": "All others approved."
+        },
+        "sadness": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/sprites/Xianyun/sadness.png",
+          "sha256": "a834dc64eb9bab39953ca350b2a28d948ebacd4449a6a26393a2f126379c3a20",
+          "size": [
+            1145,
+            1374
+          ],
+          "mode": "RGBA",
+          "has_alpha": true,
+          "status": "approved",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Xianyun expressing sadness, using only the supplied approved neutral as image reference. Preserve identity, face, skin tone, hair, eyes, costume, accessories, colors and rendering. Preserve her Tall Female proportions, glasses, hair ornaments and outfit. Show distinct expressive acting with a genuinely varied pose: subdued frown and lowered eyes, a gentle head tilt, hands resting separately. Keep normal pupils. Simple, readable hands near the torso; each visible hand has one anatomically correct thumb and four fingers connected to one palm and wrist. Do not force hidden digits into view. Exactly two legs and feet with an uncomplicated stance. Keep the entire silhouette including hair, headwear, accessories, hands and shoes visible, roughly 2–4% top and bottom padding, without lengthening the body. True transparent background. No scenery, text, UI, weapons, companions, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/references/Xianyun/neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a19670-0586-7a72-bb94-26f3777d6c7a/exec-b25eaffa-6fed-46ce-94a0-50aef77ae617.png",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/raw/Xianyun/sadness.png",
+          "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/sprites/Xianyun/sadness.png",
+          "prompt_file": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/prompts/Xianyun/sadness.txt",
+          "approval": "All others approved."
+        },
+        "disgust": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/sprites/Xianyun/disgust.png",
+          "sha256": "dd3a1863e2372433bd08ced376b0153223a5bde123ebc6cca439ef42547fefba",
+          "size": [
+            1145,
+            1374
+          ],
+          "mode": "RGBA",
+          "has_alpha": true,
+          "status": "approved",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Xianyun expressing disgust, using only the supplied approved neutral as image reference. Preserve identity, face, skin tone, hair, eyes, costume, accessories, colors and rendering. Preserve her Tall Female proportions, glasses, hair ornaments and outfit. Show distinct expressive acting with a genuinely varied pose: a restrained nose scrunch and small closed displeased mouth, slight backward lean. Keep normal pupils. Simple, readable hands near the torso; each visible hand has one anatomically correct thumb and four fingers connected to one palm and wrist. Do not force hidden digits into view. Exactly two legs and feet with an uncomplicated stance. Keep the entire silhouette including hair, headwear, accessories, hands and shoes visible, roughly 2–4% top and bottom padding, without lengthening the body. True transparent background. No scenery, text, UI, weapons, companions, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/references/Xianyun/neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a19670-0586-7a72-bb94-26f3777d6c7a/exec-5f39895b-d058-4b27-8c50-6d6c68de5df4.png",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/raw/Xianyun/disgust.png",
+          "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/sprites/Xianyun/disgust.png",
+          "prompt_file": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/prompts/Xianyun/disgust.txt",
+          "approval": "All others approved."
+        },
+        "disappointment": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/sprites/Xianyun/disappointment.png",
+          "sha256": "14ed6b91a4a030d4bba02ac73e9d3d1b487e0010a2557e88c301d5dfe5dd944d",
+          "size": [
+            1145,
+            1374
+          ],
+          "mode": "RGBA",
+          "has_alpha": true,
+          "status": "approved",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Xianyun expressing disappointment, using only the supplied approved neutral as image reference. Preserve identity, face, skin tone, hair, eyes, costume, accessories, colors and rendering. Preserve her Tall Female proportions, glasses, hair ornaments and outfit. Show distinct expressive acting with a genuinely varied pose: downturned mouth and lowered shoulders, one hand open beside the body. Keep normal pupils. Simple, readable hands near the torso; each visible hand has one anatomically correct thumb and four fingers connected to one palm and wrist. Do not force hidden digits into view. Exactly two legs and feet with an uncomplicated stance. Keep the entire silhouette including hair, headwear, accessories, hands and shoes visible, roughly 2–4% top and bottom padding, without lengthening the body. True transparent background. No scenery, text, UI, weapons, companions, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/references/Xianyun/neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a19670-0586-7a72-bb94-26f3777d6c7a/exec-f95fa862-ab1e-45a5-8956-fe86414ca9ab.png",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/raw/Xianyun/disappointment.png",
+          "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/sprites/Xianyun/disappointment.png",
+          "prompt_file": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/prompts/Xianyun/disappointment.txt",
+          "prior_attempt": {
+            "status": "missing",
+            "reason": "image generation usage limit reached"
+          },
+          "approval": "All others approved."
+        },
+        "relief": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/sprites/Xianyun/relief.png",
+          "sha256": "f18dd76871e01580ec3f4dbd017f1817d64bd5e8b2b8fa2814fa6c26b1e09816",
+          "size": [
+            1145,
+            1374
+          ],
+          "mode": "RGBA",
+          "has_alpha": true,
+          "status": "approved",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Xianyun expressing relief, using only the supplied approved neutral as image reference. Preserve identity, face, skin tone, hair, eyes, costume, accessories, colors and rendering. Preserve her Tall Female proportions, glasses, hair ornaments and outfit. Show distinct expressive acting with a genuinely varied pose: relieved smile and relaxed shoulders, one hand over the chest and the other at the side. Keep normal pupils. Simple, readable hands near the torso; each visible hand has one anatomically correct thumb and four fingers connected to one palm and wrist. Do not force hidden digits into view. Exactly two legs and feet with an uncomplicated stance. Keep the entire silhouette including hair, headwear, accessories, hands and shoes visible, roughly 2–4% top and bottom padding, without lengthening the body. True transparent background. No scenery, text, UI, weapons, companions, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/references/Xianyun/neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a19670-0586-7a72-bb94-26f3777d6c7a/exec-e7e6e528-1bb7-4730-98e8-f9444aaa0416.png",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/raw/Xianyun/relief.png",
+          "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/sprites/Xianyun/relief.png",
+          "prompt_file": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/prompts/Xianyun/relief.txt",
+          "prior_attempt": {
+            "status": "missing",
+            "reason": "image generation usage limit reached"
+          },
+          "approval": "All others approved."
+        },
+        "admiration": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/sprites/Xianyun/admiration.png",
+          "sha256": "1a8bd4ad6f115207bde044d67e6b72b67bb4fd153a0596d5cf49ee67ce675152",
+          "size": [
+            1145,
+            1374
+          ],
+          "mode": "RGBA",
+          "has_alpha": true,
+          "status": "approved",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Xianyun expressing admiration, using only the supplied approved neutral as image reference. Preserve identity, face, skin tone, hair, eyes, costume, accessories, colors and rendering. Preserve her Tall Female proportions, glasses, hair ornaments and outfit. Show distinct expressive acting with a genuinely varied pose: bright attentive eyes, impressed smile, head slightly raised and one hand near the cheek. Keep normal pupils. Simple, readable hands near the torso; each visible hand has one anatomically correct thumb and four fingers connected to one palm and wrist. Do not force hidden digits into view. Exactly two legs and feet with an uncomplicated stance. Keep the entire silhouette including hair, headwear, accessories, hands and shoes visible, roughly 2–4% top and bottom padding, without lengthening the body. True transparent background. No scenery, text, UI, weapons, companions, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/references/Xianyun/neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a19670-0586-7a72-bb94-26f3777d6c7a/exec-9bcfab1c-5293-4b79-81ad-91894405228e.png",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/raw/Xianyun/admiration.png",
+          "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/sprites/Xianyun/admiration.png",
+          "prompt_file": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/prompts/Xianyun/admiration.txt",
+          "prior_attempt": {
+            "status": "missing",
+            "reason": "image generation usage limit reached"
+          },
+          "approval": "All others approved."
+        },
+        "gratitude": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/sprites/Xianyun/gratitude.png",
+          "sha256": "40b0c3e95d21e449f373b12596cea3f76c59aeedb480e8523e105c9f7f09eb45",
+          "size": [
+            1145,
+            1374
+          ],
+          "mode": "RGBA",
+          "has_alpha": true,
+          "status": "approved",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Xianyun expressing gratitude, using only the supplied approved neutral as image reference. Preserve identity, face, skin tone, hair, eyes, costume, accessories, colors and rendering. Preserve her Tall Female proportions, glasses, hair ornaments and outfit. Show distinct expressive acting with a genuinely varied pose: a sincere smile, a gentle appreciative bow and one hand over the heart. Keep normal pupils. Simple, readable hands near the torso; each visible hand has one anatomically correct thumb and four fingers connected to one palm and wrist. Do not force hidden digits into view. Exactly two legs and feet with an uncomplicated stance. Keep the entire silhouette including hair, headwear, accessories, hands and shoes visible, roughly 2–4% top and bottom padding, without lengthening the body. True transparent background. No scenery, text, UI, weapons, companions, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/references/Xianyun/neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a19670-0586-7a72-bb94-26f3777d6c7a/exec-ea773af8-313b-484d-9080-8a7b1cdebd98.png",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/raw/Xianyun/gratitude.png",
+          "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/sprites/Xianyun/gratitude.png",
+          "prompt_file": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/prompts/Xianyun/gratitude.txt",
+          "prior_attempt": {
+            "status": "missing",
+            "reason": "image generation usage limit reached"
+          },
+          "approval": "All others approved."
+        },
+        "embarrassment": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/sprites/Xianyun/embarrassment.png",
+          "sha256": "05a10519392a957d97c6c401be48a9cca75a6196b90a3fa1a0b49e60dfad5d2c",
+          "size": [
+            1145,
+            1374
+          ],
+          "mode": "RGBA",
+          "has_alpha": true,
+          "status": "approved",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Xianyun expressing embarrassment, using only the supplied approved neutral as image reference. Preserve identity, face, skin tone, hair, eyes, costume, accessories, colors and rendering. Preserve her Tall Female proportions, glasses, hair ornaments and outfit. Show distinct expressive acting with a genuinely varied pose: flushed cheeks, bashful smile and averted gaze, one hand near the cheek. Keep normal pupils. Simple, readable hands near the torso; each visible hand has one anatomically correct thumb and four fingers connected to one palm and wrist. Do not force hidden digits into view. Exactly two legs and feet with an uncomplicated stance. Keep the entire silhouette including hair, headwear, accessories, hands and shoes visible, roughly 2–4% top and bottom padding, without lengthening the body. True transparent background. No scenery, text, UI, weapons, companions, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/references/Xianyun/neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a19670-0586-7a72-bb94-26f3777d6c7a/exec-617d6c07-ec02-46e1-85fc-1135dffc073d.png",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/raw/Xianyun/embarrassment.png",
+          "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/sprites/Xianyun/embarrassment.png",
+          "prompt_file": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/prompts/Xianyun/embarrassment.txt",
+          "prior_attempt": {
+            "status": "missing",
+            "reason": "image generation usage limit reached"
+          },
+          "approval": "All others approved."
+        },
+        "caring": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/sprites/Xianyun/caring.png",
+          "sha256": "c7d9d310a33e8ebd43b0f0a2d1f8c5b0174c324a201848005c2b4dbfdf30344d",
+          "size": [
+            1145,
+            1374
+          ],
+          "mode": "RGBA",
+          "has_alpha": true,
+          "status": "approved",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Xianyun expressing caring, using only the supplied approved neutral as image reference. Preserve identity, face, skin tone, hair, eyes, costume, accessories, colors and rendering. Preserve her Tall Female proportions, glasses, hair ornaments and outfit. Show distinct expressive acting with a genuinely varied pose: gentle concerned eyes and a reassuring smile, body angled kindly, one open hand near the chest. Keep normal pupils. Simple, readable hands near the torso; each visible hand has one anatomically correct thumb and four fingers connected to one palm and wrist. Do not force hidden digits into view. Exactly two legs and feet with an uncomplicated stance. Keep the entire silhouette including hair, headwear, accessories, hands and shoes visible, roughly 2–4% top and bottom padding, without lengthening the body. True transparent background. No scenery, text, UI, weapons, companions, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/references/Xianyun/neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a19670-0586-7a72-bb94-26f3777d6c7a/exec-7b49070d-4323-466d-93d1-ca430354be1f.png",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/raw/Xianyun/caring.png",
+          "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/sprites/Xianyun/caring.png",
+          "prompt_file": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/prompts/Xianyun/caring.txt",
+          "prior_attempt": {
+            "status": "missing",
+            "reason": "image generation usage limit reached"
+          },
+          "approval": "All others approved."
+        },
+        "love-1": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/sprites/Xianyun/love-1.png",
+          "sha256": "9d927c17585a9e0317acc8005b2b01216e9e96eda2cdc6ebab0b4579c30b5669",
+          "size": [
+            1145,
+            1374
+          ],
+          "mode": "RGBA",
+          "has_alpha": true,
+          "status": "removed at user request",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Xianyun expressing love-1, using only the supplied approved neutral as image reference. Preserve identity, face, skin tone, hair, eyes, costume, accessories, colors and rendering. Preserve her Tall Female proportions, glasses, hair ornaments and outfit. Show distinct expressive acting with a genuinely varied pose: an openly joyful affectionate smile, raised brows, gentle sideways lean and one hand near the heart. Both eyes visibly open; retain original iris colors, outlines, shading and a visible colored border, with one solid pale aqua heart-shaped pupil centered in each iris. Hearts are pupils, not highlights or floating symbols. Simple, readable hands near the torso; each visible hand has one anatomically correct thumb and four fingers connected to one palm and wrist. Do not force hidden digits into view. Exactly two legs and feet with an uncomplicated stance. Keep the entire silhouette including hair, headwear, accessories, hands and shoes visible, roughly 2–4% top and bottom padding, without lengthening the body. True transparent background. No scenery, text, UI, weapons, companions, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/references/Xianyun/neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a19670-0586-7a72-bb94-26f3777d6c7a/exec-4f3fafdf-31a4-4eeb-8e82-b79139a130fc.png",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/raw/Xianyun/love-1.png",
+          "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/sprites/Xianyun/love-1.png",
+          "prompt_file": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/prompts/Xianyun/love-1.txt",
+          "prior_attempt": {
+            "status": "missing",
+            "reason": "image generation usage limit reached"
+          },
+          "user_feedback": "heart eyes look wrong",
+          "revision_2026_11_02": {
+            "tool": "image_gen.imagegen",
+            "tool_arguments": {
+              "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Xianyun expressing love-1, using only the supplied approved neutral as image reference. Preserve her identity, face, skin tone, glasses, hair, ornaments, costume, color palette, artwork style and Tall Female proportions. Give her an openly joyful affectionate smile, raised brows, a gentle sideways lean, one hand near her heart and the other relaxed. Both eyes must be open and clearly visible behind her glasses, looking toward the viewer. Preserve the intact teal irises, including their original outline, iris detail, shading and a visible teal border around each pupil. In the center of each iris place exactly one solid, clearly defined pale aqua heart-shaped pupil, with matching shape and size in both eyes. The hearts replace only the pupils; they are not highlights, entire irises, floating symbols or extra marks. Keep the eye shapes natural and symmetrical. Hands simple near the torso, each visible hand with one thumb and four fingers naturally connected to the palm; exactly two legs and feet. Show the complete silhouette including hair, hands and shoes, with approximately 2–4% padding at top and bottom. True transparent background. No scenery, text, UI, weapons, companions, floating effects, watermark or ground shadow.",
+              "referenced_image_paths": [
+                "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/references/Xianyun/neutral.png"
+              ],
+              "transparent_background": true
+            },
+            "tool_output": "/Users/alexachan/.codex/generated_images/01a19670-0586-7a72-bb94-26f3777d6c7a/exec-925b0035-a840-435a-9bb9-0c0474ae6ffb.png",
+            "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/revisions/2026-11-02-xianyun-heart/raw/Xianyun/love-1.png",
+            "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/revisions/2026-11-02-xianyun-heart/candidates/Xianyun/love-1.png",
+            "sha256": "024eb805709baabeb3fea7ab3c7c45c9b2ac8b471893b8aa227d3c6868b9a238",
+            "size": [
+              1145,
+              1374
+            ],
+            "has_alpha": true,
+            "status": "rejected",
+            "prompt_file": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/revisions/2026-11-02-xianyun-heart/prompts/Xianyun/love-1.txt",
+            "user_feedback": "still not giving her heart pupils; try just adding heart eyes, hearts in eyes"
+          },
+          "revision_2026_11_02_v002": {
+            "tool": "image_gen.imagegen",
+            "tool_arguments": {
+              "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Xianyun expressing love-1, using only the supplied approved neutral as image reference. Preserve her identity, face, skin tone, glasses, hair, ornaments, costume, color palette, artwork style and Tall Female proportions. Give her an openly joyful affectionate smile, raised brows, gentle sideways lean and one hand near her heart. Heart eyes, hearts in eyes: both eyes open with one solid pale aqua heart-shaped pupil centered inside each original teal iris. Keep the irises, their outlines, shading and visible teal borders; the hearts are pupils, not floating symbols or highlights. Simple readable hands near the torso; each visible hand has one thumb and four fingers naturally connected to the palm. Exactly two legs and feet. Complete silhouette including hair, hands and shoes, approximately 2–4% padding at top and bottom. True transparent background. No scenery, text, UI, weapons, companions, floating effects, watermark or ground shadow.",
+              "referenced_image_paths": [
+                "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/references/Xianyun/neutral.png"
+              ],
+              "transparent_background": true
+            },
+            "tool_output": "/Users/alexachan/.codex/generated_images/01a19670-0586-7a72-bb94-26f3777d6c7a/exec-307c1dde-d29e-4437-bf59-b68cd1967502.png",
+            "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/revisions/2026-11-02-xianyun-heart-v002/raw/Xianyun/love-1.png",
+            "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/revisions/2026-11-02-xianyun-heart-v002/candidates/Xianyun/love-1.png",
+            "sha256": "b8369c8b8544f13209c65dfc80ae1b6670d069e3a6c5f816e8c85a150f5271e8",
+            "size": [
+              1145,
+              1374
+            ],
+            "has_alpha": true,
+            "status": "candidate awaiting user review",
+            "prompt_file": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/revisions/2026-11-02-xianyun-heart-v002/prompts/Xianyun/love-1.txt"
+          },
+          "removed_path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/removed/Xianyun/love-1.png",
+          "user_request": "drop Xianyun's alts"
+        },
+        "desire-1": {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/sprites/Xianyun/desire-1.png",
+          "sha256": "9d721d93578da8122ef845b18ba9219da2a0c17d7693d2d56865710551817a1f",
+          "size": [
+            1145,
+            1374
+          ],
+          "mode": "RGBA",
+          "has_alpha": true,
+          "status": "removed at user request",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Xianyun expressing desire-1, using only the supplied approved neutral as image reference. Preserve identity, face, skin tone, hair, eyes, costume, accessories, colors and rendering. Preserve her Tall Female proportions, glasses, hair ornaments and outfit. Show distinct expressive acting with a genuinely varied pose: openly yearning affection, flushed cheeks, parted lips, raised inner brows and intent hopeful gaze, a slight forward lean, one hand near the heart and the other relaxed; tasteful and fully clothed. Both eyes visibly open; retain original iris colors, outlines, shading and a visible colored border, with one solid pale aqua heart-shaped pupil centered in each iris. Hearts are pupils, not highlights or floating symbols. Simple, readable hands near the torso; each visible hand has one anatomically correct thumb and four fingers connected to one palm and wrist. Do not force hidden digits into view. Exactly two legs and feet with an uncomplicated stance. Keep the entire silhouette including hair, headwear, accessories, hands and shoes visible, roughly 2–4% top and bottom padding, without lengthening the body. True transparent background. No scenery, text, UI, weapons, companions, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/references/Xianyun/neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a19670-0586-7a72-bb94-26f3777d6c7a/exec-8511d6f9-948d-4868-a925-85872ba40993.png",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/raw/Xianyun/desire-1.png",
+          "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/sprites/Xianyun/desire-1.png",
+          "prompt_file": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/prompts/Xianyun/desire-1.txt",
+          "prior_attempt": {
+            "status": "missing",
+            "reason": "image generation usage limit reached"
+          },
+          "user_feedback": "heart eyes look wrong",
+          "revision_2026_11_02": {
+            "tool": "image_gen.imagegen",
+            "tool_arguments": {
+              "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Xianyun expressing desire-1, using only the supplied approved neutral as image reference. Preserve her identity, face, skin tone, glasses, hair, ornaments, costume, color palette, artwork style and Tall Female proportions. Give her openly yearning affection, flushed cheeks, a small parted-lip smile and hopeful gaze, a slight forward lean, one hand near her heart and the other relaxed, tasteful and fully clothed. Both eyes must be open and clearly visible behind her glasses, looking toward the viewer. Preserve the intact teal irises, including their original outline, iris detail, shading and a visible teal border around each pupil. In the center of each iris place exactly one solid, clearly defined pale aqua heart-shaped pupil, with matching shape and size in both eyes. The hearts replace only the pupils; they are not highlights, entire irises, floating symbols or extra marks. Keep the eye shapes natural and symmetrical. Hands simple near the torso, each visible hand with one thumb and four fingers naturally connected to the palm; exactly two legs and feet. Show the complete silhouette including hair, hands and shoes, with approximately 2–4% padding at top and bottom. True transparent background. No scenery, text, UI, weapons, companions, floating effects, watermark or ground shadow.",
+              "referenced_image_paths": [
+                "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/references/Xianyun/neutral.png"
+              ],
+              "transparent_background": true
+            },
+            "tool_output": "/Users/alexachan/.codex/generated_images/01a19670-0586-7a72-bb94-26f3777d6c7a/exec-414ee202-76a6-4c4c-88cc-8997713a7e0a.png",
+            "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/revisions/2026-11-02-xianyun-heart/raw/Xianyun/desire-1.png",
+            "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/revisions/2026-11-02-xianyun-heart/candidates/Xianyun/desire-1.png",
+            "sha256": "ea52cacc5bf248853207bd1ce09d5811ad0e793986a45cbabe776a1ff0056b68",
+            "size": [
+              1145,
+              1374
+            ],
+            "has_alpha": true,
+            "status": "rejected",
+            "prompt_file": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/revisions/2026-11-02-xianyun-heart/prompts/Xianyun/desire-1.txt",
+            "user_feedback": "still not giving her heart pupils; try just adding heart eyes, hearts in eyes"
+          },
+          "revision_2026_11_02_v002": {
+            "tool": "image_gen.imagegen",
+            "tool_arguments": {
+              "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Xianyun expressing desire-1, using only the supplied approved neutral as image reference. Preserve her identity, face, skin tone, glasses, hair, ornaments, costume, color palette, artwork style and Tall Female proportions. Give her yearning affection, flushed cheeks, a small parted-lip smile, a slight forward lean and one hand near her heart, tasteful and fully clothed. Heart eyes, hearts in eyes: both eyes open with one solid pale aqua heart-shaped pupil centered inside each original teal iris. Keep the irises, their outlines, shading and visible teal borders; the hearts are pupils, not floating symbols or highlights. Simple readable hands near the torso; each visible hand has one thumb and four fingers naturally connected to the palm. Exactly two legs and feet. Complete silhouette including hair, hands and shoes, approximately 2–4% padding at top and bottom. True transparent background. No scenery, text, UI, weapons, companions, floating effects, watermark or ground shadow.",
+              "referenced_image_paths": [
+                "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/references/Xianyun/neutral.png"
+              ],
+              "transparent_background": true
+            },
+            "tool_output": "/Users/alexachan/.codex/generated_images/01a19670-0586-7a72-bb94-26f3777d6c7a/exec-442e8486-89e5-4a4d-8966-a03aa1cfee3a.png",
+            "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/revisions/2026-11-02-xianyun-heart-v002/raw/Xianyun/desire-1.png",
+            "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/revisions/2026-11-02-xianyun-heart-v002/candidates/Xianyun/desire-1.png",
+            "sha256": "ccf1ff6758b65dc2cd65945d8b82f6cc276f8a75aa020aca84748190d11a288d",
+            "size": [
+              1145,
+              1374
+            ],
+            "has_alpha": true,
+            "status": "candidate awaiting user review",
+            "prompt_file": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/revisions/2026-11-02-xianyun-heart-v002/prompts/Xianyun/desire-1.txt"
+          },
+          "removed_path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-keqing-shenhe-xianyun-expressions/removed/Xianyun/desire-1.png",
+          "user_request": "drop Xianyun's alts"
+        }
+      }
+    }
+  },
+  "usage_limit_reset_unix": 1793592709,
+  "missing": [],
+  "technical_issues": [],
+  "preview_order": [
+    "neutral",
+    "annoyance",
+    "smug",
+    "confusion",
+    "love",
+    "excitement",
+    "joy",
+    "fear",
+    "pride",
+    "desire",
+    "anger",
+    "grief",
+    "sadness",
+    "disgust",
+    "disappointment",
+    "relief",
+    "admiration",
+    "gratitude",
+    "embarrassment",
+    "caring",
+    "love-1",
+    "desire-1"
+  ],
+  "final_approval": "It's ok, just drop Xianyun's alts. All others approved."
+}

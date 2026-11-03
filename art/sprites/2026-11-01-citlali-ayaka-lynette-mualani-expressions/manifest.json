@@ -1,0 +1,1278 @@
+{
+  "description": "Expression candidates for user review; no visual approval is implied. Blank cells indicate failed generations. Grid is read left to right and top to bottom in the order listed.",
+  "grid_columns": 6,
+  "order": [
+    "neutral",
+    "annoyance",
+    "smug",
+    "confusion",
+    "love",
+    "excitement",
+    "joy",
+    "fear",
+    "pride",
+    "desire",
+    "anger",
+    "grief",
+    "sadness",
+    "disgust",
+    "disappointment",
+    "relief",
+    "admiration",
+    "gratitude",
+    "embarrassment",
+    "caring",
+    "love-1",
+    "desire-1"
+  ],
+  "characters": {
+    "Citlali": {
+      "missing": [],
+      "images": {
+        "neutral": {
+          "sha256": "e577b8bfa86e7bca020e29b230c7b4ad3a3a2571268033500edb1730f408ceef",
+          "dimensions": [
+            1024,
+            1536
+          ],
+          "alpha": true
+        },
+        "annoyance": {
+          "sha256": "c4e7da1182ec5ea734d18ad612a2dd7488c5d0d5d1e54fb9cd97083187140cf5",
+          "dimensions": [
+            1024,
+            1536
+          ],
+          "alpha": true,
+          "approval": {
+            "status": "approved",
+            "message": "All others APPROVED, regenerate rejects; explicit per-character feedback recorded.",
+            "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-citlali-ayaka-lynette-mualani-expressions/candidates/Citlali/annoyance.png",
+            "sha256": "c4e7da1182ec5ea734d18ad612a2dd7488c5d0d5d1e54fb9cd97083187140cf5"
+          }
+        },
+        "smug": {
+          "sha256": "d565023153f51f7c422ba9c64b743e85230acd045aebd98bd88c3f90ee6e3d5d",
+          "dimensions": [
+            1024,
+            1536
+          ],
+          "alpha": true,
+          "approval": {
+            "status": "approved",
+            "message": "All others APPROVED, regenerate rejects; explicit per-character feedback recorded.",
+            "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-citlali-ayaka-lynette-mualani-expressions/candidates/Citlali/smug.png",
+            "sha256": "d565023153f51f7c422ba9c64b743e85230acd045aebd98bd88c3f90ee6e3d5d"
+          }
+        },
+        "confusion": {
+          "sha256": "80302ed737e60167f39905ca9773a394e623abf6bb733eb873016e8a7416b32d",
+          "dimensions": [
+            1024,
+            1536
+          ],
+          "alpha": true,
+          "approval": {
+            "status": "approved",
+            "message": "All others APPROVED, regenerate rejects; explicit per-character feedback recorded.",
+            "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-citlali-ayaka-lynette-mualani-expressions/candidates/Citlali/confusion.png",
+            "sha256": "80302ed737e60167f39905ca9773a394e623abf6bb733eb873016e8a7416b32d"
+          }
+        },
+        "love": {
+          "sha256": "f16a06d5280deb59e790b939591e95102d9c8a08a99645c38f124933baa56066",
+          "dimensions": [
+            1024,
+            1536
+          ],
+          "alpha": true,
+          "approval": {
+            "status": "approved",
+            "message": "All others APPROVED, regenerate rejects; explicit per-character feedback recorded.",
+            "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-citlali-ayaka-lynette-mualani-expressions/candidates/Citlali/love.png",
+            "sha256": "f16a06d5280deb59e790b939591e95102d9c8a08a99645c38f124933baa56066"
+          }
+        },
+        "excitement": {
+          "sha256": "cd24f5c552b6c3b802d0ae58f376e679c41e102725c454fe928cda81b8da481d",
+          "dimensions": [
+            1024,
+            1536
+          ],
+          "alpha": true,
+          "approval": {
+            "status": "approved",
+            "message": "Mualani Love has 6 fingers. Make Ayaka desire-1 more like Lynette desire-1. All others approved.",
+            "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-citlali-ayaka-lynette-mualani-expressions/candidates/Citlali/excitement.png",
+            "sha256": "cd24f5c552b6c3b802d0ae58f376e679c41e102725c454fe928cda81b8da481d"
+          }
+        },
+        "joy": {
+          "sha256": "386426e511a915ef0392d5a975a2e61043739a544b6150deb495fc4c40488de2",
+          "dimensions": [
+            1024,
+            1536
+          ],
+          "alpha": true,
+          "approval": {
+            "status": "approved",
+            "message": "Mualani Love has 6 fingers. Make Ayaka desire-1 more like Lynette desire-1. All others approved.",
+            "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-citlali-ayaka-lynette-mualani-expressions/candidates/Citlali/joy.png",
+            "sha256": "386426e511a915ef0392d5a975a2e61043739a544b6150deb495fc4c40488de2"
+          }
+        },
+        "fear": {
+          "sha256": "873a45ecdcc851742f6fb36ca5dbd93b9f50aa77561c1c70ad83bc41e9ee3e42",
+          "dimensions": [
+            1024,
+            1536
+          ],
+          "alpha": true,
+          "approval": {
+            "status": "approved",
+            "message": "All others APPROVED, regenerate rejects; explicit per-character feedback recorded.",
+            "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-citlali-ayaka-lynette-mualani-expressions/candidates/Citlali/fear.png",
+            "sha256": "873a45ecdcc851742f6fb36ca5dbd93b9f50aa77561c1c70ad83bc41e9ee3e42"
+          }
+        },
+        "pride": {
+          "sha256": "905c2fbfd61e6a82adbd28a48043e7da89ffcc26de2229800f1e52e0468f4906",
+          "dimensions": [
+            1024,
+            1536
+          ],
+          "alpha": true,
+          "approval": {
+            "status": "approved",
+            "message": "All others APPROVED, regenerate rejects; explicit per-character feedback recorded.",
+            "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-citlali-ayaka-lynette-mualani-expressions/candidates/Citlali/pride.png",
+            "sha256": "905c2fbfd61e6a82adbd28a48043e7da89ffcc26de2229800f1e52e0468f4906"
+          }
+        },
+        "desire": {
+          "sha256": "8725f7423f81afc3fdf8c8cf5688abe35b88904bdbb2b3c04dd7e54fbe415d7d",
+          "dimensions": [
+            1024,
+            1536
+          ],
+          "alpha": true,
+          "approval": {
+            "status": "approved",
+            "message": "All others APPROVED, regenerate rejects; explicit per-character feedback recorded.",
+            "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-citlali-ayaka-lynette-mualani-expressions/candidates/Citlali/desire.png",
+            "sha256": "8725f7423f81afc3fdf8c8cf5688abe35b88904bdbb2b3c04dd7e54fbe415d7d"
+          }
+        },
+        "anger": {
+          "sha256": "dec484fdf4d25295b7c09984d7e1bc071ef20ed27cc90ff4363321255300c31a",
+          "dimensions": [
+            1024,
+            1536
+          ],
+          "alpha": true,
+          "approval": {
+            "status": "approved",
+            "message": "All others APPROVED, regenerate rejects; explicit per-character feedback recorded.",
+            "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-citlali-ayaka-lynette-mualani-expressions/candidates/Citlali/anger.png",
+            "sha256": "dec484fdf4d25295b7c09984d7e1bc071ef20ed27cc90ff4363321255300c31a"
+          }
+        },
+        "grief": {
+          "sha256": "d8e8d0d89300ac3a427f6a794d34ed924695f40213acbc46b23e288109dacf43",
+          "dimensions": [
+            1024,
+            1536
+          ],
+          "alpha": true,
+          "approval": {
+            "status": "approved",
+            "message": "All others APPROVED, regenerate rejects; explicit per-character feedback recorded.",
+            "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-citlali-ayaka-lynette-mualani-expressions/candidates/Citlali/grief.png",
+            "sha256": "d8e8d0d89300ac3a427f6a794d34ed924695f40213acbc46b23e288109dacf43"
+          }
+        },
+        "sadness": {
+          "sha256": "5ce60782620742c023aa4aab5090a47188584c09bc13686fc9011f6ffbee4106",
+          "dimensions": [
+            1024,
+            1536
+          ],
+          "alpha": true,
+          "approval": {
+            "status": "approved",
+            "message": "All others APPROVED, regenerate rejects; explicit per-character feedback recorded.",
+            "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-citlali-ayaka-lynette-mualani-expressions/candidates/Citlali/sadness.png",
+            "sha256": "5ce60782620742c023aa4aab5090a47188584c09bc13686fc9011f6ffbee4106"
+          }
+        },
+        "disgust": {
+          "sha256": "0f2b81812938ef94aec2abdb082bf1c9842069e3dca76b7665f90c4c940a2b4e",
+          "dimensions": [
+            1024,
+            1536
+          ],
+          "alpha": true,
+          "approval": {
+            "status": "approved",
+            "message": "All others APPROVED, regenerate rejects; explicit per-character feedback recorded.",
+            "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-citlali-ayaka-lynette-mualani-expressions/candidates/Citlali/disgust.png",
+            "sha256": "0f2b81812938ef94aec2abdb082bf1c9842069e3dca76b7665f90c4c940a2b4e"
+          }
+        },
+        "disappointment": {
+          "sha256": "161bb6c1a14e9165ec85320375e0e7208389552d4d91707f672cbc6fbe075500",
+          "dimensions": [
+            1024,
+            1536
+          ],
+          "alpha": true,
+          "approval": {
+            "status": "approved",
+            "message": "All others APPROVED, regenerate rejects; explicit per-character feedback recorded.",
+            "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-citlali-ayaka-lynette-mualani-expressions/candidates/Citlali/disappointment.png",
+            "sha256": "161bb6c1a14e9165ec85320375e0e7208389552d4d91707f672cbc6fbe075500"
+          }
+        },
+        "relief": {
+          "sha256": "52704e86ee1857092864920cf31b8c627335728645e6eb6a92a97e28e395a839",
+          "dimensions": [
+            1024,
+            1536
+          ],
+          "alpha": true,
+          "approval": {
+            "status": "approved",
+            "message": "All others APPROVED, regenerate rejects; explicit per-character feedback recorded.",
+            "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-citlali-ayaka-lynette-mualani-expressions/candidates/Citlali/relief.png",
+            "sha256": "52704e86ee1857092864920cf31b8c627335728645e6eb6a92a97e28e395a839"
+          }
+        },
+        "admiration": {
+          "sha256": "efc67caa345457e1803c02d8922e5df4e5df68c54544af24dc07db2b2e6dfd4c",
+          "dimensions": [
+            1024,
+            1536
+          ],
+          "alpha": true,
+          "approval": {
+            "status": "approved",
+            "message": "All others APPROVED, regenerate rejects; explicit per-character feedback recorded.",
+            "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-citlali-ayaka-lynette-mualani-expressions/candidates/Citlali/admiration.png",
+            "sha256": "efc67caa345457e1803c02d8922e5df4e5df68c54544af24dc07db2b2e6dfd4c"
+          }
+        },
+        "gratitude": {
+          "sha256": "e6f96af81ec5383d5af25cafb91ae5776a5f936897ff2248e37bcda445f5a431",
+          "dimensions": [
+            1024,
+            1536
+          ],
+          "alpha": true,
+          "approval": {
+            "status": "approved",
+            "message": "All others APPROVED, regenerate rejects; explicit per-character feedback recorded.",
+            "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-citlali-ayaka-lynette-mualani-expressions/candidates/Citlali/gratitude.png",
+            "sha256": "e6f96af81ec5383d5af25cafb91ae5776a5f936897ff2248e37bcda445f5a431"
+          }
+        },
+        "embarrassment": {
+          "sha256": "b5036cee680784f2bfbc9b3d935ea8b52d47fcdd9d9e964ad612f53e3b1a00b3",
+          "dimensions": [
+            1024,
+            1536
+          ],
+          "alpha": true,
+          "approval": {
+            "status": "approved",
+            "message": "All others APPROVED, regenerate rejects; explicit per-character feedback recorded.",
+            "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-citlali-ayaka-lynette-mualani-expressions/candidates/Citlali/embarrassment.png",
+            "sha256": "b5036cee680784f2bfbc9b3d935ea8b52d47fcdd9d9e964ad612f53e3b1a00b3"
+          }
+        },
+        "caring": {
+          "sha256": "530b4b489a15676b289f7ad09e5b7cc8d7db67c2d1f1e01566f9759fd99e7d1c",
+          "dimensions": [
+            1024,
+            1536
+          ],
+          "alpha": true,
+          "approval": {
+            "status": "approved",
+            "message": "Mualani Love has 6 fingers. Make Ayaka desire-1 more like Lynette desire-1. All others approved.",
+            "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-citlali-ayaka-lynette-mualani-expressions/candidates/Citlali/caring.png",
+            "sha256": "530b4b489a15676b289f7ad09e5b7cc8d7db67c2d1f1e01566f9759fd99e7d1c"
+          }
+        },
+        "love-1": {
+          "sha256": "5a91b1a749250db5ff52512b2d236535386a616338f3b22f617e7e7b84f4d551",
+          "dimensions": [
+            1024,
+            1536
+          ],
+          "alpha": true,
+          "approval": {
+            "status": "approved",
+            "message": "All others APPROVED, regenerate rejects; explicit per-character feedback recorded.",
+            "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-citlali-ayaka-lynette-mualani-expressions/candidates/Citlali/love-1.png",
+            "sha256": "5a91b1a749250db5ff52512b2d236535386a616338f3b22f617e7e7b84f4d551"
+          }
+        },
+        "desire-1": {
+          "sha256": "5b32714995a8b9c2bab7c0d61f1bc0ea35cedfaffec865d8c9a1921ce68912b8",
+          "dimensions": [
+            1024,
+            1536
+          ],
+          "alpha": true,
+          "approval": {
+            "status": "approved",
+            "message": "Mualani Love has 6 fingers. Make Ayaka desire-1 more like Lynette desire-1. All others approved.",
+            "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-citlali-ayaka-lynette-mualani-expressions/candidates/Citlali/desire-1.png",
+            "sha256": "5b32714995a8b9c2bab7c0d61f1bc0ea35cedfaffec865d8c9a1921ce68912b8"
+          }
+        }
+      },
+      "review_sheets": {
+        "full_body": "previews/Citlali/full-body.png",
+        "face": "previews/Citlali/face.png"
+      },
+      "neutral_approval": "All others are ACCEPTED."
+    },
+    "Kamisato Ayaka": {
+      "missing": [],
+      "images": {
+        "neutral": {
+          "sha256": "25cd519ef584e3393eef5e1e7e484a70ce82da83ee4eae92609adaee8b28cc7c",
+          "dimensions": [
+            1008,
+            1560
+          ],
+          "alpha": true
+        },
+        "annoyance": {
+          "sha256": "0d3c35ba22a1fac594a493ac83545f013efa0a6b2bd861b88617d90f1d44788a",
+          "dimensions": [
+            1008,
+            1560
+          ],
+          "alpha": true,
+          "approval": {
+            "status": "approved",
+            "message": "All others APPROVED, regenerate rejects; explicit per-character feedback recorded.",
+            "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-citlali-ayaka-lynette-mualani-expressions/candidates/Kamisato Ayaka/annoyance.png",
+            "sha256": "0d3c35ba22a1fac594a493ac83545f013efa0a6b2bd861b88617d90f1d44788a"
+          }
+        },
+        "smug": {
+          "sha256": "5ff714ebb9301fe7d6a5094586ce63868dd32c21df8fc6bbec341e31e360e593",
+          "dimensions": [
+            1008,
+            1560
+          ],
+          "alpha": true,
+          "approval": {
+            "status": "approved",
+            "message": "All others APPROVED, regenerate rejects; explicit per-character feedback recorded.",
+            "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-citlali-ayaka-lynette-mualani-expressions/candidates/Kamisato Ayaka/smug.png",
+            "sha256": "5ff714ebb9301fe7d6a5094586ce63868dd32c21df8fc6bbec341e31e360e593"
+          }
+        },
+        "confusion": {
+          "sha256": "4457586532c92e5fc720403ef3e09ca19f621fbff929783be2b547d97c400932",
+          "dimensions": [
+            1008,
+            1560
+          ],
+          "alpha": true,
+          "approval": {
+            "status": "approved",
+            "message": "All others APPROVED, regenerate rejects; explicit per-character feedback recorded.",
+            "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-citlali-ayaka-lynette-mualani-expressions/candidates/Kamisato Ayaka/confusion.png",
+            "sha256": "4457586532c92e5fc720403ef3e09ca19f621fbff929783be2b547d97c400932"
+          }
+        },
+        "love": {
+          "sha256": "0151582d2d0de09ade600451b3b1228ba1eca389743eb9f2660381a8b1df8ff9",
+          "dimensions": [
+            1008,
+            1560
+          ],
+          "alpha": true,
+          "approval": {
+            "status": "approved",
+            "message": "Mualani Love has 6 fingers. Make Ayaka desire-1 more like Lynette desire-1. All others approved.",
+            "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-citlali-ayaka-lynette-mualani-expressions/candidates/Kamisato Ayaka/love.png",
+            "sha256": "0151582d2d0de09ade600451b3b1228ba1eca389743eb9f2660381a8b1df8ff9"
+          }
+        },
+        "excitement": {
+          "sha256": "7c2450454a698776d3e96a440019e0028409f799dafe50f3f4eb4e95bedb0525",
+          "dimensions": [
+            1008,
+            1560
+          ],
+          "alpha": true,
+          "approval": {
+            "status": "approved",
+            "message": "All others APPROVED, regenerate rejects; explicit per-character feedback recorded.",
+            "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-citlali-ayaka-lynette-mualani-expressions/candidates/Kamisato Ayaka/excitement.png",
+            "sha256": "7c2450454a698776d3e96a440019e0028409f799dafe50f3f4eb4e95bedb0525"
+          }
+        },
+        "joy": {
+          "sha256": "aebda1c238b0803dfa385f5185901ac668b0093cd3444612afe36aee13c3c1bd",
+          "dimensions": [
+            1008,
+            1560
+          ],
+          "alpha": true,
+          "approval": {
+            "status": "approved",
+            "message": "All others APPROVED, regenerate rejects; explicit per-character feedback recorded.",
+            "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-citlali-ayaka-lynette-mualani-expressions/candidates/Kamisato Ayaka/joy.png",
+            "sha256": "aebda1c238b0803dfa385f5185901ac668b0093cd3444612afe36aee13c3c1bd"
+          }
+        },
+        "fear": {
+          "sha256": "3de55a851a5bac1b36d83ebf089649bac954da60f416fd4b4e027896c5c6836a",
+          "dimensions": [
+            1008,
+            1560
+          ],
+          "alpha": true,
+          "approval": {
+            "status": "approved",
+            "message": "All others APPROVED, regenerate rejects; explicit per-character feedback recorded.",
+            "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-citlali-ayaka-lynette-mualani-expressions/candidates/Kamisato Ayaka/fear.png",
+            "sha256": "3de55a851a5bac1b36d83ebf089649bac954da60f416fd4b4e027896c5c6836a"
+          }
+        },
+        "pride": {
+          "sha256": "a2c5956a31540dcec14c14a8225e6243f50f626c4b7a443be7a66495e147b808",
+          "dimensions": [
+            1008,
+            1560
+          ],
+          "alpha": true,
+          "approval": {
+            "status": "approved",
+            "message": "All others APPROVED, regenerate rejects; explicit per-character feedback recorded.",
+            "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-citlali-ayaka-lynette-mualani-expressions/candidates/Kamisato Ayaka/pride.png",
+            "sha256": "a2c5956a31540dcec14c14a8225e6243f50f626c4b7a443be7a66495e147b808"
+          }
+        },
+        "desire": {
+          "sha256": "0f1f637d2aa2935244e863a610a12d2b89f341b42452ec107d52954cd959010c",
+          "dimensions": [
+            1009,
+            1559
+          ],
+          "alpha": true,
+          "approval": {
+            "status": "approved",
+            "message": "All others APPROVED, regenerate rejects; explicit per-character feedback recorded.",
+            "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-citlali-ayaka-lynette-mualani-expressions/candidates/Kamisato Ayaka/desire.png",
+            "sha256": "0f1f637d2aa2935244e863a610a12d2b89f341b42452ec107d52954cd959010c"
+          }
+        },
+        "anger": {
+          "sha256": "8df83620f1843bcaff959a417fbaa01449017296cbde8475373b39c731f87c8b",
+          "dimensions": [
+            1008,
+            1560
+          ],
+          "alpha": true,
+          "approval": {
+            "status": "approved",
+            "message": "All others APPROVED, regenerate rejects; explicit per-character feedback recorded.",
+            "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-citlali-ayaka-lynette-mualani-expressions/candidates/Kamisato Ayaka/anger.png",
+            "sha256": "8df83620f1843bcaff959a417fbaa01449017296cbde8475373b39c731f87c8b"
+          }
+        },
+        "grief": {
+          "sha256": "7573569ed61a54bdc5b5410fecb2b168dec0597d0bf69e99c37c9daa55e44e95",
+          "dimensions": [
+            1008,
+            1560
+          ],
+          "alpha": true,
+          "approval": {
+            "status": "approved",
+            "message": "All others APPROVED, regenerate rejects; explicit per-character feedback recorded.",
+            "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-citlali-ayaka-lynette-mualani-expressions/candidates/Kamisato Ayaka/grief.png",
+            "sha256": "7573569ed61a54bdc5b5410fecb2b168dec0597d0bf69e99c37c9daa55e44e95"
+          }
+        },
+        "sadness": {
+          "sha256": "c79bd1a462394fe3174a1b3d770483640a8519584fc3b4a6a350384e565adc9c",
+          "dimensions": [
+            1008,
+            1560
+          ],
+          "alpha": true,
+          "approval": {
+            "status": "approved",
+            "message": "All others APPROVED, regenerate rejects; explicit per-character feedback recorded.",
+            "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-citlali-ayaka-lynette-mualani-expressions/candidates/Kamisato Ayaka/sadness.png",
+            "sha256": "c79bd1a462394fe3174a1b3d770483640a8519584fc3b4a6a350384e565adc9c"
+          }
+        },
+        "disgust": {
+          "sha256": "bf18d25e05f1e0f81ef37007d592567687795693b401559026bc237bba77fddc",
+          "dimensions": [
+            1008,
+            1560
+          ],
+          "alpha": true,
+          "approval": {
+            "status": "approved",
+            "message": "All others APPROVED, regenerate rejects; explicit per-character feedback recorded.",
+            "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-citlali-ayaka-lynette-mualani-expressions/candidates/Kamisato Ayaka/disgust.png",
+            "sha256": "bf18d25e05f1e0f81ef37007d592567687795693b401559026bc237bba77fddc"
+          }
+        },
+        "disappointment": {
+          "sha256": "2f5528247529cd052c65ca20876ddc04dea29a2eb2f8adca00aa8ac84d46f34e",
+          "dimensions": [
+            1008,
+            1560
+          ],
+          "alpha": true,
+          "approval": {
+            "status": "approved",
+            "message": "All others APPROVED, regenerate rejects; explicit per-character feedback recorded.",
+            "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-citlali-ayaka-lynette-mualani-expressions/candidates/Kamisato Ayaka/disappointment.png",
+            "sha256": "2f5528247529cd052c65ca20876ddc04dea29a2eb2f8adca00aa8ac84d46f34e"
+          }
+        },
+        "relief": {
+          "sha256": "a98f10f1fb9b10a9eab170a059745a7fbf3de5ddce237ef71ce86cd4321f2a99",
+          "dimensions": [
+            1024,
+            1536
+          ],
+          "alpha": true,
+          "approval": {
+            "status": "approved",
+            "message": "All others APPROVED, regenerate rejects; explicit per-character feedback recorded.",
+            "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-citlali-ayaka-lynette-mualani-expressions/candidates/Kamisato Ayaka/relief.png",
+            "sha256": "a98f10f1fb9b10a9eab170a059745a7fbf3de5ddce237ef71ce86cd4321f2a99"
+          }
+        },
+        "admiration": {
+          "sha256": "88b4bafce5b0bed2f21eb51329b97855ac06234b8323f5d06a5f0eea3f131fa5",
+          "dimensions": [
+            1008,
+            1560
+          ],
+          "alpha": true,
+          "approval": {
+            "status": "approved",
+            "message": "All others APPROVED, regenerate rejects; explicit per-character feedback recorded.",
+            "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-citlali-ayaka-lynette-mualani-expressions/candidates/Kamisato Ayaka/admiration.png",
+            "sha256": "88b4bafce5b0bed2f21eb51329b97855ac06234b8323f5d06a5f0eea3f131fa5"
+          }
+        },
+        "gratitude": {
+          "sha256": "f1677b1787ed049c63e1fcbfe86a6d5e305d8c1d672be53c862f0f33e9f9d85f",
+          "dimensions": [
+            1008,
+            1560
+          ],
+          "alpha": true,
+          "approval": {
+            "status": "approved",
+            "message": "All others APPROVED, regenerate rejects; explicit per-character feedback recorded.",
+            "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-citlali-ayaka-lynette-mualani-expressions/candidates/Kamisato Ayaka/gratitude.png",
+            "sha256": "f1677b1787ed049c63e1fcbfe86a6d5e305d8c1d672be53c862f0f33e9f9d85f"
+          }
+        },
+        "embarrassment": {
+          "sha256": "d783c2684f8482b846a31817845c92c98cbc516894cb164c54440bdd48054dfe",
+          "dimensions": [
+            1008,
+            1560
+          ],
+          "alpha": true,
+          "approval": {
+            "status": "approved",
+            "message": "All others APPROVED, regenerate rejects; explicit per-character feedback recorded.",
+            "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-citlali-ayaka-lynette-mualani-expressions/candidates/Kamisato Ayaka/embarrassment.png",
+            "sha256": "d783c2684f8482b846a31817845c92c98cbc516894cb164c54440bdd48054dfe"
+          }
+        },
+        "caring": {
+          "sha256": "4e56e49b3a034ccdbe9a02a79eeff686ee4fb2ddfef88c03b165fd0ad8608e5f",
+          "dimensions": [
+            1008,
+            1560
+          ],
+          "alpha": true,
+          "approval": {
+            "status": "approved",
+            "message": "Mualani Love has 6 fingers. Make Ayaka desire-1 more like Lynette desire-1. All others approved.",
+            "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-citlali-ayaka-lynette-mualani-expressions/candidates/Kamisato Ayaka/caring.png",
+            "sha256": "4e56e49b3a034ccdbe9a02a79eeff686ee4fb2ddfef88c03b165fd0ad8608e5f"
+          }
+        },
+        "love-1": {
+          "sha256": "4fee246df61d4b66410d1edc61feee65f2fc58062ec0e3edacdcc913bc0957fa",
+          "dimensions": [
+            1008,
+            1560
+          ],
+          "alpha": true,
+          "approval": {
+            "status": "approved",
+            "message": "All others APPROVED, regenerate rejects; explicit per-character feedback recorded.",
+            "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-citlali-ayaka-lynette-mualani-expressions/candidates/Kamisato Ayaka/love-1.png",
+            "sha256": "4fee246df61d4b66410d1edc61feee65f2fc58062ec0e3edacdcc913bc0957fa"
+          }
+        },
+        "desire-1": {
+          "sha256": "be864a9c2c1dbb9a8c8b3410d7c8569a040a623aa87a54558ec82f728bfd7a40",
+          "dimensions": [
+            1008,
+            1560
+          ],
+          "alpha": true,
+          "approval": {
+            "status": "approved",
+            "message": "APPROVED, put them all in their respective folders",
+            "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-citlali-ayaka-lynette-mualani-expressions/candidates/Kamisato Ayaka/desire-1.png",
+            "sha256": "be864a9c2c1dbb9a8c8b3410d7c8569a040a623aa87a54558ec82f728bfd7a40"
+          }
+        }
+      },
+      "review_sheets": {
+        "full_body": "previews/Kamisato Ayaka/full-body.png",
+        "face": "previews/Kamisato Ayaka/face.png"
+      },
+      "neutral_approval": "All others are ACCEPTED."
+    },
+    "Lynette": {
+      "missing": [],
+      "images": {
+        "neutral": {
+          "sha256": "ef58c642ae0ecef482e1495b476fb0259e51c3ec5a1641450df49c26ec84f74e",
+          "dimensions": [
+            1024,
+            1536
+          ],
+          "alpha": true
+        },
+        "annoyance": {
+          "sha256": "73dd65438981ba8248c857b5efffac31dc6a67fccf0ad92219961eb03b5f86c0",
+          "dimensions": [
+            1024,
+            1536
+          ],
+          "alpha": true,
+          "approval": {
+            "status": "approved",
+            "message": "All others APPROVED, regenerate rejects; explicit per-character feedback recorded.",
+            "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-citlali-ayaka-lynette-mualani-expressions/candidates/Lynette/annoyance.png",
+            "sha256": "73dd65438981ba8248c857b5efffac31dc6a67fccf0ad92219961eb03b5f86c0"
+          }
+        },
+        "smug": {
+          "sha256": "9ee296ddb711d42c2a1eeafe52cdb104fa10e9fda8880ce2bd0dc17ff89d3759",
+          "dimensions": [
+            1024,
+            1536
+          ],
+          "alpha": true,
+          "approval": {
+            "status": "approved",
+            "message": "All others APPROVED, regenerate rejects; explicit per-character feedback recorded.",
+            "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-citlali-ayaka-lynette-mualani-expressions/candidates/Lynette/smug.png",
+            "sha256": "9ee296ddb711d42c2a1eeafe52cdb104fa10e9fda8880ce2bd0dc17ff89d3759"
+          }
+        },
+        "confusion": {
+          "sha256": "159f5be568fe87889ec0b9b9f339b2ef0f83ca4221aac6014e17493b2389dc38",
+          "dimensions": [
+            1024,
+            1536
+          ],
+          "alpha": true,
+          "approval": {
+            "status": "approved",
+            "message": "All others APPROVED, regenerate rejects; explicit per-character feedback recorded.",
+            "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-citlali-ayaka-lynette-mualani-expressions/candidates/Lynette/confusion.png",
+            "sha256": "159f5be568fe87889ec0b9b9f339b2ef0f83ca4221aac6014e17493b2389dc38"
+          }
+        },
+        "love": {
+          "sha256": "cfe840df223681512b5d2421c08113709f863c36ea9277498e1b9543d4d14aa1",
+          "dimensions": [
+            1024,
+            1536
+          ],
+          "alpha": true,
+          "approval": {
+            "status": "approved",
+            "message": "All others APPROVED, regenerate rejects; explicit per-character feedback recorded.",
+            "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-citlali-ayaka-lynette-mualani-expressions/candidates/Lynette/love.png",
+            "sha256": "cfe840df223681512b5d2421c08113709f863c36ea9277498e1b9543d4d14aa1"
+          }
+        },
+        "excitement": {
+          "sha256": "33f5f5f3a5a49d0b489b6d056b96a84dadbb96835841da6d1752ecf069289d6c",
+          "dimensions": [
+            1024,
+            1536
+          ],
+          "alpha": true,
+          "approval": {
+            "status": "approved",
+            "message": "All others APPROVED, regenerate rejects; explicit per-character feedback recorded.",
+            "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-citlali-ayaka-lynette-mualani-expressions/candidates/Lynette/excitement.png",
+            "sha256": "33f5f5f3a5a49d0b489b6d056b96a84dadbb96835841da6d1752ecf069289d6c"
+          }
+        },
+        "joy": {
+          "sha256": "6f2c72435b51b51c7b57f1eb17d07af43e893fb2498ed3ac0dadb8ac0d994934",
+          "dimensions": [
+            1024,
+            1536
+          ],
+          "alpha": true,
+          "approval": {
+            "status": "approved",
+            "message": "Mualani Love has 6 fingers. Make Ayaka desire-1 more like Lynette desire-1. All others approved.",
+            "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-citlali-ayaka-lynette-mualani-expressions/candidates/Lynette/joy.png",
+            "sha256": "6f2c72435b51b51c7b57f1eb17d07af43e893fb2498ed3ac0dadb8ac0d994934"
+          }
+        },
+        "fear": {
+          "sha256": "11b981f3bac52629c733c501c3ba4bba93d5c047e6d4f3dafa1d52c434bde397",
+          "dimensions": [
+            1024,
+            1536
+          ],
+          "alpha": true,
+          "approval": {
+            "status": "approved",
+            "message": "All others APPROVED, regenerate rejects; explicit per-character feedback recorded.",
+            "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-citlali-ayaka-lynette-mualani-expressions/candidates/Lynette/fear.png",
+            "sha256": "11b981f3bac52629c733c501c3ba4bba93d5c047e6d4f3dafa1d52c434bde397"
+          }
+        },
+        "pride": {
+          "sha256": "4ae879097b6941319270212e4fc41e39c7e51d468da0e77f88d9369d4218786e",
+          "dimensions": [
+            1024,
+            1536
+          ],
+          "alpha": true,
+          "approval": {
+            "status": "approved",
+            "message": "All others APPROVED, regenerate rejects; explicit per-character feedback recorded.",
+            "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-citlali-ayaka-lynette-mualani-expressions/candidates/Lynette/pride.png",
+            "sha256": "4ae879097b6941319270212e4fc41e39c7e51d468da0e77f88d9369d4218786e"
+          }
+        },
+        "desire": {
+          "sha256": "63a8692b61ec97f993ffff552ab13b289c4ac758417a698744b0136491d4f40a",
+          "dimensions": [
+            1024,
+            1536
+          ],
+          "alpha": true,
+          "approval": {
+            "status": "approved",
+            "message": "All others APPROVED, regenerate rejects; explicit per-character feedback recorded.",
+            "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-citlali-ayaka-lynette-mualani-expressions/candidates/Lynette/desire.png",
+            "sha256": "63a8692b61ec97f993ffff552ab13b289c4ac758417a698744b0136491d4f40a"
+          }
+        },
+        "anger": {
+          "sha256": "3effd476d834e65c19b4f7c8b583ffe093e2ee333c7845c30ad809fe4eba7e45",
+          "dimensions": [
+            1024,
+            1536
+          ],
+          "alpha": true,
+          "approval": {
+            "status": "approved",
+            "message": "All others APPROVED, regenerate rejects; explicit per-character feedback recorded.",
+            "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-citlali-ayaka-lynette-mualani-expressions/candidates/Lynette/anger.png",
+            "sha256": "3effd476d834e65c19b4f7c8b583ffe093e2ee333c7845c30ad809fe4eba7e45"
+          }
+        },
+        "grief": {
+          "sha256": "b86c79029aa2cdddfcf544052857ad2220531b3781c587510b0f7c93bdd45a0a",
+          "dimensions": [
+            1024,
+            1536
+          ],
+          "alpha": true,
+          "approval": {
+            "status": "approved",
+            "message": "All others APPROVED, regenerate rejects; explicit per-character feedback recorded.",
+            "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-citlali-ayaka-lynette-mualani-expressions/candidates/Lynette/grief.png",
+            "sha256": "b86c79029aa2cdddfcf544052857ad2220531b3781c587510b0f7c93bdd45a0a"
+          }
+        },
+        "sadness": {
+          "sha256": "2cfae90e46fb7b3d5d60dfa47769d415eaf95a50165b93ac79e8a1b57be95684",
+          "dimensions": [
+            1024,
+            1536
+          ],
+          "alpha": true,
+          "approval": {
+            "status": "approved",
+            "message": "All others APPROVED, regenerate rejects; explicit per-character feedback recorded.",
+            "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-citlali-ayaka-lynette-mualani-expressions/candidates/Lynette/sadness.png",
+            "sha256": "2cfae90e46fb7b3d5d60dfa47769d415eaf95a50165b93ac79e8a1b57be95684"
+          }
+        },
+        "disgust": {
+          "sha256": "969ebbbf3c9297b285087ca4014584eb6a93e7b1f51945e1e67876fc964dd640",
+          "dimensions": [
+            1024,
+            1536
+          ],
+          "alpha": true,
+          "approval": {
+            "status": "approved",
+            "message": "All others APPROVED, regenerate rejects; explicit per-character feedback recorded.",
+            "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-citlali-ayaka-lynette-mualani-expressions/candidates/Lynette/disgust.png",
+            "sha256": "969ebbbf3c9297b285087ca4014584eb6a93e7b1f51945e1e67876fc964dd640"
+          }
+        },
+        "disappointment": {
+          "sha256": "5159777d6847899ffe01ada3ed92fc167bfdf8b4fdfa96fbb8549fb041cc7151",
+          "dimensions": [
+            1024,
+            1536
+          ],
+          "alpha": true,
+          "approval": {
+            "status": "approved",
+            "message": "All others APPROVED, regenerate rejects; explicit per-character feedback recorded.",
+            "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-citlali-ayaka-lynette-mualani-expressions/candidates/Lynette/disappointment.png",
+            "sha256": "5159777d6847899ffe01ada3ed92fc167bfdf8b4fdfa96fbb8549fb041cc7151"
+          }
+        },
+        "relief": {
+          "sha256": "5faaa0d1c16bf7e56d7530ed12a4dea1331f28bd9b243f784c33afeb97004d9e",
+          "dimensions": [
+            1024,
+            1536
+          ],
+          "alpha": true,
+          "approval": {
+            "status": "approved",
+            "message": "All others APPROVED, regenerate rejects; explicit per-character feedback recorded.",
+            "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-citlali-ayaka-lynette-mualani-expressions/candidates/Lynette/relief.png",
+            "sha256": "5faaa0d1c16bf7e56d7530ed12a4dea1331f28bd9b243f784c33afeb97004d9e"
+          }
+        },
+        "admiration": {
+          "sha256": "5f79bf7f3ea29bb06fd21541cf299d8f8f4e1e0e9b43b4ba76c4d24eb4402c26",
+          "dimensions": [
+            1024,
+            1536
+          ],
+          "alpha": true,
+          "approval": {
+            "status": "approved",
+            "message": "All others APPROVED, regenerate rejects; explicit per-character feedback recorded.",
+            "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-citlali-ayaka-lynette-mualani-expressions/candidates/Lynette/admiration.png",
+            "sha256": "5f79bf7f3ea29bb06fd21541cf299d8f8f4e1e0e9b43b4ba76c4d24eb4402c26"
+          }
+        },
+        "gratitude": {
+          "sha256": "5c41591349709ec9430e91e8a9160cab56a073cf39677cc2268b9409473c3717",
+          "dimensions": [
+            1024,
+            1536
+          ],
+          "alpha": true,
+          "approval": {
+            "status": "approved",
+            "message": "All others APPROVED, regenerate rejects; explicit per-character feedback recorded.",
+            "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-citlali-ayaka-lynette-mualani-expressions/candidates/Lynette/gratitude.png",
+            "sha256": "5c41591349709ec9430e91e8a9160cab56a073cf39677cc2268b9409473c3717"
+          }
+        },
+        "embarrassment": {
+          "sha256": "33c69a5dab2f4d49f838c40c2dbb8eb6b67f69ffbc2b49b11d2c85a94e637b9f",
+          "dimensions": [
+            1024,
+            1536
+          ],
+          "alpha": true,
+          "approval": {
+            "status": "approved",
+            "message": "All others APPROVED, regenerate rejects; explicit per-character feedback recorded.",
+            "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-citlali-ayaka-lynette-mualani-expressions/candidates/Lynette/embarrassment.png",
+            "sha256": "33c69a5dab2f4d49f838c40c2dbb8eb6b67f69ffbc2b49b11d2c85a94e637b9f"
+          }
+        },
+        "caring": {
+          "sha256": "e228d45447e1cc329e83878fb34447ac0e092c7e756b5f32df3be54368f7e174",
+          "dimensions": [
+            1024,
+            1536
+          ],
+          "alpha": true,
+          "approval": {
+            "status": "approved",
+            "message": "Mualani Love has 6 fingers. Make Ayaka desire-1 more like Lynette desire-1. All others approved.",
+            "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-citlali-ayaka-lynette-mualani-expressions/candidates/Lynette/caring.png",
+            "sha256": "e228d45447e1cc329e83878fb34447ac0e092c7e756b5f32df3be54368f7e174"
+          }
+        },
+        "love-1": {
+          "sha256": "e5a4e84293411b088b5fc99231767e740f01a5274644a4f1beab43794e26b8f9",
+          "dimensions": [
+            1024,
+            1536
+          ],
+          "alpha": true,
+          "approval": {
+            "status": "approved",
+            "message": "Mualani Love has 6 fingers. Make Ayaka desire-1 more like Lynette desire-1. All others approved.",
+            "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-citlali-ayaka-lynette-mualani-expressions/candidates/Lynette/love-1.png",
+            "sha256": "e5a4e84293411b088b5fc99231767e740f01a5274644a4f1beab43794e26b8f9"
+          }
+        },
+        "desire-1": {
+          "sha256": "bbc574279b6b34a1442062ff2e014bcbcea9a8c2d53abbbb3706458ea2c7c741",
+          "dimensions": [
+            1024,
+            1536
+          ],
+          "alpha": true,
+          "approval": {
+            "status": "approved",
+            "message": "Mualani Love has 6 fingers. Make Ayaka desire-1 more like Lynette desire-1. All others approved.",
+            "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-citlali-ayaka-lynette-mualani-expressions/candidates/Lynette/desire-1.png",
+            "sha256": "bbc574279b6b34a1442062ff2e014bcbcea9a8c2d53abbbb3706458ea2c7c741"
+          }
+        }
+      },
+      "review_sheets": {
+        "full_body": "previews/Lynette/full-body.png",
+        "face": "previews/Lynette/face.png"
+      },
+      "neutral_approval": "All others are ACCEPTED."
+    },
+    "Mualani": {
+      "missing": [],
+      "images": {
+        "neutral": {
+          "sha256": "f125feed1c7662b11a38b8f0ff58aa5f2c2a67bc1b23d74d621424fa0c67aa06",
+          "dimensions": [
+            1024,
+            1536
+          ],
+          "alpha": true
+        },
+        "annoyance": {
+          "sha256": "c560b87e32e90d9e3857b972abb3f434b78ba5f8ca5500270955aae4cc767277",
+          "dimensions": [
+            1024,
+            1536
+          ],
+          "alpha": true,
+          "approval": {
+            "status": "approved",
+            "message": "All others APPROVED, regenerate rejects; explicit per-character feedback recorded.",
+            "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-citlali-ayaka-lynette-mualani-expressions/candidates/Mualani/annoyance.png",
+            "sha256": "c560b87e32e90d9e3857b972abb3f434b78ba5f8ca5500270955aae4cc767277"
+          }
+        },
+        "smug": {
+          "sha256": "7268fd46dfee22490719545fef96cf3ed4695850a7644c3050785ac6c6e083bb",
+          "dimensions": [
+            1024,
+            1536
+          ],
+          "alpha": true,
+          "approval": {
+            "status": "approved",
+            "message": "All others APPROVED, regenerate rejects; explicit per-character feedback recorded.",
+            "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-citlali-ayaka-lynette-mualani-expressions/candidates/Mualani/smug.png",
+            "sha256": "7268fd46dfee22490719545fef96cf3ed4695850a7644c3050785ac6c6e083bb"
+          }
+        },
+        "confusion": {
+          "sha256": "52cc2d64ca4bff9caf34c5e0f368b71292e4c9f53290bd27fa46dc8f123060e8",
+          "dimensions": [
+            1024,
+            1536
+          ],
+          "alpha": true,
+          "approval": {
+            "status": "approved",
+            "message": "All others APPROVED, regenerate rejects; explicit per-character feedback recorded.",
+            "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-citlali-ayaka-lynette-mualani-expressions/candidates/Mualani/confusion.png",
+            "sha256": "52cc2d64ca4bff9caf34c5e0f368b71292e4c9f53290bd27fa46dc8f123060e8"
+          }
+        },
+        "love": {
+          "sha256": "4a23b5e054b44afbee01e102ca69fc72f838749014361746b84c4a1c3b744ae1",
+          "dimensions": [
+            1024,
+            1536
+          ],
+          "alpha": true,
+          "approval": {
+            "status": "approved",
+            "message": "Mualani approved",
+            "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-citlali-ayaka-lynette-mualani-expressions/candidates/Mualani/love.png",
+            "sha256": "4a23b5e054b44afbee01e102ca69fc72f838749014361746b84c4a1c3b744ae1"
+          }
+        },
+        "excitement": {
+          "sha256": "6ba483758edf093cf5e7d91b0237c30dd967bf465d420f67ff58efeae9a2e711",
+          "dimensions": [
+            1024,
+            1536
+          ],
+          "alpha": true,
+          "approval": {
+            "status": "approved",
+            "message": "All others APPROVED, regenerate rejects; explicit per-character feedback recorded.",
+            "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-citlali-ayaka-lynette-mualani-expressions/candidates/Mualani/excitement.png",
+            "sha256": "6ba483758edf093cf5e7d91b0237c30dd967bf465d420f67ff58efeae9a2e711"
+          }
+        },
+        "joy": {
+          "sha256": "2f9ced95a9dc6eb9a4d673189db02a3d24d37b79cdb55f0bdc63f6d296a7a8b4",
+          "dimensions": [
+            1024,
+            1536
+          ],
+          "alpha": true,
+          "approval": {
+            "status": "approved",
+            "message": "Mualani Love has 6 fingers. Make Ayaka desire-1 more like Lynette desire-1. All others approved.",
+            "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-citlali-ayaka-lynette-mualani-expressions/candidates/Mualani/joy.png",
+            "sha256": "2f9ced95a9dc6eb9a4d673189db02a3d24d37b79cdb55f0bdc63f6d296a7a8b4"
+          }
+        },
+        "fear": {
+          "sha256": "f2f4470c0578b996a7f6868cb48020ae5259cb52db68dc3fe51ab24598b84ee7",
+          "dimensions": [
+            1024,
+            1536
+          ],
+          "alpha": true,
+          "approval": {
+            "status": "approved",
+            "message": "All others APPROVED, regenerate rejects; explicit per-character feedback recorded.",
+            "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-citlali-ayaka-lynette-mualani-expressions/candidates/Mualani/fear.png",
+            "sha256": "f2f4470c0578b996a7f6868cb48020ae5259cb52db68dc3fe51ab24598b84ee7"
+          }
+        },
+        "pride": {
+          "sha256": "d3d1255c4ab074a567c8680ca2ea3572df3a825682766ce9280da1d7f1548af1",
+          "dimensions": [
+            1024,
+            1536
+          ],
+          "alpha": true,
+          "approval": {
+            "status": "approved",
+            "message": "All others APPROVED, regenerate rejects; explicit per-character feedback recorded.",
+            "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-citlali-ayaka-lynette-mualani-expressions/candidates/Mualani/pride.png",
+            "sha256": "d3d1255c4ab074a567c8680ca2ea3572df3a825682766ce9280da1d7f1548af1"
+          }
+        },
+        "desire": {
+          "sha256": "8cf290d585d81c84c9244c6fde9b4d855d155abccf448b35ce836b946942d5d5",
+          "dimensions": [
+            1024,
+            1536
+          ],
+          "alpha": true,
+          "approval": {
+            "status": "approved",
+            "message": "All others APPROVED, regenerate rejects; explicit per-character feedback recorded.",
+            "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-citlali-ayaka-lynette-mualani-expressions/candidates/Mualani/desire.png",
+            "sha256": "8cf290d585d81c84c9244c6fde9b4d855d155abccf448b35ce836b946942d5d5"
+          }
+        },
+        "anger": {
+          "sha256": "bd20275d3bad27f0f89e0c54826a3c2e18949a289f14666e5ab5d9fd8895fe9a",
+          "dimensions": [
+            1024,
+            1536
+          ],
+          "alpha": true,
+          "approval": {
+            "status": "approved",
+            "message": "All others APPROVED, regenerate rejects; explicit per-character feedback recorded.",
+            "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-citlali-ayaka-lynette-mualani-expressions/candidates/Mualani/anger.png",
+            "sha256": "bd20275d3bad27f0f89e0c54826a3c2e18949a289f14666e5ab5d9fd8895fe9a"
+          }
+        },
+        "grief": {
+          "sha256": "08dd6ef96e04d96822d5d5bb01148eb15930b64b11e5ceced5af0a94159f5e52",
+          "dimensions": [
+            1024,
+            1536
+          ],
+          "alpha": true,
+          "approval": {
+            "status": "approved",
+            "message": "All others APPROVED, regenerate rejects; explicit per-character feedback recorded.",
+            "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-citlali-ayaka-lynette-mualani-expressions/candidates/Mualani/grief.png",
+            "sha256": "08dd6ef96e04d96822d5d5bb01148eb15930b64b11e5ceced5af0a94159f5e52"
+          }
+        },
+        "sadness": {
+          "sha256": "f0e7641dc1d3e5aebdf3c4a634141f0ac5421187dcc11a69a412faebb326d01c",
+          "dimensions": [
+            1024,
+            1536
+          ],
+          "alpha": true,
+          "approval": {
+            "status": "approved",
+            "message": "All others APPROVED, regenerate rejects; explicit per-character feedback recorded.",
+            "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-citlali-ayaka-lynette-mualani-expressions/candidates/Mualani/sadness.png",
+            "sha256": "f0e7641dc1d3e5aebdf3c4a634141f0ac5421187dcc11a69a412faebb326d01c"
+          }
+        },
+        "disgust": {
+          "sha256": "930d8e9d8f447715510e3ba4f35b44f4a436b530666da71829e6f48d7267d881",
+          "dimensions": [
+            1024,
+            1536
+          ],
+          "alpha": true,
+          "approval": {
+            "status": "approved",
+            "message": "All others APPROVED, regenerate rejects; explicit per-character feedback recorded.",
+            "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-citlali-ayaka-lynette-mualani-expressions/candidates/Mualani/disgust.png",
+            "sha256": "930d8e9d8f447715510e3ba4f35b44f4a436b530666da71829e6f48d7267d881"
+          }
+        },
+        "disappointment": {
+          "sha256": "382cd7966954b2d6aac821c0fc7b1cd6d22ed5e2bf2aca1d994cb931d1f74ea3",
+          "dimensions": [
+            1024,
+            1536
+          ],
+          "alpha": true,
+          "approval": {
+            "status": "approved",
+            "message": "All others APPROVED, regenerate rejects; explicit per-character feedback recorded.",
+            "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-citlali-ayaka-lynette-mualani-expressions/candidates/Mualani/disappointment.png",
+            "sha256": "382cd7966954b2d6aac821c0fc7b1cd6d22ed5e2bf2aca1d994cb931d1f74ea3"
+          }
+        },
+        "relief": {
+          "sha256": "232dd18adcfc79b50ee5f5dce8cb010d45b6d845a6bf5ddbf1c559938c1c871f",
+          "dimensions": [
+            1024,
+            1536
+          ],
+          "alpha": true,
+          "approval": {
+            "status": "approved",
+            "message": "All others APPROVED, regenerate rejects; explicit per-character feedback recorded.",
+            "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-citlali-ayaka-lynette-mualani-expressions/candidates/Mualani/relief.png",
+            "sha256": "232dd18adcfc79b50ee5f5dce8cb010d45b6d845a6bf5ddbf1c559938c1c871f"
+          }
+        },
+        "admiration": {
+          "sha256": "233971f9ea70a1333b138f9f75509f81dc0c329f8b225a618605d9ca1c5a42a4",
+          "dimensions": [
+            1024,
+            1536
+          ],
+          "alpha": true,
+          "approval": {
+            "status": "approved",
+            "message": "All others APPROVED, regenerate rejects; explicit per-character feedback recorded.",
+            "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-citlali-ayaka-lynette-mualani-expressions/candidates/Mualani/admiration.png",
+            "sha256": "233971f9ea70a1333b138f9f75509f81dc0c329f8b225a618605d9ca1c5a42a4"
+          }
+        },
+        "gratitude": {
+          "sha256": "08957341e1184e1921b83493159b517e72e7a3d5293ca0c1c9d3411a98d88d05",
+          "dimensions": [
+            1024,
+            1536
+          ],
+          "alpha": true,
+          "approval": {
+            "status": "approved",
+            "message": "All others APPROVED, regenerate rejects; explicit per-character feedback recorded.",
+            "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-citlali-ayaka-lynette-mualani-expressions/candidates/Mualani/gratitude.png",
+            "sha256": "08957341e1184e1921b83493159b517e72e7a3d5293ca0c1c9d3411a98d88d05"
+          }
+        },
+        "embarrassment": {
+          "sha256": "bf6c1bb2a148d96be68348fda9acbb7a17a000aec7e60024ab2ed654675db6a4",
+          "dimensions": [
+            1024,
+            1536
+          ],
+          "alpha": true,
+          "approval": {
+            "status": "approved",
+            "message": "All others APPROVED, regenerate rejects; explicit per-character feedback recorded.",
+            "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-citlali-ayaka-lynette-mualani-expressions/candidates/Mualani/embarrassment.png",
+            "sha256": "bf6c1bb2a148d96be68348fda9acbb7a17a000aec7e60024ab2ed654675db6a4"
+          }
+        },
+        "caring": {
+          "sha256": "9eca7707b84c0959f9f428195c55d8947580b5d80b830bf776ec5423c5142148",
+          "dimensions": [
+            1024,
+            1536
+          ],
+          "alpha": true,
+          "approval": {
+            "status": "approved",
+            "message": "All others APPROVED, regenerate rejects; explicit per-character feedback recorded.",
+            "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-citlali-ayaka-lynette-mualani-expressions/candidates/Mualani/caring.png",
+            "sha256": "9eca7707b84c0959f9f428195c55d8947580b5d80b830bf776ec5423c5142148"
+          }
+        },
+        "love-1": {
+          "sha256": "ead8eaf16e85516b8b25d4763790bfaeca19922380a99ea5664f87f7703f2ed4",
+          "dimensions": [
+            1024,
+            1536
+          ],
+          "alpha": true,
+          "approval": {
+            "status": "approved",
+            "message": "All others APPROVED, regenerate rejects; explicit per-character feedback recorded.",
+            "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-citlali-ayaka-lynette-mualani-expressions/candidates/Mualani/love-1.png",
+            "sha256": "ead8eaf16e85516b8b25d4763790bfaeca19922380a99ea5664f87f7703f2ed4"
+          }
+        },
+        "desire-1": {
+          "sha256": "dbf41623797d2008462f6af1283d36735f2fe3517f36add7406e1f088b93d91a",
+          "dimensions": [
+            1024,
+            1536
+          ],
+          "alpha": true,
+          "approval": {
+            "status": "approved",
+            "message": "Mualani Love has 6 fingers. Make Ayaka desire-1 more like Lynette desire-1. All others approved.",
+            "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-citlali-ayaka-lynette-mualani-expressions/candidates/Mualani/desire-1.png",
+            "sha256": "dbf41623797d2008462f6af1283d36735f2fe3517f36add7406e1f088b93d91a"
+          }
+        }
+      },
+      "review_sheets": {
+        "full_body": "previews/Mualani/full-body.png",
+        "face": "previews/Mualani/face.png"
+      },
+      "neutral_approval": "PERFECT, Approved!"
+    }
+  }
+}

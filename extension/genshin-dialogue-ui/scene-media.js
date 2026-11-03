@@ -1,5 +1,6 @@
 import { mediaSettings, localMediaPath, spriteAudioKey, createMediaAdapter, isVideoCG, phoneLayout, cgDisplay, cgVolume } from './media-store.js';
 import { pageSignature } from './page-sprites.js';
+import { speakerAvatar } from './staging.js';
 import {personaCard} from './persona-wardrobe.js';
 
 export function createSpriteSoundPlayer({ makeAudio = () => new Audio(), random = Math.random } = {}) {
@@ -170,7 +171,9 @@ export function mountSceneMedia({host,getContext,adapter=createMediaAdapter(getC
             const ctx = getContext(), prefs = mediaSettings(ctx);
             if (!on || !prefs.spriteAudio || message !== ctx.chat.at(-1)) return;
             const changed = scene.filter(sprite => !previous.some(old => old.src === sprite.src && old.expression === sprite.expression && old.folder === sprite.folder));
-            const speaker = changed.find(s => s.avatar === message.original_avatar || s.folder === message.name || s.folder?.startsWith(message.name + '/')) || changed.at(-1);
+            // Only the speaker's voice plays. Listeners changing expression stay silent.
+            const avatar = speakerAvatar(ctx, message);
+            const speaker = changed.find(s => s.avatar ? s.avatar === avatar : s.folder === message.name || s.folder?.startsWith(message.name + '/'));
             if (!speaker) return;
             const files = prefs.spriteAudioFiles[spriteAudioKey(speaker.folder,speaker.src)];
             if (!files?.length) return;

@@ -1,0 +1,787 @@
+{
+  "status": "installed",
+  "approval": "APPROVED. Put all sprites in their respective folders.",
+  "backup": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-xiangling-yanfei-arlecchino-expressions/installation-backup-2026-11-02",
+  "count": 129,
+  "removed": [
+    "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Xianyun/love-1.png",
+    "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Xianyun/desire-1.png",
+    "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Arlecchino/love-1.png"
+  ],
+  "files": [
+    {
+      "character": "Keqing",
+      "emotion": "neutral",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Keqing/neutral.png",
+      "sha256": "b5b52e521ecb52a46c34f5ed5d56a478766efcc0581e38fc69bd40ecd0d147f2"
+    },
+    {
+      "character": "Keqing",
+      "emotion": "annoyance",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Keqing/annoyance.png",
+      "sha256": "0f4ed1dd0b502b21b754e60ecffb4d83f777784227d4bd13a8f2ef51277323a1"
+    },
+    {
+      "character": "Keqing",
+      "emotion": "smug",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Keqing/smug.png",
+      "sha256": "e58a669c8e9c87bc006c71aec8fc375264214f2bfd960cb6c3cd752530b7f89c"
+    },
+    {
+      "character": "Keqing",
+      "emotion": "confusion",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Keqing/confusion.png",
+      "sha256": "b8e697d7578d9df55e9754e80b693c20fa2ea2cd2bc6d1e87e450f29be939a40"
+    },
+    {
+      "character": "Keqing",
+      "emotion": "love",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Keqing/love.png",
+      "sha256": "483efd57cb23237f9f6c4873c7d051577deee7a592be0b93278894eeb931c864"
+    },
+    {
+      "character": "Keqing",
+      "emotion": "excitement",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Keqing/excitement.png",
+      "sha256": "c30ed34483c98a4fe789378daea59cbfd95de19a552ca691a9808452cdd80b66"
+    },
+    {
+      "character": "Keqing",
+      "emotion": "joy",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Keqing/joy.png",
+      "sha256": "7c8f5cd4ebea92e9628e88926b2f5c48713f33674c8f12f0db9919b28ad23d77"
+    },
+    {
+      "character": "Keqing",
+      "emotion": "fear",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Keqing/fear.png",
+      "sha256": "186e0e04cafd969846de6dea72225f34b72e053934dc08df179102a3b6a652ad"
+    },
+    {
+      "character": "Keqing",
+      "emotion": "pride",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Keqing/pride.png",
+      "sha256": "033930cb3c8e0d6f56fe7430d3aeb96766cf4e8d39e669dd1f34da57581c19a3"
+    },
+    {
+      "character": "Keqing",
+      "emotion": "desire",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Keqing/desire.png",
+      "sha256": "b28d5101fccf8dfd27c99beae343ab38893477b1e3b541e4afc8f99d3f809124"
+    },
+    {
+      "character": "Keqing",
+      "emotion": "anger",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Keqing/anger.png",
+      "sha256": "4b184718358a965732e2805ee1d2ac368c5227c96b960b9a8a3b4fee63e68e09"
+    },
+    {
+      "character": "Keqing",
+      "emotion": "grief",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Keqing/grief.png",
+      "sha256": "8d88bf015340c3dcfe1516fa88405ac2c9c06f4a3f19fb0767ff4aa7256fa630"
+    },
+    {
+      "character": "Keqing",
+      "emotion": "sadness",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Keqing/sadness.png",
+      "sha256": "fbdbf4a91e23250d217ae248afa07274204ed98d534b1c24f182d755250c123e"
+    },
+    {
+      "character": "Keqing",
+      "emotion": "disgust",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Keqing/disgust.png",
+      "sha256": "3839c23c74246cbab7dee7c7cc41331964aa0b6d526c8f9a45094da3c218c382"
+    },
+    {
+      "character": "Keqing",
+      "emotion": "disappointment",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Keqing/disappointment.png",
+      "sha256": "7d1e1bed825e93a9c46163986de139e573525f4d0f86c0e46840156052ffdf2f"
+    },
+    {
+      "character": "Keqing",
+      "emotion": "relief",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Keqing/relief.png",
+      "sha256": "81abe7437eb6f29c1e5650aae37233a796cd52ef7ad149d80534c1c54fb1f124"
+    },
+    {
+      "character": "Keqing",
+      "emotion": "admiration",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Keqing/admiration.png",
+      "sha256": "52037f3c68e10df15f44b792adde18998166fc9deec1dc0831f5f3e3e19eff1d"
+    },
+    {
+      "character": "Keqing",
+      "emotion": "gratitude",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Keqing/gratitude.png",
+      "sha256": "7691c308088aba4192cf01f59f131ea54e5a527f049d76c89dfe402d48342910"
+    },
+    {
+      "character": "Keqing",
+      "emotion": "embarrassment",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Keqing/embarrassment.png",
+      "sha256": "c68d105f06cfa1f8482e85f3553e910f13dba3bc7a2763ab9c7da45df440530e"
+    },
+    {
+      "character": "Keqing",
+      "emotion": "caring",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Keqing/caring.png",
+      "sha256": "9d8655cb8b5442f0c1e934031708adfa37d43013762d80caee61490e09397335"
+    },
+    {
+      "character": "Keqing",
+      "emotion": "love-1",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Keqing/love-1.png",
+      "sha256": "b70f073c27cc7d80db186e741264cdde9a31e3808bcba8650b1dda76aef41640"
+    },
+    {
+      "character": "Keqing",
+      "emotion": "desire-1",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Keqing/desire-1.png",
+      "sha256": "5a81f7b26fd5153e13d4c4e3e9fb9d15f65fc6c9c9710f5bad66116dd7dd3eee"
+    },
+    {
+      "character": "Shenhe",
+      "emotion": "neutral",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Shenhe/neutral.png",
+      "sha256": "27c6ba868c29cd49abb2e2c0709d2d8fa64d2c8b5cc062dfdeab9e7e83c67004"
+    },
+    {
+      "character": "Shenhe",
+      "emotion": "annoyance",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Shenhe/annoyance.png",
+      "sha256": "95feb8aa5c4f67ad7a3b11b1f78bc3346c291636abe7e8facb4aa62699614dbb"
+    },
+    {
+      "character": "Shenhe",
+      "emotion": "smug",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Shenhe/smug.png",
+      "sha256": "3febc3dbb1ad0c93645953c1923912bf73d8880b0fc52ea22213caf5567d115b"
+    },
+    {
+      "character": "Shenhe",
+      "emotion": "confusion",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Shenhe/confusion.png",
+      "sha256": "e9fe41ddb3d8cb12bdcdf41d554b5c1836b72190c6fea4ed3a389f2cd89ee652"
+    },
+    {
+      "character": "Shenhe",
+      "emotion": "love",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Shenhe/love.png",
+      "sha256": "490fa1ed36caa7e339e24e5f9328f6ef1872aa4d6b5c6fcb504c60a97e7e1a85"
+    },
+    {
+      "character": "Shenhe",
+      "emotion": "excitement",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Shenhe/excitement.png",
+      "sha256": "d3a3878292c30686d39aa48fbb7a1aa10d14b361c866178512d66597bd30d530"
+    },
+    {
+      "character": "Shenhe",
+      "emotion": "joy",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Shenhe/joy.png",
+      "sha256": "c3c9945a937bfb611170070a427f23fdef168eef819d3b5dfd73974a7c254a1c"
+    },
+    {
+      "character": "Shenhe",
+      "emotion": "fear",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Shenhe/fear.png",
+      "sha256": "7575e14bb81ce4eda06d3f0471e09c7412b5dd0e6349cce153b8c4e685c894cd"
+    },
+    {
+      "character": "Shenhe",
+      "emotion": "pride",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Shenhe/pride.png",
+      "sha256": "47051e80ab95274d292c9266cb28f367184ddd83a30aadf2a20efa4b19bbab1e"
+    },
+    {
+      "character": "Shenhe",
+      "emotion": "desire",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Shenhe/desire.png",
+      "sha256": "f43cced8773b7c690f930eba2d56d938194a82a2e6c3e6f722fb1056b13c5aff"
+    },
+    {
+      "character": "Shenhe",
+      "emotion": "anger",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Shenhe/anger.png",
+      "sha256": "ff450bde09366e196fdfd02791a76212d94b29380a6635bca871df5bced451c2"
+    },
+    {
+      "character": "Shenhe",
+      "emotion": "grief",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Shenhe/grief.png",
+      "sha256": "7da74250c0a5864bc33b4623aa5644e57b81b95fe30529ca8b7ce6c68ebcbe58"
+    },
+    {
+      "character": "Shenhe",
+      "emotion": "sadness",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Shenhe/sadness.png",
+      "sha256": "984ecd1b5a7378d51dd80bd85b3f199917c4f18aa301d7a43d07b3a8a051a1c4"
+    },
+    {
+      "character": "Shenhe",
+      "emotion": "disgust",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Shenhe/disgust.png",
+      "sha256": "28603c1e654eafaf0e83638cd0dbcbdd7671bc6251257c46077b5dd8954b1485"
+    },
+    {
+      "character": "Shenhe",
+      "emotion": "disappointment",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Shenhe/disappointment.png",
+      "sha256": "cc08c1b7f552f36581089f29a46fcf67b73b34a54d54f52a611d96b8fc720c8b"
+    },
+    {
+      "character": "Shenhe",
+      "emotion": "relief",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Shenhe/relief.png",
+      "sha256": "1aa81b68a858aca3ae5bd39ba8d6438dda9380af8904619f717189cab9b5202e"
+    },
+    {
+      "character": "Shenhe",
+      "emotion": "admiration",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Shenhe/admiration.png",
+      "sha256": "de01984b5d36907dfec806516178199c5a767cf3fbc9982c44c5402a15da70fa"
+    },
+    {
+      "character": "Shenhe",
+      "emotion": "gratitude",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Shenhe/gratitude.png",
+      "sha256": "6229b322a79a38c648b813b27e621d8616d49f68a13c5ea67d5ea9d81619aa75"
+    },
+    {
+      "character": "Shenhe",
+      "emotion": "embarrassment",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Shenhe/embarrassment.png",
+      "sha256": "6b4f7b66acebbb92f5ace8ad32100a379780fa15d31073187cae7142d81b440c"
+    },
+    {
+      "character": "Shenhe",
+      "emotion": "caring",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Shenhe/caring.png",
+      "sha256": "d753f197cd0552244f438dab965de979298196541e4ad748f9716102cc2237cf"
+    },
+    {
+      "character": "Shenhe",
+      "emotion": "love-1",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Shenhe/love-1.png",
+      "sha256": "f2dc12a2843fa966ecf2a493fd2e9d4a5bfa0d1a6caf3e7d21c03c45a0beedd6"
+    },
+    {
+      "character": "Shenhe",
+      "emotion": "desire-1",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Shenhe/desire-1.png",
+      "sha256": "04900c75a768a14065ce85a23fffdec3ae845a91a891983b76650de69ea00155"
+    },
+    {
+      "character": "Xianyun",
+      "emotion": "neutral",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Xianyun/neutral.png",
+      "sha256": "4faa9f8c56921f0cfab096362be860e37afb7318662f45132ca074a600c3e423"
+    },
+    {
+      "character": "Xianyun",
+      "emotion": "annoyance",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Xianyun/annoyance.png",
+      "sha256": "a9689495e8f154be50a3ae78d1aa902e23ce5ae2fe1acd5455e31bf615a8a9f4"
+    },
+    {
+      "character": "Xianyun",
+      "emotion": "smug",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Xianyun/smug.png",
+      "sha256": "1cab24b49a9063f07de65f26a0814d2e72f41c4e0227f2d1773e54a44d0459bb"
+    },
+    {
+      "character": "Xianyun",
+      "emotion": "confusion",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Xianyun/confusion.png",
+      "sha256": "262d821da7d438864cb3755270adda45c371be711c135f97198a1675c2e9a0a4"
+    },
+    {
+      "character": "Xianyun",
+      "emotion": "love",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Xianyun/love.png",
+      "sha256": "38f852b234a9d629f22e9e5b78b90f9364893433c0398c4347b8d7d51a67b129"
+    },
+    {
+      "character": "Xianyun",
+      "emotion": "excitement",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Xianyun/excitement.png",
+      "sha256": "041f2b650e2c6b9036aa7102adbee1d268595e699a0c54236b55d1f90d4c677d"
+    },
+    {
+      "character": "Xianyun",
+      "emotion": "joy",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Xianyun/joy.png",
+      "sha256": "39898eb5ad4d7d86d163d3b9c18dd204c899c6b932fd94c174b4a3a3f8e529b0"
+    },
+    {
+      "character": "Xianyun",
+      "emotion": "fear",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Xianyun/fear.png",
+      "sha256": "67017f5c9790168cd9729852a4bcbc60749a0b56eec4253444c73ac73a7f788e"
+    },
+    {
+      "character": "Xianyun",
+      "emotion": "pride",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Xianyun/pride.png",
+      "sha256": "b0822939eda81e922a69ce896e74da228b3d80124ea3274d860dfc986f125d6c"
+    },
+    {
+      "character": "Xianyun",
+      "emotion": "desire",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Xianyun/desire.png",
+      "sha256": "e1aeb4a86cf5b0be8ea2646920c23dd684bdb8b83f7e3371f14d49b55b9a19d6"
+    },
+    {
+      "character": "Xianyun",
+      "emotion": "anger",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Xianyun/anger.png",
+      "sha256": "be9fc1c666e0efcc42edfec1e3bb93c38ebc4a0edf6ec125c89fb3b055c36b76"
+    },
+    {
+      "character": "Xianyun",
+      "emotion": "grief",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Xianyun/grief.png",
+      "sha256": "b8365fd33b536af5915ac32c95535c0f47c986cb8221d0c1fe2208f43f71dc55"
+    },
+    {
+      "character": "Xianyun",
+      "emotion": "sadness",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Xianyun/sadness.png",
+      "sha256": "a834dc64eb9bab39953ca350b2a28d948ebacd4449a6a26393a2f126379c3a20"
+    },
+    {
+      "character": "Xianyun",
+      "emotion": "disgust",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Xianyun/disgust.png",
+      "sha256": "dd3a1863e2372433bd08ced376b0153223a5bde123ebc6cca439ef42547fefba"
+    },
+    {
+      "character": "Xianyun",
+      "emotion": "disappointment",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Xianyun/disappointment.png",
+      "sha256": "14ed6b91a4a030d4bba02ac73e9d3d1b487e0010a2557e88c301d5dfe5dd944d"
+    },
+    {
+      "character": "Xianyun",
+      "emotion": "relief",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Xianyun/relief.png",
+      "sha256": "f18dd76871e01580ec3f4dbd017f1817d64bd5e8b2b8fa2814fa6c26b1e09816"
+    },
+    {
+      "character": "Xianyun",
+      "emotion": "admiration",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Xianyun/admiration.png",
+      "sha256": "1a8bd4ad6f115207bde044d67e6b72b67bb4fd153a0596d5cf49ee67ce675152"
+    },
+    {
+      "character": "Xianyun",
+      "emotion": "gratitude",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Xianyun/gratitude.png",
+      "sha256": "40b0c3e95d21e449f373b12596cea3f76c59aeedb480e8523e105c9f7f09eb45"
+    },
+    {
+      "character": "Xianyun",
+      "emotion": "embarrassment",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Xianyun/embarrassment.png",
+      "sha256": "05a10519392a957d97c6c401be48a9cca75a6196b90a3fa1a0b49e60dfad5d2c"
+    },
+    {
+      "character": "Xianyun",
+      "emotion": "caring",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Xianyun/caring.png",
+      "sha256": "c7d9d310a33e8ebd43b0f0a2d1f8c5b0174c324a201848005c2b4dbfdf30344d"
+    },
+    {
+      "character": "Xiangling",
+      "emotion": "neutral",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Xiangling/neutral.png",
+      "sha256": "df367abe4f6fecdfbe79571f05c46b4bc17a02e04b2bc9550b68e73e818ff8e6"
+    },
+    {
+      "character": "Xiangling",
+      "emotion": "annoyance",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Xiangling/annoyance.png",
+      "sha256": "078618658591a064a657ba17fd08e97b8c0736000a2d1685423b20b361e8b579"
+    },
+    {
+      "character": "Xiangling",
+      "emotion": "smug",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Xiangling/smug.png",
+      "sha256": "23ab12ddf7976d673d198550d483448b3354d69e1dcfd2ef90f8260ad4e278bf"
+    },
+    {
+      "character": "Xiangling",
+      "emotion": "confusion",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Xiangling/confusion.png",
+      "sha256": "919ad26bb09f479a51636685b88db46518dafab556ad23f63aa70d11d496bf95"
+    },
+    {
+      "character": "Xiangling",
+      "emotion": "love",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Xiangling/love.png",
+      "sha256": "e435e4610ca539aa06cc5752a4be5f2bdd0db15d94b771422eb6d482c17eab27"
+    },
+    {
+      "character": "Xiangling",
+      "emotion": "excitement",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Xiangling/excitement.png",
+      "sha256": "ec200423d01331403e35e2bb8186eaf0266ca1f7768949b086fec28a46cc3170"
+    },
+    {
+      "character": "Xiangling",
+      "emotion": "joy",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Xiangling/joy.png",
+      "sha256": "2a9742e0b1570e9a7ad0c11bc9b9ce19374540e26f4aaa650498d6ec73d701f5"
+    },
+    {
+      "character": "Xiangling",
+      "emotion": "fear",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Xiangling/fear.png",
+      "sha256": "2d182bc1eefa1c9fcc29d6691dfca18c51e4f5b3db4550d2f50de6cca52ff278"
+    },
+    {
+      "character": "Xiangling",
+      "emotion": "pride",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Xiangling/pride.png",
+      "sha256": "66c9a3d01d93cb1fc34f1c99e826790a596b79923daf4a4bbfa2ed553bae1395"
+    },
+    {
+      "character": "Xiangling",
+      "emotion": "desire",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Xiangling/desire.png",
+      "sha256": "bef6e7d234c32a117fc2238aed2b4a2a5d98bde8dc5444b18acddf617b647aae"
+    },
+    {
+      "character": "Xiangling",
+      "emotion": "anger",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Xiangling/anger.png",
+      "sha256": "12c19c993193f440d2c2e31f543cd875fa3d5bb4eff6919dc996583eefcb6990"
+    },
+    {
+      "character": "Xiangling",
+      "emotion": "grief",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Xiangling/grief.png",
+      "sha256": "75955f60de1beaa8f53744bcfd4b779532024db3dc1c81fb9d8ed7b2db4b0963"
+    },
+    {
+      "character": "Xiangling",
+      "emotion": "sadness",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Xiangling/sadness.png",
+      "sha256": "58bf631b2fbf4204e89b9dea244c6101715906fb225689a433a2d3a6be7e289a"
+    },
+    {
+      "character": "Xiangling",
+      "emotion": "disgust",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Xiangling/disgust.png",
+      "sha256": "45b9f756b496ee3437ee1bb8203841a5d35f9e4dd59c774eb91f3e17288573eb"
+    },
+    {
+      "character": "Xiangling",
+      "emotion": "disappointment",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Xiangling/disappointment.png",
+      "sha256": "32d6fb8c532f6c8f5d423dab83b808ffb169e707f749e4e5198bd27007fb0427"
+    },
+    {
+      "character": "Xiangling",
+      "emotion": "relief",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Xiangling/relief.png",
+      "sha256": "0517485adfcec235299a85b700737c3f0c21f18c5a78ca92ad4a19b0402b929d"
+    },
+    {
+      "character": "Xiangling",
+      "emotion": "admiration",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Xiangling/admiration.png",
+      "sha256": "8afb8494965f819402dc810802e50f6ac160a841b84ed11b3dd3d6152667a40e"
+    },
+    {
+      "character": "Xiangling",
+      "emotion": "gratitude",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Xiangling/gratitude.png",
+      "sha256": "1e43b0053d0587aacce9768f036c9ffce5157eac435890efcbc910a83eaf9f9d"
+    },
+    {
+      "character": "Xiangling",
+      "emotion": "embarrassment",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Xiangling/embarrassment.png",
+      "sha256": "8dbd19dd3b993e0b48423fe876e3d4c7ccec977d4126e7561489789f14df3e15"
+    },
+    {
+      "character": "Xiangling",
+      "emotion": "caring",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Xiangling/caring.png",
+      "sha256": "80a7fb9cdac6c8220ce3da3168cc7a63f2737e1bc47971197e189dd50a193977"
+    },
+    {
+      "character": "Xiangling",
+      "emotion": "love-1",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Xiangling/love-1.png",
+      "sha256": "d62fb2e9b1930ef93a93456363c9d322b5893297115a27efb2c9930693213289"
+    },
+    {
+      "character": "Xiangling",
+      "emotion": "desire-1",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Xiangling/desire-1.png",
+      "sha256": "9150a9307a883a2c1e8e079438071cd63ae016114bb68fb6ab109201986b22e8"
+    },
+    {
+      "character": "Yanfei",
+      "emotion": "neutral",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Yanfei/neutral.png",
+      "sha256": "856a3cbf5961b53feaffd4b57d3a100fe379c3092424c0391147df25c5d1197d"
+    },
+    {
+      "character": "Yanfei",
+      "emotion": "annoyance",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Yanfei/annoyance.png",
+      "sha256": "ee400c2df1bee45acce517e697910e5fe640b83fba62058b22d07e7de5fcb6bc"
+    },
+    {
+      "character": "Yanfei",
+      "emotion": "smug",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Yanfei/smug.png",
+      "sha256": "757709c364c31f9221dfb0bf81cc19878a2f763a529c1dc5bd884d005c54dfd5"
+    },
+    {
+      "character": "Yanfei",
+      "emotion": "confusion",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Yanfei/confusion.png",
+      "sha256": "a4930417aa847a91ce91deea0bfee72d4b7b3e09e9ca68ca7c55a615136caa8a"
+    },
+    {
+      "character": "Yanfei",
+      "emotion": "love",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Yanfei/love.png",
+      "sha256": "54be6f9e52854c974158be6a96c7873cd828b0464b95efc05df5ac07abba1540"
+    },
+    {
+      "character": "Yanfei",
+      "emotion": "excitement",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Yanfei/excitement.png",
+      "sha256": "78edf3f0640e5d25bd2838ac89d7dba2a086dabc23405ee109b9111638ab78d3"
+    },
+    {
+      "character": "Yanfei",
+      "emotion": "joy",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Yanfei/joy.png",
+      "sha256": "d0d6ffa91578e090d62950bb6f8f34d8c6f5c5cc93f7b26673f84ea564d4a004"
+    },
+    {
+      "character": "Yanfei",
+      "emotion": "fear",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Yanfei/fear.png",
+      "sha256": "c1c098e30c8c1993124cbe975a956b9c88a59eba8fe977cfe4ef1f57c900de10"
+    },
+    {
+      "character": "Yanfei",
+      "emotion": "pride",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Yanfei/pride.png",
+      "sha256": "62643c62811a3bf5fbdf735b1a4e66eb364b07826ca8ec8d984480a5ed8a99f1"
+    },
+    {
+      "character": "Yanfei",
+      "emotion": "desire",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Yanfei/desire.png",
+      "sha256": "527b461e27d4ebe9ab891c2de860181c9ecd5d1113017ded975c3742ccc948de"
+    },
+    {
+      "character": "Yanfei",
+      "emotion": "anger",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Yanfei/anger.png",
+      "sha256": "17ddbaa013158db15ba09751623b4afd697a6b451dbcf66d8c438546373ee9b9"
+    },
+    {
+      "character": "Yanfei",
+      "emotion": "grief",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Yanfei/grief.png",
+      "sha256": "7deda48ad7f77d1cde15c131ee29c1e0b8c86d9f7253a945bac534520d09d742"
+    },
+    {
+      "character": "Yanfei",
+      "emotion": "sadness",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Yanfei/sadness.png",
+      "sha256": "fcadaf282103c2328ae271267d2411ff2bdfddb6b26b57299e81c3f5774da909"
+    },
+    {
+      "character": "Yanfei",
+      "emotion": "disgust",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Yanfei/disgust.png",
+      "sha256": "b0aab7f1cdd75b33e315b03a8cf4c1c5d6b711bd38745868d04d2fdd038f4860"
+    },
+    {
+      "character": "Yanfei",
+      "emotion": "disappointment",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Yanfei/disappointment.png",
+      "sha256": "6bb15c316544b9343e081f94716786a415a66e7f3b938efd1ff39488fffbe431"
+    },
+    {
+      "character": "Yanfei",
+      "emotion": "relief",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Yanfei/relief.png",
+      "sha256": "1a38851beb315b40d35ede883b75bbb38de5d777124b88f9fb23244e01da40d0"
+    },
+    {
+      "character": "Yanfei",
+      "emotion": "admiration",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Yanfei/admiration.png",
+      "sha256": "7ef3254be2f01077ca72d74707285357ac74eb9976b9e7755c0904be27c5fe00"
+    },
+    {
+      "character": "Yanfei",
+      "emotion": "gratitude",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Yanfei/gratitude.png",
+      "sha256": "ef49e21e27ba215ff6136964654126ea93c1e90f3e47e97d558e437adc02545b"
+    },
+    {
+      "character": "Yanfei",
+      "emotion": "embarrassment",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Yanfei/embarrassment.png",
+      "sha256": "754139d999d74e67ba60ecc26545770da89224780471baff7b70ecdbc1f66e69"
+    },
+    {
+      "character": "Yanfei",
+      "emotion": "caring",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Yanfei/caring.png",
+      "sha256": "ba3cf4a35779b6d4490e0ecaf961bed5dbd3a5007d15897f9a1a63343c41ca50"
+    },
+    {
+      "character": "Yanfei",
+      "emotion": "love-1",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Yanfei/love-1.png",
+      "sha256": "80959784ceb20c60bc91710ea404ee32e1d6853eca6e96d31c33cb4515c4af9f"
+    },
+    {
+      "character": "Yanfei",
+      "emotion": "desire-1",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Yanfei/desire-1.png",
+      "sha256": "327533c54f5004a9767bfa035a943b2e97e83170049187554e435e483f9c0e07"
+    },
+    {
+      "character": "Arlecchino",
+      "emotion": "neutral",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Arlecchino/neutral.png",
+      "sha256": "19d423631a6568da0ebdd471faabc63d89824fc655fc7b632ab3f6958f1e4270"
+    },
+    {
+      "character": "Arlecchino",
+      "emotion": "annoyance",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Arlecchino/annoyance.png",
+      "sha256": "b1b9d1f7a2091b52c6550df6aa85b340b9afb844328f25e159ad9a0c9bf8299a"
+    },
+    {
+      "character": "Arlecchino",
+      "emotion": "smug",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Arlecchino/smug.png",
+      "sha256": "04f34085944ed1af0769290b6fe8ab0b08b9d15f6354ea1685d5cdbc47be0f39"
+    },
+    {
+      "character": "Arlecchino",
+      "emotion": "confusion",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Arlecchino/confusion.png",
+      "sha256": "0c4ff0f6d84f375f3a0ed3595099fccbf33fdb54a466577e47f0bd359cd44cde"
+    },
+    {
+      "character": "Arlecchino",
+      "emotion": "love",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Arlecchino/love.png",
+      "sha256": "adc1569764618ff79a0218cec0ec16ff9aa6b6103728728d00df066add0a2ac2"
+    },
+    {
+      "character": "Arlecchino",
+      "emotion": "excitement",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Arlecchino/excitement.png",
+      "sha256": "678d3316409244d7ebe5bba82a10a26f9e13f6672a9418f387db1d2f410855f9"
+    },
+    {
+      "character": "Arlecchino",
+      "emotion": "joy",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Arlecchino/joy.png",
+      "sha256": "3f109881cf327fad0067aa35c705c232b9d44bfda401bedb314f1637dbfd3024"
+    },
+    {
+      "character": "Arlecchino",
+      "emotion": "fear",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Arlecchino/fear.png",
+      "sha256": "9fdc9bed29b077ba750ccc064776af7bf0dd0ac28d56533f4c781ac6b6bc007e"
+    },
+    {
+      "character": "Arlecchino",
+      "emotion": "pride",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Arlecchino/pride.png",
+      "sha256": "61bfef79f9972fc74cdba0bf89c731f913a2902e9d16ae60b49530a48fce5bd4"
+    },
+    {
+      "character": "Arlecchino",
+      "emotion": "desire",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Arlecchino/desire.png",
+      "sha256": "05e8ac067981baee6e0530c9ee4df14c226e7d9876fe9c59043587a59e736500"
+    },
+    {
+      "character": "Arlecchino",
+      "emotion": "anger",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Arlecchino/anger.png",
+      "sha256": "d4e364179088da743b08cf681e5a5efaa99537f6ab4d5e9ff72478f2241611e2"
+    },
+    {
+      "character": "Arlecchino",
+      "emotion": "grief",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Arlecchino/grief.png",
+      "sha256": "edfc11fafd3e696338a298a22143e675d65b2a53cfdd3493ab404b50a5954254"
+    },
+    {
+      "character": "Arlecchino",
+      "emotion": "sadness",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Arlecchino/sadness.png",
+      "sha256": "0bfc3d0fc7e1a6a02d37e5d8bb719d49b996937e65a3edee4dc3859a8d911ece"
+    },
+    {
+      "character": "Arlecchino",
+      "emotion": "disgust",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Arlecchino/disgust.png",
+      "sha256": "bb42b0ab9957dc0ca5c47d56dd73beedc191f2944c8fc0b9946442678f68e217"
+    },
+    {
+      "character": "Arlecchino",
+      "emotion": "disappointment",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Arlecchino/disappointment.png",
+      "sha256": "5bec6d3337d9014b5c853787c958eef218d6ee6fe0f2d760188e793aa5e4c085"
+    },
+    {
+      "character": "Arlecchino",
+      "emotion": "relief",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Arlecchino/relief.png",
+      "sha256": "fd30516f7128fd8ff9bff7b2ee7b42182b19ea9c770e2181689c33f8dece38e6"
+    },
+    {
+      "character": "Arlecchino",
+      "emotion": "admiration",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Arlecchino/admiration.png",
+      "sha256": "bafb32d67ee5ff094c6b6c19e588bf18add38f646dde8c1a2326cb8fb0ac477e"
+    },
+    {
+      "character": "Arlecchino",
+      "emotion": "gratitude",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Arlecchino/gratitude.png",
+      "sha256": "c49d3e9430d4ffa0ce609958550e78956eda0a5b265081328f7604be5bb8c932"
+    },
+    {
+      "character": "Arlecchino",
+      "emotion": "embarrassment",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Arlecchino/embarrassment.png",
+      "sha256": "183c57ce2fcce97483818483213d0b4160f1d96394598b374462ddcb75190f5a"
+    },
+    {
+      "character": "Arlecchino",
+      "emotion": "caring",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Arlecchino/caring.png",
+      "sha256": "2c71d8d9b58bea38b2dac30b618228b74b1901ef97fd447abe218585a08b8708"
+    },
+    {
+      "character": "Arlecchino",
+      "emotion": "desire-1",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Arlecchino/desire-1.png",
+      "sha256": "facad425cb1892a1ce775c04cce880e4a5a4e90d3d50b734216c940f2c258ace"
+    }
+  ]
+}

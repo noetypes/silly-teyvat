@@ -322,7 +322,27 @@ body.gi-reduced-motion :is(#gi-toolbar, #gi-toolbar > *, #gi-menu-scrim, .gi-ene
 #gi-settings .gi-master > span { color: var(--ty-gold-hi); font-size: 15px; letter-spacing: .04em; }
 #gi-settings .gi-master-note { display: none; }
 #gi-settings[data-master="off"] .gi-master-note { display: block; }
-#gi-settings[data-master="off"] :is(.gi-features > h4, .gi-feature-groups, .gi-features > .gi-note:last-child, .gi-set-tabs, .gi-set-page, .gi-set-footer) { display: none; }
+#gi-settings[data-master="off"] :is(.gi-feature-drawer, .gi-set-tabs, .gi-set-page, .gi-set-footer) { display: none; }
+/* The feature sets fold away under one row; it shows how many are on while closed. */
+#gi-settings .gi-feature-drawer { margin-top: 6px; }
+#gi-settings .gi-feature-drawer > summary { display: flex; align-items: center; gap: 10px; min-height: 40px; padding: 0 12px 0 14px; border-radius: 3px; background: linear-gradient(90deg, #ece5d80f, #ece5d806); list-style: none; font: 13px var(--ty-font); letter-spacing: .08em; color: var(--ty-gold-hi); cursor: pointer; transition: background 160ms ease; }
+#gi-settings .gi-feature-drawer > summary::-webkit-details-marker { display: none; }
+#gi-settings .gi-feature-drawer > summary:hover { background: linear-gradient(90deg, #ece5d81f, #ece5d80a); }
+#gi-settings .gi-feature-drawer > summary:focus-visible { outline: 2px solid var(--ty-gold-hi); outline-offset: 2px; }
+#gi-settings .gi-feature-drawer > summary > span { flex: 1; }
+#gi-settings .gi-feature-drawer > summary > output { font-size: 12px; letter-spacing: .02em; color: #ece5d899; }
+#gi-settings .gi-feature-drawer > summary::after { content: ""; width: 7px; height: 7px; margin: -4px 2px 0 0; border: solid var(--ty-gold); border-width: 0 1.5px 1.5px 0; transform: rotate(45deg); transition: transform 200ms var(--ty-ease); }
+#gi-settings .gi-feature-drawer[open] > summary::after { margin-top: 4px; transform: rotate(-135deg); }
+#gi-settings .gi-feature-drawer[open] > summary { margin-bottom: 3px; }
+/* Each set: its name, the Paimon icon that links it to the menu switch, then its own switch. */
+#gi-settings .gi-feature-row { grid-template-columns: minmax(0, 1fr) auto auto; padding-block: 0; cursor: default; }
+#gi-settings .gi-feature-row > label { align-self: stretch; display: flex; align-items: center; min-width: 0; cursor: pointer; }
+#gi-settings .gi-paimon-link { display: grid; place-items: center; box-sizing: border-box; width: 32px; height: 32px; min-width: 0; min-height: 0; margin: 0; padding: 0; border: 0; border-radius: 50%; background: #0000004d; box-shadow: inset 0 0 0 1px #ece5d82e; cursor: pointer; transition: background 200ms ease, box-shadow 200ms ease; }
+#gi-settings .gi-paimon-link img { width: 22px; height: 22px; object-fit: contain; opacity: .35; filter: grayscale(1); transition: opacity 200ms ease, filter 200ms ease; }
+#gi-settings .gi-paimon-link:hover img { opacity: .6; }
+#gi-settings .gi-paimon-link[aria-pressed="true"] { background: #d3bc8e33; box-shadow: inset 0 0 0 1px var(--ty-gold); }
+#gi-settings .gi-paimon-link[aria-pressed="true"] img { opacity: 1; filter: none; }
+#gi-settings .gi-paimon-link:focus-visible { outline: 2px solid var(--ty-gold-hi); outline-offset: 2px; }
 #gi-settings .gi-set-actions { display: flex; gap: 8px; margin: 8px 0 4px; }
 #gi-settings .menu_button { min-height: 38px; margin: 0; padding: 6px 22px; border: 0; border-radius: 20px; background: var(--ty-cream); color: var(--ty-ink); font: 13.5px var(--ty-font); text-shadow: none; box-shadow: 0 2px 8px #0005; }
 #gi-settings .menu_button:hover { background: #fff; color: var(--ty-ink); }

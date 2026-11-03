@@ -27,4 +27,4 @@ The **Silly Teyvat** switch at the top of its settings calls `dispose()` and rem
 
 Run `node tools/test-starter-cgs.mjs` for the bundled scene artworks and keyboard detection.
 
-Run `node tools/test-ui-layout-browser.mjs` with Playwright available on `NODE_PATH`. It mounts a disposable four-member, three-enemy board at nine desktop and mobile viewports, checks bounds and control separation, and saves screenshots under `work/ui-review-2026-10-28/layout/`. The preview's **Responsive battle demo** provides the same board for manual resizing. No model or native chat write is involved.
+Run `node tools/test-ui-layout-browser.mjs` with Playwright available on `NODE_PATH`. It mounts a disposable four-member, three-enemy board and a crowded seven-member board with summons on both sides at nine desktop and mobile viewports, checks bounds, control separation and that no card overlaps another card, a summon, played card or control, and saves screenshots under `work/ui-review-2026-10-28/layout/`. The preview's **Responsive battle demo** provides the same board for manual resizing. No model or native chat write is involved.

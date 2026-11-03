@@ -55,8 +55,9 @@ export function mountBattle({host,sound=createBattleSound(),onBurst=()=>{},onSto
         <button type="button" class="tb-skip" hidden aria-label="Speed up">⏩</button>
         <div class="tb-tip" role="tooltip" hidden></div>
     </div>
+    <div class="gb-burst" aria-hidden="true"><i></i></div>
     <canvas class="gb-particles" aria-hidden="true"></canvas>
-    <div class="gb-splash" aria-hidden="true"><i class="gb-splash-wash"></i><i class="gb-splash-lines"></i><img alt=""><div class="gb-splash-text"><small></small><strong></strong></div><i class="gb-splash-flash"></i></div>
+    <div class="gb-splash" aria-hidden="true"><i class="gb-splash-wash"></i><i class="gb-splash-lines"></i><i class="gb-splash-glyph"></i><img alt=""><div class="gb-splash-text"><small></small><strong></strong></div><i class="gb-splash-flash"></i></div>
     <div class="tb-result" hidden><div class="tb-result-card"><h3></h3><ol class="tb-result-party"></ol><div class="tb-result-reactions"></div><div class="tb-loot"></div><button type="button" class="tb-continue">Continue</button></div></div>
     <div class="gb-vignette" aria-hidden="true"></div><p class="gi-sr-only tb-log" role="log" aria-live="polite"></p>`;
     host.append(dialog);
@@ -121,6 +122,28 @@ export function mountBattle({host,sound=createBattleSound(),onBurst=()=>{},onSto
                 box.append(tile);
             }
         }
+        fitZones();
+    }
+    // Summons and played cards shrink to fit their zone, so a crowded board never runs them into
+    // the cards, the moves or the plates. Upright phones stack the zones instead.
+    function fitZone(zone,{room,width,max,ratio}){
+        const n=zone.children.length;zone.style.removeProperty('--zh');zone.classList.remove('tb-dense');
+        if(!n||matchMedia('(max-aspect-ratio: 4/5)').matches)return;
+        const gap=parseFloat(getComputedStyle(zone).rowGap) || 8,least=max*.45;let h=max;
+        for(;h>least;h-=1){const cols=Math.max(1,Math.floor((width+gap)/(h*ratio+gap))),rows=Math.ceil(n/cols);if(rows*h+(rows-1)*gap<=room)break;}
+        zone.style.setProperty('--zh',`${Math.round(h)}px`);zone.classList.toggle('tb-dense',h<max*.75);
+    }
+    function fitZones(){
+        const ch=$('.tb-card')?.offsetHeight;if(!dialog.open||!ch)return;
+        const board=$('.tb-board').getBoundingClientRect(),order=$('.tb-order'),hidden=order.hidden;
+        // The order bar shows only while planning; measure it anyway so summons never sit under it.
+        order.hidden=false;order.style.visibility='hidden';const bar=order.getBoundingClientRect();order.hidden=hidden;order.style.visibility='';
+        const you=$('.tb-summons-you'),foe=$('.tb-summons-foe'),played=$('.tb-played'),top=you.getBoundingClientRect().top;
+        let room=bar.top-8-top;if(room<ch*.4)room=bar.bottom-4-top;
+        fitZone(you,{room:Math.min(ch,room),width:you.clientWidth,max:ch*.52,ratio:.81});
+        fitZone(foe,{room:Math.min(ch,foe.getBoundingClientRect().bottom-board.top-10),width:foe.clientWidth,max:ch*.52,ratio:.81});
+        const below=($('.tb-fields-you').children.length?$('.tb-fields-you'):$('.tb-plate-you')).getBoundingClientRect().top;
+        fitZone(played,{room:Math.min(ch,below-8-played.getBoundingClientRect().top),width:parseFloat(getComputedStyle(played).maxWidth) || ch*.7,max:ch*.52,ratio:.577});
     }
     function paintFields(fields=[]){
         for(const sideName of ['party','enemy']){
@@ -327,6 +350,7 @@ export function mountBattle({host,sound=createBattleSound(),onBurst=()=>{},onSto
             const owner=owners.get(d.i);if(owner){die.classList.add('tb-spent');if(d.tuned)die.classList.add('tb-tuned');}
             list.append(die);
         }
+        list.style.setProperty('--dr',String(Math.min(9,Math.max(6,Math.ceil(order.length/2)))));
         $('.tb-dice-count').textContent=String(alloc.unspent);
     }
     function paintHand(){
@@ -348,6 +372,7 @@ export function mountBattle({host,sound=createBattleSound(),onBurst=()=>{},onSto
             card.setAttribute('aria-label',`${item.name}${use.target?` on ${unitById(state,use.target)?.name}`:''}, played`);card.disabled=true;
             played.append(card);
         });
+        fitZones();
     }
     function paint(){
         const alloc=allocation();
@@ -436,12 +461,15 @@ export function mountBattle({host,sound=createBattleSound(),onBurst=()=>{},onSto
     });
     // Tapping empty table puts a held item down or stops choosing a target. Buttons re-render as they are used, so detached targets are ignored.
     on($('.tb-board'),'click',event=>{if(fleeOpen()&&event.target.isConnected&&!event.target.closest('.tb-confirm,.tb-flee'))askFlee(false);if(mode==='plan'&&(heldItem||targeting)&&event.target.isConnected&&!event.target.closest('.tb-card,.tb-item,.tb-turn,.tb-skills,.tb-order,.tb-played')){heldItem=null;targeting=null;paint();}});
-    on(window,'resize',()=>{if(dialog.open)particles.fit();},{passive:true});
-    function open(){clearTimeout(closeTimer);dialog.classList.remove('gb-closing');if(!dialog.open)dialog.showModal();requestAnimationFrame(()=>particles.fit());}
+    on(window,'resize',()=>{if(dialog.open){particles.fit();fitZones();}},{passive:true});
+    function open(){clearTimeout(closeTimer);dialog.classList.remove('gb-closing');if(!dialog.open)dialog.showModal();fitZones();requestAnimationFrame(()=>{particles.fit();fitZones();});}
     function setup(snapshot,player){
         state=structuredClone(snapshot);cards.clear();
         $('.tb-row-foe').replaceChildren(...state.units.filter(u=>u.side==='enemy').map(buildCard));
         $('.tb-row-you').replaceChildren(...state.units.filter(u=>u.side==='party').map(buildCard));
+        // Card size follows the larger side, so five or more members still fit between the side zones.
+        const counts=['.tb-row-foe','.tb-row-you'].map(s=>{const row=$(s);row.style.setProperty('--k',String(Math.max(1,row.children.length)));return row.children.length;});
+        dialog.style.setProperty('--n',String(Math.max(1,...counts)));dialog.toggleAttribute('data-crowd',Math.max(...counts)>=6);
         for(const u of state.units)paintUnit(u);
         paintSummons(state.summons || []);paintFields(state.fields || []);
         $('.tb-round').textContent=String(state.round || 1);
@@ -455,22 +483,54 @@ export function mountBattle({host,sound=createBattleSound(),onBurst=()=>{},onSto
     // ---- Resolution playback ------------------------------------------------------------
     async function splash(u,move){
         if(skipAll)return;
-        const box=dialog.querySelector('.gb-splash'),img=box.querySelector('img');box.style.setProperty('--el',EL_COLORS[u.element] || EL_COLORS.None);
+        const box=dialog.querySelector('.gb-splash'),img=box.querySelector('img');box.style.setProperty('--el',EL_COLORS[u.element] || EL_COLORS.None);box.dataset.el=u.element;
+        box.querySelector('.gb-splash-glyph').innerHTML=ELEMENTS.includes(u.element)?elementImg(u.element,{white:true}):glyph('Omni');
         const src=u.card?splashUrl(u.card):'';
-        await new Promise(resolve=>{img.onload=img.onerror=null;img.onerror=()=>{img.onerror=null;img.src=artOf(u);resolve();};img.onload=()=>resolve();img.src=src || artOf(u);if(img.complete)resolve();setTimeout(resolve,500);});
+        // A missing splash falls back to the card art; the previous Burst's art never shows meanwhile.
+        img.hidden=true;
+        await new Promise(resolve=>{const done=()=>{img.onload=img.onerror=null;img.hidden=false;resolve();};img.onload=done;img.onerror=()=>{const art=artOf(u);if(art&&img.src!==new URL(art,location.href).href){img.src=art;}else done();};img.src=src || artOf(u);setTimeout(done,500);});
         box.querySelector('small').textContent=`${u.name} · Elemental Burst`;box.querySelector('strong').textContent=move.name;
         box.classList.remove('gb-play','gb-still');void box.offsetWidth;box.classList.add(effectsOn()?'gb-play':'gb-still');
         sound.burst(u.element);
         await wait(effectsOn()?1650:900);
         box.classList.remove('gb-play','gb-still');
     }
+    // Burst build-up: the card gathers its element and the room hums before the splash.
+    async function chargeUp(u,element){
+        if(skipAll)return;const card=cards.get(u.id);
+        card?.classList.add('tb-charging');sound.charge(element);
+        if(effectsOn()){const p=centerOf(u.id);particles.charge(p.x,p.y,element,1.8);}
+        await wait(effectsOn()?560:200);card?.classList.remove('tb-charging');
+    }
+    // The Burst lands: a screen-wide effect of its element over everyone it is about to hit.
+    async function burstField(u,element,points){
+        if(skipAll)return;const fx=ELEMENTS.includes(element)?element:'Physical';
+        sound.burstImpact(fx);cards.get(u.id)?.classList.add('tb-bursting');
+        if(effectsOn()){
+            const wash=$('.gb-burst');wash.dataset.el=fx;wash.style.setProperty('--el',EL_COLORS[fx]);wash.classList.remove('gb-on');void wash.offsetWidth;wash.classList.add('gb-on');
+            particles.burst(fx,{targets:points.map(centerOf),origin:centerOf(u.id),width:dialog.clientWidth,height:dialog.clientHeight});
+            dialog.classList.remove('gb-quake','gb-quake-big');void dialog.offsetWidth;dialog.classList.add('gb-quake-big');
+        }
+        await wait(effectsOn()?{Geo:700,Cryo:620,Hydro:560}[fx] || 520:220);
+    }
+    // Everyone a Burst step affects, read ahead in the timeline: its hits, else its heals and shields, else the user.
+    function burstTargets(tl,i,e){
+        const ahead=[];for(let j=i+1;j<tl.length&&!['act','phase'].includes(tl[j].type);j++)if(tl[j].step===e.step&&tl[j].actor===e.actor)ahead.push(tl[j]);
+        const pick=types=>[...new Set(ahead.filter(x=>types.includes(x.type)&&!x.source&&cards.has(x.target)).map(x=>x.target))];
+        const hit=pick(['hit']);return hit.length?hit:pick(['heal','shield','buff']).length?pick(['heal','shield','buff']):[e.actor];
+    }
     function banner(title,sub,color){const b=$('.tb-banner');b.querySelector('small').textContent=sub || '';b.querySelector('strong').textContent=title;b.style.setProperty('--el',color || '#f5e8bd');b.classList.remove('tb-show');void b.offsetWidth;b.classList.add('tb-show');say(`${sub?sub+': ':''}${title}`);}
-    function hurt(id,partySide){const card=cards.get(id);if(!card)return;card.classList.remove('tb-hurt');void card.offsetWidth;card.classList.add('tb-hurt');if(partySide&&effectsOn()){const v=dialog.querySelector('.gb-vignette');v.classList.remove('gb-on');void v.offsetWidth;v.classList.add('gb-on');}if(effectsOn()){dialog.classList.remove('gb-quake');void dialog.offsetWidth;dialog.classList.add('gb-quake');}}
+    function hurt(id,partySide,big=false){const card=cards.get(id);if(!card)return;card.classList.remove('tb-hurt','tb-hurt-big');void card.offsetWidth;card.classList.add(big?'tb-hurt-big':'tb-hurt');if(partySide&&effectsOn()){const v=dialog.querySelector('.gb-vignette');v.classList.remove('gb-on');void v.offsetWidth;v.classList.add('gb-on');}if(effectsOn()&&!dialog.classList.contains('gb-quake-big')){dialog.classList.remove('gb-quake');void dialog.offsetWidth;dialog.classList.add('gb-quake');}}
     function projectile(from,to,element){
         if(!effectsOn()||skipAll||!cards.has(from))return Promise.resolve();
-        const a=centerOf(from),b=centerOf(to),orb=el('i','gb-proj');orb.style.setProperty('--el',EL_COLORS[element] || '#fff');orb.style.left=`${a.x}px`;orb.style.top=`${a.y}px`;dialog.append(orb);
-        const ms=Math.max(140,240/speed);
-        return new Promise(resolve=>{const anim=orb.animate([{transform:'translate(-50%,-50%) scale(.6)'},{transform:`translate(calc(${b.x-a.x}px - 50%),calc(${b.y-a.y}px - 50%)) scale(1.1)`}],{duration:ms,easing:'cubic-bezier(.5,0,.9,.6)'});anim.onfinish=()=>{orb.remove();resolve();};setTimeout(()=>{orb.remove();resolve();},ms+80);});
+        const a=centerOf(from),b=centerOf(to),orb=el('i','gb-proj');orb.dataset.el=element;orb.style.setProperty('--el',EL_COLORS[element] || '#fff');orb.style.left=`${a.x}px`;orb.style.top=`${a.y}px`;dialog.append(orb);
+        const ms=Math.max(140,240/speed),turn=`rotate(${Math.atan2(b.y-a.y,b.x-a.x).toFixed(3)}rad)`;
+        return new Promise(resolve=>{
+            const anim=orb.animate([{transform:`translate(-50%,-50%) ${turn} scale(.6)`},{transform:`translate(calc(${b.x-a.x}px - 50%),calc(${b.y-a.y}px - 50%)) ${turn} scale(1.1)`}],{duration:ms,easing:'cubic-bezier(.5,0,.9,.6)'});
+            // The orb sheds its element as it flies.
+            let raf=0;const tick=()=>{const t=anim.effect?.getComputedTiming().progress;if(t!=null)particles.trail(a.x+(b.x-a.x)*t,a.y+(b.y-a.y)*t,element);raf=requestAnimationFrame(tick);};raf=requestAnimationFrame(tick);
+            const done=()=>{cancelAnimationFrame(raf);orb.remove();resolve();};anim.onfinish=done;setTimeout(done,ms+80);
+        });
     }
     function setActing(sideName){$('.tb-plate-you small').textContent=sideName==='party'?'Now Acting':'Now Waiting…';$('.tb-plate-foe small').textContent=sideName==='enemy'?'Now Acting':'Now Waiting…';dialog.dataset.turn=sideName;}
     let playRevision=0;
@@ -482,7 +542,8 @@ export function mountBattle({host,sound=createBattleSound(),onBurst=()=>{},onSto
         for(const card of cards.values()){card.classList.remove('tb-active','tb-targeted','tb-ally-target','tb-short','tb-choosable');card.querySelector('.tb-incoming')?.setAttribute('hidden','');}
         const ids=new Set(snapshot.units.map(u=>u.id));
         state=structuredClone(snapshot);const view=new Map(state.units.map(u=>[u.id,u]));
-        let combo=0;const tl=result.timeline;setActing('party');
+        let combo=0,burstStep=null;const tl=result.timeline;setActing('party');
+        const endBurst=()=>{burstStep=null;for(const card of cards.values())card.classList.remove('tb-bursting');};
         // Items took effect while planning, so their part of the timeline is applied without being played again.
         let start=tl.findIndex(e=>e.type==='phase'||e.type==='flee');if(start<0)start=tl.length;
         for(const e of tl.slice(0,start)){
@@ -497,16 +558,24 @@ export function mountBattle({host,sound=createBattleSound(),onBurst=()=>{},onSto
             const e=tl[i],actor=view.get(e.actor),target=view.get(e.target);
             if(e.target&&!ids.has(e.target)&&!['decoy','item'].includes(e.type))continue;
             switch(e.type){
-                case 'phase':setActing(e.label==='Enemy Phase'?'enemy':'party');banner(e.label,`Round ${e.round}`);if(e.label!=='Party Phase')sound.phase();await wait(e.label==='End Phase'?500:700);break;
+                case 'phase':endBurst();setActing(e.label==='Enemy Phase'?'enemy':'party');banner(e.label,`Round ${e.round}`);if(e.label!=='Party Phase')sound.phase();await wait(e.label==='End Phase'?500:700);break;
                 case 'item':{const item=ITEMS[e.item];banner(e.name,'Item');const p=e.target?centerOf(e.target):null;if(p&&effectsOn())particles.buff(p.x,p.y,'#f5e8bd');await wait(380);void item;break;}
                 case 'flee':banner(e.success?'Escaped!':'Could not escape',`Flee · ${e.chance}%`,e.success?'#9dff9a':'#ff9a8a');e.success?sound.buff():sound.deny();await wait(900);break;
                 case 'act':{
-                    for(const card of cards.values())card.classList.remove('tb-acting');cards.get(e.actor)?.classList.add('tb-acting');
+                    endBurst();for(const card of cards.values())card.classList.remove('tb-acting');cards.get(e.actor)?.classList.add('tb-acting');
                     const move=actor.kit.moves.find(m=>m.name===e.name&&m.kind===e.kind) || {name:e.name};
-                    if(e.kind==='burst')void Promise.resolve(onBurst(actor,e)).catch(error=>console.warn('[Silly Teyvat] Burst voice',error));
-                    if(e.kind==='burst'&&actor.side==='party')await splash(actor,move);
+                    if(e.kind==='burst'){
+                        // Charge, splash art (party only), the element's screen-wide strike, then heavier hits.
+                        void Promise.resolve(onBurst(actor,e)).catch(error=>console.warn('[Silly Teyvat] Burst voice',error));
+                        await chargeUp(actor,e.element);
+                        if(actor.side==='party')await splash(actor,move);
+                        banner(e.name,`${actor.name} · ${KIND_LABEL[e.kind] || ''}`,EL_COLORS[e.element]);
+                        burstStep={actor:e.actor,step:e.step};await burstField(actor,e.element,burstTargets(tl,i,e));
+                        break;
+                    }
                     banner(e.name,`${actor.name} · ${KIND_LABEL[e.kind] || ''}`,EL_COLORS[e.element]);
-                    if(e.kind!=='burst')sound.act(e.kind,e.element);
+                    sound.act(e.kind,e.element);
+                    if(e.kind==='skill'&&effectsOn()&&!skipAll){const p=centerOf(e.actor);particles.charge(p.x,p.y,e.element,.7);const card=cards.get(e.actor);card?.classList.remove('tb-casting');void card?.offsetWidth;card?.classList.add('tb-casting');}
                     await wait(e.kind==='normal'||e.kind==='basic'?360:540);break;
                 }
                 case 'miss':floatText(e.target,e.dodge?'Dodged!':'Miss','gb-miss');sound.miss();await wait(420);break;
@@ -514,20 +583,21 @@ export function mountBattle({host,sound=createBattleSound(),onBurst=()=>{},onSto
                 case 'hit':{
                     const group=[e];while(tl[i+1]?.type==='hit'&&tl[i+1].actor===e.actor&&tl[i+1].step===e.step&&tl[i+1].source===e.source&&tl[i+1].target!==e.target&&!group.some(g=>g.target===tl[i+1].target))group.push(tl[++i]);
                     if(!e.source&&actor?.side)await projectile(e.actor,group[0].target,e.element);
+                    const big=Boolean(burstStep&&e.actor===burstStep.actor&&e.step===burstStep.step);
                     group.forEach((h,j)=>{
                         const t=view.get(h.target);if(!t)return;
-                        const p=centerOf(h.target);if(effectsOn())particles.impact(p.x,p.y,h.element,h.crit?1.4:1);
+                        const p=centerOf(h.target);if(effectsOn())particles.impact(p.x,p.y,h.element,(h.crit?1.4:1)*(big?1.5:1));
                         Object.assign(t,{hp:h.hpAfter,shield:h.shieldAfter,aura:h.aura,statuses:h.statuses});paintUnit(t);
-                        hurt(h.target,t.side==='party');
-                        const n=floatText(h.target,String(h.amount+h.shieldHit),`gb-dmg${h.crit?' gb-crit':''}${h.resisted?' gb-resist':''}`,EL_COLORS[h.element],j*70);
+                        hurt(h.target,t.side==='party',big);
+                        const n=floatText(h.target,String(h.amount+h.shieldHit),`gb-dmg${h.crit?' gb-crit':''}${h.resisted?' gb-resist':''}${big?' gb-big':''}`,EL_COLORS[h.element],j*70);
                         if(h.crit)n.dataset.tag='CRIT';else if(h.resisted)n.dataset.tag='RES';else if(h.weak)n.dataset.tag='WEAK';
                         if(h.reaction){const c=REACTIONS[h.reaction.split(' + ').at(-1)],r=floatText(h.target,h.reaction,'gb-reaction',c,j*70+90),src=reactionIcon(h.reaction);if(src)r.insertAdjacentHTML('afterbegin',`<img class="gb-reaction-icon" src="${src}" alt="">`);reactionFx(h.target,h.reaction,j*70);}
                         if(h.boost)floatText(h.target,`+${h.boost}`,'gb-boost',REACTIONS.Quicken,j*70+180);
                         if(h.armorBroken)floatText(h.target,'Armor broken!','gb-reaction','#ffb15c',160);
                         if(h.combo>1&&t.side==='enemy'){combo=Math.max(combo,h.combo);const c=$('.tb-combo');c.textContent=`×${h.combo}`;c.classList.remove('tb-pop');void c.offsetWidth;c.classList.add('tb-pop');}
-                        sound.hit({element:h.element,amount:h.amount,crit:h.crit,reaction:h.reaction,party:t.side==='party',pan:(p.x/dialog.clientWidth-.5)*1.4});
+                        sound.hit({element:h.element,amount:h.amount,crit:h.crit,reaction:h.reaction,party:t.side==='party',big,pan:(p.x/dialog.clientWidth-.5)*1.4});
                     });
-                    await wait(group.length>1?500:420);break;
+                    await wait((group.length>1?500:420)+(big?140:0));break;
                 }
                 case 'heal':{
                     const group=[e];while(tl[i+1]?.type==='heal'&&tl[i+1].actor===e.actor&&tl[i+1].step===e.step&&tl[i+1].source===e.source)group.push(tl[++i]);
@@ -557,7 +627,7 @@ export function mountBattle({host,sound=createBattleSound(),onBurst=()=>{},onSto
             if(disposed||token!==playRevision)return false;
         }
         if(disposed||token!==playRevision)return false;
-        for(const card of cards.values())card.classList.remove('tb-acting');
+        endBurst();for(const card of cards.values())card.classList.remove('tb-acting');
         for(const u of result.state.units){const v=view.get(u.id);if(v){Object.assign(v,u);paintUnit(v);}}
         state.summons=result.state.summons || [];paintSummons(state.summons);state.fields=result.state.fields || [];paintFields(state.fields);
         if(!result.victory&&!result.fled&&!result.wiped){mode='plan-preview';paintIntents();}

@@ -1,0 +1,217 @@
+{
+  "status": "available_candidates_approved_jahoda_desire_1_missing",
+  "request": "Distinguish Ganyu love and desire, enlarge Faruzan hearts, add visible hearts for Jahoda; preserve approved Faruzan desire-1.",
+  "characters": {
+    "Faruzan": {
+      "approval": {
+        "status": "approved",
+        "message": "This Faruzan neutral is much better, go for it!",
+        "date": "2026-10-31",
+        "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-31-faruzan-neutral-restart/candidates/Faruzan/neutral-v001.png",
+        "candidate_sha256": "2f0218799b3049f91e4d9d8e2372c92a9817effc4b6b13ae299205b4a67a1fdf"
+      },
+      "references": [
+        "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-31-heart-expression-revisions/references/Faruzan/neutral.png"
+      ],
+      "reference_sha256": {
+        "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-31-heart-expression-revisions/references/Faruzan/neutral.png": "2f0218799b3049f91e4d9d8e2372c92a9817effc4b6b13ae299205b4a67a1fdf"
+      },
+      "expressions": {
+        "desire-1": {
+          "status": "retained_per_user_request",
+          "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-31-white-heart-retry/sprites/Faruzan/desire-1.png",
+          "sha256": "14f86f5507bc3904d8937724afe4f049a338930f55f4ef255c5d373a17b327e2",
+          "original_generation": {
+            "status": "retained_per_user_request",
+            "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-31-white-heart-alternates/sprites/Faruzan/desire-1.png",
+            "sha256": "14f86f5507bc3904d8937724afe4f049a338930f55f4ef255c5d373a17b327e2",
+            "original_generation": {
+              "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-31-white-heart-alternates/prompts/Faruzan/desire-1.txt",
+              "tool": "image_gen.imagegen",
+              "tool_arguments": {
+                "prompt": "Use case: stylized-concept. Create one full-body desire-1 visual-novel sprite of Faruzan. Use the supplied approved neutral as the sole image reference. Preserve her identity, skin tone, hair, costume, colours, accessories and rendering. Keep her at least as petite as the neutral with the same compact general body proportions; do not lengthen torso or legs. Give her a tender longing expression and open eyes, a subtle shy tilt and one hand near her collarbone; allow a genuinely different pose appropriate to the emotion. Both eyes visibly open; preserve the original irises and their colour and detail, with filled white heart-shaped pupils inside the irises, not floating symbols or catchlights. Her skirt and fabric panels hang naturally downward at rest; no windblown fabric. Keep gestures simple, hands near the torso with coherent palms and naturally grouped fingers, exactly two legs and feet, with feet separated or slightly staggered. Show the entire silhouette including hair, accessories and shoes, with roughly 2\u20134% top and bottom padding. Genuinely transparent background. No scenery, text, labels, UI, props, companions, detached effects, watermark or ground shadow.",
+                "referenced_image_paths": [
+                  "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-31-white-heart-alternates/references/Faruzan/neutral.png"
+                ],
+                "transparent_background": true
+              },
+              "status": "candidate",
+              "tool_output": "/Users/alexachan/.codex/generated_images/01a190ff-8066-7c41-aeb5-1927eec757f4/exec-3db2dfeb-9736-4461-8a11-f48bf255de65.png",
+              "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-31-white-heart-alternates/raw/Faruzan/desire-1.png",
+              "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-31-white-heart-alternates/sprites/Faruzan/desire-1.png",
+              "sha256": "14f86f5507bc3904d8937724afe4f049a338930f55f4ef255c5d373a17b327e2"
+            }
+          },
+          "approval": {
+            "status": "approved",
+            "message": "Ok, all are accepted.",
+            "date": "2026-10-31",
+            "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-31-heart-expression-revisions/sprites/Faruzan/desire-1.png",
+            "candidate_sha256": "14f86f5507bc3904d8937724afe4f049a338930f55f4ef255c5d373a17b327e2"
+          }
+        },
+        "love-1": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-31-heart-expression-revisions/prompts/Faruzan/love-1.txt",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one fully clothed, full-body visual-novel sprite of Faruzan. Use the supplied approved neutral as the only image reference. Preserve her identity, skin tone, face, hair, costume, colours, accessories and anime rendering. Keep her at least as petite as her approved neutral, with the same compact general proportions. Give her an exuberant affectionate smile with bright open eyes, a gentle head tilt and an open hand held near her heart; use a characterful pose rather than duplicating her neutral. Her skirt and back panels hang naturally down without wind. Make the white heart-shaped pupils large and clearly readable, filling much of each iris while leaving a visible ring of her original iris colour around each heart. Preserve the original iris colour, outline and shading around the pupil; both eyes open and anatomically coherent. Exactly one heart pupil per eye, not floating hearts, symbols, or replacement irises. Natural hands near torso and two legs and feet. Complete silhouette including hair, accessories and shoes, with approximately 2\u20134% top and bottom padding. Genuinely transparent background; no text, scenery, props, effects, watermark or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-31-heart-expression-revisions/references/Faruzan/neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "status": "candidate",
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a190ff-8066-7c41-aeb5-1927eec757f4/exec-19be788d-4a78-482e-847f-2dbb717d73d1.png",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-31-heart-expression-revisions/raw/Faruzan/love-1.png",
+          "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-31-heart-expression-revisions/sprites/Faruzan/love-1.png",
+          "sha256": "3a5bbc206bcdcce09fb6fe028e0c4c1f2cd0addc2a4d2382180b8b78037d2a8a",
+          "approval": {
+            "status": "approved",
+            "message": "Ok, all are accepted.",
+            "date": "2026-10-31",
+            "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-31-heart-expression-revisions/sprites/Faruzan/love-1.png",
+            "candidate_sha256": "3a5bbc206bcdcce09fb6fe028e0c4c1f2cd0addc2a4d2382180b8b78037d2a8a"
+          }
+        }
+      }
+    },
+    "Ganyu": {
+      "approval": {
+        "status": "approved",
+        "message": "All others are ACCEPTED.",
+        "date": "2026-10-30",
+        "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Ganyu/neutral-v002.png",
+        "candidate_sha256": "b306ce5bb5dbf301a4cbc3c28e16092f7d6c5e7b8729b8fa43a96c77b9f060af"
+      },
+      "references": [
+        "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-31-heart-expression-revisions/references/Ganyu/neutral.png",
+        "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-31-heart-expression-revisions/references/Ganyu/official.png"
+      ],
+      "reference_sha256": {
+        "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-31-heart-expression-revisions/references/Ganyu/neutral.png": "b306ce5bb5dbf301a4cbc3c28e16092f7d6c5e7b8729b8fa43a96c77b9f060af",
+        "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-31-heart-expression-revisions/references/Ganyu/official.png": "6c31321356f4621b3cbacdeb4df841da59f4417e0ab1ba2a0bd1f4947929adae"
+      },
+      "expressions": {
+        "love-1": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-31-heart-expression-revisions/prompts/Ganyu/love-1.txt",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one fully clothed, full-body visual-novel sprite of Ganyu. Use image 1 as the approved neutral and compact proportion reference, and image 2 for official identity and costume details; do not copy the orb. Preserve her identity, skin tone, face, hair, costume, colours, accessories and anime rendering. Keep her at least as petite as her approved neutral, with the same compact general proportions. Give her an openly joyful affectionate expression: a broad cheerful smile, lifted brows, a small happy head tilt, and one relaxed hand held near her heart; use a characterful pose rather than duplicating her neutral. Give each eye one clearly visible solid white heart-shaped pupil, centered inside the intact coloured iris. Preserve the original iris colour, outline and shading around the pupil; both eyes open and anatomically coherent. Exactly one heart pupil per eye, not floating hearts, symbols, or replacement irises. Natural hands near torso and two legs and feet. Complete silhouette including hair, accessories and shoes, with approximately 2\u20134% top and bottom padding. Genuinely transparent background; no text, scenery, props, effects, watermark or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-31-heart-expression-revisions/references/Ganyu/neutral.png",
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-31-heart-expression-revisions/references/Ganyu/official.png"
+            ],
+            "transparent_background": true
+          },
+          "status": "candidate",
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a190ff-8066-7c41-aeb5-1927eec757f4/exec-27458d6f-b83a-4ddb-b069-abd7d62a850f.png",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-31-heart-expression-revisions/raw/Ganyu/love-1.png",
+          "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-31-heart-expression-revisions/sprites/Ganyu/love-1.png",
+          "sha256": "eff55f1242415801a3a6a0c59977bf9b21172d18fc8fb70b8a69105fbb4a4497",
+          "approval": {
+            "status": "approved",
+            "message": "Ok, all are accepted.",
+            "date": "2026-10-31",
+            "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-31-heart-expression-revisions/sprites/Ganyu/love-1.png",
+            "candidate_sha256": "eff55f1242415801a3a6a0c59977bf9b21172d18fc8fb70b8a69105fbb4a4497"
+          }
+        },
+        "desire-1": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-31-heart-expression-revisions/prompts/Ganyu/desire-1.txt",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one fully clothed, full-body visual-novel sprite of Ganyu. Use image 1 as the approved neutral and compact proportion reference, and image 2 for official identity and costume details; do not copy the orb. Preserve her identity, skin tone, face, hair, costume, colours, accessories and anime rendering. Keep her at least as petite as her approved neutral, with the same compact general proportions. Give her a distinctly wistful, yearning expression: a subtle closed-mouth smile, softened eyelids that remain open, a light blush and an averted sideways gaze; hold one relaxed hand near her collarbone, with her body angled slightly away; use a characterful pose rather than duplicating her neutral. Give each eye one clearly visible solid white heart-shaped pupil, centered inside the intact coloured iris; both eyes visibly open. Preserve the original iris colour, outline and shading around the pupil; both eyes open and anatomically coherent. Exactly one heart pupil per eye, not floating hearts, symbols, or replacement irises. Natural hands near torso and two legs and feet. Complete silhouette including hair, accessories and shoes, with approximately 2\u20134% top and bottom padding. Genuinely transparent background; no text, scenery, props, effects, watermark or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-31-heart-expression-revisions/references/Ganyu/neutral.png",
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-31-heart-expression-revisions/references/Ganyu/official.png"
+            ],
+            "transparent_background": true
+          },
+          "status": "candidate",
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a190ff-8066-7c41-aeb5-1927eec757f4/exec-56bf94a5-ef27-4043-8115-957204fd5d1a.png",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-31-heart-expression-revisions/raw/Ganyu/desire-1.png",
+          "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-31-heart-expression-revisions/sprites/Ganyu/desire-1.png",
+          "sha256": "a9b540dac15ee3b9653de9f1548dda401a38dc159b7c343b343b618219c6959b",
+          "approval": {
+            "status": "approved",
+            "message": "Ok, all are accepted.",
+            "date": "2026-10-31",
+            "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-31-heart-expression-revisions/sprites/Ganyu/desire-1.png",
+            "candidate_sha256": "a9b540dac15ee3b9653de9f1548dda401a38dc159b7c343b343b618219c6959b"
+          }
+        }
+      }
+    },
+    "Jahoda": {
+      "approval": {
+        "status": "approved",
+        "message": "All others are ACCEPTED.",
+        "date": "2026-10-30",
+        "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Jahoda/neutral-v001.png",
+        "candidate_sha256": "135e58cfad8fa511cde8844016f3f8a6b6fb0d6e3d78b33341a637bac9d8aaf3"
+      },
+      "references": [
+        "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-31-heart-expression-revisions/references/Jahoda/neutral.png"
+      ],
+      "reference_sha256": {
+        "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-31-heart-expression-revisions/references/Jahoda/neutral.png": "135e58cfad8fa511cde8844016f3f8a6b6fb0d6e3d78b33341a637bac9d8aaf3"
+      },
+      "expressions": {
+        "desire-1": {
+          "status": "not_generated",
+          "reason": "Previously rejected repeatedly by image generation safety system, including a modest fully clothed request.",
+          "previous_attempt": {
+            "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-31-white-heart-retry/prompts/Jahoda/desire-1.txt",
+            "tool": "image_gen.imagegen",
+            "tool_arguments": {
+              "prompt": "Use case: stylized-concept. Create one fully clothed, full-body visual-novel character sprite of Jahoda. Use the supplied approved neutral as the only image reference. Preserve the reference character's identity, face, skin tone, hair, costume, colours, accessories and rendering. Keep her at least as petite as her neutral, with the same compact body proportions and no elongated torso or legs. Show a gentle, fond smile and a calm, modest pose, with one hand resting near her chest; let the pose suit the expression. Both eyes open and looking in the same direction. Keep each iris intact with its original colour, outline, shading, and ordinary highlights. In the center of each iris, draw one small, solid white heart silhouette as the pupil, matching in size and orientation; the hearts stay entirely within their respective irises. No extra hearts. Two coherent legs and feet, simple relaxed hands and a complete silhouette including hair, accessories and shoes; approximately 2\u20134% top and bottom padding. Polished anime illustration on a genuinely transparent background. No scenery, UI, text, props, floating effects, watermark or ground shadow.",
+              "referenced_image_paths": [
+                "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-31-white-heart-retry/references/Jahoda/neutral.png"
+              ],
+              "transparent_background": true
+            },
+            "status": "generation_failed",
+            "error": "image generation failed: http 400 Bad Request: Some(\"{\\n  \\\"error\\\": {\\n    \\\"message\\\": \\\"Your request was rejected by the safety system. If you believe this is an error, contact us at help.openai.com and include the request ID d84c1a3d-304a-4d13-be59-7d1342624442. safety_violations=[sexual].\\\",\\n    \\\"type\\\": \\\"image_generation_user_error\\\",\\n    \\\"param\\\": null,\\n    \\\"code\\\": \\\"moderation_blocked\\\",\\n    \\\"moderation_details\\\": {\\n      \\\"moderation_stage\\\": \\\"output\\\",\\n      \\\"categories\\\": [\\n        \\\"sexual\\\"\\n      ]\\n    }\\n  }\\n}\")"
+          }
+        },
+        "love-1": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-31-heart-expression-revisions/prompts/Jahoda/love-1.txt",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one fully clothed, full-body visual-novel sprite of Jahoda. Use the supplied approved neutral as the only image reference. Preserve her identity, skin tone, face, hair, costume, colours, accessories and anime rendering. Keep her at least as petite as her approved neutral, with the same compact general proportions. Give her a playful warm affectionate smile, with her head tilted and one gloved hand held near her chest; use a characterful pose rather than duplicating her neutral. In BOTH open eyes show a clearly visible, solid white heart-shaped pupil centered in each gold iris. The white hearts are the pupils, not highlights; make them large enough to be unmistakable while retaining a visible gold iris border. Preserve the original iris colour, outline and shading around the pupil; both eyes open and anatomically coherent. Exactly one heart pupil per eye, not floating hearts, symbols, or replacement irises. Natural hands near torso and two legs and feet. Complete silhouette including hair, accessories and shoes, with approximately 2\u20134% top and bottom padding. Genuinely transparent background; no text, scenery, props, effects, watermark or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-31-heart-expression-revisions/references/Jahoda/neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "status": "candidate",
+          "tool_output": "/Users/alexachan/.codex/generated_images/01a190ff-8066-7c41-aeb5-1927eec757f4/exec-4f4fde94-adea-442b-8742-d8a39785c97f.png",
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-31-heart-expression-revisions/raw/Jahoda/love-1.png",
+          "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-31-heart-expression-revisions/sprites/Jahoda/love-1.png",
+          "sha256": "24d6d827bc0ad9ff34fa9a052b2129df85e41a67e00432da4f2f2112c0eef884",
+          "approval": {
+            "status": "approved",
+            "message": "Ok, all are accepted.",
+            "date": "2026-10-31",
+            "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-31-heart-expression-revisions/sprites/Jahoda/love-1.png",
+            "candidate_sha256": "24d6d827bc0ad9ff34fa9a052b2129df85e41a67e00432da4f2f2112c0eef884"
+          }
+        }
+      }
+    }
+  },
+  "approval_summary": {
+    "message": "Ok, all are accepted.",
+    "date": "2026-10-31",
+    "approved": [
+      "Faruzan/love-1",
+      "Faruzan/desire-1",
+      "Ganyu/love-1",
+      "Ganyu/desire-1",
+      "Jahoda/love-1"
+    ],
+    "missing": [
+      "Jahoda/desire-1"
+    ]
+  }
+}

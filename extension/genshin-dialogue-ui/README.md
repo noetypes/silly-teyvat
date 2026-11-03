@@ -1,3 +1,27 @@
+# Silly Teyvat 1.57.0: Bursts for every element and room for a big party
+
+- **Bursts hit like Bursts.** A Burst now charges up first: light rays turn behind the card while energy
+  gathers into it. The splash art follows over the element's emblem, then the Burst strikes the whole
+  board in its element's style: a fire pillar and embers for Pyro, a wave and ripples for Hydro, a vortex
+  for Anemo, lightning from above for Electro, a bloom of leaves for Dendro, falling ice shards and snow
+  for Cryo and a meteor for Geo. Its hits shake the board harder, flash white and show bigger numbers.
+  Enemy Specials get the charge and the strike without splash art.
+- **Every element has its own effects.** Impacts, Elemental Skill casts and projectiles each take their
+  element's look, and projectiles leave a trail.
+- **New battle sounds.** Each element has its own Burst sound (crackling fire, rushing water, howling
+  wind, thunder, a blooming chord, shattering ice, a crashing meteor), ringing in a hall, plus a charge-up
+  and an element-flavoured cast for Skills. They are still synthesised; no game audio is bundled.
+- **Room for five or more.** Cards shrink only when a side would not fit between the turn buttons and
+  played cards on the left and the summons, dice and moves on the right. Summons and played cards shrink
+  and pack tighter so they never run into the cards, and a big party's dice grow downwards rather than
+  into the summons on short screens. On phones held upright, HP badges no longer overlap the next card,
+  and on short landscape screens the party no longer runs under the moves.
+- **The Paimon menu switch is yours to set.** Each set in Settings → Features has a Paimon icon beside
+  its switch. Light it and the Silly Teyvat switch in the Paimon menu turns that set off and back on
+  (Story view only, to start). The sets now fold away under one Features row that counts how many are on.
+- **Only the speaker's voice plays.** When several sprites change expression at once, only the speaking
+  character's sprite voice plays.
+
 # Silly Teyvat 1.56.0: The Narrator, a game-style character screen, menu sounds and an off switch
 
 - **An off switch.** The **Silly Teyvat** switch at the top of Settings unloads the whole extension, so

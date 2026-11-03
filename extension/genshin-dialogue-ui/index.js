@@ -40,7 +40,7 @@ import {abyssGreeting,freshenTwinPersonas,keepAbyssGreeting,restoreTwinCards,syn
 import {mountTrust} from './trust-ui.js';
 import {giveGift} from './gifts.js';
 import {namecardsReady,namecards,namecardUrl,chooseNamecard} from './namecards.js';
-import {renderFeatureSwitches,paintFeatureSwitches,setGroup} from './feature-switches.js';
+import {renderFeatureSwitches,paintFeatureSwitches,setGroup,setSettings,paimonKeys,paimonOn,paimonValues,linkPaimon,PAIMON_LINKS} from './feature-switches.js';
 import {loadPersonaSupport,personaCard,syncPersonaSettings,setPersonaSpriteSetting} from './persona-wardrobe.js';
 import {circularCharacterAvatar,characterAvatarsReady,personaMenuIcon} from './character-avatars.js';
 import {createPersonaSession,repairSoloPortraits} from './persona-session.js';
@@ -53,7 +53,7 @@ import {applyPackagedSettings} from './share-package.js';
 import {mountShare} from './share-ui.js';
 const KEY = 'genshin_dialogue_ui';
 const FOLDER = 'third-party/genshin-dialogue-ui';
-const defaults = Object.freeze({ ...stagingDefaults, enabled: false, choices: true, composer: true, reducedMotion: false, textScale: 1, scrim: 0.8, revealSpeed: 45, tapAdvance: true, pageExpressions: true, narration: false, narrationMode: 'quotes', narrationKeyword: 'Narrator:', hideDialogueQuotes:false, wardrobe: true, locationEncounters:true, locationCharacterLimit:5, randomEncounters:true, encounterRate:40, allowMainDeparture:false, worldPromptAllRegions:false, roleplayPromptsEnabled:true, wildernessEncounters:true, maxEnemies:3, combatDamageMin:1, combatDamageMax:6, enemyStrikeBack:true,combatTriggerPhrase:'[start_combat]', enemyDamageMin:2, enemyDamageMax:6, enemyDice:4, userMaxHp:30, combatDifficulty:'normal', battleEffects:true, battleSound:true,uiSound:true,uiSoundVolume:.7, personaIcon: 'Aether', personaIconMode:'auto', hudTopIcons:'auto', namecard:'', signature:'', trimSprites:true, cgEnabled:true, cgClassifier:'main', cgProfile:'', choicesProfile:'', cgBypassReasoning:true, cgPrompt:defaultCGPrompt, cgAudio:true, spriteAudio:true, burstAudio:true, spriteVolume:.8, diceSound:true, trustSystem:false, travelerTwin:'Aether', master:true, cardArt:true });
+const defaults = Object.freeze({ ...stagingDefaults, enabled: false, choices: true, composer: true, reducedMotion: false, textScale: 1, scrim: 0.8, revealSpeed: 45, tapAdvance: true, pageExpressions: true, narration: false, narrationMode: 'quotes', narrationKeyword: 'Narrator:', hideDialogueQuotes:false, wardrobe: true, locationEncounters:true, locationCharacterLimit:5, randomEncounters:true, encounterRate:40, allowMainDeparture:false, worldPromptAllRegions:false, roleplayPromptsEnabled:true, wildernessEncounters:true, maxEnemies:3, combatDamageMin:1, combatDamageMax:6, enemyStrikeBack:true,combatTriggerPhrase:'[start_combat]', enemyDamageMin:2, enemyDamageMax:6, enemyDice:4, userMaxHp:30, combatDifficulty:'normal', battleEffects:true, battleSound:true,uiSound:true,uiSoundVolume:.7, personaIcon: 'Aether', personaIconMode:'auto', hudTopIcons:'auto', namecard:'', signature:'', trimSprites:true, cgEnabled:true, cgClassifier:'main', cgProfile:'', choicesProfile:'', cgBypassReasoning:true, cgPrompt:defaultCGPrompt, cgAudio:true, spriteAudio:true, burstAudio:true, spriteVolume:.8, diceSound:true, trustSystem:false, travelerTwin:'Aether', master:true, cardArt:true, paimonLinks:PAIMON_LINKS, paimonRestore:{} });
 const bodyClasses = ['gi-menu-open', 'gi-enabled', 'gi-scene', 'gi-history', 'gi-hidden', 'gi-compose', 'gi-generating', 'gi-reduced-motion', 'gi-reading', 'gi-choices-enabled', 'gi-native-staging', 'gi-sprite-idle', 'gi-hud-top-off'];
 const icons = {
     compass: '<path d="m12 2 3 7 7 3-7 3-3 7-3-7-7-3 7-3Z"/><path d="m12 8 4 4-4 4-4-4Z"/>',
@@ -388,8 +388,8 @@ function refresh() {
         if (menuOpen) paintProfile(); else { pickingNamecard = false; paintNamecards(); }
     }
     const toggle = document.querySelector('#gi-toolbar [data-gi-action="toggle"]');
-    toggle.setAttribute('aria-pressed', String(prefs.enabled));
-    toggle.setAttribute('aria-label', prefs.enabled ? 'Silly Teyvat: On' : 'Silly Teyvat: Off');
+    toggle.setAttribute('aria-pressed', String(paimonOn(prefs)));
+    toggle.setAttribute('aria-label', paimonOn(prefs) ? 'Silly Teyvat: On' : 'Silly Teyvat: Off');
     const mapButton = document.querySelector('#gi-toolbar [data-gi-action="map"]');
     if (mapButton) mapButton.disabled = !prefs.enabled;
     // Only a welcome page with no character or journey open can start a solo journey.
@@ -504,6 +504,16 @@ function setEnabled(value) {
     refresh();
     announce(value ? 'Silly Teyvat enabled.' : 'Silly Teyvat off. Normal chat restored.');
 }
+// The Paimon menu switch flips every set linked to it in Settings → Features. Each setting goes
+// through the panel's own change handling, as if switched there; Story view does so through setEnabled.
+function togglePaimon() {
+    const prefs = preferences(), keys = paimonKeys(prefs);
+    if (!keys.length) { announce('No features are linked to this switch. Link them in Silly Teyvat settings → Features.'); return; }
+    const on = !paimonOn(prefs), missing = setSettings(document.querySelector('#gi-settings'), paimonValues(prefs, on));
+    for (const [key, value] of Object.entries(missing)) { if (key === 'enabled') setEnabled(value); else prefs[key] = value; }
+    context().saveSettingsDebounced(); refresh();
+    if (!keys.includes('enabled')) announce(on ? 'Silly Teyvat features on.' : 'Silly Teyvat features off.');
+}
 function selectMessage(index, pageIndex = 0) {
     const list = messages();
     const selected = list[Math.min(list.length - 1, Math.max(0, index))];
@@ -601,7 +611,8 @@ function handleAction(event) {
         case 'st-drawer': menuOpen = false; refresh(); document.querySelector(`#${CSS.escape(target.dataset.drawer)} > .drawer-toggle`)?.click(); break;
         case 'persona': menuOpen=false;refresh();wardrobeUI?.open({persona:true}).catch(error=>announce(error.message));break;
         case 'map': menuOpen = false; refresh(); void openWorldMap().catch(error=>announce(error.message)); break;
-        case 'toggle': setEnabled(!preferences().enabled); break;
+        case 'toggle': togglePaimon(); break;
+        case 'paimon-link': linkPaimon(preferences(),target.dataset.group,target.getAttribute('aria-pressed')!=='true'); context().saveSettingsDebounced(); refresh(); break;
         case 'solo-journey': menuOpen = false; refresh(); void personaSession?.flush({ startJourney: true }); break;
         case 'history': toggleHistory(); break;
         case 'hide': hidden = !hidden; if (hidden) menuOpen = false; history = false; stopAuto(); refresh(); break;
@@ -664,7 +675,7 @@ function handleKey(event) {
     if (event.key === 'Escape' && menuOpen && pickingNamecard) { event.preventDefault(); pickingNamecard = false; paintNamecards(); document.querySelector('#gi-toolbar .gi-pm-edit')?.focus(); return; }
     if (event.key === 'Escape' && menuOpen) { event.preventDefault(); menuOpen = false; refresh(); document.querySelector('#gi-launcher').focus(); return; }
     if (event.altKey && !event.ctrlKey && !event.metaKey && event.code === 'KeyG') {
-        event.preventDefault(); setEnabled(!preferences().enabled); return;
+        event.preventDefault(); togglePaimon(); return;
     }
     if (!preferences().enabled || event.ctrlKey || event.metaKey || event.altKey || event.isComposing) return;
     // Let native popups, editors and text boxes handle their own keys.

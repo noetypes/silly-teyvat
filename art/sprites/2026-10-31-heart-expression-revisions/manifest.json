@@ -1,0 +1,74 @@
+{
+  "order": {
+    "columns": [
+      "Faruzan",
+      "Ganyu",
+      "Jahoda"
+    ],
+    "rows": [
+      "love-1",
+      "desire-1"
+    ]
+  },
+  "characters": {
+    "Faruzan": {
+      "love-1": {
+        "path": "sprites/Faruzan/love-1.png",
+        "sha256": "3a5bbc206bcdcce09fb6fe028e0c4c1f2cd0addc2a4d2382180b8b78037d2a8a",
+        "dimensions": [
+          1024,
+          1536
+        ],
+        "status": "candidate",
+        "approval": "approved"
+      },
+      "desire-1": {
+        "path": "sprites/Faruzan/desire-1.png",
+        "sha256": "14f86f5507bc3904d8937724afe4f049a338930f55f4ef255c5d373a17b327e2",
+        "dimensions": [
+          1024,
+          1536
+        ],
+        "status": "retained_per_user_request",
+        "approval": "approved"
+      }
+    },
+    "Ganyu": {
+      "love-1": {
+        "path": "sprites/Ganyu/love-1.png",
+        "sha256": "eff55f1242415801a3a6a0c59977bf9b21172d18fc8fb70b8a69105fbb4a4497",
+        "dimensions": [
+          881,
+          1785
+        ],
+        "status": "candidate",
+        "approval": "approved"
+      },
+      "desire-1": {
+        "path": "sprites/Ganyu/desire-1.png",
+        "sha256": "a9b540dac15ee3b9653de9f1548dda401a38dc159b7c343b343b618219c6959b",
+        "dimensions": [
+          881,
+          1786
+        ],
+        "status": "candidate",
+        "approval": "approved"
+      }
+    },
+    "Jahoda": {
+      "love-1": {
+        "path": "sprites/Jahoda/love-1.png",
+        "sha256": "24d6d827bc0ad9ff34fa9a052b2129df85e41a67e00432da4f2f2112c0eef884",
+        "dimensions": [
+          1149,
+          1369
+        ],
+        "status": "candidate",
+        "approval": "approved"
+      },
+      "desire-1": {
+        "status": "not_generated"
+      }
+    }
+  }
+}

@@ -189,7 +189,7 @@ body.gi-shell #chat:has(> .welcomePanel) > .mes .menu_button:hover { background:
     #gi-battle .tb-hand { --hh: 66px; bottom: -14px; }
     #gi-battle .tb-intent { bottom: -19px; padding: 2px 6px 2px 5px; } #gi-battle .tb-intent b { font-size: 13px; } #gi-battle .tb-intent svg { width: 14px; height: 14px; } #gi-battle .tb-intent img { width: 18px; height: 18px; }
     #gi-battle .tb-crest { height: 26px; }
-    #gi-battle .tb-row { gap: clamp(8px, 1.4vw, 18px); }
+    #gi-battle { --rg: 22px; }
 }
 /* Phones held upright: the hand keeps its height (it scrolls sideways, which let the grid crush it). */
 @media (max-aspect-ratio: 4/5) {
@@ -264,7 +264,7 @@ body.gi-shell .welcomePanel .chatStats { flex: 0 0 auto; }
 #gi-battle .tb-midline, #gi-battle .tb-emblem, #gi-battle .tb-turn { top: 50%; }
 #gi-battle .tb-hand { --hh: calc(var(--ch) * .76); }
 @media (max-height: 560px) and (orientation: landscape) {
-    #gi-battle { --ch: min(23dvh, 12vw); --gap: 30px; }
+    #gi-battle { --ch: min(23dvh, 12vw, var(--fit)); --gap: 30px; }
     #gi-battle .tb-row-foe, #gi-battle .tb-summons-foe { top: auto; bottom: calc(50% + var(--gap)); }
     #gi-battle .tb-row-you, #gi-battle .tb-summons-you, #gi-battle .tb-played { top: calc(50% + var(--gap)); }
     #gi-battle .tb-hand { --hh: clamp(72px, 21dvh, 100px); bottom: -20px; }
@@ -273,12 +273,13 @@ body.gi-shell .welcomePanel .chatStats { flex: 0 0 auto; }
     #gi-battle .tb-auto, #gi-battle .tb-flee { width: 30px; height: 30px; }
 }
 @media (max-aspect-ratio: 4/5) {
-    #gi-battle { --ch: min(19dvh, calc((100vw - 78px) / 4.4 / .583)); --gap: 56px; }
+    /* Five or more on a side: narrower cards, so the row still fits across the screen. */
+    #gi-battle { --rg: 16px; --ch: min(19dvh, calc((100vw - 78px) / 4.4 / .583), calc((100vw - 30px - (var(--n) - 1) * var(--rg)) / var(--n) / .583)); --gap: 56px; }
     #gi-battle .tb-board { display: block; padding: 0; }
     #gi-battle .tb-board > :not(.tb-tip, .tb-banner, .tb-combo, .tb-confirm, .tb-order) { position: absolute !important; }
     #gi-battle .tb-midline { display: block; }
     #gi-battle .tb-emblem { display: block; width: 100px; translate: -50% -50% !important; }
-    #gi-battle .tb-row { left: 50%; translate: -50% 0 !important; margin: 0; gap: 10px; }
+    #gi-battle .tb-row { left: 50%; translate: -50% 0 !important; margin: 0; gap: var(--rg); }
     #gi-battle .tb-row-foe { top: auto; bottom: calc(50% + var(--gap)); }
     #gi-battle .tb-row-you { top: calc(50% + var(--gap)); }
     #gi-battle .tb-turn { left: 10px; translate: 0 -50% !important; display: flex; gap: 5px; }
@@ -295,14 +296,17 @@ body.gi-shell .welcomePanel .chatStats { flex: 0 0 auto; }
     #gi-battle .tb-summons-foe { top: 70px; bottom: auto; }
     #gi-battle .tb-summons-you { top: auto; bottom: clamp(112px, 17dvh, 144px); justify-content: flex-start; max-width: calc(100% - 180px); margin: 0; }
     #gi-battle .tb-played { left: 12px; top: 74px; }
+    /* Summons stay on one line and shrink, so a long line never grows into the cards. */
+    #gi-battle .tb-summons-foe, #gi-battle .tb-summons-you { flex-wrap: nowrap; align-items: flex-end; }
+    #gi-battle .tb-zone .tb-summon { flex: 0 1 44px; min-width: 20px; width: auto; height: auto; aspect-ratio: .81; }
 }
 @media (max-aspect-ratio: 4/5) and (max-height: 640px) {
-    #gi-battle { --ch: min(14dvh, calc((100vw - 78px) / 4.4 / .583)); --gap: 50px; }
+    #gi-battle { --ch: min(14dvh, calc((100vw - 78px) / 4.4 / .583), calc((100vw - 30px - (var(--n) - 1) * var(--rg)) / var(--n) / .583)); --gap: 50px; }
     #gi-battle .tb-hand { --hh: 94px; }
     #gi-battle .tb-skills { bottom: 16px; }
     #gi-battle .tb-order { bottom: 114px; }
     #gi-battle .tb-summons-you { bottom: 108px; }
-    #gi-battle .tb-summon { height: 40px; width: 34px; }
+    #gi-battle .tb-zone .tb-summon { flex-basis: 34px; }
     #gi-battle .tb-medal { width: 36px; height: 36px; } #gi-battle .tb-move-burst .tb-medal { width: 42px; height: 42px; }
 }
 

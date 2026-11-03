@@ -1,0 +1,148 @@
+{
+  "request": "Regenerate Mualani\u2019s neutral sprite using her attached in-game model as a reference alongside her official artwork, make her cute and petite with an in-character pose",
+  "references": [
+    {
+      "path": "references/Mualani/official.png",
+      "source": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Mualani/Official Art/neutral.png",
+      "sha256": "5b0eb68c737feba00723c08ae8d5776db40036ac9665be7f2e61c0aedbfdba81",
+      "purpose": "identity, costume, colors and illustration detail"
+    },
+    {
+      "path": "references/Mualani/in-game.jpg",
+      "source": "/tmp/codex-remote-attachments/01a1919b-35e7-7473-89f3-f4c2a6a9c64a/34027B09-AF9B-44BA-B811-7FB445F4ADA2/1-Photo-1.jpg",
+      "sha256": "ce55d02d7359ec4bff1b5ebb10630682320681fb37401f56b83b14afc4eec361",
+      "purpose": "natural standing silhouette, proportions and costume arrangement"
+    },
+    {
+      "path": "references/Mualani/in-game-high-res.jpg",
+      "source": "/tmp/codex-remote-attachments/01a1919b-35e7-7473-89f3-f4c2a6a9c64a/E1A4C585-06E6-47EC-B905-1A3983A8FAE2/1-Photo-1.jpg",
+      "sha256": "d29708bbdf7ac7748ac4dd5fe03c3695d576d61682b119c5282c8bf32d0df1ed",
+      "purpose": "primary guide for proportions, hair and costume"
+    },
+    {
+      "path": "references/Mualani/user-artwork.jpg",
+      "source": "/tmp/codex-remote-attachments/01a1919b-35e7-7473-89f3-f4c2a6a9c64a/E1A4C585-06E6-47EC-B905-1A3983A8FAE2/2-Photo-2.jpg",
+      "sha256": "6a9ca0cfb34f2a16220b69a8e8f3cfa07e9e97bd09a18c32200a623ff84b9c6b",
+      "purpose": "facial appeal and costume details"
+    }
+  ],
+  "generation": {
+    "tool": "image_gen.imagegen",
+    "prompt": "prompts/Mualani/neutral-v001.txt",
+    "referenced_image_paths": [
+      "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-31-mualani-neutral/references/Mualani/official.png",
+      "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-31-mualani-neutral/references/Mualani/in-game.jpg"
+    ],
+    "transparent_background": true,
+    "original_result": "/Users/alexachan/.codex/generated_images/01a1919b-35e7-7473-89f3-f4c2a6a9c64a/exec-c5c9cdc0-8632-4bd4-a621-44171da5321b.png",
+    "raw": "raw/Mualani/neutral-v001.png",
+    "candidate": "candidates/Mualani/neutral-v001.png",
+    "sha256": "aae8d91b4b5bc0b2976e61a054116f2b00358a965ad0fea8febfb97bafc610c8",
+    "dimensions": [
+      1024,
+      1536
+    ],
+    "png_color_type": 6,
+    "approval": "rejected",
+    "framing_transform": null,
+    "user_feedback": "Not bad but it gave her braids for some reason; try again, make sure she is short and petite."
+  },
+  "generation_v002": {
+    "tool": "image_gen.imagegen",
+    "prompt": "prompts/Mualani/neutral-v002.txt",
+    "referenced_image_paths": [
+      "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-31-mualani-neutral/references/Mualani/official.png",
+      "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-31-mualani-neutral/references/Mualani/in-game-high-res.jpg",
+      "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-31-mualani-neutral/references/Mualani/user-artwork.jpg"
+    ],
+    "transparent_background": true,
+    "original_result": "/Users/alexachan/.codex/generated_images/01a1919b-35e7-7473-89f3-f4c2a6a9c64a/exec-d1ebdf84-1df4-40e6-9ab7-842c310b4bf4.png",
+    "raw": "raw/Mualani/neutral-v002.png",
+    "candidate": "candidates/Mualani/neutral-v002.png",
+    "sha256": "9d5deb08799dbf3780a5965a03b7cc600262c41d2e1517ffb162a31edec8bdec",
+    "dimensions": [
+      1024,
+      1536
+    ],
+    "png_color_type": 6,
+    "approval": "rejected",
+    "framing_transform": null,
+    "user_feedback": "pretty good but one hand has only 4 fingers, try again along with a more interesting pose"
+  },
+  "generation_v003": {
+    "tool": "image_gen.imagegen",
+    "prompt": "prompts/Mualani/neutral-v003.txt",
+    "referenced_image_paths": [
+      "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-31-mualani-neutral/references/Mualani/official.png",
+      "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-31-mualani-neutral/references/Mualani/in-game-high-res.jpg",
+      "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-31-mualani-neutral/references/Mualani/user-artwork.jpg"
+    ],
+    "transparent_background": true,
+    "status": "failed",
+    "reason": "Input safety system rejected request, category sexual",
+    "request_id": "25fe15d9-a55f-4903-809e-9dc5f91f8936",
+    "approval": "not applicable"
+  },
+  "generation_v004": {
+    "tool": "image_gen.imagegen",
+    "prompt": "prompts/Mualani/neutral-v004.txt",
+    "referenced_image_paths": [
+      "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-31-mualani-neutral/references/Mualani/official.png",
+      "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-31-mualani-neutral/references/Mualani/in-game-high-res.jpg",
+      "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-31-mualani-neutral/references/Mualani/user-artwork.jpg"
+    ],
+    "transparent_background": true,
+    "status": "failed",
+    "reason": "Input safety system rejected request, category sexual",
+    "request_id": "9da0cc74-f862-4a9c-b518-92d39fc5f39d",
+    "approval": "not applicable"
+  },
+  "generation_v005": {
+    "tool": "image_gen.imagegen",
+    "prompt": "prompts/Mualani/neutral-v005.txt",
+    "referenced_image_paths": [
+      "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-31-mualani-neutral/references/Mualani/official.png",
+      "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-31-mualani-neutral/references/Mualani/in-game-high-res.jpg",
+      "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-31-mualani-neutral/references/Mualani/user-artwork.jpg"
+    ],
+    "transparent_background": true,
+    "status": "failed",
+    "reason": "Input safety system rejected request, category sexual",
+    "request_id": "a96d8c59-85a0-4008-a487-cc6ea8a921ae",
+    "approval": "not applicable"
+  },
+  "generation_v006": {
+    "tool": "image_gen.imagegen",
+    "prompt": "prompts/Mualani/neutral-v006.txt",
+    "referenced_image_paths": [
+      "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-31-mualani-neutral/references/Mualani/official.png",
+      "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-31-mualani-neutral/references/Mualani/in-game-high-res.jpg"
+    ],
+    "transparent_background": true,
+    "status": "failed",
+    "reason": "Input safety system rejected request, category sexual",
+    "request_id": "2aedd2d7-e40e-4ee4-b76f-f80281a14561",
+    "approval": "not applicable"
+  },
+  "generation_v007": {
+    "user_authorization": "Use the previously successfully generated but 4-fingered sprite alongside a prompt that can fix the fingers",
+    "tool": "image_gen.imagegen",
+    "prompt": "prompts/Mualani/neutral-v007.txt",
+    "referenced_image_paths": [
+      "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-31-mualani-neutral/candidates/Mualani/neutral-v002.png"
+    ],
+    "reference_sha256": "9d5deb08799dbf3780a5965a03b7cc600262c41d2e1517ffb162a31edec8bdec",
+    "transparent_background": true,
+    "original_result": "/Users/alexachan/.codex/generated_images/01a1919b-35e7-7473-89f3-f4c2a6a9c64a/exec-1de0caa6-41b8-400c-92e3-2d06a43b32fd.png",
+    "raw": "raw/Mualani/neutral-v007.png",
+    "candidate": "candidates/Mualani/neutral-v007.png",
+    "sha256": "30993005943ce429c5841372ef6bd927a06ead6cd6b1af20958eb18400d3afbf",
+    "dimensions": [
+      1024,
+      1536
+    ],
+    "png_color_type": 6,
+    "approval": "pending",
+    "framing_transform": null
+  }
+}

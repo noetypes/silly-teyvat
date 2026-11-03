@@ -1,0 +1,887 @@
+{
+  "approval": "APPROVED, put them all in their respective folders",
+  "date": "2026-11-01",
+  "status": "complete",
+  "files": [
+    {
+      "character": "Citlali",
+      "emotion": "neutral",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-citlali-ayaka-lynette-mualani-expressions/candidates/Citlali/neutral.png",
+      "sha256": "e577b8bfa86e7bca020e29b230c7b4ad3a3a2571268033500edb1730f408ceef",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Citlali/neutral.png",
+      "previous_sha256": "e577b8bfa86e7bca020e29b230c7b4ad3a3a2571268033500edb1730f408ceef",
+      "backup": null,
+      "action": "unchanged"
+    },
+    {
+      "character": "Citlali",
+      "emotion": "annoyance",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-citlali-ayaka-lynette-mualani-expressions/candidates/Citlali/annoyance.png",
+      "sha256": "c4e7da1182ec5ea734d18ad612a2dd7488c5d0d5d1e54fb9cd97083187140cf5",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Citlali/annoyance.png",
+      "previous_sha256": null,
+      "backup": null,
+      "action": "added"
+    },
+    {
+      "character": "Citlali",
+      "emotion": "smug",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-citlali-ayaka-lynette-mualani-expressions/candidates/Citlali/smug.png",
+      "sha256": "d565023153f51f7c422ba9c64b743e85230acd045aebd98bd88c3f90ee6e3d5d",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Citlali/smug.png",
+      "previous_sha256": null,
+      "backup": null,
+      "action": "added"
+    },
+    {
+      "character": "Citlali",
+      "emotion": "confusion",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-citlali-ayaka-lynette-mualani-expressions/candidates/Citlali/confusion.png",
+      "sha256": "80302ed737e60167f39905ca9773a394e623abf6bb733eb873016e8a7416b32d",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Citlali/confusion.png",
+      "previous_sha256": null,
+      "backup": null,
+      "action": "added"
+    },
+    {
+      "character": "Citlali",
+      "emotion": "love",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-citlali-ayaka-lynette-mualani-expressions/candidates/Citlali/love.png",
+      "sha256": "f16a06d5280deb59e790b939591e95102d9c8a08a99645c38f124933baa56066",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Citlali/love.png",
+      "previous_sha256": null,
+      "backup": null,
+      "action": "added"
+    },
+    {
+      "character": "Citlali",
+      "emotion": "excitement",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-citlali-ayaka-lynette-mualani-expressions/candidates/Citlali/excitement.png",
+      "sha256": "cd24f5c552b6c3b802d0ae58f376e679c41e102725c454fe928cda81b8da481d",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Citlali/excitement.png",
+      "previous_sha256": null,
+      "backup": null,
+      "action": "added"
+    },
+    {
+      "character": "Citlali",
+      "emotion": "joy",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-citlali-ayaka-lynette-mualani-expressions/candidates/Citlali/joy.png",
+      "sha256": "386426e511a915ef0392d5a975a2e61043739a544b6150deb495fc4c40488de2",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Citlali/joy.png",
+      "previous_sha256": null,
+      "backup": null,
+      "action": "added"
+    },
+    {
+      "character": "Citlali",
+      "emotion": "fear",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-citlali-ayaka-lynette-mualani-expressions/candidates/Citlali/fear.png",
+      "sha256": "873a45ecdcc851742f6fb36ca5dbd93b9f50aa77561c1c70ad83bc41e9ee3e42",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Citlali/fear.png",
+      "previous_sha256": null,
+      "backup": null,
+      "action": "added"
+    },
+    {
+      "character": "Citlali",
+      "emotion": "pride",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-citlali-ayaka-lynette-mualani-expressions/candidates/Citlali/pride.png",
+      "sha256": "905c2fbfd61e6a82adbd28a48043e7da89ffcc26de2229800f1e52e0468f4906",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Citlali/pride.png",
+      "previous_sha256": null,
+      "backup": null,
+      "action": "added"
+    },
+    {
+      "character": "Citlali",
+      "emotion": "desire",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-citlali-ayaka-lynette-mualani-expressions/candidates/Citlali/desire.png",
+      "sha256": "8725f7423f81afc3fdf8c8cf5688abe35b88904bdbb2b3c04dd7e54fbe415d7d",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Citlali/desire.png",
+      "previous_sha256": null,
+      "backup": null,
+      "action": "added"
+    },
+    {
+      "character": "Citlali",
+      "emotion": "anger",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-citlali-ayaka-lynette-mualani-expressions/candidates/Citlali/anger.png",
+      "sha256": "dec484fdf4d25295b7c09984d7e1bc071ef20ed27cc90ff4363321255300c31a",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Citlali/anger.png",
+      "previous_sha256": null,
+      "backup": null,
+      "action": "added"
+    },
+    {
+      "character": "Citlali",
+      "emotion": "grief",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-citlali-ayaka-lynette-mualani-expressions/candidates/Citlali/grief.png",
+      "sha256": "d8e8d0d89300ac3a427f6a794d34ed924695f40213acbc46b23e288109dacf43",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Citlali/grief.png",
+      "previous_sha256": null,
+      "backup": null,
+      "action": "added"
+    },
+    {
+      "character": "Citlali",
+      "emotion": "sadness",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-citlali-ayaka-lynette-mualani-expressions/candidates/Citlali/sadness.png",
+      "sha256": "5ce60782620742c023aa4aab5090a47188584c09bc13686fc9011f6ffbee4106",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Citlali/sadness.png",
+      "previous_sha256": null,
+      "backup": null,
+      "action": "added"
+    },
+    {
+      "character": "Citlali",
+      "emotion": "disgust",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-citlali-ayaka-lynette-mualani-expressions/candidates/Citlali/disgust.png",
+      "sha256": "0f2b81812938ef94aec2abdb082bf1c9842069e3dca76b7665f90c4c940a2b4e",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Citlali/disgust.png",
+      "previous_sha256": null,
+      "backup": null,
+      "action": "added"
+    },
+    {
+      "character": "Citlali",
+      "emotion": "disappointment",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-citlali-ayaka-lynette-mualani-expressions/candidates/Citlali/disappointment.png",
+      "sha256": "161bb6c1a14e9165ec85320375e0e7208389552d4d91707f672cbc6fbe075500",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Citlali/disappointment.png",
+      "previous_sha256": null,
+      "backup": null,
+      "action": "added"
+    },
+    {
+      "character": "Citlali",
+      "emotion": "relief",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-citlali-ayaka-lynette-mualani-expressions/candidates/Citlali/relief.png",
+      "sha256": "52704e86ee1857092864920cf31b8c627335728645e6eb6a92a97e28e395a839",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Citlali/relief.png",
+      "previous_sha256": null,
+      "backup": null,
+      "action": "added"
+    },
+    {
+      "character": "Citlali",
+      "emotion": "admiration",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-citlali-ayaka-lynette-mualani-expressions/candidates/Citlali/admiration.png",
+      "sha256": "efc67caa345457e1803c02d8922e5df4e5df68c54544af24dc07db2b2e6dfd4c",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Citlali/admiration.png",
+      "previous_sha256": null,
+      "backup": null,
+      "action": "added"
+    },
+    {
+      "character": "Citlali",
+      "emotion": "gratitude",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-citlali-ayaka-lynette-mualani-expressions/candidates/Citlali/gratitude.png",
+      "sha256": "e6f96af81ec5383d5af25cafb91ae5776a5f936897ff2248e37bcda445f5a431",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Citlali/gratitude.png",
+      "previous_sha256": null,
+      "backup": null,
+      "action": "added"
+    },
+    {
+      "character": "Citlali",
+      "emotion": "embarrassment",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-citlali-ayaka-lynette-mualani-expressions/candidates/Citlali/embarrassment.png",
+      "sha256": "b5036cee680784f2bfbc9b3d935ea8b52d47fcdd9d9e964ad612f53e3b1a00b3",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Citlali/embarrassment.png",
+      "previous_sha256": null,
+      "backup": null,
+      "action": "added"
+    },
+    {
+      "character": "Citlali",
+      "emotion": "caring",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-citlali-ayaka-lynette-mualani-expressions/candidates/Citlali/caring.png",
+      "sha256": "530b4b489a15676b289f7ad09e5b7cc8d7db67c2d1f1e01566f9759fd99e7d1c",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Citlali/caring.png",
+      "previous_sha256": null,
+      "backup": null,
+      "action": "added"
+    },
+    {
+      "character": "Citlali",
+      "emotion": "love-1",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-citlali-ayaka-lynette-mualani-expressions/candidates/Citlali/love-1.png",
+      "sha256": "5a91b1a749250db5ff52512b2d236535386a616338f3b22f617e7e7b84f4d551",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Citlali/love-1.png",
+      "previous_sha256": null,
+      "backup": null,
+      "action": "added"
+    },
+    {
+      "character": "Citlali",
+      "emotion": "desire-1",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-citlali-ayaka-lynette-mualani-expressions/candidates/Citlali/desire-1.png",
+      "sha256": "5b32714995a8b9c2bab7c0d61f1bc0ea35cedfaffec865d8c9a1921ce68912b8",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Citlali/desire-1.png",
+      "previous_sha256": null,
+      "backup": null,
+      "action": "added"
+    },
+    {
+      "character": "Kamisato Ayaka",
+      "emotion": "neutral",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-citlali-ayaka-lynette-mualani-expressions/candidates/Kamisato Ayaka/neutral.png",
+      "sha256": "25cd519ef584e3393eef5e1e7e484a70ce82da83ee4eae92609adaee8b28cc7c",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Kamisato Ayaka/neutral.png",
+      "previous_sha256": "25cd519ef584e3393eef5e1e7e484a70ce82da83ee4eae92609adaee8b28cc7c",
+      "backup": null,
+      "action": "unchanged"
+    },
+    {
+      "character": "Kamisato Ayaka",
+      "emotion": "annoyance",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-citlali-ayaka-lynette-mualani-expressions/candidates/Kamisato Ayaka/annoyance.png",
+      "sha256": "0d3c35ba22a1fac594a493ac83545f013efa0a6b2bd861b88617d90f1d44788a",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Kamisato Ayaka/annoyance.png",
+      "previous_sha256": null,
+      "backup": null,
+      "action": "added"
+    },
+    {
+      "character": "Kamisato Ayaka",
+      "emotion": "smug",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-citlali-ayaka-lynette-mualani-expressions/candidates/Kamisato Ayaka/smug.png",
+      "sha256": "5ff714ebb9301fe7d6a5094586ce63868dd32c21df8fc6bbec341e31e360e593",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Kamisato Ayaka/smug.png",
+      "previous_sha256": null,
+      "backup": null,
+      "action": "added"
+    },
+    {
+      "character": "Kamisato Ayaka",
+      "emotion": "confusion",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-citlali-ayaka-lynette-mualani-expressions/candidates/Kamisato Ayaka/confusion.png",
+      "sha256": "4457586532c92e5fc720403ef3e09ca19f621fbff929783be2b547d97c400932",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Kamisato Ayaka/confusion.png",
+      "previous_sha256": null,
+      "backup": null,
+      "action": "added"
+    },
+    {
+      "character": "Kamisato Ayaka",
+      "emotion": "love",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-citlali-ayaka-lynette-mualani-expressions/candidates/Kamisato Ayaka/love.png",
+      "sha256": "0151582d2d0de09ade600451b3b1228ba1eca389743eb9f2660381a8b1df8ff9",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Kamisato Ayaka/love.png",
+      "previous_sha256": null,
+      "backup": null,
+      "action": "added"
+    },
+    {
+      "character": "Kamisato Ayaka",
+      "emotion": "excitement",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-citlali-ayaka-lynette-mualani-expressions/candidates/Kamisato Ayaka/excitement.png",
+      "sha256": "7c2450454a698776d3e96a440019e0028409f799dafe50f3f4eb4e95bedb0525",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Kamisato Ayaka/excitement.png",
+      "previous_sha256": null,
+      "backup": null,
+      "action": "added"
+    },
+    {
+      "character": "Kamisato Ayaka",
+      "emotion": "joy",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-citlali-ayaka-lynette-mualani-expressions/candidates/Kamisato Ayaka/joy.png",
+      "sha256": "aebda1c238b0803dfa385f5185901ac668b0093cd3444612afe36aee13c3c1bd",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Kamisato Ayaka/joy.png",
+      "previous_sha256": null,
+      "backup": null,
+      "action": "added"
+    },
+    {
+      "character": "Kamisato Ayaka",
+      "emotion": "fear",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-citlali-ayaka-lynette-mualani-expressions/candidates/Kamisato Ayaka/fear.png",
+      "sha256": "3de55a851a5bac1b36d83ebf089649bac954da60f416fd4b4e027896c5c6836a",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Kamisato Ayaka/fear.png",
+      "previous_sha256": null,
+      "backup": null,
+      "action": "added"
+    },
+    {
+      "character": "Kamisato Ayaka",
+      "emotion": "pride",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-citlali-ayaka-lynette-mualani-expressions/candidates/Kamisato Ayaka/pride.png",
+      "sha256": "a2c5956a31540dcec14c14a8225e6243f50f626c4b7a443be7a66495e147b808",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Kamisato Ayaka/pride.png",
+      "previous_sha256": null,
+      "backup": null,
+      "action": "added"
+    },
+    {
+      "character": "Kamisato Ayaka",
+      "emotion": "desire",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-citlali-ayaka-lynette-mualani-expressions/candidates/Kamisato Ayaka/desire.png",
+      "sha256": "0f1f637d2aa2935244e863a610a12d2b89f341b42452ec107d52954cd959010c",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Kamisato Ayaka/desire.png",
+      "previous_sha256": null,
+      "backup": null,
+      "action": "added"
+    },
+    {
+      "character": "Kamisato Ayaka",
+      "emotion": "anger",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-citlali-ayaka-lynette-mualani-expressions/candidates/Kamisato Ayaka/anger.png",
+      "sha256": "8df83620f1843bcaff959a417fbaa01449017296cbde8475373b39c731f87c8b",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Kamisato Ayaka/anger.png",
+      "previous_sha256": null,
+      "backup": null,
+      "action": "added"
+    },
+    {
+      "character": "Kamisato Ayaka",
+      "emotion": "grief",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-citlali-ayaka-lynette-mualani-expressions/candidates/Kamisato Ayaka/grief.png",
+      "sha256": "7573569ed61a54bdc5b5410fecb2b168dec0597d0bf69e99c37c9daa55e44e95",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Kamisato Ayaka/grief.png",
+      "previous_sha256": null,
+      "backup": null,
+      "action": "added"
+    },
+    {
+      "character": "Kamisato Ayaka",
+      "emotion": "sadness",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-citlali-ayaka-lynette-mualani-expressions/candidates/Kamisato Ayaka/sadness.png",
+      "sha256": "c79bd1a462394fe3174a1b3d770483640a8519584fc3b4a6a350384e565adc9c",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Kamisato Ayaka/sadness.png",
+      "previous_sha256": null,
+      "backup": null,
+      "action": "added"
+    },
+    {
+      "character": "Kamisato Ayaka",
+      "emotion": "disgust",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-citlali-ayaka-lynette-mualani-expressions/candidates/Kamisato Ayaka/disgust.png",
+      "sha256": "bf18d25e05f1e0f81ef37007d592567687795693b401559026bc237bba77fddc",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Kamisato Ayaka/disgust.png",
+      "previous_sha256": null,
+      "backup": null,
+      "action": "added"
+    },
+    {
+      "character": "Kamisato Ayaka",
+      "emotion": "disappointment",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-citlali-ayaka-lynette-mualani-expressions/candidates/Kamisato Ayaka/disappointment.png",
+      "sha256": "2f5528247529cd052c65ca20876ddc04dea29a2eb2f8adca00aa8ac84d46f34e",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Kamisato Ayaka/disappointment.png",
+      "previous_sha256": null,
+      "backup": null,
+      "action": "added"
+    },
+    {
+      "character": "Kamisato Ayaka",
+      "emotion": "relief",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-citlali-ayaka-lynette-mualani-expressions/candidates/Kamisato Ayaka/relief.png",
+      "sha256": "a98f10f1fb9b10a9eab170a059745a7fbf3de5ddce237ef71ce86cd4321f2a99",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Kamisato Ayaka/relief.png",
+      "previous_sha256": null,
+      "backup": null,
+      "action": "added"
+    },
+    {
+      "character": "Kamisato Ayaka",
+      "emotion": "admiration",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-citlali-ayaka-lynette-mualani-expressions/candidates/Kamisato Ayaka/admiration.png",
+      "sha256": "88b4bafce5b0bed2f21eb51329b97855ac06234b8323f5d06a5f0eea3f131fa5",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Kamisato Ayaka/admiration.png",
+      "previous_sha256": null,
+      "backup": null,
+      "action": "added"
+    },
+    {
+      "character": "Kamisato Ayaka",
+      "emotion": "gratitude",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-citlali-ayaka-lynette-mualani-expressions/candidates/Kamisato Ayaka/gratitude.png",
+      "sha256": "f1677b1787ed049c63e1fcbfe86a6d5e305d8c1d672be53c862f0f33e9f9d85f",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Kamisato Ayaka/gratitude.png",
+      "previous_sha256": null,
+      "backup": null,
+      "action": "added"
+    },
+    {
+      "character": "Kamisato Ayaka",
+      "emotion": "embarrassment",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-citlali-ayaka-lynette-mualani-expressions/candidates/Kamisato Ayaka/embarrassment.png",
+      "sha256": "d783c2684f8482b846a31817845c92c98cbc516894cb164c54440bdd48054dfe",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Kamisato Ayaka/embarrassment.png",
+      "previous_sha256": null,
+      "backup": null,
+      "action": "added"
+    },
+    {
+      "character": "Kamisato Ayaka",
+      "emotion": "caring",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-citlali-ayaka-lynette-mualani-expressions/candidates/Kamisato Ayaka/caring.png",
+      "sha256": "4e56e49b3a034ccdbe9a02a79eeff686ee4fb2ddfef88c03b165fd0ad8608e5f",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Kamisato Ayaka/caring.png",
+      "previous_sha256": null,
+      "backup": null,
+      "action": "added"
+    },
+    {
+      "character": "Kamisato Ayaka",
+      "emotion": "love-1",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-citlali-ayaka-lynette-mualani-expressions/candidates/Kamisato Ayaka/love-1.png",
+      "sha256": "4fee246df61d4b66410d1edc61feee65f2fc58062ec0e3edacdcc913bc0957fa",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Kamisato Ayaka/love-1.png",
+      "previous_sha256": null,
+      "backup": null,
+      "action": "added"
+    },
+    {
+      "character": "Kamisato Ayaka",
+      "emotion": "desire-1",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-citlali-ayaka-lynette-mualani-expressions/candidates/Kamisato Ayaka/desire-1.png",
+      "sha256": "be864a9c2c1dbb9a8c8b3410d7c8569a040a623aa87a54558ec82f728bfd7a40",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Kamisato Ayaka/desire-1.png",
+      "previous_sha256": null,
+      "backup": null,
+      "action": "added"
+    },
+    {
+      "character": "Lynette",
+      "emotion": "neutral",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-citlali-ayaka-lynette-mualani-expressions/candidates/Lynette/neutral.png",
+      "sha256": "ef58c642ae0ecef482e1495b476fb0259e51c3ec5a1641450df49c26ec84f74e",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Lynette/neutral.png",
+      "previous_sha256": "ef58c642ae0ecef482e1495b476fb0259e51c3ec5a1641450df49c26ec84f74e",
+      "backup": null,
+      "action": "unchanged"
+    },
+    {
+      "character": "Lynette",
+      "emotion": "annoyance",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-citlali-ayaka-lynette-mualani-expressions/candidates/Lynette/annoyance.png",
+      "sha256": "73dd65438981ba8248c857b5efffac31dc6a67fccf0ad92219961eb03b5f86c0",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Lynette/annoyance.png",
+      "previous_sha256": null,
+      "backup": null,
+      "action": "added"
+    },
+    {
+      "character": "Lynette",
+      "emotion": "smug",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-citlali-ayaka-lynette-mualani-expressions/candidates/Lynette/smug.png",
+      "sha256": "9ee296ddb711d42c2a1eeafe52cdb104fa10e9fda8880ce2bd0dc17ff89d3759",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Lynette/smug.png",
+      "previous_sha256": null,
+      "backup": null,
+      "action": "added"
+    },
+    {
+      "character": "Lynette",
+      "emotion": "confusion",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-citlali-ayaka-lynette-mualani-expressions/candidates/Lynette/confusion.png",
+      "sha256": "159f5be568fe87889ec0b9b9f339b2ef0f83ca4221aac6014e17493b2389dc38",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Lynette/confusion.png",
+      "previous_sha256": null,
+      "backup": null,
+      "action": "added"
+    },
+    {
+      "character": "Lynette",
+      "emotion": "love",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-citlali-ayaka-lynette-mualani-expressions/candidates/Lynette/love.png",
+      "sha256": "cfe840df223681512b5d2421c08113709f863c36ea9277498e1b9543d4d14aa1",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Lynette/love.png",
+      "previous_sha256": null,
+      "backup": null,
+      "action": "added"
+    },
+    {
+      "character": "Lynette",
+      "emotion": "excitement",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-citlali-ayaka-lynette-mualani-expressions/candidates/Lynette/excitement.png",
+      "sha256": "33f5f5f3a5a49d0b489b6d056b96a84dadbb96835841da6d1752ecf069289d6c",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Lynette/excitement.png",
+      "previous_sha256": null,
+      "backup": null,
+      "action": "added"
+    },
+    {
+      "character": "Lynette",
+      "emotion": "joy",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-citlali-ayaka-lynette-mualani-expressions/candidates/Lynette/joy.png",
+      "sha256": "6f2c72435b51b51c7b57f1eb17d07af43e893fb2498ed3ac0dadb8ac0d994934",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Lynette/joy.png",
+      "previous_sha256": null,
+      "backup": null,
+      "action": "added"
+    },
+    {
+      "character": "Lynette",
+      "emotion": "fear",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-citlali-ayaka-lynette-mualani-expressions/candidates/Lynette/fear.png",
+      "sha256": "11b981f3bac52629c733c501c3ba4bba93d5c047e6d4f3dafa1d52c434bde397",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Lynette/fear.png",
+      "previous_sha256": null,
+      "backup": null,
+      "action": "added"
+    },
+    {
+      "character": "Lynette",
+      "emotion": "pride",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-citlali-ayaka-lynette-mualani-expressions/candidates/Lynette/pride.png",
+      "sha256": "4ae879097b6941319270212e4fc41e39c7e51d468da0e77f88d9369d4218786e",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Lynette/pride.png",
+      "previous_sha256": null,
+      "backup": null,
+      "action": "added"
+    },
+    {
+      "character": "Lynette",
+      "emotion": "desire",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-citlali-ayaka-lynette-mualani-expressions/candidates/Lynette/desire.png",
+      "sha256": "63a8692b61ec97f993ffff552ab13b289c4ac758417a698744b0136491d4f40a",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Lynette/desire.png",
+      "previous_sha256": null,
+      "backup": null,
+      "action": "added"
+    },
+    {
+      "character": "Lynette",
+      "emotion": "anger",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-citlali-ayaka-lynette-mualani-expressions/candidates/Lynette/anger.png",
+      "sha256": "3effd476d834e65c19b4f7c8b583ffe093e2ee333c7845c30ad809fe4eba7e45",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Lynette/anger.png",
+      "previous_sha256": null,
+      "backup": null,
+      "action": "added"
+    },
+    {
+      "character": "Lynette",
+      "emotion": "grief",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-citlali-ayaka-lynette-mualani-expressions/candidates/Lynette/grief.png",
+      "sha256": "b86c79029aa2cdddfcf544052857ad2220531b3781c587510b0f7c93bdd45a0a",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Lynette/grief.png",
+      "previous_sha256": null,
+      "backup": null,
+      "action": "added"
+    },
+    {
+      "character": "Lynette",
+      "emotion": "sadness",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-citlali-ayaka-lynette-mualani-expressions/candidates/Lynette/sadness.png",
+      "sha256": "2cfae90e46fb7b3d5d60dfa47769d415eaf95a50165b93ac79e8a1b57be95684",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Lynette/sadness.png",
+      "previous_sha256": null,
+      "backup": null,
+      "action": "added"
+    },
+    {
+      "character": "Lynette",
+      "emotion": "disgust",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-citlali-ayaka-lynette-mualani-expressions/candidates/Lynette/disgust.png",
+      "sha256": "969ebbbf3c9297b285087ca4014584eb6a93e7b1f51945e1e67876fc964dd640",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Lynette/disgust.png",
+      "previous_sha256": null,
+      "backup": null,
+      "action": "added"
+    },
+    {
+      "character": "Lynette",
+      "emotion": "disappointment",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-citlali-ayaka-lynette-mualani-expressions/candidates/Lynette/disappointment.png",
+      "sha256": "5159777d6847899ffe01ada3ed92fc167bfdf8b4fdfa96fbb8549fb041cc7151",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Lynette/disappointment.png",
+      "previous_sha256": null,
+      "backup": null,
+      "action": "added"
+    },
+    {
+      "character": "Lynette",
+      "emotion": "relief",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-citlali-ayaka-lynette-mualani-expressions/candidates/Lynette/relief.png",
+      "sha256": "5faaa0d1c16bf7e56d7530ed12a4dea1331f28bd9b243f784c33afeb97004d9e",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Lynette/relief.png",
+      "previous_sha256": null,
+      "backup": null,
+      "action": "added"
+    },
+    {
+      "character": "Lynette",
+      "emotion": "admiration",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-citlali-ayaka-lynette-mualani-expressions/candidates/Lynette/admiration.png",
+      "sha256": "5f79bf7f3ea29bb06fd21541cf299d8f8f4e1e0e9b43b4ba76c4d24eb4402c26",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Lynette/admiration.png",
+      "previous_sha256": null,
+      "backup": null,
+      "action": "added"
+    },
+    {
+      "character": "Lynette",
+      "emotion": "gratitude",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-citlali-ayaka-lynette-mualani-expressions/candidates/Lynette/gratitude.png",
+      "sha256": "5c41591349709ec9430e91e8a9160cab56a073cf39677cc2268b9409473c3717",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Lynette/gratitude.png",
+      "previous_sha256": null,
+      "backup": null,
+      "action": "added"
+    },
+    {
+      "character": "Lynette",
+      "emotion": "embarrassment",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-citlali-ayaka-lynette-mualani-expressions/candidates/Lynette/embarrassment.png",
+      "sha256": "33c69a5dab2f4d49f838c40c2dbb8eb6b67f69ffbc2b49b11d2c85a94e637b9f",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Lynette/embarrassment.png",
+      "previous_sha256": null,
+      "backup": null,
+      "action": "added"
+    },
+    {
+      "character": "Lynette",
+      "emotion": "caring",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-citlali-ayaka-lynette-mualani-expressions/candidates/Lynette/caring.png",
+      "sha256": "e228d45447e1cc329e83878fb34447ac0e092c7e756b5f32df3be54368f7e174",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Lynette/caring.png",
+      "previous_sha256": null,
+      "backup": null,
+      "action": "added"
+    },
+    {
+      "character": "Lynette",
+      "emotion": "love-1",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-citlali-ayaka-lynette-mualani-expressions/candidates/Lynette/love-1.png",
+      "sha256": "e5a4e84293411b088b5fc99231767e740f01a5274644a4f1beab43794e26b8f9",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Lynette/love-1.png",
+      "previous_sha256": null,
+      "backup": null,
+      "action": "added"
+    },
+    {
+      "character": "Lynette",
+      "emotion": "desire-1",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-citlali-ayaka-lynette-mualani-expressions/candidates/Lynette/desire-1.png",
+      "sha256": "bbc574279b6b34a1442062ff2e014bcbcea9a8c2d53abbbb3706458ea2c7c741",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Lynette/desire-1.png",
+      "previous_sha256": null,
+      "backup": null,
+      "action": "added"
+    },
+    {
+      "character": "Mualani",
+      "emotion": "neutral",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-citlali-ayaka-lynette-mualani-expressions/candidates/Mualani/neutral.png",
+      "sha256": "f125feed1c7662b11a38b8f0ff58aa5f2c2a67bc1b23d74d621424fa0c67aa06",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Mualani/neutral.png",
+      "previous_sha256": "e62404c7acca2140d472ffc75163340ca04c128019b89657736949f005dc4bf8",
+      "backup": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-citlali-ayaka-lynette-mualani-expressions/installation-backups/Mualani/neutral.png",
+      "action": "replaced"
+    },
+    {
+      "character": "Mualani",
+      "emotion": "annoyance",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-citlali-ayaka-lynette-mualani-expressions/candidates/Mualani/annoyance.png",
+      "sha256": "c560b87e32e90d9e3857b972abb3f434b78ba5f8ca5500270955aae4cc767277",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Mualani/annoyance.png",
+      "previous_sha256": "b6e083d8bac7e19bce1115d4083866984a219bea4acc9ba9ccc22619b5983fff",
+      "backup": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-citlali-ayaka-lynette-mualani-expressions/installation-backups/Mualani/annoyance.png",
+      "action": "replaced"
+    },
+    {
+      "character": "Mualani",
+      "emotion": "smug",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-citlali-ayaka-lynette-mualani-expressions/candidates/Mualani/smug.png",
+      "sha256": "7268fd46dfee22490719545fef96cf3ed4695850a7644c3050785ac6c6e083bb",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Mualani/smug.png",
+      "previous_sha256": "201ba0f5d06a32a27b241e02e4ae8435b27326d0e97ee593f4c2a6ba8db70e92",
+      "backup": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-citlali-ayaka-lynette-mualani-expressions/installation-backups/Mualani/smug.png",
+      "action": "replaced"
+    },
+    {
+      "character": "Mualani",
+      "emotion": "confusion",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-citlali-ayaka-lynette-mualani-expressions/candidates/Mualani/confusion.png",
+      "sha256": "52cc2d64ca4bff9caf34c5e0f368b71292e4c9f53290bd27fa46dc8f123060e8",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Mualani/confusion.png",
+      "previous_sha256": "e6bcf52fc66a74b7ed5dd2ceb96c9c23011d78a36e0a5db94d1a78a2e61f8592",
+      "backup": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-citlali-ayaka-lynette-mualani-expressions/installation-backups/Mualani/confusion.png",
+      "action": "replaced"
+    },
+    {
+      "character": "Mualani",
+      "emotion": "love",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-citlali-ayaka-lynette-mualani-expressions/candidates/Mualani/love.png",
+      "sha256": "4a23b5e054b44afbee01e102ca69fc72f838749014361746b84c4a1c3b744ae1",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Mualani/love.png",
+      "previous_sha256": "70e469949c5d23fa4efc63335824b6996b69ad16ebcfdf23f40acdddca11299a",
+      "backup": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-citlali-ayaka-lynette-mualani-expressions/installation-backups/Mualani/love.png",
+      "action": "replaced"
+    },
+    {
+      "character": "Mualani",
+      "emotion": "excitement",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-citlali-ayaka-lynette-mualani-expressions/candidates/Mualani/excitement.png",
+      "sha256": "6ba483758edf093cf5e7d91b0237c30dd967bf465d420f67ff58efeae9a2e711",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Mualani/excitement.png",
+      "previous_sha256": "cacf62ee1d2087df6094b09b82c2a146cbcf78b7b0900f7921039b2b01839288",
+      "backup": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-citlali-ayaka-lynette-mualani-expressions/installation-backups/Mualani/excitement.png",
+      "action": "replaced"
+    },
+    {
+      "character": "Mualani",
+      "emotion": "joy",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-citlali-ayaka-lynette-mualani-expressions/candidates/Mualani/joy.png",
+      "sha256": "2f9ced95a9dc6eb9a4d673189db02a3d24d37b79cdb55f0bdc63f6d296a7a8b4",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Mualani/joy.png",
+      "previous_sha256": "ef57a84f5b9bb2c10b131fcf8f3edda9edd5803bcb3e6ed69bae8e50a015ae32",
+      "backup": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-citlali-ayaka-lynette-mualani-expressions/installation-backups/Mualani/joy.png",
+      "action": "replaced"
+    },
+    {
+      "character": "Mualani",
+      "emotion": "fear",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-citlali-ayaka-lynette-mualani-expressions/candidates/Mualani/fear.png",
+      "sha256": "f2f4470c0578b996a7f6868cb48020ae5259cb52db68dc3fe51ab24598b84ee7",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Mualani/fear.png",
+      "previous_sha256": "ee51ea3fdd74eead990e42b526cab82c91ec7a49ae01c66e5c5b007de802c771",
+      "backup": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-citlali-ayaka-lynette-mualani-expressions/installation-backups/Mualani/fear.png",
+      "action": "replaced"
+    },
+    {
+      "character": "Mualani",
+      "emotion": "pride",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-citlali-ayaka-lynette-mualani-expressions/candidates/Mualani/pride.png",
+      "sha256": "d3d1255c4ab074a567c8680ca2ea3572df3a825682766ce9280da1d7f1548af1",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Mualani/pride.png",
+      "previous_sha256": "5a6545c7911f3d732e35dfd9892bf603354ab47aebcff1100548340aba63748e",
+      "backup": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-citlali-ayaka-lynette-mualani-expressions/installation-backups/Mualani/pride.png",
+      "action": "replaced"
+    },
+    {
+      "character": "Mualani",
+      "emotion": "desire",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-citlali-ayaka-lynette-mualani-expressions/candidates/Mualani/desire.png",
+      "sha256": "8cf290d585d81c84c9244c6fde9b4d855d155abccf448b35ce836b946942d5d5",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Mualani/desire.png",
+      "previous_sha256": "c700e05d1d0e487f61d487289d48db98f63c002db395ceac9a6ff4df23fd39ac",
+      "backup": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-citlali-ayaka-lynette-mualani-expressions/installation-backups/Mualani/desire.png",
+      "action": "replaced"
+    },
+    {
+      "character": "Mualani",
+      "emotion": "anger",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-citlali-ayaka-lynette-mualani-expressions/candidates/Mualani/anger.png",
+      "sha256": "bd20275d3bad27f0f89e0c54826a3c2e18949a289f14666e5ab5d9fd8895fe9a",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Mualani/anger.png",
+      "previous_sha256": "99f633a1bea5fdc8ebad66307e8069bf51ec22d801a06f1f3cc4885c3fef6970",
+      "backup": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-citlali-ayaka-lynette-mualani-expressions/installation-backups/Mualani/anger.png",
+      "action": "replaced"
+    },
+    {
+      "character": "Mualani",
+      "emotion": "grief",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-citlali-ayaka-lynette-mualani-expressions/candidates/Mualani/grief.png",
+      "sha256": "08dd6ef96e04d96822d5d5bb01148eb15930b64b11e5ceced5af0a94159f5e52",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Mualani/grief.png",
+      "previous_sha256": "49d3dfedc3c195dbaecf71a356c3e0cf17d63021615233772880a1938940c315",
+      "backup": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-citlali-ayaka-lynette-mualani-expressions/installation-backups/Mualani/grief.png",
+      "action": "replaced"
+    },
+    {
+      "character": "Mualani",
+      "emotion": "sadness",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-citlali-ayaka-lynette-mualani-expressions/candidates/Mualani/sadness.png",
+      "sha256": "f0e7641dc1d3e5aebdf3c4a634141f0ac5421187dcc11a69a412faebb326d01c",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Mualani/sadness.png",
+      "previous_sha256": "7ed234b817785ee78de1d611a66d136d6495e2f5c609919212fb58a4e91dc968",
+      "backup": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-citlali-ayaka-lynette-mualani-expressions/installation-backups/Mualani/sadness.png",
+      "action": "replaced"
+    },
+    {
+      "character": "Mualani",
+      "emotion": "disgust",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-citlali-ayaka-lynette-mualani-expressions/candidates/Mualani/disgust.png",
+      "sha256": "930d8e9d8f447715510e3ba4f35b44f4a436b530666da71829e6f48d7267d881",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Mualani/disgust.png",
+      "previous_sha256": "b51a78b63c0ec4fd17ab74d5cfe4dc781d1b60bfdcd7cc51b42eed9c294e0d39",
+      "backup": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-citlali-ayaka-lynette-mualani-expressions/installation-backups/Mualani/disgust.png",
+      "action": "replaced"
+    },
+    {
+      "character": "Mualani",
+      "emotion": "disappointment",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-citlali-ayaka-lynette-mualani-expressions/candidates/Mualani/disappointment.png",
+      "sha256": "382cd7966954b2d6aac821c0fc7b1cd6d22ed5e2bf2aca1d994cb931d1f74ea3",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Mualani/disappointment.png",
+      "previous_sha256": "746131f0847a62acdca85490155c1b5b6a1631721dde07f301f218b3bec6a991",
+      "backup": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-citlali-ayaka-lynette-mualani-expressions/installation-backups/Mualani/disappointment.png",
+      "action": "replaced"
+    },
+    {
+      "character": "Mualani",
+      "emotion": "relief",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-citlali-ayaka-lynette-mualani-expressions/candidates/Mualani/relief.png",
+      "sha256": "232dd18adcfc79b50ee5f5dce8cb010d45b6d845a6bf5ddbf1c559938c1c871f",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Mualani/relief.png",
+      "previous_sha256": "2856a22a2853ed9021f2e6bbc45288fce64c9ff2da77d05aa2f95d813f8d5bc1",
+      "backup": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-citlali-ayaka-lynette-mualani-expressions/installation-backups/Mualani/relief.png",
+      "action": "replaced"
+    },
+    {
+      "character": "Mualani",
+      "emotion": "admiration",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-citlali-ayaka-lynette-mualani-expressions/candidates/Mualani/admiration.png",
+      "sha256": "233971f9ea70a1333b138f9f75509f81dc0c329f8b225a618605d9ca1c5a42a4",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Mualani/admiration.png",
+      "previous_sha256": "0afb63a06dc39e1b09b996279b2c66ad3b4b8151c3ac220059f99cac4f652b21",
+      "backup": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-citlali-ayaka-lynette-mualani-expressions/installation-backups/Mualani/admiration.png",
+      "action": "replaced"
+    },
+    {
+      "character": "Mualani",
+      "emotion": "gratitude",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-citlali-ayaka-lynette-mualani-expressions/candidates/Mualani/gratitude.png",
+      "sha256": "08957341e1184e1921b83493159b517e72e7a3d5293ca0c1c9d3411a98d88d05",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Mualani/gratitude.png",
+      "previous_sha256": "4506d1910b5e30d2da5e2dc3ef89be14619a0ce03aa4f10fef05fa423e75dc21",
+      "backup": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-citlali-ayaka-lynette-mualani-expressions/installation-backups/Mualani/gratitude.png",
+      "action": "replaced"
+    },
+    {
+      "character": "Mualani",
+      "emotion": "embarrassment",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-citlali-ayaka-lynette-mualani-expressions/candidates/Mualani/embarrassment.png",
+      "sha256": "bf6c1bb2a148d96be68348fda9acbb7a17a000aec7e60024ab2ed654675db6a4",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Mualani/embarrassment.png",
+      "previous_sha256": "37608dcf52b682d23bd7e8a623623f52871246a6156cf68a5dbb9e2148ad45d7",
+      "backup": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-citlali-ayaka-lynette-mualani-expressions/installation-backups/Mualani/embarrassment.png",
+      "action": "replaced"
+    },
+    {
+      "character": "Mualani",
+      "emotion": "caring",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-citlali-ayaka-lynette-mualani-expressions/candidates/Mualani/caring.png",
+      "sha256": "9eca7707b84c0959f9f428195c55d8947580b5d80b830bf776ec5423c5142148",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Mualani/caring.png",
+      "previous_sha256": "7982f8c2971d80b474a563804b26468cf21977ebd8f7cf9c005acc09ff8ee5ca",
+      "backup": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-citlali-ayaka-lynette-mualani-expressions/installation-backups/Mualani/caring.png",
+      "action": "replaced"
+    },
+    {
+      "character": "Mualani",
+      "emotion": "love-1",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-citlali-ayaka-lynette-mualani-expressions/candidates/Mualani/love-1.png",
+      "sha256": "ead8eaf16e85516b8b25d4763790bfaeca19922380a99ea5664f87f7703f2ed4",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Mualani/love-1.png",
+      "previous_sha256": "d9becc545405c1ec0b272ced6ec370d04910883a441163793a58e31132432f96",
+      "backup": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-citlali-ayaka-lynette-mualani-expressions/installation-backups/Mualani/love-1.png",
+      "action": "replaced"
+    },
+    {
+      "character": "Mualani",
+      "emotion": "desire-1",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-citlali-ayaka-lynette-mualani-expressions/candidates/Mualani/desire-1.png",
+      "sha256": "dbf41623797d2008462f6af1283d36735f2fe3517f36add7406e1f088b93d91a",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Mualani/desire-1.png",
+      "previous_sha256": "e7610b53353748206d8c3f88cfa446e1ada6f9bf6c0fae3178a0b80665784402",
+      "backup": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-01-citlali-ayaka-lynette-mualani-expressions/installation-backups/Mualani/desire-1.png",
+      "action": "replaced"
+    }
+  ]
+}

@@ -8,9 +8,11 @@
             <section class="gi-features" aria-label="Silly Teyvat features">
                 <label class="gi-row gi-master"><span>Silly Teyvat</span><input type="checkbox" class="gi-switch" data-gi-master></label>
                 <p class="gi-note gi-master-note">Off unloads everything Silly Teyvat adds, and SillyTavern works as if it were not installed. Your settings, cards and journeys are kept for when you turn it back on.</p>
-                <h4>Features</h4>
-                <div class="gi-feature-groups"></div>
-                <p class="gi-note">Each switch turns a whole set on or off. A partly lit switch means only some of that set is on; the single settings are in the tabs below.</p>
+                <details class="gi-feature-drawer">
+                    <summary><span>Features</span><output class="gi-feature-count"></output></summary>
+                    <div class="gi-feature-groups"></div>
+                    <p class="gi-note">Each switch turns a whole set on or off. A partly lit switch means only some of that set is on; the single settings are in the tabs below. A lit Paimon icon means the Silly Teyvat switch in the Paimon menu turns that set off and back on.</p>
+                </details>
             </section>
             <nav class="gi-set-tabs" role="tablist" aria-label="Silly Teyvat settings">
                 <button type="button" role="tab" data-gi-action="settings-tab" data-tab="dialogue" aria-selected="true">Dialogue</button>

@@ -1,5 +1,5 @@
 {
-  "status": "in_progress",
+  "status": "partial_pending_user_review",
   "request": "Retain Faruzan desire-1; regenerate other heart alternates with refined white pupils.",
   "characters": {
     "Faruzan": {
@@ -139,6 +139,19 @@
           "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-31-white-heart-retry/raw/Jahoda/love-1.png",
           "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-31-white-heart-retry/sprites/Jahoda/love-1.png",
           "sha256": "d60f7462abf5e4a7e5c360172ead4a1f2b79fbaa6d3ca902d5676a7d61f006d1"
+        },
+        "desire-1": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-31-white-heart-retry/prompts/Jahoda/desire-1.txt",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one fully clothed, full-body visual-novel character sprite of Jahoda. Use the supplied approved neutral as the only image reference. Preserve the reference character's identity, face, skin tone, hair, costume, colours, accessories and rendering. Keep her at least as petite as her neutral, with the same compact body proportions and no elongated torso or legs. Show a gentle, fond smile and a calm, modest pose, with one hand resting near her chest; let the pose suit the expression. Both eyes open and looking in the same direction. Keep each iris intact with its original colour, outline, shading, and ordinary highlights. In the center of each iris, draw one small, solid white heart silhouette as the pupil, matching in size and orientation; the hearts stay entirely within their respective irises. No extra hearts. Two coherent legs and feet, simple relaxed hands and a complete silhouette including hair, accessories and shoes; approximately 2\u20134% top and bottom padding. Polished anime illustration on a genuinely transparent background. No scenery, UI, text, props, floating effects, watermark or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-31-white-heart-retry/references/Jahoda/neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "status": "generation_failed",
+          "error": "image generation failed: http 400 Bad Request: Some(\"{\\n  \\\"error\\\": {\\n    \\\"message\\\": \\\"Your request was rejected by the safety system. If you believe this is an error, contact us at help.openai.com and include the request ID d84c1a3d-304a-4d13-be59-7d1342624442. safety_violations=[sexual].\\\",\\n    \\\"type\\\": \\\"image_generation_user_error\\\",\\n    \\\"param\\\": null,\\n    \\\"code\\\": \\\"moderation_blocked\\\",\\n    \\\"moderation_details\\\": {\\n      \\\"moderation_stage\\\": \\\"output\\\",\\n      \\\"categories\\\": [\\n        \\\"sexual\\\"\\n      ]\\n    }\\n  }\\n}\")"
         }
       }
     }
