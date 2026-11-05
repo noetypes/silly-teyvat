@@ -1,0 +1,101 @@
+{
+  "status": "new_neutral_approved",
+  "category": "Medium Female",
+  "references": [
+    {
+      "original_path": "/Users/alexachan/Downloads/Character_Yumemizuki_Mizuki_Game.webp",
+      "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-six-model-neutral-comparisons/references/Yumemizuki Mizuki/model.webp",
+      "sha256": "127b850de554699de1c1b1b9daa7b0d64ff75426c9abbace3cbe3806fe38b2db",
+      "role": "Primary identity, exact design/costume and body proportions."
+    },
+    {
+      "original_path": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Yumemizuki Mizuki/Official Art/neutral.png",
+      "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-six-model-neutral-comparisons/references/Yumemizuki Mizuki/official.png",
+      "sha256": "b774f4132c065af72e17f7f4cf0c190f1a45c6d3375d99c6a0c7739bfb9ead7a",
+      "role": "Illustrated art style only."
+    }
+  ],
+  "old_neutral": {
+    "original_path": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Yumemizuki Mizuki/neutral.png",
+    "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-six-model-neutral-comparisons/old/Yumemizuki Mizuki/neutral.png",
+    "sha256": "d5a86636948679e7b240e60f32ba120669a82af1173144fab675449eb282a073",
+    "role": "Comparison baseline only; never a generation input"
+  },
+  "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-six-model-neutral-comparisons/prompts/Yumemizuki Mizuki/neutral-v001.txt",
+  "generation": {
+    "tool": "image_gen.imagegen",
+    "arguments": {
+      "prompt": "Use case: stylized-concept. Create one new full-body neutral visual-novel sprite of Yumemizuki Mizuki from Genshin Impact.\nImage 1 is the user-supplied in-game model screenshot and is the authoritative reference for character identity, face, skin tone, hair, eyes, exact costume construction, accessory placement and body proportions. Faithfully preserve its pale mint-blue hair with its curled ends and soft pink accents, pink-lilac eyes, pointed ears and elaborate headpiece, exact pale-pink kimono and white apron, purple swirls, bows, gold spiral ornament, detached long sleeves, thigh accessory, socks and platform sandals. Use the model's real costume colors without copying the blue environmental lighting or screenshot background. Hair and heavy hanging costume panels should fall naturally with gravity.\nImage 2 is the installed official illustrated portrait, for ART STYLE ONLY: polished Genshin-inspired anime illustration, clean drawn contours, detailed cel shading with soft painted transitions, and its treatment of hair, fabric, metal and other materials. Do not copy the portrait's dramatic action pose, windblown panels or accessories that differ from the model. Image 1 governs all design and costume details.\nProportions: Retain a petite Medium Female anime build: delicate small frame, compact torso and natural limb lengths matching the model, without elongating the torso or legs or turning her into a chibi.\nCharacter-specific neutral acting: a serene, welcoming idle with a gentle closed-mouth smile, softly attentive open eyes and a slight head tilt. Turn her shoulders subtly toward the viewer, one hand opening in a small inviting gesture near her waist while the other rests loosely in front of her torso; keep hands separate. Stand calmly with both feet planted and uncrossed. Do not add a tray, food, drink or props.\nKeep hand gestures simple, spatially separate, near the torso and near the image plane, with coherent wrists and one thumb and four fingers per hand where visible. Exactly two legs and two feet. Keep the face and eyes readable with the character's normal pupils. Complete silhouette including hair, headwear, hands, sleeves, costume panels, accessories and shoes, with roughly 2\u20134% top and bottom padding and 92\u201396% visible height. Genuinely transparent background. Omit all screenshot scenery, blue backdrop, UI, particles, floor and reflection. No text, labels, watermarks, ground shadow, floating effects, new props or additional characters.",
+      "referenced_image_paths": [
+        "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-six-model-neutral-comparisons/references/Yumemizuki Mizuki/model.webp",
+        "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-six-model-neutral-comparisons/references/Yumemizuki Mizuki/official.png"
+      ],
+      "transparent_background": true
+    },
+    "tool_output": "/Users/alexachan/.codex/generated_images/01a1aa19-42b2-7e92-b08d-8ee7d133c057/exec-e8e83128-6797-4b6c-8c1e-32b5e3e326ab.png",
+    "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-six-model-neutral-comparisons/raw/Yumemizuki Mizuki/neutral-v001.png",
+    "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-six-model-neutral-comparisons/candidates/Yumemizuki Mizuki/neutral-v001.png",
+    "candidate_sha256": "3533743bf9a37d497a16dfcee0d7ad04567449e5da955a6c3e0d697780655288",
+    "dimensions": [
+      935,
+      1683
+    ],
+    "png_color_type": 6,
+    "framing_transform": null
+  },
+  "approval": {
+    "status": "approved",
+    "date": "2026-11-05",
+    "message": "Approve and use the new neutral (right)",
+    "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-six-model-neutral-comparisons/candidates/Yumemizuki Mizuki/neutral-v001.png",
+    "candidate_sha256": "3533743bf9a37d497a16dfcee0d7ad04567449e5da955a6c3e0d697780655288"
+  },
+  "comparison": {
+    "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-six-model-neutral-comparisons/comparisons/yumemizuki-mizuki-old-new.png",
+    "old_side": "left",
+    "new_side": "right",
+    "labels": [
+      "Old neutral",
+      "New neutral"
+    ],
+    "transforms": [
+      {
+        "side": "old",
+        "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-six-model-neutral-comparisons/old/Yumemizuki Mizuki/neutral.png",
+        "alpha_bbox_crop": [
+          0,
+          0,
+          1198,
+          1313
+        ],
+        "thumbnail_size": [
+          410,
+          449
+        ],
+        "position": [
+          20,
+          328
+        ]
+      },
+      {
+        "side": "new",
+        "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-six-model-neutral-comparisons/candidates/Yumemizuki Mizuki/neutral-v001.png",
+        "alpha_bbox_crop": [
+          0,
+          0,
+          915,
+          1667
+        ],
+        "thumbnail_size": [
+          410,
+          747
+        ],
+        "position": [
+          470,
+          179
+        ]
+      }
+    ],
+    "note": "Transparent margins trimmed and proportional thumbnails fitted to equal-size comparison cells; sprite PNGs unchanged."
+  }
+}

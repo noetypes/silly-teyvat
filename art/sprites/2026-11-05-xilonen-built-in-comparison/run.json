@@ -1,0 +1,56 @@
+{
+  "date": "2026-11-05",
+  "character": "Xilonen",
+  "request": "Regenerate neutral through built-in tool and compare with existing neutral, described by the user as made with 2.5.",
+  "status": "candidate_ready_for_user_review",
+  "reference": {
+    "original_path": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Xilonen/Official Art/neutral.png",
+    "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-xilonen-built-in-comparison/references/Xilonen/official.png",
+    "sha256": "4f171f0b0998e7637c810ab0ffd004b510e67f39cadb6c6a9fea7e1927be39f2",
+    "user_confirmation": "Use the official art portrait."
+  },
+  "baseline": {
+    "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Xilonen/neutral-v001.png",
+    "sha256": "be1677f773c39105e0b3d7818fe9f4a7cf5e42bc2b42fc8ee8a02e63ac0294fe",
+    "user_reported_model": "GPT Image 2.5",
+    "model_verified_by_original_manifest": false
+  },
+  "generation": {
+    "tool": "image_gen.imagegen",
+    "arguments": {
+      "prompt": "Use case: stylized-concept. Asset: full-body neutral visual-novel sprite of Xilonen from Genshin Impact. The supplied installed official transparent character portrait is the primary identity and costume reference. Faithfully preserve the character's face, skin tone, hair, eyes, exact outfit, colors, accessories, and distinctive body type and proportions shown there. Depict a character-appropriate relaxed standing or floating idle pose with a calm natural expression; simple readable hands near the torso, one thumb per hand, two coherent legs and feet where applicable. Show the entire silhouette including headwear, hair, hands, accessories and shoes with about 2\u20134% top and bottom padding. Polished Genshin-inspired anime game artwork on a genuinely transparent background. No scenery, text, UI, watermark, unrelated subjects, detached effects or ground shadow.",
+      "referenced_image_paths": [
+        "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-xilonen-built-in-comparison/references/Xilonen/official.png"
+      ],
+      "transparent_background": true
+    },
+    "prompt_policy": "Exact original neutral prompt reused to reduce prompt differences.",
+    "model": null,
+    "quality": null,
+    "complexity": null,
+    "settings_note": "Built-in model and settings are not exposed; do not label the output as verified 2.6 or either variant.",
+    "tool_output": "/Users/alexachan/.codex/generated_images/01a1aa19-42b2-7e92-b08d-8ee7d133c057/exec-5b247a3e-d20a-40f3-ac01-b63a9f5f6d3e.png",
+    "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-xilonen-built-in-comparison/raw/Xilonen/neutral-v001.png",
+    "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-xilonen-built-in-comparison/candidates/Xilonen/neutral-v001.png",
+    "candidate_sha256": "b2c2a8c9a297d5d409e69f7f660dde23b45369f14c3da1b0eac3d7c4c0e6f96e",
+    "dimensions": [
+      1151,
+      1367
+    ],
+    "png_color_type": 6,
+    "model_version_returned": false
+  },
+  "approval": {
+    "status": "pending"
+  },
+  "comparison_policy": "User explicitly requested comparison; describe visible differences without auto-repair or inferring neutral approval.",
+  "comparison": {
+    "requested_by_user": true,
+    "observations": {
+      "existing": "Turned torso, one hand raised near the collar, crossed ankles, diagonal hanging costume panels.",
+      "new": "Front-facing torso and gaze, hands together near waist, feet separated, costume panels extending more horizontally to the side."
+    },
+    "limitations": "One sample, no seed control or reported model IDs. Original prompt and official reference were kept identical. This cannot establish a model-wide improvement or verify 2.6 routing.",
+    "approval": "New candidate remains pending explicit user approval; existing installed neutral unchanged."
+  }
+}

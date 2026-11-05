@@ -1,0 +1,246 @@
+{
+  "date": "2026-11-05",
+  "status": "yoimiya_approved_zibai_hands_revision_requested",
+  "yun_jin_approval": {
+    "status": "approved",
+    "date": "2026-11-05",
+    "message": "Yun Jin approved.",
+    "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-yoimiya-midpoint-yunjin-zibai-poses/candidates/Yun Jin/neutral-v003.png",
+    "candidate_sha256": "f63a0c7f81b1467918129ed1148695f0f14abe880c8c5605f532835007f51e7b"
+  },
+  "jobs": {
+    "Zibai": {
+      "character": "Zibai",
+      "asset": "neutral",
+      "version": "neutral-v004",
+      "status": "candidate_ready_for_user_review",
+      "user_request": "Use Genshin Impact Wiki lore/personality and official portrait analysis to inform the new neutral prompt.",
+      "references": [
+        {
+          "original_path": "/Users/alexachan/Downloads/Character_Zibai_Game.webp",
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-zibai-wiki-yoimiya-fresh-neutrals/references/Zibai/model.webp",
+          "sha256": "f325645f9569fb38b7cde5a53337548cd201ce2b9e4cc66ac23a2a744c025fad",
+          "role": "Primary identity, exact model design, costume and body proportions."
+        },
+        {
+          "original_path": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Zibai/Official Art/neutral.png",
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-zibai-wiki-yoimiya-fresh-neutrals/references/Zibai/official.png",
+          "sha256": "461d9e5f2301990b496370aba9b07ff1fcaf08727a248b0f4a46090177381b11",
+          "role": "Illustration style and user-requested pose/expression mood cues from official portrait; model still governs costume and proportions."
+        }
+      ],
+      "previous_candidate": {
+        "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-zibai-wiki-yoimiya-fresh-neutrals/previous/Zibai/neutral-v003.png",
+        "sha256": "4492651046754fe5f84796efdfef2884eb582382e142918cf6fdff56673ceb2d"
+      },
+      "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-zibai-wiki-yoimiya-fresh-neutrals/prompts/Zibai/neutral-v004.txt",
+      "generation": {
+        "tool": "image_gen.imagegen",
+        "arguments": {
+          "prompt": "Use case: stylized-concept. Create one new full-body neutral visual-novel sprite of Zibai from Genshin Impact.\nImage 1, the supplied in-game model, governs her identity, face, fair skin, natural Tall Female proportions, exact costume construction, accessories and colors. Preserve the silver-white hair with golden streak, golden eyes and normal pupils, gold crescent head ornaments, turquoise earrings and ribbons, white-and-jade outfit, gold shoulder pieces and clasps, long green gradient sleeves with white fur trim, swirling patterns, crescent pendants, white legwear and gold-trimmed heels. Keep natural balanced anatomy without exaggerating limb length.\nImage 2, her official illustrated portrait, guides the polished anime drawing, linework, cel shading, painted transitions and material rendering. Also draw on its watchful expression, composed over-the-shoulder look and freely flowing turned silhouette, as specifically requested by the user. Model Image 1 still governs costume details and proportions.\nCharacter direction informed by her story and voice-over text: an ancient protective envoy and adeptus who is independent, unrestrained and subtly wry, with the humane golden-eyed aspect. She can be compassionate and playful while retaining an incisive, self-possessed presence. Convey calm authority and a suggestion of knowing amusement, with emotional depth beneath the surface.\nPose: a graceful passing turn, as though she has paused on her own journey after noticing the viewer. Turn the torso three-quarter away, then turn her head back toward the viewer over the nearer shoulder. Keep her golden eyes open, slightly narrowed by relaxed upper lids, with an attentive appraising gaze. Her brows are level and composed; the closed mouth has only a tiny asymmetrical hint of a knowing smile, not a broad cheerful smile. Keep the chin level and head poised, without a coy tilt. Her left hand is raised lightly near her collar below the face, fingers comfortably grouped, and her right arm trails loosely lower beside her robe, hands separate and face unobscured. Both hands have coherent wrists, four fingers and one anatomically correct thumb where visible, without extreme splaying. Shift weight onto the forward foot while the other knee relaxes behind it, both legs and feet clearly separate and uncrossed. Keep her standing with a natural back and controlled balance. Let hair and long sleeve panels follow the turn in a flowing arc that settles naturally with gravity; do not add magical wind or effects. The silhouette should suggest freedom of movement and elegant reserve, rather than an open-palmed greeting or a static formal stance.\nComplete silhouette from head ornaments and hair tips to both shoes, including fingers, sleeve ends and all hanging accessories. Roughly 92\u201396% visible height with 2\u20134% top and bottom padding. Genuinely transparent background. Omit screenshot scenery, blue lighting, floor, reflection, particles, UI, text, labels, watermark, ground shadow, floating effects, handheld objects, new props and additional characters.",
+          "referenced_image_paths": [
+            "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-zibai-wiki-yoimiya-fresh-neutrals/references/Zibai/model.webp",
+            "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-zibai-wiki-yoimiya-fresh-neutrals/references/Zibai/official.png"
+          ],
+          "transparent_background": true
+        },
+        "tool_output": "/Users/alexachan/.codex/generated_images/01a1aa19-42b2-7e92-b08d-8ee7d133c057/exec-7a74d5bc-0f18-4eaa-a8a5-f0f71e07a360.png",
+        "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-zibai-wiki-yoimiya-fresh-neutrals/raw/Zibai/neutral-v004.png",
+        "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-zibai-wiki-yoimiya-fresh-neutrals/candidates/Zibai/neutral-v004.png",
+        "candidate_sha256": "a3cfa8247f83a00c2a8c52efa26ae22f678a03145c5850156b526315ccdbcb20",
+        "dimensions": [
+          1024,
+          1536
+        ],
+        "png_color_type": 6,
+        "framing_transform": null
+      },
+      "approval": {
+        "status": "pending"
+      },
+      "technical_validation": {
+        "PNG_with_alpha": true,
+        "alpha_extrema": [
+          0,
+          254
+        ],
+        "saved_hash": "verified"
+      },
+      "comparison": {
+        "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-zibai-wiki-yoimiya-fresh-neutrals/comparisons/zibai-previous-new.png",
+        "left": "Previous candidate",
+        "right": "New candidate",
+        "transforms": [
+          {
+            "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-zibai-wiki-yoimiya-fresh-neutrals/previous/Zibai/neutral-v003.png",
+            "alpha_bbox_crop": [
+              0,
+              0,
+              998,
+              1554
+            ],
+            "thumbnail_dimensions": [
+              410,
+              638
+            ],
+            "position": [
+              20,
+              234
+            ]
+          },
+          {
+            "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-zibai-wiki-yoimiya-fresh-neutrals/candidates/Zibai/neutral-v004.png",
+            "alpha_bbox_crop": [
+              0,
+              14,
+              1023,
+              1518
+            ],
+            "thumbnail_dimensions": [
+              410,
+              603
+            ],
+            "position": [
+              470,
+              251
+            ]
+          }
+        ]
+      },
+      "user_feedback": "Zibai\u2019s hands are distorted, regenerate.",
+      "requested_revision": {
+        "manifest": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-zibai-hands-neutral/run.json",
+        "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-zibai-hands-neutral/candidates/Zibai/neutral-v005.png",
+        "sha256": "2077e05a9bfc7bf3b309ba8db2da6164c8bfe71f0b7e32dbe904d91294198b86",
+        "status": "pending user review"
+      }
+    },
+    "Yoimiya": {
+      "character": "Yoimiya",
+      "asset": "neutral",
+      "version": "neutral-v004",
+      "status": "approved",
+      "user_request": "Regenerate from scratch, slightly more petite than neutral-v003. Only original model and official-art references are generator inputs.",
+      "references": [
+        {
+          "original_path": "/Users/alexachan/Downloads/Character_Yoimiya_Game.webp",
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-zibai-wiki-yoimiya-fresh-neutrals/references/Yoimiya/model.webp",
+          "sha256": "c9bc4d91166ca1e86aedd25725b714583689eaf6415902f3ee6957dd48a5f263",
+          "role": "Primary identity, exact model design, costume and body proportions."
+        },
+        {
+          "original_path": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Yoimiya/Official Art/neutral.png",
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-zibai-wiki-yoimiya-fresh-neutrals/references/Yoimiya/official.png",
+          "sha256": "423cc75206e5e2864ccbd6498c2bd58e9a2420fb42d46493f93c8639ca72c069",
+          "role": "Illustrated art style only."
+        }
+      ],
+      "previous_candidate": {
+        "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-zibai-wiki-yoimiya-fresh-neutrals/previous/Yoimiya/neutral-v003.png",
+        "sha256": "114d9d23d0d8b5d2e0c29e563f33b8a8dd0cc8ee08578469bc47fc65154a68f5"
+      },
+      "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-zibai-wiki-yoimiya-fresh-neutrals/prompts/Yoimiya/neutral-v004.txt",
+      "generation": {
+        "tool": "image_gen.imagegen",
+        "arguments": {
+          "prompt": "Use case: stylized-concept. Generate a fresh full-body neutral visual-novel sprite of Yoimiya from Genshin Impact, using only these two original source references.\nImage 1 is the supplied in-game model and is authoritative for her recognizable face, skin tone, warm blond updo and hair ornaments, amber-gold eyes and normal pupils, earrings, exact asymmetric orange kimono and its construction, white bandage wraps, arm markings, red rope loop, belt and pouches, patterned hanging cloth, uneven leg guards, ribbons and sandals. Preserve all costume details and placements, without copying the screenshot's environmental lighting or backdrop.\nImage 2, her official illustrated portrait, guides only the polished anime art style, clean drawn contours, cel shading with soft painted transitions, color and material treatment. Do not copy its dramatic action pose or windblown costume. The in-game model governs identity and design.\nBuild: a cute, modestly petite Medium Female anime silhouette. Use a small delicate frame with gently narrow shoulders, a lightly shortened compact torso, and slightly shorter arms and legs than the model's unmodified proportions. Give the head a modestly larger relationship to the body and gently rounded cheeks. Make this a subtle increase in petite compactness, keeping balanced standard anime proportions, comfortable natural limb length and a recognizable Yoimiya face. Do not compress her into an extremely short-bodied or oversized-headed design, and do not elongate her legs to fill the canvas. Actual body proportions should communicate petite scale, not large blank margins.\nCharacter-specific neutral acting: cheerful, warm and naturally welcoming, with a small sunny open-mouth smile, bright open eyes and a gentle friendly head tilt. Face mostly toward the viewer with a slight three-quarter turn. Her right hand gives a simple open-palmed greeting beside her shoulder, fingers comfortably separated without elaborate splaying; her left hand rests lightly at her waist. Each hand has a coherent wrist, four fingers and one thumb where visible. An easy weight shift, one knee softly relaxed, both feet clearly separate and uncrossed, keeps her lively and approachable. Let clothing and rope ornaments hang naturally. No fireworks, bow weapon or added props.\nComplete full-body silhouette including the hair ornaments, hands, rope loop, hanging cloth and shoes. Approximately 92\u201396% visible height with 2\u20134% top and bottom padding. Genuinely transparent background. No scenery, blue screenshot backdrop, particles, UI, text, labels, watermark, floor, reflection, ground shadow, detached effects or additional characters.",
+          "referenced_image_paths": [
+            "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-zibai-wiki-yoimiya-fresh-neutrals/references/Yoimiya/model.webp",
+            "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-zibai-wiki-yoimiya-fresh-neutrals/references/Yoimiya/official.png"
+          ],
+          "transparent_background": true
+        },
+        "tool_output": "/Users/alexachan/.codex/generated_images/01a1aa19-42b2-7e92-b08d-8ee7d133c057/exec-7f283f83-2255-468c-9e85-ec6b4f1285ee.png",
+        "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-zibai-wiki-yoimiya-fresh-neutrals/raw/Yoimiya/neutral-v004.png",
+        "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-zibai-wiki-yoimiya-fresh-neutrals/candidates/Yoimiya/neutral-v004.png",
+        "candidate_sha256": "4dccb857e3f49809d47cb0d151a2f2201e5621092df07ed9b106b37f00d8a4ab",
+        "dimensions": [
+          978,
+          1608
+        ],
+        "png_color_type": 6,
+        "framing_transform": null
+      },
+      "approval": {
+        "status": "approved",
+        "date": "2026-11-05",
+        "message": "Yoimiya approved",
+        "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-zibai-wiki-yoimiya-fresh-neutrals/candidates/Yoimiya/neutral-v004.png",
+        "candidate_sha256": "4dccb857e3f49809d47cb0d151a2f2201e5621092df07ed9b106b37f00d8a4ab"
+      },
+      "technical_validation": {
+        "PNG_with_alpha": true,
+        "alpha_extrema": [
+          0,
+          255
+        ],
+        "saved_hash": "verified"
+      },
+      "comparison": {
+        "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-zibai-wiki-yoimiya-fresh-neutrals/comparisons/yoimiya-previous-new.png",
+        "left": "Previous candidate",
+        "right": "New candidate",
+        "transforms": [
+          {
+            "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-zibai-wiki-yoimiya-fresh-neutrals/previous/Yoimiya/neutral-v003.png",
+            "alpha_bbox_crop": [
+              0,
+              0,
+              938,
+              1639
+            ],
+            "thumbnail_dimensions": [
+              410,
+              716
+            ],
+            "position": [
+              20,
+              195
+            ]
+          },
+          {
+            "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-zibai-wiki-yoimiya-fresh-neutrals/candidates/Yoimiya/neutral-v004.png",
+            "alpha_bbox_crop": [
+              25,
+              3,
+              968,
+              1608
+            ],
+            "thumbnail_dimensions": [
+              410,
+              698
+            ],
+            "position": [
+              470,
+              204
+            ]
+          }
+        ]
+      },
+      "approved_export": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-zibai-wiki-yoimiya-fresh-neutrals/approved/Yoimiya/neutral.png"
+    }
+  },
+  "zibai_research": {
+    "source_access_note": "Fandom blocked direct page retrieval; the web search service returned indexed page text for the Storyline, Profile and Voice-Overs pages. Analysis is based on those retrieved wiki texts, not the prior local character card.",
+    "sources": [
+      {
+        "title": "Zibai/Storyline",
+        "url": "https://genshin-impact.fandom.com/wiki/Zibai/Storyline"
+      },
+      {
+        "title": "Zibai/Profile",
+        "url": "https://genshin-impact.fandom.com/wiki/Zibai/Profile"
+      },
+      {
+        "title": "Zibai/Voice-Overs",
+        "url": "https://genshin-impact.fandom.com/wiki/Zibai/Voice-Overs"
+      }
+    ],
+    "portrait_interpretation": "Original visual interpretation: her body turns away while her head and focused golden gaze return toward the viewer; restrained brows and mouth suggest watchfulness, self-possession and a hint of challenge. Hair, sleeves and a lifted/bent leg create flowing motion and an elusive, unrestrained silhouette. These visual deductions are interpretive, not canon facts.",
+    "prompt_application": "Use a controlled passing turn and an appraising golden-eyed look with a tiny knowing smile; avoid the broad welcoming gestures of prior attempts. Retain model-governed costume and proportions."
+  },
+  "reference_policy": "Two original source references for each independent neutral; prior generated candidates are comparison material only. Zibai official portrait additionally informs pose/expression mood per the current user request.",
+  "installation": "not requested; live files unchanged",
+  "portrait_notes": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-zibai-wiki-yoimiya-fresh-neutrals/zibai-portrait-notes.md",
+  "archive": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-zibai-wiki-yoimiya-fresh-neutrals/zibai-wiki-yoimiya-fresh-candidates.zip"
+}

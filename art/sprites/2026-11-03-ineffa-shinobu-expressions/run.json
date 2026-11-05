@@ -1,0 +1,1397 @@
+{
+  "status": "generated; expression candidates awaiting user review",
+  "request": "Ten sprites per character: nine new expressions, with dynamic character-appropriate poses.",
+  "requested_emotions": [
+    "neutral",
+    "joy",
+    "annoyance",
+    "confusion",
+    "love",
+    "desire",
+    "excitement",
+    "sadness",
+    "fear",
+    "embarrassment"
+  ],
+  "characters": {
+    "Ineffa": {
+      "neutral_approval": {
+        "status": "approved",
+        "message": "All others are ACCEPTED.",
+        "date": "2026-10-30",
+        "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Ineffa/neutral-v001.png",
+        "candidate_sha256": "ac5596480ccda14b05b86bcaa04b06a4e86d1fe2a0b0606dd6a4a816c370b400"
+      },
+      "reference": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/references/Ineffa/approved-neutral.png",
+      "expressions": {
+        "joy": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/prompts/Ineffa/joy.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Ineffa from Genshin Impact expressing joy. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, rendering and her light blue hair, mechanical hands, headwear, cape, outfit and medium female proportions. Personality and acting: dutiful, warm and composed, with precise, gentle gestures. Show a sincere smile and softened eyes; shift comfortably and give a small greeting near the torso. Change the body pose and gesture to make this emotion distinct while remaining faithful to the character. Keep original eye colours and normal pupils. Simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and feet with roughly 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Ineffa/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/raw/Ineffa/joy.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/sprites/Ineffa/joy.png",
+          "sha256": "e97a0d54ba8470ba6db783fb4ec80c237b049e1b7c7675a834bcd040d27b8e41",
+          "status": "candidate"
+        },
+        "annoyance": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/prompts/Ineffa/annoyance.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Ineffa from Genshin Impact expressing annoyance. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, rendering and her light blue hair, mechanical hands, headwear, cape, outfit and medium female proportions. Personality and acting: dutiful, warm and composed, with precise, gentle gestures. Show a clear displeased frown and knitted brows; stand firmly with one hand on the hip and the other down. Change the body pose and gesture to make this emotion distinct while remaining faithful to the character. Keep original eye colours and normal pupils. Simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and feet with roughly 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Ineffa/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/raw/Ineffa/annoyance.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/sprites/Ineffa/annoyance.png",
+          "sha256": "126b3e940b89b96753cbb32333b7520cb4d5e9a203126e6c03013ffef89e116b",
+          "status": "candidate"
+        },
+        "confusion": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/prompts/Ineffa/confusion.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Ineffa from Genshin Impact expressing confusion. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, rendering and her light blue hair, mechanical hands, headwear, cape, outfit and medium female proportions. Personality and acting: dutiful, warm and composed, with precise, gentle gestures. Show a questioning expression and raised brow; tilt the head slightly and bring one hand near the chin. Change the body pose and gesture to make this emotion distinct while remaining faithful to the character. Keep original eye colours and normal pupils. Simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and feet with roughly 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Ineffa/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/raw/Ineffa/confusion.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/sprites/Ineffa/confusion.png",
+          "sha256": "4386d923ffb82d6cf9c3fc910fa4b1981c44c3c60690a94b63da771e33da01c1",
+          "status": "candidate"
+        },
+        "love": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/prompts/Ineffa/love.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Ineffa from Genshin Impact expressing love. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, rendering and her light blue hair, mechanical hands, headwear, cape, outfit and medium female proportions. Personality and acting: dutiful, warm and composed, with precise, gentle gestures. Show a genuinely affectionate smile and warm eyes; turn toward the viewer with one hand over the heart and the other relaxed. Change the body pose and gesture to make this emotion distinct while remaining faithful to the character. Keep original eye colours and normal pupils. Simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and feet with roughly 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Ineffa/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/raw/Ineffa/love.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/sprites/Ineffa/love.png",
+          "sha256": "dc1d66e71512d342d87d5bbd8528f378c6dc7cf932fb82d3d8f1a682043af9ad",
+          "status": "candidate"
+        },
+        "desire": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/prompts/Ineffa/desire.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Ineffa from Genshin Impact expressing desire. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, rendering and her light blue hair, mechanical hands, headwear, cape, outfit and medium female proportions. Personality and acting: dutiful, warm and composed, with precise, gentle gestures. Show a hopeful intent gaze and a subtle blush; lean forward slightly with one hand near the heart and the other at the side.  Acting: a hopeful, affectionate wish for closeness, expressed through gentle anticipation; tasteful and fully clothed. Change the body pose and gesture to make this emotion distinct while remaining faithful to the character. Keep original eye colours and normal pupils. Simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and feet with roughly 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Ineffa/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/raw/Ineffa/desire.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/sprites/Ineffa/desire.png",
+          "sha256": "84f09df4ff6a5270e041ff56f2dea79f2f45282b950f87f41a09d335631026e4",
+          "status": "candidate"
+        },
+        "excitement": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/prompts/Ineffa/excitement.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Ineffa from Genshin Impact expressing excitement. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, rendering and her light blue hair, mechanical hands, headwear, cape, outfit and medium female proportions. Personality and acting: dutiful, warm and composed, with precise, gentle gestures. Show bright eager eyes and a delighted smile; stand more alert, one hand lifted in a small celebratory gesture. Change the body pose and gesture to make this emotion distinct while remaining faithful to the character. Keep original eye colours and normal pupils. Simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and feet with roughly 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Ineffa/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/raw/Ineffa/excitement.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/sprites/Ineffa/excitement.png",
+          "sha256": "f48571ab229b5193ce3f39f210a33194993be2a5e37d0fde2c75941026210678",
+          "status": "candidate"
+        },
+        "sadness": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/prompts/Ineffa/sadness.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Ineffa from Genshin Impact expressing sadness. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, rendering and her light blue hair, mechanical hands, headwear, cape, outfit and medium female proportions. Personality and acting: dutiful, warm and composed, with precise, gentle gestures. Show a sorrowful downcast gaze and softened shoulders; one hand resting on the opposite forearm. Change the body pose and gesture to make this emotion distinct while remaining faithful to the character. Keep original eye colours and normal pupils. Simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and feet with roughly 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Ineffa/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/raw/Ineffa/sadness.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/sprites/Ineffa/sadness.png",
+          "sha256": "847be7338f05eae740cb536b76f070b995eb2df5b5ae5c7029e8ade5e50a06da",
+          "status": "candidate"
+        },
+        "fear": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/prompts/Ineffa/fear.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Ineffa from Genshin Impact expressing fear. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, rendering and her light blue hair, mechanical hands, headwear, cape, outfit and medium female proportions. Personality and acting: dutiful, warm and composed, with precise, gentle gestures. Show an alarmed gaze and raised brows; shift weight back with one forearm held protectively near the torso. Change the body pose and gesture to make this emotion distinct while remaining faithful to the character. Keep original eye colours and normal pupils. Simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and feet with roughly 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Ineffa/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/raw/Ineffa/fear.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/sprites/Ineffa/fear.png",
+          "sha256": "d3c2bf5730b024abac94458a1261aa4f67c933c68295afa26708dce6675c71db",
+          "status": "candidate"
+        },
+        "embarrassment": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/prompts/Ineffa/embarrassment.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Ineffa from Genshin Impact expressing embarrassment. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, rendering and her light blue hair, mechanical hands, headwear, cape, outfit and medium female proportions. Personality and acting: dutiful, warm and composed, with precise, gentle gestures. Show flushed cheeks and an averted gaze; turn the shoulders slightly and touch the back of the neck with one hand. Change the body pose and gesture to make this emotion distinct while remaining faithful to the character. Keep original eye colours and normal pupils. Simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and feet with roughly 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Ineffa/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/raw/Ineffa/embarrassment.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/sprites/Ineffa/embarrassment.png",
+          "sha256": "9903b25c740e65ee353231b955671b97eb095da9c9ec6e7ddbade0d09aab884e",
+          "status": "candidate"
+        }
+      },
+      "previews": {
+        "full_body": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/previews/Ineffa-full-body.png",
+        "faces": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/previews/Ineffa-faces.png"
+      }
+    },
+    "Jean": {
+      "neutral_approval": {
+        "status": "approved",
+        "message": "All others are ACCEPTED.",
+        "date": "2026-10-30",
+        "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Jean/neutral-v002.png",
+        "candidate_sha256": "d6fd779c9a11b673d53ee9fc41d0a4c3e9524691b3dcbe1158381ef758783b7d"
+      },
+      "reference": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/references/Jean/approved-neutral.png",
+      "expressions": {
+        "joy": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/prompts/Jean/joy.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Jean from Genshin Impact expressing joy. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, rendering and her blonde hair, knightly uniform, cape and tall female proportions. Personality and acting: dignified, hardworking and caring, with restrained knightly gestures. Show bright eyes and an easy smile; relax the shoulders with one hand lightly at the waist. Change the body pose and gesture to make this emotion distinct while remaining faithful to the character. Keep original eye colours and normal pupils. Simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and feet with roughly 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Jean/neutral-v002.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/raw/Jean/joy.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/sprites/Jean/joy.png",
+          "sha256": "2e829a094286120d78d411d7795d79079b7cbd926b8f36801f8ac2034de4359f",
+          "status": "candidate"
+        },
+        "annoyance": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/prompts/Jean/annoyance.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Jean from Genshin Impact expressing annoyance. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, rendering and her blonde hair, knightly uniform, cape and tall female proportions. Personality and acting: dignified, hardworking and caring, with restrained knightly gestures. Show a restrained irritated gaze; shift weight to one leg with one forearm near the torso. Change the body pose and gesture to make this emotion distinct while remaining faithful to the character. Keep original eye colours and normal pupils. Simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and feet with roughly 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Jean/neutral-v002.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/raw/Jean/annoyance.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/sprites/Jean/annoyance.png",
+          "sha256": "e24584b264e8f492c64c4be7e75b6f495880f3761fc299c5478f73d3e11e4e7d",
+          "status": "candidate"
+        },
+        "confusion": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/prompts/Jean/confusion.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Jean from Genshin Impact expressing confusion. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, rendering and her blonde hair, knightly uniform, cape and tall female proportions. Personality and acting: dignified, hardworking and caring, with restrained knightly gestures. Show puzzled eyes and a small frown; turn the shoulders slightly with one hand lifted in a simple questioning gesture. Change the body pose and gesture to make this emotion distinct while remaining faithful to the character. Keep original eye colours and normal pupils. Simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and feet with roughly 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Jean/neutral-v002.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/raw/Jean/confusion.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/sprites/Jean/confusion.png",
+          "sha256": "aa3ddf326b9c146c120de8d4cef9b408adda97fca32a07adc1b585412cf6b8b1",
+          "status": "candidate"
+        },
+        "love": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/prompts/Jean/love.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Jean from Genshin Impact expressing love. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, rendering and her blonde hair, knightly uniform, cape and tall female proportions. Personality and acting: dignified, hardworking and caring, with restrained knightly gestures. Show tender, open warmth and a gentle smile; relax the shoulders, one hand lightly against the chest. Change the body pose and gesture to make this emotion distinct while remaining faithful to the character. Keep original eye colours and normal pupils. Simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and feet with roughly 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Jean/neutral-v002.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/raw/Jean/love.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/sprites/Jean/love.png",
+          "sha256": "f32b9def993236d77645c411753a569275cf677828317cedc78047d85cc6d91e",
+          "status": "candidate"
+        },
+        "desire": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/prompts/Jean/desire.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Jean from Genshin Impact expressing desire. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, rendering and her blonde hair, knightly uniform, cape and tall female proportions. Personality and acting: dignified, hardworking and caring, with restrained knightly gestures. Show a yearning gaze with a faint blush; turn toward the viewer, leaning in subtly, one hand near the waist.  Acting: sincere romantic yearning, softened eyes and a quiet blush; tasteful and fully clothed. Change the body pose and gesture to make this emotion distinct while remaining faithful to the character. Keep original eye colours and normal pupils. Simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and feet with roughly 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Jean/neutral-v002.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/raw/Jean/desire.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/sprites/Jean/desire.png",
+          "sha256": "0d924582256b6321897a0169d87bb7b46b8e74019ef4b23833521127d684ef83",
+          "status": "candidate"
+        },
+        "excitement": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/prompts/Jean/excitement.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Jean from Genshin Impact expressing excitement. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, rendering and her blonde hair, knightly uniform, cape and tall female proportions. Personality and acting: dignified, hardworking and caring, with restrained knightly gestures. Show an enthusiastic smile; lean forward slightly with one hand raised near the shoulder and the other relaxed. Change the body pose and gesture to make this emotion distinct while remaining faithful to the character. Keep original eye colours and normal pupils. Simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and feet with roughly 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Jean/neutral-v002.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/raw/Jean/excitement.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/sprites/Jean/excitement.png",
+          "sha256": "4e7b26bc14ac697bf7fdbad24943048d6e48e7408c8e1191b8a8d24ecb491d46",
+          "status": "candidate"
+        },
+        "sadness": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/prompts/Jean/sadness.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Jean from Genshin Impact expressing sadness. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, rendering and her blonde hair, knightly uniform, cape and tall female proportions. Personality and acting: dignified, hardworking and caring, with restrained knightly gestures. Show a subdued expression and lowered eyes; let both arms rest naturally while the shoulders fall slightly. Change the body pose and gesture to make this emotion distinct while remaining faithful to the character. Keep original eye colours and normal pupils. Simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and feet with roughly 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Jean/neutral-v002.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/raw/Jean/sadness.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/sprites/Jean/sadness.png",
+          "sha256": "5db7c227df63fc92a18cd0b694325af1799df98c85c3f271c47a5a5629c1bd87",
+          "status": "candidate"
+        },
+        "fear": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/prompts/Jean/fear.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Jean from Genshin Impact expressing fear. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, rendering and her blonde hair, knightly uniform, cape and tall female proportions. Personality and acting: dignified, hardworking and caring, with restrained knightly gestures. Show a tense worried expression; step weight back slightly and hold one hand near the chest. Change the body pose and gesture to make this emotion distinct while remaining faithful to the character. Keep original eye colours and normal pupils. Simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and feet with roughly 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Jean/neutral-v002.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/raw/Jean/fear.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/sprites/Jean/fear.png",
+          "sha256": "b4ef8cb4fffc6636f06a0412b4324de37bdf5681bfee190d2d6433bc80c34887",
+          "status": "candidate"
+        },
+        "embarrassment": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/prompts/Jean/embarrassment.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Jean from Genshin Impact expressing embarrassment. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, rendering and her blonde hair, knightly uniform, cape and tall female proportions. Personality and acting: dignified, hardworking and caring, with restrained knightly gestures. Show a blush and shy awkward smile; avert the gaze and lift one hand near the cheek. Change the body pose and gesture to make this emotion distinct while remaining faithful to the character. Keep original eye colours and normal pupils. Simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and feet with roughly 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Jean/neutral-v002.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/raw/Jean/embarrassment.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/sprites/Jean/embarrassment.png",
+          "sha256": "32bc1e0de1ba99ba252ad73c94d260738ecae5cd3ba955a6235bf02c02df3bb2",
+          "status": "candidate"
+        }
+      },
+      "previews": {
+        "full_body": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/previews/Jean-full-body.png",
+        "faces": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/previews/Jean-faces.png"
+      }
+    },
+    "Kaedehara Kazuha": {
+      "neutral_approval": {
+        "status": "approved",
+        "message": "All others are ACCEPTED.",
+        "date": "2026-10-30",
+        "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Kaedehara Kazuha/neutral-v001.png",
+        "candidate_sha256": "48cf108593cef630e228a787e41fff0bcbe49cf7e6aebc20929e6c0a807f07ab"
+      },
+      "reference": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/references/Kaedehara Kazuha/approved-neutral.png",
+      "expressions": {
+        "joy": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/prompts/Kaedehara Kazuha/joy.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Kaedehara Kazuha from Genshin Impact expressing joy. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, rendering and his white hair with red accent, maple-patterned samurai clothing and petite medium male proportions. Personality and acting: serene, thoughtful and gently expressive, with a relaxed grounded stance. Show a warm smile; turn slightly toward the viewer, one hand lifted in a modest greeting. Change the body pose and gesture to make this emotion distinct while remaining faithful to the character. Keep original eye colours and normal pupils. Simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and feet with roughly 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Kaedehara Kazuha/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/raw/Kaedehara Kazuha/joy.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/sprites/Kaedehara Kazuha/joy.png",
+          "sha256": "fbb18ab889ddbc958c9c246e7e986aaba57615cd768387dee8d3b85aea27a8f0",
+          "status": "candidate"
+        },
+        "annoyance": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/prompts/Kaedehara Kazuha/annoyance.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Kaedehara Kazuha from Genshin Impact expressing annoyance. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, rendering and his white hair with red accent, maple-patterned samurai clothing and petite medium male proportions. Personality and acting: serene, thoughtful and gently expressive, with a relaxed grounded stance. Show a mildly indignant expression; angle the shoulders away, one hand at the waist. Change the body pose and gesture to make this emotion distinct while remaining faithful to the character. Keep original eye colours and normal pupils. Simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and feet with roughly 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Kaedehara Kazuha/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/raw/Kaedehara Kazuha/annoyance.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/sprites/Kaedehara Kazuha/annoyance.png",
+          "sha256": "f7f1baeeab16c135940ceb3b5b5eed7128fc0a6213f2b526f8119fba0e10b798",
+          "status": "candidate"
+        },
+        "confusion": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/prompts/Kaedehara Kazuha/confusion.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Kaedehara Kazuha from Genshin Impact expressing confusion. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, rendering and his white hair with red accent, maple-patterned samurai clothing and petite medium male proportions. Personality and acting: serene, thoughtful and gently expressive, with a relaxed grounded stance. Show a perplexed expression; incline the head and rest one hand thoughtfully near the chin. Change the body pose and gesture to make this emotion distinct while remaining faithful to the character. Keep original eye colours and normal pupils. Simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and feet with roughly 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Kaedehara Kazuha/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/raw/Kaedehara Kazuha/confusion.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/sprites/Kaedehara Kazuha/confusion.png",
+          "sha256": "aa9f1f9630c4df37d1a3f3ecea25d0713f77e4fcc7fe75869a0683363de2e0b9",
+          "status": "candidate"
+        },
+        "love": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/prompts/Kaedehara Kazuha/love.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Kaedehara Kazuha from Genshin Impact expressing love. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, rendering and his white hair with red accent, maple-patterned samurai clothing and petite medium male proportions. Personality and acting: serene, thoughtful and gently expressive, with a relaxed grounded stance. Show a sincere loving smile; angle the body toward the viewer and rest one hand over the heart. Change the body pose and gesture to make this emotion distinct while remaining faithful to the character. Keep original eye colours and normal pupils. Simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and feet with roughly 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Kaedehara Kazuha/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/raw/Kaedehara Kazuha/love.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/sprites/Kaedehara Kazuha/love.png",
+          "sha256": "94527d3e2a7504ae4bc396317e1d72de0a8c45d44e4a788f5a0b5d46b4038f63",
+          "status": "candidate"
+        },
+        "desire": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/prompts/Kaedehara Kazuha/desire.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Kaedehara Kazuha from Genshin Impact expressing desire. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, rendering and his white hair with red accent, maple-patterned samurai clothing and petite medium male proportions. Personality and acting: serene, thoughtful and gently expressive, with a relaxed grounded stance. Show an earnest softened gaze and a subtle blush; shift forward slightly with one hand near the chest.  Acting: a tender, contemplative longing with a calm masculine stance; tasteful and fully clothed. Change the body pose and gesture to make this emotion distinct while remaining faithful to the character. Keep original eye colours and normal pupils. Simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and feet with roughly 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Kaedehara Kazuha/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/raw/Kaedehara Kazuha/desire.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/sprites/Kaedehara Kazuha/desire.png",
+          "sha256": "56f40d775ebff4d05d1bccfc2787ba99a8375f39bb05ec8d9f81cc2e6e27515d",
+          "status": "candidate"
+        },
+        "excitement": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/prompts/Kaedehara Kazuha/excitement.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Kaedehara Kazuha from Genshin Impact expressing excitement. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, rendering and his white hair with red accent, maple-patterned samurai clothing and petite medium male proportions. Personality and acting: serene, thoughtful and gently expressive, with a relaxed grounded stance. Show bright eyes and eager anticipation; shift into an alert stance with one hand lifted near the torso. Change the body pose and gesture to make this emotion distinct while remaining faithful to the character. Keep original eye colours and normal pupils. Simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and feet with roughly 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Kaedehara Kazuha/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/raw/Kaedehara Kazuha/excitement.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/sprites/Kaedehara Kazuha/excitement.png",
+          "sha256": "723a003ecd7dfe2065b4c042219c3c937e72b330e610015da93ca397286ac41e",
+          "status": "candidate"
+        },
+        "sadness": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/prompts/Kaedehara Kazuha/sadness.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Kaedehara Kazuha from Genshin Impact expressing sadness. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, rendering and his white hair with red accent, maple-patterned samurai clothing and petite medium male proportions. Personality and acting: serene, thoughtful and gently expressive, with a relaxed grounded stance. Show a sad, quiet gaze; turn slightly away, one hand resting against the opposite forearm. Change the body pose and gesture to make this emotion distinct while remaining faithful to the character. Keep original eye colours and normal pupils. Simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and feet with roughly 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Kaedehara Kazuha/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/raw/Kaedehara Kazuha/sadness.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/sprites/Kaedehara Kazuha/sadness.png",
+          "sha256": "e9337881602a2eda8a6156de96c663c8fd74094143dcbe15e9c2fb0e09e7f65a",
+          "status": "candidate"
+        },
+        "fear": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/prompts/Kaedehara Kazuha/fear.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Kaedehara Kazuha from Genshin Impact expressing fear. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, rendering and his white hair with red accent, maple-patterned samurai clothing and petite medium male proportions. Personality and acting: serene, thoughtful and gently expressive, with a relaxed grounded stance. Show widened uneasy eyes; turn slightly aside, one forearm protectively near the torso. Change the body pose and gesture to make this emotion distinct while remaining faithful to the character. Keep original eye colours and normal pupils. Simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and feet with roughly 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Kaedehara Kazuha/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/raw/Kaedehara Kazuha/fear.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/sprites/Kaedehara Kazuha/fear.png",
+          "sha256": "7ce51c214c94a6e0aa9d5c88d2bc535140a5effc6c999ad53f56efb0b18b0632",
+          "status": "candidate"
+        },
+        "embarrassment": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/prompts/Kaedehara Kazuha/embarrassment.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Kaedehara Kazuha from Genshin Impact expressing embarrassment. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, rendering and his white hair with red accent, maple-patterned samurai clothing and petite medium male proportions. Personality and acting: serene, thoughtful and gently expressive, with a relaxed grounded stance. Show a bashful blush and averted gaze; angle the body away slightly with one hand near the face. Change the body pose and gesture to make this emotion distinct while remaining faithful to the character. Keep original eye colours and normal pupils. Simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and feet with roughly 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Kaedehara Kazuha/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/raw/Kaedehara Kazuha/embarrassment.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/sprites/Kaedehara Kazuha/embarrassment.png",
+          "sha256": "e4e5e84cae907a2de143b473808596b9294b05d6e3981b18d87e49db7f7536e9",
+          "status": "candidate"
+        }
+      },
+      "previews": {
+        "full_body": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/previews/Kaedehara-Kazuha-full-body.png",
+        "faces": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/previews/Kaedehara-Kazuha-faces.png"
+      }
+    },
+    "Kaeya": {
+      "neutral_approval": {
+        "status": "approved",
+        "message": "All others are ACCEPTED.",
+        "date": "2026-10-30",
+        "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Kaeya/neutral-v001.png",
+        "candidate_sha256": "7efaf3537463789688e903f99c3b4c6488a4be681b502d44b1a523f7bbb4811c"
+      },
+      "reference": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/references/Kaeya/approved-neutral.png",
+      "expressions": {
+        "joy": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/prompts/Kaeya/joy.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Kaeya from Genshin Impact expressing joy. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, rendering and his eyepatch, dark blue hair, skin tone, fur collar, outfit and tall male proportions. Personality and acting: self-assured and playful, with confident masculine body language. Show a sincere smile and softened eyes; shift comfortably and give a small greeting near the torso. Keep his eyepatch in its original position. Change the body pose and gesture to make this emotion distinct while remaining faithful to the character. Keep original eye colours and normal pupils. Simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and feet with roughly 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Kaeya/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/raw/Kaeya/joy.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/sprites/Kaeya/joy.png",
+          "sha256": "c9ff98e2b1fc55119ac810dc2d5fffd4f8cd7d330497bde2f8ba97d4ae9b5bee",
+          "status": "candidate"
+        },
+        "annoyance": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/prompts/Kaeya/annoyance.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Kaeya from Genshin Impact expressing annoyance. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, rendering and his eyepatch, dark blue hair, skin tone, fur collar, outfit and tall male proportions. Personality and acting: self-assured and playful, with confident masculine body language. Show a clear displeased frown and knitted brows; stand firmly with one hand on the hip and the other down. Keep his eyepatch in its original position. Change the body pose and gesture to make this emotion distinct while remaining faithful to the character. Keep original eye colours and normal pupils. Simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and feet with roughly 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Kaeya/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/raw/Kaeya/annoyance.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/sprites/Kaeya/annoyance.png",
+          "sha256": "32c32409e2c8821ab492cd955f24d1f722b606d9d9a91c374cb9b760318d63f9",
+          "status": "candidate"
+        },
+        "confusion": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/prompts/Kaeya/confusion.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Kaeya from Genshin Impact expressing confusion. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, rendering and his eyepatch, dark blue hair, skin tone, fur collar, outfit and tall male proportions. Personality and acting: self-assured and playful, with confident masculine body language. Show a questioning expression and raised brow; tilt the head slightly and bring one hand near the chin. Keep his eyepatch in its original position. Change the body pose and gesture to make this emotion distinct while remaining faithful to the character. Keep original eye colours and normal pupils. Simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and feet with roughly 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Kaeya/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/raw/Kaeya/confusion.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/sprites/Kaeya/confusion.png",
+          "sha256": "b721606eedd1c7fcc3ae60f8b64c5d661a6ddcd1509da5af1379575ef522c337",
+          "status": "candidate"
+        },
+        "love": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/prompts/Kaeya/love.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Kaeya from Genshin Impact expressing love. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, rendering and his eyepatch, dark blue hair, skin tone, fur collar, outfit and tall male proportions. Personality and acting: self-assured and playful, with confident masculine body language. Show a genuinely affectionate smile and warm eyes; turn toward the viewer with one hand over the heart and the other relaxed. Keep his eyepatch in its original position. Change the body pose and gesture to make this emotion distinct while remaining faithful to the character. Keep original eye colours and normal pupils. Simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and feet with roughly 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Kaeya/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/raw/Kaeya/love.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/sprites/Kaeya/love.png",
+          "sha256": "6ea604bb188bb8d5a7c79a1db50ffe9f4611fab6acf2f0686f2465ec2708a257",
+          "status": "candidate"
+        },
+        "desire": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/prompts/Kaeya/desire.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Kaeya from Genshin Impact expressing desire. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, rendering and his eyepatch, dark blue hair, skin tone, fur collar, outfit and tall male proportions. Personality and acting: self-assured and playful, with confident masculine body language. Show a hopeful intent gaze and a subtle blush; lean forward slightly with one hand near the heart and the other at the side.  Acting: a warm, intent and teasing romantic gaze with confident grounded posture; tasteful and fully clothed. Keep his eyepatch in its original position. Change the body pose and gesture to make this emotion distinct while remaining faithful to the character. Keep original eye colours and normal pupils. Simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and feet with roughly 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Kaeya/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/raw/Kaeya/desire.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/sprites/Kaeya/desire.png",
+          "sha256": "2f4c1be6bca51b7d31389f1cfd2234cd8f86487c6c713aae9e9c6490d7a60679",
+          "status": "candidate"
+        },
+        "excitement": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/prompts/Kaeya/excitement.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Kaeya from Genshin Impact expressing excitement. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, rendering and his eyepatch, dark blue hair, skin tone, fur collar, outfit and tall male proportions. Personality and acting: self-assured and playful, with confident masculine body language. Show bright eager eyes and a delighted smile; stand more alert, one hand lifted in a small celebratory gesture. Keep his eyepatch in its original position. Change the body pose and gesture to make this emotion distinct while remaining faithful to the character. Keep original eye colours and normal pupils. Simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and feet with roughly 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Kaeya/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/raw/Kaeya/excitement.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/sprites/Kaeya/excitement.png",
+          "sha256": "8c8c218ff5a0edf208e1197597b6ddc87f3c0565e1d71dba440fa34c1c4fa495",
+          "status": "candidate"
+        },
+        "sadness": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/prompts/Kaeya/sadness.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Kaeya from Genshin Impact expressing sadness. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, rendering and his eyepatch, dark blue hair, skin tone, fur collar, outfit and tall male proportions. Personality and acting: self-assured and playful, with confident masculine body language. Show a sorrowful downcast gaze and softened shoulders; one hand resting on the opposite forearm. Keep his eyepatch in its original position. Change the body pose and gesture to make this emotion distinct while remaining faithful to the character. Keep original eye colours and normal pupils. Simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and feet with roughly 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Kaeya/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/raw/Kaeya/sadness.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/sprites/Kaeya/sadness.png",
+          "sha256": "5edec282983e7ac1f7d9655a8674bcd50a6da85d6d3b5273cbcca0e8fba4000c",
+          "status": "candidate"
+        },
+        "fear": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/prompts/Kaeya/fear.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Kaeya from Genshin Impact expressing fear. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, rendering and his eyepatch, dark blue hair, skin tone, fur collar, outfit and tall male proportions. Personality and acting: self-assured and playful, with confident masculine body language. Show an alarmed gaze and raised brows; shift weight back with one forearm held protectively near the torso. Keep his eyepatch in its original position. Change the body pose and gesture to make this emotion distinct while remaining faithful to the character. Keep original eye colours and normal pupils. Simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and feet with roughly 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Kaeya/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/raw/Kaeya/fear.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/sprites/Kaeya/fear.png",
+          "sha256": "cd7a6bf84c7abc5db6bc61c3b02563347c52d89acb57b9330b8b7429636bc4f8",
+          "status": "candidate"
+        },
+        "embarrassment": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/prompts/Kaeya/embarrassment.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Kaeya from Genshin Impact expressing embarrassment. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, rendering and his eyepatch, dark blue hair, skin tone, fur collar, outfit and tall male proportions. Personality and acting: self-assured and playful, with confident masculine body language. Show flushed cheeks and an averted gaze; turn the shoulders slightly and touch the back of the neck with one hand. Keep his eyepatch in its original position. Change the body pose and gesture to make this emotion distinct while remaining faithful to the character. Keep original eye colours and normal pupils. Simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and feet with roughly 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Kaeya/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/raw/Kaeya/embarrassment.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/sprites/Kaeya/embarrassment.png",
+          "sha256": "95e9f96f5e231096326e8c9bb4e568c7fc0ec0596c7f0355e49ea1b3b62c1259",
+          "status": "candidate"
+        }
+      },
+      "previews": {
+        "full_body": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/previews/Kaeya-full-body.png",
+        "faces": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/previews/Kaeya-faces.png"
+      }
+    },
+    "Kamisato Ayato": {
+      "neutral_approval": {
+        "status": "approved",
+        "message": "All others are ACCEPTED.",
+        "date": "2026-10-30",
+        "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Kamisato Ayato/neutral-v001.png",
+        "candidate_sha256": "6779c52f68ee814c8dc888e988fc1fa82a26bcdec9bc0a23595caaf9a144f18a"
+      },
+      "reference": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/references/Kamisato Ayato/approved-neutral.png",
+      "expressions": {
+        "joy": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/prompts/Kamisato Ayato/joy.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Kamisato Ayato from Genshin Impact expressing joy. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, rendering and his pale blue hair, white-and-blue formal clothing and tall male proportions. Personality and acting: refined, composed and subtly playful, with measured masculine gestures. Show bright eyes and an easy smile; relax the shoulders with one hand lightly at the waist. Change the body pose and gesture to make this emotion distinct while remaining faithful to the character. Keep original eye colours and normal pupils. Simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and feet with roughly 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Kamisato Ayato/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/raw/Kamisato Ayato/joy.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/sprites/Kamisato Ayato/joy.png",
+          "sha256": "0990c51c682ccd9a8b5f5cd239f22ffee3c6d99a833e7c9c0ebca370ce54722e",
+          "status": "candidate"
+        },
+        "annoyance": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/prompts/Kamisato Ayato/annoyance.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Kamisato Ayato from Genshin Impact expressing annoyance. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, rendering and his pale blue hair, white-and-blue formal clothing and tall male proportions. Personality and acting: refined, composed and subtly playful, with measured masculine gestures. Show a restrained irritated gaze; shift weight to one leg with one forearm near the torso. Change the body pose and gesture to make this emotion distinct while remaining faithful to the character. Keep original eye colours and normal pupils. Simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and feet with roughly 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Kamisato Ayato/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/raw/Kamisato Ayato/annoyance.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/sprites/Kamisato Ayato/annoyance.png",
+          "sha256": "af77fa236b7c9c86b737513e8b1d7b48e52f1c5d76d096cdf9037925cc981cb5",
+          "status": "candidate"
+        },
+        "confusion": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/prompts/Kamisato Ayato/confusion.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Kamisato Ayato from Genshin Impact expressing confusion. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, rendering and his pale blue hair, white-and-blue formal clothing and tall male proportions. Personality and acting: refined, composed and subtly playful, with measured masculine gestures. Show puzzled eyes and a small frown; turn the shoulders slightly with one hand lifted in a simple questioning gesture. Change the body pose and gesture to make this emotion distinct while remaining faithful to the character. Keep original eye colours and normal pupils. Simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and feet with roughly 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Kamisato Ayato/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/raw/Kamisato Ayato/confusion.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/sprites/Kamisato Ayato/confusion.png",
+          "sha256": "753680c00a4b936ad599142a487f97bcddb4caa939d5780d072d8a11d30b373d",
+          "status": "candidate"
+        },
+        "love": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/prompts/Kamisato Ayato/love.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Kamisato Ayato from Genshin Impact expressing love. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, rendering and his pale blue hair, white-and-blue formal clothing and tall male proportions. Personality and acting: refined, composed and subtly playful, with measured masculine gestures. Show tender, open warmth and a gentle smile; relax the shoulders, one hand lightly against the chest. Change the body pose and gesture to make this emotion distinct while remaining faithful to the character. Keep original eye colours and normal pupils. Simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and feet with roughly 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Kamisato Ayato/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/raw/Kamisato Ayato/love.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/sprites/Kamisato Ayato/love.png",
+          "sha256": "8acda213b0f90c3e681417418df1b2bc345ba1eab6d6ac72e8944186d021383a",
+          "status": "candidate"
+        },
+        "desire": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/prompts/Kamisato Ayato/desire.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Kamisato Ayato from Genshin Impact expressing desire. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, rendering and his pale blue hair, white-and-blue formal clothing and tall male proportions. Personality and acting: refined, composed and subtly playful, with measured masculine gestures. Show a yearning gaze with a faint blush; turn toward the viewer, leaning in subtly, one hand near the waist.  Acting: a controlled but clearly affectionate yearning gaze and subtle blush; tasteful and fully clothed. Change the body pose and gesture to make this emotion distinct while remaining faithful to the character. Keep original eye colours and normal pupils. Simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and feet with roughly 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Kamisato Ayato/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/raw/Kamisato Ayato/desire.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/sprites/Kamisato Ayato/desire.png",
+          "sha256": "2634ef6e4b237e024c5fb7f5a92b7d0211df3c4957f1d63342f2a07c6b0f5536",
+          "status": "candidate"
+        },
+        "excitement": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/prompts/Kamisato Ayato/excitement.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Kamisato Ayato from Genshin Impact expressing excitement. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, rendering and his pale blue hair, white-and-blue formal clothing and tall male proportions. Personality and acting: refined, composed and subtly playful, with measured masculine gestures. Show an enthusiastic smile; lean forward slightly with one hand raised near the shoulder and the other relaxed. Change the body pose and gesture to make this emotion distinct while remaining faithful to the character. Keep original eye colours and normal pupils. Simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and feet with roughly 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Kamisato Ayato/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/raw/Kamisato Ayato/excitement.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/sprites/Kamisato Ayato/excitement.png",
+          "sha256": "5b18ffe5a3725c4e638aebe2a56260acac05e5c6efcc0c2f509450fb96d4c65b",
+          "status": "candidate"
+        },
+        "sadness": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/prompts/Kamisato Ayato/sadness.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Kamisato Ayato from Genshin Impact expressing sadness. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, rendering and his pale blue hair, white-and-blue formal clothing and tall male proportions. Personality and acting: refined, composed and subtly playful, with measured masculine gestures. Show a subdued expression and lowered eyes; let both arms rest naturally while the shoulders fall slightly. Change the body pose and gesture to make this emotion distinct while remaining faithful to the character. Keep original eye colours and normal pupils. Simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and feet with roughly 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Kamisato Ayato/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/raw/Kamisato Ayato/sadness.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/sprites/Kamisato Ayato/sadness.png",
+          "sha256": "7e3e14de012b57d385b55ce725f762db6ac3bf5f7b7d5f765334e7a0827c5d71",
+          "status": "candidate"
+        },
+        "fear": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/prompts/Kamisato Ayato/fear.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Kamisato Ayato from Genshin Impact expressing fear. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, rendering and his pale blue hair, white-and-blue formal clothing and tall male proportions. Personality and acting: refined, composed and subtly playful, with measured masculine gestures. Show a tense worried expression; step weight back slightly and hold one hand near the chest. Change the body pose and gesture to make this emotion distinct while remaining faithful to the character. Keep original eye colours and normal pupils. Simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and feet with roughly 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Kamisato Ayato/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/raw/Kamisato Ayato/fear.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/sprites/Kamisato Ayato/fear.png",
+          "sha256": "057fa915988eddb695f5c6693ad7851c4fa52ae187b67e2f850dfc5c72dd0f79",
+          "status": "candidate"
+        },
+        "embarrassment": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/prompts/Kamisato Ayato/embarrassment.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Kamisato Ayato from Genshin Impact expressing embarrassment. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, rendering and his pale blue hair, white-and-blue formal clothing and tall male proportions. Personality and acting: refined, composed and subtly playful, with measured masculine gestures. Show a blush and shy awkward smile; avert the gaze and lift one hand near the cheek. Change the body pose and gesture to make this emotion distinct while remaining faithful to the character. Keep original eye colours and normal pupils. Simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and feet with roughly 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Kamisato Ayato/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/raw/Kamisato Ayato/embarrassment.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/sprites/Kamisato Ayato/embarrassment.png",
+          "sha256": "9100686b4119cd3c248e83bac36e9b637457ecade827bacaf81bdcb30df00cdd",
+          "status": "candidate"
+        }
+      },
+      "previews": {
+        "full_body": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/previews/Kamisato-Ayato-full-body.png",
+        "faces": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/previews/Kamisato-Ayato-faces.png"
+      }
+    },
+    "Kaveh": {
+      "neutral_approval": {
+        "status": "approved",
+        "message": "All others are ACCEPTED.",
+        "date": "2026-10-30",
+        "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Kaveh/neutral-v001.png",
+        "candidate_sha256": "dbb4108c4c26960199264e70b754828abd0de48a5441e086f0336bfddfbd22c6"
+      },
+      "reference": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/references/Kaveh/approved-neutral.png",
+      "expressions": {
+        "joy": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/prompts/Kaveh/joy.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Kaveh from Genshin Impact expressing joy. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, rendering and his blond hair, red and white clothing, accessories and tall male proportions. Personality and acting: expressive, earnest and artistic, with lively but clear gestures. Show a warm smile; turn slightly toward the viewer, one hand lifted in a modest greeting. Preserve the case if present in the approved neutral. Change the body pose and gesture to make this emotion distinct while remaining faithful to the character. Keep original eye colours and normal pupils. Simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and feet with roughly 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Kaveh/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/raw/Kaveh/joy.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/sprites/Kaveh/joy.png",
+          "sha256": "9b35a18b6c5ced9834cff6cc1bf6bd8452572f115f2975e86e84635359afdeea",
+          "status": "candidate"
+        },
+        "annoyance": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/prompts/Kaveh/annoyance.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Kaveh from Genshin Impact expressing annoyance. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, rendering and his blond hair, red and white clothing, accessories and tall male proportions. Personality and acting: expressive, earnest and artistic, with lively but clear gestures. Show a mildly indignant expression; angle the shoulders away, one hand at the waist. Preserve the case if present in the approved neutral. Change the body pose and gesture to make this emotion distinct while remaining faithful to the character. Keep original eye colours and normal pupils. Simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and feet with roughly 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Kaveh/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/raw/Kaveh/annoyance.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/sprites/Kaveh/annoyance.png",
+          "sha256": "95d60a0d5e1cefeb0b706152ba4fcfb44428a028e59b1e9e55dad6eef5a27c9a",
+          "status": "candidate"
+        },
+        "confusion": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/prompts/Kaveh/confusion.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Kaveh from Genshin Impact expressing confusion. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, rendering and his blond hair, red and white clothing, accessories and tall male proportions. Personality and acting: expressive, earnest and artistic, with lively but clear gestures. Show a perplexed expression; incline the head and rest one hand thoughtfully near the chin. Preserve the case if present in the approved neutral. Change the body pose and gesture to make this emotion distinct while remaining faithful to the character. Keep original eye colours and normal pupils. Simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and feet with roughly 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Kaveh/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/raw/Kaveh/confusion.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/sprites/Kaveh/confusion.png",
+          "sha256": "2bf206acef9dcda276d1c13c912e8c5622cfe3d7427dfeb6b7f066231d7b3720",
+          "status": "candidate"
+        },
+        "love": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/prompts/Kaveh/love.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Kaveh from Genshin Impact expressing love. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, rendering and his blond hair, red and white clothing, accessories and tall male proportions. Personality and acting: expressive, earnest and artistic, with lively but clear gestures. Show a sincere loving smile; angle the body toward the viewer and rest one hand over the heart. Preserve the case if present in the approved neutral. Change the body pose and gesture to make this emotion distinct while remaining faithful to the character. Keep original eye colours and normal pupils. Simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and feet with roughly 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Kaveh/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/raw/Kaveh/love.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/sprites/Kaveh/love.png",
+          "sha256": "fb4a730ad51d96dfb9b64a3b280fec1cabe049b921714654e95e0ef9fbb0f44d",
+          "status": "candidate"
+        },
+        "desire": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/prompts/Kaveh/desire.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Kaveh from Genshin Impact expressing desire. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, rendering and his blond hair, red and white clothing, accessories and tall male proportions. Personality and acting: expressive, earnest and artistic, with lively but clear gestures. Show an earnest softened gaze and a subtle blush; shift forward slightly with one hand near the chest.  Acting: open, sincere yearning and hopeful warmth, with natural masculine body language; tasteful and fully clothed. Preserve the case if present in the approved neutral. Change the body pose and gesture to make this emotion distinct while remaining faithful to the character. Keep original eye colours and normal pupils. Simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and feet with roughly 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Kaveh/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/raw/Kaveh/desire.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/sprites/Kaveh/desire.png",
+          "sha256": "c488c99299ba5c3d7f34e5fefc8a646ccb22ab01f68527ca4a42205a165eec5b",
+          "status": "candidate"
+        },
+        "excitement": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/prompts/Kaveh/excitement.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Kaveh from Genshin Impact expressing excitement. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, rendering and his blond hair, red and white clothing, accessories and tall male proportions. Personality and acting: expressive, earnest and artistic, with lively but clear gestures. Show bright eyes and eager anticipation; shift into an alert stance with one hand lifted near the torso. Preserve the case if present in the approved neutral. Change the body pose and gesture to make this emotion distinct while remaining faithful to the character. Keep original eye colours and normal pupils. Simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and feet with roughly 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Kaveh/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/raw/Kaveh/excitement.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/sprites/Kaveh/excitement.png",
+          "sha256": "0992e3e6d3d38ae46fd0e40759fd4d3c80e553191f04db9600d41ae23cf9de63",
+          "status": "candidate"
+        },
+        "sadness": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/prompts/Kaveh/sadness.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Kaveh from Genshin Impact expressing sadness. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, rendering and his blond hair, red and white clothing, accessories and tall male proportions. Personality and acting: expressive, earnest and artistic, with lively but clear gestures. Show a sad, quiet gaze; turn slightly away, one hand resting against the opposite forearm. Preserve the case if present in the approved neutral. Change the body pose and gesture to make this emotion distinct while remaining faithful to the character. Keep original eye colours and normal pupils. Simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and feet with roughly 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Kaveh/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/raw/Kaveh/sadness.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/sprites/Kaveh/sadness.png",
+          "sha256": "9891be104eb8fb5b62ce07c41540386a80a245f5ac53d158d61ee07969c74949",
+          "status": "candidate"
+        },
+        "fear": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/prompts/Kaveh/fear.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Kaveh from Genshin Impact expressing fear. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, rendering and his blond hair, red and white clothing, accessories and tall male proportions. Personality and acting: expressive, earnest and artistic, with lively but clear gestures. Show widened uneasy eyes; turn slightly aside, one forearm protectively near the torso. Preserve the case if present in the approved neutral. Change the body pose and gesture to make this emotion distinct while remaining faithful to the character. Keep original eye colours and normal pupils. Simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and feet with roughly 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Kaveh/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/raw/Kaveh/fear.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/sprites/Kaveh/fear.png",
+          "sha256": "7f398dce7e11c715562f4d53ec0ea36fe4d6f803cb982c3e55de66aa26fa64c3",
+          "status": "candidate"
+        },
+        "embarrassment": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/prompts/Kaveh/embarrassment.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Kaveh from Genshin Impact expressing embarrassment. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, rendering and his blond hair, red and white clothing, accessories and tall male proportions. Personality and acting: expressive, earnest and artistic, with lively but clear gestures. Show a bashful blush and averted gaze; angle the body away slightly with one hand near the face. Preserve the case if present in the approved neutral. Change the body pose and gesture to make this emotion distinct while remaining faithful to the character. Keep original eye colours and normal pupils. Simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and feet with roughly 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Kaveh/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/raw/Kaveh/embarrassment.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/sprites/Kaveh/embarrassment.png",
+          "sha256": "048789041746a41bd65148a2c8e99cb73aaade0aec6419bec4bae1dc670f0948",
+          "status": "candidate"
+        }
+      },
+      "previews": {
+        "full_body": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/previews/Kaveh-full-body.png",
+        "faces": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/previews/Kaveh-faces.png"
+      }
+    },
+    "Kinich": {
+      "neutral_approval": {
+        "status": "approved",
+        "message": "All others are ACCEPTED.",
+        "date": "2026-10-30",
+        "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Kinich/neutral-v001.png",
+        "candidate_sha256": "45fcdd3e3c59eba880fe1c06e224b6a1c9266f0c64f7d6e7c751239da5de862d"
+      },
+      "reference": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/references/Kinich/approved-neutral.png",
+      "expressions": {
+        "joy": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/prompts/Kinich/joy.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Kinich from Genshin Impact expressing joy. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, rendering and his dark hair, teal and gold clothing, accessories and petite medium male proportions. Personality and acting: reserved, practical and alert, with economical grounded gestures. Show a sincere smile and softened eyes; shift comfortably and give a small greeting near the torso. Show Kinich alone, with no companion or floating figure. Change the body pose and gesture to make this emotion distinct while remaining faithful to the character. Keep original eye colours and normal pupils. Simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and feet with roughly 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Kinich/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/raw/Kinich/joy.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/sprites/Kinich/joy.png",
+          "sha256": "590f8f4a7c33bb7dfe7afa5d570b9191a5633557060515ac6d2bf2e4a1a45b4f",
+          "status": "candidate"
+        },
+        "annoyance": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/prompts/Kinich/annoyance.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Kinich from Genshin Impact expressing annoyance. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, rendering and his dark hair, teal and gold clothing, accessories and petite medium male proportions. Personality and acting: reserved, practical and alert, with economical grounded gestures. Show a clear displeased frown and knitted brows; stand firmly with one hand on the hip and the other down. Show Kinich alone, with no companion or floating figure. Change the body pose and gesture to make this emotion distinct while remaining faithful to the character. Keep original eye colours and normal pupils. Simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and feet with roughly 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Kinich/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/raw/Kinich/annoyance.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/sprites/Kinich/annoyance.png",
+          "sha256": "57ecfb9e4690ec350dba53f13a4cbcd1102241321df45df98fbeae0b06380560",
+          "status": "candidate"
+        },
+        "confusion": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/prompts/Kinich/confusion.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Kinich from Genshin Impact expressing confusion. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, rendering and his dark hair, teal and gold clothing, accessories and petite medium male proportions. Personality and acting: reserved, practical and alert, with economical grounded gestures. Show a questioning expression and raised brow; tilt the head slightly and bring one hand near the chin. Show Kinich alone, with no companion or floating figure. Change the body pose and gesture to make this emotion distinct while remaining faithful to the character. Keep original eye colours and normal pupils. Simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and feet with roughly 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Kinich/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/raw/Kinich/confusion.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/sprites/Kinich/confusion.png",
+          "sha256": "0a03c1ed93654727fb3d19d96c99e6fafedf4f010b3771064f9e4eb49db552a3",
+          "status": "candidate"
+        },
+        "love": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/prompts/Kinich/love.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Kinich from Genshin Impact expressing love. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, rendering and his dark hair, teal and gold clothing, accessories and petite medium male proportions. Personality and acting: reserved, practical and alert, with economical grounded gestures. Show a genuinely affectionate smile and warm eyes; turn toward the viewer with one hand over the heart and the other relaxed. Show Kinich alone, with no companion or floating figure. Change the body pose and gesture to make this emotion distinct while remaining faithful to the character. Keep original eye colours and normal pupils. Simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and feet with roughly 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Kinich/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/raw/Kinich/love.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/sprites/Kinich/love.png",
+          "sha256": "aeb044b43440897ed5cb6ca9b3de3fd0efabe351ef60a5bf5a6db3edfaf9800c",
+          "status": "candidate"
+        },
+        "desire": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/prompts/Kinich/desire.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Kinich from Genshin Impact expressing desire. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, rendering and his dark hair, teal and gold clothing, accessories and petite medium male proportions. Personality and acting: reserved, practical and alert, with economical grounded gestures. Show a hopeful intent gaze and a subtle blush; lean forward slightly with one hand near the heart and the other at the side.  Acting: a reserved, wholesome hope for closeness and a shy, earnest glance; tasteful and fully clothed. Show Kinich alone, with no companion or floating figure. Change the body pose and gesture to make this emotion distinct while remaining faithful to the character. Keep original eye colours and normal pupils. Simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and feet with roughly 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Kinich/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/raw/Kinich/desire.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/sprites/Kinich/desire.png",
+          "sha256": "9c90c249fe6a7b445af301430fc841e9324db3677483873876c5743d0230d641",
+          "status": "candidate"
+        },
+        "excitement": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/prompts/Kinich/excitement.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Kinich from Genshin Impact expressing excitement. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, rendering and his dark hair, teal and gold clothing, accessories and petite medium male proportions. Personality and acting: reserved, practical and alert, with economical grounded gestures. Show bright eager eyes and a delighted smile; stand more alert, one hand lifted in a small celebratory gesture. Show Kinich alone, with no companion or floating figure. Change the body pose and gesture to make this emotion distinct while remaining faithful to the character. Keep original eye colours and normal pupils. Simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and feet with roughly 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Kinich/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/raw/Kinich/excitement.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/sprites/Kinich/excitement.png",
+          "sha256": "d3cab39f3b0a63779b6e36541bda561902d685c3e60498e6dee85b57476ce070",
+          "status": "candidate"
+        },
+        "sadness": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/prompts/Kinich/sadness.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Kinich from Genshin Impact expressing sadness. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, rendering and his dark hair, teal and gold clothing, accessories and petite medium male proportions. Personality and acting: reserved, practical and alert, with economical grounded gestures. Show a sorrowful downcast gaze and softened shoulders; one hand resting on the opposite forearm. Show Kinich alone, with no companion or floating figure. Change the body pose and gesture to make this emotion distinct while remaining faithful to the character. Keep original eye colours and normal pupils. Simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and feet with roughly 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Kinich/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/raw/Kinich/sadness.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/sprites/Kinich/sadness.png",
+          "sha256": "8e2f7d4969d304252c1bfd6173bafa9e67c6964f322517233b2bdcd13a20f862",
+          "status": "candidate"
+        },
+        "fear": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/prompts/Kinich/fear.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Kinich from Genshin Impact expressing fear. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, rendering and his dark hair, teal and gold clothing, accessories and petite medium male proportions. Personality and acting: reserved, practical and alert, with economical grounded gestures. Show an alarmed gaze and raised brows; shift weight back with one forearm held protectively near the torso. Show Kinich alone, with no companion or floating figure. Change the body pose and gesture to make this emotion distinct while remaining faithful to the character. Keep original eye colours and normal pupils. Simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and feet with roughly 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Kinich/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/raw/Kinich/fear.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/sprites/Kinich/fear.png",
+          "sha256": "84a7c11391392622e16ffc873144c8f1e24aeeacec5343d898b4d2e86ddd3b76",
+          "status": "candidate"
+        },
+        "embarrassment": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/prompts/Kinich/embarrassment.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Kinich from Genshin Impact expressing embarrassment. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, rendering and his dark hair, teal and gold clothing, accessories and petite medium male proportions. Personality and acting: reserved, practical and alert, with economical grounded gestures. Show flushed cheeks and an averted gaze; turn the shoulders slightly and touch the back of the neck with one hand. Show Kinich alone, with no companion or floating figure. Change the body pose and gesture to make this emotion distinct while remaining faithful to the character. Keep original eye colours and normal pupils. Simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and feet with roughly 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Kinich/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/raw/Kinich/embarrassment.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/sprites/Kinich/embarrassment.png",
+          "sha256": "ee23c2deb3b2ea53b9c7948886e1ecb4440468c1ad67ab48b7f5660f4977289d",
+          "status": "candidate"
+        }
+      },
+      "previews": {
+        "full_body": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/previews/Kinich-full-body.png",
+        "faces": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/previews/Kinich-faces.png"
+      }
+    },
+    "Kujou Sara": {
+      "neutral_approval": {
+        "status": "approved",
+        "message": "All others are ACCEPTED.",
+        "date": "2026-10-30",
+        "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Kujou Sara/neutral-v001.png",
+        "candidate_sha256": "584c0907d3ed5340c838b0fb4ac4072f3eedb2c1f31bc1a36259b847548c9560"
+      },
+      "reference": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/references/Kujou Sara/approved-neutral.png",
+      "expressions": {
+        "joy": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/prompts/Kujou Sara/joy.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Kujou Sara from Genshin Impact expressing joy. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, rendering and her dark hair, tengu headpiece, uniform and tall female proportions. Personality and acting: disciplined, dignified and dutiful, with an upright soldier's bearing. Show bright eyes and an easy smile; relax the shoulders with one hand lightly at the waist. Change the body pose and gesture to make this emotion distinct while remaining faithful to the character. Keep original eye colours and normal pupils. Simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and feet with roughly 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Kujou Sara/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/raw/Kujou Sara/joy.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/sprites/Kujou Sara/joy.png",
+          "sha256": "33848ad7d39e4524e0e2236cf187c9385bd662669a15ad0b932a2e030f5b74f9",
+          "status": "candidate"
+        },
+        "annoyance": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/prompts/Kujou Sara/annoyance.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Kujou Sara from Genshin Impact expressing annoyance. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, rendering and her dark hair, tengu headpiece, uniform and tall female proportions. Personality and acting: disciplined, dignified and dutiful, with an upright soldier's bearing. Show a restrained irritated gaze; shift weight to one leg with one forearm near the torso. Change the body pose and gesture to make this emotion distinct while remaining faithful to the character. Keep original eye colours and normal pupils. Simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and feet with roughly 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Kujou Sara/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/raw/Kujou Sara/annoyance.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/sprites/Kujou Sara/annoyance.png",
+          "sha256": "51826beab10390992b125f566175e9117341824ae9e07ddba27b2be1526f77f2",
+          "status": "candidate"
+        },
+        "confusion": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/prompts/Kujou Sara/confusion.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Kujou Sara from Genshin Impact expressing confusion. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, rendering and her dark hair, tengu headpiece, uniform and tall female proportions. Personality and acting: disciplined, dignified and dutiful, with an upright soldier's bearing. Show puzzled eyes and a small frown; turn the shoulders slightly with one hand lifted in a simple questioning gesture. Change the body pose and gesture to make this emotion distinct while remaining faithful to the character. Keep original eye colours and normal pupils. Simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and feet with roughly 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Kujou Sara/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/raw/Kujou Sara/confusion.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/sprites/Kujou Sara/confusion.png",
+          "sha256": "0543a76942af048305dd372d92cb86c3f264aa26f92a88035ff716f68b1a1f34",
+          "status": "candidate"
+        },
+        "love": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/prompts/Kujou Sara/love.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Kujou Sara from Genshin Impact expressing love. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, rendering and her dark hair, tengu headpiece, uniform and tall female proportions. Personality and acting: disciplined, dignified and dutiful, with an upright soldier's bearing. Show tender, open warmth and a gentle smile; relax the shoulders, one hand lightly against the chest. Change the body pose and gesture to make this emotion distinct while remaining faithful to the character. Keep original eye colours and normal pupils. Simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and feet with roughly 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Kujou Sara/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/raw/Kujou Sara/love.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/sprites/Kujou Sara/love.png",
+          "sha256": "de6ae1eeba1beb51130171e52f9ad129c18cece3b227324778d46085a59ad31c",
+          "status": "candidate"
+        },
+        "desire": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/prompts/Kujou Sara/desire.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Kujou Sara from Genshin Impact expressing desire. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, rendering and her dark hair, tengu headpiece, uniform and tall female proportions. Personality and acting: disciplined, dignified and dutiful, with an upright soldier's bearing. Show a yearning gaze with a faint blush; turn toward the viewer, leaning in subtly, one hand near the waist.  Acting: reserved but unmistakably affectionate longing and a subtle blush; tasteful and fully clothed. Change the body pose and gesture to make this emotion distinct while remaining faithful to the character. Keep original eye colours and normal pupils. Simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and feet with roughly 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Kujou Sara/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/raw/Kujou Sara/desire.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/sprites/Kujou Sara/desire.png",
+          "sha256": "a954ae5e8746c9ab5414085b8cc4b5c25571616b08c58059d2b543f31d8ea579",
+          "status": "candidate"
+        },
+        "excitement": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/prompts/Kujou Sara/excitement.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Kujou Sara from Genshin Impact expressing excitement. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, rendering and her dark hair, tengu headpiece, uniform and tall female proportions. Personality and acting: disciplined, dignified and dutiful, with an upright soldier's bearing. Show an enthusiastic smile; lean forward slightly with one hand raised near the shoulder and the other relaxed. Change the body pose and gesture to make this emotion distinct while remaining faithful to the character. Keep original eye colours and normal pupils. Simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and feet with roughly 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Kujou Sara/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/raw/Kujou Sara/excitement.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/sprites/Kujou Sara/excitement.png",
+          "sha256": "8ce11b129a5f57084b879b3c60d217e01a49ad23a36939a566ffb334139bb848",
+          "status": "candidate"
+        },
+        "sadness": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/prompts/Kujou Sara/sadness.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Kujou Sara from Genshin Impact expressing sadness. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, rendering and her dark hair, tengu headpiece, uniform and tall female proportions. Personality and acting: disciplined, dignified and dutiful, with an upright soldier's bearing. Show a subdued expression and lowered eyes; let both arms rest naturally while the shoulders fall slightly. Change the body pose and gesture to make this emotion distinct while remaining faithful to the character. Keep original eye colours and normal pupils. Simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and feet with roughly 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Kujou Sara/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/raw/Kujou Sara/sadness.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/sprites/Kujou Sara/sadness.png",
+          "sha256": "fcaaf6fd970ace2337f02f395fdc8f999c61b50ef272f7d792527d43f03c9b7a",
+          "status": "candidate"
+        },
+        "fear": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/prompts/Kujou Sara/fear.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Kujou Sara from Genshin Impact expressing fear. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, rendering and her dark hair, tengu headpiece, uniform and tall female proportions. Personality and acting: disciplined, dignified and dutiful, with an upright soldier's bearing. Show a tense worried expression; step weight back slightly and hold one hand near the chest. Change the body pose and gesture to make this emotion distinct while remaining faithful to the character. Keep original eye colours and normal pupils. Simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and feet with roughly 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Kujou Sara/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/raw/Kujou Sara/fear.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/sprites/Kujou Sara/fear.png",
+          "sha256": "f06d5a6a6c4cbd5cad184f3fe1969e849c6a7c7503ede1e852047a4203721125",
+          "status": "candidate"
+        },
+        "embarrassment": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/prompts/Kujou Sara/embarrassment.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Kujou Sara from Genshin Impact expressing embarrassment. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, rendering and her dark hair, tengu headpiece, uniform and tall female proportions. Personality and acting: disciplined, dignified and dutiful, with an upright soldier's bearing. Show a blush and shy awkward smile; avert the gaze and lift one hand near the cheek. Change the body pose and gesture to make this emotion distinct while remaining faithful to the character. Keep original eye colours and normal pupils. Simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and feet with roughly 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Kujou Sara/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/raw/Kujou Sara/embarrassment.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/sprites/Kujou Sara/embarrassment.png",
+          "sha256": "75650913ce2110f84b4374cf5680c4a68cb90280f2d6126abdd8c433644f07e1",
+          "status": "candidate"
+        }
+      },
+      "previews": {
+        "full_body": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/previews/Kujou-Sara-full-body.png",
+        "faces": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/previews/Kujou-Sara-faces.png"
+      }
+    },
+    "Kuki Shinobu": {
+      "neutral_approval": {
+        "status": "approved",
+        "message": "All others are ACCEPTED.",
+        "date": "2026-10-30",
+        "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Kuki Shinobu/neutral-v001.png",
+        "candidate_sha256": "be128c9b3e026a988baf331524b219341fd46733b019ef31c5c8c9bd74244bb1"
+      },
+      "reference": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/references/Kuki Shinobu/approved-neutral.png",
+      "expressions": {
+        "joy": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/prompts/Kuki Shinobu/joy.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Kuki Shinobu from Genshin Impact expressing joy. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, rendering and her green hair, black face mask, purple outfit and petite medium female proportions. Personality and acting: practical, composed and resourceful, with understated expressive body language. Show a warm smile; turn slightly toward the viewer, one hand lifted in a modest greeting. Keep her mask in place over nose and mouth; express emotion through her eyes, brows and posture. Change the body pose and gesture to make this emotion distinct while remaining faithful to the character. Keep original eye colours and normal pupils. Simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and feet with roughly 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Kuki Shinobu/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/raw/Kuki Shinobu/joy.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/sprites/Kuki Shinobu/joy.png",
+          "sha256": "18f8e9e299b052a735c9ac90d7865554242d3bb84673c672908a2ca6dd95b6c9",
+          "status": "candidate"
+        },
+        "annoyance": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/prompts/Kuki Shinobu/annoyance.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Kuki Shinobu from Genshin Impact expressing annoyance. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, rendering and her green hair, black face mask, purple outfit and petite medium female proportions. Personality and acting: practical, composed and resourceful, with understated expressive body language. Show a mildly indignant expression; angle the shoulders away, one hand at the waist. Keep her mask in place over nose and mouth; express emotion through her eyes, brows and posture. Change the body pose and gesture to make this emotion distinct while remaining faithful to the character. Keep original eye colours and normal pupils. Simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and feet with roughly 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Kuki Shinobu/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/raw/Kuki Shinobu/annoyance.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/sprites/Kuki Shinobu/annoyance.png",
+          "sha256": "c62441a7d4046fe954186e473f5ac9c26fc2ac05fc6112ea65fe96e4d263d85c",
+          "status": "candidate"
+        },
+        "confusion": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/prompts/Kuki Shinobu/confusion.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Kuki Shinobu from Genshin Impact expressing confusion. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, rendering and her green hair, black face mask, purple outfit and petite medium female proportions. Personality and acting: practical, composed and resourceful, with understated expressive body language. Show a perplexed expression; incline the head and rest one hand thoughtfully near the chin. Keep her mask in place over nose and mouth; express emotion through her eyes, brows and posture. Change the body pose and gesture to make this emotion distinct while remaining faithful to the character. Keep original eye colours and normal pupils. Simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and feet with roughly 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Kuki Shinobu/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/raw/Kuki Shinobu/confusion.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/sprites/Kuki Shinobu/confusion.png",
+          "sha256": "d193914e9e7e77ce1427ea3266f6b38ecdd41423f4937b5d2c8f0d2ae59a1081",
+          "status": "candidate"
+        },
+        "love": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/prompts/Kuki Shinobu/love.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Kuki Shinobu from Genshin Impact expressing love. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, rendering and her green hair, black face mask, purple outfit and petite medium female proportions. Personality and acting: practical, composed and resourceful, with understated expressive body language. Show a sincere loving smile; angle the body toward the viewer and rest one hand over the heart. Keep her mask in place over nose and mouth; express emotion through her eyes, brows and posture. Change the body pose and gesture to make this emotion distinct while remaining faithful to the character. Keep original eye colours and normal pupils. Simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and feet with roughly 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Kuki Shinobu/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/raw/Kuki Shinobu/love.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/sprites/Kuki Shinobu/love.png",
+          "sha256": "e1e7679afe57e28f1aacbc7f38b92b91c4fbf5b0de90e5f32c6ebb2fc63a716c",
+          "status": "candidate"
+        },
+        "desire": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/prompts/Kuki Shinobu/desire.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Kuki Shinobu from Genshin Impact expressing desire. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, rendering and her green hair, black face mask, purple outfit and petite medium female proportions. Personality and acting: practical, composed and resourceful, with understated expressive body language. Show an earnest softened gaze and a subtle blush; shift forward slightly with one hand near the chest.  Acting: a quietly affectionate, intent gaze and slight blush visible above her mask; tasteful and fully clothed. Keep her mask in place over nose and mouth; express emotion through her eyes, brows and posture. Change the body pose and gesture to make this emotion distinct while remaining faithful to the character. Keep original eye colours and normal pupils. Simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and feet with roughly 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Kuki Shinobu/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/raw/Kuki Shinobu/desire.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/sprites/Kuki Shinobu/desire.png",
+          "sha256": "047da79c2afd663a896990a4fce15cfedd641ed1625458e5f0adda9e0697a07d",
+          "status": "candidate"
+        },
+        "excitement": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/prompts/Kuki Shinobu/excitement.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Kuki Shinobu from Genshin Impact expressing excitement. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, rendering and her green hair, black face mask, purple outfit and petite medium female proportions. Personality and acting: practical, composed and resourceful, with understated expressive body language. Show bright eyes and eager anticipation; shift into an alert stance with one hand lifted near the torso. Keep her mask in place over nose and mouth; express emotion through her eyes, brows and posture. Change the body pose and gesture to make this emotion distinct while remaining faithful to the character. Keep original eye colours and normal pupils. Simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and feet with roughly 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Kuki Shinobu/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/raw/Kuki Shinobu/excitement.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/sprites/Kuki Shinobu/excitement.png",
+          "sha256": "d28de94b9244900c2524c3d78c44f763c2f724748772d94c6e554908ae1745bd",
+          "status": "candidate"
+        },
+        "sadness": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/prompts/Kuki Shinobu/sadness.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Kuki Shinobu from Genshin Impact expressing sadness. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, rendering and her green hair, black face mask, purple outfit and petite medium female proportions. Personality and acting: practical, composed and resourceful, with understated expressive body language. Show a sad, quiet gaze; turn slightly away, one hand resting against the opposite forearm. Keep her mask in place over nose and mouth; express emotion through her eyes, brows and posture. Change the body pose and gesture to make this emotion distinct while remaining faithful to the character. Keep original eye colours and normal pupils. Simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and feet with roughly 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Kuki Shinobu/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/raw/Kuki Shinobu/sadness.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/sprites/Kuki Shinobu/sadness.png",
+          "sha256": "60b17dcc3cb884bd15b27be2e8b6157ced46bba3315d723e2ac8a15b8301c10f",
+          "status": "candidate"
+        },
+        "fear": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/prompts/Kuki Shinobu/fear.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Kuki Shinobu from Genshin Impact expressing fear. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, rendering and her green hair, black face mask, purple outfit and petite medium female proportions. Personality and acting: practical, composed and resourceful, with understated expressive body language. Show widened uneasy eyes; turn slightly aside, one forearm protectively near the torso. Keep her mask in place over nose and mouth; express emotion through her eyes, brows and posture. Change the body pose and gesture to make this emotion distinct while remaining faithful to the character. Keep original eye colours and normal pupils. Simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and feet with roughly 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Kuki Shinobu/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/raw/Kuki Shinobu/fear.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/sprites/Kuki Shinobu/fear.png",
+          "sha256": "5a6184d18d02f3fc82dc30df6e5c5dea0aa1563d13dc5435fade52c76585252f",
+          "status": "candidate"
+        },
+        "embarrassment": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/prompts/Kuki Shinobu/embarrassment.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Kuki Shinobu from Genshin Impact expressing embarrassment. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, rendering and her green hair, black face mask, purple outfit and petite medium female proportions. Personality and acting: practical, composed and resourceful, with understated expressive body language. Show a bashful blush and averted gaze; angle the body away slightly with one hand near the face. Keep her mask in place over nose and mouth; express emotion through her eyes, brows and posture. Change the body pose and gesture to make this emotion distinct while remaining faithful to the character. Keep original eye colours and normal pupils. Simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and feet with roughly 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Kuki Shinobu/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/raw/Kuki Shinobu/embarrassment.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/sprites/Kuki Shinobu/embarrassment.png",
+          "sha256": "80ad50e4b8df79ed092ec2baceba13f74f79b3d08e7a5f6b71679a6183e4f12e",
+          "status": "candidate"
+        }
+      },
+      "previews": {
+        "full_body": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/previews/Kuki-Shinobu-full-body.png",
+        "faces": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ineffa-shinobu-expressions/previews/Kuki-Shinobu-faces.png"
+      }
+    }
+  },
+  "preview_order": [
+    "neutral",
+    "joy",
+    "annoyance",
+    "confusion",
+    "love",
+    "desire",
+    "excitement",
+    "sadness",
+    "fear",
+    "embarrassment"
+  ],
+  "preview_layout": "left to right, top row then bottom row",
+  "missing": [],
+  "technical_checks": {
+    "png_count": 90,
+    "png_and_alpha_channel": true,
+    "report": "technical-checks.json",
+    "note": "File checks only; no visual approval implied."
+  }
+}

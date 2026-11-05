@@ -1,10 +1,10 @@
 # Character sprite generation
 
-This workflow records the user's instructions from 2026-10-27. It replaces the older self-review, face-only, and iterative image-repair workflows. Apply it to future character packs unless the user changes it.
+This workflow records the user's instructions from 2026-10-27, updated on 2026-11-05 to allow user-directed markup editing to correct mistakes. It replaces the older self-review and face-only workflows. Apply it to future character packs unless the user changes it.
 
-## Reference graph: keep it shallow
+## Reference graph and markup corrections
 
-For a new neutral, use the character's **official transparent portrait as the sole image reference**. The installed sources are normally:
+For a new neutral, use the character's **official transparent portrait as the sole image reference**, unless the user specifies another source. The installed sources are normally:
 
 ```text
 /Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/<Character>/Official Art/neutral.png
@@ -12,22 +12,42 @@ For a new neutral, use the character's **official transparent portrait as the so
 
 Verify the path and inspect the source before using it. Copy it without alteration into the run's `references/<Character>/official.png`, recording the original path and SHA-256. Internet research may inform the prompt, but do not replace the installed Official Art portrait with generated artwork or an arbitrary online image.
 
-The allowed reference graph is:
+The default reference graph for new assets is:
 
 ```text
 official portrait -> neutral candidate -> user-approved neutral -> expression
 ```
 
-- New neutrals use the official portrait. Do not feed a previous generated neutral candidate, repair, expression, contact sheet, or generated proportion guide back into the image generator.
-- Expressions use **only the explicitly approved neutral** as their image reference. Do not include the official portrait. Every expression independently starts from that same approved neutral so the character's proportions remain consistent.
-- Never use one expression as the reference for another. Never make repair chains such as neutral -> repair -> repair or expression -> repair -> repair.
-- If the user reports a defect in an unapproved neutral, revise the **prompt** and regenerate from the **official portrait**. Do not use the defective candidate as an input.
-- If the user reports a defect in an expression, revise the **prompt** and regenerate from the **approved neutral only**. Do not use the defective expression as an input.
-- If the user reports a defect in an approved neutral itself, treat its approval as revoked, regenerate from official art, and wait for approval of the replacement.
+- New neutrals use the official portrait unless the user specifies another reference, such as model art. Previous generated candidates, repairs, expressions, contact sheets, and generated proportion guides are not references for a fresh neutral.
+- New expressions use **only the explicitly approved neutral** as their image reference, unless the user has authorized other references. Do not include the official portrait by default. Every new expression independently starts from that same approved neutral so the character's proportions remain consistent.
+- Never use one expression as the reference for a different expression. Markup correction of the same asset is allowed as described below.
+- If the user reports a defect in a neutral or expression, a targeted markup edit of that exact candidate is allowed. A fresh regeneration remains available: use the authorized source art for a neutral, or the approved neutral for an expression.
+- If the user reports a defect in an approved neutral itself, treat its approval as revoked. Whether corrected with markup or regenerated, the replacement neutral needs explicit approval before it can be used for expressions. Preserve existing packs unless the user requests their replacement.
+
+### User-directed markup editing
+
+On 2026-11-05 the user authorized markup editing to fix mistakes, replacing the blanket ban on using generated candidates as correction targets. This authorization applies to future sprite work; a separate reference exception is not needed for each correction.
+
+```text
+neutral candidate + markup -> corrected neutral candidate -> explicit user approval
+expression candidate + markup -> corrected expression candidate
+```
+
+- The user identifies the mistake or requests the correction. Do not autonomously inspect candidates for visual defects, start repairs, or treat an edit as visually approved.
+- Use the exact candidate being corrected as the edit target. Supply a separate transparent annotation layer aligned to that target, with the same width and height; keep the underlying candidate unaltered. A user-provided annotated image may guide preparation of this layer.
+- Describe the requested correction and the identity, proportions, costume, rendering, transparency, and framing to preserve. The annotation layer is editing guidance, not a new character, style, or proportion reference. Additional content references still require user authorization.
+- Successive markup corrections to the same asset are allowed when needed to address the user's reported mistakes. Keep them within the requested correction scope; do not automatically start a repair loop or turn an edited expression into a source for other emotions.
+- Preserve every original and correction as a versioned file. Record the user's feedback, parent target path/hash, markup path/hash, exact prompt, actual tool arguments, returned raw output, output hash, and approval state in `run.json`.
+- A corrected neutral is a new exact candidate and always needs explicit approval before expression generation. Approval of its parent does not transfer. Present corrected expressions for user review as candidates too.
+- Use a tool that actually supports markup input. If that capability is unavailable, report the limitation; do not claim an ordinary prompt edit was markup-guided. A fresh regeneration must use the default reference graph above.
 
 The user can explicitly authorize additional references for a particular character or run. Record the request, each reference and its hash, and the purpose of each image; do not extend the exception to other characters. On 2026-10-31 the user supplied an in-game image alongside Faruzan's official portrait for her replacement neutral, and authorized Ganyu's approved neutral plus official portrait for Ganyu's expressions. For Ganyu, the neutral guides compact proportions and rendering; the official portrait supplies identity and costume detail. Each expression still starts independently from those authorized references.
 
-Generated images are terminal candidates, not evolving source artwork. Preserve rejected attempts for provenance, but exclude them from all subsequent input lists.
+On 2026-11-05, after reporting eye distortions in Mizuki's expressions and suspecting the neutral, the user requested a fresh Mizuki neutral and authorized her in-game model as a secondary reference for every subsequent Mizuki expression. Once the replacement neutral is explicitly approved, use that neutral as the primary reference for proportions, rendering and acting, and the user's `Character_Yumemizuki_Mizuki_Game.webp` as a secondary reference for identity, eye design and costume. Each expression independently starts from those two sources; do not include prior expressions or the official portrait by default. The replacement neutral still needs its own approval.
+
+The user further clarified that Mizuki's normal pupils are slight swirls. Describe a small, subtle swirl-shaped pupil within each intact iris, guided by the model, rather than a generic round pupil. Preserve readable iris boundaries and natural eyelid anatomy; the swirl is part of her ordinary eye design, not an emotion-specific effect. This clarification does not establish the cause of the earlier generation defects.
+
+Generated images are review candidates. They may be edit targets for the user-directed markup corrections above, but are not general-purpose references for unrelated generations. Preserve rejected attempts for provenance and use them only when they are the specific correction target.
 
 ## User review and approval
 
@@ -59,11 +79,11 @@ Prompts are adaptable drafting aids, not ground truth. Rewrite them as much as n
 Use the user's 2026-10-27 review as prompt-design feedback for all future sprite requests, not as permission for autonomous visual QA:
 
 - Choose simple, readable hand gestures that suit the emotion. Prefer hands near the torso and nearly in the image plane. Avoid reaching a palm toward the camera, extreme foreshortening, tangled/clasped hands, ambiguous finger curls, and elaborate finger splaying when a simpler gesture communicates the same emotion.
-- Specify coherent **left and right hands separately when a pose depends on handedness**. Each hand has one thumb on its anatomically correct side and four fingers connected to one palm and wrist. A thumb must not be duplicated or attached where a finger belongs. Where digits are visible, request clearly separated silhouettes and a believable palm orientation. Do not require hidden digits to be unnaturally displayed merely to make them countable.
+- Specify **left and right hands separately when a pose depends on handedness**, using ordinary gesture descriptions. After testing prompts without hand-anatomy guidance on 2026-11-05, the user requested its return with different wording. Use concise, pose-aware descriptions of a complete human hand: a palm, four fingers and a separate opposable thumb. Describe natural articulation and separation from sleeves or clothing when relevant, adapting visibility to the gesture. Neither wording experiment establishes a verified cause of generation defects.
 - Specify exactly two legs and two feet belonging to one pelvis. For poses prone to overlapping legs, use an uncomplicated stance with feet separated or only slightly staggered; do not let crossed legs, stockings or coat tails read as an additional limb.
 - Give the face one coherent mouth with a simple readable lip shape. For disgust, a small closed displeased mouth or restrained nose scrunch is preferable to a twisted open mouth, extra lip contours or exaggerated teeth.
 - Heart alternates need **both eyes visibly open** and filled heart-shaped pupils clearly placed inside the retained irises. State the actual pupil colour. They are pupils, not catchlights, eye replacements or floating symbols. Keep these instructions out of ordinary expression prompts.
-- These are construction choices for new prompts. If the user flags a result, record the exact reported defect, change the pose description and prompt as needed, and regenerate independently from the approved neutral only. Never feed the defective sprite back into generation.
+- These are construction choices for new prompts. If the user flags a result, record the exact reported defect and use a targeted markup correction, or revise the pose description and prompt and regenerate independently from the approved neutral. A defective sprite may be used only as the target of its own user-directed markup correction.
 
 The active Zhongli pack is an explicit exception to the default 22-file list: the user removed `love-1` and `desire-1`. Keep only `love.png` and `desire.png` for those emotions, for 20 active Zhongli sprites. Do not regenerate or reintroduce his heart alternates unless the user explicitly requests them. Removed files may remain in historical raw/provenance archives, but never in active sprite folders, current previews or delivery packs.
 
@@ -93,11 +113,17 @@ art/sprites/<run>/
   previews/...
 ```
 
-Keep exact prompts, actual tool arguments/reference paths, raw result paths, selected output hashes, the approval state, and any non-generative framing transform. Use the installed imagegen skill and built-in `image_gen`, one asset per call. Store each returned raw generation before proceeding. Do not silently substitute another generation method.
+Keep exact prompts, actual tool arguments/reference paths, raw result paths, selected output hashes, the approval state, and any non-generative framing transform. Use the installed imagegen skill and built-in `image_gen` by default, one asset per call. When the user explicitly requests model controls or markup editing unavailable in the built-in tool, use a capable route permitted by that skill and record the actual method and settings. If no capable route is available, report the blocker rather than substituting a different model or method. Store each returned raw generation before proceeding. Do not silently substitute another generation method.
 
 Do not schedule expression calls ahead of approval. If interrupted or resumed, read `run.json` and inspect which files actually exist before continuing. Approval must be explicit; never reconstruct it from file names or prior agent claims. Check that older background batches are stopped before a restart, and never import late outputs into the new run.
 
-The established pack has these 22 filenames unless the user requests a different set:
+For remaining characters, the user requested this reduced ten-file set on 2026-11-03. Use the existing approved neutral and generate the other nine expressions; vary pose and gesture to fit both the emotion and the character, including restrained, character-appropriate acting for desire:
+
+```text
+neutral joy annoyance confusion love desire excitement sadness fear embarrassment
+```
+
+Earlier packs used these 22 filenames. Preserve historical packs unless the user requests a change:
 
 ```text
 neutral annoyance smug confusion love excitement joy fear pride desire

@@ -1,0 +1,89 @@
+{
+  "date": "2026-11-05",
+  "character": "Xilonen",
+  "status": "neutral-v002-approved",
+  "user_request": "Try adding her attached in-game model as a reference and using the official art portrait just for artstyle",
+  "reference_exception": {
+    "authorized": true,
+    "scope": "This Xilonen neutral run only",
+    "authorization": "User supplied the in-game model and explicitly requested it as a reference, with official portrait used only for art style."
+  },
+  "references": [
+    {
+      "original_path": "/var/folders/yb/h8ks0jfd6jl0jdj3npytrx2r0000gn/T/codex-clipboard-2dfc8700-a6e3-40b1-8b71-87656f2b2470.png",
+      "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-xilonen-model-reference-neutral/references/Xilonen/model.png",
+      "sha256": "403acae2ae9bd3f5b8e3d33c1331256f0bb60d755d18bc6dc0caf25ade291471",
+      "role": "Primary character design, facial features, body proportions, skin tone, exact costume, accessories, and naturally hanging clothing."
+    },
+    {
+      "original_path": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Xilonen/Official Art/neutral.png",
+      "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-xilonen-model-reference-neutral/references/Xilonen/official.png",
+      "sha256": "4f171f0b0998e7637c810ab0ffd004b510e67f39cadb6c6a9fea7e1927be39f2",
+      "role": "Art style only: illustrated anime linework, shading, color rendering, and material treatment. Do not take anatomy, costume construction, or pose from this image."
+    }
+  ],
+  "generation": {
+    "tool": "image_gen.imagegen",
+    "arguments": {
+      "prompt": "Use case: stylized-concept. Create one new full-body neutral visual-novel sprite of Xilonen from Genshin Impact.\nReference roles are deliberate and separate:\nImage 1, the attached in-game model screenshot, is the authoritative character reference. Preserve its face, green eyes with normal pupils, skin tone, blond hair and orange-gold ends, turquoise-and-pink braid, feline ears, patterned tail, Tall Female body proportions, exact outfit, asymmetric sleeves and gloves, jewelry, central chest ornament, waist belt and buckles, shorts details, thigh markings, legwear, and shoes. Keep the outfit construction and accessory placement shown in Image 1. Let the long costume panels hang naturally down as on the model.\nImage 2, the official illustrated portrait, is for ART STYLE ONLY. Translate Image 1 into Image 2's polished Genshin-inspired anime illustration style: clean drawn contours, detailed cel-shaded forms with soft painted transitions, and the treatment of hair, fabric, fur, and metallic gold. Do not borrow Image 2's turned pose, windblown clothing, body proportions, or costume interpretation. When the sources differ on character details, Image 1 governs.\nPose and characterization: give Xilonen a distinctive laid-back, quietly confident idle, as if she has paused work to listen with relaxed amusement. Shift her weight comfortably onto her right leg and let the left knee soften, feet slightly staggered and uncrossed. Let one hip settle outward, shoulders loose, torso turned slightly three-quarter toward the viewer, and head tilted subtly back toward the viewer. Her bare left hand rests casually on her left hip with a relaxed readable palm; her sleeved right arm bends loosely so her right fingertips lightly touch the edge of her collar near the shoulder, without gripping her neck or hiding her face. Keep both hands near the torso and near the image plane, each with one anatomically correct thumb and four fingers, no elaborate finger splaying. Her eyes remain visibly open with an unhurried, slightly half-lidded gaze and a small knowing closed-mouth smile. Express easygoing self-possession through the asymmetric posture, without an exaggerated fashion-model arch or dramatic action. Preserve Image 1's body type and proportions without lengthening the torso or legs; exactly two legs and two feet. Let the heavy clothing panels hang naturally with gravity in this new stance.\nComplete silhouette from ear tips to shoes, including hair, hands, tail, and hanging accessories; 92\u201396% visible height with about 2\u20134% top and bottom padding. Genuinely transparent background. Omit the screenshot's blue backdrop, particles, floor and reflection. No scenery, UI, labels, text, watermark, floating effects, ground shadow, added props, or additional characters.",
+      "referenced_image_paths": [
+        "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-xilonen-model-reference-neutral/references/Xilonen/model.png",
+        "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-xilonen-model-reference-neutral/references/Xilonen/official.png"
+      ],
+      "transparent_background": true
+    },
+    "model": null,
+    "settings_note": "Built-in model, quality, and complexity are not exposed.",
+    "version": "neutral-v002",
+    "tool_output": "/Users/alexachan/.codex/generated_images/01a1aa19-42b2-7e92-b08d-8ee7d133c057/exec-44f8a8d6-ec80-4220-abd2-b7e17e4bf7ca.png",
+    "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-xilonen-model-reference-neutral/raw/Xilonen/neutral-v002.png",
+    "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-xilonen-model-reference-neutral/candidates/Xilonen/neutral-v002.png",
+    "candidate_sha256": "3f65fb5e7d99706116bf98064cb651a78d65fdf2a46dfa7687031786daee6035",
+    "dimensions": [
+      936,
+      1681
+    ],
+    "png_color_type": 6,
+    "framing_transform": null
+  },
+  "approval": {
+    "status": "approved",
+    "date": "2026-11-05",
+    "message": "That's perfect!! Use this as her new neutral and generate the rest of Xilonen's 10-sprite set, keeping in mind to vary the pose to suit each emotion while staying in character",
+    "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-xilonen-model-reference-neutral/candidates/Xilonen/neutral-v002.png",
+    "candidate_sha256": "3f65fb5e7d99706116bf98064cb651a78d65fdf2a46dfa7687031786daee6035"
+  },
+  "attempts": [
+    {
+      "version": "neutral-v001",
+      "generation": {
+        "tool": "image_gen.imagegen",
+        "arguments": {
+          "prompt": "Use case: stylized-concept. Create one new full-body neutral visual-novel sprite of Xilonen from Genshin Impact.\nReference roles are deliberate and separate:\nImage 1, the attached in-game model screenshot, is the authoritative character reference. Preserve its face, green eyes with normal pupils, skin tone, blond hair and orange-gold ends, turquoise-and-pink braid, feline ears, patterned tail, Tall Female body proportions, exact outfit, asymmetric sleeves and gloves, jewelry, central chest ornament, waist belt and buckles, shorts details, thigh markings, legwear, and shoes. Keep the outfit construction and accessory placement shown in Image 1. Let the long costume panels hang naturally down as on the model.\nImage 2, the official illustrated portrait, is for ART STYLE ONLY. Translate Image 1 into Image 2's polished Genshin-inspired anime illustration style: clean drawn contours, detailed cel-shaded forms with soft painted transitions, and the treatment of hair, fabric, fur, and metallic gold. Do not borrow Image 2's turned pose, windblown clothing, body proportions, or costume interpretation. When the sources differ on character details, Image 1 governs.\nShow a character-appropriate relaxed standing idle, mostly front-facing, calm and easygoing with a subtle natural smile. Simple open hands relaxed near her sides, feet slightly separated, no exaggerated foreshortening. Preserve her model's proportions without lengthening her torso or legs.\nComplete silhouette from ear tips to shoes, including hair, hands, tail, and hanging accessories; 92\u201396% visible height with about 2\u20134% top and bottom padding. Genuinely transparent background. Omit the screenshot's blue backdrop, particles, floor and reflection. No scenery, UI, labels, text, watermark, floating effects, ground shadow, added props, or additional characters.",
+          "referenced_image_paths": [
+            "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-xilonen-model-reference-neutral/references/Xilonen/model.png",
+            "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-xilonen-model-reference-neutral/references/Xilonen/official.png"
+          ],
+          "transparent_background": true
+        },
+        "model": null,
+        "settings_note": "Built-in tool does not expose or report a selectable model, quality, or complexity.",
+        "tool_output": "/Users/alexachan/.codex/generated_images/01a1aa19-42b2-7e92-b08d-8ee7d133c057/exec-fa3f13b3-1a82-4550-a165-378d352229c3.png",
+        "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-xilonen-model-reference-neutral/raw/Xilonen/neutral-v001.png",
+        "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-xilonen-model-reference-neutral/candidates/Xilonen/neutral-v001.png",
+        "candidate_sha256": "fe25e850e1320985da498e1e3b3ed69014dc19fc9fab5816e10cbb376f3fcc56",
+        "dimensions": [
+          935,
+          1683
+        ],
+        "png_color_type": 6,
+        "framing_transform": null
+      },
+      "approval": {
+        "status": "pending",
+        "note": "Prior praise does not approve this new candidate. Wait for explicit approval of the exact generated file/hash before expressions."
+      }
+    }
+  ],
+  "current_user_request": "Wow, very good! Try regenerating again but give her a more unique pose that fits her characterization"
+}

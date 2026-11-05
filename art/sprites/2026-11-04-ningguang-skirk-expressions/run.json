@@ -1,0 +1,1397 @@
+{
+  "status": "generated; expression candidates awaiting user review",
+  "request": "Ten sprites each with dynamic, character-appropriate poses; skip characters with previously generated sets.",
+  "requested_emotions": [
+    "neutral",
+    "joy",
+    "annoyance",
+    "confusion",
+    "love",
+    "desire",
+    "excitement",
+    "sadness",
+    "fear",
+    "embarrassment"
+  ],
+  "characters": {
+    "Ningguang": {
+      "neutral_approval": {
+        "status": "approved",
+        "message": "All others are ACCEPTED.",
+        "date": "2026-10-30",
+        "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Ningguang/neutral-v002.png",
+        "candidate_sha256": "df8b63e71689d4a7936daafad5235d95219bfdd6f46a53419ab6cf8b7b06b43f"
+      },
+      "reference": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/references/Ningguang/approved-neutral.png",
+      "expressions": {
+        "joy": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/prompts/Ningguang/joy.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Ningguang from Genshin Impact expressing joy. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, eye colors, costume, accessories, rendering and her long white hair, gold-and-white dress, ornaments and tall female proportions. Personality and acting: authoritative, elegant and self-possessed, with controlled, deliberate gestures. Show a sincere smile and softened eyes; shift comfortably and give a small greeting near the torso. Vary pose and gesture to match the emotion while staying faithful to the character; maintain the reference's proportions without elongating the torso or legs. Use normal pupils, simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and shoes with 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Ningguang/neutral-v002.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/raw/Ningguang/joy.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/sprites/Ningguang/joy.png",
+          "sha256": "8cc5196d3aaad6d5074cfec86ec7fa652b49d9653fa04e5d6605e333e6dd6974",
+          "status": "candidate"
+        },
+        "annoyance": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/prompts/Ningguang/annoyance.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Ningguang from Genshin Impact expressing annoyance. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, eye colors, costume, accessories, rendering and her long white hair, gold-and-white dress, ornaments and tall female proportions. Personality and acting: authoritative, elegant and self-possessed, with controlled, deliberate gestures. Show a clear displeased frown and knitted brows; stand firmly with one hand on the hip and the other down. Vary pose and gesture to match the emotion while staying faithful to the character; maintain the reference's proportions without elongating the torso or legs. Use normal pupils, simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and shoes with 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Ningguang/neutral-v002.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/raw/Ningguang/annoyance.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/sprites/Ningguang/annoyance.png",
+          "sha256": "011b648450a64767de065c1b948bef1065c7352311941ebda65deb355cb4488e",
+          "status": "candidate"
+        },
+        "confusion": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/prompts/Ningguang/confusion.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Ningguang from Genshin Impact expressing confusion. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, eye colors, costume, accessories, rendering and her long white hair, gold-and-white dress, ornaments and tall female proportions. Personality and acting: authoritative, elegant and self-possessed, with controlled, deliberate gestures. Show a questioning expression and raised brow; tilt the head slightly and bring one hand near the chin. Vary pose and gesture to match the emotion while staying faithful to the character; maintain the reference's proportions without elongating the torso or legs. Use normal pupils, simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and shoes with 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Ningguang/neutral-v002.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/raw/Ningguang/confusion.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/sprites/Ningguang/confusion.png",
+          "sha256": "6ed632ddc8094aa03e0c8bb650aea134488783a8ddf24df12c62c9b799b17ba9",
+          "status": "candidate"
+        },
+        "love": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/prompts/Ningguang/love.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Ningguang from Genshin Impact expressing love. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, eye colors, costume, accessories, rendering and her long white hair, gold-and-white dress, ornaments and tall female proportions. Personality and acting: authoritative, elegant and self-possessed, with controlled, deliberate gestures. Show a genuinely affectionate smile and warm eyes; turn toward the viewer with one hand over the heart and the other relaxed. Vary pose and gesture to match the emotion while staying faithful to the character; maintain the reference's proportions without elongating the torso or legs. Use normal pupils, simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and shoes with 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Ningguang/neutral-v002.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/raw/Ningguang/love.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/sprites/Ningguang/love.png",
+          "sha256": "f5b151ed200e86c3c9c15fefa65123a6389cac64dda1268b434104f1c01db37b",
+          "status": "candidate"
+        },
+        "desire": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/prompts/Ningguang/desire.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Ningguang from Genshin Impact expressing desire. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, eye colors, costume, accessories, rendering and her long white hair, gold-and-white dress, ornaments and tall female proportions. Personality and acting: authoritative, elegant and self-possessed, with controlled, deliberate gestures. Show a hopeful intent gaze and a subtle blush; lean forward slightly with one hand near the heart and the other at the side.  Convey a confident, discreetly yearning gaze while remaining poised; tasteful in the established outfit. Vary pose and gesture to match the emotion while staying faithful to the character; maintain the reference's proportions without elongating the torso or legs. Use normal pupils, simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and shoes with 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Ningguang/neutral-v002.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/raw/Ningguang/desire.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/sprites/Ningguang/desire.png",
+          "sha256": "9356ef387d3191029b7a8527b7b673eabb6de38864bb7b601fb834beedb70c6a",
+          "status": "candidate"
+        },
+        "excitement": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/prompts/Ningguang/excitement.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Ningguang from Genshin Impact expressing excitement. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, eye colors, costume, accessories, rendering and her long white hair, gold-and-white dress, ornaments and tall female proportions. Personality and acting: authoritative, elegant and self-possessed, with controlled, deliberate gestures. Show bright eager eyes and a delighted smile; stand more alert, one hand lifted in a small celebratory gesture. Vary pose and gesture to match the emotion while staying faithful to the character; maintain the reference's proportions without elongating the torso or legs. Use normal pupils, simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and shoes with 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Ningguang/neutral-v002.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/raw/Ningguang/excitement.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/sprites/Ningguang/excitement.png",
+          "sha256": "3a230a79e1da54454fa9a22b7dbd845a2eebcf595229d10fd0bba004cdd1d77c",
+          "status": "candidate"
+        },
+        "sadness": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/prompts/Ningguang/sadness.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Ningguang from Genshin Impact expressing sadness. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, eye colors, costume, accessories, rendering and her long white hair, gold-and-white dress, ornaments and tall female proportions. Personality and acting: authoritative, elegant and self-possessed, with controlled, deliberate gestures. Show a sorrowful downcast gaze and softened shoulders; one hand resting on the opposite forearm. Vary pose and gesture to match the emotion while staying faithful to the character; maintain the reference's proportions without elongating the torso or legs. Use normal pupils, simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and shoes with 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Ningguang/neutral-v002.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/raw/Ningguang/sadness.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/sprites/Ningguang/sadness.png",
+          "sha256": "31fd6ec82967ea784b98c5cd117c721b8f4be756fba5bc172930c63fa4b112f1",
+          "status": "candidate"
+        },
+        "fear": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/prompts/Ningguang/fear.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Ningguang from Genshin Impact expressing fear. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, eye colors, costume, accessories, rendering and her long white hair, gold-and-white dress, ornaments and tall female proportions. Personality and acting: authoritative, elegant and self-possessed, with controlled, deliberate gestures. Show an alarmed gaze and raised brows; shift weight back with one forearm held protectively near the torso. Vary pose and gesture to match the emotion while staying faithful to the character; maintain the reference's proportions without elongating the torso or legs. Use normal pupils, simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and shoes with 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Ningguang/neutral-v002.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/raw/Ningguang/fear.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/sprites/Ningguang/fear.png",
+          "sha256": "1cf7a6c589168f7c26b3c897a23f2b377489507b27b0171ae7744779ddcd10f6",
+          "status": "candidate"
+        },
+        "embarrassment": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/prompts/Ningguang/embarrassment.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Ningguang from Genshin Impact expressing embarrassment. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, eye colors, costume, accessories, rendering and her long white hair, gold-and-white dress, ornaments and tall female proportions. Personality and acting: authoritative, elegant and self-possessed, with controlled, deliberate gestures. Show a fleeting blush and sidelong glance; stand upright and calmly adjust one glove. Vary pose and gesture to match the emotion while staying faithful to the character; maintain the reference's proportions without elongating the torso or legs. Use normal pupils, simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and shoes with 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Ningguang/neutral-v002.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/raw/Ningguang/embarrassment.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/sprites/Ningguang/embarrassment.png",
+          "sha256": "883bfbf72b4a462e4de56104718d59a95c768de63872938f2ee561544b0aabd0",
+          "status": "candidate"
+        }
+      },
+      "previews": {
+        "full_body": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/previews/Ningguang-full-body.png",
+        "faces": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/previews/Ningguang-faces.png"
+      }
+    },
+    "Odette": {
+      "neutral_approval": {
+        "status": "approved",
+        "message": "All others are ACCEPTED.",
+        "date": "2026-10-30",
+        "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Odette/neutral-v001.png",
+        "candidate_sha256": "9c07165383b38b0a3b8798b1cd63ca3f29f0d4cffc2d2b75f054dc57eed73935"
+      },
+      "reference": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/references/Odette/approved-neutral.png",
+      "expressions": {
+        "joy": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/prompts/Odette/joy.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Odette from Genshin Impact expressing joy. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, eye colors, costume, accessories, rendering and her pale blue hair, blue-and-white outfit, ornaments and petite medium female proportions. Personality and acting: gentle, graceful and reserved, with light, unhurried gestures. Show bright eyes and an easy smile; relax the shoulders with one hand lightly at the waist. Vary pose and gesture to match the emotion while staying faithful to the character; maintain the reference's proportions without elongating the torso or legs. Use normal pupils, simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and shoes with 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Odette/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/raw/Odette/joy.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/sprites/Odette/joy.png",
+          "sha256": "2fa0735c55127548065888a18270e43cd1130b746a7075b38f3a323ff7c3a779",
+          "status": "candidate"
+        },
+        "annoyance": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/prompts/Odette/annoyance.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Odette from Genshin Impact expressing annoyance. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, eye colors, costume, accessories, rendering and her pale blue hair, blue-and-white outfit, ornaments and petite medium female proportions. Personality and acting: gentle, graceful and reserved, with light, unhurried gestures. Show a restrained irritated gaze; shift weight to one leg with one forearm near the torso. Vary pose and gesture to match the emotion while staying faithful to the character; maintain the reference's proportions without elongating the torso or legs. Use normal pupils, simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and shoes with 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Odette/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/raw/Odette/annoyance.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/sprites/Odette/annoyance.png",
+          "sha256": "1311948e35d19ecdf580a82368412ee09288eb3c7fabdcd0703df15a5e251501",
+          "status": "candidate"
+        },
+        "confusion": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/prompts/Odette/confusion.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Odette from Genshin Impact expressing confusion. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, eye colors, costume, accessories, rendering and her pale blue hair, blue-and-white outfit, ornaments and petite medium female proportions. Personality and acting: gentle, graceful and reserved, with light, unhurried gestures. Show puzzled eyes and a small frown; turn the shoulders slightly with one hand lifted in a simple questioning gesture. Vary pose and gesture to match the emotion while staying faithful to the character; maintain the reference's proportions without elongating the torso or legs. Use normal pupils, simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and shoes with 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Odette/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/raw/Odette/confusion.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/sprites/Odette/confusion.png",
+          "sha256": "8689390a373b017579c1344ad487ce16518b4f64122300184a295c2fd6a271a8",
+          "status": "candidate"
+        },
+        "love": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/prompts/Odette/love.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Odette from Genshin Impact expressing love. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, eye colors, costume, accessories, rendering and her pale blue hair, blue-and-white outfit, ornaments and petite medium female proportions. Personality and acting: gentle, graceful and reserved, with light, unhurried gestures. Show tender, open warmth and a gentle smile; relax the shoulders, one hand lightly against the chest. Vary pose and gesture to match the emotion while staying faithful to the character; maintain the reference's proportions without elongating the torso or legs. Use normal pupils, simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and shoes with 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Odette/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/raw/Odette/love.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/sprites/Odette/love.png",
+          "sha256": "0265e3765f5f055f4c41f7d72b0d073b70ca43aed65f454e9297928c9d95f1d1",
+          "status": "candidate"
+        },
+        "desire": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/prompts/Odette/desire.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Odette from Genshin Impact expressing desire. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, eye colors, costume, accessories, rendering and her pale blue hair, blue-and-white outfit, ornaments and petite medium female proportions. Personality and acting: gentle, graceful and reserved, with light, unhurried gestures. Show a yearning gaze with a faint blush; turn toward the viewer, leaning in subtly, one hand near the waist.  Convey a sweet, hopeful wish for closeness with restrained warmth; tasteful in the established outfit. Vary pose and gesture to match the emotion while staying faithful to the character; maintain the reference's proportions without elongating the torso or legs. Use normal pupils, simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and shoes with 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Odette/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/raw/Odette/desire.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/sprites/Odette/desire.png",
+          "sha256": "946965811063f79e2fc7c33ff95fb5694d1c9b05acbb098c38a4df8c8899c8f8",
+          "status": "candidate"
+        },
+        "excitement": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/prompts/Odette/excitement.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Odette from Genshin Impact expressing excitement. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, eye colors, costume, accessories, rendering and her pale blue hair, blue-and-white outfit, ornaments and petite medium female proportions. Personality and acting: gentle, graceful and reserved, with light, unhurried gestures. Show an enthusiastic smile; lean forward slightly with one hand raised near the shoulder and the other relaxed. Vary pose and gesture to match the emotion while staying faithful to the character; maintain the reference's proportions without elongating the torso or legs. Use normal pupils, simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and shoes with 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Odette/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/raw/Odette/excitement.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/sprites/Odette/excitement.png",
+          "sha256": "715c4c1b6f336d67f3bdad3fcf5ecb5a31f7860dd9e1a852544f38a19bdc12d0",
+          "status": "candidate"
+        },
+        "sadness": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/prompts/Odette/sadness.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Odette from Genshin Impact expressing sadness. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, eye colors, costume, accessories, rendering and her pale blue hair, blue-and-white outfit, ornaments and petite medium female proportions. Personality and acting: gentle, graceful and reserved, with light, unhurried gestures. Show a subdued expression and lowered eyes; let both arms rest naturally while the shoulders fall slightly. Vary pose and gesture to match the emotion while staying faithful to the character; maintain the reference's proportions without elongating the torso or legs. Use normal pupils, simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and shoes with 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Odette/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/raw/Odette/sadness.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/sprites/Odette/sadness.png",
+          "sha256": "b6d3b0d62451512a3b6ddee85dba61616acfe46603049c604a885c3a653b4c78",
+          "status": "candidate"
+        },
+        "fear": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/prompts/Odette/fear.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Odette from Genshin Impact expressing fear. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, eye colors, costume, accessories, rendering and her pale blue hair, blue-and-white outfit, ornaments and petite medium female proportions. Personality and acting: gentle, graceful and reserved, with light, unhurried gestures. Show a tense worried expression; step weight back slightly and hold one hand near the chest. Vary pose and gesture to match the emotion while staying faithful to the character; maintain the reference's proportions without elongating the torso or legs. Use normal pupils, simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and shoes with 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Odette/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/raw/Odette/fear.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/sprites/Odette/fear.png",
+          "sha256": "e29940eced31a32cd31fdb04455531acfaf650535db9ab63b85ffead1f9a570f",
+          "status": "candidate"
+        },
+        "embarrassment": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/prompts/Odette/embarrassment.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Odette from Genshin Impact expressing embarrassment. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, eye colors, costume, accessories, rendering and her pale blue hair, blue-and-white outfit, ornaments and petite medium female proportions. Personality and acting: gentle, graceful and reserved, with light, unhurried gestures. Show a shy blush and downcast glance, one hand near her collar and the other relaxed. Vary pose and gesture to match the emotion while staying faithful to the character; maintain the reference's proportions without elongating the torso or legs. Use normal pupils, simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and shoes with 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Odette/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/raw/Odette/embarrassment.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/sprites/Odette/embarrassment.png",
+          "sha256": "c1953c84d468b766f0707ca6c8ca6997dad70a50c0e23a147df68d287cf22dd0",
+          "status": "candidate"
+        }
+      },
+      "previews": {
+        "full_body": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/previews/Odette-full-body.png",
+        "faces": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/previews/Odette-faces.png"
+      }
+    },
+    "Ororon": {
+      "neutral_approval": {
+        "status": "approved",
+        "message": "All others are ACCEPTED.",
+        "date": "2026-10-30",
+        "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Ororon/neutral-v001.png",
+        "candidate_sha256": "7206a6d006a94e70ff66a72db633523949e1a054039ec7a85d61d7cd9459dc60"
+      },
+      "reference": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/references/Ororon/approved-neutral.png",
+      "expressions": {
+        "joy": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/prompts/Ororon/joy.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Ororon from Genshin Impact expressing joy. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, eye colors, costume, accessories, rendering and his dark blue hair, distinctive eyes, markings, wing-like cloak, costume and tall male proportions. Personality and acting: quiet, earnest and slightly awkward, with a grounded masculine stance. Show a warm smile; turn slightly toward the viewer, one hand lifted in a modest greeting. Vary pose and gesture to match the emotion while staying faithful to the character; maintain the reference's proportions without elongating the torso or legs. Use normal pupils, simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and shoes with 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Ororon/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/raw/Ororon/joy.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/sprites/Ororon/joy.png",
+          "sha256": "c391273215cac1b323f7615f08b656d062eedf802e13efa08c5a9dff523e4a22",
+          "status": "candidate"
+        },
+        "annoyance": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/prompts/Ororon/annoyance.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Ororon from Genshin Impact expressing annoyance. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, eye colors, costume, accessories, rendering and his dark blue hair, distinctive eyes, markings, wing-like cloak, costume and tall male proportions. Personality and acting: quiet, earnest and slightly awkward, with a grounded masculine stance. Show a mildly indignant expression; angle the shoulders away, one hand at the waist. Vary pose and gesture to match the emotion while staying faithful to the character; maintain the reference's proportions without elongating the torso or legs. Use normal pupils, simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and shoes with 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Ororon/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/raw/Ororon/annoyance.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/sprites/Ororon/annoyance.png",
+          "sha256": "efc0936c4a28688cf0e51c267eebcf4148f107c0516dda24bdf3d87b33b91780",
+          "status": "candidate"
+        },
+        "confusion": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/prompts/Ororon/confusion.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Ororon from Genshin Impact expressing confusion. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, eye colors, costume, accessories, rendering and his dark blue hair, distinctive eyes, markings, wing-like cloak, costume and tall male proportions. Personality and acting: quiet, earnest and slightly awkward, with a grounded masculine stance. Show a perplexed expression; incline the head and rest one hand thoughtfully near the chin. Vary pose and gesture to match the emotion while staying faithful to the character; maintain the reference's proportions without elongating the torso or legs. Use normal pupils, simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and shoes with 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Ororon/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/raw/Ororon/confusion.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/sprites/Ororon/confusion.png",
+          "sha256": "70d3b401baaa64af0844be79712b47abea96452306b222835fe3fcd7e34fe60e",
+          "status": "candidate"
+        },
+        "love": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/prompts/Ororon/love.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Ororon from Genshin Impact expressing love. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, eye colors, costume, accessories, rendering and his dark blue hair, distinctive eyes, markings, wing-like cloak, costume and tall male proportions. Personality and acting: quiet, earnest and slightly awkward, with a grounded masculine stance. Show a sincere loving smile; angle the body toward the viewer and rest one hand over the heart. Vary pose and gesture to match the emotion while staying faithful to the character; maintain the reference's proportions without elongating the torso or legs. Use normal pupils, simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and shoes with 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Ororon/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/raw/Ororon/love.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/sprites/Ororon/love.png",
+          "sha256": "d8aca9c11e9e909f5e7daaf9f31042f133fc8d8b0e3c835e6b90d32869fd0693",
+          "status": "candidate"
+        },
+        "desire": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/prompts/Ororon/desire.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Ororon from Genshin Impact expressing desire. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, eye colors, costume, accessories, rendering and his dark blue hair, distinctive eyes, markings, wing-like cloak, costume and tall male proportions. Personality and acting: quiet, earnest and slightly awkward, with a grounded masculine stance. Show an earnest softened gaze and a subtle blush; shift forward slightly with one hand near the chest.  Convey quietly earnest longing, a softened gaze and a subtle blush; tasteful in the established outfit. Vary pose and gesture to match the emotion while staying faithful to the character; maintain the reference's proportions without elongating the torso or legs. Use normal pupils, simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and shoes with 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Ororon/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/raw/Ororon/desire.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/sprites/Ororon/desire.png",
+          "sha256": "b9f9fc475824546da7df07154cff9a4b71a254bad9fdd70f87d3e5d18f31ca63",
+          "status": "candidate"
+        },
+        "excitement": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/prompts/Ororon/excitement.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Ororon from Genshin Impact expressing excitement. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, eye colors, costume, accessories, rendering and his dark blue hair, distinctive eyes, markings, wing-like cloak, costume and tall male proportions. Personality and acting: quiet, earnest and slightly awkward, with a grounded masculine stance. Show bright eyes and eager anticipation; shift into an alert stance with one hand lifted near the torso. Vary pose and gesture to match the emotion while staying faithful to the character; maintain the reference's proportions without elongating the torso or legs. Use normal pupils, simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and shoes with 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Ororon/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/raw/Ororon/excitement.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/sprites/Ororon/excitement.png",
+          "sha256": "b1cbecf39fa504f28215feec3a5aa968460dc7c14d5c5346ec39c63ff8cee256",
+          "status": "candidate"
+        },
+        "sadness": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/prompts/Ororon/sadness.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Ororon from Genshin Impact expressing sadness. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, eye colors, costume, accessories, rendering and his dark blue hair, distinctive eyes, markings, wing-like cloak, costume and tall male proportions. Personality and acting: quiet, earnest and slightly awkward, with a grounded masculine stance. Show a sad, quiet gaze; turn slightly away, one hand resting against the opposite forearm. Vary pose and gesture to match the emotion while staying faithful to the character; maintain the reference's proportions without elongating the torso or legs. Use normal pupils, simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and shoes with 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Ororon/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/raw/Ororon/sadness.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/sprites/Ororon/sadness.png",
+          "sha256": "fac5bba7fc57115ae48159051c477f10f2198a4b7eb40f18b6022a54404acdf0",
+          "status": "candidate"
+        },
+        "fear": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/prompts/Ororon/fear.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Ororon from Genshin Impact expressing fear. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, eye colors, costume, accessories, rendering and his dark blue hair, distinctive eyes, markings, wing-like cloak, costume and tall male proportions. Personality and acting: quiet, earnest and slightly awkward, with a grounded masculine stance. Show widened uneasy eyes; turn slightly aside, one forearm protectively near the torso. Vary pose and gesture to match the emotion while staying faithful to the character; maintain the reference's proportions without elongating the torso or legs. Use normal pupils, simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and shoes with 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Ororon/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/raw/Ororon/fear.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/sprites/Ororon/fear.png",
+          "sha256": "c18487602fdced2260d5e73e370ae8ce58e2e716a29a24edc53123d9d3351e33",
+          "status": "candidate"
+        },
+        "embarrassment": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/prompts/Ororon/embarrassment.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Ororon from Genshin Impact expressing embarrassment. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, eye colors, costume, accessories, rendering and his dark blue hair, distinctive eyes, markings, wing-like cloak, costume and tall male proportions. Personality and acting: quiet, earnest and slightly awkward, with a grounded masculine stance. Show a small blush and averted gaze; stand with feet planted and one hand resting behind his neck. Vary pose and gesture to match the emotion while staying faithful to the character; maintain the reference's proportions without elongating the torso or legs. Use normal pupils, simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and shoes with 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Ororon/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/raw/Ororon/embarrassment.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/sprites/Ororon/embarrassment.png",
+          "sha256": "fe0b6f71434b7c880bebf7ca98dfd0ef7598b437715dd47db04fbd1309941fe4",
+          "status": "candidate"
+        }
+      },
+      "previews": {
+        "full_body": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/previews/Ororon-full-body.png",
+        "faces": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/previews/Ororon-faces.png"
+      }
+    },
+    "Razor": {
+      "neutral_approval": {
+        "status": "approved",
+        "message": "All others are ACCEPTED.",
+        "date": "2026-10-30",
+        "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Razor/neutral-v001.png",
+        "candidate_sha256": "5ef17ee5d1e4a2e1da3bf4051ae06e4c8dd073caff8be5f4e4cf0790270948a0"
+      },
+      "reference": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/references/Razor/approved-neutral.png",
+      "expressions": {
+        "joy": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/prompts/Razor/joy.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Razor from Genshin Impact expressing joy. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, eye colors, costume, accessories, rendering and his long silver hair, hood, orange-and-green outfit and petite medium male proportions. Personality and acting: direct, loyal and instinctively alert, with straightforward, grounded gestures. Show a sincere smile and softened eyes; shift comfortably and give a small greeting near the torso. Vary pose and gesture to match the emotion while staying faithful to the character; maintain the reference's proportions without elongating the torso or legs. Use normal pupils, simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and shoes with 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Razor/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/raw/Razor/joy.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/sprites/Razor/joy.png",
+          "sha256": "8499332fd0f19b0867c6cace969a10cde389036e899bc47c37ad09d5d87fc1e9",
+          "status": "candidate"
+        },
+        "annoyance": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/prompts/Razor/annoyance.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Razor from Genshin Impact expressing annoyance. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, eye colors, costume, accessories, rendering and his long silver hair, hood, orange-and-green outfit and petite medium male proportions. Personality and acting: direct, loyal and instinctively alert, with straightforward, grounded gestures. Show a clear displeased frown and knitted brows; stand firmly with one hand on the hip and the other down. Vary pose and gesture to match the emotion while staying faithful to the character; maintain the reference's proportions without elongating the torso or legs. Use normal pupils, simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and shoes with 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Razor/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/raw/Razor/annoyance.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/sprites/Razor/annoyance.png",
+          "sha256": "5725754311e207dc92765f33f6dfb2f9707c84512f4445ea34cb05fc71227626",
+          "status": "candidate"
+        },
+        "confusion": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/prompts/Razor/confusion.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Razor from Genshin Impact expressing confusion. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, eye colors, costume, accessories, rendering and his long silver hair, hood, orange-and-green outfit and petite medium male proportions. Personality and acting: direct, loyal and instinctively alert, with straightforward, grounded gestures. Show a questioning expression and raised brow; tilt the head slightly and bring one hand near the chin. Vary pose and gesture to match the emotion while staying faithful to the character; maintain the reference's proportions without elongating the torso or legs. Use normal pupils, simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and shoes with 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Razor/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/raw/Razor/confusion.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/sprites/Razor/confusion.png",
+          "sha256": "68c9cb0547777b52cbba98f8203fd6524fc6a369126b8cc93ee12111e00e2100",
+          "status": "candidate"
+        },
+        "love": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/prompts/Razor/love.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Razor from Genshin Impact expressing love. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, eye colors, costume, accessories, rendering and his long silver hair, hood, orange-and-green outfit and petite medium male proportions. Personality and acting: direct, loyal and instinctively alert, with straightforward, grounded gestures. Show a genuinely affectionate smile and warm eyes; turn toward the viewer with one hand over the heart and the other relaxed. Vary pose and gesture to match the emotion while staying faithful to the character; maintain the reference's proportions without elongating the torso or legs. Use normal pupils, simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and shoes with 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Razor/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/raw/Razor/love.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/sprites/Razor/love.png",
+          "sha256": "cba1adb853c460c2e758426bb0d3ec712c244a0983145781bc92d5cc9dfe9f8c",
+          "status": "candidate"
+        },
+        "desire": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/prompts/Razor/desire.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Razor from Genshin Impact expressing desire. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, eye colors, costume, accessories, rendering and his long silver hair, hood, orange-and-green outfit and petite medium male proportions. Personality and acting: direct, loyal and instinctively alert, with straightforward, grounded gestures. Show a hopeful intent gaze and a subtle blush; lean forward slightly with one hand near the heart and the other at the side.  Convey a wholesome, earnest wish for friendship and closeness; non-suggestive; tasteful in the established outfit. Vary pose and gesture to match the emotion while staying faithful to the character; maintain the reference's proportions without elongating the torso or legs. Use normal pupils, simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and shoes with 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Razor/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/raw/Razor/desire.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/sprites/Razor/desire.png",
+          "sha256": "baf94fbe34f6ad6b32a3cc59f184a3435daae0754cbbd23b2a7d4fb11352d612",
+          "status": "candidate"
+        },
+        "excitement": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/prompts/Razor/excitement.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Razor from Genshin Impact expressing excitement. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, eye colors, costume, accessories, rendering and his long silver hair, hood, orange-and-green outfit and petite medium male proportions. Personality and acting: direct, loyal and instinctively alert, with straightforward, grounded gestures. Show bright eager eyes and a delighted smile; stand more alert, one hand lifted in a small celebratory gesture. Vary pose and gesture to match the emotion while staying faithful to the character; maintain the reference's proportions without elongating the torso or legs. Use normal pupils, simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and shoes with 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Razor/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/raw/Razor/excitement.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/sprites/Razor/excitement.png",
+          "sha256": "e9704a0156d50f9f0d556cb2b7e6b94ba73434b7206e4aa7d4c04bfb8222767d",
+          "status": "candidate"
+        },
+        "sadness": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/prompts/Razor/sadness.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Razor from Genshin Impact expressing sadness. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, eye colors, costume, accessories, rendering and his long silver hair, hood, orange-and-green outfit and petite medium male proportions. Personality and acting: direct, loyal and instinctively alert, with straightforward, grounded gestures. Show a sorrowful downcast gaze and softened shoulders; one hand resting on the opposite forearm. Vary pose and gesture to match the emotion while staying faithful to the character; maintain the reference's proportions without elongating the torso or legs. Use normal pupils, simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and shoes with 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Razor/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/raw/Razor/sadness.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/sprites/Razor/sadness.png",
+          "sha256": "308d38387c7f66e48045c7d94c13c1a6804ea6116a74d34b1e9ee0a5bd20164a",
+          "status": "candidate"
+        },
+        "fear": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/prompts/Razor/fear.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Razor from Genshin Impact expressing fear. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, eye colors, costume, accessories, rendering and his long silver hair, hood, orange-and-green outfit and petite medium male proportions. Personality and acting: direct, loyal and instinctively alert, with straightforward, grounded gestures. Show an alarmed gaze and raised brows; shift weight back with one forearm held protectively near the torso. Vary pose and gesture to match the emotion while staying faithful to the character; maintain the reference's proportions without elongating the torso or legs. Use normal pupils, simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and shoes with 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Razor/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/raw/Razor/fear.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/sprites/Razor/fear.png",
+          "sha256": "a75d6e35303dacb05fc7bb55c7f2bf392d417a810f3623d606373ef37e8eeede",
+          "status": "candidate"
+        },
+        "embarrassment": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/prompts/Razor/embarrassment.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Razor from Genshin Impact expressing embarrassment. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, eye colors, costume, accessories, rendering and his long silver hair, hood, orange-and-green outfit and petite medium male proportions. Personality and acting: direct, loyal and instinctively alert, with straightforward, grounded gestures. Show a bashful blush and puzzled averted gaze; stand grounded with one hand lightly touching his hood. Vary pose and gesture to match the emotion while staying faithful to the character; maintain the reference's proportions without elongating the torso or legs. Use normal pupils, simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and shoes with 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Razor/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/raw/Razor/embarrassment.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/sprites/Razor/embarrassment.png",
+          "sha256": "2d4d17afbedaee4f8486bfa9d1d6a5c27418a937a407ce0f3311db4f5f2cafaa",
+          "status": "candidate"
+        }
+      },
+      "previews": {
+        "full_body": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/previews/Razor-full-body.png",
+        "faces": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/previews/Razor-faces.png"
+      }
+    },
+    "Rosaria": {
+      "neutral_approval": {
+        "status": "approved",
+        "message": "All others are ACCEPTED.",
+        "date": "2026-10-30",
+        "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Rosaria/neutral-v001.png",
+        "candidate_sha256": "5ccb70fb828797a6329c903178199c84c704605691dbedeb6c55e8259a5a380a"
+      },
+      "reference": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/references/Rosaria/approved-neutral.png",
+      "expressions": {
+        "joy": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/prompts/Rosaria/joy.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Rosaria from Genshin Impact expressing joy. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, eye colors, costume, accessories, rendering and her dark red hair, headpiece, dark costume and tall female proportions. Personality and acting: laconic, guarded and independent, with calm, confident gestures. Show bright eyes and an easy smile; relax the shoulders with one hand lightly at the waist. Vary pose and gesture to match the emotion while staying faithful to the character; maintain the reference's proportions without elongating the torso or legs. Use normal pupils, simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and shoes with 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Rosaria/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/raw/Rosaria/joy.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/sprites/Rosaria/joy.png",
+          "sha256": "1d4e5a7b14c5ba33ab87240d2712d2b6d03cb3dbcf34115a1e2d4298e74a12c7",
+          "status": "candidate"
+        },
+        "annoyance": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/prompts/Rosaria/annoyance.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Rosaria from Genshin Impact expressing annoyance. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, eye colors, costume, accessories, rendering and her dark red hair, headpiece, dark costume and tall female proportions. Personality and acting: laconic, guarded and independent, with calm, confident gestures. Show a restrained irritated gaze; shift weight to one leg with one forearm near the torso. Vary pose and gesture to match the emotion while staying faithful to the character; maintain the reference's proportions without elongating the torso or legs. Use normal pupils, simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and shoes with 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Rosaria/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/raw/Rosaria/annoyance.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/sprites/Rosaria/annoyance.png",
+          "sha256": "cfca804197741dd7c6429ff240f970f0ba2ce29df4a06ffcde69397a9f867f9f",
+          "status": "candidate"
+        },
+        "confusion": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/prompts/Rosaria/confusion.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Rosaria from Genshin Impact expressing confusion. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, eye colors, costume, accessories, rendering and her dark red hair, headpiece, dark costume and tall female proportions. Personality and acting: laconic, guarded and independent, with calm, confident gestures. Show puzzled eyes and a small frown; turn the shoulders slightly with one hand lifted in a simple questioning gesture. Vary pose and gesture to match the emotion while staying faithful to the character; maintain the reference's proportions without elongating the torso or legs. Use normal pupils, simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and shoes with 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Rosaria/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/raw/Rosaria/confusion.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/sprites/Rosaria/confusion.png",
+          "sha256": "2bff7cc6ab6a3b1784568cc6f739a6af636edad364f01975a9d70009267d8148",
+          "status": "candidate"
+        },
+        "love": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/prompts/Rosaria/love.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Rosaria from Genshin Impact expressing love. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, eye colors, costume, accessories, rendering and her dark red hair, headpiece, dark costume and tall female proportions. Personality and acting: laconic, guarded and independent, with calm, confident gestures. Show tender, open warmth and a gentle smile; relax the shoulders, one hand lightly against the chest. Vary pose and gesture to match the emotion while staying faithful to the character; maintain the reference's proportions without elongating the torso or legs. Use normal pupils, simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and shoes with 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Rosaria/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/raw/Rosaria/love.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/sprites/Rosaria/love.png",
+          "sha256": "f49d14464dccce310fd5b51f0347071b0f599610dc3a482a14c4817683e3da18",
+          "status": "candidate"
+        },
+        "desire": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/prompts/Rosaria/desire.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Rosaria from Genshin Impact expressing desire. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, eye colors, costume, accessories, rendering and her dark red hair, headpiece, dark costume and tall female proportions. Personality and acting: laconic, guarded and independent, with calm, confident gestures. Show a yearning gaze with a faint blush; turn toward the viewer, leaning in subtly, one hand near the waist.  Convey an understated but unmistakably affectionate gaze and restrained anticipation; tasteful in the established outfit. Vary pose and gesture to match the emotion while staying faithful to the character; maintain the reference's proportions without elongating the torso or legs. Use normal pupils, simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and shoes with 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Rosaria/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/raw/Rosaria/desire.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/sprites/Rosaria/desire.png",
+          "sha256": "10cd49f75b77182c9273a40a62e85d3a0fabd6c732134231e173fd5958e0d680",
+          "status": "candidate"
+        },
+        "excitement": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/prompts/Rosaria/excitement.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Rosaria from Genshin Impact expressing excitement. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, eye colors, costume, accessories, rendering and her dark red hair, headpiece, dark costume and tall female proportions. Personality and acting: laconic, guarded and independent, with calm, confident gestures. Show an enthusiastic smile; lean forward slightly with one hand raised near the shoulder and the other relaxed. Vary pose and gesture to match the emotion while staying faithful to the character; maintain the reference's proportions without elongating the torso or legs. Use normal pupils, simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and shoes with 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Rosaria/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/raw/Rosaria/excitement.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/sprites/Rosaria/excitement.png",
+          "sha256": "b10ad8d8a2e3bdac62fc88cecdea19c37ede560376094d8bc08e5cbf5320c804",
+          "status": "candidate"
+        },
+        "sadness": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/prompts/Rosaria/sadness.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Rosaria from Genshin Impact expressing sadness. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, eye colors, costume, accessories, rendering and her dark red hair, headpiece, dark costume and tall female proportions. Personality and acting: laconic, guarded and independent, with calm, confident gestures. Show a subdued expression and lowered eyes; let both arms rest naturally while the shoulders fall slightly. Vary pose and gesture to match the emotion while staying faithful to the character; maintain the reference's proportions without elongating the torso or legs. Use normal pupils, simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and shoes with 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Rosaria/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/raw/Rosaria/sadness.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/sprites/Rosaria/sadness.png",
+          "sha256": "d0ccc80a85523366cedf16eae9e4c062cf37c8483b2bed3c4dbe61e9103d2773",
+          "status": "candidate"
+        },
+        "fear": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/prompts/Rosaria/fear.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Rosaria from Genshin Impact expressing fear. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, eye colors, costume, accessories, rendering and her dark red hair, headpiece, dark costume and tall female proportions. Personality and acting: laconic, guarded and independent, with calm, confident gestures. Show a tense worried expression; step weight back slightly and hold one hand near the chest. Vary pose and gesture to match the emotion while staying faithful to the character; maintain the reference's proportions without elongating the torso or legs. Use normal pupils, simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and shoes with 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Rosaria/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/raw/Rosaria/fear.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/sprites/Rosaria/fear.png",
+          "sha256": "17b368de97ee9f8dd5a677dc157522fb981902e285ad96f0c727c883b83097b9",
+          "status": "candidate"
+        },
+        "embarrassment": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/prompts/Rosaria/embarrassment.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Rosaria from Genshin Impact expressing embarrassment. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, eye colors, costume, accessories, rendering and her dark red hair, headpiece, dark costume and tall female proportions. Personality and acting: laconic, guarded and independent, with calm, confident gestures. Show a subtle flush and sidelong glance; remain composed, one hand resting at her waist. Vary pose and gesture to match the emotion while staying faithful to the character; maintain the reference's proportions without elongating the torso or legs. Use normal pupils, simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and shoes with 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Rosaria/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/raw/Rosaria/embarrassment.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/sprites/Rosaria/embarrassment.png",
+          "sha256": "e54b64d203d7472cccdd5930d69eef422bd80ed4a4aea0ccb8a3ae05e359d567",
+          "status": "candidate"
+        }
+      },
+      "previews": {
+        "full_body": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/previews/Rosaria-full-body.png",
+        "faces": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/previews/Rosaria-faces.png"
+      }
+    },
+    "Sandrone": {
+      "neutral_approval": {
+        "status": "approved",
+        "message": "All others are ACCEPTED.",
+        "date": "2026-10-30",
+        "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Sandrone/neutral-v001.png",
+        "candidate_sha256": "a92d1ef447655e89ef8e41c1d1e16b49a35007333fbd6d92e4c31b334cbcde66"
+      },
+      "reference": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/references/Sandrone/approved-neutral.png",
+      "expressions": {
+        "joy": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/prompts/Sandrone/joy.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Sandrone from Genshin Impact expressing joy. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, eye colors, costume, accessories, rendering and her brown hair, elaborate headpiece, black-and-red dress and petite medium female proportions. Personality and acting: precise, withdrawn and reserved, with economical gestures. Show a warm smile; turn slightly toward the viewer, one hand lifted in a modest greeting. Vary pose and gesture to match the emotion while staying faithful to the character; maintain the reference's proportions without elongating the torso or legs. Use normal pupils, simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and shoes with 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Sandrone/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/raw/Sandrone/joy.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/sprites/Sandrone/joy.png",
+          "sha256": "1a24c745b959dac8d61340c47cc6156fc879cf70d90396433b03f32bdaa6d52e",
+          "status": "candidate"
+        },
+        "annoyance": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/prompts/Sandrone/annoyance.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Sandrone from Genshin Impact expressing annoyance. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, eye colors, costume, accessories, rendering and her brown hair, elaborate headpiece, black-and-red dress and petite medium female proportions. Personality and acting: precise, withdrawn and reserved, with economical gestures. Show a mildly indignant expression; angle the shoulders away, one hand at the waist. Vary pose and gesture to match the emotion while staying faithful to the character; maintain the reference's proportions without elongating the torso or legs. Use normal pupils, simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and shoes with 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Sandrone/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/raw/Sandrone/annoyance.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/sprites/Sandrone/annoyance.png",
+          "sha256": "15b602c9b5d09537abf3ab46bc371d93cb22b4f394ca615d04165ff24c6eb455",
+          "status": "candidate"
+        },
+        "confusion": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/prompts/Sandrone/confusion.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Sandrone from Genshin Impact expressing confusion. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, eye colors, costume, accessories, rendering and her brown hair, elaborate headpiece, black-and-red dress and petite medium female proportions. Personality and acting: precise, withdrawn and reserved, with economical gestures. Show a perplexed expression; incline the head and rest one hand thoughtfully near the chin. Vary pose and gesture to match the emotion while staying faithful to the character; maintain the reference's proportions without elongating the torso or legs. Use normal pupils, simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and shoes with 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Sandrone/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/raw/Sandrone/confusion.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/sprites/Sandrone/confusion.png",
+          "sha256": "90a8756b118b1dafaee6f7ed2aae9a9a2f4450ad9eada59b57e7ac91d6bf28bf",
+          "status": "candidate"
+        },
+        "love": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/prompts/Sandrone/love.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Sandrone from Genshin Impact expressing love. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, eye colors, costume, accessories, rendering and her brown hair, elaborate headpiece, black-and-red dress and petite medium female proportions. Personality and acting: precise, withdrawn and reserved, with economical gestures. Show a sincere loving smile; angle the body toward the viewer and rest one hand over the heart. Vary pose and gesture to match the emotion while staying faithful to the character; maintain the reference's proportions without elongating the torso or legs. Use normal pupils, simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and shoes with 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Sandrone/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/raw/Sandrone/love.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/sprites/Sandrone/love.png",
+          "sha256": "1466e034262346ec399a134a067a69142b3911c2e17f83600e964200d29563d8",
+          "status": "candidate"
+        },
+        "desire": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/prompts/Sandrone/desire.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Sandrone from Genshin Impact expressing desire. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, eye colors, costume, accessories, rendering and her brown hair, elaborate headpiece, black-and-red dress and petite medium female proportions. Personality and acting: precise, withdrawn and reserved, with economical gestures. Show an earnest softened gaze and a subtle blush; shift forward slightly with one hand near the chest.  Convey a modest, hopeful wish for closeness, conveyed through a thoughtful gaze; tasteful in the established outfit. Vary pose and gesture to match the emotion while staying faithful to the character; maintain the reference's proportions without elongating the torso or legs. Use normal pupils, simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and shoes with 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Sandrone/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/raw/Sandrone/desire.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/sprites/Sandrone/desire.png",
+          "sha256": "8ebf6202ae27c4aa41d3435ab039f4e7a994ed8d949b953f61cecc2c06ab3505",
+          "status": "candidate"
+        },
+        "excitement": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/prompts/Sandrone/excitement.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Sandrone from Genshin Impact expressing excitement. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, eye colors, costume, accessories, rendering and her brown hair, elaborate headpiece, black-and-red dress and petite medium female proportions. Personality and acting: precise, withdrawn and reserved, with economical gestures. Show bright eyes and eager anticipation; shift into an alert stance with one hand lifted near the torso. Vary pose and gesture to match the emotion while staying faithful to the character; maintain the reference's proportions without elongating the torso or legs. Use normal pupils, simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and shoes with 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Sandrone/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/raw/Sandrone/excitement.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/sprites/Sandrone/excitement.png",
+          "sha256": "ff26ebcc52ff4b8a02172cf816bbedb65db0bd5dce3db8ad8e91db538c363fe7",
+          "status": "candidate"
+        },
+        "sadness": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/prompts/Sandrone/sadness.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Sandrone from Genshin Impact expressing sadness. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, eye colors, costume, accessories, rendering and her brown hair, elaborate headpiece, black-and-red dress and petite medium female proportions. Personality and acting: precise, withdrawn and reserved, with economical gestures. Show a sad, quiet gaze; turn slightly away, one hand resting against the opposite forearm. Vary pose and gesture to match the emotion while staying faithful to the character; maintain the reference's proportions without elongating the torso or legs. Use normal pupils, simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and shoes with 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Sandrone/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/raw/Sandrone/sadness.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/sprites/Sandrone/sadness.png",
+          "sha256": "aeaed45cf8668fbaf2fad130e75aebbe6eff77f30e4d11db2efc46c2c4b2e194",
+          "status": "candidate"
+        },
+        "fear": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/prompts/Sandrone/fear.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Sandrone from Genshin Impact expressing fear. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, eye colors, costume, accessories, rendering and her brown hair, elaborate headpiece, black-and-red dress and petite medium female proportions. Personality and acting: precise, withdrawn and reserved, with economical gestures. Show widened uneasy eyes; turn slightly aside, one forearm protectively near the torso. Vary pose and gesture to match the emotion while staying faithful to the character; maintain the reference's proportions without elongating the torso or legs. Use normal pupils, simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and shoes with 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Sandrone/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/raw/Sandrone/fear.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/sprites/Sandrone/fear.png",
+          "sha256": "3286c3308bb69b9dffc61866e9b13c07197acce3d3c7129b3c6d83ca4cc36bd9",
+          "status": "candidate"
+        },
+        "embarrassment": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/prompts/Sandrone/embarrassment.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Sandrone from Genshin Impact expressing embarrassment. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, eye colors, costume, accessories, rendering and her brown hair, elaborate headpiece, black-and-red dress and petite medium female proportions. Personality and acting: precise, withdrawn and reserved, with economical gestures. Show a restrained blush and averted glance; adjust one glove near her waist. Vary pose and gesture to match the emotion while staying faithful to the character; maintain the reference's proportions without elongating the torso or legs. Use normal pupils, simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and shoes with 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Sandrone/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/raw/Sandrone/embarrassment.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/sprites/Sandrone/embarrassment.png",
+          "sha256": "2b3c041568e7a3733dc25e464f3c2109e1e39442ee4f9d5c742cba67b4cb8031",
+          "status": "candidate"
+        }
+      },
+      "previews": {
+        "full_body": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/previews/Sandrone-full-body.png",
+        "faces": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/previews/Sandrone-faces.png"
+      }
+    },
+    "Sethos": {
+      "neutral_approval": {
+        "status": "approved",
+        "message": "All others are ACCEPTED.",
+        "date": "2026-10-30",
+        "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Sethos/neutral-v001.png",
+        "candidate_sha256": "21032ae87ede6147b7427b2718ca96d17e44a4c629ec7c9e7aa12088d2e88fa0"
+      },
+      "reference": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/references/Sethos/approved-neutral.png",
+      "expressions": {
+        "joy": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/prompts/Sethos/joy.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Sethos from Genshin Impact expressing joy. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, eye colors, costume, accessories, rendering and his dark hair with pale accents, skin tone, yellow-and-purple outfit and petite medium male proportions. Personality and acting: friendly, clever and relaxed, with lively but grounded masculine gestures. Show a sincere smile and softened eyes; shift comfortably and give a small greeting near the torso. Vary pose and gesture to match the emotion while staying faithful to the character; maintain the reference's proportions without elongating the torso or legs. Use normal pupils, simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and shoes with 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Sethos/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/raw/Sethos/joy.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/sprites/Sethos/joy.png",
+          "sha256": "f7de5dc499461bc04e98c9537c72a074825ce5ae2f85e788d3fec64e62ffb861",
+          "status": "candidate"
+        },
+        "annoyance": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/prompts/Sethos/annoyance.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Sethos from Genshin Impact expressing annoyance. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, eye colors, costume, accessories, rendering and his dark hair with pale accents, skin tone, yellow-and-purple outfit and petite medium male proportions. Personality and acting: friendly, clever and relaxed, with lively but grounded masculine gestures. Show a clear displeased frown and knitted brows; stand firmly with one hand on the hip and the other down. Vary pose and gesture to match the emotion while staying faithful to the character; maintain the reference's proportions without elongating the torso or legs. Use normal pupils, simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and shoes with 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Sethos/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/raw/Sethos/annoyance.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/sprites/Sethos/annoyance.png",
+          "sha256": "a1064c6e5838e3011e90250e0df072a8921ed4acfd72c4e09ffe849306276f0f",
+          "status": "candidate"
+        },
+        "confusion": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/prompts/Sethos/confusion.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Sethos from Genshin Impact expressing confusion. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, eye colors, costume, accessories, rendering and his dark hair with pale accents, skin tone, yellow-and-purple outfit and petite medium male proportions. Personality and acting: friendly, clever and relaxed, with lively but grounded masculine gestures. Show a questioning expression and raised brow; tilt the head slightly and bring one hand near the chin. Vary pose and gesture to match the emotion while staying faithful to the character; maintain the reference's proportions without elongating the torso or legs. Use normal pupils, simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and shoes with 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Sethos/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/raw/Sethos/confusion.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/sprites/Sethos/confusion.png",
+          "sha256": "a797766dfd2e22930cd7af25e6b3773c6aae1b0113dd74294ab9b7cb5aa685aa",
+          "status": "candidate"
+        },
+        "love": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/prompts/Sethos/love.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Sethos from Genshin Impact expressing love. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, eye colors, costume, accessories, rendering and his dark hair with pale accents, skin tone, yellow-and-purple outfit and petite medium male proportions. Personality and acting: friendly, clever and relaxed, with lively but grounded masculine gestures. Show a genuinely affectionate smile and warm eyes; turn toward the viewer with one hand over the heart and the other relaxed. Vary pose and gesture to match the emotion while staying faithful to the character; maintain the reference's proportions without elongating the torso or legs. Use normal pupils, simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and shoes with 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Sethos/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/raw/Sethos/love.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/sprites/Sethos/love.png",
+          "sha256": "4251b9168ed5660918ed3e387baf86d025838f0d023d3aa4fa270eba74d2bc04",
+          "status": "candidate"
+        },
+        "desire": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/prompts/Sethos/desire.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Sethos from Genshin Impact expressing desire. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, eye colors, costume, accessories, rendering and his dark hair with pale accents, skin tone, yellow-and-purple outfit and petite medium male proportions. Personality and acting: friendly, clever and relaxed, with lively but grounded masculine gestures. Show a hopeful intent gaze and a subtle blush; lean forward slightly with one hand near the heart and the other at the side.  Convey warm, playful and earnest affection with an easy, grounded stance; tasteful in the established outfit. Vary pose and gesture to match the emotion while staying faithful to the character; maintain the reference's proportions without elongating the torso or legs. Use normal pupils, simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and shoes with 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Sethos/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/raw/Sethos/desire.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/sprites/Sethos/desire.png",
+          "sha256": "13ce830ac8bb3f7186dc63b4309f73f8b9d2cfc8e4efc34b41d79e87836c0cc9",
+          "status": "candidate"
+        },
+        "excitement": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/prompts/Sethos/excitement.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Sethos from Genshin Impact expressing excitement. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, eye colors, costume, accessories, rendering and his dark hair with pale accents, skin tone, yellow-and-purple outfit and petite medium male proportions. Personality and acting: friendly, clever and relaxed, with lively but grounded masculine gestures. Show bright eager eyes and a delighted smile; stand more alert, one hand lifted in a small celebratory gesture. Vary pose and gesture to match the emotion while staying faithful to the character; maintain the reference's proportions without elongating the torso or legs. Use normal pupils, simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and shoes with 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Sethos/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/raw/Sethos/excitement.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/sprites/Sethos/excitement.png",
+          "sha256": "0f287b17657a512b1ff09e9f76648299065b81751207b291689f9ece35f312dd",
+          "status": "candidate"
+        },
+        "sadness": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/prompts/Sethos/sadness.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Sethos from Genshin Impact expressing sadness. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, eye colors, costume, accessories, rendering and his dark hair with pale accents, skin tone, yellow-and-purple outfit and petite medium male proportions. Personality and acting: friendly, clever and relaxed, with lively but grounded masculine gestures. Show a sorrowful downcast gaze and softened shoulders; one hand resting on the opposite forearm. Vary pose and gesture to match the emotion while staying faithful to the character; maintain the reference's proportions without elongating the torso or legs. Use normal pupils, simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and shoes with 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Sethos/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/raw/Sethos/sadness.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/sprites/Sethos/sadness.png",
+          "sha256": "5e673a3cd6c6e1aaf3a9a9915b20f74589931b038d2430174cec26ee524ccf8f",
+          "status": "candidate"
+        },
+        "fear": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/prompts/Sethos/fear.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Sethos from Genshin Impact expressing fear. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, eye colors, costume, accessories, rendering and his dark hair with pale accents, skin tone, yellow-and-purple outfit and petite medium male proportions. Personality and acting: friendly, clever and relaxed, with lively but grounded masculine gestures. Show an alarmed gaze and raised brows; shift weight back with one forearm held protectively near the torso. Vary pose and gesture to match the emotion while staying faithful to the character; maintain the reference's proportions without elongating the torso or legs. Use normal pupils, simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and shoes with 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Sethos/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/raw/Sethos/fear.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/sprites/Sethos/fear.png",
+          "sha256": "7907d46581b0e2742e0e47805e2f9e0f1917e67c8878427fb3761796683eceed",
+          "status": "candidate"
+        },
+        "embarrassment": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/prompts/Sethos/embarrassment.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Sethos from Genshin Impact expressing embarrassment. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, eye colors, costume, accessories, rendering and his dark hair with pale accents, skin tone, yellow-and-purple outfit and petite medium male proportions. Personality and acting: friendly, clever and relaxed, with lively but grounded masculine gestures. Show a sheepish smile and blush; turn his head aside and rub the back of his neck. Vary pose and gesture to match the emotion while staying faithful to the character; maintain the reference's proportions without elongating the torso or legs. Use normal pupils, simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and shoes with 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Sethos/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/raw/Sethos/embarrassment.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/sprites/Sethos/embarrassment.png",
+          "sha256": "937d808237c93f5298159873de6bce45e34bb98b0171230aa0d68c9eb28ee385",
+          "status": "candidate"
+        }
+      },
+      "previews": {
+        "full_body": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/previews/Sethos-full-body.png",
+        "faces": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/previews/Sethos-faces.png"
+      }
+    },
+    "Shikanoin Heizou": {
+      "neutral_approval": {
+        "status": "approved",
+        "message": "All others are ACCEPTED.",
+        "date": "2026-10-30",
+        "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Shikanoin Heizou/neutral-v001.png",
+        "candidate_sha256": "ef39c8253865145e25c47cd2a6706142fb864250d5a58fcff5ea6591d091b2ca"
+      },
+      "reference": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/references/Shikanoin Heizou/approved-neutral.png",
+      "expressions": {
+        "joy": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/prompts/Shikanoin Heizou/joy.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Shikanoin Heizou from Genshin Impact expressing joy. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, eye colors, costume, accessories, rendering and his burgundy hair, detective outfit, accessories and petite medium male proportions. Personality and acting: perceptive, playful and self-assured, with easy, expressive masculine gestures. Show bright eyes and an easy smile; relax the shoulders with one hand lightly at the waist. Vary pose and gesture to match the emotion while staying faithful to the character; maintain the reference's proportions without elongating the torso or legs. Use normal pupils, simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and shoes with 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Shikanoin Heizou/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/raw/Shikanoin Heizou/joy.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/sprites/Shikanoin Heizou/joy.png",
+          "sha256": "a1d79c6eb339da16aa8e83707475a42a5a86f334eb3f746586fcd19452ff1071",
+          "status": "candidate"
+        },
+        "annoyance": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/prompts/Shikanoin Heizou/annoyance.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Shikanoin Heizou from Genshin Impact expressing annoyance. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, eye colors, costume, accessories, rendering and his burgundy hair, detective outfit, accessories and petite medium male proportions. Personality and acting: perceptive, playful and self-assured, with easy, expressive masculine gestures. Show a restrained irritated gaze; shift weight to one leg with one forearm near the torso. Vary pose and gesture to match the emotion while staying faithful to the character; maintain the reference's proportions without elongating the torso or legs. Use normal pupils, simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and shoes with 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Shikanoin Heizou/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/raw/Shikanoin Heizou/annoyance.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/sprites/Shikanoin Heizou/annoyance.png",
+          "sha256": "6748b44796ab677ff2f89acbe3c11e98bcbe646f3340db7bad52aa2a4abf0736",
+          "status": "candidate"
+        },
+        "confusion": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/prompts/Shikanoin Heizou/confusion.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Shikanoin Heizou from Genshin Impact expressing confusion. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, eye colors, costume, accessories, rendering and his burgundy hair, detective outfit, accessories and petite medium male proportions. Personality and acting: perceptive, playful and self-assured, with easy, expressive masculine gestures. Show puzzled eyes and a small frown; turn the shoulders slightly with one hand lifted in a simple questioning gesture. Vary pose and gesture to match the emotion while staying faithful to the character; maintain the reference's proportions without elongating the torso or legs. Use normal pupils, simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and shoes with 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Shikanoin Heizou/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/raw/Shikanoin Heizou/confusion.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/sprites/Shikanoin Heizou/confusion.png",
+          "sha256": "5b038a789d68882ca85f8792f6cd5ffb0766f405a3c27645d033a2e14d1116d9",
+          "status": "candidate"
+        },
+        "love": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/prompts/Shikanoin Heizou/love.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Shikanoin Heizou from Genshin Impact expressing love. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, eye colors, costume, accessories, rendering and his burgundy hair, detective outfit, accessories and petite medium male proportions. Personality and acting: perceptive, playful and self-assured, with easy, expressive masculine gestures. Show tender, open warmth and a gentle smile; relax the shoulders, one hand lightly against the chest. Vary pose and gesture to match the emotion while staying faithful to the character; maintain the reference's proportions without elongating the torso or legs. Use normal pupils, simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and shoes with 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Shikanoin Heizou/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/raw/Shikanoin Heizou/love.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/sprites/Shikanoin Heizou/love.png",
+          "sha256": "135501a2155417b31cfe1c3f70deef6f1841204d9a16603cc62e8778623db3d0",
+          "status": "candidate"
+        },
+        "desire": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/prompts/Shikanoin Heizou/desire.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Shikanoin Heizou from Genshin Impact expressing desire. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, eye colors, costume, accessories, rendering and his burgundy hair, detective outfit, accessories and petite medium male proportions. Personality and acting: perceptive, playful and self-assured, with easy, expressive masculine gestures. Show a yearning gaze with a faint blush; turn toward the viewer, leaning in subtly, one hand near the waist.  Convey a knowing but sincere affectionate gaze and subtle blush; tasteful in the established outfit. Vary pose and gesture to match the emotion while staying faithful to the character; maintain the reference's proportions without elongating the torso or legs. Use normal pupils, simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and shoes with 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Shikanoin Heizou/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/raw/Shikanoin Heizou/desire.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/sprites/Shikanoin Heizou/desire.png",
+          "sha256": "7308dd7fea56c719aa393639fdfee845e7ef4e45134ccc6bcc2707eb53e90233",
+          "status": "candidate"
+        },
+        "excitement": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/prompts/Shikanoin Heizou/excitement.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Shikanoin Heizou from Genshin Impact expressing excitement. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, eye colors, costume, accessories, rendering and his burgundy hair, detective outfit, accessories and petite medium male proportions. Personality and acting: perceptive, playful and self-assured, with easy, expressive masculine gestures. Show an enthusiastic smile; lean forward slightly with one hand raised near the shoulder and the other relaxed. Vary pose and gesture to match the emotion while staying faithful to the character; maintain the reference's proportions without elongating the torso or legs. Use normal pupils, simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and shoes with 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Shikanoin Heizou/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/raw/Shikanoin Heizou/excitement.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/sprites/Shikanoin Heizou/excitement.png",
+          "sha256": "37a4e0871b3a79393553dfd446052a86cb41850dfc0fe2a1f38e72252a06a087",
+          "status": "candidate"
+        },
+        "sadness": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/prompts/Shikanoin Heizou/sadness.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Shikanoin Heizou from Genshin Impact expressing sadness. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, eye colors, costume, accessories, rendering and his burgundy hair, detective outfit, accessories and petite medium male proportions. Personality and acting: perceptive, playful and self-assured, with easy, expressive masculine gestures. Show a subdued expression and lowered eyes; let both arms rest naturally while the shoulders fall slightly. Vary pose and gesture to match the emotion while staying faithful to the character; maintain the reference's proportions without elongating the torso or legs. Use normal pupils, simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and shoes with 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Shikanoin Heizou/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/raw/Shikanoin Heizou/sadness.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/sprites/Shikanoin Heizou/sadness.png",
+          "sha256": "40216a10732b9c61c1229ada6b0f8ea191b5284f3b4a17943b4e9a8ab852e296",
+          "status": "candidate"
+        },
+        "fear": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/prompts/Shikanoin Heizou/fear.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Shikanoin Heizou from Genshin Impact expressing fear. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, eye colors, costume, accessories, rendering and his burgundy hair, detective outfit, accessories and petite medium male proportions. Personality and acting: perceptive, playful and self-assured, with easy, expressive masculine gestures. Show a tense worried expression; step weight back slightly and hold one hand near the chest. Vary pose and gesture to match the emotion while staying faithful to the character; maintain the reference's proportions without elongating the torso or legs. Use normal pupils, simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and shoes with 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Shikanoin Heizou/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/raw/Shikanoin Heizou/fear.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/sprites/Shikanoin Heizou/fear.png",
+          "sha256": "769a408887a066e2afe11b3ed0114f013b8085d6468a51ddfc6baa7313eaf13d",
+          "status": "candidate"
+        },
+        "embarrassment": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/prompts/Shikanoin Heizou/embarrassment.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Shikanoin Heizou from Genshin Impact expressing embarrassment. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, eye colors, costume, accessories, rendering and his burgundy hair, detective outfit, accessories and petite medium male proportions. Personality and acting: perceptive, playful and self-assured, with easy, expressive masculine gestures. Show a brief blush and amused, averted glance; stand at ease with one hand near his waist. Vary pose and gesture to match the emotion while staying faithful to the character; maintain the reference's proportions without elongating the torso or legs. Use normal pupils, simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and shoes with 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Shikanoin Heizou/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/raw/Shikanoin Heizou/embarrassment.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/sprites/Shikanoin Heizou/embarrassment.png",
+          "sha256": "4f40e4b6b2bced99087a5082b16a5d5776e024fef5e07f289655d307f2ddbe54",
+          "status": "candidate"
+        }
+      },
+      "previews": {
+        "full_body": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/previews/Shikanoin-Heizou-full-body.png",
+        "faces": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/previews/Shikanoin-Heizou-faces.png"
+      }
+    },
+    "Skirk": {
+      "neutral_approval": {
+        "status": "approved",
+        "message": "All others are ACCEPTED.",
+        "date": "2026-10-30",
+        "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Skirk/neutral-v002.png",
+        "candidate_sha256": "c446885dfd29081cf90643f807aa5324dfd713435cb378be838223c257c3d666"
+      },
+      "reference": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/references/Skirk/approved-neutral.png",
+      "expressions": {
+        "joy": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/prompts/Skirk/joy.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Skirk from Genshin Impact expressing joy. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, eye colors, costume, accessories, rendering and her long white hair, blue ornaments, white-and-blue outfit and tall female proportions. Personality and acting: composed, formidable and laconic, with controlled, efficient gestures. Show a warm smile; turn slightly toward the viewer, one hand lifted in a modest greeting. Vary pose and gesture to match the emotion while staying faithful to the character; maintain the reference's proportions without elongating the torso or legs. Use normal pupils, simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and shoes with 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Skirk/neutral-v002.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/raw/Skirk/joy.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/sprites/Skirk/joy.png",
+          "sha256": "8edb453ceb7d872595b23128cdb54c91653618537a527d2fe15cc509ae5beb5a",
+          "status": "candidate"
+        },
+        "annoyance": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/prompts/Skirk/annoyance.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Skirk from Genshin Impact expressing annoyance. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, eye colors, costume, accessories, rendering and her long white hair, blue ornaments, white-and-blue outfit and tall female proportions. Personality and acting: composed, formidable and laconic, with controlled, efficient gestures. Show a mildly indignant expression; angle the shoulders away, one hand at the waist. Vary pose and gesture to match the emotion while staying faithful to the character; maintain the reference's proportions without elongating the torso or legs. Use normal pupils, simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and shoes with 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Skirk/neutral-v002.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/raw/Skirk/annoyance.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/sprites/Skirk/annoyance.png",
+          "sha256": "0a9fe96d2645bbed1a567d1dde59ac751570454762d5a0b7b7b061144d8c8b6d",
+          "status": "candidate"
+        },
+        "confusion": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/prompts/Skirk/confusion.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Skirk from Genshin Impact expressing confusion. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, eye colors, costume, accessories, rendering and her long white hair, blue ornaments, white-and-blue outfit and tall female proportions. Personality and acting: composed, formidable and laconic, with controlled, efficient gestures. Show a perplexed expression; incline the head and rest one hand thoughtfully near the chin. Vary pose and gesture to match the emotion while staying faithful to the character; maintain the reference's proportions without elongating the torso or legs. Use normal pupils, simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and shoes with 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Skirk/neutral-v002.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/raw/Skirk/confusion.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/sprites/Skirk/confusion.png",
+          "sha256": "808e044adbea92b6ddd75ccf49b89e7462070700cb39c12876d534cd31ef4e14",
+          "status": "candidate"
+        },
+        "love": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/prompts/Skirk/love.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Skirk from Genshin Impact expressing love. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, eye colors, costume, accessories, rendering and her long white hair, blue ornaments, white-and-blue outfit and tall female proportions. Personality and acting: composed, formidable and laconic, with controlled, efficient gestures. Show a sincere loving smile; angle the body toward the viewer and rest one hand over the heart. Vary pose and gesture to match the emotion while staying faithful to the character; maintain the reference's proportions without elongating the torso or legs. Use normal pupils, simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and shoes with 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Skirk/neutral-v002.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/raw/Skirk/love.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/sprites/Skirk/love.png",
+          "sha256": "2de28a6001441bdde290ca1b5902ca93d85603925c7ae19be883ca934e643a7e",
+          "status": "candidate"
+        },
+        "desire": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/prompts/Skirk/desire.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Skirk from Genshin Impact expressing desire. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, eye colors, costume, accessories, rendering and her long white hair, blue ornaments, white-and-blue outfit and tall female proportions. Personality and acting: composed, formidable and laconic, with controlled, efficient gestures. Show an earnest softened gaze and a subtle blush; shift forward slightly with one hand near the chest.  Convey quiet, intent longing with a steady gaze and composed posture; tasteful in the established outfit. Vary pose and gesture to match the emotion while staying faithful to the character; maintain the reference's proportions without elongating the torso or legs. Use normal pupils, simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and shoes with 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Skirk/neutral-v002.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/raw/Skirk/desire.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/sprites/Skirk/desire.png",
+          "sha256": "34b9c14abf42a91d1673cde5e8a3d5569fa4f25fba77f3dc429496dc4fdca416",
+          "status": "candidate"
+        },
+        "excitement": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/prompts/Skirk/excitement.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Skirk from Genshin Impact expressing excitement. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, eye colors, costume, accessories, rendering and her long white hair, blue ornaments, white-and-blue outfit and tall female proportions. Personality and acting: composed, formidable and laconic, with controlled, efficient gestures. Show bright eyes and eager anticipation; shift into an alert stance with one hand lifted near the torso. Vary pose and gesture to match the emotion while staying faithful to the character; maintain the reference's proportions without elongating the torso or legs. Use normal pupils, simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and shoes with 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Skirk/neutral-v002.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/raw/Skirk/excitement.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/sprites/Skirk/excitement.png",
+          "sha256": "c30346a1158bc4e45a7fd9ade6259b25407379e57a09840fd46eff646b2717be",
+          "status": "candidate"
+        },
+        "sadness": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/prompts/Skirk/sadness.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Skirk from Genshin Impact expressing sadness. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, eye colors, costume, accessories, rendering and her long white hair, blue ornaments, white-and-blue outfit and tall female proportions. Personality and acting: composed, formidable and laconic, with controlled, efficient gestures. Show a sad, quiet gaze; turn slightly away, one hand resting against the opposite forearm. Vary pose and gesture to match the emotion while staying faithful to the character; maintain the reference's proportions without elongating the torso or legs. Use normal pupils, simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and shoes with 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Skirk/neutral-v002.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/raw/Skirk/sadness.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/sprites/Skirk/sadness.png",
+          "sha256": "47e6a06762213c0e4a3e445495f66d88fb5a4ff482b658024dfac964ec4794d7",
+          "status": "candidate"
+        },
+        "fear": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/prompts/Skirk/fear.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Skirk from Genshin Impact expressing fear. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, eye colors, costume, accessories, rendering and her long white hair, blue ornaments, white-and-blue outfit and tall female proportions. Personality and acting: composed, formidable and laconic, with controlled, efficient gestures. Show widened uneasy eyes; turn slightly aside, one forearm protectively near the torso. Vary pose and gesture to match the emotion while staying faithful to the character; maintain the reference's proportions without elongating the torso or legs. Use normal pupils, simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and shoes with 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Skirk/neutral-v002.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/raw/Skirk/fear.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/sprites/Skirk/fear.png",
+          "sha256": "affe74e5043a50b7e66353bac177ad34c5745022e0a728f40f5febf71354e0f3",
+          "status": "candidate"
+        },
+        "embarrassment": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/prompts/Skirk/embarrassment.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Skirk from Genshin Impact expressing embarrassment. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, eye colors, costume, accessories, rendering and her long white hair, blue ornaments, white-and-blue outfit and tall female proportions. Personality and acting: composed, formidable and laconic, with controlled, efficient gestures. Show a faint blush and averted glance; remain upright and adjust one glove. Vary pose and gesture to match the emotion while staying faithful to the character; maintain the reference's proportions without elongating the torso or legs. Use normal pupils, simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and shoes with 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Skirk/neutral-v002.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/raw/Skirk/embarrassment.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/sprites/Skirk/embarrassment.png",
+          "sha256": "be5308a8b834653ac65e37e423cf39a8e6e1201f4291e56c2aba6bd5321d5901",
+          "status": "candidate"
+        }
+      },
+      "previews": {
+        "full_body": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/previews/Skirk-full-body.png",
+        "faces": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-ningguang-skirk-expressions/previews/Skirk-faces.png"
+      }
+    }
+  },
+  "preview_order": [
+    "neutral",
+    "joy",
+    "annoyance",
+    "confusion",
+    "love",
+    "desire",
+    "excitement",
+    "sadness",
+    "fear",
+    "embarrassment"
+  ],
+  "preview_layout": "left to right, top row then bottom row",
+  "missing": [],
+  "technical_checks": {
+    "png_count": 90,
+    "png_and_alpha_channel": true,
+    "report": "technical-checks.json",
+    "note": "File checks only; no visual approval implied."
+  }
+}

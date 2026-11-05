@@ -1,0 +1,162 @@
+{
+  "date": "2026-11-05",
+  "status": "zibai_fear_approved_yunjin_v004_rejected",
+  "user_request": "Yoimiya, Xinyan, Xingqiu accepted - try regenerating Yun Jin and Zibai",
+  "parent_run": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-five-hand-anatomy-revisions",
+  "total_new_expressions": 2,
+  "regeneration_keys": [
+    "Zibai fear",
+    "Yun Jin confusion"
+  ],
+  "reference_policy": "Each independently uses only the exact approved neutral. Rejected generations are archived, never generation inputs.",
+  "model_note": "Built-in model ID and quality controls are not exposed.",
+  "installation": "not requested; live sprites unchanged",
+  "review_policy": "User reviews candidates; technical file checks only.",
+  "characters": {
+    "Zibai": {
+      "neutral_approval": {
+        "status": "approved",
+        "date": "2026-11-05",
+        "message": "I like the previous candidate more than this regeneration - approve that neutral, then generate the 9 emotion sprites for every candidate I just approved",
+        "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-zibai-official-pose-priority/candidates/Zibai/neutral-v006.png",
+        "candidate_sha256": "8e5aac53a8009ac3bb80193e5df0f3c026766964a84fbeac1a7b976f2268ddad",
+        "version": "neutral-v006"
+      },
+      "reference": {
+        "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-yunjin-zibai-expression-v004/references/Zibai/approved-neutral.png",
+        "sha256": "8e5aac53a8009ac3bb80193e5df0f3c026766964a84fbeac1a7b976f2268ddad"
+      },
+      "neutral": {
+        "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-five-hand-anatomy-revisions/sprites/Zibai/neutral.png",
+        "sha256": "8e5aac53a8009ac3bb80193e5df0f3c026766964a84fbeac1a7b976f2268ddad",
+        "status": "approved"
+      },
+      "emotions": [
+        "neutral",
+        "joy",
+        "annoyance",
+        "confusion",
+        "love",
+        "desire",
+        "excitement",
+        "sadness",
+        "fear",
+        "embarrassment"
+      ],
+      "status": "replacement_pending"
+    },
+    "Yun Jin": {
+      "neutral_approval": {
+        "status": "approved",
+        "date": "2026-11-05",
+        "message": "Yun Jin approved.",
+        "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-yoimiya-midpoint-yunjin-zibai-poses/candidates/Yun Jin/neutral-v003.png",
+        "candidate_sha256": "f63a0c7f81b1467918129ed1148695f0f14abe880c8c5605f532835007f51e7b"
+      },
+      "reference": {
+        "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-yunjin-zibai-expression-v004/references/Yun Jin/approved-neutral.png",
+        "sha256": "f63a0c7f81b1467918129ed1148695f0f14abe880c8c5605f532835007f51e7b"
+      },
+      "neutral": {
+        "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-five-hand-anatomy-revisions/sprites/Yun Jin/neutral.png",
+        "sha256": "f63a0c7f81b1467918129ed1148695f0f14abe880c8c5605f532835007f51e7b",
+        "status": "approved"
+      },
+      "emotions": [
+        "neutral",
+        "joy",
+        "annoyance",
+        "confusion",
+        "love",
+        "desire",
+        "excitement",
+        "sadness",
+        "fear",
+        "embarrassment"
+      ],
+      "status": "replacement_pending"
+    }
+  },
+  "jobs": {
+    "Zibai fear": {
+      "character": "Zibai",
+      "emotion": "fear",
+      "status": "approved",
+      "version": "v004",
+      "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-yunjin-zibai-expression-v004/prompts/Zibai/fear-v004.txt",
+      "tool": "image_gen.imagegen",
+      "arguments": {
+        "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Zibai from Genshin Impact expressing fear. The supplied explicitly approved neutral is the SOLE image reference. Preserve its exact recognizable identity, face, skin tone, hair and eye colors, normal pupils, costume construction, accessories, proportions and detailed anime illustration style. In particular preserve its silver-white hair and gold streak, golden eyes, crescent ornaments, turquoise earrings, exact white-and-jade costume, gold fittings, fur-edged gradient sleeves, hanging ornaments, white legwear, stocking motifs and heels.\nBuild: keep the approved neutral's natural Tall Female proportions and body type. Maintain the same compactness without lengthening the torso or legs or stretching anatomy to fill the canvas.\nPersonality: independent, incisive, subtly wry and self-possessed, with humane warmth and the free spirit of the golden-eyed adeptus. Acting for this emotion: A sudden, restrained alarm breaks through her calm: wide golden eyes, lifted inner brows and a small parted mouth. Draw her shoulders slightly back and turn her head toward the source of surprise. Keep her right elbow bent with the right hand held at lower-chest height, palm angled sideways and fingers gently grouped in a relaxed curve; do not turn the palm flat toward the viewer. Her left arm hangs slightly away from the body, the left hand relaxed at hip level clear of the sleeve. A small backward weight shift communicates fear while preserving her composed bearing. Change the whole pose and body language for this emotion rather than only changing the face or mechanically copying the neutral.\nKeep her predominantly in a graceful side/three-quarter body orientation derived from the approved neutral, while varying arms, head, torso angle and stance for the emotion. All stocking motifs, seams, gold trim and garment panels must rotate and foreshorten with the actual legs and pelvis. Never paste a front-view pair of legwear patterns onto turned legs. The head must turn naturally with the neck. Hand rendering: use natural human hands with a connected palm, four fingers and a separate opposable thumb. Give the fingers relaxed, coherent joints and a softly grouped silhouette suited to the gesture. Preserve the natural distinction between the thumb and the little finger. Let overlap follow the pose rather than forcing every digit to face the camera. Keep each hand separate from the other hand and clearly outlined against the transparent background, with a clean gap from adjacent fabric. Exactly two arms, two legs and two feet, with feet clearly distinct and uncrossed. Costume markings must follow the surfaces they belong to and turn in perspective with the body. Let hair and heavy costume panels follow the pose naturally with gravity. Preserve the established outfit fully. Use ordinary pupils; no heart pupils or floating hearts.\nComplete silhouette including headwear, hair, hands, accessories, costume panels and shoes, with about 2\u20134% top and bottom padding and 92\u201396% visible height. Genuinely transparent background with clear alpha outside the character; no scenery, backdrop, vignette, glow, floor, ground shadow, reflections, floating effects, text, labels, UI, watermark, added props, weapons or additional characters.",
+        "referenced_image_paths": [
+          "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-yunjin-zibai-expression-v004/references/Zibai/approved-neutral.png"
+        ],
+        "transparent_background": true
+      },
+      "approval": {
+        "status": "approved",
+        "date": "2026-11-05",
+        "message": "Zibai accepted, Yun Jin accepted. Mizuki: Confusion - distorted hands, Desire - distorted eyes, Embarrassment - distorted eyes, Excitement - distorted eyes. I think the issue with Mizuki\u2019s eyes might be part of her neutral. Try regenerating the Mizuki neutral, and then use her in game model as a secondary reference for each emotion thereafter.",
+        "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-yunjin-zibai-expression-v004/sprites/Zibai/fear.png",
+        "candidate_sha256": "c9e5825cd464d01e5a27af4677274a2df5930b4c330dd981e7e0d5d6d986585c"
+      },
+      "previous_rejected_candidate": {
+        "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-five-hand-anatomy-revisions/sprites/Zibai/fear.png",
+        "sha256": "26397f1c18d17c7dcd9de45afd185164b1bd08c5b945a2e786abb07489e1cbba",
+        "approval": {
+          "status": "rejected",
+          "message": "Yoimiya, Xinyan, Xingqiu accepted - try regenerating Yun Jin and Zibai",
+          "date": "2026-11-05",
+          "reason": "User requests another regeneration"
+        }
+      },
+      "tool_output": "/Users/alexachan/.codex/generated_images/01a1aa19-42b2-7e92-b08d-8ee7d133c057/exec-3deec1e9-40ae-4e78-8e64-41c6cf32da61.png",
+      "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-yunjin-zibai-expression-v004/raw/Zibai/fear.png",
+      "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-yunjin-zibai-expression-v004/sprites/Zibai/fear.png",
+      "sha256": "c9e5825cd464d01e5a27af4677274a2df5930b4c330dd981e7e0d5d6d986585c",
+      "dimensions": [
+        1145,
+        1374
+      ],
+      "png_color_type": 6
+    },
+    "Yun Jin confusion": {
+      "character": "Yun Jin",
+      "emotion": "confusion",
+      "status": "candidate",
+      "version": "v004",
+      "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-yunjin-zibai-expression-v004/prompts/Yun Jin/confusion-v004.txt",
+      "tool": "image_gen.imagegen",
+      "arguments": {
+        "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Yun Jin from Genshin Impact expressing confusion. The supplied explicitly approved neutral is the SOLE image reference. Preserve its exact recognizable identity, face, skin tone, hair and eye colors, normal pupils, costume construction, accessories, proportions and detailed anime illustration style. In particular preserve its dark indigo hair and fringe, reddish-pink eyes and makeup, pom-pom opera headdress and tassels, white fur collar, pink shoulder panels, exact patterned purple dress, pale front panel, red tassels, tights and decorated boots.\nBuild: keep the approved neutral's petite Medium Female proportions and body type. Maintain the same compactness without lengthening the torso or legs or stretching anatomy to fill the canvas.\nPersonality: graceful, warm and expressive, with an opera performer\u2019s poised trained gestures. Acting for this emotion: A thoughtful, visibly puzzled expression: one brow raised, the other gently drawn inward, open eyes glancing aside, and a tiny questioning mouth. Tilt her head and subtly incline her upper body. Keep the right elbow near her waist and the right hand open at waist height in a gentle palm-up questioning gesture, viewed obliquely with fingers softly grouped. The hand stays below and away from the collar, face and headdress. The left arm relaxes beside the skirt, with its hand slightly out from the hem. Let the expression and graceful asymmetrical posture convey her uncertainty. Change the whole pose and body language for this emotion rather than only changing the face or mechanically copying the neutral.\nHand rendering: use natural human hands with a connected palm, four fingers and a separate opposable thumb. Give the fingers relaxed, coherent joints and a softly grouped silhouette suited to the gesture. Preserve the natural distinction between the thumb and the little finger. Let overlap follow the pose rather than forcing every digit to face the camera. Keep each hand separate from the other hand and clearly outlined against the transparent background, with a clean gap from adjacent fabric. Exactly two arms, two legs and two feet, with feet clearly distinct and uncrossed. Costume markings must follow the surfaces they belong to and turn in perspective with the body. Let hair and heavy costume panels follow the pose naturally with gravity. Preserve the established outfit fully. Use ordinary pupils; no heart pupils or floating hearts.\nComplete silhouette including headwear, hair, hands, accessories, costume panels and shoes, with about 2\u20134% top and bottom padding and 92\u201396% visible height. Genuinely transparent background with clear alpha outside the character; no scenery, backdrop, vignette, glow, floor, ground shadow, reflections, floating effects, text, labels, UI, watermark, added props, weapons or additional characters.",
+        "referenced_image_paths": [
+          "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-yunjin-zibai-expression-v004/references/Yun Jin/approved-neutral.png"
+        ],
+        "transparent_background": true
+      },
+      "approval": {
+        "status": "rejected",
+        "message": "Zibai fear approved, regenerate Yun Jin one more time",
+        "date": "2026-11-05"
+      },
+      "previous_rejected_candidate": {
+        "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-five-hand-anatomy-revisions/sprites/Yun Jin/confusion.png",
+        "sha256": "f52ac2239c7d74fffd9b32dffa4632f4920dbe896bd4e429e113d1983b972d16",
+        "approval": {
+          "status": "rejected",
+          "message": "Yoimiya, Xinyan, Xingqiu accepted - try regenerating Yun Jin and Zibai",
+          "date": "2026-11-05",
+          "reason": "User requests another regeneration"
+        }
+      },
+      "tool_output": "/Users/alexachan/.codex/generated_images/01a1aa19-42b2-7e92-b08d-8ee7d133c057/exec-8c24dc46-349e-4438-a4d4-ee475f4e09d1.png",
+      "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-yunjin-zibai-expression-v004/raw/Yun Jin/confusion.png",
+      "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-yunjin-zibai-expression-v004/sprites/Yun Jin/confusion.png",
+      "sha256": "9a8082b38d97c3ee7bb242edc2eea7fccdc3a458e40294c798d6724d47d36d03",
+      "dimensions": [
+        1003,
+        1568
+      ],
+      "png_color_type": 6
+    }
+  }
+}

@@ -1,0 +1,430 @@
+{
+  "status": "paused: image generation usage limit reached",
+  "request": "Ten sprites each with dynamic character-appropriate poses; skip previously generated sets.",
+  "requested_emotions": [
+    "neutral",
+    "joy",
+    "annoyance",
+    "confusion",
+    "love",
+    "desire",
+    "excitement",
+    "sadness",
+    "fear",
+    "embarrassment"
+  ],
+  "characters": {
+    "Xilonen": {
+      "neutral_approval": {
+        "status": "approved",
+        "message": "All others are ACCEPTED.",
+        "date": "2026-10-30",
+        "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Xilonen/neutral-v001.png",
+        "candidate_sha256": "be1677f773c39105e0b3d7818fe9f4a7cf5e42bc2b42fc8ee8a02e63ac0294fe"
+      },
+      "reference": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-xilonen-zibai-expressions/references/Xilonen/approved-neutral.png",
+      "expressions": {
+        "joy": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-xilonen-zibai-expressions/prompts/Xilonen/joy.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Xilonen from Genshin Impact expressing joy. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, eye colors, costume, accessories, rendering and her blond hair, feline ears and tail, skin tone, gold-and-dark outfit and tall female proportions. Personality and acting: easygoing, confident and warm, with relaxed grounded gestures. Show a sincere smile and softened eyes; shift comfortably and give a small greeting near the torso. Vary pose and gesture to match the emotion while staying faithful to the character; maintain the reference's proportions without elongating the torso or legs. Use normal pupils, simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and shoes with 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Xilonen/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-xilonen-zibai-expressions/raw/Xilonen/joy.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-xilonen-zibai-expressions/sprites/Xilonen/joy.png",
+          "sha256": "d7fd20dfc1f9a4a388efa6fcb11e1029a6541bbc7effce5bfe7a0b6e72bbd693",
+          "status": "candidate"
+        },
+        "annoyance": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-xilonen-zibai-expressions/prompts/Xilonen/annoyance.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Xilonen from Genshin Impact expressing annoyance. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, eye colors, costume, accessories, rendering and her blond hair, feline ears and tail, skin tone, gold-and-dark outfit and tall female proportions. Personality and acting: easygoing, confident and warm, with relaxed grounded gestures. Show a clear displeased frown and knitted brows; stand firmly with one hand on the hip and the other down. Vary pose and gesture to match the emotion while staying faithful to the character; maintain the reference's proportions without elongating the torso or legs. Use normal pupils, simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and shoes with 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Xilonen/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "status": "generation failed",
+          "error": "image generation failed: http 429 Too Many Requests: Some(\"{\\\"error\\\":{\\\"type\\\":\\\"usage_limit_reached\\\",\\\"message\\\":\\\"The usage limit has been reached\\\",\\\"plan_type\\\":\\\"plus\\\",\\\"resets_at\\\":1793854673,\\\"eligible_promo\\\":null,\\\"limit_window_minutes\\\":null,\\\"resets_in_seconds\\\":54031}}\")"
+        },
+        "confusion": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-xilonen-zibai-expressions/prompts/Xilonen/confusion.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Xilonen from Genshin Impact expressing confusion. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, eye colors, costume, accessories, rendering and her blond hair, feline ears and tail, skin tone, gold-and-dark outfit and tall female proportions. Personality and acting: easygoing, confident and warm, with relaxed grounded gestures. Show a questioning expression and raised brow; tilt the head slightly and bring one hand near the chin. Vary pose and gesture to match the emotion while staying faithful to the character; maintain the reference's proportions without elongating the torso or legs. Use normal pupils, simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and shoes with 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Xilonen/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "status": "generation failed",
+          "error": "image generation failed: http 429 Too Many Requests: Some(\"{\\\"error\\\":{\\\"type\\\":\\\"usage_limit_reached\\\",\\\"message\\\":\\\"The usage limit has been reached\\\",\\\"plan_type\\\":\\\"plus\\\",\\\"resets_at\\\":1793854674,\\\"eligible_promo\\\":null,\\\"limit_window_minutes\\\":null,\\\"resets_in_seconds\\\":54030}}\")"
+        },
+        "love": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-xilonen-zibai-expressions/prompts/Xilonen/love.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Xilonen from Genshin Impact expressing love. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, eye colors, costume, accessories, rendering and her blond hair, feline ears and tail, skin tone, gold-and-dark outfit and tall female proportions. Personality and acting: easygoing, confident and warm, with relaxed grounded gestures. Show a genuinely affectionate smile and warm eyes; turn toward the viewer with one hand over the heart and the other relaxed. Vary pose and gesture to match the emotion while staying faithful to the character; maintain the reference's proportions without elongating the torso or legs. Use normal pupils, simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and shoes with 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Xilonen/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "status": "generation failed",
+          "error": "image generation failed: http 429 Too Many Requests: Some(\"{\\\"error\\\":{\\\"type\\\":\\\"usage_limit_reached\\\",\\\"message\\\":\\\"The usage limit has been reached\\\",\\\"plan_type\\\":\\\"plus\\\",\\\"resets_at\\\":1793854674,\\\"eligible_promo\\\":null,\\\"limit_window_minutes\\\":null,\\\"resets_in_seconds\\\":54028}}\")"
+        },
+        "desire": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-xilonen-zibai-expressions/prompts/Xilonen/desire.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Xilonen from Genshin Impact expressing desire. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, eye colors, costume, accessories, rendering and her blond hair, feline ears and tail, skin tone, gold-and-dark outfit and tall female proportions. Personality and acting: easygoing, confident and warm, with relaxed grounded gestures. Show a hopeful intent gaze and a subtle blush; lean forward slightly with one hand near the heart and the other at the side.  Convey a warm, quietly confident longing with a softened gaze; tasteful in the established outfit. Vary pose and gesture to match the emotion while staying faithful to the character; maintain the reference's proportions without elongating the torso or legs. Use normal pupils, simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and shoes with 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Xilonen/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "status": "generation failed",
+          "error": "image generation failed: http 429 Too Many Requests: Some(\"{\\\"error\\\":{\\\"type\\\":\\\"usage_limit_reached\\\",\\\"message\\\":\\\"The usage limit has been reached\\\",\\\"plan_type\\\":\\\"plus\\\",\\\"resets_at\\\":1793854673,\\\"eligible_promo\\\":null,\\\"limit_window_minutes\\\":null,\\\"resets_in_seconds\\\":54027}}\")"
+        },
+        "excitement": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-xilonen-zibai-expressions/prompts/Xilonen/excitement.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Xilonen from Genshin Impact expressing excitement. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, eye colors, costume, accessories, rendering and her blond hair, feline ears and tail, skin tone, gold-and-dark outfit and tall female proportions. Personality and acting: easygoing, confident and warm, with relaxed grounded gestures. Show bright eager eyes and a delighted smile; stand more alert, one hand lifted in a small celebratory gesture. Vary pose and gesture to match the emotion while staying faithful to the character; maintain the reference's proportions without elongating the torso or legs. Use normal pupils, simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and shoes with 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Xilonen/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "status": "generation failed",
+          "error": "image generation failed: http 429 Too Many Requests: Some(\"{\\\"error\\\":{\\\"type\\\":\\\"usage_limit_reached\\\",\\\"message\\\":\\\"The usage limit has been reached\\\",\\\"plan_type\\\":\\\"plus\\\",\\\"resets_at\\\":1793854673,\\\"eligible_promo\\\":null,\\\"limit_window_minutes\\\":null,\\\"resets_in_seconds\\\":54026}}\")"
+        },
+        "sadness": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-xilonen-zibai-expressions/prompts/Xilonen/sadness.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Xilonen from Genshin Impact expressing sadness. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, eye colors, costume, accessories, rendering and her blond hair, feline ears and tail, skin tone, gold-and-dark outfit and tall female proportions. Personality and acting: easygoing, confident and warm, with relaxed grounded gestures. Show a sorrowful downcast gaze and softened shoulders; one hand resting on the opposite forearm. Vary pose and gesture to match the emotion while staying faithful to the character; maintain the reference's proportions without elongating the torso or legs. Use normal pupils, simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and shoes with 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Xilonen/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "status": "generation failed",
+          "error": "image generation failed: http 429 Too Many Requests: Some(\"{\\\"error\\\":{\\\"type\\\":\\\"usage_limit_reached\\\",\\\"message\\\":\\\"The usage limit has been reached\\\",\\\"plan_type\\\":\\\"plus\\\",\\\"resets_at\\\":1793854673,\\\"eligible_promo\\\":null,\\\"limit_window_minutes\\\":null,\\\"resets_in_seconds\\\":54025}}\")"
+        },
+        "fear": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-xilonen-zibai-expressions/prompts/Xilonen/fear.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Xilonen from Genshin Impact expressing fear. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, eye colors, costume, accessories, rendering and her blond hair, feline ears and tail, skin tone, gold-and-dark outfit and tall female proportions. Personality and acting: easygoing, confident and warm, with relaxed grounded gestures. Show an alarmed gaze and raised brows; shift weight back with one forearm held protectively near the torso. Vary pose and gesture to match the emotion while staying faithful to the character; maintain the reference's proportions without elongating the torso or legs. Use normal pupils, simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and shoes with 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Xilonen/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "status": "generation failed",
+          "error": "image generation failed: http 429 Too Many Requests: Some(\"{\\\"error\\\":{\\\"type\\\":\\\"usage_limit_reached\\\",\\\"message\\\":\\\"The usage limit has been reached\\\",\\\"plan_type\\\":\\\"plus\\\",\\\"resets_at\\\":1793854673,\\\"eligible_promo\\\":null,\\\"limit_window_minutes\\\":null,\\\"resets_in_seconds\\\":54024}}\")"
+        },
+        "embarrassment": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-xilonen-zibai-expressions/prompts/Xilonen/embarrassment.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Xilonen from Genshin Impact expressing embarrassment. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, eye colors, costume, accessories, rendering and her blond hair, feline ears and tail, skin tone, gold-and-dark outfit and tall female proportions. Personality and acting: easygoing, confident and warm, with relaxed grounded gestures. Show a subtle blush and amused averted glance; stand at ease with one hand near her waist. Vary pose and gesture to match the emotion while staying faithful to the character; maintain the reference's proportions without elongating the torso or legs. Use normal pupils, simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and shoes with 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Xilonen/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "status": "generation failed",
+          "error": "image generation failed: http 429 Too Many Requests: Some(\"{\\\"error\\\":{\\\"type\\\":\\\"usage_limit_reached\\\",\\\"message\\\":\\\"The usage limit has been reached\\\",\\\"plan_type\\\":\\\"plus\\\",\\\"resets_at\\\":1793854673,\\\"eligible_promo\\\":null,\\\"limit_window_minutes\\\":null,\\\"resets_in_seconds\\\":54023}}\")"
+        }
+      }
+    },
+    "Xingqiu": {
+      "neutral_approval": {
+        "status": "approved",
+        "message": "All others are ACCEPTED.",
+        "date": "2026-10-30",
+        "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Xingqiu/neutral-v001.png",
+        "candidate_sha256": "e43efda870321c02f2cfc6b29caed14df032ce71b53130b222bf0d8a0163d327"
+      },
+      "reference": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-xilonen-zibai-expressions/references/Xingqiu/approved-neutral.png",
+      "expressions": {
+        "joy": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-xilonen-zibai-expressions/prompts/Xingqiu/joy.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Xingqiu from Genshin Impact expressing joy. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, eye colors, costume, accessories, rendering and his short blue hair, ornate blue outfit and petite medium male proportions. Personality and acting: thoughtful, playful and composed, with refined but natural masculine gestures. Show bright eyes and an easy smile; relax the shoulders with one hand lightly at the waist. Vary pose and gesture to match the emotion while staying faithful to the character; maintain the reference's proportions without elongating the torso or legs. Use normal pupils, simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and shoes with 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Xingqiu/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "status": "generation failed",
+          "error": "image generation failed: http 429 Too Many Requests: Some(\"{\\\"error\\\":{\\\"type\\\":\\\"usage_limit_reached\\\",\\\"message\\\":\\\"The usage limit has been reached\\\",\\\"plan_type\\\":\\\"plus\\\",\\\"resets_at\\\":1793854673,\\\"eligible_promo\\\":null,\\\"limit_window_minutes\\\":null,\\\"resets_in_seconds\\\":54023}}\")"
+        },
+        "annoyance": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-xilonen-zibai-expressions/prompts/Xingqiu/annoyance.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Xingqiu from Genshin Impact expressing annoyance. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, eye colors, costume, accessories, rendering and his short blue hair, ornate blue outfit and petite medium male proportions. Personality and acting: thoughtful, playful and composed, with refined but natural masculine gestures. Show a restrained irritated gaze; shift weight to one leg with one forearm near the torso. Vary pose and gesture to match the emotion while staying faithful to the character; maintain the reference's proportions without elongating the torso or legs. Use normal pupils, simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and shoes with 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Xingqiu/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "status": "generation failed",
+          "error": "image generation failed: http 429 Too Many Requests: Some(\"{\\\"error\\\":{\\\"type\\\":\\\"usage_limit_reached\\\",\\\"message\\\":\\\"The usage limit has been reached\\\",\\\"plan_type\\\":\\\"plus\\\",\\\"resets_at\\\":1793854673,\\\"eligible_promo\\\":null,\\\"limit_window_minutes\\\":null,\\\"resets_in_seconds\\\":54022}}\")"
+        },
+        "confusion": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-xilonen-zibai-expressions/prompts/Xingqiu/confusion.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Xingqiu from Genshin Impact expressing confusion. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, eye colors, costume, accessories, rendering and his short blue hair, ornate blue outfit and petite medium male proportions. Personality and acting: thoughtful, playful and composed, with refined but natural masculine gestures. Show puzzled eyes and a small frown; turn the shoulders slightly with one hand lifted in a simple questioning gesture. Vary pose and gesture to match the emotion while staying faithful to the character; maintain the reference's proportions without elongating the torso or legs. Use normal pupils, simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and shoes with 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Xingqiu/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "status": "generation failed",
+          "error": "image generation failed: http 429 Too Many Requests: Some(\"{\\\"error\\\":{\\\"type\\\":\\\"usage_limit_reached\\\",\\\"message\\\":\\\"The usage limit has been reached\\\",\\\"plan_type\\\":\\\"plus\\\",\\\"resets_at\\\":1793854673,\\\"eligible_promo\\\":null,\\\"limit_window_minutes\\\":null,\\\"resets_in_seconds\\\":54021}}\")"
+        },
+        "love": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-xilonen-zibai-expressions/prompts/Xingqiu/love.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Xingqiu from Genshin Impact expressing love. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, eye colors, costume, accessories, rendering and his short blue hair, ornate blue outfit and petite medium male proportions. Personality and acting: thoughtful, playful and composed, with refined but natural masculine gestures. Show tender, open warmth and a gentle smile; relax the shoulders, one hand lightly against the chest. Vary pose and gesture to match the emotion while staying faithful to the character; maintain the reference's proportions without elongating the torso or legs. Use normal pupils, simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and shoes with 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Xingqiu/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "status": "generation failed",
+          "error": "image generation failed: http 429 Too Many Requests: Some(\"{\\\"error\\\":{\\\"type\\\":\\\"usage_limit_reached\\\",\\\"message\\\":\\\"The usage limit has been reached\\\",\\\"plan_type\\\":\\\"plus\\\",\\\"resets_at\\\":1793854673,\\\"eligible_promo\\\":null,\\\"limit_window_minutes\\\":null,\\\"resets_in_seconds\\\":54020}}\")"
+        },
+        "desire": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-xilonen-zibai-expressions/prompts/Xingqiu/desire.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Xingqiu from Genshin Impact expressing desire. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, eye colors, costume, accessories, rendering and his short blue hair, ornate blue outfit and petite medium male proportions. Personality and acting: thoughtful, playful and composed, with refined but natural masculine gestures. Show a yearning gaze with a faint blush; turn toward the viewer, leaning in subtly, one hand near the waist.  Convey a wholesome, hopeful wish for companionship; non-suggestive; tasteful in the established outfit. Vary pose and gesture to match the emotion while staying faithful to the character; maintain the reference's proportions without elongating the torso or legs. Use normal pupils, simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and shoes with 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Xingqiu/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "status": "generation failed",
+          "error": "image generation failed: http 429 Too Many Requests: Some(\"{\\\"error\\\":{\\\"type\\\":\\\"usage_limit_reached\\\",\\\"message\\\":\\\"The usage limit has been reached\\\",\\\"plan_type\\\":\\\"plus\\\",\\\"resets_at\\\":1793854674,\\\"eligible_promo\\\":null,\\\"limit_window_minutes\\\":null,\\\"resets_in_seconds\\\":54020}}\")"
+        },
+        "excitement": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-xilonen-zibai-expressions/prompts/Xingqiu/excitement.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Xingqiu from Genshin Impact expressing excitement. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, eye colors, costume, accessories, rendering and his short blue hair, ornate blue outfit and petite medium male proportions. Personality and acting: thoughtful, playful and composed, with refined but natural masculine gestures. Show an enthusiastic smile; lean forward slightly with one hand raised near the shoulder and the other relaxed. Vary pose and gesture to match the emotion while staying faithful to the character; maintain the reference's proportions without elongating the torso or legs. Use normal pupils, simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and shoes with 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Xingqiu/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "status": "generation failed",
+          "error": "image generation failed: http 429 Too Many Requests: Some(\"{\\\"error\\\":{\\\"type\\\":\\\"usage_limit_reached\\\",\\\"message\\\":\\\"The usage limit has been reached\\\",\\\"plan_type\\\":\\\"plus\\\",\\\"resets_at\\\":1793854673,\\\"eligible_promo\\\":null,\\\"limit_window_minutes\\\":null,\\\"resets_in_seconds\\\":54019}}\")"
+        },
+        "sadness": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-xilonen-zibai-expressions/prompts/Xingqiu/sadness.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Xingqiu from Genshin Impact expressing sadness. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, eye colors, costume, accessories, rendering and his short blue hair, ornate blue outfit and petite medium male proportions. Personality and acting: thoughtful, playful and composed, with refined but natural masculine gestures. Show a subdued expression and lowered eyes; let both arms rest naturally while the shoulders fall slightly. Vary pose and gesture to match the emotion while staying faithful to the character; maintain the reference's proportions without elongating the torso or legs. Use normal pupils, simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and shoes with 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Xingqiu/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "status": "generation failed",
+          "error": "image generation failed: http 429 Too Many Requests: Some(\"{\\\"error\\\":{\\\"type\\\":\\\"usage_limit_reached\\\",\\\"message\\\":\\\"The usage limit has been reached\\\",\\\"plan_type\\\":\\\"plus\\\",\\\"resets_at\\\":1793854673,\\\"eligible_promo\\\":null,\\\"limit_window_minutes\\\":null,\\\"resets_in_seconds\\\":54018}}\")"
+        },
+        "fear": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-xilonen-zibai-expressions/prompts/Xingqiu/fear.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Xingqiu from Genshin Impact expressing fear. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, eye colors, costume, accessories, rendering and his short blue hair, ornate blue outfit and petite medium male proportions. Personality and acting: thoughtful, playful and composed, with refined but natural masculine gestures. Show a tense worried expression; step weight back slightly and hold one hand near the chest. Vary pose and gesture to match the emotion while staying faithful to the character; maintain the reference's proportions without elongating the torso or legs. Use normal pupils, simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and shoes with 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Xingqiu/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "status": "generation failed",
+          "error": "image generation failed: http 429 Too Many Requests: Some(\"{\\\"error\\\":{\\\"type\\\":\\\"usage_limit_reached\\\",\\\"message\\\":\\\"The usage limit has been reached\\\",\\\"plan_type\\\":\\\"plus\\\",\\\"resets_at\\\":1793854674,\\\"eligible_promo\\\":null,\\\"limit_window_minutes\\\":null,\\\"resets_in_seconds\\\":54018}}\")"
+        },
+        "embarrassment": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-xilonen-zibai-expressions/prompts/Xingqiu/embarrassment.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Xingqiu from Genshin Impact expressing embarrassment. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, eye colors, costume, accessories, rendering and his short blue hair, ornate blue outfit and petite medium male proportions. Personality and acting: thoughtful, playful and composed, with refined but natural masculine gestures. Show a faint blush and a wry, averted glance; stand at ease and adjust one sleeve. Vary pose and gesture to match the emotion while staying faithful to the character; maintain the reference's proportions without elongating the torso or legs. Use normal pupils, simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and shoes with 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Xingqiu/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "status": "generation failed",
+          "error": "image generation failed: http 429 Too Many Requests: Some(\"{\\\"error\\\":{\\\"type\\\":\\\"usage_limit_reached\\\",\\\"message\\\":\\\"The usage limit has been reached\\\",\\\"plan_type\\\":\\\"plus\\\",\\\"resets_at\\\":1793854674,\\\"eligible_promo\\\":null,\\\"limit_window_minutes\\\":null,\\\"resets_in_seconds\\\":54017}}\")"
+        }
+      }
+    },
+    "Xinyan": {
+      "neutral_approval": {
+        "status": "approved",
+        "message": "All others are ACCEPTED.",
+        "date": "2026-10-30",
+        "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Xinyan/neutral-v002.png",
+        "candidate_sha256": "89f07fa5ca2f83c6acdd3b93f37528f3ac7b6ea8c9c154531eed8ada908da1eb"
+      },
+      "reference": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-xilonen-zibai-expressions/references/Xinyan/approved-neutral.png",
+      "expressions": {
+        "joy": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-xilonen-zibai-expressions/prompts/Xinyan/joy.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Xinyan from Genshin Impact expressing joy. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, eye colors, costume, accessories, rendering and her hair buns, skin tone, red-and-black outfit and petite medium female proportions. Personality and acting: outgoing, passionate and friendly, with lively gestures. Show a warm smile; turn slightly toward the viewer, one hand lifted in a modest greeting. Empty hands, no guitar or other musical instrument. Vary pose and gesture to match the emotion while staying faithful to the character; maintain the reference's proportions without elongating the torso or legs. Use normal pupils, simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and shoes with 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Xinyan/neutral-v002.png"
+            ],
+            "transparent_background": true
+          },
+          "status": "generation failed",
+          "error": "image generation failed: http 429 Too Many Requests: Some(\"{\\\"error\\\":{\\\"type\\\":\\\"usage_limit_reached\\\",\\\"message\\\":\\\"The usage limit has been reached\\\",\\\"plan_type\\\":\\\"plus\\\",\\\"resets_at\\\":1793854673,\\\"eligible_promo\\\":null,\\\"limit_window_minutes\\\":null,\\\"resets_in_seconds\\\":54016}}\")"
+        },
+        "annoyance": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-xilonen-zibai-expressions/prompts/Xinyan/annoyance.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Xinyan from Genshin Impact expressing annoyance. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, eye colors, costume, accessories, rendering and her hair buns, skin tone, red-and-black outfit and petite medium female proportions. Personality and acting: outgoing, passionate and friendly, with lively gestures. Show a mildly indignant expression; angle the shoulders away, one hand at the waist. Empty hands, no guitar or other musical instrument. Vary pose and gesture to match the emotion while staying faithful to the character; maintain the reference's proportions without elongating the torso or legs. Use normal pupils, simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and shoes with 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Xinyan/neutral-v002.png"
+            ],
+            "transparent_background": true
+          },
+          "status": "generation failed",
+          "error": "image generation failed: http 429 Too Many Requests: Some(\"{\\\"error\\\":{\\\"type\\\":\\\"usage_limit_reached\\\",\\\"message\\\":\\\"The usage limit has been reached\\\",\\\"plan_type\\\":\\\"plus\\\",\\\"resets_at\\\":1793854673,\\\"eligible_promo\\\":null,\\\"limit_window_minutes\\\":null,\\\"resets_in_seconds\\\":54014}}\")"
+        }
+      }
+    },
+    "Yoimiya": {
+      "neutral_approval": {
+        "status": "approved",
+        "message": "All others are ACCEPTED.",
+        "date": "2026-10-30",
+        "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Yoimiya/neutral-v003.png",
+        "candidate_sha256": "b6b83c23bd97193076bf5086df53226935a7a492153961d655a1b0cc02bedaa0"
+      },
+      "reference": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-xilonen-zibai-expressions/references/Yoimiya/approved-neutral.png",
+      "expressions": {}
+    },
+    "Yumemizuki Mizuki": {
+      "neutral_approval": {
+        "status": "approved",
+        "message": "All others are ACCEPTED.",
+        "date": "2026-10-30",
+        "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Yumemizuki Mizuki/neutral-v003.png",
+        "candidate_sha256": "d5a86636948679e7b240e60f32ba120669a82af1173144fab675449eb282a073"
+      },
+      "reference": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-xilonen-zibai-expressions/references/Yumemizuki Mizuki/approved-neutral.png",
+      "expressions": {}
+    },
+    "Yun Jin": {
+      "neutral_approval": {
+        "status": "approved",
+        "message": "All others are ACCEPTED.",
+        "date": "2026-10-30",
+        "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Yun Jin/neutral-v003.png",
+        "candidate_sha256": "94e1993dfed768080a82831529a05cc83935d6560b6ba52611be4440c83ad3de"
+      },
+      "reference": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-xilonen-zibai-expressions/references/Yun Jin/approved-neutral.png",
+      "expressions": {}
+    },
+    "Zibai": {
+      "neutral_approval": {
+        "status": "approved",
+        "message": "All others are ACCEPTED.",
+        "date": "2026-10-30",
+        "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Zibai/neutral-v002.png",
+        "candidate_sha256": "2dfd5c594e1e2aeb07695c6e46133e4089f866dcf9e394c4eed12b1a6c355610"
+      },
+      "reference": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-xilonen-zibai-expressions/references/Zibai/approved-neutral.png",
+      "expressions": {}
+    }
+  },
+  "missing": [
+    "Xilonen/annoyance.png",
+    "Xilonen/confusion.png",
+    "Xilonen/love.png",
+    "Xilonen/desire.png",
+    "Xilonen/excitement.png",
+    "Xilonen/sadness.png",
+    "Xilonen/fear.png",
+    "Xilonen/embarrassment.png",
+    "Xingqiu/joy.png",
+    "Xingqiu/annoyance.png",
+    "Xingqiu/confusion.png",
+    "Xingqiu/love.png",
+    "Xingqiu/desire.png",
+    "Xingqiu/excitement.png",
+    "Xingqiu/sadness.png",
+    "Xingqiu/fear.png",
+    "Xingqiu/embarrassment.png",
+    "Xinyan/joy.png",
+    "Xinyan/annoyance.png",
+    "Xinyan/confusion.png",
+    "Xinyan/love.png",
+    "Xinyan/desire.png",
+    "Xinyan/excitement.png",
+    "Xinyan/sadness.png",
+    "Xinyan/fear.png",
+    "Xinyan/embarrassment.png",
+    "Yoimiya/joy.png",
+    "Yoimiya/annoyance.png",
+    "Yoimiya/confusion.png",
+    "Yoimiya/love.png",
+    "Yoimiya/desire.png",
+    "Yoimiya/excitement.png",
+    "Yoimiya/sadness.png",
+    "Yoimiya/fear.png",
+    "Yoimiya/embarrassment.png",
+    "Yumemizuki Mizuki/joy.png",
+    "Yumemizuki Mizuki/annoyance.png",
+    "Yumemizuki Mizuki/confusion.png",
+    "Yumemizuki Mizuki/love.png",
+    "Yumemizuki Mizuki/desire.png",
+    "Yumemizuki Mizuki/excitement.png",
+    "Yumemizuki Mizuki/sadness.png",
+    "Yumemizuki Mizuki/fear.png",
+    "Yumemizuki Mizuki/embarrassment.png",
+    "Yun Jin/joy.png",
+    "Yun Jin/annoyance.png",
+    "Yun Jin/confusion.png",
+    "Yun Jin/love.png",
+    "Yun Jin/desire.png",
+    "Yun Jin/excitement.png",
+    "Yun Jin/sadness.png",
+    "Yun Jin/fear.png",
+    "Yun Jin/embarrassment.png",
+    "Zibai/joy.png",
+    "Zibai/annoyance.png",
+    "Zibai/confusion.png",
+    "Zibai/love.png",
+    "Zibai/desire.png",
+    "Zibai/excitement.png",
+    "Zibai/sadness.png",
+    "Zibai/fear.png",
+    "Zibai/embarrassment.png"
+  ],
+  "generation_limit": {
+    "type": "usage_limit_reached",
+    "reset_at_unix": 1793854673,
+    "reset_at_toronto": "2026-11-04T23:57:53-05:00",
+    "note": "Stop further requests until reset. Existing saved candidates must be preserved."
+  }
+}

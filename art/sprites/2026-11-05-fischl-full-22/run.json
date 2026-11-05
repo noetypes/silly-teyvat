@@ -1,0 +1,1296 @@
+{
+  "date": "2026-11-05",
+  "character": "Fischl",
+  "status": "complete_for_user_review",
+  "request": "Perfect! Approved, Regenerate Fischl\u2019s full 22-sprite set",
+  "requested_emotions": [
+    "neutral",
+    "annoyance",
+    "smug",
+    "confusion",
+    "love",
+    "excitement",
+    "joy",
+    "fear",
+    "pride",
+    "desire",
+    "anger",
+    "grief",
+    "sadness",
+    "disgust",
+    "disappointment",
+    "relief",
+    "admiration",
+    "gratitude",
+    "embarrassment",
+    "caring",
+    "love-1",
+    "desire-1"
+  ],
+  "neutral_approval": {
+    "status": "approved",
+    "date": "2026-11-05",
+    "message": "Perfect! Approved, Regenerate Fischl\u2019s full 22-sprite set",
+    "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-fischl-model-reference-neutral/candidates/Fischl/neutral-v003.png",
+    "candidate_sha256": "3f1fb1c31686f9d3118ea06c2b0958d8ca4556d822385f7e538a3af049ed1c13"
+  },
+  "reference": {
+    "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-fischl-full-22/references/Fischl/approved-neutral.png",
+    "sha256": "3f1fb1c31686f9d3118ea06c2b0958d8ca4556d822385f7e538a3af049ed1c13",
+    "role": "Sole image reference for every independent expression"
+  },
+  "neutral": {
+    "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-fischl-full-22/sprites/Fischl/neutral.png",
+    "sha256": "3f1fb1c31686f9d3118ea06c2b0958d8ca4556d822385f7e538a3af049ed1c13",
+    "status": "approved"
+  },
+  "expressions": {
+    "annoyance": {
+      "status": "candidate",
+      "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-fischl-full-22/prompts/Fischl/annoyance.txt",
+      "tool": "image_gen.imagegen",
+      "arguments": {
+        "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Fischl from Genshin Impact expressing annoyance. The supplied explicitly approved neutral is the SOLE image reference; do not use any other image. Preserve its recognizable face, fair skin, blond twin tails and ribbons, visible green right iris, black eyepatch over her left eye, exact black-and-purple gothic outfit and asymmetric sleeves/gloves, neck bow and gold ornaments, lace patterns, asymmetric stockings, boots, and detailed anime illustration style, linework and shading.\nProportions: retain the approved neutral's cute, compact, petite Medium Female build, small delicate frame, narrow shoulders, short compact torso and proportionately short limbs. Keep each alternate at least as petite as the approved neutral. Do not lengthen the torso or legs or stretch her anatomy to fill the frame.\nPersonality and acting: Fischl is theatrical and proud in her Prinzessin persona, with sincere sweetness beneath her grand bearing. Vary her whole pose, torso angle, gestures and expression for this emotion. A haughty little frown and narrowed visible eye, brow knitted as if a commoner has interrupted her grand speech. Turn her shoulders slightly away; her right arm rests across her waist while her left gloved hand makes a small palm-up questioning gesture. Keep hands separated. Shift onto the opposite leg from the neutral, feet staggered and uncrossed.\nHands: simple readable gestures near the torso and image plane, coherent wrists, one anatomically correct thumb and four fingers per hand where visible, with no tangled fingers or extreme foreshortening. Exactly two legs and two feet, clearly distinct and uncrossed. Keep her face readable and preserve the left eyepatch throughout. Hair and costume panels follow the pose naturally with gravity. Use her ordinary normal pupil in the visible green right eye; no heart pupils or heart-shaped highlights.\nFull-body complete silhouette including ribbons, twin tails, fingers, costume tails and boots; 2\u20134% top and bottom padding, roughly 92\u201396% visible height. Genuinely transparent background. No scenery, floor, ground shadow, UI, text, labels, watermark, floating effects or symbols, bow weapon, raven, new props, or additional characters.",
+        "referenced_image_paths": [
+          "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-fischl-full-22/references/Fischl/approved-neutral.png"
+        ],
+        "transparent_background": true
+      },
+      "tool_output": "/Users/alexachan/.codex/generated_images/01a1aa19-42b2-7e92-b08d-8ee7d133c057/exec-8752cd57-8646-4d95-ba1b-8895670fdca1.png",
+      "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-fischl-full-22/raw/Fischl/annoyance.png",
+      "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-fischl-full-22/sprites/Fischl/annoyance.png",
+      "sha256": "bef2f6a5de26c515bd2e5a0b83da847296755ebf0ea3e593bb6317c2cf4c5fd6",
+      "dimensions": [
+        1003,
+        1568
+      ],
+      "png_color_type": 6,
+      "approval": {
+        "status": "pending"
+      }
+    },
+    "smug": {
+      "status": "candidate",
+      "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-fischl-full-22/prompts/Fischl/smug.txt",
+      "tool": "image_gen.imagegen",
+      "arguments": {
+        "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Fischl from Genshin Impact expressing smug. The supplied explicitly approved neutral is the SOLE image reference; do not use any other image. Preserve its recognizable face, fair skin, blond twin tails and ribbons, visible green right iris, black eyepatch over her left eye, exact black-and-purple gothic outfit and asymmetric sleeves/gloves, neck bow and gold ornaments, lace patterns, asymmetric stockings, boots, and detailed anime illustration style, linework and shading.\nProportions: retain the approved neutral's cute, compact, petite Medium Female build, small delicate frame, narrow shoulders, short compact torso and proportionately short limbs. Keep each alternate at least as petite as the approved neutral. Do not lengthen the torso or legs or stretch her anatomy to fill the frame.\nPersonality and acting: Fischl is theatrical and proud in her Prinzessin persona, with sincere sweetness beneath her grand bearing. Vary her whole pose, torso angle, gestures and expression for this emotion. A playful knowing closed-mouth smirk, visible eye half-lidded but open, chin lifted proudly. Her left gloved fingertips hover elegantly near the underside of her chin while her right hand rests lightly on her hip. A slight three-quarter turn and a confident head tilt suggest she has predicted the outcome all along. No finger across her lips or eye.\nHands: simple readable gestures near the torso and image plane, coherent wrists, one anatomically correct thumb and four fingers per hand where visible, with no tangled fingers or extreme foreshortening. Exactly two legs and two feet, clearly distinct and uncrossed. Keep her face readable and preserve the left eyepatch throughout. Hair and costume panels follow the pose naturally with gravity. Use her ordinary normal pupil in the visible green right eye; no heart pupils or heart-shaped highlights.\nFull-body complete silhouette including ribbons, twin tails, fingers, costume tails and boots; 2\u20134% top and bottom padding, roughly 92\u201396% visible height. Genuinely transparent background. No scenery, floor, ground shadow, UI, text, labels, watermark, floating effects or symbols, bow weapon, raven, new props, or additional characters.",
+        "referenced_image_paths": [
+          "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-fischl-full-22/references/Fischl/approved-neutral.png"
+        ],
+        "transparent_background": true
+      },
+      "tool_output": "/Users/alexachan/.codex/generated_images/01a1aa19-42b2-7e92-b08d-8ee7d133c057/exec-e7b836be-1d12-4507-ac26-f469fe0a5fc1.png",
+      "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-fischl-full-22/raw/Fischl/smug.png",
+      "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-fischl-full-22/sprites/Fischl/smug.png",
+      "sha256": "c0eaefa3cbfcf56d1b26b1a5aad9e2915db57b1f1c7d042dd278c3bf8699bb44",
+      "dimensions": [
+        1003,
+        1568
+      ],
+      "png_color_type": 6,
+      "approval": {
+        "status": "pending"
+      }
+    },
+    "confusion": {
+      "status": "candidate",
+      "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-fischl-full-22/prompts/Fischl/confusion.txt",
+      "tool": "image_gen.imagegen",
+      "arguments": {
+        "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Fischl from Genshin Impact expressing confusion. The supplied explicitly approved neutral is the SOLE image reference; do not use any other image. Preserve its recognizable face, fair skin, blond twin tails and ribbons, visible green right iris, black eyepatch over her left eye, exact black-and-purple gothic outfit and asymmetric sleeves/gloves, neck bow and gold ornaments, lace patterns, asymmetric stockings, boots, and detailed anime illustration style, linework and shading.\nProportions: retain the approved neutral's cute, compact, petite Medium Female build, small delicate frame, narrow shoulders, short compact torso and proportionately short limbs. Keep each alternate at least as petite as the approved neutral. Do not lengthen the torso or legs or stretch her anatomy to fill the frame.\nPersonality and acting: Fischl is theatrical and proud in her Prinzessin persona, with sincere sweetness beneath her grand bearing. Vary her whole pose, torso angle, gestures and expression for this emotion. A puzzled open visible eye with one brow raised and a tiny questioning mouth. Tilt her head and lean forward slightly; her right fingertips rest near her cheek below the eye while her left gloved hand opens near her waist in a restrained 'what can this mean?' gesture. Let her theatrical certainty momentarily falter. Hands remain separate and face readable.\nHands: simple readable gestures near the torso and image plane, coherent wrists, one anatomically correct thumb and four fingers per hand where visible, with no tangled fingers or extreme foreshortening. Exactly two legs and two feet, clearly distinct and uncrossed. Keep her face readable and preserve the left eyepatch throughout. Hair and costume panels follow the pose naturally with gravity. Use her ordinary normal pupil in the visible green right eye; no heart pupils or heart-shaped highlights.\nFull-body complete silhouette including ribbons, twin tails, fingers, costume tails and boots; 2\u20134% top and bottom padding, roughly 92\u201396% visible height. Genuinely transparent background. No scenery, floor, ground shadow, UI, text, labels, watermark, floating effects or symbols, bow weapon, raven, new props, or additional characters.",
+        "referenced_image_paths": [
+          "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-fischl-full-22/references/Fischl/approved-neutral.png"
+        ],
+        "transparent_background": true
+      },
+      "tool_output": "/Users/alexachan/.codex/generated_images/01a1aa19-42b2-7e92-b08d-8ee7d133c057/exec-e1349b0d-b45e-458e-95e1-5316b005b0f3.png",
+      "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-fischl-full-22/raw/Fischl/confusion.png",
+      "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-fischl-full-22/sprites/Fischl/confusion.png",
+      "sha256": "8d718eaf4567f8306940f52f6b3a100fe1e8b8651c2be06c932192f90f2a3c0d",
+      "dimensions": [
+        1003,
+        1568
+      ],
+      "png_color_type": 6,
+      "approval": {
+        "status": "pending"
+      }
+    },
+    "love": {
+      "status": "candidate",
+      "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-fischl-full-22/prompts/Fischl/love.txt",
+      "tool": "image_gen.imagegen",
+      "arguments": {
+        "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Fischl from Genshin Impact expressing love. The supplied explicitly approved neutral is the SOLE image reference; do not use any other image. Preserve its recognizable face, fair skin, blond twin tails and ribbons, visible green right iris, black eyepatch over her left eye, exact black-and-purple gothic outfit and asymmetric sleeves/gloves, neck bow and gold ornaments, lace patterns, asymmetric stockings, boots, and detailed anime illustration style, linework and shading.\nProportions: retain the approved neutral's cute, compact, petite Medium Female build, small delicate frame, narrow shoulders, short compact torso and proportionately short limbs. Keep each alternate at least as petite as the approved neutral. Do not lengthen the torso or legs or stretch her anatomy to fill the frame.\nPersonality and acting: Fischl is theatrical and proud in her Prinzessin persona, with sincere sweetness beneath her grand bearing. Vary her whole pose, torso angle, gestures and expression for this emotion. A sweet affectionate closed-mouth smile, softened open visible eye and gentle blush. Turn toward the viewer with a tender head tilt; her right hand lies softly over the upper chest while her left gloved arm relaxes down with an open hand near her side. The usually grand bearing becomes sincere and warm. Both feet stay comfortably grounded and separate.\nHands: simple readable gestures near the torso and image plane, coherent wrists, one anatomically correct thumb and four fingers per hand where visible, with no tangled fingers or extreme foreshortening. Exactly two legs and two feet, clearly distinct and uncrossed. Keep her face readable and preserve the left eyepatch throughout. Hair and costume panels follow the pose naturally with gravity. Use her ordinary normal pupil in the visible green right eye; no heart pupils or heart-shaped highlights.\nFull-body complete silhouette including ribbons, twin tails, fingers, costume tails and boots; 2\u20134% top and bottom padding, roughly 92\u201396% visible height. Genuinely transparent background. No scenery, floor, ground shadow, UI, text, labels, watermark, floating effects or symbols, bow weapon, raven, new props, or additional characters.",
+        "referenced_image_paths": [
+          "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-fischl-full-22/references/Fischl/approved-neutral.png"
+        ],
+        "transparent_background": true
+      },
+      "tool_output": "/Users/alexachan/.codex/generated_images/01a1aa19-42b2-7e92-b08d-8ee7d133c057/exec-a6abe818-08e2-4f97-88e3-36ab1254663a.png",
+      "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-fischl-full-22/raw/Fischl/love.png",
+      "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-fischl-full-22/sprites/Fischl/love.png",
+      "sha256": "581f8af4d2c1f575a2a609fbf1ea719cd2bfabed7a4329aaa02111927cb4bc46",
+      "dimensions": [
+        1003,
+        1568
+      ],
+      "png_color_type": 6,
+      "approval": {
+        "status": "pending"
+      }
+    },
+    "excitement": {
+      "status": "candidate",
+      "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-fischl-full-22/prompts/Fischl/excitement.txt",
+      "tool": "image_gen.imagegen",
+      "arguments": {
+        "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Fischl from Genshin Impact expressing excitement. The supplied explicitly approved neutral is the SOLE image reference; do not use any other image. Preserve its recognizable face, fair skin, blond twin tails and ribbons, visible green right iris, black eyepatch over her left eye, exact black-and-purple gothic outfit and asymmetric sleeves/gloves, neck bow and gold ornaments, lace patterns, asymmetric stockings, boots, and detailed anime illustration style, linework and shading.\nProportions: retain the approved neutral's cute, compact, petite Medium Female build, small delicate frame, narrow shoulders, short compact torso and proportionately short limbs. Keep each alternate at least as petite as the approved neutral. Do not lengthen the torso or legs or stretch her anatomy to fill the frame.\nPersonality and acting: Fischl is theatrical and proud in her Prinzessin persona, with sincere sweetness beneath her grand bearing. Vary her whole pose, torso angle, gestures and expression for this emotion. An eager delighted open smile, bright wide visible eye and lifted brow. Straighten and lean forward a little as if announcing a marvelous discovery; her right arm bends into a compact celebratory fist near her shoulder while her left gloved hand opens beside her waist. One foot steps slightly forward, both visible and uncrossed. Dramatic enthusiasm without flailing or added props.\nHands: simple readable gestures near the torso and image plane, coherent wrists, one anatomically correct thumb and four fingers per hand where visible, with no tangled fingers or extreme foreshortening. Exactly two legs and two feet, clearly distinct and uncrossed. Keep her face readable and preserve the left eyepatch throughout. Hair and costume panels follow the pose naturally with gravity. Use her ordinary normal pupil in the visible green right eye; no heart pupils or heart-shaped highlights.\nFull-body complete silhouette including ribbons, twin tails, fingers, costume tails and boots; 2\u20134% top and bottom padding, roughly 92\u201396% visible height. Genuinely transparent background. No scenery, floor, ground shadow, UI, text, labels, watermark, floating effects or symbols, bow weapon, raven, new props, or additional characters.",
+        "referenced_image_paths": [
+          "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-fischl-full-22/references/Fischl/approved-neutral.png"
+        ],
+        "transparent_background": true
+      },
+      "tool_output": "/Users/alexachan/.codex/generated_images/01a1aa19-42b2-7e92-b08d-8ee7d133c057/exec-ffde3ebf-abe5-456f-b6da-a086e794b7f1.png",
+      "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-fischl-full-22/raw/Fischl/excitement.png",
+      "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-fischl-full-22/sprites/Fischl/excitement.png",
+      "sha256": "86192910d8ed4ef36b542075f500d1f8a51bbc485de87badc9db7b5570893092",
+      "dimensions": [
+        1003,
+        1568
+      ],
+      "png_color_type": 6,
+      "approval": {
+        "status": "pending"
+      }
+    },
+    "joy": {
+      "status": "candidate",
+      "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-fischl-full-22/prompts/Fischl/joy.txt",
+      "tool": "image_gen.imagegen",
+      "arguments": {
+        "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Fischl from Genshin Impact expressing joy. The supplied explicitly approved neutral is the SOLE image reference; do not use any other image. Preserve its recognizable face, fair skin, blond twin tails and ribbons, visible green right iris, black eyepatch over her left eye, exact black-and-purple gothic outfit and asymmetric sleeves/gloves, neck bow and gold ornaments, lace patterns, asymmetric stockings, boots, and detailed anime illustration style, linework and shading.\nProportions: retain the approved neutral's cute, compact, petite Medium Female build, small delicate frame, narrow shoulders, short compact torso and proportionately short limbs. Keep each alternate at least as petite as the approved neutral. Do not lengthen the torso or legs or stretch her anatomy to fill the frame.\nPersonality and acting: Fischl is theatrical and proud in her Prinzessin persona, with sincere sweetness beneath her grand bearing. Vary her whole pose, torso angle, gestures and expression for this emotion. A cheerful sincere open smile and happy bright visible eye, brow gently lifted. Turn her torso slightly toward the viewer with a buoyant head tilt; her right hand gives a small elegant open-palmed greeting beside her shoulder while her left gloved hand hangs loosely near her skirt. A soft weight shift keeps the pose light, warm and distinctly different from excitement.\nHands: simple readable gestures near the torso and image plane, coherent wrists, one anatomically correct thumb and four fingers per hand where visible, with no tangled fingers or extreme foreshortening. Exactly two legs and two feet, clearly distinct and uncrossed. Keep her face readable and preserve the left eyepatch throughout. Hair and costume panels follow the pose naturally with gravity. Use her ordinary normal pupil in the visible green right eye; no heart pupils or heart-shaped highlights.\nFull-body complete silhouette including ribbons, twin tails, fingers, costume tails and boots; 2\u20134% top and bottom padding, roughly 92\u201396% visible height. Genuinely transparent background. No scenery, floor, ground shadow, UI, text, labels, watermark, floating effects or symbols, bow weapon, raven, new props, or additional characters.",
+        "referenced_image_paths": [
+          "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-fischl-full-22/references/Fischl/approved-neutral.png"
+        ],
+        "transparent_background": true
+      },
+      "tool_output": "/Users/alexachan/.codex/generated_images/01a1aa19-42b2-7e92-b08d-8ee7d133c057/exec-43b81aaf-6a6f-4116-a074-8954c9c3e192.png",
+      "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-fischl-full-22/raw/Fischl/joy.png",
+      "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-fischl-full-22/sprites/Fischl/joy.png",
+      "sha256": "c9e2a3aa81b657840bd56254613a372fd361bcbd3d30e83cac3fe6e51d6aa983",
+      "dimensions": [
+        1003,
+        1568
+      ],
+      "png_color_type": 6,
+      "approval": {
+        "status": "pending"
+      }
+    },
+    "fear": {
+      "status": "candidate",
+      "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-fischl-full-22/prompts/Fischl/fear.txt",
+      "tool": "image_gen.imagegen",
+      "arguments": {
+        "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Fischl from Genshin Impact expressing fear. The supplied explicitly approved neutral is the SOLE image reference; do not use any other image. Preserve its recognizable face, fair skin, blond twin tails and ribbons, visible green right iris, black eyepatch over her left eye, exact black-and-purple gothic outfit and asymmetric sleeves/gloves, neck bow and gold ornaments, lace patterns, asymmetric stockings, boots, and detailed anime illustration style, linework and shading.\nProportions: retain the approved neutral's cute, compact, petite Medium Female build, small delicate frame, narrow shoulders, short compact torso and proportionately short limbs. Keep each alternate at least as petite as the approved neutral. Do not lengthen the torso or legs or stretch her anatomy to fill the frame.\nPersonality and acting: Fischl is theatrical and proud in her Prinzessin persona, with sincere sweetness beneath her grand bearing. Vary her whole pose, torso angle, gestures and expression for this emotion. An alarmed wide visible eye, raised brow and small parted mouth. Recoil subtly with weight shifted onto the back foot; her left gloved forearm lifts protectively across her upper torso while her right open hand stays lower near her ribs, well separated. Her dignified persona is caught off guard. Keep both feet planted, staggered and uncrossed, and her face unobscured.\nHands: simple readable gestures near the torso and image plane, coherent wrists, one anatomically correct thumb and four fingers per hand where visible, with no tangled fingers or extreme foreshortening. Exactly two legs and two feet, clearly distinct and uncrossed. Keep her face readable and preserve the left eyepatch throughout. Hair and costume panels follow the pose naturally with gravity. Use her ordinary normal pupil in the visible green right eye; no heart pupils or heart-shaped highlights.\nFull-body complete silhouette including ribbons, twin tails, fingers, costume tails and boots; 2\u20134% top and bottom padding, roughly 92\u201396% visible height. Genuinely transparent background. No scenery, floor, ground shadow, UI, text, labels, watermark, floating effects or symbols, bow weapon, raven, new props, or additional characters.",
+        "referenced_image_paths": [
+          "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-fischl-full-22/references/Fischl/approved-neutral.png"
+        ],
+        "transparent_background": true
+      },
+      "tool_output": "/Users/alexachan/.codex/generated_images/01a1aa19-42b2-7e92-b08d-8ee7d133c057/exec-3b0f81ae-5905-4af2-b8b6-7ffcea12c4fe.png",
+      "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-fischl-full-22/raw/Fischl/fear.png",
+      "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-fischl-full-22/sprites/Fischl/fear.png",
+      "sha256": "c8110cdf9c42fe0f6487841d606e24dd9798b243e40c0e6fbaad54127052eb7d",
+      "dimensions": [
+        1003,
+        1568
+      ],
+      "png_color_type": 6,
+      "approval": {
+        "status": "pending"
+      }
+    },
+    "pride": {
+      "status": "candidate",
+      "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-fischl-full-22/prompts/Fischl/pride.txt",
+      "tool": "image_gen.imagegen",
+      "arguments": {
+        "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Fischl from Genshin Impact expressing pride. The supplied explicitly approved neutral is the SOLE image reference; do not use any other image. Preserve its recognizable face, fair skin, blond twin tails and ribbons, visible green right iris, black eyepatch over her left eye, exact black-and-purple gothic outfit and asymmetric sleeves/gloves, neck bow and gold ornaments, lace patterns, asymmetric stockings, boots, and detailed anime illustration style, linework and shading.\nProportions: retain the approved neutral's cute, compact, petite Medium Female build, small delicate frame, narrow shoulders, short compact torso and proportionately short limbs. Keep each alternate at least as petite as the approved neutral. Do not lengthen the torso or legs or stretch her anatomy to fill the frame.\nPersonality and acting: Fischl is theatrical and proud in her Prinzessin persona, with sincere sweetness beneath her grand bearing. Vary her whole pose, torso angle, gestures and expression for this emotion. A dignified satisfied closed-mouth smile, composed open visible eye and gently raised chin. Stand upright in a small formal royal stance with shoulders open; her right hand rests at her waist while her left gloved hand presents a small upward-facing palm beside the torso, elbow bent. Face slightly three-quarter and feet firmly separate. Communicate earned accomplishment and regal composure, distinct from the teasing smug expression.\nHands: simple readable gestures near the torso and image plane, coherent wrists, one anatomically correct thumb and four fingers per hand where visible, with no tangled fingers or extreme foreshortening. Exactly two legs and two feet, clearly distinct and uncrossed. Keep her face readable and preserve the left eyepatch throughout. Hair and costume panels follow the pose naturally with gravity. Use her ordinary normal pupil in the visible green right eye; no heart pupils or heart-shaped highlights.\nFull-body complete silhouette including ribbons, twin tails, fingers, costume tails and boots; 2\u20134% top and bottom padding, roughly 92\u201396% visible height. Genuinely transparent background. No scenery, floor, ground shadow, UI, text, labels, watermark, floating effects or symbols, bow weapon, raven, new props, or additional characters.",
+        "referenced_image_paths": [
+          "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-fischl-full-22/references/Fischl/approved-neutral.png"
+        ],
+        "transparent_background": true
+      },
+      "tool_output": "/Users/alexachan/.codex/generated_images/01a1aa19-42b2-7e92-b08d-8ee7d133c057/exec-1b4e3cf6-02ab-4abe-af68-77b5aff773ff.png",
+      "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-fischl-full-22/raw/Fischl/pride.png",
+      "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-fischl-full-22/sprites/Fischl/pride.png",
+      "sha256": "94e47b165cd926d26947368f00d98a6956da4c8d54290eee5d3361aa67dc5229",
+      "dimensions": [
+        1005,
+        1565
+      ],
+      "png_color_type": 6,
+      "approval": {
+        "status": "pending"
+      }
+    },
+    "desire": {
+      "status": "candidate",
+      "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-fischl-full-22/prompts/Fischl/desire-v002.txt",
+      "tool": "image_gen.imagegen",
+      "arguments": {
+        "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Fischl from Genshin Impact expressing gentle hopeful anticipation. The supplied explicitly approved neutral is the SOLE image reference; do not use any other image. Preserve its recognizable face, fair skin, blond twin tails and ribbons, visible green right iris, black eyepatch over her left eye, exact black-and-purple gothic outfit and asymmetric sleeves/gloves, neck bow and gold ornaments, lace patterns, asymmetric stockings, boots, and detailed anime illustration style, linework and shading.\nProportions: retain the approved neutral's cute, compact, petite Medium Female build, small delicate frame, narrow shoulders, short compact torso and proportionately short limbs. Keep each alternate at least as petite as the approved neutral. Do not lengthen the torso or legs or stretch her anatomy to fill the frame.\nPersonality and acting: Fischl is theatrical and proud in her Prinzessin persona, with sincere sweetness beneath her grand bearing. Vary her whole pose, torso angle, gestures and expression for this emotion. Gentle hopeful anticipation of an adventure she has long wished to join: an open visible eye looking toward the viewer, softly raised inner brow and a small expectant closed-mouth smile. Stand upright with an attentive head tilt; her right fingertips rest lightly near her neck bow while her left gloved hand rests near her own waist, hands separated. Let eager hope show through her theatrical composure. Keep the posture modest, natural and relaxed and preserve the established costume.\nHands: simple readable gestures near the torso and image plane, coherent wrists, one anatomically correct thumb and four fingers per hand where visible, with no tangled fingers or extreme foreshortening. Exactly two legs and two feet, clearly distinct and uncrossed. Keep her face readable and preserve the left eyepatch throughout. Hair and costume panels follow the pose naturally with gravity. Use her ordinary normal pupil in the visible green right eye; no heart pupils or heart-shaped highlights.\nFull-body complete silhouette including ribbons, twin tails, fingers, costume tails and boots; 2\u20134% top and bottom padding, roughly 92\u201396% visible height. Genuinely transparent background. No scenery, floor, ground shadow, UI, text, labels, watermark, floating effects or symbols, bow weapon, raven, new props, or additional characters.",
+        "referenced_image_paths": [
+          "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-fischl-full-22/references/Fischl/approved-neutral.png"
+        ],
+        "transparent_background": true
+      },
+      "attempts": [
+        {
+          "status": "generation_failed",
+          "arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Fischl from Genshin Impact expressing desire. The supplied explicitly approved neutral is the SOLE image reference; do not use any other image. Preserve its recognizable face, fair skin, blond twin tails and ribbons, visible green right iris, black eyepatch over her left eye, exact black-and-purple gothic outfit and asymmetric sleeves/gloves, neck bow and gold ornaments, lace patterns, asymmetric stockings, boots, and detailed anime illustration style, linework and shading.\nProportions: retain the approved neutral's cute, compact, petite Medium Female build, small delicate frame, narrow shoulders, short compact torso and proportionately short limbs. Keep each alternate at least as petite as the approved neutral. Do not lengthen the torso or legs or stretch her anatomy to fill the frame.\nPersonality and acting: Fischl is theatrical and proud in her Prinzessin persona, with sincere sweetness beneath her grand bearing. Vary her whole pose, torso angle, gestures and expression for this emotion. Sweet, wistful longing for closeness: an intent hopeful open visible eye, raised inner brow, warm blush and a tiny softly parted mouth. Lean toward the viewer very slightly with shoulders tucked; her right fingertips lightly touch her neck bow while her left gloved hand rests low against her own forearm. Keep the hands separated. Show bashful yearning beneath her theatrical persona, tasteful and non-suggestive in the unchanged established outfit, with no exaggerated body arch.\nHands: simple readable gestures near the torso and image plane, coherent wrists, one anatomically correct thumb and four fingers per hand where visible, with no tangled fingers or extreme foreshortening. Exactly two legs and two feet, clearly distinct and uncrossed. Keep her face readable and preserve the left eyepatch throughout. Hair and costume panels follow the pose naturally with gravity. Use her ordinary normal pupil in the visible green right eye; no heart pupils or heart-shaped highlights.\nFull-body complete silhouette including ribbons, twin tails, fingers, costume tails and boots; 2\u20134% top and bottom padding, roughly 92\u201396% visible height. Genuinely transparent background. No scenery, floor, ground shadow, UI, text, labels, watermark, floating effects or symbols, bow weapon, raven, new props, or additional characters.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-fischl-full-22/references/Fischl/approved-neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "error": "image generation failed: http 400 Bad Request: Some(\"{\\n  \\\"error\\\": {\\n    \\\"message\\\": \\\"Your request was rejected by the safety system. If you believe this is an error, contact us at help.openai.com and include the request ID 87e3eaaf-6dc3-4be7-88fd-2ffdb38f8ea7. safety_violations=[sexual].\\\",\\n    \\\"type\\\": \\\"image_generation_user_error\\\",\\n    \\\"param\\\": null,\\n    \\\"code\\\": \\\"moderation_blocked\\\",\\n    \\\"moderation_details\\\": {\\n      \\\"moderation_stage\\\": \\\"output\\\",\\n      \\\"categories\\\": [\\n        \\\"sexual\\\"\\n      ]\\n    }\\n  }\\n}\")"
+        }
+      ],
+      "last_error": "image generation failed: http 400 Bad Request: Some(\"{\\n  \\\"error\\\": {\\n    \\\"message\\\": \\\"Your request was rejected by the safety system. If you believe this is an error, contact us at help.openai.com and include the request ID 87e3eaaf-6dc3-4be7-88fd-2ffdb38f8ea7. safety_violations=[sexual].\\\",\\n    \\\"type\\\": \\\"image_generation_user_error\\\",\\n    \\\"param\\\": null,\\n    \\\"code\\\": \\\"moderation_blocked\\\",\\n    \\\"moderation_details\\\": {\\n      \\\"moderation_stage\\\": \\\"output\\\",\\n      \\\"categories\\\": [\\n        \\\"sexual\\\"\\n      ]\\n    }\\n  }\\n}\")",
+      "revision_note": "After output moderation rejection, request revised to gentle nonsexual anticipation of a hoped-for adventure; one revised attempt planned.",
+      "tool_output": "/Users/alexachan/.codex/generated_images/01a1aa19-42b2-7e92-b08d-8ee7d133c057/exec-7da7a504-724b-494a-a0c0-df739ffa45d9.png",
+      "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-fischl-full-22/raw/Fischl/desire.png",
+      "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-fischl-full-22/sprites/Fischl/desire.png",
+      "sha256": "3243bf6f3bbfc092dc155f22541f290201e23ff1517ab0ab7bbc1fd666416ba4",
+      "dimensions": [
+        1003,
+        1568
+      ],
+      "png_color_type": 6,
+      "approval": {
+        "status": "pending"
+      }
+    },
+    "anger": {
+      "status": "candidate",
+      "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-fischl-full-22/prompts/Fischl/anger.txt",
+      "tool": "image_gen.imagegen",
+      "arguments": {
+        "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Fischl from Genshin Impact expressing anger. The supplied explicitly approved neutral is the SOLE image reference; do not use any other image. Preserve its recognizable face, fair skin, blond twin tails and ribbons, visible green right iris, black eyepatch over her left eye, exact black-and-purple gothic outfit and asymmetric sleeves/gloves, neck bow and gold ornaments, lace patterns, asymmetric stockings, boots, and detailed anime illustration style, linework and shading.\nProportions: retain the approved neutral's cute, compact, petite Medium Female build, small delicate frame, narrow shoulders, short compact torso and proportionately short limbs. Keep each alternate at least as petite as the approved neutral. Do not lengthen the torso or legs or stretch her anatomy to fill the frame.\nPersonality and acting: Fischl is theatrical and proud in her Prinzessin persona, with sincere sweetness beneath her grand bearing. Vary her whole pose, torso angle, gestures and expression for this emotion. A clear indignant scowl, sharply knitted brow over the open visible eye, and an open mouth as if delivering a dramatic rebuke. Plant both feet apart in a firm stance, torso turned slightly; her left gloved hand forms a simple compact fist at waist height while her right hand opens decisively beside the upper torso, palm angled sideways. The controlled royal outrage should differ from mild annoyance. No pointing toward the camera.\nHands: simple readable gestures near the torso and image plane, coherent wrists, one anatomically correct thumb and four fingers per hand where visible, with no tangled fingers or extreme foreshortening. Exactly two legs and two feet, clearly distinct and uncrossed. Keep her face readable and preserve the left eyepatch throughout. Hair and costume panels follow the pose naturally with gravity. Use her ordinary normal pupil in the visible green right eye; no heart pupils or heart-shaped highlights.\nFull-body complete silhouette including ribbons, twin tails, fingers, costume tails and boots; 2\u20134% top and bottom padding, roughly 92\u201396% visible height. Genuinely transparent background. No scenery, floor, ground shadow, UI, text, labels, watermark, floating effects or symbols, bow weapon, raven, new props, or additional characters.",
+        "referenced_image_paths": [
+          "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-fischl-full-22/references/Fischl/approved-neutral.png"
+        ],
+        "transparent_background": true
+      },
+      "tool_output": "/Users/alexachan/.codex/generated_images/01a1aa19-42b2-7e92-b08d-8ee7d133c057/exec-c9f4813f-0ec2-4bbe-b0b3-985215deb716.png",
+      "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-fischl-full-22/raw/Fischl/anger.png",
+      "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-fischl-full-22/sprites/Fischl/anger.png",
+      "sha256": "d590488344c3ea9a6b70f4eb3f9ddcc54421e8da3c53cc9ee2578f0058c1733b",
+      "dimensions": [
+        1003,
+        1568
+      ],
+      "png_color_type": 6,
+      "approval": {
+        "status": "pending"
+      }
+    },
+    "grief": {
+      "status": "candidate",
+      "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-fischl-full-22/prompts/Fischl/grief.txt",
+      "tool": "image_gen.imagegen",
+      "arguments": {
+        "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Fischl from Genshin Impact expressing grief. The supplied explicitly approved neutral is the SOLE image reference; do not use any other image. Preserve its recognizable face, fair skin, blond twin tails and ribbons, visible green right iris, black eyepatch over her left eye, exact black-and-purple gothic outfit and asymmetric sleeves/gloves, neck bow and gold ornaments, lace patterns, asymmetric stockings, boots, and detailed anime illustration style, linework and shading.\nProportions: retain the approved neutral's cute, compact, petite Medium Female build, small delicate frame, narrow shoulders, short compact torso and proportionately short limbs. Keep each alternate at least as petite as the approved neutral. Do not lengthen the torso or legs or stretch her anatomy to fill the frame.\nPersonality and acting: Fischl is theatrical and proud in her Prinzessin persona, with sincere sweetness beneath her grand bearing. Vary her whole pose, torso angle, gestures and expression for this emotion. Deep sorrow: visible eye wet with a small restrained tear, inner brow raised and mouth trembling slightly. Bow the head and let the shoulders fold inward; her left gloved hand rests over the upper chest and her right arm hangs with a limp open hand near the skirt. Both legs stay grounded and separate. Convey a rare collapse of her grand persona, without theatrical props, detached tears or floating symbols.\nHands: simple readable gestures near the torso and image plane, coherent wrists, one anatomically correct thumb and four fingers per hand where visible, with no tangled fingers or extreme foreshortening. Exactly two legs and two feet, clearly distinct and uncrossed. Keep her face readable and preserve the left eyepatch throughout. Hair and costume panels follow the pose naturally with gravity. Use her ordinary normal pupil in the visible green right eye; no heart pupils or heart-shaped highlights.\nFull-body complete silhouette including ribbons, twin tails, fingers, costume tails and boots; 2\u20134% top and bottom padding, roughly 92\u201396% visible height. Genuinely transparent background. No scenery, floor, ground shadow, UI, text, labels, watermark, floating effects or symbols, bow weapon, raven, new props, or additional characters.",
+        "referenced_image_paths": [
+          "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-fischl-full-22/references/Fischl/approved-neutral.png"
+        ],
+        "transparent_background": true
+      },
+      "tool_output": "/Users/alexachan/.codex/generated_images/01a1aa19-42b2-7e92-b08d-8ee7d133c057/exec-0de11e29-bb62-47a3-8c2f-4e9263dee27f.png",
+      "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-fischl-full-22/raw/Fischl/grief.png",
+      "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-fischl-full-22/sprites/Fischl/grief.png",
+      "sha256": "e884c93fa97f86fa2cf6839fa871be548d7b460163bdc9f4d611bae9554bfc93",
+      "dimensions": [
+        1003,
+        1568
+      ],
+      "png_color_type": 6,
+      "approval": {
+        "status": "pending"
+      }
+    },
+    "sadness": {
+      "status": "candidate",
+      "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-fischl-full-22/prompts/Fischl/sadness.txt",
+      "tool": "image_gen.imagegen",
+      "arguments": {
+        "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Fischl from Genshin Impact expressing sadness. The supplied explicitly approved neutral is the SOLE image reference; do not use any other image. Preserve its recognizable face, fair skin, blond twin tails and ribbons, visible green right iris, black eyepatch over her left eye, exact black-and-purple gothic outfit and asymmetric sleeves/gloves, neck bow and gold ornaments, lace patterns, asymmetric stockings, boots, and detailed anime illustration style, linework and shading.\nProportions: retain the approved neutral's cute, compact, petite Medium Female build, small delicate frame, narrow shoulders, short compact torso and proportionately short limbs. Keep each alternate at least as petite as the approved neutral. Do not lengthen the torso or legs or stretch her anatomy to fill the frame.\nPersonality and acting: Fischl is theatrical and proud in her Prinzessin persona, with sincere sweetness beneath her grand bearing. Vary her whole pose, torso angle, gestures and expression for this emotion. A quiet downcast open visible eye, softened brow and small closed unhappy mouth. Turn inward slightly with lowered chin; her right hand rests gently on her opposite upper arm while her left gloved arm hangs relaxed. Feet close but separate and uncrossed. Subdued disappointment in the face and shoulders, with no tears, distinct from grief.\nHands: simple readable gestures near the torso and image plane, coherent wrists, one anatomically correct thumb and four fingers per hand where visible, with no tangled fingers or extreme foreshortening. Exactly two legs and two feet, clearly distinct and uncrossed. Keep her face readable and preserve the left eyepatch throughout. Hair and costume panels follow the pose naturally with gravity. Use her ordinary normal pupil in the visible green right eye; no heart pupils or heart-shaped highlights.\nFull-body complete silhouette including ribbons, twin tails, fingers, costume tails and boots; 2\u20134% top and bottom padding, roughly 92\u201396% visible height. Genuinely transparent background. No scenery, floor, ground shadow, UI, text, labels, watermark, floating effects or symbols, bow weapon, raven, new props, or additional characters.",
+        "referenced_image_paths": [
+          "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-fischl-full-22/references/Fischl/approved-neutral.png"
+        ],
+        "transparent_background": true
+      },
+      "tool_output": "/Users/alexachan/.codex/generated_images/01a1aa19-42b2-7e92-b08d-8ee7d133c057/exec-93b1b571-0990-45d3-8c42-9c4fef65e64a.png",
+      "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-fischl-full-22/raw/Fischl/sadness.png",
+      "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-fischl-full-22/sprites/Fischl/sadness.png",
+      "sha256": "c37ee494f780d76fc9235806eda1bf150e538febac6eb8557fb7a57c053f37d0",
+      "dimensions": [
+        1003,
+        1568
+      ],
+      "png_color_type": 6,
+      "approval": {
+        "status": "pending"
+      }
+    },
+    "disgust": {
+      "status": "candidate",
+      "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-fischl-full-22/prompts/Fischl/disgust.txt",
+      "tool": "image_gen.imagegen",
+      "arguments": {
+        "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Fischl from Genshin Impact expressing disgust. The supplied explicitly approved neutral is the SOLE image reference; do not use any other image. Preserve its recognizable face, fair skin, blond twin tails and ribbons, visible green right iris, black eyepatch over her left eye, exact black-and-purple gothic outfit and asymmetric sleeves/gloves, neck bow and gold ornaments, lace patterns, asymmetric stockings, boots, and detailed anime illustration style, linework and shading.\nProportions: retain the approved neutral's cute, compact, petite Medium Female build, small delicate frame, narrow shoulders, short compact torso and proportionately short limbs. Keep each alternate at least as petite as the approved neutral. Do not lengthen the torso or legs or stretch her anatomy to fill the frame.\nPersonality and acting: Fischl is theatrical and proud in her Prinzessin persona, with sincere sweetness beneath her grand bearing. Vary her whole pose, torso angle, gestures and expression for this emotion. A restrained displeased nose scrunch, narrowed open visible eye and a simple small closed disapproving mouth. Tilt her head away and shift her torso back; her left gloved hand makes a small palm-out gesture near the shoulder while her right forearm rests low near the waist, hands separated. Dramatic distaste without a distorted mouth, extra lip contours, exaggerated teeth or sticking out the tongue.\nHands: simple readable gestures near the torso and image plane, coherent wrists, one anatomically correct thumb and four fingers per hand where visible, with no tangled fingers or extreme foreshortening. Exactly two legs and two feet, clearly distinct and uncrossed. Keep her face readable and preserve the left eyepatch throughout. Hair and costume panels follow the pose naturally with gravity. Use her ordinary normal pupil in the visible green right eye; no heart pupils or heart-shaped highlights.\nFull-body complete silhouette including ribbons, twin tails, fingers, costume tails and boots; 2\u20134% top and bottom padding, roughly 92\u201396% visible height. Genuinely transparent background. No scenery, floor, ground shadow, UI, text, labels, watermark, floating effects or symbols, bow weapon, raven, new props, or additional characters.",
+        "referenced_image_paths": [
+          "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-fischl-full-22/references/Fischl/approved-neutral.png"
+        ],
+        "transparent_background": true
+      },
+      "tool_output": "/Users/alexachan/.codex/generated_images/01a1aa19-42b2-7e92-b08d-8ee7d133c057/exec-14d7238b-e9cd-4b71-aeb6-7f3c08420a45.png",
+      "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-fischl-full-22/raw/Fischl/disgust.png",
+      "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-fischl-full-22/sprites/Fischl/disgust.png",
+      "sha256": "d5ab30686271942b6306625be2147e80ac61bebdcd3e28c57b2cd5ced2b74ae7",
+      "dimensions": [
+        1003,
+        1568
+      ],
+      "png_color_type": 6,
+      "approval": {
+        "status": "pending"
+      }
+    },
+    "disappointment": {
+      "status": "candidate",
+      "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-fischl-full-22/prompts/Fischl/disappointment.txt",
+      "tool": "image_gen.imagegen",
+      "arguments": {
+        "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Fischl from Genshin Impact expressing disappointment. The supplied explicitly approved neutral is the SOLE image reference; do not use any other image. Preserve its recognizable face, fair skin, blond twin tails and ribbons, visible green right iris, black eyepatch over her left eye, exact black-and-purple gothic outfit and asymmetric sleeves/gloves, neck bow and gold ornaments, lace patterns, asymmetric stockings, boots, and detailed anime illustration style, linework and shading.\nProportions: retain the approved neutral's cute, compact, petite Medium Female build, small delicate frame, narrow shoulders, short compact torso and proportionately short limbs. Keep each alternate at least as petite as the approved neutral. Do not lengthen the torso or legs or stretch her anatomy to fill the frame.\nPersonality and acting: Fischl is theatrical and proud in her Prinzessin persona, with sincere sweetness beneath her grand bearing. Vary her whole pose, torso angle, gestures and expression for this emotion. An open visible eye glancing downward with slightly lowered brow and a small resigned frown. Let her proud posture deflate into a gentle shoulder slump; her right hand rests loosely at her waist and her left gloved hand hangs half-open beside the skirt. Head angled a little away. Keep the acting mild and rueful, distinct from grief and sadness.\nHands: simple readable gestures near the torso and image plane, coherent wrists, one anatomically correct thumb and four fingers per hand where visible, with no tangled fingers or extreme foreshortening. Exactly two legs and two feet, clearly distinct and uncrossed. Keep her face readable and preserve the left eyepatch throughout. Hair and costume panels follow the pose naturally with gravity. Use her ordinary normal pupil in the visible green right eye; no heart pupils or heart-shaped highlights.\nFull-body complete silhouette including ribbons, twin tails, fingers, costume tails and boots; 2\u20134% top and bottom padding, roughly 92\u201396% visible height. Genuinely transparent background. No scenery, floor, ground shadow, UI, text, labels, watermark, floating effects or symbols, bow weapon, raven, new props, or additional characters.",
+        "referenced_image_paths": [
+          "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-fischl-full-22/references/Fischl/approved-neutral.png"
+        ],
+        "transparent_background": true
+      },
+      "tool_output": "/Users/alexachan/.codex/generated_images/01a1aa19-42b2-7e92-b08d-8ee7d133c057/exec-e62d8244-fe7c-4d27-8f43-ea16f62d513e.png",
+      "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-fischl-full-22/raw/Fischl/disappointment.png",
+      "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-fischl-full-22/sprites/Fischl/disappointment.png",
+      "sha256": "3aa01503dc62116fa3d41cb781a147c0c385298c5dfe71d8b48f9b4bd0fb2973",
+      "dimensions": [
+        1003,
+        1568
+      ],
+      "png_color_type": 6,
+      "approval": {
+        "status": "pending"
+      }
+    },
+    "relief": {
+      "status": "candidate",
+      "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-fischl-full-22/prompts/Fischl/relief.txt",
+      "tool": "image_gen.imagegen",
+      "arguments": {
+        "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Fischl from Genshin Impact expressing relief. The supplied explicitly approved neutral is the SOLE image reference; do not use any other image. Preserve its recognizable face, fair skin, blond twin tails and ribbons, visible green right iris, black eyepatch over her left eye, exact black-and-purple gothic outfit and asymmetric sleeves/gloves, neck bow and gold ornaments, lace patterns, asymmetric stockings, boots, and detailed anime illustration style, linework and shading.\nProportions: retain the approved neutral's cute, compact, petite Medium Female build, small delicate frame, narrow shoulders, short compact torso and proportionately short limbs. Keep each alternate at least as petite as the approved neutral. Do not lengthen the torso or legs or stretch her anatomy to fill the frame.\nPersonality and acting: Fischl is theatrical and proud in her Prinzessin persona, with sincere sweetness beneath her grand bearing. Vary her whole pose, torso angle, gestures and expression for this emotion. A small relieved closed-mouth smile, softened open visible eye and relaxed brow as tension leaves her shoulders. Tilt her head back just a little in a quiet exhale; her right hand rests lightly over her upper chest while her left gloved arm bends loosely with an open palm near the waist. Settle weight comfortably onto both feet. Keep relief legible without the regal chin lift of the neutral.\nHands: simple readable gestures near the torso and image plane, coherent wrists, one anatomically correct thumb and four fingers per hand where visible, with no tangled fingers or extreme foreshortening. Exactly two legs and two feet, clearly distinct and uncrossed. Keep her face readable and preserve the left eyepatch throughout. Hair and costume panels follow the pose naturally with gravity. Use her ordinary normal pupil in the visible green right eye; no heart pupils or heart-shaped highlights.\nFull-body complete silhouette including ribbons, twin tails, fingers, costume tails and boots; 2\u20134% top and bottom padding, roughly 92\u201396% visible height. Genuinely transparent background. No scenery, floor, ground shadow, UI, text, labels, watermark, floating effects or symbols, bow weapon, raven, new props, or additional characters.",
+        "referenced_image_paths": [
+          "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-fischl-full-22/references/Fischl/approved-neutral.png"
+        ],
+        "transparent_background": true
+      },
+      "tool_output": "/Users/alexachan/.codex/generated_images/01a1aa19-42b2-7e92-b08d-8ee7d133c057/exec-d8d58aab-1f0e-4882-bf75-b26f26ed715c.png",
+      "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-fischl-full-22/raw/Fischl/relief.png",
+      "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-fischl-full-22/sprites/Fischl/relief.png",
+      "sha256": "6e81453a236c8e9bfa23bac5f2c80a71b191b3e4c7edfe81d4b9f1509deab131",
+      "dimensions": [
+        1003,
+        1568
+      ],
+      "png_color_type": 6,
+      "approval": {
+        "status": "pending"
+      }
+    },
+    "admiration": {
+      "status": "candidate",
+      "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-fischl-full-22/prompts/Fischl/admiration.txt",
+      "tool": "image_gen.imagegen",
+      "arguments": {
+        "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Fischl from Genshin Impact expressing admiration. The supplied explicitly approved neutral is the SOLE image reference; do not use any other image. Preserve its recognizable face, fair skin, blond twin tails and ribbons, visible green right iris, black eyepatch over her left eye, exact black-and-purple gothic outfit and asymmetric sleeves/gloves, neck bow and gold ornaments, lace patterns, asymmetric stockings, boots, and detailed anime illustration style, linework and shading.\nProportions: retain the approved neutral's cute, compact, petite Medium Female build, small delicate frame, narrow shoulders, short compact torso and proportionately short limbs. Keep each alternate at least as petite as the approved neutral. Do not lengthen the torso or legs or stretch her anatomy to fill the frame.\nPersonality and acting: Fischl is theatrical and proud in her Prinzessin persona, with sincere sweetness beneath her grand bearing. Vary her whole pose, torso angle, gestures and expression for this emotion. A bright open visible eye with lifted brow and a small awed smile. Lean forward a little with shoulders open, head gently tilted toward the viewer; her right palm lifts beside her upper chest while her left gloved hand supports her right forearm lightly below the elbow, hands kept separate. Show delighted respect for someone else's marvelous feat through her theatrical earnestness, without floating stars.\nHands: simple readable gestures near the torso and image plane, coherent wrists, one anatomically correct thumb and four fingers per hand where visible, with no tangled fingers or extreme foreshortening. Exactly two legs and two feet, clearly distinct and uncrossed. Keep her face readable and preserve the left eyepatch throughout. Hair and costume panels follow the pose naturally with gravity. Use her ordinary normal pupil in the visible green right eye; no heart pupils or heart-shaped highlights.\nFull-body complete silhouette including ribbons, twin tails, fingers, costume tails and boots; 2\u20134% top and bottom padding, roughly 92\u201396% visible height. Genuinely transparent background. No scenery, floor, ground shadow, UI, text, labels, watermark, floating effects or symbols, bow weapon, raven, new props, or additional characters.",
+        "referenced_image_paths": [
+          "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-fischl-full-22/references/Fischl/approved-neutral.png"
+        ],
+        "transparent_background": true
+      },
+      "tool_output": "/Users/alexachan/.codex/generated_images/01a1aa19-42b2-7e92-b08d-8ee7d133c057/exec-7536fccb-1613-4941-a41c-ae801f18404d.png",
+      "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-fischl-full-22/raw/Fischl/admiration.png",
+      "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-fischl-full-22/sprites/Fischl/admiration.png",
+      "sha256": "3357d8092254b8e4c9cdd93df02ddbb27ab8d82dc694edee5967734b7af82ff7",
+      "dimensions": [
+        1003,
+        1568
+      ],
+      "png_color_type": 6,
+      "approval": {
+        "status": "pending"
+      }
+    },
+    "gratitude": {
+      "status": "candidate",
+      "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-fischl-full-22/prompts/Fischl/gratitude.txt",
+      "tool": "image_gen.imagegen",
+      "arguments": {
+        "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Fischl from Genshin Impact expressing gratitude. The supplied explicitly approved neutral is the SOLE image reference; do not use any other image. Preserve its recognizable face, fair skin, blond twin tails and ribbons, visible green right iris, black eyepatch over her left eye, exact black-and-purple gothic outfit and asymmetric sleeves/gloves, neck bow and gold ornaments, lace patterns, asymmetric stockings, boots, and detailed anime illustration style, linework and shading.\nProportions: retain the approved neutral's cute, compact, petite Medium Female build, small delicate frame, narrow shoulders, short compact torso and proportionately short limbs. Keep each alternate at least as petite as the approved neutral. Do not lengthen the torso or legs or stretch her anatomy to fill the frame.\nPersonality and acting: Fischl is theatrical and proud in her Prinzessin persona, with sincere sweetness beneath her grand bearing. Vary her whole pose, torso angle, gestures and expression for this emotion. A sincere appreciative smile and warm open visible eye, with a little modest blush. Give a small courtly bow from the shoulders, head inclined toward the viewer; her right hand rests over her upper chest and her left gloved hand opens gracefully low beside her skirt without lifting or pulling the fabric. Keep both feet grounded and separate. Gratitude softens her grand persona into genuine kindness.\nHands: simple readable gestures near the torso and image plane, coherent wrists, one anatomically correct thumb and four fingers per hand where visible, with no tangled fingers or extreme foreshortening. Exactly two legs and two feet, clearly distinct and uncrossed. Keep her face readable and preserve the left eyepatch throughout. Hair and costume panels follow the pose naturally with gravity. Use her ordinary normal pupil in the visible green right eye; no heart pupils or heart-shaped highlights.\nFull-body complete silhouette including ribbons, twin tails, fingers, costume tails and boots; 2\u20134% top and bottom padding, roughly 92\u201396% visible height. Genuinely transparent background. No scenery, floor, ground shadow, UI, text, labels, watermark, floating effects or symbols, bow weapon, raven, new props, or additional characters.",
+        "referenced_image_paths": [
+          "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-fischl-full-22/references/Fischl/approved-neutral.png"
+        ],
+        "transparent_background": true
+      },
+      "tool_output": "/Users/alexachan/.codex/generated_images/01a1aa19-42b2-7e92-b08d-8ee7d133c057/exec-7da4c38b-8d88-4ff7-84d7-4f34abfeb3bb.png",
+      "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-fischl-full-22/raw/Fischl/gratitude.png",
+      "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-fischl-full-22/sprites/Fischl/gratitude.png",
+      "sha256": "2af11b55d68aee9af1a2a8da855376d54055f12fe202906cc68c3ad64d24cff8",
+      "dimensions": [
+        1003,
+        1568
+      ],
+      "png_color_type": 6,
+      "approval": {
+        "status": "pending"
+      }
+    },
+    "embarrassment": {
+      "status": "candidate",
+      "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-fischl-full-22/prompts/Fischl/embarrassment-v002.txt",
+      "tool": "image_gen.imagegen",
+      "arguments": {
+        "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Fischl from Genshin Impact expressing embarrassment. The supplied explicitly approved neutral is the SOLE image reference; do not use any other image. Preserve its recognizable face, fair skin, blond twin tails and ribbons, visible green right iris, black eyepatch over her left eye, exact black-and-purple gothic outfit and asymmetric sleeves/gloves, neck bow and gold ornaments, lace patterns, asymmetric stockings, boots, and detailed anime illustration style, linework and shading.\nProportions: retain the approved neutral's cute, compact, petite Medium Female build, small delicate frame, narrow shoulders, short compact torso and proportionately short limbs. Keep each alternate at least as petite as the approved neutral. Do not lengthen the torso or legs or stretch her anatomy to fill the frame.\nPersonality and acting: Fischl is theatrical and proud in her Prinzessin persona, with sincere sweetness beneath her grand bearing. Vary her whole pose, torso angle, gestures and expression for this emotion. Social embarrassment after forgetting a line in a grand introduction: a small awkward closed-mouth smile, a light blush on the cheeks, and an open visible eye glancing aside. Stand upright with a small apologetic shoulder shrug; her right hand opens near her waist while her left gloved arm hangs loosely at her side. Keep both hands separate and face fully visible. Show a funny human moment as her theatrical confidence falters, with a modest neutral stance and unchanged costume.\nHands: simple readable gestures near the torso and image plane, coherent wrists, one anatomically correct thumb and four fingers per hand where visible, with no tangled fingers or extreme foreshortening. Exactly two legs and two feet, clearly distinct and uncrossed. Keep her face readable and preserve the left eyepatch throughout. Hair and costume panels follow the pose naturally with gravity. Use her ordinary normal pupil in the visible green right eye; no heart pupils or heart-shaped highlights.\nFull-body complete silhouette including ribbons, twin tails, fingers, costume tails and boots; 2\u20134% top and bottom padding, roughly 92\u201396% visible height. Genuinely transparent background. No scenery, floor, ground shadow, UI, text, labels, watermark, floating effects or symbols, bow weapon, raven, new props, or additional characters.",
+        "referenced_image_paths": [
+          "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-fischl-full-22/references/Fischl/approved-neutral.png"
+        ],
+        "transparent_background": true
+      },
+      "attempts": [
+        {
+          "status": "generation_failed",
+          "arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Fischl from Genshin Impact expressing embarrassment. The supplied explicitly approved neutral is the SOLE image reference; do not use any other image. Preserve its recognizable face, fair skin, blond twin tails and ribbons, visible green right iris, black eyepatch over her left eye, exact black-and-purple gothic outfit and asymmetric sleeves/gloves, neck bow and gold ornaments, lace patterns, asymmetric stockings, boots, and detailed anime illustration style, linework and shading.\nProportions: retain the approved neutral's cute, compact, petite Medium Female build, small delicate frame, narrow shoulders, short compact torso and proportionately short limbs. Keep each alternate at least as petite as the approved neutral. Do not lengthen the torso or legs or stretch her anatomy to fill the frame.\nPersonality and acting: Fischl is theatrical and proud in her Prinzessin persona, with sincere sweetness beneath her grand bearing. Vary her whole pose, torso angle, gestures and expression for this emotion. A noticeable blush, bashful averted open visible eye, raised inner brow and a sheepish little smile. Turn her face slightly aside and tuck one shoulder inward; her right fingertips touch the hair just below her ear while her left gloved hand rests lightly against the opposite forearm, hands separate. A small shy weight shift reveals a momentary crack in her theatrical confidence. Do not hide the face or visible eye.\nHands: simple readable gestures near the torso and image plane, coherent wrists, one anatomically correct thumb and four fingers per hand where visible, with no tangled fingers or extreme foreshortening. Exactly two legs and two feet, clearly distinct and uncrossed. Keep her face readable and preserve the left eyepatch throughout. Hair and costume panels follow the pose naturally with gravity. Use her ordinary normal pupil in the visible green right eye; no heart pupils or heart-shaped highlights.\nFull-body complete silhouette including ribbons, twin tails, fingers, costume tails and boots; 2\u20134% top and bottom padding, roughly 92\u201396% visible height. Genuinely transparent background. No scenery, floor, ground shadow, UI, text, labels, watermark, floating effects or symbols, bow weapon, raven, new props, or additional characters.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-fischl-full-22/references/Fischl/approved-neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "error": "image generation failed: http 400 Bad Request: Some(\"{\\n  \\\"error\\\": {\\n    \\\"message\\\": \\\"Your request was rejected by the safety system. If you believe this is an error, contact us at help.openai.com and include the request ID 549b5c89-d1b8-4dec-9046-5cfe072caaa9. safety_violations=[sexual].\\\",\\n    \\\"type\\\": \\\"image_generation_user_error\\\",\\n    \\\"param\\\": null,\\n    \\\"code\\\": \\\"moderation_blocked\\\",\\n    \\\"moderation_details\\\": {\\n      \\\"moderation_stage\\\": \\\"output\\\",\\n      \\\"categories\\\": [\\n        \\\"sexual\\\"\\n      ]\\n    }\\n  }\\n}\")"
+        }
+      ],
+      "last_error": "image generation failed: http 400 Bad Request: Some(\"{\\n  \\\"error\\\": {\\n    \\\"message\\\": \\\"Your request was rejected by the safety system. If you believe this is an error, contact us at help.openai.com and include the request ID 549b5c89-d1b8-4dec-9046-5cfe072caaa9. safety_violations=[sexual].\\\",\\n    \\\"type\\\": \\\"image_generation_user_error\\\",\\n    \\\"param\\\": null,\\n    \\\"code\\\": \\\"moderation_blocked\\\",\\n    \\\"moderation_details\\\": {\\n      \\\"moderation_stage\\\": \\\"output\\\",\\n      \\\"categories\\\": [\\n        \\\"sexual\\\"\\n      ]\\n    }\\n  }\\n}\")",
+      "revision_note": "One revised attempt planned after output moderation rejection; acting reframed as social awkwardness during a grand introduction.",
+      "tool_output": "/Users/alexachan/.codex/generated_images/01a1aa19-42b2-7e92-b08d-8ee7d133c057/exec-fda6f70b-a47a-4ae1-a8db-636e1b2c7598.png",
+      "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-fischl-full-22/raw/Fischl/embarrassment.png",
+      "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-fischl-full-22/sprites/Fischl/embarrassment.png",
+      "sha256": "23e76fcbe01059d5273d45fb515beeb3d41928027bdd0e2e996ea758e3a0c256",
+      "dimensions": [
+        1003,
+        1568
+      ],
+      "png_color_type": 6,
+      "approval": {
+        "status": "pending"
+      }
+    },
+    "caring": {
+      "status": "candidate",
+      "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-fischl-full-22/prompts/Fischl/caring.txt",
+      "tool": "image_gen.imagegen",
+      "arguments": {
+        "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Fischl from Genshin Impact expressing caring. The supplied explicitly approved neutral is the SOLE image reference; do not use any other image. Preserve its recognizable face, fair skin, blond twin tails and ribbons, visible green right iris, black eyepatch over her left eye, exact black-and-purple gothic outfit and asymmetric sleeves/gloves, neck bow and gold ornaments, lace patterns, asymmetric stockings, boots, and detailed anime illustration style, linework and shading.\nProportions: retain the approved neutral's cute, compact, petite Medium Female build, small delicate frame, narrow shoulders, short compact torso and proportionately short limbs. Keep each alternate at least as petite as the approved neutral. Do not lengthen the torso or legs or stretch her anatomy to fill the frame.\nPersonality and acting: Fischl is theatrical and proud in her Prinzessin persona, with sincere sweetness beneath her grand bearing. Vary her whole pose, torso angle, gestures and expression for this emotion. A gentle reassuring closed-mouth smile and tender attentive open visible eye. Lean toward the viewer slightly with the head tilted in concern; her right hand opens softly near the chest in a comforting gesture while her left gloved hand rests low at her waist. Keep the open hand near her own torso, not reaching toward the camera. Her grand bearing becomes protective and kind, without medical props or added objects.\nHands: simple readable gestures near the torso and image plane, coherent wrists, one anatomically correct thumb and four fingers per hand where visible, with no tangled fingers or extreme foreshortening. Exactly two legs and two feet, clearly distinct and uncrossed. Keep her face readable and preserve the left eyepatch throughout. Hair and costume panels follow the pose naturally with gravity. Use her ordinary normal pupil in the visible green right eye; no heart pupils or heart-shaped highlights.\nFull-body complete silhouette including ribbons, twin tails, fingers, costume tails and boots; 2\u20134% top and bottom padding, roughly 92\u201396% visible height. Genuinely transparent background. No scenery, floor, ground shadow, UI, text, labels, watermark, floating effects or symbols, bow weapon, raven, new props, or additional characters.",
+        "referenced_image_paths": [
+          "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-fischl-full-22/references/Fischl/approved-neutral.png"
+        ],
+        "transparent_background": true
+      },
+      "tool_output": "/Users/alexachan/.codex/generated_images/01a1aa19-42b2-7e92-b08d-8ee7d133c057/exec-4f07ffbe-2ecc-4270-b329-110491959c4c.png",
+      "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-fischl-full-22/raw/Fischl/caring.png",
+      "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-fischl-full-22/sprites/Fischl/caring.png",
+      "sha256": "81601d507f27a41b708c221a981b985279aa34417c660f733216533f19b13c19",
+      "dimensions": [
+        1003,
+        1568
+      ],
+      "png_color_type": 6,
+      "approval": {
+        "status": "pending"
+      }
+    },
+    "love-1": {
+      "status": "candidate",
+      "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-fischl-full-22/prompts/Fischl/love-1.txt",
+      "tool": "image_gen.imagegen",
+      "arguments": {
+        "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Fischl from Genshin Impact expressing love-1. The supplied explicitly approved neutral is the SOLE image reference; do not use any other image. Preserve its recognizable face, fair skin, blond twin tails and ribbons, visible green right iris, black eyepatch over her left eye, exact black-and-purple gothic outfit and asymmetric sleeves/gloves, neck bow and gold ornaments, lace patterns, asymmetric stockings, boots, and detailed anime illustration style, linework and shading.\nProportions: retain the approved neutral's cute, compact, petite Medium Female build, small delicate frame, narrow shoulders, short compact torso and proportionately short limbs. Keep each alternate at least as petite as the approved neutral. Do not lengthen the torso or legs or stretch her anatomy to fill the frame.\nPersonality and acting: Fischl is theatrical and proud in her Prinzessin persona, with sincere sweetness beneath her grand bearing. Vary her whole pose, torso angle, gestures and expression for this emotion. A joyful affectionate smile, warm blush and lifted brow; keep the visible right eye clearly open. Turn her shoulders toward the viewer with her right palm resting on the upper chest and her left gloved hand giving a small graceful open-palmed greeting beside her waist. Use an upright tender head tilt, distinct from ordinary love and from desire-1. Preserve the eyepatch on the left eye.\nHands: simple readable gestures near the torso and image plane, coherent wrists, one anatomically correct thumb and four fingers per hand where visible, with no tangled fingers or extreme foreshortening. Exactly two legs and two feet, clearly distinct and uncrossed. Keep her face readable and preserve the left eyepatch throughout. Hair and costume panels follow the pose naturally with gravity. In her visible open RIGHT eye only, preserve the green iris outline, colored border, shading and detail; replace only its pupil with one solid clearly visible PALE LIME-GREEN HEART-SHAPED pupil centered inside that iris. The heart is the pupil, not a catchlight or floating symbol. The covered left eye remains covered by its unchanged black eyepatch; do not reveal or invent a second visible eye.\nFull-body complete silhouette including ribbons, twin tails, fingers, costume tails and boots; 2\u20134% top and bottom padding, roughly 92\u201396% visible height. Genuinely transparent background. No scenery, floor, ground shadow, UI, text, labels, watermark, floating effects or symbols, bow weapon, raven, new props, or additional characters.",
+        "referenced_image_paths": [
+          "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-fischl-full-22/references/Fischl/approved-neutral.png"
+        ],
+        "transparent_background": true
+      },
+      "tool_output": "/Users/alexachan/.codex/generated_images/01a1aa19-42b2-7e92-b08d-8ee7d133c057/exec-ead7e4be-7881-4bc0-9ee5-99a86a7661b2.png",
+      "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-fischl-full-22/raw/Fischl/love-1.png",
+      "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-fischl-full-22/sprites/Fischl/love-1.png",
+      "sha256": "cd2472d58099c6a9d05705e8666ddfc350d7788037b5bcd847d0a2cdf707d64c",
+      "dimensions": [
+        1003,
+        1568
+      ],
+      "png_color_type": 6,
+      "approval": {
+        "status": "pending"
+      }
+    },
+    "desire-1": {
+      "status": "candidate",
+      "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-fischl-full-22/prompts/Fischl/desire-1-v002.txt",
+      "tool": "image_gen.imagegen",
+      "arguments": {
+        "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Fischl from Genshin Impact expressing gentle hopeful anticipation with a heart-pupil alternate. The supplied explicitly approved neutral is the SOLE image reference; do not use any other image. Preserve its recognizable face, fair skin, blond twin tails and ribbons, visible green right iris, black eyepatch over her left eye, exact black-and-purple gothic outfit and asymmetric sleeves/gloves, neck bow and gold ornaments, lace patterns, asymmetric stockings, boots, and detailed anime illustration style, linework and shading.\nProportions: retain the approved neutral's cute, compact, petite Medium Female build, small delicate frame, narrow shoulders, short compact torso and proportionately short limbs. Keep each alternate at least as petite as the approved neutral. Do not lengthen the torso or legs or stretch her anatomy to fill the frame.\nPersonality and acting: Fischl is theatrical and proud in her Prinzessin persona, with sincere sweetness beneath her grand bearing. Vary her whole pose, torso angle, gestures and expression for this emotion. Gentle hopeful anticipation of a long-wished-for adventure: a small expectant closed-mouth smile, softly raised brow and the visible right eye clearly open. Stand upright with a slight three-quarter turn and attentive head tilt. Her left gloved hand opens near her upper chest while her right hand rests comfortably at her waist, hands spatially separate. Keep her posture modest and relaxed, with the unchanged costume and the left eye covered by its eyepatch. The heart pupil expresses innocent delight at the hoped-for invitation.\nHands: simple readable gestures near the torso and image plane, coherent wrists, one anatomically correct thumb and four fingers per hand where visible, with no tangled fingers or extreme foreshortening. Exactly two legs and two feet, clearly distinct and uncrossed. Keep her face readable and preserve the left eyepatch throughout. Hair and costume panels follow the pose naturally with gravity. In her visible open RIGHT eye only, preserve the green iris outline, colored border, shading and detail; replace only its pupil with one solid clearly visible PALE LIME-GREEN HEART-SHAPED pupil centered inside that iris. The heart is the pupil, not a catchlight or floating symbol. The covered left eye remains covered by its unchanged black eyepatch; do not reveal or invent a second visible eye.\nFull-body complete silhouette including ribbons, twin tails, fingers, costume tails and boots; 2\u20134% top and bottom padding, roughly 92\u201396% visible height. Genuinely transparent background. No scenery, floor, ground shadow, UI, text, labels, watermark, floating effects or symbols, bow weapon, raven, new props, or additional characters.",
+        "referenced_image_paths": [
+          "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-fischl-full-22/references/Fischl/approved-neutral.png"
+        ],
+        "transparent_background": true
+      },
+      "planned_original_arguments": {
+        "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Fischl from Genshin Impact expressing desire-1. The supplied explicitly approved neutral is the SOLE image reference; do not use any other image. Preserve its recognizable face, fair skin, blond twin tails and ribbons, visible green right iris, black eyepatch over her left eye, exact black-and-purple gothic outfit and asymmetric sleeves/gloves, neck bow and gold ornaments, lace patterns, asymmetric stockings, boots, and detailed anime illustration style, linework and shading.\nProportions: retain the approved neutral's cute, compact, petite Medium Female build, small delicate frame, narrow shoulders, short compact torso and proportionately short limbs. Keep each alternate at least as petite as the approved neutral. Do not lengthen the torso or legs or stretch her anatomy to fill the frame.\nPersonality and acting: Fischl is theatrical and proud in her Prinzessin persona, with sincere sweetness beneath her grand bearing. Vary her whole pose, torso angle, gestures and expression for this emotion. A softly yearning expression with warm blush, raised inner brow, tiny parted lips and the visible right eye clearly open. Turn her torso a little three-quarter with a very slight forward lean; her left gloved fingertips touch her collar near the shoulder while her right hand rests low near her own waist. Keep both hands spatially separate. Sweet bashful anticipation in the unchanged outfit, tasteful and non-suggestive, with no exaggerated arch. Preserve the eyepatch on the left eye.\nHands: simple readable gestures near the torso and image plane, coherent wrists, one anatomically correct thumb and four fingers per hand where visible, with no tangled fingers or extreme foreshortening. Exactly two legs and two feet, clearly distinct and uncrossed. Keep her face readable and preserve the left eyepatch throughout. Hair and costume panels follow the pose naturally with gravity. In her visible open RIGHT eye only, preserve the green iris outline, colored border, shading and detail; replace only its pupil with one solid clearly visible PALE LIME-GREEN HEART-SHAPED pupil centered inside that iris. The heart is the pupil, not a catchlight or floating symbol. The covered left eye remains covered by its unchanged black eyepatch; do not reveal or invent a second visible eye.\nFull-body complete silhouette including ribbons, twin tails, fingers, costume tails and boots; 2\u20134% top and bottom padding, roughly 92\u201396% visible height. Genuinely transparent background. No scenery, floor, ground shadow, UI, text, labels, watermark, floating effects or symbols, bow weapon, raven, new props, or additional characters.",
+        "referenced_image_paths": [
+          "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-fischl-full-22/references/Fischl/approved-neutral.png"
+        ],
+        "transparent_background": true
+      },
+      "revision_note": "Before generation, anticipation acting was made explicitly nonsexual, matching the revised desire direction.",
+      "tool_output": "/Users/alexachan/.codex/generated_images/01a1aa19-42b2-7e92-b08d-8ee7d133c057/exec-aecefe1c-1219-4ba6-a2fa-e6a9574a8232.png",
+      "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-fischl-full-22/raw/Fischl/desire-1.png",
+      "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-fischl-full-22/sprites/Fischl/desire-1.png",
+      "sha256": "8229a433dae0b227bbcea84c4f35e8f8d1ff25191a2d66b837893fb99ca6b390",
+      "dimensions": [
+        1003,
+        1568
+      ],
+      "png_color_type": 6,
+      "approval": {
+        "status": "pending"
+      }
+    }
+  },
+  "heart_alternates": {
+    "pupil_color": "pale lime-green",
+    "eyepatch_rule": "Preserve covered left eye; heart pupil appears only in visible open right eye. Character design takes priority over generic two-visible-eyes wording."
+  },
+  "model_note": "Built-in model, quality and complexity are not exposed or returned.",
+  "installation": "not requested; live Fischl sprites unchanged",
+  "preview_order": [
+    "neutral",
+    "annoyance",
+    "smug",
+    "confusion",
+    "love",
+    "excitement",
+    "joy",
+    "fear",
+    "pride",
+    "desire",
+    "anger",
+    "grief",
+    "sadness",
+    "disgust",
+    "disappointment",
+    "relief",
+    "admiration",
+    "gratitude",
+    "embarrassment",
+    "caring",
+    "love-1",
+    "desire-1"
+  ],
+  "sprite_manifest": [
+    {
+      "emotion": "neutral",
+      "file": "sprites/Fischl/neutral.png",
+      "sha256": "3f1fb1c31686f9d3118ea06c2b0958d8ca4556d822385f7e538a3af049ed1c13",
+      "dimensions": [
+        1003,
+        1568
+      ],
+      "alpha_channel": true
+    },
+    {
+      "emotion": "annoyance",
+      "file": "sprites/Fischl/annoyance.png",
+      "sha256": "bef2f6a5de26c515bd2e5a0b83da847296755ebf0ea3e593bb6317c2cf4c5fd6",
+      "dimensions": [
+        1003,
+        1568
+      ],
+      "alpha_channel": true
+    },
+    {
+      "emotion": "smug",
+      "file": "sprites/Fischl/smug.png",
+      "sha256": "c0eaefa3cbfcf56d1b26b1a5aad9e2915db57b1f1c7d042dd278c3bf8699bb44",
+      "dimensions": [
+        1003,
+        1568
+      ],
+      "alpha_channel": true
+    },
+    {
+      "emotion": "confusion",
+      "file": "sprites/Fischl/confusion.png",
+      "sha256": "8d718eaf4567f8306940f52f6b3a100fe1e8b8651c2be06c932192f90f2a3c0d",
+      "dimensions": [
+        1003,
+        1568
+      ],
+      "alpha_channel": true
+    },
+    {
+      "emotion": "love",
+      "file": "sprites/Fischl/love.png",
+      "sha256": "581f8af4d2c1f575a2a609fbf1ea719cd2bfabed7a4329aaa02111927cb4bc46",
+      "dimensions": [
+        1003,
+        1568
+      ],
+      "alpha_channel": true
+    },
+    {
+      "emotion": "excitement",
+      "file": "sprites/Fischl/excitement.png",
+      "sha256": "86192910d8ed4ef36b542075f500d1f8a51bbc485de87badc9db7b5570893092",
+      "dimensions": [
+        1003,
+        1568
+      ],
+      "alpha_channel": true
+    },
+    {
+      "emotion": "joy",
+      "file": "sprites/Fischl/joy.png",
+      "sha256": "c9e2a3aa81b657840bd56254613a372fd361bcbd3d30e83cac3fe6e51d6aa983",
+      "dimensions": [
+        1003,
+        1568
+      ],
+      "alpha_channel": true
+    },
+    {
+      "emotion": "fear",
+      "file": "sprites/Fischl/fear.png",
+      "sha256": "c8110cdf9c42fe0f6487841d606e24dd9798b243e40c0e6fbaad54127052eb7d",
+      "dimensions": [
+        1003,
+        1568
+      ],
+      "alpha_channel": true
+    },
+    {
+      "emotion": "pride",
+      "file": "sprites/Fischl/pride.png",
+      "sha256": "94e47b165cd926d26947368f00d98a6956da4c8d54290eee5d3361aa67dc5229",
+      "dimensions": [
+        1005,
+        1565
+      ],
+      "alpha_channel": true
+    },
+    {
+      "emotion": "desire",
+      "file": "sprites/Fischl/desire.png",
+      "sha256": "3243bf6f3bbfc092dc155f22541f290201e23ff1517ab0ab7bbc1fd666416ba4",
+      "dimensions": [
+        1003,
+        1568
+      ],
+      "alpha_channel": true
+    },
+    {
+      "emotion": "anger",
+      "file": "sprites/Fischl/anger.png",
+      "sha256": "d590488344c3ea9a6b70f4eb3f9ddcc54421e8da3c53cc9ee2578f0058c1733b",
+      "dimensions": [
+        1003,
+        1568
+      ],
+      "alpha_channel": true
+    },
+    {
+      "emotion": "grief",
+      "file": "sprites/Fischl/grief.png",
+      "sha256": "e884c93fa97f86fa2cf6839fa871be548d7b460163bdc9f4d611bae9554bfc93",
+      "dimensions": [
+        1003,
+        1568
+      ],
+      "alpha_channel": true
+    },
+    {
+      "emotion": "sadness",
+      "file": "sprites/Fischl/sadness.png",
+      "sha256": "c37ee494f780d76fc9235806eda1bf150e538febac6eb8557fb7a57c053f37d0",
+      "dimensions": [
+        1003,
+        1568
+      ],
+      "alpha_channel": true
+    },
+    {
+      "emotion": "disgust",
+      "file": "sprites/Fischl/disgust.png",
+      "sha256": "d5ab30686271942b6306625be2147e80ac61bebdcd3e28c57b2cd5ced2b74ae7",
+      "dimensions": [
+        1003,
+        1568
+      ],
+      "alpha_channel": true
+    },
+    {
+      "emotion": "disappointment",
+      "file": "sprites/Fischl/disappointment.png",
+      "sha256": "3aa01503dc62116fa3d41cb781a147c0c385298c5dfe71d8b48f9b4bd0fb2973",
+      "dimensions": [
+        1003,
+        1568
+      ],
+      "alpha_channel": true
+    },
+    {
+      "emotion": "relief",
+      "file": "sprites/Fischl/relief.png",
+      "sha256": "6e81453a236c8e9bfa23bac5f2c80a71b191b3e4c7edfe81d4b9f1509deab131",
+      "dimensions": [
+        1003,
+        1568
+      ],
+      "alpha_channel": true
+    },
+    {
+      "emotion": "admiration",
+      "file": "sprites/Fischl/admiration.png",
+      "sha256": "3357d8092254b8e4c9cdd93df02ddbb27ab8d82dc694edee5967734b7af82ff7",
+      "dimensions": [
+        1003,
+        1568
+      ],
+      "alpha_channel": true
+    },
+    {
+      "emotion": "gratitude",
+      "file": "sprites/Fischl/gratitude.png",
+      "sha256": "2af11b55d68aee9af1a2a8da855376d54055f12fe202906cc68c3ad64d24cff8",
+      "dimensions": [
+        1003,
+        1568
+      ],
+      "alpha_channel": true
+    },
+    {
+      "emotion": "embarrassment",
+      "file": "sprites/Fischl/embarrassment.png",
+      "sha256": "23e76fcbe01059d5273d45fb515beeb3d41928027bdd0e2e996ea758e3a0c256",
+      "dimensions": [
+        1003,
+        1568
+      ],
+      "alpha_channel": true
+    },
+    {
+      "emotion": "caring",
+      "file": "sprites/Fischl/caring.png",
+      "sha256": "81601d507f27a41b708c221a981b985279aa34417c660f733216533f19b13c19",
+      "dimensions": [
+        1003,
+        1568
+      ],
+      "alpha_channel": true
+    },
+    {
+      "emotion": "love-1",
+      "file": "sprites/Fischl/love-1.png",
+      "sha256": "cd2472d58099c6a9d05705e8666ddfc350d7788037b5bcd847d0a2cdf707d64c",
+      "dimensions": [
+        1003,
+        1568
+      ],
+      "alpha_channel": true
+    },
+    {
+      "emotion": "desire-1",
+      "file": "sprites/Fischl/desire-1.png",
+      "sha256": "8229a433dae0b227bbcea84c4f35e8f8d1ff25191a2d66b837893fb99ca6b390",
+      "dimensions": [
+        1003,
+        1568
+      ],
+      "alpha_channel": true
+    }
+  ],
+  "technical_validation": {
+    "sprite_count": 22,
+    "PNG_alpha_channels": "verified",
+    "PNG_decoding": "verified",
+    "saved_sprite_hashes": "verified",
+    "neutral_matches_exact_approved_candidate": true,
+    "visual_approval": "Neutral approved by user; 21 expressions are candidates for user review."
+  },
+  "previews": {
+    "full_body": "previews/full-body-sheet.png",
+    "faces": "previews/face-sheet.png",
+    "full_body_columns": 5,
+    "face_columns": 6,
+    "order_left_to_right_top_to_bottom": [
+      "neutral",
+      "annoyance",
+      "smug",
+      "confusion",
+      "love",
+      "excitement",
+      "joy",
+      "fear",
+      "pride",
+      "desire",
+      "anger",
+      "grief",
+      "sadness",
+      "disgust",
+      "disappointment",
+      "relief",
+      "admiration",
+      "gratitude",
+      "embarrassment",
+      "caring",
+      "love-1",
+      "desire-1"
+    ],
+    "background": "transparent",
+    "labels": "none",
+    "transforms": [
+      {
+        "emotion": "neutral",
+        "full_body_thumbnail_dimensions": [
+          276,
+          431
+        ],
+        "face_crop_box": [
+          150,
+          0,
+          853,
+          486
+        ],
+        "face_thumbnail_dimensions": [
+          272,
+          188
+        ]
+      },
+      {
+        "emotion": "annoyance",
+        "full_body_thumbnail_dimensions": [
+          276,
+          431
+        ],
+        "face_crop_box": [
+          150,
+          0,
+          853,
+          486
+        ],
+        "face_thumbnail_dimensions": [
+          272,
+          188
+        ]
+      },
+      {
+        "emotion": "smug",
+        "full_body_thumbnail_dimensions": [
+          276,
+          431
+        ],
+        "face_crop_box": [
+          150,
+          0,
+          853,
+          486
+        ],
+        "face_thumbnail_dimensions": [
+          272,
+          188
+        ]
+      },
+      {
+        "emotion": "confusion",
+        "full_body_thumbnail_dimensions": [
+          276,
+          431
+        ],
+        "face_crop_box": [
+          150,
+          0,
+          853,
+          486
+        ],
+        "face_thumbnail_dimensions": [
+          272,
+          188
+        ]
+      },
+      {
+        "emotion": "love",
+        "full_body_thumbnail_dimensions": [
+          276,
+          431
+        ],
+        "face_crop_box": [
+          150,
+          0,
+          853,
+          486
+        ],
+        "face_thumbnail_dimensions": [
+          272,
+          188
+        ]
+      },
+      {
+        "emotion": "excitement",
+        "full_body_thumbnail_dimensions": [
+          276,
+          431
+        ],
+        "face_crop_box": [
+          150,
+          0,
+          853,
+          486
+        ],
+        "face_thumbnail_dimensions": [
+          272,
+          188
+        ]
+      },
+      {
+        "emotion": "joy",
+        "full_body_thumbnail_dimensions": [
+          276,
+          431
+        ],
+        "face_crop_box": [
+          150,
+          0,
+          853,
+          486
+        ],
+        "face_thumbnail_dimensions": [
+          272,
+          188
+        ]
+      },
+      {
+        "emotion": "fear",
+        "full_body_thumbnail_dimensions": [
+          276,
+          431
+        ],
+        "face_crop_box": [
+          150,
+          0,
+          853,
+          486
+        ],
+        "face_thumbnail_dimensions": [
+          272,
+          188
+        ]
+      },
+      {
+        "emotion": "pride",
+        "full_body_thumbnail_dimensions": [
+          276,
+          430
+        ],
+        "face_crop_box": [
+          151,
+          0,
+          854,
+          485
+        ],
+        "face_thumbnail_dimensions": [
+          272,
+          188
+        ]
+      },
+      {
+        "emotion": "desire",
+        "full_body_thumbnail_dimensions": [
+          276,
+          431
+        ],
+        "face_crop_box": [
+          150,
+          0,
+          853,
+          486
+        ],
+        "face_thumbnail_dimensions": [
+          272,
+          188
+        ]
+      },
+      {
+        "emotion": "anger",
+        "full_body_thumbnail_dimensions": [
+          276,
+          431
+        ],
+        "face_crop_box": [
+          150,
+          0,
+          853,
+          486
+        ],
+        "face_thumbnail_dimensions": [
+          272,
+          188
+        ]
+      },
+      {
+        "emotion": "grief",
+        "full_body_thumbnail_dimensions": [
+          276,
+          431
+        ],
+        "face_crop_box": [
+          150,
+          0,
+          853,
+          486
+        ],
+        "face_thumbnail_dimensions": [
+          272,
+          188
+        ]
+      },
+      {
+        "emotion": "sadness",
+        "full_body_thumbnail_dimensions": [
+          276,
+          431
+        ],
+        "face_crop_box": [
+          150,
+          0,
+          853,
+          486
+        ],
+        "face_thumbnail_dimensions": [
+          272,
+          188
+        ]
+      },
+      {
+        "emotion": "disgust",
+        "full_body_thumbnail_dimensions": [
+          276,
+          431
+        ],
+        "face_crop_box": [
+          150,
+          0,
+          853,
+          486
+        ],
+        "face_thumbnail_dimensions": [
+          272,
+          188
+        ]
+      },
+      {
+        "emotion": "disappointment",
+        "full_body_thumbnail_dimensions": [
+          276,
+          431
+        ],
+        "face_crop_box": [
+          150,
+          0,
+          853,
+          486
+        ],
+        "face_thumbnail_dimensions": [
+          272,
+          188
+        ]
+      },
+      {
+        "emotion": "relief",
+        "full_body_thumbnail_dimensions": [
+          276,
+          431
+        ],
+        "face_crop_box": [
+          150,
+          0,
+          853,
+          486
+        ],
+        "face_thumbnail_dimensions": [
+          272,
+          188
+        ]
+      },
+      {
+        "emotion": "admiration",
+        "full_body_thumbnail_dimensions": [
+          276,
+          431
+        ],
+        "face_crop_box": [
+          150,
+          0,
+          853,
+          486
+        ],
+        "face_thumbnail_dimensions": [
+          272,
+          188
+        ]
+      },
+      {
+        "emotion": "gratitude",
+        "full_body_thumbnail_dimensions": [
+          276,
+          431
+        ],
+        "face_crop_box": [
+          150,
+          0,
+          853,
+          486
+        ],
+        "face_thumbnail_dimensions": [
+          272,
+          188
+        ]
+      },
+      {
+        "emotion": "embarrassment",
+        "full_body_thumbnail_dimensions": [
+          276,
+          431
+        ],
+        "face_crop_box": [
+          150,
+          0,
+          853,
+          486
+        ],
+        "face_thumbnail_dimensions": [
+          272,
+          188
+        ]
+      },
+      {
+        "emotion": "caring",
+        "full_body_thumbnail_dimensions": [
+          276,
+          431
+        ],
+        "face_crop_box": [
+          150,
+          0,
+          853,
+          486
+        ],
+        "face_thumbnail_dimensions": [
+          272,
+          188
+        ]
+      },
+      {
+        "emotion": "love-1",
+        "full_body_thumbnail_dimensions": [
+          276,
+          431
+        ],
+        "face_crop_box": [
+          150,
+          0,
+          853,
+          486
+        ],
+        "face_thumbnail_dimensions": [
+          272,
+          188
+        ]
+      },
+      {
+        "emotion": "desire-1",
+        "full_body_thumbnail_dimensions": [
+          276,
+          431
+        ],
+        "face_crop_box": [
+          150,
+          0,
+          853,
+          486
+        ],
+        "face_thumbnail_dimensions": [
+          272,
+          188
+        ]
+      }
+    ],
+    "note": "Deterministic cropping and proportional thumbnail scaling only; original sprite PNGs unchanged. Review sheets are never image-generation references."
+  },
+  "deliverables": {
+    "sprite_pack": "archives/fischl-full-22-sprites.zip",
+    "complete_archive": "archives/fischl-full-22-complete.zip"
+  },
+  "generation_notes": {
+    "desire": "Initial output rejected by image service; successful revised prompt depicts gentle hopeful anticipation of a wished-for adventure.",
+    "embarrassment": "Initial output rejected by image service; successful revised prompt depicts social awkwardness after forgetting a grand introduction.",
+    "desire-1": "Nonsexual hopeful-anticipation prompt used, with pale lime-green heart pupil requested in the visible right eye only.",
+    "failures": "Original prompts and exact service errors preserved in manifest and raw JSON records."
+  },
+  "selected_revisions": {
+    "love-1": {
+      "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-neutral-and-white-heart-revisions/approved/Fischl/love-1.png",
+      "sha256": "8075e72a40efcff11a21efd2927203b9c4c65ea945bc161551e895891311aeb2",
+      "approval": {
+        "status": "approved",
+        "date": "2026-11-05",
+        "message": "Both Fischl good.",
+        "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-neutral-and-white-heart-revisions/candidates/Fischl/love-1-white-v001.png",
+        "candidate_sha256": "8075e72a40efcff11a21efd2927203b9c4c65ea945bc161551e895891311aeb2"
+      },
+      "manifest": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-neutral-and-white-heart-revisions/run.json"
+    },
+    "desire-1": {
+      "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-neutral-and-white-heart-revisions/approved/Fischl/desire-1.png",
+      "sha256": "3b62cdc74c669ad6f1644feba636f97a0a48799cfcb9949c8893264bde73597d",
+      "approval": {
+        "status": "approved",
+        "date": "2026-11-05",
+        "message": "Both Fischl good.",
+        "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-neutral-and-white-heart-revisions/candidates/Fischl/desire-1-white-v001.png",
+        "candidate_sha256": "3b62cdc74c669ad6f1644feba636f97a0a48799cfcb9949c8893264bde73597d"
+      },
+      "manifest": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-neutral-and-white-heart-revisions/run.json"
+    }
+  }
+}

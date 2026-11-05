@@ -1,0 +1,103 @@
+{
+  "status": "installed and hash-verified",
+  "approval_message": "This is perfect! Put it in her folder then try regenerating Fischl\u2019s neutral from her official art",
+  "installed_at_local": "2026-11-05T00:43:48.232247-05:00",
+  "target_folder": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Xilonen",
+  "files": [
+    {
+      "emotion": "neutral",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-xilonen-ten-sprites/sprites/Xilonen/neutral.png",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Xilonen/neutral.png",
+      "sha256": "3f65fb5e7d99706116bf98064cb651a78d65fdf2a46dfa7687031786daee6035",
+      "previous_sha256": "be1677f773c39105e0b3d7818fe9f4a7cf5e42bc2b42fc8ee8a02e63ac0294fe",
+      "action": "replace",
+      "backup": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-xilonen-ten-sprites/installation-backup-2026-11-05/Xilonen/neutral.png"
+    },
+    {
+      "emotion": "joy",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-xilonen-ten-sprites/sprites/Xilonen/joy.png",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Xilonen/joy.png",
+      "sha256": "b5ddc58e08ae3b134942af46610edcff505dc9f0f35319bf5c6e4fab0b5077f3",
+      "previous_sha256": null,
+      "action": "add",
+      "backup": null
+    },
+    {
+      "emotion": "annoyance",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-xilonen-ten-sprites/sprites/Xilonen/annoyance.png",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Xilonen/annoyance.png",
+      "sha256": "16722cab2912d455ab518b2df7f987c0fc3f734fd606e8ca9dffe7c5e00613d6",
+      "previous_sha256": null,
+      "action": "add",
+      "backup": null
+    },
+    {
+      "emotion": "confusion",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-xilonen-ten-sprites/sprites/Xilonen/confusion.png",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Xilonen/confusion.png",
+      "sha256": "54032f73f24b7549a1d6aa3696785f9ed1ce3d73364abc668d6f2f8b9ad07e40",
+      "previous_sha256": null,
+      "action": "add",
+      "backup": null
+    },
+    {
+      "emotion": "love",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-xilonen-ten-sprites/sprites/Xilonen/love.png",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Xilonen/love.png",
+      "sha256": "e76263607b0616467da28104a333f6bef16dfa276fdd4079e55545f7baf23646",
+      "previous_sha256": null,
+      "action": "add",
+      "backup": null
+    },
+    {
+      "emotion": "desire",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-xilonen-ten-sprites/sprites/Xilonen/desire.png",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Xilonen/desire.png",
+      "sha256": "75dbb9d5939632c2f3f7e2f97959d008cf1ba9c371a1efdbfabf0e33fad115fa",
+      "previous_sha256": null,
+      "action": "add",
+      "backup": null
+    },
+    {
+      "emotion": "excitement",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-xilonen-ten-sprites/sprites/Xilonen/excitement.png",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Xilonen/excitement.png",
+      "sha256": "57d7a4125a185c492f0504b92a8b49230b7cea1abed647b6f119b861bfd484a6",
+      "previous_sha256": null,
+      "action": "add",
+      "backup": null
+    },
+    {
+      "emotion": "sadness",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-xilonen-ten-sprites/sprites/Xilonen/sadness.png",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Xilonen/sadness.png",
+      "sha256": "e7978090f7398fa8e1692ce2e4b0f8ff38e65d9b3db49241b0e55edaa094fa15",
+      "previous_sha256": null,
+      "action": "add",
+      "backup": null
+    },
+    {
+      "emotion": "fear",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-xilonen-ten-sprites/sprites/Xilonen/fear.png",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Xilonen/fear.png",
+      "sha256": "f941e5514d20156d21de9c7a4703eb891ca26c208058c316d3126a7488f07447",
+      "previous_sha256": null,
+      "action": "add",
+      "backup": null
+    },
+    {
+      "emotion": "embarrassment",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-xilonen-ten-sprites/sprites/Xilonen/embarrassment.png",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Xilonen/embarrassment.png",
+      "sha256": "e21a351fba79a8ac181ba095c212069168590521de4d205197578ca1b09b8ec3",
+      "previous_sha256": null,
+      "action": "add",
+      "backup": null
+    }
+  ],
+  "counts": {
+    "add": 9,
+    "replace": 1,
+    "already_installed": 0
+  }
+}

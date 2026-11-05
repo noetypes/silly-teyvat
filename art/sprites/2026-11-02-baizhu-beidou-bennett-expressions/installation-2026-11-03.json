@@ -1,0 +1,1560 @@
+{
+  "status": "installed and verified",
+  "request": "Put all sprites in their respective folders.",
+  "backup": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-baizhu-beidou-bennett-expressions/installation-backup-2026-11-03",
+  "count": 220,
+  "characters": [
+    "Yelan",
+    "Nilou",
+    "Sangonomiya Kokomi",
+    "Varesa",
+    "Charlotte",
+    "Chevreuse",
+    "Chiori",
+    "Baizhu",
+    "Beidou",
+    "Bennett"
+  ],
+  "files": [
+    {
+      "character": "Yelan",
+      "emotion": "neutral",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-yelan-nilou-kokomi-expressions/sprites/Yelan/neutral.png",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Yelan/neutral.png",
+      "sha256": "97e8c29e386877584609c5323739ff39fda6a07ab70204bb26d3381d6de666d2"
+    },
+    {
+      "character": "Yelan",
+      "emotion": "annoyance",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-yelan-nilou-kokomi-expressions/sprites/Yelan/annoyance.png",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Yelan/annoyance.png",
+      "sha256": "4f06cfe2765fa46f309891119f7c6ee2d0d0c55e7164d5a07c1cf95be02a90f9"
+    },
+    {
+      "character": "Yelan",
+      "emotion": "smug",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-yelan-nilou-kokomi-expressions/sprites/Yelan/smug.png",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Yelan/smug.png",
+      "sha256": "f5800ca80a8e7ed588d4a0fdfa002cb9518cdd423614e6d97dc0d97468a694ad"
+    },
+    {
+      "character": "Yelan",
+      "emotion": "confusion",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-yelan-nilou-kokomi-expressions/sprites/Yelan/confusion.png",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Yelan/confusion.png",
+      "sha256": "ea6976f8e5f0da9320db97b7afc34da65f5f0184bbc841452fc69659109ac640"
+    },
+    {
+      "character": "Yelan",
+      "emotion": "love",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-yelan-nilou-kokomi-expressions/sprites/Yelan/love.png",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Yelan/love.png",
+      "sha256": "ad16fb34be5a48445cf5301681e7156174aa75edbfb2f366b09ed1de78db0051"
+    },
+    {
+      "character": "Yelan",
+      "emotion": "excitement",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-yelan-nilou-kokomi-expressions/sprites/Yelan/excitement.png",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Yelan/excitement.png",
+      "sha256": "ac26f68a3d32712ee31cd8091e1798b3ccb96ec4f2836bf03f8c64c160c17f0c"
+    },
+    {
+      "character": "Yelan",
+      "emotion": "joy",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-yelan-nilou-kokomi-expressions/sprites/Yelan/joy.png",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Yelan/joy.png",
+      "sha256": "420a08ee88753ea3260f8f7a079584ef9886e3cfbd21ab978eb4131baa1caea0"
+    },
+    {
+      "character": "Yelan",
+      "emotion": "fear",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-yelan-nilou-kokomi-expressions/sprites/Yelan/fear.png",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Yelan/fear.png",
+      "sha256": "6b2d54a47b96c0de35e81c09d0373878c8f5f700c84eae171ee0d86dd8da55e6"
+    },
+    {
+      "character": "Yelan",
+      "emotion": "pride",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-yelan-nilou-kokomi-expressions/sprites/Yelan/pride.png",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Yelan/pride.png",
+      "sha256": "009c5b1e9ba0d6b819bd797f04269a8d1222bbef3c08bfd086555d393875f9ec"
+    },
+    {
+      "character": "Yelan",
+      "emotion": "desire",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-yelan-nilou-kokomi-expressions/revisions/2026-11-02-desire-retries/candidates/Yelan/desire.png",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Yelan/desire.png",
+      "sha256": "63b2ccc22dc0627b067ac9aa322ad29bcb6999c6ff167336d6ab843bd7d631af"
+    },
+    {
+      "character": "Yelan",
+      "emotion": "anger",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-yelan-nilou-kokomi-expressions/sprites/Yelan/anger.png",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Yelan/anger.png",
+      "sha256": "ae50177bbc09c57f470867249ec03fc12170cb7aacd02b0c9878bdeecd60c864"
+    },
+    {
+      "character": "Yelan",
+      "emotion": "grief",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-yelan-nilou-kokomi-expressions/sprites/Yelan/grief.png",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Yelan/grief.png",
+      "sha256": "5f4f385abad4d7b2ecb4914c51aee36bf5f97458e6373c8d98071670257ec5d5"
+    },
+    {
+      "character": "Yelan",
+      "emotion": "sadness",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-yelan-nilou-kokomi-expressions/sprites/Yelan/sadness.png",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Yelan/sadness.png",
+      "sha256": "05737f60a202dc23d40e0f7286fdaba75dc7273002ee40ca2dfaafeed88598f3"
+    },
+    {
+      "character": "Yelan",
+      "emotion": "disgust",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-yelan-nilou-kokomi-expressions/sprites/Yelan/disgust.png",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Yelan/disgust.png",
+      "sha256": "b1a6bf13c554002462f95f8d0d4b996a1e418abdd3bc7d7a05741ed800b62e68"
+    },
+    {
+      "character": "Yelan",
+      "emotion": "disappointment",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-yelan-nilou-kokomi-expressions/sprites/Yelan/disappointment.png",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Yelan/disappointment.png",
+      "sha256": "4e5df4269c32fd527b6563069379bc9a679c993b8fba44e7b1ce92a1acdedae0"
+    },
+    {
+      "character": "Yelan",
+      "emotion": "relief",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-yelan-nilou-kokomi-expressions/sprites/Yelan/relief.png",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Yelan/relief.png",
+      "sha256": "bc851e25ca7c2038a008fc4253f2b88b0a72a4336467fe2d627fe9a9871a76ea"
+    },
+    {
+      "character": "Yelan",
+      "emotion": "admiration",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-yelan-nilou-kokomi-expressions/sprites/Yelan/admiration.png",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Yelan/admiration.png",
+      "sha256": "c3825cfb5fafd2e69ddbab1a35b373ddb8a865ebc9cb62fb4538a0163b256f62"
+    },
+    {
+      "character": "Yelan",
+      "emotion": "gratitude",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-yelan-nilou-kokomi-expressions/sprites/Yelan/gratitude.png",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Yelan/gratitude.png",
+      "sha256": "2016b3d01a90cb169080fa5abeb6ee172cea434a512e30ad8b49d90eaeda65c3"
+    },
+    {
+      "character": "Yelan",
+      "emotion": "embarrassment",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-yelan-nilou-kokomi-expressions/sprites/Yelan/embarrassment.png",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Yelan/embarrassment.png",
+      "sha256": "09556279962dca08f6d9803b5db8d75f826d2a443e55a315d4d54e92b95cbf9e"
+    },
+    {
+      "character": "Yelan",
+      "emotion": "caring",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-yelan-nilou-kokomi-expressions/sprites/Yelan/caring.png",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Yelan/caring.png",
+      "sha256": "d193aa145afa83d2f47c0273c552d8898a746900fb6021b18913c19e1e395ec4"
+    },
+    {
+      "character": "Yelan",
+      "emotion": "love-1",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-yelan-nilou-kokomi-expressions/sprites/Yelan/love-1.png",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Yelan/love-1.png",
+      "sha256": "d76c2ba2dbd427954b099ebe6cf42da588dc6552bab315fd6a71f91093502ece"
+    },
+    {
+      "character": "Yelan",
+      "emotion": "desire-1",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-yelan-nilou-kokomi-expressions/sprites/Yelan/desire-1.png",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Yelan/desire-1.png",
+      "sha256": "a8b1282f9bb63d2379ecbc326369a717a040130b1684451bb7306831a34e440c"
+    },
+    {
+      "character": "Nilou",
+      "emotion": "neutral",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-yelan-nilou-kokomi-expressions/sprites/Nilou/neutral.png",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Nilou/neutral.png",
+      "sha256": "159d39e5f595d2137e3b9303745202560aeabb4cde1860e57fa9c7fe58d0cd6d"
+    },
+    {
+      "character": "Nilou",
+      "emotion": "annoyance",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-yelan-nilou-kokomi-expressions/sprites/Nilou/annoyance.png",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Nilou/annoyance.png",
+      "sha256": "92e044c1d445939a725192b53e7eb30e5232d2527dd829cfdb9b5c4e5fa8480f"
+    },
+    {
+      "character": "Nilou",
+      "emotion": "smug",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-yelan-nilou-kokomi-expressions/sprites/Nilou/smug.png",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Nilou/smug.png",
+      "sha256": "7f7410bd02ceb8d5ea4a5baac36d4f42a37d28487491240c4b54d31416a87954"
+    },
+    {
+      "character": "Nilou",
+      "emotion": "confusion",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-yelan-nilou-kokomi-expressions/sprites/Nilou/confusion.png",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Nilou/confusion.png",
+      "sha256": "09c950386336d8eca02e1b7359034052385f5f1660b7ea8f5f87a6d3de853f71"
+    },
+    {
+      "character": "Nilou",
+      "emotion": "love",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-yelan-nilou-kokomi-expressions/sprites/Nilou/love.png",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Nilou/love.png",
+      "sha256": "ce79622557a00fe40c28e6ac6ccbd6a310b59e74ddbab082657eca9f36bcafc0"
+    },
+    {
+      "character": "Nilou",
+      "emotion": "excitement",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-yelan-nilou-kokomi-expressions/sprites/Nilou/excitement.png",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Nilou/excitement.png",
+      "sha256": "37f86ea4c794217714d9e05830ee97cf0d6d4de09ed8f180d454da18e2e2feb2"
+    },
+    {
+      "character": "Nilou",
+      "emotion": "joy",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-yelan-nilou-kokomi-expressions/sprites/Nilou/joy.png",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Nilou/joy.png",
+      "sha256": "b3c3b593ccbaf2bde106157868ab3f2e8f95905a7c528d4d1aff2e9bd5fabae8"
+    },
+    {
+      "character": "Nilou",
+      "emotion": "fear",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-yelan-nilou-kokomi-expressions/sprites/Nilou/fear.png",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Nilou/fear.png",
+      "sha256": "b1dda806e58d3dba74487c8e3e65520a505c99568acde6ab3a2f0bdc2da8d692"
+    },
+    {
+      "character": "Nilou",
+      "emotion": "pride",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-yelan-nilou-kokomi-expressions/sprites/Nilou/pride.png",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Nilou/pride.png",
+      "sha256": "f0d8996546e9a140a6cf857f350055b4e363ea91a515d8f6e41e441beda1b3f4"
+    },
+    {
+      "character": "Nilou",
+      "emotion": "desire",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-yelan-nilou-kokomi-expressions/sprites/Nilou/desire.png",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Nilou/desire.png",
+      "sha256": "e89e10fc7f0961c25455461b7b84160ad4ac3f05b51eeb5c8a92ce6bc3a86069"
+    },
+    {
+      "character": "Nilou",
+      "emotion": "anger",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-yelan-nilou-kokomi-expressions/sprites/Nilou/anger.png",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Nilou/anger.png",
+      "sha256": "f07e9c315a45606be220d1ad54789817835a521c7e2f464997bc20d4ec196755"
+    },
+    {
+      "character": "Nilou",
+      "emotion": "grief",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-yelan-nilou-kokomi-expressions/sprites/Nilou/grief.png",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Nilou/grief.png",
+      "sha256": "caa4cd27f6681f1a5fdffc024b9ed5b9480ab7aa6ea882ad50f8239ec3d4b40f"
+    },
+    {
+      "character": "Nilou",
+      "emotion": "sadness",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-yelan-nilou-kokomi-expressions/sprites/Nilou/sadness.png",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Nilou/sadness.png",
+      "sha256": "13311508c62c075031bfb9fb51079e7daae3e017bace5680e3212f2ca0e4fec8"
+    },
+    {
+      "character": "Nilou",
+      "emotion": "disgust",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-yelan-nilou-kokomi-expressions/sprites/Nilou/disgust.png",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Nilou/disgust.png",
+      "sha256": "a8f6e83e22e28d76e6959e5b478c42536a737c5fc88557d6465ad2da28e61cff"
+    },
+    {
+      "character": "Nilou",
+      "emotion": "disappointment",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-yelan-nilou-kokomi-expressions/sprites/Nilou/disappointment.png",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Nilou/disappointment.png",
+      "sha256": "b6a0c12203d42102dd584aa8b02135004ce0e7a4ae6fb23293006750ce753fcf"
+    },
+    {
+      "character": "Nilou",
+      "emotion": "relief",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-yelan-nilou-kokomi-expressions/sprites/Nilou/relief.png",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Nilou/relief.png",
+      "sha256": "d4cf8117b92ec8fde3b54f5a31fa82e87f8ba2fbf186c25c1ec1ba93dce63766"
+    },
+    {
+      "character": "Nilou",
+      "emotion": "admiration",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-yelan-nilou-kokomi-expressions/sprites/Nilou/admiration.png",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Nilou/admiration.png",
+      "sha256": "2d89ec43ef133cabe8a62d0ea2d4fed70da5ebe02a116db714691193f0d29dbd"
+    },
+    {
+      "character": "Nilou",
+      "emotion": "gratitude",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-yelan-nilou-kokomi-expressions/sprites/Nilou/gratitude.png",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Nilou/gratitude.png",
+      "sha256": "52ccd17914ad47f2cd645252c0139c49988c91c88d48a2db7643e30eb8efaca2"
+    },
+    {
+      "character": "Nilou",
+      "emotion": "embarrassment",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-yelan-nilou-kokomi-expressions/sprites/Nilou/embarrassment.png",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Nilou/embarrassment.png",
+      "sha256": "dafa47415fdc364ba887eff2491909e803086f9a6f0751d9d67ce75f41f653a3"
+    },
+    {
+      "character": "Nilou",
+      "emotion": "caring",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-yelan-nilou-kokomi-expressions/sprites/Nilou/caring.png",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Nilou/caring.png",
+      "sha256": "e14617ede64b7ba72a33bbbf518b37cd749a14d5562a1b7e812b92fe26e77190"
+    },
+    {
+      "character": "Nilou",
+      "emotion": "love-1",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-yelan-nilou-kokomi-expressions/sprites/Nilou/love-1.png",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Nilou/love-1.png",
+      "sha256": "874c338c8fd39d3fbea0015220d9779b41a093f3d9d14da007ff6f18bcb6baff"
+    },
+    {
+      "character": "Nilou",
+      "emotion": "desire-1",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-yelan-nilou-kokomi-expressions/sprites/Nilou/desire-1.png",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Nilou/desire-1.png",
+      "sha256": "4f20893a44b799a03b2dc1ce7d79ec19fe9340a3470f8a7c81db541b65314f78"
+    },
+    {
+      "character": "Sangonomiya Kokomi",
+      "emotion": "neutral",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-yelan-nilou-kokomi-expressions/sprites/Sangonomiya Kokomi/neutral.png",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Sangonomiya Kokomi/neutral.png",
+      "sha256": "f92d1a8b317b15064da6e39e1fbe8c9f6845e622c6c8de2a81ab997fa91004e8"
+    },
+    {
+      "character": "Sangonomiya Kokomi",
+      "emotion": "annoyance",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-yelan-nilou-kokomi-expressions/sprites/Sangonomiya Kokomi/annoyance.png",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Sangonomiya Kokomi/annoyance.png",
+      "sha256": "e1dfd312264721e629b4bdd175e13e9346eaa2aa890fbb48530d5e9c45e6d73c"
+    },
+    {
+      "character": "Sangonomiya Kokomi",
+      "emotion": "smug",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-yelan-nilou-kokomi-expressions/sprites/Sangonomiya Kokomi/smug.png",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Sangonomiya Kokomi/smug.png",
+      "sha256": "701ac2c6dc78d150aa75e79c9fb23f9b83b8b8d8d4ce100e68a1f26ac9e85bd3"
+    },
+    {
+      "character": "Sangonomiya Kokomi",
+      "emotion": "confusion",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-yelan-nilou-kokomi-expressions/sprites/Sangonomiya Kokomi/confusion.png",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Sangonomiya Kokomi/confusion.png",
+      "sha256": "2c694d4893a4a6bf42763af460a5c04453cd9f357f507e3f8c638b568171c092"
+    },
+    {
+      "character": "Sangonomiya Kokomi",
+      "emotion": "love",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-yelan-nilou-kokomi-expressions/sprites/Sangonomiya Kokomi/love.png",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Sangonomiya Kokomi/love.png",
+      "sha256": "6b1d620a9bbd66677797a4bf4475a76fb09a1498e81e721ad831234e6554e4e1"
+    },
+    {
+      "character": "Sangonomiya Kokomi",
+      "emotion": "excitement",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-yelan-nilou-kokomi-expressions/sprites/Sangonomiya Kokomi/excitement.png",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Sangonomiya Kokomi/excitement.png",
+      "sha256": "fbafc3b350db0deddc8fd2b517cc8f3fefaff4aa270d1dcfcc392647dff22aec"
+    },
+    {
+      "character": "Sangonomiya Kokomi",
+      "emotion": "joy",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-yelan-nilou-kokomi-expressions/sprites/Sangonomiya Kokomi/joy.png",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Sangonomiya Kokomi/joy.png",
+      "sha256": "609d507dafb3a13bc3e30a895a6a48730ca2fdd20cb423f876d0924c22a59440"
+    },
+    {
+      "character": "Sangonomiya Kokomi",
+      "emotion": "fear",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-yelan-nilou-kokomi-expressions/sprites/Sangonomiya Kokomi/fear.png",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Sangonomiya Kokomi/fear.png",
+      "sha256": "929cfa5c912d6368d833644421fdc913ad7ffb1d541478800bfdac535e39ed1d"
+    },
+    {
+      "character": "Sangonomiya Kokomi",
+      "emotion": "pride",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-yelan-nilou-kokomi-expressions/sprites/Sangonomiya Kokomi/pride.png",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Sangonomiya Kokomi/pride.png",
+      "sha256": "950f2f71f66c111ba7f0b47d772384756ee3ceaa848b356c56ae78ee0157b59c"
+    },
+    {
+      "character": "Sangonomiya Kokomi",
+      "emotion": "desire",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-yelan-nilou-kokomi-expressions/sprites/Sangonomiya Kokomi/desire.png",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Sangonomiya Kokomi/desire.png",
+      "sha256": "90230e63b8736c0fe05f172e91be75f867148fdf94b5fd235c22016d1f436b6e"
+    },
+    {
+      "character": "Sangonomiya Kokomi",
+      "emotion": "anger",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-yelan-nilou-kokomi-expressions/sprites/Sangonomiya Kokomi/anger.png",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Sangonomiya Kokomi/anger.png",
+      "sha256": "c61fdc014c80fb2a449557a25a6994b713f3bfbab9c392ca4305c57deaa463e7"
+    },
+    {
+      "character": "Sangonomiya Kokomi",
+      "emotion": "grief",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-yelan-nilou-kokomi-expressions/sprites/Sangonomiya Kokomi/grief.png",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Sangonomiya Kokomi/grief.png",
+      "sha256": "af78d3370ab490d0b5a20cd19f58a2c0ba329ee4050631c369b763bc2e7d8eb1"
+    },
+    {
+      "character": "Sangonomiya Kokomi",
+      "emotion": "sadness",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-yelan-nilou-kokomi-expressions/sprites/Sangonomiya Kokomi/sadness.png",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Sangonomiya Kokomi/sadness.png",
+      "sha256": "39ce12d1b77535819a2319939690bc5e06fdf9adba932b671ec0d3603c6e2e04"
+    },
+    {
+      "character": "Sangonomiya Kokomi",
+      "emotion": "disgust",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-yelan-nilou-kokomi-expressions/sprites/Sangonomiya Kokomi/disgust.png",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Sangonomiya Kokomi/disgust.png",
+      "sha256": "345df149136e599f3757cd7f61d310de64826fdd35f34e5f9784031983214ad9"
+    },
+    {
+      "character": "Sangonomiya Kokomi",
+      "emotion": "disappointment",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-yelan-nilou-kokomi-expressions/sprites/Sangonomiya Kokomi/disappointment.png",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Sangonomiya Kokomi/disappointment.png",
+      "sha256": "fb098a475f5c1173fa4d9ff5659cd7763ad470d100eba5b0b9a736bd0abcb6f2"
+    },
+    {
+      "character": "Sangonomiya Kokomi",
+      "emotion": "relief",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-yelan-nilou-kokomi-expressions/sprites/Sangonomiya Kokomi/relief.png",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Sangonomiya Kokomi/relief.png",
+      "sha256": "8f80b004014a32c0e35fb473ccce8ce8f832d7e2b03e68d525a8b7ed2acf67b0"
+    },
+    {
+      "character": "Sangonomiya Kokomi",
+      "emotion": "admiration",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-yelan-nilou-kokomi-expressions/sprites/Sangonomiya Kokomi/admiration.png",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Sangonomiya Kokomi/admiration.png",
+      "sha256": "711dfd48345a8875b24b8a6e24f2030babbfc4e6a647d30230bf8581dbedac9c"
+    },
+    {
+      "character": "Sangonomiya Kokomi",
+      "emotion": "gratitude",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-yelan-nilou-kokomi-expressions/sprites/Sangonomiya Kokomi/gratitude.png",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Sangonomiya Kokomi/gratitude.png",
+      "sha256": "dfef1a3880b83244620c9eecf3c9e4515c7c4691d7fb8e51eeb02d743291a635"
+    },
+    {
+      "character": "Sangonomiya Kokomi",
+      "emotion": "embarrassment",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-yelan-nilou-kokomi-expressions/sprites/Sangonomiya Kokomi/embarrassment.png",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Sangonomiya Kokomi/embarrassment.png",
+      "sha256": "01af2df8cd25e50cd0e9b18c3573acfe521a3877503dba82fc7f31dff5a4361a"
+    },
+    {
+      "character": "Sangonomiya Kokomi",
+      "emotion": "caring",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-yelan-nilou-kokomi-expressions/sprites/Sangonomiya Kokomi/caring.png",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Sangonomiya Kokomi/caring.png",
+      "sha256": "06ce02ea2f7f0860bcd6a20efe8c12daa86d31a45a638d1c2a4a345e43381d85"
+    },
+    {
+      "character": "Sangonomiya Kokomi",
+      "emotion": "love-1",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-yelan-nilou-kokomi-expressions/sprites/Sangonomiya Kokomi/love-1.png",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Sangonomiya Kokomi/love-1.png",
+      "sha256": "e6c4f2ca388fd12bf2277267d1b9916e103c201a082310a79e20ffc5f21aba6a"
+    },
+    {
+      "character": "Sangonomiya Kokomi",
+      "emotion": "desire-1",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-yelan-nilou-kokomi-expressions/sprites/Sangonomiya Kokomi/desire-1.png",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Sangonomiya Kokomi/desire-1.png",
+      "sha256": "02acffb3d1cdbebd2282d00cd23eedca0c7f0615156b2ec0308a484504745004"
+    },
+    {
+      "character": "Varesa",
+      "emotion": "neutral",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-yelan-nilou-kokomi-expressions/sprites/Varesa/neutral.png",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Varesa/neutral.png",
+      "sha256": "010af4ea881b0f82b6c2e9271ffbcb4b18e15c633f8113149da4b261049763a6"
+    },
+    {
+      "character": "Varesa",
+      "emotion": "annoyance",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-yelan-nilou-kokomi-expressions/sprites/Varesa/annoyance.png",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Varesa/annoyance.png",
+      "sha256": "6d98123a543831499526ca2f3173da8bd4406e1fea0c27308db4ba4c40ccf660"
+    },
+    {
+      "character": "Varesa",
+      "emotion": "smug",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-yelan-nilou-kokomi-expressions/sprites/Varesa/smug.png",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Varesa/smug.png",
+      "sha256": "4234e6721b747c384aafbf95f4dcd6c78c362e359b50dc6a1c6459be2d3c84ab"
+    },
+    {
+      "character": "Varesa",
+      "emotion": "confusion",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-yelan-nilou-kokomi-expressions/sprites/Varesa/confusion.png",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Varesa/confusion.png",
+      "sha256": "6c0db0eb9ce56e7e95dca7a671cc2f8190993941a1cf42266ad52fe3bf8134ed"
+    },
+    {
+      "character": "Varesa",
+      "emotion": "love",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-yelan-nilou-kokomi-expressions/sprites/Varesa/love.png",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Varesa/love.png",
+      "sha256": "15e7d2610a31016c7f216da27ef960a76ef08d5c13ce7567d18367b91fa06574"
+    },
+    {
+      "character": "Varesa",
+      "emotion": "excitement",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-yelan-nilou-kokomi-expressions/sprites/Varesa/excitement.png",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Varesa/excitement.png",
+      "sha256": "0f002c224d2d72e5811b2c015d742cdafb6ce5575f9c842942bd629c90805b18"
+    },
+    {
+      "character": "Varesa",
+      "emotion": "joy",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-yelan-nilou-kokomi-expressions/sprites/Varesa/joy.png",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Varesa/joy.png",
+      "sha256": "807d9e778a9dde278b4317db6a5945ef66c62456613db1d01120f34088b16f88"
+    },
+    {
+      "character": "Varesa",
+      "emotion": "fear",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-yelan-nilou-kokomi-expressions/sprites/Varesa/fear.png",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Varesa/fear.png",
+      "sha256": "5aa618572fd7762c89216b572fd28e5292ce5d32abd23915d74ecba586e055ca"
+    },
+    {
+      "character": "Varesa",
+      "emotion": "pride",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-yelan-nilou-kokomi-expressions/sprites/Varesa/pride.png",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Varesa/pride.png",
+      "sha256": "cf9cb4a17e313683080938f45470770e7a663d68d41a169144fbbe21a0e66e1a"
+    },
+    {
+      "character": "Varesa",
+      "emotion": "desire",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-yelan-nilou-kokomi-expressions/sprites/Varesa/desire.png",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Varesa/desire.png",
+      "sha256": "272ee1d69f0276b08f4feb0991540a554c949b6e5087570071e5bfe028b3071c"
+    },
+    {
+      "character": "Varesa",
+      "emotion": "anger",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-yelan-nilou-kokomi-expressions/sprites/Varesa/anger.png",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Varesa/anger.png",
+      "sha256": "a59065832a4f94f53a5661e2340e6d0cebba3417bf30c258992b0b2bdf37f1b5"
+    },
+    {
+      "character": "Varesa",
+      "emotion": "grief",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-yelan-nilou-kokomi-expressions/sprites/Varesa/grief.png",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Varesa/grief.png",
+      "sha256": "9802c375818e1db28a442bd00156c969689186486e8ecbd78af06980efc1d677"
+    },
+    {
+      "character": "Varesa",
+      "emotion": "sadness",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-yelan-nilou-kokomi-expressions/sprites/Varesa/sadness.png",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Varesa/sadness.png",
+      "sha256": "31afda8e55021366c4f5a23473dd2256fb3dab682b33b0e0dca9e55193e0d5e7"
+    },
+    {
+      "character": "Varesa",
+      "emotion": "disgust",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-yelan-nilou-kokomi-expressions/sprites/Varesa/disgust.png",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Varesa/disgust.png",
+      "sha256": "26ecdaa06043428c2250aa6146cf4d40248795773e6530e832fda855fa49309d"
+    },
+    {
+      "character": "Varesa",
+      "emotion": "disappointment",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-yelan-nilou-kokomi-expressions/sprites/Varesa/disappointment.png",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Varesa/disappointment.png",
+      "sha256": "7714b767091d3c3d5f5a509e9c4e03e16f6d7aef05475fe883d340e36fbe58ca"
+    },
+    {
+      "character": "Varesa",
+      "emotion": "relief",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-yelan-nilou-kokomi-expressions/sprites/Varesa/relief.png",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Varesa/relief.png",
+      "sha256": "5a44adda85fee5edff5fd1f13ad620e77ffe0c88590a07a19bc4fa1277dc0b02"
+    },
+    {
+      "character": "Varesa",
+      "emotion": "admiration",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-yelan-nilou-kokomi-expressions/sprites/Varesa/admiration.png",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Varesa/admiration.png",
+      "sha256": "269ce4ecb941c4b092c1451a3ad57cf6a1c01ff35e0998bda9a1be3899138bd3"
+    },
+    {
+      "character": "Varesa",
+      "emotion": "gratitude",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-yelan-nilou-kokomi-expressions/sprites/Varesa/gratitude.png",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Varesa/gratitude.png",
+      "sha256": "08734f7d5a6541caa0e67cf8c3577600f7afb8edd564f47498333fc1fc4572a0"
+    },
+    {
+      "character": "Varesa",
+      "emotion": "embarrassment",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-yelan-nilou-kokomi-expressions/sprites/Varesa/embarrassment.png",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Varesa/embarrassment.png",
+      "sha256": "66e99dc0fa91b108a441e3eb23efaa39619a3295cacc61298b9318fa614aa805"
+    },
+    {
+      "character": "Varesa",
+      "emotion": "caring",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-yelan-nilou-kokomi-expressions/sprites/Varesa/caring.png",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Varesa/caring.png",
+      "sha256": "986ed95982e24b4456a440b4ff57848f8c86f50352e3b05405b548c9848c28fa"
+    },
+    {
+      "character": "Varesa",
+      "emotion": "love-1",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-yelan-nilou-kokomi-expressions/sprites/Varesa/love-1.png",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Varesa/love-1.png",
+      "sha256": "e3a45db766c3074875ebd20b191a3209830bc175a1bcafd308b855b5010ffbb3"
+    },
+    {
+      "character": "Varesa",
+      "emotion": "desire-1",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-yelan-nilou-kokomi-expressions/revisions/2026-11-02-varesa-desire-new-pose/candidates/Varesa/desire-1.png",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Varesa/desire-1.png",
+      "sha256": "2af4e4f5626ee4e35a2289dc18f513c8b52ff0bd3274f84647ebc51e85671214"
+    },
+    {
+      "character": "Charlotte",
+      "emotion": "neutral",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/sprites/Charlotte/neutral.png",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Charlotte/neutral.png",
+      "sha256": "43f2924e2f0e81658356bfdee4b0637d9ecf4c0b7163730b8c9c476aaab78128"
+    },
+    {
+      "character": "Charlotte",
+      "emotion": "annoyance",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/sprites/Charlotte/annoyance.png",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Charlotte/annoyance.png",
+      "sha256": "559dd3340689c3fc52997756d02968bf0c29354592356e43aa21777e83d10a12"
+    },
+    {
+      "character": "Charlotte",
+      "emotion": "smug",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/sprites/Charlotte/smug.png",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Charlotte/smug.png",
+      "sha256": "b6d787ba54632a7b13b6bcfa757b46fbfbf21d32c3a1433029afdeb35ce353bc"
+    },
+    {
+      "character": "Charlotte",
+      "emotion": "confusion",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/sprites/Charlotte/confusion.png",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Charlotte/confusion.png",
+      "sha256": "df89b88d75dfe71dba5660dd2a11b62bb1855c20618b80c83a880eb61e420c57"
+    },
+    {
+      "character": "Charlotte",
+      "emotion": "love",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/sprites/Charlotte/love.png",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Charlotte/love.png",
+      "sha256": "519616743e0b02400aed0b0cfd1411c0c55ebfe03c5d9fc40264e7b30af9072d"
+    },
+    {
+      "character": "Charlotte",
+      "emotion": "excitement",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/sprites/Charlotte/excitement.png",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Charlotte/excitement.png",
+      "sha256": "923e5c7b1493755d13de839e0213e8351edf9af1f5bcfae8209db09a97a60ad2"
+    },
+    {
+      "character": "Charlotte",
+      "emotion": "joy",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/sprites/Charlotte/joy.png",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Charlotte/joy.png",
+      "sha256": "39f3d1cf3982af5aa1d4a7fe6512578ab53bfb01b9b39d70753486e2c45ce06f"
+    },
+    {
+      "character": "Charlotte",
+      "emotion": "fear",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/sprites/Charlotte/fear.png",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Charlotte/fear.png",
+      "sha256": "d66c6345e4015c27513df086d804d1c94d2d4847c6c575fc0e76218cce79f94b"
+    },
+    {
+      "character": "Charlotte",
+      "emotion": "pride",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/sprites/Charlotte/pride.png",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Charlotte/pride.png",
+      "sha256": "112617e104b466ce29b7d8af6cb9717fa14ba428b752432f980eb05b6c3cb3ac"
+    },
+    {
+      "character": "Charlotte",
+      "emotion": "desire",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/sprites/Charlotte/desire.png",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Charlotte/desire.png",
+      "sha256": "90be8e82e111d63157d733bd1db78f35f4dd631930f9290815469082a010548c"
+    },
+    {
+      "character": "Charlotte",
+      "emotion": "anger",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/sprites/Charlotte/anger.png",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Charlotte/anger.png",
+      "sha256": "720fd326c307b57b4d706bcc6b7700d8607728668357a422d14e959fd3fc22a3"
+    },
+    {
+      "character": "Charlotte",
+      "emotion": "grief",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/sprites/Charlotte/grief.png",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Charlotte/grief.png",
+      "sha256": "580d1752f864cb2805e6638a53fb1911d25f7a247429318883efe72e8fe4c708"
+    },
+    {
+      "character": "Charlotte",
+      "emotion": "sadness",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/sprites/Charlotte/sadness.png",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Charlotte/sadness.png",
+      "sha256": "ed54a0cb517c1833a56a34a2290ab35a52c58fb5ef1226cd60d8be7591414468"
+    },
+    {
+      "character": "Charlotte",
+      "emotion": "disgust",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/sprites/Charlotte/disgust.png",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Charlotte/disgust.png",
+      "sha256": "0375c721c5b9a8bb7fb1952d06ef68988d95f9a81e617cdfc8ba34983f8aa339"
+    },
+    {
+      "character": "Charlotte",
+      "emotion": "disappointment",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/sprites/Charlotte/disappointment.png",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Charlotte/disappointment.png",
+      "sha256": "6cae81f0b34d81263aa1d87929347412bd0e068ca9d5df80a5f9f7dc11f971a5"
+    },
+    {
+      "character": "Charlotte",
+      "emotion": "relief",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/sprites/Charlotte/relief.png",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Charlotte/relief.png",
+      "sha256": "946d9bc4fe0ee523f6fdd751e8c9512aa80a9d719f4b82f863b6f89b8b68256d"
+    },
+    {
+      "character": "Charlotte",
+      "emotion": "admiration",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/sprites/Charlotte/admiration.png",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Charlotte/admiration.png",
+      "sha256": "840698fc1a8a421243eb9570f1dd02566b359b6d8830ff091b9f5ca0ff50035c"
+    },
+    {
+      "character": "Charlotte",
+      "emotion": "gratitude",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/sprites/Charlotte/gratitude.png",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Charlotte/gratitude.png",
+      "sha256": "3bcb3635ab1be3aeec61a12aa0674fd77f14b8a45f3a761793b123335046a30b"
+    },
+    {
+      "character": "Charlotte",
+      "emotion": "embarrassment",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/sprites/Charlotte/embarrassment.png",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Charlotte/embarrassment.png",
+      "sha256": "34e291c9eaa556c10559e7664d8ec8ac4cca9e9e77ae3d5e45160f61fde59b13"
+    },
+    {
+      "character": "Charlotte",
+      "emotion": "caring",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/sprites/Charlotte/caring.png",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Charlotte/caring.png",
+      "sha256": "c19333932a1b159bbfb6cded362784e489a2ba02e8b19978df70088d2e7930e3"
+    },
+    {
+      "character": "Charlotte",
+      "emotion": "love-1",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/sprites/Charlotte/love-1.png",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Charlotte/love-1.png",
+      "sha256": "f598661a74ff7770d7d8b8894708f7a7d6bb3e0b149a4e23a11791ce66132f4c"
+    },
+    {
+      "character": "Charlotte",
+      "emotion": "desire-1",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/sprites/Charlotte/desire-1.png",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Charlotte/desire-1.png",
+      "sha256": "f891dd2f4916d3fd8878379a5fe81f964cab9be061e0ef09ce88b69f956baae3"
+    },
+    {
+      "character": "Chevreuse",
+      "emotion": "neutral",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/sprites/Chevreuse/neutral.png",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Chevreuse/neutral.png",
+      "sha256": "156354cb2dc89c1b46bcd12a18aa84a3d36c561a854198e6432a42ba106a8fea"
+    },
+    {
+      "character": "Chevreuse",
+      "emotion": "annoyance",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/sprites/Chevreuse/annoyance.png",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Chevreuse/annoyance.png",
+      "sha256": "c01a9103e4eec58a206d513100abc5c388536f60ad9581df080f982a7d54de7d"
+    },
+    {
+      "character": "Chevreuse",
+      "emotion": "smug",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/sprites/Chevreuse/smug.png",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Chevreuse/smug.png",
+      "sha256": "3464e9c7a04bc1e5c5f2ebf44a2864ec8e96b1a8691ad4c33291f5571a75d0bb"
+    },
+    {
+      "character": "Chevreuse",
+      "emotion": "confusion",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/sprites/Chevreuse/confusion.png",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Chevreuse/confusion.png",
+      "sha256": "dedb145b87cdd96c9142999030368fbab697b55f70ecce5cbdc1d9d097a38ea3"
+    },
+    {
+      "character": "Chevreuse",
+      "emotion": "love",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/sprites/Chevreuse/love.png",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Chevreuse/love.png",
+      "sha256": "e252a14792b409352c6e0dea9d57c39d4fd0ef641f4cc3e9ee6eba57e698bc9a"
+    },
+    {
+      "character": "Chevreuse",
+      "emotion": "excitement",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/sprites/Chevreuse/excitement.png",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Chevreuse/excitement.png",
+      "sha256": "7930e99d92d170419cd2395f1306f052602b5d530af5c4594266460432dfb939"
+    },
+    {
+      "character": "Chevreuse",
+      "emotion": "joy",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/sprites/Chevreuse/joy.png",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Chevreuse/joy.png",
+      "sha256": "ff8d66037b896380b8d23bf9ecb6fbf3a1977337354e97418da15f8968684c88"
+    },
+    {
+      "character": "Chevreuse",
+      "emotion": "fear",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/sprites/Chevreuse/fear.png",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Chevreuse/fear.png",
+      "sha256": "c348c5fa1a699433f81029afd1d31472696b88a14761a16b6c28f373b1f7d59f"
+    },
+    {
+      "character": "Chevreuse",
+      "emotion": "pride",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/sprites/Chevreuse/pride.png",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Chevreuse/pride.png",
+      "sha256": "e7f3545fe931e5bd42ee0e4cabafe72d83654b1f8b349a55a8e6c66bf70c8765"
+    },
+    {
+      "character": "Chevreuse",
+      "emotion": "desire",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/sprites/Chevreuse/desire.png",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Chevreuse/desire.png",
+      "sha256": "d38480220c3beb143f6f9005eafcac7c36a2ff4c47f271cb7aa17df2f3e39f39"
+    },
+    {
+      "character": "Chevreuse",
+      "emotion": "anger",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/sprites/Chevreuse/anger.png",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Chevreuse/anger.png",
+      "sha256": "1460613eb1b7238748c5e3779cd76d4ed3bab84bd01ea66cf5cdb2a4de08fc40"
+    },
+    {
+      "character": "Chevreuse",
+      "emotion": "grief",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/sprites/Chevreuse/grief.png",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Chevreuse/grief.png",
+      "sha256": "b613de78ce3b11f3c1ce9e23839ad0470d4e394bb61ed185e49eca9dd9edd1c2"
+    },
+    {
+      "character": "Chevreuse",
+      "emotion": "sadness",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/sprites/Chevreuse/sadness.png",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Chevreuse/sadness.png",
+      "sha256": "e373c5b9c07bc43d6df44503f5ac62b5f003b14450d257e612b5250bdc2817d6"
+    },
+    {
+      "character": "Chevreuse",
+      "emotion": "disgust",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/sprites/Chevreuse/disgust.png",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Chevreuse/disgust.png",
+      "sha256": "ed0c18967fe0bceaaaa51dbee2b71c80898498f78073e965cadd35f7674cbbd5"
+    },
+    {
+      "character": "Chevreuse",
+      "emotion": "disappointment",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/sprites/Chevreuse/disappointment.png",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Chevreuse/disappointment.png",
+      "sha256": "3039c4dd605d3bd1e5dfc24801a0ddf49eb2142e4c23f1decbf649ac44764fba"
+    },
+    {
+      "character": "Chevreuse",
+      "emotion": "relief",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/sprites/Chevreuse/relief.png",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Chevreuse/relief.png",
+      "sha256": "e75709029fe6f33789463244591efab965ded8b06662f50f97c489f9ebc26a8c"
+    },
+    {
+      "character": "Chevreuse",
+      "emotion": "admiration",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/sprites/Chevreuse/admiration.png",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Chevreuse/admiration.png",
+      "sha256": "8212281a31d8c6945511cde66ebb7670d5e1983c286ec8b1820a4955d490bb5f"
+    },
+    {
+      "character": "Chevreuse",
+      "emotion": "gratitude",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/sprites/Chevreuse/gratitude.png",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Chevreuse/gratitude.png",
+      "sha256": "c8bd1087003f692ee926c95ddbf279a9d10be4d4dfc209d5e3c4377e42bad3b8"
+    },
+    {
+      "character": "Chevreuse",
+      "emotion": "embarrassment",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/sprites/Chevreuse/embarrassment.png",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Chevreuse/embarrassment.png",
+      "sha256": "f4cee38c749ca40a53180979f5b729891f587a82f89073576eb81f4151b03137"
+    },
+    {
+      "character": "Chevreuse",
+      "emotion": "caring",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/sprites/Chevreuse/caring.png",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Chevreuse/caring.png",
+      "sha256": "904fe72bef0e5da884af6218d74ca0284a5eea8def8ba685d8b717d99e08f51c"
+    },
+    {
+      "character": "Chevreuse",
+      "emotion": "love-1",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/sprites/Chevreuse/love-1.png",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Chevreuse/love-1.png",
+      "sha256": "e86edcef0ff6043d474f5033999d82f23d0f971619afc5a923f188f1166cc881"
+    },
+    {
+      "character": "Chevreuse",
+      "emotion": "desire-1",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/sprites/Chevreuse/desire-1.png",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Chevreuse/desire-1.png",
+      "sha256": "cbe58f0e0ce0f692d24b965f3633a78c579e968a6686fc9bb8012180f64052a1"
+    },
+    {
+      "character": "Chiori",
+      "emotion": "neutral",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/sprites/Chiori/neutral.png",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Chiori/neutral.png",
+      "sha256": "822c057ed6ea5d45e4fb38367f4c0de194e442043f11578b37c93fb4bd6eb2f8"
+    },
+    {
+      "character": "Chiori",
+      "emotion": "annoyance",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/sprites/Chiori/annoyance.png",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Chiori/annoyance.png",
+      "sha256": "858840fb512a9bd00733898af38b61aa0342c7855a2c9be4568d273c621743f9"
+    },
+    {
+      "character": "Chiori",
+      "emotion": "smug",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/sprites/Chiori/smug.png",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Chiori/smug.png",
+      "sha256": "b2376a3892626d4227fb48239d8d3dbb866e82152441e63391426b3b2947e758"
+    },
+    {
+      "character": "Chiori",
+      "emotion": "confusion",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/sprites/Chiori/confusion.png",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Chiori/confusion.png",
+      "sha256": "ee5dbf67933ddeacb82d90d1406fbfc7b5642e843d915293b6fd81b60605e0d4"
+    },
+    {
+      "character": "Chiori",
+      "emotion": "love",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/sprites/Chiori/love.png",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Chiori/love.png",
+      "sha256": "ed3954e0e6f30653043c43ef40a34b2a6c314e7fb89d70cfdcaf6695341d7669"
+    },
+    {
+      "character": "Chiori",
+      "emotion": "excitement",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/sprites/Chiori/excitement.png",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Chiori/excitement.png",
+      "sha256": "f3ca298666539793044badd4b8148e904ec98f6ffd66f9425fc847071a9e2209"
+    },
+    {
+      "character": "Chiori",
+      "emotion": "joy",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/sprites/Chiori/joy.png",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Chiori/joy.png",
+      "sha256": "ff0af1b37b5fe8de87c5aa683d49e9f0cefd64b9039cc4cff2dfb541e0fe8ce1"
+    },
+    {
+      "character": "Chiori",
+      "emotion": "fear",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/sprites/Chiori/fear.png",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Chiori/fear.png",
+      "sha256": "f44eb668a047623ffc64fd77f63933b7ac1319bdd2f2e9d23ef466f24a2def3d"
+    },
+    {
+      "character": "Chiori",
+      "emotion": "pride",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/sprites/Chiori/pride.png",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Chiori/pride.png",
+      "sha256": "a9bfd9ed685c99d45feb660e93e012b57aeb0d16bf9733532d821979dad8c406"
+    },
+    {
+      "character": "Chiori",
+      "emotion": "desire",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/sprites/Chiori/desire.png",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Chiori/desire.png",
+      "sha256": "1796e73ac439ec3af065e1b6222d4afce5a5c3ecd9da82b9641c288ef3dac4aa"
+    },
+    {
+      "character": "Chiori",
+      "emotion": "anger",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/sprites/Chiori/anger.png",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Chiori/anger.png",
+      "sha256": "50465e807bb88067fa587de0ef96753552ad68dd59f23931f81e8016be551099"
+    },
+    {
+      "character": "Chiori",
+      "emotion": "grief",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/sprites/Chiori/grief.png",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Chiori/grief.png",
+      "sha256": "284adf348b63b10fe07a0baba689386b83cceef6d421918be86280f872eca20c"
+    },
+    {
+      "character": "Chiori",
+      "emotion": "sadness",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/sprites/Chiori/sadness.png",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Chiori/sadness.png",
+      "sha256": "727b87a37d66e97fcb8d35c459a495c2472cb9f105f031cc1f238d9c91c14fa2"
+    },
+    {
+      "character": "Chiori",
+      "emotion": "disgust",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/sprites/Chiori/disgust.png",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Chiori/disgust.png",
+      "sha256": "eb13fb07793179cf840df98cb67b07365a5b010afa74e5548a53a6817d69b93a"
+    },
+    {
+      "character": "Chiori",
+      "emotion": "disappointment",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/sprites/Chiori/disappointment.png",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Chiori/disappointment.png",
+      "sha256": "a1df3853cbc93b03d9251adb38a24641f2cd9499eafd7c2459574d3d228903e2"
+    },
+    {
+      "character": "Chiori",
+      "emotion": "relief",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/sprites/Chiori/relief.png",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Chiori/relief.png",
+      "sha256": "b64ed837603416c17d64c4d3bbdb6a9ed30ea6d1ea206c678ade6ffcbdad9202"
+    },
+    {
+      "character": "Chiori",
+      "emotion": "admiration",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/sprites/Chiori/admiration.png",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Chiori/admiration.png",
+      "sha256": "777a6097b1e9f690065426a3259858d429ac182bae18c92e5335d82a7596e4c3"
+    },
+    {
+      "character": "Chiori",
+      "emotion": "gratitude",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/sprites/Chiori/gratitude.png",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Chiori/gratitude.png",
+      "sha256": "f140d696dc790fe0da0bf0cd1af14432568fed5f207551b7b5264c967998c2d1"
+    },
+    {
+      "character": "Chiori",
+      "emotion": "embarrassment",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/sprites/Chiori/embarrassment.png",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Chiori/embarrassment.png",
+      "sha256": "1bdc50a2b2768c0df9ca87a13ab0978091c62ef108f1668873085370ebe7d995"
+    },
+    {
+      "character": "Chiori",
+      "emotion": "caring",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/sprites/Chiori/caring.png",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Chiori/caring.png",
+      "sha256": "c1b2a04c5e37fed8ca28aa6ec57cee796e1e3b14f2286300906463639eb30105"
+    },
+    {
+      "character": "Chiori",
+      "emotion": "love-1",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/sprites/Chiori/love-1.png",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Chiori/love-1.png",
+      "sha256": "71a7e2ff58a93668860864e4739b17be33ae25162fbba16e30db1a7ef3d9e1ad"
+    },
+    {
+      "character": "Chiori",
+      "emotion": "desire-1",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-charlotte-chevreuse-chidori-expressions/sprites/Chiori/desire-1.png",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Chiori/desire-1.png",
+      "sha256": "550790344bda7ca7387cb509cb92f7f847ceab680ebe01a0d7fe653703d1ecca"
+    },
+    {
+      "character": "Baizhu",
+      "emotion": "neutral",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-baizhu-beidou-bennett-expressions/sprites/Baizhu/neutral.png",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Baizhu/neutral.png",
+      "sha256": "50037d76097a74c06d7f37825aa2b2bea288daea272902eda72e58feb049c0c0"
+    },
+    {
+      "character": "Baizhu",
+      "emotion": "annoyance",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-baizhu-beidou-bennett-expressions/sprites/Baizhu/annoyance.png",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Baizhu/annoyance.png",
+      "sha256": "9ac28451b44db05a8d93d3528356e1ea8ad98bde4c2283c6e3a93fef15fb325d"
+    },
+    {
+      "character": "Baizhu",
+      "emotion": "smug",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-baizhu-beidou-bennett-expressions/sprites/Baizhu/smug.png",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Baizhu/smug.png",
+      "sha256": "f8122407acc0811d74cff12723c54d4cc7342a9d45679bfb399c6b7b94d37c17"
+    },
+    {
+      "character": "Baizhu",
+      "emotion": "confusion",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-baizhu-beidou-bennett-expressions/sprites/Baizhu/confusion.png",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Baizhu/confusion.png",
+      "sha256": "6d2a6155c841f7a1f7f2eeb83170355c233a212a81947add444b43b1f6e0b7a6"
+    },
+    {
+      "character": "Baizhu",
+      "emotion": "love",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-baizhu-beidou-bennett-expressions/sprites/Baizhu/love.png",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Baizhu/love.png",
+      "sha256": "05a93c5df9d9fbc1f356eb085e1d0c1e580563e80205ef1709d66d6186c6e55a"
+    },
+    {
+      "character": "Baizhu",
+      "emotion": "excitement",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-baizhu-beidou-bennett-expressions/sprites/Baizhu/excitement.png",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Baizhu/excitement.png",
+      "sha256": "78ab585501cdf35a0a421d26716c3aade30e01b70a6487923a6f080e28f70294"
+    },
+    {
+      "character": "Baizhu",
+      "emotion": "joy",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-baizhu-beidou-bennett-expressions/sprites/Baizhu/joy.png",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Baizhu/joy.png",
+      "sha256": "fa3a4706055c788cc27901ce6331eb488cda8a3e809d9e5ef9a5e5962938cf6f"
+    },
+    {
+      "character": "Baizhu",
+      "emotion": "fear",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-baizhu-beidou-bennett-expressions/sprites/Baizhu/fear.png",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Baizhu/fear.png",
+      "sha256": "c736b37acf09b57f5df0d91e8317f2c281d165492511db150376c6921f12d1f6"
+    },
+    {
+      "character": "Baizhu",
+      "emotion": "pride",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-baizhu-beidou-bennett-expressions/sprites/Baizhu/pride.png",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Baizhu/pride.png",
+      "sha256": "821ac3b6564b3e757b0a87b76cb6fe77c1a7049c7eb1816cf842792a38a93467"
+    },
+    {
+      "character": "Baizhu",
+      "emotion": "desire",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-baizhu-beidou-bennett-expressions/sprites/Baizhu/desire.png",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Baizhu/desire.png",
+      "sha256": "472486826703adfc13241f58b37df58c05beb048dc4579382423194dcbf61146"
+    },
+    {
+      "character": "Baizhu",
+      "emotion": "anger",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-baizhu-beidou-bennett-expressions/sprites/Baizhu/anger.png",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Baizhu/anger.png",
+      "sha256": "b11263d273e62a5f8247b029f53998e0f22db55d0900dfcdb3a57d8ce35122a4"
+    },
+    {
+      "character": "Baizhu",
+      "emotion": "grief",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-baizhu-beidou-bennett-expressions/sprites/Baizhu/grief.png",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Baizhu/grief.png",
+      "sha256": "c9fbab3fb6c30c121dc5e95e33e2cc68c9006d5af2a01461c82ea1e6efe479c1"
+    },
+    {
+      "character": "Baizhu",
+      "emotion": "sadness",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-baizhu-beidou-bennett-expressions/sprites/Baizhu/sadness.png",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Baizhu/sadness.png",
+      "sha256": "83dfc3c111f8d4030e6bb4ad38c85beae69dcb1a44359c90877db864ae7adb73"
+    },
+    {
+      "character": "Baizhu",
+      "emotion": "disgust",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-baizhu-beidou-bennett-expressions/sprites/Baizhu/disgust.png",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Baizhu/disgust.png",
+      "sha256": "869bd59da7f27841f42662a6c0af67128bd77db0436fb199d88d92cde5211f82"
+    },
+    {
+      "character": "Baizhu",
+      "emotion": "disappointment",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-baizhu-beidou-bennett-expressions/sprites/Baizhu/disappointment.png",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Baizhu/disappointment.png",
+      "sha256": "3cc9b3354058a7124196693affbf4c59413c7556ceade6ef6fc72311694512b6"
+    },
+    {
+      "character": "Baizhu",
+      "emotion": "relief",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-baizhu-beidou-bennett-expressions/sprites/Baizhu/relief.png",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Baizhu/relief.png",
+      "sha256": "d242fe4d21332536d991fdccf38d7e457106e203a351a1a43d325f04daf254b1"
+    },
+    {
+      "character": "Baizhu",
+      "emotion": "admiration",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-baizhu-beidou-bennett-expressions/sprites/Baizhu/admiration.png",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Baizhu/admiration.png",
+      "sha256": "8229c3b8b249b306d814fe421cbd5186a838e6dae5a079d1b01e4c8f1a984984"
+    },
+    {
+      "character": "Baizhu",
+      "emotion": "gratitude",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-baizhu-beidou-bennett-expressions/sprites/Baizhu/gratitude.png",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Baizhu/gratitude.png",
+      "sha256": "91c38aef1d1fcc2400ae82ce8ee07d227ea990199369b9b845defee1f9cf0d3e"
+    },
+    {
+      "character": "Baizhu",
+      "emotion": "embarrassment",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-baizhu-beidou-bennett-expressions/sprites/Baizhu/embarrassment.png",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Baizhu/embarrassment.png",
+      "sha256": "0c9ee205df47a63bb42ecc89eee77ecb772b0f42bcbb128c1bd2d56fc4c30c6e"
+    },
+    {
+      "character": "Baizhu",
+      "emotion": "caring",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-baizhu-beidou-bennett-expressions/sprites/Baizhu/caring.png",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Baizhu/caring.png",
+      "sha256": "7184961870d1466e77f3bea20f4ad10035ac77c67fad4fbd81cfce3fb556f1bf"
+    },
+    {
+      "character": "Baizhu",
+      "emotion": "love-1",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-baizhu-beidou-bennett-expressions/sprites/Baizhu/love-1.png",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Baizhu/love-1.png",
+      "sha256": "9af8eb45c57c8685399cefb2df4d48ce80e8a2ae42c54bccfffaf2f884fd8339"
+    },
+    {
+      "character": "Baizhu",
+      "emotion": "desire-1",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-baizhu-beidou-bennett-expressions/sprites/Baizhu/desire-1.png",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Baizhu/desire-1.png",
+      "sha256": "93f0ac0427f66ae822b2b5eb1777f3c079e02559ec2dd058ffc9aa2b10da8f74"
+    },
+    {
+      "character": "Beidou",
+      "emotion": "neutral",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-baizhu-beidou-bennett-expressions/sprites/Beidou/neutral.png",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Beidou/neutral.png",
+      "sha256": "8f3222078fbb7dceef309cf5d7824e0df8a5f6031a911a375fd926770c0b88bf"
+    },
+    {
+      "character": "Beidou",
+      "emotion": "annoyance",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-baizhu-beidou-bennett-expressions/sprites/Beidou/annoyance.png",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Beidou/annoyance.png",
+      "sha256": "4842ea638b8b388b20b4e2492dd2503ede79ed554532462b3c14d1a62374722e"
+    },
+    {
+      "character": "Beidou",
+      "emotion": "smug",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-baizhu-beidou-bennett-expressions/sprites/Beidou/smug.png",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Beidou/smug.png",
+      "sha256": "14114635f70f3a620d4612062d4c17c7835df429f63a1aeff1c2069fbfe24448"
+    },
+    {
+      "character": "Beidou",
+      "emotion": "confusion",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-baizhu-beidou-bennett-expressions/sprites/Beidou/confusion.png",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Beidou/confusion.png",
+      "sha256": "39136fc194f441385705543f6758fd159281437f42a8e7cbb829a0b6a761518a"
+    },
+    {
+      "character": "Beidou",
+      "emotion": "love",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-baizhu-beidou-bennett-expressions/sprites/Beidou/love.png",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Beidou/love.png",
+      "sha256": "d0830d1d8865ee208d34d18d4307a9844d09b777d09ec1700a0b9bf387b04a4e"
+    },
+    {
+      "character": "Beidou",
+      "emotion": "excitement",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-baizhu-beidou-bennett-expressions/sprites/Beidou/excitement.png",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Beidou/excitement.png",
+      "sha256": "e9d20df5c73fcec7acfbc6f4ec59715e2c0d7ba1117c6798bab2706bdccf6fd6"
+    },
+    {
+      "character": "Beidou",
+      "emotion": "joy",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-baizhu-beidou-bennett-expressions/sprites/Beidou/joy.png",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Beidou/joy.png",
+      "sha256": "1fef25076779ee75ec884b6c6abf0a0a2f6cf87e0ace69fd9d401b8688224859"
+    },
+    {
+      "character": "Beidou",
+      "emotion": "fear",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-baizhu-beidou-bennett-expressions/sprites/Beidou/fear.png",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Beidou/fear.png",
+      "sha256": "cf1c3e55ec0b23e5667c3e850633875b940cf16dafbafb5828d0d84ec740ea1e"
+    },
+    {
+      "character": "Beidou",
+      "emotion": "pride",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-baizhu-beidou-bennett-expressions/sprites/Beidou/pride.png",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Beidou/pride.png",
+      "sha256": "6eec3d4a5d44ec756f898584b74e6228acc3ae826ef0d42c29857c6b09e99370"
+    },
+    {
+      "character": "Beidou",
+      "emotion": "desire",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-baizhu-beidou-bennett-expressions/sprites/Beidou/desire.png",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Beidou/desire.png",
+      "sha256": "9f4a4ea7456f10701386325aaa06dd8d67e51f78adb86ade277e3b5e1562fc9f"
+    },
+    {
+      "character": "Beidou",
+      "emotion": "anger",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-baizhu-beidou-bennett-expressions/sprites/Beidou/anger.png",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Beidou/anger.png",
+      "sha256": "7f76224e0519b48d646ae9591b53c08cb18e1e4f7d71695b9258400a1920701d"
+    },
+    {
+      "character": "Beidou",
+      "emotion": "grief",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-baizhu-beidou-bennett-expressions/sprites/Beidou/grief.png",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Beidou/grief.png",
+      "sha256": "33f4b26e792d0bd36b04a949f3232037ee6d543492e5f952c336b6ed49110e97"
+    },
+    {
+      "character": "Beidou",
+      "emotion": "sadness",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-baizhu-beidou-bennett-expressions/sprites/Beidou/sadness.png",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Beidou/sadness.png",
+      "sha256": "61db8f2f37b60d2b395040fcc8e331d7996955ced269dfdcebf971ce11ca5bde"
+    },
+    {
+      "character": "Beidou",
+      "emotion": "disgust",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-baizhu-beidou-bennett-expressions/sprites/Beidou/disgust.png",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Beidou/disgust.png",
+      "sha256": "d73e77c510711ea2a9532bf80979a1b7843b5a64c0ffca5674ff4845f04e713a"
+    },
+    {
+      "character": "Beidou",
+      "emotion": "disappointment",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-baizhu-beidou-bennett-expressions/sprites/Beidou/disappointment.png",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Beidou/disappointment.png",
+      "sha256": "3ddb22406b3ba6ca4b4445286749dad4b0aa07b96ae05d847010fd086385f208"
+    },
+    {
+      "character": "Beidou",
+      "emotion": "relief",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-baizhu-beidou-bennett-expressions/sprites/Beidou/relief.png",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Beidou/relief.png",
+      "sha256": "00e51281b8e7ca00821e886d1df15fac34d1a4671a5665f58707449f321ed99a"
+    },
+    {
+      "character": "Beidou",
+      "emotion": "admiration",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-baizhu-beidou-bennett-expressions/sprites/Beidou/admiration.png",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Beidou/admiration.png",
+      "sha256": "59a4a8190a848d382301f35e7ca690c40b853514876564d958373fcbeeeb5b22"
+    },
+    {
+      "character": "Beidou",
+      "emotion": "gratitude",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-baizhu-beidou-bennett-expressions/sprites/Beidou/gratitude.png",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Beidou/gratitude.png",
+      "sha256": "481409df4f7f6447e4fdbea1283725c480eb404a169cd02aad4201c272bd21f2"
+    },
+    {
+      "character": "Beidou",
+      "emotion": "embarrassment",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-baizhu-beidou-bennett-expressions/sprites/Beidou/embarrassment.png",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Beidou/embarrassment.png",
+      "sha256": "ed4e4efe2f80ed8abc039e5381162fdb0f40110418a983446ca1700ca2c284e4"
+    },
+    {
+      "character": "Beidou",
+      "emotion": "caring",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-baizhu-beidou-bennett-expressions/sprites/Beidou/caring.png",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Beidou/caring.png",
+      "sha256": "25ddf23c688f114b57992af6d6212c8ff05f996a98348eabcd0673073dee77ab"
+    },
+    {
+      "character": "Beidou",
+      "emotion": "love-1",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-baizhu-beidou-bennett-expressions/sprites/Beidou/love-1.png",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Beidou/love-1.png",
+      "sha256": "d6a4fb5f0ee77711aab4bee6b2e6f5c5a27def5cf8bf0b90624b06627672c89c"
+    },
+    {
+      "character": "Beidou",
+      "emotion": "desire-1",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-baizhu-beidou-bennett-expressions/sprites/Beidou/desire-1.png",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Beidou/desire-1.png",
+      "sha256": "d6c7a9684abe48152ae8de7597ba8db4a0affebc70df3455a7c5a5264f2c85ca"
+    },
+    {
+      "character": "Bennett",
+      "emotion": "neutral",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-baizhu-beidou-bennett-expressions/sprites/Bennett/neutral.png",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Bennett/neutral.png",
+      "sha256": "a034c840229cf357d9e3a22189e6f8e2e43fdd0ff2d2d3bed6e11aab0d10d432"
+    },
+    {
+      "character": "Bennett",
+      "emotion": "annoyance",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-baizhu-beidou-bennett-expressions/sprites/Bennett/annoyance.png",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Bennett/annoyance.png",
+      "sha256": "a8c32130717b870de765e6630111bfbb13d66da65412f8ca07ab790f2fce8746"
+    },
+    {
+      "character": "Bennett",
+      "emotion": "smug",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-baizhu-beidou-bennett-expressions/sprites/Bennett/smug.png",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Bennett/smug.png",
+      "sha256": "f8538c4ff25ba6e10e42cd53d138260418c42778d24a5ef8c4c6d12bf0dd222b"
+    },
+    {
+      "character": "Bennett",
+      "emotion": "confusion",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-baizhu-beidou-bennett-expressions/sprites/Bennett/confusion.png",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Bennett/confusion.png",
+      "sha256": "1528be2565e62789d821ff27e3f9fe69731f90506aa9f289659c99058998992c"
+    },
+    {
+      "character": "Bennett",
+      "emotion": "love",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-baizhu-beidou-bennett-expressions/sprites/Bennett/love.png",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Bennett/love.png",
+      "sha256": "119f275d0409fa81e3d3ea151895a9c6dd224352f12d0c3f9904126916930461"
+    },
+    {
+      "character": "Bennett",
+      "emotion": "excitement",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-baizhu-beidou-bennett-expressions/sprites/Bennett/excitement.png",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Bennett/excitement.png",
+      "sha256": "c518b5911b195577702e4e11b17da9cf13f0178a9fbde2bb80ef74676080a9b3"
+    },
+    {
+      "character": "Bennett",
+      "emotion": "joy",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-baizhu-beidou-bennett-expressions/sprites/Bennett/joy.png",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Bennett/joy.png",
+      "sha256": "0e47a67d61f4710f239ac1d9ec6d53d01e67613b075afb03aaa4e483db50cf79"
+    },
+    {
+      "character": "Bennett",
+      "emotion": "fear",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-baizhu-beidou-bennett-expressions/sprites/Bennett/fear.png",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Bennett/fear.png",
+      "sha256": "b6bd01ee7dae19ae022fca7ddaeca046b5b7f51d3ee6437a3b05e8ab78164d5a"
+    },
+    {
+      "character": "Bennett",
+      "emotion": "pride",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-baizhu-beidou-bennett-expressions/sprites/Bennett/pride.png",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Bennett/pride.png",
+      "sha256": "aeaa6af923c80f448c3bd867553ee9cf728f592de156e5077375f4dc4a6dd0ff"
+    },
+    {
+      "character": "Bennett",
+      "emotion": "desire",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-baizhu-beidou-bennett-expressions/sprites/Bennett/desire.png",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Bennett/desire.png",
+      "sha256": "4551a9c496d2c4c05025d04fbc21198dd56a42a371c79e2d0fcbbec34c05ecdd"
+    },
+    {
+      "character": "Bennett",
+      "emotion": "anger",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-baizhu-beidou-bennett-expressions/sprites/Bennett/anger.png",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Bennett/anger.png",
+      "sha256": "0978f602425cbb02eb2c1fb30196a75dbb07b47b484563da0b3d28af80447190"
+    },
+    {
+      "character": "Bennett",
+      "emotion": "grief",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-baizhu-beidou-bennett-expressions/sprites/Bennett/grief.png",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Bennett/grief.png",
+      "sha256": "e83c7002eeee443218280a46d7c5ed46c14a04b03f70872128e1b7c74355740a"
+    },
+    {
+      "character": "Bennett",
+      "emotion": "sadness",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-baizhu-beidou-bennett-expressions/sprites/Bennett/sadness.png",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Bennett/sadness.png",
+      "sha256": "7f30013a15f3f5c8326e0954ca9d154b76fc1a7d6b0771194cace3efb8eeb635"
+    },
+    {
+      "character": "Bennett",
+      "emotion": "disgust",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-baizhu-beidou-bennett-expressions/sprites/Bennett/disgust.png",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Bennett/disgust.png",
+      "sha256": "7cff9fe76b14dc948aa0e386392f1c3b1e4ff14129578a3e82e2823937f503a4"
+    },
+    {
+      "character": "Bennett",
+      "emotion": "disappointment",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-baizhu-beidou-bennett-expressions/sprites/Bennett/disappointment.png",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Bennett/disappointment.png",
+      "sha256": "3ddeb5cda5bda2af6a938a49de265e5151e32c6347862b3bcc8045995a097160"
+    },
+    {
+      "character": "Bennett",
+      "emotion": "relief",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-baizhu-beidou-bennett-expressions/sprites/Bennett/relief.png",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Bennett/relief.png",
+      "sha256": "3bb9643645d9589e2094c6cfe75c7bbf3b4f0f4a5c68297c51ed57404f98cb67"
+    },
+    {
+      "character": "Bennett",
+      "emotion": "admiration",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-baizhu-beidou-bennett-expressions/sprites/Bennett/admiration.png",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Bennett/admiration.png",
+      "sha256": "6366f645aeb289ef48d984ff8cb53a73c73288a6c344dc1eeffe4e5feba1e152"
+    },
+    {
+      "character": "Bennett",
+      "emotion": "gratitude",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-baizhu-beidou-bennett-expressions/sprites/Bennett/gratitude.png",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Bennett/gratitude.png",
+      "sha256": "6670b6fd73a6c46850b0d7c1e1b93261273155644e2166fbf3766401d784c293"
+    },
+    {
+      "character": "Bennett",
+      "emotion": "embarrassment",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-baizhu-beidou-bennett-expressions/sprites/Bennett/embarrassment.png",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Bennett/embarrassment.png",
+      "sha256": "f94630991d8c711bb7d5edad81c3fbce4af1b977bffe6a8e2650f3c7b9fa701c"
+    },
+    {
+      "character": "Bennett",
+      "emotion": "caring",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-baizhu-beidou-bennett-expressions/sprites/Bennett/caring.png",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Bennett/caring.png",
+      "sha256": "d006650096366f16028626e19eca674ca0d80e81aeeeabdc73c1389a243038b5"
+    },
+    {
+      "character": "Bennett",
+      "emotion": "love-1",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-baizhu-beidou-bennett-expressions/sprites/Bennett/love-1.png",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Bennett/love-1.png",
+      "sha256": "6ddf69667cb310f72ff918e9c997d0941ebfcb391c3a3e67e4462db318c70424"
+    },
+    {
+      "character": "Bennett",
+      "emotion": "desire-1",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-02-baizhu-beidou-bennett-expressions/sprites/Bennett/desire-1.png",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Bennett/desire-1.png",
+      "sha256": "a2208cf7db53b3daf3b1a0088abeb0f8d920d2c130f15e366fdd4cb7eb9599d1"
+    }
+  ]
+}

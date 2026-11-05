@@ -1,0 +1,511 @@
+{
+  "date": "2026-11-05",
+  "status": "fischl_white_hearts_approved_three_neutrals_under_revision",
+  "user_request": "Yun Jin hands have extra fingers; Zibai characterization; Yoimiya cuter/petite; Xinyan and Xingqiu good; regenerate Fischl white-heart variants with changed wording.",
+  "accepted_neutrals": {
+    "Xinyan": {
+      "status": "approved",
+      "date": "2026-11-05",
+      "message": "Xinyan and Xingqiu are good.",
+      "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-six-model-neutral-comparisons/candidates/Xinyan/neutral-v001.png",
+      "candidate_sha256": "316fcf7b883ac332f212b44f595e88ec1c130962af89bff0ed79261a4da385b7"
+    },
+    "Xingqiu": {
+      "status": "approved",
+      "date": "2026-11-05",
+      "message": "Xinyan and Xingqiu are good.",
+      "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-six-model-neutral-comparisons/candidates/Xingqiu/neutral-v001.png",
+      "candidate_sha256": "5e0c8b025646db174512d5207d3c87ddd18d2651b373531b229538ad84781c64"
+    }
+  },
+  "jobs": {
+    "Yun Jin": {
+      "character": "Yun Jin",
+      "asset": "neutral",
+      "version": "neutral-v002",
+      "status": "candidate_ready_for_user_review",
+      "user_feedback": "User reports extra fingers in neutral-v001 hands; simplify both gestures and regenerate independently from authorized model and official references.",
+      "references": [
+        {
+          "original_path": "/Users/alexachan/Downloads/Character_Yun_Jin_Game.webp",
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-neutral-and-white-heart-revisions/references/Yun Jin/model.webp",
+          "sha256": "48000fec3461d45a2f3e97c53550d1b2821e3bfcac546429609acea2e5c896ad",
+          "role": "Primary identity, exact design/costume and body proportions."
+        },
+        {
+          "original_path": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Yun Jin/Official Art/neutral.png",
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-neutral-and-white-heart-revisions/references/Yun Jin/official.png",
+          "sha256": "b9b713809005cba8f7d43d8e591953cae1ce86c02abaf5fd0c632c174f842ce2",
+          "role": "Illustrated art style only."
+        }
+      ],
+      "previous_candidate": {
+        "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-neutral-and-white-heart-revisions/previous/Yun Jin/neutral-v001.png",
+        "sha256": "f97d128429f94bbadeb2a600b18975405042ba48b83da8e38f262b077adc4018"
+      },
+      "original_old_neutral": {
+        "original_path": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Yun Jin/neutral.png",
+        "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-six-model-neutral-comparisons/old/Yun Jin/neutral.png",
+        "sha256": "94e1993dfed768080a82831529a05cc83935d6560b6ba52611be4440c83ad3de",
+        "role": "Comparison baseline only; never a generation input"
+      },
+      "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-neutral-and-white-heart-revisions/prompts/Yun Jin/neutral-v002.txt",
+      "generation": {
+        "tool": "image_gen.imagegen",
+        "arguments": {
+          "prompt": "Use case: stylized-concept. Create one new full-body neutral visual-novel sprite of Yun Jin from Genshin Impact.\nImage 1 is the user-supplied in-game model screenshot and is the authoritative reference for character identity, face, skin tone, hair, eyes, exact costume construction, accessory placement and body proportions. Faithfully preserve its dark indigo hair and straight fringe, reddish-pink eyes and makeup, rounded opera headpiece with exact pink teal and white pom-poms and tassels, white fur collar, pink shoulder panels, purple patterned dress with pale front panel and red tassels, tights and decorated boots. Use the model's real costume colors without copying the blue environmental lighting or screenshot background. Hair and heavy hanging costume panels should fall naturally with gravity.\nImage 2 is the installed official illustrated portrait, for ART STYLE ONLY: polished Genshin-inspired anime illustration, clean drawn contours, detailed cel shading with soft painted transitions, and its treatment of hair, fabric, metal and other materials. Do not copy the portrait's dramatic action pose, windblown panels or accessories that differ from the model. Image 1 governs all design and costume details.\nProportions: Retain a petite Medium Female anime build: delicate small frame, compact torso and natural limb lengths matching the model, without elongating the torso or legs or turning her into a chibi.\nCharacter-specific neutral acting: graceful and composed between opera performances, with a soft closed-mouth smile and attentive open eyes. Stand with a slight three-quarter turn and a gentle poised head tilt. Lower both arms into simple relaxed positions: her right hand hangs naturally beside her skirt, fingers gently together, while her left hand rests low near her own waist, palm angled inward with the fingers comfortably grouped. Hands stay well apart and near the image plane. Each hand has one coherent palm and wrist, exactly four fingers and one thumb on the anatomically correct side; do not add fingers. Where sleeve or pose hides a digit, let it stay naturally hidden instead of forcing it into view. Avoid spread-finger presenting gestures, tangled fingers, overlapped hands or elaborate bends. Keep natural balanced feet, slightly staggered and uncrossed. Preserve her elegant performance-trained bearing without adding a spear or prop.\nKeep hand gestures simple, spatially separate, near the torso and near the image plane, with coherent wrists and one thumb and four fingers per hand where visible. Exactly two legs and two feet. Keep the face and eyes readable with the character's normal pupils. Complete silhouette including hair, headwear, hands, sleeves, costume panels, accessories and shoes, with roughly 2\u20134% top and bottom padding and 92\u201396% visible height. Genuinely transparent background. Omit all screenshot scenery, blue backdrop, UI, particles, floor and reflection. No text, labels, watermarks, ground shadow, floating effects, new props or additional characters.",
+          "referenced_image_paths": [
+            "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-neutral-and-white-heart-revisions/references/Yun Jin/model.webp",
+            "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-neutral-and-white-heart-revisions/references/Yun Jin/official.png"
+          ],
+          "transparent_background": true
+        },
+        "tool_output": "/Users/alexachan/.codex/generated_images/01a1aa19-42b2-7e92-b08d-8ee7d133c057/exec-10e26f8d-0830-42c2-a6fe-a2069ea7b038.png",
+        "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-neutral-and-white-heart-revisions/raw/Yun Jin/neutral-v002.png",
+        "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-neutral-and-white-heart-revisions/candidates/Yun Jin/neutral-v002.png",
+        "candidate_sha256": "809813ebe5bf6a29b312f3967b8c6d2b451ab1f4c944e426ffd5305f7c7a7bdf",
+        "dimensions": [
+          977,
+          1609
+        ],
+        "png_color_type": 6,
+        "framing_transform": null
+      },
+      "approval": {
+        "status": "pending"
+      },
+      "comparison": {
+        "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-neutral-and-white-heart-revisions/comparisons/yun-jin-previous-revised.png",
+        "left": "Previous candidate",
+        "right": "Revised candidate",
+        "transforms": [
+          {
+            "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-neutral-and-white-heart-revisions/previous/Yun Jin/neutral-v001.png",
+            "alpha_bbox_crop": [
+              80,
+              1,
+              957,
+              1612
+            ],
+            "thumbnail_dimensions": [
+              410,
+              753
+            ],
+            "position": [
+              20,
+              176
+            ]
+          },
+          {
+            "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-neutral-and-white-heart-revisions/candidates/Yun Jin/neutral-v002.png",
+            "alpha_bbox_crop": [
+              49,
+              6,
+              961,
+              1595
+            ],
+            "thumbnail_dimensions": [
+              410,
+              714
+            ],
+            "position": [
+              470,
+              196
+            ]
+          }
+        ]
+      },
+      "requested_revision": {
+        "manifest": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-yoimiya-midpoint-yunjin-zibai-poses/run.json",
+        "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-yoimiya-midpoint-yunjin-zibai-poses/candidates/Yun Jin/neutral-v003.png",
+        "sha256": "f63a0c7f81b1467918129ed1148695f0f14abe880c8c5605f532835007f51e7b",
+        "status": "pending user review"
+      }
+    },
+    "Zibai": {
+      "character": "Zibai",
+      "asset": "neutral",
+      "version": "neutral-v002",
+      "status": "candidate_ready_for_user_review",
+      "user_feedback": "User requests pose and expression suited to characterization. Read-only characterization source: installed Zibai card description and personality (serene, thoughtful, observant, compassionate, quietly curious).",
+      "references": [
+        {
+          "original_path": "/Users/alexachan/Downloads/Character_Zibai_Game.webp",
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-neutral-and-white-heart-revisions/references/Zibai/model.webp",
+          "sha256": "f325645f9569fb38b7cde5a53337548cd201ce2b9e4cc66ac23a2a744c025fad",
+          "role": "Primary identity, exact design/costume and body proportions."
+        },
+        {
+          "original_path": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Zibai/Official Art/neutral.png",
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-neutral-and-white-heart-revisions/references/Zibai/official.png",
+          "sha256": "461d9e5f2301990b496370aba9b07ff1fcaf08727a248b0f4a46090177381b11",
+          "role": "Illustrated art style only."
+        }
+      ],
+      "previous_candidate": {
+        "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-neutral-and-white-heart-revisions/previous/Zibai/neutral-v001.png",
+        "sha256": "81c68e2314f7b807f4ceee6d2f1c8a3b0c05e85568c3ac342512e2c1f7d287ab"
+      },
+      "original_old_neutral": {
+        "original_path": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Zibai/neutral.png",
+        "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-six-model-neutral-comparisons/old/Zibai/neutral.png",
+        "sha256": "2dfd5c594e1e2aeb07695c6e46133e4089f866dcf9e394c4eed12b1a6c355610",
+        "role": "Comparison baseline only; never a generation input"
+      },
+      "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-neutral-and-white-heart-revisions/prompts/Zibai/neutral-v002.txt",
+      "generation": {
+        "tool": "image_gen.imagegen",
+        "arguments": {
+          "prompt": "Use case: stylized-concept. Create one new full-body neutral visual-novel sprite of Zibai from Genshin Impact.\nImage 1 is the user-supplied in-game model screenshot and is the authoritative reference for character identity, face, skin tone, hair, eyes, exact costume construction, accessory placement and body proportions. Faithfully preserve its silver-white hair with its golden streak, golden eyes, crescent-shaped gold head ornaments, turquoise earrings and ribbons, exact white-and-jade outfit, gold shoulder pieces and clasps, long green gradient sleeves with white fur trim, swirling patterns, crescent pendants, white legwear and gold-trimmed heels. Use the model's real costume colors without copying the blue environmental lighting or screenshot background. Hair and heavy hanging costume panels should fall naturally with gravity.\nImage 2 is the installed official illustrated portrait, for ART STYLE ONLY: polished Genshin-inspired anime illustration, clean drawn contours, detailed cel shading with soft painted transitions, and its treatment of hair, fabric, metal and other materials. Do not copy the portrait's dramatic action pose, windblown panels or accessories that differ from the model. Image 1 governs all design and costume details.\nProportions: Retain the Tall Female build and natural proportions shown in the model, with an elegant balanced frame, without exaggerating limb length.\nCharacter-specific neutral acting: portray Zibai's serene, thoughtful, observant and compassionate adeptal demeanor, with quiet curiosity about the person she is listening to. A composed upright posture and relaxed shoulders, torso almost facing forward with only a subtle turn. Let both arms settle low, her right hand relaxed beside the robe and her left forearm loosely bent at low waist height, with a small relaxed inward-facing hand. Her golden eyes stay open with calm natural eyelids and a steady attentive gaze toward the viewer. Her mouth is composed and softly closed with only a trace of gentle warmth. Keep the head nearly level, with no coy tilt, flirtatious sidelong look, broad smile, hand-over-chest gesture or pronounced hip jut. Her presence should feel quietly dignified and ancient, while remaining kind and engaged rather than cold. Sleeve panels and long hair hang naturally. Feet grounded and distinct, with a balanced easy stance. No handheld painting implements or other new props.\nKeep hand gestures simple, spatially separate, near the torso and near the image plane, with coherent wrists and one thumb and four fingers per hand where visible. Exactly two legs and two feet. Keep the face and eyes readable with the character's normal pupils. Complete silhouette including hair, headwear, hands, sleeves, costume panels, accessories and shoes, with roughly 2\u20134% top and bottom padding and 92\u201396% visible height. Genuinely transparent background. Omit all screenshot scenery, blue backdrop, UI, particles, floor and reflection. No text, labels, watermarks, ground shadow, floating effects, new props or additional characters.",
+          "referenced_image_paths": [
+            "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-neutral-and-white-heart-revisions/references/Zibai/model.webp",
+            "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-neutral-and-white-heart-revisions/references/Zibai/official.png"
+          ],
+          "transparent_background": true
+        },
+        "tool_output": "/Users/alexachan/.codex/generated_images/01a1aa19-42b2-7e92-b08d-8ee7d133c057/exec-0cefbe41-195d-4544-aef5-8886f3dcc138.png",
+        "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-neutral-and-white-heart-revisions/raw/Zibai/neutral-v002.png",
+        "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-neutral-and-white-heart-revisions/candidates/Zibai/neutral-v002.png",
+        "candidate_sha256": "514eb1beb81d7076d494f8d924a999ecc98264d322062e8dbad0fc6afaf8527b",
+        "dimensions": [
+          931,
+          1690
+        ],
+        "png_color_type": 6,
+        "framing_transform": null
+      },
+      "approval": {
+        "status": "pending"
+      },
+      "comparison": {
+        "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-neutral-and-white-heart-revisions/comparisons/zibai-previous-revised.png",
+        "left": "Previous candidate",
+        "right": "Revised candidate",
+        "transforms": [
+          {
+            "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-neutral-and-white-heart-revisions/previous/Zibai/neutral-v001.png",
+            "alpha_bbox_crop": [
+              65,
+              18,
+              845,
+              1676
+            ],
+            "thumbnail_dimensions": [
+              400,
+              850
+            ],
+            "position": [
+              25,
+              128
+            ]
+          },
+          {
+            "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-neutral-and-white-heart-revisions/candidates/Zibai/neutral-v002.png",
+            "alpha_bbox_crop": [
+              23,
+              19,
+              899,
+              1675
+            ],
+            "thumbnail_dimensions": [
+              410,
+              775
+            ],
+            "position": [
+              470,
+              165
+            ]
+          }
+        ]
+      },
+      "requested_revision": {
+        "manifest": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-yoimiya-midpoint-yunjin-zibai-poses/run.json",
+        "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-yoimiya-midpoint-yunjin-zibai-poses/candidates/Zibai/neutral-v003.png",
+        "sha256": "4492651046754fe5f84796efdfef2884eb582382e142918cf6fdff56673ceb2d",
+        "status": "pending user review"
+      }
+    },
+    "Yoimiya": {
+      "character": "Yoimiya",
+      "asset": "neutral",
+      "version": "neutral-v002",
+      "status": "candidate_ready_for_user_review",
+      "user_feedback": "User requests a cuter, more petite build; strengthen compact proportions in the prompt while retaining model identity and outfit.",
+      "references": [
+        {
+          "original_path": "/Users/alexachan/Downloads/Character_Yoimiya_Game.webp",
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-neutral-and-white-heart-revisions/references/Yoimiya/model.webp",
+          "sha256": "c9bc4d91166ca1e86aedd25725b714583689eaf6415902f3ee6957dd48a5f263",
+          "role": "Primary identity, exact design/costume and body proportions."
+        },
+        {
+          "original_path": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Yoimiya/Official Art/neutral.png",
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-neutral-and-white-heart-revisions/references/Yoimiya/official.png",
+          "sha256": "423cc75206e5e2864ccbd6498c2bd58e9a2420fb42d46493f93c8639ca72c069",
+          "role": "Illustrated art style only."
+        }
+      ],
+      "previous_candidate": {
+        "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-neutral-and-white-heart-revisions/previous/Yoimiya/neutral-v001.png",
+        "sha256": "137e333c55f18337b64c2c54b3b534a74afd31b4171cbef6b6732a478618126e"
+      },
+      "original_old_neutral": {
+        "original_path": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Yoimiya/neutral.png",
+        "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-six-model-neutral-comparisons/old/Yoimiya/neutral.png",
+        "sha256": "b6b83c23bd97193076bf5086df53226935a7a492153961d655a1b0cc02bedaa0",
+        "role": "Comparison baseline only; never a generation input"
+      },
+      "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-neutral-and-white-heart-revisions/prompts/Yoimiya/neutral-v002.txt",
+      "generation": {
+        "tool": "image_gen.imagegen",
+        "arguments": {
+          "prompt": "Use case: stylized-concept. Create one new full-body neutral visual-novel sprite of Yoimiya from Genshin Impact.\nImage 1 is the user-supplied in-game model screenshot and is the authoritative reference for character identity, face, skin tone, hair, eyes, exact costume construction, accessory placement and body proportions. Faithfully preserve its warm blond updo and hair ornaments, amber-gold eyes, earrings, exact asymmetrical orange kimono, white bandage wraps, arm markings, red rope loop on her back, belt and pouches, patterned hanging cloth, uneven leg guards, ribbons and sandals. Use the model's real costume colors without copying the blue environmental lighting or screenshot background. Hair and heavy hanging costume panels should fall naturally with gravity.\nImage 2 is the installed official illustrated portrait, for ART STYLE ONLY: polished Genshin-inspired anime illustration, clean drawn contours, detailed cel shading with soft painted transitions, and its treatment of hair, fabric, metal and other materials. Do not copy the portrait's dramatic action pose, windblown panels or accessories that differ from the model. Image 1 governs all design and costume details.\nProportions: make Yoimiya noticeably cuter and more petite within the Medium Female anime category. Give her a small delicate frame, narrower shoulders, a shorter compact torso and proportionately shorter arms and legs, with a slightly larger head relative to the body for a cute balanced anime silhouette. Keep gently rounded cheeks, bright open amber eyes and a warm sunny smile. Preserve her recognizable face and model costume. Do not lengthen her legs or torso; achieve the petite build through actual anatomy and proportions, not by shrinking her into a large blank canvas. Keep standard anime proportions rather than a chibi mascot.\nCharacter-specific neutral acting: a sunny, approachable idle with a bright but gentle smile and open lively eyes. Give her a slight friendly head tilt, one hand lifted in a small open-palmed greeting near her shoulder and the other resting casually at her waist. A lively small weight shift, feet grounded and uncrossed. Do not add fireworks, a bow or other props.\nKeep hand gestures simple, spatially separate, near the torso and near the image plane, with coherent wrists and one thumb and four fingers per hand where visible. Exactly two legs and two feet. Keep the face and eyes readable with the character's normal pupils. Complete silhouette including hair, headwear, hands, sleeves, costume panels, accessories and shoes, with roughly 2\u20134% top and bottom padding and 92\u201396% visible height. Genuinely transparent background. Omit all screenshot scenery, blue backdrop, UI, particles, floor and reflection. No text, labels, watermarks, ground shadow, floating effects, new props or additional characters.",
+          "referenced_image_paths": [
+            "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-neutral-and-white-heart-revisions/references/Yoimiya/model.webp",
+            "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-neutral-and-white-heart-revisions/references/Yoimiya/official.png"
+          ],
+          "transparent_background": true
+        },
+        "tool_output": "/Users/alexachan/.codex/generated_images/01a1aa19-42b2-7e92-b08d-8ee7d133c057/exec-221553c8-27d6-417d-b3cf-513e588049b7.png",
+        "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-neutral-and-white-heart-revisions/raw/Yoimiya/neutral-v002.png",
+        "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-neutral-and-white-heart-revisions/candidates/Yoimiya/neutral-v002.png",
+        "candidate_sha256": "3959b0d35414892c446feb39e1b63c0d1a3817be285ae88f3f693a612e09a744",
+        "dimensions": [
+          941,
+          1672
+        ],
+        "png_color_type": 6,
+        "framing_transform": null
+      },
+      "approval": {
+        "status": "pending"
+      },
+      "comparison": {
+        "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-neutral-and-white-heart-revisions/comparisons/yoimiya-previous-revised.png",
+        "left": "Previous candidate",
+        "right": "Revised candidate",
+        "transforms": [
+          {
+            "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-neutral-and-white-heart-revisions/previous/Yoimiya/neutral-v001.png",
+            "alpha_bbox_crop": [
+              17,
+              6,
+              921,
+              1682
+            ],
+            "thumbnail_dimensions": [
+              410,
+              760
+            ],
+            "position": [
+              20,
+              173
+            ]
+          },
+          {
+            "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-neutral-and-white-heart-revisions/candidates/Yoimiya/neutral-v002.png",
+            "alpha_bbox_crop": [
+              0,
+              0,
+              925,
+              1672
+            ],
+            "thumbnail_dimensions": [
+              410,
+              741
+            ],
+            "position": [
+              470,
+              182
+            ]
+          }
+        ]
+      },
+      "requested_revision": {
+        "manifest": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-yoimiya-midpoint-yunjin-zibai-poses/run.json",
+        "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-yoimiya-midpoint-yunjin-zibai-poses/candidates/Yoimiya/neutral-v003.png",
+        "sha256": "114d9d23d0d8b5d2e0c29e563f33b8a8dd0cc8ee08578469bc47fc65154a68f5",
+        "status": "pending user review"
+      }
+    },
+    "Fischl love-1": {
+      "character": "Fischl",
+      "asset": "love-1",
+      "version": "love-1-white-v001",
+      "status": "approved",
+      "user_feedback": "Regenerate both heart variants with white hearts; change the heart-eye wording.",
+      "white_heart_color_exception": {
+        "authorized": true,
+        "scope": "Both Fischl heart variants in this run",
+        "message": "make the hearts in her eyes white"
+      },
+      "neutral_approval": {
+        "status": "approved",
+        "date": "2026-11-05",
+        "message": "Perfect! Approved, Regenerate Fischl\u2019s full 22-sprite set",
+        "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-fischl-model-reference-neutral/candidates/Fischl/neutral-v003.png",
+        "candidate_sha256": "3f1fb1c31686f9d3118ea06c2b0958d8ca4556d822385f7e538a3af049ed1c13"
+      },
+      "references": [
+        {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-neutral-and-white-heart-revisions/references/Fischl/approved-neutral.png",
+          "sha256": "3f1fb1c31686f9d3118ea06c2b0958d8ca4556d822385f7e538a3af049ed1c13",
+          "role": "Sole approved neutral reference"
+        }
+      ],
+      "previous_candidate": {
+        "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-neutral-and-white-heart-revisions/previous/Fischl/love-1.png",
+        "sha256": "cd2472d58099c6a9d05705e8666ddfc350d7788037b5bcd847d0a2cdf707d64c"
+      },
+      "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-neutral-and-white-heart-revisions/prompts/Fischl/love-1-white-v001.txt",
+      "generation": {
+        "tool": "image_gen.imagegen",
+        "arguments": {
+          "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Fischl from Genshin Impact expressing affectionate joy. The supplied explicitly approved neutral is the SOLE image reference. Preserve its recognizable face, fair skin, blond twin tails and black ribbons, visible green right iris, black eyepatch over the left eye, exact black-and-purple gothic outfit, asymmetric sleeves and gloves, neck bow, gold ornaments, lace, stockings, boots, and detailed anime illustration style. Retain its cute compact petite Medium Female build, small frame, short torso and short natural limbs without elongating them.\nAffectionate joy: a bright sincere smile, warm rosy blush and lifted brow over the open visible eye. Turn toward the viewer with an upright tender head tilt; her right hand rests softly over her upper chest while her left gloved hand opens in a small graceful greeting near her waist. Let her theatrical confidence soften into happy sincere affection. Keep the modest natural stance and established outfit.\nEye design is important: her visible RIGHT eye is open, with the intact GREEN iris still clearly visible. Replace only the ordinary central pupil with ONE LARGE SOLID PURE-WHITE HEART-SHAPED PUPIL, white #FFFFFF. Give that pupil two rounded upper lobes, a clear central notch and a pointed lower tip, so its silhouette reads unmistakably as a heart at small size. Place it centrally INSIDE the green iris, filling much of the iris while leaving a clear continuous colored green border around the white heart. Preserve the iris outline, green shading and detail. The white heart is the actual pupil, not a tiny reflected catchlight, a floating symbol, a heart-shaped whole eye or a replacement for the green iris. Do not draw a second ordinary dark pupil within the white heart. The covered LEFT eye remains hidden behind its unchanged black eyepatch.\nKeep hands simple and separate near her torso and the image plane with coherent fingers and wrists; exactly two legs and two feet, distinct and uncrossed. Hair and costume panels hang naturally. Full silhouette including ribbons, twin tails, fingers, costume tails and boots, 2\u20134% top and bottom padding and roughly 92\u201396% visible height. Genuinely transparent background. No scenery, floor, ground shadow, text, labels, UI, watermark, floating hearts, magical effects, weapons, raven, new props or additional characters.",
+          "referenced_image_paths": [
+            "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-neutral-and-white-heart-revisions/references/Fischl/approved-neutral.png"
+          ],
+          "transparent_background": true
+        },
+        "tool_output": "/Users/alexachan/.codex/generated_images/01a1aa19-42b2-7e92-b08d-8ee7d133c057/exec-95c3c4d3-2d4e-406f-87df-5d4d4b391a6e.png",
+        "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-neutral-and-white-heart-revisions/raw/Fischl/love-1-white-v001.png",
+        "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-neutral-and-white-heart-revisions/candidates/Fischl/love-1-white-v001.png",
+        "candidate_sha256": "8075e72a40efcff11a21efd2927203b9c4c65ea945bc161551e895891311aeb2",
+        "dimensions": [
+          1003,
+          1568
+        ],
+        "png_color_type": 6,
+        "framing_transform": null
+      },
+      "approval": {
+        "status": "approved",
+        "date": "2026-11-05",
+        "message": "Both Fischl good.",
+        "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-neutral-and-white-heart-revisions/candidates/Fischl/love-1-white-v001.png",
+        "candidate_sha256": "8075e72a40efcff11a21efd2927203b9c4c65ea945bc161551e895891311aeb2"
+      },
+      "preview_transforms": {
+        "alpha_bbox_crop": [
+          0,
+          0,
+          983,
+          1556
+        ],
+        "full_body_thumbnail_dimensions": [
+          410,
+          649
+        ],
+        "face_crop_box": [
+          191,
+          0,
+          812,
+          470
+        ],
+        "face_thumbnail_dimensions": [
+          468,
+          354
+        ]
+      },
+      "approved_export": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-neutral-and-white-heart-revisions/approved/Fischl/love-1.png"
+    },
+    "Fischl desire-1": {
+      "character": "Fischl",
+      "asset": "desire-1",
+      "version": "desire-1-white-v001",
+      "status": "approved",
+      "user_feedback": "Regenerate both heart variants with white hearts; change the heart-eye wording.",
+      "white_heart_color_exception": {
+        "authorized": true,
+        "scope": "Both Fischl heart variants in this run",
+        "message": "make the hearts in her eyes white"
+      },
+      "neutral_approval": {
+        "status": "approved",
+        "date": "2026-11-05",
+        "message": "Perfect! Approved, Regenerate Fischl\u2019s full 22-sprite set",
+        "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-fischl-model-reference-neutral/candidates/Fischl/neutral-v003.png",
+        "candidate_sha256": "3f1fb1c31686f9d3118ea06c2b0958d8ca4556d822385f7e538a3af049ed1c13"
+      },
+      "references": [
+        {
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-neutral-and-white-heart-revisions/references/Fischl/approved-neutral.png",
+          "sha256": "3f1fb1c31686f9d3118ea06c2b0958d8ca4556d822385f7e538a3af049ed1c13",
+          "role": "Sole approved neutral reference"
+        }
+      ],
+      "previous_candidate": {
+        "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-neutral-and-white-heart-revisions/previous/Fischl/desire-1.png",
+        "sha256": "8229a433dae0b227bbcea84c4f35e8f8d1ff25191a2d66b837893fb99ca6b390"
+      },
+      "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-neutral-and-white-heart-revisions/prompts/Fischl/desire-1-white-v001.txt",
+      "generation": {
+        "tool": "image_gen.imagegen",
+        "arguments": {
+          "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Fischl from Genshin Impact expressing gentle affectionate longing. The supplied explicitly approved neutral is the SOLE image reference. Preserve its recognizable face, fair skin, blond twin tails and black ribbons, visible green right iris, black eyepatch over the left eye, exact black-and-purple gothic outfit, asymmetric sleeves and gloves, neck bow, gold ornaments, lace, stockings, boots, and detailed anime illustration style. Retain its cute compact petite Medium Female build, small frame, short torso and short natural limbs without elongating them.\nSweet affectionate longing: noticeably blushing rosy cheeks, a softened open visible eye with a wistful longing gaze toward the viewer, gently raised inner brow and a small tender closed-mouth smile. Stand mostly upright with a slight three-quarter turn and soft shoulder angle; her left gloved hand rests near her collar while her right hand relaxes low near her waist, hands separated. Convey a shy wish for affection through the face and eyes, with a modest relaxed posture and unchanged outfit. Distinguish the quiet yearning from the joyful love alternate.\nEye design is important: her visible RIGHT eye is open, with the intact GREEN iris still clearly visible. Replace only the ordinary central pupil with ONE LARGE SOLID PURE-WHITE HEART-SHAPED PUPIL, white #FFFFFF. Give that pupil two rounded upper lobes, a clear central notch and a pointed lower tip, so its silhouette reads unmistakably as a heart at small size. Place it centrally INSIDE the green iris, filling much of the iris while leaving a clear continuous colored green border around the white heart. Preserve the iris outline, green shading and detail. The white heart is the actual pupil, not a tiny reflected catchlight, a floating symbol, a heart-shaped whole eye or a replacement for the green iris. Do not draw a second ordinary dark pupil within the white heart. The covered LEFT eye remains hidden behind its unchanged black eyepatch.\nKeep hands simple and separate near her torso and the image plane with coherent fingers and wrists; exactly two legs and two feet, distinct and uncrossed. Hair and costume panels hang naturally. Full silhouette including ribbons, twin tails, fingers, costume tails and boots, 2\u20134% top and bottom padding and roughly 92\u201396% visible height. Genuinely transparent background. No scenery, floor, ground shadow, text, labels, UI, watermark, floating hearts, magical effects, weapons, raven, new props or additional characters.",
+          "referenced_image_paths": [
+            "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-neutral-and-white-heart-revisions/references/Fischl/approved-neutral.png"
+          ],
+          "transparent_background": true
+        },
+        "tool_output": "/Users/alexachan/.codex/generated_images/01a1aa19-42b2-7e92-b08d-8ee7d133c057/exec-f4e8f1b8-6b69-4451-b37b-0c04ba341b72.png",
+        "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-neutral-and-white-heart-revisions/raw/Fischl/desire-1-white-v001.png",
+        "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-neutral-and-white-heart-revisions/candidates/Fischl/desire-1-white-v001.png",
+        "candidate_sha256": "3b62cdc74c669ad6f1644feba636f97a0a48799cfcb9949c8893264bde73597d",
+        "dimensions": [
+          1003,
+          1568
+        ],
+        "png_color_type": 6,
+        "framing_transform": null
+      },
+      "approval": {
+        "status": "approved",
+        "date": "2026-11-05",
+        "message": "Both Fischl good.",
+        "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-neutral-and-white-heart-revisions/candidates/Fischl/desire-1-white-v001.png",
+        "candidate_sha256": "3b62cdc74c669ad6f1644feba636f97a0a48799cfcb9949c8893264bde73597d"
+      },
+      "preview_transforms": {
+        "alpha_bbox_crop": [
+          82,
+          0,
+          979,
+          1568
+        ],
+        "full_body_thumbnail_dimensions": [
+          410,
+          717
+        ],
+        "face_crop_box": [
+          191,
+          0,
+          812,
+          470
+        ],
+        "face_thumbnail_dimensions": [
+          468,
+          354
+        ]
+      },
+      "approved_export": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-neutral-and-white-heart-revisions/approved/Fischl/desire-1.png"
+    }
+  },
+  "generation_method": "Built-in image generator, one independent asset per call; model and quality controls not exposed.",
+  "reference_policy": "Neutral revisions independently use model plus official style sources. Fischl expressions independently use only her exact approved neutral. No generated candidate is reused as a fresh-generation reference.",
+  "installation": "not requested; live sprites unchanged",
+  "previews": {
+    "neutral_overview": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-neutral-and-white-heart-revisions/comparisons/neutral-revisions-overview.png",
+    "heart_full_body": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-neutral-and-white-heart-revisions/comparisons/fischl-white-hearts-full-body.png",
+    "heart_faces": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-neutral-and-white-heart-revisions/comparisons/fischl-white-hearts-faces.png",
+    "note": "Labels are only on review previews; original candidate PNGs unchanged. Preview cropping and proportional resizing do not confer visual approval."
+  },
+  "technical_validation": {
+    "candidate_count": 5,
+    "PNG_decoding_and_alpha_channels": "verified",
+    "candidate_hashes": "verified",
+    "visual_approval": "Fischl love-1 and desire-1 white-heart candidates approved; the three neutral characters have newer candidates in the linked run."
+  },
+  "archive": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-neutral-and-white-heart-revisions/revision-candidates-prompts-sources.zip",
+  "next_neutral_revision_run": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-yoimiya-midpoint-yunjin-zibai-poses/run.json"
+}

@@ -1,0 +1,104 @@
+{
+  "character": "Yoimiya",
+  "asset": "neutral",
+  "version": "neutral-v004",
+  "status": "approved",
+  "user_request": "Regenerate from scratch, slightly more petite than neutral-v003. Only original model and official-art references are generator inputs.",
+  "references": [
+    {
+      "original_path": "/Users/alexachan/Downloads/Character_Yoimiya_Game.webp",
+      "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-zibai-wiki-yoimiya-fresh-neutrals/references/Yoimiya/model.webp",
+      "sha256": "c9bc4d91166ca1e86aedd25725b714583689eaf6415902f3ee6957dd48a5f263",
+      "role": "Primary identity, exact model design, costume and body proportions."
+    },
+    {
+      "original_path": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Yoimiya/Official Art/neutral.png",
+      "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-zibai-wiki-yoimiya-fresh-neutrals/references/Yoimiya/official.png",
+      "sha256": "423cc75206e5e2864ccbd6498c2bd58e9a2420fb42d46493f93c8639ca72c069",
+      "role": "Illustrated art style only."
+    }
+  ],
+  "previous_candidate": {
+    "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-zibai-wiki-yoimiya-fresh-neutrals/previous/Yoimiya/neutral-v003.png",
+    "sha256": "114d9d23d0d8b5d2e0c29e563f33b8a8dd0cc8ee08578469bc47fc65154a68f5"
+  },
+  "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-zibai-wiki-yoimiya-fresh-neutrals/prompts/Yoimiya/neutral-v004.txt",
+  "generation": {
+    "tool": "image_gen.imagegen",
+    "arguments": {
+      "prompt": "Use case: stylized-concept. Generate a fresh full-body neutral visual-novel sprite of Yoimiya from Genshin Impact, using only these two original source references.\nImage 1 is the supplied in-game model and is authoritative for her recognizable face, skin tone, warm blond updo and hair ornaments, amber-gold eyes and normal pupils, earrings, exact asymmetric orange kimono and its construction, white bandage wraps, arm markings, red rope loop, belt and pouches, patterned hanging cloth, uneven leg guards, ribbons and sandals. Preserve all costume details and placements, without copying the screenshot's environmental lighting or backdrop.\nImage 2, her official illustrated portrait, guides only the polished anime art style, clean drawn contours, cel shading with soft painted transitions, color and material treatment. Do not copy its dramatic action pose or windblown costume. The in-game model governs identity and design.\nBuild: a cute, modestly petite Medium Female anime silhouette. Use a small delicate frame with gently narrow shoulders, a lightly shortened compact torso, and slightly shorter arms and legs than the model's unmodified proportions. Give the head a modestly larger relationship to the body and gently rounded cheeks. Make this a subtle increase in petite compactness, keeping balanced standard anime proportions, comfortable natural limb length and a recognizable Yoimiya face. Do not compress her into an extremely short-bodied or oversized-headed design, and do not elongate her legs to fill the canvas. Actual body proportions should communicate petite scale, not large blank margins.\nCharacter-specific neutral acting: cheerful, warm and naturally welcoming, with a small sunny open-mouth smile, bright open eyes and a gentle friendly head tilt. Face mostly toward the viewer with a slight three-quarter turn. Her right hand gives a simple open-palmed greeting beside her shoulder, fingers comfortably separated without elaborate splaying; her left hand rests lightly at her waist. Each hand has a coherent wrist, four fingers and one thumb where visible. An easy weight shift, one knee softly relaxed, both feet clearly separate and uncrossed, keeps her lively and approachable. Let clothing and rope ornaments hang naturally. No fireworks, bow weapon or added props.\nComplete full-body silhouette including the hair ornaments, hands, rope loop, hanging cloth and shoes. Approximately 92\u201396% visible height with 2\u20134% top and bottom padding. Genuinely transparent background. No scenery, blue screenshot backdrop, particles, UI, text, labels, watermark, floor, reflection, ground shadow, detached effects or additional characters.",
+      "referenced_image_paths": [
+        "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-zibai-wiki-yoimiya-fresh-neutrals/references/Yoimiya/model.webp",
+        "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-zibai-wiki-yoimiya-fresh-neutrals/references/Yoimiya/official.png"
+      ],
+      "transparent_background": true
+    },
+    "tool_output": "/Users/alexachan/.codex/generated_images/01a1aa19-42b2-7e92-b08d-8ee7d133c057/exec-7f283f83-2255-468c-9e85-ec6b4f1285ee.png",
+    "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-zibai-wiki-yoimiya-fresh-neutrals/raw/Yoimiya/neutral-v004.png",
+    "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-zibai-wiki-yoimiya-fresh-neutrals/candidates/Yoimiya/neutral-v004.png",
+    "candidate_sha256": "4dccb857e3f49809d47cb0d151a2f2201e5621092df07ed9b106b37f00d8a4ab",
+    "dimensions": [
+      978,
+      1608
+    ],
+    "png_color_type": 6,
+    "framing_transform": null
+  },
+  "approval": {
+    "status": "approved",
+    "date": "2026-11-05",
+    "message": "Yoimiya approved",
+    "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-zibai-wiki-yoimiya-fresh-neutrals/candidates/Yoimiya/neutral-v004.png",
+    "candidate_sha256": "4dccb857e3f49809d47cb0d151a2f2201e5621092df07ed9b106b37f00d8a4ab"
+  },
+  "technical_validation": {
+    "PNG_with_alpha": true,
+    "alpha_extrema": [
+      0,
+      255
+    ],
+    "saved_hash": "verified"
+  },
+  "comparison": {
+    "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-zibai-wiki-yoimiya-fresh-neutrals/comparisons/yoimiya-previous-new.png",
+    "left": "Previous candidate",
+    "right": "New candidate",
+    "transforms": [
+      {
+        "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-zibai-wiki-yoimiya-fresh-neutrals/previous/Yoimiya/neutral-v003.png",
+        "alpha_bbox_crop": [
+          0,
+          0,
+          938,
+          1639
+        ],
+        "thumbnail_dimensions": [
+          410,
+          716
+        ],
+        "position": [
+          20,
+          195
+        ]
+      },
+      {
+        "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-zibai-wiki-yoimiya-fresh-neutrals/candidates/Yoimiya/neutral-v004.png",
+        "alpha_bbox_crop": [
+          25,
+          3,
+          968,
+          1608
+        ],
+        "thumbnail_dimensions": [
+          410,
+          698
+        ],
+        "position": [
+          470,
+          204
+        ]
+      }
+    ]
+  },
+  "approved_export": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-zibai-wiki-yoimiya-fresh-neutrals/approved/Yoimiya/neutral.png"
+}

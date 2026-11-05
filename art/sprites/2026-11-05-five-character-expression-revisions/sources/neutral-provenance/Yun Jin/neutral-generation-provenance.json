@@ -1,0 +1,96 @@
+{
+  "character": "Yun Jin",
+  "asset": "neutral",
+  "version": "neutral-v003",
+  "status": "approved",
+  "user_feedback": "User requests a more interesting dynamic pose and expression; preserve simplified coherent hands after the earlier extra-finger report.",
+  "references": [
+    {
+      "original_path": "/Users/alexachan/Downloads/Character_Yun_Jin_Game.webp",
+      "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-yoimiya-midpoint-yunjin-zibai-poses/references/Yun Jin/model.webp",
+      "sha256": "48000fec3461d45a2f3e97c53550d1b2821e3bfcac546429609acea2e5c896ad",
+      "role": "Primary identity, exact design/costume and body proportions."
+    },
+    {
+      "original_path": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Yun Jin/Official Art/neutral.png",
+      "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-yoimiya-midpoint-yunjin-zibai-poses/references/Yun Jin/official.png",
+      "sha256": "b9b713809005cba8f7d43d8e591953cae1ce86c02abaf5fd0c632c174f842ce2",
+      "role": "Illustrated art style only."
+    }
+  ],
+  "previous_candidate": {
+    "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-yoimiya-midpoint-yunjin-zibai-poses/previous/Yun Jin/neutral-v002.png",
+    "sha256": "809813ebe5bf6a29b312f3967b8c6d2b451ab1f4c944e426ffd5305f7c7a7bdf"
+  },
+  "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-yoimiya-midpoint-yunjin-zibai-poses/prompts/Yun Jin/neutral-v003.txt",
+  "generation": {
+    "tool": "image_gen.imagegen",
+    "arguments": {
+      "prompt": "Use case: stylized-concept. Create one new full-body neutral visual-novel sprite of Yun Jin from Genshin Impact.\nImage 1 is the user-supplied in-game model screenshot and is the authoritative reference for character identity, face, skin tone, hair, eyes, exact costume construction, accessory placement and body proportions. Faithfully preserve its dark indigo hair and straight fringe, reddish-pink eyes and makeup, rounded opera headpiece with exact pink teal and white pom-poms and tassels, white fur collar, pink shoulder panels, purple patterned dress with pale front panel and red tassels, tights and decorated boots. Use the model's real costume colors without copying the blue environmental lighting or screenshot background. Hair and heavy hanging costume panels should fall naturally with gravity.\nImage 2 is the installed official illustrated portrait, for ART STYLE ONLY: polished Genshin-inspired anime illustration, clean drawn contours, detailed cel shading with soft painted transitions, and its treatment of hair, fabric, metal and other materials. Do not copy the portrait's dramatic action pose, windblown panels or accessories that differ from the model. Image 1 governs all design and costume details.\nProportions: Retain a petite Medium Female anime build: delicate small frame, compact torso and natural limb lengths matching the model, without elongating the torso or legs or turning her into a chibi.\nCharacter-specific neutral acting: an expressive opera-inspired flourish held lightly at the end of a small graceful step, still suitable as an approachable idle. Turn her torso three-quarter with one shoulder slightly forward, chin poised and head gently tilted back toward the viewer. Her reddish-pink eyes are open and bright, eyebrows softly lifted, with a small confident delighted smile. Her right forearm lifts diagonally in front of her upper torso, palm angled inward, with four fingers naturally grouped and the thumb correctly set to the side. Her left arm opens elegantly out from the elbow at low waist height, palm gently upward, fingers together in a simple readable shape. Keep the two hands well separated and near the image plane, with no ornate finger bends or extra digits; allow naturally hidden digits to stay hidden. Shift weight to her right leg and let the left foot take a small side step with toe touching down, feet distinct and uncrossed. Let the sleeve curves and skirt follow this balanced stage-trained posture naturally. Convey elegant performer confidence and gentle delight rather than a static formal stance. No spear, stage props, floating effects or windblown fabric.\nKeep hand gestures simple, spatially separate, near the torso and near the image plane, with coherent wrists and one thumb and four fingers per hand where visible. Exactly two legs and two feet. Keep the face and eyes readable with the character's normal pupils. Complete silhouette including hair, headwear, hands, sleeves, costume panels, accessories and shoes, with roughly 2\u20134% top and bottom padding and 92\u201396% visible height. Genuinely transparent background. Omit all screenshot scenery, blue backdrop, UI, particles, floor and reflection. No text, labels, watermarks, ground shadow, floating effects, new props or additional characters.",
+      "referenced_image_paths": [
+        "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-yoimiya-midpoint-yunjin-zibai-poses/references/Yun Jin/model.webp",
+        "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-yoimiya-midpoint-yunjin-zibai-poses/references/Yun Jin/official.png"
+      ],
+      "transparent_background": true
+    },
+    "tool_output": "/Users/alexachan/.codex/generated_images/01a1aa19-42b2-7e92-b08d-8ee7d133c057/exec-2518392c-e33d-4991-884d-ba819f6b7bf7.png",
+    "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-yoimiya-midpoint-yunjin-zibai-poses/raw/Yun Jin/neutral-v003.png",
+    "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-yoimiya-midpoint-yunjin-zibai-poses/candidates/Yun Jin/neutral-v003.png",
+    "candidate_sha256": "f63a0c7f81b1467918129ed1148695f0f14abe880c8c5605f532835007f51e7b",
+    "dimensions": [
+      1003,
+      1568
+    ],
+    "png_color_type": 6,
+    "framing_transform": null
+  },
+  "approval": {
+    "status": "approved",
+    "date": "2026-11-05",
+    "message": "Yun Jin approved.",
+    "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-yoimiya-midpoint-yunjin-zibai-poses/candidates/Yun Jin/neutral-v003.png",
+    "candidate_sha256": "f63a0c7f81b1467918129ed1148695f0f14abe880c8c5605f532835007f51e7b"
+  },
+  "comparison": {
+    "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-yoimiya-midpoint-yunjin-zibai-poses/comparisons/yun-jin-comparison.png",
+    "transforms": [
+      {
+        "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-yoimiya-midpoint-yunjin-zibai-poses/previous/Yun Jin/neutral-v002.png",
+        "label": "Previous candidate",
+        "alpha_bbox_crop": [
+          49,
+          6,
+          961,
+          1595
+        ],
+        "thumbnail_dimensions": [
+          410,
+          714
+        ],
+        "position": [
+          20,
+          196
+        ]
+      },
+      {
+        "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-yoimiya-midpoint-yunjin-zibai-poses/candidates/Yun Jin/neutral-v003.png",
+        "label": "New pose",
+        "alpha_bbox_crop": [
+          68,
+          1,
+          973,
+          1568
+        ],
+        "thumbnail_dimensions": [
+          410,
+          710
+        ],
+        "position": [
+          470,
+          198
+        ]
+      }
+    ],
+    "note": "Transparent margins trimmed for proportional review thumbnails only; source PNGs unchanged."
+  }
+}

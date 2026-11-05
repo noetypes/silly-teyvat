@@ -1,0 +1,1547 @@
+{
+  "status": "generated; expression candidates awaiting user review",
+  "requested_emotions": [
+    "neutral",
+    "joy",
+    "annoyance",
+    "confusion",
+    "love",
+    "desire",
+    "excitement",
+    "sadness",
+    "fear",
+    "embarrassment"
+  ],
+  "request": "Character-appropriate dynamic posing; only these ten sprites per character.",
+  "characters": {
+    "Alhaitham": {
+      "neutral_approval": {
+        "status": "approved",
+        "message": "All others are ACCEPTED.",
+        "date": "2026-10-30",
+        "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Alhaitham/neutral-v002.png",
+        "candidate_sha256": "34dd6fc22b5a4b6e107d468f4c92bf2a3a99f2c8a16da4fed1cd182e58784ae0"
+      },
+      "reference": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/references/Alhaitham/approved-neutral.png",
+      "expressions": {
+        "joy": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/prompts/Alhaitham/joy.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Alhaitham expressing joy. The sole supplied image is his approved neutral reference: preserve his identity, skin tone, costume, accessories, rendering and tall male proportions. Give him a rare, restrained genuine smile and softened eyes, with an easy upright stance, slight turn toward the viewer, one hand relaxed near his waist and the other at his side. Change his pose naturally to suit his reserved personality. Normal pupils. Simple anatomically coherent hands, two legs and feet, complete silhouette with 2–4% top and bottom padding. Genuine transparent background. No scenery, weapons, text, effects, watermark or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Alhaitham/neutral-v002.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/raw/Alhaitham/joy.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/sprites/Alhaitham/joy.png",
+          "sha256": "2971ff176fc6f952795b6184196749ce828a7a9850bfad53ef704c711edb88a4",
+          "status": "candidate"
+        },
+        "annoyance": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/prompts/Alhaitham/annoyance.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Alhaitham expressing annoyance. Use the supplied approved neutral as the sole image reference; preserve identity, costume, skin tone, rendering and tall male proportions. A restrained displeased look, slightly narrowed eyes and level brows; shift his weight subtly, one arm bent across his midsection, the other hand resting naturally at his side. His body language is composed, self-possessed, and character appropriate. Normal pupils. Simple coherent hands, two legs and feet, complete silhouette with 2–4% top and bottom padding. Genuinely transparent background. No scenery, weapon, text, effects, watermark or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Alhaitham/neutral-v002.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/raw/Alhaitham/annoyance.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/sprites/Alhaitham/annoyance.png",
+          "sha256": "437a2bd11bdfcb8c93da9386b5c662cdb43fd340ea62df66a4300cc89c8c2001",
+          "status": "candidate"
+        },
+        "confusion": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/prompts/Alhaitham/confusion.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Alhaitham expressing confusion. The sole supplied image is his approved neutral reference; preserve his face, skin tone, hair, exact costume, accessories, rendering, and tall male proportions. A quietly puzzled expression, one eyebrow raised and eyes questioning; turn his shoulders slightly, with one hand resting at his chin and the other relaxed at his side. Give him character-appropriate, composed body language and a distinct pose suited to the emotion. Normal pupils. Simple anatomically coherent hands and two legs and feet, complete silhouette with 2–4% top and bottom padding. Genuine transparent background. No scenery, weapons, text, effects, watermark or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Alhaitham/neutral-v002.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/raw/Alhaitham/confusion.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/sprites/Alhaitham/confusion.png",
+          "sha256": "4b7ccc142f3a931dfc2d1fe8b55bca09d2c5b819e9e1430e136c473bd1a9a1b5",
+          "status": "candidate"
+        },
+        "love": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/prompts/Alhaitham/love.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Alhaitham expressing love. The sole supplied image is his approved neutral reference; preserve his face, skin tone, hair, exact costume, accessories, rendering, and tall male proportions. A rare warm, affectionate smile with softened eyes; turn toward the viewer with relaxed shoulders, one hand resting lightly over his chest and the other at his side. Give him character-appropriate, composed body language and a distinct pose suited to the emotion. Normal pupils. Simple anatomically coherent hands and two legs and feet, complete silhouette with 2–4% top and bottom padding. Genuine transparent background. No scenery, weapons, text, effects, watermark or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Alhaitham/neutral-v002.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/raw/Alhaitham/love.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/sprites/Alhaitham/love.png",
+          "sha256": "d76d90ed60a768fb0e84c76f931db08c7c514ccf252ea0a47a9742cf08ff8085",
+          "status": "candidate"
+        },
+        "desire": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/prompts/Alhaitham/desire.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Alhaitham expressing desire. The sole supplied image is his approved neutral reference; preserve his face, skin tone, hair, exact costume, accessories, rendering, and tall male proportions. A restrained but unmistakably yearning gaze, subtle flush and slightly parted lips; lean forward just slightly with a grounded masculine stance, one hand resting near his waist and the other at his side. Tasteful and fully clothed. Give him character-appropriate, composed body language and a distinct pose suited to the emotion. Normal pupils. Simple anatomically coherent hands and two legs and feet, complete silhouette with 2–4% top and bottom padding. Genuine transparent background. No scenery, weapons, text, effects, watermark or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Alhaitham/neutral-v002.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/raw/Alhaitham/desire.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/sprites/Alhaitham/desire.png",
+          "sha256": "da8d708c0a26b52bded7d4ded230a2f0cee7f4345fad15cf6498102027a15bf1",
+          "status": "candidate"
+        },
+        "excitement": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/prompts/Alhaitham/excitement.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Alhaitham expressing excitement. The sole supplied image is his approved neutral reference; preserve his face, skin tone, hair, exact costume, accessories, rendering, and tall male proportions. A rare spark of intellectual enthusiasm, brighter eyes and a small eager smile; stand a little more alert with one hand lifted in a modest explanatory gesture and the other relaxed. Give him character-appropriate, composed body language and a distinct pose suited to the emotion. Normal pupils. Simple anatomically coherent hands and two legs and feet, complete silhouette with 2–4% top and bottom padding. Genuine transparent background. No scenery, weapons, text, effects, watermark or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Alhaitham/neutral-v002.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/raw/Alhaitham/excitement.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/sprites/Alhaitham/excitement.png",
+          "sha256": "fa642f66a58a8dfb625dd3c179e0afe9f563820d736f60f56e1e54b33c2ca648",
+          "status": "candidate"
+        },
+        "sadness": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/prompts/Alhaitham/sadness.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Alhaitham expressing sadness. The sole supplied image is his approved neutral reference; preserve his face, skin tone, hair, exact costume, accessories, rendering, and tall male proportions. A subdued downcast expression, softened brows and gaze lowered; shoulders slightly lowered, one hand loosely resting against his forearm, the other relaxed. Give him character-appropriate, composed body language and a distinct pose suited to the emotion. Normal pupils. Simple anatomically coherent hands and two legs and feet, complete silhouette with 2–4% top and bottom padding. Genuine transparent background. No scenery, weapons, text, effects, watermark or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Alhaitham/neutral-v002.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/raw/Alhaitham/sadness.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/sprites/Alhaitham/sadness.png",
+          "sha256": "62b7739e927a599e26da747532253ba39f840197fa389eedf6909742333633b4",
+          "status": "candidate"
+        },
+        "fear": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/prompts/Alhaitham/fear.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Alhaitham expressing fear. The sole supplied image is his approved neutral reference; preserve his face, skin tone, hair, exact costume, accessories, rendering, and tall male proportions. An unusually alert, uneasy expression with widened eyes and tense brows; shift his weight back slightly, one forearm held protectively near his torso and the other at his side. Give him character-appropriate, composed body language and a distinct pose suited to the emotion. Normal pupils. Simple anatomically coherent hands and two legs and feet, complete silhouette with 2–4% top and bottom padding. Genuine transparent background. No scenery, weapons, text, effects, watermark or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Alhaitham/neutral-v002.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/raw/Alhaitham/fear.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/sprites/Alhaitham/fear.png",
+          "sha256": "f073842e758d75447f4342f0f7ec584e291a384e7779e6c7542f9548763df26c",
+          "status": "candidate"
+        },
+        "embarrassment": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/prompts/Alhaitham/embarrassment.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Alhaitham expressing embarrassment. The sole supplied image is his approved neutral reference; preserve his face, skin tone, hair, exact costume, accessories, rendering, and tall male proportions. A subtle blush, averted gaze and a tight awkward half-smile; angle his shoulders away slightly, one hand touching the back of his neck and the other at his side. Give him character-appropriate, composed body language and a distinct pose suited to the emotion. Normal pupils. Simple anatomically coherent hands and two legs and feet, complete silhouette with 2–4% top and bottom padding. Genuine transparent background. No scenery, weapons, text, effects, watermark or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Alhaitham/neutral-v002.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/raw/Alhaitham/embarrassment.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/sprites/Alhaitham/embarrassment.png",
+          "sha256": "691e3622c7e6b4996397c07ef6ef806bb3cfbb46fa6efa89b0f5a61c331ec794",
+          "status": "candidate"
+        }
+      },
+      "previews": {
+        "full_body": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/previews/Alhaitham-full-body.png",
+        "faces": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/previews/Alhaitham-faces.png"
+      }
+    },
+    "Alyosha": {
+      "neutral_approval": {
+        "status": "approved",
+        "message": "All others are ACCEPTED.",
+        "date": "2026-10-30",
+        "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Alyosha/neutral-v002.png",
+        "candidate_sha256": "3a1df6da84b531700d388e239494c45fb63219239a6710c74c0c69ca3cc818d7"
+      },
+      "reference": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/references/Alyosha/approved-neutral.png",
+      "expressions": {
+        "joy": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/prompts/Alyosha/joy.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Alyosha from Genshin Impact expressing joy. The supplied approved neutral is the sole image reference; preserve his identity, mint hair, skin tone, fur cape, blue and red outfit, accessories, rendering and compact male proportions. A bright sincere smile and relaxed eyes, stand a little taller and lift one hand in a simple cheerful greeting, the other at his side. Vary body language appropriately while preserving his character; normal pupils, simple anatomically coherent hands, two legs and feet. Show him alone, empty-handed, no dog, bow or weapon. Complete silhouette with 2–4% top and bottom padding, genuinely transparent background. No scenery, text, effects, watermark or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Alyosha/neutral-v002.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/raw/Alyosha/joy.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/sprites/Alyosha/joy.png",
+          "sha256": "e918f0898114246a314a3c76466221db42883c72e925fc5426850c0fd13afe40",
+          "status": "candidate"
+        },
+        "annoyance": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/prompts/Alyosha/annoyance.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Alyosha from Genshin Impact expressing annoyance. The supplied approved neutral is the sole image reference; preserve his identity, mint hair, skin tone, fur cape, blue and red outfit, accessories, rendering and compact male proportions. A small displeased frown and furrowed brow, shift weight to one leg and fold one forearm close to his torso while the other hand rests at his side. Vary body language appropriately while preserving his character; normal pupils, simple anatomically coherent hands, two legs and feet. Show him alone, empty-handed, no dog, bow or weapon. Complete silhouette with 2–4% top and bottom padding, genuinely transparent background. No scenery, text, effects, watermark or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Alyosha/neutral-v002.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/raw/Alyosha/annoyance.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/sprites/Alyosha/annoyance.png",
+          "sha256": "aa12c74608c4cd8f90d4cfbf61e6c8fb15d632e53968a1713513a03ce5834ddc",
+          "status": "candidate"
+        },
+        "confusion": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/prompts/Alyosha/confusion.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Alyosha from Genshin Impact expressing confusion. The supplied approved neutral is the sole image reference; preserve his identity, mint hair, skin tone, fur cape, blue and red outfit, accessories, rendering and compact male proportions. A puzzled look and raised brow, tilt his head slightly and lift one hand near his chin, the other relaxed. Vary body language appropriately while preserving his character; normal pupils, simple anatomically coherent hands, two legs and feet. Show him alone, empty-handed, no dog, bow or weapon. Complete silhouette with 2–4% top and bottom padding, genuinely transparent background. No scenery, text, effects, watermark or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Alyosha/neutral-v002.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/raw/Alyosha/confusion.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/sprites/Alyosha/confusion.png",
+          "sha256": "01d6940a4182a79ac376de831db8c7379172e5861fb3cd0aa99b9c06f86eb265",
+          "status": "candidate"
+        },
+        "love": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/prompts/Alyosha/love.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Alyosha from Genshin Impact expressing love. The supplied approved neutral is the sole image reference; preserve his identity, mint hair, skin tone, fur cape, blue and red outfit, accessories, rendering and compact male proportions. A warm affectionate smile with open, gentle eyes; turn toward the viewer with one hand lightly over his chest, other arm relaxed. Vary body language appropriately while preserving his character; normal pupils, simple anatomically coherent hands, two legs and feet. Show him alone, empty-handed, no dog, bow or weapon. Complete silhouette with 2–4% top and bottom padding, genuinely transparent background. No scenery, text, effects, watermark or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Alyosha/neutral-v002.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/raw/Alyosha/love.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/sprites/Alyosha/love.png",
+          "sha256": "45bd74a116e6d295e675fbc429a541318f8eba467cd5b95855f67ed20def4033",
+          "status": "candidate"
+        },
+        "desire": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/prompts/Alyosha/desire.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Alyosha from Genshin Impact expressing desire. The supplied approved neutral is the sole image reference; preserve his identity, mint hair, skin tone, fur cape, blue and red outfit, accessories, rendering and compact male proportions. An eager, hopeful wish to be close, with a small blush and earnest gaze; lean forward subtly, one hand at his chest and the other at his side. Wholesome and non-suggestive. Vary body language appropriately while preserving his character; normal pupils, simple anatomically coherent hands, two legs and feet. Show him alone, empty-handed, no dog, bow or weapon. Complete silhouette with 2–4% top and bottom padding, genuinely transparent background. No scenery, text, effects, watermark or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Alyosha/neutral-v002.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/raw/Alyosha/desire.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/sprites/Alyosha/desire.png",
+          "sha256": "2087a5c7ba5d47150628f2b25b961854a2b47f4c2690e760d197be167e9a7b0f",
+          "status": "candidate"
+        },
+        "excitement": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/prompts/Alyosha/excitement.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Alyosha from Genshin Impact expressing excitement. The supplied approved neutral is the sole image reference; preserve his identity, mint hair, skin tone, fur cape, blue and red outfit, accessories, rendering and compact male proportions. An energetic delighted smile and bright eyes, stand in an alert balanced stance with one hand raised in a small celebratory gesture and the other by his waist. Vary body language appropriately while preserving his character; normal pupils, simple anatomically coherent hands, two legs and feet. Show him alone, empty-handed, no dog, bow or weapon. Complete silhouette with 2–4% top and bottom padding, genuinely transparent background. No scenery, text, effects, watermark or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Alyosha/neutral-v002.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/raw/Alyosha/excitement.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/sprites/Alyosha/excitement.png",
+          "sha256": "abbe36a7e2583a444b27d01456ca8b002191348ec41870bc70d482a4d85da894",
+          "status": "candidate"
+        },
+        "sadness": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/prompts/Alyosha/sadness.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Alyosha from Genshin Impact expressing sadness. The supplied approved neutral is the sole image reference; preserve his identity, mint hair, skin tone, fur cape, blue and red outfit, accessories, rendering and compact male proportions. A quiet sad look with downcast eyes, shoulders slightly lowered, one hand lightly resting on his forearm and the other relaxed. Vary body language appropriately while preserving his character; normal pupils, simple anatomically coherent hands, two legs and feet. Show him alone, empty-handed, no dog, bow or weapon. Complete silhouette with 2–4% top and bottom padding, genuinely transparent background. No scenery, text, effects, watermark or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Alyosha/neutral-v002.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/raw/Alyosha/sadness.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/sprites/Alyosha/sadness.png",
+          "sha256": "a6f3d987920d47328a22b88fa20676dc033ce5ed27f378b27b24aec424a787dd",
+          "status": "candidate"
+        },
+        "fear": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/prompts/Alyosha/fear.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Alyosha from Genshin Impact expressing fear. The supplied approved neutral is the sole image reference; preserve his identity, mint hair, skin tone, fur cape, blue and red outfit, accessories, rendering and compact male proportions. An apprehensive widened gaze and raised brows; shift back slightly with one forearm protectively near his torso and the other hand down. Vary body language appropriately while preserving his character; normal pupils, simple anatomically coherent hands, two legs and feet. Show him alone, empty-handed, no dog, bow or weapon. Complete silhouette with 2–4% top and bottom padding, genuinely transparent background. No scenery, text, effects, watermark or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Alyosha/neutral-v002.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/raw/Alyosha/fear.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/sprites/Alyosha/fear.png",
+          "sha256": "f1ed63705307bead2b43572630449b8d23566c98db4dc76f9aefceae91f8df5d",
+          "status": "candidate"
+        },
+        "embarrassment": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/prompts/Alyosha/embarrassment.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Alyosha from Genshin Impact expressing embarrassment. The supplied approved neutral is the sole image reference; preserve his identity, mint hair, skin tone, fur cape, blue and red outfit, accessories, rendering and compact male proportions. Flushed cheeks and a shy averted gaze, turn his shoulders slightly away and raise one hand to the back of his neck, the other relaxed. Vary body language appropriately while preserving his character; normal pupils, simple anatomically coherent hands, two legs and feet. Show him alone, empty-handed, no dog, bow or weapon. Complete silhouette with 2–4% top and bottom padding, genuinely transparent background. No scenery, text, effects, watermark or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Alyosha/neutral-v002.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/raw/Alyosha/embarrassment.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/sprites/Alyosha/embarrassment.png",
+          "sha256": "ad77b22c704181bb79c6b2378a9c637b46a83620c3294f556ee9b16218ce9208",
+          "status": "candidate"
+        }
+      },
+      "previews": {
+        "full_body": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/previews/Alyosha-full-body.png",
+        "faces": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/previews/Alyosha-faces.png"
+      }
+    },
+    "Arataki Itto": {
+      "neutral_approval": {
+        "status": "approved",
+        "message": "All others are ACCEPTED.",
+        "date": "2026-10-30",
+        "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Arataki Itto/neutral-v002.png",
+        "candidate_sha256": "4bee713cd9c143280ede7d01938c8061ac8c73c6983c1df23e92934199329cc5"
+      },
+      "reference": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/references/Arataki Itto/approved-neutral.png",
+      "expressions": {
+        "joy": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/prompts/Arataki Itto/joy.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Arataki Itto from Genshin Impact expressing joy. The approved neutral supplied is the sole image reference; preserve his identity, horns, markings, silver hair, skin tone, outfit, accessories, rendering, and muscular tall male proportions. A huge genuine grin and bright eyes; stand broad and upright with one hand lifted in a boisterous greeting, the other resting near his belt. Show a distinctive emotion-appropriate pose faithful to his energetic personality. Normal pupils, simple anatomically coherent hands, two legs and two feet. Empty hands, no weapons or props. Complete silhouette including horns, hair and feet with 2–4% top and bottom padding; genuine transparent background. No scenery, text, effects, watermark or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Arataki Itto/neutral-v002.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/raw/Arataki Itto/joy.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/sprites/Arataki Itto/joy.png",
+          "sha256": "92ec3e5c8e6a58d7c33e7560b9686fcbcb3ac7a02c74e46ac59aaffae44d9c38",
+          "status": "candidate"
+        },
+        "annoyance": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/prompts/Arataki Itto/annoyance.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Arataki Itto from Genshin Impact expressing annoyance. The approved neutral supplied is the sole image reference; preserve his identity, horns, markings, silver hair, skin tone, outfit, accessories, rendering, and muscular tall male proportions. A comically indignant scowl with knit brows; lean forward a little, one hand at his hip and the other making a modest emphatic fist near his chest. Show a distinctive emotion-appropriate pose faithful to his energetic personality. Normal pupils, simple anatomically coherent hands, two legs and two feet. Empty hands, no weapons or props. Complete silhouette including horns, hair and feet with 2–4% top and bottom padding; genuine transparent background. No scenery, text, effects, watermark or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Arataki Itto/neutral-v002.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/raw/Arataki Itto/annoyance.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/sprites/Arataki Itto/annoyance.png",
+          "sha256": "f35d97115e9c45f8184dc90210604a5b9c4255bc4fda4b3ba4002691aebb92ea",
+          "status": "candidate"
+        },
+        "confusion": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/prompts/Arataki Itto/confusion.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Arataki Itto from Genshin Impact expressing confusion. The approved neutral supplied is the sole image reference; preserve his identity, horns, markings, silver hair, skin tone, outfit, accessories, rendering, and muscular tall male proportions. A bewildered open expression with one eyebrow lifted; tilt his head and rub the back of his neck with one hand, the other resting at his hip. Show a distinctive emotion-appropriate pose faithful to his energetic personality. Normal pupils, simple anatomically coherent hands, two legs and two feet. Empty hands, no weapons or props. Complete silhouette including horns, hair and feet with 2–4% top and bottom padding; genuine transparent background. No scenery, text, effects, watermark or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Arataki Itto/neutral-v002.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/raw/Arataki Itto/confusion.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/sprites/Arataki Itto/confusion.png",
+          "sha256": "97f3442143665012c108387d0e7e07f729eeb52cd5df84b1df1714bb9dd1784b",
+          "status": "candidate"
+        },
+        "love": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/prompts/Arataki Itto/love.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Arataki Itto from Genshin Impact expressing love. The approved neutral supplied is the sole image reference; preserve his identity, horns, markings, silver hair, skin tone, outfit, accessories, rendering, and muscular tall male proportions. A big tender grin and warm eyes, touched and bashful beneath his bravado; one hand over his heart and the other relaxed, stance grounded. Show a distinctive emotion-appropriate pose faithful to his energetic personality. Normal pupils, simple anatomically coherent hands, two legs and two feet. Empty hands, no weapons or props. Complete silhouette including horns, hair and feet with 2–4% top and bottom padding; genuine transparent background. No scenery, text, effects, watermark or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Arataki Itto/neutral-v002.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/raw/Arataki Itto/love.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/sprites/Arataki Itto/love.png",
+          "sha256": "f0ecd9e7ddef4d85c20a005ea1e949af12e4310b9b658706be13106dcc77c169",
+          "status": "candidate"
+        },
+        "desire": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/prompts/Arataki Itto/desire.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Arataki Itto from Genshin Impact expressing desire. The approved neutral supplied is the sole image reference; preserve his identity, horns, markings, silver hair, skin tone, outfit, accessories, rendering, and muscular tall male proportions. Earnest, eager romantic yearning with a blush and a hopeful grin; he leans forward slightly in a sturdy confident masculine stance, one hand at his chest and the other near his belt. Tasteful, fully dressed in his established outfit. Show a distinctive emotion-appropriate pose faithful to his energetic personality. Normal pupils, simple anatomically coherent hands, two legs and two feet. Empty hands, no weapons or props. Complete silhouette including horns, hair and feet with 2–4% top and bottom padding; genuine transparent background. No scenery, text, effects, watermark or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Arataki Itto/neutral-v002.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/raw/Arataki Itto/desire.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/sprites/Arataki Itto/desire.png",
+          "sha256": "4f261ae7b6b51eb14d002a91d8070bb57cfc2cd538f6256a09364ffd1c06d5bc",
+          "status": "candidate"
+        },
+        "excitement": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/prompts/Arataki Itto/excitement.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Arataki Itto from Genshin Impact expressing excitement. The approved neutral supplied is the sole image reference; preserve his identity, horns, markings, silver hair, skin tone, outfit, accessories, rendering, and muscular tall male proportions. An exuberant wide grin and gleaming eyes, stand tall and shift forward with one fist raised beside his shoulder in celebration and the other hand at his side. Show a distinctive emotion-appropriate pose faithful to his energetic personality. Normal pupils, simple anatomically coherent hands, two legs and two feet. Empty hands, no weapons or props. Complete silhouette including horns, hair and feet with 2–4% top and bottom padding; genuine transparent background. No scenery, text, effects, watermark or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Arataki Itto/neutral-v002.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/raw/Arataki Itto/excitement.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/sprites/Arataki Itto/excitement.png",
+          "sha256": "c67cc046a85ad4fcbd8217ab99b8ad8cd62bdc2a9c33684d4f9a39102ae4f0fc",
+          "status": "candidate"
+        },
+        "sadness": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/prompts/Arataki Itto/sadness.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Arataki Itto from Genshin Impact expressing sadness. The approved neutral supplied is the sole image reference; preserve his identity, horns, markings, silver hair, skin tone, outfit, accessories, rendering, and muscular tall male proportions. A clearly deflated expression, gaze lowered and mouth downturned; shoulders lowered, one hand loosely holding his opposite forearm, balanced stance. Show a distinctive emotion-appropriate pose faithful to his energetic personality. Normal pupils, simple anatomically coherent hands, two legs and two feet. Empty hands, no weapons or props. Complete silhouette including horns, hair and feet with 2–4% top and bottom padding; genuine transparent background. No scenery, text, effects, watermark or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Arataki Itto/neutral-v002.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/raw/Arataki Itto/sadness.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/sprites/Arataki Itto/sadness.png",
+          "sha256": "b93dfea8b1c7c31c3e1b3f9d41c451d834bb0abae2daec81dc7842804df366e8",
+          "status": "candidate"
+        },
+        "fear": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/prompts/Arataki Itto/fear.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Arataki Itto from Genshin Impact expressing fear. The approved neutral supplied is the sole image reference; preserve his identity, horns, markings, silver hair, skin tone, outfit, accessories, rendering, and muscular tall male proportions. Wide startled eyes and raised brows, he leans backward in a surprised recoil with one forearm defensively near his chest and the other hand low. Show a distinctive emotion-appropriate pose faithful to his energetic personality. Normal pupils, simple anatomically coherent hands, two legs and two feet. Empty hands, no weapons or props. Complete silhouette including horns, hair and feet with 2–4% top and bottom padding; genuine transparent background. No scenery, text, effects, watermark or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Arataki Itto/neutral-v002.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/raw/Arataki Itto/fear.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/sprites/Arataki Itto/fear.png",
+          "sha256": "3c96e16d56122687f5f2c5c8d81d2df175fcfd87d7f8759b4c821fd28edeb25e",
+          "status": "candidate"
+        },
+        "embarrassment": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/prompts/Arataki Itto/embarrassment.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Arataki Itto from Genshin Impact expressing embarrassment. The approved neutral supplied is the sole image reference; preserve his identity, horns, markings, silver hair, skin tone, outfit, accessories, rendering, and muscular tall male proportions. Flushed cheeks and a sheepish strained grin; turn his head away and rub the back of his neck with one hand, the other resting at his waist. Show a distinctive emotion-appropriate pose faithful to his energetic personality. Normal pupils, simple anatomically coherent hands, two legs and two feet. Empty hands, no weapons or props. Complete silhouette including horns, hair and feet with 2–4% top and bottom padding; genuine transparent background. No scenery, text, effects, watermark or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Arataki Itto/neutral-v002.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/raw/Arataki Itto/embarrassment.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/sprites/Arataki Itto/embarrassment.png",
+          "sha256": "65bff52877d0a6326c24f92df9c5152d9fc6944286cb353ae4725604b272a686",
+          "status": "candidate"
+        }
+      },
+      "previews": {
+        "full_body": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/previews/Arataki-Itto-full-body.png",
+        "faces": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/previews/Arataki-Itto-faces.png"
+      }
+    },
+    "Candace": {
+      "neutral_approval": {
+        "status": "approved",
+        "message": "All others are ACCEPTED.",
+        "date": "2026-10-30",
+        "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Candace/neutral-v002.png",
+        "candidate_sha256": "0130233f06109fe39476c313f0ad47b8b1562086ed2bfb7ce1c66af1d08ee626"
+      },
+      "reference": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/references/Candace/approved-neutral.png",
+      "expressions": {
+        "joy": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/prompts/Candace/joy.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Candace from Genshin Impact expressing joy. The supplied approved neutral is the sole image reference; preserve her identity, heterochromatic eyes, skin tone, hair, jewelry, outfit, rendering and tall female proportions. A sincere, warm smile and softened eyes; stand at ease and raise one hand in a modest friendly greeting, the other relaxed. Change pose and gesture to suit the emotion while remaining poised and protective. Normal pupils, simple anatomically coherent hands, two legs and two feet, feet separated or slightly staggered. Empty hands, no spear, shield, weapon or prop. Complete silhouette with 2–4% top and bottom padding; genuine transparent background. No scenery, text, effects, watermark or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Candace/neutral-v002.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/raw/Candace/joy.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/sprites/Candace/joy.png",
+          "sha256": "844ee6529dc1e4bc3ad2a754a5441dd34ce4a1fd61c28c731c009e6610288956",
+          "status": "candidate"
+        },
+        "annoyance": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/prompts/Candace/annoyance.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Candace from Genshin Impact expressing annoyance. The supplied approved neutral is the sole image reference; preserve her identity, heterochromatic eyes, skin tone, hair, jewelry, outfit, rendering and tall female proportions. A firm displeased gaze and gently furrowed brows; shift into a steady guardian's stance, one hand on her hip, the other at her side. Change pose and gesture to suit the emotion while remaining poised and protective. Normal pupils, simple anatomically coherent hands, two legs and two feet, feet separated or slightly staggered. Empty hands, no spear, shield, weapon or prop. Complete silhouette with 2–4% top and bottom padding; genuine transparent background. No scenery, text, effects, watermark or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Candace/neutral-v002.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/raw/Candace/annoyance.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/sprites/Candace/annoyance.png",
+          "sha256": "1d05adbf99094cda227b8def19f825600dc4ebcfcbda9721ec267e5fcec244a8",
+          "status": "candidate"
+        },
+        "confusion": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/prompts/Candace/confusion.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Candace from Genshin Impact expressing confusion. The supplied approved neutral is the sole image reference; preserve her identity, heterochromatic eyes, skin tone, hair, jewelry, outfit, rendering and tall female proportions. A thoughtful puzzled expression with one eyebrow raised; tip her head slightly and bring one hand near her chin, other arm relaxed. Change pose and gesture to suit the emotion while remaining poised and protective. Normal pupils, simple anatomically coherent hands, two legs and two feet, feet separated or slightly staggered. Empty hands, no spear, shield, weapon or prop. Complete silhouette with 2–4% top and bottom padding; genuine transparent background. No scenery, text, effects, watermark or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Candace/neutral-v002.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/raw/Candace/confusion.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/sprites/Candace/confusion.png",
+          "sha256": "e70bf9ee6015e69782ae590e1372b428a5e18c72988a51d8104ee67fff2108aa",
+          "status": "candidate"
+        },
+        "love": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/prompts/Candace/love.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Candace from Genshin Impact expressing love. The supplied approved neutral is the sole image reference; preserve her identity, heterochromatic eyes, skin tone, hair, jewelry, outfit, rendering and tall female proportions. A tender affectionate smile and welcoming eyes; turn gently toward the viewer, one hand resting over her heart and the other relaxed. Change pose and gesture to suit the emotion while remaining poised and protective. Normal pupils, simple anatomically coherent hands, two legs and two feet, feet separated or slightly staggered. Empty hands, no spear, shield, weapon or prop. Complete silhouette with 2–4% top and bottom padding; genuine transparent background. No scenery, text, effects, watermark or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Candace/neutral-v002.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/raw/Candace/love.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/sprites/Candace/love.png",
+          "sha256": "91472b3adb2f551dee06013be1fd7447766abb591e8bf9edc64a0b348fd02344",
+          "status": "candidate"
+        },
+        "desire": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/prompts/Candace/desire.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Candace from Genshin Impact expressing desire. The supplied approved neutral is the sole image reference; preserve her identity, heterochromatic eyes, skin tone, hair, jewelry, outfit, rendering and tall female proportions. A warm, quietly yearning gaze, subtle blush and slightly parted lips; lean in slightly with calm confidence, one hand near her heart and the other at her side. Tasteful, wearing her established outfit. Change pose and gesture to suit the emotion while remaining poised and protective. Normal pupils, simple anatomically coherent hands, two legs and two feet, feet separated or slightly staggered. Empty hands, no spear, shield, weapon or prop. Complete silhouette with 2–4% top and bottom padding; genuine transparent background. No scenery, text, effects, watermark or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Candace/neutral-v002.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/raw/Candace/desire.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/sprites/Candace/desire.png",
+          "sha256": "2f89b72fbec0d9c319d9e6068671bb2041161e98aa5311c4b4961cc332b1b335",
+          "status": "candidate"
+        },
+        "excitement": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/prompts/Candace/excitement.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Candace from Genshin Impact expressing excitement. The supplied approved neutral is the sole image reference; preserve her identity, heterochromatic eyes, skin tone, hair, jewelry, outfit, rendering and tall female proportions. Bright eyes and an openly delighted smile; stand more alert, one hand lifted in a small enthusiastic gesture, the other at her waist. Change pose and gesture to suit the emotion while remaining poised and protective. Normal pupils, simple anatomically coherent hands, two legs and two feet, feet separated or slightly staggered. Empty hands, no spear, shield, weapon or prop. Complete silhouette with 2–4% top and bottom padding; genuine transparent background. No scenery, text, effects, watermark or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Candace/neutral-v002.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/raw/Candace/excitement.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/sprites/Candace/excitement.png",
+          "sha256": "6a34a5da53c21bcfb270e3a424250109c496017dd65df89c86aa633854fb3da5",
+          "status": "candidate"
+        },
+        "sadness": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/prompts/Candace/sadness.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Candace from Genshin Impact expressing sadness. The supplied approved neutral is the sole image reference; preserve her identity, heterochromatic eyes, skin tone, hair, jewelry, outfit, rendering and tall female proportions. A subdued sorrowful gaze and soft downturned mouth; shoulders slightly lowered, one hand gently resting on her opposite forearm. Change pose and gesture to suit the emotion while remaining poised and protective. Normal pupils, simple anatomically coherent hands, two legs and two feet, feet separated or slightly staggered. Empty hands, no spear, shield, weapon or prop. Complete silhouette with 2–4% top and bottom padding; genuine transparent background. No scenery, text, effects, watermark or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Candace/neutral-v002.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/raw/Candace/sadness.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/sprites/Candace/sadness.png",
+          "sha256": "e05e7d2736c04942400dc4f9c7cf5f65b4f2fc8d1bf874967f93bb6b27405fe6",
+          "status": "candidate"
+        },
+        "fear": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/prompts/Candace/fear.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Candace from Genshin Impact expressing fear. The supplied approved neutral is the sole image reference; preserve her identity, heterochromatic eyes, skin tone, hair, jewelry, outfit, rendering and tall female proportions. Worried widened eyes and raised brows; step her weight back slightly, one forearm protectively near her torso, the other low. Change pose and gesture to suit the emotion while remaining poised and protective. Normal pupils, simple anatomically coherent hands, two legs and two feet, feet separated or slightly staggered. Empty hands, no spear, shield, weapon or prop. Complete silhouette with 2–4% top and bottom padding; genuine transparent background. No scenery, text, effects, watermark or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Candace/neutral-v002.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/raw/Candace/fear.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/sprites/Candace/fear.png",
+          "sha256": "c14a53cf63863c4e6563cdeb3dd01878dc222d646dc46ec2f6205a8da6681969",
+          "status": "candidate"
+        },
+        "embarrassment": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/prompts/Candace/embarrassment.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Candace from Genshin Impact expressing embarrassment. The supplied approved neutral is the sole image reference; preserve her identity, heterochromatic eyes, skin tone, hair, jewelry, outfit, rendering and tall female proportions. A light blush and shy, averted gaze with a small awkward smile; turn her shoulders slightly and touch one hand to her cheek, the other relaxed. Change pose and gesture to suit the emotion while remaining poised and protective. Normal pupils, simple anatomically coherent hands, two legs and two feet, feet separated or slightly staggered. Empty hands, no spear, shield, weapon or prop. Complete silhouette with 2–4% top and bottom padding; genuine transparent background. No scenery, text, effects, watermark or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Candace/neutral-v002.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/raw/Candace/embarrassment.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/sprites/Candace/embarrassment.png",
+          "sha256": "8404edaf53012d576e9271bd52d9bd6a17caf0dcc4cc193025e531f44b1437a6",
+          "status": "candidate"
+        }
+      },
+      "previews": {
+        "full_body": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/previews/Candace-full-body.png",
+        "faces": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/previews/Candace-faces.png"
+      }
+    },
+    "Chasca": {
+      "neutral_approval": {
+        "status": "approved",
+        "message": "All others are ACCEPTED.",
+        "date": "2026-10-30",
+        "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Chasca/neutral-v001.png",
+        "candidate_sha256": "61752792e854680d36a6bbf3562efd757bf5b11e5bdd71c1799be9998b69000f"
+      },
+      "reference": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/references/Chasca/approved-neutral.png",
+      "expressions": {
+        "joy": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/prompts/Chasca/joy.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Chasca from Genshin Impact expressing joy. The supplied approved neutral is the sole image reference; preserve her identity, pointed ears, hair, hat, skin tone, outfit, accessories, rendering and tall female proportions. A genuine, relaxed smile and bright eyes; ease her shoulders and lift one hand in a small greeting, the other at her hip. Vary her pose for the emotion while keeping her confident, composed personality. Normal pupils, simple anatomically coherent hands, two legs and feet, feet separated or slightly staggered. Empty hands, no weapon or prop. Complete silhouette including hat, hair and feet with 2–4% top and bottom padding; genuine transparent background. No scenery, text, effects, watermark or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Chasca/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/raw/Chasca/joy.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/sprites/Chasca/joy.png",
+          "sha256": "49124f9f608bd5a56f62bace755a20c8651b56e0e97d8fcd470752214011723f",
+          "status": "candidate"
+        },
+        "annoyance": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/prompts/Chasca/annoyance.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Chasca from Genshin Impact expressing annoyance. The supplied approved neutral is the sole image reference; preserve her identity, pointed ears, hair, hat, skin tone, outfit, accessories, rendering and tall female proportions. A cool, unimpressed look and slightly narrowed eyes; set her weight firmly, one hand at her waist and the other low. Vary her pose for the emotion while keeping her confident, composed personality. Normal pupils, simple anatomically coherent hands, two legs and feet, feet separated or slightly staggered. Empty hands, no weapon or prop. Complete silhouette including hat, hair and feet with 2–4% top and bottom padding; genuine transparent background. No scenery, text, effects, watermark or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Chasca/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/raw/Chasca/annoyance.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/sprites/Chasca/annoyance.png",
+          "sha256": "4039ea1ef7da8cae7ca631b7f233361ea022f1df7f2ac963fc10c5bb0f651519",
+          "status": "candidate"
+        },
+        "confusion": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/prompts/Chasca/confusion.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Chasca from Genshin Impact expressing confusion. The supplied approved neutral is the sole image reference; preserve her identity, pointed ears, hair, hat, skin tone, outfit, accessories, rendering and tall female proportions. A questioning raised eyebrow and slightly tilted head; bring one hand thoughtfully near her chin, other arm at her side. Vary her pose for the emotion while keeping her confident, composed personality. Normal pupils, simple anatomically coherent hands, two legs and feet, feet separated or slightly staggered. Empty hands, no weapon or prop. Complete silhouette including hat, hair and feet with 2–4% top and bottom padding; genuine transparent background. No scenery, text, effects, watermark or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Chasca/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/raw/Chasca/confusion.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/sprites/Chasca/confusion.png",
+          "sha256": "bd17bc706dbc773af1af56bd3ac1b7a2dbdb0429953ec69398c0998d7d52a676",
+          "status": "candidate"
+        },
+        "love": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/prompts/Chasca/love.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Chasca from Genshin Impact expressing love. The supplied approved neutral is the sole image reference; preserve her identity, pointed ears, hair, hat, skin tone, outfit, accessories, rendering and tall female proportions. A warm, unguarded affectionate smile; turn gently toward the viewer, one hand near her heart, other hand relaxed. Vary her pose for the emotion while keeping her confident, composed personality. Normal pupils, simple anatomically coherent hands, two legs and feet, feet separated or slightly staggered. Empty hands, no weapon or prop. Complete silhouette including hat, hair and feet with 2–4% top and bottom padding; genuine transparent background. No scenery, text, effects, watermark or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Chasca/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/raw/Chasca/love.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/sprites/Chasca/love.png",
+          "sha256": "603f1d3975ecf9728c9f7133102c04c8db7b3d6602db621dbddc9cc12fce3454",
+          "status": "candidate"
+        },
+        "desire": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/prompts/Chasca/desire.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Chasca from Genshin Impact expressing desire. The supplied approved neutral is the sole image reference; preserve her identity, pointed ears, hair, hat, skin tone, outfit, accessories, rendering and tall female proportions. A confident, intent and yearning look, subtle blush and softly parted lips; lean forward just slightly with one hand at her waist and the other near her chest. Tasteful in her established outfit. Vary her pose for the emotion while keeping her confident, composed personality. Normal pupils, simple anatomically coherent hands, two legs and feet, feet separated or slightly staggered. Empty hands, no weapon or prop. Complete silhouette including hat, hair and feet with 2–4% top and bottom padding; genuine transparent background. No scenery, text, effects, watermark or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Chasca/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/raw/Chasca/desire.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/sprites/Chasca/desire.png",
+          "sha256": "990efb38b9f5df2feb8b9869938843314737b260ff399ddc63394b28987ea829",
+          "status": "candidate"
+        },
+        "excitement": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/prompts/Chasca/excitement.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Chasca from Genshin Impact expressing excitement. The supplied approved neutral is the sole image reference; preserve her identity, pointed ears, hair, hat, skin tone, outfit, accessories, rendering and tall female proportions. Bright eager eyes and an open smile; stand alert with a small celebratory gesture near her shoulder, other hand relaxed. Vary her pose for the emotion while keeping her confident, composed personality. Normal pupils, simple anatomically coherent hands, two legs and feet, feet separated or slightly staggered. Empty hands, no weapon or prop. Complete silhouette including hat, hair and feet with 2–4% top and bottom padding; genuine transparent background. No scenery, text, effects, watermark or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Chasca/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/raw/Chasca/excitement.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/sprites/Chasca/excitement.png",
+          "sha256": "7749a63bad406c83a25d5b694db55544caec40b84516459ae51648b9255640f4",
+          "status": "candidate"
+        },
+        "sadness": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/prompts/Chasca/sadness.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Chasca from Genshin Impact expressing sadness. The supplied approved neutral is the sole image reference; preserve her identity, pointed ears, hair, hat, skin tone, outfit, accessories, rendering and tall female proportions. A subdued sorrowful expression with lowered gaze; relaxed shoulders, one hand gently resting against the opposite forearm. Vary her pose for the emotion while keeping her confident, composed personality. Normal pupils, simple anatomically coherent hands, two legs and feet, feet separated or slightly staggered. Empty hands, no weapon or prop. Complete silhouette including hat, hair and feet with 2–4% top and bottom padding; genuine transparent background. No scenery, text, effects, watermark or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Chasca/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/raw/Chasca/sadness.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/sprites/Chasca/sadness.png",
+          "sha256": "796e6eb4b60a88233dbd2d06d44f2ef7a7cd18d2f6ac469fb8acda5eb78c2eda",
+          "status": "candidate"
+        },
+        "fear": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/prompts/Chasca/fear.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Chasca from Genshin Impact expressing fear. The supplied approved neutral is the sole image reference; preserve her identity, pointed ears, hair, hat, skin tone, outfit, accessories, rendering and tall female proportions. A tense, alarmed gaze and raised brows; shift weight back a little with one forearm held protectively near her torso, other hand down. Vary her pose for the emotion while keeping her confident, composed personality. Normal pupils, simple anatomically coherent hands, two legs and feet, feet separated or slightly staggered. Empty hands, no weapon or prop. Complete silhouette including hat, hair and feet with 2–4% top and bottom padding; genuine transparent background. No scenery, text, effects, watermark or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Chasca/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/raw/Chasca/fear.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/sprites/Chasca/fear.png",
+          "sha256": "04de01f93c97b43617e1bf2c9bff40385afe76e6840dc4fa4572e481f6f74d1d",
+          "status": "candidate"
+        },
+        "embarrassment": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/prompts/Chasca/embarrassment.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Chasca from Genshin Impact expressing embarrassment. The supplied approved neutral is the sole image reference; preserve her identity, pointed ears, hair, hat, skin tone, outfit, accessories, rendering and tall female proportions. Light blush, averted gaze and a sheepish half-smile; turn her shoulders slightly, one hand touching her cheek and the other relaxed. Vary her pose for the emotion while keeping her confident, composed personality. Normal pupils, simple anatomically coherent hands, two legs and feet, feet separated or slightly staggered. Empty hands, no weapon or prop. Complete silhouette including hat, hair and feet with 2–4% top and bottom padding; genuine transparent background. No scenery, text, effects, watermark or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Chasca/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/raw/Chasca/embarrassment.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/sprites/Chasca/embarrassment.png",
+          "sha256": "1fde3daeb50804a37d6f019ce9b2f0c1b8dcbea7d878e4e8939776acb2b2647f",
+          "status": "candidate"
+        }
+      },
+      "previews": {
+        "full_body": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/previews/Chasca-full-body.png",
+        "faces": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/previews/Chasca-faces.png"
+      }
+    },
+    "Chongyun": {
+      "neutral_approval": {
+        "status": "approved",
+        "message": "All others are ACCEPTED.",
+        "date": "2026-10-30",
+        "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Chongyun/neutral-v001.png",
+        "candidate_sha256": "d041985227f3173f6d4eaadee38561a6efa1039708e52a3109cdd18e36ebcc10"
+      },
+      "reference": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/references/Chongyun/approved-neutral.png",
+      "expressions": {
+        "joy": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/prompts/Chongyun/joy.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Chongyun from Genshin Impact expressing joy. The supplied approved neutral is the sole image reference; preserve his identity, light blue hair, skin tone, outfit, accessories, rendering and petite medium male proportions. A sincere, slightly shy smile and bright eyes; stand at ease, one hand raised in a small greeting and the other at his side. Give him an emotion-specific pose faithful to his earnest, reserved character. Normal pupils, simple anatomically coherent hands, two legs and feet, feet separated or slightly staggered. Empty hands, no weapons or props. Complete silhouette with 2–4% top and bottom padding; genuine transparent background. No scenery, text, effects, watermark or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Chongyun/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/raw/Chongyun/joy.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/sprites/Chongyun/joy.png",
+          "sha256": "f43c6e7d9e121164c2ba2ba0b13d75b397d4e2c2ec16b2b0a78d31e307b96a00",
+          "status": "candidate"
+        },
+        "annoyance": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/prompts/Chongyun/annoyance.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Chongyun from Genshin Impact expressing annoyance. The supplied approved neutral is the sole image reference; preserve his identity, light blue hair, skin tone, outfit, accessories, rendering and petite medium male proportions. A mild, earnest frown and knitted brows; stand firmly with one hand near his waist and the other relaxed. Give him an emotion-specific pose faithful to his earnest, reserved character. Normal pupils, simple anatomically coherent hands, two legs and feet, feet separated or slightly staggered. Empty hands, no weapons or props. Complete silhouette with 2–4% top and bottom padding; genuine transparent background. No scenery, text, effects, watermark or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Chongyun/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/raw/Chongyun/annoyance.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/sprites/Chongyun/annoyance.png",
+          "sha256": "060b08ba850bdffb7ef9c75e39cccbdef28b9aa3edd69f35eeff25146f1f7e1f",
+          "status": "candidate"
+        },
+        "confusion": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/prompts/Chongyun/confusion.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Chongyun from Genshin Impact expressing confusion. The supplied approved neutral is the sole image reference; preserve his identity, light blue hair, skin tone, outfit, accessories, rendering and petite medium male proportions. A questioning look and raised brow; incline his head and hold one hand thoughtfully near his chin, other arm down. Give him an emotion-specific pose faithful to his earnest, reserved character. Normal pupils, simple anatomically coherent hands, two legs and feet, feet separated or slightly staggered. Empty hands, no weapons or props. Complete silhouette with 2–4% top and bottom padding; genuine transparent background. No scenery, text, effects, watermark or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Chongyun/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/raw/Chongyun/confusion.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/sprites/Chongyun/confusion.png",
+          "sha256": "c1f4bd5c2cd7d59bfb9c37a6a9b9889e5d113ab1dbd887672eddc78fb6cf435b",
+          "status": "candidate"
+        },
+        "love": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/prompts/Chongyun/love.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Chongyun from Genshin Impact expressing love. The supplied approved neutral is the sole image reference; preserve his identity, light blue hair, skin tone, outfit, accessories, rendering and petite medium male proportions. A warm, bashful affectionate smile; turn slightly toward the viewer, one hand resting lightly on his chest, the other at his side. Give him an emotion-specific pose faithful to his earnest, reserved character. Normal pupils, simple anatomically coherent hands, two legs and feet, feet separated or slightly staggered. Empty hands, no weapons or props. Complete silhouette with 2–4% top and bottom padding; genuine transparent background. No scenery, text, effects, watermark or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Chongyun/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/raw/Chongyun/love.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/sprites/Chongyun/love.png",
+          "sha256": "97d9e544f3afb6d6dc214c5db061967893f5a04b36a869ae4d2cdc04dab30b0d",
+          "status": "candidate"
+        },
+        "desire": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/prompts/Chongyun/desire.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Chongyun from Genshin Impact expressing desire. The supplied approved neutral is the sole image reference; preserve his identity, light blue hair, skin tone, outfit, accessories, rendering and petite medium male proportions. A wholesome, earnest wish for closeness, a slight blush and a hopeful gaze; shift forward slightly with one hand near his chest and the other relaxed. Non-suggestive. Give him an emotion-specific pose faithful to his earnest, reserved character. Normal pupils, simple anatomically coherent hands, two legs and feet, feet separated or slightly staggered. Empty hands, no weapons or props. Complete silhouette with 2–4% top and bottom padding; genuine transparent background. No scenery, text, effects, watermark or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Chongyun/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/raw/Chongyun/desire.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/sprites/Chongyun/desire.png",
+          "sha256": "912573dc7745176a49aa56d6e5eebf91c6f938bcb9d974af0cda5c4e710c19e7",
+          "status": "candidate"
+        },
+        "excitement": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/prompts/Chongyun/excitement.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Chongyun from Genshin Impact expressing excitement. The supplied approved neutral is the sole image reference; preserve his identity, light blue hair, skin tone, outfit, accessories, rendering and petite medium male proportions. A rare eager smile and bright eyes; lean forward slightly in an alert stance, one hand lifted in a small celebratory gesture and the other low. Give him an emotion-specific pose faithful to his earnest, reserved character. Normal pupils, simple anatomically coherent hands, two legs and feet, feet separated or slightly staggered. Empty hands, no weapons or props. Complete silhouette with 2–4% top and bottom padding; genuine transparent background. No scenery, text, effects, watermark or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Chongyun/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/raw/Chongyun/excitement.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/sprites/Chongyun/excitement.png",
+          "sha256": "600e58309bbf2fd30b42558aca003d319e5bdb799f28b022d7f79d883480fae9",
+          "status": "candidate"
+        },
+        "sadness": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/prompts/Chongyun/sadness.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Chongyun from Genshin Impact expressing sadness. The supplied approved neutral is the sole image reference; preserve his identity, light blue hair, skin tone, outfit, accessories, rendering and petite medium male proportions. A subdued downcast gaze and downturned mouth; shoulders lowered, one hand resting gently on his opposite forearm. Give him an emotion-specific pose faithful to his earnest, reserved character. Normal pupils, simple anatomically coherent hands, two legs and feet, feet separated or slightly staggered. Empty hands, no weapons or props. Complete silhouette with 2–4% top and bottom padding; genuine transparent background. No scenery, text, effects, watermark or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Chongyun/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/raw/Chongyun/sadness.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/sprites/Chongyun/sadness.png",
+          "sha256": "b57df775e2ed08f3e394a05d394f14c2a627b164a481f59c3d8229b4772564c1",
+          "status": "candidate"
+        },
+        "fear": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/prompts/Chongyun/fear.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Chongyun from Genshin Impact expressing fear. The supplied approved neutral is the sole image reference; preserve his identity, light blue hair, skin tone, outfit, accessories, rendering and petite medium male proportions. Worried widened eyes and raised brows; shift his weight back with one forearm held protectively near his torso, the other hand down. Give him an emotion-specific pose faithful to his earnest, reserved character. Normal pupils, simple anatomically coherent hands, two legs and feet, feet separated or slightly staggered. Empty hands, no weapons or props. Complete silhouette with 2–4% top and bottom padding; genuine transparent background. No scenery, text, effects, watermark or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Chongyun/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/raw/Chongyun/fear.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/sprites/Chongyun/fear.png",
+          "sha256": "45181328824810ae88ded4b42aa890ad25e661090dcc133416394f41ec27685a",
+          "status": "candidate"
+        },
+        "embarrassment": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/prompts/Chongyun/embarrassment.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Chongyun from Genshin Impact expressing embarrassment. The supplied approved neutral is the sole image reference; preserve his identity, light blue hair, skin tone, outfit, accessories, rendering and petite medium male proportions. Flushed cheeks and a shy, averted gaze; turn his shoulders slightly away and raise one hand to the back of his neck, other arm relaxed. Give him an emotion-specific pose faithful to his earnest, reserved character. Normal pupils, simple anatomically coherent hands, two legs and feet, feet separated or slightly staggered. Empty hands, no weapons or props. Complete silhouette with 2–4% top and bottom padding; genuine transparent background. No scenery, text, effects, watermark or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Chongyun/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/raw/Chongyun/embarrassment.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/sprites/Chongyun/embarrassment.png",
+          "sha256": "a718496a4126b16aad7d2551f9930bffec1b560bf4c9d45b65cde2b78b5661c2",
+          "status": "candidate"
+        }
+      },
+      "previews": {
+        "full_body": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/previews/Chongyun-full-body.png",
+        "faces": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/previews/Chongyun-faces.png"
+      }
+    },
+    "Clorinde": {
+      "neutral_approval": {
+        "status": "approved",
+        "message": "All others are ACCEPTED.",
+        "date": "2026-10-30",
+        "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Clorinde/neutral-v001.png",
+        "candidate_sha256": "3b58dec293abdcc6694c97ce03c5dff4a7bc134ad6bb824023491c91119dba8f"
+      },
+      "reference": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/references/Clorinde/approved-neutral.png",
+      "expressions": {
+        "joy": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/prompts/Clorinde/joy.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Clorinde from Genshin Impact expressing joy. The supplied approved neutral is the sole image reference; preserve her identity, hair, hat, skin tone, outfit, accessories, rendering and tall female proportions. A small genuine smile and softened eyes; ease her shoulders with one hand resting at her waist and the other at her side. Vary the pose to suit the emotion while respecting her composed personality. Normal pupils, simple anatomically coherent hands, two legs and feet, feet separated or slightly staggered. Empty hands, no weapons or props. Complete silhouette including hat and feet with 2–4% top and bottom padding; genuine transparent background. No scenery, text, effects, watermark or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Clorinde/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/raw/Clorinde/joy.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/sprites/Clorinde/joy.png",
+          "sha256": "948d07f56c717b62c174de0736fd945876b2c730c18d72f516494f957cdcd84e",
+          "status": "candidate"
+        },
+        "annoyance": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/prompts/Clorinde/annoyance.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Clorinde from Genshin Impact expressing annoyance. The supplied approved neutral is the sole image reference; preserve her identity, hair, hat, skin tone, outfit, accessories, rendering and tall female proportions. A cool, restrained frown and narrowed gaze; stand firmly, one forearm resting across her midsection and the other hand relaxed. Vary the pose to suit the emotion while respecting her composed personality. Normal pupils, simple anatomically coherent hands, two legs and feet, feet separated or slightly staggered. Empty hands, no weapons or props. Complete silhouette including hat and feet with 2–4% top and bottom padding; genuine transparent background. No scenery, text, effects, watermark or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Clorinde/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/raw/Clorinde/annoyance.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/sprites/Clorinde/annoyance.png",
+          "sha256": "12005808b0d0290759bd1d60082d0b99e088be835f5c2b6b65454569b5286ae2",
+          "status": "candidate"
+        },
+        "confusion": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/prompts/Clorinde/confusion.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Clorinde from Genshin Impact expressing confusion. The supplied approved neutral is the sole image reference; preserve her identity, hair, hat, skin tone, outfit, accessories, rendering and tall female proportions. A subtly questioning expression and one raised eyebrow; angle her head, one gloved hand thoughtfully near her chin and the other at her side. Vary the pose to suit the emotion while respecting her composed personality. Normal pupils, simple anatomically coherent hands, two legs and feet, feet separated or slightly staggered. Empty hands, no weapons or props. Complete silhouette including hat and feet with 2–4% top and bottom padding; genuine transparent background. No scenery, text, effects, watermark or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Clorinde/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/raw/Clorinde/confusion.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/sprites/Clorinde/confusion.png",
+          "sha256": "73034748909e437529974e02faeb10af8982ff901bd70c57ae9bd7c01ef5dede",
+          "status": "candidate"
+        },
+        "love": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/prompts/Clorinde/love.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Clorinde from Genshin Impact expressing love. The supplied approved neutral is the sole image reference; preserve her identity, hair, hat, skin tone, outfit, accessories, rendering and tall female proportions. A rare warm smile and gentle gaze; turn slightly toward the viewer, one hand near her heart and the other relaxed. Vary the pose to suit the emotion while respecting her composed personality. Normal pupils, simple anatomically coherent hands, two legs and feet, feet separated or slightly staggered. Empty hands, no weapons or props. Complete silhouette including hat and feet with 2–4% top and bottom padding; genuine transparent background. No scenery, text, effects, watermark or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Clorinde/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/raw/Clorinde/love.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/sprites/Clorinde/love.png",
+          "sha256": "b4dbc28bca0f6bbe2c6805ba1b96f9c154dc192f9a2121142a7ecd09b562334c",
+          "status": "candidate"
+        },
+        "desire": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/prompts/Clorinde/desire.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Clorinde from Genshin Impact expressing desire. The supplied approved neutral is the sole image reference; preserve her identity, hair, hat, skin tone, outfit, accessories, rendering and tall female proportions. A controlled but unmistakably yearning gaze, slight blush and gently parted lips; lean forward subtly with a poised upright stance, one hand near her waist, the other near her chest. Tasteful in her established outfit. Vary the pose to suit the emotion while respecting her composed personality. Normal pupils, simple anatomically coherent hands, two legs and feet, feet separated or slightly staggered. Empty hands, no weapons or props. Complete silhouette including hat and feet with 2–4% top and bottom padding; genuine transparent background. No scenery, text, effects, watermark or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Clorinde/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/raw/Clorinde/desire.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/sprites/Clorinde/desire.png",
+          "sha256": "ee8b6d0b7d12af842675949da00d18ee43925c820d10dcf5f0855cc2497185b9",
+          "status": "candidate"
+        },
+        "excitement": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/prompts/Clorinde/excitement.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Clorinde from Genshin Impact expressing excitement. The supplied approved neutral is the sole image reference; preserve her identity, hair, hat, skin tone, outfit, accessories, rendering and tall female proportions. A rare spark of enthusiasm, brighter eyes and a small delighted smile; stand more alert, one hand lifted in a modest gesture near her shoulder. Vary the pose to suit the emotion while respecting her composed personality. Normal pupils, simple anatomically coherent hands, two legs and feet, feet separated or slightly staggered. Empty hands, no weapons or props. Complete silhouette including hat and feet with 2–4% top and bottom padding; genuine transparent background. No scenery, text, effects, watermark or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Clorinde/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/raw/Clorinde/excitement.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/sprites/Clorinde/excitement.png",
+          "sha256": "c32c1c2f8f961a5304d998f8318a5c1d89fcffb222753a734590edd6a01e5bdb",
+          "status": "candidate"
+        },
+        "sadness": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/prompts/Clorinde/sadness.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Clorinde from Genshin Impact expressing sadness. The supplied approved neutral is the sole image reference; preserve her identity, hair, hat, skin tone, outfit, accessories, rendering and tall female proportions. A quiet sorrowful expression and lowered gaze; shoulders softened, one hand lightly resting on the opposite forearm. Vary the pose to suit the emotion while respecting her composed personality. Normal pupils, simple anatomically coherent hands, two legs and feet, feet separated or slightly staggered. Empty hands, no weapons or props. Complete silhouette including hat and feet with 2–4% top and bottom padding; genuine transparent background. No scenery, text, effects, watermark or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Clorinde/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/raw/Clorinde/sadness.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/sprites/Clorinde/sadness.png",
+          "sha256": "db21c64d195b8349d584407cdd373ead3dee3596aa7f1674e7455f56c8b60959",
+          "status": "candidate"
+        },
+        "fear": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/prompts/Clorinde/fear.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Clorinde from Genshin Impact expressing fear. The supplied approved neutral is the sole image reference; preserve her identity, hair, hat, skin tone, outfit, accessories, rendering and tall female proportions. A rare flash of alarm in widened eyes; shift her weight back slightly, one forearm held defensively close to her torso, other hand low. Vary the pose to suit the emotion while respecting her composed personality. Normal pupils, simple anatomically coherent hands, two legs and feet, feet separated or slightly staggered. Empty hands, no weapons or props. Complete silhouette including hat and feet with 2–4% top and bottom padding; genuine transparent background. No scenery, text, effects, watermark or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Clorinde/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/raw/Clorinde/fear.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/sprites/Clorinde/fear.png",
+          "sha256": "be1aa57a3ccd221ac2c0180bf0a3ffab1b9f7bb334aac3bd2855cb7c9392c1a5",
+          "status": "candidate"
+        },
+        "embarrassment": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/prompts/Clorinde/embarrassment.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Clorinde from Genshin Impact expressing embarrassment. The supplied approved neutral is the sole image reference; preserve her identity, hair, hat, skin tone, outfit, accessories, rendering and tall female proportions. A subtle blush and averted gaze with a restrained awkward smile; turn her shoulders slightly and touch one hand near her cheek, the other relaxed. Vary the pose to suit the emotion while respecting her composed personality. Normal pupils, simple anatomically coherent hands, two legs and feet, feet separated or slightly staggered. Empty hands, no weapons or props. Complete silhouette including hat and feet with 2–4% top and bottom padding; genuine transparent background. No scenery, text, effects, watermark or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Clorinde/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/raw/Clorinde/embarrassment.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/sprites/Clorinde/embarrassment.png",
+          "sha256": "ffa71e999985ffb59d4b331c302de051ffd69758b5ad0089220b17058283c2e1",
+          "status": "candidate"
+        }
+      },
+      "previews": {
+        "full_body": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/previews/Clorinde-full-body.png",
+        "faces": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/previews/Clorinde-faces.png"
+      }
+    },
+    "Cyno": {
+      "neutral_approval": {
+        "status": "approved",
+        "message": "All others are ACCEPTED.",
+        "date": "2026-10-30",
+        "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Cyno/neutral-v002.png",
+        "candidate_sha256": "56c57a72bd2fcf280e9c334df5cd9f601a31214f08683ce01f681763da5b4fd3"
+      },
+      "reference": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/references/Cyno/approved-neutral.png",
+      "expressions": {
+        "joy": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/prompts/Cyno/joy.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Cyno from Genshin Impact expressing joy. The supplied approved neutral is the sole image reference; preserve his identity, jackal headpiece, white hair, skin tone, outfit, accessories, rendering and petite medium male proportions. A rare genuine smile and brightened eyes, suggesting quiet satisfaction at a good joke; shoulders relaxed, one hand making a small explanatory gesture and the other at his side. Vary his pose for the emotion while retaining his reserved personality. Normal pupils, simple anatomically coherent hands, two legs and feet, feet separated or slightly staggered. Empty hands, no polearm or other weapon or prop. Complete silhouette including headpiece and feet with 2–4% top and bottom padding; genuine transparent background. No scenery, text, effects, watermark or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Cyno/neutral-v002.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/raw/Cyno/joy.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/sprites/Cyno/joy.png",
+          "sha256": "ae0bb26c0b0af95c15f00e2d7451ac2901e1ce2d47a3f3cea121a682d463f1aa",
+          "status": "candidate"
+        },
+        "annoyance": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/prompts/Cyno/annoyance.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Cyno from Genshin Impact expressing annoyance. The supplied approved neutral is the sole image reference; preserve his identity, jackal headpiece, white hair, skin tone, outfit, accessories, rendering and petite medium male proportions. A stern displeased gaze and restrained frown; stand firmly, one arm bent across his torso and the other hand relaxed. Vary his pose for the emotion while retaining his reserved personality. Normal pupils, simple anatomically coherent hands, two legs and feet, feet separated or slightly staggered. Empty hands, no polearm or other weapon or prop. Complete silhouette including headpiece and feet with 2–4% top and bottom padding; genuine transparent background. No scenery, text, effects, watermark or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Cyno/neutral-v002.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/raw/Cyno/annoyance.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/sprites/Cyno/annoyance.png",
+          "sha256": "e3d79482e3b9f4116817eee35cd0877c71dee25cb89fff70b54a24cc9965fbdd",
+          "status": "candidate"
+        },
+        "confusion": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/prompts/Cyno/confusion.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Cyno from Genshin Impact expressing confusion. The supplied approved neutral is the sole image reference; preserve his identity, jackal headpiece, white hair, skin tone, outfit, accessories, rendering and petite medium male proportions. A puzzled expression with one eyebrow lifted; turn his head slightly and hold one hand thoughtfully near his chin, the other low. Vary his pose for the emotion while retaining his reserved personality. Normal pupils, simple anatomically coherent hands, two legs and feet, feet separated or slightly staggered. Empty hands, no polearm or other weapon or prop. Complete silhouette including headpiece and feet with 2–4% top and bottom padding; genuine transparent background. No scenery, text, effects, watermark or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Cyno/neutral-v002.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/raw/Cyno/confusion.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/sprites/Cyno/confusion.png",
+          "sha256": "988b465e272717f97490cceafea1e6df247b108216ffe741bfdc3006b4ca6ccd",
+          "status": "candidate"
+        },
+        "love": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/prompts/Cyno/love.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Cyno from Genshin Impact expressing love. The supplied approved neutral is the sole image reference; preserve his identity, jackal headpiece, white hair, skin tone, outfit, accessories, rendering and petite medium male proportions. A rare, sincere affectionate smile and gentle eyes; turn toward the viewer, one hand lightly over his chest, other arm relaxed. Vary his pose for the emotion while retaining his reserved personality. Normal pupils, simple anatomically coherent hands, two legs and feet, feet separated or slightly staggered. Empty hands, no polearm or other weapon or prop. Complete silhouette including headpiece and feet with 2–4% top and bottom padding; genuine transparent background. No scenery, text, effects, watermark or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Cyno/neutral-v002.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/raw/Cyno/love.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/sprites/Cyno/love.png",
+          "sha256": "36a2a052db037cdf5ef8585db36eefe447adc081f57917e2dd619f97f95b1a25",
+          "status": "candidate"
+        },
+        "desire": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/prompts/Cyno/desire.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Cyno from Genshin Impact expressing desire. The supplied approved neutral is the sole image reference; preserve his identity, jackal headpiece, white hair, skin tone, outfit, accessories, rendering and petite medium male proportions. An intent but restrained yearning gaze, slight blush and softened expression; shift forward subtly in a grounded masculine stance, one hand near his waist and the other at his side. Tasteful in his established outfit. Vary his pose for the emotion while retaining his reserved personality. Normal pupils, simple anatomically coherent hands, two legs and feet, feet separated or slightly staggered. Empty hands, no polearm or other weapon or prop. Complete silhouette including headpiece and feet with 2–4% top and bottom padding; genuine transparent background. No scenery, text, effects, watermark or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Cyno/neutral-v002.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/raw/Cyno/desire.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/sprites/Cyno/desire.png",
+          "sha256": "9e9ed22fe77babfbe36e493723c2ce76b43cd279fd7a53ca3316293ed86a7c9b",
+          "status": "candidate"
+        },
+        "excitement": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/prompts/Cyno/excitement.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Cyno from Genshin Impact expressing excitement. The supplied approved neutral is the sole image reference; preserve his identity, jackal headpiece, white hair, skin tone, outfit, accessories, rendering and petite medium male proportions. Bright intent eyes and a small eager smile, as if anticipating a game; stand alert with one hand raised in a modest animated gesture. Vary his pose for the emotion while retaining his reserved personality. Normal pupils, simple anatomically coherent hands, two legs and feet, feet separated or slightly staggered. Empty hands, no polearm or other weapon or prop. Complete silhouette including headpiece and feet with 2–4% top and bottom padding; genuine transparent background. No scenery, text, effects, watermark or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Cyno/neutral-v002.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/raw/Cyno/excitement.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/sprites/Cyno/excitement.png",
+          "sha256": "89a6ea14bdea3e9c19ff2bfcf9a11517cb840553690fb0dfa37482abafba6fee",
+          "status": "candidate"
+        },
+        "sadness": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/prompts/Cyno/sadness.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Cyno from Genshin Impact expressing sadness. The supplied approved neutral is the sole image reference; preserve his identity, jackal headpiece, white hair, skin tone, outfit, accessories, rendering and petite medium male proportions. A quiet sorrowful expression and lowered gaze; shoulders slightly softened, one hand resting loosely on his opposite forearm. Vary his pose for the emotion while retaining his reserved personality. Normal pupils, simple anatomically coherent hands, two legs and feet, feet separated or slightly staggered. Empty hands, no polearm or other weapon or prop. Complete silhouette including headpiece and feet with 2–4% top and bottom padding; genuine transparent background. No scenery, text, effects, watermark or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Cyno/neutral-v002.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/raw/Cyno/sadness.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/sprites/Cyno/sadness.png",
+          "sha256": "1af40185a6caadb3c7ae4f72fa52193624967ba148d247d347ec4e725dd0c1a7",
+          "status": "candidate"
+        },
+        "fear": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/prompts/Cyno/fear.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Cyno from Genshin Impact expressing fear. The supplied approved neutral is the sole image reference; preserve his identity, jackal headpiece, white hair, skin tone, outfit, accessories, rendering and petite medium male proportions. A rare alert, uneasy expression with widened eyes; shift his weight back, one forearm protectively near his torso and the other down. Vary his pose for the emotion while retaining his reserved personality. Normal pupils, simple anatomically coherent hands, two legs and feet, feet separated or slightly staggered. Empty hands, no polearm or other weapon or prop. Complete silhouette including headpiece and feet with 2–4% top and bottom padding; genuine transparent background. No scenery, text, effects, watermark or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Cyno/neutral-v002.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/raw/Cyno/fear.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/sprites/Cyno/fear.png",
+          "sha256": "9c50a082e990cc5867f265e2ad0f35b5f526631e7669aa8dc40d984a8fea289a",
+          "status": "candidate"
+        },
+        "embarrassment": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/prompts/Cyno/embarrassment.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Cyno from Genshin Impact expressing embarrassment. The supplied approved neutral is the sole image reference; preserve his identity, jackal headpiece, white hair, skin tone, outfit, accessories, rendering and petite medium male proportions. A faint blush and awkward averted gaze after a joke falls flat; turn his shoulders slightly and touch the back of his neck with one hand. Vary his pose for the emotion while retaining his reserved personality. Normal pupils, simple anatomically coherent hands, two legs and feet, feet separated or slightly staggered. Empty hands, no polearm or other weapon or prop. Complete silhouette including headpiece and feet with 2–4% top and bottom padding; genuine transparent background. No scenery, text, effects, watermark or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Cyno/neutral-v002.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/raw/Cyno/embarrassment.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/sprites/Cyno/embarrassment.png",
+          "sha256": "5b506fb78150211dd9d75ba4ef042004090283c75123e1f82606def7a6027d3e",
+          "status": "candidate"
+        }
+      },
+      "previews": {
+        "full_body": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/previews/Cyno-full-body.png",
+        "faces": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/previews/Cyno-faces.png"
+      }
+    },
+    "Dahlia": {
+      "neutral_approval": {
+        "status": "approved",
+        "message": "All others are ACCEPTED.",
+        "date": "2026-10-30",
+        "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Dahlia/neutral-v001.png",
+        "candidate_sha256": "060e97d7ba0abddca72d6ac0747edf38b53406a888687ac3017da95c4dfb03d8"
+      },
+      "reference": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/references/Dahlia/approved-neutral.png",
+      "expressions": {
+        "joy": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/prompts/Dahlia/joy.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Dahlia from Genshin Impact expressing joy. The supplied approved neutral is the sole image reference; preserve his identity, pink hair, catlike features, skin tone, outfit, accessories, rendering and petite medium male proportions. A bright, kindly smile and lively eyes; stand at ease, one hand raised in a friendly greeting and the other at his side. Vary the pose to fit the emotion and his kindly, lively personality. Normal pupils, simple anatomically coherent hands, two legs and feet, feet separated or slightly staggered. No weapons or added props. Complete silhouette including headwear and feet with 2–4% top and bottom padding; genuine transparent background. No scenery, text, effects, watermark or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Dahlia/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/raw/Dahlia/joy.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/sprites/Dahlia/joy.png",
+          "sha256": "3fbe55925cc5f8a035f70e59f462e0d1dd8e538167e8414e3342f9e05ee8b2ab",
+          "status": "candidate"
+        },
+        "annoyance": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/prompts/Dahlia/annoyance.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Dahlia from Genshin Impact expressing annoyance. The supplied approved neutral is the sole image reference; preserve his identity, pink hair, catlike features, skin tone, outfit, accessories, rendering and petite medium male proportions. A restrained but legible frown and narrowed eyes; shift his weight, one hand at his waist, the other relaxed. Vary the pose to fit the emotion and his kindly, lively personality. Normal pupils, simple anatomically coherent hands, two legs and feet, feet separated or slightly staggered. No weapons or added props. Complete silhouette including headwear and feet with 2–4% top and bottom padding; genuine transparent background. No scenery, text, effects, watermark or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Dahlia/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/raw/Dahlia/annoyance.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/sprites/Dahlia/annoyance.png",
+          "sha256": "009e144541e0f5d2436b36d0512e64dc0919f1c90532ac4206172916c78cc94a",
+          "status": "candidate"
+        },
+        "confusion": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/prompts/Dahlia/confusion.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Dahlia from Genshin Impact expressing confusion. The supplied approved neutral is the sole image reference; preserve his identity, pink hair, catlike features, skin tone, outfit, accessories, rendering and petite medium male proportions. A puzzled raised brow and slightly tilted head; bring one hand thoughtfully near his chin, the other at his side. Vary the pose to fit the emotion and his kindly, lively personality. Normal pupils, simple anatomically coherent hands, two legs and feet, feet separated or slightly staggered. No weapons or added props. Complete silhouette including headwear and feet with 2–4% top and bottom padding; genuine transparent background. No scenery, text, effects, watermark or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Dahlia/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/raw/Dahlia/confusion.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/sprites/Dahlia/confusion.png",
+          "sha256": "c161ba36df11cb269575de0ad77660ce9c5a7f386f9c6e4eb02090a1b9364089",
+          "status": "candidate"
+        },
+        "love": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/prompts/Dahlia/love.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Dahlia from Genshin Impact expressing love. The supplied approved neutral is the sole image reference; preserve his identity, pink hair, catlike features, skin tone, outfit, accessories, rendering and petite medium male proportions. A warm affectionate smile and gentle gaze; turn toward the viewer, one hand lightly over his heart, the other relaxed. Vary the pose to fit the emotion and his kindly, lively personality. Normal pupils, simple anatomically coherent hands, two legs and feet, feet separated or slightly staggered. No weapons or added props. Complete silhouette including headwear and feet with 2–4% top and bottom padding; genuine transparent background. No scenery, text, effects, watermark or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Dahlia/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/raw/Dahlia/love.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/sprites/Dahlia/love.png",
+          "sha256": "61d08fadb35cfb51914699320070967f27c87cd70b5b095c91b5a5d7749428cc",
+          "status": "candidate"
+        },
+        "desire": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/prompts/Dahlia/desire.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Dahlia from Genshin Impact expressing desire. The supplied approved neutral is the sole image reference; preserve his identity, pink hair, catlike features, skin tone, outfit, accessories, rendering and petite medium male proportions. A hopeful, affectionate wish for closeness, a soft blush and intent gaze; lean forward slightly, one hand near his heart and the other at his side. Tasteful and fully clothed. Vary the pose to fit the emotion and his kindly, lively personality. Normal pupils, simple anatomically coherent hands, two legs and feet, feet separated or slightly staggered. No weapons or added props. Complete silhouette including headwear and feet with 2–4% top and bottom padding; genuine transparent background. No scenery, text, effects, watermark or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Dahlia/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/raw/Dahlia/desire.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/sprites/Dahlia/desire.png",
+          "sha256": "752d9bbd90c359a3be183e675b97b6414add1087517fad0cb715f4f1e3c01074",
+          "status": "candidate"
+        },
+        "excitement": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/prompts/Dahlia/excitement.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Dahlia from Genshin Impact expressing excitement. The supplied approved neutral is the sole image reference; preserve his identity, pink hair, catlike features, skin tone, outfit, accessories, rendering and petite medium male proportions. A delighted smile and eager bright eyes; stand alert with one hand lifted in a small celebratory gesture and the other at his side. Vary the pose to fit the emotion and his kindly, lively personality. Normal pupils, simple anatomically coherent hands, two legs and feet, feet separated or slightly staggered. No weapons or added props. Complete silhouette including headwear and feet with 2–4% top and bottom padding; genuine transparent background. No scenery, text, effects, watermark or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Dahlia/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/raw/Dahlia/excitement.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/sprites/Dahlia/excitement.png",
+          "sha256": "dec957aa7090222c56f5d1781d6ac678907ed44fccc6dfb4b9eb66450a2c7759",
+          "status": "candidate"
+        },
+        "sadness": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/prompts/Dahlia/sadness.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Dahlia from Genshin Impact expressing sadness. The supplied approved neutral is the sole image reference; preserve his identity, pink hair, catlike features, skin tone, outfit, accessories, rendering and petite medium male proportions. A subdued downcast gaze and downturned mouth; shoulders gently lowered, one hand resting lightly on the opposite forearm. Vary the pose to fit the emotion and his kindly, lively personality. Normal pupils, simple anatomically coherent hands, two legs and feet, feet separated or slightly staggered. No weapons or added props. Complete silhouette including headwear and feet with 2–4% top and bottom padding; genuine transparent background. No scenery, text, effects, watermark or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Dahlia/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/raw/Dahlia/sadness.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/sprites/Dahlia/sadness.png",
+          "sha256": "6d52cc5f676ea39ae856cf8ee451225918c7129055c74a8290c6412920507daf",
+          "status": "candidate"
+        },
+        "fear": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/prompts/Dahlia/fear.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Dahlia from Genshin Impact expressing fear. The supplied approved neutral is the sole image reference; preserve his identity, pink hair, catlike features, skin tone, outfit, accessories, rendering and petite medium male proportions. Wide worried eyes and raised brows; shift back a little with one forearm protectively near his torso and the other low. Vary the pose to fit the emotion and his kindly, lively personality. Normal pupils, simple anatomically coherent hands, two legs and feet, feet separated or slightly staggered. No weapons or added props. Complete silhouette including headwear and feet with 2–4% top and bottom padding; genuine transparent background. No scenery, text, effects, watermark or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Dahlia/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/raw/Dahlia/fear.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/sprites/Dahlia/fear.png",
+          "sha256": "d2e6d678a11f12f3b6a83a2f681cd20b6d9878756fb8b9fb045df4f0cf348f0b",
+          "status": "candidate"
+        },
+        "embarrassment": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/prompts/Dahlia/embarrassment.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Dahlia from Genshin Impact expressing embarrassment. The supplied approved neutral is the sole image reference; preserve his identity, pink hair, catlike features, skin tone, outfit, accessories, rendering and petite medium male proportions. Flushed cheeks and an awkward, averted smile; turn slightly and raise one hand to the back of his neck, the other relaxed. Vary the pose to fit the emotion and his kindly, lively personality. Normal pupils, simple anatomically coherent hands, two legs and feet, feet separated or slightly staggered. No weapons or added props. Complete silhouette including headwear and feet with 2–4% top and bottom padding; genuine transparent background. No scenery, text, effects, watermark or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Dahlia/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/raw/Dahlia/embarrassment.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/sprites/Dahlia/embarrassment.png",
+          "sha256": "e920541a1ad8551441ffd18148f48c8abcd866526b8b866c68adfe657eac0d88",
+          "status": "candidate"
+        }
+      },
+      "previews": {
+        "full_body": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/previews/Dahlia-full-body.png",
+        "faces": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/previews/Dahlia-faces.png"
+      }
+    },
+    "Dehya": {
+      "neutral_approval": {
+        "status": "approved",
+        "message": "All others are ACCEPTED.",
+        "date": "2026-10-30",
+        "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Dehya/neutral-v001.png",
+        "candidate_sha256": "936fa34007f161bea0e8912a15151abb7ec619dc129d717fc162c960ee0dc00c"
+      },
+      "reference": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/references/Dehya/approved-neutral.png",
+      "expressions": {
+        "joy": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/prompts/Dehya/joy.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Dehya from Genshin Impact expressing joy. The supplied approved neutral is the sole image reference; preserve her identity, dark hair, skin tone, outfit, accessories, rendering and tall female proportions. A broad, warm grin and bright eyes; stand comfortably with one hand raised in a friendly greeting and the other at her hip. Vary pose and gesture for the emotion while retaining her confident, warm and protective character. Normal pupils, simple anatomically coherent hands, two legs and feet, feet separated or slightly staggered. Empty hands, no weapons or props. Complete silhouette with 2–4% top and bottom padding; genuine transparent background. No scenery, text, effects, watermark or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Dehya/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/raw/Dehya/joy.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/sprites/Dehya/joy.png",
+          "sha256": "56afb0d3ace2a3558415ebb868cc81b9ff9d08fd21a258ddccc64ec066a297ce",
+          "status": "candidate"
+        },
+        "annoyance": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/prompts/Dehya/annoyance.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Dehya from Genshin Impact expressing annoyance. The supplied approved neutral is the sole image reference; preserve her identity, dark hair, skin tone, outfit, accessories, rendering and tall female proportions. A confident, irritated frown and narrowed gaze; plant her feet in a steady stance, one hand on her hip and the other relaxed. Vary pose and gesture for the emotion while retaining her confident, warm and protective character. Normal pupils, simple anatomically coherent hands, two legs and feet, feet separated or slightly staggered. Empty hands, no weapons or props. Complete silhouette with 2–4% top and bottom padding; genuine transparent background. No scenery, text, effects, watermark or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Dehya/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/raw/Dehya/annoyance.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/sprites/Dehya/annoyance.png",
+          "sha256": "70d25d109d6613b12903987bc423a13c2e8aa3c44e2c698574a6593839e2c1ef",
+          "status": "candidate"
+        },
+        "confusion": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/prompts/Dehya/confusion.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Dehya from Genshin Impact expressing confusion. The supplied approved neutral is the sole image reference; preserve her identity, dark hair, skin tone, outfit, accessories, rendering and tall female proportions. A puzzled raised eyebrow and thoughtful sideways glance; tilt her head, one hand near her chin and the other at her waist. Vary pose and gesture for the emotion while retaining her confident, warm and protective character. Normal pupils, simple anatomically coherent hands, two legs and feet, feet separated or slightly staggered. Empty hands, no weapons or props. Complete silhouette with 2–4% top and bottom padding; genuine transparent background. No scenery, text, effects, watermark or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Dehya/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/raw/Dehya/confusion.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/sprites/Dehya/confusion.png",
+          "sha256": "b78835179884aa2f01f413e3cc6d739d908aa552f18d1e20a5b9efb391b83324",
+          "status": "candidate"
+        },
+        "love": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/prompts/Dehya/love.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Dehya from Genshin Impact expressing love. The supplied approved neutral is the sole image reference; preserve her identity, dark hair, skin tone, outfit, accessories, rendering and tall female proportions. A warm, unguarded affectionate smile and gentle eyes; turn toward the viewer, one hand lightly over her heart and the other relaxed. Vary pose and gesture for the emotion while retaining her confident, warm and protective character. Normal pupils, simple anatomically coherent hands, two legs and feet, feet separated or slightly staggered. Empty hands, no weapons or props. Complete silhouette with 2–4% top and bottom padding; genuine transparent background. No scenery, text, effects, watermark or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Dehya/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/raw/Dehya/love.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/sprites/Dehya/love.png",
+          "sha256": "2a8156b001769fab032d91cade12a56e50a1abdc97dd563685afaef36f6c6b55",
+          "status": "candidate"
+        },
+        "desire": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/prompts/Dehya/desire.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Dehya from Genshin Impact expressing desire. The supplied approved neutral is the sole image reference; preserve her identity, dark hair, skin tone, outfit, accessories, rendering and tall female proportions. A confident, unmistakably yearning gaze with a subtle blush and gently parted lips; lean toward the viewer slightly, one hand at her waist and the other near her heart. Tasteful in her established outfit. Vary pose and gesture for the emotion while retaining her confident, warm and protective character. Normal pupils, simple anatomically coherent hands, two legs and feet, feet separated or slightly staggered. Empty hands, no weapons or props. Complete silhouette with 2–4% top and bottom padding; genuine transparent background. No scenery, text, effects, watermark or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Dehya/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/raw/Dehya/desire.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/sprites/Dehya/desire.png",
+          "sha256": "c054928efe51cd19da3b17e1718e6a46ce07ab9dedccef7bef4c445af8d8de10",
+          "status": "candidate"
+        },
+        "excitement": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/prompts/Dehya/excitement.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Dehya from Genshin Impact expressing excitement. The supplied approved neutral is the sole image reference; preserve her identity, dark hair, skin tone, outfit, accessories, rendering and tall female proportions. An eager, delighted grin and bright eyes; stand alert with one hand lifted in a small celebratory fist near her shoulder, other hand at her hip. Vary pose and gesture for the emotion while retaining her confident, warm and protective character. Normal pupils, simple anatomically coherent hands, two legs and feet, feet separated or slightly staggered. Empty hands, no weapons or props. Complete silhouette with 2–4% top and bottom padding; genuine transparent background. No scenery, text, effects, watermark or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Dehya/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/raw/Dehya/excitement.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/sprites/Dehya/excitement.png",
+          "sha256": "7b4d1ff18a203bd4008c914360c297248b16838a84b7f3d0bcb2d34b7030a7d5",
+          "status": "candidate"
+        },
+        "sadness": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/prompts/Dehya/sadness.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Dehya from Genshin Impact expressing sadness. The supplied approved neutral is the sole image reference; preserve her identity, dark hair, skin tone, outfit, accessories, rendering and tall female proportions. A subdued sorrowful expression and lowered gaze; shoulders softened, one hand resting on the opposite forearm. Vary pose and gesture for the emotion while retaining her confident, warm and protective character. Normal pupils, simple anatomically coherent hands, two legs and feet, feet separated or slightly staggered. Empty hands, no weapons or props. Complete silhouette with 2–4% top and bottom padding; genuine transparent background. No scenery, text, effects, watermark or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Dehya/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/raw/Dehya/sadness.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/sprites/Dehya/sadness.png",
+          "sha256": "69c7038b3218807a65e5202936fd4f84defab53696b13f94f09162a92c733c12",
+          "status": "candidate"
+        },
+        "fear": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/prompts/Dehya/fear.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Dehya from Genshin Impact expressing fear. The supplied approved neutral is the sole image reference; preserve her identity, dark hair, skin tone, outfit, accessories, rendering and tall female proportions. A startled, uneasy expression with widened eyes; shift her weight back slightly, one forearm protectively near her torso, other hand down. Vary pose and gesture for the emotion while retaining her confident, warm and protective character. Normal pupils, simple anatomically coherent hands, two legs and feet, feet separated or slightly staggered. Empty hands, no weapons or props. Complete silhouette with 2–4% top and bottom padding; genuine transparent background. No scenery, text, effects, watermark or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Dehya/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/raw/Dehya/fear.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/sprites/Dehya/fear.png",
+          "sha256": "0730e592c6d610e2b90350f8c2097dc9e3d0b117473575ed5fa11c4b3bc007a4",
+          "status": "candidate"
+        },
+        "embarrassment": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/prompts/Dehya/embarrassment.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Dehya from Genshin Impact expressing embarrassment. The supplied approved neutral is the sole image reference; preserve her identity, dark hair, skin tone, outfit, accessories, rendering and tall female proportions. A visible blush and sheepish grin, gaze averted; turn her shoulders slightly and touch the back of her neck with one hand, the other relaxed. Vary pose and gesture for the emotion while retaining her confident, warm and protective character. Normal pupils, simple anatomically coherent hands, two legs and feet, feet separated or slightly staggered. Empty hands, no weapons or props. Complete silhouette with 2–4% top and bottom padding; genuine transparent background. No scenery, text, effects, watermark or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Dehya/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/raw/Dehya/embarrassment.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/sprites/Dehya/embarrassment.png",
+          "sha256": "3d798b8cb1dcd9532cbfbd120176e7f0fd7f9b50388a8f08211b76a6ab988021",
+          "status": "candidate"
+        }
+      },
+      "previews": {
+        "full_body": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/previews/Dehya-full-body.png",
+        "faces": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-03-ten-character-expressions/previews/Dehya-faces.png"
+      }
+    }
+  },
+  "preview_order": [
+    "neutral",
+    "joy",
+    "annoyance",
+    "confusion",
+    "love",
+    "desire",
+    "excitement",
+    "sadness",
+    "fear",
+    "embarrassment"
+  ],
+  "preview_layout": "left to right, top row then bottom row",
+  "technical_checks": {
+    "png_count": 100,
+    "png_and_alpha_channel": true,
+    "report": "technical-checks.json",
+    "note": "File checks only; no visual approval implied."
+  }
+}

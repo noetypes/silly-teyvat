@@ -1,0 +1,84 @@
+{
+  "date": "2026-11-05",
+  "character": "Zibai",
+  "status": "candidate_ready_for_user_review",
+  "user_feedback": "Zibai\u2019s hands are distorted, regenerate.",
+  "references": [
+    {
+      "original_path": "/Users/alexachan/Downloads/Character_Zibai_Game.webp",
+      "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-zibai-hands-neutral/references/Zibai/model.webp",
+      "sha256": "f325645f9569fb38b7cde5a53337548cd201ce2b9e4cc66ac23a2a744c025fad",
+      "role": "Primary identity, exact model design, costume and body proportions."
+    },
+    {
+      "original_path": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Zibai/Official Art/neutral.png",
+      "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-zibai-hands-neutral/references/Zibai/official.png",
+      "sha256": "461d9e5f2301990b496370aba9b07ff1fcaf08727a248b0f4a46090177381b11",
+      "role": "Illustration style and user-requested pose/expression mood cues from official portrait; model still governs costume and proportions."
+    }
+  ],
+  "previous_candidate": {
+    "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-zibai-hands-neutral/previous/Zibai/neutral-v004.png",
+    "sha256": "a3cfa8247f83a00c2a8c52efa26ae22f678a03145c5850156b526315ccdbcb20",
+    "role": "Preserved for provenance and comparison only; not a generation input."
+  },
+  "zibai_research": {
+    "source_access_note": "Fandom blocked direct page retrieval; the web search service returned indexed page text for the Storyline, Profile and Voice-Overs pages. Analysis is based on those retrieved wiki texts, not the prior local character card.",
+    "sources": [
+      {
+        "title": "Zibai/Storyline",
+        "url": "https://genshin-impact.fandom.com/wiki/Zibai/Storyline"
+      },
+      {
+        "title": "Zibai/Profile",
+        "url": "https://genshin-impact.fandom.com/wiki/Zibai/Profile"
+      },
+      {
+        "title": "Zibai/Voice-Overs",
+        "url": "https://genshin-impact.fandom.com/wiki/Zibai/Voice-Overs"
+      }
+    ],
+    "portrait_interpretation": "Original visual interpretation: her body turns away while her head and focused golden gaze return toward the viewer; restrained brows and mouth suggest watchfulness, self-possession and a hint of challenge. Hair, sleeves and a lifted/bent leg create flowing motion and an elusive, unrestrained silhouette. These visual deductions are interpretive, not canon facts.",
+    "prompt_application": "Use a controlled passing turn and an appraising golden-eyed look with a tiny knowing smile; avoid the broad welcoming gestures of prior attempts. Retain model-governed costume and proportions."
+  },
+  "generation": {
+    "tool": "image_gen.imagegen",
+    "version": "neutral-v005",
+    "arguments": {
+      "prompt": "Use case: stylized-concept. Create one new full-body neutral visual-novel sprite of Zibai from Genshin Impact.\nImage 1, the supplied in-game model, governs her identity, face, fair skin, natural Tall Female proportions, exact costume construction, accessories and colors. Preserve the silver-white hair with golden streak, golden eyes and normal pupils, gold crescent head ornaments, turquoise earrings and ribbons, white-and-jade outfit, gold shoulder pieces and clasps, long green gradient sleeves with white fur trim, swirling patterns, crescent pendants, white legwear and gold-trimmed heels. Keep natural balanced anatomy without exaggerating limb length.\nImage 2, her official illustrated portrait, guides the polished anime drawing, linework, cel shading, painted transitions and material rendering. Also draw on its watchful expression, composed over-the-shoulder look and freely flowing turned silhouette, as specifically requested by the user. Model Image 1 still governs costume details and proportions.\nCharacter direction informed by her story and voice-over text: an ancient protective envoy and adeptus who is independent, unrestrained and subtly wry, with the humane golden-eyed aspect. She can be compassionate and playful while retaining an incisive, self-possessed presence. Convey calm authority and a suggestion of knowing amusement, with emotional depth beneath the surface.\nPose: a graceful passing turn, as though she has paused on her own journey after noticing the viewer. Turn the torso three-quarter away, then turn her head back toward the viewer over the nearer shoulder. Keep her golden eyes open, slightly narrowed by relaxed upper lids, with an attentive appraising gaze. Her brows are level and composed; the closed mouth has only a tiny asymmetrical hint of a knowing smile, not a broad cheerful smile. Keep the chin level and head poised, without a coy tilt. Simplify both hand positions while preserving the characterful body turn and expression. Her left forearm bends loosely at LOW WAIST height, with her left hand relaxed in front of her own waist, palm angled inward and fingers gently together. Her right arm hangs naturally beside her outer hip, right hand fully within the silhouette and away from the left hand, palm facing toward her own thigh with fingers comfortably grouped. Keep both wrists straight and naturally connected to their forearms. Do not trail a hand behind her body, rotate a wrist backward, or bend fingers into ornate poses. Each hand has one coherent palm, exactly four fingers connected to it, and one anatomically correct thumb at its side. Where fingers overlap naturally or a sleeve hides part of the hand, do not force extra digits into view. Keep both hands near the image plane and spatially separate, with simple relaxed contours and no extreme foreshortening. Her face remains unobscured. Shift weight onto the forward foot while the other knee relaxes behind it, both legs and feet clearly separate and uncrossed. Keep her standing with a natural back and controlled balance. Let hair and long sleeve panels follow the turn in a flowing arc that settles naturally with gravity; do not add magical wind or effects. The silhouette should suggest freedom of movement and elegant reserve, rather than an open-palmed greeting or a static formal stance.\nComplete silhouette from head ornaments and hair tips to both shoes, including fingers, sleeve ends and all hanging accessories. Roughly 92\u201396% visible height with 2\u20134% top and bottom padding. Genuinely transparent background with clear alpha outside the character silhouette; no backdrop, opaque gradient, vignette, halo or background glow. Omit screenshot scenery, blue lighting, floor, reflection, particles, UI, text, labels, watermark, ground shadow, floating effects, handheld objects, new props and additional characters.",
+      "referenced_image_paths": [
+        "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-zibai-hands-neutral/references/Zibai/model.webp",
+        "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-zibai-hands-neutral/references/Zibai/official.png"
+      ],
+      "transparent_background": true
+    },
+    "tool_output": "/Users/alexachan/.codex/generated_images/01a1aa19-42b2-7e92-b08d-8ee7d133c057/exec-3bb88982-18a5-4eb0-99be-3e3fbc3817ee.png",
+    "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-zibai-hands-neutral/raw/Zibai/neutral-v005.png",
+    "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-zibai-hands-neutral/candidates/Zibai/neutral-v005.png",
+    "candidate_sha256": "2077e05a9bfc7bf3b309ba8db2da6164c8bfe71f0b7e32dbe904d91294198b86",
+    "dimensions": [
+      1024,
+      1536
+    ],
+    "png_color_type": 6,
+    "framing_transform": null
+  },
+  "approval": {
+    "status": "pending"
+  },
+  "yoimiya_approval": {
+    "status": "approved",
+    "date": "2026-11-05",
+    "message": "Yoimiya approved",
+    "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-zibai-wiki-yoimiya-fresh-neutrals/candidates/Yoimiya/neutral-v004.png",
+    "candidate_sha256": "4dccb857e3f49809d47cb0d151a2f2201e5621092df07ed9b106b37f00d8a4ab"
+  },
+  "installation": "not requested; live sprites unchanged",
+  "user_feedback_followup": "she's facing sideways, but the pattern on her leggings are showing as if she's facing to the front. if you're going with this pose, reference the official art more heavily than the model",
+  "requested_revision": {
+    "manifest": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-zibai-official-pose-priority/run.json",
+    "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-zibai-official-pose-priority/candidates/Zibai/neutral-v006.png",
+    "sha256": "8e5aac53a8009ac3bb80193e5df0f3c026766964a84fbeac1a7b976f2268ddad",
+    "status": "pending user review"
+  }
+}

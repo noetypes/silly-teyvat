@@ -1,0 +1,671 @@
+{
+  "date": "2026-11-05",
+  "status": "five_neutrals_approved_mizuki_restarting",
+  "request": "Regenerate six neutrals from supplied in-game model images in conjunction with official art and display labeled old/new pairs.",
+  "reference_exception": {
+    "authorized": true,
+    "scope": "These six character neutrals in this run",
+    "authorization": "User supplied each model image and explicitly requested combining it with the corresponding official art reference."
+  },
+  "comparison_labels": {
+    "authorized": true,
+    "scope": "Comparison previews only",
+    "request": "Place the new neutral next to the old neutral for each character, with a label indicating which is which."
+  },
+  "characters": {
+    "Xingqiu": {
+      "status": "approved",
+      "category": "Medium Male",
+      "references": [
+        {
+          "original_path": "/Users/alexachan/Downloads/Character_Xingqiu_Game.webp",
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-six-model-neutral-comparisons/references/Xingqiu/model.webp",
+          "sha256": "518936b02413502773659967867844646b1bfbc9fe4b0eb67b5d87174a89365e",
+          "role": "Primary identity, exact design/costume and body proportions."
+        },
+        {
+          "original_path": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Xingqiu/Official Art/neutral.png",
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-six-model-neutral-comparisons/references/Xingqiu/official.png",
+          "sha256": "5607d8177ac5cb96754cb76f9acb8a76a63e028ee659fa1bdb5d685d04d9bfa3",
+          "role": "Illustrated art style only."
+        }
+      ],
+      "old_neutral": {
+        "original_path": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Xingqiu/neutral.png",
+        "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-six-model-neutral-comparisons/old/Xingqiu/neutral.png",
+        "sha256": "e43efda870321c02f2cfc6b29caed14df032ce71b53130b222bf0d8a0163d327",
+        "role": "Comparison baseline only; never a generation input"
+      },
+      "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-six-model-neutral-comparisons/prompts/Xingqiu/neutral-v001.txt",
+      "generation": {
+        "tool": "image_gen.imagegen",
+        "arguments": {
+          "prompt": "Use case: stylized-concept. Create one new full-body neutral visual-novel sprite of Xingqiu from Genshin Impact.\nImage 1 is the user-supplied in-game model screenshot and is the authoritative reference for character identity, face, skin tone, hair, eyes, exact costume construction, accessory placement and body proportions. Faithfully preserve its asymmetrical teal-blue bob haircut, amber-gold eyes, gold tassel earring, black-and-teal robe with exact gold cloud embroidery, turquoise chest ornament, fastenings, white ruffled sleeve cuffs, shorts, white stockings and black-and-gold shoes. Use the model's real costume colors without copying the blue environmental lighting or screenshot background. Hair and heavy hanging costume panels should fall naturally with gravity.\nImage 2 is the installed official illustrated portrait, for ART STYLE ONLY: polished Genshin-inspired anime illustration, clean drawn contours, detailed cel shading with soft painted transitions, and its treatment of hair, fabric, metal and other materials. Do not copy the portrait's dramatic action pose, windblown panels or accessories that differ from the model. Image 1 governs all design and costume details.\nProportions: Retain a petite Medium Male anime build: small frame, narrow shoulders, compact torso and natural short limbs, preserving the youthful model proportions without making him tall or stretching his legs.\nCharacter-specific neutral acting: a poised, courteous scholar with a trace of playful confidence: subtle closed-mouth smile, attentive open eyes and a slight three-quarter turn. His right hand rests lightly at his upper chest while his left arm relaxes near his waist, with the open hand visible below its cuff. Stand with a small comfortable weight shift and feet staggered and uncrossed. Do not add a book or sword.\nKeep hand gestures simple, spatially separate, near the torso and near the image plane, with coherent wrists and one thumb and four fingers per hand where visible. Exactly two legs and two feet. Keep the face and eyes readable with the character's normal pupils. Complete silhouette including hair, headwear, hands, sleeves, costume panels, accessories and shoes, with roughly 2\u20134% top and bottom padding and 92\u201396% visible height. Genuinely transparent background. Omit all screenshot scenery, blue backdrop, UI, particles, floor and reflection. No text, labels, watermarks, ground shadow, floating effects, new props or additional characters.",
+          "referenced_image_paths": [
+            "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-six-model-neutral-comparisons/references/Xingqiu/model.webp",
+            "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-six-model-neutral-comparisons/references/Xingqiu/official.png"
+          ],
+          "transparent_background": true
+        },
+        "tool_output": "/Users/alexachan/.codex/generated_images/01a1aa19-42b2-7e92-b08d-8ee7d133c057/exec-58501d8a-132f-48a3-aada-8e0f8b77a0c4.png",
+        "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-six-model-neutral-comparisons/raw/Xingqiu/neutral-v001.png",
+        "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-six-model-neutral-comparisons/candidates/Xingqiu/neutral-v001.png",
+        "candidate_sha256": "5e0c8b025646db174512d5207d3c87ddd18d2651b373531b229538ad84781c64",
+        "dimensions": [
+          944,
+          1666
+        ],
+        "png_color_type": 6,
+        "framing_transform": null
+      },
+      "approval": {
+        "status": "approved",
+        "date": "2026-11-05",
+        "message": "Xinyan and Xingqiu are good.",
+        "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-six-model-neutral-comparisons/candidates/Xingqiu/neutral-v001.png",
+        "candidate_sha256": "5e0c8b025646db174512d5207d3c87ddd18d2651b373531b229538ad84781c64"
+      },
+      "comparison": {
+        "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-six-model-neutral-comparisons/comparisons/xingqiu-old-new.png",
+        "old_side": "left",
+        "new_side": "right",
+        "labels": [
+          "Old neutral",
+          "New neutral"
+        ],
+        "transforms": [
+          {
+            "side": "old",
+            "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-six-model-neutral-comparisons/old/Xingqiu/neutral.png",
+            "alpha_bbox_crop": [
+              53,
+              0,
+              854,
+              1706
+            ],
+            "thumbnail_size": [
+              399,
+              850
+            ],
+            "position": [
+              25,
+              128
+            ]
+          },
+          {
+            "side": "new",
+            "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-six-model-neutral-comparisons/candidates/Xingqiu/neutral-v001.png",
+            "alpha_bbox_crop": [
+              0,
+              0,
+              930,
+              1636
+            ],
+            "thumbnail_size": [
+              410,
+              721
+            ],
+            "position": [
+              470,
+              192
+            ]
+          }
+        ],
+        "note": "Transparent margins trimmed and proportional thumbnails fitted to equal-size comparison cells; sprite PNGs unchanged."
+      }
+    },
+    "Xinyan": {
+      "status": "approved",
+      "category": "Medium Female",
+      "references": [
+        {
+          "original_path": "/Users/alexachan/Downloads/Character_Xinyan_Game.webp",
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-six-model-neutral-comparisons/references/Xinyan/model.webp",
+          "sha256": "e6a727a232b9451815721540570c7d22804cc0798fec9199911dd29a551896d2",
+          "role": "Primary identity, exact design/costume and body proportions."
+        },
+        {
+          "original_path": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Xinyan/Official Art/neutral.png",
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-six-model-neutral-comparisons/references/Xinyan/official.png",
+          "sha256": "a576dad7fbba74c49422c9e6e5533892909d5f1eace03a48b2f5356c673a0557",
+          "role": "Illustrated art style only."
+        }
+      ],
+      "old_neutral": {
+        "original_path": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Xinyan/neutral.png",
+        "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-six-model-neutral-comparisons/old/Xinyan/neutral.png",
+        "sha256": "89f07fa5ca2f83c6acdd3b93f37528f3ac7b6ea8c9c154531eed8ada908da1eb",
+        "role": "Comparison baseline only; never a generation input"
+      },
+      "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-six-model-neutral-comparisons/prompts/Xinyan/neutral-v001.txt",
+      "generation": {
+        "tool": "image_gen.imagegen",
+        "arguments": {
+          "prompt": "Use case: stylized-concept. Create one new full-body neutral visual-novel sprite of Xinyan from Genshin Impact.\nImage 1 is the user-supplied in-game model screenshot and is the authoritative reference for character identity, face, skin tone, hair, eyes, exact costume construction, accessory placement and body proportions. Faithfully preserve its warm tan skin tone, golden eyes and vivid eye makeup, dark twin puff hairstyle with red and gold streaks and white spikes, exact black-and-red dress fastenings, white shoulder pieces, braids with red ends, asymmetric legwear and fishnet stocking, spiked cuffs and open-toe boots. Use the model's real costume colors without copying the blue environmental lighting or screenshot background. Hair and heavy hanging costume panels should fall naturally with gravity.\nImage 2 is the installed official illustrated portrait, for ART STYLE ONLY: polished Genshin-inspired anime illustration, clean drawn contours, detailed cel shading with soft painted transitions, and its treatment of hair, fabric, metal and other materials. Do not copy the portrait's dramatic action pose, windblown panels or accessories that differ from the model. Image 1 governs all design and costume details.\nProportions: Retain a petite Medium Female anime build: delicate small frame, compact torso and natural limb lengths matching the model, without elongating the torso or legs or turning her into a chibi.\nCharacter-specific neutral acting: a friendly, confident rocker at ease: a warm small grin, open eyes and relaxed shoulders. Set one hand casually on her hip while the other hangs open near her side, elbow gently bent. A grounded easy weight shift gives her an approachable stage presence without a performance action. Keep feet separate and uncrossed. Do not add a guitar, instrument, drum or weapon.\nKeep hand gestures simple, spatially separate, near the torso and near the image plane, with coherent wrists and one thumb and four fingers per hand where visible. Exactly two legs and two feet. Keep the face and eyes readable with the character's normal pupils. Complete silhouette including hair, headwear, hands, sleeves, costume panels, accessories and shoes, with roughly 2\u20134% top and bottom padding and 92\u201396% visible height. Genuinely transparent background. Omit all screenshot scenery, blue backdrop, UI, particles, floor and reflection. No text, labels, watermarks, ground shadow, floating effects, new props or additional characters.",
+          "referenced_image_paths": [
+            "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-six-model-neutral-comparisons/references/Xinyan/model.webp",
+            "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-six-model-neutral-comparisons/references/Xinyan/official.png"
+          ],
+          "transparent_background": true
+        },
+        "tool_output": "/Users/alexachan/.codex/generated_images/01a1aa19-42b2-7e92-b08d-8ee7d133c057/exec-8db25c17-6ae3-4029-8736-8b8609527b10.png",
+        "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-six-model-neutral-comparisons/raw/Xinyan/neutral-v001.png",
+        "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-six-model-neutral-comparisons/candidates/Xinyan/neutral-v001.png",
+        "candidate_sha256": "316fcf7b883ac332f212b44f595e88ec1c130962af89bff0ed79261a4da385b7",
+        "dimensions": [
+          941,
+          1672
+        ],
+        "png_color_type": 6,
+        "framing_transform": null
+      },
+      "approval": {
+        "status": "approved",
+        "date": "2026-11-05",
+        "message": "Xinyan and Xingqiu are good.",
+        "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-six-model-neutral-comparisons/candidates/Xinyan/neutral-v001.png",
+        "candidate_sha256": "316fcf7b883ac332f212b44f595e88ec1c130962af89bff0ed79261a4da385b7"
+      },
+      "comparison": {
+        "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-six-model-neutral-comparisons/comparisons/xinyan-old-new.png",
+        "old_side": "left",
+        "new_side": "right",
+        "labels": [
+          "Old neutral",
+          "New neutral"
+        ],
+        "transforms": [
+          {
+            "side": "old",
+            "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-six-model-neutral-comparisons/old/Xinyan/neutral.png",
+            "alpha_bbox_crop": [
+              0,
+              0,
+              939,
+              1646
+            ],
+            "thumbnail_size": [
+              410,
+              719
+            ],
+            "position": [
+              20,
+              193
+            ]
+          },
+          {
+            "side": "new",
+            "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-six-model-neutral-comparisons/candidates/Xinyan/neutral-v001.png",
+            "alpha_bbox_crop": [
+              0,
+              15,
+              905,
+              1662
+            ],
+            "thumbnail_size": [
+              410,
+              746
+            ],
+            "position": [
+              470,
+              180
+            ]
+          }
+        ],
+        "note": "Transparent margins trimmed and proportional thumbnails fitted to equal-size comparison cells; sprite PNGs unchanged."
+      }
+    },
+    "Yoimiya": {
+      "status": "candidate_ready_for_user_review",
+      "category": "Medium Female",
+      "references": [
+        {
+          "original_path": "/Users/alexachan/Downloads/Character_Yoimiya_Game.webp",
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-six-model-neutral-comparisons/references/Yoimiya/model.webp",
+          "sha256": "c9bc4d91166ca1e86aedd25725b714583689eaf6415902f3ee6957dd48a5f263",
+          "role": "Primary identity, exact design/costume and body proportions."
+        },
+        {
+          "original_path": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Yoimiya/Official Art/neutral.png",
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-six-model-neutral-comparisons/references/Yoimiya/official.png",
+          "sha256": "423cc75206e5e2864ccbd6498c2bd58e9a2420fb42d46493f93c8639ca72c069",
+          "role": "Illustrated art style only."
+        }
+      ],
+      "old_neutral": {
+        "original_path": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Yoimiya/neutral.png",
+        "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-six-model-neutral-comparisons/old/Yoimiya/neutral.png",
+        "sha256": "b6b83c23bd97193076bf5086df53226935a7a492153961d655a1b0cc02bedaa0",
+        "role": "Comparison baseline only; never a generation input"
+      },
+      "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-six-model-neutral-comparisons/prompts/Yoimiya/neutral-v001.txt",
+      "generation": {
+        "tool": "image_gen.imagegen",
+        "arguments": {
+          "prompt": "Use case: stylized-concept. Create one new full-body neutral visual-novel sprite of Yoimiya from Genshin Impact.\nImage 1 is the user-supplied in-game model screenshot and is the authoritative reference for character identity, face, skin tone, hair, eyes, exact costume construction, accessory placement and body proportions. Faithfully preserve its warm blond updo and hair ornaments, amber-gold eyes, earrings, exact asymmetrical orange kimono, white bandage wraps, arm markings, red rope loop on her back, belt and pouches, patterned hanging cloth, uneven leg guards, ribbons and sandals. Use the model's real costume colors without copying the blue environmental lighting or screenshot background. Hair and heavy hanging costume panels should fall naturally with gravity.\nImage 2 is the installed official illustrated portrait, for ART STYLE ONLY: polished Genshin-inspired anime illustration, clean drawn contours, detailed cel shading with soft painted transitions, and its treatment of hair, fabric, metal and other materials. Do not copy the portrait's dramatic action pose, windblown panels or accessories that differ from the model. Image 1 governs all design and costume details.\nProportions: Retain a petite Medium Female anime build: delicate small frame, compact torso and natural limb lengths matching the model, without elongating the torso or legs or turning her into a chibi.\nCharacter-specific neutral acting: a sunny, approachable idle with a bright but gentle smile and open lively eyes. Give her a slight friendly head tilt, one hand lifted in a small open-palmed greeting near her shoulder and the other resting casually at her waist. A lively small weight shift, feet grounded and uncrossed. Do not add fireworks, a bow or other props.\nKeep hand gestures simple, spatially separate, near the torso and near the image plane, with coherent wrists and one thumb and four fingers per hand where visible. Exactly two legs and two feet. Keep the face and eyes readable with the character's normal pupils. Complete silhouette including hair, headwear, hands, sleeves, costume panels, accessories and shoes, with roughly 2\u20134% top and bottom padding and 92\u201396% visible height. Genuinely transparent background. Omit all screenshot scenery, blue backdrop, UI, particles, floor and reflection. No text, labels, watermarks, ground shadow, floating effects, new props or additional characters.",
+          "referenced_image_paths": [
+            "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-six-model-neutral-comparisons/references/Yoimiya/model.webp",
+            "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-six-model-neutral-comparisons/references/Yoimiya/official.png"
+          ],
+          "transparent_background": true
+        },
+        "tool_output": "/Users/alexachan/.codex/generated_images/01a1aa19-42b2-7e92-b08d-8ee7d133c057/exec-b883cdc2-03b1-4a85-a948-6c2d3476712b.png",
+        "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-six-model-neutral-comparisons/raw/Yoimiya/neutral-v001.png",
+        "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-six-model-neutral-comparisons/candidates/Yoimiya/neutral-v001.png",
+        "candidate_sha256": "137e333c55f18337b64c2c54b3b534a74afd31b4171cbef6b6732a478618126e",
+        "dimensions": [
+          935,
+          1682
+        ],
+        "png_color_type": 6,
+        "framing_transform": null
+      },
+      "approval": {
+        "status": "pending"
+      },
+      "comparison": {
+        "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-six-model-neutral-comparisons/comparisons/yoimiya-old-new.png",
+        "old_side": "left",
+        "new_side": "right",
+        "labels": [
+          "Old neutral",
+          "New neutral"
+        ],
+        "transforms": [
+          {
+            "side": "old",
+            "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-six-model-neutral-comparisons/old/Yoimiya/neutral.png",
+            "alpha_bbox_crop": [
+              33,
+              0,
+              1118,
+              1373
+            ],
+            "thumbnail_size": [
+              410,
+              519
+            ],
+            "position": [
+              20,
+              293
+            ]
+          },
+          {
+            "side": "new",
+            "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-six-model-neutral-comparisons/candidates/Yoimiya/neutral-v001.png",
+            "alpha_bbox_crop": [
+              17,
+              6,
+              921,
+              1682
+            ],
+            "thumbnail_size": [
+              410,
+              760
+            ],
+            "position": [
+              470,
+              173
+            ]
+          }
+        ],
+        "note": "Transparent margins trimmed and proportional thumbnails fitted to equal-size comparison cells; sprite PNGs unchanged."
+      },
+      "requested_revision": {
+        "manifest": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-zibai-wiki-yoimiya-fresh-neutrals/run.json",
+        "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-zibai-wiki-yoimiya-fresh-neutrals/candidates/Yoimiya/neutral-v004.png",
+        "sha256": "4dccb857e3f49809d47cb0d151a2f2201e5621092df07ed9b106b37f00d8a4ab",
+        "status": "approved"
+      },
+      "selected_approved_revision": {
+        "status": "approved",
+        "date": "2026-11-05",
+        "message": "Yoimiya approved",
+        "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-zibai-wiki-yoimiya-fresh-neutrals/candidates/Yoimiya/neutral-v004.png",
+        "candidate_sha256": "4dccb857e3f49809d47cb0d151a2f2201e5621092df07ed9b106b37f00d8a4ab"
+      }
+    },
+    "Yumemizuki Mizuki": {
+      "status": "neutral_approval_revoked_restart_requested",
+      "category": "Medium Female",
+      "references": [
+        {
+          "original_path": "/Users/alexachan/Downloads/Character_Yumemizuki_Mizuki_Game.webp",
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-six-model-neutral-comparisons/references/Yumemizuki Mizuki/model.webp",
+          "sha256": "127b850de554699de1c1b1b9daa7b0d64ff75426c9abbace3cbe3806fe38b2db",
+          "role": "Primary identity, exact design/costume and body proportions."
+        },
+        {
+          "original_path": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Yumemizuki Mizuki/Official Art/neutral.png",
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-six-model-neutral-comparisons/references/Yumemizuki Mizuki/official.png",
+          "sha256": "b774f4132c065af72e17f7f4cf0c190f1a45c6d3375d99c6a0c7739bfb9ead7a",
+          "role": "Illustrated art style only."
+        }
+      ],
+      "old_neutral": {
+        "original_path": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Yumemizuki Mizuki/neutral.png",
+        "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-six-model-neutral-comparisons/old/Yumemizuki Mizuki/neutral.png",
+        "sha256": "d5a86636948679e7b240e60f32ba120669a82af1173144fab675449eb282a073",
+        "role": "Comparison baseline only; never a generation input"
+      },
+      "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-six-model-neutral-comparisons/prompts/Yumemizuki Mizuki/neutral-v001.txt",
+      "generation": {
+        "tool": "image_gen.imagegen",
+        "arguments": {
+          "prompt": "Use case: stylized-concept. Create one new full-body neutral visual-novel sprite of Yumemizuki Mizuki from Genshin Impact.\nImage 1 is the user-supplied in-game model screenshot and is the authoritative reference for character identity, face, skin tone, hair, eyes, exact costume construction, accessory placement and body proportions. Faithfully preserve its pale mint-blue hair with its curled ends and soft pink accents, pink-lilac eyes, pointed ears and elaborate headpiece, exact pale-pink kimono and white apron, purple swirls, bows, gold spiral ornament, detached long sleeves, thigh accessory, socks and platform sandals. Use the model's real costume colors without copying the blue environmental lighting or screenshot background. Hair and heavy hanging costume panels should fall naturally with gravity.\nImage 2 is the installed official illustrated portrait, for ART STYLE ONLY: polished Genshin-inspired anime illustration, clean drawn contours, detailed cel shading with soft painted transitions, and its treatment of hair, fabric, metal and other materials. Do not copy the portrait's dramatic action pose, windblown panels or accessories that differ from the model. Image 1 governs all design and costume details.\nProportions: Retain a petite Medium Female anime build: delicate small frame, compact torso and natural limb lengths matching the model, without elongating the torso or legs or turning her into a chibi.\nCharacter-specific neutral acting: a serene, welcoming idle with a gentle closed-mouth smile, softly attentive open eyes and a slight head tilt. Turn her shoulders subtly toward the viewer, one hand opening in a small inviting gesture near her waist while the other rests loosely in front of her torso; keep hands separate. Stand calmly with both feet planted and uncrossed. Do not add a tray, food, drink or props.\nKeep hand gestures simple, spatially separate, near the torso and near the image plane, with coherent wrists and one thumb and four fingers per hand where visible. Exactly two legs and two feet. Keep the face and eyes readable with the character's normal pupils. Complete silhouette including hair, headwear, hands, sleeves, costume panels, accessories and shoes, with roughly 2\u20134% top and bottom padding and 92\u201396% visible height. Genuinely transparent background. Omit all screenshot scenery, blue backdrop, UI, particles, floor and reflection. No text, labels, watermarks, ground shadow, floating effects, new props or additional characters.",
+          "referenced_image_paths": [
+            "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-six-model-neutral-comparisons/references/Yumemizuki Mizuki/model.webp",
+            "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-six-model-neutral-comparisons/references/Yumemizuki Mizuki/official.png"
+          ],
+          "transparent_background": true
+        },
+        "tool_output": "/Users/alexachan/.codex/generated_images/01a1aa19-42b2-7e92-b08d-8ee7d133c057/exec-e8e83128-6797-4b6c-8c1e-32b5e3e326ab.png",
+        "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-six-model-neutral-comparisons/raw/Yumemizuki Mizuki/neutral-v001.png",
+        "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-six-model-neutral-comparisons/candidates/Yumemizuki Mizuki/neutral-v001.png",
+        "candidate_sha256": "3533743bf9a37d497a16dfcee0d7ad04567449e5da955a6c3e0d697780655288",
+        "dimensions": [
+          935,
+          1683
+        ],
+        "png_color_type": 6,
+        "framing_transform": null
+      },
+      "approval": {
+        "status": "revoked",
+        "date": "2026-11-05",
+        "message": "Approve and use the new neutral (right)",
+        "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-six-model-neutral-comparisons/candidates/Yumemizuki Mizuki/neutral-v001.png",
+        "candidate_sha256": "3533743bf9a37d497a16dfcee0d7ad04567449e5da955a6c3e0d697780655288",
+        "revocation": {
+          "date": "2026-11-05",
+          "message": "Zibai accepted, Yun Jin accepted. Mizuki: Confusion - distorted hands, Desire - distorted eyes, Embarrassment - distorted eyes, Excitement - distorted eyes. I think the issue with Mizuki\u2019s eyes might be part of her neutral. Try regenerating the Mizuki neutral, and then use her in game model as a secondary reference for each emotion thereafter."
+        }
+      },
+      "comparison": {
+        "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-six-model-neutral-comparisons/comparisons/yumemizuki-mizuki-old-new.png",
+        "old_side": "left",
+        "new_side": "right",
+        "labels": [
+          "Old neutral",
+          "New neutral"
+        ],
+        "transforms": [
+          {
+            "side": "old",
+            "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-six-model-neutral-comparisons/old/Yumemizuki Mizuki/neutral.png",
+            "alpha_bbox_crop": [
+              0,
+              0,
+              1198,
+              1313
+            ],
+            "thumbnail_size": [
+              410,
+              449
+            ],
+            "position": [
+              20,
+              328
+            ]
+          },
+          {
+            "side": "new",
+            "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-six-model-neutral-comparisons/candidates/Yumemizuki Mizuki/neutral-v001.png",
+            "alpha_bbox_crop": [
+              0,
+              0,
+              915,
+              1667
+            ],
+            "thumbnail_size": [
+              410,
+              747
+            ],
+            "position": [
+              470,
+              179
+            ]
+          }
+        ],
+        "note": "Transparent margins trimmed and proportional thumbnails fitted to equal-size comparison cells; sprite PNGs unchanged."
+      },
+      "expression_run": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-mizuki-ten-sprites/run.json"
+    },
+    "Yun Jin": {
+      "status": "candidate_ready_for_user_review",
+      "category": "Medium Female",
+      "references": [
+        {
+          "original_path": "/Users/alexachan/Downloads/Character_Yun_Jin_Game.webp",
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-six-model-neutral-comparisons/references/Yun Jin/model.webp",
+          "sha256": "48000fec3461d45a2f3e97c53550d1b2821e3bfcac546429609acea2e5c896ad",
+          "role": "Primary identity, exact design/costume and body proportions."
+        },
+        {
+          "original_path": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Yun Jin/Official Art/neutral.png",
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-six-model-neutral-comparisons/references/Yun Jin/official.png",
+          "sha256": "b9b713809005cba8f7d43d8e591953cae1ce86c02abaf5fd0c632c174f842ce2",
+          "role": "Illustrated art style only."
+        }
+      ],
+      "old_neutral": {
+        "original_path": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Yun Jin/neutral.png",
+        "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-six-model-neutral-comparisons/old/Yun Jin/neutral.png",
+        "sha256": "94e1993dfed768080a82831529a05cc83935d6560b6ba52611be4440c83ad3de",
+        "role": "Comparison baseline only; never a generation input"
+      },
+      "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-six-model-neutral-comparisons/prompts/Yun Jin/neutral-v001.txt",
+      "generation": {
+        "tool": "image_gen.imagegen",
+        "arguments": {
+          "prompt": "Use case: stylized-concept. Create one new full-body neutral visual-novel sprite of Yun Jin from Genshin Impact.\nImage 1 is the user-supplied in-game model screenshot and is the authoritative reference for character identity, face, skin tone, hair, eyes, exact costume construction, accessory placement and body proportions. Faithfully preserve its dark indigo hair and straight fringe, reddish-pink eyes and makeup, rounded opera headpiece with exact pink teal and white pom-poms and tassels, white fur collar, pink shoulder panels, purple patterned dress with pale front panel and red tassels, tights and decorated boots. Use the model's real costume colors without copying the blue environmental lighting or screenshot background. Hair and heavy hanging costume panels should fall naturally with gravity.\nImage 2 is the installed official illustrated portrait, for ART STYLE ONLY: polished Genshin-inspired anime illustration, clean drawn contours, detailed cel shading with soft painted transitions, and its treatment of hair, fabric, metal and other materials. Do not copy the portrait's dramatic action pose, windblown panels or accessories that differ from the model. Image 1 governs all design and costume details.\nProportions: Retain a petite Medium Female anime build: delicate small frame, compact torso and natural limb lengths matching the model, without elongating the torso or legs or turning her into a chibi.\nCharacter-specific neutral acting: an elegant, composed opera performer between performances: a small graceful smile, open attentive eyes, chin gently poised and slight three-quarter torso turn. One hand rests lightly at her upper chest while the other opens low at waist height in a restrained courtly gesture, elbows relaxed and hands separate. Feet slightly staggered and uncrossed, with natural balance. Do not add a spear or other prop.\nKeep hand gestures simple, spatially separate, near the torso and near the image plane, with coherent wrists and one thumb and four fingers per hand where visible. Exactly two legs and two feet. Keep the face and eyes readable with the character's normal pupils. Complete silhouette including hair, headwear, hands, sleeves, costume panels, accessories and shoes, with roughly 2\u20134% top and bottom padding and 92\u201396% visible height. Genuinely transparent background. Omit all screenshot scenery, blue backdrop, UI, particles, floor and reflection. No text, labels, watermarks, ground shadow, floating effects, new props or additional characters.",
+          "referenced_image_paths": [
+            "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-six-model-neutral-comparisons/references/Yun Jin/model.webp",
+            "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-six-model-neutral-comparisons/references/Yun Jin/official.png"
+          ],
+          "transparent_background": true
+        },
+        "tool_output": "/Users/alexachan/.codex/generated_images/01a1aa19-42b2-7e92-b08d-8ee7d133c057/exec-0876c476-6a56-41bd-866c-97f3b2e0261d.png",
+        "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-six-model-neutral-comparisons/raw/Yun Jin/neutral-v001.png",
+        "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-six-model-neutral-comparisons/candidates/Yun Jin/neutral-v001.png",
+        "candidate_sha256": "f97d128429f94bbadeb2a600b18975405042ba48b83da8e38f262b077adc4018",
+        "dimensions": [
+          975,
+          1612
+        ],
+        "png_color_type": 6,
+        "framing_transform": null
+      },
+      "approval": {
+        "status": "pending"
+      },
+      "comparison": {
+        "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-six-model-neutral-comparisons/comparisons/yun-jin-old-new.png",
+        "old_side": "left",
+        "new_side": "right",
+        "labels": [
+          "Old neutral",
+          "New neutral"
+        ],
+        "transforms": [
+          {
+            "side": "old",
+            "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-six-model-neutral-comparisons/old/Yun Jin/neutral.png",
+            "alpha_bbox_crop": [
+              30,
+              0,
+              994,
+              1549
+            ],
+            "thumbnail_size": [
+              410,
+              659
+            ],
+            "position": [
+              20,
+              223
+            ]
+          },
+          {
+            "side": "new",
+            "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-six-model-neutral-comparisons/candidates/Yun Jin/neutral-v001.png",
+            "alpha_bbox_crop": [
+              80,
+              1,
+              957,
+              1612
+            ],
+            "thumbnail_size": [
+              410,
+              753
+            ],
+            "position": [
+              470,
+              176
+            ]
+          }
+        ],
+        "note": "Transparent margins trimmed and proportional thumbnails fitted to equal-size comparison cells; sprite PNGs unchanged."
+      },
+      "requested_revision": {
+        "manifest": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-yoimiya-midpoint-yunjin-zibai-poses/run.json",
+        "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-yoimiya-midpoint-yunjin-zibai-poses/candidates/Yun Jin/neutral-v003.png",
+        "sha256": "f63a0c7f81b1467918129ed1148695f0f14abe880c8c5605f532835007f51e7b",
+        "status": "approved"
+      },
+      "selected_approved_revision": {
+        "status": "approved",
+        "date": "2026-11-05",
+        "message": "Yun Jin approved.",
+        "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-yoimiya-midpoint-yunjin-zibai-poses/candidates/Yun Jin/neutral-v003.png",
+        "candidate_sha256": "f63a0c7f81b1467918129ed1148695f0f14abe880c8c5605f532835007f51e7b"
+      }
+    },
+    "Zibai": {
+      "status": "candidate_ready_for_user_review",
+      "category": "Tall Female",
+      "references": [
+        {
+          "original_path": "/Users/alexachan/Downloads/Character_Zibai_Game.webp",
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-six-model-neutral-comparisons/references/Zibai/model.webp",
+          "sha256": "f325645f9569fb38b7cde5a53337548cd201ce2b9e4cc66ac23a2a744c025fad",
+          "role": "Primary identity, exact design/costume and body proportions."
+        },
+        {
+          "original_path": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Zibai/Official Art/neutral.png",
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-six-model-neutral-comparisons/references/Zibai/official.png",
+          "sha256": "461d9e5f2301990b496370aba9b07ff1fcaf08727a248b0f4a46090177381b11",
+          "role": "Illustrated art style only."
+        }
+      ],
+      "old_neutral": {
+        "original_path": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Zibai/neutral.png",
+        "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-six-model-neutral-comparisons/old/Zibai/neutral.png",
+        "sha256": "2dfd5c594e1e2aeb07695c6e46133e4089f866dcf9e394c4eed12b1a6c355610",
+        "role": "Comparison baseline only; never a generation input"
+      },
+      "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-six-model-neutral-comparisons/prompts/Zibai/neutral-v001.txt",
+      "generation": {
+        "tool": "image_gen.imagegen",
+        "arguments": {
+          "prompt": "Use case: stylized-concept. Create one new full-body neutral visual-novel sprite of Zibai from Genshin Impact.\nImage 1 is the user-supplied in-game model screenshot and is the authoritative reference for character identity, face, skin tone, hair, eyes, exact costume construction, accessory placement and body proportions. Faithfully preserve its silver-white hair with its golden streak, golden eyes, crescent-shaped gold head ornaments, turquoise earrings and ribbons, exact white-and-jade outfit, gold shoulder pieces and clasps, long green gradient sleeves with white fur trim, swirling patterns, crescent pendants, white legwear and gold-trimmed heels. Use the model's real costume colors without copying the blue environmental lighting or screenshot background. Hair and heavy hanging costume panels should fall naturally with gravity.\nImage 2 is the installed official illustrated portrait, for ART STYLE ONLY: polished Genshin-inspired anime illustration, clean drawn contours, detailed cel shading with soft painted transitions, and its treatment of hair, fabric, metal and other materials. Do not copy the portrait's dramatic action pose, windblown panels or accessories that differ from the model. Image 1 governs all design and costume details.\nProportions: Retain the Tall Female build and natural proportions shown in the model, with an elegant balanced frame, without exaggerating limb length.\nCharacter-specific neutral acting: a calm, dignified idle with a faint closed-mouth smile, composed open eyes and subtle three-quarter turn. Let one hand rest lightly near her upper torso while the other relaxes open near her waist, hands separate and long sleeve panels hanging naturally. Upright but easy posture, feet grounded, distinct and uncrossed. Do not add handheld objects or floating effects.\nKeep hand gestures simple, spatially separate, near the torso and near the image plane, with coherent wrists and one thumb and four fingers per hand where visible. Exactly two legs and two feet. Keep the face and eyes readable with the character's normal pupils. Complete silhouette including hair, headwear, hands, sleeves, costume panels, accessories and shoes, with roughly 2\u20134% top and bottom padding and 92\u201396% visible height. Genuinely transparent background. Omit all screenshot scenery, blue backdrop, UI, particles, floor and reflection. No text, labels, watermarks, ground shadow, floating effects, new props or additional characters.",
+          "referenced_image_paths": [
+            "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-six-model-neutral-comparisons/references/Zibai/model.webp",
+            "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-six-model-neutral-comparisons/references/Zibai/official.png"
+          ],
+          "transparent_background": true
+        },
+        "tool_output": "/Users/alexachan/.codex/generated_images/01a1aa19-42b2-7e92-b08d-8ee7d133c057/exec-00b69bd2-d9ad-4c78-b129-35397decb81a.png",
+        "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-six-model-neutral-comparisons/raw/Zibai/neutral-v001.png",
+        "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-six-model-neutral-comparisons/candidates/Zibai/neutral-v001.png",
+        "candidate_sha256": "81c68e2314f7b807f4ceee6d2f1c8a3b0c05e85568c3ac342512e2c1f7d287ab",
+        "dimensions": [
+          929,
+          1692
+        ],
+        "png_color_type": 6,
+        "framing_transform": null
+      },
+      "approval": {
+        "status": "pending"
+      },
+      "comparison": {
+        "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-six-model-neutral-comparisons/comparisons/zibai-old-new.png",
+        "old_side": "left",
+        "new_side": "right",
+        "labels": [
+          "Old neutral",
+          "New neutral"
+        ],
+        "transforms": [
+          {
+            "side": "old",
+            "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-six-model-neutral-comparisons/old/Zibai/neutral.png",
+            "alpha_bbox_crop": [
+              27,
+              0,
+              1139,
+              1374
+            ],
+            "thumbnail_size": [
+              410,
+              507
+            ],
+            "position": [
+              20,
+              299
+            ]
+          },
+          {
+            "side": "new",
+            "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-six-model-neutral-comparisons/candidates/Zibai/neutral-v001.png",
+            "alpha_bbox_crop": [
+              65,
+              18,
+              845,
+              1676
+            ],
+            "thumbnail_size": [
+              400,
+              850
+            ],
+            "position": [
+              475,
+              128
+            ]
+          }
+        ],
+        "note": "Transparent margins trimmed and proportional thumbnails fitted to equal-size comparison cells; sprite PNGs unchanged."
+      },
+      "requested_revision": {
+        "manifest": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-zibai-official-pose-priority/run.json",
+        "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-zibai-official-pose-priority/candidates/Zibai/neutral-v007.png",
+        "sha256": "2a5f94dd1198809865f6c0c632d38015f925b3ba5159e163fcfa8c72a76c9055",
+        "status": "pending user review"
+      },
+      "selected_approved_revision": {
+        "status": "approved",
+        "date": "2026-11-05",
+        "message": "I like the previous candidate more than this regeneration - approve that neutral, then generate the 9 emotion sprites for every candidate I just approved",
+        "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-zibai-official-pose-priority/candidates/Zibai/neutral-v006.png",
+        "candidate_sha256": "8e5aac53a8009ac3bb80193e5df0f3c026766964a84fbeac1a7b976f2268ddad",
+        "version": "neutral-v006"
+      }
+    }
+  },
+  "installation": "not requested; preserve all live neutral files",
+  "expressions": "not requested; await explicit approval of each exact neutral",
+  "overview": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-six-model-neutral-comparisons/comparisons/all-six-old-new.png",
+  "technical_validation": {
+    "new_neutral_count": 6,
+    "saved_PNGs_with_alpha": "verified",
+    "candidate_and_old_baseline_hashes": "verified",
+    "installed_old_neutral_hashes": "unchanged",
+    "comparison_PNG_decoding": "verified",
+    "visual_approval": "Xinyan and Xingqiu approved; Yun Jin, Zibai and Yoimiya revised in the linked revision run; Mizuki remains pending."
+  },
+  "archive": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-six-model-neutral-comparisons/six-neutral-comparisons-complete.zip",
+  "latest_user_feedback": "Yun Jin's hands have extra fingers. Zibai needs a pose / expression that better suits her characterization and demeanor. Yoimiya should be more cute / petite. Xinyan and Xingqiu are good.",
+  "revision_run": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-neutral-and-white-heart-revisions/run.json",
+  "latest_neutral_revision_run": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-yoimiya-midpoint-yunjin-zibai-poses/run.json"
+}

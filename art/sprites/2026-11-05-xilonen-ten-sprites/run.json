@@ -1,0 +1,655 @@
+{
+  "date": "2026-11-05",
+  "character": "Xilonen",
+  "status": "approved_and_installed",
+  "request": "That's perfect!! Use this as her new neutral and generate the rest of Xilonen's 10-sprite set, keeping in mind to vary the pose to suit each emotion while staying in character",
+  "neutral_approval": {
+    "status": "approved",
+    "date": "2026-11-05",
+    "message": "That's perfect!! Use this as her new neutral and generate the rest of Xilonen's 10-sprite set, keeping in mind to vary the pose to suit each emotion while staying in character",
+    "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-xilonen-model-reference-neutral/candidates/Xilonen/neutral-v002.png",
+    "candidate_sha256": "3f65fb5e7d99706116bf98064cb651a78d65fdf2a46dfa7687031786daee6035"
+  },
+  "reference": {
+    "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-xilonen-ten-sprites/references/Xilonen/approved-neutral.png",
+    "sha256": "3f65fb5e7d99706116bf98064cb651a78d65fdf2a46dfa7687031786daee6035",
+    "role": "Sole image reference for every independent expression"
+  },
+  "requested_emotions": [
+    "neutral",
+    "joy",
+    "annoyance",
+    "confusion",
+    "love",
+    "desire",
+    "excitement",
+    "sadness",
+    "fear",
+    "embarrassment"
+  ],
+  "neutral": {
+    "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-xilonen-ten-sprites/sprites/Xilonen/neutral.png",
+    "sha256": "3f65fb5e7d99706116bf98064cb651a78d65fdf2a46dfa7687031786daee6035",
+    "status": "approved"
+  },
+  "expressions": {
+    "joy": {
+      "status": "approved",
+      "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-xilonen-ten-sprites/prompts/Xilonen/joy.txt",
+      "tool": "image_gen.imagegen",
+      "arguments": {
+        "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Xilonen from Genshin Impact expressing joy. The supplied explicitly approved neutral is the SOLE image reference. Preserve its identity, face, skin tone, green eye color, normal pupils, blond-and-gold hair, turquoise-and-pink braid, feline ears and patterned tail, exact asymmetric outfit and sleeves, chest emblem, jewelry, belt and buckles, thigh markings, footwear, Tall Female body type, proportions, detailed anime illustration style, linework and shading. Keep the same compactness and body scale without elongating her torso or legs.\nCharacter and acting: Xilonen is laid-back, self-possessed, practical, and quietly warm; adapt her acting to the requested emotion. An easy, sincere open smile, bright gently crinkled eyes and relaxed raised brows. Turn her torso slightly toward the viewer and incline her head warmly; her bare left hand gives a small open-palmed greeting at shoulder level while her sleeved right arm rests loosely at her side. Comfortable weight shift with separated feet. Convey her warm, unforced pleasure rather than manic exuberance.\nThis is a new pose for this emotion, not a face-only change or a copy of the neutral's hand-on-hip pose. Keep hand gestures simple, anatomically coherent and near the torso, with one thumb and four fingers per hand where visible, and believable wrists. Exactly two legs and two feet belonging to one pelvis. Let heavy costume panels hang naturally with gravity; preserve all costume details through the pose.\nShow the full silhouette including ear tips, hair, tail, hands, accessories and shoes with about 2\u20134% top and bottom padding, roughly 92\u201396% visible height. Genuinely transparent background. No scenery, floor, ground shadow, floating effects, hearts or symbols outside the eyes, text, labels, UI, watermark, weapons, new props, or additional characters. Use normal pupils; no heart pupils.",
+        "referenced_image_paths": [
+          "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-xilonen-ten-sprites/references/Xilonen/approved-neutral.png"
+        ],
+        "transparent_background": true
+      },
+      "tool_output": "/Users/alexachan/.codex/generated_images/01a1aa19-42b2-7e92-b08d-8ee7d133c057/exec-42ef8b5a-f744-4f84-99c6-9babf4210407.png",
+      "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-xilonen-ten-sprites/raw/Xilonen/joy.png",
+      "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-xilonen-ten-sprites/sprites/Xilonen/joy.png",
+      "sha256": "b5ddc58e08ae3b134942af46610edcff505dc9f0f35319bf5c6e4fab0b5077f3",
+      "dimensions": [
+        936,
+        1681
+      ],
+      "png_color_type": 6,
+      "approval": {
+        "status": "approved",
+        "date": "2026-11-05",
+        "message": "This is perfect! Put it in her folder then try regenerating Fischl\u2019s neutral from her official art",
+        "candidate_sha256": "b5ddc58e08ae3b134942af46610edcff505dc9f0f35319bf5c6e4fab0b5077f3"
+      }
+    },
+    "annoyance": {
+      "status": "approved",
+      "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-xilonen-ten-sprites/prompts/Xilonen/annoyance.txt",
+      "tool": "image_gen.imagegen",
+      "arguments": {
+        "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Xilonen from Genshin Impact expressing annoyance. The supplied explicitly approved neutral is the SOLE image reference. Preserve its identity, face, skin tone, green eye color, normal pupils, blond-and-gold hair, turquoise-and-pink braid, feline ears and patterned tail, exact asymmetric outfit and sleeves, chest emblem, jewelry, belt and buckles, thigh markings, footwear, Tall Female body type, proportions, detailed anime illustration style, linework and shading. Keep the same compactness and body scale without elongating her torso or legs.\nCharacter and acting: Xilonen is laid-back, self-possessed, practical, and quietly warm; adapt her acting to the requested emotion. A dry, unimpressed look: slightly narrowed open eyes, one raised brow, and a small displeased closed mouth. Shift her weight onto the opposite hip from the neutral and turn her shoulders a little away; her sleeved right forearm crosses low in front of the waist while her bare left hand makes a restrained palm-up 'really?' gesture near the torso. Hands remain separate with no tangled fingers. Her irritation is grounded and wry, not a furious tantrum.\nThis is a new pose for this emotion, not a face-only change or a copy of the neutral's hand-on-hip pose. Keep hand gestures simple, anatomically coherent and near the torso, with one thumb and four fingers per hand where visible, and believable wrists. Exactly two legs and two feet belonging to one pelvis. Let heavy costume panels hang naturally with gravity; preserve all costume details through the pose.\nShow the full silhouette including ear tips, hair, tail, hands, accessories and shoes with about 2\u20134% top and bottom padding, roughly 92\u201396% visible height. Genuinely transparent background. No scenery, floor, ground shadow, floating effects, hearts or symbols outside the eyes, text, labels, UI, watermark, weapons, new props, or additional characters. Use normal pupils; no heart pupils.",
+        "referenced_image_paths": [
+          "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-xilonen-ten-sprites/references/Xilonen/approved-neutral.png"
+        ],
+        "transparent_background": true
+      },
+      "tool_output": "/Users/alexachan/.codex/generated_images/01a1aa19-42b2-7e92-b08d-8ee7d133c057/exec-7ccd036f-ee69-4b01-a275-1736dd7affa9.png",
+      "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-xilonen-ten-sprites/raw/Xilonen/annoyance.png",
+      "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-xilonen-ten-sprites/sprites/Xilonen/annoyance.png",
+      "sha256": "16722cab2912d455ab518b2df7f987c0fc3f734fd606e8ca9dffe7c5e00613d6",
+      "dimensions": [
+        936,
+        1681
+      ],
+      "png_color_type": 6,
+      "approval": {
+        "status": "approved",
+        "date": "2026-11-05",
+        "message": "This is perfect! Put it in her folder then try regenerating Fischl\u2019s neutral from her official art",
+        "candidate_sha256": "16722cab2912d455ab518b2df7f987c0fc3f734fd606e8ca9dffe7c5e00613d6"
+      }
+    },
+    "confusion": {
+      "status": "approved",
+      "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-xilonen-ten-sprites/prompts/Xilonen/confusion.txt",
+      "tool": "image_gen.imagegen",
+      "arguments": {
+        "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Xilonen from Genshin Impact expressing confusion. The supplied explicitly approved neutral is the SOLE image reference. Preserve its identity, face, skin tone, green eye color, normal pupils, blond-and-gold hair, turquoise-and-pink braid, feline ears and patterned tail, exact asymmetric outfit and sleeves, chest emblem, jewelry, belt and buckles, thigh markings, footwear, Tall Female body type, proportions, detailed anime illustration style, linework and shading. Keep the same compactness and body scale without elongating her torso or legs.\nCharacter and acting: Xilonen is laid-back, self-possessed, practical, and quietly warm; adapt her acting to the requested emotion. A quietly puzzled, assessing expression with one brow raised higher, open eyes glancing slightly aside, and a small questioning mouth. Tilt her head gently and lean her upper body a little forward; her bare left fingertips rest lightly near her chin while her sleeved right hand rests at her waist. Feet slightly staggered and uncrossed. She looks as if she is trying to figure out an odd request, still composed and practical.\nThis is a new pose for this emotion, not a face-only change or a copy of the neutral's hand-on-hip pose. Keep hand gestures simple, anatomically coherent and near the torso, with one thumb and four fingers per hand where visible, and believable wrists. Exactly two legs and two feet belonging to one pelvis. Let heavy costume panels hang naturally with gravity; preserve all costume details through the pose.\nShow the full silhouette including ear tips, hair, tail, hands, accessories and shoes with about 2\u20134% top and bottom padding, roughly 92\u201396% visible height. Genuinely transparent background. No scenery, floor, ground shadow, floating effects, hearts or symbols outside the eyes, text, labels, UI, watermark, weapons, new props, or additional characters. Use normal pupils; no heart pupils.",
+        "referenced_image_paths": [
+          "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-xilonen-ten-sprites/references/Xilonen/approved-neutral.png"
+        ],
+        "transparent_background": true
+      },
+      "tool_output": "/Users/alexachan/.codex/generated_images/01a1aa19-42b2-7e92-b08d-8ee7d133c057/exec-80164c64-3481-46d3-b219-711a58e9b3d2.png",
+      "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-xilonen-ten-sprites/raw/Xilonen/confusion.png",
+      "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-xilonen-ten-sprites/sprites/Xilonen/confusion.png",
+      "sha256": "54032f73f24b7549a1d6aa3696785f9ed1ce3d73364abc668d6f2f8b9ad07e40",
+      "dimensions": [
+        936,
+        1681
+      ],
+      "png_color_type": 6,
+      "approval": {
+        "status": "approved",
+        "date": "2026-11-05",
+        "message": "This is perfect! Put it in her folder then try regenerating Fischl\u2019s neutral from her official art",
+        "candidate_sha256": "54032f73f24b7549a1d6aa3696785f9ed1ce3d73364abc668d6f2f8b9ad07e40"
+      }
+    },
+    "love": {
+      "status": "approved",
+      "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-xilonen-ten-sprites/prompts/Xilonen/love.txt",
+      "tool": "image_gen.imagegen",
+      "arguments": {
+        "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Xilonen from Genshin Impact expressing love. The supplied explicitly approved neutral is the SOLE image reference. Preserve its identity, face, skin tone, green eye color, normal pupils, blond-and-gold hair, turquoise-and-pink braid, feline ears and patterned tail, exact asymmetric outfit and sleeves, chest emblem, jewelry, belt and buckles, thigh markings, footwear, Tall Female body type, proportions, detailed anime illustration style, linework and shading. Keep the same compactness and body scale without elongating her torso or legs.\nCharacter and acting: Xilonen is laid-back, self-possessed, practical, and quietly warm; adapt her acting to the requested emotion. Warm openly affectionate eyes and a soft sincere closed-mouth smile, cheeks gently flushed. Turn her shoulders toward the viewer with a tender slight head tilt, her sleeved right hand resting flat over her upper chest and her bare left arm relaxed, palm gently open near her side. Comfortable balanced stance, no forward-reaching hand. Show easygoing emotional warmth and trust rather than a teasing smirk.\nThis is a new pose for this emotion, not a face-only change or a copy of the neutral's hand-on-hip pose. Keep hand gestures simple, anatomically coherent and near the torso, with one thumb and four fingers per hand where visible, and believable wrists. Exactly two legs and two feet belonging to one pelvis. Let heavy costume panels hang naturally with gravity; preserve all costume details through the pose.\nShow the full silhouette including ear tips, hair, tail, hands, accessories and shoes with about 2\u20134% top and bottom padding, roughly 92\u201396% visible height. Genuinely transparent background. No scenery, floor, ground shadow, floating effects, hearts or symbols outside the eyes, text, labels, UI, watermark, weapons, new props, or additional characters. Use normal pupils; no heart pupils.",
+        "referenced_image_paths": [
+          "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-xilonen-ten-sprites/references/Xilonen/approved-neutral.png"
+        ],
+        "transparent_background": true
+      },
+      "tool_output": "/Users/alexachan/.codex/generated_images/01a1aa19-42b2-7e92-b08d-8ee7d133c057/exec-fd952440-ba8f-4762-b3d4-24debf882a7f.png",
+      "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-xilonen-ten-sprites/raw/Xilonen/love.png",
+      "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-xilonen-ten-sprites/sprites/Xilonen/love.png",
+      "sha256": "e76263607b0616467da28104a333f6bef16dfa276fdd4079e55545f7baf23646",
+      "dimensions": [
+        936,
+        1681
+      ],
+      "png_color_type": 6,
+      "approval": {
+        "status": "approved",
+        "date": "2026-11-05",
+        "message": "This is perfect! Put it in her folder then try regenerating Fischl\u2019s neutral from her official art",
+        "candidate_sha256": "e76263607b0616467da28104a333f6bef16dfa276fdd4079e55545f7baf23646"
+      }
+    },
+    "desire": {
+      "status": "approved",
+      "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-xilonen-ten-sprites/prompts/Xilonen/desire.txt",
+      "tool": "image_gen.imagegen",
+      "arguments": {
+        "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Xilonen from Genshin Impact expressing desire. The supplied explicitly approved neutral is the SOLE image reference. Preserve its identity, face, skin tone, green eye color, normal pupils, blond-and-gold hair, turquoise-and-pink braid, feline ears and patterned tail, exact asymmetric outfit and sleeves, chest emblem, jewelry, belt and buckles, thigh markings, footwear, Tall Female body type, proportions, detailed anime illustration style, linework and shading. Keep the same compactness and body scale without elongating her torso or legs.\nCharacter and acting: Xilonen is laid-back, self-possessed, practical, and quietly warm; adapt her acting to the requested emotion. Tasteful, restrained romantic longing appropriate to this adult character: softened visibly open eyes with an intent hopeful gaze toward the viewer, a noticeable gentle blush, raised inner brows, and slightly parted lips. Lean subtly toward the viewer with shoulders relaxed and body angled differently from love. Her bare left fingertips lightly touch her collar at the collarbone while her sleeved right hand rests low near her waist. Feet slightly staggered and uncrossed. Her confidence softens into quiet anticipation; preserve the established outfit fully and keep acting clear at small display size.\nThis is a new pose for this emotion, not a face-only change or a copy of the neutral's hand-on-hip pose. Keep hand gestures simple, anatomically coherent and near the torso, with one thumb and four fingers per hand where visible, and believable wrists. Exactly two legs and two feet belonging to one pelvis. Let heavy costume panels hang naturally with gravity; preserve all costume details through the pose.\nShow the full silhouette including ear tips, hair, tail, hands, accessories and shoes with about 2\u20134% top and bottom padding, roughly 92\u201396% visible height. Genuinely transparent background. No scenery, floor, ground shadow, floating effects, hearts or symbols outside the eyes, text, labels, UI, watermark, weapons, new props, or additional characters. Use normal pupils; no heart pupils.",
+        "referenced_image_paths": [
+          "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-xilonen-ten-sprites/references/Xilonen/approved-neutral.png"
+        ],
+        "transparent_background": true
+      },
+      "tool_output": "/Users/alexachan/.codex/generated_images/01a1aa19-42b2-7e92-b08d-8ee7d133c057/exec-15daa19c-9f9f-4779-908b-e4accd8f5e55.png",
+      "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-xilonen-ten-sprites/raw/Xilonen/desire.png",
+      "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-xilonen-ten-sprites/sprites/Xilonen/desire.png",
+      "sha256": "75dbb9d5939632c2f3f7e2f97959d008cf1ba9c371a1efdbfabf0e33fad115fa",
+      "dimensions": [
+        936,
+        1681
+      ],
+      "png_color_type": 6,
+      "approval": {
+        "status": "approved",
+        "date": "2026-11-05",
+        "message": "This is perfect! Put it in her folder then try regenerating Fischl\u2019s neutral from her official art",
+        "candidate_sha256": "75dbb9d5939632c2f3f7e2f97959d008cf1ba9c371a1efdbfabf0e33fad115fa"
+      }
+    },
+    "excitement": {
+      "status": "approved",
+      "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-xilonen-ten-sprites/prompts/Xilonen/excitement.txt",
+      "tool": "image_gen.imagegen",
+      "arguments": {
+        "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Xilonen from Genshin Impact expressing excitement. The supplied explicitly approved neutral is the SOLE image reference. Preserve its identity, face, skin tone, green eye color, normal pupils, blond-and-gold hair, turquoise-and-pink braid, feline ears and patterned tail, exact asymmetric outfit and sleeves, chest emblem, jewelry, belt and buckles, thigh markings, footwear, Tall Female body type, proportions, detailed anime illustration style, linework and shading. Keep the same compactness and body scale without elongating her torso or legs.\nCharacter and acting: Xilonen is laid-back, self-possessed, practical, and quietly warm; adapt her acting to the requested emotion. A lively delighted open smile, wide bright eyes and lifted brows, more animated than her ordinary joy. Straighten from her habitual slouch with an eager small forward lean; her sleeved right arm bends into a compact celebratory fist beside her shoulder while her bare left hand opens near her waist. Shift weight onto the front foot, back heel lightly lifted, both feet fully visible and uncrossed. Capture a rare burst of enthusiasm about an idea she wants to try, still grounded and recognizably Xilonen.\nThis is a new pose for this emotion, not a face-only change or a copy of the neutral's hand-on-hip pose. Keep hand gestures simple, anatomically coherent and near the torso, with one thumb and four fingers per hand where visible, and believable wrists. Exactly two legs and two feet belonging to one pelvis. Let heavy costume panels hang naturally with gravity; preserve all costume details through the pose.\nShow the full silhouette including ear tips, hair, tail, hands, accessories and shoes with about 2\u20134% top and bottom padding, roughly 92\u201396% visible height. Genuinely transparent background. No scenery, floor, ground shadow, floating effects, hearts or symbols outside the eyes, text, labels, UI, watermark, weapons, new props, or additional characters. Use normal pupils; no heart pupils.",
+        "referenced_image_paths": [
+          "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-xilonen-ten-sprites/references/Xilonen/approved-neutral.png"
+        ],
+        "transparent_background": true
+      },
+      "tool_output": "/Users/alexachan/.codex/generated_images/01a1aa19-42b2-7e92-b08d-8ee7d133c057/exec-8a425efc-bb37-4211-aba2-f140365a4d7d.png",
+      "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-xilonen-ten-sprites/raw/Xilonen/excitement.png",
+      "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-xilonen-ten-sprites/sprites/Xilonen/excitement.png",
+      "sha256": "57d7a4125a185c492f0504b92a8b49230b7cea1abed647b6f119b861bfd484a6",
+      "dimensions": [
+        936,
+        1681
+      ],
+      "png_color_type": 6,
+      "approval": {
+        "status": "approved",
+        "date": "2026-11-05",
+        "message": "This is perfect! Put it in her folder then try regenerating Fischl\u2019s neutral from her official art",
+        "candidate_sha256": "57d7a4125a185c492f0504b92a8b49230b7cea1abed647b6f119b861bfd484a6"
+      }
+    },
+    "sadness": {
+      "status": "approved",
+      "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-xilonen-ten-sprites/prompts/Xilonen/sadness.txt",
+      "tool": "image_gen.imagegen",
+      "arguments": {
+        "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Xilonen from Genshin Impact expressing sadness. The supplied explicitly approved neutral is the SOLE image reference. Preserve its identity, face, skin tone, green eye color, normal pupils, blond-and-gold hair, turquoise-and-pink braid, feline ears and patterned tail, exact asymmetric outfit and sleeves, chest emblem, jewelry, belt and buckles, thigh markings, footwear, Tall Female body type, proportions, detailed anime illustration style, linework and shading. Keep the same compactness and body scale without elongating her torso or legs.\nCharacter and acting: Xilonen is laid-back, self-possessed, practical, and quietly warm; adapt her acting to the requested emotion. A subdued sorrowful expression: softened brows, downcast open eyes and a small closed unhappy mouth. Let her shoulders sink and turn her torso slightly inward; her bare left hand rests gently on her sleeved right upper arm while her right arm hangs naturally down, without clasped or interwoven fingers. Head tipped down slightly, feet close but distinct and uncrossed. Her sadness is quiet and private rather than theatrical sobbing.\nThis is a new pose for this emotion, not a face-only change or a copy of the neutral's hand-on-hip pose. Keep hand gestures simple, anatomically coherent and near the torso, with one thumb and four fingers per hand where visible, and believable wrists. Exactly two legs and two feet belonging to one pelvis. Let heavy costume panels hang naturally with gravity; preserve all costume details through the pose.\nShow the full silhouette including ear tips, hair, tail, hands, accessories and shoes with about 2\u20134% top and bottom padding, roughly 92\u201396% visible height. Genuinely transparent background. No scenery, floor, ground shadow, floating effects, hearts or symbols outside the eyes, text, labels, UI, watermark, weapons, new props, or additional characters. Use normal pupils; no heart pupils.",
+        "referenced_image_paths": [
+          "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-xilonen-ten-sprites/references/Xilonen/approved-neutral.png"
+        ],
+        "transparent_background": true
+      },
+      "tool_output": "/Users/alexachan/.codex/generated_images/01a1aa19-42b2-7e92-b08d-8ee7d133c057/exec-0d718724-8ebc-4763-b029-d49539a9b537.png",
+      "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-xilonen-ten-sprites/raw/Xilonen/sadness.png",
+      "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-xilonen-ten-sprites/sprites/Xilonen/sadness.png",
+      "sha256": "e7978090f7398fa8e1692ce2e4b0f8ff38e65d9b3db49241b0e55edaa094fa15",
+      "dimensions": [
+        936,
+        1681
+      ],
+      "png_color_type": 6,
+      "approval": {
+        "status": "approved",
+        "date": "2026-11-05",
+        "message": "This is perfect! Put it in her folder then try regenerating Fischl\u2019s neutral from her official art",
+        "candidate_sha256": "e7978090f7398fa8e1692ce2e4b0f8ff38e65d9b3db49241b0e55edaa094fa15"
+      }
+    },
+    "fear": {
+      "status": "approved",
+      "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-xilonen-ten-sprites/prompts/Xilonen/fear.txt",
+      "tool": "image_gen.imagegen",
+      "arguments": {
+        "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Xilonen from Genshin Impact expressing fear. The supplied explicitly approved neutral is the SOLE image reference. Preserve its identity, face, skin tone, green eye color, normal pupils, blond-and-gold hair, turquoise-and-pink braid, feline ears and patterned tail, exact asymmetric outfit and sleeves, chest emblem, jewelry, belt and buckles, thigh markings, footwear, Tall Female body type, proportions, detailed anime illustration style, linework and shading. Keep the same compactness and body scale without elongating her torso or legs.\nCharacter and acting: Xilonen is laid-back, self-possessed, practical, and quietly warm; adapt her acting to the requested emotion. A clearly alarmed but controlled expression with widened open eyes, raised inner brows and a small parted mouth. Shift her weight back in a slight recoil, torso angled away while her gaze stays toward the source in front of her. Her sleeved right forearm lifts protectively across her upper torso and her bare left hand is held open close to the lower chest, spatially separate. Keep both hands near the image plane. Both feet remain planted slightly staggered and clearly separated. Show a capable person suddenly caught off guard, without panic flailing.\nThis is a new pose for this emotion, not a face-only change or a copy of the neutral's hand-on-hip pose. Keep hand gestures simple, anatomically coherent and near the torso, with one thumb and four fingers per hand where visible, and believable wrists. Exactly two legs and two feet belonging to one pelvis. Let heavy costume panels hang naturally with gravity; preserve all costume details through the pose.\nShow the full silhouette including ear tips, hair, tail, hands, accessories and shoes with about 2\u20134% top and bottom padding, roughly 92\u201396% visible height. Genuinely transparent background. No scenery, floor, ground shadow, floating effects, hearts or symbols outside the eyes, text, labels, UI, watermark, weapons, new props, or additional characters. Use normal pupils; no heart pupils.",
+        "referenced_image_paths": [
+          "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-xilonen-ten-sprites/references/Xilonen/approved-neutral.png"
+        ],
+        "transparent_background": true
+      },
+      "tool_output": "/Users/alexachan/.codex/generated_images/01a1aa19-42b2-7e92-b08d-8ee7d133c057/exec-91568808-2bd2-4b88-9440-5bb49f0336bc.png",
+      "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-xilonen-ten-sprites/raw/Xilonen/fear.png",
+      "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-xilonen-ten-sprites/sprites/Xilonen/fear.png",
+      "sha256": "f941e5514d20156d21de9c7a4703eb891ca26c208058c316d3126a7488f07447",
+      "dimensions": [
+        936,
+        1681
+      ],
+      "png_color_type": 6,
+      "approval": {
+        "status": "approved",
+        "date": "2026-11-05",
+        "message": "This is perfect! Put it in her folder then try regenerating Fischl\u2019s neutral from her official art",
+        "candidate_sha256": "f941e5514d20156d21de9c7a4703eb891ca26c208058c316d3126a7488f07447"
+      }
+    },
+    "embarrassment": {
+      "status": "approved",
+      "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-xilonen-ten-sprites/prompts/Xilonen/embarrassment.txt",
+      "tool": "image_gen.imagegen",
+      "arguments": {
+        "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Xilonen from Genshin Impact expressing embarrassment. The supplied explicitly approved neutral is the SOLE image reference. Preserve its identity, face, skin tone, green eye color, normal pupils, blond-and-gold hair, turquoise-and-pink braid, feline ears and patterned tail, exact asymmetric outfit and sleeves, chest emblem, jewelry, belt and buckles, thigh markings, footwear, Tall Female body type, proportions, detailed anime illustration style, linework and shading. Keep the same compactness and body scale without elongating her torso or legs.\nCharacter and acting: Xilonen is laid-back, self-possessed, practical, and quietly warm; adapt her acting to the requested emotion. A visible warm blush, bashful averted open eyes, slightly raised inner brows and a small sheepish smile. Turn her face a little aside and let her chin dip; her sleeved right fingertips touch the hair beside her ear while her bare left hand rests lightly near her opposite elbow without clasping. A small shoulder tuck and relaxed weight shift make her usually confident composure briefly falter. Keep her face visible, hands separate, feet slightly staggered and uncrossed.\nThis is a new pose for this emotion, not a face-only change or a copy of the neutral's hand-on-hip pose. Keep hand gestures simple, anatomically coherent and near the torso, with one thumb and four fingers per hand where visible, and believable wrists. Exactly two legs and two feet belonging to one pelvis. Let heavy costume panels hang naturally with gravity; preserve all costume details through the pose.\nShow the full silhouette including ear tips, hair, tail, hands, accessories and shoes with about 2\u20134% top and bottom padding, roughly 92\u201396% visible height. Genuinely transparent background. No scenery, floor, ground shadow, floating effects, hearts or symbols outside the eyes, text, labels, UI, watermark, weapons, new props, or additional characters. Use normal pupils; no heart pupils.",
+        "referenced_image_paths": [
+          "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-xilonen-ten-sprites/references/Xilonen/approved-neutral.png"
+        ],
+        "transparent_background": true
+      },
+      "tool_output": "/Users/alexachan/.codex/generated_images/01a1aa19-42b2-7e92-b08d-8ee7d133c057/exec-b0d37684-5109-4da2-bc70-16e988f731f0.png",
+      "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-xilonen-ten-sprites/raw/Xilonen/embarrassment.png",
+      "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-xilonen-ten-sprites/sprites/Xilonen/embarrassment.png",
+      "sha256": "e21a351fba79a8ac181ba095c212069168590521de4d205197578ca1b09b8ec3",
+      "dimensions": [
+        936,
+        1681
+      ],
+      "png_color_type": 6,
+      "approval": {
+        "status": "approved",
+        "date": "2026-11-05",
+        "message": "This is perfect! Put it in her folder then try regenerating Fischl\u2019s neutral from her official art",
+        "candidate_sha256": "e21a351fba79a8ac181ba095c212069168590521de4d205197578ca1b09b8ec3"
+      }
+    }
+  },
+  "model_note": "Built-in tool model, quality, and complexity are not exposed or reported.",
+  "installation": {
+    "status": "installed and hash-verified",
+    "report": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-xilonen-ten-sprites/installation-2026-11-05.json",
+    "target_folder": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Xilonen",
+    "counts": {
+      "add": 9,
+      "replace": 1,
+      "already_installed": 0
+    }
+  },
+  "preview_order": [
+    "neutral",
+    "joy",
+    "annoyance",
+    "confusion",
+    "love",
+    "desire",
+    "excitement",
+    "sadness",
+    "fear",
+    "embarrassment"
+  ],
+  "sprite_manifest": [
+    {
+      "emotion": "neutral",
+      "file": "sprites/Xilonen/neutral.png",
+      "sha256": "3f65fb5e7d99706116bf98064cb651a78d65fdf2a46dfa7687031786daee6035",
+      "dimensions": [
+        936,
+        1681
+      ],
+      "alpha_channel": true
+    },
+    {
+      "emotion": "joy",
+      "file": "sprites/Xilonen/joy.png",
+      "sha256": "b5ddc58e08ae3b134942af46610edcff505dc9f0f35319bf5c6e4fab0b5077f3",
+      "dimensions": [
+        936,
+        1681
+      ],
+      "alpha_channel": true
+    },
+    {
+      "emotion": "annoyance",
+      "file": "sprites/Xilonen/annoyance.png",
+      "sha256": "16722cab2912d455ab518b2df7f987c0fc3f734fd606e8ca9dffe7c5e00613d6",
+      "dimensions": [
+        936,
+        1681
+      ],
+      "alpha_channel": true
+    },
+    {
+      "emotion": "confusion",
+      "file": "sprites/Xilonen/confusion.png",
+      "sha256": "54032f73f24b7549a1d6aa3696785f9ed1ce3d73364abc668d6f2f8b9ad07e40",
+      "dimensions": [
+        936,
+        1681
+      ],
+      "alpha_channel": true
+    },
+    {
+      "emotion": "love",
+      "file": "sprites/Xilonen/love.png",
+      "sha256": "e76263607b0616467da28104a333f6bef16dfa276fdd4079e55545f7baf23646",
+      "dimensions": [
+        936,
+        1681
+      ],
+      "alpha_channel": true
+    },
+    {
+      "emotion": "desire",
+      "file": "sprites/Xilonen/desire.png",
+      "sha256": "75dbb9d5939632c2f3f7e2f97959d008cf1ba9c371a1efdbfabf0e33fad115fa",
+      "dimensions": [
+        936,
+        1681
+      ],
+      "alpha_channel": true
+    },
+    {
+      "emotion": "excitement",
+      "file": "sprites/Xilonen/excitement.png",
+      "sha256": "57d7a4125a185c492f0504b92a8b49230b7cea1abed647b6f119b861bfd484a6",
+      "dimensions": [
+        936,
+        1681
+      ],
+      "alpha_channel": true
+    },
+    {
+      "emotion": "sadness",
+      "file": "sprites/Xilonen/sadness.png",
+      "sha256": "e7978090f7398fa8e1692ce2e4b0f8ff38e65d9b3db49241b0e55edaa094fa15",
+      "dimensions": [
+        936,
+        1681
+      ],
+      "alpha_channel": true
+    },
+    {
+      "emotion": "fear",
+      "file": "sprites/Xilonen/fear.png",
+      "sha256": "f941e5514d20156d21de9c7a4703eb891ca26c208058c316d3126a7488f07447",
+      "dimensions": [
+        936,
+        1681
+      ],
+      "alpha_channel": true
+    },
+    {
+      "emotion": "embarrassment",
+      "file": "sprites/Xilonen/embarrassment.png",
+      "sha256": "e21a351fba79a8ac181ba095c212069168590521de4d205197578ca1b09b8ec3",
+      "dimensions": [
+        936,
+        1681
+      ],
+      "alpha_channel": true
+    }
+  ],
+  "technical_validation": {
+    "sprite_count": 10,
+    "PNG_alpha_channels": "verified",
+    "PNG_decoding": "verified",
+    "saved_sprite_hashes": "verified",
+    "neutral_matches_exact_approved_candidate": true,
+    "visual_approval": "All ten exact sprites explicitly approved by the user on 2026-11-05."
+  },
+  "previews": {
+    "full_body": "previews/full-body-sheet.png",
+    "faces": "previews/face-sheet.png",
+    "order_left_to_right_top_to_bottom": [
+      "neutral",
+      "joy",
+      "annoyance",
+      "confusion",
+      "love",
+      "desire",
+      "excitement",
+      "sadness",
+      "fear",
+      "embarrassment"
+    ],
+    "background": "transparent",
+    "labels": "none",
+    "transforms": [
+      {
+        "emotion": "neutral",
+        "full_body_thumbnail_dimensions": [
+          312,
+          560
+        ],
+        "face_crop_box": [
+          150,
+          0,
+          786,
+          521
+        ],
+        "face_thumbnail_dimensions": [
+          304,
+          249
+        ]
+      },
+      {
+        "emotion": "joy",
+        "full_body_thumbnail_dimensions": [
+          312,
+          560
+        ],
+        "face_crop_box": [
+          150,
+          0,
+          786,
+          521
+        ],
+        "face_thumbnail_dimensions": [
+          304,
+          249
+        ]
+      },
+      {
+        "emotion": "annoyance",
+        "full_body_thumbnail_dimensions": [
+          312,
+          560
+        ],
+        "face_crop_box": [
+          150,
+          0,
+          786,
+          521
+        ],
+        "face_thumbnail_dimensions": [
+          304,
+          249
+        ]
+      },
+      {
+        "emotion": "confusion",
+        "full_body_thumbnail_dimensions": [
+          312,
+          560
+        ],
+        "face_crop_box": [
+          150,
+          0,
+          786,
+          521
+        ],
+        "face_thumbnail_dimensions": [
+          304,
+          249
+        ]
+      },
+      {
+        "emotion": "love",
+        "full_body_thumbnail_dimensions": [
+          312,
+          560
+        ],
+        "face_crop_box": [
+          150,
+          0,
+          786,
+          521
+        ],
+        "face_thumbnail_dimensions": [
+          304,
+          249
+        ]
+      },
+      {
+        "emotion": "desire",
+        "full_body_thumbnail_dimensions": [
+          312,
+          560
+        ],
+        "face_crop_box": [
+          150,
+          0,
+          786,
+          521
+        ],
+        "face_thumbnail_dimensions": [
+          304,
+          249
+        ]
+      },
+      {
+        "emotion": "excitement",
+        "full_body_thumbnail_dimensions": [
+          312,
+          560
+        ],
+        "face_crop_box": [
+          150,
+          0,
+          786,
+          521
+        ],
+        "face_thumbnail_dimensions": [
+          304,
+          249
+        ]
+      },
+      {
+        "emotion": "sadness",
+        "full_body_thumbnail_dimensions": [
+          312,
+          560
+        ],
+        "face_crop_box": [
+          150,
+          0,
+          786,
+          521
+        ],
+        "face_thumbnail_dimensions": [
+          304,
+          249
+        ]
+      },
+      {
+        "emotion": "fear",
+        "full_body_thumbnail_dimensions": [
+          312,
+          560
+        ],
+        "face_crop_box": [
+          150,
+          0,
+          786,
+          521
+        ],
+        "face_thumbnail_dimensions": [
+          304,
+          249
+        ]
+      },
+      {
+        "emotion": "embarrassment",
+        "full_body_thumbnail_dimensions": [
+          312,
+          560
+        ],
+        "face_crop_box": [
+          150,
+          0,
+          786,
+          521
+        ],
+        "face_thumbnail_dimensions": [
+          304,
+          249
+        ]
+      }
+    ],
+    "note": "Deterministic cropping and proportional thumbnail scaling only; original sprite PNGs unchanged. Review sheets are never generation references."
+  },
+  "deliverables": {
+    "sprite_pack": "archives/xilonen-ten-sprite-set.zip",
+    "complete_archive": "archives/xilonen-ten-sprite-complete.zip"
+  },
+  "set_approval": {
+    "status": "approved",
+    "date": "2026-11-05",
+    "message": "This is perfect! Put it in her folder then try regenerating Fischl\u2019s neutral from her official art",
+    "files": [
+      {
+        "emotion": "neutral",
+        "sha256": "3f65fb5e7d99706116bf98064cb651a78d65fdf2a46dfa7687031786daee6035"
+      },
+      {
+        "emotion": "joy",
+        "sha256": "b5ddc58e08ae3b134942af46610edcff505dc9f0f35319bf5c6e4fab0b5077f3"
+      },
+      {
+        "emotion": "annoyance",
+        "sha256": "16722cab2912d455ab518b2df7f987c0fc3f734fd606e8ca9dffe7c5e00613d6"
+      },
+      {
+        "emotion": "confusion",
+        "sha256": "54032f73f24b7549a1d6aa3696785f9ed1ce3d73364abc668d6f2f8b9ad07e40"
+      },
+      {
+        "emotion": "love",
+        "sha256": "e76263607b0616467da28104a333f6bef16dfa276fdd4079e55545f7baf23646"
+      },
+      {
+        "emotion": "desire",
+        "sha256": "75dbb9d5939632c2f3f7e2f97959d008cf1ba9c371a1efdbfabf0e33fad115fa"
+      },
+      {
+        "emotion": "excitement",
+        "sha256": "57d7a4125a185c492f0504b92a8b49230b7cea1abed647b6f119b861bfd484a6"
+      },
+      {
+        "emotion": "sadness",
+        "sha256": "e7978090f7398fa8e1692ce2e4b0f8ff38e65d9b3db49241b0e55edaa094fa15"
+      },
+      {
+        "emotion": "fear",
+        "sha256": "f941e5514d20156d21de9c7a4703eb891ca26c208058c316d3126a7488f07447"
+      },
+      {
+        "emotion": "embarrassment",
+        "sha256": "e21a351fba79a8ac181ba095c212069168590521de4d205197578ca1b09b8ec3"
+      }
+    ]
+  }
+}

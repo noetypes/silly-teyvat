@@ -1,0 +1,1397 @@
+{
+  "status": "generated; expression candidates awaiting user review",
+  "request": "Ten sprites each with dynamic character-appropriate poses; skip previously generated sets.",
+  "requested_emotions": [
+    "neutral",
+    "joy",
+    "annoyance",
+    "confusion",
+    "love",
+    "desire",
+    "excitement",
+    "sadness",
+    "fear",
+    "embarrassment"
+  ],
+  "characters": {
+    "Tartaglia": {
+      "neutral_approval": {
+        "status": "approved",
+        "message": "All others are ACCEPTED.",
+        "date": "2026-10-30",
+        "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Tartaglia/neutral-v001.png",
+        "candidate_sha256": "1ebc7d9f3d27068c043a94782e7cc9d03bb976d4a609a146fdfd5182a76c355c"
+      },
+      "reference": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/references/Tartaglia/approved-neutral.png",
+      "expressions": {
+        "joy": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/prompts/Tartaglia/joy.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Tartaglia from Genshin Impact expressing joy. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, eye colors, costume, accessories, rendering and his orange hair, red scarf, gray outfit, accessories and athletic tall male proportions. Personality and acting: confident, energetic and teasing, with grounded, masculine gestures. Show a sincere smile and softened eyes; shift comfortably and give a small greeting near the torso. Vary pose and gesture to match the emotion while staying faithful to the character; maintain the reference's proportions without elongating the torso or legs. Use normal pupils, simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and shoes with 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Tartaglia/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/raw/Tartaglia/joy.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/sprites/Tartaglia/joy.png",
+          "sha256": "1b8ce6410fb430618ff69f6efc5877d4c40961c3dec23b152024e82028501147",
+          "status": "candidate"
+        },
+        "annoyance": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/prompts/Tartaglia/annoyance.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Tartaglia from Genshin Impact expressing annoyance. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, eye colors, costume, accessories, rendering and his orange hair, red scarf, gray outfit, accessories and athletic tall male proportions. Personality and acting: confident, energetic and teasing, with grounded, masculine gestures. Show a clear displeased frown and knitted brows; stand firmly with one hand on the hip and the other down. Vary pose and gesture to match the emotion while staying faithful to the character; maintain the reference's proportions without elongating the torso or legs. Use normal pupils, simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and shoes with 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Tartaglia/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/raw/Tartaglia/annoyance.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/sprites/Tartaglia/annoyance.png",
+          "sha256": "7eee948e944bb12a661c86b06a22deab7097beb30bf2e176c119fe54f2d8c1b5",
+          "status": "candidate"
+        },
+        "confusion": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/prompts/Tartaglia/confusion.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Tartaglia from Genshin Impact expressing confusion. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, eye colors, costume, accessories, rendering and his orange hair, red scarf, gray outfit, accessories and athletic tall male proportions. Personality and acting: confident, energetic and teasing, with grounded, masculine gestures. Show a questioning expression and raised brow; tilt the head slightly and bring one hand near the chin. Vary pose and gesture to match the emotion while staying faithful to the character; maintain the reference's proportions without elongating the torso or legs. Use normal pupils, simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and shoes with 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Tartaglia/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/raw/Tartaglia/confusion.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/sprites/Tartaglia/confusion.png",
+          "sha256": "1c0be354570123f9ed504e9a32f9f016bfb13578b000fd13503c236a0de2bee6",
+          "status": "candidate"
+        },
+        "love": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/prompts/Tartaglia/love.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Tartaglia from Genshin Impact expressing love. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, eye colors, costume, accessories, rendering and his orange hair, red scarf, gray outfit, accessories and athletic tall male proportions. Personality and acting: confident, energetic and teasing, with grounded, masculine gestures. Show a genuinely affectionate smile and warm eyes; turn toward the viewer with one hand over the heart and the other relaxed. Vary pose and gesture to match the emotion while staying faithful to the character; maintain the reference's proportions without elongating the torso or legs. Use normal pupils, simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and shoes with 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Tartaglia/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/raw/Tartaglia/love.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/sprites/Tartaglia/love.png",
+          "sha256": "ada22ebe75351fdf64ad1d9117be640e361f615e1c6a98dd45887e60e624afdc",
+          "status": "candidate"
+        },
+        "desire": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/prompts/Tartaglia/desire.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Tartaglia from Genshin Impact expressing desire. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, eye colors, costume, accessories, rendering and his orange hair, red scarf, gray outfit, accessories and athletic tall male proportions. Personality and acting: confident, energetic and teasing, with grounded, masculine gestures. Show a hopeful intent gaze and a subtle blush; lean forward slightly with one hand near the heart and the other at the side.  Convey open, eager affection with a confident, grounded stance; tasteful in the established outfit. Vary pose and gesture to match the emotion while staying faithful to the character; maintain the reference's proportions without elongating the torso or legs. Use normal pupils, simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and shoes with 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Tartaglia/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/raw/Tartaglia/desire.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/sprites/Tartaglia/desire.png",
+          "sha256": "24ae6c5777bfd2acc150639165d4d62a85ade72e06367737a698520c71336060",
+          "status": "candidate"
+        },
+        "excitement": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/prompts/Tartaglia/excitement.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Tartaglia from Genshin Impact expressing excitement. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, eye colors, costume, accessories, rendering and his orange hair, red scarf, gray outfit, accessories and athletic tall male proportions. Personality and acting: confident, energetic and teasing, with grounded, masculine gestures. Show bright eager eyes and a delighted smile; stand more alert, one hand lifted in a small celebratory gesture. Vary pose and gesture to match the emotion while staying faithful to the character; maintain the reference's proportions without elongating the torso or legs. Use normal pupils, simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and shoes with 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Tartaglia/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/raw/Tartaglia/excitement.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/sprites/Tartaglia/excitement.png",
+          "sha256": "d7a79bdcfdbf3e98610ee5e3b26eb92b58bf0a73d041ff3f1ffb3cb5b35cd172",
+          "status": "candidate"
+        },
+        "sadness": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/prompts/Tartaglia/sadness.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Tartaglia from Genshin Impact expressing sadness. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, eye colors, costume, accessories, rendering and his orange hair, red scarf, gray outfit, accessories and athletic tall male proportions. Personality and acting: confident, energetic and teasing, with grounded, masculine gestures. Show a sorrowful downcast gaze and softened shoulders; one hand resting on the opposite forearm. Vary pose and gesture to match the emotion while staying faithful to the character; maintain the reference's proportions without elongating the torso or legs. Use normal pupils, simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and shoes with 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Tartaglia/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/raw/Tartaglia/sadness.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/sprites/Tartaglia/sadness.png",
+          "sha256": "e1ba707b0f43e4fa77c7bc3f688e8049e08a1872fab36233272a6cccba6b13ad",
+          "status": "candidate"
+        },
+        "fear": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/prompts/Tartaglia/fear.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Tartaglia from Genshin Impact expressing fear. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, eye colors, costume, accessories, rendering and his orange hair, red scarf, gray outfit, accessories and athletic tall male proportions. Personality and acting: confident, energetic and teasing, with grounded, masculine gestures. Show an alarmed gaze and raised brows; shift weight back with one forearm held protectively near the torso. Vary pose and gesture to match the emotion while staying faithful to the character; maintain the reference's proportions without elongating the torso or legs. Use normal pupils, simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and shoes with 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Tartaglia/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/raw/Tartaglia/fear.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/sprites/Tartaglia/fear.png",
+          "sha256": "43dc5ef3b52a837dbcead5291b7460dbe473ec38a2297afb541bc44038514e09",
+          "status": "candidate"
+        },
+        "embarrassment": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/prompts/Tartaglia/embarrassment.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Tartaglia from Genshin Impact expressing embarrassment. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, eye colors, costume, accessories, rendering and his orange hair, red scarf, gray outfit, accessories and athletic tall male proportions. Personality and acting: confident, energetic and teasing, with grounded, masculine gestures. Show a fleeting blush and sheepish grin; stand firmly and rub the back of his neck. Vary pose and gesture to match the emotion while staying faithful to the character; maintain the reference's proportions without elongating the torso or legs. Use normal pupils, simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and shoes with 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Tartaglia/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/raw/Tartaglia/embarrassment.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/sprites/Tartaglia/embarrassment.png",
+          "sha256": "f4c0ec3b08dca0357db8ea9d01129fcfcc7686add274e10b8e3959a43c6a92ee",
+          "status": "candidate"
+        }
+      },
+      "previews": {
+        "full_body": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/previews/Tartaglia-full-body.png",
+        "faces": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/previews/Tartaglia-faces.png"
+      }
+    },
+    "Thoma": {
+      "neutral_approval": {
+        "status": "approved",
+        "message": "All others are ACCEPTED.",
+        "date": "2026-10-30",
+        "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Thoma/neutral-v002.png",
+        "candidate_sha256": "ad0fb914f79a0fece602e40efac476669b8871df1d149f32bb1368f21850172d"
+      },
+      "reference": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/references/Thoma/approved-neutral.png",
+      "expressions": {
+        "joy": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/prompts/Thoma/joy.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Thoma from Genshin Impact expressing joy. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, eye colors, costume, accessories, rendering and his blond hair, red-and-dark outfit, accessories and medium male proportions. Personality and acting: warm, dependable and outgoing, with relaxed, friendly gestures. Show bright eyes and an easy smile; relax the shoulders with one hand lightly at the waist. Vary pose and gesture to match the emotion while staying faithful to the character; maintain the reference's proportions without elongating the torso or legs. Use normal pupils, simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and shoes with 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Thoma/neutral-v002.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/raw/Thoma/joy.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/sprites/Thoma/joy.png",
+          "sha256": "9de8c8c968692cefa5e1a19ba36fd42fe39806856a98271b924f6dcceee58f7a",
+          "status": "candidate"
+        },
+        "annoyance": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/prompts/Thoma/annoyance.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Thoma from Genshin Impact expressing annoyance. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, eye colors, costume, accessories, rendering and his blond hair, red-and-dark outfit, accessories and medium male proportions. Personality and acting: warm, dependable and outgoing, with relaxed, friendly gestures. Show a restrained irritated gaze; shift weight to one leg with one forearm near the torso. Vary pose and gesture to match the emotion while staying faithful to the character; maintain the reference's proportions without elongating the torso or legs. Use normal pupils, simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and shoes with 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Thoma/neutral-v002.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/raw/Thoma/annoyance.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/sprites/Thoma/annoyance.png",
+          "sha256": "2c02f76e4eed03754bc2cc2c64b327a583c25e94a94837c1dff507c553ec3a56",
+          "status": "candidate"
+        },
+        "confusion": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/prompts/Thoma/confusion.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Thoma from Genshin Impact expressing confusion. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, eye colors, costume, accessories, rendering and his blond hair, red-and-dark outfit, accessories and medium male proportions. Personality and acting: warm, dependable and outgoing, with relaxed, friendly gestures. Show puzzled eyes and a small frown; turn the shoulders slightly with one hand lifted in a simple questioning gesture. Vary pose and gesture to match the emotion while staying faithful to the character; maintain the reference's proportions without elongating the torso or legs. Use normal pupils, simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and shoes with 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Thoma/neutral-v002.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/raw/Thoma/confusion.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/sprites/Thoma/confusion.png",
+          "sha256": "49dc0ab2461d01a0a17ca5203f2bb3e6ee514b537803bbcff44bc5e0db8a66fc",
+          "status": "candidate"
+        },
+        "love": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/prompts/Thoma/love.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Thoma from Genshin Impact expressing love. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, eye colors, costume, accessories, rendering and his blond hair, red-and-dark outfit, accessories and medium male proportions. Personality and acting: warm, dependable and outgoing, with relaxed, friendly gestures. Show tender, open warmth and a gentle smile; relax the shoulders, one hand lightly against the chest. Vary pose and gesture to match the emotion while staying faithful to the character; maintain the reference's proportions without elongating the torso or legs. Use normal pupils, simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and shoes with 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Thoma/neutral-v002.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/raw/Thoma/love.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/sprites/Thoma/love.png",
+          "sha256": "dcdf3ade0e5c1c654244e66b7f1bf821654eef7c78dd9d7582f0944341a48330",
+          "status": "candidate"
+        },
+        "desire": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/prompts/Thoma/desire.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Thoma from Genshin Impact expressing desire. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, eye colors, costume, accessories, rendering and his blond hair, red-and-dark outfit, accessories and medium male proportions. Personality and acting: warm, dependable and outgoing, with relaxed, friendly gestures. Show a yearning gaze with a faint blush; turn toward the viewer, leaning in subtly, one hand near the waist.  Convey a sincere, warm romantic gaze and a gentle smile; tasteful in the established outfit. Vary pose and gesture to match the emotion while staying faithful to the character; maintain the reference's proportions without elongating the torso or legs. Use normal pupils, simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and shoes with 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Thoma/neutral-v002.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/raw/Thoma/desire.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/sprites/Thoma/desire.png",
+          "sha256": "a5d9d492bf9417193d5592aeb38bd670603e2fdd1b67048be9e058f1f9fec846",
+          "status": "candidate"
+        },
+        "excitement": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/prompts/Thoma/excitement.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Thoma from Genshin Impact expressing excitement. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, eye colors, costume, accessories, rendering and his blond hair, red-and-dark outfit, accessories and medium male proportions. Personality and acting: warm, dependable and outgoing, with relaxed, friendly gestures. Show an enthusiastic smile; lean forward slightly with one hand raised near the shoulder and the other relaxed. Vary pose and gesture to match the emotion while staying faithful to the character; maintain the reference's proportions without elongating the torso or legs. Use normal pupils, simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and shoes with 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Thoma/neutral-v002.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/raw/Thoma/excitement.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/sprites/Thoma/excitement.png",
+          "sha256": "3e4c406e5253b39637f1f6578cadf3b182a17349dcfc6e406865b7a1ecb1b1c8",
+          "status": "candidate"
+        },
+        "sadness": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/prompts/Thoma/sadness.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Thoma from Genshin Impact expressing sadness. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, eye colors, costume, accessories, rendering and his blond hair, red-and-dark outfit, accessories and medium male proportions. Personality and acting: warm, dependable and outgoing, with relaxed, friendly gestures. Show a subdued expression and lowered eyes; let both arms rest naturally while the shoulders fall slightly. Vary pose and gesture to match the emotion while staying faithful to the character; maintain the reference's proportions without elongating the torso or legs. Use normal pupils, simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and shoes with 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Thoma/neutral-v002.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/raw/Thoma/sadness.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/sprites/Thoma/sadness.png",
+          "sha256": "52f0359fb3372282561d504b617b1589a5a3a68ca34c77168fea08c5f7ea41ee",
+          "status": "candidate"
+        },
+        "fear": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/prompts/Thoma/fear.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Thoma from Genshin Impact expressing fear. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, eye colors, costume, accessories, rendering and his blond hair, red-and-dark outfit, accessories and medium male proportions. Personality and acting: warm, dependable and outgoing, with relaxed, friendly gestures. Show a tense worried expression; step weight back slightly and hold one hand near the chest. Vary pose and gesture to match the emotion while staying faithful to the character; maintain the reference's proportions without elongating the torso or legs. Use normal pupils, simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and shoes with 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Thoma/neutral-v002.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/raw/Thoma/fear.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/sprites/Thoma/fear.png",
+          "sha256": "7ab92deb22e4a987e5768c06cc956c7598e7d0874c051355d491ea5d7143b9a6",
+          "status": "candidate"
+        },
+        "embarrassment": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/prompts/Thoma/embarrassment.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Thoma from Genshin Impact expressing embarrassment. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, eye colors, costume, accessories, rendering and his blond hair, red-and-dark outfit, accessories and medium male proportions. Personality and acting: warm, dependable and outgoing, with relaxed, friendly gestures. Show a shy smile and modest blush; stand at ease, one hand behind his neck. Vary pose and gesture to match the emotion while staying faithful to the character; maintain the reference's proportions without elongating the torso or legs. Use normal pupils, simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and shoes with 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Thoma/neutral-v002.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/raw/Thoma/embarrassment.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/sprites/Thoma/embarrassment.png",
+          "sha256": "e6e60849795a52b6b530a1651d215dc401b5baaa613b45c20e71503551e944d9",
+          "status": "candidate"
+        }
+      },
+      "previews": {
+        "full_body": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/previews/Thoma-full-body.png",
+        "faces": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/previews/Thoma-faces.png"
+      }
+    },
+    "Tighnari": {
+      "neutral_approval": {
+        "status": "approved",
+        "message": "All others are ACCEPTED.",
+        "date": "2026-10-30",
+        "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Tighnari/neutral-v001.png",
+        "candidate_sha256": "524b7aa233fca1f82d644882a2d2fa869530e051d27af725b6e9b889594e1c5b"
+      },
+      "reference": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/references/Tighnari/approved-neutral.png",
+      "expressions": {
+        "joy": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/prompts/Tighnari/joy.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Tighnari from Genshin Impact expressing joy. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, eye colors, costume, accessories, rendering and his large ears, dark hair with green accent, forest ranger outfit and petite medium male proportions. Personality and acting: observant, practical and caring, with measured gestures and a dry sense of humor. Show a warm smile; turn slightly toward the viewer, one hand lifted in a modest greeting. Preserve both long ears. Vary pose and gesture to match the emotion while staying faithful to the character; maintain the reference's proportions without elongating the torso or legs. Use normal pupils, simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and shoes with 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Tighnari/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/raw/Tighnari/joy.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/sprites/Tighnari/joy.png",
+          "sha256": "6ee34d55c6567cf7cfeb3934a4db05fb9c8bfe0e7731a4a240d9b99a5cf308c2",
+          "status": "candidate"
+        },
+        "annoyance": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/prompts/Tighnari/annoyance.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Tighnari from Genshin Impact expressing annoyance. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, eye colors, costume, accessories, rendering and his large ears, dark hair with green accent, forest ranger outfit and petite medium male proportions. Personality and acting: observant, practical and caring, with measured gestures and a dry sense of humor. Show a mildly indignant expression; angle the shoulders away, one hand at the waist. Preserve both long ears. Vary pose and gesture to match the emotion while staying faithful to the character; maintain the reference's proportions without elongating the torso or legs. Use normal pupils, simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and shoes with 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Tighnari/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/raw/Tighnari/annoyance.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/sprites/Tighnari/annoyance.png",
+          "sha256": "7a0f6e851f47b53106763c47bb54248c3b9d1f718c0fd77fb1bd363f172b18a5",
+          "status": "candidate"
+        },
+        "confusion": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/prompts/Tighnari/confusion.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Tighnari from Genshin Impact expressing confusion. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, eye colors, costume, accessories, rendering and his large ears, dark hair with green accent, forest ranger outfit and petite medium male proportions. Personality and acting: observant, practical and caring, with measured gestures and a dry sense of humor. Show a perplexed expression; incline the head and rest one hand thoughtfully near the chin. Preserve both long ears. Vary pose and gesture to match the emotion while staying faithful to the character; maintain the reference's proportions without elongating the torso or legs. Use normal pupils, simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and shoes with 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Tighnari/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/raw/Tighnari/confusion.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/sprites/Tighnari/confusion.png",
+          "sha256": "1103da627bcb36ec9fcba8f22da91cd39d65a49a675aabef5554c4b68d875f6f",
+          "status": "candidate"
+        },
+        "love": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/prompts/Tighnari/love.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Tighnari from Genshin Impact expressing love. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, eye colors, costume, accessories, rendering and his large ears, dark hair with green accent, forest ranger outfit and petite medium male proportions. Personality and acting: observant, practical and caring, with measured gestures and a dry sense of humor. Show a sincere loving smile; angle the body toward the viewer and rest one hand over the heart. Preserve both long ears. Vary pose and gesture to match the emotion while staying faithful to the character; maintain the reference's proportions without elongating the torso or legs. Use normal pupils, simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and shoes with 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Tighnari/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/raw/Tighnari/love.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/sprites/Tighnari/love.png",
+          "sha256": "ae253bca4bcb0bf58789732e514962712f25eaa8de84cd3cecb0ee14089dce7a",
+          "status": "candidate"
+        },
+        "desire": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/prompts/Tighnari/desire.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Tighnari from Genshin Impact expressing desire. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, eye colors, costume, accessories, rendering and his large ears, dark hair with green accent, forest ranger outfit and petite medium male proportions. Personality and acting: observant, practical and caring, with measured gestures and a dry sense of humor. Show an earnest softened gaze and a subtle blush; shift forward slightly with one hand near the chest.  Convey a warm, sincere wish for closeness, with a thoughtful expression; tasteful in the established outfit. Preserve both long ears. Vary pose and gesture to match the emotion while staying faithful to the character; maintain the reference's proportions without elongating the torso or legs. Use normal pupils, simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and shoes with 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Tighnari/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/raw/Tighnari/desire.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/sprites/Tighnari/desire.png",
+          "sha256": "4bf523083d6c4e8cdcd6cc33fcf126947ffba7d7c6f3fdd7b57d66e20b45fc51",
+          "status": "candidate"
+        },
+        "excitement": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/prompts/Tighnari/excitement.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Tighnari from Genshin Impact expressing excitement. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, eye colors, costume, accessories, rendering and his large ears, dark hair with green accent, forest ranger outfit and petite medium male proportions. Personality and acting: observant, practical and caring, with measured gestures and a dry sense of humor. Show bright eyes and eager anticipation; shift into an alert stance with one hand lifted near the torso. Preserve both long ears. Vary pose and gesture to match the emotion while staying faithful to the character; maintain the reference's proportions without elongating the torso or legs. Use normal pupils, simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and shoes with 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Tighnari/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/raw/Tighnari/excitement.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/sprites/Tighnari/excitement.png",
+          "sha256": "c786d548f12db105e541fb9d916af5c11707c0fbb01023d3d55b28efe7ad1a43",
+          "status": "candidate"
+        },
+        "sadness": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/prompts/Tighnari/sadness.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Tighnari from Genshin Impact expressing sadness. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, eye colors, costume, accessories, rendering and his large ears, dark hair with green accent, forest ranger outfit and petite medium male proportions. Personality and acting: observant, practical and caring, with measured gestures and a dry sense of humor. Show a sad, quiet gaze; turn slightly away, one hand resting against the opposite forearm. Preserve both long ears. Vary pose and gesture to match the emotion while staying faithful to the character; maintain the reference's proportions without elongating the torso or legs. Use normal pupils, simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and shoes with 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Tighnari/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/raw/Tighnari/sadness.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/sprites/Tighnari/sadness.png",
+          "sha256": "0e0cdb569f195d04c6b570938f5bf410c8e3df6f3eae01c563422be9e666ed81",
+          "status": "candidate"
+        },
+        "fear": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/prompts/Tighnari/fear.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Tighnari from Genshin Impact expressing fear. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, eye colors, costume, accessories, rendering and his large ears, dark hair with green accent, forest ranger outfit and petite medium male proportions. Personality and acting: observant, practical and caring, with measured gestures and a dry sense of humor. Show widened uneasy eyes; turn slightly aside, one forearm protectively near the torso. Preserve both long ears. Vary pose and gesture to match the emotion while staying faithful to the character; maintain the reference's proportions without elongating the torso or legs. Use normal pupils, simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and shoes with 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Tighnari/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/raw/Tighnari/fear.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/sprites/Tighnari/fear.png",
+          "sha256": "b61b21d826b3af8bed782a3e7dfe63140626bb68f1f76b5aef156d1ad46afaf1",
+          "status": "candidate"
+        },
+        "embarrassment": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/prompts/Tighnari/embarrassment.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Tighnari from Genshin Impact expressing embarrassment. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, eye colors, costume, accessories, rendering and his large ears, dark hair with green accent, forest ranger outfit and petite medium male proportions. Personality and acting: observant, practical and caring, with measured gestures and a dry sense of humor. Show a faint blush and averted glance; remain grounded while lightly adjusting his collar. Preserve both long ears. Vary pose and gesture to match the emotion while staying faithful to the character; maintain the reference's proportions without elongating the torso or legs. Use normal pupils, simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and shoes with 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Tighnari/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/raw/Tighnari/embarrassment.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/sprites/Tighnari/embarrassment.png",
+          "sha256": "9d2bb9195357279077bbad688a95fb2f922359abb94bdd1d4cf5c1324b749987",
+          "status": "candidate"
+        }
+      },
+      "previews": {
+        "full_body": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/previews/Tighnari-full-body.png",
+        "faces": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/previews/Tighnari-faces.png"
+      }
+    },
+    "Varka": {
+      "neutral_approval": {
+        "status": "approved",
+        "message": "All others are ACCEPTED.",
+        "date": "2026-10-30",
+        "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Varka/neutral-v001.png",
+        "candidate_sha256": "14e242b5c802807c7d9dbe7e3352ef05f3452af49aac5b6f48f9b9d6fc46426f"
+      },
+      "reference": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/references/Varka/approved-neutral.png",
+      "expressions": {
+        "joy": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/prompts/Varka/joy.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Varka from Genshin Impact expressing joy. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, eye colors, costume, accessories, rendering and his blond hair, fur collar, knightly outfit and broad tall male proportions. Personality and acting: confident, warm and capable, with strong, relaxed masculine posture. Show a sincere smile and softened eyes; shift comfortably and give a small greeting near the torso. Vary pose and gesture to match the emotion while staying faithful to the character; maintain the reference's proportions without elongating the torso or legs. Use normal pupils, simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and shoes with 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Varka/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/raw/Varka/joy.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/sprites/Varka/joy.png",
+          "sha256": "236f320dc7b1da57e8a601de1d92224d5ad0f523c3629fb87a0b68a1d2354593",
+          "status": "candidate"
+        },
+        "annoyance": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/prompts/Varka/annoyance.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Varka from Genshin Impact expressing annoyance. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, eye colors, costume, accessories, rendering and his blond hair, fur collar, knightly outfit and broad tall male proportions. Personality and acting: confident, warm and capable, with strong, relaxed masculine posture. Show a clear displeased frown and knitted brows; stand firmly with one hand on the hip and the other down. Vary pose and gesture to match the emotion while staying faithful to the character; maintain the reference's proportions without elongating the torso or legs. Use normal pupils, simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and shoes with 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Varka/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/raw/Varka/annoyance.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/sprites/Varka/annoyance.png",
+          "sha256": "2e2722f9b1028a7ce5f4e50fc61e52e55feeb371f09b8ea903f9a6684f212e2c",
+          "status": "candidate"
+        },
+        "confusion": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/prompts/Varka/confusion.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Varka from Genshin Impact expressing confusion. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, eye colors, costume, accessories, rendering and his blond hair, fur collar, knightly outfit and broad tall male proportions. Personality and acting: confident, warm and capable, with strong, relaxed masculine posture. Show a questioning expression and raised brow; tilt the head slightly and bring one hand near the chin. Vary pose and gesture to match the emotion while staying faithful to the character; maintain the reference's proportions without elongating the torso or legs. Use normal pupils, simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and shoes with 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Varka/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/raw/Varka/confusion.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/sprites/Varka/confusion.png",
+          "sha256": "28d4e22d8d56d1c79be4648e0dcc88e01278552a45cf6e42e12826d181ec0890",
+          "status": "candidate"
+        },
+        "love": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/prompts/Varka/love.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Varka from Genshin Impact expressing love. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, eye colors, costume, accessories, rendering and his blond hair, fur collar, knightly outfit and broad tall male proportions. Personality and acting: confident, warm and capable, with strong, relaxed masculine posture. Show a genuinely affectionate smile and warm eyes; turn toward the viewer with one hand over the heart and the other relaxed. Vary pose and gesture to match the emotion while staying faithful to the character; maintain the reference's proportions without elongating the torso or legs. Use normal pupils, simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and shoes with 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Varka/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/raw/Varka/love.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/sprites/Varka/love.png",
+          "sha256": "89a1b8565def44b6720d5d4a9066571f3255294a36a07fe38e400131adf0fc34",
+          "status": "candidate"
+        },
+        "desire": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/prompts/Varka/desire.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Varka from Genshin Impact expressing desire. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, eye colors, costume, accessories, rendering and his blond hair, fur collar, knightly outfit and broad tall male proportions. Personality and acting: confident, warm and capable, with strong, relaxed masculine posture. Show a hopeful intent gaze and a subtle blush; lean forward slightly with one hand near the heart and the other at the side.  Convey a quietly warm, sincere romantic gaze in a grounded upright stance; tasteful in the established outfit. Vary pose and gesture to match the emotion while staying faithful to the character; maintain the reference's proportions without elongating the torso or legs. Use normal pupils, simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and shoes with 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Varka/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/raw/Varka/desire.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/sprites/Varka/desire.png",
+          "sha256": "ceeb901e876da81a91025176d3d0fc1774ac282bc57d69e62a12bbcb666d1e06",
+          "status": "candidate"
+        },
+        "excitement": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/prompts/Varka/excitement.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Varka from Genshin Impact expressing excitement. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, eye colors, costume, accessories, rendering and his blond hair, fur collar, knightly outfit and broad tall male proportions. Personality and acting: confident, warm and capable, with strong, relaxed masculine posture. Show bright eager eyes and a delighted smile; stand more alert, one hand lifted in a small celebratory gesture. Vary pose and gesture to match the emotion while staying faithful to the character; maintain the reference's proportions without elongating the torso or legs. Use normal pupils, simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and shoes with 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Varka/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/raw/Varka/excitement.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/sprites/Varka/excitement.png",
+          "sha256": "c7f3702e7dfddc89be16e3491acb593274f3392b948d6fc7dd887fc63bf6cbf7",
+          "status": "candidate"
+        },
+        "sadness": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/prompts/Varka/sadness.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Varka from Genshin Impact expressing sadness. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, eye colors, costume, accessories, rendering and his blond hair, fur collar, knightly outfit and broad tall male proportions. Personality and acting: confident, warm and capable, with strong, relaxed masculine posture. Show a sorrowful downcast gaze and softened shoulders; one hand resting on the opposite forearm. Vary pose and gesture to match the emotion while staying faithful to the character; maintain the reference's proportions without elongating the torso or legs. Use normal pupils, simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and shoes with 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Varka/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/raw/Varka/sadness.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/sprites/Varka/sadness.png",
+          "sha256": "0f8f5163c8597cd67322bd7e7aab8417e4ec6b235dd2e6f3fad7683c9e89a18d",
+          "status": "candidate"
+        },
+        "fear": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/prompts/Varka/fear.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Varka from Genshin Impact expressing fear. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, eye colors, costume, accessories, rendering and his blond hair, fur collar, knightly outfit and broad tall male proportions. Personality and acting: confident, warm and capable, with strong, relaxed masculine posture. Show an alarmed gaze and raised brows; shift weight back with one forearm held protectively near the torso. Vary pose and gesture to match the emotion while staying faithful to the character; maintain the reference's proportions without elongating the torso or legs. Use normal pupils, simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and shoes with 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Varka/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/raw/Varka/fear.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/sprites/Varka/fear.png",
+          "sha256": "56f98465b4a29557ee9f3cbd5a07115c7984947d949959c8d5328fe2d8c50b7b",
+          "status": "candidate"
+        },
+        "embarrassment": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/prompts/Varka/embarrassment.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Varka from Genshin Impact expressing embarrassment. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, eye colors, costume, accessories, rendering and his blond hair, fur collar, knightly outfit and broad tall male proportions. Personality and acting: confident, warm and capable, with strong, relaxed masculine posture. Show a restrained blush and wry half-smile; stand firm and adjust one cuff. Vary pose and gesture to match the emotion while staying faithful to the character; maintain the reference's proportions without elongating the torso or legs. Use normal pupils, simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and shoes with 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Varka/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/raw/Varka/embarrassment.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/sprites/Varka/embarrassment.png",
+          "sha256": "6a1e6a62b0b75e373f2c7f3fa1c51932f089eec93a5449598da6b3b4722cae3b",
+          "status": "candidate"
+        }
+      },
+      "previews": {
+        "full_body": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/previews/Varka-full-body.png",
+        "faces": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/previews/Varka-faces.png"
+      }
+    },
+    "Vesna": {
+      "neutral_approval": {
+        "status": "approved",
+        "message": "All others are ACCEPTED.",
+        "date": "2026-10-30",
+        "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Vesna/neutral-v001.png",
+        "candidate_sha256": "34f2da3beb9802a3a787a0905b2401120a8797a61f56d4502f212503f9c72cb5"
+      },
+      "reference": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/references/Vesna/approved-neutral.png",
+      "expressions": {
+        "joy": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/prompts/Vesna/joy.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Vesna from Genshin Impact expressing joy. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, eye colors, costume, accessories, rendering and her blond hair, pointed ears, translucent wings, blue-and-white outfit and petite female proportions. Personality and acting: gentle, bright and graceful, with light, animated gestures. Show bright eyes and an easy smile; relax the shoulders with one hand lightly at the waist. Preserve her wings as part of her complete silhouette. Vary pose and gesture to match the emotion while staying faithful to the character; maintain the reference's proportions without elongating the torso or legs. Use normal pupils, simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and shoes with 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Vesna/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/raw/Vesna/joy.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/sprites/Vesna/joy.png",
+          "sha256": "077aff5568036c448a0996a2cd418c4e361d9a22da1641298a2513795a4c9ecb",
+          "status": "candidate"
+        },
+        "annoyance": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/prompts/Vesna/annoyance.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Vesna from Genshin Impact expressing annoyance. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, eye colors, costume, accessories, rendering and her blond hair, pointed ears, translucent wings, blue-and-white outfit and petite female proportions. Personality and acting: gentle, bright and graceful, with light, animated gestures. Show a restrained irritated gaze; shift weight to one leg with one forearm near the torso. Preserve her wings as part of her complete silhouette. Vary pose and gesture to match the emotion while staying faithful to the character; maintain the reference's proportions without elongating the torso or legs. Use normal pupils, simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and shoes with 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Vesna/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/raw/Vesna/annoyance.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/sprites/Vesna/annoyance.png",
+          "sha256": "31ad09b49ee44f897f39336a11c5ee9dc846dce0eefc33604077b420e24d7a38",
+          "status": "candidate"
+        },
+        "confusion": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/prompts/Vesna/confusion.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Vesna from Genshin Impact expressing confusion. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, eye colors, costume, accessories, rendering and her blond hair, pointed ears, translucent wings, blue-and-white outfit and petite female proportions. Personality and acting: gentle, bright and graceful, with light, animated gestures. Show puzzled eyes and a small frown; turn the shoulders slightly with one hand lifted in a simple questioning gesture. Preserve her wings as part of her complete silhouette. Vary pose and gesture to match the emotion while staying faithful to the character; maintain the reference's proportions without elongating the torso or legs. Use normal pupils, simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and shoes with 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Vesna/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/raw/Vesna/confusion.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/sprites/Vesna/confusion.png",
+          "sha256": "ab6de9e218f39cb088052316b50fdf1ac12e315bace6cf1b6199c5ef2bc67c90",
+          "status": "candidate"
+        },
+        "love": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/prompts/Vesna/love.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Vesna from Genshin Impact expressing love. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, eye colors, costume, accessories, rendering and her blond hair, pointed ears, translucent wings, blue-and-white outfit and petite female proportions. Personality and acting: gentle, bright and graceful, with light, animated gestures. Show tender, open warmth and a gentle smile; relax the shoulders, one hand lightly against the chest. Preserve her wings as part of her complete silhouette. Vary pose and gesture to match the emotion while staying faithful to the character; maintain the reference's proportions without elongating the torso or legs. Use normal pupils, simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and shoes with 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Vesna/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/raw/Vesna/love.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/sprites/Vesna/love.png",
+          "sha256": "cc50763aace9f82da4931a90306581c21239bb01da578f5b3cffaf8dea1d9bbd",
+          "status": "candidate"
+        },
+        "desire": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/prompts/Vesna/desire.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Vesna from Genshin Impact expressing desire. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, eye colors, costume, accessories, rendering and her blond hair, pointed ears, translucent wings, blue-and-white outfit and petite female proportions. Personality and acting: gentle, bright and graceful, with light, animated gestures. Show a yearning gaze with a faint blush; turn toward the viewer, leaning in subtly, one hand near the waist.  Convey a wholesome, hopeful wish for closeness and companionship; non-suggestive; tasteful in the established outfit. Preserve her wings as part of her complete silhouette. Vary pose and gesture to match the emotion while staying faithful to the character; maintain the reference's proportions without elongating the torso or legs. Use normal pupils, simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and shoes with 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Vesna/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/raw/Vesna/desire.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/sprites/Vesna/desire.png",
+          "sha256": "c8535ff5c72d9704d3519ce0cb28c9cf070ce080b386a06eacba0715e3119fca",
+          "status": "candidate"
+        },
+        "excitement": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/prompts/Vesna/excitement.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Vesna from Genshin Impact expressing excitement. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, eye colors, costume, accessories, rendering and her blond hair, pointed ears, translucent wings, blue-and-white outfit and petite female proportions. Personality and acting: gentle, bright and graceful, with light, animated gestures. Show an enthusiastic smile; lean forward slightly with one hand raised near the shoulder and the other relaxed. Preserve her wings as part of her complete silhouette. Vary pose and gesture to match the emotion while staying faithful to the character; maintain the reference's proportions without elongating the torso or legs. Use normal pupils, simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and shoes with 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Vesna/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/raw/Vesna/excitement.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/sprites/Vesna/excitement.png",
+          "sha256": "985ac3bbd932327a34b2a7ddd84f7d6993c38d184026bff50ebca87bc81c4ebe",
+          "status": "candidate"
+        },
+        "sadness": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/prompts/Vesna/sadness.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Vesna from Genshin Impact expressing sadness. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, eye colors, costume, accessories, rendering and her blond hair, pointed ears, translucent wings, blue-and-white outfit and petite female proportions. Personality and acting: gentle, bright and graceful, with light, animated gestures. Show a subdued expression and lowered eyes; let both arms rest naturally while the shoulders fall slightly. Preserve her wings as part of her complete silhouette. Vary pose and gesture to match the emotion while staying faithful to the character; maintain the reference's proportions without elongating the torso or legs. Use normal pupils, simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and shoes with 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Vesna/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/raw/Vesna/sadness.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/sprites/Vesna/sadness.png",
+          "sha256": "2fdc567cfc1921beb8c12b6434a93179db7ed38ca4156fa7d7a640f6c082836e",
+          "status": "candidate"
+        },
+        "fear": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/prompts/Vesna/fear.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Vesna from Genshin Impact expressing fear. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, eye colors, costume, accessories, rendering and her blond hair, pointed ears, translucent wings, blue-and-white outfit and petite female proportions. Personality and acting: gentle, bright and graceful, with light, animated gestures. Show a tense worried expression; step weight back slightly and hold one hand near the chest. Preserve her wings as part of her complete silhouette. Vary pose and gesture to match the emotion while staying faithful to the character; maintain the reference's proportions without elongating the torso or legs. Use normal pupils, simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and shoes with 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Vesna/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/raw/Vesna/fear.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/sprites/Vesna/fear.png",
+          "sha256": "458d81c90d414542b6872d8b1327d3a8b36ec149cd634874d3abfb205a82c095",
+          "status": "candidate"
+        },
+        "embarrassment": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/prompts/Vesna/embarrassment.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Vesna from Genshin Impact expressing embarrassment. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, eye colors, costume, accessories, rendering and her blond hair, pointed ears, translucent wings, blue-and-white outfit and petite female proportions. Personality and acting: gentle, bright and graceful, with light, animated gestures. Show a shy blush and delighted, averted smile; hold one hand near her chest. Preserve her wings as part of her complete silhouette. Vary pose and gesture to match the emotion while staying faithful to the character; maintain the reference's proportions without elongating the torso or legs. Use normal pupils, simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and shoes with 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Vesna/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/raw/Vesna/embarrassment.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/sprites/Vesna/embarrassment.png",
+          "sha256": "1392ead7528e76a5fec211cd00dc5b45ddf4643c19ea2bb98b8b3d836102f5d3",
+          "status": "candidate"
+        }
+      },
+      "previews": {
+        "full_body": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/previews/Vesna-full-body.png",
+        "faces": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/previews/Vesna-faces.png"
+      }
+    },
+    "Vodyanitsa": {
+      "neutral_approval": {
+        "status": "approved",
+        "message": "All others are ACCEPTED.",
+        "date": "2026-10-30",
+        "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Vodyanitsa/neutral-v001.png",
+        "candidate_sha256": "a6859b8dd44820ea3df112d9600c4df6c482bc7f297d394c48dc8574c553ee4a"
+      },
+      "reference": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/references/Vodyanitsa/approved-neutral.png",
+      "expressions": {
+        "joy": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/prompts/Vodyanitsa/joy.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Vodyanitsa from Genshin Impact expressing joy. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, eye colors, costume, accessories, rendering and her long teal hair, floral ornaments, pale blue outfit and petite female proportions. Personality and acting: gentle, curious and reserved, with soft, fluid gestures. Show a warm smile; turn slightly toward the viewer, one hand lifted in a modest greeting. Vary pose and gesture to match the emotion while staying faithful to the character; maintain the reference's proportions without elongating the torso or legs. Use normal pupils, simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and shoes with 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Vodyanitsa/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/raw/Vodyanitsa/joy.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/sprites/Vodyanitsa/joy.png",
+          "sha256": "1e19385530b5a4ad2eb425a5463da95fb786f4bba05aa940b6721d5790eccfbe",
+          "status": "candidate"
+        },
+        "annoyance": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/prompts/Vodyanitsa/annoyance.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Vodyanitsa from Genshin Impact expressing annoyance. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, eye colors, costume, accessories, rendering and her long teal hair, floral ornaments, pale blue outfit and petite female proportions. Personality and acting: gentle, curious and reserved, with soft, fluid gestures. Show a mildly indignant expression; angle the shoulders away, one hand at the waist. Vary pose and gesture to match the emotion while staying faithful to the character; maintain the reference's proportions without elongating the torso or legs. Use normal pupils, simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and shoes with 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Vodyanitsa/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/raw/Vodyanitsa/annoyance.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/sprites/Vodyanitsa/annoyance.png",
+          "sha256": "68614a4079359a7d424fb7c1a692c7c567577f9ddfcceba55c43cf4b1b170273",
+          "status": "candidate"
+        },
+        "confusion": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/prompts/Vodyanitsa/confusion.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Vodyanitsa from Genshin Impact expressing confusion. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, eye colors, costume, accessories, rendering and her long teal hair, floral ornaments, pale blue outfit and petite female proportions. Personality and acting: gentle, curious and reserved, with soft, fluid gestures. Show a perplexed expression; incline the head and rest one hand thoughtfully near the chin. Vary pose and gesture to match the emotion while staying faithful to the character; maintain the reference's proportions without elongating the torso or legs. Use normal pupils, simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and shoes with 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Vodyanitsa/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/raw/Vodyanitsa/confusion.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/sprites/Vodyanitsa/confusion.png",
+          "sha256": "76c6cf95f14551d50f93570479f82d3b4ceca36c8d58352fb71bbff1f73f25b9",
+          "status": "candidate"
+        },
+        "love": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/prompts/Vodyanitsa/love.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Vodyanitsa from Genshin Impact expressing love. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, eye colors, costume, accessories, rendering and her long teal hair, floral ornaments, pale blue outfit and petite female proportions. Personality and acting: gentle, curious and reserved, with soft, fluid gestures. Show a sincere loving smile; angle the body toward the viewer and rest one hand over the heart. Vary pose and gesture to match the emotion while staying faithful to the character; maintain the reference's proportions without elongating the torso or legs. Use normal pupils, simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and shoes with 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Vodyanitsa/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/raw/Vodyanitsa/love.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/sprites/Vodyanitsa/love.png",
+          "sha256": "3821b798a53319a0d64f9305775dcc7cb574a02197a665740699f2c49a5c26b3",
+          "status": "candidate"
+        },
+        "desire": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/prompts/Vodyanitsa/desire.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Vodyanitsa from Genshin Impact expressing desire. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, eye colors, costume, accessories, rendering and her long teal hair, floral ornaments, pale blue outfit and petite female proportions. Personality and acting: gentle, curious and reserved, with soft, fluid gestures. Show an earnest softened gaze and a subtle blush; shift forward slightly with one hand near the chest.  Convey a tender, hopeful wish for closeness, conveyed with a calm gaze; tasteful in the established outfit. Vary pose and gesture to match the emotion while staying faithful to the character; maintain the reference's proportions without elongating the torso or legs. Use normal pupils, simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and shoes with 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Vodyanitsa/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/raw/Vodyanitsa/desire.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/sprites/Vodyanitsa/desire.png",
+          "sha256": "2defaf5dcd00ba9fa5169b8848207550499cb651202df65265574605c54ba562",
+          "status": "candidate"
+        },
+        "excitement": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/prompts/Vodyanitsa/excitement.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Vodyanitsa from Genshin Impact expressing excitement. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, eye colors, costume, accessories, rendering and her long teal hair, floral ornaments, pale blue outfit and petite female proportions. Personality and acting: gentle, curious and reserved, with soft, fluid gestures. Show bright eyes and eager anticipation; shift into an alert stance with one hand lifted near the torso. Vary pose and gesture to match the emotion while staying faithful to the character; maintain the reference's proportions without elongating the torso or legs. Use normal pupils, simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and shoes with 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Vodyanitsa/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/raw/Vodyanitsa/excitement.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/sprites/Vodyanitsa/excitement.png",
+          "sha256": "7ed16d6fdec881d009a5c9c9c6e15088580aa300f53770307e0415b11d181868",
+          "status": "candidate"
+        },
+        "sadness": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/prompts/Vodyanitsa/sadness.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Vodyanitsa from Genshin Impact expressing sadness. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, eye colors, costume, accessories, rendering and her long teal hair, floral ornaments, pale blue outfit and petite female proportions. Personality and acting: gentle, curious and reserved, with soft, fluid gestures. Show a sad, quiet gaze; turn slightly away, one hand resting against the opposite forearm. Vary pose and gesture to match the emotion while staying faithful to the character; maintain the reference's proportions without elongating the torso or legs. Use normal pupils, simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and shoes with 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Vodyanitsa/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/raw/Vodyanitsa/sadness.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/sprites/Vodyanitsa/sadness.png",
+          "sha256": "759707a132a4087901fe1401568554dfda33622bcf5c486a000d959e2fde23ce",
+          "status": "candidate"
+        },
+        "fear": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/prompts/Vodyanitsa/fear.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Vodyanitsa from Genshin Impact expressing fear. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, eye colors, costume, accessories, rendering and her long teal hair, floral ornaments, pale blue outfit and petite female proportions. Personality and acting: gentle, curious and reserved, with soft, fluid gestures. Show widened uneasy eyes; turn slightly aside, one forearm protectively near the torso. Vary pose and gesture to match the emotion while staying faithful to the character; maintain the reference's proportions without elongating the torso or legs. Use normal pupils, simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and shoes with 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Vodyanitsa/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/raw/Vodyanitsa/fear.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/sprites/Vodyanitsa/fear.png",
+          "sha256": "a4f463c8c8b0cfecb7c7fe7b307beeb04c8f8652c13759305adfb9992471c7c5",
+          "status": "candidate"
+        },
+        "embarrassment": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/prompts/Vodyanitsa/embarrassment.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Vodyanitsa from Genshin Impact expressing embarrassment. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, eye colors, costume, accessories, rendering and her long teal hair, floral ornaments, pale blue outfit and petite female proportions. Personality and acting: gentle, curious and reserved, with soft, fluid gestures. Show a light blush and averted eyes; turn slightly and rest one hand near her collar. Vary pose and gesture to match the emotion while staying faithful to the character; maintain the reference's proportions without elongating the torso or legs. Use normal pupils, simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and shoes with 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Vodyanitsa/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/raw/Vodyanitsa/embarrassment.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/sprites/Vodyanitsa/embarrassment.png",
+          "sha256": "caeabf980e2194bf416643c82e305239120347a09c793f097f0db0e1d5ed2e66",
+          "status": "candidate"
+        }
+      },
+      "previews": {
+        "full_body": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/previews/Vodyanitsa-full-body.png",
+        "faces": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/previews/Vodyanitsa-faces.png"
+      }
+    },
+    "Wanderer": {
+      "neutral_approval": {
+        "status": "approved",
+        "message": "GOOD! Set all neutrals as each character's neutral sprite under the original set, and set Original as default for all characters!",
+        "date": "2026-10-30",
+        "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Wanderer/neutral-v005.png",
+        "candidate_sha256": "e61a5bd3eb1bcc24c74c036cae6005e0a95cb4d088148b5febf85a29d7082b9e"
+      },
+      "reference": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/references/Wanderer/approved-neutral.png",
+      "expressions": {
+        "joy": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/prompts/Wanderer/joy.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Wanderer from Genshin Impact expressing joy. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, eye colors, costume, accessories, rendering and his broad hat, dark hair, blue outfit and petite medium male proportions. Personality and acting: acerbic, guarded and independent, with measured, grounded masculine body language. Show a sincere smile and softened eyes; shift comfortably and give a small greeting near the torso. Keep both hands open and relaxed; preserve his broad hat, and allow a gentle hovering pose as in the reference. Vary pose and gesture to match the emotion while staying faithful to the character; maintain the reference's proportions without elongating the torso or legs. Use normal pupils, simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and shoes with 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Wanderer/neutral-v005.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/raw/Wanderer/joy.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/sprites/Wanderer/joy.png",
+          "sha256": "e298cd2b710007bdb5c6d9c4da1d83946597770cfe231c56117c9af825b8a0ee",
+          "status": "candidate"
+        },
+        "annoyance": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/prompts/Wanderer/annoyance.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Wanderer from Genshin Impact expressing annoyance. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, eye colors, costume, accessories, rendering and his broad hat, dark hair, blue outfit and petite medium male proportions. Personality and acting: acerbic, guarded and independent, with measured, grounded masculine body language. Show a clear displeased frown and knitted brows; stand firmly with one hand on the hip and the other down. Keep both hands open and relaxed; preserve his broad hat, and allow a gentle hovering pose as in the reference. Vary pose and gesture to match the emotion while staying faithful to the character; maintain the reference's proportions without elongating the torso or legs. Use normal pupils, simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and shoes with 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Wanderer/neutral-v005.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/raw/Wanderer/annoyance.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/sprites/Wanderer/annoyance.png",
+          "sha256": "01eb0811a9d49fa779ed8dd1ae7a679a2897766c3dbfe67acb39c3b6bf20e316",
+          "status": "candidate"
+        },
+        "confusion": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/prompts/Wanderer/confusion.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Wanderer from Genshin Impact expressing confusion. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, eye colors, costume, accessories, rendering and his broad hat, dark hair, blue outfit and petite medium male proportions. Personality and acting: acerbic, guarded and independent, with measured, grounded masculine body language. Show a questioning expression and raised brow; tilt the head slightly and bring one hand near the chin. Keep both hands open and relaxed; preserve his broad hat, and allow a gentle hovering pose as in the reference. Vary pose and gesture to match the emotion while staying faithful to the character; maintain the reference's proportions without elongating the torso or legs. Use normal pupils, simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and shoes with 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Wanderer/neutral-v005.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/raw/Wanderer/confusion.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/sprites/Wanderer/confusion.png",
+          "sha256": "c160d147b9b7560a2e4564675d6401143a102a0fdb65300eeef22defad17caa0",
+          "status": "candidate"
+        },
+        "love": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/prompts/Wanderer/love.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Wanderer from Genshin Impact expressing love. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, eye colors, costume, accessories, rendering and his broad hat, dark hair, blue outfit and petite medium male proportions. Personality and acting: acerbic, guarded and independent, with measured, grounded masculine body language. Show a genuinely affectionate smile and warm eyes; turn toward the viewer with one hand over the heart and the other relaxed. Keep both hands open and relaxed; preserve his broad hat, and allow a gentle hovering pose as in the reference. Vary pose and gesture to match the emotion while staying faithful to the character; maintain the reference's proportions without elongating the torso or legs. Use normal pupils, simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and shoes with 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Wanderer/neutral-v005.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/raw/Wanderer/love.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/sprites/Wanderer/love.png",
+          "sha256": "9a2a609b66429c80c6350c08a0a9a9e75e93d19e2256007f21e5f5c2d2bfc9b7",
+          "status": "candidate"
+        },
+        "desire": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/prompts/Wanderer/desire.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Wanderer from Genshin Impact expressing desire. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, eye colors, costume, accessories, rendering and his broad hat, dark hair, blue outfit and petite medium male proportions. Personality and acting: acerbic, guarded and independent, with measured, grounded masculine body language. Show a hopeful intent gaze and a subtle blush; lean forward slightly with one hand near the heart and the other at the side.  Convey subtle, reluctant but unmistakable affection, expressed through a sideways glance; tasteful in the established outfit. Keep both hands open and relaxed; preserve his broad hat, and allow a gentle hovering pose as in the reference. Vary pose and gesture to match the emotion while staying faithful to the character; maintain the reference's proportions without elongating the torso or legs. Use normal pupils, simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and shoes with 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Wanderer/neutral-v005.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/raw/Wanderer/desire.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/sprites/Wanderer/desire.png",
+          "sha256": "f1b640a3ebe82f553512b8c4e1d8da00914b746418799fa1ee05cc0b55e236a2",
+          "status": "candidate"
+        },
+        "excitement": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/prompts/Wanderer/excitement.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Wanderer from Genshin Impact expressing excitement. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, eye colors, costume, accessories, rendering and his broad hat, dark hair, blue outfit and petite medium male proportions. Personality and acting: acerbic, guarded and independent, with measured, grounded masculine body language. Show bright eager eyes and a delighted smile; stand more alert, one hand lifted in a small celebratory gesture. Keep both hands open and relaxed; preserve his broad hat, and allow a gentle hovering pose as in the reference. Vary pose and gesture to match the emotion while staying faithful to the character; maintain the reference's proportions without elongating the torso or legs. Use normal pupils, simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and shoes with 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Wanderer/neutral-v005.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/raw/Wanderer/excitement.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/sprites/Wanderer/excitement.png",
+          "sha256": "e24ce6b34a863a9d34e8716bc2311f9cff103cadc28f816818b8bcb4ee380c11",
+          "status": "candidate"
+        },
+        "sadness": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/prompts/Wanderer/sadness.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Wanderer from Genshin Impact expressing sadness. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, eye colors, costume, accessories, rendering and his broad hat, dark hair, blue outfit and petite medium male proportions. Personality and acting: acerbic, guarded and independent, with measured, grounded masculine body language. Show a sorrowful downcast gaze and softened shoulders; one hand resting on the opposite forearm. Keep both hands open and relaxed; preserve his broad hat, and allow a gentle hovering pose as in the reference. Vary pose and gesture to match the emotion while staying faithful to the character; maintain the reference's proportions without elongating the torso or legs. Use normal pupils, simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and shoes with 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Wanderer/neutral-v005.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/raw/Wanderer/sadness.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/sprites/Wanderer/sadness.png",
+          "sha256": "e353a7f99fded4bf001f2185d713aebc9630f4f74b13b9352fc6562360821398",
+          "status": "candidate"
+        },
+        "fear": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/prompts/Wanderer/fear.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Wanderer from Genshin Impact expressing fear. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, eye colors, costume, accessories, rendering and his broad hat, dark hair, blue outfit and petite medium male proportions. Personality and acting: acerbic, guarded and independent, with measured, grounded masculine body language. Show an alarmed gaze and raised brows; shift weight back with one forearm held protectively near the torso. Keep both hands open and relaxed; preserve his broad hat, and allow a gentle hovering pose as in the reference. Vary pose and gesture to match the emotion while staying faithful to the character; maintain the reference's proportions without elongating the torso or legs. Use normal pupils, simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and shoes with 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Wanderer/neutral-v005.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/raw/Wanderer/fear.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/sprites/Wanderer/fear.png",
+          "sha256": "d7b49877dab7a5455e648ef971bb2f1ccadf079442be9ddb3a0917ceafdf77f5",
+          "status": "candidate"
+        },
+        "embarrassment": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/prompts/Wanderer/embarrassment.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Wanderer from Genshin Impact expressing embarrassment. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, eye colors, costume, accessories, rendering and his broad hat, dark hair, blue outfit and petite medium male proportions. Personality and acting: acerbic, guarded and independent, with measured, grounded masculine body language. Show a faint blush and irritated averted gaze; keep his posture composed and adjust his sleeve. Keep both hands open and relaxed; preserve his broad hat, and allow a gentle hovering pose as in the reference. Vary pose and gesture to match the emotion while staying faithful to the character; maintain the reference's proportions without elongating the torso or legs. Use normal pupils, simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and shoes with 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Wanderer/neutral-v005.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/raw/Wanderer/embarrassment.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/sprites/Wanderer/embarrassment.png",
+          "sha256": "f668c10f59b3ab0a881adf3e1c311e642531228df4fe03502941ae85b091ca11",
+          "status": "candidate"
+        }
+      },
+      "previews": {
+        "full_body": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/previews/Wanderer-full-body.png",
+        "faces": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/previews/Wanderer-faces.png"
+      }
+    },
+    "Wriothesley": {
+      "neutral_approval": {
+        "status": "approved",
+        "message": "All others are ACCEPTED.",
+        "date": "2026-10-30",
+        "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Wriothesley/neutral-v001.png",
+        "candidate_sha256": "8e8db0c2e058aa1db7a656a2675b3816e1be04eedbfd4d39f8d86e8345e83c84"
+      },
+      "reference": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/references/Wriothesley/approved-neutral.png",
+      "expressions": {
+        "joy": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/prompts/Wriothesley/joy.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Wriothesley from Genshin Impact expressing joy. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, eye colors, costume, accessories, rendering and his dark hair, coat, accessories and athletic tall male proportions. Personality and acting: confident, grounded and quietly caring, with a relaxed masculine stance. Show bright eyes and an easy smile; relax the shoulders with one hand lightly at the waist. Vary pose and gesture to match the emotion while staying faithful to the character; maintain the reference's proportions without elongating the torso or legs. Use normal pupils, simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and shoes with 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Wriothesley/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/raw/Wriothesley/joy.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/sprites/Wriothesley/joy.png",
+          "sha256": "0e4b1bbcd8eb092cf9554184f5a7b65597353fe319694abfabe99ac4bfc5a75f",
+          "status": "candidate"
+        },
+        "annoyance": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/prompts/Wriothesley/annoyance.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Wriothesley from Genshin Impact expressing annoyance. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, eye colors, costume, accessories, rendering and his dark hair, coat, accessories and athletic tall male proportions. Personality and acting: confident, grounded and quietly caring, with a relaxed masculine stance. Show a restrained irritated gaze; shift weight to one leg with one forearm near the torso. Vary pose and gesture to match the emotion while staying faithful to the character; maintain the reference's proportions without elongating the torso or legs. Use normal pupils, simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and shoes with 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Wriothesley/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/raw/Wriothesley/annoyance.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/sprites/Wriothesley/annoyance.png",
+          "sha256": "103b6d203891eeb9156073a49509912d5cce0ca96a046423d851428795765a42",
+          "status": "candidate"
+        },
+        "confusion": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/prompts/Wriothesley/confusion.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Wriothesley from Genshin Impact expressing confusion. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, eye colors, costume, accessories, rendering and his dark hair, coat, accessories and athletic tall male proportions. Personality and acting: confident, grounded and quietly caring, with a relaxed masculine stance. Show puzzled eyes and a small frown; turn the shoulders slightly with one hand lifted in a simple questioning gesture. Vary pose and gesture to match the emotion while staying faithful to the character; maintain the reference's proportions without elongating the torso or legs. Use normal pupils, simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and shoes with 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Wriothesley/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/raw/Wriothesley/confusion.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/sprites/Wriothesley/confusion.png",
+          "sha256": "072f266f288943ea153ebef7489996f0980930674bf93564949b4901be6cee19",
+          "status": "candidate"
+        },
+        "love": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/prompts/Wriothesley/love.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Wriothesley from Genshin Impact expressing love. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, eye colors, costume, accessories, rendering and his dark hair, coat, accessories and athletic tall male proportions. Personality and acting: confident, grounded and quietly caring, with a relaxed masculine stance. Show tender, open warmth and a gentle smile; relax the shoulders, one hand lightly against the chest. Vary pose and gesture to match the emotion while staying faithful to the character; maintain the reference's proportions without elongating the torso or legs. Use normal pupils, simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and shoes with 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Wriothesley/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/raw/Wriothesley/love.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/sprites/Wriothesley/love.png",
+          "sha256": "970097ca93c53d2eb6f69908cfc2c2c62897fef8982783d35274d57aeb54e753",
+          "status": "candidate"
+        },
+        "desire": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/prompts/Wriothesley/desire.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Wriothesley from Genshin Impact expressing desire. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, eye colors, costume, accessories, rendering and his dark hair, coat, accessories and athletic tall male proportions. Personality and acting: confident, grounded and quietly caring, with a relaxed masculine stance. Show a yearning gaze with a faint blush; turn toward the viewer, leaning in subtly, one hand near the waist.  Convey a sincere, warm, intent gaze and a restrained smile; tasteful in the established outfit. Vary pose and gesture to match the emotion while staying faithful to the character; maintain the reference's proportions without elongating the torso or legs. Use normal pupils, simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and shoes with 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Wriothesley/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/raw/Wriothesley/desire.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/sprites/Wriothesley/desire.png",
+          "sha256": "b8e5e7003c5ff24ac4ef1776bf0acfc8f498cca90bb47cea920702039d388559",
+          "status": "candidate"
+        },
+        "excitement": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/prompts/Wriothesley/excitement.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Wriothesley from Genshin Impact expressing excitement. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, eye colors, costume, accessories, rendering and his dark hair, coat, accessories and athletic tall male proportions. Personality and acting: confident, grounded and quietly caring, with a relaxed masculine stance. Show an enthusiastic smile; lean forward slightly with one hand raised near the shoulder and the other relaxed. Vary pose and gesture to match the emotion while staying faithful to the character; maintain the reference's proportions without elongating the torso or legs. Use normal pupils, simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and shoes with 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Wriothesley/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/raw/Wriothesley/excitement.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/sprites/Wriothesley/excitement.png",
+          "sha256": "1b0017fccbe388542554740fde6e8410246b8d9bd24f9c8bed01b92f86fc2393",
+          "status": "candidate"
+        },
+        "sadness": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/prompts/Wriothesley/sadness.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Wriothesley from Genshin Impact expressing sadness. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, eye colors, costume, accessories, rendering and his dark hair, coat, accessories and athletic tall male proportions. Personality and acting: confident, grounded and quietly caring, with a relaxed masculine stance. Show a subdued expression and lowered eyes; let both arms rest naturally while the shoulders fall slightly. Vary pose and gesture to match the emotion while staying faithful to the character; maintain the reference's proportions without elongating the torso or legs. Use normal pupils, simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and shoes with 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Wriothesley/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/raw/Wriothesley/sadness.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/sprites/Wriothesley/sadness.png",
+          "sha256": "046e102ec3234c703ef48352d2cdec4e97af92eb014413a0a5fb28cbdc5687a5",
+          "status": "candidate"
+        },
+        "fear": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/prompts/Wriothesley/fear.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Wriothesley from Genshin Impact expressing fear. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, eye colors, costume, accessories, rendering and his dark hair, coat, accessories and athletic tall male proportions. Personality and acting: confident, grounded and quietly caring, with a relaxed masculine stance. Show a tense worried expression; step weight back slightly and hold one hand near the chest. Vary pose and gesture to match the emotion while staying faithful to the character; maintain the reference's proportions without elongating the torso or legs. Use normal pupils, simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and shoes with 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Wriothesley/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/raw/Wriothesley/fear.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/sprites/Wriothesley/fear.png",
+          "sha256": "fe23753112edd904eaaca817ec78bd58221243abf6b70e3ccaeeb35f42f0166b",
+          "status": "candidate"
+        },
+        "embarrassment": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/prompts/Wriothesley/embarrassment.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Wriothesley from Genshin Impact expressing embarrassment. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, eye colors, costume, accessories, rendering and his dark hair, coat, accessories and athletic tall male proportions. Personality and acting: confident, grounded and quietly caring, with a relaxed masculine stance. Show a subtle flush and wry smile; stand firm and adjust a glove. Vary pose and gesture to match the emotion while staying faithful to the character; maintain the reference's proportions without elongating the torso or legs. Use normal pupils, simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and shoes with 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Wriothesley/neutral-v001.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/raw/Wriothesley/embarrassment.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/sprites/Wriothesley/embarrassment.png",
+          "sha256": "1c453d8d11f33653c53215d10ca099fce5a766e44be8bc192d99e3153dddd856",
+          "status": "candidate"
+        }
+      },
+      "previews": {
+        "full_body": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/previews/Wriothesley-full-body.png",
+        "faces": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/previews/Wriothesley-faces.png"
+      }
+    },
+    "Xiao": {
+      "neutral_approval": {
+        "status": "approved",
+        "message": "All others are ACCEPTED.",
+        "date": "2026-10-30",
+        "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Xiao/neutral-v002.png",
+        "candidate_sha256": "cac9f02ac93cfa411f20a2729b2427adc177aa6f00f6b6befdb2cebcc48d1104"
+      },
+      "reference": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/references/Xiao/approved-neutral.png",
+      "expressions": {
+        "joy": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/prompts/Xiao/joy.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Xiao from Genshin Impact expressing joy. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, eye colors, costume, accessories, rendering and his teal hair, tattoo, mask accessory, outfit and petite medium male proportions. Personality and acting: stoic, guarded and earnest, with restrained, grounded masculine gestures. Show a warm smile; turn slightly toward the viewer, one hand lifted in a modest greeting. Vary pose and gesture to match the emotion while staying faithful to the character; maintain the reference's proportions without elongating the torso or legs. Use normal pupils, simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and shoes with 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Xiao/neutral-v002.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/raw/Xiao/joy.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/sprites/Xiao/joy.png",
+          "sha256": "e92a657f6e849b225f01ca7b1ae7f3520b95e3ffd5fa5f6496ed7ce784d4b012",
+          "status": "candidate"
+        },
+        "annoyance": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/prompts/Xiao/annoyance.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Xiao from Genshin Impact expressing annoyance. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, eye colors, costume, accessories, rendering and his teal hair, tattoo, mask accessory, outfit and petite medium male proportions. Personality and acting: stoic, guarded and earnest, with restrained, grounded masculine gestures. Show a mildly indignant expression; angle the shoulders away, one hand at the waist. Vary pose and gesture to match the emotion while staying faithful to the character; maintain the reference's proportions without elongating the torso or legs. Use normal pupils, simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and shoes with 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Xiao/neutral-v002.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/raw/Xiao/annoyance.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/sprites/Xiao/annoyance.png",
+          "sha256": "3ff8e6ad7a30eca518b2bb93fddf1a473c8b4aa3d39224e608ab7a3c0e256238",
+          "status": "candidate"
+        },
+        "confusion": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/prompts/Xiao/confusion.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Xiao from Genshin Impact expressing confusion. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, eye colors, costume, accessories, rendering and his teal hair, tattoo, mask accessory, outfit and petite medium male proportions. Personality and acting: stoic, guarded and earnest, with restrained, grounded masculine gestures. Show a perplexed expression; incline the head and rest one hand thoughtfully near the chin. Vary pose and gesture to match the emotion while staying faithful to the character; maintain the reference's proportions without elongating the torso or legs. Use normal pupils, simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and shoes with 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Xiao/neutral-v002.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/raw/Xiao/confusion.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/sprites/Xiao/confusion.png",
+          "sha256": "af8fc477f9a17e6cd78d645b624108127a3b488ad30cb6db1ce65754d3107a3f",
+          "status": "candidate"
+        },
+        "love": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/prompts/Xiao/love.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Xiao from Genshin Impact expressing love. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, eye colors, costume, accessories, rendering and his teal hair, tattoo, mask accessory, outfit and petite medium male proportions. Personality and acting: stoic, guarded and earnest, with restrained, grounded masculine gestures. Show a sincere loving smile; angle the body toward the viewer and rest one hand over the heart. Vary pose and gesture to match the emotion while staying faithful to the character; maintain the reference's proportions without elongating the torso or legs. Use normal pupils, simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and shoes with 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Xiao/neutral-v002.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/raw/Xiao/love.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/sprites/Xiao/love.png",
+          "sha256": "8b34fe3846486b67973fbbe084b01ca9812e72fbc4e0a501b4fb48acedf488ad",
+          "status": "candidate"
+        },
+        "desire": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/prompts/Xiao/desire.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Xiao from Genshin Impact expressing desire. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, eye colors, costume, accessories, rendering and his teal hair, tattoo, mask accessory, outfit and petite medium male proportions. Personality and acting: stoic, guarded and earnest, with restrained, grounded masculine gestures. Show an earnest softened gaze and a subtle blush; shift forward slightly with one hand near the chest.  Convey quiet, sincere longing with a subtle blush and steady masculine posture; tasteful in the established outfit. Vary pose and gesture to match the emotion while staying faithful to the character; maintain the reference's proportions without elongating the torso or legs. Use normal pupils, simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and shoes with 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Xiao/neutral-v002.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/raw/Xiao/desire.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/sprites/Xiao/desire.png",
+          "sha256": "901ceec336f644e6c1bab7486cc323cbc1c04f6913df23ddfd7601e0de29e61e",
+          "status": "candidate"
+        },
+        "excitement": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/prompts/Xiao/excitement.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Xiao from Genshin Impact expressing excitement. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, eye colors, costume, accessories, rendering and his teal hair, tattoo, mask accessory, outfit and petite medium male proportions. Personality and acting: stoic, guarded and earnest, with restrained, grounded masculine gestures. Show bright eyes and eager anticipation; shift into an alert stance with one hand lifted near the torso. Vary pose and gesture to match the emotion while staying faithful to the character; maintain the reference's proportions without elongating the torso or legs. Use normal pupils, simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and shoes with 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Xiao/neutral-v002.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/raw/Xiao/excitement.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/sprites/Xiao/excitement.png",
+          "sha256": "c45eb3308df233fdaf25c9814ab235b7187982f5c2c61415c12040995e8598bc",
+          "status": "candidate"
+        },
+        "sadness": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/prompts/Xiao/sadness.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Xiao from Genshin Impact expressing sadness. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, eye colors, costume, accessories, rendering and his teal hair, tattoo, mask accessory, outfit and petite medium male proportions. Personality and acting: stoic, guarded and earnest, with restrained, grounded masculine gestures. Show a sad, quiet gaze; turn slightly away, one hand resting against the opposite forearm. Vary pose and gesture to match the emotion while staying faithful to the character; maintain the reference's proportions without elongating the torso or legs. Use normal pupils, simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and shoes with 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Xiao/neutral-v002.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/raw/Xiao/sadness.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/sprites/Xiao/sadness.png",
+          "sha256": "9cf52cb2e08c4ec5385fc3d3aa07e19238a09cab5a664e47cede9f73840c6dae",
+          "status": "candidate"
+        },
+        "fear": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/prompts/Xiao/fear.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Xiao from Genshin Impact expressing fear. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, eye colors, costume, accessories, rendering and his teal hair, tattoo, mask accessory, outfit and petite medium male proportions. Personality and acting: stoic, guarded and earnest, with restrained, grounded masculine gestures. Show widened uneasy eyes; turn slightly aside, one forearm protectively near the torso. Vary pose and gesture to match the emotion while staying faithful to the character; maintain the reference's proportions without elongating the torso or legs. Use normal pupils, simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and shoes with 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Xiao/neutral-v002.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/raw/Xiao/fear.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/sprites/Xiao/fear.png",
+          "sha256": "146ae858a0ef853e0257b848e78421f885d0bd877e63f7681d192fb52b6b324e",
+          "status": "candidate"
+        },
+        "embarrassment": {
+          "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/prompts/Xiao/embarrassment.txt",
+          "tool": "image_gen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Full-body visual novel sprite of Xiao from Genshin Impact expressing embarrassment. The supplied approved neutral is the sole image reference; preserve their identity, face, skin tone, eye colors, costume, accessories, rendering and his teal hair, tattoo, mask accessory, outfit and petite medium male proportions. Personality and acting: stoic, guarded and earnest, with restrained, grounded masculine gestures. Show a subtle blush and averted glance; stand upright and rest one hand near his waist. Vary pose and gesture to match the emotion while staying faithful to the character; maintain the reference's proportions without elongating the torso or legs. Use normal pupils, simple readable hand gestures near the torso, anatomically coherent left and right hands, exactly two legs and two feet, feet separated or slightly staggered. No handheld weapons or newly added props. Complete silhouette including hair, headwear, accessories and shoes with 2–4% top and bottom padding. Genuinely transparent background. No scenery, UI, labels, text, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-missing-neutrals/candidates/Xiao/neutral-v002.png"
+            ],
+            "transparent_background": true
+          },
+          "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/raw/Xiao/embarrassment.png",
+          "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/sprites/Xiao/embarrassment.png",
+          "sha256": "15c3663b6b2c7245fc026491311a3910f4cebcc0456e5355f7073796c847eb7f",
+          "status": "candidate"
+        }
+      },
+      "previews": {
+        "full_body": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/previews/Xiao-full-body.png",
+        "faces": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-04-tartaglia-xiao-expressions/previews/Xiao-faces.png"
+      }
+    }
+  },
+  "preview_order": [
+    "neutral",
+    "joy",
+    "annoyance",
+    "confusion",
+    "love",
+    "desire",
+    "excitement",
+    "sadness",
+    "fear",
+    "embarrassment"
+  ],
+  "preview_layout": "left to right, top row then bottom row",
+  "missing": [],
+  "technical_checks": {
+    "png_count": 90,
+    "png_and_alpha_channel": true,
+    "report": "technical-checks.json",
+    "note": "File checks only; no visual approval implied."
+  }
+}

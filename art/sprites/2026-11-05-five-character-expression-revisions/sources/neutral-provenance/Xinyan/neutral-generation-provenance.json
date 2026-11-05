@@ -1,0 +1,101 @@
+{
+  "status": "approved",
+  "category": "Medium Female",
+  "references": [
+    {
+      "original_path": "/Users/alexachan/Downloads/Character_Xinyan_Game.webp",
+      "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-six-model-neutral-comparisons/references/Xinyan/model.webp",
+      "sha256": "e6a727a232b9451815721540570c7d22804cc0798fec9199911dd29a551896d2",
+      "role": "Primary identity, exact design/costume and body proportions."
+    },
+    {
+      "original_path": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Xinyan/Official Art/neutral.png",
+      "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-six-model-neutral-comparisons/references/Xinyan/official.png",
+      "sha256": "a576dad7fbba74c49422c9e6e5533892909d5f1eace03a48b2f5356c673a0557",
+      "role": "Illustrated art style only."
+    }
+  ],
+  "old_neutral": {
+    "original_path": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Xinyan/neutral.png",
+    "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-six-model-neutral-comparisons/old/Xinyan/neutral.png",
+    "sha256": "89f07fa5ca2f83c6acdd3b93f37528f3ac7b6ea8c9c154531eed8ada908da1eb",
+    "role": "Comparison baseline only; never a generation input"
+  },
+  "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-six-model-neutral-comparisons/prompts/Xinyan/neutral-v001.txt",
+  "generation": {
+    "tool": "image_gen.imagegen",
+    "arguments": {
+      "prompt": "Use case: stylized-concept. Create one new full-body neutral visual-novel sprite of Xinyan from Genshin Impact.\nImage 1 is the user-supplied in-game model screenshot and is the authoritative reference for character identity, face, skin tone, hair, eyes, exact costume construction, accessory placement and body proportions. Faithfully preserve its warm tan skin tone, golden eyes and vivid eye makeup, dark twin puff hairstyle with red and gold streaks and white spikes, exact black-and-red dress fastenings, white shoulder pieces, braids with red ends, asymmetric legwear and fishnet stocking, spiked cuffs and open-toe boots. Use the model's real costume colors without copying the blue environmental lighting or screenshot background. Hair and heavy hanging costume panels should fall naturally with gravity.\nImage 2 is the installed official illustrated portrait, for ART STYLE ONLY: polished Genshin-inspired anime illustration, clean drawn contours, detailed cel shading with soft painted transitions, and its treatment of hair, fabric, metal and other materials. Do not copy the portrait's dramatic action pose, windblown panels or accessories that differ from the model. Image 1 governs all design and costume details.\nProportions: Retain a petite Medium Female anime build: delicate small frame, compact torso and natural limb lengths matching the model, without elongating the torso or legs or turning her into a chibi.\nCharacter-specific neutral acting: a friendly, confident rocker at ease: a warm small grin, open eyes and relaxed shoulders. Set one hand casually on her hip while the other hangs open near her side, elbow gently bent. A grounded easy weight shift gives her an approachable stage presence without a performance action. Keep feet separate and uncrossed. Do not add a guitar, instrument, drum or weapon.\nKeep hand gestures simple, spatially separate, near the torso and near the image plane, with coherent wrists and one thumb and four fingers per hand where visible. Exactly two legs and two feet. Keep the face and eyes readable with the character's normal pupils. Complete silhouette including hair, headwear, hands, sleeves, costume panels, accessories and shoes, with roughly 2\u20134% top and bottom padding and 92\u201396% visible height. Genuinely transparent background. Omit all screenshot scenery, blue backdrop, UI, particles, floor and reflection. No text, labels, watermarks, ground shadow, floating effects, new props or additional characters.",
+      "referenced_image_paths": [
+        "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-six-model-neutral-comparisons/references/Xinyan/model.webp",
+        "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-six-model-neutral-comparisons/references/Xinyan/official.png"
+      ],
+      "transparent_background": true
+    },
+    "tool_output": "/Users/alexachan/.codex/generated_images/01a1aa19-42b2-7e92-b08d-8ee7d133c057/exec-8db25c17-6ae3-4029-8736-8b8609527b10.png",
+    "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-six-model-neutral-comparisons/raw/Xinyan/neutral-v001.png",
+    "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-six-model-neutral-comparisons/candidates/Xinyan/neutral-v001.png",
+    "candidate_sha256": "316fcf7b883ac332f212b44f595e88ec1c130962af89bff0ed79261a4da385b7",
+    "dimensions": [
+      941,
+      1672
+    ],
+    "png_color_type": 6,
+    "framing_transform": null
+  },
+  "approval": {
+    "status": "approved",
+    "date": "2026-11-05",
+    "message": "Xinyan and Xingqiu are good.",
+    "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-six-model-neutral-comparisons/candidates/Xinyan/neutral-v001.png",
+    "candidate_sha256": "316fcf7b883ac332f212b44f595e88ec1c130962af89bff0ed79261a4da385b7"
+  },
+  "comparison": {
+    "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-six-model-neutral-comparisons/comparisons/xinyan-old-new.png",
+    "old_side": "left",
+    "new_side": "right",
+    "labels": [
+      "Old neutral",
+      "New neutral"
+    ],
+    "transforms": [
+      {
+        "side": "old",
+        "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-six-model-neutral-comparisons/old/Xinyan/neutral.png",
+        "alpha_bbox_crop": [
+          0,
+          0,
+          939,
+          1646
+        ],
+        "thumbnail_size": [
+          410,
+          719
+        ],
+        "position": [
+          20,
+          193
+        ]
+      },
+      {
+        "side": "new",
+        "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-six-model-neutral-comparisons/candidates/Xinyan/neutral-v001.png",
+        "alpha_bbox_crop": [
+          0,
+          15,
+          905,
+          1662
+        ],
+        "thumbnail_size": [
+          410,
+          746
+        ],
+        "position": [
+          470,
+          180
+        ]
+      }
+    ],
+    "note": "Transparent margins trimmed and proportional thumbnails fitted to equal-size comparison cells; sprite PNGs unchanged."
+  }
+}

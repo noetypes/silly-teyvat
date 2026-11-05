@@ -1,0 +1,38 @@
+{
+  "date": "2026-11-05",
+  "character": "Fischl",
+  "status": "candidate_ready_for_user_review",
+  "user_request": "Try regenerating Fischl\u2019s neutral from her official art",
+  "reference": {
+    "original_path": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Fischl/Official Art/neutral.png",
+    "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-fischl-official-neutral/references/Fischl/official.png",
+    "sha256": "6fedbb09cbe74809012b61ec736b0b729c183e82804f00d41b9322f22d211948",
+    "role": "Sole character identity, costume, proportions and illustration-style reference"
+  },
+  "generation": {
+    "tool": "image_gen.imagegen",
+    "arguments": {
+      "prompt": "Use case: stylized-concept. Create one new full-body neutral visual-novel sprite of Fischl from Genshin Impact, using the supplied installed official transparent portrait as the SOLE image reference.\nFaithfully preserve Fischl's recognizable face, fair skin tone, blond twin-tail hairstyle and black hair ribbons, visible green right eye, black eyepatch covering her left eye, exact black-and-purple gothic outfit, asymmetric sleeves and gloves, lace and sheer-fabric details, gold ornaments, stockings, shoes, and all costume accessories shown in the official reference. Retain her petite Medium Female anime build; do not turn her into a tall adult silhouette or lengthen her torso and legs.\nGive her a character-specific neutral idle: poised and a little theatrical, with quiet self-assurance befitting her Prinzessin persona. Stand comfortably with the torso turned slightly three-quarter and the face directed toward the viewer, chin gently lifted, visible eye relaxed and a subtle composed closed-mouth smile. Her right hand rests lightly over her upper chest in a restrained courtly gesture; her left arm bends loosely with a relaxed palm near the waist. Keep the hands spatially separate near the torso and image plane, with coherent wrists and one thumb and four fingers per hand where visible. Her feet are slightly staggered and uncrossed, with exactly two legs and two feet. This is an approachable dignified idle rather than the reference's dramatic arms-overhead action pose. Let her long hair and costume tails fall naturally with gravity.\nUse the official portrait's polished Genshin anime illustration style, detailed drawn contours, clean cel shading with soft painted transitions, and faithful colors and materials. One complete full-body silhouette including hair ribbons, twin tails, fingertips, costume tails and shoes; aim for 92\u201396% visible height with approximately 2\u20134% top and bottom padding. Genuinely transparent background. No scenery, floor, ground shadow, text, UI, labels, watermark, floating effects, added props, bow, raven, or additional characters.",
+      "referenced_image_paths": [
+        "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-fischl-official-neutral/references/Fischl/official.png"
+      ],
+      "transparent_background": true
+    },
+    "model": null,
+    "settings_note": "Built-in model, quality and complexity are not exposed.",
+    "tool_output": "/Users/alexachan/.codex/generated_images/01a1aa19-42b2-7e92-b08d-8ee7d133c057/exec-7fc3f0ce-68d5-4d2b-8e1d-ff71d5365317.png",
+    "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-fischl-official-neutral/raw/Fischl/neutral-v001.png",
+    "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-fischl-official-neutral/candidates/Fischl/neutral-v001.png",
+    "candidate_sha256": "f93bd2d0cf6be674eb8a7be561df37cc0a3d9ce42750518e88d4fc41a9d469c1",
+    "dimensions": [
+      938,
+      1677
+    ],
+    "png_color_type": 6,
+    "framing_transform": null
+  },
+  "approval": {
+    "status": "pending"
+  },
+  "installation": "not requested for Fischl; existing live sprites unchanged"
+}

@@ -1,0 +1,111 @@
+{
+  "created_date": "2026-11-05",
+  "character": "Xilonen",
+  "purpose": "Two independent new neutral candidates comparing GPT Image 2.6 Sunburst and Flare.",
+  "user_request": "Use Sunburst on high and Flare on high to generate two new neutrals for Xilonen, referencing her model art.",
+  "status": "awaiting_api_key",
+  "reference": {
+    "status": "confirmed",
+    "original_path": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Xilonen/Official Art/neutral.png",
+    "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-xilonen-image-2.6-comparison/references/Xilonen/official.png",
+    "sha256": "4f171f0b0998e7637c810ab0ffd004b510e67f39cadb6c6a9fea7e1927be39f2",
+    "user_confirmation": "Use the official art portrait.",
+    "role": "Sole identity, costume, color, and proportions reference for both independent neutral generations."
+  },
+  "shared_settings": {
+    "quality": "high",
+    "complexity": "high",
+    "complexity_application": "Documented model default when omitted; bundled CLI does not expose an explicit complexity flag.",
+    "size": "1024x1536",
+    "background": "transparent",
+    "output_format": "png",
+    "n": 1,
+    "prompt": "prompts/Xilonen/neutral-comparison.txt",
+    "reference_policy": "Same sole user-designated source image, independently for each model.",
+    "prompt_sha256": "4e14015d3e1c295e1379d0dc9e53b7a706a02ace39ca860d21456a5e33d44e23"
+  },
+  "generation": {
+    "status": "not_started",
+    "built_in_limitation": "No exposed model, quality, or complexity selector.",
+    "model_selectable_route": "imagegen bundled CLI, requires local OPENAI_API_KEY",
+    "api_key_available": false
+  },
+  "candidates": {
+    "sunburst": {
+      "model": "gpt-image-2.6-sunburst",
+      "status": "not_generated",
+      "intended_output": "candidates/Xilonen/neutral-sunburst-high-v001.png",
+      "approval": {
+        "status": "pending",
+        "candidate_sha256": null
+      },
+      "intended_raw_output": "raw/Xilonen/neutral-sunburst-high-v001.png",
+      "cli_arguments": [
+        "python3",
+        "/Users/alexachan/.codex/skills/.system/imagegen/scripts/image_gen.py",
+        "edit",
+        "--model",
+        "gpt-image-2.6-sunburst",
+        "--image",
+        "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-xilonen-image-2.6-comparison/references/Xilonen/official.png",
+        "--prompt-file",
+        "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-xilonen-image-2.6-comparison/prompts/Xilonen/neutral-comparison.txt",
+        "--quality",
+        "high",
+        "--size",
+        "1024x1536",
+        "--background",
+        "transparent",
+        "--output-format",
+        "png",
+        "--no-augment",
+        "--out",
+        "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-xilonen-image-2.6-comparison/raw/Xilonen/neutral-sunburst-high-v001.png"
+      ]
+    },
+    "flare": {
+      "model": "gpt-image-2.6-flare",
+      "status": "not_generated",
+      "intended_output": "candidates/Xilonen/neutral-flare-high-v001.png",
+      "approval": {
+        "status": "pending",
+        "candidate_sha256": null
+      },
+      "intended_raw_output": "raw/Xilonen/neutral-flare-high-v001.png",
+      "cli_arguments": [
+        "python3",
+        "/Users/alexachan/.codex/skills/.system/imagegen/scripts/image_gen.py",
+        "edit",
+        "--model",
+        "gpt-image-2.6-flare",
+        "--image",
+        "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-xilonen-image-2.6-comparison/references/Xilonen/official.png",
+        "--prompt-file",
+        "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-xilonen-image-2.6-comparison/prompts/Xilonen/neutral-comparison.txt",
+        "--quality",
+        "high",
+        "--size",
+        "1024x1536",
+        "--background",
+        "transparent",
+        "--output-format",
+        "png",
+        "--no-augment",
+        "--out",
+        "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-xilonen-image-2.6-comparison/raw/Xilonen/neutral-flare-high-v001.png"
+      ]
+    }
+  },
+  "expressions": {
+    "status": "not_requested",
+    "approval_rule": "No expressions until the user explicitly approves the exact current neutral file/hash."
+  },
+  "preflight": {
+    "cli_dry_run": {
+      "sunburst": "passed",
+      "flare": "passed"
+    },
+    "reference_copy_hash": "matches original",
+    "generation_requests_sent": 0
+  }
+}
