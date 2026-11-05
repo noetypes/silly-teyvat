@@ -7,7 +7,7 @@ import os from 'node:os';
 import path from 'node:path';
 import {createZipWriter} from '../extension/genshin-dialogue-ui/zip-store.js';
 import {shareableSettings} from '../extension/genshin-dialogue-ui/share-package.js';
-import {RangeUnsupported,compareVersions,downloadRelease,formatBytes,rangedArchive,updatePlan,validRelease} from '../extension/genshin-dialogue-ui/game-data-update.js';
+import {RangeUnsupported,compareVersions,downloadRelease,formatBytes,localPlan,localUrl,rangedArchive,updatePlan,validRelease,wholeDownload} from '../extension/genshin-dialogue-ui/game-data-update.js';
 
 const folder=fs.mkdtempSync(path.join(os.tmpdir(),'teyvat-release-')),tool=new URL('./release-game-data.py',import.meta.url).pathname;
 async function exportZip(name,files){
@@ -52,6 +52,24 @@ assert.deepEqual(plan.paths.sort(),['cards/Hu Tao.png','cards/Klee.png','silly-t
 assert.deepEqual(plan.parts,['lorebooks/Teyvat']);
 assert.equal(plan.bytes,changedKlee.length+3+two.files['silly-teyvat-game-data.json'].size);
 assert.throws(()=>release(second,'0.9.0'),/older/);
+
+// Files this player already has are not downloaded again.
+assert.equal(localUrl('sprites/Klee/Official Art/joy.png'),'/characters/Klee/Official%20Art/joy.png');
+assert.equal(localUrl('avatars/me.png'),'/User%20Avatars/me.png');
+const served=files=>async url=>{const body=files[url];return body===undefined?new Response('',{status:404}):new Response(body,{headers:{'content-length':String(body.length)}});};
+const fresh=await localPlan(one,updatePlan(one,undefined),{present:new Set(['cards/Klee.png']),fetcher:served({})});
+assert.deepEqual(fresh.need,['sprites/Klee/joy.png'],'a first install skips files already on the server');
+assert.deepEqual(fresh.have,['cards/Klee.png']);
+assert.equal(fresh.bytes,joy.length+one.files['silly-teyvat-game-data.json'].size);
+const all=await localPlan(one,updatePlan(one,undefined),{present:new Set(['cards/Klee.png','sprites/Klee/joy.png']),fetcher:served({})});
+assert.deepEqual([all.need.length,all.have.length,all.paths],[0,2,['silly-teyvat-game-data.json']],'a player with every file reads only the manifest');
+const same=await localPlan(two,plan,{present:new Set(['cards/Klee.png','cards/Hu Tao.png']),fetcher:served({'/characters/Klee.png':changedKlee,'/characters/Hu%20Tao.png':'old'})});
+assert.deepEqual(same.need,['cards/Hu Tao.png'],'an update skips a changed file whose local copy already matches');
+assert.deepEqual(same.have,['cards/Klee.png']);
+assert.ok(same.paths.includes('silly-teyvat-game-data.json'));
+const nothing=await localPlan({...two,parts:{}},{...plan,parts:[]},{present:new Set(['cards/Klee.png','cards/Hu Tao.png']),fetcher:served({'/characters/Klee.png':changedKlee,'/characters/Hu%20Tao.png':'new'})});
+assert.deepEqual([nothing.need,nothing.paths,nothing.bytes],[[],[],0],'an update the player already has downloads nothing');
+assert.ok(wholeDownload(one,updatePlan(one,undefined))&&!wholeDownload(one,fresh),'a first install downloads one ZIP only when it needs most of it');
 
 // A host that answers byte ranges serves only the changed files; one that doesn't, the whole ZIP.
 const bytes=fs.readFileSync(second);let ranges=true,requests=0;

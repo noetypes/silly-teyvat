@@ -104,6 +104,13 @@ recorded in the player's settings:
   ranges. Changed cards, sprites, files, lorebooks, the theme and quick replies replace the
   player's copies. Everything else, including their own preferences, is kept.
 
+Either way it first checks the player's server. A first install skips files that are already there
+and reads only the export's manifest when every file is. An update skips a changed file whose local
+copy already matches the release's checksum, and when nothing is left it records the release and
+says **Already have it**. A first install that still needs more than 60% of the export downloads the
+whole ZIP; anything smaller is read by byte range. The popup counts files and tallies those added,
+already present and failed.
+
 **Not now** is remembered for that release. **Check for game data** in Share always asks. Every
 file is checked against the release before it is installed. A source checkout has no release
 file, so it never asks.

@@ -1,3 +1,31 @@
+# Silly Teyvat 1.59.0: Scene Gallery, a tidier Settings and lighter game data updates
+
+- **One check for the whole scene.** A reply is now checked once against the scenes of everyone
+  in it: the speaker, the rest of the party on stage and the character you play. Before, only the
+  speaker's scenes (and yours) were offered. With more than one character, each scene is offered
+  under its character's name and the classifier is told to pick by whose moment it is, so Klee's
+  and Albedo's birthday scenes stay apart even when they share a name.
+- **Scenes that need company or a place.** In Character Customization → Scenes, a scene can name
+  characters who must all be present and locations of which the party must be at one. Use either
+  or both. A scene whose conditions aren't met is left out of the check entirely.
+- **Scene Gallery.** A new **Gallery** tile in the Paimon menu shows every scene this chat has
+  shown, in the order they first appeared, filtered by character with a count of how many of theirs
+  you have found. Choose one to see it again as it appeared, with its sound.
+- **Settings you can find.** Settings has a search box that looks through every tab, including
+  option names. Each tab shows its everyday settings and folds the fine-tuning under one
+  **Advanced** drawer, which counts how many of its settings you've changed. Every section has a
+  **Reset** that lights up when something in it differs from the default. Explanations moved into
+  tooltips.
+- **Game data you already have stays put.** Before downloading, Silly Teyvat checks what is already
+  on your server. A first install skips files you already have, and reads only the small manifest
+  when you have them all. An update skips a changed file when your copy already matches the new
+  one, and when nothing is left to fetch it says **Already have it** instead of downloading.
+- **A clearer download popup.** It counts files as it goes and keeps a running tally of files added,
+  files you already had and any that failed.
+- **CG classification works with models that require reasoning.** Some models refuse a request
+  with reasoning turned off, which made every CG check fail with **Skip reasoning** on. The
+  classifier now asks again with reasoning on and remembers that model for the session.
+
 # Silly Teyvat 1.58.0: Scene CGs for every character and installs from GitHub
 
 - **Scene CGs for every character.** Every official birthday artwork from 2020 to 2026, 481 in all,

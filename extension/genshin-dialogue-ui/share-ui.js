@@ -1,8 +1,8 @@
 // Settings > Share: one long job at a time, with progress and a way to stop it.
 import {exportExtension,exportGameData,importArchive,importGameData} from './share-package.js';
 import {openDownload} from './zip-store.js';
-import {RangeUnsupported,downloadRelease,formatBytes,loadRelease,rangedArchive,updatePlan} from './game-data-update.js';
-const stamp=()=>new Date().toISOString().slice(0,10),KEY='genshin_dialogue_ui';
+import {RangeUnsupported,checkLocal,downloadRelease,formatBytes,loadRelease,rangedArchive,updatePlan,wholeDownload} from './game-data-update.js';
+const stamp=()=>new Date().toISOString().slice(0,10),KEY='genshin_dialogue_ui',files=n=>`${n} ${n===1?'file':'files'}`;
 export function mountShare({getContext,announce,signal:mountSignal}){
     const $=selector=>document.querySelector(selector);
     let job=null;
@@ -38,25 +38,50 @@ export function mountShare({getContext,announce,signal:mountSignal}){
         const ctx=getContext(),body=document.createElement('p');body.textContent=text;
         return ctx.callGenericPopup(body,ctx.POPUP_TYPE.CONFIRM,'',{okButton,cancelButton});
     }
+    // The popup counts files as they go and tallies what was added and what this player already had.
+    function counts({added=0,have=0,failed=0}={}){
+        const tally=document.querySelector('#gi-game-data-tally');if(!tally)return;
+        tally.replaceChildren(...[['Added',added,'added'],['Already have it',have,'have'],['Failed',failed,'failed']].filter(([,n,kind])=>n||kind!=='failed').map(([label,n,kind])=>{
+            const item=document.createElement('li');item.dataset.kind=kind;const value=document.createElement('strong');value.textContent=String(n);item.append(value,` ${label}`);return item;
+        }));
+    }
+    function step(text){const line=document.querySelector('#gi-game-data-count');if(line)line.textContent=text;}
     // Stop in the popup stops the job; the popup closes itself when the job ends.
     function progressPopup(title){
-        const ctx=getContext(),body=document.createElement('div'),heading=document.createElement('h3'),bar=document.createElement('progress'),status=document.createElement('p');
-        heading.textContent=title;bar.id='gi-game-data-progress';bar.className='gi-share-progress';status.id='gi-game-data-status';status.setAttribute('role','status');
-        body.append(heading,bar,status);
+        const ctx=getContext(),body=document.createElement('div');body.className='gi-game-data-popup';
+        body.innerHTML='<h3></h3><p id="gi-game-data-status" role="status"></p><progress id="gi-game-data-progress" class="gi-share-progress"></progress><p id="gi-game-data-count" aria-live="off"></p><ul id="gi-game-data-tally" aria-label="Files"></ul>';
+        body.querySelector('h3').textContent=title;
         const popup=new ctx.Popup(body,ctx.POPUP_TYPE.TEXT,'',{okButton:false,cancelButton:'Stop'});
         let open=true,closing=false;
         popup.show().then(()=>{open=false;if(!closing)job?.abort();});
         return async()=>{closing=true;if(open)await popup.completeAffirmative();};
     }
+    // Nothing to download: the release is recorded, and the player sees that they already have it.
+    async function alreadyHave(release,plan,{startup}){
+        const ctx=getContext();ctx.extensionSettings[KEY].gameData={version:release.version};ctx.saveSettingsDebounced();
+        const text=`Game data ${release.version}: already have it. Every file is on this server (${files(plan.files)}).`;
+        paint(text);
+        if(startup){globalThis.toastr?.success?.(text,'Game data');return;}
+        const body=document.createElement('div');body.className='gi-game-data-popup gi-game-data-have';
+        body.innerHTML='<h3><span aria-hidden="true">✓</span> Already have it</h3><p></p>';body.querySelector('p').textContent=`Every file in game data ${release.version} is already on this server (${files(plan.files)}).`;
+        await ctx.callGenericPopup(body,ctx.POPUP_TYPE.TEXT,'',{okButton:'OK'});
+    }
     async function installGameData(release,plan){
-        let result=null;const close=progressPopup(plan.kind==='install'?'Downloading game data':`Updating game data to ${release.version}`);
+        let result=null;const close=progressPopup(!plan.need.length?'Already have it':plan.kind==='install'?'Downloading game data':`Updating game data to ${release.version}`);
+        const have=plan.have.length,total=plan.need.length+have;
+        counts({have});step(`${have} of ${files(total)} already here`);
         await run('Downloading game data',async({signal})=>{
             const ctx=getContext(),overwrite=new Set(plan.kind==='update'?[...plan.paths,...plan.parts]:[]);
-            const installing=(done,total)=>paint(`Installing game data: ${done} of ${total}`,done,total);
-            if(plan.kind==='update')try{result=await importArchive({ctx,zip:rangedArchive(release,plan.paths,{signal}),overwrite,report:installing,signal});}
+            // The import also finds files that are already here when it reads a whole download.
+            const installing=(done,_total,tally={})=>{
+                const kept=have+(tally.skipped || 0),added=tally.added || 0;
+                paint('Installing game data',kept+added+(tally.failed || 0),total);
+                step(`${kept+added+(tally.failed || 0)} of ${files(total)}`);counts({added,have:kept,failed:tally.failed});
+            };
+            if(!wholeDownload(release,plan))try{paint('Downloading game data',have,total);result=await importArchive({ctx,zip:rangedArchive(release,plan.paths,{signal}),overwrite,report:installing,signal});}
             catch(error){if(!(error instanceof RangeUnsupported))throw error;console.info('[Silly Teyvat]',error.message,'Downloading all of it instead.');}
             if(!result){
-                const zip=await downloadRelease(release,{signal,report:(done,total)=>paint(`Downloading game data: ${formatBytes(done)} of ${formatBytes(total)}`,done,total)});
+                const zip=await downloadRelease(release,{signal,report:(done,size)=>{paint('Downloading game data',done,size);step(`${formatBytes(done)} of ${formatBytes(size)}`);}});
                 result=await importArchive({ctx,zip,overwrite,report:installing,signal});
             }
             if(result.failed.length){
@@ -64,7 +89,7 @@ export function mountShare({getContext,announce,signal:mountSignal}){
                 throw new Error(`${result.failed.length} game data files could not be installed. Choose Check for game data in Share to try again.`);
             }
             ctx.extensionSettings[KEY].gameData={version:release.version};ctx.saveSettingsDebounced();
-            paint(`Game data ${release.version} is installed: ${result.added} files added. Reload the page to finish.`);
+            paint(`Game data ${release.version} is installed: ${files(result.added)} added, ${have+result.skipped} already here. Reload the page to finish.`);
         });
         await close();
         if(result&&!result.failed.length&&await ask(`Game data ${release.version} is installed. Reload SillyTavern now to finish?`,'Reload','Later'))location.reload();
@@ -73,15 +98,26 @@ export function mountShare({getContext,announce,signal:mountSignal}){
     async function checkGameData({startup=false}={}){
         const ctx=getContext();
         if(job||!ctx.callGenericPopup||!ctx.Popup)return;
-        const release=await loadRelease(),prefs=ctx.extensionSettings[KEY] ??= {},installed=prefs.gameData?.version,plan=updatePlan(release,installed);
+        const release=await loadRelease(),prefs=ctx.extensionSettings[KEY] ??= {},installed=prefs.gameData?.version;let plan=updatePlan(release,installed);
         if(!release){if(!startup)paint('This copy of Silly Teyvat has no published game data.');return;}
         if(plan.kind==='none'){if(!startup)paint(`Game data ${installed} is up to date.`);return;}
         if(startup&&prefs.gameData?.declined===release.version)return;
         // Files are checked against the release with SubtleCrypto, which a page served over plain http (a phone on the home network) does not have.
         if(!globalThis.crypto?.subtle){if(!startup)paint('Game data can only be downloaded and checked on a secure page. Open SillyTavern at https:// or localhost, or import an exported game data ZIP.');return;}
+        let checked=false;
+        await run('Checking your game data',async({signal})=>{
+            plan=await checkLocal(ctx,release,plan,{signal,report:(done,total)=>paint('Checking your game data',done,total)});checked=true;
+        });
+        if(!checked)return;
+        if(!plan.need.length&&!plan.parts?.length&&plan.kind==='update'){await alreadyHave(release,plan,{startup});return;}
+        if(!plan.need.length&&plan.kind==='install'&&plan.files){
+            // Everything is here already; only the settings and lorebooks in the export's manifest are read.
+            await installGameData(release,plan);return;
+        }
+        const kept=plan.have.length?` You already have ${plan.have.length} of the ${files(plan.files)}, so ${plan.have.length===1?'it is':'they are'} skipped.`:'';
         const text=plan.kind==='install'
-            ?`Silly Teyvat's game data has the characters, sprites, scenes, music and lorebooks. Download it now? It is ${formatBytes(plan.bytes)}. Anything you already have is kept.`
-            :`Silly Teyvat game data ${release.version} is available. Download the update now? It is ${formatBytes(plan.bytes)}. Updated characters, sprites and lorebooks replace your copies; everything else is kept.`;
+            ?`Silly Teyvat's game data has the characters, sprites, scenes, music and lorebooks. Download it now? It is ${formatBytes(plan.bytes)}.${kept}`
+            :`Silly Teyvat game data ${release.version} is available. Download the update now? It is ${formatBytes(plan.bytes)}.${kept} Updated characters, sprites and lorebooks replace your copies; everything else is kept.`;
         if(await ask(text,'Download','Not now')){await installGameData(release,plan);return;}
         prefs.gameData={...prefs.gameData,declined:release.version};ctx.saveSettingsDebounced();
         paint('You can download the game data later with Check for game data.');

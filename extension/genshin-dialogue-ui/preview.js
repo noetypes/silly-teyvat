@@ -272,6 +272,7 @@ document.addEventListener('click', async event => {
             case 'scene-history-tests': {const {runSceneHistoryTests}=await import('./preview-scene-history-tests.js');result(await runSceneHistoryTests());break;}
             case 'ui-sound-tests': {const {runUiSoundTests}=await import('./preview-ui-sound-tests.js');result(await runUiSoundTests());break;}
             case 'feature-switch-tests': {const {runFeatureSwitchTests}=await import('./preview-feature-tests.js');result(await runFeatureSwitchTests());break;}
+            case 'settings-layout-tests': {const {runSettingsLayoutTests}=await import('./preview-settings-tests.js');result(await runSettingsLayoutTests());break;}
             case 'narrator-tests': {const {runNarratorTests}=await import('./preview-narrator-tests.js');result(await runNarratorTests());break;}
             case 'card-pool-tests': {const {runCardPoolTests}=await import('./preview-card-pool-tests.js');result(await runCardPoolTests());break;}
             case 'battle-tests': {const {runBattleTests}=await import('./preview-battle-tests.js');result(await runBattleTests());break;}

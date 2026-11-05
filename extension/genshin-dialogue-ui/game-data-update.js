@@ -3,6 +3,7 @@
 // each file last changed. A first install downloads the whole export; an update reads only the
 // changed files from it with byte ranges, falling back to the whole file when the host refuses.
 import {readZip} from './zip-store.js';
+import {existingFiles} from './share-package.js';
 export const RELEASE_FILE='game-data-release.json',FORMAT=1;
 const extensionRoot=new URL('./',import.meta.url),GROUP_BYTES=8<<20;
 const parts=version=>[0,1,2].map(index=>Number.parseInt(String(version).split(/[.+-]/)[index],10) || 0);
@@ -91,3 +92,39 @@ export async function downloadRelease(release,{fetcher=fetch,report=()=>{},signa
     const zip=await readZip(new Blob([...blobs,new Blob(group)],{type:'application/zip'}));
     return {entries:zip.entries,read:async entry=>verified(release,entry.name,await zip.read(entry))};
 }
+
+// Where SillyTavern serves each kind of packaged file, so this player's copy can be compared.
+export function localUrl(path){
+    const slash=path.indexOf('/'),kind=path.slice(0,slash),name=path.slice(slash+1).split('/').map(encodeURIComponent).join('/');
+    return {cards:`/characters/${name}`,sprites:`/characters/${name}`,files:`/user/files/${name}`,backgrounds:`/backgrounds/${name}`,avatars:`/User%20Avatars/${name}`}[kind] || '';
+}
+async function sameFile(release,path,{fetcher,signal}){
+    const url=localUrl(path);if(!url)return false;
+    const response=await fetcher(url,{cache:'no-store',signal}).catch(error=>{if(error?.name==='AbortError')throw error;return null;});
+    if(!response?.ok||Number(response.headers?.get?.('content-length') ?? release.files[path].size)!==release.files[path].size){await response?.body?.cancel?.();return false;}
+    try{await verified(release,path,await response.blob());return true;}catch{return false;}
+}
+// Narrows a plan to what this server lacks. A first install keeps whatever is already here; an
+// update skips a changed file when this player's copy already matches the new one.
+export async function localPlan(release,plan,{present,fetcher=fetch,signal,report=()=>{}}={}){
+    if(plan.kind==='none')return {...plan,files:0,have:[]};
+    const media=plan.paths.filter(name=>name!==release.manifest),need=[],have=[];let done=0;
+    for(const path of media){
+        signal?.throwIfAborted();
+        if(!present.has(path))need.push(path);
+        else if(plan.kind==='install'||await sameFile(release,path,{fetcher,signal}))have.push(path);
+        else need.push(path);
+        report(++done,media.length,{have:have.length});
+    }
+    // The export's own manifest carries settings, lorebooks, the theme and quick replies.
+    const manifest=plan.kind==='install'||need.length||plan.parts?.length?[release.manifest]:[];
+    const paths=[...need,...manifest];
+    return {...plan,paths,need,have,files:media.length,bytes:paths.reduce((sum,name)=>sum+release.files[name].size,0)};
+}
+export async function checkLocal(ctx,release,plan,options={}){
+    if(plan.kind==='none')return localPlan(release,plan,options);
+    const present=await existingFiles(ctx,plan.paths.filter(name=>name!==release.manifest),{signal:options.signal});
+    return localPlan(release,plan,{...options,present});
+}
+// A first install that needs most of the export is faster as one download than as many ranges.
+export const wholeDownload=(release,plan)=>plan.kind==='install'&&plan.bytes>release.bytes*.6;

@@ -154,7 +154,7 @@ export async function runStagingTests(){
 
         prefs.cgEnabled=true;prefs.characterCGs={'Klee.png':[{id:'picnic',label:'Picnic',path:new URL('preview-landscape.svg',location.href).pathname}]};
         ctx.chat=[{name:'Klee',original_avatar:'Klee.png',mes:'A picnic\nWith friends'}];
-        media=mountSceneMedia({host,getContext:()=>ctx,adapter:{classifyCG:async()=>{await pause(10);return 'picnic';}},sound:{stop(){},dispose(){},unlock:async()=>{},play:async()=>{}}});
+        media=mountSceneMedia({host,getContext:()=>ctx,adapter:{classifyCG:async(_ctx,message)=>{await pause(10);return /picnic/i.test(message.mes)?'picnic':null;}},sound:{stop(){},dispose(){},unlock:async()=>{},play:async()=>{}}});
         media.sync({on:true,id:0,page:0,generating:false});await pause(35);
         check('a group scene CG hides the entire replay stage',document.body.classList.contains('gi-cg-replace')&&getComputedStyle(host.querySelector('#gi-sprite-stage')).display==='none');
         const native=document.createElement('div');native.className='expression-holder';native.innerHTML='<img style="visibility:visible!important" src="preview-klee.png">';host.append(native);

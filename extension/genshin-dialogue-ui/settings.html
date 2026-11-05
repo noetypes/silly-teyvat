@@ -11,9 +11,9 @@
                 <details class="gi-feature-drawer">
                     <summary><span>Features</span><output class="gi-feature-count"></output></summary>
                     <div class="gi-feature-groups"></div>
-                    <p class="gi-note">Each switch turns a whole set on or off. A partly lit switch means only some of that set is on; the single settings are in the tabs below. A lit Paimon icon means the Silly Teyvat switch in the Paimon menu turns that set off and back on.</p>
                 </details>
             </section>
+            <div class="gi-set-search" role="search"><input type="search" id="gi-settings-search" placeholder="Search settings" aria-label="Search settings" autocomplete="off" spellcheck="false"><output class="gi-set-search-count" for="gi-settings-search"></output><button type="button" class="gi-set-search-clear" aria-label="Clear search" hidden>×</button></div>
             <nav class="gi-set-tabs" role="tablist" aria-label="Silly Teyvat settings">
                 <button type="button" role="tab" data-gi-action="settings-tab" data-tab="dialogue" aria-selected="true">Dialogue</button>
                 <button type="button" role="tab" data-gi-action="settings-tab" data-tab="stage" aria-selected="false">Stage</button>
@@ -28,63 +28,61 @@
                 <h4>Display</h4>
                 <label class="gi-row"><span>Dialogue view</span><input type="checkbox" class="gi-switch" data-gi-setting="enabled"></label>
                 <label class="gi-row"><span>Teyvat Choices &amp; HUD icons</span><input type="checkbox" class="gi-switch" data-gi-setting="choices"></label>
-                <label class="gi-row" for="gi-choices-profile" title="Suggested replies can use a separate, cheaper model than the roleplay"><span>Choices connection</span><select id="gi-choices-profile" data-gi-setting="choicesProfile"></select></label>
-                <label class="gi-row" for="gi-persona-icon"><span>Persona menu icon</span><select id="gi-persona-icon" data-gi-setting="personaIconMode"><option value="auto">Auto (body type)</option><option value="Aether">Aether</option><option value="Lumine">Lumine</option></select></label>
+                <label class="gi-row" data-advanced for="gi-choices-profile" title="Suggested replies can use a separate, cheaper model than the roleplay"><span>Choices connection</span><select id="gi-choices-profile" data-gi-setting="choicesProfile"></select></label>
+                <label class="gi-row" data-advanced for="gi-persona-icon"><span>Persona menu icon</span><select id="gi-persona-icon" data-gi-setting="personaIconMode"><option value="auto">Auto (body type)</option><option value="Aether">Aether</option><option value="Lumine">Lumine</option></select></label>
                 <label class="gi-row"><span>Keep reply box open</span><input type="checkbox" class="gi-switch" data-gi-setting="composer"></label>
                 <label class="gi-row"><span>Reduce motion</span><input type="checkbox" class="gi-switch" data-gi-setting="reducedMotion"></label>
-                <label class="gi-row" title="Character, persona and recent chat lists show Genshin cards whole"><span>Card art in SillyTavern</span><input type="checkbox" class="gi-switch" data-gi-setting="cardArt"></label>
+                <label class="gi-row" data-advanced title="Character, persona and recent chat lists show Genshin cards whole"><span>Card art in SillyTavern</span><input type="checkbox" class="gi-switch" data-gi-setting="cardArt"></label>
                 <h4>Text</h4>
                 <label class="gi-row gi-row-range" for="gi-reveal-speed"><span>Text speed</span><output id="gi-reveal-speed-value">45</output><input id="gi-reveal-speed" type="range" min="0" max="150" step="5" data-gi-setting="revealSpeed"></label>
                 <label class="gi-row gi-row-range" for="gi-text-scale"><span>Text size</span><output id="gi-text-scale-value">100%</output><input id="gi-text-scale" type="range" min="0.85" max="1.4" step="0.05" data-gi-setting="textScale"></label>
-                <label class="gi-row gi-row-range" for="gi-scrim"><span>Background shade</span><output id="gi-scrim-value">80%</output><input id="gi-scrim" type="range" min="0.4" max="0.95" step="0.05" data-gi-setting="scrim"></label>
+                <label class="gi-row gi-row-range" data-advanced for="gi-scrim"><span>Background shade</span><output id="gi-scrim-value">80%</output><input id="gi-scrim" type="range" min="0.4" max="0.95" step="0.05" data-gi-setting="scrim"></label>
                 <label class="gi-row"><span>Tap to advance</span><input type="checkbox" class="gi-switch" data-gi-setting="tapAdvance"></label>
-                <label class="gi-row"><span>Hide quotes on dialogue pages</span><input type="checkbox" class="gi-switch" data-gi-setting="hideDialogueQuotes"></label>
+                <label class="gi-row" data-advanced><span>Hide quotes on dialogue pages</span><input type="checkbox" class="gi-switch" data-gi-setting="hideDialogueQuotes"></label>
                 <h4>Narration</h4>
                 <label class="gi-row"><span>Narration pages</span><input type="checkbox" class="gi-switch" data-gi-setting="narration"></label>
-                <label class="gi-row" for="gi-narration-mode"><span>Detect by</span><select id="gi-narration-mode" data-gi-setting="narrationMode"><option value="quotes">No quotes on page</option><option value="keyword">Keyword</option></select></label>
-                <label class="gi-row" id="gi-narration-keyword-row" for="gi-narration-keyword"><span>Keyword</span><input id="gi-narration-keyword" type="text" maxlength="100" placeholder="Narrator:" data-gi-setting="narrationKeyword"></label>
+                <label class="gi-row" data-advanced for="gi-narration-mode"><span>Detect by</span><select id="gi-narration-mode" data-gi-setting="narrationMode"><option value="quotes">No quotes on page</option><option value="keyword">Keyword</option></select></label>
+                <label class="gi-row" data-advanced id="gi-narration-keyword-row" for="gi-narration-keyword"><span>Keyword</span><input id="gi-narration-keyword" type="text" maxlength="100" placeholder="Narrator:" data-gi-setting="narrationKeyword"></label>
             </section>
 
             <section class="gi-set-page" data-page="stage" role="tabpanel" hidden>
                 <h4>Expressions</h4>
                 <label class="gi-row"><span>Classify expressions</span><input type="checkbox" class="gi-switch" data-gi-setting="pageExpressions"></label>
-                <label class="gi-row"><span>Decide sprites</span><select data-gi-setting="expressionMode"><option value="page">Per page</option><option value="message">Per message</option></select></label>
+                <label class="gi-row" data-advanced><span>Decide sprites</span><select data-gi-setting="expressionMode"><option value="page">Per page</option><option value="message">Per message</option></select></label>
                 <label class="gi-row"><span>Characters in menu</span><input type="checkbox" class="gi-switch" data-gi-setting="wardrobe"></label>
-                <label class="gi-row" title="Every SillyTavern panel is also in the Paimon menu"><span>Top-right SillyTavern icons</span><select data-gi-setting="hudTopIcons"><option value="auto">Auto (hidden on phones)</option><option value="on">Show</option><option value="off">Hide</option></select></label>
+                <label class="gi-row" data-advanced title="Every SillyTavern panel is also in the Paimon menu"><span>Top-right SillyTavern icons</span><select data-gi-setting="hudTopIcons"><option value="auto">Auto (hidden on phones)</option><option value="on">Show</option><option value="off">Hide</option></select></label>
                 <h4>Staging</h4>
                 <label class="gi-row"><span>Silly Teyvat staging</span><input type="checkbox" class="gi-switch" data-gi-setting="nativeStaging"></label>
-                <label class="gi-row"><span>Trim empty sprite space</span><input type="checkbox" class="gi-switch" data-gi-setting="trimSprites"></label>
-                <label class="gi-row"><span>Global scale (%)</span><input type="number" min="10" max="300" step="1" data-gi-setting="spriteGlobalScale"></label>
-                <label class="gi-row"><span>Tallest sprite height (%)</span><input type="number" min="20" max="100" step="1" data-gi-setting="spriteBaseHeight"></label>
-                <label class="gi-row"><span>Portrait fallback</span><input type="checkbox" class="gi-switch" data-gi-setting="spriteEmulation"></label>
+                <label class="gi-row" data-advanced><span>Trim empty sprite space</span><input type="checkbox" class="gi-switch" data-gi-setting="trimSprites"></label>
+                <label class="gi-row" data-advanced><span>Global scale (%)</span><input type="number" min="10" max="300" step="1" data-gi-setting="spriteGlobalScale"></label>
+                <label class="gi-row" data-advanced><span>Tallest sprite height (%)</span><input type="number" min="20" max="100" step="1" data-gi-setting="spriteBaseHeight"></label>
+                <label class="gi-row" data-advanced><span>Portrait fallback</span><input type="checkbox" class="gi-switch" data-gi-setting="spriteEmulation"></label>
                 <h4>Crowded scenes</h4>
                 <label class="gi-row" title="Auto hides characters who are not speaking when more than 5 sprites would be on a desktop screen, or more than 3 on a phone"><span>Listeners shown</span><select data-gi-setting="spriteCrowd"><option value="auto">Auto (5 on desktop, 3 on phones)</option><option value="recent">Recent speakers only</option><option value="all">Everyone</option></select></label>
-                <label class="gi-row" id="gi-crowd-max-row"><span>Max visible</span><input type="number" min="1" max="20" step="1" data-gi-setting="maxViewableCharacters"></label>
+                <label class="gi-row" data-advanced id="gi-crowd-max-row"><span>Max visible</span><input type="number" min="1" max="20" step="1" data-gi-setting="maxViewableCharacters"></label>
                 <label class="gi-row" title="Only the enemy who is speaking is shown; between their lines, the one who spoke last"><span>Only the speaking enemy</span><input type="checkbox" class="gi-switch" data-gi-setting="soloEnemySprite"></label>
                 <label class="gi-row" title="Only the companion who is speaking is shown; between their lines, the one who spoke last"><span>Only the speaking companion</span><input type="checkbox" class="gi-switch" data-gi-setting="soloCompanionSprite"></label>
-                <p class="gi-note">Your own sprite always stays when Show persona is on.</p>
                 <h4>Speaker focus</h4>
                 <label class="gi-row" title="Per page dims everyone during narration. Per message keeps the author lit throughout their reply, including narration. Your persona lights up on your own messages."><span>Light up speaker</span><select data-gi-setting="spriteFocusMode"><option value="page">Per page (dialogue only)</option><option value="message">Per message (including narration)</option></select></label>
                 <label class="gi-row"><span>Enlarge speaker</span><input type="checkbox" class="gi-switch" data-gi-setting="spriteFocus"></label>
-                <label class="gi-row"><span>Focus scale (%)</span><input type="number" min="100" max="125" step="1" data-gi-setting="spriteFocusScale"></label>
-                <label class="gi-row"><span>Transition (s)</span><input type="number" min="0" max="2" step="0.05" data-gi-setting="spriteFocusDuration"></label>
-                <label class="gi-row"><span>Easing</span><select data-gi-setting="spriteFocusEasing"><option value="ease">Ease</option><option value="ease-in">Ease in</option><option value="ease-out">Ease out</option><option value="ease-in-out">Ease in-out</option><option value="linear">Linear</option></select></label>
+                <label class="gi-row" data-advanced><span>Focus scale (%)</span><input type="number" min="100" max="125" step="1" data-gi-setting="spriteFocusScale"></label>
+                <label class="gi-row" data-advanced><span>Transition (s)</span><input type="number" min="0" max="2" step="0.05" data-gi-setting="spriteFocusDuration"></label>
+                <label class="gi-row" data-advanced><span>Easing</span><select data-gi-setting="spriteFocusEasing"><option value="ease">Ease</option><option value="ease-in">Ease in</option><option value="ease-out">Ease out</option><option value="ease-in-out">Ease in-out</option><option value="linear">Linear</option></select></label>
                 <label class="gi-row"><span>Darken listeners</span><input type="checkbox" class="gi-switch" data-gi-setting="spriteDim"></label>
-                <label class="gi-row" title="1 is full brightness"><span>Listener brightness</span><input type="number" min="0.15" max="1" step="0.05" data-gi-setting="spriteDimBrightness"></label>
+                <label class="gi-row" data-advanced title="1 is full brightness"><span>Listener brightness</span><input type="number" min="0.15" max="1" step="0.05" data-gi-setting="spriteDimBrightness"></label>
                 <label class="gi-row"><span>Speaking shake</span><input type="checkbox" class="gi-switch" data-gi-setting="spriteShake"></label>
                 <label class="gi-row"><span>Idle breathing</span><input type="checkbox" class="gi-switch" data-gi-setting="spriteIdle"></label>
                 <h4>Shadow</h4>
                 <label class="gi-row"><span>Drop shadows</span><input type="checkbox" class="gi-switch" data-gi-setting="spriteShadow"></label>
-                <div class="gi-row gi-row-trio"><span>Offset · Blur</span><input type="number" min="-100" max="100" aria-label="Shadow horizontal offset" data-gi-setting="shadowX"><input type="number" min="-100" max="100" aria-label="Shadow vertical offset" data-gi-setting="shadowY"><input type="number" min="0" max="80" aria-label="Shadow blur" data-gi-setting="shadowBlur"></div>
+                <div class="gi-row gi-row-trio" data-advanced><span>Offset · Blur</span><input type="number" min="-100" max="100" aria-label="Shadow horizontal offset" data-gi-setting="shadowX"><input type="number" min="-100" max="100" aria-label="Shadow vertical offset" data-gi-setting="shadowY"><input type="number" min="0" max="80" aria-label="Shadow blur" data-gi-setting="shadowBlur"></div>
                 <h4>Active persona sprite</h4>
-                <p class="gi-note">Your persona is the first entry in Character Customization. Each persona keeps its own outfits, expression and appearance settings.</p>
-                <label class="gi-row"><span>Show persona</span><input type="checkbox" class="gi-switch" data-gi-setting="personaSprite"></label>
-                <label class="gi-row"><span>Sprite folder</span><input type="text" placeholder="Traveler" data-gi-setting="personaSpriteFolder"></label>
-                <label class="gi-row"><span>Expression</span><input type="text" placeholder="neutral" data-gi-setting="personaSpriteExpression"></label>
+                <label class="gi-row" title="Your persona is the first entry in Character Customization, with its own outfits and expressions"><span>Show persona</span><input type="checkbox" class="gi-switch" data-gi-setting="personaSprite"></label>
+                <label class="gi-row" data-advanced><span>Sprite folder</span><input type="text" placeholder="Traveler" data-gi-setting="personaSpriteFolder"></label>
+                <label class="gi-row" data-advanced><span>Expression</span><input type="text" placeholder="neutral" data-gi-setting="personaSpriteExpression"></label>
                 <h4>Letterbox</h4>
                 <label class="gi-row"><span>Bars</span><select data-gi-setting="letterbox"><option value="none">Off</option><option value="horizontal">Top &amp; bottom</option><option value="vertical">Sides</option></select></label>
-                <label class="gi-row"><span>Size (%)</span><input type="number" min="1" max="30" data-gi-setting="letterboxSize"></label>
-                <label class="gi-row"><span>Colour</span><input type="text" maxlength="7" placeholder="#000000" data-gi-setting="letterboxColor"></label>
+                <label class="gi-row" data-advanced><span>Size (%)</span><input type="number" min="1" max="30" data-gi-setting="letterboxSize"></label>
+                <label class="gi-row" data-advanced><span>Colour</span><input type="text" maxlength="7" placeholder="#000000" data-gi-setting="letterboxColor"></label>
                 <div class="gi-set-actions"><button type="button" class="menu_button" data-gi-action="wardrobe">Open Character Customization</button></div>
             </section>
 
@@ -101,76 +99,60 @@
                 <label class="gi-row"><span>Classify CGs</span><input type="checkbox" class="gi-switch" data-gi-setting="cgEnabled"></label>
                 <label class="gi-row" for="gi-cg-classifier"><span>Classifier</span><select id="gi-cg-classifier" data-gi-setting="cgClassifier"><option value="main">Main API</option><option value="profile">Connection profile</option><option value="webllm">WebLLM</option></select></label>
                 <label class="gi-row" id="gi-cg-profile-row" for="gi-cg-profile"><span>Profile</span><select id="gi-cg-profile" data-gi-setting="cgProfile"></select></label>
-                <label class="gi-row" id="gi-cg-reasoning-row"><span>Skip reasoning</span><input type="checkbox" class="gi-switch" data-gi-setting="cgBypassReasoning"></label>
-                <label class="gi-row gi-row-stack" for="gi-cg-prompt"><span>Classifier prompt</span><textarea id="gi-cg-prompt" rows="4" data-gi-setting="cgPrompt"></textarea></label>
+                <label class="gi-row" data-advanced id="gi-cg-reasoning-row"><span>Skip reasoning</span><input type="checkbox" class="gi-switch" data-gi-setting="cgBypassReasoning"></label>
+                <label class="gi-row gi-row-stack" data-advanced for="gi-cg-prompt"><span>Classifier prompt</span><textarea id="gi-cg-prompt" rows="4" data-gi-setting="cgPrompt"></textarea></label>
             </section>
 
             <section class="gi-set-page" data-page="world" role="tabpanel" hidden>
                 <h4>Residents</h4>
                 <label class="gi-row"><span>Meet location characters</span><input type="checkbox" class="gi-switch" data-gi-setting="locationEncounters"></label>
-                <label class="gi-row"><span>Residents per location</span><input type="number" min="1" max="50" step="1" data-gi-setting="locationCharacterLimit"></label>
+                <label class="gi-row" data-advanced><span>Residents per location</span><input type="number" min="1" max="50" step="1" data-gi-setting="locationCharacterLimit"></label>
                 <label class="gi-row"><span>Roll for extra residents</span><input type="checkbox" class="gi-switch" data-gi-setting="randomEncounters"></label>
-                <label class="gi-row"><span>Extra encounter chance (%)</span><input type="number" min="0" max="100" step="1" data-gi-setting="encounterRate"></label>
-                <p class="gi-note">Every arrival meets at least one resident and one enemy, if the location has them. Favorites always appear, and so do characters you left behind unless more than 3 are there. Anyone else rolls this chance, up to 3 met at once.</p>
+                <label class="gi-row" title="Favorites and characters you left behind always appear; anyone else rolls this chance, up to 3 at once" data-advanced><span>Extra encounter chance (%)</span><input type="number" min="0" max="100" step="1" data-gi-setting="encounterRate"></label>
                 <h4>Travel</h4>
                 <label class="gi-row"><span>Main character may stay</span><input type="checkbox" class="gi-switch" data-gi-setting="allowMainDeparture"></label>
-                <label class="gi-row"><span>Whole world in prompt</span><input type="checkbox" class="gi-switch" data-gi-setting="worldPromptAllRegions"></label>
+                <label class="gi-row" data-advanced><span>Whole world in prompt</span><input type="checkbox" class="gi-switch" data-gi-setting="worldPromptAllRegions"></label>
                 <h4>The twins</h4>
-                <label class="gi-row" for="gi-traveler-twin"><span>Traveler when you play neither twin</span><select id="gi-traveler-twin" data-gi-setting="travelerTwin"><option value="Aether">Aether (Lumine leads the Abyss)</option><option value="Lumine">Lumine (Aether leads the Abyss)</option></select></label>
-                <p class="gi-note">Play either twin and you are the Traveler, while the other twin leads the Abyss Order and is found in the Chasm. Their Abyss cards are in the Prompts tab.</p>
+                <label class="gi-row" title="Play either twin and you are the Traveler; the other leads the Abyss Order in the Chasm" for="gi-traveler-twin"><span>Traveler when you play neither twin</span><select id="gi-traveler-twin" data-gi-setting="travelerTwin"><option value="Aether">Aether (Lumine leads the Abyss)</option><option value="Lumine">Lumine (Aether leads the Abyss)</option></select></label>
                 <h4>Trust</h4>
-                <label class="gi-row"><span>Trust system</span><input type="checkbox" class="gi-switch" data-gi-setting="trustSystem"></label>
-                <p class="gi-note">Each character's trust runs from 0 to 5 hearts in each chat. Characters earn or lose it through the roleplay and through gifts from your Inventory. Open Trust from the Paimon menu to see it, and to ask what they think of you. Only a new chat starts it again, and characters who already know the one you play start higher: set this per character in Character Customization → Starting trust.</p>
+                <label class="gi-row" title="0 to 5 hearts per character in each chat, earned through the roleplay and gifts. Starting trust is set in Character Customization"><span>Trust system</span><input type="checkbox" class="gi-switch" data-gi-setting="trustSystem"></label>
             </section>
 
             <section class="gi-set-page" data-page="combat" role="tabpanel" hidden>
                 <h4>Wilderness</h4>
                 <label class="gi-row"><span>Enemy encounters</span><input type="checkbox" class="gi-switch" data-gi-setting="wildernessEncounters"></label>
-                <label class="gi-row"><span>Maximum enemies per encounter</span><input type="number" min="1" max="3" step="1" data-gi-setting="maxEnemies"></label>
-                <p class="gi-note">One enemy from the waypoint's pool always appears. More can roll in, up to this many and never more than 3 met at once. Enemies you defeat stay away from that waypoint until you restore them from its map card.</p>
+                <label class="gi-row" title="Never more than 3 at once. Defeated enemies stay away until restored from the map" data-advanced><span>Maximum enemies per encounter</span><input type="number" min="1" max="3" step="1" data-gi-setting="maxEnemies"></label>
                 <h4>Turn-based battles</h4>
-                <p class="gi-note">Turn on Attack and send a message to fight a round. Dice fuel Elemental Skills and Bursts; Normal Attacks are free but can miss. Edit any moveset in Character Customization → Moveset.</p>
                 <label class="gi-row" for="gi-combat-difficulty"><span>Difficulty</span><select id="gi-combat-difficulty" data-gi-setting="combatDifficulty"><option value="easy">Story (enemies 80% HP, 70% damage)</option><option value="normal">Normal</option><option value="hard">Hard (enemies 130% HP and damage)</option></select></label>
                 <label class="gi-row"><span>Enemies strike back</span><input type="checkbox" class="gi-switch" data-gi-setting="enemyStrikeBack"></label>
-                <label class="gi-row" for="gi-combat-trigger"><span>Enemy battle phrase</span><input id="gi-combat-trigger" type="text" maxlength="80" placeholder="[start_combat]" data-gi-setting="combatTriggerPhrase"></label>
-                <p class="gi-note">Written by a hostile enemy to start a fight. A bracketed phrase is hidden from the dialogue; leave it empty to turn this off.</p>
+                <label class="gi-row" title="Written by a hostile enemy to start a fight. A bracketed phrase is hidden; empty turns this off" data-advanced for="gi-combat-trigger"><span>Enemy battle phrase</span><input id="gi-combat-trigger" type="text" maxlength="80" placeholder="[start_combat]" data-gi-setting="combatTriggerPhrase"></label>
                 <label class="gi-row"><span>Burst splash art &amp; effects</span><input type="checkbox" class="gi-switch" data-gi-setting="battleEffects"></label>
                 <label class="gi-row"><span>Battle sounds</span><input type="checkbox" class="gi-switch" data-gi-setting="battleSound"></label>
                 <label class="gi-row"><span>Dice sounds</span><input type="checkbox" class="gi-switch" data-gi-setting="diceSound"></label>
             </section>
 
             <section class="gi-set-page" data-page="prompts" role="tabpanel" hidden>
-                <p class="gi-note">System prompts sent with every roleplay reply while Silly Teyvat is on. &#123;&#123;char&#125;&#125; and &#123;&#123;user&#125;&#125; are filled in. Clear a prompt to turn it off; Reset restores the bundled version.</p>
-                <label class="gi-row"><span>Roleplay prompts</span><input type="checkbox" class="gi-switch" data-gi-setting="roleplayPromptsEnabled"></label>
-                <p class="gi-note">With Chat Completion, these prompts and the World scale, Combat state and Trust notes are also entries in <b>AI Config → Prompts</b>. Drag them there to choose when the AI reads them; editing a prompt in either place changes both.</p>
+                <label class="gi-row" title="Sent with every roleplay reply. With Chat Completion they are also entries in AI Config → Prompts"><span>Roleplay prompts</span><input type="checkbox" class="gi-switch" data-gi-setting="roleplayPromptsEnabled"></label>
                 <h4>Writing style</h4>
-                <p class="gi-note">Layout, voice and boundaries. Sent near the latest message so it stays fresh.</p>
                 <textarea class="gi-prompt-text" rows="8" aria-label="Writing style prompt" data-gi-prompt="style"></textarea>
                 <button type="button" class="menu_button" data-gi-prompt-reset="style">Reset</button>
                 <h4>Characterization</h4>
-                <p class="gi-note">Embodiment, what characters know, and how the relationship with &#123;&#123;user&#125;&#125; grows.</p>
                 <textarea class="gi-prompt-text" rows="8" aria-label="Characterization prompt" data-gi-prompt="character"></textarea>
                 <button type="button" class="menu_button" data-gi-prompt-reset="character">Reset</button>
                 <h4>Game systems</h4>
-                <p class="gi-note">How travel, encounters and combat records appear in the chat, and how to narrate them.</p>
                 <textarea class="gi-prompt-text" rows="8" aria-label="Game systems prompt" data-gi-prompt="systems"></textarea>
                 <button type="button" class="menu_button" data-gi-prompt-reset="systems">Reset</button>
                 <h4>Other prompts</h4>
-                <p class="gi-note">Everything else Silly Teyvat asks the model. Words in single braces, such as &#123;character&#125;, are filled in by the game. Reset restores the bundled version. Clearing a prompt the game needs does the same; an optional note is simply no longer sent.</p>
                 <div id="gi-prompt-library"></div>
             </section>
 
             <section class="gi-set-page" data-page="share" role="tabpanel" hidden>
-                <p class="gi-note">A tester needs both exports. Chats, saved journeys, API keys, connections and your signature are never included. Exports are large, so use a desktop browser in a normal window, not a private one.</p>
                 <h4>Published game data</h4>
-                <p class="gi-note">Downloads the game data that goes with this version of Silly Teyvat, or only what changed since the version you have.</p>
-                <div class="gi-set-actions"><button type="button" class="menu_button" data-gi-action="share-game-data" data-gi-share>Check for game data</button></div>
+                <div class="gi-set-actions"><button type="button" class="menu_button" data-gi-action="share-game-data" data-gi-share title="Downloads this version's game data, or only what changed since yours">Check for game data</button></div>
                 <h4>Extension</h4>
-                <p class="gi-note">This installed version with its art, sounds and your current settings. Unzip it into SillyTavern's <code>data/default-user/extensions</code> folder.</p>
-                <div class="gi-set-actions"><button type="button" class="menu_button" data-gi-action="share-extension" data-gi-share>Export extension</button></div>
+                <div class="gi-set-actions"><button type="button" class="menu_button" data-gi-action="share-extension" data-gi-share title="This installed version with its art, sounds and your settings, for data/default-user/extensions">Export extension</button></div>
                 <h4>Game data</h4>
-                <p class="gi-note">Character cards and settings, sprite sets, scenes, voices, music, lorebooks, game personas, the Teyvat Slate theme and Teyvat Choices. Import it in SillyTavern with the extension installed.</p>
-                <div class="gi-set-actions"><button type="button" class="menu_button" data-gi-action="share-export" data-gi-share>Export game data</button></div>
+                <div class="gi-set-actions"><button type="button" class="menu_button" data-gi-action="share-export" data-gi-share title="Cards, sprites, scenes, voices, music, lorebooks, personas, theme and Choices. Never chats, keys or connections">Export game data</button></div>
                 <label class="gi-row" title="Otherwise anything you already have is kept and only what is new is added"><span>Replace what I already have</span><input type="checkbox" class="gi-switch" id="gi-share-replace"></label>
                 <label class="gi-row" title="Also replaces your general Silly Teyvat preferences. Your connections are kept."><span>Use the file's preferences</span><input type="checkbox" class="gi-switch" id="gi-share-settings"></label>
                 <div class="gi-set-actions"><button type="button" class="menu_button" data-gi-action="share-import" data-gi-share>Import game data</button></div>

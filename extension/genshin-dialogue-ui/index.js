@@ -40,6 +40,7 @@ import {abyssGreeting,freshenTwinPersonas,keepAbyssGreeting,restoreTwinCards,syn
 import {mountTrust} from './trust-ui.js';
 import {giveGift} from './gifts.js';
 import {namecardsReady,namecards,namecardUrl,chooseNamecard} from './namecards.js';
+import {structureSettings,paintResets,resetSection,bindSettingsSearch,clearSettingsSearch} from './settings-ui.js';
 import {renderFeatureSwitches,paintFeatureSwitches,setGroup,setSettings,paimonKeys,paimonOn,paimonValues,linkPaimon,PAIMON_LINKS} from './feature-switches.js';
 import {loadPersonaSupport,personaCard,syncPersonaSettings,setPersonaSpriteSetting} from './persona-wardrobe.js';
 import {circularCharacterAvatar,characterAvatarsReady,personaMenuIcon} from './character-avatars.js';
@@ -80,7 +81,7 @@ const icons = {
 const svg = name => `<svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">${icons[name] || icons.compass}</svg>`;
 const button = (action, label, icon = action, tooltip = true) => `<button type="button" data-gi-action="${action}" aria-label="${label}"${tooltip ? ` title="${label}"` : ''}>${svg(icon)}<span>${label}</span></button>`;
 // Paimon menu tiles and rail use the game's own menu icons (tools/build-menu-icons.py).
-const MENU_ICONS = new Set(['auto', 'book', 'wardrobe', 'map', 'compose', 'hide', 'namecard', 'back', 'settings', 'bag']);
+const MENU_ICONS = new Set(['auto', 'book', 'wardrobe', 'map', 'compose', 'hide', 'namecard', 'back', 'settings', 'bag', 'cg']);
 const menuButton = (action, label, icon = action) => MENU_ICONS.has(icon)
     ? `<button type="button" data-gi-action="${action}" aria-label="${label}"><img class="gi-pm-icon" src="${new URL(`assets/menu/${icon}.webp`, import.meta.url).href}" alt="" aria-hidden="true" draggable="false"><span>${label}</span></button>`
     : button(action, label, icon, false);
@@ -317,6 +318,7 @@ function syncSettings() {
     if (scrim) scrim.value = `${Math.round(prefs.scrim * 100)}%`;
     const volume=document.querySelector('#gi-sprite-volume-value');if(volume)volume.value=`${Math.round(prefs.spriteVolume*100)}%`;
     const uiVolume=document.querySelector('#gi-ui-sound-volume-value');if(uiVolume)uiVolume.value=`${Math.round(prefs.uiSoundVolume*100)}%`;
+    paintResets(document.querySelector('#gi-settings'),defaults);
 }
 // Event narration (attacks, reactions, travel and teleports) is appended moments
 // before the AI reply starts streaming. Keep it on screen until the reader
@@ -639,13 +641,21 @@ function handleAction(event) {
         case 'dismiss': dismissedNotice = conflictText(); refresh(); break;
         case 'settings-tab': {
             const tab = target.dataset.tab;
+            clearSettingsSearch(document.querySelector('#gi-settings'));
             document.querySelectorAll('#gi-settings .gi-set-tabs [data-tab]').forEach(b => b.setAttribute('aria-selected', String(b.dataset.tab === tab)));
             document.querySelectorAll('#gi-settings .gi-set-page').forEach(page => { page.hidden = page.dataset.page !== tab; });
+            break;
+        }
+        case 'settings-reset': {
+            const count = resetSection(document.querySelector('#gi-settings'), target, defaults);
+            announce(`${target.getAttribute('aria-label').replace(/^Reset /, '')}: ${count} ${count === 1 ? 'setting' : 'settings'} reset.`);
+            syncSettings();
             break;
         }
         case 'wardrobe': menuOpen = false; refresh(); wardrobeUI?.open().catch(fail); break;
         case 'inventory': menuOpen = false; refresh(); inventoryUI?.open(); break;
         case 'trust': menuOpen = false; refresh(); trustUI?.open(); break;
+        case 'gallery': menuOpen = false; refresh(); mediaUI?.openGallery(); break;
         case 'share-extension': void shareUI?.exportExtension(); break;
         case 'share-export': void shareUI?.exportGameData(); break;
         case 'share-import': shareUI?.chooseImport(); break;
@@ -780,7 +790,7 @@ export async function initialize(options = {}) {
                 <button type="button" class="gi-pm-switch" data-gi-action="toggle" aria-pressed="false" aria-label="Silly Teyvat"><span>Silly Teyvat</span><i aria-hidden="true"></i></button>
                 <button type="button" class="gi-pm-switch gi-pm-solo" data-gi-action="solo-journey" hidden><span>Start solo journey</span></button>
                 <section id="gi-pm-namecards" class="gi-pm-namecards" aria-label="Namecards" hidden><header><h3>Namecard</h3>${menuButton('namecards', 'Done', 'close')}</header><div class="gi-pm-nc-list" role="radiogroup" aria-label="Choose a namecard"></div></section>
-                <div class="gi-pm-grid">${menuButton('auto', 'Auto')}${menuButton('history', 'Review', 'book')}${menuButton('wardrobe', 'Characters')}${menuButton('inventory', 'Inventory', 'bag')}${trustButton()}${menuButton('map', 'Map')}${menuButton('compose', 'Chat Box')}${menuButton('hide', 'Hide UI')}${menuButton('namecards', 'Namecard', 'namecard')}</div>
+                <div class="gi-pm-grid">${menuButton('auto', 'Auto')}${menuButton('history', 'Review', 'book')}${menuButton('wardrobe', 'Characters')}${menuButton('inventory', 'Inventory', 'bag')}${trustButton()}${menuButton('map', 'Map')}${menuButton('gallery', 'Gallery', 'cg')}${menuButton('compose', 'Chat Box')}${menuButton('hide', 'Hide UI')}${menuButton('namecards', 'Namecard', 'namecard')}</div>
                 <section class="gi-pm-tavern" aria-label="SillyTavern"><h3>SillyTavern</h3><div class="gi-pm-grid">${ST_DRAWERS.map(([id, label]) => `<button type="button" data-gi-action="st-drawer" data-drawer="${id}" aria-label="${label}"><img src="${drawerIcon(id)}" alt="" aria-hidden="true" draggable="false"${id === 'persona-management-button' ? ' data-persona' : ''}><span>${label}</span></button>`).join('')}</div></section>
             </div>
         </nav>
@@ -829,6 +839,7 @@ export async function initialize(options = {}) {
         if (!mounted || version !== mountVersion) return;
         document.querySelector('#extensions_settings2').insertAdjacentHTML('beforeend', html);
         renderFeatureSwitches(document.querySelector('#gi-settings'));
+        structureSettings(document.querySelector('#gi-settings'));bindSettingsSearch(document.querySelector('#gi-settings'),abort.signal);
         manifest.then(m => { const footer = document.querySelector('#gi-settings .gi-set-footer span'); if (footer) footer.textContent = m.version || ''; }).catch(() => {});
     } catch (error) {
         console.warn('[Silly Teyvat] Settings panel unavailable. Alt+G and the compass still work.', error);

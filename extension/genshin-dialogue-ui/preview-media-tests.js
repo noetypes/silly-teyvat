@@ -1,6 +1,6 @@
 import { mountPageSprites } from './page-sprites.js';
-import { mountSceneMedia, createSpriteSoundPlayer, cgCategories, fittedFrame } from './scene-media.js';
-import { mediaSettings, spriteAudioKey, registerExpression, migrateCGDisplay } from './media-store.js';
+import { mountSceneMedia, createSpriteSoundPlayer, cgCategories, cgAllowed, sceneCGs, discoveredCGs, fittedFrame } from './scene-media.js';
+import { mediaSettings, spriteAudioKey, registerExpression, migrateCGDisplay, cgPromptMessages } from './media-store.js';
 export async function runMediaTests() {
     const results=[],pause=ms=>new Promise(r=>setTimeout(r,ms));
     const check=(name,ok)=>{results.push(`${ok?'PASS':'FAIL'} ${name}`);if(!ok)throw new Error(name);};
@@ -104,6 +104,34 @@ export async function runMediaTests() {
         check('a framed preview matches its image',Math.abs(previewImage.width/previewImage.height-imageRatio)<.02);host.querySelector('#gi-cg-preview header button').click();await pause(10);
         const legacy={cgMode:'window',characterCGs:{'Klee.png':[{id:'a'},{id:'b',display:'scene'}]}};
         check('the old global mode moves onto each CG',migrateCGDisplay(legacy)&&legacy.cgMode===undefined&&legacy.characterCGs['Klee.png'][0].display==='frame'&&legacy.characterCGs['Klee.png'][1].display==='scene'&&!migrateCGDisplay(legacy));
+        // 1.59: one prompt for the whole scene, conditions per CG, and a gallery of what this chat has shown.
+        media.dispose();media=undefined;
+        const party={groupId:'g1',groups:[{id:'g1',members:['Klee.png','Albedo.png']}],characters:[{name:'Klee',avatar:'Klee.png'},{name:'Albedo',avatar:'Albedo.png'},{name:'Jean',avatar:'Jean.png'}],
+            chatMetadata:{silly_teyvat_world:{regionId:'mond',location:{id:'lake'}}},extensionSettings:{genshin_dialogue_ui:{cgEnabled:true,characterCGs:{
+                'Klee.png':[{id:'k-bday',label:'Birthday',path:artwork},{id:'k-duo',label:'Chalk drawing',path:artwork,requiredCharacters:['Albedo.png']},{id:'k-jean',label:'Confinement',path:artwork,requiredCharacters:['Jean.png']},{id:'k-lake',label:'Fish Blasting',path:artwork,requiredLocations:['lake']},{id:'k-cave',label:'Cave',path:artwork,requiredLocations:['cave']}],
+                'Albedo.png':[{id:'a-bday',label:'Birthday',path:artwork}],'Jean.png':[{id:'j-bday',label:'Birthday',path:artwork}]}}},
+            chat:[{name:'Klee',original_avatar:'Klee.png',mes:'“Happy birthday, big brother Albedo!”'}],saveChat(){},saveSettingsDebounced(){},saveMetadataDebounced(){}};
+        const scene=sceneCGs(party,party.chat[0]),ids=scene.entries.map(e=>e.id);
+        check('the scene offers every present character’s CGs together',ids.includes('k-bday')&&ids.includes('a-bday')&&!ids.includes('j-bday'));
+        check('a CG needing a present character is offered',ids.includes('k-duo'));
+        check('a CG needing an absent character is left out',!ids.includes('k-jean'));
+        check('a CG tied to the current location is offered and others are not',ids.includes('k-lake')&&!ids.includes('k-cave'));
+        check('conditions combine: both characters and location must hold',!cgAllowed({requiredCharacters:['Albedo.png'],requiredLocations:['cave']},{present:new Set(['Albedo.png']),location:'lake'})&&cgAllowed({requiredCharacters:['Albedo.png'],requiredLocations:['cave','lake']},{present:new Set(['Albedo.png']),location:'lake'}));
+        const named=cgCategories(scene.entries,scene.owners).map(c=>c.label);
+        check('two characters’ scenes with the same name stay apart, named by character',named.includes('Klee: Birthday')&&named.includes('Albedo: Birthday'));
+        const prompt=cgPromptMessages({mes:'x'},cgCategories(scene.entries,scene.owners))[0].content,single=cgPromptMessages({mes:'x'},cgCategories([{id:'a',label:'Picnic'}]))[0].content;
+        check('with several characters the prompt says each option shows its character',/whose birthday it is/.test(prompt)&&!/whose birthday it is/.test(single));
+        const asked=[];media=mountSceneMedia({host,getContext:()=>party,sound,adapter:{classifyCG:async(_ctx,_m,options)=>{asked.push(options);return options.find(o=>o.label==='Albedo: Birthday')?.id;}}});
+        media.sync({on:true,id:0,page:0,generating:false});await pause(40);
+        check('one classification request covers the whole scene',asked.length===1&&asked[0].some(o=>o.label==='Klee: Birthday')&&asked[0].some(o=>o.label==='Albedo: Birthday'));
+        check('the chosen CG can belong to a listener',party.chat[0].extra.silly_teyvat.cgs[0].cg.id==='a-bday');
+        party.chat.push({name:'Klee',original_avatar:'Klee.png',mes:'Another line.',extra:{silly_teyvat:{cgs:{0:{signature:'x',cg:{id:'k-duo',label:'Chalk drawing',path:artwork}},1:{signature:'y',cg:{id:'a-bday',label:'Birthday',path:artwork}}}}}});
+        const found=discoveredCGs(party);
+        check('the gallery lists each discovered CG once, in order, with its owner',found.length===2&&found[0].cg.id==='a-bday'&&found[0].avatar==='Albedo.png'&&found[0].messages.join()==='0,1'&&found[1].avatar==='Klee.png');
+        check('the gallery opens with a tile per discovered CG',media.openGallery()===2&&host.querySelectorAll('#gi-cg-gallery .gi-cg-gallery-grid button').length===2&&host.querySelector('#gi-cg-gallery').open);
+        const pick=host.querySelector('#gi-cg-gallery select');pick.value='Klee.png';pick.dispatchEvent(new Event('change'));
+        check('the gallery filters by character with a discovered count',host.querySelectorAll('#gi-cg-gallery .gi-cg-gallery-grid button').length===1&&/Klee \(1 of 5\)/.test(pick.selectedOptions[0].textContent));
+        host.querySelector('#gi-cg-gallery header button').click();check('the gallery closes',!host.querySelector('#gi-cg-gallery').open);
     } catch(error) {results.push(`ERROR ${error.message}`);}
     finally{sprites?.dispose();media?.dispose();host.remove();}
     return results.join('; ');

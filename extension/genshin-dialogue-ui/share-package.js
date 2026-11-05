@@ -178,7 +178,7 @@ function uploaders(ctx,signal){
     };
 }
 // Names already on this server, so a repeated or interrupted import only adds what is missing.
-async function existingFiles(ctx,post,paths,signal){
+export async function existingFiles(ctx,paths,{signal,post=api(ctx,signal)}={}){
     const present=new Set((ctx.characters || []).map(card=>`cards/${card.avatar}`));
     for(const image of (await post('/api/backgrounds/all')).images || [])present.add(`backgrounds/${image.filename ?? image}`);
     for(const avatar of await post('/api/avatars/get'))present.add(`avatars/${avatar}`);
@@ -256,7 +256,7 @@ export async function importArchive({ctx,zip,replace=false,overwrite=new Set(),u
     const root=manifestEntry.name.slice(0,-GAME_MANIFEST.length),manifest=JSON.parse(await (await zip.read(manifestEntry)).text());
     if(manifest.format!==FORMAT)throw new Error('This game data was made by a different version of Silly Teyvat.');
     const post=api(ctx,signal),send=uploaders(ctx,signal),entries=[...zip.entries.values()].filter(entry=>entry!==manifestEntry).map(entry=>({entry,path:entry.name.slice(root.length)}));
-    const usable=entries.filter(({path})=>isSafeEntry(path)&&KINDS.includes(path.split('/')[0])),present=replace?new Set():await existingFiles(ctx,post,usable.map(item=>item.path),signal);
+    const usable=entries.filter(({path})=>isSafeEntry(path)&&KINDS.includes(path.split('/')[0])),present=replace?new Set():await existingFiles(ctx,usable.map(item=>item.path),{signal,post});
     for(const {entry} of usable)if(overwrite.has(entry.name))present.delete(entry.name.slice(root.length));
     const failed=[];let added=0,skipped=0,done=0;
     for(const {entry,path} of usable){
@@ -265,7 +265,7 @@ export async function importArchive({ctx,zip,replace=false,overwrite=new Set(),u
         if(present.has(path))skipped++;
         else try{await send[kind](name,await zip.read(entry));added++;}
         catch(error){if(signal?.aborted)throw error;failed.push(path);console.warn('[Silly Teyvat] Import',path,error);}
-        report(++done,usable.length);
+        report(++done,usable.length,{added,skipped,failed:failed.length});
     }
     const worlds=new Set((await post('/api/worldinfo/list')).map(world=>world.file_id));
     for(const [name,data] of Object.entries(manifest.lorebooks || {}))if(replace||!worlds.has(name)||overwrite.has(`lorebooks/${name}`))await post('/api/worldinfo/edit',{name,data});

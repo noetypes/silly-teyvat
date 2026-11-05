@@ -71,7 +71,7 @@ export async function runPersonaWardrobeTests(){
         let categories=[];prefs.cgEnabled=true;prefs.characterCGs['Lumine.png']=[{id:'player-scene',label:'Traveler picnic',path:'/preview-art.png',display:'frame'}];
         media=mountSceneMedia({host,getContext:()=>ctx,adapter:{classifyCG:async(_ctx,_message,options)=>{categories=options;return null;}},sound:{stop(){},dispose(){},play:async()=>{},unlock:async()=>{}}});
         media.sync({on:true,id:1,page:0,generating:false});await pause();
-        check('persona scene CGs are available to the separate scene classifier',categories.some(c=>c.label==='Traveler picnic'));media.dispose();media=undefined;
+        check('persona scene CGs are available to the separate scene classifier',categories.some(c=>c.label.endsWith('Traveler picnic')));media.dispose();media=undefined;
         const fetchBefore=globalThis.fetch;let posted=false;
         try{
             globalThis.fetch=async(url,options)=>{if(url==='/api/avatars/upload'){posted=options.body.get('overwrite_name')===l&&options.body.get('avatar') instanceof File;return new Response(JSON.stringify({path:l}));}if(String(url).includes('kind=persona'))return new Response('');return fetchBefore(url,options);};

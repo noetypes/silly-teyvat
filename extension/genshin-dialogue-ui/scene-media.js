@@ -1,7 +1,8 @@
 import { mediaSettings, localMediaPath, spriteAudioKey, createMediaAdapter, isVideoCG, phoneLayout, cgDisplay, cgVolume } from './media-store.js';
 import { pageSignature } from './page-sprites.js';
-import { speakerAvatar } from './staging.js';
+import { speakerAvatar, roster } from './staging.js';
 import {personaCard} from './persona-wardrobe.js';
+import {travelState} from './backgrounds.js';
 
 export function createSpriteSoundPlayer({ makeAudio = () => new Audio(), random = Math.random } = {}) {
     const audio = makeAudio(); let sequence = 0;
@@ -23,18 +24,59 @@ export function createSpriteSoundPlayer({ makeAudio = () => new Audio(), random 
         dispose() { stop(); audio.removeAttribute?.('src'); audio.load?.(); },
     };
 }
-export function cgCategories(entries) {
-    const categories = [];
+// One classification category per scene name. With several characters in the scene, each name
+// carries its character's name, so two characters' "Birthday" scenes stay apart.
+// owners maps an entry to its character's name.
+export function cgCategories(entries, owners = new Map()) {
+    const categories = [], named = new Set(entries.map(entry=>owners.get(entry)).filter(Boolean)).size > 1;
     for (const entry of entries) {
         const names = [...new Set([entry.label,...(entry.classifications || [])].map(x=>String(x).trim()).filter(Boolean))];
-        names.forEach((label,index)=>{
-            const key = label.toLocaleLowerCase();
+        names.forEach((name,index)=>{
+            const label = named && owners.get(entry) ? `${owners.get(entry)}: ${name}` : name, key = label.toLocaleLowerCase();
             let category = categories.find(c => c.key === key);
-            if (!category) { category = {id:index ? `${entry.id}:alias:${index}` : entry.id,key,label,description:entry.description || '',entries:[]}; categories.push(category); }
+            if (!category) { category = {id:index ? `${entry.id}:alias:${index}` : entry.id,key,label,description:entry.description || '',entries:[],...(named && owners.get(entry) ? {character:owners.get(entry)} : {})}; categories.push(category); }
             if(!category.entries.some(x=>x.id===entry.id))category.entries.push(entry);
         });
     }
     return categories;
+}
+const list = value => Array.isArray(value) ? value.filter(x=>typeof x==='string'&&x) : [];
+// A CG can ask for other characters to be present, and for one of some locations.
+export function cgAllowed(cg,{present,location}) {
+    const people = list(cg.requiredCharacters), places = list(cg.requiredLocations);
+    return people.every(avatar=>present.has(avatar)) && (!places.length || places.includes(location));
+}
+// Everyone in the scene: the speaker, the party on stage and the character the player plays.
+export function sceneCast(ctx,message) {
+    const avatars = [speakerAvatar(ctx,message),...roster(ctx).map(card=>card.avatar),personaCard(ctx)?.avatar];
+    return [...new Set(avatars.filter(avatar=>avatar && avatar!=='__user__'))];
+}
+// The CGs of everyone in the scene that their conditions allow here, for one classification.
+export function sceneCGs(ctx,message) {
+    const prefs = mediaSettings(ctx), cast = sceneCast(ctx,message), present = new Set(cast), location = travelState(ctx).location?.id || '';
+    const persona = personaCard(ctx), entries = [], owners = new Map();
+    for (const avatar of cast) {
+        const name = ctx.characters?.find(card=>card.avatar===avatar)?.name || (persona?.avatar===avatar ? persona.name : '') || avatar.replace(/\.[a-z]+$/i,'');
+        for (const entry of prefs.characterCGs[avatar] || []) {
+            if (!entry.path || entry.blank || !cgAllowed(entry,{present,location}) || owners.has(entry)) continue;
+            entries.push(entry); owners.set(entry,name);
+        }
+    }
+    return {entries,owners};
+}
+// CGs already shown in this chat, in the order they first appeared, with every message that showed them.
+export function discoveredCGs(ctx) {
+    const prefs = mediaSettings(ctx), found = new Map();
+    const live = Object.entries(prefs.characterCGs).flatMap(([avatar,entries])=>entries.map(entry=>({avatar,entry})));
+    (ctx.chat || []).forEach((message,index)=>{
+        for (const saved of Object.values(message?.extra?.silly_teyvat?.cgs || {})) {
+            const cg = saved?.cg; if (!cg?.path) continue;
+            const key = cg.id || cg.path, owner = live.find(x=>x.entry.id===cg.id);
+            if (!found.has(key)) found.set(key,{cg:owner?.entry || cg,avatar:owner?.avatar || '',messages:[]});
+            if (!found.get(key).messages.includes(index)) found.get(key).messages.push(index);
+        }
+    });
+    return [...found.values()];
 }
 // Gives a frame the media's shape at about the same on-screen area, so wide and tall CGs look alike in size.
 // extraWidth and extraHeight are the borders and title bar around the media.
@@ -85,7 +127,9 @@ export function mountSceneMedia({host,getContext,adapter=createMediaAdapter(getC
     frame.innerHTML = '<header><span></span><button type="button" aria-label="Close scene artwork">×</button></header><img alt=""><button type="button" class="gi-cg-resize" aria-label="Resize scene artwork" title="Drag to resize; arrow keys also resize">◢</button>';
     const preview = document.createElement('dialog'); preview.id = 'gi-cg-preview'; preview.setAttribute('aria-label','CG preview');
     preview.innerHTML = '<header><span></span><button type="button" aria-label="Close preview">×</button></header><img alt="">';
-    host.append(stage,frame,preview);
+    const gallery = document.createElement('dialog'); gallery.id = 'gi-cg-gallery'; gallery.setAttribute('aria-labelledby','gi-cg-gallery-title');
+    gallery.innerHTML = '<header><h2 id="gi-cg-gallery-title">Scene Gallery</h2><button type="button" aria-label="Close gallery">×</button></header><div class="gi-cg-gallery-bar"><label>Character <select></select></label><p role="status"></p></div><div class="gi-cg-gallery-grid" role="list"></div>';
+    host.append(stage,frame,preview,gallery);
     const stageMedia=createCGMedia(fullImage),frameMedia=createCGMedia(frame.querySelector('img')),previewMedia=createCGMedia(preview.querySelector('img'));
     const abort = new AbortController(); let request, revision = 0, chatKey = '', selection = '', pageKey = '', dismissed = '', frameKey = '', activeCG, on = false;
     const failures = new Set();
@@ -151,13 +195,13 @@ export function mountSceneMedia({host,getContext,adapter=createMediaAdapter(getC
             if (cached?.signature === signature) { activeCG = cached.cg; paint(activeCG,key); return; }
             paint(null,key);
             if (generating || !message.mes?.trim() || message.mes.trim() === '...') return;
-            const character = ctx.characters?.find(c => c.avatar === message.original_avatar) || ctx.characters?.find(c => c.name === message.name);
-            const entries = [...(prefs.characterCGs[character?.avatar] || []),...(prefs.characterCGs[personaCard(ctx)?.avatar] || [])].filter(entry=>entry.path && !entry.blank);
+            // Everyone in the scene shares one prompt, so a reply is checked once, not per character.
+            const {entries,owners} = sceneCGs(ctx,message);
             if (!entries.length) return;
-            const categories = cgCategories(entries), failureKey = `${chatKey}:${key}:${signature}:${pageSignature(JSON.stringify(entries))}`;
+            const categories = cgCategories(entries,owners), failureKey = `${chatKey}:${key}:${signature}:${pageSignature(JSON.stringify(entries))}`;
             if (request || failures.has(failureKey)) return;
             const controller = new AbortController(), token = revision; request = controller;
-            adapter.classifyCG(ctx,message,categories.map(({id,label,description})=>({id,label,description})),controller.signal).then(result => {
+            adapter.classifyCG(ctx,message,categories.map(({id,label,description,character})=>({id,label,description,character})),controller.signal).then(result => {
                 if (controller.signal.aborted || token !== revision || !on || !ctx.chat.includes(message) || pageSignature(message.mes || '') !== signature) return;
                 const category = categories.find(c => c.id === result);
                 const cg = category ? structuredClone(category.entries[Math.floor(Math.random()*category.entries.length)]) : null;
@@ -202,17 +246,44 @@ export function mountSceneMedia({host,getContext,adapter=createMediaAdapter(getC
         },
         previewAudio(files) { return playSound(files.map(file=>({...file,loop:false})),'preview'); },
         unlockAudio() { return sound.unlock(); },
+        // Every CG this chat has shown. Choosing one previews it the way the game showed it.
+        openGallery() {
+            const ctx=getContext(),prefs=mediaSettings(ctx),found=discoveredCGs(ctx),select=gallery.querySelector('select');
+            const nameOf=avatar=>ctx.characters?.find(card=>card.avatar===avatar)?.name || (personaCard(ctx)?.avatar===avatar?personaCard(ctx).name:'') || 'Other scenes';
+            const avatars=[...new Set(found.map(x=>x.avatar))].sort((a,b)=>nameOf(a).localeCompare(nameOf(b)));
+            const total=avatar=>(prefs.characterCGs[avatar] || []).filter(cg=>cg.path&&!cg.blank).length;
+            const keep=select.value;
+            select.replaceChildren(new Option(`All characters (${found.length})`,''),...avatars.map(avatar=>new Option(avatar?`${nameOf(avatar)} (${found.filter(x=>x.avatar===avatar).length} of ${total(avatar)})`:`Other scenes (${found.filter(x=>!x.avatar).length})`,avatar || '-')));
+            select.value=[...select.options].some(o=>o.value===keep)?keep:'';
+            const paint=()=>{
+                const shown=found.filter(x=>!select.value || (x.avatar || '-')===select.value),grid=gallery.querySelector('.gi-cg-gallery-grid');
+                grid.replaceChildren(...shown.map(({cg,avatar,messages})=>{
+                    const tile=document.createElement('button');tile.type='button';tile.setAttribute('role','listitem');
+                    tile.setAttribute('aria-label',`${cg.label}, ${nameOf(avatar)}. First seen in message ${messages[0]+1}.`);tile.title=`${cg.label} · first seen in message ${messages[0]+1}`;
+                    let art;if(isVideoCG(cg)){art=document.createElement('video');art.muted=true;art.preload='metadata';art.playsInline=true;art.src=`${localMediaPath(cg.path)}#t=0.1`;}else{art=document.createElement('img');art.alt='';art.loading='lazy';art.src=localMediaPath(cg.path);}
+                    const label=document.createElement('strong');label.textContent=cg.label;
+                    const who=document.createElement('small');who.textContent=nameOf(avatar);
+                    tile.append(art,label,who);tile.addEventListener('click',()=>api.previewCG(cg).catch(()=>{}));
+                    return tile;
+                }));
+                gallery.querySelector('.gi-cg-gallery-bar p').textContent=found.length?`${shown.length} ${shown.length===1?'scene':'scenes'} discovered${select.value?'':' in this chat'}.`:'No scenes discovered in this chat yet. They appear here once a reply shows one.';
+            };
+            select.onchange=paint;paint();
+            if(!gallery.open)gallery.showModal();
+            return found.length;
+        },
         refresh() { failures.clear(); request?.abort(); request=null; revision++; },
         reclassifyCurrent() {
             const ctx=getContext(),id=Number(selection.split(':')[0]),message=ctx.chat[id];
             if(message?.extra?.silly_teyvat?.cgs)delete message.extra.silly_teyvat.cgs[String(message.swipe_id ?? 0)];
             api.refresh();
         },
-        reset() { request?.abort(); request=null; revision++; selection=pageKey=frameKey=dismissed=''; activeCG=undefined; failures.clear(); stopSound(); clearFull(); closeFrame(); },
-        dispose() { api.reset(); abort.abort(); sound.dispose(); if(preview.open)preview.close(); stage.remove(); frame.remove(); preview.remove(); },
+        reset() { request?.abort(); request=null; revision++; selection=pageKey=frameKey=dismissed=''; activeCG=undefined; failures.clear(); stopSound(); clearFull(); closeFrame(); if(gallery.open)gallery.close(); },
+        dispose() { api.reset(); abort.abort(); sound.dispose(); if(preview.open)preview.close(); if(gallery.open)gallery.close(); stage.remove(); frame.remove(); preview.remove(); gallery.remove(); },
     };
     frame.querySelector('header button').addEventListener('click',()=>{dismissed=frameKey;closeFrame();},{signal:abort.signal});
     preview.querySelector('header button').addEventListener('click',()=>preview.close(),{signal:abort.signal});
+    gallery.querySelector('header button').addEventListener('click',()=>gallery.close(),{signal:abort.signal});
     preview.addEventListener('close',()=>{previewMedia.stop();if(audioKind==='preview')stopSound();stageMedia.resume();frameMedia.resume();},{signal:abort.signal});
     globalThis.matchMedia?.('(max-width: 768px), (max-height: 500px)').addEventListener('change',()=>{if(activeCG)paint(activeCG,selection);},{signal:abort.signal});
     const frameLimits = () => ({maxWidth:innerWidth-12,maxHeight:innerHeight-12});
