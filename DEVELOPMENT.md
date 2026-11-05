@@ -14,6 +14,7 @@ verification and adding assets. Never commit media binaries or research caches.
 4. Install with `tools/sync-live.sh`. Set `SILLY_TEYVAT_LIVE` to use a different SillyTavern folder.
 5. Open `http://localhost:8000/scripts/extensions/third-party/genshin-dialogue-ui/preview.html` and run the `preview-*-tests.js` suites. In a background tab, shim `requestAnimationFrame` with `setTimeout` first, or the tests stall.
 6. Commit with the version bump in `manifest.json` and a short section at the top of the extension `README.md`.
+7. To release to players, run `python3 tools/build-dist.py --commit` and push the distribution repository. See [GAME-DATA.md](GAME-DATA.md#publish-the-extension).
 
 ## Switching Silly Teyvat off
 
@@ -21,10 +22,10 @@ The **Silly Teyvat** switch at the top of its settings calls `dispose()` and rem
 
 ## Tester packages
 
-`tools/sync-live.sh` writes `package-files.json` into the installed extension. The browser cannot list a folder, so **Export extension** reads this inventory. Run `node tools/test-share-package.mjs` after changing the export or import code. See [GAME-DATA.md](GAME-DATA.md#share-with-testers) for what each package contains.
+`tools/sync-live.sh` writes `package-files.json` into the installed extension. The browser cannot list a folder, so **Export extension** reads this inventory. Run `node tools/test-share-package.mjs` after changing the export or import code, and `node tools/test-game-data-update.mjs` after changing published game data (`game-data-update.js`, `tools/release-game-data.py`). See [GAME-DATA.md](GAME-DATA.md#share-with-testers) for what each package contains. An import merges the tester's settings into the player's, so anything saved in settings that is later drawn as markup must be cleaned where it is read: `node tools/test-saved-kits.mjs` checks that saved movesets reach the battle screen only as numbers and known words, and that a plain save round-trips unchanged.
 
 ## Responsive interface checks
 
-Run `node tools/test-starter-cgs.mjs` for the bundled scene artworks and keyboard detection.
+Run `node tools/test-starter-cgs.mjs` for the bundled scene artworks and keyboard detection. To add a starter scene, add a record with its wiki file name to `assets/cgs/catalog.json`, run `python3 tools/fetch-cgs.py` (needs Pillow) and then `python3 tools/game-data.py migrate --only extension/genshin-dialogue-ui/assets/cgs`.
 
 Run `node tools/test-ui-layout-browser.mjs` with Playwright available on `NODE_PATH`. It mounts a disposable four-member, three-enemy board and a crowded seven-member board with summons on both sides at nine desktop and mobile viewports, checks bounds, control separation and that no card overlaps another card, a summon, played card or control, and saves screenshots under `work/ui-review-2026-10-28/layout/`. The preview's **Responsive battle demo** provides the same board for manual resizing. No model or native chat write is involved.

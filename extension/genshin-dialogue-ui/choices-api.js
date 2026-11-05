@@ -6,7 +6,12 @@ import { stripTrustTags } from './trust-tags.js';
 export function parseChoices(text) {
     const clean = String(text).replace(/<think>[\s\S]*?<\/think>/gi, '').trim().replace(/^```(?:json)?\s*/i, '').replace(/\s*```$/, '');
     let choices;
-    try { choices = JSON.parse(clean); } catch { throw new Error('The model did not return three choices. Try refreshing.'); }
+    try { choices = JSON.parse(clean); }
+    catch {
+        // Models often introduce the list in a sentence; the array itself is still valid.
+        const start = clean.indexOf('['), end = clean.lastIndexOf(']');
+        try { choices = JSON.parse(clean.slice(start, end + 1)); } catch { throw new Error('The model did not return three choices. Try refreshing.'); }
+    }
     if (!Array.isArray(choices) || choices.length !== 3 || choices.some(value => typeof value !== 'string' || !value.trim() || value.trim().length > 200)) {
         throw new Error('The model did not return three short choices. Try refreshing.');
     }

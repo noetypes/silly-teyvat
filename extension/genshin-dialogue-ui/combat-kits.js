@@ -4,6 +4,7 @@
 // any kit in Character Customization → Moveset; edits are saved per card.
 import {mediaSettings} from './media-store.js';
 import {BOSS_ROWS} from './boss-kits.js';
+import {ELEMENTS} from './battle-engine.js';
 
 export const WEAPONS=['sword','claymore','polearm','bow','catalyst','none'];
 export const ROLES=['DPS','Sub-DPS','Support','Healer','Shielder','Tank'];
@@ -288,11 +289,37 @@ export function defaultKit(name,{element='None',enemy=false}={}){
     return kit;
 }
 export const defaultKitHp=(name,enemy)=>{const row=enemy?enemyTable.get(keyOf(name)):characterTable.get(keyOf(name));return row?row[2]:undefined;};
+// Saved edits live in the player's settings, which a shared package can fill too, and their values
+// reach the battle screen's markup. Each is cut down to what the moveset editor itself writes; a
+// value that is not that is dropped, so the default shows instead.
+const ELEMENT_NAMES=['','None','Physical',...ELEMENTS];
+const whole=(value,min,max)=>{const n=Math.round(Number(value));return value===null||value===''||!Number.isFinite(n)?undefined:Math.max(min,Math.min(max,n));};
+const pick=(value,list)=>list.includes(value)?value:undefined;
+const text=value=>typeof value==='string'?value.slice(0,80):undefined;
+const KIT_FIELDS={
+    weapon:v=>pick(v,WEAPONS),role:v=>pick(v,[...ROLES,'Enemy']),element:v=>pick(v,ELEMENT_NAMES),weakTo:v=>pick(v,['',...ELEMENTS]),armorBreak:v=>pick(v,['',...ELEMENTS]),
+    energy:v=>whole(v,0,9),miss:v=>whole(v,0,100),armor:v=>whole(v,0,90),shield:v=>whole(v,0,100),evasion:v=>whole(v,0,90),
+};
+function cleanEffect(effect){
+    if(!effect||typeof effect!=='object'||!EFFECT_TYPES.includes(effect.type))return null;
+    const out={type:effect.type},keep=(key,value)=>{if(value!==undefined)out[key]=value;};
+    keep('target',pick(effect.target,Object.keys(TARGETS)));keep('stat',pick(effect.stat,[...BUFF_STATS,...DEBUFF_STATS]));keep('element',pick(effect.element,ELEMENT_NAMES));keep('name',text(effect.name));
+    for(const key of ['power','amount','hits','rounds','heal'])keep(key,whole(effect[key],0,100));
+    if(effect.decoy)out.decoy=true;
+    return out;
+}
+function cleanMove(move){
+    const out={},keep=(key,value)=>{if(value!==undefined)out[key]=value;};
+    keep('name',text(move?.name));keep('element',pick(move?.element,ELEMENT_NAMES));
+    for(const key of ['cost','miss','cooldown'])keep(key,whole(move?.[key],0,100));
+    if(Array.isArray(move?.effects))out.effects=move.effects.map(cleanEffect).filter(Boolean);
+    return out;
+}
 // Saved edits replace whole moves; anything missing falls back to the default.
 export function mergeKit(base,saved){
     if(!saved)return base;
-    const kit={...base,...Object.fromEntries(['weapon','energy','role','miss','armor','armorBreak','shield','weakTo','evasion','element'].filter(k=>saved[k]!==undefined).map(k=>[k,saved[k]]))};
-    kit.moves=base.moves.map((move,i)=>saved.moves?.[i]?{...move,...clone(saved.moves[i]),kind:move.kind}:move);
+    const kit={...base,...Object.fromEntries(Object.entries(KIT_FIELDS).map(([key,clean])=>[key,clean(saved[key])]).filter(([,value])=>value!==undefined))};
+    kit.moves=base.moves.map((move,i)=>saved.moves?.[i]?{...move,...cleanMove(saved.moves[i]),kind:move.kind}:move);
     kit.custom=true;return kit;
 }
 export const kitOverrides=ctx=>mediaSettings(ctx).combatKits ??= {};

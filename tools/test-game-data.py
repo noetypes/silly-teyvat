@@ -70,6 +70,49 @@ class ExternalDataTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, 'outside the repository'):
             data.migrate(self.repo / 'data')
 
+    def test_only_and_dry_run_leave_other_work_alone(self):
+        wip = self.repo / 'art/sprites/run-1/Klee/happy.png'
+        wip.parent.mkdir(parents=True)
+        wip.write_bytes(b'work-in-progress')
+        data.migrate(self.pack, dry_run=True)
+        self.assertFalse(self.media.is_symlink() or wip.is_symlink())
+        self.assertFalse(data.MANIFEST.exists())
+        data.migrate(self.pack, only=['extension/genshin-dialogue-ui'])
+        self.assertTrue(self.media.is_symlink())
+        self.assertFalse(wip.is_symlink())
+        self.assertEqual(wip.read_bytes(), b'work-in-progress')
+        self.assertEqual(list(data.entries()), [self.name])
+        # A path stops at a folder boundary: 'art/sprites/run' is not 'art/sprites/run-1'.
+        data.migrate(self.pack, only=['art/sprites/run'])
+        self.assertFalse(wip.is_symlink())
+        data.migrate(self.pack, only=['art/sprites/run-1'])
+        self.assertTrue(wip.is_symlink())
+
+    def test_failure_midway_still_records_what_was_moved(self):
+        second = self.repo / 'extension/genshin-dialogue-ui/assets/zz-second.png'
+        second.write_bytes(b'second-image')
+        real, calls = data.shutil.copy2, []
+
+        def flaky(source, target, *args, **kwargs):
+            calls.append(source)
+            if len(calls) == 2:
+                (Path(target)).parent.mkdir(parents=True, exist_ok=True)
+                Path(target).write_bytes(b'damaged')
+                return target
+            return real(source, target, *args, **kwargs)
+
+        data.shutil.copy2 = flaky
+        try:
+            with self.assertRaisesRegex(ValueError, 'Copy verification failed'):
+                data.migrate(self.pack)
+        finally:
+            data.shutil.copy2 = real
+        recorded = data.entries()
+        moved = [name for name in (self.name, 'extension/genshin-dialogue-ui/assets/zz-second.png') if (self.repo / name).is_symlink()]
+        self.assertEqual(sorted(recorded), sorted(moved), 'every link is in the manifest, and nothing else is')
+        self.assertEqual(len(moved), 1)
+        self.assertFalse(list(self.repo.glob('*.tmp')), 'no temporary manifest is left behind')
+
     def test_live_install_uses_external_links(self):
         data.migrate(self.pack)
         tools = self.repo / 'tools'

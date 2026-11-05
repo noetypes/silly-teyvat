@@ -3,11 +3,13 @@
 // and quick replies. Chats and saved journeys are never packaged.
 import {hasGenshinTag} from './character-properties.js';
 import {createZipWriter,readZip} from './zip-store.js';
+import {newUuid} from './local-id.js';
 const KEY='genshin_dialogue_ui';
 export const FILE_LIST='package-files.json',CONFIG_FILE='configured-settings.json',GAME_MANIFEST='silly-teyvat-game-data.json';
 const FOLDER='genshin-dialogue-ui',FORMAT=1,SET_FOLDERS=['Official Art','Chibi'],THEME='Teyvat Slate',QUICK_REPLIES='Teyvat Choices';
-// Connections belong to the player's own API setup, and the signature is personal.
-const PRIVATE_SETTINGS=['choicesProfile','cgProfile','signature'];
+// Connections belong to the player's own API setup, the signature is personal, and the installed
+// game data release describes this server only.
+const PRIVATE_SETTINGS=['choicesProfile','cgProfile','signature','gameData'];
 const extensionRoot=new URL('./',import.meta.url);
 const segments=path=>path.split('/').map(encodeURIComponent).join('/');
 const stem=name=>name.replace(/\.[^.]+$/,'');
@@ -191,7 +193,7 @@ function mergeTags(ctx,manifest){
     for(const tag of manifest.tags || []){
         const same=(ctx.tags || []).find(item=>item.name?.toLowerCase()===tag.name?.toLowerCase());
         if(same)ids.set(tag.id,same.id);
-        else{const added={...tag,id:crypto.randomUUID()};ctx.tags?.push(added);ids.set(tag.id,added.id);}
+        else{const added={...tag,id:newUuid()};ctx.tags?.push(added);ids.set(tag.id,added.id);}
     }
     if(!ctx.tagMap)return;
     for(const [avatar,list] of Object.entries(manifest.tagMap || {}))ctx.tagMap[avatar]=[...new Set([...(ctx.tagMap[avatar] || []),...list.map(id=>ids.get(id)).filter(Boolean)])];
@@ -222,21 +224,21 @@ async function mergeLorebookSettings(manifest,info){
     world.charLore ??= [];
     for(const lore of manifest.characterLore || []){
         const current=world.charLore.find(item=>item.name===lore.name);
-        if(current)current.extraBooks=[...new Set([...current.extraBooks,...lore.extraBooks])];
+        if(current)current.extraBooks=[...new Set([...(current.extraBooks || []),...(lore.extraBooks || [])])];
         else world.charLore.push(structuredClone(lore));
     }
 }
 // The theme and quick replies switch on only when they are new here, so a later import cannot undo a player's choice.
-async function importLook(ctx,saved,server,manifest,replace){
+async function importLook(ctx,saved,server,manifest,replace,overwrite){
     if(manifest.theme){
         const isNew=!named(server.themes,manifest.theme.name);
-        if(isNew||replace)await saved('/api/themes/save',manifest.theme);
+        if(isNew||replace||overwrite.has('theme'))await saved('/api/themes/save',manifest.theme);
         // SillyTavern starts from the look saved in the player's settings, not from the theme file.
         if(isNew&&ctx.powerUserSettings){const {name,...look}=manifest.theme;Object.assign(ctx.powerUserSettings,look,{theme:name});}
     }
     if(manifest.quickReplies){
         const isNew=!named(server.quickReplyPresets,manifest.quickReplies.name);
-        if(isNew||replace)await saved('/api/quick-replies/save',manifest.quickReplies);
+        if(isNew||replace||overwrite.has('quick-replies'))await saved('/api/quick-replies/save',manifest.quickReplies);
         if(isNew){
             const quick=ctx.extensionSettings.quickReplyV2 ??= {};quick.isEnabled=true;quick.config ??= {};quick.config.setList ??= [];
             if(!quick.config.setList.some(item=>item.set===manifest.quickReplies.name))quick.config.setList.push({set:manifest.quickReplies.name,isVisible:true});
@@ -244,13 +246,18 @@ async function importLook(ctx,saved,server,manifest,replace){
     }
 }
 const KINDS=['cards','sprites','files','backgrounds','avatars'];
-export async function importGameData({ctx,file,replace=false,useSettings=false,report=()=>{},signal}){
-    const zip=await readZip(file),manifestEntry=[...zip.entries.values()].find(entry=>entry.name.split('/').at(-1)===GAME_MANIFEST);
+export async function importGameData({file,...options}){return importArchive({...options,zip:await readZip(file)});}
+// zip is readZip's result or anything shaped like it. Paths in overwrite (and lorebooks/<name>,
+// theme and quick-replies) replace the player's copies even when replace is off: a published update
+// uses it for what changed since the release this player has.
+export async function importArchive({ctx,zip,replace=false,overwrite=new Set(),useSettings=false,report=()=>{},signal}){
+    const manifestEntry=[...zip.entries.values()].find(entry=>entry.name.split('/').at(-1)===GAME_MANIFEST);
     if(!manifestEntry)throw new Error('This file is not a Silly Teyvat game data export.');
     const root=manifestEntry.name.slice(0,-GAME_MANIFEST.length),manifest=JSON.parse(await (await zip.read(manifestEntry)).text());
     if(manifest.format!==FORMAT)throw new Error('This game data was made by a different version of Silly Teyvat.');
     const post=api(ctx,signal),send=uploaders(ctx,signal),entries=[...zip.entries.values()].filter(entry=>entry!==manifestEntry).map(entry=>({entry,path:entry.name.slice(root.length)}));
     const usable=entries.filter(({path})=>isSafeEntry(path)&&KINDS.includes(path.split('/')[0])),present=replace?new Set():await existingFiles(ctx,post,usable.map(item=>item.path),signal);
+    for(const {entry} of usable)if(overwrite.has(entry.name))present.delete(entry.name.slice(root.length));
     const failed=[];let added=0,skipped=0,done=0;
     for(const {entry,path} of usable){
         signal?.throwIfAborted();
@@ -261,9 +268,9 @@ export async function importGameData({ctx,file,replace=false,useSettings=false,r
         report(++done,usable.length);
     }
     const worlds=new Set((await post('/api/worldinfo/list')).map(world=>world.file_id));
-    for(const [name,data] of Object.entries(manifest.lorebooks || {}))if(replace||!worlds.has(name))await post('/api/worldinfo/edit',{name,data});
+    for(const [name,data] of Object.entries(manifest.lorebooks || {}))if(replace||!worlds.has(name)||overwrite.has(`lorebooks/${name}`))await post('/api/worldinfo/edit',{name,data});
     const saved=async(url,body)=>ok(await fetch(url,{method:'POST',headers:ctx.getRequestHeaders(),body:JSON.stringify(body),signal}),url);
-    await importLook(ctx,saved,await post('/api/settings/get'),manifest,replace);
+    await importLook(ctx,saved,await post('/api/settings/get'),manifest,replace,overwrite);
     mergeNative(ctx,manifest,replace);
     const prefs=ctx.extensionSettings[KEY] ??= {};
     if(useSettings)ctx.extensionSettings[KEY]={...manifest.settings,...Object.fromEntries(PRIVATE_SETTINGS.filter(key=>key in prefs).map(key=>[key,prefs[key]]))};

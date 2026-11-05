@@ -50,7 +50,8 @@
 /* Narrow screens: the HUD row spans the full width, so the minimap tucks below Paimon. */
 @media (max-width: 700px) {
     #gi-minimap { --gi-mm: 92px; top: calc(var(--gi-hud-top, 8px) + var(--gi-hud-cell, 30px) + 10px); left: calc(env(safe-area-inset-left, 0px) + 10px); gap: 3px; }
-    #gi-minimap .gi-minimap-label { font-size: 10.5px; }
+    /* The minimap is 10px from the edge, so the centred label may overhang it by 6px a side, not 18px, or its first letters fall off the screen. */
+    #gi-minimap .gi-minimap-label { font-size: 10.5px; max-width: calc(var(--gi-mm) + 12px); }
     #gi-minimap .gi-minimap-north { width: 16px; height: 16px; font-size: 9.5px; top: -5px; }
     #gi-minimap .gi-minimap-player { width: 16px; height: 16px; }
     .gi-minimap-ring { padding: 2px; }

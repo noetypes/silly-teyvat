@@ -70,13 +70,26 @@ def link(root, files, destination=REPO, prefix=''):
     return len(plan)
 
 
-def migrate(root):
+def write_manifest(files):
+    """Written whole and moved into place, so an interruption cannot leave half a manifest."""
+    temporary = MANIFEST.with_name(MANIFEST.name + '.tmp')
+    temporary.write_text(json.dumps({'version': 1, 'files': dict(sorted(files.items()))}, indent=2) + '\n')
+    os.replace(temporary, MANIFEST)
+
+
+def migrate(root, only=(), dry_run=False):
+    """Move media into the pack. `only` limits it to files under those repository paths."""
     if root == REPO or REPO in root.parents:
         raise ValueError('The data folder must be outside the repository.')
     files = entries() if MANIFEST.exists() else {}
+    before = dict(files)
+
+    def wanted(name):
+        return not only or any(name == path or name.startswith(path.rstrip('/') + '/') for path in only)
+
     candidates = [p for p in REPO.rglob('*') if p.is_file() and not p.is_symlink()
                   and not any(part in {'.git', 'work', 'installations', 'node_modules', '__pycache__'} for part in p.relative_to(REPO).parts)
-                  and p.suffix.lower() in MEDIA_SUFFIXES]
+                  and p.suffix.lower() in MEDIA_SUFFIXES and wanted(p.relative_to(REPO).as_posix())]
     plan = []
     for path in candidates:
         name = path.relative_to(REPO).as_posix()
@@ -85,16 +98,29 @@ def migrate(root):
         if target.exists() and digest(target) != info['sha256']:
             raise ValueError(f'Different data already exists: {target}')
         plan.append((path, target, name, info))
-    for path, target, name, info in plan:
-        target.parent.mkdir(parents=True, exist_ok=True)
-        if not target.exists():
-            shutil.copy2(path, target)
-        if digest(target) != info['sha256']:
-            raise ValueError(f'Copy verification failed: {target}')
-        path.unlink()
-        path.symlink_to(target)
-        files[name] = info
-    MANIFEST.write_text(json.dumps({'version': 1, 'files': dict(sorted(files.items()))}, indent=2) + '\n')
+    if dry_run:
+        folders = {}
+        for _, _, name, _ in plan:
+            folder = '/'.join(name.split('/')[:3])
+            folders[folder] = folders.get(folder, 0) + 1
+        for folder, count in sorted(folders.items()):
+            print(f'{count:6d}  {folder}')
+        print(f'{len(plan)} media files would move to {root}. Nothing was changed.')
+        return
+    # Whatever was moved is recorded even if a later file fails, so no link is left out of the manifest.
+    try:
+        for path, target, name, info in plan:
+            target.parent.mkdir(parents=True, exist_ok=True)
+            if not target.exists():
+                shutil.copy2(path, target)
+            if digest(target) != info['sha256']:
+                raise ValueError(f'Copy verification failed: {target}')
+            path.unlink()
+            path.symlink_to(target)
+            files[name] = info
+    finally:
+        if files != before:
+            write_manifest(files)
     print(f'Migrated {len(plan)} media files to {root}')
 
 
@@ -102,10 +128,13 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('command', choices=['migrate', 'link', 'check'])
     parser.add_argument('--data-root')
+    parser.add_argument('--only', action='append', default=[], metavar='PATH',
+                        help='migrate only files under this repository path (repeatable); the default is every media file, work in progress included')
+    parser.add_argument('--dry-run', action='store_true', help='migrate: list what would move and change nothing')
     args = parser.parse_args()
     root = data_root(args.data_root)
     if args.command == 'migrate':
-        migrate(root)
+        migrate(root, args.only, args.dry_run)
     elif args.command == 'link':
         print(f'Linked {link(root, entries())} media files from {root}')
     else:

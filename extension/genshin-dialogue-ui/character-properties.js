@@ -1,6 +1,7 @@
 import {mediaSettings} from './media-store.js';
 import {defaultKitHp,enemyElement} from './combat-kits.js';
 import {isTcgBoss} from './boss-kits.js';
+import {newUuid} from './local-id.js';
 export const ELEMENTS=['Pyro','Hydro','Anemo','Electro','Dendro','Cryo','Geo'];
 export const MODEL_SCALE_MIN=30,MODEL_SCALE_MAX=110;
 export const MODEL_TYPES=['small female','medium female','medium male','tall female','tall male'];
@@ -40,7 +41,7 @@ export async function registerGenshinTags(ctx,load=()=>import('/scripts/tags.js'
     if(!targets.length)return 0;
     const {tags,tag_map}=await load();
     let tag=tags.find(item=>String(item.name).trim().toLowerCase()==='genshin') ?? tags.find(item=>sameTag(item.name)),changed=0;
-    if(!tag){tag={id:crypto.randomUUID(),name:GENSHIN_TAG,folder_type:'NONE',filter_state:'UNDEFINED',sort_order:tags.length,is_hidden_on_character_card:false,color:'',color2:'',create_date:Date.now()};tags.push(tag);changed++;}
+    if(!tag){tag={id:newUuid(),name:GENSHIN_TAG,folder_type:'NONE',filter_state:'UNDEFINED',sort_order:tags.length,is_hidden_on_character_card:false,color:'',color2:'',create_date:Date.now()};tags.push(tag);changed++;}
     for(const card of targets){const list=tag_map[card.avatar] ??= [];if(!list.includes(tag.id)){list.push(tag.id);changed++;}}
     if(changed)ctx.saveSettingsDebounced();
     return changed;

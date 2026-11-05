@@ -13,11 +13,17 @@ for(const record of catalog.cgs){
     assert.ok(record.label&&record.description.length>40,`${record.id} has a label and description`);
 }
 assert.equal(new Set(catalog.cgs.map(r=>r.id)).size,catalog.cgs.length,'ids are unique');
+const count=avatar=>catalog.cgs.filter(r=>r.avatar===avatar).length;
+// A character's scenes are told apart by name alone, so no two may share a label or classification.
+for(const avatar of new Set(catalog.cgs.map(r=>r.avatar))){
+    const names=catalog.cgs.filter(r=>r.avatar===avatar).flatMap(r=>[r.label,...r.classifications]).map(n=>n.toLowerCase());
+    assert.equal(new Set(names).size,names.length,`${avatar} scene names are distinct`);
+}
 
 let saves=0;
 const ctx={characters:[{avatar:'Klee.png'},{avatar:'Venti.png'}],extensionSettings:{genshin_dialogue_ui:{}},saveSettingsDebounced:()=>saves++};
-assert.equal(seedStarterCGs(ctx,catalog),2,'only cards that exist receive scenes');
-const prefs=ctx.extensionSettings.genshin_dialogue_ui,klee=prefs.characterCGs['Klee.png'][0];
+assert.equal(seedStarterCGs(ctx,catalog),count('Klee.png')+count('Venti.png'),'only cards that exist receive scenes');
+const prefs=ctx.extensionSettings.genshin_dialogue_ui,klee=prefs.characterCGs['Klee.png'].find(e=>e.starter==='birthday-klee-2025');
 assert.equal(klee.label,'Napping with Dodoco');
 assert.match(klee.path,/\/assets\/cgs\/birthday\/klee-2025\.webp$/);
 assert.equal(saves,1);
@@ -26,7 +32,11 @@ assert.equal(saves,1,'and does not save again');
 prefs.characterCGs['Klee.png'].length=0;
 assert.equal(seedStarterCGs(ctx,catalog),0,'a removed starter scene stays removed');
 ctx.characters.push({avatar:'Albedo.png'});
-assert.equal(seedStarterCGs(ctx,catalog),1,'a card imported later receives its scene');
+assert.equal(seedStarterCGs(ctx,catalog),count('Albedo.png'),'a card imported later receives its scenes');
+ctx.characters.push({avatar:'Aether.png'},{avatar:'Lumine.png'},{avatar:'Paimon.png'});
+seedStarterCGs(ctx,catalog);
+const shared=['Aether.png','Lumine.png','Paimon.png'].map(a=>prefs.characterCGs[a].find(e=>/paimon-2023-2\.webp$/.test(e.path)));
+assert.ok(shared.every(Boolean),'one artwork can be a scene for several characters');
 
 const stable={width:400,height:800};
 assert.equal(keyboardShown({width:400,height:450,stable,coarse:true,typing:true}),true);

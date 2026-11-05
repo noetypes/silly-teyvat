@@ -22,10 +22,10 @@ export function mountMovesetEditor({panel,getContext,getCharacter,status=()=>{}}
         return `<div class="gi-effect" data-move="${moveIndex}" data-effect="${effectIndex}">
             <label>Effect<select data-f="type">${EFFECT_TYPES.map(x=>opt(x,TYPE_NAMES[x])).join('')}</select></label>
             ${stat?`<label>Stat<select data-f="stat">${stat.map(x=>opt(x,STAT_NAMES[x])).join('')}</select></label>`:t==='summon'?`<label>Name<input data-f="name" maxlength="60" value="${esc(effect.name)}"></label>`:'<label hidden></label>'}
-            ${valueKey?`<label>${t==='damage'||t==='summon'?'Power':t==='hpcost'?'Percent':'Amount'}<input data-f="${valueKey}" type="number" min="0" max="${t==='hpcost'||t==='buff'||t==='debuff'?100:99}" value="${effect[valueKey] ?? 0}"></label>`:'<label hidden></label>'}
+            ${valueKey?`<label>${t==='damage'||t==='summon'?'Power':t==='hpcost'?'Percent':'Amount'}<input data-f="${valueKey}" type="number" min="0" max="${t==='hpcost'||t==='buff'||t==='debuff'?100:99}" value="${esc(effect[valueKey] ?? 0)}"></label>`:'<label hidden></label>'}
             <label>Target<select data-f="target">${Object.entries(TARGETS).map(([k,v])=>opt(k,v)).join('')}</select></label>
-            ${t==='buff'||t==='debuff'||t==='summon'?`<label>Rounds<input data-f="rounds" type="number" min="1" max="9" value="${effect.rounds ?? 2}"></label>`:t==='damage'?`<label>Hits<input data-f="hits" type="number" min="1" max="8" value="${effect.hits ?? 1}"></label>`:'<label hidden></label>'}
-            ${t==='summon'?`<label>Heal<input data-f="heal" type="number" min="0" max="99" value="${effect.heal ?? 0}"></label>`:''}
+            ${t==='buff'||t==='debuff'||t==='summon'?`<label>Rounds<input data-f="rounds" type="number" min="1" max="9" value="${esc(effect.rounds ?? 2)}"></label>`:t==='damage'?`<label>Hits<input data-f="hits" type="number" min="1" max="8" value="${esc(effect.hits ?? 1)}"></label>`:'<label hidden></label>'}
+            ${t==='summon'?`<label>Heal<input data-f="heal" type="number" min="0" max="99" value="${esc(effect.heal ?? 0)}"></label>`:''}
             <button type="button" data-remove-effect aria-label="Remove effect">×</button></div>`;
     }
     function render(){
@@ -33,26 +33,26 @@ export function mountMovesetEditor({panel,getContext,getCharacter,status=()=>{}}
         const ctx=getContext(),props=characterProperties(ctx,card),enemy=props.role==='enemy';
         kit=structuredClone(kitForCard(ctx,card));
         const element=enemy?kit.element:props.element;
-        panel.innerHTML=`<p class="gi-moveset-note">${enemy?'Enemies use their Attack every round and their Special when its cooldown is ready (or at once when enraged below half health).':'Normal Attacks are free but can miss. Elemental Skills and Bursts spend dice of this character\'s element (Omni counts, and two spare dice tune into one). Bursts also need full Energy.'} Maximum HP (${props.maxHp}) is set in Profile.${kit.custom?' <b>Edited.</b>':''}</p>
+        panel.innerHTML=`<p class="gi-moveset-note">${enemy?'Enemies use their Attack every round and their Special when its cooldown is ready (or at once when enraged below half health).':'Normal Attacks are free but can miss. Elemental Skills and Bursts spend dice of this character\'s element (Omni counts, and two spare dice tune into one). Bursts also need full Energy.'} Maximum HP (${esc(props.maxHp)}) is set in Profile.${kit.custom?' <b>Edited.</b>':''}</p>
             <div class="gi-moveset-head">
                 <label>Role<select data-k="role">${[...ROLES,'Enemy'].map(x=>opt(x)).join('')}</select></label>
                 ${enemy?`<label>Element<select data-k="element">${['Physical',...ELEMENTS].map(x=>opt(x)).join('')}</select></label>
-                <label>Shield<input data-k="shield" type="number" min="0" max="99" value="${kit.shield || 0}"></label>
+                <label>Shield<input data-k="shield" type="number" min="0" max="99" value="${esc(kit.shield || 0)}"></label>
                 <label>Shield weak to / weakness<select data-k="weakTo">${opt('','None')}${ELEMENTS.map(x=>opt(x)).join('')}</select></label>
-                <label>Armor (% less damage)<input data-k="armor" type="number" min="0" max="90" value="${kit.armor || 0}"></label>
+                <label>Armor (% less damage)<input data-k="armor" type="number" min="0" max="90" value="${esc(kit.armor || 0)}"></label>
                 <label>Armor broken by<select data-k="armorBreak">${opt('','Nothing')}${ELEMENTS.map(x=>opt(x)).join('')}</select></label>
-                <label>Evasion (%)<input data-k="evasion" type="number" min="0" max="80" value="${kit.evasion || 0}"></label>`
+                <label>Evasion (%)<input data-k="evasion" type="number" min="0" max="80" value="${esc(kit.evasion || 0)}"></label>`
                 :`<label>Weapon<select data-k="weapon">${WEAPONS.map(x=>opt(x,x==='none'?'None (unarmed)':x[0].toUpperCase()+x.slice(1))).join('')}</select></label>
-                <label>Burst Energy<input data-k="energy" type="number" min="1" max="5" value="${kit.energy || 2}"></label>
-                <label>Dodge (%)<input data-k="evasion" type="number" min="0" max="90" value="${kit.evasion || 0}"></label>`}
+                <label>Burst Energy<input data-k="energy" type="number" min="1" max="5" value="${esc(kit.energy || 2)}"></label>
+                <label>Dodge (%)<input data-k="evasion" type="number" min="0" max="90" value="${esc(kit.evasion || 0)}"></label>`}
             </div>
             ${kit.moves.map((move,i)=>`<section class="gi-move-edit" data-move="${i}">
                 <div class="gi-move-head"><small>${KIND_LABEL[move.kind]}</small><input data-m="name" maxlength="80" value="${esc(move.name)}" aria-label="${KIND_LABEL[move.kind]} name"></div>
                 <div class="gi-move-row">
-                    ${move.kind==='normal'?`<label>Miss chance (%)<input data-m="miss" type="number" min="0" max="95" value="${move.miss ?? 20}"></label>`:''}
-                    ${move.kind==='skill'||move.kind==='burst'?`<label>Dice cost<input data-m="cost" type="number" min="0" max="8" value="${move.cost ?? 2}"></label>`:''}
-                    ${move.kind==='special'?`<label>Cooldown (rounds)<input data-m="cooldown" type="number" min="1" max="9" value="${move.cooldown ?? 3}"></label>`:''}
-                    <label>Element<select data-m="element">${opt('',`Default (${move.kind==='normal'&&!enemy?(kit.weapon==='catalyst'?element:'Physical'):element})`)}${['Physical',...ELEMENTS].map(x=>opt(x)).join('')}</select></label>
+                    ${move.kind==='normal'?`<label>Miss chance (%)<input data-m="miss" type="number" min="0" max="95" value="${esc(move.miss ?? 20)}"></label>`:''}
+                    ${move.kind==='skill'||move.kind==='burst'?`<label>Dice cost<input data-m="cost" type="number" min="0" max="8" value="${esc(move.cost ?? 2)}"></label>`:''}
+                    ${move.kind==='special'?`<label>Cooldown (rounds)<input data-m="cooldown" type="number" min="1" max="9" value="${esc(move.cooldown ?? 3)}"></label>`:''}
+                    <label>Element<select data-m="element">${opt('',`Default (${esc(move.kind==='normal'&&!enemy?(kit.weapon==='catalyst'?element:'Physical'):element)})`)}${['Physical',...ELEMENTS].map(x=>opt(x)).join('')}</select></label>
                 </div>
                 <div class="gi-effects">${(move.effects || []).map((e,j)=>effectRow(e,i,j)).join('')}</div>
                 <button type="button" data-add-effect="${i}">+ Add effect</button>

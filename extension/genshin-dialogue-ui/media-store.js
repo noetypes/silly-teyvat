@@ -70,7 +70,7 @@ export function parseCGResponse(response, categories) {
         let offset=0,index;while((index=clean.indexOf(label,offset))!==-1){
             const left=clean[index-1],right=clean[index+label.length];
             if((!left||!/[\p{L}\p{N}_]/u.test(left))&&(!right||!/[\p{L}\p{N}_]/u.test(right)))return true;
-            offset=index+label.length;
+            offset=index+Math.max(1,label.length);
         }return false;
     }).sort((a,b)=>b.label.length-a.label.length);
     return matches[0]?.c.id || null;

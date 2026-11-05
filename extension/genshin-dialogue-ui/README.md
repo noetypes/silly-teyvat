@@ -1,3 +1,26 @@
+# Silly Teyvat 1.58.0: Scene CGs for every character and installs from GitHub
+
+- **Scene CGs for every character.** Every official birthday artwork from 2020 to 2026, 481 in all,
+  is now a starter scene on its character's card, ready for the CG classifier with a label, a
+  classification and a description of when it fits. Columbina, Teucer, Tartaglia and the Travelers
+  also get illustrations and wallpapers, and Paimon's 2023 party artwork is a scene for both twins.
+  That makes 494 scenes across 114 cards. They are added once, like the first eight, so scenes you
+  removed or edited stay as you left them.
+- **Install from GitHub.** Paste the repository address into **Extensions → Install extension**.
+  Silly Teyvat then offers its game data and shows the size first; after an update it offers only
+  the files that changed. **Settings → Share → Check for game data** asks again at any time.
+- **Safer shared packages.** Movesets and battle numbers that arrive in an imported package or chat
+  are trimmed to what the editor itself writes before they reach the screen. Your connection
+  profiles, signature and installed game data version are never exported.
+- **One Narrator.** Opening a chat no longer creates a second Narrator card when two parts of
+  SillyTavern ask for it at once.
+- **Choices are more forgiving.** A model that introduces its three choices with a sentence is
+  understood instead of failing.
+- **Errors you can see.** When the map, the character screen, regeneration or audio fails, a
+  message now appears instead of being read only to screen readers.
+- **Small fixes.** The minimap's location name no longer runs off the screen edge, and tags and
+  imports work on pages that aren't served over HTTPS.
+
 # Silly Teyvat 1.57.0: Bursts for every element and room for a big party
 
 - **Bursts hit like Bursts.** A Burst now charges up first: light rays turn behind the card while energy
@@ -637,6 +660,18 @@ Travel is saved as a native narrator message, for example: `Traveler and Xilonen
 A Genshin Impact inspired dialogue interface and matching SillyTavern theme for your fan VN. Gold speaker names, ivory dialogue, white HUD symbols, centered menus, suggested replies, text reveal and remembered sprite scenes.
 
 ## Install or update
+
+In SillyTavern, open **Extensions → Install extension**, paste the address of this GitHub
+repository and choose **Install for me**. After it loads, Silly Teyvat offers to download its game
+data (characters, sprites, scenes, music and lorebooks) and shows the size first. **Not now** waits
+until the next release; **Settings → Share → Check for game data** asks again.
+
+To hear about updates, turn on **Notify on extension updates** in **Manage extensions**, or update
+Silly Teyvat there. After an update that comes with new game data, Silly Teyvat offers just the
+files that changed. If you installed an earlier copy by unzipping it into a `genshin-dialogue-ui`
+folder, delete that folder first so that two copies don't run at once. Your settings are kept.
+
+### From the source repository
 
 Install the separate data pack and run `python3 tools/game-data.py link`, then
 `bash tools/sync-live.sh` from the repository. The installer copies source and

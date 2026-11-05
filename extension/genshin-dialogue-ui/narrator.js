@@ -18,8 +18,14 @@ const present=ctx=>(ctx.characters || []).some(c=>c.avatar===NARRATOR_AVATAR);
 export const narratorAvatar=ctx=>present(ctx)?NARRATOR_AVATAR:'';
 export const isNarrator=card=>(card?.avatar ?? card)===NARRATOR_AVATAR;
 export const narratorMessage=message=>message?.original_avatar===NARRATOR_AVATAR;
-export async function ensureNarrator(ctx,fetchImpl=fetch){
-    if(present(ctx))return NARRATOR_AVATAR;
+// A chat change reaches this from two places at once. Sharing the request keeps it to one card:
+// SillyTavern would save a second under another file name, and that one is not hidden.
+let creating=null;
+export function ensureNarrator(ctx,fetchImpl=fetch){
+    if(present(ctx))return Promise.resolve(NARRATOR_AVATAR);
+    return creating ??= createNarrator(ctx,fetchImpl).finally(()=>{creating=null;});
+}
+async function createNarrator(ctx,fetchImpl){
     const form=new FormData(),fields={ch_name:NARRATOR_NAME,file_name:NARRATOR_AVATAR.replace(/\.png$/,''),description:NARRATOR_DESCRIPTION,personality:'',scenario:'',first_mes:'',mes_example:'',creator_notes:'Silly Teyvat narrator. Hidden from character lists.',talkativeness:'1',fav:'false'};
     for(const [key,value] of Object.entries(fields))form.append(key,value);
     const response=await fetchImpl('/api/characters/create',{method:'POST',headers:ctx.getRequestHeaders({omitContentType:true}),body:form});

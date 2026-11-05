@@ -11,6 +11,8 @@ import {createParticles,glyph,weaponIcon,EL_COLORS,SWORD_SVG} from './battle-fx.
 import {elementImg,reactionIcon,skillIcon,characterIcon,summonArt,fieldIcon} from './battle-icons.js';
 
 const el=(tag,cls,text)=>{const n=document.createElement(tag);if(cls)n.className=cls;if(text!==undefined)n.textContent=text;return n;};
+// Battle numbers are saved in the chat's metadata, which an imported chat can fill, so any that go into markup are made numbers first.
+const whole=value=>Math.round(Number(value)) || 0;
 export const splashUrl=name=>name?new URL(`./assets/splash/${encodeURIComponent(name)}.webp`,import.meta.url).href:'';
 const STATUS={atk:['ATK','↑'],guard:['DEF','↑'],crit:['CRIT','↑'],dodge:['EVA','↑'],focus:['AIM','↑'],regen:['Regen',''],infuse:['Infused',''],vuln:['DEF','↓'],weaken:['ATK','↓'],stun:['Stun',''],frozen:['Frozen',''],burning:['Burning',''],charged:['Charged',''],quicken:['Quicken','']};
 const GOOD=new Set(['atk','guard','crit','dodge','regen','infuse','focus']);
@@ -117,7 +119,7 @@ export function mountBattle({host,sound=createBattleSound(),onBurst=()=>{},onSto
             for(const s of summons.filter(x=>x.side===sideName)){
                 const tile=el('span','tb-summon');tile.dataset.summon=s.id;tile.style.setProperty('--el',EL_COLORS[s.element] || EL_COLORS.None);
                 const art=summonArt(s.name);if(art){tile.classList.add('tb-summon-card');tile.style.backgroundImage=`url("${art}")`;}
-                tile.innerHTML=`<i class="tb-summon-art">${art?'':elementImg(s.element,{white:true})}</i><b class="tb-summon-rounds">${s.rounds}</b>${s.power?`<b class="tb-summon-power">${s.power}</b>`:''}${s.heal?`<b class="tb-summon-heal">+${s.heal}</b>`:''}<span></span>`;
+                tile.innerHTML=`<i class="tb-summon-art">${art?'':elementImg(s.element,{white:true})}</i><b class="tb-summon-rounds">${whole(s.rounds)}</b>${s.power?`<b class="tb-summon-power">${whole(s.power)}</b>`:''}${s.heal?`<b class="tb-summon-heal">+${whole(s.heal)}</b>`:''}<span></span>`;
                 tile.querySelector('span').textContent=s.name;tile.title=`${s.name}: ${s.power?`${s.power} ${s.element} damage`:''}${s.heal?` heals ${s.heal}`:''} each round, ${s.rounds} left${s.decoy?'. Draws an enemy attack.':''}`;
                 box.append(tile);
             }
@@ -203,23 +205,23 @@ export function mountBattle({host,sound=createBattleSound(),onBurst=()=>{},onSto
         tip.style.left=`${x}px`;tip.style.top=`${Math.max(8,Math.min(b.height-t.height-8,y))}px`;
     }
     const hideTip=()=>{$('.tb-tip').hidden=true;};
-    const costHtml=(u,move)=>!move.cost?'':`<span class="tb-cost" style="--el:${EL_COLORS[ELEMENTS.includes(u.element)?u.element:'Omni']}">${ELEMENTS.includes(u.element)?elementImg(u.element,{white:true}):glyph('Omni')}<b>${move.cost}</b></span>`;
+    const costHtml=(u,move)=>!move.cost?'':`<span class="tb-cost" style="--el:${EL_COLORS[ELEMENTS.includes(u.element)?u.element:'Omni']}">${ELEMENTS.includes(u.element)?elementImg(u.element,{white:true}):glyph('Omni')}<b>${whole(move.cost)}</b></span>`;
     // A move's icon (plan badges and medallions): its element-coloured Genius Invokation skill icon, else the weapon (Normal Attack) or element glyph.
     const moveIcon=(u,move)=>{const src=skillIcon(move);return src?`<img class="tb-skill-img" src="${src}" alt="" draggable="false">`:move.kind==='normal'?weaponIcon(u.kit.weapon):u.element==='None'?glyph('Omni'):elementImg(u.element,{white:true});};
     // Costs under a medallion: element dice (grey when free), plus the Energy a Burst needs.
-    const costRow=(u,move)=>`${move.cost?costHtml(u,move):'<span class="tb-cost tb-free"><b>0</b></span>'}${move.kind==='burst'?`<span class="tb-energy-cost" title="${u.maxEnergy || 2} Energy"><b>${u.maxEnergy || 2}</b></span>`:''}`;
+    const costRow=(u,move)=>`${move.cost?costHtml(u,move):'<span class="tb-cost tb-free"><b>0</b></span>'}${move.kind==='burst'?`<span class="tb-energy-cost" title="${whole(u.maxEnergy) || 2} Energy"><b>${whole(u.maxEnergy) || 2}</b></span>`:''}`;
     function moveTip(u,index,anchor){
         const move=u.kit.moves[index];if(!move)return;
         // Played items have already taken effect on the board, so the forecast starts from the board as it is.
         const step=stepOf(u.id),trial=plan.map(p=>p===step?{...p,move:index}:p),f=step?forecastPlan(state,trial,[])[plan.indexOf(step)]:null;
         const element=moveElement(u,move),reactions=(f?.reactions || []).map(r=>`<b style="color:${REACTIONS[r.split(' + ').at(-1)] || '#fff'}">${r}</b>`).join(' ');
-        showTip(anchor,`${skillIcon(move)?`<img class="tb-tip-icon" src="${skillIcon(move)}" alt="">`:''}<small>${KIND_LABEL[move.kind]}${move.kind==='burst'?` · ${energyOf(u)}/${u.maxEnergy}`:''}</small><strong>${escapeHtml(move.name)}</strong>${costHtml(u,move)}<p>${escapeHtml(describeMove(move,u.element==='None'?'Physical':u.element))}</p>${f&&(f.damage||f.heal||reactions)?`<p class="tb-tip-forecast"><i style="color:${EL_COLORS[element]}">${glyph(element)}</i>${f.damage?` ${f.damage}`:''}${f.heal?` <span class="tb-heal">+${f.heal}</span>`:''} ${reactions}</p>`:''}`);
+        showTip(anchor,`${skillIcon(move)?`<img class="tb-tip-icon" src="${skillIcon(move)}" alt="">`:''}<small>${KIND_LABEL[move.kind]}${move.kind==='burst'?` · ${whole(energyOf(u))}/${whole(u.maxEnergy)}`:''}</small><strong>${escapeHtml(move.name)}</strong>${costHtml(u,move)}<p>${escapeHtml(describeMove(move,u.element==='None'?'Physical':u.element))}</p>${f&&(f.damage||f.heal||reactions)?`<p class="tb-tip-forecast"><i style="color:${EL_COLORS[element]}">${glyph(element)}</i>${f.damage?` ${f.damage}`:''}${f.heal?` <span class="tb-heal">+${f.heal}</span>`:''} ${reactions}</p>`:''}`);
     }
     function unitTip(id,card){
         const u=unitById(state,id);if(!u||mode==='')return;
         const intent=u.side==='enemy'&&mode==='plan'?intentPreview(state,u):null;
         const statuses=escapeHtml((u.statuses || []).map(s=>`${s.label || s.stat}`).filter((v,i,a)=>a.indexOf(v)===i).join(', '));
-        showTip(card,`<small>${u.side==='enemy'?(u.element==='Physical'?'Enemy':`${u.element} enemy`):escapeHtml(u.kit.role)}</small><strong>${escapeHtml(u.name)}</strong><p>${Math.max(0,u.hp)} / ${u.maxHp} HP${u.shield?` · Shield ${u.shield}`:''}${u.weakTo?` · Weak to ${u.weakTo}`:''}${u.armor?` · Armor ${u.armor}%`:''}${u.evasion?` · Evasion ${u.evasion}%`:''}</p>${statuses?`<p>${statuses}</p>`:''}${intent&&!intent.skip?`<p class="tb-tip-intent">Next: <b>${escapeHtml(intent.name)}</b></p>`:''}`);
+        showTip(card,`<small>${u.side==='enemy'?(u.element==='Physical'?'Enemy':`${escapeHtml(u.element)} enemy`):escapeHtml(u.kit.role)}</small><strong>${escapeHtml(u.name)}</strong><p>${Math.max(0,whole(u.hp))} / ${whole(u.maxHp)} HP${u.shield?` · Shield ${whole(u.shield)}`:''}${u.weakTo?` · Weak to ${escapeHtml(u.weakTo)}`:''}${u.armor?` · Armor ${whole(u.armor)}%`:''}${u.evasion?` · Evasion ${whole(u.evasion)}%`:''}</p>${statuses?`<p>${statuses}</p>`:''}${intent&&!intent.skip?`<p class="tb-tip-intent">Next: <b>${escapeHtml(intent.name)}</b></p>`:''}`);
     }
     // ---- Action Phase -------------------------------------------------------------------
     const party=()=>state.units.filter(u=>u.side==='party');

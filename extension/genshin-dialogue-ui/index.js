@@ -52,7 +52,8 @@ import {createKeyboardFrame} from './keyboard-frame.js';
 import {applyPackagedSettings} from './share-package.js';
 import {mountShare} from './share-ui.js';
 const KEY = 'genshin_dialogue_ui';
-const FOLDER = 'third-party/genshin-dialogue-ui';
+// A GitHub install takes the repository's name, so the folder is read from where this file is served.
+const FOLDER = `third-party/${decodeURIComponent(new URL('./', import.meta.url).pathname.split('/').filter(Boolean).at(-1))}`;
 const defaults = Object.freeze({ ...stagingDefaults, enabled: false, choices: true, composer: true, reducedMotion: false, textScale: 1, scrim: 0.8, revealSpeed: 45, tapAdvance: true, pageExpressions: true, narration: false, narrationMode: 'quotes', narrationKeyword: 'Narrator:', hideDialogueQuotes:false, wardrobe: true, locationEncounters:true, locationCharacterLimit:5, randomEncounters:true, encounterRate:40, allowMainDeparture:false, worldPromptAllRegions:false, roleplayPromptsEnabled:true, wildernessEncounters:true, maxEnemies:3, combatDamageMin:1, combatDamageMax:6, enemyStrikeBack:true,combatTriggerPhrase:'[start_combat]', enemyDamageMin:2, enemyDamageMax:6, enemyDice:4, userMaxHp:30, combatDifficulty:'normal', battleEffects:true, battleSound:true,uiSound:true,uiSoundVolume:.7, personaIcon: 'Aether', personaIconMode:'auto', hudTopIcons:'auto', namecard:'', signature:'', trimSprites:true, cgEnabled:true, cgClassifier:'main', cgProfile:'', choicesProfile:'', cgBypassReasoning:true, cgPrompt:defaultCGPrompt, cgAudio:true, spriteAudio:true, burstAudio:true, spriteVolume:.8, diceSound:true, trustSystem:false, travelerTwin:'Aether', master:true, cardArt:true, paimonLinks:PAIMON_LINKS, paimonRestore:{} });
 const bodyClasses = ['gi-menu-open', 'gi-enabled', 'gi-scene', 'gi-history', 'gi-hidden', 'gi-compose', 'gi-generating', 'gi-reduced-motion', 'gi-reading', 'gi-choices-enabled', 'gi-native-staging', 'gi-sprite-idle', 'gi-hud-top-off'];
 const icons = {
@@ -218,6 +219,12 @@ function deleting() {
 function announce(text) {
     const status = document.querySelector('#gi-status');
     if (status && status.textContent !== text) status.textContent = text;
+}
+// announce() reaches screen readers only. When something the player asked for fails, everyone sees it, as in combat and Share.
+function fail(error) {
+    const text = error?.message || String(error);
+    announce(text);
+    globalThis.toastr?.error?.(text, 'Silly Teyvat');
 }
 function stopAuto() {
     auto = false;
@@ -609,8 +616,8 @@ function handleAction(event) {
             break;
         case 'namecard': preferences().namecard = target.dataset.namecard || ''; context().saveSettingsDebounced(); paintProfile(); announce(`Namecard: ${target.title}.`); break;
         case 'st-drawer': menuOpen = false; refresh(); document.querySelector(`#${CSS.escape(target.dataset.drawer)} > .drawer-toggle`)?.click(); break;
-        case 'persona': menuOpen=false;refresh();wardrobeUI?.open({persona:true}).catch(error=>announce(error.message));break;
-        case 'map': menuOpen = false; refresh(); void openWorldMap().catch(error=>announce(error.message)); break;
+        case 'persona': menuOpen=false;refresh();wardrobeUI?.open({persona:true}).catch(fail);break;
+        case 'map': menuOpen = false; refresh(); void openWorldMap().catch(fail); break;
         case 'toggle': togglePaimon(); break;
         case 'paimon-link': linkPaimon(preferences(),target.dataset.group,target.getAttribute('aria-pressed')!=='true'); context().saveSettingsDebounced(); refresh(); break;
         case 'solo-journey': menuOpen = false; refresh(); void personaSession?.flush({ startJourney: true }); break;
@@ -636,14 +643,15 @@ function handleAction(event) {
             document.querySelectorAll('#gi-settings .gi-set-page').forEach(page => { page.hidden = page.dataset.page !== tab; });
             break;
         }
-        case 'wardrobe': menuOpen = false; refresh(); wardrobeUI?.open().catch(error => announce(error.message)); break;
+        case 'wardrobe': menuOpen = false; refresh(); wardrobeUI?.open().catch(fail); break;
         case 'inventory': menuOpen = false; refresh(); inventoryUI?.open(); break;
         case 'trust': menuOpen = false; refresh(); trustUI?.open(); break;
         case 'share-extension': void shareUI?.exportExtension(); break;
         case 'share-export': void shareUI?.exportGameData(); break;
         case 'share-import': shareUI?.chooseImport(); break;
         case 'share-cancel': shareUI?.cancel(); break;
-        case 'audio-unlock': mediaUI?.unlockAudio().then(()=>announce('Sprite audio enabled on this device.')).catch(()=>announce('Audio is blocked by this browser. Check its sound permissions.')); break;
+        case 'share-game-data': void shareUI?.checkGameData(); break;
+        case 'audio-unlock': mediaUI?.unlockAudio().then(()=>announce('Sprite audio enabled on this device.')).catch(()=>fail(new Error('Audio is blocked by this browser. Check its sound permissions.'))); break;
         case 'settings':
             menuOpen = false; refresh();
             if (!document.querySelector('#rm_extensions_block') || document.querySelector('#rm_extensions_block').classList.contains('closedDrawer')) {
@@ -668,7 +676,7 @@ async function regenerateCurrent(){
     regenerating=true;stopAuto();followLatest=true;hidden=false;visit++;reveal.reset();
     const selected=messages().find(el=>el.getAttribute('mesid')===current);const page=pageState(selected);page.index=0;
     refresh();announce('Regenerating this character’s reply.');
-    try{await regenerateReply(ctx,state);}catch(error){console.warn('[Silly Teyvat] Regeneration unavailable',error);announce(error.message || 'Could not regenerate this reply.');}
+    try{await regenerateReply(ctx,state);}catch(error){console.warn('[Silly Teyvat] Regeneration unavailable',error);fail(error?.message?error:new Error('Could not regenerate this reply.'));}
     finally{regenerating=false;schedule();}
 }
 function handleKey(event) {
@@ -807,7 +815,7 @@ export async function initialize(options = {}) {
         onChange:()=>{backgroundUI.refresh();schedule();}});
     mediaUI = mountSceneMedia({host,getContext:context,adapter:mediaAdapter,sound,announce});
     spriteUI = mountPageSprites({ host, getContext: context, adapter: spriteAdapter, isDefeated: defeatedHere, announce, renderMessage: id => document.querySelector(`#chat > .mes[mesid="${id}"] .mes_text`), onAppearance:event=>mediaUI?.appearance(event) });
-    wardrobeUI = mountWardrobe({ host, getContext: context, adapter: wardrobeAdapter, personaAdapter, mediaAdapter, openMap:options=>openWorldMap(options).catch(error=>announce(error.message)), previewAudio:files=>mediaUI.previewAudio(files), previewCG:cg=>mediaUI.previewCG(cg), onMediaChange:(options={})=>{backgroundUI.refresh();if(options.reclassify)mediaUI.reclassifyCurrent();else mediaUI.refresh();schedule();}, onChange: async (character,options) => { if(options?.classification){schedule();return;}
+    wardrobeUI = mountWardrobe({ host, getContext: context, adapter: wardrobeAdapter, personaAdapter, mediaAdapter, openMap:options=>openWorldMap(options).catch(fail), previewAudio:files=>mediaUI.previewAudio(files), previewCG:cg=>mediaUI.previewCG(cg), onMediaChange:(options={})=>{backgroundUI.refresh();if(options.reclassify)mediaUI.reclassifyCurrent();else mediaUI.refresh();schedule();}, onChange: async (character,options) => { if(options?.classification){schedule();return;}
         if(options?.presentation)await spriteUI?.refreshPresentation();else await spriteUI?.refreshSprite(character,options);schedule(); } });
     combatUI=mountCombat({host,getContext:context,adapter:combatAdapter,diceAdapter,announce,onChange:event=>{inventoryUI?.refresh();if(event?.hit)spriteUI?.hit(event.hit);if(event?.hurt)spriteUI?.hurt(event.hurt);if(event?.healed)spriteUI?.heal(event.healed);if(event?.slain)spriteUI?.defeat(event.defeated);if(event?.defeated)locationCastUI?.retry();if(event?.removed)void spriteUI?.refreshPresentation().catch(error=>console.warn('[Silly Teyvat] Party stage',error));schedule();}});
     choiceUI = mountChoices({ host, getContext: context, adapter: choicesAdapter, announce });
@@ -827,6 +835,7 @@ export async function initialize(options = {}) {
     }
     if (!mounted || version !== mountVersion) return;
     shareUI=mountShare({getContext:context,announce,signal:abort.signal});shareUI.bind();
+    void shareUI.checkGameData({startup:true}).catch(error=>console.warn('[Silly Teyvat] Game data check',error));
     uiSound=createUiSound({getVolume:()=>preferences().uiSound?preferences().uiSoundVolume:0});mountUiSound({sound:uiSound,signal:abort.signal});
     document.addEventListener('click', handleAction, { signal: abort.signal });
     document.addEventListener('keydown', handleKey, { signal: abort.signal });
@@ -946,7 +955,7 @@ export async function initialize(options = {}) {
     subscribe('GROUP_UPDATED',()=>{if(preferences().enabled)personaSession?.request();schedule();});
     for (const key of ['GENERATION_STOPPED', 'GENERATION_ENDED']) subscribe(key, () => { if(key==='GENERATION_STOPPED')combatUI?.cancelPending();generating = false;if(preferences().enabled)personaSession?.request();schedule(); announce('Reply ready.'); });
     await prepareCardData();
-    try{await loadStarterLocations(context());alignEnemyPools(context());await loadCharacterHomes(context());}catch(error){console.warn('[Silly Teyvat] Starter locations',error);announce(error.message);}
+    try{await loadStarterLocations(context());alignEnemyPools(context());await loadCharacterHomes(context());}catch(error){console.warn('[Silly Teyvat] Starter locations',error);fail(error);}
     try{await loadStarterCGs(context());}catch(error){console.warn('[Silly Teyvat] Starter scenes',error);}
     try{if(preferences().journeysPurged!==true&&context().getRequestHeaders){const ctx=context(),removed=await purgeLegacyJourneys(ctx);if(removed.length){ctx.groups?.splice(0,ctx.groups.length,...ctx.groups.filter(g=>!removed.includes(g.id)));await ctx.getCharacters?.();}if(!(ctx.groups || []).some(isLegacyJourneyGroup))preferences().journeysPurged=true,ctx.saveSettingsDebounced();}if(context().getRequestHeaders)await repairSoloPortraits(context());}catch(error){console.warn('[Silly Teyvat] Journey cleanup',error);}
     try{const remove=await journeyAdapter.install();if(!mounted||version!==mountVersion){remove?.();return;}removeJourneyFilter=remove;}catch(error){console.warn('[Silly Teyvat] Journey library',error);announce(error.message);}
@@ -1001,6 +1010,8 @@ export function dispose() {
     document.querySelectorAll('#chat .gi-paginated').forEach(el => el.classList.remove('gi-paginated'));
     pageStates = new WeakMap();
     current = null; followLatest = true; menuOpen = false; pickingNamecard = false; history = false; hidden = false; generating = false;
+    // Switched back on later, the place is read afresh rather than compared with one from before it was off.
+    lastPlaceId = ''; dismissedNotice = '';
 }
 
 // APP_READY also fires immediately for a late listener. Defer to avoid blocking ST's event chain.
