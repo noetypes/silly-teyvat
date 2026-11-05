@@ -86,3 +86,6 @@
 #gi-settings .gi-set-advanced-group:not(:has(> :is(.gi-row,.gi-set-actions):not([hidden]))){display:none}
 #gi-settings .gi-set-section:not(:has(> :is(.gi-row,.gi-set-actions,.gi-prompt-text,div,button,progress,p):not([hidden]))):not(:has(> header)){display:none}
 #gi-settings .gi-row select{width:min(200px,50vw);text-overflow:ellipsis}
+/* 1.59.2: the controls column scrolls, so a focus ring on its left edge was cut off. A little
+   padding, taken back with a negative margin, leaves room for it without moving anything. */
+#gi-wardrobe .gi-wardrobe-controls { padding-left: 6px; margin-left: -6px; }

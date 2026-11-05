@@ -1,3 +1,13 @@
+# Silly Teyvat 1.59.2: Original is a set like any other
+
+- **Rename or delete Original.** In Character Customization → Outfits, the character's own sprite
+  folder can now be renamed and deleted like any other set, so you can swap it with a new set or
+  replace it. **Remove from list** hides it and keeps its sprites; **Delete set and sprites** erases
+  the sprites in that folder and keeps the other sets. As with any set, equip another first. Linking
+  the character's folder again under **Link an existing sprite folder** brings it back.
+- **Focus outlines aren't cut off.** The outline around the sprite set picker, and around anything
+  else on the left edge of the controls, now shows in full.
+
 # Silly Teyvat 1.59.1: Prefer reasoning off
 
 - **Prefer reasoning off, as a switch.** CG & Audio → Scene CGs has **Prefer reasoning off** (it was

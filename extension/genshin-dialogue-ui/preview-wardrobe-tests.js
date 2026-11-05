@@ -37,7 +37,6 @@ export async function runWardrobeAndCanvasTests(){
         delete prefs.hideNonGenshin;delete prefs.characterProperties;delete prefs.rosterView;
         // Sprite sets: new, copy, rename and delete.
         const sets=()=>[...host.querySelectorAll('#gi-outfit option')].map(o=>o.textContent+'='+o.value),registered=()=>(prefs.outfits?.['Klee.png'] || []).map(x=>x.label+'='+x.folder);
-        $('[data-w="set-rename"]').click();check('the Original set cannot be renamed',$('.gi-set-editor').hidden);
         $('[data-w="set-new"]').click();check('New set opens an inline editor',!$('.gi-set-editor').hidden&&!$('.gi-set-copy-row').hidden);
         $('#gi-set-editor-name').value='Summer';await click('set-confirm');
         check('a new set gets Character/Name as its folder and becomes the selected set',registered().join()==='Summer=Klee/Summer'&&$('#gi-outfit').value==='Klee/Summer'&&sets().includes('Summer=Klee/Summer'));
@@ -45,11 +44,31 @@ export async function runWardrobeAndCanvasTests(){
         $('[data-w="set-rename"]').click();$('#gi-set-editor-name').value='Beach';await click('set-confirm');
         check('rename changes the label but keeps the folder',registered().join()==='Beach=Klee/Summer'&&sets().includes('Beach=Klee/Summer'));
         const uploadsBefore=uploads.length;$('[data-w="set-new"]').click();$('#gi-set-copy').checked=true;$('#gi-set-editor-name').value='Winter';await click('set-confirm');
+        for(let i=0;i<200&&!registered().includes('Winter=Klee/Winter');i++)await pause(10);
         check('a set can start as a copy of the selected one',uploads.length>uploadsBefore&&uploads.at(-1).folder==='Klee/Winter'&&registered().includes('Winter=Klee/Winter'));
         $('[data-w="set-delete"]').click();await click('set-forget');check('Remove from list keeps files and drops the set',!registered().some(x=>x.startsWith('Winter'))&&removals===0&&$('#gi-outfit').value==='Klee');
         $('#gi-outfit').value='Klee/Summer';$('#gi-outfit').dispatchEvent(new Event('change'));await pause(30);
         $('[data-w="set-delete"]').click();await click('set-delete-files');check('Delete set and sprites erases its files and the set',removals>0&&registered().length===0);
-        $('[data-w="set-delete"]').click();check('the Original set cannot be deleted',$('.gi-set-editor').hidden);
+        // The character's own folder: renamed, removed from the list once another set is equipped, and linked back.
+        const pick=async value=>{$('#gi-outfit').value=value;$('#gi-outfit').dispatchEvent(new Event('change'));await pause(30);};
+        $('[data-w="set-delete"]').click();
+        check('the equipped Original set cannot be deleted',!$('.gi-set-editor').hidden&&$('[data-w="set-forget"]').disabled&&$('[data-w="set-delete-files"]').disabled);
+        $('[data-w="set-rename"]').click();check('renaming Original starts from its name',$('#gi-set-editor-name').value==='Original');
+        $('#gi-set-editor-name').value='Classic';await click('set-confirm');
+        check('Original can be renamed and keeps its folder',registered().join()==='Classic=Klee'&&sets()[0]==='Classic=Klee');
+        $('[data-w="set-new"]').click();$('#gi-set-copy').checked=false;$('#gi-set-editor-name').value='Original';await click('set-confirm');
+        check('another set can take the name Original once it is free',registered().includes('Original=Klee/Original')&&$('#gi-outfit').value==='Klee/Original');
+        await click('equip');await pick('Klee');
+        $('[data-w="set-delete"]').click();check('once another set is equipped, the old Original can be deleted',!$('[data-w="set-forget"]').disabled);
+        const removedBefore=removals;await click('set-forget');
+        check('Remove from list hides the character folder and keeps its files',!sets().some(x=>x.endsWith('=Klee'))&&removals===removedBefore&&prefs.outfits['Klee.png'].find(x=>x.folder==='Klee').hidden===true);
+        $('#gi-outfit-name').value='Classic';$('#gi-outfit-folder').value='Klee';await click('add-set');
+        check('linking the character folder again brings it back under its name',sets().includes('Classic=Klee')&&!prefs.outfits['Klee.png'].find(x=>x.folder==='Klee').hidden&&prefs.outfits['Klee.png'].filter(x=>x.folder==='Klee').length===1);
+        await pick('Klee');await click('equip');await pick('Klee/Original');
+        $('[data-w="set-delete"]').click();await click('set-delete-files');
+        await pick('Klee');$('[data-w="set-delete"]').click();
+        check('the equipped character folder is protected again',$('[data-w="set-delete-files"]').disabled);
+        await pick('Klee');
         files.splice(1);uploads.length=0;removals=0;nativeRefreshes=0;delete prefs.outfits;$('#gi-outfit').dispatchEvent(new Event('change'));await pause(30);
         let grid=$('.gi-expression-grid');check('sprite plus tile is the final tile',grid.lastElementChild.dataset.w==='add-blank-sprite');
         let art=grid.firstElementChild.getBoundingClientRect(),add=grid.lastElementChild.getBoundingClientRect();

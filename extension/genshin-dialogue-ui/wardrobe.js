@@ -235,6 +235,14 @@ export function mountWardrobe({host, getContext, onChange = async () => {}, onMe
     const regKey = c => c?.isPersona ? (linkedCardAvatar(getContext(), c.personaAvatar) || c.avatar) : c?.avatar;
     const origFolder = c => c.isPersona ? (linkedCard(getContext(), c.personaAvatar)?.name ?? personaFolder(c.personaAvatar)) : c.name;
     const folder = () => $('#gi-outfit').value;
+    // The character's own folder is listed as Original until renamed. Its entry in the set registry
+    // only carries that name, or hidden when it was removed from the list.
+    const rootEntry = c => (registry()[regKey(c)] || []).find(x => x.folder === origFolder(c));
+    const originalLabel = c => rootEntry(c)?.label || 'Original';
+    const characterSets = c => {
+        const root = rootEntry(c), others = (registry()[regKey(c)] || []).filter(x => x !== root);
+        return [...(root?.hidden ? [] : [{label:originalLabel(c), folder:origFolder(c)}]), ...others];
+    };
     const registry = () => {
         const prefs = getContext().extensionSettings[KEY]; prefs.outfits ??= {}; return prefs.outfits;
     };
@@ -442,8 +450,8 @@ export function mountWardrobe({host, getContext, onChange = async () => {}, onMe
         $('#gi-persona-visible').checked=Boolean(c.isPersona&&personaSpriteSettings(getContext(),c.personaAvatar).enabled);
         $('#gi-character-expression-mode').closest('label').hidden=Boolean(c.isPersona);
         const equipped = currentFolder();
-        sets = [{label:'Original',folder:origFolder(c)}, ...(registry()[regKey(c)] || [])];
-        if (!sets.some(x => x.folder === equipped)) sets.push({label:equipped, folder:equipped});
+        sets = characterSets(c);
+        if (!sets.some(x => x.folder === equipped)) sets.push({label:equipped===origFolder(c)?originalLabel(c):equipped, folder:equipped});
         $('#gi-outfit').replaceChildren(...sets.map(x => new Option(x.label, x.folder)));
         $('#gi-outfit').value = equipped;
         $('#gi-outfit-folder').placeholder = `${origFolder(c).split('/')[0]}/Summer`;
@@ -458,8 +466,7 @@ export function mountWardrobe({host, getContext, onChange = async () => {}, onMe
     const originalFolder = () => origFolder(character);
     const selectedSet = () => sets.find(x => x.folder === folder());
     function openSetEditor(mode) {
-        const editor = $('.gi-set-editor'), original = folder() === originalFolder(), equipped = folder() === currentFolder();
-        if ((mode === 'rename' || mode === 'delete') && original) { status('The Original set cannot be renamed or deleted.'); return; }
+        const editor = $('.gi-set-editor'), equipped = folder() === currentFolder();
         setMode = mode; editor.hidden = false;
         $('.gi-set-name-row').hidden = mode === 'delete'; $('.gi-set-copy-row').hidden = mode !== 'new';
         $('[data-w="set-confirm"]').hidden = mode === 'delete'; $('[data-w="set-delete-files"]').hidden = mode !== 'delete'; $('[data-w="set-forget"]').hidden = mode !== 'delete';
@@ -470,7 +477,7 @@ export function mountWardrobe({host, getContext, onChange = async () => {}, onMe
         if (mode === 'new') note.textContent = `Creates the folder ${setBase()}/<name>. Add sprites to it afterwards.`;
         if (mode === 'rename') note.textContent = 'Changes the name shown in this list. Sprite files stay in their folder.';
         if (mode === 'delete') {
-            note.textContent = equipped ? 'This set is equipped. Equip another set first.' : `“${selectedSet()?.label || folder()}” (${sprites.length} sprite${sprites.length === 1 ? '' : 's'}): Remove from list keeps the files; Delete set and sprites erases them.`;
+            note.textContent = equipped ? 'This set is equipped. Equip another set first.' : `“${selectedSet()?.label || folder()}” (${sprites.length} sprite${sprites.length === 1 ? '' : 's'}): Remove from list keeps the files; Delete set and sprites erases them${folder() === originalFolder() ? ' and keeps the other sets' : ''}.`;
             $('[data-w="set-delete-files"]').disabled = equipped;
             $('[data-w="set-forget"]').disabled = equipped;
         }
@@ -526,7 +533,9 @@ export function mountWardrobe({host, getContext, onChange = async () => {}, onMe
                 const label = $('#gi-outfit-name').value.trim(), path = $('#gi-outfit-folder').value.trim();
                 if (!label || !validFolder(path)) throw new Error('Enter a set name and a folder such as Klee/Summer.');
                 if (sets.some(x => x.folder === path)) throw new Error('That sprite folder is already in the list.');
-                const entries = registry()[regKey(character)] ??= []; entries.push({label,folder:path}); sets.push({label,folder:path});
+                const entries = registry()[regKey(character)] ??= [], hidden = entries.find(x => x.folder === path);
+                if (hidden) { delete hidden.hidden; hidden.label = label; } else entries.push({label,folder:path});
+                sets.push({label,folder:path});
                 getContext().saveSettingsDebounced(); $('#gi-outfit').append(new Option(label,path)); $('#gi-outfit').value = path; await load();
             }
             if (name === 'set-confirm') {
@@ -549,7 +558,7 @@ export function mountWardrobe({host, getContext, onChange = async () => {}, onMe
                     status(copyFrom.length ? `Created ${label} with ${copyFrom.length} copied sprites. Use set equips it.` : `Created ${label}. Add sprites to fill it, then use Use set.`);
                 } else if (setMode === 'rename') {
                     const current = selectedSet();
-                    if (!current || folder() === originalFolder()) throw new Error('The Original set cannot be renamed.');
+                    if (!current) throw new Error('Choose a set first.');
                     if (!uniqueSetName(label, current)) throw new Error('A set with that name already exists.');
                     current.label = label; registerSet({ label, folder: current.folder });
                     registry()[regKey(character)].find(x => x.folder === current.folder).label = label;
@@ -560,14 +569,15 @@ export function mountWardrobe({host, getContext, onChange = async () => {}, onMe
             }
             if (name === 'set-forget' || name === 'set-delete-files') {
                 const target = folder();
-                if (target === originalFolder()) throw new Error('The Original set cannot be deleted.');
                 if (target === currentFolder()) throw new Error('Switch away from the equipped set first.');
                 const label = selectedSet()?.label || target;
                 if (name === 'set-delete-files') {
                     for (const sprite of sprites.filter(x => !x.blank)) await adapter.remove(target, sprite);
                     spriteDrafts(getContext(), target).splice(0);
                 }
-                registry()[regKey(character)] = (registry()[regKey(character)] || []).filter(x => x.folder !== target);
+                // The character's own folder stays in the registry as hidden, or Original would come back.
+                if (target === originalFolder()) { registerSet({ label: selectedSet()?.label || 'Original', folder: target }); rootEntry(character).hidden = true; }
+                else registry()[regKey(character)] = (registry()[regKey(character)] || []).filter(x => x.folder !== target);
                 getContext().saveSettingsDebounced(); closeSetEditor(); await adapter.refreshNative?.(character); await selectCharacter(character);
                 status(name === 'set-delete-files' ? `Deleted ${label} and its sprites.` : `Removed ${label} from the list. Its files were kept.`);
             }
