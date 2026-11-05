@@ -1,7 +1,7 @@
 import {newLocalId} from './local-id.js';
 // Files live in SillyTavern's authenticated user-file store. Settings contain
 // assignments only, so audio and CGs work on other devices using this server.
-import { finalizeChoiceRequest } from './choices-api.js';
+import { finalizeChoiceRequest, finalizeReasoningRequest, preferReasoningOff } from './choices-api.js';
 import { defaultPrompt } from './prompt-templates.js';
 export function mediaSettings(ctx) {
     const prefs = ctx.extensionSettings.genshin_dialogue_ui ??= {};
@@ -81,16 +81,8 @@ export function parseCGResponse(response, categories) {
 // backend YAML. Only isolate the non-streaming classification request itself.
 export function finalizeCGRequest(data,yaml,bypass=true){
     if(bypass){const body=finalizeChoiceRequest(data,yaml);body.max_tokens=100;return body;}
-    Object.assign(data,{stream:false,n:1,max_tokens:512,tools:[],enable_web_search:false});delete data.tool_choice;
-    if(data.chat_completion_source==='custom'){
-        const parsed=data.custom_include_body?yaml.parse(data.custom_include_body):{};
-        const extra=parsed && typeof parsed==='object' && !Array.isArray(parsed)?{...parsed}:{};
-        for(const key of ['messages','prompt','model','stream','n','max_tokens','max_completion_tokens','tools','tool_choice','enable_web_search'])delete extra[key];
-        data.custom_include_body=JSON.stringify(extra);
-    }
-    return data;
+    return finalizeReasoningRequest(data,yaml,512);
 }
-const REASONING_REQUIRED = new Set();
 export function createMediaAdapter(getContext) {
     return {
         async listBackgrounds(){
@@ -137,11 +129,8 @@ export function createMediaAdapter(getContext) {
                     if (!response.ok) throw new Error(`CG classification failed (${response.status}).`);
                     return response.json();
                 };
-                // Some models refuse a request with reasoning off. Ask again with it on, and keep
-                // asking that model that way for the rest of the session.
-                const bypass = prefs.cgBypassReasoning !== false && !REASONING_REQUIRED.has(model);
-                let result = await ask(bypass);
-                if (result.error && bypass) { signal.throwIfAborted(); const retry = await ask(false); if (!retry.error) REASONING_REQUIRED.add(model); result = retry; }
+                // Some models refuse a request with reasoning off; they are asked again with it on.
+                const result = await preferReasoningOff(model, prefs.cgBypassReasoning !== false, ask, signal);
                 if (result.error) throw new Error('The main API could not classify this CG. Check its connection.');
                 output = ctx.extractMessageFromData(result,'openai');
             }

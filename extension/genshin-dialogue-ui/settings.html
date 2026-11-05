@@ -29,6 +29,7 @@
                 <label class="gi-row"><span>Dialogue view</span><input type="checkbox" class="gi-switch" data-gi-setting="enabled"></label>
                 <label class="gi-row"><span>Teyvat Choices &amp; HUD icons</span><input type="checkbox" class="gi-switch" data-gi-setting="choices"></label>
                 <label class="gi-row" data-advanced for="gi-choices-profile" title="Suggested replies can use a separate, cheaper model than the roleplay"><span>Choices connection</span><select id="gi-choices-profile" data-gi-setting="choicesProfile"></select></label>
+                <label class="gi-row" id="gi-choices-reasoning-row" title="Faster and cheaper. A model that requires reasoning is asked again with it on"><span>Prefer reasoning off for Choices</span><input type="checkbox" class="gi-switch" data-gi-setting="choicesBypassReasoning"></label>
                 <label class="gi-row" data-advanced for="gi-persona-icon"><span>Persona menu icon</span><select id="gi-persona-icon" data-gi-setting="personaIconMode"><option value="auto">Auto (body type)</option><option value="Aether">Aether</option><option value="Lumine">Lumine</option></select></label>
                 <label class="gi-row"><span>Keep reply box open</span><input type="checkbox" class="gi-switch" data-gi-setting="composer"></label>
                 <label class="gi-row"><span>Reduce motion</span><input type="checkbox" class="gi-switch" data-gi-setting="reducedMotion"></label>
@@ -99,7 +100,7 @@
                 <label class="gi-row"><span>Classify CGs</span><input type="checkbox" class="gi-switch" data-gi-setting="cgEnabled"></label>
                 <label class="gi-row" for="gi-cg-classifier"><span>Classifier</span><select id="gi-cg-classifier" data-gi-setting="cgClassifier"><option value="main">Main API</option><option value="profile">Connection profile</option><option value="webllm">WebLLM</option></select></label>
                 <label class="gi-row" id="gi-cg-profile-row" for="gi-cg-profile"><span>Profile</span><select id="gi-cg-profile" data-gi-setting="cgProfile"></select></label>
-                <label class="gi-row" data-advanced id="gi-cg-reasoning-row"><span>Skip reasoning</span><input type="checkbox" class="gi-switch" data-gi-setting="cgBypassReasoning"></label>
+                <label class="gi-row" id="gi-cg-reasoning-row" title="Faster and cheaper. A model that requires reasoning is asked again with it on"><span>Prefer reasoning off</span><input type="checkbox" class="gi-switch" data-gi-setting="cgBypassReasoning"></label>
                 <label class="gi-row gi-row-stack" data-advanced for="gi-cg-prompt"><span>Classifier prompt</span><textarea id="gi-cg-prompt" rows="4" data-gi-setting="cgPrompt"></textarea></label>
             </section>
 

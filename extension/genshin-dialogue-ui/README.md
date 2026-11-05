@@ -1,3 +1,14 @@
+# Silly Teyvat 1.59.1: Prefer reasoning off
+
+- **Prefer reasoning off, as a switch.** CG & Audio → Scene CGs has **Prefer reasoning off** (it was
+  **Skip reasoning**, folded under Advanced), and Dialogue has **Prefer reasoning off for Choices**,
+  shown while Choices use the main API. With it on, the request asks for no reasoning, which is
+  faster and cheaper. With it off, the model reasons as your connection is set up to.
+- **Models that require reasoning work for Choices too.** Choices on the main API always turned
+  reasoning off, so a model that refuses that could never suggest replies. Choices and the CG
+  classifier now share one fallback: a request that fails with reasoning off is asked again with it
+  on, and that model is asked with reasoning on until the page reloads.
+
 # Silly Teyvat 1.59.0: Scene Gallery, a tidier Settings and lighter game data updates
 
 - **One check for the whole scene.** A reply is now checked once against the scenes of everyone

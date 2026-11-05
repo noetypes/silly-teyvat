@@ -62,6 +62,32 @@ export function finalizeChoiceRequest(data, yaml) {
     return data;
 }
 
+// With reasoning allowed, the player's reasoning preferences stay as they are; only the request
+// itself is kept small and non-streaming, including Custom backend YAML extras.
+export function finalizeReasoningRequest(data, yaml, maxTokens) {
+    Object.assign(data, { stream: false, n: 1, max_tokens: maxTokens, tools: [], enable_web_search: false }); delete data.tool_choice;
+    if (data.chat_completion_source === 'custom') {
+        const parsed = data.custom_include_body ? yaml.parse(data.custom_include_body) : {};
+        const extra = parsed && typeof parsed === 'object' && !Array.isArray(parsed) ? { ...parsed } : {};
+        for (const key of ['messages', 'prompt', 'model', 'stream', 'n', 'max_tokens', 'max_completion_tokens', 'tools', 'tool_choice', 'enable_web_search']) delete extra[key];
+        data.custom_include_body = JSON.stringify(extra);
+    }
+    return data;
+}
+// Models that refused a request with reasoning off, remembered until the page reloads. The
+// provider's reason does not reach the browser, so any failure with reasoning off is retried once
+// with it on, and the model is remembered only when that retry succeeds.
+export const reasoningRequired = new Set();
+export async function preferReasoningOff(model, prefer, ask, signal) {
+    const off = prefer && !reasoningRequired.has(model);
+    const first = await ask(off);
+    if (!first?.error || !off) return first;
+    signal?.throwIfAborted();
+    const retry = await ask(false);
+    if (!retry?.error) reasoningRequired.add(model);
+    return retry;
+}
+
 // A saved profile keeps Choices off the roleplay connection. Reasoning models spend part of the
 // budget thinking, so this allows more tokens than the main path; the reply is still three lines.
 export async function generateWithProfile(ctx, profileId, signal, { service } = {}) {
@@ -85,23 +111,23 @@ export const mainApiAdapter = {
         const [{ oai_settings, getChatCompletionModel, createGenerationParameters }, { yaml }] = await Promise.all([
             import('../../../openai.js'), import('../../../../lib.js'),
         ]);
-        const settings = structuredClone(oai_settings);
-        settings.stream_openai = false;
-        settings.show_thoughts = false;
-        settings.reasoning_effort = 'none';
-        settings.openai_max_tokens = 240;
-        settings.n = 1;
-        settings.function_calling = false;
-        settings.enable_web_search = false;
-        const model = getChatCompletionModel(settings);
-        const { generate_data } = await createGenerationParameters(settings, model, 'quiet', choicePrompt(ctx));
-        const body = finalizeChoiceRequest(generate_data, yaml);
-        signal.throwIfAborted();
-        const response = await fetch('/api/backends/chat-completions/generate', {
-            method: 'POST', headers: ctx.getRequestHeaders(), body: JSON.stringify(body), signal,
-        });
-        if (!response.ok) throw new Error(`Choices could not be generated (HTTP ${response.status}). Check your main API connection and refresh.`);
-        const data = await response.json();
+        const prompt = choicePrompt(ctx), model = getChatCompletionModel(oai_settings);
+        // Reasoning off is cheaper and faster; a model that refuses it is asked again with it on,
+        // with room for the thinking it then does.
+        const ask = async off => {
+            const settings = structuredClone(oai_settings);
+            Object.assign(settings, { stream_openai: false, openai_max_tokens: off ? 240 : 600, n: 1, function_calling: false, enable_web_search: false });
+            if (off) Object.assign(settings, { show_thoughts: false, reasoning_effort: 'none' });
+            const { generate_data } = await createGenerationParameters(settings, getChatCompletionModel(settings), 'quiet', prompt);
+            const body = off ? finalizeChoiceRequest(generate_data, yaml) : finalizeReasoningRequest(generate_data, yaml, 600);
+            signal.throwIfAborted();
+            const response = await fetch('/api/backends/chat-completions/generate', {
+                method: 'POST', headers: ctx.getRequestHeaders(), body: JSON.stringify(body), signal,
+            });
+            if (!response.ok) throw new Error(`Choices could not be generated (HTTP ${response.status}). Check your main API connection and refresh.`);
+            return response.json();
+        };
+        const data = await preferReasoningOff(model, ctx.extensionSettings?.genshin_dialogue_ui?.choicesBypassReasoning !== false, ask, signal);
         if (data.error) throw new Error('The main API could not generate choices. Check its connection and refresh.');
         const content = ctx.extractMessageFromData(data, 'openai');
         return parseChoices(content);
