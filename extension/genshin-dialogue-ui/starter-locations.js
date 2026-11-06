@@ -2,7 +2,7 @@ import {backgroundRegions} from './backgrounds.js';
 import {mediaSettings} from './media-store.js';
 import {validMapPoint} from './world-data.js';
 
-const starterCatalogVersion=13;
+const starterCatalogVersion=14;
 const OLD_STARFELL_DESCRIPTION='A lake in Starfell Valley, with a Statue of The Seven on the island. The point and archive image show the in-game overlook.';
 // Import once per user. Removing or editing a starter remains respected.
 export function seedWorldLocations(ctx,catalog,availableMusic=[]){

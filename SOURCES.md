@@ -132,6 +132,12 @@ The installed `public/scripts/group-chats.js` can draft a speaker before the use
 - Skill medallion glyphs: derived locally from the Genius Invokation skill icons already downloaded by `tools/build-battle-icons.py`, by `tools/build-skill-glyphs.py` (no extra downloads).
 - Genshin Impact Wiki Paimon menu icons (`Icon Events`, `Icon Adventurer Handbook`, `Icon Character`, `Icon Map`, `Icon Photo Mode`, `Icon Community`, `Icon Photo Mode Settings`, `Icon Character Card`, `Icon Back`, `Icon Settings`), downloaded by `tools/build-menu-icons.py`. Icon artwork belongs to HoYoverse.
 
+## World map badges and catalog 14
+
+- Waypoint badges (`assets/icons/map-badge-*.webp`): `people` is the Genshin Impact Wiki file `Icon Dialogue Talk White.png` (the in-game dialogue glyph); `wilderness` is the HoYoLAB interactive map's Hilichurl enemy-category icon (map label 55, from the public `label/tree` endpoint); `boss` is the Genshin Impact Wiki file `Domain Keeper Icon.png`. Each was shrunk to at most 64 px. Icon artwork belongs to HoYoverse.
+- Catalog 14 backgrounds: Genshin Impact Wiki API location images and HoYoLAB interactive-map viewpoint and Teleport Waypoint photos, one source per entry in [LOCATION-CATALOG.md](LOCATION-CATALOG.md). Music: wiki Soundtrack Usage for track choice; audio from the kuutar OST library, listed in `audio-library/2026-11-06/map-music.json`.
+- Map art: HoYoLAB tile version `bd70cde160dbd523926208d9fa8961a1` overview tiles (see [MAP-RESEARCH.md](MAP-RESEARCH.md)).
+
 ## Loading screen
 
 - Region emblems (`assets/regions/`) are the white `Emblem_<Region>_White` files from the [Genshin Impact Wiki API](https://genshin-impact.fandom.com/api.php), downloaded by `tools/fetch-region-emblems.py` into the external data pack. Layout and colours follow the game's loading screen, estimated visually. Element icons reuse the battle assets.

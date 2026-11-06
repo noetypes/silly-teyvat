@@ -1,3 +1,19 @@
+# Silly Teyvat 1.60.0: Eighty new places and map badges
+
+- **Ten new places in every region.** The world map gains 80 destinations chosen for their story and
+  for filling empty stretches of the map: Dragonspine's Entombed City and Skyfrost Nail, Millhaven,
+  Sal Terrae, Chenyu Vale's Jademouth, Musoujin Gorge, Khaj-Nisut, Fleuve Cendre, the Faded Castle,
+  Villa Guiztli, Starsand Shoal, Old Kitezhgrad, Zapolyarny Palace and more. Each has its own
+  background, the music the game plays there, and, for the 49 wild ones, enemies that fit the place.
+  They arrive on their own the next time the extension loads; places you deleted or edited stay as
+  they are.
+- **Badges beside each waypoint.** A speech bubble means characters are there, a hilichurl means
+  Wilderness, and a gold emblem means a boss. They follow your changes: place or move a character,
+  switch Wilderness on or off, or put a boss in a waypoint's enemy list, and the map updates. The
+  waypoint list shows the same badges.
+- **Up-to-date map art.** The map now uses HoYoLAB's current artwork, which draws eastern Snezhnaya
+  (Novokitezhgrad and Wingspan Peak). Existing waypoints keep their positions.
+
 # Silly Teyvat 1.59.2: Original is a set like any other
 
 - **Rename or delete Original.** In Character Customization → Outfits, the character's own sprite

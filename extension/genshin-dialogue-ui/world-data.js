@@ -11,7 +11,8 @@ import {promptText,renderPrompt} from './prompt-templates.js';
 import {abyssAvatar} from './twin-roles.js';
 
 // Coordinates are native HoYoLAB map units, not screen pixels or latitude.
-export const TEYVAT_MAP=Object.freeze({id:'teyvat',mapId:2,width:36864,height:18432,origin:[24206,8918],version:'eea752b746ae1f2e0c1988a574f2b7b0',metresPerUnit:1});
+// Waypoint x/y never change with the art version; only the tile grid's size and origin do.
+export const TEYVAT_MAP=Object.freeze({id:'teyvat',mapId:2,width:36864,height:32768,origin:[24207,16411],version:'bd70cde160dbd523926208d9fa8961a1',metresPerUnit:1});
 export const WORLD_PROMPT_KEY='silly_teyvat_world_scale';
 export const REGION_NAMES=['Mondstadt','Liyue','Inazuma','Sumeru','Fontaine','Natlan','Nod-Krai','Snezhnaya'];
 export function validMapPoint(point){return point?.mapId==='teyvat'&&Number.isFinite(point.x)&&Number.isFinite(point.y)&&point.x>=-TEYVAT_MAP.origin[0]&&point.x<=TEYVAT_MAP.width-TEYVAT_MAP.origin[0]&&point.y>=-TEYVAT_MAP.origin[1]&&point.y<=TEYVAT_MAP.height-TEYVAT_MAP.origin[1];}

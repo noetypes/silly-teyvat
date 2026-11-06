@@ -12,6 +12,7 @@ import {musicSummary} from './location-music-state.js';
 import {mediaSettings} from './media-store.js';
 import {isJourneyGroup,createJourneyLibraryAdapter} from './journey-library.js';
 import {mountCardPoolMenu,locationCardPool,cardPoolSummary} from './card-pools.js';
+import {waypointBadges,badgeLabels,badgeMarkup} from './waypoint-badges.js';
 
 const svg=path=>`<svg viewBox="0 0 24 24" aria-hidden="true">${path}</svg>`;
 const ICON={
@@ -26,14 +27,14 @@ const ICON={
 // Nation bounds [west, east, north, south] in map units, from the bundled waypoint catalog
 // (assets/world-locations/catalog.json), used by the top region selector.
 const NATIONS=[
-    {name:'Mondstadt',element:'anemo',bounds:[-484.5,1355,-1187.5,986]},
-    {name:'Liyue',element:'geo',bounds:[-2638,399,13,2993]},
-    {name:'Inazuma',element:'electro',bounds:[57,3940,4805,8368.5]},
-    {name:'Sumeru',element:'dendro',bounds:[-4907,-2512.8,2173,4740]},
-    {name:'Fontaine',element:'hydro',bounds:[-5705.2,-3622.1,-2428,-316]},
-    {name:'Natlan',element:'pyro',bounds:[-11007,-8431,3544.5,5520]},
-    {name:'Nod-Krai',element:'cryo',bounds:[-11926.88,-9695,-4000,791.5]},
-    {name:'Snezhnaya',element:'cryo',bounds:[-8460,-6264,-7994,-5326]},
+    {name:'Mondstadt',element:'anemo',bounds:[-873.5,1355,-1556.5,1452]},
+    {name:'Liyue',element:'geo',bounds:[-3599.9,399,-151.7,3238.5]},
+    {name:'Inazuma',element:'electro',bounds:[-245,3940,4155,8978]},
+    {name:'Sumeru',element:'dendro',bounds:[-7636,-2512.8,1747,5472]},
+    {name:'Fontaine',element:'hydro',bounds:[-5990.5,-3622.1,-2460.5,1078]},
+    {name:'Natlan',element:'pyro',bounds:[-15824,-8431,795.5,5520]},
+    {name:'Nod-Krai',element:'cryo',bounds:[-11926.9,-9377.6,-4000,821.5]},
+    {name:'Snezhnaya',element:'cryo',bounds:[-9328,-3398.5,-7994,-5326]},
 ];
 const reducedMotion=()=>document.body.classList.contains('gi-reduced-motion') || Boolean(globalThis.matchMedia?.('(prefers-reduced-motion: reduce)').matches);
 
@@ -129,8 +130,10 @@ export function mountWorldMap({host,getContext,adapter=createMediaAdapter(getCon
     function paintDraft(){if(draftMarker)draftMarker.remove();draftMarker=null;if(draft&&map)draftMarker=L.marker(toLatLng(draft),{icon:waypointIcon({draft:true}),interactive:false}).addTo(map);}
     function paintMarkers(){
         if(!map)return;markers.clearLayers();const current=activeWorldLocation(getContext());
-        for(const item of worldWaypoints(getContext())){
-            const marker=L.marker(toLatLng(item.point),{icon:waypointIcon({current:current?.location.id===item.location.id,selected:dialog.dataset.view==='details'&&selectedId===item.location.id}),title:item.location.label,alt:item.location.label,keyboard:true});
+        const ctx=getContext();
+        for(const item of worldWaypoints(ctx)){
+            const badges=waypointBadges(ctx,item.location),name=badges.length?`${item.location.label} (${badgeLabels(badges)})`:item.location.label;
+            const marker=L.marker(toLatLng(item.point),{icon:waypointIcon({current:current?.location.id===item.location.id,selected:dialog.dataset.view==='details'&&selectedId===item.location.id,badges:badgeMarkup(badges)}),title:name,alt:name,keyboard:true});
             const tooltip=element('span',item.location.label);marker.bindTooltip(tooltip,{direction:'top',offset:[0,-30]}).addTo(markers);
             marker.on('click',event=>{L.DomEvent.stopPropagation(event);if(busy)return;cue('waypoint');select(item);});
         }
@@ -148,6 +151,8 @@ export function mountWorldMap({host,getContext,adapter=createMediaAdapter(getCon
             const b=document.createElement('button');b.type='button';b.dataset.map='select';b.dataset.location=item.location.id;b.dataset.giSound='waypoint';
             const img=document.createElement('img');img.src=waypointGlyph;img.alt='';
             const text=document.createElement('span');text.append(element('b',item.location.label),element('small',item.region.name));b.append(img,text);
+            const badges=waypointBadges(ctx,item.location);
+            if(badges.length){const marks=document.createElement('span');marks.className='gi-map-list-badges';marks.title=badgeLabels(badges);marks.innerHTML=badgeMarkup(badges);b.append(marks);b.setAttribute('aria-label',`${item.location.label}, ${item.region.name}. ${badgeLabels(badges)}`);}
             if(current?.location.id===item.location.id)b.dataset.current='true';
             b.setAttribute('aria-current',String(dialog.dataset.view!=='list'&&selectedId===item.location.id));return b;
         }));

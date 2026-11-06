@@ -30,6 +30,7 @@ export function makeMap(element,{interactive=true,details=true,zoomControl=inter
 }
 const waypointAsset=new URL('assets/icons/Teleport_Waypoint.webp',import.meta.url).href;
 export const waypointGlyph=waypointAsset;
-export function waypointIcon({current=false,draft=false,selected=false}={}){return L.divIcon({className:`gi-waypoint${current?' gi-waypoint-current':''}${draft?' gi-waypoint-draft':''}${selected?' gi-waypoint-selected':''}`,html:`<i class="gi-waypoint-halo" aria-hidden="true"></i><img src="${waypointAsset}" alt="" aria-hidden="true" draggable="false">`,iconSize:[32,40],iconAnchor:[16,36]});}
+// `badges` is trusted markup from waypoint-badges.js (fixed icon URLs, no user text).
+export function waypointIcon({current=false,draft=false,selected=false,badges=''}={}){return L.divIcon({className:`gi-waypoint${current?' gi-waypoint-current':''}${draft?' gi-waypoint-draft':''}${selected?' gi-waypoint-selected':''}`,html:`<i class="gi-waypoint-halo" aria-hidden="true"></i><img src="${waypointAsset}" alt="" aria-hidden="true" draggable="false">${badges}`,iconSize:[32,40],iconAnchor:[16,36]});}
 // Genshin-style "you are here" arrow, drawn over the current waypoint.
 export function playerIcon(){return L.divIcon({className:'gi-map-player',html:'<i class="gi-map-player-pulse" aria-hidden="true"></i><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5 20 21l-8-4.6L4 21z"/></svg>',iconSize:[30,30],iconAnchor:[15,15]});}

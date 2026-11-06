@@ -6,8 +6,6 @@ export const CHARACTER_TASTES={
     'Paimon':{likes:['sweet-madame','adeptus-temptation','fried-egg','treasure-seelie'],dislikes:['chenyu-brew'],note:'Happy with almost any good meal, especially a big one; bitter drinks are the exception.',guessed:true},
     'Aether':{likes:['sweet-madame','adeptus-temptation','treasure-seelie'],dislikes:['sing-heart-out'],note:'A traveller who eats whatever the road offers and enjoys a good home-cooked meal.',guessed:true},
     'Lumine':{likes:['sweet-madame','adeptus-temptation','treasure-seelie'],dislikes:['sing-heart-out'],note:'A traveller who eats whatever the road offers and enjoys a good home-cooked meal.',guessed:true},
-    'Manekin':{likes:['nre','parametric-transformer'],dislikes:['roulette-special'],note:'A mechanical puppet that treats food as an interesting experiment.',guessed:true},
-    'Manekina':{likes:['nre','parametric-transformer'],dislikes:['roulette-special'],note:'A mechanical puppet that treats food as an interesting experiment.',guessed:true},
     'Albedo':{likes:['rainbow-macarons','autumn-frost','glittering-gemstones'],dislikes:['northern-chicken','gilded-hall'],note:'Enjoys dessert as a quick boost; large portions of meat defeat his small appetite.'},
     'Alhaitham':{likes:['sweet-madame','hash-brown','nre'],dislikes:['mystique-soup','adeptus-temptation'],note:'Values taste over presentation; soups are awkward to eat while reading.'},
     'Aino':{likes:['puff-pops','rainbow-macarons','glittering-gemstones'],dislikes:['nre','chenyu-brew'],note:'Runs on sugar; hard, unsweetened flatbread is unforgivable.'},

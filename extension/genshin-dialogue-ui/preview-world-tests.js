@@ -1,6 +1,6 @@
 import {mountWorldMap} from './world-map.js';
 import {mountBackgrounds,travelState,selectRegion,visitLocation} from './backgrounds.js';
-import {saveWaypoint,setWaypointArtwork,teleportTo,worldWaypoints,WORLD_PROMPT_KEY,mapDistance} from './world-data.js';
+import {saveWaypoint,setWaypointArtwork,teleportTo,worldWaypoints,WORLD_PROMPT_KEY,mapDistance,TEYVAT_MAP} from './world-data.js';
 import {mapCRS,toMapPoint,toLatLng} from './map-engine.js';
 
 export async function runWorldMapTests(){
@@ -21,9 +21,18 @@ export async function runWorldMapTests(){
         sync();check('minimap is available before a current background is mapped',!$('#gi-minimap').hidden&&$('#gi-minimap').classList.contains('gi-minimap-unlocated'));
         $('#gi-minimap').click();await pause();check('clicking the minimap opens the full interactive map', $('#gi-world-map').open&&!!$('[data-map="zoom-in"]')&&!!$('.gi-map-zoom-range')&&$('#gi-world-map').dataset.enter==='minimap');
         check('map renders bundled overview tiles with visible attribution',!!$('.gi-map-canvas img.leaflet-tile')&&$('.gi-map-attribution').textContent.includes('HoYoverse')&&$('.gi-map-attribution').textContent.includes('Kongying'));
-        const ll=toLatLng(point(123,456)),roundtrip=toMapPoint(ll),projected=mapCRS.latLngToPoint(ll,0);check('flat coordinate projection and inverse preserve east and south axes',roundtrip.x===123&&roundtrip.y===456&&projected.x===123+24206&&projected.y===456+8918);
+        const ll=toLatLng(point(123,456)),roundtrip=toMapPoint(ll),projected=mapCRS.latLngToPoint(ll,0);check('flat coordinate projection and inverse preserve east and south axes',roundtrip.x===123&&roundtrip.y===456&&projected.x===123+TEYVAT_MAP.origin[0]&&projected.y===456+TEYVAT_MAP.origin[1]);
         check('all saved regions appear as clickable waypoint choices',sidebarButtons().length===3&&$('#gi-world-map').dataset.view==='list'&&$$('[data-map="region"]').length===3);
         function sidebarButtons(){return [...$('.gi-map-waypoint-list').querySelectorAll('[data-map="select"]')];}
+        {
+            const badgesFor=id=>[...host.querySelectorAll('.leaflet-marker-icon')].filter(m=>m.title?.startsWith(worldWaypoints(ctx).find(w=>w.location.id===id).location.label)).flatMap(m=>[...m.querySelectorAll('.gi-waypoint-badge')].map(b=>b.dataset.badge)).join(',');
+            ctx.characters=[{avatar:'Klee.png',name:'Klee'},{avatar:'Dvalin.png',name:'Dvalin'},{avatar:'Hilichurl Fighter.png',name:'Hilichurl Fighter'}];
+            lake.location.residents=['Klee.png'];Object.assign(tree.location,{wilderness:true,enemyPool:['Hilichurl Fighter.png']});Object.assign(port.location,{wilderness:true,enemyPool:['Hilichurl Fighter.png','Dvalin.png']});sync();await pause();
+            check('waypoint badges show characters, wilderness and boss from live settings',badgesFor(lake.location.id)==='people'&&badgesFor(tree.location.id)==='wilderness'&&badgesFor(port.location.id)==='boss'&&sidebarButtons().find(b=>b.dataset.location===lake.location.id).querySelector('[data-badge="people"]'));
+            lake.location.residents=[];tree.location.wilderness=false;port.location.enemyPool=['Hilichurl Fighter.png'];sync();await pause();
+            check('waypoint badges follow resident, wilderness and boss changes',badgesFor(lake.location.id)===''&&badgesFor(tree.location.id)===''&&badgesFor(port.location.id)==='wilderness'&&!host.querySelector('.gi-map-waypoint-list [data-badge]')?.closest(`[data-location="${lake.location.id}"]`));
+            delete ctx.characters;delete tree.location.wilderness;delete tree.location.enemyPool;delete port.location.wilderness;delete port.location.enemyPool;delete lake.location.residents;sync();await pause();
+        }
         sidebarButtons().find(b=>b.dataset.location===port.location.id).click();await pause();check('existing waypoint details show its description and Teleport action',$('#gi-world-map').dataset.view==='details'&&!$('.gi-map-sidebar').hidden&&$('.gi-map-sidebar').textContent.includes('The port.')&&!!$('[data-map="teleport"]'));
         check('waypoint details have no source link and the picture is a button',!$('.gi-map-source')&&!!$('.gi-map-artwork-button img')&&!$('.gi-map-sidebar').textContent.includes('Background source'));
         const oldArt=port.location.path,chooser=$('.gi-map-artwork-button + input'),artFiles=new DataTransfer(),realUpload=adapter.upload;adapter.upload=async()=>({path:'/user/files/new-art.png'});artFiles.items.add(new File(['x'],'new.png',{type:'image/png'}));chooser.files=artFiles.files;chooser.dispatchEvent(new Event('change'));await pause();await pause();adapter.upload=realUpload;

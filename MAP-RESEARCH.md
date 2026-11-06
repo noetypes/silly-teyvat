@@ -17,11 +17,11 @@ The result is an integration of Leaflet and Kongying's map-coordinate approach w
 
 The public [HoYoLAB map metadata](https://sg-public-api-static.hoyolab.com/common/map_user/ys_obc/v1/map/info?map_id=2&app_sn=ys_obc&lang=en-us) supplies the current Teyvat `detail_v2` grid. The bundled snapshot is recorded in `assets/map/map.json`:
 
-- Map ID 2, tile version `eea752b746ae1f2e0c1988a574f2b7b0`.
-- Grid 36,864 × 18,432 native units; origin at (24,206, 8,918).
+- Map ID 2, tile version `bd70cde160dbd523926208d9fa8961a1` (updated 6 November 2026; previously `eea752b746ae1f2e0c1988a574f2b7b0`).
+- Grid 36,864 × 32,768 native units; origin at (24,207, 16,411) (previously 36,864 × 18,432 at (24,206, 8,918)).
 - Native coordinates increase east on x and south on y. These are flat map coordinates, not geographic longitude and latitude.
 - Tile path: `https://act-webstatic.hoyoverse.com/map_manage/map/2/<version>/<x>_<y>_<zoom>.webp`, where zoom suffixes are N3, N2, N1 and P0.
-- All 162 N3 overview tiles are bundled locally, approximately 1.62 MB. Finer tiles load on demand. If finer tiles fail, the underlying local overview remains available.
+- All 288 N3 overview tiles are bundled locally, approximately 2.6 MB (162 tiles before the update). Finer tiles load on demand. If finer tiles fail, the underlying local overview remains available.
 
 Map artwork is © HoYoverse. Its ownership is separate from the open-source software licenses. The map displays the art credit and links to Leaflet and Kongying Tavern. The package contains no proprietary map application JavaScript, account integration or official collectible dataset.
 
@@ -62,3 +62,7 @@ The installed SillyTavern 1.19.0 source was checked for `setExtensionPrompt`, `e
 ## Starter encounters, 25 October 2026
 
 The live official map anchor and point APIs include mainland Snezhnaya as well as Nod-Krai. The starter set therefore covers eight visible regions with five waypoints each. No off-map future region is added. The exact selections, cards and sources are listed in [LOCATION-CATALOG.md](LOCATION-CATALOG.md). Viewpoint/merchant/meeting-point coordinates are used where available; remaining interiors are approximate pins within official city bounds. Users can move these markers without losing artwork or home assignments.
+
+## Map art update, 6 November 2026
+
+The HoYoLAB map had moved to tile version `bd70cde160dbd523926208d9fa8961a1`, which draws eastern Snezhnaya (Novokitezhgrad and Wingspan Peak). The old art showed only sea there. The current `detail_v2` metadata gives a taller grid (36,864 × 32,768) with its origin at (24,207, 16,411). Marker coordinates are unchanged between versions: every existing waypoint and the 80 catalog-14 pins were plotted on the new overview and land on the same terrain. Only the tile grid moved, so no waypoint migration was needed; the one-unit change in the x origin is the API's own value. `world-data.js` (`TEYVAT_MAP`) and `assets/map/map.json` carry the new contract. The 162 old overview tiles were moved, not deleted, to `silly-teyvat-data/backups/map-overview-eea752b-2026-11-06/` and replaced with the 288 tiles of the new grid.
