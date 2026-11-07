@@ -8,7 +8,8 @@ import {NARRATOR_AVATAR} from './narrator.js';
 import {personaCard} from './persona-wardrobe.js';
 import {syncPromptOrder} from './prompt-order.js';
 import {DIFFICULTY,partyScale} from './battle-engine.js';
-import {STARTER_BAG,restockBag} from './battle-items.js';
+import {restockBag} from './battle-items.js';
+import {journeyBag} from './starter-decks.js';
 import {COMBAT_COMPANIONS} from './combat-kits.js';
 export const DICE_FACES=[...ELEMENTS,'Omni'];
 export const combatIdentity=ctx=>`${ctx.groupId || ctx.characterId}:${ctx.getCurrentChatId?.() || ctx.chatId || ''}`;
@@ -80,7 +81,7 @@ export function partyMember(ctx,avatar){
     return {avatar,name,hp:entry.hp,maxHp:max,downed:entry.hp<=0};
 }
 export const partyStatus=ctx=>partyMembers(ctx).map(a=>partyMember(ctx,a));
-export function healParty(ctx){for(const avatar of partyMembers(ctx)){const m=partyMember(ctx,avatar);partyStore(ctx)[avatar].hp=m.maxHp;}for(const entry of Object.values(partyStore(ctx)))entry.hp=entry.maxHp;combatState(ctx).battles={};restockBag(combatState(ctx).bag ??= {...STARTER_BAG});}
+export function healParty(ctx){for(const avatar of partyMembers(ctx)){const m=partyMember(ctx,avatar);partyStore(ctx)[avatar].hp=m.maxHp;}for(const entry of Object.values(partyStore(ctx)))entry.hp=entry.maxHp;const store=combatState(ctx);store.battles={};restockBag(journeyBag(ctx,store),store.starter);}
 export const userDefeated=ctx=>partyMember(ctx,USER_KEY).hp<=0;
 const partyLine=ctx=>partyStatus(ctx).map(m=>`${m.name}: ${m.hp}/${m.maxHp} HP${m.downed?' (downed)':''}`).join('; ');
 export function combatPrompt(ctx){

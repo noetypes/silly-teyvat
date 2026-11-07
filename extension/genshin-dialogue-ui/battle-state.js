@@ -9,14 +9,15 @@ import {linkedCard} from './persona-link.js';
 import {activePersonaAvatar,personaKey} from './persona-wardrobe.js';
 import {activeGroup} from './party.js';
 import {resonanceOf,planIntent,innateAura,auraList} from './battle-engine.js';
-import {STARTER_BAG,addToBag} from './battle-items.js';
+import {addToBag} from './battle-items.js';
+import {journeyBag} from './starter-decks.js';
 
 // Genius Invokation TCG card art, for characters and enemies that have a card of the same name.
 let tcgCards=new Set();
 export const tcgCardsReady=fetch(new URL('./assets/tcg/characters.json',import.meta.url)).then(r=>r.ok?r.json():[]).then(list=>{tcgCards=new Set(list);}).catch(()=>{});
 export const tcgArt=name=>name&&tcgCards.has(name)?new URL(`./assets/tcg/characters/${encodeURIComponent(String(name).replace(/:/g,''))}.webp`,import.meta.url).href:'';
-// The party's shared item bag, saved per chat. A new chat starts with a few basics.
-export const partyBag=ctx=>combatState(ctx).bag ??= {...STARTER_BAG};
+// The party's shared item bag, saved per chat. A new journey starts with its character's starter deck.
+export const partyBag=ctx=>journeyBag(ctx,combatState(ctx));
 
 // Where a fighter's moveset edits are saved: the card avatar, or the persona key for your own persona.
 export function kitKey(ctx,ally){

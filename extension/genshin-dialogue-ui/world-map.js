@@ -36,6 +36,8 @@ const NATIONS=[
     {name:'Nod-Krai',element:'cryo',bounds:[-11926.9,-9377.6,-4000,821.5]},
     {name:'Snezhnaya',element:'cryo',bounds:[-9328,-3398.5,-7994,-5326]},
 ];
+// The closest zoom out (Leaflet zoom, -5 to 1) at which waypoint badges still show.
+const BADGE_ZOOM=-2;
 const reducedMotion=()=>document.body.classList.contains('gi-reduced-motion') || Boolean(globalThis.matchMedia?.('(prefers-reduced-motion: reduce)').matches);
 
 export function mountWorldMap({host,getContext,adapter=createMediaAdapter(getContext),onChange=()=>{},announce=()=>{},prepareTeleport=async()=>({decisions:[]}),commitTeleport=()=>true,onTeleport=()=>{},retryCast=()=>{},openMusic=()=>{},openMusicLibrary=()=>{},openJourney=id=>createJourneyLibraryAdapter().open(id)}){
@@ -82,6 +84,8 @@ export function mountWorldMap({host,getContext,adapter=createMediaAdapter(getCon
         const power=10**Math.floor(Math.log10(metres || 1)),nice=[1,2,5,10].map(n=>n*power).filter(n=>n<=metres).at(-1) || power;
         $('.gi-map-scale').textContent=formatDistance(nice);$('.gi-map-scale').style.width=`${100*nice/metres}px`;
         const range=$('.gi-map-zoom-range');range.value=map.getZoom();dialog.style.setProperty('--gi-map-zoom',(map.getZoom()-map.getMinZoom())/(map.getMaxZoom()-map.getMinZoom()));
+        // Waypoint badges only show once you are zoomed in to a region, so far out they never pile onto the waypoints.
+        dialog.classList.toggle('gi-map-near',map.getZoom()>=BADGE_ZOOM);
     }
     // Keep the target clear of the detail card: right column on wide screens, bottom sheet on portrait phones.
     function flyTo(point,zoom){
@@ -145,7 +149,7 @@ export function mountWorldMap({host,getContext,adapter=createMediaAdapter(getCon
         const ctx=getContext(),points=worldWaypoints(ctx),current=activeWorldLocation(ctx),regions=[...new Map(points.map(p=>[p.region.id,p.region])).values()];
         if(regionFilter&&!regions.some(r=>r.id===regionFilter))regionFilter='';
         const chips=[['','All'],...regions.map(r=>[r.id,r.name])].map(([id,name])=>{const b=button(name,'region');b.dataset.region=id;b.setAttribute('aria-pressed',String(regionFilter===id));return b;});
-        $('.gi-map-regions').replaceChildren(...chips);$('#gi-world-map-title').textContent=regions.find(r=>r.id===regionFilter)?.name || 'Teyvat';
+        $('.gi-map-regions').replaceChildren(...chips);paintHere(ctx);
         const shown=points.filter(p=>!regionFilter||p.region.id===regionFilter);
         list.replaceChildren(...shown.map(item=>{
             const b=document.createElement('button');b.type='button';b.dataset.map='select';b.dataset.location=item.location.id;b.dataset.giSound='waypoint';
@@ -257,8 +261,15 @@ export function mountWorldMap({host,getContext,adapter=createMediaAdapter(getCon
         const actions=document.createElement('div');actions.className='gi-map-card-actions';const centre=button('Place at map centre','place-centre');centre.className='gi-map-teleport gi-map-save';actions.append(button('Cancel','cancel'),centre);
         sidebar.replaceChildren(cardHead('Place a waypoint','',false),actions);setView('place');status('Tap the map, or place it at the centre.');
     }
+    // The heading names the region the party is in, with the place below it. It follows where you are,
+    // not the camera (that is the region bar) or the waypoint list's region filter.
+    function paintHere(ctx=getContext()){
+        const current=activeWorldLocation(ctx),travel=travelState(ctx);
+        $('#gi-world-map-title').textContent=current?.region.name || backgroundRegions(ctx).find(r=>r.id===travel.regionId)?.name || 'Teyvat';
+        $('.gi-map-current').textContent=current?.location.label || travel.location?.label || '';
+    }
     function refresh({sidebarRefresh=false}={}){
-        const ctx=getContext(),current=activeWorldLocation(ctx);$('.gi-map-current').textContent=current?`${current.location.label} · ${current.region.name}`:travelState(ctx).location?.label || '';
+        const ctx=getContext();paintHere(ctx);
         const journeys=(ctx.groups || []).filter(isJourneyGroup),select=$('.gi-saved-journeys select'),selected=select.value;
         select.replaceChildren(...journeys.map(g=>new Option(`${g.name} · ${g.id}`,g.id)));
         if(journeys.some(g=>String(g.id)===selected))select.value=selected;

@@ -1,3 +1,31 @@
+# Silly Teyvat 1.62.0: Starter decks and weapon-style attacks
+
+- **Starter decks.** A new journey now starts with ten cards in the bag: the Starter deck of the
+  character it was started with. Set any ten cards (at most four of one) in Character
+  Customization → Profile → Starter deck, or turn on **Randomize** to deal ten random cards to each
+  new journey (60% common, 30% uncommon, 10% rare). A rest in town or a rescue tops the bag back up
+  to the deck the journey started with. Journeys that already have cards keep them.
+- **Attacks shaped by the weapon.** Normal Attacks, Skills and Bursts move the way the character's
+  weapon fights: sword dashes and crossing cuts, claymore cleaves and shockwaves, polearm jabs and
+  plunges, bow draws and charged shots, catalyst sigils and rune circles, and punches when unarmed.
+- **The Burst in the card** now opens with the Burst's own icon slamming in on rings of its element,
+  then bursts into the splash art through a widening iris and a flash.
+- **A new Victory screen:** a gold crest with beams turning around its centre, a band of light, a
+  shine across the title and twinkling stars, with damage, reactions, cards and Exit arriving in
+  turn. Hover a card you found to enlarge it and read what it does. Exit sits in front of the beams
+  and matches the other buttons.
+- **The table:** the coin shows 1 on one side and 2 on the other, the Battle Select sword glows
+  with a turning ring instead of a square, Flee has a new running figure, and the three-star button
+  is now a labelled **Auto** (it plays your best move for you). The hand's card count is gone, and
+  played cards keep clear of the deck, Auto/Flee and your name plate.
+- **Phones:** held upright, the whole hand shows along the bottom; choosing a skill or card turns
+  the dice drawer into a strip across the table so it never covers a target, and the board no longer
+  opens with a tooltip over it.
+- **The map:** monster and chat badges sit left of each waypoint and only show once you zoom in to a
+  region. The heading always names the region you are in, with your place below it, whatever region
+  the waypoint list is filtered to.
+- **Settings:** the long note under the Silly Teyvat switch is now a tooltip on the switch.
+
 # Silly Teyvat 1.61.0: Battles played like Genius Invokation
 
 - **Turns, as in the TCG.** Each armed message now plays a round live on the board. Your active

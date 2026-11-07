@@ -320,8 +320,6 @@ body.gi-reduced-motion :is(#gi-toolbar, #gi-toolbar > *, #gi-menu-scrim, .gi-ene
 #gi-settings .gi-features { margin-bottom: 12px; }
 #gi-settings .gi-master { min-height: 48px; background: linear-gradient(90deg, #d3bc8e2e, #d3bc8e0d); box-shadow: inset 0 0 0 1px #d3bc8e40; }
 #gi-settings .gi-master > span { color: var(--ty-gold-hi); font-size: 15px; letter-spacing: .04em; }
-#gi-settings .gi-master-note { display: none; }
-#gi-settings[data-master="off"] .gi-master-note { display: block; }
 #gi-settings[data-master="off"] :is(.gi-feature-drawer, .gi-set-tabs, .gi-set-page, .gi-set-footer) { display: none; }
 /* The feature sets fold away under one row; it shows how many are on while closed. */
 #gi-settings .gi-feature-drawer { margin-top: 6px; }

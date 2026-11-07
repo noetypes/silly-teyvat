@@ -1,0 +1,419 @@
+/* ==========================================================================
+   Silly Teyvat 1.62 — attacks shaped by each character's weapon type
+   (battle-weapons.js), and the battle board on phones.
+   Effects are sized from the card height (--ch), so they keep their
+   proportions on a phone held either way.
+   ========================================================================== */
+#gi-battle .gw { position: absolute; z-index: 29; pointer-events: none; translate: -50% -50%; --c: #fff; --hot: color-mix(in srgb, var(--c) 55%, #fff); }
+#gi-battle .gw.gw-big { scale: 1.45; }
+#gi-battle .gw.gw-late { animation-delay: 110ms !important; }
+
+/* Sword: an afterimage on the dash, curved cuts, and the Skill's crossing X. */
+#gi-battle .gw-ghost { translate: none; border-radius: 8px; background: center / cover no-repeat; opacity: 0; filter: saturate(.4) brightness(1.6) drop-shadow(0 0 12px var(--c)); mix-blend-mode: screen; animation: gw-ghost 520ms ease-out both; }
+@keyframes gw-ghost { from { opacity: .7; } to { opacity: 0; transform: scale(.96); } }
+#gi-battle .gw-cut { width: calc(var(--ch) * 1.05); aspect-ratio: 1; border-radius: 50%; border: max(4px, calc(var(--ch) * .035)) solid transparent; border-top-color: var(--hot); filter: drop-shadow(0 0 10px var(--c)) drop-shadow(0 0 3px #fff); rotate: var(--r, -28deg); opacity: 0; animation: gw-cut 360ms cubic-bezier(.2, .7, .3, 1) both; }
+@keyframes gw-cut { from { opacity: 0; transform: rotate(-70deg) scale(.7); } 25% { opacity: 1; } 70% { opacity: 1; } to { opacity: 0; transform: rotate(60deg) scale(1.05); } }
+#gi-battle .gw-cut.gw-cross { width: calc(var(--ch) * 1.3); height: max(5px, calc(var(--ch) * .05)); aspect-ratio: auto; border: 0; border-radius: 50%; background: linear-gradient(90deg, #0000, #fff 45%, var(--hot) 60%, #0000); box-shadow: 0 0 18px 4px color-mix(in srgb, var(--c) 70%, #0000); animation: gw-cross 420ms ease-out both; }
+#gi-battle .gw-cut.gw-cross.gw-late { animation-delay: 140ms !important; }
+@keyframes gw-cross { from { opacity: 0; transform: scaleX(.1) translateX(-45%); } 30% { opacity: 1; transform: scaleX(1); } to { opacity: 0; transform: scaleX(1.1) translateX(15%); } }
+
+/* Claymore: a heavy downward cleave, the Skill's spinning sweep, and a shockwave on the ground. */
+#gi-battle .gw-cleave { width: calc(var(--ch) * 1.35); aspect-ratio: 1; border-radius: 50%; border: max(7px, calc(var(--ch) * .07)) solid transparent; border-left-color: var(--hot); border-top-color: color-mix(in srgb, var(--c) 40%, #0000); filter: drop-shadow(0 0 14px var(--c)) drop-shadow(0 0 3px #fff); opacity: 0; scale: calc(var(--s, 1) * 1) 1; animation: gw-cleave 460ms cubic-bezier(.7, 0, .3, 1) both; }
+#gi-battle .gw-cleave.gw-big { scale: calc(var(--s, 1) * 1.45) 1.45; }
+@keyframes gw-cleave { from { opacity: 0; transform: rotate(-100deg) scale(.7); } 30% { opacity: 1; } 75% { opacity: 1; } to { opacity: 0; transform: rotate(30deg) scale(1.05); } }
+#gi-battle .gw-cleave.gw-spin { border-style: solid; border-color: transparent; border-top-color: var(--hot); border-bottom-color: var(--hot); transform: scaleY(.45); animation: gw-spin 560ms cubic-bezier(.3, .2, .3, 1) both; }
+@keyframes gw-spin { from { opacity: 0; rotate: 0deg; } 20% { opacity: 1; } 80% { opacity: 1; } to { opacity: 0; rotate: 540deg; } }
+#gi-battle .gw-shock { width: calc(var(--ch) * .5); aspect-ratio: 2.6; border-radius: 50%; border: max(3px, calc(var(--ch) * .025)) solid var(--hot); box-shadow: 0 0 16px var(--c), inset 0 0 12px var(--c); opacity: 0; animation: gw-shock 560ms 140ms ease-out both; }
+#gi-battle .gw-shock.gw-small { animation-delay: 60ms; }
+@keyframes gw-shock { from { opacity: 1; transform: scale(.3); } to { opacity: 0; transform: scale(3.2); } }
+
+/* Polearm: straight thrusts that pierce through, and the Skill's plunge from above. */
+#gi-battle .gw-pierce { width: calc(var(--ch) * 1.5); height: max(4px, calc(var(--ch) * .04)); border-radius: 4px; background: linear-gradient(90deg, #0000, color-mix(in srgb, var(--c) 60%, #0000) 45%, var(--hot) 85%, #fff); filter: drop-shadow(0 0 8px var(--c)); rotate: var(--a, -90deg); opacity: 0; animation: gw-pierce 300ms cubic-bezier(.2, .8, .3, 1) both; }
+@keyframes gw-pierce { from { opacity: 0; transform: translate(-70%, var(--o, 0px)) scaleX(.3); } 30% { opacity: 1; } to { opacity: 0; transform: translate(25%, var(--o, 0px)) scaleX(1); } }
+#gi-battle .gw-plunge { width: max(6px, calc(var(--ch) * .055)); height: calc(var(--ch) * 1.5); border-radius: 6px; translate: -50% -100%; background: linear-gradient(#0000, color-mix(in srgb, var(--c) 60%, #0000) 40%, var(--hot) 85%, #fff); filter: drop-shadow(0 0 10px var(--c)); opacity: 0; animation: gw-plunge 340ms cubic-bezier(.6, 0, .9, .5) both; }
+@keyframes gw-plunge { from { opacity: 0; transform: translateY(-60%); } 30% { opacity: 1; } 85% { opacity: 1; transform: translateY(8%); } to { opacity: 0; transform: translateY(10%) scaleY(.3); } }
+
+/* Bow: the string drawn at the card, the arrow, a target reticle for the aimed shot, and the hit. */
+#gi-battle .gw-bowstring { width: calc(var(--ch) * .2); aspect-ratio: .32; border-radius: 0 999px 999px 0; border: max(3px, calc(var(--ch) * .022)) solid var(--hot); border-left: 0; rotate: var(--a); filter: drop-shadow(0 0 8px var(--c)); opacity: 0; animation: gw-draw 460ms ease-in both; }
+#gi-battle .gw-bowstring::after { content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 2px; background: #fff; box-shadow: 0 0 6px var(--c); transform-origin: 50% 50%; animation: gw-string 460ms ease-in both; }
+#gi-battle .gw-bowstring.gw-charged, #gi-battle .gw-bowstring.gw-charged::after { animation-duration: 760ms; }
+@keyframes gw-draw { from { opacity: 0; } 20% { opacity: 1; } 80% { opacity: 1; } to { opacity: 0; } }
+@keyframes gw-string { 0%, 15% { translate: 0 0; } 75% { translate: calc(var(--ch) * -.12) 0; } 82%, 100% { translate: 0 0; } }
+#gi-battle .gw-arrow { translate: none; width: calc(var(--ch) * .5); height: max(3px, calc(var(--ch) * .022)); border-radius: 2px; background: linear-gradient(90deg, #0000, color-mix(in srgb, var(--c) 70%, #fff) 55%, #fff); filter: drop-shadow(0 0 6px var(--c)); z-index: 30; }
+#gi-battle .gw-arrow::after { content: ""; position: absolute; right: calc(var(--ch) * -.05); top: 50%; width: calc(var(--ch) * .08); aspect-ratio: 1.3; translate: 0 -50%; background: #fff; clip-path: polygon(0 0, 100% 50%, 0 100%, 25% 50%); }
+#gi-battle .gw-arrow:not([data-el="Physical"]) { height: max(4px, calc(var(--ch) * .03)); filter: drop-shadow(0 0 10px var(--c)) drop-shadow(0 0 4px var(--c)); }
+#gi-battle .gw-reticle { width: calc(var(--ch) * .9); aspect-ratio: 1; border-radius: 50%; border: 2px solid var(--hot); box-shadow: 0 0 12px var(--c), inset 0 0 10px var(--c); opacity: 0; animation: gw-reticle 760ms ease-out both; background: linear-gradient(var(--hot), var(--hot)) 50% 0 / 2px 18% no-repeat, linear-gradient(var(--hot), var(--hot)) 50% 100% / 2px 18% no-repeat, linear-gradient(var(--hot), var(--hot)) 0 50% / 18% 2px no-repeat, linear-gradient(var(--hot), var(--hot)) 100% 50% / 18% 2px no-repeat; }
+@keyframes gw-reticle { from { opacity: 0; transform: scale(1.8) rotate(-45deg); } 50% { opacity: 1; transform: scale(.9) rotate(0); } 85% { opacity: 1; transform: scale(.8); } to { opacity: 0; transform: scale(.75); } }
+#gi-battle .gw-pin { width: calc(var(--ch) * .42); aspect-ratio: 1; border-radius: 50%; background: radial-gradient(circle, #fff 0 12%, var(--hot) 22%, #0000 60%); opacity: 0; animation: gw-pin 340ms ease-out both; }
+#gi-battle .gw-pin::after { content: ""; position: absolute; inset: 0; border-radius: 50%; border: 2px solid var(--hot); animation: gw-ring 340ms ease-out both; }
+@keyframes gw-pin { from { opacity: 1; transform: scale(.4); } to { opacity: 0; transform: scale(1.4); } }
+@keyframes gw-ring { from { transform: scale(.3); opacity: 1; } to { transform: scale(1.6); opacity: 0; } }
+
+/* Catalyst: a sigil turning at the caster, the orb, a bloom on the hit and the Skill's rune circle. */
+#gi-battle .gw-sigil { width: calc(var(--ch) * .95); aspect-ratio: 1; border-radius: 50%; border: 2px dashed var(--hot); box-shadow: 0 0 14px var(--c), inset 0 0 14px var(--c); opacity: 0; animation: gw-sigil 700ms ease-out both; }
+#gi-battle .gw-sigil::before { content: ""; position: absolute; inset: 16%; border-radius: 50%; border: 2px solid var(--hot); clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%); background: color-mix(in srgb, var(--c) 18%, #0000); }
+#gi-battle .gw-sigil.gw-sigil-big { width: calc(var(--ch) * 1.25); animation-duration: 900ms; }
+@keyframes gw-sigil { from { opacity: 0; transform: rotate(0) scale(.5); } 35% { opacity: 1; } 75% { opacity: 1; } to { opacity: 0; transform: rotate(140deg) scale(1.08); } }
+#gi-battle .gw-orb { translate: none; width: calc(var(--ch) * .26); aspect-ratio: 1; border-radius: 50%; background: radial-gradient(circle, #fff 0 22%, var(--hot) 42%, color-mix(in srgb, var(--c) 60%, #0000) 62%, #0000 72%); box-shadow: 0 0 18px 6px color-mix(in srgb, var(--c) 60%, #0000); z-index: 30; }
+#gi-battle .gw-orb::before { content: ""; position: absolute; inset: -30%; border-radius: 50%; border: 1.5px dashed var(--hot); animation: gw-orbit 400ms linear infinite; }
+@keyframes gw-orbit { to { rotate: 360deg; } }
+#gi-battle .gw-bloom { width: calc(var(--ch) * .7); aspect-ratio: 1; border-radius: 50%; background: radial-gradient(circle, #fff 0 10%, var(--hot) 24%, color-mix(in srgb, var(--c) 50%, #0000) 46%, #0000 66%); opacity: 0; animation: gw-bloom 520ms ease-out both; }
+#gi-battle .gw-bloom::after { content: ""; position: absolute; inset: 8%; border-radius: 50%; border: 2px solid var(--hot); animation: gw-ring 520ms ease-out both; }
+@keyframes gw-bloom { from { opacity: 1; transform: scale(.3); } 40% { opacity: 1; } to { opacity: 0; transform: scale(1.3); } }
+#gi-battle .gw-bloom.gw-rune { width: calc(var(--ch) * 1.1); background: radial-gradient(circle, #fff0 0 30%, color-mix(in srgb, var(--c) 30%, #0000) 50%, #0000 68%); border: 2px dashed var(--hot); box-shadow: 0 0 18px var(--c), inset 0 0 18px var(--c); animation: gw-rune 760ms ease-out both; }
+#gi-battle .gw-bloom.gw-rune::after { inset: 18%; border-style: solid; clip-path: polygon(50% 0, 95% 75%, 5% 75%); background: color-mix(in srgb, var(--c) 20%, #0000); animation: gw-rune-in 760ms ease-out both; }
+@keyframes gw-rune { from { opacity: 0; transform: scale(.4) rotate(0); } 30% { opacity: 1; transform: scale(1) rotate(60deg); } 75% { opacity: 1; } to { opacity: 0; transform: scale(1.15) rotate(150deg); } }
+@keyframes gw-rune-in { from { rotate: 0deg; } to { rotate: -180deg; } }
+
+/* Unarmed: a round impact. */
+#gi-battle .gw-punch { width: calc(var(--ch) * .5); aspect-ratio: 1; border-radius: 50%; border: max(3px, calc(var(--ch) * .03)) solid var(--hot); box-shadow: 0 0 14px var(--c); opacity: 0; animation: gw-ring 360ms ease-out both; }
+
+/* ---- Phones -------------------------------------------------------------------------------
+   The board takes focus itself when it opens; no outline on it. */
+#gi-battle:focus, #gi-battle:focus-visible { outline: none; }
+
+/* Upright phones: the hand is shown whole along the bottom (it used to sit half below the
+   frame), its cards close up to fit the width instead of scrolling out of sight, and the
+   table's centre line moves up a little so the party clears the controls under it. */
+@media (max-aspect-ratio: 4/5) {
+    #gi-battle { --axis: 50%; }
+    #gi-battle .tb-midline, #gi-battle .tb-emblem, #gi-battle .tb-turn, #gi-battle .tb-dice { top: var(--axis); }
+    #gi-battle .tb-row-foe { bottom: calc(100% - var(--axis) + var(--gap)); }
+    #gi-battle .tb-row-you { top: calc(var(--axis) + var(--gap)); }
+    #gi-battle .tb-hand { bottom: max(10px, env(safe-area-inset-bottom)); padding: 12px 6px 4px; overflow: visible; justify-content: center; }
+    #gi-battle .tb-hand.tb-open, #gi-battle .tb-hand:has(.tb-held), #gi-battle .tb-hand:focus-within { bottom: max(10px, env(safe-area-inset-bottom)); }
+    /* Each card gives up just enough width for the whole hand to fit; the cost stays on the visible edge. */
+    #gi-battle .tb-hand .tb-item, #gi-battle .tb-hand:not(.tb-open):not(:has(.tb-held)) .tb-item { margin: 0 min(2px, calc((100% - var(--n) * var(--hh) * .583) / (2 * var(--n)))); transform: none; }
+    #gi-battle .tb-hand .tb-item:hover { transform: translateY(-6px); }
+    #gi-battle .tb-hand .tb-item.tb-held { transform: translateY(-14px) scale(1.04); z-index: 2; }
+    #gi-battle .tb-item-cost { left: -3px; top: -6px; width: 24px; height: 24px; font-size: 13px; }
+    /* The coming damage sits on its own card, clear of the next card's HP. */
+    #gi-battle .tb-incoming { right: -2px; padding: 1px 6px 1px 15px; font-size: 12px; }
+    #gi-battle .tb-incoming::before { left: 5px; width: 6px; height: 6px; }
+}
+/* Tall upright phones: the hand gets the full width at the bottom, with your summons and the
+   skills on a row above it. */
+@media (max-aspect-ratio: 4/5) and (min-height: 700px) {
+    #gi-battle { --axis: 46%; --hand-h: clamp(96px, 14dvh, 124px); }
+    #gi-battle .tb-hand { --hh: var(--hand-h); left: 10px; right: 10px; width: auto; }
+    #gi-battle .tb-skills { bottom: calc(max(10px, env(safe-area-inset-bottom)) + var(--hand-h) + 26px); }
+    #gi-battle .tb-summons-you { bottom: calc(max(10px, env(safe-area-inset-bottom)) + var(--hand-h) + 30px); max-width: calc(100% - 190px); }
+    #gi-battle .tb-order { bottom: calc(max(10px, env(safe-area-inset-bottom)) + var(--hand-h) + 120px); }
+}
+/* Short upright phones: the skills stay beside the hand. */
+@media (max-aspect-ratio: 4/5) and (max-height: 699.98px) {
+    #gi-battle { --hand-h: clamp(84px, 15dvh, 100px); }
+    #gi-battle .tb-hand { --hh: var(--hand-h); left: 10px; width: auto; right: calc(10px + 160px + 6px); }
+    #gi-battle .tb-summons-you { bottom: calc(max(10px, env(safe-area-inset-bottom)) + var(--hand-h) + 32px); }
+}
+@media (max-aspect-ratio: 4/5) and (max-height: 640px) {
+    #gi-battle .tb-hand { right: calc(10px + 136px + 6px); }
+}
+
+/* Choosing a skill or card on an upright phone: the dice drawer becomes a strip across the
+   middle of the table, where the dice row was (it hides while you choose), so it never covers
+   the cards you may tap as targets; the details sit over the hand at the bottom. */
+@media (max-aspect-ratio: 4/5) {
+    /* (The upright layout turns off translate on the board's children, so the strip centres with transform.) */
+    #gi-battle .tb-drawer { top: var(--axis, 50%); bottom: auto; left: 8px; right: 8px; transform: translateY(-50%); width: auto; max-width: none; max-height: none; padding: 5px 10px; gap: 4px 10px; border-radius: 14px;
+        grid-template-columns: minmax(0, 1fr) auto; grid-template-areas: "dice dice" "note actions"; align-items: center; animation-name: tb-slide-up; }
+    @keyframes tb-slide-up { from { opacity: 0; transform: translateY(calc(-50% + 14px)); } }
+    #gi-battle .tb-drawer-dice { grid-area: dice; display: flex; flex-wrap: wrap; justify-content: center; gap: 5px; max-height: none; overflow: visible; padding: 0; }
+    #gi-battle .tb-pick-die { width: 26px; height: 29px; } #gi-battle .tb-pick-die svg, #gi-battle .tb-pick-die img { width: 16px; height: 16px; }
+    #gi-battle .tb-drawer-note { grid-area: note; max-width: none; text-align: left; font-size: 12px; }
+    #gi-battle .tb-drawer-actions { grid-area: actions; display: flex; gap: 6px; width: auto; }
+    #gi-battle .tb-drawer-actions button { min-height: 28px; padding: 0 12px; font-size: 12px; }
+    #gi-battle .tb-detail { left: 8px; right: 8px; width: auto; bottom: max(8px, env(safe-area-inset-bottom)); top: auto; max-height: calc(var(--hand-h, 100px) + 26px); padding: 8px 12px; }
+    #gi-battle .tb-detail strong { font-size: 16px; margin-bottom: 4px; } #gi-battle .tb-detail p { font-size: 12.5px; line-height: 1.38; margin-top: 4px; }
+    #gi-battle .tb-detail-icon { width: 40px; height: 40px; } #gi-battle .tb-detail-card { width: 48px; }
+}
+/* Short landscape phones: the details stay above the middle line, clear of your party, and the
+   drawer stays between the cancel button and the skills. */
+@media (max-height: 560px) and (orientation: landscape) {
+    #gi-battle .tb-detail { top: 8%; max-height: calc(50% - 8% - 12px); }
+    #gi-battle .tb-drawer { top: 58px; translate: none; max-height: calc(100% - 58px - 112px); overflow: auto; width: auto; padding: 8px; gap: 5px; }
+    #gi-battle .tb-drawer-dice { grid-template-columns: repeat(4, 30px); gap: 5px; max-height: none; overflow: visible; }
+    #gi-battle .tb-pick-die { width: 30px; height: 33px; } #gi-battle .tb-pick-die svg, #gi-battle .tb-pick-die img { width: 17px; height: 17px; }
+    #gi-battle .tb-drawer-note { max-width: 150px; font-size: 11px; }
+    /* Tuning shows as its icon beside Confirm, so both fit under the dice. */
+    #gi-battle .tb-drawer-actions { grid-template-columns: auto 1fr; } #gi-battle .tb-drawer-actions:has(.tb-tune[hidden]) { grid-template-columns: 1fr; }
+    #gi-battle .tb-drawer-actions .tb-tune { padding: 0 9px; } #gi-battle .tb-drawer-actions .tb-tune span { display: none; }
+    #gi-battle .tb-drawer-actions button { min-height: 30px; font-size: 12px; }
+}
+@media (max-height: 560px) and (orientation: landscape) {
+    #gi-battle .tb-detail { width: min(230px, 32vw, var(--detail-room, 230px)); }
+    /* The hand keeps between your name plate and the skills, closing up as it grows, and stays
+       down when a card is chosen (it glows; its details show at the left), so it never covers your party. */
+    #gi-battle .tb-hand { left: min(50%, calc(170px + (100% - 400px) / 2)); }
+    #gi-battle .tb-hand .tb-item, #gi-battle .tb-hand:not(.tb-open):not(:has(.tb-held)) .tb-item { margin: 0 min(calc(var(--hh) * -.1), calc((100vw - 420px - var(--n) * var(--hh) * .583) / (2 * var(--n)))); }
+    #gi-battle .tb-hand.tb-open, #gi-battle .tb-hand:has(.tb-held), #gi-battle .tb-hand:focus-within { bottom: calc(var(--hh) * -.3); }
+    #gi-battle .tb-item.tb-held { transform: translateY(-3%) scale(1.03) rotate(0); filter: drop-shadow(0 0 8px #ffe7a3); }
+    /* HP previews stay on their own small card. */
+    #gi-battle .tb-delta { left: 6px; } #gi-battle .tb-delta b { padding: 0 4px; font-size: 11px; }
+}
+/* Upright phones: the "Play Card" prompt would sit under the dice strip; the details name the card instead. */
+@media (max-aspect-ratio: 4/5) {
+    #gi-battle.tb-previewing .tb-banner.tb-banner-hold { opacity: 0 !important; }
+}
+/* HP previews stay on their own card on upright phones too, and closer still on a crowded table. */
+@media (max-aspect-ratio: 4/5) {
+    #gi-battle .tb-delta { left: 4px; top: -12px; } #gi-battle .tb-delta b { padding: 0 4px; font-size: 11px; }
+}
+@media (max-aspect-ratio: 4/5), (max-height: 560px) and (orientation: landscape) {
+    #gi-battle[data-crowd] .tb-delta { left: 0; }
+}
+/* Short landscape phones with a big party: the cards used to shrink until only their HP showed,
+   because the row kept clear of the skills beside it. A crowded row can instead sit above the
+   skills, so the cards take whichever size is larger: beside the skills, or above them. */
+@media (max-height: 560px) and (orientation: landscape) {
+    #gi-battle { --fit-above: calc((100vw - 2 * max(8px, 1.2vmin) - 1.4vw - 148px - (var(--n) - 1) * var(--rg)) / (var(--n) * .583 + 1.65));
+        --ch: max(min(29dvh, 12vw, var(--fit)), min(29dvh, 12vw, var(--fit-above), calc(47dvh - 118px))); }
+}
+/* Phones: with a big party the coming damage sits inside the card's foot, clear of its HP; summon
+   tiles are small, so they keep their numbers inside the tile and neighbours' badges never pile up. */
+@media (max-aspect-ratio: 4/5), (max-height: 560px) and (orientation: landscape) {
+    #gi-battle[data-crowd] .tb-incoming { top: auto; bottom: 3px; right: 50%; translate: 50% 0; padding: 0 5px 0 13px; font-size: 11px; line-height: 16px; white-space: nowrap; z-index: 6; }
+    #gi-battle[data-crowd] .tb-incoming::before { left: 4px; width: 5px; height: 5px; }
+    #gi-battle .tb-zone .tb-summon-rounds { right: 1px; top: 1px; width: clamp(11px, calc(var(--zs) * .5), 15px); height: clamp(12px, calc(var(--zs) * .56), 17px); font-size: clamp(8px, calc(var(--zs) * .34), 10px); }
+    #gi-battle .tb-zone :is(.tb-summon-power, .tb-summon-heal) { left: 1px; bottom: 1px; min-width: clamp(11px, calc(var(--zs) * .5), 15px); height: clamp(11px, calc(var(--zs) * .5), 15px); font-size: clamp(8px, calc(var(--zs) * .34), 10px); }
+    #gi-battle .tb-zone .tb-summon-heal { left: auto; right: 1px; }
+    #gi-battle .tb-zone .tb-summon span { display: none; }
+}
+/* Phones: the damage and healing discs fit inside the card they land on, so its HP stays readable. */
+@media (max-aspect-ratio: 4/5), (max-height: 560px) and (orientation: landscape) {
+    #gi-battle { --disc: clamp(40px, calc(var(--cw) * .82), 74px); }
+    #gi-battle .gb-float.gb-dmg { width: var(--disc); height: var(--disc); font-size: calc(var(--disc) * .46); }
+    #gi-battle .gb-float.gb-dmg.gb-big { width: calc(var(--disc) * 1.12); height: calc(var(--disc) * 1.12); font-size: calc(var(--disc) * .52); }
+    #gi-battle .gb-float.gb-dmg.gb-crit { width: calc(var(--disc) * 1.08); height: calc(var(--disc) * 1.08); font-size: calc(var(--disc) * .5); }
+    #gi-battle .gb-float.gb-dmg.gb-small { width: calc(var(--disc) * .75); height: calc(var(--disc) * .75); font-size: calc(var(--disc) * .34); }
+    #gi-battle .gb-float.gb-heal { width: calc(var(--disc) * .85); height: calc(var(--disc) * .85); font-size: calc(var(--disc) * .36); }
+}
+/* Short landscape phones: the two active cards face each other across a narrow gap, so the enemy's
+   intent badge tucks up against its card, the active cards no longer step into the gap (their
+   glow still marks them), and your coming damage sits inside your card's foot: the badge never
+   covers your active character's HP. */
+@media (max-height: 560px) and (orientation: landscape) {
+    #gi-battle { --gap: 4dvh; --step: 0px; }
+    #gi-battle .tb-intent { bottom: -12px; }
+    #gi-battle .tb-incoming { top: auto; bottom: 3px; right: 50%; translate: 50% 0; padding: 0 5px 0 13px; font-size: 11px; line-height: 16px; white-space: nowrap; z-index: 6; }
+    #gi-battle .tb-incoming::before { left: 4px; width: 5px; height: 5px; }
+}
+
+/* ==========================================================================
+   Battle Select (the sword above Teyvat Choices): armed, it lights up in gold
+   with a turning ring of light and a breathing halo. No square behind the
+   sword: an older rule gave the armed sword a square backdrop.
+   ========================================================================== */
+body #gi-attack-controls #gi-attack-toggle { position: relative; isolation: isolate; overflow: visible; }
+body #gi-attack-controls #gi-attack-toggle svg { position: relative; z-index: 1; background: none; border-radius: 0; }
+body #gi-attack-controls #gi-attack-toggle[aria-pressed="true"] svg { background: none; filter: drop-shadow(0 0 3px #fff3c4) drop-shadow(0 0 7px #ffc95a); }
+body #gi-attack-controls #gi-attack-toggle[aria-pressed="true"],
+body #gi-attack-controls #gi-attack-toggle[aria-pressed="true"]:hover:not(:disabled) {
+    color: #fffbe8; background: radial-gradient(circle at 50% 38%, #b98a3c 0%, #6d4a1f 58%, #3a2a14 100%);
+    box-shadow: inset 0 0 0 1.5px #ffe9b0, inset 0 0 12px #ffd77a88, 0 0 14px #f2c24f99; animation: gi-armed-breathe 2.2s ease-in-out infinite;
+}
+/* The ring: a bright arc chasing round the rim. */
+body #gi-attack-controls #gi-attack-toggle[aria-pressed="true"]::before {
+    content: ""; position: absolute; inset: -3px; z-index: 0; border-radius: 50%; pointer-events: none;
+    background: conic-gradient(from var(--gi-armed-turn, 0deg), #fff6d000 0deg, #fff6d0 50deg, #ffc95a 80deg, #fff6d000 140deg, #fff6d000 180deg, #fff6d0 230deg, #ffc95a 260deg, #fff6d000 320deg);
+    mask: radial-gradient(circle, #0000 calc(50% - 2.5px), #000 calc(50% - 2px));
+    animation: gi-armed-turn 2.4s linear infinite;
+}
+/* The halo: a soft glow that swells and fades, and a spark when it is first armed. */
+body #gi-attack-controls #gi-attack-toggle[aria-pressed="true"]::after {
+    content: ""; position: absolute; inset: -8px; z-index: -1; border-radius: 50%; pointer-events: none;
+    background: radial-gradient(circle, #ffd77a66 0%, #ffd77a22 50%, #ffd77a00 70%); animation: gi-armed-halo 2.2s ease-in-out infinite, gi-armed-spark 520ms ease-out;
+}
+@property --gi-armed-turn { syntax: "<angle>"; inherits: false; initial-value: 0deg; }
+@keyframes gi-armed-turn { to { --gi-armed-turn: 360deg; } }
+@keyframes gi-armed-breathe { 50% { box-shadow: inset 0 0 0 1.5px #fff6d6, inset 0 0 16px #ffe08aaa, 0 0 22px #f7cf6bcc; } }
+@keyframes gi-armed-halo { 50% { opacity: .45; scale: 1.18; } }
+@keyframes gi-armed-spark { from { scale: .6; opacity: 1; background: radial-gradient(circle, #fff8dd 0%, #ffd77a99 40%, #ffd77a00 70%); } }
+body.gi-reduced-motion #gi-attack-controls #gi-attack-toggle[aria-pressed="true"], body.gi-reduced-motion #gi-attack-controls #gi-attack-toggle[aria-pressed="true"]::before, body.gi-reduced-motion #gi-attack-controls #gi-attack-toggle[aria-pressed="true"]::after { animation: none; }
+@media (prefers-reduced-motion: reduce) { body #gi-attack-controls #gi-attack-toggle[aria-pressed="true"], body #gi-attack-controls #gi-attack-toggle[aria-pressed="true"]::before, body #gi-attack-controls #gi-attack-toggle[aria-pressed="true"]::after { animation: none; } }
+
+/* ==========================================================================
+   The coin toss: a coin with two faces, 1 and 2, that spins and lands on the
+   face of whoever goes first (data-face).
+   ========================================================================== */
+/* Opacity on the spinning coin itself would flatten it (both faces would show), so the fade-in is on the faces. */
+#gi-battle .tb-coin { --land: 2880deg; background: none; box-shadow: none; transform-style: preserve-3d; animation-name: tb-coin-2; }
+#gi-battle .tb-coin-face { animation: tb-coin-in 160ms ease-out both; }
+@keyframes tb-coin-in { from { opacity: 0; } }
+#gi-battle .tb-coin[data-face="2"] { --land: 3060deg; }
+#gi-battle .tb-coin-face { position: absolute; inset: 0; display: grid; place-items: center; border-radius: 50%; backface-visibility: hidden; -webkit-backface-visibility: hidden;
+    font: 54px/1 var(--ty-font, serif); color: #8a5a12; text-shadow: 0 1px 0 #fff6cc;
+    background: radial-gradient(circle at 40% 35%, #fff6cc, #f2c94c 50%, #b8861f); box-shadow: inset 0 0 0 6px #ffe9a8, inset 0 0 0 9px #a8701f, 0 0 50px #ffd36a99; }
+/* The 2 side is struck in silver, so the two faces read apart even mid-spin. */
+#gi-battle .tb-coin-back { transform: rotateY(180deg); color: #4b4f7c; text-shadow: 0 1px 0 #ffffff; background: radial-gradient(circle at 40% 35%, #ffffff, #cfd3ef 50%, #8a8fbd); box-shadow: inset 0 0 0 6px #f1f2ff, inset 0 0 0 9px #6b70a8, 0 0 50px #c9cdf899; }
+@keyframes tb-coin-2 { 0% { transform: translateY(-40px) rotateY(0) scale(.6); } 92% { transform: translateY(0) rotateY(var(--land)) scale(1); } 96% { transform: rotateY(var(--land)) scale(1.15); } to { transform: rotateY(var(--land)) scale(1); } }
+@media (max-height: 560px) and (orientation: landscape) { #gi-battle .tb-coin-face { font-size: 38px; } }
+
+/* ==========================================================================
+   Auto and Flee under the round button: each says what it is.
+   ========================================================================== */
+#gi-battle .tb-turn-tools { gap: 12px; }
+#gi-battle .tb-tool-label { position: absolute; top: calc(100% + 3px); left: 50%; translate: -50% 0; font-size: 11px; line-height: 1; letter-spacing: .05em; color: #f4ead2; text-shadow: 0 1px 2px #000c, 0 0 6px #1d2148; white-space: nowrap; pointer-events: none; }
+#gi-battle .tb-auto svg, #gi-battle .tb-flee svg { width: 26px; height: 26px; }
+#gi-battle .tb-flee:hover:not(:disabled) svg { animation: tb-flee-run 420ms ease-in-out infinite alternate; }
+@keyframes tb-flee-run { to { translate: 2px 0; } }
+@media (max-height: 560px) and (orientation: landscape) { #gi-battle .tb-tool-label { font-size: 10px; top: calc(100% + 2px); } #gi-battle .tb-auto svg, #gi-battle .tb-flee svg { width: 21px; height: 21px; } }
+@media (max-aspect-ratio: 4/5) { #gi-battle .tb-tool-label { display: none; } #gi-battle .tb-auto svg, #gi-battle .tb-flee svg { width: 21px; height: 21px; } }
+
+/* ==========================================================================
+   Elemental Burst in the character's own card (1250 ms, as long as
+   cinematic() waits): the Burst's icon slams in with rings of its element,
+   charges, then blows open into the splash art through a widening iris with a
+   bright rim. The art pans under speed lines and the card ends on a flash.
+   ========================================================================== */
+#gi-battle .tb-cinema .tb-cine { animation: tb-cine-2 1250ms linear both; }
+#gi-battle .tb-cine > img { clip-path: circle(0% at 50% 42%); }
+#gi-battle .tb-cinema .tb-cine > img { animation: tb-cine-iris 1250ms cubic-bezier(.3, .7, .2, 1) both, tb-cine-pan-2 1250ms ease-out both; }
+#gi-battle .tb-cine-icon { position: absolute; left: 50%; top: 42%; z-index: 2; width: 58%; aspect-ratio: 1; translate: -50% -50%; display: grid; place-items: center; border-radius: 50%; opacity: 0;
+    color: #fff; background: radial-gradient(circle, color-mix(in srgb, var(--el) 35%, #1a1430) 0 58%, #0000 60%); box-shadow: 0 0 0 2px #fff8, 0 0 24px 6px var(--el); }
+#gi-battle .tb-cine-icon :is(img, svg) { position: static; width: 82%; height: 82%; max-width: none; translate: none; border-radius: 50%; object-fit: cover; filter: drop-shadow(0 0 6px #fff) drop-shadow(0 0 10px var(--el)); }
+#gi-battle .tb-cine-icon::before, #gi-battle .tb-cine-icon::after { content: ""; position: absolute; inset: -6%; border-radius: 50%; border: 3px solid color-mix(in srgb, var(--el) 50%, #fff); opacity: 0; }
+#gi-battle .tb-cinema .tb-cine-icon { animation: tb-cine-icon 1250ms cubic-bezier(.2, .8, .3, 1) both; }
+#gi-battle .tb-cinema .tb-cine-icon::before { animation: tb-cine-ring 1250ms ease-out both; }
+#gi-battle .tb-cinema .tb-cine-icon::after { animation: tb-cine-ring 1250ms 90ms ease-out both; }
+/* The iris rim rides the edge of the opening, in the element's colour. */
+#gi-battle .tb-cine-iris { position: absolute; left: 50%; top: 42%; z-index: 3; width: 10%; aspect-ratio: 1; translate: -50% -50%; border-radius: 50%; opacity: 0;
+    border: 4px solid #fff; box-shadow: 0 0 14px 4px var(--el), inset 0 0 14px 4px var(--el); }
+#gi-battle .tb-cinema .tb-cine-iris { animation: tb-cine-rim 1250ms cubic-bezier(.3, .7, .2, 1) both; }
+#gi-battle .tb-cine-flash { position: absolute; inset: 0; z-index: 4; background: radial-gradient(circle at 50% 42%, #fff, color-mix(in srgb, var(--el) 60%, #fff0) 70%); opacity: 0; mix-blend-mode: screen; }
+#gi-battle .tb-cinema .tb-cine-flash { animation: tb-cine-flash 1250ms ease-out both; }
+#gi-battle .tb-cinema .tb-cine::after { animation: tb-cine-lines 1250ms linear both, tb-cine-lines-in 1250ms linear both; }
+/* The card itself kicks back as the icon lands and again as the art bursts out. */
+#gi-battle .tb-party.tb-cinema .tb-art { animation: tb-cine-kick 1250ms ease-out both; }
+
+@keyframes tb-cine-2 { 0% { opacity: 0; } 5% { opacity: 1; } 90% { opacity: 1; filter: none; } 95% { opacity: 1; filter: brightness(1.6); } to { opacity: 0; filter: brightness(1); } }
+@keyframes tb-cine-icon {
+    0% { opacity: 0; transform: scale(2.6) rotate(-120deg); filter: blur(4px); }
+    12% { opacity: 1; transform: scale(.9) rotate(8deg); filter: none; }
+    17% { transform: scale(1.06) rotate(-3deg); }
+    22%, 32% { transform: scale(1) rotate(0); }
+    36% { opacity: 1; transform: scale(1.12); filter: brightness(1.8); }
+    48% { opacity: 0; transform: scale(2.4); filter: brightness(2.5) blur(2px); }
+    to { opacity: 0; transform: scale(2.4); } }
+@keyframes tb-cine-ring { 0%, 11% { opacity: 0; transform: scale(.8); } 13% { opacity: 1; } 34% { opacity: 0; transform: scale(2.1); } to { opacity: 0; transform: scale(2.1); } }
+@keyframes tb-cine-iris { 0%, 34% { clip-path: circle(0% at 50% 42%); } 52% { clip-path: circle(85% at 50% 42%); } to { clip-path: circle(85% at 50% 42%); } }
+@keyframes tb-cine-rim { 0%, 33% { opacity: 0; width: 10%; } 35% { opacity: 1; width: 22%; } 52% { opacity: 0; width: 230%; } to { opacity: 0; width: 230%; } }
+@keyframes tb-cine-pan-2 { 0%, 34% { transform: translate(-4%, 14%) scale(1.35); } 55% { transform: translate(-1%, 6%) scale(1.15); } to { transform: translate(4%, -4%) scale(1); } }
+@keyframes tb-cine-flash { 0%, 9% { opacity: 0; } 12% { opacity: .9; } 22% { opacity: 0; } 34% { opacity: 0; } 38% { opacity: 1; } 50% { opacity: 0; } 92% { opacity: 0; } 96% { opacity: .8; } to { opacity: 0; } }
+@keyframes tb-cine-lines-in { 0%, 40% { opacity: 0; } 50% { opacity: 1; } }
+@keyframes tb-cine-kick { 0%, 10% { translate: 0 0; } 13% { translate: 0 4px; } 18% { translate: 0 0; } 36% { translate: 0 0; scale: 1; } 40% { translate: 0 -3px; scale: 1.03; } 50% { translate: 0 0; scale: 1; } }
+#gi-battle.gb-reduced :is(.tb-cine-icon, .tb-cine-iris, .tb-cine-flash, .tb-cine > img, .tb-art) { animation-duration: 1ms !important; }
+
+/* ==========================================================================
+   Victory: a gold crest spins in behind the title and the beams break out
+   from its exact centre (--cx/--cy, measured in battle-ui.js), then keep
+   turning slowly. A light band opens behind the title, a shine runs across
+   it, stars twinkle round the crest, and the damage, reactions, cards found
+   and Exit arrive one after another. Exit sits in front of the beams and
+   matches the board's other buttons (Confirm).
+   ========================================================================== */
+#gi-battle .tb-result { overflow: hidden; }
+#gi-battle .tb-result-card { position: relative; z-index: 1; }
+#gi-battle .tb-result-head { position: relative; display: grid; place-items: center; }
+#gi-battle .tb-result-head h3 { position: relative; z-index: 2; }
+#gi-battle .tb-result-crest, #gi-battle .tb-result-stars { display: none; }
+#gi-battle .tb-result[data-outcome="victory"] .tb-result-head { min-height: 150px; }
+#gi-battle .tb-result[data-outcome="victory"] .tb-result-crest { position: absolute; left: 50%; top: 50%; z-index: 0; display: block; width: 150px; aspect-ratio: 1; translate: -50% -50%; opacity: .9; filter: drop-shadow(0 0 18px #ffb54acc); animation: tb-crest-in 900ms cubic-bezier(.2, .9, .3, 1.2) both, tb-crest-glow 2.6s 900ms ease-in-out infinite; }
+#gi-battle .tb-result-crest svg { display: block; width: 100%; height: 100%; }
+/* The light band behind the title. */
+#gi-battle .tb-result[data-outcome="victory"] .tb-result-head::before { content: ""; position: absolute; left: 50%; top: 50%; z-index: 1; width: min(620px, 92vw); height: 70px; translate: -50% -50%; pointer-events: none;
+    background: radial-gradient(ellipse 50% 50% at center, #ffcf6b66, #0000 75%), linear-gradient(90deg, #0000, #fff2c4 50%, #0000) center 12% / 100% 1.5px no-repeat, linear-gradient(90deg, #0000, #fff2c4 50%, #0000) center 88% / 100% 1.5px no-repeat;
+    animation: tb-band 900ms 250ms cubic-bezier(.2, .8, .3, 1) both; }
+/* Beams: a large square centred on the crest, so turning it keeps them on the crest. */
+#gi-battle .tb-result[data-outcome="victory"] .tb-result-rays { inset: auto; left: var(--cx, 50%); top: var(--cy, 40%); width: 260vmax; height: 260vmax; translate: -50% -50%; opacity: 0;
+    background: conic-gradient(from 0deg at 50% 50%, #0000 0 4deg, #ffb54a66 4deg 6deg, #0000 6deg 22deg, #ffcf6b44 22deg 25deg, #0000 25deg 47deg, #ffb54a55 47deg 49deg, #0000 49deg 70deg, #ffd78a44 70deg 73deg, #0000 73deg 101deg, #ffb54a66 101deg 103deg, #0000 103deg 140deg, #ffcf6b44 140deg 143deg, #0000 143deg 181deg, #ffb54a55 181deg 183deg, #0000 183deg 222deg, #ffd78a44 222deg 225deg, #0000 225deg 262deg, #ffb54a66 262deg 264deg, #0000 264deg 300deg, #ffcf6b44 300deg 303deg, #0000 303deg 338deg, #ffb54a55 338deg 340deg, #0000 340deg);
+    mask: radial-gradient(circle at 50% 50%, #000 0 1.2%, #0000 26%); animation: tb-rays-in 1600ms 150ms ease-out both, tb-rays-turn 48s 1750ms linear infinite; }
+/* Title: lands from a blur (tb-victory), then a shine sweeps across the letters. */
+#gi-battle .tb-result[data-outcome="victory"] h3 { color: transparent; text-shadow: none; -webkit-background-clip: text; background-clip: text;
+    background-image: linear-gradient(100deg, #fff3d0 0 42%, #ffffff 48%, #ffe29a 52%, #fff3d0 58% 100%); background-size: 320% 100%; background-position: 100% 0;
+    filter: drop-shadow(0 0 16px #ffb54a) drop-shadow(0 0 34px #ff9a2a88) drop-shadow(0 3px 3px #000c);
+    animation: tb-victory 1600ms 200ms var(--ty-ease, ease) both, tb-shine 1300ms 1300ms ease-in-out both; }
+/* Stars round the crest. */
+#gi-battle .tb-result[data-outcome="victory"] .tb-result-stars { position: absolute; left: 50%; top: 50%; z-index: 1; display: block; width: 0; height: 0; }
+#gi-battle .tb-result-stars i { position: absolute; left: 0; top: 0; width: 14px; height: 14px; margin: -7px; background: #fff6d6; clip-path: polygon(50% 0, 60% 40%, 100% 50%, 60% 60%, 50% 100%, 40% 60%, 0 50%, 40% 40%); filter: drop-shadow(0 0 4px #ffcf6b);
+    transform: rotate(var(--a)) translateY(var(--r)) rotate(calc(var(--a) * -1)); opacity: 0; animation: tb-twinkle 1.8s var(--d) ease-in-out infinite; }
+#gi-battle .tb-result-stars i:nth-child(1) { --a: 20deg; --r: -96px; --d: 700ms; }
+#gi-battle .tb-result-stars i:nth-child(2) { --a: 70deg; --r: -150px; --d: 1100ms; width: 10px; height: 10px; }
+#gi-battle .tb-result-stars i:nth-child(3) { --a: 115deg; --r: -112px; --d: 850ms; }
+#gi-battle .tb-result-stars i:nth-child(4) { --a: 160deg; --r: -88px; --d: 1400ms; width: 9px; height: 9px; }
+#gi-battle .tb-result-stars i:nth-child(5) { --a: 205deg; --r: -100px; --d: 950ms; }
+#gi-battle .tb-result-stars i:nth-child(6) { --a: 250deg; --r: -160px; --d: 1250ms; width: 10px; height: 10px; }
+#gi-battle .tb-result-stars i:nth-child(7) { --a: 295deg; --r: -118px; --d: 780ms; }
+#gi-battle .tb-result-stars i:nth-child(8) { --a: 340deg; --r: -92px; --d: 1550ms; width: 9px; height: 9px; }
+/* Then the rest, one after another. */
+#gi-battle .tb-result[data-outcome="victory"] :is(.tb-result-party, .tb-result-reactions) { animation: none; }
+#gi-battle .tb-result[data-outcome="victory"] .tb-result-party li { animation: tb-rise 520ms calc(950ms + var(--i, 0) * 90ms) cubic-bezier(.2, .9, .3, 1.15) both; }
+#gi-battle .tb-result[data-outcome="victory"] .tb-result-reactions span { animation: tb-pop 420ms calc(1250ms + var(--i, 0) * 110ms) var(--ty-ease, ease) both; }
+#gi-battle .tb-result[data-outcome="victory"] .tb-continue { animation: tb-rise 500ms calc(1800ms + var(--loot, 0) * 180ms) cubic-bezier(.2, .9, .3, 1.15) both; }
+#gi-battle .tb-result[data-outcome="victory"] .tb-loot-card::after { content: ""; position: absolute; inset: 0; border-radius: 6px; pointer-events: none; background: linear-gradient(115deg, #0000 35%, #fffbe8cc 50%, #0000 65%) 150% 0 / 300% 100% no-repeat; animation: tb-shine 700ms calc(2100ms + var(--i, 0) * 180ms) ease-in-out both; }
+
+/* Cards found: point at one (or focus it) and it grows and says what it does. */
+#gi-battle .tb-loot { gap: 14px; }
+#gi-battle .tb-loot-card { position: relative; outline: none; transition: scale 220ms var(--ty-ease, ease), translate 220ms var(--ty-ease, ease); }
+#gi-battle .tb-loot-card img { transition: box-shadow 220ms ease; }
+#gi-battle .tb-loot-card:is(:hover, :focus-visible) { z-index: 3; scale: 1.45; translate: 0 -16px; }
+#gi-battle .tb-loot-card:is(:hover, :focus-visible) img { box-shadow: 0 0 0 2px #fff6dc, 0 0 26px #ffe7a3, 0 12px 22px #000b; }
+#gi-battle .tb-loot-tip { position: absolute; left: 50%; bottom: calc(100% + 6px); z-index: 4; display: grid; gap: 2px; width: 150px; padding: 7px 9px; border-radius: 7px; text-align: left; pointer-events: none;
+    color: #f4ead2; background: #1f2446f4; box-shadow: 0 0 0 1px #e8d29b88, 0 8px 20px #000b; opacity: 0; transform-origin: 50% 100%; transform: translateX(-50%) translateY(4px) scale(calc(1 / 1.45)); transition: opacity 160ms ease, transform 160ms ease; }
+#gi-battle .tb-loot-card:is(:hover, :focus-visible) .tb-loot-tip { opacity: 1; transform: translateX(-50%) translateY(0) scale(calc(1 / 1.45)); }
+#gi-battle .tb-loot-tip b { font-size: 14px; font-weight: 400; color: #fff; }
+#gi-battle .tb-loot-tip small { font-size: 11px; color: #d7c59c; }
+#gi-battle .tb-loot-tip em { font-size: 12px; font-style: normal; line-height: 1.35; }
+
+/* Exit / Continue: the same pill as Confirm, highlighted on hover. */
+#gi-battle .tb-continue, #gi-battle .tb-intro-go { transition: transform 160ms var(--ty-ease, ease), box-shadow 200ms ease, background 200ms ease; }
+#gi-battle .tb-continue { display: flex; align-items: center; justify-content: center; gap: 8px; min-width: 180px; min-height: 42px; padding: 0 24px; border: 0; border-radius: 21px; cursor: pointer; font: inherit; font-size: 16px;
+    color: #3b2a14 !important; background: linear-gradient(#fff8e2, #ecdcb2); box-shadow: inset 0 0 0 1.5px #a07a3c, 0 0 0 2px #fff6dc66, 0 6px 14px #0008; }
+#gi-battle .tb-continue-icon { display: contents; }
+#gi-battle .tb-continue svg { width: 18px; height: 18px; }
+#gi-battle :is(.tb-continue, .tb-intro-go:not(:disabled)):is(:hover, :focus-visible) { outline: none; background: linear-gradient(#fffdf6, #f7e7bd); box-shadow: inset 0 0 0 1.5px #a07a3c, 0 0 0 3px #fffaf0, 0 0 22px 4px #ffe7a3cc, 0 6px 14px #0008; transform: translateY(-1px) scale(1.03); }
+#gi-battle :is(.tb-continue, .tb-intro-go:not(:disabled)):active { transform: scale(.98); }
+
+@keyframes tb-crest-in { 0% { opacity: 0; transform: rotate(-200deg) scale(.2); } 60% { opacity: 1; transform: rotate(12deg) scale(1.12); } to { opacity: .9; transform: rotate(0) scale(1); } }
+@keyframes tb-crest-glow { 50% { filter: drop-shadow(0 0 28px #ffcf6bee); } }
+@keyframes tb-band { from { opacity: 0; transform: scaleX(0); } to { opacity: 1; transform: scaleX(1); } }
+@keyframes tb-rays-in { 0% { opacity: 0; transform: scale(.3) rotate(-25deg); } 30% { opacity: 1; } to { opacity: .6; transform: scale(1) rotate(0); } }
+@keyframes tb-rays-turn { to { rotate: 360deg; } }
+@keyframes tb-shine { from { background-position: 100% 0; } to { background-position: 0 0; } }
+@keyframes tb-twinkle { 0%, 100% { opacity: 0; scale: .4; } 40% { opacity: 1; scale: 1.1; } 60% { opacity: .9; scale: .9; } }
+@keyframes tb-rise { from { opacity: 0; translate: 0 18px; } }
+/* Short screens: a compact summary, so the title, the cards found and Exit all fit. */
+@media (max-height: 560px) {
+    #gi-battle .tb-result { padding: 6px 16px; }
+    #gi-battle .tb-result-card { gap: 6px; padding: 6px 20px 10px; }
+    #gi-battle .tb-result[data-outcome="victory"] .tb-result-head { min-height: 64px; }
+    #gi-battle .tb-result[data-outcome="victory"] .tb-result-head::before { height: 50px; }
+    #gi-battle .tb-result[data-outcome="victory"] .tb-result-crest { width: 70px; }
+    #gi-battle .tb-result[data-outcome="victory"] h3 { font-size: 40px; }
+    #gi-battle .tb-result-stars i { scale: .55; }
+    #gi-battle .tb-result-party { gap: 10px; }
+    #gi-battle .tb-result-party img { width: 38px; height: 38px; } #gi-battle .tb-result-party i { width: 38px; height: 5px; }
+    #gi-battle .tb-result-party b { font-size: 14px; line-height: 1.1; }
+    #gi-battle .tb-loot-card { width: 50px; height: 86px; }
+    #gi-battle .tb-continue { min-height: 36px; }
+}
+#gi-battle.gb-reduced .tb-result :is(.tb-result-crest, .tb-result-rays, .tb-result-stars i, h3, li, span, .tb-continue, .tb-loot-card, .tb-loot-card::after), #gi-battle.gb-reduced .tb-result-head::before { animation-duration: 1ms !important; animation-iteration-count: 1 !important; }
+
+/* ==========================================================================
+   Character screen → Profile → Starter deck: every card with a − / + count,
+   the total out of ten, and Randomize, which greys out the choices.
+   ========================================================================== */
+#gi-wardrobe .gi-starter-head { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin: 8px 0; }
+#gi-wardrobe .gi-starter-head button { margin: 0; }
+#gi-wardrobe .gi-starter-count { font-size: .95em; color: #f2dca0; }
+#gi-wardrobe .gi-starter-count.gi-starter-short { color: #ffb4a6; }
+#gi-wardrobe .gi-starter-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(78px, 1fr)); gap: 8px; max-height: 330px; margin: 0 0 6px; padding: 2px 4px 2px 2px; overflow-y: auto; }
+#gi-wardrobe .gi-starter-card { display: grid; justify-items: center; gap: 3px; padding: 5px 4px 6px; border-radius: 8px; background: #ffffff0d; box-shadow: inset 0 0 0 1px #ffffff1a; transition: background 160ms ease, box-shadow 160ms ease, opacity 160ms ease; }
+#gi-wardrobe .gi-starter-card.gi-starter-in { background: #d3bc8e24; box-shadow: inset 0 0 0 1.5px #d3bc8e; }
+#gi-wardrobe .gi-starter-card img { width: 46px; aspect-ratio: .6; object-fit: cover; border-radius: 4px; box-shadow: 0 2px 6px #0008; }
+#gi-wardrobe .gi-starter-name { width: 100%; overflow: hidden; font-size: .72em; line-height: 1.2; text-align: center; text-overflow: ellipsis; white-space: nowrap; color: var(--ty-cream, #ece5d8); }
+#gi-wardrobe .gi-starter-step { display: flex; align-items: center; gap: 4px; }
+#gi-wardrobe .gi-starter-step b { min-width: 14px; font-weight: 400; text-align: center; color: #fff; }
+#gi-wardrobe .gi-starter-step button { display: grid; place-items: center; width: 22px; height: 22px; min-width: 0; min-height: 0; margin: 0; padding: 0; border-radius: 50%; font-size: 14px; line-height: 1; }
+#gi-wardrobe .gi-starter-step button:disabled { opacity: .35; cursor: default; }
+#gi-wardrobe .gi-starter-random .gi-starter-card { opacity: .45; }

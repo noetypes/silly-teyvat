@@ -307,7 +307,9 @@ dialog#gi-world-map#gi-world-map[open][data-enter="minimap"] { animation: gi-map
 .gi-waypoint-selected .gi-waypoint-halo { opacity: 1; animation: gi-halo 1.8s ease-in-out infinite; }
 @keyframes gi-halo { 50% { scale: 1.5; opacity: .45; } }
 /* Waypoint badges (waypoint-badges.js): characters here, wilderness or boss, stacked to the right of the pin. */
-.gi-waypoint-badges { position: absolute; left: 25px; top: 1px; z-index: 2; display: flex; flex-direction: column; gap: 2px; pointer-events: none; }
+/* Badges hang to the left of the waypoint, and only once the map is zoomed in to a region (gi-map-near). */
+.gi-waypoint-badges { position: absolute; right: 25px; top: 1px; z-index: 2; display: flex; flex-direction: column; gap: 2px; pointer-events: none; transition: opacity 180ms ease, scale 180ms ease; transform-origin: 100% 0; }
+#gi-world-map:not(.gi-map-near) .gi-waypoint .gi-waypoint-badges { opacity: 0; scale: .6; visibility: hidden; transition: opacity 180ms ease, scale 180ms ease, visibility 0s 180ms; }
 .gi-waypoint-badge { display: block; width: 17px; height: 17px; box-sizing: border-box; padding: 2px; object-fit: contain; border-radius: 50%; background: #1b2232e6; box-shadow: 0 0 0 1px #d3bc8ecc, 0 1px 3px #000a; }
 .gi-waypoint-badge[data-badge="wilderness"], .gi-waypoint-badge[data-badge="boss"] { padding: 0; }
 .gi-waypoint-badge[data-badge="boss"] { box-shadow: 0 0 0 1px #f0a36b, 0 0 5px #e0703acc; }

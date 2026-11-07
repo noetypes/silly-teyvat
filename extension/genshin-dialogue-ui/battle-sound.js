@@ -185,6 +185,9 @@ export function createBattleSound({clips = true} = {}) {
         slash() { if (!ready()) return; const at = now(), out = bus(.4); hiss(at, {freq: 4200, to: 1800, q: 1.2, gain: .3, attack: .004, decay: .08, out}); },
         // Cards drawn at the End Phase (dealing a hand is deal()).
         draw(count = 2) { api.deal(count); },
+        // A bow: the string drawn (longer for an aimed shot) and the twang of its release.
+        bowDraw(charged = false) { if (!ready()) return; const at = now(), out = bus(.4, {wet: .15}); tone(at, {type: 'triangle', freq: 180, to: charged ? 260 : 220, gain: .06, attack: charged ? .45 : .2, decay: .05, out}); hiss(at, {freq: 900, to: 1500, q: 6, gain: .12, attack: charged ? .45 : .2, decay: .04, out}); },
+        bowRelease(charged = false) { if (!ready()) return; const at = now(), out = bus(.5, {wet: .2}); tone(at, {type: 'triangle', freq: 330, to: 240, gain: .16, decay: .22, out}); tone(at, {freq: 165, to: 120, gain: .1, decay: .18, out}); hiss(at + .01, {freq: 3200, to: 1400, q: 1.6, gain: charged ? .35 : .22, attack: .004, decay: charged ? .2 : .12, out}); },
         whoosh() { if (!ready()) return; const at = now(), out = bus(.45, {wet: .1}); hiss(at, {freq: 700, to: 2400, q: 1.6, gain: .35, attack: .08, decay: .14, out}); },
         swap() { if (!ready()) return; const at = now(), out = bus(.5, {wet: .3}); hiss(at, {freq: 600, to: 3200, q: 2.5, gain: .32, attack: .1, decay: .2, out}); chord(at + .14, [880, 1319], {type: 'triangle', gain: .07, step: .05, decay: .35, out}); },
         // Your turn: a bright two-note bell. The opponent's: the same bell, lower and darker.

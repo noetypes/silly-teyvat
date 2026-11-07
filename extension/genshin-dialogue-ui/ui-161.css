@@ -134,8 +134,6 @@
 #gi-battle .tb-item { margin: 0 calc(var(--hh) * -.1); }
 #gi-battle .tb-hand:not(.tb-open):not(:has(.tb-held)) .tb-item { margin: 0 calc(var(--hh) * -.12); }
 #gi-battle .tb-item.tb-held { transform: translateY(-34%) scale(1.12) rotate(0); }
-.tb-hand-count { position: absolute; right: -18px; top: -12px; min-width: 24px; height: 24px; border-radius: 12px; font-size: 13px; font-weight: 400; line-height: 24px; text-align: center; color: #3a2a08; background: #f6e7bd; box-shadow: 0 0 0 1.5px #8a6a43; z-index: 4; }
-.tb-hand-count:empty { display: none; }
 #gi-battle:not([data-mode="plan"]) .tb-hand { opacity: 1; pointer-events: auto; transform: none; }
 #gi-battle:is([data-mode="enemy"], [data-mode="intro"]) .tb-hand { opacity: .6; pointer-events: none; }
 

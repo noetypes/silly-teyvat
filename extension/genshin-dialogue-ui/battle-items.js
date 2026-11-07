@@ -56,7 +56,8 @@ export const ITEMS={
     'treasure-seelie':{name:'Treasure-Seeking Seelie',kind:'dice',cost:0,target:'none',rarity:2,text:'Adds 1 Omni die.',dice:'add',element:'Omni'},
     'parametric-transformer':{name:'Parametric Transformer',kind:'dice',cost:0,target:'none',rarity:3,text:'Adds 2 Omni dice.',dice:'add',element:'Omni',count:2},
 };
-export const STARTER_BAG={'sweet-madame':3,'hash-brown':2,'lotus-crisp':1,'toss-up':1,'fried-egg':1};
+// The default starter deck: ten cards (see starter-decks.js for each character's own).
+export const STARTER_BAG={'sweet-madame':3,'hash-brown':2,'lotus-crisp':2,'toss-up':1,'fried-egg':1,'starsigns':1};
 export const itemArt=id=>new URL(`./assets/tcg/items/${id}.webp`,import.meta.url).href;
 const WOVEN={Pyro:'woven-flames',Hydro:'woven-waters',Anemo:'woven-winds',Electro:'woven-thunder',Dendro:'woven-weeds',Cryo:'woven-ice',Geo:'woven-stone'};
 export const bagCount=bag=>Object.values(bag || {}).reduce((n,c)=>n+c,0);
@@ -115,8 +116,8 @@ export function rollLoot(defeated,{random=Math.random,pool=everyCard,size=defeat
     return loot.filter(Boolean);
 }
 export function addToBag(bag,ids){for(const id of ids)if(ITEMS[id])bag[id]=(bag[id] || 0)+1;return bag;}
-// After a rescue at the Guild the bag is topped up to the starter amounts.
-export function restockBag(bag){for(const [id,n] of Object.entries(STARTER_BAG))bag[id]=Math.max(bag[id] || 0,n);return bag;}
+// After a rescue at the Guild the bag is topped up to the journey's starter deck.
+export function restockBag(bag,starter=STARTER_BAG){for(const [id,n] of Object.entries(starter || STARTER_BAG))if(ITEMS[id])bag[id]=Math.max(bag[id] || 0,n);return bag;}
 // Dice cards change the pool during the Action Phase.
 export function applyDiceItem(item,dice,elements,random=Math.random){
     const faces=['Pyro','Hydro','Anemo','Electro','Dendro','Cryo','Geo','Omni'];

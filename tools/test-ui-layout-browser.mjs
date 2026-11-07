@@ -16,7 +16,7 @@ try{
         await page.waitForFunction(()=>document.querySelector('#gi-battle[data-mode="turn"][data-turn="party"]'),{timeout:20000});await page.waitForTimeout(600);
         const checks=await page.evaluate(()=>{
             const q=s=>document.querySelector('#gi-battle '+s),rect=e=>e.getBoundingClientRect();
-            const a=rect(q('.tb-end')),b=rect(q('.tb-board')),hand=rect(q('.tb-hand')),skills=rect(q('.tb-skills'));
+            const a=rect(q('.tb-end')),b=rect(q('.tb-board')),hand=rect(q('.tb-hand')),skills=rect(q('.tb-skills')),mid=rect(q('.tb-midline'));
             const overlap=(x,y)=>Math.min(x.right,y.right)-Math.max(x.left,y.left)>1&&Math.min(x.bottom,y.bottom)-Math.max(x.top,y.top)>1;
             const inBoard=e=>{const r=rect(e);return r.left>=b.left-1&&r.right<=b.right+1&&r.top>=b.top-1&&r.bottom<=b.bottom+1;};
             const cards=[...document.querySelectorAll('#gi-battle .tb-card')],summons=[...document.querySelectorAll('#gi-battle .tb-summon')];
@@ -24,7 +24,8 @@ try{
             const zones=[...document.querySelectorAll('#gi-battle :is(.tb-summon, .tb-played-card, .tb-turn, .tb-dice, .tb-skills, .tb-plate)')];
             const cardBox=e=>{const r=rect(e),parts=[...e.querySelectorAll('.tb-hp, .tb-energy:not(:empty)')].map(rect);return {left:Math.min(r.left,...parts.map(p=>p.left)),right:Math.max(r.right,...parts.map(p=>p.right)),top:r.top,bottom:r.bottom};};
             return {
-                roundAtMiddle:Math.abs((a.top+a.bottom)/2-(b.top+b.bottom)/2)<2,
+                // The round button sits on the table's centre line (1.62: a little above the middle on tall upright phones).
+                roundAtMiddle:Math.abs((a.top+a.bottom)/2-(mid.top+mid.bottom)/2)<2&&Math.abs((mid.top+mid.bottom)/2-(b.top+b.bottom)/2)<b.height*.06,
                 cardsInsideBoard:cards.every(inBoard),
                 roundClearOfCards:cards.every(e=>!overlap(rect(e),a)),
                 handClearOfSkills:!overlap(hand,skills),
@@ -34,7 +35,13 @@ try{
                 summonsInsideBoard:summons.every(inBoard),
                 skillsInsideBoard:inBoard(q('.tb-skills')),
                 handUsable:hand.height>=60&&hand.width>=100,
-                everyItemReachable:q('.tb-hand').scrollWidth>0&&getComputedStyle(q('.tb-hand')).justifyContent.includes('safe') || document.documentElement.clientWidth>document.documentElement.clientHeight,
+                // 1.62: nothing opens over the table, upright phones show the whole hand clear of the skills,
+                // and each card's badges stay off the next card.
+                noTooltipOnOpen:q('.tb-tip').hidden,
+                wholeHandUpright:document.documentElement.clientWidth>document.documentElement.clientHeight*.8 || [...document.querySelectorAll('#gi-battle .tb-item')].every(e=>{const r=rect(e);return r.bottom<=b.bottom+1&&r.left>=b.left-1&&r.right<=b.right+1&&!overlap(r,skills);}),
+                badgesClearOfNextCard:cards.every(c=>[...c.querySelectorAll('.tb-incoming:not([hidden]), .tb-delta:not([hidden])')].every(n=>cards.every(o=>o===c||!overlap(rect(n),rect(o.querySelector('.tb-hp')))))),
+                // Every card in hand can be reached: it scrolls safely, or (1.62, upright phones) every card fits inside the board.
+                everyItemReachable:q('.tb-hand').scrollWidth>0&&getComputedStyle(q('.tb-hand')).justifyContent.includes('safe') || document.documentElement.clientWidth>document.documentElement.clientHeight || [...document.querySelectorAll('#gi-battle .tb-item')].every(e=>{const r=rect(e);return r.left>=b.left-1&&r.right<=b.right+1;}),
             };
         });
         const ok=Object.values(checks).every(Boolean)&&!errors.length;results.push({crowd,width,height,ok,checks,errors});

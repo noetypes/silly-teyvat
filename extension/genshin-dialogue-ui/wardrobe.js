@@ -19,6 +19,7 @@ import {mountBurstAudioEditor} from './burst-audio.js';
 import {mountCharacterBackdrop} from './character-backdrop.js';
 import {elementCrest} from './element-crest.js';
 import {elementIcon} from './battle-icons.js';
+import {mountStarterDeck} from './starter-decks.js';
 const KEY = 'genshin_dialogue_ui';
 export const expressionLabels = 'admiration amusement anger annoyance approval caring confusion curiosity desire disappointment disapproval disgust embarrassment excitement fear gratitude grief joy love nervousness optimism pride realization relief remorse sadness surprise neutral'.split(' ');
 export function validFolder(value) {
@@ -178,9 +179,12 @@ export function mountWardrobe({host, getContext, onChange = async () => {}, onMe
         if(tab!=='backgrounds')return;const img=$('.gi-wardrobe-preview img');clearArt(img);img.hidden=!location?.path;if(location?.path)img.src=localMediaPath(location.path);else img.removeAttribute('src');$('.gi-cs-identity h3').textContent=region?.name || 'World travel';$('.gi-outfit-caption').textContent=location?.label || 'Choose a region and add locations';
     }});
     const propertiesPanel=document.createElement('details');propertiesPanel.className='gi-card-properties';$('.gi-character-staging').before(propertiesPanel);
-    const propertiesUI=mountCharacterProperties({panel:propertiesPanel,getContext,getCharacter:()=>character,status,onChange:()=>{startingTrustUI.refresh();paintElement();onChange(character,{classification:true});}});
+    const propertiesUI=mountCharacterProperties({panel:propertiesPanel,getContext,getCharacter:()=>character,status,onChange:()=>{startingTrustUI.refresh();starterDeckUI.refresh();paintElement();onChange(character,{classification:true});}});
     const trustPanel=document.createElement('details');trustPanel.className='gi-card-properties gi-start-trust';propertiesPanel.after(trustPanel);
     const startingTrustUI=mountStartingTrust({panel:trustPanel,getContext,getCharacter:()=>character,status});
+    // Starter deck: the ten cards a new journey with this character starts with.
+    const deckPanel=document.createElement('details');deckPanel.className='gi-card-properties';trustPanel.after(deckPanel);
+    const starterDeckUI=mountStarterDeck({panel:deckPanel,getContext,getCharacter:()=>character,status});
     const personaPanel=document.createElement('section');
     $('.gi-sprite-detail').insertAdjacentHTML('afterbegin','<button type="button" data-w="use-persona-sprite" hidden>Use this expression</button>');
     $('.gi-character-staging').insertAdjacentHTML('afterbegin','<label class="gi-check" id="gi-persona-display-control" hidden><input id="gi-persona-visible" type="checkbox">Show your persona in the scene</label>');
@@ -203,7 +207,7 @@ export function mountWardrobe({host, getContext, onChange = async () => {}, onMe
         $(':scope > footer').insertAdjacentHTML('afterbegin','<button type="button" class="gi-cs-archive-open" data-w="archive" data-gi-sound="screen" aria-label="All characters" title="All characters"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="4" width="7" height="7" rx="1.6"/><rect x="13" y="4" width="7" height="7" rx="1.6"/><rect x="4" y="13" width="7" height="7" rx="1.6"/><rect x="13" y="13" width="7" height="7" rx="1.6"/></svg></button>');
         const sprites=$('[data-panel="sprites"]'),outfits=document.createElement('div');outfits.dataset.panel='outfits';outfits.hidden=true;
         const firstHeading=sprites.querySelector('h3');while(sprites.firstChild&&sprites.firstChild!==firstHeading)outfits.append(sprites.firstChild);sprites.before(outfits);
-        const attributes=document.createElement('div');attributes.dataset.panel='attributes';propertiesPanel.open=true;attributes.append(personaPanel,propertiesPanel,trustPanel);
+        const attributes=document.createElement('div');attributes.dataset.panel='attributes';propertiesPanel.open=true;attributes.append(personaPanel,propertiesPanel,trustPanel,deckPanel);
         const takeOver=document.createElement('section');takeOver.className='gi-takeover';takeOver.innerHTML='<button type="button" data-w="take-over"></button><small>Use this character as your persona. While you play them they leave the world’s random encounters and share one set of sprites with your persona.</small>';$('.gi-cs-actions').append(takeOver);
         const weapon=document.createElement('div');weapon.dataset.panel='weapon';weapon.hidden=true;const staging=$('.gi-character-staging');staging.open=true;weapon.append(staging);
         // Moveset: the three battle moves, right after Profile.
@@ -444,7 +448,7 @@ export function mountWardrobe({host, getContext, onChange = async () => {}, onMe
         status(tab==='backgrounds'?'Choose your travel region and manage its location backgrounds.':sprites.length ? `${sprites.length} sprites in ${path}. Select a sprite to preview it. Use set equips the outfit.` : `No sprites in ${path}. Add images below to create this set.`);
     }
     async function selectCharacter(c) {
-        character = c;expectArrival();burstAudioUI.refresh();paintElement();propertiesUI.refresh();startingTrustUI.refresh();if(tab==='moveset')movesetUI.refresh();const cp=characterPreferences(getContext(),c.avatar);$('#gi-character-expression-mode').value=cp.expressionMode || 'inherit';$('#gi-character-scale').value=cp.scale ?? 100;$('#gi-manual-position').checked=cp.positionX!=null;$('#gi-character-x').value=cp.positionX ?? 50;$('#gi-character-x').disabled=cp.positionX==null;$('#gi-character-y').value=cp.offsetY ?? 0; selectedCG=undefined;$('#gi-cg-label').value='';$('#gi-cg-description').value='';$('#gi-cg-classifications').value='';$('.gi-cs-identity h3').textContent = c.name;
+        character = c;expectArrival();burstAudioUI.refresh();paintElement();propertiesUI.refresh();startingTrustUI.refresh();starterDeckUI.refresh();if(tab==='moveset')movesetUI.refresh();const cp=characterPreferences(getContext(),c.avatar);$('#gi-character-expression-mode').value=cp.expressionMode || 'inherit';$('#gi-character-scale').value=cp.scale ?? 100;$('#gi-manual-position').checked=cp.positionX!=null;$('#gi-character-x').value=cp.positionX ?? 50;$('#gi-character-x').disabled=cp.positionX==null;$('#gi-character-y').value=cp.offsetY ?? 0; selectedCG=undefined;$('#gi-cg-label').value='';$('#gi-cg-description').value='';$('#gi-cg-classifications').value='';$('.gi-cs-identity h3').textContent = c.name;
         personaProfileUI.refresh();$('#gi-persona-display-control').hidden=!c.isPersona;
         $('.gi-takeover').hidden=Boolean(c.isPersona);$('[data-w="take-over"]').textContent=`Play as ${c.name}`;
         $('#gi-persona-visible').checked=Boolean(c.isPersona&&personaSpriteSettings(getContext(),c.personaAvatar).enabled);
@@ -781,6 +785,6 @@ export function mountWardrobe({host, getContext, onChange = async () => {}, onMe
         },
         async refreshPersona(){if(!dialog.open)return;if(busy){personaRefreshPending=true;return;}await renderRoster(character?.isPersona?personaCard(getContext())?.avatar:undefined);},
         close() { if (dialog.open) dialog.close(); },
-        dispose() { revision++; abort.abort(); backdrop.dispose(); trimmer.reset(); propertiesUI.dispose();startingTrustUI.dispose();movesetUI.dispose();burstAudioUI.dispose();personaProfileUI.dispose();backgroundUI.dispose();dialog.close(); dialog.remove(); },
+        dispose() { revision++; abort.abort(); backdrop.dispose(); trimmer.reset(); propertiesUI.dispose();startingTrustUI.dispose();starterDeckUI.dispose();movesetUI.dispose();burstAudioUI.dispose();personaProfileUI.dispose();backgroundUI.dispose();dialog.close(); dialog.remove(); },
     };
 }

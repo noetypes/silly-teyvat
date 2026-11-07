@@ -6,6 +6,9 @@ import {mountMovesetEditor} from './moveset-editor.js';
 import {kitForCard,roundNarration,tcgArt,tcgCardsReady} from './battle-state.js';
 import {combatAllies} from './combat-state.js';
 import {iconsReady,skillIcon,reactionIcon,elementIcon,characterIcon,summonArt} from './battle-icons.js';
+import {weaponOf,strikeKind} from './battle-weapons.js';
+import {STARTER_SIZE,newJourneyBag,journeyBag,saveStarterDeck,starterDeckOf,randomDeck,mountStarterDeck} from './starter-decks.js';
+import {bagCount,restockBag} from './battle-items.js';
 
 // Turn-based battle rules, the battle screen and the Moveset editor.
 export async function runBattleTests(){
@@ -20,6 +23,12 @@ export async function runBattleTests(){
         for(const name of ['Venti','Klee','Raiden Shogun','Furina','Nefer','Varka','Columbina','Lauma'])check(`${name} has a bundled three-move kit`,hasBundledKit(name)&&defaultKit(name,{element:'Anemo'}).moves.length===3);
         check('moves use in-game names',defaultKit('Bennett',{element:'Pyro'}).moves.map(m=>m.name).join('|')==='Strike of Fortune|Passion Overload|Fantastic Voyage');
         check('catalyst Normal Attacks carry the element, others are Physical',defaultKit('Klee',{element:'Pyro'}).moves[0].element==='Pyro'&&defaultKit('Diluc',{element:'Pyro'}).moves[0].element==='Physical');
+        // Attack animations follow each character's Genshin Impact weapon type.
+        const armed=(name,side='party',o={})=>({side,kit:side==='enemy'&&!o.duel?defaultKit(name,{enemy:true}):defaultKit(name,{element:'Pyro'}),...o});
+        check('each character animates with their own weapon type',[['Xingqiu','sword'],['Noelle','claymore'],['Xiao','polearm'],['Fischl','bow'],['Klee','catalyst'],['Lumine','sword']].every(([n,w])=>weaponOf(armed(n))===w));
+        check('a duelled party member keeps their weapon; plain enemies keep the board lunge',weaponOf(armed('Diluc','enemy',{duel:true}))==='claymore'&&weaponOf(armed('Hilichurl Fighter','enemy'))===null&&weaponOf({side:'party',kit:{weapon:'spoon'}})===null);
+        const dk=defaultKit('Fischl',{element:'Electro'});
+        check('a duel opponent\'s first move animates as its Normal Attack, the others as its Skill and Burst',strikeKind({kit:dk},dk.moves[0],'basic')==='normal'&&strikeKind({kit:dk},dk.moves[1],'basic')==='skill'&&strikeKind({kit:dk},dk.moves[2],'special')==='burst'&&strikeKind({kit:dk},dk.moves[1],'skill')==='skill');
         check('the Traveler changes kit with their element',defaultKit('Lumine',{element:'Geo'}).moves[1].name==='Starfell Sword'&&defaultKit('Aether',{element:'Anemo'}).moves[2].name==='Gust Surge');
         check('descriptions are generated from effects',/Heals the whole party for 4 HP/.test(describeMove(defaultKit('Bennett',{element:'Pyro'}).moves[2],'Pyro')));
         check('user edits replace a move and keep the rest',mergeKit(defaultKit('Klee',{element:'Pyro'}),{moves:[null,{name:'Big Boom',cost:1}]}).moves[1].name==='Big Boom'&&mergeKit(defaultKit('Klee',{element:'Pyro'}),{moves:[null,{name:'Big Boom'}]}).moves[2].name==='Sparks \'n\' Splash');
@@ -140,6 +149,25 @@ export async function runBattleTests(){
         check('evasive enemies dodge, and Minty Meat Rolls make attacks land',resolveRound(nimble,[{actor:'k',move:0}],{random:()=>0,strikeBack:false}).timeline.some(e=>e.type==='miss')&&resolveRound(nimble,{steps:[{actor:'k',move:0}],items:[{id:'minty-rolls',target:'k',item:ITEMS['minty-rolls']}]},{random:()=>0,strikeBack:false}).timeline.some(e=>e.type==='hit'&&e.actor==='k'));}
         check('victories drop item cards',rollLoot([{element:'Pyro',maxHp:50}],{random:()=>.1}).length===3&&rollLoot([{element:'Physical',maxHp:20}]).every(id=>ITEMS[id]));
         check('every item has card art and a starter bag exists',Object.keys(ITEMS).length>=20&&Object.keys(STARTER_BAG).every(id=>ITEMS[id]));
+        // Starter decks: ten cards, set per character (or random), dealt once into a new journey's bag.
+        {
+            const deckCtx={characters:[{name:'Klee',avatar:'klee.png'},{name:'Hilichurl Fighter',avatar:'hili.png'}],characterId:0,chatMetadata:{},extensionSettings:{},saveSettingsDebounced(){}};
+            check('the default starter deck has ten cards',bagCount(STARTER_BAG)===STARTER_SIZE&&bagCount(newJourneyBag(deckCtx))===STARTER_SIZE);
+            let threw=false;try{saveStarterDeck(deckCtx,'klee.png',{cards:{'sweet-madame':3}});}catch{threw=true;}
+            check('a starter deck must hold exactly ten cards',threw);
+            saveStarterDeck(deckCtx,'klee.png',{cards:{'sweet-madame':4,'hash-brown':4,'starsigns':2}});
+            const store={};const bag=journeyBag(deckCtx,store);
+            check('a new journey is dealt its character\'s own starter deck',bag['sweet-madame']===4&&bag.starsigns===2&&bagCount(bag)===10&&store.starter.starsigns===2);
+            bag['sweet-madame']=0;journeyBag(deckCtx,store);check('the bag is dealt only once per journey',store.bag['sweet-madame']===0);
+            saveStarterDeck(deckCtx,'klee.png',{cards:starterDeckOf(deckCtx,'klee.png').cards,random:true});
+            const rolled=newJourneyBag(deckCtx,()=>.3);check('Randomize deals ten random cards',bagCount(rolled)===STARTER_SIZE&&Object.keys(rolled).every(id=>ITEMS[id])&&Object.values(rolled).every(n=>n<=4));
+            check('random decks favour common cards',(()=>{let common=0;for(let i=0;i<40;i++)for(const [id,n] of Object.entries(randomDeck()))if(ITEMS[id].rarity===1)common+=n;return common>40*STARTER_SIZE*.5;})());
+            check('a rest tops the bag back up to the journey\'s own starter deck',restockBag({starsigns:1},store.starter).starsigns===2&&restockBag({},store.starter)['sweet-madame']===4);
+            const panel=document.createElement('details');host.append(panel);const deckUI=mountStarterDeck({panel,getContext:()=>deckCtx,getCharacter:()=>deckCtx.characters[0]});deckUI.refresh();
+            check('the Starter deck panel lists every card and shows Randomize',!panel.hidden&&panel.querySelectorAll('.gi-starter-card').length===Object.keys(ITEMS).length&&panel.querySelector('[data-starter="random"]').checked);
+            const persona=mountStarterDeck({panel:document.createElement('details'),getContext:()=>deckCtx,getCharacter:()=>({...deckCtx.characters[0],isPersona:true})});persona.refresh();
+            deckUI.dispose();persona.dispose();panel.remove();
+        }
         check('bigger parties face tougher enemies',partyScale(4).hp>partyScale(2).hp&&partyScale(1).damage<1);
 
         {const ready=startRound(team,{dice:['Pyro','Pyro','Pyro'].map(face=>({face})),strikeBack:false});ready.state.active.party='b';
