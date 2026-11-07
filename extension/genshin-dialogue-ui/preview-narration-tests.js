@@ -35,6 +35,8 @@ export async function runNarrationTests() {
         check('repeated markers are all filtered from a narrator line', pages('Narrator: Wind. Narrator: Leaves.', keyword)[0].textContent.trim() === 'Wind.  Leaves.');
         check('keyword is literal, not a regular expression', pages('N[.] A breeze.',{...keyword,narrationKeyword:'N[.]'})[0].giNarration);
         check('player messages keep normal text', !pages('Narrator: My reply',keyword,{is_user:true})[0].giNarration && pages('Narrator: My reply',keyword,{is_user:true})[0].textContent.includes('Narrator:'));
+        const both = pages('<p>“Hello.”</p><p>Klee waves.</p><p>Narrator: A breeze passes.</p>');
+        check('the Narrator keyword and the no-quotes rule both apply by default', both.length===3 && !both[0].giNarration && both[1].giNarration && both[2].giNarration && both[2].textContent.trim()==='A breeze passes.');
         const prefix = pages('Hello. Narrator: The scene changes.',keyword);
         check('speech before a mid-line marker gets its own page', prefix.length === 2 && prefix[0].textContent.trim() === 'Hello.' && prefix[1].giNarration);
         const ctx = {characterId:0,chatId:'narration-test',groupId:'narration-group',groups:[{id:'narration-group',members:['Klee.png','Nahida.png']}],characters:[{name:'Klee',avatar:'Klee.png'},{name:'Nahida',avatar:'Nahida.png'}],extensionSettings:{genshin_dialogue_ui:{narration:true,...keyword},expressions:{api:0}},chat:[{name:'Klee',original_avatar:'Klee.png',mes:'“Joy”\nNarrator: The wind passes.\n“Sad”'},{name:'Nahida',original_avatar:'Nahida.png',mes:'“Hello”'},{name:'Klee',original_avatar:'Klee.png',mes:'Narrator: Dodoco waits.'}],saveChat(){}};

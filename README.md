@@ -134,10 +134,12 @@ Character scale applies across outfits. Individual sprite scale is stored per fo
 
 ## Narration
 
-In **Extensions → Silly Teyvat**, enable **Narration handling**, then choose its trigger. It is optional and starts turned off.
+A reply is written in speaker parts, each starting with a name and a colon (`Kamisato Ayato:`, `Narrator:`). Every part is saved as its own chat message, so the name plate, sprites, expressions and Trust follow whoever is talking, and a `Narrator:` part always becomes narration. Anyone present in the scene may speak; parts for the player are dropped. In a journey group the model is shown every present character's card, and SillyTavern's group trimming (which would cut the reply at the first other name) is held off while a reply is written. Regenerating any part redoes the whole reply.
+
+In **Extensions → Silly Teyvat**, enable **Narration pages** for narration inside a character's part. It is optional and starts turned off. Both rules apply together:
 
 - **No quotation marks:** each dialogue page without speech marks becomes narration. One response can alternate between spoken dialogue, narration and spoken dialogue again. Straight, curly, single and Japanese speech quotes count; apostrophes in contractions do not.
-- **Keyword:** set an exact, case-sensitive marker such as `Narrator:`. The marker disappears from dialogue view and the rest of that line becomes narration. The next newline returns to normal dialogue. A spoken prefix before a mid-line marker becomes a separate dialogue page.
+- **Keyword:** an exact, case-sensitive marker, `Narrator:` by default. The marker disappears from dialogue view and the rest of that line becomes narration. The next newline returns to normal dialogue. A spoken prefix before a mid-line marker becomes a separate dialogue page.
 
 Narration has no speaker name and uses muted text. It holds the character's most recent spoken expression and retains the other sprites in group scenes. It never classifies the narrative text. If that older speech has no recorded scene, its last spoken page can seed the expression. Original messages and reasoning remain available in History. Player messages keep their normal styling.
 

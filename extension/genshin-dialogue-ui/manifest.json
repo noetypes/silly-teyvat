@@ -7,7 +7,7 @@
     "js": "index.js",
     "css": "style.css",
     "author": "Fan VN project",
-    "version": "1.70.0",
+    "version": "1.71.0",
     "minimum_client_version": "1.19.0",
     "auto_update": false,
     "hooks": {
@@ -15,5 +15,6 @@
         "enable": "initialize",
         "disable": "dispose",
         "delete": "dispose"
-    }
+    },
+    "generate_interceptor": "sillyTeyvatGenerateInterceptor"
 }

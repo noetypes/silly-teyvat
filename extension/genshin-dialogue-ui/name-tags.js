@@ -23,7 +23,7 @@ export function nameTagNames(ctx,message,prefs={}){
     // A name's first word counts too ("Kamisato Ayaka" is often tagged "Ayaka:" or "Kamisato:").
     for(const name of [...names])for(const part of name.split(/\s+/))if(part.length>=3&&!/^\{\{/.test(part))names.add(part);
     // The narration keyword ("Narrator:") marks narration pages, so it is never removed as a tag.
-    if(prefs.narration&&prefs.narrationMode==='keyword'){const keyword=String(prefs.narrationKeyword || '').replace(/[:：]\s*$/,'').trim().toLowerCase();for(const name of [...names])if(name.toLowerCase()===keyword)names.delete(name);}
+    if(prefs.narration){const keyword=String(prefs.narrationKeyword || '').replace(/[:：]\s*$/,'').trim().toLowerCase();for(const name of [...names])if(name.toLowerCase()===keyword)names.delete(name);}
     return [...names].sort((a,b)=>b.length-a.length);
 }
 // One tag at the start of a line: an optional bold or italic marker or bracket around the name, then a

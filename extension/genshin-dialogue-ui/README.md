@@ -1,3 +1,13 @@
+# Silly Teyvat 1.71.0: Everyone in the scene speaks
+
+- **One reply can voice the whole scene.** A reply is written in speaker parts, each starting with a name and a colon (`Kamisato Ayato:`, `Narrator:`), and every part is saved as its own chat message. The name plate, sprites, expressions, CGs and Trust follow whoever is talking, and the history shows the model who said what (`group-reply.js`).
+- **`Narrator:` parts are narration**, always. Inside a character's part, pages without quotes are narration too: the keyword and the no-quotes rule now apply together, and the Detect by choice is gone.
+- **Every present character's card is in the prompt** while a journey group replies, so whoever the model voices has their card. SillyTavern's group nudge now names the next speaker and lets anyone present join in, but never the player.
+- **No more empty replies.** SillyTavern cut a group reply at the first line that opened with another member's name, which left a reply empty when someone else spoke first (Ayaka's regenerate did nothing). That cut is held off while a reply is written and switched back right after; a hold left over from a reload repairs itself.
+- **Fewer, faster group turns.** A character who already spoke in this round is not asked for a reply of their own. In two five-character test scenes on the main API, a turn took one to three calls instead of three to five, and no one spoke twice in a row.
+- **Regenerate redoes the whole reply** from any of its parts, for the character it was written for, and puts the parts back if nothing comes. Swiping back to an older variant restores the speaker it was written for. An empty regeneration now says the previous reply was kept.
+- The Writing style prompt asks for speaker parts instead of forbidding name tags, and keeps quotes and narration on separate lines. A Writing style prompt you edited yourself keeps your version.
+
 # Silly Teyvat 1.70.0: People of Teyvat
 
 - **42 new characters live at the places they belong to**, each with a card and a neutral sprite sized for them. Liyue: Granny Ruoxin and Master Lu at Qingce Village. Inazuma: Neko at Asase Shrine, Kujou Masahito and Xavier at Kujou Encampment, and Elder Komaki and Nishikino Reirei at Bourou Village. Sumeru: Arama, Araja and Aranakula at Vanarana, Maryam and the Eremite Aybak at Caravan Ribat, Babel and Jeht at Tanit Camps, Aurelius at Vimara Village, and Shajar and Adel at Bayda Harbor. Fontaine: Tiepolo and Mécantre at Petrichor, Sedile and Virda at Merusea Village, Lasselin and Pitot at The Rusty Rudder, Areta and Tetreaux at Fleuve Cendre, and Lyris, Jakob and Rene at Annapausis. Natlan: Mazatl and Tzompantli at Easybreeze Market, Aloha at Colorfall Cliffs, Tlapalli at Tete Isle and Tisoc at the Mother Flamegranate Tree. Nod-Krai: Anselm at Favonius Keep, Valdis and Egle at Cliffwatch Camp, and Eveliina and Kukkia at the Light-Bathed Platform. Snezhnaya: Mayskaya and Knyazev at Rankova Zorya, and the dogs Plate and Whistle at the Huntsman's Cabin. The cards are in `character-cards/location-npcs/`.
@@ -1012,10 +1022,12 @@ Character scale applies across outfits. Individual sprite scale is stored per fo
 
 ## Narration
 
-In **Extensions → Silly Teyvat**, enable **Narration handling**, then choose its trigger. It is optional and starts turned off.
+A reply is written in speaker parts, each starting with a name and a colon (`Kamisato Ayato:`, `Narrator:`). Every part is saved as its own chat message, so the name plate, sprites, expressions and Trust follow whoever is talking, and a `Narrator:` part always becomes narration. Anyone present in the scene may speak; parts for the player are dropped. In a journey group the model is shown every present character's card, and SillyTavern's group trimming (which would cut the reply at the first other name) is held off while a reply is written. Regenerating any part redoes the whole reply.
+
+In **Extensions → Silly Teyvat**, enable **Narration pages** for narration inside a character's part. It is optional and starts turned off. Both rules apply together:
 
 - **No quotation marks:** each dialogue page without speech marks becomes narration. One response can alternate between spoken dialogue, narration and spoken dialogue again. Straight, curly, single and Japanese speech quotes count; apostrophes in contractions do not.
-- **Keyword:** set an exact, case-sensitive marker such as `Narrator:`. The marker disappears from dialogue view and the rest of that line becomes narration. The next newline returns to normal dialogue. A spoken prefix before a mid-line marker becomes a separate dialogue page.
+- **Keyword:** an exact, case-sensitive marker, `Narrator:` by default. The marker disappears from dialogue view and the rest of that line becomes narration. The next newline returns to normal dialogue. A spoken prefix before a mid-line marker becomes a separate dialogue page.
 
 Narration has no speaker name and uses muted text. It holds the character's most recent spoken expression and retains the other sprites in group scenes. It never classifies the narrative text. If that older speech has no recorded scene, its last spoken page can seed the expression. Original messages and reasoning remain available in History. Player messages keep their normal styling.
 

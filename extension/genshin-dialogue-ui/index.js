@@ -16,6 +16,7 @@ import { createUiSound, mountUiSound } from './ui-sound.js';
 import { mountSceneMedia } from './scene-media.js';
 import { stagingDefaults, mountStageEffects } from './staging.js';
 import { regenerationState, regenerateReply } from './regeneration.js';
+import {holdGroupReply,releaseGroupReply,forgetGroupReply,repairGroupTrimming,startGroupRound,draftGroupMember,endGroupRound,skipSpokenMember,splitReceivedReply,finishSplitReply,restoreSwipedSpeaker,rewriteGroupNudge} from './group-reply.js';
 import { CG_DISPLAY_MODES, defaultCGPrompt, localMediaPath, mediaSettings, migrateCGDisplay } from './media-store.js';
 import {clearPromptOrder} from './prompt-order.js';
 import {syncRoleplayPrompts,noteGeneration,paintRoleplayPrompts,bindRoleplayPrompts,dropRoleplayPrompts,renderPromptLibrary} from './roleplay-prompts.js';
@@ -140,7 +141,7 @@ function pageState(message) {
     const prefs = preferences();
     const entry = context().chat?.[Number(message.getAttribute('mesid'))], hint = soloHintFor(entry);
     const nameTags = message.getAttribute('is_user') === 'true' ? [] : nameTagNames(context(), entry, prefs);
-    const mode = `${prefs.narration}:${prefs.narrationMode}:${prefs.narrationKeyword}:${prefs.combatTriggerPhrase}:${hint}:${nameTags.join('|')}`;
+    const mode = `${prefs.narration}:${prefs.narrationKeyword}:${prefs.combatTriggerPhrase}:${hint}:${nameTags.join('|')}`;
     if (state.html !== source.innerHTML || state.mode !== mode) {
         state.mode = mode;
         state.html = source.innerHTML;
@@ -314,7 +315,6 @@ function syncSettings() {
     document.querySelector('#gi-cg-profile-row')?.toggleAttribute('hidden', prefs.cgClassifier !== 'profile');
     document.querySelector('#gi-cg-reasoning-row')?.toggleAttribute('hidden', prefs.cgClassifier !== 'main');
     document.querySelector('#gi-choices-reasoning-row')?.toggleAttribute('hidden', Boolean(prefs.choicesProfile));
-    document.querySelector('#gi-narration-keyword-row')?.toggleAttribute('hidden', prefs.narrationMode !== 'keyword');
     document.querySelector('#gi-crowd-max-row')?.toggleAttribute('hidden', prefs.spriteCrowd !== 'recent');
     const scale = document.querySelector('#gi-text-scale-value');
     const scrim = document.querySelector('#gi-scrim-value');
@@ -948,7 +948,7 @@ export async function initialize(options = {}) {
         const persona=personaCard(context());if(persona)await spriteUI?.refreshSprite(persona);
         refresh();schedule();
     });
-    subscribe('MESSAGE_RECEIVED',id=>{tagNarratorMessage(context(),id);if(preferences().enabled)cleanMessageNameTags(context(),id,preferences());});
+    subscribe('MESSAGE_RECEIVED',(id,type)=>{try{splitReceivedReply(context(),id,type);}finally{forgetGroupReply();}tagNarratorMessage(context(),id);if(preferences().enabled)cleanMessageNameTags(context(),id,preferences());});
     subscribe('CHARACTER_MESSAGE_RENDERED',id=>trustUI?.noteMessage(Number(id)));
     // Dialogue pages hide tags as they are shown. This covers the native chat, for when the dialogue view is off.
     for(const key of ['CHARACTER_MESSAGE_RENDERED','MESSAGE_UPDATED','MESSAGE_SWIPED','MORE_MESSAGES_LOADED','CHAT_CHANGED','CHAT_LOADED'])subscribe(key,hideChatTrustTags);
@@ -978,15 +978,26 @@ export async function initialize(options = {}) {
         if(preferences().enabled)personaSession?.request();
         trustUI?.close();choiceUI?.reset(); spriteUI?.reset(); mediaUI?.reset();backgroundUI?.reset(); reveal.reset(); visit++; pageStates = new WeakMap(); current = null; followLatest = true; history = false; hidden = false; generating = false; stopAuto(); schedule();
     });
+    // A reply may voice everyone present, one part per speaker (group-reply.js). SillyTavern's cut at
+    // another member's name is held off while it is written, and MESSAGE_RECEIVED splits it instead.
+    subscribe('GENERATION_STARTED',(type,params,dryRun)=>{if(preferences().enabled)holdGroupReply(context(),type,dryRun);});
+    subscribe('GENERATION_ENDED',releaseGroupReply);
+    for(const key of ['GENERATION_STOPPED','CHAT_CHANGED'])subscribe(key,forgetGroupReply);
+    subscribe('CHARACTER_MESSAGE_RENDERED',id=>finishSplitReply(context(),id));
+    subscribe('MESSAGE_SWIPED',id=>{if(preferences().enabled)restoreSwipedSpeaker(context(),id);});
     subscribe('GENERATION_STARTED', type => { if (type === 'quiet') return; generating = true; followLatest = true; hidden = false; stopAuto(); schedule(); announce('Reply is being written. The native Stop button is available.'); });
     // AI Config edits and preset switches flow back into Settings → Prompts.
     for (const key of ['SETTINGS_UPDATED', 'OAI_PRESET_CHANGED_AFTER', 'MAIN_API_CHANGED']) subscribe(key, () => syncRoleplayPrompts(context(), preferences().enabled));
-    subscribe('CHAT_COMPLETION_PROMPT_READY', data => { if (data?.dryRun) return; dropRoleplayPrompts(context(), preferences().enabled, data?.chat, [trustPrompt(context()),twinRolesPrompt(context())]); stripPromptTrustTags(data?.chat); });
+    subscribe('CHAT_COMPLETION_PROMPT_READY', data => { if (data?.dryRun) return; dropRoleplayPrompts(context(), preferences().enabled, data?.chat, [trustPrompt(context()),twinRolesPrompt(context())]); stripPromptTrustTags(data?.chat); if(preferences().enabled)rewriteGroupNudge(data?.chat,context().name1); });
     subscribe('GENERATION_AFTER_COMMANDS',(type,params)=>{worldMapUI?.syncPrompt(preferences().enabled);syncCombatPrompt(context(),preferences().enabled);syncTrustPrompt(context(),preferences().enabled);syncTwinPrompt(context(),preferences().enabled);noteGeneration(type,params);syncRoleplayPrompts(context(),preferences().enabled);if(preferences().enabled)wearTwinCards(context());});
     for(const key of ['GENERATE_AFTER_DATA','GENERATION_ENDED','GENERATION_STOPPED','CHAT_CHANGED'])subscribe(key,restoreTwinCards);
     subscribe('CHARACTER_FIRST_MESSAGE_SELECTED',args=>{const text=preferences().enabled&&abyssGreeting(context(),args?.character);if(text)args.output=text;});
-    subscribe('GROUP_WRAPPER_STARTED',()=>{groupGenerating=true;schedule();});
-    subscribe('GROUP_WRAPPER_FINISHED',()=>{groupGenerating=false;schedule();});
+    subscribe('GROUP_WRAPPER_STARTED',args=>{groupGenerating=true;if(preferences().enabled)startGroupRound(context(),args?.type);schedule();});
+    subscribe('GROUP_MEMBER_DRAFTED',id=>draftGroupMember(context(),Number(id)));
+    repairGroupTrimming(context());
+    // manifest.json names this as the generation interceptor. It skips a character who already spoke this round.
+    globalThis.sillyTeyvatGenerateInterceptor=async(chat,contextSize,abort,type)=>{if(preferences().enabled)skipSpokenMember(context(),type,abort);};
+    subscribe('GROUP_WRAPPER_FINISHED',()=>{groupGenerating=false;endGroupRound();forgetGroupReply();repairGroupTrimming(context());schedule();});
     subscribe('GROUP_UPDATED',()=>{if(preferences().enabled)personaSession?.request();schedule();});
     for (const key of ['GENERATION_STOPPED', 'GENERATION_ENDED']) subscribe(key, () => { if(key==='GENERATION_STOPPED')combatUI?.cancelPending();generating = false;if(preferences().enabled)personaSession?.request();schedule(); announce('Reply ready.'); });
     await prepareCardData();
@@ -1032,7 +1043,7 @@ export function dispose() {
     choiceUI?.dispose();
     choiceUI = undefined;
     disposeHudIcons();
-    syncRoleplayPrompts(context(),false);syncTrustPrompt(context(),false);syncTwinPrompt(context(),false);restoreTwinCards();clearPromptOrder(context());
+    syncRoleplayPrompts(context(),false);syncTrustPrompt(context(),false);syncTwinPrompt(context(),false);restoreTwinCards();forgetGroupReply();endGroupRound();delete globalThis.sillyTeyvatGenerateInterceptor;clearPromptOrder(context());
     abort?.abort();
     for (const [source, type, handler] of subscriptions) source.removeListener(type, handler);
     subscriptions = [];
