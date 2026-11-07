@@ -54,7 +54,7 @@ export function battleSnapshot(ctx,{portrait=()=>'',duel=null}={}){
         const kit=kitForAlly(ctx,ally),m=partyMember(ctx,ally.avatar),keep=saved.units[ally.avatar] || {};
         const card=ally.avatar===USER_KEY?linkedCard(ctx):ctx.characters.find(c=>c.avatar===ally.avatar);
         units.push({id:ally.avatar,side:'party',name:m.name,card:card?.name || '',img:portrait(ctx,ally.avatar),circle:circularCharacterAvatar(ctx,ally.avatar===USER_KEY?personaCard(ctx):card) || portrait(ctx,ally.avatar),art:tcgArt(card?.name),element:allyElement(ctx,ally),isUser:ally.avatar===USER_KEY,
-            hp:m.hp,maxHp:m.maxHp,shield:keep.shield || 0,energy:keep.energy ?? 1,maxEnergy:Math.max(1,Math.min(5,Number(kit.energy)||2)),aura:keep.aura || null,statuses:keep.statuses || [],evasion:Math.max(0,Math.min(90,Number(kit.evasion)||0)),kit});
+            hp:m.hp,maxHp:m.maxHp,shield:keep.shield || 0,energy:keep.energy ?? 0,maxEnergy:Math.max(1,Math.min(5,Number(kit.energy)||2)),aura:keep.aura || null,statuses:keep.statuses || [],evasion:Math.max(0,Math.min(90,Number(kit.evasion)||0)),kit});
     }
     for(const avatar of duel || []){
         const card=ctx.characters.find(c=>c.avatar===avatar),m=partyMember(ctx,avatar),element=characterProperties(ctx,card).element,kit=foeKit(kitForCard(ctx,card));
@@ -71,6 +71,13 @@ export function battleSnapshot(ctx,{portrait=()=>'',duel=null}={}){
     // Elemental enemies enter with their own element applied (see innateAura).
     for(const u of units)if(u.hp>0&&innateAura(u)&&!auraList(u.aura).length)u.aura={element:innateAura(u),elements:[innateAura(u)]};
     const state={key,duel:Boolean(duel),round:saved.round || 1,units,summons:structuredClone(saved.summons || []),fields:structuredClone(saved.fields || []),difficulty:combatDifficulty(ctx),bag:{...partyBag(ctx)}};
+    // Genius Invokation's table: each side's active character, the cards in hand and who acts first.
+    // A new fight (no saved active character) begins with the coin toss, the starting hand and a choice of character.
+    const pick=(sideName,id)=>units.some(u=>u.side===sideName&&u.id===id&&u.hp>0)?id:null;
+    state.active={party:pick('party',saved.active?.party),enemy:pick('enemy',saved.active?.enemy)};
+    state.fresh=!saved.active?.party;
+    const bag={...state.bag};state.hand=(saved.hand || []).filter(id=>bag[id]>0&&bag[id]--);
+    state.first=saved.first==='enemy'?'enemy':'party';
     state.resonance=resonanceOf(units);
     // An enemy without a telegraphed move picks one now, and keeps it until it acts.
     for(const u of units.filter(u=>u.side==='enemy'&&u.hp>0&&(!u.intent||u.intent.target&&!units.some(p=>p.id===u.intent.target&&p.hp>0)))){
@@ -104,6 +111,11 @@ export function commitRound(ctx,before,result,id,{items=[],loot=[]}={}){
     // The fight is over: what was owed has been paid, or was left behind by running away.
     if(result.victory||result.fled)for(const entry of Object.values(store.visits[before.key]?.enemies || {}))delete entry.spoils;
     saved.round=after.round;saved.summons=after.summons;saved.fields=after.fields || [];
+    const over=result.victory||result.fled||result.wiped;
+    if(over){delete saved.active;delete saved.hand;delete saved.first;}
+    else{saved.active={...(result.active || after.active || {})};saved.hand=[...(result.hand || [])];saved.first=result.first || 'party';}
+    // Only the whole party falling loses a fight now. Anyone still down when it is won or escaped comes to with 1 HP.
+    if(result.victory||result.fled)for(const u of after.units)if(u.side==='party'&&!u.duel&&u.hp<=0&&u.isUser)party[u.id].hp=1;
     const bag=partyBag(ctx);
     for(const id of items){if(bag[id]>0)bag[id]--;if(bag[id]===0)delete bag[id];}
     addToBag(bag,loot);
@@ -126,9 +138,13 @@ export function roundNarration(before,result){
         lines.push(`${current}${parts.length?': '+parts.join('; '):''}.`);
         current=null;hits=new Map();extra=[];buffed=new Set();weakened=new Set();healed=new Map();shielded=new Set();
     };
+    // Turns alternate as in Genius Invokation; say who opened the round.
+    const opener=result.timeline.find(e=>e.type==='act'||e.type==='end-round'||e.type==='flee');
+    if(before.enemyFirst)lines.push('The enemy struck first.');
+    else if(opener&&(opener.side==='enemy'||before.units.find(u=>u.id===opener.actor)?.side==='enemy'))lines.push('The enemies acted first.');
     for(const e of result.timeline){
         switch(e.type){
-            case 'phase':flush();if(e.label==='Enemy Phase')lines.push(before.enemyFirst?'The enemy struck first.':'Enemies strike back.');if(e.label==='End Phase')current='End of round';break;
+            case 'phase':flush();if(e.label==='End Phase')current='End of round';break;
             case 'act':flush();current=`${name(e.actor)} used ${e.name}${e.kind==='burst'?' (Elemental Burst)':e.kind==='skill'?' (Elemental Skill)':''}`;break;
             case 'skip':flush();lines.push(`${name(e.actor)} could not act (${e.reason}).`);break;
             case 'miss':extra.push(`missed ${name(e.target)}`);break;
@@ -143,6 +159,8 @@ export function roundNarration(before,result){
             case 'defeat':extra.push(`${name(e.target)} was defeated`);break;
             case 'downed':extra.push(`${name(e.target)} was downed`);break;
             case 'item':flush();current=`The party used ${e.name}${e.target?` on ${name(e.target)}`:''}`;break;
+            case 'switch':if(e.quiet)break;flush();lines.push(e.side==='party'?`${name(e.to)} stepped forward${e.forced&&!e.defeated?' (knocked back by Overloaded)':''}.`:`${name(e.to)} took the front${e.forced&&!e.defeated?' after Overloaded':''}.`);break;
+            case 'end-round':flush();lines.push(e.side==='party'?'The party ended its round.':'The enemies ended their round.');break;
             case 'dispel':extra.push(`dispelled ${e.name}`);break;
             case 'field':if(e.name)extra.push(`created ${e.name==='Dendro Core'?'a Dendro Core':'a Catalyzing Field'}`);break;
             case 'flee':{flush();const foes=list(before.units.filter(u=>u.side==='enemy'&&u.hp>0).map(u=>u.name));lines.push(e.success?`The party fled from ${foes}.`:`The party tried to flee from ${foes} but could not get away.`);break;}

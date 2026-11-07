@@ -1,0 +1,66 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Battle Sound Audition</title>
+<style>
+:root{color-scheme:dark;--bg:#14183a;--card:#1f2450;--line:#3a4082;--text:#eef0ff;--muted:#b9bdf0;--gold:#e2b54f;}
+body{margin:0;background:var(--bg);color:var(--text);font:15px/1.4 system-ui,sans-serif;}
+main{max-width:860px;margin:0 auto;padding:20px 16px 40px;}
+h1{margin:0 0 4px;font-size:22px;font-weight:600;}
+p.lead{margin:0 0 16px;color:var(--muted);font-size:14px;}
+.bar{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin:0 0 16px;padding:10px 12px;border-radius:10px;background:var(--card);}
+.bar label{display:flex;gap:6px;align-items:center;font-size:14px;color:var(--muted);}
+table{width:100%;border-collapse:collapse;}
+th,td{padding:9px 8px;border-bottom:1px solid var(--line);text-align:left;vertical-align:middle;}
+th{font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:500;}
+td small{display:block;color:var(--muted);font-size:12px;}
+button{font:inherit;font-size:14px;padding:6px 12px;border-radius:16px;border:1px solid var(--line);background:#2b3170;color:var(--text);cursor:pointer;white-space:nowrap;}
+button:hover{background:#3a4190;} button.clip{border-color:var(--gold);} button:active{transform:scale(.97);}
+.both{background:none;}
+@media (max-width:600px){th:nth-child(1),td:nth-child(1){width:40%;} td small{display:none;}}
+</style></head><body><main>
+<h1>Battle sound audition</h1>
+<p class="lead">Each battle sound as synthesised and as the recorded clip the game uses (sounds without a clip play the synthesised version on both buttons). "Both" plays the synthesised one, then the clip a moment later. Element sounds (hits, reactions) are not listed: they stay synthesised.</p>
+<div class="bar"><label>Volume <input id="vol" type="range" min="0" max="1" step="0.05" value="0.7"></label><label>Element for charge, tune and Burst <select id="el"><option>Pyro</option><option>Hydro</option><option>Anemo</option><option>Electro</option><option>Dendro</option><option>Cryo</option><option>Geo</option></select></label></div>
+<table><thead><tr><th>Sound</th><th>Synthesised</th><th>Recorded clip</th><th></th></tr></thead><tbody id="rows"></tbody></table>
+</main>
+<script type="module">
+import {createBattleSound} from './battle-sound.js';
+const synth=createBattleSound({clips:false}),clip=createBattleSound();
+const el=()=>document.querySelector('#el').value;
+const SOUNDS=[
+  ['Coin toss','coin',()=>[],'The coin spinning'],
+  ['Coin lands','coinLand',()=>[],'2.4 s later, as it settles'],
+  ['Starting hand','deal',()=>[5],'Five cards dealt'],
+  ['Draw','draw',()=>[2],'Two cards at the End Phase, one flip each'],
+  ['Your Turn','turn',()=>['party'],'Turn banner'],
+  ["Opponent's Turn",'turn',()=>['enemy'],'Turn banner'],
+  ['End round','endRound',()=>[],'Declaring the round end'],
+  ['Play card','card',()=>[],'Card leaves the hand'],
+  ['Card flash','cardFlash',()=>[],'Card lands among the played cards'],
+  ['Switch character','swap',()=>[],'New active character steps forward'],
+  ['Elemental Tuning','tune',()=>[el()],'A die changes element'],
+  ['Phase banner','phase',()=>[],'Round start, Roll and Action Phase'],
+  ['End Phase banner','phaseEnd',()=>[],'End Phase'],
+  ['Attack lunge','whoosh',()=>[],'Card leaps at its target'],
+  ['Slash','slash',()=>[],'A hit lands (under the element impact)'],
+  ['Heal','heal',()=>[],''],
+  ['Shield','shield',()=>[],''],
+  ['Buff','buff',()=>[],''],
+  ['Summon','summon',()=>[],''],
+  ['Burst charge','charge',()=>[el()],'Clip plays over the element layer'],
+  ['Burst impact','burstImpact',()=>[el()],'Clip plays over the element layer'],
+  ['Victory','victory',()=>[],''],
+  ['Defeat','wipe',()=>[],'Whole party down'],
+];
+const vol=()=>Number(document.querySelector('#vol').value);
+const play=(player,name,args)=>{player.setVolume(vol());player.unlock();player[name](...args());};
+const rows=document.querySelector('#rows');
+for(const [label,name,args,note] of SOUNDS){
+  const tr=document.createElement('tr');
+  tr.innerHTML=`<td><strong></strong><small></small></td><td><button type="button">▶ Synth</button></td><td><button type="button" class="clip">▶ Clip</button></td><td><button type="button" class="both">Both</button></td>`;
+  tr.querySelector('strong').textContent=label;tr.querySelector('small').textContent=note;
+  const [a,b,c]=tr.querySelectorAll('button');
+  a.onclick=()=>play(synth,name,args);b.onclick=()=>play(clip,name,args);
+  c.onclick=()=>{play(synth,name,args);setTimeout(()=>play(clip,name,args),1600);};
+  rows.append(tr);
+}
+clip.setVolume(vol());
+</script></body></html>

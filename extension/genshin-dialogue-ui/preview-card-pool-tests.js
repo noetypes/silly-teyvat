@@ -1,3 +1,5 @@
+import {autoBattle} from './preview-battle-auto.js';
+import {autoAction} from './battle-engine.js';
 import {ENEMY_TIERS,ITEMS,bagCount,enemyTier,rarityOdds,rollBossLoot,rollLoot} from './battle-items.js';
 import {REGION_CARDS,cardPoolSummary,defaultCardPool,locationCardPool,mountCardPoolMenu,saveCardPool} from './card-pools.js';
 import {ENEMY_REGIONS} from './enemy-regions.js';
@@ -13,12 +15,12 @@ function fight(names,{key='loot-fight'}={}){
     const card=(name,role,element='None')=>({name,avatar:`${name}.png`,data:{extensions:{silly_teyvat:{role,playable:role==='character',element,maxHp:20}}}}),avatars=names.map(n=>`${n}.png`);
     const ctx={characterId:0,groupId:'g',chatId:'loot',characters:[card('Klee','character','Pyro'),...names.map(n=>card(n,'enemy'))],groups:[{id:'g',members:['Klee.png',...avatars],disabled_members:[]}],chat:[{name:'Enemy',mes:'“Ya!”',is_user:false}],chatMetadata:{silly_teyvat_world:{location:{id:'wild'}},silly_teyvat_cast:{core:['Klee.png'],managed:key?[...avatars]:[],placements:{},...(key?{encounter:{key,locationId:'wild',enemies:[...avatars],present:[],travellers:['Klee.png']}}:{})}},extensionSettings:{genshin_dialogue_ui:{reducedMotion:true,enemyStrikeBack:false,characterProperties:{},backgroundRegions:[{id:'r',name:'Mondstadt',locations:[{id:'wild',label:'Woods',cardPool:FIGHT_POOL}]}]}},extensionPrompts:{},saveChat:async()=>{},saveSettingsDebounced(){},saveMetadataDebounced(){},getThumbnailUrl:()=>'',setExtensionPrompt(){}};
     let fleeing=false;
-    const ui=mountCombat({host,getContext:()=>ctx,adapter:{async append(c,record){c.chat.push({name:'Narrator',mes:record.text,is_user:false,extra:{type:'narrator',silly_teyvat_combat:record.event}});},async react(){}},diceAdapter:{async roll(){return true;},dispose(){}},battleAdapter:{plan:async(state,{targetId})=>({steps:state.units.filter(u=>u.side==='party'&&u.hp>0).map(u=>({actor:u.id,move:0,target:targetId})),items:[],flee:fleeing}),play:async()=>true,cancel(){},dispose(){}}});
+    const ui=mountCombat({host,getContext:()=>ctx,adapter:{async append(c,record){c.chat.push({name:'Narrator',mes:record.text,is_user:false,extra:{type:'narrator',silly_teyvat_combat:record.event}});},async react(){}},diceAdapter:{async roll(){return true;},dispose(){}},battleAdapter:autoBattle({choose:round=>fleeing?{type:'flee'}:autoAction(round)})});
     const visit=()=>combatState(ctx).visits[key || 'manual:wild'],sync=()=>ui.sync({on:true,id:ctx.chat.length-1});
     sync();
     return {ctx,ui,visit,sync,
         // Attacks until the enemy falls, as a miss can use up a round. The loot is everything those rounds paid.
-        async beat(name){const entry=visit().enemies[`${name}.png`],loot=[];let event;entry.hp=1;for(let i=0;i<60&&!entry.defeated;i++){event=await ui.attack(`${name}.png`,{react:false});loot.push(...event.loot);sync();}return {...event,loot};},
+        async beat(name){const entry=visit().enemies[`${name}.png`],loot=[];let event;entry.hp=1;for(const b of Object.values(combatState(ctx).battles || {}))if(b.active)b.active.enemy=`${name}.png`;for(let i=0;i<60&&!entry.defeated;i++){event=await ui.attack(`${name}.png`,{react:false});loot.push(...event.loot);sync();}return {...event,loot};},
         async run(){const random=Math.random;fleeing=true;Math.random=()=>0;try{return await ui.attack(activeEnemies(ctx)[0].avatar,{react:false});}finally{Math.random=random;fleeing=false;sync();}},
         join(name){ctx.characters.push(card(name,'enemy'));ctx.groups[0].members.push(`${name}.png`);sync();},
         dispose(){ui.dispose();host.remove();}};
@@ -71,7 +73,8 @@ export async function runCardPoolTests(){
             const events=combatState(three.ctx).events.length,shooter=three.visit().enemies['Hilichurl Shooter.png'].hp;await three.ui.attack('Hilichurl Shooter.png',{attackId:guard.id,react:false});
             check('a round that cannot be saved changes nothing owed',combatState(three.ctx).events.length===events&&unpaidEnemies(three.visit()).length===1&&three.visit().enemies['Hilichurl Shooter.png'].hp===shooter);
             three.ctx.chatMetadata=JSON.parse(JSON.stringify(three.ctx.chatMetadata));three.ctx.characters=three.ctx.characters.filter(c=>c.name!=='Ruin Guard');
-            await three.beat('Hilichurl Shooter');const last=await three.beat('Hilichurl Fighter');
+            // A round now holds several turns, so the last enemy can fall in the same round as the one before it.
+            const shot=await three.beat('Hilichurl Shooter');const last=shot.victory?shot:await three.beat('Hilichurl Fighter');
             check('a victory pays every enemy of a multi-round fight, even after a reload and with its card gone',last.victory&&last.loot.length===4&&bagCount(combatState(three.ctx).bag)-bagBefore===4);
             check('those cards come from the location\'s pool',last.loot.every(id=>FIGHT_POOL.includes(id)));
             check('nothing stays owed after the victory',unpaidEnemies(three.visit()).length===0);

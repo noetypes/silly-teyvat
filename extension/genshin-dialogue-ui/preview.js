@@ -248,6 +248,7 @@ document.addEventListener('click', async event => {
                 message('Hilichurl Fighter',demo==='enemy-action-demo'?'[enemy_attack] The hilichurl lunges toward the Traveler and swings its club.\n“Ya! Mosi?”':'The hilichurl plants its club in the path and growls.\n“Ya! Mosi?”');emit(eventTypes.CHAT_CHANGED);emit(eventTypes.CHARACTER_MESSAGE_RENDERED);result('Wilderness encounter ready. Toggle Attack, then send a message or select a suggested reply. The message stays in chat, then the Roll Phase, Action Phase and the round play before the model reply. No native chat/model writes.');break;
             }
             case 'battle-layout': {const {showBattleLayout}=await import('./preview-battle-layout.js');await showBattleLayout();break;}
+            case 'battle-intro': {const {showBattleLayout}=await import('./preview-battle-layout.js');await showBattleLayout({intro:true});break;}
             case 'encounter-fix-tests': {ctx.extensionSettings.genshin_dialogue_ui.choices=false;emit(eventTypes.SETTINGS_UPDATED);const {runEncounterFixTests}=await import('./preview-encounter-fix-tests.js');result(await runEncounterFixTests().catch(error=>error.message));break;}
             case 'dice-model-demo': {
                 const {mountElementalDice}=await import('./elemental-dice.js');const ui=mountElementalDice({host:document.body});

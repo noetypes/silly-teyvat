@@ -1,6 +1,7 @@
 // Synthesised battle sounds: elemental impacts, reactions, heals, buffs, bursts and
 // fanfares. Everything is generated with Web Audio; no recorded game audio is bundled.
-export function createBattleSound() {
+// clips: false keeps every sound synthesised (the audition page compares both).
+export function createBattleSound({clips = true} = {}) {
     let ctx, master, air, hall, noise, volume = 0;
     function ready() {
         if (!volume) return false;
@@ -115,6 +116,7 @@ export function createBattleSound() {
     function chord(at, notes, {type = 'triangle', gain = .1, decay = .9, step = 0, out}) { notes.forEach((f, i) => tone(at + i * step, {type, freq: f, gain, decay, out})); }
     const api = {
         setVolume(value) { volume = Math.max(0, Math.min(1, Number(value) || 0)); },
+        lead() { return 0; },
         unlock() { if (ready() && ctx.state === 'suspended') void ctx.resume().catch(() => {}); },
         hit({element = 'Physical', amount = 4, crit = false, reaction = '', pan = 0, party = false, big = false} = {}) {
             if (!ready()) return; const at = now(), out = bus(.9, {pan, wet: crit ? .3 : .08, room: big ? .45 : crit ? .2 : 0}), s = Math.min(big ? 1.6 : 1.3, .6 + amount / 14 + (big ? .3 : 0));
@@ -138,6 +140,8 @@ export function createBattleSound() {
         assign() { if (!ready()) return; const at = now(), out = bus(.45); tone(at, {type: 'triangle', freq: 880, gain: .12, decay: .08, out}); tone(at + .05, {type: 'triangle', freq: 1320, gain: .1, decay: .12, out}); },
         deny() { if (!ready()) return; const at = now(), out = bus(.4); tone(at, {type: 'square', freq: 196, gain: .06, decay: .12, out}); },
         phase() { if (!ready()) return; const at = now(), out = bus(.5, {wet: .5}); tone(at, {freq: 196, gain: .3, decay: 1.2, out}); tone(at, {type: 'triangle', freq: 392, gain: .08, decay: 1, out}); },
+        // The End Phase: a fuller gong than the other phase banners.
+        phaseEnd() { if (!ready()) return; const at = now(), out = bus(.55, {wet: .55}); tone(at, {freq: 147, gain: .32, decay: 1.6, out}); tone(at, {freq: 196, gain: .2, decay: 1.3, out}); tone(at, {type: 'triangle', freq: 392, gain: .08, decay: 1.1, out}); },
         // A move starting: a swing for a Normal Attack, an elemental cast for a Skill.
         act(kind = 'normal', element = 'Physical') {
             if (!ready()) return; const at = now(), out = bus(.5, {wet: .2});
@@ -146,7 +150,8 @@ export function createBattleSound() {
         },
         // Energy gathering before a Burst: a rising roar that tightens into the element's colour.
         charge(element = 'Physical') {
-            if (!ready()) return; const at = now(), out = bus(.75, {wet: .3, room: .4});
+            if (!ready()) return;
+            const at = now(), out = bus(.75, {wet: .3, room: .4});
             hiss(at, {freq: 180, to: 4200, q: 2.2, gain: .5, attack: .5, decay: .08, out});
             tone(at, {type: 'sawtooth', freq: 80, to: 320, gain: .1, attack: .48, decay: .1, out});
             tone(at, {freq: 160, to: 640, gain: .14, attack: .48, decay: .1, out});
@@ -161,7 +166,8 @@ export function createBattleSound() {
         },
         // The Burst landing on the board: each element has its own signature over a sub-bass hit.
         burstImpact(element = 'Physical') {
-            if (!ready()) return; const at = now(), out = bus(1, {wet: .3, room: .7});
+            if (!ready()) return;
+            const at = now(), out = bus(1, {wet: .3, room: .7});
             tone(at, {freq: 58, to: 24, gain: 1.1, decay: 1.2, out}); thud(at, out, 1.2);
             (BURST[element] || BURST.Physical)(at, out);
             chord(at + .12, (SHIMMER[element] || SHIMMER.Physical), {gain: .08, step: .07, decay: 1.6, out});
@@ -171,7 +177,81 @@ export function createBattleSound() {
         downed() { if (!ready()) return; const at = now(), out = bus(.6, {wet: .3}); chord(at, [440, 349, 294, 220], {type: 'sine', gain: .12, step: .14, decay: .7, out}); },
         victory() { if (!ready()) return; const at = now(), out = bus(.7, {wet: .5}); [[523, 659, 784], [587, 740, 880], [784, 988, 1175, 1568]].forEach((notes, i) => chord(at + i * .2, notes, {type: 'triangle', gain: .1, decay: i === 2 ? 1.6 : .3, out})); },
         wipe() { if (!ready()) return; const at = now(), out = bus(.6, {wet: .5}); chord(at, [392, 311, 262, 196], {type: 'sine', gain: .14, step: .25, decay: 1.2, out}); },
+        // Genius Invokation's table sounds (1.61): the coin, dealt cards, turn chimes, switching and the round's end.
+        // The coin spinning; coinLand() is the moment it settles (the board times it to the coin's landing).
+        coin() { if (!ready()) return; const at = now(), out = bus(.6, {wet: .35, room: .25}); for (let i = 0; i < 9; i++) tone(at + i * .2 * (1 - i * .05), {type: 'triangle', freq: 2637 + (i % 2) * 400, gain: .05, decay: .06, out}); },
+        coinLand() { if (!ready()) return; const at = now(), out = bus(.6, {wet: .35, room: .25}); chord(at, [1568, 2093, 3136], {type: 'sine', gain: .09, decay: 1.2, out}); hiss(at, {type: 'highpass', freq: 5000, gain: .12, decay: .5, out}); },
+        deal(count = 1) { if (!ready()) return; const at = now(), out = bus(.5, {wet: .15}); for (let i = 0; i < Math.min(8, count); i++) { hiss(at + i * .11, {freq: 2600, to: 1200, q: 1.2, gain: .28, attack: .01, decay: .09, out}); thud(at + i * .11 + .06, out, .12); } },
+        slash() { if (!ready()) return; const at = now(), out = bus(.4); hiss(at, {freq: 4200, to: 1800, q: 1.2, gain: .3, attack: .004, decay: .08, out}); },
+        // Cards drawn at the End Phase (dealing a hand is deal()).
+        draw(count = 2) { api.deal(count); },
+        whoosh() { if (!ready()) return; const at = now(), out = bus(.45, {wet: .1}); hiss(at, {freq: 700, to: 2400, q: 1.6, gain: .35, attack: .08, decay: .14, out}); },
+        swap() { if (!ready()) return; const at = now(), out = bus(.5, {wet: .3}); hiss(at, {freq: 600, to: 3200, q: 2.5, gain: .32, attack: .1, decay: .2, out}); chord(at + .14, [880, 1319], {type: 'triangle', gain: .07, step: .05, decay: .35, out}); },
+        // Your turn: a bright two-note bell. The opponent's: the same bell, lower and darker.
+        turn(side = 'party') { if (!ready()) return; const at = now(), out = bus(.55, {wet: .5, room: .3}), k = side === 'party' ? 1 : .75; chord(at, [784 * k, 1175 * k], {type: 'sine', gain: .12, step: .12, decay: 1.1, out}); tone(at, {type: 'triangle', freq: 392 * k, gain: .06, decay: .9, out}); },
+        endRound() { if (!ready()) return; const at = now(), out = bus(.5, {wet: .5}); chord(at, [659, 523, 392], {type: 'sine', gain: .1, step: .1, decay: .8, out}); },
+        tune(element = 'Omni') { if (!ready()) return; const at = now(), out = bus(.55, {wet: .4}); hiss(at, {freq: 900, to: 5000, q: 3, gain: .25, attack: .2, decay: .1, out}); chord(at + .25, (SHIMMER[element] || SHIMMER.Physical).map(f => f * 2), {gain: .07, step: .04, decay: .6, out}); },
+        cardFlash() { if (!ready()) return; const at = now(), out = bus(.6, {wet: .4, room: .3}); hiss(at, {type: 'highpass', freq: 3000, to: 9000, gain: .3, attack: .02, decay: .3, out}); chord(at, [1047, 1568, 2093], {type: 'sine', gain: .08, step: .03, decay: .7, out}); },
+        finale() { if (!ready()) return; const at = now(), out = bus(.8, {wet: .4, room: .7}); tone(at, {freq: 55, to: 30, gain: .9, decay: 1.4, out}); hiss(at, {type: 'lowpass', freq: 5000, to: 200, gain: .45, attack: .02, decay: 1.2, out}); chord(at + .2, [523, 784, 1047], {type: 'sine', gain: .06, step: .1, decay: 1.4, out}); },
         dispose() { void ctx?.close?.().catch(() => {}); ctx = master = air = hall = noise = undefined; },
     };
-    return api;
+    return clips ? withClips(api, () => (ready() ? {ctx, out: bus(1, {wet: .1})} : null)) : api;
+}
+// Recorded clips stand in for synthesised sounds: assets/battle-sound/index.json maps a sound to its file,
+// as {"coin": "coin.mp3", ...} (turn-party / turn-enemy for the two turn chimes). An entry can also be
+// {"file": "deal.mp3", "step": 0.11, "tail": 0.4}: a clip of evenly spaced events (one card flip each),
+// of which deal(count) plays the first count; {"file": "draw.mp3", "repeat": 0.11}: one event played
+// count times, that far apart; {"file": "hit.mp3", "lead": 0.28}: the clip's transient comes that many
+// seconds in, so the board starts it early (lead(name)) to land the hit on the visual. A sound without a clip, or a clip that fails to load,
+// stays synthesised. Layered sounds keep their synthesised version under the clip.
+const clipBase = new URL('./assets/battle-sound/', import.meta.url);
+let clipIndex = null;
+const clipIndexReady = () => clipIndex ??= fetch(new URL('index.json', clipBase)).then(r => r.ok ? r.json() : {}).catch(() => ({}));
+const LAYERED = new Set(['card']);
+const clipKey = (name, args) => name === 'turn' ? `turn-${args[0] === 'enemy' ? 'enemy' : 'party'}` : name;
+const FILE = /^[\w-]+\.(mp3|ogg|wav)$/;
+function withClips(api, output) {
+    const buffers = new Map(), map = {};
+    let preloaded = false;
+    void clipIndexReady().then(index => {
+        for (const [key, entry] of Object.entries(index || {})) {
+            const num = (v, max = 2) => Math.max(0, Math.min(max, Number(v) || 0));
+            const spec = typeof entry === 'string' ? {file: entry} : entry && typeof entry === 'object' ? {file: entry.file, step: num(entry.step), tail: num(entry.tail), repeat: num(entry.repeat), lead: num(entry.lead)} : null;
+            if (spec && typeof spec.file === 'string' && FILE.test(spec.file)) map[key] = spec;
+        }
+    });
+    const load = (c, key) => {
+        if (!buffers.has(key)) buffers.set(key, fetch(new URL(map[key].file, clipBase)).then(r => r.ok ? r.arrayBuffer() : Promise.reject(new Error(r.status))).then(b => c.decodeAudioData(b)).catch(() => null));
+        return buffers.get(key);
+    };
+    // Decode every clip once sound is on, so the first play is not late.
+    const preload = () => { if (preloaded) return; const o = output(); if (!o) return; preloaded = true; void clipIndexReady().then(() => { for (const key of Object.keys(map)) void load(o.ctx, key); }); };
+    const wrapped = {...api, unlock() { api.unlock(); preload(); }, setVolume(value) { api.setVolume(value); if (Number(value) > 0) preload(); },
+        // Seconds between starting a sound and its transient (0 when synthesised).
+        lead(name) { return map[name]?.lead || 0; }};
+    for (const [name, fn] of Object.entries(api)) {
+        if (['setVolume', 'unlock', 'dispose', 'lead'].includes(name)) continue;
+        wrapped[name] = (...args) => {
+            const key = clipKey(name, args), spec = map[key];
+            if (!spec) return fn(...args);
+            const o = output(); if (!o) return;
+            preload();
+            if (LAYERED.has(name)) fn(...args);
+            void load(o.ctx, key).then(buffer => {
+                if (!buffer) { delete map[key]; if (!LAYERED.has(name)) fn(...args); return; }
+                const src = o.ctx.createBufferSource(), at = o.ctx.currentTime + .004; src.buffer = buffer;
+                if (spec.step) {
+                    // Only the first `count` events: stop after the last one's tail, with a short fade.
+                    const count = Math.max(1, Math.round(Number(args[0]) || 1)), length = Math.min(buffer.duration, (count - 1) * spec.step + (spec.tail || .4));
+                    const g = o.ctx.createGain(); g.gain.setValueAtTime(1, at + Math.max(0, length - .06)); g.gain.linearRampToValueAtTime(0, at + length);
+                    src.connect(g).connect(o.out); src.start(at); src.stop(at + length + .02);
+                } else if (spec.repeat) {
+                    const count = Math.max(1, Math.min(10, Math.round(Number(args[0]) || 1)));
+                    src.connect(o.out); src.start(at);
+                    for (let i = 1; i < count; i++) { const more = o.ctx.createBufferSource(); more.buffer = buffer; more.connect(o.out); more.start(at + i * spec.repeat); }
+                } else { src.connect(o.out); src.start(at); }
+            });
+        };
+    }
+    return wrapped;
 }

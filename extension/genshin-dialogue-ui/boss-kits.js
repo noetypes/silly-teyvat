@@ -3,14 +3,17 @@
 // 1.45 balance: HP and damage were tuned in simulated fights against a four-member party (auto-played, no food) so a
 // normal boss takes 8 to 11 rounds and costs about half to two thirds of the party's health; weekly bosses are harder.
 // Enemy HP and damage still scale with party size (see partyScale), and card-authored HP never overrides these rows.
-const D=(power,target='one',o={})=>({type:'damage',power,target,...o});
-const S=(name,power,rounds,target='one',o={})=>({type:'summon',name,power,rounds,target,...o});
+// 1.61: bosses now act twice a round on Genius Invokation turns, against one active character, so these
+// tables are scaled to half their HP and three fifths of their damage (simulated: 8 to 12 rounds for four).
+const BOSS_HP=.5,BOSS_DAMAGE=.6,dmg=power=>Math.max(1,Math.round(power*BOSS_DAMAGE));
+const D=(power,target='one',o={})=>({type:'damage',power:dmg(power),target,...o});
+const S=(name,power,rounds,target='one',o={})=>({type:'summon',name,power:dmg(power),rounds,target,...o});
 const H=(amount,target='self')=>({type:'heal',amount,target});
 const SH=(amount)=>({type:'shield',amount,target:'self'});
 const B=(stat,amount,rounds)=>({type:'buff',stat,amount,rounds,target:'self'});
 const V=(amount,rounds,target='one')=>({type:'debuff',stat:'vuln',amount,rounds,target});
 // name, element, HP, normal, burst, cooldown, defenses, skill, extra attacks
-export const BOSS_ROWS=[
+const ROWS=[
  ['All-Devouring Narwhal','Hydro',140,['Shattering Waves',[D(5)],'Physical'],['Ravaging Devourer',[D(4,'all'),S('Dark Shadow',3,2)]],3,{armor:10},['Starfall Shower',[D(5),H(3)]]],
  ['Azhdaha','Geo',150,['Sundering Charge',[D(5)],'Physical'],['Decimating Rockfall',[D(5,'all')]],3,{armor:20},['Aura of Majesty',[D(5),SH(4)]],[['Frostspike Wave',[D(5)],'Cryo'],['Torrential Rebuke',[D(5)],'Hydro'],['Blazing Rebuke',[D(5)],'Pyro'],['Thunderstorm Wave',[D(5)],'Electro']]],
  ['Cryo Hypostasis','Cryo',153,['Icespike Shot',[D(5)]],['Plunging Ice Shards',[D(4,'all'),S('Piercing Iceridge',2,2)]],3,{shield:8,weakTo:'Pyro'},['Ice Ring Waltz',[D(6),D(1,'all')]]],
@@ -31,6 +34,7 @@ export const BOSS_ROWS=[
  ['Rhodeia of Loch','Hydro',150,['Surge',[D(6)]],['Tide and Torrent',[D(10),S('Oceanid Mimic',3,2)]],3,{evasion:10},['Oceanid Mimic Summoning',[S('Oceanid Mimic',4,2)]],[[ 'The Myriad Wilds',[S('Oceanid Mimics',6,2)]]]],
  ['Thunder Manifestation','Electro',165,['Thunderous Wingslash',[D(6)]],['Thundering Shackles',[D(6),S('Thundering Shackles',4,2)]],3,{evasion:15},['Strifeful Lightning',[D(7),V(20,1)]]],
 ];
+export const BOSS_ROWS=ROWS.map(row=>{const copy=[...row];copy[2]=Math.round(row[2]*BOSS_HP);return copy;});
 const normalize=name=>String(name || '').toLowerCase().replace(/[^a-z0-9]+/g,'');
 const names=new Set(BOSS_ROWS.map(row=>normalize(row[0])));
 export const isTcgBoss=name=>names.has(normalize(name));

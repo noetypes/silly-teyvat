@@ -10,7 +10,7 @@ import {activePersonaAvatar,personaCard} from './persona-wardrobe.js';
 import {circularCharacterAvatar,characterAvatarsReady} from './character-avatars.js';
 import {mountElementalDice,ELEMENT_COLORS} from './elemental-dice.js';
 import {battleSnapshot,commitRound,roundNarration,partyBag,unpaidEnemies} from './battle-state.js';
-import {rollFuel,rerollFuel,resolveRound} from './battle-engine.js';
+import {rollFuel,rerollFuel} from './battle-engine.js';
 import {ITEMS,rollLoot,rollBossLoot} from './battle-items.js';
 import {mountBattle} from './battle-ui.js';
 import {createBurstVoicePlayer} from './burst-audio.js';
@@ -127,7 +127,8 @@ export function mountCombat({host,getContext,onChange=()=>{},announce=()=>{},ada
     function setArmed(value){if(value&&(!enabled||busy||writing||!eligibleEnemies(getContext()).length))return false;armed=Boolean(value);paintControls();announce(armed?'Attack is on. Your next messages will also start a battle round.':'Attack is off. Your messages will only speak.');return armed;}
     const current=(identity,token)=>!disposed&&enabled&&token===revision&&combatIdentity(getContext())===identity;
     const prefs=ctx=>mediaSettings(ctx),volumeOf=(ctx,key)=>prefs(ctx)[key]===false?0:(prefs(ctx).spriteVolume ?? .8);
-    // One full round: Roll Phase (dice as fuel), Action Phase (choose moves), then the resolved round is saved and played back.
+    // One full round in the manner of Genius Invokation: Roll Phase, then turns in alternation on the board, then the End Phase.
+    // The finished round is saved and narrated, then the board shows Victory or the round's summary.
     // enemyFirst: the enemy started this fight, so it strikes before the party. duel: party members fought on your own.
     async function attack(avatar,{duringSend=false,react=true,attackId,enemyFirst=false,duel=null}={}){
         if(disposed||busy||writing&&!duringSend||!enabled)return null;
@@ -139,29 +140,33 @@ export function mountCombat({host,getContext,onChange=()=>{},announce=()=>{},ada
         try{
             const snapshot=battleSnapshot(ctx,{portrait:fullPortrait,duel}),motion=reduced(ctx);
             if(enemyFirst)snapshot.enemyFirst=true;
+            // A new fight brings the enemy you confronted to the front.
+            if(!snapshot.active?.enemy&&snapshot.units.some(u=>u.id===avatar&&u.side==='enemy'&&u.hp>0))snapshot.active={...snapshot.active,enemy:avatar};
             if(!snapshot.units.some(u=>u.side==='party'&&u.hp>0))throw new Error('Nobody in your party can fight. Rest at a town or the Adventurers\' Guild to recover.');
-            let roll=rollFuel(snapshot);
-            const describe={allies:snapshot.units.filter(u=>u.side==='party'&&u.hp>0).map(u=>({avatar:u.id,name:u.name,img:u.circle || u.img,element:u.element})),enemy:{avatar,name:snapshot.units.find(u=>u.id===avatar)?.name || 'Enemy',img:portrait(ctx,avatar),maxHp:snapshot.units.find(u=>u.id===avatar)?.maxHp}};
-            if(!await dice.roll(roll,{describe,reroll:indices=>(roll=rerollFuel(snapshot,roll,indices)),volume:volumeOf(ctx,'diceSound'),reducedMotion:motion,isCurrent:valid})||!valid())return;
+            const describe=state=>({allies:state.units.filter(u=>u.side==='party'&&u.hp>0).map(u=>({avatar:u.id,name:u.name,img:u.circle || u.img,element:u.element,active:state.active?.party===u.id})),enemy:{avatar,name:snapshot.units.find(u=>u.id===avatar)?.name || 'Enemy',img:portrait(ctx,avatar),maxHp:snapshot.units.find(u=>u.id===avatar)?.maxHp}});
             const options={reducedMotion:motion,effects:prefs(ctx).battleEffects!==false,volume:volumeOf(ctx,'battleSound'),isCurrent:valid};
             const player={name:ctx.name1 || 'You',img:portrait(ctx,USER_KEY)};
-            // Toss-Up returns to the Roll Phase with the unspent dice; the rest of the plan waits on the board.
-            const onReroll=async(current,indices)=>{
-                let sub={kind:'fuel',dice:indices.map(i=>({...current[i]})),allies:roll.allies,rerolls:0};
-                const ok=await dice.roll(sub,{describe,heading:'Toss-Up',pickAll:true,reroll:picked=>(sub=rerollFuel(snapshot,sub,picked)),volume:volumeOf(ctx,'diceSound'),reducedMotion:motion,isCurrent:valid});
-                if(!ok||!valid())return null;
-                return current.map((d,i)=>{const k=indices.indexOf(i);return k<0?d:{face:sub.dice[k].face,match:sub.dice[k].match};});
+            // Roll Phase: eight dice (nine with Electro Resonance), one reroll, thrown onto the table.
+            const roll=async state=>{
+                let r=rollFuel(state);
+                const ok=await dice.roll(r,{describe:describe(state),reroll:indices=>(r=rerollFuel(state,r,indices)),volume:volumeOf(ctx,'diceSound'),reducedMotion:motion,isCurrent:valid});
+                return ok&&valid()?r.dice.map(d=>({face:d.face})):null;
             };
-            const plan=await battle.plan(snapshot,{dice:roll.dice,targetId:avatar,player,onReroll,...options});
-            if(!plan||!valid()){battle.cancel?.();return;}
-            const used=(plan.items || []).filter(i=>ITEMS[i.id]);
-            const result=resolveRound(snapshot,{steps:Array.isArray(plan)?plan:plan.steps || [],items:used.map(i=>({...i,item:ITEMS[i.id]})),flee:Boolean(plan.flee)},{strikeBack:prefs(ctx).enemyStrikeBack!==false,difficulty:snapshot.difficulty,enemyFirst});
+            // Toss-Up returns to the Roll Phase with the dice you have left.
+            const onReroll=async current=>{
+                let sub={kind:'fuel',dice:current.map(d=>({face:d.face,match:true})),allies:[],rerolls:0};
+                const ok=await dice.roll(sub,{describe:describe(snapshot),heading:'Toss-Up',pickAll:true,reroll:picked=>(sub=rerollFuel(snapshot,sub,picked)),volume:volumeOf(ctx,'diceSound'),reducedMotion:motion,isCurrent:valid});
+                return ok&&valid()?sub.dice.map(d=>({face:d.face})):null;
+            };
+            // The round is played live on the board, turn by turn, and saved once both sides have ended it.
+            const result=await battle.run(snapshot,{...options,player,roll,onReroll,enemyFirst,strikeBack:prefs(ctx).enemyStrikeBack!==false});
+            if(!result||!valid()){battle.cancel?.();return;}
+            const used=result.played.filter(id=>ITEMS[id]);
             const enemies=snapshot.units.filter(u=>u.side==='enemy'&&u.hp>0);
             const fallen=result.state.units.filter(u=>u.side==='enemy'&&u.hp<=0);
             const visitStore=duel?null:combatState(ctx).visits[visitKey],pool=locationCardPool(ctx,visitStore?.locationId);
             const loot=duel?[]:result.victory?rollLoot([...enemies,...unpaidEnemies(visitStore)],{pool,size:Object.keys(visitStore?.enemies || {}).length}):rollBossLoot(enemies.filter(u=>fallen.some(f=>f.id===u.id)),{pool});
-            // Save before the playback, so the round stands even if the chat changes mid-animation.
-            const saved=commitRound(getContext(),snapshot,result,id,{items:used.map(i=>i.id),loot});if(!saved){battle.cancel?.();return;}
+            const saved=commitRound(getContext(),snapshot,result,id,{items:used,loot});if(!saved){battle.cancel?.();return;}
             const target=result.state.units.find(u=>u.id===avatar),before=snapshot.units.find(u=>u.id===avatar);
             const gone=[...saved.defeated,...saved.fled];
             const event={...saved,avatar,key:visitKey,damage:before.hp-target.hp,hpBefore:before.hp,hpAfter:target.hp,maxHp:before.maxHp,defeated:target.hp<=0,fled:saved.fled,defeatedAvatars:gone};
@@ -173,7 +178,7 @@ export function mountCombat({host,getContext,onChange=()=>{},announce=()=>{},ada
                 await adapter.append(getContext(),{text:death,event:{id,kind:'death',avatar:fallen}});
             }
             onChange();
-            await battle.play(snapshot,result,{...options,loot});
+            await battle.result(snapshot,result,{loot});
             // The battle screen has closed: wounded enemies flinch on the stage, fallen ones leave it.
             for(const u of result.state.units.filter(u=>u.side==='enemy'&&u.hp>0&&!gone.includes(u.id)))if(hits.get(u.id)?.some(h=>h.damage>0))onChange(u.duel?{hurt:u.id}:{hit:u.id});
             // Party members on the stage: a shake for anyone who ended the round hurt, a glow for anyone healed.
@@ -186,7 +191,7 @@ export function mountCombat({host,getContext,onChange=()=>{},announce=()=>{},ada
                 announce(`${before.name}: ${target.hp} HP.`);onChange();
                 if(react&&!result.wiped)await adapter.react(getContext,event,()=>current(identity,token)&&stillThere(getContext()));
             }
-            if(current(identity,token)&&userDefeated(getContext()))await defeat(identity,token);
+            if(current(identity,token)&&(result.wiped||userDefeated(getContext())))await defeat(identity,token);
             return event;
         }catch(error){battle.cancel?.();if(current(identity,token)){announce(error.message);globalThis.toastr?.error?.(error.message,'Silly Teyvat');console.warn('[Silly Teyvat] Combat',error);}}
         finally{busy=false;paintControls();onChange();}

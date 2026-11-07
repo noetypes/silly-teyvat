@@ -8,7 +8,7 @@ export const ITEMS={
     'hash-brown':{name:'Mondstadt Hash Brown',kind:'food',cost:1,target:'ally',rarity:1,text:'Heals 8 HP.',effects:[{type:'heal',amount:8}]},
     'mushroom-pizza':{name:'Mushroom Pizza',kind:'food',cost:1,target:'ally',rarity:2,text:'Heals 3 HP, then 3 more at the end of the next two rounds.',effects:[{type:'heal',amount:3},{type:'buff',stat:'regen',amount:3,rounds:2}]},
     'lotus-crisp':{name:'Lotus Flower Crisp',kind:'food',cost:1,target:'ally',rarity:1,text:'Shields 6 damage.',effects:[{type:'shield',amount:6}]},
-    'minty-rolls':{name:'Minty Meat Rolls',kind:'food',cost:1,target:'ally',rarity:2,text:'Normal Attacks never miss for 2 rounds.',effects:[{type:'buff',stat:'focus',amount:100,rounds:2}]},
+    'minty-rolls':{name:'Minty Meat Rolls',kind:'food',cost:1,target:'ally',rarity:2,text:'Attacks can\'t be dodged for 2 rounds.',effects:[{type:'buff',stat:'focus',amount:100,rounds:2}]},
     'adeptus-temptation':{name:'Adeptus\' Temptation',kind:'food',cost:2,target:'ally',rarity:3,text:'Deals 60% more damage this round.',effects:[{type:'buff',stat:'atk',amount:60,rounds:1}]},
     'fried-egg':{name:'Teyvat Fried Egg',kind:'food',cost:2,target:'downed',rarity:3,text:'Revives a downed member with 8 HP.',effects:[{type:'revive',amount:8}]},
     'tandoori-chicken':{name:'Tandoori Roast Chicken',kind:'event',cost:2,target:'party',rarity:3,text:'The whole party deals 25% more damage this round.',effects:[{type:'buff',stat:'atk',amount:25,rounds:1}]},
@@ -26,7 +26,7 @@ export const ITEMS={
     'woven-stone':{name:'Woven Stone',kind:'dice',cost:0,target:'none',rarity:2,text:'Adds 1 Geo die.',dice:'add',element:'Geo'},
     // Added in 1.53. Silly Teyvat has no dice discounts, draws or Max HP, so cards that rely on those
     // get the nearest effect that the battle engine has.
-    'northern-chicken':{name:'Northern Smoked Chicken',kind:'food',cost:0,target:'ally',rarity:1,text:'Normal Attacks never miss this round.',effects:[{type:'buff',stat:'focus',amount:100,rounds:1}]},
+    'northern-chicken':{name:'Northern Smoked Chicken',kind:'food',cost:0,target:'ally',rarity:1,text:'Attacks can\'t be dodged this round.',effects:[{type:'buff',stat:'focus',amount:100,rounds:1}]},
     'jueyun-guoba':{name:'Jueyun Guoba',kind:'food',cost:0,target:'ally',rarity:1,text:'Deals 20% more damage this round.',effects:[{type:'buff',stat:'atk',amount:20,rounds:1}]},
     'saurus-crackers':{name:'Saurus Crackers',kind:'food',cost:0,target:'ally',rarity:1,text:'Adds 25% critical hit chance this round.',effects:[{type:'buff',stat:'crit',amount:25,rounds:1}]},
     'chenyu-brew':{name:'Chenyu Brew',kind:'food',cost:0,target:'ally',rarity:1,text:'Heals 2 HP at the end of the next two rounds.',effects:[{type:'buff',stat:'regen',amount:2,rounds:2}]},

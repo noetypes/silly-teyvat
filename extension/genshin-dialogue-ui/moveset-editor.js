@@ -33,7 +33,7 @@ export function mountMovesetEditor({panel,getContext,getCharacter,status=()=>{}}
         const ctx=getContext(),props=characterProperties(ctx,card),enemy=props.role==='enemy';
         kit=structuredClone(kitForCard(ctx,card));
         const element=enemy?kit.element:props.element;
-        panel.innerHTML=`<p class="gi-moveset-note">${enemy?'Enemies use their Attack every round and their Special when its cooldown is ready (or at once when enraged below half health).':'Normal Attacks are free but can miss. Elemental Skills and Bursts spend dice of this character\'s element (Omni counts, and two spare dice tune into one). Bursts also need full Energy.'} Maximum HP (${esc(props.maxHp)}) is set in Profile.${kit.custom?' <b>Edited.</b>':''}</p>
+        panel.innerHTML=`<p class="gi-moveset-note">${enemy?'Enemies take two actions a round on their turns: an Attack, or their Special when its cooldown is ready (or at once when enraged below half health).':'As in Genius Invokation, a Normal Attack costs one die of this character\'s element and the rest any dice; Elemental Skills and Bursts cost dice of the element (Omni counts, and Elemental Tuning turns a die). Bursts also need full Energy.'} Maximum HP (${esc(props.maxHp)}) is set in Profile.${kit.custom?' <b>Edited.</b>':''}</p>
             <div class="gi-moveset-head">
                 <label>Role<select data-k="role">${[...ROLES,'Enemy'].map(x=>opt(x)).join('')}</select></label>
                 ${enemy?`<label>Element<select data-k="element">${['Physical',...ELEMENTS].map(x=>opt(x)).join('')}</select></label>
@@ -49,8 +49,7 @@ export function mountMovesetEditor({panel,getContext,getCharacter,status=()=>{}}
             ${kit.moves.map((move,i)=>`<section class="gi-move-edit" data-move="${i}">
                 <div class="gi-move-head"><small>${KIND_LABEL[move.kind]}</small><input data-m="name" maxlength="80" value="${esc(move.name)}" aria-label="${KIND_LABEL[move.kind]} name"></div>
                 <div class="gi-move-row">
-                    ${move.kind==='normal'?`<label>Miss chance (%)<input data-m="miss" type="number" min="0" max="95" value="${esc(move.miss ?? 20)}"></label>`:''}
-                    ${move.kind==='skill'||move.kind==='burst'?`<label>Dice cost<input data-m="cost" type="number" min="0" max="8" value="${esc(move.cost ?? 2)}"></label>`:''}
+                    ${move.kind==='normal'||move.kind==='skill'||move.kind==='burst'?`<label>Dice cost<input data-m="cost" type="number" min="0" max="8" value="${esc(move.cost ?? 3)}"></label>`:''}
                     ${move.kind==='special'?`<label>Cooldown (rounds)<input data-m="cooldown" type="number" min="1" max="9" value="${esc(move.cooldown ?? 3)}"></label>`:''}
                     <label>Element<select data-m="element">${opt('',`Default (${esc(move.kind==='normal'&&!enemy?(kit.weapon==='catalyst'?element:'Physical'):element)})`)}${['Physical',...ELEMENTS].map(x=>opt(x)).join('')}</select></label>
                 </div>
@@ -79,8 +78,7 @@ export function mountMovesetEditor({panel,getContext,getCharacter,status=()=>{}}
         next.moves=kit.moves.map((move,i)=>{
             const section=panel.querySelector(`.gi-move-edit[data-move="${i}"]`),field=name=>section.querySelector(`[data-m="${name}"]`)?.value;
             const out={...move,name:String(field('name') || move.name).trim().slice(0,80) || move.name};
-            if(move.kind==='normal')out.miss=num(field('miss'),0,95,20);
-            if(move.kind==='skill'||move.kind==='burst')out.cost=num(field('cost'),0,8,move.cost);
+            if(move.kind==='normal'||move.kind==='skill'||move.kind==='burst')out.cost=num(field('cost'),0,8,move.cost ?? 3);
             if(move.kind==='special')out.cooldown=num(field('cooldown'),1,9,3);
             const chosen=field('element');out.element=chosen || (move.kind==='normal'&&!enemy?(next.weapon==='catalyst'?element:'Physical'):undefined);if(!out.element)delete out.element;
             out.effects=[...section.querySelectorAll('.gi-effect')].map(row=>{

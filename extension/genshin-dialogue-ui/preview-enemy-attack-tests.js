@@ -1,3 +1,4 @@
+import {autoBattle} from './preview-battle-auto.js';
 import {mountCombat} from './combat.js';
 import {activeEnemies,combatState,partyStatus,healParty,USER_KEY} from './combat-state.js';
 import {battleSnapshot,commitRound} from './battle-state.js';
@@ -29,7 +30,7 @@ export async function runEnemyAttackTests(){
     function mount(ctx,{defeats=[]}={}){
         const rolls=[],messages=[];
         const adapter={async append(c,record){messages.push(record);c.chat.push({name:record.name||'Narrator',mes:record.text,is_user:false,extra:{type:'narrator',silly_teyvat_combat:record.event}});},async react(){},async finishSend(){},async defeat(c){const r=resolveDefeat(c);defeats.push(r);return r;}};
-        const plans=[];const instance=mountCombat({host,getContext:()=>ctx,adapter,diceAdapter:{async roll(roll,options){rolls.push({roll,options});return true;},cancel(){},dispose(){}},battleAdapter:{async plan(state,options){plans.push({state,options});return {steps:state.units.filter(u=>u.side==='party'&&u.hp>0).map(u=>({actor:u.id,move:0,target:options.targetId})),items:[],flee:false};},async play(){return true;},cancel(){},dispose(){}}});
+        const plans=[];const instance=mountCombat({host,getContext:()=>ctx,adapter,diceAdapter:{async roll(roll,options){rolls.push({roll,options});return true;},cancel(){},dispose(){}},battleAdapter:autoBattle({log:plans})});
         instance.sync({on:true,id:ctx.chat.length-1});ui=instance;return {ui:instance,rolls,messages,defeats,plans};
     }
     try{
@@ -56,8 +57,8 @@ export async function runEnemyAttackTests(){
         ctx=fixture();let c=mount(ctx);c.ui.setArmed(true);
         const message={name:'Traveler',is_user:true,is_system:false,mes:'“Back off!”'};ctx.chat.push(message);c.ui.sync({on:true,id:ctx.chat.length-1,generating:true});
         await c.ui.onUserMessage(ctx.chat.length-1);
-        check('one round rolls the party dice once and plans every member',c.rolls.length===1&&c.rolls[0].roll.kind==='fuel'&&c.plans.length===1&&c.plans[0].options.targetId==='Slime.png');
-        check('the round is saved as a narrator fact with the enemy\'s move',c.messages.at(-1).event.kind==='round'&&/Slime used Strike/.test(c.messages.at(-1).text)&&/Enemies strike back/.test(c.messages.at(-1).text));
+        check('one round rolls the party dice once and plays the round on the board',c.rolls.length===1&&c.rolls[0].roll.kind==='fuel'&&c.plans.length===1&&c.plans[0].state.units.some(u=>u.id==='Slime.png'));
+        check('the round is saved as a narrator fact with the enemy\'s move',c.messages.at(-1).event.kind==='round'&&/Slime used Strike/.test(c.messages.at(-1).text));
         const hurt=partyStatus(ctx).find(m=>m.hp<m.maxHp);
         check('a party member\'s health dropped',Boolean(hurt));
         c.ui.sync({on:true,id:ctx.chat.length-1,generating:false});

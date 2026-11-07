@@ -13,23 +13,29 @@ The 40 scenic wilderness waypoints are marked Wilderness with editable starter p
 
 ## Fight or talk
 
-Use the **Attack** toggle at the left of the dialogue controls to arm an attack. It glows while on. Send a typed message or select a suggested reply: your exact words stay in chat, then one full battle round is played, then the normal AI response receives your dialogue and the round's results. The toggle works even when suggested replies are disabled, and it stays armed for later messages in the same encounter. Turn it off to speak or negotiate without fighting. Every enemy present joins the battle; you choose whom each member attacks on the battle board.
+Use the **Attack** toggle at the left of the dialogue controls to arm an attack. It glows while on. Send a typed message or select a suggested reply: your exact words stay in chat, then one full battle round is played, then the normal AI response receives your dialogue and the round's results. The toggle works even when suggested replies are disabled, and it stays armed for later messages in the same encounter. Turn it off to speak or negotiate without fighting. Every enemy present joins the battle; the one you confronted starts in front.
 
 Chat switches, new encounters, disabling the extension and the last enemy leaving disarm it. Duplicate render events, history navigation and regenerated AI replies cannot repeat a round. Only a newly sent user message can start one.
 
 ## A battle round
 
-Each armed message plays one round in three phases.
+Since 1.61 each armed message plays one round the way Genius Invokation TCG plays one: live on the board, turn by turn.
 
-1. **Roll Phase.** The party throws **1 + 2 per fighting member** elemental dice (you count as a member, and one more die with Electro Resonance). The faces are the seven elements and Omni. The summary shows how many dice each member can use: their own element, Omni (wild) and spare dice. Unmatched dice start selected; you may reroll any of them once. Dice are **fuel**, not damage.
-2. **Action Phase.** The battle board is laid out like Genius Invokation TCG: enemies across the top, your party along the bottom, summons on the right, your dice down the right edge, moves in the bottom-right corner, item cards in your hand at the bottom and the round button (hourglass) on the left. Characters that have a TCG card use its art; moves show their Genius Invokation skill icons, and elements, auras, dice and reactions use the game's own icons. Tap a party card to pick who you are planning for, then one of their three moves. Focus moves on to the next member still without a move; once everyone has one, nobody is highlighted and the hourglass pulses:
-   - **Normal Attack** (A): free, but it can miss (each weapon has its own miss chance). A hit gives 1 Energy.
-   - **Elemental Skill** (E): costs dice of the member's element and gives 1 Energy.
-   - **Elemental Burst** (Q): costs dice and needs full Energy (the gold diamonds on the card's right edge; everyone starts an encounter with 1).
-   The hexagon under each move is its dice cost. Dice are paid from the member's own element first, then Omni, then **elemental tuning**: two spare dice become one. Spent dice dim and the count at the top of the dice column drops. A move you cannot pay for shakes. When a move can hit more than one enemy (or ally), the possible targets pulse; tap one. The small medallion under each party card shows its planned move, and its number is the acting order: members act in the order you give them moves. Tap a member who has a move to change it, or use **Act earlier / Act later** above the moves (or [ and ]) to change their place. Hover or long-press a move, card, item or summon for its details and the forecast (expected damage, healing and reactions for the current order). The **sparkle** button picks the strongest affordable move for everyone. The enemy you are aiming at grows a little and glows. Keyboard: A, E, Q (or 1, 2, 3) and Enter.
-3. **Resolution.** Moves play in order with banners, impacts, damage numbers, reactions and sounds. An Elemental Burst charges up (light rays and gathering energy on the card), flashes the character's splash art over its element's emblem, then strikes with a screen-wide effect of its element: a fire pillar and embers for Pyro, a wave and ripples for Hydro, a vortex for Anemo, lightning from above for Electro, a bloom of leaves for Dendro, falling ice shards and snow for Cryo, a meteor for Geo. Its hits land harder, with bigger numbers. Each element also has its own impact, Elemental Skill cast and projectile, and its own synthesised Burst sound. Enemy Specials get the charge and strike without the splash art. Then every enemy still standing carries out the move it telegraphed (when **Enemies strike back** is on), and the End Phase runs summons, Dendro Cores, damage over time, regeneration and timers. A summary credits each member's damage and lists the reactions. **Skip** speeds the playback up, and a second press skips it.
+**A new fight** opens like the game. The two sides face off (VS), a coin decides who starts (an enemy that started the fight always does), and you are dealt a **Starting Hand** of five cards from your bag: tap any you want to send back, then **Confirm** to draw replacements once. Then you choose your **active character**. Your hand, your active character and who goes first carry over between the rounds of an encounter.
 
-The round is saved before it is played back, as a narrator message in plain language (moves, damage, reactions, HP), so the roleplay model can describe it. Enemy HP, party HP, Energy, shields, statuses, elements and summons are saved per encounter in chat metadata. Historical pages show their saved health without replaying anything. An enemy at 0 HP gets its death message and leaves the active group; its card and earlier messages remain.
+1. **Roll Phase.** Eight elemental dice (nine with Electro Resonance) tumble onto the table and sort into the game's grid. Tap any you want to throw again and **Reroll** once, then **Confirm**. Dice are fuel: the faces are the seven elements and Omni (wild).
+2. **Action Phase.** The sides take turns. Each side's **active character** steps forward toward the middle of the table; only it uses skills, and single-target hits land on the opposing active character. On your turn:
+   - **Fast Actions** (any number, your turn goes on): play a card from your hand, or use **Elemental Tuning**: pick a card, tap **Elemental Tuning** in the dice drawer, then a die; the die becomes your active character's element and the card goes back into your deck (it stays in your bag).
+   - **One Combat Action**, which passes the turn: use a skill, **switch** to another character (1 die; tap a standby card), **Flee**, or **end your round** (the hourglass, then **End Round**).
+   Choosing a skill or card shows what it will do before anything is spent: its details on the left, the dice it will pay in the drawer on the right (tap dice to pay with others), a gold check on the target and each card's coming HP change (−4 in red, +4 in green). Tap the skill again, press **Confirm** or Enter to do it; the cross or Esc puts it down. Keyboard: A, E, Q (or 1, 2, 3) and Enter.
+   Costs follow the game: a **Normal Attack** costs 3 dice, one of the character's element and two of any; an **Elemental Skill** costs dice of the element (most 3); an **Elemental Burst** costs dice of the element and needs full Energy. Normal Attacks and Skills give 1 Energy, as before, and everyone now starts a fight with none. Omni pays for any element; dice are chosen the way the game chooses them, element first and Omni last. A character with no element (Paimon) pays with any dice.
+   **Enemies** take their turns in between, with two Combat Actions a round: the enemy in front carries out the move it telegraphed (or, Frozen or Petrified, steps aside for another enemy), and out of actions it declares the end of its round. Once one side has ended its round, the other keeps acting until it ends too. **Whoever ends first acts first next round.**
+   When your active character falls you choose the next one at once, for free; a fallen enemy is replaced by the next. Like the game, there is no random spread: damage is exactly what the preview shows, and only a critical-hit bonus (from cards or Cryo Resonance) can raise it. Normal Attacks never miss; only evasive characters (Paimon, Fatui agents and the like) dodge, and **Minty Meat Rolls** or **Northern Smoked Chicken** make your attacks land anyway.
+3. **End Phase.** Summons act, Dendro Cores and damage over time resolve, statuses count down, Frozen and Petrified wear off, enemies choose their next move, and **you draw two cards** from your deck (ten at most in hand). The round is then saved as a narrator message in plain language (moves, switches, damage, reactions, HP), so the roleplay model can describe it, and a summary shows each member's damage and the reactions. Winning shows the game's **Victory** screen and the cards you found.
+
+Every action plays out at once: the skill's name slides in at the top left, the card leaps at its target, a slash or the element's projectile strikes, and the damage lands in a big cream disc. An **Elemental Burst** first brings its card to life (the character's splash art pushes in and pans inside the card, in their element), then shows the full splash art, then strikes the field with the element's screen-wide effect and a sweep shaped by the weapon: crossing crescents for swords, a heavy cleave for claymores, thrusts for polearms, a volley for bows and orbiting sigils for catalysts. Cards fly up from your hand, flash and settle among the played cards; switching characters slides the new one forward; a fallen card darkens under a red mark. **Skip** speeds an animation up, and a second press skips it.
+
+The round is saved once both sides have ended it (or the battle is won, lost or fled). Enemy HP, party HP, Energy, shields, statuses, elements, summons, active characters and your hand are saved per encounter in chat metadata. Historical pages show their saved health without replaying anything. An enemy at 0 HP gets its death message and leaves the active group; its card and earlier messages remain.
 
 ## Genius Invokation TCG enemies
 
@@ -39,11 +45,11 @@ All 57 enemy character cards from Genius Invokation TCG's PvE challenges are Sil
 
 ## Seeing the enemy's next move
 
-Each enemy shows the move it will use next round in a badge under its card: a sword with the damage and the portrait of the member it will hit, a starburst for a move that hits the whole party, scattered squares for random hits, or a symbol for a heal, shield or summon. The member in danger shows a red **−damage** marker. An enemy that is Petrified shows a snowflake: it will lose that turn. Freezing an enemy during your Party Phase also costs it that round's attack. The target is decided at the end of the previous round, so you can shield, heal, freeze or kill that enemy first. Below half health an enemy becomes **enraged**, and its next telegraphed move is its Special.
+The enemy in front shows the move it will use on its next turn in a badge under its card: a sword with the damage and the portrait of the character it will hit (your active character, or the weakest one for a Marksman), a starburst for a move that hits the whole party, scattered squares for random hits, or a symbol for a heal, shield or summon. The character in danger shows a red **−damage** marker. An enemy that is Frozen or Petrified shows a snowflake: it cannot use skills this round. Below half health an enemy becomes **enraged**, and its next move is its Special.
 
 ## Items
 
-The party shares a bag of Genius Invokation event cards, saved per chat. A new chat starts with 3 Sweet Madame, 2 Mondstadt Hash Brown, 1 Lotus Flower Crisp, 1 Toss-Up and 1 Teyvat Fried Egg. Cards sit in your hand during the Action Phase with their dice cost in the corner. Tap a card to pick it up; the members who can use it pulse; tap one to play it (cards without a target play on a second tap). As in Genius Invokation, **a card works the moment it is played**: food heals, Lotus Flower Crisp shields, Starsigns adds Energy and buffs appear on the board straight away, and a played card cannot be taken back. Effects that say otherwise still wait (Mushroom Pizza's later healing comes at the End Phases). Played cards move to the left of the table. Each member eats once per round.
+The party shares a bag of Genius Invokation event cards, saved per chat. A new chat starts with 3 Sweet Madame, 2 Mondstadt Hash Brown, 1 Lotus Flower Crisp, 1 Toss-Up and 1 Teyvat Fried Egg. Since 1.61 the bag is your deck: a fight deals you five cards from it, you draw two more at each End Phase, and cards you do not play stay in the bag. Cards sit in your hand along the bottom of the board with their dice cost in the corner. Tap a card to pick it up; the members who can use it pulse; tap one, then **Play Card**. As in Genius Invokation, playing a card is a Fast Action and **a card works the moment it is played**: food heals, Lotus Flower Crisp shields, Starsigns adds Energy and buffs appear on the board straight away, and a played card cannot be taken back. Effects that say otherwise still wait (Mushroom Pizza's later healing comes at the End Phases). Played cards move to the left of the table. Each member eats once per round.
 
 | Card | Cost | Effect |
 | --- | --- | --- |
@@ -51,7 +57,7 @@ The party shares a bag of Genius Invokation event cards, saved per chat. A new c
 | Mondstadt Hash Brown | 1 | Heals 8 HP |
 | Mushroom Pizza | 1 | Heals 3, then 3 more at each of the next two End Phases |
 | Lotus Flower Crisp | 1 | Shields 6 damage |
-| Minty Meat Rolls | 1 | Normal Attacks never miss for 2 rounds |
+| Minty Meat Rolls | 1 | Attacks can't be dodged for 2 rounds |
 | Adeptus' Temptation | 2 | One member deals 60% more damage this round |
 | Teyvat Fried Egg | 2 | Revives a downed member with 8 HP; they can act this round |
 | Tandoori Roast Chicken | 2 | The party deals 25% more damage this round |
@@ -61,7 +67,7 @@ The party shares a bag of Genius Invokation event cards, saved per chat. A new c
 | Toss-Up | 0 | Returns to the Roll Phase to reroll your unspent dice (all start selected) |
 | Thunder and Eternity | 0 | Turns every unspent die into Omni |
 | Woven Flames, Waters, Winds, Thunder, Weeds, Ice, Stone | 0 | Adds one die of that element |
-| Northern Smoked Chicken | 0 | Normal Attacks never miss this round |
+| Northern Smoked Chicken | 0 | Attacks can't be dodged this round |
 | Jueyun Guoba | 0 | One member deals 20% more damage this round |
 | Saurus Crackers | 0 | One member gains 25% critical hit chance this round |
 | Chenyu Brew | 0 | Heals 2 HP at each of the next two End Phases |
@@ -105,13 +111,13 @@ With the **Trust system** on (Settings → World), every card in the Inventory h
 
 ## Fleeing
 
-The running-figure button under the round button toggles **Flee** and shows the chance: 60%, plus 10% per Anemo member, minus 10% per extra enemy, plus 25% when every enemy is Frozen or Petrified (between 10% and 95%). Items you played still take effect. On success the battle ends before anyone acts, the enemies leave the scene and the chat records the escape; they can appear again on a later visit. On failure your party loses its turn and the enemies act as telegraphed.
+The running-figure button under the round button is **Flee**, a Combat Action on your turn, and shows the chance once chosen: 60%, plus 10% per Anemo member, minus 10% per extra enemy, plus 25% when every enemy is Frozen or Petrified (between 10% and 95%). Cards you played still take effect. On success the battle ends at once, the enemies leave the scene and the chat records the escape; they can appear again on a later visit. On failure your turn passes to the enemy.
 
 ## Movesets
 
 All 124 playable characters, every Traveler element and the 20 bundled enemies have movesets. Each character's three moves are named after their in-game Normal Attack, Elemental Skill and Elemental Burst, and work in the spirit of the game: Bennett heals and buffs, Zhongli shields the party and petrifies, Xiangling and Fischl summon Guoba and Oz, Amber's Baron Bunny draws enemy fire, Hu Tao pays HP for power, Nahida and Faruzan make enemies take more damage, and so on. The numbers are Silly Teyvat's own balance, not game scaling.
 
-Open **Character Customization → Moveset** to edit any character, persona or enemy: role, weapon, Burst Energy, and for each move its name, dice cost (or miss chance, or an enemy's cooldown), element and up to six effects. Effects are damage (power, target, hits), heal, shield, buff (damage dealt, damage taken, crit, dodge, regeneration, elemental infusion), debuff (damage taken, damage dealt, petrify), summon (power or healing each round, duration), Energy, cleanse and HP cost. Targets are one foe, all foes, random foes, the weakest foe, self, one ally, the party, other allies or the most injured ally. The description updates as you edit. **Save moveset** applies from the next round; **Reset to default** restores the bundled kit. Edits are stored in the extension settings per card. A persona playing a character uses that character's kit; otherwise your persona fights with the Traveler kit of its element.
+Open **Character Customization → Moveset** to edit any character, persona or enemy: role, weapon, Burst Energy, and for each move its name, dice cost (or an enemy's cooldown), element and up to six effects. Effects are damage (power, target, hits), heal, shield, buff (damage dealt, damage taken, crit, dodge, regeneration, elemental infusion), debuff (damage taken, damage dealt, petrify), summon (power or healing each round, duration), Energy, cleanse and HP cost. Targets are one foe, all foes, random foes, the weakest foe, self, one ally, the party, other allies or the most injured ally. The description updates as you edit. **Save moveset** applies from the next round; **Reset to default** restores the bundled kit. Edits are stored in the extension settings per card. A persona playing a character uses that character's kit; otherwise your persona fights with the Traveler kit of its element.
 
 Maximum HP stays in **Profile**. Each character's default comes from their moveset (30 to 42 by role); a value you or a card author chose is kept.
 
@@ -137,10 +143,10 @@ Pyro, Hydro, Electro, Cryo and Dendro **stay applied** to whoever they hit until
 | --- | --- | --- |
 | Melt | Pyro + Cryo | +2 → +4 damage |
 | Vaporize | Pyro + Hydro | +2 → +4 damage |
-| Overloaded | Pyro + Electro | +2 → +4 damage (the TCG's forced switch has no equivalent here) |
+| Overloaded | Pyro + Electro | +2 → +4 damage, and the target's side is forced on to its next character |
 | Superconduct | Cryo + Electro | +1 → +2, and 1 → 2 Piercing damage to every other character on that side |
 | Electro-Charged | Hydro + Electro | +1 → +2, and 1 → 2 Piercing damage to every other character on that side |
-| Frozen | Hydro + Cryo | +1 → +2; the target cannot act until the End Phase |
+| Frozen | Hydro + Cryo | +1 → +2; the target cannot use skills until the End Phase |
 | Shatter | Physical or Pyro on a Frozen target | +2 → +4, and it thaws |
 | Swirl | Anemo on Pyro, Hydro, Electro or Cryo | 1 → 2 damage of that element to every other character on that side, which can react in turn |
 | Crystallize | Geo on Pyro, Hydro, Electro or Cryo | +1 → +2, and the attacker gains a 2-point shield (stacks to 4) |
@@ -152,29 +158,29 @@ Piercing damage ignores shields and bonuses. Dendro Cores and Catalyzing Fields 
 
 Hitting a target with **its own element is resisted** (half damage), so a Pyro slime shrugs off Klee and a Pyro enemy barely hurts Bennett. The combo counter tallies reactions in a round; it no longer adds damage. Enemies react too: a soaked party member takes Vaporize from a Pyro attack.
 
-**Elemental Resonance** applies when two living party members share an element: Pyro +15% damage, Hydro +25% healing, Electro one extra die, Cryo +15% crit chance, Anemo 10% fewer missed Normal Attacks, Geo 50% stronger shields, Dendro +1 reaction damage. Every hit has a 10% base critical chance for ×1.5 damage.
+**Elemental Resonance** applies when two living party members share an element: Pyro +15% damage, Hydro +25% healing, Electro one extra die, Cryo +15% crit chance, Anemo makes your first switch each round free, Geo 50% stronger shields, Dendro +1 reaction damage. Damage is exact, as in the game; critical hits (×1.5) come only from cards and Cryo Resonance.
 
 ## Enemies
 
-Every enemy has an element (or fights physically), its own HP, an **Attack** used most rounds and a **Special** used when its cooldown is ready (round 3 for most, then every few rounds). Below half health an enemy becomes **enraged** and telegraphs its Special for the next round. Some have extra rules: the Pyro Abyss Mage and Pyroslinger Bracer carry Pyro shields that Hydro breaks much faster, the Wooden Shieldwall Mitachurl's shield blocks 40% of damage until Pyro burns it, the Cryo Whopperflower is weak to Pyro, the Ruin Guard is armoured, and Fatui agents and Treasure Hoarder scouts dodge Normal Attacks. Enemies choose a random party member as their target a round ahead (the Marksman aims at the weakest), and decoy summons draw one enemy attack each round.
+Every enemy has an element (or fights physically), its own HP, an **Attack** used most turns and a **Special** used when its cooldown is ready (round 3 for most, then every few rounds). The enemy side takes two Combat Actions a round with whichever enemy is in front. Below half health an enemy becomes **enraged** and telegraphs its Special. Some have extra rules: the Pyro Abyss Mage and Pyroslinger Bracer carry Pyro shields that Hydro breaks much faster, the Wooden Shieldwall Mitachurl's shield blocks 40% of damage until Pyro burns it, the Cryo Whopperflower is weak to Pyro, the Ruin Guard is armoured, and Fatui agents and Treasure Hoarder scouts dodge Normal Attacks. Enemies aim at your active character (the Marksman at the weakest), and decoy summons draw one enemy attack each round.
 
-Enemy HP is fixed when it first appears and scales with the party it meets (×0.6 alone, ×0.9 with one companion, up to ×1.8 for five fighters); enemy damage scales the same way from ×0.65 to ×1.45, so a full party faces harder hits spread over more people. Older chats' health and battles from the previous dice combat are discarded: every chat starts this system fresh.
+Enemy HP is fixed when it first appears and scales gently with the party it meets (×0.65 alone, ×0.75 with three, up to ×0.9 for six fighters); enemy damage scales from ×0.75 to ×1. Only the active character fights, so a bigger party mostly means more health to fall back on. Older chats' health and battles from the previous dice combat are discarded: every chat starts this system fresh.
 
 ## Party health and defeat
 
 You and every non-hostile member of the scene have health from their movesets (30 to 42 by role). Your own maximum is that of the character you play, or 34 for the Traveler. A value set in Character Customization → Profile, or by a card's author, wins. Health is saved per chat and shown in the party health panel at the lower left while an encounter is active or anyone is hurt. A downed ally sits out until healed.
 
-If **you** reach 0 HP the encounter ends. You and your party are carried to the nearest Adventurers' Guild by map distance, everyone is healed, and Katheryne is waiting at the counter to explain how you were found. Teleporting to any location that is not wilderness also heals the party.
+As in Genius Invokation, a fight is lost only when **everyone** in the party is down. If you fall while others fight on, you sit out (a Teyvat Fried Egg brings you back), and a won or escaped fight wakes you with 1 HP. If the whole party falls, you are carried to the nearest Adventurers' Guild by map distance, everyone is healed, and Katheryne is waiting at the counter to explain how you were found. Teleporting to any location that is not wilderness also heals the party.
 
 ## Settings
 
 Silly Teyvat → Wilderness & combat: **Difficulty** (Story: enemies 80% HP and 70% damage; Normal; Hard: 130% of both), **Enemies strike back**, **Burst splash art & effects**, **Battle sounds** and **Dice sounds**. Reduced motion (Silly Teyvat or SillyTavern setting, or the system preference) keeps all information but drops movement, particles and the splash slide.
 
-The board fits any party size: cards shrink only when a side has more cards than fit between the turn buttons and played cards on the left and the summons, dice and moves on the right, and summons and played cards shrink and pack tighter so they never run into the cards. All battle sounds are synthesised with Web Audio; no game audio is bundled.
+The board fits any party size: cards shrink only when a side has more cards than fit between the turn buttons and played cards on the left and the summons, dice and moves on the right, and summons and played cards shrink and pack tighter so they never run into the cards. Since 1.61 some sounds are recorded clips from Splice, timed to their animations (see `assets/battle-sound/README.md`): the coin's spin and landing, the starting hand (one flip per card) and drawn cards, playing a card (over its synthesised sound), a taiko beat on the phase banners (the full roll at the End Phase), a hit's slash and the attack whoosh, heal, shield, buff, summon, the Burst charge, the Burst impact (its hit lands on the flash) and Defeat. Turn chimes, element impacts, reactions, the Burst splash and Victory are synthesised with Web Audio. No game audio is bundled.
 
 ## Balance notes
 
-Simulated battles (480 runs per release check) with the Auto plan, which is weaker than a player choosing combos: a solo Traveler beats common enemies in 4 to 9 rounds but usually loses to a Ruin Guard or three enemies at once; a pair wins nearly every common fight in 3 to 8 rounds while taking real damage; a four-member party wins in 2 to 6 rounds with 7 or more reactions against tougher enemies. Edit any kit, or change Difficulty, to tune this.
+Simulated battles (200 runs each, with the automatic player, which uses no cards and is weaker than a player) on the 1.61 rules: a solo Traveler beats common enemies in 3 to 6 rounds but usually loses to a Ruin Guard; a pair wins nearly every common fight in 3 to 6 rounds while losing a fifth to half of its health; a four-member party wins common fights in 3 to 7 rounds and beats bosses in 7 to 12, losing 40% to 75% of its health. Bosses act twice a round now, so `boss-kits.js` scales its tables to half their HP and three fifths of their damage. Edit any kit, or change Difficulty, to tune this.
 
 ## Adventurers' Guild
 
@@ -210,6 +216,6 @@ Aether and Lumine default to Anemo and can be changed to another supported eleme
 
 ## Validation
 
-The **Battle rules, screen & Moveset checks** suite has 114 checks: kits, dice payment and tuning, every reaction family and the Genius Invokation reaction rules (persistent and innate auras, Piercing, Dendro Core, Burning Flame, Cryo with Dendro), combos, energy, summons, decoys, enrage, enemy intents, fleeing, every item type, loot, the board controls, playback and the Moveset editor. The combat, send, enemy-attack and dice suites pass alongside it, and a full preview chat was played through two rounds and a successful escape. The board was checked for overlapping elements at 1440×810, 1280×720, 812×375 and 375×812.
+The **Battle rules, screen & Moveset checks** suite has 129 checks (1.61: turns, switching, cards, tuning, the End Phase, the opening and the board's previews among them): kits, dice payment and tuning, every reaction family and the Genius Invokation reaction rules (persistent and innate auras, Piercing, Dendro Core, Burning Flame, Cryo with Dendro), combos, energy, summons, decoys, enrage, enemy intents, fleeing, every item type, loot, the board controls, playback and the Moveset editor. The combat, send, enemy-attack and dice suites pass alongside it, and a full preview chat was played through two rounds and a successful escape. The board was checked for overlapping elements at 1440×810, 1280×720, 812×375 and 375×812.
 
 Browser checks use disposable preview chats and mock model services. Native card/settings changes were read back through the local SillyTavern API, and all 147 native portrait pixel buffers were compared with backups. No paid/live model request was made. Desktop, portrait and landscape layouts were checked, including rotating the dice dialog while a result was visible. These are browser viewport checks, not a physical iPhone test.

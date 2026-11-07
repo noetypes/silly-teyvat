@@ -9,9 +9,11 @@ const results=[];
 try{
     for(const crowd of [false,true])for(const [width,height] of [[1920,1080],[1440,900],[1280,720],[1024,768],[393,852],[375,667],[375,568],[812,375],[667,375]]){
         const page=await browser.newPage({viewport:{width,height}}),errors=[];page.on('pageerror',e=>errors.push(e.message));
-        await page.goto(base+'/preview.html');await page.waitForFunction(()=>document.body.classList.contains('gi-enabled'));
+        // A local static server now and then stalls one load; try again rather than fail the layout.
+        for(let attempt=1;;attempt++){try{await page.goto(base+'/preview.html');await page.waitForFunction(()=>document.body.classList.contains('gi-enabled'),null,{timeout:20000});break;}catch(error){if(attempt>=3)throw error;}}
         await page.evaluate(async crowd=>{(await import('./index.js')).dispose();await (await import('./preview-battle-layout.js')).showBattleLayout({crowd});},crowd);
-        await page.waitForTimeout(350);
+        // The demo opens on the round banner, the Roll Phase and your turn; measure once it is yours.
+        await page.waitForFunction(()=>document.querySelector('#gi-battle[data-mode="turn"][data-turn="party"]'),{timeout:20000});await page.waitForTimeout(600);
         const checks=await page.evaluate(()=>{
             const q=s=>document.querySelector('#gi-battle '+s),rect=e=>e.getBoundingClientRect();
             const a=rect(q('.tb-end')),b=rect(q('.tb-board')),hand=rect(q('.tb-hand')),skills=rect(q('.tb-skills'));

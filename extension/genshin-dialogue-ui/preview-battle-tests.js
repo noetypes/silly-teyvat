@@ -1,4 +1,4 @@
-import {resolveRound,allocateDice,forecastPlan,autoPlan,rollFuel,diceCount,resonanceOf,partyScale,planIntent,intentPreview,fleeChance,auraList,REACTION_UNIT} from './battle-engine.js';
+import {resolveRound,rollFuel,diceCount,resonanceOf,partyScale,planIntent,intentPreview,fleeChance,auraList,REACTION_UNIT,startRound,useSkill,switchTo,playCard,tuneDie,declareEnd,enemyTurn,endPhase,finishRound,moveCheck,cardCheck,costOf,chooseDice,forecast,autoAction,autoRound,activeOf,drawCards,deckFrom,sortDice} from './battle-engine.js';
 import {ITEMS,rollLoot,applyDiceItem,STARTER_BAG} from './battle-items.js';
 import {defaultKit,describeMove,escapeHtml,hasBundledKit,mergeKit} from './combat-kits.js';
 import {mountBattle} from './battle-ui.js';
@@ -23,28 +23,30 @@ export async function runBattleTests(){
         check('the Traveler changes kit with their element',defaultKit('Lumine',{element:'Geo'}).moves[1].name==='Starfell Sword'&&defaultKit('Aether',{element:'Anemo'}).moves[2].name==='Gust Surge');
         check('descriptions are generated from effects',/Heals the whole party for 4 HP/.test(describeMove(defaultKit('Bennett',{element:'Pyro'}).moves[2],'Pyro')));
         check('user edits replace a move and keep the rest',mergeKit(defaultKit('Klee',{element:'Pyro'}),{moves:[null,{name:'Big Boom',cost:1}]}).moves[1].name==='Big Boom'&&mergeKit(defaultKit('Klee',{element:'Pyro'}),{moves:[null,{name:'Big Boom'}]}).moves[2].name==='Sparks \'n\' Splash');
-        // Dice
-        check('dice scale with the party: one plus two per member',diceCount(1)===3&&diceCount(4)===9&&diceCount(2,['Electro'])===6);
+        // Dice: eight a round, Genius Invokation costs, the game's own choice of dice, Elemental Tuning
+        check('every round throws eight dice, nine with Electro Resonance',diceCount([])===8&&diceCount(['Electro'])===9);
         const kx=party(unit('k','party','Klee','Pyro'),unit('x','party','Xingqiu','Hydro'),unit('h','enemy','Hilichurl Fighter','Physical'));
-        check('a fuel roll matches dice to party elements',rollFuel(kx,{random:()=>0}).dice.every(d=>d.face==='Pyro'&&d.match));
-        let pay=allocateDice(kx,[{face:'Pyro'},{face:'Omni'}],[{actor:'k',move:1},{actor:'x',move:0}]);
-        check('an Elemental Skill spends own-element dice then Omni',pay.ok&&pay.needs[0].dice.join()==='0,1');
-        pay=allocateDice(kx,[{face:'Pyro'},{face:'Geo'},{face:'Anemo'}],[{actor:'k',move:1}]);
-        check('two spare dice tune into one missing die',pay.ok&&pay.pool.filter(d=>d.tuned).length===2);
-        check('a move that cannot be paid for is refused',!allocateDice(kx,[{face:'Hydro'}],[{actor:'k',move:1}]).ok);
-        check('Normal Attacks cost nothing',allocateDice(kx,[],[{actor:'k',move:0},{actor:'x',move:0}]).ok);
+        check('a roll marks the dice your party can use',rollFuel(kx,{random:()=>0}).dice.every(d=>d.face==='Pyro'&&d.match)&&rollFuel(kx).dice.length===8);
+        const klee=kx.units[0];
+        check('a Normal Attack costs one die of the element and two of any',JSON.stringify(costOf(klee,klee.kit.moves[0]))===JSON.stringify({element:'Pyro',matching:1,any:2,total:3}));
+        check('an Elemental Skill costs dice of the element',costOf(klee,klee.kit.moves[1]).matching===klee.kit.moves[1].cost&&costOf(klee,klee.kit.moves[1]).any===0);
+        check('a character without an element pays with any dice',costOf({element:'None'},{kind:'skill',cost:2}).any===2);
+        check('the element first, then Omni',chooseDice([{face:'Omni'},{face:'Pyro'},{face:'Pyro'},{face:'Geo'}],costOf(klee,{kind:'skill',cost:3})).join()==='1,2,0');
+        check('any-dice costs spend the dice nobody can use, Omni last',chooseDice([{face:'Omni'},{face:'Pyro'},{face:'Geo'},{face:'Hydro'}],{element:'Pyro',matching:1,any:2,total:3},new Set(['Pyro','Hydro'])).join()==='1,2,3');
+        check('a move that cannot be paid for is refused',chooseDice([{face:'Hydro'}],costOf(klee,klee.kit.moves[1]))===null);
+        check('the dice column sorts Omni, then the active element, then the party\'s',sortDice([{face:'Geo'},{face:'Hydro'},{face:'Pyro'},{face:'Omni'}],{...kx,active:{party:'k'}}).map(d=>d.face).join()==='Omni,Pyro,Hydro,Geo');
         // Reactions and combos
         let r=resolveRound(kx,[{actor:'x',move:1,target:'h'},{actor:'k',move:1,target:'h'}],{...opts,strikeBack:false});
         check('Hydro then Pyro triggers Vaporize',hits(r).some(e=>e.actor==='k'&&e.reaction==='Vaporize'));
-        check('the forecast predicts the same reaction',forecastPlan(kx,[{actor:'x',move:1,target:'h'},{actor:'k',move:1,target:'h'}])[1].reactions.includes('Vaporize'));
+        {const f=startRound(kx,{dice:null,strikeBack:false});f.state.active.party='x';useSkill(f,1);declareEnd(f,'enemy');f.state.active.party='k';f.turn='party';
+        check('the forecast predicts the same reaction',forecast(f,{type:'skill',move:1}).reactions.includes('Vaporize'));}
         check('Pyro then Hydro also Vaporizes, as in Genius Invokation',hits(resolveRound(kx,[{actor:'k',move:1,target:'h'},{actor:'x',move:1,target:'h'}],{...opts,strikeBack:false})).some(e=>e.actor==='x'&&e.reaction==='Vaporize'));
         const slime=party(unit('k','party','Klee','Pyro'),unit('s','enemy','Large Pyro Slime','Pyro'));
-        {const phases=(input,o)=>resolveRound(input,[{actor:'k',move:1,target:'h'}],{...opts,...o}).timeline.filter(e=>e.type==='phase').map(e=>e.label).join('>');
-        const duo=()=>party(unit('k','party','Klee','Pyro'),unit('h','enemy','Hilichurl Fighter','Physical'));
-        check('the party normally acts before the enemies',phases(duo(),{}).startsWith('Party Phase>Enemy Phase'));
-        check('an enemy that started the fight acts before the party',phases(duo(),{enemyFirst:true}).startsWith('Enemy Phase>Party Phase'));
-        const struck=resolveRound(party(unit('k','party','Klee','Pyro'),unit('h','enemy','Hilichurl Fighter','Physical')),[{actor:'k',move:1,target:'h'}],{...opts,enemyFirst:true});
-        check('enemy-first damage lands before the party’s first move',struck.timeline.findIndex(e=>e.type==='hit'&&e.target==='k')<struck.timeline.findIndex(e=>e.type==='act'&&e.actor==='k'));}
+        {const duo=()=>party(unit('k','party','Klee','Pyro'),unit('h','enemy','Hilichurl Fighter','Physical'));
+        const order=input=>input.timeline.filter(e=>e.type==='act').map(e=>e.actor).join('>');
+        check('turns alternate: the party, then the enemy, then the party',order(resolveRound(duo(),[{actor:'k',move:1},{actor:'k',move:0}],opts)).startsWith('k>h>k'));
+        check('an enemy that started the fight acts first',order(resolveRound(duo(),[{actor:'k',move:1}],{...opts,enemyFirst:true})).startsWith('h>k'));
+        check('enemies take two actions a round',resolveRound(duo(),[{actor:'k',move:-1},{actor:'k',move:-1},{actor:'k',move:-1}],opts).timeline.filter(e=>e.type==='act'&&e.actor==='h').length===2);}
         r=resolveRound(slime,[{actor:'k',move:1,target:'s'}],{...opts,strikeBack:false});
         check('attacking with the target\'s own element is resisted',hits(r)[0].resisted&&hits(r)[0].amount<=3);
         const swirl=party(unit('v','party','Venti','Anemo'),unit('a','enemy','Hydro Slime','Hydro',{aura:{element:'Pyro',rounds:2}}),unit('b','enemy','Hilichurl Fighter','Physical'));
@@ -52,7 +54,7 @@ export async function runBattleTests(){
         check('Anemo swirls an aura onto other enemies',hits(r).some(e=>e.reaction==='Swirl')&&hits(r).some(e=>e.target==='b'&&e.element==='Pyro'&&e.source==='Swirl')&&r.state.units.find(u=>u.id==='b').aura?.element==='Pyro');
         const freeze=party(unit('x','party','Xingqiu','Hydro'),unit('c','party','Chongyun','Cryo'),unit('h','enemy','Hilichurl Fighter','Physical'));
         r=resolveRound(freeze,[{actor:'x',move:1,target:'h'},{actor:'c',move:1,target:'h'}],opts);
-        check('Hydro and Cryo freeze the enemy so it loses its action',hits(r).some(e=>e.reaction==='Frozen')&&r.timeline.some(e=>e.type==='skip'&&e.actor==='h'&&e.reason==='Frozen'));
+        check('Hydro and Cryo freeze the enemy so it cannot use skills',hits(r).some(e=>e.reaction==='Frozen')&&r.timeline.some(e=>e.type==='skip'&&e.actor==='h'&&e.reason==='Frozen'));
         check('consecutive reactions build a combo',(()=>{const two=party(unit('x','party','Xingqiu','Hydro'),unit('k','party','Klee','Pyro'),unit('c','party','Chongyun','Cryo'),unit('h','enemy','Ruin Guard','Physical'));const rr=resolveRound(two,[{actor:'x',move:1,target:'h'},{actor:'k',move:1,target:'h'},{actor:'x',move:0,target:'h'}],{...opts,strikeBack:false});return rr.state.combo>=1;})());
         const geo=party(unit('n','party','Noelle','Geo'),unit('h','enemy','Hydro Slime','Hydro',{aura:{element:'Hydro',rounds:2}}));
         r=resolveRound(geo,[{actor:'n',move:1,target:'h'}],{...opts,strikeBack:false});
@@ -98,7 +100,8 @@ export async function runBattleTests(){
         r=resolveRound(kx,[{actor:'k',move:1,target:'h'}],{...opts,strikeBack:false});
         check('an Elemental Skill grants Energy',r.state.units.find(u=>u.id==='k').energy===2);
         r=resolveRound(kx,[{actor:'k',move:0,target:'h'}],{random:()=>0,strikeBack:false});
-        check('a Normal Attack can miss',r.timeline.some(e=>e.type==='miss'));
+        check('Normal Attacks never miss, as in Genius Invokation',!r.timeline.some(e=>e.type==='miss')&&hits(r).some(e=>e.actor==='k'));
+        check('damage is exact: the same hit twice deals the same',hits(resolveRound(kx,[{actor:'k',move:1}],{random:()=>.01,strikeBack:false}))[0].amount===hits(resolveRound(kx,[{actor:'k',move:1}],{random:()=>.99,strikeBack:false}))[0].amount);
         const fis=party(unit('f','party','Fischl','Electro'),unit('h','enemy','Hilichurl Fighter','Physical',{hp:60,maxHp:60}));
         r=resolveRound(fis,[{actor:'f',move:1,target:'h'}],opts);
         check('summons act at the end of the round and count down',r.timeline.some(e=>e.type==='summon-act'&&e.name==='Oz')&&r.state.summons.find(s=>s.name==='Oz').rounds===1);
@@ -111,35 +114,37 @@ export async function runBattleTests(){
         check('the telegraphed move is the one it uses next round',resolveRound(r.state,[{actor:'k',move:-1}],opts).timeline.some(e=>e.type==='act'&&e.name==='Frenzied Flurry'));
         // Enemy intents
         const scout=party(unit('k','party','Klee','Pyro'),unit('x','party','Xingqiu','Hydro'),unit('h','enemy','Hilichurl Fighter','Physical'));
-        const h=scout.units.find(u=>u.id==='h');planIntent(scout,h,()=>.9);
-        check('an enemy picks its target ahead of time',h.intent.target==='x'&&intentPreview(scout,h).damage[0].target==='x'&&intentPreview(scout,h).damage[0].amount>0);
-        r=resolveRound(scout,[{actor:'k',move:-1},{actor:'x',move:-1}],{random:()=>.1});
-        check('the enemy attacks the target it telegraphed',r.timeline.some(e=>e.type==='hit'&&e.actor==='h'&&e.target==='x'));
+        scout.active={party:'x',enemy:'h'};const h=scout.units.find(u=>u.id==='h');planIntent(scout,h,()=>.9);
+        check('an enemy aims at your active character',h.intent.target==='x'&&intentPreview(scout,h).damage[0].target==='x'&&intentPreview(scout,h).damage[0].amount>0);
+        r=resolveRound(scout,[{actor:'x',move:-1},{actor:'x',move:-1}],{random:()=>.1});
+        check('enemy hits land on the active character',r.timeline.filter(e=>e.type==='hit'&&e.actor==='h').every(e=>e.target==='x'));
         check('a new intent is shown for the next round',Boolean(r.state.units.find(u=>u.id==='h').intent)&&r.timeline.find(e=>e.type==='statuses').units.find(u=>u.id==='h').intent);
         const frozen=party(unit('k','party','Klee','Pyro'),unit('h','enemy','Hilichurl Fighter','Physical',{statuses:[{stat:'stun',rounds:2},{stat:'frozen',rounds:2}]}));planIntent(frozen,frozen.units[1]);
         check('a frozen enemy shows that it will not act',intentPreview(frozen,frozen.units[1]).skip===true);
         // Flee
         check('flee chance falls with more enemies and rises with Anemo',fleeChance(party(unit('v','party','Venti','Anemo'),unit('h','enemy','Hilichurl Fighter','Physical')))===70&&fleeChance(party(unit('k','party','Klee','Pyro'),unit('h','enemy','Hilichurl Fighter','Physical'),unit('s','enemy','Hydro Slime','Hydro')))===50);
         r=resolveRound(kx,{steps:[{actor:'k',move:1,target:'h'}],flee:true},{random:()=>0});
-        check('a successful flee ends the battle before anyone acts',r.fled&&!r.timeline.some(e=>e.type==='act')&&r.timeline.some(e=>e.type==='flee'&&e.success));
+        check('a successful flee ends the battle at once',r.fled&&!r.timeline.some(e=>e.type==='act')&&r.timeline.some(e=>e.type==='flee'&&e.success));
         r=resolveRound(kx,{steps:[{actor:'k',move:1,target:'h'}],flee:true},{random:()=>.99});
-        check('a failed flee costs the party its turn but enemies still act',!r.fled&&!r.timeline.some(e=>e.type==='act'&&e.actor==='k')&&r.timeline.some(e=>e.type==='act'&&e.actor==='h'));
+        check('a failed flee costs the party its turn and the enemy acts',!r.fled&&!r.timeline.some(e=>e.type==='act'&&e.actor==='k')&&r.timeline.some(e=>e.type==='act'&&e.actor==='h'));
         // Items
         const hurtParty=party(unit('k','party','Klee','Pyro',{hp:5}),unit('x','party','Xingqiu','Hydro',{hp:0}),unit('h','enemy','Hilichurl Fighter','Physical'));
         r=resolveRound(hurtParty,{steps:[{actor:'k',move:-1}],items:[{id:'hash-brown',target:'k',item:ITEMS['hash-brown']},{id:'fried-egg',target:'x',item:ITEMS['fried-egg']},{id:'butter-crab',item:ITEMS['butter-crab']}]},{...opts,strikeBack:false});
-        check('food heals before anyone acts',r.timeline[0].type==='item'&&r.state.units.find(u=>u.id==='k').hp>=13);
+        check('food heals at once',r.timeline[0].type==='item'&&r.state.units.find(u=>u.id==='k').hp>=13);
         check('Teyvat Fried Egg revives a downed member',r.state.units.find(u=>u.id==='x').hp===8);
         check('Butter Crab protects the whole party',r.state.units.filter(u=>u.side==='party').every(u=>u.statuses.some(s=>s.stat==='guard')));
-        check('item dice costs are paid from the pool',!allocateDice(kx,[{face:'Geo'}],[],[ITEMS['adeptus-temptation']]).ok&&allocateDice(kx,[{face:'Geo'},{face:'Cryo'}],[],[ITEMS['adeptus-temptation']]).ok);
+        {const live=startRound(kx,{dice:[{face:'Geo'}],hand:['adeptus-temptation','sweet-madame'],items:ITEMS});
+        check('card costs are paid with any dice',!cardCheck(live,0,'k').ok&&cardCheck(live,1,'k').ok&&(live.dice.push({face:'Cryo'}),cardCheck(live,0,'k').ok));}
         check('Woven cards add a die and Thunder and Eternity makes Omni',applyDiceItem(ITEMS['woven-ice'],[{face:'Geo'}],new Set()).length===2&&applyDiceItem(ITEMS['thunder-eternity'],[{face:'Geo'},{face:'Cryo'}],new Set()).every(d=>d.face==='Omni'));
-        check('Minty Meat Rolls stop Normal Attacks from missing',resolveRound(kx,{steps:[{actor:'k',move:0,target:'h'}],items:[{id:'minty-rolls',target:'k',item:ITEMS['minty-rolls']}]},{random:()=>0,strikeBack:false}).timeline.some(e=>e.type==='hit'&&e.actor==='k'));
+        {const nimble=party(unit('k','party','Klee','Pyro'),unit('h','enemy','Hilichurl Fighter','Physical',{evasion:100}));
+        check('evasive enemies dodge, and Minty Meat Rolls make attacks land',resolveRound(nimble,[{actor:'k',move:0}],{random:()=>0,strikeBack:false}).timeline.some(e=>e.type==='miss')&&resolveRound(nimble,{steps:[{actor:'k',move:0}],items:[{id:'minty-rolls',target:'k',item:ITEMS['minty-rolls']}]},{random:()=>0,strikeBack:false}).timeline.some(e=>e.type==='hit'&&e.actor==='k'));}
         check('victories drop item cards',rollLoot([{element:'Pyro',maxHp:50}],{random:()=>.1}).length===3&&rollLoot([{element:'Physical',maxHp:20}]).every(id=>ITEMS[id]));
         check('every item has card art and a starter bag exists',Object.keys(ITEMS).length>=20&&Object.keys(STARTER_BAG).every(id=>ITEMS[id]));
         check('bigger parties face tougher enemies',partyScale(4).hp>partyScale(2).hp&&partyScale(1).damage<1);
-        check('Auto leaves the dice that played items already spent',autoPlan(team,[{face:'Pyro'},{face:'Pyro'},{face:'Pyro'}],[{actor:'b',move:0,target:'h'}],[{cost:3}])[0].move===0);
-        {const foe=unit('h','enemy','Hilichurl Fighter','Physical'),me=unit('k','party','Klee','Pyro');foe.kit={...foe.kit,miss:100};foe.intent={move:0,target:'k'};
-        check('an enemy kit sets how often its attacks miss',resolveRound(party(me,foe),[],{random:()=>.5}).timeline.some(e=>e.type==='miss'&&e.actor==='h'));}
-        check('Auto picks a Burst when it is ready and paid for',autoPlan(team,[{face:'Pyro'},{face:'Pyro'},{face:'Pyro'}],[{actor:'b',move:0,target:'h'}])[0].move===2);
+
+        {const ready=startRound(team,{dice:['Pyro','Pyro','Pyro'].map(face=>({face})),strikeBack:false});ready.state.active.party='b';
+        check('Auto picks a Burst when it is ready and paid for',autoAction(ready).type==='skill'&&autoAction(ready).move===2);
+        ready.dice=[{face:'Geo'}];check('Auto ends the round when nothing can be paid for',autoAction(ready).type==='end');}
         const text=roundNarration(kx,resolveRound(kx,[{actor:'x',move:1,target:'h'},{actor:'k',move:1,target:'h'}],{...opts,strikeBack:false}));
         check('the chat narration names moves, damage and reactions',/Xingqiu used Guhua Sword: Fatal Rainscreen \(Elemental Skill\)/.test(text)&&/Vaporize/.test(text)&&/HP: Klee/.test(text));
 
@@ -147,7 +152,7 @@ export async function runBattleTests(){
         const paimonKit=defaultKit('Paimon',{element:'None'});
         check('Paimon has her own kit: a weak punch, cheering and a pep talk',paimonKit.moves.map(m=>m.name).join('|')==='Paimon Punch!|Go, Go, Traveler!|Paimon\'s Pep Talk'&&paimonKit.moves[0].effects[0].power===1&&paimonKit.evasion===50&&paimonKit.hp<30);
         const pai=party(unit('p','party','Paimon','None',{evasion:50}),unit('k','party','Klee','Pyro',{energy:0}),unit('h','enemy','Hilichurl Fighter','Physical',{intent:{move:0,target:'p'}}));
-        r=resolveRound(pai,[{actor:'p',move:1},{actor:'k',move:0,target:'h'}],{random:()=>.3});
+        pai.active={party:'p',enemy:'h'};r=resolveRound(pai,[{actor:'p',move:1},{actor:'k',move:0,target:'h'}],{random:()=>.3});
         check('Paimon dodges enemy hits often',r.timeline.some(e=>e.type==='miss'&&e.target==='p'&&e.dodge)&&r.state.units.find(u=>u.id==='p').hp===pai.units[0].hp);
         check('cheering buffs everyone but Paimon',r.state.units.find(u=>u.id==='k').statuses.some(s=>s.stat==='atk')&&!r.state.units.find(u=>u.id==='p').statuses.some(s=>s.stat==='atk'));
         r=resolveRound({...pai,units:pai.units.map(u=>u.id==='p'?{...u,energy:2}:u)},[{actor:'p',move:2}],{...opts,strikeBack:false});
@@ -160,77 +165,86 @@ export async function runBattleTests(){
 
         // Battle board
         check('names reach tooltips as text',escapeHtml('<img src=x onerror="a()">&')==='&lt;img src=x onerror=&quot;a()&quot;&gt;&amp;');
-        ui=mountBattle({host});
+        // Live rounds: turns, switching, cards, tuning, the End Phase
+        {const live=()=>{const st=party(unit('k','party','Klee','Pyro'),unit('x','party','Xingqiu','Hydro',{hp:20}),unit('h','enemy','Hilichurl Fighter','Physical',{hp:80,maxHp:80}),unit('s','enemy','Hydro Slime','Hydro'));st.active={party:'k',enemy:'h'};return st;};
+        let g=startRound(live(),{dice:['Pyro','Pyro','Pyro','Omni','Geo','Geo','Cryo','Anemo'].map(face=>({face})),hand:['sweet-madame','woven-flames','hash-brown'],deck:['lotus-crisp','toss-up','starsigns'],items:ITEMS,random:()=>.5});
+        check('only the active character uses skills, and the turn passes',useSkill(g,1).ok&&g.turn==='enemy'&&g.dice.length===5);
+        check('you cannot act on the enemy\'s turn',!useSkill(g,0).ok);
+        enemyTurn(g);check('the enemy acts on its turn and hands it back',g.turn==='party'&&g.enemyActions===1);
+        check('cards are Fast Actions: your turn goes on',playCard(g,0,{target:'x'}).ok&&g.turn==='party'&&g.state.units.find(u=>u.id==='x').hp===24);
+        check('each member eats once a round',!cardCheck(g,1,'x').ok);
+        check('a Woven card adds a die at once',playCard(g,0).ok&&g.dice.some(d=>d.face==='Pyro')&&g.dice.length===6);
+        const geo=g.dice.findIndex(d=>d.face==='Geo');
+        check('Elemental Tuning turns a die and sends the card back to the deck',tuneDie(g,geo,0).ok&&g.dice[geo].face==='Pyro'&&g.deck.length===4&&!g.hand.length);
+        check('switching costs a die and ends your turn',switchTo(g,'x').ok&&g.state.active.party==='x'&&g.dice.length===5&&g.turn==='enemy');
+        enemyTurn(g);check('enemy hits land on the new active character',g.timeline.filter(e=>e.type==='hit'&&e.actor==='h').at(-1).target==='x');
+        check('out of actions, the enemy ends its round',g.enemyActions===0&&useSkill(g,0).ok&&g.turn==='enemy'&&enemyTurn(g).ok&&g.ended.enemy&&g.turn==='party');
+        check('when the enemy has ended, you keep acting until you end',switchTo(g,'k').ok&&g.turn==='party');
+        check('ending your round ends it for both',declareEnd(g).ok&&g.phase==='end');
+        const end=endPhase(g),res=finishRound(g);
+        check('the End Phase draws two cards',end.events.some(e=>e.type==='draw'&&e.cards.length===2)&&res.hand.length===2);
+        check('whoever ended first acts first next round',res.first==='enemy');
+        check('the result keeps the active characters and the cards played',res.active.party==='k'&&res.played.join()==='sweet-madame,woven-flames');
+        // A fallen active character: you pick the next one, free.
+        g=startRound(live(),{dice:Array(8).fill({face:'Omni'}),first:'enemy',random:()=>.5});g.state.units.find(u=>u.id==='k').hp=1;
+        enemyTurn(g);check('your fallen active character makes you choose the next',g.needsActive==='party'&&!useSkill(g,0).ok);
+        check('choosing after a fall is free and keeps the turn order',switchTo(g,'x').ok&&g.dice.length===8&&g.turn==='party');
+        // Overloaded pushes the target side on.
+        g=startRound(party(unit('k','party','Klee','Pyro'),unit('a','enemy','Ruin Guard','Physical',{hp:200,maxHp:200,aura:{element:'Electro',elements:['Electro']}}),unit('b','enemy','Hilichurl Fighter','Physical')),{dice:null,strikeBack:false});
+        useSkill(g,1);check('Overloaded forces the enemy to switch',g.timeline.some(e=>e.type==='switch'&&e.forced&&e.to==='b')&&g.state.active.enemy==='b');
+        // Defeat moves the enemy side on, and the last one wins the battle.
+        g=startRound(party(unit('k','party','Klee','Pyro'),unit('a','enemy','Hydro Slime','Hydro',{hp:1}),unit('b','enemy','Hydro Slime','Hydro',{hp:1})),{dice:null,strikeBack:false});
+        useSkill(g,0);check('a defeated enemy steps aside for the next',g.state.active.enemy==='b'&&!g.over);
+        g.turn='party';useSkill(g,0);check('the last enemy falling wins the battle',g.over==='victory'&&finishRound(g).victory);
+        check('a whole round plays automatically',(()=>{const r2=autoRound(startRound(live(),{dice:Array(8).fill({face:'Omni'}),random:()=>.5}));return r2.timeline.some(e=>e.type==='phase'&&e.label==='End Phase')||r2.victory;})());
+        check('the starting hand is five cards from the bag',drawCards(deckFrom({'sweet-madame':3,'toss-up':4}),5).drawn.length===5&&deckFrom({'sweet-madame':3},['sweet-madame']).length===2);}
+
+        // The board
+        ui=mountBattle({host,sound:new Proxy({},{get:()=>()=>{}})});
         const screen=party(unit('k','party','Klee','Pyro',{energy:2}),unit('x','party','Xingqiu','Hydro',{hp:10}),unit('h','enemy','Hilichurl Fighter','Physical'),unit('s','enemy','Hydro Slime','Hydro'));
-        screen.bag={'sweet-madame':2,'woven-flames':1,'adeptus-temptation':1};
+        screen.bag={'sweet-madame':2,'woven-flames':1,'adeptus-temptation':1};screen.hand=['sweet-madame','woven-flames','adeptus-temptation'];screen.active={party:'k',enemy:'h'};screen.first='party';
         for(const e of screen.units.filter(u=>u.side==='enemy'))planIntent(screen,e,()=>.1);
-        const dice=['Pyro','Pyro','Pyro','Hydro','Omni'].map(face=>({face}));
-        const planned=ui.plan(screen,{dice,targetId:'h',reducedMotion:true,volume:0,player:{name:'Traveler',img:''}});
+        const faces=['Pyro','Pyro','Pyro','Hydro','Omni','Geo','Cryo','Anemo'];let rolled=0;
+        const playing=ui.run(screen,{roll:async()=>{rolled++;return faces.map(face=>({face}));},reducedMotion:true,volume:0,player:{name:'Traveler',img:''}});
         const dialog=host.querySelector('#gi-battle'),q=s=>dialog.querySelector(s),card=id=>q(`.tb-card[data-id="${id}"]`);
-        check('the board opens with both sides, dice, moves and hand',dialog.open&&dialog.querySelectorAll('.tb-row-you .tb-card').length===2&&dialog.querySelectorAll('.tb-row-foe .tb-card').length===2&&dialog.querySelectorAll('.tb-die').length===5&&dialog.querySelectorAll('.tb-skills .tb-move').length===3&&dialog.querySelectorAll('.tb-hand .tb-item').length===3);
+        const until=async(fn,ms=8000)=>{const end=performance.now()+ms;while(!fn()){if(performance.now()>end)return false;await new Promise(r=>setTimeout(r,20));}return true;};
+        await until(()=>dialog.dataset.mode==='turn'&&dialog.dataset.turn==='party'&&!q('.tb-end').disabled);
+        check('the board opens on your turn with both sides, dice, skills and hand',dialog.open&&rolled===1&&dialog.querySelectorAll('.tb-row-you .tb-card').length===2&&dialog.querySelectorAll('.tb-row-foe .tb-card').length===2&&dialog.querySelectorAll('.tb-dice-list .tb-die').length===8&&dialog.querySelectorAll('.tb-skills .tb-move').length===3&&dialog.querySelectorAll('.tb-hand .tb-item').length===3);
+        check('each side\'s active character steps forward',card('k').classList.contains('tb-front')&&card('h').classList.contains('tb-front')&&!card('x').classList.contains('tb-front'));
         check('HP shows on each card as a number badge',card('x').querySelector('.tb-hp b').textContent==='10');
-        check('enemy intents show the move and its target',!card('h').querySelector('.tb-intent').hidden&&card('h').querySelector('.tb-intent img')&&[...dialog.querySelectorAll('.tb-incoming:not([hidden])')].length>=1);
-        check('every member starts without a move, and the first is focused',[...dialog.querySelectorAll('.tb-plan')].every(b=>b.dataset.kind==='hold')&&card('k').classList.contains('tb-active')&&!q('.tb-end').disabled&&!q('.tb-end').classList.contains('tb-go'));
-        card('x').click();q('.tb-skills [data-move="2"]').click();
-        check('a Burst without full Energy is refused',card('x').querySelector('.tb-plan').dataset.kind==='hold');
+        check('the enemy in front shows its next move and target',!card('h').querySelector('.tb-intent').hidden&&card('s').querySelector('.tb-intent').hidden&&!card('k').querySelector('.tb-incoming').hidden);
         q('.tb-skills [data-move="1"]').click();
-        check('a move with several targets highlights them',dialog.querySelectorAll('.tb-choosable').length===2);
-        card('h').click();
-        check('choosing a target assigns the Skill and the first acting place',card('x').querySelector('.tb-plan').dataset.kind==='skill'&&card('x').querySelector('.tb-plan b').textContent==='1'&&!dialog.querySelector('.tb-choosable'));
-        check('focus moves on to the member still without a move',card('k').classList.contains('tb-active')&&!card('x').classList.contains('tb-active'));
-        card('k').click();dialog.dispatchEvent(new KeyboardEvent('keydown',{key:'q',bubbles:true}));
-        check('the Q key picks a ready Burst',card('k').querySelector('.tb-plan').dataset.kind==='burst'&&dialog.querySelectorAll('.tb-die.tb-spent').length===5);
-        check('once everyone has a move nobody stays focused and the hourglass pulses without a ready note',!dialog.querySelector('.tb-active')&&q('.tb-end').classList.contains('tb-go')&&!q('.tb-ready-note')&&card('k').querySelector('.tb-plan b').textContent==='2');
-        card('k').click();dialog.dispatchEvent(new KeyboardEvent('keydown',{key:'e',bubbles:true}));card('h').click();
-        check('the E key picks the Skill and frees the Burst dice',card('k').querySelector('.tb-plan').dataset.kind==='skill'&&dialog.querySelectorAll('.tb-die.tb-spent').length===4);
-        check('editing a move keeps the acting order',card('k').querySelector('.tb-plan b').textContent==='2'&&!dialog.querySelector('.tb-active'));
-        card('k').click();check('a chosen member shows the acting order control',!q('.tb-order').hidden&&/2nd/.test(q('.tb-order').textContent));
-        q('.tb-order [data-dir="-1"]').click();
-        check('Act earlier moves them up the order',card('k').querySelector('.tb-plan b').textContent==='1'&&card('x').querySelector('.tb-plan b').textContent==='2'&&/1st/.test(q('.tb-order').textContent));
-        card('k').click();check('tapping the focused member again unfocuses them',!dialog.querySelector('.tb-active'));
-        q('.tb-hand [data-item="sweet-madame"]').click();
-        check('picking up food highlights who can eat it',q('.tb-hand [data-item="sweet-madame"]').classList.contains('tb-held')&&dialog.querySelectorAll('.tb-choosable').length===2);
-        card('x').click();
-        check('food heals the moment it is played',card('x').querySelector('.tb-hp b').textContent==='14');
-        check('food is played onto a member',dialog.querySelectorAll('.tb-played-card').length===1&&q('.tb-hand [data-item="sweet-madame"]')&&!q('.tb-hand [data-item="sweet-madame"] .tb-item-count'));
+        check('choosing a skill previews it: details, dice, the target and its HP change',dialog.classList.contains('tb-previewing')&&!q('.tb-detail').hidden&&/Jumpy Dumpty/.test(q('.tb-detail').textContent)&&card('h').classList.contains('tb-aim')&&/−\d/.test(card('h').querySelector('.tb-delta').textContent)&&dialog.querySelectorAll('.tb-drawer-dice [aria-pressed="true"]').length===3);
+        q('.tb-cancel').click();check('cancel puts the choice down',!dialog.classList.contains('tb-previewing')&&q('.tb-detail').hidden);
+        card('x').click();check('tapping a standby character offers the switch',q('.tb-skills .tb-move-switch')&&/Switch Character/.test(q('.tb-detail').textContent));
+        q('.tb-cancel').click();
         q('.tb-hand [data-item="sweet-madame"]').click();card('x').click();
-        check('each member eats only once a round',dialog.querySelectorAll('.tb-played-card').length===1);
-        q('.tb-hand [data-item="woven-flames"]').click();q('.tb-hand [data-item="woven-flames"]').click();
-        check('a Woven card adds a die at once',dialog.querySelectorAll('.tb-die').length===6&&q('.tb-dice-count').textContent==='2');
-        check('the flee chance is hidden until Flee is chosen',!/%/.test(q('.tb-turn').textContent)&&q('.tb-confirm').hidden);
-        q('.tb-flee').click();
-        check('Flee shows its chance and asks for confirmation',!q('.tb-confirm').hidden&&/\d+% chance/.test(q('.tb-confirm p').textContent)&&q('.tb-flee').getAttribute('aria-expanded')==='true'&&q('.tb-flee').getAttribute('aria-pressed')==='false');
-        q('.tb-confirm-no').click();
-        check('Stay closes the confirmation and keeps the plan',q('.tb-confirm').hidden&&q('.tb-end').classList.contains('tb-go')&&card('k').querySelector('.tb-plan').dataset.kind==='skill');
-        q('.tb-end').click();const plan=await planned;
-        check('the round button returns moves in acting order, items and dice',plan.steps.map(p=>`${p.actor}:${p.move}`).join()==='k:1,x:1'&&plan.items.map(i=>`${i.id}>${i.target || ''}`).join()==='sweet-madame>x,woven-flames>'&&!plan.flee&&plan.dice.length===6);
-        const result=resolveRound(screen,{...plan,items:plan.items.map(i=>({...i,item:ITEMS[i.id]}))},opts);
-        const playing=ui.play(screen,result,{reducedMotion:true,volume:0,loot:['hash-brown']});
-        const end=performance.now()+20000;while(q('.tb-result').hidden&&performance.now()<end)await new Promise(r=>setTimeout(r,30));
-        check('the round plays back to a summary',!q('.tb-result').hidden&&/Round 1|Victory/.test(q('.tb-result h3').textContent));
-        check('the summary credits damage and shows loot',dialog.querySelectorAll('.tb-result-party li').length===2&&dialog.querySelectorAll('.tb-loot-card').length===1);
-        q('.tb-continue').click();check('Continue closes the board',(await playing)===true&&!dialog.open);
-        const cancelled=ui.plan(screen,{dice,targetId:'h',reducedMotion:true,volume:0});ui.cancel();check('cancel ends the Action Phase without a plan',(await cancelled)===null);
-        const fleeing=ui.plan(screen,{dice,targetId:'h',reducedMotion:true,volume:0});q('.tb-flee').click();q('.tb-confirm-yes').click();
-        check('confirming Flee begins the round as an escape',(await fleeing)?.flee===true&&q('.tb-confirm').hidden);ui.cancel();
-        const lucky={...screen,bag:{'toss-up':1,starsigns:1,'fried-egg':1}};let asked=null;
-        const many=['Pyro','Pyro','Pyro','Hydro','Hydro','Hydro','Omni','Omni','Cryo','Cryo'].map(face=>({face}));
-        const tossing=ui.plan(lucky,{dice:many,targetId:'h',reducedMotion:true,volume:0,onReroll:async(current,indices)=>{asked={current,indices};return current.map((d,i)=>indices.includes(i)?{face:'Omni',match:true}:d);}});
-        card('k').click();q('.tb-skills [data-move="1"]').click();card('h').click();
-        q('.tb-hand [data-item="toss-up"]').click();await new Promise(r=>setTimeout(r,0));
-        check('Toss-Up goes straight back to the Roll Phase with only the unspent dice',asked&&asked.indices.length===8&&asked.current.length===10&&!q('.tb-hand [data-item="toss-up"]'));
-        check('the rerolled dice come back to the board',[...dialog.querySelectorAll('.tb-die:not(.tb-spent)')].every(d=>d.title==='Omni')&&q('.tb-dice-count').textContent==='8');
-        card('x').click();q('.tb-skills [data-move="2"]').click();
-        check('a Burst short of Energy is refused before Starsigns',card('x').querySelector('.tb-plan').dataset.kind==='hold');
-        q('.tb-hand [data-item="starsigns"]').click();card('x').click();card('x').click();
-        check('Starsigns lets that member choose their Burst this round',(()=>{q('.tb-skills [data-move="2"]').click();return card('x').querySelector('.tb-plan').dataset.kind==='burst';})());
-        check('a played card cannot be taken back',[...dialog.querySelectorAll('.tb-played-card')].every(c=>c.disabled)&&card('x').querySelector('.tb-plan').dataset.kind==='burst');
-        check('every Toss-Up die is listed in the plan',(()=>{q('.tb-end').click();return true;})()&&(await tossing).items.some(i=>i.id==='toss-up'));ui.cancel();
-        const downed={...screen,units:screen.units.map(u=>u.id==='x'?{...u,hp:0}:u),bag:{'fried-egg':1}};
-        const reviving=ui.plan(downed,{dice,targetId:'h',reducedMotion:true,volume:0});
-        q('.tb-hand [data-item="fried-egg"]').click();card('x').click();
-        check('a revived member can be given a move straight away',card('x').classList.contains('tb-reviving')&&card('x').querySelector('.tb-hp b').textContent==='8'&&(card('x').click(),q('.tb-skills [data-move="0"]').click(),card('x').querySelector('.tb-plan').dataset.kind==='normal'));
-        q('.tb-end').click();check('the revived member acts in the round',(await reviving).steps.some(p=>p.actor==='x'&&p.move===0));ui.cancel();
+        check('a card previews its effect on the chosen member',/Play Card/.test(q('.tb-go').textContent)&&card('x').querySelector('.tb-delta-heal')?.textContent==='+4');
+        q('.tb-go').click();await until(()=>card('x').querySelector('.tb-hp b').textContent==='14'&&dialog.dataset.mode==='turn');
+        check('a played card works at once and your turn goes on',card('x').querySelector('.tb-hp b').textContent==='14'&&dialog.dataset.turn==='party'&&dialog.querySelectorAll('.tb-played .tb-played-card').length===1&&dialog.querySelectorAll('.tb-hand .tb-item').length===2);
+        q('.tb-skills [data-move="2"]').click();q('.tb-go').click();
+        await until(()=>dialog.dataset.turn==='enemy'||dialog.dataset.mode==='done',12000);
+        check('a Burst is a Combat Action: the turn passes to the enemy',dialog.dataset.turn==='enemy'||dialog.dataset.mode==='done');
+        await until(()=>dialog.dataset.turn==='party'&&dialog.dataset.mode==='turn',12000);
+        q('.tb-end').click();check('the hourglass asks before ending the round',!q('.tb-confirm-end').hidden);
+        q('.tb-confirm-end .tb-confirm-yes').click();
+        const result=await Promise.race([playing,new Promise(r=>setTimeout(()=>r('timeout'),20000))]);
+        check('the round ends after both sides end it, with the End Phase',result&&result!=='timeout'&&result.timeline.some(e=>e.type==='end-round'&&e.side==='party')&&(result.victory||result.timeline.some(e=>e.type==='phase'&&e.label==='End Phase')));
+        const shown=ui.result(screen,result,{loot:['sweet-madame']});
+        check('the summary credits damage and shows loot',!q('.tb-result').hidden&&q('.tb-result-party b')&&q('.tb-loot img'));
+        q('.tb-continue').click();await shown;check('Continue closes the board',!dialog.open);
+        // A new fight opens with VS, the coin toss, the starting hand and a choice of character.
+        const fresh=structuredClone(screen);fresh.fresh=true;fresh.hand=[];fresh.active={party:null,enemy:null};fresh.bag={'sweet-madame':3,'hash-brown':2,'lotus-crisp':1,'toss-up':1,'fried-egg':1};
+        const opening=ui.run(fresh,{roll:async()=>null,reducedMotion:true,volume:0});
+        await until(()=>q('.tb-intro-hand'),8000);
+        check('a new fight deals a starting hand of five',dialog.querySelectorAll('.tb-start-card').length===5&&/Starting Hand/.test(q('.tb-intro').textContent));
+        q('.tb-start-card').click();check('cards can be marked to switch',q('.tb-start-card').getAttribute('aria-pressed')==='true');
+        q('.tb-intro-go').click();await until(()=>q('.tb-intro-choose'),8000);
+        check('then you choose your active character',/Choose your active character/.test(q('.tb-banner').textContent)&&card('k').classList.contains('tb-choosable'));
+        card('x').click();q('.tb-intro-go').click();await until(()=>card('x').classList.contains('tb-front'),4000);
+        check('the chosen character steps forward',card('x').classList.contains('tb-front'));
+        check('the round stops if the roll is cancelled',await Promise.race([opening,new Promise(r=>setTimeout(()=>r('timeout'),8000))])===null);
+        ui.cancel();
 
         // Moveset editor
         const ctx={characters:[{name:'Klee',avatar:'Klee.png',data:{extensions:{silly_teyvat:{playable:true,element:'Pyro'}}}}],extensionSettings:{genshin_dialogue_ui:{}},saveSettingsDebounced(){}};

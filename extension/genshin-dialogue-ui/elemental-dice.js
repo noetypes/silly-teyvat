@@ -66,7 +66,7 @@ export function mountElementalDice({host,stageFactory=createStage,sound=createDi
         const allies=describe?.allies || [],omni=result.dice.filter(d=>d.face==='Omni').length,owned=new Set(allies.map(a=>a.element));
         const spare=result.dice.filter(d=>d.face!=='Omni'&&!owned.has(d.face)).length;
         const rows=[...allies.map(a=>({...a,faces:result.dice.filter(d=>d.face===a.element).map(d=>d.face)})),{name:'Omni (any element)',element:'Omni',faces:Array(omni).fill('Omni')}];
-        if(spare)rows.push({name:`Spare: 2 tune into 1`,element:'None',faces:result.dice.filter(d=>d.face!=='Omni'&&!owned.has(d.face)).map(d=>d.face)});
+        if(spare)rows.push({name:'Other elements (any-dice costs, or Elemental Tuning)',element:'None',faces:result.dice.filter(d=>d.face!=='Omni'&&!owned.has(d.face)).map(d=>d.face)});
         // Compact chips: portrait (or mark) and a count; the name is the tooltip.
         $('.gi-roll-summary').classList.add('gi-roll-compact');
         const nodes=rows.map((a,i)=>{
@@ -127,11 +127,11 @@ export function mountElementalDice({host,stageFactory=createStage,sound=createDi
             finish=resolve;let settled=false,visual=null;
             const valid=()=>!disposed&&current===sequence&&isCurrent();
             async function reveal(){
-                if(settled)return;settled=true;dialog.classList.add('gi-settled');dialog.dataset.phase='revealed';
+                if(settled)return;settled=true;dialog.classList.add('gi-settled');dialog.dataset.phase='revealed';if(result.kind==='fuel')title(pickAll?heading:'Roll Result',(result.rerolls || 0)>=1||typeof reroll!=='function'?'Rolls complete, entering Action Phase':'');
                 $('.gi-dice-total').textContent=result.kind==='fuel'?`${result.dice.filter(d=>d.match).length} of ${result.dice.length} dice match your party`:`${result.damage} damage · ${result.hpAfter} HP remaining`;
                 tags(visual,result);
                 accept=()=>{const ok=valid();finish=null;stop(true);resolve(ok);};
-                $('.gi-roll-confirm-label').textContent=result.kind==='fuel'?'To Battle':'Confirm';button.classList.add('gi-ready');
+                $('.gi-roll-confirm-label').textContent='Confirm';button.classList.add('gi-ready');
                 offerReroll();
                 await summary(result,describe,reducedMotion||skip);
             }

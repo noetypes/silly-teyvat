@@ -12,8 +12,8 @@ export const EFFECT_TYPES=['damage','heal','shield','buff','debuff','summon','en
 export const BUFF_STATS=['atk','guard','crit','dodge','regen','infuse'];
 export const DEBUFF_STATS=['vuln','weaken','stun'];
 // Targets are relative to whoever uses the move.
-export const TARGETS={one:'one foe',all:'all foes',random:'random foes',weakest:'the weakest foe',self:'self',ally:'one ally',party:'the whole party',others:'other allies',lowest:'the most injured ally'};
-const WEAPON_NA={sword:{power:3,miss:20},claymore:{power:4,miss:30},polearm:{power:3,miss:20},bow:{power:3,miss:25},catalyst:{power:2,miss:15},none:{power:1,miss:40}};
+export const TARGETS={one:'the active foe',all:'all foes',random:'random foes',weakest:'the weakest foe',self:'self',ally:'one ally',party:'the whole party',others:'other allies',lowest:'the most injured ally'};
+const WEAPON_NA={sword:{power:3},claymore:{power:4},polearm:{power:3},bow:{power:3},catalyst:{power:2},none:{power:1}};
 
 // Compact effect builders for the tables below.
 const D=(power,target='one',o={})=>({type:'damage',power,target,...o});
@@ -27,6 +27,7 @@ const HP=(amount,target='self')=>({type:'hpcost',amount,target});
 const INF=(rounds,target='self')=>BF('infuse',0,rounds,target);
 
 // [name, weapon, hp, burst energy, role, normal attack, [skill, dice, effects], [burst, dice, effects]]
+// Skill dice here are one fewer than the game charges: kitFromRow adds one (most Skills cost 3 of the element).
 const S='sword',C='claymore',P='polearm',B='bow',K='catalyst';
 const TABLE=[
     // Mondstadt
@@ -159,7 +160,7 @@ const TABLE=[
     ['Aloy',B,32,2,'DPS','Rapid Fire',['Frozen Wilds',2,[D(4),BF('atk',20,2)]],['Prophecies of Dawn',3,[D(9)]]],
     // Paimon has no Vision or in-game kit, so her moves are Silly Teyvat's own: a feeble punch,
     // cheering and a pep talk. She is hard to hit and helps by buffing everyone else.
-    ['Paimon','none',22,2,'Support','Paimon Punch!',['Go, Go, Traveler!',1,[BF('atk',20,2,'others'),BF('crit',15,2,'others')]],['Paimon\'s Pep Talk',2,[H(3,'others'),EN(1,'others'),BF('atk',25,1,'others')]],{evasion:50,na:{power:1,miss:45}}],
+    ['Paimon','none',22,2,'Support','Paimon Punch!',['Go, Go, Traveler!',1,[BF('atk',20,2,'others'),BF('crit',15,2,'others')]],['Paimon\'s Pep Talk',2,[H(3,'others'),EN(1,'others'),BF('atk',25,1,'others')]],{evasion:50,na:{power:1}}],
 ];
 // Companions who fight alongside the party even though their card is not a playable character.
 export const COMBAT_COMPANIONS=new Set(['paimon']);
@@ -255,17 +256,18 @@ const clone=value=>structuredClone(value);
 
 function normal(weapon,name,element,override={}){
     const base={...(WEAPON_NA[weapon] || WEAPON_NA.sword),...override};
-    return {kind:'normal',name,cost:0,miss:base.miss,element:weapon==='catalyst'?element:'Physical',effects:[D(base.power)]};
+    // As in Genius Invokation, a Normal Attack costs 3 dice: one of the character's element and two of any.
+    return {kind:'normal',name,cost:3,element:weapon==='catalyst'?element:'Physical',effects:[D(base.power)]};
 }
 function kitFromRow([name,weapon,hp,energy,role,na,[skill,skillCost,skillFx],[burst,burstCost,burstFx],extra={}],element){
-    const kit={name,weapon,hp,energy,role,moves:[normal(weapon,na,element,extra.na),{kind:'skill',name:skill,cost:skillCost,effects:clone(skillFx)},{kind:'burst',name:burst,cost:burstCost,effects:clone(burstFx)}]};
+    const kit={name,weapon,hp,energy,role,moves:[normal(weapon,na,element,extra.na),{kind:'skill',name:skill,cost:skillCost+1,effects:clone(skillFx)},{kind:'burst',name:burst,cost:burstCost,effects:clone(burstFx)}]};
     if(extra.evasion)kit.evasion=extra.evasion;
     return kit;
 }
 export function travelerKit(element){
     const name='Traveler',[skill,skillFx,burst,burstFx]=TRAVELER[element] || [];
-    if(!skill)return {name,weapon:'sword',hp:34,energy:2,role:'DPS',moves:[normal('sword','Foreign Ironwind','Physical'),{kind:'skill',name:'Elemental Strike',cost:2,effects:[D(5)]},{kind:'burst',name:'Elemental Release',cost:3,effects:[D(6,'all')]}]};
-    return {name,weapon:'sword',hp:34,energy:2,role:'DPS',moves:[normal('sword','Foreign Ironwind','Physical'),{kind:'skill',name:skill,cost:2,effects:clone(skillFx)},{kind:'burst',name:burst,cost:3,effects:clone(burstFx)}]};
+    if(!skill)return {name,weapon:'sword',hp:34,energy:2,role:'DPS',moves:[normal('sword','Foreign Ironwind','Physical'),{kind:'skill',name:'Elemental Strike',cost:3,effects:[D(5)]},{kind:'burst',name:'Elemental Release',cost:3,effects:[D(6,'all')]}]};
+    return {name,weapon:'sword',hp:34,energy:2,role:'DPS',moves:[normal('sword','Foreign Ironwind','Physical'),{kind:'skill',name:skill,cost:3,effects:clone(skillFx)},{kind:'burst',name:burst,cost:3,effects:clone(burstFx)}]};
 }
 function enemyKit([name,element,hp,basic,special,cooldown,extra={},skill,additional=[]]){
     const move=(kind,[moveName,effects,moveElement])=>({kind,name:moveName,cost:0,...(moveElement?{element:moveElement}:{}),effects:clone(effects)});
@@ -343,7 +345,7 @@ export function describeEffect(effect,element){
             if(effect.stat==='guard')return `${t[0].toUpperCase()+t.slice(1)} take${t==='self'?'s':''} ${effect.amount}% less damage for ${plural(effect.rounds,'round')}.`;
             return `Raises ${STAT_LABEL[effect.stat] || effect.stat} of ${t} by ${effect.amount}% for ${plural(effect.rounds,'round')}.`;
         case 'debuff':
-            if(effect.stat==='stun')return `Petrifies ${t}: it loses its next action.`;
+            if(effect.stat==='stun')return `Petrifies ${t}: no skills until the end of the round.`;
             if(effect.stat==='vuln')return `${t[0].toUpperCase()+t.slice(1)} take${/^all|^random/.test(effect.target)?'':'s'} ${effect.amount}% more damage for ${plural(effect.rounds,'round')}.`;
             return `Lowers ${STAT_LABEL[effect.stat] || effect.stat} of ${t} by ${effect.amount}% for ${plural(effect.rounds,'round')}.`;
         case 'summon':return `Summons ${effect.name || 'a companion'}${effect.power?`, dealing ${effect.power} ${elText}damage to ${t} at the end of each round`:''}${effect.heal?`${effect.power?' and':','} healing the most injured ally for ${effect.heal}${effect.power?'':' each round'}`:''} for ${plural(effect.rounds,'round')}.${effect.decoy?' It draws one enemy attack each round.':''}`;
@@ -356,7 +358,6 @@ export function describeEffect(effect,element){
 export const escapeHtml=text=>String(text ?? '').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 export function describeMove(move,element){
     const el=move.element || element,lines=(move.effects || []).map(e=>describeEffect(e,el)).filter(Boolean);
-    if(move.kind==='normal')lines.push(`Costs no dice. ${move.miss ?? 20}% chance to miss.`);
     if(move.cooldown)lines.push(`Used every ${move.cooldown} rounds.`);
     return lines.join(' ');
 }

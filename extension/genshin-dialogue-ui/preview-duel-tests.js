@@ -1,3 +1,4 @@
+import {autoBattle} from './preview-battle-auto.js';
 import {mountCombat,createCombatAdapter} from './combat.js';
 import {combatState,partyStore,partyMember} from './combat-state.js';
 import {partyBag,battleSnapshot} from './battle-state.js';
@@ -21,7 +22,7 @@ export async function runDuelTests(){
         const log={rolls:0,plans:[],removed:[],messages:[],reactions:0};
         const ui=mountCombat({host:root,getContext:()=>ctx,adapter:{async append(c,record){log.messages.push(record);c.chat.push({name:record.name || 'Narrator',mes:record.text,extra:{type:record.avatar?undefined:'narrator',silly_teyvat_combat:record.event}});},async react(){log.reactions++;},async removeAlly(c,avatar){log.removed.push(avatar);c.groups[0].members=c.groups[0].members.filter(a=>a!==avatar);return true;}},
             diceAdapter:{async roll(){log.rolls++;return true;},dispose(){}},
-            battleAdapter:{async plan(state){log.plans.push(state);log.onPlan?.(state);const foe=state.units.find(u=>u.side==='enemy');return state.units.filter(u=>u.side==='party').map(u=>({actor:u.id,move:1,target:foe.id}));},async play(){return true;},cancel(){},dispose(){}}});
+            battleAdapter:autoBattle({onRun:state=>{log.plans.push(state);log.onPlan?.(state);}})});
         return {ctx,ui,log};
     };
     const sword=()=>root.querySelector('#gi-attack-toggle'),controls=()=>root.querySelector('#gi-attack-controls'),dialog=()=>root.querySelector('#gi-combat-ask');

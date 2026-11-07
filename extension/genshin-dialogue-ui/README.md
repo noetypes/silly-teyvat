@@ -1,3 +1,29 @@
+# Silly Teyvat 1.61.0: Battles played like Genius Invokation
+
+- **Turns, as in the TCG.** Each armed message now plays a round live on the board. Your active
+  character steps forward and is the only one who uses skills; enemy hits land on it. You and the
+  enemies take turns: on yours, play cards and tune dice as often as you like, then use a skill,
+  switch characters (1 die), flee or end your round. Enemies get two actions a round. Whoever ends
+  first acts first next round, and the End Phase draws you two cards.
+- **The game's costs and dice.** Eight dice a round with one reroll. A Normal Attack costs one die
+  of the character's element and two of any; Skills and Bursts cost dice of the element. Elemental
+  Tuning turns a die for a card from your hand (the card goes back into your deck). No more misses
+  or random damage: what the preview shows is what lands.
+- **A new fight opens like the game:** VS, the coin toss, a Starting Hand of five cards from your bag
+  that you can switch once, and the choice of your active character.
+- **See before you commit.** Choosing a skill, card or switch shows its details, the dice it will
+  spend, a gold check on the target and each card's coming HP change. Tap again or Confirm.
+- **New animations and sounds:** recorded sounds timed to the table (the coin spinning and
+  landing, one flip per card dealt or drawn, playing cards, a taiko beat on each phase banner and
+  the full roll at the End Phase, heals, shields, buffs, the Burst's charge and its impact landing
+  on the flash) alongside synthesised ones, turn banners, the skill toast, cards that leap at their
+  target, big damage discs, cards flying from hand, switching, fallen cards under a red mark, the
+  game's lavender table, and a Victory screen. Elemental Bursts keep the splash art and add a
+  cinematic in the character's own card and a sweep shaped by their weapon.
+- **Balance.** Only the whole party falling loses a fight now. Enemy HP and damage were rescaled for
+  the new turns, and bosses have half their HP and three fifths of their damage (they act twice a
+  round). Existing encounters keep the enemy HP they started with.
+
 # Silly Teyvat 1.60.0: Eighty new places and map badges
 
 - **Ten new places in every region.** The world map gains 80 destinations chosen for their story and
