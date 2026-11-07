@@ -5000,3 +5000,13 @@ body.gi-reduced-motion #gi-attack-controls #gi-attack-toggle[aria-pressed="true"
 #gi-wardrobe .gi-starter-step button { display: grid; place-items: center; width: 22px; height: 22px; min-width: 0; min-height: 0; margin: 0; padding: 0; border-radius: 50%; font-size: 14px; line-height: 1; }
 #gi-wardrobe .gi-starter-step button:disabled { opacity: .35; cursor: default; }
 #gi-wardrobe .gi-starter-random .gi-starter-card { opacity: .45; }
+
+/* ==== Silly Teyvat 1.63: Weapons, Artifacts, Supports and Summon cards ==================================
+   Equipment sits on a character as small card icons among the statuses; supports share your summon zone,
+   ahead of the summons, with a cream frame; a card made cheaper by a support shows its cost in green. */
+#gi-battle .tb-st-equip { width: 18px; height: 22px; border-radius: 3px; overflow: hidden; background: #1b2232; box-shadow: 0 0 0 1.5px #efe4c9, 0 1px 3px #0009; }
+#gi-battle .tb-st-equip img { width: 100%; height: 100%; object-fit: cover; object-position: center 20%; display: block; }
+#gi-battle .tb-st-weapon { box-shadow: 0 0 0 1.5px #ffd98a, 0 1px 3px #0009; }
+#gi-battle .tb-summon.tb-support { box-shadow: 0 0 0 3px #f6efdc, 0 0 0 4px #5f7f9a, 0 6px 14px #0009; }
+#gi-battle .tb-support .tb-summon-rounds { background: linear-gradient(#e9f4ff, #8fb2d0); color: #142a3d; }
+#gi-battle .tb-item-cost.tb-cheaper { color: #fff; background: radial-gradient(circle at 40% 35%, #c7f5b8, #4fae45); box-shadow: 0 0 0 2px #2d6e2a, 0 2px 4px #0009; }

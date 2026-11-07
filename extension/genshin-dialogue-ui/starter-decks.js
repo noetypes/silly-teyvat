@@ -2,7 +2,7 @@
 // (Character screen → Profile → Starter deck), or deal ten random cards instead. A journey takes the
 // deck of the character it was started with, once, when its bag is first opened; the deck it got is
 // kept as the journey's starter, which a rescue or a rest in town tops the bag back up to.
-import {ITEMS,STARTER_BAG,bagCount} from './battle-items.js';
+import {ITEMS,STARTER_BAG,bagCount,KIND_LABELS} from './battle-items.js';
 import {mediaSettings} from './media-store.js';
 import {activeGroup} from './party.js';
 import {isEnemy} from './character-properties.js';
@@ -67,7 +67,6 @@ export function journeyBag(ctx,store){
 }
 
 // ---- Character screen → Profile → Starter deck --------------------------------------------------
-const KIND={food:'Food',event:'Event',dice:'Dice'};
 export function mountStarterDeck({panel,getContext,getCharacter,status=()=>{}}){
     const abort=new AbortController(),on=(node,type,fn)=>node.addEventListener(type,fn,{signal:abort.signal});
     panel.classList.add('gi-starter-deck');
@@ -79,7 +78,7 @@ export function mountStarterDeck({panel,getContext,getCharacter,status=()=>{}}){
         <div class="gi-starter-grid" role="group" aria-label="Starter deck cards"></div>
         <div class="gi-wardrobe-row"><button type="button" data-starter="save">Save starter deck</button></div>`;
     const grid=panel.querySelector('.gi-starter-grid'),count=panel.querySelector('.gi-starter-count'),randomBox=panel.querySelector('[data-starter="random"]');
-    const order=Object.entries(ITEMS).sort((a,b)=>Object.keys(KIND).indexOf(a[1].kind)-Object.keys(KIND).indexOf(b[1].kind) || a[1].rarity-b[1].rarity || a[1].name.localeCompare(b[1].name));
+    const order=Object.entries(ITEMS).sort((a,b)=>Object.keys(KIND_LABELS).indexOf(a[1].kind)-Object.keys(KIND_LABELS).indexOf(b[1].kind) || a[1].rarity-b[1].rarity || a[1].name.localeCompare(b[1].name));
     grid.innerHTML=order.map(([id,item])=>`<div class="gi-starter-card" data-id="${escapeHtml(id)}" title="${escapeHtml(`${item.name}: ${item.text}`)}"><img src="${art(id)}" alt="" loading="lazy" draggable="false"><span class="gi-starter-name">${escapeHtml(item.name)}</span><span class="gi-starter-step"><button type="button" data-step="-1" aria-label="One fewer ${escapeHtml(item.name)}">−</button><b>0</b><button type="button" data-step="1" aria-label="One more ${escapeHtml(item.name)}">+</button></span></div>`).join('');
     function paint(){
         const total=bagCount(cards);

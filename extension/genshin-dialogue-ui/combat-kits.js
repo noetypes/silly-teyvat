@@ -245,6 +245,26 @@ const ENEMIES=[
     ['Thundercraven Rifthound','Electro',56,['Cankering Claws',[D(3),SM('Corrosion',1,1,'all')]],['Devouring Bite',[D(8),SM('Corrosion',1,1,'all')]],3,{evasion:15},['Corrosive Electro Crystal',[D(4),SM('Corrosion',1,1,'all')]]],
     ['Winged Cryoshroom','Cryo',36,['Spore Bullet',[D(3)]],['Divebomb',[D(7)]],3,{evasion:15,weakTo:'Pyro'},['Rolling Spray',[D(5)]]],
     ['Winged Dendroshroom','Dendro',36,['Spore Bullet',[D(3)]],['Divebomb',[D(7)]],3,{evasion:15,weakTo:'Pyro'},['Rolling Spray',[D(5)]]],
+    // 1.63: obtainable Genius Invokation cards of monsters, Fatui and Eremites (fetch-tcg-enemies.py --new).
+    // The Abyss's Rebirth passives and the Lawachurl's Stonehide become extra HP, shields and armor.
+    ['Abyss Herald: Wicked Torrents','Hydro',46,['Rippling Slash',[D(4)],'Physical'],['Torrential Shock',[D(7),DB('weaken',15,2,'all')]],3,{weakTo:'Cryo'},['Vortex Edge',[D(3,'one',{hits:2})]]],
+    ['Abyss Lector: Fathomless Flames','Pyro',46,['Flame of Salvation',[D(3)]],['Ominous Star',[D(6),SM('Darkfire Furnace',2,2,'all')]],3,{shield:10,weakTo:'Hydro'},['Searing Precept',[D(6)]]],
+    ['Abyss Lector: Violet Lightning','Electro',46,['Den of Thunder',[D(3)]],['Wild Thunderburst',[D(8)]],3,{shield:10,weakTo:'Cryo'},['Shock of the Enigmatic Abyss',[D(6)]]],
+    ['Black Serpent Knight: Rockbreaker Ax','Geo',66,['Supreme Strike',[D(4)],'Physical'],['Stone Stance',[SH(6),D(5,'one',{hits:2})]],3,{armor:20},['Axe and Aegis',[D(6)]]],
+    ['Black Serpent Knight: Windcutter','Anemo',56,['Half-Sword Technique',[D(4)],'Physical'],['Guard Stance',[D(5,'one',{hits:2})]],3,{armor:10,evasion:10},['Rising Slash',[D(6)]]],
+    ['Consecrated Fanged Beast','Dendro',56,['Claw Slash',[D(4)],'Physical'],['Sprawling Blighted Vines',[D(7),D(2,'all')]],3,{},['Siphon Wave',[D(4),H(3,'self')]]],
+    ['Consecrated Flying Serpent','Anemo',56,['Whirling Tail',[D(4)],'Physical'],['Scattershot Vortex',[D(3,'all',{hits:2})]],3,{evasion:15},['Swirling Squall',[D(6)]]],
+    ['Consecrated Horned Crocodile','Hydro',61,['Fang Bite',[D(4)],'Physical'],['Reptilian Rage',[D(7),H(6,'self')]],3,{},['Saw-Toothed Surge',[D(6)]]],
+    ['Consecrated Scorpion','Electro',56,['Scorpion Strike',[D(4)],'Physical'],['Thunderbore Blast',[D(6),SM('Thunderbore Trap',2,2)]],3,{},['Stinging Spine',[D(6)]]],
+    ['Eremite Floral Ring-Dancer','Dendro',56,['Floral-Ring Caress',[D(4)],'Physical'],['Spirit of Omen\'s Awakening: Dendro Spirit-Serpent',[D(7),SM('Spirit of Omen: Dendro Spirit-Serpent',2,2)]],3,{},['Spiraling Whirl',[D(6)]]],
+    ['Eremite Scorching Loremaster','Pyro',56,['Searing Glare',[D(3)]],['Spirit of Omen\'s Awakening: Pyro Scorpion',[D(6),SM('Spirit of Omen: Pyro Scorpion',2,2)]],3,{},['Blazing Strike',[D(6)]]],
+    ['Fatui Electro Cicin Mage','Electro',56,['Hurtling Bolts',[D(3)]],['Thundering Shield',[D(3),SH(6),D(4)]],3,{evasion:15},['Misty Call',[SM('Electro Cicin',2,3,'random')]]],
+    ['Frost Operative','Cryo',61,['Swift Point',[D(4)],'Physical'],['Thorny Onslaught',[D(9)]],3,{evasion:15},['Frosty Interjection',[D(6)]]],
+    ['Hydro Hilichurl Rogue','Hydro',61,['Whirling Scythe',[D(4)],'Physical'],['Bubblefloat Blitz',[D(8)]],3,{},['Slash of Surging Tides',[D(6)]]],
+    ['La Signora','Cryo',66,['Frostblade Hailstorm',[D(3)]],['Carmine Chrysalis',[D(8),H(6,'self')]],3,{shield:8,weakTo:'Pyro'},['Biting Shards',[D(4),SM('Sheer Cold',2,1)]]],
+    ['Mirror Maiden','Hydro',56,['Water Ball',[D(3)]],['Rippled Reflection',[D(9)]],3,{evasion:10},['Influx Blast',[D(6),DB('weaken',15,1)]]],
+    ['Stonehide Lawachurl','Geo',56,['Plama Lawa',[D(4)],'Physical'],['Upa Shato',[D(9)],'Physical'],3,{armor:40,armorBreak:'Geo'},['Movo Lawa',[D(6)],'Physical']],
+    ['Wayward Hermetic Spiritspeaker','Cryo',56,['Spiritspeaking: Frost Star',[D(3)]],['Chilling Illustration',[D(8)]],3,{},['Radiance in Flux',[D(3),SH(4)]]],
 ];
 
 const keyOf=name=>String(name || '').toLowerCase().replace(/[^a-z0-9]+/g,'');

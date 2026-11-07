@@ -8,6 +8,10 @@ in ITEMS. Writes WebP files to extension/genshin-dialogue-ui/assets/tcg/{charact
 Enemies without a TCG card get one drawn from their wiki enemy icon on an element-tinted card.
 build-tcg-cards.py --missing-enemies makes only those.
 build-tcg-cards.py --missing-items fetches only item cards that have no art yet.
+build-tcg-cards.py --missing-characters fetches only character and enemy cards not yet in characters.json.
+build-tcg-cards.py --action-cards fetches the cards in battle-cards.js (Weapons, Artifacts, Supports,
+Summons, Events) that have no art yet, by name from work/tcg-cards/cards.json (fetch-tcg-cards.py).
+Summon cards, and the hilichurls Abyssal Summons can bring, also go to assets/battle/summons for the board.
 """
 import io, json, re, sys, time, urllib.parse, urllib.request
 from pathlib import Path
@@ -64,10 +68,10 @@ def category(title):
         token = data.get('continue', {}).get('gcmcontinue')
         if not token: return pages
 
-def save(url, target):
+def save(url, target, width=WIDTH):
     with urllib.request.urlopen(urllib.request.Request(url, headers={'User-Agent': 'SillyTeyvat/1.31'}), timeout=60) as r:
         image = Image.open(io.BytesIO(r.read())).convert('RGBA')
-    if image.width > WIDTH: image = image.resize((WIDTH, round(image.height * WIDTH / image.width)), Image.LANCZOS)
+    if image.width > width: image = image.resize((width, round(image.height * width / image.width)), Image.LANCZOS)
     target.parent.mkdir(parents=True, exist_ok=True)
     image.save(target, 'WEBP', quality=82, method=6)
     return target.stat().st_size
@@ -79,6 +83,15 @@ def missing_items():
         if target.exists(): continue
         if title not in actions: print('Missing item card', title, file=sys.stderr); continue
         print(item, save(actions[title], target)); time.sleep(.1)
+
+def missing_characters():
+    listed = json.loads((OUT / 'characters.json').read_text())
+    names = [n for n, v in json.loads((ROOT / 'assets/character-properties.json').read_text()).items() if (v.get('playable') or v.get('role') == 'enemy') and n not in listed]
+    cards = {norm(t.replace(' (Character Card)', '')): u for t, u in category('Category:Genius Invokation TCG Character Cards').items()}
+    found = [n for n in names if cards.get(norm(n))]
+    for name in found: save(cards[norm(name)], OUT / 'characters' / f'{name.replace(":", "")}.webp'); time.sleep(.1)
+    (OUT / 'characters.json').write_text(json.dumps(sorted(set(listed + found)), indent=1))
+    print(f'{len(found)} new character cards:', ', '.join(found))
 
 def main():
     names = [n for n, v in json.loads((ROOT / 'assets/character-properties.json').read_text()).items() if v.get('playable') or v.get('role') == 'enemy']
@@ -141,8 +154,52 @@ def missing_enemies():
     (OUT / 'characters.json').write_text(json.dumps(sorted(set(listed + made)), indent=1))
     print(f'{len(made)} enemy cards drawn from wiki icons:', ', '.join(made))
 
+KIND_LISTS = {'weapon': ['equipment'], 'artifact': ['equipment'], 'support': ['support'], 'summon': ['summon', 'event'], 'event': ['event'], 'food': ['event'], 'dice': ['event', 'support']}
+
+def image_urls(files):
+    found = {}
+    for i in range(0, len(files), 40):
+        data = get({'action': 'query', 'titles': '|'.join(f'File:{f}' for f in files[i:i + 40]), 'prop': 'imageinfo', 'iiprop': 'url'})
+        names = {n['to']: n['from'] for n in data['query'].get('normalized', [])}
+        for page in data['query']['pages'].values():
+            if page.get('imageinfo'): found[names.get(page['title'], page['title']).removeprefix('File:')] = page['imageinfo'][0]['url']
+    return found
+
+def action_cards():
+    import subprocess
+    cards = json.loads(subprocess.run(['node', '--input-type=module', '-e', "import('./battle-cards.js').then(m=>console.log(JSON.stringify(m.TCG_CARDS)))"],
+                                      cwd=ROOT, capture_output=True, text=True, check=True).stdout)
+    wiki = json.loads((ROOT.parent.parent / 'work/tcg-cards/cards.json').read_text())
+    def find(name, kinds):
+        for kind in kinds:
+            for card in wiki:
+                if card['kind'] == kind and norm(card['name']) == norm(name) and card['file']: return card
+    jobs = {}  # target path -> wiki file
+    index_file = ROOT / 'assets/battle/index.json'; index = json.loads(index_file.read_text())
+    for item, card in cards.items():
+        found = find(card['name'], KIND_LISTS[card['kind']])
+        if not found: print('No wiki card for', item, card['name'], file=sys.stderr); continue
+        target = OUT / 'items' / f'{item}.webp'
+        if not target.exists(): jobs[target] = found['file']
+        summons = [(e['name'], e.get('choices')) for e in card.get('effects', []) if e['type'] == 'summon']
+        for name, choices in summons:
+            for summon in [c[0] for c in choices] if choices else [name]:
+                if summon in index['summons']: continue
+                art = find(summon, ['summon']) or found
+                slug = re.sub(r'[^a-z0-9]+', '-', summon.lower()).strip('-')
+                jobs[ROOT / 'assets/battle/summons' / f'{slug}.webp'] = art['file']; index['summons'][summon] = f'{slug}.webp'
+    urls = image_urls(sorted(set(jobs.values())))
+    total = 0
+    for target, file in jobs.items():
+        if file not in urls: print('No image for', file, file=sys.stderr); continue
+        total += save(urls[file], target, 140 if target.parent.name == 'summons' else WIDTH); time.sleep(.1)
+    index_file.write_text(json.dumps(index, indent=1, ensure_ascii=False) + '\n')
+    print(f'{len(jobs)} images, {total / 1e6:.1f} MB')
+
 if __name__ == '__main__':
-    if sys.argv[1:] == ['--missing-enemies']: missing_enemies()
+    if sys.argv[1:] == ['--action-cards']: action_cards()
+    elif sys.argv[1:] == ['--missing-enemies']: missing_enemies()
+    elif sys.argv[1:] == ['--missing-characters']: missing_characters()
     elif sys.argv[1:] == ['--missing-items']: missing_items()
     else:
         main(); missing_enemies()

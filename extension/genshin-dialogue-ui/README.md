@@ -1,3 +1,25 @@
+# Silly Teyvat 1.63.0: Weapons, Artifacts, Supports, Summons and 18 new enemies
+
+- **128 new cards** from the Genshin Impact Wiki's Genius Invokation lists, with their card art:
+  28 Weapons, 25 Artifacts, 31 Supports, 25 Summon cards and 19 Events. They drop in battle like
+  the others, each region its own, and can go in Starter decks.
+- **Equip a Weapon or Artifact** on a party member for the rest of the fight. Weapons fit their
+  weapon type; the element Artifacts make a Skill cheaper once a round. Equipment shows as a small
+  card on the character.
+- **Supports** (Companions and Locations) stay on the table beside your summons and act each round:
+  Paimon's Omni dice, Liyue Harbor Wharf's draws, Favonius Cathedral's healing, Dawn Winery's free
+  switches, Xudong's cheaper Food and more. Four at most.
+- **Summon cards** put Oz, Guoba, Lightning Rose and 22 others on the board; Abyssal Summons calls
+  a random hilichurl.
+- **New Events:** Strategize, Aedon, Leave It to Me!, Quick Knit, Guardian's Oath, the remaining
+  Elemental Resonances and more.
+- **18 new enemies** from the Genius Invokation cards: Abyss Heralds and Lectors, Black Serpent
+  Knights, the Consecrated Beasts, Eremites, Fatui elites, the Hydro Hilichurl Rogue, the Stonehide
+  Lawachurl, the Wayward Hermetic Spiritspeaker and La Signora. Each has a character card with its
+  TCG card as the portrait, a description and greetings, a moveset from its TCG skills and a place in
+  regional encounter pools (La Signora joins none; add her where you like).
+- The Inventory has tabs for Weapons, Artifacts, Support Cards and Summon Cards.
+
 # Silly Teyvat 1.62.0: Starter decks and weapon-style attacks
 
 - **Starter decks.** A new journey now starts with ten cards in the bag: the Starter deck of the

@@ -1,21 +1,22 @@
 #!/usr/bin/env python3
 """Make SillyTavern character cards for the Genius Invokation TCG enemies.
 
-Usage: build-tcg-enemy-cards.py [--install CHARACTERS_DIR]
-Needs Pillow. Reads work/tcg-enemies/cards.json (tools/fetch-tcg-enemies.py) and writes one
+Usage: build-tcg-enemy-cards.py [--data CARDS_JSON] [--install CHARACTERS_DIR]
+Needs Pillow. Reads work/tcg-enemies/cards.json (tools/fetch-tcg-enemies.py; --data names another
+list, such as the new-cards.json of fetch-tcg-enemies.py --new) and writes one
 PNG card per enemy to character-cards/tcg-enemies/, with the enemy's TCG character card as the
 portrait. Enemies that already have a card in CHARACTERS_DIR keep their card data: only the
 portrait image is replaced (the old file is copied to ../backups/ first). New cards carry the
 Silly Teyvat enemy properties (role, HP, death message) and canon-compatible text built from
 the wiki archive description.
 """
-import base64, io, json, re, shutil, sys, time, urllib.request
+import base64, html, io, json, re, shutil, sys, time, urllib.request
 from datetime import datetime, timezone
 from pathlib import Path
 from PIL import Image, PngImagePlugin
 
 REPO = Path(__file__).resolve().parent.parent
-DATA = REPO / 'work/tcg-enemies/cards.json'
+DATA = Path(sys.argv[sys.argv.index('--data') + 1]) if '--data' in sys.argv else REPO / 'work/tcg-enemies/cards.json'
 OUT = REPO / 'character-cards/tcg-enemies'
 PROPS = REPO / 'extension/genshin-dialogue-ui/assets/character-properties.json'
 HEADERS = {'User-Agent': 'SillyTeyvat/1.40 (tcg enemy cards)'}
@@ -98,6 +99,86 @@ FAMILY = {
                  'Fontaine\'s waters: it is drawn to them and to the old sorrow carried in them.\n\nPeople: it reacts to presence and threat, '
                  'not to names or words.',
                  'A tainted water elemental that surges and changes shape. It cannot speak.'),
+    # 1.63
+    'herald': ('{subject} is an Abyss Herald, one of the silent vanguard of the Abyss Order. Heralds carry elemental blades that can engulf '
+               'everything in an instant, and the Order grants them a rebirth: struck down once, they rise again with their element surging. '
+               'A Herald seldom speaks, and then only in cold, ritual proclamations of the Abyss\'s coming judgement.',
+               'The Abyss Order: it obeys its masters absolutely and does not discuss their plans.\n\nAbyss Mages and Lectors: fellow servants it fights beside.\n\n'
+               'Outsiders: heretics to be cut down. It does not bargain, but it may pause to pronounce judgement before it strikes.',
+               'A silent, relentless Abyss Herald who speaks only in brief, ominous proclamations.'),
+    'serpent': ('{subject} is one of the Black Serpent Knights, once guards of standing in the court of Khaenri\'ah and masters of the sword art '
+                '"Truthseeker". The kingdom\'s fall left them hollow, armoured husks bound to the Abyss, still fighting with the discipline of their '
+                'training. They no longer speak. Their intent shows in their stance, the sweep of their weapon and the grinding of old armour.',
+                'Khaenri\'ah: the fallen realm it once guarded. Its glory is gone, but the knight still fights as if on duty.\n\n'
+                'The Abyss: it now walks with the Abyss\'s monsters, without words or will of its own.\n\nIntruders: anyone who approaches is met with a duellist\'s precision.',
+                'A hollow, armoured knight of fallen Khaenri\'ah who fights with silent discipline. It cannot speak.'),
+    'consecrated': ('{subject} is one of Sumeru\'s Consecrated Beasts: an ordinary creature that fed on the remains of a greater being and mutated. '
+                    'The divine flesh it devoured never fully became its own and now feeds it elemental power. It is a predator, not a person, and does not '
+                    'speak. It hunts by instinct, guards its ground in the desert and shows its intent through posture, hisses and roars.',
+                    'Others of its kind: rivals for prey and territory.\n\nTravellers: anything that comes close is prey or a threat. It can be avoided, '
+                    'but not reasoned with.',
+                    'A mutated desert predator swollen with stolen divine power. It cannot speak.'),
+    'fatui_elite': ('{subject} is one of the Fatui\'s elite, chosen and trained far beyond the ordinary skirmisher. They are disciplined, loyal to '
+                    'Snezhnaya and to their superiors, and deadly in a fight. They can speak, threaten and interrogate, but never reveal more of '
+                    'the Fatui\'s plans than serves their mission.',
+                    'The Fatui: orders come from above, and failure is not tolerated.\n\nOther Fatui: subordinates to direct or rivals to outshine.\n\n'
+                    'Outsiders: obstacles, informants or prey, judged coolly by what they do.',
+                    'A poised, dangerous Fatui elite who speaks with cold confidence and never forgets the mission.'),
+    'lawachurl': ('{subject} is a lawachurl, a "lawa" or lord among the hilichurls: a huge, powerful hilichurl whose word other hilichurls '
+                  'follow. Hilichurls live in masked tribes across Teyvat\'s wilds and speak only Hilichurlian, in short chanted words such as '
+                  '"Ya!", "Olah!" and "Kucha". A lawachurl cannot hold a conversation in human speech, but its roars, stamps and gestures carry meaning.',
+                  'Its tribe: the hilichurls of its camp rally to it and fight at its command.\n\nSamachurls: shamans whose rites it tolerates and protects.\n\n'
+                  'Travellers: intruders on its domain, met with crushing force. A show of strength may earn a moment of wary respect.',
+                  'A towering hilichurl lord, proud and immensely strong, who speaks only Hilichurlian roars and words.'),
+    'rogue': ('{subject} is a Hilichurl Rogue, a wanderer who belongs to no tribe. Rogues roam the wilds as if in voluntary exile, sometimes lending '
+              'their strength to a hilichurl camp before going their own way again. They seem cleverer than other hilichurls and fight with '
+              'a long scythe, but still speak only Hilichurlian, in short words and gestures.',
+              'Hilichurl tribes: it helps them when it chooses and leaves when it likes.\n\nTravellers: intruders to test. It watches, feints and '
+              'retreats cleverly, and may be curious about food, music or a show of skill.',
+              'A cunning, solitary hilichurl wanderer who speaks only Hilichurlian.'),
+}
+# Hand-written cards for enemies that are people in their own right.
+CUSTOM = {
+    'La Signora': {
+        'description': 'La Signora, born Rosalyne-Kruzchka Lohefalter, is the Eighth of the Fatui Harbingers. Her Delusion was made to shackle a '
+                       'flame that would devour everything: the fire she took into herself centuries ago, when grief over a lost love burned her '
+                       'into the Crimson Witch of Flames. She sealed that fire beneath ice and became the "Fair Lady", the coldest and most cutting '
+                       'of the Harbingers.\n\nShe is elegant, scornful and cruel by choice, treats lesser people as tools, and answers defiance with '
+                       'contempt. Her loyalty is to the Tsaritsa and her vision alone. In battle she rains frost and ice shards; badly pressed, the '
+                       'ice breaks and the Crimson Witch\'s flames return.\n\nRelationships:\n\nThe Tsaritsa: the one person she serves without reservation.\n\n'
+                       'The other Harbingers: colleagues she neither trusts nor needs.\n\nThe Traveler and their companions: insects in her way, until they '
+                       'prove otherwise.\n\nShe can speak and listen. Keep her words icy, articulate and condescending, and let her decide from what {{user}} '
+                       'actually does whether to toy with them, threaten them or strike.',
+        'personality': 'Cold, elegant and contemptuous. A Fatui Harbinger who hides a buried fire beneath ice.',
+        'scenario': 'An optional encounter in the courtyard of Tenshukaku on Narukami Island, Inazuma. La Signora stands with her fan half-open, frost curling at her feet. '
+                    'She has no default tied location and may appear only when an encounter is chosen.',
+        'first_mes': 'La Signora stands at the far end of the courtyard, frost spreading in delicate lines from her heels.\n\nShe turns her masked face '
+                     'toward you as if noticing an insect on her sleeve.\n\n"Ah. The little traveller. I did wonder when you would wander into my way."\n\n'
+                     'She snaps her fan shut.',
+        'alternate_greetings': ['The air grows bitterly cold before you see her.\n\n"You again," La Signora says, without bothering to turn around. '
+                                '"How tiresome. Kneel, or be swept aside."',
+                                'Ice crackles across the stones. La Signora descends a step at a time, unhurried.\n\n"Do you know what becomes of '
+                                'those who defy the Fatui?" She smiles thinly. "Allow me to show you."'],
+    },
+    'Wayward Hermetic Spiritspeaker': {
+        'description': 'The Wayward Hermetic Spiritspeaker is a priestess of the Sauroform tribes of Natlan who lives in exile, far from worldly '
+                       'clamour. Night and day she contemplates an ever-changing flow of forms and the metaphors they contain, and she paints '
+                       'her visions in frost and colour. Any warrior brave enough to step up and accept her challenge faces the colourful trials '
+                       'she weaves, the Radiant Hues.\n\nShe speaks softly and in images, tests rather than hates, and respects courage more than '
+                       'victory. In battle she calls down frost stars and turns shifting colours into shields and illusions.\n\nRelationships:\n\n'
+                       'The tribes of Natlan: the people she left behind, whom she still thinks of.\n\nWarriors: challengers she welcomes, and judges '
+                       'by how they face her trials.\n\nShe can speak and listen. Keep her words calm, poetic and short, and let her decide from what '
+                       '{{user}} actually does whether to test them, teach them or let them pass.',
+        'personality': 'A serene, enigmatic hermit priestess who speaks in images and tests challengers with trials of frost and colour.',
+        'scenario': 'An optional encounter at a quiet, frost-touched hollow in the highlands of Natlan. The Spiritspeaker sits before a shimmering '
+                    'veil of colours. She has no default tied location and may appear only when an encounter is chosen.',
+        'first_mes': 'Colours drift through the cold air of the hollow like falling petals. The Wayward Hermetic Spiritspeaker opens her eyes as '
+                     'you approach.\n\n"A warrior. The hues told me one would come."\n\nShe rises, and frost blooms around her hands.\n\n"Will you face my trial?"',
+        'alternate_greetings': ['The Spiritspeaker does not look up from the frost pattern she is tracing.\n\n"Every form is a story," she murmurs. '
+                                '"Show me yours."',
+                                'A shimmer of colour bars the path. Behind it, the Spiritspeaker tilts her head.\n\n"You walk loudly, stranger. Do you '
+                                'also fight loudly?"'],
+    },
 }
 # Per enemy: family, region place, a short opening image, and pronoun subject for the text.
 ENEMIES = {
@@ -148,19 +229,38 @@ ENEMIES = {
     'Winged Dendroshroom': ('beast', 'a misty clearing in the Avidya Forest', 'flutters down in a drift of glowing spores'),
     'Pyro Whopperflower': ('beast', 'a field of wildflowers near Qingce Village', 'hides among the flowers, its petals unusually warm'),
     'Tainted Hydro Phantasm': ('phantasm', 'a still, dark pool near Fontaine\'s Fountain of Lucine', 'rises from the water in a twisting shape'),
+    # 1.63
+    'Abyss Herald: Wicked Torrents': ('herald', 'a flooded ruin on the shore of the Sea of Bygone Eras', 'raises a blade of churning water'),
+    'Abyss Lector: Fathomless Flames': ('abyss', 'a scorched ruin in Enkanomiya\'s twilight', 'hovers above a ring of violet fire'),
+    'Abyss Lector: Violet Lightning': ('abyss', 'a crumbling platform deep in The Chasm', 'hovers amid crackling violet lightning'),
+    'Black Serpent Knight: Rockbreaker Ax': ('serpent', 'the ruined halls of Enkanomiya', 'drags a massive axe across the stone floor'),
+    'Black Serpent Knight: Windcutter': ('serpent', 'a wind-scoured ruin in The Chasm\'s underground', 'lifts a long blade wreathed in wind'),
+    'Consecrated Fanged Beast': ('consecrated', 'the dunes of the Desert of Hadramaveth', 'prowls through the sand, vines writhing along its back'),
+    'Consecrated Flying Serpent': ('consecrated', 'the cliffs above the Land of Upper Setekh', 'coils through the air on whistling wings'),
+    'Consecrated Horned Crocodile': ('consecrated', 'a shaded oasis pool in the Sumeru desert', 'surfaces from the water, its horns streaming'),
+    'Consecrated Scorpion': ('consecrated', 'a sun-baked ruin in the Desert of Hadramaveth', 'raises a stinger crackling with Electro'),
+    'Eremite Floral Ring-Dancer': ('eremite', 'an Eremite camp at the edge of the Sumeru rainforest', 'twirls a pair of flowered rings'),
+    'Eremite Scorching Loremaster': ('eremite', 'an Eremite camp among the ruins of the Great Red Sand', 'traces a glowing glyph in the hot air'),
+    'Fatui Electro Cicin Mage': ('fatui_elite', 'a Fatui camp on the outskirts of Inazuma', 'sends a swarm of Electro Cicins dancing around their lantern'),
+    'Frost Operative': ('fatui_elite', 'a Fatui checkpoint in the snowy borderlands', 'twirls a slender blade rimed with frost'),
+    'Hydro Hilichurl Rogue': ('rogue', 'a misty riverbank in Fontaine', 'rests on a long scythe streaming with water'),
+    'Mirror Maiden': ('fatui_elite', 'a Fatui outpost on a lonely road', 'raises a glimmering mirror of water'),
+    'Stonehide Lawachurl': ('lawachurl', 'a hilichurl stronghold among the peaks of Liyue', 'pounds its stone-hard fists together'),
 }
-HUMAN = {'fatui', 'eremite', 'ronin'}
+HUMAN = {'fatui', 'eremite', 'ronin', 'fatui_elite'}
 
 def clean(text):
     return re.sub(r'\s+\n', '\n', re.sub(r'[ \t]+', ' ', text)).strip()
 
 def card_text(card):
     name = card['name']
+    if name in CUSTOM: return CUSTOM[name]
     family, place, image = ENEMIES[name]
     about, relations, personality = FAMILY[family]
     subject = f'The {name}' if not name.startswith(('Kairagi', 'Nobushi')) else f'This {name.split(":")[0]}'
     skills = [s['name'] for s in card['skills'][0] if sum(s['cost'])]
-    archive = clean(card['description']).replace('\n', ' ')
+    # Drop wiki markup left after the archive text and decode entities such as &mdash;.
+    archive = clean(html.unescape(card['description'].split('}}')[0])).replace('\n', ' ')
     human = family in HUMAN
     fight = (f'In battle {name} uses {", ".join(skills[:-1])} and {skills[-1]}. ' if len(skills) > 1 else '') + \
             (('Their' if family in HUMAN else 'Its') + ' element is ' + card['element'] + '. ' if card['element'] in ('Pyro', 'Hydro', 'Anemo', 'Electro', 'Dendro', 'Cryo', 'Geo') else '')
@@ -169,7 +269,9 @@ def card_text(card):
         description += ('\n\nThis fighter can speak and listen. Keep their words short, practical and in character, and let them decide '
                         'from what {{user}} actually does whether to fight, bargain or let someone pass.')
     else:
-        description += '\n\nIt cannot know anyone\'s name, answer questions or explain itself in words. Show its intent through movement, sound and what it does next.'
+        description += ('\n\nIt can speak, but says little: short, cold words, never the Abyss Order\'s secrets. Show the rest of its intent through what it does next.'
+                        if family in ('abyss', 'herald') else
+                        '\n\nIt cannot know anyone\'s name, answer questions or explain itself in words. Show its intent through movement, sound and what it does next.')
     scenario = f'An optional encounter at {place}. {subject} {image}. {"They have" if human else "It has"} no default tied location and may appear only when an encounter is chosen.'
     short = name.split(': ')[-1] if name.startswith(('Kairagi', 'Nobushi')) else name
     if human:
@@ -177,18 +279,22 @@ def card_text(card):
             'fatui': ['"Halt. This area is under Fatui supervision."', '"State your business, and keep your hands where I can see them."'],
             'eremite': ['"Careful. Out here, strangers are either work or trouble."', '"Which one are you?"'],
             'ronin': ['"This road has a toll, traveller."', '"Pay it, or show me you are worth the trouble."'],
+            'fatui_elite': ['"How careless of you, wandering into Fatui business."', '"Turn back now, and I may even let you."'],
         }[family]
         first = f'The {short} {image} at {place}.\n\nThe {short} looks up at the sound of your footsteps.\n\n{lines[0]}\n\nThe {short} waits, weapon ready.'
         alts = [f'Footsteps crunch nearby, and the {short} steps out from cover.\n\n{lines[1]}\n\nThe {short} watches your every move.',
                 f'The {short} is resting at {place}, but rises the moment you come into view.\n\n"Not another step until I know who sent you."']
     else:
         sound = {'hilichurl': '"Ya! Olah!"', 'slime': 'A wet, wobbling sound', 'abyss': '"Who goes there?"', 'rifthound': 'A low, rattling growl',
-                 'automaton': 'A grinding mechanical whine', 'meka': 'A sharp warning tone', 'beast': 'A rustle and a low hiss', 'phantasm': 'A rushing, hollow roar'}[family]
+                 'automaton': 'A grinding mechanical whine', 'meka': 'A sharp warning tone', 'beast': 'A rustle and a low hiss', 'phantasm': 'A rushing, hollow roar',
+                 'herald': '"Heretic."', 'lawachurl': '"Upa! Lawa!"', 'serpent': 'The grinding of old armour', 'consecrated': 'A deep, rasping roar', 'rogue': '"Kucha! Olah!"'}[family]
         first = f'The {name} {image} at {place}.\n\n{sound} breaks the quiet as it notices you.\n\nIt turns toward you and holds its ground.'
         alts = [f'{sound} comes from just ahead.\n\nThe {name} {image}, then turns to face the path.\n\nIt edges closer, ready to attack.',
                 f'The {name} has not noticed you yet. It {image}, unaware of you.\n\nA careless step would give you away.']
         if family == 'abyss':
             first = f'The {name} {image} at {place}.\n\n"A visitor? How very inconvenient."\n\nIts ward flares brighter as it turns its mask toward you.'
+        if family == 'herald':
+            first = f'The {name} {image} at {place}.\n\n"Heretic. Your judgement has come."\n\nIt levels the blade at you and advances without another word.'
     return {'description': description, 'personality': personality, 'scenario': scenario, 'first_mes': first, 'alternate_greetings': alts}
 
 def file_name(name):
@@ -227,7 +333,7 @@ def main():
             # Earlier imports may have saved a colon as a space or dash.
             found = [p for p in install.glob('*.png') if re.sub(r'[^a-z0-9]', '', p.stem.lower()) == re.sub(r'[^a-z0-9]', '', name.lower())]
             existing = found[0] if found else existing
-        if name not in ENEMIES:
+        if name not in ENEMIES and name not in CUSTOM:
             # Already in Silly Teyvat: keep the card, swap the portrait for its TCG card.
             if not install: continue
             if not existing.exists(): print('Missing existing card', name); continue

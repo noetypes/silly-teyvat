@@ -6,10 +6,10 @@
 // Roll Phase, then turns in alternation. On your turn play cards and tune dice (Fast Actions), then
 // use a skill, switch characters, flee or end your round (Combat Actions). Every action plays out
 // at once: skill name, the card lunging, impacts, damage numbers, reactions and sounds.
-import {startRound,useSkill,switchTo,playCard,tuneDie,declareEnd,flee as fleeAction,enemyTurn,endPhase,finishRound,moveCheck,cardCheck,tuneCheck,switchCost,costOf,anyCost,chooseDice,diceFit,forecast,autoAction,takeAction,
+import {startRound,useSkill,switchTo,playCard,tuneDie,declareEnd,flee as fleeAction,enemyTurn,endPhase,finishRound,moveCheck,cardCheck,cardCost,tuneCheck,switchCost,costOf,anyCost,chooseDice,diceFit,forecast,autoAction,takeAction,
     drawCards,deckFrom,sortDice,activeOf,isActive,isStunned,alive,unitById,moveElement,moveNeedsTarget,intentPreview,fleeChance,partyElements,auraList,innateAura,burstReady,REACTIONS,RESONANCE,ELEMENTS,FIELDS,HAND_START} from './battle-engine.js';
 import {describeMove,escapeHtml,KIND_LABEL} from './combat-kits.js';
-import {ITEMS,itemArt} from './battle-items.js';
+import {ITEMS,itemArt,kindLabel} from './battle-items.js';
 import {createBattleSound} from './battle-sound.js';
 import {createParticles,glyph,weaponIcon,EL_COLORS,SWORD_SVG} from './battle-fx.js';
 import {elementImg,reactionIcon,skillIcon,characterIcon,summonArt,fieldIcon} from './battle-icons.js';
@@ -143,6 +143,11 @@ export function mountBattle({host,sound=createBattleSound(),onBurst=()=>{},onSto
         }
         const list=card.querySelector('.tb-status');list.replaceChildren();const seen=new Set();
         for(const s of u.statuses || []){
+            if(s.slot){
+                if(seen.has(s.slot))continue;seen.add(s.slot);
+                const chip=el('i',`tb-st tb-good tb-st-equip tb-st-${s.slot}`),img=el('img');img.src=itemArt(s.item);img.alt='';img.draggable=false;chip.append(img);
+                chip.title=`${s.label}: ${ITEMS[s.item]?.text || ''}`;list.append(chip);continue;
+            }
             const key=s.stat+(s.label || '');if(seen.has(key))continue;seen.add(key);
             const [label,arrow]=STATUS[s.stat] || [s.stat,''];const chip=el('i',`tb-st ${GOOD.has(s.stat)?'tb-good':'tb-bad'} tb-st-${s.stat}`,arrow || label.slice(0,1));
             chip.title=`${s.label || label} ${label}${arrow}${s.amount&&!['stun','frozen','quicken','infuse'].includes(s.stat)?` ${s.amount}${['regen','burning','charged'].includes(s.stat)?'':'%'}`:''} · ${s.rounds}`;list.append(chip);
@@ -155,6 +160,13 @@ export function mountBattle({host,sound=createBattleSound(),onBurst=()=>{},onSto
     function paintSummons(summons){
         for(const sideName of ['party','enemy']){
             const box=$(`.tb-summons-${sideName==='party'?'you':'foe'}`);box.replaceChildren();
+            if(sideName==='party')for(const s of state.supports || []){
+                const item=ITEMS[s.item],tile=el('span','tb-summon tb-summon-card tb-support');tile.dataset.support=s.id;tile.style.backgroundImage=`url("${itemArt(s.item)}")`;
+                const count=item?.support?.delay?Math.max(0,item.support.delay-(s.progress || 0)):s.uses;
+                tile.innerHTML=`<i class="tb-summon-art"></i>${count?`<b class="tb-summon-rounds">${whole(count)}</b>`:''}<span></span>`;
+                tile.querySelector('span').textContent=s.name;tile.title=`${s.name}: ${item?.text || ''}${s.banked?.length?` Holding ${s.banked.join(', ')}.`:''}`;
+                box.append(tile);
+            }
             for(const s of summons.filter(x=>x.side===sideName)){
                 const tile=el('span','tb-summon');tile.dataset.summon=s.id;tile.style.setProperty('--el',EL_COLORS[s.element] || EL_COLORS.None);
                 const art=summonArt(s.name);if(art){tile.classList.add('tb-summon-card');tile.style.backgroundImage=`url("${art}")`;}
@@ -292,7 +304,7 @@ export function mountBattle({host,sound=createBattleSound(),onBurst=()=>{},onSto
     function select(next){
         pick=next;picked=null;tuning=false;hideTip();
         if(pick.type==='skill'){const u=activeOf(state,'party'),move=u.kit.moves[pick.move];pick.needsTarget=moveNeedsTarget(move)==='ally';if(pick.needsTarget&&!pick.target)pick.target=party().filter(alive).sort((a,b)=>a.hp/a.maxHp-b.hp/b.maxHp)[0]?.id;}
-        if(pick.type==='card'){const item=ITEMS[round.hand[pick.index]];pick.needsTarget=item?.target==='ally'||item?.target==='downed';if(pick.needsTarget&&!pick.target){const list=party().filter(u=>item.target==='downed'?u.hp<=0:alive(u)&&!round.fed.includes(u.id));pick.target=item.target==='downed'?list[0]?.id:list.find(u=>isActive(state,u))?.id || list[0]?.id;}}
+        if(pick.type==='card'){const item=ITEMS[round.hand[pick.index]];pick.needsTarget=item?.target==='ally'||item?.target==='downed';if(pick.needsTarget&&!pick.target){const list=party().filter(u=>item.target==='downed'?u.hp<=0:alive(u)&&!(item.kind==='food'&&round.fed.includes(u.id))&&(!item.weapon||u.kit?.weapon===item.weapon));pick.target=item.target==='downed'?list[0]?.id:list.find(u=>isActive(state,u))?.id || list[0]?.id;}}
         sound.select();refresh();
     }
     function clearPick(){pick=null;picked=null;tuning=false;refresh();}
@@ -371,12 +383,13 @@ export function mountBattle({host,sound=createBattleSound(),onBurst=()=>{},onSto
         ids.forEach((id,i)=>{
             const item=ITEMS[id];if(!item)return;
             const card=el('button','tb-item');card.type='button';card.dataset.item=id;card.dataset.index=String(i);card.style.setProperty('--i',String(i-(ids.length-1)/2));
-            card.innerHTML=`<img alt="" loading="lazy" draggable="false"><b class="tb-item-cost">${whole(item.cost)}</b>`;
+            const price=round?cardCost(round,item).cost:item.cost;
+            card.innerHTML=`<img alt="" loading="lazy" draggable="false"><b class="tb-item-cost${price<item.cost?' tb-cheaper':''}">${whole(price)}</b>`;
             card.querySelector('img').src=itemArt(id);card.setAttribute('aria-label',`${item.name}: ${item.text} Costs ${item.cost} dice.`);
             card.classList.toggle('tb-held',pick?.type==='card'&&pick.index===i);
             if(round&&myTurn())card.classList.toggle('tb-unaffordable',!cardCheck(round,i,pick?.type==='card'&&pick.index===i?pick.target:party().find(u=>alive(u))?.id).ok&&!(item.target==='downed'));
             on(card,'click',event=>{event.stopPropagation();if(!myTurn())return;if(pick?.type==='card'&&pick.index===i){if(!pick.needsTarget||pick.target)confirm();return;}select({type:'card',index:i});});
-            on(card,'pointerenter',()=>{if(!pick)showTip(card,`<small>${item.kind==='food'?'Food':item.kind==='dice'?'Dice':'Event'}</small><strong>${escapeHtml(item.name)}</strong>${hexCost(null,item.cost,'tb-any')}<p>${escapeHtml(item.text)}</p>`);});on(card,'pointerleave',hideTip);
+            on(card,'pointerenter',()=>{if(!pick)showTip(card,`<small>${escapeHtml(kindLabel(item))}</small><strong>${escapeHtml(item.name)}</strong>${hexCost(null,item.cost,'tb-any')}<p>${escapeHtml(item.text)}</p>`);});on(card,'pointerleave',hideTip);
             hand.append(card);
         });
         $('.tb-hand').setAttribute('aria-label',`Your hand: ${ids.length} card${ids.length===1?'':'s'}`);
@@ -439,7 +452,7 @@ export function mountBattle({host,sound=createBattleSound(),onBurst=()=>{},onSto
         // Detail panel.
         if(pick.type==='skill')detail.innerHTML=`${skillIcon(u.kit.moves[pick.move])?`<img class="tb-detail-icon" src="${skillIcon(u.kit.moves[pick.move])}" alt="">`:''}${moveText(u,u.kit.moves[pick.move])}`;
         else if(pick.type==='switch'){const t=unitById(state,pick.id);detail.innerHTML=`<small>Switch Character</small><strong>${escapeHtml(t.name)}</strong><span class="tb-cost-row">${costRow(switchCost(round))}</span><p>${escapeHtml(t.name)} steps forward as your active character. This ends your turn.${round.freeSwitch?' Impetuous Winds makes this switch free.':''}</p>`;cards.get(pick.id)?.classList.add('tb-picked');}
-        else{const id=round.hand[pick.index],item=ITEMS[id];detail.innerHTML=`<img class="tb-detail-card" src="${itemArt(id)}" alt=""><small>${item.kind==='food'?'Food':item.kind==='dice'?'Dice':'Event'} card</small><strong>${escapeHtml(item.name)}</strong><span class="tb-cost-row">${hexCost(null,item.cost,'tb-any')}</span><p>${escapeHtml(item.text)}</p><p class="tb-detail-note">Playing a card does not end your turn.</p>`;
+        else{const id=round.hand[pick.index],item=ITEMS[id];detail.innerHTML=`<img class="tb-detail-card" src="${itemArt(id)}" alt=""><small>${escapeHtml(kindLabel(item))} card</small><strong>${escapeHtml(item.name)}</strong><span class="tb-cost-row">${hexCost(null,cardCost(round,item).cost,'tb-any')}</span><p>${escapeHtml(item.text)}</p><p class="tb-detail-note">${item.combat?'A Combat Action: playing it ends your turn.':'Playing a card does not end your turn.'}</p>`;
             banner(`Play Card: ${item.name}`,'',null,'tb-banner-hold');}
         fitDetail();
         // Targets and HP previews.
@@ -450,7 +463,7 @@ export function mountBattle({host,sound=createBattleSound(),onBurst=()=>{},onSto
             if(move&&(move.effects || []).some(e=>e.type==='damage'&&e.target==='one'))cards.get(front?.id)?.classList.add('tb-aim');
             if(pick.needsTarget){
                 const item=pick.type==='card'?ITEMS[round.hand[pick.index]]:null;
-                for(const p of party())if(item?.target==='downed'?p.hp<=0:alive(p))cards.get(p.id)?.classList.add('tb-choosable');
+                for(const p of party())if(item?.target==='downed'?p.hp<=0:alive(p)&&(!item?.weapon||p.kit?.weapon===item.weapon))cards.get(p.id)?.classList.add('tb-choosable');
                 if(pick.target)cards.get(pick.target)?.classList.add('tb-aim');
             }
         }
@@ -683,6 +696,10 @@ export function mountBattle({host,sound=createBattleSound(),onBurst=()=>{},onSto
             switch(e.type){
                 case 'phase':endBurst();acting=null;await phaseBanner(e.label,'phase');break;
                 case 'item':{if(e.dice){paintDice();sound.buff();await wait(300);}break;}
+                case 'dice':{paintDice();if(e.source)banner(e.source,`+${e.dice.length} ${e.dice.length===1?'die':'dice'}`,'#ffe9a6');sound.buff();await wait(360);break;}
+                case 'equip':{if(!target)break;target.statuses=e.statuses;paintUnit(target);const p=centerOf(e.target);if(effectsOn())particles.buff(p.x,p.y);floatText(e.target,e.name,'gb-buff');sound.buff();await wait(480);break;}
+                case 'support':{state.supports=e.supports;paintSummons(state.summons || []);const tile=e.support&&dialog.querySelector(`[data-support="${CSS.escape(e.support)}"]`);if(tile){tile.classList.remove('tb-pulse','tb-pop');void tile.offsetWidth;tile.classList.add(e.action==='add'?'tb-pop':'tb-pulse');}if(e.action==='add')sound.summon();await wait(e.action==='add'?420:280);break;}
+                case 'summons':{state.summons=e.summons;paintSummons(state.summons);sound.buff();await wait(300);break;}
                 case 'flee':banner(e.success?'Escaped!':'Could not escape',`Flee · ${e.chance}%`,e.success?'#9dff9a':'#ff9a8a');e.success?sound.buff():sound.deny();await wait(1000);break;
                 case 'switch':{
                     const from=cards.get(e.from),to=cards.get(e.to);
@@ -765,7 +782,7 @@ export function mountBattle({host,sound=createBattleSound(),onBurst=()=>{},onSto
                 case 'cleanse':if(target){target.statuses=e.statuses;target.aura=null;paintUnit(target);sound.buff();await wait(340);}break;
                 case 'enrage':{cards.get(e.actor)?.classList.add('tb-enraged');floatText(e.actor,'Enraged!','gb-enrage');sound.enrage();await wait(650);break;}
                 case 'defeat':case 'downed':{const card=cards.get(e.target);const p=centerOf(e.target);if(effectsOn())particles.sparkle(p.x,p.y,EL_COLORS[target?.element] || '#fff');card?.classList.add('tb-falling');setTimeout(()=>card?.classList.remove('tb-falling'),900);e.type==='defeat'?sound.defeat():sound.downed();await wait(820);break;}
-                case 'statuses':if(e.fields){state.fields=e.fields;paintFields(state.fields);}for(const s of e.units){const u=view.get(s.id);if(!u)continue;Object.assign(u,{aura:s.aura,statuses:s.statuses,shield:s.shield,energy:s.energy,hp:s.hp,intent:s.intent});paintUnit(u);}break;
+                case 'statuses':if(e.fields){state.fields=e.fields;paintFields(state.fields);}if(e.supports){state.supports=e.supports;paintSummons(state.summons || []);}for(const s of e.units){const u=view.get(s.id);if(!u)continue;Object.assign(u,{aura:s.aura,statuses:s.statuses,shield:s.shield,energy:s.energy,hp:s.hp,intent:s.intent});paintUnit(u);}break;
             }
         }
         endBurst();for(const card of cards.values())card.classList.remove('tb-acting');
@@ -776,7 +793,7 @@ export function mountBattle({host,sound=createBattleSound(),onBurst=()=>{},onSto
     function syncFromRound(){
         if(!round)return;
         for(const u of round.state.units){const v=unitById(state,u.id);if(v)Object.assign(v,structuredClone(u));}
-        state.active={...round.state.active};state.summons=structuredClone(round.state.summons);state.fields=structuredClone(round.state.fields);
+        state.active={...round.state.active};state.summons=structuredClone(round.state.summons);state.fields=structuredClone(round.state.fields);state.supports=structuredClone(round.state.supports || []);
         paintSummons(state.summons);paintFields(state.fields);refresh();
     }
     // ---- Board setup and the round loop -------------------------------------------------
@@ -824,6 +841,7 @@ export function mountBattle({host,sound=createBattleSound(),onBurst=()=>{},onSto
         state=structuredClone(round.state);state.hand=round.hand;
         mode='turn';dialog.dataset.mode='turn';refresh();
         await phaseBanner('Action Phase','phase');if(!live(at))return null;
+        if(round.timeline.length){await playEvents(round.timeline.slice());if(!live(at))return null;}
         let guard=400;
         while(live(at)&&!round.over&&round.phase==='action'&&guard-->0){
             if(round.needsActive){
@@ -869,7 +887,7 @@ export function mountBattle({host,sound=createBattleSound(),onBurst=()=>{},onSto
         const lootBox=box.querySelector('.tb-loot');lootBox.replaceChildren(...loot.map((id,i)=>{
             const item=ITEMS[id],c=el('span','tb-loot-card');c.tabIndex=0;c.style.setProperty('--i',String(i));c.style.animationDelay=`${(result.victory?1500:900)+i*180}ms`;
             c.innerHTML='<img alt=""><span class="tb-loot-tip" role="tooltip"><b></b><small></small><em></em></span>';c.querySelector('img').src=itemArt(id);
-            c.querySelector('b').textContent=item?.name || id;c.querySelector('small').textContent=item?`${item.kind==='food'?'Food':item.kind==='dice'?'Dice':'Event'} card · ${whole(item.cost)} ${whole(item.cost)===1?'die':'dice'}`:'';c.querySelector('em').textContent=item?.text || '';
+            c.querySelector('b').textContent=item?.name || id;c.querySelector('small').textContent=item?`${kindLabel(item)} card · ${whole(item.cost)} ${whole(item.cost)===1?'die':'dice'}`:'';c.querySelector('em').textContent=item?.text || '';
             c.setAttribute('aria-label',item?`${item.name}: ${item.text}`:id);return c;
         }));
         const final=result.victory||result.wiped||result.fled;

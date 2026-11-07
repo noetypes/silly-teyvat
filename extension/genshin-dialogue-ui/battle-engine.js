@@ -103,8 +103,13 @@ export function sortDice(dice,state){
 }
 // What a move costs: Normal Attacks one die of the character's element and the rest any dice;
 // Elemental Skills and Bursts all of their element. Characters without an element pay with any dice.
+// Artifacts such as Blizzard Strayer make one Skill a round cheaper (a thrift status, spent in useSkill).
+export function thriftOf(u,move){
+    return (u?.statuses || []).find(s=>s.stat==='thrift'&&!s.used&&(s.moves || ['skill','burst']).includes(move?.kind)&&(!s.element||s.element===u.element)) || null;
+}
 export function costOf(u,move){
-    const total=Math.max(0,Math.round(Number(move?.cost)||0)),element=ELEMENTS.includes(u?.element)?u.element:null;
+    const thrift=thriftOf(u,move),full=Math.max(0,Math.round(Number(move?.cost)||0));
+    const total=Math.max(0,full-(thrift?Math.max(0,Number(thrift.amount)||1):0)),element=ELEMENTS.includes(u?.element)?u.element:null;
     if(!element)return {element:null,matching:0,any:total,total};
     if(move?.kind==='normal')return {element,matching:Math.min(1,total),any:Math.max(0,total-1),total};
     return {element,matching:total,any:0,total};
@@ -170,6 +175,13 @@ export function startRound(snapshot,{dice=null,first='party',hand=[],deck=[],ite
         ended:{party:false,enemy:false},firstEnded:null,enemyActions:strikeBack?enemyActions:0,strikeBack,fed:[],played:[],freeSwitch:state.resonance.includes('Anemo'),
         phase:'action',over:null,needsActive:null,timeline:[],stats:{dealt:{},reactions:[],healed:{}},forecast,step:0};
     Object.defineProperty(round,'rng',{value:random,writable:true,enumerable:false});
+    state.supports ??= [];
+    // Supports act as the Action Phase begins (Paimon's dice, investment plans); Vanarana returns the dice it kept.
+    if(state.supports.length){
+        const c=core(round);
+        for(const entry of state.supports)if(entry.banked?.length){c.addDice(entry.banked,null,entry.name);entry.banked=[];}
+        c.supportFire('start',null,0);
+    }
     return round;
 }
 const rngOf=round=>round.rng || Math.random;
@@ -298,7 +310,9 @@ function core(round){
             return amount;
         }
         let mult=1;
-        const atk=statusSum(attacker,'atk')+(attacker.side==='party'&&resonant('Pyro')?15:0)-statusSum(attacker,'weaken');
+        // Equipment adds to some hits only: Bursts (burst), Normal Attacks (strike) and blows on a foe at 30% HP or less (execute).
+        const extra=(ctx.kind==='burst'?statusSum(attacker,'burst'):0)+(ctx.kind==='normal'?statusSum(attacker,'strike'):0)+(target.hp<=target.maxHp*.3?statusSum(attacker,'execute'):0);
+        const atk=statusSum(attacker,'atk')+extra+(attacker.side==='party'&&resonant('Pyro')?15:0)-statusSum(attacker,'weaken');
         mult*=Math.max(.25,1+atk/100);
         mult*=Math.max(.25,1+(statusSum(target,'vuln')-statusSum(target,'guard'))/100);
         if(attacker.side==='enemy'&&!attacker.duel)mult*=enemyDamage;
@@ -345,7 +359,7 @@ function core(round){
                         const decoy=state.summons.find(s=>s.side==='party'&&s.decoy&&s.rounds>0&&s.drew!==state.round);
                         if(decoy){decoy.drew=state.round;push({type:'decoy',actor:actor.id,summon:decoy.id,name:decoy.name,step});continue;}
                     }
-                    for(const t of targets())damage(actor,t,effect.power,element,{step});
+                    for(const t of targets())damage(actor,t,effect.power,element,{step,kind:move.kind});
                     if(!foesOf(state,actor).length)break;
                 }
                 break;
@@ -360,6 +374,7 @@ function core(round){
                 push({type:'debuff',actor:actor.id,target:t.id,stat:effect.stat,amount:effect.amount,rounds:effect.rounds,statuses:structuredClone(t.statuses),step});
             }break;
             case 'summon':{
+                if(actor.side==='party'){summonParty(actor.id,{...effect,name:effect.name || move.name,element},step);break;}
                 const first=pickTarget(actor,effect.target==='one'?'one':'random',chosen)[0];
                 state.summons=state.summons.filter(s=>!(s.owner===actor.id&&s.name===effect.name));
                 const summon={id:`${actor.id}:${effect.name}`,owner:actor.id,side:actor.side,name:effect.name || move.name,element,power:effect.power || 0,heal:effect.heal || 0,rounds:effect.rounds || 1,target:effect.target,targetId:first?.id || null,decoy:Boolean(effect.decoy)};
@@ -377,30 +392,147 @@ function core(round){
         if(move.kind==='burst')actor.energy=0;
         if(move.kind==='normal'||move.kind==='skill')actor.energy=Math.min(actor.maxEnergy || 2,(actor.energy || 0)+1);
         for(const effect of move.effects || [])apply(actor,move,effect,chosen,step);
+        if(actor.side==='party'&&['normal','skill','burst'].includes(move.kind))triggers(actor,move.kind,step);
         push({type:'energy',actor:actor.id,target:actor.id,energy:actor.energy || 0,step,quiet:true});
+    }
+    // ---- Cards, equipment and supports -------------------------------------------------
+    // The party's cards act through this stand-in: it has no element, statuses or moveset.
+    const cards={id:'items',side:'party',statuses:[],kit:null};
+    const front=()=>activeOf(state,'party');
+    // Who a card, equipment or support effect reaches. owner: the character wearing the equipment, if any.
+    function reach(kind,owner,chosen){
+        const party=side(state,'party').filter(alive),lead=front(),lowest=list=>list.length?[list.reduce((a,b)=>b.hp/b.maxHp<a.hp/a.maxHp?b:a)]:[];
+        switch(kind){
+            case 'self':return alive(owner)?[owner]:[];
+            case 'chosen':{const t=unitById(state,chosen);return alive(t)&&t.side==='party'?[t]:[];}
+            case 'active':return lead?[lead]:[];
+            case 'party':return party;
+            case 'others':return party.filter(u=>u!==(owner || lead));
+            case 'standby':return lowest(party.filter(u=>u!==lead));
+            case 'standbyAll':return party.filter(u=>u!==lead);
+            // The first character without full Energy, the active one first.
+            case 'needy':{const list=[lead,...party.filter(u=>u!==lead)].filter(u=>u&&(u.energy || 0)<(u.maxEnergy || 2));return list.slice(0,1);}
+            case 'foe':{const t=activeOf(state,'enemy');return t?[t]:[];}
+            default:return lowest(party);
+        }
+    }
+    // Dice from cards and supports: a face, 'self' (the owner's element), 'active' or 'random'.
+    function addDice(faces,owner,source){
+        if(!round.dice||!faces?.length)return;
+        const own=u=>ELEMENTS.includes(u?.element)?u.element:'Omni';
+        // 'next': the element of the character after the active one (Rana).
+        const next=()=>{const list=side(state,'party').filter(alive),i=list.indexOf(front());return list.length>1?list[(i+1)%list.length]:front();};
+        const list=faces.map(f=>f==='self'?own(owner || front()):f==='active'?own(front()):f==='next'?own(next()):f==='random'?ELEMENTS[Math.min(6,Math.floor(rand()*7))]:f);
+        round.dice.push(...list.map(face=>({face})));
+        push({type:'dice',dice:list,source:source || ''});
+    }
+    function draw(n,source){
+        if(n<=0)return;
+        const {drawn,deck}=drawCards(round.deck,n,forecast?()=>.5:rngOf(round));
+        const kept=drawn.slice(0,Math.max(0,HAND_MAX-round.hand.length));round.hand.push(...kept);round.deck=[...deck,...drawn.slice(kept.length)];
+        if(drawn.length)push({type:'draw',cards:kept,burned:drawn.slice(kept.length),source:source || ''});
+    }
+    // A summon of the party's: Silly Teyvat's summons last one End Phase per Usage. People of the Springs adds one.
+    function summonParty(owner,{name,element='Physical',power=0,heal:mend=0,rounds=1,target='one',decoy=false},step){
+        const id=`${owner}:${name}`,old=state.summons.find(x=>x.id===id),bonus=supportFire('summon',null,step)?1:0;
+        const summon={id,owner,side:'party',name,element,power,heal:mend,rounds:Math.max(old?.rounds || 0,rounds)+bonus,target,targetId:activeOf(state,'enemy')?.id || null,decoy:Boolean(decoy)};
+        state.summons=state.summons.filter(x=>x.id!==id);state.summons.push(summon);
+        push({type:'summon',actor:owner,summon:structuredClone(summon),step});
+        return summon;
+    }
+    // One small effect from a card, a piece of equipment's trigger or a support.
+    function perk(owner,effect,source,{chosen=null,step}={}){
+        const list=()=>reach(effect.target || 'self',owner,chosen),amount=Number(effect.amount)||0;
+        switch(effect.type){
+            case 'heal':for(const t of list())heal(cards,t,amount,{source,step});break;
+            case 'shield':for(const t of list()){const n=Math.round(amount*(resonant('Geo')?1.5:1));t.shield=Math.min(SHIELD_CAP,(t.shield || 0)+n);push({type:'shield',actor:'items',target:t.id,amount:n,shieldAfter:t.shield,source,step});}break;
+            case 'energy':for(const t of list()){t.energy=Math.min(t.maxEnergy || 2,(t.energy || 0)+amount);push({type:'energy',actor:'items',target:t.id,energy:t.energy,step});}break;
+            case 'buff':for(const t of list()){addStatus(t,{stat:effect.stat,amount,rounds:effect.rounds || 1,source:`perk:${source}`,label:source});push({type:'buff',actor:'items',target:t.id,stat:effect.stat,amount,rounds:effect.rounds || 1,statuses:structuredClone(t.statuses),step});}break;
+            case 'cleanse':for(const t of list()){t.statuses=(t.statuses || []).filter(x=>!['vuln','weaken','stun','frozen','burning','charged'].includes(x.stat));push({type:'cleanse',actor:'items',target:t.id,statuses:structuredClone(t.statuses),step});}break;
+            case 'dice':addDice(effect.faces || Array(Math.max(1,amount)).fill(effect.face || 'Omni'),owner,source);break;
+            case 'draw':draw(Math.max(1,amount),source);break;
+            case 'damage':{const t=activeOf(state,'enemy');if(t)damage(cards,t,amount,effect.element || 'Physical',{source,noCrit:true,step,piercing:Boolean(effect.piercing)});break;}
+            case 'summon':{
+                // Abyssal Summons picks one of several hilichurls.
+                const pick=effect.choices?.length?effect.choices[Math.min(effect.choices.length-1,Math.floor(rand()*effect.choices.length))]:null;
+                summonParty('items',pick?{...effect,name:pick[0],element:pick[1]}:effect,step);break;
+            }
+            case 'summonUsage':{const mine=state.summons.filter(x=>x.side==='party');for(const x of mine)x.rounds+=Math.max(1,amount);if(mine.length)push({type:'summons',summons:structuredClone(state.summons),source});break;}
+            case 'dispel':{
+                const gone=state.summons.filter(x=>effect.all||x.side==='enemy');state.summons=state.summons.filter(x=>!gone.includes(x));
+                for(const g of gone)push({type:'dispel',summon:g.id,name:g.name});
+                if(amount)for(const e of side(state,'enemy').filter(u=>alive(u)&&u.shield>0)){e.shield=Math.max(0,e.shield-amount);push({type:'shield',actor:'items',target:e.id,amount:-amount,shieldAfter:e.shield,source});}
+                break;
+            }
+            case 'freeSwitch':round.freeSwitch=true;break;
+            case 'fastSwitch':round.fastSwitch=true;round.freeSwitch=round.freeSwitch||Boolean(effect.free);break;
+        }
+    }
+    // Weapons and Artifacts: one of each per character, kept for the rest of the fight. A new one replaces the old.
+    function equip(t,item,id,step){
+        if(!t)return;
+        t.statuses=(t.statuses || []).filter(x=>x.slot!==item.kind);
+        for(const status of item.equip || [])t.statuses.push({...structuredClone(status),rounds:99,slot:item.kind,item:id,source:`${item.kind}:${id}`,label:item.name,n:0});
+        push({type:'equip',actor:'items',target:t.id,item:id,slot:item.kind,name:item.name,statuses:structuredClone(t.statuses),step});
+    }
+    // Equipment that answers what its wearer does: on 'normal', 'skill', 'burst' or 'skills' (Skill or Burst),
+    // and 'allyBurst' when someone else on the party uses a Burst. per: how often a round.
+    function triggers(actor,kind,step){
+        const fire=(u,s)=>{if((s.n || 0)>=(s.per || 1))return;s.n=(s.n || 0)+1;perk(u,s.do,s.label,{step});};
+        for(const s of [...(actor.statuses || [])])if(s.stat==='trigger'&&(s.on===kind||s.on==='skills'&&kind!=='normal'))fire(actor,s);
+        if(kind==='burst')for(const u of side(state,'party').filter(x=>alive(x)&&x!==actor))for(const s of [...(u.statuses || [])])if(s.stat==='trigger'&&s.on==='allyBurst')fire(u,s);
+        supportFire(kind,actor,step);
+    }
+    // Supports in play: each answers one moment ('start', 'end', 'normal', 'skill', 'burst', 'food', 'switch', 'summon').
+    // Usages run down each time it acts; per caps it in a round; delay makes it wait that many Action Phases, then act once.
+    const supportDef=entry=>round.items?.[entry.item]?.support;
+    function supportsChanged(action,entry){push({type:'support',action,support:entry?.id || null,name:entry?.name || '',supports:structuredClone(state.supports)});}
+    function spendSupport(entry){
+        const def=supportDef(entry);
+        if(def&&def.uses){entry.uses--;if(entry.uses<=0){state.supports=state.supports.filter(x=>x!==entry);supportsChanged('gone',entry);return;}}
+        supportsChanged('act',entry);
+    }
+    function supportFire(moment,actor,step){
+        let fired=false;
+        for(const entry of [...(state.supports || [])]){
+            const def=supportDef(entry);if(!def||def.on!==moment&&!(def.on==='skills'&&(moment==='skill'||moment==='burst')))continue;
+            if((entry.n || 0)>=(def.per || 99))continue;
+            if(def.delay){entry.progress=(entry.progress || 0)+1;if(entry.progress<def.delay){supportsChanged('act',entry);continue;}}
+            if(def.when==='handLow'&&round.hand.length>2)continue;
+            if(def.when==='diceOdd'&&(round.dice?.length || 0)%2===0)continue;
+            if(def.when==='noEnergy'&&(actor?.energy || 0)>0)continue;
+            entry.n=(entry.n || 0)+1;fired=true;
+            for(const effect of def.effects || [])perk(actor,effect,entry.name,{step});
+            if(def.delay){state.supports=state.supports.filter(x=>x!==entry);supportsChanged('gone',entry);}else spendSupport(entry);
+        }
+        return fired;
+    }
+    // Passive supports (cheaper cards or switches): the first one that applies, if it has a use left this round.
+    function supportReady(test){return (state.supports || []).find(entry=>{const def=supportDef(entry);return def&&test(def)&&(entry.n || 0)<(def.per || 99);}) || null;}
+    function addSupport(item,id,step){
+        state.supports ??= [];state.supportSeq=(state.supportSeq || 0)+1;
+        const entry={id:`support:${state.supportSeq}`,item:id,name:item.name,uses:item.support.uses || 0,progress:0,n:0};
+        state.supports.push(entry);supportsChanged('add',entry);
+        return entry;
     }
     // A card's effects, the moment it is played.
     function applyItem(item,{id,target,index}){
-        const user={id:'items',side:'party',statuses:[],kit:null};
         push({type:'item',item:id,name:item.name,target:target || null,index});
-        const targets=item.target==='party'?side(state,'party').filter(alive):item.target==='ally'?[unitById(state,target)].filter(alive):item.target==='downed'?[unitById(state,target)].filter(u=>u&&u.side==='party'&&u.hp<=0):[];
+        const targets=item.target==='party'?side(state,'party').filter(alive):item.target==='ally'?[unitById(state,target)].filter(alive):item.target==='active'?reach('active'):item.target==='downed'?[unitById(state,target)].filter(u=>u&&u.side==='party'&&u.hp<=0):[];
+        if(item.kind==='weapon'||item.kind==='artifact')equip(targets[0],item,id);
+        if(item.kind==='support')addSupport(item,id);
         for(const effect of item.effects || []){
             if(effect.type==='revive'){for(const t of targets){t.hp=Math.min(t.maxHp,effect.amount);t.statuses=[];t.aura=null;push({type:'heal',actor:'items',target:t.id,amount:t.hp,hpAfter:t.hp,source:item.name,revive:true});}continue;}
-            if(effect.type==='dispel'){
-                const gone=state.summons.filter(x=>x.side==='enemy');state.summons=state.summons.filter(x=>x.side!=='enemy');
-                for(const g of gone)push({type:'dispel',summon:g.id,name:g.name});
-                for(const e of side(state,'enemy').filter(u=>alive(u)&&u.shield>0)){e.shield=Math.max(0,e.shield-effect.amount);push({type:'shield',actor:'items',target:e.id,amount:-effect.amount,shieldAfter:e.shield,source:item.name});}
-                continue;
-            }
+            // Effects with a target of their own (draws, dice, summons…) reach it; the rest go to the card's target.
+            if(effect.target||!['heal','shield','energy','buff','cleanse'].includes(effect.type)){perk(targets[0] || null,effect,item.name,{chosen:target});continue;}
             for(const t of targets){
-                if(effect.type==='heal')heal(user,t,effect.amount,{source:item.name});
-                else if(effect.type==='shield'){t.shield=Math.min(SHIELD_CAP,(t.shield || 0)+effect.amount);push({type:'shield',actor:'items',target:t.id,amount:effect.amount,shieldAfter:t.shield,source:item.name});}
-                else if(effect.type==='energy'){t.energy=Math.min(t.maxEnergy || 2,(t.energy || 0)+effect.amount);push({type:'energy',actor:'items',target:t.id,energy:t.energy});}
-                else if(effect.type==='buff'){addStatus(t,{stat:effect.stat,amount:effect.amount,rounds:effect.rounds,source:`item:${id}`,label:item.name});push({type:'buff',actor:'items',target:t.id,stat:effect.stat,amount:effect.amount,rounds:effect.rounds,statuses:structuredClone(t.statuses)});}
+                if(effect.type==='buff'){addStatus(t,{stat:effect.stat,amount:effect.amount,rounds:effect.rounds,source:`item:${id}`,label:item.name});push({type:'buff',actor:'items',target:t.id,stat:effect.stat,amount:effect.amount,rounds:effect.rounds,statuses:structuredClone(t.statuses)});}
+                else perk(t,{...effect,target:'self'},item.name);
             }
         }
+        if(item.kind==='food')supportFire('food',targets[0] || null);
     }
-    return {push,act,damage,heal,applyItem,pickTarget,rand};
+    return {push,act,damage,heal,applyItem,pickTarget,rand,supportFire,supportReady,spendSupport,draw,addDice,perk};
 }
 // After anything that can defeat a character: decide the battle, and bring a new active character forward.
 function settle(round){
@@ -440,13 +572,14 @@ const spend=(round,indices)=>{if(!round.dice)return;const gone=new Set(indices);
 export function useSkill(round,moveIndex,{target=null,dice}={}){
     if(!ready(round,'party'))return fail('It is not your turn.');
     const check=moveCheck(round,moveIndex,dice);if(!check.ok)return fail(check.reason);
-    const start=round.timeline.length,u=activeOf(round.state,'party');
-    spend(round,check.dice);
+    const start=round.timeline.length,u=activeOf(round.state,'party'),thrift=thriftOf(u,u.kit.moves[moveIndex]);
+    spend(round,check.dice);if(thrift)thrift.used=true;
     core(round).act(u,moveIndex,target,round.step++);
     settle(round);passTurn(round,'party');
     return {ok:true,events:slice(round,start)};
 }
-export function switchCost(round){return round.freeSwitch?anyCost(0):anyCost(SWITCH_COST);}
+const switchSupport=round=>core(round).supportReady(def=>def.switchDiscount);
+export function switchCost(round){return round.freeSwitch||switchSupport(round)?anyCost(0):anyCost(SWITCH_COST);}
 // Combat Action (or free, when your active character has just fallen): bring another character forward.
 export function switchTo(round,id,{dice}={}){
     const state=round.state,u=unitById(state,id),forced=round.needsActive==='party';
@@ -456,25 +589,45 @@ export function switchTo(round,id,{dice}={}){
     const cost=forced?anyCost(0):switchCost(round);
     let paid=[];
     if(round.dice&&cost.total){paid=dice?diceFit(round.dice,dice,cost)?dice:null:chooseDice(round.dice,cost,partyElements(state));if(!paid)return fail('Switching costs 1 die.');}
-    const start=round.timeline.length,from=state.active.party;
+    const start=round.timeline.length,from=state.active.party,c=core(round);
     spend(round,paid);state.active.party=id;
+    if(!forced&&cost.total===0&&!round.freeSwitch){const entry=switchSupport(round);if(entry){entry.n=(entry.n || 0)+1;c.spendSupport(entry);}}
     if(!forced&&round.freeSwitch)round.freeSwitch=false;
-    round.timeline.push({type:'switch',side:'party',from,to:id,free:forced||!cost.total});
+    // A fast switch (Leave It to Me!, Katheryne) does not end your turn.
+    const fastSupport=!forced&&!round.fastSwitch?c.supportReady(def=>def.fastSwitch):null,fast=!forced&&(round.fastSwitch||Boolean(fastSupport));
+    round.timeline.push({type:'switch',side:'party',from,to:id,free:forced||!cost.total,fast});
+    c.supportFire('switch',u,round.step);
     if(forced){round.needsActive=null;return {ok:true,events:slice(round,start)};}
+    if(fast){if(round.fastSwitch)round.fastSwitch=false;else{fastSupport.n=(fastSupport.n || 0)+1;c.spendSupport(fastSupport);}settle(round);return {ok:true,events:slice(round,start)};}
     passTurn(round,'party');
     return {ok:true,events:slice(round,start)};
 }
+// What a card costs now: a support such as Xudong (Food) or Master Zhang (Weapons) may take dice off.
+const cardSupport=(round,item)=>core(round).supportReady(def=>def.cardDiscount&&(def.cardDiscount.kinds.includes(item.kind)||def.cardDiscount.kinds.includes(item.group))&&item.cost>=(def.cardDiscount.min || 1));
+export function cardCost(round,item){
+    const entry=item.cost?cardSupport(round,item):null;
+    return {cost:Math.max(0,item.cost-(entry?round.items[entry.item].support.cardDiscount.amount:0)),support:entry};
+}
+// The most summons and support cards a side can have in play, as in Genius Invokation.
+export const SUMMON_MAX=4,SUPPORT_MAX=4;
 export function cardCheck(round,handIndex,target,picked){
     const id=round.hand[handIndex],item=round.items[id];
     if(!item)return {ok:false,reason:'No such card.'};
     const state=round.state;
     if(item.target==='ally'||item.target==='downed'){
         const t=unitById(state,target);
-        if(!t||t.side!=='party'||(item.target==='downed'?t.hp>0:!alive(t)))return {ok:false,reason:item.target==='downed'?'Choose a downed member.':'Choose who gets it.',needsTarget:true};
+        if(!t||t.side!=='party'||(item.target==='downed'?t.hp>0:!alive(t)))return {ok:false,reason:item.target==='downed'?'Choose a downed member.':item.kind==='weapon'||item.kind==='artifact'?'Choose who equips it.':'Choose who gets it.',needsTarget:true};
         if(item.kind==='food'&&round.fed.includes(t.id))return {ok:false,reason:`${t.name} has already eaten this round.`};
+        if(item.weapon&&t.kit?.weapon!==item.weapon)return {ok:false,reason:`${t.name} can't wield a ${item.weapon}.`};
     }
+    if(item.kind==='support'&&(state.supports || []).length>=SUPPORT_MAX)return {ok:false,reason:`Your support zone is full (${SUPPORT_MAX} cards).`};
+    const summons=(item.effects || []).filter(e=>e.type==='summon');
+    if(summons.length&&state.summons.filter(x=>x.side==='party').length>=SUMMON_MAX&&!summons.every(e=>state.summons.some(x=>x.id===`items:${e.name}`)))return {ok:false,reason:`You already have ${SUMMON_MAX} summons.`};
+    if(item.needs==='summon'&&!state.summons.some(x=>x.side==='party'))return {ok:false,reason:'You have no summons.'};
+    if(item.needs==='noDice'&&round.dice?.length)return {ok:false,reason:'Only when you have no dice left.'};
     if(item.dice==='omni'&&!round.dice?.some(d=>d.face!=='Omni'))return {ok:false,reason:'Every die is already Omni.'};
-    const cost=anyCost(item.cost);
+    if(item.combat&&!activeOf(state,'enemy'))return {ok:false,reason:'There is no one to hit.'};
+    const cost=anyCost(cardCost(round,item).cost);
     if(!round.dice||!cost.total)return {ok:true,dice:[],cost,item,id};
     const dice=picked?diceFit(round.dice,picked,cost)?picked:null:chooseDice(round.dice,cost,partyElements(state));
     return dice?{ok:true,dice,cost,item,id}:{ok:false,reason:'Not enough dice.',cost,item,id};
@@ -483,8 +636,9 @@ export function cardCheck(round,handIndex,target,picked){
 export function playCard(round,handIndex,{target=null,dice}={}){
     if(!ready(round,'party'))return fail('It is not your turn.');
     const check=cardCheck(round,handIndex,target,dice);if(!check.ok)return fail(check.reason);
-    const start=round.timeline.length,{item,id}=check;
+    const start=round.timeline.length,{item,id}=check,discount=check.cost.total<item.cost?cardCost(round,item).support:null;
     spend(round,check.dice);round.hand.splice(handIndex,1);round.played.push({id,target});
+    if(discount){discount.n=(discount.n || 0)+1;core(round).spendSupport(discount);}
     if(item.kind==='food'&&target)round.fed.push(target);
     if(item.kind==='dice'){
         if(item.dice==='add'&&round.dice)round.dice.push({face:item.element});
@@ -495,6 +649,8 @@ export function playCard(round,handIndex,{target=null,dice}={}){
     }
     core(round).applyItem(item,{id,target,index:round.played.length-1});
     settle(round);
+    // Combat Action cards (Aedon, Crystal Shrapnel…) use up your turn like a skill.
+    if(item.combat&&!round.over&&!round.needsActive)passTurn(round,'party');
     return {ok:true,events:slice(round,start)};
 }
 // Fast Action: Elemental Tuning. A card from hand goes back into the deck and one die becomes the active character's element.
@@ -591,10 +747,19 @@ export function endPhase(round){
     }
     state.summons=state.summons.filter(s=>s.rounds>0&&(s.side==='party'||alive(unitById(state,s.owner))));
     for(const u of state.units.filter(alive)){const regen=statusSum(u,'regen');if(regen>0)heal(u,u,regen,{source:'Regeneration'});}
+    // Equipment that renews each round: shields (ward) and Energy (charge).
+    for(const u of side(state,'party').filter(alive)){
+        const ward=statusSum(u,'ward'),charge=statusSum(u,'charge');
+        if(ward>0&&(u.shield || 0)<ward){u.shield=Math.min(SHIELD_CAP,ward);push({type:'shield',actor:'items',target:u.id,amount:ward,shieldAfter:u.shield,source:'Equipment'});}
+        if(charge>0&&(u.energy || 0)<(u.maxEnergy || 2)){u.energy=Math.min(u.maxEnergy || 2,(u.energy || 0)+charge);push({type:'energy',actor:'items',target:u.id,energy:u.energy});}
+    }
+    const c=core(round);c.supportFire('end',null,round.step);
+    for(const entry of state.supports || []){const keep=round.items?.[entry.item]?.support?.bank;if(keep&&round.dice?.length){entry.banked=round.dice.slice(0,keep).map(d=>d.face);round.dice=round.dice.slice(keep);push({type:'support',action:'act',support:entry.id,name:entry.name,supports:structuredClone(state.supports)});}}
+    for(const entry of state.supports || [])entry.n=0;
     settle(round);
     if(round.over){round.phase='over';return {ok:true,events:slice(round,start)};}
     for(const u of state.units){
-        u.statuses=(u.statuses || []).map(s=>({...s,rounds:s.rounds-1})).filter(s=>s.rounds>0);
+        u.statuses=(u.statuses || []).map(s=>({...s,rounds:s.rounds-1,...(s.slot?{n:0,used:false}:{})})).filter(s=>s.rounds>0);
         // Frozen thaws now; an elemental enemy takes its own element back.
         if(alive(u)&&innateAura(u)&&!auraList(u.aura).length)setAura(u,[innateAura(u)]);
         if(u.cooldowns)for(const k of Object.keys(u.cooldowns))u.cooldowns[k]=Math.max(0,u.cooldowns[k]-1);
@@ -608,7 +773,7 @@ export function endPhase(round){
     const {drawn,deck}=drawCards(round.deck,HAND_DRAW,rngOf(round));
     const kept=drawn.slice(0,Math.max(0,HAND_MAX-round.hand.length));round.hand.push(...kept);round.deck=[...deck,...drawn.slice(kept.length)];
     if(drawn.length)push({type:'draw',cards:kept,burned:drawn.slice(kept.length)});
-    push({type:'statuses',fields:structuredClone(state.fields),units:state.units.map(u=>({id:u.id,aura:auraList(u.aura),statuses:structuredClone(u.statuses || []),shield:u.shield || 0,energy:u.energy || 0,hp:u.hp,intent:u.intent || null}))});
+    push({type:'statuses',fields:structuredClone(state.fields),supports:structuredClone(state.supports || []),units:state.units.map(u=>({id:u.id,aura:auraList(u.aura),statuses:structuredClone(u.statuses || []),shield:u.shield || 0,energy:u.energy || 0,hp:u.hp,intent:u.intent || null}))});
     state.round++;round.phase='over';
     return {ok:true,events:slice(round,start)};
 }

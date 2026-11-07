@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 """Download battle icons from the Genshin Impact Wiki (genshin-impact.fandom.com API).
 
-Usage: build-battle-icons.py
+Usage: build-battle-icons.py [--missing]
+--missing keeps index.json and fetches only skills, character icons and summons it does not list yet.
 Needs Pillow and Node (to read the movesets from combat-kits.js). Writes to
 extension/genshin-dialogue-ui/assets/battle/:
   elements/   Element_<E>.svg (colour) and <E>-white.svg, plus Physical
@@ -28,8 +29,14 @@ HEADERS = {'User-Agent': 'SillyTeyvat/1.33 (battle icons)'}
 slug = lambda s: re.sub(r'[^a-z0-9]+', '-', s.lower()).strip('-')
 
 def fetch(url):
-    with urllib.request.urlopen(urllib.request.Request(url, headers=HEADERS), timeout=60) as r:
-        return r.read()
+    # The wiki answers 503 now and then under load; wait and try again.
+    for attempt in range(5):
+        try:
+            with urllib.request.urlopen(urllib.request.Request(url, headers=HEADERS), timeout=60) as r:
+                return r.read()
+        except urllib.error.HTTPError as error:
+            if error.code not in (429, 503) or attempt == 4: raise
+            time.sleep(3 + attempt * 4)
 
 def resolve(titles, width=None):
     """File title -> URL (thumbnail when width is given) for the titles that exist."""
@@ -73,9 +80,12 @@ def kits():
     // Enemies with a Genius Invokation card use its skills (combat-kits.js lists them after the older enemies).
     const cards=new Set(JSON.parse((await import('fs')).readFileSync(process.argv[3],'utf8')));
     for(const [name,p] of Object.entries(props))if(p.role==='enemy'&&cards.has(name))add(name,K.defaultKit(name,{enemy:true}));
+    // Summon cards (battle-cards.js), and the hilichurls Abyssal Summons can bring.
+    const {TCG_CARDS}=await import(process.argv[4]);
+    for(const card of Object.values(TCG_CARDS))for(const e of card.effects||[])if(e.type==='summon')for(const name of e.choices?e.choices.map(c=>c[0]):[e.name])out.summons.add(name);
     console.log(JSON.stringify({characters:out.characters,summons:[...out.summons]}));
     """
-    result = subprocess.run(['node', '--input-type=module', '-e', script, str(ROOT / 'combat-kits.js'), str(ROOT / 'assets/character-properties.json'), str(ROOT / 'assets/tcg/characters.json')], capture_output=True, text=True, check=True)
+    result = subprocess.run(['node', '--input-type=module', '-e', script, str(ROOT / 'combat-kits.js'), str(ROOT / 'assets/character-properties.json'), str(ROOT / 'assets/tcg/characters.json'), str(ROOT / 'battle-cards.js')], capture_output=True, text=True, check=True)
     return json.loads(result.stdout)
 
 # Summons and combat statuses that reactions create (Burning, Bloom, Quicken), not any kit.
@@ -90,9 +100,10 @@ def save_fields(index):
             total += save_png(urls[f'File:{f}'], OUT / 'fields' / f'{slug(name)}.webp', 96); index['fields'][name] = f'{slug(name)}.webp'
     return total
 
-def main():
+def main(missing=False):
     data = kits()
     data['summons'] += [s for s in REACTION_SUMMONS if s not in data['summons']]
+    if missing: return add_missing(data)
     index = {'elements': [], 'reactions': {}, 'skills': {}, 'icons': {}, 'summons': {}, 'fields': {}}
     total = 0
     # Elements: coloured and white SVGs, and the TCG Physical icon.
@@ -109,8 +120,27 @@ def main():
     for name, f in REACTIONS.items():
         if f'File:{f}' in urls:
             total += save_png(urls[f'File:{f}'], OUT / 'reactions' / f'{slug(name)}.webp', 96); index['reactions'][name] = f'{slug(name)}.webp'
-    # Skills: the TCG character-card skill icon first, then the in-game talent icon.
+    total += icons(data, index)
+    total += save_fields(index)
+    (OUT / 'index.json').write_text(json.dumps(index, indent=1, ensure_ascii=False) + '\n')
     moves = sorted({m for ms in data['characters'].values() for m in ms})
+    missing = [m for m in moves if m not in index['skills']]
+    print(f"{len(index['skills'])}/{len(moves)} skill icons ({sum(v['kind'] == 'tcg' for v in index['skills'].values())} TCG), {len(index['icons'])} character icons, "
+          f"{len(index['summons'])}/{len(data['summons'])} summons, {len(index['reactions'])} reactions, {total / 1e6:.1f} MB")
+    print('No icon:', ', '.join(missing), file=sys.stderr)
+
+def add_missing(data):
+    """Only what index.json does not list yet: new characters' and enemies' skills and icons, and new summons."""
+    index = json.loads((OUT / 'index.json').read_text())
+    known = set(index['skills']) | set(index['icons']) | set(index['summons'])
+    total = icons(data, index, skip=known)
+    (OUT / 'index.json').write_text(json.dumps(index, indent=1, ensure_ascii=False) + '\n')
+    print(f"{len(index['skills'])} skill icons, {len(index['icons'])} character icons, {len(index['summons'])} summons, {total / 1e6:.1f} MB added")
+
+def icons(data, index, skip=frozenset()):
+    total = 0
+    # Skills: the TCG character-card skill icon first, then the in-game talent icon.
+    moves = sorted({m for ms in data['characters'].values() for m in ms} - skip)
     variants = lambda m: list(dict.fromkeys([m, m.replace(':', ''), re.sub(r'\s*:\s*', ' ', m)]))
     tcg = resolve([f'File:{v} Character Card Skill.png' for m in moves for v in variants(m)], 128)
     talent = resolve([f'File:Talent {v}.png' for m in moves for v in variants(m)], 128)
@@ -122,7 +152,7 @@ def main():
         if not url: continue
         total += save_png(url, OUT / 'skills' / f'{slug(m)}.webp', 128); index['skills'][m] = {'file': f'{slug(m)}.webp', 'kind': kind}
     # Round character icons.
-    names = [n for n in data['characters'] if not n.startswith('Traveler')] + ['Aether', 'Lumine']
+    names = [n for n in [n for n in data['characters'] if not n.startswith('Traveler')] + ['Aether', 'Lumine'] if n not in skip]
     # Enemies use the wiki's "Enemy <name> Icon"; Ousia and Pneuma meka share their base model's icon.
     icon_titles = lambda n: [f'File:{n} Icon.png', f"File:Enemy {re.sub(r' - (Ousia|Pneuma)$', '', n)} Icon.png"]
     urls = resolve([t for n in names for t in icon_titles(n)], 128)
@@ -131,16 +161,12 @@ def main():
         if title:
             total += save_png(urls[title], OUT / 'icons' / f'{slug(n)}.webp', 128); index['icons'][n] = f'{slug(n)}.webp'
     # Summon cards.
-    urls = resolve([f'File:{s} Summon.png' for s in data['summons']], 200)
-    for s in data['summons']:
+    summons = [s for s in data['summons'] if s not in skip]
+    urls = resolve([f'File:{s} Summon.png' for s in summons], 200)
+    for s in summons:
         if f'File:{s} Summon.png' in urls:
             total += save_png(urls[f'File:{s} Summon.png'], OUT / 'summons' / f'{slug(s)}.webp', 240); index['summons'][s] = f'{slug(s)}.webp'
-    total += save_fields(index)
-    (OUT / 'index.json').write_text(json.dumps(index, indent=1, ensure_ascii=False))
-    missing = [m for m in moves if m not in index['skills']]
-    print(f"{len(index['skills'])}/{len(moves)} skill icons ({sum(v['kind'] == 'tcg' for v in index['skills'].values())} TCG), {len(index['icons'])} character icons, "
-          f"{len(index['summons'])}/{len(data['summons'])} summons, {len(index['reactions'])} reactions, {total / 1e6:.1f} MB")
-    print('No icon:', ', '.join(missing), file=sys.stderr)
+    return total
 
 if __name__ == '__main__':
-    main()
+    main(missing='--missing' in sys.argv)

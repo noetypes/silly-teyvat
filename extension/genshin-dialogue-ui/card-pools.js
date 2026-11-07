@@ -16,8 +16,35 @@ export const REGION_CARDS={
     'Nod-Krai':[['northern-chicken','saurus-crackers','toss-up','nre','hash-brown','chenyu-brew'],['autumn-frost','kusava','glittering-gemstones','hot-spring-oclock','send-off','woven-ice','treasure-seelie'],['lakkaberry-pie','parametric-transformer','roulette-special','fried-egg']],
     Snezhnaya:[['northern-chicken','hash-brown','toss-up','nre','chenyu-brew','lotus-crisp'],['autumn-frost','gilded-hall','hot-spring-oclock','starsigns','send-off','woven-ice','treasure-seelie'],['lakkaberry-pie','roulette-special','thunder-eternity','fried-egg']],
 };
+// 1.63: Weapons, Artifacts, Supports, Summons and the new Events, by where they come from in Teyvat,
+// sorted into the lists above by rarity.
+const REGION_EXTRA={
+    Mondstadt:['favonius-sword','skyward-blade','skyward-harp','skyward-atlas','skyward-pride','raven-bow','travelers-handy-sword','magic-guide','wolfs-gravestone','aquila-favonia','amos-bow','elegy-for-the-end','the-bell',
+        'viridescent-venerer','blizzard-strayer','noblesse-oblige','adventurers-bandana','lucky-dogs-circlet','travelers-handkerchief','thundering-fury',
+        'dawn-winery','favonius-cathedral','katheryne','timmie','paimon-companion','oz','dandelion-field','large-wind-spirit','drunken-mist','solar-isotoma',
+        'strategize','leave-it-to-me','changing-shifts','impetuous-winds','heavy-strike'],
+    Liyue:['lithic-spear','primordial-jade-winged-spear','vortex-vanquisher','white-iron-greatsword','white-tassel','skyward-spine','sacrificial-greatsword',
+        'archaic-petra','tenacity-of-the-millelith','generals-ancient-helm','exiles-circlet','crimson-witch',
+        'liyue-harbor-wharf','wangshu-inn','iron-tongue-tian','liu-su','chef-mao','xudong','master-zhang','golden-house','tubby',
+        'guoba','herald-of-frost','yuegui-throwing-mode','stone-stele','gossamer-sprite','enduring-rock','guardians-oath','strategize'],
+    Inazuma:['engulfing-lightning','sacrificial-sword','amos-bow','ornate-kabuto','emblem-of-severed-fate','shimenawas-reminiscence','thundering-poise','ocean-hued-clam','capricious-visage','thundering-fury',
+        'grand-narukami-shrine','sangonomiya-shrine','kid-kujirai','yayoi-nanatsuki','eye-of-stormy-judgment','sesshou-sakura','bake-kurage','ushi','muji-muji-daruma','frostflake-seki-no-to','taroumaru-enraged',
+        'shattering-ice','high-voltage','quick-knit','leave-it-to-me','vermillion-hereafter','lightning-rose'],
+    Sumeru:['thousand-floating-dreams','light-of-foliar-incision','tulaytullahs-remembrance','fruit-of-fulfillment','sacrificial-fragments','magic-guide',
+        'deepwood-memories','gilded-dreams','vourukashas-glow','shadow-of-the-sand-king','flowing-rings','vanarana','rana','chef-mao',
+        'cuilein-anbar','yuegui-throwing-mode','abyssal-summons','covenant-of-rock','strategize','changing-shifts'],
+    Fontaine:['heart-of-depth','flowing-rings','capricious-visage','sacrificial-bow','travelers-handy-sword','weeping-willow',
+        'energy-investment-grand','energy-investment-mega','energy-investment-super','graph-investment-grand','graph-investment-mega',
+        'medical-investment-grand','medical-investment-mega','medical-investment-super','singer-of-many-waters','origami-hamster','bestest-travel-companion','lightning-rose',
+        'soothing-water','crystal-shrapnel','called-in-for-cleanup','quick-knit'],
+    Natlan:['people-of-the-springs','legend-of-vennessa','aedon','shark-missile','fervent-flames','sacrificial-greatsword','white-iron-greatsword','crimson-witch','archaic-petra',
+        'generals-ancient-helm','abyssal-summons','toy-guard','heavy-strike','iron-tongue-tian'],
+    'Nod-Krai':['cool-your-jets-ducky','frostflake-seki-no-to','frostmoon-enclave','toy-guard','blizzard-strayer','sacrificial-fragments','raven-bow','kid-kujirai','origami-hamster','crystal-shrapnel','covenant-of-rock'],
+    Snezhnaya:['toy-guard','aedon','covenant-of-rock','guardians-oath','blizzard-strayer','white-tassel','the-bell','tenacity-of-the-millelith','frostmoon-enclave','shattering-ice','called-in-for-cleanup'],
+};
+for(const [region,ids] of Object.entries(REGION_EXTRA))for(const id of ids){const list=REGION_CARDS[region][ITEMS[id].rarity-1];if(!list.includes(id))list.push(id);}
 // How many cards of each rarity a location keeps from its region's list, so two places in a region differ.
-const KEEP=[5,5,3];
+const KEEP=[7,7,4];
 const ANYWHERE=[1,2,3].map(rarity=>Object.keys(ITEMS).filter(id=>ITEMS[id].rarity===rarity));
 const hash=text=>{let h=2166136261;for(let i=0;i<text.length;i++){h^=text.charCodeAt(i);h=Math.imul(h,16777619);}return h>>>0;};
 export function defaultCardPool(id,region){

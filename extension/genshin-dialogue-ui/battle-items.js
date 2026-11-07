@@ -3,6 +3,7 @@
 // The party carries a shared bag saved per chat; victories drop cards from the location's pool (card-pools.js).
 import {isTcgBoss} from './boss-kits.js';
 import {defaultKitHp} from './combat-kits.js';
+import {TCG_CARDS} from './battle-cards.js';
 export const ITEMS={
     'sweet-madame':{name:'Sweet Madame',kind:'food',cost:0,target:'ally',rarity:1,text:'Heals 4 HP.',effects:[{type:'heal',amount:4}]},
     'hash-brown':{name:'Mondstadt Hash Brown',kind:'food',cost:1,target:'ally',rarity:1,text:'Heals 8 HP.',effects:[{type:'heal',amount:8}]},
@@ -55,7 +56,12 @@ export const ITEMS={
     'lumenstone-adjuvant':{name:'Lumenstone Adjuvant',kind:'event',cost:2,target:'party',rarity:3,text:'Shields the whole party from 3 damage.',effects:[{type:'shield',amount:3}]},
     'treasure-seelie':{name:'Treasure-Seeking Seelie',kind:'dice',cost:0,target:'none',rarity:2,text:'Adds 1 Omni die.',dice:'add',element:'Omni'},
     'parametric-transformer':{name:'Parametric Transformer',kind:'dice',cost:0,target:'none',rarity:3,text:'Adds 2 Omni dice.',dice:'add',element:'Omni',count:2},
+    // 1.63: Weapons, Artifacts, Supports, Summons and more Events (battle-cards.js).
+    ...TCG_CARDS,
 };
+// What kind of card each is, as the hand, the Inventory and the loot name it.
+export const KIND_LABELS={food:'Food',event:'Event',dice:'Dice',weapon:'Weapon',artifact:'Artifact',support:'Support',summon:'Summon'};
+export const kindLabel=item=>item?.kind==='support'&&item.group?`${item.group[0].toUpperCase()}${item.group.slice(1)}`:KIND_LABELS[item?.kind] || 'Event';
 // The default starter deck: ten cards (see starter-decks.js for each character's own).
 export const STARTER_BAG={'sweet-madame':3,'hash-brown':2,'lotus-crisp':2,'toss-up':1,'fried-egg':1,'starsigns':1};
 export const itemArt=id=>new URL(`./assets/tcg/items/${id}.webp`,import.meta.url).href;

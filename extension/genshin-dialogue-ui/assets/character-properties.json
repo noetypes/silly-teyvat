@@ -6478,5 +6478,149 @@
   "region": "Inazuma",
   "maxHp": 165,
   "deathMessage": "Thunder Manifestation falls still as its elemental power fades."
+ },
+ "Abyss Herald: Wicked Torrents": {
+  "role": "enemy",
+  "playable": false,
+  "maxHp": 46,
+  "deathMessage": "{name} falls still. The threat has passed.",
+  "modelType": "custom",
+  "modelScale": 95
+ },
+ "Abyss Lector: Fathomless Flames": {
+  "role": "enemy",
+  "playable": false,
+  "maxHp": 46,
+  "deathMessage": "{name} falls still. The threat has passed.",
+  "modelType": "custom",
+  "modelScale": 95
+ },
+ "Abyss Lector: Violet Lightning": {
+  "role": "enemy",
+  "playable": false,
+  "maxHp": 46,
+  "deathMessage": "{name} falls still. The threat has passed.",
+  "modelType": "custom",
+  "modelScale": 95
+ },
+ "Black Serpent Knight: Rockbreaker Ax": {
+  "role": "enemy",
+  "playable": false,
+  "maxHp": 66,
+  "deathMessage": "{name} falls still. The threat has passed.",
+  "modelType": "custom",
+  "modelScale": 100
+ },
+ "Black Serpent Knight: Windcutter": {
+  "role": "enemy",
+  "playable": false,
+  "maxHp": 56,
+  "deathMessage": "{name} falls still. The threat has passed.",
+  "modelType": "custom",
+  "modelScale": 100
+ },
+ "Consecrated Fanged Beast": {
+  "role": "enemy",
+  "playable": false,
+  "maxHp": 56,
+  "deathMessage": "{name} falls still. The threat has passed.",
+  "modelType": "custom",
+  "modelScale": 100
+ },
+ "Consecrated Flying Serpent": {
+  "role": "enemy",
+  "playable": false,
+  "maxHp": 56,
+  "deathMessage": "{name} falls still. The threat has passed.",
+  "modelType": "custom",
+  "modelScale": 100
+ },
+ "Consecrated Horned Crocodile": {
+  "role": "enemy",
+  "playable": false,
+  "maxHp": 61,
+  "deathMessage": "{name} falls still. The threat has passed.",
+  "modelType": "custom",
+  "modelScale": 100
+ },
+ "Consecrated Scorpion": {
+  "role": "enemy",
+  "playable": false,
+  "maxHp": 56,
+  "deathMessage": "{name} falls still. The threat has passed.",
+  "modelType": "custom",
+  "modelScale": 100
+ },
+ "Eremite Floral Ring-Dancer": {
+  "role": "enemy",
+  "playable": false,
+  "maxHp": 56,
+  "deathMessage": "{name} falls still. The threat has passed.",
+  "modelType": "custom",
+  "modelScale": 90
+ },
+ "Eremite Scorching Loremaster": {
+  "role": "enemy",
+  "playable": false,
+  "maxHp": 56,
+  "deathMessage": "{name} falls still. The threat has passed.",
+  "modelType": "custom",
+  "modelScale": 90
+ },
+ "Fatui Electro Cicin Mage": {
+  "role": "enemy",
+  "playable": false,
+  "maxHp": 56,
+  "deathMessage": "{name} falls still. The threat has passed.",
+  "modelType": "custom",
+  "modelScale": 88
+ },
+ "Frost Operative": {
+  "role": "enemy",
+  "playable": false,
+  "maxHp": 61,
+  "deathMessage": "{name} falls still. The threat has passed.",
+  "modelType": "custom",
+  "modelScale": 92
+ },
+ "Hydro Hilichurl Rogue": {
+  "role": "enemy",
+  "playable": false,
+  "maxHp": 61,
+  "deathMessage": "{name} falls still. The threat has passed.",
+  "modelType": "custom",
+  "modelScale": 95
+ },
+ "La Signora": {
+  "role": "enemy",
+  "playable": false,
+  "maxHp": 66,
+  "deathMessage": "{name} falls still. The threat has passed.",
+  "modelType": "custom",
+  "modelScale": 92
+ },
+ "Mirror Maiden": {
+  "role": "enemy",
+  "playable": false,
+  "maxHp": 56,
+  "deathMessage": "{name} falls still. The threat has passed.",
+  "modelType": "custom",
+  "modelScale": 90
+ },
+ "Stonehide Lawachurl": {
+  "role": "enemy",
+  "playable": false,
+  "maxHp": 56,
+  "deathMessage": "{name} falls still. The threat has passed.",
+  "modelType": "custom",
+  "modelScale": 100
+ },
+ "Wayward Hermetic Spiritspeaker": {
+  "role": "enemy",
+  "playable": false,
+  "maxHp": 56,
+  "deathMessage": "{name} falls still. The threat has passed.",
+  "modelType": "custom",
+  "modelScale": 90
  }
 }

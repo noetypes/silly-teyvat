@@ -2,13 +2,13 @@
 """Rebuild extension/genshin-dialogue-ui/style.css: the base rules, then each design layer.
 
 SillyTavern loads only style.css, so the layer files are appended after a marker.
-Edit the layer files (teyvat-ui.css, world-map-ui.css, ui-121.css, battle.css, location-music.css, paimon-menu.css, character-identity.css, inventory.css, trust.css, ui-143.css, ui-144.css, ui-146.css, ui-154.css, character-screen.css, ui-159.css, ui-161.css, ui-162.css), never the
+Edit the layer files (teyvat-ui.css, world-map-ui.css, ui-121.css, battle.css, location-music.css, paimon-menu.css, character-identity.css, inventory.css, trust.css, ui-143.css, ui-144.css, ui-146.css, ui-154.css, character-screen.css, ui-159.css, ui-161.css, ui-162.css, ui-163.css), never the
 appended part of style.css, or the next build discards the change.
 """
 import pathlib, sys
 
 EXT = pathlib.Path(__file__).resolve().parent.parent / 'extension' / 'genshin-dialogue-ui'
-LAYERS = sys.argv[1:] or ['teyvat-ui.css', 'world-map-ui.css', 'ui-121.css', 'battle.css', 'location-music.css', 'paimon-menu.css', 'character-identity.css', 'inventory.css', 'trust.css', 'ui-143.css', 'ui-144.css', 'ui-146.css', 'ui-154.css', 'character-screen.css', 'ui-159.css', 'ui-161.css', 'ui-162.css']
+LAYERS = sys.argv[1:] or ['teyvat-ui.css', 'world-map-ui.css', 'ui-121.css', 'battle.css', 'location-music.css', 'paimon-menu.css', 'character-identity.css', 'inventory.css', 'trust.css', 'ui-143.css', 'ui-144.css', 'ui-146.css', 'ui-154.css', 'character-screen.css', 'ui-159.css', 'ui-161.css', 'ui-162.css', 'ui-163.css']
 MARK = '\n/* @@silly-teyvat-1.19-ui@@ */\n'
 
 style = EXT / 'style.css'

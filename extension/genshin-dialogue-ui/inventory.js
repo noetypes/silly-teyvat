@@ -16,6 +16,10 @@ const ICON={
     food:'<svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M3 12h18a9 9 0 0 1-6 8.5V22H9v-1.5A9 9 0 0 1 3 12Zm4.5-9c1.5 1.5-1 3 .5 4.5M12 2c1.5 1.5-1 3 .5 4.5M16.5 3c1.5 1.5-1 3 .5 4.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>',
     event:'<svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M6 2h12a1 1 0 0 1 1 1v18a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1Zm6 5-1.5 3.2L7 10.6l2.6 2.3-.7 3.6L12 14.8l3.1 1.7-.7-3.6 2.6-2.3-3.5-.4z"/></svg>',
     dice:'<svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M12 1.5 21 6.7v10.6L12 22.5 3 17.3V6.7zm0 4.3a1.6 1.6 0 1 0 0 3.2 1.6 1.6 0 0 0 0-3.2Zm-4.5 6.6a1.6 1.6 0 1 0 0 3.2 1.6 1.6 0 0 0 0-3.2Zm9 0a1.6 1.6 0 1 0 0 3.2 1.6 1.6 0 0 0 0-3.2Z"/></svg>',
+    weapon:'<svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M19.5 2 22 4.5 10.6 15.9l-2.5-2.5zM7.4 14.1l2.5 2.5-1.6 1.6 1.2 1.2-1.4 1.4-1.2-1.2L4.6 22 2 19.4l2.4-2.3-1.2-1.2 1.4-1.4 1.2 1.2z"/></svg>',
+    artifact:'<svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M12 2c2.5 2.6 5.6 3.4 8 3.3.2 7.4-2.6 13-8 16.7C6.6 18.3 3.8 12.7 4 5.3 6.4 5.4 9.5 4.6 12 2Zm0 5.2-1.3 2.7-3 .4 2.2 2-.6 3 2.7-1.5 2.7 1.5-.6-3 2.2-2-3-.4z"/></svg>',
+    support:'<svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M12 2 2.5 8v2h19V8zM4.5 11h2.5v7H4.5zm6.25 0h2.5v7h-2.5zm6.25 0h2.5v7H17zM2.5 19.5h19V22h-19z"/></svg>',
+    summon:'<svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M12 2.5 14 9l6.5-1.5L16 12l4.5 4.5L14 15l-2 6.5L10 15l-6.5 1.5L8 12 3.5 7.5 10 9z"/></svg>',
     close:'<svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="m6 6 12 12M18 6 6 18"/></svg>',
     sort:'<svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 4v16M4 8l4-4 4 4M16 20V4M12 16l4 4 4-4"/></svg>',
 };
@@ -23,6 +27,10 @@ export const INVENTORY_GROUPS=[
     {id:'food',label:'Food',use:'In battle, eaten before anyone acts, one dish per member each round. Dishes that heal or revive can also be eaten here between battles.'},
     {id:'event',label:'Event Cards',use:'Played during the Action Phase, before anyone acts.'},
     {id:'dice',label:'Dice Cards',use:'Changes your elemental dice the moment it is played.'},
+    {id:'weapon',label:'Weapons',use:'Equipped by a party member who wields that weapon type, for the rest of the fight. A new Weapon replaces the old one.'},
+    {id:'artifact',label:'Artifacts',use:'Equipped by one party member for the rest of the fight. A new Artifact replaces the old one.'},
+    {id:'support',label:'Support Cards',use:'Stays in play during the fight and acts each round (four supports at most). Usages run down as it acts.'},
+    {id:'summon',label:'Summon Cards',use:'Brings out a summon that acts at each End Phase for as many rounds as its Usages.'},
 ];
 const TABS=[{id:'all',label:'All'},...INVENTORY_GROUPS];
 const SORTS={rarity:'Quality',count:'Quantity',cost:'Cost',name:'Name'};

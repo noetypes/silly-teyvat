@@ -1,19 +1,24 @@
 #!/usr/bin/env python3
 """Collect the Genius Invokation TCG enemy character cards from the Genshin Impact Wiki API.
 
-Usage: fetch-tcg-enemies.py [out.json]
+Usage: fetch-tcg-enemies.py [--new] [out.json]
 Reads the "Unobtainable" table of Genius_Invokation_TCG/Card_List/Character_Cards (the 57
 monster, Fatui, Eremite, Kairagi and Nobushi cards used by the game's PvE challenges), then
 each card page for its health, element and skills, the card art's original URL, and the
 matching enemy page's archive description. Writes JSON (default work/tcg-enemies/cards.json)
 for build-tcg-enemy-cards.py.
+--new reads the obtainable table instead and keeps the Monster, Fatui and Eremite cards that have no
+Silly Teyvat character yet (default output work/tcg-enemies/new-cards.json).
 """
 import html, json, re, sys, time, urllib.parse, urllib.request
 from pathlib import Path
 
 API = 'https://genshin-impact.fandom.com/api.php'
 HEADERS = {'User-Agent': 'SillyTeyvat/1.40 (tcg enemies)'}
-OUT = Path(sys.argv[1]) if len(sys.argv) > 1 else Path(__file__).resolve().parent.parent / 'work/tcg-enemies/cards.json'
+NEW = '--new' in sys.argv
+ARGS = [a for a in sys.argv[1:] if a != '--new']
+REPO = Path(__file__).resolve().parent.parent
+OUT = Path(ARGS[0]) if ARGS else REPO / ('work/tcg-enemies/new-cards.json' if NEW else 'work/tcg-enemies/cards.json')
 
 def get(params):
     url = API + '?' + urllib.parse.urlencode({**params, 'format': 'json'})
@@ -31,7 +36,7 @@ def text(fragment):
 
 def card_list():
     page = get({'action': 'parse', 'page': 'Genius_Invokation_TCG/Card_List/Character_Cards', 'prop': 'text'})['parse']['text']['*']
-    table = re.findall(r'<table.*?</table>', page, re.S)[1]
+    table = re.findall(r'<table.*?</table>', page, re.S)[0 if NEW else 1]
     cards = []
     for row in re.findall(r'<tr.*?</tr>', table, re.S)[1:]:
         cells = [text(c) for c in re.findall(r'<td.*?</td>', row, re.S)]
@@ -84,6 +89,11 @@ def images(titles):
 
 def main():
     cards = card_list()
+    if NEW:
+        # Obtainable cards of monsters and the Fatui and Eremites, minus those Silly Teyvat already has.
+        norm = lambda name: re.sub(r'[^a-z0-9]', '', name.lower())
+        have = {norm(n) for n in json.loads((REPO / 'extension/genshin-dialogue-ui/assets/character-properties.json').read_text())}
+        cards = [c for c in cards if re.search(r'Monster|Fatui|Eremites', c['faction']) and norm(c['name']) not in have]
     art = images([c['page'] for c in cards])
     for card in cards:
         card['image'] = art.get(card['page'], '')

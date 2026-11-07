@@ -71,7 +71,7 @@ export function battleSnapshot(ctx,{portrait=()=>'',duel=null}={}){
     }
     // Elemental enemies enter with their own element applied (see innateAura).
     for(const u of units)if(u.hp>0&&innateAura(u)&&!auraList(u.aura).length)u.aura={element:innateAura(u),elements:[innateAura(u)]};
-    const state={key,duel:Boolean(duel),round:saved.round || 1,units,summons:structuredClone(saved.summons || []),fields:structuredClone(saved.fields || []),difficulty:combatDifficulty(ctx),bag:{...partyBag(ctx)}};
+    const state={key,duel:Boolean(duel),round:saved.round || 1,units,summons:structuredClone(saved.summons || []),fields:structuredClone(saved.fields || []),supports:structuredClone(saved.supports || []),supportSeq:saved.supportSeq || 0,difficulty:combatDifficulty(ctx),bag:{...partyBag(ctx)}};
     // Genius Invokation's table: each side's active character, the cards in hand and who acts first.
     // A new fight (no saved active character) begins with the coin toss, the starting hand and a choice of character.
     const pick=(sideName,id)=>units.some(u=>u.side===sideName&&u.id===id&&u.hp>0)?id:null;
@@ -111,9 +111,13 @@ export function commitRound(ctx,before,result,id,{items=[],loot=[]}={}){
     }
     // The fight is over: what was owed has been paid, or was left behind by running away.
     if(result.victory||result.fled)for(const entry of Object.values(store.visits[before.key]?.enemies || {}))delete entry.spoils;
-    saved.round=after.round;saved.summons=after.summons;saved.fields=after.fields || [];
+    saved.round=after.round;saved.summons=after.summons;saved.fields=after.fields || [];saved.supports=after.supports || [];saved.supportSeq=after.supportSeq || 0;
     const over=result.victory||result.fled||result.wiped;
-    if(over){delete saved.active;delete saved.hand;delete saved.first;}
+    // Weapons, Artifacts and supports last one fight: the next one starts without them.
+    if(over){
+        delete saved.active;delete saved.hand;delete saved.first;saved.supports=[];
+        for(const unit of Object.values(saved.units))unit.statuses=(unit.statuses || []).filter(s=>!s.slot);
+    }
     else{saved.active={...(result.active || after.active || {})};saved.hand=[...(result.hand || [])];saved.first=result.first || 'party';}
     // Only the whole party falling loses a fight now. Anyone still down when it is won or escaped comes to with 1 HP.
     if(result.victory||result.fled)for(const u of after.units)if(u.side==='party'&&!u.duel&&u.hp<=0&&u.isUser)party[u.id].hp=1;

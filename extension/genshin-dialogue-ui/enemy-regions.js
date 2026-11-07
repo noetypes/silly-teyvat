@@ -38,6 +38,13 @@ export const ENEMY_REGIONS={
     'Annihilation Specialist Mek - Ousia':[FONT],'Annihilation Specialist Mek - Pneuma':[FONT],'Arithmetic Enhancer Mek - Ousia':[FONT],'Arithmetic Enhancer Mek - Pneuma':[FONT],
     'Assault Specialist Mek - Ousia':[FONT],'Assault Specialist Mek - Pneuma':[FONT],'Suppression Specialist Mek - Ousia':[FONT],'Suppression Specialist Mek - Pneuma':[FONT],
     'Tainted Hydro Phantasm':[FONT],
+    // 1.63
+    'Abyss Herald: Wicked Torrents':[LIYUE,INA,SUMERU,FONT],'Abyss Lector: Fathomless Flames':[LIYUE,INA,SUMERU,FONT,NATLAN],'Abyss Lector: Violet Lightning':[LIYUE,INA,SUMERU,FONT,NATLAN],
+    'Black Serpent Knight: Rockbreaker Ax':[LIYUE,INA],'Black Serpent Knight: Windcutter':[LIYUE,INA],
+    'Consecrated Fanged Beast':[SUMERU],'Consecrated Flying Serpent':[SUMERU],'Consecrated Horned Crocodile':[SUMERU],'Consecrated Scorpion':[SUMERU],
+    'Eremite Floral Ring-Dancer':[SUMERU],'Eremite Scorching Loremaster':[SUMERU],
+    'Fatui Electro Cicin Mage':FATUI,'Frost Operative':[FONT,NATLAN,NOD,SNEZH],'Mirror Maiden':[LIYUE,INA,SUMERU,FONT,SNEZH],'La Signora':[INA],
+    'Hydro Hilichurl Rogue':[SUMERU,FONT],'Stonehide Lawachurl':[MOND,LIYUE,INA,SUMERU],'Wayward Hermetic Spiritspeaker':[NATLAN],
 };
 // Starter pools, chosen for each waypoint's terrain and story within its region, and spread so that
 // a region's enemies are met in several places. A listed waypoint with no characters is wilderness.
@@ -156,6 +163,27 @@ export const LOCATION_POOLS={
     'map14-snezhnaya-old-kitezhgrad':['Cryo Abyss Mage','Fatui Skirmisher - Hydrogunner Legionnaire','Fatui Skirmisher - Pyroslinger Bracer','Cryo Whopperflower','Large Cryo Slime'],
     'map14-snezhnaya-flamefeather-valley':['Fatui Skirmisher - Cryogunner Legionnaire','Fatui Skirmisher - Hydrogunner Legionnaire','Fatui Pyro Agent','Cryo Whopperflower','Large Cryo Slime'],
 };
+// 1.63: the new enemies join these waypoints' pools. La Signora joins none: add her where you like.
+export const NEW_ENEMY_POOLS={
+    'Abyss Herald: Wicked Torrents':['wild-liyue-wuwang-hill','wild-inazuma-koseki-village','wilderness-old-vanarana','wilderness-salacia-plain','map14-fontaine-faded-castle'],
+    'Abyss Lector: Fathomless Flames':['wild-inazuma-tatarasuna','map14-sumeru-debris-of-panjvahe','east-natlan-ancestral-temple','map14-liyue-sal-terrae'],
+    'Abyss Lector: Violet Lightning':['wild-inazuma-chirai-shrine','wilderness-fane-of-ashvattha','expansion-ochkanatlan','expansion-cuijue-slope'],
+    'Black Serpent Knight: Rockbreaker Ax':['wild-liyue-mt-hulao','map14-inazuma-araumi'],
+    'Black Serpent Knight: Windcutter':['expansion-guili-plains','map14-inazuma-musoujin-gorge'],
+    'Consecrated Fanged Beast':['map14-sumeru-safhe-shatranj','expansion-vourukasha-oasis'],
+    'Consecrated Flying Serpent':['expansion-the-mausoleum-of-king-deshret','map14-sumeru-gate-of-zulqarnain'],
+    'Consecrated Horned Crocodile':['expansion-vourukasha-oasis','map14-sumeru-wounded-shin-valley'],
+    'Consecrated Scorpion':['map14-sumeru-khaj-nisut','expansion-the-mausoleum-of-king-deshret'],
+    'Eremite Floral Ring-Dancer':['wilderness-port-ormos','map14-sumeru-safhe-shatranj'],
+    'Eremite Scorching Loremaster':['map14-sumeru-gate-of-zulqarnain','map14-sumeru-khaj-nisut'],
+    'Fatui Electro Cicin Mage':['wild-inazuma-fort-fujitou','map14-mondstadt-stormbearer-mountains','east-nod-special-territory-institute','starter-snezhnograd'],
+    'Frost Operative':['wilderness-fort-charybdis-ruins','east-nod-kipumaki-cliff','starter-pale-crown-palace','map14-natlan-remnants-of-tetenanco'],
+    'Hydro Hilichurl Rogue':['wilderness-mawtiyima-forest','map14-fontaine-loch-urania','expansion-weeping-willow-of-the-lake'],
+    'Mirror Maiden':['wild-liyue-stone-gate','map14-inazuma-mouun-shrine','map14-sumeru-wounded-shin-valley','wilderness-lumidouce-harbor','starter-central-station'],
+    'Stonehide Lawachurl':['wild-mondstadt-dadaupa-gorge','map14-liyue-tiangong-gorge','map14-inazuma-shirikoro-peak','map14-sumeru-devantaka-mountain'],
+    'Wayward Hermetic Spiritspeaker':['map14-natlan-tepeacac-rise','east-natlan-night-kingdom-causeway'],
+};
+for(const [name,ids] of Object.entries(NEW_ENEMY_POOLS))for(const id of ids)if(LOCATION_POOLS[id]&&!LOCATION_POOLS[id].includes(name))LOCATION_POOLS[id].push(name);
 export const ENEMY_POOLS_VERSION=2;
 
 const known=region=>REGIONS.find(r=>r.toLowerCase()===String(region || '').toLowerCase());
@@ -171,6 +199,22 @@ export function enemyNative(name,region){
 }
 export const nativeRegions=name=>ENEMY_REGIONS[name] || null;
 
+// Adds the 1.63 enemies to saved pools without touching anything else in them: each enemy once,
+// as soon as its character card is installed. Pools a player emptied or edited keep their own choices.
+export function addNewEnemies(ctx){
+    const prefs=mediaSettings(ctx);
+    if(!ctx.characters?.length)return 0;
+    const done=new Set(prefs.enemyAdditions || []),byId=new Map((prefs.backgroundRegions || []).flatMap(r=>r.locations || []).map(l=>[l.id,l]));
+    let changed=0;
+    for(const [name,ids] of Object.entries(NEW_ENEMY_POOLS)){
+        if(done.has(name))continue;
+        const avatar=ctx.characters.find(c=>c.name===name)?.avatar;if(!avatar)continue;
+        for(const id of ids){const location=byId.get(id);if(location?.wilderness&&Array.isArray(location.enemyPool)&&!location.enemyPool.includes(avatar)){location.enemyPool.push(avatar);changed++;}}
+        done.add(name);
+    }
+    if(done.size!==(prefs.enemyAdditions || []).length){prefs.enemyAdditions=[...done];ctx.saveSettingsDebounced?.();}
+    return changed;
+}
 // One-time update of saved pools: each listed waypoint takes its new pool and becomes wilderness
 // unless characters live there. Other wilderness keeps its pool, without enemies foreign to its region.
 export function alignEnemyPools(ctx){
