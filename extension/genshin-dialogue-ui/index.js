@@ -34,6 +34,7 @@ import { setLocationCharacterLimit } from './location-capacity.js';
 import { createJourneyLibraryAdapter, purgeLegacyJourneys, isLegacyJourneyGroup } from './journey-library.js';
 import { mountCardArt } from './card-art.js';
 import { mountInventory } from './inventory.js';
+import { mountCardSearch, currentGuild, QUEST_MENU_ICON } from './card-search.js';
 import {trustEnabled,presentCharacters,syncTrustPrompt,trustPrompt,stripPromptTrustTags} from './trust.js';
 import {hideTrustTags} from './trust-tags.js';
 import {abyssGreeting,freshenTwinPersonas,keepAbyssGreeting,restoreTwinCards,syncTwinPrompt,twinRolesPrompt,wearTwinCards} from './twin-roles.js';
@@ -88,6 +89,8 @@ const menuButton = (action, label, icon = action) => MENU_ICONS.has(icon)
     : button(action, label, icon, false);
 // Trust has no icon in the game, so its heart is drawn to match them: their white, their outline.
 const TRUST_ICON = `data:image/svg+xml,${encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 21.2 3.6 12.8a5.4 5.4 0 0 1 7.6-7.6l.8.8.8-.8a5.4 5.4 0 0 1 7.6 7.6Z" fill="#fff" stroke="#1c1c1c" stroke-width="1" stroke-linejoin="round"/></svg>')}`;
+// Card Search is only offered at an Adventurers' Guild (card-search.js), with the game's Quests icon.
+const questButton = () => `<button type="button" data-gi-action="card-search" aria-label="Card Search" hidden><img class="gi-pm-icon" src="${QUEST_MENU_ICON}" alt="" aria-hidden="true" draggable="false"><span>Card Search</span></button>`;
 const trustButton = () => `<button type="button" data-gi-action="trust" aria-label="Trust"><img class="gi-pm-icon" src="${TRUST_ICON}" alt="" aria-hidden="true" draggable="false"><span>Trust</span></button>`;
 let mounted = false;
 let removeJourneyFilter;
@@ -120,7 +123,7 @@ let choiceUI;
 let combatUI;
 let locationMusicUI;
 let spriteUI;
-let wardrobeUI,inventoryUI,trustUI;
+let wardrobeUI,inventoryUI,trustUI,cardSearchUI;
 let personaSession,soloChatUI,loadingUI,keyboardFrame,lastPlaceId='';
 let mediaUI,shareUI,uiSound;
 let stageEffects;
@@ -377,6 +380,9 @@ function refresh() {
     worldMapUI?.sync({on:Boolean(prefs.enabled&&inChat),show:Boolean(sceneActive&&!history&&!hidden&&!menuOpen),location:backgroundUI?.current,loading:Boolean(loadingUI?.visible)});
     document.querySelectorAll('[data-gi-action="wardrobe"]').forEach(el => el.hidden = !prefs.wardrobe);
     document.querySelectorAll('[data-gi-action="trust"]').forEach(el => el.hidden = !prefs.trustSystem);
+    const atGuild = Boolean(prefs.enabled && inChat && currentGuild(ctx));
+    document.querySelectorAll('[data-gi-action="card-search"]').forEach(el => el.hidden = !atGuild);
+    if (!atGuild && cardSearchUI?.isOpen) cardSearchUI.close();
     if (!prefs.wardrobe) wardrobeUI?.close();
     // Top-right SillyTavern icons: shown, hidden, or (Auto) hidden on phones for a clean layout.
     const hideTop = topIconsHidden(prefs);
@@ -668,6 +674,7 @@ function handleAction(event) {
         case 'wardrobe': menuOpen = false; refresh(); wardrobeUI?.open().catch(fail); break;
         case 'inventory': menuOpen = false; refresh(); inventoryUI?.open(); break;
         case 'trust': menuOpen = false; refresh(); trustUI?.open(); break;
+        case 'card-search': menuOpen = false; refresh(); cardSearchUI?.open(); break;
         case 'gallery': menuOpen = false; refresh(); mediaUI?.openGallery(); break;
         case 'share-extension': void shareUI?.exportExtension(); break;
         case 'share-export': void shareUI?.exportGameData(); break;
@@ -803,7 +810,7 @@ export async function initialize(options = {}) {
                 <button type="button" class="gi-pm-switch" data-gi-action="toggle" aria-pressed="false" aria-label="Silly Teyvat"><span>Silly Teyvat</span><i aria-hidden="true"></i></button>
                 <button type="button" class="gi-pm-switch gi-pm-solo" data-gi-action="solo-journey" hidden><span>Start solo journey</span></button>
                 <section id="gi-pm-namecards" class="gi-pm-namecards" aria-label="Namecards" hidden><header><h3>Namecard</h3>${menuButton('namecards', 'Done', 'close')}</header><div class="gi-pm-nc-list" role="radiogroup" aria-label="Choose a namecard"></div></section>
-                <div class="gi-pm-grid">${menuButton('auto', 'Auto')}${menuButton('history', 'Review', 'book')}${menuButton('wardrobe', 'Characters')}${menuButton('inventory', 'Inventory', 'bag')}${trustButton()}${menuButton('map', 'Map')}${menuButton('gallery', 'Gallery', 'cg')}${menuButton('compose', 'Chat Box')}${menuButton('hide', 'Hide UI')}${menuButton('namecards', 'Namecard', 'namecard')}</div>
+                <div class="gi-pm-grid">${menuButton('auto', 'Auto')}${menuButton('history', 'Review', 'book')}${menuButton('wardrobe', 'Characters')}${menuButton('inventory', 'Inventory', 'bag')}${questButton()}${trustButton()}${menuButton('map', 'Map')}${menuButton('gallery', 'Gallery', 'cg')}${menuButton('compose', 'Chat Box')}${menuButton('hide', 'Hide UI')}${menuButton('namecards', 'Namecard', 'namecard')}</div>
                 <section class="gi-pm-tavern" aria-label="SillyTavern"><h3>SillyTavern</h3><div class="gi-pm-grid">${ST_DRAWERS.map(([id, label]) => `<button type="button" data-gi-action="st-drawer" data-drawer="${id}" aria-label="${label}"><img src="${drawerIcon(id)}" alt="" aria-hidden="true" draggable="false"${id === 'persona-management-button' ? ' data-persona' : ''}><span>${label}</span></button>`).join('')}</div></section>
             </div>
         </nav>
@@ -832,7 +839,7 @@ export async function initialize(options = {}) {
     }});
     locationMusicUI=mountLocationMusic({host,getContext:context,adapter:mediaAdapter,announce,onChange:schedule});
     worldMapUI=mountWorldMap({host,getContext:context,adapter:mediaAdapter,announce,
-        openMusic:id=>locationMusicUI.openLocation(id),openMusicLibrary:()=>locationMusicUI.openLibrary(),
+        openMusic:id=>locationMusicUI.openLocation(id),openMusicLibrary:()=>locationMusicUI.openLibrary(),openCardSearch:()=>cardSearchUI?.open(),
         openJourney:id=>journeyAdapter.open(id),
         prepareTeleport:location=>locationCastUI.prepareTeleport(location),commitTeleport:plan=>locationCastUI.commitTeleport(plan),onTeleport:jumpToArrival,retryCast:()=>locationCastUI.retry(),
         onChange:()=>{backgroundUI.refresh();schedule();}});
@@ -845,6 +852,7 @@ export async function initialize(options = {}) {
     // Members fed from the Inventory glow on the stage once the bag closes and the scene is visible again.
     const fed = new Set();
     trustUI = mountTrust({ host, getContext: context, announce });
+    cardSearchUI = mountCardSearch({ host, getContext: context, announce, onChange: schedule });
     inventoryUI = mountInventory({ host, getContext: context, announce, onEat: ({ avatar }) => { fed.add(avatar); schedule(); }, onClose: () => { for (const avatar of fed) spriteUI?.heal(avatar); fed.clear(); },
         gift: { people: ctx => trustEnabled(ctx) ? presentCharacters(ctx).map(avatar => ctx.characters?.find(c => c.avatar === avatar)).filter(Boolean) : null, give: (id, avatar) => giftCard(id, avatar) } });
     try {
@@ -1009,6 +1017,7 @@ export function dispose() {
     wardrobeUI?.dispose(); wardrobeUI = undefined;
     inventoryUI?.dispose(); inventoryUI = undefined;
     trustUI?.dispose(); trustUI = undefined;
+    cardSearchUI?.dispose(); cardSearchUI = undefined;
     spriteUI?.dispose(); spriteUI = undefined;
     stageEffects?.dispose();stageEffects=undefined;
     cardArtUI?.dispose();cardArtUI=undefined;

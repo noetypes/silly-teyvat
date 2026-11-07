@@ -1,0 +1,125 @@
+/* ---------- Card Search (1.69): the Adventurers' Guild's search menu and the map's Quest markers ---------- */
+#gi-card-search {
+    --cs-paper: #ece5d8; --cs-ink: #3d4557; --cs-bar: #1d2232e6; --cs-gold: #d3bc8e; --cs-tile: clamp(108px, 9.5vw, 140px);
+    position: fixed; inset: 0; box-sizing: border-box; width: 100vw; height: 100dvh; max-width: none; max-height: none; margin: 0; padding: 0; border: 0;
+    color: var(--cs-paper); font-family: var(--ty-font); overflow: hidden;
+    background: radial-gradient(ellipse 60% 50% at 70% 20%, #4f7a9a44, transparent 70%), radial-gradient(ellipse at 20% 110%, #8a6a3a44, transparent 60%), linear-gradient(170deg, #34465a, #1b2434 75%);
+}
+#gi-card-search[open] { display: grid; grid-template-columns: minmax(0, 1fr); grid-template-rows: auto auto minmax(0, 1fr) auto; animation: ty-fade 240ms ease both; }
+#gi-card-search::backdrop { background: #0b1527cc; backdrop-filter: blur(8px); }
+#gi-card-search *, #gi-card-search *::before, #gi-card-search *::after { box-sizing: border-box; }
+#gi-card-search button, #gi-card-search input, #gi-card-search select { font-family: inherit; }
+
+.gi-cs-top { display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 72px; padding: env(safe-area-inset-top, 0px) max(28px, env(safe-area-inset-right, 0px)) 0 max(28px, env(safe-area-inset-left, 0px)); background: var(--cs-bar); box-shadow: 0 1px 0 #ffffff12, 0 8px 24px #0006; }
+.gi-cs-title { display: flex; align-items: center; gap: 14px; min-width: 0; }
+.gi-cs-badge { display: grid; place-items: center; flex: none; width: 46px; height: 46px; border-radius: 12px; background: linear-gradient(#5b6378, #3c4357); box-shadow: inset 0 0 0 1.5px #d3bc8e88; }
+.gi-cs-badge img { width: 30px; height: 30px; object-fit: contain; }
+.gi-cs-title small { display: block; font-size: 14px; color: var(--cs-gold); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.gi-cs-title h2 { margin: 0; font-size: 24px; font-weight: 400; color: var(--cs-paper); }
+.gi-cs-meta { display: flex; align-items: center; gap: 18px; }
+.gi-cs-total { font-size: 18px; color: var(--cs-gold); white-space: nowrap; }
+.gi-cs-close { display: grid; place-items: center; width: 46px; height: 46px; padding: 0; border: 0; border-radius: 50%; cursor: pointer; color: var(--cs-ink); background: var(--cs-paper); box-shadow: 0 0 0 3px #ffffff40, 0 4px 12px #0007; transition: transform 180ms var(--ty-ease, ease); }
+.gi-cs-close svg { width: 22px; height: 22px; }
+.gi-cs-close:hover { transform: rotate(90deg); }
+
+/* Tools: search box, card-type chips and the sort pill. */
+.gi-cs-tools { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 16px; padding: 16px clamp(16px, 5vw, 96px) 4px; }
+.gi-cs-query { flex: 1 1 220px; min-width: 0; max-width: 360px; height: 42px; padding: 0 18px; border: 0; border-radius: 21px; font-size: 16px; color: var(--cs-ink); background: var(--cs-paper); box-shadow: inset 0 0 0 2px #fff8, 0 0 0 1px #d3bc8e88; }
+.gi-cs-query:focus-visible { outline: 3px solid #f2dca0; outline-offset: 2px; }
+.gi-cs-kinds { display: flex; flex-wrap: wrap; gap: 6px; flex: 10 1 auto; }
+.gi-cs-kinds button { height: 34px; padding: 0 14px; border: 0; border-radius: 17px; cursor: pointer; font-size: 15px; color: #ece5d8cc; background: #ffffff14; box-shadow: inset 0 0 0 1px #ffffff22; transition: background 140ms ease, color 140ms ease; }
+.gi-cs-kinds button:hover { color: var(--cs-paper); background: #ffffff24; }
+.gi-cs-kinds button[aria-pressed="true"] { color: var(--cs-ink); background: var(--cs-paper); box-shadow: 0 0 0 2px #d3bc8e; }
+.gi-cs-kinds button:focus-visible, .gi-cs-order:focus-visible, .gi-cs-sort select:focus-visible { outline: 3px solid #f2dca0; outline-offset: 2px; }
+.gi-cs-sortbar { display: flex; align-items: center; gap: 10px; }
+.gi-cs-order { display: grid; place-items: center; width: 42px; height: 42px; padding: 0; border: 0; border-radius: 50%; cursor: pointer; color: var(--cs-ink); background: var(--cs-paper); box-shadow: inset 0 0 0 2px #fff8, 0 0 0 1px #d3bc8e88; }
+.gi-cs-order svg { width: 22px; height: 22px; transition: rotate 240ms var(--ty-ease, ease); }
+.gi-cs-order[aria-pressed="true"] svg { rotate: 180deg; }
+.gi-cs-sort { display: flex; align-items: center; gap: 8px; height: 42px; padding: 0 6px 0 18px; border-radius: 21px; font-size: 15px; color: #3d4557a6; background: var(--cs-paper); box-shadow: inset 0 0 0 2px #fff8, 0 0 0 1px #d3bc8e88; }
+.gi-cs-sort select { height: 34px; padding: 0 8px; border: 0; border-radius: 17px; font-size: 16px; color: var(--cs-ink); background: transparent; cursor: pointer; }
+
+/* Body: every Action card on the left, the focused card and where it drops on the right. */
+.gi-cs-body { display: grid; grid-template-columns: minmax(0, 1fr) clamp(300px, 28vw, 420px); gap: clamp(16px, 3vw, 40px); min-height: 0; padding: 14px clamp(16px, 5vw, 96px) 0; }
+.gi-cs-list { min-height: 0; overflow: hidden auto; padding: 6px 10px 24px 6px; scrollbar-width: thin; scrollbar-color: #d3bc8e88 transparent; }
+.gi-cs-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(var(--cs-tile), 1fr)); gap: 16px 14px; }
+.gi-cs-empty { margin: 40px 0; text-align: center; font-size: 18px; color: #ece5d8b3; }
+.gi-cs-card { --q1: #5a6d9a; --q2: #6b86c6; position: relative; display: grid; grid-template-rows: auto auto auto; padding: 0 0 6px; border: 0; border-radius: 8px 8px 6px 6px; overflow: hidden; cursor: pointer; text-align: center; color: var(--cs-ink); background: var(--cs-paper); box-shadow: 0 4px 10px #0007; transition: transform 160ms var(--ty-ease, ease), box-shadow 160ms ease, opacity 160ms ease; }
+.gi-cs-card.gi-q-purple { --q1: #6a5490; --q2: #a07cc4; }
+.gi-cs-card.gi-q-gold { --q1: #9a5c2e; --q2: #d18a3e; }
+.gi-cs-art { position: relative; display: block; padding: 10px 12px 20px; background: linear-gradient(160deg, var(--q1), var(--q2)); border-bottom-right-radius: 20px; }
+.gi-cs-art img { display: block; width: 100%; aspect-ratio: 420 / 720; object-fit: contain; filter: drop-shadow(0 4px 6px #0008); }
+.gi-cs-stars { position: absolute; left: 0; right: 0; bottom: 3px; font-size: 13px; letter-spacing: 1px; color: #ffcc32; text-shadow: 0 1px 2px #0009; }
+.gi-cs-check { position: absolute; right: 6px; top: 6px; width: 26px; height: 26px; border-radius: 50%; background: #1d2232b3; box-shadow: inset 0 0 0 2px #ece5d8aa; opacity: 0; scale: .7; transition: opacity 160ms ease, scale 200ms var(--ty-ease, ease); }
+.gi-cs-check::after { content: ""; position: absolute; left: 9px; top: 5px; width: 6px; height: 12px; border-right: 2.5px solid #fff; border-bottom: 2.5px solid #fff; rotate: 45deg; }
+.gi-cs-name { display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; height: calc(2.4em + 6px); margin-bottom: 4px; padding: 6px 6px 0; font-size: 14px; line-height: 1.2; overflow: hidden; }
+.gi-cs-where { font-size: 12px; color: #3d4557b3; }
+.gi-cs-card:hover:not(:disabled) { transform: translateY(-3px); }
+.gi-cs-card:hover:not(:disabled):not([aria-pressed="true"]) { box-shadow: 0 8px 18px #0009; }
+.gi-cs-card:focus-visible { outline: 3px solid #f2dca0; outline-offset: 3px; }
+.gi-cs-card[aria-pressed="true"] { box-shadow: 0 0 0 3px #fff, 0 0 0 5px #4fc3ff, 0 0 22px #4fc3ff88, 0 8px 18px #0009; }
+.gi-cs-card[aria-pressed="true"] .gi-cs-check { opacity: 1; scale: 1; background: linear-gradient(#3db4ff, #1f7fd0); box-shadow: 0 0 0 2px #fff, 0 2px 6px #0008; }
+.gi-cs-card:disabled { cursor: not-allowed; opacity: .45; filter: grayscale(.6); }
+
+.gi-cs-detail { --q1: #45547f; --q2: #6b86c6; align-self: start; display: grid; max-height: 100%; min-height: 0; border-radius: 4px; overflow: hidden auto; color: var(--cs-ink); background: var(--cs-paper); box-shadow: 0 12px 34px #000a; scrollbar-width: thin; }
+.gi-cs-detail.gi-q-purple { --q1: #5b4583; --q2: #9a72c0; }
+.gi-cs-detail.gi-q-gold { --q1: #a35b2a; --q2: #d58e45; }
+.gi-cs-detail[hidden] { display: none; }
+.gi-cs-d-head { position: relative; display: grid; align-content: start; gap: 4px; min-height: 170px; padding: 14px 120px 14px 20px; color: #fff; background: linear-gradient(160deg, color-mix(in srgb, var(--q1) 80%, #000), var(--q2)); overflow: hidden; }
+.gi-cs-d-head small { font-size: 15px; color: #ffffffcc; }
+.gi-cs-d-head h3 { margin: 0; font-size: clamp(20px, 1.8vw, 26px); font-weight: 400; line-height: 1.2; }
+.gi-cs-d-stars { font-size: 20px; letter-spacing: 2px; color: #ffcc32; text-shadow: 0 1px 3px #0008; }
+.gi-cs-d-art { position: absolute; right: 16px; top: 12px; height: calc(100% - 24px); aspect-ratio: 420 / 720; object-fit: contain; rotate: 4deg; filter: drop-shadow(0 8px 14px #0009); }
+.gi-cs-d-body { display: grid; gap: 8px; padding: 14px 20px 6px; }
+.gi-cs-d-text { margin: 0; font-size: 16px; line-height: 1.4; }
+.gi-cs-d-own { margin: 0; font-size: 14px; color: #5b6476; }
+.gi-cs-d-body h4 { margin: 6px 0 0; font-size: 16px; font-weight: 400; color: #5aa25a; }
+.gi-cs-d-places { display: grid; gap: 4px; margin: 0; padding: 0; list-style: none; }
+.gi-cs-d-places li { display: flex; align-items: baseline; justify-content: space-between; gap: 10px; padding: 6px 10px 6px 30px; border-radius: 4px; font-size: 15px; background: #3d455712 url("assets/icons/map-badge-quest.webp") 8px 50% / 14px auto no-repeat; }
+.gi-cs-d-places li small { flex: none; font-size: 12px; color: #5b6476; }
+.gi-cs-d-places li.gi-cs-boss { box-shadow: inset 3px 0 0 #e0703a; }
+.gi-cs-d-toggle { margin: 10px 20px 16px; height: 42px; border: 0; border-radius: 21px; cursor: pointer; font-size: 16px; color: var(--cs-paper); background: linear-gradient(#4a5268, #3d4557); box-shadow: inset 0 0 0 1px #d3bc8e88; }
+.gi-cs-d-toggle:disabled { opacity: .5; cursor: not-allowed; }
+
+/* Footer: what the search will do, then Clear, Stop and Start or Update. */
+.gi-cs-foot { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px 20px; padding: 12px clamp(16px, 5vw, 96px) max(14px, env(safe-area-inset-bottom, 0px)); background: var(--cs-bar); box-shadow: 0 -1px 0 #ffffff12; }
+.gi-cs-status { flex: 1 1 260px; margin: 0; font-size: 15px; color: #ece5d8d9; }
+.gi-cs-actions { display: flex; flex-wrap: wrap; gap: 10px; }
+.gi-cs-actions button { min-width: 130px; height: 44px; padding: 0 20px; border: 0; border-radius: 22px; cursor: pointer; font-size: 16px; color: var(--cs-ink); background: var(--cs-paper); box-shadow: inset 0 0 0 2px #fff8, 0 0 0 1px #d3bc8e88, 0 4px 10px #0007; transition: filter 160ms, transform 160ms var(--ty-ease, ease); }
+.gi-cs-actions button:hover:not(:disabled) { filter: brightness(1.06); }
+.gi-cs-actions button:active:not(:disabled) { transform: scale(.97); }
+.gi-cs-actions button:disabled { opacity: .5; cursor: not-allowed; }
+.gi-cs-actions button:focus-visible { outline: 3px solid #f2dca0; outline-offset: 3px; }
+.gi-cs-actions .gi-cs-stop { color: #fff; background: linear-gradient(#b8564a, #93413a); }
+.gi-cs-actions .gi-cs-start { color: #fff; background: linear-gradient(#3db4ff, #1f7fd0); }
+.gi-cs-actions [hidden] { display: none; }
+
+@media (max-width: 860px), (max-aspect-ratio: 4/5) {
+    #gi-card-search { --cs-tile: 96px; }
+    .gi-cs-top { min-height: 58px; padding-inline: 12px; }
+    .gi-cs-badge { width: 38px; height: 38px; } .gi-cs-badge img { width: 24px; height: 24px; }
+    .gi-cs-title h2 { font-size: 19px; } .gi-cs-total { font-size: 14px; } .gi-cs-close { width: 38px; height: 38px; }
+    .gi-cs-tools { gap: 8px; padding: 10px 12px 2px; }
+    .gi-cs-query { flex-basis: 100%; max-width: none; height: 38px; }
+    .gi-cs-kinds { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; flex-basis: 100%; }
+    .gi-cs-kinds button { flex: none; height: 30px; padding: 0 11px; font-size: 13px; }
+    .gi-cs-body { grid-template-columns: minmax(0, 1fr); grid-template-rows: minmax(0, 1fr) auto; gap: 10px; padding: 8px 12px 0; }
+    .gi-cs-detail { max-height: 27dvh; }
+    .gi-cs-d-head { min-height: 88px; padding: 10px 70px 10px 16px; } .gi-cs-d-head h3 { font-size: 18px; } .gi-cs-d-stars { font-size: 15px; } .gi-cs-d-art { right: 10px; top: 8px; height: calc(100% - 16px); }
+    .gi-cs-d-body { padding: 10px 16px 4px; } .gi-cs-d-text { font-size: 14px; } .gi-cs-d-toggle { margin: 8px 16px 12px; height: 38px; font-size: 14px; }
+    .gi-cs-foot { padding: 10px 12px max(10px, env(safe-area-inset-bottom, 0px)); }
+    .gi-cs-status { font-size: 13px; flex-basis: 100%; }
+    .gi-cs-actions { width: 100%; } .gi-cs-actions button { flex: 1 1 0; min-width: 0; height: 40px; padding: 0 4px; font-size: 13px; white-space: nowrap; }
+    .gi-cs-actions .gi-cs-clear { flex: .6 1 0; }
+}
+@media (prefers-reduced-motion: reduce) { #gi-card-search[open] { animation: none; } }
+
+/* The Quest marker: the game's blue world-quest diamond, beside the waypoint at every zoom, bobbing gently. */
+.gi-waypoint-quest { position: absolute; left: 20px; top: -4px; z-index: 3; display: block; width: 16px; pointer-events: none; filter: drop-shadow(0 0 4px #4fc3ffcc) drop-shadow(0 1px 2px #000a); animation: gi-quest-bob 1.8s ease-in-out infinite; }
+#gi-world-map .gi-waypoint-quest img, .gi-waypoint-quest img { display: block; width: 100% !important; height: auto !important; }
+@keyframes gi-quest-bob { 50% { translate: 0 -2px; } }
+body.gi-reduced-motion .gi-waypoint-quest { animation: none; }
+@media (prefers-reduced-motion: reduce) { .gi-waypoint-quest { animation: none; } }
+#gi-world-map .gi-map-waypoint-list .gi-map-list-badges .gi-waypoint-quest { position: static; width: 14px; animation: none; filter: drop-shadow(0 0 3px #4fc3ffaa); }
+#gi-world-map .gi-map-waypoint-list button[data-quest="true"] { box-shadow: inset 3px 0 0 #4fc3ff; }
+#gi-world-map .gi-map-quest h4 { display: flex; align-items: center; gap: 6px; }
+#gi-world-map .gi-map-quest h4::before { content: ""; width: 16px; height: 18px; background: url("assets/icons/map-badge-quest.webp") center / contain no-repeat; }

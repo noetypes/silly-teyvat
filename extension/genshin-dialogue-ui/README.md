@@ -1,3 +1,9 @@
+# Silly Teyvat 1.69.0: Card Search at the Adventurers' Guild
+
+- **Card Search.** At any Adventurers' Guild branch, the Paimon menu shows a **Card Search** tile (and the Guild's waypoint details on the map offer **Open Card Search**). It lists every Action card with a search box, card-type filters (and a **Selected** filter), sorting by Quality, Name, Cost, Places found or In bag, and a reverse-order button. The detail panel shows each card's effect, how many you carry and every Wilderness or Boss waypoint that drops it. Cards that no wild place drops can't be chosen.
+- **Quest markers.** Once a search starts, every Wilderness and Boss waypoint whose card drops include a searched card gets the game's blue world-quest marker. It shows at every zoom level, its name lists the cards, the waypoint list highlights those places, and the waypoint details say which searched cards drop there.
+- **Finding a card ends its part of the search.** When a battle's loot includes a searched card, its markers go and a message says what was found and what is left. The last card ends the search. Return to any Guild to add or remove cards, or stop the search. The search is saved per chat, like the party's bag (`card-search.js`).
+
 # Silly Teyvat 1.68.0: Katheryne at every Guild, a spread-out Teyvat, and cards you can drag
 
 - **Katheryne is at every Adventurers' Guild branch at once.** She is always at the counter when you arrive at one, is never asked to come along, and stays behind when the party leaves, even in a chat that began with her (`guild.js`).

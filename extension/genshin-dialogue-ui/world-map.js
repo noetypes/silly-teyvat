@@ -14,6 +14,8 @@ import {isJourneyGroup,createJourneyLibraryAdapter} from './journey-library.js';
 import {mountCardPoolMenu,locationCardPool,cardPoolSummary} from './card-pools.js';
 import {waypointBadges,waypointBoss,waypointEnemy,badgeLabels,badgeMarkup} from './waypoint-badges.js';
 import {iconsReady} from './battle-icons.js';
+import {searchedCards,questCardsAt,questLabel,questMarkup,currentGuild} from './card-search.js';
+import {isGuildLocation} from './guild.js';
 
 const svg=path=>`<svg viewBox="0 0 24 24" aria-hidden="true">${path}</svg>`;
 const ICON={
@@ -41,7 +43,7 @@ const NATIONS=[
 const BADGE_ZOOM=-2;
 const reducedMotion=()=>document.body.classList.contains('gi-reduced-motion') || Boolean(globalThis.matchMedia?.('(prefers-reduced-motion: reduce)').matches);
 
-export function mountWorldMap({host,getContext,adapter=createMediaAdapter(getContext),onChange=()=>{},announce=()=>{},prepareTeleport=async()=>({decisions:[]}),commitTeleport=()=>true,onTeleport=()=>{},retryCast=()=>{},openMusic=()=>{},openMusicLibrary=()=>{},openJourney=id=>createJourneyLibraryAdapter().open(id)}){
+export function mountWorldMap({host,getContext,adapter=createMediaAdapter(getContext),onChange=()=>{},announce=()=>{},prepareTeleport=async()=>({decisions:[]}),commitTeleport=()=>true,onTeleport=()=>{},retryCast=()=>{},openMusic=()=>{},openMusicLibrary=()=>{},openCardSearch=()=>{},openJourney=id=>createJourneyLibraryAdapter().open(id)}){
     const mini=document.createElement('button');mini.id='gi-minimap';mini.type='button';mini.dataset.giSound='none';mini.hidden=true;mini.setAttribute('aria-label','Open world map');
     mini.innerHTML='<span class="gi-minimap-ring" aria-hidden="true"><span class="gi-minimap-glass"><span class="gi-minimap-canvas"></span><span class="gi-minimap-vignette"></span><span class="gi-minimap-player"><i class="gi-minimap-cone"></i><svg viewBox="0 0 24 24"><path d="M12 3 19 20l-7-4-7 4z"/></svg></span></span><span class="gi-minimap-north">N</span></span><span class="gi-minimap-label">World map</span>';
     const dialog=document.createElement('dialog');dialog.id='gi-world-map';dialog.setAttribute('aria-labelledby','gi-world-map-title');dialog.dataset.view='list';
@@ -135,10 +137,12 @@ export function mountWorldMap({host,getContext,adapter=createMediaAdapter(getCon
     function paintDraft(){if(draftMarker)draftMarker.remove();draftMarker=null;if(draft&&map)draftMarker=L.marker(toLatLng(draft),{icon:waypointIcon({draft:true}),interactive:false}).addTo(map);}
     function paintMarkers(){
         if(!map)return;markers.clearLayers();const current=activeWorldLocation(getContext());
-        const ctx=getContext();
+        const ctx=getContext(),searching=searchedCards(ctx);
         for(const item of worldWaypoints(ctx)){
-            const badges=waypointBadges(ctx,item.location),boss=waypointBoss(ctx,item.location),enemy=waypointEnemy(ctx,item.location,item.region),name=badges.length?`${item.location.label} (${badgeLabels(badges,boss,enemy)})`:item.location.label;
-            const marker=L.marker(toLatLng(item.point),{icon:waypointIcon({current:current?.location.id===item.location.id,selected:dialog.dataset.view==='details'&&selectedId===item.location.id,badges:badgeMarkup(badges,boss,enemy)}),title:name,alt:name,keyboard:true});
+            // Card Search: a Quest marker beside every Wilderness or Boss waypoint that drops a searched card.
+            const badges=waypointBadges(ctx,item.location),boss=waypointBoss(ctx,item.location),enemy=waypointEnemy(ctx,item.location,item.region),quest=questCardsAt(ctx,item.location,searching);
+            const labels=[badgeLabels(badges,boss,enemy),questLabel(quest)].filter(Boolean),name=labels.length?`${item.location.label} (${labels.join('; ')})`:item.location.label;
+            const marker=L.marker(toLatLng(item.point),{icon:waypointIcon({current:current?.location.id===item.location.id,selected:dialog.dataset.view==='details'&&selectedId===item.location.id,badges:badgeMarkup(badges,boss,enemy)+questMarkup(quest)}),title:name,alt:name,keyboard:true,zIndexOffset:quest.length?500:0});
             const tooltip=element('span',item.location.label);marker.bindTooltip(tooltip,{direction:'top',offset:[0,-30]}).addTo(markers);
             marker.on('click',event=>{L.DomEvent.stopPropagation(event);if(busy)return;cue('waypoint');select(item);});
         }
@@ -151,13 +155,15 @@ export function mountWorldMap({host,getContext,adapter=createMediaAdapter(getCon
         if(regionFilter&&!regions.some(r=>r.id===regionFilter))regionFilter='';
         const chips=[['','All'],...regions.map(r=>[r.id,r.name])].map(([id,name])=>{const b=button(name,'region');b.dataset.region=id;b.setAttribute('aria-pressed',String(regionFilter===id));return b;});
         $('.gi-map-regions').replaceChildren(...chips);paintHere(ctx);
-        const shown=points.filter(p=>!regionFilter||p.region.id===regionFilter);
+        const shown=points.filter(p=>!regionFilter||p.region.id===regionFilter),searching=searchedCards(ctx);
         list.replaceChildren(...shown.map(item=>{
             const b=document.createElement('button');b.type='button';b.dataset.map='select';b.dataset.location=item.location.id;b.dataset.giSound='waypoint';
             const img=document.createElement('img');img.src=waypointGlyph;img.alt='';
             const text=document.createElement('span');text.append(element('b',item.location.label),element('small',item.region.name));b.append(img,text);
             const badges=waypointBadges(ctx,item.location),boss=waypointBoss(ctx,item.location),enemy=waypointEnemy(ctx,item.location,item.region);
-            if(badges.length){const marks=document.createElement('span');marks.className='gi-map-list-badges';marks.title=badgeLabels(badges,boss,enemy);marks.innerHTML=badgeMarkup(badges,boss,enemy);b.append(marks);b.setAttribute('aria-label',`${item.location.label}, ${item.region.name}. ${badgeLabels(badges,boss,enemy)}`);}
+            const quest=questCardsAt(ctx,item.location,searching),labels=[badges.length?badgeLabels(badges,boss,enemy):'',questLabel(quest)].filter(Boolean);
+            if(labels.length){const marks=document.createElement('span');marks.className='gi-map-list-badges';marks.title=labels.join('. ');marks.innerHTML=badgeMarkup(badges,boss,enemy)+questMarkup(quest);b.append(marks);b.setAttribute('aria-label',`${item.location.label}, ${item.region.name}. ${labels.join('. ')}`);}
+            if(quest.length)b.dataset.quest='true';
             if(current?.location.id===item.location.id)b.dataset.current='true';
             b.setAttribute('aria-current',String(dialog.dataset.view!=='list'&&selectedId===item.location.id));return b;
         }));
@@ -215,6 +221,13 @@ export function mountWorldMap({host,getContext,adapter=createMediaAdapter(getCon
         body.append(section);
         if(item.location.wilderness)body.append(enemySection(item));
         const wild=document.createElement('section');wild.className='gi-map-music';wild.append(element('h4','Wilderness encounters'),element('p',wildernessSummary(getContext(),item.location)),button('Edit wilderness encounters','wilderness'));body.append(wild);
+        const quest=questCardsAt(getContext(),item.location);
+        if(quest.length){const q=document.createElement('section');q.className='gi-map-music gi-map-quest';q.append(element('h4','Card Search'),element('p',`${questLabel(quest).replace(/^Quest: /,'')} ${quest.length===1?'drops':'can drop'} here.`));body.append(q);}
+        else if(isGuildLocation(item.location)){
+            const here=currentGuild(getContext())?.location.id===item.location.id,q=document.createElement('section');q.className='gi-map-music gi-map-quest';
+            q.append(element('h4','Card Search'),element('p',here?'Choose Action cards to look for. Quest markers show where they drop.':'Visit this Guild to start, change or stop a Card Search.'));
+            if(here)q.append(button('Open Card Search','card-search'));body.append(q);
+        }
         const cards=document.createElement('section');cards.className='gi-map-music';cards.append(element('h4','Card drops'),element('p',cardPoolSummary(locationCardPool(getContext(),item.location.id))),button('View card drops','card-drops'));body.append(cards);
         const music=document.createElement('section');music.className='gi-map-music';music.append(element('h4','Music'),element('p',musicSummary(item.location)),button('Choose music','music'));body.append(music);
         const actions=document.createElement('div');actions.className='gi-map-card-actions';
@@ -331,7 +344,7 @@ export function mountWorldMap({host,getContext,adapter=createMediaAdapter(getCon
             if(pendingBanner&&!loading&&visible){showRegionBanner(pendingBanner);pendingBanner='';}else if(!enabled)pendingBanner='';
             if(enabled)lastRegion=regionId;
             if(!dialog.open)return;
-            const nextSignature=JSON.stringify([worldWaypoints(ctx),travelState(ctx),worldScale(ctx),walkingSpeed(ctx),mediaSettings(ctx).worldPromptAllRegions,mediaSettings(ctx).allowMainDeparture,ctx.chatMetadata?.silly_teyvat_cast,ctx.characters?.map(c=>[c.avatar,c.name])]);
+            const nextSignature=JSON.stringify([searchedCards(ctx),worldWaypoints(ctx),travelState(ctx),worldScale(ctx),walkingSpeed(ctx),mediaSettings(ctx).worldPromptAllRegions,mediaSettings(ctx).allowMainDeparture,ctx.chatMetadata?.silly_teyvat_cast,ctx.characters?.map(c=>[c.avatar,c.name])]);
             if(nextSignature!==signature){signature=nextSignature;refresh({sidebarRefresh:true});}
         },
         syncPrompt(on=enabled){return syncWorldPrompt(getContext(),on);},
@@ -383,6 +396,7 @@ export function mountWorldMap({host,getContext,adapter=createMediaAdapter(getCon
             if(name==='wilderness'&&item){wildLocation=item.location;wildMenu.open();return;}
             if(name==='card-drops'&&item){wildLocation=item.location;cardPoolMenu.open();return;}
             if(name==='music-library'){openMusicLibrary();return;}
+            if(name==='card-search'){openCardSearch();return;}
             if(name==='retry-cast'){retryCast();status('Checking the current location’s guests again.');return;}
             if(name==='unpin'&&item){unpinWaypoint(ctx,item.location.id);placing=false;editing=false;draft=null;selectedId=null;paintDraft();onChange();refresh();listWaypoints();status('Map pin removed. Its background picture and saved scenes remain.');return;}
             if(name==='scale'){

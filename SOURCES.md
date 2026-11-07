@@ -135,6 +135,7 @@ The installed `public/scripts/group-chats.js` can draft a speaker before the use
 ## World map badges and catalog 14
 
 - Waypoint badges (`assets/icons/map-badge-*.webp`): `people` is the Genshin Impact Wiki file `Icon Dialogue Talk White.png` (the in-game dialogue glyph); `wilderness` is the HoYoLAB interactive map's Hilichurl enemy-category icon (map label 55, from the public `label/tree` endpoint); `boss` is the Genshin Impact Wiki file `Domain Keeper Icon.png`. Each was shrunk to at most 64 px. Icon artwork belongs to HoYoverse.
+- Card Search icons, downloaded through the [Genshin Impact Wiki API](https://genshin-impact.fandom.com/api.php) by `tools/fetch-quest-icons.py`: the map's Quest marker (`assets/icons/map-badge-quest.webp`) is `Icon World Quest.png`, trimmed and shrunk to 64 px; the Paimon menu tile (`assets/menu/quest.webp`) is `Icon Quests.png` at its own 72 px. Icon artwork belongs to HoYoverse.
 - Catalog 14 backgrounds: Genshin Impact Wiki API location images and HoYoLAB interactive-map viewpoint and Teleport Waypoint photos, one source per entry in [LOCATION-CATALOG.md](LOCATION-CATALOG.md). Music: wiki Soundtrack Usage for track choice; audio from the kuutar OST library, listed in `audio-library/2026-11-06/map-music.json`.
 - Map art: HoYoLAB tile version `bd70cde160dbd523926208d9fa8961a1` overview tiles (see [MAP-RESEARCH.md](MAP-RESEARCH.md)).
 

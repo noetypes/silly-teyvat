@@ -276,6 +276,7 @@ document.addEventListener('click', async event => {
             case 'settings-layout-tests': {const {runSettingsLayoutTests}=await import('./preview-settings-tests.js');result(await runSettingsLayoutTests());break;}
             case 'narrator-tests': {const {runNarratorTests}=await import('./preview-narrator-tests.js');result(await runNarratorTests());break;}
             case 'card-pool-tests': {const {runCardPoolTests}=await import('./preview-card-pool-tests.js');result(await runCardPoolTests());break;}
+            case 'card-search-tests': {const {runCardSearchTests}=await import('./preview-card-search-tests.js');result(await runCardSearchTests());break;}
             case 'action-card-tests': {const {runActionCardTests}=await import('./preview-action-card-tests.js');result(await runActionCardTests());break;}
             case 'battle-tests': {const {runBattleTests}=await import('./preview-battle-tests.js');result(await runBattleTests());break;}
             case 'enemy-attack-tests': {const {runEnemyAttackTests}=await import('./preview-enemy-attack-tests.js');result(await runEnemyAttackTests());break;}

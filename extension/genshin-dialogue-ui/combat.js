@@ -12,6 +12,7 @@ import {activePersonaAvatar,personaCard} from './persona-wardrobe.js';
 import {circularCharacterAvatar,characterAvatarsReady} from './character-avatars.js';
 import {mountElementalDice,ELEMENT_COLORS} from './elemental-dice.js';
 import {battleSnapshot,commitRound,roundNarration,partyBag,unpaidEnemies} from './battle-state.js';
+import {completeCardSearch,foundMessage} from './card-search.js';
 import {rollFuel,rerollFuel,partyElements} from './battle-engine.js';
 import {ITEMS,rollLoot,rollBossLoot} from './battle-items.js';
 import {mountBattle} from './battle-ui.js';
@@ -176,6 +177,8 @@ export function mountCombat({host,getContext,onChange=()=>{},announce=()=>{},ada
             const asEnemy=duel&&Boolean(linkedCard(ctx))&&isEnemy(ctx,linkedCard(ctx));
             const loot=asEnemy?(result.victory?rollLoot(snapshot.units.filter(u=>u.side==='enemy'),{pool:locationCardPool(ctx,ctx.chatMetadata?.silly_teyvat_world?.location?.id)}):[]):duel?[]:result.victory?rollLoot([...enemies,...unpaidEnemies(visitStore)],{pool,size:Object.keys(visitStore?.enemies || {}).length}):rollBossLoot(enemies.filter(u=>fallen.some(f=>f.id===u.id)),{pool});
             const saved=commitRound(getContext(),snapshot,result,id,{items:used,loot});if(!saved){battle.cancel?.();return;}
+            // A searched card in the loot is found: its Quest markers go, and the search ends with the last one.
+            const quest=completeCardSearch(getContext(),loot);
             const target=result.state.units.find(u=>u.id===avatar),before=snapshot.units.find(u=>u.id===avatar);
             const gone=[...saved.defeated,...saved.fled];
             const event={...saved,avatar,key:visitKey,damage:before.hp-target.hp,hpBefore:before.hp,hpAfter:target.hp,maxHp:before.maxHp,defeated:target.hp<=0,fled:saved.fled,defeatedAvatars:gone};
@@ -188,6 +191,7 @@ export function mountCombat({host,getContext,onChange=()=>{},announce=()=>{},ada
             }
             onChange();
             await battle.result(snapshot,result,{loot});
+            if(quest.found.length){const text=foundMessage(quest);announce(text);globalThis.toastr?.success?.(text,'Adventurers\' Guild');onChange({cardSearch:quest});}
             // The battle screen has closed: wounded enemies flinch on the stage, fallen ones leave it.
             for(const u of result.state.units.filter(u=>u.side==='enemy'&&u.hp>0&&!gone.includes(u.id)))if(hits.get(u.id)?.some(h=>h.damage>0))onChange(u.duel?{hurt:u.id}:{hit:u.id});
             // Party members on the stage: a shake for anyone who ended the round hurt, a glow for anyone healed.
