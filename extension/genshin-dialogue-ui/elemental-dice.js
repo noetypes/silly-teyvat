@@ -141,8 +141,8 @@ export function mountElementalDice({host,stageFactory=createStage,sound=createDi
                 const can=typeof reroll==='function'&&(result.rerolls || 0)<1&&visual?.positions&&!canvas.hidden;
                 rerollButton.hidden=!can;dialog.classList.toggle('gi-can-reroll',Boolean(can));if(!can)return;
                 title(pickAll?heading:'Reroll','Select dice to reroll');
-                // Toss-Up offers every die; a normal roll preselects the ones that match nobody.
-                const picked=new Set(result.dice.flatMap((d,i)=>d.match&&!pickAll?[]:[i]));
+                // Both a normal roll and Toss-Up preselect the dice that match nobody; any die can be tapped.
+                const picked=new Set(result.dice.flatMap((d,i)=>d.match?[]:[i]));
                 const label=()=>{$('.gi-roll-reroll-label').textContent=picked.size?`Reroll ${picked.size}`:'Reroll';rerollButton.disabled=!picked.size;};
                 for(const p of visual.positions()){
                     const die=result.dice[p.index],pick=el('button','gi-die-pick');pick.type='button';pick.dataset.index=String(p.index);pick.innerHTML=REROLL_MARK;

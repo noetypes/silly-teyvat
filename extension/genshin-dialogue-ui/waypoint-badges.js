@@ -4,7 +4,7 @@ import {characterIcon} from './battle-icons.js';
 
 // The small icons beside a map waypoint. They are worked out from the live roster and wilderness settings
 // every time the map paints, so moving a character, toggling Wilderness or changing the enemy pool updates them.
-// A boss replaces the wilderness badge: every boss arena is also wilderness. The badge is that boss's own icon
+// A boss replaces the wilderness badge, which shows a common enemy of the region (waypointEnemy): every boss arena is also wilderness. The badge is that boss's own icon
 // (the wiki enemy icon the battle screen uses), or the general boss emblem until the icons have loaded.
 const icon=name=>new URL(`assets/icons/map-badge-${name}.webp`,import.meta.url).href;
 export const WAYPOINT_BADGES=Object.freeze({
@@ -25,10 +25,23 @@ export function waypointBoss(ctx,location){
     if(!location?.wilderness)return '';
     return (location.enemyPool || []).map(avatar=>avatarName(ctx,avatar)).find(isTcgBoss) || '';
 }
-export const badgeLabels=(badges,boss='')=>badges.map(b=>b==='boss'&&boss?`Boss: ${boss}`:WAYPOINT_BADGES[b].label).join(', ');
-// The icon URL comes from the bundled icon index (a fixed asset path), never from the boss name itself.
-export function badgeMarkup(badges,boss=''){
+// The wilderness badge shows a common enemy of the waypoint's region: of the enemies in this waypoint's
+// pool, the one found in the most wilderness pools of its region (bosses aside), with a wiki icon. A
+// waypoint with an empty pool takes its region's most common enemy; with no icon at all, the emblem stays.
+function enemyCounts(ctx,region){
+    const counts=new Map();
+    for(const place of (region?.locations || []).filter(l=>l.wilderness))for(const name of new Set((place.enemyPool || []).map(a=>avatarName(ctx,a))))if(!isTcgBoss(name))counts.set(name,(counts.get(name) || 0)+1);
+    return counts;
+}
+export function waypointEnemy(ctx,location,region){
+    if(!location?.wilderness)return '';
+    const counts=enemyCounts(ctx,region),rank=names=>names.filter(n=>!isTcgBoss(n)&&characterIcon(n)).sort((a,b)=>(counts.get(b) || 0)-(counts.get(a) || 0))[0] || '';
+    return rank([...new Set((location.enemyPool || []).map(a=>avatarName(ctx,a)))]) || rank([...counts.keys()]);
+}
+export const badgeLabels=(badges,boss='',enemy='')=>badges.map(b=>b==='boss'&&boss?`Boss: ${boss}`:b==='wilderness'&&enemy?`Wilderness: ${enemy}`:WAYPOINT_BADGES[b].label).join(', ');
+// Icon URLs come from the bundled icon index (a fixed asset path), never from a card name itself.
+export function badgeMarkup(badges,boss='',enemy=''){
     if(!badges.length)return '';
-    const src=b=>b==='boss'&&boss&&characterIcon(boss) || WAYPOINT_BADGES[b].icon;
-    return `<span class="gi-waypoint-badges" aria-hidden="true">${badges.map(b=>`<img class="gi-waypoint-badge" data-badge="${b}"${b==='boss'&&boss&&characterIcon(boss)?' data-boss-icon="true"':''} src="${src(b)}" alt="" draggable="false">`).join('')}</span>`;
+    const face=b=>b==='boss'&&boss&&characterIcon(boss) || b==='wilderness'&&enemy&&characterIcon(enemy) || '';
+    return `<span class="gi-waypoint-badges" aria-hidden="true">${badges.map(b=>{const own=face(b);return `<img class="gi-waypoint-badge" data-badge="${b}"${own?(b==='boss'?' data-boss-icon="true"':' data-enemy-icon="true"'):''} src="${own || WAYPOINT_BADGES[b].icon}" alt="" draggable="false">`;}).join('')}</span>`;
 }

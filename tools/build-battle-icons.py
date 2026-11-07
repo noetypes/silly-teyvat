@@ -88,6 +88,11 @@ def kits():
     result = subprocess.run(['node', '--input-type=module', '-e', script, str(ROOT / 'combat-kits.js'), str(ROOT / 'assets/character-properties.json'), str(ROOT / 'assets/tcg/characters.json'), str(ROOT / 'battle-cards.js')], capture_output=True, text=True, check=True)
     return json.loads(result.stdout)
 
+# Our summon names whose Genius Invokation summon card has another name on the wiki.
+SUMMON_ALIASES = {
+    'Grin-Malkin Cat': 'Grin-Malkin Hat', 'Lumidouce Case': 'Lumidouce Case Level 1', 'Ice Lotus': 'Sacred Cryo Pearl',
+    'Oceanid Mimic': 'Oceanic Mimic Frog', 'Oceanid Mimics': 'Oceanic Mimic Raptor', 'Hilichurl Summon': 'Hilichurl Berserker',
+}
 # Summons and combat statuses that reactions create (Burning, Bloom, Quicken), not any kit.
 REACTION_SUMMONS = ['Burning Flame']
 FIELDS = {'Dendro Core': 'Dendro Core Buff Icon.png', 'Catalyzing Field': 'Catalyzing Field Buff Icon.png'}
@@ -160,12 +165,14 @@ def icons(data, index, skip=frozenset()):
         title = next((t for t in icon_titles(n) if t in urls), None)
         if title:
             total += save_png(urls[title], OUT / 'icons' / f'{slug(n)}.webp', 128); index['icons'][n] = f'{slug(n)}.webp'
-    # Summon cards.
+    # Summon cards, under the card game's own name where it differs from ours. Summons that are statuses in
+    # the card game have no card; the battle screen shows the TCG icon of the skill that made them instead.
     summons = [s for s in data['summons'] if s not in skip]
-    urls = resolve([f'File:{s} Summon.png' for s in summons], 200)
+    card = lambda s: f'File:{SUMMON_ALIASES.get(s, s)} Summon.png'
+    urls = resolve([card(s) for s in summons], 200)
     for s in summons:
-        if f'File:{s} Summon.png' in urls:
-            total += save_png(urls[f'File:{s} Summon.png'], OUT / 'summons' / f'{slug(s)}.webp', 240); index['summons'][s] = f'{slug(s)}.webp'
+        if card(s) in urls:
+            total += save_png(urls[card(s)], OUT / 'summons' / f'{slug(s)}.webp', 240); index['summons'][s] = f'{slug(s)}.webp'
     return total
 
 if __name__ == '__main__':

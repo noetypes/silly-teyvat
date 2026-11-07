@@ -39,6 +39,10 @@
                 <label class="gi-row gi-row-range" data-advanced for="gi-scrim"><span>Background shade</span><output id="gi-scrim-value">80%</output><input id="gi-scrim" type="range" min="0.4" max="0.95" step="0.05" data-gi-setting="scrim"></label>
                 <label class="gi-row"><span>Tap to advance</span><input type="checkbox" class="gi-switch" data-gi-setting="tapAdvance"></label>
                 <label class="gi-row" data-advanced><span>Hide quotes on dialogue pages</span><input type="checkbox" class="gi-switch" data-gi-setting="hideDialogueQuotes"></label>
+                <h4>Name tags</h4>
+                <label class="gi-row" title="Removes a name and colon a model writes before a line, such as “Navia:” or “**Navia:**”, from replies as they arrive"><span>Remove name tags</span><input type="checkbox" class="gi-switch" data-gi-setting="nameTagFilter"></label>
+                <label class="gi-row" for="gi-name-tag-scope" title="Which names count as a tag. The speaker’s own name is always included"><span>Names to remove</span><select id="gi-name-tag-scope" data-gi-setting="nameTagScope"><option value="all">Anyone in the scene</option><option value="speaker">Only the speaker</option></select></label>
+                <label class="gi-row" data-advanced for="gi-name-tag-extra" title="Other labels to remove before a line, separated by commas"><span>Also remove</span><input id="gi-name-tag-extra" type="text" maxlength="300" placeholder="Narrator, Paimon" data-gi-setting="nameTagExtra"></label>
                 <h4>Narration</h4>
                 <label class="gi-row"><span>Narration pages</span><input type="checkbox" class="gi-switch" data-gi-setting="narration"></label>
                 <label class="gi-row" data-advanced for="gi-narration-mode"><span>Detect by</span><select id="gi-narration-mode" data-gi-setting="narrationMode"><option value="quotes">No quotes on page</option><option value="keyword">Keyword</option></select></label>

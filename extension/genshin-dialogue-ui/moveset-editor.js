@@ -41,10 +41,12 @@ export function mountMovesetEditor({panel,getContext,getCharacter,status=()=>{}}
                 <label>Shield weak to / weakness<select data-k="weakTo">${opt('','None')}${ELEMENTS.map(x=>opt(x)).join('')}</select></label>
                 <label>Armor (% less damage)<input data-k="armor" type="number" min="0" max="90" value="${esc(kit.armor || 0)}"></label>
                 <label>Armor broken by<select data-k="armorBreak">${opt('','Nothing')}${ELEMENTS.map(x=>opt(x)).join('')}</select></label>
-                <label>Evasion (%)<input data-k="evasion" type="number" min="0" max="80" value="${esc(kit.evasion || 0)}"></label>`
+                <label>Evasion (%)<input data-k="evasion" type="number" min="0" max="80" value="${esc(kit.evasion || 0)}"></label>
+                <label class="gi-check" title="Physical attacks deal this unit's element instead, from the start of every fight, like an infused Normal Attack in Genius Invokation"><input type="checkbox" data-k="infusion">Elemental infusion</label>`
                 :`<label>Weapon<select data-k="weapon">${WEAPONS.map(x=>opt(x,x==='none'?'None (unarmed)':x[0].toUpperCase()+x.slice(1))).join('')}</select></label>
                 <label>Burst Energy<input data-k="energy" type="number" min="1" max="5" value="${esc(kit.energy || 2)}"></label>
-                <label>Dodge (%)<input data-k="evasion" type="number" min="0" max="90" value="${esc(kit.evasion || 0)}"></label>`}
+                <label>Dodge (%)<input data-k="evasion" type="number" min="0" max="90" value="${esc(kit.evasion || 0)}"></label>
+                <label class="gi-check" title="Normal Attacks deal this character's element instead of Physical damage, from the start of every fight"><input type="checkbox" data-k="infusion">Elemental infusion</label>`}
             </div>
             ${kit.moves.map((move,i)=>`<section class="gi-move-edit" data-move="${i}">
                 <div class="gi-move-head"><small>${KIND_LABEL[move.kind]}</small><input data-m="name" maxlength="80" value="${esc(move.name)}" aria-label="${KIND_LABEL[move.kind]} name"></div>
@@ -59,7 +61,7 @@ export function mountMovesetEditor({panel,getContext,getCharacter,status=()=>{}}
             </section>`).join('')}
             <div class="gi-wardrobe-row"><button type="button" data-save-kit>Save moveset</button><button type="button" data-reset-kit>Reset to default</button></div>`;
         const set=(selector,value)=>{const node=panel.querySelector(selector);if(node)node.value=value ?? '';};
-        set('[data-k="role"]',kit.role);set('[data-k="weapon"]',kit.weapon);set('[data-k="element"]',kit.element);set('[data-k="weakTo"]',kit.weakTo || '');set('[data-k="armorBreak"]',kit.armorBreak || '');
+        set('[data-k="role"]',kit.role);set('[data-k="weapon"]',kit.weapon);set('[data-k="element"]',kit.element);set('[data-k="weakTo"]',kit.weakTo || '');set('[data-k="armorBreak"]',kit.armorBreak || '');{const box=panel.querySelector('[data-k="infusion"]');if(box)box.checked=kit.infusion===true;}
         kit.moves.forEach((move,i)=>{
             const section=panel.querySelector(`.gi-move-edit[data-move="${i}"]`);
             const normalDefault=move.kind==='normal'&&!enemy&&move.element===(kit.weapon==='catalyst'?element:'Physical');
@@ -72,6 +74,7 @@ export function mountMovesetEditor({panel,getContext,getCharacter,status=()=>{}}
         const ctx=getContext(),props=characterProperties(ctx,card),enemy=props.role==='enemy';
         const value=selector=>panel.querySelector(selector)?.value;
         const next={...kit,role:value('[data-k="role"]') || kit.role};
+        next.infusion=Boolean(panel.querySelector('[data-k="infusion"]')?.checked);
         if(enemy){next.element=value('[data-k="element"]') || kit.element;next.shield=num(value('[data-k="shield"]'),0,99,0);next.weakTo=value('[data-k="weakTo"]') || '';next.armor=num(value('[data-k="armor"]'),0,90,0);next.armorBreak=value('[data-k="armorBreak"]') || '';next.evasion=num(value('[data-k="evasion"]'),0,80,0);}
         else{next.weapon=value('[data-k="weapon"]') || kit.weapon;next.energy=num(value('[data-k="energy"]'),1,5,2);next.evasion=num(value('[data-k="evasion"]'),0,90,0);}
         const element=enemy?next.element:props.element;

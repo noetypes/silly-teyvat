@@ -5,6 +5,7 @@
 import {mediaSettings} from './media-store.js';
 import {BOSS_ROWS} from './boss-kits.js';
 import {ELEMENTS} from './battle-engine.js';
+import {TCG_KITS} from './tcg-kits.js';
 
 export const WEAPONS=['sword','claymore','polearm','bow','catalyst','none'];
 export const ROLES=['DPS','Sub-DPS','Support','Healer','Shielder','Tank'];
@@ -280,6 +281,18 @@ function normal(weapon,name,element,override={}){
 }
 function kitFromRow([name,weapon,hp,energy,role,na,[skill,skillCost,skillFx],[burst,burstCost,burstFx],extra={}],element){
     const kit={name,weapon,hp,energy,role,moves:[normal(weapon,na,element,extra.na),{kind:'skill',name:skill,cost:skillCost+1,effects:clone(skillFx)},{kind:'burst',name:burst,cost:burstCost,effects:clone(burstFx)}]};
+    // A character with a Genius Invokation card plays its card's kit (tcg-kits.js): its skill names, dice
+    // costs, Burst Energy, damage, summons, healing, shields and infusions. A move whose card text has
+    // nothing this engine can play keeps the effects above. Health stays Silly Teyvat's.
+    const tcg=TCG_KITS[name];
+    if(tcg){
+        kit.energy=Math.max(1,Math.min(5,tcg.energy || energy));
+        const [n,sk,bu]=kit.moves;
+        Object.assign(n,{name:tcg.normal.name,element:tcg.normal.element==='Physical'?'Physical':element,effects:[D(tcg.normal.power)]});
+        Object.assign(sk,{name:tcg.skill.name,cost:tcg.skill.cost,effects:tcg.skill.effects.length?clone(tcg.skill.effects):sk.effects});
+        Object.assign(bu,{name:tcg.burst.name,cost:tcg.burst.cost,effects:tcg.burst.effects.length?clone(tcg.burst.effects):bu.effects});
+        kit.tcg=true;
+    }
     if(extra.evasion)kit.evasion=extra.evasion;
     return kit;
 }
@@ -302,9 +315,26 @@ export function foeKit(kit){
     const moves=kit.moves.map(move=>move.kind==='burst'?{...clone(move),kind:'special',cost:0,cooldown:3}:{...clone(move),kind:'basic',cost:0});
     return {...kit,enemy:true,energy:0,miss:kit.miss ?? 10,moves};
 }
+// The reverse, for a player who plays an enemy card: its moves become a character's, so it fights like
+// any party member (dice costs, Energy, a Burst). Its first Attack is the Normal Attack; a second Attack, or
+// else its Special, is the Elemental Skill; the Special, stronger, is the Elemental Burst.
+export function playableKit(kit){
+    if(!kit?.enemy)return kit;
+    const basics=kit.moves.filter(m=>m.kind==='basic'),special=kit.moves.find(m=>m.kind==='special') || basics.at(-1);
+    const strip=({cooldown,...move})=>clone(move);
+    const stronger=effects=>(effects || []).map(e=>e.type==='damage'||e.type==='heal'||e.type==='shield'?{...e,...(e.power!==undefined?{power:Math.ceil(e.power*1.5)}:{}),...(e.amount!==undefined&&e.type!=='damage'?{amount:Math.ceil(e.amount*1.5)}:{})}:{...e});
+    const normal={...strip(basics[0] || special),kind:'normal',cost:3};
+    const skill={...strip(basics[1] || special),kind:'skill',cost:3};
+    const burst={...strip(special),kind:'burst',cost:3,name:basics[1]||special===basics[0]?special.name:`${special.name}: Unleashed`,effects:stronger(special.effects)};
+    const {enemy,miss,transform,...rest}=clone(kit);
+    return {...rest,role:kit.role==='Enemy'?'DPS':kit.role,weapon:WEAPONS.includes(kit.weapon)?kit.weapon:'none',energy:2,playedEnemy:true,moves:[normal,skill,burst]};
+}
 // The built-in kit for a card name, before user edits.
+// Beings made of their element fight with it built in, like an infused Normal Attack in Genius Invokation.
+const ELEMENTAL_BEING=/slime|abyss (mage|herald|lector)|hypostasis|whopperflower|shroom|specter|phantasm|manifestation|tulpa|rhodeia|primal fire|cicin|rifthound|wolflord|oceanid|lawachurl/i;
+export const defaultInfusion=(name,element)=>ELEMENTS.includes(element)&&ELEMENTAL_BEING.test(String(name || ''));
 export function defaultKit(name,{element='None',enemy=false}={}){
-    if(enemy){const row=enemyTable.get(keyOf(name));return row?enemyKit(row):genericEnemy(name,element==='None'?'Physical':element);}
+    if(enemy){const row=enemyTable.get(keyOf(name)),kit=row?enemyKit(row):genericEnemy(name,element==='None'?'Physical':element);kit.infusion=defaultInfusion(name,kit.element);return kit;}
     if(/^(aether|lumine|traveler)$/i.test(String(name).trim()))return {...travelerKit(element),name};
     const row=characterTable.get(keyOf(name));
     if(row)return kitFromRow(row,element);
@@ -323,6 +353,7 @@ const text=value=>typeof value==='string'?value.slice(0,80):undefined;
 const KIT_FIELDS={
     weapon:v=>pick(v,WEAPONS),role:v=>pick(v,[...ROLES,'Enemy']),element:v=>pick(v,ELEMENT_NAMES),weakTo:v=>pick(v,['',...ELEMENTS]),armorBreak:v=>pick(v,['',...ELEMENTS]),
     energy:v=>whole(v,0,9),miss:v=>whole(v,0,100),armor:v=>whole(v,0,90),shield:v=>whole(v,0,100),evasion:v=>whole(v,0,90),
+    infusion:v=>typeof v==='boolean'?v:undefined,
 };
 function cleanEffect(effect){
     if(!effect||typeof effect!=='object'||!EFFECT_TYPES.includes(effect.type))return null;

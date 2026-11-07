@@ -182,7 +182,7 @@ export function mountWardrobe({host, getContext, onChange = async () => {}, onMe
     const propertiesUI=mountCharacterProperties({panel:propertiesPanel,getContext,getCharacter:()=>character,status,onChange:()=>{startingTrustUI.refresh();starterDeckUI.refresh();paintElement();onChange(character,{classification:true});}});
     const trustPanel=document.createElement('details');trustPanel.className='gi-card-properties gi-start-trust';propertiesPanel.after(trustPanel);
     const startingTrustUI=mountStartingTrust({panel:trustPanel,getContext,getCharacter:()=>character,status});
-    // Starter deck: the ten cards a new journey with this character starts with.
+    // Starter deck: the twenty cards a new journey with this character starts with.
     const deckPanel=document.createElement('details');deckPanel.className='gi-card-properties';trustPanel.after(deckPanel);
     const starterDeckUI=mountStarterDeck({panel:deckPanel,getContext,getCharacter:()=>character,status});
     const personaPanel=document.createElement('section');

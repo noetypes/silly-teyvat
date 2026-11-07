@@ -1,3 +1,38 @@
+# Silly Teyvat 1.66.0: Kits from the Genius Invokation cards, a real Auto and 20-card starter decks
+
+- **Every character with a Genius Invokation card now plays that card's kit** (108 of them): its skill
+  names, dice costs, Burst Energy, damage, summons, healing, shields, infusions and fields, from the
+  Genshin Impact Wiki (`tools/build-tcg-kits.py`, one TCG point is 2 here). A prepared skill such as
+  Beidou's Wavestrider lands in the same move. Characters without a card keep their own kit, and a
+  moveset you edited stays as you saved it.
+- **Built-in elemental infusion.** Slimes, Abyss Mages, Hypostases, Whopperflowers, Rifthounds and other
+  beings made of their element turn their Physical attacks into their element from the start of every
+  fight, shown as an element chip on their card. **Elemental infusion** in the Moveset editor switches it
+  on or off for any enemy, boss or character.
+- **Auto is a switch.** Its icon is a plain play button; while it is on, every one of your turns is played
+  for you. It tries each skill, card and switch on a copy of the board, plays the best, and ends your
+  round when nothing is worth the dice.
+- **No more Declare Round End box:** the hourglass ends your round at once.
+- **The dice a card or skill will spend have a gold border.** Toss-Up only pre-selects dice that match
+  nobody in your party.
+- **Starter decks have 20 cards of every kind:** Food, Events, dice cards, a Weapon for the character's
+  weapon, their element's Artifact and Resonance, Supports and their own summon where the TCG has one.
+  A 10-card deck you saved is filled up to 20.
+- **Attack with friends works like Attack with enemies.** It arms for your next message; when you send it
+  (or click a choice), you choose who to battle, or no one, before anyone replies.
+- **Playing an enemy card** fights with that enemy's own moves as Normal Attack, Skill and Burst, with a
+  character's health range, and characters you beat drop cards as enemies do.
+- **Summons show their TCG card**, under the card game's own name where it differs (Grin-Malkin Hat,
+  Sacred Cryo Pearl, Oceanic Mimics); a summon that is a status in the card game shows the TCG icon of
+  the skill that made it.
+- **Map badges** show a common enemy of each wilderness waypoint's region instead of a hilichurl.
+- **Name tags.** The prompts tell the model more firmly not to start lines with a name, and Settings →
+  Dialogue → Name tags removes "Navia:", "**Navia:**" and the like from replies as they arrive (anyone in
+  the scene or only the speaker, plus your own labels).
+- **CGs are chosen from the whole reply:** a reply still streaming in is classified once it has finished.
+- Starting a solo journey shows the loading screen; the Burst in the card is centred on the character;
+  the deck stays clear of your nameplate; damage numbers have a dark outline.
+
 # Silly Teyvat 1.65.0: La Signora's arena, boss icons on the map and her two-phase music
 
 - **La Signora is a boss**, balanced like the other world and weekly bosses, with the guaranteed rare

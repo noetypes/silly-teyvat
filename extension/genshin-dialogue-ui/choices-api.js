@@ -145,4 +145,4 @@ export const mainApiAdapter = {
     },
 };
 
-export function shouldGenerateAfterSend(message){const attack=message?.extra?.silly_teyvat_send_attack;return !attack || attack.status==='resolved'&&!attack.defeated;}
+export function shouldGenerateAfterSend(message){const attack=message?.extra?.silly_teyvat_send_attack;return !attack || attack.status==='declined' || attack.status==='resolved'&&!attack.defeated;}

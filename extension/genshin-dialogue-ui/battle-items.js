@@ -62,8 +62,15 @@ export const ITEMS={
 // What kind of card each is, as the hand, the Inventory and the loot name it.
 export const KIND_LABELS={food:'Food',event:'Event',dice:'Dice',weapon:'Weapon',artifact:'Artifact',support:'Support',summon:'Summon'};
 export const kindLabel=item=>item?.kind==='support'&&item.group?`${item.group[0].toUpperCase()}${item.group.slice(1)}`:KIND_LABELS[item?.kind] || 'Event';
-// The default starter deck: ten cards (see starter-decks.js for each character's own).
-export const STARTER_BAG={'sweet-madame':3,'hash-brown':2,'lotus-crisp':2,'toss-up':1,'fried-egg':1,'starsigns':1};
+// The default starter deck: twenty cards of every kind (starter-decks.js tailors it to each character).
+export const STARTER_BAG={
+    'sweet-madame':2,'hash-brown':1,'lotus-crisp':1,'fried-egg':1,
+    'starsigns':1,'strategize':1,'leave-it-to-me':1,'heavy-strike':1,'nre':1,
+    'toss-up':2,'treasure-seelie':1,
+    'adventurers-bandana':1,'capricious-visage':1,'thundering-poise':1,
+    'chef-mao':1,'liyue-harbor-wharf':1,
+    'origami-hamster':1,'toy-guard':1,
+};
 export const itemArt=id=>new URL(`./assets/tcg/items/${id}.webp`,import.meta.url).href;
 const WOVEN={Pyro:'woven-flames',Hydro:'woven-waters',Anemo:'woven-winds',Electro:'woven-thunder',Dendro:'woven-weeds',Cryo:'woven-ice',Geo:'woven-stone'};
 export const bagCount=bag=>Object.values(bag || {}).reduce((n,c)=>n+c,0);

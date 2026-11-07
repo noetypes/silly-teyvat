@@ -1,5 +1,6 @@
 import { dialoguePages, hasSpeech, plainMessage, previousSpeech, expressionContext } from './narration.js';
 import { mountPageSprites } from './page-sprites.js';
+import { nameTagNames, stripNameTags, cleanMessageNameTags } from './name-tags.js';
 export async function runNarrationTests() {
     const results = [], pause = ms => new Promise(r => setTimeout(r,ms));
     const check = (name, ok) => { results.push(`${ok ? 'PASS' : 'FAIL'} ${name}`); if (!ok) throw new Error(name); };
@@ -9,6 +10,18 @@ export async function runNarrationTests() {
     try {
         globalThis.__teyvatProbe = false; plainMessage({ mes: '<img src="/gi-missing-probe.png" onerror="globalThis.__teyvatProbe=true">Hello' }); await pause(150);
         check('raw chat text is read without loading or running its markup', globalThis.__teyvatProbe === false && plainMessage({ mes: 'Hello<br>there' }) === 'Hello\nthere'); delete globalThis.__teyvatProbe;
+        {const ctx={name1:'Traveler',characterId:0,characters:[{name:'Navia',avatar:'navia.png'},{name:'Kamisato Ayaka',avatar:'ayaka.png'}],groupId:'g',groups:[{id:'g',members:['navia.png','ayaka.png']}]};
+        const names=nameTagNames(ctx,{name:'Navia'},{}),clean=text=>stripNameTags(text,names);
+        check('a name tag before the reply is removed', clean('Navia: "Hello there!"')==='"Hello there!"' && clean('**Navia:** "Hi."')==='"Hi."' && clean('**Navia**: "Hi."')==='"Hi."' && clean('[Navia]: "Hi."')==='"Hi."');
+        check('tags on later lines and for others in the scene go too', clean('She waves.\n\nNavia: "Hi."\nAyaka: "Hello."')==='She waves.\n\n"Hi."\n"Hello."');
+        check('names inside a line, or without a colon, are kept', clean('"Navia: that is my name."')==='"Navia: that is my name."' && clean('Navia smiles: "Hi."')==='Navia smiles: "Hi."');
+        check('with Only the speaker, other names stay', stripNameTags('Ayaka: "Hi."',nameTagNames(ctx,{name:'Navia'},{nameTagScope:'speaker'}))==='Ayaka: "Hi."');
+        check('the filter can be switched off', nameTagNames(ctx,{name:'Navia'},{nameTagFilter:false}).length===0);
+        check('extra labels from settings are removed', stripNameTags('Paimon: "Hey!"',nameTagNames(ctx,{name:'Navia'},{nameTagExtra:'Paimon, Narrator'}))==='"Hey!"');
+        check('the narration keyword is never removed', !nameTagNames({...ctx,characters:[...ctx.characters,{name:'Narrator',avatar:'n.png'}],groups:[{id:'g',members:['navia.png','n.png']}]},{name:'Navia'},{narration:true,narrationMode:'keyword',narrationKeyword:'Narrator:'}).includes('Narrator'));
+        const chat=[{name:'Navia',mes:'Navia: "Hi."',swipes:['Navia: "Hi."'],swipe_id:0}];cleanMessageNameTags({...ctx,chat},0,{});
+        check('a reply is cleaned when it arrives, swipe included', chat[0].mes==='"Hi."' && chat[0].swipes[0]==='"Hi."');
+        check('a streaming page hides a tag split across formatting', pages('<p><strong>Navia</strong>: “Hi.”</p>',{},{nameTags:names}).map(p=>p.textContent.trim()).join('|')==='“Hi.”');}
         check('unquoted narration hides speaker on all pages', pages('<p>Wind rises.</p><p>Leaves fall.</p>').every(x => x.giNarration));
         const mixedQuotes = pages('<p>“Wow, traveller!”</p><p>Klee laughs and looks up with admiration.</p><p>“Can we do it again?”</p>');
         check('quoted dialogue surrounds a narrator page in one response', mixedQuotes.length===3 && !mixedQuotes[0].giNarration && mixedQuotes[1].giNarration && !mixedQuotes[2].giNarration);

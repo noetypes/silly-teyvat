@@ -144,8 +144,18 @@ export function resonanceOf(units){
 }
 export function moveElement(u,move){
     if(!move)return u.element;
-    if(move.kind==='normal'){const infuse=(u.statuses || []).find(s=>s.stat==='infuse');if(infuse)return infuse.element || u.element;}
-    const el=move.element || u.element;return el==='None'?'Physical':el;
+    const infuse=(u.statuses || []).find(s=>s.stat==='infuse'),infused=infuse&&(infuse.innate?u.element:infuse.element || u.element);
+    if(move.kind==='normal'&&infuse)return infused;
+    const el=move.element || u.element,plain=el==='None'?'Physical':el;
+    // A built-in infusion turns the unit's Physical attacks into its element, as in Genius Invokation.
+    return infuse?.innate&&plain==='Physical'&&ELEMENTS.includes(infused)&&(move.kind==='basic'||move.kind==='special')?infused:plain;
+}
+// Built-in elemental infusion (slimes, Abyss Mages, Hypostases, or any kit with infusion switched on in the
+// Moveset editor): a lasting status from the start of the fight that makes Physical attacks elemental.
+export function applyInfusion(u){
+    if(!u)return;
+    u.statuses=(u.statuses || []).filter(s=>!(s.innate&&s.stat==='infuse'));
+    if(alive(u)&&u.kit?.infusion===true&&ELEMENTS.includes(u.element))u.statuses.push({stat:'infuse',amount:0,rounds:99,source:'innate',label:'Elemental infusion',element:u.element,innate:true});
 }
 // Moves aimed at one foe always hit the opposing active character; only ally moves are aimed by hand.
 export const moveNeedsTarget=move=>(move?.effects || []).some(e=>e.target==='ally')?'ally':null;
@@ -180,6 +190,7 @@ export function startRound(snapshot,{dice=null,first='party',hand=[],deck=[],ite
     state.difficulty=difficulty || state.difficulty || 'normal';
     state.active={party:activeOf(state,'party')?.id || null,enemy:activeOf(state,'enemy')?.id || null};
     for(const u of state.units)if(alive(u)&&innateAura(u)&&!auraList(u.aura).length)setAura(u,[innateAura(u)]);
+    for(const u of state.units)applyInfusion(u);
     for(const enemy of side(state,'enemy').filter(alive))if(!enemy.intent)planIntent(state,enemy,random);
     const round={state,dice:dice?dice.map(d=>({face:d.face})):null,hand:[...hand],deck:[...deck],items,turn:first==='enemy'?'enemy':'party',first:first==='enemy'?'enemy':'party',
         ended:{party:false,enemy:false},firstEnded:null,enemyActions:strikeBack?enemyActions:0,strikeBack,fed:[],played:[],freeSwitch:state.resonance.includes('Anemo'),
@@ -397,10 +408,10 @@ function core(round){
                 push({type:'debuff',actor:actor.id,target:t.id,stat:effect.stat,amount:effect.amount,rounds:effect.rounds,statuses:structuredClone(t.statuses),step});
             }break;
             case 'summon':{
-                if(actor.side==='party'){summonParty(actor.id,{...effect,name:effect.name || move.name,element},step);break;}
+                if(actor.side==='party'){summonParty(actor.id,{...effect,name:effect.name || move.name,element,move:move.name},step);break;}
                 const first=pickTarget(actor,effect.target==='one'?'one':'random',chosen)[0];
                 state.summons=state.summons.filter(s=>!(s.owner===actor.id&&s.name===effect.name));
-                const summon={id:`${actor.id}:${effect.name}`,owner:actor.id,side:actor.side,name:effect.name || move.name,element,power:effect.power || 0,heal:effect.heal || 0,rounds:effect.rounds || 1,target:effect.target,targetId:first?.id || null,decoy:Boolean(effect.decoy)};
+                const summon={id:`${actor.id}:${effect.name}`,owner:actor.id,side:actor.side,name:effect.name || move.name,element,power:effect.power || 0,heal:effect.heal || 0,rounds:effect.rounds || 1,target:effect.target,targetId:first?.id || null,decoy:Boolean(effect.decoy),move:move.name};
                 state.summons.push(summon);push({type:'summon',actor:actor.id,summon:structuredClone(summon),step});break;
             }
             case 'energy':for(const t of targets()){t.energy=Math.min(t.maxEnergy || 2,(t.energy || 0)+effect.amount);push({type:'energy',actor:actor.id,target:t.id,energy:t.energy,step});}break;
@@ -458,9 +469,9 @@ function core(round){
         if(drawn.length)push({type:'draw',cards:kept,burned:drawn.slice(kept.length),source:source || ''});
     }
     // A summon of the party's: Silly Teyvat's summons last one End Phase per Usage. People of the Springs adds one.
-    function summonParty(owner,{name,element='Physical',power=0,heal:mend=0,rounds=1,target='one',decoy=false},step){
+    function summonParty(owner,{name,element='Physical',power=0,heal:mend=0,rounds=1,target='one',decoy=false,move=''},step){
         const id=`${owner}:${name}`,old=state.summons.find(x=>x.id===id),bonus=supportFire('summon',null,step)?1:0;
-        const summon={id,owner,side:'party',name,element,power,heal:mend,rounds:Math.max(old?.rounds || 0,rounds)+bonus,target,targetId:activeOf(state,'enemy')?.id || null,decoy:Boolean(decoy)};
+        const summon={id,owner,side:'party',name,element,power,heal:mend,rounds:Math.max(old?.rounds || 0,rounds)+bonus,target,targetId:activeOf(state,'enemy')?.id || null,decoy:Boolean(decoy),...(move?{move}:{})};
         state.summons=state.summons.filter(x=>x.id!==id);state.summons.push(summon);
         push({type:'summon',actor:owner,summon:structuredClone(summon),step});
         return summon;
@@ -877,6 +888,84 @@ export function autoAction(round){
     const target=side(state,'party').filter(alive).sort((a,b)=>a.hp/a.maxHp-b.hp/b.maxHp)[0]?.id;
     for(const move of [2,1,0])if(moveCheck(round,move).ok)return {type:'skill',move,target};
     return {type:'end'};
+}
+// ---- The Auto planner ----------------------------------------------------------------------
+// How good the board is for the party: enemy health and shields gone, party health, shields and Energy,
+// summons, supports and equipment in play, elements applied, and the dice and cards still in hand.
+function boardValue(round){
+    const state=round.state,lead=activeOf(state,'party')?.element,party=partyElements(state);let v=0;
+    for(const u of state.units){
+        const sign=u.side==='party'?1:-1,buffs=(u.statuses || []).filter(x=>!x.slot&&x.rounds!==0);
+        if(u.hp<=0){v+=sign*-(u.side==='party'?14:10);continue;}
+        v+=sign*(u.hp+(u.shield || 0)*.7);
+        if(u.side==='party'){
+            v+=Math.min(u.energy || 0,u.maxEnergy || 2)*(u.kit?.moves?.some(m=>m.kind==='burst')?1.4:.2);
+            v+=(u.statuses || []).filter(x=>x.slot).length*2.5;
+            v+=buffs.filter(x=>!['stun','frozen','vuln','weaken'].includes(x.stat)).length*1.1-buffs.filter(x=>['stun','frozen','vuln','weaken'].includes(x.stat)).length*2;
+            v-=auraList(u.aura).length*.4;
+        }else{
+            v+=auraList(u.aura).length*.6+buffs.filter(x=>['stun','frozen','vuln','weaken'].includes(x.stat)).length*2-buffs.filter(x=>!['stun','frozen','vuln','weaken'].includes(x.stat)).length*1;
+        }
+    }
+    for(const x of state.summons || [])v+=(x.side==='party'?1:-1)*(2+(x.power || 0)*(x.rounds || 1)*.6+(x.heal || 0)*(x.rounds || 1)*.4+(x.decoy?2:0));
+    v+=(state.supports || []).length*2.2+(state.fields || []).filter(f=>f.side==='party').length*1.5;
+    for(const d of round.dice || [])v+=d.face==='Omni'?.6:d.face===lead?.5:party.has(d.face)?.35:.2;
+    v+=(round.hand || []).length*.4;
+    return v;
+}
+const AUTO_SKIP=new Set(['flee']);
+// The value of the best Combat Action open now, and that action. Ending the round is worth nothing.
+function bestCombat(round){
+    const state=round.state,u=activeOf(state,'party'),base=boardValue(round);let best={value:0,action:{type:'end'}};
+    if(!u)return best;
+    const target=side(state,'party').filter(alive).sort((a,b)=>a.hp/a.maxHp-b.hp/b.maxHp)[0]?.id || null;
+    for(const move of [0,1,2]){
+        if(!moveCheck(round,move).ok)continue;
+        const copy=cloneRound(round,{forecast:true}),r=useSkill(copy,move,{target});if(!r.ok)continue;
+        const value=boardValue(copy)-base+(copy.over==='victory'?50:0);
+        if(value>best.value)best={value,action:{type:'skill',move,target}};
+    }
+    // Stepping out: someone else is fresher, or the active character cannot act at all.
+    for(const x of side(state,'party').filter(c=>alive(c)&&c!==u&&!isStunned(c))){
+        const copy=cloneRound(round,{forecast:true}),r=switchTo(copy,x.id);if(!r.ok)continue;
+        let value=boardValue(copy)-base;
+        if(isStunned(u))value+=4;
+        if(u.hp/u.maxHp<=.3&&x.hp/x.maxHp>.5&&!burstReady(u))value+=3+(x.hp-u.hp)*.15;
+        if(burstReady(x)&&!burstReady(u))value+=1.5;
+        if(value>best.value)best={value,action:{type:'switch',id:x.id}};
+    }
+    return best;
+}
+// Who a card goes to when it needs a target: the most injured for Food, whoever can use a Weapon or
+// Artifact (the active character first), the first downed member for a revival.
+function cardTarget(round,item){
+    const state=round.state,party=side(state,'party'),active=activeOf(state,'party');
+    if(item.target==='downed')return party.find(u=>u.hp<=0)?.id || null;
+    if(item.target!=='ally')return null;
+    const fit=party.filter(u=>alive(u)&&!(item.kind==='food'&&round.fed.includes(u.id))&&(!item.weapon||u.kit?.weapon===item.weapon));
+    if(item.kind==='food')return fit.sort((a,b)=>(b.maxHp-b.hp)-(a.maxHp-a.hp) || (isActive(state,b)?1:0)-(isActive(state,a)?1:0))[0]?.id || null;
+    const bare=fit.filter(u=>!(u.statuses || []).some(x=>x.slot===item.kind));
+    return (bare.find(u=>u===active) || bare[0] || fit.find(u=>u===active) || fit[0])?.id || null;
+}
+// The best thing to do now, as the Auto button plays it: a card worth more than the dice it takes from
+// the Combat Action after it, otherwise the best Combat Action, and the end of the round when nothing is
+// worth doing (or nothing can be paid for).
+export function bestAction(round){
+    const state=round.state;
+    if(round.needsActive)return {type:'switch',id:side(state,'party').filter(alive).sort((a,b)=>(burstReady(b)?8:0)+b.hp-(burstReady(a)?8:0)-a.hp)[0]?.id};
+    if(!activeOf(state,'party'))return {type:'end'};
+    const now=bestCombat(round),base=boardValue(round);let card=null;
+    for(const [index,id] of (round.hand || []).entries()){
+        const item=round.items[id];if(!item||item.dice==='reroll'||AUTO_SKIP.has(item.kind))continue;
+        const target=cardTarget(round,item);if(!cardCheck(round,index,target).ok)continue;
+        const copy=cloneRound(round,{forecast:true}),r=playCard(copy,index,{target});if(!r.ok)continue;
+        let value=boardValue(copy)-base+(copy.over==='victory'?50:0);
+        // A card that ends your turn (a Combat Action) is weighed on its own; a Fast Action keeps the turn.
+        if(copy.turn==='party'&&!copy.over&&!copy.needsActive)value+=bestCombat(copy).value;
+        if(value>now.value+.25&&(!card||value>card.value))card={value,action:{type:'card',index,target}};
+    }
+    if(card)return card.action;
+    return now.value>.25?now.action:{type:'end'};
 }
 export function takeAction(round,action){
     switch(action?.type){

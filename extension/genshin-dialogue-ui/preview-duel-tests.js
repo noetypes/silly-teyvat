@@ -3,6 +3,7 @@ import {mountCombat,createCombatAdapter} from './combat.js';
 import {combatState,partyStore,partyMember} from './combat-state.js';
 import {partyBag,battleSnapshot} from './battle-state.js';
 import {dialoguePages} from './narration.js';
+import {shouldGenerateAfterSend} from './choices-api.js';
 import {combatTrigger,hasCombatTrigger,combatTriggerPrompt} from './enemy-actions.js';
 
 // The Attack circle, fighting party members on your own, and enemies that start the fight themselves.
@@ -27,6 +28,8 @@ export async function runDuelTests(){
     };
     const sword=()=>root.querySelector('#gi-attack-toggle'),controls=()=>root.querySelector('#gi-attack-controls'),dialog=()=>root.querySelector('#gi-combat-ask');
     const originalRandom=Math.random;
+    // Attack with only friends about arms the sword; sending a message then asks who to battle.
+    const sendArmed=async(ctx,ui)=>{if(!ui.armed)sword().click();ctx.chat.push({name:'Traveler',is_user:true,is_system:false,mes:'“Spar with me!”'});void ui.onUserMessage(ctx.chat.length-1);await until(()=>dialog().open,'the battle picker');};
     try{
         // ---- The Attack circle ----
         {const {ctx,ui}=fixture({enemy:true});
@@ -38,7 +41,8 @@ export async function runDuelTests(){
         ctx.chat.push({name:'Traveler',is_user:true,mes:'Hello'});ui.sync({on:true,id:0,idle:true});check('Attack is not offered on older messages',controls().hidden);
         ui.dispose();}
         {const {ui}=fixture();
-        ui.sync({on:true,id:0,idle:true});check('Attack shows with no enemies when there are party members to battle',!controls().hidden&&sword().title==='Battle a party member');
+        ui.sync({on:true,id:0,idle:true});check('Attack shows with no enemies when there are party members to battle',!controls().hidden&&sword().title==='Battle a party member after sending: off');
+        sword().click();check('with only friends about, Attack arms for the next message instead of starting a fight',ui.armed&&!dialog().open&&sword().getAttribute('aria-pressed')==='true');
         ui.dispose();}
         {const {ctx,ui}=fixture();ctx.groups[0].members=[];ctx.chatMetadata.silly_teyvat_cast.core=[];ui.sync({on:true,id:0,idle:true});
         check('Attack is hidden when nobody is there to fight',controls().hidden);ui.dispose();}
@@ -53,7 +57,7 @@ export async function runDuelTests(){
         // ---- Fighting a party member alone ----
         {const {ctx,ui,log}=fixture();
         ui.sync({on:true,id:0,idle:true});
-        sword().click();await until(()=>dialog().open,'the battle picker');
+        await sendArmed(ctx,ui);
         const rows=[...dialog().querySelectorAll('.gi-ask-row')],battle=dialog().querySelector('[data-answer="battle"]');
         check('Attack asks which party members to battle',rows.length===2&&rows.map(r=>r.textContent).join('|').includes('Klee')&&battle.disabled);
         rows[0].querySelector('input').click();check('Battle is available once someone is chosen',!battle.disabled);
@@ -70,7 +74,7 @@ export async function runDuelTests(){
         check('no loot or enemy defeat message follows a duel',!log.messages.some(m=>m.event.kind==='death')&&combatState(ctx).events.at(-1).duel===true);
         Math.random=originalRandom;ui.dispose();}
         {const {ctx,ui,log}=fixture();
-        ui.sync({on:true,id:0,idle:true});sword().click();await until(()=>dialog().open,'the battle picker');
+        ui.sync({on:true,id:0,idle:true});await sendArmed(ctx,ui);
         [...dialog().querySelectorAll('.gi-ask-row')].find(r=>r.textContent.includes('Nahida')).querySelector('input').click();
         partyMember(ctx,'Nahida.png');partyStore(ctx)['Nahida.png'].hp=1;const eggs=partyBag(ctx)['fried-egg'];Math.random=()=>0;
         dialog().querySelector('[data-answer="battle"]').click();await until(()=>dialog().open&&dialog().textContent.includes('is down'),'the revive question');
@@ -78,15 +82,18 @@ export async function runDuelTests(){
         check('reviving uses the item, restores some HP and keeps them in the group',partyBag(ctx)['fried-egg']===(eggs-1||undefined)&&partyMember(ctx,'Nahida.png').hp>0&&log.removed.length===0&&/back on their feet/.test(log.messages.at(-1).text));
         // No egg left: the friend leaves without a question.
         await pause(60);ui.sync({on:true,id:ctx.chat.length-1,idle:true});partyStore(ctx)['Nahida.png'].hp=1;
-        sword().click();await until(()=>dialog().open,'the battle picker');[...dialog().querySelectorAll('.gi-ask-row')].find(r=>r.textContent.includes('Nahida')).querySelector('input').click();dialog().querySelector('[data-answer="battle"]').click();
+        await sendArmed(ctx,ui);{const box=[...dialog().querySelectorAll('.gi-ask-row')].find(r=>r.textContent.includes('Nahida')).querySelector('input');check('the friend you battled last is chosen already',box.checked);}dialog().querySelector('[data-answer="battle"]').click();
         await until(()=>log.removed.length===1,'the friend leaving without an item');
         check('without a revive item the friend leaves at once',log.removed[0]==='Nahida.png'&&!dialog().open);
         Math.random=originalRandom;ui.dispose();}
+        {const {ctx,ui,log}=fixture();ui.sync({on:true,id:0,idle:true});await sendArmed(ctx,ui);const sent=ctx.chat.at(-1);
+        dialog().querySelector('[data-answer="cancel"]').click();await until(()=>sent.extra?.silly_teyvat_send_attack?.status==='declined','the declined battle');
+        check('choosing not to battle sends the message as plain words',log.rolls===0&&shouldGenerateAfterSend(sent)&&ui.armed);ui.dispose();}
         // Two friends can fall in one round. The first one leaving must not abandon the second.
         {const {ctx,ui,log}=fixture();delete partyBag(ctx)['fried-egg'];
         for(const avatar of ['Klee.png','Nahida.png']){partyMember(ctx,avatar);partyStore(ctx)[avatar].hp=1;}
         log.onPlan=state=>{const me=state.units.find(u=>u.side==='party');me.kit={...me.kit,moves:me.kit.moves.map((move,i)=>i===1?{...move,effects:[{type:'damage',target:'all',power:50}]}:move)};};
-        ui.sync({on:true,id:0,idle:true});sword().click();await until(()=>dialog().open,'the battle picker');
+        ui.sync({on:true,id:0,idle:true});await sendArmed(ctx,ui);
         for(const box of dialog().querySelectorAll('.gi-ask-row input'))box.click();
         Math.random=()=>0;dialog().querySelector('[data-answer="battle"]').click();
         await until(()=>!ui.busy&&log.plans.length===1,'the round to finish');

@@ -1,3 +1,5 @@
+import {linkedCard} from './persona-link.js';
+import {isEnemy} from './character-properties.js';
 import {activeGroup} from './party.js';
 import {newLocalId} from './local-id.js';
 import {mediaSettings} from './media-store.js';
@@ -10,7 +12,7 @@ import {activePersonaAvatar,personaCard} from './persona-wardrobe.js';
 import {circularCharacterAvatar,characterAvatarsReady} from './character-avatars.js';
 import {mountElementalDice,ELEMENT_COLORS} from './elemental-dice.js';
 import {battleSnapshot,commitRound,roundNarration,partyBag,unpaidEnemies} from './battle-state.js';
-import {rollFuel,rerollFuel} from './battle-engine.js';
+import {rollFuel,rerollFuel,partyElements} from './battle-engine.js';
 import {ITEMS,rollLoot,rollBossLoot} from './battle-items.js';
 import {mountBattle} from './battle-ui.js';
 import {createBurstVoicePlayer} from './burst-audio.js';
@@ -68,8 +70,8 @@ export function mountCombat({host,getContext,onChange=()=>{},announce=()=>{},ada
     // Enemy health sits at the top like a Genshin boss bar; the party's portraits stand along the right edge.
     const panel=document.createElement('aside');panel.id='gi-combat';panel.setAttribute('aria-label','Hostile encounters');panel.hidden=true;host.append(panel);
     const partyPanel=document.createElement('aside');partyPanel.id='gi-party-health';partyPanel.setAttribute('aria-label','Party health');partyPanel.hidden=true;host.append(partyPanel);let partyPaint='';const partyShown=new Map();
-    // A small circle with a sword, no text. It arms an attack on the next message you send, or, with no enemies
-    // in the scene, asks which party members to fight.
+    // A small circle with a sword, no text. It arms an attack on the next message you send. With no enemies
+    // in the scene, sending the message asks which party members to fight (or none) before anyone replies.
     const controls=document.createElement('div');controls.id='gi-attack-controls';controls.hidden=true;
     controls.innerHTML=`<button id="gi-attack-toggle" type="button" aria-label="Attack after sending a message" aria-pressed="false" title="Attack after sending: off"><svg viewBox="0 0 24 24" aria-hidden="true" style="fill:currentColor;stroke:none">${SWORD_SVG}</svg></button>`;
     // Attack sits in the Teyvat Choices column: beside the refresh button when
@@ -94,6 +96,7 @@ export function mountCombat({host,getContext,onChange=()=>{},announce=()=>{},ada
         const list=el('div','gi-ask-list');list.setAttribute('role','group');list.setAttribute('aria-label',title);
         for(const option of options){
             const row=el('label','gi-ask-row'),box=document.createElement('input');box.type='checkbox';box.value=option.value;
+            if(option.checked)box.checked=true;
             const face=el('span','gi-circle-face'),img=document.createElement('img');img.alt='';img.src=option.img;face.append(img);
             const name=el('strong','',option.label),note=el('small','',option.note || '');
             row.append(box,face,name,note);list.append(row);
@@ -101,16 +104,13 @@ export function mountCombat({host,getContext,onChange=()=>{},announce=()=>{},ada
         const actions=el('div','gi-ask-actions'),answer=value=>closeAsk({value,picks:[...list.querySelectorAll('input:checked')].map(i=>i.value)});
         for(const b of buttons){const button=el('button',b.primary?'gi-ask-primary':'',b.label);button.type='button';button.dataset.answer=b.value;button.addEventListener('click',()=>b.dismiss?closeAsk(null):answer(b.value));actions.append(button);}
         const confirm=actions.querySelector('.gi-ask-primary');
-        if(pickNeeded&&confirm){confirm.disabled=true;list.addEventListener('change',()=>{confirm.disabled=!list.querySelector('input:checked');});}
+        if(pickNeeded&&confirm){confirm.disabled=!list.querySelector('input:checked');list.addEventListener('change',()=>{confirm.disabled=!list.querySelector('input:checked');});}
         dialog.replaceChildren(el('small','','Silly Teyvat · Combat'),heading,...(text?[el('p','',text)]:[]),...(options.length?[list]:[]),actions);
         dialog.showModal();dialog.querySelector('input,button')?.focus();
         return new Promise(resolve=>{settle=resolve;});
     }
     dialog.addEventListener('cancel',event=>{event.preventDefault();if(!locked)closeAsk(null);},{signal:abort.signal});
-    sword.addEventListener('click',()=>{
-        if(eligibleEnemies(getContext()).length)setArmed(!armed);
-        else void startDuel().catch(error=>{announce(error.message);globalThis.toastr?.error?.(error.message,'Silly Teyvat');});
-    },{signal:abort.signal});
+    sword.addEventListener('click',()=>setArmed(!armed),{signal:abort.signal});
     const burstVoice=createBurstVoicePlayer({getContext,announce});
     const dice=diceAdapter || mountElementalDice({host}),battle=battleAdapter || mountBattle({host,onBurst:unit=>burstVoice.play(unit),onStopVoice:()=>burstVoice.stop(),onTransform:unit=>onChange({transformed:unit})});const hits=new Map(),shown=new Map();let disposed=false,busy=false,enabled=false,writing=false,revision=0,key='',paint='',lastId=-1,armed=false,target='',visit='',lastView={};
     const eligibleEnemies=ctx=>{const disabled=activeGroup(ctx)?.disabled_members || [];return activeEnemies(ctx).filter(e=>!disabled.includes(e.avatar));};
@@ -122,9 +122,14 @@ export function mountCombat({host,getContext,onChange=()=>{},announce=()=>{},ada
         controls.hidden=!enabled||!lastView.show||lastView.idle===false||writing||lastId<latestShown(ctx)||!(enemies.length||duelCandidates(ctx).length);
         sword.disabled=busy||writing;sword.setAttribute('aria-pressed',String(armed));
         const duelOnly=!enemies.length;
-        sword.title=duelOnly?'Battle a party member':`Attack after sending: ${armed?'on':'off'}`;sword.setAttribute('aria-label',duelOnly?'Battle a party member':'Attack after sending a message');
+        sword.title=duelOnly?`Battle a party member after sending: ${armed?'on':'off'}`:`Attack after sending: ${armed?'on':'off'}`;sword.setAttribute('aria-label',duelOnly?'Battle a party member after sending a message':'Attack after sending a message');
     }
-    function setArmed(value){if(value&&(!enabled||busy||writing||!eligibleEnemies(getContext()).length))return false;armed=Boolean(value);paintControls();announce(armed?'Attack is on. Your next messages will also start a battle round.':'Attack is off. Your messages will only speak.');return armed;}
+    function setArmed(value){
+        const ctx=getContext(),duelOnly=!eligibleEnemies(ctx).length;
+        if(value&&(!enabled||busy||writing||duelOnly&&!duelCandidates(ctx).length))return false;
+        armed=Boolean(value);paintControls();
+        announce(armed?(duelOnly?'Attack is on. When you send your next message you choose who to battle, or no one.':'Attack is on. Your next messages will also start a battle round.'):'Attack is off. Your messages will only speak.');return armed;
+    }
     const current=(identity,token)=>!disposed&&enabled&&token===revision&&combatIdentity(getContext())===identity;
     const prefs=ctx=>mediaSettings(ctx),volumeOf=(ctx,key)=>prefs(ctx)[key]===false?0:(prefs(ctx).spriteVolume ?? .8);
     // One full round in the manner of Genius Invokation: Roll Phase, then turns in alternation on the board, then the End Phase.
@@ -153,9 +158,11 @@ export function mountCombat({host,getContext,onChange=()=>{},announce=()=>{},ada
                 return ok&&valid()?r.dice.map(d=>({face:d.face})):null;
             };
             // Toss-Up returns to the Roll Phase with the dice you have left.
-            const onReroll=async current=>{
-                let sub={kind:'fuel',dice:current.map(d=>({face:d.face,match:true})),allies:[],rerolls:0};
-                const ok=await dice.roll(sub,{describe:describe(snapshot),heading:'Toss-Up',pickAll:true,reroll:picked=>(sub=rerollFuel(snapshot,sub,picked)),volume:volumeOf(ctx,'diceSound'),reducedMotion:motion,isCurrent:valid});
+            // Only the dice that match nobody still standing start selected; Omni always matches.
+            const onReroll=async(current,live)=>{
+                const state=live?.units?live:snapshot,elements=partyElements(state);
+                let sub={kind:'fuel',dice:current.map(d=>({face:d.face,match:d.face==='Omni'||elements.has(d.face)})),allies:[],rerolls:0};
+                const ok=await dice.roll(sub,{describe:describe(state),heading:'Toss-Up',pickAll:true,reroll:picked=>(sub=rerollFuel(state,sub,picked)),volume:volumeOf(ctx,'diceSound'),reducedMotion:motion,isCurrent:valid});
                 return ok&&valid()?sub.dice.map(d=>({face:d.face})):null;
             };
             // The round is played live on the board, turn by turn, and saved once both sides have ended it.
@@ -165,7 +172,9 @@ export function mountCombat({host,getContext,onChange=()=>{},announce=()=>{},ada
             const enemies=snapshot.units.filter(u=>u.side==='enemy'&&u.hp>0);
             const fallen=result.state.units.filter(u=>u.side==='enemy'&&u.hp<=0);
             const visitStore=duel?null:combatState(ctx).visits[visitKey],pool=locationCardPool(ctx,visitStore?.locationId);
-            const loot=duel?[]:result.victory?rollLoot([...enemies,...unpaidEnemies(visitStore)],{pool,size:Object.keys(visitStore?.enemies || {}).length}):rollBossLoot(enemies.filter(u=>fallen.some(f=>f.id===u.id)),{pool});
+            // Playing an enemy card, the characters you beat drop cards the way enemies do for a party.
+            const asEnemy=duel&&Boolean(linkedCard(ctx))&&isEnemy(ctx,linkedCard(ctx));
+            const loot=asEnemy?(result.victory?rollLoot(snapshot.units.filter(u=>u.side==='enemy'),{pool:locationCardPool(ctx,ctx.chatMetadata?.silly_teyvat_world?.location?.id)}):[]):duel?[]:result.victory?rollLoot([...enemies,...unpaidEnemies(visitStore)],{pool,size:Object.keys(visitStore?.enemies || {}).length}):rollBossLoot(enemies.filter(u=>fallen.some(f=>f.id===u.id)),{pool});
             const saved=commitRound(getContext(),snapshot,result,id,{items:used,loot});if(!saved){battle.cancel?.();return;}
             const target=result.state.units.find(u=>u.id===avatar),before=snapshot.units.find(u=>u.id===avatar);
             const gone=[...saved.defeated,...saved.fled];
@@ -206,14 +215,16 @@ export function mountCombat({host,getContext,onChange=()=>{},announce=()=>{},ada
     characterAvatarsReady.then(()=>{partyPaint='';paint='';});
     const portrait=(ctx,avatar)=>avatar===USER_KEY?(ctx.getThumbnailUrl?.('persona',activePersonaAvatar(ctx)) || `/User%20Avatars/${encodeURIComponent(activePersonaAvatar(ctx))}`):(ctx.getThumbnailUrl?.('avatar',avatar) || `/characters/${encodeURIComponent(avatar)}`);
     // Pressing Attack with only friends in the scene: choose who to fight, then fight them alone.
-    async function startDuel(){
+    let lastFoes=[];
+    // Sent with Attack on and only friends about: the message waits while you choose who to battle, or no one.
+    async function chooseDuel(){
         const ctx=getContext(),candidates=duelCandidates(ctx);
-        if(!enabled||busy||writing||!candidates.length)return null;
-        const answer=await ask({title:'Who do you want to battle?',            options:candidates.map(a=>{const m=partyMember(ctx,a);return {value:a,label:m.name,note:`${m.hp} / ${m.maxHp} HP`,img:circle(ctx,a)};}),
-            buttons:[{label:'Battle',value:'battle',primary:true},{label:'Not now',value:'cancel',dismiss:true}],pickNeeded:true});
+        if(!candidates.length)return [];
+        const answer=await ask({title:'Who do you want to battle?',text:'Your message is sent once you decide.',options:candidates.map(a=>{const m=partyMember(ctx,a);return {value:a,label:m.name,note:`${m.hp} / ${m.maxHp} HP`,img:circle(ctx,a),checked:lastFoes.includes(a)};}),
+            buttons:[{label:'Battle',value:'battle',primary:true},{label:'Don\u2019t battle',value:'cancel',dismiss:true}],pickNeeded:true});
         const foes=answer?.picks?.filter(a=>duelCandidates(getContext()).includes(a)) || [];
-        if(!foes.length)return null;
-        return attack(foes[0],{duel:foes});
+        if(foes.length)lastFoes=foes;
+        return foes;
     }
     // A party member you beat: revive them with a Teyvat Fried Egg if you have one and want to, otherwise they leave.
     async function settleAlly(snapshot,fallen,id){
@@ -272,15 +283,29 @@ export function mountCombat({host,getContext,onChange=()=>{},announce=()=>{},ada
         get armed(){return armed;},setArmed,
         // Kept as an empty compatibility surface. Attacks are never reply choices.
         actions(){return [];},
-        cancelPending(){revision++;dice.cancel?.();battle.cancel?.();},
+        cancelPending(){revision++;dice.cancel?.();battle.cancel?.();if(settle)closeAsk(null);},
         async onUserMessage(id){
             const ctx=getContext(),index=Number.isInteger(Number(id))?Number(id):ctx.chat.length-1,message=ctx.chat[index];
             if(disposed||!enabled||!armed||busy||index!==ctx.chat.length-1||!message?.is_user||message.is_system||!message.mes?.trim()||message.extra?.silly_teyvat_send_attack)return null;
-            const enemy=eligibleEnemies(ctx).find(e=>e.avatar===target);if(!enemy)return null;
-            const identity=combatIdentity(ctx),record={id:newLocalId('send-attack'),avatar:enemy.avatar,visit:enemy.key,status:'rolling'};
+            const enemy=eligibleEnemies(ctx).find(e=>e.avatar===target);
+            if(!enemy&&!duelCandidates(ctx).length)return null;
+            const identity=combatIdentity(ctx),record={id:newLocalId('send-attack'),avatar:enemy?.avatar || '',visit:enemy?.key || 'duel',status:enemy?'rolling':'asking'};
             message.extra ??= {};message.extra.silly_teyvat_send_attack=record;
             const same=()=>!disposed&&enabled&&combatIdentity(getContext())===identity&&getContext().chat.includes(message);
-            const event=await attack(enemy.avatar,{duringSend:true,react:false,attackId:record.id});
+            let event;
+            if(enemy)event=await attack(enemy.avatar,{duringSend:true,react:false,attackId:record.id});
+            else{
+                // Only friends here: hold the message until you choose who to battle, or no one.
+                const foes=await chooseDuel();
+                if(!same())return null;
+                if(!foes.length){record.status='declined';await ctx.saveChat?.();return null;}
+                Object.assign(record,{avatar:foes[0],status:'rolling',duel:true});
+                event=await attack(foes[0],{duringSend:true,react:false,attackId:record.id,duel:foes});
+                if(!same())return null;
+                // A friend beaten in a duel was revived or has left already; the conversation carries on.
+                Object.assign(record,{status:event?'resolved':'cancelled',defeated:false});
+                await ctx.saveChat?.();return event;
+            }
             if(!same())return null;
             Object.assign(record,{status:event?'resolved':'cancelled',defeated:Boolean(event?.defeated)});
             await ctx.saveChat?.();
@@ -289,13 +314,14 @@ export function mountCombat({host,getContext,onChange=()=>{},announce=()=>{},ada
         },
         sync({on,id,generating=false,show=true,idle=true}={}){
             burstVoice.sync({enabled:on});
-            const ctx=getContext(),nextKey=combatIdentity(ctx);if(nextKey!==key){revision++;dice.cancel?.();battle.cancel?.();key=nextKey;paint='';armed=false;target='';visit='';}if(enabled&&!on){revision++;dice.cancel?.();battle.cancel?.();armed=false;}enabled=Boolean(on);writing=generating;lastId=id;lastView={show,idle};
+            const ctx=getContext(),nextKey=combatIdentity(ctx);if(nextKey!==key){revision++;dice.cancel?.();battle.cancel?.();if(settle&&key)closeAsk(null);key=nextKey;paint='';armed=false;target='';visit='';}if(enabled&&!on){revision++;dice.cancel?.();battle.cancel?.();armed=false;}enabled=Boolean(on);writing=generating;lastId=id;lastView={show,idle};
             syncCombatPrompt(ctx,enabled);
             const disabled=activeGroup(ctx)?.disabled_members || [];
             const currentEnemies=enabled?activeEnemies(ctx).filter(e=>!disabled.includes(e.avatar)):[],message=ctx.chat?.[id];
             const nextVisit=[...new Set(currentEnemies.map(e=>e.key))].sort().join('|');
             if(visit&&visit!==nextVisit&&!busy){revision++;dice.cancel?.();battle.cancel?.();armed=false;}visit=nextVisit;
-            if(!currentEnemies.some(e=>e.avatar===target)){target=currentEnemies[0]?.avatar || '';if(!target)armed=false;}
+            // The last enemy falling disarms Attack; with only friends about it stays armed for a duel.
+            if(!currentEnemies.some(e=>e.avatar===target)){const had=Boolean(target);target=currentEnemies[0]?.avatar || '';if(!target&&(had||!duelCandidates(ctx).length))armed=false;}
             paintControls(currentEnemies);
             if(enabled&&show&&idle&&!generating&&!busy&&!forcing&&id===ctx.chat.length-1){const trigger=pendingTrigger(ctx);if(trigger)void forceStart(trigger).catch(error=>{console.warn('[Silly Teyvat] Enemy-started combat',error);announce(error.message);});}
             if(enabled&&!generating&&id===ctx.chat.length-1&&message&&!message.extra?.silly_teyvat_combat_scene){message.extra ??= {};message.extra.silly_teyvat_combat_scene=structuredClone(currentEnemies);Promise.resolve(ctx.saveChat?.()).catch(error=>console.warn('[Silly Teyvat] Combat scene save',error));}

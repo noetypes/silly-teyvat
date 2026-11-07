@@ -7,3 +7,35 @@
 #gi-battle .tb-summon.tb-support { box-shadow: 0 0 0 3px #f6efdc, 0 0 0 4px #5f7f9a, 0 6px 14px #0009; }
 #gi-battle .tb-support .tb-summon-rounds { background: linear-gradient(#e9f4ff, #8fb2d0); color: #142a3d; }
 #gi-battle .tb-item-cost.tb-cheaper { color: #fff; background: radial-gradient(circle at 40% 35%, #c7f5b8, #4fae45); box-shadow: 0 0 0 2px #2d6e2a, 0 2px 4px #0009; }
+
+/* 1.66: Auto is a switch with a plain play icon; it glows gold while it plays your turns. */
+#gi-battle .tb-auto svg { transform: translateX(1px); }
+#gi-battle .tb-auto.tb-auto-on { color: #3a2a0c; background: radial-gradient(circle at 50% 35%, #ffe7a6, #d9a441); box-shadow: inset 0 0 0 2px #fff4d6, 0 0 0 2px #e9b84a, 0 0 14px #ffcf6acc, 0 4px 10px #0009; }
+#gi-battle .tb-auto.tb-auto-on .tb-tool-label { color: #ffe39a; }
+@media (prefers-reduced-motion: no-preference) { #gi-battle .tb-auto.tb-auto-on { animation: tb-auto-pulse 1.6s ease-in-out infinite; } }
+@keyframes tb-auto-pulse { 50% { box-shadow: inset 0 0 0 2px #fff4d6, 0 0 0 2px #e9b84a, 0 0 22px #ffd77ae6, 0 4px 10px #0009; } }
+
+/* 1.66: the dice a card or skill will spend get a gold border. The die is clipped to its hexagon, so the
+   border is a hexagonal ring drawn just inside that edge rather than a CSS border or shadow. */
+#gi-battle .tb-die { position: relative; }
+#gi-battle .tb-die.tb-spending::after, #gi-battle .tb-pick-die[aria-pressed="true"]::after { content: ""; position: absolute; inset: 0; pointer-events: none; background: linear-gradient(160deg, #fffbe6, #ffd36b 55%, #fff1b8); clip-path: polygon(evenodd, 50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%, 50% 0, 50% 11%, 90% 31%, 90% 69%, 50% 89%, 10% 69%, 10% 31%, 50% 11%); }
+#gi-battle .tb-pick-die[aria-pressed="true"] { opacity: 1; }
+#gi-battle .tb-pick-die:not([aria-pressed="true"]):not(.tb-tunable) { opacity: .45; }
+
+/* 1.66: the Burst in the card centres the character where their card art does. The splash art is shown
+   smaller and raised, and the push-in no longer starts from below. */
+#gi-battle .tb-cine > img { width: 200%; top: -30%; }
+#gi-battle .tb-cinema .tb-cine > img { animation-name: tb-cine-iris, tb-cine-pan-3; }
+@keyframes tb-cine-pan-3 { 0%, 34% { transform: translate(-3%, 4%) scale(1.28); } 55% { transform: translate(-1%, 1%) scale(1.12); } to { transform: translate(3%, -2%) scale(1); } }
+
+/* 1.66: damage numbers (Normal Attacks are pale Physical) get a dark outline and drop shadow so they
+   stand out against the lavender table. */
+#gi-battle .gb-dmg { -webkit-text-stroke: 1.5px #1b1838; paint-order: stroke fill; text-shadow: 0 0 2px #1b1838, 0 2px 0 #1b1838, 0 3px 8px #000c; }
+
+/* 1.66: built-in elemental infusion shows as the unit's element on a status chip. */
+#gi-battle .tb-st-innate { display: grid; place-items: center; padding: 1px; background: color-mix(in srgb, var(--el) 35%, #1b2232); box-shadow: 0 0 0 1.5px var(--el); }
+#gi-battle .tb-st-innate img { width: 100%; height: 100%; }
+
+/* 1.66: a summon without its own TCG card shows the TCG icon of the skill that summoned it. */
+#gi-battle .tb-summon-skill .tb-summon-art img { width: calc(var(--zs) * .62); height: calc(var(--zs) * .62); border-radius: 50%; background: radial-gradient(circle, color-mix(in srgb, var(--el) 45%, #10162a), #10162a); box-shadow: 0 0 0 2px color-mix(in srgb, var(--el) 60%, #fff), 0 0 12px var(--el); filter: none; }
+@media (max-aspect-ratio: 4/5) { #gi-battle .tb-summon-skill .tb-summon-art img { width: 30px; height: 30px; } }

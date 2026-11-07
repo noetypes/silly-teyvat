@@ -176,8 +176,12 @@ export function mountSceneMedia({host,getContext,adapter=createMediaAdapter(getC
         if (swipe) { swipe.extra ??= {}; swipe.extra.silly_teyvat = structuredClone(message.extra.silly_teyvat); }
         if (identity(getContext()) === identity(ctx)) Promise.resolve(ctx.saveChat?.()).catch(console.warn);
     }
+    // A latest reply must keep the same text this long before it is classified (see sync).
+    const SETTLE_MS = 900;
+    let settled = {key:''}, settleTimer = 0, lastSync = null;
     const api = {
         sync({on:enabled,id,page,generating}) {
+            lastSync = {on:enabled,id,page,generating};
             const ctx = getContext(), prefs = mediaSettings(ctx), nextChat = identity(ctx);
             if (nextChat !== chatKey) { api.reset(); chatKey = nextChat; }
             on = enabled;
@@ -195,6 +199,19 @@ export function mountSceneMedia({host,getContext,adapter=createMediaAdapter(getC
             if (cached?.signature === signature) { activeCG = cached.cg; paint(activeCG,key); return; }
             paint(null,key);
             if (generating || !message.mes?.trim() || message.mes.trim() === '...') return;
+            // The whole reply is classified, never the part shown so far. Replies streamed without a normal
+            // generation (an enemy's reaction is written "quiet to loud") wait for SillyTavern to finish, and a
+            // latest message whose text is still changing waits until it has been still for a moment.
+            if (message === ctx.chat.at(-1)) {
+                const streaming = ctx.streamingProcessor && ctx.streamingProcessor.isFinished === false;
+                const now = performance.now();
+                // Only text that grew at its end counts as still arriving; an edit is classified at once.
+                const text = message.mes || '';
+                if (settled.key !== key) settled = {key,text,since:now,changed:false};
+                else if (settled.text !== text) settled = {key,text,since:now,changed:text.length > settled.text.length && text.startsWith(settled.text)};
+                const wait = settled.changed ? SETTLE_MS-(now-settled.since) : 0;
+                if (streaming || wait > 0) { clearTimeout(settleTimer); settleTimer = setTimeout(()=>{ if (on && lastSync) api.sync(lastSync); }, Math.max(wait, 250)+20); return; }
+            }
             // Everyone in the scene shares one prompt, so a reply is checked once, not per character.
             const {entries,owners} = sceneCGs(ctx,message);
             if (!entries.length) return;
@@ -278,7 +295,7 @@ export function mountSceneMedia({host,getContext,adapter=createMediaAdapter(getC
             if(message?.extra?.silly_teyvat?.cgs)delete message.extra.silly_teyvat.cgs[String(message.swipe_id ?? 0)];
             api.refresh();
         },
-        reset() { request?.abort(); request=null; revision++; selection=pageKey=frameKey=dismissed=''; activeCG=undefined; failures.clear(); stopSound(); clearFull(); closeFrame(); if(gallery.open)gallery.close(); },
+        reset() { clearTimeout(settleTimer); settled = {key:''}; request?.abort(); request=null; revision++; selection=pageKey=frameKey=dismissed=''; activeCG=undefined; failures.clear(); stopSound(); clearFull(); closeFrame(); if(gallery.open)gallery.close(); },
         dispose() { api.reset(); abort.abort(); sound.dispose(); if(preview.open)preview.close(); if(gallery.open)gallery.close(); stage.remove(); frame.remove(); preview.remove(); gallery.remove(); },
     };
     frame.querySelector('header button').addEventListener('click',()=>{dismissed=frameKey;closeFrame();},{signal:abort.signal});

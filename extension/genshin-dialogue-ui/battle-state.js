@@ -1,8 +1,8 @@
 // Bridges chat metadata and the pure battle engine: builds a snapshot of the current
 // encounter, and commits a resolved round back to the saved HP and battle state.
 import {combatState,clearEnemy,activeEnemies,combatAllies,allyElement,partyMember,partyStore,USER_KEY,combatDifficulty} from './combat-state.js';
-import {defaultKit,mergeKit,kitOverrides,travelerKit,foeKit} from './combat-kits.js';
-import {characterProperties} from './character-properties.js';
+import {defaultKit,mergeKit,kitOverrides,travelerKit,foeKit,playableKit} from './combat-kits.js';
+import {characterProperties,isEnemy} from './character-properties.js';
 import {circularCharacterAvatar} from './character-avatars.js';
 import {personaCard} from './persona-wardrobe.js';
 import {linkedCard} from './persona-link.js';
@@ -31,6 +31,8 @@ export function kitForCard(ctx,card){
     const props=characterProperties(ctx,card),enemy=props.role==='enemy';
     if(card.isPersona){
         const linked=linkedCard(ctx,card.personaAvatar),element=props.element!=='None'?props.element:characterProperties(ctx,linked).element;
+        // An enemy card you play keeps one moveset, edited as that enemy's; battles turn it into a character's.
+        if(linked&&isEnemy(ctx,linked))return kitForCard(ctx,linked);
         const base=linked?defaultKit(linked.name,{element}):{...travelerKit(element),name:card.name};
         return mergeKit(base,kitOverrides(ctx)[linked?.avatar || card.avatar]);
     }
@@ -39,6 +41,8 @@ export function kitForCard(ctx,card){
 export function kitForAlly(ctx,ally){
     if(ally.avatar!==USER_KEY)return kitForCard(ctx,ctx.characters.find(c=>c.avatar===ally.avatar));
     const element=allyElement(ctx,ally),card=linkedCard(ctx);
+    // Playing an enemy card: its own moveset (with the edits saved for that card), turned into a character's.
+    if(card&&isEnemy(ctx,card))return playableKit(kitForCard(ctx,card));
     const base=card?defaultKit(card.name,{element}):{...travelerKit(element),name:ally.name};
     return mergeKit(base,kitOverrides(ctx)[kitKey(ctx,ally)]);
 }

@@ -1,6 +1,7 @@
 import {enemyDialoguePages} from './enemy-actions.js';
 import { splitDialoguePages } from './dialogue-pages.js';
 import { hideTrustTags } from './trust-tags.js';
+import { hideNameTagPages } from './name-tags.js';
 // Quotes in HTML attributes are excluded by the caller. Apostrophes inside
 // words aren't speech marks. One double quote also counts while streaming.
 export function hasSpeech(text = '') {
@@ -19,7 +20,9 @@ export function plainMessage(message) {
 }
 export function dialoguePages(root, prefs, message = {}) {
     if (!message.is_user) hideTrustTags(root);
-    const pages = enemyDialoguePages(splitDialoguePages(root),message,typeof prefs.combatTriggerPhrase === 'string' ? prefs.combatTriggerPhrase.trim() : undefined);
+    let pages = enemyDialoguePages(splitDialoguePages(root),message,typeof prefs.combatTriggerPhrase === 'string' ? prefs.combatTriggerPhrase.trim() : undefined);
+    // Name tags ("Navia:") a model put before a line are hidden while the reply streams in (name-tags.js).
+    if (!message.is_user && message.nameTags?.length) pages = hideNameTagPages(pages, message.nameTags).filter(page => page.textContent.trim() || page.querySelector?.('img,video,audio'));
     if(message.is_narrator || message.extra?.type==='narrator'){for(const page of pages)page.giNarration=true;return pages;}
     if (!prefs.narration || message.is_user || message.is_system) return pages;
     if (prefs.narrationMode !== 'keyword') {

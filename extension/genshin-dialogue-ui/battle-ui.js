@@ -6,7 +6,7 @@
 // Roll Phase, then turns in alternation. On your turn play cards and tune dice (Fast Actions), then
 // use a skill, switch characters, flee or end your round (Combat Actions). Every action plays out
 // at once: skill name, the card lunging, impacts, damage numbers, reactions and sounds.
-import {startRound,useSkill,switchTo,playCard,tuneDie,declareEnd,flee as fleeAction,enemyTurn,endPhase,finishRound,moveCheck,cardCheck,cardCost,tuneCheck,switchCost,costOf,anyCost,chooseDice,diceFit,forecast,autoAction,takeAction,
+import {startRound,useSkill,switchTo,playCard,tuneDie,declareEnd,flee as fleeAction,enemyTurn,endPhase,finishRound,moveCheck,cardCheck,cardCost,tuneCheck,switchCost,costOf,anyCost,chooseDice,diceFit,forecast,bestAction,takeAction,
     drawCards,deckFrom,sortDice,activeOf,isActive,isStunned,alive,unitById,moveElement,moveNeedsTarget,intentPreview,fleeChance,partyElements,auraList,innateAura,burstReady,REACTIONS,RESONANCE,ELEMENTS,FIELDS,HAND_START} from './battle-engine.js';
 import {describeMove,escapeHtml,KIND_LABEL} from './combat-kits.js';
 import {ITEMS,itemArt,kindLabel} from './battle-items.js';
@@ -26,7 +26,7 @@ const ICON={
     // A runner in mid-stride with speed lines: one weight of line throughout, so it reads at any size.
     flee:'<svg viewBox="0 0 24 24" aria-hidden="true"><g transform="translate(1.2 .4)"><circle cx="15.6" cy="3.9" r="2.3" fill="currentColor"/><g fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M14.2 8.2 11.6 14"/><path d="M14.2 8.2l3 2.6 2.8-.6"/><path d="M14.2 8.2l-3.6.4-2.1 2.4"/><path d="M11.6 14l3.2 2.4-.9 4.6"/><path d="M11.6 14l-2.2 3.6-3.9.4"/></g><g stroke="currentColor" stroke-width="1.6" stroke-linecap="round" opacity=".55"><path d="M.3 9.5h4"/><path d="M1.3 13h3"/><path d="M-.2 16.5h3"/></g></g></svg>',
     // Auto: a play button inside a turning arrow, the usual sign for autoplay.
-    auto:'<svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><path d="M19.6 12.4a7.6 7.6 0 1 1-2.3-5.8"/><path d="M19.9 3.4v3.9H16"/><path d="M10.2 8.9v6.4l5.2-3.2z" fill="currentColor" stroke-width="1.5"/></svg>',
+    auto:'<svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"><path d="M8.2 5.6v12.8l10.2-6.4z"/></svg>',
     drop:'<svg viewBox="0 0 30 34" aria-hidden="true"><path d="M15 1.5C15 1.5 3 14 3 21.5a12 12 0 0 0 24 0C27 14 15 1.5 15 1.5Z"/></svg>',
     attack:`<svg viewBox="0 0 24 24" aria-hidden="true" style="fill:currentColor;stroke:none">${SWORD_SVG}</svg>`,
     aoe:'<svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M12 2l2.2 6.3L20.5 6l-3.1 5.9L23 14l-6.3.9L17 22l-5-4.6L7 22l.3-7.1L1 14l5.6-2.1L3.5 6l6.3 2.3z"/></svg>',
@@ -71,9 +71,8 @@ export function mountBattle({host,sound=createBattleSound(),onBurst=()=>{},onSto
         <div class="tb-deck" aria-label="Your deck"><i class="tb-card-back"></i><b>0</b></div>
         <div class="tb-res"></div>
         <div class="tb-turn"><b class="tb-foe-acts" title="Enemy actions left this round">0</b><button type="button" class="tb-end" aria-label="End round">${ICON.hourglass}<b class="tb-round">1</b></button><b class="tb-dice-left" title="Your dice">0</b>
-            <div class="tb-turn-tools"><button type="button" class="tb-auto" aria-label="Auto: play your best move for you" title="Auto: play your best move for you">${ICON.auto}<span class="tb-tool-label" aria-hidden="true">Auto</span></button><button type="button" class="tb-flee" aria-pressed="false" aria-expanded="false" aria-controls="tb-confirm-flee" aria-label="Flee" title="Flee the battle">${ICON.flee}<span class="tb-tool-label" aria-hidden="true">Flee</span></button></div></div>
+            <div class="tb-turn-tools"><button type="button" class="tb-auto" aria-pressed="false" aria-label="Auto: play your turns for you" title="Auto: play your turns for you (off)">${ICON.auto}<span class="tb-tool-label" aria-hidden="true">Auto</span></button><button type="button" class="tb-flee" aria-pressed="false" aria-expanded="false" aria-controls="tb-confirm-flee" aria-label="Flee" title="Flee the battle">${ICON.flee}<span class="tb-tool-label" aria-hidden="true">Flee</span></button></div></div>
         <div class="tb-confirm" id="tb-confirm-flee" role="alertdialog" aria-labelledby="tb-confirm-flee-title" aria-describedby="tb-confirm-flee-text" hidden><strong id="tb-confirm-flee-title">Flee the battle?</strong><p id="tb-confirm-flee-text"></p><div><button type="button" class="tb-confirm-no">Stay</button><button type="button" class="tb-confirm-yes">Flee</button></div></div>
-        <div class="tb-confirm tb-confirm-end" role="alertdialog" aria-labelledby="tb-confirm-end-title" hidden><strong id="tb-confirm-end-title">Declare Round End</strong><p>Your round ends. The enemies keep acting until they end theirs. Whoever ends first acts first next round.</p><div><button type="button" class="tb-confirm-no">Cancel</button><button type="button" class="tb-confirm-yes">End Round</button></div></div>
         <div class="tb-dice" aria-label="Elemental dice"><b class="tb-dice-count">0</b><div class="tb-dice-list"></div></div>
         <div class="tb-skills" role="group" aria-label="Skills"></div>
         <div class="tb-hand" role="group" aria-label="Your hand"></div>
@@ -96,7 +95,7 @@ export function mountBattle({host,sound=createBattleSound(),onBurst=()=>{},onSto
     const $=s=>dialog.querySelector(s),abort=new AbortController(),on=(node,type,fn,opt={})=>node.addEventListener(type,fn,{signal:abort.signal,...opt});
     const particles=createParticles(dialog.querySelector('.gb-particles'));
     // round: the live round from battle-engine.js. pick: what you are about to do, waiting for Confirm.
-    let state,round=null,pick=null,picked=null,tuning=false,mode='',opts={},speed=1,skipAll=false,disposed=false,closeTimer=0,turnDone=null,choose=null,finish=null,lastTurn='',token=0,introDone=null;
+    let autoPlay=false,autoBusy=false,state,round=null,pick=null,picked=null,tuning=false,mode='',opts={},speed=1,skipAll=false,disposed=false,closeTimer=0,turnDone=null,choose=null,finish=null,lastTurn='',token=0,introDone=null;
     const cards=new Map();
     const say=text=>{$('.tb-log').textContent=text;};
     const reduced=()=>Boolean(opts.reducedMotion);
@@ -149,6 +148,7 @@ export function mountBattle({host,sound=createBattleSound(),onBurst=()=>{},onSto
                 chip.title=`${s.label}: ${ITEMS[s.item]?.text || ''}`;list.append(chip);continue;
             }
             const key=s.stat+(s.label || '');if(seen.has(key))continue;seen.add(key);
+            if(s.innate&&s.stat==='infuse'){const chip=el('i','tb-st tb-good tb-st-infuse tb-st-innate');chip.style.setProperty('--el',EL_COLORS[u.element] || '');chip.innerHTML=elementImg(u.element);chip.title=`Elemental infusion: ${u.name}'s Physical attacks deal ${u.element} damage.`;list.append(chip);continue;}
             const [label,arrow]=STATUS[s.stat] || [s.stat,''];const chip=el('i',`tb-st ${GOOD.has(s.stat)?'tb-good':'tb-bad'} tb-st-${s.stat}`,arrow || label.slice(0,1));
             chip.title=`${s.label || label} ${label}${arrow}${s.amount&&!['stun','frozen','quicken','infuse'].includes(s.stat)?` ${s.amount}${['regen','burning','charged'].includes(s.stat)?'':'%'}`:''} · ${s.rounds}`;list.append(chip);
         }
@@ -169,8 +169,11 @@ export function mountBattle({host,sound=createBattleSound(),onBurst=()=>{},onSto
             }
             for(const s of summons.filter(x=>x.side===sideName)){
                 const tile=el('span','tb-summon');tile.dataset.summon=s.id;tile.style.setProperty('--el',EL_COLORS[s.element] || EL_COLORS.None);
-                const art=summonArt(s.name);if(art){tile.classList.add('tb-summon-card');tile.style.backgroundImage=`url("${art}")`;}
-                tile.innerHTML=`<i class="tb-summon-art">${art?'':elementImg(s.element,{white:true})}</i><b class="tb-summon-rounds">${whole(s.rounds)}</b>${s.power?`<b class="tb-summon-power">${whole(s.power)}</b>`:''}${s.heal?`<b class="tb-summon-heal">+${whole(s.heal)}</b>`:''}<span></span>`;
+                // The summon's Genius Invokation card where the wiki has one; otherwise the TCG icon of the skill
+                // that brought it out (many character summons are statuses in the card game), then the element.
+                const art=summonArt(s.name),move=s.move || unitById(state,s.owner)?.kit?.moves?.find(m=>(m.effects || []).some(e=>e.type==='summon'&&e.name===s.name))?.name,icon=!art&&move?skillIcon({name:move}):'';
+                if(art){tile.classList.add('tb-summon-card');tile.style.backgroundImage=`url("${art}")`;}else if(icon)tile.classList.add('tb-summon-skill');
+                tile.innerHTML=`<i class="tb-summon-art">${art?'':icon?`<img src="${icon}" alt="" draggable="false">`:elementImg(s.element,{white:true})}</i><b class="tb-summon-rounds">${whole(s.rounds)}</b>${s.power?`<b class="tb-summon-power">${whole(s.power)}</b>`:''}${s.heal?`<b class="tb-summon-heal">+${whole(s.heal)}</b>`:''}<span></span>`;
                 tile.querySelector('span').textContent=s.name;tile.title=`${s.name}: ${s.power?`${s.power} ${s.element} damage`:''}${s.heal?` heals ${s.heal}`:''} at each End Phase, ${s.rounds} left${s.decoy?'. Draws an enemy attack.':''}`;
                 box.append(tile);
             }
@@ -191,7 +194,16 @@ export function mountBattle({host,sound=createBattleSound(),onBurst=()=>{},onSto
         const skills=$('.tb-skills').getBoundingClientRect(),top=you.getBoundingClientRect().top;
         fitZone(you,{room:Math.min(ch,Math.max(ch*.4,skills.top-8-top)),width:you.clientWidth,max:ch*.52,ratio:.81});
         fitZone(foe,{room:Math.min(ch,foe.getBoundingClientRect().bottom-board.top-10),width:foe.clientWidth,max:ch*.52,ratio:.81});
-        fitPlayed(ch,board);
+        fitDeck();fitPlayed(ch,board);
+    }
+    // The deck sits above your nameplate. The plate grows when it shows "Round ended.", and narrow boards
+    // shrink it, so the deck is lifted clear of the plate (and its icon) whenever they would touch.
+    function fitDeck(){
+        const deck=$('.tb-deck'),plate=$('.tb-plate-you');deck.style.removeProperty('bottom');
+        if(!deck.getClientRects().length||!plate.getClientRects().length||!deck.offsetParent)return;
+        const p=plate.getBoundingClientRect(),d=deck.getBoundingClientRect(),badge=deck.querySelector('b')?.getBoundingClientRect(),holder=deck.offsetParent.getBoundingClientRect();
+        const lowest=Math.max(d.bottom,badge?.bottom || 0);
+        if(lowest>p.top-8)deck.style.bottom=`${Math.round(holder.bottom-p.top+8+(lowest-d.bottom))}px`;
     }
     // Cards played this round sit in the gap left of your party: clear of the round button, Auto and Flee and
     // the deck on their left, above your nameplate ("Now Acting"), and short of your first character.
@@ -348,6 +360,23 @@ export function mountBattle({host,sound=createBattleSound(),onBurst=()=>{},onSto
         refresh();endTurn();
     }
     function endTurn(){const done=turnDone;turnDone=null;done?.();}
+    function paintAuto(){const b=$('.tb-auto');b.setAttribute('aria-pressed',String(autoPlay));b.classList.toggle('tb-auto-on',autoPlay);b.title=`Auto: play your turns for you (${autoPlay?'on':'off'})`;}
+    // One of your turns played by the planner, step by step so each card and skill still plays out.
+    async function autoTurn(){
+        if(autoBusy)return;autoBusy=true;
+        try{
+            for(let guard=0;guard<30&&autoPlay&&myTurn();guard++){
+                const at=token;await wait(reduced()?120:420);if(!live(at)||!autoPlay||!myTurn())return;
+                const action=bestAction(round);
+                if(action.type==='end'){await combat({type:'end'});return;}
+                select(action.type==='card'?{type:'card',index:action.index,target:action.target}:action.type==='switch'?{type:'switch',id:action.id}:{type:'skill',move:action.move,target:action.target});
+                const before=round.hand.length;await confirm();
+                // A card the planner wanted but could not play: end the round rather than loop.
+                if(action.type==='card'&&myTurn()&&round.hand.length===before){clearPick();await combat({type:'end'});return;}
+                if(action.type!=='card')return;
+            }
+        }finally{autoBusy=false;}
+    }
     // Elemental Tuning: pick a card in hand, then tap a die to turn into the active character's element.
     async function tune(dieIndex){
         if(!myTurn()||pick?.type!=='card')return;
@@ -359,7 +388,7 @@ export function mountBattle({host,sound=createBattleSound(),onBurst=()=>{},onSto
     // Toss-Up: back to the Roll Phase with the dice you still have.
     async function tossUp(){
         if(!opts.onReroll||!round.dice?.length)return;
-        let next=null;try{next=await opts.onReroll(round.dice.map(d=>({...d})));}catch(error){console.warn('[Silly Teyvat] Toss-Up',error);}
+        let next=null;try{next=await opts.onReroll(round.dice.map(d=>({...d})),round);}catch(error){console.warn('[Silly Teyvat] Toss-Up',error);}
         if(Array.isArray(next)&&next.length===round.dice.length)round.dice=next.map(d=>({face:d.face}));
         refresh();say(`Toss-Up: ${round.dice.length} dice ready.`);
     }
@@ -497,7 +526,7 @@ export function mountBattle({host,sound=createBattleSound(),onBurst=()=>{},onSto
         you.querySelector('.tb-ended').hidden=!round?.ended.party;foe.querySelector('.tb-ended').hidden=!round?.ended.enemy;
         dialog.dataset.turn=round?.turn || '';
         const end=$('.tb-end');end.disabled=!myTurn();end.classList.toggle('tb-go',myTurn()&&!pick);
-        $('.tb-auto').disabled=$('.tb-flee').disabled=!myTurn();
+        $('.tb-flee').disabled=!myTurn();$('.tb-auto').disabled=!round||round.over||mode==='intro'||mode==='done';paintAuto();
         for(const [id,card] of cards){const u=unitById(state,id);card.classList.toggle('tb-switchable',myTurn()&&u.side==='party'&&alive(u)&&!isActive(state,u));}
     }
     function refresh(){
@@ -856,7 +885,7 @@ export function mountBattle({host,sound=createBattleSound(),onBurst=()=>{},onSto
         let guard=400;
         while(live(at)&&!round.over&&round.phase==='action'&&guard-->0){
             if(round.needsActive){
-                mode='choose';refresh();const id=await chooseCharacter({title:'Choose your next character',notActive:true});if(!live(at)||!id)return null;
+                mode='choose';refresh();const id=autoPlay?bestAction(round).id:await chooseCharacter({title:'Choose your next character',notActive:true});if(!live(at)||!id)return null;
                 const r=switchTo(round,id);mode='turn';await playEvents(r.events);continue;
             }
             if(round.turn!==lastTurn){lastTurn=round.turn;await phaseBanner(round.turn==='party'?'Your Turn':'Your Opponent\'s Turn…',round.turn==='party'?'you':'foe');if(!live(at))return null;}
@@ -867,7 +896,9 @@ export function mountBattle({host,sound=createBattleSound(),onBurst=()=>{},onSto
                 continue;
             }
             mode='turn';setActing('party');speed=1;skipAll=false;refresh();
-            await new Promise(resolve=>{turnDone=resolve;});
+            const turn=new Promise(resolve=>{turnDone=resolve;});
+            if(autoPlay)void autoTurn();
+            await turn;
             if(!live(at))return null;
             if(round.turn==='party'&&!round.ended.enemy)lastTurn='';
         }
@@ -924,7 +955,7 @@ export function mountBattle({host,sound=createBattleSound(),onBurst=()=>{},onSto
     // ---- Controls ---------------------------------------------------------------------------
     const confirmOpen=sel=>!$(sel).hidden;
     function ask(sel,show){
-        for(const s of ['#tb-confirm-flee','.tb-confirm-end'])if(s!==sel||!show)$(s).hidden=true;
+        $('#tb-confirm-flee').hidden=!(sel==='#tb-confirm-flee'&&show);
         $('.tb-flee').setAttribute('aria-expanded',String(sel==='#tb-confirm-flee'&&show));
         if(!show)return;
         if(sel==='#tb-confirm-flee')$('#tb-confirm-flee p').textContent=`${fleeChance(state)}% chance to escape. If it fails, your turn passes.`;
@@ -937,18 +968,19 @@ export function mountBattle({host,sound=createBattleSound(),onBurst=()=>{},onSto
         await playEvents(r.events);if(!live(at))return;
         mode='turn';refresh();if(round.turn!=='party'||round.over||round.phase!=='action'||action.type!=='card')endTurn();
     }
-    on($('.tb-end'),'click',()=>{if(myTurn())ask('.tb-confirm-end',!confirmOpen('.tb-confirm-end'));});
-    on($('.tb-confirm-end .tb-confirm-yes'),'click',()=>{ask('.tb-confirm-end',false);void combat({type:'end'});});
-    on($('.tb-confirm-end .tb-confirm-no'),'click',()=>ask('.tb-confirm-end',false));
+    // The hourglass ends your round at once.
+    on($('.tb-end'),'click',()=>{if(myTurn()){ask('#tb-confirm-flee',false);void combat({type:'end'});}});
     on($('.tb-flee'),'click',()=>{if(myTurn())ask('#tb-confirm-flee',!confirmOpen('#tb-confirm-flee'));});
     on($('#tb-confirm-flee .tb-confirm-no'),'click',()=>{ask('#tb-confirm-flee',false);$('.tb-flee').focus();});
     on($('#tb-confirm-flee .tb-confirm-yes'),'click',()=>{ask('#tb-confirm-flee',false);void combat({type:'flee'});});
-    on($('.tb-auto'),'click',()=>{if(!myTurn())return;const action=autoAction(round);if(action.type==='skill'){select({type:'skill',move:action.move,target:action.target});void confirm();}else if(action.type==='switch'){select({type:'switch',id:action.id});void confirm();}else ask('.tb-confirm-end',true);});
+    // Auto is a switch: while it is on, every one of your turns is played for you with the planner's best
+    // choice (cards, skills, switches) and the round is ended when that is best. Tap again to take over.
+    on($('.tb-auto'),'click',()=>{autoPlay=!autoPlay;sound.select();paintAuto();say(autoPlay?'Auto is on: your turns are played for you.':'Auto is off.');if(autoPlay&&myTurn())void autoTurn();});
     on($('.tb-go'),'click',event=>{event.stopPropagation();if(tuning){tuning=false;refresh();return;}void confirm();});
     on($('.tb-tune'),'click',event=>{event.stopPropagation();if(pick?.type!=='card')return;tuning=!tuning;sound.select();refresh();});
     on($('.tb-cancel'),'click',event=>{event.stopPropagation();clearPick();});
     on($('.tb-skip'),'click',()=>{if(speed<3){speed=3;$('.tb-skip').textContent='⏭';}else{skipAll=true;$('.tb-skip').hidden=true;}});
-    on(dialog,'cancel',event=>{event.preventDefault();if(mode==='result')$('.tb-continue').click();else if(confirmOpen('#tb-confirm-flee'))ask('#tb-confirm-flee',false);else if(confirmOpen('.tb-confirm-end'))ask('.tb-confirm-end',false);else if(pick)clearPick();});
+    on(dialog,'cancel',event=>{event.preventDefault();if(mode==='result')$('.tb-continue').click();else if(confirmOpen('#tb-confirm-flee'))ask('#tb-confirm-flee',false);else if(pick)clearPick();});
     on(dialog,'keydown',event=>{
         if(event.target.closest?.('input,textarea,select'))return;
         const key=event.key.toLowerCase();
@@ -962,7 +994,7 @@ export function mountBattle({host,sound=createBattleSound(),onBurst=()=>{},onSto
     // Tapping empty table puts a choice down.
     on($('.tb-board'),'click',event=>{
         if(!event.target.isConnected)return;
-        if(!event.target.closest('.tb-confirm,.tb-end,.tb-flee'))for(const s of ['#tb-confirm-flee','.tb-confirm-end'])$(s).hidden=true;
+        if(!event.target.closest('.tb-confirm,.tb-end,.tb-flee'))$('#tb-confirm-flee').hidden=true;
         if(pick&&!event.target.closest('.tb-card,.tb-item,.tb-turn,.tb-skills,.tb-drawer,.tb-detail,.tb-cancel'))clearPick();
     });
     // The hand peeks from the bottom edge and fans out while you hover or hold a card.

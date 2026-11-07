@@ -80,7 +80,8 @@ function combatCompanions(ctx,disabled,played){return sceneMembers(ctx).filter(a
 export const USER_KEY='__user__';
 export const partyStore=ctx=>combatState(ctx).party ??= {};
 // Your own HP comes from the character you play, or the Traveler's 34.
-export function partyMaxHp(ctx,avatar){if(avatar!==USER_KEY)return characterProperties(ctx,avatar).maxHp;const card=linkedCard(ctx);return card?characterProperties(ctx,card).maxHp:34;}
+// An enemy card you play has a character's health range, so a boss is not three characters' worth.
+export function partyMaxHp(ctx,avatar){if(avatar!==USER_KEY)return characterProperties(ctx,avatar).maxHp;const card=linkedCard(ctx);if(!card)return 34;const hp=characterProperties(ctx,card).maxHp;return isEnemy(ctx,card)?Math.max(24,Math.min(40,hp)):hp;}
 export function partyMembers(ctx){
     const disabled=activeGroup(ctx)?.disabled_members || [],played=playedAvatars(ctx);
     return [USER_KEY,...sceneMembers(ctx).filter(a=>!isEnemy(ctx,a)&&!disabled.includes(a)&&!played.has(a)&&ctx.characters?.some(c=>c.avatar===a))];

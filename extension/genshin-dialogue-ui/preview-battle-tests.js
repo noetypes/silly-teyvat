@@ -1,6 +1,6 @@
-import {resolveRound,rollFuel,diceCount,resonanceOf,partyScale,planIntent,intentPreview,fleeChance,auraList,REACTION_UNIT,startRound,useSkill,switchTo,playCard,tuneDie,declareEnd,enemyTurn,endPhase,finishRound,moveCheck,cardCheck,costOf,chooseDice,forecast,autoAction,autoRound,activeOf,drawCards,deckFrom,sortDice} from './battle-engine.js';
+import {resolveRound,rollFuel,diceCount,resonanceOf,partyScale,planIntent,intentPreview,fleeChance,auraList,REACTION_UNIT,startRound,useSkill,switchTo,playCard,tuneDie,declareEnd,enemyTurn,endPhase,finishRound,moveCheck,cardCheck,costOf,chooseDice,forecast,autoAction,bestAction,autoRound,applyInfusion,moveElement,activeOf,drawCards,deckFrom,sortDice} from './battle-engine.js';
 import {ITEMS,rollLoot,applyDiceItem,STARTER_BAG} from './battle-items.js';
-import {defaultKit,describeMove,escapeHtml,hasBundledKit,mergeKit} from './combat-kits.js';
+import {defaultKit,describeMove,escapeHtml,hasBundledKit,mergeKit,playableKit,foeKit} from './combat-kits.js';
 import {mountBattle} from './battle-ui.js';
 import {mountMovesetEditor} from './moveset-editor.js';
 import {kitForCard,roundNarration,tcgArt,tcgCardsReady} from './battle-state.js';
@@ -30,7 +30,11 @@ export async function runBattleTests(){
         const dk=defaultKit('Fischl',{element:'Electro'});
         check('a duel opponent\'s first move animates as its Normal Attack, the others as its Skill and Burst',strikeKind({kit:dk},dk.moves[0],'basic')==='normal'&&strikeKind({kit:dk},dk.moves[1],'basic')==='skill'&&strikeKind({kit:dk},dk.moves[2],'special')==='burst'&&strikeKind({kit:dk},dk.moves[1],'skill')==='skill');
         check('the Traveler changes kit with their element',defaultKit('Lumine',{element:'Geo'}).moves[1].name==='Starfell Sword'&&defaultKit('Aether',{element:'Anemo'}).moves[2].name==='Gust Surge');
-        check('descriptions are generated from effects',/Heals the whole party for 4 HP/.test(describeMove(defaultKit('Bennett',{element:'Pyro'}).moves[2],'Pyro')));
+        check('descriptions are generated from effects',/Heals the whole party for 8 HP/.test(describeMove(defaultKit('Barbara',{element:'Hydro'}).moves[2],'Hydro')));
+        {const fischl=defaultKit('Fischl',{element:'Electro'}),oz=fischl.moves[1].effects.find(e=>e.type==='summon');
+        check('character kits follow their Genius Invokation cards: Energy, costs, summons',fischl.tcg&&fischl.energy===3&&fischl.moves[1].name==='Nightrider'&&oz?.name==='Oz'&&oz.rounds===2&&fischl.moves[2].cost===3);
+        check('TCG damage is doubled to Silly Teyvat\'s scale, Normal Attacks included',fischl.moves[2].effects[0].power===8&&fischl.moves[0].effects[0].power===4&&defaultKit('Klee',{element:'Pyro'}).moves[0].element==='Pyro');
+        check('a character without a TCG card keeps its own kit',!defaultKit('Paimon',{element:'None'}).tcg&&defaultKit('Paimon',{element:'None'}).moves[1].name==='Go, Go, Traveler!');}
         check('user edits replace a move and keep the rest',mergeKit(defaultKit('Klee',{element:'Pyro'}),{moves:[null,{name:'Big Boom',cost:1}]}).moves[1].name==='Big Boom'&&mergeKit(defaultKit('Klee',{element:'Pyro'}),{moves:[null,{name:'Big Boom'}]}).moves[2].name==='Sparks \'n\' Splash');
         // Dice: eight a round, Genius Invokation costs, the game's own choice of dice, Elemental Tuning
         check('every round throws eight dice, nine with Electro Resonance',diceCount([])===8&&diceCount(['Electro'])===9);
@@ -149,18 +153,23 @@ export async function runBattleTests(){
         check('evasive enemies dodge, and Minty Meat Rolls make attacks land',resolveRound(nimble,[{actor:'k',move:0}],{random:()=>0,strikeBack:false}).timeline.some(e=>e.type==='miss')&&resolveRound(nimble,{steps:[{actor:'k',move:0}],items:[{id:'minty-rolls',target:'k',item:ITEMS['minty-rolls']}]},{random:()=>0,strikeBack:false}).timeline.some(e=>e.type==='hit'&&e.actor==='k'));}
         check('victories drop item cards',rollLoot([{element:'Pyro',maxHp:50}],{random:()=>.1}).length===3&&rollLoot([{element:'Physical',maxHp:20}]).every(id=>ITEMS[id]));
         check('every item has card art and a starter bag exists',Object.keys(ITEMS).length>=20&&Object.keys(STARTER_BAG).every(id=>ITEMS[id]));
-        // Starter decks: ten cards, set per character (or random), dealt once into a new journey's bag.
+        // Starter decks: twenty cards, set per character (or random), dealt once into a new journey's bag.
         {
             const deckCtx={characters:[{name:'Klee',avatar:'klee.png'},{name:'Hilichurl Fighter',avatar:'hili.png'}],characterId:0,chatMetadata:{},extensionSettings:{},saveSettingsDebounced(){}};
-            check('the default starter deck has ten cards',bagCount(STARTER_BAG)===STARTER_SIZE&&bagCount(newJourneyBag(deckCtx))===STARTER_SIZE);
+            check('the default starter deck has twenty cards',STARTER_SIZE===20&&bagCount(STARTER_BAG)===STARTER_SIZE&&bagCount(newJourneyBag(deckCtx))===STARTER_SIZE);
+            check('the default deck mixes every kind of card',new Set(Object.keys(STARTER_BAG).map(id=>ITEMS[id].kind)).size>=6);
+            {const fischl={characters:[{name:'Fischl',avatar:'fischl.png',data:{extensions:{silly_teyvat:{element:'Electro'}}}}],extensionSettings:{}},deck=newJourneyBag({...fischl,characterId:0,chatMetadata:{}});
+            check('a character\'s default deck brings their element, weapon and own summon',bagCount(deck)===STARTER_SIZE&&deck['woven-thunder']&&deck['thundering-fury']&&deck['high-voltage']&&deck['raven-bow']&&deck.oz);
+            const legacy={...fischl,characterId:0,chatMetadata:{},extensionSettings:{genshin_dialogue_ui:{starterDecks:{'fischl.png':{cards:{'sweet-madame':4,'hash-brown':4,'starsigns':2}}}}}},old=newJourneyBag(legacy);
+            check('a ten-card deck saved before is filled up to twenty',bagCount(old)===STARTER_SIZE&&old['sweet-madame']===4&&old.oz);}
             let threw=false;try{saveStarterDeck(deckCtx,'klee.png',{cards:{'sweet-madame':3}});}catch{threw=true;}
-            check('a starter deck must hold exactly ten cards',threw);
-            saveStarterDeck(deckCtx,'klee.png',{cards:{'sweet-madame':4,'hash-brown':4,'starsigns':2}});
+            check('a starter deck must hold exactly twenty cards',threw);
+            saveStarterDeck(deckCtx,'klee.png',{cards:{'sweet-madame':4,'hash-brown':4,'starsigns':2,'toss-up':4,'nre':4,'strategize':2}});
             const store={};const bag=journeyBag(deckCtx,store);
-            check('a new journey is dealt its character\'s own starter deck',bag['sweet-madame']===4&&bag.starsigns===2&&bagCount(bag)===10&&store.starter.starsigns===2);
+            check('a new journey is dealt its character\'s own starter deck',bag['sweet-madame']===4&&bag.starsigns===2&&bagCount(bag)===20&&store.starter.starsigns===2);
             bag['sweet-madame']=0;journeyBag(deckCtx,store);check('the bag is dealt only once per journey',store.bag['sweet-madame']===0);
             saveStarterDeck(deckCtx,'klee.png',{cards:starterDeckOf(deckCtx,'klee.png').cards,random:true});
-            const rolled=newJourneyBag(deckCtx,()=>.3);check('Randomize deals ten random cards',bagCount(rolled)===STARTER_SIZE&&Object.keys(rolled).every(id=>ITEMS[id])&&Object.values(rolled).every(n=>n<=4));
+            const rolled=newJourneyBag(deckCtx,()=>.3);check('Randomize deals twenty random cards',bagCount(rolled)===STARTER_SIZE&&Object.keys(rolled).every(id=>ITEMS[id])&&Object.values(rolled).every(n=>n<=4));
             check('random decks favour common cards',(()=>{let common=0;for(let i=0;i<40;i++)for(const [id,n] of Object.entries(randomDeck()))if(ITEMS[id].rarity===1)common+=n;return common>40*STARTER_SIZE*.5;})());
             check('a rest tops the bag back up to the journey\'s own starter deck',restockBag({starsigns:1},store.starter).starsigns===2&&restockBag({},store.starter)['sweet-madame']===4);
             const panel=document.createElement('details');host.append(panel);const deckUI=mountStarterDeck({panel,getContext:()=>deckCtx,getCharacter:()=>deckCtx.characters[0]});deckUI.refresh();
@@ -168,13 +177,31 @@ export async function runBattleTests(){
             const persona=mountStarterDeck({panel:document.createElement('details'),getContext:()=>deckCtx,getCharacter:()=>({...deckCtx.characters[0],isPersona:true})});persona.refresh();
             deckUI.dispose();persona.dispose();panel.remove();
         }
+        {const slime=defaultKit('Large Hydro Slime',{enemy:true}),hili=defaultKit('Hilichurl Fighter',{enemy:true});
+        check('elemental beings have a built-in infusion; others and characters do not',slime.infusion===true&&hili.infusion===false&&!defaultKit('Klee',{element:'Pyro'}).infusion);
+        const unit={id:'s',side:'enemy',element:'Hydro',hp:10,maxHp:10,statuses:[],kit:{infusion:true}};applyInfusion(unit);
+        check('an infused unit\'s Physical attacks deal its element',moveElement(unit,{kind:'basic',element:'Physical'})==='Hydro'&&moveElement(unit,{kind:'basic',element:'Cryo'})==='Cryo');
+        unit.kit.infusion=false;applyInfusion(unit);check('switching infusion off in the moveset removes it',moveElement(unit,{kind:'basic',element:'Physical'})==='Physical'&&!unit.statuses.length);
+        const knight={id:'k',side:'party',element:'Cryo',hp:10,maxHp:10,statuses:[],kit:{infusion:true}};applyInfusion(knight);check('an infused character\'s Normal Attack deals their element',moveElement(knight,{kind:'normal',element:'Physical'})==='Cryo');
+        check('a saved infusion switch survives the moveset cleaner',mergeKit(hili,{infusion:true}).infusion===true&&mergeKit(slime,{infusion:'yes'}).infusion===true);}
+        {const slime=playableKit(defaultKit('Large Hydro Slime',{enemy:true})),mage=playableKit(defaultKit('Pyro Abyss Mage',{enemy:true}));
+        check('an enemy card you play fights with its own moves as Normal Attack, Skill and Burst',slime.moves.map(m=>m.kind).join()==='normal,skill,burst'&&slime.moves[0].name==='Ram'&&slime.moves[1].name==='Bubble Spray'&&slime.moves[2].name==='Jumping Slam'&&!slime.enemy&&slime.energy===2);
+        check('with one Attack, its Special is the Skill and a stronger Special the Burst',mage.moves[1].name==='Flame Pillars'&&/Unleashed/.test(mage.moves[2].name)&&mage.moves.every(m=>m.cost===3&&m.cooldown===undefined));
+        const me={id:'me',side:'party',name:'Slime',element:'Hydro',hp:30,maxHp:30,energy:2,maxEnergy:2,statuses:[],kit:slime},foe={id:'k',side:'enemy',name:'Klee',element:'Pyro',duel:true,hp:30,maxHp:30,statuses:[],kit:foeKit(defaultKit('Klee',{element:'Pyro'}))};
+        const r=startRound({units:[me,foe],active:{party:'me',enemy:'k'}},{dice:Array(8).fill({face:'Hydro'}),first:'party',items:ITEMS,strikeBack:false});
+        const burst=useSkill(r,2);check('a played enemy pays dice and uses its Burst against a character',burst.ok&&r.state.units.find(u=>u.id==='k').hp<30&&r.dice.length===5);}
         check('bigger parties face tougher enemies',partyScale(4).hp>partyScale(2).hp&&partyScale(1).damage<1);
 
-        {const ready=startRound(team,{dice:['Pyro','Pyro','Pyro'].map(face=>({face})),strikeBack:false});ready.state.active.party='b';
+        {const ready=startRound(team,{dice:['Pyro','Pyro','Pyro','Pyro'].map(face=>({face})),strikeBack:false});ready.state.active.party='b';
         check('Auto picks a Burst when it is ready and paid for',autoAction(ready).type==='skill'&&autoAction(ready).move===2);
         ready.dice=[{face:'Geo'}];check('Auto ends the round when nothing can be paid for',autoAction(ready).type==='end');}
+        {const plan=startRound({units:[{id:'p',side:'party',name:'P',element:'Pyro',hp:10,maxHp:10,energy:0,maxEnergy:2,kit:{moves:[{kind:'normal',name:'Strike',cost:3,effects:[{type:'damage',target:'one',power:2}]},{kind:'skill',name:'Blast',cost:3,effects:[{type:'damage',target:'one',power:3}]},{kind:'burst',name:'Boom',cost:3,effects:[{type:'damage',target:'one',power:6}]}]}},{id:'e',side:'enemy',name:'E',element:'Physical',hp:20,maxHp:20,kit:{moves:[{kind:'basic',name:'Hit',cost:0,effects:[{type:'damage',target:'one',power:1}]}]}}],active:{party:'p',enemy:'e'}},{dice:[{face:'Pyro'},{face:'Pyro'},{face:'Pyro'}],first:'party',hand:[],deck:[],items:ITEMS});
+        const pick=bestAction(plan);check('the Auto planner uses the strongest move the dice can pay for',pick.type==='skill'&&pick.move===1);
+        plan.dice=[{face:'Hydro'}];check('the Auto planner ends the round when nothing is worth doing',bestAction(plan).type==='end');
+        plan.dice=[{face:'Pyro'},{face:'Pyro'},{face:'Pyro'}];plan.hand=['sweet-madame'];plan.state.units[0].hp=4;
+        const eat=bestAction(plan);check('the Auto planner eats a free healing Food first when hurt',eat.type==='card'&&eat.target==='p');}
         const text=roundNarration(kx,resolveRound(kx,[{actor:'x',move:1,target:'h'},{actor:'k',move:1,target:'h'}],{...opts,strikeBack:false}));
-        check('the chat narration names moves, damage and reactions',/Xingqiu used Guhua Sword: Fatal Rainscreen \(Elemental Skill\)/.test(text)&&/Vaporize/.test(text)&&/HP: Klee/.test(text));
+        check('the chat narration names moves, damage and reactions',/Xingqiu used Fatal Rainscreen \(Elemental Skill\)/.test(text)&&/Vaporize/.test(text)&&/HP: Klee/.test(text));
 
         // Paimon: a tiny, nimble cheerleader
         const paimonKit=defaultKit('Paimon',{element:'None'});
@@ -254,8 +281,8 @@ export async function runBattleTests(){
         await until(()=>dialog.dataset.turn==='enemy'||dialog.dataset.mode==='done',12000);
         check('a Burst is a Combat Action: the turn passes to the enemy',dialog.dataset.turn==='enemy'||dialog.dataset.mode==='done');
         await until(()=>dialog.dataset.turn==='party'&&dialog.dataset.mode==='turn',12000);
-        q('.tb-end').click();check('the hourglass asks before ending the round',!q('.tb-confirm-end').hidden);
-        q('.tb-confirm-end .tb-confirm-yes').click();
+        check('there is no Declare Round End confirmation',!q('.tb-confirm-end'));
+        q('.tb-end').click();
         const result=await Promise.race([playing,new Promise(r=>setTimeout(()=>r('timeout'),20000))]);
         check('the round ends after both sides end it, with the End Phase',result&&result!=='timeout'&&result.timeline.some(e=>e.type==='end-round'&&e.side==='party')&&(result.victory||result.timeline.some(e=>e.type==='phase'&&e.label==='End Phase')));
         const shown=ui.result(screen,result,{loot:['sweet-madame']});
@@ -280,17 +307,17 @@ export async function runBattleTests(){
         const editor=mountMovesetEditor({panel,getContext:()=>ctx,getCharacter:()=>ctx.characters[0],status:t=>{note=t;}});editor.refresh();
         check('the Moveset tab lists three moves with their effects',panel.querySelectorAll('.gi-move-edit').length===3&&panel.querySelector('.gi-move-edit[data-move="1"] [data-m="name"]').value==='Jumpy Dumpty');
         panel.querySelector('.gi-move-edit[data-move="1"] [data-m="name"]').value='Super Jumpy';panel.querySelector('.gi-move-edit[data-move="1"] [data-m="cost"]').value='1';
-        panel.querySelector('[data-add-effect="1"]').click();
-        check('an effect can be added',panel.querySelectorAll('.gi-move-edit[data-move="1"] .gi-effect').length===3&&panel.querySelector('.gi-move-edit[data-move="1"] [data-m="name"]').value==='Super Jumpy');
-        const row=panel.querySelector('.gi-move-edit[data-move="1"] .gi-effect[data-effect="2"]');row.querySelector('[data-f="type"]').value='heal';row.querySelector('[data-f="type"]').dispatchEvent(new Event('change',{bubbles:true}));
-        check('changing the effect type swaps its fields',Boolean(panel.querySelector('.gi-move-edit[data-move="1"] .gi-effect[data-effect="2"] [data-f="amount"]')));
+        const effectsBefore=panel.querySelectorAll('.gi-move-edit[data-move="1"] .gi-effect').length;panel.querySelector('[data-add-effect="1"]').click();
+        check('an effect can be added',panel.querySelectorAll('.gi-move-edit[data-move="1"] .gi-effect').length===effectsBefore+1&&panel.querySelector('.gi-move-edit[data-move="1"] [data-m="name"]').value==='Super Jumpy');
+        const row=panel.querySelector(`.gi-move-edit[data-move="1"] .gi-effect[data-effect="${effectsBefore}"]`);row.querySelector('[data-f="type"]').value='heal';row.querySelector('[data-f="type"]').dispatchEvent(new Event('change',{bubbles:true}));
+        check('changing the effect type swaps its fields',Boolean(panel.querySelector(`.gi-move-edit[data-move="1"] .gi-effect[data-effect="${effectsBefore}"] [data-f="amount"]`)));
         panel.querySelector('[data-save-kit]').click();
         const saved=kitForCard(ctx,ctx.characters[0]);
         check('saving stores the edited moveset for the card',saved.custom&&saved.moves[1].name==='Super Jumpy'&&saved.moves[1].cost===1&&saved.moves[1].effects.some(e=>e.type==='heal')&&/saved/.test(note));
         panel.querySelector('[data-reset-kit]').click();
         check('reset restores the default moveset',kitForCard(ctx,ctx.characters[0]).moves[1].name==='Jumpy Dumpty'&&!kitForCard(ctx,ctx.characters[0]).custom);
-        ctx.characters[0]={name:'Eula',avatar:'Eula.png',data:{extensions:{silly_teyvat:{playable:true,element:'Cryo'}}}};editor.refresh();panel.querySelector('[data-save-kit]').click();
-        check('saving keeps an effect option the form has no field for',kitForCard(ctx,ctx.characters[0]).moves[2].effects[0].element==='Physical');
+        ctx.characters[0]={name:'Fischl',avatar:'Fischl.png',data:{extensions:{silly_teyvat:{playable:true,element:'Electro'}}}};editor.refresh();panel.querySelector('[data-save-kit]').click();
+        check('saving keeps an effect option the form has no field for',kitForCard(ctx,ctx.characters[0]).moves[2].effects[1].element==='Physical');
         ctx.characters[0]={name:'Hilichurl Fighter',avatar:'Hilichurl Fighter.png',data:{extensions:{silly_teyvat:{role:'enemy'}}}};editor.refresh();
         panel.querySelector('[data-k="element"]').value='Cryo';panel.querySelector('[data-save-kit]').click();
         check('an enemy keeps the element chosen in its moveset',kitForCard(ctx,ctx.characters[0]).element==='Cryo'&&panel.querySelector('[data-k="element"]').value==='Cryo');
