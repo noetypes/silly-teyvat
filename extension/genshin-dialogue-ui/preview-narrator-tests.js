@@ -5,7 +5,7 @@ import {makeSoloJourney,soloParty} from './persona-session.js';
 import {partyAvatars} from './travel-history.js';
 import {partyMembers} from './combat-state.js';
 import {roster} from './staging.js';
-import {deliverLocationGreeting,narratorGreetingPrompt} from './location-greetings.js';
+import {deliverLocationGreeting,narratorGreetingPrompt,soloGreetingPrompt} from './location-greetings.js';
 import {filterJourneyEntities} from './journey-library.js';
 
 export async function runNarratorTests(){
@@ -50,5 +50,21 @@ export async function runNarratorTests(){
     const hint="Aether is at Traveler's Cove in Mondstadt. Try exploring the map!";
     check('the hint belongs to that message, outside the chat',soloHintFor(ctx.chat[0])===hint&&!JSON.stringify(ctx.chat).includes('Try exploring'));
     check('and it is only ever shown once',ctx.extensionSettings.genshin_dialogue_ui.soloHintShown===true&&queueSoloHint(ctx,'second','Inn','Liyue')===''&&!soloHintFor({extra:{silly_teyvat_arrival:{key:'second'}}}));
+    // Meeting one character alone: the card's greeting by default, or a generated one that knows who the player is.
+    const meet=()=>{const c=world({members:['Klee.png'],residents:['Klee.png']});c.characters[1].first_mes='Card hello!';c.onlineStatus='ok';c.addOneMessage=()=>{};c.getThumbnailUrl=()=>'/k.png';c.extensionSettings.genshin_dialogue_ui.defaultCharacterLocations['Klee.png']='cove';return c;};
+    const kleeEntry={key:'klee',mode:'written',avatar:'Klee.png',locationId:'cove',defaultLocationId:'cove',travellers:[],residents:['Klee.png'],sceneAvatars:['Klee.png']};
+    ctx=meet();quiet=null;ctx.generateQuietPrompt=async options=>{quiet=options;return 'New hello.';};
+    await deliverLocationGreeting(()=>ctx,kleeEntry,()=>true,{loadScript});
+    check('a solo meeting uses the card greeting by default',!quiet&&ctx.chat.at(-1).mes==='Card hello!');
+    ctx=meet();ctx.extensionSettings.genshin_dialogue_ui.soloGreeting='generated';ctx.generateQuietPrompt=async options=>{quiet=options;return 'New hello.';};
+    await deliverLocationGreeting(()=>ctx,kleeEntry,()=>true,{loadScript});
+    check('and a generated one when chosen, written for meeting the player alone',ctx.chat.at(-1).mes==='New hello.'&&/alone/.test(quiet.quietPrompt)&&/Pay close attention to who Aether is/.test(quiet.quietPrompt));
+    check('playing a twin is the Traveler, not an established relationship',/persona description/.test(quiet.quietPrompt)&&!/established character/.test(quiet.quietPrompt));
+    ctx=meet();ctx.name1='Jean';ctx.userAvatar='jean-persona.png';ctx.characters.push(card('Jean'));ctx.extensionSettings.genshin_dialogue_ui.personaCharacters={'jean-persona.png':'Jean.png'};
+    const known=soloGreetingPrompt(ctx,ctx.characters[1],location,location,kleeEntry);
+    check('playing an established character asks for their relationship',/Jean is Jean, an established character/.test(known)&&/how Klee feels about Jean/.test(known)&&/"playerIs":"Jean"/.test(known));
+    ctx=meet();ctx.extensionSettings.genshin_dialogue_ui.soloGreeting='generated';quiet=null;ctx.generateQuietPrompt=async options=>{quiet=options;return 'Group hello.';};
+    await deliverLocationGreeting(()=>ctx,{...kleeEntry,key:'k2',mode:'context',travellers:['Aether.png']},()=>true,{loadScript});
+    check('travelling with companions keeps the ordinary arrival prompt',quiet&&!/Pay close attention/.test(quiet.quietPrompt));
     return out.join('\n');
 }

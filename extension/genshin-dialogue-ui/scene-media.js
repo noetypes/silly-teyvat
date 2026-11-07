@@ -3,6 +3,7 @@ import { pageSignature } from './page-sprites.js';
 import { speakerAvatar, roster } from './staging.js';
 import {personaCard} from './persona-wardrobe.js';
 import {travelState} from './backgrounds.js';
+import {sceneTrustLevels,cgTrustAllowed} from './scene-trust.js';
 
 export function createSpriteSoundPlayer({ makeAudio = () => new Audio(), random = Math.random } = {}) {
     const audio = makeAudio(); let sequence = 0;
@@ -54,15 +55,27 @@ export function sceneCast(ctx,message) {
 // The CGs of everyone in the scene that their conditions allow here, for one classification.
 export function sceneCGs(ctx,message) {
     const prefs = mediaSettings(ctx), cast = sceneCast(ctx,message), present = new Set(cast), location = travelState(ctx).location?.id || '';
-    const persona = personaCard(ctx), entries = [], owners = new Map();
+    const persona = personaCard(ctx), entries = [], owners = new Map(), level = sceneTrustLevels(ctx,message);
     for (const avatar of cast) {
         const name = ctx.characters?.find(card=>card.avatar===avatar)?.name || (persona?.avatar===avatar ? persona.name : '') || avatar.replace(/\.[a-z]+$/i,'');
         for (const entry of prefs.characterCGs[avatar] || []) {
-            if (!entry.path || entry.blank || !cgAllowed(entry,{present,location}) || owners.has(entry)) continue;
+            if (!entry.path || entry.blank || !cgAllowed(entry,{present,location}) || !cgTrustAllowed(ctx,entry,level(avatar)) || owners.has(entry)) continue;
             entries.push(entry); owners.set(entry,name);
         }
     }
     return {entries,owners};
+}
+// Closing a CG rests it for this chat: it can't be chosen again until more than cgCooldown messages later.
+const cgKey = cg => cg.id || cg.path;
+export function cgCooldown(ctx){const value=Number(mediaSettings(ctx).cgCooldown ?? 10);return Number.isFinite(value)?Math.max(0,Math.min(200,Math.round(value))):10;}
+export function restCG(ctx,cg,messageId){
+    if(!cg||!Number.isInteger(messageId))return;
+    ctx.chatMetadata ??= {};const rested=ctx.chatMetadata.silly_teyvat_cg_rest ??= {};
+    rested[cgKey(cg)]=messageId;ctx.saveMetadataDebounced?.();
+}
+export function cgResting(ctx,cg,messageId){
+    const closedAt=ctx.chatMetadata?.silly_teyvat_cg_rest?.[cgKey(cg)],gap=cgCooldown(ctx);
+    return gap>0&&Number.isInteger(closedAt)&&messageId>closedAt&&messageId-closedAt<=gap;
 }
 // CGs already shown in this chat, in the order they first appeared, with every message that showed them.
 export function discoveredCGs(ctx) {
@@ -213,7 +226,9 @@ export function mountSceneMedia({host,getContext,adapter=createMediaAdapter(getC
                 if (streaming || wait > 0) { clearTimeout(settleTimer); settleTimer = setTimeout(()=>{ if (on && lastSync) api.sync(lastSync); }, Math.max(wait, 250)+20); return; }
             }
             // Everyone in the scene shares one prompt, so a reply is checked once, not per character.
-            const {entries,owners} = sceneCGs(ctx,message);
+            const {entries:all,owners} = sceneCGs(ctx,message);
+            // A CG the player closed sits out the next few messages, so it is not shown again straight away.
+            const entries = all.filter(entry=>!cgResting(ctx,entry,id));
             if (!entries.length) return;
             const categories = cgCategories(entries,owners), failureKey = `${chatKey}:${key}:${signature}:${pageSignature(JSON.stringify(entries))}`;
             if (request || failures.has(failureKey)) return;
@@ -221,7 +236,9 @@ export function mountSceneMedia({host,getContext,adapter=createMediaAdapter(getC
             adapter.classifyCG(ctx,message,categories.map(({id,label,description,character})=>({id,label,description,character})),controller.signal).then(result => {
                 if (controller.signal.aborted || token !== revision || !on || !ctx.chat.includes(message) || pageSignature(message.mes || '') !== signature) return;
                 const category = categories.find(c => c.id === result);
-                const cg = category ? structuredClone(category.entries[Math.floor(Math.random()*category.entries.length)]) : null;
+                const eligible = new Set(sceneCGs(getContext(),message).entries.filter(entry=>!cgResting(getContext(),entry,id)).map(entry=>entry.id));
+                const choices = category?.entries.filter(entry=>eligible.has(entry.id)) || [];
+                const cg = choices.length ? structuredClone(choices[Math.floor(Math.random()*choices.length)]) : null;
                 save(ctx,message,{signature,cg}); activeCG = cg; paint(cg,key,true);
                 if(cg?.audio?.length && prefs.cgAudio !== false && message===ctx.chat.at(-1))playSound(cg.audio,'cg',key,cgVolume(prefs,cg.audioVolume)).catch(()=>announce('CG audio was blocked. Use Enable audio on this device in Silly Teyvat settings.'));
             }).catch(error => {
@@ -298,7 +315,7 @@ export function mountSceneMedia({host,getContext,adapter=createMediaAdapter(getC
         reset() { clearTimeout(settleTimer); settled = {key:''}; request?.abort(); request=null; revision++; selection=pageKey=frameKey=dismissed=''; activeCG=undefined; failures.clear(); stopSound(); clearFull(); closeFrame(); if(gallery.open)gallery.close(); },
         dispose() { api.reset(); abort.abort(); sound.dispose(); if(preview.open)preview.close(); if(gallery.open)gallery.close(); stage.remove(); frame.remove(); preview.remove(); gallery.remove(); },
     };
-    frame.querySelector('header button').addEventListener('click',()=>{dismissed=frameKey;closeFrame();},{signal:abort.signal});
+    frame.querySelector('header button').addEventListener('click',()=>{if(activeCG)restCG(getContext(),activeCG,Number(frameKey.split(':')[0]));dismissed=frameKey;closeFrame();},{signal:abort.signal});
     preview.querySelector('header button').addEventListener('click',()=>preview.close(),{signal:abort.signal});
     gallery.querySelector('header button').addEventListener('click',()=>gallery.close(),{signal:abort.signal});
     preview.addEventListener('close',()=>{previewMedia.stop();if(audioKind==='preview')stopSound();stageMedia.resume();frameMedia.resume();},{signal:abort.signal});

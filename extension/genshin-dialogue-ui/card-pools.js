@@ -45,10 +45,18 @@ const REGION_EXTRA={
 for(const [region,ids] of Object.entries(REGION_EXTRA))for(const id of ids){const list=REGION_CARDS[region][ITEMS[id].rarity-1];if(!list.includes(id))list.push(id);}
 // How many cards of each rarity a location keeps from its region's list, so two places in a region differ.
 const KEEP=[7,7,4];
+// Boss arenas (ids starting boss-) keep more cards, and more of them rare. A region's rarity 3 list is short,
+// so a boss takes its region's own cards first and tops up from the rest of the map at that rarity.
+const BOSS_KEEP=[6,12,9];
 const ANYWHERE=[1,2,3].map(rarity=>Object.keys(ITEMS).filter(id=>ITEMS[id].rarity===rarity));
 const hash=text=>{let h=2166136261;for(let i=0;i<text.length;i++){h^=text.charCodeAt(i);h=Math.imul(h,16777619);}return h>>>0;};
 export function defaultCardPool(id,region){
-    return (REGION_CARDS[region] || ANYWHERE).flatMap((cards,i)=>[...cards].sort((a,b)=>hash(`${id}:${a}`)-hash(`${id}:${b}`)).slice(0,KEEP[i]));
+    const lists=REGION_CARDS[region],rank=cards=>[...cards].sort((a,b)=>hash(`${id}:${a}`)-hash(`${id}:${b}`));
+    if(!String(id).startsWith('boss-'))return (lists || ANYWHERE).flatMap((cards,i)=>rank(cards).slice(0,KEEP[i]));
+    return [0,1,2].flatMap(i=>{
+        const own=rank(lists?lists[i]:[]),rest=rank(ANYWHERE[i].filter(card=>!own.includes(card)));
+        return [...own,...rest].slice(0,BOSS_KEEP[i]);
+    });
 }
 const findLocation=(ctx,id)=>(mediaSettings(ctx).backgroundRegions || []).flatMap(r=>r.locations || []).find(l=>l.id===id);
 export function locationCardPool(ctx,id){

@@ -147,6 +147,14 @@ export async function runStagingTests(){
         check('the controlled persona lights up on player messages and companions dim',host.querySelector('img[data-avatar="__user__"]')?.dataset.focus==='true'&&host.querySelector('img[data-avatar="Klee.png"]')?.dataset.focus==='false');
         sprites.sync({on:true,id:0,page:0,text:'A quiet morning.',narration:true,complete:true,generating:false});await pause(35);
         check('history restores author focus independently of the last player turn',host.querySelector('img[data-avatar="Klee.png"]')?.dataset.focus==='true');
+        {const sent=calls.length;sprites.sync({on:true,id:1,page:0,text:'My turn.',complete:true,generating:false});await pause(35);
+        check('by default the persona keeps its set expression on player messages',calls.length===sent&&!/joy/.test(host.querySelector('img[data-avatar="__user__"]')?.getAttribute('src') || ''));
+        adapter.resolvePersona=async(_ctx,emotion,input)=>{const scene=structuredClone(input),s=scene.find(x=>x.avatar==='__user__');if(s){s.src=`/characters/Traveler/${emotion}.png`;s.expression=emotion;}return scene;};
+        prefs.personaSpriteClassify=true;sprites.sync({on:true,id:1,page:0,text:'Sad, but my turn.',complete:true,generating:false});await pause(35);
+        check('with persona classification the player\'s own words choose the persona expression',calls.at(-1)==='Sad, but my turn.'&&/sadness\.png$/.test(host.querySelector('img[data-avatar="__user__"]')?.getAttribute('src') || '')&&host.querySelector('img[data-avatar="__user__"]')?.dataset.focus==='true');
+        const after=calls.length;sprites.sync({on:true,id:1,page:0,text:'Sad, but my turn.',complete:true,generating:false});await pause(35);
+        check('and the classified page is saved, not classified again',calls.length===after);
+        prefs.personaSpriteClassify=false;delete adapter.resolvePersona;}
         effects=mountStageEffects({host,getContext:()=>ctx});prefs.letterbox='horizontal';prefs.letterboxSize=12;effects.sync(true,true);
         check('native letterboxing supports horizontal bars and speaking animation state',!host.querySelector('#gi-letterbox').hidden&&host.querySelector('#gi-letterbox').style.getPropertyValue('--gi-letterbox-size')==='12vh'&&document.body.classList.contains('gi-sprite-speaking'));
         prefs.letterbox='vertical';effects.sync(true,false);check('vertical bars follow viewport width',host.querySelector('#gi-letterbox').style.getPropertyValue('--gi-letterbox-size')==='12vw');

@@ -9,6 +9,8 @@ export function seedCharacterHomes(ctx,catalog){
  const prefs=mediaSettings(ctx),defaults=rememberDefaultLocations(ctx),locations=backgroundRegions(ctx).flatMap(r=>r.locations);let added=0,changed=false;
  if((prefs.homeBindingsVersion || 0)<catalog.version)for(const move of catalog.relocations || []){
   const character=ctx.characters?.find(c=>c.name===move.name),from=locations.find(l=>l.id===move.from),to=locations.find(l=>l.id===move.to);
+  // Already living at the new place, by the user's own move: only their home follows, so its greeting is used there.
+  if(character&&to?.residents?.includes(character.avatar)&&defaults[character.avatar]===from?.id){defaults[character.avatar]=to.id;changed=true;continue;}
   // Apply only the old bundled assignment, never a user-moved character.
   const placed=from?.residents?.includes(character?.avatar)||move.unplaced&&!locations.some(l=>l.residents?.includes(character?.avatar));
   if(!character||!placed||!to||defaults[character.avatar]!==from?.id||assignedResidents(ctx,to).length>=locationCharacterLimit(ctx))continue;

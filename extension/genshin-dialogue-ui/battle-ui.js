@@ -19,6 +19,11 @@ import {createWeaponFx,weaponOf,strikeKind} from './battle-weapons.js';
 const el=(tag,cls,text)=>{const n=document.createElement(tag);if(cls)n.className=cls;if(text!==undefined)n.textContent=text;return n;};
 // Battle numbers are saved in the chat's metadata, which an imported chat can fill, so any that go into markup are made numbers first.
 const whole=value=>Math.round(Number(value)) || 0;
+// Dynamic Skins: a TCG card's animated art (assets/tcg/dynamic.json names each card's file). It plays on the
+// card from the moment the card's Elemental Burst is cast until that Burst has finished, then the static art returns.
+let dynamicSkins=null;
+export const loadDynamicSkins=()=>dynamicSkins??=fetch(new URL('./assets/tcg/dynamic.json',import.meta.url)).then(r=>r.ok?r.json():{}).catch(()=>({}));
+export const dynamicSkinUrl=(skins,name)=>{const file=name&&skins?.[name];return typeof file==='string'&&file?new URL(`./assets/tcg/dynamic/${encodeURIComponent(file)}`,import.meta.url).href:'';};
 export const splashUrl=name=>name?new URL(`./assets/splash/${encodeURIComponent(name)}.webp`,import.meta.url).href:'';
 // New Genius Invokation states show their count: Nightsoul points, Bond of Life stacks, Bite Target, Battle Plan.
 const COUNTED=new Set(['nightsoul','bond','bite','plan']);
@@ -116,7 +121,7 @@ export function mountBattle({host,sound=createBattleSound(),onBurst=()=>{},onSto
     function buildCard(u){
         const card=el('button',`tb-card tb-${u.side}`);card.type='button';card.dataset.id=u.id;card.style.setProperty('--el',EL_COLORS[u.element] || EL_COLORS.None);
         if(!u.art)card.classList.add('tb-portrait');
-        card.innerHTML=`<span class="tb-art"><img alt=""><i class="tb-cine" aria-hidden="true"><img alt=""><span class="tb-cine-icon"></span><i class="tb-cine-iris"></i><i class="tb-cine-flash"></i></i></span><span class="tb-name"></span><span class="tb-hp">${ICON.drop}<b></b></span><span class="tb-energy"></span><span class="tb-aura"></span><span class="tb-shield">${ICON.shield}<b></b></span><span class="tb-status"></span>${u.side==='party'?'<span class="tb-incoming"></span>':'<span class="tb-intent"></span>'}<span class="tb-delta" hidden></span><i class="tb-check" aria-hidden="true">${ICON.check}</i><i class="tb-fallen" aria-hidden="true">${ICON.fallen}</i><span class="tb-flash"></span>`;
+        card.innerHTML=`<span class="tb-art"><img alt=""></span><span class="tb-name"></span><span class="tb-hp">${ICON.drop}<b></b></span><span class="tb-energy"></span><span class="tb-aura"></span><span class="tb-shield">${ICON.shield}<b></b></span><span class="tb-status"></span>${u.side==='party'?'<span class="tb-incoming"></span>':'<span class="tb-intent"></span>'}<span class="tb-delta" hidden></span><i class="tb-check" aria-hidden="true">${ICON.check}</i><i class="tb-fallen" aria-hidden="true">${ICON.fallen}</i><span class="tb-flash"></span>`;
         const img=card.querySelector('.tb-art>img'),src=artOf(u);if(src)img.src=src;else img.hidden=true;
         if(u.art&&u.img)img.onerror=()=>{img.onerror=null;img.src=u.img;card.classList.add('tb-portrait');};
         card.querySelector('.tb-name').textContent=u.name;
@@ -321,7 +326,8 @@ export function mountBattle({host,sound=createBattleSound(),onBurst=()=>{},onSto
         const u=unitById(state,id);if(!u)return;
         if(choose){if(u.side==='party'&&alive(u)&&!(choose.notActive&&isActive(state,u))){choose.id=id;sound.select();paintChoose();}else deny(cards.get(id));return;}
         if(!myTurn())return;
-        if(pick?.type==='card'&&pick.needsTarget){if(u.side==='party'){pick.target=id;sound.assign();refresh();}else deny(cards.get(id));return;}
+        // A held card is played on the character or enemy you tap next.
+        if(pick?.type==='card'){playCardOn(id);return;}
         if(pick?.type==='skill'&&pick.needsTarget){if(u.side==='party'&&alive(u)){pick.target=id;sound.assign();refresh();}return;}
         if(u.side==='party'&&alive(u)&&!isActive(state,u)){
             if(pick?.type==='switch'&&pick.id===id){confirm();return;}
@@ -329,6 +335,58 @@ export function mountBattle({host,sound=createBattleSound(),onBurst=()=>{},onSto
         }
         if(pick)clearPick();
     }
+    // Plays the held card: on a party member when it is aimed (a heal, a weapon), or anywhere for a card
+    // that needs no aim. A card aimed at your party cannot be played on an enemy.
+    function playCardOn(id){
+        if(pick?.type!=='card'||!myTurn())return;
+        const u=id?unitById(state,id):null;
+        if(pick.needsTarget&&u){
+            if(u.side!=='party'){deny(cards.get(id),`${ITEMS[round.hand[pick.index]]?.name || 'This card'} is played on your own characters.`);return;}
+            pick.target=id;sound.assign();
+        }
+        if(pick.needsTarget&&!pick.target){deny('.tb-drawer','Choose a character for this card.');return;}
+        void confirm();
+    }
+    // Dragging a card out of the hand: onto a character to aim it, or anywhere on the field to play it.
+    // On touch, a sideways swipe still scrolls the hand; lifting the card upwards picks it up.
+    let dragging=null;
+    function cardPointerDown(event,card,index){
+        if(!myTurn()||event.button>0||dragging)return;
+        const start={x:event.clientX,y:event.clientY},id=event.pointerId,touch=event.pointerType!=='mouse';let ghost=null,over=null;
+        const target=(x,y)=>{const node=document.elementFromPoint(x,y);return {node,unit:node?.closest?.('#gi-battle .tb-card[data-id]'),hand:node?.closest?.('#gi-battle .tb-hand'),inside:Boolean(node&&dialog.contains(node))};};
+        const mark=unit=>{if(over===unit)return;over?.classList.remove('tb-drop');over=unit;over?.classList.add('tb-drop');};
+        const move=e=>{
+            if(e.pointerId!==id)return;
+            const dx=e.clientX-start.x,dy=e.clientY-start.y;
+            if(!ghost){
+                if(Math.hypot(dx,dy)<10)return;
+                if(touch&&!(dy<0&&Math.abs(dy)>Math.abs(dx))){end();return;}
+                ghost=card.cloneNode(true);ghost.classList.add('tb-ghost');ghost.classList.remove('tb-held','tb-drawn');ghost.removeAttribute('id');
+                const r=card.getBoundingClientRect();Object.assign(ghost.style,{width:`${r.width}px`,height:`${r.height}px`});dialog.append(ghost);
+                dragging={index};dialog.classList.add('tb-dragging');hideTip();
+                if(!(pick?.type==='card'&&pick.index===index))select({type:'card',index});
+            }
+            e.preventDefault();
+            ghost.style.left=`${e.clientX}px`;ghost.style.top=`${e.clientY}px`;
+            const t=target(e.clientX,e.clientY);mark(t.unit&&!t.hand?t.unit:null);
+        };
+        const up=e=>{
+            if(e.pointerId!==id)return;
+            const was=ghost;end();if(!was)return;
+            const t=target(e.clientX,e.clientY);
+            if(!t.inside||t.hand){clearPick();return;}
+            playCardOn(t.unit?.dataset.id || null);
+        };
+        function end(){
+            removeEventListener('pointermove',move);removeEventListener('pointerup',up);removeEventListener('pointercancel',cancel);
+            ghost?.remove();mark(null);dialog.classList.remove('tb-dragging');
+            if(ghost){suppressClick=true;setTimeout(()=>{suppressClick=false;},0);}
+            ghost=null;dragging=null;
+        }
+        const cancel=e=>{if(e.pointerId!==id)return;const was=ghost;end();if(was)clearPick();};
+        addEventListener('pointermove',move,{passive:false});addEventListener('pointerup',up);addEventListener('pointercancel',cancel);
+    }
+    let suppressClick=false;
     function select(next){
         pick=next;picked=null;tuning=false;hideTip();
         if(pick.type==='skill'){const u=activeOf(state,'party'),move=movesOf(u)[pick.move];pick.needsTarget=moveNeedsTarget(move)==='ally';if(pick.needsTarget&&!pick.target)pick.target=party().filter(alive).sort((a,b)=>a.hp/a.maxHp-b.hp/b.maxHp)[0]?.id;}
@@ -436,7 +494,8 @@ export function mountBattle({host,sound=createBattleSound(),onBurst=()=>{},onSto
             card.querySelector('img').src=itemArt(id);card.setAttribute('aria-label',`${item.name}: ${item.text} Costs ${item.cost} dice.`);
             card.classList.toggle('tb-held',pick?.type==='card'&&pick.index===i);
             if(round&&myTurn())card.classList.toggle('tb-unaffordable',!cardCheck(round,i,pick?.type==='card'&&pick.index===i?pick.target:party().find(u=>alive(u))?.id).ok&&!(item.target==='downed'));
-            on(card,'click',event=>{event.stopPropagation();if(!myTurn())return;if(pick?.type==='card'&&pick.index===i){if(!pick.needsTarget||pick.target)confirm();return;}select({type:'card',index:i});});
+            on(card,'pointerdown',event=>cardPointerDown(event,card,i));
+            on(card,'click',event=>{event.stopPropagation();if(suppressClick||!myTurn())return;if(pick?.type==='card'&&pick.index===i){if(!pick.needsTarget||pick.target)confirm();return;}select({type:'card',index:i});});
             on(card,'pointerenter',()=>{if(!pick)showTip(card,`<small>${escapeHtml(kindLabel(item))}</small><strong>${escapeHtml(item.name)}</strong>${hexCost(null,item.cost,'tb-any')}<p>${escapeHtml(item.text)}</p>`);});on(card,'pointerleave',hideTip);
             hand.append(card);
         });
@@ -660,20 +719,26 @@ export function mountBattle({host,sound=createBattleSound(),onBurst=()=>{},onSto
             const done=()=>{cancelAnimationFrame(raf);orb.remove();resolve();};anim.onfinish=done;setTimeout(done,ms+80);
         });
     }
-    // ---- Elemental Burst: the card's own cinematic, the splash art, then the strike -----------------
-    // The card comes alive first: its art swaps to the character's splash, pushes in and pans in their element,
-    // with a sweep shaped by their weapon. Then the full splash art and the screen-wide strike.
-    // The Burst's icon slams into the card first, with rings of its element, then blows open into the splash art.
-    async function cinematic(u,element,move){
-        const card=cards.get(u.id);if(!card||skipAll)return;
-        const cine=card.querySelector('.tb-cine'),img=cine.querySelector('img'),src=u.card?splashUrl(u.card):'';
-        cine.querySelector('.tb-cine-icon').innerHTML=move?moveIcon(u,move):ELEMENTS.includes(element)?elementImg(element,{white:true}):glyph('Omni');
-        img.src=src || artOf(u);img.onerror=()=>{img.onerror=null;img.src=artOf(u);};
-        card.dataset.weapon=u.kit.weapon || 'sword';card.style.setProperty('--el',EL_COLORS[element] || EL_COLORS.None);
-        card.classList.remove('tb-cinema');void card.offsetWidth;card.classList.add('tb-cinema');
+    // ---- Elemental Burst: the card switches to its Dynamic Skin, then the splash art, then the strike ----------
+    // The Dynamic Skin stays until the Burst has finished (endBurst), when the static art comes back.
+    async function dynamicSkin(u){
+        const card=cards.get(u.id),art=card?.querySelector('.tb-art');if(!art||!u.card||!effectsOn())return;
+        const src=dynamicSkinUrl(await loadDynamicSkins(),u.card);if(!src)return;
+        art.querySelector('.tb-dynamic')?.remove();
+        const video=/\.(webm|mp4)(\?|$)/i.test(src),node=video?el('video','tb-dynamic'):el('img','tb-dynamic');
+        node.setAttribute('aria-hidden','true');node.alt='';
+        if(video)Object.assign(node,{muted:true,loop:true,autoplay:true,playsInline:true,preload:'auto'});
+        const ready=()=>node.classList.add('tb-ready');node.addEventListener(video?'loadeddata':'load',ready,{once:true});node.addEventListener('error',()=>node.remove(),{once:true});
+        node.src=src;art.append(node);card.classList.add('tb-dynamic-on');
+        if(video)node.play?.().catch(()=>{});
+    }
+    function staticSkins(){for(const card of cards.values()){card.querySelector('.tb-dynamic')?.remove();card.classList.remove('tb-dynamic-on');}}
+    async function cinematic(u,element){
+        if(!cards.get(u.id)||skipAll)return;
+        void dynamicSkin(u);
         if(effectsOn()){const p=centerOf(u.id);particles.charge(p.x,p.y,element,1.4);}
         sound.charge(element);
-        await wait(effectsOn()?1250:400);
+        await wait(effectsOn()?700:300);
     }
     async function splash(u,move){
         if(skipAll)return;
@@ -751,7 +816,7 @@ export function mountBattle({host,sound=createBattleSound(),onBurst=()=>{},onSto
     async function playEvents(events){
         const at=token,view=new Map(state.units.map(u=>[u.id,u]));
         // acting: the move being played, so its hits land in the attacker's weapon style.
-        let burst=null,acting=null;const endBurst=()=>{burst=null;for(const card of cards.values())card.classList.remove('tb-bursting','tb-cinema');};
+        let burst=null,acting=null;const endBurst=()=>{burst=null;staticSkins();for(const card of cards.values())card.classList.remove('tb-bursting','tb-cinema');};
         for(let i=0;i<events.length;i++){
             if(!live(at))return false;
             const e=events[i],actor=view.get(e.actor),target=view.get(e.target);
@@ -774,7 +839,9 @@ export function mountBattle({host,sound=createBattleSound(),onBurst=()=>{},onSto
                 }
                 case 'end-round':{banner(e.side==='party'?'Round ended':'I\'m ending my Round.','',null,'tb-banner-end');sound.endRound?.();paintPlates();await wait(900);break;}
                 case 'tune':paintDice();break;
-                case 'draw':{for(const id of e.cards || [])void id;paintHand();if((e.cards || []).length){const items=[...dialog.querySelectorAll('.tb-hand .tb-item')].slice(-e.cards.length);items.forEach((n,k)=>{n.style.setProperty('--d',`${k*110}ms`);n.classList.add('tb-drawn');});$('.tb-hand').classList.add('tb-open');setTimeout(()=>{$('.tb-hand').classList.remove('tb-open');items.forEach(n=>n.classList.remove('tb-drawn'));},900+e.cards.length*110);sound.draw?.(e.cards.length);const deck=$('.tb-deck');deck.classList.remove('tb-drawing');void deck.offsetWidth;deck.classList.add('tb-drawing');banner(`Drew ${e.cards.length} card${e.cards.length===1?'':'s'}`,'End Phase');await wait(700);}break;}
+                case 'draw':{for(const id of e.cards || [])void id;paintHand();if((e.cards || []).length){const items=[...dialog.querySelectorAll('.tb-hand .tb-item')].slice(-e.cards.length);items.forEach((n,k)=>{n.style.setProperty('--d',`${k*110}ms`);n.classList.add('tb-drawn');});$('.tb-hand').classList.add('tb-open');setTimeout(()=>{$('.tb-hand').classList.remove('tb-open');items.forEach(n=>n.classList.remove('tb-drawn'));},900+e.cards.length*110);sound.draw?.(e.cards.length);const deck=$('.tb-deck');deck.classList.remove('tb-drawing');void deck.offsetWidth;deck.classList.add('tb-drawing');banner(`Drew ${e.cards.length} card${e.cards.length===1?'':'s'}`,'End Phase');await wait(700);}
+                    // Unlike the card game, cards that don't fit a full hand of 10 are not lost: they stay in the deck.
+                    if((e.burned || []).length){paintHand();banner('Hand full',`${e.burned.length} card${e.burned.length===1?' stays':'s stay'} in your deck`,'#ffe9a6');await wait(800);}break;}
                 case 'act':{
                     endBurst();for(const card of cards.values())card.classList.remove('tb-acting');cards.get(e.actor)?.classList.add('tb-acting');
                     const move=movesOf(actor).find(m=>m.name===e.name&&(m.kind===e.kind||e.kind==='technique')) || {name:e.name,kind:e.kind};
@@ -782,7 +849,7 @@ export function mountBattle({host,sound=createBattleSound(),onBurst=()=>{},onSto
                     acting={actor:e.actor,kind:strikeKind(actor,move,e.kind)};
                     if(e.kind==='burst'||e.kind==='special'&&actor.side==='enemy'){
                         void Promise.resolve(onBurst(actor,e)).catch(error=>console.warn('[Silly Teyvat] Burst voice',error));
-                        if(e.kind==='burst'){await cinematic(actor,e.element,move);if(actor.side==='party')await splash(actor,move);}
+                        if(e.kind==='burst'){await cinematic(actor,e.element);if(actor.side==='party')await splash(actor,move);}
                         else{const card=cards.get(actor.id);card?.classList.add('tb-charging');sound.charge(e.element);if(effectsOn()){const p=centerOf(actor.id);particles.charge(p.x,p.y,e.element,1.6);}await wait(effectsOn()?600:200);card?.classList.remove('tb-charging');}
                         burst={actor:e.actor,step:e.step};await burstField(actor,e.element,burstTargets(events,i,e));
                         break;
@@ -889,6 +956,7 @@ export function mountBattle({host,sound=createBattleSound(),onBurst=()=>{},onSto
         dialog.classList.remove('tb-previewing','tb-won');
         paintUnits();refresh();
         for(const u of party().filter(u=>u.card)){const img=new Image();img.src=splashUrl(u.card);}
+        void loadDynamicSkins();
     }
     async function run(snapshot,options={}){
         const at=++token;

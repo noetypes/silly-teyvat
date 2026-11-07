@@ -14,7 +14,12 @@ export async function runWardrobeAndCanvasTests(){
     const adapter={list:async()=>files,upload:async(folder,file,name,label)=>{uploads.push({folder,name,label});files.push({label,path:`/characters/${folder}/${name}.${file.name.split('.').at(-1)}`});},refreshNative:async()=>nativeRefreshes++,remove:async()=>{removals++;}};
     const mediaAdapter={upload:async(file,kind)=>({id:newLocalId(),name:file.name,path:new URL(kind==='audio'?'preview-silence.wav':'preview-landscape.svg',location.href).pathname}),classifyCG:async(_ctx,_message,categories)=>{cgCalls++;return categories[0].id;}};
     const open=async()=>{wardrobe=mountWardrobe({host,getContext:()=>ctx,adapter,mediaAdapter});await wardrobe.open();};
-    const $=selector=>host.querySelector(selector),click=async action=>{$(`[data-w="${action}"]`).click();await pause(15);};
+    const $=selector=>host.querySelector(selector);
+    const settled=async()=>{
+        for(let i=0;i<300;i++){if(!$('.gi-wardrobe-controls')?.inert&&!$('#gi-wardrobe')?.hasAttribute('aria-busy'))return;await pause(10);}
+        throw new Error('Wardrobe loading timed out');
+    };
+    const click=async action=>{$(`[data-w="${action}"]`).click();await pause(15);await settled();};
     const attach=(selector,name,type)=>{const transfer=new DataTransfer();transfer.items.add(new File(['fixture'],name,{type}));$(selector).files=transfer.files;};
     try{
         check('slot numbering avoids existing names regardless of case',nextSlotName('expression',['Expression','expression-1','expression-3'])==='expression-2');
@@ -47,10 +52,10 @@ export async function runWardrobeAndCanvasTests(){
         for(let i=0;i<200&&!registered().includes('Winter=Klee/Winter');i++)await pause(10);
         check('a set can start as a copy of the selected one',uploads.length>uploadsBefore&&uploads.at(-1).folder==='Klee/Winter'&&registered().includes('Winter=Klee/Winter'));
         $('[data-w="set-delete"]').click();await click('set-forget');check('Remove from list keeps files and drops the set',!registered().some(x=>x.startsWith('Winter'))&&removals===0&&$('#gi-outfit').value==='Klee');
-        $('#gi-outfit').value='Klee/Summer';$('#gi-outfit').dispatchEvent(new Event('change'));await pause(30);
+        $('#gi-outfit').value='Klee/Summer';$('#gi-outfit').dispatchEvent(new Event('change'));await settled();
         $('[data-w="set-delete"]').click();await click('set-delete-files');check('Delete set and sprites erases its files and the set',removals>0&&registered().length===0);
         // The character's own folder: renamed, removed from the list once another set is equipped, and linked back.
-        const pick=async value=>{$('#gi-outfit').value=value;$('#gi-outfit').dispatchEvent(new Event('change'));await pause(30);};
+        const pick=async value=>{$('#gi-outfit').value=value;$('#gi-outfit').dispatchEvent(new Event('change'));await settled();};
         $('[data-w="set-delete"]').click();
         check('the equipped Original set cannot be deleted',!$('.gi-set-editor').hidden&&$('[data-w="set-forget"]').disabled&&$('[data-w="set-delete-files"]').disabled);
         $('[data-w="set-rename"]').click();check('renaming Original starts from its name',$('#gi-set-editor-name').value==='Original');
@@ -69,7 +74,7 @@ export async function runWardrobeAndCanvasTests(){
         await pick('Klee');$('[data-w="set-delete"]').click();
         check('the equipped character folder is protected again',$('[data-w="set-delete-files"]').disabled);
         await pick('Klee');
-        files.splice(1);uploads.length=0;removals=0;nativeRefreshes=0;delete prefs.outfits;$('#gi-outfit').dispatchEvent(new Event('change'));await pause(30);
+        files.splice(1);uploads.length=0;removals=0;nativeRefreshes=0;delete prefs.outfits;$('#gi-outfit').dispatchEvent(new Event('change'));await settled();
         let grid=$('.gi-expression-grid');check('sprite plus tile is the final tile',grid.lastElementChild.dataset.w==='add-blank-sprite');
         let art=grid.firstElementChild.getBoundingClientRect(),add=grid.lastElementChild.getBoundingClientRect();
         check('sprite plus matches the artwork tile dimensions',Math.abs(art.width-add.width)<2&&Math.abs(art.height-add.height)<2);
@@ -95,10 +100,16 @@ export async function runWardrobeAndCanvasTests(){
         media=mountSceneMedia({host,getContext:()=>ctx,adapter:mediaAdapter,sound:{stop(){},dispose(){},unlock:async()=>{},play:async()=>{}}});
         media.sync({on:true,id:0,page:0,generating:false});await pause(20);check('empty CG slots never enter classification or replace the scene',cgCalls===0&&$('#gi-cg-stage').hidden);
         const slot=prefs.characterCGs['Klee.png'][1],slotId=slot.id;
+        check('every new CG defaults to zero required Trust',$('#gi-cg-required-trust').value==='0');
+        const requiredTrust=$('#gi-cg-required-trust');requiredTrust.value='2.5';requiredTrust.dispatchEvent(new Event('change'));
+        check('Scenes saves a fractional required Trust on only the selected CG',slot.requiredTrust===2.5&&prefs.characterCGs['Klee.png'][0].requiredTrust===undefined);
+        $('.gi-cg-grid').firstElementChild.click();check('switching CGs restores their own Trust requirement',requiredTrust.value==='0');
+        $('.gi-cg-grid').children[1].click();check('returning to a CG restores its saved Trust requirement',requiredTrust.value==='2.5');
         attach('#gi-cg-audio-files','scene.wav','audio/wav');await click('upload-cg-audio');
         attach('#gi-cg-files','artwork.jpg','image/jpeg');await click('upload-cg');
         check('artwork fills the selected CG slot instead of adding a duplicate',prefs.characterCGs['Klee.png'].length===2&&slot.id===slotId&&!slot.blank&&Boolean(slot.path));
         check('a CG retains audio assigned before its artwork upload',slot.audio.length===1&&slot.audio[0].name==='scene.wav');
+        check('a CG retains its Trust requirement when artwork is added',slot.requiredTrust===2.5);
         media.sync({on:true,id:0,page:0,generating:false});await pause(20);check('a filled CG enters classification without its empty neighbor',cgCalls===1&&ctx.chat[0].extra.silly_teyvat.cgs[0].cg.id===slotId);
         check('wardrobe controls still scroll within the fixed scene canvas',(()=>{const c=$('.gi-wardrobe-controls');c.scrollTop=c.scrollHeight;return c.scrollTop>0;})());
         wardrobe.dispose();media.dispose();wardrobe=media=undefined;

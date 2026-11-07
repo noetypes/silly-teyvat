@@ -2,7 +2,7 @@ import {backgroundRegions} from './backgrounds.js';
 import {mediaSettings} from './media-store.js';
 import {validMapPoint} from './world-data.js';
 
-const starterCatalogVersion=18;
+const starterCatalogVersion=19;
 const OLD_STARFELL_DESCRIPTION='A lake in Starfell Valley, with a Statue of The Seven on the island. The point and archive image show the in-game overlook.';
 const OLD_FEIYUN_DESCRIPTION='The Feiyun Commerce Guild family residence is in Liyue Harbor. The map pin uses the named Feiyun Slope point as a public approach to the district; the clean background is the nearby Heyu Tea House, not the residence itself.';
 // Import once per user. Removing or editing a starter remains respected.
@@ -88,6 +88,8 @@ export function seedWorldLocations(ctx,catalog,availableMusic=[]){
                 location.suggestedCharacters=structuredClone(record.suggestedCharacters);
                 if(location.description===OLD_STARFELL_DESCRIPTION)location.description=record.description;
             }
+            // 19: crowded locations were thinned out, so the suggested names on the map follow the new homes.
+            if(prefs.starterLocationsVersion<19&&Array.isArray(record.suggestedCharacters))location.suggestedCharacters=structuredClone(record.suggestedCharacters);
             if(record.wilderness&&location.wilderness==null)Object.assign(location,{wilderness:true,enemyEncounterRate:record.enemyEncounterRate ?? 40,enemyPool:[...(record.enemyPool || [])]});
             if(location.path!==bundledPath)continue;
             if(prefs.starterLocationsVersion<15&&record.id==='home-feiyun-commerce-guild'&&location.description===OLD_FEIYUN_DESCRIPTION)location.description=record.description;

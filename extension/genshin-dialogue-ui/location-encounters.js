@@ -5,6 +5,7 @@ import {mediaSettings} from './media-store.js';
 import {newLocalId} from './local-id.js';
 import {playedAvatars} from './persona-link.js';
 import {ABYSS_HOME,abyssAvatar} from './twin-roles.js';
+import {guildBranch,isGuildStaff} from './guild.js';
 
 const MAX_ENCOUNTERED=3;
 // Assigned homes and this chat's travelling placements are separate from the
@@ -16,7 +17,9 @@ export function locationResidents(ctx,id){
     for(const [avatar,destination] of Object.entries(ctx.chatMetadata?.silly_teyvat_cast?.placements || {}))homes.set(avatar,destination);
     // A card the player has taken over as their persona never appears as a resident.
     const played=playedAvatars(ctx);
-    return (ctx.characters || []).filter(c=>homes.get(c.avatar)===id&&!played.has(c.avatar)&&!isEnemy(ctx,c));
+    // Katheryne is at every Guild branch and nowhere else, wherever her card says she lives.
+    const branch=guildBranch(ctx,id);
+    return (ctx.characters || []).filter(c=>(isGuildStaff(ctx,c.avatar)?branch:homes.get(c.avatar)===id)&&!played.has(c.avatar)&&!isEnemy(ctx,c));
 }
 export function encounterRate(ctx){
     const value=Number(mediaSettings(ctx).encounterRate ?? 40);
@@ -41,7 +44,7 @@ export function rollLocationEncounter(ctx,locationId,travellers=[],{random=Math.
     if(kind==='open')scene.present=[...party];
     if(kind==='open'||bypass)return scene;
     const left=ctx.chatMetadata?.silly_teyvat_cast?.leftBehind || {},residents=prefs.locationEncounters===false?[]:locationResidents(ctx,locationId).filter(c=>!party.has(c.avatar));
-    const stays=c=>isFavorite(c)||residents.length<=MAX_ENCOUNTERED&&left[c.avatar]===locationId;
+    const stays=c=>isFavorite(c)||isGuildStaff(ctx,c.avatar)||residents.length<=MAX_ENCOUNTERED&&left[c.avatar]===locationId;
     const others=residents.filter(c=>!stays(c)).map(c=>c.avatar),pool=[...wildernessCandidates(ctx,locationId,kind)];
     scene.present=residents.filter(stays).map(c=>c.avatar);
     if(!scene.present.length&&others.length)scene.present.push(takeRandom(others,random));

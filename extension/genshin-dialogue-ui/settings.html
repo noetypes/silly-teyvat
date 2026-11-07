@@ -81,6 +81,7 @@
                 <div class="gi-row gi-row-trio" data-advanced><span>Offset · Blur</span><input type="number" min="-100" max="100" aria-label="Shadow horizontal offset" data-gi-setting="shadowX"><input type="number" min="-100" max="100" aria-label="Shadow vertical offset" data-gi-setting="shadowY"><input type="number" min="0" max="80" aria-label="Shadow blur" data-gi-setting="shadowBlur"></div>
                 <h4>Active persona sprite</h4>
                 <label class="gi-row" title="Your persona is the first entry in Character Customization, with its own outfits and expressions"><span>Show persona</span><input type="checkbox" class="gi-switch" data-gi-setting="personaSprite"></label>
+                <label class="gi-row" title="On your own messages, your persona's expression is chosen from what you wrote, using the same classifier as the characters. Off keeps the expression set below or in Character Customization"><span>Classify persona expressions</span><input type="checkbox" class="gi-switch" data-gi-setting="personaSpriteClassify"></label>
                 <label class="gi-row" data-advanced><span>Sprite folder</span><input type="text" placeholder="Traveler" data-gi-setting="personaSpriteFolder"></label>
                 <label class="gi-row" data-advanced><span>Expression</span><input type="text" placeholder="neutral" data-gi-setting="personaSpriteExpression"></label>
                 <h4>Letterbox</h4>
@@ -102,6 +103,7 @@
                 <h4>Scene CGs</h4>
                 <label class="gi-row"><span>Classify CGs</span><input type="checkbox" class="gi-switch" data-gi-setting="cgEnabled"></label>
                 <label class="gi-row" for="gi-cg-display-mode" title="Each CG's own choice is set in Character Customization under Scenes. Phones always use a frame"><span>CG display</span><select id="gi-cg-display-mode" data-gi-setting="cgDisplayMode"><option value="each">Each CG's choice</option><option value="scene">Replace background</option><option value="frame">Framed window</option></select></label>
+                <label class="gi-row" title="After you close a CG, it is not shown again until this many more messages have been written. 0 lets it return at once"><span>Messages before a closed CG returns</span><input type="number" min="0" max="200" step="1" data-gi-setting="cgCooldown"></label>
                 <label class="gi-row" for="gi-cg-classifier"><span>Classifier</span><select id="gi-cg-classifier" data-gi-setting="cgClassifier"><option value="main">Main API</option><option value="profile">Connection profile</option><option value="webllm">WebLLM</option></select></label>
                 <label class="gi-row" id="gi-cg-profile-row" for="gi-cg-profile"><span>Profile</span><select id="gi-cg-profile" data-gi-setting="cgProfile"></select></label>
                 <label class="gi-row" id="gi-cg-reasoning-row" title="Faster and cheaper. A model that requires reasoning is asked again with it on"><span>Prefer reasoning off</span><input type="checkbox" class="gi-switch" data-gi-setting="cgBypassReasoning"></label>
@@ -117,6 +119,7 @@
                 <h4>Travel</h4>
                 <label class="gi-row"><span>Main character may stay</span><input type="checkbox" class="gi-switch" data-gi-setting="allowMainDeparture"></label>
                 <label class="gi-row" data-advanced><span>Whole world in prompt</span><input type="checkbox" class="gi-switch" data-gi-setting="worldPromptAllRegions"></label>
+                <label class="gi-row" title="When you travel alone and meet one character, Standard uses the greeting written on their card wherever it fits. Generated writes a new one that pays attention to who you are playing and any relationship they have with you" for="gi-solo-greeting"><span>Greeting when meeting someone alone</span><select id="gi-solo-greeting" data-gi-setting="soloGreeting"><option value="standard">Standard (card greeting)</option><option value="generated">Generated (new greeting)</option></select></label>
                 <h4>The twins</h4>
                 <label class="gi-row" title="Play either twin and you are the Traveler; the other leads the Abyss Order in the Chasm" for="gi-traveler-twin"><span>Traveler when you play neither twin</span><select id="gi-traveler-twin" data-gi-setting="travelerTwin"><option value="Aether">Aether (Lumine leads the Abyss)</option><option value="Lumine">Lumine (Aether leads the Abyss)</option></select></label>
                 <h4>Trust</h4>

@@ -13,6 +13,7 @@ import {newLocalId} from './local-id.js';
 import {playedAvatars} from './persona-link.js';
 import {ABYSS_HOME,abyssAvatar} from './twin-roles.js';
 import {NARRATOR_AVATAR,narratorAvatar} from './narrator.js';
+import {isGuildStaff} from './guild.js';
 
 export const castIdentity=ctx=>`${ctx.groupId || ctx.characterId}:${ctx.getCurrentChatId?.() || ctx.chatId || ''}`;
 export function locationCastState(ctx){
@@ -77,7 +78,9 @@ export function castMembership(ctx){
     if(opening){const next=members.includes(opening)?[opening]:ctx.characters?.some(c=>c.avatar===opening)?[opening]:members.slice(0,1);const removed=original.filter(a=>!next.includes(a)),added=next.filter(a=>!members.includes(a));return {core:[...next],members:next,managed:[],added,removed,changed:added.length>0||removed.length>0,forced:null};}
     let core=[...(state.core || members.filter(a=>!state.managed.includes(a)))].filter(a=>!isEnemy(ctx,a)&&!played.has(a));
     const wanted=[...(mediaSettings(ctx).locationEncounters===false?members.filter(a=>!isEnemy(ctx,a)):residentsAt(ctx,travelState(ctx).location?.id).map(c=>c.avatar)),...activeEnemies(ctx).map(e=>e.avatar)].filter(a=>!played.has(a));
-    let removed=[...taken,...members.filter(a=>(state.managed.includes(a)||isEnemy(ctx,a))&&!wanted.includes(a)&&!core.includes(a))];
+    // Katheryne is part of the scene only at a Guild branch, even when a chat began with her.
+    core=core.filter(a=>!isGuildStaff(ctx,a)||wanted.includes(a));
+    let removed=[...taken,...members.filter(a=>(state.managed.includes(a)||isEnemy(ctx,a)||isGuildStaff(ctx,a))&&!wanted.includes(a)&&!core.includes(a))];
     const added=wanted.filter(a=>!members.includes(a));
     let next=[...new Set([...members.filter(a=>!removed.includes(a)),...added])];
     const forced=null; // The player is a complete party even with no NPC members.
@@ -92,7 +95,9 @@ export function castMembership(ctx){
 export async function planTeleportParty(ctx,destination,ask,isCurrent=()=>true){
     const from=travelState(ctx).location?.id,members=partyAvatars(ctx),state=locationCastState(ctx);
     const group=activeGroup(ctx),disabled=group?.disabled_members || [];
-    const base={key:castIdentity(ctx),from,destination:destination.id,members:[...members],disabled:[...disabled],decisions:[],travellers:members.filter(a=>!isEnemy(ctx,a))};
+    // Guild staff stay at the counter: never a traveller, and never asked to come along.
+    const goes=a=>!isEnemy(ctx,a)&&!isGuildStaff(ctx,a);
+    const base={key:castIdentity(ctx),from,destination:destination.id,members:[...members],disabled:[...disabled],decisions:[],travellers:members.filter(goes)};
     if(from===destination.id)return base;
     // Roll once before asking about followers. Cancellation discards this draft;
     // Arrival membership uses the sampled residents, even when none are present.
@@ -101,14 +106,14 @@ export async function planTeleportParty(ctx,destination,ask,isCurrent=()=>true){
     const flexible=Boolean(mediaSettings(ctx).allowMainDeparture);
     const main=[ctx.characters?.[ctx.characterId]?.avatar,state.source?.avatar,...(state.core || []),members[0]].find(a=>members.includes(a));
     const guestAvatars=residentsAt(ctx,from).filter(c=>state.managed.includes(c.avatar)&&!state.core?.includes(c.avatar)).map(c=>c.avatar);
-    const candidates=(ctx.characters || []).filter(c=>members.includes(c.avatar)&&!isEnemy(ctx,c)&&(flexible||guestAvatars.includes(c.avatar))).sort((a,b)=>Number(a.avatar===main)-Number(b.avatar===main));
+    const candidates=(ctx.characters || []).filter(c=>members.includes(c.avatar)&&goes(c.avatar)&&(flexible||guestAvatars.includes(c.avatar))).sort((a,b)=>Number(a.avatar===main)-Number(b.avatar===main));
     for(let index=0;index<candidates.length;index++){
         const character=candidates[index],forced=false;
         const answer=await ask(character,destination);
         if(answer==null||!isCurrent())return null;
         base.decisions.push({avatar:character.avatar,from,to:destination.id,take:answer,forced});
     }
-    base.travellers=members.filter(a=>!isEnemy(ctx,a)&&!base.decisions.some(d=>d.avatar===a&&!d.take));
+    base.travellers=members.filter(a=>goes(a)&&!base.decisions.some(d=>d.avatar===a&&!d.take));
     base.flexible=flexible;return base;
 }
 export function commitTeleportParty(ctx,plan){

@@ -68,3 +68,25 @@
 /* Moveset editor: Genius Invokation effects the form cannot edit are listed as text. */
 .gi-effect.gi-effect-fixed { display: block; }
 .gi-effect.gi-effect-fixed p { margin: 0; font-size: 12px; line-height: 1.4; opacity: .9; }
+
+/* 1.68 Dynamic Skins: the card's animated art over its static art while its Elemental Burst plays. */
+#gi-battle .tb-art { position: relative; }
+#gi-battle .tb-art > .tb-dynamic { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; opacity: 0; transition: opacity .18s ease; pointer-events: none; }
+#gi-battle .tb-art > .tb-dynamic.tb-ready { opacity: 1; }
+#gi-battle .tb-dynamic-on .tb-art { box-shadow: 0 0 0 2px #fff, 0 0 26px 8px var(--el); }
+
+/* 1.68 Playing cards by dragging: the card follows the pointer, and the character it would land on lights up. */
+#gi-battle .tb-ghost { position: fixed; z-index: 60; margin: 0; translate: -50% -60%; transform: rotate(-4deg) scale(1.08); pointer-events: none; filter: drop-shadow(0 10px 18px #000a) drop-shadow(0 0 12px #f6e7bd); transition: none; }
+#gi-battle.tb-dragging .tb-hand .tb-item.tb-held { opacity: .35; }
+#gi-battle .tb-card.tb-drop .tb-art { box-shadow: 0 0 0 3px #f6e7bd, 0 0 22px 6px #f6e7bdaa; }
+#gi-battle .tb-item { touch-action: pan-x; -webkit-user-select: none; user-select: none; }
+/* Up to 10 cards in hand: on upright phones the hand scrolls sideways instead of squeezing the cards. */
+@media (max-aspect-ratio: 4/5) {
+    #gi-battle .tb-hand { overflow-x: auto; overflow-y: hidden; justify-content: safe center; padding-top: 18px; scroll-snap-type: x proximity; scrollbar-width: thin; touch-action: pan-x; overscroll-behavior-x: contain; }
+    #gi-battle .tb-hand .tb-item, #gi-battle .tb-hand:not(.tb-open):not(:has(.tb-held)) .tb-item { margin: 0 3px; scroll-snap-align: center; }
+}
+/* Phones on their side: the same, when ten cards no longer fit the row. */
+@media (max-height: 500px) and (min-aspect-ratio: 4/5) {
+    #gi-battle .tb-hand { overflow-x: auto; overflow-y: hidden; justify-content: safe center; padding-top: 14px; touch-action: pan-x; scrollbar-width: none; }
+    #gi-battle .tb-hand .tb-item { margin: 0 2px; }
+}

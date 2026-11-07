@@ -7,11 +7,12 @@ import {noteLocationArrival} from './arrival-policy.js';
 import {rollLocationEncounter} from './location-encounters.js';
 import {playedAvatars} from './persona-link.js';
 import {NARRATOR_AVATAR} from './narrator.js';
+import {isGuildStaff} from './guild.js';
 
 export function partyAvatars(ctx){const played=playedAvatars(ctx);return (activeGroup(ctx)?.members?.slice() || [ctx.characters?.[ctx.characterId]?.avatar].filter(Boolean)).filter(a=>!played.has(a)&&a!==NARRATOR_AVATAR);}
 export function travellingAvatars(ctx,destination,{automatic=false}={}){
     const state=ctx.chatMetadata?.silly_teyvat_cast || {};
-    const members=partyAvatars(ctx).filter(a=>!isEnemy(ctx,a)),travellers=members.filter(avatar=>!automatic || !state.managed?.includes(avatar) || state.core?.includes(avatar) || state.placements?.[avatar]===destination.id);
+    const members=partyAvatars(ctx).filter(a=>!isEnemy(ctx,a)&&!isGuildStaff(ctx,a)),travellers=members.filter(avatar=>!automatic || !state.managed?.includes(avatar) || state.core?.includes(avatar) || state.placements?.[avatar]===destination.id);
     return travellers;
 }
 const list=names=>names.length<2?names[0] || 'The party':`${names.slice(0,-1).join(', ')} and ${names.at(-1)}`;
@@ -28,18 +29,18 @@ export function travelHistoryText(ctx,from,to,avatars=partyAvatars(ctx)){
 export function recordTravel(ctx,from,to,{avatars,reason='teleport',encounter}={}){
     if(from?.id!==to?.id)leaveOpeningScene(ctx,from,to);
     if(to?.id&&from?.id!==to.id&&ctx.characters?.length){
-        const travellers=[...(avatars || partyAvatars(ctx))].filter(a=>!isEnemy(ctx,a)),scene=encounter?.locationId===to.id?{...structuredClone(encounter),travellers:[...travellers]}:rollLocationEncounter(ctx,to.id,travellers);
+        const travellers=[...(avatars || partyAvatars(ctx))].filter(a=>!isEnemy(ctx,a)&&!isGuildStaff(ctx,a)),scene=encounter?.locationId===to.id?{...structuredClone(encounter),travellers:[...travellers]}:rollLocationEncounter(ctx,to.id,travellers);
         const disabled=activeGroup(ctx)?.disabled_members || [];
         // Automatic travel also needs a speaker if every resident failed their
         // roll. Record that actual follower in history as well as on stage.
         if(reason!=='teleport'&&![...travellers,...scene.present].some(a=>!disabled.includes(a))){
-            const last=partyAvatars(ctx).find(a=>!disabled.includes(a)&&!isEnemy(ctx,a));if(last)travellers.push(last);
+            const last=partyAvatars(ctx).find(a=>!disabled.includes(a)&&!isEnemy(ctx,a)&&!isGuildStaff(ctx,a));if(last)travellers.push(last);
         }
         scene.travellers=[...travellers];avatars=travellers;
         noteLocationArrival(ctx,to.id,{travellers});
         const cast=ctx.chatMetadata.silly_teyvat_cast,left=cast.leftBehind ??= {};cast.encounter=scene;
         // Companions who stayed are remembered there until the party finds them again.
-        if(from?.id)for(const avatar of partyAvatars(ctx))if(!isEnemy(ctx,avatar)&&!travellers.includes(avatar))left[avatar]=from.id;
+        if(from?.id)for(const avatar of partyAvatars(ctx))if(!isEnemy(ctx,avatar)&&!isGuildStaff(ctx,avatar)&&!travellers.includes(avatar))left[avatar]=from.id;
         for(const avatar of [...travellers,...scene.present])delete left[avatar];
     }
     if(!from?.id||!to?.id||from.id===to.id||!Array.isArray(ctx.chat)||!ctx.characters?.length)return null;

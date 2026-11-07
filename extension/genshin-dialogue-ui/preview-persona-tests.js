@@ -6,7 +6,14 @@ import {mountPageSprites} from './page-sprites.js';
 import {mountSceneMedia} from './scene-media.js';
 
 export async function runPersonaWardrobeTests(){
-    const results=[],pause=()=>new Promise(r=>setTimeout(r,20));
+    const results=[],pause=async()=>{
+        await new Promise(r=>setTimeout(r,20));
+        for(let i=0;i<300;i++){
+            if(!host.querySelector('.gi-wardrobe-controls')?.inert)return;
+            await new Promise(r=>setTimeout(r,10));
+        }
+        throw new Error('Persona wardrobe loading timed out');
+    };
     const check=(name,ok)=>{results.push(`${ok?'PASS':'FAIL'} ${name}`);if(!ok)throw new Error(name);};
     const host=document.createElement('div');document.body.append(host);let wardrobe,painter,media;
     const a='aether-persona.png',l='lumine-persona.png',key='Aether.png';

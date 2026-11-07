@@ -273,9 +273,10 @@ export async function runBattleTests(){
         q('.tb-cancel').click();check('cancel puts the choice down',!dialog.classList.contains('tb-previewing')&&q('.tb-detail').hidden);
         card('x').click();check('tapping a standby character offers the switch',q('.tb-skills .tb-move-switch')&&/Switch Character/.test(q('.tb-detail').textContent));
         q('.tb-cancel').click();
-        q('.tb-hand [data-item="sweet-madame"]').click();card('x').click();
-        check('a card previews its effect on the chosen member',/Play Card/.test(q('.tb-go').textContent)&&card('x').querySelector('.tb-delta-heal')?.textContent==='+4');
-        q('.tb-go').click();await until(()=>card('x').querySelector('.tb-hp b').textContent==='14'&&dialog.dataset.mode==='turn');
+        q('.tb-hand [data-item="sweet-madame"]').click();
+        check('a picked card shows who it can be played on',/Play Card/.test(q('.tb-go').textContent)&&card('x').classList.contains('tb-choosable')&&!card('h').classList.contains('tb-choosable'));
+        card('h').click();check('a card for your party cannot be played on an enemy',dialog.dataset.mode==='turn'&&dialog.querySelectorAll('.tb-hand .tb-item').length===3);
+        card('x').click();check('tapping a member then plays it there at once',dialog.dataset.mode==='busy'||card('x').querySelector('.tb-hp b').textContent==='14');await until(()=>card('x').querySelector('.tb-hp b').textContent==='14'&&dialog.dataset.mode==='turn');
         check('a played card works at once and your turn goes on',card('x').querySelector('.tb-hp b').textContent==='14'&&dialog.dataset.turn==='party'&&dialog.querySelectorAll('.tb-played .tb-played-card').length===1&&dialog.querySelectorAll('.tb-hand .tb-item').length===2);
         q('.tb-skills [data-move="2"]').click();q('.tb-go').click();
         await until(()=>dialog.dataset.turn==='enemy'||dialog.dataset.mode==='done',12000);

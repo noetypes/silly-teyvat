@@ -9,8 +9,8 @@ import {newLocalId} from './local-id.js';
 
 // Running out of HP sends the party to the nearest Adventurers' Guild, where Katheryne
 // explains how they were found and healed.
-export const isGuildLocation=location=>location?.guild===true||/adventurers['’]\s+guild/i.test(location?.label || '');
-export const findKatheryne=ctx=>(ctx.characters || []).find(c=>/^kath[ae]r[iy]ne$/i.test(String(c.name).trim()));
+import {isGuildLocation,findKatheryne} from './guild.js';
+export {isGuildLocation,findKatheryne};
 export function nearestGuild(ctx){
     const guilds=worldWaypoints(ctx).filter(w=>isGuildLocation(w.location));
     if(!guilds.length)return null;

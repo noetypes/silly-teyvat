@@ -130,6 +130,19 @@ export function createNativeSpriteAdapter({ capture = captureScene } = {}) {
             Object.assign(target, { src, expression: emotion, folder,avatar:target.avatar || avatar || '' });
             return { scene, emotion };
         },
+        // The player's own message picks their persona's expression. A label the persona has no
+        // sprite for keeps the expression they set, rather than a fallback that may not suit them.
+        async resolvePersona(ctx, emotion, base, isCurrent = () => true) {
+            let scene = structuredClone(base);
+            if (!scene.some(x => x.avatar === '__user__')) scene = [...scene, ...(await prepareRoster(ctx, [], isCurrent, { onlyPersona: true }) || [])];
+            const target = scene.find(x => x.avatar === '__user__');
+            if (!target?.folder) return scene;
+            const matches = (await inventory(target.folder)).filter(x => x.label === emotion);
+            const primary = file => decodeURIComponent(file.path).split('/').at(-1).replace(/\.[^.]+$/, '') === file.label;
+            const file = matches.find(primary) || matches[0], src = file && safeSource(file.path);
+            if (src) Object.assign(target, { src, expression: emotion });
+            return scene;
+        },
         reset() { inventories.clear(); },
     };
 }
@@ -140,7 +153,7 @@ const liveArrival = (ctx, id) => travelled(ctx.chat[id]) && !beforeArrival(ctx, 
 export function mountPageSprites({ host, getContext, adapter = createNativeSpriteAdapter(), isDefeated = () => false, announce = () => {}, renderMessage = () => null, onAppearance = () => {}, decodeImage = image => image.decode?.() || Promise.resolve(), trimmer = adapter.inventory ? createSpriteTrimmer({ inventory: adapter.inventory }) : null }) {
     const stage = document.createElement('div'); stage.id = 'gi-sprite-stage'; stage.setAttribute('aria-hidden', 'true'); host.append(stage);
     let active = false, selection = '', displayed = '', epoch = 0, lastScene = [], lastChat = null, selectedPage;
-    let drawVersion=0,committedVersion=0;
+    let drawVersion=0,committedVersion=0,initialPreparation=null;
     // A defeated enemy stays off every later page of its encounter. One still on the stage keeps its
     // place until its fall has played (the round is saved before the battle screen closes).
     const fallen = new Set();
@@ -440,17 +453,37 @@ export function mountPageSprites({ host, getContext, adapter = createNativeSprit
             // The dialogue box moved (the scene opened, the reply box appeared, the UI was hidden): re-fit.
             if (arranged.images.length && arranged.images.every(image => image.isConnected) && !keyboardUp() && Math.abs(dialogueTop(stage.clientHeight || innerHeight) - arranged.top) > 12) arrange(arranged.images, arranged.scene);
             const message = ctx.chat[id];
-            if (!message) return;
+            if (!message) {
+                // A solo journey can have no messages while its first narration
+                // is generated quietly. Stage its neutral roster without a
+                // synthetic chat message, classification request or history save.
+                const identity = `${key}:initial`;
+                selection = identity; selectedPage = undefined; stageAt = -1;
+                if (initialPreparation || displayed) return;
+                const token = epoch, isCurrent = () => token === epoch && active && chatKey(getContext()) === key && selection === identity;
+                initialPreparation = Promise.resolve().then(() => {
+                    const base = adapter.capture();
+                    return adapter.prepare?.(ctx, base, isCurrent) || base;
+                }).then(prepared => {
+                    if (isCurrent()) draw(stageFresh(ctx, prepared || [], {is_system:true}, -1), identity);
+                }).catch(error => {
+                    console.warn('[Silly Teyvat] Initial sprites', error);
+                    if (isCurrent()) draw([], identity);
+                }).finally(() => { if (token === epoch) initialPreparation = null; });
+                return;
+            }
             stageAt = id;
             const prior = narration ? previousSpeech(ctx.chat, id, ctx.extensionSettings.genshin_dialogue_ui, page, renderMessage) : null;
             const anchor = prior ? `${prior.id}:${prior.page}:${prior.message.swipe_id || 0}:${pageSignature(expressionContext(ctx.chat, prior.id, prior.page, prior.text, ctx.extensionSettings.genshin_dialogue_ui, renderMessage))}` : 'none';
             const passive = message.is_user || message.is_system || message.extra?.type==='narrator';
             const kind = passive ? 'passive' : narration ? 'narration' : 'dialogue';
+            const stagePrefs = ctx.extensionSettings.genshin_dialogue_ui || {};
+            const personaClassify = Boolean(message.is_user && classifyPages && stagePrefs.personaSprite && stagePrefs.personaSpriteClassify && adapter.resolvePersona);
             const enemy=enemySpeaker(ctx,message),mode=enemy?'page':expressionMode(ctx,message);
             const fullSignature=pageSignature(message.mes || '');
             const action=enemy&&enemyAction==='attacking'?'attacking':'neutral';
             const contextText = !enemy && !passive && !narration && mode === 'page' ? expressionContext(ctx.chat, id, page, text, ctx.extensionSettings.genshin_dialogue_ui, renderMessage) : text;
-            const signature = pageSignature(text) + (contextText !== text ? `:context-v1:${pageSignature(contextText)}` : '') + (enemy?`:enemy-action:${action}`:'') + (mode==='message'?`:message:${fullSignature}`:'') + (narration ? `:narration:${anchor}` : '');
+            const signature = pageSignature(text) + (contextText !== text ? `:context-v1:${pageSignature(contextText)}` : '') + (enemy?`:enemy-action:${action}`:'') + (mode==='message'?`:message:${fullSignature}`:'') + (narration ? `:narration:${anchor}` : '') + (personaClassify ? ':persona-v1' : '');
             const arriving = liveArrival(ctx, id), party = arriving ? roster(ctx).map(c => c.avatar).join() : '';
             const identity = `${key}:${id}:${message.swipe_id ?? 0}:${page}:${signature}${arriving ? `:party:${party}` : ''}`;
             selection = identity;
@@ -486,7 +519,7 @@ export function mountPageSprites({ host, getContext, adapter = createNativeSprit
             // The first narration of a chat has nobody before it to inherit, so it seats the party itself.
             const seat = passive && !message.is_user && !past && !base.length && Boolean(ctx.extensionSettings.genshin_dialogue_ui?.nativeStaging);
             if (!complete && !seat || pending.has(identity)) return;
-            if (passive&&!hasEnemy(base)&&!seat) { const held=message.is_user && ctx.extensionSettings.genshin_dialogue_ui?.personaSprite?stageFresh(ctx,base,message,id):structuredClone(base);save(message, page, signature, { scene: held, emotion: null, kind }, ctx); draw(held, identity); return; }
+            if (passive&&!hasEnemy(base)&&!seat&&!personaClassify) { const held=message.is_user && ctx.extensionSettings.genshin_dialogue_ui?.personaSprite?stageFresh(ctx,base,message,id):structuredClone(base);save(message, page, signature, { scene: held, emotion: null, kind }, ctx); draw(held, identity); return; }
             if (!text.trim() || text.trim() === '...') return;
             // LLM classifiers share the main API. Wait for reply generation to finish.
             if (!enemy && generating && mode==='message') return;
@@ -496,6 +529,14 @@ export function mountPageSprites({ host, getContext, adapter = createNativeSprit
             queue = queue.catch(() => {}).then(async () => {
                 if (token !== epoch || chatKey(getContext()) !== key || !active) return;
                 const isCurrent = () => token === epoch && active && chatKey(getContext()) === key && (message.swipe_id ?? 0) === swipe;
+                if(personaClassify){
+                    const emotion=await classifyOnce(ctx,message,page,text);
+                    if(!isCurrent()||!ctx.chat.includes(message))return;
+                    let scene=emotion?await adapter.resolvePersona(ctx,emotion,base,isCurrent):structuredClone(base);
+                    scene=stageFresh(ctx,await resolveEnemyScene(ctx,adapter,scene,message,action),message,id);
+                    if(!isCurrent()||!ctx.chat.includes(message))return;
+                    save(message,page,signature,{scene,emotion:emotion || null,kind,enemyActionsVersion:1},ctx);if(selection===identity)draw(scene,identity);return;
+                }
                 if(cached || passive){
                     const start=seat?stageFresh(ctx,await adapter.prepare?.(ctx,[],isCurrent,{message,id}) || [],message,id):structuredClone(base);
                     const scene=await resolveEnemyScene(ctx,adapter,start,message,action);
@@ -613,7 +654,7 @@ export function mountPageSprites({ host, getContext, adapter = createNativeSprit
             image.dataset.leaving = 'true';
             if (stillMotion()) image.remove(); else animate(image, 'gi-enemy-defeat', () => image.remove());
         },
-        reset() { epoch++;drawVersion++;fallen.clear(); selection = displayed = ''; pending.clear(); speechSeeds.clear(); selectedPage = undefined; lastScene = []; lastDraw = null; stageAt = -1; adapter.reset?.(); stage.replaceChildren(); document.body.classList.remove('gi-sprite-replay'); },
+        reset() { epoch++;drawVersion++;initialPreparation=null;fallen.clear(); selection = displayed = ''; pending.clear(); speechSeeds.clear(); selectedPage = undefined; lastScene = []; lastDraw = null; stageAt = -1; adapter.reset?.(); stage.replaceChildren(); document.body.classList.remove('gi-sprite-replay'); },
         dispose() { this.reset(); trimmer?.reset?.(); removeEventListener('resize', onResize); globalThis.visualViewport?.removeEventListener('resize', onResize); cancelAnimationFrame(resizeFrame); stage.remove(); },
     };
 }

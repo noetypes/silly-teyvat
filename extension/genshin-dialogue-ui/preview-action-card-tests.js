@@ -29,6 +29,9 @@ export async function runActionCardTests(){
         check('the Inventory has a tab for each new kind',['weapon','artifact','support','summon'].every(k=>INVENTORY_GROUPS.some(g=>g.id===k)));
         const art=await Promise.all(['magic-guide','paimon-companion','oz','strategize'].map(id=>fetch(new URL(`./assets/tcg/items/${id}.webp`,import.meta.url)).then(r=>r.ok)));
         check('card art is installed',art.every(Boolean));
+        {const {loadDynamicSkins,dynamicSkinUrl}=await import('./battle-ui.js'),skins=await loadDynamicSkins();
+        const files=await Promise.all(['Ganyu','Keqing','Alhaitham'].map(n=>dynamicSkinUrl(skins,n)).map(u=>u&&fetch(u,{method:'HEAD'}).then(r=>r.ok)));
+        check('Dynamic Skins are installed for the characters that have one',Object.keys(skins).length>=100&&files.every(Boolean)&&!dynamicSkinUrl(skins,'Hilichurl Fighter'));}
 
         // Equipment
         let r=round(['travelers-handy-sword','magic-guide','blizzard-strayer','sacrificial-fragments']);
@@ -101,7 +104,7 @@ export async function runActionCardTests(){
         const fresh=Object.keys(NEW_ENEMY_POOLS);
         check('the new enemies have kits, regions and starter pools',fresh.every(n=>defaultKit(n,{enemy:true}).moves.length>=3&&ENEMY_REGIONS[n]&&NEW_ENEMY_POOLS[n].every(id=>LOCATION_POOLS[id].includes(n))));
         await tcgCardsReady;check('and their TCG card art on the board',[...fresh,'La Signora'].every(n=>tcgArt(n)));
-        {const loc=(id,pool)=>({id,label:id,wilderness:true,enemyPool:pool});const settings={backgroundRegions:[{name:'Liyue',locations:[loc('wild-liyue-mt-hulao',['Ruin Guard.png']),loc('wild-liyue-stone-gate',[])]}]};
+        {const loc=(id,pool)=>({id,label:id,wilderness:true,enemyPool:pool});const settings={backgroundRegions:[{name:'Liyue',locations:[loc('wild-liyue-lumberpick-valley',['Ruin Guard.png']),loc('wild-liyue-stone-gate',[])]}]};
         const ctx={extensionSettings:{genshin_dialogue_ui:settings},characters:[{name:'Black Serpent Knight: Rockbreaker Ax',avatar:'Black Serpent Knight Rockbreaker Ax.png'},{name:'Ruin Guard',avatar:'Ruin Guard.png'}],saveSettingsDebounced(){}};
         const added=addNewEnemies(ctx),[hulao,gate]=settings.backgroundRegions[0].locations;
         check('installed new enemies join saved pools without replacing them',added===1&&hulao.enemyPool.join()==='Ruin Guard.png,Black Serpent Knight Rockbreaker Ax.png'&&!gate.enemyPool.length);

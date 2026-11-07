@@ -1,3 +1,30 @@
+# Silly Teyvat 1.68.0: Katheryne at every Guild, a spread-out Teyvat, and cards you can drag
+
+- **Katheryne is at every Adventurers' Guild branch at once.** She is always at the counter when you arrive at one, is never asked to come along, and stays behind when the party leaves, even in a chat that began with her (`guild.js`).
+- **Crowded places were thinned out.** No bundled location is home to more than two characters now (Katheryne aside). 23 characters moved to places that suit them: Rosaria to The Cat's Tail, Chongyun to Wangshu Inn, the Wanderer to the Sanctuary of Surasthana, Kaveh to the Palace of Alcazarzaray, Cyno to the Temple of Silence, Shenhe to Mt. Aocang, Thoma to Ritou, Furina and Clorinde to the Fountain of Lucine, Tartaglia to the Zapolyarny Palace, and more. Saved games move them once, unless you had already placed them yourself. Greetings that named the old place were rewritten for the new one; the originals are kept in `character-cards/relocated-greetings-2026-11-07.json`.
+- **Six more places are wilderness**: Old Sanatorium Site, Chiwang Terrace, Yaodie Valley, Moshiri Ceremonial Site, Tower of Ipsissimus and Malinalco Grotto.
+- **Every non-boss enemy is met in several places.** The wilderness pools were rebalanced by terrain: common enemies appear in about 5 to 15 places, uncommon ones in 4 to 9 and elites in 3 to 5, with six enemies in each pool and at most one elite. Black Serpent Knights keep to the Chasm and to Mouun Shrine above Enkanomiya. The new pools replace saved ones once.
+- **Boss arenas drop more cards**, and more rare ones: 27 cards instead of 18.
+- **Persona expressions can follow your own words** (Stage → Active persona sprite → Classify persona expressions).
+- **A generated greeting when you meet someone alone** (World → Travel), written for who you are playing and any relationship you have with them.
+- **A closed CG rests** for a set number of messages before it can be shown again (CG & Audio → Messages before a closed CG returns, 10 by default).
+- **Playing cards**: drag a card onto one of your characters to play it on them, or anywhere on the field for a card that needs no target. Tapping a card and then a character plays it there at once.
+- **A hand of up to 10 cards.** On phones the hand scrolls sideways instead of squeezing the cards. Cards drawn into a full hand stay in your deck rather than being lost.
+- **Elemental Bursts** no longer play the splash art inside the card. The 143 cards with a Dynamic Skin on the Genshin Impact Wiki (`assets/tcg/dynamic.json`) switch to it the moment their Burst is cast, and back to their static card once the Burst has finished; the full-screen splash is unchanged. The wiki's GIFs are stored as 260-pixel animated WebP (288 MB for all 143, from 736 MB).
+
+# Silly Teyvat 1.67.3: Show the solo scene while the intro is generated
+
+- Starting a solo journey prepares its background and player sprite before the first narration returns. The loading screen waits for those images, then reveals the scene while the intro continues generating. Dialogue controls appear when the real message arrives; no temporary message is saved.
+
+# Silly Teyvat 1.67.2: Reveal sprites at their final size
+
+- The neutral still loads first in Character Customization, but stays hidden until its final crop is decoded. Its arrival animation starts with that finished image, avoiding a small preview followed by a size jump. Tab changes keep an already prepared crop in place.
+
+# Silly Teyvat 1.67.1: Neutral sprites appear first in Character Customization
+
+- Selecting a character displays their neutral sprite before loading the detail panels or other expression images. Folder-wide trimming runs afterward, with two image scans at a time; changing character or closing the screen stops further scans for the old selection.
+- Expression thumbnails load lazily, and scene artwork loads when opening Scenes. Personas still restore their chosen expression after the neutral appears.
+
 # Silly Teyvat 1.67.0: Nightsoul, Techniques, Lunar reactions, Bond of Life and a balance pass
 
 - **The newer Genius Invokation mechanics are in the battle rules**, from the Genshin Impact Wiki's card text:
@@ -874,7 +901,7 @@ Opening a character card or starting a solo chat puts only that character at the
 
 Each tied character has an independent encounter roll on arrival. The default chance is 40%. Set **Encounter chance per character (%)** in Silly Teyvat settings, or turn off **Roll separately for each location character on arrival** to meet everyone. Rolls happen before the companion questions, are saved per visit, and are discarded if Teleport is cancelled. Redraws, reopening a saved journey, and changing the rate do not reroll an existing scene.
 
-A visit produces at most one arrival reply. The card’s written greeting is used only when the player travels without character companions and meets exactly one resident at that resident’s default location. Otherwise one present resident generates a reply using the existing conversation, arriving companions and everyone in the scene. An empty encounter produces no resident reply. The last available character follows automatically if nobody would otherwise be available to speak.
+A visit produces at most one arrival reply. The card’s written greeting is used only when the player travels without character companions and meets exactly one resident at that resident’s default location. With **Greeting when meeting someone alone** (Settings → World → Travel) set to **Generated**, that meeting, and any other where you travel alone and meet one character, writes a new greeting instead. Its prompt asks the character to pay close attention to who you are playing: an established character linked to your persona is greeted through their relationship with them in the card, canon and chat, while the Traveler or your own character is met as their persona description and the chat allow. Enemies keep their own encounter prompt. The prompts are under Settings → Prompts → Arrivals. Otherwise one present resident generates a reply using the existing conversation, arriving companions and everyone in the scene. An empty encounter produces no resident reply. The last available character follows automatically if nobody would otherwise be available to speak.
 
 **Assigned characters per location** defaults to 5. The picker displays used slots and rejects over-capacity moves without removing anyone from their previous place. Travelling companions do not use resident slots. Lowering the cap requires moving excess residents first. Seven bundled assignments were redistributed to appropriate meeting points; customized assignments are preserved, and Prune remains at Mondstadt Fountain Plaza.
 
@@ -956,6 +983,7 @@ Open **Extensions → Silly Teyvat → Native sprite staging**. Prome VN's visua
 - **Use character portraits when sprites are missing** provides an avatar fallback. Missing expression packs otherwise leave that member unstaged.
 - **Limit visible group members** keeps the most recent speakers visible, with a configurable limit. Historical pages use the speakers known at that point in the conversation.
 - **Show a persona sprite** loads a chosen native sprite folder and expression on a separate player layer. It never adds a fake character to the group or changes its membership.
+- **Classify persona expressions** (Settings → Stage → Active persona sprite) chooses your persona's expression on your own messages from what you wrote, with the same expression classifier and Classify expressions switch as the characters. A label your persona has no sprite for keeps the expression you set. It is off by default.
 - **Letterbox** adds horizontal or vertical bars with configurable thickness and color. Hide UI removes the bars as well.
 
 In **Character Customization → Character scale, placement & classification**, each character has a percentage scale, an optional horizontal position and a vertical offset. Select any sprite tile to set **Selected sprite scale (%)** for that exact file, including numbered variants. The total size is global scale × character scale × selected sprite scale. For example, global 100%, character 80% and sprite 125% give the original size. Speaker focus applies on top of that.

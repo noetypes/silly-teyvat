@@ -29,15 +29,25 @@ export function unionBox(boxes) {
     const list = boxes.filter(Boolean);
     return list.length ? { left: Math.min(...list.map(b => b.left)), top: Math.min(...list.map(b => b.top)), right: Math.max(...list.map(b => b.right)), bottom: Math.max(...list.map(b => b.bottom)) } : null;
 }
-export function createSpriteTrimmer({ inventory, scan = loadPixels, ttl = 60000 }) {
+export function createSpriteTrimmer({ inventory, scan = loadPixels, ttl = 60000, concurrency = 4 }) {
     let generation = 0;
     const scans = new Map(), folders = new Map(), crops = new Map();
     const scanOnce = src => { if (!scans.has(src)) scans.set(src, scan(src).then(p => p && { width: p.width, height: p.height, box: opaqueBox(p.data) }).catch(() => null)); return scans.get(src); };
     async function folderBox(folder, dims) {
         const key = `${folder}|${dims}`, hit = folders.get(key);
         if (hit && Date.now() - hit.at < ttl) return hit.promise;
+        const token = generation;
         const promise = (async () => {
-            const files = await inventory(folder), results = await Promise.all(files.map(f => scanOnce(f.path)));
+            const files = await inventory(folder), results = []; let next = 0;
+            // A folder can contain dozens of large images. Limit decoding work and
+            // stop starting scans when the caller has moved to another character.
+            await Promise.all(Array.from({length: Math.min(concurrency, files.length)}, async () => {
+                while (token === generation && next < files.length) {
+                    results.push(await scanOnce(files[next++].path));
+                    await new Promise(resolve => setTimeout(resolve, 0));
+                }
+            }));
+            if (token !== generation) return null;
             return unionBox(results.filter(r => r && `${r.width}x${r.height}` === dims).map(r => r.box));
         })();
         folders.set(key, { at: Date.now(), promise });
@@ -48,9 +58,10 @@ export function createSpriteTrimmer({ inventory, scan = loadPixels, ttl = 60000 
         async trim(folder, src) {
             if (!folder || !src) return null;
             if (crops.has(src)) return crops.get(src);
+            const token = generation;
             const job = (async () => {
-                const mine = await scanOnce(src); if (!mine?.box) return null;
-                const box = await folderBox(folder, `${mine.width}x${mine.height}`); if (!box) return null;
+                const mine = await scanOnce(src); if (token !== generation || !mine?.box) return null;
+                const box = await folderBox(folder, `${mine.width}x${mine.height}`); if (token !== generation || !box) return null;
                 if (box.left < MIN_PADDING && box.top < MIN_PADDING && 1 - box.right < MIN_PADDING && 1 - box.bottom < MIN_PADDING) return null;
                 const pixels = await loadPixels(src), sx = Math.floor(box.left * mine.width), sy = Math.floor(box.top * mine.height);
                 const sw = Math.max(1, Math.ceil(box.right * mine.width) - sx), sh = Math.max(1, Math.ceil(box.bottom * mine.height) - sy);

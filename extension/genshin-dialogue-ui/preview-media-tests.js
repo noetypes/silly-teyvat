@@ -1,5 +1,5 @@
 import { mountPageSprites } from './page-sprites.js';
-import { mountSceneMedia, createSpriteSoundPlayer, cgCategories, cgAllowed, sceneCGs, discoveredCGs, fittedFrame } from './scene-media.js';
+import { mountSceneMedia, createSpriteSoundPlayer, cgCategories, cgAllowed, sceneCGs, discoveredCGs, fittedFrame, restCG, cgResting } from './scene-media.js';
 import { mediaSettings, spriteAudioKey, registerExpression, migrateCGDisplay, cgPromptMessages } from './media-store.js';
 export async function runMediaTests() {
     const results=[],pause=ms=>new Promise(r=>setTimeout(r,ms));
@@ -7,6 +7,10 @@ export async function runMediaTests() {
     const host=document.createElement('div');document.body.append(host);let media,sprites;
     const ctx={characterId:0,chatId:'media-tests',characters:[{name:'Klee',avatar:'Klee.png'}],extensionSettings:{genshin_dialogue_ui:{cgEnabled:true,spriteAudio:true,cgAudio:true,spriteVolume:.6},expressions:{api:0}},chat:[{name:'Klee',original_avatar:'Klee.png',mes:'“A picnic!”\nA blanket.\n“Let’s eat!”'}],saveChat(){},saveSettingsDebounced(){}};
     const artwork=new URL('preview-landscape.svg',location.href).pathname;
+    {const c={chatMetadata:{},extensionSettings:{genshin_dialogue_ui:{}}},cg={id:'picnic'};restCG(c,cg,4);
+    check('a closed CG rests for the next 10 messages by default',cgResting(c,cg,5)&&cgResting(c,cg,14)&&!cgResting(c,cg,15)&&!cgResting(c,{id:'other'},5));
+    c.extensionSettings.genshin_dialogue_ui.cgCooldown=2;check('the rest follows the setting',cgResting(c,cg,6)&&!cgResting(c,cg,7));
+    c.extensionSettings.genshin_dialogue_ui.cgCooldown=0;check('0 lets it return at once',!cgResting(c,cg,5));}
     let cgCalls=[],playCalls=[],stops=0;
     const sound={play:async files=>{playCalls.push(files[0].name);},stop:()=>{stops++;},dispose(){},unlock:async()=>{}};
     const adapter={classifyCG:async(_ctx,message,categories)=>{cgCalls.push({text:message.mes,categories});await pause(20);return /picnic/i.test(message.mes)?categories[0].id:null;}};
@@ -132,6 +136,33 @@ export async function runMediaTests() {
         const pick=host.querySelector('#gi-cg-gallery select');pick.value='Klee.png';pick.dispatchEvent(new Event('change'));
         check('the gallery filters by character with a discovered count',host.querySelectorAll('#gi-cg-gallery .gi-cg-gallery-grid button').length===1&&/Klee \(1 of 5\)/.test(pick.selectedOptions[0].textContent));
         host.querySelector('#gi-cg-gallery header button').click();check('the gallery closes',!host.querySelector('#gi-cg-gallery').open);
+
+        // Trust gates only new scene selections, using each owner's level at this reply.
+        media.dispose();media=undefined;
+        const pp=mediaSettings(party);pp.trustSystem=true;
+        const birthday=pp.characterCGs['Albedo.png'][0];birthday.requiredTrust=2.5;
+        party.chat=[{name:'Klee',original_avatar:'Klee.png',mes:'Happy birthday!'}];
+        check('a listener CG is excluded below its required Trust',!sceneCGs(party,party.chat[0]).entries.includes(birthday));
+        const gift={name:'Narrator',mes:'A gift.',extra:{type:'narrator',silly_teyvat_gift:{avatar:'Albedo.png',change:2.5}}};
+        party.chat.unshift(gift);
+        check('a listener CG becomes eligible at the exact fractional threshold',sceneCGs(party,party.chat[1]).entries.includes(birthday));
+        birthday.requiredTrust=2.6;
+        const gatedCalls=[];
+        media=mountSceneMedia({host,getContext:()=>party,sound,adapter:{classifyCG:async(_ctx,_message,options)=>{gatedCalls.push(options);return birthday.id;}}});
+        media.sync({on:true,id:1,page:0,generating:false});await pause(40);
+        check('locked CGs never reach the classifier or get selected by a stray response',gatedCalls.length===1&&!gatedCalls[0].some(c=>c.id===birthday.id)&&party.chat[1].extra.silly_teyvat.cgs[0].cg===null);
+        birthday.requiredTrust=2.5;media.reclassifyCurrent();media.sync({on:true,id:1,page:0,generating:false});await pause(40);
+        check('rechecking selects a CG after meeting its Trust requirement',party.chat[1].extra.silly_teyvat.cgs[0].cg.id===birthday.id);
+        birthday.requiredTrust=5;media.sync({on:true,id:1,page:0,generating:false});
+        check('recorded scenes keep replaying after requirements change',party.chat[1].extra.silly_teyvat.cgs[0].cg.id===birthday.id&&!host.querySelector('#gi-cg-stage').hidden);
+        pp.trustSystem=false;
+        check('Trust gates are inactive when the Trust system is off',sceneCGs(party,party.chat[1]).entries.includes(birthday));
+        media.dispose();media=undefined;pp.trustSystem=true;birthday.requiredTrust=0;
+        delete party.chat[1].extra.silly_teyvat.cgs;
+        let finishClassification;
+        media=mountSceneMedia({host,getContext:()=>party,sound,adapter:{classifyCG:()=>new Promise(resolve=>{finishClassification=resolve;})}});
+        media.sync({on:true,id:1,page:0,generating:false});birthday.requiredTrust=5;finishClassification(birthday.id);await pause(40);
+        check('a pending classification cannot select a CG whose Trust requirement is no longer met',party.chat[1].extra.silly_teyvat.cgs[0].cg===null);
     } catch(error) {results.push(`ERROR ${error.message}`);}
     finally{sprites?.dispose();media?.dispose();host.remove();}
     return results.join('; ');

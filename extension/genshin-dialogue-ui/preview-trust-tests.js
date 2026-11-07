@@ -240,6 +240,9 @@ export async function runTrustTests(){
         empty.characters=loaded;seedCharacterHomes(empty,{version:4,relocations:moves,characters:[]});check('and its moves run once they have',empty.extensionSettings.genshin_dialogue_ui.defaultCharacterLocations['Aether.png']===cove&&empty.extensionSettings.genshin_dialogue_ui.homeBindingsVersion===4);
         ctx=twins('Klee');ctx.extensionSettings.genshin_dialogue_ui.defaultCharacterLocations={'Aether.png':'guild'};ctx.extensionSettings.genshin_dialogue_ui.backgroundRegions=[{id:'m',name:'Mondstadt',locations:[{id:'guild',label:'Guild',residents:[]},{id:'inn',label:'Inn',residents:['Aether.png']},{id:cove,label:'Cove',residents:[]}]}];
         seedCharacterHomes(ctx,{version:4,relocations:moves,characters:[]});check('a Traveler the user moved stays put',homeOf(ctx,'inn').join()==='Aether'&&homeOf(ctx,cove).length===0);
+        {const w=twins('Klee'),wp=w.extensionSettings.genshin_dialogue_ui;wp.homeBindingsVersion=5;wp.defaultCharacterLocations={'Klee.png':'old'};wp.backgroundRegions=[{id:'m',name:'Mondstadt',locations:[{id:'old',label:'Old',residents:[]},{id:'new',label:'New',residents:['Klee.png']}]}];
+        seedCharacterHomes(w,{version:6,relocations:[{name:'Klee',from:'old',to:'new'}],characters:[]});
+        check('a character the user already moved there gets that place as their home',wp.defaultCharacterLocations['Klee.png']==='new'&&homeOf(w,'new').join()==='Klee');}
         ctx=twins('Klee',{travelerTwin:'Aether'});ctx.characterId=ctx.characters.findIndex(c=>c.name==='Lumine');ctx.groupId=null;
         ctx.chat=[{mes:'The tide slides up the sand',swipes:['The tide slides up the sand','Beach','Mondstadt'],swipe_id:1,swipe_info:[{},{},{}]}];
         check('a new solo chat with the Abyss twin opens on the Abyss greeting, with no Traveler swipes left',keepAbyssGreeting(ctx)&&ctx.chat[0].mes.includes('edge of the dark')&&!('swipes' in ctx.chat[0])&&!('swipe_id' in ctx.chat[0]));

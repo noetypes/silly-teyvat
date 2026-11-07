@@ -5,6 +5,7 @@ import {mountStartingTrust} from './trust-ui.js';
 import {createSpriteTrimmer} from './sprite-trim.js';
 import {linkedCard,linkedCardAvatar,linkedPersonaAvatars,playedAvatars} from './persona-link.js';
 import {newLocalId} from './local-id.js';
+import {requiredCGTrust,TRUST_MAX} from './scene-trust.js';
 // Outfit registry uses native Character Expressions folder overrides. Sprite files
 // are managed through SillyTavern's existing authenticated upload/delete APIs.
 import { createMediaAdapter, mediaSettings, spriteAudioKey, localMediaPath, isVideoCG, registerExpression, syncExpressionControls } from './media-store.js';
@@ -159,7 +160,8 @@ export function mountWardrobe({host, getContext, onChange = async () => {}, onMe
         </div>
         <div data-panel="cgs" hidden><p class="gi-cg-intro">A scene appears when a reply matches it. The classifier reads each label and its description, together with the scenes of everyone else in the scene. Scenes can be images, GIFs or videos.</p><div class="gi-cg-grid" aria-label="Character scene artworks"></div>
         <section class="gi-cg-section gi-cg-details"><h3>Scene details</h3><label>Scene label<input id="gi-cg-label" maxlength="60" placeholder="Fish Blasting"></label><label>Additional classifications (one per line)<textarea id="gi-cg-classifications" rows="2" maxlength="1200" placeholder="Fish Blasting&#10;Fishing adventure"></textarea></label><label>When should this artwork appear?<textarea id="gi-cg-description" rows="4" maxlength="1200" placeholder="Klee is actively blasting fish by the lake."></textarea></label><label>How it appears<select id="gi-cg-display"><option value="scene">Replace background and sprites</option><option value="frame">Framed window</option></select><small>Phones always use a framed window. The CG display setting in Silly Teyvat can override this for every CG.</small></label>
-        <fieldset class="gi-cg-needs" hidden><legend>Only show this scene when</legend><p class="gi-cg-needs-help">Leave both empty to allow it anywhere. With both set, both must be true. Scenes that do not qualify are left out of the classification prompt.</p>
+        <fieldset class="gi-cg-needs" hidden><legend>Only show this scene when</legend><p class="gi-cg-needs-help">All conditions must be true. Scenes that do not qualify are left out of the classification prompt.</p>
+        <label title="This character's Trust toward you, from 0 to 5 hearts. Applies while Trust is enabled. Saved scenes and manual previews remain available.">Required Trust<input id="gi-cg-required-trust" type="number" min="0" max="${TRUST_MAX}" step="0.1" value="0"></label>
         <div class="gi-cg-need"><span id="gi-cg-need-people-label">These characters are present</span><div class="gi-cg-chips" data-need="people" role="list" aria-labelledby="gi-cg-need-people-label"></div><div class="gi-wardrobe-row"><input id="gi-cg-need-character" list="gi-cg-character-names" placeholder="Character name" aria-labelledby="gi-cg-need-people-label" autocomplete="off"><datalist id="gi-cg-character-names"></datalist><button type="button" class="gi-cg-need-add" data-need="people">Add character</button></div></div>
         <div class="gi-cg-need"><span id="gi-cg-need-places-label">The party is at one of these locations</span><div class="gi-cg-chips" data-need="places" role="list" aria-labelledby="gi-cg-need-places-label"></div><div class="gi-wardrobe-row"><select id="gi-cg-need-location" aria-labelledby="gi-cg-need-places-label"></select><button type="button" class="gi-cg-need-add" data-need="places">Add location</button></div></div></fieldset>
         <div class="gi-cg-video-tools" hidden><label>Video volume <output id="gi-cg-video-volume-value">100%</output><input id="gi-cg-video-volume" type="range" min="0" max="100" step="5"></label><label class="gi-check"><input id="gi-cg-video-loop" type="checkbox">Loop video</label></div>
@@ -171,9 +173,9 @@ export function mountWardrobe({host, getContext, onChange = async () => {}, onMe
     const backgroundPanel=document.createElement('div');backgroundPanel.dataset.panel='backgrounds';backgroundPanel.hidden=true;dialog.querySelector('.gi-wardrobe-controls').append(backgroundPanel);
     host.append(dialog);
     const abort = new AbortController();
-    const trimmer = createSpriteTrimmer({ inventory: folder => adapter.list(folder) });
+    const trimmer = createSpriteTrimmer({ inventory: path => path === folder() ? Promise.resolve(sprites) : adapter.list(path), concurrency: 2 });
     const $ = sel => dialog.querySelector(sel);
-    let character, sets = [], sprites = [], selected, selectedCG, tab = 'attributes', backup, revision = 0, busy = false, opener,personaRefreshPending=false;
+    let character, sets = [], sprites = [], selected, selectedCG, tab = 'attributes', backup, revision = 0, busy = false, ready = false, opener,personaRefreshPending=false;
     const status = text => { const p=$('footer p'); p.textContent = text; p.classList.remove('gi-toast'); void p.offsetWidth; p.classList.add('gi-toast'); };
     const backgroundUI=mountBackgroundWardrobe({panel:backgroundPanel,getContext,adapter:mediaAdapter,onChange:onMediaChange,status,openMap:options=>{dialog.close();return openMap(options);},preview:(location,region)=>{
         if(tab!=='backgrounds')return;const img=$('.gi-wardrobe-preview img');clearArt(img);img.hidden=!location?.path;if(location?.path)img.src=localMediaPath(location.path);else img.removeAttribute('src');$('.gi-cs-identity h3').textContent=region?.name || 'World travel';$('.gi-outfit-caption').textContent=location?.label || 'Choose a region and add locations';
@@ -220,18 +222,17 @@ export function mountWardrobe({host, getContext, onChange = async () => {}, onMe
     const backdrop=mountCharacterBackdrop({sky:$('.gi-cs-sky'),behind:$('.gi-cs-sky canvas'),front:$('.gi-cs-motes'),stage:$('.gi-wardrobe-preview')});
     // A new character stands in lit by their element, and the beams rise as they appear. The tint is the
     // sprite's own outline, so it waits for the final (trimmed) image rather than the first load.
-    let arrival=0;
+    let arrival=false;
     function replay(element,name){element.classList.remove(name);void element.offsetWidth;element.classList.add(name);}
     function playArrival(){
-        clearTimeout(arrival);arrival=0;const img=$('.gi-wardrobe-preview > img'),tint=$('.gi-cs-tint');
+        arrival=false;const img=$('.gi-wardrobe-preview > img'),tint=$('.gi-cs-tint');
         if(!img.hidden&&img.currentSrc){
             Object.assign(tint.style,{left:`${img.offsetLeft}px`,top:`${img.offsetTop}px`,width:`${img.offsetWidth}px`,height:`${img.offsetHeight}px`});
             tint.style.setProperty('--cs-sprite',`url("${img.currentSrc}")`);replay(dialog,'gi-cs-arrive');
         }
         backdrop.arrive();
     }
-    function expectArrival(){clearTimeout(arrival);arrival=setTimeout(playArrival,700);}
-    $('.gi-wardrobe-preview > img').addEventListener('load',event=>{if(arrival&&event.target.style.visibility!=='hidden')playArrival();},{signal:abort.signal});
+    function expectArrival(){arrival=true;dialog.classList.remove('gi-cs-arrive');}
     const movesetUI=mountMovesetEditor({panel:$('[data-panel="moveset"]'),getContext,getCharacter:()=>character,status});
     const burstPanel=document.createElement('section');$('[data-panel="sprites"]').append(burstPanel);
     const burstAudioUI=mountBurstAudioEditor({panel:burstPanel,getContext,getCharacter:()=>character,adapter:mediaAdapter,previewAudio,status});
@@ -260,27 +261,32 @@ export function mountWardrobe({host, getContext, onChange = async () => {}, onMe
         $('#gi-upload-expression').replaceChildren(...labels.map(label => new Option(label, label)));
         if (labels.includes('neutral')) $('#gi-upload-expression').value = 'neutral';
     }
-    // Sprites show without their empty padding, matching the stage. The raw art
-    // loads first but stays hidden until the trimmed copy (if any) replaces it.
-    // Whatever replaces a sprite in a shared preview also cancels any crop still on its way to it.
+    // Load the neutral first, but reveal only the decoded final crop. Showing
+    // the padded original first makes the figure jump in size after its arrival.
+    // A stale crop must never repaint another character, scene or background.
     function clearArt(img) { delete img.dataset.art; img.style.visibility = ''; }
-    function setArt(img, spriteFolder, path) {
-        img.dataset.art = path; img.src = path;
-        if (mediaSettings(getContext()).trimSprites === false) return;
-        img.style.visibility = 'hidden';
+    function setArt(img, spriteFolder, path, trim = true) {
+        // Tab changes often reselect the same sprite. Keep a finished crop in
+        // place instead of resetting its source to the original padded image.
+        if (img.dataset.art === path && img.style.visibility !== 'hidden' && img.complete && img.naturalWidth) return;
+        img.dataset.art = path; img.style.visibility = 'hidden'; if (img.getAttribute('src') !== path) img.src = path;
+        if (!trim) return;
         const generation = trimmer.generation;
-        trimmer.trim(spriteFolder, path).catch(() => null).then(trimmed => {
-            // A reset while this crop was pending revoked it; crop again instead of showing a dead blob.
-            if (trimmer.generation !== generation) { if (img.dataset.art === path) setArt(img, spriteFolder, path); return; }
-            if (img.dataset.art !== path || img.getAttribute('src') !== path) { img.style.visibility = ''; return; }
+        const crop = mediaSettings(getContext()).trimSprites === false ? Promise.resolve(null) : trimmer.trim(spriteFolder, path);
+        crop.catch(() => null).then(async trimmed => {
+            if (trimmer.generation !== generation || !img.isConnected || img.dataset.art !== path || img.getAttribute('src') !== path) return;
             if (trimmed) img.src = trimmed.url;
+            await img.decode().catch(() => {});
+            if (trimmer.generation !== generation || !dialog.open || img.dataset.art !== path || img.getAttribute('src') !== (trimmed?.url || path) || !img.naturalWidth) return;
             img.style.visibility = '';
+            if (arrival) playArrival();
         });
     }
-    function chooseSprite(sprite) {
+    function chooseSprite(sprite, trim = true) {
         selected = sprite;
         const preview = $('.gi-wardrobe-preview img'); preview.hidden = Boolean(sprite.blank);
-        if(sprite.blank){clearArt(preview);preview.removeAttribute('src');}else setArt(preview, folder(), sprite.path);
+        showCGVideo(null);
+        if(sprite.blank){clearArt(preview);preview.removeAttribute('src');}else setArt(preview, folder(), sprite.path, trim);
         $('.gi-outfit-caption').textContent = `${$('#gi-outfit').selectedOptions[0]?.textContent} · ${spriteIdentity(sprite.path).name}`;
         $('.gi-sprite-detail').hidden = false; $('.gi-sprite-detail span').textContent = spriteIdentity(sprite.path).filename;
         $('button[data-w="use-persona-sprite"]').hidden=!character.isPersona || Boolean(sprite.blank);
@@ -330,6 +336,7 @@ export function mountWardrobe({host, getContext, onChange = async () => {}, onMe
     }
     function renderCGNeeds(){
         const box=$('.gi-cg-needs');box.hidden=!selectedCG;if(!selectedCG)return;
+        $('#gi-cg-required-trust').value=requiredCGTrust(selectedCG);
         for(const [kind,key] of Object.entries(NEEDS)){
             const ids=Array.isArray(selectedCG[key])?selectedCG[key]:[];
             const chips=box.querySelector(`.gi-cg-chips[data-need="${kind}"]`);
@@ -409,6 +416,7 @@ export function mountWardrobe({host, getContext, onChange = async () => {}, onMe
         $('.gi-roster').hidden=tab==='backgrounds';paintTitle();$('.gi-wardrobe-controls').classList.remove('gi-panel-in');void $('.gi-wardrobe-controls').offsetWidth;$('.gi-wardrobe-controls').classList.add('gi-panel-in');dialog.classList.toggle('gi-background-wardrobe',tab==='backgrounds');
         for(const button of dialog.querySelectorAll('.gi-wardrobe-tabs button'))button.setAttribute('aria-pressed',String(button.dataset.w===`tab-${tab}`));
         if(tab==='backgrounds'){backgroundUI.refresh();return;}
+        if(!ready)return;
         if(tab==='moveset')movesetUI.refresh();
         $('.gi-cs-identity h3').textContent=character?.name || '';
         if(tab==='cgs'){renderCGs();if(!selectedCG&&cgs().length)chooseCG(cgs()[0]);else if(!selectedCG){$('.gi-wardrobe-preview img').hidden=true;$('.gi-outfit-caption').textContent='Scene artwork';}const n=cgs().filter(cg=>cg.path).length;status(n?`${n} scene ${n===1?'artwork':'artworks'} for ${character?.name || 'this character'}.`:`No scene artwork for ${character?.name || 'this character'} yet. Add some below.`);}
@@ -428,28 +436,42 @@ export function mountWardrobe({host, getContext, onChange = async () => {}, onMe
             const name=spriteIdentity(sprite.path).name,button=makeButton('',()=>chooseSprite(sprite));
             button.dataset.path=sprite.path;button.setAttribute('aria-label',`Preview ${name}${sprite.blank?' (empty)':''}`);
             const art=sprite.blank?placeholder():document.createElement('img');
-            if(!sprite.blank){setArt(art,folder(),sprite.path);art.alt='';art.loading='lazy';}
+            if(!sprite.blank){art.alt='';art.loading='lazy';art.decoding='async';art.src=sprite.path;}
             const label=document.createElement('span');label.textContent=name;button.append(art,label);grid.append(button);
         }
         grid.append(addTile('add-blank-sprite','Add expression'));
     }
     async function load() {
-        const token = ++revision, path = folder(); selected = undefined; trimmer.reset(); $('.gi-sprite-detail').hidden = true; $('.gi-remove-confirm').hidden = true;
+        const token = ++revision, path = folder(); ready = false; $('.gi-wardrobe-controls').inert = true;
+        selected = undefined; sprites = []; trimmer.reset(); $('.gi-sprite-detail').hidden = true; $('.gi-remove-confirm').hidden = true;
         $('.gi-selected-sprite-tools').hidden = true;
-        $('.gi-expression-grid').replaceChildren(); $('.gi-wardrobe-preview img').hidden = true;
-        sprites = await adapter.list(path);
+        $('.gi-expression-grid').replaceChildren(); $('.gi-cg-grid').replaceChildren(); showCGVideo(null);
+        const preview = $('.gi-wardrobe-preview img'); clearArt(preview); preview.hidden = true; preview.removeAttribute('src');
+        const files = await adapter.list(path);
         if (token !== revision || !dialog.open) return;
+        sprites = files;
         $('.gi-current-outfit').textContent = `Equipped: ${sets.find(x => x.folder === currentFolder())?.label || currentFolder()}`;
-        renderSprites();
-        populateExpressions();
-        if (sprites.length) chooseSprite((character.isPersona && sprites.find(x=>spriteIdentity(x.path).name===personaSpriteSettings(getContext(),character.personaAvatar).expression)) || sprites.find(x => x.label === 'neutral') || sprites[0]);
-        else if(spriteDrafts(getContext(),folder()).length)chooseSprite(draftSprite(folder(),spriteDrafts(getContext(),folder())[0]));
-        renderCGs(); switchTab(tab);
+        const first = sprites.find(x => x.label === 'neutral') || sprites[0];
+        if (first) {
+            preview.fetchPriority = 'high'; preview.decoding = 'async';
+            chooseSprite(first, false);
+            // No other sprite images or detail panels start loading until the
+            // neutral has decoded. It stays hidden until its final crop arrives.
+            await preview.decode().catch(() => {});
+        }
+        await new Promise(resolve => requestAnimationFrame(() => setTimeout(resolve, 0)));
+        if (token !== revision || !dialog.open) return;
+        propertiesUI.refresh(); startingTrustUI.refresh(); starterDeckUI.refresh(); personaProfileUI.refresh(); burstAudioUI.refresh();
+        populateExpressions(); renderSprites(); ready = true; $('.gi-wardrobe-controls').inert = false;
+        const personaExpression = character.isPersona && sprites.find(x => spriteIdentity(x.path).name === personaSpriteSettings(getContext(),character.personaAvatar).expression);
+        if (personaExpression && personaExpression !== first) chooseSprite(personaExpression);
+        if (!first && spriteDrafts(getContext(),folder()).length) chooseSprite(draftSprite(folder(),spriteDrafts(getContext(),folder())[0]));
+        switchTab(tab);
         status(tab==='backgrounds'?'Choose your travel region and manage its location backgrounds.':sprites.length ? `${sprites.length} sprites in ${path}. Select a sprite to preview it. Use set equips the outfit.` : `No sprites in ${path}. Add images below to create this set.`);
     }
     async function selectCharacter(c) {
-        character = c;expectArrival();burstAudioUI.refresh();paintElement();propertiesUI.refresh();startingTrustUI.refresh();starterDeckUI.refresh();if(tab==='moveset')movesetUI.refresh();const cp=characterPreferences(getContext(),c.avatar);$('#gi-character-expression-mode').value=cp.expressionMode || 'inherit';$('#gi-character-scale').value=cp.scale ?? 100;$('#gi-manual-position').checked=cp.positionX!=null;$('#gi-character-x').value=cp.positionX ?? 50;$('#gi-character-x').disabled=cp.positionX==null;$('#gi-character-y').value=cp.offsetY ?? 0; selectedCG=undefined;$('#gi-cg-label').value='';$('#gi-cg-description').value='';$('#gi-cg-classifications').value='';$('.gi-cs-identity h3').textContent = c.name;
-        personaProfileUI.refresh();$('#gi-persona-display-control').hidden=!c.isPersona;
+        character = c;expectArrival();paintElement();const cp=characterPreferences(getContext(),c.avatar);$('#gi-character-expression-mode').value=cp.expressionMode || 'inherit';$('#gi-character-scale').value=cp.scale ?? 100;$('#gi-manual-position').checked=cp.positionX!=null;$('#gi-character-x').value=cp.positionX ?? 50;$('#gi-character-x').disabled=cp.positionX==null;$('#gi-character-y').value=cp.offsetY ?? 0; selectedCG=undefined;$('#gi-cg-label').value='';$('#gi-cg-description').value='';$('#gi-cg-classifications').value='';$('.gi-cs-identity h3').textContent = c.name;
+        $('#gi-persona-display-control').hidden=!c.isPersona;
         $('.gi-takeover').hidden=Boolean(c.isPersona);$('[data-w="take-over"]').textContent=`Play as ${c.name}`;
         $('#gi-persona-visible').checked=Boolean(c.isPersona&&personaSpriteSettings(getContext(),c.personaAvatar).enabled);
         $('#gi-character-expression-mode').closest('label').hidden=Boolean(c.isPersona);
@@ -498,6 +520,7 @@ export function mountWardrobe({host, getContext, onChange = async () => {}, onMe
         if (name.startsWith('tab-')) { switchTab(name.slice(4)); return; }
         if (name === 'section-prev' || name === 'section-next') { stepSection(name === 'section-next' ? 1 : -1); return; }
         if (name === 'character-prev' || name === 'character-next') { stepCharacter(name === 'character-next' ? 1 : -1); return; }
+        if (!ready) return;
         if (!character) return;
         if (name === 'remove') { $('.gi-remove-confirm').hidden = false; $('.gi-remove-confirm p').textContent = `Remove ${spriteIdentity(selected.path).filename} from this set? Saved scenes using this image need the file. Undo is available until this page is reloaded.`; return; }
         if (name === 'cancel-remove') { $('.gi-remove-confirm').hidden = true; return; }
@@ -685,6 +708,7 @@ export function mountWardrobe({host, getContext, onChange = async () => {}, onMe
     dialog.addEventListener('click', e => { const name = e.target.closest('[data-w]')?.dataset.w; if (name) void action(name); }, {signal:abort.signal});
     const editCG=(id,event,apply)=>$(id).addEventListener(event,e=>{if(!selectedCG)return;apply(e.target);getContext().saveSettingsDebounced();},{signal:abort.signal});
     editCG('#gi-cg-display','change',input=>{selectedCG.display=input.value;});
+    editCG('#gi-cg-required-trust','change',input=>{selectedCG.requiredTrust=requiredCGTrust({requiredTrust:input.value});input.value=selectedCG.requiredTrust;onMediaChange();});
     for(const button of dialog.querySelectorAll('.gi-cg-need-add'))button.addEventListener('click',()=>addNeed(button.dataset.need),{signal:abort.signal});
     $('#gi-cg-need-character').addEventListener('keydown',event=>{if(event.key==='Enter'){event.preventDefault();addNeed('people');}},{signal:abort.signal});
     editCG('#gi-cg-video-loop','change',input=>{selectedCG.videoLoop=input.checked;});
@@ -705,7 +729,7 @@ export function mountWardrobe({host, getContext, onChange = async () => {}, onMe
         getContext().saveSettingsDebounced();void onChange(character,classification?{classification:true}:{presentation:true}).then(()=>status(classification?'Sprite classification mode saved.':'Scale and placement saved for this scene and future scenes.')).catch(e=>status(e.message));
     },{signal:abort.signal});
     $('#gi-outfit').addEventListener('change', () => { closeSetEditor(); if (!busy) load().catch(e => status(e.message)); }, {signal:abort.signal});
-    dialog.addEventListener('close', () => { revision++; clearTimeout(arrival);arrival=0;dialog.classList.remove('gi-cs-arrive','gi-cs-sweep');setZoom(false);backdrop.stop(); showArchive(false); opener?.focus(); }, {signal:abort.signal});
+    dialog.addEventListener('close', () => { revision++; trimmer.reset(); arrival=false;dialog.classList.remove('gi-cs-arrive','gi-cs-sweep');setZoom(false);backdrop.stop(); showArchive(false); opener?.focus(); }, {signal:abort.signal});
     // Q/E change character and W/S change section, as in the game. Text fields keep their letters.
     dialog.addEventListener('keydown', event => {
         // Escape leaves the character list before it leaves the screen, even from its search box.

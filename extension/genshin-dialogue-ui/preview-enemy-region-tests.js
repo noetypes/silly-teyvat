@@ -2,13 +2,13 @@
 import {wildernessPool,maxEnemies} from './wilderness.js';
 import {rollLocationEncounter} from './location-encounters.js';
 import {clearedEnemies,clearEnemy,restoreEnemies} from './combat-state.js';
-import {alignEnemyPools,enemyNative,locationRegion,LOCATION_POOLS,ENEMY_REGIONS} from './enemy-regions.js';
+import {alignEnemyPools,enemyNative,locationRegion,LOCATION_POOLS,ENEMY_REGIONS,ENEMY_POOLS_VERSION} from './enemy-regions.js';
 
 export async function runEnemyRegionTests(){
     const out=[],check=(name,ok)=>{out.push(`${ok?'PASS':'FAIL'} ${name}`);if(!ok)throw new Error(name);};
     try{
         const card=name=>({name,avatar:`${name.replace(/:/g,'')}.png`,data:{extensions:{silly_teyvat:{role:'enemy'}}}});
-        const names=['Hilichurl Fighter','Hilichurl Shooter','Hydro Slime','Ruin Guard','Cryo Whopperflower','Kairagi: Dancing Thunder','Nobushi: Kikouban','Electro Samachurl','Crackling Axe Mitachurl','Electro Slime','Pyro Abyss Mage','Rockfond Rifthound','Eremite Sunfrost'];
+        const names=['Hilichurl Fighter','Hilichurl Shooter','Hydro Slime','Ruin Guard','Cryo Whopperflower','Kairagi: Dancing Thunder','Nobushi: Kikouban','Nobushi: Jintouban','Electro Samachurl','Crackling Axe Mitachurl','Electro Slime','Pyro Abyss Mage','Rockfond Rifthound','Eremite Sunfrost'];
         const av=name=>`${name.replace(/:/g,'')}.png`;
         const settings={maxEnemies:3,backgroundRegions:[
             {id:'ina',name:'Inazuma',locations:[{id:'wild-inazuma-chirai-shrine',label:'Chirai Shrine',wilderness:true,enemyEncounterRate:100,enemyEncounterRateOverride:true,enemyPool:['Hilichurl Fighter','Hilichurl Shooter','Hydro Slime','Ruin Guard','Eremite Sunfrost'].map(av)}]},
@@ -23,9 +23,9 @@ export async function runEnemyRegionTests(){
         check('custom regions keep any enemy',wildernessPool(ctx,'custom').length===2);
         alignEnemyPools(ctx);
         const chirai=settings.backgroundRegions[0].locations[0],natlan=settings.backgroundRegions[1].locations[0];
-        check('realignment gives Chirai Shrine its Inazuman enemies',['Kairagi: Dancing Thunder','Nobushi: Kikouban','Electro Samachurl','Ruin Guard'].every(n=>chirai.enemyPool.includes(av(n)))&&!chirai.enemyPool.includes(av('Eremite Sunfrost'))&&!chirai.enemyPool.includes(av('Hilichurl Shooter')));
+        check('realignment gives Chirai Shrine its Inazuman enemies',LOCATION_POOLS['wild-inazuma-chirai-shrine'].filter(n=>names.includes(n)).every(n=>chirai.enemyPool.includes(av(n)))&&chirai.enemyPool.includes(av('Nobushi: Kikouban'))&&!chirai.enemyPool.includes(av('Eremite Sunfrost'))&&!chirai.enemyPool.includes(av('Hilichurl Shooter'))&&!chirai.enemyPool.includes(av('Ruin Guard')));
         check('realignment moves Ruin Guard and hilichurls out of Natlan',!natlan.enemyPool.includes(av('Ruin Guard'))&&!natlan.enemyPool.includes(av('Hilichurl Fighter'))&&natlan.enemyPool.includes(av('Pyro Abyss Mage')));
-        check('realignment runs once',settings.enemyPoolsVersion===2&&(chirai.enemyPool.push(av('Hydro Slime')),alignEnemyPools(ctx))===0&&chirai.enemyPool.includes(av('Hydro Slime')));
+        check('realignment runs once',settings.enemyPoolsVersion===ENEMY_POOLS_VERSION&&(chirai.enemyPool.push(av('Hydro Slime')),alignEnemyPools(ctx))===0&&chirai.enemyPool.includes(av('Hydro Slime')));
         const quiet={id:'quiet',label:'Quiet',wilderness:true,enemyPool:[av('Ruin Guard')]};
         const lake={id:'expansion-stormterror-s-lair',label:"Stormterror's Lair",residents:[]},home={id:'expansion-windrise',label:'Windrise',residents:['Klee.png']},off={id:'wild-liyue-qingce-village',label:'Qingce',wilderness:false};
         const fresh={backgroundRegions:[{id:'m',name:'Mondstadt',locations:[lake,home,off,quiet]}],enemyPoolsVersion:1},freshCtx={...ctx,extensionSettings:{genshin_dialogue_ui:fresh}};
@@ -34,6 +34,16 @@ export async function runEnemyRegionTests(){
         check('a place with residents never becomes wilderness',!home.wilderness&&!home.enemyPool);
         check('a village outside the catalog stays safe',off.wilderness===false);
         check('every pool has at least five enemies, without repeats',Object.values(LOCATION_POOLS).every(list=>list.length>=5&&new Set(list).size===list.length));
+        {const counts={};for(const p of Object.values(LOCATION_POOLS))for(const n of p)counts[n]=(counts[n]||0)+1;
+        const pooled=Object.keys(ENEMY_REGIONS).filter(n=>counts[n]);
+        check('every non-boss enemy is met in at least three places and none in more than fifteen',pooled.length>=75&&pooled.every(n=>counts[n]>=3&&counts[n]<=15));
+        check('Black Serpent Knights keep to the Chasm and Enkanomiya',Object.entries(LOCATION_POOLS).filter(([,p])=>p.some(n=>n.startsWith('Black Serpent'))).map(([id])=>id).sort().join()==='map14-inazuma-mouun-shrine,map14-liyue-tiangong-gorge,wild-liyue-lumberpick-valley');
+        check('six more places became wilderness',['map14-mondstadt-old-sanatorium-site','map14-liyue-chiwang-terrace','map14-liyue-yaodie-valley','map14-inazuma-moshiri-ceremonial-site','map14-fontaine-tower-of-ipsissimus','map14-natlan-malinalco-grotto'].every(id=>LOCATION_POOLS[id]?.length===6));}
+        {const homes=await fetch(new URL('assets/world-locations/character-homes.json',import.meta.url)).then(r=>r.json()),by={};
+        for(const c of homes.characters)if(c.name!=='Katheryne')(by[c.locationId] ??= []).push(c.name);
+        const crowded=Object.entries(by).filter(([,n])=>n.length>2);
+        check('no bundled location is home to more than two characters',!crowded.length || (console.warn(crowded),false));
+        check('wilderness and homes never overlap',!Object.keys(by).some(id=>LOCATION_POOLS[id]));}
         check('enemy names match their cards',!Object.keys(ENEMY_REGIONS).some(n=>/^Treasure Hoarders:/.test(n)));
         let seq=[.99,0,0,0],i=0;const random=()=>seq[i++ % seq.length];
         const roll=(random)=>rollLocationEncounter(ctx,'wild-inazuma-chirai-shrine',[],{random}).enemies;const many=roll(random);
@@ -41,10 +51,10 @@ export async function runEnemyRegionTests(){
         settings.maxEnemies=1;i=0;
         check('Maximum enemies 1 brings a single enemy',roll(random).length===1&&maxEnemies(ctx)===1);
         settings.maxEnemies=9;check('the maximum is limited to 3',maxEnemies(ctx)===3);settings.maxEnemies=3;
-        clearEnemy(ctx,'wild-inazuma-chirai-shrine',av('Ruin Guard'));
-        check('a defeated enemy is remembered for that waypoint',clearedEnemies(ctx,'wild-inazuma-chirai-shrine').includes(av('Ruin Guard'))&&!wildernessPool(ctx,'wild-inazuma-chirai-shrine').includes(av('Ruin Guard')));
-        check('it is never rolled there again',Array.from({length:40},(_,k)=>roll(()=>(k*.137)%1)).flat().every(a=>a!==av('Ruin Guard')));
-        check('restoring brings it back',restoreEnemies(ctx,'wild-inazuma-chirai-shrine')===1&&wildernessPool(ctx,'wild-inazuma-chirai-shrine').includes(av('Ruin Guard')));
+        clearEnemy(ctx,'wild-inazuma-chirai-shrine',av('Nobushi: Kikouban'));
+        check('a defeated enemy is remembered for that waypoint',clearedEnemies(ctx,'wild-inazuma-chirai-shrine').includes(av('Nobushi: Kikouban'))&&!wildernessPool(ctx,'wild-inazuma-chirai-shrine').includes(av('Nobushi: Kikouban')));
+        check('it is never rolled there again',Array.from({length:40},(_,k)=>roll(()=>(k*.137)%1)).flat().every(a=>a!==av('Nobushi: Kikouban')));
+        check('restoring brings it back',restoreEnemies(ctx,'wild-inazuma-chirai-shrine')===1&&wildernessPool(ctx,'wild-inazuma-chirai-shrine').includes(av('Nobushi: Kikouban')));
         return out.join('\n')+`\n${out.length} enemy region checks passed`;
     }catch(error){out.push(`ERROR ${error.message}`);return out.join('\n');}
 }

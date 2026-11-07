@@ -43,6 +43,7 @@ export async function runCardPoolTests(){
         check('a default pool never changes between visits',defaultCardPool('x','Liyue').join()===defaultCardPool('x','Liyue').join());
         check('every card drops somewhere',Object.keys(ITEMS).every(id=>pools.some(p=>p.includes(id))));
         check('a custom region draws on every card',defaultCardPool('x','Atlantis').length>10);
+        check('boss arenas draw more cards, and a larger share of rare ones',catalog.locations.filter(l=>l.id.startsWith('boss-')).every(l=>{const share=(p,r)=>p.filter(id=>ITEMS[id].rarity===r).length/p.length,boss=defaultCardPool(l.id,l.region),plain=defaultCardPool('wild-x',l.region);return boss.length>plain.length&&share(boss,3)>share(plain,3)&&share(boss,2)>share(plain,2);}));
 
         const hill=['Hilichurl Fighter','Hilichurl Shooter','Hydro Slime','Geo Slime','Electro Slime','Cryo Slime'];
         check('hilichurls and slimes are weak',hill.every(name=>enemyTier({name})===0));

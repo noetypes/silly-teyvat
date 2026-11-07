@@ -8,7 +8,7 @@ import {partyMembers,USER_KEY} from './combat-state.js';
 import {linkedCard,playedAvatars} from './persona-link.js';
 import {syncPromptOrder} from './prompt-order.js';
 import {ITEMS} from './battle-items.js';
-import {tastesOf} from './character-tastes.js';
+import {giftTastes} from './gift-tastes.js';
 import {trustChange,stripTrustTags} from './trust-tags.js';
 import {TRUST_MAX,startingTrust} from './relationship-trust.js';
 import {defaultPrompt,promptText,renderPrompt} from './prompt-templates.js';
@@ -66,7 +66,7 @@ export function trustRoster(ctx){
 const itemNames=ids=>(ids || []).map(id=>ITEMS[id]?.name).filter(Boolean).join(', ');
 function characterLine(ctx,avatar,levels){
     const card=ctx.characters?.find(c=>c.avatar===avatar);if(!card)return '';
-    const level=levels[avatar] ?? startingTrust(ctx,avatar),tastes=tastesOf(card.name);
+    const level=levels[avatar] ?? startingTrust(ctx,avatar),tastes=giftTastes(ctx,card);
     return [`${card.name}: ${level} of ${TRUST_MAX} (${trustBand(level).name}).`,tastes?`Likes ${itemNames(tastes.likes)}. Dislikes ${itemNames(tastes.dislikes)}. ${tastes.note}`:''].filter(Boolean).join(' ');
 }
 // Sits beside Game systems, and holds the rules too, so nothing about trust is sent while it is off.

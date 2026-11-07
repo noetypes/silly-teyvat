@@ -1,5 +1,5 @@
 {
-  "version": 18,
+  "version": 19,
   "retrieved": "2026-10-26",
   "coordinateSource": "https://sg-public-api-static.hoyolab.com/common/map_user/ys_obc/v1/map/map_anchor/list?map_id=2&app_sn=ys_obc&lang=en-us",
   "locations": [
@@ -113,7 +113,6 @@
       "label": "Angel's Share",
       "region": "Mondstadt",
       "suggestedCharacters": [
-        "Diluc",
         "Eula",
         "Venti"
       ],
@@ -161,7 +160,8 @@
       "label": "The Cat's Tail",
       "region": "Mondstadt",
       "suggestedCharacters": [
-        "Diona"
+        "Diona",
+        "Rosaria"
       ],
       "description": "Margaret’s cat-filled tavern and a gathering place for Genius Invokation players. Diona works behind the bar.",
       "waypoint": {
@@ -210,10 +210,7 @@
       "region": "Mondstadt",
       "suggestedCharacters": [
         "Jean",
-        "Kaeya",
-        "Klee",
-        "Mika",
-        "Noelle"
+        "Kaeya"
       ],
       "description": "The Knights’ headquarters, including Jean’s office and the rooms where Klee reports for duty.",
       "waypoint": {
@@ -409,11 +406,8 @@
       "label": "Wanmin Restaurant",
       "region": "Liyue",
       "suggestedCharacters": [
-        "Chongyun",
-        "Shenhe",
         "Skirk",
-        "Xiangling",
-        "Xinyan"
+        "Xiangling"
       ],
       "description": "Chef Mao’s busy restaurant in Chihu Rock. Xiangling is its head chef and experiments with new dishes.",
       "waypoint": {
@@ -459,6 +453,7 @@
       "label": "Wangshu Inn",
       "region": "Liyue",
       "suggestedCharacters": [
+        "Chongyun",
         "Xiao"
       ],
       "description": "An inn built around a huge tree above Dihua Marsh. Xiao occasionally stops here for almond tofu.",
@@ -505,7 +500,8 @@
       "label": "Jade Chamber",
       "region": "Liyue",
       "suggestedCharacters": [
-        "Ningguang"
+        "Ningguang",
+        "Yanfei"
       ],
       "description": "Ningguang’s floating palace above Liyue Harbor, rebuilt after its sacrifice in the battle against Osial.",
       "waypoint": {
@@ -644,9 +640,7 @@
       "region": "Inazuma",
       "suggestedCharacters": [
         "Kamisato Ayaka",
-        "Kamisato Ayato",
-        "Sayu",
-        "Thoma"
+        "Kamisato Ayato"
       ],
       "description": "The Kamisato clan’s home and Yashiro Commission base. Thoma helps manage the household.",
       "waypoint": {
@@ -785,7 +779,8 @@
       "label": "Sanctuary of Surasthana",
       "region": "Sumeru",
       "suggestedCharacters": [
-        "Nahida"
+        "Nahida",
+        "Wanderer"
       ],
       "description": "The sanctuary above Sumeru City associated with Lesser Lord Kusanali and the story of her confinement.",
       "waypoint": {
@@ -832,10 +827,7 @@
       "region": "Sumeru",
       "suggestedCharacters": [
         "Alhaitham",
-        "Faruzan",
-        "Kaveh",
-        "Layla",
-        "Wanderer"
+        "Faruzan"
       ],
       "description": "The Akademiya’s great library. Alhaitham and Kaveh first met here, making it a useful scholarly meeting place.",
       "waypoint": {
@@ -984,7 +976,6 @@
       "region": "Sumeru",
       "suggestedCharacters": [
         "Candace",
-        "Cyno",
         "Dehya"
       ],
       "description": "A desert village guarded by Candace. It shelters travelers and plays a key part in Sumeru’s Archon Quest.",
@@ -1078,8 +1069,6 @@
       "label": "Opera Epiclese",
       "region": "Fontaine",
       "suggestedCharacters": [
-        "Clorinde",
-        "Furina",
         "Lynette",
         "Lyney"
       ],
@@ -1613,7 +1602,6 @@
       "region": "Nod-Krai",
       "suggestedCharacters": [
         "Jahoda",
-        "Linnea",
         "Nefer"
       ],
       "description": "Nod-Krai’s bustling trading town. Nefer and Jahoda work at its Curatorium of Secrets.",
@@ -1755,10 +1743,8 @@
       "label": "Morepesok",
       "region": "Snezhnaya",
       "suggestedCharacters": [
-        "Tartaglia",
         "Teucer",
-        "Tonia",
-        "Vodyanitsa"
+        "Tonia"
       ],
       "description": "The coastal settlement where Tartaglia’s family lives. His family home is a natural reunion location.",
       "waypoint": {
@@ -1995,7 +1981,6 @@
       "suggestedCharacters": [
         "Aether",
         "Bennett",
-        "Fischl",
         "Lumine"
       ],
       "waypoint": {
@@ -2206,7 +2191,8 @@
         "Lokapala Jungle"
       ],
       "suggestedCharacters": [
-        "Dori"
+        "Dori",
+        "Kaveh"
       ],
       "waypoint": {
         "mapId": "teyvat",
@@ -2338,9 +2324,7 @@
       ],
       "suggestedCharacters": [
         "Ganyu",
-        "Keqing",
-        "Yanfei",
-        "Yaoyao"
+        "Keqing"
       ],
       "waypoint": {
         "mapId": "teyvat",
@@ -2485,8 +2469,7 @@
       ],
       "suggestedCharacters": [
         "Barbara",
-        "Dahlia",
-        "Rosaria"
+        "Dahlia"
       ],
       "waypoint": {
         "mapId": "teyvat",
@@ -2555,6 +2538,7 @@
         "Lower Setekh"
       ],
       "suggestedCharacters": [
+        "Cyno",
         "Sethos"
       ],
       "waypoint": {
@@ -3357,8 +3341,7 @@
       ],
       "suggestedCharacters": [
         "Gaming",
-        "Lan Yan",
-        "Zibai"
+        "Lan Yan"
       ],
       "waypoint": {
         "mapId": "teyvat",
@@ -3487,7 +3470,8 @@
         "Inazuma Courier Meeting Point"
       ],
       "suggestedCharacters": [
-        "Kirara"
+        "Kirara",
+        "Sayu"
       ],
       "waypoint": {
         "mapId": "teyvat",
@@ -3788,7 +3772,8 @@
         "Liyue Harbor Meeting Point"
       ],
       "suggestedCharacters": [
-        "Xianyun"
+        "Xianyun",
+        "Yaoyao"
       ],
       "waypoint": {
         "mapId": "teyvat",
@@ -3998,7 +3983,10 @@
       "enemyPool": [
         "Hilichurl Fighter.png",
         "Hilichurl Shooter.png",
-        "Hydro Slime.png"
+        "Ruin Guard.png",
+        "Anemo Samachurl.png",
+        "Geo Samachurl.png",
+        "Pyro Whopperflower.png"
       ],
       "previousImage": {
         "source": "https://genshin-impact.fandom.com/wiki/File:Brightcrown_Canyon.png",
@@ -4053,9 +4041,12 @@
       "wilderness": true,
       "enemyEncounterRate": 40,
       "enemyPool": [
-        "Hilichurl Fighter.png",
-        "Hilichurl Shooter.png",
-        "Hydro Slime.png"
+        "Treasure Hoarders - Marksman.png",
+        "Treasure Hoarders - Scout.png",
+        "Hydro Samachurl.png",
+        "Large Hydro Slime.png",
+        "Anemo Samachurl.png",
+        "Cryo Slime.png"
       ],
       "previousImage": {
         "source": "https://genshin-impact.fandom.com/wiki/File:Cape_Oath.png",
@@ -4110,9 +4101,12 @@
       "wilderness": true,
       "enemyEncounterRate": 40,
       "enemyPool": [
-        "Hilichurl Fighter.png",
+        "Hilichurl Berserker.png",
+        "Stonehide Lawachurl.png",
         "Hilichurl Shooter.png",
-        "Hydro Slime.png"
+        "Rock Shieldwall Mitachurl.png",
+        "Blazing Axe Mitachurl.png",
+        "Geo Samachurl.png"
       ],
       "previousImage": {
         "source": "https://genshin-impact.fandom.com/wiki/File:Dadaupa_Gorge.png",
@@ -4167,9 +4161,12 @@
       "wilderness": true,
       "enemyEncounterRate": 40,
       "enemyPool": [
-        "Hilichurl Fighter.png",
-        "Hilichurl Shooter.png",
-        "Hydro Slime.png"
+        "Anemo Samachurl.png",
+        "Electro Hilichurl Shooter.png",
+        "Fatui Skirmisher - Anemoboxer Vanguard.png",
+        "Treasure Hoarders - Scout.png",
+        "Treasure Hoarders - Marksman.png",
+        "Hydro Samachurl.png"
       ],
       "previousImage": {
         "source": "https://genshin-impact.fandom.com/wiki/File:Starsnatch_Cliff.png",
@@ -4291,10 +4288,12 @@
       "wilderness": true,
       "enemyEncounterRate": 40,
       "enemyPool": [
-        "Hilichurl Fighter.png",
+        "Ruin Guard.png",
+        "Wooden Shieldwall Mitachurl.png",
+        "Dendro Samachurl.png",
+        "Pyro Whopperflower.png",
         "Hilichurl Shooter.png",
-        "Hydro Slime.png",
-        "Ruin Guard.png"
+        "Treasure Hoarders - Scout.png"
       ],
       "previousImage": {
         "source": "https://genshin-impact.fandom.com/wiki/File:Thousand_Winds_Temple.png",
@@ -4350,9 +4349,12 @@
       "wilderness": true,
       "enemyEncounterRate": 40,
       "enemyPool": [
-        "Hilichurl Fighter.png",
-        "Hilichurl Shooter.png",
-        "Hydro Slime.png"
+        "Black Serpent Knight Rockbreaker Ax.png",
+        "Black Serpent Knight Windcutter.png",
+        "Geo Slime.png",
+        "Geo Samachurl.png",
+        "Rockfond Rifthound.png",
+        "Ice Shieldwall Mitachurl.png"
       ],
       "pointSource": "https://sg-public-api-static.hoyolab.com/common/map_user/ys_obc/v1/map/point/info?map_id=2&app_sn=ys_obc&lang=en-us&point_id=26445",
       "previousImage": {
@@ -4409,9 +4411,12 @@
       "wilderness": true,
       "enemyEncounterRate": 40,
       "enemyPool": [
-        "Hilichurl Fighter.png",
         "Hilichurl Shooter.png",
-        "Hydro Slime.png"
+        "Ruin Guard.png",
+        "Geo Samachurl.png",
+        "Abyss Herald Wicked Torrents.png",
+        "Electro Hilichurl Shooter.png",
+        "Rock Shieldwall Mitachurl.png"
       ],
       "previousImage": {
         "source": "https://genshin-impact.fandom.com/wiki/File:Mt._Hulao.png",
@@ -4523,9 +4528,12 @@
       "wilderness": true,
       "enemyEncounterRate": 40,
       "enemyPool": [
-        "Hilichurl Fighter.png",
-        "Hilichurl Shooter.png",
-        "Hydro Slime.png"
+        "Mirror Maiden.png",
+        "Hilichurl Berserker.png",
+        "Blazing Axe Mitachurl.png",
+        "Anemo Samachurl.png",
+        "Electro Hilichurl Shooter.png",
+        "Crackling Axe Mitachurl.png"
       ],
       "previousImage": {
         "source": "https://genshin-impact.fandom.com/wiki/File:Stone_Gate.png",
@@ -4584,9 +4592,12 @@
       "wilderness": true,
       "enemyEncounterRate": 40,
       "enemyPool": [
-        "Hilichurl Fighter.png",
+        "Pyro Abyss Mage.png",
         "Hilichurl Shooter.png",
-        "Hydro Slime.png"
+        "Hydro Abyss Mage.png",
+        "Hilichurl Berserker.png",
+        "Abyss Herald Wicked Torrents.png",
+        "Pyro Whopperflower.png"
       ],
       "previousImage": {
         "source": "https://genshin-impact.fandom.com/wiki/File:Wuwang_Hill.png",
@@ -4641,10 +4652,12 @@
       "wilderness": true,
       "enemyEncounterRate": 40,
       "enemyPool": [
-        "Hilichurl Fighter.png",
-        "Hilichurl Shooter.png",
-        "Hydro Slime.png",
-        "Ruin Guard.png"
+        "Nobushi Kikouban.png",
+        "Hydro Abyss Mage.png",
+        "Electro Samachurl.png",
+        "Kairagi Dancing Thunder.png",
+        "Abyss Lector Violet Lightning.png",
+        "Electro Slime.png"
       ],
       "previousImage": {
         "source": "https://genshin-impact.fandom.com/wiki/File:Chirai_Shrine.png",
@@ -4699,9 +4712,12 @@
       "wilderness": true,
       "enemyEncounterRate": 40,
       "enemyPool": [
-        "Hilichurl Fighter.png",
-        "Hilichurl Shooter.png",
-        "Hydro Slime.png"
+        "Mirror Maiden.png",
+        "Kairagi Fiery Might.png",
+        "Nobushi Jintouban.png",
+        "Electro Hilichurl Shooter.png",
+        "Hydro Slime.png",
+        "Anemo Samachurl.png"
       ],
       "previousImage": {
         "source": "https://genshin-impact.fandom.com/wiki/File:Fort_Fujitou.png",
@@ -4756,9 +4772,12 @@
       "wilderness": true,
       "enemyEncounterRate": 40,
       "enemyPool": [
+        "Pyro Whopperflower.png",
+        "Dendro Samachurl.png",
         "Hilichurl Fighter.png",
-        "Hilichurl Shooter.png",
-        "Hydro Slime.png"
+        "Nobushi Jintouban.png",
+        "Kairagi Fiery Might.png",
+        "Wooden Shieldwall Mitachurl.png"
       ],
       "previousImage": {
         "source": "https://genshin-impact.fandom.com/wiki/File:Konda_Village.png",
@@ -4813,9 +4832,12 @@
       "wilderness": true,
       "enemyEncounterRate": 40,
       "enemyPool": [
-        "Hilichurl Fighter.png",
-        "Hilichurl Shooter.png",
-        "Hydro Slime.png"
+        "Thundercraven Rifthound.png",
+        "Abyss Herald Wicked Torrents.png",
+        "Nobushi Hitsukeban.png",
+        "Kairagi Fiery Might.png",
+        "Hydro Samachurl.png",
+        "Large Electro Slime.png"
       ],
       "previousImage": {
         "source": "https://genshin-impact.fandom.com/wiki/File:Koseki_Village.png",
@@ -4870,9 +4892,12 @@
       "wilderness": true,
       "enemyEncounterRate": 40,
       "enemyPool": [
-        "Hilichurl Fighter.png",
-        "Hilichurl Shooter.png",
-        "Hydro Slime.png"
+        "Kairagi Dancing Thunder.png",
+        "Nobushi Kikouban.png",
+        "Electro Slime.png",
+        "Blazing Axe Mitachurl.png",
+        "Fatui Skirmisher - Pyroslinger Bracer.png",
+        "Fatui Skirmisher - Cryogunner Legionnaire.png"
       ],
       "previousImage": {
         "source": "https://genshin-impact.fandom.com/wiki/File:Tatarasuna.png",
@@ -4930,9 +4955,12 @@
       "wilderness": true,
       "enemyEncounterRate": 40,
       "enemyPool": [
-        "Hilichurl Fighter.png",
-        "Hilichurl Shooter.png",
-        "Hydro Slime.png"
+        "Winged Dendroshroom.png",
+        "Grounded Hydroshroom.png",
+        "Grounded Geoshroom.png",
+        "Winged Cryoshroom.png",
+        "Consecrated Fanged Beast.png",
+        "Pyro Whopperflower.png"
       ],
       "previousImage": {
         "source": "https://www.bilibili.tv/en/video/2048217214",
@@ -4991,9 +5019,12 @@
       "wilderness": true,
       "enemyEncounterRate": 40,
       "enemyPool": [
-        "Hilichurl Fighter.png",
-        "Hilichurl Shooter.png",
-        "Cryo Whopperflower.png"
+        "Grounded Geoshroom.png",
+        "Winged Cryoshroom.png",
+        "Winged Dendroshroom.png",
+        "Eremite Stone Enchanter.png",
+        "Eremite Sunfrost.png",
+        "Consecrated Horned Crocodile.png"
       ],
       "previousImage": {
         "source": "https://genshin-impact.fandom.com/wiki/File:Underground_Varuna_Contraption.png",
@@ -5052,9 +5083,12 @@
       "wilderness": true,
       "enemyEncounterRate": 40,
       "enemyPool": [
-        "Hilichurl Fighter.png",
-        "Hilichurl Shooter.png",
-        "Hydro Slime.png"
+        "Winged Cryoshroom.png",
+        "Grounded Hydroshroom.png",
+        "Consecrated Horned Crocodile.png",
+        "Eremite Desert Clearwater.png",
+        "Eremite Daythunder.png",
+        "Grounded Geoshroom.png"
       ],
       "previousImage": {
         "source": "https://genshin-impact.fandom.com/wiki/File:Old_Vanarana_Withered.png",
@@ -5113,9 +5147,12 @@
       "wilderness": true,
       "enemyEncounterRate": 40,
       "enemyPool": [
-        "Hilichurl Fighter.png",
-        "Hilichurl Shooter.png",
-        "Hydro Slime.png"
+        "Grounded Hydroshroom.png",
+        "Winged Dendroshroom.png",
+        "Grounded Geoshroom.png",
+        "Eremite Daythunder.png",
+        "Eremite Stone Enchanter.png",
+        "Abyss Lector Violet Lightning.png"
       ],
       "previousImage": {
         "source": "https://genshin-impact.fandom.com/wiki/Fane_of_Ashvattha",
@@ -5173,9 +5210,12 @@
       "wilderness": true,
       "enemyEncounterRate": 40,
       "enemyPool": [
-        "Hilichurl Fighter.png",
-        "Hilichurl Shooter.png",
-        "Hydro Slime.png"
+        "Consecrated Horned Crocodile.png",
+        "Eremite Desert Clearwater.png",
+        "Eremite Sunfrost.png",
+        "Eremite Floral Ring-Dancer.png",
+        "Eremite Scorching Loremaster.png",
+        "Hydro Hilichurl Rogue.png"
       ],
       "previousImage": {
         "source": "https://www.jeuxonline.info/image/158325/genshin-impact-30-port-ormos",
@@ -5234,9 +5274,12 @@
       "wilderness": true,
       "enemyEncounterRate": 40,
       "enemyPool": [
-        "Hilichurl Fighter.png",
-        "Hilichurl Shooter.png",
-        "Hydro Slime.png"
+        "Tainted Hydro Phantasm.png",
+        "Arithmetic Enhancer Mek - Pneuma.png",
+        "Assault Specialist Mek - Pneuma.png",
+        "Dendro Samachurl.png",
+        "Hydro Hilichurl Rogue.png",
+        "Anemo Samachurl.png"
       ],
       "previousImage": {
         "source": "https://genshin-impact.fandom.com/wiki/Foggy_Forest_Path_%28Quest%29",
@@ -5294,9 +5337,12 @@
       "wilderness": true,
       "enemyEncounterRate": 40,
       "enemyPool": [
-        "Hilichurl Fighter.png",
-        "Hilichurl Shooter.png",
-        "Hydro Slime.png"
+        "Suppression Specialist Mek - Pneuma.png",
+        "Hydro Hilichurl Rogue.png",
+        "Suppression Specialist Mek - Ousia.png",
+        "Hydro Samachurl.png",
+        "Tainted Hydro Phantasm.png",
+        "Large Hydro Slime.png"
       ],
       "previousImage": {
         "source": "https://www.gamerbraves.com/genshin-impact-version-4-2-special-program-livestream-highlights/",
@@ -5355,9 +5401,12 @@
       "wilderness": true,
       "enemyEncounterRate": 40,
       "enemyPool": [
+        "Annihilation Specialist Mek - Pneuma.png",
+        "Assault Specialist Mek - Pneuma.png",
+        "Arithmetic Enhancer Mek - Pneuma.png",
+        "Assault Specialist Mek - Ousia.png",
         "Hilichurl Fighter.png",
-        "Hilichurl Shooter.png",
-        "Hydro Slime.png"
+        "Hilichurl Shooter.png"
       ],
       "previousImage": {
         "source": "https://genshin-impact.fandom.com/wiki/Elynas",
@@ -5416,10 +5465,12 @@
       "wilderness": true,
       "enemyEncounterRate": 40,
       "enemyPool": [
-        "Hilichurl Fighter.png",
-        "Hilichurl Shooter.png",
-        "Hydro Slime.png",
-        "Ruin Guard.png"
+        "Mirror Maiden.png",
+        "Assault Specialist Mek - Ousia.png",
+        "Suppression Specialist Mek - Ousia.png",
+        "Tainted Hydro Phantasm.png",
+        "Hydro Hilichurl Rogue.png",
+        "Arithmetic Enhancer Mek - Pneuma.png"
       ],
       "previousImage": {
         "source": "https://genshin-impact.fandom.com/wiki/Fort_Charybdis_Ruins",
@@ -5478,9 +5529,12 @@
       "wilderness": true,
       "enemyEncounterRate": 40,
       "enemyPool": [
-        "Hilichurl Fighter.png",
-        "Hilichurl Shooter.png",
-        "Hydro Slime.png"
+        "Arithmetic Enhancer Mek - Ousia.png",
+        "Tainted Hydro Phantasm.png",
+        "Suppression Specialist Mek - Pneuma.png",
+        "Hydro Slime.png",
+        "Ice Shieldwall Mitachurl.png",
+        "Treasure Hoarders - Marksman.png"
       ],
       "previousImage": {
         "source": "https://genshin-impact.fandom.com/wiki/Salacia_Plain",
@@ -5538,9 +5592,12 @@
       "wilderness": true,
       "enemyEncounterRate": 40,
       "enemyPool": [
-        "Hilichurl Fighter.png",
-        "Hilichurl Shooter.png",
-        "Hydro Slime.png"
+        "Geo Slime.png",
+        "Fatui Pyro Agent.png",
+        "Rockfond Rifthound.png",
+        "Large Pyro Slime.png",
+        "Electro Abyss Mage.png",
+        "Wayward Hermetic Spiritspeaker.png"
       ],
       "previousImage": {
         "source": "https://protogamer.ru/guides/880-raskolotyj-kamen-s-graffiti-genshin-impact",
@@ -5600,10 +5657,12 @@
       "wilderness": true,
       "enemyEncounterRate": 40,
       "enemyPool": [
-        "Hilichurl Fighter.png",
-        "Hilichurl Shooter.png",
-        "Hydro Slime.png",
-        "Ruin Guard.png"
+        "Cryo Abyss Mage.png",
+        "Pyro Abyss Mage.png",
+        "Abyss Lector Fathomless Flames.png",
+        "Thundercraven Rifthound.png",
+        "Large Electro Slime.png",
+        "Rockfond Rifthound.png"
       ],
       "previousImage": {
         "source": "https://www.rpgsite.net/news/16162-genshin-impact-50-launches-on-august-28-introducing-nation-natlan-adding-new-characters-kinich-mualani-kachina-more",
@@ -5662,9 +5721,12 @@
       "wilderness": true,
       "enemyEncounterRate": 40,
       "enemyPool": [
-        "Hilichurl Fighter.png",
-        "Hilichurl Shooter.png",
-        "Hydro Slime.png"
+        "Large Pyro Slime.png",
+        "Geo Slime.png",
+        "Fatui Skirmisher - Geochanter Bracer.png",
+        "Fatui Cryo Cicin Mage.png",
+        "Fatui Skirmisher - Electrohammer Vanguard.png",
+        "Pyro Abyss Mage.png"
       ],
       "previousImage": {
         "source": "https://genshin-impact.fandom.com/wiki/Sulfurous_Veins",
@@ -5723,9 +5785,12 @@
       "wilderness": true,
       "enemyEncounterRate": 40,
       "enemyPool": [
-        "Hilichurl Fighter.png",
-        "Hilichurl Shooter.png",
-        "Hydro Slime.png"
+        "Hydro Slime.png",
+        "Large Pyro Slime.png",
+        "Wayward Hermetic Spiritspeaker.png",
+        "Fatui Skirmisher - Cryogunner Legionnaire.png",
+        "Hydro Abyss Mage.png",
+        "Fatui Skirmisher - Hydrogunner Legionnaire.png"
       ],
       "previousImage": {
         "source": "https://forum.gamer.com.tw/C.php?bsn=36730&snA=40882",
@@ -5784,8 +5849,11 @@
       "wilderness": true,
       "enemyEncounterRate": 40,
       "enemyPool": [
-        "Hilichurl Fighter.png",
-        "Hilichurl Shooter.png",
+        "Electro Abyss Mage.png",
+        "Thundercraven Rifthound.png",
+        "Cryo Abyss Mage.png",
+        "Wayward Hermetic Spiritspeaker.png",
+        "Rockfond Rifthound.png",
         "Hydro Slime.png"
       ],
       "previousImage": {
@@ -5845,9 +5913,12 @@
       "wilderness": true,
       "enemyEncounterRate": 40,
       "enemyPool": [
-        "Hilichurl Fighter.png",
-        "Hilichurl Shooter.png",
-        "Hydro Slime.png"
+        "Large Cryo Slime.png",
+        "Electro Abyss Mage.png",
+        "Geo Slime.png",
+        "Pyro Abyss Mage.png",
+        "Fatui Skirmisher - Anemoboxer Vanguard.png",
+        "Frost Operative.png"
       ],
       "previousImage": {
         "source": "https://gamedaily.com/games/genshin-impact-version-6-0-adds-plenty-of-content-never-seen-before-new-regions-bosses-events-and-more",
@@ -5906,10 +5977,12 @@
       "wilderness": true,
       "enemyEncounterRate": 40,
       "enemyPool": [
-        "Hilichurl Fighter.png",
-        "Hilichurl Shooter.png",
-        "Hydro Slime.png",
-        "Ruin Guard.png"
+        "Pyro Abyss Mage.png",
+        "Hydro Abyss Mage.png",
+        "Electro Slime.png",
+        "Geo Slime.png",
+        "Fatui Pyro Agent.png",
+        "Fatui Skirmisher - Anemoboxer Vanguard.png"
       ],
       "previousImage": {
         "source": "https://www.rpgsite.net/news/18307-genshin-impact-version-luna-i-release-date-september-update-patch",
@@ -5968,9 +6041,12 @@
       "wilderness": true,
       "enemyEncounterRate": 40,
       "enemyPool": [
-        "Hilichurl Fighter.png",
-        "Hilichurl Shooter.png",
-        "Hydro Slime.png"
+        "Frost Operative.png",
+        "Fatui Skirmisher - Anemoboxer Vanguard.png",
+        "Fatui Skirmisher - Pyroslinger Bracer.png",
+        "Large Electro Slime.png",
+        "Large Cryo Slime.png",
+        "Electro Abyss Mage.png"
       ],
       "previousImage": {
         "source": "https://www.rpgsite.net/news/18307-genshin-impact-version-luna-i-release-date-september-update-patch",
@@ -6029,9 +6105,12 @@
       "wilderness": true,
       "enemyEncounterRate": 40,
       "enemyPool": [
-        "Hilichurl Fighter.png",
-        "Hilichurl Shooter.png",
-        "Hydro Slime.png"
+        "Large Hydro Slime.png",
+        "Electro Slime.png",
+        "Fatui Skirmisher - Hydrogunner Legionnaire.png",
+        "Fatui Electro Cicin Mage.png",
+        "Hydro Abyss Mage.png",
+        "Fatui Skirmisher - Electrohammer Vanguard.png"
       ],
       "previousImage": {
         "source": "https://genshin-impact.fandom.com/wiki/Barrowmoss_Barrens",
@@ -6090,9 +6169,12 @@
       "wilderness": true,
       "enemyEncounterRate": 40,
       "enemyPool": [
-        "Hilichurl Fighter.png",
-        "Hilichurl Shooter.png",
-        "Hydro Slime.png"
+        "Cryo Slime.png",
+        "Large Hydro Slime.png",
+        "Hydro Abyss Mage.png",
+        "Cryo Abyss Mage.png",
+        "Fatui Skirmisher - Cryogunner Legionnaire.png",
+        "Fatui Skirmisher - Geochanter Bracer.png"
       ],
       "previousImage": {
         "source": "https://genshin-impact.fandom.com/wiki/Blue_Amber_Lake",
@@ -6150,9 +6232,12 @@
       "wilderness": true,
       "enemyEncounterRate": 40,
       "enemyPool": [
-        "Hilichurl Fighter.png",
-        "Hilichurl Shooter.png",
-        "Cryo Whopperflower.png"
+        "Large Cryo Slime.png",
+        "Fatui Skirmisher - Anemoboxer Vanguard.png",
+        "Cryo Whopperflower.png",
+        "Fatui Cryo Cicin Mage.png",
+        "Fatui Skirmisher - Cryogunner Legionnaire.png",
+        "Fatui Electro Cicin Mage.png"
       ],
       "previousImage": {
         "source": "https://www.rpgsite.net/news/21024-genshin-impact-version-7-0-snezhnaya-music-new-trailer",
@@ -6209,8 +6294,11 @@
       "wilderness": true,
       "enemyEncounterRate": 40,
       "enemyPool": [
-        "Hilichurl Fighter.png",
-        "Hilichurl Shooter.png",
+        "Frost Operative.png",
+        "Fatui Electro Cicin Mage.png",
+        "Fatui Skirmisher - Electrohammer Vanguard.png",
+        "Fatui Skirmisher - Pyroslinger Bracer.png",
+        "Cryo Slime.png",
         "Cryo Whopperflower.png"
       ],
       "previousImage": {
@@ -6268,9 +6356,12 @@
       "wilderness": true,
       "enemyEncounterRate": 40,
       "enemyPool": [
-        "Hilichurl Fighter.png",
-        "Hilichurl Shooter.png",
-        "Hydro Slime.png"
+        "Fatui Skirmisher - Electrohammer Vanguard.png",
+        "Fatui Skirmisher - Cryogunner Legionnaire.png",
+        "Fatui Skirmisher - Hydrogunner Legionnaire.png",
+        "Fatui Skirmisher - Geochanter Bracer.png",
+        "Cryo Slime.png",
+        "Cryo Abyss Mage.png"
       ],
       "previousImage": {
         "source": "https://www.rpgsite.net/news/21024-genshin-impact-version-7-0-snezhnaya-music-new-trailer",
@@ -6327,8 +6418,11 @@
       "wilderness": true,
       "enemyEncounterRate": 40,
       "enemyPool": [
-        "Hilichurl Fighter.png",
-        "Hilichurl Shooter.png",
+        "Mirror Maiden.png",
+        "Fatui Cryo Cicin Mage.png",
+        "Fatui Skirmisher - Pyroslinger Bracer.png",
+        "Fatui Pyro Agent.png",
+        "Cryo Abyss Mage.png",
         "Cryo Whopperflower.png"
       ],
       "previousImage": {
@@ -6386,9 +6480,12 @@
       "wilderness": true,
       "enemyEncounterRate": 40,
       "enemyPool": [
-        "Hilichurl Fighter.png",
-        "Hilichurl Shooter.png",
-        "Cryo Whopperflower.png"
+        "Cryo Slime.png",
+        "Cryo Whopperflower.png",
+        "Fatui Skirmisher - Geochanter Bracer.png",
+        "Fatui Skirmisher - Cryogunner Legionnaire.png",
+        "Cryo Abyss Mage.png",
+        "Fatui Skirmisher - Hydrogunner Legionnaire.png"
       ],
       "previousImage": {
         "source": "https://www.rpgsite.net/news/21024-genshin-impact-version-7-0-snezhnaya-music-new-trailer",
@@ -6679,7 +6776,8 @@
         "Nasha Town Guild"
       ],
       "suggestedCharacters": [
-        "Katheryne"
+        "Katheryne",
+        "Linnea"
       ],
       "waypoint": {
         "mapId": "teyvat",
@@ -7166,7 +7264,9 @@
         "Korolevskiy Theatre",
         "Snezhnograd theater"
       ],
-      "suggestedCharacters": [],
+      "suggestedCharacters": [
+        "Vodyanitsa"
+      ],
       "waypoint": {
         "mapId": "teyvat",
         "x": -7297.864572406717,
@@ -7357,7 +7457,9 @@
         "Ritou docks",
         "Narukami port"
       ],
-      "suggestedCharacters": [],
+      "suggestedCharacters": [
+        "Thoma"
+      ],
       "waypoint": {
         "mapId": "teyvat",
         "x": 2951,
@@ -7736,7 +7838,9 @@
         "Dawn Winery",
         "Dawn Winery Manor"
       ],
-      "suggestedCharacters": [],
+      "suggestedCharacters": [
+        "Diluc"
+      ],
       "waypoint": {
         "mapId": "teyvat",
         "x": -411.9443291406742,
@@ -7798,7 +7902,9 @@
         "Springvale",
         "Springvale village"
       ],
-      "suggestedCharacters": [],
+      "suggestedCharacters": [
+        "Noelle"
+      ],
       "waypoint": {
         "mapId": "teyvat",
         "x": 68.9983908913091,
@@ -8475,7 +8581,9 @@
         "Yilong Wharf",
         "Fengtai General Goods"
       ],
-      "suggestedCharacters": [],
+      "suggestedCharacters": [
+        "Xinyan"
+      ],
       "waypoint": {
         "mapId": "teyvat",
         "x": -3168.1285329718485,
@@ -9034,6 +9142,7 @@
         "Starfell Lake shore"
       ],
       "suggestedCharacters": [
+        "Klee",
         "Paimon"
       ],
       "waypoint": {
@@ -10713,12 +10822,12 @@
       "wilderness": true,
       "enemyEncounterRate": 40,
       "enemyPool": [
-        "Hilichurl Fighter.png",
-        "Hilichurl Berserker.png",
-        "Hydro Slime.png",
         "Dendro Samachurl.png",
         "Pyro Whopperflower.png",
-        "Treasure Hoarders - Scout.png"
+        "Hilichurl Berserker.png",
+        "Hilichurl Fighter.png",
+        "Wooden Shieldwall Mitachurl.png",
+        "Hydro Slime.png"
       ],
       "previousImage": {
         "source": "https://genshin-impact.fandom.com/wiki/File:Whispering_Woods.png",
@@ -10745,7 +10854,9 @@
         "Cider Lake",
         "Mondstadt lake"
       ],
-      "suggestedCharacters": [],
+      "suggestedCharacters": [
+        "Fischl"
+      ],
       "residents": [],
       "waypoint": {
         "mapId": "teyvat",
@@ -10855,12 +10966,12 @@
       "wilderness": true,
       "enemyEncounterRate": 40,
       "enemyPool": [
-        "Cryo Hilichurl Shooter.png",
         "Hydro Samachurl.png",
-        "Cryo Slime.png",
         "Large Hydro Slime.png",
-        "Fatui Skirmisher - Cryogunner Legionnaire.png",
-        "Rock Shieldwall Mitachurl.png"
+        "Electro Slime.png",
+        "Electro Samachurl.png",
+        "Pyro Whopperflower.png",
+        "Dendro Samachurl.png"
       ],
       "previousImage": {
         "source": "https://genshin-impact.fandom.com/wiki/File:Falcon_Coast.png",
@@ -10929,12 +11040,12 @@
       "wilderness": true,
       "enemyEncounterRate": 40,
       "enemyPool": [
-        "Blazing Axe Mitachurl.png",
-        "Cryo Abyss Mage.png",
         "Electro Hilichurl Shooter.png",
-        "Fatui Skirmisher - Electrohammer Vanguard.png",
+        "Electro Samachurl.png",
+        "Fatui Electro Cicin Mage.png",
+        "Blazing Axe Mitachurl.png",
         "Large Electro Slime.png",
-        "Hydro Samachurl.png"
+        "Geo Slime.png"
       ],
       "previousImage": {
         "source": "https://genshin-impact.fandom.com/wiki/File:Stormbearer_Mountains.png",
@@ -11003,12 +11114,12 @@
       "wilderness": true,
       "enemyEncounterRate": 40,
       "enemyPool": [
-        "Fatui Skirmisher - Geochanter Bracer.png",
-        "Fatui Skirmisher - Pyroslinger Bracer.png",
-        "Fatui Skirmisher - Electrohammer Vanguard.png",
-        "Cryo Hilichurl Shooter.png",
         "Cryo Slime.png",
-        "Fatui Cryo Cicin Mage.png"
+        "Cryo Hilichurl Shooter.png",
+        "Fatui Cryo Cicin Mage.png",
+        "Fatui Skirmisher - Electrohammer Vanguard.png",
+        "Fatui Skirmisher - Geochanter Bracer.png",
+        "Hilichurl Berserker.png"
       ],
       "previousImage": {
         "source": "https://genshin-impact.fandom.com/wiki/File:Snow-Covered_Path.png",
@@ -11078,11 +11189,12 @@
       "wilderness": true,
       "enemyEncounterRate": 40,
       "enemyPool": [
+        "Cryo Abyss Mage.png",
         "Ice Shieldwall Mitachurl.png",
-        "Cryo Hilichurl Shooter.png",
+        "Treasure Hoarders Gravedigger.png",
         "Large Cryo Slime.png",
         "Cryo Whopperflower.png",
-        "Cryo Abyss Mage.png"
+        "Crackling Axe Mitachurl.png"
       ],
       "previousImage": {
         "source": "https://genshin-impact.fandom.com/wiki/File:Entombed_City_-_Ancient_Palace.png",
@@ -11153,10 +11265,11 @@
       "enemyEncounterRate": 40,
       "enemyPool": [
         "Cryo Hilichurl Shooter.png",
-        "Cryo Slime.png",
-        "Large Cryo Slime.png",
         "Cryo Whopperflower.png",
-        "Fatui Skirmisher - Cryogunner Legionnaire.png"
+        "Blazing Axe Mitachurl.png",
+        "Electro Hilichurl Shooter.png",
+        "Large Cryo Slime.png",
+        "Ice Shieldwall Mitachurl.png"
       ],
       "previousImage": {
         "source": "https://genshin-impact.fandom.com/wiki/File:Skyfrost_Nail.png",
@@ -11225,11 +11338,12 @@
       "wilderness": true,
       "enemyEncounterRate": 40,
       "enemyPool": [
+        "Large Cryo Slime.png",
+        "Crackling Axe Mitachurl.png",
         "Ice Shieldwall Mitachurl.png",
         "Cryo Hilichurl Shooter.png",
-        "Large Cryo Slime.png",
-        "Cryo Abyss Mage.png",
-        "Treasure Hoarders Gravedigger.png"
+        "Treasure Hoarders Gravedigger.png",
+        "Electro Slime.png"
       ],
       "previousImage": {
         "source": "https://genshin-impact.fandom.com/wiki/File:Starglow_Cavern.png",
@@ -11256,7 +11370,9 @@
         "Millhaven",
         "Windrest Peak village"
       ],
-      "suggestedCharacters": [],
+      "suggestedCharacters": [
+        "Mika"
+      ],
       "residents": [],
       "waypoint": {
         "mapId": "teyvat",
@@ -11374,7 +11490,17 @@
           "captions": false,
           "camera": "Genshin Impact Wiki in-game image of the location, reviewed on a contact sheet: no playable characters, HUD, UID or captions; ordinary NPCs and the game logo may remain. Recompressed to WebP at the original dimensions."
         }
-      }
+      },
+      "wilderness": true,
+      "enemyEncounterRate": 40,
+      "enemyPool": [
+        "Geo Samachurl.png",
+        "Rock Shieldwall Mitachurl.png",
+        "Geo Slime.png",
+        "Stonehide Lawachurl.png",
+        "Treasure Hoarders Pyro Potioneer.png",
+        "Electro Hilichurl Shooter.png"
+      ]
     },
     {
       "id": "map14-liyue-mt-aocang",
@@ -11386,7 +11512,9 @@
         "Cloud Retainer abode",
         "Minlin peak"
       ],
-      "suggestedCharacters": [],
+      "suggestedCharacters": [
+        "Shenhe"
+      ],
       "residents": [],
       "waypoint": {
         "mapId": "teyvat",
@@ -11504,7 +11632,17 @@
           "captions": false,
           "camera": "Genshin Impact Wiki in-game image of the location, reviewed on a contact sheet: no playable characters, HUD, UID or captions; ordinary NPCs and the game logo may remain. Recompressed to WebP at the original dimensions."
         }
-      }
+      },
+      "wilderness": true,
+      "enemyEncounterRate": 40,
+      "enemyPool": [
+        "Cryo Hilichurl Shooter.png",
+        "Anemo Samachurl.png",
+        "Ice Shieldwall Mitachurl.png",
+        "Rock Shieldwall Mitachurl.png",
+        "Hilichurl Shooter.png",
+        "Geo Samachurl.png"
+      ]
     },
     {
       "id": "map14-liyue-yaodie-valley",
@@ -11569,7 +11707,17 @@
           "captions": false,
           "camera": "Genshin Impact Wiki in-game image of the location, reviewed on a contact sheet: no playable characters, HUD, UID or captions; ordinary NPCs and the game logo may remain. Recompressed to WebP at the original dimensions."
         }
-      }
+      },
+      "wilderness": true,
+      "enemyEncounterRate": 40,
+      "enemyPool": [
+        "Stonehide Lawachurl.png",
+        "Hilichurl Berserker.png",
+        "Electro Hilichurl Shooter.png",
+        "Pyro Whopperflower.png",
+        "Dendro Samachurl.png",
+        "Cryo Hilichurl Shooter.png"
+      ]
     },
     {
       "id": "map14-liyue-jademouth",
@@ -11581,7 +11729,9 @@
         "Chenyu Vale: Upper Vale",
         "Bishui River jade"
       ],
-      "suggestedCharacters": [],
+      "suggestedCharacters": [
+        "Zibai"
+      ],
       "residents": [],
       "waypoint": {
         "mapId": "teyvat",
@@ -11688,12 +11838,12 @@
       "wilderness": true,
       "enemyEncounterRate": 40,
       "enemyPool": [
-        "Fatui Skirmisher - Pyroslinger Bracer.png",
-        "Fatui Skirmisher - Cryogunner Legionnaire.png",
-        "Large Cryo Slime.png",
+        "Fatui Electro Cicin Mage.png",
+        "Hilichurl Fighter.png",
+        "Pyro Whopperflower.png",
+        "Dendro Samachurl.png",
         "Hilichurl Berserker.png",
-        "Large Pyro Slime.png",
-        "Geo Slime.png"
+        "Treasure Hoarders Gravedigger.png"
       ],
       "previousImage": {
         "source": "https://genshin-impact.fandom.com/wiki/File:Tianqiu_Valley.png",
@@ -11764,10 +11914,11 @@
       "enemyEncounterRate": 40,
       "enemyPool": [
         "Fatui Skirmisher - Electrohammer Vanguard.png",
+        "Treasure Hoarders Gravedigger.png",
+        "Large Pyro Slime.png",
         "Fatui Skirmisher - Cryogunner Legionnaire.png",
         "Fatui Skirmisher - Hydrogunner Legionnaire.png",
-        "Treasure Hoarders Gravedigger.png",
-        "Large Hydro Slime.png"
+        "Ruin Drake Earthguard.png"
       ],
       "previousImage": {
         "source": "https://genshin-impact.fandom.com/wiki/File:Dunyu_Ruins.png",
@@ -11837,11 +11988,12 @@
       "wilderness": true,
       "enemyEncounterRate": 40,
       "enemyPool": [
-        "Rock Shieldwall Mitachurl.png",
         "Electro Samachurl.png",
         "Large Electro Slime.png",
-        "Treasure Hoarders Pyro Potioneer.png",
-        "Treasure Hoarders - Marksman.png"
+        "Hydro Samachurl.png",
+        "Anemo Samachurl.png",
+        "Treasure Hoarders - Marksman.png",
+        "Fatui Skirmisher - Geochanter Bracer.png"
       ],
       "previousImage": {
         "source": "https://act.hoyolab.com/ys/app/interactive-map/index.html?lang=en-us&map_id=2&point_id=34",
@@ -11910,11 +12062,12 @@
       "wilderness": true,
       "enemyEncounterRate": 40,
       "enemyPool": [
-        "Rock Shieldwall Mitachurl.png",
+        "Black Serpent Knight Rockbreaker Ax.png",
+        "Black Serpent Knight Windcutter.png",
         "Ruin Guard.png",
         "Cryo Hilichurl Shooter.png",
-        "Anemo Samachurl.png",
-        "Crackling Axe Mitachurl.png"
+        "Rock Shieldwall Mitachurl.png",
+        "Electro Abyss Mage.png"
       ],
       "previousImage": {
         "source": "https://genshin-impact.fandom.com/wiki/File:Tiangong_Gorge.png",
@@ -11984,11 +12137,12 @@
       "wilderness": true,
       "enemyEncounterRate": 40,
       "enemyPool": [
-        "Blazing Axe Mitachurl.png",
-        "Pyro Abyss Mage.png",
+        "Ruin Drake Earthguard.png",
+        "Treasure Hoarders Pyro Potioneer.png",
+        "Treasure Hoarders - Marksman.png",
+        "Abyss Lector Fathomless Flames.png",
         "Large Hydro Slime.png",
-        "Hilichurl Berserker.png",
-        "Treasure Hoarders Pyro Potioneer.png"
+        "Blazing Axe Mitachurl.png"
       ],
       "previousImage": {
         "source": "https://genshin-impact.fandom.com/wiki/File:Sal_Terrae.png",
@@ -12057,12 +12211,12 @@
       "wilderness": true,
       "enemyEncounterRate": 40,
       "enemyPool": [
-        "Hilichurl Fighter.png",
-        "Hilichurl Shooter.png",
-        "Anemo Samachurl.png",
-        "Cryo Whopperflower.png",
-        "Cryo Abyss Mage.png",
-        "Hydro Slime.png"
+        "Wooden Shieldwall Mitachurl.png",
+        "Hydro Samachurl.png",
+        "Dendro Samachurl.png",
+        "Pyro Whopperflower.png",
+        "Hydro Slime.png",
+        "Anemo Samachurl.png"
       ],
       "previousImage": {
         "source": "https://genshin-impact.fandom.com/wiki/File:Dihua_Marsh.png",
@@ -12131,11 +12285,12 @@
       "wilderness": true,
       "enemyEncounterRate": 40,
       "enemyPool": [
+        "Kairagi Fiery Might.png",
         "Nobushi Hitsukeban.png",
-        "Hilichurl Berserker.png",
-        "Cryo Hilichurl Shooter.png",
+        "Anemo Samachurl.png",
         "Large Hydro Slime.png",
-        "Fatui Skirmisher - Anemoboxer Vanguard.png"
+        "Ice Shieldwall Mitachurl.png",
+        "Treasure Hoarders - Marksman.png"
       ],
       "previousImage": {
         "source": "https://genshin-impact.fandom.com/wiki/File:Jinren_Island.png",
@@ -12204,12 +12359,12 @@
       "wilderness": true,
       "enemyEncounterRate": 40,
       "enemyPool": [
-        "Ruin Guard.png",
-        "Cryo Abyss Mage.png",
-        "Hydro Abyss Mage.png",
         "Ice Shieldwall Mitachurl.png",
-        "Cryo Slime.png",
-        "Large Cryo Slime.png"
+        "Nobushi Jintouban.png",
+        "Hydro Abyss Mage.png",
+        "Kairagi Fiery Might.png",
+        "Cryo Whopperflower.png",
+        "Ruin Guard.png"
       ],
       "previousImage": {
         "source": "https://genshin-impact.fandom.com/wiki/File:Araumi.png",
@@ -12278,12 +12433,12 @@
       "wilderness": true,
       "enemyEncounterRate": 40,
       "enemyPool": [
-        "Hilichurl Shooter.png",
-        "Treasure Hoarders - Scout.png",
-        "Geo Slime.png",
-        "Fatui Skirmisher - Cryogunner Legionnaire.png",
+        "Hilichurl Berserker.png",
         "Pyro Whopperflower.png",
-        "Nobushi Jintouban.png"
+        "Nobushi Jintouban.png",
+        "Hilichurl Shooter.png",
+        "Nobushi Kikouban.png",
+        "Wooden Shieldwall Mitachurl.png"
       ],
       "previousImage": {
         "source": "https://genshin-impact.fandom.com/wiki/File:Byakko_Plain.png",
@@ -12353,12 +12508,12 @@
       "wilderness": true,
       "enemyEncounterRate": 40,
       "enemyPool": [
-        "Nobushi Jintouban.png",
-        "Electro Abyss Mage.png",
         "Large Electro Slime.png",
+        "Electro Hilichurl Shooter.png",
         "Hilichurl Berserker.png",
-        "Fatui Skirmisher - Electrohammer Vanguard.png",
-        "Thundercraven Rifthound.png"
+        "Abyss Lector Violet Lightning.png",
+        "Nobushi Jintouban.png",
+        "Nobushi Hitsukeban.png"
       ],
       "previousImage": {
         "source": "https://genshin-impact.fandom.com/wiki/File:Musoujin_Gorge.png",
@@ -12427,12 +12582,12 @@
       "wilderness": true,
       "enemyEncounterRate": 40,
       "enemyPool": [
+        "Crackling Axe Mitachurl.png",
+        "Ruin Drake Earthguard.png",
+        "Kairagi Dancing Thunder.png",
+        "Nobushi Hitsukeban.png",
         "Hilichurl Fighter.png",
-        "Blazing Axe Mitachurl.png",
-        "Large Pyro Slime.png",
-        "Pyro Abyss Mage.png",
-        "Geo Slime.png",
-        "Treasure Hoarders Pyro Potioneer.png"
+        "Electro Samachurl.png"
       ],
       "previousImage": {
         "source": "https://genshin-impact.fandom.com/wiki/File:Fort_Mumei.png",
@@ -12501,12 +12656,12 @@
       "wilderness": true,
       "enemyEncounterRate": 40,
       "enemyPool": [
-        "Kairagi Dancing Thunder.png",
         "Nobushi Hitsukeban.png",
-        "Nobushi Kikouban.png",
-        "Large Electro Slime.png",
-        "Treasure Hoarders Gravedigger.png",
-        "Hilichurl Shooter.png"
+        "Kairagi Dancing Thunder.png",
+        "Treasure Hoarders - Scout.png",
+        "Treasure Hoarders - Marksman.png",
+        "Electro Samachurl.png",
+        "Large Electro Slime.png"
       ],
       "previousImage": {
         "source": "https://genshin-impact.fandom.com/wiki/File:Fort_Hiraumi.png",
@@ -12639,12 +12794,12 @@
       "wilderness": true,
       "enemyEncounterRate": 40,
       "enemyPool": [
-        "Fatui Skirmisher - Anemoboxer Vanguard.png",
-        "Fatui Skirmisher - Pyroslinger Bracer.png",
-        "Electro Hilichurl Shooter.png",
-        "Electro Samachurl.png",
-        "Pyro Whopperflower.png",
-        "Ice Shieldwall Mitachurl.png"
+        "Black Serpent Knight Rockbreaker Ax.png",
+        "Black Serpent Knight Windcutter.png",
+        "Nobushi Jintouban.png",
+        "Kairagi Fiery Might.png",
+        "Treasure Hoarders Pyro Potioneer.png",
+        "Treasure Hoarders Gravedigger.png"
       ],
       "previousImage": {
         "source": "https://genshin-impact.fandom.com/wiki/File:Mouun_Shrine.png",
@@ -12713,12 +12868,12 @@
       "wilderness": true,
       "enemyEncounterRate": 40,
       "enemyPool": [
+        "Rock Shieldwall Mitachurl.png",
+        "Geo Samachurl.png",
         "Cryo Hilichurl Shooter.png",
-        "Anemo Samachurl.png",
-        "Electro Abyss Mage.png",
-        "Wooden Shieldwall Mitachurl.png",
-        "Hilichurl Fighter.png",
-        "Thundercraven Rifthound.png"
+        "Nobushi Kikouban.png",
+        "Kairagi Dancing Thunder.png",
+        "Hilichurl Fighter.png"
       ],
       "previousImage": {
         "source": "https://genshin-impact.fandom.com/wiki/File:Shirikoro_Peak.png",
@@ -12798,7 +12953,17 @@
           "captions": false,
           "camera": "Genshin Impact Wiki in-game image of the location, reviewed on a contact sheet: no playable characters, HUD, UID or captions; ordinary NPCs and the game logo may remain. Recompressed to WebP at the original dimensions."
         }
-      }
+      },
+      "wilderness": true,
+      "enemyEncounterRate": 40,
+      "enemyPool": [
+        "Abyss Lector Fathomless Flames.png",
+        "Rockfond Rifthound.png",
+        "Kairagi Fiery Might.png",
+        "Nobushi Jintouban.png",
+        "Cryo Abyss Mage.png",
+        "Pyro Abyss Mage.png"
+      ]
     },
     {
       "id": "map14-sumeru-vimara-village",
@@ -12874,7 +13039,9 @@
         "Amurta research site",
         "Ashavan Realm"
       ],
-      "suggestedCharacters": [],
+      "suggestedCharacters": [
+        "Layla"
+      ],
       "residents": [],
       "waypoint": {
         "mapId": "teyvat",
@@ -12981,12 +13148,12 @@
       "wilderness": true,
       "enemyEncounterRate": 40,
       "enemyPool": [
-        "Electro Hilichurl Shooter.png",
-        "Hydro Samachurl.png",
-        "Electro Samachurl.png",
-        "Blazing Axe Mitachurl.png",
+        "Winged Dendroshroom.png",
         "Grounded Geoshroom.png",
-        "Large Electro Slime.png"
+        "Winged Cryoshroom.png",
+        "Eremite Desert Clearwater.png",
+        "Eremite Stone Enchanter.png",
+        "Consecrated Horned Crocodile.png"
       ],
       "previousImage": {
         "source": "https://genshin-impact.fandom.com/wiki/File:Devantaka_Mountain.png",
@@ -13120,12 +13287,12 @@
       "wilderness": true,
       "enemyEncounterRate": 40,
       "enemyPool": [
+        "Consecrated Scorpion.png",
         "Eremite Daythunder.png",
         "Eremite Stone Enchanter.png",
-        "Fatui Skirmisher - Geochanter Bracer.png",
-        "Fatui Skirmisher - Pyroslinger Bracer.png",
-        "Large Pyro Slime.png",
-        "Treasure Hoarders - Scout.png"
+        "Treasure Hoarders - Scout.png",
+        "Ruin Drake Earthguard.png",
+        "Geo Samachurl.png"
       ],
       "previousImage": {
         "source": "https://genshin-impact.fandom.com/wiki/File:Gate_of_Zulqarnain.png",
@@ -13195,11 +13362,12 @@
       "wilderness": true,
       "enemyEncounterRate": 40,
       "enemyPool": [
+        "Eremite Floral Ring-Dancer.png",
         "Eremite Sunfrost.png",
-        "Eremite Daythunder.png",
-        "Eremite Stone Enchanter.png",
-        "Grounded Geoshroom.png",
-        "Fatui Skirmisher - Anemoboxer Vanguard.png"
+        "Consecrated Flying Serpent.png",
+        "Geo Samachurl.png",
+        "Ruin Guard.png",
+        "Electro Samachurl.png"
       ],
       "previousImage": {
         "source": "https://genshin-impact.fandom.com/wiki/File:Safhe_Shatranj.png",
@@ -13269,11 +13437,12 @@
       "wilderness": true,
       "enemyEncounterRate": 40,
       "enemyPool": [
-        "Ruin Drake Earthguard.png",
-        "Eremite Stone Enchanter.png",
+        "Consecrated Scorpion.png",
+        "Eremite Desert Clearwater.png",
+        "Eremite Sunfrost.png",
         "Treasure Hoarders Gravedigger.png",
-        "Large Pyro Slime.png",
-        "Geo Slime.png"
+        "Ruin Drake Earthguard.png",
+        "Large Pyro Slime.png"
       ],
       "previousImage": {
         "source": "https://genshin-impact.fandom.com/wiki/File:Khaj-Nisut.png",
@@ -13343,12 +13512,12 @@
       "wilderness": true,
       "enemyEncounterRate": 40,
       "enemyPool": [
-        "Hilichurl Fighter.png",
-        "Wooden Shieldwall Mitachurl.png",
-        "Dendro Samachurl.png",
-        "Hilichurl Berserker.png",
+        "Consecrated Flying Serpent.png",
+        "Eremite Floral Ring-Dancer.png",
+        "Eremite Daythunder.png",
         "Crackling Axe Mitachurl.png",
-        "Electro Samachurl.png"
+        "Electro Samachurl.png",
+        "Hilichurl Fighter.png"
       ],
       "previousImage": {
         "source": "https://genshin-impact.fandom.com/wiki/File:Valley_of_Dahri.png",
@@ -13422,11 +13591,11 @@
       "enemyEncounterRate": 40,
       "enemyPool": [
         "Eremite Desert Clearwater.png",
-        "Fatui Cryo Cicin Mage.png",
-        "Cryo Slime.png",
-        "Fatui Skirmisher - Cryogunner Legionnaire.png",
+        "Eremite Scorching Loremaster.png",
+        "Consecrated Scorpion.png",
         "Treasure Hoarders - Marksman.png",
-        "Ruin Guard.png"
+        "Cryo Hilichurl Shooter.png",
+        "Treasure Hoarders Gravedigger.png"
       ],
       "previousImage": {
         "source": "https://genshin-impact.fandom.com/wiki/File:Wounded_Shin_Valley.png",
@@ -13495,11 +13664,11 @@
       "wilderness": true,
       "enemyEncounterRate": 40,
       "enemyPool": [
-        "Pyro Abyss Mage.png",
-        "Ice Shieldwall Mitachurl.png",
-        "Large Electro Slime.png",
         "Eremite Sunfrost.png",
+        "Eremite Daythunder.png",
+        "Consecrated Fanged Beast.png",
         "Hilichurl Shooter.png",
+        "Eremite Scorching Loremaster.png",
         "Treasure Hoarders Pyro Potioneer.png"
       ],
       "previousImage": {
@@ -13527,7 +13696,10 @@
         "Fountain of Lucine",
         "Opera Epiclese fountain"
       ],
-      "suggestedCharacters": [],
+      "suggestedCharacters": [
+        "Clorinde",
+        "Furina"
+      ],
       "residents": [],
       "waypoint": {
         "mapId": "teyvat",
@@ -13762,12 +13934,12 @@
       "wilderness": true,
       "enemyEncounterRate": 40,
       "enemyPool": [
-        "Fatui Skirmisher - Geochanter Bracer.png",
+        "Frost Operative.png",
         "Fatui Skirmisher - Pyroslinger Bracer.png",
-        "Treasure Hoarders - Marksman.png",
-        "Fatui Pyro Agent.png",
         "Arithmetic Enhancer Mek - Ousia.png",
-        "Electro Slime.png"
+        "Arithmetic Enhancer Mek - Pneuma.png",
+        "Cryo Hilichurl Shooter.png",
+        "Electro Hilichurl Shooter.png"
       ],
       "previousImage": {
         "source": "https://genshin-impact.fandom.com/wiki/File:Mont_Esus_East.png",
@@ -13836,12 +14008,12 @@
       "wilderness": true,
       "enemyEncounterRate": 40,
       "enemyPool": [
-        "Hilichurl Fighter.png",
-        "Hydro Samachurl.png",
+        "Hydro Hilichurl Rogue.png",
         "Electro Samachurl.png",
-        "Large Cryo Slime.png",
-        "Blazing Axe Mitachurl.png",
-        "Annihilation Specialist Mek - Pneuma.png"
+        "Annihilation Specialist Mek - Pneuma.png",
+        "Annihilation Specialist Mek - Ousia.png",
+        "Hilichurl Berserker.png",
+        "Dendro Samachurl.png"
       ],
       "previousImage": {
         "source": "https://genshin-impact.fandom.com/wiki/File:Loch_Urania.png",
@@ -13911,11 +14083,12 @@
       "wilderness": true,
       "enemyEncounterRate": 40,
       "enemyPool": [
-        "Hydro Abyss Mage.png",
-        "Large Hydro Slime.png",
-        "Electro Slime.png",
-        "Large Pyro Slime.png",
-        "Cryo Abyss Mage.png"
+        "Abyss Herald Wicked Torrents.png",
+        "Treasure Hoarders - Marksman.png",
+        "Annihilation Specialist Mek - Ousia.png",
+        "Annihilation Specialist Mek - Pneuma.png",
+        "Hydro Samachurl.png",
+        "Arithmetic Enhancer Mek - Ousia.png"
       ],
       "previousImage": {
         "source": "https://genshin-impact.fandom.com/wiki/File:Faded_Castle.png",
@@ -13985,12 +14158,12 @@
       "wilderness": true,
       "enemyEncounterRate": 40,
       "enemyPool": [
-        "Blazing Axe Mitachurl.png",
+        "Annihilation Specialist Mek - Ousia.png",
         "Suppression Specialist Mek - Pneuma.png",
-        "Large Hydro Slime.png",
+        "Assault Specialist Mek - Ousia.png",
         "Hilichurl Berserker.png",
-        "Large Pyro Slime.png",
-        "Treasure Hoarders Pyro Potioneer.png"
+        "Cryo Hilichurl Shooter.png",
+        "Assault Specialist Mek - Pneuma.png"
       ],
       "previousImage": {
         "source": "https://act.hoyolab.com/ys/app/interactive-map/index.html?lang=en-us&map_id=2&point_id=50045",
@@ -14136,7 +14309,17 @@
           "captions": false,
           "camera": "Genshin Impact Wiki in-game image of the location, reviewed on a contact sheet: no playable characters, HUD, UID or captions; ordinary NPCs and the game logo may remain. Recompressed to WebP at the original dimensions."
         }
-      }
+      },
+      "wilderness": true,
+      "enemyEncounterRate": 40,
+      "enemyPool": [
+        "Suppression Specialist Mek - Ousia.png",
+        "Annihilation Specialist Mek - Ousia.png",
+        "Arithmetic Enhancer Mek - Ousia.png",
+        "Suppression Specialist Mek - Pneuma.png",
+        "Treasure Hoarders - Scout.png",
+        "Rock Shieldwall Mitachurl.png"
+      ]
     },
     {
       "id": "map14-fontaine-elton-trench",
@@ -14190,11 +14373,12 @@
       "wilderness": true,
       "enemyEncounterRate": 40,
       "enemyPool": [
-        "Hydro Abyss Mage.png",
-        "Large Hydro Slime.png",
         "Suppression Specialist Mek - Ousia.png",
-        "Fatui Skirmisher - Hydrogunner Legionnaire.png",
-        "Treasure Hoarders Gravedigger.png"
+        "Annihilation Specialist Mek - Pneuma.png",
+        "Assault Specialist Mek - Ousia.png",
+        "Treasure Hoarders - Scout.png",
+        "Tainted Hydro Phantasm.png",
+        "Suppression Specialist Mek - Pneuma.png"
       ],
       "previousImage": {
         "source": "https://genshin-impact.fandom.com/wiki/File:Elton_Trench.png",
@@ -14459,10 +14643,11 @@
       "enemyEncounterRate": 40,
       "enemyPool": [
         "Hydro Slime.png",
-        "Large Hydro Slime.png",
+        "Cryo Slime.png",
+        "Fatui Pyro Agent.png",
         "Fatui Skirmisher - Anemoboxer Vanguard.png",
-        "Fatui Skirmisher - Hydrogunner Legionnaire.png",
-        "Cryo Slime.png"
+        "Fatui Skirmisher - Cryogunner Legionnaire.png",
+        "Cryo Abyss Mage.png"
       ],
       "previousImage": {
         "source": "https://genshin-impact.fandom.com/wiki/File:Tecoloapan_Bay.png",
@@ -14532,12 +14717,12 @@
       "wilderness": true,
       "enemyEncounterRate": 40,
       "enemyPool": [
-        "Fatui Skirmisher - Geochanter Bracer.png",
+        "Frost Operative.png",
         "Fatui Skirmisher - Electrohammer Vanguard.png",
+        "Fatui Skirmisher - Geochanter Bracer.png",
+        "Electro Abyss Mage.png",
         "Geo Slime.png",
-        "Large Pyro Slime.png",
-        "Fatui Pyro Agent.png",
-        "Electro Abyss Mage.png"
+        "Large Cryo Slime.png"
       ],
       "previousImage": {
         "source": "https://genshin-impact.fandom.com/wiki/File:Remnants_of_Tetenanco.png",
@@ -14607,11 +14792,12 @@
       "wilderness": true,
       "enemyEncounterRate": 40,
       "enemyPool": [
-        "Large Pyro Slime.png",
-        "Geo Slime.png",
-        "Fatui Skirmisher - Cryogunner Legionnaire.png",
+        "Rockfond Rifthound.png",
         "Pyro Abyss Mage.png",
-        "Rockfond Rifthound.png"
+        "Large Pyro Slime.png",
+        "Electro Slime.png",
+        "Abyss Lector Fathomless Flames.png",
+        "Thundercraven Rifthound.png"
       ],
       "previousImage": {
         "source": "https://genshin-impact.fandom.com/wiki/File:Fallingstar_Fields.png",
@@ -14680,11 +14866,12 @@
       "wilderness": true,
       "enemyEncounterRate": 40,
       "enemyPool": [
-        "Hydro Slime.png",
         "Large Hydro Slime.png",
-        "Hydro Abyss Mage.png",
+        "Large Pyro Slime.png",
         "Fatui Skirmisher - Hydrogunner Legionnaire.png",
-        "Electro Slime.png"
+        "Fatui Skirmisher - Anemoboxer Vanguard.png",
+        "Hydro Abyss Mage.png",
+        "Fatui Skirmisher - Pyroslinger Bracer.png"
       ],
       "previousImage": {
         "source": "https://genshin-impact.fandom.com/wiki/File:Ameyalco_Waters.png",
@@ -14818,11 +15005,12 @@
       "wilderness": true,
       "enemyEncounterRate": 40,
       "enemyPool": [
-        "Thundercraven Rifthound.png",
         "Large Electro Slime.png",
-        "Electro Abyss Mage.png",
+        "Fatui Electro Cicin Mage.png",
+        "Cryo Slime.png",
+        "Fatui Cryo Cicin Mage.png",
         "Fatui Skirmisher - Anemoboxer Vanguard.png",
-        "Cryo Slime.png"
+        "Electro Abyss Mage.png"
       ],
       "previousImage": {
         "source": "https://genshin-impact.fandom.com/wiki/File:Tepeacac_Rise.png",
@@ -14903,7 +15091,17 @@
           "captions": false,
           "camera": "Genshin Impact Wiki in-game image of the location, reviewed on a contact sheet: no playable characters, HUD, UID or captions; ordinary NPCs and the game logo may remain. Recompressed to WebP at the original dimensions."
         }
-      }
+      },
+      "wilderness": true,
+      "enemyEncounterRate": 40,
+      "enemyPool": [
+        "Abyss Lector Violet Lightning.png",
+        "Electro Abyss Mage.png",
+        "Pyro Abyss Mage.png",
+        "Rockfond Rifthound.png",
+        "Electro Slime.png",
+        "Large Cryo Slime.png"
+      ]
     },
     {
       "id": "map14-nod-krai-light-bathed-platform",
@@ -15021,11 +15219,12 @@
       "wilderness": true,
       "enemyEncounterRate": 40,
       "enemyPool": [
+        "Fatui Skirmisher - Pyroslinger Bracer.png",
         "Fatui Skirmisher - Electrohammer Vanguard.png",
         "Fatui Skirmisher - Geochanter Bracer.png",
-        "Fatui Skirmisher - Pyroslinger Bracer.png",
-        "Fatui Skirmisher - Anemoboxer Vanguard.png",
-        "Large Pyro Slime.png"
+        "Large Electro Slime.png",
+        "Large Pyro Slime.png",
+        "Hydro Abyss Mage.png"
       ],
       "previousImage": {
         "source": "https://genshin-impact.fandom.com/wiki/File:Kuuvahki_Experimental_Design_Bureau.png",
@@ -15095,10 +15294,11 @@
       "enemyEncounterRate": 40,
       "enemyPool": [
         "Hydro Slime.png",
-        "Large Hydro Slime.png",
+        "Fatui Pyro Agent.png",
+        "Cryo Slime.png",
         "Pyro Abyss Mage.png",
-        "Large Electro Slime.png",
-        "Cryo Slime.png"
+        "Electro Abyss Mage.png",
+        "Fatui Skirmisher - Geochanter Bracer.png"
       ],
       "previousImage": {
         "source": "https://genshin-impact.fandom.com/wiki/File:Starsand_Shoal.png",
@@ -15167,11 +15367,12 @@
       "wilderness": true,
       "enemyEncounterRate": 40,
       "enemyPool": [
-        "Large Hydro Slime.png",
-        "Fatui Skirmisher - Hydrogunner Legionnaire.png",
         "Electro Abyss Mage.png",
-        "Hydro Slime.png",
-        "Fatui Cryo Cicin Mage.png"
+        "Fatui Cryo Cicin Mage.png",
+        "Large Hydro Slime.png",
+        "Large Pyro Slime.png",
+        "Fatui Skirmisher - Electrohammer Vanguard.png",
+        "Fatui Electro Cicin Mage.png"
       ],
       "previousImage": {
         "source": "https://genshin-impact.fandom.com/wiki/File:Eye_of_Kratti.png",
@@ -15246,9 +15447,10 @@
       "enemyPool": [
         "Fatui Skirmisher - Anemoboxer Vanguard.png",
         "Fatui Skirmisher - Pyroslinger Bracer.png",
-        "Electro Abyss Mage.png",
-        "Cryo Abyss Mage.png",
-        "Large Electro Slime.png"
+        "Large Electro Slime.png",
+        "Fatui Pyro Agent.png",
+        "Geo Slime.png",
+        "Pyro Abyss Mage.png"
       ],
       "previousImage": {
         "source": "https://genshin-impact.fandom.com/wiki/File:Nothing_Passage.png",
@@ -15317,11 +15519,12 @@
       "wilderness": true,
       "enemyEncounterRate": 40,
       "enemyPool": [
-        "Cryo Slime.png",
+        "Fatui Skirmisher - Geochanter Bracer.png",
         "Hydro Slime.png",
         "Pyro Abyss Mage.png",
-        "Fatui Skirmisher - Geochanter Bracer.png",
-        "Large Hydro Slime.png"
+        "Cryo Slime.png",
+        "Fatui Cryo Cicin Mage.png",
+        "Fatui Pyro Agent.png"
       ],
       "previousImage": {
         "source": "https://act.hoyolab.com/ys/app/interactive-map/index.html?lang=en-us&map_id=2&point_id=92883",
@@ -15452,11 +15655,12 @@
       "wilderness": true,
       "enemyEncounterRate": 40,
       "enemyPool": [
+        "Hydro Abyss Mage.png",
+        "Large Pyro Slime.png",
         "Hydro Slime.png",
-        "Cryo Slime.png",
-        "Fatui Skirmisher - Electrohammer Vanguard.png",
         "Cryo Abyss Mage.png",
-        "Large Pyro Slime.png"
+        "Fatui Skirmisher - Pyroslinger Bracer.png",
+        "Fatui Skirmisher - Electrohammer Vanguard.png"
       ],
       "previousImage": {
         "source": "https://genshin-impact.fandom.com/wiki/File:Misty_Shoal.png",
@@ -15529,11 +15733,12 @@
       "wilderness": true,
       "enemyEncounterRate": 40,
       "enemyPool": [
-        "Large Cryo Slime.png",
-        "Hydro Abyss Mage.png",
+        "Electro Slime.png",
+        "Hydro Slime.png",
         "Fatui Skirmisher - Cryogunner Legionnaire.png",
+        "Fatui Electro Cicin Mage.png",
         "Pyro Abyss Mage.png",
-        "Electro Slime.png"
+        "Fatui Skirmisher - Hydrogunner Legionnaire.png"
       ],
       "previousImage": {
         "source": "https://act.hoyolab.com/ys/app/interactive-map/index.html?lang=en-us&map_id=2&point_id=92894",
@@ -15924,10 +16129,11 @@
       "enemyEncounterRate": 40,
       "enemyPool": [
         "Fatui Skirmisher - Hydrogunner Legionnaire.png",
+        "Fatui Skirmisher - Anemoboxer Vanguard.png",
+        "Fatui Skirmisher - Electrohammer Vanguard.png",
         "Fatui Skirmisher - Pyroslinger Bracer.png",
-        "Large Cryo Slime.png",
         "Cryo Slime.png",
-        "Fatui Skirmisher - Electrohammer Vanguard.png"
+        "Cryo Whopperflower.png"
       ],
       "previousImage": {
         "source": "https://genshin-impact.fandom.com/wiki/File:Hallowed_Plain.png",
@@ -15996,11 +16202,12 @@
       "wilderness": true,
       "enemyEncounterRate": 40,
       "enemyPool": [
+        "Cryo Whopperflower.png",
         "Fatui Skirmisher - Cryogunner Legionnaire.png",
-        "Fatui Skirmisher - Electrohammer Vanguard.png",
         "Cryo Abyss Mage.png",
+        "Fatui Skirmisher - Electrohammer Vanguard.png",
         "Large Cryo Slime.png",
-        "Fatui Skirmisher - Geochanter Bracer.png"
+        "Fatui Skirmisher - Anemoboxer Vanguard.png"
       ],
       "previousImage": {
         "source": "https://genshin-impact.fandom.com/wiki/File:Star-Piercing_Canyon.png",
@@ -16071,10 +16278,11 @@
       "enemyEncounterRate": 40,
       "enemyPool": [
         "Cryo Abyss Mage.png",
-        "Fatui Skirmisher - Hydrogunner Legionnaire.png",
-        "Fatui Skirmisher - Pyroslinger Bracer.png",
+        "Large Cryo Slime.png",
         "Cryo Whopperflower.png",
-        "Large Cryo Slime.png"
+        "Fatui Skirmisher - Hydrogunner Legionnaire.png",
+        "Fatui Electro Cicin Mage.png",
+        "Fatui Skirmisher - Pyroslinger Bracer.png"
       ],
       "previousImage": {
         "source": "https://genshin-impact.fandom.com/wiki/File:Old_Kitezhgrad.png",
@@ -16145,9 +16353,10 @@
       "enemyPool": [
         "Fatui Skirmisher - Cryogunner Legionnaire.png",
         "Fatui Skirmisher - Hydrogunner Legionnaire.png",
+        "Fatui Skirmisher - Pyroslinger Bracer.png",
+        "Large Cryo Slime.png",
         "Fatui Pyro Agent.png",
-        "Cryo Whopperflower.png",
-        "Large Cryo Slime.png"
+        "Cryo Whopperflower.png"
       ],
       "previousImage": {
         "source": "https://genshin-impact.fandom.com/wiki/File:Flamefeather_Valley.png",
@@ -16239,7 +16448,9 @@
         "Cryo Archon palace",
         "Snezhnograd"
       ],
-      "suggestedCharacters": [],
+      "suggestedCharacters": [
+        "Tartaglia"
+      ],
       "residents": [],
       "waypoint": {
         "mapId": "teyvat",
