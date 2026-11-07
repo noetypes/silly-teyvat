@@ -1,0 +1,88 @@
+{
+  "workflow": "../../../SPRITE-GENERATION.md",
+  "status": "approved_neutrals_installed",
+  "reference_exception": "User requested Internet references for the missing NPC neutrals. One online in-game image per character used as sole reference.",
+  "scope": "Katheryne and Taroumaru. Teucer and Tonia already have approved generated neutrals.",
+  "characters": {
+    "Katheryne": {
+      "reference_page": "https://www.hoyolab.com/article/20149830",
+      "reference_url": "https://upload-os-bbs.hoyolab.com/upload/2023/07/19/12896326/b09c54d293ef743b0e74e67cb6b62c51_6129367409563915799.png",
+      "reference": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-npc-neutral-candidates/references/Katheryne/online.png",
+      "reference_sha256": "7d3a11629dbeb08509cfca850b1c8fceaad162fa9b6dec14aebd381e8578b4d1",
+      "prompt_file": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-npc-neutral-candidates/prompts/Katheryne/neutral-v001.txt",
+      "tool": "image_gen.imagegen",
+      "tool_arguments": {
+        "prompt": "Use case: stylized-concept. Create one full-body neutral visual-novel sprite of Katheryne, the Adventurers' Guild receptionist from Genshin Impact. Use the supplied online in-game model image as the sole identity and costume reference. Preserve her short dark bob, blue eyes, white headpiece, green, white and black receptionist uniform, red accents, stockings and shoes. Render in polished Genshin-inspired anime game illustration, with a petite Medium Female build. Give her a calm, welcoming neutral expression and upright relaxed stance, hands separately relaxed near her sides with natural palms, four fingers and opposable thumbs as visible. Exactly two legs and two feet from one pelvis, feet slightly separated. Entire silhouette visible, including headpiece, hands and shoes, with about 2–4% padding above and below. True transparent background. No scenery, counter, text, UI, watermark, floating effects or ground shadow.\n",
+        "referenced_image_paths": [
+          "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-npc-neutral-candidates/references/Katheryne/online.png"
+        ],
+        "transparent_background": true
+      },
+      "tool_output": "/Users/alexachan/.codex/generated_images/01a1b6b5-c44a-7280-9fe0-2886ddd653dd/exec-ea3c40da-4909-419f-9c33-a21a686d4988.png",
+      "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-npc-neutral-candidates/raw/Katheryne/neutral-v001.png",
+      "raw_sha256": "30122a5510835d2544249903007aa068ad436c642ee2b0fd84a82565f954cc1c",
+      "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-npc-neutral-candidates/candidates/Katheryne/neutral-v001.png",
+      "candidate_sha256": "30122a5510835d2544249903007aa068ad436c642ee2b0fd84a82565f954cc1c",
+      "size": [
+        1086,
+        1448
+      ],
+      "png_color_type": 6,
+      "approval": {
+        "status": "approved",
+        "message": "Both accepted, put them in",
+        "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-npc-neutral-candidates/candidates/Katheryne/neutral-v001.png",
+        "candidate_sha256": "30122a5510835d2544249903007aa068ad436c642ee2b0fd84a82565f954cc1c",
+        "date": "2026-11-07"
+      },
+      "framing_transform": null,
+      "installation": {
+        "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Katheryne/neutral.png",
+        "backup": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-npc-neutral-candidates/installation-backup/Katheryne/neutral.png",
+        "backup_sha256": "1614c2fff61540a06db43afd0d9ad9cadba5d580db48ea07fda9b6583150899d",
+        "status": "installed",
+        "installed_sha256": "30122a5510835d2544249903007aa068ad436c642ee2b0fd84a82565f954cc1c"
+      }
+    },
+    "Taroumaru": {
+      "reference_page": "https://kincir.com/game/npc-genshin-impact-yang-disukai-pemain/",
+      "reference_url": "https://d1tgyzt3mf06m9.cloudfront.net/v3-staging/2023/09/npc-terbaik-genshin-impact-Taroumaru.png",
+      "reference": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-npc-neutral-candidates/references/Taroumaru/online.png",
+      "reference_sha256": "9dbe452620095559e3cb95a511d9d22edcbe0cb8ec44e232b69d092ad949d6aa",
+      "prompt_file": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-npc-neutral-candidates/prompts/Taroumaru/neutral-v001.txt",
+      "tool": "image_gen.imagegen",
+      "tool_arguments": {
+        "prompt": "Use case: stylized-concept. Create one full-body neutral visual-novel sprite of Taroumaru, the Shiba Inu proprietor of the Komore Teahouse from Genshin Impact. Use the supplied online in-game image as the sole identity and costume reference. Preserve his golden orange and cream fur, pointed ears, curled tail, white tied headband and dark burgundy teahouse coat with pale edging and white chest tie. Portray him as the actual small dog, on four natural legs, in a calm friendly standing pose facing slightly toward the viewer. Render in polished Genshin-inspired anime game illustration. Show the complete dog silhouette including ears, curled tail and all paws with about 2–4% padding above and below. True transparent background. No scenery, text, UI, watermark, floating effects or ground shadow.\n",
+        "referenced_image_paths": [
+          "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-npc-neutral-candidates/references/Taroumaru/online.png"
+        ],
+        "transparent_background": true
+      },
+      "tool_output": "/Users/alexachan/.codex/generated_images/01a1b6b5-c44a-7280-9fe0-2886ddd653dd/exec-6ae7c066-5bb3-445b-84a6-cf1a9a88816b.png",
+      "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-npc-neutral-candidates/raw/Taroumaru/neutral-v001.png",
+      "raw_sha256": "cc8370fb48acf4c57f570a9a3d697612e31a7d203e03fc23e8dfba25f94ca5df",
+      "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-npc-neutral-candidates/candidates/Taroumaru/neutral-v001.png",
+      "candidate_sha256": "cc8370fb48acf4c57f570a9a3d697612e31a7d203e03fc23e8dfba25f94ca5df",
+      "size": [
+        1501,
+        1048
+      ],
+      "png_color_type": 6,
+      "approval": {
+        "status": "approved",
+        "message": "Both accepted, put them in",
+        "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-npc-neutral-candidates/candidates/Taroumaru/neutral-v001.png",
+        "candidate_sha256": "cc8370fb48acf4c57f570a9a3d697612e31a7d203e03fc23e8dfba25f94ca5df",
+        "date": "2026-11-07"
+      },
+      "framing_transform": null,
+      "installation": {
+        "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Taroumaru/neutral.png",
+        "backup": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-npc-neutral-candidates/installation-backup/Taroumaru/neutral.png",
+        "backup_sha256": "16968b7cc910849e048bd214f78079ef481d0ae574291631d9640bbf4c2e1985",
+        "status": "installed",
+        "installed_sha256": "cc8370fb48acf4c57f570a9a3d697612e31a7d203e03fc23e8dfba25f94ca5df"
+      }
+    }
+  }
+}

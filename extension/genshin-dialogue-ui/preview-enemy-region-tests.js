@@ -41,8 +41,10 @@ export async function runEnemyRegionTests(){
         check('six more places became wilderness',['map14-mondstadt-old-sanatorium-site','map14-liyue-chiwang-terrace','map14-liyue-yaodie-valley','map14-inazuma-moshiri-ceremonial-site','map14-fontaine-tower-of-ipsissimus','map14-natlan-malinalco-grotto'].every(id=>LOCATION_POOLS[id]?.length===6));}
         {const homes=await fetch(new URL('assets/world-locations/character-homes.json',import.meta.url)).then(r=>r.json()),by={};
         for(const c of homes.characters)if(c.name!=='Katheryne')(by[c.locationId] ??= []).push(c.name);
-        const crowded=Object.entries(by).filter(([,n])=>n.length>2);
-        check('no bundled location is home to more than two characters',!crowded.length || (console.warn(crowded),false));
+        // 1.70: the three Aranara at Vanarana and the three Narzissenkreuz figures at Annapausis belong together.
+        const trios={'expansion-vanarana':'Araja,Arama,Aranakula','map14-fontaine-annapausis':'Jakob,Lyris,Rene'};
+        const crowded=Object.entries(by).filter(([id,n])=>n.length>2&&[...n].sort().join()!==trios[id]);
+        check('no bundled location is home to more than two characters, apart from two chosen trios',!crowded.length || (console.warn(crowded),false));
         check('wilderness and homes never overlap',!Object.keys(by).some(id=>LOCATION_POOLS[id]));}
         check('enemy names match their cards',!Object.keys(ENEMY_REGIONS).some(n=>/^Treasure Hoarders:/.test(n)));
         let seq=[.99,0,0,0],i=0;const random=()=>seq[i++ % seq.length];

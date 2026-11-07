@@ -1,3 +1,11 @@
+# Silly Teyvat 1.70.0: People of Teyvat
+
+- **42 new characters live at the places they belong to**, each with a card and a neutral sprite sized for them. Liyue: Granny Ruoxin and Master Lu at Qingce Village. Inazuma: Neko at Asase Shrine, Kujou Masahito and Xavier at Kujou Encampment, and Elder Komaki and Nishikino Reirei at Bourou Village. Sumeru: Arama, Araja and Aranakula at Vanarana, Maryam and the Eremite Aybak at Caravan Ribat, Babel and Jeht at Tanit Camps, Aurelius at Vimara Village, and Shajar and Adel at Bayda Harbor. Fontaine: Tiepolo and Mécantre at Petrichor, Sedile and Virda at Merusea Village, Lasselin and Pitot at The Rusty Rudder, Areta and Tetreaux at Fleuve Cendre, and Lyris, Jakob and Rene at Annapausis. Natlan: Mazatl and Tzompantli at Easybreeze Market, Aloha at Colorfall Cliffs, Tlapalli at Tete Isle and Tisoc at the Mother Flamegranate Tree. Nod-Krai: Anselm at Favonius Keep, Valdis and Egle at Cliffwatch Camp, and Eveliina and Kukkia at the Light-Bathed Platform. Snezhnaya: Mayskaya and Knyazev at Rankova Zorya, and the dogs Plate and Whistle at the Huntsman's Cabin. The cards are in `character-cards/location-npcs/`.
+- **Sizes to match.** Adults stand at their usual heights, elders a little shorter, Rene (as a boy), the Melusines, the dogs, the Aranara and Neko the cat smaller still.
+- **Nicole moves to the Witch's Garden**, where her greeting opens. Saved games move her once, unless you had placed her yourself.
+- **The deck animation plays once per draw.** It no longer replays when the battle screen opens for the next round.
+- The Realm of Beginnings has a new background, not yet approved.
+
 # Silly Teyvat 1.69.1: Burst cards line up
 
 - **Animated Burst cards fill the whole card.** While an Elemental Burst plays, the card's animated art

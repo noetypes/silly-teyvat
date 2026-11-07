@@ -839,7 +839,7 @@ export function mountBattle({host,sound=createBattleSound(),onBurst=()=>{},onSto
                 }
                 case 'end-round':{banner(e.side==='party'?'Round ended':'I\'m ending my Round.','',null,'tb-banner-end');sound.endRound?.();paintPlates();await wait(900);break;}
                 case 'tune':paintDice();break;
-                case 'draw':{for(const id of e.cards || [])void id;paintHand();if((e.cards || []).length){const items=[...dialog.querySelectorAll('.tb-hand .tb-item')].slice(-e.cards.length);items.forEach((n,k)=>{n.style.setProperty('--d',`${k*110}ms`);n.classList.add('tb-drawn');});$('.tb-hand').classList.add('tb-open');setTimeout(()=>{$('.tb-hand').classList.remove('tb-open');items.forEach(n=>n.classList.remove('tb-drawn'));},900+e.cards.length*110);sound.draw?.(e.cards.length);const deck=$('.tb-deck');deck.classList.remove('tb-drawing');void deck.offsetWidth;deck.classList.add('tb-drawing');banner(`Drew ${e.cards.length} card${e.cards.length===1?'':'s'}`,'End Phase');await wait(700);}
+                case 'draw':{for(const id of e.cards || [])void id;paintHand();if((e.cards || []).length){const items=[...dialog.querySelectorAll('.tb-hand .tb-item')].slice(-e.cards.length);items.forEach((n,k)=>{n.style.setProperty('--d',`${k*110}ms`);n.classList.add('tb-drawn');});$('.tb-hand').classList.add('tb-open');setTimeout(()=>{$('.tb-hand').classList.remove('tb-open');items.forEach(n=>n.classList.remove('tb-drawn'));},900+e.cards.length*110);sound.draw?.(e.cards.length);const deck=$('.tb-deck');deck.classList.remove('tb-drawing');void deck.offsetWidth;deck.classList.add('tb-drawing');deck.addEventListener('animationend',()=>deck.classList.remove('tb-drawing'),{once:true});banner(`Drew ${e.cards.length} card${e.cards.length===1?'':'s'}`,'End Phase');await wait(700);}
                     // Unlike the card game, cards that don't fit a full hand of 10 are not lost: they stay in the deck.
                     if((e.burned || []).length){paintHand();banner('Hand full',`${e.burned.length} card${e.burned.length===1?' stays':'s stay'} in your deck`,'#ffe9a6');await wait(800);}break;}
                 case 'act':{
@@ -942,6 +942,8 @@ export function mountBattle({host,sound=createBattleSound(),onBurst=()=>{},onSto
     function open(){clearTimeout(closeTimer);dialog.classList.remove('gb-closing');if(!dialog.open){dialog.showModal();dialog.focus({preventScroll:true});}fitZones();requestAnimationFrame(()=>{particles.fit();fitZones();});}
     function setup(snapshot,player){
         state=structuredClone(snapshot);cards.clear();round=null;pick=null;picked=null;tuning=false;choose=null;lastTurn='';
+        // A draw's deck animation left on would replay when the board is shown again.
+        $('.tb-deck').classList.remove('tb-drawing');
         $('.tb-row-foe').replaceChildren(...enemies().map(buildCard));
         $('.tb-row-you').replaceChildren(...party().map(buildCard));
         const counts=['.tb-row-foe','.tb-row-you'].map(s=>{const row=$(s);row.style.setProperty('--k',String(Math.max(1,row.children.length)));return row.children.length;});

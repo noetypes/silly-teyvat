@@ -1,5 +1,5 @@
 {
-  "version": 6,
+  "version": 7,
   "date": "2026-11-07",
   "notes": "Default resident cap: 5. Bundled overfull locations redistributed to suitable meeting points. Existing user moves are respected by the one-time relocation migration. Prune remains at Mondstadt Fountain Plaza. Travelling companions do not consume resident slots.",
   "characters": [
@@ -347,9 +347,9 @@
     },
     {
       "name": "Nicole",
-      "locationId": "roleplay-nicole-voidsea-outlook-meeting-default",
-      "rationale": "Nicole is associated with the Witch's Garden, but the Garden itself is not a mapped waypoint in the available map data. Voidsea Outlook is used only as an explicit roleplay meeting default in the same broad area, not as a claim that the cave or waypoint is the Witch's Garden or her home.",
-      "loreSource": "https://genshin-impact.fandom.com/wiki/Nicole/Profile"
+      "locationId": "expansion-the-witch-s-garden",
+      "rationale": "Nicole's greeting opens in the Witch's Garden, where her lodge is located.",
+      "loreSource": "https://genshin-impact.fandom.com/wiki/The_Witch%27s_Garden"
     },
     {
       "name": "Razor",
@@ -764,6 +764,258 @@
       "locationId": "expansion-starfell-lake",
       "rationale": "Paimon is first met at Starfell Lake, caught in a whirlpool. Her card is set at that moment.",
       "loreSource": "https://genshin-impact.fandom.com/wiki/Paimon"
+    },
+    {
+      "name": "Granny Ruoxin",
+      "locationId": "wild-liyue-qingce-village",
+      "rationale": "Wiki lists Granny Ruoxin at Qingce Village.",
+      "loreSource": "https://genshin-impact.fandom.com/wiki/Granny_Ruoxin"
+    },
+    {
+      "name": "Master Lu",
+      "locationId": "wild-liyue-qingce-village",
+      "rationale": "Wiki lists Master Lu at Qingce Village.",
+      "loreSource": "https://genshin-impact.fandom.com/wiki/Master_Lu"
+    },
+    {
+      "name": "Neko",
+      "locationId": "expansion-asase-shrine",
+      "rationale": "Wiki lists Neko at Asase Shrine.",
+      "loreSource": "https://genshin-impact.fandom.com/wiki/Neko"
+    },
+    {
+      "name": "Kujou Masahito",
+      "locationId": "expansion-kujou-encampment",
+      "rationale": "Wiki lists Kujou Masahito at Kujou Encampment.",
+      "loreSource": "https://genshin-impact.fandom.com/wiki/Kujou_Masahito"
+    },
+    {
+      "name": "Xavier",
+      "locationId": "expansion-kujou-encampment",
+      "rationale": "Roleplay meeting point. After Tatara Tales and The Seventh Samurai, when Xavier relocates to the encampment.",
+      "loreSource": "https://genshin-impact.fandom.com/wiki/Xavier"
+    },
+    {
+      "name": "Komaki",
+      "locationId": "map14-inazuma-bourou-village",
+      "rationale": "Wiki lists Komaki at Bourou Village.",
+      "loreSource": "https://genshin-impact.fandom.com/wiki/Komaki"
+    },
+    {
+      "name": "Nishikino Reirei",
+      "locationId": "map14-inazuma-bourou-village",
+      "rationale": "Wiki lists Nishikino Reirei at Bourou Village.",
+      "loreSource": "https://genshin-impact.fandom.com/wiki/Nishikino_Reirei"
+    },
+    {
+      "name": "Arama",
+      "locationId": "expansion-vanarana",
+      "rationale": "Roleplay meeting point. During Aranyaka, before Arama becomes the new Ashvattha Tree. This is a story-era encounter.",
+      "loreSource": "https://genshin-impact.fandom.com/wiki/Arama"
+    },
+    {
+      "name": "Araja",
+      "locationId": "expansion-vanarana",
+      "rationale": "Roleplay meeting point. In dream Vanarana, where Araja can manifest.",
+      "loreSource": "https://genshin-impact.fandom.com/wiki/Araja"
+    },
+    {
+      "name": "Aranakula",
+      "locationId": "expansion-vanarana",
+      "rationale": "Roleplay meeting point. In dream Vanarana.",
+      "loreSource": "https://genshin-impact.fandom.com/wiki/Aranakula"
+    },
+    {
+      "name": "Maryam",
+      "locationId": "expansion-caravan-ribat",
+      "rationale": "Wiki lists Maryam at Caravan Ribat.",
+      "loreSource": "https://genshin-impact.fandom.com/wiki/Maryam"
+    },
+    {
+      "name": "Aybak",
+      "locationId": "expansion-caravan-ribat",
+      "rationale": "Wiki lists Aybak at Caravan Ribat.",
+      "loreSource": "https://genshin-impact.fandom.com/wiki/Aybak"
+    },
+    {
+      "name": "Babel",
+      "locationId": "expansion-tanit-camps",
+      "rationale": "Roleplay meeting point. During the Tanit quest storyline, before Her Foes Rage Like Great Waters ends in Babel’s death.",
+      "loreSource": "https://genshin-impact.fandom.com/wiki/Babel"
+    },
+    {
+      "name": "Jeht",
+      "locationId": "expansion-tanit-camps",
+      "rationale": "Roleplay meeting point. During Jeht’s time with the Tanit, before the later destruction of the tribe.",
+      "loreSource": "https://genshin-impact.fandom.com/wiki/Jeht"
+    },
+    {
+      "name": "Aurelius",
+      "locationId": "map14-sumeru-vimara-village",
+      "rationale": "Wiki lists Aurelius at Vimara Village.",
+      "loreSource": "https://genshin-impact.fandom.com/wiki/Aurelius"
+    },
+    {
+      "name": "Shajar",
+      "locationId": "map14-sumeru-bayda-harbor",
+      "rationale": "Wiki lists Shajar at Bayda Harbor.",
+      "loreSource": "https://genshin-impact.fandom.com/wiki/Shajar"
+    },
+    {
+      "name": "Adel",
+      "locationId": "map14-sumeru-bayda-harbor",
+      "rationale": "Wiki lists Adel at Bayda Harbor.",
+      "loreSource": "https://genshin-impact.fandom.com/wiki/Adel"
+    },
+    {
+      "name": "Tiepolo",
+      "locationId": "expansion-petrichor",
+      "rationale": "Wiki lists Tiepolo at Petrichor.",
+      "loreSource": "https://genshin-impact.fandom.com/wiki/Tiepolo"
+    },
+    {
+      "name": "Mécantre",
+      "locationId": "expansion-petrichor",
+      "rationale": "Wiki lists Mécantre at Petrichor.",
+      "loreSource": "https://genshin-impact.fandom.com/wiki/M%C3%A9cantre"
+    },
+    {
+      "name": "Sedile",
+      "locationId": "expansion-merusea-village",
+      "rationale": "Wiki lists Sedile at Merusea Village.",
+      "loreSource": "https://genshin-impact.fandom.com/wiki/Sedile"
+    },
+    {
+      "name": "Virda",
+      "locationId": "expansion-merusea-village",
+      "rationale": "Wiki lists Virda at Merusea Village.",
+      "loreSource": "https://genshin-impact.fandom.com/wiki/Virda"
+    },
+    {
+      "name": "Lasselin",
+      "locationId": "expansion-the-rusty-rudder",
+      "rationale": "Wiki lists Lasselin at The Rusty Rudder.",
+      "loreSource": "https://genshin-impact.fandom.com/wiki/Lasselin"
+    },
+    {
+      "name": "Pitot",
+      "locationId": "expansion-the-rusty-rudder",
+      "rationale": "Wiki lists Pitot at The Rusty Rudder.",
+      "loreSource": "https://genshin-impact.fandom.com/wiki/Pitot"
+    },
+    {
+      "name": "Areta",
+      "locationId": "map14-fontaine-fleuve-cendre",
+      "rationale": "Wiki lists Areta at Fleuve Cendre.",
+      "loreSource": "https://genshin-impact.fandom.com/wiki/Areta"
+    },
+    {
+      "name": "Tetreaux",
+      "locationId": "map14-fontaine-fleuve-cendre",
+      "rationale": "Wiki lists Tetreaux at Fleuve Cendre.",
+      "loreSource": "https://genshin-impact.fandom.com/wiki/Tetreaux"
+    },
+    {
+      "name": "Lyris",
+      "locationId": "map14-fontaine-annapausis",
+      "rationale": "Roleplay meeting point. A historical or dreamlike encounter inspired by Annapausis; Lyris is a historical figure, not an ordinary present-day resident.",
+      "loreSource": "https://genshin-impact.fandom.com/wiki/Lyris"
+    },
+    {
+      "name": "Jakob",
+      "locationId": "map14-fontaine-annapausis",
+      "rationale": "Roleplay meeting point. A Narzissenkreuz story-era encounter, before Jakob’s death in Search in the Algae Sea; the setting is a roleplay meeting point.",
+      "loreSource": "https://genshin-impact.fandom.com/wiki/Jakob"
+    },
+    {
+      "name": "Rene",
+      "locationId": "map14-fontaine-annapausis",
+      "rationale": "Roleplay meeting point. A historical or dreamlike roleplay encounter before his dissolution; Annapausis is a meeting point, not a claim of present-day residence.",
+      "loreSource": "https://genshin-impact.fandom.com/wiki/Rene"
+    },
+    {
+      "name": "Mazatl",
+      "locationId": "expansion-easybreeze-market",
+      "rationale": "Wiki lists Mazatl at Easybreeze Market.",
+      "loreSource": "https://genshin-impact.fandom.com/wiki/Mazatl"
+    },
+    {
+      "name": "Tzompantli",
+      "locationId": "expansion-easybreeze-market",
+      "rationale": "Wiki lists Tzompantli at Easybreeze Market.",
+      "loreSource": "https://genshin-impact.fandom.com/wiki/Tzompantli"
+    },
+    {
+      "name": "Aloha",
+      "locationId": "map14-natlan-colorfall-cliffs",
+      "rationale": "Wiki lists Aloha at Colorfall Cliffs.",
+      "loreSource": "https://genshin-impact.fandom.com/wiki/Aloha"
+    },
+    {
+      "name": "Tlapalli",
+      "locationId": "map14-natlan-tete-isle",
+      "rationale": "Wiki lists Tlapalli at Tete Isle.",
+      "loreSource": "https://genshin-impact.fandom.com/wiki/Tlapalli"
+    },
+    {
+      "name": "Tisoc",
+      "locationId": "map14-natlan-mother-flamegranate-tree",
+      "rationale": "Roleplay meeting point. After Ripe For Trouble; this is a nearby roleplay meeting point.",
+      "loreSource": "https://genshin-impact.fandom.com/wiki/Tisoc"
+    },
+    {
+      "name": "Anselm",
+      "locationId": "map14-nod-krai-favonius-keep",
+      "rationale": "Wiki lists Anselm at Favonius Keep.",
+      "loreSource": "https://genshin-impact.fandom.com/wiki/Anselm"
+    },
+    {
+      "name": "Valdis",
+      "locationId": "map14-nod-krai-cliffwatch-camp",
+      "rationale": "Roleplay meeting point. After Nightingale’s Song, when Valdis appears at Cliffwatch Camp.",
+      "loreSource": "https://genshin-impact.fandom.com/wiki/Valdis"
+    },
+    {
+      "name": "Egle",
+      "locationId": "map14-nod-krai-cliffwatch-camp",
+      "rationale": "Roleplay meeting point. After Nightingale’s Song, when Egle appears at Cliffwatch Camp.",
+      "loreSource": "https://genshin-impact.fandom.com/wiki/Egle"
+    },
+    {
+      "name": "Eveliina",
+      "locationId": "map14-nod-krai-light-bathed-platform",
+      "rationale": "Wiki lists Eveliina at Light-Bathed Platform.",
+      "loreSource": "https://genshin-impact.fandom.com/wiki/Eveliina"
+    },
+    {
+      "name": "Kukkia",
+      "locationId": "map14-nod-krai-light-bathed-platform",
+      "rationale": "Wiki lists Kukkia at Light-Bathed Platform.",
+      "loreSource": "https://genshin-impact.fandom.com/wiki/Kukkia"
+    },
+    {
+      "name": "Mayskaya",
+      "locationId": "expansion-rankova-zorya",
+      "rationale": "Quest-era roleplay placement; see the card’s source notes.",
+      "loreSource": "https://www.hoyodex.com/wiki/genshin-impact/quest-exclusive-npcs"
+    },
+    {
+      "name": "Knyazev",
+      "locationId": "expansion-rankova-zorya",
+      "rationale": "Quest-era roleplay placement; see the card’s source notes.",
+      "loreSource": "https://www.hoyodex.com/wiki/genshin-impact/quest-exclusive-npcs"
+    },
+    {
+      "name": "Plate",
+      "locationId": "map14-snezhnaya-huntsman-s-cabin",
+      "rationale": "Quest-era roleplay placement; see the card’s source notes.",
+      "loreSource": "https://www.hoyodex.com/wiki/genshin-impact/hunter-on-the-snowfields"
+    },
+    {
+      "name": "Whistle",
+      "locationId": "map14-snezhnaya-huntsman-s-cabin",
+      "rationale": "Quest-era roleplay placement; see the card’s source notes.",
+      "loreSource": "https://www.hoyodex.com/wiki/genshin-impact/hunter-on-the-snowfields"
     }
   ],
   "relocations": [
@@ -954,6 +1206,12 @@
       "from": "starter-angel-s-share",
       "to": "expansion-dawn-winery",
       "rationale": "Diluc owns the Dawn Winery and lives there; his greeting now opens in its study. Angel’s Share keeps Venti and Eula."
+    },
+    {
+      "name": "Nicole",
+      "from": "roleplay-nicole-voidsea-outlook-meeting-default",
+      "to": "expansion-the-witch-s-garden",
+      "rationale": "Her greeting opens in the Witch’s Garden. Preserve custom placements."
     }
   ]
 }

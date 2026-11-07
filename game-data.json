@@ -1,5 +1,4 @@
 {
-  "version": 1,
   "files": {
     "art/location-backgrounds/2026-11-07-signora-arena/raw.png": {
       "bytes": 2437051,
@@ -17286,8 +17285,8 @@
       "sha256": "480673f49395da815c9958a51a182be876b18dc136d38234921a10af8805b565"
     },
     "extension/genshin-dialogue-ui/assets/world-locations/boss-guardian-of-apep-s-oasis.webp": {
-      "bytes": 1823136,
-      "sha256": "ff0195aa2dbbbb5ce5a37d1b60cf4f194bbd0abd063077fdb7e8409f8106fe55"
+      "bytes": 242334,
+      "sha256": "af389a424d0154f550d3870c84cf73c8058915eb1b0357d909cd5d9337ac8bb1"
     },
     "extension/genshin-dialogue-ui/assets/world-locations/boss-hydro-hypostasis.webp": {
       "bytes": 2010256,
@@ -18433,5 +18432,6 @@
       "bytes": 58310,
       "sha256": "f8f22d319b7c38f89f8aaa138d745cbaade1cd646f73f897d1a133aa84aba188"
     }
-  }
+  },
+  "version": 1
 }

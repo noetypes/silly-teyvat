@@ -6622,5 +6622,341 @@
   "deathMessage": "{name} falls still. The threat has passed.",
   "modelType": "custom",
   "modelScale": 90
+ },
+ "Adel": {
+  "role": "character",
+  "playable": false,
+  "element": "None",
+  "modelType": "custom",
+  "modelScale": 84,
+  "region": "Sumeru"
+ },
+ "Aloha": {
+  "role": "character",
+  "playable": false,
+  "element": "None",
+  "modelType": "custom",
+  "modelScale": 89,
+  "region": "Natlan"
+ },
+ "Anselm": {
+  "role": "character",
+  "playable": false,
+  "element": "None",
+  "modelType": "custom",
+  "modelScale": 95,
+  "region": "Nod-Krai"
+ },
+ "Araja": {
+  "role": "character",
+  "playable": false,
+  "element": "None",
+  "modelType": "custom",
+  "modelScale": 40,
+  "region": "Sumeru"
+ },
+ "Arama": {
+  "role": "character",
+  "playable": false,
+  "element": "None",
+  "modelType": "custom",
+  "modelScale": 35,
+  "region": "Sumeru"
+ },
+ "Aranakula": {
+  "role": "character",
+  "playable": false,
+  "element": "None",
+  "modelType": "custom",
+  "modelScale": 35,
+  "region": "Sumeru"
+ },
+ "Areta": {
+  "role": "character",
+  "playable": false,
+  "element": "None",
+  "modelType": "custom",
+  "modelScale": 86,
+  "region": "Fontaine"
+ },
+ "Aurelius": {
+  "role": "character",
+  "playable": false,
+  "element": "None",
+  "modelType": "custom",
+  "modelScale": 89,
+  "region": "Sumeru"
+ },
+ "Aybak": {
+  "role": "character",
+  "playable": false,
+  "element": "None",
+  "modelType": "custom",
+  "modelScale": 100,
+  "region": "Sumeru"
+ },
+ "Babel": {
+  "role": "character",
+  "playable": false,
+  "element": "None",
+  "modelType": "custom",
+  "modelScale": 94,
+  "region": "Sumeru"
+ },
+ "Egle": {
+  "role": "character",
+  "playable": false,
+  "element": "None",
+  "modelType": "custom",
+  "modelScale": 86,
+  "region": "Nod-Krai"
+ },
+ "Eveliina": {
+  "role": "character",
+  "playable": false,
+  "element": "None",
+  "modelType": "custom",
+  "modelScale": 86,
+  "region": "Nod-Krai"
+ },
+ "Granny Ruoxin": {
+  "role": "character",
+  "playable": false,
+  "element": "None",
+  "modelType": "custom",
+  "modelScale": 78,
+  "region": "Liyue"
+ },
+ "Jakob": {
+  "role": "character",
+  "playable": false,
+  "element": "None",
+  "modelType": "custom",
+  "modelScale": 95,
+  "region": "Fontaine"
+ },
+ "Jeht": {
+  "role": "character",
+  "playable": false,
+  "element": "None",
+  "modelType": "custom",
+  "modelScale": 94,
+  "region": "Sumeru"
+ },
+ "Knyazev": {
+  "role": "character",
+  "playable": false,
+  "element": "None",
+  "modelType": "custom",
+  "modelScale": 89,
+  "region": "Snezhnaya"
+ },
+ "Komaki": {
+  "role": "character",
+  "playable": false,
+  "element": "None",
+  "modelType": "custom",
+  "modelScale": 78,
+  "region": "Inazuma"
+ },
+ "Kujou Masahito": {
+  "role": "character",
+  "playable": false,
+  "element": "None",
+  "modelType": "custom",
+  "modelScale": 100,
+  "region": "Inazuma"
+ },
+ "Kukkia": {
+  "role": "character",
+  "playable": false,
+  "element": "None",
+  "modelType": "custom",
+  "modelScale": 86,
+  "region": "Nod-Krai"
+ },
+ "Lasselin": {
+  "role": "character",
+  "playable": false,
+  "element": "None",
+  "modelType": "custom",
+  "modelScale": 86,
+  "region": "Fontaine"
+ },
+ "Lyris": {
+  "role": "character",
+  "playable": false,
+  "element": "None",
+  "modelType": "custom",
+  "modelScale": 86,
+  "region": "Fontaine"
+ },
+ "Maryam": {
+  "role": "character",
+  "playable": false,
+  "element": "None",
+  "modelType": "custom",
+  "modelScale": 86,
+  "region": "Sumeru"
+ },
+ "Master Lu": {
+  "role": "character",
+  "playable": false,
+  "element": "None",
+  "modelType": "custom",
+  "modelScale": 84,
+  "region": "Liyue"
+ },
+ "Mayskaya": {
+  "role": "character",
+  "playable": false,
+  "element": "None",
+  "modelType": "custom",
+  "modelScale": 86,
+  "region": "Snezhnaya"
+ },
+ "Mazatl": {
+  "role": "character",
+  "playable": false,
+  "element": "None",
+  "modelType": "custom",
+  "modelScale": 100,
+  "region": "Natlan"
+ },
+ "Mécantre": {
+  "role": "character",
+  "playable": false,
+  "element": "None",
+  "modelType": "custom",
+  "modelScale": 95,
+  "region": "Fontaine"
+ },
+ "Neko": {
+  "role": "character",
+  "playable": false,
+  "element": "None",
+  "modelType": "custom",
+  "modelScale": 30,
+  "region": "Inazuma"
+ },
+ "Nishikino Reirei": {
+  "role": "character",
+  "playable": false,
+  "element": "None",
+  "modelType": "custom",
+  "modelScale": 86,
+  "region": "Inazuma"
+ },
+ "Pitot": {
+  "role": "character",
+  "playable": false,
+  "element": "None",
+  "modelType": "custom",
+  "modelScale": 95,
+  "region": "Fontaine"
+ },
+ "Plate": {
+  "role": "character",
+  "playable": false,
+  "element": "None",
+  "modelType": "custom",
+  "modelScale": 45,
+  "region": "Snezhnaya"
+ },
+ "Rene": {
+  "role": "character",
+  "playable": false,
+  "element": "None",
+  "modelType": "custom",
+  "modelScale": 72,
+  "region": "Fontaine"
+ },
+ "Sedile": {
+  "role": "character",
+  "playable": false,
+  "element": "None",
+  "modelType": "custom",
+  "modelScale": 62,
+  "region": "Fontaine"
+ },
+ "Shajar": {
+  "role": "character",
+  "playable": false,
+  "element": "None",
+  "modelType": "custom",
+  "modelScale": 86,
+  "region": "Sumeru"
+ },
+ "Tetreaux": {
+  "role": "character",
+  "playable": false,
+  "element": "None",
+  "modelType": "custom",
+  "modelScale": 95,
+  "region": "Fontaine"
+ },
+ "Tiepolo": {
+  "role": "character",
+  "playable": false,
+  "element": "None",
+  "modelType": "custom",
+  "modelScale": 95,
+  "region": "Fontaine"
+ },
+ "Tisoc": {
+  "role": "character",
+  "playable": false,
+  "element": "None",
+  "modelType": "custom",
+  "modelScale": 89,
+  "region": "Natlan"
+ },
+ "Tlapalli": {
+  "role": "character",
+  "playable": false,
+  "element": "None",
+  "modelType": "custom",
+  "modelScale": 86,
+  "region": "Natlan"
+ },
+ "Tzompantli": {
+  "role": "character",
+  "playable": false,
+  "element": "None",
+  "modelType": "custom",
+  "modelScale": 89,
+  "region": "Natlan"
+ },
+ "Valdis": {
+  "role": "character",
+  "playable": false,
+  "element": "None",
+  "modelType": "custom",
+  "modelScale": 89,
+  "region": "Nod-Krai"
+ },
+ "Virda": {
+  "role": "character",
+  "playable": false,
+  "element": "None",
+  "modelType": "custom",
+  "modelScale": 62,
+  "region": "Fontaine"
+ },
+ "Whistle": {
+  "role": "character",
+  "playable": false,
+  "element": "None",
+  "modelType": "custom",
+  "modelScale": 45,
+  "region": "Snezhnaya"
+ },
+ "Xavier": {
+  "role": "character",
+  "playable": false,
+  "element": "None",
+  "modelType": "custom",
+  "modelScale": 95,
+  "region": "Inazuma"
  }
 }

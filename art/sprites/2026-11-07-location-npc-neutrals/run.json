@@ -1,0 +1,1772 @@
+{
+  "workflow": "../../../SPRITE-GENERATION.md",
+  "status": "approved_neutrals_and_cards_installed",
+  "reference_exception": "User requested online NPC images as references for this run; each generation uses its identified online image as the sole reference.",
+  "scope": "One neutral candidate for each of the 42 existing location NPC cards.",
+  "characters": {
+    "Adel": {
+      "reference_page": "https://www.hoyolab.com/article/28907601",
+      "reference_url": "https://upload-os-bbs.hoyolab.com/upload/2024/05/22/17445269/cab86517bf947960a5d8b1145dd8eef3_4634124519760230905.jpeg",
+      "reference": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/references/Adel/online.jpg",
+      "reference_sha256": "4a3adfe61624ca37d87ebd2e17cf94221827f535e80eb2784ceabf266ffdd2f7",
+      "prompt_file": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/prompts/Adel/neutral-v001.txt",
+      "tool": "image_gen.imagegen",
+      "approval": {
+        "status": "approved",
+        "message": "All approved. Wire them in and make sure their custom size parameters are set to something that makes sense.",
+        "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/candidates/Adel/neutral-v001.png",
+        "candidate_sha256": "ea9d00a7a87ece4d2c035674de5ead787be75ea911e2bf571e073d5d9101ef08",
+        "date": "2026-11-07"
+      },
+      "framing_transform": null,
+      "tool_arguments": {
+        "prompt": "Use case: stylized-concept. Create one full-body neutral visual-novel sprite of Adel from Genshin Impact. Use the supplied in-game screenshot as the sole identity and costume reference. The older gray-haired man on the right, not the small white-haired person. Preserve glasses, teal Sumeru coat with gold accents, light trousers and shoes. Render in polished Genshin-inspired anime game illustration, faithful to the character's actual body type and identity. Give a relaxed, neutral character-appropriate pose. For human subjects, show two natural legs and feet, and separated relaxed hands with a palm, four fingers and a separate thumb where visible. Frame the entire silhouette including all hair, hats, limbs and shoes, with 2–4% top and bottom padding. True transparent background. No scenery, other characters, UI, text, watermarks, floating effects or ground shadow.",
+        "referenced_image_paths": [
+          "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/references/Adel/online.jpg"
+        ],
+        "transparent_background": true
+      },
+      "tool_output": "/Users/alexachan/.codex/generated_images/01a1b758-585a-7440-a37d-dc35f0b626e6/exec-a458ee76-adb3-4983-8007-4fc1ac47f4db.png",
+      "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/raw/Adel/neutral-v001.png",
+      "raw_sha256": "ea9d00a7a87ece4d2c035674de5ead787be75ea911e2bf571e073d5d9101ef08",
+      "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/candidates/Adel/neutral-v001.png",
+      "candidate_sha256": "ea9d00a7a87ece4d2c035674de5ead787be75ea911e2bf571e073d5d9101ef08",
+      "size": [
+        1024,
+        1536
+      ],
+      "png_color_type": 6,
+      "status": "approved_installed",
+      "model_scale": 84,
+      "installation": {
+        "sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Adel/neutral.png",
+        "sprite_sha256": "ea9d00a7a87ece4d2c035674de5ead787be75ea911e2bf571e073d5d9101ef08",
+        "card": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Adel.png",
+        "card_sha256": "4178855b61f55081e9e1efe3db874cc9413314389edea96c41791eadf5feca29",
+        "status": "installed"
+      }
+    },
+    "Aloha": {
+      "reference_page": "https://genshin-impact.fandom.com/wiki/Aloha",
+      "reference_url": "https://static.wikia.nocookie.net/gensin-impact/images/e/ea/NPC_Aloha.png",
+      "reference": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/references/Aloha/wiki.webp",
+      "reference_sha256": "1bdc08ab46e88c78ed65776812cb9243ffd473d64e619766f27646afdce7641f",
+      "prompt_file": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/prompts/Aloha/neutral-v001.txt",
+      "tool": "image_gen.imagegen",
+      "approval": {
+        "status": "approved",
+        "message": "All approved. Wire them in and make sure their custom size parameters are set to something that makes sense.",
+        "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/candidates/Aloha/neutral-v001.png",
+        "candidate_sha256": "4f9978374d53dc4d67fbc0c7c0248f5c3a7f9b68ba91066385562c843e52e8d1",
+        "date": "2026-11-07"
+      },
+      "framing_transform": null,
+      "tool_arguments": {
+        "prompt": "Use case: stylized-concept. Create one full-body neutral visual-novel sprite of Aloha from Genshin Impact. Use the supplied Genshin Impact Wiki in-game model image as the sole identity and costume reference. Preserve the reference's face, skin tone, hair, silhouette, costume, accessories and exact body type. Stand naturally, hands separate and relaxed, two legs and two feet; each visible human hand has a palm, four fingers and an opposable thumb. Render in polished Genshin-inspired anime game illustration. Neutral expression and calm, character-appropriate posture. Show the complete silhouette including headwear, hair, limbs, feet and accessories with 2–4% top and bottom padding. True transparent background. No scenery, other characters, text, UI, watermarks, floating effects or ground shadow.",
+        "referenced_image_paths": [
+          "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/references/Aloha/wiki.webp"
+        ],
+        "transparent_background": true
+      },
+      "tool_output": "/Users/alexachan/.codex/generated_images/01a1b758-585a-7440-a37d-dc35f0b626e6/exec-b3aee954-bbe8-4468-b331-5bd2759215c6.png",
+      "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/raw/Aloha/neutral-v001.png",
+      "raw_sha256": "4f9978374d53dc4d67fbc0c7c0248f5c3a7f9b68ba91066385562c843e52e8d1",
+      "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/candidates/Aloha/neutral-v001.png",
+      "candidate_sha256": "4f9978374d53dc4d67fbc0c7c0248f5c3a7f9b68ba91066385562c843e52e8d1",
+      "size": [
+        935,
+        1682
+      ],
+      "png_color_type": 6,
+      "status": "approved_installed",
+      "model_scale": 89,
+      "installation": {
+        "sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Aloha/neutral.png",
+        "sprite_sha256": "4f9978374d53dc4d67fbc0c7c0248f5c3a7f9b68ba91066385562c843e52e8d1",
+        "card": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Aloha.png",
+        "card_sha256": "05b939c61681393a4ff4ab33b987cecd1132aa80a1d2ca3299414eb7adb2935b",
+        "status": "installed"
+      }
+    },
+    "Anselm": {
+      "reference_page": "https://www.hoyolab.com/article/43503538",
+      "reference_url": "https://upload-os-bbs.hoyolab.com/upload/2026/01/28/447288814/3c205048ca58f15cf492f47237212407_2354442716308981610.png",
+      "reference": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/references/Anselm/online.png",
+      "reference_sha256": "337f3c3dcc1603f945d605a5c954f8013cd11e35d74fc8c7d07dc887c1c067b8",
+      "prompt_file": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/prompts/Anselm/neutral-v001.txt",
+      "tool": "image_gen.imagegen",
+      "approval": {
+        "status": "approved",
+        "message": "All approved. Wire them in and make sure their custom size parameters are set to something that makes sense.",
+        "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/candidates/Anselm/neutral-v001.png",
+        "candidate_sha256": "55b980e7d3589cd9bbc4a2489bc3b2f715820a96d310fafff7937cdfcccbee59",
+        "date": "2026-11-07"
+      },
+      "framing_transform": null,
+      "tool_arguments": {
+        "prompt": "Use case: stylized-concept. Create one full-body neutral visual-novel sprite of Anselm from Genshin Impact. Use the supplied in-game screenshot as the sole identity and costume reference. Anselm is the adult man on the right, not the blonde Traveler. Preserve his short brown hair, glasses and the white, black and gold Knights of Favonius uniform, armor and boots. Render in polished Genshin-inspired anime game illustration, faithful to the character's actual body type and identity. Give a relaxed, neutral character-appropriate pose. For human subjects, show two natural legs and feet, and separated relaxed hands with a palm, four fingers and a separate thumb where visible. Frame the entire silhouette including all hair, hats, limbs and shoes, with 2–4% top and bottom padding. True transparent background. No scenery, other characters, UI, text, watermarks, floating effects or ground shadow.",
+        "referenced_image_paths": [
+          "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/references/Anselm/online.png"
+        ],
+        "transparent_background": true
+      },
+      "tool_output": "/Users/alexachan/.codex/generated_images/01a1b758-585a-7440-a37d-dc35f0b626e6/exec-cb69824d-a939-4286-9ffd-94d267e8035a.png",
+      "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/raw/Anselm/neutral-v001.png",
+      "raw_sha256": "55b980e7d3589cd9bbc4a2489bc3b2f715820a96d310fafff7937cdfcccbee59",
+      "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/candidates/Anselm/neutral-v001.png",
+      "candidate_sha256": "55b980e7d3589cd9bbc4a2489bc3b2f715820a96d310fafff7937cdfcccbee59",
+      "size": [
+        1024,
+        1536
+      ],
+      "png_color_type": 6,
+      "status": "approved_installed",
+      "model_scale": 95,
+      "installation": {
+        "sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Anselm/neutral.png",
+        "sprite_sha256": "55b980e7d3589cd9bbc4a2489bc3b2f715820a96d310fafff7937cdfcccbee59",
+        "card": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Anselm.png",
+        "card_sha256": "49b3f0651b9eb08be53697f2762a3750f59be3f76d3f89ae1f6c7f2888f184ea",
+        "status": "installed"
+      }
+    },
+    "Araja": {
+      "reference_page": "https://www.gamerguides.com/genshin-impact/guide/world-quests/sumeru/aranyaka-part-ii-dream-nursery-the-world-of-aranara",
+      "reference_url": "https://www.gamerguides.com/images/markup-img-full/17/216/Aranara_Chief_Genshin_Impact.jpg.jpeg",
+      "reference": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/references/Araja/online.jpg",
+      "reference_sha256": "913eec1642008fdf53c27850a9f3b34f33a34d596309ef70fa0dd00a58541260",
+      "prompt_file": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/prompts/Araja/neutral-v001.txt",
+      "tool": "image_gen.imagegen",
+      "approval": {
+        "status": "approved",
+        "message": "All approved. Wire them in and make sure their custom size parameters are set to something that makes sense.",
+        "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/candidates/Araja/neutral-v001.png",
+        "candidate_sha256": "9e5a74937a1be8b641bc94875c231705671c35af0a19ab749343ebc389da050b",
+        "date": "2026-11-07"
+      },
+      "framing_transform": null,
+      "tool_arguments": {
+        "prompt": "Use case: stylized-concept. Create one full-body neutral visual-novel sprite of Araja from Genshin Impact. Use the supplied in-game screenshot as the sole identity and costume reference. Araja is the central floating rotund Aranara elder, not the smaller green Aranara or the humans. Preserve his tan and cream rounded body, white spiral, broad brown leaf-like hat, green mustache-like leaves, tiny limbs and flower on a stem. Render in polished Genshin-inspired anime game illustration, faithful to the character's actual body type and identity. Give a relaxed, neutral character-appropriate pose. For human subjects, show two natural legs and feet, and separated relaxed hands with a palm, four fingers and a separate thumb where visible. Frame the entire silhouette including all hair, hats, limbs and shoes, with 2–4% top and bottom padding. True transparent background. No scenery, other characters, UI, text, watermarks, floating effects or ground shadow.",
+        "referenced_image_paths": [
+          "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/references/Araja/online.jpg"
+        ],
+        "transparent_background": true
+      },
+      "tool_output": "/Users/alexachan/.codex/generated_images/01a1b758-585a-7440-a37d-dc35f0b626e6/exec-4f6e0e8e-8586-4f0d-9dfb-f6592091ff96.png",
+      "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/raw/Araja/neutral-v001.png",
+      "raw_sha256": "9e5a74937a1be8b641bc94875c231705671c35af0a19ab749343ebc389da050b",
+      "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/candidates/Araja/neutral-v001.png",
+      "candidate_sha256": "9e5a74937a1be8b641bc94875c231705671c35af0a19ab749343ebc389da050b",
+      "size": [
+        1303,
+        1207
+      ],
+      "png_color_type": 6,
+      "status": "approved_installed",
+      "model_scale": 40,
+      "installation": {
+        "sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Araja/neutral.png",
+        "sprite_sha256": "9e5a74937a1be8b641bc94875c231705671c35af0a19ab749343ebc389da050b",
+        "card": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Araja.png",
+        "card_sha256": "a2556fff992106a0e848ddea30d096a1d29d034ab5ab924b9434533300a37784",
+        "status": "installed"
+      }
+    },
+    "Arama": {
+      "reference_page": "https://www.hoyolab.com/article/16373474",
+      "reference_url": "https://upload-os-bbs.hoyolab.com/upload/2023/02/14/213380203/b96eb87b24745b6d6b58689e720efedd_2151728128863983200.jpeg",
+      "reference": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/references/Arama/online.jpg",
+      "reference_sha256": "ebb7c3e5da90349801cd68db8100bc49b62b199cde13a5397f605814a916a3d4",
+      "prompt_file": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/prompts/Arama/neutral-v001.txt",
+      "tool": "image_gen.imagegen",
+      "approval": {
+        "status": "approved",
+        "message": "All approved. Wire them in and make sure their custom size parameters are set to something that makes sense.",
+        "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/candidates/Arama/neutral-v001.png",
+        "candidate_sha256": "6cb958a2f405858a32106db172a5494a4472a3653c72afc674d3ace5fb33fb08",
+        "date": "2026-11-07"
+      },
+      "framing_transform": null,
+      "tool_arguments": {
+        "prompt": "Use case: stylized-concept. Create one full-body neutral visual-novel sprite of Arama from Genshin Impact. Use the supplied in-game screenshot as the sole identity and costume reference. Arama is the small pale green Aranara in the foreground, not a human: preserve the leaf-like green head covering, simple smiling face, tiny limbs, red scarf, flower and plantlike compact proportions. Render in polished Genshin-inspired anime game illustration, faithful to the character's actual body type and identity. Give a relaxed, neutral character-appropriate pose. For human subjects, show two natural legs and feet, and separated relaxed hands with a palm, four fingers and a separate thumb where visible. Frame the entire silhouette including all hair, hats, limbs and shoes, with 2–4% top and bottom padding. True transparent background. No scenery, other characters, UI, text, watermarks, floating effects or ground shadow.",
+        "referenced_image_paths": [
+          "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/references/Arama/online.jpg"
+        ],
+        "transparent_background": true
+      },
+      "tool_output": "/Users/alexachan/.codex/generated_images/01a1b758-585a-7440-a37d-dc35f0b626e6/exec-57b95536-0c35-414d-8c43-063d323b844e.png",
+      "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/raw/Arama/neutral-v001.png",
+      "raw_sha256": "6cb958a2f405858a32106db172a5494a4472a3653c72afc674d3ace5fb33fb08",
+      "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/candidates/Arama/neutral-v001.png",
+      "candidate_sha256": "6cb958a2f405858a32106db172a5494a4472a3653c72afc674d3ace5fb33fb08",
+      "size": [
+        1199,
+        1312
+      ],
+      "png_color_type": 6,
+      "status": "approved_installed",
+      "model_scale": 35,
+      "installation": {
+        "sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Arama/neutral.png",
+        "sprite_sha256": "6cb958a2f405858a32106db172a5494a4472a3653c72afc674d3ace5fb33fb08",
+        "card": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Arama.png",
+        "card_sha256": "7d08fe3678c6333e42c875c7c0835782fdc0ffe954e4c92b2878819df407e3c4",
+        "status": "installed"
+      }
+    },
+    "Aranakula": {
+      "reference_page": "https://www.hoyolab.com/article/7287465",
+      "reference_url": "https://upload-os-bbs.hoyolab.com/upload/2022/08/29/15321240/00ab2882c3d7700e6ff9c33ab33fb714_1824843651016819019.png",
+      "reference": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/references/Aranakula/online.png",
+      "reference_sha256": "3f0baf834f212f6e5c450916d6d47c706791eca2c603cd2db14b59765c2b9eec",
+      "prompt_file": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/prompts/Aranakula/neutral-v001.txt",
+      "tool": "image_gen.imagegen",
+      "approval": {
+        "status": "approved",
+        "message": "All approved. Wire them in and make sure their custom size parameters are set to something that makes sense.",
+        "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/candidates/Aranakula/neutral-v001.png",
+        "candidate_sha256": "d672ff135879d64e30d9ab67aaaf882b726c656ec947ad56b27e0bdac6003bbf",
+        "date": "2026-11-07"
+      },
+      "framing_transform": null,
+      "tool_arguments": {
+        "prompt": "Use case: stylized-concept. Create one full-body neutral visual-novel sprite of Aranakula from Genshin Impact. Use the supplied in-game screenshot as the sole identity and costume reference. The tiny plantlike Aranara in the center, not either human. Preserve the rounded beige body, white spiral, small limbs and bright green leaf cap with a sprouting leafy stem. Render in polished Genshin-inspired anime game illustration, faithful to the character's actual body type and identity. Give a relaxed, neutral character-appropriate pose. For human subjects, show two natural legs and feet, and separated relaxed hands with a palm, four fingers and a separate thumb where visible. Frame the entire silhouette including all hair, hats, limbs and shoes, with 2–4% top and bottom padding. True transparent background. No scenery, other characters, UI, text, watermarks, floating effects or ground shadow.",
+        "referenced_image_paths": [
+          "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/references/Aranakula/online.png"
+        ],
+        "transparent_background": true
+      },
+      "tool_output": "/Users/alexachan/.codex/generated_images/01a1b758-585a-7440-a37d-dc35f0b626e6/exec-2e68f893-9354-4a02-8954-0c354419c4f6.png",
+      "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/raw/Aranakula/neutral-v001.png",
+      "raw_sha256": "d672ff135879d64e30d9ab67aaaf882b726c656ec947ad56b27e0bdac6003bbf",
+      "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/candidates/Aranakula/neutral-v001.png",
+      "candidate_sha256": "d672ff135879d64e30d9ab67aaaf882b726c656ec947ad56b27e0bdac6003bbf",
+      "size": [
+        1374,
+        1145
+      ],
+      "png_color_type": 6,
+      "status": "approved_installed",
+      "model_scale": 35,
+      "installation": {
+        "sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Aranakula/neutral.png",
+        "sprite_sha256": "d672ff135879d64e30d9ab67aaaf882b726c656ec947ad56b27e0bdac6003bbf",
+        "card": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Aranakula.png",
+        "card_sha256": "4a07d6416823d2f6d727e9dc213c36cbcc7a2e4ded695dff40bf1f29faf0b5a1",
+        "status": "installed"
+      }
+    },
+    "Areta": {
+      "reference_page": "https://landofgames.ru/articles/guides/23710-puzyrin-v-genshin-impact.html",
+      "reference_url": "https://landofgames.ru/uploads/posts/2023-09/1694243541_71.jpg",
+      "reference": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/references/Areta/online.jpg",
+      "reference_sha256": "487b5119b87462bb58a3a0f7aacd7c2a097c3eed9a5bc73e9ddec4f4c1c32f04",
+      "prompt_file": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/prompts/Areta/neutral-v001.txt",
+      "tool": "image_gen.imagegen",
+      "approval": {
+        "status": "approved",
+        "message": "All approved. Wire them in and make sure their custom size parameters are set to something that makes sense.",
+        "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/candidates/Areta/neutral-v001.png",
+        "candidate_sha256": "96bf3d1294f2d4a1496ab49d786e8142d0e68b03f02f53d09ae08d4712a71ab8",
+        "date": "2026-11-07"
+      },
+      "framing_transform": null,
+      "tool_arguments": {
+        "prompt": "Use case: stylized-concept. Create one full-body neutral visual-novel sprite of Areta from Genshin Impact. Use the supplied in-game screenshot as the sole identity and costume reference. The brown-haired woman at the center-left, not the blonde foreground person. Preserve her white blouse, yellow neck bow, dark purple dress, stockings and boots. Render in polished Genshin-inspired anime game illustration, faithful to the character's actual body type and identity. Give a relaxed, neutral character-appropriate pose. For human subjects, show two natural legs and feet, and separated relaxed hands with a palm, four fingers and a separate thumb where visible. Frame the entire silhouette including all hair, hats, limbs and shoes, with 2–4% top and bottom padding. True transparent background. No scenery, other characters, UI, text, watermarks, floating effects or ground shadow.",
+        "referenced_image_paths": [
+          "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/references/Areta/online.jpg"
+        ],
+        "transparent_background": true
+      },
+      "tool_output": "/Users/alexachan/.codex/generated_images/01a1b758-585a-7440-a37d-dc35f0b626e6/exec-4313d91c-e4a5-448e-9012-5f7f6c99ba17.png",
+      "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/raw/Areta/neutral-v001.png",
+      "raw_sha256": "96bf3d1294f2d4a1496ab49d786e8142d0e68b03f02f53d09ae08d4712a71ab8",
+      "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/candidates/Areta/neutral-v001.png",
+      "candidate_sha256": "96bf3d1294f2d4a1496ab49d786e8142d0e68b03f02f53d09ae08d4712a71ab8",
+      "size": [
+        1024,
+        1536
+      ],
+      "png_color_type": 6,
+      "status": "approved_installed",
+      "model_scale": 86,
+      "installation": {
+        "sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Areta/neutral.png",
+        "sprite_sha256": "96bf3d1294f2d4a1496ab49d786e8142d0e68b03f02f53d09ae08d4712a71ab8",
+        "card": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Areta.png",
+        "card_sha256": "03f7b99ca1d8eb66805af36f03a097f8f8ca578cd35da30bc03204738f3c5695",
+        "status": "installed"
+      }
+    },
+    "Aurelius": {
+      "reference_page": "https://genshin-impact.fandom.com/wiki/Aurelius",
+      "reference_url": "https://static.wikia.nocookie.net/gensin-impact/images/f/f9/NPC_Aurelius.png",
+      "reference": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/references/Aurelius/wiki.webp",
+      "reference_sha256": "b960173729450d083e6776e9456afc44325f722245eeb9d378c25629362a034f",
+      "prompt_file": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/prompts/Aurelius/neutral-v001.txt",
+      "tool": "image_gen.imagegen",
+      "approval": {
+        "status": "approved",
+        "message": "All approved. Wire them in and make sure their custom size parameters are set to something that makes sense.",
+        "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/candidates/Aurelius/neutral-v001.png",
+        "candidate_sha256": "3fb6e3362db7bac67bdd5163da2124fcd77fd79ce7a57c95eadf7f4762bafd20",
+        "date": "2026-11-07"
+      },
+      "framing_transform": null,
+      "tool_arguments": {
+        "prompt": "Use case: stylized-concept. Create one full-body neutral visual-novel sprite of Aurelius from Genshin Impact. Use the supplied Genshin Impact Wiki in-game model image as the sole identity and costume reference. Preserve the reference's face, skin tone, hair, silhouette, costume, accessories and exact body type. Stand naturally, hands separate and relaxed, two legs and two feet; each visible human hand has a palm, four fingers and an opposable thumb. Render in polished Genshin-inspired anime game illustration. Neutral expression and calm, character-appropriate posture. Show the complete silhouette including headwear, hair, limbs, feet and accessories with 2–4% top and bottom padding. True transparent background. No scenery, other characters, text, UI, watermarks, floating effects or ground shadow.",
+        "referenced_image_paths": [
+          "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/references/Aurelius/wiki.webp"
+        ],
+        "transparent_background": true
+      },
+      "tool_output": "/Users/alexachan/.codex/generated_images/01a1b758-585a-7440-a37d-dc35f0b626e6/exec-8ae1fcdb-6bd5-402f-b30c-ed54c0dfe377.png",
+      "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/raw/Aurelius/neutral-v001.png",
+      "raw_sha256": "3fb6e3362db7bac67bdd5163da2124fcd77fd79ce7a57c95eadf7f4762bafd20",
+      "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/candidates/Aurelius/neutral-v001.png",
+      "candidate_sha256": "3fb6e3362db7bac67bdd5163da2124fcd77fd79ce7a57c95eadf7f4762bafd20",
+      "size": [
+        970,
+        1621
+      ],
+      "png_color_type": 6,
+      "status": "approved_installed",
+      "model_scale": 89,
+      "installation": {
+        "sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Aurelius/neutral.png",
+        "sprite_sha256": "3fb6e3362db7bac67bdd5163da2124fcd77fd79ce7a57c95eadf7f4762bafd20",
+        "card": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Aurelius.png",
+        "card_sha256": "9cd8b43313831379b936dac5a3863c4bd885ea5fe040ab0b28a684aa2d24caa3",
+        "status": "installed"
+      }
+    },
+    "Aybak": {
+      "reference_page": "https://genshin-impact.fandom.com/wiki/Aybak",
+      "reference_url": "https://static.wikia.nocookie.net/gensin-impact/images/c/c1/NPC_Aybak.png",
+      "reference": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/references/Aybak/wiki.webp",
+      "reference_sha256": "ddaec40dcb43634adc289099539a7f86bcd79c356edd193be5d32203be1bb0de",
+      "prompt_file": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/prompts/Aybak/neutral-v001.txt",
+      "tool": "image_gen.imagegen",
+      "approval": {
+        "status": "approved",
+        "message": "All approved. Wire them in and make sure their custom size parameters are set to something that makes sense.",
+        "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/candidates/Aybak/neutral-v001.png",
+        "candidate_sha256": "789e5f5e7b01540ec5bd70088355f306757a5c36a4bff949aa1c0559daa09e58",
+        "date": "2026-11-07"
+      },
+      "framing_transform": null,
+      "tool_arguments": {
+        "prompt": "Use case: stylized-concept. Create one full-body neutral visual-novel sprite of Aybak from Genshin Impact. Use the supplied Genshin Impact Wiki in-game model image as the sole identity and costume reference. Preserve the reference's face, skin tone, hair, silhouette, costume, accessories and exact body type. Stand naturally, hands separate and relaxed, two legs and two feet; each visible human hand has a palm, four fingers and an opposable thumb. Render in polished Genshin-inspired anime game illustration. Neutral expression and calm, character-appropriate posture. Show the complete silhouette including headwear, hair, limbs, feet and accessories with 2–4% top and bottom padding. True transparent background. No scenery, other characters, text, UI, watermarks, floating effects or ground shadow.",
+        "referenced_image_paths": [
+          "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/references/Aybak/wiki.webp"
+        ],
+        "transparent_background": true
+      },
+      "tool_output": "/Users/alexachan/.codex/generated_images/01a1b758-585a-7440-a37d-dc35f0b626e6/exec-b0d05a13-7908-4e4c-85a3-9fa5c7688dd8.png",
+      "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/raw/Aybak/neutral-v001.png",
+      "raw_sha256": "789e5f5e7b01540ec5bd70088355f306757a5c36a4bff949aa1c0559daa09e58",
+      "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/candidates/Aybak/neutral-v001.png",
+      "candidate_sha256": "789e5f5e7b01540ec5bd70088355f306757a5c36a4bff949aa1c0559daa09e58",
+      "size": [
+        1014,
+        1550
+      ],
+      "png_color_type": 6,
+      "status": "approved_installed",
+      "model_scale": 100,
+      "installation": {
+        "sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Aybak/neutral.png",
+        "sprite_sha256": "789e5f5e7b01540ec5bd70088355f306757a5c36a4bff949aa1c0559daa09e58",
+        "card": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Aybak.png",
+        "card_sha256": "68f4b8bb45ba62a62f4354ec7b4d5ada30a4eab2577aa88972b2c80155c841fe",
+        "status": "installed"
+      }
+    },
+    "Babel": {
+      "reference_page": "https://gamewith.jp/genshin/article/show/384846",
+      "reference_url": "https://img.gamewith.jp/img/8d2656cf663047901885cf4dafc3e3a3.png",
+      "reference": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/references/Babel/online.png",
+      "reference_sha256": "4502806a7c064f1dcd90298df7075dd2dec67e7bf5e5fb79199501b2e005cc07",
+      "prompt_file": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/prompts/Babel/neutral-v001.txt",
+      "tool": "image_gen.imagegen",
+      "approval": {
+        "status": "approved",
+        "message": "All approved. Wire them in and make sure their custom size parameters are set to something that makes sense.",
+        "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/candidates/Babel/neutral-v001.png",
+        "candidate_sha256": "c5fb9b304608441dcbb7a3d5f10aca70eb5148498efef27b5c7dbccee947d81f",
+        "date": "2026-11-07"
+      },
+      "framing_transform": null,
+      "tool_arguments": {
+        "prompt": "Use case: stylized-concept. Create one full-body neutral visual-novel sprite of Babel from Genshin Impact. Use the supplied in-game screenshot as the sole identity and costume reference. The pink-haired woman shown in close-up, wearing a dark hood, red eye covering, gold jewelry and dark red and black desert attire. Use the visible reference as identity; complete the body naturally. Render in polished Genshin-inspired anime game illustration, faithful to the character's actual body type and identity. Give a relaxed, neutral character-appropriate pose. For human subjects, show two natural legs and feet, and separated relaxed hands with a palm, four fingers and a separate thumb where visible. Frame the entire silhouette including all hair, hats, limbs and shoes, with 2–4% top and bottom padding. True transparent background. No scenery, other characters, UI, text, watermarks, floating effects or ground shadow.",
+        "referenced_image_paths": [
+          "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/references/Babel/online.png"
+        ],
+        "transparent_background": true
+      },
+      "tool_output": "/Users/alexachan/.codex/generated_images/01a1b758-585a-7440-a37d-dc35f0b626e6/exec-aaf7bac3-1fd5-41f8-95d8-d68a800e0318.png",
+      "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/raw/Babel/neutral-v001.png",
+      "raw_sha256": "c5fb9b304608441dcbb7a3d5f10aca70eb5148498efef27b5c7dbccee947d81f",
+      "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/candidates/Babel/neutral-v001.png",
+      "candidate_sha256": "c5fb9b304608441dcbb7a3d5f10aca70eb5148498efef27b5c7dbccee947d81f",
+      "size": [
+        1024,
+        1536
+      ],
+      "png_color_type": 6,
+      "status": "approved_installed",
+      "model_scale": 94,
+      "installation": {
+        "sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Babel/neutral.png",
+        "sprite_sha256": "c5fb9b304608441dcbb7a3d5f10aca70eb5148498efef27b5c7dbccee947d81f",
+        "card": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Babel.png",
+        "card_sha256": "006ae5886a74b8b85e4f4b813a452de909d6a2c07cc8eb686441c39e7fb5eb47",
+        "status": "installed"
+      }
+    },
+    "Egle": {
+      "reference_page": "https://genshin-impact.fandom.com/wiki/Egle",
+      "reference_url": "https://static.wikia.nocookie.net/gensin-impact/images/0/09/NPC_Egle.png",
+      "reference": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/references/Egle/wiki.webp",
+      "reference_sha256": "58154cc52e5ab5480d469649f2cc82660c18c297baa44593907db53a5a5ca475",
+      "prompt_file": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/prompts/Egle/neutral-v001.txt",
+      "tool": "image_gen.imagegen",
+      "approval": {
+        "status": "approved",
+        "message": "All approved. Wire them in and make sure their custom size parameters are set to something that makes sense.",
+        "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/candidates/Egle/neutral-v001.png",
+        "candidate_sha256": "4f31222a0867bfb8c4c2b069cda183e22fc174f17cdc07666452a27380b9b9d3",
+        "date": "2026-11-07"
+      },
+      "framing_transform": null,
+      "tool_arguments": {
+        "prompt": "Use case: stylized-concept. Create one full-body neutral visual-novel sprite of Egle from Genshin Impact. Use the supplied Genshin Impact Wiki in-game model image as the sole identity and costume reference. Preserve the reference's face, skin tone, hair, silhouette, costume, accessories and exact body type. Stand naturally, hands separate and relaxed, two legs and two feet; each visible human hand has a palm, four fingers and an opposable thumb. Render in polished Genshin-inspired anime game illustration. Neutral expression and calm, character-appropriate posture. Show the complete silhouette including headwear, hair, limbs, feet and accessories with 2–4% top and bottom padding. True transparent background. No scenery, other characters, text, UI, watermarks, floating effects or ground shadow.",
+        "referenced_image_paths": [
+          "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/references/Egle/wiki.webp"
+        ],
+        "transparent_background": true
+      },
+      "tool_output": "/Users/alexachan/.codex/generated_images/01a1b758-585a-7440-a37d-dc35f0b626e6/exec-39f6abb6-df0f-4018-ace1-7b452b564966.png",
+      "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/raw/Egle/neutral-v001.png",
+      "raw_sha256": "4f31222a0867bfb8c4c2b069cda183e22fc174f17cdc07666452a27380b9b9d3",
+      "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/candidates/Egle/neutral-v001.png",
+      "candidate_sha256": "4f31222a0867bfb8c4c2b069cda183e22fc174f17cdc07666452a27380b9b9d3",
+      "size": [
+        936,
+        1681
+      ],
+      "png_color_type": 6,
+      "status": "approved_installed",
+      "model_scale": 86,
+      "installation": {
+        "sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Egle/neutral.png",
+        "sprite_sha256": "4f31222a0867bfb8c4c2b069cda183e22fc174f17cdc07666452a27380b9b9d3",
+        "card": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Egle.png",
+        "card_sha256": "620b7c26082dcd13c375e8cf52bf6ba79a007ab0ccde8058e456e4fdf768d386",
+        "status": "installed"
+      }
+    },
+    "Eveliina": {
+      "reference_page": "https://genshin-impact.fandom.com/wiki/Eveliina",
+      "reference_url": "https://static.wikia.nocookie.net/gensin-impact/images/7/7e/NPC_Eveliina.png",
+      "reference": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/references/Eveliina/wiki.webp",
+      "reference_sha256": "f93772d13761e90d80b4e412dd5c46d9523c99fb78ae7b8a769de2b0bb2f5a3e",
+      "prompt_file": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/prompts/Eveliina/neutral-v001.txt",
+      "tool": "image_gen.imagegen",
+      "approval": {
+        "status": "approved",
+        "message": "All approved. Wire them in and make sure their custom size parameters are set to something that makes sense.",
+        "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/candidates/Eveliina/neutral-v001.png",
+        "candidate_sha256": "f7adaf64ddad016aa56a253749d23a2ce26773d18e05c16711ae3661a7e622d9",
+        "date": "2026-11-07"
+      },
+      "framing_transform": null,
+      "tool_arguments": {
+        "prompt": "Use case: stylized-concept. Create one full-body neutral visual-novel sprite of Eveliina from Genshin Impact. Use the supplied Genshin Impact Wiki in-game model image as the sole identity and costume reference. Preserve the reference's face, skin tone, hair, silhouette, costume, accessories and exact body type. Stand naturally, hands separate and relaxed, two legs and two feet; each visible human hand has a palm, four fingers and an opposable thumb. Render in polished Genshin-inspired anime game illustration. Neutral expression and calm, character-appropriate posture. Show the complete silhouette including headwear, hair, limbs, feet and accessories with 2–4% top and bottom padding. True transparent background. No scenery, other characters, text, UI, watermarks, floating effects or ground shadow.",
+        "referenced_image_paths": [
+          "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/references/Eveliina/wiki.webp"
+        ],
+        "transparent_background": true
+      },
+      "tool_output": "/Users/alexachan/.codex/generated_images/01a1b758-585a-7440-a37d-dc35f0b626e6/exec-35eb6cfc-6a13-4cf8-a159-2c483adcd417.png",
+      "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/raw/Eveliina/neutral-v001.png",
+      "raw_sha256": "f7adaf64ddad016aa56a253749d23a2ce26773d18e05c16711ae3661a7e622d9",
+      "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/candidates/Eveliina/neutral-v001.png",
+      "candidate_sha256": "f7adaf64ddad016aa56a253749d23a2ce26773d18e05c16711ae3661a7e622d9",
+      "size": [
+        934,
+        1683
+      ],
+      "png_color_type": 6,
+      "status": "approved_installed",
+      "model_scale": 86,
+      "installation": {
+        "sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Eveliina/neutral.png",
+        "sprite_sha256": "f7adaf64ddad016aa56a253749d23a2ce26773d18e05c16711ae3661a7e622d9",
+        "card": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Eveliina.png",
+        "card_sha256": "cef46f4ce48e6c38e4158c1692872d33e1e1f0bfc9e5e34f03738ab55dac5c6c",
+        "status": "installed"
+      }
+    },
+    "Granny Ruoxin": {
+      "reference_page": "https://wiki.hoyolab.com/pc/genshin/entry/3926",
+      "reference_url": "https://upload-static.hoyoverse.com/hoyolab-wiki/2023/07/13/1023623/7cc84c8799a55e5b4de31454fd84d64b_945878995286224407.png",
+      "reference": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/references/Granny Ruoxin/online.png",
+      "reference_sha256": "ebbe2cecb6512b9ad14b5145a4c91e086f8b5b3b6597089650bd59544c20b9dc",
+      "prompt_file": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/prompts/Granny Ruoxin/neutral-v001.txt",
+      "tool": "image_gen.imagegen",
+      "approval": {
+        "status": "approved",
+        "message": "All approved. Wire them in and make sure their custom size parameters are set to something that makes sense.",
+        "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/candidates/Granny Ruoxin/neutral-v001.png",
+        "candidate_sha256": "9b55dc0604b906f4e571b3b2752eec30bdf021913614a0ecdf7122cfe0ea4cbb",
+        "date": "2026-11-07"
+      },
+      "framing_transform": null,
+      "tool_arguments": {
+        "prompt": "Use case: stylized-concept. Create one full-body neutral visual-novel sprite of Granny Ruoxin, the elderly community leader of Qingce Village from Genshin Impact. Use the supplied in-game HoYoWiki image as the sole identity and outfit reference. Preserve her gray neatly gathered hair, elderly face, dark long dress with pale geometric trim, brown short shoulder cape, red sash and traditional fastenings. Render in polished Genshin-inspired anime game illustration, with a believable petite elderly build, gentle neutral expression and relaxed upright stance. Both hands relaxed and separate near her sides; where visible each has a palm, four fingers and an opposable thumb. Exactly two legs and two feet, slightly separated, naturally under her dress. Entire silhouette visible with about 2–4% padding above and below. True transparent background. No scenery, text, UI, watermark, floating effects or ground shadow.",
+        "referenced_image_paths": [
+          "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/references/Granny Ruoxin/online.png"
+        ],
+        "transparent_background": true
+      },
+      "tool_output": "/Users/alexachan/.codex/generated_images/01a1b758-585a-7440-a37d-dc35f0b626e6/exec-045a8ae6-8de6-40c1-8114-2f23e9d5c2bc.png",
+      "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/raw/Granny Ruoxin/neutral-v001.png",
+      "raw_sha256": "9b55dc0604b906f4e571b3b2752eec30bdf021913614a0ecdf7122cfe0ea4cbb",
+      "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/candidates/Granny Ruoxin/neutral-v001.png",
+      "candidate_sha256": "9b55dc0604b906f4e571b3b2752eec30bdf021913614a0ecdf7122cfe0ea4cbb",
+      "size": [
+        914,
+        1721
+      ],
+      "png_color_type": 6,
+      "status": "approved_installed",
+      "model_scale": 78,
+      "installation": {
+        "sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Granny Ruoxin/neutral.png",
+        "sprite_sha256": "9b55dc0604b906f4e571b3b2752eec30bdf021913614a0ecdf7122cfe0ea4cbb",
+        "card": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Granny Ruoxin.png",
+        "card_sha256": "ad3be3953fabe2e5350d08b0fe2d851259e36c529247d28ab329d87f43a2738b",
+        "status": "installed"
+      }
+    },
+    "Jakob": {
+      "reference_page": "https://genshin-impact.fandom.com/wiki/Jakob",
+      "reference_url": "https://static.wikia.nocookie.net/gensin-impact/images/2/25/NPC_Jakob.png",
+      "reference": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/references/Jakob/wiki.webp",
+      "reference_sha256": "49a665074958685a3c4ef6bacab98b45d19c6bc9e3a560256c0c3cd89beeb47a",
+      "prompt_file": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/prompts/Jakob/neutral-v001.txt",
+      "tool": "image_gen.imagegen",
+      "approval": {
+        "status": "approved",
+        "message": "All approved. Wire them in and make sure their custom size parameters are set to something that makes sense.",
+        "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/candidates/Jakob/neutral-v001.png",
+        "candidate_sha256": "5b2f6922f5faf38ddd83b9ef55a2d53132dd223aeaeee4a26af56eb7e060f086",
+        "date": "2026-11-07"
+      },
+      "framing_transform": null,
+      "tool_arguments": {
+        "prompt": "Use case: stylized-concept. Create one full-body neutral visual-novel sprite of Jakob from Genshin Impact. Use the supplied Genshin Impact Wiki in-game model image as the sole identity and costume reference. Preserve the reference's face, skin tone, hair, silhouette, costume, accessories and exact body type. Stand naturally, hands separate and relaxed, two legs and two feet; each visible human hand has a palm, four fingers and an opposable thumb. Render in polished Genshin-inspired anime game illustration. Neutral expression and calm, character-appropriate posture. Show the complete silhouette including headwear, hair, limbs, feet and accessories with 2–4% top and bottom padding. True transparent background. No scenery, other characters, text, UI, watermarks, floating effects or ground shadow.",
+        "referenced_image_paths": [
+          "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/references/Jakob/wiki.webp"
+        ],
+        "transparent_background": true
+      },
+      "tool_output": "/Users/alexachan/.codex/generated_images/01a1b758-585a-7440-a37d-dc35f0b626e6/exec-76abe08a-9deb-4d55-82dd-1aeefa4ef0c3.png",
+      "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/raw/Jakob/neutral-v001.png",
+      "raw_sha256": "5b2f6922f5faf38ddd83b9ef55a2d53132dd223aeaeee4a26af56eb7e060f086",
+      "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/candidates/Jakob/neutral-v001.png",
+      "candidate_sha256": "5b2f6922f5faf38ddd83b9ef55a2d53132dd223aeaeee4a26af56eb7e060f086",
+      "size": [
+        935,
+        1683
+      ],
+      "png_color_type": 6,
+      "status": "approved_installed",
+      "model_scale": 95,
+      "installation": {
+        "sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Jakob/neutral.png",
+        "sprite_sha256": "5b2f6922f5faf38ddd83b9ef55a2d53132dd223aeaeee4a26af56eb7e060f086",
+        "card": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Jakob.png",
+        "card_sha256": "8a03642bd2c264c28ec35694ba5add924c430cedb4ffc488bf719b1916b37f82",
+        "status": "installed"
+      }
+    },
+    "Jeht": {
+      "reference_page": "https://www.hoyolab.com/article/12180214",
+      "reference_url": "https://upload-os-bbs.hoyolab.com/upload/2022/10/12/189915864/63fb5c5b04816e1823b0e5daee4d0ab1_873307804961896236.png",
+      "reference": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/references/Jeht/online.png",
+      "reference_sha256": "7ba455c98563632cd794b7cc7529e46bda5882b5d9d9ef608652fbaf05b4bdb6",
+      "prompt_file": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/prompts/Jeht/neutral-v001.txt",
+      "tool": "image_gen.imagegen",
+      "approval": {
+        "status": "approved",
+        "message": "All approved. Wire them in and make sure their custom size parameters are set to something that makes sense.",
+        "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/candidates/Jeht/neutral-v001.png",
+        "candidate_sha256": "2f6deb4cf8f5b7675190de7d8e23493b43d5669ea686092d946e23e92c3433c5",
+        "date": "2026-11-07"
+      },
+      "framing_transform": null,
+      "tool_arguments": {
+        "prompt": "Use case: stylized-concept. Create one full-body neutral visual-novel sprite of Jeht from Genshin Impact. Use the supplied in-game screenshot as the sole identity and costume reference. The young desert woman at the far left with blue-purple hair, desert headwear and eye covering, dark and light desert clothing, red accents and warm brown skin; not the other people. Render in polished Genshin-inspired anime game illustration, faithful to the character's actual body type and identity. Give a relaxed, neutral character-appropriate pose. For human subjects, show two natural legs and feet, and separated relaxed hands with a palm, four fingers and a separate thumb where visible. Frame the entire silhouette including all hair, hats, limbs and shoes, with 2–4% top and bottom padding. True transparent background. No scenery, other characters, UI, text, watermarks, floating effects or ground shadow.",
+        "referenced_image_paths": [
+          "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/references/Jeht/online.png"
+        ],
+        "transparent_background": true
+      },
+      "tool_output": "/Users/alexachan/.codex/generated_images/01a1b758-585a-7440-a37d-dc35f0b626e6/exec-55800dac-5e39-473e-aaf3-78fa84d73229.png",
+      "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/raw/Jeht/neutral-v001.png",
+      "raw_sha256": "2f6deb4cf8f5b7675190de7d8e23493b43d5669ea686092d946e23e92c3433c5",
+      "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/candidates/Jeht/neutral-v001.png",
+      "candidate_sha256": "2f6deb4cf8f5b7675190de7d8e23493b43d5669ea686092d946e23e92c3433c5",
+      "size": [
+        887,
+        1774
+      ],
+      "png_color_type": 6,
+      "status": "approved_installed",
+      "model_scale": 94,
+      "installation": {
+        "sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Jeht/neutral.png",
+        "sprite_sha256": "2f6deb4cf8f5b7675190de7d8e23493b43d5669ea686092d946e23e92c3433c5",
+        "card": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Jeht.png",
+        "card_sha256": "9a97b95e3ca86a199d07b80217cf38bfe60dab79ce0ae92874aad111ca1461e5",
+        "status": "installed"
+      }
+    },
+    "Knyazev": {
+      "reference_page": "https://genshin-impact.fandom.com/wiki/Knyazev",
+      "reference_url": "https://static.wikia.nocookie.net/gensin-impact/images/b/b9/NPC_Knyazev.png",
+      "reference": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/references/Knyazev/wiki.webp",
+      "reference_sha256": "146909483347b2e5e89cd6b62d54a80207ae423185a2293e49b1c5dc89641935",
+      "prompt_file": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/prompts/Knyazev/neutral-v001.txt",
+      "tool": "image_gen.imagegen",
+      "approval": {
+        "status": "approved",
+        "message": "All approved. Wire them in and make sure their custom size parameters are set to something that makes sense.",
+        "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/candidates/Knyazev/neutral-v001.png",
+        "candidate_sha256": "3c03b25bac2383412da973c767c27e2f79eb7733baddb774df0c9425568452c9",
+        "date": "2026-11-07"
+      },
+      "framing_transform": null,
+      "tool_arguments": {
+        "prompt": "Use case: stylized-concept. Create one full-body neutral visual-novel sprite of Knyazev from Genshin Impact. Use the supplied Genshin Impact Wiki in-game model image as the sole identity and costume reference. Preserve the reference's face, skin tone, hair, silhouette, costume, accessories and exact body type. Stand naturally, hands separate and relaxed, two legs and two feet; each visible human hand has a palm, four fingers and an opposable thumb. Render in polished Genshin-inspired anime game illustration. Neutral expression and calm, character-appropriate posture. Show the complete silhouette including headwear, hair, limbs, feet and accessories with 2–4% top and bottom padding. True transparent background. No scenery, other characters, text, UI, watermarks, floating effects or ground shadow.",
+        "referenced_image_paths": [
+          "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/references/Knyazev/wiki.webp"
+        ],
+        "transparent_background": true
+      },
+      "tool_output": "/Users/alexachan/.codex/generated_images/01a1b758-585a-7440-a37d-dc35f0b626e6/exec-ce424cf4-d573-4f5b-a907-b4b162429f36.png",
+      "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/raw/Knyazev/neutral-v001.png",
+      "raw_sha256": "3c03b25bac2383412da973c767c27e2f79eb7733baddb774df0c9425568452c9",
+      "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/candidates/Knyazev/neutral-v001.png",
+      "candidate_sha256": "3c03b25bac2383412da973c767c27e2f79eb7733baddb774df0c9425568452c9",
+      "size": [
+        918,
+        1714
+      ],
+      "png_color_type": 6,
+      "status": "approved_installed",
+      "model_scale": 89,
+      "installation": {
+        "sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Knyazev/neutral.png",
+        "sprite_sha256": "3c03b25bac2383412da973c767c27e2f79eb7733baddb774df0c9425568452c9",
+        "card": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Knyazev.png",
+        "card_sha256": "0f98a000fd7e41d4433430646dc60bd9e49484994ebc4ff3704c44d73854da9f",
+        "status": "installed"
+      }
+    },
+    "Komaki": {
+      "reference_page": "https://www.hoyolab.com/article/903912",
+      "reference_url": "https://upload-os-bbs.hoyolab.com/upload/2021/09/15/83235148/bfd26f7d5bcd16a061a1a633eecb4bae_9024627981357792163.png",
+      "reference": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/references/Komaki/online.png",
+      "reference_sha256": "cfad2016a39ae2d41862f3dcf61405fecb5e93ea906262b97677ed17c3fdc749",
+      "prompt_file": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/prompts/Komaki/neutral-v001.txt",
+      "tool": "image_gen.imagegen",
+      "approval": {
+        "status": "approved",
+        "message": "All approved. Wire them in and make sure their custom size parameters are set to something that makes sense.",
+        "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/candidates/Komaki/neutral-v001.png",
+        "candidate_sha256": "3da18a6b27414e9e05b9300af2103884c90aeb6db9ae15afb3d45aa94ca2f05a",
+        "date": "2026-11-07"
+      },
+      "framing_transform": null,
+      "tool_arguments": {
+        "prompt": "Use case: stylized-concept. Create one full-body neutral visual-novel sprite of Komaki from Genshin Impact. Use the supplied in-game screenshot as the sole identity and costume reference. The older woman left of the red-clad visitor, with gray hair, elderly face, dark vertically striped Inazuma clothing, pale collar and light lower skirt. Render in polished Genshin-inspired anime game illustration, faithful to the character's actual body type and identity. Give a relaxed, neutral character-appropriate pose. For human subjects, show two natural legs and feet, and separated relaxed hands with a palm, four fingers and a separate thumb where visible. Frame the entire silhouette including all hair, hats, limbs and shoes, with 2–4% top and bottom padding. True transparent background. No scenery, other characters, UI, text, watermarks, floating effects or ground shadow.",
+        "referenced_image_paths": [
+          "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/references/Komaki/online.png"
+        ],
+        "transparent_background": true
+      },
+      "tool_output": "/Users/alexachan/.codex/generated_images/01a1b758-585a-7440-a37d-dc35f0b626e6/exec-2c41a1bc-7a89-447c-aef0-25e8c019d53b.png",
+      "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/raw/Komaki/neutral-v001.png",
+      "raw_sha256": "3da18a6b27414e9e05b9300af2103884c90aeb6db9ae15afb3d45aa94ca2f05a",
+      "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/candidates/Komaki/neutral-v001.png",
+      "candidate_sha256": "3da18a6b27414e9e05b9300af2103884c90aeb6db9ae15afb3d45aa94ca2f05a",
+      "size": [
+        1024,
+        1536
+      ],
+      "png_color_type": 6,
+      "status": "approved_installed",
+      "model_scale": 78,
+      "installation": {
+        "sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Komaki/neutral.png",
+        "sprite_sha256": "3da18a6b27414e9e05b9300af2103884c90aeb6db9ae15afb3d45aa94ca2f05a",
+        "card": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Komaki.png",
+        "card_sha256": "52827445b929b849f765bf55b8d5b2f7fa5c9a7929497ba7caf56177b01f058e",
+        "status": "installed"
+      }
+    },
+    "Kujou Masahito": {
+      "reference_page": "https://mattari-game.hatenadiary.com/entry/genshin/kujou_sara/status",
+      "reference_url": "https://cdn-ak.f.st-hatena.com/images/fotolife/a/arnoldooo/20210825/20210825011905.jpg",
+      "reference": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/references/Kujou Masahito/online.jpg",
+      "reference_sha256": "be29c4975f228bd8e2060e17f003f090c09232c2de6866dedee4c05284cefaf7",
+      "prompt_file": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/prompts/Kujou Masahito/neutral-v001.txt",
+      "tool": "image_gen.imagegen",
+      "approval": {
+        "status": "approved",
+        "message": "All approved. Wire them in and make sure their custom size parameters are set to something that makes sense.",
+        "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/candidates/Kujou Masahito/neutral-v001.png",
+        "candidate_sha256": "f0ea3f2bd8f1bb6a05eb3921a617d4fc9dfd8217e9c0ba7ca0022e4e11e61af8",
+        "date": "2026-11-07"
+      },
+      "framing_transform": null,
+      "tool_arguments": {
+        "prompt": "Use case: stylized-concept. Create one full-body neutral visual-novel sprite of Kujou Masahito from Genshin Impact. Use the supplied in-game screenshot as the sole identity and costume reference. Kujou Masahito is the armored samurai on the left, not the blonde Traveler. Preserve his dark kabuto helmet, purple and black armor, crest, sash and trousers. Render in polished Genshin-inspired anime game illustration, faithful to the character's actual body type and identity. Give a relaxed, neutral character-appropriate pose. For human subjects, show two natural legs and feet, and separated relaxed hands with a palm, four fingers and a separate thumb where visible. Frame the entire silhouette including all hair, hats, limbs and shoes, with 2–4% top and bottom padding. True transparent background. No scenery, other characters, UI, text, watermarks, floating effects or ground shadow.",
+        "referenced_image_paths": [
+          "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/references/Kujou Masahito/online.jpg"
+        ],
+        "transparent_background": true
+      },
+      "tool_output": "/Users/alexachan/.codex/generated_images/01a1b758-585a-7440-a37d-dc35f0b626e6/exec-5f930144-d121-401e-99f5-ddd91e94131e.png",
+      "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/raw/Kujou Masahito/neutral-v001.png",
+      "raw_sha256": "f0ea3f2bd8f1bb6a05eb3921a617d4fc9dfd8217e9c0ba7ca0022e4e11e61af8",
+      "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/candidates/Kujou Masahito/neutral-v001.png",
+      "candidate_sha256": "f0ea3f2bd8f1bb6a05eb3921a617d4fc9dfd8217e9c0ba7ca0022e4e11e61af8",
+      "size": [
+        1024,
+        1536
+      ],
+      "png_color_type": 6,
+      "status": "approved_installed",
+      "model_scale": 100,
+      "installation": {
+        "sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Kujou Masahito/neutral.png",
+        "sprite_sha256": "f0ea3f2bd8f1bb6a05eb3921a617d4fc9dfd8217e9c0ba7ca0022e4e11e61af8",
+        "card": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Kujou Masahito.png",
+        "card_sha256": "cfde792889ce230cd3cb15be567d8fdd8aadd780719e5d74e969cd1a6c594999",
+        "status": "installed"
+      }
+    },
+    "Kukkia": {
+      "reference_page": "https://genshin-impact.fandom.com/wiki/Kukkia",
+      "reference_url": "https://static.wikia.nocookie.net/gensin-impact/images/5/59/NPC_Kukkia.png",
+      "reference": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/references/Kukkia/wiki.webp",
+      "reference_sha256": "de5cf9008a454af6fb933764e45cb1df69327c8b6a39e87a84d14dbf22a1b215",
+      "prompt_file": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/prompts/Kukkia/neutral-v001.txt",
+      "tool": "image_gen.imagegen",
+      "approval": {
+        "status": "approved",
+        "message": "All approved. Wire them in and make sure their custom size parameters are set to something that makes sense.",
+        "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/candidates/Kukkia/neutral-v001.png",
+        "candidate_sha256": "c2f4e855ad2cc2f5c7db75c63d81e9c015954ed33818fb11032299fad568ac6f",
+        "date": "2026-11-07"
+      },
+      "framing_transform": null,
+      "tool_arguments": {
+        "prompt": "Use case: stylized-concept. Create one full-body neutral visual-novel sprite of Kukkia from Genshin Impact. Use the supplied Genshin Impact Wiki in-game model image as the sole identity and costume reference. Preserve the reference's face, skin tone, hair, silhouette, costume, accessories and exact body type. Stand naturally, hands separate and relaxed, two legs and two feet; each visible human hand has a palm, four fingers and an opposable thumb. Render in polished Genshin-inspired anime game illustration. Neutral expression and calm, character-appropriate posture. Show the complete silhouette including headwear, hair, limbs, feet and accessories with 2–4% top and bottom padding. True transparent background. No scenery, other characters, text, UI, watermarks, floating effects or ground shadow.",
+        "referenced_image_paths": [
+          "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/references/Kukkia/wiki.webp"
+        ],
+        "transparent_background": true
+      },
+      "tool_output": "/Users/alexachan/.codex/generated_images/01a1b758-585a-7440-a37d-dc35f0b626e6/exec-3e23809d-37da-48b8-96cb-158e2bc9162e.png",
+      "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/raw/Kukkia/neutral-v001.png",
+      "raw_sha256": "c2f4e855ad2cc2f5c7db75c63d81e9c015954ed33818fb11032299fad568ac6f",
+      "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/candidates/Kukkia/neutral-v001.png",
+      "candidate_sha256": "c2f4e855ad2cc2f5c7db75c63d81e9c015954ed33818fb11032299fad568ac6f",
+      "size": [
+        935,
+        1683
+      ],
+      "png_color_type": 6,
+      "status": "approved_installed",
+      "model_scale": 86,
+      "installation": {
+        "sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Kukkia/neutral.png",
+        "sprite_sha256": "c2f4e855ad2cc2f5c7db75c63d81e9c015954ed33818fb11032299fad568ac6f",
+        "card": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Kukkia.png",
+        "card_sha256": "8b34a0418e9d128b7e66037912349946335ef32bc6981c8126151a80565e825c",
+        "status": "installed"
+      }
+    },
+    "Lasselin": {
+      "reference_page": "https://genshin-impact.fandom.com/wiki/Lasselin",
+      "reference_url": "https://static.wikia.nocookie.net/gensin-impact/images/9/97/NPC_Lasselin.png",
+      "reference": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/references/Lasselin/wiki.webp",
+      "reference_sha256": "c947e21e0b4ce844be2b2369cd1e154cd9241d08b8a8b0f82212aa7be238b13e",
+      "prompt_file": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/prompts/Lasselin/neutral-v001.txt",
+      "tool": "image_gen.imagegen",
+      "approval": {
+        "status": "approved",
+        "message": "All approved. Wire them in and make sure their custom size parameters are set to something that makes sense.",
+        "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/candidates/Lasselin/neutral-v001.png",
+        "candidate_sha256": "68c8fb0b43c9f89c2b59d520ea0c9372d9d325d1dd26d05ec593ab5b22c01650",
+        "date": "2026-11-07"
+      },
+      "framing_transform": null,
+      "tool_arguments": {
+        "prompt": "Use case: stylized-concept. Create one full-body neutral visual-novel sprite of Lasselin from Genshin Impact. Use the supplied Genshin Impact Wiki in-game model image as the sole identity and costume reference. Preserve the reference's face, skin tone, hair, silhouette, costume, accessories and exact body type. Stand naturally, hands separate and relaxed, two legs and two feet; each visible human hand has a palm, four fingers and an opposable thumb. Render in polished Genshin-inspired anime game illustration. Neutral expression and calm, character-appropriate posture. Show the complete silhouette including headwear, hair, limbs, feet and accessories with 2–4% top and bottom padding. True transparent background. No scenery, other characters, text, UI, watermarks, floating effects or ground shadow.",
+        "referenced_image_paths": [
+          "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/references/Lasselin/wiki.webp"
+        ],
+        "transparent_background": true
+      },
+      "tool_output": "/Users/alexachan/.codex/generated_images/01a1b758-585a-7440-a37d-dc35f0b626e6/exec-eeccc7d6-e269-4162-8cee-7bb2a8d93a57.png",
+      "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/raw/Lasselin/neutral-v001.png",
+      "raw_sha256": "68c8fb0b43c9f89c2b59d520ea0c9372d9d325d1dd26d05ec593ab5b22c01650",
+      "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/candidates/Lasselin/neutral-v001.png",
+      "candidate_sha256": "68c8fb0b43c9f89c2b59d520ea0c9372d9d325d1dd26d05ec593ab5b22c01650",
+      "size": [
+        941,
+        1672
+      ],
+      "png_color_type": 6,
+      "status": "approved_installed",
+      "model_scale": 86,
+      "installation": {
+        "sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Lasselin/neutral.png",
+        "sprite_sha256": "68c8fb0b43c9f89c2b59d520ea0c9372d9d325d1dd26d05ec593ab5b22c01650",
+        "card": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Lasselin.png",
+        "card_sha256": "73b15978fd43b32eb2f747ace3ec3c7f682c63b5f6ed166febcf52b636d14bdf",
+        "status": "installed"
+      }
+    },
+    "Lyris": {
+      "reference_page": "https://genshin-impact.fandom.com/wiki/Lyris",
+      "reference_url": "https://static.wikia.nocookie.net/gensin-impact/images/2/27/NPC_Lyris.png",
+      "reference": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/references/Lyris/wiki.webp",
+      "reference_sha256": "a678ccc8826692585f6be573f9437fbfcd69d4f67e5c93bbe7bd603a4bf57c3e",
+      "prompt_file": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/prompts/Lyris/neutral-v001.txt",
+      "tool": "image_gen.imagegen",
+      "approval": {
+        "status": "approved",
+        "message": "All approved. Wire them in and make sure their custom size parameters are set to something that makes sense.",
+        "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/candidates/Lyris/neutral-v001.png",
+        "candidate_sha256": "e6919f20ad3912e8fd470e47d479b1f1164684895c1ea5067693b9c28a8c3467",
+        "date": "2026-11-07"
+      },
+      "framing_transform": null,
+      "tool_arguments": {
+        "prompt": "Use case: stylized-concept. Create one full-body neutral visual-novel sprite of Lyris from Genshin Impact. Use the supplied Genshin Impact Wiki in-game model image as the sole identity and costume reference. The figure is a water-like blue translucent Oceanid apparition; preserve the blue watery appearance, hair and dress shown in the reference. Render in polished Genshin-inspired anime game illustration. Neutral expression and calm, character-appropriate posture. Show the complete silhouette including headwear, hair, limbs, feet and accessories with 2–4% top and bottom padding. True transparent background. No scenery, other characters, text, UI, watermarks, floating effects or ground shadow.",
+        "referenced_image_paths": [
+          "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/references/Lyris/wiki.webp"
+        ],
+        "transparent_background": true
+      },
+      "tool_output": "/Users/alexachan/.codex/generated_images/01a1b758-585a-7440-a37d-dc35f0b626e6/exec-82774d38-7d56-4c1d-bb4d-3dafba8f34f3.png",
+      "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/raw/Lyris/neutral-v001.png",
+      "raw_sha256": "e6919f20ad3912e8fd470e47d479b1f1164684895c1ea5067693b9c28a8c3467",
+      "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/candidates/Lyris/neutral-v001.png",
+      "candidate_sha256": "e6919f20ad3912e8fd470e47d479b1f1164684895c1ea5067693b9c28a8c3467",
+      "size": [
+        992,
+        1586
+      ],
+      "png_color_type": 6,
+      "status": "approved_installed",
+      "model_scale": 86,
+      "installation": {
+        "sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Lyris/neutral.png",
+        "sprite_sha256": "e6919f20ad3912e8fd470e47d479b1f1164684895c1ea5067693b9c28a8c3467",
+        "card": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Lyris.png",
+        "card_sha256": "ce3bc13c0fa53b68c5897ff28e2317c1cc14755c93d7ceb5b22a1d572938afb6",
+        "status": "installed"
+      }
+    },
+    "Maryam": {
+      "reference_page": "https://genshin-impact.fandom.com/wiki/Maryam",
+      "reference_url": "https://static.wikia.nocookie.net/gensin-impact/images/d/d0/NPC_Maryam.png",
+      "reference": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/references/Maryam/wiki.webp",
+      "reference_sha256": "84818371de3086ad49ab3264ee607e022b91251fc6c8d7535433c1eb74a939ed",
+      "prompt_file": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/prompts/Maryam/neutral-v001.txt",
+      "tool": "image_gen.imagegen",
+      "approval": {
+        "status": "approved",
+        "message": "All approved. Wire them in and make sure their custom size parameters are set to something that makes sense.",
+        "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/candidates/Maryam/neutral-v001.png",
+        "candidate_sha256": "9e64662fd6dbc9f097d0c5b81f3cf9b27b5e8ef65f908c02e09e09f85cbbabeb",
+        "date": "2026-11-07"
+      },
+      "framing_transform": null,
+      "tool_arguments": {
+        "prompt": "Use case: stylized-concept. Create one full-body neutral visual-novel sprite of Maryam from Genshin Impact. Use the supplied Genshin Impact Wiki in-game model image as the sole identity and costume reference. Preserve the reference's face, skin tone, hair, silhouette, costume, accessories and exact body type. Stand naturally, hands separate and relaxed, two legs and two feet; each visible human hand has a palm, four fingers and an opposable thumb. Render in polished Genshin-inspired anime game illustration. Neutral expression and calm, character-appropriate posture. Show the complete silhouette including headwear, hair, limbs, feet and accessories with 2–4% top and bottom padding. True transparent background. No scenery, other characters, text, UI, watermarks, floating effects or ground shadow.",
+        "referenced_image_paths": [
+          "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/references/Maryam/wiki.webp"
+        ],
+        "transparent_background": true
+      },
+      "tool_output": "/Users/alexachan/.codex/generated_images/01a1b758-585a-7440-a37d-dc35f0b626e6/exec-5a20ce75-a586-4b8e-928c-6d3ced6a54c2.png",
+      "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/raw/Maryam/neutral-v001.png",
+      "raw_sha256": "9e64662fd6dbc9f097d0c5b81f3cf9b27b5e8ef65f908c02e09e09f85cbbabeb",
+      "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/candidates/Maryam/neutral-v001.png",
+      "candidate_sha256": "9e64662fd6dbc9f097d0c5b81f3cf9b27b5e8ef65f908c02e09e09f85cbbabeb",
+      "size": [
+        935,
+        1683
+      ],
+      "png_color_type": 6,
+      "status": "approved_installed",
+      "model_scale": 86,
+      "installation": {
+        "sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Maryam/neutral.png",
+        "sprite_sha256": "9e64662fd6dbc9f097d0c5b81f3cf9b27b5e8ef65f908c02e09e09f85cbbabeb",
+        "card": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Maryam.png",
+        "card_sha256": "458e23b6bb1d2fffb023d24fcc627d6777f9393a61d615ccb15ded034a29abad",
+        "status": "installed"
+      }
+    },
+    "Master Lu": {
+      "reference_page": "https://www.spieltimes.io/news/genshin-impact-furnishing-blueprint-vendor-where-to-find/",
+      "reference_url": "https://www.spieltimes.io/wp-content/uploads/2022/02/genshin-impact-furniture-1-1024x576.png",
+      "reference": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/references/Master Lu/online.png",
+      "reference_sha256": "bae56293e8727e065250a47b50439ae0d1268624199af5de002ad75c2158e175",
+      "prompt_file": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/prompts/Master Lu/neutral-v001.txt",
+      "tool": "image_gen.imagegen",
+      "approval": {
+        "status": "approved",
+        "message": "All approved. Wire them in and make sure their custom size parameters are set to something that makes sense.",
+        "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/candidates/Master Lu/neutral-v001.png",
+        "candidate_sha256": "57396cb2708993f96c962e569e06ca40cff63e4ba4312e9482ed938497177586",
+        "date": "2026-11-07"
+      },
+      "framing_transform": null,
+      "tool_arguments": {
+        "prompt": "Use case: stylized-concept. Create one full-body neutral visual-novel sprite of Master Lu, the carpenter from Genshin Impact. The supplied online screenshot is the sole identity reference: he is the older man on the right, not the blonde character on the left. Preserve his short dark hair, elderly face, brown tunic with lighter cuffs, dark trousers and shoes as far as visible. Render in polished Genshin-inspired anime game illustration, with a character-appropriate older male build and relaxed neutral expression. Stand upright, hands separately relaxed near the body, each hand with a palm, four fingers and opposable thumb as visible; exactly two legs and two feet, slightly separated. Show the complete silhouette with 2–4% padding at top and bottom. True transparent background. No other character, scenery, text, UI, watermark, floating effects or ground shadow.",
+        "referenced_image_paths": [
+          "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/references/Master Lu/online.png"
+        ],
+        "transparent_background": true
+      },
+      "tool_output": "/Users/alexachan/.codex/generated_images/01a1b758-585a-7440-a37d-dc35f0b626e6/exec-27baec69-c977-4922-9398-677226b64f75.png",
+      "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/raw/Master Lu/neutral-v001.png",
+      "raw_sha256": "57396cb2708993f96c962e569e06ca40cff63e4ba4312e9482ed938497177586",
+      "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/candidates/Master Lu/neutral-v001.png",
+      "candidate_sha256": "57396cb2708993f96c962e569e06ca40cff63e4ba4312e9482ed938497177586",
+      "size": [
+        1024,
+        1536
+      ],
+      "png_color_type": 6,
+      "status": "approved_installed",
+      "model_scale": 84,
+      "installation": {
+        "sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Master Lu/neutral.png",
+        "sprite_sha256": "57396cb2708993f96c962e569e06ca40cff63e4ba4312e9482ed938497177586",
+        "card": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Master Lu.png",
+        "card_sha256": "5fc85e2d87633e594f0f87886e779064998b868558cdcc4eb18e098a1f514801",
+        "status": "installed"
+      }
+    },
+    "Mayskaya": {
+      "reference_page": "https://genshin-impact.fandom.com/wiki/Mayskaya",
+      "reference_url": "https://static.wikia.nocookie.net/gensin-impact/images/0/0a/NPC_Mayskaya.png",
+      "reference": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/references/Mayskaya/wiki.webp",
+      "reference_sha256": "b49637ea5e1a1a724b7aa23815a9380c349adcd05b7f832ce1f96f22398f4a02",
+      "prompt_file": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/prompts/Mayskaya/neutral-v001.txt",
+      "tool": "image_gen.imagegen",
+      "approval": {
+        "status": "approved",
+        "message": "All approved. Wire them in and make sure their custom size parameters are set to something that makes sense.",
+        "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/candidates/Mayskaya/neutral-v001.png",
+        "candidate_sha256": "68f97f3d2d8cd3f9ff4c4c96a9f23657845dfd8911ad6e12867016b0d96320d0",
+        "date": "2026-11-07"
+      },
+      "framing_transform": null,
+      "tool_arguments": {
+        "prompt": "Use case: stylized-concept. Create one full-body neutral visual-novel sprite of Mayskaya from Genshin Impact. Use the supplied Genshin Impact Wiki in-game model image as the sole identity and costume reference. Preserve the reference's face, skin tone, hair, silhouette, costume, accessories and exact body type. Stand naturally, hands separate and relaxed, two legs and two feet; each visible human hand has a palm, four fingers and an opposable thumb. Render in polished Genshin-inspired anime game illustration. Neutral expression and calm, character-appropriate posture. Show the complete silhouette including headwear, hair, limbs, feet and accessories with 2–4% top and bottom padding. True transparent background. No scenery, other characters, text, UI, watermarks, floating effects or ground shadow.",
+        "referenced_image_paths": [
+          "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/references/Mayskaya/wiki.webp"
+        ],
+        "transparent_background": true
+      },
+      "tool_output": "/Users/alexachan/.codex/generated_images/01a1b758-585a-7440-a37d-dc35f0b626e6/exec-f6663c78-a803-4a2f-a4b8-16f872b820b3.png",
+      "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/raw/Mayskaya/neutral-v001.png",
+      "raw_sha256": "68f97f3d2d8cd3f9ff4c4c96a9f23657845dfd8911ad6e12867016b0d96320d0",
+      "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/candidates/Mayskaya/neutral-v001.png",
+      "candidate_sha256": "68f97f3d2d8cd3f9ff4c4c96a9f23657845dfd8911ad6e12867016b0d96320d0",
+      "size": [
+        935,
+        1683
+      ],
+      "png_color_type": 6,
+      "status": "approved_installed",
+      "model_scale": 86,
+      "installation": {
+        "sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Mayskaya/neutral.png",
+        "sprite_sha256": "68f97f3d2d8cd3f9ff4c4c96a9f23657845dfd8911ad6e12867016b0d96320d0",
+        "card": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Mayskaya.png",
+        "card_sha256": "16558df2b5dcaadf7769060792e3d2c9772f62033f3b5813931b8c2fa502f77b",
+        "status": "installed"
+      }
+    },
+    "Mazatl": {
+      "reference_page": "https://genshin-impact.fandom.com/wiki/Mazatl",
+      "reference_url": "https://static.wikia.nocookie.net/gensin-impact/images/8/8c/NPC_Mazatl.png",
+      "reference": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/references/Mazatl/wiki.webp",
+      "reference_sha256": "ed598d4ae22623b5e9c9ea315f38c7afec19f047950a48805f6fe8695a92a951",
+      "prompt_file": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/prompts/Mazatl/neutral-v001.txt",
+      "tool": "image_gen.imagegen",
+      "approval": {
+        "status": "approved",
+        "message": "All approved. Wire them in and make sure their custom size parameters are set to something that makes sense.",
+        "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/candidates/Mazatl/neutral-v001.png",
+        "candidate_sha256": "260b2a73f1693117ac69c7dc477a486228f108ea478847a888c7a0a9e79a4f7c",
+        "date": "2026-11-07"
+      },
+      "framing_transform": null,
+      "tool_arguments": {
+        "prompt": "Use case: stylized-concept. Create one full-body neutral visual-novel sprite of Mazatl from Genshin Impact. Use the supplied Genshin Impact Wiki in-game model image as the sole identity and costume reference. Preserve the reference's face, skin tone, hair, silhouette, costume, accessories and exact body type. Stand naturally, hands separate and relaxed, two legs and two feet; each visible human hand has a palm, four fingers and an opposable thumb. Render in polished Genshin-inspired anime game illustration. Neutral expression and calm, character-appropriate posture. Show the complete silhouette including headwear, hair, limbs, feet and accessories with 2–4% top and bottom padding. True transparent background. No scenery, other characters, text, UI, watermarks, floating effects or ground shadow.",
+        "referenced_image_paths": [
+          "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/references/Mazatl/wiki.webp"
+        ],
+        "transparent_background": true
+      },
+      "tool_output": "/Users/alexachan/.codex/generated_images/01a1b758-585a-7440-a37d-dc35f0b626e6/exec-34931af1-1a1a-4268-8d1b-b6c918e1a85e.png",
+      "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/raw/Mazatl/neutral-v001.png",
+      "raw_sha256": "260b2a73f1693117ac69c7dc477a486228f108ea478847a888c7a0a9e79a4f7c",
+      "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/candidates/Mazatl/neutral-v001.png",
+      "candidate_sha256": "260b2a73f1693117ac69c7dc477a486228f108ea478847a888c7a0a9e79a4f7c",
+      "size": [
+        937,
+        1679
+      ],
+      "png_color_type": 6,
+      "status": "approved_installed",
+      "model_scale": 100,
+      "installation": {
+        "sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Mazatl/neutral.png",
+        "sprite_sha256": "260b2a73f1693117ac69c7dc477a486228f108ea478847a888c7a0a9e79a4f7c",
+        "card": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Mazatl.png",
+        "card_sha256": "46d233db20598eda1996971aeb43ad5a1fabac2413f4ec244934ce17c4d21c45",
+        "status": "installed"
+      }
+    },
+    "Mécantre": {
+      "reference_page": "https://genshin-impact.fandom.com/wiki/Mécantre",
+      "reference_url": "https://static.wikia.nocookie.net/gensin-impact/images/1/18/NPC_Mécantre.png",
+      "reference": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/references/Mécantre/wiki.webp",
+      "reference_sha256": "4a616b06b8de289c9658fbdc652697f439f5b77ee0ea56892552bceef37e2ae2",
+      "prompt_file": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/prompts/Mécantre/neutral-v001.txt",
+      "tool": "image_gen.imagegen",
+      "approval": {
+        "status": "approved",
+        "message": "All approved. Wire them in and make sure their custom size parameters are set to something that makes sense.",
+        "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/candidates/Mécantre/neutral-v001.png",
+        "candidate_sha256": "cb8bef38a9f7dc88936271ae31a93c2e687054d950559bb4ae9447a0e052e701",
+        "date": "2026-11-07"
+      },
+      "framing_transform": null,
+      "tool_arguments": {
+        "prompt": "Use case: stylized-concept. Create one full-body neutral visual-novel sprite of Mécantre from Genshin Impact. Use the supplied Genshin Impact Wiki in-game model image as the sole identity and costume reference. Preserve the reference's face, skin tone, hair, silhouette, costume, accessories and exact body type. Stand naturally, hands separate and relaxed, two legs and two feet; each visible human hand has a palm, four fingers and an opposable thumb. Render in polished Genshin-inspired anime game illustration. Neutral expression and calm, character-appropriate posture. Show the complete silhouette including headwear, hair, limbs, feet and accessories with 2–4% top and bottom padding. True transparent background. No scenery, other characters, text, UI, watermarks, floating effects or ground shadow.",
+        "referenced_image_paths": [
+          "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/references/Mécantre/wiki.webp"
+        ],
+        "transparent_background": true
+      },
+      "tool_output": "/Users/alexachan/.codex/generated_images/01a1b758-585a-7440-a37d-dc35f0b626e6/exec-916fc528-096d-46ef-b177-96dae7223fac.png",
+      "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/raw/Mécantre/neutral-v001.png",
+      "raw_sha256": "cb8bef38a9f7dc88936271ae31a93c2e687054d950559bb4ae9447a0e052e701",
+      "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/candidates/Mécantre/neutral-v001.png",
+      "candidate_sha256": "cb8bef38a9f7dc88936271ae31a93c2e687054d950559bb4ae9447a0e052e701",
+      "size": [
+        937,
+        1678
+      ],
+      "png_color_type": 6,
+      "status": "approved_installed",
+      "model_scale": 95,
+      "installation": {
+        "sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Mécantre/neutral.png",
+        "sprite_sha256": "cb8bef38a9f7dc88936271ae31a93c2e687054d950559bb4ae9447a0e052e701",
+        "card": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Mécantre.png",
+        "card_sha256": "dbd1da4f2edb79b28f43a5b02e12cb5aa00ea755069723c0004b2f4322dd8241",
+        "status": "installed"
+      }
+    },
+    "Neko": {
+      "reference_page": "https://www.hoyolab.com/article/16399512",
+      "reference_url": "https://upload-os-bbs.hoyolab.com/upload/2023/02/16/168026537/52c24b7f2b90dab925b5d140b61d7cc9_439195546855372600.png",
+      "reference": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/references/Neko/online.png",
+      "reference_sha256": "93baa2970209c95c7d2d5b166c34ce975ab76263d604f04f6664b66d02e36a28",
+      "prompt_file": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/prompts/Neko/neutral-v001.txt",
+      "tool": "image_gen.imagegen",
+      "approval": {
+        "status": "approved",
+        "message": "All approved. Wire them in and make sure their custom size parameters are set to something that makes sense.",
+        "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/candidates/Neko/neutral-v001.png",
+        "candidate_sha256": "4920015f9d999be7a4af389da948af5ae61e2f0888fcfaaaa1c0464263854fff",
+        "date": "2026-11-07"
+      },
+      "framing_transform": null,
+      "tool_arguments": {
+        "prompt": "Use case: stylized-concept. Create one full-body neutral visual-novel sprite of Neko from Genshin Impact. Use the supplied in-game screenshot as the sole identity and costume reference. Neko is the small black cat on the left, not the red-haired human. Preserve her black fur, golden eyes, pointed ears and natural feline proportions. Portray the cat sitting calmly on four natural feline limbs, not as a human. Render in polished Genshin-inspired anime game illustration, faithful to the character's actual body type and identity. Give a relaxed, neutral character-appropriate pose. For human subjects, show two natural legs and feet, and separated relaxed hands with a palm, four fingers and a separate thumb where visible. Frame the entire silhouette including all hair, hats, limbs and shoes, with 2–4% top and bottom padding. True transparent background. No scenery, other characters, UI, text, watermarks, floating effects or ground shadow.",
+        "referenced_image_paths": [
+          "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/references/Neko/online.png"
+        ],
+        "transparent_background": true
+      },
+      "tool_output": "/Users/alexachan/.codex/generated_images/01a1b758-585a-7440-a37d-dc35f0b626e6/exec-ee0350e0-5a79-4f79-86ec-4b56356bed67.png",
+      "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/raw/Neko/neutral-v001.png",
+      "raw_sha256": "4920015f9d999be7a4af389da948af5ae61e2f0888fcfaaaa1c0464263854fff",
+      "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/candidates/Neko/neutral-v001.png",
+      "candidate_sha256": "4920015f9d999be7a4af389da948af5ae61e2f0888fcfaaaa1c0464263854fff",
+      "size": [
+        1024,
+        1536
+      ],
+      "png_color_type": 6,
+      "status": "approved_installed",
+      "model_scale": 30,
+      "installation": {
+        "sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Neko/neutral.png",
+        "sprite_sha256": "4920015f9d999be7a4af389da948af5ae61e2f0888fcfaaaa1c0464263854fff",
+        "card": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Neko.png",
+        "card_sha256": "46d11684700f6059c7505af119405597eb3ac60931f0c3433b4ab2ce5a17097c",
+        "status": "installed"
+      }
+    },
+    "Nishikino Reirei": {
+      "reference_page": "https://genshin-impact.fandom.com/wiki/Nishikino_Reirei",
+      "reference_url": "https://static.wikia.nocookie.net/gensin-impact/images/2/22/NPC_Nishikino_Reirei.png",
+      "reference": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/references/Nishikino Reirei/wiki.webp",
+      "reference_sha256": "68a9e2d2f90ee22448837ab68151012f8b6dcdda89087b1d481e873ecc98e886",
+      "prompt_file": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/prompts/Nishikino Reirei/neutral-v001.txt",
+      "tool": "image_gen.imagegen",
+      "approval": {
+        "status": "approved",
+        "message": "All approved. Wire them in and make sure their custom size parameters are set to something that makes sense.",
+        "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/candidates/Nishikino Reirei/neutral-v001.png",
+        "candidate_sha256": "5fadb35d05667580d047e2e38879c7bdcb2e14aed977e0e12275af8224e1a22b",
+        "date": "2026-11-07"
+      },
+      "framing_transform": null,
+      "tool_arguments": {
+        "prompt": "Use case: stylized-concept. Create one full-body neutral visual-novel sprite of Nishikino Reirei from Genshin Impact. Use the supplied Genshin Impact Wiki in-game model image as the sole identity and costume reference. Preserve the reference's face, skin tone, hair, silhouette, costume, accessories and exact body type. Stand naturally, hands separate and relaxed, two legs and two feet; each visible human hand has a palm, four fingers and an opposable thumb. Render in polished Genshin-inspired anime game illustration. Neutral expression and calm, character-appropriate posture. Show the complete silhouette including headwear, hair, limbs, feet and accessories with 2–4% top and bottom padding. True transparent background. No scenery, other characters, text, UI, watermarks, floating effects or ground shadow.",
+        "referenced_image_paths": [
+          "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/references/Nishikino Reirei/wiki.webp"
+        ],
+        "transparent_background": true
+      },
+      "tool_output": "/Users/alexachan/.codex/generated_images/01a1b758-585a-7440-a37d-dc35f0b626e6/exec-94cea9a1-76b0-47e2-adc0-4cc3ce372a66.png",
+      "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/raw/Nishikino Reirei/neutral-v001.png",
+      "raw_sha256": "5fadb35d05667580d047e2e38879c7bdcb2e14aed977e0e12275af8224e1a22b",
+      "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/candidates/Nishikino Reirei/neutral-v001.png",
+      "candidate_sha256": "5fadb35d05667580d047e2e38879c7bdcb2e14aed977e0e12275af8224e1a22b",
+      "size": [
+        954,
+        1648
+      ],
+      "png_color_type": 6,
+      "status": "approved_installed",
+      "model_scale": 86,
+      "installation": {
+        "sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Nishikino Reirei/neutral.png",
+        "sprite_sha256": "5fadb35d05667580d047e2e38879c7bdcb2e14aed977e0e12275af8224e1a22b",
+        "card": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Nishikino Reirei.png",
+        "card_sha256": "5c0c151b8664cbb96dcfbf8c382341b3758dc9f9c85f61a5843ceef782bd76a8",
+        "status": "installed"
+      }
+    },
+    "Pitot": {
+      "reference_page": "https://genshin-impact.fandom.com/wiki/Pitot",
+      "reference_url": "https://static.wikia.nocookie.net/gensin-impact/images/4/46/NPC_Pitot.png",
+      "reference": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/references/Pitot/wiki.webp",
+      "reference_sha256": "4c963a724f48c900b619ed0249214fcbbe49bd6b39ec4a1d8b1ba3c538fc34f0",
+      "prompt_file": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/prompts/Pitot/neutral-v001.txt",
+      "tool": "image_gen.imagegen",
+      "approval": {
+        "status": "approved",
+        "message": "All approved. Wire them in and make sure their custom size parameters are set to something that makes sense.",
+        "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/candidates/Pitot/neutral-v001.png",
+        "candidate_sha256": "627ec7383cd852af0ca2dd6a67f7795b4440dee6692123eba81e97abd9df7e81",
+        "date": "2026-11-07"
+      },
+      "framing_transform": null,
+      "tool_arguments": {
+        "prompt": "Use case: stylized-concept. Create one full-body neutral visual-novel sprite of Pitot from Genshin Impact. Use the supplied Genshin Impact Wiki in-game model image as the sole identity and costume reference. Preserve the reference's face, skin tone, hair, silhouette, costume, accessories and exact body type. Stand naturally, hands separate and relaxed, two legs and two feet; each visible human hand has a palm, four fingers and an opposable thumb. Render in polished Genshin-inspired anime game illustration. Neutral expression and calm, character-appropriate posture. Show the complete silhouette including headwear, hair, limbs, feet and accessories with 2–4% top and bottom padding. True transparent background. No scenery, other characters, text, UI, watermarks, floating effects or ground shadow.",
+        "referenced_image_paths": [
+          "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/references/Pitot/wiki.webp"
+        ],
+        "transparent_background": true
+      },
+      "tool_output": "/Users/alexachan/.codex/generated_images/01a1b758-585a-7440-a37d-dc35f0b626e6/exec-fb1e7682-484b-4d50-9a47-384278b35714.png",
+      "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/raw/Pitot/neutral-v001.png",
+      "raw_sha256": "627ec7383cd852af0ca2dd6a67f7795b4440dee6692123eba81e97abd9df7e81",
+      "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/candidates/Pitot/neutral-v001.png",
+      "candidate_sha256": "627ec7383cd852af0ca2dd6a67f7795b4440dee6692123eba81e97abd9df7e81",
+      "size": [
+        940,
+        1674
+      ],
+      "png_color_type": 6,
+      "status": "approved_installed",
+      "model_scale": 95,
+      "installation": {
+        "sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Pitot/neutral.png",
+        "sprite_sha256": "627ec7383cd852af0ca2dd6a67f7795b4440dee6692123eba81e97abd9df7e81",
+        "card": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Pitot.png",
+        "card_sha256": "a76f91d8f62594b831453d13e5b0c318f4fac963ce1fdf53e382a5057885edd5",
+        "status": "installed"
+      }
+    },
+    "Plate": {
+      "reference_page": "https://genshin-impact.fandom.com/wiki/Plate",
+      "reference_url": "https://static.wikia.nocookie.net/gensin-impact/images/5/51/NPC_Plate.png",
+      "reference": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/references/Plate/wiki.webp",
+      "reference_sha256": "3b6be06b7d83e18725516c1f0d96f25cf824fcfffcde27f75c41e55347395557",
+      "prompt_file": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/prompts/Plate/neutral-v001.txt",
+      "tool": "image_gen.imagegen",
+      "approval": {
+        "status": "approved",
+        "message": "All approved. Wire them in and make sure their custom size parameters are set to something that makes sense.",
+        "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/candidates/Plate/neutral-v001.png",
+        "candidate_sha256": "b87c46e5d139fd29bc62bb321922df15e75a4f7b31539214cca76c97b745638f",
+        "date": "2026-11-07"
+      },
+      "framing_transform": null,
+      "tool_arguments": {
+        "prompt": "Use case: stylized-concept. Create one full-body neutral visual-novel sprite of Plate from Genshin Impact. Use the supplied Genshin Impact Wiki in-game model image as the sole identity and costume reference. This is a dog, not a person: retain the exact fur colors, markings, ears and dog anatomy in the reference. Four natural canine legs and paws, in a relaxed standing pose. Render in polished Genshin-inspired anime game illustration. Neutral expression and calm, character-appropriate posture. Show the complete silhouette including headwear, hair, limbs, feet and accessories with 2–4% top and bottom padding. True transparent background. No scenery, other characters, text, UI, watermarks, floating effects or ground shadow.",
+        "referenced_image_paths": [
+          "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/references/Plate/wiki.webp"
+        ],
+        "transparent_background": true
+      },
+      "tool_output": "/Users/alexachan/.codex/generated_images/01a1b758-585a-7440-a37d-dc35f0b626e6/exec-4fde3177-e503-472a-8209-767829c766a9.png",
+      "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/raw/Plate/neutral-v001.png",
+      "raw_sha256": "b87c46e5d139fd29bc62bb321922df15e75a4f7b31539214cca76c97b745638f",
+      "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/candidates/Plate/neutral-v001.png",
+      "candidate_sha256": "b87c46e5d139fd29bc62bb321922df15e75a4f7b31539214cca76c97b745638f",
+      "size": [
+        1254,
+        1254
+      ],
+      "png_color_type": 6,
+      "status": "approved_installed",
+      "model_scale": 45,
+      "installation": {
+        "sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Plate/neutral.png",
+        "sprite_sha256": "b87c46e5d139fd29bc62bb321922df15e75a4f7b31539214cca76c97b745638f",
+        "card": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Plate.png",
+        "card_sha256": "0e4c7bda5b36ffe18450a703f9e6eebd8253a8813d590c8bc13b6bcc40fbf949",
+        "status": "installed"
+      }
+    },
+    "Rene": {
+      "reference_page": "https://www.hoyolab.com/article/21204098",
+      "reference_url": "https://upload-os-bbs.hoyolab.com/upload/2023/12/06/30161357/33f00b8f8485271c68620151764fc2d4_3875926121574651068.jpg",
+      "reference": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/references/Rene/online.jpg",
+      "reference_sha256": "a5a1b5d638971c776398eca0b5cd38e03d7185647ff3e73bbbe37bc9e6b31bb6",
+      "prompt_file": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/prompts/Rene/neutral-v001.txt",
+      "tool": "image_gen.imagegen",
+      "approval": {
+        "status": "approved",
+        "message": "All approved. Wire them in and make sure their custom size parameters are set to something that makes sense.",
+        "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/candidates/Rene/neutral-v001.png",
+        "candidate_sha256": "657f4a33a35b2b736a739b2d9827538dcaf47e6fb560ef44d73002461120c72e",
+        "date": "2026-11-07"
+      },
+      "framing_transform": null,
+      "tool_arguments": {
+        "prompt": "Use case: stylized-concept. Create one full-body neutral visual-novel sprite of young Rene de Petrichor from Genshin Impact. Use the supplied labeled HoYoLAB character lineup as the sole identity reference. Rene is the purple-haired child on the far right, labeled Rene, not the others. Preserve his neat purple hair, youthful child proportions, dark short-sleeved shirt with gold neck ribbon, gray buttoned vest and gray trousers. Show him in a neutral relaxed stance, hands separately relaxed, with a palm, four fingers and separate thumb where visible; two legs and two feet. Render in polished Genshin-inspired anime game illustration with complete head-to-foot silhouette and 2–4% padding. True transparent background. No other characters, scenery, text, labels, watermark, effects or ground shadow.",
+        "referenced_image_paths": [
+          "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/references/Rene/online.jpg"
+        ],
+        "transparent_background": true
+      },
+      "tool_output": "/Users/alexachan/.codex/generated_images/01a1b758-585a-7440-a37d-dc35f0b626e6/exec-9dab89aa-6096-4202-a7d4-49078798d781.png",
+      "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/raw/Rene/neutral-v001.png",
+      "raw_sha256": "657f4a33a35b2b736a739b2d9827538dcaf47e6fb560ef44d73002461120c72e",
+      "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/candidates/Rene/neutral-v001.png",
+      "candidate_sha256": "657f4a33a35b2b736a739b2d9827538dcaf47e6fb560ef44d73002461120c72e",
+      "size": [
+        1024,
+        1536
+      ],
+      "png_color_type": 6,
+      "status": "approved_installed",
+      "model_scale": 72,
+      "installation": {
+        "sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Rene/neutral.png",
+        "sprite_sha256": "657f4a33a35b2b736a739b2d9827538dcaf47e6fb560ef44d73002461120c72e",
+        "card": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Rene.png",
+        "card_sha256": "202fdd5f9e7674570ae7093fee9250aa67d035739a239e422cb8e1ffa63d3fcb",
+        "status": "installed"
+      }
+    },
+    "Sedile": {
+      "reference_page": "https://genshin-impact.fandom.com/wiki/Sedile",
+      "reference_url": "https://static.wikia.nocookie.net/gensin-impact/images/9/95/NPC_Sedile.png",
+      "reference": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/references/Sedile/wiki.webp",
+      "reference_sha256": "9e28162b8458d2ed7c15bac0f0b5f2efa9884ee44df14985f743db15f698b1db",
+      "prompt_file": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/prompts/Sedile/neutral-v001.txt",
+      "tool": "image_gen.imagegen",
+      "approval": {
+        "status": "approved",
+        "message": "All approved. Wire them in and make sure their custom size parameters are set to something that makes sense.",
+        "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/candidates/Sedile/neutral-v001.png",
+        "candidate_sha256": "b57ad25e699e036b426992ecf3763029c1f3a02654a6ad1da12083e476016398",
+        "date": "2026-11-07"
+      },
+      "framing_transform": null,
+      "tool_arguments": {
+        "prompt": "Use case: stylized-concept. Create one full-body neutral visual-novel sprite of Sedile from Genshin Impact. Use the supplied Genshin Impact Wiki in-game model image as the sole identity and costume reference. This is a Melusine, not a human: preserve the compact nonhuman body, head shape, eye designs, horn-like ears, coloration, hands, legs and markings from the reference. Render in polished Genshin-inspired anime game illustration. Neutral expression and calm, character-appropriate posture. Show the complete silhouette including headwear, hair, limbs, feet and accessories with 2–4% top and bottom padding. True transparent background. No scenery, other characters, text, UI, watermarks, floating effects or ground shadow.",
+        "referenced_image_paths": [
+          "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/references/Sedile/wiki.webp"
+        ],
+        "transparent_background": true
+      },
+      "tool_output": "/Users/alexachan/.codex/generated_images/01a1b758-585a-7440-a37d-dc35f0b626e6/exec-2550c7c8-83e1-4f17-9f77-b46b35ddd8c2.png",
+      "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/raw/Sedile/neutral-v001.png",
+      "raw_sha256": "b57ad25e699e036b426992ecf3763029c1f3a02654a6ad1da12083e476016398",
+      "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/candidates/Sedile/neutral-v001.png",
+      "candidate_sha256": "b57ad25e699e036b426992ecf3763029c1f3a02654a6ad1da12083e476016398",
+      "size": [
+        951,
+        1654
+      ],
+      "png_color_type": 6,
+      "status": "approved_installed",
+      "model_scale": 62,
+      "installation": {
+        "sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Sedile/neutral.png",
+        "sprite_sha256": "b57ad25e699e036b426992ecf3763029c1f3a02654a6ad1da12083e476016398",
+        "card": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Sedile.png",
+        "card_sha256": "9d02838b3adbf432e24f7b73d6f26e2edb6c14748e3dd48e7457be4600f56d0c",
+        "status": "installed"
+      }
+    },
+    "Shajar": {
+      "reference_page": "https://genshin-impact.fandom.com/wiki/Shajar",
+      "reference_url": "https://static.wikia.nocookie.net/gensin-impact/images/e/e7/NPC_Shajar.png",
+      "reference": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/references/Shajar/wiki.webp",
+      "reference_sha256": "9350a7760a43aaaaa8344847daecc383f7cf87e80eeadf6a582fc5223c4c30a6",
+      "prompt_file": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/prompts/Shajar/neutral-v001.txt",
+      "tool": "image_gen.imagegen",
+      "approval": {
+        "status": "approved",
+        "message": "All approved. Wire them in and make sure their custom size parameters are set to something that makes sense.",
+        "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/candidates/Shajar/neutral-v001.png",
+        "candidate_sha256": "3e5f8f6519eceb08ae139ff9a19f579e7d39d507b8830aa1d35513e76b9575a8",
+        "date": "2026-11-07"
+      },
+      "framing_transform": null,
+      "tool_arguments": {
+        "prompt": "Use case: stylized-concept. Create one full-body neutral visual-novel sprite of Shajar from Genshin Impact. Use the supplied Genshin Impact Wiki in-game model image as the sole identity and costume reference. Preserve the reference's face, skin tone, hair, silhouette, costume, accessories and exact body type. Stand naturally, hands separate and relaxed, two legs and two feet; each visible human hand has a palm, four fingers and an opposable thumb. Render in polished Genshin-inspired anime game illustration. Neutral expression and calm, character-appropriate posture. Show the complete silhouette including headwear, hair, limbs, feet and accessories with 2–4% top and bottom padding. True transparent background. No scenery, other characters, text, UI, watermarks, floating effects or ground shadow.",
+        "referenced_image_paths": [
+          "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/references/Shajar/wiki.webp"
+        ],
+        "transparent_background": true
+      },
+      "tool_output": "/Users/alexachan/.codex/generated_images/01a1b758-585a-7440-a37d-dc35f0b626e6/exec-e4d5828c-16ff-4d36-bf0d-d72e1812a0dc.png",
+      "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/raw/Shajar/neutral-v001.png",
+      "raw_sha256": "3e5f8f6519eceb08ae139ff9a19f579e7d39d507b8830aa1d35513e76b9575a8",
+      "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/candidates/Shajar/neutral-v001.png",
+      "candidate_sha256": "3e5f8f6519eceb08ae139ff9a19f579e7d39d507b8830aa1d35513e76b9575a8",
+      "size": [
+        935,
+        1681
+      ],
+      "png_color_type": 6,
+      "status": "approved_installed",
+      "model_scale": 86,
+      "installation": {
+        "sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Shajar/neutral.png",
+        "sprite_sha256": "3e5f8f6519eceb08ae139ff9a19f579e7d39d507b8830aa1d35513e76b9575a8",
+        "card": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Shajar.png",
+        "card_sha256": "80a491da50fa352e3836781c05354d58943fc59a7a934f26d57527eade133679",
+        "status": "installed"
+      }
+    },
+    "Tetreaux": {
+      "reference_page": "https://genshin-impact.fandom.com/wiki/Tetreaux",
+      "reference_url": "https://static.wikia.nocookie.net/gensin-impact/images/c/c6/NPC_Tetreaux.png",
+      "reference": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/references/Tetreaux/wiki.webp",
+      "reference_sha256": "814045fa9ce9177709735c1c936e7b3344ece443c841fea89cf75274bee32d01",
+      "prompt_file": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/prompts/Tetreaux/neutral-v001.txt",
+      "tool": "image_gen.imagegen",
+      "approval": {
+        "status": "approved",
+        "message": "All approved. Wire them in and make sure their custom size parameters are set to something that makes sense.",
+        "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/candidates/Tetreaux/neutral-v001.png",
+        "candidate_sha256": "05c41c55bc8ec5224d82641c1d5a7d86bbe9d394e1b26ffb6b70af6078e51093",
+        "date": "2026-11-07"
+      },
+      "framing_transform": null,
+      "tool_arguments": {
+        "prompt": "Use case: stylized-concept. Create one full-body neutral visual-novel sprite of Tetreaux from Genshin Impact. Use the supplied Genshin Impact Wiki in-game model image as the sole identity and costume reference. Preserve the reference's face, skin tone, hair, silhouette, costume, accessories and exact body type. Stand naturally, hands separate and relaxed, two legs and two feet; each visible human hand has a palm, four fingers and an opposable thumb. Render in polished Genshin-inspired anime game illustration. Neutral expression and calm, character-appropriate posture. Show the complete silhouette including headwear, hair, limbs, feet and accessories with 2–4% top and bottom padding. True transparent background. No scenery, other characters, text, UI, watermarks, floating effects or ground shadow.",
+        "referenced_image_paths": [
+          "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/references/Tetreaux/wiki.webp"
+        ],
+        "transparent_background": true
+      },
+      "tool_output": "/Users/alexachan/.codex/generated_images/01a1b758-585a-7440-a37d-dc35f0b626e6/exec-e79b3205-0ca8-443c-a1ff-0988b9cfa7f3.png",
+      "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/raw/Tetreaux/neutral-v001.png",
+      "raw_sha256": "05c41c55bc8ec5224d82641c1d5a7d86bbe9d394e1b26ffb6b70af6078e51093",
+      "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/candidates/Tetreaux/neutral-v001.png",
+      "candidate_sha256": "05c41c55bc8ec5224d82641c1d5a7d86bbe9d394e1b26ffb6b70af6078e51093",
+      "size": [
+        935,
+        1683
+      ],
+      "png_color_type": 6,
+      "status": "approved_installed",
+      "model_scale": 95,
+      "installation": {
+        "sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Tetreaux/neutral.png",
+        "sprite_sha256": "05c41c55bc8ec5224d82641c1d5a7d86bbe9d394e1b26ffb6b70af6078e51093",
+        "card": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Tetreaux.png",
+        "card_sha256": "8cad8b19c475b3017f1f291cfb47585f0f6b8615bc90bcecd6ff464edc5f8e2d",
+        "status": "installed"
+      }
+    },
+    "Tiepolo": {
+      "reference_page": "https://genshin-impact.fandom.com/wiki/Tiepolo",
+      "reference_url": "https://static.wikia.nocookie.net/gensin-impact/images/d/d7/NPC_Tiepolo.png",
+      "reference": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/references/Tiepolo/wiki.webp",
+      "reference_sha256": "47079b232d0de013393bb735f22c8cdbfe5f0afd467c92a14a608fc5d5701d25",
+      "prompt_file": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/prompts/Tiepolo/neutral-v001.txt",
+      "tool": "image_gen.imagegen",
+      "approval": {
+        "status": "approved",
+        "message": "All approved. Wire them in and make sure their custom size parameters are set to something that makes sense.",
+        "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/candidates/Tiepolo/neutral-v001.png",
+        "candidate_sha256": "159f4383a6c2c6c5f26da4aae66af3d6aef97e9bf9c82152629773986ff84810",
+        "date": "2026-11-07"
+      },
+      "framing_transform": null,
+      "tool_arguments": {
+        "prompt": "Use case: stylized-concept. Create one full-body neutral visual-novel sprite of Tiepolo from Genshin Impact. Use the supplied Genshin Impact Wiki in-game model image as the sole identity and costume reference. Preserve the reference's face, skin tone, hair, silhouette, costume, accessories and exact body type. Stand naturally, hands separate and relaxed, two legs and two feet; each visible human hand has a palm, four fingers and an opposable thumb. Render in polished Genshin-inspired anime game illustration. Neutral expression and calm, character-appropriate posture. Show the complete silhouette including headwear, hair, limbs, feet and accessories with 2–4% top and bottom padding. True transparent background. No scenery, other characters, text, UI, watermarks, floating effects or ground shadow.",
+        "referenced_image_paths": [
+          "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/references/Tiepolo/wiki.webp"
+        ],
+        "transparent_background": true
+      },
+      "tool_output": "/Users/alexachan/.codex/generated_images/01a1b758-585a-7440-a37d-dc35f0b626e6/exec-7f4d6a65-6d51-42f6-a6bf-6dd510866b7c.png",
+      "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/raw/Tiepolo/neutral-v001.png",
+      "raw_sha256": "159f4383a6c2c6c5f26da4aae66af3d6aef97e9bf9c82152629773986ff84810",
+      "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/candidates/Tiepolo/neutral-v001.png",
+      "candidate_sha256": "159f4383a6c2c6c5f26da4aae66af3d6aef97e9bf9c82152629773986ff84810",
+      "size": [
+        935,
+        1683
+      ],
+      "png_color_type": 6,
+      "status": "approved_installed",
+      "model_scale": 95,
+      "installation": {
+        "sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Tiepolo/neutral.png",
+        "sprite_sha256": "159f4383a6c2c6c5f26da4aae66af3d6aef97e9bf9c82152629773986ff84810",
+        "card": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Tiepolo.png",
+        "card_sha256": "37fc45c55dd97d200bcaf3e7c8f7f6a8a43c686751ffeac681ef32733ea90c29",
+        "status": "installed"
+      }
+    },
+    "Tisoc": {
+      "reference_page": "https://genshin-impact.fandom.com/wiki/Tisoc",
+      "reference_url": "https://static.wikia.nocookie.net/gensin-impact/images/1/1b/NPC_Tisoc.png",
+      "reference": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/references/Tisoc/wiki.webp",
+      "reference_sha256": "9074ec669dd1a177ae9c996a057cad154dc59182278ba6cc1ec81f5bf0df81da",
+      "prompt_file": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/prompts/Tisoc/neutral-v001.txt",
+      "tool": "image_gen.imagegen",
+      "approval": {
+        "status": "approved",
+        "message": "All approved. Wire them in and make sure their custom size parameters are set to something that makes sense.",
+        "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/candidates/Tisoc/neutral-v001.png",
+        "candidate_sha256": "49d07322b2a1e21db46a8c1270044fbbd4d1e36692e4ab79cbcec6e6d980ff13",
+        "date": "2026-11-07"
+      },
+      "framing_transform": null,
+      "tool_arguments": {
+        "prompt": "Use case: stylized-concept. Create one full-body neutral visual-novel sprite of Tisoc from Genshin Impact. Use the supplied Genshin Impact Wiki in-game model image as the sole identity and costume reference. Preserve the reference's face, skin tone, hair, silhouette, costume, accessories and exact body type. Stand naturally, hands separate and relaxed, two legs and two feet; each visible human hand has a palm, four fingers and an opposable thumb. Render in polished Genshin-inspired anime game illustration. Neutral expression and calm, character-appropriate posture. Show the complete silhouette including headwear, hair, limbs, feet and accessories with 2–4% top and bottom padding. True transparent background. No scenery, other characters, text, UI, watermarks, floating effects or ground shadow.",
+        "referenced_image_paths": [
+          "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/references/Tisoc/wiki.webp"
+        ],
+        "transparent_background": true
+      },
+      "tool_output": "/Users/alexachan/.codex/generated_images/01a1b758-585a-7440-a37d-dc35f0b626e6/exec-c3f64d6a-fcb4-4446-82ef-1c92e9c9a7d2.png",
+      "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/raw/Tisoc/neutral-v001.png",
+      "raw_sha256": "49d07322b2a1e21db46a8c1270044fbbd4d1e36692e4ab79cbcec6e6d980ff13",
+      "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/candidates/Tisoc/neutral-v001.png",
+      "candidate_sha256": "49d07322b2a1e21db46a8c1270044fbbd4d1e36692e4ab79cbcec6e6d980ff13",
+      "size": [
+        941,
+        1672
+      ],
+      "png_color_type": 6,
+      "status": "approved_installed",
+      "model_scale": 89,
+      "installation": {
+        "sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Tisoc/neutral.png",
+        "sprite_sha256": "49d07322b2a1e21db46a8c1270044fbbd4d1e36692e4ab79cbcec6e6d980ff13",
+        "card": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Tisoc.png",
+        "card_sha256": "717c9d246484adeec5c3b6b1e38c9b3c5051188e7cffb2afa121a94b71b52737",
+        "status": "installed"
+      }
+    },
+    "Tlapalli": {
+      "reference_page": "https://genshin-impact.fandom.com/wiki/Tlapalli",
+      "reference_url": "https://static.wikia.nocookie.net/gensin-impact/images/6/6d/NPC_Tlapalli.png",
+      "reference": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/references/Tlapalli/wiki.webp",
+      "reference_sha256": "b3db639f7d1b4757d7f0b44fe3ce6fac00f47bf973ef0df9e31741c490a78729",
+      "prompt_file": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/prompts/Tlapalli/neutral-v001.txt",
+      "tool": "image_gen.imagegen",
+      "approval": {
+        "status": "approved",
+        "message": "All approved. Wire them in and make sure their custom size parameters are set to something that makes sense.",
+        "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/candidates/Tlapalli/neutral-v001.png",
+        "candidate_sha256": "af430e25b85e39b33ed3af132ff8877c3499ac8364a3adb92bf9d9b0723b69fa",
+        "date": "2026-11-07"
+      },
+      "framing_transform": null,
+      "tool_arguments": {
+        "prompt": "Use case: stylized-concept. Create one full-body neutral visual-novel sprite of Tlapalli from Genshin Impact. Use the supplied Genshin Impact Wiki in-game model image as the sole identity and costume reference. Preserve the reference's face, skin tone, hair, silhouette, costume, accessories and exact body type. Stand naturally, hands separate and relaxed, two legs and two feet; each visible human hand has a palm, four fingers and an opposable thumb. Render in polished Genshin-inspired anime game illustration. Neutral expression and calm, character-appropriate posture. Show the complete silhouette including headwear, hair, limbs, feet and accessories with 2–4% top and bottom padding. True transparent background. No scenery, other characters, text, UI, watermarks, floating effects or ground shadow.",
+        "referenced_image_paths": [
+          "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/references/Tlapalli/wiki.webp"
+        ],
+        "transparent_background": true
+      },
+      "tool_output": "/Users/alexachan/.codex/generated_images/01a1b758-585a-7440-a37d-dc35f0b626e6/exec-0ece736a-686f-49bb-a88c-f36d7ea5c903.png",
+      "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/raw/Tlapalli/neutral-v001.png",
+      "raw_sha256": "af430e25b85e39b33ed3af132ff8877c3499ac8364a3adb92bf9d9b0723b69fa",
+      "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/candidates/Tlapalli/neutral-v001.png",
+      "candidate_sha256": "af430e25b85e39b33ed3af132ff8877c3499ac8364a3adb92bf9d9b0723b69fa",
+      "size": [
+        935,
+        1683
+      ],
+      "png_color_type": 6,
+      "status": "approved_installed",
+      "model_scale": 86,
+      "installation": {
+        "sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Tlapalli/neutral.png",
+        "sprite_sha256": "af430e25b85e39b33ed3af132ff8877c3499ac8364a3adb92bf9d9b0723b69fa",
+        "card": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Tlapalli.png",
+        "card_sha256": "c71942c35cd70dcab42c3d2b2302ab8948666162d8ff3056fe1ccfb7ea1cf72c",
+        "status": "installed"
+      }
+    },
+    "Tzompantli": {
+      "reference_page": "https://genshin-impact.fandom.com/wiki/Tzompantli",
+      "reference_url": "https://static.wikia.nocookie.net/gensin-impact/images/e/ec/NPC_Tzompantli.png",
+      "reference": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/references/Tzompantli/wiki.webp",
+      "reference_sha256": "58651ccd977c8130e5c989cc33ef653089f592167f59beb0944f53f239ad641f",
+      "prompt_file": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/prompts/Tzompantli/neutral-v001.txt",
+      "tool": "image_gen.imagegen",
+      "approval": {
+        "status": "approved",
+        "message": "All approved. Wire them in and make sure their custom size parameters are set to something that makes sense.",
+        "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/candidates/Tzompantli/neutral-v001.png",
+        "candidate_sha256": "f9848cd391254d2f7ac7741020bbdc7f364066d49e4dcba6a25becf02e419177",
+        "date": "2026-11-07"
+      },
+      "framing_transform": null,
+      "tool_arguments": {
+        "prompt": "Use case: stylized-concept. Create one full-body neutral visual-novel sprite of Tzompantli from Genshin Impact. Use the supplied Genshin Impact Wiki in-game model image as the sole identity and costume reference. Preserve the reference's face, skin tone, hair, silhouette, costume, accessories and exact body type. Stand naturally, hands separate and relaxed, two legs and two feet; each visible human hand has a palm, four fingers and an opposable thumb. Render in polished Genshin-inspired anime game illustration. Neutral expression and calm, character-appropriate posture. Show the complete silhouette including headwear, hair, limbs, feet and accessories with 2–4% top and bottom padding. True transparent background. No scenery, other characters, text, UI, watermarks, floating effects or ground shadow.",
+        "referenced_image_paths": [
+          "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/references/Tzompantli/wiki.webp"
+        ],
+        "transparent_background": true
+      },
+      "tool_output": "/Users/alexachan/.codex/generated_images/01a1b758-585a-7440-a37d-dc35f0b626e6/exec-f8914616-bc41-4cd5-b898-cdbf6b56f2ba.png",
+      "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/raw/Tzompantli/neutral-v001.png",
+      "raw_sha256": "f9848cd391254d2f7ac7741020bbdc7f364066d49e4dcba6a25becf02e419177",
+      "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/candidates/Tzompantli/neutral-v001.png",
+      "candidate_sha256": "f9848cd391254d2f7ac7741020bbdc7f364066d49e4dcba6a25becf02e419177",
+      "size": [
+        935,
+        1683
+      ],
+      "png_color_type": 6,
+      "status": "approved_installed",
+      "model_scale": 89,
+      "installation": {
+        "sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Tzompantli/neutral.png",
+        "sprite_sha256": "f9848cd391254d2f7ac7741020bbdc7f364066d49e4dcba6a25becf02e419177",
+        "card": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Tzompantli.png",
+        "card_sha256": "950d1d08965036037c60cccf4ce84b70754de45df4a2c4e2eedee553974ed5f0",
+        "status": "installed"
+      }
+    },
+    "Valdis": {
+      "reference_page": "https://genshin-impact.fandom.com/wiki/Valdis",
+      "reference_url": "https://static.wikia.nocookie.net/gensin-impact/images/8/8c/NPC_Valdis.png",
+      "reference": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/references/Valdis/wiki.webp",
+      "reference_sha256": "2358b6e7102dc93a316f852e0e51becf3d77a149cfea017c1b68fa256123a3b8",
+      "prompt_file": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/prompts/Valdis/neutral-v001.txt",
+      "tool": "image_gen.imagegen",
+      "approval": {
+        "status": "approved",
+        "message": "All approved. Wire them in and make sure their custom size parameters are set to something that makes sense.",
+        "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/candidates/Valdis/neutral-v001.png",
+        "candidate_sha256": "2b5442326cf2fffe2b9cbf9761258a7524e487a9c0ac14317c46745885b86d3f",
+        "date": "2026-11-07"
+      },
+      "framing_transform": null,
+      "tool_arguments": {
+        "prompt": "Use case: stylized-concept. Create one full-body neutral visual-novel sprite of Valdis from Genshin Impact. Use the supplied Genshin Impact Wiki in-game model image as the sole identity and costume reference. Preserve the reference's face, skin tone, hair, silhouette, costume, accessories and exact body type. Stand naturally, hands separate and relaxed, two legs and two feet; each visible human hand has a palm, four fingers and an opposable thumb. Render in polished Genshin-inspired anime game illustration. Neutral expression and calm, character-appropriate posture. Show the complete silhouette including headwear, hair, limbs, feet and accessories with 2–4% top and bottom padding. True transparent background. No scenery, other characters, text, UI, watermarks, floating effects or ground shadow.",
+        "referenced_image_paths": [
+          "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/references/Valdis/wiki.webp"
+        ],
+        "transparent_background": true
+      },
+      "tool_output": "/Users/alexachan/.codex/generated_images/01a1b758-585a-7440-a37d-dc35f0b626e6/exec-96d761f8-4cbb-4dc9-9c31-62275499096a.png",
+      "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/raw/Valdis/neutral-v001.png",
+      "raw_sha256": "2b5442326cf2fffe2b9cbf9761258a7524e487a9c0ac14317c46745885b86d3f",
+      "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/candidates/Valdis/neutral-v001.png",
+      "candidate_sha256": "2b5442326cf2fffe2b9cbf9761258a7524e487a9c0ac14317c46745885b86d3f",
+      "size": [
+        936,
+        1680
+      ],
+      "png_color_type": 6,
+      "status": "approved_installed",
+      "model_scale": 89,
+      "installation": {
+        "sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Valdis/neutral.png",
+        "sprite_sha256": "2b5442326cf2fffe2b9cbf9761258a7524e487a9c0ac14317c46745885b86d3f",
+        "card": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Valdis.png",
+        "card_sha256": "d76674ad47c8ae4da0bfe8334f10601e187b19a2c0551e5db9d6de02985533c8",
+        "status": "installed"
+      }
+    },
+    "Virda": {
+      "reference_page": "https://genshin-impact.fandom.com/wiki/Virda",
+      "reference_url": "https://static.wikia.nocookie.net/gensin-impact/images/9/9c/NPC_Virda.png",
+      "reference": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/references/Virda/wiki.webp",
+      "reference_sha256": "bd9c54dad62194c483fdd3bc6a33fbcac0e24d8b0a3be448bdfaca7aed63bc3c",
+      "prompt_file": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/prompts/Virda/neutral-v001.txt",
+      "tool": "image_gen.imagegen",
+      "approval": {
+        "status": "approved",
+        "message": "All approved. Wire them in and make sure their custom size parameters are set to something that makes sense.",
+        "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/candidates/Virda/neutral-v001.png",
+        "candidate_sha256": "490127cffd8d4d2dcea586e1f79477d8a5452fc09026a67ac3d4c450f56d5cc7",
+        "date": "2026-11-07"
+      },
+      "framing_transform": null,
+      "tool_arguments": {
+        "prompt": "Use case: stylized-concept. Create one full-body neutral visual-novel sprite of Virda from Genshin Impact. Use the supplied Genshin Impact Wiki in-game model image as the sole identity and costume reference. This is a Melusine, not a human: preserve the compact nonhuman body, head shape, eye designs, horn-like ears, coloration, hands, legs and markings from the reference. Render in polished Genshin-inspired anime game illustration. Neutral expression and calm, character-appropriate posture. Show the complete silhouette including headwear, hair, limbs, feet and accessories with 2–4% top and bottom padding. True transparent background. No scenery, other characters, text, UI, watermarks, floating effects or ground shadow.",
+        "referenced_image_paths": [
+          "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/references/Virda/wiki.webp"
+        ],
+        "transparent_background": true
+      },
+      "tool_output": "/Users/alexachan/.codex/generated_images/01a1b758-585a-7440-a37d-dc35f0b626e6/exec-49781f64-c795-420b-b5ee-3cc5f1380b76.png",
+      "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/raw/Virda/neutral-v001.png",
+      "raw_sha256": "490127cffd8d4d2dcea586e1f79477d8a5452fc09026a67ac3d4c450f56d5cc7",
+      "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/candidates/Virda/neutral-v001.png",
+      "candidate_sha256": "490127cffd8d4d2dcea586e1f79477d8a5452fc09026a67ac3d4c450f56d5cc7",
+      "size": [
+        941,
+        1672
+      ],
+      "png_color_type": 6,
+      "status": "approved_installed",
+      "model_scale": 62,
+      "installation": {
+        "sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Virda/neutral.png",
+        "sprite_sha256": "490127cffd8d4d2dcea586e1f79477d8a5452fc09026a67ac3d4c450f56d5cc7",
+        "card": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Virda.png",
+        "card_sha256": "9c01b114431e8cdc42ef98b17f6cc4a6ebae0bd011eedf1264819594b8de48d4",
+        "status": "installed"
+      }
+    },
+    "Whistle": {
+      "reference_page": "https://genshin-impact.fandom.com/wiki/Whistle",
+      "reference_url": "https://static.wikia.nocookie.net/gensin-impact/images/c/cc/NPC_Whistle.png",
+      "reference": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/references/Whistle/wiki.webp",
+      "reference_sha256": "b13c2e5ae5f258458437175cbab41e420870853066d672bcad959b1a2f828222",
+      "prompt_file": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/prompts/Whistle/neutral-v001.txt",
+      "tool": "image_gen.imagegen",
+      "approval": {
+        "status": "approved",
+        "message": "All approved. Wire them in and make sure their custom size parameters are set to something that makes sense.",
+        "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/candidates/Whistle/neutral-v001.png",
+        "candidate_sha256": "284a336a0f7a72447813818d6d67ffaa1141688f5b47539709c89b7430e25e00",
+        "date": "2026-11-07"
+      },
+      "framing_transform": null,
+      "tool_arguments": {
+        "prompt": "Use case: stylized-concept. Create one full-body neutral visual-novel sprite of Whistle from Genshin Impact. Use the supplied Genshin Impact Wiki in-game model image as the sole identity and costume reference. This is a dog, not a person: retain the exact fur colors, markings, ears and dog anatomy in the reference. Four natural canine legs and paws, in a relaxed standing pose. Render in polished Genshin-inspired anime game illustration. Neutral expression and calm, character-appropriate posture. Show the complete silhouette including headwear, hair, limbs, feet and accessories with 2–4% top and bottom padding. True transparent background. No scenery, other characters, text, UI, watermarks, floating effects or ground shadow.",
+        "referenced_image_paths": [
+          "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/references/Whistle/wiki.webp"
+        ],
+        "transparent_background": true
+      },
+      "tool_output": "/Users/alexachan/.codex/generated_images/01a1b758-585a-7440-a37d-dc35f0b626e6/exec-ae53a68d-93a1-43c1-9d49-9849d5bc0b89.png",
+      "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/raw/Whistle/neutral-v001.png",
+      "raw_sha256": "284a336a0f7a72447813818d6d67ffaa1141688f5b47539709c89b7430e25e00",
+      "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/candidates/Whistle/neutral-v001.png",
+      "candidate_sha256": "284a336a0f7a72447813818d6d67ffaa1141688f5b47539709c89b7430e25e00",
+      "size": [
+        1199,
+        1312
+      ],
+      "png_color_type": 6,
+      "status": "approved_installed",
+      "model_scale": 45,
+      "installation": {
+        "sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Whistle/neutral.png",
+        "sprite_sha256": "284a336a0f7a72447813818d6d67ffaa1141688f5b47539709c89b7430e25e00",
+        "card": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Whistle.png",
+        "card_sha256": "af92a75a5b100568e42bf4692701901552616d459a01bf99697bc49e1ff8dd32",
+        "status": "installed"
+      }
+    },
+    "Xavier": {
+      "reference_page": "https://gamewith.net/genshin-impact/article/show/42835",
+      "reference_url": "https://img.gamewith.net/img/b0e0fea920d388eca0a98b66c65b3e27.png",
+      "reference": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/references/Xavier/online.jpg",
+      "reference_sha256": "bed206c2688deb9e90411a7e846295777417a7aa08ae72f5ed14781ef5557d9c",
+      "prompt_file": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/prompts/Xavier/neutral-v001.txt",
+      "tool": "image_gen.imagegen",
+      "approval": {
+        "status": "approved",
+        "message": "All approved. Wire them in and make sure their custom size parameters are set to something that makes sense.",
+        "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/candidates/Xavier/neutral-v001.png",
+        "candidate_sha256": "197c791ad55574712526f52ee24f4437b7b529f8dc659ca70debf1f7abb4f7b6",
+        "date": "2026-11-07"
+      },
+      "framing_transform": null,
+      "tool_arguments": {
+        "prompt": "Use case: stylized-concept. Create one full-body neutral visual-novel sprite of Xavier from Genshin Impact. Use the supplied in-game screenshot as the sole identity and costume reference. Xavier is the man in the middle, identified by his name, not the surrounding women. Preserve his dark hat, dark red and black Fontaine coat, white stockings and black shoes. Render in polished Genshin-inspired anime game illustration, faithful to the character's actual body type and identity. Give a relaxed, neutral character-appropriate pose. For human subjects, show two natural legs and feet, and separated relaxed hands with a palm, four fingers and a separate thumb where visible. Frame the entire silhouette including all hair, hats, limbs and shoes, with 2–4% top and bottom padding. True transparent background. No scenery, other characters, UI, text, watermarks, floating effects or ground shadow.",
+        "referenced_image_paths": [
+          "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/references/Xavier/online.jpg"
+        ],
+        "transparent_background": true
+      },
+      "tool_output": "/Users/alexachan/.codex/generated_images/01a1b758-585a-7440-a37d-dc35f0b626e6/exec-5ff47702-3956-47ba-8c68-272df9dbb621.png",
+      "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/raw/Xavier/neutral-v001.png",
+      "raw_sha256": "197c791ad55574712526f52ee24f4437b7b529f8dc659ca70debf1f7abb4f7b6",
+      "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/candidates/Xavier/neutral-v001.png",
+      "candidate_sha256": "197c791ad55574712526f52ee24f4437b7b529f8dc659ca70debf1f7abb4f7b6",
+      "size": [
+        1024,
+        1536
+      ],
+      "png_color_type": 6,
+      "status": "approved_installed",
+      "model_scale": 95,
+      "installation": {
+        "sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Xavier/neutral.png",
+        "sprite_sha256": "197c791ad55574712526f52ee24f4437b7b529f8dc659ca70debf1f7abb4f7b6",
+        "card": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Xavier.png",
+        "card_sha256": "c8f4317529023b7cf28726112426762e0e2a863940d03a44fa340dea2df0cba7",
+        "status": "installed"
+      }
+    }
+  }
+}
