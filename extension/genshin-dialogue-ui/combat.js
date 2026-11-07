@@ -112,7 +112,7 @@ export function mountCombat({host,getContext,onChange=()=>{},announce=()=>{},ada
         else void startDuel().catch(error=>{announce(error.message);globalThis.toastr?.error?.(error.message,'Silly Teyvat');});
     },{signal:abort.signal});
     const burstVoice=createBurstVoicePlayer({getContext,announce});
-    const dice=diceAdapter || mountElementalDice({host}),battle=battleAdapter || mountBattle({host,onBurst:unit=>burstVoice.play(unit),onStopVoice:()=>burstVoice.stop()});const hits=new Map(),shown=new Map();let disposed=false,busy=false,enabled=false,writing=false,revision=0,key='',paint='',lastId=-1,armed=false,target='',visit='',lastView={};
+    const dice=diceAdapter || mountElementalDice({host}),battle=battleAdapter || mountBattle({host,onBurst:unit=>burstVoice.play(unit),onStopVoice:()=>burstVoice.stop(),onTransform:unit=>onChange({transformed:unit})});const hits=new Map(),shown=new Map();let disposed=false,busy=false,enabled=false,writing=false,revision=0,key='',paint='',lastId=-1,armed=false,target='',visit='',lastView={};
     const eligibleEnemies=ctx=>{const disabled=activeGroup(ctx)?.disabled_members || [];return activeEnemies(ctx).filter(e=>!disabled.includes(e.avatar));};
     // Party members you can square off against when no enemies are about: everyone present who is on their feet.
     const duelCandidates=ctx=>partyMembers(ctx).filter(a=>a!==USER_KEY&&partyMember(ctx,a).hp>0);
@@ -194,7 +194,7 @@ export function mountCombat({host,getContext,onChange=()=>{},announce=()=>{},ada
             if(current(identity,token)&&(result.wiped||userDefeated(getContext())))await defeat(identity,token);
             return event;
         }catch(error){battle.cancel?.();if(current(identity,token)){announce(error.message);globalThis.toastr?.error?.(error.message,'Silly Teyvat');console.warn('[Silly Teyvat] Combat',error);}}
-        finally{busy=false;paintControls();onChange();}
+        finally{busy=false;paintControls();onChange({roundSettled:true});}
     }
     // Saved encounter record for an enemy, including one that has just been defeated.
     const activeEnemiesAll=(ctx,avatar)=>Object.values(ctx.chatMetadata?.silly_teyvat_combat?.visits || {}).map(v=>v.enemies?.[avatar]).find(Boolean);

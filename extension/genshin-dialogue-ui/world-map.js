@@ -12,7 +12,8 @@ import {musicSummary} from './location-music-state.js';
 import {mediaSettings} from './media-store.js';
 import {isJourneyGroup,createJourneyLibraryAdapter} from './journey-library.js';
 import {mountCardPoolMenu,locationCardPool,cardPoolSummary} from './card-pools.js';
-import {waypointBadges,badgeLabels,badgeMarkup} from './waypoint-badges.js';
+import {waypointBadges,waypointBoss,badgeLabels,badgeMarkup} from './waypoint-badges.js';
+import {iconsReady} from './battle-icons.js';
 
 const svg=path=>`<svg viewBox="0 0 24 24" aria-hidden="true">${path}</svg>`;
 const ICON={
@@ -136,8 +137,8 @@ export function mountWorldMap({host,getContext,adapter=createMediaAdapter(getCon
         if(!map)return;markers.clearLayers();const current=activeWorldLocation(getContext());
         const ctx=getContext();
         for(const item of worldWaypoints(ctx)){
-            const badges=waypointBadges(ctx,item.location),name=badges.length?`${item.location.label} (${badgeLabels(badges)})`:item.location.label;
-            const marker=L.marker(toLatLng(item.point),{icon:waypointIcon({current:current?.location.id===item.location.id,selected:dialog.dataset.view==='details'&&selectedId===item.location.id,badges:badgeMarkup(badges)}),title:name,alt:name,keyboard:true});
+            const badges=waypointBadges(ctx,item.location),boss=waypointBoss(ctx,item.location),name=badges.length?`${item.location.label} (${badgeLabels(badges,boss)})`:item.location.label;
+            const marker=L.marker(toLatLng(item.point),{icon:waypointIcon({current:current?.location.id===item.location.id,selected:dialog.dataset.view==='details'&&selectedId===item.location.id,badges:badgeMarkup(badges,boss)}),title:name,alt:name,keyboard:true});
             const tooltip=element('span',item.location.label);marker.bindTooltip(tooltip,{direction:'top',offset:[0,-30]}).addTo(markers);
             marker.on('click',event=>{L.DomEvent.stopPropagation(event);if(busy)return;cue('waypoint');select(item);});
         }
@@ -155,8 +156,8 @@ export function mountWorldMap({host,getContext,adapter=createMediaAdapter(getCon
             const b=document.createElement('button');b.type='button';b.dataset.map='select';b.dataset.location=item.location.id;b.dataset.giSound='waypoint';
             const img=document.createElement('img');img.src=waypointGlyph;img.alt='';
             const text=document.createElement('span');text.append(element('b',item.location.label),element('small',item.region.name));b.append(img,text);
-            const badges=waypointBadges(ctx,item.location);
-            if(badges.length){const marks=document.createElement('span');marks.className='gi-map-list-badges';marks.title=badgeLabels(badges);marks.innerHTML=badgeMarkup(badges);b.append(marks);b.setAttribute('aria-label',`${item.location.label}, ${item.region.name}. ${badgeLabels(badges)}`);}
+            const badges=waypointBadges(ctx,item.location),boss=waypointBoss(ctx,item.location);
+            if(badges.length){const marks=document.createElement('span');marks.className='gi-map-list-badges';marks.title=badgeLabels(badges,boss);marks.innerHTML=badgeMarkup(badges,boss);b.append(marks);b.setAttribute('aria-label',`${item.location.label}, ${item.region.name}. ${badgeLabels(badges,boss)}`);}
             if(current?.location.id===item.location.id)b.dataset.current='true';
             b.setAttribute('aria-current',String(dialog.dataset.view!=='list'&&selectedId===item.location.id));return b;
         }));
@@ -403,6 +404,8 @@ export function mountWorldMap({host,getContext,adapter=createMediaAdapter(getCon
         }catch(error){status(error.message || 'Could not update the map.');}
     }
     mini.addEventListener('click',()=>api.open({from:mini.querySelector('.gi-minimap-ring')}),{signal:abort.signal,capture:true});
+    // Boss badges show the boss's own icon once the battle icon index has loaded.
+    void iconsReady.then(()=>{if(!disposed&&dialog.open){paintMarkers();if(dialog.dataset.view==='list')renderList();}});
     dialog.addEventListener('click',event=>{const b=event.target.closest('[data-map]');if(b){event.stopPropagation();void action(b.dataset.map,b);}},{signal:abort.signal});
     dialog.addEventListener('input',event=>{if(event.target.matches('.gi-map-zoom-range')&&map)map.setZoom(Number(event.target.value));},{signal:abort.signal});
     dialog.addEventListener('change',event=>{const pref={'gi-map-main-departure':'allowMainDeparture','gi-map-world-scope':'worldPromptAllRegions'}[event.target.id];if(pref){mediaSettings(getContext())[pref]=event.target.checked;getContext().saveSettingsDebounced();api.syncPrompt();onChange();refresh();}if(event.target.id==='gi-map-encounters'){mediaSettings(getContext()).locationEncounters=event.target.checked;getContext().saveSettingsDebounced();onChange();refresh();}if(event.target.id==='gi-map-region'){updateLinks();}if(event.target.id==='gi-map-link'){const location=backgroundRegions(getContext()).flatMap(r=>r.locations).find(l=>l.id===event.target.value);if(location){$('#gi-map-name').value=location.label;$('#gi-map-description').value=location.description || '';$('#gi-map-aliases').value=(location.classifications || []).join('\n');}}},{signal:abort.signal});

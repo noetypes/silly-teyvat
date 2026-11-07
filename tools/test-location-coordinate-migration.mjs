@@ -90,3 +90,29 @@ let lumberCtx=lumberContext({mapId:'teyvat',x:-2518,y:2993});seedWorldLocations(
 lumberCtx=lumberContext({mapId:'teyvat',x:-2517,y:2993});seedWorldLocations(lumberCtx,{version:10,locations:[lumber]});assert.equal(lumberCtx.regions[0].locations[0].waypoint.x,-2517);
 lumberCtx=lumberContext(null);seedWorldLocations(lumberCtx,{version:10,locations:[lumber]});assert.equal(lumberCtx.regions[0].locations.length,0);
 console.log('Lumberpick Valley correction preserves moved and deleted waypoints.');
+
+const feiyun=full.locations.find(item=>item.id==='home-feiyun-commerce-guild');
+const oldFeiyun='The Feiyun Commerce Guild family residence is in Liyue Harbor. The map pin uses the named Feiyun Slope point as a public approach to the district; the clean background is the nearby Heyu Tea House, not the residence itself.';
+const bundledFeiyun='/assets/world-locations/'+feiyun.asset;
+const feiyunContext=(description,path=bundledFeiyun)=>({prefs:{starterLocationsVersion:14},regions:[{name:'Liyue',locations:[{id:feiyun.id,label:feiyun.label,description,path}]}],saveSettingsDebounced(){}});
+let feiyunCtx=feiyunContext(oldFeiyun);seedWorldLocations(feiyunCtx,{version:15,locations:[feiyun]});assert.equal(feiyunCtx.regions[0].locations[0].description,feiyun.description);assert.deepEqual(feiyunCtx.regions[0].locations[0].imageReview,feiyun.imageReview);
+feiyunCtx=feiyunContext('My edited description');seedWorldLocations(feiyunCtx,{version:15,locations:[feiyun]});assert.equal(feiyunCtx.regions[0].locations[0].description,'My edited description');
+feiyunCtx=feiyunContext(oldFeiyun,'/user/custom.png');seedWorldLocations(feiyunCtx,{version:15,locations:[feiyun]});assert.equal(feiyunCtx.regions[0].locations[0].description,oldFeiyun);assert.equal(feiyunCtx.regions[0].locations[0].imageReview,undefined);
+console.log('Approved Feiyun artwork refresh preserves custom descriptions and images.');
+
+const qingxu=full.locations.find(item=>item.id==='expansion-qingxu-pool');
+const qingxuContext=(description,path='/assets/world-locations/'+qingxu.asset)=>({prefs:{starterLocationsVersion:15},regions:[{name:'Liyue',locations:[{id:qingxu.id,label:qingxu.label,description,path,waypoint:{mapId:'teyvat',x:9,y:8},residents:['custom']}]}],saveSettingsDebounced(){}});
+let qingxuCtx=qingxuContext(qingxu.previousImage.description);seedWorldLocations(qingxuCtx,{version:16,locations:[qingxu]});assert.equal(qingxuCtx.regions[0].locations[0].description,qingxu.description);assert.deepEqual(qingxuCtx.regions[0].locations[0].waypoint,{mapId:'teyvat',x:9,y:8});assert.deepEqual(qingxuCtx.regions[0].locations[0].residents,['custom']);assert.deepEqual(qingxuCtx.regions[0].locations[0].imageReview,qingxu.imageReview);
+qingxuCtx=qingxuContext('My edited description');seedWorldLocations(qingxuCtx,{version:16,locations:[qingxu]});assert.equal(qingxuCtx.regions[0].locations[0].description,'My edited description');
+qingxuCtx=qingxuContext(qingxu.previousImage.description,'/user/custom.png');seedWorldLocations(qingxuCtx,{version:16,locations:[qingxu]});assert.equal(qingxuCtx.regions[0].locations[0].description,qingxu.previousImage.description);assert.equal(qingxuCtx.regions[0].locations[0].imageReview,undefined);
+console.log('Approved background refresh preserves custom images, descriptions, pins and residents.');
+
+const signora=full.locations.find(item=>item.id==='boss-la-signora');
+assert.equal(signora.introducedVersion,17);
+const arenaCtx={prefs:{starterLocationsVersion:16},regions:[],saveSettingsDebounced(){}};
+assert.equal(seedWorldLocations(arenaCtx,{version:17,locations:[signora]}),1);
+const arena=arenaCtx.regions[0].locations[0];
+assert.deepEqual(arena.enemyPool,['La Signora.png']);
+assert.equal(arena.enemyEncounterRate,100);
+assert.equal(seedWorldLocations(arenaCtx,{version:17,locations:[signora]}),0);
+console.log('La Signora arena seeds once with her encounter.');

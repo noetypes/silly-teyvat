@@ -1,0 +1,57 @@
+[
+  {
+    "id": "map14-mingyun-village",
+    "name": "Mingyun Village",
+    "asset": "map14-mingyun-village.webp",
+    "ref": "/tmp/silly-teyvat-openai-cli/mingyun-village-reference.png",
+    "source_url": "https://www.biubiu001.com/ys2/22147.html",
+    "wiki": "https://genshin-impact.fandom.com/wiki/Mingyun_Village",
+    "scene": "Mingyun Village, an abandoned mining settlement on Liyue's Qiongji Estuary, whose miners left when ore ran out according to Genshin Wiki. Use reference's derelict wooden house with broken thatched roof, bamboo fencing, grass and trees; remove the player and all interface.",
+    "prompt": "Mingyun Village, an abandoned mining settlement on Liyue's Qiongji Estuary, whose miners left when ore ran out according to Genshin Wiki. Use reference's derelict wooden house with broken thatched roof, bamboo fencing, grass and trees; remove the player and all interface. Anime style background. Clear ground-level human eye-height view, level camera from a walkable surface; do not copy aerial camera angles. No people, characters, NPCs, animals, text, letters, writing, UID, logos, watermark, interface or captions. Use the supplied image only as a location reference."
+  },
+  {
+    "id": "map14-tiangong-gorge",
+    "name": "Tiangong Gorge",
+    "asset": "map14-tiangong-gorge.webp",
+    "wiki": "https://genshin-impact.fandom.com/wiki/Tiangong_Gorge",
+    "scene": "Tiangong Gorge on the southern edge of Liyue's Chasm, an old mine-country ravine according to Genshin Wiki. Match reference dark sheer cliffs, narrow wooden plank trail, broken mine scaffolds and orange shrubs.",
+    "ref": "/Users/alexachan/Documents/Codex/silly-teyvat/extension/genshin-dialogue-ui/assets/world-locations/map14-tiangong-gorge.webp",
+    "prompt": "Tiangong Gorge on the southern edge of Liyue's Chasm, an old mine-country ravine according to Genshin Wiki. Match reference dark sheer cliffs, narrow wooden plank trail, broken mine scaffolds and orange shrubs. Anime style background. Clear ground-level human eye-height view, level camera from a walkable surface; do not copy aerial camera angles. No people, characters, NPCs, animals, text, letters, writing, UID, logos, watermark, interface or captions. Use the supplied image only as a location reference."
+  },
+  {
+    "id": "map14-sal-terrae",
+    "name": "Sal Terrae",
+    "asset": "map14-sal-terrae.webp",
+    "wiki": "https://genshin-impact.fandom.com/wiki/Havria",
+    "scene": "Sal Terrae in Liyue, the last sanctuary of Havria, God of Salt, according to Genshin Wiki. Preserve reference circular stone altar, orange-red tree, turquoise lake, cliffs and waterfall; show the altar and tree from the edge of the stone floor.",
+    "ref": "/Users/alexachan/Documents/Codex/silly-teyvat/extension/genshin-dialogue-ui/assets/world-locations/map14-sal-terrae.webp",
+    "prompt": "Sal Terrae in Liyue, the last sanctuary of Havria, God of Salt, according to Genshin Wiki. Preserve reference circular stone altar, orange-red tree, turquoise lake, cliffs and waterfall; show the altar and tree from the edge of the stone floor. Anime style background. Clear ground-level human eye-height view, level camera from a walkable surface; do not copy aerial camera angles. No people, characters, NPCs, animals, text, letters, writing, UID, logos, watermark, interface or captions. Use the supplied image only as a location reference."
+  },
+  {
+    "id": "map14-dihua-marsh",
+    "name": "Dihua Marsh",
+    "asset": "map14-dihua-marsh.webp",
+    "wiki": "https://genshin-impact.fandom.com/wiki/Dihua_Marsh",
+    "scene": "Dihua Marsh, an alluvial reed marsh formed by the Bishui River between Stone Gate and Wangshu Inn, according to Genshin Wiki. Preserve reference pale turquoise water, low grassy hills, reeds, golden trees and stone causeway; stand on the causeway near the marsh.",
+    "ref": "/Users/alexachan/Documents/Codex/silly-teyvat/extension/genshin-dialogue-ui/assets/world-locations/map14-dihua-marsh.webp",
+    "prompt": "Dihua Marsh, an alluvial reed marsh formed by the Bishui River between Stone Gate and Wangshu Inn, according to Genshin Wiki. Preserve reference pale turquoise water, low grassy hills, reeds, golden trees and stone causeway; stand on the causeway near the marsh. Anime style background. Clear ground-level human eye-height view, level camera from a walkable surface; do not copy aerial camera angles. No people, characters, NPCs, animals, text, letters, writing, UID, logos, watermark, interface or captions. Use the supplied image only as a location reference."
+  },
+  {
+    "id": "map14-jinren-island",
+    "name": "Jinren Island",
+    "asset": "map14-jinren-island.webp",
+    "wiki": "https://genshin-impact.fandom.com/wiki/Jinren_Island",
+    "scene": "Jinren Island, a group of rocky islands north of Narukami in Inazuma once used by deserters, according to Genshin Wiki. Preserve reference sheer layered rock islets, wooden platforms and sparse trees; stand on the beach looking toward the island's main cliff.",
+    "ref": "/Users/alexachan/Documents/Codex/silly-teyvat/extension/genshin-dialogue-ui/assets/world-locations/map14-jinren-island.webp",
+    "prompt": "Jinren Island, a group of rocky islands north of Narukami in Inazuma once used by deserters, according to Genshin Wiki. Preserve reference sheer layered rock islets, wooden platforms and sparse trees; stand on the beach looking toward the island's main cliff. Anime style background. Clear ground-level human eye-height view, level camera from a walkable surface; do not copy aerial camera angles. No people, characters, NPCs, animals, text, letters, writing, UID, logos, watermark, interface or captions. Use the supplied image only as a location reference."
+  },
+  {
+    "id": "map14-araumi",
+    "name": "Araumi",
+    "asset": "map14-araumi.webp",
+    "wiki": "https://genshin-impact.fandom.com/wiki/Araumi",
+    "scene": "Araumi, an Inazuman promontory with ancient ruins extending beneath the ground and sea, according to Genshin Wiki. Match reference broken circular stone tower wrapped in huge gnarled roots, pink sakura trees, grassy path and distant blue sea; stand on the path.",
+    "ref": "/Users/alexachan/Documents/Codex/silly-teyvat/extension/genshin-dialogue-ui/assets/world-locations/map14-araumi.webp",
+    "prompt": "Araumi, an Inazuman promontory with ancient ruins extending beneath the ground and sea, according to Genshin Wiki. Match reference broken circular stone tower wrapped in huge gnarled roots, pink sakura trees, grassy path and distant blue sea; stand on the path. Anime style background. Clear ground-level human eye-height view, level camera from a walkable surface; do not copy aerial camera angles. No people, characters, NPCs, animals, text, letters, writing, UID, logos, watermark, interface or captions. Use the supplied image only as a location reference."
+  }
+]

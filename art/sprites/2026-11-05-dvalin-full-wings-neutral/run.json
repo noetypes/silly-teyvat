@@ -1,0 +1,71 @@
+{
+  "date": "2026-11-05",
+  "character": "Dvalin",
+  "status": "approved_and_installed",
+  "user_request": "regenerate Dvalin's sprite, its wing is cut off",
+  "references": [
+    {
+      "original_path": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Dvalin/Official Art/neutral.png",
+      "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-dvalin-full-wings-neutral/references/Dvalin/official.png",
+      "sha256": "8557ff993dcae90f45a15c484bda69bcb4c8f0d0eceaec1f17c58a25ff2bc58a",
+      "role": "Sole image reference: installed Official Art portrait."
+    }
+  ],
+  "previous_sprite": {
+    "original_path": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Dvalin/neutral.png",
+    "snapshot": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-dvalin-full-wings-neutral/sources/Dvalin/previous-installed-neutral.png",
+    "sha256": "f60b3033e271b0b49fa4e2d0273e6ae66990cc75afe1f2f1465a26312c409db2",
+    "feedback": "User reports a cut-off wing",
+    "generation_record": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-dvalin-full-wings-neutral/sources/Dvalin/previous-generation.json"
+  },
+  "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-dvalin-full-wings-neutral/prompts/Dvalin/neutral-v002.txt",
+  "generation": {
+    "tool": "image_gen.imagegen",
+    "arguments": {
+      "prompt": "Use case: stylized-concept. Create one complete full-body neutral boss sprite of Dvalin from Genshin Impact, using the supplied official transparent portrait as the sole image reference. Preserve his recognizable dragon anatomy, long turquoise-blue scaled body, pale underside, swept dark-blue horns, blue eyes, head fins and crest, grey armored clawed limbs, long tapering tail and delicate tail streamers, and the exact layered blue/cyan wing shapes and luminous patterned membranes shown in the reference. Render polished Genshin-inspired anime game illustration with clean contours and detailed painted/cel shading. Keep his dragon proportions and creature anatomy; do not humanize or chibi-stylize him.\nFRAMING IS THE PRIORITY: use a WIDE LANDSCAPE canvas suited to his wingspan. Fit the ENTIRE dragon into the frame, from the highest wingtip to the lowest claw and furthest tail tip. Include every outer wing edge and tip, all layered wing pairs, horns, head fins, claws, tail and streamers. Leave a clear transparent safety margin of approximately 6\u20138% on ALL FOUR sides, especially above the high wing and beyond the far left and far right wingtips. Center and scale the whole dragon down as needed to fit his complete natural wingspan; do not shorten his wings, compress his anatomy or let any extremity touch or cross the image boundary. Reconstruct the complete high wingtip that runs beyond the top edge of the supplied source portrait, using the opposite wing and the same wing anatomy and blue pattern language as guidance. Do not reproduce the source image's edge cutoff.\nPose: an imposing, alert hovering idle, head held high in a slight three-quarter orientation, foreclaws naturally poised and hind feet visible below the body. Spread his wings in a readable layered silhouette, slightly angling the high wings inward only as needed for a balanced composition while retaining their full length and graceful shape. Preserve the correct wing-pair arrangement and relative sizes from the official design. Keep tail and streamers clearly separate and fully contained. Use an alert creature expression appropriate to the official art rather than a mid-attack action sequence.\nGenuinely transparent background, with clear alpha outside the complete silhouette. Retain only the wing patterns and color belonging to Dvalin's body; no detached magical effects, floating particles, scenery, clouds, ground, shadows, framing border, text, labels, UI, watermark, extra creatures, new props or decorative background. Produce a single complete dragon sprite.",
+      "referenced_image_paths": [
+        "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-dvalin-full-wings-neutral/references/Dvalin/official.png"
+      ],
+      "transparent_background": true
+    },
+    "tool_output": "/Users/alexachan/.codex/generated_images/01a1aa19-42b2-7e92-b08d-8ee7d133c057/exec-5936c5c3-c371-4391-a800-044deff18722.png",
+    "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-dvalin-full-wings-neutral/raw/Dvalin/neutral-v002.png",
+    "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-dvalin-full-wings-neutral/candidates/Dvalin/neutral-v002.png",
+    "candidate_sha256": "deeecab23b1bd450a22133c85c66aecd963d81bc16153318cc338c4763c61afd",
+    "dimensions": [
+      1536,
+      1024
+    ],
+    "png_color_type": 6,
+    "framing_transform": null
+  },
+  "approval": {
+    "status": "approved",
+    "date": "2026-11-05",
+    "message": "Dvalin accepted. Replace its current sprite.",
+    "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-dvalin-full-wings-neutral/candidates/Dvalin/neutral-v002.png",
+    "candidate_sha256": "deeecab23b1bd450a22133c85c66aecd963d81bc16153318cc338c4763c61afd"
+  },
+  "framing_request": "Wide landscape, complete wing/body silhouette, approximately 6\u20138% transparent margin on every side.",
+  "model_note": "Built-in model ID and explicit canvas/quality controls are not exposed. Landscape framing is requested in the prompt.",
+  "installation": {
+    "status": "installed_and_verified",
+    "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Dvalin/neutral.png",
+    "report": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-dvalin-full-wings-neutral/installation-2026-11-05.json"
+  },
+  "review_policy": "User reviews the candidate. Only file integrity, dimensions and alpha channel are checked.",
+  "technical_checks": {
+    "png_decoded": true,
+    "alpha_channel": true,
+    "alpha_range": [
+      0,
+      254
+    ],
+    "dimensions": [
+      1536,
+      1024
+    ],
+    "candidate_matches_raw": true,
+    "visual_review": "Not performed; user reviews candidate."
+  }
+}

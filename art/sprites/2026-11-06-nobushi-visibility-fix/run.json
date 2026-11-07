@@ -1,0 +1,71 @@
+{
+  "date": "2026-11-06",
+  "status": "fixed_and_verified",
+  "user_request": "Cannot see expressions for three Nobushi variants; fix or regenerate their sprites.",
+  "cause": "Character names and configured sprite overrides contain colons. The sprite inventory sanitizes the folder name for disk access but returns the unsanitized name in image URLs. Existing sanitized folders had no matching display-name path, so all three image URLs returned 404.",
+  "repair": "Three relative display-name directory aliases point to the existing sanitized sprite folders, making the exact returned URLs resolvable. No artwork regeneration, settings edits, character-card edits or extension-code edits.",
+  "records": [
+    {
+      "character": "Nobushi: Hitsukeban",
+      "alias": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Nobushi: Hitsukeban",
+      "relative_alias_target": "Nobushi Hitsukeban",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Nobushi Hitsukeban",
+      "existing_files_unchanged": true,
+      "before_image_http_status": 404,
+      "after": [
+        {
+          "label": "neutral",
+          "url": "http://127.0.0.1:8000/characters/Nobushi%3A%20Hitsukeban/neutral.png?t=20261030033740",
+          "status": 200,
+          "dimensions": [
+            1024,
+            1536
+          ],
+          "response_matches_existing_sprite": true
+        }
+      ]
+    },
+    {
+      "character": "Nobushi: Jintouban",
+      "alias": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Nobushi: Jintouban",
+      "relative_alias_target": "Nobushi Jintouban",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Nobushi Jintouban",
+      "existing_files_unchanged": true,
+      "before_image_http_status": 404,
+      "after": [
+        {
+          "label": "neutral",
+          "url": "http://127.0.0.1:8000/characters/Nobushi%3A%20Jintouban/neutral.png?t=20261030033816",
+          "status": 200,
+          "dimensions": [
+            971,
+            1620
+          ],
+          "response_matches_existing_sprite": true
+        }
+      ]
+    },
+    {
+      "character": "Nobushi: Kikouban",
+      "alias": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Nobushi: Kikouban",
+      "relative_alias_target": "Nobushi Kikouban",
+      "target": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Nobushi Kikouban",
+      "existing_files_unchanged": true,
+      "before_image_http_status": 404,
+      "after": [
+        {
+          "label": "neutral",
+          "url": "http://127.0.0.1:8000/characters/Nobushi%3A%20Kikouban/neutral.png?t=20261030033912",
+          "status": 200,
+          "dimensions": [
+            1127,
+            1396
+          ],
+          "response_matches_existing_sprite": true
+        }
+      ]
+    }
+  ],
+  "rollback": "Remove only the three alias symlinks listed in records; never remove their target directories.",
+  "verification": "Actual sprite-inventory API and each exact returned image URL were fetched successfully; PNG payloads decode and match the existing files byte-for-byte. Existing source and Official Art hashes unchanged."
+}

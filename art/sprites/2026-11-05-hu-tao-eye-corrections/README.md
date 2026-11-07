@@ -1,0 +1,11 @@
+# Hu Tao pupil corrections
+
+22 sprites ready for user review: approved v008 and five retained expressions are unchanged; fourteen flower-pupil expressions use tiny raster pupil patches from approved v008; both original heart variants have white fills. The user expressly authorized Python compositing after the image-tool trials changed other parts of the sprite.
+
+Every output retains its original dimensions and exact alpha channel. An independent decoded-pixel comparison verifies zero changed pixels outside the recorded tiny pupil-patch rectangles. The six retained files are byte-identical to their sources. The original source set has not been overwritten, and no live installation was performed. Patches include a minimal local iris margin for feathering. The exact crop boxes, transforms, masks, source hashes and changed-pixel maps are recorded in run.json. The original neutral and image-generation references remain unchanged.
+
+The built-in image tool exposes no dedicated mask/markup/pixel-lock control here. Three actual image-edit trials used aligned transparent annotation images; those trials and the earlier matte-extraction trials are preserved for provenance, but excluded from sprites/. Final flower corrections copy approved-neutral raster pupil elements; final hearts recolour the original silhouettes. No new image-generation call was made for the final patches. Final user visual approval is pending.
+
+Previews read left to right and then top to bottom: neutral, annoyance, smug, confusion, love, excitement, joy, fear, pride, desire, anger, grief, sadness, disgust, disappointment, relief, admiration, gratitude, embarrassment, caring, love-1, desire-1.
+
+previews/faces.png and previews/full-body.png contain all 22 sprites. The patched-eyes-01 through 04 sheets show enlarged corrected eyes in the run.json job order. audit/REVIEW.md records the initial visual findings. sources/ contains archived originals and original generation prompts; prompts/ and raw/ preserve the attempted image edits. scripts/ and patches-v004/ record the reproducible final compositing operation. archives/sprites.zip contains only the 22 active PNGs; archives/complete-artwork.zip contains the complete record, including unselected trials.

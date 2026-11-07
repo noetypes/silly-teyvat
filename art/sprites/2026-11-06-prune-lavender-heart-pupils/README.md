@@ -1,0 +1,7 @@
+# Prune — light lavender heart pupils
+
+The user requested Python tinting of the white heart pupils to a light purple that suits Prune's palette, and approved all other sprites. The two heart variants now use light lavender #DEC9F5 (RGB 222, 201, 245). The original contours, sizes and positions remain; only the four pupil fills and their antialiased edge colours were tinted. Canvas dimensions and the entire alpha channel are unchanged. An independent decoded-pixel comparison verifies zero changes outside the four isolated heart regions. Untouched originals and masks are included. No image generation, resampling or perspective warp was used.
+
+The remaining 20 sprites are recorded as approved with the user's message and are copied byte-for-byte into this updated full set. Only the two tinted candidates await review. No live installation was requested or performed; previous runs are preserved.
+
+previews/before-after-faces.png shows the white originals above and lavender candidates below, with love-1 left and desire-1 right. previews/tinted-faces.png shows the new pair alone. Full-set face/body sheets follow the order in run.json. All preview transforms are separate from the unchanged sprite framing. archives/tinted-hearts.zip contains the two tint candidates. archives/prune-22-sprites.zip contains the updated full set (20 approved, two pending). archives/complete-artwork.zip includes the full correction record, originals, script, masks and approval records.

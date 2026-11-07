@@ -651,5 +651,63 @@
         "sha256": "e21a351fba79a8ac181ba095c212069168590521de4d205197578ca1b09b8ec3"
       }
     ]
-  }
+  },
+  "installations": [
+    {
+      "date": "2026-11-05",
+      "report": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-approved-sprite-installation/installation.json",
+      "files": [
+        {
+          "emotion": "neutral",
+          "sha256": "3f65fb5e7d99706116bf98064cb651a78d65fdf2a46dfa7687031786daee6035",
+          "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Xilonen/neutral.png"
+        },
+        {
+          "emotion": "joy",
+          "sha256": "b5ddc58e08ae3b134942af46610edcff505dc9f0f35319bf5c6e4fab0b5077f3",
+          "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Xilonen/joy.png"
+        },
+        {
+          "emotion": "annoyance",
+          "sha256": "16722cab2912d455ab518b2df7f987c0fc3f734fd606e8ca9dffe7c5e00613d6",
+          "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Xilonen/annoyance.png"
+        },
+        {
+          "emotion": "confusion",
+          "sha256": "54032f73f24b7549a1d6aa3696785f9ed1ce3d73364abc668d6f2f8b9ad07e40",
+          "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Xilonen/confusion.png"
+        },
+        {
+          "emotion": "love",
+          "sha256": "e76263607b0616467da28104a333f6bef16dfa276fdd4079e55545f7baf23646",
+          "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Xilonen/love.png"
+        },
+        {
+          "emotion": "desire",
+          "sha256": "75dbb9d5939632c2f3f7e2f97959d008cf1ba9c371a1efdbfabf0e33fad115fa",
+          "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Xilonen/desire.png"
+        },
+        {
+          "emotion": "excitement",
+          "sha256": "57d7a4125a185c492f0504b92a8b49230b7cea1abed647b6f119b861bfd484a6",
+          "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Xilonen/excitement.png"
+        },
+        {
+          "emotion": "sadness",
+          "sha256": "e7978090f7398fa8e1692ce2e4b0f8ff38e65d9b3db49241b0e55edaa094fa15",
+          "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Xilonen/sadness.png"
+        },
+        {
+          "emotion": "fear",
+          "sha256": "f941e5514d20156d21de9c7a4703eb891ca26c208058c316d3126a7488f07447",
+          "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Xilonen/fear.png"
+        },
+        {
+          "emotion": "embarrassment",
+          "sha256": "e21a351fba79a8ac181ba095c212069168590521de4d205197578ca1b09b8ec3",
+          "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Xilonen/embarrassment.png"
+        }
+      ]
+    }
+  ]
 }

@@ -1,0 +1,29 @@
+{
+  "date": "2026-11-05",
+  "status": "approved_and_installed",
+  "records": [
+    {
+      "emotion": "love-1",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-hu-tao-heart-pupil-tint/sprites/Hu Tao/love-1.png",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Hu Tao/love-1.png",
+      "sha256": "9ceb25349d6d63a3c6ccba4fb8f3caea03042e9588b9afd12982c48daa568366",
+      "previous_sha256": "dd12f5878ae7ed6ec942d927b272fbaeebd367c460367fd1bc6c3905b9f630a5",
+      "backup": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-hu-tao-three-hands-smug-perspective/installation-backup/Hu Tao/love-1.png",
+      "approval_message": "Good!! Put them in her folder.\n\nSome edits I want you to make:\nConfusion - distorted hands\nDesire - distorted hands\nExcitement - distorted hands\nSmug - patched pupils don't fully match perspective"
+    },
+    {
+      "emotion": "desire-1",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-hu-tao-heart-pupil-tint/sprites/Hu Tao/desire-1.png",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Hu Tao/desire-1.png",
+      "sha256": "7c2831875b8dc94f2b48cbe7272ae78c8f83073e237d7724d6192b8b71b731fb",
+      "previous_sha256": "c2d7d3d3c7e27311c336ebdeb0594a684b066fe30dccf8cdf96f863f0b1c12da",
+      "backup": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-hu-tao-three-hands-smug-perspective/installation-backup/Hu Tao/desire-1.png",
+      "approval_message": "Good!! Put them in her folder.\n\nSome edits I want you to make:\nConfusion - distorted hands\nDesire - distorted hands\nExcitement - distorted hands\nSmug - patched pupils don't fully match perspective"
+    }
+  ],
+  "only_changed_files": [
+    "desire-1.png",
+    "love-1.png"
+  ],
+  "all_other_live_files_unchanged": true
+}

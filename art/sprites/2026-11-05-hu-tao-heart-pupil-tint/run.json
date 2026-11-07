@@ -1,0 +1,211 @@
+{
+  "date": "2026-11-05",
+  "status": "complete_awaiting_user_review",
+  "user_request": "see if you can use python to tint the hearts to the same colour as the flower pupils",
+  "method": "User-authorized Python/Pillow tint of the four existing heart fills. No image generation, shape replacement or neutral alteration.",
+  "colour": {
+    "rgb": [
+      250,
+      229,
+      201
+    ],
+    "hex": "#FAE5C9",
+    "description": "Warm pale ivory sampled from the approved v008 flower-pupil cores.",
+    "reference": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-hu-tao-heart-pupil-tint/references/Hu Tao/approved-neutral.png",
+    "reference_sha256": "2896b5601f7bd9bac64992c7dcf90796a071f268c6496613e1d62718fb9203d5",
+    "sample_boxes": [
+      [
+        419,
+        261,
+        431,
+        274
+      ],
+      [
+        505,
+        250,
+        518,
+        263
+      ]
+    ],
+    "sample_pixels": 169,
+    "statistic": "Per-channel median of source pixels with R>=240, G>=210, B>=165."
+  },
+  "scope": "Hu Tao-specific colour exception requested by the user; other characters retain the standing white-heart default.",
+  "jobs": [
+    {
+      "emotion": "love-1",
+      "parent": {
+        "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-hu-tao-white-hearts-fresh/sprites/Hu Tao/love-1.png",
+        "sha256": "51b947ef6d96c84d1fb53ddade8b1be7e8c5d10a6eb60ee072a032a5d0ded149",
+        "archived": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-hu-tao-heart-pupil-tint/sources/Hu Tao/love-1.png"
+      },
+      "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-hu-tao-heart-pupil-tint/sprites/Hu Tao/love-1.png",
+      "sha256": "9ceb25349d6d63a3c6ccba4fb8f3caea03042e9588b9afd12982c48daa568366",
+      "mask": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-hu-tao-heart-pupil-tint/masks/Hu Tao/love-1.png",
+      "mask_sha256": "66badb8aeaf14fcef73a6498c05c943703a79e623f8050409d516c196c835ab2",
+      "heart_patch_bounds": [
+        [
+          412,
+          265,
+          435,
+          287
+        ],
+        [
+          497,
+          230,
+          520,
+          254
+        ]
+      ],
+      "dimensions": [
+        934,
+        1685
+      ],
+      "changed_pixels": 665,
+      "changed_pixels_outside_pupil_masks": 0,
+      "alpha_pixel_identical": true,
+      "png_decoded": true,
+      "transforms": {
+        "before": {
+          "crop": [
+            149,
+            0,
+            785,
+            522
+          ],
+          "size": [
+            304,
+            250
+          ],
+          "position": [
+            8,
+            35
+          ]
+        },
+        "after": {
+          "crop": [
+            149,
+            0,
+            785,
+            522
+          ],
+          "size": [
+            304,
+            250
+          ],
+          "position": [
+            8,
+            35
+          ]
+        },
+        "body": {
+          "size": [
+            396,
+            714
+          ],
+          "position": [
+            12,
+            23
+          ]
+        }
+      },
+      "approval": {
+        "status": "pending"
+      }
+    },
+    {
+      "emotion": "desire-1",
+      "parent": {
+        "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-hu-tao-white-hearts-fresh/sprites/Hu Tao/desire-1.png",
+        "sha256": "7b004310fb9d3cc83f79b9c0153e7308762f25fb9d832223734028ea2097b811",
+        "archived": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-hu-tao-heart-pupil-tint/sources/Hu Tao/desire-1.png"
+      },
+      "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-hu-tao-heart-pupil-tint/sprites/Hu Tao/desire-1.png",
+      "sha256": "7c2831875b8dc94f2b48cbe7272ae78c8f83073e237d7724d6192b8b71b731fb",
+      "mask": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-hu-tao-heart-pupil-tint/masks/Hu Tao/desire-1.png",
+      "mask_sha256": "3a869235623b4aeec8e6fc651bd8de2922b4e4a3e14a7b942f8e6f7856f7cc5c",
+      "heart_patch_bounds": [
+        [
+          420,
+          265,
+          443,
+          286
+        ],
+        [
+          512,
+          246,
+          534,
+          267
+        ]
+      ],
+      "dimensions": [
+        934,
+        1685
+      ],
+      "changed_pixels": 595,
+      "changed_pixels_outside_pupil_masks": 0,
+      "alpha_pixel_identical": true,
+      "png_decoded": true,
+      "transforms": {
+        "before": {
+          "crop": [
+            149,
+            0,
+            785,
+            522
+          ],
+          "size": [
+            304,
+            250
+          ],
+          "position": [
+            328,
+            35
+          ]
+        },
+        "after": {
+          "crop": [
+            149,
+            0,
+            785,
+            522
+          ],
+          "size": [
+            304,
+            250
+          ],
+          "position": [
+            328,
+            35
+          ]
+        },
+        "body": {
+          "size": [
+            396,
+            714
+          ],
+          "position": [
+            432,
+            23
+          ]
+        }
+      },
+      "approval": {
+        "status": "pending"
+      }
+    }
+  ],
+  "previews": {
+    "faces": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-hu-tao-heart-pupil-tint/previews/faces.png",
+    "full_body": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-hu-tao-heart-pupil-tint/previews/full-body.png",
+    "before_after": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-hu-tao-heart-pupil-tint/previews/before-after-faces.png",
+    "order": [
+      "love-1",
+      "desire-1"
+    ],
+    "before_after_order": "White originals on top; ivory-tinted versions below.",
+    "labels": "none",
+    "background": "transparent"
+  },
+  "installation": "Not requested; originals and the live installation are untouched."
+}

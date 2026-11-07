@@ -163,7 +163,7 @@ export const LOCATION_POOLS={
     'map14-snezhnaya-old-kitezhgrad':['Cryo Abyss Mage','Fatui Skirmisher - Hydrogunner Legionnaire','Fatui Skirmisher - Pyroslinger Bracer','Cryo Whopperflower','Large Cryo Slime'],
     'map14-snezhnaya-flamefeather-valley':['Fatui Skirmisher - Cryogunner Legionnaire','Fatui Skirmisher - Hydrogunner Legionnaire','Fatui Pyro Agent','Cryo Whopperflower','Large Cryo Slime'],
 };
-// 1.63: the new enemies join these waypoints' pools. La Signora joins none: add her where you like.
+// 1.63: the new enemies join these waypoints' pools. La Signora has a dedicated arena in the catalog.
 export const NEW_ENEMY_POOLS={
     'Abyss Herald: Wicked Torrents':['wild-liyue-wuwang-hill','wild-inazuma-koseki-village','wilderness-old-vanarana','wilderness-salacia-plain','map14-fontaine-faded-castle'],
     'Abyss Lector: Fathomless Flames':['wild-inazuma-tatarasuna','map14-sumeru-debris-of-panjvahe','east-natlan-ancestral-temple','map14-liyue-sal-terrae'],

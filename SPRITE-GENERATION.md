@@ -53,7 +53,7 @@ Generated images are review candidates. They may be edit targets for the user-di
 
 Generate and present neutral candidates first, then **stop and wait for the user to approve them**. Approval is per character and per exact candidate file/hash. Record the approving message or a concise faithful quotation in `run.json`. A restart from square one resets prior approvals.
 
-The user is the visual reviewer. Do not independently search generated artwork for eye, finger, anatomy, costume, style, or other visual errors, announce self-diagnosed defects, automatically repair them, or reject/regenerate candidates on your own. Present the outputs as candidates without claiming that they passed visual QA. Let the user identify any corrections.
+The user is the visual reviewer. Do not independently search generated artwork for eye, finger, anatomy, costume, style, or other visual errors, announce self-diagnosed defects, automatically repair them, or reject/regenerate candidates on your own. Present the outputs as candidates without claiming that they passed visual QA. Let the user identify any corrections. An explicit request for a particular visual audit and corrections authorizes that review within its stated scope. On 2026-11-05 the user requested vision review of Hu Tao's generated flower pupils against approved neutral v008, and eye-only corrections where they do not show matching five-petal blossoms. This exception does not authorize unrelated visual reviews or confer approval on corrected candidates.
 
 Basic file handling may verify that a result was saved, that it is a PNG with an alpha channel, and which dimensions it has. These technical checks do not confer visual approval. A delivery failure or generation error should be reported as such.
 
@@ -92,11 +92,10 @@ The active Zhongli pack is an explicit exception to the default 22-file list: th
 Ordinary expressions use the character's normal pupils. Put heart-pupil instructions **only** in `love-1` and `desire-1` prompts.
 
 - Preserve each original iris and its colour/detail; change only the pupil shape.
-- For a character with multicoloured irises, make the heart pupils **white**. Furina uses this rule.
-- Otherwise specify a lighter shade in the original eye-colour family, such as pale violet for Raiden, pale amber-gold for Zhongli, and pale rose-pink for Sigewinne.
-- For the 2026-10-31 Faruzan, Ganyu, and Jahoda heart alternates, the user requested **white** hearts as a run-specific exception. Their accepted prompts called for one solid, clearly visible white heart-shaped pupil centered within each open eye's intact coloured iris, retaining the iris outline, shading, and a visible coloured border. Faruzan's accepted `love-1` prompt explicitly requested larger hearts filling much of the irises; Jahoda's specified both eyes and clarified that the hearts are pupils rather than highlights. These are useful prompt patterns, not evidence that every generated result will match them or a blanket colour change for other characters.
+- On 2026-11-05 the user clarified that heart pupils should **always be white**, superseding the older lighter-eye-colour rule. Use one solid white heart pupil in each open eye, retaining the original coloured iris and its visible border. This applies to future heart variants for all characters; preserve historical files unless their replacement is requested.
+- Before the universal white-heart rule above, the 2026-10-31 Faruzan, Ganyu, and Jahoda heart alternates used **white** hearts as run-specific exceptions. Their accepted prompts called for one solid, clearly visible white heart-shaped pupil centered within each open eye's intact coloured iris, retaining the iris outline, shading, and a visible coloured border. Faruzan's accepted `love-1` prompt explicitly requested larger hearts filling much of the irises; Jahoda's specified both eyes and clarified that the hearts are pupils rather than highlights. These remain useful prompt patterns, not evidence that every generated result will match them.
 - The user accepted Faruzan's earlier white-heart `desire-1` and asked that it be kept while other heart alternates were revised. Preserve approved exact files unless the user requests their replacement. Jahoda's `desire-1` was not generated: the image service rejected repeated attempts, including a modest fully clothed prompt. Record such failures and leave the file missing rather than presenting it as approved.
-- Do not autonomously inspect or regenerate eyes. The user will report issues.
+- Do not autonomously inspect or regenerate eyes unless the user explicitly requests that review and correction within a stated scope.
 
 ## Run layout and records
 

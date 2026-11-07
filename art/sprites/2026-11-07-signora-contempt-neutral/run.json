@@ -1,0 +1,39 @@
+{
+  "user_request": "Very good, try one more with a different expression",
+  "reference_authorization": "User authorized online or Genshin Wiki references for these enemy neutral sprites.",
+  "reference": {
+    "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-signora-contempt-neutral/references/La Signora/wiki.webp",
+    "sha256": "82b3074804f218c46a295946d314e694c5742b12f577b88b2f672f0582de3db4",
+    "source": "https://genshin-impact.fandom.com/wiki/File:Enemy_La_Signora.png",
+    "imageURL": "https://static.wikia.nocookie.net/gensin-impact/images/b/be/Enemy_La_Signora.png/revision/latest?cb=20230314064150"
+  },
+  "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-signora-contempt-neutral/prompts/La Signora/neutral-v004.txt",
+  "generation": {
+    "tool": "image_gen.imagegen",
+    "arguments": {
+      "prompt": "Create one full-body neutral boss sprite of La Signora from Genshin Impact, using the supplied Genshin Wiki enemy archive image as the sole visual reference. Preserve her recognizable face, mask, pale hair, black-and-white outfit, red cape, jewelry, proportions and distinctive costume details. Render polished Genshin-inspired anime game illustration. Give her a different expression of icy, aristocratic contempt: chin slightly raised, eyelids narrowed in a cool sidelong gaze toward the viewer, brows subtly arched and lips closed in a faint unimpressed downturn. No smile or smirk. Convey restrained menace and superiority. Pose her in a confident, relaxed three-quarter stance, shoulders back; her right hand rests near her hip, her left hand lifted gently near her chest in a restrained dismissive gesture. Hands are distinct from her clothing, each complete human hand has a palm, four naturally articulated fingers and a separate opposable thumb. Keep exactly two legs and two feet slightly staggered; cape and skirt drape naturally. A readable character-specific idle, not a mid-attack pose. Fit her entire silhouette including headpiece, hair, hands, cape, skirt and shoes with clear transparent margins on all sides. True transparent background and alpha; no scenery, detached magical effects, ground shadow, text, UI, watermark or other characters.",
+      "referenced_image_paths": [
+        "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-signora-contempt-neutral/references/La Signora/wiki.webp"
+      ],
+      "transparent_background": true
+    },
+    "tool_output": "/Users/alexachan/.codex/generated_images/01a1b53f-9119-7e51-8c7f-6405683343d1/exec-8ab6a228-03d6-4a43-9df3-b2b9bbe46554.png",
+    "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-signora-contempt-neutral/raw/La Signora/neutral-v004.png",
+    "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-signora-contempt-neutral/candidates/La Signora/neutral-v004.png",
+    "candidate_sha256": "a2bcadef453d6ac3bd0e8b6874632f83ce4da0b44e6cf4b8362219bf40b492f7",
+    "dimensions": [
+      1024,
+      1536
+    ],
+    "mode": "RGBA",
+    "alpha_range": [
+      0,
+      254
+    ],
+    "framing_transform": null
+  },
+  "approval": {
+    "status": "pending"
+  },
+  "visual_review": "Reserved for user"
+}

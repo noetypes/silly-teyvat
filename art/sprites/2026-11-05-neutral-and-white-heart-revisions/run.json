@@ -507,5 +507,23 @@
     "visual_approval": "Fischl love-1 and desire-1 white-heart candidates approved; the three neutral characters have newer candidates in the linked run."
   },
   "archive": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-neutral-and-white-heart-revisions/revision-candidates-prompts-sources.zip",
-  "next_neutral_revision_run": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-yoimiya-midpoint-yunjin-zibai-poses/run.json"
+  "next_neutral_revision_run": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-yoimiya-midpoint-yunjin-zibai-poses/run.json",
+  "installations": [
+    {
+      "date": "2026-11-05",
+      "report": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-approved-sprite-installation/installation.json",
+      "files": [
+        {
+          "emotion": "love-1",
+          "sha256": "8075e72a40efcff11a21efd2927203b9c4c65ea945bc161551e895891311aeb2",
+          "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Fischl/Regenerated/love-1.png"
+        },
+        {
+          "emotion": "desire-1",
+          "sha256": "3b62cdc74c669ad6f1644feba636f97a0a48799cfcb9949c8893264bde73597d",
+          "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Fischl/Regenerated/desire-1.png"
+        }
+      ]
+    }
+  ]
 }

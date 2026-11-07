@@ -1,0 +1,96 @@
+{
+  "date": "2026-11-05",
+  "authorization": "Approved, put Aloy's sprites in her folder",
+  "status": "installed_and_verified",
+  "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Aloy",
+  "files": [
+    {
+      "emotion": "neutral",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-aloy-ten-sprites/sprites/Aloy/neutral.png",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Aloy/neutral.png",
+      "sha256": "e52ff434c92cf5f2813306a3a55a0f637b20d9b3bb9ffb41f38287ebb6f74c0e",
+      "before_sha256": "2dcc32c6328678f659d94ddedaad6e548d2ed65eea642b6b74963255b7c5c446",
+      "action": "replace",
+      "backup": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-aloy-ten-sprites/installation-backup-2026-11-05/Aloy/neutral.png"
+    },
+    {
+      "emotion": "joy",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-aloy-ten-sprites/sprites/Aloy/joy.png",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Aloy/joy.png",
+      "sha256": "e98b3155f2f61d6e19b2f105990c0c31d7fb12434fadad026371a720f814bf84",
+      "before_sha256": null,
+      "action": "add"
+    },
+    {
+      "emotion": "annoyance",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-aloy-ten-sprites/sprites/Aloy/annoyance.png",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Aloy/annoyance.png",
+      "sha256": "68976fc63484c63f2c85ac69b2ce69cf2d1ba981ffc976e30975152db7ba4bce",
+      "before_sha256": null,
+      "action": "add"
+    },
+    {
+      "emotion": "confusion",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-aloy-ten-sprites/sprites/Aloy/confusion.png",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Aloy/confusion.png",
+      "sha256": "05c6bc17e98c8ada52d5a976a709382a1170ecdd91de38dfa5e00ae86d9ba0fc",
+      "before_sha256": null,
+      "action": "add"
+    },
+    {
+      "emotion": "love",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-aloy-ten-sprites/sprites/Aloy/love.png",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Aloy/love.png",
+      "sha256": "dc1d5d9952804ce8f1c835e3f5c041ddbb4d2c560515cf167fd7a1e564e1b541",
+      "before_sha256": null,
+      "action": "add"
+    },
+    {
+      "emotion": "desire",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-aloy-ten-sprites/sprites/Aloy/desire.png",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Aloy/desire.png",
+      "sha256": "8504bfee1aad71bf09320e97f4e96332f0ca57e8c579ec4f43fe19566bdf7326",
+      "before_sha256": null,
+      "action": "add"
+    },
+    {
+      "emotion": "excitement",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-aloy-ten-sprites/sprites/Aloy/excitement.png",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Aloy/excitement.png",
+      "sha256": "86ffadea602b36a9095ab9cd48260e23055a5bb195af500858a9abac9272bc14",
+      "before_sha256": null,
+      "action": "add"
+    },
+    {
+      "emotion": "sadness",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-aloy-ten-sprites/sprites/Aloy/sadness.png",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Aloy/sadness.png",
+      "sha256": "a0ac224b2696053f8cceab7d42cf421593c34228ae6ac28ff6aaffdebc551aa5",
+      "before_sha256": null,
+      "action": "add"
+    },
+    {
+      "emotion": "fear",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-aloy-ten-sprites/sprites/Aloy/fear.png",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Aloy/fear.png",
+      "sha256": "75299e0da28e54a193aff427c0c368c788dab490938948318d36997e8e75836d",
+      "before_sha256": null,
+      "action": "add"
+    },
+    {
+      "emotion": "embarrassment",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-aloy-ten-sprites/sprites/Aloy/embarrassment.png",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Aloy/embarrassment.png",
+      "sha256": "c06bc185ba701f3814f3db009a7a924c72e40cbf14f5f0a03521f4926ede15fc",
+      "before_sha256": null,
+      "action": "add"
+    }
+  ],
+  "verification": {
+    "files": 10,
+    "matching_selected_hashes": 10,
+    "added": 9,
+    "replaced": 1,
+    "backup_hashes_verified": true
+  }
+}

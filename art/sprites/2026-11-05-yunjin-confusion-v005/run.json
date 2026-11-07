@@ -149,5 +149,18 @@
       "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-yunjin-confusion-v005/archives/complete-artwork.zip",
       "contents": "All non-archive run artifacts, including exact prompts, references, raw outputs, sources, previews, scripts and manifest."
     }
-  }
+  },
+  "installations": [
+    {
+      "date": "2026-11-05",
+      "report": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-approved-sprite-installation/installation.json",
+      "files": [
+        {
+          "emotion": "confusion",
+          "sha256": "0d79099cce2916185f3e16af9f5982e904a6de7e981ba20f61ea8356123c5370",
+          "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Yun Jin/confusion.png"
+        }
+      ]
+    }
+  ]
 }

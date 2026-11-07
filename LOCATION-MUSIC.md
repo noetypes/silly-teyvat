@@ -12,7 +12,7 @@ The library is shared across waypoints. Relabelling keeps assignments intact. Re
 
 - `extensionSettings.genshin_dialogue_ui.musicLibrary`: `{id, label, name, path}` entries, referencing same-origin files.
 - `locationMusicEnabled` and `locationMusicVolume`: independent BGM preferences.
-- `backgroundRegions[].locations[].music`: `{tracks: [library IDs], combatTrack: ID | null}`.
+- `backgroundRegions[].locations[].music`: `{tracks: [library IDs], combatTrack: ID | null, formTracks?: {form name: ID}}`. A form track replaces the combat track while an enemy in the current encounter is in that form: La Signora's arena plays Chrysalis Suspirii, then Saltatio Favillae once she is the Crimson Witch of Embers. The switch happens as the battle board shows the transformation; afterwards the saved encounter keeps it. Saving the waypoint playlist keeps form tracks; removing a track from the library unlinks it. Sources: `audio-library/2026-11-07/boss-music.json`.
 
 Music never alters combat rules, dice, HP or prompts. `index.js` supplies the existing combat controller's busy state and eligible live enemies. The separate player owns exploration, combat and preview channels and clears them on a chat/location change or disposal. No third-party streaming service or additional model request is involved.
 

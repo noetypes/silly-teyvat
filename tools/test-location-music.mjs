@@ -75,4 +75,14 @@ check('music follows the live travel location, not a saved historical scene',()=
 removeMusicTrack(ctx,a.id);
 check('removing a library entry cleans assignments in every location',()=>{assert.deepEqual(wild.music.tracks,[]);assert.deepEqual(town.music.tracks,[]);assert.equal(ctx.extensionSettings.genshin_dialogue_ui.musicLibrary.length,1);assert(saves>0);});
 check('remote and invalid uploaded paths are rejected',()=>assert.throws(()=>addMusicTrack(ctx,{path:'https://untrusted.example/a.mp3',name:'a.mp3'}),/local/));
+// 1.65: La Signora's arena plays phase 1 while she is untransformed and phase 2 once she is the Crimson Witch of Embers.
+{
+    const lib=['explore','phase-one','phase-two'].map(id=>({id,label:id,name:id+'.m4a',path:'/user/files/'+id+'.m4a'}));
+    const arena={id:'arena',label:'Arena',wilderness:true,music:{tracks:['explore'],combatTrack:'phase-one',formTracks:{'Crimson Witch of Embers':'phase-two'}}};
+    const actx={extensionSettings:{genshin_dialogue_ui:{musicLibrary:structuredClone(lib),backgroundRegions:[{id:'r',name:'Inazuma',locations:[arena]}]}},chatMetadata:{silly_teyvat_world:{location:{id:'arena'}}},saveSettingsDebounced(){}};
+    check('an untransformed boss plays her phase 1 combat track',()=>{const cue=locationMusicCue(actx);assert.equal(cue.combatTrack.id,'phase-one');assert.deepEqual(cue.tracks.map(t=>t.id),['explore']);});
+    check('once she takes her second form the arena plays phase 2',()=>{const cue=locationMusicCue(actx,null,new Set(['Crimson Witch of Embers']));assert.equal(cue.combatTrack.id,'phase-two');assert.deepEqual(cue.tracks.map(t=>t.id),['explore']);});
+    check('saving the waypoint playlist keeps its form tracks',()=>{saveLocationMusic(actx,'arena',{tracks:['explore'],combatTrack:'phase-one'});assert.deepEqual(arena.music.formTracks,{'Crimson Witch of Embers':'phase-two'});});
+    check('removing a form track from the library unlinks it',()=>{removeMusicTrack(actx,'phase-two');assert.deepEqual(arena.music.formTracks,{});assert.equal(locationMusicCue(actx,null,new Set(['Crimson Witch of Embers'])).combatTrack.id,'phase-one');});
+}
 console.log(JSON.stringify({passed:checks.length,checks},null,2));

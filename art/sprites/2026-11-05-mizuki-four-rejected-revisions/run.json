@@ -1,6 +1,6 @@
 {
   "date": "2026-11-05",
-  "status": "regenerating_only_four_rejected_expressions",
+  "status": "approved_and_installed",
   "user_request": "ill take it, use this and regen only rejected emotion sprites",
   "parent_run": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-mizuki-ten-sprites",
   "total_new_expressions": 4,
@@ -19,7 +19,11 @@
   ],
   "reference_policy": "New expressions independently use approved neutral-v004 as primary and in-game model as secondary. Retained generations preserve their original actual input records. Official art is not an expression input.",
   "model_note": "Built-in model ID and quality controls are not exposed.",
-  "installation": "not requested; live sprites unchanged",
+  "installation": {
+    "status": "installed",
+    "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Yumemizuki Mizuki",
+    "report": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-approved-sprite-installation/installation.json"
+  },
   "characters": {
     "Yumemizuki Mizuki": {
       "neutral_approval": {
@@ -61,7 +65,7 @@
     "Yumemizuki Mizuki joy": {
       "character": "Yumemizuki Mizuki",
       "emotion": "joy",
-      "status": "candidate",
+      "status": "approved",
       "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-mizuki-four-rejected-revisions/prompts/Yumemizuki Mizuki/joy.txt",
       "tool": "image_gen.imagegen",
       "arguments": {
@@ -72,7 +76,11 @@
         "transparent_background": true
       },
       "approval": {
-        "status": "pending"
+        "status": "approved",
+        "date": "2026-11-05",
+        "message": "All accepted. Install all sprite sets into their respected folders including Fischl's new set, which should be as an alternate set to her already generated one.",
+        "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-mizuki-four-rejected-revisions/sprites/Yumemizuki Mizuki/joy.png",
+        "candidate_sha256": "aff08bd8e8b3d68ffdf63f9c2b9f615ed032a8969ceb835207e08e64b2881267"
       },
       "tool_output": "/Users/alexachan/.codex/generated_images/01a1aa19-42b2-7e92-b08d-8ee7d133c057/exec-6b0cdc35-27ec-4b94-b417-d203cbf1b809.png",
       "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-mizuki-four-rejected-revisions/raw/Yumemizuki Mizuki/joy.png",
@@ -93,7 +101,7 @@
     "Yumemizuki Mizuki annoyance": {
       "character": "Yumemizuki Mizuki",
       "emotion": "annoyance",
-      "status": "candidate",
+      "status": "approved",
       "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-mizuki-four-rejected-revisions/prompts/Yumemizuki Mizuki/annoyance.txt",
       "tool": "image_gen.imagegen",
       "arguments": {
@@ -104,7 +112,11 @@
         "transparent_background": true
       },
       "approval": {
-        "status": "pending"
+        "status": "approved",
+        "date": "2026-11-05",
+        "message": "All accepted. Install all sprite sets into their respected folders including Fischl's new set, which should be as an alternate set to her already generated one.",
+        "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-mizuki-four-rejected-revisions/sprites/Yumemizuki Mizuki/annoyance.png",
+        "candidate_sha256": "23e7b77380cc46fc394bea1ab0939e4c16acf9c378c9427ce8cc6c6bce362e81"
       },
       "tool_output": "/Users/alexachan/.codex/generated_images/01a1aa19-42b2-7e92-b08d-8ee7d133c057/exec-824c3708-447e-4a39-8fe2-a1375e1935e0.png",
       "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-mizuki-four-rejected-revisions/raw/Yumemizuki Mizuki/annoyance.png",
@@ -125,7 +137,7 @@
     "Yumemizuki Mizuki confusion": {
       "character": "Yumemizuki Mizuki",
       "emotion": "confusion",
-      "status": "pending",
+      "status": "approved",
       "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-mizuki-four-rejected-revisions/prompts/Yumemizuki Mizuki/confusion.txt",
       "tool": "image_gen.imagegen",
       "arguments": {
@@ -137,7 +149,11 @@
         "transparent_background": true
       },
       "approval": {
-        "status": "pending"
+        "status": "approved",
+        "date": "2026-11-05",
+        "message": "All accepted. Install all sprite sets into their respected folders including Fischl's new set, which should be as an alternate set to her already generated one.",
+        "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-mizuki-four-rejected-revisions/sprites/Yumemizuki Mizuki/confusion.png",
+        "candidate_sha256": "858f769f0c89d08128319ddc9e5d6ae3a01841db0a9a89832fd8b6b80a53a822"
       },
       "previous_rejected_candidate": {
         "run": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-mizuki-ten-sprites",
@@ -150,12 +166,21 @@
           "reason": "distorted hands"
         }
       },
-      "version": "v002"
+      "version": "v002",
+      "tool_output": "/Users/alexachan/.codex/generated_images/01a1aa19-42b2-7e92-b08d-8ee7d133c057/exec-b6e120f7-0559-43b6-b184-b9dd87822738.png",
+      "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-mizuki-four-rejected-revisions/raw/Yumemizuki Mizuki/confusion.png",
+      "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-mizuki-four-rejected-revisions/sprites/Yumemizuki Mizuki/confusion.png",
+      "sha256": "858f769f0c89d08128319ddc9e5d6ae3a01841db0a9a89832fd8b6b80a53a822",
+      "dimensions": [
+        932,
+        1688
+      ],
+      "png_color_type": 6
     },
     "Yumemizuki Mizuki love": {
       "character": "Yumemizuki Mizuki",
       "emotion": "love",
-      "status": "candidate",
+      "status": "approved",
       "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-mizuki-four-rejected-revisions/prompts/Yumemizuki Mizuki/love.txt",
       "tool": "image_gen.imagegen",
       "arguments": {
@@ -166,7 +191,11 @@
         "transparent_background": true
       },
       "approval": {
-        "status": "pending"
+        "status": "approved",
+        "date": "2026-11-05",
+        "message": "All accepted. Install all sprite sets into their respected folders including Fischl's new set, which should be as an alternate set to her already generated one.",
+        "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-mizuki-four-rejected-revisions/sprites/Yumemizuki Mizuki/love.png",
+        "candidate_sha256": "80621d6257816252f29f7ed31f23b404abbb94d64d59fd48d150e630f632a923"
       },
       "tool_output": "/Users/alexachan/.codex/generated_images/01a1aa19-42b2-7e92-b08d-8ee7d133c057/exec-c1db2c60-81cf-4920-a453-16517ddd693d.png",
       "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-mizuki-four-rejected-revisions/raw/Yumemizuki Mizuki/love.png",
@@ -187,7 +216,7 @@
     "Yumemizuki Mizuki desire": {
       "character": "Yumemizuki Mizuki",
       "emotion": "desire",
-      "status": "pending",
+      "status": "approved",
       "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-mizuki-four-rejected-revisions/prompts/Yumemizuki Mizuki/desire.txt",
       "tool": "image_gen.imagegen",
       "arguments": {
@@ -199,7 +228,11 @@
         "transparent_background": true
       },
       "approval": {
-        "status": "pending"
+        "status": "approved",
+        "date": "2026-11-05",
+        "message": "All accepted. Install all sprite sets into their respected folders including Fischl's new set, which should be as an alternate set to her already generated one.",
+        "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-mizuki-four-rejected-revisions/sprites/Yumemizuki Mizuki/desire.png",
+        "candidate_sha256": "3fba78f576647306a9b78295c485bee47946468246e11fdeb5ec62598a2213b2"
       },
       "previous_rejected_candidate": {
         "run": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-mizuki-ten-sprites",
@@ -212,12 +245,21 @@
           "reason": "distorted eyes"
         }
       },
-      "version": "v002"
+      "version": "v002",
+      "tool_output": "/Users/alexachan/.codex/generated_images/01a1aa19-42b2-7e92-b08d-8ee7d133c057/exec-774e06e5-337c-4880-abbf-a8e0a9196f9a.png",
+      "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-mizuki-four-rejected-revisions/raw/Yumemizuki Mizuki/desire.png",
+      "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-mizuki-four-rejected-revisions/sprites/Yumemizuki Mizuki/desire.png",
+      "sha256": "3fba78f576647306a9b78295c485bee47946468246e11fdeb5ec62598a2213b2",
+      "dimensions": [
+        932,
+        1688
+      ],
+      "png_color_type": 6
     },
     "Yumemizuki Mizuki excitement": {
       "character": "Yumemizuki Mizuki",
       "emotion": "excitement",
-      "status": "pending",
+      "status": "approved",
       "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-mizuki-four-rejected-revisions/prompts/Yumemizuki Mizuki/excitement.txt",
       "tool": "image_gen.imagegen",
       "arguments": {
@@ -229,7 +271,11 @@
         "transparent_background": true
       },
       "approval": {
-        "status": "pending"
+        "status": "approved",
+        "date": "2026-11-05",
+        "message": "All accepted. Install all sprite sets into their respected folders including Fischl's new set, which should be as an alternate set to her already generated one.",
+        "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-mizuki-four-rejected-revisions/sprites/Yumemizuki Mizuki/excitement.png",
+        "candidate_sha256": "e4128e5a4098c4eca26a1e30ad58335b629a9bf267bc713862d3e67a785fb6db"
       },
       "previous_rejected_candidate": {
         "run": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-mizuki-ten-sprites",
@@ -242,12 +288,21 @@
           "reason": "distorted eyes"
         }
       },
-      "version": "v002"
+      "version": "v002",
+      "tool_output": "/Users/alexachan/.codex/generated_images/01a1aa19-42b2-7e92-b08d-8ee7d133c057/exec-bbbbab24-c71a-4cf0-8d11-bd4788d8f72a.png",
+      "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-mizuki-four-rejected-revisions/raw/Yumemizuki Mizuki/excitement.png",
+      "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-mizuki-four-rejected-revisions/sprites/Yumemizuki Mizuki/excitement.png",
+      "sha256": "e4128e5a4098c4eca26a1e30ad58335b629a9bf267bc713862d3e67a785fb6db",
+      "dimensions": [
+        932,
+        1688
+      ],
+      "png_color_type": 6
     },
     "Yumemizuki Mizuki sadness": {
       "character": "Yumemizuki Mizuki",
       "emotion": "sadness",
-      "status": "candidate",
+      "status": "approved",
       "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-mizuki-four-rejected-revisions/prompts/Yumemizuki Mizuki/sadness.txt",
       "tool": "image_gen.imagegen",
       "arguments": {
@@ -258,7 +313,11 @@
         "transparent_background": true
       },
       "approval": {
-        "status": "pending"
+        "status": "approved",
+        "date": "2026-11-05",
+        "message": "All accepted. Install all sprite sets into their respected folders including Fischl's new set, which should be as an alternate set to her already generated one.",
+        "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-mizuki-four-rejected-revisions/sprites/Yumemizuki Mizuki/sadness.png",
+        "candidate_sha256": "445cacf44ae8c719b85c057851fc538f2848d7728dcc001ef260aa65ce7d393d"
       },
       "tool_output": "/Users/alexachan/.codex/generated_images/01a1aa19-42b2-7e92-b08d-8ee7d133c057/exec-210c53df-5e9e-4129-a6fd-d4b850317950.png",
       "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-mizuki-four-rejected-revisions/raw/Yumemizuki Mizuki/sadness.png",
@@ -279,7 +338,7 @@
     "Yumemizuki Mizuki fear": {
       "character": "Yumemizuki Mizuki",
       "emotion": "fear",
-      "status": "candidate",
+      "status": "approved",
       "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-mizuki-four-rejected-revisions/prompts/Yumemizuki Mizuki/fear.txt",
       "tool": "image_gen.imagegen",
       "arguments": {
@@ -290,7 +349,11 @@
         "transparent_background": true
       },
       "approval": {
-        "status": "pending"
+        "status": "approved",
+        "date": "2026-11-05",
+        "message": "All accepted. Install all sprite sets into their respected folders including Fischl's new set, which should be as an alternate set to her already generated one.",
+        "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-mizuki-four-rejected-revisions/sprites/Yumemizuki Mizuki/fear.png",
+        "candidate_sha256": "2d72deda03c9f2cb183b431dbce3cdc9f5399f66772be242ef578d35087d3f74"
       },
       "tool_output": "/Users/alexachan/.codex/generated_images/01a1aa19-42b2-7e92-b08d-8ee7d133c057/exec-05a46724-9d46-4dd1-9312-9ce28b0023a2.png",
       "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-mizuki-four-rejected-revisions/raw/Yumemizuki Mizuki/fear.png",
@@ -311,7 +374,7 @@
     "Yumemizuki Mizuki embarrassment": {
       "character": "Yumemizuki Mizuki",
       "emotion": "embarrassment",
-      "status": "pending",
+      "status": "approved",
       "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-mizuki-four-rejected-revisions/prompts/Yumemizuki Mizuki/embarrassment.txt",
       "tool": "image_gen.imagegen",
       "arguments": {
@@ -323,7 +386,11 @@
         "transparent_background": true
       },
       "approval": {
-        "status": "pending"
+        "status": "approved",
+        "date": "2026-11-05",
+        "message": "All accepted. Install all sprite sets into their respected folders including Fischl's new set, which should be as an alternate set to her already generated one.",
+        "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-mizuki-four-rejected-revisions/sprites/Yumemizuki Mizuki/embarrassment.png",
+        "candidate_sha256": "7916bbb4ac75d3ee1fad93f608cdcd8e31d2a1d279a75ef3918f19dc43e815d9"
       },
       "previous_rejected_candidate": {
         "run": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-mizuki-ten-sprites",
@@ -336,7 +403,644 @@
           "reason": "distorted eyes"
         }
       },
-      "version": "v002"
+      "version": "v002",
+      "tool_output": "/Users/alexachan/.codex/generated_images/01a1aa19-42b2-7e92-b08d-8ee7d133c057/exec-773b4419-fcbf-4c90-a613-a26f1b9fa1bd.png",
+      "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-mizuki-four-rejected-revisions/raw/Yumemizuki Mizuki/embarrassment.png",
+      "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-mizuki-four-rejected-revisions/sprites/Yumemizuki Mizuki/embarrassment.png",
+      "sha256": "7916bbb4ac75d3ee1fad93f608cdcd8e31d2a1d279a75ef3918f19dc43e815d9",
+      "dimensions": [
+        932,
+        1688
+      ],
+      "png_color_type": 6
     }
-  }
+  },
+  "generated_expressions": 4,
+  "retained_expressions": 5,
+  "total_sprite_files": 10,
+  "technical_checks": [
+    {
+      "character": "Yumemizuki Mizuki",
+      "emotion": "neutral",
+      "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-mizuki-four-rejected-revisions/sprites/Yumemizuki Mizuki/neutral.png",
+      "sha256": "cc57f2db28917bc9c508e764780ddef81c1e22a806218f8f46d39201fab972bf",
+      "dimensions": [
+        932,
+        1688
+      ],
+      "png_decoded": true,
+      "alpha_channel": true
+    },
+    {
+      "character": "Yumemizuki Mizuki",
+      "emotion": "joy",
+      "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-mizuki-four-rejected-revisions/sprites/Yumemizuki Mizuki/joy.png",
+      "sha256": "aff08bd8e8b3d68ffdf63f9c2b9f615ed032a8969ceb835207e08e64b2881267",
+      "dimensions": [
+        935,
+        1683
+      ],
+      "png_decoded": true,
+      "alpha_channel": true
+    },
+    {
+      "character": "Yumemizuki Mizuki",
+      "emotion": "annoyance",
+      "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-mizuki-four-rejected-revisions/sprites/Yumemizuki Mizuki/annoyance.png",
+      "sha256": "23e7b77380cc46fc394bea1ab0939e4c16acf9c378c9427ce8cc6c6bce362e81",
+      "dimensions": [
+        935,
+        1683
+      ],
+      "png_decoded": true,
+      "alpha_channel": true
+    },
+    {
+      "character": "Yumemizuki Mizuki",
+      "emotion": "confusion",
+      "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-mizuki-four-rejected-revisions/sprites/Yumemizuki Mizuki/confusion.png",
+      "sha256": "858f769f0c89d08128319ddc9e5d6ae3a01841db0a9a89832fd8b6b80a53a822",
+      "dimensions": [
+        932,
+        1688
+      ],
+      "png_decoded": true,
+      "alpha_channel": true
+    },
+    {
+      "character": "Yumemizuki Mizuki",
+      "emotion": "love",
+      "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-mizuki-four-rejected-revisions/sprites/Yumemizuki Mizuki/love.png",
+      "sha256": "80621d6257816252f29f7ed31f23b404abbb94d64d59fd48d150e630f632a923",
+      "dimensions": [
+        935,
+        1683
+      ],
+      "png_decoded": true,
+      "alpha_channel": true
+    },
+    {
+      "character": "Yumemizuki Mizuki",
+      "emotion": "desire",
+      "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-mizuki-four-rejected-revisions/sprites/Yumemizuki Mizuki/desire.png",
+      "sha256": "3fba78f576647306a9b78295c485bee47946468246e11fdeb5ec62598a2213b2",
+      "dimensions": [
+        932,
+        1688
+      ],
+      "png_decoded": true,
+      "alpha_channel": true
+    },
+    {
+      "character": "Yumemizuki Mizuki",
+      "emotion": "excitement",
+      "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-mizuki-four-rejected-revisions/sprites/Yumemizuki Mizuki/excitement.png",
+      "sha256": "e4128e5a4098c4eca26a1e30ad58335b629a9bf267bc713862d3e67a785fb6db",
+      "dimensions": [
+        932,
+        1688
+      ],
+      "png_decoded": true,
+      "alpha_channel": true
+    },
+    {
+      "character": "Yumemizuki Mizuki",
+      "emotion": "sadness",
+      "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-mizuki-four-rejected-revisions/sprites/Yumemizuki Mizuki/sadness.png",
+      "sha256": "445cacf44ae8c719b85c057851fc538f2848d7728dcc001ef260aa65ce7d393d",
+      "dimensions": [
+        935,
+        1683
+      ],
+      "png_decoded": true,
+      "alpha_channel": true
+    },
+    {
+      "character": "Yumemizuki Mizuki",
+      "emotion": "fear",
+      "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-mizuki-four-rejected-revisions/sprites/Yumemizuki Mizuki/fear.png",
+      "sha256": "2d72deda03c9f2cb183b431dbce3cdc9f5399f66772be242ef578d35087d3f74",
+      "dimensions": [
+        935,
+        1683
+      ],
+      "png_decoded": true,
+      "alpha_channel": true
+    },
+    {
+      "character": "Yumemizuki Mizuki",
+      "emotion": "embarrassment",
+      "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-mizuki-four-rejected-revisions/sprites/Yumemizuki Mizuki/embarrassment.png",
+      "sha256": "7916bbb4ac75d3ee1fad93f608cdcd8e31d2a1d279a75ef3918f19dc43e815d9",
+      "dimensions": [
+        932,
+        1688
+      ],
+      "png_decoded": true,
+      "alpha_channel": true
+    }
+  ],
+  "visual_review": "Not performed; the user reviews generated candidates.",
+  "previews": {
+    "full_body": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-mizuki-four-rejected-revisions/previews/full-body.png",
+    "faces": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-mizuki-four-rejected-revisions/previews/faces.png",
+    "columns": 5,
+    "rows": 2,
+    "labels": "none",
+    "background": "transparent",
+    "order": [
+      [
+        "Yumemizuki Mizuki",
+        "neutral"
+      ],
+      [
+        "Yumemizuki Mizuki",
+        "joy"
+      ],
+      [
+        "Yumemizuki Mizuki",
+        "annoyance"
+      ],
+      [
+        "Yumemizuki Mizuki",
+        "confusion"
+      ],
+      [
+        "Yumemizuki Mizuki",
+        "love"
+      ],
+      [
+        "Yumemizuki Mizuki",
+        "desire"
+      ],
+      [
+        "Yumemizuki Mizuki",
+        "excitement"
+      ],
+      [
+        "Yumemizuki Mizuki",
+        "sadness"
+      ],
+      [
+        "Yumemizuki Mizuki",
+        "fear"
+      ],
+      [
+        "Yumemizuki Mizuki",
+        "embarrassment"
+      ]
+    ],
+    "transforms": [
+      {
+        "character": "Yumemizuki Mizuki",
+        "emotion": "neutral",
+        "full_body_position": [
+          12,
+          20
+        ],
+        "full_body_size": [
+          312,
+          565
+        ],
+        "face_crop": [
+          149,
+          0,
+          783,
+          523
+        ],
+        "face_position": [
+          8,
+          34
+        ],
+        "face_size": [
+          304,
+          251
+        ]
+      },
+      {
+        "character": "Yumemizuki Mizuki",
+        "emotion": "joy",
+        "full_body_position": [
+          348,
+          22
+        ],
+        "full_body_size": [
+          312,
+          562
+        ],
+        "face_crop": [
+          150,
+          0,
+          785,
+          522
+        ],
+        "face_position": [
+          328,
+          35
+        ],
+        "face_size": [
+          304,
+          250
+        ]
+      },
+      {
+        "character": "Yumemizuki Mizuki",
+        "emotion": "annoyance",
+        "full_body_position": [
+          684,
+          22
+        ],
+        "full_body_size": [
+          312,
+          562
+        ],
+        "face_crop": [
+          150,
+          0,
+          785,
+          522
+        ],
+        "face_position": [
+          648,
+          35
+        ],
+        "face_size": [
+          304,
+          250
+        ]
+      },
+      {
+        "character": "Yumemizuki Mizuki",
+        "emotion": "confusion",
+        "full_body_position": [
+          1020,
+          20
+        ],
+        "full_body_size": [
+          312,
+          565
+        ],
+        "face_crop": [
+          149,
+          0,
+          783,
+          523
+        ],
+        "face_position": [
+          968,
+          34
+        ],
+        "face_size": [
+          304,
+          251
+        ]
+      },
+      {
+        "character": "Yumemizuki Mizuki",
+        "emotion": "love",
+        "full_body_position": [
+          1356,
+          22
+        ],
+        "full_body_size": [
+          312,
+          562
+        ],
+        "face_crop": [
+          150,
+          0,
+          785,
+          522
+        ],
+        "face_position": [
+          1288,
+          35
+        ],
+        "face_size": [
+          304,
+          250
+        ]
+      },
+      {
+        "character": "Yumemizuki Mizuki",
+        "emotion": "desire",
+        "full_body_position": [
+          12,
+          626
+        ],
+        "full_body_size": [
+          312,
+          565
+        ],
+        "face_crop": [
+          149,
+          0,
+          783,
+          523
+        ],
+        "face_position": [
+          8,
+          354
+        ],
+        "face_size": [
+          304,
+          251
+        ]
+      },
+      {
+        "character": "Yumemizuki Mizuki",
+        "emotion": "excitement",
+        "full_body_position": [
+          348,
+          626
+        ],
+        "full_body_size": [
+          312,
+          565
+        ],
+        "face_crop": [
+          149,
+          0,
+          783,
+          523
+        ],
+        "face_position": [
+          328,
+          354
+        ],
+        "face_size": [
+          304,
+          251
+        ]
+      },
+      {
+        "character": "Yumemizuki Mizuki",
+        "emotion": "sadness",
+        "full_body_position": [
+          684,
+          628
+        ],
+        "full_body_size": [
+          312,
+          562
+        ],
+        "face_crop": [
+          150,
+          0,
+          785,
+          522
+        ],
+        "face_position": [
+          648,
+          355
+        ],
+        "face_size": [
+          304,
+          250
+        ]
+      },
+      {
+        "character": "Yumemizuki Mizuki",
+        "emotion": "fear",
+        "full_body_position": [
+          1020,
+          628
+        ],
+        "full_body_size": [
+          312,
+          562
+        ],
+        "face_crop": [
+          150,
+          0,
+          785,
+          522
+        ],
+        "face_position": [
+          968,
+          355
+        ],
+        "face_size": [
+          304,
+          250
+        ]
+      },
+      {
+        "character": "Yumemizuki Mizuki",
+        "emotion": "embarrassment",
+        "full_body_position": [
+          1356,
+          626
+        ],
+        "full_body_size": [
+          312,
+          565
+        ],
+        "face_crop": [
+          149,
+          0,
+          783,
+          523
+        ],
+        "face_position": [
+          1288,
+          354
+        ],
+        "face_size": [
+          304,
+          251
+        ]
+      }
+    ]
+  },
+  "archives": {
+    "sprites": {
+      "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-mizuki-four-rejected-revisions/archives/sprites.zip",
+      "files": 10,
+      "sha256": "181f7366e7aae45a678a7878ea5703f2e9dbc6422a5e82c8d8fac17e9446d519",
+      "zip_integrity": "passed"
+    },
+    "complete_artwork": {
+      "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-mizuki-four-rejected-revisions/archives/complete-artwork.zip",
+      "contents": "All non-archive run artifacts, including exact prompts, references, raw outputs, sources, previews, scripts and manifest."
+    },
+    "replacements": {
+      "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-mizuki-four-rejected-revisions/archives/four-replacements.zip",
+      "files": 4,
+      "sha256": "7172c055b87c291fae8c3b530a858760def9d144992abff55ab3a44f98f7043f",
+      "zip_integrity": "passed"
+    }
+  },
+  "replacement_previews": {
+    "full_body": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-mizuki-four-rejected-revisions/previews/replacements-full-body.png",
+    "faces": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-mizuki-four-rejected-revisions/previews/replacements-faces.png",
+    "columns": 4,
+    "rows": 1,
+    "order": [
+      "Yumemizuki Mizuki confusion",
+      "Yumemizuki Mizuki desire",
+      "Yumemizuki Mizuki embarrassment",
+      "Yumemizuki Mizuki excitement"
+    ],
+    "transforms": [
+      {
+        "emotion": "confusion",
+        "full_body_position": [
+          12,
+          20
+        ],
+        "full_body_size": [
+          312,
+          565
+        ],
+        "face_crop": [
+          149,
+          0,
+          783,
+          523
+        ],
+        "face_position": [
+          8,
+          34
+        ],
+        "face_size": [
+          304,
+          251
+        ]
+      },
+      {
+        "emotion": "desire",
+        "full_body_position": [
+          348,
+          20
+        ],
+        "full_body_size": [
+          312,
+          565
+        ],
+        "face_crop": [
+          149,
+          0,
+          783,
+          523
+        ],
+        "face_position": [
+          328,
+          34
+        ],
+        "face_size": [
+          304,
+          251
+        ]
+      },
+      {
+        "emotion": "embarrassment",
+        "full_body_position": [
+          684,
+          20
+        ],
+        "full_body_size": [
+          312,
+          565
+        ],
+        "face_crop": [
+          149,
+          0,
+          783,
+          523
+        ],
+        "face_position": [
+          648,
+          34
+        ],
+        "face_size": [
+          304,
+          251
+        ]
+      },
+      {
+        "emotion": "excitement",
+        "full_body_position": [
+          1020,
+          20
+        ],
+        "full_body_size": [
+          312,
+          565
+        ],
+        "face_crop": [
+          149,
+          0,
+          783,
+          523
+        ],
+        "face_position": [
+          968,
+          34
+        ],
+        "face_size": [
+          304,
+          251
+        ]
+      }
+    ]
+  },
+  "installations": [
+    {
+      "date": "2026-11-05",
+      "report": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-approved-sprite-installation/installation.json",
+      "files": [
+        {
+          "emotion": "neutral",
+          "sha256": "cc57f2db28917bc9c508e764780ddef81c1e22a806218f8f46d39201fab972bf",
+          "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Yumemizuki Mizuki/neutral.png"
+        },
+        {
+          "emotion": "joy",
+          "sha256": "aff08bd8e8b3d68ffdf63f9c2b9f615ed032a8969ceb835207e08e64b2881267",
+          "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Yumemizuki Mizuki/joy.png"
+        },
+        {
+          "emotion": "annoyance",
+          "sha256": "23e7b77380cc46fc394bea1ab0939e4c16acf9c378c9427ce8cc6c6bce362e81",
+          "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Yumemizuki Mizuki/annoyance.png"
+        },
+        {
+          "emotion": "confusion",
+          "sha256": "858f769f0c89d08128319ddc9e5d6ae3a01841db0a9a89832fd8b6b80a53a822",
+          "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Yumemizuki Mizuki/confusion.png"
+        },
+        {
+          "emotion": "love",
+          "sha256": "80621d6257816252f29f7ed31f23b404abbb94d64d59fd48d150e630f632a923",
+          "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Yumemizuki Mizuki/love.png"
+        },
+        {
+          "emotion": "desire",
+          "sha256": "3fba78f576647306a9b78295c485bee47946468246e11fdeb5ec62598a2213b2",
+          "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Yumemizuki Mizuki/desire.png"
+        },
+        {
+          "emotion": "excitement",
+          "sha256": "e4128e5a4098c4eca26a1e30ad58335b629a9bf267bc713862d3e67a785fb6db",
+          "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Yumemizuki Mizuki/excitement.png"
+        },
+        {
+          "emotion": "sadness",
+          "sha256": "445cacf44ae8c719b85c057851fc538f2848d7728dcc001ef260aa65ce7d393d",
+          "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Yumemizuki Mizuki/sadness.png"
+        },
+        {
+          "emotion": "fear",
+          "sha256": "2d72deda03c9f2cb183b431dbce3cdc9f5399f66772be242ef578d35087d3f74",
+          "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Yumemizuki Mizuki/fear.png"
+        },
+        {
+          "emotion": "embarrassment",
+          "sha256": "7916bbb4ac75d3ee1fad93f608cdcd8e31d2a1d279a75ef3918f19dc43e815d9",
+          "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Yumemizuki Mizuki/embarrassment.png"
+        }
+      ]
+    }
+  ]
 }

@@ -1,0 +1,199 @@
+[
+  {
+    "location": "Hotel Debord",
+    "original": "../hotel-debord.png",
+    "revision": "hotel-debord-v2.png",
+    "native_size": "1672x941",
+    "native_source": "/Users/alexachan/.codex/generated_images/01a1b173-7037-7541-af7a-58b9fa1b0a33/exec-3f70cfd9-e6d6-435b-9977-7ab94a080d88.png",
+    "delivered_size": "1920x1080",
+    "method": "built-in Codex image generation; center crop and interpolated upscale",
+    "prompt": "Create a Genshin Impact location background. Hotel Debord is the restaurant in Quartier Narbonnais in the Court of Fontaine. Preserve the current image's curved pale-stone facade, tall teal-blue windows, arched entrance and blue fountain, as well as its colors and appealing painterly style. Move the camera down to natural standing eye height on the plaza, facing the entrance horizontally, as if a person is standing in front of the restaurant; no birds-eye view. Anime style background. Wide 16:9, clear horizontal human eye-height camera standing on a walkable street, path or platform within the location. No people, player characters, NPCs, animals, text, lettering, logos, watermark, game UI or captions. Use reference images only as visual location/style guides and omit any figures or UI.",
+    "references": [
+      "/Users/alexachan/Documents/Codex/silly-teyvat/art/location-backgrounds/2026-11-06/hotel-debord.png",
+      "/Users/alexachan/Documents/Codex/silly-teyvat/extension/genshin-dialogue-ui/assets/world-locations/home-hotel-debord.webp"
+    ],
+    "status": "approved and installed on 2026-11-06"
+  },
+  {
+    "location": "Yujing Terrace",
+    "original": "../yujing-terrace.png",
+    "revision": "yujing-terrace-v2.png",
+    "native_size": "1672x941",
+    "native_source": "/Users/alexachan/.codex/generated_images/01a1b173-7037-7541-af7a-58b9fa1b0a33/exec-a7ef3333-bb81-46aa-bb9b-ac867f8a6e4b.png",
+    "delivered_size": "1920x1080",
+    "method": "built-in Codex image generation; center crop and interpolated upscale",
+    "prompt": "Create a Genshin Impact location background. Yujing Terrace and Yuehai Pavilion is the Qixing's administrative district in Liyue Harbor. Match the Liyue curved roofs, white plaster walls, circular moon gate, stone walkways, trees and pond shown in the references. The viewer stands on the terrace's stone pavement at human height, looking level horizontally through the moon gate at the pavilion, not down from a roof or elevated overlook. Anime style background. Wide 16:9, clear horizontal human eye-height camera standing on a walkable street, path or platform within the location. No people, player characters, NPCs, animals, text, lettering, logos, watermark, game UI or captions. Use reference images only as visual location/style guides and omit any figures or UI.",
+    "references": [
+      "/Users/alexachan/Documents/Codex/silly-teyvat/art/location-backgrounds/2026-11-06/yujing-terrace.png",
+      "/Users/alexachan/Documents/Codex/silly-teyvat/extension/genshin-dialogue-ui/assets/world-locations/home-yujing-terrace.webp"
+    ],
+    "status": "approved and installed on 2026-11-06"
+  },
+  {
+    "location": "Aisa Bathhouse",
+    "original": "../aisa-bathhouse.png",
+    "revision": "aisa-bathhouse-v2.png",
+    "native_size": "1672x941",
+    "native_source": "/Users/alexachan/.codex/generated_images/01a1b173-7037-7541-af7a-58b9fa1b0a33/exec-a4a678a5-ae8c-4d1c-9df1-575d901c0cd2.png",
+    "delivered_size": "1920x1080",
+    "method": "built-in Codex image generation; center crop and interpolated upscale",
+    "prompt": "Create a Genshin Impact location background. Aisa Bathhouse is a spa in Inazuma City, inspired by Natlan hot springs. Keep the first image's same warm evening light, beautiful blue tiled facade, dark timber, blue hanging banners and inviting cozy feel. Change the camera position to standing at human eye height on the adjacent street, looking toward the bathhouse entrance with a horizontal level view. The existing characters on the bathhouse sign are acceptable if naturally preserved from the first image; do not invent additional text. No people, NPCs, animals, game UI, logos or watermark. Anime style background. Wide 16:9.",
+    "references": [
+      "/Users/alexachan/Documents/Codex/silly-teyvat/art/location-backgrounds/2026-11-06/aisa-bathhouse.png",
+      "/Users/alexachan/Documents/Codex/silly-teyvat/extension/genshin-dialogue-ui/assets/world-locations/home-aisa-bathhouse.webp"
+    ],
+    "status": "approved and installed on 2026-11-06"
+  },
+  {
+    "location": "Feiyun Commerce Guild Residence",
+    "original": "../feiyun-commerce-guild-residence.png",
+    "revision": "feiyun-commerce-guild-v3.png",
+    "native_size": "1672x941",
+    "native_source": "/Users/alexachan/.codex/generated_images/01a1b173-7037-7541-af7a-58b9fa1b0a33/exec-2ead2a28-383a-4194-8718-2af3c77b48f2.png",
+    "delivered_size": "1920x1080",
+    "method": "built-in Codex image generation; center crop and interpolated upscale",
+    "prompt": "Create a Genshin Impact location background. The Feiyun Commerce Guild family's home is in Liyue Harbor, near Feiyun Slope. The supplied reference depicts its stately Liyue courtyard with a tall red and dark wood multi-storey residence, green curved tiled roofs, a broad wooden double door reached by stone steps, red railings and warm hanging lanterns. Expand the scene beyond the reference while retaining its identifying architecture and composition; stand within the courtyard at eye level facing the house. Anime style background. Wide 16:9, clear horizontal human eye-height camera standing on a walkable street, path or platform within the location. No people, player characters, NPCs, animals, text, lettering, logos, watermark, game UI or captions. Use reference images only as visual location/style guides and omit any figures or UI.",
+    "references": [
+      "/Users/alexachan/Documents/Codex/silly-teyvat/art/location-backgrounds/2026-11-06/revisions-2026-11-06/references/reference-01.png"
+    ],
+    "status": "approved and installed on 2026-11-06",
+    "first_revision": "feiyun-commerce-guild-v2.png",
+    "followup_prompt": "Edit the supplied Genshin Impact Feiyun Commerce Guild background. Keep the composition, architecture, colors, lighting and human-eye-level viewpoint unchanged. Remove the notice board and its papers in the lower right and replace it with the adjacent plain stone wall and foliage, with no signs, writing, lettering, logos, UI, people or characters anywhere. Anime style background. Wide 16:9."
+  },
+  {
+    "location": "Cider Lake",
+    "original": "../map14-cider-lake.png",
+    "revision": "cider-lake-v2.png",
+    "native_size": "1672x941",
+    "native_source": "/Users/alexachan/.codex/generated_images/01a1b173-7037-7541-af7a-58b9fa1b0a33/exec-b8df907f-63a0-4fe6-963c-6e9d4c631593.png",
+    "delivered_size": "1920x1080",
+    "method": "built-in Codex image generation; center crop and interpolated upscale",
+    "prompt": "Create a Genshin Impact location background. Cider Lake surrounds the island city of Mondstadt; its fresh water never freezes and is used for cider. Closely follow the game's actual arrangement and proportions in the reference: Mondstadt is a compact fortified island city with distinctive cathedral, windmills, arched bridge and stone walls rather than a huge fantasy metropolis. Stand on the lake's shore at eye height facing the island and lake, with accurate relative scale and familiar grassy landscape. Anime style background. Wide 16:9, clear horizontal human eye-height camera standing on a walkable street, path or platform within the location. No people, player characters, NPCs, animals, text, lettering, logos, watermark, game UI or captions. Use reference images only as visual location/style guides and omit any figures or UI.",
+    "references": [
+      "/Users/alexachan/Documents/Codex/silly-teyvat/extension/genshin-dialogue-ui/assets/world-locations/map14-cider-lake.webp"
+    ],
+    "status": "approved and installed on 2026-11-06"
+  },
+  {
+    "location": "Gandharva Ville",
+    "original": "../gandharva-ville.png",
+    "revision": "gandharva-ville-v2.png",
+    "native_size": "1672x941",
+    "native_source": "/Users/alexachan/.codex/generated_images/01a1b173-7037-7541-af7a-58b9fa1b0a33/exec-cc6d5782-6d90-43dd-a546-cf954de2a742.png",
+    "delivered_size": "1920x1080",
+    "method": "built-in Codex image generation; center crop and interpolated upscale",
+    "prompt": "Create a Genshin Impact location background. Gandharva Ville is a forest village and Forest Ranger outpost in Sumeru. Use both provided images as authoritative location references: lush dense rainforest, thick trunks and roots, distinctive small green-roofed dwellings suspended beneath a massive tree branch, warmly glowing leaf-shaped windows and an organic wooden ramp. Place the viewer standing on the walkable village path among its homes, level eye height, preserve the actual shapes and natural Sumeru character of the reference. Anime style background. Wide 16:9, clear horizontal human eye-height camera standing on a walkable street, path or platform within the location. No people, player characters, NPCs, animals, text, lettering, logos, watermark, game UI or captions. Use reference images only as visual location/style guides and omit any figures or UI.",
+    "references": [
+      "/Users/alexachan/Documents/Codex/silly-teyvat/art/location-backgrounds/2026-11-06/revisions-2026-11-06/references/reference-02.png",
+      "/Users/alexachan/Documents/Codex/silly-teyvat/art/location-backgrounds/2026-11-06/revisions-2026-11-06/references/reference-03.png"
+    ],
+    "status": "approved and installed on 2026-11-06"
+  },
+  {
+    "location": "Scions of the Canopy",
+    "original": "../scions-of-the-canopy.png",
+    "revision": "scions-of-the-canopy-v2.png",
+    "native_size": "1672x941",
+    "native_source": "/Users/alexachan/.codex/generated_images/01a1b173-7037-7541-af7a-58b9fa1b0a33/exec-8006f854-14a6-4de1-8c0e-505d18708a41.png",
+    "delivered_size": "1920x1080",
+    "method": "built-in Codex image generation; center crop and interpolated upscale",
+    "prompt": "Create a Genshin Impact location background. The Scions of the Canopy are the Huitztlan tribe, whose settlement clings to Coatepec Mountain in Natlan. Match both references' giant teal-and-gold swooping sail-shaped structure fixed to a painted red cliff, curved suspended wooden platforms and ramps, teal canopy tents, orange trees, and distant flat-topped mesas. Put the viewer standing on the settlement's wooden platform in front of the great sail, not overlooking it from the air. Anime style background. Wide 16:9, clear horizontal human eye-height camera standing on a walkable street, path or platform within the location. No people, player characters, NPCs, animals, text, lettering, logos, watermark, game UI or captions. Use reference images only as visual location/style guides and omit any figures or UI.",
+    "references": [
+      "/Users/alexachan/Documents/Codex/silly-teyvat/art/location-backgrounds/2026-11-06/revisions-2026-11-06/references/reference-04.png",
+      "/Users/alexachan/Documents/Codex/silly-teyvat/art/location-backgrounds/2026-11-06/revisions-2026-11-06/references/reference-05.png"
+    ],
+    "status": "approved and installed on 2026-11-06"
+  },
+  {
+    "location": "Flower-Feather Clan",
+    "original": "../flower-feather-clan.png",
+    "revision": "flower-feather-clan-v2.png",
+    "native_size": "1672x941",
+    "native_source": "/Users/alexachan/.codex/generated_images/01a1b173-7037-7541-af7a-58b9fa1b0a33/exec-b5385b03-ac25-4b71-989f-4b95e88d21b9.png",
+    "delivered_size": "1920x1080",
+    "method": "built-in Codex image generation; center crop and interpolated upscale",
+    "prompt": "Create a Genshin Impact location background. The Flower-Feather Clan's Tlalocan settlement sits high above Quahuacan Cliff in Natlan. Match the reference's vivid red-and-white painted rock face, colorful wooden bridges and decks, bright cream rounded balloon-like flying craft and pink-red striped fins. Stand at eye level on a wooden deck inside the settlement, looking along the platforms; no people. Anime style background. Wide 16:9, clear horizontal human eye-height camera standing on a walkable street, path or platform within the location. No people, player characters, NPCs, animals, text, lettering, logos, watermark, game UI or captions. Use reference images only as visual location/style guides and omit any figures or UI.",
+    "references": [
+      "/Users/alexachan/Documents/Codex/silly-teyvat/art/location-backgrounds/2026-11-06/revisions-2026-11-06/references/reference-06.png"
+    ],
+    "status": "approved and installed on 2026-11-06"
+  },
+  {
+    "location": "Druzhna HQ",
+    "original": "../druzhna-hq.png",
+    "revision": "druzhna-hq-v2.png",
+    "native_size": "1672x941",
+    "native_source": "/Users/alexachan/.codex/generated_images/01a1b173-7037-7541-af7a-58b9fa1b0a33/exec-fc0f8762-5444-4643-81bd-03de4ca56433.png",
+    "delivered_size": "1920x1080",
+    "method": "built-in Codex image generation; center crop and interpolated upscale",
+    "prompt": "Create a Genshin Impact location background. Druzhna headquarters is a Snezhnograd command base in Snezhnaya. Faithfully reproduce the reference building: pale blue-grey stone, distinctive steep snowy onion domes and tall pointed windows, central arched doorway, warm light, snow-covered firs and cold blue cliffs. Stand at street level on the snowy approach to the main door. Do not copy the character in the reference. Anime style background. Wide 16:9, clear horizontal human eye-height camera standing on a walkable street, path or platform within the location. No people, player characters, NPCs, animals, text, lettering, logos, watermark, game UI or captions. Use reference images only as visual location/style guides and omit any figures or UI.",
+    "references": [
+      "/Users/alexachan/Documents/Codex/silly-teyvat/art/location-backgrounds/2026-11-06/revisions-2026-11-06/references/reference-07.png"
+    ],
+    "status": "approved and installed on 2026-11-06"
+  },
+  {
+    "location": "Wounded Shin Valley",
+    "original": "../map14-wounded-shin-valley.png",
+    "revision": "wounded-shin-valley-v2.png",
+    "native_size": "1672x941",
+    "native_source": "/Users/alexachan/.codex/generated_images/01a1b173-7037-7541-af7a-58b9fa1b0a33/exec-b5daabf9-c54c-4df3-ad79-02944482d9d1.png",
+    "delivered_size": "1920x1080",
+    "method": "built-in Codex image generation; center crop and interpolated upscale",
+    "prompt": "Create a Genshin Impact location background. Wounded Shin Valley in Sumeru's Desert of Hadramaveth contains a massive fallen Ruin Golem. Faithfully match the reference's immense weathered dark metal round segmented spherical head/body, two thick ringed arms braced in sand and geometric details; the machine is inert and half-buried in a canyon of muted ochre sand and jagged rock. Stand at human eye height on the walkable sandy valley floor looking toward the fallen golem, capturing its colossal scale. No humanoid robot design. Anime style background. Wide 16:9, clear horizontal human eye-height camera standing on a walkable street, path or platform within the location. No people, player characters, NPCs, animals, text, lettering, logos, watermark, game UI or captions. Use reference images only as visual location/style guides and omit any figures or UI.",
+    "references": [
+      "/Users/alexachan/Documents/Codex/silly-teyvat/art/location-backgrounds/2026-11-06/revisions-2026-11-06/references/reference-08.png"
+    ],
+    "status": "approved and installed on 2026-11-06"
+  },
+  {
+    "location": "Nothing Passage",
+    "original": "../map14-nothing-passage.png",
+    "revision": "nothing-passage-v2.png",
+    "native_size": "1672x941",
+    "native_source": "/Users/alexachan/.codex/generated_images/01a1b173-7037-7541-af7a-58b9fa1b0a33/exec-81017917-215f-4081-a46b-d017e6d4b2a4.png",
+    "delivered_size": "1920x1080",
+    "method": "built-in Codex image generation; center crop and interpolated upscale",
+    "prompt": "Create a Genshin Impact location background. Nothing Passage is the narrow passage at the north end of Lempo Isle in Nod-Krai, suffused with kuuvahki. Closely match the supplied image's giant steep ribbed dark-blue rock walls, winding walkable floor, luminous turquoise spiral-shaped organic growths and open pale blue light overhead. Stand in the middle of the passage at human eye height with the actual passage leading forward. Anime style background. Wide 16:9, clear horizontal human eye-height camera standing on a walkable street, path or platform within the location. No people, player characters, NPCs, animals, text, lettering, logos, watermark, game UI or captions. Use reference images only as visual location/style guides and omit any figures or UI.",
+    "references": [
+      "/Users/alexachan/Documents/Codex/silly-teyvat/art/location-backgrounds/2026-11-06/revisions-2026-11-06/references/reference-09.png"
+    ],
+    "status": "approved and installed on 2026-11-06"
+  },
+  {
+    "location": "Amsvartnir",
+    "original": "../map14-amsvartnir.png",
+    "revision": "amsvartnir-v2.png",
+    "native_size": "1672x941",
+    "native_source": "/Users/alexachan/.codex/generated_images/01a1b173-7037-7541-af7a-58b9fa1b0a33/exec-b3fb4ef9-106b-4bf0-8bfc-5643ac1a4bde.png",
+    "delivered_size": "1920x1080",
+    "method": "built-in Codex image generation; center crop and interpolated upscale",
+    "prompt": "Create a Genshin Impact location background. Amsvartnir is the lake in Nod-Krai's Wavechaser Plain beneath the Royal Court of the Seelie. Follow the supplied reference precisely for its unusual architectural silhouette: a white ruined palace on a green triangular floating island, large turquoise triangular prism underneath, other triangular grassy islets and delicate glowing cyan geometric lines over a blue mountain lake. Stand on the lake shore at human eye height looking toward the floating ruin; include the island's geometric support clearly. Anime style background. Wide 16:9, clear horizontal human eye-height camera standing on a walkable street, path or platform within the location. No people, player characters, NPCs, animals, text, lettering, logos, watermark, game UI or captions. Use reference images only as visual location/style guides and omit any figures or UI.",
+    "references": [
+      "/Users/alexachan/Documents/Codex/silly-teyvat/art/location-backgrounds/2026-11-06/revisions-2026-11-06/references/reference-10.png"
+    ],
+    "status": "approved and installed on 2026-11-06"
+  },
+  {
+    "location": "Zapolyarny Palace",
+    "original": "../map14-zapolyarny-palace.png",
+    "revision": "zapolyarny-palace-v2.png",
+    "native_size": "1672x941",
+    "native_source": "/Users/alexachan/.codex/generated_images/01a1b173-7037-7541-af7a-58b9fa1b0a33/exec-9e947834-9830-4b72-8e95-d065209efc6b.png",
+    "delivered_size": "1920x1080",
+    "method": "built-in Codex image generation; center crop and interpolated upscale",
+    "prompt": "Create a Genshin Impact location background. Zapolyarny Palace is the Cryo Archon's residence in Snezhnograd, Snezhnaya. The map marker is the palace label and does not identify an interior, so depict the exterior using the reference: monumental white and ice-blue palace with its tall central snowflake spire, many slender onion domes, blue crystal star ornament and broad front staircase under a blue starry winter sky. Stand at eye height on the palace plaza looking toward the main staircase; no figures. Anime style background. Wide 16:9, clear horizontal human eye-height camera standing on a walkable street, path or platform within the location. No people, player characters, NPCs, animals, text, lettering, logos, watermark, game UI or captions. Use reference images only as visual location/style guides and omit any figures or UI.",
+    "references": [
+      "/Users/alexachan/Documents/Codex/silly-teyvat/art/location-backgrounds/2026-11-06/revisions-2026-11-06/references/reference-11.png"
+    ],
+    "status": "approved and installed on 2026-11-06"
+  },
+  {
+    "location": "Wuwang Hill",
+    "original": "../wild-wuwang-hill.png",
+    "revision": "wuwang-hill-cropped.png",
+    "method": "Center crop from 1920x1080 to 1856x1044 (32 pixels each horizontal side, 18 pixels top and bottom), then interpolate to 1920x1080.",
+    "delivered_size": "1920x1080",
+    "status": "approved and installed on 2026-11-06"
+  }
+]

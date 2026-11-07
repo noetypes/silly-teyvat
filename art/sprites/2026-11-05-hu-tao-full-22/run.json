@@ -1,0 +1,550 @@
+{
+  "date": "2026-11-05",
+  "status": "superseded_by_user_reference_change",
+  "user_request": "Alright, I've decided, let's go with v008. Generate the full 22 sprite set",
+  "requested_emotions": [
+    "neutral",
+    "annoyance",
+    "smug",
+    "confusion",
+    "love",
+    "excitement",
+    "joy",
+    "fear",
+    "pride",
+    "desire",
+    "anger",
+    "grief",
+    "sadness",
+    "disgust",
+    "disappointment",
+    "relief",
+    "admiration",
+    "gratitude",
+    "embarrassment",
+    "caring",
+    "love-1",
+    "desire-1"
+  ],
+  "total_new_expressions": 21,
+  "generation_keys": [
+    "Hu Tao annoyance",
+    "Hu Tao smug",
+    "Hu Tao confusion",
+    "Hu Tao love",
+    "Hu Tao excitement",
+    "Hu Tao joy",
+    "Hu Tao fear",
+    "Hu Tao pride",
+    "Hu Tao desire",
+    "Hu Tao anger",
+    "Hu Tao grief",
+    "Hu Tao sadness",
+    "Hu Tao disgust",
+    "Hu Tao disappointment",
+    "Hu Tao relief",
+    "Hu Tao admiration",
+    "Hu Tao gratitude",
+    "Hu Tao embarrassment",
+    "Hu Tao caring",
+    "Hu Tao love-1",
+    "Hu Tao desire-1"
+  ],
+  "regeneration_keys": [
+    "Hu Tao annoyance",
+    "Hu Tao smug",
+    "Hu Tao confusion",
+    "Hu Tao love",
+    "Hu Tao excitement",
+    "Hu Tao joy",
+    "Hu Tao fear",
+    "Hu Tao pride",
+    "Hu Tao desire",
+    "Hu Tao anger",
+    "Hu Tao grief",
+    "Hu Tao sadness",
+    "Hu Tao disgust",
+    "Hu Tao disappointment",
+    "Hu Tao relief",
+    "Hu Tao admiration",
+    "Hu Tao gratitude",
+    "Hu Tao embarrassment",
+    "Hu Tao caring",
+    "Hu Tao love-1",
+    "Hu Tao desire-1"
+  ],
+  "reference_policy": "Each expression independently uses only the exact approved neutral-v008. Original model and style art are archived as provenance only, never expression inputs.",
+  "model_note": "Built-in model ID and quality controls are not exposed.",
+  "installation": "Not requested; existing live Hu Tao set unchanged.",
+  "characters": {
+    "Hu Tao": {
+      "neutral_approval": {
+        "status": "approved",
+        "date": "2026-11-05",
+        "message": "Alright, I've decided, let's go with v008. Generate the full 22 sprite set",
+        "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-hu-tao-model-neutral/candidates/Hu Tao/neutral-v008.png",
+        "candidate_sha256": "2896b5601f7bd9bac64992c7dcf90796a071f268c6496613e1d62718fb9203d5",
+        "version": "v008"
+      },
+      "reference": {
+        "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-hu-tao-full-22/references/Hu Tao/approved-neutral.png",
+        "sha256": "2896b5601f7bd9bac64992c7dcf90796a071f268c6496613e1d62718fb9203d5"
+      },
+      "neutral": {
+        "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-hu-tao-full-22/sprites/Hu Tao/neutral.png",
+        "sha256": "2896b5601f7bd9bac64992c7dcf90796a071f268c6496613e1d62718fb9203d5",
+        "status": "approved"
+      },
+      "emotions": [
+        "neutral",
+        "annoyance",
+        "smug",
+        "confusion",
+        "love",
+        "excitement",
+        "joy",
+        "fear",
+        "pride",
+        "desire",
+        "anger",
+        "grief",
+        "sadness",
+        "disgust",
+        "disappointment",
+        "relief",
+        "admiration",
+        "gratitude",
+        "embarrassment",
+        "caring",
+        "love-1",
+        "desire-1"
+      ]
+    }
+  },
+  "jobs": {
+    "Hu Tao annoyance": {
+      "character": "Hu Tao",
+      "emotion": "annoyance",
+      "status": "candidate",
+      "heart_alternate": false,
+      "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-hu-tao-full-22/prompts/Hu Tao/annoyance.txt",
+      "tool": "image_gen.imagegen",
+      "arguments": {
+        "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Hu Tao from Genshin Impact expressing annoyance. The supplied explicitly approved neutral-v008 is the SOLE image reference. Preserve its exact recognizable identity, face, pale skin, hair, eye colors, costume construction and detailed painterly anime illustration style, linework and shading. Preserve her long dark-brown hair with reddish tips, fringe and face-framing locks; exact dark hat with cream emblem, red plum blossom branch and tassel; red mandarin collar, patterned brown coat with large cuffs, dark shorts, gold closures and waist ornaments, hanging tassels, embroidered long coat tails, rings and dark nails, socks with red bands and blossoms, and decorated dark shoes.\nBuild and skin: match the approved neutral's cute petite Medium Female proportions, compact upper frame, balanced torso-to-leg ratio and gently full thighs. Do not stretch the torso or legs or turn her into a chibi. Keep the head, hat and oversized cuffs consistent with that approved build. Preserve her VERY FAIR PALE IVORY complexion with a delicate neutral/cool-pink undertone consistently on the face, neck, hands and legs. Use pale pink and cool neutral skin shading and neutral illumination without a yellow, orange, brown or tanned cast. Any emotion-specific cheek blush stays localized. Preserve the source's painted volume without bleaching away detail.\nPersonality and acting: Hu Tao is playful, quick-witted, self-assured and subtly theatrical, with sincere compassion underneath her teasing. A clearly displeased little frown, one brow lowered, the other raised, and narrowed but open eyes glancing sideways. Set her right hand loosely on her hip while her left arm lowers beside the coat with a relaxed hand; shift weight onto the right leg, chin slightly lifted, conveying blunt impatience with a trace of theatrical sass. Vary her whole pose, head angle, torso stance and gesture as appropriate to the emotion rather than changing only the face or mechanically copying the neutral.\nEye design: both eyes remain open enough for their natural pupils to be readable, with coherent eyelids and intact reddish-amber irises. Inside Hu Tao's anatomical LEFT eye, on the viewer's RIGHT, preserve one small PALE CREAM-IVORY FIVE-PETAL BLOSSOM pupil. Inside her anatomical RIGHT eye, on the viewer's LEFT, preserve the same small pale five-petal blossom pupil. Each flower has exactly five rounded lobes around one center, contained within the iris with a visible colored iris border. Keep catchlights separate from these natural flower pupils, maintaining a consistent gaze suited to the emotion. No heart pupils or floating hearts in this ordinary expression.\nHands and anatomy: use natural, softly articulated human hands, each with a believable palm, four gently curved fingers and a distinct opposable thumb. Let overlap follow the gesture rather than forcing hidden digits into view. Keep gestures simple and readable near the image plane, hands spatially separate, with clean contours and a small clear gap from adjacent fabric wherever they do not intentionally touch. Avoid reaching toward the camera, extreme foreshortening, tangled fingers and elaborate splaying. Exactly two coherent legs and feet, uncrossed in a balanced stance. Hair and heavy coat tails follow the pose naturally with gravity, and patterns and accessories turn with their actual surfaces. Preserve the complete outfit throughout.\nComplete silhouette including hat branch and blossoms, hair tips, hands, sleeves, coat tails, tassels, socks and both shoes, with approximately 2\u20134% top and bottom padding and 92\u201396% visible height. Genuinely transparent background with clear alpha outside the character. Both hands empty. No scenery, backdrop, floor, reflection, ground shadow, detached floating flames, ghosts, particles, weapons, new props, text, labels, UI, watermark or additional characters. Produce one character sprite.",
+        "referenced_image_paths": [
+          "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-hu-tao-full-22/references/Hu Tao/approved-neutral.png"
+        ],
+        "transparent_background": true
+      },
+      "approval": {
+        "status": "pending"
+      },
+      "tool_output": "/Users/alexachan/.codex/generated_images/01a1aa19-42b2-7e92-b08d-8ee7d133c057/exec-7d4c54c6-8b39-4bba-b9e1-3e871ad6af74.png",
+      "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-hu-tao-full-22/raw/Hu Tao/annoyance.png",
+      "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-hu-tao-full-22/sprites/Hu Tao/annoyance.png",
+      "sha256": "64b49a7c80ae41eb1d4d913362d72538012db3eeeebf3fbb3a01a7808bfb3f7c",
+      "dimensions": [
+        934,
+        1685
+      ],
+      "png_color_type": 6
+    },
+    "Hu Tao smug": {
+      "character": "Hu Tao",
+      "emotion": "smug",
+      "status": "candidate",
+      "heart_alternate": false,
+      "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-hu-tao-full-22/prompts/Hu Tao/smug.txt",
+      "tool": "image_gen.imagegen",
+      "arguments": {
+        "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Hu Tao from Genshin Impact expressing smug. The supplied explicitly approved neutral-v008 is the SOLE image reference. Preserve its exact recognizable identity, face, pale skin, hair, eye colors, costume construction and detailed painterly anime illustration style, linework and shading. Preserve her long dark-brown hair with reddish tips, fringe and face-framing locks; exact dark hat with cream emblem, red plum blossom branch and tassel; red mandarin collar, patterned brown coat with large cuffs, dark shorts, gold closures and waist ornaments, hanging tassels, embroidered long coat tails, rings and dark nails, socks with red bands and blossoms, and decorated dark shoes.\nBuild and skin: match the approved neutral's cute petite Medium Female proportions, compact upper frame, balanced torso-to-leg ratio and gently full thighs. Do not stretch the torso or legs or turn her into a chibi. Keep the head, hat and oversized cuffs consistent with that approved build. Preserve her VERY FAIR PALE IVORY complexion with a delicate neutral/cool-pink undertone consistently on the face, neck, hands and legs. Use pale pink and cool neutral skin shading and neutral illumination without a yellow, orange, brown or tanned cast. Any emotion-specific cheek blush stays localized. Preserve the source's painted volume without bleaching away detail.\nPersonality and acting: Hu Tao is playful, quick-witted, self-assured and subtly theatrical, with sincere compassion underneath her teasing. A knowing asymmetrical closed-mouth smirk and playfully half-lidded but open eyes, with one eyebrow lifted. Tilt her head and raise her chin a little. Her right elbow bends with the right hand held in a small confident palm-up gesture at waist height; her left hand rests low beside the hip. Give her a cheeky, self-satisfied sideways shoulder turn. Vary her whole pose, head angle, torso stance and gesture as appropriate to the emotion rather than changing only the face or mechanically copying the neutral.\nEye design: both eyes remain open enough for their natural pupils to be readable, with coherent eyelids and intact reddish-amber irises. Inside Hu Tao's anatomical LEFT eye, on the viewer's RIGHT, preserve one small PALE CREAM-IVORY FIVE-PETAL BLOSSOM pupil. Inside her anatomical RIGHT eye, on the viewer's LEFT, preserve the same small pale five-petal blossom pupil. Each flower has exactly five rounded lobes around one center, contained within the iris with a visible colored iris border. Keep catchlights separate from these natural flower pupils, maintaining a consistent gaze suited to the emotion. No heart pupils or floating hearts in this ordinary expression.\nHands and anatomy: use natural, softly articulated human hands, each with a believable palm, four gently curved fingers and a distinct opposable thumb. Let overlap follow the gesture rather than forcing hidden digits into view. Keep gestures simple and readable near the image plane, hands spatially separate, with clean contours and a small clear gap from adjacent fabric wherever they do not intentionally touch. Avoid reaching toward the camera, extreme foreshortening, tangled fingers and elaborate splaying. Exactly two coherent legs and feet, uncrossed in a balanced stance. Hair and heavy coat tails follow the pose naturally with gravity, and patterns and accessories turn with their actual surfaces. Preserve the complete outfit throughout.\nComplete silhouette including hat branch and blossoms, hair tips, hands, sleeves, coat tails, tassels, socks and both shoes, with approximately 2\u20134% top and bottom padding and 92\u201396% visible height. Genuinely transparent background with clear alpha outside the character. Both hands empty. No scenery, backdrop, floor, reflection, ground shadow, detached floating flames, ghosts, particles, weapons, new props, text, labels, UI, watermark or additional characters. Produce one character sprite.",
+        "referenced_image_paths": [
+          "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-hu-tao-full-22/references/Hu Tao/approved-neutral.png"
+        ],
+        "transparent_background": true
+      },
+      "approval": {
+        "status": "pending"
+      },
+      "tool_output": "/Users/alexachan/.codex/generated_images/01a1aa19-42b2-7e92-b08d-8ee7d133c057/exec-560dae49-c793-447f-ac4d-836697595d14.png",
+      "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-hu-tao-full-22/raw/Hu Tao/smug.png",
+      "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-hu-tao-full-22/sprites/Hu Tao/smug.png",
+      "sha256": "d123464202f607dcf1c139fe78d2701372a004a984cf024e842eff20957f5dd9",
+      "dimensions": [
+        934,
+        1685
+      ],
+      "png_color_type": 6
+    },
+    "Hu Tao confusion": {
+      "character": "Hu Tao",
+      "emotion": "confusion",
+      "status": "candidate",
+      "heart_alternate": false,
+      "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-hu-tao-full-22/prompts/Hu Tao/confusion.txt",
+      "tool": "image_gen.imagegen",
+      "arguments": {
+        "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Hu Tao from Genshin Impact expressing confusion. The supplied explicitly approved neutral-v008 is the SOLE image reference. Preserve its exact recognizable identity, face, pale skin, hair, eye colors, costume construction and detailed painterly anime illustration style, linework and shading. Preserve her long dark-brown hair with reddish tips, fringe and face-framing locks; exact dark hat with cream emblem, red plum blossom branch and tassel; red mandarin collar, patterned brown coat with large cuffs, dark shorts, gold closures and waist ornaments, hanging tassels, embroidered long coat tails, rings and dark nails, socks with red bands and blossoms, and decorated dark shoes.\nBuild and skin: match the approved neutral's cute petite Medium Female proportions, compact upper frame, balanced torso-to-leg ratio and gently full thighs. Do not stretch the torso or legs or turn her into a chibi. Keep the head, hat and oversized cuffs consistent with that approved build. Preserve her VERY FAIR PALE IVORY complexion with a delicate neutral/cool-pink undertone consistently on the face, neck, hands and legs. Use pale pink and cool neutral skin shading and neutral illumination without a yellow, orange, brown or tanned cast. Any emotion-specific cheek blush stays localized. Preserve the source's painted volume without bleaching away detail.\nPersonality and acting: Hu Tao is playful, quick-witted, self-assured and subtly theatrical, with sincere compassion underneath her teasing. An unmistakably puzzled look: uneven raised brows, open eyes glancing slightly aside and small parted lips. Tip her head to the left and subtly draw the shoulders inward. Her left forearm bends with the left hand loosely open at waist height in a questioning gesture, palm viewed obliquely; the right arm relaxes down beside her hip, clear of the sleeve. Vary her whole pose, head angle, torso stance and gesture as appropriate to the emotion rather than changing only the face or mechanically copying the neutral.\nEye design: both eyes remain open enough for their natural pupils to be readable, with coherent eyelids and intact reddish-amber irises. Inside Hu Tao's anatomical LEFT eye, on the viewer's RIGHT, preserve one small PALE CREAM-IVORY FIVE-PETAL BLOSSOM pupil. Inside her anatomical RIGHT eye, on the viewer's LEFT, preserve the same small pale five-petal blossom pupil. Each flower has exactly five rounded lobes around one center, contained within the iris with a visible colored iris border. Keep catchlights separate from these natural flower pupils, maintaining a consistent gaze suited to the emotion. No heart pupils or floating hearts in this ordinary expression.\nHands and anatomy: use natural, softly articulated human hands, each with a believable palm, four gently curved fingers and a distinct opposable thumb. Let overlap follow the gesture rather than forcing hidden digits into view. Keep gestures simple and readable near the image plane, hands spatially separate, with clean contours and a small clear gap from adjacent fabric wherever they do not intentionally touch. Avoid reaching toward the camera, extreme foreshortening, tangled fingers and elaborate splaying. Exactly two coherent legs and feet, uncrossed in a balanced stance. Hair and heavy coat tails follow the pose naturally with gravity, and patterns and accessories turn with their actual surfaces. Preserve the complete outfit throughout.\nComplete silhouette including hat branch and blossoms, hair tips, hands, sleeves, coat tails, tassels, socks and both shoes, with approximately 2\u20134% top and bottom padding and 92\u201396% visible height. Genuinely transparent background with clear alpha outside the character. Both hands empty. No scenery, backdrop, floor, reflection, ground shadow, detached floating flames, ghosts, particles, weapons, new props, text, labels, UI, watermark or additional characters. Produce one character sprite.",
+        "referenced_image_paths": [
+          "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-hu-tao-full-22/references/Hu Tao/approved-neutral.png"
+        ],
+        "transparent_background": true
+      },
+      "approval": {
+        "status": "pending"
+      },
+      "tool_output": "/Users/alexachan/.codex/generated_images/01a1aa19-42b2-7e92-b08d-8ee7d133c057/exec-5c3e79f6-4dba-4145-9080-d6d3df4afa36.png",
+      "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-hu-tao-full-22/raw/Hu Tao/confusion.png",
+      "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-hu-tao-full-22/sprites/Hu Tao/confusion.png",
+      "sha256": "a743408987b14946347474b779e6e89417fde9bf0eb3228422e5fff57e132b6a",
+      "dimensions": [
+        934,
+        1685
+      ],
+      "png_color_type": 6
+    },
+    "Hu Tao love": {
+      "character": "Hu Tao",
+      "emotion": "love",
+      "status": "pending",
+      "heart_alternate": false,
+      "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-hu-tao-full-22/prompts/Hu Tao/love.txt",
+      "tool": "image_gen.imagegen",
+      "arguments": {
+        "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Hu Tao from Genshin Impact expressing love. The supplied explicitly approved neutral-v008 is the SOLE image reference. Preserve its exact recognizable identity, face, pale skin, hair, eye colors, costume construction and detailed painterly anime illustration style, linework and shading. Preserve her long dark-brown hair with reddish tips, fringe and face-framing locks; exact dark hat with cream emblem, red plum blossom branch and tassel; red mandarin collar, patterned brown coat with large cuffs, dark shorts, gold closures and waist ornaments, hanging tassels, embroidered long coat tails, rings and dark nails, socks with red bands and blossoms, and decorated dark shoes.\nBuild and skin: match the approved neutral's cute petite Medium Female proportions, compact upper frame, balanced torso-to-leg ratio and gently full thighs. Do not stretch the torso or legs or turn her into a chibi. Keep the head, hat and oversized cuffs consistent with that approved build. Preserve her VERY FAIR PALE IVORY complexion with a delicate neutral/cool-pink undertone consistently on the face, neck, hands and legs. Use pale pink and cool neutral skin shading and neutral illumination without a yellow, orange, brown or tanned cast. Any emotion-specific cheek blush stays localized. Preserve the source's painted volume without bleaching away detail.\nPersonality and acting: Hu Tao is playful, quick-witted, self-assured and subtly theatrical, with sincere compassion underneath her teasing. A tender affectionate closed-mouth smile, open softened eyes looking fondly toward the viewer and a gentle blush on pale cheeks. Incline her shoulders slightly toward the viewer. Her right hand hovers near her heart, clear of her collar and ornaments, while the left arm opens softly down beside her waist. Let sincere warmth show beneath her teasing confidence. Vary her whole pose, head angle, torso stance and gesture as appropriate to the emotion rather than changing only the face or mechanically copying the neutral.\nEye design: both eyes remain open enough for their natural pupils to be readable, with coherent eyelids and intact reddish-amber irises. Inside Hu Tao's anatomical LEFT eye, on the viewer's RIGHT, preserve one small PALE CREAM-IVORY FIVE-PETAL BLOSSOM pupil. Inside her anatomical RIGHT eye, on the viewer's LEFT, preserve the same small pale five-petal blossom pupil. Each flower has exactly five rounded lobes around one center, contained within the iris with a visible colored iris border. Keep catchlights separate from these natural flower pupils, maintaining a consistent gaze suited to the emotion. No heart pupils or floating hearts in this ordinary expression.\nHands and anatomy: use natural, softly articulated human hands, each with a believable palm, four gently curved fingers and a distinct opposable thumb. Let overlap follow the gesture rather than forcing hidden digits into view. Keep gestures simple and readable near the image plane, hands spatially separate, with clean contours and a small clear gap from adjacent fabric wherever they do not intentionally touch. Avoid reaching toward the camera, extreme foreshortening, tangled fingers and elaborate splaying. Exactly two coherent legs and feet, uncrossed in a balanced stance. Hair and heavy coat tails follow the pose naturally with gravity, and patterns and accessories turn with their actual surfaces. Preserve the complete outfit throughout.\nComplete silhouette including hat branch and blossoms, hair tips, hands, sleeves, coat tails, tassels, socks and both shoes, with approximately 2\u20134% top and bottom padding and 92\u201396% visible height. Genuinely transparent background with clear alpha outside the character. Both hands empty. No scenery, backdrop, floor, reflection, ground shadow, detached floating flames, ghosts, particles, weapons, new props, text, labels, UI, watermark or additional characters. Produce one character sprite.",
+        "referenced_image_paths": [
+          "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-hu-tao-full-22/references/Hu Tao/approved-neutral.png"
+        ],
+        "transparent_background": true
+      },
+      "approval": {
+        "status": "pending"
+      }
+    },
+    "Hu Tao excitement": {
+      "character": "Hu Tao",
+      "emotion": "excitement",
+      "status": "pending",
+      "heart_alternate": false,
+      "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-hu-tao-full-22/prompts/Hu Tao/excitement.txt",
+      "tool": "image_gen.imagegen",
+      "arguments": {
+        "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Hu Tao from Genshin Impact expressing excitement. The supplied explicitly approved neutral-v008 is the SOLE image reference. Preserve its exact recognizable identity, face, pale skin, hair, eye colors, costume construction and detailed painterly anime illustration style, linework and shading. Preserve her long dark-brown hair with reddish tips, fringe and face-framing locks; exact dark hat with cream emblem, red plum blossom branch and tassel; red mandarin collar, patterned brown coat with large cuffs, dark shorts, gold closures and waist ornaments, hanging tassels, embroidered long coat tails, rings and dark nails, socks with red bands and blossoms, and decorated dark shoes.\nBuild and skin: match the approved neutral's cute petite Medium Female proportions, compact upper frame, balanced torso-to-leg ratio and gently full thighs. Do not stretch the torso or legs or turn her into a chibi. Keep the head, hat and oversized cuffs consistent with that approved build. Preserve her VERY FAIR PALE IVORY complexion with a delicate neutral/cool-pink undertone consistently on the face, neck, hands and legs. Use pale pink and cool neutral skin shading and neutral illumination without a yellow, orange, brown or tanned cast. Any emotion-specific cheek blush stays localized. Preserve the source's painted volume without bleaching away detail.\nPersonality and acting: Hu Tao is playful, quick-witted, self-assured and subtly theatrical, with sincere compassion underneath her teasing. An exuberant delighted open smile, bright open eyes and lifted brows, as if she has just thought up an irresistible plan. Lean forward a little with a light celebratory bounce. Bend both elbows in different readable angles, right hand softly closed near the shoulder and left hand gently open near the waist, hands apart. Lift one heel while retaining a balanced uncrossed stance. Vary her whole pose, head angle, torso stance and gesture as appropriate to the emotion rather than changing only the face or mechanically copying the neutral.\nEye design: both eyes remain open enough for their natural pupils to be readable, with coherent eyelids and intact reddish-amber irises. Inside Hu Tao's anatomical LEFT eye, on the viewer's RIGHT, preserve one small PALE CREAM-IVORY FIVE-PETAL BLOSSOM pupil. Inside her anatomical RIGHT eye, on the viewer's LEFT, preserve the same small pale five-petal blossom pupil. Each flower has exactly five rounded lobes around one center, contained within the iris with a visible colored iris border. Keep catchlights separate from these natural flower pupils, maintaining a consistent gaze suited to the emotion. No heart pupils or floating hearts in this ordinary expression.\nHands and anatomy: use natural, softly articulated human hands, each with a believable palm, four gently curved fingers and a distinct opposable thumb. Let overlap follow the gesture rather than forcing hidden digits into view. Keep gestures simple and readable near the image plane, hands spatially separate, with clean contours and a small clear gap from adjacent fabric wherever they do not intentionally touch. Avoid reaching toward the camera, extreme foreshortening, tangled fingers and elaborate splaying. Exactly two coherent legs and feet, uncrossed in a balanced stance. Hair and heavy coat tails follow the pose naturally with gravity, and patterns and accessories turn with their actual surfaces. Preserve the complete outfit throughout.\nComplete silhouette including hat branch and blossoms, hair tips, hands, sleeves, coat tails, tassels, socks and both shoes, with approximately 2\u20134% top and bottom padding and 92\u201396% visible height. Genuinely transparent background with clear alpha outside the character. Both hands empty. No scenery, backdrop, floor, reflection, ground shadow, detached floating flames, ghosts, particles, weapons, new props, text, labels, UI, watermark or additional characters. Produce one character sprite.",
+        "referenced_image_paths": [
+          "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-hu-tao-full-22/references/Hu Tao/approved-neutral.png"
+        ],
+        "transparent_background": true
+      },
+      "approval": {
+        "status": "pending"
+      }
+    },
+    "Hu Tao joy": {
+      "character": "Hu Tao",
+      "emotion": "joy",
+      "status": "pending",
+      "heart_alternate": false,
+      "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-hu-tao-full-22/prompts/Hu Tao/joy.txt",
+      "tool": "image_gen.imagegen",
+      "arguments": {
+        "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Hu Tao from Genshin Impact expressing joy. The supplied explicitly approved neutral-v008 is the SOLE image reference. Preserve its exact recognizable identity, face, pale skin, hair, eye colors, costume construction and detailed painterly anime illustration style, linework and shading. Preserve her long dark-brown hair with reddish tips, fringe and face-framing locks; exact dark hat with cream emblem, red plum blossom branch and tassel; red mandarin collar, patterned brown coat with large cuffs, dark shorts, gold closures and waist ornaments, hanging tassels, embroidered long coat tails, rings and dark nails, socks with red bands and blossoms, and decorated dark shoes.\nBuild and skin: match the approved neutral's cute petite Medium Female proportions, compact upper frame, balanced torso-to-leg ratio and gently full thighs. Do not stretch the torso or legs or turn her into a chibi. Keep the head, hat and oversized cuffs consistent with that approved build. Preserve her VERY FAIR PALE IVORY complexion with a delicate neutral/cool-pink undertone consistently on the face, neck, hands and legs. Use pale pink and cool neutral skin shading and neutral illumination without a yellow, orange, brown or tanned cast. Any emotion-specific cheek blush stays localized. Preserve the source's painted volume without bleaching away detail.\nPersonality and acting: Hu Tao is playful, quick-witted, self-assured and subtly theatrical, with sincere compassion underneath her teasing. A genuine sunny smile with happily crinkled but open eyes and a relaxed brow. Turn a little toward the viewer with a friendly head tilt; open her right forearm outward at lower-chest height in a small welcoming gesture while the left arm rests comfortably out beside her hip. Give her a light weight shift and unguarded happy posture, distinct from the neutral. Vary her whole pose, head angle, torso stance and gesture as appropriate to the emotion rather than changing only the face or mechanically copying the neutral.\nEye design: both eyes remain open enough for their natural pupils to be readable, with coherent eyelids and intact reddish-amber irises. Inside Hu Tao's anatomical LEFT eye, on the viewer's RIGHT, preserve one small PALE CREAM-IVORY FIVE-PETAL BLOSSOM pupil. Inside her anatomical RIGHT eye, on the viewer's LEFT, preserve the same small pale five-petal blossom pupil. Each flower has exactly five rounded lobes around one center, contained within the iris with a visible colored iris border. Keep catchlights separate from these natural flower pupils, maintaining a consistent gaze suited to the emotion. No heart pupils or floating hearts in this ordinary expression.\nHands and anatomy: use natural, softly articulated human hands, each with a believable palm, four gently curved fingers and a distinct opposable thumb. Let overlap follow the gesture rather than forcing hidden digits into view. Keep gestures simple and readable near the image plane, hands spatially separate, with clean contours and a small clear gap from adjacent fabric wherever they do not intentionally touch. Avoid reaching toward the camera, extreme foreshortening, tangled fingers and elaborate splaying. Exactly two coherent legs and feet, uncrossed in a balanced stance. Hair and heavy coat tails follow the pose naturally with gravity, and patterns and accessories turn with their actual surfaces. Preserve the complete outfit throughout.\nComplete silhouette including hat branch and blossoms, hair tips, hands, sleeves, coat tails, tassels, socks and both shoes, with approximately 2\u20134% top and bottom padding and 92\u201396% visible height. Genuinely transparent background with clear alpha outside the character. Both hands empty. No scenery, backdrop, floor, reflection, ground shadow, detached floating flames, ghosts, particles, weapons, new props, text, labels, UI, watermark or additional characters. Produce one character sprite.",
+        "referenced_image_paths": [
+          "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-hu-tao-full-22/references/Hu Tao/approved-neutral.png"
+        ],
+        "transparent_background": true
+      },
+      "approval": {
+        "status": "pending"
+      }
+    },
+    "Hu Tao fear": {
+      "character": "Hu Tao",
+      "emotion": "fear",
+      "status": "pending",
+      "heart_alternate": false,
+      "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-hu-tao-full-22/prompts/Hu Tao/fear.txt",
+      "tool": "image_gen.imagegen",
+      "arguments": {
+        "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Hu Tao from Genshin Impact expressing fear. The supplied explicitly approved neutral-v008 is the SOLE image reference. Preserve its exact recognizable identity, face, pale skin, hair, eye colors, costume construction and detailed painterly anime illustration style, linework and shading. Preserve her long dark-brown hair with reddish tips, fringe and face-framing locks; exact dark hat with cream emblem, red plum blossom branch and tassel; red mandarin collar, patterned brown coat with large cuffs, dark shorts, gold closures and waist ornaments, hanging tassels, embroidered long coat tails, rings and dark nails, socks with red bands and blossoms, and decorated dark shoes.\nBuild and skin: match the approved neutral's cute petite Medium Female proportions, compact upper frame, balanced torso-to-leg ratio and gently full thighs. Do not stretch the torso or legs or turn her into a chibi. Keep the head, hat and oversized cuffs consistent with that approved build. Preserve her VERY FAIR PALE IVORY complexion with a delicate neutral/cool-pink undertone consistently on the face, neck, hands and legs. Use pale pink and cool neutral skin shading and neutral illumination without a yellow, orange, brown or tanned cast. Any emotion-specific cheek blush stays localized. Preserve the source's painted volume without bleaching away detail.\nPersonality and acting: Hu Tao is playful, quick-witted, self-assured and subtly theatrical, with sincere compassion underneath her teasing. A startled wide-eyed gaze, raised inner brows and small parted mouth, with a sudden restrained recoil. Shift weight back, left forearm rising protectively beside the upper torso with a gently open hand angled inward and clear of the collar; the right hand stays lower and separate beside the waist. Show real alarm without wild flailing or a comic face. Vary her whole pose, head angle, torso stance and gesture as appropriate to the emotion rather than changing only the face or mechanically copying the neutral.\nEye design: both eyes remain open enough for their natural pupils to be readable, with coherent eyelids and intact reddish-amber irises. Inside Hu Tao's anatomical LEFT eye, on the viewer's RIGHT, preserve one small PALE CREAM-IVORY FIVE-PETAL BLOSSOM pupil. Inside her anatomical RIGHT eye, on the viewer's LEFT, preserve the same small pale five-petal blossom pupil. Each flower has exactly five rounded lobes around one center, contained within the iris with a visible colored iris border. Keep catchlights separate from these natural flower pupils, maintaining a consistent gaze suited to the emotion. No heart pupils or floating hearts in this ordinary expression.\nHands and anatomy: use natural, softly articulated human hands, each with a believable palm, four gently curved fingers and a distinct opposable thumb. Let overlap follow the gesture rather than forcing hidden digits into view. Keep gestures simple and readable near the image plane, hands spatially separate, with clean contours and a small clear gap from adjacent fabric wherever they do not intentionally touch. Avoid reaching toward the camera, extreme foreshortening, tangled fingers and elaborate splaying. Exactly two coherent legs and feet, uncrossed in a balanced stance. Hair and heavy coat tails follow the pose naturally with gravity, and patterns and accessories turn with their actual surfaces. Preserve the complete outfit throughout.\nComplete silhouette including hat branch and blossoms, hair tips, hands, sleeves, coat tails, tassels, socks and both shoes, with approximately 2\u20134% top and bottom padding and 92\u201396% visible height. Genuinely transparent background with clear alpha outside the character. Both hands empty. No scenery, backdrop, floor, reflection, ground shadow, detached floating flames, ghosts, particles, weapons, new props, text, labels, UI, watermark or additional characters. Produce one character sprite.",
+        "referenced_image_paths": [
+          "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-hu-tao-full-22/references/Hu Tao/approved-neutral.png"
+        ],
+        "transparent_background": true
+      },
+      "approval": {
+        "status": "pending"
+      }
+    },
+    "Hu Tao pride": {
+      "character": "Hu Tao",
+      "emotion": "pride",
+      "status": "pending",
+      "heart_alternate": false,
+      "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-hu-tao-full-22/prompts/Hu Tao/pride.txt",
+      "tool": "image_gen.imagegen",
+      "arguments": {
+        "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Hu Tao from Genshin Impact expressing pride. The supplied explicitly approved neutral-v008 is the SOLE image reference. Preserve its exact recognizable identity, face, pale skin, hair, eye colors, costume construction and detailed painterly anime illustration style, linework and shading. Preserve her long dark-brown hair with reddish tips, fringe and face-framing locks; exact dark hat with cream emblem, red plum blossom branch and tassel; red mandarin collar, patterned brown coat with large cuffs, dark shorts, gold closures and waist ornaments, hanging tassels, embroidered long coat tails, rings and dark nails, socks with red bands and blossoms, and decorated dark shoes.\nBuild and skin: match the approved neutral's cute petite Medium Female proportions, compact upper frame, balanced torso-to-leg ratio and gently full thighs. Do not stretch the torso or legs or turn her into a chibi. Keep the head, hat and oversized cuffs consistent with that approved build. Preserve her VERY FAIR PALE IVORY complexion with a delicate neutral/cool-pink undertone consistently on the face, neck, hands and legs. Use pale pink and cool neutral skin shading and neutral illumination without a yellow, orange, brown or tanned cast. Any emotion-specific cheek blush stays localized. Preserve the source's painted volume without bleaching away detail.\nPersonality and acting: Hu Tao is playful, quick-witted, self-assured and subtly theatrical, with sincere compassion underneath her teasing. A pleased confident smile, open eyes and lifted chin, shoulders drawn back as if proudly presenting a job well done. Set the left hand loosely on her hip and raise the right forearm in a small presenting gesture near the lower ribs, with an obliquely open palm. Use an upright, buoyant stance and a playful spark in her expression. Vary her whole pose, head angle, torso stance and gesture as appropriate to the emotion rather than changing only the face or mechanically copying the neutral.\nEye design: both eyes remain open enough for their natural pupils to be readable, with coherent eyelids and intact reddish-amber irises. Inside Hu Tao's anatomical LEFT eye, on the viewer's RIGHT, preserve one small PALE CREAM-IVORY FIVE-PETAL BLOSSOM pupil. Inside her anatomical RIGHT eye, on the viewer's LEFT, preserve the same small pale five-petal blossom pupil. Each flower has exactly five rounded lobes around one center, contained within the iris with a visible colored iris border. Keep catchlights separate from these natural flower pupils, maintaining a consistent gaze suited to the emotion. No heart pupils or floating hearts in this ordinary expression.\nHands and anatomy: use natural, softly articulated human hands, each with a believable palm, four gently curved fingers and a distinct opposable thumb. Let overlap follow the gesture rather than forcing hidden digits into view. Keep gestures simple and readable near the image plane, hands spatially separate, with clean contours and a small clear gap from adjacent fabric wherever they do not intentionally touch. Avoid reaching toward the camera, extreme foreshortening, tangled fingers and elaborate splaying. Exactly two coherent legs and feet, uncrossed in a balanced stance. Hair and heavy coat tails follow the pose naturally with gravity, and patterns and accessories turn with their actual surfaces. Preserve the complete outfit throughout.\nComplete silhouette including hat branch and blossoms, hair tips, hands, sleeves, coat tails, tassels, socks and both shoes, with approximately 2\u20134% top and bottom padding and 92\u201396% visible height. Genuinely transparent background with clear alpha outside the character. Both hands empty. No scenery, backdrop, floor, reflection, ground shadow, detached floating flames, ghosts, particles, weapons, new props, text, labels, UI, watermark or additional characters. Produce one character sprite.",
+        "referenced_image_paths": [
+          "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-hu-tao-full-22/references/Hu Tao/approved-neutral.png"
+        ],
+        "transparent_background": true
+      },
+      "approval": {
+        "status": "pending"
+      }
+    },
+    "Hu Tao desire": {
+      "character": "Hu Tao",
+      "emotion": "desire",
+      "status": "pending",
+      "heart_alternate": false,
+      "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-hu-tao-full-22/prompts/Hu Tao/desire.txt",
+      "tool": "image_gen.imagegen",
+      "arguments": {
+        "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Hu Tao from Genshin Impact expressing desire. The supplied explicitly approved neutral-v008 is the SOLE image reference. Preserve its exact recognizable identity, face, pale skin, hair, eye colors, costume construction and detailed painterly anime illustration style, linework and shading. Preserve her long dark-brown hair with reddish tips, fringe and face-framing locks; exact dark hat with cream emblem, red plum blossom branch and tassel; red mandarin collar, patterned brown coat with large cuffs, dark shorts, gold closures and waist ornaments, hanging tassels, embroidered long coat tails, rings and dark nails, socks with red bands and blossoms, and decorated dark shoes.\nBuild and skin: match the approved neutral's cute petite Medium Female proportions, compact upper frame, balanced torso-to-leg ratio and gently full thighs. Do not stretch the torso or legs or turn her into a chibi. Keep the head, hat and oversized cuffs consistent with that approved build. Preserve her VERY FAIR PALE IVORY complexion with a delicate neutral/cool-pink undertone consistently on the face, neck, hands and legs. Use pale pink and cool neutral skin shading and neutral illumination without a yellow, orange, brown or tanned cast. Any emotion-specific cheek blush stays localized. Preserve the source's painted volume without bleaching away detail.\nPersonality and acting: Hu Tao is playful, quick-witted, self-assured and subtly theatrical, with sincere compassion underneath her teasing. Gentle romantic longing: noticeably blushing pale cheeks, open softened eyes looking longingly toward the viewer, subtly raised inner brows and a small wistful closed-mouth smile. Turn her body slightly away while her head looks back. Her right hand hovers near the upper chest, clear of the collar and fabric, while her left arm rests low beside her hip. Keep a modest standing pose and slight hopeful forward lean, expressing sincere yearning rather than a generic cheerful greeting. Vary her whole pose, head angle, torso stance and gesture as appropriate to the emotion rather than changing only the face or mechanically copying the neutral.\nEye design: both eyes remain open enough for their natural pupils to be readable, with coherent eyelids and intact reddish-amber irises. Inside Hu Tao's anatomical LEFT eye, on the viewer's RIGHT, preserve one small PALE CREAM-IVORY FIVE-PETAL BLOSSOM pupil. Inside her anatomical RIGHT eye, on the viewer's LEFT, preserve the same small pale five-petal blossom pupil. Each flower has exactly five rounded lobes around one center, contained within the iris with a visible colored iris border. Keep catchlights separate from these natural flower pupils, maintaining a consistent gaze suited to the emotion. No heart pupils or floating hearts in this ordinary expression.\nHands and anatomy: use natural, softly articulated human hands, each with a believable palm, four gently curved fingers and a distinct opposable thumb. Let overlap follow the gesture rather than forcing hidden digits into view. Keep gestures simple and readable near the image plane, hands spatially separate, with clean contours and a small clear gap from adjacent fabric wherever they do not intentionally touch. Avoid reaching toward the camera, extreme foreshortening, tangled fingers and elaborate splaying. Exactly two coherent legs and feet, uncrossed in a balanced stance. Hair and heavy coat tails follow the pose naturally with gravity, and patterns and accessories turn with their actual surfaces. Preserve the complete outfit throughout.\nComplete silhouette including hat branch and blossoms, hair tips, hands, sleeves, coat tails, tassels, socks and both shoes, with approximately 2\u20134% top and bottom padding and 92\u201396% visible height. Genuinely transparent background with clear alpha outside the character. Both hands empty. No scenery, backdrop, floor, reflection, ground shadow, detached floating flames, ghosts, particles, weapons, new props, text, labels, UI, watermark or additional characters. Produce one character sprite.",
+        "referenced_image_paths": [
+          "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-hu-tao-full-22/references/Hu Tao/approved-neutral.png"
+        ],
+        "transparent_background": true
+      },
+      "approval": {
+        "status": "pending"
+      }
+    },
+    "Hu Tao anger": {
+      "character": "Hu Tao",
+      "emotion": "anger",
+      "status": "pending",
+      "heart_alternate": false,
+      "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-hu-tao-full-22/prompts/Hu Tao/anger.txt",
+      "tool": "image_gen.imagegen",
+      "arguments": {
+        "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Hu Tao from Genshin Impact expressing anger. The supplied explicitly approved neutral-v008 is the SOLE image reference. Preserve its exact recognizable identity, face, pale skin, hair, eye colors, costume construction and detailed painterly anime illustration style, linework and shading. Preserve her long dark-brown hair with reddish tips, fringe and face-framing locks; exact dark hat with cream emblem, red plum blossom branch and tassel; red mandarin collar, patterned brown coat with large cuffs, dark shorts, gold closures and waist ornaments, hanging tassels, embroidered long coat tails, rings and dark nails, socks with red bands and blossoms, and decorated dark shoes.\nBuild and skin: match the approved neutral's cute petite Medium Female proportions, compact upper frame, balanced torso-to-leg ratio and gently full thighs. Do not stretch the torso or legs or turn her into a chibi. Keep the head, hat and oversized cuffs consistent with that approved build. Preserve her VERY FAIR PALE IVORY complexion with a delicate neutral/cool-pink undertone consistently on the face, neck, hands and legs. Use pale pink and cool neutral skin shading and neutral illumination without a yellow, orange, brown or tanned cast. Any emotion-specific cheek blush stays localized. Preserve the source's painted volume without bleaching away detail.\nPersonality and acting: Hu Tao is playful, quick-witted, self-assured and subtly theatrical, with sincere compassion underneath her teasing. A firmly displeased closed mouth, lowered knitted brows and intense open eyes directed toward the viewer. Square her shoulders and plant her feet apart in a grounded uncrossed stance. Let both arms lower at slightly different angles, hands softly closed near the hips and clear of the coat. Convey controlled, unmistakable anger with the torso and face, without an exaggerated screaming mouth. Vary her whole pose, head angle, torso stance and gesture as appropriate to the emotion rather than changing only the face or mechanically copying the neutral.\nEye design: both eyes remain open enough for their natural pupils to be readable, with coherent eyelids and intact reddish-amber irises. Inside Hu Tao's anatomical LEFT eye, on the viewer's RIGHT, preserve one small PALE CREAM-IVORY FIVE-PETAL BLOSSOM pupil. Inside her anatomical RIGHT eye, on the viewer's LEFT, preserve the same small pale five-petal blossom pupil. Each flower has exactly five rounded lobes around one center, contained within the iris with a visible colored iris border. Keep catchlights separate from these natural flower pupils, maintaining a consistent gaze suited to the emotion. No heart pupils or floating hearts in this ordinary expression.\nHands and anatomy: use natural, softly articulated human hands, each with a believable palm, four gently curved fingers and a distinct opposable thumb. Let overlap follow the gesture rather than forcing hidden digits into view. Keep gestures simple and readable near the image plane, hands spatially separate, with clean contours and a small clear gap from adjacent fabric wherever they do not intentionally touch. Avoid reaching toward the camera, extreme foreshortening, tangled fingers and elaborate splaying. Exactly two coherent legs and feet, uncrossed in a balanced stance. Hair and heavy coat tails follow the pose naturally with gravity, and patterns and accessories turn with their actual surfaces. Preserve the complete outfit throughout.\nComplete silhouette including hat branch and blossoms, hair tips, hands, sleeves, coat tails, tassels, socks and both shoes, with approximately 2\u20134% top and bottom padding and 92\u201396% visible height. Genuinely transparent background with clear alpha outside the character. Both hands empty. No scenery, backdrop, floor, reflection, ground shadow, detached floating flames, ghosts, particles, weapons, new props, text, labels, UI, watermark or additional characters. Produce one character sprite.",
+        "referenced_image_paths": [
+          "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-hu-tao-full-22/references/Hu Tao/approved-neutral.png"
+        ],
+        "transparent_background": true
+      },
+      "approval": {
+        "status": "pending"
+      }
+    },
+    "Hu Tao grief": {
+      "character": "Hu Tao",
+      "emotion": "grief",
+      "status": "pending",
+      "heart_alternate": false,
+      "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-hu-tao-full-22/prompts/Hu Tao/grief.txt",
+      "tool": "image_gen.imagegen",
+      "arguments": {
+        "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Hu Tao from Genshin Impact expressing grief. The supplied explicitly approved neutral-v008 is the SOLE image reference. Preserve its exact recognizable identity, face, pale skin, hair, eye colors, costume construction and detailed painterly anime illustration style, linework and shading. Preserve her long dark-brown hair with reddish tips, fringe and face-framing locks; exact dark hat with cream emblem, red plum blossom branch and tassel; red mandarin collar, patterned brown coat with large cuffs, dark shorts, gold closures and waist ornaments, hanging tassels, embroidered long coat tails, rings and dark nails, socks with red bands and blossoms, and decorated dark shoes.\nBuild and skin: match the approved neutral's cute petite Medium Female proportions, compact upper frame, balanced torso-to-leg ratio and gently full thighs. Do not stretch the torso or legs or turn her into a chibi. Keep the head, hat and oversized cuffs consistent with that approved build. Preserve her VERY FAIR PALE IVORY complexion with a delicate neutral/cool-pink undertone consistently on the face, neck, hands and legs. Use pale pink and cool neutral skin shading and neutral illumination without a yellow, orange, brown or tanned cast. Any emotion-specific cheek blush stays localized. Preserve the source's painted volume without bleaching away detail.\nPersonality and acting: Hu Tao is playful, quick-witted, self-assured and subtly theatrical, with sincere compassion underneath her teasing. Deep sorrow with open downcast eyes, raised inner brows and a small trembling closed mouth. Her shoulders sink and her upper body curls slightly inward. The left hand hovers near her heart while the right arm hangs low, hand relaxed clear of the outfit. Keep her expression sincere and vulnerable, as if the teasing has fallen away; no floating tears or symbols. Vary her whole pose, head angle, torso stance and gesture as appropriate to the emotion rather than changing only the face or mechanically copying the neutral.\nEye design: both eyes remain open enough for their natural pupils to be readable, with coherent eyelids and intact reddish-amber irises. Inside Hu Tao's anatomical LEFT eye, on the viewer's RIGHT, preserve one small PALE CREAM-IVORY FIVE-PETAL BLOSSOM pupil. Inside her anatomical RIGHT eye, on the viewer's LEFT, preserve the same small pale five-petal blossom pupil. Each flower has exactly five rounded lobes around one center, contained within the iris with a visible colored iris border. Keep catchlights separate from these natural flower pupils, maintaining a consistent gaze suited to the emotion. No heart pupils or floating hearts in this ordinary expression.\nHands and anatomy: use natural, softly articulated human hands, each with a believable palm, four gently curved fingers and a distinct opposable thumb. Let overlap follow the gesture rather than forcing hidden digits into view. Keep gestures simple and readable near the image plane, hands spatially separate, with clean contours and a small clear gap from adjacent fabric wherever they do not intentionally touch. Avoid reaching toward the camera, extreme foreshortening, tangled fingers and elaborate splaying. Exactly two coherent legs and feet, uncrossed in a balanced stance. Hair and heavy coat tails follow the pose naturally with gravity, and patterns and accessories turn with their actual surfaces. Preserve the complete outfit throughout.\nComplete silhouette including hat branch and blossoms, hair tips, hands, sleeves, coat tails, tassels, socks and both shoes, with approximately 2\u20134% top and bottom padding and 92\u201396% visible height. Genuinely transparent background with clear alpha outside the character. Both hands empty. No scenery, backdrop, floor, reflection, ground shadow, detached floating flames, ghosts, particles, weapons, new props, text, labels, UI, watermark or additional characters. Produce one character sprite.",
+        "referenced_image_paths": [
+          "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-hu-tao-full-22/references/Hu Tao/approved-neutral.png"
+        ],
+        "transparent_background": true
+      },
+      "approval": {
+        "status": "pending"
+      }
+    },
+    "Hu Tao sadness": {
+      "character": "Hu Tao",
+      "emotion": "sadness",
+      "status": "pending",
+      "heart_alternate": false,
+      "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-hu-tao-full-22/prompts/Hu Tao/sadness.txt",
+      "tool": "image_gen.imagegen",
+      "arguments": {
+        "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Hu Tao from Genshin Impact expressing sadness. The supplied explicitly approved neutral-v008 is the SOLE image reference. Preserve its exact recognizable identity, face, pale skin, hair, eye colors, costume construction and detailed painterly anime illustration style, linework and shading. Preserve her long dark-brown hair with reddish tips, fringe and face-framing locks; exact dark hat with cream emblem, red plum blossom branch and tassel; red mandarin collar, patterned brown coat with large cuffs, dark shorts, gold closures and waist ornaments, hanging tassels, embroidered long coat tails, rings and dark nails, socks with red bands and blossoms, and decorated dark shoes.\nBuild and skin: match the approved neutral's cute petite Medium Female proportions, compact upper frame, balanced torso-to-leg ratio and gently full thighs. Do not stretch the torso or legs or turn her into a chibi. Keep the head, hat and oversized cuffs consistent with that approved build. Preserve her VERY FAIR PALE IVORY complexion with a delicate neutral/cool-pink undertone consistently on the face, neck, hands and legs. Use pale pink and cool neutral skin shading and neutral illumination without a yellow, orange, brown or tanned cast. Any emotion-specific cheek blush stays localized. Preserve the source's painted volume without bleaching away detail.\nPersonality and acting: Hu Tao is playful, quick-witted, self-assured and subtly theatrical, with sincere compassion underneath her teasing. A quieter melancholy: lowered open gaze, softly raised inner brows and a small subdued closed mouth. Incline her head downward and let the shoulders slump gently. Both arms hang loosely with different relaxed angles, hands low beside the thighs and separated from sleeves and coat tails. A slight backward weight shift communicates withdrawn sadness, distinct from the stronger grief pose. Vary her whole pose, head angle, torso stance and gesture as appropriate to the emotion rather than changing only the face or mechanically copying the neutral.\nEye design: both eyes remain open enough for their natural pupils to be readable, with coherent eyelids and intact reddish-amber irises. Inside Hu Tao's anatomical LEFT eye, on the viewer's RIGHT, preserve one small PALE CREAM-IVORY FIVE-PETAL BLOSSOM pupil. Inside her anatomical RIGHT eye, on the viewer's LEFT, preserve the same small pale five-petal blossom pupil. Each flower has exactly five rounded lobes around one center, contained within the iris with a visible colored iris border. Keep catchlights separate from these natural flower pupils, maintaining a consistent gaze suited to the emotion. No heart pupils or floating hearts in this ordinary expression.\nHands and anatomy: use natural, softly articulated human hands, each with a believable palm, four gently curved fingers and a distinct opposable thumb. Let overlap follow the gesture rather than forcing hidden digits into view. Keep gestures simple and readable near the image plane, hands spatially separate, with clean contours and a small clear gap from adjacent fabric wherever they do not intentionally touch. Avoid reaching toward the camera, extreme foreshortening, tangled fingers and elaborate splaying. Exactly two coherent legs and feet, uncrossed in a balanced stance. Hair and heavy coat tails follow the pose naturally with gravity, and patterns and accessories turn with their actual surfaces. Preserve the complete outfit throughout.\nComplete silhouette including hat branch and blossoms, hair tips, hands, sleeves, coat tails, tassels, socks and both shoes, with approximately 2\u20134% top and bottom padding and 92\u201396% visible height. Genuinely transparent background with clear alpha outside the character. Both hands empty. No scenery, backdrop, floor, reflection, ground shadow, detached floating flames, ghosts, particles, weapons, new props, text, labels, UI, watermark or additional characters. Produce one character sprite.",
+        "referenced_image_paths": [
+          "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-hu-tao-full-22/references/Hu Tao/approved-neutral.png"
+        ],
+        "transparent_background": true
+      },
+      "approval": {
+        "status": "pending"
+      }
+    },
+    "Hu Tao disgust": {
+      "character": "Hu Tao",
+      "emotion": "disgust",
+      "status": "pending",
+      "heart_alternate": false,
+      "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-hu-tao-full-22/prompts/Hu Tao/disgust.txt",
+      "tool": "image_gen.imagegen",
+      "arguments": {
+        "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Hu Tao from Genshin Impact expressing disgust. The supplied explicitly approved neutral-v008 is the SOLE image reference. Preserve its exact recognizable identity, face, pale skin, hair, eye colors, costume construction and detailed painterly anime illustration style, linework and shading. Preserve her long dark-brown hair with reddish tips, fringe and face-framing locks; exact dark hat with cream emblem, red plum blossom branch and tassel; red mandarin collar, patterned brown coat with large cuffs, dark shorts, gold closures and waist ornaments, hanging tassels, embroidered long coat tails, rings and dark nails, socks with red bands and blossoms, and decorated dark shoes.\nBuild and skin: match the approved neutral's cute petite Medium Female proportions, compact upper frame, balanced torso-to-leg ratio and gently full thighs. Do not stretch the torso or legs or turn her into a chibi. Keep the head, hat and oversized cuffs consistent with that approved build. Preserve her VERY FAIR PALE IVORY complexion with a delicate neutral/cool-pink undertone consistently on the face, neck, hands and legs. Use pale pink and cool neutral skin shading and neutral illumination without a yellow, orange, brown or tanned cast. Any emotion-specific cheek blush stays localized. Preserve the source's painted volume without bleaching away detail.\nPersonality and acting: Hu Tao is playful, quick-witted, self-assured and subtly theatrical, with sincere compassion underneath her teasing. A restrained nose scrunch, narrowed open eyes and a small closed displeased mouth. Lean her head and torso slightly back, turning one shoulder away. Lift the right forearm in a modest rejecting gesture near the lower ribs, palm angled sideways rather than facing the camera, while the left hand relaxes low beside her hip. Keep the mouth shape simple and readable. Vary her whole pose, head angle, torso stance and gesture as appropriate to the emotion rather than changing only the face or mechanically copying the neutral.\nEye design: both eyes remain open enough for their natural pupils to be readable, with coherent eyelids and intact reddish-amber irises. Inside Hu Tao's anatomical LEFT eye, on the viewer's RIGHT, preserve one small PALE CREAM-IVORY FIVE-PETAL BLOSSOM pupil. Inside her anatomical RIGHT eye, on the viewer's LEFT, preserve the same small pale five-petal blossom pupil. Each flower has exactly five rounded lobes around one center, contained within the iris with a visible colored iris border. Keep catchlights separate from these natural flower pupils, maintaining a consistent gaze suited to the emotion. No heart pupils or floating hearts in this ordinary expression.\nHands and anatomy: use natural, softly articulated human hands, each with a believable palm, four gently curved fingers and a distinct opposable thumb. Let overlap follow the gesture rather than forcing hidden digits into view. Keep gestures simple and readable near the image plane, hands spatially separate, with clean contours and a small clear gap from adjacent fabric wherever they do not intentionally touch. Avoid reaching toward the camera, extreme foreshortening, tangled fingers and elaborate splaying. Exactly two coherent legs and feet, uncrossed in a balanced stance. Hair and heavy coat tails follow the pose naturally with gravity, and patterns and accessories turn with their actual surfaces. Preserve the complete outfit throughout.\nComplete silhouette including hat branch and blossoms, hair tips, hands, sleeves, coat tails, tassels, socks and both shoes, with approximately 2\u20134% top and bottom padding and 92\u201396% visible height. Genuinely transparent background with clear alpha outside the character. Both hands empty. No scenery, backdrop, floor, reflection, ground shadow, detached floating flames, ghosts, particles, weapons, new props, text, labels, UI, watermark or additional characters. Produce one character sprite.",
+        "referenced_image_paths": [
+          "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-hu-tao-full-22/references/Hu Tao/approved-neutral.png"
+        ],
+        "transparent_background": true
+      },
+      "approval": {
+        "status": "pending"
+      }
+    },
+    "Hu Tao disappointment": {
+      "character": "Hu Tao",
+      "emotion": "disappointment",
+      "status": "pending",
+      "heart_alternate": false,
+      "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-hu-tao-full-22/prompts/Hu Tao/disappointment.txt",
+      "tool": "image_gen.imagegen",
+      "arguments": {
+        "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Hu Tao from Genshin Impact expressing disappointment. The supplied explicitly approved neutral-v008 is the SOLE image reference. Preserve its exact recognizable identity, face, pale skin, hair, eye colors, costume construction and detailed painterly anime illustration style, linework and shading. Preserve her long dark-brown hair with reddish tips, fringe and face-framing locks; exact dark hat with cream emblem, red plum blossom branch and tassel; red mandarin collar, patterned brown coat with large cuffs, dark shorts, gold closures and waist ornaments, hanging tassels, embroidered long coat tails, rings and dark nails, socks with red bands and blossoms, and decorated dark shoes.\nBuild and skin: match the approved neutral's cute petite Medium Female proportions, compact upper frame, balanced torso-to-leg ratio and gently full thighs. Do not stretch the torso or legs or turn her into a chibi. Keep the head, hat and oversized cuffs consistent with that approved build. Preserve her VERY FAIR PALE IVORY complexion with a delicate neutral/cool-pink undertone consistently on the face, neck, hands and legs. Use pale pink and cool neutral skin shading and neutral illumination without a yellow, orange, brown or tanned cast. Any emotion-specific cheek blush stays localized. Preserve the source's painted volume without bleaching away detail.\nPersonality and acting: Hu Tao is playful, quick-witted, self-assured and subtly theatrical, with sincere compassion underneath her teasing. A gently furrowed brow, lowered open eyes and a small resigned closed mouth, as if a promising plan has let her down. Drop the shoulders and angle the head slightly aside. Rest the left hand loosely near her hip while the right hand hovers low in front of the torso, clear of fabric. Give her a subdued exhaling posture rather than grief or anger. Vary her whole pose, head angle, torso stance and gesture as appropriate to the emotion rather than changing only the face or mechanically copying the neutral.\nEye design: both eyes remain open enough for their natural pupils to be readable, with coherent eyelids and intact reddish-amber irises. Inside Hu Tao's anatomical LEFT eye, on the viewer's RIGHT, preserve one small PALE CREAM-IVORY FIVE-PETAL BLOSSOM pupil. Inside her anatomical RIGHT eye, on the viewer's LEFT, preserve the same small pale five-petal blossom pupil. Each flower has exactly five rounded lobes around one center, contained within the iris with a visible colored iris border. Keep catchlights separate from these natural flower pupils, maintaining a consistent gaze suited to the emotion. No heart pupils or floating hearts in this ordinary expression.\nHands and anatomy: use natural, softly articulated human hands, each with a believable palm, four gently curved fingers and a distinct opposable thumb. Let overlap follow the gesture rather than forcing hidden digits into view. Keep gestures simple and readable near the image plane, hands spatially separate, with clean contours and a small clear gap from adjacent fabric wherever they do not intentionally touch. Avoid reaching toward the camera, extreme foreshortening, tangled fingers and elaborate splaying. Exactly two coherent legs and feet, uncrossed in a balanced stance. Hair and heavy coat tails follow the pose naturally with gravity, and patterns and accessories turn with their actual surfaces. Preserve the complete outfit throughout.\nComplete silhouette including hat branch and blossoms, hair tips, hands, sleeves, coat tails, tassels, socks and both shoes, with approximately 2\u20134% top and bottom padding and 92\u201396% visible height. Genuinely transparent background with clear alpha outside the character. Both hands empty. No scenery, backdrop, floor, reflection, ground shadow, detached floating flames, ghosts, particles, weapons, new props, text, labels, UI, watermark or additional characters. Produce one character sprite.",
+        "referenced_image_paths": [
+          "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-hu-tao-full-22/references/Hu Tao/approved-neutral.png"
+        ],
+        "transparent_background": true
+      },
+      "approval": {
+        "status": "pending"
+      }
+    },
+    "Hu Tao relief": {
+      "character": "Hu Tao",
+      "emotion": "relief",
+      "status": "pending",
+      "heart_alternate": false,
+      "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-hu-tao-full-22/prompts/Hu Tao/relief.txt",
+      "tool": "image_gen.imagegen",
+      "arguments": {
+        "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Hu Tao from Genshin Impact expressing relief. The supplied explicitly approved neutral-v008 is the SOLE image reference. Preserve its exact recognizable identity, face, pale skin, hair, eye colors, costume construction and detailed painterly anime illustration style, linework and shading. Preserve her long dark-brown hair with reddish tips, fringe and face-framing locks; exact dark hat with cream emblem, red plum blossom branch and tassel; red mandarin collar, patterned brown coat with large cuffs, dark shorts, gold closures and waist ornaments, hanging tassels, embroidered long coat tails, rings and dark nails, socks with red bands and blossoms, and decorated dark shoes.\nBuild and skin: match the approved neutral's cute petite Medium Female proportions, compact upper frame, balanced torso-to-leg ratio and gently full thighs. Do not stretch the torso or legs or turn her into a chibi. Keep the head, hat and oversized cuffs consistent with that approved build. Preserve her VERY FAIR PALE IVORY complexion with a delicate neutral/cool-pink undertone consistently on the face, neck, hands and legs. Use pale pink and cool neutral skin shading and neutral illumination without a yellow, orange, brown or tanned cast. Any emotion-specific cheek blush stays localized. Preserve the source's painted volume without bleaching away detail.\nPersonality and acting: Hu Tao is playful, quick-witted, self-assured and subtly theatrical, with sincere compassion underneath her teasing. A softly relieved smile, open eyes and brows relaxing after a worry has passed. Let her shoulders release and her upper body settle back into balance. Her right hand hovers gently over the upper chest with a visible gap from the coat and collar, while the left arm opens low beside her hip. Stand comfortably with feet separated, conveying a quiet breath of relief. Vary her whole pose, head angle, torso stance and gesture as appropriate to the emotion rather than changing only the face or mechanically copying the neutral.\nEye design: both eyes remain open enough for their natural pupils to be readable, with coherent eyelids and intact reddish-amber irises. Inside Hu Tao's anatomical LEFT eye, on the viewer's RIGHT, preserve one small PALE CREAM-IVORY FIVE-PETAL BLOSSOM pupil. Inside her anatomical RIGHT eye, on the viewer's LEFT, preserve the same small pale five-petal blossom pupil. Each flower has exactly five rounded lobes around one center, contained within the iris with a visible colored iris border. Keep catchlights separate from these natural flower pupils, maintaining a consistent gaze suited to the emotion. No heart pupils or floating hearts in this ordinary expression.\nHands and anatomy: use natural, softly articulated human hands, each with a believable palm, four gently curved fingers and a distinct opposable thumb. Let overlap follow the gesture rather than forcing hidden digits into view. Keep gestures simple and readable near the image plane, hands spatially separate, with clean contours and a small clear gap from adjacent fabric wherever they do not intentionally touch. Avoid reaching toward the camera, extreme foreshortening, tangled fingers and elaborate splaying. Exactly two coherent legs and feet, uncrossed in a balanced stance. Hair and heavy coat tails follow the pose naturally with gravity, and patterns and accessories turn with their actual surfaces. Preserve the complete outfit throughout.\nComplete silhouette including hat branch and blossoms, hair tips, hands, sleeves, coat tails, tassels, socks and both shoes, with approximately 2\u20134% top and bottom padding and 92\u201396% visible height. Genuinely transparent background with clear alpha outside the character. Both hands empty. No scenery, backdrop, floor, reflection, ground shadow, detached floating flames, ghosts, particles, weapons, new props, text, labels, UI, watermark or additional characters. Produce one character sprite.",
+        "referenced_image_paths": [
+          "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-hu-tao-full-22/references/Hu Tao/approved-neutral.png"
+        ],
+        "transparent_background": true
+      },
+      "approval": {
+        "status": "pending"
+      }
+    },
+    "Hu Tao admiration": {
+      "character": "Hu Tao",
+      "emotion": "admiration",
+      "status": "pending",
+      "heart_alternate": false,
+      "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-hu-tao-full-22/prompts/Hu Tao/admiration.txt",
+      "tool": "image_gen.imagegen",
+      "arguments": {
+        "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Hu Tao from Genshin Impact expressing admiration. The supplied explicitly approved neutral-v008 is the SOLE image reference. Preserve its exact recognizable identity, face, pale skin, hair, eye colors, costume construction and detailed painterly anime illustration style, linework and shading. Preserve her long dark-brown hair with reddish tips, fringe and face-framing locks; exact dark hat with cream emblem, red plum blossom branch and tassel; red mandarin collar, patterned brown coat with large cuffs, dark shorts, gold closures and waist ornaments, hanging tassels, embroidered long coat tails, rings and dark nails, socks with red bands and blossoms, and decorated dark shoes.\nBuild and skin: match the approved neutral's cute petite Medium Female proportions, compact upper frame, balanced torso-to-leg ratio and gently full thighs. Do not stretch the torso or legs or turn her into a chibi. Keep the head, hat and oversized cuffs consistent with that approved build. Preserve her VERY FAIR PALE IVORY complexion with a delicate neutral/cool-pink undertone consistently on the face, neck, hands and legs. Use pale pink and cool neutral skin shading and neutral illumination without a yellow, orange, brown or tanned cast. Any emotion-specific cheek blush stays localized. Preserve the source's painted volume without bleaching away detail.\nPersonality and acting: Hu Tao is playful, quick-witted, self-assured and subtly theatrical, with sincere compassion underneath her teasing. Open bright eyes looking slightly upward toward an off-frame subject, raised brows and a small delighted admiring smile. Angle her torso three-quarter and tilt her head with genuine interest. Lift her left forearm in a small open appreciative gesture at lower-chest height, while her right hand rests low beside her hip. Keep the pose warm and intrigued, without props or floating symbols. Vary her whole pose, head angle, torso stance and gesture as appropriate to the emotion rather than changing only the face or mechanically copying the neutral.\nEye design: both eyes remain open enough for their natural pupils to be readable, with coherent eyelids and intact reddish-amber irises. Inside Hu Tao's anatomical LEFT eye, on the viewer's RIGHT, preserve one small PALE CREAM-IVORY FIVE-PETAL BLOSSOM pupil. Inside her anatomical RIGHT eye, on the viewer's LEFT, preserve the same small pale five-petal blossom pupil. Each flower has exactly five rounded lobes around one center, contained within the iris with a visible colored iris border. Keep catchlights separate from these natural flower pupils, maintaining a consistent gaze suited to the emotion. No heart pupils or floating hearts in this ordinary expression.\nHands and anatomy: use natural, softly articulated human hands, each with a believable palm, four gently curved fingers and a distinct opposable thumb. Let overlap follow the gesture rather than forcing hidden digits into view. Keep gestures simple and readable near the image plane, hands spatially separate, with clean contours and a small clear gap from adjacent fabric wherever they do not intentionally touch. Avoid reaching toward the camera, extreme foreshortening, tangled fingers and elaborate splaying. Exactly two coherent legs and feet, uncrossed in a balanced stance. Hair and heavy coat tails follow the pose naturally with gravity, and patterns and accessories turn with their actual surfaces. Preserve the complete outfit throughout.\nComplete silhouette including hat branch and blossoms, hair tips, hands, sleeves, coat tails, tassels, socks and both shoes, with approximately 2\u20134% top and bottom padding and 92\u201396% visible height. Genuinely transparent background with clear alpha outside the character. Both hands empty. No scenery, backdrop, floor, reflection, ground shadow, detached floating flames, ghosts, particles, weapons, new props, text, labels, UI, watermark or additional characters. Produce one character sprite.",
+        "referenced_image_paths": [
+          "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-hu-tao-full-22/references/Hu Tao/approved-neutral.png"
+        ],
+        "transparent_background": true
+      },
+      "approval": {
+        "status": "pending"
+      }
+    },
+    "Hu Tao gratitude": {
+      "character": "Hu Tao",
+      "emotion": "gratitude",
+      "status": "pending",
+      "heart_alternate": false,
+      "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-hu-tao-full-22/prompts/Hu Tao/gratitude.txt",
+      "tool": "image_gen.imagegen",
+      "arguments": {
+        "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Hu Tao from Genshin Impact expressing gratitude. The supplied explicitly approved neutral-v008 is the SOLE image reference. Preserve its exact recognizable identity, face, pale skin, hair, eye colors, costume construction and detailed painterly anime illustration style, linework and shading. Preserve her long dark-brown hair with reddish tips, fringe and face-framing locks; exact dark hat with cream emblem, red plum blossom branch and tassel; red mandarin collar, patterned brown coat with large cuffs, dark shorts, gold closures and waist ornaments, hanging tassels, embroidered long coat tails, rings and dark nails, socks with red bands and blossoms, and decorated dark shoes.\nBuild and skin: match the approved neutral's cute petite Medium Female proportions, compact upper frame, balanced torso-to-leg ratio and gently full thighs. Do not stretch the torso or legs or turn her into a chibi. Keep the head, hat and oversized cuffs consistent with that approved build. Preserve her VERY FAIR PALE IVORY complexion with a delicate neutral/cool-pink undertone consistently on the face, neck, hands and legs. Use pale pink and cool neutral skin shading and neutral illumination without a yellow, orange, brown or tanned cast. Any emotion-specific cheek blush stays localized. Preserve the source's painted volume without bleaching away detail.\nPersonality and acting: Hu Tao is playful, quick-witted, self-assured and subtly theatrical, with sincere compassion underneath her teasing. A sincere grateful smile, softened open eyes directed toward the viewer and gently lifted brows. Give her a small polite forward inclination of the head and shoulders. Her right hand hovers near her heart and the left hand rests lower beside the waist, kept distinct with space from the clothes. Retain her light playful charm while making the thanks heartfelt. Vary her whole pose, head angle, torso stance and gesture as appropriate to the emotion rather than changing only the face or mechanically copying the neutral.\nEye design: both eyes remain open enough for their natural pupils to be readable, with coherent eyelids and intact reddish-amber irises. Inside Hu Tao's anatomical LEFT eye, on the viewer's RIGHT, preserve one small PALE CREAM-IVORY FIVE-PETAL BLOSSOM pupil. Inside her anatomical RIGHT eye, on the viewer's LEFT, preserve the same small pale five-petal blossom pupil. Each flower has exactly five rounded lobes around one center, contained within the iris with a visible colored iris border. Keep catchlights separate from these natural flower pupils, maintaining a consistent gaze suited to the emotion. No heart pupils or floating hearts in this ordinary expression.\nHands and anatomy: use natural, softly articulated human hands, each with a believable palm, four gently curved fingers and a distinct opposable thumb. Let overlap follow the gesture rather than forcing hidden digits into view. Keep gestures simple and readable near the image plane, hands spatially separate, with clean contours and a small clear gap from adjacent fabric wherever they do not intentionally touch. Avoid reaching toward the camera, extreme foreshortening, tangled fingers and elaborate splaying. Exactly two coherent legs and feet, uncrossed in a balanced stance. Hair and heavy coat tails follow the pose naturally with gravity, and patterns and accessories turn with their actual surfaces. Preserve the complete outfit throughout.\nComplete silhouette including hat branch and blossoms, hair tips, hands, sleeves, coat tails, tassels, socks and both shoes, with approximately 2\u20134% top and bottom padding and 92\u201396% visible height. Genuinely transparent background with clear alpha outside the character. Both hands empty. No scenery, backdrop, floor, reflection, ground shadow, detached floating flames, ghosts, particles, weapons, new props, text, labels, UI, watermark or additional characters. Produce one character sprite.",
+        "referenced_image_paths": [
+          "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-hu-tao-full-22/references/Hu Tao/approved-neutral.png"
+        ],
+        "transparent_background": true
+      },
+      "approval": {
+        "status": "pending"
+      }
+    },
+    "Hu Tao embarrassment": {
+      "character": "Hu Tao",
+      "emotion": "embarrassment",
+      "status": "pending",
+      "heart_alternate": false,
+      "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-hu-tao-full-22/prompts/Hu Tao/embarrassment.txt",
+      "tool": "image_gen.imagegen",
+      "arguments": {
+        "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Hu Tao from Genshin Impact expressing embarrassment. The supplied explicitly approved neutral-v008 is the SOLE image reference. Preserve its exact recognizable identity, face, pale skin, hair, eye colors, costume construction and detailed painterly anime illustration style, linework and shading. Preserve her long dark-brown hair with reddish tips, fringe and face-framing locks; exact dark hat with cream emblem, red plum blossom branch and tassel; red mandarin collar, patterned brown coat with large cuffs, dark shorts, gold closures and waist ornaments, hanging tassels, embroidered long coat tails, rings and dark nails, socks with red bands and blossoms, and decorated dark shoes.\nBuild and skin: match the approved neutral's cute petite Medium Female proportions, compact upper frame, balanced torso-to-leg ratio and gently full thighs. Do not stretch the torso or legs or turn her into a chibi. Keep the head, hat and oversized cuffs consistent with that approved build. Preserve her VERY FAIR PALE IVORY complexion with a delicate neutral/cool-pink undertone consistently on the face, neck, hands and legs. Use pale pink and cool neutral skin shading and neutral illumination without a yellow, orange, brown or tanned cast. Any emotion-specific cheek blush stays localized. Preserve the source's painted volume without bleaching away detail.\nPersonality and acting: Hu Tao is playful, quick-witted, self-assured and subtly theatrical, with sincere compassion underneath her teasing. Noticeably rosy cheeks, shy averted open eyes and a small self-conscious smile. Duck her chin and turn her shoulders slightly away with a gentle inward shoulder curl. Her right elbow bends so the right hand hovers in front of the lower ribs, clear of the coat; her left arm lowers naturally beside her hip. Let her usual mischievous assurance give way to bashful sincerity. Vary her whole pose, head angle, torso stance and gesture as appropriate to the emotion rather than changing only the face or mechanically copying the neutral.\nEye design: both eyes remain open enough for their natural pupils to be readable, with coherent eyelids and intact reddish-amber irises. Inside Hu Tao's anatomical LEFT eye, on the viewer's RIGHT, preserve one small PALE CREAM-IVORY FIVE-PETAL BLOSSOM pupil. Inside her anatomical RIGHT eye, on the viewer's LEFT, preserve the same small pale five-petal blossom pupil. Each flower has exactly five rounded lobes around one center, contained within the iris with a visible colored iris border. Keep catchlights separate from these natural flower pupils, maintaining a consistent gaze suited to the emotion. No heart pupils or floating hearts in this ordinary expression.\nHands and anatomy: use natural, softly articulated human hands, each with a believable palm, four gently curved fingers and a distinct opposable thumb. Let overlap follow the gesture rather than forcing hidden digits into view. Keep gestures simple and readable near the image plane, hands spatially separate, with clean contours and a small clear gap from adjacent fabric wherever they do not intentionally touch. Avoid reaching toward the camera, extreme foreshortening, tangled fingers and elaborate splaying. Exactly two coherent legs and feet, uncrossed in a balanced stance. Hair and heavy coat tails follow the pose naturally with gravity, and patterns and accessories turn with their actual surfaces. Preserve the complete outfit throughout.\nComplete silhouette including hat branch and blossoms, hair tips, hands, sleeves, coat tails, tassels, socks and both shoes, with approximately 2\u20134% top and bottom padding and 92\u201396% visible height. Genuinely transparent background with clear alpha outside the character. Both hands empty. No scenery, backdrop, floor, reflection, ground shadow, detached floating flames, ghosts, particles, weapons, new props, text, labels, UI, watermark or additional characters. Produce one character sprite.",
+        "referenced_image_paths": [
+          "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-hu-tao-full-22/references/Hu Tao/approved-neutral.png"
+        ],
+        "transparent_background": true
+      },
+      "approval": {
+        "status": "pending"
+      }
+    },
+    "Hu Tao caring": {
+      "character": "Hu Tao",
+      "emotion": "caring",
+      "status": "pending",
+      "heart_alternate": false,
+      "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-hu-tao-full-22/prompts/Hu Tao/caring.txt",
+      "tool": "image_gen.imagegen",
+      "arguments": {
+        "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Hu Tao from Genshin Impact expressing caring. The supplied explicitly approved neutral-v008 is the SOLE image reference. Preserve its exact recognizable identity, face, pale skin, hair, eye colors, costume construction and detailed painterly anime illustration style, linework and shading. Preserve her long dark-brown hair with reddish tips, fringe and face-framing locks; exact dark hat with cream emblem, red plum blossom branch and tassel; red mandarin collar, patterned brown coat with large cuffs, dark shorts, gold closures and waist ornaments, hanging tassels, embroidered long coat tails, rings and dark nails, socks with red bands and blossoms, and decorated dark shoes.\nBuild and skin: match the approved neutral's cute petite Medium Female proportions, compact upper frame, balanced torso-to-leg ratio and gently full thighs. Do not stretch the torso or legs or turn her into a chibi. Keep the head, hat and oversized cuffs consistent with that approved build. Preserve her VERY FAIR PALE IVORY complexion with a delicate neutral/cool-pink undertone consistently on the face, neck, hands and legs. Use pale pink and cool neutral skin shading and neutral illumination without a yellow, orange, brown or tanned cast. Any emotion-specific cheek blush stays localized. Preserve the source's painted volume without bleaching away detail.\nPersonality and acting: Hu Tao is playful, quick-witted, self-assured and subtly theatrical, with sincere compassion underneath her teasing. A gentle reassuring closed-mouth smile, softly attentive open eyes and a sympathetic lift of the inner brows. Lean forward a little with a comforting head tilt. Her right forearm opens toward the side at waist height in a small welcoming gesture, hand near the image plane with no reaching toward the camera; her left hand relaxes low beside her hip. Convey patient, sincere care beneath her playful manner. Vary her whole pose, head angle, torso stance and gesture as appropriate to the emotion rather than changing only the face or mechanically copying the neutral.\nEye design: both eyes remain open enough for their natural pupils to be readable, with coherent eyelids and intact reddish-amber irises. Inside Hu Tao's anatomical LEFT eye, on the viewer's RIGHT, preserve one small PALE CREAM-IVORY FIVE-PETAL BLOSSOM pupil. Inside her anatomical RIGHT eye, on the viewer's LEFT, preserve the same small pale five-petal blossom pupil. Each flower has exactly five rounded lobes around one center, contained within the iris with a visible colored iris border. Keep catchlights separate from these natural flower pupils, maintaining a consistent gaze suited to the emotion. No heart pupils or floating hearts in this ordinary expression.\nHands and anatomy: use natural, softly articulated human hands, each with a believable palm, four gently curved fingers and a distinct opposable thumb. Let overlap follow the gesture rather than forcing hidden digits into view. Keep gestures simple and readable near the image plane, hands spatially separate, with clean contours and a small clear gap from adjacent fabric wherever they do not intentionally touch. Avoid reaching toward the camera, extreme foreshortening, tangled fingers and elaborate splaying. Exactly two coherent legs and feet, uncrossed in a balanced stance. Hair and heavy coat tails follow the pose naturally with gravity, and patterns and accessories turn with their actual surfaces. Preserve the complete outfit throughout.\nComplete silhouette including hat branch and blossoms, hair tips, hands, sleeves, coat tails, tassels, socks and both shoes, with approximately 2\u20134% top and bottom padding and 92\u201396% visible height. Genuinely transparent background with clear alpha outside the character. Both hands empty. No scenery, backdrop, floor, reflection, ground shadow, detached floating flames, ghosts, particles, weapons, new props, text, labels, UI, watermark or additional characters. Produce one character sprite.",
+        "referenced_image_paths": [
+          "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-hu-tao-full-22/references/Hu Tao/approved-neutral.png"
+        ],
+        "transparent_background": true
+      },
+      "approval": {
+        "status": "pending"
+      }
+    },
+    "Hu Tao love-1": {
+      "character": "Hu Tao",
+      "emotion": "love-1",
+      "status": "pending",
+      "heart_alternate": true,
+      "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-hu-tao-full-22/prompts/Hu Tao/love-1.txt",
+      "tool": "image_gen.imagegen",
+      "arguments": {
+        "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Hu Tao from Genshin Impact expressing love-1. The supplied explicitly approved neutral-v008 is the SOLE image reference. Preserve its exact recognizable identity, face, pale skin, hair, eye colors, costume construction and detailed painterly anime illustration style, linework and shading. Preserve her long dark-brown hair with reddish tips, fringe and face-framing locks; exact dark hat with cream emblem, red plum blossom branch and tassel; red mandarin collar, patterned brown coat with large cuffs, dark shorts, gold closures and waist ornaments, hanging tassels, embroidered long coat tails, rings and dark nails, socks with red bands and blossoms, and decorated dark shoes.\nBuild and skin: match the approved neutral's cute petite Medium Female proportions, compact upper frame, balanced torso-to-leg ratio and gently full thighs. Do not stretch the torso or legs or turn her into a chibi. Keep the head, hat and oversized cuffs consistent with that approved build. Preserve her VERY FAIR PALE IVORY complexion with a delicate neutral/cool-pink undertone consistently on the face, neck, hands and legs. Use pale pink and cool neutral skin shading and neutral illumination without a yellow, orange, brown or tanned cast. Any emotion-specific cheek blush stays localized. Preserve the source's painted volume without bleaching away detail.\nPersonality and acting: Hu Tao is playful, quick-witted, self-assured and subtly theatrical, with sincere compassion underneath her teasing. An openly joyful affectionate smile, raised brows and both eyes visibly open, with a gentle rosy blush. Angle her shoulders toward the viewer and let the right hand hover near her heart while the left forearm opens softly down beside her waist. Give her a bright, warmly delighted posture and a buoyant head tilt, distinct from the quieter ordinary love pose. Vary her whole pose, head angle, torso stance and gesture as appropriate to the emotion rather than changing only the face or mechanically copying the neutral.\nHeart-pupil alternate: keep BOTH eyes visibly open and preserve their complete reddish-amber irises, outlines, shading and a visible colored iris border. Replace the normal blossom-shaped pupil in EACH eye with ONE LARGE, SOLID LIGHT ROSE-PINK HEART-SHAPED PUPIL, a lighter shade in the red eye-color family. Each filled heart has two rounded upper lobes, a clear central notch and one pointed lower tip, centered inside the iris. Two pale rose-pink heart pupils total, one per open eye. They are pupil shapes, not catchlights, eye replacements or floating symbols; keep small catchlights distinct. The heart shape replaces the blossom only in this alternate.\nHands and anatomy: use natural, softly articulated human hands, each with a believable palm, four gently curved fingers and a distinct opposable thumb. Let overlap follow the gesture rather than forcing hidden digits into view. Keep gestures simple and readable near the image plane, hands spatially separate, with clean contours and a small clear gap from adjacent fabric wherever they do not intentionally touch. Avoid reaching toward the camera, extreme foreshortening, tangled fingers and elaborate splaying. Exactly two coherent legs and feet, uncrossed in a balanced stance. Hair and heavy coat tails follow the pose naturally with gravity, and patterns and accessories turn with their actual surfaces. Preserve the complete outfit throughout.\nComplete silhouette including hat branch and blossoms, hair tips, hands, sleeves, coat tails, tassels, socks and both shoes, with approximately 2\u20134% top and bottom padding and 92\u201396% visible height. Genuinely transparent background with clear alpha outside the character. Both hands empty. No scenery, backdrop, floor, reflection, ground shadow, detached floating flames, ghosts, particles, weapons, new props, text, labels, UI, watermark or additional characters. Produce one character sprite.",
+        "referenced_image_paths": [
+          "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-hu-tao-full-22/references/Hu Tao/approved-neutral.png"
+        ],
+        "transparent_background": true
+      },
+      "approval": {
+        "status": "pending"
+      }
+    },
+    "Hu Tao desire-1": {
+      "character": "Hu Tao",
+      "emotion": "desire-1",
+      "status": "pending",
+      "heart_alternate": true,
+      "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-hu-tao-full-22/prompts/Hu Tao/desire-1.txt",
+      "tool": "image_gen.imagegen",
+      "arguments": {
+        "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Hu Tao from Genshin Impact expressing desire-1. The supplied explicitly approved neutral-v008 is the SOLE image reference. Preserve its exact recognizable identity, face, pale skin, hair, eye colors, costume construction and detailed painterly anime illustration style, linework and shading. Preserve her long dark-brown hair with reddish tips, fringe and face-framing locks; exact dark hat with cream emblem, red plum blossom branch and tassel; red mandarin collar, patterned brown coat with large cuffs, dark shorts, gold closures and waist ornaments, hanging tassels, embroidered long coat tails, rings and dark nails, socks with red bands and blossoms, and decorated dark shoes.\nBuild and skin: match the approved neutral's cute petite Medium Female proportions, compact upper frame, balanced torso-to-leg ratio and gently full thighs. Do not stretch the torso or legs or turn her into a chibi. Keep the head, hat and oversized cuffs consistent with that approved build. Preserve her VERY FAIR PALE IVORY complexion with a delicate neutral/cool-pink undertone consistently on the face, neck, hands and legs. Use pale pink and cool neutral skin shading and neutral illumination without a yellow, orange, brown or tanned cast. Any emotion-specific cheek blush stays localized. Preserve the source's painted volume without bleaching away detail.\nPersonality and acting: Hu Tao is playful, quick-witted, self-assured and subtly theatrical, with sincere compassion underneath her teasing. Tender hopeful longing with a noticeable blush, both eyes visibly open, softly raised inner brows and a subtler wistful closed-mouth smile. Turn her shoulders slightly to the opposite side from love-1 while her face looks back toward the viewer. Her left hand hovers near the upper chest and the right arm relaxes down beside her waist, hands separate. Use a modest standing posture with a slight forward lean and an intent hopeful gaze, distinct from the exuberant heart-love pose. Vary her whole pose, head angle, torso stance and gesture as appropriate to the emotion rather than changing only the face or mechanically copying the neutral.\nHeart-pupil alternate: keep BOTH eyes visibly open and preserve their complete reddish-amber irises, outlines, shading and a visible colored iris border. Replace the normal blossom-shaped pupil in EACH eye with ONE LARGE, SOLID LIGHT ROSE-PINK HEART-SHAPED PUPIL, a lighter shade in the red eye-color family. Each filled heart has two rounded upper lobes, a clear central notch and one pointed lower tip, centered inside the iris. Two pale rose-pink heart pupils total, one per open eye. They are pupil shapes, not catchlights, eye replacements or floating symbols; keep small catchlights distinct. The heart shape replaces the blossom only in this alternate.\nHands and anatomy: use natural, softly articulated human hands, each with a believable palm, four gently curved fingers and a distinct opposable thumb. Let overlap follow the gesture rather than forcing hidden digits into view. Keep gestures simple and readable near the image plane, hands spatially separate, with clean contours and a small clear gap from adjacent fabric wherever they do not intentionally touch. Avoid reaching toward the camera, extreme foreshortening, tangled fingers and elaborate splaying. Exactly two coherent legs and feet, uncrossed in a balanced stance. Hair and heavy coat tails follow the pose naturally with gravity, and patterns and accessories turn with their actual surfaces. Preserve the complete outfit throughout.\nComplete silhouette including hat branch and blossoms, hair tips, hands, sleeves, coat tails, tassels, socks and both shoes, with approximately 2\u20134% top and bottom padding and 92\u201396% visible height. Genuinely transparent background with clear alpha outside the character. Both hands empty. No scenery, backdrop, floor, reflection, ground shadow, detached floating flames, ghosts, particles, weapons, new props, text, labels, UI, watermark or additional characters. Produce one character sprite.",
+        "referenced_image_paths": [
+          "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-hu-tao-full-22/references/Hu Tao/approved-neutral.png"
+        ],
+        "transparent_background": true
+      },
+      "approval": {
+        "status": "pending"
+      }
+    }
+  },
+  "heart_alternates": {
+    "files": [
+      "love-1",
+      "desire-1"
+    ],
+    "pupil_color": "light rose-pink",
+    "rule": "Lighter shade of the red eye-color family; both eyes open; retained irises; filled heart pupils replace normal flower pupils only in these alternates."
+  },
+  "review_policy": "User performs visual review. Technical file checks only; no autonomous rejection, repair or approval.",
+  "superseded_by": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-hu-tao-full-22-model-supported",
+  "latest_feedback": "Don't use the neutral as the sole reference, include the other references that were used to create the neutral in the first place - try to make the poses / expressions fit her character, and be particular about the 5 sided flower pupils",
+  "interrupted_batch": {
+    "keys": [
+      "Hu Tao love",
+      "Hu Tao excitement",
+      "Hu Tao joy"
+    ],
+    "state": "User interrupted call; no saved result at restart. Aborted exec returned without a running cell. No background artwork helper processes found. Late outputs are not imported."
+  }
+}

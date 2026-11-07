@@ -1,0 +1,392 @@
+{
+  "date": "2026-11-05",
+  "status": "complete_revisions_awaiting_user_review",
+  "user_request": "Good!! Put them in her folder.\n\nSome edits I want you to make:\nConfusion - distorted hands\nDesire - distorted hands\nExcitement - distorted hands\nSmug - patched pupils don't fully match perspective",
+  "installed_hearts": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-hu-tao-three-hands-smug-perspective/heart-installation.json",
+  "neutral_approval": {
+    "status": "approved",
+    "date": "2026-11-05",
+    "message": "Alright, I've decided, let's go with v008. Generate the full 22 sprite set",
+    "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-hu-tao-model-neutral/candidates/Hu Tao/neutral-v008.png",
+    "candidate_sha256": "2896b5601f7bd9bac64992c7dcf90796a071f268c6496613e1d62718fb9203d5",
+    "version": "v008"
+  },
+  "references": [
+    {
+      "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-hu-tao-three-hands-smug-perspective/references/Hu Tao/approved-neutral.png",
+      "original_path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-hu-tao-full-22-model-supported/references/Hu Tao/approved-neutral.png",
+      "sha256": "2896b5601f7bd9bac64992c7dcf90796a071f268c6496613e1d62718fb9203d5",
+      "role": "Approved v008: identity, petite balanced build, pale skin and rendering continuity."
+    },
+    {
+      "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-hu-tao-three-hands-smug-perspective/references/Hu Tao/model.png",
+      "original_path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-hu-tao-full-22-model-supported/references/Hu Tao/model.png",
+      "sha256": "f12a0df0863b5404e992486745f02b77842403c82c562aff9460a5b7d8381457",
+      "role": "Exact costume, accessory construction, hair and eye design."
+    },
+    {
+      "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-hu-tao-three-hands-smug-perspective/references/Hu Tao/portrait-style-v004.png",
+      "original_path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-hu-tao-full-22-model-supported/references/Hu Tao/portrait-style-v004.png",
+      "sha256": "d60e3423ab59bb899be14ca19d0bc45025263346fb85103e31d93cf7d80de69a",
+      "role": "User-selected painterly art style, facial design and five-petal blossom pupils."
+    }
+  ],
+  "reference_policy": "Three hand rejections independently regenerated from approved v008 plus the user-authorized model and portrait. Smug uses a targeted pupil-only Python correction under the existing user authorization.",
+  "jobs": {
+    "Hu Tao confusion": {
+      "character": "Hu Tao",
+      "emotion": "confusion",
+      "status": "candidate",
+      "reported_defect": "distorted hands",
+      "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-hu-tao-three-hands-smug-perspective/prompts/Hu Tao/confusion.txt",
+      "tool": "image_gen.imagegen",
+      "arguments": {
+        "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Hu Tao from Genshin Impact expressing confusion. Input images: Image 1 is the explicitly approved neutral-v008, the PRIMARY guide for her exact cute petite proportions, balanced torso/legs, gently full thighs, very pale complexion and continuity across this set. Image 2 is the user's in-game model, authoritative for exact costume construction, accessory placement, hair and character eye design. Image 3 is the user's latest portrait artwork, guiding confident linework, soft painterly anime rendering, rounded facial features and pale five-petal blossom pupils. Combine all three; preserve v008's build and use the model for outfit detail even where the portrait stylizes it. Do not copy the model's blue environmental lighting or the portrait's warm backdrop, border, hands or pose. Use neutral illumination and the approved neutral's very fair skin. Preserve its exact recognizable identity, face, pale skin, hair, eye colors, costume construction and detailed painterly anime illustration style, linework and shading. Preserve her long dark-brown hair with reddish tips, fringe and face-framing locks; exact dark hat with cream emblem, red plum blossom branch and tassel; red mandarin collar, patterned brown coat with large cuffs, dark shorts, gold closures and waist ornaments, hanging tassels, embroidered long coat tails, rings and dark nails, socks with red bands and blossoms, and decorated dark shoes.\nBuild and skin: match the approved neutral's cute petite Medium Female proportions, compact upper frame, balanced torso-to-leg ratio and gently full thighs. Do not stretch the torso or legs or turn her into a chibi. Keep the head, hat and oversized cuffs consistent with that approved build. Preserve her VERY FAIR PALE IVORY complexion with a delicate neutral/cool-pink undertone consistently on the face, neck, hands and legs. Use pale pink and cool neutral skin shading and neutral illumination without a yellow, orange, brown or tanned cast. Any emotion-specific cheek blush stays localized. Preserve the source's painted volume without bleaching away detail.\nPersonality and acting: Hu Tao is momentarily puzzled but still cheeky: one brow lifts higher, her mouth parts slightly and her head tilts inquisitively. Use a small, readable shrug through her shoulders. Her anatomical right arm hangs comfortably beside her outer thigh, hand turned slightly sideways with relaxed grouped fingers. Her anatomical left elbow bends just a little, with the left hand open and low at waist level in a simple questioning gesture; show the hand mainly from the side with fingers loosely together. Both wrists remain straight and the hands stay apart and clear of coat edges. A light asymmetrical weight shift fits her playful curiosity.\nEye design \u2014 essential Hu Tao identity: both eyes stay naturally open enough to show their complete pupils, with coherent eyelids and intact reddish-amber irises. Each pupil is ONE SMALL PALE CREAM-IVORY FIVE-PETAL BLOSSOM, following the model and portrait. Use a single rounded five-lobed flower silhouette: one petal at the top, two around the right half and two around the left half, arranged evenly around one center. Five separate rounded petal tips and five shallow valleys, all visible inside the iris. This is a rounded five-petal flower, never a four-lobed cross or diamond, square, star, or ordinary round pupil. Hu Tao's anatomical LEFT eye (viewer RIGHT) and anatomical RIGHT eye (viewer LEFT) must BOTH have the same complete FIVE-petal flower design; do not simplify either eye. Keep a visible warm colored iris border, catchlights separate, and the gaze consistent with the emotion. Keep the face nearly frontal or a mild three-quarter angle so neither flower is clipped by the lid or perspective. These blossoms are natural pupil shapes, not decorative highlights or replacements for the whole eye. No heart pupils or floating hearts in ordinary expressions.\nHands and anatomy: use natural, softly articulated human hands, each with a believable palm, four gently curved fingers and a distinct opposable thumb. Let overlap follow the gesture rather than forcing hidden digits into view. Keep gestures simple and readable near the image plane, hands spatially separate, with clean contours and a small clear gap from adjacent fabric wherever they do not intentionally touch. Avoid reaching toward the camera, extreme foreshortening, tangled fingers and elaborate splaying. Exactly two coherent legs and feet, uncrossed in a balanced stance. Hair and heavy coat tails follow the pose naturally with gravity, and patterns and accessories turn with their actual surfaces. Preserve the complete outfit throughout.\nComplete silhouette including hat branch and blossoms, hair tips, hands, sleeves, coat tails, tassels, socks and both shoes, with approximately 2\u20134% top and bottom padding and 92\u201396% visible height. Genuinely transparent background with clear alpha outside the character. Both hands empty. No scenery, backdrop, floor, reflection, ground shadow, detached floating flames, ghosts, particles, weapons, new props, text, labels, UI, watermark or additional characters. Produce one character sprite.",
+        "referenced_image_paths": [
+          "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-hu-tao-three-hands-smug-perspective/references/Hu Tao/approved-neutral.png",
+          "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-hu-tao-three-hands-smug-perspective/references/Hu Tao/model.png",
+          "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-hu-tao-three-hands-smug-perspective/references/Hu Tao/portrait-style-v004.png"
+        ],
+        "transparent_background": true
+      },
+      "approval": {
+        "status": "pending"
+      },
+      "tool_output": "/Users/alexachan/.codex/generated_images/01a1aa19-42b2-7e92-b08d-8ee7d133c057/exec-2a2df0e8-963c-4f78-84c2-55eeef4e79b4.png",
+      "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-hu-tao-three-hands-smug-perspective/raw/Hu Tao/confusion.png",
+      "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-hu-tao-three-hands-smug-perspective/sprites/Hu Tao/confusion.png",
+      "sha256": "02c13cf294d46fe345bcae8bd4dde981bf08b73b5a5ff823bbdfb42ce5f36a12",
+      "dimensions": [
+        934,
+        1685
+      ],
+      "png_color_type": 6
+    },
+    "Hu Tao desire": {
+      "character": "Hu Tao",
+      "emotion": "desire",
+      "status": "candidate",
+      "reported_defect": "distorted hands",
+      "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-hu-tao-three-hands-smug-perspective/prompts/Hu Tao/desire.txt",
+      "tool": "image_gen.imagegen",
+      "arguments": {
+        "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Hu Tao from Genshin Impact expressing desire. Input images: Image 1 is the explicitly approved neutral-v008, the PRIMARY guide for her exact cute petite proportions, balanced torso/legs, gently full thighs, very pale complexion and continuity across this set. Image 2 is the user's in-game model, authoritative for exact costume construction, accessory placement, hair and character eye design. Image 3 is the user's latest portrait artwork, guiding confident linework, soft painterly anime rendering, rounded facial features and pale five-petal blossom pupils. Combine all three; preserve v008's build and use the model for outfit detail even where the portrait stylizes it. Do not copy the model's blue environmental lighting or the portrait's warm backdrop, border, hands or pose. Use neutral illumination and the approved neutral's very fair skin. Preserve its exact recognizable identity, face, pale skin, hair, eye colors, costume construction and detailed painterly anime illustration style, linework and shading. Preserve her long dark-brown hair with reddish tips, fringe and face-framing locks; exact dark hat with cream emblem, red plum blossom branch and tassel; red mandarin collar, patterned brown coat with large cuffs, dark shorts, gold closures and waist ornaments, hanging tassels, embroidered long coat tails, rings and dark nails, socks with red bands and blossoms, and decorated dark shoes.\nBuild and skin: match the approved neutral's cute petite Medium Female proportions, compact upper frame, balanced torso-to-leg ratio and gently full thighs. Do not stretch the torso or legs or turn her into a chibi. Keep the head, hat and oversized cuffs consistent with that approved build. Preserve her VERY FAIR PALE IVORY complexion with a delicate neutral/cool-pink undertone consistently on the face, neck, hands and legs. Use pale pink and cool neutral skin shading and neutral illumination without a yellow, orange, brown or tanned cast. Any emotion-specific cheek blush stays localized. Preserve the source's painted volume without bleaching away detail.\nPersonality and acting: Hu Tao's teasing gives way to sincere romantic longing: noticeable rosy blush, softly raised inner brows, a wistful small smile and an intent affectionate gaze toward the viewer. Angle her shoulders gently three-quarter and lean forward only slightly. Her anatomical right arm rests low at her side with a relaxed side-view hand and loosely grouped fingers; her anatomical left forearm bends modestly with the hand held low in front of her waist, palm oblique and fingers resting naturally together, kept clear of coat fabric and tassels. Keep hands away from her face and collar. Give her a bashful, hopeful head inclination and a natural separated-foot standing pose.\nEye design \u2014 essential Hu Tao identity: both eyes stay naturally open enough to show their complete pupils, with coherent eyelids and intact reddish-amber irises. Each pupil is ONE SMALL PALE CREAM-IVORY FIVE-PETAL BLOSSOM, following the model and portrait. Use a single rounded five-lobed flower silhouette: one petal at the top, two around the right half and two around the left half, arranged evenly around one center. Five separate rounded petal tips and five shallow valleys, all visible inside the iris. This is a rounded five-petal flower, never a four-lobed cross or diamond, square, star, or ordinary round pupil. Hu Tao's anatomical LEFT eye (viewer RIGHT) and anatomical RIGHT eye (viewer LEFT) must BOTH have the same complete FIVE-petal flower design; do not simplify either eye. Keep a visible warm colored iris border, catchlights separate, and the gaze consistent with the emotion. Keep the face nearly frontal or a mild three-quarter angle so neither flower is clipped by the lid or perspective. These blossoms are natural pupil shapes, not decorative highlights or replacements for the whole eye. No heart pupils or floating hearts in ordinary expressions.\nHands and anatomy: use natural, softly articulated human hands, each with a believable palm, four gently curved fingers and a distinct opposable thumb. Let overlap follow the gesture rather than forcing hidden digits into view. Keep gestures simple and readable near the image plane, hands spatially separate, with clean contours and a small clear gap from adjacent fabric wherever they do not intentionally touch. Avoid reaching toward the camera, extreme foreshortening, tangled fingers and elaborate splaying. Exactly two coherent legs and feet, uncrossed in a balanced stance. Hair and heavy coat tails follow the pose naturally with gravity, and patterns and accessories turn with their actual surfaces. Preserve the complete outfit throughout.\nComplete silhouette including hat branch and blossoms, hair tips, hands, sleeves, coat tails, tassels, socks and both shoes, with approximately 2\u20134% top and bottom padding and 92\u201396% visible height. Genuinely transparent background with clear alpha outside the character. Both hands empty. No scenery, backdrop, floor, reflection, ground shadow, detached floating flames, ghosts, particles, weapons, new props, text, labels, UI, watermark or additional characters. Produce one character sprite.",
+        "referenced_image_paths": [
+          "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-hu-tao-three-hands-smug-perspective/references/Hu Tao/approved-neutral.png",
+          "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-hu-tao-three-hands-smug-perspective/references/Hu Tao/model.png",
+          "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-hu-tao-three-hands-smug-perspective/references/Hu Tao/portrait-style-v004.png"
+        ],
+        "transparent_background": true
+      },
+      "approval": {
+        "status": "pending"
+      },
+      "tool_output": "/Users/alexachan/.codex/generated_images/01a1aa19-42b2-7e92-b08d-8ee7d133c057/exec-45dffd33-3def-4a73-a592-c050982f13be.png",
+      "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-hu-tao-three-hands-smug-perspective/raw/Hu Tao/desire.png",
+      "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-hu-tao-three-hands-smug-perspective/sprites/Hu Tao/desire.png",
+      "sha256": "1b143d3ee244b6fd70cad86db08502e76feb76f715d4dc5544358afd7620c530",
+      "dimensions": [
+        934,
+        1685
+      ],
+      "png_color_type": 6
+    },
+    "Hu Tao excitement": {
+      "character": "Hu Tao",
+      "emotion": "excitement",
+      "status": "candidate",
+      "reported_defect": "distorted hands",
+      "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-hu-tao-three-hands-smug-perspective/prompts/Hu Tao/excitement.txt",
+      "tool": "image_gen.imagegen",
+      "arguments": {
+        "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Hu Tao from Genshin Impact expressing excitement. Input images: Image 1 is the explicitly approved neutral-v008, the PRIMARY guide for her exact cute petite proportions, balanced torso/legs, gently full thighs, very pale complexion and continuity across this set. Image 2 is the user's in-game model, authoritative for exact costume construction, accessory placement, hair and character eye design. Image 3 is the user's latest portrait artwork, guiding confident linework, soft painterly anime rendering, rounded facial features and pale five-petal blossom pupils. Combine all three; preserve v008's build and use the model for outfit detail even where the portrait stylizes it. Do not copy the model's blue environmental lighting or the portrait's warm backdrop, border, hands or pose. Use neutral illumination and the approved neutral's very fair skin. Preserve its exact recognizable identity, face, pale skin, hair, eye colors, costume construction and detailed painterly anime illustration style, linework and shading. Preserve her long dark-brown hair with reddish tips, fringe and face-framing locks; exact dark hat with cream emblem, red plum blossom branch and tassel; red mandarin collar, patterned brown coat with large cuffs, dark shorts, gold closures and waist ornaments, hanging tassels, embroidered long coat tails, rings and dark nails, socks with red bands and blossoms, and decorated dark shoes.\nBuild and skin: match the approved neutral's cute petite Medium Female proportions, compact upper frame, balanced torso-to-leg ratio and gently full thighs. Do not stretch the torso or legs or turn her into a chibi. Keep the head, hat and oversized cuffs consistent with that approved build. Preserve her VERY FAIR PALE IVORY complexion with a delicate neutral/cool-pink undertone consistently on the face, neck, hands and legs. Use pale pink and cool neutral skin shading and neutral illumination without a yellow, orange, brown or tanned cast. Any emotion-specific cheek blush stays localized. Preserve the source's painted volume without bleaching away detail.\nPersonality and acting: Hu Tao has just thought of a wonderfully mischievous plan: bright open eyes, raised brows and a delighted open smile. Give her a buoyant slight forward lean and one lightly lifted heel, feet separate. Her anatomical right elbow bends and the right hand forms a small relaxed celebratory fist beside the lower ribs, thumb lying naturally outside the curled fingers. Her anatomical left arm angles low beside her hip with the left hand relaxed in side view and fingers loosely grouped. Keep both hands well apart, wrists comfortable and clear of clothes; no reaching palm or intricate finger gesture. Convey her clever theatrical enthusiasm through the shoulders, head tilt and rhythm of the whole pose.\nEye design \u2014 essential Hu Tao identity: both eyes stay naturally open enough to show their complete pupils, with coherent eyelids and intact reddish-amber irises. Each pupil is ONE SMALL PALE CREAM-IVORY FIVE-PETAL BLOSSOM, following the model and portrait. Use a single rounded five-lobed flower silhouette: one petal at the top, two around the right half and two around the left half, arranged evenly around one center. Five separate rounded petal tips and five shallow valleys, all visible inside the iris. This is a rounded five-petal flower, never a four-lobed cross or diamond, square, star, or ordinary round pupil. Hu Tao's anatomical LEFT eye (viewer RIGHT) and anatomical RIGHT eye (viewer LEFT) must BOTH have the same complete FIVE-petal flower design; do not simplify either eye. Keep a visible warm colored iris border, catchlights separate, and the gaze consistent with the emotion. Keep the face nearly frontal or a mild three-quarter angle so neither flower is clipped by the lid or perspective. These blossoms are natural pupil shapes, not decorative highlights or replacements for the whole eye. No heart pupils or floating hearts in ordinary expressions.\nHands and anatomy: use natural, softly articulated human hands, each with a believable palm, four gently curved fingers and a distinct opposable thumb. Let overlap follow the gesture rather than forcing hidden digits into view. Keep gestures simple and readable near the image plane, hands spatially separate, with clean contours and a small clear gap from adjacent fabric wherever they do not intentionally touch. Avoid reaching toward the camera, extreme foreshortening, tangled fingers and elaborate splaying. Exactly two coherent legs and feet, uncrossed in a balanced stance. Hair and heavy coat tails follow the pose naturally with gravity, and patterns and accessories turn with their actual surfaces. Preserve the complete outfit throughout.\nComplete silhouette including hat branch and blossoms, hair tips, hands, sleeves, coat tails, tassels, socks and both shoes, with approximately 2\u20134% top and bottom padding and 92\u201396% visible height. Genuinely transparent background with clear alpha outside the character. Both hands empty. No scenery, backdrop, floor, reflection, ground shadow, detached floating flames, ghosts, particles, weapons, new props, text, labels, UI, watermark or additional characters. Produce one character sprite.",
+        "referenced_image_paths": [
+          "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-hu-tao-three-hands-smug-perspective/references/Hu Tao/approved-neutral.png",
+          "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-hu-tao-three-hands-smug-perspective/references/Hu Tao/model.png",
+          "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-hu-tao-three-hands-smug-perspective/references/Hu Tao/portrait-style-v004.png"
+        ],
+        "transparent_background": true
+      },
+      "approval": {
+        "status": "pending"
+      },
+      "tool_output": "/Users/alexachan/.codex/generated_images/01a1aa19-42b2-7e92-b08d-8ee7d133c057/exec-d4e36f64-ff24-4fb5-8494-d052f815974e.png",
+      "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-hu-tao-three-hands-smug-perspective/raw/Hu Tao/excitement.png",
+      "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-hu-tao-three-hands-smug-perspective/sprites/Hu Tao/excitement.png",
+      "sha256": "172a15d0141772a6ec1e3f50123f70495eadbb02c29d7bdd30a66c4a5b112f05",
+      "dimensions": [
+        934,
+        1685
+      ],
+      "png_color_type": 6
+    }
+  },
+  "total_new_expressions": 3,
+  "model_note": "Built-in image tool; model ID/quality unavailable.",
+  "review_policy": "New revisions await user review; no general autonomous visual QA.",
+  "generation_keys": [
+    "Hu Tao confusion",
+    "Hu Tao desire",
+    "Hu Tao excitement"
+  ],
+  "regeneration_keys": [
+    "Hu Tao confusion",
+    "Hu Tao desire",
+    "Hu Tao excitement"
+  ],
+  "pupil_revision": {
+    "character": "Hu Tao",
+    "emotion": "smug",
+    "status": "candidate",
+    "reported_defect": "patched pupils don't fully match perspective",
+    "parent": {
+      "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-hu-tao-three-hands-smug-perspective/sources/Hu Tao/smug-reported.png",
+      "sha256": "fd6fcb1b5ce15fed7f41d0f6c72157bfff48912e3745cd4c9225043c6f04e5d2"
+    },
+    "same_asset_before_previous_patches": {
+      "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-hu-tao-three-hands-smug-perspective/sources/Hu Tao/smug-before-patches.png",
+      "sha256": "d1e3e902974ce1ecd6b0a69b790d4d8fdf93471e46ec108991ca21d521c67ecd"
+    },
+    "reference": {
+      "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-hu-tao-three-hands-smug-perspective/references/Hu Tao/approved-neutral.png",
+      "sha256": "2896b5601f7bd9bac64992c7dcf90796a071f268c6496613e1d62718fb9203d5"
+    },
+    "method": "Targeted Python perspective adjustment under the existing pupil-compositing authorization. No full sprite regeneration.",
+    "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-hu-tao-three-hands-smug-perspective/sprites/Hu Tao/smug.png",
+    "sha256": "284b4af8955f0dd2c7d7e67362408ac2510e47d255223ea8e2982e4adb6d9945",
+    "dimensions": [
+      934,
+      1685
+    ],
+    "patches": [
+      {
+        "eye": "viewer-left",
+        "previous_box": [
+          443,
+          256,
+          459,
+          272
+        ],
+        "source_box": [
+          417,
+          259,
+          433,
+          276
+        ],
+        "destination_box": [
+          443,
+          257,
+          459,
+          271
+        ],
+        "rotation": 15.0,
+        "plane_shear": -0.1,
+        "raster": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-hu-tao-three-hands-smug-perspective/patches/smug-0-perspective-raster.png",
+        "visible_iris_mask": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-hu-tao-three-hands-smug-perspective/patches/smug-0-eye-opening-mask.png",
+        "method": "Independent rotation, shear and vertical compression for the tilted eye plane; clipped to the original visible iris."
+      },
+      {
+        "eye": "viewer-right",
+        "previous_box": [
+          522,
+          236,
+          538,
+          250
+        ],
+        "source_box": [
+          503,
+          248,
+          520,
+          265
+        ],
+        "destination_box": [
+          523,
+          237,
+          537,
+          249
+        ],
+        "rotation": 16.5,
+        "plane_shear": -0.13,
+        "raster": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-hu-tao-three-hands-smug-perspective/patches/smug-1-perspective-raster.png",
+        "visible_iris_mask": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-hu-tao-three-hands-smug-perspective/patches/smug-1-eye-opening-mask.png",
+        "method": "Independent rotation, shear and vertical compression for the tilted eye plane; clipped to the original visible iris."
+      }
+    ],
+    "technical_checks": {
+      "alpha_pixel_identical": true,
+      "changed_pixels": 478,
+      "changed_pixels_outside_previous_pupil_rectangles": 0
+    },
+    "approval": {
+      "status": "pending"
+    }
+  },
+  "new_generation_count": 3,
+  "pupil_perspective_edit_count": 1,
+  "technical_checks": [
+    {
+      "emotion": "confusion",
+      "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-hu-tao-three-hands-smug-perspective/sprites/Hu Tao/confusion.png",
+      "sha256": "02c13cf294d46fe345bcae8bd4dde981bf08b73b5a5ff823bbdfb42ce5f36a12",
+      "dimensions": [
+        934,
+        1685
+      ],
+      "png_decoded": true,
+      "alpha_channel": true
+    },
+    {
+      "emotion": "desire",
+      "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-hu-tao-three-hands-smug-perspective/sprites/Hu Tao/desire.png",
+      "sha256": "1b143d3ee244b6fd70cad86db08502e76feb76f715d4dc5544358afd7620c530",
+      "dimensions": [
+        934,
+        1685
+      ],
+      "png_decoded": true,
+      "alpha_channel": true
+    },
+    {
+      "emotion": "excitement",
+      "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-hu-tao-three-hands-smug-perspective/sprites/Hu Tao/excitement.png",
+      "sha256": "172a15d0141772a6ec1e3f50123f70495eadbb02c29d7bdd30a66c4a5b112f05",
+      "dimensions": [
+        934,
+        1685
+      ],
+      "png_decoded": true,
+      "alpha_channel": true
+    },
+    {
+      "emotion": "smug",
+      "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-hu-tao-three-hands-smug-perspective/sprites/Hu Tao/smug.png",
+      "sha256": "284b4af8955f0dd2c7d7e67362408ac2510e47d255223ea8e2982e4adb6d9945",
+      "dimensions": [
+        934,
+        1685
+      ],
+      "png_decoded": true,
+      "alpha_channel": true
+    }
+  ],
+  "previews": {
+    "full_body": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-hu-tao-three-hands-smug-perspective/previews/full-body.png",
+    "faces": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-hu-tao-three-hands-smug-perspective/previews/faces.png",
+    "smug_eyes_before_after": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-hu-tao-three-hands-smug-perspective/previews/smug-eyes-before-after.png",
+    "order": [
+      "confusion",
+      "desire",
+      "excitement",
+      "smug"
+    ],
+    "labels": "none",
+    "background": "transparent",
+    "transforms": [
+      {
+        "emotion": "confusion",
+        "body_position": [
+          12,
+          23
+        ],
+        "body_size": [
+          396,
+          714
+        ],
+        "face_crop": [
+          149,
+          0,
+          785,
+          522
+        ],
+        "face_position": [
+          8,
+          35
+        ],
+        "face_size": [
+          304,
+          250
+        ]
+      },
+      {
+        "emotion": "desire",
+        "body_position": [
+          432,
+          23
+        ],
+        "body_size": [
+          396,
+          714
+        ],
+        "face_crop": [
+          149,
+          0,
+          785,
+          522
+        ],
+        "face_position": [
+          328,
+          35
+        ],
+        "face_size": [
+          304,
+          250
+        ]
+      },
+      {
+        "emotion": "excitement",
+        "body_position": [
+          852,
+          23
+        ],
+        "body_size": [
+          396,
+          714
+        ],
+        "face_crop": [
+          149,
+          0,
+          785,
+          522
+        ],
+        "face_position": [
+          648,
+          35
+        ],
+        "face_size": [
+          304,
+          250
+        ]
+      },
+      {
+        "emotion": "smug",
+        "body_position": [
+          1272,
+          23
+        ],
+        "body_size": [
+          396,
+          714
+        ],
+        "face_crop": [
+          149,
+          0,
+          785,
+          522
+        ],
+        "face_position": [
+          968,
+          35
+        ],
+        "face_size": [
+          304,
+          250
+        ]
+      }
+    ]
+  },
+  "installation": "Only the two explicitly approved ivory-tinted heart variants installed. These four revisions are not installed and await user approval.",
+  "archives": {
+    "revisions": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-hu-tao-three-hands-smug-perspective/archives/revisions.zip",
+    "complete_artwork": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-hu-tao-three-hands-smug-perspective/archives/complete-artwork.zip"
+  }
+}

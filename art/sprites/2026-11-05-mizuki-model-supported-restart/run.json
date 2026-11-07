@@ -72,7 +72,7 @@
       "purpose": "In-game model identity, eye design and costume details."
     },
     "official_art_in_expression_inputs": false,
-    "expressions_scheduled": false,
+    "expressions_scheduled": true,
     "pupil_design": "Preserve the small subtle swirl-shaped pupils, iris boundaries and model eye design in every expression.",
     "approved_neutral": {
       "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-mizuki-model-supported-restart/candidates/Yumemizuki Mizuki/neutral-v004.png",
@@ -214,5 +214,7 @@
       "scaling": "none",
       "sprite_png": "unchanged"
     }
-  }
+  },
+  "expression_run": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-mizuki-four-rejected-revisions",
+  "expression_scope": "Only the four previously rejected emotions regenerated, per user request."
 }

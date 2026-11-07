@@ -1,0 +1,145 @@
+{
+  "user_request": "Give La Signora and the 3 following enemies more interesting poses that suit their characterization",
+  "reference_authorization": "User authorized online or Genshin Wiki images for the 18 enemy neutrals. Each new neutral uses only its previously saved Wiki archive image.",
+  "status": "candidates_complete",
+  "characters": [
+    {
+      "name": "La Signora",
+      "reference": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-four-enemy-pose-revisions/references/La Signora/wiki.webp",
+      "referenceSHA256": "82b3074804f218c46a295946d314e694c5742b12f577b88b2f672f0582de3db4",
+      "source": "https://genshin-impact.fandom.com/wiki/File:Enemy_La_Signora.png",
+      "imageURL": "https://static.wikia.nocookie.net/gensin-impact/images/b/be/Enemy_La_Signora.png/revision/latest?cb=20230314064150",
+      "prior_candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-enemy-neutral-candidates/candidates/La Signora/neutral-v001.png",
+      "prior_sha256": "8dc563aae07e433a7c6793c2a7e24e4ca8c2eddd4faa2f551eb608657efa5308",
+      "status": "candidate_unapproved",
+      "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-four-enemy-pose-revisions/prompts/La Signora/neutral-v002.txt",
+      "arguments": {
+        "prompt": "Create one full-body neutral enemy sprite of La Signora from Genshin Impact, using the supplied Genshin Wiki enemy archive image as the sole visual reference. Preserve her or its recognizable identity, exact costume or armor, mask, colors, anatomy, proportions, silhouette and details; render polished Genshin-inspired anime game illustration. Convey her imperious, theatrical confidence: stand in a poised three-quarter stance, head lifted with a cool, disdainful expression. Her right hand rests lightly at her hip; her left hand is raised near her shoulder in a composed, dismissive gesture, fingers naturally relaxed. Her cape and skirt hang gracefully. Both feet are visible and only slightly staggered. Compose as a readable character-specific idle, not a battle attack. Where human hands are visible, each has a palm, four naturally articulated fingers and a separate opposable thumb. Keep hands clearly separated from clothing. Fit the complete figure including headwear, horns, hands, feet, hair and costume inside the canvas, with clear transparent margins on all sides. True transparent background and alpha. No scenery, ground shadow, UI, text, watermark, additional figures or detached effects.",
+        "referenced_image_paths": [
+          "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-four-enemy-pose-revisions/references/La Signora/wiki.webp"
+        ],
+        "transparent_background": true
+      },
+      "tool": "image_gen.imagegen",
+      "tool_output": "/Users/alexachan/.codex/generated_images/01a1b53f-9119-7e51-8c7f-6405683343d1/exec-5fd49955-9241-4160-8633-aa9822879ffc.png",
+      "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-four-enemy-pose-revisions/raw/La Signora/neutral-v002.png",
+      "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-four-enemy-pose-revisions/candidates/La Signora/neutral-v002.png",
+      "candidate_sha256": "58f522f0699da5a7d3d82b392ae2d4e265e85d5c3fe9151b3e334dce5f6391b3",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "approval": "pending",
+      "framing_transform": null
+    },
+    {
+      "name": "Mirror Maiden",
+      "reference": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-four-enemy-pose-revisions/references/Mirror Maiden/wiki.webp",
+      "referenceSHA256": "50124775068132a74a6ff1b197a5f0216041ca2e0e0052713c91642264acad49",
+      "source": "https://genshin-impact.fandom.com/wiki/File:Enemy_Mirror_Maiden.png",
+      "imageURL": "https://static.wikia.nocookie.net/gensin-impact/images/9/91/Enemy_Mirror_Maiden.png/revision/latest?cb=20260606161301",
+      "prior_candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-enemy-neutral-candidates/candidates/Mirror Maiden/neutral-v001.png",
+      "prior_sha256": "654ad8bd1a182a2b0e995060149779e3c0a288453e9acf9a189fff6315308215",
+      "status": "approved",
+      "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-four-enemy-pose-revisions/prompts/Mirror Maiden/neutral-v002.txt",
+      "arguments": {
+        "prompt": "Create one full-body neutral enemy sprite of Mirror Maiden from Genshin Impact, using the supplied Genshin Wiki enemy archive image as the sole visual reference. Preserve her or its recognizable identity, exact costume or armor, mask, colors, anatomy, proportions, silhouette and details; render polished Genshin-inspired anime game illustration. Convey her calm, uncanny, ritualistic presence: float upright just above the ground with a gentle turn of the torso, her right hand lifted near her face as if contemplating a reflection and her left hand open near her waist. Show the elegant controlled movement of her long costume; keep both legs and feet distinct and visible. Compose as a readable character-specific idle, not a battle attack. Where human hands are visible, each has a palm, four naturally articulated fingers and a separate opposable thumb. Keep hands clearly separated from clothing. Fit the complete figure including headwear, horns, hands, feet, hair and costume inside the canvas, with clear transparent margins on all sides. True transparent background and alpha. No scenery, ground shadow, UI, text, watermark, additional figures or detached effects.",
+        "referenced_image_paths": [
+          "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-four-enemy-pose-revisions/references/Mirror Maiden/wiki.webp"
+        ],
+        "transparent_background": true
+      },
+      "tool": "image_gen.imagegen",
+      "tool_output": "/Users/alexachan/.codex/generated_images/01a1b53f-9119-7e51-8c7f-6405683343d1/exec-cf50ae4f-53d0-450b-9ed2-9984c1a99a8c.png",
+      "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-four-enemy-pose-revisions/raw/Mirror Maiden/neutral-v002.png",
+      "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-four-enemy-pose-revisions/candidates/Mirror Maiden/neutral-v002.png",
+      "candidate_sha256": "a1280a26d305a65b27ea98c8efcc693e3938bf8e24e555ef08ff2668ed0d4afe",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "approval": {
+        "status": "approved",
+        "date": "2026-11-07",
+        "message": "Signora accepted along with all the others.",
+        "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-four-enemy-pose-revisions/candidates/Mirror Maiden/neutral-v002.png",
+        "candidate_sha256": "a1280a26d305a65b27ea98c8efcc693e3938bf8e24e555ef08ff2668ed0d4afe"
+      },
+      "framing_transform": null
+    },
+    {
+      "name": "Stonehide Lawachurl",
+      "reference": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-four-enemy-pose-revisions/references/Stonehide Lawachurl/wiki.webp",
+      "referenceSHA256": "1c456e1ee598647bc32090ad2b3d2799439e89731cfa4d193c86890201c80b94",
+      "source": "https://genshin-impact.fandom.com/wiki/File:Enemy_Stonehide_Lawachurl.png",
+      "imageURL": "https://static.wikia.nocookie.net/gensin-impact/images/4/40/Enemy_Stonehide_Lawachurl.png/revision/latest?cb=20260606160134",
+      "prior_candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-enemy-neutral-candidates/candidates/Stonehide Lawachurl/neutral-v001.png",
+      "prior_sha256": "97125a9e9e2b40491da7b816a7d6c3d37f565a5bf6363482233a7af81ed1caae",
+      "status": "approved",
+      "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-four-enemy-pose-revisions/prompts/Stonehide Lawachurl/neutral-v002.txt",
+      "arguments": {
+        "prompt": "Create one full-body neutral enemy sprite of Stonehide Lawachurl from Genshin Impact, using the supplied Genshin Wiki enemy archive image as the sole visual reference. Preserve her or its recognizable identity, exact costume or armor, mask, colors, anatomy, proportions, silhouette and details; render polished Genshin-inspired anime game illustration. Convey the powerful, territorial leader's imposing weight: plant both feet apart in a wide stable stance, lean the torso slightly forward and turn the masked head toward the viewer. Hold the right massive fist raised near the chest in a challenging guard, and the left heavy arm low at the side. Preserve its bulky creature anatomy, horns, rock armor and natural proportions; this is a threatening idle, not a strike. Compose as a readable character-specific idle, not a battle attack. Where human hands are visible, each has a palm, four naturally articulated fingers and a separate opposable thumb. Keep hands clearly separated from clothing. Fit the complete figure including headwear, horns, hands, feet, hair and costume inside the canvas, with clear transparent margins on all sides. True transparent background and alpha. No scenery, ground shadow, UI, text, watermark, additional figures or detached effects.",
+        "referenced_image_paths": [
+          "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-four-enemy-pose-revisions/references/Stonehide Lawachurl/wiki.webp"
+        ],
+        "transparent_background": true
+      },
+      "tool": "image_gen.imagegen",
+      "tool_output": "/Users/alexachan/.codex/generated_images/01a1b53f-9119-7e51-8c7f-6405683343d1/exec-2995a9f7-200c-4808-b58a-32fcc8dfb056.png",
+      "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-four-enemy-pose-revisions/raw/Stonehide Lawachurl/neutral-v002.png",
+      "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-four-enemy-pose-revisions/candidates/Stonehide Lawachurl/neutral-v002.png",
+      "candidate_sha256": "045a2a9505473f7d5724af82962bd6fc6e0953086b92cb7e81e8a5c100a863da",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "approval": {
+        "status": "approved",
+        "date": "2026-11-07",
+        "message": "Signora accepted along with all the others.",
+        "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-four-enemy-pose-revisions/candidates/Stonehide Lawachurl/neutral-v002.png",
+        "candidate_sha256": "045a2a9505473f7d5724af82962bd6fc6e0953086b92cb7e81e8a5c100a863da"
+      },
+      "framing_transform": null
+    },
+    {
+      "name": "Wayward Hermetic Spiritspeaker",
+      "reference": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-four-enemy-pose-revisions/references/Wayward Hermetic Spiritspeaker/wiki.webp",
+      "referenceSHA256": "147b21ea1eef4d451db1b90cab94ed9aeb9f49532106dfdc0a684c0ba2f55584",
+      "source": "https://genshin-impact.fandom.com/wiki/File:Enemy_Wayward_Hermetic_Spiritspeaker.png",
+      "imageURL": "https://static.wikia.nocookie.net/gensin-impact/images/e/ed/Enemy_Wayward_Hermetic_Spiritspeaker.png/revision/latest?cb=20260602011315",
+      "prior_candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-enemy-neutral-candidates/candidates/Wayward Hermetic Spiritspeaker/neutral-v001.png",
+      "prior_sha256": "7db21d9f374c051604b6f0f19b854fbb1c13cbf76d6adcca218e5187ad5c98a2",
+      "status": "approved",
+      "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-four-enemy-pose-revisions/prompts/Wayward Hermetic Spiritspeaker/neutral-v002.txt",
+      "arguments": {
+        "prompt": "Create one full-body neutral enemy sprite of Wayward Hermetic Spiritspeaker from Genshin Impact, using the supplied Genshin Wiki enemy archive image as the sole visual reference. Preserve her or its recognizable identity, exact costume or armor, mask, colors, anatomy, proportions, silhouette and details; render polished Genshin-inspired anime game illustration. Convey her mysterious spiritual authority and poised otherworldly grace: hover with a slight diagonal body turn, head lifted in a serene watchful expression. Her right hand is raised gently near her chest as though directing a ritual; her left arm extends slightly outward with a relaxed open hand near the body. Keep the two legs and feet separate and the flowing ornate elements fully visible; no detached magic or extra figures. Compose as a readable character-specific idle, not a battle attack. Where human hands are visible, each has a palm, four naturally articulated fingers and a separate opposable thumb. Keep hands clearly separated from clothing. Fit the complete figure including headwear, horns, hands, feet, hair and costume inside the canvas, with clear transparent margins on all sides. True transparent background and alpha. No scenery, ground shadow, UI, text, watermark, additional figures or detached effects.",
+        "referenced_image_paths": [
+          "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-four-enemy-pose-revisions/references/Wayward Hermetic Spiritspeaker/wiki.webp"
+        ],
+        "transparent_background": true
+      },
+      "tool": "image_gen.imagegen",
+      "tool_output": "/Users/alexachan/.codex/generated_images/01a1b53f-9119-7e51-8c7f-6405683343d1/exec-f4426689-04e4-422d-aa6c-a89502fcc2f6.png",
+      "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-four-enemy-pose-revisions/raw/Wayward Hermetic Spiritspeaker/neutral-v002.png",
+      "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-four-enemy-pose-revisions/candidates/Wayward Hermetic Spiritspeaker/neutral-v002.png",
+      "candidate_sha256": "3aff84926b878506c55dfc8b8a888ab06c597e8708ec8fb6efc14d63a2c57eed",
+      "dimensions": [
+        1140,
+        1380
+      ],
+      "mode": "RGBA",
+      "approval": {
+        "status": "approved",
+        "date": "2026-11-07",
+        "message": "Signora accepted along with all the others.",
+        "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-four-enemy-pose-revisions/candidates/Wayward Hermetic Spiritspeaker/neutral-v002.png",
+        "candidate_sha256": "3aff84926b878506c55dfc8b8a888ab06c597e8708ec8fb6efc14d63a2c57eed"
+      },
+      "framing_transform": null
+    }
+  ]
+}

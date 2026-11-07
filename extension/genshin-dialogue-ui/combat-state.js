@@ -41,6 +41,11 @@ export function enemyFormSprite(ctx,card){
     const form=defaultKit(card.name,{enemy:true})?.transform;
     return form?.name===entry.form&&/^[a-z][a-z0-9_]{0,59}$/.test(form.sprite || '')?form.sprite:'';
 }
+// Second forms taken by enemies still standing in the current encounter (for the arena's phase 2 music).
+export function encounterForms(ctx){
+    const enemies=ctx.chatMetadata?.silly_teyvat_combat?.visits?.[visitKey(ctx)]?.enemies || {};
+    return new Set(Object.values(enemies).filter(e=>e?.form&&!e.defeated).map(e=>e.form));
+}
 export function activeEnemies(ctx){
     const cast=ctx.chatMetadata?.silly_teyvat_cast || {},encounter=cast.encounter,locationId=ctx.chatMetadata?.silly_teyvat_world?.location?.id;
     const key=visitKey(ctx);

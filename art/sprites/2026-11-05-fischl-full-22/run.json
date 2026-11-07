@@ -46,7 +46,7 @@
   },
   "expressions": {
     "annoyance": {
-      "status": "candidate",
+      "status": "approved",
       "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-fischl-full-22/prompts/Fischl/annoyance.txt",
       "tool": "image_gen.imagegen",
       "arguments": {
@@ -66,11 +66,15 @@
       ],
       "png_color_type": 6,
       "approval": {
-        "status": "pending"
+        "status": "approved",
+        "date": "2026-11-05",
+        "message": "All accepted. Install all sprite sets into their respected folders including Fischl's new set, which should be as an alternate set to her already generated one.",
+        "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-fischl-full-22/sprites/Fischl/annoyance.png",
+        "candidate_sha256": "bef2f6a5de26c515bd2e5a0b83da847296755ebf0ea3e593bb6317c2cf4c5fd6"
       }
     },
     "smug": {
-      "status": "candidate",
+      "status": "approved",
       "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-fischl-full-22/prompts/Fischl/smug.txt",
       "tool": "image_gen.imagegen",
       "arguments": {
@@ -90,11 +94,15 @@
       ],
       "png_color_type": 6,
       "approval": {
-        "status": "pending"
+        "status": "approved",
+        "date": "2026-11-05",
+        "message": "All accepted. Install all sprite sets into their respected folders including Fischl's new set, which should be as an alternate set to her already generated one.",
+        "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-fischl-full-22/sprites/Fischl/smug.png",
+        "candidate_sha256": "c0eaefa3cbfcf56d1b26b1a5aad9e2915db57b1f1c7d042dd278c3bf8699bb44"
       }
     },
     "confusion": {
-      "status": "candidate",
+      "status": "approved",
       "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-fischl-full-22/prompts/Fischl/confusion.txt",
       "tool": "image_gen.imagegen",
       "arguments": {
@@ -114,11 +122,15 @@
       ],
       "png_color_type": 6,
       "approval": {
-        "status": "pending"
+        "status": "approved",
+        "date": "2026-11-05",
+        "message": "All accepted. Install all sprite sets into their respected folders including Fischl's new set, which should be as an alternate set to her already generated one.",
+        "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-fischl-full-22/sprites/Fischl/confusion.png",
+        "candidate_sha256": "8d718eaf4567f8306940f52f6b3a100fe1e8b8651c2be06c932192f90f2a3c0d"
       }
     },
     "love": {
-      "status": "candidate",
+      "status": "approved",
       "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-fischl-full-22/prompts/Fischl/love.txt",
       "tool": "image_gen.imagegen",
       "arguments": {
@@ -138,11 +150,15 @@
       ],
       "png_color_type": 6,
       "approval": {
-        "status": "pending"
+        "status": "approved",
+        "date": "2026-11-05",
+        "message": "All accepted. Install all sprite sets into their respected folders including Fischl's new set, which should be as an alternate set to her already generated one.",
+        "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-fischl-full-22/sprites/Fischl/love.png",
+        "candidate_sha256": "581f8af4d2c1f575a2a609fbf1ea719cd2bfabed7a4329aaa02111927cb4bc46"
       }
     },
     "excitement": {
-      "status": "candidate",
+      "status": "approved",
       "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-fischl-full-22/prompts/Fischl/excitement.txt",
       "tool": "image_gen.imagegen",
       "arguments": {
@@ -162,11 +178,15 @@
       ],
       "png_color_type": 6,
       "approval": {
-        "status": "pending"
+        "status": "approved",
+        "date": "2026-11-05",
+        "message": "All accepted. Install all sprite sets into their respected folders including Fischl's new set, which should be as an alternate set to her already generated one.",
+        "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-fischl-full-22/sprites/Fischl/excitement.png",
+        "candidate_sha256": "86192910d8ed4ef36b542075f500d1f8a51bbc485de87badc9db7b5570893092"
       }
     },
     "joy": {
-      "status": "candidate",
+      "status": "approved",
       "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-fischl-full-22/prompts/Fischl/joy.txt",
       "tool": "image_gen.imagegen",
       "arguments": {
@@ -186,11 +206,15 @@
       ],
       "png_color_type": 6,
       "approval": {
-        "status": "pending"
+        "status": "approved",
+        "date": "2026-11-05",
+        "message": "All accepted. Install all sprite sets into their respected folders including Fischl's new set, which should be as an alternate set to her already generated one.",
+        "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-fischl-full-22/sprites/Fischl/joy.png",
+        "candidate_sha256": "c9e2a3aa81b657840bd56254613a372fd361bcbd3d30e83cac3fe6e51d6aa983"
       }
     },
     "fear": {
-      "status": "candidate",
+      "status": "approved",
       "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-fischl-full-22/prompts/Fischl/fear.txt",
       "tool": "image_gen.imagegen",
       "arguments": {
@@ -210,11 +234,15 @@
       ],
       "png_color_type": 6,
       "approval": {
-        "status": "pending"
+        "status": "approved",
+        "date": "2026-11-05",
+        "message": "All accepted. Install all sprite sets into their respected folders including Fischl's new set, which should be as an alternate set to her already generated one.",
+        "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-fischl-full-22/sprites/Fischl/fear.png",
+        "candidate_sha256": "c8110cdf9c42fe0f6487841d606e24dd9798b243e40c0e6fbaad54127052eb7d"
       }
     },
     "pride": {
-      "status": "candidate",
+      "status": "approved",
       "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-fischl-full-22/prompts/Fischl/pride.txt",
       "tool": "image_gen.imagegen",
       "arguments": {
@@ -234,7 +262,11 @@
       ],
       "png_color_type": 6,
       "approval": {
-        "status": "pending"
+        "status": "approved",
+        "date": "2026-11-05",
+        "message": "All accepted. Install all sprite sets into their respected folders including Fischl's new set, which should be as an alternate set to her already generated one.",
+        "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-fischl-full-22/sprites/Fischl/pride.png",
+        "candidate_sha256": "94e47b165cd926d26947368f00d98a6956da4c8d54290eee5d3361aa67dc5229"
       }
     },
     "desire": {
@@ -277,7 +309,7 @@
       }
     },
     "anger": {
-      "status": "candidate",
+      "status": "approved",
       "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-fischl-full-22/prompts/Fischl/anger.txt",
       "tool": "image_gen.imagegen",
       "arguments": {
@@ -297,11 +329,15 @@
       ],
       "png_color_type": 6,
       "approval": {
-        "status": "pending"
+        "status": "approved",
+        "date": "2026-11-05",
+        "message": "All accepted. Install all sprite sets into their respected folders including Fischl's new set, which should be as an alternate set to her already generated one.",
+        "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-fischl-full-22/sprites/Fischl/anger.png",
+        "candidate_sha256": "d590488344c3ea9a6b70f4eb3f9ddcc54421e8da3c53cc9ee2578f0058c1733b"
       }
     },
     "grief": {
-      "status": "candidate",
+      "status": "approved",
       "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-fischl-full-22/prompts/Fischl/grief.txt",
       "tool": "image_gen.imagegen",
       "arguments": {
@@ -321,11 +357,15 @@
       ],
       "png_color_type": 6,
       "approval": {
-        "status": "pending"
+        "status": "approved",
+        "date": "2026-11-05",
+        "message": "All accepted. Install all sprite sets into their respected folders including Fischl's new set, which should be as an alternate set to her already generated one.",
+        "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-fischl-full-22/sprites/Fischl/grief.png",
+        "candidate_sha256": "e884c93fa97f86fa2cf6839fa871be548d7b460163bdc9f4d611bae9554bfc93"
       }
     },
     "sadness": {
-      "status": "candidate",
+      "status": "approved",
       "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-fischl-full-22/prompts/Fischl/sadness.txt",
       "tool": "image_gen.imagegen",
       "arguments": {
@@ -345,11 +385,15 @@
       ],
       "png_color_type": 6,
       "approval": {
-        "status": "pending"
+        "status": "approved",
+        "date": "2026-11-05",
+        "message": "All accepted. Install all sprite sets into their respected folders including Fischl's new set, which should be as an alternate set to her already generated one.",
+        "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-fischl-full-22/sprites/Fischl/sadness.png",
+        "candidate_sha256": "c37ee494f780d76fc9235806eda1bf150e538febac6eb8557fb7a57c053f37d0"
       }
     },
     "disgust": {
-      "status": "candidate",
+      "status": "approved",
       "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-fischl-full-22/prompts/Fischl/disgust.txt",
       "tool": "image_gen.imagegen",
       "arguments": {
@@ -369,11 +413,15 @@
       ],
       "png_color_type": 6,
       "approval": {
-        "status": "pending"
+        "status": "approved",
+        "date": "2026-11-05",
+        "message": "All accepted. Install all sprite sets into their respected folders including Fischl's new set, which should be as an alternate set to her already generated one.",
+        "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-fischl-full-22/sprites/Fischl/disgust.png",
+        "candidate_sha256": "d5ab30686271942b6306625be2147e80ac61bebdcd3e28c57b2cd5ced2b74ae7"
       }
     },
     "disappointment": {
-      "status": "candidate",
+      "status": "approved",
       "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-fischl-full-22/prompts/Fischl/disappointment.txt",
       "tool": "image_gen.imagegen",
       "arguments": {
@@ -393,11 +441,15 @@
       ],
       "png_color_type": 6,
       "approval": {
-        "status": "pending"
+        "status": "approved",
+        "date": "2026-11-05",
+        "message": "All accepted. Install all sprite sets into their respected folders including Fischl's new set, which should be as an alternate set to her already generated one.",
+        "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-fischl-full-22/sprites/Fischl/disappointment.png",
+        "candidate_sha256": "3aa01503dc62116fa3d41cb781a147c0c385298c5dfe71d8b48f9b4bd0fb2973"
       }
     },
     "relief": {
-      "status": "candidate",
+      "status": "approved",
       "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-fischl-full-22/prompts/Fischl/relief.txt",
       "tool": "image_gen.imagegen",
       "arguments": {
@@ -417,11 +469,15 @@
       ],
       "png_color_type": 6,
       "approval": {
-        "status": "pending"
+        "status": "approved",
+        "date": "2026-11-05",
+        "message": "All accepted. Install all sprite sets into their respected folders including Fischl's new set, which should be as an alternate set to her already generated one.",
+        "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-fischl-full-22/sprites/Fischl/relief.png",
+        "candidate_sha256": "6e81453a236c8e9bfa23bac5f2c80a71b191b3e4c7edfe81d4b9f1509deab131"
       }
     },
     "admiration": {
-      "status": "candidate",
+      "status": "approved",
       "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-fischl-full-22/prompts/Fischl/admiration.txt",
       "tool": "image_gen.imagegen",
       "arguments": {
@@ -441,11 +497,15 @@
       ],
       "png_color_type": 6,
       "approval": {
-        "status": "pending"
+        "status": "approved",
+        "date": "2026-11-05",
+        "message": "All accepted. Install all sprite sets into their respected folders including Fischl's new set, which should be as an alternate set to her already generated one.",
+        "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-fischl-full-22/sprites/Fischl/admiration.png",
+        "candidate_sha256": "3357d8092254b8e4c9cdd93df02ddbb27ab8d82dc694edee5967734b7af82ff7"
       }
     },
     "gratitude": {
-      "status": "candidate",
+      "status": "approved",
       "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-fischl-full-22/prompts/Fischl/gratitude.txt",
       "tool": "image_gen.imagegen",
       "arguments": {
@@ -465,11 +525,15 @@
       ],
       "png_color_type": 6,
       "approval": {
-        "status": "pending"
+        "status": "approved",
+        "date": "2026-11-05",
+        "message": "All accepted. Install all sprite sets into their respected folders including Fischl's new set, which should be as an alternate set to her already generated one.",
+        "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-fischl-full-22/sprites/Fischl/gratitude.png",
+        "candidate_sha256": "2af11b55d68aee9af1a2a8da855376d54055f12fe202906cc68c3ad64d24cff8"
       }
     },
     "embarrassment": {
-      "status": "candidate",
+      "status": "approved",
       "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-fischl-full-22/prompts/Fischl/embarrassment-v002.txt",
       "tool": "image_gen.imagegen",
       "arguments": {
@@ -504,11 +568,15 @@
       ],
       "png_color_type": 6,
       "approval": {
-        "status": "pending"
+        "status": "approved",
+        "date": "2026-11-05",
+        "message": "All accepted. Install all sprite sets into their respected folders including Fischl's new set, which should be as an alternate set to her already generated one.",
+        "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-fischl-full-22/sprites/Fischl/embarrassment.png",
+        "candidate_sha256": "23e76fcbe01059d5273d45fb515beeb3d41928027bdd0e2e996ea758e3a0c256"
       }
     },
     "caring": {
-      "status": "candidate",
+      "status": "approved",
       "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-fischl-full-22/prompts/Fischl/caring.txt",
       "tool": "image_gen.imagegen",
       "arguments": {
@@ -528,7 +596,11 @@
       ],
       "png_color_type": 6,
       "approval": {
-        "status": "pending"
+        "status": "approved",
+        "date": "2026-11-05",
+        "message": "All accepted. Install all sprite sets into their respected folders including Fischl's new set, which should be as an alternate set to her already generated one.",
+        "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-fischl-full-22/sprites/Fischl/caring.png",
+        "candidate_sha256": "81601d507f27a41b708c221a981b985279aa34417c660f733216533f19b13c19"
       }
     },
     "love-1": {
@@ -593,7 +665,13 @@
     "eyepatch_rule": "Preserve covered left eye; heart pupil appears only in visible open right eye. Character design takes priority over generic two-visible-eyes wording."
   },
   "model_note": "Built-in model, quality and complexity are not exposed or returned.",
-  "installation": "not requested; live Fischl sprites unchanged",
+  "installation": {
+    "status": "installed_as_alternate",
+    "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Fischl/Regenerated",
+    "label": "Regenerated",
+    "report": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-approved-sprite-installation/installation.json",
+    "original_set_preserved": true
+  },
   "preview_order": [
     "neutral",
     "annoyance",
@@ -1291,6 +1369,119 @@
         "candidate_sha256": "3b62cdc74c669ad6f1644feba636f97a0a48799cfcb9949c8893264bde73597d"
       },
       "manifest": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-neutral-and-white-heart-revisions/run.json"
+    },
+    "desire": {
+      "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-fischl-desire-longing-revision/candidates/Fischl/desire-v003.png",
+      "sha256": "6dab0a9dea9e1dec3f2834f5e836c593e3a5ae11ebc9c57699cc0a99402ddefb",
+      "approval": {
+        "status": "approved",
+        "date": "2026-11-05",
+        "message": "All accepted. Install all sprite sets into their respected folders including Fischl's new set, which should be as an alternate set to her already generated one."
+      },
+      "manifest": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-fischl-desire-longing-revision/run.json"
     }
-  }
+  },
+  "installations": [
+    {
+      "date": "2026-11-05",
+      "report": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-approved-sprite-installation/installation.json",
+      "files": [
+        {
+          "emotion": "neutral",
+          "sha256": "3f1fb1c31686f9d3118ea06c2b0958d8ca4556d822385f7e538a3af049ed1c13",
+          "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Fischl/Regenerated/neutral.png"
+        },
+        {
+          "emotion": "annoyance",
+          "sha256": "bef2f6a5de26c515bd2e5a0b83da847296755ebf0ea3e593bb6317c2cf4c5fd6",
+          "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Fischl/Regenerated/annoyance.png"
+        },
+        {
+          "emotion": "smug",
+          "sha256": "c0eaefa3cbfcf56d1b26b1a5aad9e2915db57b1f1c7d042dd278c3bf8699bb44",
+          "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Fischl/Regenerated/smug.png"
+        },
+        {
+          "emotion": "confusion",
+          "sha256": "8d718eaf4567f8306940f52f6b3a100fe1e8b8651c2be06c932192f90f2a3c0d",
+          "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Fischl/Regenerated/confusion.png"
+        },
+        {
+          "emotion": "love",
+          "sha256": "581f8af4d2c1f575a2a609fbf1ea719cd2bfabed7a4329aaa02111927cb4bc46",
+          "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Fischl/Regenerated/love.png"
+        },
+        {
+          "emotion": "excitement",
+          "sha256": "86192910d8ed4ef36b542075f500d1f8a51bbc485de87badc9db7b5570893092",
+          "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Fischl/Regenerated/excitement.png"
+        },
+        {
+          "emotion": "joy",
+          "sha256": "c9e2a3aa81b657840bd56254613a372fd361bcbd3d30e83cac3fe6e51d6aa983",
+          "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Fischl/Regenerated/joy.png"
+        },
+        {
+          "emotion": "fear",
+          "sha256": "c8110cdf9c42fe0f6487841d606e24dd9798b243e40c0e6fbaad54127052eb7d",
+          "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Fischl/Regenerated/fear.png"
+        },
+        {
+          "emotion": "pride",
+          "sha256": "94e47b165cd926d26947368f00d98a6956da4c8d54290eee5d3361aa67dc5229",
+          "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Fischl/Regenerated/pride.png"
+        },
+        {
+          "emotion": "anger",
+          "sha256": "d590488344c3ea9a6b70f4eb3f9ddcc54421e8da3c53cc9ee2578f0058c1733b",
+          "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Fischl/Regenerated/anger.png"
+        },
+        {
+          "emotion": "grief",
+          "sha256": "e884c93fa97f86fa2cf6839fa871be548d7b460163bdc9f4d611bae9554bfc93",
+          "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Fischl/Regenerated/grief.png"
+        },
+        {
+          "emotion": "sadness",
+          "sha256": "c37ee494f780d76fc9235806eda1bf150e538febac6eb8557fb7a57c053f37d0",
+          "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Fischl/Regenerated/sadness.png"
+        },
+        {
+          "emotion": "disgust",
+          "sha256": "d5ab30686271942b6306625be2147e80ac61bebdcd3e28c57b2cd5ced2b74ae7",
+          "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Fischl/Regenerated/disgust.png"
+        },
+        {
+          "emotion": "disappointment",
+          "sha256": "3aa01503dc62116fa3d41cb781a147c0c385298c5dfe71d8b48f9b4bd0fb2973",
+          "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Fischl/Regenerated/disappointment.png"
+        },
+        {
+          "emotion": "relief",
+          "sha256": "6e81453a236c8e9bfa23bac5f2c80a71b191b3e4c7edfe81d4b9f1509deab131",
+          "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Fischl/Regenerated/relief.png"
+        },
+        {
+          "emotion": "admiration",
+          "sha256": "3357d8092254b8e4c9cdd93df02ddbb27ab8d82dc694edee5967734b7af82ff7",
+          "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Fischl/Regenerated/admiration.png"
+        },
+        {
+          "emotion": "gratitude",
+          "sha256": "2af11b55d68aee9af1a2a8da855376d54055f12fe202906cc68c3ad64d24cff8",
+          "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Fischl/Regenerated/gratitude.png"
+        },
+        {
+          "emotion": "embarrassment",
+          "sha256": "23e76fcbe01059d5273d45fb515beeb3d41928027bdd0e2e996ea758e3a0c256",
+          "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Fischl/Regenerated/embarrassment.png"
+        },
+        {
+          "emotion": "caring",
+          "sha256": "81601d507f27a41b708c221a981b985279aa34417c660f733216533f19b13c19",
+          "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Fischl/Regenerated/caring.png"
+        }
+      ]
+    }
+  ]
 }

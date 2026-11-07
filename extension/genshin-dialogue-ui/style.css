@@ -1999,6 +1999,9 @@ dialog#gi-world-map#gi-world-map[open][data-enter="minimap"] { animation: gi-map
 .gi-waypoint-badge { display: block; width: 17px; height: 17px; box-sizing: border-box; padding: 2px; object-fit: contain; border-radius: 50%; background: #1b2232e6; box-shadow: 0 0 0 1px #d3bc8ecc, 0 1px 3px #000a; }
 .gi-waypoint-badge[data-badge="wilderness"], .gi-waypoint-badge[data-badge="boss"] { padding: 0; }
 .gi-waypoint-badge[data-badge="boss"] { box-shadow: 0 0 0 1px #f0a36b, 0 0 5px #e0703acc; }
+/* A boss's own icon is a square portrait: it fills the round badge, a little larger than the emblems. */
+.gi-waypoint-badge[data-boss-icon] { width: 20px; height: 20px; object-fit: cover; background: #2a2030; }
+#gi-world-map .gi-map-waypoint-list .gi-waypoint-badge[data-boss-icon] { width: 20px; height: 20px; }
 #gi-world-map .gi-map-waypoint-list button:has(.gi-map-list-badges) { grid-template-columns: 22px minmax(0, 1fr) auto; }
 #gi-world-map .gi-map-waypoint-list .gi-map-list-badges, #gi-world-map .gi-map-waypoint-list .gi-map-list-badges .gi-waypoint-badges { position: static; display: flex; flex-direction: row; gap: 3px; }
 #gi-world-map .gi-map-waypoint-list .gi-waypoint-badge { width: 18px; height: 18px; }

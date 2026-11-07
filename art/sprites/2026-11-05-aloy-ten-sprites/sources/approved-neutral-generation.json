@@ -1,0 +1,151 @@
+{
+  "date": "2026-11-05",
+  "character": "Aloy",
+  "status": "neutral_v003_approved_for_expression_generation",
+  "user_request": "Generate a neutral for Aloy, her model is attached.",
+  "references": [
+    {
+      "original_path": "/var/folders/yb/h8ks0jfd6jl0jdj3npytrx2r0000gn/T/codex-clipboard-200b3f85-4278-4e80-ad5e-77fc16956815.png",
+      "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-aloy-model-neutral/references/Aloy/model.png",
+      "sha256": "99a0041018bda87438b262fffa39390a4ded59550c656c550606938272e1fbd6",
+      "role": "Sole image reference: user-supplied in-game model for identity, costume and proportions."
+    }
+  ],
+  "official_art_lookup": {
+    "path": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Aloy/Official Art/neutral.png",
+    "exists": false,
+    "method": "Use explicitly supplied model only; illustration style specified in words."
+  },
+  "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-aloy-model-neutral/prompts/Aloy/neutral-v003.txt",
+  "generation": {
+    "tool": "image_gen.imagegen",
+    "arguments": {
+      "prompt": "Use case: stylized-concept. Create one full-body neutral visual-novel character sprite of Aloy from Genshin Impact. The supplied user-attached in-game model is the sole image reference, authoritative for identity, face, exact costume, colors, accessories and body proportions. Render her in polished Genshin-inspired anime illustration with clean drawn contours, detailed cel shading and softly painted material transitions rather than copying the screenshot's 3D-render surface.\nPreserve her copper-red long hair with the exact small braids, blue ties and swept-back upper section; hazel-green eyes, natural freckles across her nose and cheeks, fair skin, small temple device, blue neck scarf, layered brown necklaces, fur-edged shoulder details, fitted brown leather bodice, red sash, tan patterned split skirt panels with turquoise and red edging, hip pouch, layered metal-and-fur forearm guards, dark leggings and exact asymmetric tall boots and straps. Keep the model's compact Medium Female anime frame and natural torso and limb proportions, without elongation or chibi stylization. Retain the actual warm costume colors while removing the screenshot's blue environmental cast. Ear and Focus detail: preserve the small, natural human ear shape and device placement shown in the original model. A visible ear has a softly rounded outer rim, a small attached lobe and simple, believable inner folds, naturally connected to the side of her head. Keep the grey Focus as a distinct small device at her right temple, following the model's placement; its metal outline remains separate from the skin outline of the ear. Hair and braids may naturally frame or partly cover the ears. Do not force a hidden ear into view. Keep her head angle, facial proportions and calm expression consistent with the neutral acting described below.\nNeutral acting: a calm, alert hunter's idle, quietly self-assured and approachable. Her eyes are open and attentive toward the viewer, with a subtle closed-mouth smile. Give her a small three-quarter shoulder turn and grounded weight shift with feet lightly staggered, distinct and uncrossed. Both arms lower naturally beside her body. The right hand rests in the air beside the upper thigh, palm turned gently inward and fingers relaxed together. The left forearm angles slightly outward, with the left hand hanging loosely beside the hip, clear of the skirt and pouch. Keep the two hands separate, at comfortable low positions and without dramatic finger gestures. Both hands are empty. Let her hair, braids, sash and heavy skirt panels hang naturally with gravity.\nHands: use a simple, softly articulated human hand at each wrist. Four fingers follow a gentle relaxed curve from the palm, and a shorter opposable thumb has its own readable shape on the side. Keep both palms at natural oblique angles, with smooth joints and clean contours against the transparent background. Let naturally overlapping digits stay overlapped. Leave clear space between each hand and the costume so the fingertips do not blend into leather or fabric. Keep both eyes coherent, with intact hazel-green irises, normal pupils, natural eyelids and a consistent gaze.\nShow the complete silhouette including hair, braids, hands, hanging costume panels, armor and both boots, with about 2\u20134% top and bottom padding. Genuinely transparent background with clear alpha outside the character. No screenshot scenery, blue backdrop, UI, text, labels, watermark, floor, reflections, ground shadow, floating effects, bow, arrows, weapons, added props or additional characters. Produce just one character sprite.",
+      "referenced_image_paths": [
+        "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-aloy-model-neutral/references/Aloy/model.png"
+      ],
+      "transparent_background": true
+    },
+    "tool_output": "/Users/alexachan/.codex/generated_images/01a1aa19-42b2-7e92-b08d-8ee7d133c057/exec-76d6e298-ea82-47d6-9d50-0530eaf7a913.png",
+    "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-aloy-model-neutral/raw/Aloy/neutral-v003.png",
+    "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-aloy-model-neutral/candidates/Aloy/neutral-v003.png",
+    "candidate_sha256": "e52ff434c92cf5f2813306a3a55a0f637b20d9b3bb9ffb41f38287ebb6f74c0e",
+    "dimensions": [
+      935,
+      1683
+    ],
+    "png_color_type": 6
+  },
+  "approval": {
+    "status": "approved",
+    "date": "2026-11-05",
+    "message": "Do the rest of the set",
+    "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-aloy-model-neutral/candidates/Aloy/neutral-v003.png",
+    "candidate_sha256": "e52ff434c92cf5f2813306a3a55a0f637b20d9b3bb9ffb41f38287ebb6f74c0e"
+  },
+  "model_note": "Built-in model ID and quality controls are not exposed.",
+  "installation": "Neutral candidate only; no installation requested for unapproved Aloy artwork.",
+  "attempts": [
+    {
+      "version": "v001",
+      "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-aloy-model-neutral/prompts/Aloy/neutral-v001.txt",
+      "generation": {
+        "tool": "image_gen.imagegen",
+        "arguments": {
+          "prompt": "Use case: stylized-concept. Create one full-body neutral visual-novel character sprite of Aloy from Genshin Impact. The supplied user-attached in-game model is the sole image reference, authoritative for identity, face, exact costume, colors, accessories and body proportions. Render her in polished Genshin-inspired anime illustration with clean drawn contours, detailed cel shading and softly painted material transitions rather than copying the screenshot's 3D-render surface.\nPreserve her copper-red long hair with the exact small braids, blue ties and swept-back upper section; hazel-green eyes, natural freckles across her nose and cheeks, fair skin, small temple device, blue neck scarf, layered brown necklaces, fur-edged shoulder details, fitted brown leather bodice, red sash, tan patterned split skirt panels with turquoise and red edging, hip pouch, layered metal-and-fur forearm guards, dark leggings and exact asymmetric tall boots and straps. Keep the model's compact Medium Female anime frame and natural torso and limb proportions, without elongation or chibi stylization. Retain the actual warm costume colors while removing the screenshot's blue environmental cast.\nNeutral acting: a calm, alert hunter's idle, quietly self-assured and approachable. Her eyes are open and attentive toward the viewer, with a subtle closed-mouth smile. Give her a small three-quarter shoulder turn and grounded weight shift with feet lightly staggered, distinct and uncrossed. The right forearm rests loosely near the waist with its hand relaxed clear of the pouch; the left arm lowers naturally beside her hip. Both hands are empty. Let her hair, braids, sash and heavy skirt panels hang naturally with gravity.\nHands should be naturally articulated around a connected palm, four fingers and a separate opposable thumb, with relaxed bends suited to the gesture and clear separation from adjacent costume. Do not force naturally hidden digits toward the viewer. Keep both eyes coherent, with intact hazel-green irises, normal pupils, natural eyelids and a consistent gaze.\nShow the complete silhouette including hair, braids, hands, hanging costume panels, armor and both boots, with about 2\u20134% top and bottom padding. Genuinely transparent background with clear alpha outside the character. No screenshot scenery, blue backdrop, UI, text, labels, watermark, floor, reflections, ground shadow, floating effects, bow, arrows, weapons, added props or additional characters. Produce just one character sprite.",
+          "referenced_image_paths": [
+            "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-aloy-model-neutral/references/Aloy/model.png"
+          ],
+          "transparent_background": true
+        },
+        "tool_output": "/Users/alexachan/.codex/generated_images/01a1aa19-42b2-7e92-b08d-8ee7d133c057/exec-b1fbe0e8-6f3a-49a9-b2b9-82dfff8b87e6.png",
+        "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-aloy-model-neutral/raw/Aloy/neutral-v001.png",
+        "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-aloy-model-neutral/candidates/Aloy/neutral-v001.png",
+        "candidate_sha256": "271d7187e0162e1e04a35b70e6958de05f2e5ff56134144d621fb981f83cc752",
+        "dimensions": [
+          935,
+          1683
+        ],
+        "png_color_type": 6
+      },
+      "approval": {
+        "status": "rejected",
+        "date": "2026-11-05",
+        "message": "One of aloy's hands is slightly distorted, regenerate",
+        "reason": "User reports a slightly distorted hand"
+      }
+    },
+    {
+      "version": "v002",
+      "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-aloy-model-neutral/prompts/Aloy/neutral-v002.txt",
+      "generation": {
+        "tool": "image_gen.imagegen",
+        "arguments": {
+          "prompt": "Use case: stylized-concept. Create one full-body neutral visual-novel character sprite of Aloy from Genshin Impact. The supplied user-attached in-game model is the sole image reference, authoritative for identity, face, exact costume, colors, accessories and body proportions. Render her in polished Genshin-inspired anime illustration with clean drawn contours, detailed cel shading and softly painted material transitions rather than copying the screenshot's 3D-render surface.\nPreserve her copper-red long hair with the exact small braids, blue ties and swept-back upper section; hazel-green eyes, natural freckles across her nose and cheeks, fair skin, small temple device, blue neck scarf, layered brown necklaces, fur-edged shoulder details, fitted brown leather bodice, red sash, tan patterned split skirt panels with turquoise and red edging, hip pouch, layered metal-and-fur forearm guards, dark leggings and exact asymmetric tall boots and straps. Keep the model's compact Medium Female anime frame and natural torso and limb proportions, without elongation or chibi stylization. Retain the actual warm costume colors while removing the screenshot's blue environmental cast.\nNeutral acting: a calm, alert hunter's idle, quietly self-assured and approachable. Her eyes are open and attentive toward the viewer, with a subtle closed-mouth smile. Give her a small three-quarter shoulder turn and grounded weight shift with feet lightly staggered, distinct and uncrossed. Both arms lower naturally beside her body. The right hand rests in the air beside the upper thigh, palm turned gently inward and fingers relaxed together. The left forearm angles slightly outward, with the left hand hanging loosely beside the hip, clear of the skirt and pouch. Keep the two hands separate, at comfortable low positions and without dramatic finger gestures. Both hands are empty. Let her hair, braids, sash and heavy skirt panels hang naturally with gravity.\nHands: use a simple, softly articulated human hand at each wrist. Four fingers follow a gentle relaxed curve from the palm, and a shorter opposable thumb has its own readable shape on the side. Keep both palms at natural oblique angles, with smooth joints and clean contours against the transparent background. Let naturally overlapping digits stay overlapped. Leave clear space between each hand and the costume so the fingertips do not blend into leather or fabric. Keep both eyes coherent, with intact hazel-green irises, normal pupils, natural eyelids and a consistent gaze.\nShow the complete silhouette including hair, braids, hands, hanging costume panels, armor and both boots, with about 2\u20134% top and bottom padding. Genuinely transparent background with clear alpha outside the character. No screenshot scenery, blue backdrop, UI, text, labels, watermark, floor, reflections, ground shadow, floating effects, bow, arrows, weapons, added props or additional characters. Produce just one character sprite.",
+          "referenced_image_paths": [
+            "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-aloy-model-neutral/references/Aloy/model.png"
+          ],
+          "transparent_background": true
+        },
+        "tool_output": "/Users/alexachan/.codex/generated_images/01a1aa19-42b2-7e92-b08d-8ee7d133c057/exec-ab7cd961-69ee-4bcc-825c-cb4980cc2ce3.png",
+        "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-aloy-model-neutral/raw/Aloy/neutral-v002.png",
+        "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-aloy-model-neutral/candidates/Aloy/neutral-v002.png",
+        "candidate_sha256": "01094f3ddad5a7f9b805cb49af4f5a8be49f2204cfae1fdbab1b5217ea789df9",
+        "dimensions": [
+          935,
+          1683
+        ],
+        "png_color_type": 6
+      },
+      "approval": {
+        "status": "revision_requested",
+        "date": "2026-11-05",
+        "message": "Her ear looks a bit strange in the new generation, other than that it's good",
+        "reason": "User reports the ear looks strange"
+      },
+      "technical_checks": {
+        "png_decoded": true,
+        "alpha_channel": true,
+        "dimensions": [
+          935,
+          1683
+        ],
+        "candidate_matches_raw": true,
+        "visual_review": "Not performed; user reviews candidate."
+      },
+      "previews": {
+        "face": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-aloy-model-neutral/previews/neutral-face-v002.png",
+        "crop_box": [
+          187,
+          0,
+          748,
+          522
+        ],
+        "scaling": "none",
+        "original_sprite": "unchanged"
+      }
+    }
+  ],
+  "latest_feedback": "Her ear looks a bit strange in the new generation, other than that it's good",
+  "technical_checks": {
+    "png_decoded": true,
+    "alpha_channel": true,
+    "dimensions": [
+      935,
+      1683
+    ],
+    "candidate_matches_raw": true,
+    "visual_review": "Not performed; user reviews candidate."
+  },
+  "previews": {
+    "face": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-aloy-model-neutral/previews/neutral-face-v003.png",
+    "crop_box": [
+      187,
+      0,
+      748,
+      522
+    ],
+    "scaling": "none",
+    "original_sprite": "unchanged"
+  }
+}

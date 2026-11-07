@@ -1,0 +1,48 @@
+[
+  {
+    "id": "guili-plains",
+    "name": "Guili Plains",
+    "ref": "/Users/alexachan/Documents/Codex/silly-teyvat/extension/genshin-dialogue-ui/assets/world-locations/expansion-guili-plains.webp",
+    "asset": "expansion-guili-plains.webp",
+    "wiki": "https://genshin-impact.fandom.com/wiki/Guili_Plains",
+    "scene": "Guili Plains in Liyue, once the center of the ancient Guili Assembly, according to Genshin Wiki. Preserve the reference tranquil turquoise waters, broken wooden bridge and docks, pale karst, yellow trees and scattered ruins.",
+    "prompt": "Guili Plains in Liyue, once the center of the ancient Guili Assembly, according to Genshin Wiki. Preserve the reference tranquil turquoise waters, broken wooden bridge and docks, pale karst, yellow trees and scattered ruins. Anime style background. Clear ground-level human eye-height view from a walkable path, dock or shore, level horizon. No people, characters, NPCs, animals, text, lettering, writing, game logo, watermarks, interface or captions. Use supplied image only as environmental reference."
+  },
+  {
+    "id": "ritou",
+    "name": "Ritou",
+    "ref": "/Users/alexachan/Documents/Codex/silly-teyvat/extension/genshin-dialogue-ui/assets/world-locations/expansion-ritou.webp",
+    "asset": "expansion-ritou.webp",
+    "wiki": "https://genshin-impact.fandom.com/wiki/Ritou",
+    "scene": "Ritou, the trading port on Inazuma's Narukami Island, according to Genshin Wiki. Preserve the reference wooden docks, green-tiled harbor houses, moored boats, vivid red maples and distant castle.",
+    "prompt": "Ritou, the trading port on Inazuma's Narukami Island, according to Genshin Wiki. Preserve the reference wooden docks, green-tiled harbor houses, moored boats, vivid red maples and distant castle. Anime style background. Clear ground-level human eye-height view from a walkable path, dock or shore, level horizon. No people, characters, NPCs, animals, text, lettering, writing, game logo, watermarks, interface or captions. Use supplied image only as environmental reference."
+  },
+  {
+    "id": "easybreeze-market",
+    "name": "Easybreeze Market",
+    "ref": "/tmp/silly-teyvat-openai-cli/easybreeze-market-reference.png",
+    "asset": "expansion-easybreeze-market.webp",
+    "source_url": "https://gamewith.net/genshin-impact/article/show/69502",
+    "wiki": "https://genshin-impact.fandom.com/wiki/Easybreeze_Market",
+    "scene": "Easybreeze Market, the commercial hub of Natlan's Easybreeze Holiday Resort, according to Genshin Wiki. Use the reference stall's turquoise walls, carved shelves, bright pottery, striped pastel awning and tiled floor; omit all shopkeepers, visitors, characters and the large mascot figure.",
+    "prompt": "Easybreeze Market, the commercial hub of Natlan's Easybreeze Holiday Resort, according to Genshin Wiki. Use the reference stall's turquoise walls, carved shelves, bright pottery, striped pastel awning and tiled floor; omit all shopkeepers, visitors, characters and the large mascot figure. Anime style background. Clear ground-level human eye-height view from a walkable path, dock or shore, level horizon. No people, characters, NPCs, animals, text, lettering, writing, game logo, watermarks, interface or captions. Use supplied image only as environmental reference."
+  },
+  {
+    "id": "windrise",
+    "name": "Windrise",
+    "ref": "/Users/alexachan/Documents/Codex/silly-teyvat/extension/genshin-dialogue-ui/assets/world-locations/expansion-windrise.webp",
+    "asset": "expansion-windrise.webp",
+    "wiki": "https://genshin-impact.fandom.com/wiki/Windrise",
+    "scene": "Windrise in Mondstadt, where the massive oak is associated with the heroine Vennessa, according to Genshin Wiki. Preserve the reference great tree trunk, stream, lush grass, pale rocky shore and green rolling hills.",
+    "prompt": "Windrise in Mondstadt, where the massive oak is associated with the heroine Vennessa, according to Genshin Wiki. Preserve the reference great tree trunk, stream, lush grass, pale rocky shore and green rolling hills. Anime style background. Clear ground-level human eye-height view from a walkable path, dock or shore, level horizon. No people, characters, NPCs, animals, text, lettering, writing, game logo, watermarks, interface or captions. Use supplied image only as environmental reference."
+  },
+  {
+    "id": "seiraimaru",
+    "name": "\"Seiraimaru\"",
+    "ref": "/Users/alexachan/Documents/Codex/silly-teyvat/extension/genshin-dialogue-ui/assets/world-locations/expansion-seiraimaru.webp",
+    "asset": "expansion-seiraimaru.webp",
+    "wiki": "https://genshin-impact.fandom.com/wiki/%22Seiraimaru%22",
+    "scene": "The Seiraimaru shipwreck on Inazuma's Seirai Island. Preserve the reference half-buried broken wooden ship, skeletal mast, indigo night sky, glowing blue grass and purple-leaved trees along a sandy shore.",
+    "prompt": "The Seiraimaru shipwreck on Inazuma's Seirai Island. Preserve the reference half-buried broken wooden ship, skeletal mast, indigo night sky, glowing blue grass and purple-leaved trees along a sandy shore. Anime style background. Clear ground-level human eye-height view from a walkable path, dock or shore, level horizon. No people, characters, NPCs, animals, text, lettering, writing, game logo, watermarks, interface or captions. Use supplied image only as environmental reference."
+  }
+]

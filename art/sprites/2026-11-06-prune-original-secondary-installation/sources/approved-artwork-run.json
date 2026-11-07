@@ -1,0 +1,920 @@
+{
+  "date": "2026-11-06",
+  "character": "Prune",
+  "status": "20_approved_two_lavender_tints_awaiting_review",
+  "user_request": "Use Python to replace white heart eyes with a shade of light purple that suits her palette. All others approved",
+  "method": "Explicitly authorized Python/Pillow tint only. Original white-heart shapes, positions, antialiasing and alpha retained. No image generation, pupil replacement, perspective warp or other anatomy/style edits.",
+  "colour": {
+    "rgb": [
+      222,
+      201,
+      245
+    ],
+    "hex": "#DEC9F5",
+    "description": "Light lavender selected to complement the violet-purple irises and blue-lilac costume, with contrast against the darker iris."
+  },
+  "scope": "User-directed Prune colour exception; the standing white-heart default for other characters is unchanged.",
+  "tint_candidates": [
+    {
+      "emotion": "love-1",
+      "parent": {
+        "original": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-06-prune-full-22/sprites/Prune/love-1.png",
+        "archived": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-06-prune-lavender-heart-pupils/sources/Prune/love-1.png",
+        "sha256": "b10b352a4e0aac69ace4410e01efdc22031a5d02d43ec59cbb0692cc12d97b63"
+      },
+      "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-06-prune-lavender-heart-pupils/sprites/Prune/love-1.png",
+      "sha256": "0e6e6b052d550655492f741b16f4d1a9322c603ac1dea5be783ba243df8fe4f0",
+      "mask": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-06-prune-lavender-heart-pupils/masks/Prune/love-1.png",
+      "mask_sha256": "0aa9b2106a2cc2cc08257c228d2738edcd68f9d1f244c86249cbbb0f025c1612",
+      "heart_bounds": [
+        [
+          425,
+          375,
+          455,
+          402
+        ],
+        [
+          557,
+          339,
+          588,
+          365
+        ]
+      ],
+      "colour_rgb": [
+        222,
+        201,
+        245
+      ],
+      "colour_hex": "#DEC9F5",
+      "dimensions": [
+        952,
+        1653
+      ],
+      "technical_checks": {
+        "png_decoded": true,
+        "same_dimensions": true,
+        "alpha_pixel_identical": true,
+        "changed_pixels": 1011,
+        "changed_pixels_outside_heart_regions": 0
+      },
+      "approval": {
+        "status": "pending"
+      }
+    },
+    {
+      "emotion": "desire-1",
+      "parent": {
+        "original": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-06-prune-full-22/sprites/Prune/desire-1.png",
+        "archived": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-06-prune-lavender-heart-pupils/sources/Prune/desire-1.png",
+        "sha256": "ade36feb54f3d9faffc589f9bcd981fbebdb5da890a9ea8e77a01706451073e5"
+      },
+      "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-06-prune-lavender-heart-pupils/sprites/Prune/desire-1.png",
+      "sha256": "8f812fb3bfee507895129ffdc13104c349cd4cb2e84047564473a781ea2f26d3",
+      "mask": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-06-prune-lavender-heart-pupils/masks/Prune/desire-1.png",
+      "mask_sha256": "a31cc8ca60db9d5454c264924c484bd5ec7f12c95cb9fc266a72e4f83fe366f6",
+      "heart_bounds": [
+        [
+          456,
+          369,
+          489,
+          399
+        ],
+        [
+          578,
+          328,
+          608,
+          356
+        ]
+      ],
+      "colour_rgb": [
+        222,
+        201,
+        245
+      ],
+      "colour_hex": "#DEC9F5",
+      "dimensions": [
+        952,
+        1653
+      ],
+      "technical_checks": {
+        "png_decoded": true,
+        "same_dimensions": true,
+        "alpha_pixel_identical": true,
+        "changed_pixels": 1197,
+        "changed_pixels_outside_heart_regions": 0
+      },
+      "approval": {
+        "status": "pending"
+      }
+    }
+  ],
+  "approved_unchanged_sprites": [
+    {
+      "emotion": "neutral",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-06-prune-full-22/sprites/Prune/neutral.png",
+      "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-06-prune-lavender-heart-pupils/sprites/Prune/neutral.png",
+      "sha256": "bb8d9ef1e3eb966445d7b1cd0be20b0c7a68af0427c46ebea44821ce266c3b9a",
+      "byte_identical_to_approved_source": true,
+      "approval": {
+        "status": "approved",
+        "message": "Use Python to replace white heart eyes with a shade of light purple that suits her palette. All others approved"
+      }
+    },
+    {
+      "emotion": "annoyance",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-06-prune-full-22/sprites/Prune/annoyance.png",
+      "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-06-prune-lavender-heart-pupils/sprites/Prune/annoyance.png",
+      "sha256": "79c332e2e8d954991937f6c871e0aad6bb9dd77329c29dd5c6024d06b77d834d",
+      "byte_identical_to_approved_source": true,
+      "approval": {
+        "status": "approved",
+        "message": "Use Python to replace white heart eyes with a shade of light purple that suits her palette. All others approved"
+      }
+    },
+    {
+      "emotion": "smug",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-06-prune-full-22/sprites/Prune/smug.png",
+      "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-06-prune-lavender-heart-pupils/sprites/Prune/smug.png",
+      "sha256": "6f71038ad11731ad14ae94afd69c4ce3797008eec5b60dc8a3a6005dc260eab1",
+      "byte_identical_to_approved_source": true,
+      "approval": {
+        "status": "approved",
+        "message": "Use Python to replace white heart eyes with a shade of light purple that suits her palette. All others approved"
+      }
+    },
+    {
+      "emotion": "confusion",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-06-prune-full-22/sprites/Prune/confusion.png",
+      "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-06-prune-lavender-heart-pupils/sprites/Prune/confusion.png",
+      "sha256": "30de22c34923dbcdc76e2e54726002a464b8c8ddab6a841a335cc7ebbcd1489f",
+      "byte_identical_to_approved_source": true,
+      "approval": {
+        "status": "approved",
+        "message": "Use Python to replace white heart eyes with a shade of light purple that suits her palette. All others approved"
+      }
+    },
+    {
+      "emotion": "love",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-06-prune-full-22/sprites/Prune/love.png",
+      "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-06-prune-lavender-heart-pupils/sprites/Prune/love.png",
+      "sha256": "c524cf9bf10635a975c59ed044e9c9d0209123d37d77ce085a8a64f4f649eb03",
+      "byte_identical_to_approved_source": true,
+      "approval": {
+        "status": "approved",
+        "message": "Use Python to replace white heart eyes with a shade of light purple that suits her palette. All others approved"
+      }
+    },
+    {
+      "emotion": "excitement",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-06-prune-full-22/sprites/Prune/excitement.png",
+      "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-06-prune-lavender-heart-pupils/sprites/Prune/excitement.png",
+      "sha256": "4e6d372f9678a0fe767c0bf84f1ed54620c7475c836762e339629bf1329c6be4",
+      "byte_identical_to_approved_source": true,
+      "approval": {
+        "status": "approved",
+        "message": "Use Python to replace white heart eyes with a shade of light purple that suits her palette. All others approved"
+      }
+    },
+    {
+      "emotion": "joy",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-06-prune-full-22/sprites/Prune/joy.png",
+      "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-06-prune-lavender-heart-pupils/sprites/Prune/joy.png",
+      "sha256": "94d39df232137ae84011d7b35a82ff89bdafa80e386cf1f64c5814c1197d7238",
+      "byte_identical_to_approved_source": true,
+      "approval": {
+        "status": "approved",
+        "message": "Use Python to replace white heart eyes with a shade of light purple that suits her palette. All others approved"
+      }
+    },
+    {
+      "emotion": "fear",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-06-prune-full-22/sprites/Prune/fear.png",
+      "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-06-prune-lavender-heart-pupils/sprites/Prune/fear.png",
+      "sha256": "fc6f77d7a1e3b972d7864306bed4d1958ede25cbc63ef21255111b724745aa34",
+      "byte_identical_to_approved_source": true,
+      "approval": {
+        "status": "approved",
+        "message": "Use Python to replace white heart eyes with a shade of light purple that suits her palette. All others approved"
+      }
+    },
+    {
+      "emotion": "pride",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-06-prune-full-22/sprites/Prune/pride.png",
+      "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-06-prune-lavender-heart-pupils/sprites/Prune/pride.png",
+      "sha256": "bba97474adf5b0ce5b4398041e644c8f44d78b053080c3959ce9a015951dcfee",
+      "byte_identical_to_approved_source": true,
+      "approval": {
+        "status": "approved",
+        "message": "Use Python to replace white heart eyes with a shade of light purple that suits her palette. All others approved"
+      }
+    },
+    {
+      "emotion": "desire",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-06-prune-full-22/sprites/Prune/desire.png",
+      "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-06-prune-lavender-heart-pupils/sprites/Prune/desire.png",
+      "sha256": "00868ad0f0898b29bea0135fa069d4b9964b68f995f539d17af1e01eaa746479",
+      "byte_identical_to_approved_source": true,
+      "approval": {
+        "status": "approved",
+        "message": "Use Python to replace white heart eyes with a shade of light purple that suits her palette. All others approved"
+      }
+    },
+    {
+      "emotion": "anger",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-06-prune-full-22/sprites/Prune/anger.png",
+      "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-06-prune-lavender-heart-pupils/sprites/Prune/anger.png",
+      "sha256": "bf45a07bd76e38faaa88b20ec09858b38b0e01c8a5bcebfeec1a07ed31c1c179",
+      "byte_identical_to_approved_source": true,
+      "approval": {
+        "status": "approved",
+        "message": "Use Python to replace white heart eyes with a shade of light purple that suits her palette. All others approved"
+      }
+    },
+    {
+      "emotion": "grief",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-06-prune-full-22/sprites/Prune/grief.png",
+      "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-06-prune-lavender-heart-pupils/sprites/Prune/grief.png",
+      "sha256": "1b90007ddcc90277370a2c5b2b77fb412c6349c0fc2f13230a735635cdc894b6",
+      "byte_identical_to_approved_source": true,
+      "approval": {
+        "status": "approved",
+        "message": "Use Python to replace white heart eyes with a shade of light purple that suits her palette. All others approved"
+      }
+    },
+    {
+      "emotion": "sadness",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-06-prune-full-22/sprites/Prune/sadness.png",
+      "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-06-prune-lavender-heart-pupils/sprites/Prune/sadness.png",
+      "sha256": "852a25e62ff84801facd0ee7a32c24cc09ab155dc0d5643538769c05500fd8b4",
+      "byte_identical_to_approved_source": true,
+      "approval": {
+        "status": "approved",
+        "message": "Use Python to replace white heart eyes with a shade of light purple that suits her palette. All others approved"
+      }
+    },
+    {
+      "emotion": "disgust",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-06-prune-full-22/sprites/Prune/disgust.png",
+      "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-06-prune-lavender-heart-pupils/sprites/Prune/disgust.png",
+      "sha256": "0322602a5d66d8acae799d256548a432e3ea130ec0e155be7eb2048e1312949e",
+      "byte_identical_to_approved_source": true,
+      "approval": {
+        "status": "approved",
+        "message": "Use Python to replace white heart eyes with a shade of light purple that suits her palette. All others approved"
+      }
+    },
+    {
+      "emotion": "disappointment",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-06-prune-full-22/sprites/Prune/disappointment.png",
+      "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-06-prune-lavender-heart-pupils/sprites/Prune/disappointment.png",
+      "sha256": "54039b5a5cf38da32281653ae0f9e73fee60135056253e63e2cd2a76a7dc99ad",
+      "byte_identical_to_approved_source": true,
+      "approval": {
+        "status": "approved",
+        "message": "Use Python to replace white heart eyes with a shade of light purple that suits her palette. All others approved"
+      }
+    },
+    {
+      "emotion": "relief",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-06-prune-full-22/sprites/Prune/relief.png",
+      "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-06-prune-lavender-heart-pupils/sprites/Prune/relief.png",
+      "sha256": "cb6da91bc9bec0e9594587d8e4b9228416a0bcaa508c55d3af442b1a1ac17ad6",
+      "byte_identical_to_approved_source": true,
+      "approval": {
+        "status": "approved",
+        "message": "Use Python to replace white heart eyes with a shade of light purple that suits her palette. All others approved"
+      }
+    },
+    {
+      "emotion": "admiration",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-06-prune-full-22/sprites/Prune/admiration.png",
+      "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-06-prune-lavender-heart-pupils/sprites/Prune/admiration.png",
+      "sha256": "ac9a13ce3c72e171eb2ed71548fe4b166cb67243e641ed3c28c99f63c13dee34",
+      "byte_identical_to_approved_source": true,
+      "approval": {
+        "status": "approved",
+        "message": "Use Python to replace white heart eyes with a shade of light purple that suits her palette. All others approved"
+      }
+    },
+    {
+      "emotion": "gratitude",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-06-prune-full-22/sprites/Prune/gratitude.png",
+      "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-06-prune-lavender-heart-pupils/sprites/Prune/gratitude.png",
+      "sha256": "c5da53bfb55d03bb0c852260443c1424dd69d21fc2932f2ab8c614434cd855a2",
+      "byte_identical_to_approved_source": true,
+      "approval": {
+        "status": "approved",
+        "message": "Use Python to replace white heart eyes with a shade of light purple that suits her palette. All others approved"
+      }
+    },
+    {
+      "emotion": "embarrassment",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-06-prune-full-22/sprites/Prune/embarrassment.png",
+      "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-06-prune-lavender-heart-pupils/sprites/Prune/embarrassment.png",
+      "sha256": "cbfc877f3930a96e0db7fba05d8d2517d2680c8404e81a10c6954ae0d09e7b21",
+      "byte_identical_to_approved_source": true,
+      "approval": {
+        "status": "approved",
+        "message": "Use Python to replace white heart eyes with a shade of light purple that suits her palette. All others approved"
+      }
+    },
+    {
+      "emotion": "caring",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-06-prune-full-22/sprites/Prune/caring.png",
+      "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-06-prune-lavender-heart-pupils/sprites/Prune/caring.png",
+      "sha256": "1c639868e7d6b98955a03e4afdff0d009e52c322661226ae6f74809a50da2761",
+      "byte_identical_to_approved_source": true,
+      "approval": {
+        "status": "approved",
+        "message": "Use Python to replace white heart eyes with a shade of light purple that suits her palette. All others approved"
+      }
+    }
+  ],
+  "sprite_count": 22,
+  "previews": {
+    "tinted_faces": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-06-prune-lavender-heart-pupils/previews/tinted-faces.png",
+    "before_after": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-06-prune-lavender-heart-pupils/previews/before-after-faces.png",
+    "before_after_order": "White originals above; lavender-tinted candidates below. Love-1 left, desire-1 right.",
+    "faces": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-06-prune-lavender-heart-pupils/previews/faces.png",
+    "full_body": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-06-prune-lavender-heart-pupils/previews/full-body.png",
+    "set_order": [
+      "neutral",
+      "annoyance",
+      "smug",
+      "confusion",
+      "love",
+      "excitement",
+      "joy",
+      "fear",
+      "pride",
+      "desire",
+      "anger",
+      "grief",
+      "sadness",
+      "disgust",
+      "disappointment",
+      "relief",
+      "admiration",
+      "gratitude",
+      "embarrassment",
+      "caring",
+      "love-1",
+      "desire-1"
+    ],
+    "transforms": [
+      {
+        "emotion": "neutral",
+        "body_size": [
+          312,
+          542
+        ],
+        "body_position": [
+          12,
+          32
+        ],
+        "face_crop": [
+          152,
+          0,
+          800,
+          512
+        ],
+        "face_size": [
+          304,
+          240
+        ],
+        "face_position": [
+          8,
+          40
+        ]
+      },
+      {
+        "emotion": "annoyance",
+        "body_size": [
+          312,
+          542
+        ],
+        "body_position": [
+          348,
+          32
+        ],
+        "face_crop": [
+          152,
+          0,
+          800,
+          512
+        ],
+        "face_size": [
+          304,
+          240
+        ],
+        "face_position": [
+          328,
+          40
+        ]
+      },
+      {
+        "emotion": "smug",
+        "body_size": [
+          312,
+          541
+        ],
+        "body_position": [
+          684,
+          32
+        ],
+        "face_crop": [
+          152,
+          0,
+          800,
+          512
+        ],
+        "face_size": [
+          304,
+          240
+        ],
+        "face_position": [
+          648,
+          40
+        ]
+      },
+      {
+        "emotion": "confusion",
+        "body_size": [
+          312,
+          542
+        ],
+        "body_position": [
+          1020,
+          32
+        ],
+        "face_crop": [
+          152,
+          0,
+          800,
+          512
+        ],
+        "face_size": [
+          304,
+          240
+        ],
+        "face_position": [
+          968,
+          40
+        ]
+      },
+      {
+        "emotion": "love",
+        "body_size": [
+          312,
+          542
+        ],
+        "body_position": [
+          1356,
+          32
+        ],
+        "face_crop": [
+          152,
+          0,
+          800,
+          512
+        ],
+        "face_size": [
+          304,
+          240
+        ],
+        "face_position": [
+          1288,
+          40
+        ]
+      },
+      {
+        "emotion": "excitement",
+        "body_size": [
+          312,
+          542
+        ],
+        "body_position": [
+          12,
+          638
+        ],
+        "face_crop": [
+          152,
+          0,
+          800,
+          512
+        ],
+        "face_size": [
+          304,
+          240
+        ],
+        "face_position": [
+          8,
+          360
+        ]
+      },
+      {
+        "emotion": "joy",
+        "body_size": [
+          312,
+          542
+        ],
+        "body_position": [
+          348,
+          638
+        ],
+        "face_crop": [
+          152,
+          0,
+          800,
+          512
+        ],
+        "face_size": [
+          304,
+          240
+        ],
+        "face_position": [
+          328,
+          360
+        ]
+      },
+      {
+        "emotion": "fear",
+        "body_size": [
+          312,
+          542
+        ],
+        "body_position": [
+          684,
+          638
+        ],
+        "face_crop": [
+          152,
+          0,
+          800,
+          512
+        ],
+        "face_size": [
+          304,
+          240
+        ],
+        "face_position": [
+          648,
+          360
+        ]
+      },
+      {
+        "emotion": "pride",
+        "body_size": [
+          312,
+          542
+        ],
+        "body_position": [
+          1020,
+          638
+        ],
+        "face_crop": [
+          152,
+          0,
+          799,
+          512
+        ],
+        "face_size": [
+          304,
+          241
+        ],
+        "face_position": [
+          968,
+          359
+        ]
+      },
+      {
+        "emotion": "desire",
+        "body_size": [
+          312,
+          542
+        ],
+        "body_position": [
+          1356,
+          638
+        ],
+        "face_crop": [
+          152,
+          0,
+          800,
+          512
+        ],
+        "face_size": [
+          304,
+          240
+        ],
+        "face_position": [
+          1288,
+          360
+        ]
+      },
+      {
+        "emotion": "anger",
+        "body_size": [
+          312,
+          542
+        ],
+        "body_position": [
+          12,
+          1244
+        ],
+        "face_crop": [
+          152,
+          0,
+          800,
+          512
+        ],
+        "face_size": [
+          304,
+          240
+        ],
+        "face_position": [
+          8,
+          680
+        ]
+      },
+      {
+        "emotion": "grief",
+        "body_size": [
+          312,
+          542
+        ],
+        "body_position": [
+          348,
+          1244
+        ],
+        "face_crop": [
+          152,
+          0,
+          800,
+          512
+        ],
+        "face_size": [
+          304,
+          240
+        ],
+        "face_position": [
+          328,
+          680
+        ]
+      },
+      {
+        "emotion": "sadness",
+        "body_size": [
+          312,
+          542
+        ],
+        "body_position": [
+          684,
+          1244
+        ],
+        "face_crop": [
+          152,
+          0,
+          800,
+          512
+        ],
+        "face_size": [
+          304,
+          240
+        ],
+        "face_position": [
+          648,
+          680
+        ]
+      },
+      {
+        "emotion": "disgust",
+        "body_size": [
+          312,
+          542
+        ],
+        "body_position": [
+          1020,
+          1244
+        ],
+        "face_crop": [
+          152,
+          0,
+          800,
+          512
+        ],
+        "face_size": [
+          304,
+          240
+        ],
+        "face_position": [
+          968,
+          680
+        ]
+      },
+      {
+        "emotion": "disappointment",
+        "body_size": [
+          312,
+          542
+        ],
+        "body_position": [
+          1356,
+          1244
+        ],
+        "face_crop": [
+          152,
+          0,
+          800,
+          512
+        ],
+        "face_size": [
+          304,
+          240
+        ],
+        "face_position": [
+          1288,
+          680
+        ]
+      },
+      {
+        "emotion": "relief",
+        "body_size": [
+          312,
+          542
+        ],
+        "body_position": [
+          12,
+          1850
+        ],
+        "face_crop": [
+          152,
+          0,
+          800,
+          512
+        ],
+        "face_size": [
+          304,
+          240
+        ],
+        "face_position": [
+          8,
+          1000
+        ]
+      },
+      {
+        "emotion": "admiration",
+        "body_size": [
+          312,
+          542
+        ],
+        "body_position": [
+          348,
+          1850
+        ],
+        "face_crop": [
+          152,
+          0,
+          800,
+          512
+        ],
+        "face_size": [
+          304,
+          240
+        ],
+        "face_position": [
+          328,
+          1000
+        ]
+      },
+      {
+        "emotion": "gratitude",
+        "body_size": [
+          312,
+          542
+        ],
+        "body_position": [
+          684,
+          1850
+        ],
+        "face_crop": [
+          152,
+          0,
+          800,
+          512
+        ],
+        "face_size": [
+          304,
+          240
+        ],
+        "face_position": [
+          648,
+          1000
+        ]
+      },
+      {
+        "emotion": "embarrassment",
+        "body_size": [
+          312,
+          542
+        ],
+        "body_position": [
+          1020,
+          1850
+        ],
+        "face_crop": [
+          152,
+          0,
+          800,
+          512
+        ],
+        "face_size": [
+          304,
+          240
+        ],
+        "face_position": [
+          968,
+          1000
+        ]
+      },
+      {
+        "emotion": "caring",
+        "body_size": [
+          312,
+          542
+        ],
+        "body_position": [
+          1356,
+          1850
+        ],
+        "face_crop": [
+          152,
+          0,
+          800,
+          512
+        ],
+        "face_size": [
+          304,
+          240
+        ],
+        "face_position": [
+          1288,
+          1000
+        ]
+      },
+      {
+        "emotion": "love-1",
+        "body_size": [
+          312,
+          542
+        ],
+        "body_position": [
+          12,
+          2456
+        ],
+        "face_crop": [
+          152,
+          0,
+          800,
+          512
+        ],
+        "face_size": [
+          304,
+          240
+        ],
+        "face_position": [
+          8,
+          1320
+        ]
+      },
+      {
+        "emotion": "desire-1",
+        "body_size": [
+          312,
+          542
+        ],
+        "body_position": [
+          348,
+          2456
+        ],
+        "face_crop": [
+          152,
+          0,
+          800,
+          512
+        ],
+        "face_size": [
+          304,
+          240
+        ],
+        "face_position": [
+          328,
+          1320
+        ]
+      }
+    ],
+    "labels": "none",
+    "background": "transparent"
+  },
+  "installation": "No installation requested or performed. Existing live Prune set is unchanged."
+}

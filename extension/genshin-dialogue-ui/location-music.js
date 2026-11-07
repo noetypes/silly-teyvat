@@ -1,6 +1,7 @@
 import {createMediaAdapter} from './media-store.js';
 import {musicSettings,musicLibrary,musicLocation,musicVolume,addMusicTrack,renameMusicTrack,removeMusicTrack,saveLocationMusic,locationMusicCue} from './location-music-state.js';
 import {createLocationMusicPlayer} from './location-music-player.js';
+import {encounterForms} from './combat-state.js';
 
 export function mountLocationMusic({host,getContext,adapter=createMediaAdapter(getContext),announce=()=>{},onChange=()=>{},player:providedPlayer}={}){
     const library=document.createElement('dialog');library.id='gi-music-library';library.className='gi-music-dialog';library.setAttribute('aria-labelledby','gi-music-library-title');
@@ -18,6 +19,8 @@ export function mountLocationMusic({host,getContext,adapter=createMediaAdapter(g
     host.append(library,picker);
     const abort=new AbortController(),on=(node,type,handler)=>node.addEventListener(type,handler,{signal:abort.signal});
     let disposed=false,busy=false,locationId='',draft=new Set(),combatDraft=null,lastOn=false,lastCombat=false,lastViewed=null,chatKey='';
+    // A transformation shown on the battle board, before the round is saved: the music changes with it.
+    const liveForms=new Set();
     const status=(dialog,text)=>{dialog.querySelector('.gi-music-status').textContent=text;};
     const player=providedPlayer || createLocationMusicPlayer({onState:paintPlaying,onError:text=>{if(!disposed){status(library,text);status(picker,text);announce(text);}}});
     function paintPlaying(){
@@ -29,9 +32,10 @@ export function mountLocationMusic({host,getContext,adapter=createMediaAdapter(g
     }
     function sync(){
         if(disposed)return;
-        const ctx=getContext(),prefs=musicSettings(ctx),cue=locationMusicCue(ctx,lastViewed);
+        const ctx=getContext(),prefs=musicSettings(ctx);
         const identity=JSON.stringify([ctx.groupId ?? ctx.characterId,ctx.getCurrentChatId?.() || ctx.chatId || '']);
-        if(chatKey&&chatKey!==identity){library.close();picker.close();player.stopPreview();}
+        if(chatKey&&chatKey!==identity){library.close();picker.close();player.stopPreview();liveForms.clear();}
+        const cue=locationMusicCue(ctx,lastViewed,new Set([...encounterForms(ctx),...liveForms]));
         chatKey=identity;
         if(!lastOn){library.close();picker.close();}
         player.configure({...cue,active:lastOn,enabled:lastOn&&prefs.locationMusicEnabled!==false,volume:musicVolume(ctx),inCombat:Boolean(cue.location?.wilderness&&lastCombat)});
@@ -103,6 +107,9 @@ export function mountLocationMusic({host,getContext,adapter=createMediaAdapter(g
     on(picker,'change',event=>{const id=event.target.dataset.musicTrack;if(id){if(event.target.checked)draft.add(id);else draft.delete(id);}if(event.target.matches('[data-music-combat]')){combatDraft=event.target.value || null;if(combatDraft)draft.delete(combatDraft);renderPicker();}});
     const api={
         sync({on,combat=false,viewed=null}){lastOn=Boolean(on);lastCombat=Boolean(combat);lastViewed=viewed;sync();},
+        // The battle board reports a second form as it happens; once the round is saved (or abandoned) the record decides.
+        formChanged(form){if(disposed||typeof form!=='string'||!form)return;liveForms.add(form);sync();},
+        roundSettled(){if(liveForms.size){liveForms.clear();sync();}},
         openLibrary(){if(disposed)return;renderLibrary();status(library,'');if(!library.open)library.showModal();},
         openLocation(id){if(disposed)return;const location=musicLocation(getContext(),id);if(!location){announce('This waypoint is no longer available.');return;}locationId=id;draft=new Set(location.music?.tracks || []);combatDraft=location.wilderness?location.music?.combatTrack || null:null;renderPicker();status(picker,'');if(!picker.open)picker.showModal();},
         dispose(){if(disposed)return;disposed=true;abort.abort();library.close();picker.close();player.dispose();library.remove();picker.remove();},

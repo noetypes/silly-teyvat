@@ -53,7 +53,7 @@ const COIN_LAND=2390;
 let boards=0;
 const ordinal=n=>{const s=['th','st','nd','rd'],v=n%100;return n+(s[(v-20)%10] || s[v] || s[0]);};
 
-export function mountBattle({host,sound=createBattleSound(),onBurst=()=>{},onStopVoice=()=>{}}){
+export function mountBattle({host,sound=createBattleSound(),onBurst=()=>{},onStopVoice=()=>{},onTransform=()=>{}}){
     const dialog=document.createElement('dialog');dialog.id='gi-battle';dialog.setAttribute('aria-label','Battle');
     // The board takes focus itself when it opens (see open()), so no card is focused and no tooltip covers the table until you choose one.
     dialog.tabIndex=-1;
@@ -788,6 +788,7 @@ export function mountBattle({host,sound=createBattleSound(),onBurst=()=>{},onSto
                     if(u)paintUnit(u);
                     const p=centerOf(e.actor);if(effectsOn()){particles.impact(p.x,p.y,e.element,1.6);particles.sparkle(p.x,p.y,EL_COLORS[e.element] || '#fff');}
                     banner(e.name,u?.name,EL_COLORS[e.element]);floatText(e.actor,e.cause==='sealed'?'The seal breaks!':'Transformed!','gb-enrage');sound.enrage();
+                    try{onTransform({id:e.actor,form:e.name});}catch(error){console.warn('[Silly Teyvat] Transform',error);}
                     await wait(1100);break;
                 }
                 case 'enrage':{cards.get(e.actor)?.classList.add('tb-enraged');floatText(e.actor,'Enraged!','gb-enrage');sound.enrage();await wait(650);break;}

@@ -1,0 +1,92 @@
+{
+  "date": "2026-11-05",
+  "authorization": "Delete Manekin and Manekina from the game.",
+  "status": "removed_and_verified",
+  "source_changes": [
+    {
+      "file": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/settings.json",
+      "backup": "/Users/alexachan/Documents/Codex/silly-teyvat-data/backups/2026-11-05-finish-sprites-remove-manekins/files/live/settings.json",
+      "before_sha256": "aa6a6cc1a59c3f090b29c54dd21fb98bfb4d41a867697e81ead5480b5fa611d1",
+      "after_sha256": "07da24dccad6cd63d50c4c727ea31650607df67809d4dfc780f0919ba3c7b8a7"
+    },
+    {
+      "file": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/worlds/main_Genshin Impact Ultimate Lorebook_world_info.json",
+      "backup": "/Users/alexachan/Documents/Codex/silly-teyvat-data/backups/2026-11-05-finish-sprites-remove-manekins/files/live/worlds/main_Genshin Impact Ultimate Lorebook_world_info.json",
+      "before_sha256": "ee377c2064a8009643b1f8c4357c44d306bc1fea1cf8843895549a0bd9cae16b",
+      "after_sha256": "082de3e232945313149fe98c97911016cca513487e815932a3d500311ebc35d2"
+    },
+    {
+      "file": "/Users/alexachan/Documents/Codex/silly-teyvat/extension/genshin-dialogue-ui/character-tastes.js",
+      "backup": "/Users/alexachan/Documents/Codex/silly-teyvat-data/backups/2026-11-05-finish-sprites-remove-manekins/files/repo/extension/genshin-dialogue-ui/character-tastes.js",
+      "before_sha256": "7f5f5a52a429380d84c13d11ffce2177f89cf9a40eb86240eef7520661667f83",
+      "after_sha256": "fc7aefbf80e7dfaaec6ed0dabd7a65db78b13bd938f7977f37320534bd4464e6"
+    },
+    {
+      "file": "/Users/alexachan/Documents/Codex/silly-teyvat/extension/genshin-dialogue-ui/assets/character-properties.json",
+      "backup": "/Users/alexachan/Documents/Codex/silly-teyvat-data/backups/2026-11-05-finish-sprites-remove-manekins/files/repo/extension/genshin-dialogue-ui/assets/character-properties.json",
+      "before_sha256": "6282513c8b1be3ab2ccae15561cefd40aa1f0d6686b8afc522539a75b892376f",
+      "after_sha256": "a229318d7cc54e009a8337f4d4c7235bcdb1a9971289f39d9f74b583d629cae8"
+    },
+    {
+      "file": "/Users/alexachan/Documents/Codex/silly-teyvat/extension/genshin-dialogue-ui/assets/battle/index.json",
+      "backup": "/Users/alexachan/Documents/Codex/silly-teyvat-data/backups/2026-11-05-finish-sprites-remove-manekins/files/repo/extension/genshin-dialogue-ui/assets/battle/index.json",
+      "before_sha256": "0386569714af9e026b18a0d95e57805d8dc395797c71619f9b521f776e400f6b",
+      "after_sha256": "747794182dec7ef8063c5a668202713401289331d90d706d1e03a6b0577328c3"
+    },
+    {
+      "file": "/Users/alexachan/Documents/Codex/silly-teyvat/extension/genshin-dialogue-ui/assets/world-locations/catalog.json",
+      "backup": "/Users/alexachan/Documents/Codex/silly-teyvat-data/backups/2026-11-05-finish-sprites-remove-manekins/files/repo/extension/genshin-dialogue-ui/assets/world-locations/catalog.json",
+      "before_sha256": "67df265c74df0d50b54e0a1431c38d1df82312a8735c97095bef301a64ff1b01",
+      "after_sha256": "4e9c5a06a52360215858331c3cf1b8601cdaf2e6a63296c463e51cdd68bb690f"
+    },
+    {
+      "file": "/Users/alexachan/Documents/Codex/silly-teyvat/extension/genshin-dialogue-ui/assets/world-locations/character-homes.json",
+      "backup": "/Users/alexachan/Documents/Codex/silly-teyvat-data/backups/2026-11-05-finish-sprites-remove-manekins/files/repo/extension/genshin-dialogue-ui/assets/world-locations/character-homes.json",
+      "before_sha256": "dfeee73c7f331deb164ed22940e35dd3a62e9baedb53788e097475ba8e3474bf",
+      "after_sha256": "d4deb65ae29f5bc5df91d8f442d248afa4397d2d558e62de9de0176676ebeefe"
+    }
+  ],
+  "removed_live_files": [
+    {
+      "original": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Manekin",
+      "backup": "/Users/alexachan/Documents/Codex/silly-teyvat-data/backups/2026-11-05-finish-sprites-remove-manekins/removed-live/characters/Manekin",
+      "file_hashes": {
+        "neutral.png": "876663884334e172d26b4a06b7b7f25fb0aca849982ddfd0a74ed9033d8d0b3f"
+      }
+    },
+    {
+      "original": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Manekina",
+      "backup": "/Users/alexachan/Documents/Codex/silly-teyvat-data/backups/2026-11-05-finish-sprites-remove-manekins/removed-live/characters/Manekina",
+      "file_hashes": {
+        "neutral.png": "70bac225163613479a9baddd342d8dd478befbdce88bf99784054347c738f25a"
+      }
+    }
+  ],
+  "removed_lorebook_entries": [
+    {
+      "uid": "325",
+      "comment": "Miliastra Wonderland Manekins"
+    }
+  ],
+  "removed_structured_paths": [
+    "settings/extension_settings/expressionOverrides/191",
+    "settings/extension_settings/expressionOverrides/215",
+    "settings/extension_settings/genshin_dialogue_ui/backgroundRegions/0/locations/5/suggestedCharacters/5",
+    "settings/extension_settings/genshin_dialogue_ui/backgroundRegions/0/locations/5/researchNotes/5",
+    "settings/extension_settings/genshin_dialogue_ui/defaultCharacterLocations/Manekin.png",
+    "settings/extension_settings/genshin_dialogue_ui/defaultCharacterLocations/Manekina.png"
+  ],
+  "cards_already_absent": true,
+  "unreferenced_historical_media": "Preserved; no active catalog references remain.",
+  "verification": {
+    "absent_from_live_roster_and_catalogs": [
+      "Manekin",
+      "Manekina"
+    ],
+    "sprite_folders_removed": true,
+    "remaining_playable_excluding_aloy": 121,
+    "remaining_below_ten": {},
+    "unrelated_character_metadata_unchanged": true,
+    "only_dedicated_lorebook_entry_removed": true
+  }
+}

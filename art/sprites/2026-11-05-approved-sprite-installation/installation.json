@@ -1,0 +1,2061 @@
+{
+  "date": "2026-11-05",
+  "user_authorization": "All accepted. Install all sprite sets into their respected folders including Fischl's new set, which should be as an alternate set to her already generated one.",
+  "status": "installed_and_verified",
+  "sets": [
+    {
+      "character": "Xingqiu",
+      "folder": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Xingqiu",
+      "files": 10,
+      "role": "original"
+    },
+    {
+      "character": "Xinyan",
+      "folder": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Xinyan",
+      "files": 10,
+      "role": "original"
+    },
+    {
+      "character": "Yoimiya",
+      "folder": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Yoimiya",
+      "files": 10,
+      "role": "original"
+    },
+    {
+      "character": "Yun Jin",
+      "folder": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Yun Jin",
+      "files": 10,
+      "role": "original"
+    },
+    {
+      "character": "Zibai",
+      "folder": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Zibai",
+      "files": 10,
+      "role": "original"
+    },
+    {
+      "character": "Yumemizuki Mizuki",
+      "folder": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Yumemizuki Mizuki",
+      "files": 10,
+      "role": "original"
+    },
+    {
+      "character": "Xilonen",
+      "folder": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Xilonen",
+      "files": 10,
+      "role": "original"
+    },
+    {
+      "character": "Fischl",
+      "folder": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Fischl/Regenerated",
+      "files": 22,
+      "role": "alternate",
+      "label": "Regenerated"
+    }
+  ],
+  "files": [
+    {
+      "character": "Xingqiu",
+      "emotion": "neutral",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-five-hand-anatomy-revisions/sprites/Xingqiu/neutral.png",
+      "source_manifest": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-five-hand-anatomy-revisions/run.json",
+      "sha256": "5e0c8b025646db174512d5207d3c87ddd18d2651b373531b229538ad84781c64",
+      "dimensions": [
+        944,
+        1666
+      ],
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Xingqiu/neutral.png",
+      "relative_destination": "Xingqiu/neutral.png",
+      "before_sha256": "e43efda870321c02f2cfc6b29caed14df032ce71b53130b222bf0d8a0163d327",
+      "action": "replace",
+      "approval": {
+        "status": "approved",
+        "date": "2026-11-05",
+        "message": "All accepted. Install all sprite sets into their respected folders including Fischl's new set, which should be as an alternate set to her already generated one."
+      },
+      "staged": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-approved-sprite-installation/sprites/Xingqiu/neutral.png",
+      "backup": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-approved-sprite-installation/backups/Xingqiu/neutral.png"
+    },
+    {
+      "character": "Xingqiu",
+      "emotion": "joy",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-five-hand-anatomy-revisions/sprites/Xingqiu/joy.png",
+      "source_manifest": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-five-hand-anatomy-revisions/run.json",
+      "sha256": "133ccf5cb22e5b1d0e7fd1115885f3b9c13716e16ae44fbb92a5ab6e63ad50ec",
+      "dimensions": [
+        944,
+        1665
+      ],
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Xingqiu/joy.png",
+      "relative_destination": "Xingqiu/joy.png",
+      "before_sha256": null,
+      "action": "add",
+      "approval": {
+        "status": "approved",
+        "date": "2026-11-05",
+        "message": "All accepted. Install all sprite sets into their respected folders including Fischl's new set, which should be as an alternate set to her already generated one."
+      },
+      "staged": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-approved-sprite-installation/sprites/Xingqiu/joy.png"
+    },
+    {
+      "character": "Xingqiu",
+      "emotion": "annoyance",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-five-hand-anatomy-revisions/sprites/Xingqiu/annoyance.png",
+      "source_manifest": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-five-hand-anatomy-revisions/run.json",
+      "sha256": "e7c7b1ff070f556dd7e916eea8a2462aa5a1af50df5e1391cafcc137641c9754",
+      "dimensions": [
+        944,
+        1665
+      ],
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Xingqiu/annoyance.png",
+      "relative_destination": "Xingqiu/annoyance.png",
+      "before_sha256": null,
+      "action": "add",
+      "approval": {
+        "status": "approved",
+        "date": "2026-11-05",
+        "message": "All accepted. Install all sprite sets into their respected folders including Fischl's new set, which should be as an alternate set to her already generated one."
+      },
+      "staged": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-approved-sprite-installation/sprites/Xingqiu/annoyance.png"
+    },
+    {
+      "character": "Xingqiu",
+      "emotion": "confusion",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-five-hand-anatomy-revisions/sprites/Xingqiu/confusion.png",
+      "source_manifest": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-five-hand-anatomy-revisions/run.json",
+      "sha256": "50bbcfecbba42d4e801ce7344721d1fdc7be496b55fd087ba10b0796171f679d",
+      "dimensions": [
+        944,
+        1665
+      ],
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Xingqiu/confusion.png",
+      "relative_destination": "Xingqiu/confusion.png",
+      "before_sha256": null,
+      "action": "add",
+      "approval": {
+        "status": "approved",
+        "date": "2026-11-05",
+        "message": "All accepted. Install all sprite sets into their respected folders including Fischl's new set, which should be as an alternate set to her already generated one."
+      },
+      "staged": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-approved-sprite-installation/sprites/Xingqiu/confusion.png"
+    },
+    {
+      "character": "Xingqiu",
+      "emotion": "love",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-five-hand-anatomy-revisions/sprites/Xingqiu/love.png",
+      "source_manifest": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-five-hand-anatomy-revisions/run.json",
+      "sha256": "d782b7cff49c4a0b588193b49a972c7dfc3cb7717f4da88522038dc587264644",
+      "dimensions": [
+        944,
+        1665
+      ],
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Xingqiu/love.png",
+      "relative_destination": "Xingqiu/love.png",
+      "before_sha256": null,
+      "action": "add",
+      "approval": {
+        "status": "approved",
+        "date": "2026-11-05",
+        "message": "All accepted. Install all sprite sets into their respected folders including Fischl's new set, which should be as an alternate set to her already generated one."
+      },
+      "staged": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-approved-sprite-installation/sprites/Xingqiu/love.png"
+    },
+    {
+      "character": "Xingqiu",
+      "emotion": "desire",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-five-hand-anatomy-revisions/sprites/Xingqiu/desire.png",
+      "source_manifest": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-five-hand-anatomy-revisions/run.json",
+      "sha256": "de9a2bd219287b8c0fe5c6f65b8b337e6d07f1ebaf7266f9dbabd23f84948896",
+      "dimensions": [
+        944,
+        1665
+      ],
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Xingqiu/desire.png",
+      "relative_destination": "Xingqiu/desire.png",
+      "before_sha256": null,
+      "action": "add",
+      "approval": {
+        "status": "approved",
+        "date": "2026-11-05",
+        "message": "All accepted. Install all sprite sets into their respected folders including Fischl's new set, which should be as an alternate set to her already generated one."
+      },
+      "staged": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-approved-sprite-installation/sprites/Xingqiu/desire.png"
+    },
+    {
+      "character": "Xingqiu",
+      "emotion": "excitement",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-five-hand-anatomy-revisions/sprites/Xingqiu/excitement.png",
+      "source_manifest": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-five-hand-anatomy-revisions/run.json",
+      "sha256": "4f8e05236009faebb5dbf1f9c7eb12aa2001bd96b40b87e754ce7f8113e79220",
+      "dimensions": [
+        944,
+        1665
+      ],
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Xingqiu/excitement.png",
+      "relative_destination": "Xingqiu/excitement.png",
+      "before_sha256": null,
+      "action": "add",
+      "approval": {
+        "status": "approved",
+        "date": "2026-11-05",
+        "message": "All accepted. Install all sprite sets into their respected folders including Fischl's new set, which should be as an alternate set to her already generated one."
+      },
+      "staged": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-approved-sprite-installation/sprites/Xingqiu/excitement.png"
+    },
+    {
+      "character": "Xingqiu",
+      "emotion": "sadness",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-five-hand-anatomy-revisions/sprites/Xingqiu/sadness.png",
+      "source_manifest": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-five-hand-anatomy-revisions/run.json",
+      "sha256": "31ab2a4b848ab7833be37249336716f7abee20c492d4e2e1be5e67eed73933d4",
+      "dimensions": [
+        944,
+        1665
+      ],
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Xingqiu/sadness.png",
+      "relative_destination": "Xingqiu/sadness.png",
+      "before_sha256": null,
+      "action": "add",
+      "approval": {
+        "status": "approved",
+        "date": "2026-11-05",
+        "message": "All accepted. Install all sprite sets into their respected folders including Fischl's new set, which should be as an alternate set to her already generated one."
+      },
+      "staged": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-approved-sprite-installation/sprites/Xingqiu/sadness.png"
+    },
+    {
+      "character": "Xingqiu",
+      "emotion": "fear",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-five-hand-anatomy-revisions/sprites/Xingqiu/fear.png",
+      "source_manifest": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-five-hand-anatomy-revisions/run.json",
+      "sha256": "f833fd494147c9e5b0db57d325c64986a3e2d83494dc356dc223067fccd3d0df",
+      "dimensions": [
+        944,
+        1665
+      ],
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Xingqiu/fear.png",
+      "relative_destination": "Xingqiu/fear.png",
+      "before_sha256": null,
+      "action": "add",
+      "approval": {
+        "status": "approved",
+        "date": "2026-11-05",
+        "message": "All accepted. Install all sprite sets into their respected folders including Fischl's new set, which should be as an alternate set to her already generated one."
+      },
+      "staged": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-approved-sprite-installation/sprites/Xingqiu/fear.png"
+    },
+    {
+      "character": "Xingqiu",
+      "emotion": "embarrassment",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-five-hand-anatomy-revisions/sprites/Xingqiu/embarrassment.png",
+      "source_manifest": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-five-hand-anatomy-revisions/run.json",
+      "sha256": "f8ac74310960987a2c41dc0599f85986d90f0c09641304b3e385af8a617c15e4",
+      "dimensions": [
+        944,
+        1665
+      ],
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Xingqiu/embarrassment.png",
+      "relative_destination": "Xingqiu/embarrassment.png",
+      "before_sha256": null,
+      "action": "add",
+      "approval": {
+        "status": "approved",
+        "date": "2026-11-05",
+        "message": "All accepted. Install all sprite sets into their respected folders including Fischl's new set, which should be as an alternate set to her already generated one."
+      },
+      "staged": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-approved-sprite-installation/sprites/Xingqiu/embarrassment.png"
+    },
+    {
+      "character": "Xinyan",
+      "emotion": "neutral",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-five-hand-anatomy-revisions/sprites/Xinyan/neutral.png",
+      "source_manifest": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-five-hand-anatomy-revisions/run.json",
+      "sha256": "316fcf7b883ac332f212b44f595e88ec1c130962af89bff0ed79261a4da385b7",
+      "dimensions": [
+        941,
+        1672
+      ],
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Xinyan/neutral.png",
+      "relative_destination": "Xinyan/neutral.png",
+      "before_sha256": "89f07fa5ca2f83c6acdd3b93f37528f3ac7b6ea8c9c154531eed8ada908da1eb",
+      "action": "replace",
+      "approval": {
+        "status": "approved",
+        "date": "2026-11-05",
+        "message": "All accepted. Install all sprite sets into their respected folders including Fischl's new set, which should be as an alternate set to her already generated one."
+      },
+      "staged": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-approved-sprite-installation/sprites/Xinyan/neutral.png",
+      "backup": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-approved-sprite-installation/backups/Xinyan/neutral.png"
+    },
+    {
+      "character": "Xinyan",
+      "emotion": "joy",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-five-hand-anatomy-revisions/sprites/Xinyan/joy.png",
+      "source_manifest": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-five-hand-anatomy-revisions/run.json",
+      "sha256": "e30efd60876ffcf8832203b93c533beec23dffdb731d73b1b75bdd61b52b52cd",
+      "dimensions": [
+        941,
+        1671
+      ],
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Xinyan/joy.png",
+      "relative_destination": "Xinyan/joy.png",
+      "before_sha256": null,
+      "action": "add",
+      "approval": {
+        "status": "approved",
+        "date": "2026-11-05",
+        "message": "All accepted. Install all sprite sets into their respected folders including Fischl's new set, which should be as an alternate set to her already generated one."
+      },
+      "staged": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-approved-sprite-installation/sprites/Xinyan/joy.png"
+    },
+    {
+      "character": "Xinyan",
+      "emotion": "annoyance",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-five-hand-anatomy-revisions/sprites/Xinyan/annoyance.png",
+      "source_manifest": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-five-hand-anatomy-revisions/run.json",
+      "sha256": "e9d01e01785c167b839c4e45624ca3b75f1dc6344820773a6faf9db6a3859696",
+      "dimensions": [
+        941,
+        1671
+      ],
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Xinyan/annoyance.png",
+      "relative_destination": "Xinyan/annoyance.png",
+      "before_sha256": null,
+      "action": "add",
+      "approval": {
+        "status": "approved",
+        "date": "2026-11-05",
+        "message": "All accepted. Install all sprite sets into their respected folders including Fischl's new set, which should be as an alternate set to her already generated one."
+      },
+      "staged": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-approved-sprite-installation/sprites/Xinyan/annoyance.png"
+    },
+    {
+      "character": "Xinyan",
+      "emotion": "confusion",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-five-hand-anatomy-revisions/sprites/Xinyan/confusion.png",
+      "source_manifest": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-five-hand-anatomy-revisions/run.json",
+      "sha256": "8a81986a7b6df825c890d6b83265dfe28c91638cb3d366f6c69579b0bfd0d045",
+      "dimensions": [
+        941,
+        1672
+      ],
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Xinyan/confusion.png",
+      "relative_destination": "Xinyan/confusion.png",
+      "before_sha256": null,
+      "action": "add",
+      "approval": {
+        "status": "approved",
+        "date": "2026-11-05",
+        "message": "All accepted. Install all sprite sets into their respected folders including Fischl's new set, which should be as an alternate set to her already generated one."
+      },
+      "staged": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-approved-sprite-installation/sprites/Xinyan/confusion.png"
+    },
+    {
+      "character": "Xinyan",
+      "emotion": "love",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-five-hand-anatomy-revisions/sprites/Xinyan/love.png",
+      "source_manifest": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-five-hand-anatomy-revisions/run.json",
+      "sha256": "a96d529de61bf32f6f8e0deb70ada0848383c185fa51f80883a3fd0c8e365bc7",
+      "dimensions": [
+        941,
+        1671
+      ],
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Xinyan/love.png",
+      "relative_destination": "Xinyan/love.png",
+      "before_sha256": null,
+      "action": "add",
+      "approval": {
+        "status": "approved",
+        "date": "2026-11-05",
+        "message": "All accepted. Install all sprite sets into their respected folders including Fischl's new set, which should be as an alternate set to her already generated one."
+      },
+      "staged": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-approved-sprite-installation/sprites/Xinyan/love.png"
+    },
+    {
+      "character": "Xinyan",
+      "emotion": "desire",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-five-hand-anatomy-revisions/sprites/Xinyan/desire.png",
+      "source_manifest": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-five-hand-anatomy-revisions/run.json",
+      "sha256": "74a6dfa66ddad33b7ea3e41aea4e977aebd6ce60fdddd6732a14bdd35332ac22",
+      "dimensions": [
+        941,
+        1671
+      ],
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Xinyan/desire.png",
+      "relative_destination": "Xinyan/desire.png",
+      "before_sha256": null,
+      "action": "add",
+      "approval": {
+        "status": "approved",
+        "date": "2026-11-05",
+        "message": "All accepted. Install all sprite sets into their respected folders including Fischl's new set, which should be as an alternate set to her already generated one."
+      },
+      "staged": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-approved-sprite-installation/sprites/Xinyan/desire.png"
+    },
+    {
+      "character": "Xinyan",
+      "emotion": "excitement",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-five-hand-anatomy-revisions/sprites/Xinyan/excitement.png",
+      "source_manifest": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-five-hand-anatomy-revisions/run.json",
+      "sha256": "381d98cf4e7211cfdf9e881593bc03c67a986adc811d0c02d97f37c10293c87d",
+      "dimensions": [
+        941,
+        1671
+      ],
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Xinyan/excitement.png",
+      "relative_destination": "Xinyan/excitement.png",
+      "before_sha256": null,
+      "action": "add",
+      "approval": {
+        "status": "approved",
+        "date": "2026-11-05",
+        "message": "All accepted. Install all sprite sets into their respected folders including Fischl's new set, which should be as an alternate set to her already generated one."
+      },
+      "staged": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-approved-sprite-installation/sprites/Xinyan/excitement.png"
+    },
+    {
+      "character": "Xinyan",
+      "emotion": "sadness",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-five-hand-anatomy-revisions/sprites/Xinyan/sadness.png",
+      "source_manifest": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-five-hand-anatomy-revisions/run.json",
+      "sha256": "f4e2cba7ef927d3b63f1e0b5903de1764c66d1a17fc2cc6f57de7f580fcef80d",
+      "dimensions": [
+        941,
+        1671
+      ],
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Xinyan/sadness.png",
+      "relative_destination": "Xinyan/sadness.png",
+      "before_sha256": null,
+      "action": "add",
+      "approval": {
+        "status": "approved",
+        "date": "2026-11-05",
+        "message": "All accepted. Install all sprite sets into their respected folders including Fischl's new set, which should be as an alternate set to her already generated one."
+      },
+      "staged": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-approved-sprite-installation/sprites/Xinyan/sadness.png"
+    },
+    {
+      "character": "Xinyan",
+      "emotion": "fear",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-five-hand-anatomy-revisions/sprites/Xinyan/fear.png",
+      "source_manifest": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-five-hand-anatomy-revisions/run.json",
+      "sha256": "a1c512d05f3bf8d2f337259e9eaa34325ce2f2395ed212792b1a242494de2ae5",
+      "dimensions": [
+        941,
+        1672
+      ],
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Xinyan/fear.png",
+      "relative_destination": "Xinyan/fear.png",
+      "before_sha256": null,
+      "action": "add",
+      "approval": {
+        "status": "approved",
+        "date": "2026-11-05",
+        "message": "All accepted. Install all sprite sets into their respected folders including Fischl's new set, which should be as an alternate set to her already generated one."
+      },
+      "staged": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-approved-sprite-installation/sprites/Xinyan/fear.png"
+    },
+    {
+      "character": "Xinyan",
+      "emotion": "embarrassment",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-five-hand-anatomy-revisions/sprites/Xinyan/embarrassment.png",
+      "source_manifest": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-five-hand-anatomy-revisions/run.json",
+      "sha256": "5cdde769dc50e4aa69e7d352a6c1dcf4fbaa30de220ff506b571430263118c3c",
+      "dimensions": [
+        941,
+        1670
+      ],
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Xinyan/embarrassment.png",
+      "relative_destination": "Xinyan/embarrassment.png",
+      "before_sha256": null,
+      "action": "add",
+      "approval": {
+        "status": "approved",
+        "date": "2026-11-05",
+        "message": "All accepted. Install all sprite sets into their respected folders including Fischl's new set, which should be as an alternate set to her already generated one."
+      },
+      "staged": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-approved-sprite-installation/sprites/Xinyan/embarrassment.png"
+    },
+    {
+      "character": "Yoimiya",
+      "emotion": "neutral",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-five-hand-anatomy-revisions/sprites/Yoimiya/neutral.png",
+      "source_manifest": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-five-hand-anatomy-revisions/run.json",
+      "sha256": "4dccb857e3f49809d47cb0d151a2f2201e5621092df07ed9b106b37f00d8a4ab",
+      "dimensions": [
+        978,
+        1608
+      ],
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Yoimiya/neutral.png",
+      "relative_destination": "Yoimiya/neutral.png",
+      "before_sha256": "b6b83c23bd97193076bf5086df53226935a7a492153961d655a1b0cc02bedaa0",
+      "action": "replace",
+      "approval": {
+        "status": "approved",
+        "date": "2026-11-05",
+        "message": "All accepted. Install all sprite sets into their respected folders including Fischl's new set, which should be as an alternate set to her already generated one."
+      },
+      "staged": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-approved-sprite-installation/sprites/Yoimiya/neutral.png",
+      "backup": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-approved-sprite-installation/backups/Yoimiya/neutral.png"
+    },
+    {
+      "character": "Yoimiya",
+      "emotion": "joy",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-five-hand-anatomy-revisions/sprites/Yoimiya/joy.png",
+      "source_manifest": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-five-hand-anatomy-revisions/run.json",
+      "sha256": "703d3fc5a6edc3e2e695a22997fda72bbe3d16ac700ede9c2a11a39f09715514",
+      "dimensions": [
+        978,
+        1608
+      ],
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Yoimiya/joy.png",
+      "relative_destination": "Yoimiya/joy.png",
+      "before_sha256": null,
+      "action": "add",
+      "approval": {
+        "status": "approved",
+        "date": "2026-11-05",
+        "message": "All accepted. Install all sprite sets into their respected folders including Fischl's new set, which should be as an alternate set to her already generated one."
+      },
+      "staged": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-approved-sprite-installation/sprites/Yoimiya/joy.png"
+    },
+    {
+      "character": "Yoimiya",
+      "emotion": "annoyance",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-five-hand-anatomy-revisions/sprites/Yoimiya/annoyance.png",
+      "source_manifest": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-five-hand-anatomy-revisions/run.json",
+      "sha256": "8e03e9ad1019997952420a53ccca528ae82aa66d2123df9485ed5f5d8de9b153",
+      "dimensions": [
+        978,
+        1608
+      ],
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Yoimiya/annoyance.png",
+      "relative_destination": "Yoimiya/annoyance.png",
+      "before_sha256": null,
+      "action": "add",
+      "approval": {
+        "status": "approved",
+        "date": "2026-11-05",
+        "message": "All accepted. Install all sprite sets into their respected folders including Fischl's new set, which should be as an alternate set to her already generated one."
+      },
+      "staged": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-approved-sprite-installation/sprites/Yoimiya/annoyance.png"
+    },
+    {
+      "character": "Yoimiya",
+      "emotion": "confusion",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-five-hand-anatomy-revisions/sprites/Yoimiya/confusion.png",
+      "source_manifest": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-five-hand-anatomy-revisions/run.json",
+      "sha256": "6a28e370b6a309a86923615c3708553c0f3959bfbeecc56f031f3ae7d9bf9d60",
+      "dimensions": [
+        978,
+        1608
+      ],
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Yoimiya/confusion.png",
+      "relative_destination": "Yoimiya/confusion.png",
+      "before_sha256": null,
+      "action": "add",
+      "approval": {
+        "status": "approved",
+        "date": "2026-11-05",
+        "message": "All accepted. Install all sprite sets into their respected folders including Fischl's new set, which should be as an alternate set to her already generated one."
+      },
+      "staged": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-approved-sprite-installation/sprites/Yoimiya/confusion.png"
+    },
+    {
+      "character": "Yoimiya",
+      "emotion": "love",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-five-hand-anatomy-revisions/sprites/Yoimiya/love.png",
+      "source_manifest": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-five-hand-anatomy-revisions/run.json",
+      "sha256": "1ff477a7ee5c4483680abfccbcde274d3381727a893fd98560b3df206be78f95",
+      "dimensions": [
+        978,
+        1608
+      ],
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Yoimiya/love.png",
+      "relative_destination": "Yoimiya/love.png",
+      "before_sha256": null,
+      "action": "add",
+      "approval": {
+        "status": "approved",
+        "date": "2026-11-05",
+        "message": "All accepted. Install all sprite sets into their respected folders including Fischl's new set, which should be as an alternate set to her already generated one."
+      },
+      "staged": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-approved-sprite-installation/sprites/Yoimiya/love.png"
+    },
+    {
+      "character": "Yoimiya",
+      "emotion": "desire",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-five-hand-anatomy-revisions/sprites/Yoimiya/desire.png",
+      "source_manifest": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-five-hand-anatomy-revisions/run.json",
+      "sha256": "78b2e545eaff13e991dcdde6a6b955dfcd84b353584b4c2eab5943c20666762c",
+      "dimensions": [
+        978,
+        1608
+      ],
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Yoimiya/desire.png",
+      "relative_destination": "Yoimiya/desire.png",
+      "before_sha256": null,
+      "action": "add",
+      "approval": {
+        "status": "approved",
+        "date": "2026-11-05",
+        "message": "All accepted. Install all sprite sets into their respected folders including Fischl's new set, which should be as an alternate set to her already generated one."
+      },
+      "staged": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-approved-sprite-installation/sprites/Yoimiya/desire.png"
+    },
+    {
+      "character": "Yoimiya",
+      "emotion": "excitement",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-five-hand-anatomy-revisions/sprites/Yoimiya/excitement.png",
+      "source_manifest": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-five-hand-anatomy-revisions/run.json",
+      "sha256": "d773ed38a7c0380f87d42fca13016d7e19319b8b3558f3d8d7c403c908828e47",
+      "dimensions": [
+        978,
+        1608
+      ],
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Yoimiya/excitement.png",
+      "relative_destination": "Yoimiya/excitement.png",
+      "before_sha256": null,
+      "action": "add",
+      "approval": {
+        "status": "approved",
+        "date": "2026-11-05",
+        "message": "All accepted. Install all sprite sets into their respected folders including Fischl's new set, which should be as an alternate set to her already generated one."
+      },
+      "staged": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-approved-sprite-installation/sprites/Yoimiya/excitement.png"
+    },
+    {
+      "character": "Yoimiya",
+      "emotion": "sadness",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-five-hand-anatomy-revisions/sprites/Yoimiya/sadness.png",
+      "source_manifest": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-five-hand-anatomy-revisions/run.json",
+      "sha256": "abd4a352a8175d430bb8b8d1f6f1da1da183884502680fd1f165519b5f90c160",
+      "dimensions": [
+        978,
+        1608
+      ],
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Yoimiya/sadness.png",
+      "relative_destination": "Yoimiya/sadness.png",
+      "before_sha256": null,
+      "action": "add",
+      "approval": {
+        "status": "approved",
+        "date": "2026-11-05",
+        "message": "All accepted. Install all sprite sets into their respected folders including Fischl's new set, which should be as an alternate set to her already generated one."
+      },
+      "staged": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-approved-sprite-installation/sprites/Yoimiya/sadness.png"
+    },
+    {
+      "character": "Yoimiya",
+      "emotion": "fear",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-five-hand-anatomy-revisions/sprites/Yoimiya/fear.png",
+      "source_manifest": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-five-hand-anatomy-revisions/run.json",
+      "sha256": "58bfc435cd623802ec202a34d6a79ac4694556da9f5359b4ec4e70616d853023",
+      "dimensions": [
+        978,
+        1608
+      ],
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Yoimiya/fear.png",
+      "relative_destination": "Yoimiya/fear.png",
+      "before_sha256": null,
+      "action": "add",
+      "approval": {
+        "status": "approved",
+        "date": "2026-11-05",
+        "message": "All accepted. Install all sprite sets into their respected folders including Fischl's new set, which should be as an alternate set to her already generated one."
+      },
+      "staged": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-approved-sprite-installation/sprites/Yoimiya/fear.png"
+    },
+    {
+      "character": "Yoimiya",
+      "emotion": "embarrassment",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-five-hand-anatomy-revisions/sprites/Yoimiya/embarrassment.png",
+      "source_manifest": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-five-hand-anatomy-revisions/run.json",
+      "sha256": "b669d8971b545332b22d005f0401caaabaa73db07bd7045940f769d1879ae309",
+      "dimensions": [
+        978,
+        1608
+      ],
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Yoimiya/embarrassment.png",
+      "relative_destination": "Yoimiya/embarrassment.png",
+      "before_sha256": null,
+      "action": "add",
+      "approval": {
+        "status": "approved",
+        "date": "2026-11-05",
+        "message": "All accepted. Install all sprite sets into their respected folders including Fischl's new set, which should be as an alternate set to her already generated one."
+      },
+      "staged": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-approved-sprite-installation/sprites/Yoimiya/embarrassment.png"
+    },
+    {
+      "character": "Yun Jin",
+      "emotion": "neutral",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-five-hand-anatomy-revisions/sprites/Yun Jin/neutral.png",
+      "source_manifest": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-five-hand-anatomy-revisions/run.json",
+      "sha256": "f63a0c7f81b1467918129ed1148695f0f14abe880c8c5605f532835007f51e7b",
+      "dimensions": [
+        1003,
+        1568
+      ],
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Yun Jin/neutral.png",
+      "relative_destination": "Yun Jin/neutral.png",
+      "before_sha256": "94e1993dfed768080a82831529a05cc83935d6560b6ba52611be4440c83ad3de",
+      "action": "replace",
+      "approval": {
+        "status": "approved",
+        "date": "2026-11-05",
+        "message": "All accepted. Install all sprite sets into their respected folders including Fischl's new set, which should be as an alternate set to her already generated one."
+      },
+      "staged": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-approved-sprite-installation/sprites/Yun Jin/neutral.png",
+      "backup": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-approved-sprite-installation/backups/Yun Jin/neutral.png"
+    },
+    {
+      "character": "Yun Jin",
+      "emotion": "joy",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-five-hand-anatomy-revisions/sprites/Yun Jin/joy.png",
+      "source_manifest": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-five-hand-anatomy-revisions/run.json",
+      "sha256": "5a6b2f74a6e829de5c06ae9918191a4f8d69abc7b44d0b33499026239ab666d0",
+      "dimensions": [
+        1001,
+        1572
+      ],
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Yun Jin/joy.png",
+      "relative_destination": "Yun Jin/joy.png",
+      "before_sha256": null,
+      "action": "add",
+      "approval": {
+        "status": "approved",
+        "date": "2026-11-05",
+        "message": "All accepted. Install all sprite sets into their respected folders including Fischl's new set, which should be as an alternate set to her already generated one."
+      },
+      "staged": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-approved-sprite-installation/sprites/Yun Jin/joy.png"
+    },
+    {
+      "character": "Yun Jin",
+      "emotion": "annoyance",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-five-hand-anatomy-revisions/sprites/Yun Jin/annoyance.png",
+      "source_manifest": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-five-hand-anatomy-revisions/run.json",
+      "sha256": "7b3a5ef1b084ff85eb3f5bc1349cd2a82d7186873202eb9cfe4b3d8749d5c572",
+      "dimensions": [
+        1003,
+        1568
+      ],
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Yun Jin/annoyance.png",
+      "relative_destination": "Yun Jin/annoyance.png",
+      "before_sha256": null,
+      "action": "add",
+      "approval": {
+        "status": "approved",
+        "date": "2026-11-05",
+        "message": "All accepted. Install all sprite sets into their respected folders including Fischl's new set, which should be as an alternate set to her already generated one."
+      },
+      "staged": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-approved-sprite-installation/sprites/Yun Jin/annoyance.png"
+    },
+    {
+      "character": "Yun Jin",
+      "emotion": "confusion",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-yunjin-confusion-v005/sprites/Yun Jin/confusion.png",
+      "source_manifest": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-yunjin-confusion-v005/run.json",
+      "sha256": "0d79099cce2916185f3e16af9f5982e904a6de7e981ba20f61ea8356123c5370",
+      "dimensions": [
+        993,
+        1584
+      ],
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Yun Jin/confusion.png",
+      "relative_destination": "Yun Jin/confusion.png",
+      "before_sha256": null,
+      "action": "add",
+      "approval": {
+        "status": "approved",
+        "date": "2026-11-05",
+        "message": "All accepted. Install all sprite sets into their respected folders including Fischl's new set, which should be as an alternate set to her already generated one."
+      },
+      "staged": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-approved-sprite-installation/sprites/Yun Jin/confusion.png"
+    },
+    {
+      "character": "Yun Jin",
+      "emotion": "love",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-five-hand-anatomy-revisions/sprites/Yun Jin/love.png",
+      "source_manifest": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-five-hand-anatomy-revisions/run.json",
+      "sha256": "e19f31294f4544a5ad4dd23b81c659a049258e32d1111fe322b5fcceb49f91f6",
+      "dimensions": [
+        1003,
+        1568
+      ],
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Yun Jin/love.png",
+      "relative_destination": "Yun Jin/love.png",
+      "before_sha256": null,
+      "action": "add",
+      "approval": {
+        "status": "approved",
+        "date": "2026-11-05",
+        "message": "All accepted. Install all sprite sets into their respected folders including Fischl's new set, which should be as an alternate set to her already generated one."
+      },
+      "staged": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-approved-sprite-installation/sprites/Yun Jin/love.png"
+    },
+    {
+      "character": "Yun Jin",
+      "emotion": "desire",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-five-hand-anatomy-revisions/sprites/Yun Jin/desire.png",
+      "source_manifest": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-five-hand-anatomy-revisions/run.json",
+      "sha256": "dac05654abbae2a90518ddc02d63f6e6d47f14c46df23575e18552ce7c336781",
+      "dimensions": [
+        1003,
+        1568
+      ],
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Yun Jin/desire.png",
+      "relative_destination": "Yun Jin/desire.png",
+      "before_sha256": null,
+      "action": "add",
+      "approval": {
+        "status": "approved",
+        "date": "2026-11-05",
+        "message": "All accepted. Install all sprite sets into their respected folders including Fischl's new set, which should be as an alternate set to her already generated one."
+      },
+      "staged": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-approved-sprite-installation/sprites/Yun Jin/desire.png"
+    },
+    {
+      "character": "Yun Jin",
+      "emotion": "excitement",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-five-hand-anatomy-revisions/sprites/Yun Jin/excitement.png",
+      "source_manifest": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-five-hand-anatomy-revisions/run.json",
+      "sha256": "6b50be83018b35826e9c717082280f5e21df3ff4a944e8bfce5cf393e317be75",
+      "dimensions": [
+        1003,
+        1568
+      ],
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Yun Jin/excitement.png",
+      "relative_destination": "Yun Jin/excitement.png",
+      "before_sha256": null,
+      "action": "add",
+      "approval": {
+        "status": "approved",
+        "date": "2026-11-05",
+        "message": "All accepted. Install all sprite sets into their respected folders including Fischl's new set, which should be as an alternate set to her already generated one."
+      },
+      "staged": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-approved-sprite-installation/sprites/Yun Jin/excitement.png"
+    },
+    {
+      "character": "Yun Jin",
+      "emotion": "sadness",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-five-hand-anatomy-revisions/sprites/Yun Jin/sadness.png",
+      "source_manifest": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-five-hand-anatomy-revisions/run.json",
+      "sha256": "beecb5f233f34eab6273b727b4d7962aa50bad9b56842c3b8d92797cf99fb630",
+      "dimensions": [
+        1003,
+        1568
+      ],
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Yun Jin/sadness.png",
+      "relative_destination": "Yun Jin/sadness.png",
+      "before_sha256": null,
+      "action": "add",
+      "approval": {
+        "status": "approved",
+        "date": "2026-11-05",
+        "message": "All accepted. Install all sprite sets into their respected folders including Fischl's new set, which should be as an alternate set to her already generated one."
+      },
+      "staged": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-approved-sprite-installation/sprites/Yun Jin/sadness.png"
+    },
+    {
+      "character": "Yun Jin",
+      "emotion": "fear",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-five-hand-anatomy-revisions/sprites/Yun Jin/fear.png",
+      "source_manifest": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-five-hand-anatomy-revisions/run.json",
+      "sha256": "f5a162d082bd6477aa8c1bffe68642f96e8d0ec284b9b6ca4d8f0fbdbe6a6cae",
+      "dimensions": [
+        1003,
+        1568
+      ],
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Yun Jin/fear.png",
+      "relative_destination": "Yun Jin/fear.png",
+      "before_sha256": null,
+      "action": "add",
+      "approval": {
+        "status": "approved",
+        "date": "2026-11-05",
+        "message": "All accepted. Install all sprite sets into their respected folders including Fischl's new set, which should be as an alternate set to her already generated one."
+      },
+      "staged": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-approved-sprite-installation/sprites/Yun Jin/fear.png"
+    },
+    {
+      "character": "Yun Jin",
+      "emotion": "embarrassment",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-five-hand-anatomy-revisions/sprites/Yun Jin/embarrassment.png",
+      "source_manifest": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-five-hand-anatomy-revisions/run.json",
+      "sha256": "975b7a3a51c85916d2dbe7baad461fcd863a59a934eaf09c478a7dda4402333e",
+      "dimensions": [
+        1003,
+        1568
+      ],
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Yun Jin/embarrassment.png",
+      "relative_destination": "Yun Jin/embarrassment.png",
+      "before_sha256": null,
+      "action": "add",
+      "approval": {
+        "status": "approved",
+        "date": "2026-11-05",
+        "message": "All accepted. Install all sprite sets into their respected folders including Fischl's new set, which should be as an alternate set to her already generated one."
+      },
+      "staged": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-approved-sprite-installation/sprites/Yun Jin/embarrassment.png"
+    },
+    {
+      "character": "Zibai",
+      "emotion": "neutral",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-five-hand-anatomy-revisions/sprites/Zibai/neutral.png",
+      "source_manifest": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-five-hand-anatomy-revisions/run.json",
+      "sha256": "8e5aac53a8009ac3bb80193e5df0f3c026766964a84fbeac1a7b976f2268ddad",
+      "dimensions": [
+        1145,
+        1374
+      ],
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Zibai/neutral.png",
+      "relative_destination": "Zibai/neutral.png",
+      "before_sha256": "2dfd5c594e1e2aeb07695c6e46133e4089f866dcf9e394c4eed12b1a6c355610",
+      "action": "replace",
+      "approval": {
+        "status": "approved",
+        "date": "2026-11-05",
+        "message": "All accepted. Install all sprite sets into their respected folders including Fischl's new set, which should be as an alternate set to her already generated one."
+      },
+      "staged": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-approved-sprite-installation/sprites/Zibai/neutral.png",
+      "backup": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-approved-sprite-installation/backups/Zibai/neutral.png"
+    },
+    {
+      "character": "Zibai",
+      "emotion": "joy",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-five-hand-anatomy-revisions/sprites/Zibai/joy.png",
+      "source_manifest": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-five-hand-anatomy-revisions/run.json",
+      "sha256": "826ceacaf1b9500bb7510b7db9e91f66b7043d69c6d9170d01db563a6f8d58ac",
+      "dimensions": [
+        1145,
+        1374
+      ],
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Zibai/joy.png",
+      "relative_destination": "Zibai/joy.png",
+      "before_sha256": null,
+      "action": "add",
+      "approval": {
+        "status": "approved",
+        "date": "2026-11-05",
+        "message": "All accepted. Install all sprite sets into their respected folders including Fischl's new set, which should be as an alternate set to her already generated one."
+      },
+      "staged": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-approved-sprite-installation/sprites/Zibai/joy.png"
+    },
+    {
+      "character": "Zibai",
+      "emotion": "annoyance",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-five-hand-anatomy-revisions/sprites/Zibai/annoyance.png",
+      "source_manifest": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-five-hand-anatomy-revisions/run.json",
+      "sha256": "ef23b6c074c80b6738a782201f73c67381c598e34de68194ed843c9418f83b7f",
+      "dimensions": [
+        1145,
+        1374
+      ],
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Zibai/annoyance.png",
+      "relative_destination": "Zibai/annoyance.png",
+      "before_sha256": null,
+      "action": "add",
+      "approval": {
+        "status": "approved",
+        "date": "2026-11-05",
+        "message": "All accepted. Install all sprite sets into their respected folders including Fischl's new set, which should be as an alternate set to her already generated one."
+      },
+      "staged": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-approved-sprite-installation/sprites/Zibai/annoyance.png"
+    },
+    {
+      "character": "Zibai",
+      "emotion": "confusion",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-five-hand-anatomy-revisions/sprites/Zibai/confusion.png",
+      "source_manifest": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-five-hand-anatomy-revisions/run.json",
+      "sha256": "cb8dcf3eacb489743ebf7a93cf31bc671d260a7a2c75041897eae701965dc1cf",
+      "dimensions": [
+        1145,
+        1374
+      ],
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Zibai/confusion.png",
+      "relative_destination": "Zibai/confusion.png",
+      "before_sha256": null,
+      "action": "add",
+      "approval": {
+        "status": "approved",
+        "date": "2026-11-05",
+        "message": "All accepted. Install all sprite sets into their respected folders including Fischl's new set, which should be as an alternate set to her already generated one."
+      },
+      "staged": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-approved-sprite-installation/sprites/Zibai/confusion.png"
+    },
+    {
+      "character": "Zibai",
+      "emotion": "love",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-five-hand-anatomy-revisions/sprites/Zibai/love.png",
+      "source_manifest": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-five-hand-anatomy-revisions/run.json",
+      "sha256": "ff0a03d637a70edecbefcf95e9f820bebdeafaf811171959b37c92b376b5f0ce",
+      "dimensions": [
+        1145,
+        1374
+      ],
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Zibai/love.png",
+      "relative_destination": "Zibai/love.png",
+      "before_sha256": null,
+      "action": "add",
+      "approval": {
+        "status": "approved",
+        "date": "2026-11-05",
+        "message": "All accepted. Install all sprite sets into their respected folders including Fischl's new set, which should be as an alternate set to her already generated one."
+      },
+      "staged": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-approved-sprite-installation/sprites/Zibai/love.png"
+    },
+    {
+      "character": "Zibai",
+      "emotion": "desire",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-five-hand-anatomy-revisions/sprites/Zibai/desire.png",
+      "source_manifest": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-five-hand-anatomy-revisions/run.json",
+      "sha256": "2dcecbb5ddcf77f70df34fcd5fd06f4eb8c15a6f70360d2f96b367fcf3d92e49",
+      "dimensions": [
+        1145,
+        1374
+      ],
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Zibai/desire.png",
+      "relative_destination": "Zibai/desire.png",
+      "before_sha256": null,
+      "action": "add",
+      "approval": {
+        "status": "approved",
+        "date": "2026-11-05",
+        "message": "All accepted. Install all sprite sets into their respected folders including Fischl's new set, which should be as an alternate set to her already generated one."
+      },
+      "staged": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-approved-sprite-installation/sprites/Zibai/desire.png"
+    },
+    {
+      "character": "Zibai",
+      "emotion": "excitement",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-five-hand-anatomy-revisions/sprites/Zibai/excitement.png",
+      "source_manifest": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-five-hand-anatomy-revisions/run.json",
+      "sha256": "388c6eefa2b75733013216d1c143ffd1855326f13e5f4a646998649728d6ed34",
+      "dimensions": [
+        1145,
+        1374
+      ],
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Zibai/excitement.png",
+      "relative_destination": "Zibai/excitement.png",
+      "before_sha256": null,
+      "action": "add",
+      "approval": {
+        "status": "approved",
+        "date": "2026-11-05",
+        "message": "All accepted. Install all sprite sets into their respected folders including Fischl's new set, which should be as an alternate set to her already generated one."
+      },
+      "staged": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-approved-sprite-installation/sprites/Zibai/excitement.png"
+    },
+    {
+      "character": "Zibai",
+      "emotion": "sadness",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-five-hand-anatomy-revisions/sprites/Zibai/sadness.png",
+      "source_manifest": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-five-hand-anatomy-revisions/run.json",
+      "sha256": "123e8bc8560fa27f69f7a68690db09ee34ea1f1f7726b13ab2f53fa6318b9503",
+      "dimensions": [
+        1145,
+        1374
+      ],
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Zibai/sadness.png",
+      "relative_destination": "Zibai/sadness.png",
+      "before_sha256": null,
+      "action": "add",
+      "approval": {
+        "status": "approved",
+        "date": "2026-11-05",
+        "message": "All accepted. Install all sprite sets into their respected folders including Fischl's new set, which should be as an alternate set to her already generated one."
+      },
+      "staged": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-approved-sprite-installation/sprites/Zibai/sadness.png"
+    },
+    {
+      "character": "Zibai",
+      "emotion": "fear",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-yunjin-zibai-expression-v004/sprites/Zibai/fear.png",
+      "source_manifest": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-yunjin-zibai-expression-v004/run.json",
+      "sha256": "c9e5825cd464d01e5a27af4677274a2df5930b4c330dd981e7e0d5d6d986585c",
+      "dimensions": [
+        1145,
+        1374
+      ],
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Zibai/fear.png",
+      "relative_destination": "Zibai/fear.png",
+      "before_sha256": null,
+      "action": "add",
+      "approval": {
+        "status": "approved",
+        "date": "2026-11-05",
+        "message": "All accepted. Install all sprite sets into their respected folders including Fischl's new set, which should be as an alternate set to her already generated one."
+      },
+      "staged": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-approved-sprite-installation/sprites/Zibai/fear.png"
+    },
+    {
+      "character": "Zibai",
+      "emotion": "embarrassment",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-five-hand-anatomy-revisions/sprites/Zibai/embarrassment.png",
+      "source_manifest": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-five-hand-anatomy-revisions/run.json",
+      "sha256": "4a7c0135f6691249d457d8d7d01edc146837e0223f5bccc5302fac38ec183fc4",
+      "dimensions": [
+        1145,
+        1374
+      ],
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Zibai/embarrassment.png",
+      "relative_destination": "Zibai/embarrassment.png",
+      "before_sha256": null,
+      "action": "add",
+      "approval": {
+        "status": "approved",
+        "date": "2026-11-05",
+        "message": "All accepted. Install all sprite sets into their respected folders including Fischl's new set, which should be as an alternate set to her already generated one."
+      },
+      "staged": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-approved-sprite-installation/sprites/Zibai/embarrassment.png"
+    },
+    {
+      "character": "Yumemizuki Mizuki",
+      "emotion": "neutral",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-mizuki-four-rejected-revisions/sprites/Yumemizuki Mizuki/neutral.png",
+      "source_manifest": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-mizuki-four-rejected-revisions/run.json",
+      "sha256": "cc57f2db28917bc9c508e764780ddef81c1e22a806218f8f46d39201fab972bf",
+      "dimensions": [
+        932,
+        1688
+      ],
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Yumemizuki Mizuki/neutral.png",
+      "relative_destination": "Yumemizuki Mizuki/neutral.png",
+      "before_sha256": "d5a86636948679e7b240e60f32ba120669a82af1173144fab675449eb282a073",
+      "action": "replace",
+      "approval": {
+        "status": "approved",
+        "date": "2026-11-05",
+        "message": "All accepted. Install all sprite sets into their respected folders including Fischl's new set, which should be as an alternate set to her already generated one."
+      },
+      "staged": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-approved-sprite-installation/sprites/Yumemizuki Mizuki/neutral.png",
+      "backup": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-approved-sprite-installation/backups/Yumemizuki Mizuki/neutral.png"
+    },
+    {
+      "character": "Yumemizuki Mizuki",
+      "emotion": "joy",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-mizuki-four-rejected-revisions/sprites/Yumemizuki Mizuki/joy.png",
+      "source_manifest": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-mizuki-four-rejected-revisions/run.json",
+      "sha256": "aff08bd8e8b3d68ffdf63f9c2b9f615ed032a8969ceb835207e08e64b2881267",
+      "dimensions": [
+        935,
+        1683
+      ],
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Yumemizuki Mizuki/joy.png",
+      "relative_destination": "Yumemizuki Mizuki/joy.png",
+      "before_sha256": null,
+      "action": "add",
+      "approval": {
+        "status": "approved",
+        "date": "2026-11-05",
+        "message": "All accepted. Install all sprite sets into their respected folders including Fischl's new set, which should be as an alternate set to her already generated one."
+      },
+      "staged": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-approved-sprite-installation/sprites/Yumemizuki Mizuki/joy.png"
+    },
+    {
+      "character": "Yumemizuki Mizuki",
+      "emotion": "annoyance",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-mizuki-four-rejected-revisions/sprites/Yumemizuki Mizuki/annoyance.png",
+      "source_manifest": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-mizuki-four-rejected-revisions/run.json",
+      "sha256": "23e7b77380cc46fc394bea1ab0939e4c16acf9c378c9427ce8cc6c6bce362e81",
+      "dimensions": [
+        935,
+        1683
+      ],
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Yumemizuki Mizuki/annoyance.png",
+      "relative_destination": "Yumemizuki Mizuki/annoyance.png",
+      "before_sha256": null,
+      "action": "add",
+      "approval": {
+        "status": "approved",
+        "date": "2026-11-05",
+        "message": "All accepted. Install all sprite sets into their respected folders including Fischl's new set, which should be as an alternate set to her already generated one."
+      },
+      "staged": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-approved-sprite-installation/sprites/Yumemizuki Mizuki/annoyance.png"
+    },
+    {
+      "character": "Yumemizuki Mizuki",
+      "emotion": "confusion",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-mizuki-four-rejected-revisions/sprites/Yumemizuki Mizuki/confusion.png",
+      "source_manifest": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-mizuki-four-rejected-revisions/run.json",
+      "sha256": "858f769f0c89d08128319ddc9e5d6ae3a01841db0a9a89832fd8b6b80a53a822",
+      "dimensions": [
+        932,
+        1688
+      ],
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Yumemizuki Mizuki/confusion.png",
+      "relative_destination": "Yumemizuki Mizuki/confusion.png",
+      "before_sha256": null,
+      "action": "add",
+      "approval": {
+        "status": "approved",
+        "date": "2026-11-05",
+        "message": "All accepted. Install all sprite sets into their respected folders including Fischl's new set, which should be as an alternate set to her already generated one."
+      },
+      "staged": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-approved-sprite-installation/sprites/Yumemizuki Mizuki/confusion.png"
+    },
+    {
+      "character": "Yumemizuki Mizuki",
+      "emotion": "love",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-mizuki-four-rejected-revisions/sprites/Yumemizuki Mizuki/love.png",
+      "source_manifest": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-mizuki-four-rejected-revisions/run.json",
+      "sha256": "80621d6257816252f29f7ed31f23b404abbb94d64d59fd48d150e630f632a923",
+      "dimensions": [
+        935,
+        1683
+      ],
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Yumemizuki Mizuki/love.png",
+      "relative_destination": "Yumemizuki Mizuki/love.png",
+      "before_sha256": null,
+      "action": "add",
+      "approval": {
+        "status": "approved",
+        "date": "2026-11-05",
+        "message": "All accepted. Install all sprite sets into their respected folders including Fischl's new set, which should be as an alternate set to her already generated one."
+      },
+      "staged": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-approved-sprite-installation/sprites/Yumemizuki Mizuki/love.png"
+    },
+    {
+      "character": "Yumemizuki Mizuki",
+      "emotion": "desire",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-mizuki-four-rejected-revisions/sprites/Yumemizuki Mizuki/desire.png",
+      "source_manifest": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-mizuki-four-rejected-revisions/run.json",
+      "sha256": "3fba78f576647306a9b78295c485bee47946468246e11fdeb5ec62598a2213b2",
+      "dimensions": [
+        932,
+        1688
+      ],
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Yumemizuki Mizuki/desire.png",
+      "relative_destination": "Yumemizuki Mizuki/desire.png",
+      "before_sha256": null,
+      "action": "add",
+      "approval": {
+        "status": "approved",
+        "date": "2026-11-05",
+        "message": "All accepted. Install all sprite sets into their respected folders including Fischl's new set, which should be as an alternate set to her already generated one."
+      },
+      "staged": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-approved-sprite-installation/sprites/Yumemizuki Mizuki/desire.png"
+    },
+    {
+      "character": "Yumemizuki Mizuki",
+      "emotion": "excitement",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-mizuki-four-rejected-revisions/sprites/Yumemizuki Mizuki/excitement.png",
+      "source_manifest": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-mizuki-four-rejected-revisions/run.json",
+      "sha256": "e4128e5a4098c4eca26a1e30ad58335b629a9bf267bc713862d3e67a785fb6db",
+      "dimensions": [
+        932,
+        1688
+      ],
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Yumemizuki Mizuki/excitement.png",
+      "relative_destination": "Yumemizuki Mizuki/excitement.png",
+      "before_sha256": null,
+      "action": "add",
+      "approval": {
+        "status": "approved",
+        "date": "2026-11-05",
+        "message": "All accepted. Install all sprite sets into their respected folders including Fischl's new set, which should be as an alternate set to her already generated one."
+      },
+      "staged": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-approved-sprite-installation/sprites/Yumemizuki Mizuki/excitement.png"
+    },
+    {
+      "character": "Yumemizuki Mizuki",
+      "emotion": "sadness",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-mizuki-four-rejected-revisions/sprites/Yumemizuki Mizuki/sadness.png",
+      "source_manifest": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-mizuki-four-rejected-revisions/run.json",
+      "sha256": "445cacf44ae8c719b85c057851fc538f2848d7728dcc001ef260aa65ce7d393d",
+      "dimensions": [
+        935,
+        1683
+      ],
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Yumemizuki Mizuki/sadness.png",
+      "relative_destination": "Yumemizuki Mizuki/sadness.png",
+      "before_sha256": null,
+      "action": "add",
+      "approval": {
+        "status": "approved",
+        "date": "2026-11-05",
+        "message": "All accepted. Install all sprite sets into their respected folders including Fischl's new set, which should be as an alternate set to her already generated one."
+      },
+      "staged": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-approved-sprite-installation/sprites/Yumemizuki Mizuki/sadness.png"
+    },
+    {
+      "character": "Yumemizuki Mizuki",
+      "emotion": "fear",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-mizuki-four-rejected-revisions/sprites/Yumemizuki Mizuki/fear.png",
+      "source_manifest": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-mizuki-four-rejected-revisions/run.json",
+      "sha256": "2d72deda03c9f2cb183b431dbce3cdc9f5399f66772be242ef578d35087d3f74",
+      "dimensions": [
+        935,
+        1683
+      ],
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Yumemizuki Mizuki/fear.png",
+      "relative_destination": "Yumemizuki Mizuki/fear.png",
+      "before_sha256": null,
+      "action": "add",
+      "approval": {
+        "status": "approved",
+        "date": "2026-11-05",
+        "message": "All accepted. Install all sprite sets into their respected folders including Fischl's new set, which should be as an alternate set to her already generated one."
+      },
+      "staged": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-approved-sprite-installation/sprites/Yumemizuki Mizuki/fear.png"
+    },
+    {
+      "character": "Yumemizuki Mizuki",
+      "emotion": "embarrassment",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-mizuki-four-rejected-revisions/sprites/Yumemizuki Mizuki/embarrassment.png",
+      "source_manifest": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-mizuki-four-rejected-revisions/run.json",
+      "sha256": "7916bbb4ac75d3ee1fad93f608cdcd8e31d2a1d279a75ef3918f19dc43e815d9",
+      "dimensions": [
+        932,
+        1688
+      ],
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Yumemizuki Mizuki/embarrassment.png",
+      "relative_destination": "Yumemizuki Mizuki/embarrassment.png",
+      "before_sha256": null,
+      "action": "add",
+      "approval": {
+        "status": "approved",
+        "date": "2026-11-05",
+        "message": "All accepted. Install all sprite sets into their respected folders including Fischl's new set, which should be as an alternate set to her already generated one."
+      },
+      "staged": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-approved-sprite-installation/sprites/Yumemizuki Mizuki/embarrassment.png"
+    },
+    {
+      "character": "Xilonen",
+      "emotion": "neutral",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-xilonen-ten-sprites/sprites/Xilonen/neutral.png",
+      "source_manifest": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-xilonen-ten-sprites/run.json",
+      "sha256": "3f65fb5e7d99706116bf98064cb651a78d65fdf2a46dfa7687031786daee6035",
+      "dimensions": [
+        936,
+        1681
+      ],
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Xilonen/neutral.png",
+      "relative_destination": "Xilonen/neutral.png",
+      "before_sha256": "3f65fb5e7d99706116bf98064cb651a78d65fdf2a46dfa7687031786daee6035",
+      "action": "unchanged",
+      "approval": {
+        "status": "approved",
+        "date": "2026-11-05",
+        "message": "All accepted. Install all sprite sets into their respected folders including Fischl's new set, which should be as an alternate set to her already generated one."
+      },
+      "staged": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-approved-sprite-installation/sprites/Xilonen/neutral.png"
+    },
+    {
+      "character": "Xilonen",
+      "emotion": "joy",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-xilonen-ten-sprites/sprites/Xilonen/joy.png",
+      "source_manifest": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-xilonen-ten-sprites/run.json",
+      "sha256": "b5ddc58e08ae3b134942af46610edcff505dc9f0f35319bf5c6e4fab0b5077f3",
+      "dimensions": [
+        936,
+        1681
+      ],
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Xilonen/joy.png",
+      "relative_destination": "Xilonen/joy.png",
+      "before_sha256": "b5ddc58e08ae3b134942af46610edcff505dc9f0f35319bf5c6e4fab0b5077f3",
+      "action": "unchanged",
+      "approval": {
+        "status": "approved",
+        "date": "2026-11-05",
+        "message": "All accepted. Install all sprite sets into their respected folders including Fischl's new set, which should be as an alternate set to her already generated one."
+      },
+      "staged": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-approved-sprite-installation/sprites/Xilonen/joy.png"
+    },
+    {
+      "character": "Xilonen",
+      "emotion": "annoyance",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-xilonen-ten-sprites/sprites/Xilonen/annoyance.png",
+      "source_manifest": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-xilonen-ten-sprites/run.json",
+      "sha256": "16722cab2912d455ab518b2df7f987c0fc3f734fd606e8ca9dffe7c5e00613d6",
+      "dimensions": [
+        936,
+        1681
+      ],
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Xilonen/annoyance.png",
+      "relative_destination": "Xilonen/annoyance.png",
+      "before_sha256": "16722cab2912d455ab518b2df7f987c0fc3f734fd606e8ca9dffe7c5e00613d6",
+      "action": "unchanged",
+      "approval": {
+        "status": "approved",
+        "date": "2026-11-05",
+        "message": "All accepted. Install all sprite sets into their respected folders including Fischl's new set, which should be as an alternate set to her already generated one."
+      },
+      "staged": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-approved-sprite-installation/sprites/Xilonen/annoyance.png"
+    },
+    {
+      "character": "Xilonen",
+      "emotion": "confusion",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-xilonen-ten-sprites/sprites/Xilonen/confusion.png",
+      "source_manifest": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-xilonen-ten-sprites/run.json",
+      "sha256": "54032f73f24b7549a1d6aa3696785f9ed1ce3d73364abc668d6f2f8b9ad07e40",
+      "dimensions": [
+        936,
+        1681
+      ],
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Xilonen/confusion.png",
+      "relative_destination": "Xilonen/confusion.png",
+      "before_sha256": "54032f73f24b7549a1d6aa3696785f9ed1ce3d73364abc668d6f2f8b9ad07e40",
+      "action": "unchanged",
+      "approval": {
+        "status": "approved",
+        "date": "2026-11-05",
+        "message": "All accepted. Install all sprite sets into their respected folders including Fischl's new set, which should be as an alternate set to her already generated one."
+      },
+      "staged": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-approved-sprite-installation/sprites/Xilonen/confusion.png"
+    },
+    {
+      "character": "Xilonen",
+      "emotion": "love",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-xilonen-ten-sprites/sprites/Xilonen/love.png",
+      "source_manifest": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-xilonen-ten-sprites/run.json",
+      "sha256": "e76263607b0616467da28104a333f6bef16dfa276fdd4079e55545f7baf23646",
+      "dimensions": [
+        936,
+        1681
+      ],
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Xilonen/love.png",
+      "relative_destination": "Xilonen/love.png",
+      "before_sha256": "e76263607b0616467da28104a333f6bef16dfa276fdd4079e55545f7baf23646",
+      "action": "unchanged",
+      "approval": {
+        "status": "approved",
+        "date": "2026-11-05",
+        "message": "All accepted. Install all sprite sets into their respected folders including Fischl's new set, which should be as an alternate set to her already generated one."
+      },
+      "staged": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-approved-sprite-installation/sprites/Xilonen/love.png"
+    },
+    {
+      "character": "Xilonen",
+      "emotion": "desire",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-xilonen-ten-sprites/sprites/Xilonen/desire.png",
+      "source_manifest": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-xilonen-ten-sprites/run.json",
+      "sha256": "75dbb9d5939632c2f3f7e2f97959d008cf1ba9c371a1efdbfabf0e33fad115fa",
+      "dimensions": [
+        936,
+        1681
+      ],
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Xilonen/desire.png",
+      "relative_destination": "Xilonen/desire.png",
+      "before_sha256": "75dbb9d5939632c2f3f7e2f97959d008cf1ba9c371a1efdbfabf0e33fad115fa",
+      "action": "unchanged",
+      "approval": {
+        "status": "approved",
+        "date": "2026-11-05",
+        "message": "All accepted. Install all sprite sets into their respected folders including Fischl's new set, which should be as an alternate set to her already generated one."
+      },
+      "staged": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-approved-sprite-installation/sprites/Xilonen/desire.png"
+    },
+    {
+      "character": "Xilonen",
+      "emotion": "excitement",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-xilonen-ten-sprites/sprites/Xilonen/excitement.png",
+      "source_manifest": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-xilonen-ten-sprites/run.json",
+      "sha256": "57d7a4125a185c492f0504b92a8b49230b7cea1abed647b6f119b861bfd484a6",
+      "dimensions": [
+        936,
+        1681
+      ],
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Xilonen/excitement.png",
+      "relative_destination": "Xilonen/excitement.png",
+      "before_sha256": "57d7a4125a185c492f0504b92a8b49230b7cea1abed647b6f119b861bfd484a6",
+      "action": "unchanged",
+      "approval": {
+        "status": "approved",
+        "date": "2026-11-05",
+        "message": "All accepted. Install all sprite sets into their respected folders including Fischl's new set, which should be as an alternate set to her already generated one."
+      },
+      "staged": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-approved-sprite-installation/sprites/Xilonen/excitement.png"
+    },
+    {
+      "character": "Xilonen",
+      "emotion": "sadness",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-xilonen-ten-sprites/sprites/Xilonen/sadness.png",
+      "source_manifest": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-xilonen-ten-sprites/run.json",
+      "sha256": "e7978090f7398fa8e1692ce2e4b0f8ff38e65d9b3db49241b0e55edaa094fa15",
+      "dimensions": [
+        936,
+        1681
+      ],
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Xilonen/sadness.png",
+      "relative_destination": "Xilonen/sadness.png",
+      "before_sha256": "e7978090f7398fa8e1692ce2e4b0f8ff38e65d9b3db49241b0e55edaa094fa15",
+      "action": "unchanged",
+      "approval": {
+        "status": "approved",
+        "date": "2026-11-05",
+        "message": "All accepted. Install all sprite sets into their respected folders including Fischl's new set, which should be as an alternate set to her already generated one."
+      },
+      "staged": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-approved-sprite-installation/sprites/Xilonen/sadness.png"
+    },
+    {
+      "character": "Xilonen",
+      "emotion": "fear",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-xilonen-ten-sprites/sprites/Xilonen/fear.png",
+      "source_manifest": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-xilonen-ten-sprites/run.json",
+      "sha256": "f941e5514d20156d21de9c7a4703eb891ca26c208058c316d3126a7488f07447",
+      "dimensions": [
+        936,
+        1681
+      ],
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Xilonen/fear.png",
+      "relative_destination": "Xilonen/fear.png",
+      "before_sha256": "f941e5514d20156d21de9c7a4703eb891ca26c208058c316d3126a7488f07447",
+      "action": "unchanged",
+      "approval": {
+        "status": "approved",
+        "date": "2026-11-05",
+        "message": "All accepted. Install all sprite sets into their respected folders including Fischl's new set, which should be as an alternate set to her already generated one."
+      },
+      "staged": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-approved-sprite-installation/sprites/Xilonen/fear.png"
+    },
+    {
+      "character": "Xilonen",
+      "emotion": "embarrassment",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-xilonen-ten-sprites/sprites/Xilonen/embarrassment.png",
+      "source_manifest": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-xilonen-ten-sprites/run.json",
+      "sha256": "e21a351fba79a8ac181ba095c212069168590521de4d205197578ca1b09b8ec3",
+      "dimensions": [
+        936,
+        1681
+      ],
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Xilonen/embarrassment.png",
+      "relative_destination": "Xilonen/embarrassment.png",
+      "before_sha256": "e21a351fba79a8ac181ba095c212069168590521de4d205197578ca1b09b8ec3",
+      "action": "unchanged",
+      "approval": {
+        "status": "approved",
+        "date": "2026-11-05",
+        "message": "All accepted. Install all sprite sets into their respected folders including Fischl's new set, which should be as an alternate set to her already generated one."
+      },
+      "staged": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-approved-sprite-installation/sprites/Xilonen/embarrassment.png"
+    },
+    {
+      "character": "Fischl",
+      "emotion": "neutral",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-fischl-full-22/sprites/Fischl/neutral.png",
+      "source_manifest": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-fischl-full-22/run.json",
+      "sha256": "3f1fb1c31686f9d3118ea06c2b0958d8ca4556d822385f7e538a3af049ed1c13",
+      "dimensions": [
+        1003,
+        1568
+      ],
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Fischl/Regenerated/neutral.png",
+      "relative_destination": "Fischl/Regenerated/neutral.png",
+      "before_sha256": null,
+      "action": "add",
+      "approval": {
+        "status": "approved",
+        "date": "2026-11-05",
+        "message": "All accepted. Install all sprite sets into their respected folders including Fischl's new set, which should be as an alternate set to her already generated one."
+      },
+      "staged": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-approved-sprite-installation/sprites/Fischl/Regenerated/neutral.png"
+    },
+    {
+      "character": "Fischl",
+      "emotion": "annoyance",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-fischl-full-22/sprites/Fischl/annoyance.png",
+      "source_manifest": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-fischl-full-22/run.json",
+      "sha256": "bef2f6a5de26c515bd2e5a0b83da847296755ebf0ea3e593bb6317c2cf4c5fd6",
+      "dimensions": [
+        1003,
+        1568
+      ],
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Fischl/Regenerated/annoyance.png",
+      "relative_destination": "Fischl/Regenerated/annoyance.png",
+      "before_sha256": null,
+      "action": "add",
+      "approval": {
+        "status": "approved",
+        "date": "2026-11-05",
+        "message": "All accepted. Install all sprite sets into their respected folders including Fischl's new set, which should be as an alternate set to her already generated one."
+      },
+      "staged": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-approved-sprite-installation/sprites/Fischl/Regenerated/annoyance.png"
+    },
+    {
+      "character": "Fischl",
+      "emotion": "smug",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-fischl-full-22/sprites/Fischl/smug.png",
+      "source_manifest": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-fischl-full-22/run.json",
+      "sha256": "c0eaefa3cbfcf56d1b26b1a5aad9e2915db57b1f1c7d042dd278c3bf8699bb44",
+      "dimensions": [
+        1003,
+        1568
+      ],
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Fischl/Regenerated/smug.png",
+      "relative_destination": "Fischl/Regenerated/smug.png",
+      "before_sha256": null,
+      "action": "add",
+      "approval": {
+        "status": "approved",
+        "date": "2026-11-05",
+        "message": "All accepted. Install all sprite sets into their respected folders including Fischl's new set, which should be as an alternate set to her already generated one."
+      },
+      "staged": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-approved-sprite-installation/sprites/Fischl/Regenerated/smug.png"
+    },
+    {
+      "character": "Fischl",
+      "emotion": "confusion",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-fischl-full-22/sprites/Fischl/confusion.png",
+      "source_manifest": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-fischl-full-22/run.json",
+      "sha256": "8d718eaf4567f8306940f52f6b3a100fe1e8b8651c2be06c932192f90f2a3c0d",
+      "dimensions": [
+        1003,
+        1568
+      ],
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Fischl/Regenerated/confusion.png",
+      "relative_destination": "Fischl/Regenerated/confusion.png",
+      "before_sha256": null,
+      "action": "add",
+      "approval": {
+        "status": "approved",
+        "date": "2026-11-05",
+        "message": "All accepted. Install all sprite sets into their respected folders including Fischl's new set, which should be as an alternate set to her already generated one."
+      },
+      "staged": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-approved-sprite-installation/sprites/Fischl/Regenerated/confusion.png"
+    },
+    {
+      "character": "Fischl",
+      "emotion": "love",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-fischl-full-22/sprites/Fischl/love.png",
+      "source_manifest": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-fischl-full-22/run.json",
+      "sha256": "581f8af4d2c1f575a2a609fbf1ea719cd2bfabed7a4329aaa02111927cb4bc46",
+      "dimensions": [
+        1003,
+        1568
+      ],
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Fischl/Regenerated/love.png",
+      "relative_destination": "Fischl/Regenerated/love.png",
+      "before_sha256": null,
+      "action": "add",
+      "approval": {
+        "status": "approved",
+        "date": "2026-11-05",
+        "message": "All accepted. Install all sprite sets into their respected folders including Fischl's new set, which should be as an alternate set to her already generated one."
+      },
+      "staged": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-approved-sprite-installation/sprites/Fischl/Regenerated/love.png"
+    },
+    {
+      "character": "Fischl",
+      "emotion": "excitement",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-fischl-full-22/sprites/Fischl/excitement.png",
+      "source_manifest": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-fischl-full-22/run.json",
+      "sha256": "86192910d8ed4ef36b542075f500d1f8a51bbc485de87badc9db7b5570893092",
+      "dimensions": [
+        1003,
+        1568
+      ],
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Fischl/Regenerated/excitement.png",
+      "relative_destination": "Fischl/Regenerated/excitement.png",
+      "before_sha256": null,
+      "action": "add",
+      "approval": {
+        "status": "approved",
+        "date": "2026-11-05",
+        "message": "All accepted. Install all sprite sets into their respected folders including Fischl's new set, which should be as an alternate set to her already generated one."
+      },
+      "staged": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-approved-sprite-installation/sprites/Fischl/Regenerated/excitement.png"
+    },
+    {
+      "character": "Fischl",
+      "emotion": "joy",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-fischl-full-22/sprites/Fischl/joy.png",
+      "source_manifest": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-fischl-full-22/run.json",
+      "sha256": "c9e2a3aa81b657840bd56254613a372fd361bcbd3d30e83cac3fe6e51d6aa983",
+      "dimensions": [
+        1003,
+        1568
+      ],
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Fischl/Regenerated/joy.png",
+      "relative_destination": "Fischl/Regenerated/joy.png",
+      "before_sha256": null,
+      "action": "add",
+      "approval": {
+        "status": "approved",
+        "date": "2026-11-05",
+        "message": "All accepted. Install all sprite sets into their respected folders including Fischl's new set, which should be as an alternate set to her already generated one."
+      },
+      "staged": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-approved-sprite-installation/sprites/Fischl/Regenerated/joy.png"
+    },
+    {
+      "character": "Fischl",
+      "emotion": "fear",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-fischl-full-22/sprites/Fischl/fear.png",
+      "source_manifest": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-fischl-full-22/run.json",
+      "sha256": "c8110cdf9c42fe0f6487841d606e24dd9798b243e40c0e6fbaad54127052eb7d",
+      "dimensions": [
+        1003,
+        1568
+      ],
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Fischl/Regenerated/fear.png",
+      "relative_destination": "Fischl/Regenerated/fear.png",
+      "before_sha256": null,
+      "action": "add",
+      "approval": {
+        "status": "approved",
+        "date": "2026-11-05",
+        "message": "All accepted. Install all sprite sets into their respected folders including Fischl's new set, which should be as an alternate set to her already generated one."
+      },
+      "staged": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-approved-sprite-installation/sprites/Fischl/Regenerated/fear.png"
+    },
+    {
+      "character": "Fischl",
+      "emotion": "pride",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-fischl-full-22/sprites/Fischl/pride.png",
+      "source_manifest": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-fischl-full-22/run.json",
+      "sha256": "94e47b165cd926d26947368f00d98a6956da4c8d54290eee5d3361aa67dc5229",
+      "dimensions": [
+        1005,
+        1565
+      ],
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Fischl/Regenerated/pride.png",
+      "relative_destination": "Fischl/Regenerated/pride.png",
+      "before_sha256": null,
+      "action": "add",
+      "approval": {
+        "status": "approved",
+        "date": "2026-11-05",
+        "message": "All accepted. Install all sprite sets into their respected folders including Fischl's new set, which should be as an alternate set to her already generated one."
+      },
+      "staged": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-approved-sprite-installation/sprites/Fischl/Regenerated/pride.png"
+    },
+    {
+      "character": "Fischl",
+      "emotion": "desire",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-fischl-desire-longing-revision/candidates/Fischl/desire-v003.png",
+      "source_manifest": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-fischl-desire-longing-revision/run.json",
+      "sha256": "6dab0a9dea9e1dec3f2834f5e836c593e3a5ae11ebc9c57699cc0a99402ddefb",
+      "dimensions": [
+        1003,
+        1568
+      ],
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Fischl/Regenerated/desire.png",
+      "relative_destination": "Fischl/Regenerated/desire.png",
+      "before_sha256": null,
+      "action": "add",
+      "approval": {
+        "status": "approved",
+        "date": "2026-11-05",
+        "message": "All accepted. Install all sprite sets into their respected folders including Fischl's new set, which should be as an alternate set to her already generated one."
+      },
+      "staged": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-approved-sprite-installation/sprites/Fischl/Regenerated/desire.png"
+    },
+    {
+      "character": "Fischl",
+      "emotion": "anger",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-fischl-full-22/sprites/Fischl/anger.png",
+      "source_manifest": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-fischl-full-22/run.json",
+      "sha256": "d590488344c3ea9a6b70f4eb3f9ddcc54421e8da3c53cc9ee2578f0058c1733b",
+      "dimensions": [
+        1003,
+        1568
+      ],
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Fischl/Regenerated/anger.png",
+      "relative_destination": "Fischl/Regenerated/anger.png",
+      "before_sha256": null,
+      "action": "add",
+      "approval": {
+        "status": "approved",
+        "date": "2026-11-05",
+        "message": "All accepted. Install all sprite sets into their respected folders including Fischl's new set, which should be as an alternate set to her already generated one."
+      },
+      "staged": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-approved-sprite-installation/sprites/Fischl/Regenerated/anger.png"
+    },
+    {
+      "character": "Fischl",
+      "emotion": "grief",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-fischl-full-22/sprites/Fischl/grief.png",
+      "source_manifest": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-fischl-full-22/run.json",
+      "sha256": "e884c93fa97f86fa2cf6839fa871be548d7b460163bdc9f4d611bae9554bfc93",
+      "dimensions": [
+        1003,
+        1568
+      ],
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Fischl/Regenerated/grief.png",
+      "relative_destination": "Fischl/Regenerated/grief.png",
+      "before_sha256": null,
+      "action": "add",
+      "approval": {
+        "status": "approved",
+        "date": "2026-11-05",
+        "message": "All accepted. Install all sprite sets into their respected folders including Fischl's new set, which should be as an alternate set to her already generated one."
+      },
+      "staged": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-approved-sprite-installation/sprites/Fischl/Regenerated/grief.png"
+    },
+    {
+      "character": "Fischl",
+      "emotion": "sadness",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-fischl-full-22/sprites/Fischl/sadness.png",
+      "source_manifest": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-fischl-full-22/run.json",
+      "sha256": "c37ee494f780d76fc9235806eda1bf150e538febac6eb8557fb7a57c053f37d0",
+      "dimensions": [
+        1003,
+        1568
+      ],
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Fischl/Regenerated/sadness.png",
+      "relative_destination": "Fischl/Regenerated/sadness.png",
+      "before_sha256": null,
+      "action": "add",
+      "approval": {
+        "status": "approved",
+        "date": "2026-11-05",
+        "message": "All accepted. Install all sprite sets into their respected folders including Fischl's new set, which should be as an alternate set to her already generated one."
+      },
+      "staged": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-approved-sprite-installation/sprites/Fischl/Regenerated/sadness.png"
+    },
+    {
+      "character": "Fischl",
+      "emotion": "disgust",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-fischl-full-22/sprites/Fischl/disgust.png",
+      "source_manifest": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-fischl-full-22/run.json",
+      "sha256": "d5ab30686271942b6306625be2147e80ac61bebdcd3e28c57b2cd5ced2b74ae7",
+      "dimensions": [
+        1003,
+        1568
+      ],
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Fischl/Regenerated/disgust.png",
+      "relative_destination": "Fischl/Regenerated/disgust.png",
+      "before_sha256": null,
+      "action": "add",
+      "approval": {
+        "status": "approved",
+        "date": "2026-11-05",
+        "message": "All accepted. Install all sprite sets into their respected folders including Fischl's new set, which should be as an alternate set to her already generated one."
+      },
+      "staged": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-approved-sprite-installation/sprites/Fischl/Regenerated/disgust.png"
+    },
+    {
+      "character": "Fischl",
+      "emotion": "disappointment",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-fischl-full-22/sprites/Fischl/disappointment.png",
+      "source_manifest": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-fischl-full-22/run.json",
+      "sha256": "3aa01503dc62116fa3d41cb781a147c0c385298c5dfe71d8b48f9b4bd0fb2973",
+      "dimensions": [
+        1003,
+        1568
+      ],
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Fischl/Regenerated/disappointment.png",
+      "relative_destination": "Fischl/Regenerated/disappointment.png",
+      "before_sha256": null,
+      "action": "add",
+      "approval": {
+        "status": "approved",
+        "date": "2026-11-05",
+        "message": "All accepted. Install all sprite sets into their respected folders including Fischl's new set, which should be as an alternate set to her already generated one."
+      },
+      "staged": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-approved-sprite-installation/sprites/Fischl/Regenerated/disappointment.png"
+    },
+    {
+      "character": "Fischl",
+      "emotion": "relief",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-fischl-full-22/sprites/Fischl/relief.png",
+      "source_manifest": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-fischl-full-22/run.json",
+      "sha256": "6e81453a236c8e9bfa23bac5f2c80a71b191b3e4c7edfe81d4b9f1509deab131",
+      "dimensions": [
+        1003,
+        1568
+      ],
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Fischl/Regenerated/relief.png",
+      "relative_destination": "Fischl/Regenerated/relief.png",
+      "before_sha256": null,
+      "action": "add",
+      "approval": {
+        "status": "approved",
+        "date": "2026-11-05",
+        "message": "All accepted. Install all sprite sets into their respected folders including Fischl's new set, which should be as an alternate set to her already generated one."
+      },
+      "staged": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-approved-sprite-installation/sprites/Fischl/Regenerated/relief.png"
+    },
+    {
+      "character": "Fischl",
+      "emotion": "admiration",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-fischl-full-22/sprites/Fischl/admiration.png",
+      "source_manifest": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-fischl-full-22/run.json",
+      "sha256": "3357d8092254b8e4c9cdd93df02ddbb27ab8d82dc694edee5967734b7af82ff7",
+      "dimensions": [
+        1003,
+        1568
+      ],
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Fischl/Regenerated/admiration.png",
+      "relative_destination": "Fischl/Regenerated/admiration.png",
+      "before_sha256": null,
+      "action": "add",
+      "approval": {
+        "status": "approved",
+        "date": "2026-11-05",
+        "message": "All accepted. Install all sprite sets into their respected folders including Fischl's new set, which should be as an alternate set to her already generated one."
+      },
+      "staged": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-approved-sprite-installation/sprites/Fischl/Regenerated/admiration.png"
+    },
+    {
+      "character": "Fischl",
+      "emotion": "gratitude",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-fischl-full-22/sprites/Fischl/gratitude.png",
+      "source_manifest": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-fischl-full-22/run.json",
+      "sha256": "2af11b55d68aee9af1a2a8da855376d54055f12fe202906cc68c3ad64d24cff8",
+      "dimensions": [
+        1003,
+        1568
+      ],
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Fischl/Regenerated/gratitude.png",
+      "relative_destination": "Fischl/Regenerated/gratitude.png",
+      "before_sha256": null,
+      "action": "add",
+      "approval": {
+        "status": "approved",
+        "date": "2026-11-05",
+        "message": "All accepted. Install all sprite sets into their respected folders including Fischl's new set, which should be as an alternate set to her already generated one."
+      },
+      "staged": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-approved-sprite-installation/sprites/Fischl/Regenerated/gratitude.png"
+    },
+    {
+      "character": "Fischl",
+      "emotion": "embarrassment",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-fischl-full-22/sprites/Fischl/embarrassment.png",
+      "source_manifest": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-fischl-full-22/run.json",
+      "sha256": "23e76fcbe01059d5273d45fb515beeb3d41928027bdd0e2e996ea758e3a0c256",
+      "dimensions": [
+        1003,
+        1568
+      ],
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Fischl/Regenerated/embarrassment.png",
+      "relative_destination": "Fischl/Regenerated/embarrassment.png",
+      "before_sha256": null,
+      "action": "add",
+      "approval": {
+        "status": "approved",
+        "date": "2026-11-05",
+        "message": "All accepted. Install all sprite sets into their respected folders including Fischl's new set, which should be as an alternate set to her already generated one."
+      },
+      "staged": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-approved-sprite-installation/sprites/Fischl/Regenerated/embarrassment.png"
+    },
+    {
+      "character": "Fischl",
+      "emotion": "caring",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-fischl-full-22/sprites/Fischl/caring.png",
+      "source_manifest": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-fischl-full-22/run.json",
+      "sha256": "81601d507f27a41b708c221a981b985279aa34417c660f733216533f19b13c19",
+      "dimensions": [
+        1003,
+        1568
+      ],
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Fischl/Regenerated/caring.png",
+      "relative_destination": "Fischl/Regenerated/caring.png",
+      "before_sha256": null,
+      "action": "add",
+      "approval": {
+        "status": "approved",
+        "date": "2026-11-05",
+        "message": "All accepted. Install all sprite sets into their respected folders including Fischl's new set, which should be as an alternate set to her already generated one."
+      },
+      "staged": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-approved-sprite-installation/sprites/Fischl/Regenerated/caring.png"
+    },
+    {
+      "character": "Fischl",
+      "emotion": "love-1",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-neutral-and-white-heart-revisions/approved/Fischl/love-1.png",
+      "source_manifest": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-neutral-and-white-heart-revisions/run.json",
+      "sha256": "8075e72a40efcff11a21efd2927203b9c4c65ea945bc161551e895891311aeb2",
+      "dimensions": [
+        1003,
+        1568
+      ],
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Fischl/Regenerated/love-1.png",
+      "relative_destination": "Fischl/Regenerated/love-1.png",
+      "before_sha256": null,
+      "action": "add",
+      "approval": {
+        "status": "approved",
+        "date": "2026-11-05",
+        "message": "All accepted. Install all sprite sets into their respected folders including Fischl's new set, which should be as an alternate set to her already generated one."
+      },
+      "staged": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-approved-sprite-installation/sprites/Fischl/Regenerated/love-1.png"
+    },
+    {
+      "character": "Fischl",
+      "emotion": "desire-1",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-neutral-and-white-heart-revisions/approved/Fischl/desire-1.png",
+      "source_manifest": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-neutral-and-white-heart-revisions/run.json",
+      "sha256": "3b62cdc74c669ad6f1644feba636f97a0a48799cfcb9949c8893264bde73597d",
+      "dimensions": [
+        1003,
+        1568
+      ],
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Fischl/Regenerated/desire-1.png",
+      "relative_destination": "Fischl/Regenerated/desire-1.png",
+      "before_sha256": null,
+      "action": "add",
+      "approval": {
+        "status": "approved",
+        "date": "2026-11-05",
+        "message": "All accepted. Install all sprite sets into their respected folders including Fischl's new set, which should be as an alternate set to her already generated one."
+      },
+      "staged": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-approved-sprite-installation/sprites/Fischl/Regenerated/desire-1.png"
+    }
+  ],
+  "actions": {
+    "replace": 6,
+    "add": 76,
+    "unchanged": 10
+  },
+  "protected_before": {
+    "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Fischl/gratitude.png": "b83d9b145969b9ed33709ffd693971c32239edeb6bba004804eb4fc58afbb754",
+    "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Fischl/excitement.png": "37e67f1647ef58ccc7260ecbcbf4ba44c24c36ae109351721f35e7439572d023",
+    "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Fischl/neutral.png": "ec55ede4bdd345c33a034ac4d8b4e1ff5c0d919c68f8032b7a650c99f69f6ffb",
+    "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Fischl/joy.png": "03e057bf2f27c27ba867ba73e47cca84f3ff28800793fd8be364a5ad007e56da",
+    "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Fischl/desire-1.png": "00cb2c37bcaee5171ad089342371331f2e579bec09c32e7b999c5b4c3e016efd",
+    "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Fischl/admiration.png": "c32b7e9d66f8220db9a3f37fdbb6d7bf08ffc2bb43b0e1cb5629cf1999233964",
+    "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Fischl/caring.png": "594d0fb4c2ad0338f60dad815ec9ef5bbe569227f6eaaec12bb22570d8da02d8",
+    "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Fischl/relief.png": "dcf626035fc3a83d8df71845e241a9d0791e8ece8356d8b507e773869ebf64d2",
+    "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Fischl/disappointment.png": "fc3de39f9d81f5f1551b2e527f8b897bfdcbd22204f0d659ecd68a90b8de5aec",
+    "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Fischl/annoyance.png": "a05cc5034c154b89e57fdbcb627ed62862bc7a6f8c642f7a38ac936bc0edf117",
+    "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Fischl/disgust.png": "6278f66469e538a644ff0f0382e5e616ac7801a85bc1999e044c8ab029e50d0d",
+    "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Fischl/anger.png": "70ef16f6c0a332818e0ff9addc70ded08cb988b4d03ee7669f1e00364c876020",
+    "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Fischl/sadness.png": "479a4d2153b067f9d482a26988114fdfad76741a63f29039504ac8095d083c24",
+    "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Fischl/fear.png": "6b706ba4bf5cdc43ea8f282f8bcfd525d76e4325e9741318277230f4d443deea",
+    "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Fischl/grief.png": "7cc6b2ff7bb5c255d67394a249982f31e9c6980bfa0a5d19904c62ffb2fe4f79",
+    "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Fischl/love-1.png": "8bf768b4e9c57e75e5796211fb54b2fdae0761a09b1ab1631b270fd428b77f0b",
+    "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Fischl/confusion.png": "124614c1451ec33453430adab175f1dcb67dd711b61a825168c8dea5790480e0",
+    "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Fischl/embarrassment.png": "aba6845298ae6e84e245295ee6773fca1283fc53123ecb6090771b2078b898c0",
+    "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Fischl/love.png": "2c01dc66a59bc88e9354badddf1817406eca33d3e9030b1be17075129854e1ab",
+    "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Fischl/desire.png": "7718489bc7bdb12fcb4663781b4ee226eb9be27b9cc560d28c5a339435a436c8",
+    "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Fischl/smug.png": "0659b016d145dca318297f157b0ad1e809aaa26e683aac2f2a74c14f93fe7f36",
+    "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Fischl/pride.png": "00e68807b2e5379cda87810994457a05fe891eb492ab18db88839848290f0856",
+    "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Xingqiu/Official Art/neutral.png": "5607d8177ac5cb96754cb76f9acb8a76a63e028ee659fa1bdb5d685d04d9bfa3",
+    "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Xinyan/Official Art/neutral.png": "a576dad7fbba74c49422c9e6e5533892909d5f1eace03a48b2f5356c673a0557",
+    "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Yoimiya/Official Art/neutral.png": "423cc75206e5e2864ccbd6498c2bd58e9a2420fb42d46493f93c8639ca72c069",
+    "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Yun Jin/Official Art/neutral.png": "b9b713809005cba8f7d43d8e591953cae1ce86c02abaf5fd0c632c174f842ce2",
+    "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Zibai/Official Art/neutral.png": "461d9e5f2301990b496370aba9b07ff1fcaf08727a248b0f4a46090177381b11",
+    "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Yumemizuki Mizuki/Official Art/neutral.png": "b774f4132c065af72e17f7f4cf0c190f1a45c6d3375d99c6a0c7739bfb9ead7a",
+    "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Xilonen/Official Art/neutral.png": "4f171f0b0998e7637c810ab0ffd004b510e67f39cadb6c6a9fea7e1927be39f2",
+    "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Fischl/Official Art/neutral.png": "6fedbb09cbe74809012b61ec736b0b729c183e82804f00d41b9322f22d211948"
+  },
+  "fischl_registration": {
+    "label": "Regenerated",
+    "folder": "Fischl/Regenerated",
+    "status": "registered_and_verified",
+    "equipped_set": "preserve existing",
+    "entries": [
+      {
+        "label": "Official Art",
+        "folder": "Fischl/Official Art"
+      },
+      {
+        "label": "Regenerated",
+        "folder": "Fischl/Regenerated"
+      }
+    ],
+    "original_equipped": true,
+    "expressions_visible_in_wardrobe": 22,
+    "screenshot": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-approved-sprite-installation/fischl-alternate-installed.png"
+  },
+  "verification": {
+    "installed_files_match_selected_hashes": 92,
+    "original_fischl_files_unchanged": 22,
+    "official_art_files_unchanged": 8,
+    "backup_hashes_verified": 6,
+    "visual_review": "User approved artwork; technical checks only.",
+    "fischl_alternate_registered": true,
+    "original_fischl_still_equipped": true
+  }
+}

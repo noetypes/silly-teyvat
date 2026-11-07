@@ -1,0 +1,793 @@
+{
+  "date": "2026-11-05",
+  "status": "approved_and_installed",
+  "user_request": "Do the rest of the set",
+  "total_new_expressions": 9,
+  "generation_keys": [
+    "Aloy joy",
+    "Aloy annoyance",
+    "Aloy confusion",
+    "Aloy love",
+    "Aloy desire",
+    "Aloy excitement",
+    "Aloy sadness",
+    "Aloy fear",
+    "Aloy embarrassment"
+  ],
+  "regeneration_keys": [
+    "Aloy joy",
+    "Aloy annoyance",
+    "Aloy confusion",
+    "Aloy love",
+    "Aloy desire",
+    "Aloy excitement",
+    "Aloy sadness",
+    "Aloy fear",
+    "Aloy embarrassment"
+  ],
+  "reference_policy": "Every expression independently uses only exact approved neutral-v003. Model image is provenance only and is never an expression input.",
+  "model_note": "Built-in model ID and quality controls are not exposed.",
+  "installation": {
+    "status": "installed_and_verified",
+    "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Aloy",
+    "report": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-aloy-ten-sprites/installation-2026-11-05.json"
+  },
+  "characters": {
+    "Aloy": {
+      "neutral_approval": {
+        "status": "approved",
+        "date": "2026-11-05",
+        "message": "Do the rest of the set",
+        "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-aloy-model-neutral/candidates/Aloy/neutral-v003.png",
+        "candidate_sha256": "e52ff434c92cf5f2813306a3a55a0f637b20d9b3bb9ffb41f38287ebb6f74c0e"
+      },
+      "reference": {
+        "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-aloy-ten-sprites/references/Aloy/approved-neutral.png",
+        "sha256": "e52ff434c92cf5f2813306a3a55a0f637b20d9b3bb9ffb41f38287ebb6f74c0e"
+      },
+      "neutral": {
+        "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-aloy-ten-sprites/sprites/Aloy/neutral.png",
+        "sha256": "e52ff434c92cf5f2813306a3a55a0f637b20d9b3bb9ffb41f38287ebb6f74c0e",
+        "status": "approved"
+      },
+      "emotions": [
+        "neutral",
+        "joy",
+        "annoyance",
+        "confusion",
+        "love",
+        "desire",
+        "excitement",
+        "sadness",
+        "fear",
+        "embarrassment"
+      ]
+    }
+  },
+  "jobs": {
+    "Aloy joy": {
+      "character": "Aloy",
+      "emotion": "joy",
+      "status": "approved",
+      "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-aloy-ten-sprites/prompts/Aloy/joy.txt",
+      "tool": "image_gen.imagegen",
+      "arguments": {
+        "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Aloy from Genshin Impact expressing joy. The supplied explicitly approved neutral-v003 is the sole image reference. Preserve its exact identity, face, fair skin, natural freckles, hazel-green eyes, copper-red long hair, swept-back upper hair, small braids and blue ties, Focus device at the right temple, natural human ears, blue neck scarf, layered necklaces, fur-edged shoulders, fitted brown leather bodice, red sash, patterned tan split skirt panels with turquoise and red edging, hip pouch, metal-and-fur forearm guards, dark leggings and exact asymmetric tall boots. Match its polished detailed anime illustration style and the same compact Medium Female build, without elongating the torso or limbs or turning her into a chibi.\nPersonality and acting: retain her grounded, self-assured hunter's bearing, direct sincerity and quieter warmth while making the emotion readable. A genuine bright smile and happy open eyes, her usual reserve softening into easy warmth. Turn her shoulders a little toward the viewer with a slight friendly head tilt. Her right hand opens in a small welcoming gesture at lower-chest height, while her left arm relaxes beside her hip. Give her a light, grounded weight shift. Vary the whole pose and body language for the emotion rather than changing only the face or mechanically copying the neutral.\nUse natural, softly articulated hands. Each palm connects to four gently curved fingers and a separate shorter opposable thumb, with coherent joints and a clean silhouette suited to the gesture. Let natural overlap remain natural rather than forcing all digits toward the camera. Keep both hands separate, with visible space from nearby fabric where the gesture does not call for contact; avoid extreme foreshortening. Exactly two coherent legs and feet in an uncomplicated balanced stance. Keep the ear's skin outline distinct from the small metal Focus, matching the approved neutral; allow hair to partly cover the ears naturally. Preserve coherent open eyes, intact hazel-green irises, ordinary pupils, natural eyelids and a consistent gaze. Hair, braids and heavy costume panels follow the pose naturally with gravity, and all markings rotate with their surfaces.\nComplete silhouette including hair, braids, hands, costume panels, armor and shoes, with about 2\u20134% top and bottom padding and 92\u201396% visible height. Genuinely transparent background with clear alpha outside the character. Both hands empty. No scenery, backdrop, floor, reflections, ground shadow, floating effects, heart pupils, floating hearts, props, bow, arrows, weapons, text, labels, UI, watermark or additional characters.",
+        "referenced_image_paths": [
+          "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-aloy-ten-sprites/references/Aloy/approved-neutral.png"
+        ],
+        "transparent_background": true
+      },
+      "approval": {
+        "status": "approved",
+        "date": "2026-11-05",
+        "message": "Approved, put Aloy's sprites in her folder",
+        "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-aloy-ten-sprites/sprites/Aloy/joy.png",
+        "candidate_sha256": "e98b3155f2f61d6e19b2f105990c0c31d7fb12434fadad026371a720f814bf84"
+      },
+      "tool_output": "/Users/alexachan/.codex/generated_images/01a1aa19-42b2-7e92-b08d-8ee7d133c057/exec-9bfc2f1b-3a5a-4d34-80ec-b24334176a1c.png",
+      "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-aloy-ten-sprites/raw/Aloy/joy.png",
+      "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-aloy-ten-sprites/sprites/Aloy/joy.png",
+      "sha256": "e98b3155f2f61d6e19b2f105990c0c31d7fb12434fadad026371a720f814bf84",
+      "dimensions": [
+        935,
+        1683
+      ],
+      "png_color_type": 6
+    },
+    "Aloy annoyance": {
+      "character": "Aloy",
+      "emotion": "annoyance",
+      "status": "approved",
+      "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-aloy-ten-sprites/prompts/Aloy/annoyance.txt",
+      "tool": "image_gen.imagegen",
+      "arguments": {
+        "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Aloy from Genshin Impact expressing annoyance. The supplied explicitly approved neutral-v003 is the sole image reference. Preserve its exact identity, face, fair skin, natural freckles, hazel-green eyes, copper-red long hair, swept-back upper hair, small braids and blue ties, Focus device at the right temple, natural human ears, blue neck scarf, layered necklaces, fur-edged shoulders, fitted brown leather bodice, red sash, patterned tan split skirt panels with turquoise and red edging, hip pouch, metal-and-fur forearm guards, dark leggings and exact asymmetric tall boots. Match its polished detailed anime illustration style and the same compact Medium Female build, without elongating the torso or limbs or turning her into a chibi.\nPersonality and acting: retain her grounded, self-assured hunter's bearing, direct sincerity and quieter warmth while making the emotion readable. A stubborn little frown, knitted brows and a clear sideways look of impatience. Set her left hand loosely on her hip while her right arm lowers beside her body, right hand relaxed clear of her skirt. Shift weight onto one leg with the chin slightly lifted, showing blunt disapproval without exaggerated rage. Vary the whole pose and body language for the emotion rather than changing only the face or mechanically copying the neutral.\nUse natural, softly articulated hands. Each palm connects to four gently curved fingers and a separate shorter opposable thumb, with coherent joints and a clean silhouette suited to the gesture. Let natural overlap remain natural rather than forcing all digits toward the camera. Keep both hands separate, with visible space from nearby fabric where the gesture does not call for contact; avoid extreme foreshortening. Exactly two coherent legs and feet in an uncomplicated balanced stance. Keep the ear's skin outline distinct from the small metal Focus, matching the approved neutral; allow hair to partly cover the ears naturally. Preserve coherent open eyes, intact hazel-green irises, ordinary pupils, natural eyelids and a consistent gaze. Hair, braids and heavy costume panels follow the pose naturally with gravity, and all markings rotate with their surfaces.\nComplete silhouette including hair, braids, hands, costume panels, armor and shoes, with about 2\u20134% top and bottom padding and 92\u201396% visible height. Genuinely transparent background with clear alpha outside the character. Both hands empty. No scenery, backdrop, floor, reflections, ground shadow, floating effects, heart pupils, floating hearts, props, bow, arrows, weapons, text, labels, UI, watermark or additional characters.",
+        "referenced_image_paths": [
+          "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-aloy-ten-sprites/references/Aloy/approved-neutral.png"
+        ],
+        "transparent_background": true
+      },
+      "approval": {
+        "status": "approved",
+        "date": "2026-11-05",
+        "message": "Approved, put Aloy's sprites in her folder",
+        "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-aloy-ten-sprites/sprites/Aloy/annoyance.png",
+        "candidate_sha256": "68976fc63484c63f2c85ac69b2ce69cf2d1ba981ffc976e30975152db7ba4bce"
+      },
+      "tool_output": "/Users/alexachan/.codex/generated_images/01a1aa19-42b2-7e92-b08d-8ee7d133c057/exec-08efc7b0-01ac-47ab-81ab-fbb0e4351cdb.png",
+      "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-aloy-ten-sprites/raw/Aloy/annoyance.png",
+      "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-aloy-ten-sprites/sprites/Aloy/annoyance.png",
+      "sha256": "68976fc63484c63f2c85ac69b2ce69cf2d1ba981ffc976e30975152db7ba4bce",
+      "dimensions": [
+        935,
+        1683
+      ],
+      "png_color_type": 6
+    },
+    "Aloy confusion": {
+      "character": "Aloy",
+      "emotion": "confusion",
+      "status": "approved",
+      "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-aloy-ten-sprites/prompts/Aloy/confusion.txt",
+      "tool": "image_gen.imagegen",
+      "arguments": {
+        "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Aloy from Genshin Impact expressing confusion. The supplied explicitly approved neutral-v003 is the sole image reference. Preserve its exact identity, face, fair skin, natural freckles, hazel-green eyes, copper-red long hair, swept-back upper hair, small braids and blue ties, Focus device at the right temple, natural human ears, blue neck scarf, layered necklaces, fur-edged shoulders, fitted brown leather bodice, red sash, patterned tan split skirt panels with turquoise and red edging, hip pouch, metal-and-fur forearm guards, dark leggings and exact asymmetric tall boots. Match its polished detailed anime illustration style and the same compact Medium Female build, without elongating the torso or limbs or turning her into a chibi.\nPersonality and acting: retain her grounded, self-assured hunter's bearing, direct sincerity and quieter warmth while making the emotion readable. One brow lifts while the other draws slightly inward, open eyes glance aside, and her mouth parts a little as if asking a direct question. Tilt her head. Bend her right elbow with an open questioning hand at waist height, palm turned obliquely upward, while her left hand hangs relaxed beside her hip, clear of her outfit. Vary the whole pose and body language for the emotion rather than changing only the face or mechanically copying the neutral.\nUse natural, softly articulated hands. Each palm connects to four gently curved fingers and a separate shorter opposable thumb, with coherent joints and a clean silhouette suited to the gesture. Let natural overlap remain natural rather than forcing all digits toward the camera. Keep both hands separate, with visible space from nearby fabric where the gesture does not call for contact; avoid extreme foreshortening. Exactly two coherent legs and feet in an uncomplicated balanced stance. Keep the ear's skin outline distinct from the small metal Focus, matching the approved neutral; allow hair to partly cover the ears naturally. Preserve coherent open eyes, intact hazel-green irises, ordinary pupils, natural eyelids and a consistent gaze. Hair, braids and heavy costume panels follow the pose naturally with gravity, and all markings rotate with their surfaces.\nComplete silhouette including hair, braids, hands, costume panels, armor and shoes, with about 2\u20134% top and bottom padding and 92\u201396% visible height. Genuinely transparent background with clear alpha outside the character. Both hands empty. No scenery, backdrop, floor, reflections, ground shadow, floating effects, heart pupils, floating hearts, props, bow, arrows, weapons, text, labels, UI, watermark or additional characters.",
+        "referenced_image_paths": [
+          "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-aloy-ten-sprites/references/Aloy/approved-neutral.png"
+        ],
+        "transparent_background": true
+      },
+      "approval": {
+        "status": "approved",
+        "date": "2026-11-05",
+        "message": "Approved, put Aloy's sprites in her folder",
+        "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-aloy-ten-sprites/sprites/Aloy/confusion.png",
+        "candidate_sha256": "05c6bc17e98c8ada52d5a976a709382a1170ecdd91de38dfa5e00ae86d9ba0fc"
+      },
+      "tool_output": "/Users/alexachan/.codex/generated_images/01a1aa19-42b2-7e92-b08d-8ee7d133c057/exec-858f4a4f-279a-4b42-aa11-6ebc21bab585.png",
+      "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-aloy-ten-sprites/raw/Aloy/confusion.png",
+      "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-aloy-ten-sprites/sprites/Aloy/confusion.png",
+      "sha256": "05c6bc17e98c8ada52d5a976a709382a1170ecdd91de38dfa5e00ae86d9ba0fc",
+      "dimensions": [
+        935,
+        1683
+      ],
+      "png_color_type": 6
+    },
+    "Aloy love": {
+      "character": "Aloy",
+      "emotion": "love",
+      "status": "approved",
+      "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-aloy-ten-sprites/prompts/Aloy/love.txt",
+      "tool": "image_gen.imagegen",
+      "arguments": {
+        "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Aloy from Genshin Impact expressing love. The supplied explicitly approved neutral-v003 is the sole image reference. Preserve its exact identity, face, fair skin, natural freckles, hazel-green eyes, copper-red long hair, swept-back upper hair, small braids and blue ties, Focus device at the right temple, natural human ears, blue neck scarf, layered necklaces, fur-edged shoulders, fitted brown leather bodice, red sash, patterned tan split skirt panels with turquoise and red edging, hip pouch, metal-and-fur forearm guards, dark leggings and exact asymmetric tall boots. Match its polished detailed anime illustration style and the same compact Medium Female build, without elongating the torso or limbs or turning her into a chibi.\nPersonality and acting: retain her grounded, self-assured hunter's bearing, direct sincerity and quieter warmth while making the emotion readable. A sincere affectionate smile, softly attentive open eyes looking fondly toward the viewer, and a gentle blush across her freckled cheeks. Incline her shoulders slightly toward the viewer. Her right hand hovers near her heart, clear of her scarf and necklaces, and her left arm relaxes down beside her hip. Let a little bashfulness show through her self-possession. Vary the whole pose and body language for the emotion rather than changing only the face or mechanically copying the neutral.\nUse natural, softly articulated hands. Each palm connects to four gently curved fingers and a separate shorter opposable thumb, with coherent joints and a clean silhouette suited to the gesture. Let natural overlap remain natural rather than forcing all digits toward the camera. Keep both hands separate, with visible space from nearby fabric where the gesture does not call for contact; avoid extreme foreshortening. Exactly two coherent legs and feet in an uncomplicated balanced stance. Keep the ear's skin outline distinct from the small metal Focus, matching the approved neutral; allow hair to partly cover the ears naturally. Preserve coherent open eyes, intact hazel-green irises, ordinary pupils, natural eyelids and a consistent gaze. Hair, braids and heavy costume panels follow the pose naturally with gravity, and all markings rotate with their surfaces.\nComplete silhouette including hair, braids, hands, costume panels, armor and shoes, with about 2\u20134% top and bottom padding and 92\u201396% visible height. Genuinely transparent background with clear alpha outside the character. Both hands empty. No scenery, backdrop, floor, reflections, ground shadow, floating effects, heart pupils, floating hearts, props, bow, arrows, weapons, text, labels, UI, watermark or additional characters.",
+        "referenced_image_paths": [
+          "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-aloy-ten-sprites/references/Aloy/approved-neutral.png"
+        ],
+        "transparent_background": true
+      },
+      "approval": {
+        "status": "approved",
+        "date": "2026-11-05",
+        "message": "Approved, put Aloy's sprites in her folder",
+        "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-aloy-ten-sprites/sprites/Aloy/love.png",
+        "candidate_sha256": "dc1d5d9952804ce8f1c835e3f5c041ddbb4d2c560515cf167fd7a1e564e1b541"
+      },
+      "tool_output": "/Users/alexachan/.codex/generated_images/01a1aa19-42b2-7e92-b08d-8ee7d133c057/exec-5040731a-48e4-446c-ac90-7ca2b3099b9b.png",
+      "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-aloy-ten-sprites/raw/Aloy/love.png",
+      "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-aloy-ten-sprites/sprites/Aloy/love.png",
+      "sha256": "dc1d5d9952804ce8f1c835e3f5c041ddbb4d2c560515cf167fd7a1e564e1b541",
+      "dimensions": [
+        935,
+        1683
+      ],
+      "png_color_type": 6
+    },
+    "Aloy desire": {
+      "character": "Aloy",
+      "emotion": "desire",
+      "status": "approved",
+      "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-aloy-ten-sprites/prompts/Aloy/desire.txt",
+      "tool": "image_gen.imagegen",
+      "arguments": {
+        "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Aloy from Genshin Impact expressing desire. The supplied explicitly approved neutral-v003 is the sole image reference. Preserve its exact identity, face, fair skin, natural freckles, hazel-green eyes, copper-red long hair, swept-back upper hair, small braids and blue ties, Focus device at the right temple, natural human ears, blue neck scarf, layered necklaces, fur-edged shoulders, fitted brown leather bodice, red sash, patterned tan split skirt panels with turquoise and red edging, hip pouch, metal-and-fur forearm guards, dark leggings and exact asymmetric tall boots. Match its polished detailed anime illustration style and the same compact Medium Female build, without elongating the torso or limbs or turning her into a chibi.\nPersonality and acting: retain her grounded, self-assured hunter's bearing, direct sincerity and quieter warmth while making the emotion readable. Gentle romantic longing: clearly blushing freckled cheeks, open softened eyes looking longingly toward the viewer, subtly raised inner brows and a small wistful closed-mouth smile. Turn her shoulders slightly away while her head looks back with hopeful affection. Her right hand hovers near the upper chest, clear of her scarf and necklaces; her left arm rests low beside her hip. Keep a modest natural standing posture with a subtle hopeful forward lean. Vary the whole pose and body language for the emotion rather than changing only the face or mechanically copying the neutral.\nUse natural, softly articulated hands. Each palm connects to four gently curved fingers and a separate shorter opposable thumb, with coherent joints and a clean silhouette suited to the gesture. Let natural overlap remain natural rather than forcing all digits toward the camera. Keep both hands separate, with visible space from nearby fabric where the gesture does not call for contact; avoid extreme foreshortening. Exactly two coherent legs and feet in an uncomplicated balanced stance. Keep the ear's skin outline distinct from the small metal Focus, matching the approved neutral; allow hair to partly cover the ears naturally. Preserve coherent open eyes, intact hazel-green irises, ordinary pupils, natural eyelids and a consistent gaze. Hair, braids and heavy costume panels follow the pose naturally with gravity, and all markings rotate with their surfaces.\nComplete silhouette including hair, braids, hands, costume panels, armor and shoes, with about 2\u20134% top and bottom padding and 92\u201396% visible height. Genuinely transparent background with clear alpha outside the character. Both hands empty. No scenery, backdrop, floor, reflections, ground shadow, floating effects, heart pupils, floating hearts, props, bow, arrows, weapons, text, labels, UI, watermark or additional characters.",
+        "referenced_image_paths": [
+          "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-aloy-ten-sprites/references/Aloy/approved-neutral.png"
+        ],
+        "transparent_background": true
+      },
+      "approval": {
+        "status": "approved",
+        "date": "2026-11-05",
+        "message": "Approved, put Aloy's sprites in her folder",
+        "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-aloy-ten-sprites/sprites/Aloy/desire.png",
+        "candidate_sha256": "8504bfee1aad71bf09320e97f4e96332f0ca57e8c579ec4f43fe19566bdf7326"
+      },
+      "tool_output": "/Users/alexachan/.codex/generated_images/01a1aa19-42b2-7e92-b08d-8ee7d133c057/exec-e5aa54de-cd67-4e45-b8e6-ffc775413eef.png",
+      "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-aloy-ten-sprites/raw/Aloy/desire.png",
+      "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-aloy-ten-sprites/sprites/Aloy/desire.png",
+      "sha256": "8504bfee1aad71bf09320e97f4e96332f0ca57e8c579ec4f43fe19566bdf7326",
+      "dimensions": [
+        935,
+        1683
+      ],
+      "png_color_type": 6
+    },
+    "Aloy excitement": {
+      "character": "Aloy",
+      "emotion": "excitement",
+      "status": "approved",
+      "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-aloy-ten-sprites/prompts/Aloy/excitement.txt",
+      "tool": "image_gen.imagegen",
+      "arguments": {
+        "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Aloy from Genshin Impact expressing excitement. The supplied explicitly approved neutral-v003 is the sole image reference. Preserve its exact identity, face, fair skin, natural freckles, hazel-green eyes, copper-red long hair, swept-back upper hair, small braids and blue ties, Focus device at the right temple, natural human ears, blue neck scarf, layered necklaces, fur-edged shoulders, fitted brown leather bodice, red sash, patterned tan split skirt panels with turquoise and red edging, hip pouch, metal-and-fur forearm guards, dark leggings and exact asymmetric tall boots. Match its polished detailed anime illustration style and the same compact Medium Female build, without elongating the torso or limbs or turning her into a chibi.\nPersonality and acting: retain her grounded, self-assured hunter's bearing, direct sincerity and quieter warmth while making the emotion readable. An eager delighted open smile and bright lifted brows, as if a promising discovery has just caught her interest. Lean forward a little with her right forearm raised in a compact celebratory gesture, a softly closed hand beside her shoulder; her left arm opens slightly out at waist height with a relaxed hand. Lift one heel lightly while retaining a balanced stance. Vary the whole pose and body language for the emotion rather than changing only the face or mechanically copying the neutral.\nUse natural, softly articulated hands. Each palm connects to four gently curved fingers and a separate shorter opposable thumb, with coherent joints and a clean silhouette suited to the gesture. Let natural overlap remain natural rather than forcing all digits toward the camera. Keep both hands separate, with visible space from nearby fabric where the gesture does not call for contact; avoid extreme foreshortening. Exactly two coherent legs and feet in an uncomplicated balanced stance. Keep the ear's skin outline distinct from the small metal Focus, matching the approved neutral; allow hair to partly cover the ears naturally. Preserve coherent open eyes, intact hazel-green irises, ordinary pupils, natural eyelids and a consistent gaze. Hair, braids and heavy costume panels follow the pose naturally with gravity, and all markings rotate with their surfaces.\nComplete silhouette including hair, braids, hands, costume panels, armor and shoes, with about 2\u20134% top and bottom padding and 92\u201396% visible height. Genuinely transparent background with clear alpha outside the character. Both hands empty. No scenery, backdrop, floor, reflections, ground shadow, floating effects, heart pupils, floating hearts, props, bow, arrows, weapons, text, labels, UI, watermark or additional characters.",
+        "referenced_image_paths": [
+          "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-aloy-ten-sprites/references/Aloy/approved-neutral.png"
+        ],
+        "transparent_background": true
+      },
+      "approval": {
+        "status": "approved",
+        "date": "2026-11-05",
+        "message": "Approved, put Aloy's sprites in her folder",
+        "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-aloy-ten-sprites/sprites/Aloy/excitement.png",
+        "candidate_sha256": "86ffadea602b36a9095ab9cd48260e23055a5bb195af500858a9abac9272bc14"
+      },
+      "tool_output": "/Users/alexachan/.codex/generated_images/01a1aa19-42b2-7e92-b08d-8ee7d133c057/exec-61ca27e8-759f-4126-b004-0ff944060adf.png",
+      "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-aloy-ten-sprites/raw/Aloy/excitement.png",
+      "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-aloy-ten-sprites/sprites/Aloy/excitement.png",
+      "sha256": "86ffadea602b36a9095ab9cd48260e23055a5bb195af500858a9abac9272bc14",
+      "dimensions": [
+        935,
+        1683
+      ],
+      "png_color_type": 6
+    },
+    "Aloy sadness": {
+      "character": "Aloy",
+      "emotion": "sadness",
+      "status": "approved",
+      "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-aloy-ten-sprites/prompts/Aloy/sadness.txt",
+      "tool": "image_gen.imagegen",
+      "arguments": {
+        "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Aloy from Genshin Impact expressing sadness. The supplied explicitly approved neutral-v003 is the sole image reference. Preserve its exact identity, face, fair skin, natural freckles, hazel-green eyes, copper-red long hair, swept-back upper hair, small braids and blue ties, Focus device at the right temple, natural human ears, blue neck scarf, layered necklaces, fur-edged shoulders, fitted brown leather bodice, red sash, patterned tan split skirt panels with turquoise and red edging, hip pouch, metal-and-fur forearm guards, dark leggings and exact asymmetric tall boots. Match its polished detailed anime illustration style and the same compact Medium Female build, without elongating the torso or limbs or turning her into a chibi.\nPersonality and acting: retain her grounded, self-assured hunter's bearing, direct sincerity and quieter warmth while making the emotion readable. A quietly vulnerable downcast expression with lowered open eyes, raised inner brows and a small closed sorrowful mouth. Let her head incline downward and her shoulders sink. Both arms lower in different relaxed angles, right hand hovering beside the lower torso and left hand low beside the thigh, clear of the costume. Keep her posture composed rather than theatrical. Vary the whole pose and body language for the emotion rather than changing only the face or mechanically copying the neutral.\nUse natural, softly articulated hands. Each palm connects to four gently curved fingers and a separate shorter opposable thumb, with coherent joints and a clean silhouette suited to the gesture. Let natural overlap remain natural rather than forcing all digits toward the camera. Keep both hands separate, with visible space from nearby fabric where the gesture does not call for contact; avoid extreme foreshortening. Exactly two coherent legs and feet in an uncomplicated balanced stance. Keep the ear's skin outline distinct from the small metal Focus, matching the approved neutral; allow hair to partly cover the ears naturally. Preserve coherent open eyes, intact hazel-green irises, ordinary pupils, natural eyelids and a consistent gaze. Hair, braids and heavy costume panels follow the pose naturally with gravity, and all markings rotate with their surfaces.\nComplete silhouette including hair, braids, hands, costume panels, armor and shoes, with about 2\u20134% top and bottom padding and 92\u201396% visible height. Genuinely transparent background with clear alpha outside the character. Both hands empty. No scenery, backdrop, floor, reflections, ground shadow, floating effects, heart pupils, floating hearts, props, bow, arrows, weapons, text, labels, UI, watermark or additional characters.",
+        "referenced_image_paths": [
+          "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-aloy-ten-sprites/references/Aloy/approved-neutral.png"
+        ],
+        "transparent_background": true
+      },
+      "approval": {
+        "status": "approved",
+        "date": "2026-11-05",
+        "message": "Approved, put Aloy's sprites in her folder",
+        "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-aloy-ten-sprites/sprites/Aloy/sadness.png",
+        "candidate_sha256": "a0ac224b2696053f8cceab7d42cf421593c34228ae6ac28ff6aaffdebc551aa5"
+      },
+      "tool_output": "/Users/alexachan/.codex/generated_images/01a1aa19-42b2-7e92-b08d-8ee7d133c057/exec-a795d3a9-8f4f-4fc2-be52-ec040deda1f1.png",
+      "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-aloy-ten-sprites/raw/Aloy/sadness.png",
+      "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-aloy-ten-sprites/sprites/Aloy/sadness.png",
+      "sha256": "a0ac224b2696053f8cceab7d42cf421593c34228ae6ac28ff6aaffdebc551aa5",
+      "dimensions": [
+        935,
+        1683
+      ],
+      "png_color_type": 6
+    },
+    "Aloy fear": {
+      "character": "Aloy",
+      "emotion": "fear",
+      "status": "approved",
+      "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-aloy-ten-sprites/prompts/Aloy/fear.txt",
+      "tool": "image_gen.imagegen",
+      "arguments": {
+        "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Aloy from Genshin Impact expressing fear. The supplied explicitly approved neutral-v003 is the sole image reference. Preserve its exact identity, face, fair skin, natural freckles, hazel-green eyes, copper-red long hair, swept-back upper hair, small braids and blue ties, Focus device at the right temple, natural human ears, blue neck scarf, layered necklaces, fur-edged shoulders, fitted brown leather bodice, red sash, patterned tan split skirt panels with turquoise and red edging, hip pouch, metal-and-fur forearm guards, dark leggings and exact asymmetric tall boots. Match its polished detailed anime illustration style and the same compact Medium Female build, without elongating the torso or limbs or turning her into a chibi.\nPersonality and acting: retain her grounded, self-assured hunter's bearing, direct sincerity and quieter warmth while making the emotion readable. A sudden alert, wide-eyed look with raised inner brows and a small parted mouth as danger interrupts her composure. Shift weight onto the back foot with a restrained recoil. Her left forearm rises protectively beside the upper torso, hand gently open and angled obliquely inward, clear of the scarf. Her right hand stays lower beside the waist, relaxed open and separate. Preserve the controlled balance of an experienced hunter. Vary the whole pose and body language for the emotion rather than changing only the face or mechanically copying the neutral.\nUse natural, softly articulated hands. Each palm connects to four gently curved fingers and a separate shorter opposable thumb, with coherent joints and a clean silhouette suited to the gesture. Let natural overlap remain natural rather than forcing all digits toward the camera. Keep both hands separate, with visible space from nearby fabric where the gesture does not call for contact; avoid extreme foreshortening. Exactly two coherent legs and feet in an uncomplicated balanced stance. Keep the ear's skin outline distinct from the small metal Focus, matching the approved neutral; allow hair to partly cover the ears naturally. Preserve coherent open eyes, intact hazel-green irises, ordinary pupils, natural eyelids and a consistent gaze. Hair, braids and heavy costume panels follow the pose naturally with gravity, and all markings rotate with their surfaces.\nComplete silhouette including hair, braids, hands, costume panels, armor and shoes, with about 2\u20134% top and bottom padding and 92\u201396% visible height. Genuinely transparent background with clear alpha outside the character. Both hands empty. No scenery, backdrop, floor, reflections, ground shadow, floating effects, heart pupils, floating hearts, props, bow, arrows, weapons, text, labels, UI, watermark or additional characters.",
+        "referenced_image_paths": [
+          "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-aloy-ten-sprites/references/Aloy/approved-neutral.png"
+        ],
+        "transparent_background": true
+      },
+      "approval": {
+        "status": "approved",
+        "date": "2026-11-05",
+        "message": "Approved, put Aloy's sprites in her folder",
+        "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-aloy-ten-sprites/sprites/Aloy/fear.png",
+        "candidate_sha256": "75299e0da28e54a193aff427c0c368c788dab490938948318d36997e8e75836d"
+      },
+      "tool_output": "/Users/alexachan/.codex/generated_images/01a1aa19-42b2-7e92-b08d-8ee7d133c057/exec-755e66c1-1a5b-4bed-afed-203a052264d6.png",
+      "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-aloy-ten-sprites/raw/Aloy/fear.png",
+      "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-aloy-ten-sprites/sprites/Aloy/fear.png",
+      "sha256": "75299e0da28e54a193aff427c0c368c788dab490938948318d36997e8e75836d",
+      "dimensions": [
+        935,
+        1683
+      ],
+      "png_color_type": 6
+    },
+    "Aloy embarrassment": {
+      "character": "Aloy",
+      "emotion": "embarrassment",
+      "status": "approved",
+      "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-aloy-ten-sprites/prompts/Aloy/embarrassment.txt",
+      "tool": "image_gen.imagegen",
+      "arguments": {
+        "prompt": "Use case: stylized-concept. Create one full-body visual-novel sprite of Aloy from Genshin Impact expressing embarrassment. The supplied explicitly approved neutral-v003 is the sole image reference. Preserve its exact identity, face, fair skin, natural freckles, hazel-green eyes, copper-red long hair, swept-back upper hair, small braids and blue ties, Focus device at the right temple, natural human ears, blue neck scarf, layered necklaces, fur-edged shoulders, fitted brown leather bodice, red sash, patterned tan split skirt panels with turquoise and red edging, hip pouch, metal-and-fur forearm guards, dark leggings and exact asymmetric tall boots. Match its polished detailed anime illustration style and the same compact Medium Female build, without elongating the torso or limbs or turning her into a chibi.\nPersonality and acting: retain her grounded, self-assured hunter's bearing, direct sincerity and quieter warmth while making the emotion readable. A noticeable rosy blush, shy averted open eyes and a small self-conscious smile. Duck her chin and turn her shoulders slightly away, with a subtle inward shoulder curl. Bend her right elbow so the relaxed hand hovers in front of her lower ribs, clear of the bodice; her left arm hangs softly beside her hip. Let her usually candid confidence give way to sincere bashfulness. Vary the whole pose and body language for the emotion rather than changing only the face or mechanically copying the neutral.\nUse natural, softly articulated hands. Each palm connects to four gently curved fingers and a separate shorter opposable thumb, with coherent joints and a clean silhouette suited to the gesture. Let natural overlap remain natural rather than forcing all digits toward the camera. Keep both hands separate, with visible space from nearby fabric where the gesture does not call for contact; avoid extreme foreshortening. Exactly two coherent legs and feet in an uncomplicated balanced stance. Keep the ear's skin outline distinct from the small metal Focus, matching the approved neutral; allow hair to partly cover the ears naturally. Preserve coherent open eyes, intact hazel-green irises, ordinary pupils, natural eyelids and a consistent gaze. Hair, braids and heavy costume panels follow the pose naturally with gravity, and all markings rotate with their surfaces.\nComplete silhouette including hair, braids, hands, costume panels, armor and shoes, with about 2\u20134% top and bottom padding and 92\u201396% visible height. Genuinely transparent background with clear alpha outside the character. Both hands empty. No scenery, backdrop, floor, reflections, ground shadow, floating effects, heart pupils, floating hearts, props, bow, arrows, weapons, text, labels, UI, watermark or additional characters.",
+        "referenced_image_paths": [
+          "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-aloy-ten-sprites/references/Aloy/approved-neutral.png"
+        ],
+        "transparent_background": true
+      },
+      "approval": {
+        "status": "approved",
+        "date": "2026-11-05",
+        "message": "Approved, put Aloy's sprites in her folder",
+        "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-aloy-ten-sprites/sprites/Aloy/embarrassment.png",
+        "candidate_sha256": "c06bc185ba701f3814f3db009a7a924c72e40cbf14f5f0a03521f4926ede15fc"
+      },
+      "tool_output": "/Users/alexachan/.codex/generated_images/01a1aa19-42b2-7e92-b08d-8ee7d133c057/exec-f16afb6c-95c4-4f63-9782-a212dfa8dd7a.png",
+      "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-aloy-ten-sprites/raw/Aloy/embarrassment.png",
+      "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-aloy-ten-sprites/sprites/Aloy/embarrassment.png",
+      "sha256": "c06bc185ba701f3814f3db009a7a924c72e40cbf14f5f0a03521f4926ede15fc",
+      "dimensions": [
+        935,
+        1683
+      ],
+      "png_color_type": 6
+    }
+  },
+  "generated_expressions": 9,
+  "total_sprite_files": 10,
+  "technical_checks": [
+    {
+      "character": "Aloy",
+      "emotion": "neutral",
+      "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-aloy-ten-sprites/sprites/Aloy/neutral.png",
+      "sha256": "e52ff434c92cf5f2813306a3a55a0f637b20d9b3bb9ffb41f38287ebb6f74c0e",
+      "dimensions": [
+        935,
+        1683
+      ],
+      "png_decoded": true,
+      "alpha_channel": true
+    },
+    {
+      "character": "Aloy",
+      "emotion": "joy",
+      "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-aloy-ten-sprites/sprites/Aloy/joy.png",
+      "sha256": "e98b3155f2f61d6e19b2f105990c0c31d7fb12434fadad026371a720f814bf84",
+      "dimensions": [
+        935,
+        1683
+      ],
+      "png_decoded": true,
+      "alpha_channel": true
+    },
+    {
+      "character": "Aloy",
+      "emotion": "annoyance",
+      "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-aloy-ten-sprites/sprites/Aloy/annoyance.png",
+      "sha256": "68976fc63484c63f2c85ac69b2ce69cf2d1ba981ffc976e30975152db7ba4bce",
+      "dimensions": [
+        935,
+        1683
+      ],
+      "png_decoded": true,
+      "alpha_channel": true
+    },
+    {
+      "character": "Aloy",
+      "emotion": "confusion",
+      "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-aloy-ten-sprites/sprites/Aloy/confusion.png",
+      "sha256": "05c6bc17e98c8ada52d5a976a709382a1170ecdd91de38dfa5e00ae86d9ba0fc",
+      "dimensions": [
+        935,
+        1683
+      ],
+      "png_decoded": true,
+      "alpha_channel": true
+    },
+    {
+      "character": "Aloy",
+      "emotion": "love",
+      "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-aloy-ten-sprites/sprites/Aloy/love.png",
+      "sha256": "dc1d5d9952804ce8f1c835e3f5c041ddbb4d2c560515cf167fd7a1e564e1b541",
+      "dimensions": [
+        935,
+        1683
+      ],
+      "png_decoded": true,
+      "alpha_channel": true
+    },
+    {
+      "character": "Aloy",
+      "emotion": "desire",
+      "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-aloy-ten-sprites/sprites/Aloy/desire.png",
+      "sha256": "8504bfee1aad71bf09320e97f4e96332f0ca57e8c579ec4f43fe19566bdf7326",
+      "dimensions": [
+        935,
+        1683
+      ],
+      "png_decoded": true,
+      "alpha_channel": true
+    },
+    {
+      "character": "Aloy",
+      "emotion": "excitement",
+      "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-aloy-ten-sprites/sprites/Aloy/excitement.png",
+      "sha256": "86ffadea602b36a9095ab9cd48260e23055a5bb195af500858a9abac9272bc14",
+      "dimensions": [
+        935,
+        1683
+      ],
+      "png_decoded": true,
+      "alpha_channel": true
+    },
+    {
+      "character": "Aloy",
+      "emotion": "sadness",
+      "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-aloy-ten-sprites/sprites/Aloy/sadness.png",
+      "sha256": "a0ac224b2696053f8cceab7d42cf421593c34228ae6ac28ff6aaffdebc551aa5",
+      "dimensions": [
+        935,
+        1683
+      ],
+      "png_decoded": true,
+      "alpha_channel": true
+    },
+    {
+      "character": "Aloy",
+      "emotion": "fear",
+      "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-aloy-ten-sprites/sprites/Aloy/fear.png",
+      "sha256": "75299e0da28e54a193aff427c0c368c788dab490938948318d36997e8e75836d",
+      "dimensions": [
+        935,
+        1683
+      ],
+      "png_decoded": true,
+      "alpha_channel": true
+    },
+    {
+      "character": "Aloy",
+      "emotion": "embarrassment",
+      "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-aloy-ten-sprites/sprites/Aloy/embarrassment.png",
+      "sha256": "c06bc185ba701f3814f3db009a7a924c72e40cbf14f5f0a03521f4926ede15fc",
+      "dimensions": [
+        935,
+        1683
+      ],
+      "png_decoded": true,
+      "alpha_channel": true
+    }
+  ],
+  "visual_review": "Not performed; the user reviews generated candidates.",
+  "previews": {
+    "full_body": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-aloy-ten-sprites/previews/full-body.png",
+    "faces": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-aloy-ten-sprites/previews/faces.png",
+    "columns": 5,
+    "rows": 2,
+    "labels": "none",
+    "background": "transparent",
+    "order": [
+      [
+        "Aloy",
+        "neutral"
+      ],
+      [
+        "Aloy",
+        "joy"
+      ],
+      [
+        "Aloy",
+        "annoyance"
+      ],
+      [
+        "Aloy",
+        "confusion"
+      ],
+      [
+        "Aloy",
+        "love"
+      ],
+      [
+        "Aloy",
+        "desire"
+      ],
+      [
+        "Aloy",
+        "excitement"
+      ],
+      [
+        "Aloy",
+        "sadness"
+      ],
+      [
+        "Aloy",
+        "fear"
+      ],
+      [
+        "Aloy",
+        "embarrassment"
+      ]
+    ],
+    "transforms": [
+      {
+        "character": "Aloy",
+        "emotion": "neutral",
+        "full_body_position": [
+          12,
+          22
+        ],
+        "full_body_size": [
+          312,
+          562
+        ],
+        "face_crop": [
+          150,
+          0,
+          785,
+          522
+        ],
+        "face_position": [
+          8,
+          35
+        ],
+        "face_size": [
+          304,
+          250
+        ]
+      },
+      {
+        "character": "Aloy",
+        "emotion": "joy",
+        "full_body_position": [
+          348,
+          22
+        ],
+        "full_body_size": [
+          312,
+          562
+        ],
+        "face_crop": [
+          150,
+          0,
+          785,
+          522
+        ],
+        "face_position": [
+          328,
+          35
+        ],
+        "face_size": [
+          304,
+          250
+        ]
+      },
+      {
+        "character": "Aloy",
+        "emotion": "annoyance",
+        "full_body_position": [
+          684,
+          22
+        ],
+        "full_body_size": [
+          312,
+          562
+        ],
+        "face_crop": [
+          150,
+          0,
+          785,
+          522
+        ],
+        "face_position": [
+          648,
+          35
+        ],
+        "face_size": [
+          304,
+          250
+        ]
+      },
+      {
+        "character": "Aloy",
+        "emotion": "confusion",
+        "full_body_position": [
+          1020,
+          22
+        ],
+        "full_body_size": [
+          312,
+          562
+        ],
+        "face_crop": [
+          150,
+          0,
+          785,
+          522
+        ],
+        "face_position": [
+          968,
+          35
+        ],
+        "face_size": [
+          304,
+          250
+        ]
+      },
+      {
+        "character": "Aloy",
+        "emotion": "love",
+        "full_body_position": [
+          1356,
+          22
+        ],
+        "full_body_size": [
+          312,
+          562
+        ],
+        "face_crop": [
+          150,
+          0,
+          785,
+          522
+        ],
+        "face_position": [
+          1288,
+          35
+        ],
+        "face_size": [
+          304,
+          250
+        ]
+      },
+      {
+        "character": "Aloy",
+        "emotion": "desire",
+        "full_body_position": [
+          12,
+          628
+        ],
+        "full_body_size": [
+          312,
+          562
+        ],
+        "face_crop": [
+          150,
+          0,
+          785,
+          522
+        ],
+        "face_position": [
+          8,
+          355
+        ],
+        "face_size": [
+          304,
+          250
+        ]
+      },
+      {
+        "character": "Aloy",
+        "emotion": "excitement",
+        "full_body_position": [
+          348,
+          628
+        ],
+        "full_body_size": [
+          312,
+          562
+        ],
+        "face_crop": [
+          150,
+          0,
+          785,
+          522
+        ],
+        "face_position": [
+          328,
+          355
+        ],
+        "face_size": [
+          304,
+          250
+        ]
+      },
+      {
+        "character": "Aloy",
+        "emotion": "sadness",
+        "full_body_position": [
+          684,
+          628
+        ],
+        "full_body_size": [
+          312,
+          562
+        ],
+        "face_crop": [
+          150,
+          0,
+          785,
+          522
+        ],
+        "face_position": [
+          648,
+          355
+        ],
+        "face_size": [
+          304,
+          250
+        ]
+      },
+      {
+        "character": "Aloy",
+        "emotion": "fear",
+        "full_body_position": [
+          1020,
+          628
+        ],
+        "full_body_size": [
+          312,
+          562
+        ],
+        "face_crop": [
+          150,
+          0,
+          785,
+          522
+        ],
+        "face_position": [
+          968,
+          355
+        ],
+        "face_size": [
+          304,
+          250
+        ]
+      },
+      {
+        "character": "Aloy",
+        "emotion": "embarrassment",
+        "full_body_position": [
+          1356,
+          628
+        ],
+        "full_body_size": [
+          312,
+          562
+        ],
+        "face_crop": [
+          150,
+          0,
+          785,
+          522
+        ],
+        "face_position": [
+          1288,
+          355
+        ],
+        "face_size": [
+          304,
+          250
+        ]
+      }
+    ]
+  },
+  "archives": {
+    "sprites": {
+      "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-aloy-ten-sprites/archives/sprites.zip",
+      "files": 10,
+      "sha256": "e0be769992422f671481025d8fb802a31c40e1458659c0076091ab3819be07fa",
+      "zip_integrity": "passed"
+    },
+    "complete_artwork": {
+      "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-aloy-ten-sprites/archives/complete-artwork.zip",
+      "contents": "All non-archive run artifacts, including exact prompts, references, raw outputs, sources, previews, scripts and manifest."
+    }
+  },
+  "set_approval": {
+    "status": "approved",
+    "date": "2026-11-05",
+    "message": "Approved, put Aloy's sprites in her folder"
+  }
+}

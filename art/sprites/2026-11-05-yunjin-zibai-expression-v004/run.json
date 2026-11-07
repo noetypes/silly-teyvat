@@ -158,5 +158,18 @@
       ],
       "png_color_type": 6
     }
-  }
+  },
+  "installations": [
+    {
+      "date": "2026-11-05",
+      "report": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-approved-sprite-installation/installation.json",
+      "files": [
+        {
+          "emotion": "fear",
+          "sha256": "c9e5825cd464d01e5a27af4677274a2df5930b4c330dd981e7e0d5d6d986585c",
+          "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Zibai/fear.png"
+        }
+      ]
+    }
+  ]
 }

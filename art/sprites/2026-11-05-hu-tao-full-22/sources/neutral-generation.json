@@ -1,0 +1,839 @@
+{
+  "date": "2026-11-05",
+  "character": "Hu Tao",
+  "status": "neutral_v008_selected_and_approved",
+  "user_request": "I have attached Hu Tao's in game model. Regenerate her neutral, be sure to keep her cute and petite",
+  "references": [
+    {
+      "original_path": "/var/folders/yb/h8ks0jfd6jl0jdj3npytrx2r0000gn/T/codex-clipboard-6d3a9868-e890-42f5-9bd3-a94db41c49dd.png",
+      "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-hu-tao-model-neutral/references/Hu Tao/model.png",
+      "sha256": "f12a0df0863b5404e992486745f02b77842403c82c562aff9460a5b7d8381457",
+      "role": "Primary identity, eyes, exact design/costume and petite proportions."
+    },
+    {
+      "original_path": "/var/folders/yb/h8ks0jfd6jl0jdj3npytrx2r0000gn/T/codex-clipboard-ceff00a4-031f-4f8f-9706-5d7a17188f0d.png",
+      "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-hu-tao-model-neutral/references/Hu Tao/portrait-style-v004.png",
+      "sha256": "d60e3423ab59bb899be14ca19d0bc45025263346fb85103e31d93cf7d80de69a",
+      "role": "User-selected drawing style, facial/proportion cues and light five-petal pupil design; model remains authoritative for outfit."
+    }
+  ],
+  "previous_sprite": {
+    "original_path": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Hu Tao/neutral.png",
+    "snapshot": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-hu-tao-model-neutral/sources/previous-installed-neutral.png",
+    "sha256": "de506018c4771fa560cd168c4b484831f57ba50a4ebb8ee67ba225df18e0823d",
+    "role": "Archived provenance only; never a generation input."
+  },
+  "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-hu-tao-model-neutral/prompts/Hu Tao/neutral-v008.txt",
+  "generation": {
+    "tool": "image_gen.imagegen",
+    "arguments": {
+      "prompt": "Use case: stylized-concept. Create one new full-body neutral visual-novel sprite of Hu Tao from Genshin Impact, on a truly transparent background.\nREFERENCES: Image 1 is the user's in-game model, authoritative for exact outfit, costume construction, colors, patterns, accessories and placement. Image 2 is the newly supplied illustration, the reference for drawing style, facial proportions, eye design and the cute petite impression. Match its softly rounded face, large expressive red-amber eyes, small nose and delicate features, confident dark linework, painterly brush shading, very fair pale ivory skin, deep brown fabrics and softly highlighted dark hair. Keep the full outfit from Image 1, even where Image 2 stylizes costume details. Use only these two source artworks. Omit the illustration's dark backdrop and gold border. Do not copy its hands near her face or elaborate spread-finger gestures.\nSKIN TONE: Hu Tao has VERY FAIR, PALE IVORY skin, with a delicate neutral-to-cool pink undertone. Give the face, neck, hands and visible legs the same luminous pale base complexion. Keep any rosy cheek tint slight and localized. Use soft pale pink and cool neutral shading for skin volume, maintaining gentle painterly gradients without a yellow, orange, brown or tanned cast. Preserve clear detail and natural form rather than flattening the skin to pure white. Let Image 2 guide the linework and painted finish, but use neutral illumination and keep her skin noticeably fair and porcelain-pale, without transferring the portrait's warm dark-background color cast onto her body. Retain the exact anatomy, petite torso-to-leg balance, gently fuller thighs, pose and costume instructions below.\nPROPORTIONS: keep a cute petite Medium Female build with a small delicate upper frame, narrow shoulders and balanced natural anime anatomy. Use a gently compact torso: shorten the ribcage-to-hip section only very slightly, keeping a visible natural waist and a comfortable transition into the pelvis. Let the waist sit just a touch higher, without compressing the ribcage or creating an extremely short torso. Keep the leg length moderate and natural rather than long or stretched. Give her subtly fuller, thicker thighs with soft rounded outer contours and a natural taper toward the knees; this is a modest increase in upper-leg width that balances her petite upper body. Keep the hips, knees and lower legs coherent and naturally aligned, preserving her overall small scale and light stance. Aim for a restrained intermediate torso-to-leg balance, with only a tiny torso reduction and a gentle increase in thigh fullness. Preserve the softly rounded face and slightly larger anime head, the same painterly style, exact model outfit, hat and oversized cuffs, and relaxed low hand pose. Use the same full-body framing and padding.\nEYES: keep both eyes comfortably open, with natural coherent eyelids, intact reddish-amber irises and a shared gaze toward the viewer. Her pupils are pale cream-ivory FIVE-PETAL BLOSSOMS. Pay particular attention to HU TAO'S ANATOMICAL LEFT EYE, ON THE VIEWER'S RIGHT: its pupil is one complete little flower with FIVE visibly distinct rounded petals around one center. Shape it with one top petal, two petals around the right half and two around the left half, forming a single smooth five-lobed outline. All five petal tips must be visible within the iris, clear of the eyelids and separate from the catchlights. In HU TAO'S ANATOMICAL RIGHT EYE, ON THE VIEWER'S LEFT, use the same complete pale cream five-petal blossom design. Two pupils total, one five-petal flower per iris. Preserve the warm red-amber iris around each light blossom. The flowers are the pupil shapes, not highlights, crosses, stars, hearts or replacements for the whole eyes. Keep the gentle mischievous gaze and soft facial rendering from Image 2.\nOUTFIT: preserve the model's long dark-brown hair with reddish tips, fringe and face-framing locks, dark hat with its exact cream emblem and red plum blossom branch, hat tassel, red mandarin collar, patterned brown coat with large cuffs, shorts, gold closures and waist ornaments, hanging tassels and long embroidered coat tails, rings, socks with red bands and flower ornaments, and dark shoes. Retain the model's true costume colors without its blue environmental lighting. Hair and heavy coat panels hang naturally with gravity.\nPOSE AND HANDS: a relaxed, lightly playful idle, with a small knowing closed-mouth smile, a gentle head inclination, and a subtle hip turn. Her face stays nearly frontal for a clear shared gaze. Both arms rest low and comfortably apart. The right hand hangs relaxed beside the upper thigh, seen at a natural side angle; the left forearm angles slightly outward with its relaxed hand low beside her hip. Leave a small clear gap between hands and sleeves, coat, tassels and legs. Draw softly articulated hands, each formed from a believable palm, four gently curved fingers and a distinct opposable thumb; let natural overlap follow the pose. Keep the fingers loosely grouped, with clear joints and fingertip outlines rather than stretched or elaborately curled gestures. Keep both wrists straight and comfortable. Both hands are empty. Feet are separate and only slightly staggered, with a light asymmetrical weight shift and no crossing.\nFRAMING: complete silhouette including hat branch, flowers, hair tips, hands, sleeves, coat tails, tassels, socks and both shoes, with approximately 2\u20134% top and bottom padding. True alpha transparency outside the character. No background, border, floor, reflection, ground shadow, floating flames, ghosts, weapon, added prop, text, label, UI, watermark or additional character. Produce just one illustrated sprite.",
+      "referenced_image_paths": [
+        "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-hu-tao-model-neutral/references/Hu Tao/model.png",
+        "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-hu-tao-model-neutral/references/Hu Tao/portrait-style-v004.png"
+      ],
+      "transparent_background": true
+    },
+    "tool_output": "/Users/alexachan/.codex/generated_images/01a1aa19-42b2-7e92-b08d-8ee7d133c057/exec-309acead-d61c-4c66-8f7d-c7356778cd45.png",
+    "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-hu-tao-model-neutral/raw/Hu Tao/neutral-v008.png",
+    "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-hu-tao-model-neutral/candidates/Hu Tao/neutral-v008.png",
+    "candidate_sha256": "2896b5601f7bd9bac64992c7dcf90796a071f268c6496613e1d62718fb9203d5",
+    "dimensions": [
+      934,
+      1684
+    ],
+    "png_color_type": 6,
+    "framing_transform": null
+  },
+  "approval": {
+    "status": "approved",
+    "date": "2026-11-05",
+    "message": "Alright, I've decided, let's go with v008. Generate the full 22 sprite set",
+    "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-hu-tao-model-neutral/candidates/Hu Tao/neutral-v008.png",
+    "candidate_sha256": "2896b5601f7bd9bac64992c7dcf90796a071f268c6496613e1d62718fb9203d5",
+    "version": "v008"
+  },
+  "model_note": "Built-in model ID and quality controls are not exposed.",
+  "installation": "New neutral candidate only; existing live Hu Tao set preserved.",
+  "review_policy": "User reviews candidate; only technical PNG checks are performed.",
+  "attempts": [
+    {
+      "version": "v001",
+      "references": [
+        {
+          "original_path": "/var/folders/yb/h8ks0jfd6jl0jdj3npytrx2r0000gn/T/codex-clipboard-6d3a9868-e890-42f5-9bd3-a94db41c49dd.png",
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-hu-tao-model-neutral/references/Hu Tao/model.png",
+          "sha256": "f12a0df0863b5404e992486745f02b77842403c82c562aff9460a5b7d8381457",
+          "role": "Primary identity, eyes, exact design/costume and petite proportions."
+        },
+        {
+          "original_path": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Hu Tao/Official Art/neutral.png",
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-hu-tao-model-neutral/references/Hu Tao/official.png",
+          "sha256": "76a31b858c41171e040374d449eee9dc6fe6ee895058dd2fde6a7ab35fb32728",
+          "role": "Illustrated art style only."
+        }
+      ],
+      "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-hu-tao-model-neutral/prompts/Hu Tao/neutral-v001.txt",
+      "generation": {
+        "tool": "image_gen.imagegen",
+        "arguments": {
+          "prompt": "Use case: stylized-concept. Create one fresh full-body neutral visual-novel sprite of Hu Tao from Genshin Impact.\nImage 1 is the user-supplied in-game model and is authoritative for her identity, face, exact costume, accessory placement and cute petite body proportions. Image 2 is the installed official illustrated portrait, for ART STYLE ONLY: polished Genshin-inspired anime illustration, clean drawn contours, detailed cel shading and softly painted transitions in hair, fabric and metal. Use the model's exact design, and the portrait's illustrated rendering. Do not copy the official portrait's jumping pose, swirling hair or windblown coat tails.\nPreserve her long dark-brown hair with reddish tips and twin tail lengths, fringe and face-framing locks, pale skin, lively reddish-amber eyes, dark hat with the exact cream emblem and red plum blossom branch, side tassel, red mandarin collar, brown patterned long coat with large cuffs, dark shorts, gold closures and waist ornaments, hanging tassels and long embroidered coat tails, rings, white socks with red bands and blossoms, and dark shoes with pale ornaments. Keep the actual costume colors without the model screenshot's blue environmental cast. Both eyes have Hu Tao's distinctive small WHITE BLOSSOM-SHAPED pupils, each centered inside its retained reddish-amber iris, faithfully matching the model. Preserve this natural flower-pupil design in BOTH eyes, with clear iris borders, coherent eyelids and a consistent gaze; they are part of her identity, not heart pupils or floating effects.\nBuild: make her cute and petite, matching the model's compact Medium Female anime proportions: small delicate frame, narrow shoulders, compact torso, lightly built slender limbs and natural shorter leg proportions. Keep her recognizable silhouette and balanced head-to-body proportions without elongating her torso or legs or converting her to a chibi. Her oversized cuffs and hat should accent her small frame.\nNeutral acting: relaxed, playful and quietly mischievous, with bright attentive open eyes, a small knowing closed-mouth smile and a gentle head tilt. Turn her shoulders slightly three-quarter toward the viewer. Her right elbow bends loosely with a softly relaxed hand beside her waist, clear of the coat and tassels; her left arm hangs comfortably with its hand visible beside the sleeve. Shift her weight lightly onto one leg, feet separated and only slightly staggered. Keep hands empty. Let her long hair and heavy coat tails fall naturally with gravity, keeping their embroidered panels readable.\nHands: softly articulated human hands with a connected palm, four fingers and a separate opposable thumb, gently curved to suit the gesture. Keep the hands spatially separate and clearly outlined, with a little space from nearby fabric. Allow natural overlap rather than forcing hidden digits toward the camera. Exactly two legs and two feet.\nShow the complete silhouette including hat ornament, blossoms, hair, hands, sleeves, coat tails, tassels, socks and shoes, with about 2\u20134% top and bottom padding. Genuinely transparent background with clear alpha outside her silhouette. No blue screenshot background, scenery, floor, reflection, ground shadow, floating flames, ghosts, weapon, new props, text, labels, UI, watermark or additional characters. Produce one character sprite.",
+          "referenced_image_paths": [
+            "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-hu-tao-model-neutral/references/Hu Tao/model.png",
+            "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-hu-tao-model-neutral/references/Hu Tao/official.png"
+          ],
+          "transparent_background": true
+        },
+        "tool_output": "/Users/alexachan/.codex/generated_images/01a1aa19-42b2-7e92-b08d-8ee7d133c057/exec-c3bbeace-d5fb-4314-817b-1970cfab3f73.png",
+        "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-hu-tao-model-neutral/raw/Hu Tao/neutral-v001.png",
+        "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-hu-tao-model-neutral/candidates/Hu Tao/neutral-v001.png",
+        "candidate_sha256": "a89b100907b98d793831e225f60cb28059e5c096b80c0beeae4aac46089ba35f",
+        "dimensions": [
+          988,
+          1592
+        ],
+        "png_color_type": 6,
+        "framing_transform": null
+      },
+      "approval": {
+        "status": "revision_requested",
+        "date": "2026-11-05",
+        "message": "that's pretty good, make her slightly smaller and have it use this portrait as the artstyle reference while maintaining the model for outfit"
+      },
+      "technical_checks": {
+        "png_decoded": true,
+        "alpha_channel": true,
+        "alpha_range": [
+          0,
+          255
+        ],
+        "dimensions": [
+          988,
+          1592
+        ],
+        "candidate_matches_raw": true,
+        "live_neutral_unchanged": true,
+        "visual_review": "Not performed; user reviews candidate."
+      },
+      "previews": {
+        "face": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-hu-tao-model-neutral/previews/neutral-face-v001.png",
+        "crop_box": [
+          158,
+          0,
+          830,
+          494
+        ],
+        "scaling": "none",
+        "sprite_png": "unchanged"
+      }
+    },
+    {
+      "version": "v002",
+      "references": [
+        {
+          "original_path": "/var/folders/yb/h8ks0jfd6jl0jdj3npytrx2r0000gn/T/codex-clipboard-6d3a9868-e890-42f5-9bd3-a94db41c49dd.png",
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-hu-tao-model-neutral/references/Hu Tao/model.png",
+          "sha256": "f12a0df0863b5404e992486745f02b77842403c82c562aff9460a5b7d8381457",
+          "role": "Primary identity, eyes, exact design/costume and petite proportions."
+        },
+        {
+          "original_path": "/var/folders/yb/h8ks0jfd6jl0jdj3npytrx2r0000gn/T/codex-clipboard-5db0b78f-9a71-4447-a7cd-d8f4be4375e3.png",
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-hu-tao-model-neutral/references/Hu Tao/portrait-style.png",
+          "sha256": "604773bc4419638fe0e37ca950d95d2c8f2fe119eb2536e83629aff36c6cd62d",
+          "role": "User-selected illustrated portrait for art style only; no background, logos or lettering."
+        }
+      ],
+      "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-hu-tao-model-neutral/prompts/Hu Tao/neutral-v002.txt",
+      "generation": {
+        "tool": "image_gen.imagegen",
+        "arguments": {
+          "prompt": "Use case: stylized-concept. Create one fresh full-body neutral visual-novel sprite of Hu Tao from Genshin Impact.\nImage 1 is the user's in-game model, authoritative for Hu Tao's recognizable identity, exact outfit construction, costume patterns, colors, accessories and their placement. Image 2 is the newly attached high-resolution illustrated portrait and is the ART STYLE reference: match its confident clean linework, expressive anime face rendering, warm softly painted skin, rich dark fabric shading, subtle hair highlights, and polished transitions between cel shading and painted detail. Use the model's outfit and the portrait's illustrated rendering. The portrait's background, logo, border, writing and decorative framing are not part of the sprite. Do not copy its jumping pose, windblown coat tails, swept hair, exaggerated foreshortening or cropping.\nPreserve her long dark-brown hair with reddish tips and twin tail lengths, fringe and face-framing locks, pale skin, lively reddish-amber eyes, dark hat with the exact cream emblem and red plum blossom branch, side tassel, red mandarin collar, brown patterned long coat with large cuffs, dark shorts, gold closures and waist ornaments, hanging tassels and long embroidered coat tails, rings, white socks with red bands and blossoms, and dark shoes with pale ornaments. Keep the actual costume colors without the model screenshot's blue environmental cast. Both eyes have Hu Tao's distinctive small WHITE BLOSSOM-SHAPED pupils, each centered inside its retained reddish-amber iris, faithfully matching the model. Preserve this natural flower-pupil design in BOTH eyes, with clear iris borders, coherent eyelids and a consistent gaze; they are part of her identity, not heart pupils or floating effects.\nBuild: make her slightly smaller and more petite in body proportions, with a small delicate frame, a slightly shorter compact torso, modestly shorter natural limb lengths and narrow shoulders. Use a softly rounded anime face and balanced head-to-body ratio so her head reads a little larger relative to her small frame. Keep the change modest: she remains a recognizable petite Medium Female, with natural anatomy and her exact established outfit. Preserve slender relaxed limbs without stretching the legs or torso. Her oversized cuffs and hat accent her compactness. This is a body-proportion change, not simply a smaller figure surrounded by extra empty canvas; still use the requested full-body framing and padding.\nNeutral acting: relaxed, playful and quietly mischievous, with bright attentive open eyes, a small knowing closed-mouth smile and a gentle head tilt. Turn her shoulders slightly three-quarter toward the viewer. Her right elbow bends loosely with a softly relaxed hand beside her waist, clear of the coat and tassels; her left arm hangs comfortably with its hand visible beside the sleeve. Shift her weight lightly onto one leg, feet separated and only slightly staggered. Keep hands empty. Let her long hair and heavy coat tails fall naturally with gravity, keeping their embroidered panels readable.\nHands: softly articulated human hands with a connected palm, four fingers and a separate opposable thumb, gently curved to suit the gesture. Keep the hands spatially separate and clearly outlined, with a little space from nearby fabric. Allow natural overlap rather than forcing hidden digits toward the camera. Exactly two legs and two feet.\nShow the complete silhouette including hat ornament, blossoms, hair, hands, sleeves, coat tails, tassels, socks and shoes, with about 2\u20134% top and bottom padding. Genuinely transparent background with clear alpha outside her silhouette. No blue screenshot background, scenery, floor, reflection, ground shadow, floating flames, ghosts, weapon, new props, text, labels, UI, watermark or additional characters. Produce one character sprite.",
+          "referenced_image_paths": [
+            "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-hu-tao-model-neutral/references/Hu Tao/model.png",
+            "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-hu-tao-model-neutral/references/Hu Tao/portrait-style.png"
+          ],
+          "transparent_background": true
+        },
+        "tool_output": "/Users/alexachan/.codex/generated_images/01a1aa19-42b2-7e92-b08d-8ee7d133c057/exec-93982758-3214-4459-9907-848c0777bc13.png",
+        "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-hu-tao-model-neutral/raw/Hu Tao/neutral-v002.png",
+        "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-hu-tao-model-neutral/candidates/Hu Tao/neutral-v002.png",
+        "candidate_sha256": "602d2c730b7e473bba8921a9ed71f07c3eee518a6fe426fa953aa1156abed06e",
+        "dimensions": [
+          957,
+          1643
+        ],
+        "png_color_type": 6,
+        "framing_transform": null
+      },
+      "approval": {
+        "status": "revision_requested",
+        "date": "2026-11-05",
+        "message": "pretty good!! her eyes in this one are a little weird though. try a slightly different pose",
+        "reason": "User reports eyes look weird and requests a slightly different pose"
+      },
+      "technical_checks": {
+        "png_decoded": true,
+        "alpha_channel": true,
+        "alpha_range": [
+          0,
+          255
+        ],
+        "dimensions": [
+          957,
+          1643
+        ],
+        "candidate_matches_raw": true,
+        "live_neutral_unchanged": true,
+        "visual_review": "Not performed; user reviews candidate."
+      },
+      "previews": {
+        "face": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-hu-tao-model-neutral/previews/neutral-face-v002.png",
+        "crop_box": [
+          153,
+          0,
+          804,
+          509
+        ],
+        "scaling": "none",
+        "sprite_png": "unchanged"
+      }
+    },
+    {
+      "version": "v003",
+      "references": [
+        {
+          "original_path": "/var/folders/yb/h8ks0jfd6jl0jdj3npytrx2r0000gn/T/codex-clipboard-6d3a9868-e890-42f5-9bd3-a94db41c49dd.png",
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-hu-tao-model-neutral/references/Hu Tao/model.png",
+          "sha256": "f12a0df0863b5404e992486745f02b77842403c82c562aff9460a5b7d8381457",
+          "role": "Primary identity, eyes, exact design/costume and petite proportions."
+        },
+        {
+          "original_path": "/var/folders/yb/h8ks0jfd6jl0jdj3npytrx2r0000gn/T/codex-clipboard-5db0b78f-9a71-4447-a7cd-d8f4be4375e3.png",
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-hu-tao-model-neutral/references/Hu Tao/portrait-style.png",
+          "sha256": "604773bc4419638fe0e37ca950d95d2c8f2fe119eb2536e83629aff36c6cd62d",
+          "role": "User-selected illustrated portrait for art style only; no background, logos or lettering."
+        }
+      ],
+      "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-hu-tao-model-neutral/prompts/Hu Tao/neutral-v003.txt",
+      "generation": {
+        "tool": "image_gen.imagegen",
+        "arguments": {
+          "prompt": "Use case: stylized-concept. Create one fresh full-body neutral visual-novel sprite of Hu Tao from Genshin Impact.\nImage 1 is the user's in-game model, authoritative for Hu Tao's recognizable identity, exact outfit construction, costume patterns, colors, accessories and their placement. Image 2 is the newly attached high-resolution illustrated portrait and is the ART STYLE reference: match its confident clean linework, expressive anime face rendering, warm softly painted skin, rich dark fabric shading, subtle hair highlights, and polished transitions between cel shading and painted detail. Use the model's outfit and the portrait's illustrated rendering. The portrait's background, logo, border, writing and decorative framing are not part of the sprite. Do not copy its jumping pose, windblown coat tails, swept hair, exaggerated foreshortening or cropping.\nPreserve her long dark-brown hair with reddish tips and twin tail lengths, fringe and face-framing locks, pale skin, lively reddish-amber eyes, dark hat with the exact cream emblem and red plum blossom branch, side tassel, red mandarin collar, brown patterned long coat with large cuffs, dark shorts, gold closures and waist ornaments, hanging tassels and long embroidered coat tails, rings, white socks with red bands and blossoms, and dark shoes with pale ornaments. Keep the actual costume colors without the model screenshot's blue environmental cast. Eye design: keep her face almost front-facing so both eyes have a clear natural shape and a consistent gaze toward the viewer. Each eye has one continuous upper eyelid contour, one intact reddish-amber iris, and one small white plum-blossom-shaped pupil centered within that iris, matching the model's recognizable design. Keep each white blossom compact so the surrounding iris color remains visible, and keep the tiny catchlights distinct from the flower pupil. Preserve natural lower eyelids, coherent eye corners and a relaxed expression. Use the same small blossom-pupil design in BOTH open eyes.\nBuild: make her slightly smaller and more petite in body proportions, with a small delicate frame, a slightly shorter compact torso, modestly shorter natural limb lengths and narrow shoulders. Use a softly rounded anime face and balanced head-to-body ratio so her head reads a little larger relative to her small frame. Keep the change modest: she remains a recognizable petite Medium Female, with natural anatomy and her exact established outfit. Preserve slender relaxed limbs without stretching the legs or torso. Her oversized cuffs and hat accent her compactness. This is a body-proportion change, not simply a smaller figure surrounded by extra empty canvas; still use the requested full-body framing and padding.\nNeutral acting: relaxed, playful and quietly mischievous, with a small knowing closed-mouth smile and a gently lifted brow. Give her a slightly different idle: torso nearly front-facing with a subtle turn through the hips, head held more upright and face directed toward the viewer rather than a pronounced sideways tilt. Her left elbow bends loosely with the left hand open near waist level, palm angled gently inward and held clear of the coat; her right arm lowers naturally beside her hip, its softly relaxed hand visible below the cuff. Shift her weight onto the opposite leg, with both feet visible, separated and only lightly staggered. Keep her posture light, comfortable and characterful without jumping or dramatic foreshortening. Both hands are empty. Let her hair and long coat tails hang naturally with gravity, preserving the embroidered panels.\nHands: softly articulated human hands with a connected palm, four fingers and a separate opposable thumb, gently curved to suit the gesture. Keep the hands spatially separate and clearly outlined, with a little space from nearby fabric. Allow natural overlap rather than forcing hidden digits toward the camera. Exactly two legs and two feet.\nShow the complete silhouette including hat ornament, blossoms, hair, hands, sleeves, coat tails, tassels, socks and shoes, with about 2\u20134% top and bottom padding. Genuinely transparent background with clear alpha outside her silhouette. No blue screenshot background, scenery, floor, reflection, ground shadow, floating flames, ghosts, weapon, new props, text, labels, UI, watermark or additional characters. Produce one character sprite.",
+          "referenced_image_paths": [
+            "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-hu-tao-model-neutral/references/Hu Tao/model.png",
+            "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-hu-tao-model-neutral/references/Hu Tao/portrait-style.png"
+          ],
+          "transparent_background": true
+        },
+        "tool_output": "/Users/alexachan/.codex/generated_images/01a1aa19-42b2-7e92-b08d-8ee7d133c057/exec-4e694f55-7a97-40ac-8895-3f8024a2f325.png",
+        "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-hu-tao-model-neutral/raw/Hu Tao/neutral-v003.png",
+        "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-hu-tao-model-neutral/candidates/Hu Tao/neutral-v003.png",
+        "candidate_sha256": "a3ea4529a9362230f50d351907ff9dbe0b8bdedc814b968293d549183416b8ad",
+        "dimensions": [
+          962,
+          1635
+        ],
+        "png_color_type": 6,
+        "framing_transform": null
+      },
+      "approval": {
+        "status": "rejected",
+        "date": "2026-11-05",
+        "message": "her fingers are distorted and her pupils should be light coloured blossoms with 5 petals, adjust proportions and style, here's another art to try using as a reference",
+        "reason": "User reports distorted fingers, clarifies light five-petal pupils, and requests new proportion/style reference"
+      },
+      "technical_checks": {
+        "png_decoded": true,
+        "alpha_channel": true,
+        "alpha_range": [
+          0,
+          255
+        ],
+        "dimensions": [
+          962,
+          1635
+        ],
+        "candidate_matches_raw": true,
+        "live_neutral_unchanged": true,
+        "visual_review": "Not performed; user reviews candidate."
+      },
+      "previews": {
+        "face": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-hu-tao-model-neutral/previews/neutral-face-v003.png",
+        "crop_box": [
+          154,
+          0,
+          808,
+          507
+        ],
+        "scaling": "none",
+        "sprite_png": "unchanged"
+      }
+    },
+    {
+      "version": "v004",
+      "references": [
+        {
+          "original_path": "/var/folders/yb/h8ks0jfd6jl0jdj3npytrx2r0000gn/T/codex-clipboard-6d3a9868-e890-42f5-9bd3-a94db41c49dd.png",
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-hu-tao-model-neutral/references/Hu Tao/model.png",
+          "sha256": "f12a0df0863b5404e992486745f02b77842403c82c562aff9460a5b7d8381457",
+          "role": "Primary identity, eyes, exact design/costume and petite proportions."
+        },
+        {
+          "original_path": "/var/folders/yb/h8ks0jfd6jl0jdj3npytrx2r0000gn/T/codex-clipboard-ceff00a4-031f-4f8f-9706-5d7a17188f0d.png",
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-hu-tao-model-neutral/references/Hu Tao/portrait-style-v004.png",
+          "sha256": "d60e3423ab59bb899be14ca19d0bc45025263346fb85103e31d93cf7d80de69a",
+          "role": "User-selected drawing style, facial/proportion cues and light five-petal pupil design; model remains authoritative for outfit."
+        }
+      ],
+      "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-hu-tao-model-neutral/prompts/Hu Tao/neutral-v004.txt",
+      "generation": {
+        "tool": "image_gen.imagegen",
+        "arguments": {
+          "prompt": "Use case: stylized-concept. Create one new full-body neutral visual-novel sprite of Hu Tao from Genshin Impact, on a truly transparent background.\nREFERENCES: Image 1 is the user's in-game model, authoritative for exact outfit, costume construction, colors, patterns, accessories and placement. Image 2 is the newly supplied illustration, the reference for drawing style, facial proportions, eye design and the cute petite impression. Match its softly rounded face, large expressive red-amber eyes, small nose and delicate features, confident dark linework, painterly brush shading, warm pale skin, deep brown fabrics and softly highlighted dark hair. Keep the full outfit from Image 1, even where Image 2 stylizes costume details. Use only these two source artworks. Omit the illustration's dark backdrop and gold border. Do not copy its hands near her face or elaborate spread-finger gestures.\nPROPORTIONS: keep Hu Tao cute and petite with a small delicate Medium Female anime frame, narrow shoulders, a compact torso and lightly built natural limbs. Give her the new illustration's softly rounded face and slightly larger head relative to her slender compact frame. Keep the adjustment modest and balanced, without long stretched legs or an elongated torso. Preserve the complete recognizable outfit and natural anatomy; avoid chibi proportions. Her hat and oversized cuffs should emphasize her small build. Fill a useful full-body sprite frame rather than shrinking her into empty margins.\nEYES: both eyes are comfortably open and directed toward the viewer, with coherent natural upper and lower lids and an intact reddish-amber iris in each. Inside the eye on the viewer's LEFT, place ONE LIGHT CREAM-IVORY BLOSSOM-SHAPED PUPIL with EXACTLY FIVE rounded petals joined around a small center. Inside the eye on the viewer's RIGHT, place the SAME ONE LIGHT CREAM-IVORY FIVE-PETAL BLOSSOM PUPIL. Two blossoms total, one per iris. Each flower has five soft rounded lobes, not a four-armed cross, pointed star or heart. The blossom is the actual pupil, not a catchlight or a replacement for the whole eye. Keep each pale flower clear but contained within its iris, retaining a visible red-amber border and the iris's color and shading. Keep small eye highlights separate from the flower pupils. Follow the new illustration's readable five-petal pupil design and gentle mischievous gaze.\nOUTFIT: preserve the model's long dark-brown hair with reddish tips, fringe and face-framing locks, dark hat with its exact cream emblem and red plum blossom branch, hat tassel, red mandarin collar, patterned brown coat with large cuffs, shorts, gold closures and waist ornaments, hanging tassels and long embroidered coat tails, rings, socks with red bands and flower ornaments, and dark shoes. Retain the model's true costume colors without its blue environmental lighting. Hair and heavy coat panels hang naturally with gravity.\nPOSE AND HANDS: a relaxed, lightly playful idle, with a small knowing closed-mouth smile, a gentle head inclination, and a subtle hip turn. Her face stays nearly frontal for a clear shared gaze. Both arms rest low and comfortably apart. The right hand hangs relaxed beside the upper thigh, seen at a natural side angle; the left forearm angles slightly outward with its relaxed hand low beside her hip. Leave a small clear gap between hands and sleeves, coat, tassels and legs. Draw softly articulated hands, each formed from a believable palm, four gently curved fingers and a distinct opposable thumb; let natural overlap follow the pose. Keep the fingers loosely grouped, with clear joints and fingertip outlines rather than stretched or elaborately curled gestures. Keep both wrists straight and comfortable. Both hands are empty. Feet are separate and only slightly staggered, with a light asymmetrical weight shift and no crossing.\nFRAMING: complete silhouette including hat branch, flowers, hair tips, hands, sleeves, coat tails, tassels, socks and both shoes, with approximately 2\u20134% top and bottom padding. True alpha transparency outside the character. No background, border, floor, reflection, ground shadow, floating flames, ghosts, weapon, added prop, text, label, UI, watermark or additional character. Produce just one illustrated sprite.",
+          "referenced_image_paths": [
+            "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-hu-tao-model-neutral/references/Hu Tao/model.png",
+            "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-hu-tao-model-neutral/references/Hu Tao/portrait-style-v004.png"
+          ],
+          "transparent_background": true
+        },
+        "tool_output": "/Users/alexachan/.codex/generated_images/01a1aa19-42b2-7e92-b08d-8ee7d133c057/exec-a5d5c69d-b0e3-4e89-9a3e-32f5d568ef6e.png",
+        "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-hu-tao-model-neutral/raw/Hu Tao/neutral-v004.png",
+        "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-hu-tao-model-neutral/candidates/Hu Tao/neutral-v004.png",
+        "candidate_sha256": "48a2b9630d704926351a11dd79f8e4bd70715539c4158418f2a974e1c14247e5",
+        "dimensions": [
+          983,
+          1600
+        ],
+        "png_color_type": 6,
+        "framing_transform": null
+      },
+      "approval": {
+        "status": "revision_requested",
+        "date": "2026-11-05",
+        "message": "excellent - artstyle good, hands good, her torso is just a little long compared to her legs and her left eye (our right) only has 4 sides to the flower pupil instead of 5. lets try again",
+        "positive_feedback": "Art style and hands good",
+        "requested_changes": "Shorter torso relative to legs; five petals in anatomical left/viewer-right pupil"
+      },
+      "technical_checks": {
+        "png_decoded": true,
+        "alpha_channel": true,
+        "alpha_range": [
+          0,
+          255
+        ],
+        "dimensions": [
+          983,
+          1600
+        ],
+        "candidate_matches_raw": true,
+        "live_neutral_unchanged": true,
+        "visual_review": "Not performed; user reviews candidate."
+      },
+      "previews": {
+        "face": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-hu-tao-model-neutral/previews/neutral-face-v004.png",
+        "crop_box": [
+          157,
+          0,
+          826,
+          496
+        ],
+        "scaling": "none",
+        "sprite_png": "unchanged"
+      }
+    },
+    {
+      "version": "v005",
+      "references": [
+        {
+          "original_path": "/var/folders/yb/h8ks0jfd6jl0jdj3npytrx2r0000gn/T/codex-clipboard-6d3a9868-e890-42f5-9bd3-a94db41c49dd.png",
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-hu-tao-model-neutral/references/Hu Tao/model.png",
+          "sha256": "f12a0df0863b5404e992486745f02b77842403c82c562aff9460a5b7d8381457",
+          "role": "Primary identity, eyes, exact design/costume and petite proportions."
+        },
+        {
+          "original_path": "/var/folders/yb/h8ks0jfd6jl0jdj3npytrx2r0000gn/T/codex-clipboard-ceff00a4-031f-4f8f-9706-5d7a17188f0d.png",
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-hu-tao-model-neutral/references/Hu Tao/portrait-style-v004.png",
+          "sha256": "d60e3423ab59bb899be14ca19d0bc45025263346fb85103e31d93cf7d80de69a",
+          "role": "User-selected drawing style, facial/proportion cues and light five-petal pupil design; model remains authoritative for outfit."
+        }
+      ],
+      "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-hu-tao-model-neutral/prompts/Hu Tao/neutral-v005.txt",
+      "generation": {
+        "tool": "image_gen.imagegen",
+        "arguments": {
+          "prompt": "Use case: stylized-concept. Create one new full-body neutral visual-novel sprite of Hu Tao from Genshin Impact, on a truly transparent background.\nREFERENCES: Image 1 is the user's in-game model, authoritative for exact outfit, costume construction, colors, patterns, accessories and placement. Image 2 is the newly supplied illustration, the reference for drawing style, facial proportions, eye design and the cute petite impression. Match its softly rounded face, large expressive red-amber eyes, small nose and delicate features, confident dark linework, painterly brush shading, warm pale skin, deep brown fabrics and softly highlighted dark hair. Keep the full outfit from Image 1, even where Image 2 stylizes costume details. Use only these two source artworks. Omit the illustration's dark backdrop and gold border. Do not copy its hands near her face or elaborate spread-finger gestures.\nPROPORTIONS: keep Hu Tao cute and petite, with a small delicate Medium Female anime frame, narrow shoulders and lightly built natural limbs. Shorten the torso slightly RELATIVE TO THE LEGS: use a compact ribcage and a shorter waist-to-hip section, with the natural waist and hip junction sitting a little higher. Keep the existing natural leg length so the legs read proportionately longer against the compact torso, without making her taller, stretching her limbs or shrinking the legs again. Preserve the new illustration's softly rounded face and slightly larger head relative to her slender frame. The change should be modest and balanced, retaining natural anatomy, the complete model outfit and her petite impression. Keep the hat and cuffs proportionate to her small build. Maintain the same painterly style and relaxed low hand pose described below. Use full-body framing rather than changing proportions through large empty margins.\nEYES: keep both eyes comfortably open, with natural coherent eyelids, intact reddish-amber irises and a shared gaze toward the viewer. Her pupils are pale cream-ivory FIVE-PETAL BLOSSOMS. Pay particular attention to HU TAO'S ANATOMICAL LEFT EYE, ON THE VIEWER'S RIGHT: its pupil is one complete little flower with FIVE visibly distinct rounded petals around one center. Shape it with one top petal, two petals around the right half and two around the left half, forming a single smooth five-lobed outline. All five petal tips must be visible within the iris, clear of the eyelids and separate from the catchlights. In HU TAO'S ANATOMICAL RIGHT EYE, ON THE VIEWER'S LEFT, use the same complete pale cream five-petal blossom design. Two pupils total, one five-petal flower per iris. Preserve the warm red-amber iris around each light blossom. The flowers are the pupil shapes, not highlights, crosses, stars, hearts or replacements for the whole eyes. Keep the gentle mischievous gaze and soft facial rendering from Image 2.\nOUTFIT: preserve the model's long dark-brown hair with reddish tips, fringe and face-framing locks, dark hat with its exact cream emblem and red plum blossom branch, hat tassel, red mandarin collar, patterned brown coat with large cuffs, shorts, gold closures and waist ornaments, hanging tassels and long embroidered coat tails, rings, socks with red bands and flower ornaments, and dark shoes. Retain the model's true costume colors without its blue environmental lighting. Hair and heavy coat panels hang naturally with gravity.\nPOSE AND HANDS: a relaxed, lightly playful idle, with a small knowing closed-mouth smile, a gentle head inclination, and a subtle hip turn. Her face stays nearly frontal for a clear shared gaze. Both arms rest low and comfortably apart. The right hand hangs relaxed beside the upper thigh, seen at a natural side angle; the left forearm angles slightly outward with its relaxed hand low beside her hip. Leave a small clear gap between hands and sleeves, coat, tassels and legs. Draw softly articulated hands, each formed from a believable palm, four gently curved fingers and a distinct opposable thumb; let natural overlap follow the pose. Keep the fingers loosely grouped, with clear joints and fingertip outlines rather than stretched or elaborately curled gestures. Keep both wrists straight and comfortable. Both hands are empty. Feet are separate and only slightly staggered, with a light asymmetrical weight shift and no crossing.\nFRAMING: complete silhouette including hat branch, flowers, hair tips, hands, sleeves, coat tails, tassels, socks and both shoes, with approximately 2\u20134% top and bottom padding. True alpha transparency outside the character. No background, border, floor, reflection, ground shadow, floating flames, ghosts, weapon, added prop, text, label, UI, watermark or additional character. Produce just one illustrated sprite.",
+          "referenced_image_paths": [
+            "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-hu-tao-model-neutral/references/Hu Tao/model.png",
+            "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-hu-tao-model-neutral/references/Hu Tao/portrait-style-v004.png"
+          ],
+          "transparent_background": true
+        },
+        "tool_output": "/Users/alexachan/.codex/generated_images/01a1aa19-42b2-7e92-b08d-8ee7d133c057/exec-c64e5670-331c-4f3f-95fa-0595d3f6a700.png",
+        "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-hu-tao-model-neutral/raw/Hu Tao/neutral-v005.png",
+        "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-hu-tao-model-neutral/candidates/Hu Tao/neutral-v005.png",
+        "candidate_sha256": "1fc853d784aed2378961e040372272570f4d7c0e8196944a1355107960f240e3",
+        "dimensions": [
+          934,
+          1684
+        ],
+        "png_color_type": 6,
+        "framing_transform": null
+      },
+      "approval": {
+        "status": "revision_requested",
+        "date": "2026-11-05",
+        "message": "hmm, I now feel like the torso might be slightly too short (or the legs too long?), can we get an inbetween of the two?",
+        "reason": "User requests midpoint proportions between v004 and v005"
+      },
+      "technical_checks": {
+        "png_decoded": true,
+        "alpha_channel": true,
+        "alpha_range": [
+          0,
+          255
+        ],
+        "dimensions": [
+          934,
+          1684
+        ],
+        "candidate_matches_raw": true,
+        "live_neutral_unchanged": true,
+        "visual_review": "Not performed; user reviews candidate."
+      },
+      "previews": {
+        "face": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-hu-tao-model-neutral/previews/neutral-face-v005.png",
+        "crop_box": [
+          149,
+          0,
+          785,
+          522
+        ],
+        "scaling": "none",
+        "sprite_png": "unchanged"
+      }
+    },
+    {
+      "version": "v006",
+      "references": [
+        {
+          "original_path": "/var/folders/yb/h8ks0jfd6jl0jdj3npytrx2r0000gn/T/codex-clipboard-6d3a9868-e890-42f5-9bd3-a94db41c49dd.png",
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-hu-tao-model-neutral/references/Hu Tao/model.png",
+          "sha256": "f12a0df0863b5404e992486745f02b77842403c82c562aff9460a5b7d8381457",
+          "role": "Primary identity, eyes, exact design/costume and petite proportions."
+        },
+        {
+          "original_path": "/var/folders/yb/h8ks0jfd6jl0jdj3npytrx2r0000gn/T/codex-clipboard-ceff00a4-031f-4f8f-9706-5d7a17188f0d.png",
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-hu-tao-model-neutral/references/Hu Tao/portrait-style-v004.png",
+          "sha256": "d60e3423ab59bb899be14ca19d0bc45025263346fb85103e31d93cf7d80de69a",
+          "role": "User-selected drawing style, facial/proportion cues and light five-petal pupil design; model remains authoritative for outfit."
+        }
+      ],
+      "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-hu-tao-model-neutral/prompts/Hu Tao/neutral-v006.txt",
+      "generation": {
+        "tool": "image_gen.imagegen",
+        "arguments": {
+          "prompt": "Use case: stylized-concept. Create one new full-body neutral visual-novel sprite of Hu Tao from Genshin Impact, on a truly transparent background.\nREFERENCES: Image 1 is the user's in-game model, authoritative for exact outfit, costume construction, colors, patterns, accessories and placement. Image 2 is the newly supplied illustration, the reference for drawing style, facial proportions, eye design and the cute petite impression. Match its softly rounded face, large expressive red-amber eyes, small nose and delicate features, confident dark linework, painterly brush shading, warm pale skin, deep brown fabrics and softly highlighted dark hair. Keep the full outfit from Image 1, even where Image 2 stylizes costume details. Use only these two source artworks. Omit the illustration's dark backdrop and gold border. Do not copy its hands near her face or elaborate spread-finger gestures.\nPROPORTIONS: aim for a balanced intermediate petite Medium Female build: a small delicate frame, narrow shoulders, a compact but naturally proportioned ribcage and waist, and medium-short natural legs. Give the torso a little more length through the ribcage-to-hip section while keeping it gently compact. Let the waist sit at a comfortable middle height, with a visible natural waist-to-hip transition. Balance this with modest, natural thigh and shin lengths so the legs do not dominate the silhouette. The target is a gentle midpoint between a long-waisted figure and an extremely short-torso, high-waisted, long-legged figure. Keep the overall petite scale and softly rounded face with its slightly larger anime head, without changing her apparent overall height or making her chibi. Preserve the same painterly style, model outfit, oversized cuffs, hat and relaxed low hand pose. Adjust the torso-to-leg balance subtly and naturally, using the source model and illustration rather than stretching the figure or changing the amount of empty canvas.\nEYES: keep both eyes comfortably open, with natural coherent eyelids, intact reddish-amber irises and a shared gaze toward the viewer. Her pupils are pale cream-ivory FIVE-PETAL BLOSSOMS. Pay particular attention to HU TAO'S ANATOMICAL LEFT EYE, ON THE VIEWER'S RIGHT: its pupil is one complete little flower with FIVE visibly distinct rounded petals around one center. Shape it with one top petal, two petals around the right half and two around the left half, forming a single smooth five-lobed outline. All five petal tips must be visible within the iris, clear of the eyelids and separate from the catchlights. In HU TAO'S ANATOMICAL RIGHT EYE, ON THE VIEWER'S LEFT, use the same complete pale cream five-petal blossom design. Two pupils total, one five-petal flower per iris. Preserve the warm red-amber iris around each light blossom. The flowers are the pupil shapes, not highlights, crosses, stars, hearts or replacements for the whole eyes. Keep the gentle mischievous gaze and soft facial rendering from Image 2.\nOUTFIT: preserve the model's long dark-brown hair with reddish tips, fringe and face-framing locks, dark hat with its exact cream emblem and red plum blossom branch, hat tassel, red mandarin collar, patterned brown coat with large cuffs, shorts, gold closures and waist ornaments, hanging tassels and long embroidered coat tails, rings, socks with red bands and flower ornaments, and dark shoes. Retain the model's true costume colors without its blue environmental lighting. Hair and heavy coat panels hang naturally with gravity.\nPOSE AND HANDS: a relaxed, lightly playful idle, with a small knowing closed-mouth smile, a gentle head inclination, and a subtle hip turn. Her face stays nearly frontal for a clear shared gaze. Both arms rest low and comfortably apart. The right hand hangs relaxed beside the upper thigh, seen at a natural side angle; the left forearm angles slightly outward with its relaxed hand low beside her hip. Leave a small clear gap between hands and sleeves, coat, tassels and legs. Draw softly articulated hands, each formed from a believable palm, four gently curved fingers and a distinct opposable thumb; let natural overlap follow the pose. Keep the fingers loosely grouped, with clear joints and fingertip outlines rather than stretched or elaborately curled gestures. Keep both wrists straight and comfortable. Both hands are empty. Feet are separate and only slightly staggered, with a light asymmetrical weight shift and no crossing.\nFRAMING: complete silhouette including hat branch, flowers, hair tips, hands, sleeves, coat tails, tassels, socks and both shoes, with approximately 2\u20134% top and bottom padding. True alpha transparency outside the character. No background, border, floor, reflection, ground shadow, floating flames, ghosts, weapon, added prop, text, label, UI, watermark or additional character. Produce just one illustrated sprite.",
+          "referenced_image_paths": [
+            "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-hu-tao-model-neutral/references/Hu Tao/model.png",
+            "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-hu-tao-model-neutral/references/Hu Tao/portrait-style-v004.png"
+          ],
+          "transparent_background": true
+        },
+        "tool_output": "/Users/alexachan/.codex/generated_images/01a1aa19-42b2-7e92-b08d-8ee7d133c057/exec-7efd397d-6650-4939-bdc5-116b322ddd7d.png",
+        "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-hu-tao-model-neutral/raw/Hu Tao/neutral-v006.png",
+        "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-hu-tao-model-neutral/candidates/Hu Tao/neutral-v006.png",
+        "candidate_sha256": "186341169aad5f7f2376cd6d07a3f09390de9555b8707b97813763df4af5dd7a",
+        "dimensions": [
+          934,
+          1684
+        ],
+        "png_color_type": 6,
+        "framing_transform": null
+      },
+      "approval": {
+        "status": "revision_requested",
+        "date": "2026-11-05",
+        "message": "An in between of this one and the previous would be perfect - can we try one more generation with a very slightly shorter torso and thicker thighs?",
+        "reason": "User requests a very slightly shorter torso and thicker thighs, between v006 and v005"
+      },
+      "technical_checks": {
+        "png_decoded": true,
+        "alpha_channel": true,
+        "alpha_range": [
+          0,
+          255
+        ],
+        "dimensions": [
+          934,
+          1684
+        ],
+        "candidate_matches_raw": true,
+        "live_neutral_unchanged": true,
+        "visual_review": "Not performed; user reviews candidate."
+      },
+      "previews": {
+        "face": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-hu-tao-model-neutral/previews/neutral-face-v006.png",
+        "crop_box": [
+          149,
+          0,
+          785,
+          522
+        ],
+        "scaling": "none",
+        "sprite_png": "unchanged"
+      }
+    },
+    {
+      "version": "v007",
+      "references": [
+        {
+          "original_path": "/var/folders/yb/h8ks0jfd6jl0jdj3npytrx2r0000gn/T/codex-clipboard-6d3a9868-e890-42f5-9bd3-a94db41c49dd.png",
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-hu-tao-model-neutral/references/Hu Tao/model.png",
+          "sha256": "f12a0df0863b5404e992486745f02b77842403c82c562aff9460a5b7d8381457",
+          "role": "Primary identity, eyes, exact design/costume and petite proportions."
+        },
+        {
+          "original_path": "/var/folders/yb/h8ks0jfd6jl0jdj3npytrx2r0000gn/T/codex-clipboard-ceff00a4-031f-4f8f-9706-5d7a17188f0d.png",
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-hu-tao-model-neutral/references/Hu Tao/portrait-style-v004.png",
+          "sha256": "d60e3423ab59bb899be14ca19d0bc45025263346fb85103e31d93cf7d80de69a",
+          "role": "User-selected drawing style, facial/proportion cues and light five-petal pupil design; model remains authoritative for outfit."
+        }
+      ],
+      "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-hu-tao-model-neutral/prompts/Hu Tao/neutral-v007.txt",
+      "generation": {
+        "tool": "image_gen.imagegen",
+        "arguments": {
+          "prompt": "Use case: stylized-concept. Create one new full-body neutral visual-novel sprite of Hu Tao from Genshin Impact, on a truly transparent background.\nREFERENCES: Image 1 is the user's in-game model, authoritative for exact outfit, costume construction, colors, patterns, accessories and placement. Image 2 is the newly supplied illustration, the reference for drawing style, facial proportions, eye design and the cute petite impression. Match its softly rounded face, large expressive red-amber eyes, small nose and delicate features, confident dark linework, painterly brush shading, warm pale skin, deep brown fabrics and softly highlighted dark hair. Keep the full outfit from Image 1, even where Image 2 stylizes costume details. Use only these two source artworks. Omit the illustration's dark backdrop and gold border. Do not copy its hands near her face or elaborate spread-finger gestures.\nPROPORTIONS: keep a cute petite Medium Female build with a small delicate upper frame, narrow shoulders and balanced natural anime anatomy. Use a gently compact torso: shorten the ribcage-to-hip section only very slightly, keeping a visible natural waist and a comfortable transition into the pelvis. Let the waist sit just a touch higher, without compressing the ribcage or creating an extremely short torso. Keep the leg length moderate and natural rather than long or stretched. Give her subtly fuller, thicker thighs with soft rounded outer contours and a natural taper toward the knees; this is a modest increase in upper-leg width that balances her petite upper body. Keep the hips, knees and lower legs coherent and naturally aligned, preserving her overall small scale and light stance. Aim for a restrained intermediate torso-to-leg balance, with only a tiny torso reduction and a gentle increase in thigh fullness. Preserve the softly rounded face and slightly larger anime head, the same painterly style, exact model outfit, hat and oversized cuffs, and relaxed low hand pose. Use the same full-body framing and padding.\nEYES: keep both eyes comfortably open, with natural coherent eyelids, intact reddish-amber irises and a shared gaze toward the viewer. Her pupils are pale cream-ivory FIVE-PETAL BLOSSOMS. Pay particular attention to HU TAO'S ANATOMICAL LEFT EYE, ON THE VIEWER'S RIGHT: its pupil is one complete little flower with FIVE visibly distinct rounded petals around one center. Shape it with one top petal, two petals around the right half and two around the left half, forming a single smooth five-lobed outline. All five petal tips must be visible within the iris, clear of the eyelids and separate from the catchlights. In HU TAO'S ANATOMICAL RIGHT EYE, ON THE VIEWER'S LEFT, use the same complete pale cream five-petal blossom design. Two pupils total, one five-petal flower per iris. Preserve the warm red-amber iris around each light blossom. The flowers are the pupil shapes, not highlights, crosses, stars, hearts or replacements for the whole eyes. Keep the gentle mischievous gaze and soft facial rendering from Image 2.\nOUTFIT: preserve the model's long dark-brown hair with reddish tips, fringe and face-framing locks, dark hat with its exact cream emblem and red plum blossom branch, hat tassel, red mandarin collar, patterned brown coat with large cuffs, shorts, gold closures and waist ornaments, hanging tassels and long embroidered coat tails, rings, socks with red bands and flower ornaments, and dark shoes. Retain the model's true costume colors without its blue environmental lighting. Hair and heavy coat panels hang naturally with gravity.\nPOSE AND HANDS: a relaxed, lightly playful idle, with a small knowing closed-mouth smile, a gentle head inclination, and a subtle hip turn. Her face stays nearly frontal for a clear shared gaze. Both arms rest low and comfortably apart. The right hand hangs relaxed beside the upper thigh, seen at a natural side angle; the left forearm angles slightly outward with its relaxed hand low beside her hip. Leave a small clear gap between hands and sleeves, coat, tassels and legs. Draw softly articulated hands, each formed from a believable palm, four gently curved fingers and a distinct opposable thumb; let natural overlap follow the pose. Keep the fingers loosely grouped, with clear joints and fingertip outlines rather than stretched or elaborately curled gestures. Keep both wrists straight and comfortable. Both hands are empty. Feet are separate and only slightly staggered, with a light asymmetrical weight shift and no crossing.\nFRAMING: complete silhouette including hat branch, flowers, hair tips, hands, sleeves, coat tails, tassels, socks and both shoes, with approximately 2\u20134% top and bottom padding. True alpha transparency outside the character. No background, border, floor, reflection, ground shadow, floating flames, ghosts, weapon, added prop, text, label, UI, watermark or additional character. Produce just one illustrated sprite.",
+          "referenced_image_paths": [
+            "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-hu-tao-model-neutral/references/Hu Tao/model.png",
+            "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-hu-tao-model-neutral/references/Hu Tao/portrait-style-v004.png"
+          ],
+          "transparent_background": true
+        },
+        "tool_output": "/Users/alexachan/.codex/generated_images/01a1aa19-42b2-7e92-b08d-8ee7d133c057/exec-6c184607-7127-4eaf-98f4-baa87258b6a7.png",
+        "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-hu-tao-model-neutral/raw/Hu Tao/neutral-v007.png",
+        "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-hu-tao-model-neutral/candidates/Hu Tao/neutral-v007.png",
+        "candidate_sha256": "b383dccd297901e85ce5a77d04fb73a88232b3d384c51d72d68f9847185b4f69",
+        "dimensions": [
+          934,
+          1684
+        ],
+        "png_color_type": 6,
+        "framing_transform": null
+      },
+      "approval": {
+        "status": "revision_requested",
+        "date": "2026-11-05",
+        "message": "Good anatomy, good proportions - her skin is now a little more tan than the previous more pale generations, try regenerating again",
+        "positive_feedback": "Anatomy and proportions good",
+        "requested_changes": "Return to paler skin, reducing the tan cast"
+      },
+      "technical_checks": {
+        "png_decoded": true,
+        "alpha_channel": true,
+        "alpha_range": [
+          0,
+          255
+        ],
+        "dimensions": [
+          934,
+          1684
+        ],
+        "candidate_matches_raw": true,
+        "live_neutral_unchanged": true,
+        "visual_review": "Not performed; user reviews candidate."
+      },
+      "previews": {
+        "face": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-hu-tao-model-neutral/previews/neutral-face-v007.png",
+        "crop_box": [
+          149,
+          0,
+          785,
+          522
+        ],
+        "scaling": "none",
+        "sprite_png": "unchanged"
+      }
+    }
+  ],
+  "latest_feedback": "This is the best so far, although the thighs aren't as full as the previous iteration. Let's try some more for good measure, and if it doesn't work out I'll use this one.",
+  "character_design_notes": {
+    "pupils": "Pale cream five-petal blossoms in both eyes; particular emphasis on anatomical left/viewer-right pupil.",
+    "build": "Restrained midpoint between v006 and v005: very slightly shorter torso, moderate natural legs and subtly fuller thighs, preserving the petite frame.",
+    "outfit": "Original supplied in-game model remains authoritative.",
+    "hands": "New simple low, relaxed hand pose following user-reported distortion.",
+    "skin": "Very fair pale ivory with a neutral/cool-pink undertone, consistent across face, hands and legs; reduce tan/yellow/orange cast."
+  },
+  "technical_checks": {
+    "png_decoded": true,
+    "alpha_channel": true,
+    "alpha_range": [
+      0,
+      255
+    ],
+    "dimensions": [
+      934,
+      1684
+    ],
+    "candidate_matches_raw": true,
+    "live_neutral_unchanged": true,
+    "visual_review": "Not performed; user reviews candidate."
+  },
+  "previews": {
+    "face": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-hu-tao-model-neutral/previews/neutral-face-v008.png",
+    "crop_box": [
+      149,
+      0,
+      785,
+      522
+    ],
+    "scaling": "none",
+    "sprite_png": "unchanged"
+  },
+  "fallback_candidate": {
+    "version": "v008",
+    "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-hu-tao-model-neutral/candidates/Hu Tao/neutral-v008.png",
+    "sha256": "2896b5601f7bd9bac64992c7dcf90796a071f268c6496613e1d62718fb9203d5",
+    "status": "selected_and_approved",
+    "message": "This is the best so far, although the thighs aren't as full as the previous iteration. Let's try some more for good measure, and if it doesn't work out I'll use this one."
+  },
+  "trials": {
+    "v009": {
+      "version": "v009",
+      "status": "candidate_ready_for_user_selection",
+      "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-hu-tao-model-neutral/prompts/Hu Tao/neutral-v009.txt",
+      "references": [
+        {
+          "original_path": "/var/folders/yb/h8ks0jfd6jl0jdj3npytrx2r0000gn/T/codex-clipboard-6d3a9868-e890-42f5-9bd3-a94db41c49dd.png",
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-hu-tao-model-neutral/references/Hu Tao/model.png",
+          "sha256": "f12a0df0863b5404e992486745f02b77842403c82c562aff9460a5b7d8381457",
+          "role": "Primary identity, eyes, exact design/costume and petite proportions."
+        },
+        {
+          "original_path": "/var/folders/yb/h8ks0jfd6jl0jdj3npytrx2r0000gn/T/codex-clipboard-ceff00a4-031f-4f8f-9706-5d7a17188f0d.png",
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-hu-tao-model-neutral/references/Hu Tao/portrait-style-v004.png",
+          "sha256": "d60e3423ab59bb899be14ca19d0bc45025263346fb85103e31d93cf7d80de69a",
+          "role": "User-selected drawing style, facial/proportion cues and light five-petal pupil design; model remains authoritative for outfit."
+        }
+      ],
+      "generation": {
+        "tool": "image_gen.imagegen",
+        "arguments": {
+          "prompt": "Use case: stylized-concept. Create one new full-body neutral visual-novel sprite of Hu Tao from Genshin Impact, on a truly transparent background.\nREFERENCES: Image 1 is the user's in-game model, authoritative for exact outfit, costume construction, colors, patterns, accessories and placement. Image 2 is the newly supplied illustration, the reference for drawing style, facial proportions, eye design and the cute petite impression. Match its softly rounded face, large expressive red-amber eyes, small nose and delicate features, confident dark linework, painterly brush shading, very fair pale ivory skin, deep brown fabrics and softly highlighted dark hair. Keep the full outfit from Image 1, even where Image 2 stylizes costume details. Use only these two source artworks. Omit the illustration's dark backdrop and gold border. Do not copy its hands near her face or elaborate spread-finger gestures.\nSKIN TONE: Hu Tao has VERY FAIR, PALE IVORY skin, with a delicate neutral-to-cool pink undertone. Give the face, neck, hands and visible legs the same luminous pale base complexion. Keep any rosy cheek tint slight and localized. Use soft pale pink and cool neutral shading for skin volume, maintaining gentle painterly gradients without a yellow, orange, brown or tanned cast. Preserve clear detail and natural form rather than flattening the skin to pure white. Let Image 2 guide the linework and painted finish, but use neutral illumination and keep her skin noticeably fair and porcelain-pale, without transferring the portrait's warm dark-background color cast onto her body. Retain the exact anatomy, petite torso-to-leg balance, gently fuller thighs, pose and costume instructions below.\nPROPORTIONS: keep a cute petite Medium Female build with a small delicate upper frame, narrow shoulders, a gently compact torso and natural moderate leg length. Maintain a balanced visible waist and a comfortable transition into the pelvis, without an extremely short torso or long stretched legs. Give BOTH upper legs a clearly fuller, softly rounded thigh silhouette: gentle volume through the upper and middle thigh, followed by a natural gradual taper toward the knee. Keep this fullness visible rather than making the thighs slender as a consequence of the small upper frame. Preserve natural hip-to-knee alignment, the same small overall scale, lightly built lower legs, and a relaxed stance. Keep the softly rounded face, slightly larger anime head, pale ivory skin, painterly rendering, exact model outfit, oversized cuffs and low relaxed hand pose. The intended change is moderately fuller thighs while retaining the balanced petite torso-to-leg relation and natural anatomy.\nEYES: keep both eyes comfortably open, with natural coherent eyelids, intact reddish-amber irises and a shared gaze toward the viewer. Her pupils are pale cream-ivory FIVE-PETAL BLOSSOMS. Pay particular attention to HU TAO'S ANATOMICAL LEFT EYE, ON THE VIEWER'S RIGHT: its pupil is one complete little flower with FIVE visibly distinct rounded petals around one center. Shape it with one top petal, two petals around the right half and two around the left half, forming a single smooth five-lobed outline. All five petal tips must be visible within the iris, clear of the eyelids and separate from the catchlights. In HU TAO'S ANATOMICAL RIGHT EYE, ON THE VIEWER'S LEFT, use the same complete pale cream five-petal blossom design. Two pupils total, one five-petal flower per iris. Preserve the warm red-amber iris around each light blossom. The flowers are the pupil shapes, not highlights, crosses, stars, hearts or replacements for the whole eyes. Keep the gentle mischievous gaze and soft facial rendering from Image 2.\nOUTFIT: preserve the model's long dark-brown hair with reddish tips, fringe and face-framing locks, dark hat with its exact cream emblem and red plum blossom branch, hat tassel, red mandarin collar, patterned brown coat with large cuffs, shorts, gold closures and waist ornaments, hanging tassels and long embroidered coat tails, rings, socks with red bands and flower ornaments, and dark shoes. Retain the model's true costume colors without its blue environmental lighting. Hair and heavy coat panels hang naturally with gravity.\nPOSE AND HANDS: a relaxed, lightly playful idle, with a small knowing closed-mouth smile, a gentle head inclination, and a subtle hip turn. Her face stays nearly frontal for a clear shared gaze. Both arms rest low and comfortably apart. The right hand hangs relaxed beside the upper thigh, seen at a natural side angle; the left forearm angles slightly outward with its relaxed hand low beside her hip. Leave a small clear gap between hands and sleeves, coat, tassels and legs. Draw softly articulated hands, each formed from a believable palm, four gently curved fingers and a distinct opposable thumb; let natural overlap follow the pose. Keep the fingers loosely grouped, with clear joints and fingertip outlines rather than stretched or elaborately curled gestures. Keep both wrists straight and comfortable. Both hands are empty. Feet are separate and only slightly staggered, with a light asymmetrical weight shift and no crossing.\nFRAMING: complete silhouette including hat branch, flowers, hair tips, hands, sleeves, coat tails, tassels, socks and both shoes, with approximately 2\u20134% top and bottom padding. True alpha transparency outside the character. No background, border, floor, reflection, ground shadow, floating flames, ghosts, weapon, added prop, text, label, UI, watermark or additional character. Produce just one illustrated sprite.",
+          "referenced_image_paths": [
+            "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-hu-tao-model-neutral/references/Hu Tao/model.png",
+            "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-hu-tao-model-neutral/references/Hu Tao/portrait-style-v004.png"
+          ],
+          "transparent_background": true
+        },
+        "tool_output": "/Users/alexachan/.codex/generated_images/01a1aa19-42b2-7e92-b08d-8ee7d133c057/exec-8d16aa94-1205-49c1-8e1d-8a70e3f6f736.png",
+        "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-hu-tao-model-neutral/raw/Hu Tao/neutral-v009.png",
+        "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-hu-tao-model-neutral/candidates/Hu Tao/neutral-v009.png",
+        "candidate_sha256": "ccbab23659b12f09e6afa43bf0a146cc0bd84fea1749491c3a58ff32aa565176",
+        "dimensions": [
+          934,
+          1684
+        ],
+        "png_color_type": 6,
+        "framing_transform": null
+      },
+      "approval": {
+        "status": "pending"
+      },
+      "user_request": "This is the best so far, although the thighs aren't as full as the previous iteration. Let's try some more for good measure, and if it doesn't work out I'll use this one.",
+      "variation": "Softly fuller thighs with retained pale skin and balanced petite proportions; independent source-art generation.",
+      "technical_checks": {
+        "png_decoded": true,
+        "alpha_channel": true,
+        "alpha_range": [
+          0,
+          255
+        ],
+        "dimensions": [
+          934,
+          1684
+        ],
+        "candidate_matches_raw": true,
+        "visual_review": "Not performed; user reviews candidate."
+      },
+      "previews": {
+        "face": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-hu-tao-model-neutral/previews/neutral-face-v009.png",
+        "crop_box": [
+          149,
+          0,
+          785,
+          522
+        ],
+        "scaling": "none",
+        "sprite_png": "unchanged"
+      }
+    },
+    "v010": {
+      "version": "v010",
+      "status": "candidate_ready_for_user_selection",
+      "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-hu-tao-model-neutral/prompts/Hu Tao/neutral-v010.txt",
+      "references": [
+        {
+          "original_path": "/var/folders/yb/h8ks0jfd6jl0jdj3npytrx2r0000gn/T/codex-clipboard-6d3a9868-e890-42f5-9bd3-a94db41c49dd.png",
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-hu-tao-model-neutral/references/Hu Tao/model.png",
+          "sha256": "f12a0df0863b5404e992486745f02b77842403c82c562aff9460a5b7d8381457",
+          "role": "Primary identity, eyes, exact design/costume and petite proportions."
+        },
+        {
+          "original_path": "/var/folders/yb/h8ks0jfd6jl0jdj3npytrx2r0000gn/T/codex-clipboard-ceff00a4-031f-4f8f-9706-5d7a17188f0d.png",
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-hu-tao-model-neutral/references/Hu Tao/portrait-style-v004.png",
+          "sha256": "d60e3423ab59bb899be14ca19d0bc45025263346fb85103e31d93cf7d80de69a",
+          "role": "User-selected drawing style, facial/proportion cues and light five-petal pupil design; model remains authoritative for outfit."
+        }
+      ],
+      "generation": {
+        "tool": "image_gen.imagegen",
+        "arguments": {
+          "prompt": "Use case: stylized-concept. Create one new full-body neutral visual-novel sprite of Hu Tao from Genshin Impact, on a truly transparent background.\nREFERENCES: Image 1 is the user's in-game model, authoritative for exact outfit, costume construction, colors, patterns, accessories and placement. Image 2 is the newly supplied illustration, the reference for drawing style, facial proportions, eye design and the cute petite impression. Match its softly rounded face, large expressive red-amber eyes, small nose and delicate features, confident dark linework, painterly brush shading, very fair pale ivory skin, deep brown fabrics and softly highlighted dark hair. Keep the full outfit from Image 1, even where Image 2 stylizes costume details. Use only these two source artworks. Omit the illustration's dark backdrop and gold border. Do not copy its hands near her face or elaborate spread-finger gestures.\nSKIN TONE: Hu Tao has VERY FAIR, PALE IVORY skin, with a delicate neutral-to-cool pink undertone. Give the face, neck, hands and visible legs the same luminous pale base complexion. Keep any rosy cheek tint slight and localized. Use soft pale pink and cool neutral shading for skin volume, maintaining gentle painterly gradients without a yellow, orange, brown or tanned cast. Preserve clear detail and natural form rather than flattening the skin to pure white. Let Image 2 guide the linework and painted finish, but use neutral illumination and keep her skin noticeably fair and porcelain-pale, without transferring the portrait's warm dark-background color cast onto her body. Retain the exact anatomy, petite torso-to-leg balance, gently fuller thighs, pose and costume instructions below.\nPROPORTIONS: use a cute compact Medium Female anime frame, narrow delicate shoulders, a naturally short torso with a visible waist, and moderate-length legs that remain balanced with her petite upper body. Give her thighs a softly substantial, rounded shape with a little more breadth through the upper thigh and smooth curves continuing into the middle thigh. Let this gentle fullness taper naturally above the knees. Preserve a slim natural waist and coherent pelvis, knees and ankles; keep the fullness in the thighs rather than widening the entire torso or changing her small overall stature. Maintain the softly rounded face and balanced larger anime head. Keep the same very fair pale ivory skin and neutral illumination, painted style, exact model costume, low relaxed hands and comfortable stance. Aim for a modestly fuller-thighed petite silhouette with ordinary natural anatomy, without lengthening the legs or compressing the waist.\nEYES: keep both eyes comfortably open, with natural coherent eyelids, intact reddish-amber irises and a shared gaze toward the viewer. Her pupils are pale cream-ivory FIVE-PETAL BLOSSOMS. Pay particular attention to HU TAO'S ANATOMICAL LEFT EYE, ON THE VIEWER'S RIGHT: its pupil is one complete little flower with FIVE visibly distinct rounded petals around one center. Shape it with one top petal, two petals around the right half and two around the left half, forming a single smooth five-lobed outline. All five petal tips must be visible within the iris, clear of the eyelids and separate from the catchlights. In HU TAO'S ANATOMICAL RIGHT EYE, ON THE VIEWER'S LEFT, use the same complete pale cream five-petal blossom design. Two pupils total, one five-petal flower per iris. Preserve the warm red-amber iris around each light blossom. The flowers are the pupil shapes, not highlights, crosses, stars, hearts or replacements for the whole eyes. Keep the gentle mischievous gaze and soft facial rendering from Image 2.\nOUTFIT: preserve the model's long dark-brown hair with reddish tips, fringe and face-framing locks, dark hat with its exact cream emblem and red plum blossom branch, hat tassel, red mandarin collar, patterned brown coat with large cuffs, shorts, gold closures and waist ornaments, hanging tassels and long embroidered coat tails, rings, socks with red bands and flower ornaments, and dark shoes. Retain the model's true costume colors without its blue environmental lighting. Hair and heavy coat panels hang naturally with gravity.\nPOSE AND HANDS: a relaxed, lightly playful idle, with a small knowing closed-mouth smile, a gentle head inclination, and a subtle hip turn. Her face stays nearly frontal for a clear shared gaze. Both arms rest low and comfortably apart. The right hand hangs relaxed beside the upper thigh, seen at a natural side angle; the left forearm angles slightly outward with its relaxed hand low beside her hip. Leave a small clear gap between hands and sleeves, coat, tassels and legs. Draw softly articulated hands, each formed from a believable palm, four gently curved fingers and a distinct opposable thumb; let natural overlap follow the pose. Keep the fingers loosely grouped, with clear joints and fingertip outlines rather than stretched or elaborately curled gestures. Keep both wrists straight and comfortable. Both hands are empty. Feet are separate and only slightly staggered, with a light asymmetrical weight shift and no crossing.\nFRAMING: complete silhouette including hat branch, flowers, hair tips, hands, sleeves, coat tails, tassels, socks and both shoes, with approximately 2\u20134% top and bottom padding. True alpha transparency outside the character. No background, border, floor, reflection, ground shadow, floating flames, ghosts, weapon, added prop, text, label, UI, watermark or additional character. Produce just one illustrated sprite.",
+          "referenced_image_paths": [
+            "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-hu-tao-model-neutral/references/Hu Tao/model.png",
+            "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-hu-tao-model-neutral/references/Hu Tao/portrait-style-v004.png"
+          ],
+          "transparent_background": true
+        },
+        "tool_output": "/Users/alexachan/.codex/generated_images/01a1aa19-42b2-7e92-b08d-8ee7d133c057/exec-42e41c6e-d37a-4765-b2bb-190ba455cad6.png",
+        "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-hu-tao-model-neutral/raw/Hu Tao/neutral-v010.png",
+        "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-hu-tao-model-neutral/candidates/Hu Tao/neutral-v010.png",
+        "candidate_sha256": "8952cb896a4f722af8e9faabe48319d98e90655cdbc08da9591bf9e35efe6809",
+        "dimensions": [
+          921,
+          1707
+        ],
+        "png_color_type": 6,
+        "framing_transform": null
+      },
+      "approval": {
+        "status": "pending"
+      },
+      "user_request": "This is the best so far, although the thighs aren't as full as the previous iteration. Let's try some more for good measure, and if it doesn't work out I'll use this one.",
+      "variation": "Softly fuller thighs with retained pale skin and balanced petite proportions; independent source-art generation.",
+      "technical_checks": {
+        "png_decoded": true,
+        "alpha_channel": true,
+        "alpha_range": [
+          0,
+          255
+        ],
+        "dimensions": [
+          921,
+          1707
+        ],
+        "candidate_matches_raw": true,
+        "visual_review": "Not performed; user reviews candidate."
+      },
+      "previews": {
+        "face": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-hu-tao-model-neutral/previews/neutral-face-v010.png",
+        "crop_box": [
+          147,
+          0,
+          774,
+          529
+        ],
+        "scaling": "none",
+        "sprite_png": "unchanged"
+      }
+    }
+  },
+  "trial_comparison": {
+    "order": [
+      "v008",
+      "v009",
+      "v010"
+    ],
+    "full_body": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-hu-tao-model-neutral/previews/neutral-v008-v009-v010-full-body.png",
+    "faces": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-hu-tao-model-neutral/previews/neutral-v008-v009-v010-faces.png",
+    "labels": "none",
+    "background": "transparent",
+    "transforms": [
+      {
+        "version": "v008",
+        "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-hu-tao-model-neutral/candidates/Hu Tao/neutral-v008.png",
+        "body_size": [
+          396,
+          714
+        ],
+        "body_position": [
+          12,
+          23
+        ],
+        "face_crop": [
+          149,
+          0,
+          785,
+          522
+        ],
+        "face_size": [
+          304,
+          250
+        ],
+        "face_position": [
+          8,
+          35
+        ]
+      },
+      {
+        "version": "v009",
+        "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-hu-tao-model-neutral/candidates/Hu Tao/neutral-v009.png",
+        "body_size": [
+          396,
+          714
+        ],
+        "body_position": [
+          432,
+          23
+        ],
+        "face_crop": [
+          149,
+          0,
+          785,
+          522
+        ],
+        "face_size": [
+          304,
+          250
+        ],
+        "face_position": [
+          328,
+          35
+        ]
+      },
+      {
+        "version": "v010",
+        "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-hu-tao-model-neutral/candidates/Hu Tao/neutral-v010.png",
+        "body_size": [
+          396,
+          734
+        ],
+        "body_position": [
+          852,
+          13
+        ],
+        "face_crop": [
+          147,
+          0,
+          774,
+          529
+        ],
+        "face_size": [
+          304,
+          256
+        ],
+        "face_position": [
+          648,
+          32
+        ]
+      }
+    ],
+    "note": "v008 remains a conditional preferred fallback, not a final neutral approval. No visual ranking or rejection performed."
+  },
+  "selected_neutral": {
+    "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-hu-tao-model-neutral/candidates/Hu Tao/neutral-v008.png",
+    "sha256": "2896b5601f7bd9bac64992c7dcf90796a071f268c6496613e1d62718fb9203d5",
+    "version": "v008"
+  }
+}

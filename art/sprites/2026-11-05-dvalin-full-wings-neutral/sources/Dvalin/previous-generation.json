@@ -1,0 +1,31 @@
+{
+  "name": "Dvalin",
+  "folder": "Dvalin",
+  "card": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Dvalin.png",
+  "official": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Dvalin/Official Art/neutral.png",
+  "reference": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-tcg-bosses/references/Dvalin/official.png",
+  "reference_sha256": "8557ff993dcae90f45a15c484bda69bcb4c8f0d0eceaec1f17c58a25ff2bc58a",
+  "source": "https://wiki.hoyolab.com/pc/genshin/entry/2217?lang=en-us",
+  "reference_url": "https://act-upload.hoyoverse.com/event-ugc-hoyowiki/2025/04/14/35428890/cb82786f242246a8a264f86efda98c07_5451031171593193352.png",
+  "card_source": "https://genshin-impact.fandom.com/wiki/Dvalin_(Character_Card)",
+  "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-tcg-bosses/prompts/Dvalin/neutral-v001.txt",
+  "tool": "image_gen.imagegen",
+  "tool_arguments": {
+    "prompt": "Use case: stylized-concept. Asset: full-body neutral visual-novel boss sprite of Dvalin from Genshin Impact. The supplied official game portrait is the primary reference: preserve the identifiable design, silhouette, colors, anatomy, and equipment. Depict the boss in a threatening, alert idle pose appropriate to its form, ready for confrontation rather than mid-attack. Preserve its creature or machine anatomy; do not humanize it. Show the entire creature and all extremities, with roughly 2\u20134% padding at the top and bottom. Polished Genshin-inspired anime game artwork on a genuinely transparent background. No scenery, text, UI, watermark, unrelated subjects, detached effects, or ground shadow.",
+    "referenced_image_paths": [
+      "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-tcg-bosses/references/Dvalin/official.png"
+    ],
+    "transparent_background": true
+  },
+  "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-tcg-bosses/raw/Dvalin/neutral-v001.png",
+  "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-tcg-bosses/candidates/Dvalin/neutral-v001.png",
+  "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-10-29-tcg-bosses/sprites/Dvalin/neutral.png",
+  "live_sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Dvalin/neutral.png",
+  "candidate_sha256": "f60b3033e271b0b49fa4e2d0273e6ae66990cc75afe1f2f1465a26312c409db2",
+  "size": [
+    1378,
+    1141
+  ],
+  "png_color_type": 6,
+  "review": "deferred at user request"
+}

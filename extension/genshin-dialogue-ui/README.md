@@ -1,3 +1,17 @@
+# Silly Teyvat 1.65.0: La Signora's arena, boss icons on the map and her two-phase music
+
+- **La Signora is a boss**, balanced like the other world and weekly bosses, with the guaranteed rare
+  drop. She waits in her own arena at Narukami Island: Tenshukaku, where she is the only enemy and
+  always appears.
+- **Her music has two phases.** Chrysalis Suspirii plays while you fight her; the moment she becomes
+  the Crimson Witch of Embers it switches to Saltatio Favillae, and stays there for the rest of the
+  encounter. Exploring the arena plays Tenshukaku's own music.
+- **Boss arenas show their boss on the map.** The badge beside a boss arena's waypoint is now that
+  boss's icon, and its label names the boss.
+- **New waypoint backgrounds.** 259 bundled places use the backgrounds approved in the 2026-11-06 review
+  (`art/location-backgrounds/2026-11-06`); a custom image you set is kept, and a description written for
+  the old picture follows the new text unless you edited it.
+
 # Silly Teyvat 1.64.0: Sprites for the new enemies and La Signora's Crimson Witch form
 
 - **Sprites for the 18 TCG enemies.** Each now has a neutral sprite on the stage instead of its card.
@@ -33,7 +47,7 @@
   Knights, the Consecrated Beasts, Eremites, Fatui elites, the Hydro Hilichurl Rogue, the Stonehide
   Lawachurl, the Wayward Hermetic Spiritspeaker and La Signora. Each has a character card with its
   TCG card as the portrait, a description and greetings, a moveset from its TCG skills and a place in
-  regional encounter pools (La Signora joins none; add her where you like).
+  regional encounter pools (La Signora appears at her Tenshukaku arena).
 - The Inventory has tabs for Weapons, Artifacts, Support Cards and Summon Cards.
 
 # Silly Teyvat 1.62.0: Starter decks and weapon-style attacks

@@ -261,12 +261,6 @@ const ENEMIES=[
     ['Fatui Electro Cicin Mage','Electro',56,['Hurtling Bolts',[D(3)]],['Thundering Shield',[D(3),SH(6),D(4)]],3,{evasion:15},['Misty Call',[SM('Electro Cicin',2,3,'random')]]],
     ['Frost Operative','Cryo',61,['Swift Point',[D(4)],'Physical'],['Thorny Onslaught',[D(9)]],3,{evasion:15},['Frosty Interjection',[D(6)]]],
     ['Hydro Hilichurl Rogue','Hydro',61,['Whirling Scythe',[D(4)],'Physical'],['Bubblefloat Blitz',[D(8)]],3,{},['Slash of Surging Tides',[D(6)]]],
-    // Might of Delusion: the Ice-Sealed Crimson Witch of Embers breaks when she uses Carmine Chrysalis, when a round
-    // starts with her at 40% HP or less (4 of 10 on the card), or when a blow would defeat her (she survives at 1 HP).
-    // She then fights as the Crimson Witch for the rest of the encounter and keeps that sprite (crimson_witch.png) after it.
-    ['La Signora','Cryo',66,['Frostblade Hailstorm',[D(3)]],['Carmine Chrysalis',[D(8),H(6,'self')]],3,{shield:8,weakTo:'Pyro',transform:{
-        name:'Crimson Witch of Embers',element:'Pyro',weakTo:'Hydro',below:.4,seal:true,sprite:'crimson_witch',art:'Crimson Witch of Embers',
-        basic:['Crimson Lotus Moth',[D(3)]],skill:['Decimating Lash',[D(4),SM('Blazing Heat',2,1)]],special:['Whirling Blaze',[D(12)]]}},['Biting Shards',[D(4),SM('Sheer Cold',2,1)]]],
     ['Mirror Maiden','Hydro',56,['Water Ball',[D(3)]],['Rippled Reflection',[D(9)]],3,{evasion:10},['Influx Blast',[D(6),DB('weaken',15,1)]]],
     ['Stonehide Lawachurl','Geo',56,['Plama Lawa',[D(4)],'Physical'],['Upa Shato',[D(9)],'Physical'],3,{armor:40,armorBreak:'Geo'},['Movo Lawa',[D(6)],'Physical']],
     ['Wayward Hermetic Spiritspeaker','Cryo',56,['Spiritspeaking: Frost Star',[D(3)]],['Chilling Illustration',[D(8)]],3,{},['Radiance in Flux',[D(3),SH(4)]]],

@@ -1,0 +1,434 @@
+{
+  "date": "2026-11-06",
+  "status": "approved_installed_original_equipped_secondary_registered",
+  "character": "Prune",
+  "user_approval": "Good, all approved, make this her new original set and set the current as \"Secondary\"",
+  "original_folder": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Prune",
+  "secondary_folder": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Prune/Secondary",
+  "original_sprite_count": 22,
+  "secondary_sprite_count": 22,
+  "records": [
+    {
+      "emotion": "neutral",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-06-prune-lavender-heart-pupils/sprites/Prune/neutral.png",
+      "new_original": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Prune/neutral.png",
+      "new_sha256": "bb8d9ef1e3eb966445d7b1cd0be20b0c7a68af0427c46ebea44821ce266c3b9a",
+      "previous_sha256": "2466867e75c59029ee3f8b91d9f30448ffbf2cb3a44d82535eed6090ca097aca",
+      "backup": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-06-prune-original-secondary-installation/backup/Prune/neutral.png",
+      "secondary": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Prune/Secondary/neutral.png",
+      "approval": {
+        "status": "approved",
+        "message": "Good, all approved, make this her new original set and set the current as \"Secondary\""
+      }
+    },
+    {
+      "emotion": "annoyance",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-06-prune-lavender-heart-pupils/sprites/Prune/annoyance.png",
+      "new_original": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Prune/annoyance.png",
+      "new_sha256": "79c332e2e8d954991937f6c871e0aad6bb9dd77329c29dd5c6024d06b77d834d",
+      "previous_sha256": "ddd2c4317dd9fe087f7c22e0a1464164e3f2fb6dd7771793f0a99f7932d25dfa",
+      "backup": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-06-prune-original-secondary-installation/backup/Prune/annoyance.png",
+      "secondary": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Prune/Secondary/annoyance.png",
+      "approval": {
+        "status": "approved",
+        "message": "Good, all approved, make this her new original set and set the current as \"Secondary\""
+      }
+    },
+    {
+      "emotion": "smug",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-06-prune-lavender-heart-pupils/sprites/Prune/smug.png",
+      "new_original": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Prune/smug.png",
+      "new_sha256": "6f71038ad11731ad14ae94afd69c4ce3797008eec5b60dc8a3a6005dc260eab1",
+      "previous_sha256": "98d792b3e1299db0ca10adda08d53701d9afd44e12a3df7e2829469c85e0e312",
+      "backup": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-06-prune-original-secondary-installation/backup/Prune/smug.png",
+      "secondary": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Prune/Secondary/smug.png",
+      "approval": {
+        "status": "approved",
+        "message": "Good, all approved, make this her new original set and set the current as \"Secondary\""
+      }
+    },
+    {
+      "emotion": "confusion",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-06-prune-lavender-heart-pupils/sprites/Prune/confusion.png",
+      "new_original": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Prune/confusion.png",
+      "new_sha256": "30de22c34923dbcdc76e2e54726002a464b8c8ddab6a841a335cc7ebbcd1489f",
+      "previous_sha256": "d2e6c7c3454fe9594dbf1303035bc5c68a65f585bb76e20b1c734ab84cfe78b9",
+      "backup": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-06-prune-original-secondary-installation/backup/Prune/confusion.png",
+      "secondary": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Prune/Secondary/confusion.png",
+      "approval": {
+        "status": "approved",
+        "message": "Good, all approved, make this her new original set and set the current as \"Secondary\""
+      }
+    },
+    {
+      "emotion": "love",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-06-prune-lavender-heart-pupils/sprites/Prune/love.png",
+      "new_original": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Prune/love.png",
+      "new_sha256": "c524cf9bf10635a975c59ed044e9c9d0209123d37d77ce085a8a64f4f649eb03",
+      "previous_sha256": "26b46e17643c33b53f35c0577ad52c9739dd46ad61d4c2fde729f58e9ab09d02",
+      "backup": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-06-prune-original-secondary-installation/backup/Prune/love.png",
+      "secondary": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Prune/Secondary/love.png",
+      "approval": {
+        "status": "approved",
+        "message": "Good, all approved, make this her new original set and set the current as \"Secondary\""
+      }
+    },
+    {
+      "emotion": "excitement",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-06-prune-lavender-heart-pupils/sprites/Prune/excitement.png",
+      "new_original": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Prune/excitement.png",
+      "new_sha256": "4e6d372f9678a0fe767c0bf84f1ed54620c7475c836762e339629bf1329c6be4",
+      "previous_sha256": "1fa126f687622f5b26aa5e09e1d581af64cbcba48d6d61c3da862fe96d1c40d7",
+      "backup": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-06-prune-original-secondary-installation/backup/Prune/excitement.png",
+      "secondary": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Prune/Secondary/excitement.png",
+      "approval": {
+        "status": "approved",
+        "message": "Good, all approved, make this her new original set and set the current as \"Secondary\""
+      }
+    },
+    {
+      "emotion": "joy",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-06-prune-lavender-heart-pupils/sprites/Prune/joy.png",
+      "new_original": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Prune/joy.png",
+      "new_sha256": "94d39df232137ae84011d7b35a82ff89bdafa80e386cf1f64c5814c1197d7238",
+      "previous_sha256": "d1e44d0ae6cf21fe423cf120ddd9316e9cee771791e819e412ebb1bbffc3ddc4",
+      "backup": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-06-prune-original-secondary-installation/backup/Prune/joy.png",
+      "secondary": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Prune/Secondary/joy.png",
+      "approval": {
+        "status": "approved",
+        "message": "Good, all approved, make this her new original set and set the current as \"Secondary\""
+      }
+    },
+    {
+      "emotion": "fear",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-06-prune-lavender-heart-pupils/sprites/Prune/fear.png",
+      "new_original": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Prune/fear.png",
+      "new_sha256": "fc6f77d7a1e3b972d7864306bed4d1958ede25cbc63ef21255111b724745aa34",
+      "previous_sha256": "f215a8113ff5999c4d10bc2a8c546e71c6c49cda791cb64389b554e2398c7ccf",
+      "backup": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-06-prune-original-secondary-installation/backup/Prune/fear.png",
+      "secondary": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Prune/Secondary/fear.png",
+      "approval": {
+        "status": "approved",
+        "message": "Good, all approved, make this her new original set and set the current as \"Secondary\""
+      }
+    },
+    {
+      "emotion": "pride",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-06-prune-lavender-heart-pupils/sprites/Prune/pride.png",
+      "new_original": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Prune/pride.png",
+      "new_sha256": "bba97474adf5b0ce5b4398041e644c8f44d78b053080c3959ce9a015951dcfee",
+      "previous_sha256": "435adc5af03838c25a51e83ad813b979cb566a9091cb8c9b89985cd8b6d14865",
+      "backup": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-06-prune-original-secondary-installation/backup/Prune/pride.png",
+      "secondary": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Prune/Secondary/pride.png",
+      "approval": {
+        "status": "approved",
+        "message": "Good, all approved, make this her new original set and set the current as \"Secondary\""
+      }
+    },
+    {
+      "emotion": "desire",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-06-prune-lavender-heart-pupils/sprites/Prune/desire.png",
+      "new_original": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Prune/desire.png",
+      "new_sha256": "00868ad0f0898b29bea0135fa069d4b9964b68f995f539d17af1e01eaa746479",
+      "previous_sha256": "32eb22c409eee5aa9dc14a3d35a387c9fc4bed42858b775ae572ec5e79c8e503",
+      "backup": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-06-prune-original-secondary-installation/backup/Prune/desire.png",
+      "secondary": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Prune/Secondary/desire.png",
+      "approval": {
+        "status": "approved",
+        "message": "Good, all approved, make this her new original set and set the current as \"Secondary\""
+      }
+    },
+    {
+      "emotion": "anger",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-06-prune-lavender-heart-pupils/sprites/Prune/anger.png",
+      "new_original": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Prune/anger.png",
+      "new_sha256": "bf45a07bd76e38faaa88b20ec09858b38b0e01c8a5bcebfeec1a07ed31c1c179",
+      "previous_sha256": "e962a8bf161fff900ee850c6acbc6e41cab9d80516b01f6a48018472e36f1865",
+      "backup": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-06-prune-original-secondary-installation/backup/Prune/anger.png",
+      "secondary": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Prune/Secondary/anger.png",
+      "approval": {
+        "status": "approved",
+        "message": "Good, all approved, make this her new original set and set the current as \"Secondary\""
+      }
+    },
+    {
+      "emotion": "grief",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-06-prune-lavender-heart-pupils/sprites/Prune/grief.png",
+      "new_original": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Prune/grief.png",
+      "new_sha256": "1b90007ddcc90277370a2c5b2b77fb412c6349c0fc2f13230a735635cdc894b6",
+      "previous_sha256": "f72cb03211a9dd63e95a5ac9643f23a4a876a1a08d4af7a5b4fffd48c2bdab9a",
+      "backup": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-06-prune-original-secondary-installation/backup/Prune/grief.png",
+      "secondary": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Prune/Secondary/grief.png",
+      "approval": {
+        "status": "approved",
+        "message": "Good, all approved, make this her new original set and set the current as \"Secondary\""
+      }
+    },
+    {
+      "emotion": "sadness",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-06-prune-lavender-heart-pupils/sprites/Prune/sadness.png",
+      "new_original": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Prune/sadness.png",
+      "new_sha256": "852a25e62ff84801facd0ee7a32c24cc09ab155dc0d5643538769c05500fd8b4",
+      "previous_sha256": "d61529e500bbbd6c419c909870de8c82e87aa8184dbcc6b2ae8f894bf7bf4c96",
+      "backup": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-06-prune-original-secondary-installation/backup/Prune/sadness.png",
+      "secondary": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Prune/Secondary/sadness.png",
+      "approval": {
+        "status": "approved",
+        "message": "Good, all approved, make this her new original set and set the current as \"Secondary\""
+      }
+    },
+    {
+      "emotion": "disgust",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-06-prune-lavender-heart-pupils/sprites/Prune/disgust.png",
+      "new_original": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Prune/disgust.png",
+      "new_sha256": "0322602a5d66d8acae799d256548a432e3ea130ec0e155be7eb2048e1312949e",
+      "previous_sha256": "6904b21886ab1ddd511931839a24aff217ddfe3b03406b902cd606064a86765d",
+      "backup": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-06-prune-original-secondary-installation/backup/Prune/disgust.png",
+      "secondary": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Prune/Secondary/disgust.png",
+      "approval": {
+        "status": "approved",
+        "message": "Good, all approved, make this her new original set and set the current as \"Secondary\""
+      }
+    },
+    {
+      "emotion": "disappointment",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-06-prune-lavender-heart-pupils/sprites/Prune/disappointment.png",
+      "new_original": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Prune/disappointment.png",
+      "new_sha256": "54039b5a5cf38da32281653ae0f9e73fee60135056253e63e2cd2a76a7dc99ad",
+      "previous_sha256": "6042996723f1cfc4b511a0b51f4b0dee684a3054eccf2d52870f281c79fcaba3",
+      "backup": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-06-prune-original-secondary-installation/backup/Prune/disappointment.png",
+      "secondary": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Prune/Secondary/disappointment.png",
+      "approval": {
+        "status": "approved",
+        "message": "Good, all approved, make this her new original set and set the current as \"Secondary\""
+      }
+    },
+    {
+      "emotion": "relief",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-06-prune-lavender-heart-pupils/sprites/Prune/relief.png",
+      "new_original": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Prune/relief.png",
+      "new_sha256": "cb6da91bc9bec0e9594587d8e4b9228416a0bcaa508c55d3af442b1a1ac17ad6",
+      "previous_sha256": "f77a5e08d544830fc640946ec01295b3940aa76a4ae93dfa1fe1f9463db953e8",
+      "backup": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-06-prune-original-secondary-installation/backup/Prune/relief.png",
+      "secondary": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Prune/Secondary/relief.png",
+      "approval": {
+        "status": "approved",
+        "message": "Good, all approved, make this her new original set and set the current as \"Secondary\""
+      }
+    },
+    {
+      "emotion": "admiration",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-06-prune-lavender-heart-pupils/sprites/Prune/admiration.png",
+      "new_original": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Prune/admiration.png",
+      "new_sha256": "ac9a13ce3c72e171eb2ed71548fe4b166cb67243e641ed3c28c99f63c13dee34",
+      "previous_sha256": "09eb9e91b2d7e104e6088d22230ea43dd1ad86aded434eb51945837cc4aa4d9c",
+      "backup": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-06-prune-original-secondary-installation/backup/Prune/admiration.png",
+      "secondary": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Prune/Secondary/admiration.png",
+      "approval": {
+        "status": "approved",
+        "message": "Good, all approved, make this her new original set and set the current as \"Secondary\""
+      }
+    },
+    {
+      "emotion": "gratitude",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-06-prune-lavender-heart-pupils/sprites/Prune/gratitude.png",
+      "new_original": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Prune/gratitude.png",
+      "new_sha256": "c5da53bfb55d03bb0c852260443c1424dd69d21fc2932f2ab8c614434cd855a2",
+      "previous_sha256": "2296e4bd77b33f5c31f960d2230b93997bca26d0558dd52dc34539c2851dbd63",
+      "backup": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-06-prune-original-secondary-installation/backup/Prune/gratitude.png",
+      "secondary": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Prune/Secondary/gratitude.png",
+      "approval": {
+        "status": "approved",
+        "message": "Good, all approved, make this her new original set and set the current as \"Secondary\""
+      }
+    },
+    {
+      "emotion": "embarrassment",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-06-prune-lavender-heart-pupils/sprites/Prune/embarrassment.png",
+      "new_original": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Prune/embarrassment.png",
+      "new_sha256": "cbfc877f3930a96e0db7fba05d8d2517d2680c8404e81a10c6954ae0d09e7b21",
+      "previous_sha256": "c9f9156726db8f9450961bd4c0b44fe4964a009aa36a2538ac1d41cf620273b6",
+      "backup": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-06-prune-original-secondary-installation/backup/Prune/embarrassment.png",
+      "secondary": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Prune/Secondary/embarrassment.png",
+      "approval": {
+        "status": "approved",
+        "message": "Good, all approved, make this her new original set and set the current as \"Secondary\""
+      }
+    },
+    {
+      "emotion": "caring",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-06-prune-lavender-heart-pupils/sprites/Prune/caring.png",
+      "new_original": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Prune/caring.png",
+      "new_sha256": "1c639868e7d6b98955a03e4afdff0d009e52c322661226ae6f74809a50da2761",
+      "previous_sha256": "37299668cc4813dd82bf274fc165cd24bd00b7d2f20fb12ccf2716ee924c2524",
+      "backup": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-06-prune-original-secondary-installation/backup/Prune/caring.png",
+      "secondary": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Prune/Secondary/caring.png",
+      "approval": {
+        "status": "approved",
+        "message": "Good, all approved, make this her new original set and set the current as \"Secondary\""
+      }
+    },
+    {
+      "emotion": "love-1",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-06-prune-lavender-heart-pupils/sprites/Prune/love-1.png",
+      "new_original": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Prune/love-1.png",
+      "new_sha256": "0e6e6b052d550655492f741b16f4d1a9322c603ac1dea5be783ba243df8fe4f0",
+      "previous_sha256": "2cacf10d69384b9ad72aacff228bff90bffcbfe9dd37add9ee3c52a218c8e34c",
+      "backup": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-06-prune-original-secondary-installation/backup/Prune/love-1.png",
+      "secondary": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Prune/Secondary/love-1.png",
+      "approval": {
+        "status": "approved",
+        "message": "Good, all approved, make this her new original set and set the current as \"Secondary\""
+      }
+    },
+    {
+      "emotion": "desire-1",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-06-prune-lavender-heart-pupils/sprites/Prune/desire-1.png",
+      "new_original": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Prune/desire-1.png",
+      "new_sha256": "8f812fb3bfee507895129ffdc13104c349cd4cb2e84047564473a781ea2f26d3",
+      "previous_sha256": "1c282d36945ab82667496bc79076669343ea61ac8444a148c33f3281722ddb73",
+      "backup": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-06-prune-original-secondary-installation/backup/Prune/desire-1.png",
+      "secondary": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Prune/Secondary/desire-1.png",
+      "approval": {
+        "status": "approved",
+        "message": "Good, all approved, make this her new original set and set the current as \"Secondary\""
+      }
+    }
+  ],
+  "before_inventory": {
+    "gratitude.png": "2296e4bd77b33f5c31f960d2230b93997bca26d0558dd52dc34539c2851dbd63",
+    "excitement.png": "1fa126f687622f5b26aa5e09e1d581af64cbcba48d6d61c3da862fe96d1c40d7",
+    "neutral.png": "2466867e75c59029ee3f8b91d9f30448ffbf2cb3a44d82535eed6090ca097aca",
+    "joy.png": "d1e44d0ae6cf21fe423cf120ddd9316e9cee771791e819e412ebb1bbffc3ddc4",
+    "desire-1.png": "1c282d36945ab82667496bc79076669343ea61ac8444a148c33f3281722ddb73",
+    "admiration.png": "09eb9e91b2d7e104e6088d22230ea43dd1ad86aded434eb51945837cc4aa4d9c",
+    "caring.png": "37299668cc4813dd82bf274fc165cd24bd00b7d2f20fb12ccf2716ee924c2524",
+    "relief.png": "f77a5e08d544830fc640946ec01295b3940aa76a4ae93dfa1fe1f9463db953e8",
+    "disappointment.png": "6042996723f1cfc4b511a0b51f4b0dee684a3054eccf2d52870f281c79fcaba3",
+    "annoyance.png": "ddd2c4317dd9fe087f7c22e0a1464164e3f2fb6dd7771793f0a99f7932d25dfa",
+    "disgust.png": "6904b21886ab1ddd511931839a24aff217ddfe3b03406b902cd606064a86765d",
+    "anger.png": "e962a8bf161fff900ee850c6acbc6e41cab9d80516b01f6a48018472e36f1865",
+    "sadness.png": "d61529e500bbbd6c419c909870de8c82e87aa8184dbcc6b2ae8f894bf7bf4c96",
+    "fear.png": "f215a8113ff5999c4d10bc2a8c546e71c6c49cda791cb64389b554e2398c7ccf",
+    "grief.png": "f72cb03211a9dd63e95a5ac9643f23a4a876a1a08d4af7a5b4fffd48c2bdab9a",
+    "love-1.png": "2cacf10d69384b9ad72aacff228bff90bffcbfe9dd37add9ee3c52a218c8e34c",
+    "confusion.png": "d2e6c7c3454fe9594dbf1303035bc5c68a65f585bb76e20b1c734ab84cfe78b9",
+    "embarrassment.png": "c9f9156726db8f9450961bd4c0b44fe4964a009aa36a2538ac1d41cf620273b6",
+    "love.png": "26b46e17643c33b53f35c0577ad52c9739dd46ad61d4c2fde729f58e9ab09d02",
+    "desire.png": "32eb22c409eee5aa9dc14a3d35a387c9fc4bed42858b775ae572ec5e79c8e503",
+    "smug.png": "98d792b3e1299db0ca10adda08d53701d9afd44e12a3df7e2829469c85e0e312",
+    "pride.png": "435adc5af03838c25a51e83ad813b979cb566a9091cb8c9b89985cd8b6d14865",
+    "Official Art/neutral.png": "7733102efc1c3783666f92953f6b609b113bfc03fd7e8d34e09b255122071719"
+  },
+  "settings_before": {
+    "outfits": [
+      {
+        "label": "Official Art",
+        "folder": "Prune/Official Art"
+      }
+    ],
+    "expression_override": [
+      {
+        "name": "Prune",
+        "path": "Prune"
+      }
+    ]
+  },
+  "wardrobe_registration": {
+    "status": "verified_in_ui_and_persisted_settings",
+    "settings_outfits": [
+      {
+        "label": "Official Art",
+        "folder": "Prune/Official Art"
+      },
+      {
+        "label": "Secondary",
+        "folder": "Prune/Secondary"
+      }
+    ],
+    "expression_override": [
+      {
+        "name": "Prune",
+        "path": "Prune"
+      }
+    ],
+    "observed_ui": "Prune: Sprite set Original; Equipped: Original; Secondary listed in the set selector.",
+    "method": "Registered Secondary and equipped Original through Character Customization UI."
+  },
+  "after_inventory": {
+    "gratitude.png": "c5da53bfb55d03bb0c852260443c1424dd69d21fc2932f2ab8c614434cd855a2",
+    "excitement.png": "4e6d372f9678a0fe767c0bf84f1ed54620c7475c836762e339629bf1329c6be4",
+    "neutral.png": "bb8d9ef1e3eb966445d7b1cd0be20b0c7a68af0427c46ebea44821ce266c3b9a",
+    "joy.png": "94d39df232137ae84011d7b35a82ff89bdafa80e386cf1f64c5814c1197d7238",
+    "desire-1.png": "8f812fb3bfee507895129ffdc13104c349cd4cb2e84047564473a781ea2f26d3",
+    "admiration.png": "ac9a13ce3c72e171eb2ed71548fe4b166cb67243e641ed3c28c99f63c13dee34",
+    "caring.png": "1c639868e7d6b98955a03e4afdff0d009e52c322661226ae6f74809a50da2761",
+    "relief.png": "cb6da91bc9bec0e9594587d8e4b9228416a0bcaa508c55d3af442b1a1ac17ad6",
+    "disappointment.png": "54039b5a5cf38da32281653ae0f9e73fee60135056253e63e2cd2a76a7dc99ad",
+    "annoyance.png": "79c332e2e8d954991937f6c871e0aad6bb9dd77329c29dd5c6024d06b77d834d",
+    "disgust.png": "0322602a5d66d8acae799d256548a432e3ea130ec0e155be7eb2048e1312949e",
+    "anger.png": "bf45a07bd76e38faaa88b20ec09858b38b0e01c8a5bcebfeec1a07ed31c1c179",
+    "sadness.png": "852a25e62ff84801facd0ee7a32c24cc09ab155dc0d5643538769c05500fd8b4",
+    "fear.png": "fc6f77d7a1e3b972d7864306bed4d1958ede25cbc63ef21255111b724745aa34",
+    "grief.png": "1b90007ddcc90277370a2c5b2b77fb412c6349c0fc2f13230a735635cdc894b6",
+    "love-1.png": "0e6e6b052d550655492f741b16f4d1a9322c603ac1dea5be783ba243df8fe4f0",
+    "confusion.png": "30de22c34923dbcdc76e2e54726002a464b8c8ddab6a841a335cc7ebbcd1489f",
+    "embarrassment.png": "cbfc877f3930a96e0db7fba05d8d2517d2680c8404e81a10c6954ae0d09e7b21",
+    "love.png": "c524cf9bf10635a975c59ed044e9c9d0209123d37d77ce085a8a64f4f649eb03",
+    "desire.png": "00868ad0f0898b29bea0135fa069d4b9964b68f995f539d17af1e01eaa746479",
+    "smug.png": "6f71038ad11731ad14ae94afd69c4ce3797008eec5b60dc8a3a6005dc260eab1",
+    "pride.png": "bba97474adf5b0ce5b4398041e644c8f44d78b053080c3959ce9a015951dcfee",
+    "Official Art/neutral.png": "7733102efc1c3783666f92953f6b609b113bfc03fd7e8d34e09b255122071719",
+    "Secondary/gratitude.png": "2296e4bd77b33f5c31f960d2230b93997bca26d0558dd52dc34539c2851dbd63",
+    "Secondary/excitement.png": "1fa126f687622f5b26aa5e09e1d581af64cbcba48d6d61c3da862fe96d1c40d7",
+    "Secondary/neutral.png": "2466867e75c59029ee3f8b91d9f30448ffbf2cb3a44d82535eed6090ca097aca",
+    "Secondary/joy.png": "d1e44d0ae6cf21fe423cf120ddd9316e9cee771791e819e412ebb1bbffc3ddc4",
+    "Secondary/desire-1.png": "1c282d36945ab82667496bc79076669343ea61ac8444a148c33f3281722ddb73",
+    "Secondary/admiration.png": "09eb9e91b2d7e104e6088d22230ea43dd1ad86aded434eb51945837cc4aa4d9c",
+    "Secondary/caring.png": "37299668cc4813dd82bf274fc165cd24bd00b7d2f20fb12ccf2716ee924c2524",
+    "Secondary/relief.png": "f77a5e08d544830fc640946ec01295b3940aa76a4ae93dfa1fe1f9463db953e8",
+    "Secondary/disappointment.png": "6042996723f1cfc4b511a0b51f4b0dee684a3054eccf2d52870f281c79fcaba3",
+    "Secondary/annoyance.png": "ddd2c4317dd9fe087f7c22e0a1464164e3f2fb6dd7771793f0a99f7932d25dfa",
+    "Secondary/disgust.png": "6904b21886ab1ddd511931839a24aff217ddfe3b03406b902cd606064a86765d",
+    "Secondary/anger.png": "e962a8bf161fff900ee850c6acbc6e41cab9d80516b01f6a48018472e36f1865",
+    "Secondary/sadness.png": "d61529e500bbbd6c419c909870de8c82e87aa8184dbcc6b2ae8f894bf7bf4c96",
+    "Secondary/fear.png": "f215a8113ff5999c4d10bc2a8c546e71c6c49cda791cb64389b554e2398c7ccf",
+    "Secondary/grief.png": "f72cb03211a9dd63e95a5ac9643f23a4a876a1a08d4af7a5b4fffd48c2bdab9a",
+    "Secondary/love-1.png": "2cacf10d69384b9ad72aacff228bff90bffcbfe9dd37add9ee3c52a218c8e34c",
+    "Secondary/confusion.png": "d2e6c7c3454fe9594dbf1303035bc5c68a65f585bb76e20b1c734ab84cfe78b9",
+    "Secondary/embarrassment.png": "c9f9156726db8f9450961bd4c0b44fe4964a009aa36a2538ac1d41cf620273b6",
+    "Secondary/love.png": "26b46e17643c33b53f35c0577ad52c9739dd46ad61d4c2fde729f58e9ab09d02",
+    "Secondary/desire.png": "32eb22c409eee5aa9dc14a3d35a387c9fc4bed42858b775ae572ec5e79c8e503",
+    "Secondary/smug.png": "98d792b3e1299db0ca10adda08d53701d9afd44e12a3df7e2829469c85e0e312",
+    "Secondary/pride.png": "435adc5af03838c25a51e83ad813b979cb566a9091cb8c9b89985cd8b6d14865"
+  },
+  "verification": {
+    "all_22_new_original_hashes_match": true,
+    "all_22_secondary_files_byte_identical_to_previous_set": true,
+    "official_art_and_other_existing_files_unchanged": true,
+    "no_original_files_lost": true
+  },
+  "sprite_api_checks": [
+    {
+      "folder": "Prune",
+      "sprite_count": 22,
+      "all_image_http_statuses": 200,
+      "all_served_bytes_match_disk": true
+    },
+    {
+      "folder": "Prune/Secondary",
+      "sprite_count": 22,
+      "all_image_http_statuses": 200,
+      "all_served_bytes_match_disk": true
+    }
+  ],
+  "archives": {
+    "original": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-06-prune-original-secondary-installation/archives/prune-original-22.zip",
+    "secondary": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-06-prune-original-secondary-installation/archives/prune-secondary-22.zip",
+    "installation_record": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-06-prune-original-secondary-installation/archives/installation-record.zip"
+  },
+  "previews": {
+    "original_full_body": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-06-prune-original-secondary-installation/previews/full-body.png",
+    "original_faces": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-06-prune-original-secondary-installation/previews/faces.png"
+  }
+}

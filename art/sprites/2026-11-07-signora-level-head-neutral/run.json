@@ -1,0 +1,43 @@
+{
+  "user_request": "One more, don't make her angle her head up",
+  "reference_authorization": "User authorized online or Genshin Wiki references for these enemy neutral sprites.",
+  "reference": {
+    "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-signora-level-head-neutral/references/La Signora/wiki.webp",
+    "sha256": "82b3074804f218c46a295946d314e694c5742b12f577b88b2f672f0582de3db4",
+    "source": "https://genshin-impact.fandom.com/wiki/File:Enemy_La_Signora.png",
+    "imageURL": "https://static.wikia.nocookie.net/gensin-impact/images/b/be/Enemy_La_Signora.png/revision/latest?cb=20230314064150"
+  },
+  "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-signora-level-head-neutral/prompts/La Signora/neutral-v005.txt",
+  "generation": {
+    "tool": "image_gen.imagegen",
+    "arguments": {
+      "prompt": "Create one full-body neutral boss sprite of La Signora from Genshin Impact, using the supplied Genshin Wiki enemy archive image as the sole visual reference. Preserve her recognizable face, mask, pale hair, black-and-white outfit, red cape, jewelry, proportions and distinctive costume details. Render polished Genshin-inspired anime game illustration. Convey cold, menacing aristocratic confidence with an intent gaze directed at the viewer, slightly narrowed eyes and a restrained, self-assured closed-mouth expression. Keep her head upright and level, chin at a natural level, face looking straight ahead: do not tilt the head back, lift the chin, or look upward. Show her from a natural eye-level viewpoint. Pose her in a composed three-quarter stance, shoulders relaxed; her right hand rests near her waist, and her left hand hangs at her side with relaxed fingers. Hands are distinct from clothing; each complete human hand has a palm, four naturally articulated fingers and a separate opposable thumb. Keep exactly two legs and two feet slightly staggered; cape and skirt drape naturally. A readable character-specific idle, not a mid-attack pose. Fit her entire silhouette including headpiece, hair, hands, cape, skirt and shoes with clear transparent margins on all sides. True transparent background and alpha; no scenery, detached magical effects, ground shadow, text, UI, watermark or other characters.",
+      "referenced_image_paths": [
+        "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-signora-level-head-neutral/references/La Signora/wiki.webp"
+      ],
+      "transparent_background": true
+    },
+    "tool_output": "/Users/alexachan/.codex/generated_images/01a1b53f-9119-7e51-8c7f-6405683343d1/exec-affe48cb-235e-4f7d-9ad5-4ac9f9b1e44c.png",
+    "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-signora-level-head-neutral/raw/La Signora/neutral-v005.png",
+    "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-signora-level-head-neutral/candidates/La Signora/neutral-v005.png",
+    "candidate_sha256": "38b583234ae0af5b91947c9f4c52a9bf28ec889535481ec9032b6200c0c79bd2",
+    "dimensions": [
+      1024,
+      1536
+    ],
+    "mode": "RGBA",
+    "alpha_range": [
+      0,
+      254
+    ],
+    "framing_transform": null
+  },
+  "approval": {
+    "status": "approved",
+    "date": "2026-11-07",
+    "message": "Signora accepted along with all the others.",
+    "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-signora-level-head-neutral/candidates/La Signora/neutral-v005.png",
+    "candidate_sha256": "38b583234ae0af5b91947c9f4c52a9bf28ec889535481ec9032b6200c0c79bd2"
+  },
+  "visual_review": "Reserved for user"
+}

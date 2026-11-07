@@ -1,0 +1,47 @@
+{
+  "user_request": "Signora accepted along with all the others. Also generate her \"Crimson Witch of Embers\" form. I have attached two references",
+  "references": [
+    {
+      "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-signora-crimson-witch/references/La Signora/user-1.png",
+      "sha256": "c97cc3324ebfc9c508f1c99f184e4ceb009e72ef27bff91d3013bbcd396919a8",
+      "original": "/var/folders/yb/h8ks0jfd6jl0jdj3npytrx2r0000gn/T/codex-clipboard-af91faa3-66d7-4ea8-8e9d-0c0e20653ce4.png",
+      "role": "User reference: wing silhouette and design"
+    },
+    {
+      "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-signora-crimson-witch/references/La Signora/user-2.png",
+      "sha256": "d81212c5b661002264cd8391a81bf69c46bc746e3a770cccc768bc454489bb30",
+      "original": "/var/folders/yb/h8ks0jfd6jl0jdj3npytrx2r0000gn/T/codex-clipboard-bc7af736-922b-418c-a4ea-9066104e6d5d.png",
+      "role": "User reference: in-game model and costume"
+    }
+  ],
+  "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-signora-crimson-witch/prompts/La Signora/neutral-v001.txt",
+  "generation": {
+    "tool": "image_gen.imagegen",
+    "arguments": {
+      "prompt": "Create one complete full-body neutral boss sprite of La Signora in her Crimson Witch of Embers form from Genshin Impact, using both supplied images as the only visual references: image 1 guides the imposing fiery wing silhouette and elaborate design, image 2 guides the in-game model, mask, horns, bodice and layered armored gown. Preserve her pale hair, dramatic tall curved black horns, red-and-black mask, red white black and gold fitted bodice, black feathered shoulders, ornate pointed armored skirt panels, and the distinctive red-orange moth-like wing structures with glowing flame patterns. Her head is held upright and level with a cool, imperious expression. Pose her hovering in a composed, menacing idle: right hand relaxed at her side, left hand slightly raised near her torso in a simple controlled gesture. Human hands have a palm, four naturally articulated fingers and a separate opposable thumb when visible; keep them separate from clothing. Preserve the full wing structures and complete long gown silhouette. Use a wide landscape composition, scale her to fit the whole character including the tallest horn, all wing tips and the lowest skirt tips, with clear transparent margins on all four sides. Render polished Genshin-inspired anime game illustration. True transparent background with alpha; no scenery, smoky clouds, ground shadow, detached fire, floating particles, symbols, other characters, text, UI, watermark or border. Keep the warm flame patterns that are integral to her costume and wings; omit the references' surrounding flame effects and background.",
+      "referenced_image_paths": [
+        "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-signora-crimson-witch/references/La Signora/user-1.png",
+        "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-signora-crimson-witch/references/La Signora/user-2.png"
+      ],
+      "transparent_background": true
+    },
+    "tool_output": "/Users/alexachan/.codex/generated_images/01a1b53f-9119-7e51-8c7f-6405683343d1/exec-a2516104-3e71-4506-855f-202d891feccb.png",
+    "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-signora-crimson-witch/raw/La Signora/neutral-v001.png",
+    "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-signora-crimson-witch/candidates/La Signora/neutral-v001.png",
+    "candidate_sha256": "a0cc8e680c63bf6779d20dafb4929a105cb1713488d015a124959e011d8eee3d",
+    "dimensions": [
+      1536,
+      1024
+    ],
+    "mode": "RGBA",
+    "alpha_range": [
+      0,
+      254
+    ],
+    "framing_transform": null
+  },
+  "approval": {
+    "status": "pending"
+  },
+  "visual_review": "Reserved for user"
+}

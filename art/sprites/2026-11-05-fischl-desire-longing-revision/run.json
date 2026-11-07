@@ -35,7 +35,11 @@
     "png_color_type": 6
   },
   "approval": {
-    "status": "pending"
+    "status": "approved",
+    "date": "2026-11-05",
+    "message": "All accepted. Install all sprite sets into their respected folders including Fischl's new set, which should be as an alternate set to her already generated one.",
+    "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-fischl-desire-longing-revision/candidates/Fischl/desire-v003.png",
+    "candidate_sha256": "6dab0a9dea9e1dec3f2834f5e836c593e3a5ae11ebc9c57699cc0a99402ddefb"
   },
   "previous_desire": {
     "status": "candidate",
@@ -76,5 +80,18 @@
       "status": "pending"
     }
   },
-  "installation": "not requested; existing live files unchanged"
+  "installation": "not requested; existing live files unchanged",
+  "installations": [
+    {
+      "date": "2026-11-05",
+      "report": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-approved-sprite-installation/installation.json",
+      "files": [
+        {
+          "emotion": "desire",
+          "sha256": "6dab0a9dea9e1dec3f2834f5e836c593e3a5ae11ebc9c57699cc0a99402ddefb",
+          "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Fischl/Regenerated/desire.png"
+        }
+      ]
+    }
+  ]
 }

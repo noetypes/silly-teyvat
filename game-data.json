@@ -1,6 +1,14 @@
 {
   "version": 1,
   "files": {
+    "art/location-backgrounds/2026-11-07-signora-arena/raw.png": {
+      "bytes": 2437051,
+      "sha256": "e6a67672631284619620f32015e6ffb26b6f7ac7efbb5cf6a1c02c315ef2f855"
+    },
+    "art/location-backgrounds/2026-11-07-signora-arena/references/gamewith-arena.jpg": {
+      "bytes": 22465,
+      "sha256": "cf4625ca11fb7421dd6fc4a542fef6513dad42be304cc449687f38b92f8edb4f"
+    },
     "art/sprites/2026-10-27-official-reference-restart/candidates/Furina/neutral-v001.png": {
       "bytes": 1296354,
       "sha256": "891712eb5b8756cf14d2fdee26dcdb6990794b72af125dca2e842fc9219e23d0"
@@ -3012,6 +3020,358 @@
     "art/sprites/2026-10-29-tcg-bosses/sprites/Thunder Manifestation/neutral.png": {
       "bytes": 907976,
       "sha256": "3fd87a62a2cb57a6b79fc6a7abaff7db127377f07d8b55d75e7797a84fe0264b"
+    },
+    "art/sprites/2026-11-07-enemy-neutral-candidates/candidates/Abyss Herald: Wicked Torrents/neutral-v001.png": {
+      "bytes": 1303073,
+      "sha256": "3dc0db456d2d2d5b1a7170160b79ee945612501f4a83d7145feb37c5a8522eb2"
+    },
+    "art/sprites/2026-11-07-enemy-neutral-candidates/candidates/Abyss Lector: Fathomless Flames/neutral-v001.png": {
+      "bytes": 1860429,
+      "sha256": "0d7ed657f00a362a2873e9c5b9d7b2211bc2614a9961cb399840bfe1fb2046d0"
+    },
+    "art/sprites/2026-11-07-enemy-neutral-candidates/candidates/Abyss Lector: Violet Lightning/neutral-v001.png": {
+      "bytes": 1212532,
+      "sha256": "3bdea68486500ac112899379a9b4c1b2db66f2f8e83c73662da5b58bd6826c55"
+    },
+    "art/sprites/2026-11-07-enemy-neutral-candidates/candidates/Black Serpent Knight: Rockbreaker Ax/neutral-v001.png": {
+      "bytes": 1185651,
+      "sha256": "794dc35ed70af9bd31a4ae69853aa79c3a167cc961b36cb0eade2033c59fead3"
+    },
+    "art/sprites/2026-11-07-enemy-neutral-candidates/candidates/Black Serpent Knight: Windcutter/neutral-v001.png": {
+      "bytes": 1120920,
+      "sha256": "5166a9a3f38e829490be1d970408cf633be71da7fca4a774ad1e18d548ed4d7b"
+    },
+    "art/sprites/2026-11-07-enemy-neutral-candidates/candidates/Consecrated Fanged Beast/neutral-v001.png": {
+      "bytes": 1842827,
+      "sha256": "d952d9476179eafadcc0ad85d505f5a443949a04f2e970a09455149a67a1632a"
+    },
+    "art/sprites/2026-11-07-enemy-neutral-candidates/candidates/Consecrated Flying Serpent/neutral-v001.png": {
+      "bytes": 1024080,
+      "sha256": "022f1cdfb6930f94df2748fa59f6b123fea6d13dbc9a381a9dfa167085e36a8f"
+    },
+    "art/sprites/2026-11-07-enemy-neutral-candidates/candidates/Consecrated Horned Crocodile/neutral-v001.png": {
+      "bytes": 1881168,
+      "sha256": "334a70bc4f5a643c8b9bfddf19982ea2d117070189e008c3ec5a4f2218c7ae4a"
+    },
+    "art/sprites/2026-11-07-enemy-neutral-candidates/candidates/Consecrated Scorpion/neutral-v001.png": {
+      "bytes": 1856999,
+      "sha256": "48242713ab7d059ed9c6dfebfbaef5b2b7cefde32a78d661bddd5f69d42b7c0a"
+    },
+    "art/sprites/2026-11-07-enemy-neutral-candidates/candidates/Eremite Floral Ring-Dancer/neutral-v001.png": {
+      "bytes": 1940640,
+      "sha256": "be645bc0fb9b79bb571f19e2f32a6be11bde1a22bd1d896382d859909979f7a6"
+    },
+    "art/sprites/2026-11-07-enemy-neutral-candidates/candidates/Eremite Scorching Loremaster/neutral-v001.png": {
+      "bytes": 2079597,
+      "sha256": "cd61db7a6922079143109e1aa85f4a383ff09dc5873fdb7c37b6e77661d3df7b"
+    },
+    "art/sprites/2026-11-07-enemy-neutral-candidates/candidates/Fatui Electro Cicin Mage/neutral-v001.png": {
+      "bytes": 1752449,
+      "sha256": "8c114ccbab46a9efdec659abd13a1390de0dc4c3365f2e54c341aa69c8025d2d"
+    },
+    "art/sprites/2026-11-07-enemy-neutral-candidates/candidates/Frost Operative/neutral-v001.png": {
+      "bytes": 974994,
+      "sha256": "62916d2962f5a939b938db5cd8cba508614ac21e70bc557e33c5e5f12cca2fe3"
+    },
+    "art/sprites/2026-11-07-enemy-neutral-candidates/candidates/Hydro Hilichurl Rogue/neutral-v001.png": {
+      "bytes": 999806,
+      "sha256": "6d53e5c09873b0354f0c2c6f736718acd018cdafa13964cd29680e6d6dfff97b"
+    },
+    "art/sprites/2026-11-07-enemy-neutral-candidates/candidates/La Signora/neutral-v001.png": {
+      "bytes": 1633370,
+      "sha256": "8dc563aae07e433a7c6793c2a7e24e4ca8c2eddd4faa2f551eb608657efa5308"
+    },
+    "art/sprites/2026-11-07-enemy-neutral-candidates/candidates/Mirror Maiden/neutral-v001.png": {
+      "bytes": 1555705,
+      "sha256": "654ad8bd1a182a2b0e995060149779e3c0a288453e9acf9a189fff6315308215"
+    },
+    "art/sprites/2026-11-07-enemy-neutral-candidates/candidates/Stonehide Lawachurl/neutral-v001.png": {
+      "bytes": 1056463,
+      "sha256": "97125a9e9e2b40491da7b816a7d6c3d37f565a5bf6363482233a7af81ed1caae"
+    },
+    "art/sprites/2026-11-07-enemy-neutral-candidates/candidates/Wayward Hermetic Spiritspeaker/neutral-v001.png": {
+      "bytes": 1890985,
+      "sha256": "7db21d9f374c051604b6f0f19b854fbb1c13cbf76d6adcca218e5187ad5c98a2"
+    },
+    "art/sprites/2026-11-07-enemy-neutral-candidates/previews/contact-sheet.jpg": {
+      "bytes": 610047,
+      "sha256": "d413d6f00b9cc64e92c43d94a49e9eaf93dc28f65fd66475a2c878b5de41567a"
+    },
+    "art/sprites/2026-11-07-enemy-neutral-candidates/raw/Abyss Herald: Wicked Torrents/neutral-v001.png": {
+      "bytes": 1303073,
+      "sha256": "3dc0db456d2d2d5b1a7170160b79ee945612501f4a83d7145feb37c5a8522eb2"
+    },
+    "art/sprites/2026-11-07-enemy-neutral-candidates/raw/Abyss Lector: Fathomless Flames/neutral-v001.png": {
+      "bytes": 1860429,
+      "sha256": "0d7ed657f00a362a2873e9c5b9d7b2211bc2614a9961cb399840bfe1fb2046d0"
+    },
+    "art/sprites/2026-11-07-enemy-neutral-candidates/raw/Abyss Lector: Violet Lightning/neutral-v001.png": {
+      "bytes": 1212532,
+      "sha256": "3bdea68486500ac112899379a9b4c1b2db66f2f8e83c73662da5b58bd6826c55"
+    },
+    "art/sprites/2026-11-07-enemy-neutral-candidates/raw/Black Serpent Knight: Rockbreaker Ax/neutral-v001.png": {
+      "bytes": 1185651,
+      "sha256": "794dc35ed70af9bd31a4ae69853aa79c3a167cc961b36cb0eade2033c59fead3"
+    },
+    "art/sprites/2026-11-07-enemy-neutral-candidates/raw/Black Serpent Knight: Windcutter/neutral-v001.png": {
+      "bytes": 1120920,
+      "sha256": "5166a9a3f38e829490be1d970408cf633be71da7fca4a774ad1e18d548ed4d7b"
+    },
+    "art/sprites/2026-11-07-enemy-neutral-candidates/raw/Consecrated Fanged Beast/neutral-v001.png": {
+      "bytes": 1842827,
+      "sha256": "d952d9476179eafadcc0ad85d505f5a443949a04f2e970a09455149a67a1632a"
+    },
+    "art/sprites/2026-11-07-enemy-neutral-candidates/raw/Consecrated Flying Serpent/neutral-v001.png": {
+      "bytes": 1024080,
+      "sha256": "022f1cdfb6930f94df2748fa59f6b123fea6d13dbc9a381a9dfa167085e36a8f"
+    },
+    "art/sprites/2026-11-07-enemy-neutral-candidates/raw/Consecrated Horned Crocodile/neutral-v001.png": {
+      "bytes": 1881168,
+      "sha256": "334a70bc4f5a643c8b9bfddf19982ea2d117070189e008c3ec5a4f2218c7ae4a"
+    },
+    "art/sprites/2026-11-07-enemy-neutral-candidates/raw/Consecrated Scorpion/neutral-v001.png": {
+      "bytes": 1856999,
+      "sha256": "48242713ab7d059ed9c6dfebfbaef5b2b7cefde32a78d661bddd5f69d42b7c0a"
+    },
+    "art/sprites/2026-11-07-enemy-neutral-candidates/raw/Eremite Floral Ring-Dancer/neutral-v001.png": {
+      "bytes": 1940640,
+      "sha256": "be645bc0fb9b79bb571f19e2f32a6be11bde1a22bd1d896382d859909979f7a6"
+    },
+    "art/sprites/2026-11-07-enemy-neutral-candidates/raw/Eremite Scorching Loremaster/neutral-v001.png": {
+      "bytes": 2079597,
+      "sha256": "cd61db7a6922079143109e1aa85f4a383ff09dc5873fdb7c37b6e77661d3df7b"
+    },
+    "art/sprites/2026-11-07-enemy-neutral-candidates/raw/Fatui Electro Cicin Mage/neutral-v001.png": {
+      "bytes": 1752449,
+      "sha256": "8c114ccbab46a9efdec659abd13a1390de0dc4c3365f2e54c341aa69c8025d2d"
+    },
+    "art/sprites/2026-11-07-enemy-neutral-candidates/raw/Frost Operative/neutral-v001.png": {
+      "bytes": 974994,
+      "sha256": "62916d2962f5a939b938db5cd8cba508614ac21e70bc557e33c5e5f12cca2fe3"
+    },
+    "art/sprites/2026-11-07-enemy-neutral-candidates/raw/Hydro Hilichurl Rogue/neutral-v001.png": {
+      "bytes": 999806,
+      "sha256": "6d53e5c09873b0354f0c2c6f736718acd018cdafa13964cd29680e6d6dfff97b"
+    },
+    "art/sprites/2026-11-07-enemy-neutral-candidates/raw/La Signora/neutral-v001.png": {
+      "bytes": 1633370,
+      "sha256": "8dc563aae07e433a7c6793c2a7e24e4ca8c2eddd4faa2f551eb608657efa5308"
+    },
+    "art/sprites/2026-11-07-enemy-neutral-candidates/raw/Mirror Maiden/neutral-v001.png": {
+      "bytes": 1555705,
+      "sha256": "654ad8bd1a182a2b0e995060149779e3c0a288453e9acf9a189fff6315308215"
+    },
+    "art/sprites/2026-11-07-enemy-neutral-candidates/raw/Stonehide Lawachurl/neutral-v001.png": {
+      "bytes": 1056463,
+      "sha256": "97125a9e9e2b40491da7b816a7d6c3d37f565a5bf6363482233a7af81ed1caae"
+    },
+    "art/sprites/2026-11-07-enemy-neutral-candidates/raw/Wayward Hermetic Spiritspeaker/neutral-v001.png": {
+      "bytes": 1890985,
+      "sha256": "7db21d9f374c051604b6f0f19b854fbb1c13cbf76d6adcca218e5187ad5c98a2"
+    },
+    "art/sprites/2026-11-07-enemy-neutral-candidates/references-sheet.jpg": {
+      "bytes": 233134,
+      "sha256": "041be1fcdbe2c6f797f9bebc3fa96e755852460d58f75fc57c8777372e96aa75"
+    },
+    "art/sprites/2026-11-07-enemy-neutral-candidates/references/Abyss Herald: Wicked Torrents/wiki.webp": {
+      "bytes": 299448,
+      "sha256": "80c0428603e0b77c61651614fc75db2552e1ee6c90f83c2a6289969e9ae605ad"
+    },
+    "art/sprites/2026-11-07-enemy-neutral-candidates/references/Abyss Lector: Fathomless Flames/wiki.webp": {
+      "bytes": 403962,
+      "sha256": "ed67a9a16eba0e01af3ab66dba4afd6ee08a64db6097157e94f38e4e8a76961b"
+    },
+    "art/sprites/2026-11-07-enemy-neutral-candidates/references/Abyss Lector: Violet Lightning/wiki.webp": {
+      "bytes": 329796,
+      "sha256": "269900e59c0b2bc7e50052b95f73aa289bf066f30884a70ecc9a06ec9d2ed1d4"
+    },
+    "art/sprites/2026-11-07-enemy-neutral-candidates/references/Black Serpent Knight: Rockbreaker Ax/wiki.webp": {
+      "bytes": 405932,
+      "sha256": "e3654ad3a53f25fa8dd04d43ead1b1100be8c75bbc24898bf4e453fbb844d224"
+    },
+    "art/sprites/2026-11-07-enemy-neutral-candidates/references/Black Serpent Knight: Windcutter/wiki.webp": {
+      "bytes": 403062,
+      "sha256": "d96322845e82b67c4c260c58616d2027388f5777173d1afb16e883502440cb5d"
+    },
+    "art/sprites/2026-11-07-enemy-neutral-candidates/references/Consecrated Fanged Beast/wiki.webp": {
+      "bytes": 434606,
+      "sha256": "881c80d1b3c0aec93387e1bea0ff181f177ac789557735f3cab24e7e62557ace"
+    },
+    "art/sprites/2026-11-07-enemy-neutral-candidates/references/Consecrated Flying Serpent/wiki.webp": {
+      "bytes": 372368,
+      "sha256": "98eaa00f0b67ef5ff4e7136cb6a2c584568ef2f3acc4e4c95eedb2b034d4a3e8"
+    },
+    "art/sprites/2026-11-07-enemy-neutral-candidates/references/Consecrated Horned Crocodile/wiki.webp": {
+      "bytes": 418204,
+      "sha256": "cb991cc533ab8d50e8ce719922c83ee63c6b7fc78f2be369e5aab2060f52fd70"
+    },
+    "art/sprites/2026-11-07-enemy-neutral-candidates/references/Consecrated Scorpion/wiki.webp": {
+      "bytes": 417284,
+      "sha256": "fc3b3be266c8150bbc7fd2dce3c3e4687e797a0dafe3218a4b0ff013f38c8847"
+    },
+    "art/sprites/2026-11-07-enemy-neutral-candidates/references/Eremite Floral Ring-Dancer/wiki.webp": {
+      "bytes": 391434,
+      "sha256": "3356a98f58618d49d00919f9a157a5261414acd9846babcc3cdab5e21ccebf5e"
+    },
+    "art/sprites/2026-11-07-enemy-neutral-candidates/references/Eremite Scorching Loremaster/wiki.webp": {
+      "bytes": 393878,
+      "sha256": "6ee9926c6cc8a7e55ccf0450f726854539f78a4b79c3b309662df53418fc271e"
+    },
+    "art/sprites/2026-11-07-enemy-neutral-candidates/references/Fatui Electro Cicin Mage/wiki.webp": {
+      "bytes": 333530,
+      "sha256": "10c7f831696549fbef2befffa19fea000a6808cb4b33f71ad567b2498c315da8"
+    },
+    "art/sprites/2026-11-07-enemy-neutral-candidates/references/Frost Operative/wiki.webp": {
+      "bytes": 76272,
+      "sha256": "92ad831bb6dbeb5e46d00dec6fafa032884c00605803611fb0c707e4e8a54558"
+    },
+    "art/sprites/2026-11-07-enemy-neutral-candidates/references/Hydro Hilichurl Rogue/wiki.webp": {
+      "bytes": 362948,
+      "sha256": "d7fb17fc0f07991b6c57d6d25f92d2c8b2e547da6e82fc21ba3100bfccf6b914"
+    },
+    "art/sprites/2026-11-07-enemy-neutral-candidates/references/La Signora/wiki.webp": {
+      "bytes": 206160,
+      "sha256": "82b3074804f218c46a295946d314e694c5742b12f577b88b2f672f0582de3db4"
+    },
+    "art/sprites/2026-11-07-enemy-neutral-candidates/references/Mirror Maiden/wiki.webp": {
+      "bytes": 424378,
+      "sha256": "50124775068132a74a6ff1b197a5f0216041ca2e0e0052713c91642264acad49"
+    },
+    "art/sprites/2026-11-07-enemy-neutral-candidates/references/Stonehide Lawachurl/wiki.webp": {
+      "bytes": 302384,
+      "sha256": "1c456e1ee598647bc32090ad2b3d2799439e89731cfa4d193c86890201c80b94"
+    },
+    "art/sprites/2026-11-07-enemy-neutral-candidates/references/Wayward Hermetic Spiritspeaker/wiki.webp": {
+      "bytes": 483610,
+      "sha256": "147b21ea1eef4d451db1b90cab94ed9aeb9f49532106dfdc0a684c0ba2f55584"
+    },
+    "art/sprites/2026-11-07-four-enemy-pose-revisions/candidates/La Signora/neutral-v002.png": {
+      "bytes": 1715709,
+      "sha256": "58f522f0699da5a7d3d82b392ae2d4e265e85d5c3fe9151b3e334dce5f6391b3"
+    },
+    "art/sprites/2026-11-07-four-enemy-pose-revisions/candidates/Mirror Maiden/neutral-v002.png": {
+      "bytes": 1767246,
+      "sha256": "a1280a26d305a65b27ea98c8efcc693e3938bf8e24e555ef08ff2668ed0d4afe"
+    },
+    "art/sprites/2026-11-07-four-enemy-pose-revisions/candidates/Stonehide Lawachurl/neutral-v002.png": {
+      "bytes": 1179479,
+      "sha256": "045a2a9505473f7d5724af82962bd6fc6e0953086b92cb7e81e8a5c100a863da"
+    },
+    "art/sprites/2026-11-07-four-enemy-pose-revisions/candidates/Wayward Hermetic Spiritspeaker/neutral-v002.png": {
+      "bytes": 1391356,
+      "sha256": "3aff84926b878506c55dfc8b8a888ab06c597e8708ec8fb6efc14d63a2c57eed"
+    },
+    "art/sprites/2026-11-07-four-enemy-pose-revisions/previews/pose-revisions.jpg": {
+      "bytes": 414084,
+      "sha256": "d2ee6e561067b6b18343a45e1db71a4f2d10c7c15082d979e2c0d6d75e0e4f09"
+    },
+    "art/sprites/2026-11-07-four-enemy-pose-revisions/raw/La Signora/neutral-v002.png": {
+      "bytes": 1715709,
+      "sha256": "58f522f0699da5a7d3d82b392ae2d4e265e85d5c3fe9151b3e334dce5f6391b3"
+    },
+    "art/sprites/2026-11-07-four-enemy-pose-revisions/raw/Mirror Maiden/neutral-v002.png": {
+      "bytes": 1767246,
+      "sha256": "a1280a26d305a65b27ea98c8efcc693e3938bf8e24e555ef08ff2668ed0d4afe"
+    },
+    "art/sprites/2026-11-07-four-enemy-pose-revisions/raw/Stonehide Lawachurl/neutral-v002.png": {
+      "bytes": 1179479,
+      "sha256": "045a2a9505473f7d5724af82962bd6fc6e0953086b92cb7e81e8a5c100a863da"
+    },
+    "art/sprites/2026-11-07-four-enemy-pose-revisions/raw/Wayward Hermetic Spiritspeaker/neutral-v002.png": {
+      "bytes": 1391356,
+      "sha256": "3aff84926b878506c55dfc8b8a888ab06c597e8708ec8fb6efc14d63a2c57eed"
+    },
+    "art/sprites/2026-11-07-four-enemy-pose-revisions/references/La Signora/wiki.webp": {
+      "bytes": 206160,
+      "sha256": "82b3074804f218c46a295946d314e694c5742b12f577b88b2f672f0582de3db4"
+    },
+    "art/sprites/2026-11-07-four-enemy-pose-revisions/references/Mirror Maiden/wiki.webp": {
+      "bytes": 424378,
+      "sha256": "50124775068132a74a6ff1b197a5f0216041ca2e0e0052713c91642264acad49"
+    },
+    "art/sprites/2026-11-07-four-enemy-pose-revisions/references/Stonehide Lawachurl/wiki.webp": {
+      "bytes": 302384,
+      "sha256": "1c456e1ee598647bc32090ad2b3d2799439e89731cfa4d193c86890201c80b94"
+    },
+    "art/sprites/2026-11-07-four-enemy-pose-revisions/references/Wayward Hermetic Spiritspeaker/wiki.webp": {
+      "bytes": 483610,
+      "sha256": "147b21ea1eef4d451db1b90cab94ed9aeb9f49532106dfdc0a684c0ba2f55584"
+    },
+    "art/sprites/2026-11-07-signora-contempt-neutral/candidates/La Signora/neutral-v004.png": {
+      "bytes": 1714959,
+      "sha256": "a2bcadef453d6ac3bd0e8b6874632f83ce4da0b44e6cf4b8362219bf40b492f7"
+    },
+    "art/sprites/2026-11-07-signora-contempt-neutral/raw/La Signora/neutral-v004.png": {
+      "bytes": 1714959,
+      "sha256": "a2bcadef453d6ac3bd0e8b6874632f83ce4da0b44e6cf4b8362219bf40b492f7"
+    },
+    "art/sprites/2026-11-07-signora-contempt-neutral/references/La Signora/wiki.webp": {
+      "bytes": 206160,
+      "sha256": "82b3074804f218c46a295946d314e694c5742b12f577b88b2f672f0582de3db4"
+    },
+    "art/sprites/2026-11-07-signora-crimson-witch-face-perspective/candidates/La Signora/neutral-v003.png": {
+      "bytes": 1450549,
+      "sha256": "734701640aa9be33a1e8460321a986c64889ec5a914fff6b6e3982489161a5ef"
+    },
+    "art/sprites/2026-11-07-signora-crimson-witch-face-perspective/raw/La Signora/neutral-v003.png": {
+      "bytes": 1450549,
+      "sha256": "734701640aa9be33a1e8460321a986c64889ec5a914fff6b6e3982489161a5ef"
+    },
+    "art/sprites/2026-11-07-signora-crimson-witch-face-perspective/references/La Signora/user-2.png": {
+      "bytes": 4330325,
+      "sha256": "d81212c5b661002264cd8391a81bf69c46bc746e3a770cccc768bc454489bb30"
+    },
+    "art/sprites/2026-11-07-signora-crimson-witch-model-only/candidates/La Signora/neutral-v002.png": {
+      "bytes": 1809300,
+      "sha256": "e654bef4adac596d7ffbef87846458238db1f49a15c01c030964e4baef252149"
+    },
+    "art/sprites/2026-11-07-signora-crimson-witch-model-only/raw/La Signora/neutral-v002.png": {
+      "bytes": 1809300,
+      "sha256": "e654bef4adac596d7ffbef87846458238db1f49a15c01c030964e4baef252149"
+    },
+    "art/sprites/2026-11-07-signora-crimson-witch-model-only/references/La Signora/user-2.png": {
+      "bytes": 4330325,
+      "sha256": "d81212c5b661002264cd8391a81bf69c46bc746e3a770cccc768bc454489bb30"
+    },
+    "art/sprites/2026-11-07-signora-crimson-witch/candidates/La Signora/neutral-v001.png": {
+      "bytes": 2153772,
+      "sha256": "a0cc8e680c63bf6779d20dafb4929a105cb1713488d015a124959e011d8eee3d"
+    },
+    "art/sprites/2026-11-07-signora-crimson-witch/raw/La Signora/neutral-v001.png": {
+      "bytes": 2153772,
+      "sha256": "a0cc8e680c63bf6779d20dafb4929a105cb1713488d015a124959e011d8eee3d"
+    },
+    "art/sprites/2026-11-07-signora-crimson-witch/references/La Signora/user-1.png": {
+      "bytes": 1312758,
+      "sha256": "c97cc3324ebfc9c508f1c99f184e4ceb009e72ef27bff91d3013bbcd396919a8"
+    },
+    "art/sprites/2026-11-07-signora-crimson-witch/references/La Signora/user-2.png": {
+      "bytes": 4330325,
+      "sha256": "d81212c5b661002264cd8391a81bf69c46bc746e3a770cccc768bc454489bb30"
+    },
+    "art/sprites/2026-11-07-signora-level-head-neutral/candidates/La Signora/neutral-v005.png": {
+      "bytes": 1732311,
+      "sha256": "38b583234ae0af5b91947c9f4c52a9bf28ec889535481ec9032b6200c0c79bd2"
+    },
+    "art/sprites/2026-11-07-signora-level-head-neutral/raw/La Signora/neutral-v005.png": {
+      "bytes": 1732311,
+      "sha256": "38b583234ae0af5b91947c9f4c52a9bf28ec889535481ec9032b6200c0c79bd2"
+    },
+    "art/sprites/2026-11-07-signora-level-head-neutral/references/La Signora/wiki.webp": {
+      "bytes": 206160,
+      "sha256": "82b3074804f218c46a295946d314e694c5742b12f577b88b2f672f0582de3db4"
+    },
+    "art/sprites/2026-11-07-signora-menacing-neutral/candidates/La Signora/neutral-v003.png": {
+      "bytes": 1804733,
+      "sha256": "82ecf0bfa03887b4b28cbcaf7f408427b39746870d7e61f41be9d811bcd85eb1"
+    },
+    "art/sprites/2026-11-07-signora-menacing-neutral/raw/La Signora/neutral-v003.png": {
+      "bytes": 1804733,
+      "sha256": "82ecf0bfa03887b4b28cbcaf7f408427b39746870d7e61f41be9d811bcd85eb1"
+    },
+    "art/sprites/2026-11-07-signora-menacing-neutral/references/La Signora/wiki.webp": {
+      "bytes": 206160,
+      "sha256": "82b3074804f218c46a295946d314e694c5742b12f577b88b2f672f0582de3db4"
     },
     "character-cards/paimon/Paimon.png": {
       "bytes": 1867116,
@@ -15361,6 +15721,10 @@
       "bytes": 39150,
       "sha256": "26282319053534d831b661be8587f1e224053fc27a4b6cd1183d6e4cada3299d"
     },
+    "extension/genshin-dialogue-ui/assets/tcg/forms/Crimson Witch of Embers.webp": {
+      "bytes": 71872,
+      "sha256": "0317f78adb51087e66c64aae11054adcbd6626a9507989480b7bf841ecd4fc56"
+    },
     "extension/genshin-dialogue-ui/assets/tcg/items/abyssal-summons.webp": {
       "bytes": 45598,
       "sha256": "05988ee9217cbd1117ed8d8f074c161c6853e4c113caa5a88a682163aca105ea"
@@ -16122,720 +16486,1044 @@
       "sha256": "8aee52b9122e5e7d17545497be948fa8bb95de6111439e648b3be7bc59426922"
     },
     "extension/genshin-dialogue-ui/assets/world-locations/aaru-village.jpg": {
-      "bytes": 728511,
-      "sha256": "b7335b247c2fa0279947325be396dc8164fd6a66bb2322160a226abbc0dda222"
+      "bytes": 1342615,
+      "sha256": "35b315aad83f0e10fa1e94f112d451967af8b3d6c8f96476bf7d06b3f685ce68"
     },
     "extension/genshin-dialogue-ui/assets/world-locations/albedo-s-campsite.png": {
-      "bytes": 1546867,
-      "sha256": "b13d375b919628a3956ce33a107e7a9a58ec4482a354f5fdb092bb141a7d1869"
+      "bytes": 3174699,
+      "sha256": "818019526579e2657ff3938576ac70e1cf44378857e743172a16e5794117f607"
     },
     "extension/genshin-dialogue-ui/assets/world-locations/angel-s-share.png": {
-      "bytes": 2677497,
-      "sha256": "19bf33596160578b89a7f5d8673c51071536aeba45223dc60cba8e0cd470ae31"
+      "bytes": 2687494,
+      "sha256": "af03e929027b6bb6d250f121658d9dfddcfd13a6537126488f55394c8305d5f5"
     },
     "extension/genshin-dialogue-ui/assets/world-locations/boss-all-devouring-narwhal.webp": {
-      "bytes": 227442,
-      "sha256": "a2404836ac418ce734ec6f25018de5c9020fab58b2f9a129769de43f23fcf118"
+      "bytes": 2117464,
+      "sha256": "65ffef1beaa8221bbef399b09671f6f47d549fb13e869e91fb434c99ff351987"
     },
     "extension/genshin-dialogue-ui/assets/world-locations/boss-azhdaha.webp": {
-      "bytes": 138180,
-      "sha256": "4447207f729ccb1211211828a12d96c1ab4b904d6d5a22bfa059eb571ec001e6"
+      "bytes": 2043560,
+      "sha256": "13a16ebae76d06fe1ac8706c5fe6dc9db26bb81668587bf51f82f7e438a4fc13"
     },
     "extension/genshin-dialogue-ui/assets/world-locations/boss-cryo-hypostasis.webp": {
-      "bytes": 653336,
-      "sha256": "09356eca2013f70b850848307a5754582cc4d9ff4dc9277f16c9b6e2bb8bc2dc"
+      "bytes": 1879752,
+      "sha256": "dfc9ad9fbebfc695bb848c5f3e9306c52a73b80b8bec52e21a4be9dc68a2327f"
     },
     "extension/genshin-dialogue-ui/assets/world-locations/boss-dvalin.webp": {
-      "bytes": 260472,
-      "sha256": "31314d814906b6ffccfa3cdfcdf715a5080fcbcc547cce011eb7de06f2bf7bfb"
+      "bytes": 1878540,
+      "sha256": "952b3ad425f1061acdcc874269d9353752bcf35d25d1a80130a80a08746d662f"
     },
     "extension/genshin-dialogue-ui/assets/world-locations/boss-electro-hypostasis.webp": {
-      "bytes": 228938,
-      "sha256": "114593e7a1bdc3ce4332240a8b495faf685369c4b9eaf9447a508ace50bdeecc"
+      "bytes": 2111588,
+      "sha256": "bcf1936e8e3b4995021877774930cb7b090bdc2ec0b8a5f9bb779cfc1916a883"
     },
     "extension/genshin-dialogue-ui/assets/world-locations/boss-emperor-of-fire-and-iron.webp": {
-      "bytes": 159540,
-      "sha256": "398a1dc245d76f548f647e304149625eebc9b8c70171e71a83a8875d771a0863"
+      "bytes": 1575350,
+      "sha256": "674e7bac3b8a6a6a76e1d5974ae003ff7e8fd4b76f6661c33ffa42f74c000546"
     },
     "extension/genshin-dialogue-ui/assets/world-locations/boss-experimental-field-generator.webp": {
-      "bytes": 165884,
-      "sha256": "c2bd2903ec4515f0e73ad07cf4d72746714fea3d43427a7bb0c948e35234c4bc"
+      "bytes": 2039952,
+      "sha256": "af6ad2ee0e6b0826535407deaa3225a62d003f619c7126f73f86ce37d2e6f47c"
     },
     "extension/genshin-dialogue-ui/assets/world-locations/boss-gluttonous-yumkasaur-mountain-king.webp": {
-      "bytes": 222358,
-      "sha256": "51c1881ca075c1de50ae19bb53acace617b080483adaaf153237b913f496a254"
+      "bytes": 2004240,
+      "sha256": "387b004a6129fa424d58dee27c603fb749291dacb0074d105f4cc1fd02b650ee"
     },
     "extension/genshin-dialogue-ui/assets/world-locations/boss-golden-wolflord.webp": {
-      "bytes": 95902,
-      "sha256": "eab283d4f3a96baa1ffac481e15b4cf0dc2bb63329e35260c9433f48b59edfdc"
+      "bytes": 1723862,
+      "sha256": "dfdb372605920f2654f2e098aeca3e8daed89c08ad04af8329bc00202ac92037"
     },
     "extension/genshin-dialogue-ui/assets/world-locations/boss-goldflame-qucusaur-tyrant.webp": {
-      "bytes": 360572,
-      "sha256": "5b8f43ad0504f5e816062338fd5e7092547cce947622c09db8a8437a468d97a3"
+      "bytes": 1566266,
+      "sha256": "480673f49395da815c9958a51a182be876b18dc136d38234921a10af8805b565"
     },
     "extension/genshin-dialogue-ui/assets/world-locations/boss-guardian-of-apep-s-oasis.webp": {
-      "bytes": 163772,
-      "sha256": "96813903db173eaa716dd4d02b9cc6ba665079c6c0df20cec4eb26652fa029a9"
+      "bytes": 1823136,
+      "sha256": "ff0195aa2dbbbb5ce5a37d1b60cf4f194bbd0abd063077fdb7e8409f8106fe55"
     },
     "extension/genshin-dialogue-ui/assets/world-locations/boss-hydro-hypostasis.webp": {
-      "bytes": 287374,
-      "sha256": "3550a338a80bdfd3cd825150a498af2a03d052471b075397662f6eda0742f9be"
+      "bytes": 2010256,
+      "sha256": "9d8aa3950e798dca525ba5ed237b11351588aee700e1fe936f4d6252c945f70a"
     },
     "extension/genshin-dialogue-ui/assets/world-locations/boss-hydro-tulpa.webp": {
-      "bytes": 149260,
-      "sha256": "c7daf5f0d82b3d2a5c9fe5d75ede5dc8e48b2ad6a4fce577416ba2d7ab50b321"
+      "bytes": 2146094,
+      "sha256": "cdbf417ea225cac45fb04c0587d5d33ff67f515a0bb884d72cae963d64b462ed"
     },
     "extension/genshin-dialogue-ui/assets/world-locations/boss-jadeplume-terrorshroom.webp": {
-      "bytes": 177744,
-      "sha256": "88d436ab9d8d2c1a5733a6981ffce81dc5999052213f6353970942cd33ca16d0"
+      "bytes": 1775270,
+      "sha256": "e7a7b35f0e36469b39fce851a9a73e0e4a222ede9ed2c88f4a246805fa908bd8"
+    },
+    "extension/genshin-dialogue-ui/assets/world-locations/boss-la-signora.png": {
+      "bytes": 2437051,
+      "sha256": "e6a67672631284619620f32015e6ffb26b6f7ac7efbb5cf6a1c02c315ef2f855"
     },
     "extension/genshin-dialogue-ui/assets/world-locations/boss-lord-of-eroded-primal-fire.webp": {
-      "bytes": 257750,
-      "sha256": "cf9a3feb457087341ff502e095f19aa464d2d1e0e6c9ed36b02c9eb188c67a78"
+      "bytes": 2176564,
+      "sha256": "577c9d057e5c2a6ff1440c1a30003c32b3437f484bec7cb9fedd9558ddc42702"
     },
     "extension/genshin-dialogue-ui/assets/world-locations/boss-maguu-kenki.webp": {
-      "bytes": 159882,
-      "sha256": "e88cd42753a53222438a0219dfd094c44dba60f6c04d6249f2fdddfc5a66b0a1"
+      "bytes": 1862340,
+      "sha256": "a972335409cf726c73ee2b1f5da7c46372c6b2a6b7fe5a1b1e222fd8c7b3da2b"
     },
     "extension/genshin-dialogue-ui/assets/world-locations/boss-millennial-pearl-seahorse.webp": {
-      "bytes": 225386,
-      "sha256": "d2e49c13738cd83c1b3e63f8197d3faa19ddf7477ce0cec8197989241c705531"
+      "bytes": 1833244,
+      "sha256": "fb5b8c3351eeaab6066d747a2e38fe779cc2b94fbbc202c0332ca569f92ba5a6"
     },
     "extension/genshin-dialogue-ui/assets/world-locations/boss-rhodeia-of-loch.webp": {
-      "bytes": 84176,
-      "sha256": "130fe0cb8210e1931bec0321d2e05eab52f3d4667ac42a5fcdc455cc0ed97821"
+      "bytes": 2039430,
+      "sha256": "5e7dce666fba07b7fff48ca8f24d0dfd394039052b6203bbdeb1dd7ab9b25f79"
     },
     "extension/genshin-dialogue-ui/assets/world-locations/boss-thunder-manifestation.webp": {
-      "bytes": 172180,
-      "sha256": "591f3084856740015b770637ca94232368f203f07c16f3a854326126c292bc56"
+      "bytes": 1659188,
+      "sha256": "690706241d3d94deb46132cfe5e7465aaa9834a8235bc1c5d91f61a4b76db6dc"
     },
     "extension/genshin-dialogue-ui/assets/world-locations/bubu-pharmacy.png": {
-      "bytes": 1562202,
-      "sha256": "517c7588c6908df1ee8d57e81fd3ecbf0f27999c46cd464fe24239a3d12a37fb"
+      "bytes": 2961558,
+      "sha256": "efee68b0ad96826a0ada56070a46530b9f043d73b6dde7952f56ea2e4c7b8109"
     },
     "extension/genshin-dialogue-ui/assets/world-locations/central-station.jpg": {
-      "bytes": 612282,
-      "sha256": "d668a1d361a8279cdafa6fa158a3281a84fbe2c780ddbf146ae0a092b5644d5a"
+      "bytes": 1429489,
+      "sha256": "ae896bd8ea1c8c1c5104f0944f4d9609d76439307f35c644950d1d79e9cadcf2"
     },
     "extension/genshin-dialogue-ui/assets/world-locations/children-of-echoes.png": {
-      "bytes": 3033643,
-      "sha256": "ed6c401b7895bbd6f310499ddb8c39ef6405c026041f7131921f8f7da9294f7e"
+      "bytes": 3864592,
+      "sha256": "cbe62105e12a8b7f482e5ceac041f8ee531ab78d256f93cd5a93031703f71c4c"
     },
     "extension/genshin-dialogue-ui/assets/world-locations/chioriya-boutique.png": {
-      "bytes": 2398677,
-      "sha256": "f3b5809bd633bd2ac8eed71f3bffa8fa0bad2119b4ef2caba55f3fb67fa3a647"
+      "bytes": 3947775,
+      "sha256": "b0cd6525135de912594076bb3eb798da34c4f73fcf462f2cbe55b87778df1e0b"
     },
     "extension/genshin-dialogue-ui/assets/world-locations/clink-clank-krumkake-craftshop.png": {
-      "bytes": 2529986,
-      "sha256": "665c2a306bbbf6d99e1cec673684f115e03318e5e9cee40bda8187c81b3e0984"
+      "bytes": 3537555,
+      "sha256": "212277042e33257e0c65163b18630a0b9a4a699eb5c5aff9201c0e81095cec42"
     },
     "extension/genshin-dialogue-ui/assets/world-locations/expansion-ancestral-temple.webp": {
-      "bytes": 347864,
-      "sha256": "3ecad8f6f96094ab13c18213a98faab3ab58afb42678ab7fe2513b340dd9d946"
+      "bytes": 2392086,
+      "sha256": "253dc59aafb94a7769ce2e503a7e2862352ec478dd3164296c3c1469dd3ab492"
     },
     "extension/genshin-dialogue-ui/assets/world-locations/expansion-asase-shrine.webp": {
-      "bytes": 3296154,
-      "sha256": "02399c4c3e4a3ad2f4da395a571303f4a8954263b8781e5352bccef2e9f9d827"
+      "bytes": 2634888,
+      "sha256": "fa87520235541b38022eca7ec1bdf8d516433b740db1c5c9f97ba8620be26436"
     },
     "extension/genshin-dialogue-ui/assets/world-locations/expansion-caravan-ribat.webp": {
-      "bytes": 337616,
-      "sha256": "94232a729719ff611318be6748821778ef5b5d820c6fbd0bc1e31e215aaed2a5"
+      "bytes": 2455916,
+      "sha256": "698447b4a5a4e6fc8902fd2f5ba61c40fe7a64dba7b0d1a7fa986d070075dab4"
     },
     "extension/genshin-dialogue-ui/assets/world-locations/expansion-central-laboratory-ruins.webp": {
-      "bytes": 320752,
-      "sha256": "fd075a0312285116500b68f07923b8c82da5596662f02ed461eae20c9e00e1dd"
+      "bytes": 2229052,
+      "sha256": "d913991e241e30e3cf56a28e79afd0f45e0f4c5d85ecbc0111b1c4263109cc5f"
     },
     "extension/genshin-dialogue-ui/assets/world-locations/expansion-chinju-forest.webp": {
-      "bytes": 418602,
-      "sha256": "1b2a275eb0e04f63798e8c1405a869279383f8fffa9b151e1fbbd1cbc2ab2cef"
+      "bytes": 2907810,
+      "sha256": "b13960696916f7d19a096c64f170ff3787191479851e4b19fb3cefca67c2f969"
     },
     "extension/genshin-dialogue-ui/assets/world-locations/expansion-cuijue-slope.webp": {
-      "bytes": 226466,
-      "sha256": "418727a0ce5c72433b6b21963cf7ad72edf0a7d29b6d6811195f689c9ededddd"
+      "bytes": 2603396,
+      "sha256": "0814a45e4caf55f3afd2c87c57ad4bbe715f627b416fbbab0d2e033d6c9eb530"
     },
     "extension/genshin-dialogue-ui/assets/world-locations/expansion-dawn-winery.webp": {
-      "bytes": 281526,
-      "sha256": "768ddf37a82713abb6c9512c24db520734ac3cfa0952098c66d49954f6564ea1"
+      "bytes": 2533216,
+      "sha256": "afb04b6c28dca5f8edabe0fc64d66191ee6e542496c78e1cae9e186d8271ed77"
     },
     "extension/genshin-dialogue-ui/assets/world-locations/expansion-dunanna-forward-station.webp": {
-      "bytes": 170820,
-      "sha256": "bac49a9f5284fd710bb1031282fc414b7f112c0469c58c00a624ab8e5b95288b"
+      "bytes": 2369164,
+      "sha256": "dd64ef69ec5c2e90cc64b02272dfdfbd0318578fdda966f75875f0845e38a107"
     },
     "extension/genshin-dialogue-ui/assets/world-locations/expansion-easybreeze-market.webp": {
-      "bytes": 427204,
-      "sha256": "882ee33ccdcaf638506f2aa969c4a8087247aecaf510f8399ad33b620363c838"
+      "bytes": 2405276,
+      "sha256": "f2ad51cf1a5bc7c5b87ddd9a42ef45182a4e947a152588f1fabe525b4e904b94"
     },
     "extension/genshin-dialogue-ui/assets/world-locations/expansion-firethief-s-secret-isle.webp": {
-      "bytes": 423802,
-      "sha256": "222c7df518b6addc59f274dec316f05ed5d4ba9c8a960e55e3e7776de9c68b35"
+      "bytes": 2343224,
+      "sha256": "87d8a5f3e532d4939349512dfc398f0ac6c22f2b83db61dcd8aa426a6ca897ab"
     },
     "extension/genshin-dialogue-ui/assets/world-locations/expansion-guili-plains.webp": {
-      "bytes": 386994,
-      "sha256": "935dd8a4b6e51175b4d8a0073db6616e11ace28f441ab9e5cd872dabff92a1df"
+      "bytes": 2506272,
+      "sha256": "01bb81a79f5e21d943dd13ecf3a8d91c9bc0409141a0c4739a2c96ff31f5f667"
     },
     "extension/genshin-dialogue-ui/assets/world-locations/expansion-house-of-hesperides-overlook.webp": {
-      "bytes": 284512,
-      "sha256": "3c539ce020e8b68b02d59fc58b0039aa27ae1b7d8a53d1fa7226af1738391e7f"
+      "bytes": 2053462,
+      "sha256": "b7119743744e20634a39b5db03ffb4513bcdfd77cf950e7cc6e9fc8e0a38f928"
     },
     "extension/genshin-dialogue-ui/assets/world-locations/expansion-jueyun-karst.webp": {
-      "bytes": 172230,
-      "sha256": "2db36fe43efd21fd642c3dce8745da333172641fb6f5909b99c99aef15848d38"
+      "bytes": 2467714,
+      "sha256": "4d9e4a8d3988e99fd27a0449a26dc62d4b5f7aed26cb9ebd884baaf7bace7153"
     },
     "extension/genshin-dialogue-ui/assets/world-locations/expansion-kujou-encampment.webp": {
-      "bytes": 383350,
-      "sha256": "9a374a51baf98936761dbeb589358d1263f500f7230a5b8c87f0dc8a7359081d"
+      "bytes": 2255140,
+      "sha256": "0e07488a1296e9e21e78c4269ee280ae0323b43c0180e8aef3580ebdc3f60792"
     },
     "extension/genshin-dialogue-ui/assets/world-locations/expansion-luhua-pool.webp": {
-      "bytes": 363958,
-      "sha256": "928d4b64f348243a82e658b73e81ac8459eb4a6db847a62c2417dab938fa2e9f"
+      "bytes": 2633542,
+      "sha256": "20e8e4c313bce99a1fb6eb2398a519aacf9dcbe54c38e51062a9cf14d21829d8"
     },
     "extension/genshin-dialogue-ui/assets/world-locations/expansion-maroon-basin.webp": {
-      "bytes": 118550,
-      "sha256": "d3fd375d75710d00a409bf8a14c85b83e5415574fbf581d0831e96eded9631f4"
+      "bytes": 2068834,
+      "sha256": "13ae77f915b00f39baccd20a5f4307b0310521067d730dd574ffc21d2efd000c"
     },
     "extension/genshin-dialogue-ui/assets/world-locations/expansion-merusea-village.webp": {
-      "bytes": 247178,
-      "sha256": "5de53b6ed8f7e8cf2bf443e4dcbb514a9e376a8e7ea71f356c049c873dfccf5c"
+      "bytes": 2443878,
+      "sha256": "194c65dddd9dd09a938e06b42f07e731f881f553431f65c23484ef2a7a4b8206"
     },
     "extension/genshin-dialogue-ui/assets/world-locations/expansion-nazuchi-beach.webp": {
-      "bytes": 148440,
-      "sha256": "61167ef51c4f766c5b4d171bfeab49debcf3ce79d040ba283b7672a50b7ba3fa"
+      "bytes": 2074188,
+      "sha256": "250a0d5a4a33b7e87fb5d7e3d6a9823e010942ea2985eeb570656e7111575fac"
     },
     "extension/genshin-dialogue-ui/assets/world-locations/expansion-ochkanatlan.webp": {
-      "bytes": 133058,
-      "sha256": "a981df3252c482cd8745481cfd8ab3756d4a2cfb409f30d9a5614b2f0693cfaf"
+      "bytes": 2105238,
+      "sha256": "563106ce66ae883b46aceb94c94599d3564ccfdb525a83bb54caf48d128d8052"
     },
     "extension/genshin-dialogue-ui/assets/world-locations/expansion-petrichor.webp": {
-      "bytes": 1581490,
-      "sha256": "0c005c4914c4430992eb6b085e39e93773d00b204d69a8ec1354f2e34f5405a8"
+      "bytes": 2559210,
+      "sha256": "2a3a7691c2b66213268714ab98fb94c00a096ee2c9d5161f66252ce901f558df"
     },
     "extension/genshin-dialogue-ui/assets/world-locations/expansion-pillar-of-embla-overlook.webp": {
-      "bytes": 249636,
-      "sha256": "3bf0a36981b3d2565bf3f90dc3b7ee98b17cfc77deba0d7a132a1af1b2aa3fbb"
+      "bytes": 1936460,
+      "sha256": "d94a73a89426cbef86241198c7037b751ba3ae1feaa46913f2ae7f7b96a65c80"
     },
     "extension/genshin-dialogue-ui/assets/world-locations/expansion-qingxu-pool.webp": {
-      "bytes": 211064,
-      "sha256": "cf4a58ccf84b899783c568ff6c259f77f958cacc58ba7a955ef98a1661f7f06e"
+      "bytes": 2491002,
+      "sha256": "17ede2f0146d33952fc6f772e10b9781ac7d879e22b9245b5198797f91f6331d"
     },
     "extension/genshin-dialogue-ui/assets/world-locations/expansion-rankova-zorya.webp": {
-      "bytes": 201604,
-      "sha256": "918f521809ff54d332d099fa5c370775b57c98a5671495aedbd28e7544ad8f3d"
+      "bytes": 2347372,
+      "sha256": "2b9272e29f8526d6fd5d737189bc537d52c57a5ed705c1738768c2a7a0acc079"
     },
     "extension/genshin-dialogue-ui/assets/world-locations/expansion-ritou.webp": {
-      "bytes": 393986,
-      "sha256": "ce852b77b425092b2fc7de9d9598f1cb4f4a376bc22369ed4a47e89d809ff3cf"
+      "bytes": 2583854,
+      "sha256": "35c8d6e8554a2a85e0969fdce7b596c8945720bbfa8826c4ea669870330bbe59"
     },
     "extension/genshin-dialogue-ui/assets/world-locations/expansion-seiraimaru.webp": {
-      "bytes": 341284,
-      "sha256": "870f6fa11ec9e7d25e9ecc2eafaf46cb3566c606ada72866c6f311caad565fac"
+      "bytes": 2221352,
+      "sha256": "85381997e41f3dec6e7237a6b08868126f1d7233f50bb1eeb36a23158a285b9b"
     },
     "extension/genshin-dialogue-ui/assets/world-locations/expansion-springvale.webp": {
-      "bytes": 587038,
-      "sha256": "35621394b06124c7aeda4dbb84bbdaa03af35b5da36aaf78873aad8e40dafa7a"
+      "bytes": 2561712,
+      "sha256": "9eb94180b3f9e335da30097bca78f28f474b7edf6b5dbcdc351cab82ea025700"
     },
     "extension/genshin-dialogue-ui/assets/world-locations/expansion-starfell-lake.webp": {
-      "bytes": 328826,
-      "sha256": "eabbb0610b62277c259001c1729714300d46b9948798bc2c19cdddde09e0c54c"
+      "bytes": 2255248,
+      "sha256": "893710928ba0ecc7571a6573bc3ec8c07969655cc829b65b200548581bba56d8"
     },
     "extension/genshin-dialogue-ui/assets/world-locations/expansion-stormterror-s-lair.webp": {
-      "bytes": 633518,
-      "sha256": "fd7a5dea286b45707ae9cd5ddc6ce96619661482aa685b9a6833dd6d7aafa673"
+      "bytes": 2848684,
+      "sha256": "8c572c2d4b1363bc23370a668187498ff087bfa6f17ece0fd6b44be9df7d7e44"
     },
     "extension/genshin-dialogue-ui/assets/world-locations/expansion-tanit-camps.webp": {
-      "bytes": 797594,
-      "sha256": "7f5cf386af07ffe2fe7cf184de764f79073a1f5a8fc490ab2b26b22cc9f8ad38"
+      "bytes": 2066092,
+      "sha256": "4738ff2eb699f844d597b50957369b8a3578dfa5fcd00714ffbaf78b72d2851b"
     },
     "extension/genshin-dialogue-ui/assets/world-locations/expansion-the-korolevskiy-theater.webp": {
-      "bytes": 374266,
-      "sha256": "5da1afd054c957ef1640f86517aa00d88978d3274ba3b0fb28375bd430d4ea2b"
+      "bytes": 2385292,
+      "sha256": "16909985b87551ec2ea1d489db35ba352e9db89090a1b99d7f85955ab85622ef"
     },
     "extension/genshin-dialogue-ui/assets/world-locations/expansion-the-mausoleum-of-king-deshret.webp": {
-      "bytes": 235532,
-      "sha256": "f78f1fb1208587ee7cec34aa52da5c98dbebc95560c3ce4bdd0ea4ab2903418e"
+      "bytes": 1995296,
+      "sha256": "db775fcc1a20c2859b6188441f9d191de35385598afef1376e654a0f32b9d834"
     },
     "extension/genshin-dialogue-ui/assets/world-locations/expansion-the-rusty-rudder.webp": {
-      "bytes": 271316,
-      "sha256": "4915a39ca970153cd1d63772ab7014384ede3d08235a64b74e4aab62a03bd23e"
+      "bytes": 2082844,
+      "sha256": "398fccce8053999e57815a3461c4d18a0013fdb66c71875513ab5c149e90d3a5"
     },
     "extension/genshin-dialogue-ui/assets/world-locations/expansion-the-witch-s-garden.webp": {
-      "bytes": 362714,
-      "sha256": "436bc9f656d26b6b17dbc7bcd36f0fb7c3142977ff2f2f824e626442d8f1a583"
+      "bytes": 2622148,
+      "sha256": "0e53372e4733a2aa4fc8ba149f2e6eff11ce4eaa78f0dd0526f77450f3e7687a"
     },
     "extension/genshin-dialogue-ui/assets/world-locations/expansion-tidesong-cavern.webp": {
-      "bytes": 116046,
-      "sha256": "7c9d290cd9c0bde0a6dc30f28ec2629d391a89d9857b0dc9ef66569f7306cbba"
+      "bytes": 2051162,
+      "sha256": "122c732ca99ee58e83520b979a1112be83cbd36a077830f4f812f53e71b7f9eb"
     },
     "extension/genshin-dialogue-ui/assets/world-locations/expansion-underground-research-center.webp": {
-      "bytes": 130234,
-      "sha256": "409338d792a0d53e2d717afd7ef198beb5a43f5d5544da91990f681818429a66"
+      "bytes": 2009428,
+      "sha256": "4ec6b2814ca2b3c83b216027c10478329fcabde2fef409a9866964217432d040"
     },
     "extension/genshin-dialogue-ui/assets/world-locations/expansion-vanarana.webp": {
-      "bytes": 393002,
-      "sha256": "f2b003e76bd78275caf4e5d16c6f7f90be39176ea985b5b0aaba16873ea35526"
+      "bytes": 2782156,
+      "sha256": "6d123b1e2dfad016cc40d64ca0dd737e5fe93877217de612106f60142de1fbee"
     },
     "extension/genshin-dialogue-ui/assets/world-locations/expansion-vourukasha-oasis.webp": {
-      "bytes": 142658,
-      "sha256": "962d4a2fbec737c867e5b32183298e9553f6d72a88de8264d25b82dd5ba015e2"
+      "bytes": 2351734,
+      "sha256": "7d09b2bcc1623bd94137d853a0ab9c7e9bc063ad72d1b19c4358215799b24287"
     },
     "extension/genshin-dialogue-ui/assets/world-locations/expansion-wavey-bay.webp": {
-      "bytes": 426800,
-      "sha256": "21ace7aab16bf78c84e01285ef41513dd2839a6c9f270ef5a8ee6a7e281fc15b"
+      "bytes": 2608634,
+      "sha256": "1daaf18faf102be207bb86db4e2dfd1cafe9762c48722bfa3c1cf542a100141a"
     },
     "extension/genshin-dialogue-ui/assets/world-locations/expansion-weeping-willow-of-the-lake.webp": {
-      "bytes": 1068690,
-      "sha256": "e93ce3eb19fa302d420e2ba23dba3c230ab3579c13e41b8b75980c16d5ffe5fc"
+      "bytes": 2857908,
+      "sha256": "8823f865b9780cdbfd8a23582f2c67cff6eacc00468ed58300fb24cef2e8f604"
     },
     "extension/genshin-dialogue-ui/assets/world-locations/expansion-white-birch-snowgrave.webp": {
-      "bytes": 333014,
-      "sha256": "45f33dbd4b494f7d2a85720f6fe1dc2e7c28b75e9ee83485812229aecd3271fa"
+      "bytes": 2245742,
+      "sha256": "87fb50150c361d9d83936e3728ca4441f95e51b4c7afc5a696844f53ff6e0030"
     },
     "extension/genshin-dialogue-ui/assets/world-locations/expansion-windrise.webp": {
-      "bytes": 472010,
-      "sha256": "f61831a0e2de19199eae0a6d1cb5f2495211c5e5aa1a4b442e4093521caa96b8"
+      "bytes": 2706564,
+      "sha256": "a58b4479c1281c785276eb7acd23997de517576d70056e9482d65c8c1caea0a2"
     },
     "extension/genshin-dialogue-ui/assets/world-locations/expansion-yilong-wharf.webp": {
-      "bytes": 342264,
-      "sha256": "af4fc36adf7cda30053d2f72ee3f77ce7ce73d14e09ce349589afab733fdeda5"
+      "bytes": 2231466,
+      "sha256": "dd8e36fb3708c1388e39cf005fb0984d16a92cbf19c4e6d841997cac42c9cd0f"
     },
     "extension/genshin-dialogue-ui/assets/world-locations/fellfrost-ice-gorge.jpg": {
-      "bytes": 373206,
-      "sha256": "ac2785a91e327e16dab722bb35b6c88a0ad9b01335adb4f1ffd282e6f3891e97"
+      "bytes": 1162184,
+      "sha256": "0907c62d6066da537f7ade68295fbbb04f2664bf0b7ef2e245bbbeb91dafbbb8"
     },
     "extension/genshin-dialogue-ui/assets/world-locations/final-night-cemetery.png": {
-      "bytes": 4172296,
-      "sha256": "cc5631ec8217d249929f64ae70167826ce755c1b6c18cf692092e63af8c9b03d"
+      "bytes": 3202588,
+      "sha256": "cdadd1d7271efe888dad44b2004a453c4663991166005862b69e067e7a7efa52"
     },
     "extension/genshin-dialogue-ui/assets/world-locations/flower-feather-clan.png": {
-      "bytes": 1616732,
-      "sha256": "a534e645be3e70644ba19788b94587084e7000182ea65ab9735b01e72b036a37"
+      "bytes": 2976747,
+      "sha256": "0093d941f14679c398a1478e7c7541a64fae62ecfd35c597fb6b1dac833df19c"
     },
     "extension/genshin-dialogue-ui/assets/world-locations/fontaine-elynas.webp": {
-      "bytes": 147094,
-      "sha256": "96b789f1242b155e124dc3c10bf2e60f18648e5ff8e9d2249f5d7ee2655b65a7"
+      "bytes": 2267400,
+      "sha256": "58ec9870657909b791915348ebe36923a0dabf2d81ff0570da199ff0e2cd1645"
     },
     "extension/genshin-dialogue-ui/assets/world-locations/fontaine-foggy-forest-path.webp": {
-      "bytes": 213270,
-      "sha256": "3b3a018bc842b3c5f6ee4efe7812557469fbc02812cadc925ed0ff372813903d"
+      "bytes": 2487574,
+      "sha256": "7f5542fe9e98491feccafb71e379bd8b2efc878babb1cfe598ec3c2a90f8619b"
     },
     "extension/genshin-dialogue-ui/assets/world-locations/fontaine-fort-charybdis-ruins.webp": {
-      "bytes": 139250,
-      "sha256": "8932e556a06761557fd75cc5b112da2f71e09ab3eba7df45d791e8f93a577a8c"
+      "bytes": 2349940,
+      "sha256": "26dfd06303b13f8d6283ed9225364097143ea858c79cc930728fb6c19252aafd"
     },
     "extension/genshin-dialogue-ui/assets/world-locations/fontaine-lumidouce-harbor.webp": {
-      "bytes": 373866,
-      "sha256": "9849fa87662ca9edeb684403ce1255db60aa6045dfc12dacb694c854cf7da99b"
+      "bytes": 2502650,
+      "sha256": "45a822953365366315a458451b7ac23293e39dcd9d0cead5ffe4bc7eda2520cf"
     },
     "extension/genshin-dialogue-ui/assets/world-locations/fontaine-salacia-plain.webp": {
-      "bytes": 364120,
-      "sha256": "df1564fdaf8a397a635aada725f0f890ecf39ea4800ddbf2deb63b1f7094b153"
+      "bytes": 2647786,
+      "sha256": "d2df175b147623f43fa56151ca905da560c037a8a45b2bf9f95eeb1674cfbc00"
     },
     "extension/genshin-dialogue-ui/assets/world-locations/fortress-of-meropide.jpg": {
-      "bytes": 1420563,
-      "sha256": "61813853e4b46f323bb4760fde57bff3fc7c53437a985f05e3da23e314afbf51"
+      "bytes": 1363243,
+      "sha256": "70f24cc5a37514bc8b65e8a26111e134406b53396022f29767d1240b926e503b"
     },
     "extension/genshin-dialogue-ui/assets/world-locations/frostmoon-enclave.png": {
-      "bytes": 5670676,
-      "sha256": "d9af34f1fe8195441d12561584acffb52e40abe593652120af6c6e7a714e1dfa"
+      "bytes": 3351639,
+      "sha256": "dc31f59213847b348dc36cab67304545709c696b0ea09dd34338337459cf76ef"
     },
     "extension/genshin-dialogue-ui/assets/world-locations/gandharva-ville.jpg": {
-      "bytes": 401210,
-      "sha256": "638b1aeb0c328de3c0189f14782ee9755e5f518fb736fae96a1696a4aaa03e27"
+      "bytes": 1292317,
+      "sha256": "c732c3c4ba5a5e36a185c5916198fe1ba09bc88770650063a459862bc1ec0a7b"
     },
     "extension/genshin-dialogue-ui/assets/world-locations/grand-narukami-shrine.png": {
-      "bytes": 3253101,
-      "sha256": "c8cad2c7ade101291755a9acf3500f85d262e4570e328e03c63ac3455fcc1ffa"
+      "bytes": 3882947,
+      "sha256": "be7549928ec613a9cb5822bcb545bab0501536ddaedc670b80cbda6278edf7b6"
     },
     "extension/genshin-dialogue-ui/assets/world-locations/guild-court-of-fontaine.webp": {
-      "bytes": 230114,
-      "sha256": "d04435447378e50647b759a22fe38a2b1f9112fefe816b7778d840fef9b1f914"
+      "bytes": 2362888,
+      "sha256": "985472ec27d067d79418627388d586fccc9c945c6d6d52c2bb2f364751616732"
     },
     "extension/genshin-dialogue-ui/assets/world-locations/guild-inazuma-city.webp": {
-      "bytes": 189940,
-      "sha256": "b3fa22e6561e82ce370ab4aa322bc0c57cb1b55a559261257f7f98585c731bdb"
+      "bytes": 2154250,
+      "sha256": "f1304048d539de2805b8096b94300429557adb55b8266adc018e43487a2a24a5"
     },
     "extension/genshin-dialogue-ui/assets/world-locations/guild-liyue-harbor.webp": {
-      "bytes": 314568,
-      "sha256": "697e8c491faa2f690506db786556ad49116e2271e45b422a7d964ef975554574"
+      "bytes": 2680064,
+      "sha256": "ab8e37e55b62fe2d9c60411c65f2676f423c9131b608173b2305f1618660c3e0"
     },
     "extension/genshin-dialogue-ui/assets/world-locations/guild-nasha-town.webp": {
-      "bytes": 301356,
-      "sha256": "3b49eecf19630054076016ee8a3aea69bf035c261e5f1829695df7b18b34e0a5"
+      "bytes": 2432380,
+      "sha256": "b33eb6337fc6e38cfb3c1a1987d997a74e68245965c690fd4ad54ad95dbaac2d"
     },
     "extension/genshin-dialogue-ui/assets/world-locations/guild-stadium-of-the-sacred-flame.webp": {
-      "bytes": 209500,
-      "sha256": "702756f6670395bdb4c8c1f1bbdac469a55e36087b958acaf2cac32c0153c2a3"
+      "bytes": 2185580,
+      "sha256": "26ffb389f375a9f0049f807c3c8fa5975368ec23c31cd6e4a7d3aa4700b6f18a"
     },
     "extension/genshin-dialogue-ui/assets/world-locations/guild-sumeru-city.webp": {
-      "bytes": 366064,
-      "sha256": "340885635dd26ede0e3bf19b7010d5fdcc4c8a6ddbc5cb605b5c791242c8db0d"
+      "bytes": 2580282,
+      "sha256": "83fb0f5efb67d6840ad929404ce4f48e2ccab0e686913ca59d3b7c4459e8e898"
     },
     "extension/genshin-dialogue-ui/assets/world-locations/home-aisa-bathhouse.webp": {
-      "bytes": 103298,
-      "sha256": "262709f5698bf0a12691e597fa055d4b6948cc090a66bbd448e421ff0ac1056b"
+      "bytes": 2516870,
+      "sha256": "9d44b5085195f0794625a52c88e8ebf84c3473a23d4692adcf11fd4ef59c0476"
     },
     "extension/genshin-dialogue-ui/assets/world-locations/home-citlali-home.webp": {
-      "bytes": 603738,
-      "sha256": "401638891c09f014ca08fc1069989f4a9d83f49fa0d494601bea4e327bc158f5"
+      "bytes": 2441040,
+      "sha256": "146930f8af8cb969ab7e6ebf041628a939a9a8d5f387a937bc036a3b25cd63e4"
     },
     "extension/genshin-dialogue-ui/assets/world-locations/home-collective-of-plenty.png": {
-      "bytes": 2192572,
-      "sha256": "4671e28c4de5d35b05e625048ea4bdf1746630693abbca762082004d40dfdb32"
+      "bytes": 3897313,
+      "sha256": "4678377aad1057852e95459ffc9343e81819b50f78390a045adb25cee0fa634e"
     },
     "extension/genshin-dialogue-ui/assets/world-locations/home-druzhna-hq.webp": {
-      "bytes": 488984,
-      "sha256": "1829ed6becf72f4fb480bb40b8434d16dbdeb8f814bb7081448619f95afa3007"
+      "bytes": 2294772,
+      "sha256": "b3b0ae347243c7ec3a88b5f63a07919f8aa2dad7fedd4531f2634d307499be47"
     },
     "extension/genshin-dialogue-ui/assets/world-locations/home-emilie-perfume-shop-vasari-passage.webp": {
-      "bytes": 1705506,
-      "sha256": "e838596ba2bf89541bd98d026e0fb34ab11bc399cf2c91921af9602e89c63902"
+      "bytes": 2788848,
+      "sha256": "0290d4b71684e846f46b7acf3f53ab64e4a4777cdd829d09313dae0d21246c26"
     },
     "extension/genshin-dialogue-ui/assets/world-locations/home-favonius-cathedral.webp": {
-      "bytes": 120798,
-      "sha256": "d5500a2ef90b44544e2d6122efac2cf440cd76eab332c47833e59b401144ad98"
+      "bytes": 2281832,
+      "sha256": "b97893361221fe81a44ba14a3a2cb45963c5d8c3d1b36587aff8585b235652fa"
     },
     "extension/genshin-dialogue-ui/assets/world-locations/home-feiyun-commerce-guild.png": {
-      "bytes": 3057739,
-      "sha256": "5edfba63cb18ec180f738bec768791d355a9376104a17502dd09a9067ccd5384"
+      "bytes": 3101022,
+      "sha256": "6339aec3382562ea0fb6d72f789269059ceb14e264e357a1056c16dd4be77f8a"
     },
     "extension/genshin-dialogue-ui/assets/world-locations/home-hanamizaka.png": {
-      "bytes": 1739764,
-      "sha256": "c0395f265ab4bb696426a88ecbcd6a637986149aec145c9f06293a7bf9fc82d6"
+      "bytes": 3810183,
+      "sha256": "0883dea7357e69ad130f2e0edc8dfd0de2b7cac6457fc7d1fd57999b742c0663"
     },
     "extension/genshin-dialogue-ui/assets/world-locations/home-heyu-tea-house.png": {
-      "bytes": 3057739,
-      "sha256": "5edfba63cb18ec180f738bec768791d355a9376104a17502dd09a9067ccd5384"
+      "bytes": 3537140,
+      "sha256": "ed101a838374ee9303ebd835490416f07fc3e5b6ecbf3c87c000dafd1d1a0f3c"
     },
     "extension/genshin-dialogue-ui/assets/world-locations/home-hotel-bouffes-dete.png": {
-      "bytes": 2216478,
-      "sha256": "9a704750ba240a08c6eaeefe736ed0d0634a2bfed4a90b25a1503145fb5def46"
+      "bytes": 3597302,
+      "sha256": "96b54e2c639a157a9a530b5018eefd1160e07a7941fe3c7541d78c0ab7ee1fd4"
     },
     "extension/genshin-dialogue-ui/assets/world-locations/home-hotel-debord.webp": {
-      "bytes": 107372,
-      "sha256": "41535de43873a26f51216f8dbfb9febde40150c5374578b816bb4033e192b7d1"
+      "bytes": 2287472,
+      "sha256": "4b2fdf53dba68da19f7da9367c3546e0b81a49c2ca0f26978ce206a7bd52db77"
     },
     "extension/genshin-dialogue-ui/assets/world-locations/home-inazuma-city-courier-meet.webp": {
-      "bytes": 144808,
-      "sha256": "2632f34d4b2c1fbb32c3f715f17a247da610896057b2c563bf08701ce6180605"
+      "bytes": 2909010,
+      "sha256": "bf5033bacce867f6fb7fb5a04cc200b9efec2312d7018fb3e45f91f86abe0a97"
     },
     "extension/genshin-dialogue-ui/assets/world-locations/home-knights-base-dornman-port.png": {
-      "bytes": 3879444,
-      "sha256": "8ca4b0ad5e5dde69a04b980346e8c1d1f917fd74e0ceaedb277c507e90bee7ac"
+      "bytes": 4212779,
+      "sha256": "d77030a17bb05d99c014eb4fd034958b80517cae160222eeb7dc6fb18eb5cb9c"
     },
     "extension/genshin-dialogue-ui/assets/world-locations/home-mona-laboratory.png": {
-      "bytes": 2933098,
-      "sha256": "621b409d5861299b8b570bac63d07c076f0ef5d06440c6be2c413cafd1bd1d7d"
+      "bytes": 3973531,
+      "sha256": "87536a48d7809a413e2c9df086cba8678514eca9b4e6c4f1b2968f0e963acd88"
     },
     "extension/genshin-dialogue-ui/assets/world-locations/home-mondstadt-adventurers-guild.png": {
-      "bytes": 2615318,
-      "sha256": "5f5918a5eb19bae4b4ca0a59fa6cda6376d43832e8ffe5c04bfeda3c9d6350a5"
+      "bytes": 3675360,
+      "sha256": "9d2ec0f8f985fb98d348470fcdd5b5921b7ed6caa65fbccc7dd4e8fb373f2923"
     },
     "extension/genshin-dialogue-ui/assets/world-locations/home-naganohara-fireworks.webp": {
-      "bytes": 118880,
-      "sha256": "0aec5209857caac09b3c030480c022d3e7f231db482a835639c805f552339165"
+      "bytes": 2509766,
+      "sha256": "8f5e7e22aa34a8c38ff22e6b80abfb9acef1067141bc7874e7d549a01866299f"
     },
     "extension/genshin-dialogue-ui/assets/world-locations/home-new-fontaine-research-institute.png": {
-      "bytes": 14094049,
-      "sha256": "ea6163db75e3cbd0fd33d7dee1e298ac24db94d8bfe10430462f5c7605b5a914"
+      "bytes": 3642776,
+      "sha256": "93add3a78c71e8cc01a2ff639f5b4edccdb45f380e5771e200dac987e887a533"
     },
     "extension/genshin-dialogue-ui/assets/world-locations/home-ororon-masters-night-wind-meeting.png": {
-      "bytes": 3361934,
-      "sha256": "a5446be405102a9c2ea0d99c02053770c18298b22a47e651186dd5a5f9d7209d"
+      "bytes": 3340546,
+      "sha256": "0e182efac83e1170d33039d61b2e86c05562ed3fb967b786cf0d97c76b2eb40d"
     },
     "extension/genshin-dialogue-ui/assets/world-locations/home-palace-of-alcazarzaray.webp": {
-      "bytes": 287784,
-      "sha256": "b20ada283b09bc7b456f0fa3d54342450ede48a51922be9cbbcb3cf16b67b6d1"
+      "bytes": 3037130,
+      "sha256": "627c1434f83a0c87be72decc3e7c7f16a3d6d5963e2bfd0bb5ee3ffc8687b4c9"
     },
     "extension/genshin-dialogue-ui/assets/world-locations/home-piramida-lightkeeper-fortress.webp": {
-      "bytes": 169218,
-      "sha256": "c42344bbca270601f982901ffd67c0d02cbd630c49e0b76c65176754dd8dd2b3"
+      "bytes": 2407170,
+      "sha256": "1a785f414160b47ea64b175bcba71ffed80987d2281f7f4adcab0363bcb35a6a"
     },
     "extension/genshin-dialogue-ui/assets/world-locations/home-prune-mondstadt-fountain.png": {
-      "bytes": 2615318,
-      "sha256": "5f5918a5eb19bae4b4ca0a59fa6cda6376d43832e8ffe5c04bfeda3c9d6350a5"
+      "bytes": 3844181,
+      "sha256": "77667e463df9d2ccc201aa9dbdb2d5d204540891b325cafa2ed946b8eb6b8a36"
     },
     "extension/genshin-dialogue-ui/assets/world-locations/home-qiaoying-village.webp": {
-      "bytes": 1811554,
-      "sha256": "8690c4b35033949d218866b2b635921ef85d8c545325bb6daf39e3b3121c05ac"
+      "bytes": 3092252,
+      "sha256": "e453409540ea5cfec37a2f8020cc33762775f1e7a5ee53c3baf4a59d97578ea5"
     },
     "extension/genshin-dialogue-ui/assets/world-locations/home-temple-of-silence.webp": {
-      "bytes": 995754,
-      "sha256": "83914b9f2eb21d927029284ebc4198c5e5080ef54309ab6719cc2a89ac4342bb"
+      "bytes": 2460888,
+      "sha256": "5ec236c0c16360757ffd773a86f56ccf3f9d9daea17942508132868f4f35779e"
     },
     "extension/genshin-dialogue-ui/assets/world-locations/home-tenryou-commission-headquarters.webp": {
-      "bytes": 493716,
-      "sha256": "2cffa2563d84d495c3e7baa3258b9363c0a2708ff8fe516e4751ac0abe793bd9"
+      "bytes": 2761334,
+      "sha256": "563958c7803d0e90dc5b99d814213df2a5d6061643fa357389d8e54da48e0537"
     },
     "extension/genshin-dialogue-ui/assets/world-locations/home-the-alcor.webp": {
-      "bytes": 53402,
-      "sha256": "d0373d0519dbee73cd9f2d9f2b8b077b85bea18715fbc697a22293326ce3f6bb"
+      "bytes": 2379966,
+      "sha256": "069815ea6cb50e9f306be84ed6408b9a6f1f60edb40d56717aab6929240ee27a"
     },
     "extension/genshin-dialogue-ui/assets/world-locations/home-the-steambird.webp": {
-      "bytes": 124456,
-      "sha256": "713b6d7c5356919c426a56d6c3997b58e4f51a3e5e81180bb47857b3daea34ac"
+      "bytes": 2346586,
+      "sha256": "d6d23295b34078ae8315a50b42dd7d257dca2cfcb4bdd2f746674fa628eb1e83"
     },
     "extension/genshin-dialogue-ui/assets/world-locations/home-travelers-cove.webp": {
-      "bytes": 94872,
-      "sha256": "32f7427005bbb43e2de3c05ef3a440146bf7da9951e7f8ef2b4c7bdb6be5e5c8"
+      "bytes": 2080922,
+      "sha256": "fcf609d6ac1e25d82331c9a6aa2522c0bf23adfecffb1ce60b62ab610e94ff31"
     },
     "extension/genshin-dialogue-ui/assets/world-locations/home-wolvendom.webp": {
-      "bytes": 454270,
-      "sha256": "d51df503d3768e56ecc552e5907168c599170a8b2e24e7351767d21e0a4e0ca2"
+      "bytes": 2672808,
+      "sha256": "203a0bd828242d8f10075a369e73198d02cc27011b469406bee0ed59dcc6baab"
     },
     "extension/genshin-dialogue-ui/assets/world-locations/home-xianyun-liyue-harbor-meeting-default.webp": {
-      "bytes": 199574,
-      "sha256": "f1dbb69564bad73688eb454a58bab14d8c9c04e2c4be2f786872c771eaa6a698"
+      "bytes": 2563452,
+      "sha256": "ba2467111f02b3507d0261b18d347339860e705fb73381906fdb3bd7af528b0d"
     },
     "extension/genshin-dialogue-ui/assets/world-locations/home-yanshang-teahouse.png": {
-      "bytes": 2450410,
-      "sha256": "59a932633c9994aa5d0b261db4507f7879f8edb6c98e1db9aa46d222bda1be39"
+      "bytes": 3292465,
+      "sha256": "913c2c583a0d2d309915cff9f1eda7d950d1bb26a56f38320f23648d3a32b264"
     },
     "extension/genshin-dialogue-ui/assets/world-locations/home-yujing-terrace.webp": {
-      "bytes": 561882,
-      "sha256": "f574cbe5e8774b1fe5d6f723079ced1ddbb16160e2f2e29b34384448980dee30"
+      "bytes": 2732050,
+      "sha256": "00070917967969e5595d1f369c94a6d6c4bd2505c4ef76b7086bd54a1dbea921"
     },
     "extension/genshin-dialogue-ui/assets/world-locations/house-of-daena.jpg": {
-      "bytes": 552921,
-      "sha256": "b05fd78a10c3392f4e5259dbc4a156106c9723da6f26bf8ee4a090fbb3c2e14f"
+      "bytes": 1391637,
+      "sha256": "9427169c3f669cbd810912d91f4dfd4e951328e6fe6c5db1d2e3b25ba8bcdebb"
     },
     "extension/genshin-dialogue-ui/assets/world-locations/house-of-hesperides.png": {
-      "bytes": 4329736,
-      "sha256": "a926b3aa32926ff57ef55b746252fcd463b1056973aabc6b1d08a27a42d5bfc4"
+      "bytes": 3400492,
+      "sha256": "8ec918dff4189c290e908afb94d343cc26e17358cf8a74e739d98f0d673e2501"
     },
     "extension/genshin-dialogue-ui/assets/world-locations/jack-frost-village.jpg": {
-      "bytes": 320340,
-      "sha256": "6ef3ce8bfe0269502f394eb5ae5a21d57a48d8152247a1f89e8dc01e27aac7a2"
+      "bytes": 1036881,
+      "sha256": "d79bcdb67931f74e74861a70b586dc9d2b36d65b12ba17130388a22b8c7bb7e5"
     },
     "extension/genshin-dialogue-ui/assets/world-locations/jade-chamber.png": {
-      "bytes": 2082631,
-      "sha256": "c012cac15955ac589dc108dfd217fc6c73a82e06e6d1bb903a56912f2f07d62c"
+      "bytes": 3156899,
+      "sha256": "2d8fb42af49d3c7517b5c1c7a288307c320663fb4b74a6dc3d371c014568475e"
     },
     "extension/genshin-dialogue-ui/assets/world-locations/kamisato-estate.png": {
-      "bytes": 1709474,
-      "sha256": "6f4fb805cd9a14bb68f928d4ea29ab6201fb6f639aa43bdf0fa8ff54387c6eb4"
+      "bytes": 2929594,
+      "sha256": "ea4ea8874dbf794e475bd23a3ce5e0853c3e4672033cfeb94bdacbdc50802a2a"
     },
     "extension/genshin-dialogue-ui/assets/world-locations/knights-of-favonius-headquarters.png": {
-      "bytes": 2268788,
-      "sha256": "a2b43558f28f1d90d6b1c9585dcf274a183e810ad33d11eb79b8332fa411628e"
+      "bytes": 3441524,
+      "sha256": "d489e887b8bfdd8ab7c05dba4a2e01ed0bd0744efe77767d6fe16d8661dc16cd"
     },
     "extension/genshin-dialogue-ui/assets/world-locations/knights-of-favonius-library.webp": {
-      "bytes": 336872,
-      "sha256": "d8ec292ffc729e209abc98dbcbc37feaf79b653b36120e78e4f8782983768751"
+      "bytes": 4061790,
+      "sha256": "bfad7e6eba936656348c2c128fe6b9875b921abd037d2f6f68cdd2ff8eed4225"
     },
     "extension/genshin-dialogue-ui/assets/world-locations/komore-teahouse.jpg": {
-      "bytes": 245782,
-      "sha256": "d39a3775c108645d4cbeeb97211af7a0601f1bec4893a9560055c22805444c5d"
+      "bytes": 1280728,
+      "sha256": "5fb50289103467ae8dc1513de62c5301fc0e6c32af077e82d2877894540bc961"
+    },
+    "extension/genshin-dialogue-ui/assets/world-locations/map14-ameyalco-waters.webp": {
+      "bytes": 2391896,
+      "sha256": "71aca1df2b51e6df3c4096fb0c4856ed3280d411fd69739a8cfd794c23a20b7b"
+    },
+    "extension/genshin-dialogue-ui/assets/world-locations/map14-amsvartnir.webp": {
+      "bytes": 2258904,
+      "sha256": "f74fa3f7726b355706fd8d5203b91a26d356d591c269adf5d8eed4936795b75c"
+    },
+    "extension/genshin-dialogue-ui/assets/world-locations/map14-annapausis.webp": {
+      "bytes": 2208352,
+      "sha256": "b140bc82ce1f3ed9dca8e14e68f510c5955e47d8b71423333b30d4fe989deeb0"
+    },
+    "extension/genshin-dialogue-ui/assets/world-locations/map14-araumi.webp": {
+      "bytes": 2540778,
+      "sha256": "f6f94c5b8a4eca0c15b5716930afd54e31f1397384e9c98ff501186afdfb8540"
+    },
+    "extension/genshin-dialogue-ui/assets/world-locations/map14-bayda-harbor.webp": {
+      "bytes": 2597416,
+      "sha256": "3aae4f21c60767de899f32c2bd49087c3f706b5a2f7bcd4ba4484063eccb2cbf"
+    },
+    "extension/genshin-dialogue-ui/assets/world-locations/map14-bourou-village.webp": {
+      "bytes": 2751436,
+      "sha256": "b566e90a3f8be97d5c0e71f8bdf76b80f1dfad9717501a9d2eab688dfb201233"
+    },
+    "extension/genshin-dialogue-ui/assets/world-locations/map14-byakko-plain.webp": {
+      "bytes": 2498550,
+      "sha256": "ebe2662a18ac52831e6b634d7f600de1769e2e01a9d013b785cc3af197f84840"
+    },
+    "extension/genshin-dialogue-ui/assets/world-locations/map14-byaroza-station.webp": {
+      "bytes": 1923324,
+      "sha256": "c99122c33f67b3a72d29ea4d41fbf38f8bedb1a81b981b3ede5683eb1a1cbde9"
+    },
+    "extension/genshin-dialogue-ui/assets/world-locations/map14-chiwang-terrace.webp": {
+      "bytes": 2220018,
+      "sha256": "33ef96b7362955f88fd46a3ca41de20e06c13e9767884bcd571ebeb37e1b6c4a"
+    },
+    "extension/genshin-dialogue-ui/assets/world-locations/map14-cider-lake.webp": {
+      "bytes": 2140234,
+      "sha256": "f7cc82392ce052758d148beeb7c26acdcd83cef084aa66c7e212a83f53275c50"
+    },
+    "extension/genshin-dialogue-ui/assets/world-locations/map14-cliffwatch-camp.webp": {
+      "bytes": 1963024,
+      "sha256": "f0b25786e04994a77518a5b31a72828daade27183cd1cbeabdc4250408a52537"
+    },
+    "extension/genshin-dialogue-ui/assets/world-locations/map14-colorfall-cliffs.webp": {
+      "bytes": 2300408,
+      "sha256": "dc5b84e659afbd9f56243b807583cb6f205763c07995c77da5e414773846c8a7"
+    },
+    "extension/genshin-dialogue-ui/assets/world-locations/map14-debris-of-panjvahe.webp": {
+      "bytes": 2209330,
+      "sha256": "476c79c895628527229c875a846c9745d66fe1168fa68bb7c7d96b025dc7a74a"
+    },
+    "extension/genshin-dialogue-ui/assets/world-locations/map14-devantaka-mountain.webp": {
+      "bytes": 2537112,
+      "sha256": "268316e3dfc0bd87ce84e61c09eb191edc194cf5051f75b541894ad1bddc2099"
+    },
+    "extension/genshin-dialogue-ui/assets/world-locations/map14-dihua-marsh.webp": {
+      "bytes": 2506480,
+      "sha256": "a2fa4fe83d7691274918a9bb851f5dc08a8a4aa75ba97250af65a47e802e3da8"
+    },
+    "extension/genshin-dialogue-ui/assets/world-locations/map14-dunyu-ruins.webp": {
+      "bytes": 2528042,
+      "sha256": "af8086b0e185b4ab9a7b63d627bd3c2d488367e85ceb4273037a681cef3172b3"
+    },
+    "extension/genshin-dialogue-ui/assets/world-locations/map14-elton-trench.webp": {
+      "bytes": 2122868,
+      "sha256": "8eaa4565bfaa6dc278355d13b4223317b26aa115c7a6a4139570e823dd35df1c"
+    },
+    "extension/genshin-dialogue-ui/assets/world-locations/map14-entombed-city-ancient-palace.webp": {
+      "bytes": 2067426,
+      "sha256": "b00d20f5b67b88bfbfe2145df483b75900980c51428f9166510af6a833ff2b4b"
+    },
+    "extension/genshin-dialogue-ui/assets/world-locations/map14-eye-of-kratti.webp": {
+      "bytes": 2201062,
+      "sha256": "fb952f6ab9acb110ca421354029a57e98970511f69a1245461f77a5338d554d8"
+    },
+    "extension/genshin-dialogue-ui/assets/world-locations/map14-faded-castle.webp": {
+      "bytes": 1965790,
+      "sha256": "69cec77c5f0a915cb6b1595b7402d33a62c8bdffb3f698cc2610860e553b252e"
+    },
+    "extension/genshin-dialogue-ui/assets/world-locations/map14-falcon-coast.webp": {
+      "bytes": 2288324,
+      "sha256": "bef76557516f1109170f90af95d109b79eb1d39f3971af7e3866cffb6f916a9f"
+    },
+    "extension/genshin-dialogue-ui/assets/world-locations/map14-fallingstar-fields.webp": {
+      "bytes": 2314356,
+      "sha256": "91f1daf8f4b99e67591d272e7dc1a657787189e1e8d85d19ad82a238b45c4f2b"
+    },
+    "extension/genshin-dialogue-ui/assets/world-locations/map14-favonius-keep.webp": {
+      "bytes": 2347792,
+      "sha256": "29e53f1671b27838c2d9e90c730eb770d124aa5963f23ca8fa82a2dd66dcb063"
+    },
+    "extension/genshin-dialogue-ui/assets/world-locations/map14-flamefeather-valley.webp": {
+      "bytes": 2540670,
+      "sha256": "6671a0e7023ea4941695334d1a453e60771be223cd8d2ae779f727f27f28fdee"
+    },
+    "extension/genshin-dialogue-ui/assets/world-locations/map14-fleuve-cendre.webp": {
+      "bytes": 2253830,
+      "sha256": "5ef170e052bcd1da0202ae5255d93143bb7b8a1596fbf527e6f935ace3611abb"
+    },
+    "extension/genshin-dialogue-ui/assets/world-locations/map14-fort-hiraumi.webp": {
+      "bytes": 2132468,
+      "sha256": "82fde4dc08885b40d427ba4770a0dec0d707ce132c8d468bbedacfb4e514f891"
+    },
+    "extension/genshin-dialogue-ui/assets/world-locations/map14-fort-mumei.webp": {
+      "bytes": 2015608,
+      "sha256": "c3e992200ee252861cf6315fae84a445f82742a3a537f71b5a8b8b22b8719e29"
+    },
+    "extension/genshin-dialogue-ui/assets/world-locations/map14-fountain-of-lucine.webp": {
+      "bytes": 2148032,
+      "sha256": "b1dd8693305b614fb788c99f506bb1800bb6d2b0f5aa2055aa99fc9cf0f5ded0"
+    },
+    "extension/genshin-dialogue-ui/assets/world-locations/map14-gate-of-zulqarnain.webp": {
+      "bytes": 2159166,
+      "sha256": "4bfaf7e3ef2c2dcdfd98110bc930ece9aff81be9907cedcd5711d2a06b77954d"
+    },
+    "extension/genshin-dialogue-ui/assets/world-locations/map14-hallowed-plain.webp": {
+      "bytes": 1932220,
+      "sha256": "297c1e0dd31c6969aad6ea3460b59ba4a87f79db8d68f164bca3c2e25760951a"
+    },
+    "extension/genshin-dialogue-ui/assets/world-locations/map14-huntsman-s-cabin.webp": {
+      "bytes": 1953346,
+      "sha256": "32f4dcf38889b4495f6d991a1c4200259cb412117249ee0f25b6d854b090391e"
+    },
+    "extension/genshin-dialogue-ui/assets/world-locations/map14-jademouth.webp": {
+      "bytes": 2448608,
+      "sha256": "f32e25ec85f44e3955e5b075cc09f4471ac634e33b969e58e3c704497d187852"
+    },
+    "extension/genshin-dialogue-ui/assets/world-locations/map14-jinren-island.webp": {
+      "bytes": 1910120,
+      "sha256": "be1dccf10fa7693950f9012168e77b6eac31ce8012a6149e99257f27fdbf0821"
+    },
+    "extension/genshin-dialogue-ui/assets/world-locations/map14-khaj-nisut.webp": {
+      "bytes": 2186776,
+      "sha256": "b62516f32dc3110fc3ce057506d8bac86fded9945bea94784ec5a12cc9ead11b"
+    },
+    "extension/genshin-dialogue-ui/assets/world-locations/map14-kuuvahki-experimental-design-bureau.webp": {
+      "bytes": 2008362,
+      "sha256": "cd0b3e6ee25dc04f33dc4e5a9f340b4933e741f5315b91bc1d3f031d34580a4a"
+    },
+    "extension/genshin-dialogue-ui/assets/world-locations/map14-light-bathed-platform.webp": {
+      "bytes": 2004876,
+      "sha256": "11273a8bff2f4ae27bce0dc4e6c86e491e8eb3a710c8f0491a133ca4ebb2a958"
+    },
+    "extension/genshin-dialogue-ui/assets/world-locations/map14-loch-urania.webp": {
+      "bytes": 2287312,
+      "sha256": "d0ad8808db75c34c699a8dacd2e6dcc326a536ceedda856c77c5cd09d2ff4daa"
+    },
+    "extension/genshin-dialogue-ui/assets/world-locations/map14-malinalco-grotto.webp": {
+      "bytes": 2194470,
+      "sha256": "6dc67fbb8668362ea0cd78e35f6b4989cbbbe83fd8148eb2a8fea2e16a448714"
+    },
+    "extension/genshin-dialogue-ui/assets/world-locations/map14-marcotte-station.webp": {
+      "bytes": 2442862,
+      "sha256": "ac3e79539009393484c5ae61aba742b352e6bd46a0f713a8c8afb8dd36b2005b"
+    },
+    "extension/genshin-dialogue-ui/assets/world-locations/map14-millhaven.webp": {
+      "bytes": 2956218,
+      "sha256": "17d01d5cee82cf87cfbbad0f4244c2d72a300762794c6a7915a450a19f041f75"
+    },
+    "extension/genshin-dialogue-ui/assets/world-locations/map14-mingyun-village.webp": {
+      "bytes": 2543016,
+      "sha256": "b642ec5866e3d746794e2a2b2e858232389b8352ea5fa4daa32b0517e63472fe"
+    },
+    "extension/genshin-dialogue-ui/assets/world-locations/map14-misty-shoal.webp": {
+      "bytes": 1750248,
+      "sha256": "d40e6a51ac8a80468b5e1eabca995aca4edb4c17578c3dae58fbe1cb8869a22c"
+    },
+    "extension/genshin-dialogue-ui/assets/world-locations/map14-mont-esus-east.webp": {
+      "bytes": 2366736,
+      "sha256": "0610ff4f832e425459caffe01690b0522bbb6233de2a8cefe115dbc808684953"
+    },
+    "extension/genshin-dialogue-ui/assets/world-locations/map14-moshiri-ceremonial-site.webp": {
+      "bytes": 2188602,
+      "sha256": "ffb79578964356609760d0fad9bf8083cdc3af6df785c7c43b98d897f6e83c8c"
+    },
+    "extension/genshin-dialogue-ui/assets/world-locations/map14-mother-flamegranate-tree.webp": {
+      "bytes": 2514406,
+      "sha256": "c0d33a669af2df27d2ea7225c12213deb9a69f8e00c3294ec698d4f7443417ff"
+    },
+    "extension/genshin-dialogue-ui/assets/world-locations/map14-mouun-shrine.webp": {
+      "bytes": 2331560,
+      "sha256": "e24f8a65bf34f471cbbef70e492b4b191dc6894e02cad53015236da76083e5bb"
+    },
+    "extension/genshin-dialogue-ui/assets/world-locations/map14-mt-aocang.webp": {
+      "bytes": 2517028,
+      "sha256": "9ae4aff19e2015eda5d39f8b49185a27380e9b75e713dc6c21dfa999536563f9"
+    },
+    "extension/genshin-dialogue-ui/assets/world-locations/map14-musoujin-gorge.webp": {
+      "bytes": 2457482,
+      "sha256": "43c46935e06cd6337eb7c7885c278f5f6f638cf36479d21659953f4a2500bef2"
+    },
+    "extension/genshin-dialogue-ui/assets/world-locations/map14-nothing-passage.webp": {
+      "bytes": 2018220,
+      "sha256": "f8f526e26c5dbdf7e300c64c452ba3b8eb866a318f034b2aca7aa2d1ad4ed9fe"
+    },
+    "extension/genshin-dialogue-ui/assets/world-locations/map14-old-kitezhgrad.webp": {
+      "bytes": 2214290,
+      "sha256": "a3f34482044a1d1ccd44c44faa4b2b05c48629c5ef7b3866d53fdcfd17a5d57c"
+    },
+    "extension/genshin-dialogue-ui/assets/world-locations/map14-old-sanatorium-site.webp": {
+      "bytes": 2415224,
+      "sha256": "f3aee9c71b9a5ff47b59be118fae5df6697771db896086206f55fc04720bdd88"
+    },
+    "extension/genshin-dialogue-ui/assets/world-locations/map14-pardis-dhyai.webp": {
+      "bytes": 2590046,
+      "sha256": "5fd778260165794f0b6a47e4ad91f420abeab06021d742451761c43a2f754cbe"
+    },
+    "extension/genshin-dialogue-ui/assets/world-locations/map14-port-belovodye.webp": {
+      "bytes": 2210286,
+      "sha256": "769577821efff2b38485131bb8ae6f91dfcc4da992d819facaa7b8eb49b0ee2d"
+    },
+    "extension/genshin-dialogue-ui/assets/world-locations/map14-remnants-of-tetenanco.webp": {
+      "bytes": 2274784,
+      "sha256": "cf4dd962d9223d04d8a98602cae345ea1dca4ac0eea27b376400d6afd4612062"
+    },
+    "extension/genshin-dialogue-ui/assets/world-locations/map14-safhe-shatranj.webp": {
+      "bytes": 2107222,
+      "sha256": "d31ad006cc23658e0fe569f367c67a030c5d43300fe9389d9f65bc31a449b901"
+    },
+    "extension/genshin-dialogue-ui/assets/world-locations/map14-sal-terrae.webp": {
+      "bytes": 2457530,
+      "sha256": "f4df1d3c33491d46af0785a1cf7b351f22596bcee99c821bd8185b4a46cbd21b"
+    },
+    "extension/genshin-dialogue-ui/assets/world-locations/map14-shirikoro-peak.webp": {
+      "bytes": 1606422,
+      "sha256": "0cd1760935f7038ba395e89e2f141793f12cf63ae4c4d0457c99d2fc95b465d1"
+    },
+    "extension/genshin-dialogue-ui/assets/world-locations/map14-skyfrost-nail.webp": {
+      "bytes": 2369584,
+      "sha256": "6b141d38e446bfa46ab260c978775d07808a053ed8640bfc9f16ef227f4edec2"
+    },
+    "extension/genshin-dialogue-ui/assets/world-locations/map14-snow-covered-path.webp": {
+      "bytes": 2397842,
+      "sha256": "fa9ffcc4bdcde6b6cd81206618b8faa3f9ddc79b0ded6d69673e7bdd63f1bcf8"
+    },
+    "extension/genshin-dialogue-ui/assets/world-locations/map14-star-piercing-canyon.webp": {
+      "bytes": 2033402,
+      "sha256": "cbda6951e10c274ea8da9ace8f3f0c7038184f4aba065916a6cbe828edb77e16"
+    },
+    "extension/genshin-dialogue-ui/assets/world-locations/map14-starglow-cavern.webp": {
+      "bytes": 2096716,
+      "sha256": "f4dc628934f1e7adb26e6786537d6a6c618389c4573c2287a2cde235dfc71d5f"
+    },
+    "extension/genshin-dialogue-ui/assets/world-locations/map14-starsand-shoal.webp": {
+      "bytes": 1944404,
+      "sha256": "8e4c80dda7e01f0997e6e7d54b0bfd8dcb6b9ce9ce8490e3985060a13e1e169e"
+    },
+    "extension/genshin-dialogue-ui/assets/world-locations/map14-stormbearer-mountains.webp": {
+      "bytes": 2853774,
+      "sha256": "b747b8c73f717f8c00bf6514377a0623d95f4b0f844c779992e97b0552ba042e"
+    },
+    "extension/genshin-dialogue-ui/assets/world-locations/map14-tecoloapan-bay.webp": {
+      "bytes": 1866152,
+      "sha256": "4c5e84f40e87d75478689d93b165beeec429e72d91d0ec77c1d77a146bdfb917"
+    },
+    "extension/genshin-dialogue-ui/assets/world-locations/map14-tepeacac-rise.webp": {
+      "bytes": 2404330,
+      "sha256": "e1392168866eb4a747c18f56dcea22ed3d883aa946b8802122d44a1862530605"
+    },
+    "extension/genshin-dialogue-ui/assets/world-locations/map14-teplo-oasis.webp": {
+      "bytes": 2183202,
+      "sha256": "e98d784deb81248352623b1536c3b6fae4b57efe03b3d71bc7bbbcbf266b5c49"
+    },
+    "extension/genshin-dialogue-ui/assets/world-locations/map14-tete-isle.webp": {
+      "bytes": 2295654,
+      "sha256": "39f86aed16f35fc6b500fa39825839a62b71f224cbaa5ebc04daea6ca1aaad0b"
+    },
+    "extension/genshin-dialogue-ui/assets/world-locations/map14-the-central-hub.webp": {
+      "bytes": 2156086,
+      "sha256": "95c1b86abca1ae2d781110752cdb48958a79ad70169bff18acb304fc58c778f3"
+    },
+    "extension/genshin-dialogue-ui/assets/world-locations/map14-tiangong-gorge.webp": {
+      "bytes": 1924454,
+      "sha256": "04061b3dea3a3e43b1d698c6c170972e9ab45f1fc7bb4ebc8046a79438dfb879"
+    },
+    "extension/genshin-dialogue-ui/assets/world-locations/map14-tianqiu-valley.webp": {
+      "bytes": 2532354,
+      "sha256": "527ac7116c6089fc674ea857d3030341fbf1b723f98381da2fef3de9e71fc6a8"
+    },
+    "extension/genshin-dialogue-ui/assets/world-locations/map14-tower-of-ipsissimus.webp": {
+      "bytes": 2194838,
+      "sha256": "22d7097ab3a5eb215e6c069461b12502ced4555236453efb29f2fec77da883b1"
+    },
+    "extension/genshin-dialogue-ui/assets/world-locations/map14-valley-of-dahri.webp": {
+      "bytes": 2065302,
+      "sha256": "2c2cfef17cfc1ed429df9484c0c91bd502ae155f3366e21b9bac271b80fc7fc8"
+    },
+    "extension/genshin-dialogue-ui/assets/world-locations/map14-villa-guiztli.webp": {
+      "bytes": 2331712,
+      "sha256": "a5aa083df25e60df2fc304dbaac3bce98dcf5676032c6deb33a32a7137d74608"
+    },
+    "extension/genshin-dialogue-ui/assets/world-locations/map14-vimara-village.webp": {
+      "bytes": 2831076,
+      "sha256": "e309f08fa7ce365b91df97b292290310e803bc43da304ef3aeb2820c0a7366e1"
+    },
+    "extension/genshin-dialogue-ui/assets/world-locations/map14-west-slopes-of-mont-automnequi.webp": {
+      "bytes": 2346566,
+      "sha256": "24bc9e933e55ad79cb5281647497a8b471566bf394473694bca1bd0dcfe75b83"
+    },
+    "extension/genshin-dialogue-ui/assets/world-locations/map14-whispering-woods.webp": {
+      "bytes": 2952512,
+      "sha256": "803dc026fa83f082c9af1e9df9c2f1733ad206076c8afaa0fc3e066d7b1b706d"
+    },
+    "extension/genshin-dialogue-ui/assets/world-locations/map14-wing-of-keres.webp": {
+      "bytes": 2007534,
+      "sha256": "55ddc19c1cf2c72b581b692278e373d0b8664b47ec525d77892281ee848bcd3a"
+    },
+    "extension/genshin-dialogue-ui/assets/world-locations/map14-wounded-shin-valley.webp": {
+      "bytes": 2087174,
+      "sha256": "6016862cdfa4d821b453b0d7975a5a7dd56b190aeab685632fdccef8e8afd4ce"
+    },
+    "extension/genshin-dialogue-ui/assets/world-locations/map14-yaodie-valley.webp": {
+      "bytes": 2370558,
+      "sha256": "b2c47c96f0a13e2fae252c814578a56b125589623a378867f1f1027a14fb0430"
+    },
+    "extension/genshin-dialogue-ui/assets/world-locations/map14-zapolyarny-palace.webp": {
+      "bytes": 2270764,
+      "sha256": "f48ed3053c642740efab91769921504d5142f48342b12ab593f0e87fd819e2ca"
     },
     "extension/genshin-dialogue-ui/assets/world-locations/morepesok.png": {
-      "bytes": 3322899,
-      "sha256": "7c9b58ba86acbb980064cbba32c3bec7c57b07b4020e0b2b638488c40e19b391"
+      "bytes": 3550696,
+      "sha256": "96ae6ae429d1284de0f53a882bcfebfb164a478017f5737da82fea46c52772aa"
     },
     "extension/genshin-dialogue-ui/assets/world-locations/nasha-town.png": {
-      "bytes": 4967932,
-      "sha256": "35584f7c65b206cefb0797285de7009d18552ca5d0c99d4f698f5fc44490eb58"
+      "bytes": 3926989,
+      "sha256": "b0ab417ae1370f96f36639d458a9d2d235ca852cff6fa9119f0b5b780d199464"
     },
     "extension/genshin-dialogue-ui/assets/world-locations/natlan-ancestral-temple.jpg": {
-      "bytes": 4195130,
-      "sha256": "6403ff857a1f40fb491b3dca65acfbe5b337a9f01a5d1f06e76d1bcf62659208"
+      "bytes": 1256541,
+      "sha256": "99420420fcd6d129406a95fb35107c6fa21e37fa14853170dc67efd5fd63cd1e"
     },
     "extension/genshin-dialogue-ui/assets/world-locations/natlan-blue-root-grotto.jpg": {
-      "bytes": 219647,
-      "sha256": "3496c76008d434e022bbe50f3c5c832ad82e4b935ab5431eb11179780bf8bb63"
+      "bytes": 1278758,
+      "sha256": "0ab8054666e846b578cf73b53604f94943a5ba98e788df10183cb3ea6472dff2"
     },
     "extension/genshin-dialogue-ui/assets/world-locations/natlan-night-kingdom-causeway.jpg": {
-      "bytes": 3639259,
-      "sha256": "c3c2249e4c30b3a74c116aac74be98cbc839b9c9490455a3404795ad8b4eb2b7"
+      "bytes": 775604,
+      "sha256": "8c52960c15751e39640b4f36ec93a6b0708fb2da13159df1d9b4aad8df5f6540"
     },
     "extension/genshin-dialogue-ui/assets/world-locations/natlan-place-of-illusory-drawings.webp": {
-      "bytes": 18034,
-      "sha256": "628a0850ad675f73a4806325423d8ecccb91efe048b451fcf0ac0d5d0900390d"
+      "bytes": 2140994,
+      "sha256": "4bac85228530005c964adfc3df778e201a3ebee36c172d056cbc07dd78920abe"
     },
     "extension/genshin-dialogue-ui/assets/world-locations/natlan-sulfurous-veins.webp": {
-      "bytes": 500834,
-      "sha256": "4fde5bf3da82a2c422013c6e2d50ecfc85a04a6bc47bcb42135705e4f3ec1c5d"
+      "bytes": 2209418,
+      "sha256": "e438e3308cef6dc4a6e381c5a336ef4ba4bd7073627f1c496fb6d46a9e3945b0"
     },
     "extension/genshin-dialogue-ui/assets/world-locations/nod-barrowmoss-barrens.webp": {
-      "bytes": 139006,
-      "sha256": "3ed32bab5fcfdd7263c5e20cb6ca43cc6c61dfc5258877a068b053b0b524f822"
+      "bytes": 2028720,
+      "sha256": "c0633ddc801cb25e7e9a841a081ff086bb650323da9c05ded9765571e2bf71e7"
     },
     "extension/genshin-dialogue-ui/assets/world-locations/nod-blue-amber-lake.webp": {
-      "bytes": 2141200,
-      "sha256": "19bf2dc30d6c4f66f5dca67fbdf0b5db34328a31f96dc2c8b8bd94a098caf647"
+      "bytes": 2103128,
+      "sha256": "671505a8314db1c6a5db786e7a64b50b679f7436dc363e4564c514990f3e62e1"
     },
     "extension/genshin-dialogue-ui/assets/world-locations/nod-kipumaki-cliff.jpg": {
-      "bytes": 228847,
-      "sha256": "1e9921d6b88fe905c622527ce1f7952711706c149438732e451103a18c1d8f91"
+      "bytes": 1137668,
+      "sha256": "aa4945c5d0230d1da4828b1640419b35203330343225c3afebaf8c92b2b51e8e"
     },
     "extension/genshin-dialogue-ui/assets/world-locations/nod-pillar-of-embla.jpg": {
-      "bytes": 1317475,
-      "sha256": "f70e5bb78e12807995874c3bfbf274e1ec99885315a5f3bfd58b53f50d8dc8d2"
+      "bytes": 1000752,
+      "sha256": "740d3ad01adadd24e67de1addef141f0a9319ac46659107f5b68687a6af7d38b"
     },
     "extension/genshin-dialogue-ui/assets/world-locations/nod-research-institute.jpg": {
-      "bytes": 1144905,
-      "sha256": "b2fc7592ae5f4c14aa127bb85e4869972b3bb8b78e7bcd3fe5d816933333220c"
+      "bytes": 976893,
+      "sha256": "938cb22e3ac59aade5053d52a73c9e4462822db91a88a00060adc01ade8e5480"
     },
     "extension/genshin-dialogue-ui/assets/world-locations/opera-epiclese.jpg": {
-      "bytes": 216489,
-      "sha256": "b9b9abf64d6435304395b9780bd6fd642ae855dd9b213a546ae9b2a5dbe21014"
+      "bytes": 1107291,
+      "sha256": "e14452121a6eb92e72043b2f174bf347f3715ac861b6070b5fb6f030f2a87087"
     },
     "extension/genshin-dialogue-ui/assets/world-locations/palais-mermonia.png": {
-      "bytes": 3304548,
-      "sha256": "c6d216b0223973107434aa78cf6920da15857559ceb26e67e582a7637b5a4004"
+      "bytes": 3531384,
+      "sha256": "4381cb5b3b07a01ff41cf4031b3eae51072e6557ed8d1c3a2dd2e90c847b97ff"
     },
     "extension/genshin-dialogue-ui/assets/world-locations/pale-crown-palace.jpg": {
-      "bytes": 389084,
-      "sha256": "448c5a7cc3aa56821686404290f0c64fb46f181a03ecf4087bf5b17977c9e656"
+      "bytes": 1151278,
+      "sha256": "f287c3ca1c83af26868e8d709a6bd405b395db3407798032b22bd2f4b974a6e7"
     },
     "extension/genshin-dialogue-ui/assets/world-locations/people-of-the-springs.png": {
-      "bytes": 2718940,
-      "sha256": "aac1c946c65282f0e9537c0a1f3f9f2f3af379298058c240cb978737404c55ef"
+      "bytes": 3830241,
+      "sha256": "74a5395552ca51fecb14184cda0bd79f1b3e350721a41910a4c38af13748739c"
     },
     "extension/genshin-dialogue-ui/assets/world-locations/poisson.png": {
-      "bytes": 1630337,
-      "sha256": "9ea1142d9ca2b67a62503e946a9256faa3e31a79e75754d0116b4cb4ba0fbd2d"
+      "bytes": 3350221,
+      "sha256": "66049c41b42aac5bebeb01c92740853a907136d696fc98e77877cab79271c67c"
     },
     "extension/genshin-dialogue-ui/assets/world-locations/roleplay-nicole-voidsea-outlook-meeting-default.webp": {
-      "bytes": 37820,
-      "sha256": "5e345bfaa26c3da565f44bf24ef6badc61425584388d63946b1114b168cd7104"
+      "bytes": 2367970,
+      "sha256": "5de8ab55c2ff3858ee77979e0e25a671549d90374a6b0c3a71df94921538cb61"
     },
     "extension/genshin-dialogue-ui/assets/world-locations/sanctuary-of-grief.png": {
-      "bytes": 1526420,
-      "sha256": "6c2a58f05f7db93419eb4fee6cf620e6b5fa0a3ef253ffda6f759cb1ac11150c"
+      "bytes": 2913805,
+      "sha256": "df7c9940cb10f36ebab913dab9206c2318ae9a6899e35b1fa34106aaa408faa2"
     },
     "extension/genshin-dialogue-ui/assets/world-locations/sanctuary-of-surasthana.jpg": {
-      "bytes": 396219,
-      "sha256": "7929702547912ad13a00371bd53d83a29e6e75b0a481e6b1e6ffdc042ea72833"
+      "bytes": 1516693,
+      "sha256": "99ccdefd1e793414267bed74c8fb19ebf1d52e9b018eea773c7b7d3252b944a5"
     },
     "extension/genshin-dialogue-ui/assets/world-locations/sangonomiya-shrine.webp": {
-      "bytes": 240436,
-      "sha256": "92b9ca25f6c5f5617ab3be68cfda9e0e8cfd54f05e89b16b49a19b768200f407"
+      "bytes": 2809290,
+      "sha256": "dd79105b4724efb58d308e24ef54cd8e301b574aba9145f99e49799bba427d2b"
     },
     "extension/genshin-dialogue-ui/assets/world-locations/scions-of-the-canopy.png": {
-      "bytes": 581211,
-      "sha256": "d0ea0225c6d9fc1158e3e29249b78ed486d9370970d54bc9b2e2dbd0d2c288b9"
+      "bytes": 2996185,
+      "sha256": "ea8f7ffcdeefb8ee8abc02c85050ee171ceb7b07c739410ed4c86cc1db94e72c"
     },
     "extension/genshin-dialogue-ui/assets/world-locations/silvermoon-hall.png": {
-      "bytes": 7062406,
-      "sha256": "76076ca8bb04634ff6a438889640a53b21014632cac8614e98224be22f0cca61"
+      "bytes": 3515696,
+      "sha256": "950cedfed140c6137d4238e7e9d72733d08c8b49ca0d2fcdc4becaeb671ddc71"
     },
     "extension/genshin-dialogue-ui/assets/world-locations/snezhnograd.jpg": {
-      "bytes": 543125,
-      "sha256": "bda026d4f5ed2492fdd022166d5f557a132349dbb7de49324712847b55fd6334"
+      "bytes": 1285172,
+      "sha256": "56907c5bb0d55ee943d12967f705885c440023218968e9ca3b4fd4e82fe0ba4a"
     },
     "extension/genshin-dialogue-ui/assets/world-locations/sretomorozsk.jpg": {
-      "bytes": 166968,
-      "sha256": "9929c4049f440d90a7342e98869fb12dccb51128740dbb869278281505e0af91"
+      "bytes": 1061977,
+      "sha256": "1d9dad5e5356ed89588a806bb117d0fc0420db3e14712abf5150cb2d575df7fd"
     },
     "extension/genshin-dialogue-ui/assets/world-locations/stadium-of-the-sacred-flame.webp": {
-      "bytes": 465100,
-      "sha256": "169acd281ad441ab9af6f3ac44985cf67dd9bbf02a909d889f5881983c879210"
+      "bytes": 2590236,
+      "sha256": "3eea214e8430995e9c2009a171fe3f3ddc6f0514496d3420751466b5f9432d69"
     },
     "extension/genshin-dialogue-ui/assets/world-locations/sumeru-apam-woods.webp": {
-      "bytes": 167872,
-      "sha256": "8aa72bd6538fd668392974820980ba80d13f5e4e722754dad1e1280cb4a1e065"
+      "bytes": 2312148,
+      "sha256": "00b8018c4e07cb19e96bc9e40230f988e3399b59e3db90d9b7240fade81d6b7c"
     },
     "extension/genshin-dialogue-ui/assets/world-locations/sumeru-fane-of-ashvattha.webp": {
-      "bytes": 248832,
-      "sha256": "f4c87c22fd5827e2d810796f3abed6ab683de725c12ba2e49930005e326a3ff1"
+      "bytes": 2745570,
+      "sha256": "255f024d460e926c1e912a3223eb2604b32c5a5fdffc6d291133c6321b407a3f"
     },
     "extension/genshin-dialogue-ui/assets/world-locations/sumeru-mawtiyima-forest.webp": {
-      "bytes": 241330,
-      "sha256": "0a23eb844009928ea08bc4de2100f82f6d7d57c300387fd82051ded80011214a"
+      "bytes": 2568874,
+      "sha256": "9dadea4600a06c1409e92734a9b9930cba445cfe32a18bea0d96f561f2d68aa0"
     },
     "extension/genshin-dialogue-ui/assets/world-locations/sumeru-old-vanarana.webp": {
-      "bytes": 163714,
-      "sha256": "5f6e5e873a0582608dc4fe7049de2c27f4ffccd2e61b6eea150f6a8c6503b7fa"
+      "bytes": 2203488,
+      "sha256": "9299ca3d4f603891ccbf6be6676a3fdbe81647a22f96207e83ed5d075b4943a2"
     },
     "extension/genshin-dialogue-ui/assets/world-locations/sumeru-port-ormos.webp": {
-      "bytes": 215658,
-      "sha256": "adaf0ec0ca75c287f40b9be2f2497d7ff2872d2d06f71b197e7838270bf9e5c5"
+      "bytes": 2584984,
+      "sha256": "587de084dfadc4ec2a0761f8c51aa4fe7c35855f9daa75038e808904776ab136"
     },
     "extension/genshin-dialogue-ui/assets/world-locations/svetloledovka.png": {
-      "bytes": 1876268,
-      "sha256": "c73cab22a3905f758aa823a388e8a0a751e774baf6c6a8ef474847cc5d289b8e"
+      "bytes": 3243635,
+      "sha256": "22c0546552b826c2a137e070131a834a883450591dc15f6ec6e7fadd3902fa5e"
     },
     "extension/genshin-dialogue-ui/assets/world-locations/tenshukaku.jpg": {
-      "bytes": 462223,
-      "sha256": "039ea154356ff53b54199a84030f59c4f8a721eaed281a80441d186f9711fc94"
+      "bytes": 1199037,
+      "sha256": "75f2cb9d4fc9c8565e35184d95265e39f9903e1c112f83c75e0f1bc54137189f"
     },
     "extension/genshin-dialogue-ui/assets/world-locations/the-cat-s-tail.png": {
-      "bytes": 1739597,
-      "sha256": "eaf9753c1c8bec3e7e7a579b0639c6df1fe6e118ef4beca603ee6e4eafd5946d"
+      "bytes": 2731010,
+      "sha256": "5e580dde093eaa8834c9e78d2abf77d493af784e4d0d35ad6e79830fffab2638"
     },
     "extension/genshin-dialogue-ui/assets/world-locations/wangsheng-funeral-parlor.jpg": {
-      "bytes": 523229,
-      "sha256": "0be6fd625d27baacac353769cdf8239a319ad57baa09ae6767de03605abfee75"
+      "bytes": 1445646,
+      "sha256": "88b6a06317f626694a0373aef4d361523584ea5f8b102b4cad38aab10ae52f65"
     },
     "extension/genshin-dialogue-ui/assets/world-locations/wangshu-inn.jpg": {
-      "bytes": 510479,
-      "sha256": "b3caa183ec04140e320684744465c592b2a93f27a09bf0ffd1e2b68a89caef87"
+      "bytes": 1467956,
+      "sha256": "04ead68021b7407df230447fdae53628938dfbb58b8cd110e71f278d5bb24970"
     },
     "extension/genshin-dialogue-ui/assets/world-locations/wanmin-restaurant.jpg": {
-      "bytes": 616771,
-      "sha256": "dafae04b265f56406ab4248a7d9365c253afa567b1cd820d7e921531ccd87f94"
+      "bytes": 1482527,
+      "sha256": "2f4f19d56ccd09498988dde22414294fd99d816698595b8c2459931714923bf0"
     },
     "extension/genshin-dialogue-ui/assets/world-locations/wild-brightcrown-canyon.webp": {
-      "bytes": 186748,
-      "sha256": "9023ed79064e1791abcda28f6f74b468feea45ed564595e7b929dc92f0a1828f"
+      "bytes": 2443774,
+      "sha256": "2a2708681ed2175e0a56a2a27ec8d45574651b8ee435158fed76fc664c47d539"
     },
     "extension/genshin-dialogue-ui/assets/world-locations/wild-cape-oath.webp": {
-      "bytes": 257168,
-      "sha256": "b6ade55109de3f06f92509849e7bf2d57b9fbb4d6229130c746ed13cdbf525fb"
+      "bytes": 2301540,
+      "sha256": "9f93c086e4727e3ec69233aa1e214b475aed0f2dd3aba6df51426b5b5a521494"
     },
     "extension/genshin-dialogue-ui/assets/world-locations/wild-chirai-shrine.webp": {
-      "bytes": 134490,
-      "sha256": "58778ebc9f360d28ed4000235a685d5e91cf066396774b95c6472313fbe27db8"
+      "bytes": 2107590,
+      "sha256": "5f6f1af1f195b4ff3d21b9f1bf73992fb8029bd6dd75f24700c58455abd36711"
     },
     "extension/genshin-dialogue-ui/assets/world-locations/wild-dadaupa-gorge.webp": {
-      "bytes": 320990,
-      "sha256": "67963458a3d38531a9fa0055be8c778d7ab3fc62fc6dd1a2bf2c90131f7cd992"
+      "bytes": 2986168,
+      "sha256": "336e92c95bb1dd2439d42142c5052cec5538e716416ef7b1b9497266ea2bebef"
     },
     "extension/genshin-dialogue-ui/assets/world-locations/wild-fort-fujitou.webp": {
-      "bytes": 241374,
-      "sha256": "8039f321657abde945c19abb4c205ca6e55b027e111a3b09511993fe04efd70c"
+      "bytes": 2770272,
+      "sha256": "b07beb657e7a1a27a4a06cf6341809083322bf078dd6de5a25445ec0a76ff5bf"
     },
     "extension/genshin-dialogue-ui/assets/world-locations/wild-konda-village.webp": {
-      "bytes": 388476,
-      "sha256": "1f9ec07512dd151bcfa610520320a229fda1260e01f9aa006c98e64a61ba3bc9"
+      "bytes": 2939686,
+      "sha256": "7f3337d1051a358396bae3482063eda6c4dc684cf75980979b65ab95aeecf429"
     },
     "extension/genshin-dialogue-ui/assets/world-locations/wild-koseki-village.webp": {
-      "bytes": 226422,
-      "sha256": "740ca272d5edf18423f4788bf9f8276179bb590ce42cdb8798c622fbea414094"
+      "bytes": 2522430,
+      "sha256": "3679555092ff1d24a26ddd3aae64ef11e070faa4279beb92be4f5e9ebc995273"
     },
     "extension/genshin-dialogue-ui/assets/world-locations/wild-lumberpick-valley.webp": {
-      "bytes": 511730,
-      "sha256": "6aa09b553dd2e0c99393e55e6062bb17b9f5d31a704653137f6f7a2fe74fde04"
+      "bytes": 2736952,
+      "sha256": "65641e82b2e647161bda5a104794a4e02f453a273446d180bf8929e076f69f01"
     },
     "extension/genshin-dialogue-ui/assets/world-locations/wild-mt-hulao.webp": {
-      "bytes": 623056,
-      "sha256": "ac5804c64b6147f46b170054ed8f0e666f965be177000314f5c66d166ccbee0a"
+      "bytes": 3080516,
+      "sha256": "4c025a777776cd1a31a9a6af10ed3c24d6855ac0c823c2045095c12d4ed8c80c"
     },
     "extension/genshin-dialogue-ui/assets/world-locations/wild-qingce-village.webp": {
-      "bytes": 412246,
-      "sha256": "9ac65b82b335e739ec711b9a0dd27bec9cdc1d6c48e2f600d83b6738582c0668"
+      "bytes": 2957672,
+      "sha256": "d9b8d04fa39d53b28138735b58fefc029fb22f0d94b82205bdd7ffd5b2a635cb"
     },
     "extension/genshin-dialogue-ui/assets/world-locations/wild-starsnatch-cliff.webp": {
-      "bytes": 121278,
-      "sha256": "e7bdf6629874948d2bc3a100b2ed85e05c0048c92cb424630a3dd966aa0338a4"
+      "bytes": 2045082,
+      "sha256": "e9d795ba57ccf23a9ecc8ee74316c53c2912e80a8f4b8e239e0b33e4c4d436b3"
     },
     "extension/genshin-dialogue-ui/assets/world-locations/wild-stone-gate.webp": {
-      "bytes": 291306,
-      "sha256": "3f6973b4b20dc71a413a738ceae27602827211d5b62a9278e3fdf9a5edbee4f8"
+      "bytes": 2555834,
+      "sha256": "c33d93202d59c03a7577dceb44302f1065f7180dc767dbf9a093a56717de4015"
     },
     "extension/genshin-dialogue-ui/assets/world-locations/wild-tatarasuna.webp": {
-      "bytes": 251106,
-      "sha256": "6ae5cdf92af1b32bb7690771512fe71eca9bc42283d0d0516f46fed5ab7b0ddf"
+      "bytes": 2748738,
+      "sha256": "6be84dc0c9e2c305f3e6db0c94d56ba3372447ea696053f734ec948905bed915"
     },
     "extension/genshin-dialogue-ui/assets/world-locations/wild-thousand-winds-temple.webp": {
-      "bytes": 323110,
-      "sha256": "6f4938eff1df156ac5f6ece0d967fac60405e59ed9a6d2b4985d72538a2b4db9"
+      "bytes": 2723710,
+      "sha256": "4efab9c1f127802e6300e6f3f77bf2962a4b88976350904eb6ca9eae9f11fb1c"
     },
     "extension/genshin-dialogue-ui/assets/world-locations/wild-wuwang-hill.webp": {
-      "bytes": 122742,
-      "sha256": "1df9ed17d1f7a07c8cfb22b047372736f5eb7d78ef19c159968b52df94f5a38b"
+      "bytes": 2171484,
+      "sha256": "e3ab50ed8c6dc4eca5fbf341498de4ed8e0b84a093d5785998243900da8b5ea9"
     },
     "extension/genshin-dialogue-ui/assets/world-locations/zubayr-theater.png": {
-      "bytes": 2299610,
-      "sha256": "ed2b8385bc00088177d1d6918bf9d6e43b86c5a71b3aab82afae666d2f70fe5f"
+      "bytes": 3761473,
+      "sha256": "53c1a36d980ef1aa16c9f3d4c9aa9e9f5f3e2263203bbc5d8add2e58920fd462"
     },
     "extension/genshin-dialogue-ui/background-gallery-1.jpg": {
       "bytes": 545707,
@@ -16996,10 +17684,6 @@
     "silly-teyvat-v142-portrait.jpg": {
       "bytes": 58310,
       "sha256": "f8f22d319b7c38f89f8aaa138d745cbaade1cd646f73f897d1a133aa84aba188"
-    },
-    "extension/genshin-dialogue-ui/assets/tcg/forms/Crimson Witch of Embers.webp": {
-      "bytes": 71872,
-      "sha256": "0317f78adb51087e66c64aae11054adcbd6626a9507989480b7bf841ecd4fc56"
     }
   }
 }

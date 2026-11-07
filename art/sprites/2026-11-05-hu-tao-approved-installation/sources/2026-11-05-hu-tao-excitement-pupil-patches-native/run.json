@@ -1,0 +1,598 @@
+{
+  "date": "2026-11-05",
+  "status": "complete_native_pupil_candidates_awaiting_user_review",
+  "user_request": "Excitement is perfect - save it. Use the eyes in Excitement to patch pupils onto the eyes in Smug (not overtop the current one, but the original unpatched one) as well as Confusion and Desire",
+  "authorization": "Explicit user-directed excitement pupil transfer to smug, confusion and desire. Prior Python pupil-compositing permission persists. This is a scope-specific exception to the default prohibition on expression-to-expression references.",
+  "source": {
+    "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-hu-tao-excitement-pupil-patches-native/sources/Hu Tao/excitement-approved.png",
+    "original_path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-hu-tao-excitement-pupil-patches/sources/Hu Tao/excitement-approved.png",
+    "sha256": "172a15d0141772a6ec1e3f50123f70495eadbb02c29d7bdd30a66c4a5b112f05",
+    "approval": {
+      "status": "approved",
+      "message": "Excitement is perfect - save it. Use the eyes in Excitement to patch pupils onto the eyes in Smug (not overtop the current one, but the original unpatched one) as well as Confusion and Desire"
+    }
+  },
+  "installation": "No new installation requested; the approved excitement remains installed and unchanged. Three revised patches await user review.",
+  "jobs": {
+    "smug": {
+      "emotion": "smug",
+      "parent": {
+        "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-hu-tao-excitement-pupil-patches-native/sources/Hu Tao/smug-target.png",
+        "original_path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-hu-tao-excitement-pupil-patches/sources/Hu Tao/smug-target.png",
+        "sha256": "d1e3e902974ce1ecd6b0a69b790d4d8fdf93471e46ec108991ca21d521c67ecd"
+      },
+      "status": "candidate",
+      "approval": {
+        "status": "pending"
+      },
+      "target_selection": "Exact original unpatched smug, not either previous pupil-patch version.",
+      "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-hu-tao-excitement-pupil-patches-native/sprites/Hu Tao/smug.png",
+      "sha256": "a578c8521955fd316c58c571d809ae87bb6c2db731ef008dc3cb800d4d75b702",
+      "patches": [
+        {
+          "box": [
+            443,
+            255,
+            459,
+            272
+          ],
+          "source_pupil": {
+            "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-hu-tao-excitement-pupil-patches-native/patches/excitement-pupil-0.png",
+            "sha256": "1c5b0022a01b733913da52b941e4f9e7cdf082b283687503ef3e5c3e78e15598",
+            "source_box": [
+              420,
+              277,
+              436,
+              294
+            ],
+            "pupil_box": [
+              422,
+              279,
+              434,
+              292
+            ],
+            "foreground_rgb": [
+              251.0,
+              232.0,
+              201.5
+            ],
+            "method": "Extract original excitement pupil foreground and antialiased contour, excluding iris/background."
+          },
+          "translation_position": [
+            443,
+            255
+          ],
+          "donor_pixel_dimensions": [
+            16,
+            17
+          ],
+          "rotation_degrees": 0,
+          "scale": [
+            1,
+            1
+          ],
+          "perspective_warp": false,
+          "shear": 0,
+          "geometric_resampling": "none",
+          "visible_iris_mask": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-hu-tao-excitement-pupil-patches-native/patches/smug-0-visible-iris.png",
+          "old_pupil_removal_mask": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-hu-tao-excitement-pupil-patches-native/patches/smug-0-old-pupil-removal.png",
+          "patch": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-hu-tao-excitement-pupil-patches-native/patches/smug-0-patch.png",
+          "patch_sha256": "ae2857921662d842c57f75eada7c2c03d571096f098e8e7d4183ca92ca0166eb"
+        },
+        {
+          "box": [
+            522,
+            234,
+            538,
+            251
+          ],
+          "source_pupil": {
+            "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-hu-tao-excitement-pupil-patches-native/patches/excitement-pupil-1.png",
+            "sha256": "2200e57dbefa4200e80008225b386b43295557f7396b17759eeefbdb9022502b",
+            "source_box": [
+              509,
+              253,
+              525,
+              270
+            ],
+            "pupil_box": [
+              511,
+              255,
+              523,
+              268
+            ],
+            "foreground_rgb": [
+              251,
+              231,
+              201
+            ],
+            "method": "Extract original excitement pupil foreground and antialiased contour, excluding iris/background."
+          },
+          "translation_position": [
+            522,
+            234
+          ],
+          "donor_pixel_dimensions": [
+            16,
+            17
+          ],
+          "rotation_degrees": 0,
+          "scale": [
+            1,
+            1
+          ],
+          "perspective_warp": false,
+          "shear": 0,
+          "geometric_resampling": "none",
+          "visible_iris_mask": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-hu-tao-excitement-pupil-patches-native/patches/smug-1-visible-iris.png",
+          "old_pupil_removal_mask": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-hu-tao-excitement-pupil-patches-native/patches/smug-1-old-pupil-removal.png",
+          "patch": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-hu-tao-excitement-pupil-patches-native/patches/smug-1-patch.png",
+          "patch_sha256": "4f3580c30bffc4d0c86b119325c98fc3a8f43aed6a84d66e87860a7f81f84069"
+        }
+      ],
+      "technical_checks": {
+        "dimensions": [
+          934,
+          1685
+        ],
+        "same_dimensions": true,
+        "alpha_pixel_identical": true,
+        "changed_pixels": 286,
+        "changed_pixels_outside_pupil_rectangles": 0,
+        "no_pupil_resizing_rotation_or_warp": true
+      }
+    },
+    "confusion": {
+      "emotion": "confusion",
+      "parent": {
+        "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-hu-tao-excitement-pupil-patches-native/sources/Hu Tao/confusion-target.png",
+        "original_path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-hu-tao-excitement-pupil-patches/sources/Hu Tao/confusion-target.png",
+        "sha256": "02c13cf294d46fe345bcae8bd4dde981bf08b73b5a5ff823bbdfb42ce5f36a12"
+      },
+      "status": "candidate",
+      "approval": {
+        "status": "pending"
+      },
+      "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-hu-tao-excitement-pupil-patches-native/sprites/Hu Tao/confusion.png",
+      "sha256": "bdeef404011cf9e99f30801e9eb8593e30d736538dbec3f75045e764f5e44386",
+      "patches": [
+        {
+          "box": [
+            415,
+            268,
+            432,
+            285
+          ],
+          "source_pupil": {
+            "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-hu-tao-excitement-pupil-patches-native/patches/excitement-pupil-0.png",
+            "sha256": "1c5b0022a01b733913da52b941e4f9e7cdf082b283687503ef3e5c3e78e15598",
+            "source_box": [
+              420,
+              277,
+              436,
+              294
+            ],
+            "pupil_box": [
+              422,
+              279,
+              434,
+              292
+            ],
+            "foreground_rgb": [
+              251.0,
+              232.0,
+              201.5
+            ],
+            "method": "Extract original excitement pupil foreground and antialiased contour, excluding iris/background."
+          },
+          "translation_position": [
+            416,
+            268
+          ],
+          "donor_pixel_dimensions": [
+            16,
+            17
+          ],
+          "rotation_degrees": 0,
+          "scale": [
+            1,
+            1
+          ],
+          "perspective_warp": false,
+          "shear": 0,
+          "geometric_resampling": "none",
+          "visible_iris_mask": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-hu-tao-excitement-pupil-patches-native/patches/confusion-0-visible-iris.png",
+          "old_pupil_removal_mask": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-hu-tao-excitement-pupil-patches-native/patches/confusion-0-old-pupil-removal.png",
+          "patch": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-hu-tao-excitement-pupil-patches-native/patches/confusion-0-patch.png",
+          "patch_sha256": "140cac6387f77c84810675cb148df48a1929ace0101cd8a2dfaa02dfed3295fc"
+        },
+        {
+          "box": [
+            494,
+            242,
+            510,
+            259
+          ],
+          "source_pupil": {
+            "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-hu-tao-excitement-pupil-patches-native/patches/excitement-pupil-1.png",
+            "sha256": "2200e57dbefa4200e80008225b386b43295557f7396b17759eeefbdb9022502b",
+            "source_box": [
+              509,
+              253,
+              525,
+              270
+            ],
+            "pupil_box": [
+              511,
+              255,
+              523,
+              268
+            ],
+            "foreground_rgb": [
+              251,
+              231,
+              201
+            ],
+            "method": "Extract original excitement pupil foreground and antialiased contour, excluding iris/background."
+          },
+          "translation_position": [
+            494,
+            242
+          ],
+          "donor_pixel_dimensions": [
+            16,
+            17
+          ],
+          "rotation_degrees": 0,
+          "scale": [
+            1,
+            1
+          ],
+          "perspective_warp": false,
+          "shear": 0,
+          "geometric_resampling": "none",
+          "visible_iris_mask": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-hu-tao-excitement-pupil-patches-native/patches/confusion-1-visible-iris.png",
+          "old_pupil_removal_mask": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-hu-tao-excitement-pupil-patches-native/patches/confusion-1-old-pupil-removal.png",
+          "patch": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-hu-tao-excitement-pupil-patches-native/patches/confusion-1-patch.png",
+          "patch_sha256": "8c0043572fa4d7152805215837b148a8ecc9c2f69090d7d4a9c4fd4d59dd832f"
+        }
+      ],
+      "technical_checks": {
+        "dimensions": [
+          934,
+          1685
+        ],
+        "same_dimensions": true,
+        "alpha_pixel_identical": true,
+        "changed_pixels": 283,
+        "changed_pixels_outside_pupil_rectangles": 0,
+        "no_pupil_resizing_rotation_or_warp": true
+      }
+    },
+    "desire": {
+      "emotion": "desire",
+      "parent": {
+        "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-hu-tao-excitement-pupil-patches-native/sources/Hu Tao/desire-target.png",
+        "original_path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-hu-tao-excitement-pupil-patches/sources/Hu Tao/desire-target.png",
+        "sha256": "1b143d3ee244b6fd70cad86db08502e76feb76f715d4dc5544358afd7620c530"
+      },
+      "status": "candidate",
+      "approval": {
+        "status": "pending"
+      },
+      "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-hu-tao-excitement-pupil-patches-native/sprites/Hu Tao/desire.png",
+      "sha256": "13033962bdd1e3418391f04015ce3e9abf7b1c45b0db1ef02df8520a95361c83",
+      "patches": [
+        {
+          "box": [
+            442,
+            269,
+            458,
+            286
+          ],
+          "source_pupil": {
+            "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-hu-tao-excitement-pupil-patches-native/patches/excitement-pupil-0.png",
+            "sha256": "1c5b0022a01b733913da52b941e4f9e7cdf082b283687503ef3e5c3e78e15598",
+            "source_box": [
+              420,
+              277,
+              436,
+              294
+            ],
+            "pupil_box": [
+              422,
+              279,
+              434,
+              292
+            ],
+            "foreground_rgb": [
+              251.0,
+              232.0,
+              201.5
+            ],
+            "method": "Extract original excitement pupil foreground and antialiased contour, excluding iris/background."
+          },
+          "translation_position": [
+            442,
+            269
+          ],
+          "donor_pixel_dimensions": [
+            16,
+            17
+          ],
+          "rotation_degrees": 0,
+          "scale": [
+            1,
+            1
+          ],
+          "perspective_warp": false,
+          "shear": 0,
+          "geometric_resampling": "none",
+          "visible_iris_mask": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-hu-tao-excitement-pupil-patches-native/patches/desire-0-visible-iris.png",
+          "old_pupil_removal_mask": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-hu-tao-excitement-pupil-patches-native/patches/desire-0-old-pupil-removal.png",
+          "patch": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-hu-tao-excitement-pupil-patches-native/patches/desire-0-patch.png",
+          "patch_sha256": "a6a9afd3db89039e97c20c67764a286dc852f624f9338aedce970976770b99cb"
+        },
+        {
+          "box": [
+            528,
+            247,
+            544,
+            264
+          ],
+          "source_pupil": {
+            "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-hu-tao-excitement-pupil-patches-native/patches/excitement-pupil-1.png",
+            "sha256": "2200e57dbefa4200e80008225b386b43295557f7396b17759eeefbdb9022502b",
+            "source_box": [
+              509,
+              253,
+              525,
+              270
+            ],
+            "pupil_box": [
+              511,
+              255,
+              523,
+              268
+            ],
+            "foreground_rgb": [
+              251,
+              231,
+              201
+            ],
+            "method": "Extract original excitement pupil foreground and antialiased contour, excluding iris/background."
+          },
+          "translation_position": [
+            528,
+            247
+          ],
+          "donor_pixel_dimensions": [
+            16,
+            17
+          ],
+          "rotation_degrees": 0,
+          "scale": [
+            1,
+            1
+          ],
+          "perspective_warp": false,
+          "shear": 0,
+          "geometric_resampling": "none",
+          "visible_iris_mask": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-hu-tao-excitement-pupil-patches-native/patches/desire-1-visible-iris.png",
+          "old_pupil_removal_mask": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-hu-tao-excitement-pupil-patches-native/patches/desire-1-old-pupil-removal.png",
+          "patch": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-hu-tao-excitement-pupil-patches-native/patches/desire-1-patch.png",
+          "patch_sha256": "fa442ee2d66a2828c1260ad2a7619a2a404ab7d7ddf06def9e36958b45305eaf"
+        }
+      ],
+      "technical_checks": {
+        "dimensions": [
+          934,
+          1685
+        ],
+        "same_dimensions": true,
+        "alpha_pixel_identical": true,
+        "changed_pixels": 324,
+        "changed_pixels_outside_pupil_rectangles": 0,
+        "no_pupil_resizing_rotation_or_warp": true
+      }
+    }
+  },
+  "method": "Python pupil translation at native pixel size only: no rotation, resizing, upsampling, perspective transform, shear or geometric resampling. Clip the stamp to the visible original iris to preserve eyelids.",
+  "latest_user_request": "the perspective warp seems to be adding some strange artifacting - try not warping the perspective",
+  "previous_run": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-hu-tao-excitement-pupil-patches",
+  "pupil_elements": [
+    {
+      "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-hu-tao-excitement-pupil-patches-native/patches/excitement-pupil-0.png",
+      "sha256": "1c5b0022a01b733913da52b941e4f9e7cdf082b283687503ef3e5c3e78e15598",
+      "source_box": [
+        420,
+        277,
+        436,
+        294
+      ],
+      "pupil_box": [
+        422,
+        279,
+        434,
+        292
+      ],
+      "foreground_rgb": [
+        251.0,
+        232.0,
+        201.5
+      ],
+      "method": "Extract original excitement pupil foreground and antialiased contour, excluding iris/background."
+    },
+    {
+      "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-hu-tao-excitement-pupil-patches-native/patches/excitement-pupil-1.png",
+      "sha256": "2200e57dbefa4200e80008225b386b43295557f7396b17759eeefbdb9022502b",
+      "source_box": [
+        509,
+        253,
+        525,
+        270
+      ],
+      "pupil_box": [
+        511,
+        255,
+        523,
+        268
+      ],
+      "foreground_rgb": [
+        251,
+        231,
+        201
+      ],
+      "method": "Extract original excitement pupil foreground and antialiased contour, excluding iris/background."
+    }
+  ],
+  "previews": {
+    "faces": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-hu-tao-excitement-pupil-patches-native/previews/faces-with-approved-source.png",
+    "face_order": [
+      "excitement-approved",
+      "smug",
+      "confusion",
+      "desire"
+    ],
+    "full_body": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-hu-tao-excitement-pupil-patches-native/previews/full-body.png",
+    "full_body_order": [
+      "smug",
+      "confusion",
+      "desire"
+    ],
+    "transforms": [
+      {
+        "emotion": "excitement-approved",
+        "face_crop": [
+          149,
+          0,
+          785,
+          522
+        ],
+        "face_size": [
+          304,
+          250
+        ],
+        "face_position": [
+          8,
+          35
+        ]
+      },
+      {
+        "emotion": "smug",
+        "face_crop": [
+          149,
+          0,
+          785,
+          522
+        ],
+        "face_size": [
+          304,
+          250
+        ],
+        "face_position": [
+          328,
+          35
+        ],
+        "body_position": [
+          12,
+          23
+        ],
+        "body_size": [
+          396,
+          714
+        ],
+        "diagnostic_eye_crop": [
+          435,
+          224,
+          546,
+          282
+        ],
+        "diagnostic_preview_scaling": "5x nearest neighbour for viewing only; source pupil stamps were not resampled"
+      },
+      {
+        "emotion": "confusion",
+        "face_crop": [
+          149,
+          0,
+          785,
+          522
+        ],
+        "face_size": [
+          304,
+          250
+        ],
+        "face_position": [
+          648,
+          35
+        ],
+        "body_position": [
+          432,
+          23
+        ],
+        "body_size": [
+          396,
+          714
+        ],
+        "diagnostic_eye_crop": [
+          407,
+          232,
+          518,
+          295
+        ],
+        "diagnostic_preview_scaling": "5x nearest neighbour for viewing only; source pupil stamps were not resampled"
+      },
+      {
+        "emotion": "desire",
+        "face_crop": [
+          149,
+          0,
+          785,
+          522
+        ],
+        "face_size": [
+          304,
+          250
+        ],
+        "face_position": [
+          968,
+          35
+        ],
+        "body_position": [
+          852,
+          23
+        ],
+        "body_size": [
+          396,
+          714
+        ],
+        "diagnostic_eye_crop": [
+          434,
+          237,
+          552,
+          296
+        ],
+        "diagnostic_preview_scaling": "5x nearest neighbour for viewing only; source pupil stamps were not resampled"
+      }
+    ],
+    "labels": "none",
+    "background": "transparent"
+  },
+  "archives": {
+    "sprites": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-hu-tao-excitement-pupil-patches-native/archives/patched-sprites.zip",
+    "complete_artwork": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-05-hu-tao-excitement-pupil-patches-native/archives/complete-artwork.zip"
+  },
+  "technical_summary": {
+    "pupil_scale": [
+      1,
+      1
+    ],
+    "rotation": 0,
+    "shear": 0,
+    "perspective_warp": false,
+    "geometric_resampling": "none",
+    "alpha_channels_preserved": true,
+    "zero_changed_pixels_outside_pupil_rectangles": true,
+    "approved_excitement_unchanged": true
+  }
+}

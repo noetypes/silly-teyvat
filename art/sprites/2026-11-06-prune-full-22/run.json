@@ -1,0 +1,1648 @@
+{
+  "date": "2026-11-06",
+  "status": "complete_awaiting_user_review",
+  "user_request": "Perfect!! Regenerate her 22 sprite set with this new sprite, try to give her cute expressions and poses that match her characterization for each emotion",
+  "requested_emotions": [
+    "neutral",
+    "annoyance",
+    "smug",
+    "confusion",
+    "love",
+    "excitement",
+    "joy",
+    "fear",
+    "pride",
+    "desire",
+    "anger",
+    "grief",
+    "sadness",
+    "disgust",
+    "disappointment",
+    "relief",
+    "admiration",
+    "gratitude",
+    "embarrassment",
+    "caring",
+    "love-1",
+    "desire-1"
+  ],
+  "total_new_expressions": 21,
+  "characters": {
+    "Prune": {
+      "neutral_approval": {
+        "status": "approved",
+        "date": "2026-11-06",
+        "message": "Perfect!! Regenerate her 22 sprite set with this new sprite, try to give her cute expressions and poses that match her characterization for each emotion",
+        "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-06-prune-model-neutral/candidates/Prune/neutral-v002.png",
+        "candidate_sha256": "bb8d9ef1e3eb966445d7b1cd0be20b0c7a68af0427c46ebea44821ce266c3b9a",
+        "version": "v002"
+      },
+      "reference": {
+        "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-06-prune-full-22/references/Prune/approved-neutral.png",
+        "sha256": "bb8d9ef1e3eb966445d7b1cd0be20b0c7a68af0427c46ebea44821ce266c3b9a"
+      },
+      "neutral": {
+        "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-06-prune-full-22/sprites/Prune/neutral.png",
+        "sha256": "bb8d9ef1e3eb966445d7b1cd0be20b0c7a68af0427c46ebea44821ce266c3b9a",
+        "status": "approved"
+      },
+      "emotions": [
+        "neutral",
+        "annoyance",
+        "smug",
+        "confusion",
+        "love",
+        "excitement",
+        "joy",
+        "fear",
+        "pride",
+        "desire",
+        "anger",
+        "grief",
+        "sadness",
+        "disgust",
+        "disappointment",
+        "relief",
+        "admiration",
+        "gratitude",
+        "embarrassment",
+        "caring",
+        "love-1",
+        "desire-1"
+      ]
+    }
+  },
+  "reference_policy": "Every expression independently uses only the exact approved neutral-v002. Original model and official art are archived as provenance only, not expression image inputs.",
+  "model_note": "Built-in image tool; no exposed model ID or quality selector.",
+  "installation": "Not requested; existing live set unchanged until user approval and installation request.",
+  "review_policy": "User reviews candidates. Technical checks only, no autonomous visual rejection, repair or approval.",
+  "characterization_source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-06-prune-full-22/sources/characterization.txt",
+  "jobs": {
+    "Prune annoyance": {
+      "character": "Prune",
+      "emotion": "annoyance",
+      "status": "candidate",
+      "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-06-prune-full-22/prompts/Prune/annoyance.txt",
+      "heart_alternate": false,
+      "tool": "image_gen.imagegen",
+      "arguments": {
+        "prompt": "Use case: stylized-concept. Generate one full-body visual-novel expression sprite of Prune from Genshin Impact, expressing annoyance. The single supplied image is the EXACT USER-APPROVED neutral-v002. It is the sole image reference. Preserve its identity, tiny cute build, costume, colours and polished softly painted anime rendering, while creating a distinct emotion-appropriate pose.\nTINY PROPORTIONS: match the approved neutral's compact childlike Small Female silhouette, approximately four head-lengths tall, oversized softly rounded head, tiny upper frame, narrow delicate shoulders, short softly rounded torso, distinctly short thighs and lower legs, little hands and charmingly chunky cuff/boot details. Preserve her round cheeks, large rounded eyes and small nose/mouth. Keep her just as tiny and cute in every pose; no adult-height body, elongated waist or stretched legs. Use true fair skin in neutral illumination and localized cheek colour only where the expression calls for it.\nIDENTITY AND OUTFIT: Preserve her recognizable indigo-blue bob with magenta highlights, side-swept fringe, silver bone hair clip and opposite ornament, violet-pink top feather/ribbons, purple eyes and fair skin. Preserve the exact black oversized shoulder wrap, magenta lining, silver chest clasp, dark choker and diamond ornament, white geometric-edged tunic front, black shorts, lavender hanging panels with pale star motifs and silver lower fasteners, purple-pink angular layered back/side panels, oversized dark wrist cuffs and short fingerless gloves, asymmetric leg covering with a long dark wrap/stocking and upper strap on her anatomical left leg and a shorter grey sock on the right, and the chunky black lace-up boots with silver bone details and pale zigzag toe caps. All patterns and accessories follow their actual surfaces as her pose changes.\nCHARACTER ACTING: Prune is an earnest, stubborn, bookish little self-declared witch hunter who wants to look grown-up and knowledgeable. She has quiet loneliness and care beneath her solemn confidence, and moments of unmistakable childlike wonder. A tiny stern pout with one lowered brow and the other raised, open eyes glancing sideways as if someone is treating her like a baby. Plant her little feet apart and lean back a touch with her chin lifted. Her anatomical right hand rests loosely on her hip; the left hand hangs relaxed beside her thigh, clear of fabric. Let her determined grown-up dignity be endearingly transparent. Change head angle, shoulders, stance, hands and body language to suit this specific emotion rather than copying the neutral pose.\nEYES: retain the approved neutral's ordinary violet-purple eye colours and natural pupil design, with coherent lids, intact irises and a shared gaze suited to the emotion. Keep eyes open enough to read the expression. No heart pupils or floating hearts in this ordinary variant.\nHANDS AND ANATOMY: choose simple readable gestures close to the image plane, keeping hands apart and avoiding extreme foreshortening, reaching toward the camera, intricate splaying or tangled/clasped fingers. Each naturally articulated hand has a believable palm, four gently curved fingers and a separate opposable thumb; allow the angle to hide natural overlaps instead of forcing every digit into view. Keep wrists comfortable and fingers clearly separated from cuffs and adjacent fabric. Exactly two coherent legs and two feet belonging to one pelvis, with an uncrossed balanced stance. The heavy costume panels hang naturally with gravity while following the new pose.\nFRAMING: one complete full-body silhouette, including top hair ornament, all hair, cuff edges, hands, hanging panels and both boots. Fill roughly 92\u201396% of canvas height with about 2\u20134% top/bottom padding. Genuinely transparent alpha outside the character. Hands empty. No scenery, floor, shadow, reflection, text, labels, UI, watermark, hammer, weapon, new prop, floating effects, other character or comparison sheet. Keep every affection/wishing expression fully clothed, innocent and age-appropriate.",
+        "referenced_image_paths": [
+          "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-06-prune-full-22/references/Prune/approved-neutral.png"
+        ],
+        "transparent_background": true
+      },
+      "approval": {
+        "status": "pending"
+      },
+      "tool_output": "/Users/alexachan/.codex/generated_images/01a1aa19-42b2-7e92-b08d-8ee7d133c057/exec-49a94fd1-cba2-4060-b3b1-c1c54a3f262a.png",
+      "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-06-prune-full-22/raw/Prune/annoyance.png",
+      "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-06-prune-full-22/sprites/Prune/annoyance.png",
+      "sha256": "79c332e2e8d954991937f6c871e0aad6bb9dd77329c29dd5c6024d06b77d834d",
+      "dimensions": [
+        952,
+        1653
+      ],
+      "png_color_type": 6
+    },
+    "Prune smug": {
+      "character": "Prune",
+      "emotion": "smug",
+      "status": "candidate",
+      "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-06-prune-full-22/prompts/Prune/smug.txt",
+      "heart_alternate": false,
+      "tool": "image_gen.imagegen",
+      "arguments": {
+        "prompt": "Use case: stylized-concept. Generate one full-body visual-novel expression sprite of Prune from Genshin Impact, expressing smug. The single supplied image is the EXACT USER-APPROVED neutral-v002. It is the sole image reference. Preserve its identity, tiny cute build, costume, colours and polished softly painted anime rendering, while creating a distinct emotion-appropriate pose.\nTINY PROPORTIONS: match the approved neutral's compact childlike Small Female silhouette, approximately four head-lengths tall, oversized softly rounded head, tiny upper frame, narrow delicate shoulders, short softly rounded torso, distinctly short thighs and lower legs, little hands and charmingly chunky cuff/boot details. Preserve her round cheeks, large rounded eyes and small nose/mouth. Keep her just as tiny and cute in every pose; no adult-height body, elongated waist or stretched legs. Use true fair skin in neutral illumination and localized cheek colour only where the expression calls for it.\nIDENTITY AND OUTFIT: Preserve her recognizable indigo-blue bob with magenta highlights, side-swept fringe, silver bone hair clip and opposite ornament, violet-pink top feather/ribbons, purple eyes and fair skin. Preserve the exact black oversized shoulder wrap, magenta lining, silver chest clasp, dark choker and diamond ornament, white geometric-edged tunic front, black shorts, lavender hanging panels with pale star motifs and silver lower fasteners, purple-pink angular layered back/side panels, oversized dark wrist cuffs and short fingerless gloves, asymmetric leg covering with a long dark wrap/stocking and upper strap on her anatomical left leg and a shorter grey sock on the right, and the chunky black lace-up boots with silver bone details and pale zigzag toe caps. All patterns and accessories follow their actual surfaces as her pose changes.\nCHARACTER ACTING: Prune is an earnest, stubborn, bookish little self-declared witch hunter who wants to look grown-up and knowledgeable. She has quiet loneliness and care beneath her solemn confidence, and moments of unmistakable childlike wonder. A small knowing closed-mouth smirk, one eyebrow lifted and bright open eyes as though she has just supplied an obscure fact nobody else knew. Lift her chin and turn one shoulder a little forward. Her anatomical left hand rests on her hip while her right forearm opens low in a small palm-up explanatory gesture, fingers together and relaxed. Give her charming miniature scholar confidence. Change head angle, shoulders, stance, hands and body language to suit this specific emotion rather than copying the neutral pose.\nEYES: retain the approved neutral's ordinary violet-purple eye colours and natural pupil design, with coherent lids, intact irises and a shared gaze suited to the emotion. Keep eyes open enough to read the expression. No heart pupils or floating hearts in this ordinary variant.\nHANDS AND ANATOMY: choose simple readable gestures close to the image plane, keeping hands apart and avoiding extreme foreshortening, reaching toward the camera, intricate splaying or tangled/clasped fingers. Each naturally articulated hand has a believable palm, four gently curved fingers and a separate opposable thumb; allow the angle to hide natural overlaps instead of forcing every digit into view. Keep wrists comfortable and fingers clearly separated from cuffs and adjacent fabric. Exactly two coherent legs and two feet belonging to one pelvis, with an uncrossed balanced stance. The heavy costume panels hang naturally with gravity while following the new pose.\nFRAMING: one complete full-body silhouette, including top hair ornament, all hair, cuff edges, hands, hanging panels and both boots. Fill roughly 92\u201396% of canvas height with about 2\u20134% top/bottom padding. Genuinely transparent alpha outside the character. Hands empty. No scenery, floor, shadow, reflection, text, labels, UI, watermark, hammer, weapon, new prop, floating effects, other character or comparison sheet. Keep every affection/wishing expression fully clothed, innocent and age-appropriate.",
+        "referenced_image_paths": [
+          "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-06-prune-full-22/references/Prune/approved-neutral.png"
+        ],
+        "transparent_background": true
+      },
+      "approval": {
+        "status": "pending"
+      },
+      "tool_output": "/Users/alexachan/.codex/generated_images/01a1aa19-42b2-7e92-b08d-8ee7d133c057/exec-3ac819f3-e1e5-4a38-8652-240a3c904895.png",
+      "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-06-prune-full-22/raw/Prune/smug.png",
+      "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-06-prune-full-22/sprites/Prune/smug.png",
+      "sha256": "6f71038ad11731ad14ae94afd69c4ce3797008eec5b60dc8a3a6005dc260eab1",
+      "dimensions": [
+        952,
+        1652
+      ],
+      "png_color_type": 6
+    },
+    "Prune confusion": {
+      "character": "Prune",
+      "emotion": "confusion",
+      "status": "candidate",
+      "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-06-prune-full-22/prompts/Prune/confusion.txt",
+      "heart_alternate": false,
+      "tool": "image_gen.imagegen",
+      "arguments": {
+        "prompt": "Use case: stylized-concept. Generate one full-body visual-novel expression sprite of Prune from Genshin Impact, expressing confusion. The single supplied image is the EXACT USER-APPROVED neutral-v002. It is the sole image reference. Preserve its identity, tiny cute build, costume, colours and polished softly painted anime rendering, while creating a distinct emotion-appropriate pose.\nTINY PROPORTIONS: match the approved neutral's compact childlike Small Female silhouette, approximately four head-lengths tall, oversized softly rounded head, tiny upper frame, narrow delicate shoulders, short softly rounded torso, distinctly short thighs and lower legs, little hands and charmingly chunky cuff/boot details. Preserve her round cheeks, large rounded eyes and small nose/mouth. Keep her just as tiny and cute in every pose; no adult-height body, elongated waist or stretched legs. Use true fair skin in neutral illumination and localized cheek colour only where the expression calls for it.\nIDENTITY AND OUTFIT: Preserve her recognizable indigo-blue bob with magenta highlights, side-swept fringe, silver bone hair clip and opposite ornament, violet-pink top feather/ribbons, purple eyes and fair skin. Preserve the exact black oversized shoulder wrap, magenta lining, silver chest clasp, dark choker and diamond ornament, white geometric-edged tunic front, black shorts, lavender hanging panels with pale star motifs and silver lower fasteners, purple-pink angular layered back/side panels, oversized dark wrist cuffs and short fingerless gloves, asymmetric leg covering with a long dark wrap/stocking and upper strap on her anatomical left leg and a shorter grey sock on the right, and the chunky black lace-up boots with silver bone details and pale zigzag toe caps. All patterns and accessories follow their actual surfaces as her pose changes.\nCHARACTER ACTING: Prune is an earnest, stubborn, bookish little self-declared witch hunter who wants to look grown-up and knowledgeable. She has quiet loneliness and care beneath her solemn confidence, and moments of unmistakable childlike wonder. Uneven raised brows, large puzzled open eyes and a tiny parted mouth as she tries hard to understand a difficult philosophical question. Tilt her head and lift one shoulder in a modest questioning shrug. Her anatomical left hand is loosely open at waist level with grouped fingers and an oblique palm; the right arm relaxes by her side, separated from her skirt panels. She looks thoughtfully baffled rather than foolish. Change head angle, shoulders, stance, hands and body language to suit this specific emotion rather than copying the neutral pose.\nEYES: retain the approved neutral's ordinary violet-purple eye colours and natural pupil design, with coherent lids, intact irises and a shared gaze suited to the emotion. Keep eyes open enough to read the expression. No heart pupils or floating hearts in this ordinary variant.\nHANDS AND ANATOMY: choose simple readable gestures close to the image plane, keeping hands apart and avoiding extreme foreshortening, reaching toward the camera, intricate splaying or tangled/clasped fingers. Each naturally articulated hand has a believable palm, four gently curved fingers and a separate opposable thumb; allow the angle to hide natural overlaps instead of forcing every digit into view. Keep wrists comfortable and fingers clearly separated from cuffs and adjacent fabric. Exactly two coherent legs and two feet belonging to one pelvis, with an uncrossed balanced stance. The heavy costume panels hang naturally with gravity while following the new pose.\nFRAMING: one complete full-body silhouette, including top hair ornament, all hair, cuff edges, hands, hanging panels and both boots. Fill roughly 92\u201396% of canvas height with about 2\u20134% top/bottom padding. Genuinely transparent alpha outside the character. Hands empty. No scenery, floor, shadow, reflection, text, labels, UI, watermark, hammer, weapon, new prop, floating effects, other character or comparison sheet. Keep every affection/wishing expression fully clothed, innocent and age-appropriate.",
+        "referenced_image_paths": [
+          "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-06-prune-full-22/references/Prune/approved-neutral.png"
+        ],
+        "transparent_background": true
+      },
+      "approval": {
+        "status": "pending"
+      },
+      "tool_output": "/Users/alexachan/.codex/generated_images/01a1aa19-42b2-7e92-b08d-8ee7d133c057/exec-4e6d30ec-d91b-4709-a3c8-e008fe3bb751.png",
+      "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-06-prune-full-22/raw/Prune/confusion.png",
+      "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-06-prune-full-22/sprites/Prune/confusion.png",
+      "sha256": "30de22c34923dbcdc76e2e54726002a464b8c8ddab6a841a335cc7ebbcd1489f",
+      "dimensions": [
+        952,
+        1653
+      ],
+      "png_color_type": 6
+    },
+    "Prune love": {
+      "character": "Prune",
+      "emotion": "love",
+      "status": "candidate",
+      "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-06-prune-full-22/prompts/Prune/love.txt",
+      "heart_alternate": false,
+      "tool": "image_gen.imagegen",
+      "arguments": {
+        "prompt": "Use case: stylized-concept. Generate one full-body visual-novel expression sprite of Prune from Genshin Impact, expressing love. The single supplied image is the EXACT USER-APPROVED neutral-v002. It is the sole image reference. Preserve its identity, tiny cute build, costume, colours and polished softly painted anime rendering, while creating a distinct emotion-appropriate pose.\nTINY PROPORTIONS: match the approved neutral's compact childlike Small Female silhouette, approximately four head-lengths tall, oversized softly rounded head, tiny upper frame, narrow delicate shoulders, short softly rounded torso, distinctly short thighs and lower legs, little hands and charmingly chunky cuff/boot details. Preserve her round cheeks, large rounded eyes and small nose/mouth. Keep her just as tiny and cute in every pose; no adult-height body, elongated waist or stretched legs. Use true fair skin in neutral illumination and localized cheek colour only where the expression calls for it.\nIDENTITY AND OUTFIT: Preserve her recognizable indigo-blue bob with magenta highlights, side-swept fringe, silver bone hair clip and opposite ornament, violet-pink top feather/ribbons, purple eyes and fair skin. Preserve the exact black oversized shoulder wrap, magenta lining, silver chest clasp, dark choker and diamond ornament, white geometric-edged tunic front, black shorts, lavender hanging panels with pale star motifs and silver lower fasteners, purple-pink angular layered back/side panels, oversized dark wrist cuffs and short fingerless gloves, asymmetric leg covering with a long dark wrap/stocking and upper strap on her anatomical left leg and a shorter grey sock on the right, and the chunky black lace-up boots with silver bone details and pale zigzag toe caps. All patterns and accessories follow their actual surfaces as her pose changes.\nCHARACTER ACTING: Prune is an earnest, stubborn, bookish little self-declared witch hunter who wants to look grown-up and knowledgeable. She has quiet loneliness and care beneath her solemn confidence, and moments of unmistakable childlike wonder. A tender, quietly fond closed-mouth smile and softly attentive open eyes, expressing safe affection for family, a dear friend or her imaginary companion. Her shoulders soften and her head inclines warmly. The anatomical right hand rests near her heart, fingers relaxed clear of the clasp, and the left arm lowers comfortably beside her hip. Keep the affection innocent, gentle and companionable. Change head angle, shoulders, stance, hands and body language to suit this specific emotion rather than copying the neutral pose.\nEYES: retain the approved neutral's ordinary violet-purple eye colours and natural pupil design, with coherent lids, intact irises and a shared gaze suited to the emotion. Keep eyes open enough to read the expression. No heart pupils or floating hearts in this ordinary variant.\nHANDS AND ANATOMY: choose simple readable gestures close to the image plane, keeping hands apart and avoiding extreme foreshortening, reaching toward the camera, intricate splaying or tangled/clasped fingers. Each naturally articulated hand has a believable palm, four gently curved fingers and a separate opposable thumb; allow the angle to hide natural overlaps instead of forcing every digit into view. Keep wrists comfortable and fingers clearly separated from cuffs and adjacent fabric. Exactly two coherent legs and two feet belonging to one pelvis, with an uncrossed balanced stance. The heavy costume panels hang naturally with gravity while following the new pose.\nFRAMING: one complete full-body silhouette, including top hair ornament, all hair, cuff edges, hands, hanging panels and both boots. Fill roughly 92\u201396% of canvas height with about 2\u20134% top/bottom padding. Genuinely transparent alpha outside the character. Hands empty. No scenery, floor, shadow, reflection, text, labels, UI, watermark, hammer, weapon, new prop, floating effects, other character or comparison sheet. Keep every affection/wishing expression fully clothed, innocent and age-appropriate.",
+        "referenced_image_paths": [
+          "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-06-prune-full-22/references/Prune/approved-neutral.png"
+        ],
+        "transparent_background": true
+      },
+      "approval": {
+        "status": "pending"
+      },
+      "tool_output": "/Users/alexachan/.codex/generated_images/01a1aa19-42b2-7e92-b08d-8ee7d133c057/exec-bc2ef74c-f97d-47b4-8a28-09ea15e883ad.png",
+      "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-06-prune-full-22/raw/Prune/love.png",
+      "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-06-prune-full-22/sprites/Prune/love.png",
+      "sha256": "c524cf9bf10635a975c59ed044e9c9d0209123d37d77ce085a8a64f4f649eb03",
+      "dimensions": [
+        952,
+        1653
+      ],
+      "png_color_type": 6
+    },
+    "Prune excitement": {
+      "character": "Prune",
+      "emotion": "excitement",
+      "status": "candidate",
+      "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-06-prune-full-22/prompts/Prune/excitement.txt",
+      "heart_alternate": false,
+      "tool": "image_gen.imagegen",
+      "arguments": {
+        "prompt": "Use case: stylized-concept. Generate one full-body visual-novel expression sprite of Prune from Genshin Impact, expressing excitement. The single supplied image is the EXACT USER-APPROVED neutral-v002. It is the sole image reference. Preserve its identity, tiny cute build, costume, colours and polished softly painted anime rendering, while creating a distinct emotion-appropriate pose.\nTINY PROPORTIONS: match the approved neutral's compact childlike Small Female silhouette, approximately four head-lengths tall, oversized softly rounded head, tiny upper frame, narrow delicate shoulders, short softly rounded torso, distinctly short thighs and lower legs, little hands and charmingly chunky cuff/boot details. Preserve her round cheeks, large rounded eyes and small nose/mouth. Keep her just as tiny and cute in every pose; no adult-height body, elongated waist or stretched legs. Use true fair skin in neutral illumination and localized cheek colour only where the expression calls for it.\nIDENTITY AND OUTFIT: Preserve her recognizable indigo-blue bob with magenta highlights, side-swept fringe, silver bone hair clip and opposite ornament, violet-pink top feather/ribbons, purple eyes and fair skin. Preserve the exact black oversized shoulder wrap, magenta lining, silver chest clasp, dark choker and diamond ornament, white geometric-edged tunic front, black shorts, lavender hanging panels with pale star motifs and silver lower fasteners, purple-pink angular layered back/side panels, oversized dark wrist cuffs and short fingerless gloves, asymmetric leg covering with a long dark wrap/stocking and upper strap on her anatomical left leg and a shorter grey sock on the right, and the chunky black lace-up boots with silver bone details and pale zigzag toe caps. All patterns and accessories follow their actual surfaces as her pose changes.\nCHARACTER ACTING: Prune is an earnest, stubborn, bookish little self-declared witch hunter who wants to look grown-up and knowledgeable. She has quiet loneliness and care beneath her solemn confidence, and moments of unmistakable childlike wonder. Bright wide open eyes, raised brows and a delighted little open smile as an exciting discovery or invitation to play defeats her attempt to look scholarly. Lean forward slightly with a tiny buoyant heel lift. Her anatomical right hand forms a relaxed small celebratory fist beside the lower ribs, with the thumb naturally outside; the left hand rests low and open in side view, separate from clothes. The enthusiasm should feel unmistakably childlike. Change head angle, shoulders, stance, hands and body language to suit this specific emotion rather than copying the neutral pose.\nEYES: retain the approved neutral's ordinary violet-purple eye colours and natural pupil design, with coherent lids, intact irises and a shared gaze suited to the emotion. Keep eyes open enough to read the expression. No heart pupils or floating hearts in this ordinary variant.\nHANDS AND ANATOMY: choose simple readable gestures close to the image plane, keeping hands apart and avoiding extreme foreshortening, reaching toward the camera, intricate splaying or tangled/clasped fingers. Each naturally articulated hand has a believable palm, four gently curved fingers and a separate opposable thumb; allow the angle to hide natural overlaps instead of forcing every digit into view. Keep wrists comfortable and fingers clearly separated from cuffs and adjacent fabric. Exactly two coherent legs and two feet belonging to one pelvis, with an uncrossed balanced stance. The heavy costume panels hang naturally with gravity while following the new pose.\nFRAMING: one complete full-body silhouette, including top hair ornament, all hair, cuff edges, hands, hanging panels and both boots. Fill roughly 92\u201396% of canvas height with about 2\u20134% top/bottom padding. Genuinely transparent alpha outside the character. Hands empty. No scenery, floor, shadow, reflection, text, labels, UI, watermark, hammer, weapon, new prop, floating effects, other character or comparison sheet. Keep every affection/wishing expression fully clothed, innocent and age-appropriate.",
+        "referenced_image_paths": [
+          "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-06-prune-full-22/references/Prune/approved-neutral.png"
+        ],
+        "transparent_background": true
+      },
+      "approval": {
+        "status": "pending"
+      },
+      "tool_output": "/Users/alexachan/.codex/generated_images/01a1aa19-42b2-7e92-b08d-8ee7d133c057/exec-7255d8d8-7406-40f9-a21b-1156b3a76fa0.png",
+      "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-06-prune-full-22/raw/Prune/excitement.png",
+      "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-06-prune-full-22/sprites/Prune/excitement.png",
+      "sha256": "4e6d372f9678a0fe767c0bf84f1ed54620c7475c836762e339629bf1329c6be4",
+      "dimensions": [
+        952,
+        1653
+      ],
+      "png_color_type": 6
+    },
+    "Prune joy": {
+      "character": "Prune",
+      "emotion": "joy",
+      "status": "candidate",
+      "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-06-prune-full-22/prompts/Prune/joy.txt",
+      "heart_alternate": false,
+      "tool": "image_gen.imagegen",
+      "arguments": {
+        "prompt": "Use case: stylized-concept. Generate one full-body visual-novel expression sprite of Prune from Genshin Impact, expressing joy. The single supplied image is the EXACT USER-APPROVED neutral-v002. It is the sole image reference. Preserve its identity, tiny cute build, costume, colours and polished softly painted anime rendering, while creating a distinct emotion-appropriate pose.\nTINY PROPORTIONS: match the approved neutral's compact childlike Small Female silhouette, approximately four head-lengths tall, oversized softly rounded head, tiny upper frame, narrow delicate shoulders, short softly rounded torso, distinctly short thighs and lower legs, little hands and charmingly chunky cuff/boot details. Preserve her round cheeks, large rounded eyes and small nose/mouth. Keep her just as tiny and cute in every pose; no adult-height body, elongated waist or stretched legs. Use true fair skin in neutral illumination and localized cheek colour only where the expression calls for it.\nIDENTITY AND OUTFIT: Preserve her recognizable indigo-blue bob with magenta highlights, side-swept fringe, silver bone hair clip and opposite ornament, violet-pink top feather/ribbons, purple eyes and fair skin. Preserve the exact black oversized shoulder wrap, magenta lining, silver chest clasp, dark choker and diamond ornament, white geometric-edged tunic front, black shorts, lavender hanging panels with pale star motifs and silver lower fasteners, purple-pink angular layered back/side panels, oversized dark wrist cuffs and short fingerless gloves, asymmetric leg covering with a long dark wrap/stocking and upper strap on her anatomical left leg and a shorter grey sock on the right, and the chunky black lace-up boots with silver bone details and pale zigzag toe caps. All patterns and accessories follow their actual surfaces as her pose changes.\nCHARACTER ACTING: Prune is an earnest, stubborn, bookish little self-declared witch hunter who wants to look grown-up and knowledgeable. She has quiet loneliness and care beneath her solemn confidence, and moments of unmistakable childlike wonder. An unguarded sunny smile with a small open mouth and happily curved but clearly open eyes. Turn a little toward the viewer and open the anatomical left forearm outward at waist height in a small welcoming gesture; the right arm stays low beside her hip. Give her a playful sideways weight shift and head tilt, showing spontaneous childlike happiness rather than her restrained neutral smile. Change head angle, shoulders, stance, hands and body language to suit this specific emotion rather than copying the neutral pose.\nEYES: retain the approved neutral's ordinary violet-purple eye colours and natural pupil design, with coherent lids, intact irises and a shared gaze suited to the emotion. Keep eyes open enough to read the expression. No heart pupils or floating hearts in this ordinary variant.\nHANDS AND ANATOMY: choose simple readable gestures close to the image plane, keeping hands apart and avoiding extreme foreshortening, reaching toward the camera, intricate splaying or tangled/clasped fingers. Each naturally articulated hand has a believable palm, four gently curved fingers and a separate opposable thumb; allow the angle to hide natural overlaps instead of forcing every digit into view. Keep wrists comfortable and fingers clearly separated from cuffs and adjacent fabric. Exactly two coherent legs and two feet belonging to one pelvis, with an uncrossed balanced stance. The heavy costume panels hang naturally with gravity while following the new pose.\nFRAMING: one complete full-body silhouette, including top hair ornament, all hair, cuff edges, hands, hanging panels and both boots. Fill roughly 92\u201396% of canvas height with about 2\u20134% top/bottom padding. Genuinely transparent alpha outside the character. Hands empty. No scenery, floor, shadow, reflection, text, labels, UI, watermark, hammer, weapon, new prop, floating effects, other character or comparison sheet. Keep every affection/wishing expression fully clothed, innocent and age-appropriate.",
+        "referenced_image_paths": [
+          "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-06-prune-full-22/references/Prune/approved-neutral.png"
+        ],
+        "transparent_background": true
+      },
+      "approval": {
+        "status": "pending"
+      },
+      "tool_output": "/Users/alexachan/.codex/generated_images/01a1aa19-42b2-7e92-b08d-8ee7d133c057/exec-61b2bd42-6044-4e61-bfd6-4a06ba8a561c.png",
+      "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-06-prune-full-22/raw/Prune/joy.png",
+      "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-06-prune-full-22/sprites/Prune/joy.png",
+      "sha256": "94d39df232137ae84011d7b35a82ff89bdafa80e386cf1f64c5814c1197d7238",
+      "dimensions": [
+        952,
+        1653
+      ],
+      "png_color_type": 6
+    },
+    "Prune fear": {
+      "character": "Prune",
+      "emotion": "fear",
+      "status": "candidate",
+      "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-06-prune-full-22/prompts/Prune/fear.txt",
+      "heart_alternate": false,
+      "tool": "image_gen.imagegen",
+      "arguments": {
+        "prompt": "Use case: stylized-concept. Generate one full-body visual-novel expression sprite of Prune from Genshin Impact, expressing fear. The single supplied image is the EXACT USER-APPROVED neutral-v002. It is the sole image reference. Preserve its identity, tiny cute build, costume, colours and polished softly painted anime rendering, while creating a distinct emotion-appropriate pose.\nTINY PROPORTIONS: match the approved neutral's compact childlike Small Female silhouette, approximately four head-lengths tall, oversized softly rounded head, tiny upper frame, narrow delicate shoulders, short softly rounded torso, distinctly short thighs and lower legs, little hands and charmingly chunky cuff/boot details. Preserve her round cheeks, large rounded eyes and small nose/mouth. Keep her just as tiny and cute in every pose; no adult-height body, elongated waist or stretched legs. Use true fair skin in neutral illumination and localized cheek colour only where the expression calls for it.\nIDENTITY AND OUTFIT: Preserve her recognizable indigo-blue bob with magenta highlights, side-swept fringe, silver bone hair clip and opposite ornament, violet-pink top feather/ribbons, purple eyes and fair skin. Preserve the exact black oversized shoulder wrap, magenta lining, silver chest clasp, dark choker and diamond ornament, white geometric-edged tunic front, black shorts, lavender hanging panels with pale star motifs and silver lower fasteners, purple-pink angular layered back/side panels, oversized dark wrist cuffs and short fingerless gloves, asymmetric leg covering with a long dark wrap/stocking and upper strap on her anatomical left leg and a shorter grey sock on the right, and the chunky black lace-up boots with silver bone details and pale zigzag toe caps. All patterns and accessories follow their actual surfaces as her pose changes.\nCHARACTER ACTING: Prune is an earnest, stubborn, bookish little self-declared witch hunter who wants to look grown-up and knowledgeable. She has quiet loneliness and care beneath her solemn confidence, and moments of unmistakable childlike wonder. A startled, worried open-eyed look with raised inner brows and a small parted mouth, while she is trying to be a brave witch hunter. Shift her weight back in a slight recoil, knees softly bent and feet separate. Her anatomical left forearm rises protectively beside the upper torso with the hand gently open and clear of the collar; the right hand remains lower beside the waist. Show vulnerable alarm without extreme flailing. Change head angle, shoulders, stance, hands and body language to suit this specific emotion rather than copying the neutral pose.\nEYES: retain the approved neutral's ordinary violet-purple eye colours and natural pupil design, with coherent lids, intact irises and a shared gaze suited to the emotion. Keep eyes open enough to read the expression. No heart pupils or floating hearts in this ordinary variant.\nHANDS AND ANATOMY: choose simple readable gestures close to the image plane, keeping hands apart and avoiding extreme foreshortening, reaching toward the camera, intricate splaying or tangled/clasped fingers. Each naturally articulated hand has a believable palm, four gently curved fingers and a separate opposable thumb; allow the angle to hide natural overlaps instead of forcing every digit into view. Keep wrists comfortable and fingers clearly separated from cuffs and adjacent fabric. Exactly two coherent legs and two feet belonging to one pelvis, with an uncrossed balanced stance. The heavy costume panels hang naturally with gravity while following the new pose.\nFRAMING: one complete full-body silhouette, including top hair ornament, all hair, cuff edges, hands, hanging panels and both boots. Fill roughly 92\u201396% of canvas height with about 2\u20134% top/bottom padding. Genuinely transparent alpha outside the character. Hands empty. No scenery, floor, shadow, reflection, text, labels, UI, watermark, hammer, weapon, new prop, floating effects, other character or comparison sheet. Keep every affection/wishing expression fully clothed, innocent and age-appropriate.",
+        "referenced_image_paths": [
+          "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-06-prune-full-22/references/Prune/approved-neutral.png"
+        ],
+        "transparent_background": true
+      },
+      "approval": {
+        "status": "pending"
+      },
+      "tool_output": "/Users/alexachan/.codex/generated_images/01a1aa19-42b2-7e92-b08d-8ee7d133c057/exec-81fe719a-e719-4d0f-98f0-062010494f5f.png",
+      "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-06-prune-full-22/raw/Prune/fear.png",
+      "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-06-prune-full-22/sprites/Prune/fear.png",
+      "sha256": "fc6f77d7a1e3b972d7864306bed4d1958ede25cbc63ef21255111b724745aa34",
+      "dimensions": [
+        952,
+        1653
+      ],
+      "png_color_type": 6
+    },
+    "Prune pride": {
+      "character": "Prune",
+      "emotion": "pride",
+      "status": "candidate",
+      "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-06-prune-full-22/prompts/Prune/pride.txt",
+      "heart_alternate": false,
+      "tool": "image_gen.imagegen",
+      "arguments": {
+        "prompt": "Use case: stylized-concept. Generate one full-body visual-novel expression sprite of Prune from Genshin Impact, expressing pride. The single supplied image is the EXACT USER-APPROVED neutral-v002. It is the sole image reference. Preserve its identity, tiny cute build, costume, colours and polished softly painted anime rendering, while creating a distinct emotion-appropriate pose.\nTINY PROPORTIONS: match the approved neutral's compact childlike Small Female silhouette, approximately four head-lengths tall, oversized softly rounded head, tiny upper frame, narrow delicate shoulders, short softly rounded torso, distinctly short thighs and lower legs, little hands and charmingly chunky cuff/boot details. Preserve her round cheeks, large rounded eyes and small nose/mouth. Keep her just as tiny and cute in every pose; no adult-height body, elongated waist or stretched legs. Use true fair skin in neutral illumination and localized cheek colour only where the expression calls for it.\nIDENTITY AND OUTFIT: Preserve her recognizable indigo-blue bob with magenta highlights, side-swept fringe, silver bone hair clip and opposite ornament, violet-pink top feather/ribbons, purple eyes and fair skin. Preserve the exact black oversized shoulder wrap, magenta lining, silver chest clasp, dark choker and diamond ornament, white geometric-edged tunic front, black shorts, lavender hanging panels with pale star motifs and silver lower fasteners, purple-pink angular layered back/side panels, oversized dark wrist cuffs and short fingerless gloves, asymmetric leg covering with a long dark wrap/stocking and upper strap on her anatomical left leg and a shorter grey sock on the right, and the chunky black lace-up boots with silver bone details and pale zigzag toe caps. All patterns and accessories follow their actual surfaces as her pose changes.\nCHARACTER ACTING: Prune is an earnest, stubborn, bookish little self-declared witch hunter who wants to look grown-up and knowledgeable. She has quiet loneliness and care beneath her solemn confidence, and moments of unmistakable childlike wonder. A pleased confident smile, shining open eyes and lifted chin, as if she has delivered an impeccable declaration or solved an investigation. Stand very upright with tiny shoulders drawn back. Both hands sit loosely at her hips, elbows at slightly different comfortable angles, keeping fingers grouped and clear of hanging panels. Her solemn self-importance should be cute and earnest. Change head angle, shoulders, stance, hands and body language to suit this specific emotion rather than copying the neutral pose.\nEYES: retain the approved neutral's ordinary violet-purple eye colours and natural pupil design, with coherent lids, intact irises and a shared gaze suited to the emotion. Keep eyes open enough to read the expression. No heart pupils or floating hearts in this ordinary variant.\nHANDS AND ANATOMY: choose simple readable gestures close to the image plane, keeping hands apart and avoiding extreme foreshortening, reaching toward the camera, intricate splaying or tangled/clasped fingers. Each naturally articulated hand has a believable palm, four gently curved fingers and a separate opposable thumb; allow the angle to hide natural overlaps instead of forcing every digit into view. Keep wrists comfortable and fingers clearly separated from cuffs and adjacent fabric. Exactly two coherent legs and two feet belonging to one pelvis, with an uncrossed balanced stance. The heavy costume panels hang naturally with gravity while following the new pose.\nFRAMING: one complete full-body silhouette, including top hair ornament, all hair, cuff edges, hands, hanging panels and both boots. Fill roughly 92\u201396% of canvas height with about 2\u20134% top/bottom padding. Genuinely transparent alpha outside the character. Hands empty. No scenery, floor, shadow, reflection, text, labels, UI, watermark, hammer, weapon, new prop, floating effects, other character or comparison sheet. Keep every affection/wishing expression fully clothed, innocent and age-appropriate.",
+        "referenced_image_paths": [
+          "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-06-prune-full-22/references/Prune/approved-neutral.png"
+        ],
+        "transparent_background": true
+      },
+      "approval": {
+        "status": "pending"
+      },
+      "tool_output": "/Users/alexachan/.codex/generated_images/01a1aa19-42b2-7e92-b08d-8ee7d133c057/exec-9e717550-3d8e-457a-979a-d75724f9e380.png",
+      "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-06-prune-full-22/raw/Prune/pride.png",
+      "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-06-prune-full-22/sprites/Prune/pride.png",
+      "sha256": "bba97474adf5b0ce5b4398041e644c8f44d78b053080c3959ce9a015951dcfee",
+      "dimensions": [
+        951,
+        1653
+      ],
+      "png_color_type": 6
+    },
+    "Prune desire": {
+      "character": "Prune",
+      "emotion": "desire",
+      "status": "candidate",
+      "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-06-prune-full-22/prompts/Prune/desire.txt",
+      "heart_alternate": false,
+      "tool": "image_gen.imagegen",
+      "arguments": {
+        "prompt": "Use case: stylized-concept. Generate one full-body visual-novel expression sprite of Prune from Genshin Impact, expressing desire. The single supplied image is the EXACT USER-APPROVED neutral-v002. It is the sole image reference. Preserve its identity, tiny cute build, costume, colours and polished softly painted anime rendering, while creating a distinct emotion-appropriate pose.\nTINY PROPORTIONS: match the approved neutral's compact childlike Small Female silhouette, approximately four head-lengths tall, oversized softly rounded head, tiny upper frame, narrow delicate shoulders, short softly rounded torso, distinctly short thighs and lower legs, little hands and charmingly chunky cuff/boot details. Preserve her round cheeks, large rounded eyes and small nose/mouth. Keep her just as tiny and cute in every pose; no adult-height body, elongated waist or stretched legs. Use true fair skin in neutral illumination and localized cheek colour only where the expression calls for it.\nIDENTITY AND OUTFIT: Preserve her recognizable indigo-blue bob with magenta highlights, side-swept fringe, silver bone hair clip and opposite ornament, violet-pink top feather/ribbons, purple eyes and fair skin. Preserve the exact black oversized shoulder wrap, magenta lining, silver chest clasp, dark choker and diamond ornament, white geometric-edged tunic front, black shorts, lavender hanging panels with pale star motifs and silver lower fasteners, purple-pink angular layered back/side panels, oversized dark wrist cuffs and short fingerless gloves, asymmetric leg covering with a long dark wrap/stocking and upper strap on her anatomical left leg and a shorter grey sock on the right, and the chunky black lace-up boots with silver bone details and pale zigzag toe caps. All patterns and accessories follow their actual surfaces as her pose changes.\nCHARACTER ACTING: Prune is an earnest, stubborn, bookish little self-declared witch hunter who wants to look grown-up and knowledgeable. She has quiet loneliness and care beneath her solemn confidence, and moments of unmistakable childlike wonder. An innocent wistful wish for company, a toy, a sweet treat or another adventure, not romantic or sensual desire. She tries to pretend she is too grown-up to want it: open eyes peek hopefully toward an off-frame attraction, softly raised inner brows, a small shy closed-mouth smile and a faint bashful cheek tint. Turn her shoulders slightly away while her head looks back with interest. Both hands stay low and apart, anatomical right relaxed beside the thigh and left loosely open near the waist. Keep the standing pose modest and entirely childlike; render no object. Change head angle, shoulders, stance, hands and body language to suit this specific emotion rather than copying the neutral pose.\nEYES: retain the approved neutral's ordinary violet-purple eye colours and natural pupil design, with coherent lids, intact irises and a shared gaze suited to the emotion. Keep eyes open enough to read the expression. No heart pupils or floating hearts in this ordinary variant.\nHANDS AND ANATOMY: choose simple readable gestures close to the image plane, keeping hands apart and avoiding extreme foreshortening, reaching toward the camera, intricate splaying or tangled/clasped fingers. Each naturally articulated hand has a believable palm, four gently curved fingers and a separate opposable thumb; allow the angle to hide natural overlaps instead of forcing every digit into view. Keep wrists comfortable and fingers clearly separated from cuffs and adjacent fabric. Exactly two coherent legs and two feet belonging to one pelvis, with an uncrossed balanced stance. The heavy costume panels hang naturally with gravity while following the new pose.\nFRAMING: one complete full-body silhouette, including top hair ornament, all hair, cuff edges, hands, hanging panels and both boots. Fill roughly 92\u201396% of canvas height with about 2\u20134% top/bottom padding. Genuinely transparent alpha outside the character. Hands empty. No scenery, floor, shadow, reflection, text, labels, UI, watermark, hammer, weapon, new prop, floating effects, other character or comparison sheet. Keep every affection/wishing expression fully clothed, innocent and age-appropriate.",
+        "referenced_image_paths": [
+          "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-06-prune-full-22/references/Prune/approved-neutral.png"
+        ],
+        "transparent_background": true
+      },
+      "approval": {
+        "status": "pending"
+      },
+      "tool_output": "/Users/alexachan/.codex/generated_images/01a1aa19-42b2-7e92-b08d-8ee7d133c057/exec-e6c3ca61-0938-41c6-bcb6-e9eca456e83c.png",
+      "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-06-prune-full-22/raw/Prune/desire.png",
+      "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-06-prune-full-22/sprites/Prune/desire.png",
+      "sha256": "00868ad0f0898b29bea0135fa069d4b9964b68f995f539d17af1e01eaa746479",
+      "dimensions": [
+        952,
+        1653
+      ],
+      "png_color_type": 6
+    },
+    "Prune anger": {
+      "character": "Prune",
+      "emotion": "anger",
+      "status": "candidate",
+      "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-06-prune-full-22/prompts/Prune/anger.txt",
+      "heart_alternate": false,
+      "tool": "image_gen.imagegen",
+      "arguments": {
+        "prompt": "Use case: stylized-concept. Generate one full-body visual-novel expression sprite of Prune from Genshin Impact, expressing anger. The single supplied image is the EXACT USER-APPROVED neutral-v002. It is the sole image reference. Preserve its identity, tiny cute build, costume, colours and polished softly painted anime rendering, while creating a distinct emotion-appropriate pose.\nTINY PROPORTIONS: match the approved neutral's compact childlike Small Female silhouette, approximately four head-lengths tall, oversized softly rounded head, tiny upper frame, narrow delicate shoulders, short softly rounded torso, distinctly short thighs and lower legs, little hands and charmingly chunky cuff/boot details. Preserve her round cheeks, large rounded eyes and small nose/mouth. Keep her just as tiny and cute in every pose; no adult-height body, elongated waist or stretched legs. Use true fair skin in neutral illumination and localized cheek colour only where the expression calls for it.\nIDENTITY AND OUTFIT: Preserve her recognizable indigo-blue bob with magenta highlights, side-swept fringe, silver bone hair clip and opposite ornament, violet-pink top feather/ribbons, purple eyes and fair skin. Preserve the exact black oversized shoulder wrap, magenta lining, silver chest clasp, dark choker and diamond ornament, white geometric-edged tunic front, black shorts, lavender hanging panels with pale star motifs and silver lower fasteners, purple-pink angular layered back/side panels, oversized dark wrist cuffs and short fingerless gloves, asymmetric leg covering with a long dark wrap/stocking and upper strap on her anatomical left leg and a shorter grey sock on the right, and the chunky black lace-up boots with silver bone details and pale zigzag toe caps. All patterns and accessories follow their actual surfaces as her pose changes.\nCHARACTER ACTING: Prune is an earnest, stubborn, bookish little self-declared witch hunter who wants to look grown-up and knowledgeable. She has quiet loneliness and care beneath her solemn confidence, and moments of unmistakable childlike wonder. An earnest little scowl, knitted brows, intense open eyes and a firm closed mouth, as though defending an important principle or protesting an unfair accusation. Plant both little feet apart in a grounded stance. Her anatomical right hand is softly closed near her hip and the left arm lowers to the side with a natural relaxed hand. Square her shoulders and tilt her chin forward, determined rather than menacing. Change head angle, shoulders, stance, hands and body language to suit this specific emotion rather than copying the neutral pose.\nEYES: retain the approved neutral's ordinary violet-purple eye colours and natural pupil design, with coherent lids, intact irises and a shared gaze suited to the emotion. Keep eyes open enough to read the expression. No heart pupils or floating hearts in this ordinary variant.\nHANDS AND ANATOMY: choose simple readable gestures close to the image plane, keeping hands apart and avoiding extreme foreshortening, reaching toward the camera, intricate splaying or tangled/clasped fingers. Each naturally articulated hand has a believable palm, four gently curved fingers and a separate opposable thumb; allow the angle to hide natural overlaps instead of forcing every digit into view. Keep wrists comfortable and fingers clearly separated from cuffs and adjacent fabric. Exactly two coherent legs and two feet belonging to one pelvis, with an uncrossed balanced stance. The heavy costume panels hang naturally with gravity while following the new pose.\nFRAMING: one complete full-body silhouette, including top hair ornament, all hair, cuff edges, hands, hanging panels and both boots. Fill roughly 92\u201396% of canvas height with about 2\u20134% top/bottom padding. Genuinely transparent alpha outside the character. Hands empty. No scenery, floor, shadow, reflection, text, labels, UI, watermark, hammer, weapon, new prop, floating effects, other character or comparison sheet. Keep every affection/wishing expression fully clothed, innocent and age-appropriate.",
+        "referenced_image_paths": [
+          "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-06-prune-full-22/references/Prune/approved-neutral.png"
+        ],
+        "transparent_background": true
+      },
+      "approval": {
+        "status": "pending"
+      },
+      "tool_output": "/Users/alexachan/.codex/generated_images/01a1aa19-42b2-7e92-b08d-8ee7d133c057/exec-9dc5c243-2528-434a-9cdc-4d1bae289c33.png",
+      "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-06-prune-full-22/raw/Prune/anger.png",
+      "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-06-prune-full-22/sprites/Prune/anger.png",
+      "sha256": "bf45a07bd76e38faaa88b20ec09858b38b0e01c8a5bcebfeec1a07ed31c1c179",
+      "dimensions": [
+        952,
+        1653
+      ],
+      "png_color_type": 6
+    },
+    "Prune grief": {
+      "character": "Prune",
+      "emotion": "grief",
+      "status": "candidate",
+      "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-06-prune-full-22/prompts/Prune/grief.txt",
+      "heart_alternate": false,
+      "tool": "image_gen.imagegen",
+      "arguments": {
+        "prompt": "Use case: stylized-concept. Generate one full-body visual-novel expression sprite of Prune from Genshin Impact, expressing grief. The single supplied image is the EXACT USER-APPROVED neutral-v002. It is the sole image reference. Preserve its identity, tiny cute build, costume, colours and polished softly painted anime rendering, while creating a distinct emotion-appropriate pose.\nTINY PROPORTIONS: match the approved neutral's compact childlike Small Female silhouette, approximately four head-lengths tall, oversized softly rounded head, tiny upper frame, narrow delicate shoulders, short softly rounded torso, distinctly short thighs and lower legs, little hands and charmingly chunky cuff/boot details. Preserve her round cheeks, large rounded eyes and small nose/mouth. Keep her just as tiny and cute in every pose; no adult-height body, elongated waist or stretched legs. Use true fair skin in neutral illumination and localized cheek colour only where the expression calls for it.\nIDENTITY AND OUTFIT: Preserve her recognizable indigo-blue bob with magenta highlights, side-swept fringe, silver bone hair clip and opposite ornament, violet-pink top feather/ribbons, purple eyes and fair skin. Preserve the exact black oversized shoulder wrap, magenta lining, silver chest clasp, dark choker and diamond ornament, white geometric-edged tunic front, black shorts, lavender hanging panels with pale star motifs and silver lower fasteners, purple-pink angular layered back/side panels, oversized dark wrist cuffs and short fingerless gloves, asymmetric leg covering with a long dark wrap/stocking and upper strap on her anatomical left leg and a shorter grey sock on the right, and the chunky black lace-up boots with silver bone details and pale zigzag toe caps. All patterns and accessories follow their actual surfaces as her pose changes.\nCHARACTER ACTING: Prune is an earnest, stubborn, bookish little self-declared witch hunter who wants to look grown-up and knowledgeable. She has quiet loneliness and care beneath her solemn confidence, and moments of unmistakable childlike wonder. Sincere sorrow for a missing friend: open downcast eyes, raised inner brows and a small trembling closed mouth. A subtle tear sheen may sit along the lower eyelids, with no floating tear symbols. Her shoulders sink and her head bows. The anatomical left hand hovers near her heart while the right hand hangs low at her side. Convey the loneliness beneath her brave self-sufficient manner with a quiet inward curl of the upper body. Change head angle, shoulders, stance, hands and body language to suit this specific emotion rather than copying the neutral pose.\nEYES: retain the approved neutral's ordinary violet-purple eye colours and natural pupil design, with coherent lids, intact irises and a shared gaze suited to the emotion. Keep eyes open enough to read the expression. No heart pupils or floating hearts in this ordinary variant.\nHANDS AND ANATOMY: choose simple readable gestures close to the image plane, keeping hands apart and avoiding extreme foreshortening, reaching toward the camera, intricate splaying or tangled/clasped fingers. Each naturally articulated hand has a believable palm, four gently curved fingers and a separate opposable thumb; allow the angle to hide natural overlaps instead of forcing every digit into view. Keep wrists comfortable and fingers clearly separated from cuffs and adjacent fabric. Exactly two coherent legs and two feet belonging to one pelvis, with an uncrossed balanced stance. The heavy costume panels hang naturally with gravity while following the new pose.\nFRAMING: one complete full-body silhouette, including top hair ornament, all hair, cuff edges, hands, hanging panels and both boots. Fill roughly 92\u201396% of canvas height with about 2\u20134% top/bottom padding. Genuinely transparent alpha outside the character. Hands empty. No scenery, floor, shadow, reflection, text, labels, UI, watermark, hammer, weapon, new prop, floating effects, other character or comparison sheet. Keep every affection/wishing expression fully clothed, innocent and age-appropriate.",
+        "referenced_image_paths": [
+          "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-06-prune-full-22/references/Prune/approved-neutral.png"
+        ],
+        "transparent_background": true
+      },
+      "approval": {
+        "status": "pending"
+      },
+      "tool_output": "/Users/alexachan/.codex/generated_images/01a1aa19-42b2-7e92-b08d-8ee7d133c057/exec-56bb1435-4165-406e-8d42-84085d268913.png",
+      "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-06-prune-full-22/raw/Prune/grief.png",
+      "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-06-prune-full-22/sprites/Prune/grief.png",
+      "sha256": "1b90007ddcc90277370a2c5b2b77fb412c6349c0fc2f13230a735635cdc894b6",
+      "dimensions": [
+        952,
+        1653
+      ],
+      "png_color_type": 6
+    },
+    "Prune sadness": {
+      "character": "Prune",
+      "emotion": "sadness",
+      "status": "candidate",
+      "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-06-prune-full-22/prompts/Prune/sadness.txt",
+      "heart_alternate": false,
+      "tool": "image_gen.imagegen",
+      "arguments": {
+        "prompt": "Use case: stylized-concept. Generate one full-body visual-novel expression sprite of Prune from Genshin Impact, expressing sadness. The single supplied image is the EXACT USER-APPROVED neutral-v002. It is the sole image reference. Preserve its identity, tiny cute build, costume, colours and polished softly painted anime rendering, while creating a distinct emotion-appropriate pose.\nTINY PROPORTIONS: match the approved neutral's compact childlike Small Female silhouette, approximately four head-lengths tall, oversized softly rounded head, tiny upper frame, narrow delicate shoulders, short softly rounded torso, distinctly short thighs and lower legs, little hands and charmingly chunky cuff/boot details. Preserve her round cheeks, large rounded eyes and small nose/mouth. Keep her just as tiny and cute in every pose; no adult-height body, elongated waist or stretched legs. Use true fair skin in neutral illumination and localized cheek colour only where the expression calls for it.\nIDENTITY AND OUTFIT: Preserve her recognizable indigo-blue bob with magenta highlights, side-swept fringe, silver bone hair clip and opposite ornament, violet-pink top feather/ribbons, purple eyes and fair skin. Preserve the exact black oversized shoulder wrap, magenta lining, silver chest clasp, dark choker and diamond ornament, white geometric-edged tunic front, black shorts, lavender hanging panels with pale star motifs and silver lower fasteners, purple-pink angular layered back/side panels, oversized dark wrist cuffs and short fingerless gloves, asymmetric leg covering with a long dark wrap/stocking and upper strap on her anatomical left leg and a shorter grey sock on the right, and the chunky black lace-up boots with silver bone details and pale zigzag toe caps. All patterns and accessories follow their actual surfaces as her pose changes.\nCHARACTER ACTING: Prune is an earnest, stubborn, bookish little self-declared witch hunter who wants to look grown-up and knowledgeable. She has quiet loneliness and care beneath her solemn confidence, and moments of unmistakable childlike wonder. Quiet loneliness with a subdued closed mouth, lowered open gaze and softly raised inner brows. Let her head tilt down, shoulders droop and feet remain gently separated. Her anatomical right hand rests low in front of the waist, held loosely without touching the other hand, while the left arm hangs naturally beside the hip. She is trying to look composed despite feeling left out. Change head angle, shoulders, stance, hands and body language to suit this specific emotion rather than copying the neutral pose.\nEYES: retain the approved neutral's ordinary violet-purple eye colours and natural pupil design, with coherent lids, intact irises and a shared gaze suited to the emotion. Keep eyes open enough to read the expression. No heart pupils or floating hearts in this ordinary variant.\nHANDS AND ANATOMY: choose simple readable gestures close to the image plane, keeping hands apart and avoiding extreme foreshortening, reaching toward the camera, intricate splaying or tangled/clasped fingers. Each naturally articulated hand has a believable palm, four gently curved fingers and a separate opposable thumb; allow the angle to hide natural overlaps instead of forcing every digit into view. Keep wrists comfortable and fingers clearly separated from cuffs and adjacent fabric. Exactly two coherent legs and two feet belonging to one pelvis, with an uncrossed balanced stance. The heavy costume panels hang naturally with gravity while following the new pose.\nFRAMING: one complete full-body silhouette, including top hair ornament, all hair, cuff edges, hands, hanging panels and both boots. Fill roughly 92\u201396% of canvas height with about 2\u20134% top/bottom padding. Genuinely transparent alpha outside the character. Hands empty. No scenery, floor, shadow, reflection, text, labels, UI, watermark, hammer, weapon, new prop, floating effects, other character or comparison sheet. Keep every affection/wishing expression fully clothed, innocent and age-appropriate.",
+        "referenced_image_paths": [
+          "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-06-prune-full-22/references/Prune/approved-neutral.png"
+        ],
+        "transparent_background": true
+      },
+      "approval": {
+        "status": "pending"
+      },
+      "tool_output": "/Users/alexachan/.codex/generated_images/01a1aa19-42b2-7e92-b08d-8ee7d133c057/exec-556bb193-5f78-4685-943f-4805675f7a84.png",
+      "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-06-prune-full-22/raw/Prune/sadness.png",
+      "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-06-prune-full-22/sprites/Prune/sadness.png",
+      "sha256": "852a25e62ff84801facd0ee7a32c24cc09ab155dc0d5643538769c05500fd8b4",
+      "dimensions": [
+        952,
+        1653
+      ],
+      "png_color_type": 6
+    },
+    "Prune disgust": {
+      "character": "Prune",
+      "emotion": "disgust",
+      "status": "candidate",
+      "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-06-prune-full-22/prompts/Prune/disgust.txt",
+      "heart_alternate": false,
+      "tool": "image_gen.imagegen",
+      "arguments": {
+        "prompt": "Use case: stylized-concept. Generate one full-body visual-novel expression sprite of Prune from Genshin Impact, expressing disgust. The single supplied image is the EXACT USER-APPROVED neutral-v002. It is the sole image reference. Preserve its identity, tiny cute build, costume, colours and polished softly painted anime rendering, while creating a distinct emotion-appropriate pose.\nTINY PROPORTIONS: match the approved neutral's compact childlike Small Female silhouette, approximately four head-lengths tall, oversized softly rounded head, tiny upper frame, narrow delicate shoulders, short softly rounded torso, distinctly short thighs and lower legs, little hands and charmingly chunky cuff/boot details. Preserve her round cheeks, large rounded eyes and small nose/mouth. Keep her just as tiny and cute in every pose; no adult-height body, elongated waist or stretched legs. Use true fair skin in neutral illumination and localized cheek colour only where the expression calls for it.\nIDENTITY AND OUTFIT: Preserve her recognizable indigo-blue bob with magenta highlights, side-swept fringe, silver bone hair clip and opposite ornament, violet-pink top feather/ribbons, purple eyes and fair skin. Preserve the exact black oversized shoulder wrap, magenta lining, silver chest clasp, dark choker and diamond ornament, white geometric-edged tunic front, black shorts, lavender hanging panels with pale star motifs and silver lower fasteners, purple-pink angular layered back/side panels, oversized dark wrist cuffs and short fingerless gloves, asymmetric leg covering with a long dark wrap/stocking and upper strap on her anatomical left leg and a shorter grey sock on the right, and the chunky black lace-up boots with silver bone details and pale zigzag toe caps. All patterns and accessories follow their actual surfaces as her pose changes.\nCHARACTER ACTING: Prune is an earnest, stubborn, bookish little self-declared witch hunter who wants to look grown-up and knowledgeable. She has quiet loneliness and care beneath her solemn confidence, and moments of unmistakable childlike wonder. A tiny restrained nose scrunch, open eyes narrowed just a little and a small closed displeased mouth, as though rejecting something unpleasant or an obviously absurd claim. Turn her head slightly aside and draw her upper body back. Her anatomical left forearm opens low in a modest dismissive gesture with fingers together; the right hand rests at the hip. Keep one coherent closed mouth without twisted lip contours or extra teeth. Change head angle, shoulders, stance, hands and body language to suit this specific emotion rather than copying the neutral pose.\nEYES: retain the approved neutral's ordinary violet-purple eye colours and natural pupil design, with coherent lids, intact irises and a shared gaze suited to the emotion. Keep eyes open enough to read the expression. No heart pupils or floating hearts in this ordinary variant.\nHANDS AND ANATOMY: choose simple readable gestures close to the image plane, keeping hands apart and avoiding extreme foreshortening, reaching toward the camera, intricate splaying or tangled/clasped fingers. Each naturally articulated hand has a believable palm, four gently curved fingers and a separate opposable thumb; allow the angle to hide natural overlaps instead of forcing every digit into view. Keep wrists comfortable and fingers clearly separated from cuffs and adjacent fabric. Exactly two coherent legs and two feet belonging to one pelvis, with an uncrossed balanced stance. The heavy costume panels hang naturally with gravity while following the new pose.\nFRAMING: one complete full-body silhouette, including top hair ornament, all hair, cuff edges, hands, hanging panels and both boots. Fill roughly 92\u201396% of canvas height with about 2\u20134% top/bottom padding. Genuinely transparent alpha outside the character. Hands empty. No scenery, floor, shadow, reflection, text, labels, UI, watermark, hammer, weapon, new prop, floating effects, other character or comparison sheet. Keep every affection/wishing expression fully clothed, innocent and age-appropriate.",
+        "referenced_image_paths": [
+          "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-06-prune-full-22/references/Prune/approved-neutral.png"
+        ],
+        "transparent_background": true
+      },
+      "approval": {
+        "status": "pending"
+      },
+      "tool_output": "/Users/alexachan/.codex/generated_images/01a1aa19-42b2-7e92-b08d-8ee7d133c057/exec-dfd9daa3-d37e-42bd-82cf-94319f471de2.png",
+      "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-06-prune-full-22/raw/Prune/disgust.png",
+      "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-06-prune-full-22/sprites/Prune/disgust.png",
+      "sha256": "0322602a5d66d8acae799d256548a432e3ea130ec0e155be7eb2048e1312949e",
+      "dimensions": [
+        952,
+        1653
+      ],
+      "png_color_type": 6
+    },
+    "Prune disappointment": {
+      "character": "Prune",
+      "emotion": "disappointment",
+      "status": "candidate",
+      "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-06-prune-full-22/prompts/Prune/disappointment.txt",
+      "heart_alternate": false,
+      "tool": "image_gen.imagegen",
+      "arguments": {
+        "prompt": "Use case: stylized-concept. Generate one full-body visual-novel expression sprite of Prune from Genshin Impact, expressing disappointment. The single supplied image is the EXACT USER-APPROVED neutral-v002. It is the sole image reference. Preserve its identity, tiny cute build, costume, colours and polished softly painted anime rendering, while creating a distinct emotion-appropriate pose.\nTINY PROPORTIONS: match the approved neutral's compact childlike Small Female silhouette, approximately four head-lengths tall, oversized softly rounded head, tiny upper frame, narrow delicate shoulders, short softly rounded torso, distinctly short thighs and lower legs, little hands and charmingly chunky cuff/boot details. Preserve her round cheeks, large rounded eyes and small nose/mouth. Keep her just as tiny and cute in every pose; no adult-height body, elongated waist or stretched legs. Use true fair skin in neutral illumination and localized cheek colour only where the expression calls for it.\nIDENTITY AND OUTFIT: Preserve her recognizable indigo-blue bob with magenta highlights, side-swept fringe, silver bone hair clip and opposite ornament, violet-pink top feather/ribbons, purple eyes and fair skin. Preserve the exact black oversized shoulder wrap, magenta lining, silver chest clasp, dark choker and diamond ornament, white geometric-edged tunic front, black shorts, lavender hanging panels with pale star motifs and silver lower fasteners, purple-pink angular layered back/side panels, oversized dark wrist cuffs and short fingerless gloves, asymmetric leg covering with a long dark wrap/stocking and upper strap on her anatomical left leg and a shorter grey sock on the right, and the chunky black lace-up boots with silver bone details and pale zigzag toe caps. All patterns and accessories follow their actual surfaces as her pose changes.\nCHARACTER ACTING: Prune is an earnest, stubborn, bookish little self-declared witch hunter who wants to look grown-up and knowledgeable. She has quiet loneliness and care beneath her solemn confidence, and moments of unmistakable childlike wonder. A deflated little pout, lowered but open eyes and raised inner brows, as though a promising lead or hoped-for game has fallen through. Slump her shoulders and incline her head to one side. Both arms lower with hands relaxed and apart beside the thighs. Give her a small backward weight shift and a defeated sigh in the posture, distinct from grief or angry indignation. Change head angle, shoulders, stance, hands and body language to suit this specific emotion rather than copying the neutral pose.\nEYES: retain the approved neutral's ordinary violet-purple eye colours and natural pupil design, with coherent lids, intact irises and a shared gaze suited to the emotion. Keep eyes open enough to read the expression. No heart pupils or floating hearts in this ordinary variant.\nHANDS AND ANATOMY: choose simple readable gestures close to the image plane, keeping hands apart and avoiding extreme foreshortening, reaching toward the camera, intricate splaying or tangled/clasped fingers. Each naturally articulated hand has a believable palm, four gently curved fingers and a separate opposable thumb; allow the angle to hide natural overlaps instead of forcing every digit into view. Keep wrists comfortable and fingers clearly separated from cuffs and adjacent fabric. Exactly two coherent legs and two feet belonging to one pelvis, with an uncrossed balanced stance. The heavy costume panels hang naturally with gravity while following the new pose.\nFRAMING: one complete full-body silhouette, including top hair ornament, all hair, cuff edges, hands, hanging panels and both boots. Fill roughly 92\u201396% of canvas height with about 2\u20134% top/bottom padding. Genuinely transparent alpha outside the character. Hands empty. No scenery, floor, shadow, reflection, text, labels, UI, watermark, hammer, weapon, new prop, floating effects, other character or comparison sheet. Keep every affection/wishing expression fully clothed, innocent and age-appropriate.",
+        "referenced_image_paths": [
+          "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-06-prune-full-22/references/Prune/approved-neutral.png"
+        ],
+        "transparent_background": true
+      },
+      "approval": {
+        "status": "pending"
+      },
+      "tool_output": "/Users/alexachan/.codex/generated_images/01a1aa19-42b2-7e92-b08d-8ee7d133c057/exec-f1115b7b-de7f-4bc9-b677-b24a837a6a2b.png",
+      "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-06-prune-full-22/raw/Prune/disappointment.png",
+      "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-06-prune-full-22/sprites/Prune/disappointment.png",
+      "sha256": "54039b5a5cf38da32281653ae0f9e73fee60135056253e63e2cd2a76a7dc99ad",
+      "dimensions": [
+        952,
+        1653
+      ],
+      "png_color_type": 6
+    },
+    "Prune relief": {
+      "character": "Prune",
+      "emotion": "relief",
+      "status": "candidate",
+      "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-06-prune-full-22/prompts/Prune/relief.txt",
+      "heart_alternate": false,
+      "tool": "image_gen.imagegen",
+      "arguments": {
+        "prompt": "Use case: stylized-concept. Generate one full-body visual-novel expression sprite of Prune from Genshin Impact, expressing relief. The single supplied image is the EXACT USER-APPROVED neutral-v002. It is the sole image reference. Preserve its identity, tiny cute build, costume, colours and polished softly painted anime rendering, while creating a distinct emotion-appropriate pose.\nTINY PROPORTIONS: match the approved neutral's compact childlike Small Female silhouette, approximately four head-lengths tall, oversized softly rounded head, tiny upper frame, narrow delicate shoulders, short softly rounded torso, distinctly short thighs and lower legs, little hands and charmingly chunky cuff/boot details. Preserve her round cheeks, large rounded eyes and small nose/mouth. Keep her just as tiny and cute in every pose; no adult-height body, elongated waist or stretched legs. Use true fair skin in neutral illumination and localized cheek colour only where the expression calls for it.\nIDENTITY AND OUTFIT: Preserve her recognizable indigo-blue bob with magenta highlights, side-swept fringe, silver bone hair clip and opposite ornament, violet-pink top feather/ribbons, purple eyes and fair skin. Preserve the exact black oversized shoulder wrap, magenta lining, silver chest clasp, dark choker and diamond ornament, white geometric-edged tunic front, black shorts, lavender hanging panels with pale star motifs and silver lower fasteners, purple-pink angular layered back/side panels, oversized dark wrist cuffs and short fingerless gloves, asymmetric leg covering with a long dark wrap/stocking and upper strap on her anatomical left leg and a shorter grey sock on the right, and the chunky black lace-up boots with silver bone details and pale zigzag toe caps. All patterns and accessories follow their actual surfaces as her pose changes.\nCHARACTER ACTING: Prune is an earnest, stubborn, bookish little self-declared witch hunter who wants to look grown-up and knowledgeable. She has quiet loneliness and care beneath her solemn confidence, and moments of unmistakable childlike wonder. A small relieved smile and softened open eyes, brows releasing after a worry has passed. Her little shoulders drop and her torso settles comfortably back into balance. The anatomical right hand rests near the upper chest with fingers grouped clear of the clasp, while the left hand opens gently at low waist level. Keep the pose sweet and quietly reassured. Change head angle, shoulders, stance, hands and body language to suit this specific emotion rather than copying the neutral pose.\nEYES: retain the approved neutral's ordinary violet-purple eye colours and natural pupil design, with coherent lids, intact irises and a shared gaze suited to the emotion. Keep eyes open enough to read the expression. No heart pupils or floating hearts in this ordinary variant.\nHANDS AND ANATOMY: choose simple readable gestures close to the image plane, keeping hands apart and avoiding extreme foreshortening, reaching toward the camera, intricate splaying or tangled/clasped fingers. Each naturally articulated hand has a believable palm, four gently curved fingers and a separate opposable thumb; allow the angle to hide natural overlaps instead of forcing every digit into view. Keep wrists comfortable and fingers clearly separated from cuffs and adjacent fabric. Exactly two coherent legs and two feet belonging to one pelvis, with an uncrossed balanced stance. The heavy costume panels hang naturally with gravity while following the new pose.\nFRAMING: one complete full-body silhouette, including top hair ornament, all hair, cuff edges, hands, hanging panels and both boots. Fill roughly 92\u201396% of canvas height with about 2\u20134% top/bottom padding. Genuinely transparent alpha outside the character. Hands empty. No scenery, floor, shadow, reflection, text, labels, UI, watermark, hammer, weapon, new prop, floating effects, other character or comparison sheet. Keep every affection/wishing expression fully clothed, innocent and age-appropriate.",
+        "referenced_image_paths": [
+          "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-06-prune-full-22/references/Prune/approved-neutral.png"
+        ],
+        "transparent_background": true
+      },
+      "approval": {
+        "status": "pending"
+      },
+      "tool_output": "/Users/alexachan/.codex/generated_images/01a1aa19-42b2-7e92-b08d-8ee7d133c057/exec-58b24720-d365-4855-b21a-12eee870c2fe.png",
+      "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-06-prune-full-22/raw/Prune/relief.png",
+      "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-06-prune-full-22/sprites/Prune/relief.png",
+      "sha256": "cb6da91bc9bec0e9594587d8e4b9228416a0bcaa508c55d3af442b1a1ac17ad6",
+      "dimensions": [
+        952,
+        1653
+      ],
+      "png_color_type": 6
+    },
+    "Prune admiration": {
+      "character": "Prune",
+      "emotion": "admiration",
+      "status": "candidate",
+      "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-06-prune-full-22/prompts/Prune/admiration.txt",
+      "heart_alternate": false,
+      "tool": "image_gen.imagegen",
+      "arguments": {
+        "prompt": "Use case: stylized-concept. Generate one full-body visual-novel expression sprite of Prune from Genshin Impact, expressing admiration. The single supplied image is the EXACT USER-APPROVED neutral-v002. It is the sole image reference. Preserve its identity, tiny cute build, costume, colours and polished softly painted anime rendering, while creating a distinct emotion-appropriate pose.\nTINY PROPORTIONS: match the approved neutral's compact childlike Small Female silhouette, approximately four head-lengths tall, oversized softly rounded head, tiny upper frame, narrow delicate shoulders, short softly rounded torso, distinctly short thighs and lower legs, little hands and charmingly chunky cuff/boot details. Preserve her round cheeks, large rounded eyes and small nose/mouth. Keep her just as tiny and cute in every pose; no adult-height body, elongated waist or stretched legs. Use true fair skin in neutral illumination and localized cheek colour only where the expression calls for it.\nIDENTITY AND OUTFIT: Preserve her recognizable indigo-blue bob with magenta highlights, side-swept fringe, silver bone hair clip and opposite ornament, violet-pink top feather/ribbons, purple eyes and fair skin. Preserve the exact black oversized shoulder wrap, magenta lining, silver chest clasp, dark choker and diamond ornament, white geometric-edged tunic front, black shorts, lavender hanging panels with pale star motifs and silver lower fasteners, purple-pink angular layered back/side panels, oversized dark wrist cuffs and short fingerless gloves, asymmetric leg covering with a long dark wrap/stocking and upper strap on her anatomical left leg and a shorter grey sock on the right, and the chunky black lace-up boots with silver bone details and pale zigzag toe caps. All patterns and accessories follow their actual surfaces as her pose changes.\nCHARACTER ACTING: Prune is an earnest, stubborn, bookish little self-declared witch hunter who wants to look grown-up and knowledgeable. She has quiet loneliness and care beneath her solemn confidence, and moments of unmistakable childlike wonder. Large sparkling open eyes, raised brows and a tiny delighted parted-mouth smile as she listens to an impressive fact or sees a clever invention. Look slightly upward toward an off-frame subject with genuine childlike wonder. Her anatomical left forearm opens in a small appreciative palm-up gesture near the lower ribs; the right hand stays low beside her hip. Let fascination break through her usual solemn scholarly manner. Change head angle, shoulders, stance, hands and body language to suit this specific emotion rather than copying the neutral pose.\nEYES: retain the approved neutral's ordinary violet-purple eye colours and natural pupil design, with coherent lids, intact irises and a shared gaze suited to the emotion. Keep eyes open enough to read the expression. No heart pupils or floating hearts in this ordinary variant.\nHANDS AND ANATOMY: choose simple readable gestures close to the image plane, keeping hands apart and avoiding extreme foreshortening, reaching toward the camera, intricate splaying or tangled/clasped fingers. Each naturally articulated hand has a believable palm, four gently curved fingers and a separate opposable thumb; allow the angle to hide natural overlaps instead of forcing every digit into view. Keep wrists comfortable and fingers clearly separated from cuffs and adjacent fabric. Exactly two coherent legs and two feet belonging to one pelvis, with an uncrossed balanced stance. The heavy costume panels hang naturally with gravity while following the new pose.\nFRAMING: one complete full-body silhouette, including top hair ornament, all hair, cuff edges, hands, hanging panels and both boots. Fill roughly 92\u201396% of canvas height with about 2\u20134% top/bottom padding. Genuinely transparent alpha outside the character. Hands empty. No scenery, floor, shadow, reflection, text, labels, UI, watermark, hammer, weapon, new prop, floating effects, other character or comparison sheet. Keep every affection/wishing expression fully clothed, innocent and age-appropriate.",
+        "referenced_image_paths": [
+          "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-06-prune-full-22/references/Prune/approved-neutral.png"
+        ],
+        "transparent_background": true
+      },
+      "approval": {
+        "status": "pending"
+      },
+      "tool_output": "/Users/alexachan/.codex/generated_images/01a1aa19-42b2-7e92-b08d-8ee7d133c057/exec-ddb815cc-6f22-48f5-9b6a-86db1d0365d4.png",
+      "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-06-prune-full-22/raw/Prune/admiration.png",
+      "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-06-prune-full-22/sprites/Prune/admiration.png",
+      "sha256": "ac9a13ce3c72e171eb2ed71548fe4b166cb67243e641ed3c28c99f63c13dee34",
+      "dimensions": [
+        952,
+        1653
+      ],
+      "png_color_type": 6
+    },
+    "Prune gratitude": {
+      "character": "Prune",
+      "emotion": "gratitude",
+      "status": "candidate",
+      "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-06-prune-full-22/prompts/Prune/gratitude.txt",
+      "heart_alternate": false,
+      "tool": "image_gen.imagegen",
+      "arguments": {
+        "prompt": "Use case: stylized-concept. Generate one full-body visual-novel expression sprite of Prune from Genshin Impact, expressing gratitude. The single supplied image is the EXACT USER-APPROVED neutral-v002. It is the sole image reference. Preserve its identity, tiny cute build, costume, colours and polished softly painted anime rendering, while creating a distinct emotion-appropriate pose.\nTINY PROPORTIONS: match the approved neutral's compact childlike Small Female silhouette, approximately four head-lengths tall, oversized softly rounded head, tiny upper frame, narrow delicate shoulders, short softly rounded torso, distinctly short thighs and lower legs, little hands and charmingly chunky cuff/boot details. Preserve her round cheeks, large rounded eyes and small nose/mouth. Keep her just as tiny and cute in every pose; no adult-height body, elongated waist or stretched legs. Use true fair skin in neutral illumination and localized cheek colour only where the expression calls for it.\nIDENTITY AND OUTFIT: Preserve her recognizable indigo-blue bob with magenta highlights, side-swept fringe, silver bone hair clip and opposite ornament, violet-pink top feather/ribbons, purple eyes and fair skin. Preserve the exact black oversized shoulder wrap, magenta lining, silver chest clasp, dark choker and diamond ornament, white geometric-edged tunic front, black shorts, lavender hanging panels with pale star motifs and silver lower fasteners, purple-pink angular layered back/side panels, oversized dark wrist cuffs and short fingerless gloves, asymmetric leg covering with a long dark wrap/stocking and upper strap on her anatomical left leg and a shorter grey sock on the right, and the chunky black lace-up boots with silver bone details and pale zigzag toe caps. All patterns and accessories follow their actual surfaces as her pose changes.\nCHARACTER ACTING: Prune is an earnest, stubborn, bookish little self-declared witch hunter who wants to look grown-up and knowledgeable. She has quiet loneliness and care beneath her solemn confidence, and moments of unmistakable childlike wonder. A shy heartfelt closed-mouth smile, softened open eyes directed toward the viewer and a faint grateful cheek tint. Give a small polite inclination of the head and shoulders. Her anatomical right hand rests near her heart while the left arm lowers beside her hip, hands distinct and relaxed. Convey a child who wants to seem self-sufficient but is quietly touched by kindness. Change head angle, shoulders, stance, hands and body language to suit this specific emotion rather than copying the neutral pose.\nEYES: retain the approved neutral's ordinary violet-purple eye colours and natural pupil design, with coherent lids, intact irises and a shared gaze suited to the emotion. Keep eyes open enough to read the expression. No heart pupils or floating hearts in this ordinary variant.\nHANDS AND ANATOMY: choose simple readable gestures close to the image plane, keeping hands apart and avoiding extreme foreshortening, reaching toward the camera, intricate splaying or tangled/clasped fingers. Each naturally articulated hand has a believable palm, four gently curved fingers and a separate opposable thumb; allow the angle to hide natural overlaps instead of forcing every digit into view. Keep wrists comfortable and fingers clearly separated from cuffs and adjacent fabric. Exactly two coherent legs and two feet belonging to one pelvis, with an uncrossed balanced stance. The heavy costume panels hang naturally with gravity while following the new pose.\nFRAMING: one complete full-body silhouette, including top hair ornament, all hair, cuff edges, hands, hanging panels and both boots. Fill roughly 92\u201396% of canvas height with about 2\u20134% top/bottom padding. Genuinely transparent alpha outside the character. Hands empty. No scenery, floor, shadow, reflection, text, labels, UI, watermark, hammer, weapon, new prop, floating effects, other character or comparison sheet. Keep every affection/wishing expression fully clothed, innocent and age-appropriate.",
+        "referenced_image_paths": [
+          "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-06-prune-full-22/references/Prune/approved-neutral.png"
+        ],
+        "transparent_background": true
+      },
+      "approval": {
+        "status": "pending"
+      },
+      "tool_output": "/Users/alexachan/.codex/generated_images/01a1aa19-42b2-7e92-b08d-8ee7d133c057/exec-d4c89e2a-a5ca-4209-81b6-1321a69ef42b.png",
+      "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-06-prune-full-22/raw/Prune/gratitude.png",
+      "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-06-prune-full-22/sprites/Prune/gratitude.png",
+      "sha256": "c5da53bfb55d03bb0c852260443c1424dd69d21fc2932f2ab8c614434cd855a2",
+      "dimensions": [
+        952,
+        1653
+      ],
+      "png_color_type": 6
+    },
+    "Prune embarrassment": {
+      "character": "Prune",
+      "emotion": "embarrassment",
+      "status": "candidate",
+      "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-06-prune-full-22/prompts/Prune/embarrassment.txt",
+      "heart_alternate": false,
+      "tool": "image_gen.imagegen",
+      "arguments": {
+        "prompt": "Use case: stylized-concept. Generate one full-body visual-novel expression sprite of Prune from Genshin Impact, expressing embarrassment. The single supplied image is the EXACT USER-APPROVED neutral-v002. It is the sole image reference. Preserve its identity, tiny cute build, costume, colours and polished softly painted anime rendering, while creating a distinct emotion-appropriate pose.\nTINY PROPORTIONS: match the approved neutral's compact childlike Small Female silhouette, approximately four head-lengths tall, oversized softly rounded head, tiny upper frame, narrow delicate shoulders, short softly rounded torso, distinctly short thighs and lower legs, little hands and charmingly chunky cuff/boot details. Preserve her round cheeks, large rounded eyes and small nose/mouth. Keep her just as tiny and cute in every pose; no adult-height body, elongated waist or stretched legs. Use true fair skin in neutral illumination and localized cheek colour only where the expression calls for it.\nIDENTITY AND OUTFIT: Preserve her recognizable indigo-blue bob with magenta highlights, side-swept fringe, silver bone hair clip and opposite ornament, violet-pink top feather/ribbons, purple eyes and fair skin. Preserve the exact black oversized shoulder wrap, magenta lining, silver chest clasp, dark choker and diamond ornament, white geometric-edged tunic front, black shorts, lavender hanging panels with pale star motifs and silver lower fasteners, purple-pink angular layered back/side panels, oversized dark wrist cuffs and short fingerless gloves, asymmetric leg covering with a long dark wrap/stocking and upper strap on her anatomical left leg and a shorter grey sock on the right, and the chunky black lace-up boots with silver bone details and pale zigzag toe caps. All patterns and accessories follow their actual surfaces as her pose changes.\nCHARACTER ACTING: Prune is an earnest, stubborn, bookish little self-declared witch hunter who wants to look grown-up and knowledgeable. She has quiet loneliness and care beneath her solemn confidence, and moments of unmistakable childlike wonder. Rosy cheeks, shy averted open eyes, raised inner brows and a small self-conscious closed-mouth smile, as though caught enjoying a toy she claimed to have outgrown. Duck her chin and draw her shoulders inward. Her anatomical left hand hovers low in front of the waist with loosely grouped fingers; the right arm rests down beside the thigh. Keep it bashful, cute and entirely innocent. Change head angle, shoulders, stance, hands and body language to suit this specific emotion rather than copying the neutral pose.\nEYES: retain the approved neutral's ordinary violet-purple eye colours and natural pupil design, with coherent lids, intact irises and a shared gaze suited to the emotion. Keep eyes open enough to read the expression. No heart pupils or floating hearts in this ordinary variant.\nHANDS AND ANATOMY: choose simple readable gestures close to the image plane, keeping hands apart and avoiding extreme foreshortening, reaching toward the camera, intricate splaying or tangled/clasped fingers. Each naturally articulated hand has a believable palm, four gently curved fingers and a separate opposable thumb; allow the angle to hide natural overlaps instead of forcing every digit into view. Keep wrists comfortable and fingers clearly separated from cuffs and adjacent fabric. Exactly two coherent legs and two feet belonging to one pelvis, with an uncrossed balanced stance. The heavy costume panels hang naturally with gravity while following the new pose.\nFRAMING: one complete full-body silhouette, including top hair ornament, all hair, cuff edges, hands, hanging panels and both boots. Fill roughly 92\u201396% of canvas height with about 2\u20134% top/bottom padding. Genuinely transparent alpha outside the character. Hands empty. No scenery, floor, shadow, reflection, text, labels, UI, watermark, hammer, weapon, new prop, floating effects, other character or comparison sheet. Keep every affection/wishing expression fully clothed, innocent and age-appropriate.",
+        "referenced_image_paths": [
+          "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-06-prune-full-22/references/Prune/approved-neutral.png"
+        ],
+        "transparent_background": true
+      },
+      "approval": {
+        "status": "pending"
+      },
+      "tool_output": "/Users/alexachan/.codex/generated_images/01a1aa19-42b2-7e92-b08d-8ee7d133c057/exec-46bcfeaa-936e-46d3-a5d1-ac76b96e3178.png",
+      "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-06-prune-full-22/raw/Prune/embarrassment.png",
+      "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-06-prune-full-22/sprites/Prune/embarrassment.png",
+      "sha256": "cbfc877f3930a96e0db7fba05d8d2517d2680c8404e81a10c6954ae0d09e7b21",
+      "dimensions": [
+        952,
+        1653
+      ],
+      "png_color_type": 6
+    },
+    "Prune caring": {
+      "character": "Prune",
+      "emotion": "caring",
+      "status": "candidate",
+      "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-06-prune-full-22/prompts/Prune/caring.txt",
+      "heart_alternate": false,
+      "tool": "image_gen.imagegen",
+      "arguments": {
+        "prompt": "Use case: stylized-concept. Generate one full-body visual-novel expression sprite of Prune from Genshin Impact, expressing caring. The single supplied image is the EXACT USER-APPROVED neutral-v002. It is the sole image reference. Preserve its identity, tiny cute build, costume, colours and polished softly painted anime rendering, while creating a distinct emotion-appropriate pose.\nTINY PROPORTIONS: match the approved neutral's compact childlike Small Female silhouette, approximately four head-lengths tall, oversized softly rounded head, tiny upper frame, narrow delicate shoulders, short softly rounded torso, distinctly short thighs and lower legs, little hands and charmingly chunky cuff/boot details. Preserve her round cheeks, large rounded eyes and small nose/mouth. Keep her just as tiny and cute in every pose; no adult-height body, elongated waist or stretched legs. Use true fair skin in neutral illumination and localized cheek colour only where the expression calls for it.\nIDENTITY AND OUTFIT: Preserve her recognizable indigo-blue bob with magenta highlights, side-swept fringe, silver bone hair clip and opposite ornament, violet-pink top feather/ribbons, purple eyes and fair skin. Preserve the exact black oversized shoulder wrap, magenta lining, silver chest clasp, dark choker and diamond ornament, white geometric-edged tunic front, black shorts, lavender hanging panels with pale star motifs and silver lower fasteners, purple-pink angular layered back/side panels, oversized dark wrist cuffs and short fingerless gloves, asymmetric leg covering with a long dark wrap/stocking and upper strap on her anatomical left leg and a shorter grey sock on the right, and the chunky black lace-up boots with silver bone details and pale zigzag toe caps. All patterns and accessories follow their actual surfaces as her pose changes.\nCHARACTER ACTING: Prune is an earnest, stubborn, bookish little self-declared witch hunter who wants to look grown-up and knowledgeable. She has quiet loneliness and care beneath her solemn confidence, and moments of unmistakable childlike wonder. A gentle reassuring closed-mouth smile, sympathetic open eyes and softly raised inner brows. Lean forward a little with an attentive head tilt, as though patiently checking whether a friend is all right. The anatomical right forearm opens outward at waist height in a small comforting gesture near the image plane; the left hand rests low beside her hip. Show her quiet warmth beneath her stubborn self-important exterior. Change head angle, shoulders, stance, hands and body language to suit this specific emotion rather than copying the neutral pose.\nEYES: retain the approved neutral's ordinary violet-purple eye colours and natural pupil design, with coherent lids, intact irises and a shared gaze suited to the emotion. Keep eyes open enough to read the expression. No heart pupils or floating hearts in this ordinary variant.\nHANDS AND ANATOMY: choose simple readable gestures close to the image plane, keeping hands apart and avoiding extreme foreshortening, reaching toward the camera, intricate splaying or tangled/clasped fingers. Each naturally articulated hand has a believable palm, four gently curved fingers and a separate opposable thumb; allow the angle to hide natural overlaps instead of forcing every digit into view. Keep wrists comfortable and fingers clearly separated from cuffs and adjacent fabric. Exactly two coherent legs and two feet belonging to one pelvis, with an uncrossed balanced stance. The heavy costume panels hang naturally with gravity while following the new pose.\nFRAMING: one complete full-body silhouette, including top hair ornament, all hair, cuff edges, hands, hanging panels and both boots. Fill roughly 92\u201396% of canvas height with about 2\u20134% top/bottom padding. Genuinely transparent alpha outside the character. Hands empty. No scenery, floor, shadow, reflection, text, labels, UI, watermark, hammer, weapon, new prop, floating effects, other character or comparison sheet. Keep every affection/wishing expression fully clothed, innocent and age-appropriate.",
+        "referenced_image_paths": [
+          "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-06-prune-full-22/references/Prune/approved-neutral.png"
+        ],
+        "transparent_background": true
+      },
+      "approval": {
+        "status": "pending"
+      },
+      "tool_output": "/Users/alexachan/.codex/generated_images/01a1aa19-42b2-7e92-b08d-8ee7d133c057/exec-a584a69f-8e59-4ef8-943c-bde862270a4b.png",
+      "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-06-prune-full-22/raw/Prune/caring.png",
+      "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-06-prune-full-22/sprites/Prune/caring.png",
+      "sha256": "1c639868e7d6b98955a03e4afdff0d009e52c322661226ae6f74809a50da2761",
+      "dimensions": [
+        952,
+        1653
+      ],
+      "png_color_type": 6
+    },
+    "Prune love-1": {
+      "character": "Prune",
+      "emotion": "love-1",
+      "status": "candidate",
+      "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-06-prune-full-22/prompts/Prune/love-1.txt",
+      "heart_alternate": true,
+      "tool": "image_gen.imagegen",
+      "arguments": {
+        "prompt": "Use case: stylized-concept. Generate one full-body visual-novel expression sprite of Prune from Genshin Impact, expressing love-1. The single supplied image is the EXACT USER-APPROVED neutral-v002. It is the sole image reference. Preserve its identity, tiny cute build, costume, colours and polished softly painted anime rendering, while creating a distinct emotion-appropriate pose.\nTINY PROPORTIONS: match the approved neutral's compact childlike Small Female silhouette, approximately four head-lengths tall, oversized softly rounded head, tiny upper frame, narrow delicate shoulders, short softly rounded torso, distinctly short thighs and lower legs, little hands and charmingly chunky cuff/boot details. Preserve her round cheeks, large rounded eyes and small nose/mouth. Keep her just as tiny and cute in every pose; no adult-height body, elongated waist or stretched legs. Use true fair skin in neutral illumination and localized cheek colour only where the expression calls for it.\nIDENTITY AND OUTFIT: Preserve her recognizable indigo-blue bob with magenta highlights, side-swept fringe, silver bone hair clip and opposite ornament, violet-pink top feather/ribbons, purple eyes and fair skin. Preserve the exact black oversized shoulder wrap, magenta lining, silver chest clasp, dark choker and diamond ornament, white geometric-edged tunic front, black shorts, lavender hanging panels with pale star motifs and silver lower fasteners, purple-pink angular layered back/side panels, oversized dark wrist cuffs and short fingerless gloves, asymmetric leg covering with a long dark wrap/stocking and upper strap on her anatomical left leg and a shorter grey sock on the right, and the chunky black lace-up boots with silver bone details and pale zigzag toe caps. All patterns and accessories follow their actual surfaces as her pose changes.\nCHARACTER ACTING: Prune is an earnest, stubborn, bookish little self-declared witch hunter who wants to look grown-up and knowledgeable. She has quiet loneliness and care beneath her solemn confidence, and moments of unmistakable childlike wonder. An openly joyful expression of innocent friendship and adoration: both eyes visibly open, lifted brows and a bright delighted smile with a gentle cheek tint. Her shoulders turn toward the viewer in a warm buoyant posture. The anatomical left hand rests near her heart while the right forearm opens low in a friendly welcoming gesture. Keep the acting purely sweet and companionable, with no romantic or sensual pose. Change head angle, shoulders, stance, hands and body language to suit this specific emotion rather than copying the neutral pose.\nWHITE HEART PUPILS: keep BOTH eyes visibly open and retain complete violet-purple irises with their original outlines, shading and a visible coloured border. Inside EACH iris place ONE SOLID PURE WHITE (#FFFFFF) HEART-SHAPED PUPIL, with two rounded upper lobes, a clear central notch and one pointed bottom. Exactly two white heart pupils, one in each open eye. They replace only the normal pupils, not the entire irises, and are not catchlights or floating symbols. Keep any small catchlights separate. Heart pupils must be white, not pink or violet.\nHANDS AND ANATOMY: choose simple readable gestures close to the image plane, keeping hands apart and avoiding extreme foreshortening, reaching toward the camera, intricate splaying or tangled/clasped fingers. Each naturally articulated hand has a believable palm, four gently curved fingers and a separate opposable thumb; allow the angle to hide natural overlaps instead of forcing every digit into view. Keep wrists comfortable and fingers clearly separated from cuffs and adjacent fabric. Exactly two coherent legs and two feet belonging to one pelvis, with an uncrossed balanced stance. The heavy costume panels hang naturally with gravity while following the new pose.\nFRAMING: one complete full-body silhouette, including top hair ornament, all hair, cuff edges, hands, hanging panels and both boots. Fill roughly 92\u201396% of canvas height with about 2\u20134% top/bottom padding. Genuinely transparent alpha outside the character. Hands empty. No scenery, floor, shadow, reflection, text, labels, UI, watermark, hammer, weapon, new prop, floating effects, other character or comparison sheet. Keep every affection/wishing expression fully clothed, innocent and age-appropriate.",
+        "referenced_image_paths": [
+          "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-06-prune-full-22/references/Prune/approved-neutral.png"
+        ],
+        "transparent_background": true
+      },
+      "approval": {
+        "status": "pending"
+      },
+      "tool_output": "/Users/alexachan/.codex/generated_images/01a1aa19-42b2-7e92-b08d-8ee7d133c057/exec-e4c8a977-2aec-4724-b5c8-22af7d075f5f.png",
+      "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-06-prune-full-22/raw/Prune/love-1.png",
+      "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-06-prune-full-22/sprites/Prune/love-1.png",
+      "sha256": "b10b352a4e0aac69ace4410e01efdc22031a5d02d43ec59cbb0692cc12d97b63",
+      "dimensions": [
+        952,
+        1653
+      ],
+      "png_color_type": 6
+    },
+    "Prune desire-1": {
+      "character": "Prune",
+      "emotion": "desire-1",
+      "status": "candidate",
+      "prompt": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-06-prune-full-22/prompts/Prune/desire-1.txt",
+      "heart_alternate": true,
+      "tool": "image_gen.imagegen",
+      "arguments": {
+        "prompt": "Use case: stylized-concept. Generate one full-body visual-novel expression sprite of Prune from Genshin Impact, expressing desire-1. The single supplied image is the EXACT USER-APPROVED neutral-v002. It is the sole image reference. Preserve its identity, tiny cute build, costume, colours and polished softly painted anime rendering, while creating a distinct emotion-appropriate pose.\nTINY PROPORTIONS: match the approved neutral's compact childlike Small Female silhouette, approximately four head-lengths tall, oversized softly rounded head, tiny upper frame, narrow delicate shoulders, short softly rounded torso, distinctly short thighs and lower legs, little hands and charmingly chunky cuff/boot details. Preserve her round cheeks, large rounded eyes and small nose/mouth. Keep her just as tiny and cute in every pose; no adult-height body, elongated waist or stretched legs. Use true fair skin in neutral illumination and localized cheek colour only where the expression calls for it.\nIDENTITY AND OUTFIT: Preserve her recognizable indigo-blue bob with magenta highlights, side-swept fringe, silver bone hair clip and opposite ornament, violet-pink top feather/ribbons, purple eyes and fair skin. Preserve the exact black oversized shoulder wrap, magenta lining, silver chest clasp, dark choker and diamond ornament, white geometric-edged tunic front, black shorts, lavender hanging panels with pale star motifs and silver lower fasteners, purple-pink angular layered back/side panels, oversized dark wrist cuffs and short fingerless gloves, asymmetric leg covering with a long dark wrap/stocking and upper strap on her anatomical left leg and a shorter grey sock on the right, and the chunky black lace-up boots with silver bone details and pale zigzag toe caps. All patterns and accessories follow their actual surfaces as her pose changes.\nCHARACTER ACTING: Prune is an earnest, stubborn, bookish little self-declared witch hunter who wants to look grown-up and knowledgeable. She has quiet loneliness and care beneath her solemn confidence, and moments of unmistakable childlike wonder. An innocent hopeful wish for a toy, treat, playtime or companionship. Both eyes remain visibly open; the inner brows lift gently and the mouth forms a subtler wistful closed-mouth smile. Turn her shoulders slightly away and look back with shy eager anticipation, trying unsuccessfully to seem too grown-up to care. Her anatomical right hand hovers low near the waist and the left arm relaxes beside the hip. This is a child's hopeful wanting, never romantic or sensual acting; render no toy or other object. Distinguish it from the exuberant friendly heart-love pose. Change head angle, shoulders, stance, hands and body language to suit this specific emotion rather than copying the neutral pose.\nWHITE HEART PUPILS: keep BOTH eyes visibly open and retain complete violet-purple irises with their original outlines, shading and a visible coloured border. Inside EACH iris place ONE SOLID PURE WHITE (#FFFFFF) HEART-SHAPED PUPIL, with two rounded upper lobes, a clear central notch and one pointed bottom. Exactly two white heart pupils, one in each open eye. They replace only the normal pupils, not the entire irises, and are not catchlights or floating symbols. Keep any small catchlights separate. Heart pupils must be white, not pink or violet.\nHANDS AND ANATOMY: choose simple readable gestures close to the image plane, keeping hands apart and avoiding extreme foreshortening, reaching toward the camera, intricate splaying or tangled/clasped fingers. Each naturally articulated hand has a believable palm, four gently curved fingers and a separate opposable thumb; allow the angle to hide natural overlaps instead of forcing every digit into view. Keep wrists comfortable and fingers clearly separated from cuffs and adjacent fabric. Exactly two coherent legs and two feet belonging to one pelvis, with an uncrossed balanced stance. The heavy costume panels hang naturally with gravity while following the new pose.\nFRAMING: one complete full-body silhouette, including top hair ornament, all hair, cuff edges, hands, hanging panels and both boots. Fill roughly 92\u201396% of canvas height with about 2\u20134% top/bottom padding. Genuinely transparent alpha outside the character. Hands empty. No scenery, floor, shadow, reflection, text, labels, UI, watermark, hammer, weapon, new prop, floating effects, other character or comparison sheet. Keep every affection/wishing expression fully clothed, innocent and age-appropriate.",
+        "referenced_image_paths": [
+          "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-06-prune-full-22/references/Prune/approved-neutral.png"
+        ],
+        "transparent_background": true
+      },
+      "approval": {
+        "status": "pending"
+      },
+      "tool_output": "/Users/alexachan/.codex/generated_images/01a1aa19-42b2-7e92-b08d-8ee7d133c057/exec-a46eee3b-968a-405a-9654-7a548776c11b.png",
+      "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-06-prune-full-22/raw/Prune/desire-1.png",
+      "output": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-06-prune-full-22/sprites/Prune/desire-1.png",
+      "sha256": "ade36feb54f3d9faffc589f9bcd981fbebdb5da890a9ea8e77a01706451073e5",
+      "dimensions": [
+        952,
+        1653
+      ],
+      "png_color_type": 6
+    }
+  },
+  "generation_keys": [
+    "Prune annoyance",
+    "Prune smug",
+    "Prune confusion",
+    "Prune love",
+    "Prune excitement",
+    "Prune joy",
+    "Prune fear",
+    "Prune pride",
+    "Prune desire",
+    "Prune anger",
+    "Prune grief",
+    "Prune sadness",
+    "Prune disgust",
+    "Prune disappointment",
+    "Prune relief",
+    "Prune admiration",
+    "Prune gratitude",
+    "Prune embarrassment",
+    "Prune caring",
+    "Prune love-1",
+    "Prune desire-1"
+  ],
+  "regeneration_keys": [
+    "Prune annoyance",
+    "Prune smug",
+    "Prune confusion",
+    "Prune love",
+    "Prune excitement",
+    "Prune joy",
+    "Prune fear",
+    "Prune pride",
+    "Prune desire",
+    "Prune anger",
+    "Prune grief",
+    "Prune sadness",
+    "Prune disgust",
+    "Prune disappointment",
+    "Prune relief",
+    "Prune admiration",
+    "Prune gratitude",
+    "Prune embarrassment",
+    "Prune caring",
+    "Prune love-1",
+    "Prune desire-1"
+  ],
+  "generated_expressions": 21,
+  "total_sprite_files": 22,
+  "technical_checks": [
+    {
+      "character": "Prune",
+      "emotion": "neutral",
+      "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-06-prune-full-22/sprites/Prune/neutral.png",
+      "sha256": "bb8d9ef1e3eb966445d7b1cd0be20b0c7a68af0427c46ebea44821ce266c3b9a",
+      "dimensions": [
+        952,
+        1653
+      ],
+      "png_decoded": true,
+      "alpha_channel": true
+    },
+    {
+      "character": "Prune",
+      "emotion": "annoyance",
+      "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-06-prune-full-22/sprites/Prune/annoyance.png",
+      "sha256": "79c332e2e8d954991937f6c871e0aad6bb9dd77329c29dd5c6024d06b77d834d",
+      "dimensions": [
+        952,
+        1653
+      ],
+      "png_decoded": true,
+      "alpha_channel": true
+    },
+    {
+      "character": "Prune",
+      "emotion": "smug",
+      "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-06-prune-full-22/sprites/Prune/smug.png",
+      "sha256": "6f71038ad11731ad14ae94afd69c4ce3797008eec5b60dc8a3a6005dc260eab1",
+      "dimensions": [
+        952,
+        1652
+      ],
+      "png_decoded": true,
+      "alpha_channel": true
+    },
+    {
+      "character": "Prune",
+      "emotion": "confusion",
+      "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-06-prune-full-22/sprites/Prune/confusion.png",
+      "sha256": "30de22c34923dbcdc76e2e54726002a464b8c8ddab6a841a335cc7ebbcd1489f",
+      "dimensions": [
+        952,
+        1653
+      ],
+      "png_decoded": true,
+      "alpha_channel": true
+    },
+    {
+      "character": "Prune",
+      "emotion": "love",
+      "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-06-prune-full-22/sprites/Prune/love.png",
+      "sha256": "c524cf9bf10635a975c59ed044e9c9d0209123d37d77ce085a8a64f4f649eb03",
+      "dimensions": [
+        952,
+        1653
+      ],
+      "png_decoded": true,
+      "alpha_channel": true
+    },
+    {
+      "character": "Prune",
+      "emotion": "excitement",
+      "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-06-prune-full-22/sprites/Prune/excitement.png",
+      "sha256": "4e6d372f9678a0fe767c0bf84f1ed54620c7475c836762e339629bf1329c6be4",
+      "dimensions": [
+        952,
+        1653
+      ],
+      "png_decoded": true,
+      "alpha_channel": true
+    },
+    {
+      "character": "Prune",
+      "emotion": "joy",
+      "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-06-prune-full-22/sprites/Prune/joy.png",
+      "sha256": "94d39df232137ae84011d7b35a82ff89bdafa80e386cf1f64c5814c1197d7238",
+      "dimensions": [
+        952,
+        1653
+      ],
+      "png_decoded": true,
+      "alpha_channel": true
+    },
+    {
+      "character": "Prune",
+      "emotion": "fear",
+      "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-06-prune-full-22/sprites/Prune/fear.png",
+      "sha256": "fc6f77d7a1e3b972d7864306bed4d1958ede25cbc63ef21255111b724745aa34",
+      "dimensions": [
+        952,
+        1653
+      ],
+      "png_decoded": true,
+      "alpha_channel": true
+    },
+    {
+      "character": "Prune",
+      "emotion": "pride",
+      "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-06-prune-full-22/sprites/Prune/pride.png",
+      "sha256": "bba97474adf5b0ce5b4398041e644c8f44d78b053080c3959ce9a015951dcfee",
+      "dimensions": [
+        951,
+        1653
+      ],
+      "png_decoded": true,
+      "alpha_channel": true
+    },
+    {
+      "character": "Prune",
+      "emotion": "desire",
+      "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-06-prune-full-22/sprites/Prune/desire.png",
+      "sha256": "00868ad0f0898b29bea0135fa069d4b9964b68f995f539d17af1e01eaa746479",
+      "dimensions": [
+        952,
+        1653
+      ],
+      "png_decoded": true,
+      "alpha_channel": true
+    },
+    {
+      "character": "Prune",
+      "emotion": "anger",
+      "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-06-prune-full-22/sprites/Prune/anger.png",
+      "sha256": "bf45a07bd76e38faaa88b20ec09858b38b0e01c8a5bcebfeec1a07ed31c1c179",
+      "dimensions": [
+        952,
+        1653
+      ],
+      "png_decoded": true,
+      "alpha_channel": true
+    },
+    {
+      "character": "Prune",
+      "emotion": "grief",
+      "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-06-prune-full-22/sprites/Prune/grief.png",
+      "sha256": "1b90007ddcc90277370a2c5b2b77fb412c6349c0fc2f13230a735635cdc894b6",
+      "dimensions": [
+        952,
+        1653
+      ],
+      "png_decoded": true,
+      "alpha_channel": true
+    },
+    {
+      "character": "Prune",
+      "emotion": "sadness",
+      "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-06-prune-full-22/sprites/Prune/sadness.png",
+      "sha256": "852a25e62ff84801facd0ee7a32c24cc09ab155dc0d5643538769c05500fd8b4",
+      "dimensions": [
+        952,
+        1653
+      ],
+      "png_decoded": true,
+      "alpha_channel": true
+    },
+    {
+      "character": "Prune",
+      "emotion": "disgust",
+      "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-06-prune-full-22/sprites/Prune/disgust.png",
+      "sha256": "0322602a5d66d8acae799d256548a432e3ea130ec0e155be7eb2048e1312949e",
+      "dimensions": [
+        952,
+        1653
+      ],
+      "png_decoded": true,
+      "alpha_channel": true
+    },
+    {
+      "character": "Prune",
+      "emotion": "disappointment",
+      "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-06-prune-full-22/sprites/Prune/disappointment.png",
+      "sha256": "54039b5a5cf38da32281653ae0f9e73fee60135056253e63e2cd2a76a7dc99ad",
+      "dimensions": [
+        952,
+        1653
+      ],
+      "png_decoded": true,
+      "alpha_channel": true
+    },
+    {
+      "character": "Prune",
+      "emotion": "relief",
+      "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-06-prune-full-22/sprites/Prune/relief.png",
+      "sha256": "cb6da91bc9bec0e9594587d8e4b9228416a0bcaa508c55d3af442b1a1ac17ad6",
+      "dimensions": [
+        952,
+        1653
+      ],
+      "png_decoded": true,
+      "alpha_channel": true
+    },
+    {
+      "character": "Prune",
+      "emotion": "admiration",
+      "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-06-prune-full-22/sprites/Prune/admiration.png",
+      "sha256": "ac9a13ce3c72e171eb2ed71548fe4b166cb67243e641ed3c28c99f63c13dee34",
+      "dimensions": [
+        952,
+        1653
+      ],
+      "png_decoded": true,
+      "alpha_channel": true
+    },
+    {
+      "character": "Prune",
+      "emotion": "gratitude",
+      "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-06-prune-full-22/sprites/Prune/gratitude.png",
+      "sha256": "c5da53bfb55d03bb0c852260443c1424dd69d21fc2932f2ab8c614434cd855a2",
+      "dimensions": [
+        952,
+        1653
+      ],
+      "png_decoded": true,
+      "alpha_channel": true
+    },
+    {
+      "character": "Prune",
+      "emotion": "embarrassment",
+      "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-06-prune-full-22/sprites/Prune/embarrassment.png",
+      "sha256": "cbfc877f3930a96e0db7fba05d8d2517d2680c8404e81a10c6954ae0d09e7b21",
+      "dimensions": [
+        952,
+        1653
+      ],
+      "png_decoded": true,
+      "alpha_channel": true
+    },
+    {
+      "character": "Prune",
+      "emotion": "caring",
+      "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-06-prune-full-22/sprites/Prune/caring.png",
+      "sha256": "1c639868e7d6b98955a03e4afdff0d009e52c322661226ae6f74809a50da2761",
+      "dimensions": [
+        952,
+        1653
+      ],
+      "png_decoded": true,
+      "alpha_channel": true
+    },
+    {
+      "character": "Prune",
+      "emotion": "love-1",
+      "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-06-prune-full-22/sprites/Prune/love-1.png",
+      "sha256": "b10b352a4e0aac69ace4410e01efdc22031a5d02d43ec59cbb0692cc12d97b63",
+      "dimensions": [
+        952,
+        1653
+      ],
+      "png_decoded": true,
+      "alpha_channel": true
+    },
+    {
+      "character": "Prune",
+      "emotion": "desire-1",
+      "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-06-prune-full-22/sprites/Prune/desire-1.png",
+      "sha256": "ade36feb54f3d9faffc589f9bcd981fbebdb5da890a9ea8e77a01706451073e5",
+      "dimensions": [
+        952,
+        1653
+      ],
+      "png_decoded": true,
+      "alpha_channel": true
+    }
+  ],
+  "visual_review": "Not performed; the user reviews generated candidates.",
+  "previews": {
+    "full_body": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-06-prune-full-22/previews/full-body.png",
+    "faces": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-06-prune-full-22/previews/faces.png",
+    "columns": 5,
+    "rows": 5,
+    "labels": "none",
+    "background": "transparent",
+    "order": [
+      [
+        "Prune",
+        "neutral"
+      ],
+      [
+        "Prune",
+        "annoyance"
+      ],
+      [
+        "Prune",
+        "smug"
+      ],
+      [
+        "Prune",
+        "confusion"
+      ],
+      [
+        "Prune",
+        "love"
+      ],
+      [
+        "Prune",
+        "excitement"
+      ],
+      [
+        "Prune",
+        "joy"
+      ],
+      [
+        "Prune",
+        "fear"
+      ],
+      [
+        "Prune",
+        "pride"
+      ],
+      [
+        "Prune",
+        "desire"
+      ],
+      [
+        "Prune",
+        "anger"
+      ],
+      [
+        "Prune",
+        "grief"
+      ],
+      [
+        "Prune",
+        "sadness"
+      ],
+      [
+        "Prune",
+        "disgust"
+      ],
+      [
+        "Prune",
+        "disappointment"
+      ],
+      [
+        "Prune",
+        "relief"
+      ],
+      [
+        "Prune",
+        "admiration"
+      ],
+      [
+        "Prune",
+        "gratitude"
+      ],
+      [
+        "Prune",
+        "embarrassment"
+      ],
+      [
+        "Prune",
+        "caring"
+      ],
+      [
+        "Prune",
+        "love-1"
+      ],
+      [
+        "Prune",
+        "desire-1"
+      ]
+    ],
+    "transforms": [
+      {
+        "character": "Prune",
+        "emotion": "neutral",
+        "full_body_position": [
+          12,
+          32
+        ],
+        "full_body_size": [
+          312,
+          542
+        ],
+        "face_crop": [
+          152,
+          0,
+          800,
+          512
+        ],
+        "face_position": [
+          8,
+          40
+        ],
+        "face_size": [
+          304,
+          240
+        ]
+      },
+      {
+        "character": "Prune",
+        "emotion": "annoyance",
+        "full_body_position": [
+          348,
+          32
+        ],
+        "full_body_size": [
+          312,
+          542
+        ],
+        "face_crop": [
+          152,
+          0,
+          800,
+          512
+        ],
+        "face_position": [
+          328,
+          40
+        ],
+        "face_size": [
+          304,
+          240
+        ]
+      },
+      {
+        "character": "Prune",
+        "emotion": "smug",
+        "full_body_position": [
+          684,
+          32
+        ],
+        "full_body_size": [
+          312,
+          541
+        ],
+        "face_crop": [
+          152,
+          0,
+          800,
+          512
+        ],
+        "face_position": [
+          648,
+          40
+        ],
+        "face_size": [
+          304,
+          240
+        ]
+      },
+      {
+        "character": "Prune",
+        "emotion": "confusion",
+        "full_body_position": [
+          1020,
+          32
+        ],
+        "full_body_size": [
+          312,
+          542
+        ],
+        "face_crop": [
+          152,
+          0,
+          800,
+          512
+        ],
+        "face_position": [
+          968,
+          40
+        ],
+        "face_size": [
+          304,
+          240
+        ]
+      },
+      {
+        "character": "Prune",
+        "emotion": "love",
+        "full_body_position": [
+          1356,
+          32
+        ],
+        "full_body_size": [
+          312,
+          542
+        ],
+        "face_crop": [
+          152,
+          0,
+          800,
+          512
+        ],
+        "face_position": [
+          1288,
+          40
+        ],
+        "face_size": [
+          304,
+          240
+        ]
+      },
+      {
+        "character": "Prune",
+        "emotion": "excitement",
+        "full_body_position": [
+          12,
+          638
+        ],
+        "full_body_size": [
+          312,
+          542
+        ],
+        "face_crop": [
+          152,
+          0,
+          800,
+          512
+        ],
+        "face_position": [
+          8,
+          360
+        ],
+        "face_size": [
+          304,
+          240
+        ]
+      },
+      {
+        "character": "Prune",
+        "emotion": "joy",
+        "full_body_position": [
+          348,
+          638
+        ],
+        "full_body_size": [
+          312,
+          542
+        ],
+        "face_crop": [
+          152,
+          0,
+          800,
+          512
+        ],
+        "face_position": [
+          328,
+          360
+        ],
+        "face_size": [
+          304,
+          240
+        ]
+      },
+      {
+        "character": "Prune",
+        "emotion": "fear",
+        "full_body_position": [
+          684,
+          638
+        ],
+        "full_body_size": [
+          312,
+          542
+        ],
+        "face_crop": [
+          152,
+          0,
+          800,
+          512
+        ],
+        "face_position": [
+          648,
+          360
+        ],
+        "face_size": [
+          304,
+          240
+        ]
+      },
+      {
+        "character": "Prune",
+        "emotion": "pride",
+        "full_body_position": [
+          1020,
+          638
+        ],
+        "full_body_size": [
+          312,
+          542
+        ],
+        "face_crop": [
+          152,
+          0,
+          799,
+          512
+        ],
+        "face_position": [
+          968,
+          359
+        ],
+        "face_size": [
+          304,
+          241
+        ]
+      },
+      {
+        "character": "Prune",
+        "emotion": "desire",
+        "full_body_position": [
+          1356,
+          638
+        ],
+        "full_body_size": [
+          312,
+          542
+        ],
+        "face_crop": [
+          152,
+          0,
+          800,
+          512
+        ],
+        "face_position": [
+          1288,
+          360
+        ],
+        "face_size": [
+          304,
+          240
+        ]
+      },
+      {
+        "character": "Prune",
+        "emotion": "anger",
+        "full_body_position": [
+          12,
+          1244
+        ],
+        "full_body_size": [
+          312,
+          542
+        ],
+        "face_crop": [
+          152,
+          0,
+          800,
+          512
+        ],
+        "face_position": [
+          8,
+          680
+        ],
+        "face_size": [
+          304,
+          240
+        ]
+      },
+      {
+        "character": "Prune",
+        "emotion": "grief",
+        "full_body_position": [
+          348,
+          1244
+        ],
+        "full_body_size": [
+          312,
+          542
+        ],
+        "face_crop": [
+          152,
+          0,
+          800,
+          512
+        ],
+        "face_position": [
+          328,
+          680
+        ],
+        "face_size": [
+          304,
+          240
+        ]
+      },
+      {
+        "character": "Prune",
+        "emotion": "sadness",
+        "full_body_position": [
+          684,
+          1244
+        ],
+        "full_body_size": [
+          312,
+          542
+        ],
+        "face_crop": [
+          152,
+          0,
+          800,
+          512
+        ],
+        "face_position": [
+          648,
+          680
+        ],
+        "face_size": [
+          304,
+          240
+        ]
+      },
+      {
+        "character": "Prune",
+        "emotion": "disgust",
+        "full_body_position": [
+          1020,
+          1244
+        ],
+        "full_body_size": [
+          312,
+          542
+        ],
+        "face_crop": [
+          152,
+          0,
+          800,
+          512
+        ],
+        "face_position": [
+          968,
+          680
+        ],
+        "face_size": [
+          304,
+          240
+        ]
+      },
+      {
+        "character": "Prune",
+        "emotion": "disappointment",
+        "full_body_position": [
+          1356,
+          1244
+        ],
+        "full_body_size": [
+          312,
+          542
+        ],
+        "face_crop": [
+          152,
+          0,
+          800,
+          512
+        ],
+        "face_position": [
+          1288,
+          680
+        ],
+        "face_size": [
+          304,
+          240
+        ]
+      },
+      {
+        "character": "Prune",
+        "emotion": "relief",
+        "full_body_position": [
+          12,
+          1850
+        ],
+        "full_body_size": [
+          312,
+          542
+        ],
+        "face_crop": [
+          152,
+          0,
+          800,
+          512
+        ],
+        "face_position": [
+          8,
+          1000
+        ],
+        "face_size": [
+          304,
+          240
+        ]
+      },
+      {
+        "character": "Prune",
+        "emotion": "admiration",
+        "full_body_position": [
+          348,
+          1850
+        ],
+        "full_body_size": [
+          312,
+          542
+        ],
+        "face_crop": [
+          152,
+          0,
+          800,
+          512
+        ],
+        "face_position": [
+          328,
+          1000
+        ],
+        "face_size": [
+          304,
+          240
+        ]
+      },
+      {
+        "character": "Prune",
+        "emotion": "gratitude",
+        "full_body_position": [
+          684,
+          1850
+        ],
+        "full_body_size": [
+          312,
+          542
+        ],
+        "face_crop": [
+          152,
+          0,
+          800,
+          512
+        ],
+        "face_position": [
+          648,
+          1000
+        ],
+        "face_size": [
+          304,
+          240
+        ]
+      },
+      {
+        "character": "Prune",
+        "emotion": "embarrassment",
+        "full_body_position": [
+          1020,
+          1850
+        ],
+        "full_body_size": [
+          312,
+          542
+        ],
+        "face_crop": [
+          152,
+          0,
+          800,
+          512
+        ],
+        "face_position": [
+          968,
+          1000
+        ],
+        "face_size": [
+          304,
+          240
+        ]
+      },
+      {
+        "character": "Prune",
+        "emotion": "caring",
+        "full_body_position": [
+          1356,
+          1850
+        ],
+        "full_body_size": [
+          312,
+          542
+        ],
+        "face_crop": [
+          152,
+          0,
+          800,
+          512
+        ],
+        "face_position": [
+          1288,
+          1000
+        ],
+        "face_size": [
+          304,
+          240
+        ]
+      },
+      {
+        "character": "Prune",
+        "emotion": "love-1",
+        "full_body_position": [
+          12,
+          2456
+        ],
+        "full_body_size": [
+          312,
+          542
+        ],
+        "face_crop": [
+          152,
+          0,
+          800,
+          512
+        ],
+        "face_position": [
+          8,
+          1320
+        ],
+        "face_size": [
+          304,
+          240
+        ]
+      },
+      {
+        "character": "Prune",
+        "emotion": "desire-1",
+        "full_body_position": [
+          348,
+          2456
+        ],
+        "full_body_size": [
+          312,
+          542
+        ],
+        "face_crop": [
+          152,
+          0,
+          800,
+          512
+        ],
+        "face_position": [
+          328,
+          1320
+        ],
+        "face_size": [
+          304,
+          240
+        ]
+      }
+    ]
+  },
+  "archives": {
+    "sprites": {
+      "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-06-prune-full-22/archives/sprites.zip",
+      "files": 22,
+      "sha256": "4e598c8b0c2c870d9b499389996b9594987fbd6c5b5e8954cdb691a873228c3e",
+      "zip_integrity": "passed"
+    },
+    "complete_artwork": {
+      "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-06-prune-full-22/archives/complete-artwork.zip",
+      "contents": "All non-archive run artifacts, including exact prompts, references, raw outputs, sources, previews, scripts and manifest."
+    }
+  }
+}
