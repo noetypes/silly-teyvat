@@ -8,8 +8,9 @@ import {personaCard} from './persona-wardrobe.js';
 import {linkedCard} from './persona-link.js';
 import {activePersonaAvatar,personaKey} from './persona-wardrobe.js';
 import {activeGroup} from './party.js';
-import {resonanceOf,planIntent,innateAura,auraList} from './battle-engine.js';
+import {resonanceOf,planIntent,innateAura,auraList,applyForm} from './battle-engine.js';
 import {addToBag} from './battle-items.js';
+import {formArt} from './battle-icons.js';
 import {journeyBag} from './starter-decks.js';
 
 // Genius Invokation TCG card art, for characters and enemies that have a card of the same name.
@@ -68,6 +69,8 @@ export function battleSnapshot(ctx,{portrait=()=>'',duel=null}={}){
         units.push({id:e.avatar,side:'enemy',name:card?.name || 'Enemy',card:card?.name || '',img:portrait(ctx,e.avatar),circle:card?circularCharacterAvatar(ctx,card) || portrait(ctx,e.avatar):'',art:tcgArt(card?.name),element:kit.custom&&kit.element || (own==='None'?'Physical':own),
             hp:e.hp,maxHp:e.maxHp,shield:keep?keep.shield || 0:Number(kit.shield)||0,energy:0,maxEnergy:0,aura:keep?.aura || null,statuses:keep?.statuses || [],cooldowns:structuredClone(keep?.cooldowns || {}),enraged:Boolean(keep?.enraged),usedRage:Boolean(keep?.usedRage),intent:keep?.intent || null,
             armor:keep?.armor ?? (Number(kit.armor)||0),armorBreak:kit.armorBreak || '',weakTo:kit.weakTo || '',evasion:Number(kit.evasion)||0,kit,visit:e.key});
+        // A second form taken earlier in this encounter (La Signora's Crimson Witch of Embers) lasts for the rest of it.
+        if(e.form&&applyForm(units.at(-1)))units.at(-1).art=formArt(units.at(-1).kit.transform.art) || units.at(-1).art;
     }
     // Elemental enemies enter with their own element applied (see innateAura).
     for(const u of units)if(u.hp>0&&innateAura(u)&&!auraList(u.aura).length)u.aura={element:innateAura(u),elements:[innateAura(u)]};
@@ -99,6 +102,8 @@ export function commitRound(ctx,before,result,id,{items=[],loot=[]}={}){
         if(u.side==='party'||u.duel){party[u.id].hp=u.hp;if(u.hp<=0)(u.duel?defeated:downed).push(u.id);}
         else{
             const entry=store.visits[u.visit].enemies[u.id];entry.hp=u.hp;entry.defeated=u.hp<=0;
+            // The form stays with this encounter after the fight, so the stage keeps showing it (enemyForm in combat-state.js).
+            if(u.form)entry.form=u.form;
             if(entry.defeated){
                 defeated.push(u.id);clearEnemy(ctx,store.visits[u.visit].locationId,u.id);
                 // Its cards wait for the victory, so keep what the roll needs: the card may be gone by then.
@@ -161,6 +166,7 @@ export function roundNarration(before,result){
             case 'summon':extra.push(`summoned ${e.summon.name}`);break;
             case 'decoy':extra.push(`but ${e.name} drew the attack away`);break;
             case 'enrage':flush();lines.push(`${name(e.actor)} became enraged.`);break;
+            case 'transform':{flush();const n=name(e.actor),form=`the ${e.name}, now ${e.element}`;lines.push(e.cause==='sealed'?`${n} would have fallen, but the seal broke: ${n} rose at 1 HP as ${form}.`:e.cause==='weakened'?`Pushed to the limit, ${n} transformed into ${form}.`:`${n} transformed into ${form}.`);break;}
             case 'defeat':extra.push(`${name(e.target)} was defeated`);break;
             case 'downed':extra.push(`${name(e.target)} was downed`);break;
             case 'item':flush();current=`The party used ${e.name}${e.target?` on ${name(e.target)}`:''}`;break;

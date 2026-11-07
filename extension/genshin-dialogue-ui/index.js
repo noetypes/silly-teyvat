@@ -16,7 +16,7 @@ import { createUiSound, mountUiSound } from './ui-sound.js';
 import { mountSceneMedia } from './scene-media.js';
 import { stagingDefaults, mountStageEffects } from './staging.js';
 import { regenerationState, regenerateReply } from './regeneration.js';
-import { defaultCGPrompt, localMediaPath, mediaSettings, migrateCGDisplay } from './media-store.js';
+import { CG_DISPLAY_MODES, defaultCGPrompt, localMediaPath, mediaSettings, migrateCGDisplay } from './media-store.js';
 import {clearPromptOrder} from './prompt-order.js';
 import {syncRoleplayPrompts,noteGeneration,paintRoleplayPrompts,bindRoleplayPrompts,dropRoleplayPrompts,renderPromptLibrary} from './roleplay-prompts.js';
 import { mountBackgrounds, backgroundRegions, travelState } from './backgrounds.js';
@@ -55,7 +55,7 @@ import {mountShare} from './share-ui.js';
 const KEY = 'genshin_dialogue_ui';
 // A GitHub install takes the repository's name, so the folder is read from where this file is served.
 const FOLDER = `third-party/${decodeURIComponent(new URL('./', import.meta.url).pathname.split('/').filter(Boolean).at(-1))}`;
-const defaults = Object.freeze({ ...stagingDefaults, enabled: false, choices: true, composer: true, reducedMotion: false, textScale: 1, scrim: 0.8, revealSpeed: 45, tapAdvance: true, pageExpressions: true, narration: false, narrationMode: 'quotes', narrationKeyword: 'Narrator:', hideDialogueQuotes:false, wardrobe: true, locationEncounters:true, locationCharacterLimit:5, randomEncounters:true, encounterRate:40, allowMainDeparture:false, worldPromptAllRegions:false, roleplayPromptsEnabled:true, wildernessEncounters:true, maxEnemies:3, combatDamageMin:1, combatDamageMax:6, enemyStrikeBack:true,combatTriggerPhrase:'[start_combat]', enemyDamageMin:2, enemyDamageMax:6, enemyDice:4, userMaxHp:30, combatDifficulty:'normal', battleEffects:true, battleSound:true,uiSound:true,uiSoundVolume:.7, personaIcon: 'Aether', personaIconMode:'auto', hudTopIcons:'auto', namecard:'', signature:'', trimSprites:true, cgEnabled:true, cgClassifier:'main', cgProfile:'', choicesProfile:'', cgBypassReasoning:true, choicesBypassReasoning:true, cgPrompt:defaultCGPrompt, cgAudio:true, spriteAudio:true, burstAudio:true, spriteVolume:.8, diceSound:true, trustSystem:false, travelerTwin:'Aether', master:true, cardArt:true, paimonLinks:PAIMON_LINKS, paimonRestore:{} });
+const defaults = Object.freeze({ ...stagingDefaults, enabled: false, choices: true, composer: true, reducedMotion: false, textScale: 1, scrim: 0.8, revealSpeed: 45, tapAdvance: true, pageExpressions: true, narration: false, narrationMode: 'quotes', narrationKeyword: 'Narrator:', hideDialogueQuotes:false, wardrobe: true, locationEncounters:true, locationCharacterLimit:5, randomEncounters:true, encounterRate:40, allowMainDeparture:false, worldPromptAllRegions:false, roleplayPromptsEnabled:true, wildernessEncounters:true, maxEnemies:3, combatDamageMin:1, combatDamageMax:6, enemyStrikeBack:true,combatTriggerPhrase:'[start_combat]', enemyDamageMin:2, enemyDamageMax:6, enemyDice:4, userMaxHp:30, combatDifficulty:'normal', battleEffects:true, battleSound:true,uiSound:true,uiSoundVolume:.7, personaIcon: 'Aether', personaIconMode:'auto', hudTopIcons:'auto', namecard:'', signature:'', trimSprites:true, cgEnabled:true, cgClassifier:'main', cgProfile:'', choicesProfile:'', cgBypassReasoning:true, choicesBypassReasoning:true, cgPrompt:defaultCGPrompt, cgDisplayMode:'each', cgAudio:true, spriteAudio:true, burstAudio:true, spriteVolume:.8, diceSound:true, trustSystem:false, travelerTwin:'Aether', master:true, cardArt:true, paimonLinks:PAIMON_LINKS, paimonRestore:{} });
 const bodyClasses = ['gi-menu-open', 'gi-enabled', 'gi-scene', 'gi-history', 'gi-hidden', 'gi-compose', 'gi-generating', 'gi-reduced-motion', 'gi-reading', 'gi-choices-enabled', 'gi-native-staging', 'gi-sprite-idle', 'gi-hud-top-off'];
 const icons = {
     compass: '<path d="m12 2 3 7 7 3-7 3-3 7-3-7-7-3 7-3Z"/><path d="m12 8 4 4-4 4-4-4Z"/>',
@@ -194,6 +194,7 @@ function preferences() {
     }
     if (!['auto','Aether','Lumine'].includes(store[KEY].personaIconMode)) store[KEY].personaIconMode = 'auto';
     if (!['main','profile','webllm'].includes(store[KEY].cgClassifier)) store[KEY].cgClassifier = 'main';
+    if (!CG_DISPLAY_MODES.includes(store[KEY].cgDisplayMode)) store[KEY].cgDisplayMode = 'each';
     if (!['auto','on','off'].includes(store[KEY].hudTopIcons)) store[KEY].hudTopIcons = 'auto';
     store[KEY].spriteVolume = Math.max(0,Math.min(1,Number(store[KEY].spriteVolume) || 0));
     store[KEY].uiSoundVolume = Math.max(0,Math.min(1,Number(store[KEY].uiSoundVolume) || 0));

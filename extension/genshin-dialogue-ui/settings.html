@@ -97,6 +97,7 @@
                 <div class="gi-set-actions"><button type="button" class="menu_button" data-gi-action="audio-unlock">Allow audio on this device</button></div>
                 <h4>Scene CGs</h4>
                 <label class="gi-row"><span>Classify CGs</span><input type="checkbox" class="gi-switch" data-gi-setting="cgEnabled"></label>
+                <label class="gi-row" for="gi-cg-display-mode" title="Each CG's own choice is set in Character Customization under Scenes. Phones always use a frame"><span>CG display</span><select id="gi-cg-display-mode" data-gi-setting="cgDisplayMode"><option value="each">Each CG's choice</option><option value="scene">Replace background</option><option value="frame">Framed window</option></select></label>
                 <label class="gi-row" for="gi-cg-classifier"><span>Classifier</span><select id="gi-cg-classifier" data-gi-setting="cgClassifier"><option value="main">Main API</option><option value="profile">Connection profile</option><option value="webllm">WebLLM</option></select></label>
                 <label class="gi-row" id="gi-cg-profile-row" for="gi-cg-profile"><span>Profile</span><select id="gi-cg-profile" data-gi-setting="cgProfile"></select></label>
                 <label class="gi-row" id="gi-cg-reasoning-row" title="Faster and cheaper. A model that requires reasoning is asked again with it on"><span>Prefer reasoning off</span><input type="checkbox" class="gi-switch" data-gi-setting="cgBypassReasoning"></label>

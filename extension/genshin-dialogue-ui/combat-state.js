@@ -10,7 +10,7 @@ import {syncPromptOrder} from './prompt-order.js';
 import {DIFFICULTY,partyScale} from './battle-engine.js';
 import {restockBag} from './battle-items.js';
 import {journeyBag} from './starter-decks.js';
-import {COMBAT_COMPANIONS} from './combat-kits.js';
+import {COMBAT_COMPANIONS,defaultKit} from './combat-kits.js';
 export const DICE_FACES=[...ELEMENTS,'Omni'];
 export const combatIdentity=ctx=>`${ctx.groupId || ctx.characterId}:${ctx.getCurrentChatId?.() || ctx.chatId || ''}`;
 // Version 2 is the turn-based system. Health and battles saved by the older dice combat are discarded.
@@ -33,6 +33,14 @@ export function sceneMembers(ctx){return (activeGroup(ctx)?.members || [ctx.char
 const visitKey=ctx=>{const encounter=ctx.chatMetadata?.silly_teyvat_cast?.encounter,locationId=ctx.chatMetadata?.silly_teyvat_world?.location?.id;return encounter&&encounter.locationId===locationId?encounter.key:`manual:${locationId || 'chat'}`;};
 // An enemy already defeated in the current encounter (a later encounter starts a new visit).
 export const defeatedHere=(ctx,avatar)=>Boolean(ctx.chatMetadata?.silly_teyvat_combat?.visits?.[visitKey(ctx)]?.enemies?.[avatar]?.defeated);
+// The sprite of an enemy's second form, once it has taken that form in the current encounter (La Signora's
+// crimson_witch.png). Only this asks for it: enemies are never classified, so no expression can pick it.
+export function enemyFormSprite(ctx,card){
+    const entry=card&&ctx.chatMetadata?.silly_teyvat_combat?.visits?.[visitKey(ctx)]?.enemies?.[card.avatar];
+    if(!entry?.form)return '';
+    const form=defaultKit(card.name,{enemy:true})?.transform;
+    return form?.name===entry.form&&/^[a-z][a-z0-9_]{0,59}$/.test(form.sprite || '')?form.sprite:'';
+}
 export function activeEnemies(ctx){
     const cast=ctx.chatMetadata?.silly_teyvat_cast || {},encounter=cast.encounter,locationId=ctx.chatMetadata?.silly_teyvat_world?.location?.id;
     const key=visitKey(ctx);

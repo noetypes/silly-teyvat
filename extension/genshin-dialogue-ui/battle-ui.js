@@ -12,7 +12,7 @@ import {describeMove,escapeHtml,KIND_LABEL} from './combat-kits.js';
 import {ITEMS,itemArt,kindLabel} from './battle-items.js';
 import {createBattleSound} from './battle-sound.js';
 import {createParticles,glyph,weaponIcon,EL_COLORS,SWORD_SVG} from './battle-fx.js';
-import {elementImg,reactionIcon,skillIcon,characterIcon,summonArt,fieldIcon} from './battle-icons.js';
+import {elementImg,reactionIcon,skillIcon,characterIcon,summonArt,fieldIcon,formArt} from './battle-icons.js';
 import {createWeaponFx,weaponOf,strikeKind} from './battle-weapons.js';
 
 const el=(tag,cls,text)=>{const n=document.createElement(tag);if(cls)n.className=cls;if(text!==undefined)n.textContent=text;return n;};
@@ -780,6 +780,16 @@ export function mountBattle({host,sound=createBattleSound(),onBurst=()=>{},onSto
                 case 'energy':if(target){target.energy=e.energy;paintUnit(target);}else if(actor){actor.energy=e.energy;paintUnit(actor);}break;
                 case 'hpcost':if(target){target.hp=e.hpAfter;paintUnit(target);floatText(e.target,`−${e.amount}`,'gb-hpcost');await wait(280);}break;
                 case 'cleanse':if(target){target.statuses=e.statuses;target.aura=null;paintUnit(target);sound.buff();await wait(340);}break;
+                case 'transform':{
+                    // A second form (La Signora → Crimson Witch of Embers): new element, weakness, moves and card art.
+                    const u=view.get(e.actor),card=cards.get(e.actor),next=round?unitById(round.state,e.actor):null;
+                    if(u){Object.assign(u,{form:e.name,element:e.element,weakTo:e.weakTo,hp:e.hpAfter,aura:e.aura,intent:e.intent,cooldowns:e.cooldowns},next?{kit:structuredClone(next.kit)}:{});const art=formArt(e.art);if(art)u.art=art;}
+                    if(card){card.style.setProperty('--el',EL_COLORS[e.element] || EL_COLORS.None);const art=formArt(e.art),img=card.querySelector('.tb-art>img');if(art&&img){img.hidden=false;img.src=art;card.classList.remove('tb-portrait');}card.classList.remove('tb-enraged');card.classList.add('tb-transformed');}
+                    if(u)paintUnit(u);
+                    const p=centerOf(e.actor);if(effectsOn()){particles.impact(p.x,p.y,e.element,1.6);particles.sparkle(p.x,p.y,EL_COLORS[e.element] || '#fff');}
+                    banner(e.name,u?.name,EL_COLORS[e.element]);floatText(e.actor,e.cause==='sealed'?'The seal breaks!':'Transformed!','gb-enrage');sound.enrage();
+                    await wait(1100);break;
+                }
                 case 'enrage':{cards.get(e.actor)?.classList.add('tb-enraged');floatText(e.actor,'Enraged!','gb-enrage');sound.enrage();await wait(650);break;}
                 case 'defeat':case 'downed':{const card=cards.get(e.target);const p=centerOf(e.target);if(effectsOn())particles.sparkle(p.x,p.y,EL_COLORS[target?.element] || '#fff');card?.classList.add('tb-falling');setTimeout(()=>card?.classList.remove('tb-falling'),900);e.type==='defeat'?sound.defeat():sound.downed();await wait(820);break;}
                 case 'statuses':if(e.fields){state.fields=e.fields;paintFields(state.fields);}if(e.supports){state.supports=e.supports;paintSummons(state.summons || []);}for(const s of e.units){const u=view.get(s.id);if(!u)continue;Object.assign(u,{aura:s.aura,statuses:s.statuses,shield:s.shield,energy:s.energy,hp:s.hp,intent:s.intent});paintUnit(u);}break;
@@ -792,7 +802,7 @@ export function mountBattle({host,sound=createBattleSound(),onBurst=()=>{},onSto
     }
     function syncFromRound(){
         if(!round)return;
-        for(const u of round.state.units){const v=unitById(state,u.id);if(v)Object.assign(v,structuredClone(u));}
+        for(const u of round.state.units){const v=unitById(state,u.id);if(!v)continue;const art=v.form&&v.art;Object.assign(v,structuredClone(u));if(art)v.art=art;}
         state.active={...round.state.active};state.summons=structuredClone(round.state.summons);state.fields=structuredClone(round.state.fields);state.supports=structuredClone(round.state.supports || []);
         paintSummons(state.summons);paintFields(state.fields);refresh();
     }

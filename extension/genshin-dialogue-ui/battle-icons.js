@@ -17,6 +17,8 @@ export const skillIcon=move=>{const entry=move&&index.skills[move.name];return e
 // The same art as a white glyph for the bronze medallions (tools/build-skill-glyphs.py).
 export const skillGlyph=move=>{const entry=move&&index.skills[move.name];return entry?url(`glyphs/${entry.file}`):'';};
 export const characterIcon=name=>index.icons[name]?url(`icons/${index.icons[name]}`):'';
+// Card art for an enemy's second form (assets/tcg/forms), shown on the board once it transforms.
+export const formArt=name=>name?new URL(`./assets/tcg/forms/${encodeURIComponent(name)}.webp`,import.meta.url).href:'';
 export const summonArt=name=>index.summons[name]?url(`summons/${index.summons[name]}`):'';
 // Combat statuses from reactions: Dendro Core and Catalyzing Field.
 export const fieldIcon=name=>index.fields?.[name]?url(`fields/${index.fields[name]}`):'';

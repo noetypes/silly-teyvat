@@ -13,6 +13,12 @@ export function loadStarterCGCatalog(fetcher=fetch){
 export function seedStarterCGs(ctx,catalog){
     const prefs=mediaSettings(ctx),seeded=prefs.seededCGs=Array.isArray(prefs.seededCGs)?prefs.seededCGs:[];
     let added=0,changed=false;
+    // 1.64: starter scenes open framed unless they are 16:9 (`display` in the catalog). One whose display was never chosen takes the
+    // catalog's default; choosing either mode in Character Customization stores it, so that choice is kept.
+    const defaults=new Map((catalog?.cgs || []).filter(record=>record?.display==='frame').map(record=>[record.id,record.display]));
+    for(const list of Object.values(prefs.characterCGs || {}))for(const entry of list){
+        if(entry?.starter&&entry.display===undefined&&defaults.has(entry.starter)){entry.display=defaults.get(entry.starter);changed=true;}
+    }
     for(const record of catalog?.cgs || []){
         if(!record?.id||seeded.includes(record.id)||!/^assets\/cgs\/[a-z0-9/-]+\.(webp|png|jpe?g)$/.test(record.path || ''))continue;
         // Wait for the card: a character imported later still receives the scene.
@@ -20,7 +26,7 @@ export function seedStarterCGs(ctx,catalog){
         const list=prefs.characterCGs[record.avatar] ??= [];
         const path=new URL(record.path,new URL('../../',catalogUrl)).pathname;
         if(!list.some(entry=>entry.path===path||entry.starter===record.id)){
-            list.push({id:newLocalId(),starter:record.id,label:record.label,description:record.description || '',classifications:[...(record.classifications || [])],audio:[],path});
+            list.push({id:newLocalId(),starter:record.id,label:record.label,description:record.description || '',classifications:[...(record.classifications || [])],audio:[],path,...(record.display==='frame'?{display:'frame'}:{})});
             added++;
         }
         seeded.push(record.id);changed=true;

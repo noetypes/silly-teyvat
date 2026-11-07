@@ -1,5 +1,6 @@
 import {isEnemy} from './character-properties.js';
 import {renderPrompt} from './prompt-templates.js';
+import {enemyFormSprite} from './combat-state.js';
 export const ENEMY_ATTACK_MARKER='[enemy_attack]';
 // An enemy can start a fight itself: the phrase below, written in its own reply, starts a battle round
 // once the reply has been read, and the enemy acts first in it. Empty turns this off.
@@ -39,7 +40,7 @@ export function enemySceneAvatar(ctx,sprite){const card=ctx.characters?.find(c=>
 export async function resolveEnemyScene(ctx,adapter,scene,message,action='neutral'){
     const actor=enemySpeaker(ctx,message),cards=[...new Set([...scene.map(s=>enemySceneAvatar(ctx,s)).filter(Boolean),...(actor?[actor.avatar]:[])])];
     let next=scene;
-    for(const avatar of cards){const card=ctx.characters?.find(c=>c.avatar===avatar);if(!card)continue;const expression=actor?.avatar===avatar&&action==='attacking'?'attacking':'neutral';next=(await adapter.resolve(ctx,{name:card.name,original_avatar:avatar},expression,next)).scene;}
+    for(const avatar of cards){const card=ctx.characters?.find(c=>c.avatar===avatar);if(!card)continue;const expression=enemyFormSprite(ctx,card) || (actor?.avatar===avatar&&action==='attacking'?'attacking':'neutral');next=(await adapter.resolve(ctx,{name:card.name,original_avatar:avatar},expression,next)).scene;}
     return next;
 }
 // Said to the roleplay model while hostile enemies are present (see combatPrompt).

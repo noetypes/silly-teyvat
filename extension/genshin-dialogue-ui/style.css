@@ -2902,8 +2902,12 @@ body:not(.gi-scene) #gi-party-health, body.gi-history #gi-party-health, body.gi-
 .gi-move-head small { font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: #d7c59c; }
 .gi-move-head input { width: 100%; min-width: 0; font-size: 15px; }
 .gi-move-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(90px, 1fr)); gap: 6px; margin-bottom: 6px; }
-.gi-effect { position: relative; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 4px 6px; align-items: end; margin-bottom: 6px; padding: 6px 30px 6px 6px; border-radius: 8px; background: #0b102066; }
-.gi-effect [data-remove-effect] { position: absolute; top: 4px; right: 4px; width: 22px; height: 22px; padding: 0; border-radius: 50%; line-height: 1; }
+.gi-effect { position: relative; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 4px 6px; align-items: end; margin-bottom: 6px; padding: 6px 38px 6px 6px; border-radius: 8px; background: #0b102066; }
+/* Remove effect: a small cream circle in the row's own corner, clear of the fields. The ID keeps the
+   Character Customization button style from stretching it into an oval. */
+:is(#gi-wardrobe, body) .gi-effect > [data-remove-effect] { position: absolute; top: 6px; right: 6px; display: grid; place-items: center; box-sizing: border-box; width: 24px; height: 24px; min-width: 0; min-height: 0; margin: 0; padding: 0; border: 0; border-radius: 50%; background: var(--ty-cream, #ece5d8); color: var(--ty-ink, #3b4255); font-size: 16px; line-height: 1; box-shadow: 0 1px 4px #0006; cursor: pointer; }
+:is(#gi-wardrobe, body) .gi-effect > [data-remove-effect]:hover { background: #fff; box-shadow: 0 0 0 1.5px #ece5d8a0, 0 0 8px #fff6; transform: none; }
+:is(#gi-wardrobe, body) .gi-effect > [data-remove-effect]:focus-visible { outline: 2px solid #f0d790; outline-offset: 2px; }
 .gi-effect input, .gi-effect select, .gi-move-row input, .gi-move-row select, .gi-moveset-head input, .gi-moveset-head select { min-width: 0; }
 .gi-effect label[hidden] { display: none; }
 .gi-move-desc { margin: 6px 0 0; font-size: 12px; line-height: 1.4; color: #d9cfbd; }
@@ -3107,15 +3111,21 @@ body.gi-shell { --pm-rail-width: 68px; }
 /* Top-right SillyTavern icons switched off: the toggle is hidden, its panel still opens from the menu. */
 body.gi-shell #top-settings-holder > .drawer.gi-hud-tucked { flex: 0 0 0 !important; width: 0 !important; margin: 0 !important; overflow: visible; }
 body.gi-shell #top-settings-holder > .drawer.gi-hud-tucked > .drawer-toggle { display: none !important; }
-/* Silly Teyvat disabled: the SillyTavern icons centre at the top middle. The row is sized to clear the Paimon launcher on the left. */
-body.gi-shell:not(.gi-enabled) {
+/* Story view or Choices & HUD off: the SillyTavern icons centre at the top middle, where SillyTavern opens their panels.
+   The row is sized to clear the Paimon launcher on the left. */
+body.gi-shell:is(:not(.gi-enabled), :not(.gi-choices-enabled)) {
     --gi-hud-cell: min(50px, calc((100vw - env(safe-area-inset-left, 0px) - env(safe-area-inset-right, 0px) - 2 * var(--gi-hud-margin) - (var(--gi-hud-count) + 1) * var(--gi-hud-gap)) / (var(--gi-hud-count) + 2)));
 }
-body.gi-shell:not(.gi-enabled) #top-settings-holder {
+/* The row spans the screen like SillyTavern's own, so each panel centres under it; only the icons and panels take clicks,
+   leaving the Paimon launcher beside the row usable. */
+body.gi-shell:is(:not(.gi-enabled), :not(.gi-choices-enabled)) #top-settings-holder {
     inset: var(--gi-hud-top) 0 auto 0 !important;
-    width: max-content !important;
-    margin: 0 auto !important;
+    width: auto !important;
+    margin: 0 !important;
+    justify-content: center;
+    pointer-events: none;
 }
+body.gi-shell:is(:not(.gi-enabled), :not(.gi-choices-enabled)) #top-settings-holder > .drawer { pointer-events: auto; }
 .gi-pm-tavern { margin: 18px 20px 0; }
 #gi-toolbar.gi-pm-picking .gi-pm-tavern { display: none; }
 .gi-pm-tavern h3 { margin: 0 0 8px; font-size: 15px; font-weight: normal; color: var(--pm-ink); opacity: .8; }

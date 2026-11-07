@@ -149,6 +149,16 @@ export function moveElement(u,move){
 }
 // Moves aimed at one foe always hit the opposing active character; only ally moves are aimed by hand.
 export const moveNeedsTarget=move=>(move?.effects || []).some(e=>e.target==='ally')?'ally':null;
+// ---- Second forms ----------------------------------------------------------------------
+// An enemy whose kit has a transform (La Signora → Crimson Witch of Embers) changes element, weakness and
+// moves for good. applyForm only rewrites the unit; the battle's transform() also records and announces it.
+export function applyForm(u){
+    const form=u?.kit?.transform;if(!form)return false;
+    u.form=form.name;u.element=form.element || u.element;u.weakTo=form.weakTo ?? u.weakTo;
+    u.kit={...u.kit,moves:structuredClone(form.moves)};
+    return true;
+}
+export const canTransform=u=>Boolean(u?.kit?.transform)&&!u.form&&u.side==='enemy'&&!u.duel;
 export function burstReady(u){return (u.energy || 0)>=(u.maxEnergy || 2);}
 export function drawCards(deck,n,random=Math.random){
     const pile=[...deck],drawn=[];
@@ -175,6 +185,8 @@ export function startRound(snapshot,{dice=null,first='party',hand=[],deck=[],ite
         ended:{party:false,enemy:false},firstEnded:null,enemyActions:strikeBack?enemyActions:0,strikeBack,fed:[],played:[],freeSwitch:state.resonance.includes('Anemo'),
         phase:'action',over:null,needsActive:null,timeline:[],stats:{dealt:{},reactions:[],healed:{}},forecast,step:0};
     Object.defineProperty(round,'rng',{value:random,writable:true,enumerable:false});
+    // When the Action Phase starts with her at 40% HP or less, the seal breaks.
+    for(const enemy of side(state,'enemy').filter(u=>alive(u)&&canTransform(u)&&u.hp<=u.maxHp*(u.kit.transform.below ?? 0)))core(round).transform(enemy,0,'weakened');
     state.supports ??= [];
     // Supports act as the Action Phase begins (Paimon's dice, investment plans); Vanarana returns the dice it kept.
     if(state.supports.length){
@@ -292,7 +304,18 @@ function core(round){
     }
     function fallen(target,step){
         if(target.hp>0)return;
+        // Ice-Sealed Crimson Witch of Embers: the seal breaks instead, leaving her at 1 HP in her second form.
+        if(canTransform(target)&&target.kit.transform.seal){target.hp=1;transform(target,step,'sealed');return;}
         push({type:target.side==='enemy'?'defeat':'downed',target:target.id,step});
+    }
+    function transform(u,step,cause){
+        if(!canTransform(u))return false;
+        const was=u.element;applyForm(u);
+        // Her own element changes with her; anything the party applied stays.
+        const kept=auraList(u.aura).filter(e=>e!==was);setAura(u,kept.length?kept:innateAura(u)?[innateAura(u)]:[]);
+        u.cooldowns={};u.intent=null;planIntent(state,u,rngOf(round));
+        push({type:'transform',actor:u.id,name:u.form,element:u.element,weakTo:u.weakTo || '',cause,hpAfter:u.hp,aura:auraList(u.aura),art:u.kit.transform.art || '',intent:u.intent,cooldowns:structuredClone(u.cooldowns),step});
+        return true;
     }
     function damage(attacker,target,power,element,ctx={}){
         if(!alive(target))return 0;
@@ -392,6 +415,8 @@ function core(round){
         if(move.kind==='burst')actor.energy=0;
         if(move.kind==='normal'||move.kind==='skill')actor.energy=Math.min(actor.maxEnergy || 2,(actor.energy || 0)+1);
         for(const effect of move.effects || [])apply(actor,move,effect,chosen,step);
+        // Carmine Chrysalis, her Burst, breaks the seal.
+        if(move.kind==='special'&&alive(actor)&&canTransform(actor))transform(actor,step,'burst');
         if(actor.side==='party'&&['normal','skill','burst'].includes(move.kind))triggers(actor,move.kind,step);
         push({type:'energy',actor:actor.id,target:actor.id,energy:actor.energy || 0,step,quiet:true});
     }
@@ -532,7 +557,7 @@ function core(round){
         }
         if(item.kind==='food')supportFire('food',targets[0] || null);
     }
-    return {push,act,damage,heal,applyItem,pickTarget,rand,supportFire,supportReady,spendSupport,draw,addDice,perk};
+    return {push,act,damage,heal,applyItem,pickTarget,rand,supportFire,supportReady,spendSupport,draw,addDice,perk,transform};
 }
 // After anything that can defeat a character: decide the battle, and bring a new active character forward.
 function settle(round){

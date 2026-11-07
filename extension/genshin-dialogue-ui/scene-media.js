@@ -152,7 +152,7 @@ export function mountSceneMedia({host,getContext,adapter=createMediaAdapter(getC
         if (!on || !prefs.cgEnabled) { clearFull(); closeFrame(); return; }
         if (!saved) { if(frame.hidden && audioKind==='cg')stopSound(); hideStage(); return; }
         const cg = liveCG(prefs,saved); let shown;
-        if (cgDisplay(cg,isPhone()) === 'frame') {
+        if (cgDisplay(cg,isPhone(),prefs.cgDisplayMode) === 'frame') {
             hideStage();
             if (dismissed === key) return;
             if (frameKey !== key) {
@@ -236,7 +236,7 @@ export function mountSceneMedia({host,getContext,adapter=createMediaAdapter(getC
         // Shows a CG as the game would, without touching the chat. Closing it restores whatever was playing.
         previewCG(cg) {
             const prefs=mediaSettings(getContext());
-            preview.dataset.display=cgDisplay(cg,isPhone());preview.querySelector('header span').textContent=cg.label;
+            preview.dataset.display=cgDisplay(cg,isPhone(),prefs.cgDisplayMode);preview.querySelector('header span').textContent=cg.label;
             stageMedia.pause();frameMedia.pause();
             if(!preview.open)preview.showModal();
             previewMedia.stop();previewMedia.show(cg,videoSound(prefs,cg));fitPreview();

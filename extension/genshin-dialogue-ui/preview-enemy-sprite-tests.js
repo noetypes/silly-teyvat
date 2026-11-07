@@ -1,4 +1,5 @@
 import {mountPageSprites} from './page-sprites.js';
+import {resolveEnemyScene} from './enemy-actions.js';
 // Enemy sprites on the stage: an entrance, a flinch after a round that hurt them, a fall and exit when defeated.
 export async function runEnemySpriteTests(){
     const out=[],check=(name,ok)=>{out.push(`${ok?'PASS':'FAIL'} ${name}`);if(!ok)throw Error(out.join('\n'));};
@@ -36,6 +37,19 @@ export async function runEnemySpriteTests(){
         check('a defeated enemy stays gone after the chat reloads',!img('Slime')&&img('Klee'));
         defeated.clear();say('“Another one!”');await pause(30);
         check('a later encounter brings the enemy back with a new entrance',img('Slime')?.classList.contains('gi-enemy-enter'));
+        // La Signora's Crimson Witch of Embers sprite is asked for only once her encounter records the form, never by pose or classification.
+        const signora={name:'La Signora',avatar:'La Signora.png',data:{extensions:{silly_teyvat:{role:'enemy'}}}};
+        const visits={'manual:arena':{locationId:'arena',enemies:{'La Signora.png':{avatar:'La Signora.png',hp:20,maxHp:66}}}};
+        const sctx={characters:[signora],extensionSettings:{genshin_dialogue_ui:{}},chatMetadata:{silly_teyvat_world:{location:{id:'arena'}},silly_teyvat_combat:{version:2,visits,events:[]}},chat:[]};
+        const asked=[],spriteAdapter={resolve:async(_c,_m,expression,s)=>{asked.push(expression);return {scene:s};}},line={name:'La Signora',original_avatar:'La Signora.png',mes:'Kneel.'};
+        const stage=[{avatar:'La Signora.png',folder:'La Signora',src:'/characters/La Signora/neutral.png'}];
+        await resolveEnemyScene(sctx,spriteAdapter,stage,line,'attacking');await resolveEnemyScene(sctx,spriteAdapter,stage,line);
+        check('La Signora keeps her own poses before she transforms',asked.join()==='attacking,neutral');
+        visits['manual:arena'].enemies['La Signora.png'].form='Crimson Witch of Embers';asked.length=0;
+        await resolveEnemyScene(sctx,spriteAdapter,stage,line,'attacking');await resolveEnemyScene(sctx,spriteAdapter,stage,line);
+        check('after the transformation, and after the fight, she shows the Crimson Witch sprite',asked.join()==='crimson_witch,crimson_witch');
+        sctx.chatMetadata.silly_teyvat_world.location.id='elsewhere';asked.length=0;await resolveEnemyScene(sctx,spriteAdapter,stage,line);
+        check('a new encounter meets her in her first form again',asked.join()==='neutral');
         return out.join('\n');
     }finally{ui?.dispose();host.remove();document.body.classList.toggle('gi-reduced-motion',motion);}
 }

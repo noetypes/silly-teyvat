@@ -21,8 +21,10 @@ export function spriteAudioKey(folder, src) {
 const VIDEO_FILE=/\.(mp4|m4v|webm|mov)([?#]|$)/i,MEDIA_TYPES={audio:/^(mp3|wav|m4a|ogg|webm|aac|flac)$/,image:/^(png|webp|jpe?g|gif|avif)$/,cg:/^(png|webp|jpe?g|gif|avif|mp4|m4v|webm|mov)$/};
 export const isVideoCG=cg=>VIDEO_FILE.test(cg?.path || '');
 export const phoneLayout=()=>matchMedia('(max-width: 768px), (max-height: 500px)').matches;
-// Phones have no room to replace the scene, so every CG is framed there.
-export const cgDisplay=(cg,phone=phoneLayout())=>phone||cg?.display==='frame'?'frame':'scene';
+// Phones have no room to replace the scene, so every CG is framed there. Elsewhere the
+// "CG display" setting either follows each CG's own choice or puts every CG in one mode.
+export const CG_DISPLAY_MODES=['each','scene','frame'];
+export const cgDisplay=(cg,phone=phoneLayout(),mode='each')=>phone||mode==='frame'||mode!=='scene'&&cg?.display==='frame'?'frame':'scene';
 // Per-CG percentages scale the master volume in Silly Teyvat's settings.
 export const cgVolume=(prefs,percent)=>Math.max(0,Math.min(1,(prefs.spriteVolume ?? .8)*(percent ?? 100)/100));
 // 1.50: framed or full-scene used to be one global setting; each CG now keeps its own.

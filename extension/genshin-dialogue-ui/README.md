@@ -1,3 +1,19 @@
+# Silly Teyvat 1.64.0: Sprites for the new enemies and La Signora's Crimson Witch form
+
+- **Sprites for the 18 TCG enemies.** Each now has a neutral sprite on the stage instead of its card.
+- **La Signora becomes the Crimson Witch of Embers**, as on her Genius Invokation card: when she uses
+  Carmine Chrysalis, when a round starts with her at 40% HP or less, or when a blow would defeat her
+  (she survives at 1 HP instead, once). She turns Pyro and weak to Hydro, fights with Crimson Lotus
+  Moth, Decimating Lash and Whirling Blaze, and shows her Crimson Witch card on the board. For the rest
+  of the encounter, the fight included, the stage shows her Crimson Witch sprite; nothing else uses it.
+- **CG display** in Settings → CG & Audio: follow each CG's own choice, or show every CG as the
+  background or in a framed window.
+- **Starter scenes open in a frame** unless the artwork is 16:9. Scenes you already have follow suit
+  unless you chose their display yourself.
+- With **Choices & HUD** off, the SillyTavern icons and their panels sit in the middle of the top of
+  the screen again, so no panel runs off the edge.
+- The remove-effect button in the Moveset editor is a round button that no longer covers the Target box.
+
 # Silly Teyvat 1.63.0: Weapons, Artifacts, Supports, Summons and 18 new enemies
 
 - **128 new cards** from the Genshin Impact Wiki's Genius Invokation lists, with their card art:

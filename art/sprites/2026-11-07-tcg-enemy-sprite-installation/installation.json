@@ -1,0 +1,201 @@
+{
+  "date": "2026-11-07",
+  "user_request": "18 sprites were generated for the new TCG enemies, plus an extra for Signora's Crimson Witch of Embers form ... she should be using the sprite corresponding with the Crimson Witch of Embers form - unlike other characters, this should be the only way that sprite can be used as opposed to classification.",
+  "neutral_approval": "Signora accepted along with all the others.",
+  "crimson_witch_candidate": "neutral-v003 (latest revision, after the user's face-perspective note on v002)",
+  "files": [
+    {
+      "character": "Abyss Herald: Wicked Torrents",
+      "file": "neutral.png",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-enemy-neutral-candidates/candidates/Abyss Herald: Wicked Torrents/neutral-v001.png",
+      "sha256": "3dc0db456d2d2d5b1a7170160b79ee945612501f4a83d7145feb37c5a8522eb2",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Abyss Herald Wicked Torrents/neutral.png",
+      "before_sha256": null,
+      "action": "add"
+    },
+    {
+      "character": "Abyss Lector: Fathomless Flames",
+      "file": "neutral.png",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-enemy-neutral-candidates/candidates/Abyss Lector: Fathomless Flames/neutral-v001.png",
+      "sha256": "0d7ed657f00a362a2873e9c5b9d7b2211bc2614a9961cb399840bfe1fb2046d0",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Abyss Lector Fathomless Flames/neutral.png",
+      "before_sha256": null,
+      "action": "add"
+    },
+    {
+      "character": "Abyss Lector: Violet Lightning",
+      "file": "neutral.png",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-enemy-neutral-candidates/candidates/Abyss Lector: Violet Lightning/neutral-v001.png",
+      "sha256": "3bdea68486500ac112899379a9b4c1b2db66f2f8e83c73662da5b58bd6826c55",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Abyss Lector Violet Lightning/neutral.png",
+      "before_sha256": null,
+      "action": "add"
+    },
+    {
+      "character": "Black Serpent Knight: Rockbreaker Ax",
+      "file": "neutral.png",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-enemy-neutral-candidates/candidates/Black Serpent Knight: Rockbreaker Ax/neutral-v001.png",
+      "sha256": "794dc35ed70af9bd31a4ae69853aa79c3a167cc961b36cb0eade2033c59fead3",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Black Serpent Knight Rockbreaker Ax/neutral.png",
+      "before_sha256": null,
+      "action": "add"
+    },
+    {
+      "character": "Black Serpent Knight: Windcutter",
+      "file": "neutral.png",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-enemy-neutral-candidates/candidates/Black Serpent Knight: Windcutter/neutral-v001.png",
+      "sha256": "5166a9a3f38e829490be1d970408cf633be71da7fca4a774ad1e18d548ed4d7b",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Black Serpent Knight Windcutter/neutral.png",
+      "before_sha256": null,
+      "action": "add"
+    },
+    {
+      "character": "Consecrated Fanged Beast",
+      "file": "neutral.png",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-enemy-neutral-candidates/candidates/Consecrated Fanged Beast/neutral-v001.png",
+      "sha256": "d952d9476179eafadcc0ad85d505f5a443949a04f2e970a09455149a67a1632a",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Consecrated Fanged Beast/neutral.png",
+      "before_sha256": null,
+      "action": "add"
+    },
+    {
+      "character": "Consecrated Flying Serpent",
+      "file": "neutral.png",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-enemy-neutral-candidates/candidates/Consecrated Flying Serpent/neutral-v001.png",
+      "sha256": "022f1cdfb6930f94df2748fa59f6b123fea6d13dbc9a381a9dfa167085e36a8f",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Consecrated Flying Serpent/neutral.png",
+      "before_sha256": null,
+      "action": "add"
+    },
+    {
+      "character": "Consecrated Horned Crocodile",
+      "file": "neutral.png",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-enemy-neutral-candidates/candidates/Consecrated Horned Crocodile/neutral-v001.png",
+      "sha256": "334a70bc4f5a643c8b9bfddf19982ea2d117070189e008c3ec5a4f2218c7ae4a",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Consecrated Horned Crocodile/neutral.png",
+      "before_sha256": null,
+      "action": "add"
+    },
+    {
+      "character": "Consecrated Scorpion",
+      "file": "neutral.png",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-enemy-neutral-candidates/candidates/Consecrated Scorpion/neutral-v001.png",
+      "sha256": "48242713ab7d059ed9c6dfebfbaef5b2b7cefde32a78d661bddd5f69d42b7c0a",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Consecrated Scorpion/neutral.png",
+      "before_sha256": null,
+      "action": "add"
+    },
+    {
+      "character": "Eremite Floral Ring-Dancer",
+      "file": "neutral.png",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-enemy-neutral-candidates/candidates/Eremite Floral Ring-Dancer/neutral-v001.png",
+      "sha256": "be645bc0fb9b79bb571f19e2f32a6be11bde1a22bd1d896382d859909979f7a6",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Eremite Floral Ring-Dancer/neutral.png",
+      "before_sha256": null,
+      "action": "add"
+    },
+    {
+      "character": "Eremite Scorching Loremaster",
+      "file": "neutral.png",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-enemy-neutral-candidates/candidates/Eremite Scorching Loremaster/neutral-v001.png",
+      "sha256": "cd61db7a6922079143109e1aa85f4a383ff09dc5873fdb7c37b6e77661d3df7b",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Eremite Scorching Loremaster/neutral.png",
+      "before_sha256": null,
+      "action": "add"
+    },
+    {
+      "character": "Fatui Electro Cicin Mage",
+      "file": "neutral.png",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-enemy-neutral-candidates/candidates/Fatui Electro Cicin Mage/neutral-v001.png",
+      "sha256": "8c114ccbab46a9efdec659abd13a1390de0dc4c3365f2e54c341aa69c8025d2d",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Fatui Electro Cicin Mage/neutral.png",
+      "before_sha256": null,
+      "action": "add"
+    },
+    {
+      "character": "Frost Operative",
+      "file": "neutral.png",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-enemy-neutral-candidates/candidates/Frost Operative/neutral-v001.png",
+      "sha256": "62916d2962f5a939b938db5cd8cba508614ac21e70bc557e33c5e5f12cca2fe3",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Frost Operative/neutral.png",
+      "before_sha256": null,
+      "action": "add"
+    },
+    {
+      "character": "Hydro Hilichurl Rogue",
+      "file": "neutral.png",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-enemy-neutral-candidates/candidates/Hydro Hilichurl Rogue/neutral-v001.png",
+      "sha256": "6d53e5c09873b0354f0c2c6f736718acd018cdafa13964cd29680e6d6dfff97b",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Hydro Hilichurl Rogue/neutral.png",
+      "before_sha256": null,
+      "action": "add"
+    },
+    {
+      "character": "Mirror Maiden",
+      "file": "neutral.png",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-four-enemy-pose-revisions/candidates/Mirror Maiden/neutral-v002.png",
+      "sha256": "a1280a26d305a65b27ea98c8efcc693e3938bf8e24e555ef08ff2668ed0d4afe",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Mirror Maiden/neutral.png",
+      "before_sha256": null,
+      "action": "add"
+    },
+    {
+      "character": "Stonehide Lawachurl",
+      "file": "neutral.png",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-four-enemy-pose-revisions/candidates/Stonehide Lawachurl/neutral-v002.png",
+      "sha256": "045a2a9505473f7d5724af82962bd6fc6e0953086b92cb7e81e8a5c100a863da",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Stonehide Lawachurl/neutral.png",
+      "before_sha256": null,
+      "action": "add"
+    },
+    {
+      "character": "Wayward Hermetic Spiritspeaker",
+      "file": "neutral.png",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-four-enemy-pose-revisions/candidates/Wayward Hermetic Spiritspeaker/neutral-v002.png",
+      "sha256": "3aff84926b878506c55dfc8b8a888ab06c597e8708ec8fb6efc14d63a2c57eed",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Wayward Hermetic Spiritspeaker/neutral.png",
+      "before_sha256": null,
+      "action": "add"
+    },
+    {
+      "character": "La Signora",
+      "file": "neutral.png",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-signora-level-head-neutral/candidates/La Signora/neutral-v005.png",
+      "sha256": "38b583234ae0af5b91947c9f4c52a9bf28ec889535481ec9032b6200c0c79bd2",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/La Signora/neutral.png",
+      "before_sha256": null,
+      "action": "add"
+    },
+    {
+      "character": "La Signora",
+      "file": "crimson_witch.png",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-signora-crimson-witch-face-perspective/candidates/La Signora/neutral-v003.png",
+      "sha256": "734701640aa9be33a1e8460321a986c64889ec5a914fff6b6e3982489161a5ef",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/La Signora/crimson_witch.png",
+      "before_sha256": null,
+      "action": "add"
+    }
+  ],
+  "aliases": [
+    {
+      "alias": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Abyss Herald: Wicked Torrents",
+      "target": "Abyss Herald Wicked Torrents"
+    },
+    {
+      "alias": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Abyss Lector: Fathomless Flames",
+      "target": "Abyss Lector Fathomless Flames"
+    },
+    {
+      "alias": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Abyss Lector: Violet Lightning",
+      "target": "Abyss Lector Violet Lightning"
+    },
+    {
+      "alias": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Black Serpent Knight: Rockbreaker Ax",
+      "target": "Black Serpent Knight Rockbreaker Ax"
+    },
+    {
+      "alias": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Black Serpent Knight: Windcutter",
+      "target": "Black Serpent Knight Windcutter"
+    }
+  ]
+}

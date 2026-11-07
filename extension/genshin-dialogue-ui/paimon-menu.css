@@ -113,15 +113,21 @@ body.gi-shell { --pm-rail-width: 68px; }
 /* Top-right SillyTavern icons switched off: the toggle is hidden, its panel still opens from the menu. */
 body.gi-shell #top-settings-holder > .drawer.gi-hud-tucked { flex: 0 0 0 !important; width: 0 !important; margin: 0 !important; overflow: visible; }
 body.gi-shell #top-settings-holder > .drawer.gi-hud-tucked > .drawer-toggle { display: none !important; }
-/* Silly Teyvat disabled: the SillyTavern icons centre at the top middle. The row is sized to clear the Paimon launcher on the left. */
-body.gi-shell:not(.gi-enabled) {
+/* Story view or Choices & HUD off: the SillyTavern icons centre at the top middle, where SillyTavern opens their panels.
+   The row is sized to clear the Paimon launcher on the left. */
+body.gi-shell:is(:not(.gi-enabled), :not(.gi-choices-enabled)) {
     --gi-hud-cell: min(50px, calc((100vw - env(safe-area-inset-left, 0px) - env(safe-area-inset-right, 0px) - 2 * var(--gi-hud-margin) - (var(--gi-hud-count) + 1) * var(--gi-hud-gap)) / (var(--gi-hud-count) + 2)));
 }
-body.gi-shell:not(.gi-enabled) #top-settings-holder {
+/* The row spans the screen like SillyTavern's own, so each panel centres under it; only the icons and panels take clicks,
+   leaving the Paimon launcher beside the row usable. */
+body.gi-shell:is(:not(.gi-enabled), :not(.gi-choices-enabled)) #top-settings-holder {
     inset: var(--gi-hud-top) 0 auto 0 !important;
-    width: max-content !important;
-    margin: 0 auto !important;
+    width: auto !important;
+    margin: 0 !important;
+    justify-content: center;
+    pointer-events: none;
 }
+body.gi-shell:is(:not(.gi-enabled), :not(.gi-choices-enabled)) #top-settings-holder > .drawer { pointer-events: auto; }
 .gi-pm-tavern { margin: 18px 20px 0; }
 #gi-toolbar.gi-pm-picking .gi-pm-tavern { display: none; }
 .gi-pm-tavern h3 { margin: 0 0 8px; font-size: 15px; font-weight: normal; color: var(--pm-ink); opacity: .8; }

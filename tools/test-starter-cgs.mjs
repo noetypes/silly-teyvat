@@ -37,6 +37,17 @@ ctx.characters.push({avatar:'Aether.png'},{avatar:'Lumine.png'},{avatar:'Paimon.
 seedStarterCGs(ctx,catalog);
 const shared=['Aether.png','Lumine.png','Paimon.png'].map(a=>prefs.characterCGs[a].find(e=>/paimon-2023-2\.webp$/.test(e.path)));
 assert.ok(shared.every(Boolean),'one artwork can be a scene for several characters');
+// 1.64: starter scenes open in a frame unless they are 16:9; the wide ones keep replacing the background.
+assert.equal(klee.display,'frame','a starter scene opens framed');
+assert.equal(shared[0].display,undefined,'a 16:9 starter scene keeps replacing the background');
+assert.ok(catalog.cgs.every(r=>r.display===undefined||r.display==='frame'),'catalog displays are frame or unset');
+// Scenes seeded before 1.64 take the catalog's default once; a display chosen in Character Customization is kept.
+const old={characters:[{avatar:'Klee.png'}],extensionSettings:{genshin_dialogue_ui:{seededCGs:catalog.cgs.map(r=>r.id),characterCGs:{'Klee.png':[{id:'a',starter:'birthday-klee-2025',path:'/x.webp'},{id:'b',starter:'birthday-klee-2024',path:'/y.webp',display:'scene'},{id:'c',path:'/own.webp'}]}}},saveSettingsDebounced:()=>{}};
+seedStarterCGs(old,catalog);
+const [untouched,chosen,own]=old.extensionSettings.genshin_dialogue_ui.characterCGs['Klee.png'];
+assert.equal(untouched.display,'frame','an untouched starter scene takes the frame');
+assert.equal(chosen.display,'scene','a chosen display is kept');
+assert.equal(own.display,undefined,'the player\'s own scenes are left alone');
 
 const stable={width:400,height:800};
 assert.equal(keyboardShown({width:400,height:450,stable,coarse:true,typing:true}),true);
