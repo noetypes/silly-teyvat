@@ -14,7 +14,11 @@ export const AURA_ELEMENTS=['Pyro','Hydro','Electro','Cryo','Dendro'];
 export const REACTIONS={
     Vaporize:'#f2a35a',Melt:'#f6b47a',Overloaded:'#ff6f6f',Superconduct:'#b9a7ff','Electro-Charged':'#c38cf2',Frozen:'#9fe3ff',
     Bloom:'#6fdc7d',Burning:'#ff8f4a',Quicken:'#7fd36a',Aggravate:'#c08cf5',Spread:'#94d34f',Swirl:'#74e0c0',Crystallize:'#f2c94c',Shatter:'#dbe7ff',
+    'Lunar-Charged':'#b78cff','Lunar-Bloom':'#9be7a8','Lunar-Crystallize':'#e9d68a',
 };
+// Lunar reactions (Genius Invokation's Moonsign Benediction): a party with a Moonsign character turns these
+// reactions into their Lunar forms. Which ones depends on the character (kit.moonsign).
+export const LUNAR={'Electro-Charged':'Lunar-Charged',Bloom:'Lunar-Bloom',Crystallize:'Lunar-Crystallize'};
 export const RESONANCE={
     Pyro:{name:'Fervent Flames',text:'Party deals 15% more damage.'},
     Hydro:{name:'Soothing Water',text:'Healing is 25% stronger.'},
@@ -27,6 +31,10 @@ export const RESONANCE={
 export const DIFFICULTY={easy:{hp:.8,damage:.7},normal:{hp:1,damage:1},hard:{hp:1.3,damage:1.3}};
 // Only the active character fights, so a bigger party mostly means more health to fall back on:
 // enemies grow a little tougher with each member rather than in step with the party.
+// 1.67 balance (tools/simulate-battles.mjs): ordinary enemies have 70% of their table health, so a fight with
+// them takes a few messages; bosses keep theirs (their tables in boss-kits.js set it).
+export const NORMAL_ENEMY_HP=.7;
+export function encounterHp(base,{boss=false,members=1,difficulty='normal'}={}){return Math.max(1,Math.round(base*(boss?1:NORMAL_ENEMY_HP)*(DIFFICULTY[difficulty] || DIFFICULTY.normal).hp*partyScale(members).hp));}
 export const partyScale=members=>{const n=Math.max(1,Math.min(6,members || 1));return {hp:.6+.05*n,damage:.7+.05*n};};
 // Genius Invokation's table: 8 dice a round, 5 cards to start, 2 drawn each End Phase, 10 at most in hand.
 export const DICE_PER_ROUND=8,HAND_START=5,HAND_DRAW=2,HAND_MAX=10,SWITCH_COST=1;
@@ -61,6 +69,9 @@ export function reactionOf(incoming,aura){
 export const FIELDS={
     'Dendro Core':{element:'Dendro',boosts:['Pyro','Electro'],bonus:2*REACTION_UNIT,usage:1,text:'Your next Pyro or Electro hit deals +4 damage.'},
     'Catalyzing Field':{element:'Dendro',boosts:['Electro','Dendro'],bonus:REACTION_UNIT,usage:2,text:'Your next two Electro or Dendro hits deal +2 damage.'},
+    // Lunar-Charged's Electric Shock, kept on the enemy side (enemies hold no cards): each End Phase the enemy
+    // with the most HP takes Piercing damage for every stack, then the shock fades.
+    'Electric Shock':{element:'Electro',boosts:[],bonus:0,usage:1,text:'End Phase: the enemy with the most HP takes 2 Piercing damage per stack.'},
 };
 const clampRandom=random=>{const n=Number(random());return Number.isFinite(n)?Math.max(0,Math.min(.999999,n)):0;};
 export const unitById=(state,id)=>state.units.find(u=>u.id===id);
@@ -78,6 +89,23 @@ export function activeOf(state,sideName){
     return alive(u)&&u.side===sideName?u:side(state,sideName).find(alive) || null;
 }
 export const isActive=(state,u)=>Boolean(u)&&activeOf(state,u.side)?.id===u.id;
+// A unit's moves right now: its kit, with a Burst a status has swapped in (Skirk's Seven-Phase Flash makes
+// it Havoc: Extinction) and any Techniques it carries after its own moves (Genius Invokation's Technique
+// cards and the Natlan characters' gear): a Technique is a Combat Action but not a Skill.
+export function movesOf(u){
+    const moves=[...(u?.kit?.moves || [])];
+    const swap=(u?.statuses || []).find(s=>s.stat==='swapBurst'&&s.move);
+    if(swap){const i=moves.findIndex(m=>m.kind==='burst');if(i>=0)moves[i]={...swap.move,kind:'burst',swapped:true};}
+    for(const t of (u?.statuses || []).filter(s=>s.stat==='technique'&&s.move))moves.push({...t.move,kind:'technique',technique:t.source});
+    return moves;
+}
+export const statusOf=(u,stat)=>(u?.statuses || []).find(s=>s.stat===stat) || null;
+// Nightsoul points (Natlan): a character in Nightsoul's Blessing holds up to two.
+export const nightsoulOf=u=>statusOf(u,'nightsoul')?.amount || 0;
+export const bondOf=u=>statusOf(u,'bond')?.amount || 0;
+// A kit whose Burst runs on its own resource instead of Energy: Mavuika's Fighting Spirit, Skirk's Serpent's
+// Subtlety. The resource is kept in the Energy field (its pips show it) and the Burst needs `min` of it.
+export const resourceOf=u=>u?.kit?.resource || null;
 
 // ---- Dice -------------------------------------------------------------------------
 export const diceCount=(resonance=[])=>DICE_PER_ROUND+(resonance.includes('Electro')?1:0);
@@ -109,8 +137,12 @@ export function thriftOf(u,move){
 }
 export function costOf(u,move){
     const thrift=thriftOf(u,move),full=Math.max(0,Math.round(Number(move?.cost)||0));
-    const total=Math.max(0,full-(thrift?Math.max(0,Number(thrift.amount)||1):0)),element=ELEMENTS.includes(u?.element)?u.element:null;
-    if(!element)return {element:null,matching:0,any:total,total};
+    // Battle Plan: the next Skill costs fewer dice. A Normal Attack status may take off Unaligned dice (normalLess).
+    // Skirk's Seven-Phase Flash pays up to 2 Unaligned dice with Serpent's Subtlety (spend), others simply cost less.
+    const plan=move?.kind==='skill'?statusOf(u,'plan')?.amount || 0:0,less=move?.kind==='normal'?(u?.statuses || []).reduce((n,s)=>n+(s.normalLess?s.spend?Math.min(s.normalLess,u.energy || 0):s.normalLess:0),0):0;
+    const total=Math.max(0,full-(thrift?Math.max(0,Number(thrift.amount)||1):0)-plan-less),element=ELEMENTS.includes(u?.element)?u.element:null;
+    // Techniques are paid with any dice.
+    if(!element||move?.kind==='technique')return {element:null,matching:0,any:total,total};
     if(move?.kind==='normal')return {element,matching:Math.min(1,total),any:Math.max(0,total-1),total};
     return {element,matching:total,any:0,total};
 }
@@ -144,7 +176,8 @@ export function resonanceOf(units){
 }
 export function moveElement(u,move){
     if(!move)return u.element;
-    const infuse=(u.statuses || []).find(s=>s.stat==='infuse'),infused=infuse&&(infuse.innate?u.element:infuse.element || u.element);
+    const bonded=u.kit?.bondInfuse&&bondOf(u)>0?{stat:'infuse',element:u.element}:null;
+    const infuse=(u.statuses || []).find(s=>s.stat==='infuse') || bonded,infused=infuse&&(infuse.innate?u.element:infuse.element || u.element);
     if(move.kind==='normal'&&infuse)return infused;
     const el=move.element || u.element,plain=el==='None'?'Physical':el;
     // A built-in infusion turns the unit's Physical attacks into its element, as in Genius Invokation.
@@ -156,6 +189,8 @@ export function applyInfusion(u){
     if(!u)return;
     u.statuses=(u.statuses || []).filter(s=>!(s.innate&&s.stat==='infuse'));
     if(alive(u)&&u.kit?.infusion===true&&ELEMENTS.includes(u.element))u.statuses.push({stat:'infuse',amount:0,rounds:99,source:'innate',label:'Elemental infusion',element:u.element,innate:true});
+    // Passive skills that answer events all fight long (kit.passives: listen statuses).
+    for(const p of u.kit?.passives || [])if(!(u.statuses || []).some(s=>s.source===`passive:${p.label}`))u.statuses.push({...structuredClone(p),stat:'listen',rounds:99,source:`passive:${p.label}`,passive:true,n:0});
 }
 // Moves aimed at one foe always hit the opposing active character; only ally moves are aimed by hand.
 export const moveNeedsTarget=move=>(move?.effects || []).some(e=>e.target==='ally')?'ally':null;
@@ -169,13 +204,15 @@ export function applyForm(u){
     return true;
 }
 export const canTransform=u=>Boolean(u?.kit?.transform)&&!u.form&&u.side==='enemy'&&!u.duel;
-export function burstReady(u){return (u.energy || 0)>=(u.maxEnergy || 2);}
+export function burstReady(u){const res=resourceOf(u);return (u.energy || 0)>=(res?res.min || 1:(u.maxEnergy || 2));}
 export function drawCards(deck,n,random=Math.random){
     const pile=[...deck],drawn=[];
     for(let i=0;i<n&&pile.length;i++)drawn.push(pile.splice(Math.floor(clampRandom(random)*pile.length),1)[0]);
     return {drawn,deck:pile};
 }
 // The deck is the party's bag minus the cards already in hand.
+// A created card drawn from the deck leaves the list of cards added to it.
+function noteDrawn(drawn,round){const adds=round.state.team?.party?.deckAdds;if(!adds)return;for(const id of drawn){const i=adds.indexOf(id);if(i>=0)adds.splice(i,1);}}
 export function deckFrom(bag,hand=[]){
     const left={...(bag || {})};for(const id of hand)if(left[id]>0)left[id]--;
     return Object.entries(left).flatMap(([id,n])=>Array(Math.max(0,n)).fill(id));
@@ -187,6 +224,9 @@ export function deckFrom(bag,hand=[]){
 export function startRound(snapshot,{dice=null,first='party',hand=[],deck=[],items={},strikeBack=true,difficulty,random=Math.random,forecast=false,enemyActions=ENEMY_ACTIONS}={}){
     const state=structuredClone(snapshot);
     state.round ||= 1;state.summons ??= [];state.fields ??= [];state.combo=0;state.resonance=resonanceOf(state.units);
+    // Side-wide statuses: Agile and Efficient Switch, card Cost Reduction, Lunar reaction counts and combat
+    // statuses that listen for events (Blood-Debt Directive, Lunar Domain, Pale Hymn…).
+    state.team ??= {};for(const name of ['party','enemy']){state.team[name] ??= {};const t=state.team[name];t.agile ??= 0;t.efficient ??= 0;t.cheaper ??= {};t.lunar ??= 0;t.listen ??= [];}
     state.difficulty=difficulty || state.difficulty || 'normal';
     state.active={party:activeOf(state,'party')?.id || null,enemy:activeOf(state,'enemy')?.id || null};
     for(const u of state.units)if(alive(u)&&innateAura(u)&&!auraList(u.aura).length)setAura(u,[innateAura(u)]);
@@ -199,6 +239,10 @@ export function startRound(snapshot,{dice=null,first='party',hand=[],deck=[],ite
     // When the Action Phase starts with her at 40% HP or less, the seal breaks.
     for(const enemy of side(state,'enemy').filter(u=>alive(u)&&canTransform(u)&&u.hp<=u.maxHp*(u.kit.transform.below ?? 0)))core(round).transform(enemy,0,'weakened');
     state.supports ??= [];
+    for(const u of state.units){u.usedThisRound={};for(const s of u.statuses || [])if(s.stat==='listen')s.n=0;}
+    for(const s of state.team.party.listen)s.n=0;for(const s of state.team.enemy.listen)s.n=0;
+    // Statuses that act as the Action Phase begins (Spirit Orb, Grapple Prepare, Flamestrider: Full Throttle).
+    if(!forecast)core(round).emit('roundStart',{});
     // Supports act as the Action Phase begins (Paimon's dice, investment plans); Vanarana returns the dice it kept.
     if(state.supports.length){
         const c=core(round);
@@ -238,6 +282,8 @@ function core(round){
     }
     function addStatus(u,status){
         u.statuses ??= [];
+        // Stacking statuses add up (Bond of Life, Nightsoul points up to their maximum).
+        if(['bond','plan'].includes(status.stat)){const old=u.statuses.find(s=>s.stat===status.stat);if(old){old.amount=(old.amount || 0)+(status.amount || 0);return;}}
         const same=u.statuses.find(s=>s.stat===status.stat&&s.source===status.source);
         if(same){same.amount=Math.max(same.amount || 0,status.amount || 0);same.rounds=Math.max(same.rounds,status.rounds);same.element=status.element || same.element;}
         else u.statuses.push({...status});
@@ -266,7 +312,33 @@ function core(round){
             if(AURA_ELEMENTS.includes(element)&&!auras.includes(element)&&auras.every(a=>(a==='Cryo'&&element==='Dendro')||(a==='Dendro'&&element==='Cryo')))setAura(target,[...auras,element]);
             return result;
         }
-        const name=reactionOf(element,aura),others=()=>side(state,target.side).filter(u=>alive(u)&&u!==target);
+        let name=reactionOf(element,aura);const others=()=>side(state,target.side).filter(u=>alive(u)&&u!==target);
+        // Moonsign: Electro-Charged, Bloom and Hydro Crystallize become Lunar reactions for a party that has the
+        // Moonsign character for them (Lauma, Nefer: Bloom; Flins, Ineffa: Electro-Charged; Columbina: all three).
+        const lunar=attacker.side==='party'&&LUNAR[name]&&!(name==='Crystallize'&&aura!=='Hydro')&&side(state,'party').some(u=>(u.kit?.moonsign || []).includes(LUNAR[name]))?LUNAR[name]:'';
+        if(lunar){
+            setAura(target,auras.filter(a=>a!==aura));
+            const team=state.team.party;team.lunar++;
+            switch(lunar){
+                // Lunar-Charged: a Thundercloud (End Phase 2 Electro per stack, no stack limit) and Electric Shock on the enemy side.
+                case 'Lunar-Charged':result.after.push(()=>{
+                    const id='party:Thundercloud',old=state.summons.find(x=>x.id===id),power=2*R+(team.thunder || 0);
+                    if(old){old.rounds++;old.power=Math.max(old.power,power);}else state.summons.push({id,owner:attacker.id,side:'party',name:'Thundercloud',element:'Electro',power,heal:0,rounds:1,target:'one',targetId:target.id,decoy:false});
+                    push({type:'summon',actor:attacker.id,summon:structuredClone(state.summons.find(x=>x.id===id)),step:ctx.step});
+                    shock(1+(team.shockMore || 0),ctx.step);
+                });break;
+                // Lunar-Bloom: +1, and Cost Reduction on a random card in your hand.
+                case 'Lunar-Bloom':result.flat+=R;result.after.push(()=>cheapen(1+(team.bloomMore || 0),ctx.step));break;
+                // Lunar-Crystallize: +1, and a Moondrift Harmony card in your hand (it summons or strengthens Moondrift).
+                case 'Lunar-Crystallize':result.flat+=R;result.after.push(()=>addCards(Array(1+(team.moondriftMore || 0)).fill('moondrift-harmony'),{step:ctx.step}));break;
+            }
+            result.flat+=listenBonus('lunarBonus',lunar);
+            result.name=result.name?`${result.name} + ${lunar}`:lunar;
+            if(resonant('Dendro'))result.flat+=1;
+            state.combo++;result.combo=state.combo;
+            result.after.push(()=>emit('lunar',{actor:attacker,target,reaction:lunar}));
+            return result;
+        }
         setAura(target,auras.filter(a=>a!==aura));
         const field=fieldName=>result.after.push(()=>addField(attacker.side,fieldName,ctx.step));
         switch(name){
@@ -299,7 +371,141 @@ function core(round){
         result.name=result.name?`${result.name} + ${name}`:name;
         if(attacker.side==='party'&&resonant('Dendro'))result.flat+=1;
         state.combo++;result.combo=state.combo;
+        result.after.push(()=>emit('reaction',{actor:attacker,target,reaction:name,element,aura}));
         return result;
+    }
+    // ---- Genius Invokation's newer mechanics ----------------------------------------------
+    // Listeners: statuses that answer events (passive skills, Itzpapa, Blood-Debt Directive, Ring of Searing
+    // Radiance…). A listener lives on a unit (stat 'listen') or on a side (state.team[side].listen).
+    //   on: normal | skill | burst | technique | hurt | reaction | lunar | switchIn | roundStart | nightsoulSpent
+    //   who: self | other | ally (which character's event counts, relative to the owner) · foe: the event is the other side's
+    //   reactions: only these reactions · spend: {nightsoul:n} paid first · per: times a round · uses: total
+    //   do: effects, applied by the owner (or the side's active character)
+    function listeners(){
+        const out=[];
+        for(const u of state.units)if(alive(u))for(const s of u.statuses || [])if(s.stat==='listen')out.push({s,owner:u,sideName:u.side});
+        for(const sideName of ['party','enemy'])for(const s of state.team?.[sideName]?.listen || [])out.push({s,owner:unitById(state,s.owner) || activeOf(state,sideName),sideName,team:true});
+        return out;
+    }
+    function emit(on,{actor=null,target=null,reaction='',element='',aura='',step=round.step}={}){
+        if(on==='normal'||on==='nightsoulSpent')gainResource(actor,'fightingSpirit',1,step);
+        for(const {s,owner,sideName,team} of listeners()){
+            if(![].concat(s.on).includes(on)||!owner)continue;
+            const subject=on==='hurt'?target:actor;
+            if(subject){
+                const mine=subject.side===sideName;
+                if(s.foe?mine:!mine)continue;
+                if(s.who==='self'&&subject!==owner)continue;
+                if(s.who==='other'&&subject===owner)continue;
+                if(s.active&&!isActive(state,owner))continue;
+            }
+            if(s.reactions&&!s.reactions.includes(reaction))continue;
+            if(s.cryoOnly&&!(element==='Cryo'||aura==='Cryo'||['Frozen','Superconduct'].includes(reaction)))continue;
+            if(s.needNightsoul&&!nightsoulOf(owner))continue;
+            if(s.minNightsoul&&nightsoulOf(owner)<s.minNightsoul)continue;
+            if((s.n || 0)>=(s.per || 99))continue;
+            if(s.spend?.nightsoul&&!spendNightsoul(owner,s.spend.nightsoul,step,true))continue;
+            s.n=(s.n || 0)+1;
+            const move={name:s.label || 'Status',kind:'status'};
+            push({type:'status-act',actor:owner.id,name:s.label || '',on,step});
+            for(const effect of s.do || [])apply(owner,move,effect,target?.id || null,step,{subject,reaction,listener:s});
+            if(s.uses){s.uses--;if(s.uses<=0){if(team)state.team[sideName].listen=state.team[sideName].listen.filter(x=>x!==s);else owner.statuses=owner.statuses.filter(x=>x!==s);}}
+        }
+    }
+    // Extra damage a side's listeners add to one kind of hit (Pale Hymn on Lunar-Bloom, Kinetic Energy Scale…).
+    function listenBonus(kind,detail){
+        let bonus=0;
+        for(const {s,owner} of listeners())if(s.on===kind&&(!s.reactions||s.reactions.includes(detail))&&(!s.kinds||s.kinds.includes(detail))&&(s.n || 0)<(s.per || 99)){
+            // Kinetic Energy Scale: while its owner is in Nightsoul's Blessing, a Nightsoul point pays instead of a use.
+            if(s.spendFromOwner&&owner&&nightsoulOf(owner)>0){spendNightsoul(owner,1,round.step,true);bonus+=s.amount || 0;continue;}
+            bonus+=s.amount || 0;s.n=(s.n || 0)+1;
+            if(s.uses){s.uses--;if(s.uses<=0){const t=state.team[owner?.side || 'party'];if(t)t.listen=t.listen.filter(x=>x!==s);if(owner)owner.statuses=(owner.statuses || []).filter(x=>x!==s);}}
+        }
+        return bonus;
+    }
+    function gainResource(actor,kind,amount,step){
+        if(!kind||!actor||actor.side!=='party')return;
+        for(const u of side(state,'party').filter(x=>alive(x)&&resourceOf(x)?.kind===kind)){
+            const res=resourceOf(u),before=u.energy || 0;u.energy=Math.min(res.max || 6,before+amount);
+            if(u.energy!==before)push({type:'energy',actor:u.id,target:u.id,energy:u.energy,resource:kind,step,quiet:true});
+        }
+    }
+    // Nightsoul's Blessing: points up to its maximum. Spending the last point ends the Blessing (and the gear
+    // that needs it) for characters whose Blessing ends at 0.
+    function gainNightsoul(u,amount,{enter=false,max=2,rounds=99,step}={}){
+        if(!alive(u))return;
+        let s=statusOf(u,'nightsoul');
+        if(!s){if(!enter)return;s={stat:'nightsoul',amount:0,max,rounds,source:'nightsoul',label:'Nightsoul\'s Blessing'};u.statuses.push(s);}
+        if(rounds!==99)s.rounds=Math.max(s.rounds,rounds);
+        const before=s.amount;s.amount=Math.min(s.max || max,s.amount+amount);
+        push({type:'nightsoul',target:u.id,amount:s.amount,statuses:structuredClone(u.statuses),step});
+        if(s.amount>before)emit('nightsoulGain',{actor:u,step});
+    }
+    function spendNightsoul(u,amount,step,quiet=false){
+        const s=statusOf(u,'nightsoul');if(!s||s.amount<amount)return false;
+        // Crucible of Death and Life: Skills spend no Nightsoul points.
+        s.amount-=amount;
+        push({type:'nightsoul',target:u.id,amount:s.amount,spent:amount,statuses:structuredClone(u.statuses),step,quiet});
+        emit('nightsoulSpent',{actor:u,step});
+        if(s.amount<=0&&s.endAtZero!==false){u.statuses=u.statuses.filter(x=>x!==s&&x.tie!=='nightsoul');push({type:'status',target:u.id,statuses:structuredClone(u.statuses),label:'Nightsoul\'s Blessing ends',step});}
+        return true;
+    }
+    // Bond of Life absorbs healing first, one HP per stack.
+    function addBond(u,amount,step){
+        if(!alive(u)||amount<=0)return;
+        addStatus(u,{stat:'bond',amount,rounds:99,source:'bond',label:'Bond of Life'});
+        push({type:'bond',target:u.id,amount:bondOf(u),statuses:structuredClone(u.statuses),step});
+    }
+    // Card Cost Reduction (Lunar-Bloom, Lauma's Burst…): random cards in hand that still cost dice cost 1 less.
+    function cheapen(count,step,{pick='random'}={}){
+        const team=state.team.party,hand=round.hand || [];
+        for(let i=0;i<count;i++){
+            const open=hand.filter(id=>(round.items?.[id]?.cost || 0)-(team.cheaper[id] || 0)>0);if(!open.length)break;
+            const id=pick==='highest'?open.sort((a,b)=>(round.items[b].cost-(team.cheaper[b] || 0))-(round.items[a].cost-(team.cheaper[a] || 0)))[0]:open[Math.floor(rand()*open.length)];
+            team.cheaper[id]=(team.cheaper[id] || 0)+1;
+        }
+        push({type:'cheaper',cheaper:{...team.cheaper},step});
+    }
+    // Cards made by skills (Flamestrider, Void Rift, Moondrift Harmony…) go to the hand, or into the deck.
+    // choose: the player picks one of them (round.pendingChoice), the first one in a forecast.
+    function addCards(ids,{to='hand',choose=false,at=null,step}={}){
+        const list=ids.filter(id=>round.items?.[id]);if(!list.length)return;
+        if(choose&&list.length>1){
+            if(forecast||!round.chooser)list.splice(1);
+            else{round.pendingChoice={cards:list,step};return;}
+        }
+        // Cards put in the deck are remembered (team.deckAdds), since each round deals the deck from the bag again.
+        if(to==='deck'){const adds=state.team.party.deckAdds ??= [];for(const id of list){const i=at===null?Math.floor(rand()*(round.deck.length+1)):Math.min(round.deck.length,at);round.deck.splice(i,0,id);adds.push(id);}push({type:'deck-add',cards:list,step});return;}
+        const room=Math.max(0,HAND_MAX-round.hand.length),kept=list.slice(0,room);round.hand.push(...kept);
+        if(kept.length)push({type:'draw',cards:kept,burned:[],source:'created',created:true,step});
+    }
+    // Discard from hand: highest cost first, cards of a cost, or at random. A discarded card's own "after
+    // you discard" effect fires (Flamestrider: Soaring Ascent).
+    function discard(count,{pick='highest',cost=null,step}={}){
+        const gone=[];
+        for(let i=0;i<count;i++){
+            const costNow=id=>Math.max(0,(round.items?.[id]?.cost || 0)-(state.team.party.cheaper[id] || 0));
+            const open=round.hand.map((id,index)=>({id,index})).filter(c=>cost===null||(round.items?.[c.id]?.cost || 0)===cost);if(!open.length)break;
+            const c=pick==='random'?open[Math.floor(rand()*open.length)]:open.sort((a,b)=>costNow(b.id)-costNow(a.id))[0];
+            round.hand.splice(c.index,1);gone.push(c.id);
+        }
+        if(!gone.length)return 0;
+        push({type:'discard',cards:gone,step});
+        for(const id of gone)for(const effect of round.items?.[id]?.onDiscard || [])perk(front(),effect,round.items[id].name,{step});
+        emit('discard',{actor:front(),step});
+        return gone.length;
+    }
+    // Lunar-Charged's Electric Shock on the enemy side.
+    function shock(stacks,step){
+        const old=state.fields.find(f=>f.side==='enemy'&&f.name==='Electric Shock');
+        if(old)old.usage+=stacks;else state.fields.push({side:'enemy',name:'Electric Shock',usage:stacks});
+        push({type:'field',side:'enemy',name:'Electric Shock',fields:structuredClone(state.fields),step});
+    }
+    // A prepared skill ("Prepare Skill: Wavestrider"): it is the character's next action, taken by itself.
+    function prepare(u,move,step){
+        u.statuses=(u.statuses || []).filter(s=>s.stat!=='preparing');
+        u.statuses.push({stat:'preparing',rounds:2,source:'prepare',label:`Preparing ${move.name}`,move:structuredClone(move)});
+        push({type:'prepare',actor:u.id,name:move.name,statuses:structuredClone(u.statuses),step});
     }
     function addField(sideName,name,step){
         const def=FIELDS[name],old=state.fields.find(f=>f.side===sideName&&f.name===name);
@@ -341,6 +547,7 @@ function core(round){
             if(attacker.side==='party')stats.dealt[attacker.id]=(stats.dealt[attacker.id] || 0)+amount;
             push({type:'hit',actor:attacker.id,target:target.id,amount,shieldHit:0,shieldAfter:target.shield || 0,element:'Piercing',piercing:true,reaction:'',combo:0,source:ctx.source || '',hpAfter:target.hp,aura:auraList(target.aura),statuses:structuredClone(target.statuses || []),step:ctx.step});
             fallen(target,ctx.step);
+            if(amount>0&&!ctx.noHurt)emit('hurt',{actor:attacker,target,step:ctx.step});
             return amount;
         }
         let mult=1;
@@ -350,7 +557,9 @@ function core(round){
         mult*=Math.max(.25,1+atk/100);
         mult*=Math.max(.25,1+(statusSum(target,'vuln')-statusSum(target,'guard'))/100);
         if(attacker.side==='enemy'&&!attacker.duel)mult*=enemyDamage;
-        const resisted=element!=='Physical'&&element===target.element;if(resisted)mult*=.5;
+        // An enemy takes less from its own element (a Silly Teyvat rule, not the card game's): a quarter less since 1.67, so a lone
+        // character of that element never stalls against it.
+        const resisted=element!=='Physical'&&element===target.element;if(resisted)mult*=.75;
         const weak=Boolean(target.weakTo)&&target.weakTo===element;if(weak)mult*=1.5;
         let armorBroken=false;
         if(target.armor>0){if(target.armorBreak&&target.armorBreak===element){target.armor=0;armorBroken=true;}else mult*=1-target.armor/100;}
@@ -360,12 +569,16 @@ function core(round){
         // Like the game, damage is exact: there is no random spread, and only crit bonuses can raise it.
         const critChance=statusSum(attacker,'crit')+(attacker.side==='party'&&resonant('Cryo')?15:0);
         const crit=!forecast&&!ctx.noCrit&&critChance>0&&rand()*100<critChance;if(crit)mult*=CRIT_MULT;
-        let amount=Math.max(1,Math.round(power*mult+r.flat));
+        const bite=statusOf(target,'bite');let biteBonus=0;
+        if(bite&&(attacker.id===bite.by||ctx.source==='Shark Missile')){biteBonus=bite.amount*REACTION_UNIT*2;target.statuses=target.statuses.filter(s=>s!==bite);}
+        let amount=Math.max(1,Math.round(power*mult+r.flat+biteBonus));
         let shieldHit=0;
         if(target.shield>0){
             const factor=target.side==='enemy'&&target.weakTo===element?2.5:1,absorbed=Math.min(target.shield,amount*factor);
             target.shield=Math.max(0,Math.round(target.shield-absorbed));shieldHit=Math.round(absorbed);amount=Math.max(0,Math.round(amount-absorbed/factor));
         }
+        // Damage reduction statuses: RES stacks, Ushi-like listeners use 'guard' %, flat 'block' points per hit.
+        const block=statusSum(target,'block');if(block>0&&amount>0)amount=Math.max(0,amount-block);
         target.hp=Math.max(0,target.hp-amount);
         const total=amount+shieldHit;
         if(attacker.side==='party')stats.dealt[attacker.id]=(stats.dealt[attacker.id] || 0)+total;
@@ -373,19 +586,81 @@ function core(round){
         push({type:'hit',actor:attacker.id,target:target.id,amount,shieldHit,shieldAfter:target.shield || 0,element,reaction:r.name,combo:r.combo || 0,boost,crit,resisted,weak,armorBroken,source:ctx.source || '',hpAfter:target.hp,aura:auraList(target.aura),statuses:structuredClone(target.statuses || []),step:ctx.step});
         fallen(target,ctx.step);
         for(const after of r.after)after();
+        if(total>0&&!ctx.noHurt)emit('hurt',{actor:attacker,target,step:ctx.step});
         return total;
     }
     function heal(actor,target,amount,ctx={}){
         if(!alive(target))return;
-        const boosted=Math.round(amount*(actor.side==='party'&&resonant('Hydro')?1.25:1)),before=target.hp;
+        let boosted=Math.round(amount*(actor.side==='party'&&resonant('Hydro')?1.25:1));const before=target.hp;
+        // Night Vigil turns healing from anything else into Bond of Life; Arlecchino takes healing from her Burst only.
+        if(!ctx.ownHeal&&statusOf(target,'vigil')){addBond(target,Math.ceil(boosted/REACTION_UNIT),ctx.step);return;}
+        if(!ctx.ownHeal&&target.kit?.noHeal)return;
+        const bond=statusOf(target,'bond');
+        // Each stack (a TCG point) absorbs REACTION_UNIT HP of healing.
+        if(bond&&bond.amount>0&&!ctx.ownHeal){const used=Math.min(bond.amount,Math.ceil(boosted/REACTION_UNIT));bond.amount-=used;boosted=Math.max(0,boosted-used*REACTION_UNIT);if(bond.amount<=0)target.statuses=target.statuses.filter(s=>s!==bond);push({type:'bond',target:target.id,amount:bond.amount,absorbed:used,statuses:structuredClone(target.statuses),step:ctx.step});if(boosted<=0)return;}
         target.hp=Math.min(target.maxHp,target.hp+boosted);
         if(actor.side==='party')stats.healed[actor.id]=(stats.healed[actor.id] || 0)+target.hp-before;
         push({type:'heal',actor:actor.id,target:target.id,amount:target.hp-before,hpAfter:target.hp,source:ctx.source || '',step:ctx.step});
     }
-    function apply(actor,move,effect,chosen,step){
+    function apply(actor,move,effect,chosen,step,extra={}){
         const element=effect.element || moveElement(actor,move);
-        const targets=()=>pickTarget(actor,effect.target,chosen);
+        const targets=()=>effect.target==='standby'?foesOf(state,actor).filter(u=>!isActive(state,u)):effect.target==='subject'?[extra.subject].filter(alive):effect.target==='highest'?[foesOf(state,actor).sort((a,b)=>b.hp-a.hp)[0]].filter(Boolean):effect.target==='activeAlly'?[activeOf(state,actor.side)].filter(Boolean):pickTarget(actor,effect.target,chosen);
+        // Conditions: a Charged or Plunging Normal Attack, a character in Nightsoul's Blessing, a Bond of Life.
+        const flags=round.moveFlags || {};
+        if(effect.when==='charged'&&!flags.charged)return;if(effect.when==='notCharged'&&flags.charged)return;
+        if(effect.when==='plunge'&&!flags.plunge)return;
+        if(effect.when==='nightsoul'&&!nightsoulOf(actor))return;if(effect.when==='noNightsoul'&&nightsoulOf(actor))return;
+        if(effect.when==='cheaperInHand'&&!Object.values(state.team.party.cheaper).some(n=>n>0))return;
+        if(effect.when==='summonPresent'&&!state.summons.some(x=>x.side===actor.side&&x.name===effect.summon))return;
+        if(effect.when==='spentAtLeast'&&(extra.spent || 0)<effect.min)return;if(effect.when==='spentBelow'&&(extra.spent || 0)>=effect.min)return;
+        if(effect.when==='nightsoulFull'&&nightsoulOf(actor)<(statusOf(actor,'nightsoul')?.max || 2))return;
+        if(effect.when==='nightsoulNotFull'&&(!statusOf(actor,'nightsoul')||nightsoulOf(actor)>=(statusOf(actor,'nightsoul')?.max || 2)))return;
+        if(effect.when==='firstUse'&&(actor.usedThisRound?.[move.name] || 0)>1)return;if(effect.when==='repeatUse'&&(actor.usedThisRound?.[move.name] || 0)<=1)return;
+        if(effect.whenReaction&&extra.reaction!==effect.whenReaction)return;
+        if(effect.when==='energyAtLeast'&&(actor.energy || 0)<effect.min)return;
+        if(effect.unless==='summonPresent'&&state.summons.some(x=>x.side===actor.side&&x.name===effect.summon))return;
+        const inHand=id=>(round.hand || []).filter(h=>h===id).length;
+        const scaled=n=>effect.per==='cardsInHand'?n+Math.min(effect.cap || 99,inHand(effect.card))*(effect.each || REACTION_UNIT):effect.per==='spent'?(extra.spent || 0)*(effect.each || REACTION_UNIT):effect.per==='bond'?Math.min(effect.cap || 99,extra.bond || 0)*(effect.each || REACTION_UNIT):n;
         switch(effect.type){
+            case 'nightsoul':for(const t of effect.target?targets():[actor]){if(effect.spend)spendNightsoul(t,effect.spend,step);else gainNightsoul(t,effect.amount || 0,{enter:effect.enter!==false,max:effect.max || 2,rounds:effect.rounds || 99,step});}break;
+            case 'bond':for(const t of targets())addBond(t,effect.amount || 0,step);break;
+            // Remove the actor's Bond of Life: heal for it (Arlecchino's Burst) and/or deal damage for it (Clorinde's Skill).
+            case 'clearBond':{const n=Math.min(effect.cap || 99,bondOf(actor));actor.statuses=(actor.statuses || []).filter(s=>s.stat!=='bond');push({type:'bond',target:actor.id,amount:0,statuses:structuredClone(actor.statuses),step});
+                if(n&&effect.heal)heal(actor,actor,n*(effect.each || REACTION_UNIT),{step,ownHeal:true});
+                if(n&&effect.damage){const t=activeOf(state,other(actor.side));if(t)damage(actor,t,n*(effect.each || REACTION_UNIT),element,{step,kind:move.kind});}
+                break;}
+            case 'resource':gainResource(actor,resourceOf(actor)?.kind,effect.amount || 0,step);break;
+            case 'technique':for(const t of effect.target?targets():[actor]){
+                t.statuses=(t.statuses || []).filter(x=>!(x.stat==='technique'&&x.source===`technique:${effect.name}`));
+                t.statuses.push({stat:'technique',source:`technique:${effect.name}`,label:effect.name,rounds:effect.rounds || 99,uses:effect.uses || 0,tie:effect.tie || '',onEmpty:effect.onEmpty || [],move:{name:effect.name,cost:effect.cost || 0,effects:structuredClone(effect.effects || []),spend:effect.spend || null,fast:Boolean(effect.fast)}});
+                push({type:'buff',actor:actor.id,target:t.id,stat:'technique',statuses:structuredClone(t.statuses),step});}break;
+            case 'status':for(const t of effect.side?[null]:effect.skirk?side(state,'party').filter(u=>alive(u)&&resourceOf(u)?.kind==='serpent'):effect.target?targets():[actor]){
+                const status={...structuredClone(effect.status),n:0,source:effect.status.source || `${actor.id}:${effect.status.label || move.name}:${effect.status.stat}:${effect.status.on || ''}`};
+                if(effect.side){const team=state.team[effect.side==='foe'?other(actor.side):actor.side];team.listen=team.listen.filter(x=>x.source!==status.source);team.listen.push({...status,owner:actor.id,stat:'listen'});push({type:'team',side:effect.side==='foe'?other(actor.side):actor.side,label:status.label || '',step});continue;}
+                t.statuses=(t.statuses || []).filter(x=>x.source!==status.source);t.statuses.push({rounds:99,...status});
+                push({type:'buff',actor:actor.id,target:t.id,stat:status.stat,statuses:structuredClone(t.statuses),step});}break;
+            case 'agileSwitch':state.team[actor.side].agile+=effect.amount || 1;push({type:'team',side:actor.side,label:'Agile Switch',agile:state.team[actor.side].agile,step});break;
+            case 'efficientSwitch':state.team[actor.side].efficient+=effect.amount || 1;push({type:'team',side:actor.side,label:'Efficient Switch',efficient:state.team[actor.side].efficient,step});break;
+            case 'plan':for(const t of targets()){addStatus(t,{stat:'plan',amount:effect.amount || 1,rounds:99,source:'plan',label:'Battle Plan'});push({type:'buff',actor:actor.id,target:t.id,stat:'plan',statuses:structuredClone(t.statuses),step});}break;
+            case 'cheaper':cheapen(effect.amount || 1,step,{pick:effect.pick || 'random'});break;
+            case 'addCard':{if(effect.maxInHand&&(effect.cards || []).every(id=>round.hand.filter(h=>h===id).length>=effect.maxInHand))break;addCards(effect.cards || [],{to:effect.to || 'hand',choose:Boolean(effect.choose),at:effect.at ?? null,step});break;}
+            case 'discard':discard(effect.amount || 1,{pick:effect.pick || 'highest',cost:effect.cost ?? null,step});break;
+            case 'draw':draw(effect.amount || 1,move.name);break;
+            case 'dice':addDice(effect.faces || Array(Math.max(1,effect.amount || 1)).fill(effect.face || 'Omni'),actor,move.name);break;
+            case 'convertDice':if(round.dice){let n=effect.amount || 2;round.dice=round.dice.map(d=>{if(n>0&&d.face!=='Omni'&&d.face!==(effect.face==='self'?actor.element:effect.face || 'Omni')){n--;return {face:effect.face==='self'?actor.element:effect.face || 'Omni'};}return d;});push({type:'dice',dice:[],source:move.name,converted:true,step});}break;
+            case 'prepare':prepare(actor,{name:effect.name,kind:move.kind,effects:effect.effects || [],element:effect.element || move.element},step);break;
+            case 'switchNext':{if(actor.side!=='party'||!isActive(state,actor))break;const list=side(state,'party'),i=list.indexOf(actor),next=[...list.slice(i+1),...list.slice(0,i)].find(alive);if(next&&next!==actor){state.active.party=next.id;next.plungeRound=state.round;push({type:'switch',side:'party',from:actor.id,to:next.id,free:true,step});}break;}
+            case 'shock':shock(effect.amount || 1,step);break;
+            // Discard one named card from hand (Mutual Weapons Mentorship at the start of a round).
+            case 'discardCard':{const i=round.hand.indexOf(effect.card);if(i<0)break;round.hand.splice(i,1);push({type:'discard',cards:[effect.card],step});for(const e of round.items?.[effect.card]?.onDiscard || [])perk(front(),e,round.items[effect.card].name,{step});break;}
+            // Discard cards and gain a resource for each (Havoc: Extinction).
+            case 'discardFor':{const n=discard(effect.amount || 1,{pick:effect.pick || 'highest',cost:effect.cost ?? null,step});if(n&&effect.resource)gainResource(actor,resourceOf(actor)?.kind,n*effect.resource,step);break;}
+            case 'cheaperCard':{const team=state.team.party;let n=effect.amount || 1;for(const id of round.hand)if(id===effect.card&&n>0&&(team.cheaper[id] || 0)<(round.items[id]?.cost || 0)){team.cheaper[id]=(team.cheaper[id] || 0)+1;n--;}push({type:'cheaper',cheaper:{...team.cheaper},step});break;}
+            case 'uncheapen':{const team=state.team.party,ids=Object.keys(team.cheaper).filter(k=>team.cheaper[k]>0);const id=ids[Math.floor(rand()*ids.length)];if(id){team.cheaper[id]--;if(!team.cheaper[id])delete team.cheaper[id];push({type:'cheaper',cheaper:{...team.cheaper},step});}break;}
+            case 'switchPrev':{if(actor.side!=='party'||!isActive(state,actor))break;const list=side(state,'party'),i=list.indexOf(actor),prev=[...list.slice(0,i).reverse(),...list.slice(i+1).reverse()].find(alive);if(prev&&prev!==actor){state.active.party=prev.id;prev.plungeRound=state.round;push({type:'switch',side:'party',from:actor.id,to:prev.id,free:true,step});}break;}
+            // Mualani's Bite Target: stacks on a foe, spent by her next hit (or Shark Missile's) for +2 each.
+            case 'bite':for(const t of targets()){const b=statusOf(t,'bite');if(b)b.amount+=effect.amount || 1;else t.statuses.push({stat:'bite',amount:effect.amount || 1,rounds:99,source:'bite',label:'Bite Target',by:actor.id});push({type:'debuff',actor:actor.id,target:t.id,stat:'bite',amount:effect.amount || 1,statuses:structuredClone(t.statuses),step});}break;
+            case 'summonFire':{const mine=state.summons.filter(x=>x.side===actor.side&&x.power>0);const pick=mine[Math.floor(rand()*mine.length)];if(pick){const t=activeOf(state,other(actor.side));if(t){push({type:'summon-act',summon:pick.id,name:pick.name,side:pick.side,element:pick.element});damage(unitById(state,pick.owner) || actor,t,pick.power,pick.element,{source:pick.name,noCrit:true,step});}}break;}
             case 'damage':{
                 const hits=Math.max(1,Math.min(8,Math.round(Number(effect.hits)||1)));
                 for(let i=0;i<hits;i++){
@@ -393,12 +668,16 @@ function core(round){
                         const decoy=state.summons.find(s=>s.side==='party'&&s.decoy&&s.rounds>0&&s.drew!==state.round);
                         if(decoy){decoy.drew=state.round;push({type:'decoy',actor:actor.id,summon:decoy.id,name:decoy.name,step});continue;}
                     }
-                    for(const t of targets())damage(actor,t,effect.power,element,{step,kind:move.kind});
+                    // Piercing (to characters on standby, or marked piercing) ignores shields and bonuses; it has no element.
+                    const power=scaled(effect.power)+(effect.plus?.charged&&flags.charged?effect.plus.charged:0)+(effect.plus?.plunge&&flags.plunge?effect.plus.plunge:0);
+                    // Arlecchino: consume up to N stacks of the target's Bond of Life for +1 each.
+                    let bonus=0;if(effect.consumeBond){const t=targets()[0],b=statusOf(t,'bond');if(b){const n=Math.min(effect.consumeBond,b.amount);b.amount-=n;bonus=n*REACTION_UNIT;if(b.amount<=0)t.statuses=t.statuses.filter(s=>s!==b);}}
+                    for(const t of targets())damage(actor,t,power+bonus+(actor.side==='party'?listenBonus('dealt',move.kind):0),effect.piercing||effect.target==='standby'?'Piercing':element,{step,kind:move.kind,piercing:effect.piercing||effect.target==='standby'});
                     if(!foesOf(state,actor).length)break;
                 }
                 break;
             }
-            case 'heal':for(const t of targets())heal(actor,t,effect.amount,{step});break;
+            case 'heal':for(const t of targets())heal(actor,t,scaled(effect.amount),{step,ownHeal:Boolean(effect.ownHeal)});break;
             case 'shield':for(const t of targets()){const amount=Math.round(effect.amount*(actor.side==='party'&&resonant('Geo')?1.5:1));t.shield=Math.min(SHIELD_CAP,(t.shield || 0)+amount);push({type:'shield',actor:actor.id,target:t.id,amount,shieldAfter:t.shield,step});}break;
             case 'buff':for(const t of targets()){addStatus(t,{stat:effect.stat,amount:effect.amount,rounds:effect.rounds || 1,source:`${actor.id}:${move.name}`,label:move.name,element:effect.stat==='infuse'?(actor.element==='None'?'Physical':actor.element):undefined});push({type:'buff',actor:actor.id,target:t.id,stat:effect.stat,amount:effect.amount,rounds:effect.rounds,statuses:structuredClone(t.statuses),step});}break;
             case 'debuff':for(const t of targets()){
@@ -414,21 +693,32 @@ function core(round){
                 const summon={id:`${actor.id}:${effect.name}`,owner:actor.id,side:actor.side,name:effect.name || move.name,element,power:effect.power || 0,heal:effect.heal || 0,rounds:effect.rounds || 1,target:effect.target,targetId:first?.id || null,decoy:Boolean(effect.decoy),move:move.name};
                 state.summons.push(summon);push({type:'summon',actor:actor.id,summon:structuredClone(summon),step});break;
             }
-            case 'energy':for(const t of targets()){t.energy=Math.min(t.maxEnergy || 2,(t.energy || 0)+effect.amount);push({type:'energy',actor:actor.id,target:t.id,energy:t.energy,step});}break;
+            case 'energy':for(const t of targets()){t.energy=Math.max(0,Math.min(t.maxEnergy || 2,(t.energy || 0)+effect.amount));push({type:'energy',actor:actor.id,target:t.id,energy:t.energy,step});}break;
             case 'cleanse':for(const t of targets()){t.statuses=(t.statuses || []).filter(s=>!['vuln','weaken','stun','frozen','burning','charged'].includes(s.stat));setAura(t,innateAura(t)?[innateAura(t)]:[]);push({type:'cleanse',actor:actor.id,target:t.id,statuses:structuredClone(t.statuses),step});}break;
             case 'hpcost':for(const t of targets()){const cost=Math.min(t.hp-1,Math.ceil(t.hp*(effect.amount || 0)/100));if(cost>0){t.hp-=cost;push({type:'hpcost',actor:actor.id,target:t.id,amount:cost,hpAfter:t.hp,step});}}break;
         }
     }
-    function act(actor,moveIndex,chosen,step){
-        const move=actor.kit.moves[moveIndex];if(!move)return;
+    function act(actor,moveIndex,chosen,step,given=null){
+        const move=given || (actor.side==='party'?movesOf(actor):actor.kit.moves)[moveIndex];if(!move)return;
         const element=moveElement(actor,move);
-        push({type:'act',actor:actor.id,side:actor.side,kind:move.kind,name:move.name,element,target:pickTarget(actor,'one')[0]?.id || null,step});
-        if(move.kind==='burst')actor.energy=0;
-        if(move.kind==='normal'||move.kind==='skill')actor.energy=Math.min(actor.maxEnergy || 2,(actor.energy || 0)+1);
-        for(const effect of move.effects || [])apply(actor,move,effect,chosen,step);
+        push({type:'act',actor:actor.id,side:actor.side,kind:move.kind==='technique'?'technique':move.kind,name:move.name,element,target:pickTarget(actor,'one')[0]?.id || null,prepared:Boolean(given),step});
+        const res=resourceOf(actor),extra={};
+        // A Burst spends all Energy, or all of its own resource (Fighting Spirit, Serpent's Subtlety): damage can scale with what it spent.
+        if(move.kind==='burst'&&!move.swapped&&!given){extra.spent=actor.energy || 0;actor.energy=0;}
+        if((move.kind==='normal'||move.kind==='skill')&&!res&&!move.noEnergy&&!given)actor.energy=Math.min(actor.maxEnergy || 2,(actor.energy || 0)+1);
+        if(move.kind==='normal'&&actor.side==='party'){const less=(actor.statuses || []).find(s=>s.normalLess&&s.spend);if(less&&res&&actor.energy>0){const n=Math.min(less.normalLess,actor.energy);actor.energy-=n;push({type:'energy',actor:actor.id,target:actor.id,energy:actor.energy,resource:res.kind,step,quiet:true});}}
+        extra.bond=bondOf(actor);
+        // Crucible of Death and Life: your characters' Skills and Techniques spend no Nightsoul points.
+        const crucible=side(state,actor.side).some(u=>alive(u)&&statusOf(u,'crucible'));
+        if((move.kind==='technique'||move.kind==='skill')&&move.spend?.nightsoul&&!crucible)spendNightsoul(actor,move.spend.nightsoul,step);
+        if(move.kind==='skill'){const plan=statusOf(actor,'plan');if(plan&&!given){actor.statuses=actor.statuses.filter(s=>s!==plan);}}
+        for(const effect of move.effects || [])apply(actor,move,effect,chosen,step,extra);
+        if(actor.side==='party'){actor.plungeRound=null;}
+        if(move.kind==='technique'){const t=(actor.statuses || []).find(s=>s.source===move.technique);if(t&&t.uses){t.uses--;if(t.uses<=0){actor.statuses=actor.statuses.filter(s=>s!==t);for(const e of t.onEmpty || [])apply(actor,move,e,chosen,step);}}}
+        if(actor.side==='party'&&['normal','skill','burst','technique'].includes(move.kind)&&!given)emit(move.kind,{actor,step});
         // Carmine Chrysalis, her Burst, breaks the seal.
         if(move.kind==='special'&&alive(actor)&&canTransform(actor))transform(actor,step,'burst');
-        if(actor.side==='party'&&['normal','skill','burst'].includes(move.kind))triggers(actor,move.kind,step);
+        if(actor.side==='party'&&['normal','skill','burst'].includes(move.kind)&&!given)triggers(actor,move.kind,step);
         push({type:'energy',actor:actor.id,target:actor.id,energy:actor.energy || 0,step,quiet:true});
     }
     // ---- Cards, equipment and supports -------------------------------------------------
@@ -467,10 +757,26 @@ function core(round){
         const {drawn,deck}=drawCards(round.deck,n,forecast?()=>.5:rngOf(round));
         const kept=drawn.slice(0,Math.max(0,HAND_MAX-round.hand.length));round.hand.push(...kept);round.deck=[...deck,...drawn.slice(kept.length)];
         if(drawn.length)push({type:'draw',cards:kept,burned:drawn.slice(kept.length),source:source || ''});
+        noteDrawn(drawn,round);drawnTriggers(kept);
+    }
+    // Cards that act the moment they are drawn (Sigewinne's Bolstering Bubblebalms), then leave the hand.
+    function drawnTriggers(cards){
+        for(const id of cards){
+            const item=round.items?.[id];if(!item?.onDraw)continue;
+            const i=round.hand.indexOf(id);if(i>=0)round.hand.splice(i,1);
+            push({type:'item',item:id,name:item.name,target:null,drawn:true});
+            for(const effect of item.onDraw)perk(front(),effect,item.name,{});
+        }
     }
     // A summon of the party's: Silly Teyvat's summons last one End Phase per Usage. People of the Springs adds one.
-    function summonParty(owner,{name,element='Physical',power=0,heal:mend=0,rounds=1,target='one',decoy=false,move=''},step){
+    function summonParty(owner,{name,element='Physical',power=0,heal:mend=0,rounds=1,target='one',decoy=false,move='',grow=0},step){
         const id=`${owner}:${name}`,old=state.summons.find(x=>x.id===id),bonus=supportFire('summon',null,step)?1:0;
+        // Moondrift: another Harmony makes it hit harder; at 3 (6 here) it fires at once for that much and drops back to 1.
+        if(old&&grow){
+            old.power+=grow;push({type:'summon',actor:owner,summon:structuredClone(old),step});
+            if(old.power>=3*REACTION_UNIT){const t=activeOf(state,'enemy');if(t){push({type:'summon-act',summon:old.id,name:old.name,side:'party',element:old.element});damage(cards,t,old.power,old.element,{source:old.name,noCrit:true,step});}old.power=REACTION_UNIT;push({type:'summon',actor:owner,summon:structuredClone(old),step});}
+            return old;
+        }
         const summon={id,owner,side:'party',name,element,power,heal:mend,rounds:Math.max(old?.rounds || 0,rounds)+bonus,target,targetId:activeOf(state,'enemy')?.id || null,decoy:Boolean(decoy),...(move?{move}:{})};
         state.summons=state.summons.filter(x=>x.id!==id);state.summons.push(summon);
         push({type:'summon',actor:owner,summon:structuredClone(summon),step});
@@ -501,6 +807,13 @@ function core(round){
                 break;
             }
             case 'freeSwitch':round.freeSwitch=true;break;
+            case 'addCard':addCards(effect.cards || [],{to:effect.to || 'hand',choose:Boolean(effect.choose),at:effect.at ?? null,step});break;
+            case 'cheaper':cheapen(Math.max(1,amount),step);break;
+            case 'nightsoul':for(const t of list())gainNightsoul(t,amount,{enter:effect.enter!==false,max:effect.max || 2,step});break;
+            case 'resource':for(const t of list())gainResource(t,t.kit?.resource?.kind,amount,step);break;
+            case 'skill':{const lead=front();if(lead){const move={name:source,kind:'technique'};for(const e of effect.effects || [])apply(lead,move,e,null,step);}break;}
+            case 'enemyDamage':{const t=activeOf(state,'enemy');if(t)damage(cards,t,amount,effect.element || 'Physical',{source,noCrit:true,step});break;}
+            case 'technique':case 'status':{const t=effect.skirk?side(state,'party').find(u=>alive(u)&&resourceOf(u)?.kind==='serpent'):list()[0] || front();if(t)apply(t,{name:source,kind:'status'},effect,null,step);break;}
             case 'fastSwitch':round.fastSwitch=true;round.freeSwitch=round.freeSwitch||Boolean(effect.free);break;
         }
     }
@@ -568,7 +881,7 @@ function core(round){
         }
         if(item.kind==='food')supportFire('food',targets[0] || null);
     }
-    return {push,act,damage,heal,applyItem,pickTarget,rand,supportFire,supportReady,spendSupport,draw,addDice,perk,transform};
+    return {push,act,damage,heal,applyItem,pickTarget,rand,supportFire,supportReady,spendSupport,draw,addDice,perk,transform,emit,addCards,cheapen,discard,spendNightsoul,gainNightsoul,addBond,prepare,drawnTriggers};
 }
 // After anything that can defeat a character: decide the battle, and bring a new active character forward.
 function settle(round){
@@ -595,10 +908,17 @@ const fail=reason=>({ok:false,reason,events:[]});
 const ready=(round,sideName)=>!round.over&&round.phase==='action'&&round.turn===sideName&&!round.needsActive;
 // What the party's active character would pay for a move now, or why it cannot use it.
 export function moveCheck(round,moveIndex,picked){
-    const state=round.state,u=activeOf(state,'party'),move=u?.kit?.moves?.[moveIndex];
+    const state=round.state,u=activeOf(state,'party'),move=movesOf(u)[moveIndex];
     if(!u||!move)return {ok:false,reason:'No such move.'};
     if(isStunned(u))return {ok:false,reason:`${u.name} is ${hasStatus(u,'frozen')?'Frozen':'Petrified'} and cannot use skills this round.`};
-    if(move.kind==='burst'&&!burstReady(u))return {ok:false,reason:`${u.name} needs ${u.maxEnergy || 2} Energy for this Burst.`};
+    if(statusOf(u,'preparing'))return {ok:false,reason:`${u.name} is preparing ${statusOf(u,'preparing').move.name}.`};
+    const res=resourceOf(u);
+    if(move.kind==='burst'&&!move.swapped&&!burstReady(u))return {ok:false,reason:res?`${u.name} needs ${res.min} ${res.label} for this Burst.`:`${u.name} needs ${u.maxEnergy || 2} Energy for this Burst.`};
+    // "This skill cannot be used after the character enters Nightsoul's Blessing."
+    if(move.notInBlessing&&statusOf(u,'nightsoul'))return {ok:false,reason:`${u.name} is already in Nightsoul's Blessing.`};
+    if(move.perRound&&(u.usedThisRound?.[move.name] || 0)>=move.perRound)return {ok:false,reason:`${move.name} can be used once a round.`};
+    const crucible=side(state,'party').some(x=>alive(x)&&statusOf(x,'crucible'));
+    if(move.spend?.nightsoul&&!crucible&&nightsoulOf(u)<move.spend.nightsoul)return {ok:false,reason:`${u.name} needs ${move.spend.nightsoul} Nightsoul point${move.spend.nightsoul>1?'s':''}.`};
     if(!round.dice)return {ok:true,dice:[],cost:costOf(u,move)};
     const cost=costOf(u,move),dice=picked?diceFit(round.dice,picked,cost)?picked:null:chooseDice(round.dice,cost,partyElements(state));
     return dice?{ok:true,dice,cost}:{ok:false,reason:'Not enough dice.',cost};
@@ -608,14 +928,39 @@ const spend=(round,indices)=>{if(!round.dice)return;const gone=new Set(indices);
 export function useSkill(round,moveIndex,{target=null,dice}={}){
     if(!ready(round,'party'))return fail('It is not your turn.');
     const check=moveCheck(round,moveIndex,dice);if(!check.ok)return fail(check.reason);
-    const start=round.timeline.length,u=activeOf(round.state,'party'),thrift=thriftOf(u,u.kit.moves[moveIndex]);
+    const start=round.timeline.length,u=activeOf(round.state,'party'),move=movesOf(u)[moveIndex],thrift=thriftOf(u,move);
+    // Charged Attack: a Normal Attack made with an even number of dice. Plunging Attack: the first Combat
+    // Action of a character switched in this round, when it is a Normal Attack.
+    round.moveFlags={charged:move.kind==='normal'&&(round.dice?.length || 0)%2===0,plunge:move.kind==='normal'&&u.plungeRound===round.state.round};
     spend(round,check.dice);if(thrift)thrift.used=true;
+    u.usedThisRound ??= {};u.usedThisRound[move.name]=(u.usedThisRound[move.name] || 0)+1;
     core(round).act(u,moveIndex,target,round.step++);
+    round.moveFlags=null;
+    settle(round);
+    // A fast Technique (Blazing Trail) keeps the turn.
+    if(!(move.kind==='technique'&&move.fast)||round.over)passTurn(round,'party');
+    return {ok:true,events:slice(round,start)};
+}
+// A prepared skill is the character's next action. It is taken on its own when the party's turn comes.
+export const preparedDue=round=>ready(round,'party')&&Boolean(statusOf(activeOf(round.state,'party'),'preparing'));
+export function usePrepared(round){
+    if(!preparedDue(round))return fail('Nothing is being prepared.');
+    const start=round.timeline.length,u=activeOf(round.state,'party'),p=statusOf(u,'preparing');
+    u.statuses=u.statuses.filter(s=>s!==p);
+    core(round).act(u,-1,null,round.step++,p.move);
     settle(round);passTurn(round,'party');
     return {ok:true,events:slice(round,start)};
 }
+// The player picks one of the cards a skill offered (Mavuika's Flamestrider cards).
+export function chooseCard(round,id){
+    const offer=round.pendingChoice;if(!offer)return fail('No card to choose.');
+    round.pendingChoice=null;const pick=offer.cards.includes(id)?id:offer.cards[0];
+    const start=round.timeline.length,keep=round.chooser;round.chooser=false;core(round).addCards([pick],{step:offer.step});round.chooser=keep;
+    return {ok:true,events:slice(round,start)};
+}
 const switchSupport=round=>core(round).supportReady(def=>def.switchDiscount);
-export function switchCost(round){return round.freeSwitch||switchSupport(round)?anyCost(0):anyCost(SWITCH_COST);}
+// Efficient Switch takes a die off the next switch; Agile Switch makes it a Fast Action.
+export function switchCost(round){return round.freeSwitch||switchSupport(round)||(round.state.team?.party?.efficient || 0)>0?anyCost(0):anyCost(SWITCH_COST);}
 // Combat Action (or free, when your active character has just fallen): bring another character forward.
 export function switchTo(round,id,{dice}={}){
     const state=round.state,u=unitById(state,id),forced=round.needsActive==='party';
@@ -626,23 +971,31 @@ export function switchTo(round,id,{dice}={}){
     let paid=[];
     if(round.dice&&cost.total){paid=dice?diceFit(round.dice,dice,cost)?dice:null:chooseDice(round.dice,cost,partyElements(state));if(!paid)return fail('Switching costs 1 die.');}
     const start=round.timeline.length,from=state.active.party,c=core(round);
-    spend(round,paid);state.active.party=id;
-    if(!forced&&cost.total===0&&!round.freeSwitch){const entry=switchSupport(round);if(entry){entry.n=(entry.n || 0)+1;c.spendSupport(entry);}}
+    spend(round,paid);state.active.party=id;u.plungeRound=state.round;
+    const team=state.team?.party || {};
+    // A switched-out character stops preparing.
+    const out=unitById(state,from);if(out)out.statuses=(out.statuses || []).filter(s=>s.stat!=='preparing');
+    if(out&&out!==u)c.emit('switchOut',{actor:out,step:round.step});
+    if(!forced&&cost.total===0&&!round.freeSwitch){if((team.efficient || 0)>0&&!switchSupport(round))team.efficient--;else{const entry=switchSupport(round);if(entry){entry.n=(entry.n || 0)+1;c.spendSupport(entry);}}}
     if(!forced&&round.freeSwitch)round.freeSwitch=false;
-    // A fast switch (Leave It to Me!, Katheryne) does not end your turn.
-    const fastSupport=!forced&&!round.fastSwitch?c.supportReady(def=>def.fastSwitch):null,fast=!forced&&(round.fastSwitch||Boolean(fastSupport));
+    // A fast switch (Leave It to Me!, Katheryne, Agile Switch) does not end your turn.
+    const agile=!forced&&!round.fastSwitch&&(team.agile || 0)>0;
+    const fastSupport=!forced&&!round.fastSwitch&&!agile?c.supportReady(def=>def.fastSwitch):null,fast=!forced&&(round.fastSwitch||agile||Boolean(fastSupport));
     round.timeline.push({type:'switch',side:'party',from,to:id,free:forced||!cost.total,fast});
     c.supportFire('switch',u,round.step);
+    c.emit('switchIn',{actor:u,step:round.step});
     if(forced){round.needsActive=null;return {ok:true,events:slice(round,start)};}
-    if(fast){if(round.fastSwitch)round.fastSwitch=false;else{fastSupport.n=(fastSupport.n || 0)+1;c.spendSupport(fastSupport);}settle(round);return {ok:true,events:slice(round,start)};}
+    if(fast){if(round.fastSwitch)round.fastSwitch=false;else if(agile)team.agile--;else{fastSupport.n=(fastSupport.n || 0)+1;c.spendSupport(fastSupport);}settle(round);return {ok:true,events:slice(round,start)};}
     passTurn(round,'party');
     return {ok:true,events:slice(round,start)};
 }
 // What a card costs now: a support such as Xudong (Food) or Master Zhang (Weapons) may take dice off.
 const cardSupport=(round,item)=>core(round).supportReady(def=>def.cardDiscount&&(def.cardDiscount.kinds.includes(item.kind)||def.cardDiscount.kinds.includes(item.group))&&item.cost>=(def.cardDiscount.min || 1));
-export function cardCost(round,item){
+export function cardCost(round,item,id=Object.keys(round.items || {}).find(k=>round.items[k]===item)){
     const entry=item.cost?cardSupport(round,item):null;
-    return {cost:Math.max(0,item.cost-(entry?round.items[entry.item].support.cardDiscount.amount:0)),support:entry};
+    // Cost Reduction on this card (Lunar-Bloom, Lauma, Nefer): one die less per stack.
+    const cheaper=Math.min(item.cost || 0,round.state.team?.party?.cheaper?.[id] || 0);
+    return {cost:Math.max(0,item.cost-cheaper-(entry?round.items[entry.item].support.cardDiscount.amount:0)),support:entry,cheaper};
 }
 // The most summons and support cards a side can have in play, as in Genius Invokation.
 export const SUMMON_MAX=4,SUPPORT_MAX=4;
@@ -663,7 +1016,10 @@ export function cardCheck(round,handIndex,target,picked){
     if(item.needs==='noDice'&&round.dice?.length)return {ok:false,reason:'Only when you have no dice left.'};
     if(item.dice==='omni'&&!round.dice?.some(d=>d.face!=='Omni'))return {ok:false,reason:'Every die is already Omni.'};
     if(item.combat&&!activeOf(state,'enemy'))return {ok:false,reason:'There is no one to hit.'};
-    const cost=anyCost(cardCost(round,item).cost);
+    // A Technique card is played on the one character who can use it.
+    if(item.only&&!side(state,'party').some(u=>alive(u)&&u.card===item.only&&isActive(state,u)))return {ok:false,reason:`Only ${item.only}, as your active character, can use this card.`};
+    if(item.needs==='cost3'&&!round.hand.some((h,i)=>i!==handIndex&&Math.max(0,(round.items[h]?.cost || 0)-(state.team?.party?.cheaper?.[h] || 0))===3))return {ok:false,reason:'You need a card that costs 3 in your hand.'};
+    const cost=anyCost(cardCost(round,item,id).cost);
     if(!round.dice||!cost.total)return {ok:true,dice:[],cost,item,id};
     const dice=picked?diceFit(round.dice,picked,cost)?picked:null:chooseDice(round.dice,cost,partyElements(state));
     return dice?{ok:true,dice,cost,item,id}:{ok:false,reason:'Not enough dice.',cost,item,id};
@@ -672,8 +1028,9 @@ export function cardCheck(round,handIndex,target,picked){
 export function playCard(round,handIndex,{target=null,dice}={}){
     if(!ready(round,'party'))return fail('It is not your turn.');
     const check=cardCheck(round,handIndex,target,dice);if(!check.ok)return fail(check.reason);
-    const start=round.timeline.length,{item,id}=check,discount=check.cost.total<item.cost?cardCost(round,item).support:null;
+    const start=round.timeline.length,{item,id}=check,priced=cardCost(round,item,id),discount=check.cost.total<item.cost?priced.support:null;
     spend(round,check.dice);round.hand.splice(handIndex,1);round.played.push({id,target});
+    if(priced.cheaper){const team=round.state.team.party;team.cheaper[id]-=priced.cheaper;if(team.cheaper[id]<=0)delete team.cheaper[id];}
     if(discount){discount.n=(discount.n || 0)+1;core(round).spendSupport(discount);}
     if(item.kind==='food'&&target)round.fed.push(target);
     if(item.kind==='dice'){
@@ -782,6 +1139,13 @@ export function endPhase(round){
         summon.rounds--;
     }
     state.summons=state.summons.filter(s=>s.rounds>0&&(s.side==='party'||alive(unitById(state,s.owner))));
+    // Electric Shock (Lunar-Charged): the enemy with the most HP takes Piercing damage for each stack, then it fades.
+    const shocked=state.fields.find(f=>f.side==='enemy'&&f.name==='Electric Shock');
+    if(shocked){
+        const t=side(state,'enemy').filter(alive).sort((a,b)=>b.hp-a.hp)[0],lead=activeOf(state,'party') || {id:'items',side:'party',statuses:[],kit:null};
+        if(t)damage(lead,t,shocked.usage*REACTION_UNIT,'Piercing',{piercing:true,source:'Electric Shock'});
+        state.fields=state.fields.filter(f=>f!==shocked);push({type:'field',side:'enemy',fields:structuredClone(state.fields)});
+    }
     for(const u of state.units.filter(alive)){const regen=statusSum(u,'regen');if(regen>0)heal(u,u,regen,{source:'Regeneration'});}
     // Equipment that renews each round: shields (ward) and Energy (charge).
     for(const u of side(state,'party').filter(alive)){
@@ -794,8 +1158,11 @@ export function endPhase(round){
     for(const entry of state.supports || [])entry.n=0;
     settle(round);
     if(round.over){round.phase='over';return {ok:true,events:slice(round,start)};}
+    for(const name of ['party','enemy'])if(state.team?.[name])state.team[name].listen=state.team[name].listen.map(s=>s.rounds?{...s,rounds:s.rounds-1}:s).filter(s=>s.rounds===undefined||s.rounds>0);
     for(const u of state.units){
         u.statuses=(u.statuses || []).map(s=>({...s,rounds:s.rounds-1,...(s.slot?{n:0,used:false}:{})})).filter(s=>s.rounds>0);
+        // Gear that needs Nightsoul's Blessing goes when the Blessing does.
+        if(!statusOf(u,'nightsoul'))u.statuses=u.statuses.filter(s=>s.tie!=='nightsoul');
         // Frozen thaws now; an elemental enemy takes its own element back.
         if(alive(u)&&innateAura(u)&&!auraList(u.aura).length)setAura(u,[innateAura(u)]);
         if(u.cooldowns)for(const k of Object.keys(u.cooldowns))u.cooldowns[k]=Math.max(0,u.cooldowns[k]-1);
@@ -809,6 +1176,7 @@ export function endPhase(round){
     const {drawn,deck}=drawCards(round.deck,HAND_DRAW,rngOf(round));
     const kept=drawn.slice(0,Math.max(0,HAND_MAX-round.hand.length));round.hand.push(...kept);round.deck=[...deck,...drawn.slice(kept.length)];
     if(drawn.length)push({type:'draw',cards:kept,burned:drawn.slice(kept.length)});
+    noteDrawn(drawn,round);c.drawnTriggers(kept);
     push({type:'statuses',fields:structuredClone(state.fields),supports:structuredClone(state.supports || []),units:state.units.map(u=>({id:u.id,aura:auraList(u.aura),statuses:structuredClone(u.statuses || []),shield:u.shield || 0,energy:u.energy || 0,hp:u.hp,intent:u.intent || null}))});
     state.round++;round.phase='over';
     return {ok:true,events:slice(round,start)};
@@ -878,6 +1246,7 @@ export function autoAction(round){
     const state=round.state,u=activeOf(state,'party');
     if(round.needsActive)return {type:'switch',id:side(state,'party').filter(alive).sort((a,b)=>b.hp-a.hp)[0]?.id};
     if(!u)return {type:'end'};
+    if(preparedDue(round))return {type:'prepared'};
     if(isStunned(u)){
         const next=side(state,'party').find(x=>alive(x)&&x!==u&&!isStunned(x));
         return next&&(!round.dice||chooseDice(round.dice,switchCost(round),partyElements(state)))?{type:'switch',id:next.id}:{type:'end'};
@@ -919,7 +1288,7 @@ function bestCombat(round){
     const state=round.state,u=activeOf(state,'party'),base=boardValue(round);let best={value:0,action:{type:'end'}};
     if(!u)return best;
     const target=side(state,'party').filter(alive).sort((a,b)=>a.hp/a.maxHp-b.hp/b.maxHp)[0]?.id || null;
-    for(const move of [0,1,2]){
+    for(const move of movesOf(u).keys()){
         if(!moveCheck(round,move).ok)continue;
         const copy=cloneRound(round,{forecast:true}),r=useSkill(copy,move,{target});if(!r.ok)continue;
         const value=boardValue(copy)-base+(copy.over==='victory'?50:0);
@@ -952,6 +1321,7 @@ function cardTarget(round,item){
 // worth doing (or nothing can be paid for).
 export function bestAction(round){
     const state=round.state;
+    if(preparedDue(round))return {type:'prepared'};
     if(round.needsActive)return {type:'switch',id:side(state,'party').filter(alive).sort((a,b)=>(burstReady(b)?8:0)+b.hp-(burstReady(a)?8:0)-a.hp)[0]?.id};
     if(!activeOf(state,'party'))return {type:'end'};
     const now=bestCombat(round),base=boardValue(round);let card=null;
@@ -965,6 +1335,17 @@ export function bestAction(round){
         if(value>now.value+.25&&(!card||value>card.value))card={value,action:{type:'card',index,target}};
     }
     if(card)return card.action;
+    // Elemental Tuning: turn a die that pays for nothing into the active character's element with the card
+    // that is worth least, when that opens a better move than what the dice allow now.
+    const lead=activeOf(state,'party');
+    if(round.dice&&round.hand?.length&&lead&&ELEMENTS.includes(lead.element)){
+        const cheapest=round.hand.map((id,index)=>{const copy=cloneRound(round,{forecast:true}),item=round.items[id],target=item?cardTarget(round,item):null;const r=item&&cardCheck(round,index,target).ok?playCard(copy,index,{target}):null;return {index,value:r?.ok?boardValue(copy)-base:-1};}).sort((a,b)=>a.value-b.value)[0];
+        const useless=round.dice.map((d,i)=>({d,i})).filter(({d})=>d.face!=='Omni'&&d.face!==lead.element).sort((a,b)=>Number(partyElements(state).has(a.d.face))-Number(partyElements(state).has(b.d.face)))[0];
+        if(cheapest&&useless){
+            const copy=cloneRound(round,{forecast:true}),t=tuneDie(copy,useless.i,cheapest.index);
+            if(t.ok){const after=bestCombat(copy);if(after.value>now.value+Math.max(.5,cheapest.value))return {type:'tune',die:useless.i,index:cheapest.index};}
+        }
+    }
     return now.value>.25?now.action:{type:'end'};
 }
 export function takeAction(round,action){
@@ -974,6 +1355,7 @@ export function takeAction(round,action){
         case 'card':return playCard(round,action.index,{target:action.target,dice:action.dice});
         case 'tune':return tuneDie(round,action.die,action.index);
         case 'flee':return flee(round);
+        case 'prepared':return usePrepared(round);
         default:return declareEnd(round,'party');
     }
 }
@@ -981,8 +1363,9 @@ export function takeAction(round,action){
 export function autoRound(round,{choose=autoAction}={}){
     let guard=200;
     while(!round.over&&round.phase==='action'&&guard-->0){
+        if(round.pendingChoice){chooseCard(round,round.pendingChoice.cards[0]);continue;}
         if(round.needsActive){switchTo(round,autoAction(round).id);continue;}
-        if(round.turn==='enemy')enemyTurn(round);else takeAction(round,choose(round));
+        if(round.turn==='enemy')enemyTurn(round);else if(preparedDue(round))usePrepared(round);else takeAction(round,choose(round));
     }
     if(!round.over&&round.phase==='end')endPhase(round);
     return finishRound(round);
@@ -1004,6 +1387,7 @@ export function resolveRound(input,planInput,{random=Math.random,forecast=false,
     while(!round.over&&round.phase==='action'&&guard-->0){
         if(round.needsActive){switchTo(round,autoAction(round).id);continue;}
         if(round.turn==='enemy'){enemyTurn(round);continue;}
+        if(preparedDue(round)){usePrepared(round);continue;}
         if(fleeing){fleeing=false;flee(round);continue;}
         const step=queue.shift();
         if(!step){declareEnd(round,'party');continue;}

@@ -56,6 +56,23 @@ Every playable character with a Genius Invokation character card (108) fights wi
 
 **Playing an enemy card:** its moves become a character's (first Attack → Normal Attack, second Attack or Special → Skill, Special at 1.5× → Burst, 2 Energy), its health is held between 24 and 40, and characters you beat in a duel drop cards like enemies.
 
+**Genius Invokation mechanics (1.67).** `battle-engine.js` plays these from each card's wiki text; the hand-written kits that use them are in `tcg-special-kits.js`, and `tools/test-tcg-mechanics.mjs` checks them:
+
+| Mechanic | How it works here |
+|---|---|
+| Nightsoul's Blessing | A status with up to 2 points. Spending the last point ends it and the gear tied to it. "Cannot be used in Nightsoul's Blessing" skills are greyed out. |
+| Technique | A Combat Action shown after the skills: paid with any dice, may spend Nightsoul points, has uses. Flamestrider cards give Mavuika hers. |
+| Fighting Spirit / Serpent's Subtlety | Kept in the Energy pips (6 and 7). Mavuika gains 1 when anyone uses a Normal Attack or spends Nightsoul; Skirk from Havoc: Warp, Void Rift and Mutual Weapons Mentorship. Their Bursts spend it all for 2 damage a point. |
+| Bond of Life | Stacks; each absorbs 2 HP of healing. Arlecchino's Normal Attack spends up to 3 of the target's for +2 each. |
+| Lunar reactions | With a Moonsign character, Electro-Charged becomes Lunar-Charged (a Thundercloud: 4 Electro at the End Phase, stacking; Electric Shock: 2 Piercing per stack to the enemy with most HP at the next End Phase), Bloom becomes Lunar-Bloom (+2 and Cost Reduction on a card in hand), Hydro Crystallize becomes Lunar-Crystallize (+2 and a Moondrift Harmony card). |
+| Cards from skills | Added to the hand or deck (a choice of one when the card says "select"); kept between rounds of a fight, never in the bag. |
+| Cost Reduction, Agile/Efficient Switch, Battle Plan | One die less on a card in hand; a Fast-Action switch; a free switch; a cheaper next Skill. |
+| Charged / Plunging Attack | A Normal Attack made with an even number of dice / as the first action after switching in. |
+| Prepared skill | Played by itself as the character's next action; switching out cancels it. |
+| Piercing | Hits enemies on standby, ignores shields and bonuses. |
+
+**Balance (1.67).** `tools/simulate-battles.mjs` plays whole fights with these kits, the Starter deck, rerolls and the Auto planner. Ordinary enemies have 70% of their table health (`NORMAL_ENEMY_HP` in battle-engine.js); bosses 55% of their table health and 90% of their damage (boss-kits.js). Four characters: one or two weak enemies ~3 rounds; two or three mixed ~5; a tough pair ~6; a boss ~8 (90th percentile 12), costing about 40% of the party's health, someone falling in about a third of fights, nearly always won with good play and about two thirds of the time by a player who never tunes dice. An enemy's own element deals a quarter less to it.
+
 ## Genius Invokation TCG enemies
 
 All 57 enemy character cards from Genius Invokation TCG's PvE challenges are Silly Teyvat enemies (47 were added in 1.40; 10 already existed). Each uses its TCG card as its battle card and as its character card portrait. Their kits follow the card: the Normal Attack and Elemental Skill are both Attacks (the enemy picks one each round), and the Elemental Burst is the Special. Damage, HP and passives are scaled to Silly Teyvat's numbers: shields for Abyss Mages, armour for Shieldwall Mitachurls and meka, Corrosion summons for Rifthounds, and so on. Edit any of them in **Character Customization → Moveset**. Since 1.41 the starter wilderness waypoints carry them in regional pools (see `enemy-regions.js` for each enemy's regions and each waypoint's pool).

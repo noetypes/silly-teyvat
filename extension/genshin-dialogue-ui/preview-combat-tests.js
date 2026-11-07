@@ -3,7 +3,8 @@ import {mountChoices} from './choices.js';
 import {mountElementalDice} from './elemental-dice.js';
 import {mountWildernessEditor} from './wilderness.js';
 import {mountCharacterProperties} from './character-properties.js';
-import {activeEnemies,combatState} from './combat-state.js';
+import {activeEnemies,combatState,combatAllies} from './combat-state.js';
+import {encounterHp,partyScale} from './battle-engine.js';
 import {autoBattle} from './preview-battle-auto.js';
 export async function runCombatTests(){
     const results=[],check=(name,ok)=>{results.push(`${ok?'PASS':'FAIL'} ${name}`);if(!ok)throw Error(results.join('\n'));};
@@ -15,7 +16,7 @@ export async function runCombatTests(){
     const ui=mountCombat({host:root,getContext:()=>ctx,adapter:{append,async react(){reactions++;}},diceAdapter:{async roll(result){rolls++;check('the Roll Phase throws eight dice, as in Genius Invokation',result.kind==='fuel'&&result.dice.length===8);return true;},dispose(){}},battleAdapter:autoBattle(),onChange:event=>{if(event?.defeated)defeats++;}});
     let choices;
     try{
-        ui.sync({on:true,id:0});check('enemy HUD shows configured health scaled to the party',root.querySelector('.gi-enemy-health')?.textContent.includes('4 / 4'));
+        ui.sync({on:true,id:0});{const hp=encounterHp(5,{members:combatAllies(ctx).length});check('enemy HUD shows configured health scaled to the party (ordinary enemies at 70%)',hp===Math.round(5*.7*partyScale(combatAllies(ctx).length).hp)&&root.querySelector('.gi-enemy-health')?.textContent.includes(`${hp} / ${hp}`));}
         {const member=[...root.querySelectorAll('#gi-party-health .gi-party-member')].find(m=>m.title.startsWith('Klee')) || root.querySelector('#gi-party-health .gi-party-member');check('party and enemy health are quiet HUD panels with no sliding drawer',!root.querySelector('#gi-health-drawer')&&!root.querySelector('.gi-health-toggle')&&!root.querySelector('#gi-party-health').hidden&&!root.querySelector('#gi-combat').hidden);
         check('party portraits carry their name and HP as a tooltip and a meter',/Klee: \d+ \/ \d+ HP/.test(member.title)&&member.querySelector('meter'));}
         check('sword toggle is available without replacing dialogue',!root.querySelector('#gi-attack-controls').hidden&&root.querySelector('#gi-attack-toggle svg'));check('combat prompt allows conversation',ctx.extensionPrompts.silly_teyvat_combat.value.includes('talk instead'));
@@ -24,7 +25,7 @@ export async function runCombatTests(){
         check('round result saved before death message',ctx.chat.at(-2).extra.silly_teyvat_combat.kind==='round'&&ctx.chat.at(-1).extra.silly_teyvat_combat.kind==='death');check('HP zero marks enemy defeated once',defeats===1&&activeEnemies(ctx).length===0);check('death message substitutes enemy name',ctx.chat.at(-1).mes==='Hilichurl Fighter falls.');check('defeated enemy gets no injury generation',reactions===0);
         await ui.attack('Hilichurl Fighter.png');check('defeated enemy cannot be attacked twice',rolls===1&&combatState(ctx).events.length===1);
         ui.sync({on:true,id:ctx.chat.length-1});check('death hides health and attack action',root.querySelector('#gi-combat').hidden&&ui.actions().length===0);
-        ui.sync({on:true,id:0});check('old message replays saved HP without reviving enemy',root.querySelector('.gi-enemy-health')?.textContent.includes('4 / 4')&&activeEnemies(ctx).length===0);
+        ui.sync({on:true,id:0});{const hp=encounterHp(5,{members:combatAllies(ctx).length});check('old message replays saved HP without reviving enemy',root.querySelector('.gi-enemy-health')?.textContent.includes(`${hp} / ${hp}`)&&activeEnemies(ctx).length===0);}
         {const saved=structuredClone(ctx.chatMetadata);ctx.chatMetadata.silly_teyvat_world.location={id:'town'};ctx.chatMetadata.silly_teyvat_cast.encounter={key:'town-visit',locationId:'town',enemies:[],present:[]};
         check('a defeated enemy left in the group does not respawn at the next location',activeEnemies(ctx).length===0&&!combatState(ctx).visits['town-visit']?.enemies?.['Hilichurl Fighter.png']);
         ctx.chatMetadata.silly_teyvat_cast.encounter.enemies=['Hilichurl Fighter.png'];check('an encounter that lists the enemy still brings it',activeEnemies(ctx).length===1);

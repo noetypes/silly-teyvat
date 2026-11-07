@@ -6,6 +6,7 @@ import {mediaSettings} from './media-store.js';
 import {BOSS_ROWS} from './boss-kits.js';
 import {ELEMENTS} from './battle-engine.js';
 import {TCG_KITS} from './tcg-kits.js';
+import {SPECIAL_KITS} from './tcg-special-kits.js';
 
 export const WEAPONS=['sword','claymore','polearm','bow','catalyst','none'];
 export const ROLES=['DPS','Sub-DPS','Support','Healer','Shielder','Tank'];
@@ -13,7 +14,7 @@ export const EFFECT_TYPES=['damage','heal','shield','buff','debuff','summon','en
 export const BUFF_STATS=['atk','guard','crit','dodge','regen','infuse'];
 export const DEBUFF_STATS=['vuln','weaken','stun'];
 // Targets are relative to whoever uses the move.
-export const TARGETS={one:'the active foe',all:'all foes',random:'random foes',weakest:'the weakest foe',self:'self',ally:'one ally',party:'the whole party',others:'other allies',lowest:'the most injured ally'};
+export const TARGETS={one:'the active foe',all:'all foes',random:'random foes',weakest:'the weakest foe',standby:'foes on standby (Piercing)',highest:'the foe with the most HP',self:'self',ally:'one ally',activeAlly:'your active character',party:'the whole party',others:'other allies',lowest:'the most injured ally'};
 const WEAPON_NA={sword:{power:3},claymore:{power:4},polearm:{power:3},bow:{power:3},catalyst:{power:2},none:{power:1}};
 
 // Compact effect builders for the tables below.
@@ -288,10 +289,19 @@ function kitFromRow([name,weapon,hp,energy,role,na,[skill,skillCost,skillFx],[bu
     if(tcg){
         kit.energy=Math.max(1,Math.min(5,tcg.energy || energy));
         const [n,sk,bu]=kit.moves;
-        Object.assign(n,{name:tcg.normal.name,element:tcg.normal.element==='Physical'?'Physical':element,effects:[D(tcg.normal.power)]});
+        Object.assign(n,{name:tcg.normal.name,element:tcg.normal.element==='Physical'?'Physical':element,effects:[D(tcg.normal.power,'one',tcg.normal.plus?{plus:clone(tcg.normal.plus)}:{})]});
         Object.assign(sk,{name:tcg.skill.name,cost:tcg.skill.cost,effects:tcg.skill.effects.length?clone(tcg.skill.effects):sk.effects});
         Object.assign(bu,{name:tcg.burst.name,cost:tcg.burst.cost,effects:tcg.burst.effects.length?clone(tcg.burst.effects):bu.effects});
         kit.tcg=true;
+    }
+    // Kits built on the newer mechanics are written by hand (tcg-special-kits.js).
+    const special=SPECIAL_KITS[name];
+    if(special){
+        const [n,sk,bu]=kit.moves,take=(move,def)=>def?Object.assign(move,{...clone(def),kind:move.kind,cost:def.cost ?? move.cost,element:move.kind==='normal'?(weapon==='catalyst'?element:'Physical'):move.element}):move;
+        take(n,special.normal);take(sk,special.skill);take(bu,special.burst);
+        for(const key of ['resource','moonsign','passives','bondInfuse','noHeal'])if(special[key]!==undefined)kit[key]=clone(special[key]);
+        if(special.energy)kit.energy=special.energy;
+        kit.tcg=true;kit.special=true;
     }
     if(extra.evasion)kit.evasion=extra.evasion;
     return kit;
@@ -359,22 +369,36 @@ function cleanEffect(effect){
     if(!effect||typeof effect!=='object'||!EFFECT_TYPES.includes(effect.type))return null;
     const out={type:effect.type},keep=(key,value)=>{if(value!==undefined)out[key]=value;};
     keep('target',pick(effect.target,Object.keys(TARGETS)));keep('stat',pick(effect.stat,[...BUFF_STATS,...DEBUFF_STATS]));keep('element',pick(effect.element,ELEMENT_NAMES));keep('name',text(effect.name));
-    for(const key of ['power','amount','hits','rounds','heal'])keep(key,whole(effect[key],0,100));
-    if(effect.decoy)out.decoy=true;
+    for(const key of ['power','amount','hits','rounds','heal','each','cap','min','consumeBond'])keep(key,whole(effect[key],0,100));
+    if(effect.decoy)out.decoy=true;if(effect.piercing)out.piercing=true;
+    // Genius Invokation conditions on an ordinary effect (a Charged Attack bonus, damage per point spent…).
+    keep('when',pick(effect.when,WHEN));keep('unless',pick(effect.unless,WHEN));keep('per',pick(effect.per,['spent','bond','cardsInHand']));
+    keep('whenReaction',pick(effect.whenReaction,['Lunar-Charged','Lunar-Bloom','Lunar-Crystallize']));keep('summon',text(effect.summon));
+    if(effect.plus&&typeof effect.plus==='object'){const plus={};for(const key of ['charged','plunge']){const n=whole(effect.plus[key],0,100);if(n!==undefined)plus[key]=n;}if(Object.keys(plus).length)out.plus=plus;}
     return out;
 }
-function cleanMove(move){
+const WHEN=['charged','notCharged','plunge','nightsoul','noNightsoul','cheaperInHand','summonPresent','spentAtLeast','spentBelow','nightsoulFull','nightsoulNotFull','firstUse','repeatUse','energyAtLeast'];
+// Effects the Moveset editor cannot edit (Nightsoul, Techniques, created cards, listeners…) are never read
+// from saved settings: a saved one stands for the bundled kit's own effect of that kind, which is used instead.
+function cleanMove(move,base){
     const out={},keep=(key,value)=>{if(value!==undefined)out[key]=value;};
     keep('name',text(move?.name));keep('element',pick(move?.element,ELEMENT_NAMES));
     for(const key of ['cost','miss','cooldown'])keep(key,whole(move?.[key],0,100));
-    if(Array.isArray(move?.effects))out.effects=move.effects.map(cleanEffect).filter(Boolean);
+    if(Array.isArray(move?.effects)){
+        const spare=[...(base?.effects || [])];
+        out.effects=move.effects.map(e=>{
+            if(EFFECT_TYPES.includes(e?.type))return cleanEffect(e);
+            const i=spare.findIndex(b=>b&&b.type===e?.type&&(b.name || b.label || b.status?.label || '')===(e?.name || e?.label || e?.status?.label || ''));
+            if(i<0)return null;const found=spare[i];spare[i]=null;return clone(found);
+        }).filter(Boolean);
+    }
     return out;
 }
 // Saved edits replace whole moves; anything missing falls back to the default.
 export function mergeKit(base,saved){
     if(!saved)return base;
     const kit={...base,...Object.fromEntries(Object.entries(KIT_FIELDS).map(([key,clean])=>[key,clean(saved[key])]).filter(([,value])=>value!==undefined))};
-    kit.moves=base.moves.map((move,i)=>saved.moves?.[i]?{...move,...cleanMove(saved.moves[i]),kind:move.kind}:move);
+    kit.moves=base.moves.map((move,i)=>saved.moves?.[i]?{...move,...cleanMove(saved.moves[i],move),kind:move.kind}:move);
     kit.custom=true;return kit;
 }
 export const kitOverrides=ctx=>mediaSettings(ctx).combatKits ??= {};
@@ -382,14 +406,43 @@ export function saveKitOverride(ctx,avatar,kit){kitOverrides(ctx)[avatar]=clone(
 export function resetKitOverride(ctx,avatar){delete kitOverrides(ctx)[avatar];ctx.saveSettingsDebounced?.();}
 
 // ---- Descriptions -------------------------------------------------------------------
-export const KIND_LABEL={normal:'Normal Attack',skill:'Elemental Skill',burst:'Elemental Burst',basic:'Attack',special:'Special'};
+export const KIND_LABEL={normal:'Normal Attack',skill:'Elemental Skill',burst:'Elemental Burst',basic:'Attack',special:'Special',technique:'Technique',status:'Status'};
 const STAT_LABEL={atk:'damage dealt',guard:'damage taken',crit:'critical hit chance',dodge:'dodge chance',regen:'healing each round',infuse:'elemental infusion',vuln:'damage taken',weaken:'damage dealt',stun:'stun'};
 const plural=(n,word)=>`${n} ${word}${n===1?'':'s'}`;
 export function describeEffect(effect,element){
     const t=TARGETS[effect.target] || effect.target,el=effect.element || element;
     const elText=el&&el!=='None'?`${el} `:'';
+    const when={charged:'As a Charged Attack: ',plunge:'As a Plunging Attack: ',nightsoul:'In Nightsoul\'s Blessing: ',firstUse:'First use this round: ',repeatUse:'Used again this round: ',cheaperInHand:'With a cheaper card in hand: ',summonPresent:`With ${effect.summon} out: `,spentAtLeast:`Having spent ${effect.min} or more: `,spentBelow:`Having spent less than ${effect.min}: `,nightsoulFull:'At full Nightsoul: ',nightsoulNotFull:''}[effect.when] || (effect.whenReaction?`After ${effect.whenReaction}: `:'');
+    const text=describeOne(effect,{t,el,elText,element});
+    return text&&when?when+text[0].toLowerCase()+text.slice(1):text;
+}
+function describeOne(effect,{t,el,elText,element}){
     switch(effect.type){
-        case 'damage':return `Deals ${effect.power} ${el==='Physical'?'Physical ':elText}damage to ${t}${effect.hits>1?` ${effect.hits} times`:''}.`;
+        case 'damage':
+            if(effect.target==='standby'||effect.piercing)return `Deals ${effect.power} Piercing damage to ${effect.target==='standby'?'every enemy on standby':t}.`;
+            if(effect.per==='spent')return `Deals ${el==='Physical'?'Physical ':elText}damage to ${t}: ${effect.each || 2} for each point spent.`;
+            if(effect.per==='cardsInHand')return `Deals ${effect.power} ${elText}damage to ${t}, +${effect.each || 2} for each card in hand that it names (up to ${effect.cap}).`;
+            return `Deals ${effect.power} ${el==='Physical'?'Physical ':elText}damage to ${t}${effect.hits>1?` ${effect.hits} times`:''}${effect.plus?.charged?` (+${effect.plus.charged} as a Charged Attack)`:''}${effect.plus?.plunge?` (+${effect.plus.plunge} as a Plunging Attack)`:''}${effect.consumeBond?`, +2 for each of up to ${effect.consumeBond} Bond of Life it removes from the target`:''}.`;
+        case 'nightsoul':return effect.spend?`Spends ${effect.spend} Nightsoul point${effect.spend>1?'s':''}.`:effect.enter===false?`Gains ${effect.amount} Nightsoul point${effect.amount===1?'':'s'}.`:`Enters Nightsoul's Blessing${effect.amount?` with ${effect.amount} Nightsoul point${effect.amount===1?'':'s'}`:''}.`;
+        case 'technique':return `Gives the Technique ${effect.name} (costs ${effect.cost} ${effect.cost===1?'die':'dice'}${effect.spend?.nightsoul?` and ${effect.spend.nightsoul} Nightsoul point`:''}): ${describeMove({effects:effect.effects},element)}`;
+        case 'status':return effect.status?.label?`${effect.side==='foe'?'Puts':'Creates'} ${effect.status.label}${effect.side==='foe'?' on the enemy side':''}.`:'';
+        case 'addCard':return `${effect.choose?'Choose one of':'Adds'} ${[...new Set(effect.cards)].map(id=>id.split('-').map(w=>w[0].toUpperCase()+w.slice(1)).join(' ')).join(', ')} ${effect.to==='deck'?'to your deck':'to your hand'}.`;
+        case 'cheaper':return `Cost Reduction on ${effect.amount || 1} card${(effect.amount || 1)>1?'s':''} in your hand.`;
+        case 'cheaperCard':return `Cost Reduction on up to ${effect.amount} copies of a card in your hand.`;
+        case 'bond':return `Adds ${effect.amount} Bond of Life to ${effect.target==='subject'?'the character hit':t}.`;
+        case 'clearBond':return `Removes ${effect.target==='self'||!effect.target?'own':'its'} Bond of Life${effect.heal?' and heals 2 HP for each stack':''}${effect.damage?', dealing 2 damage per stack':''}${effect.cap?` (up to ${effect.cap})`:''}.`;
+        case 'prepare':return `Then prepares ${effect.name}: ${describeMove({effects:effect.effects},element)}`;
+        case 'agileSwitch':return 'Creates Agile Switch: the next switch is a Fast Action.';
+        case 'efficientSwitch':return 'Creates Efficient Switch: the next switch costs no dice.';
+        case 'plan':return `Battle Plan: the next Skill costs ${effect.amount || 1} fewer ${effect.amount>1?'dice':'die'}.`;
+        case 'resource':return `Gains ${effect.amount} ${effect.label || 'of its resource'}.`;
+        case 'draw':return `Draws ${effect.amount} card${effect.amount===1?'':'s'}.`;
+        case 'discard':return `Discards ${effect.amount} card${effect.amount===1?'':'s'} from your hand.`;
+        case 'switchNext':return 'Switches to your next character.';
+        case 'switchPrev':return 'Switches to your previous character.';
+        case 'bite':return `Puts ${effect.amount} Bite Target on the opposing active character.`;
+        case 'convertDice':return `Turns ${effect.amount} dice into ${effect.face==='self'?'its element':effect.face || 'Omni'}.`;
+        case 'heal':return `Heals ${t} for ${effect.amount} HP.`;
         case 'heal':return `Heals ${t} for ${effect.amount} HP.`;
         case 'shield':return `Shields ${t} for ${effect.amount}.`;
         case 'buff':
@@ -410,7 +463,7 @@ export function describeEffect(effect,element){
 }
 export const escapeHtml=text=>String(text ?? '').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 export function describeMove(move,element){
-    const el=move.element || element,lines=(move.effects || []).map(e=>describeEffect(e,el)).filter(Boolean);
+    const el=move.element || element,lines=[...new Set((move.effects || []).map(e=>describeEffect(e,el)).filter(Boolean))];
     if(move.cooldown)lines.push(`Used every ${move.cooldown} rounds.`);
     return lines.join(' ');
 }

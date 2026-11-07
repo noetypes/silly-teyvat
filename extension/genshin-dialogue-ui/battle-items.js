@@ -1,6 +1,7 @@
 // Battle items, drawn from Genius Invokation TCG event cards. Food heals or protects one
 // member (one dish per member per round); other cards bend the dice or the battlefield.
 // The party carries a shared bag saved per chat; victories drop cards from the location's pool (card-pools.js).
+import {GENERATED_CARDS} from './tcg-special-kits.js';
 import {isTcgBoss} from './boss-kits.js';
 import {defaultKitHp} from './combat-kits.js';
 import {TCG_CARDS} from './battle-cards.js';
@@ -60,7 +61,7 @@ export const ITEMS={
     ...TCG_CARDS,
 };
 // What kind of card each is, as the hand, the Inventory and the loot name it.
-export const KIND_LABELS={food:'Food',event:'Event',dice:'Dice',weapon:'Weapon',artifact:'Artifact',support:'Support',summon:'Summon'};
+export const KIND_LABELS={food:'Food',event:'Event',dice:'Dice',weapon:'Weapon',artifact:'Artifact',support:'Support',summon:'Summon',technique:'Technique'};
 export const kindLabel=item=>item?.kind==='support'&&item.group?`${item.group[0].toUpperCase()}${item.group.slice(1)}`:KIND_LABELS[item?.kind] || 'Event';
 // The default starter deck: twenty cards of every kind (starter-decks.js tailors it to each character).
 export const STARTER_BAG={
@@ -72,6 +73,9 @@ export const STARTER_BAG={
     'origami-hamster':1,'toy-guard':1,
 };
 export const itemArt=id=>new URL(`./assets/tcg/items/${id}.webp`,import.meta.url).href;
+// Every card a battle can hold: the bag's cards and the ones skills create (tcg-special-kits.js). Created cards
+// are not in ITEMS, so they never drop, sit in no Starter deck and never reach the bag.
+export const CARD_DEFS={...ITEMS,...GENERATED_CARDS};
 const WOVEN={Pyro:'woven-flames',Hydro:'woven-waters',Anemo:'woven-winds',Electro:'woven-thunder',Dendro:'woven-weeds',Cryo:'woven-ice',Geo:'woven-stone'};
 export const bagCount=bag=>Object.values(bag || {}).reduce((n,c)=>n+c,0);
 // How strong an enemy is, from its base health: live health also scales with the party and the difficulty.

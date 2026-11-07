@@ -7,7 +7,8 @@ import {playedAvatars,linkedCard} from './persona-link.js';
 import {NARRATOR_AVATAR} from './narrator.js';
 import {personaCard} from './persona-wardrobe.js';
 import {syncPromptOrder} from './prompt-order.js';
-import {DIFFICULTY,partyScale} from './battle-engine.js';
+import {DIFFICULTY,partyScale,encounterHp} from './battle-engine.js';
+import {isTcgBoss} from './boss-kits.js';
 import {restockBag} from './battle-items.js';
 import {journeyBag} from './starter-decks.js';
 import {COMBAT_COMPANIONS,defaultKit} from './combat-kits.js';
@@ -64,7 +65,7 @@ export function activeEnemies(ctx){
 }
 // Enemy health is set when it first appears, scaled by difficulty and the size of the party it meets.
 export const combatDifficulty=ctx=>DIFFICULTY[mediaSettings(ctx).combatDifficulty]?mediaSettings(ctx).combatDifficulty:'normal';
-export function enemyMaxHp(ctx,avatar){return Math.max(1,Math.round(characterProperties(ctx,avatar).maxHp*DIFFICULTY[combatDifficulty(ctx)].hp*partyScale(combatAllies(ctx).length).hp));}
+export function enemyMaxHp(ctx,avatar){const card=ctx.characters?.find(c=>c.avatar===avatar);return encounterHp(characterProperties(ctx,avatar).maxHp,{boss:isTcgBoss(card?.name),members:combatAllies(ctx).length,difficulty:combatDifficulty(ctx)});}
 // The player's own character fights too: their element comes from the persona, or from the card they are playing.
 export const userAlly=ctx=>({avatar:USER_KEY,name:ctx.name1 || 'You',isUser:true});
 export function allyElement(ctx,ally){

@@ -5,7 +5,11 @@
 // Enemy HP and damage still scale with party size (see partyScale), and card-authored HP never overrides these rows.
 // 1.61: bosses now act twice a round on Genius Invokation turns, against one active character, so these
 // tables are scaled to half their HP and three fifths of their damage (simulated: 8 to 12 rounds for four).
-const BOSS_HP=.5,BOSS_DAMAGE=.6,dmg=power=>Math.max(1,Math.round(power*BOSS_DAMAGE));
+// 1.67: with the Genius Invokation kits, rerolls and Elemental Tuning a party is much stronger. Bosses have 55% of
+// these tables' health and 90% of their damage. Simulated (tools/simulate-battles.mjs, four characters): the Auto
+// planner wins about 98% in a median of 8 rounds (90th percentile 12), losing about 40% of the party's health;
+// a naive player (no tuning) wins about 70%.
+const BOSS_HP=.55,BOSS_DAMAGE=.9,dmg=power=>Math.max(1,Math.round(power*BOSS_DAMAGE));
 const D=(power,target='one',o={})=>({type:'damage',power:dmg(power),target,...o});
 const S=(name,power,rounds,target='one',o={})=>({type:'summon',name,power:dmg(power),rounds,target,...o});
 const H=(amount,target='self')=>({type:'heal',amount,target});

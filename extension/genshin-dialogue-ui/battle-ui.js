@@ -6,10 +6,11 @@
 // Roll Phase, then turns in alternation. On your turn play cards and tune dice (Fast Actions), then
 // use a skill, switch characters, flee or end your round (Combat Actions). Every action plays out
 // at once: skill name, the card lunging, impacts, damage numbers, reactions and sounds.
-import {startRound,useSkill,switchTo,playCard,tuneDie,declareEnd,flee as fleeAction,enemyTurn,endPhase,finishRound,moveCheck,cardCheck,cardCost,tuneCheck,switchCost,costOf,anyCost,chooseDice,diceFit,forecast,bestAction,takeAction,
+import {startRound,useSkill,switchTo,playCard,tuneDie,declareEnd,flee as fleeAction,enemyTurn,endPhase,finishRound,moveCheck,cardCheck,cardCost,tuneCheck,switchCost,costOf,anyCost,chooseDice,diceFit,forecast,bestAction,takeAction,movesOf,preparedDue,usePrepared,chooseCard,
     drawCards,deckFrom,sortDice,activeOf,isActive,isStunned,alive,unitById,moveElement,moveNeedsTarget,intentPreview,fleeChance,partyElements,auraList,innateAura,burstReady,REACTIONS,RESONANCE,ELEMENTS,FIELDS,HAND_START} from './battle-engine.js';
 import {describeMove,escapeHtml,KIND_LABEL} from './combat-kits.js';
-import {ITEMS,itemArt,kindLabel} from './battle-items.js';
+// Cards in a battle include the ones skills create (CARD_DEFS); the board reads them all as ITEMS.
+import {CARD_DEFS as ITEMS,itemArt,kindLabel} from './battle-items.js';
 import {createBattleSound} from './battle-sound.js';
 import {createParticles,glyph,weaponIcon,EL_COLORS,SWORD_SVG} from './battle-fx.js';
 import {elementImg,reactionIcon,skillIcon,characterIcon,summonArt,fieldIcon,formArt} from './battle-icons.js';
@@ -19,8 +20,10 @@ const el=(tag,cls,text)=>{const n=document.createElement(tag);if(cls)n.className
 // Battle numbers are saved in the chat's metadata, which an imported chat can fill, so any that go into markup are made numbers first.
 const whole=value=>Math.round(Number(value)) || 0;
 export const splashUrl=name=>name?new URL(`./assets/splash/${encodeURIComponent(name)}.webp`,import.meta.url).href:'';
-const STATUS={atk:['ATK','↑'],guard:['DEF','↑'],crit:['CRIT','↑'],dodge:['EVA','↑'],focus:['AIM','↑'],regen:['Regen',''],infuse:['Infused',''],vuln:['DEF','↓'],weaken:['ATK','↓'],stun:['Petrified',''],frozen:['Frozen',''],burning:['Burning',''],charged:['Charged',''],quicken:['Quicken','']};
-const GOOD=new Set(['atk','guard','crit','dodge','regen','infuse','focus']);
+// New Genius Invokation states show their count: Nightsoul points, Bond of Life stacks, Bite Target, Battle Plan.
+const COUNTED=new Set(['nightsoul','bond','bite','plan']);
+const STATUS={nightsoul:['Nightsoul',''],bond:['Bond of Life',''],bite:['Bite Target',''],plan:['Battle Plan',''],technique:['Technique',''],preparing:['Preparing',''],crucible:['Crucible',''],vigil:['Night Vigil',''],flash:['Seven-Phase Flash',''],swapBurst:['Burst changed',''],listen:['Status',''],block:['RES',''],strike:['Normal Attack','↑'],atk:['ATK','↑'],guard:['DEF','↑'],crit:['CRIT','↑'],dodge:['EVA','↑'],focus:['AIM','↑'],regen:['Regen',''],infuse:['Infused',''],vuln:['DEF','↓'],weaken:['ATK','↓'],stun:['Petrified',''],frozen:['Frozen',''],burning:['Burning',''],charged:['Charged',''],quicken:['Quicken','']};
+const GOOD=new Set(['atk','guard','crit','dodge','regen','infuse','focus','nightsoul','technique','preparing','crucible','vigil','flash','swapBurst','listen','plan','block','strike']);
 const ICON={
     hourglass:'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 2h12M6 22h12M7 2c0 6 10 6 10 10S7 16 7 22M17 2c0 6-10 6-10 10s10 4 10 10" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M9 19h6l-3-3z" fill="currentColor"/></svg>',
     // A runner in mid-stride with speed lines: one weight of line throughout, so it reads at any size.
@@ -137,7 +140,7 @@ export function mountBattle({host,sound=createBattleSound(),onBurst=()=>{},onSto
             if(aura){auraNode.classList.remove('tb-pop');void auraNode.offsetWidth;auraNode.classList.add('tb-pop');}
         }
         if(u.side==='party'){
-            const pips=card.querySelector('.tb-energy');pips.replaceChildren(...Array.from({length:u.maxEnergy || 2},(_,i)=>{const pip=el('i');if(i<(u.energy || 0))pip.className='tb-on';return pip;}));
+            const pips=card.querySelector('.tb-energy');pips.classList.toggle('tb-resource',Boolean(u.kit?.resource));pips.title=u.kit?.resource?`${u.kit.resource.label}: ${whole(u.energy || 0)}/${whole(u.maxEnergy)} (the Burst needs ${u.kit.resource.min})`:'';pips.replaceChildren(...Array.from({length:u.maxEnergy || 2},(_,i)=>{const pip=el('i');if(i<(u.energy || 0))pip.className='tb-on';return pip;}));
             card.classList.toggle('tb-ready',burstReady(u));
         }
         const list=card.querySelector('.tb-status');list.replaceChildren();const seen=new Set();
@@ -149,6 +152,14 @@ export function mountBattle({host,sound=createBattleSound(),onBurst=()=>{},onSto
             }
             const key=s.stat+(s.label || '');if(seen.has(key))continue;seen.add(key);
             if(s.innate&&s.stat==='infuse'){const chip=el('i','tb-st tb-good tb-st-infuse tb-st-innate');chip.style.setProperty('--el',EL_COLORS[u.element] || '');chip.innerHTML=elementImg(u.element);chip.title=`Elemental infusion: ${u.name}'s Physical attacks deal ${u.element} damage.`;list.append(chip);continue;}
+            // Passive skills are part of the character, not a state: they have no chip.
+            if(s.passive||s.stat==='swapBurst'&&(u.statuses || []).some(x=>x.stat==='flash'))continue;
+            if(COUNTED.has(s.stat)||['technique','preparing','listen','crucible','vigil','flash'].includes(s.stat)){
+                const chip=el('i',`tb-st ${GOOD.has(s.stat)?'tb-good':'tb-bad'} tb-st-${s.stat}`,COUNTED.has(s.stat)?String(whole(s.amount || 0)):(s.label || STATUS[s.stat][0]).replace(/^[^A-Za-z]*/,'').slice(0,1));
+                const uses=s.uses?` · ${s.uses} use${s.uses===1?'':'s'} left`:'',rounds=s.rounds&&s.rounds<20?` · ${s.rounds} round${s.rounds===1?'':'s'}`:'';
+                chip.title=s.stat==='nightsoul'?`Nightsoul's Blessing: ${s.amount}/${s.max || 2} Nightsoul points${rounds}`:s.stat==='bond'?`Bond of Life: ${s.amount} (absorbs ${s.amount*2} HP of healing)`:s.stat==='bite'?`Bite Target ×${s.amount}: Mualani's next hit or Shark Missile deals +${s.amount*4}`:s.stat==='plan'?`Battle Plan: the next Skill costs ${s.amount} fewer dice`:s.stat==='technique'?`Technique: ${s.label}${uses}`:s.stat==='preparing'?`${s.label}: it is ${u.name}'s next action`:`${s.label || STATUS[s.stat][0]}${uses}${rounds}`;
+                list.append(chip);continue;
+            }
             const [label,arrow]=STATUS[s.stat] || [s.stat,''];const chip=el('i',`tb-st ${GOOD.has(s.stat)?'tb-good':'tb-bad'} tb-st-${s.stat}`,arrow || label.slice(0,1));
             chip.title=`${s.label || label} ${label}${arrow}${s.amount&&!['stun','frozen','quicken','infuse'].includes(s.stat)?` ${s.amount}${['regen','burning','charged'].includes(s.stat)?'':'%'}`:''} · ${s.rounds}`;list.append(chip);
         }
@@ -229,6 +240,11 @@ export function mountBattle({host,sound=createBattleSound(),onBurst=()=>{},onSto
                 chip.innerHTML=`${src?`<img src="${src}" alt="" draggable="false">`:elementImg('Dendro')}<b>${whole(f.usage)}</b>`;
                 chip.title=`${f.name}: ${FIELDS[f.name]?.text || ''} (${f.usage} left)`;box.append(chip);
             }
+            // Side statuses: Agile and Efficient Switch, and combat statuses such as Blood-Debt Directive or Lunar Domain.
+            const team=state?.team?.[sideName];if(!team)continue;
+            const chips=[...(team.agile?[['Agile Switch',team.agile,'The next switch is a Fast Action.']]:[]),...(team.efficient?[['Efficient Switch',team.efficient,'The next switch costs no dice.']]:[]),
+                ...(team.listen || []).map(x=>[x.label || 'Status',x.uses || x.rounds || '',x.label || ''])];
+            for(const [name,count,text] of chips){const chip=el('span','tb-field tb-team');chip.dataset.field=name;chip.innerHTML=`<i>${escapeHtml(name.replace(/^[^A-Za-z]*/,'').slice(0,1))}</i>${count?`<b>${whole(count)}</b>`:''}`;chip.title=`${name}${text&&text!==name?`: ${text}`:''}`;box.append(chip);}
         }
     }
     // The enemy in front shows the move it will use next and whom it will hit.
@@ -285,7 +301,7 @@ export function mountBattle({host,sound=createBattleSound(),onBurst=()=>{},onSto
     const moveIcon=(u,move)=>{const src=skillIcon(move);return src?`<img class="tb-skill-img" src="${src}" alt="" draggable="false">`:move.kind==='normal'?weaponIcon(u.kit.weapon):u.element==='None'?glyph('Omni'):elementImg(u.element,{white:true});};
     function moveText(u,move){
         const cost=costOf(u,move);
-        return `<small>${KIND_LABEL[move.kind]}${move.kind==='burst'?` · Energy ${whole(u.energy)}/${whole(u.maxEnergy)}`:''}</small><strong>${escapeHtml(move.name)}</strong><span class="tb-cost-row">${costRow(cost)}${move.kind==='burst'?`<span class="tb-energy-cost" title="${whole(u.maxEnergy) || 2} Energy"><b>${whole(u.maxEnergy) || 2}</b></span>`:''}</span><p>${escapeHtml(describeMove(move,u.element==='None'?'Physical':u.element))}</p>`;
+        return `<small>${KIND_LABEL[move.kind]}${move.kind==='burst'&&!move.swapped?u.kit?.resource?` · ${escapeHtml(u.kit.resource.label)} ${whole(u.energy)}/${whole(u.maxEnergy)}`:` · Energy ${whole(u.energy)}/${whole(u.maxEnergy)}`:''}${move.spend?.nightsoul?` · ${move.spend.nightsoul} Nightsoul`:''}</small><strong>${escapeHtml(move.name)}</strong><span class="tb-cost-row">${costRow(cost)}${move.kind==='burst'?`<span class="tb-energy-cost" title="${whole(u.maxEnergy) || 2} Energy"><b>${whole(u.maxEnergy) || 2}</b></span>`:''}</span><p>${escapeHtml(describeMove(move,u.element==='None'?'Physical':u.element))}</p>`;
     }
     function unitTip(id,card){
         const u=unitById(state,id);if(!u||!mode)return;
@@ -315,7 +331,7 @@ export function mountBattle({host,sound=createBattleSound(),onBurst=()=>{},onSto
     }
     function select(next){
         pick=next;picked=null;tuning=false;hideTip();
-        if(pick.type==='skill'){const u=activeOf(state,'party'),move=u.kit.moves[pick.move];pick.needsTarget=moveNeedsTarget(move)==='ally';if(pick.needsTarget&&!pick.target)pick.target=party().filter(alive).sort((a,b)=>a.hp/a.maxHp-b.hp/b.maxHp)[0]?.id;}
+        if(pick.type==='skill'){const u=activeOf(state,'party'),move=movesOf(u)[pick.move];pick.needsTarget=moveNeedsTarget(move)==='ally';if(pick.needsTarget&&!pick.target)pick.target=party().filter(alive).sort((a,b)=>a.hp/a.maxHp-b.hp/b.maxHp)[0]?.id;}
         if(pick.type==='card'){const item=ITEMS[round.hand[pick.index]];pick.needsTarget=item?.target==='ally'||item?.target==='downed';if(pick.needsTarget&&!pick.target){const list=party().filter(u=>item.target==='downed'?u.hp<=0:alive(u)&&!(item.kind==='food'&&round.fed.includes(u.id))&&(!item.weapon||u.kit?.weapon===item.weapon));pick.target=item.target==='downed'?list[0]?.id:list.find(u=>isActive(state,u))?.id || list[0]?.id;}}
         sound.select();refresh();
     }
@@ -323,7 +339,7 @@ export function mountBattle({host,sound=createBattleSound(),onBurst=()=>{},onSto
     // The cost and the dice that pay it: the game's choice, or the dice you tapped in the drawer.
     function pickCost(){
         if(!pick)return null;
-        if(pick.type==='skill'){const u=activeOf(state,'party');return costOf(u,u.kit.moves[pick.move]);}
+        if(pick.type==='skill'){const u=activeOf(state,'party');return costOf(u,movesOf(u)[pick.move]);}
         if(pick.type==='switch')return switchCost(round);
         if(pick.type==='card')return anyCost(ITEMS[round.hand[pick.index]]?.cost);
         return null;
@@ -355,6 +371,7 @@ export function mountBattle({host,sound=createBattleSound(),onBurst=()=>{},onSto
         if(kind==='card')await playCardFx(item,action.target);
         await playEvents(r.events);if(!live(at))return;
         if(round.pendingReroll){round.pendingReroll=false;await tossUp();if(!live(at))return;}
+        if(round.pendingChoice){await offerCards();if(!live(at))return;}
         mode='turn';
         if(kind==='card'&&round.turn===before&&!round.over&&!round.needsActive){refresh();return;}
         refresh();endTurn();
@@ -369,6 +386,8 @@ export function mountBattle({host,sound=createBattleSound(),onBurst=()=>{},onSto
                 const at=token;await wait(reduced()?120:420);if(!live(at)||!autoPlay||!myTurn())return;
                 const action=bestAction(round);
                 if(action.type==='end'){await combat({type:'end'});return;}
+                // Elemental Tuning: a Fast Action, so the turn goes on.
+                if(action.type==='tune'){const card=round.hand[action.index],r=tuneDie(round,action.die,action.index);if(!r.ok){await combat({type:'end'});return;}mode='busy';refresh();await tuneFx(card,activeOf(round.state,'party')?.element);await playEvents(r.events);mode='turn';refresh();continue;}
                 select(action.type==='card'?{type:'card',index:action.index,target:action.target}:action.type==='switch'?{type:'switch',id:action.id}:{type:'skill',move:action.move,target:action.target});
                 const before=round.hand.length;await confirm();
                 // A card the planner wanted but could not play: end the round rather than loop.
@@ -441,11 +460,11 @@ export function mountBattle({host,sound=createBattleSound(),onBurst=()=>{},onSto
             b.innerHTML=`<span class="tb-medal">${ICON.swap}</span><span class="tb-move-cost">${costRow(switchCost(round))}</span>`;b.setAttribute('aria-label','Switch character');
             on(b,'click',confirm);skills.append(b);return;
         }
-        u.kit.moves.forEach((move,index)=>{
+        movesOf(u).forEach((move,index)=>{
             const b=el('button',`tb-move tb-move-${move.kind}`);b.type='button';b.dataset.move=String(index);
             const ok=myTurn()&&moveCheck(round,index).ok;
             b.classList.toggle('tb-unaffordable',!ok);b.classList.toggle('tb-picked',pick?.type==='skill'&&pick.move===index);
-            const ring=index===2?`<i class="tb-ring" style="--fill:${Math.min(1,(u.energy || 0)/(u.maxEnergy || 2))}"></i>`:'';
+            const need=u.kit?.resource?.min || u.maxEnergy || 2,ring=move.kind==='burst'&&!move.swapped?`<i class="tb-ring" style="--fill:${Math.min(1,(u.energy || 0)/need)}"></i>`:'';
             b.innerHTML=`<span class="tb-medal">${ring}${moveIcon(u,move)}</span><span class="tb-move-cost">${costRow(costOf(u,move))}</span>`;
             b.setAttribute('aria-label',`${KIND_LABEL[move.kind]}: ${move.name}`);
             on(b,'click',()=>chooseMove(index));on(b,'pointerenter',()=>{if(!pick)showTip(b,moveText(u,move));});on(b,'pointerleave',hideTip);
@@ -479,7 +498,7 @@ export function mountBattle({host,sound=createBattleSound(),onBurst=()=>{},onSto
         if(!pick)return;
         const u=activeOf(state,'party'),check=pickCheck(),cost=pickCost();
         // Detail panel.
-        if(pick.type==='skill')detail.innerHTML=`${skillIcon(u.kit.moves[pick.move])?`<img class="tb-detail-icon" src="${skillIcon(u.kit.moves[pick.move])}" alt="">`:''}${moveText(u,u.kit.moves[pick.move])}`;
+        if(pick.type==='skill')detail.innerHTML=`${skillIcon(movesOf(u)[pick.move])?`<img class="tb-detail-icon" src="${skillIcon(movesOf(u)[pick.move])}" alt="">`:''}${moveText(u,movesOf(u)[pick.move])}`;
         else if(pick.type==='switch'){const t=unitById(state,pick.id);detail.innerHTML=`<small>Switch Character</small><strong>${escapeHtml(t.name)}</strong><span class="tb-cost-row">${costRow(switchCost(round))}</span><p>${escapeHtml(t.name)} steps forward as your active character. This ends your turn.${round.freeSwitch?' Impetuous Winds makes this switch free.':''}</p>`;cards.get(pick.id)?.classList.add('tb-picked');}
         else{const id=round.hand[pick.index],item=ITEMS[id];detail.innerHTML=`<img class="tb-detail-card" src="${itemArt(id)}" alt=""><small>${escapeHtml(kindLabel(item))} card</small><strong>${escapeHtml(item.name)}</strong><span class="tb-cost-row">${hexCost(null,cardCost(round,item).cost,'tb-any')}</span><p>${escapeHtml(item.text)}</p><p class="tb-detail-note">${item.combat?'A Combat Action: playing it ends your turn.':'Playing a card does not end your turn.'}</p>`;
             banner(`Play Card: ${item.name}`,'',null,'tb-banner-hold');}
@@ -488,7 +507,7 @@ export function mountBattle({host,sound=createBattleSound(),onBurst=()=>{},onSto
         let f=null;
         try{f=check.ok?forecast(round,pickAction()):null;}catch(error){console.warn('[Silly Teyvat] Forecast',error);}
         if(pick.type==='skill'||pick.type==='card'){
-            const front=activeOf(state,'enemy'),move=pick.type==='skill'?u.kit.moves[pick.move]:null;
+            const front=activeOf(state,'enemy'),move=pick.type==='skill'?movesOf(u)[pick.move]:null;
             if(move&&(move.effects || []).some(e=>e.type==='damage'&&e.target==='one'))cards.get(front?.id)?.classList.add('tb-aim');
             if(pick.needsTarget){
                 const item=pick.type==='card'?ITEMS[round.hand[pick.index]]:null;
@@ -715,6 +734,20 @@ export function mountBattle({host,sound=createBattleSound(),onBurst=()=>{},onSto
     }
     function setActing(sideName){dialog.dataset.turn=sideName;paintPlates();}
     // Plays events from the engine one after another: skills, hits, reactions, heals, switches, summons.
+    const statusOfUnit=(u,stat)=>(u?.statuses || []).find(s=>s.stat===stat) || null;
+    // A skill offered cards to choose from (Mavuika's Flamestrider cards): pick one. Auto takes the first.
+    async function offerCards(){
+        const offer=round.pendingChoice;if(!offer)return;
+        let pickId=offer.cards[0];
+        if(!autoPlay){
+            const box=el('div','tb-offer');box.setAttribute('role','dialog');box.setAttribute('aria-label','Choose a card');
+            box.innerHTML=`<strong>Choose a card to add to your hand</strong><div class="tb-offer-cards">${offer.cards.map(id=>`<button type="button" class="tb-offer-card" data-id="${escapeHtml(id)}" title="${escapeHtml(`${ITEMS[id]?.name}: ${ITEMS[id]?.text || ''}`)}"><img src="${itemArt(id)}" alt="" draggable="false"><span>${escapeHtml(ITEMS[id]?.name || id)}</span></button>`).join('')}</div>`;
+            dialog.querySelector('.tb-board').append(box);sound.select();box.querySelector('button')?.focus();
+            pickId=await new Promise(resolve=>box.addEventListener('click',event=>{const b=event.target.closest('[data-id]');if(b)resolve(b.dataset.id);}));
+            box.remove();
+        }
+        const r=chooseCard(round,pickId);await playEvents(r.events);
+    }
     async function playEvents(events){
         const at=token,view=new Map(state.units.map(u=>[u.id,u]));
         // acting: the move being played, so its hits land in the attacker's weapon style.
@@ -744,7 +777,7 @@ export function mountBattle({host,sound=createBattleSound(),onBurst=()=>{},onSto
                 case 'draw':{for(const id of e.cards || [])void id;paintHand();if((e.cards || []).length){const items=[...dialog.querySelectorAll('.tb-hand .tb-item')].slice(-e.cards.length);items.forEach((n,k)=>{n.style.setProperty('--d',`${k*110}ms`);n.classList.add('tb-drawn');});$('.tb-hand').classList.add('tb-open');setTimeout(()=>{$('.tb-hand').classList.remove('tb-open');items.forEach(n=>n.classList.remove('tb-drawn'));},900+e.cards.length*110);sound.draw?.(e.cards.length);const deck=$('.tb-deck');deck.classList.remove('tb-drawing');void deck.offsetWidth;deck.classList.add('tb-drawing');banner(`Drew ${e.cards.length} card${e.cards.length===1?'':'s'}`,'End Phase');await wait(700);}break;}
                 case 'act':{
                     endBurst();for(const card of cards.values())card.classList.remove('tb-acting');cards.get(e.actor)?.classList.add('tb-acting');
-                    const move=actor.kit.moves.find(m=>m.name===e.name&&m.kind===e.kind) || {name:e.name,kind:e.kind};
+                    const move=movesOf(actor).find(m=>m.name===e.name&&(m.kind===e.kind||e.kind==='technique')) || {name:e.name,kind:e.kind};
                     toast(actor,move);
                     acting={actor:e.actor,kind:strikeKind(actor,move,e.kind)};
                     if(e.kind==='burst'||e.kind==='special'&&actor.side==='enemy'){
@@ -834,6 +867,8 @@ export function mountBattle({host,sound=createBattleSound(),onBurst=()=>{},onSto
         if(!round)return;
         for(const u of round.state.units){const v=unitById(state,u.id);if(!v)continue;const art=v.form&&v.art;Object.assign(v,structuredClone(u));if(art)v.art=art;}
         state.active={...round.state.active};state.summons=structuredClone(round.state.summons);state.fields=structuredClone(round.state.fields);state.supports=structuredClone(round.state.supports || []);
+        // Side statuses (Agile Switch, Blood-Debt Directive, Lunar Domain…) and card Cost Reduction.
+        state.team=structuredClone(round.state.team || {});
         paintSummons(state.summons);paintFields(state.fields);refresh();
     }
     // ---- Board setup and the round loop -------------------------------------------------
@@ -859,7 +894,7 @@ export function mountBattle({host,sound=createBattleSound(),onBurst=()=>{},onSto
         const at=++token;
         opts={...options};sound.setVolume(opts.volume ?? .8);dialog.classList.toggle('gb-reduced',Boolean(opts.reducedMotion));speed=1;skipAll=false;
         setup(snapshot,opts.player);mode='intro';dialog.dataset.mode='intro';open();
-        let hand=state.hand || [],deck=deckFrom(state.bag,hand),first=opts.enemyFirst?'enemy':state.first || 'party';
+        let hand=state.hand || [],deck=[...deckFrom(state.bag,hand),...(state.team?.party?.deckAdds || [])],first=opts.enemyFirst?'enemy':state.first || 'party';
         // A new fight: VS, the coin toss (an enemy that started the fight goes first), the starting hand, then your character.
         if(state.fresh||!activeOf(state,'party')){
             if(!opts.enemyFirst)first=Math.random()<.5?'party':'enemy';
@@ -877,7 +912,7 @@ export function mountBattle({host,sound=createBattleSound(),onBurst=()=>{},onSto
         banner(first==='party'?'You attack first':'Your opponent attacks first',`Round ${state.round}`,null,'tb-banner-big');sound.phase();await wait(reduced()?500:1500);if(!live(at))return null;
         await phaseBanner('Roll Phase','phase');if(!live(at))return null;
         const dice=await opts.roll?.(state);if(!live(at)||!dice)return null;
-        round=startRound(state,{dice,first,hand,deck,items:ITEMS,strikeBack:opts.strikeBack!==false,difficulty:state.difficulty});
+        round=startRound(state,{dice,first,hand,deck,items:ITEMS,strikeBack:opts.strikeBack!==false,difficulty:state.difficulty});round.chooser=true;
         state=structuredClone(round.state);state.hand=round.hand;
         mode='turn';dialog.dataset.mode='turn';refresh();
         await phaseBanner('Action Phase','phase');if(!live(at))return null;
@@ -895,6 +930,8 @@ export function mountBattle({host,sound=createBattleSound(),onBurst=()=>{},onSto
                 if(round.turn==='enemy'&&!round.ended.party)lastTurn='';
                 continue;
             }
+            // A prepared skill is the character's next action: it plays by itself.
+            if(preparedDue(round)){mode='busy';setActing('party');refresh();const p=statusOfUnit(activeOf(round.state,'party'),'preparing');banner(p?.move?.name || 'Prepared skill','Prepared skill',null,'tb-banner-note');await wait(reduced()?150:600);const r=usePrepared(round);await playEvents(r.events);if(!live(at))return null;continue;}
             mode='turn';setActing('party');speed=1;skipAll=false;refresh();
             const turn=new Promise(resolve=>{turnDone=resolve;});
             if(autoPlay)void autoTurn();

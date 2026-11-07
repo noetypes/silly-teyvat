@@ -9,7 +9,7 @@ import {linkedCard} from './persona-link.js';
 import {activePersonaAvatar,personaKey} from './persona-wardrobe.js';
 import {activeGroup} from './party.js';
 import {resonanceOf,planIntent,innateAura,auraList,applyForm} from './battle-engine.js';
-import {addToBag} from './battle-items.js';
+import {addToBag,CARD_DEFS,ITEMS} from './battle-items.js';
 import {formArt} from './battle-icons.js';
 import {journeyBag} from './starter-decks.js';
 
@@ -84,7 +84,9 @@ export function battleSnapshot(ctx,{portrait=()=>'',duel=null}={}){
     const pick=(sideName,id)=>units.some(u=>u.side===sideName&&u.id===id&&u.hp>0)?id:null;
     state.active={party:pick('party',saved.active?.party),enemy:pick('enemy',saved.active?.enemy)};
     state.fresh=!saved.active?.party;
-    const bag={...state.bag};state.hand=(saved.hand || []).filter(id=>bag[id]>0&&bag[id]--);
+    // Cards a skill created stay in hand between rounds of the fight; the rest must still be in the bag.
+    const bag={...state.bag};state.hand=(saved.hand || []).filter(id=>!ITEMS[id]&&CARD_DEFS[id]?.generated || bag[id]>0&&bag[id]--);
+    state.team=structuredClone(saved.team || {});
     state.first=saved.first==='enemy'?'enemy':'party';
     state.resonance=resonanceOf(units);
     // An enemy without a telegraphed move picks one now, and keeps it until it acts.
@@ -120,11 +122,11 @@ export function commitRound(ctx,before,result,id,{items=[],loot=[]}={}){
     }
     // The fight is over: what was owed has been paid, or was left behind by running away.
     if(result.victory||result.fled)for(const entry of Object.values(store.visits[before.key]?.enemies || {}))delete entry.spoils;
-    saved.round=after.round;saved.summons=after.summons;saved.fields=after.fields || [];saved.supports=after.supports || [];saved.supportSeq=after.supportSeq || 0;
+    saved.round=after.round;saved.summons=after.summons;saved.fields=after.fields || [];saved.team=after.team || {};saved.supports=after.supports || [];saved.supportSeq=after.supportSeq || 0;
     const over=result.victory||result.fled||result.wiped;
     // Weapons, Artifacts and supports last one fight: the next one starts without them.
     if(over){
-        delete saved.active;delete saved.hand;delete saved.first;saved.supports=[];
+        delete saved.active;delete saved.hand;delete saved.first;delete saved.team;saved.supports=[];
         for(const unit of Object.values(saved.units))unit.statuses=(unit.statuses || []).filter(s=>!s.slot);
     }
     else{saved.active={...(result.active || after.active || {})};saved.hand=[...(result.hand || [])];saved.first=result.first || 'party';}

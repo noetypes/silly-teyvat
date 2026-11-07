@@ -39,3 +39,32 @@
 /* 1.66: a summon without its own TCG card shows the TCG icon of the skill that summoned it. */
 #gi-battle .tb-summon-skill .tb-summon-art img { width: calc(var(--zs) * .62); height: calc(var(--zs) * .62); border-radius: 50%; background: radial-gradient(circle, color-mix(in srgb, var(--el) 45%, #10162a), #10162a); box-shadow: 0 0 0 2px color-mix(in srgb, var(--el) 60%, #fff), 0 0 12px var(--el); filter: none; }
 @media (max-aspect-ratio: 4/5) { #gi-battle .tb-summon-skill .tb-summon-art img { width: 30px; height: 30px; } }
+
+/* 1.67: Genius Invokation's newer mechanics on the board. */
+/* Fighting Spirit and Serpent's Subtlety fill the Energy pips: more, smaller and red-gold. */
+#gi-battle .tb-energy.tb-resource { gap: 2px; }
+#gi-battle .tb-energy.tb-resource i { width: 9px; height: 9px; }
+#gi-battle .tb-energy.tb-resource i.tb-on { background: radial-gradient(circle, #fff3e8 0 18%, #ff9a5a 50%, #d4472f); box-shadow: 0 0 8px #ff8a4a; }
+/* Counted states (Nightsoul points, Bond of Life, Bite Target, Battle Plan) show their number. */
+#gi-battle .tb-st-nightsoul { color: #1d1430; background: radial-gradient(circle at 40% 35%, #ffe9b8, #c98be8); box-shadow: 0 0 0 1.5px #f5d6ff, 0 0 8px #c98be8; font-weight: 700; }
+#gi-battle .tb-st-bond { color: #fff; background: radial-gradient(circle at 40% 35%, #ff8a8a, #8a1730); box-shadow: 0 0 0 1.5px #ffd2d2; font-weight: 700; }
+#gi-battle .tb-st-bite { color: #fff; background: radial-gradient(circle at 40% 35%, #8fd8ff, #1f5f9a); font-weight: 700; }
+#gi-battle .tb-st-technique, #gi-battle .tb-st-preparing, #gi-battle .tb-st-listen, #gi-battle .tb-st-crucible, #gi-battle .tb-st-vigil, #gi-battle .tb-st-flash { color: #2a2010; background: radial-gradient(circle at 40% 35%, #fff4d2, #d9b25e); font-weight: 700; }
+#gi-battle .tb-st-preparing { animation: tb-ready 900ms ease-in-out infinite alternate; }
+/* Techniques sit after the skills, a little smaller, on a teal medal. */
+#gi-battle .tb-move-technique .tb-medal { scale: .86; filter: hue-rotate(-40deg) saturate(1.2); }
+/* Side statuses beside the reaction fields. */
+#gi-battle .tb-field.tb-team { background: radial-gradient(circle, #2a2a40cc, #141826ee); box-shadow: 0 0 0 2px #d9c99a, 0 0 10px #b9a7ff88, 0 3px 8px #0009; }
+#gi-battle .tb-field.tb-team i { font-style: normal; font-weight: 700; color: #f4ead2; font-size: 14px; }
+/* Choosing one of the cards a skill offers. */
+#gi-battle .tb-offer { position: absolute; inset: 0; z-index: 30; display: grid; place-content: center; justify-items: center; gap: 14px; padding: 16px; background: #0b0f1fcc; color: #f4ead2; text-align: center; }
+#gi-battle .tb-offer strong { font-size: 18px; font-weight: 400; text-shadow: 0 2px 4px #000; }
+#gi-battle .tb-offer-cards { display: flex; flex-wrap: wrap; justify-content: center; gap: 14px; }
+#gi-battle .tb-offer-card { display: grid; gap: 6px; justify-items: center; width: clamp(96px, 16vw, 150px); padding: 0; border: 0; background: none; color: inherit; cursor: pointer; transition: transform 160ms; }
+#gi-battle .tb-offer-card img { width: 100%; aspect-ratio: .584; object-fit: cover; border-radius: 8px; box-shadow: 0 0 0 2px #e9d7a8, 0 8px 18px #000a; }
+#gi-battle .tb-offer-card span { font-size: 12px; line-height: 1.25; }
+#gi-battle .tb-offer-card:hover, #gi-battle .tb-offer-card:focus-visible { transform: translateY(-6px); outline: none; }
+#gi-battle .tb-offer-card:focus-visible img { box-shadow: 0 0 0 3px #fff, 0 0 18px #ffd76a; }
+/* Moveset editor: Genius Invokation effects the form cannot edit are listed as text. */
+.gi-effect.gi-effect-fixed { display: block; }
+.gi-effect.gi-effect-fixed p { margin: 0; font-size: 12px; line-height: 1.4; opacity: .9; }

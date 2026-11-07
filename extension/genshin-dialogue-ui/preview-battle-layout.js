@@ -8,19 +8,20 @@ import {iconsReady,characterIcon} from './battle-icons.js';
 // intro: begin as a new fight (VS, coin toss, starting hand, choice of character); otherwise Klee starts in front.
 // weapons: one character of each weapon type, every Burst charged and every die Omni, to watch each weapon's attacks;
 // active picks who starts in front.
-export async function showBattleLayout({crowd=false,intro=false,weapons=false,active=''}={}){
+export async function showBattleLayout({crowd=false,intro=false,weapons=false,active='',party:names=null}={}){
     await Promise.all([tcgCardsReady,iconsReady]);
     const make=(name,side,element)=>{
         const kit=defaultKit(name,{element,enemy:side==='enemy'});
         return {id:name,side,name,card:name,element:kit.element || element,art:tcgArt(name),img:characterIcon(name),hp:kit.hp,maxHp:kit.hp,energy:0,maxEnergy:kit.energy || 2,shield:0,statuses:[],aura:null,kit,cooldowns:{}};
     };
-    const party=weapons?[['Xingqiu','Hydro'],['Noelle','Geo'],['Xiao','Anemo'],['Fischl','Electro'],['Klee','Pyro']]:[['Klee','Pyro'],['Nahida','Dendro'],['Xingqiu','Hydro'],['Noelle','Geo'],...(crowd?[['Fischl','Electro'],['Ganyu','Cryo'],['Venti','Anemo']]:[])];
+    // party: [[name, element], …] to try particular characters (the Genius Invokation mechanics among them).
+    const party=names?names:weapons?[['Xingqiu','Hydro'],['Noelle','Geo'],['Xiao','Anemo'],['Fischl','Electro'],['Klee','Pyro']]:[['Klee','Pyro'],['Nahida','Dendro'],['Xingqiu','Hydro'],['Noelle','Geo'],...(crowd?[['Fischl','Electro'],['Ganyu','Cryo'],['Venti','Anemo']]:[])];
     const units=[...party.map(([name,element])=>make(name,'party',element)).map(u=>weapons?{...u,energy:u.maxEnergy}:u),make('Hilichurl Fighter','enemy','Physical'),make('Pyro Abyss Mage','enemy','Pyro'),make('Hydro Slime','enemy','Hydro')];
     const summon=(owner,side,name,element,o={})=>({id:`${owner}:${name}`,owner,side,name,element,power:2,heal:0,rounds:2,target:'one',targetId:null,decoy:false,...o});
     const summons=crowd?[summon('Fischl','party','Oz','Electro'),summon('Xingqiu','party','Rain Swords','Hydro',{power:0}),summon('Venti','party','Stormeye','Anemo'),summon('Nahida','party','Seed of Skandha','Dendro'),summon('Klee','party','Burning Flame','Pyro',{rounds:1}),
         summon('Pyro Abyss Mage','enemy','Flame Orb','Pyro'),summon('Hydro Slime','enemy','Bubble','Hydro'),summon('Hilichurl Fighter','enemy','Totem','Physical',{power:1})]:[];
     const state={key:'layout-demo',round:1,summons,units,resonance:resonanceOf(units),bag:{'sweet-madame':3,'hash-brown':2,'lotus-crisp':1,'toss-up':1,'fried-egg':1,'starsigns':1,'woven-flames':1},
-        active:intro?{party:null,enemy:null}:{party:active || 'Klee',enemy:'Hilichurl Fighter'},fresh:intro,hand:intro?[]:['sweet-madame','hash-brown','lotus-crisp','starsigns','woven-flames'],first:'party'};
+        active:intro?{party:null,enemy:null}:{party:active || party[0][0],enemy:'Hilichurl Fighter'},fresh:intro,hand:intro?[]:['sweet-madame','hash-brown','lotus-crisp','starsigns','woven-flames'],first:'party'};
     for(const unit of units.filter(u=>u.side==='enemy'))planIntent(state,unit,()=>.1);
     const board=mountBattle({host:document.body});
     const faces=weapons?Array(8).fill('Omni'):['Pyro','Hydro','Dendro','Geo','Omni','Omni','Cryo','Electro','Anemo',...(crowd?['Electro','Cryo','Anemo','Omni','Pyro','Geo']:[])];

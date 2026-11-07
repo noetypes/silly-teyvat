@@ -1,7 +1,7 @@
 // A stand-in for the battle board in tests: it rolls through the combat adapter's Roll Phase, then plays
 // the whole round with the automatic player (or a chooser of your own) and skips the screens.
 import {startRound,autoRound,deckFrom} from './battle-engine.js';
-import {ITEMS} from './battle-items.js';
+import {CARD_DEFS as ITEMS} from './battle-items.js';
 export function autoBattle({choose,onRun=()=>{},log=[]}={}){
     return {
         async run(state,options={}){

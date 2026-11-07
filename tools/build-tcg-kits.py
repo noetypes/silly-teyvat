@@ -45,7 +45,7 @@ def summons(text):
         desc = text[start + len(name):]
         nxt = re.search(r'Usage\(s\):\s*(\d+)', desc)
         desc = desc[:nxt.end()] if nxt else desc[:240]
-        power = re.search(rf'End Phase: Deals? (\d+) ({EL}) DMG', desc)
+        power = re.search(rf'End Phase:[^.]*?[Dd]eals? (\d+) ({EL}) DMG', desc)
         heal = re.search(r'[Hh]eals? .*?(\d+) HP', desc)
         decoy = bool(re.search(r'(Decrease|Reduce) DMG taken by|takes DMG: Decrease DMG', desc))
         rounds = int(nxt.group(1)) if nxt else (int(re.search(r'Duration \(Rounds\):\s*(\d+)', desc).group(1)) if re.search(r'Duration \(Rounds\):\s*(\d+)', desc) else 2)
@@ -71,8 +71,22 @@ def effects(text, skill_element):
         e = {'type': 'damage', 'power': int(first.group(1)) * SCALE, 'target': 'one'}
         if first.group(2) != skill_element: e['element'] = first.group(2)
         out.insert(0, e)
-    pierce = re.search(r'(\d+) Piercing DMG to all opposing characters on standby', own)
-    if pierce: out.append({'type': 'damage', 'power': int(pierce.group(1)), 'target': 'all', 'element': 'Physical'})
+    pierce = re.search(r'(\d+) Piercing DMG to (?:all )?(?:opposing )?characters? on standby', own)
+    if pierce: out.append({'type': 'damage', 'power': int(pierce.group(1)) * SCALE, 'target': 'standby'})
+    # Charged and Plunging Attacks: "If this is a Charged Attack, deal +1 DMG" and the like.
+    charged = re.search(r'(?:When|If) (?:this Skill is used as|this is) a Charged Attack[^.]*?\+(\d+) (?:additional )?DMG', own)
+    plunge = re.search(r'(?:When|If) (?:this Skill is used as|this is) a Plunging Attack[^.]*?\+(\d+) (?:additional )?DMG', own)
+    if out and out[0]['type'] == 'damage' and (charged or plunge):
+        out[0]['plus'] = {**({'charged': int(charged.group(1)) * SCALE} if charged else {}), **({'plunge': int(plunge.group(1)) * SCALE} if plunge else {})}
+    for name, kind in (('Agile Switch', 'agileSwitch'), ('Efficient Switch', 'efficientSwitch')):
+        m = re.search(rf'(?:creates? |gains? )?(\d+)? ?stacks? of {name}|creates? {name}', own)
+        if m: out.append({'type': kind, 'amount': int(m.group(1)) if m.lastindex and m.group(1) else 1})
+    plan = re.search(r'(\d+)? ?stacks? of Battle Plan|gains? Battle Plan', own)
+    if plan: out.append({'type': 'plan', 'amount': int(plan.group(1)) if plan.lastindex and plan.group(1) else 1, 'target': 'self'})
+    draw = re.search(r'[Dd]raws? (\d+) cards?', own)
+    if draw and not re.search(r'When this card|0 Usages', own[:draw.start()][-60:]): out.append({'type': 'draw', 'amount': int(draw.group(1))})
+    nightsoul = re.search(r"enters? Nightsoul's Blessing(?:,| and) (?:gains? )?(\d+) Nightsoul points?", own)
+    if nightsoul: out.append({'type': 'nightsoul', 'amount': int(nightsoul.group(1))})
     every = re.search(rf'(\d+) ({EL}) DMG to all opposing characters', own)
     if every and not first: out.insert(0, {'type': 'damage', 'power': int(every.group(1)) * SCALE, 'target': 'all'})
     heal = re.search(r'[Hh]eals? (all (?:of )?your characters|this character|yourself|your active character|)\s*(?:for )?(\d+) HP', own) or re.search(r'[Hh]eals? .{0,60}?(\d+) HP', own)
@@ -111,13 +125,20 @@ def kit(card):
     out = {'energy': next((n for n, d in zip(burst['cost'], burst['dice']) if d == 'Energy'), 2)}
     m = re.search(rf'Deals? (\d+) ({EL}) DMG', clean(na['text']))
     out['normal'] = {'name': na['name'], 'power': (int(m.group(1)) if m else 2) * SCALE, 'element': m.group(2) if m else 'Physical'}
+    na_text = clean(na['text'])
+    for kind, word in (('charged', 'Charged'), ('plunge', 'Plunging')):
+        bonus = re.search(rf'{word} Attack[^.]*?\+(\d+) (?:additional )?DMG', na_text)
+        if bonus: out['normal'].setdefault('plus', {})[kind] = int(bonus.group(1)) * SCALE
     # Several Elemental Skills: the first is the character's Skill (the others are not playable here).
     # A prepared skill ("Prepare Skill: Wavestrider") lands in the same move here.
+    # A prepared skill ("Prepare Skill: Wavestrider") is its own follow-up action: the engine plays it as the
+    # character's next action (battle-engine.js usePrepared).
     used = set()
     def moves(s):
         found = effects(s['text'], element)
         for name, extra in prepared.items():
-            if name in s['text'] and name not in used: used.add(name); found += effects(extra['text'], element)
+            if name in s['text'] and name not in used:
+                used.add(name); found.append({'type': 'prepare', 'name': name, 'effects': effects(extra['text'], element)})
         return found
     out['skill'] = {'name': skill['name'], 'cost': cost(skill), 'effects': moves(skill)}
     out['burst'] = {'name': burst['name'], 'cost': cost(burst), 'effects': moves(burst)}

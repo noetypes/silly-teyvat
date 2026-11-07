@@ -1,6 +1,6 @@
 // Character Customization → Moveset: edit a character's or enemy's three moves and
 // their effects. Saved per card (or per persona) and used from the next battle round.
-import {WEAPONS,ROLES,EFFECT_TYPES,BUFF_STATS,DEBUFF_STATS,TARGETS,KIND_LABEL,describeMove,escapeHtml,saveKitOverride,resetKitOverride} from './combat-kits.js';
+import {WEAPONS,ROLES,EFFECT_TYPES,BUFF_STATS,DEBUFF_STATS,TARGETS,KIND_LABEL,describeMove,describeEffect,escapeHtml,saveKitOverride,resetKitOverride} from './combat-kits.js';
 import {kitForCard} from './battle-state.js';
 import {characterProperties} from './character-properties.js';
 import {linkedCard} from './persona-link.js';
@@ -17,6 +17,8 @@ export function mountMovesetEditor({panel,getContext,getCharacter,status=()=>{}}
     panel.classList.add('gi-moveset');
     const saveKey=()=>card?.isPersona?(linkedCard(getContext(),card.personaAvatar)?.avatar || card.avatar):card?.avatar;
     function effectRow(effect,moveIndex,effectIndex){
+        // Genius Invokation mechanics the form cannot edit (Nightsoul, Techniques, created cards…) are shown as text and kept as they are.
+        if(!EFFECT_TYPES.includes(effect.type))return `<div class="gi-effect gi-effect-fixed" data-move="${moveIndex}" data-effect="${effectIndex}" data-fixed="true"><p>${esc(describeEffect(effect,kit?.element) || effect.type)}</p><button type="button" data-remove-effect aria-label="Remove effect">×</button></div>`;
         const t=effect.type,valueKey={damage:'power',heal:'amount',shield:'amount',buff:'amount',debuff:'amount',summon:'power',energy:'amount',hpcost:'amount'}[t];
         const stat=t==='buff'?BUFF_STATS:t==='debuff'?DEBUFF_STATS:null;
         return `<div class="gi-effect" data-move="${moveIndex}" data-effect="${effectIndex}">
@@ -66,7 +68,7 @@ export function mountMovesetEditor({panel,getContext,getCharacter,status=()=>{}}
             const section=panel.querySelector(`.gi-move-edit[data-move="${i}"]`);
             const normalDefault=move.kind==='normal'&&!enemy&&move.element===(kit.weapon==='catalyst'?element:'Physical');
             section.querySelector('[data-m="element"]').value=normalDefault?'':move.element || '';
-            (move.effects || []).forEach((e,j)=>{const row=section.querySelector(`[data-effect="${j}"]`);row.querySelector('[data-f="type"]').value=e.type;if(row.querySelector('[data-f="stat"]'))row.querySelector('[data-f="stat"]').value=e.stat;row.querySelector('[data-f="target"]').value=e.target;});
+            (move.effects || []).forEach((e,j)=>{const row=section.querySelector(`[data-effect="${j}"]`);if(row.dataset.fixed)return;row.querySelector('[data-f="type"]').value=e.type;if(row.querySelector('[data-f="stat"]'))row.querySelector('[data-f="stat"]').value=e.stat;row.querySelector('[data-f="target"]').value=e.target;});
         });
         describe();
     }
@@ -85,6 +87,7 @@ export function mountMovesetEditor({panel,getContext,getCharacter,status=()=>{}}
             if(move.kind==='special')out.cooldown=num(field('cooldown'),1,9,3);
             const chosen=field('element');out.element=chosen || (move.kind==='normal'&&!enemy?(next.weapon==='catalyst'?element:'Physical'):undefined);if(!out.element)delete out.element;
             out.effects=[...section.querySelectorAll('.gi-effect')].map(row=>{
+                if(row.dataset.fixed)return structuredClone(move.effects?.[Number(row.dataset.effect)]);
                 // Options the form has no field for (a decoy, or an element of its own) stay with their effect.
                 const f=name=>row.querySelector(`[data-f="${name}"]`),type=f('type').value,original=move.effects?.[Number(row.dataset.effect)];
                 const e={...(original?.type===type?original:{}),type,target:f('target').value};

@@ -61,7 +61,7 @@ export async function runBattleTests(){
         check('an enemy that started the fight acts first',order(resolveRound(duo(),[{actor:'k',move:1}],{...opts,enemyFirst:true})).startsWith('h>k'));
         check('enemies take two actions a round',resolveRound(duo(),[{actor:'k',move:-1},{actor:'k',move:-1},{actor:'k',move:-1}],opts).timeline.filter(e=>e.type==='act'&&e.actor==='h').length===2);}
         r=resolveRound(slime,[{actor:'k',move:1,target:'s'}],{...opts,strikeBack:false});
-        check('attacking with the target\'s own element is resisted',hits(r)[0].resisted&&hits(r)[0].amount<=3);
+        check('attacking with the target\'s own element is resisted (a quarter less)',hits(r)[0].resisted&&hits(r)[0].amount<6);
         const swirl=party(unit('v','party','Venti','Anemo'),unit('a','enemy','Hydro Slime','Hydro',{aura:{element:'Pyro',rounds:2}}),unit('b','enemy','Hilichurl Fighter','Physical'));
         r=resolveRound(swirl,[{actor:'v',move:1,target:'a'}],{...opts,strikeBack:false});
         check('Anemo swirls an aura onto other enemies',hits(r).some(e=>e.reaction==='Swirl')&&hits(r).some(e=>e.target==='b'&&e.element==='Pyro'&&e.source==='Swirl')&&r.state.units.find(u=>u.id==='b').aura?.element==='Pyro');
@@ -317,7 +317,7 @@ export async function runBattleTests(){
         panel.querySelector('[data-reset-kit]').click();
         check('reset restores the default moveset',kitForCard(ctx,ctx.characters[0]).moves[1].name==='Jumpy Dumpty'&&!kitForCard(ctx,ctx.characters[0]).custom);
         ctx.characters[0]={name:'Fischl',avatar:'Fischl.png',data:{extensions:{silly_teyvat:{playable:true,element:'Electro'}}}};editor.refresh();panel.querySelector('[data-save-kit]').click();
-        check('saving keeps an effect option the form has no field for',kitForCard(ctx,ctx.characters[0]).moves[2].effects[1].element==='Physical');
+        check('saving keeps an effect option the form has no field for',kitForCard(ctx,ctx.characters[0]).moves[2].effects[1].target==='standby');
         ctx.characters[0]={name:'Hilichurl Fighter',avatar:'Hilichurl Fighter.png',data:{extensions:{silly_teyvat:{role:'enemy'}}}};editor.refresh();
         panel.querySelector('[data-k="element"]').value='Cryo';panel.querySelector('[data-save-kit]').click();
         check('an enemy keeps the element chosen in its moveset',kitForCard(ctx,ctx.characters[0]).element==='Cryo'&&panel.querySelector('[data-k="element"]').value==='Cryo');

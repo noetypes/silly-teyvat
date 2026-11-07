@@ -1,3 +1,32 @@
+# Silly Teyvat 1.67.0: Nightsoul, Techniques, Lunar reactions, Bond of Life and a balance pass
+
+- **The newer Genius Invokation mechanics are in the battle rules**, from the Genshin Impact Wiki's card text:
+  - **Nightsoul's Blessing** with its points, and **Techniques**: extra Combat Actions that appear beside
+    a character's skills (Mualani's Sharky Surfboard, Kachina's Twirly Twirly Bam Bam, Mavuika's
+    Flamestrider cards and more).
+  - **Fighting Spirit** (Mavuika) and **Serpent's Subtlety** (Skirk) fill the Energy pips; their Bursts
+    spend all of it and hit harder for each point.
+  - **Bond of Life** absorbs healing (Arlecchino, Clorinde, Sigewinne).
+  - **Lunar-Charged, Lunar-Bloom and Lunar-Crystallize** replace their reactions when a Moonsign character
+    (Lauma, Nefer, Flins, Ineffa, Columbina) is in the party: Thunderclouds and Electric Shock, card
+    Cost Reduction, Moondrift.
+  - **Cards made by skills**: Flamestrider (pick one of three), Void Rift, Mutual Weapons Mentorship,
+    Shadowhunt Shells, Seeds of Deceit, Bolstering Bubblebalms that act when drawn, Moondrift Harmony.
+  - **Card Cost Reduction**, **Agile and Efficient Switch**, **Battle Plan**, **Charged and Plunging
+    Attacks**, **prepared skills** that play as the character's next action, and true **Piercing**
+    damage to enemies on standby that ignores shields.
+- **Lauma, Mavuika, Mualani and Skirk** now play their cards in full, along with Kinich, Kachina,
+  Xilonen, Citlali, Chasca, Ororon, Iansan, Varesa, Ifa, Columbina, Flins, Ineffa, Nefer, Aino,
+  Arlecchino, Clorinde and Sigewinne (`tcg-special-kits.js`). Where a card works on the opponent's hand or
+  deck, which enemies here do not have, it is adapted (Electric Shock deals its damage at the next End Phase).
+- **Auto uses Elemental Tuning**: it turns a die into the element it needs with the card worth least.
+- **Balance**, from `tools/simulate-battles.mjs` (whole fights with the real kits and rules). Ordinary
+  enemies have 70% of their health: a fight with one or two weak enemies takes about 3 rounds, two or
+  three mixed ones about 5, a tough pair about 6. Bosses have more health and hit harder: about 8 rounds,
+  costing a four-character party around 40% of its health, with someone falling in about a third of the
+  fights. An enemy's own element now takes a quarter off, not half, so no fight stalls.
+- The Moveset editor lists effects it cannot edit (Nightsoul, Techniques and the like) as text; saving keeps them.
+
 # Silly Teyvat 1.66.0: Kits from the Genius Invokation cards, a real Auto and 20-card starter decks
 
 - **Every character with a Genius Invokation card now plays that card's kit** (108 of them): its skill
