@@ -1,3 +1,4 @@
+import {sharedAudioContext} from './audio-context.js';
 // Interface sounds: the game's own short clips (GAME-AUDIO.md lists where each came from), decoded once
 // and played through Web Audio. An element can name its sound with data-gi-sound, "none" included;
 // everything else follows soundFor. Hovering is silent.
@@ -13,7 +14,7 @@ const OPENING={'gi-inventory':'section-artifact','gi-world-map':'map'};
 const VARIANTS={namecard:{clip:'section-profile',level:.4},'section-tab':{clip:'section-constellation',level:.7},'toggle-off':{clip:'close'}};
 const clipUrl=name=>new URL(`assets/ui-sound/${name}.mp3`,import.meta.url).href;
 
-export function createUiSound({getVolume=()=>1,makeContext=()=>new (globalThis.AudioContext || globalThis.webkitAudioContext)(),fetchClip=url=>fetch(url)}={}){
+export function createUiSound({getVolume=()=>1,makeContext=sharedAudioContext,fetchClip=url=>fetch(url)}={}){
     const clips=new Map(),played=new Map();let ctx;
     // A sound for a menu that opened on its own must not wait and play on the user's next click.
     async function ready(){
@@ -26,6 +27,13 @@ export function createUiSound({getVolume=()=>1,makeContext=()=>new (globalThis.A
         return clips.get(name);
     }
     return {
+        // Creating the context takes tens of milliseconds, a long stall on a phone. Do it while the page is idle,
+        // so the first tap does not pay for it. It starts suspended and the first gesture resumes it.
+        warm(){
+            if(ctx||!getVolume())return;
+            const make=()=>{if(!ctx)try{ctx=makeContext();}catch{}};
+            if(globalThis.requestIdleCallback)requestIdleCallback(make,{timeout:5000});else setTimeout(make,1500);
+        },
         async play(name){
             const volume=getVolume(),now=performance.now();
             if(!volume||now-(played.get(name) ?? -1e3)<45)return false;
@@ -34,7 +42,7 @@ export function createUiSound({getVolume=()=>1,makeContext=()=>new (globalThis.A
             const source=ctx.createBufferSource(),gain=ctx.createGain();
             source.buffer=buffer;gain.gain.value=volume*level;source.connect(gain).connect(ctx.destination);source.start();return true;
         },
-        dispose(){clips.clear();void ctx?.close?.().catch(()=>{});ctx=undefined;},
+        dispose(){clips.clear();if(makeContext!==sharedAudioContext)void ctx?.close?.().catch(()=>{});ctx=undefined;},
     };
 }
 // Game events with no button of their own, such as the teleport veil or a rise in trust.
@@ -56,6 +64,7 @@ export function soundFor(element){
     return element.matches(CLOSING)?'close':'press';
 }
 export function mountUiSound({sound,signal}){
+    sound.warm?.();
     document.addEventListener('click',event=>{
         const element=event.target.closest?.(TARGET);if(!element?.closest(SCOPE)||element.disabled)return;
         const name=soundFor(element);if(name!=='none')void sound.play(name);

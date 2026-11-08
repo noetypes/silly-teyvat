@@ -2,14 +2,13 @@
 // for table bounces, a bright resin "clack" when dice hit each other or the
 // rim, a soft toss whoosh, and a crystalline chime as matching dice light up.
 // Everything is generated with Web Audio; no recorded game audio is bundled.
+import {sharedAudioContext} from './audio-context.js';
 export function createDiceSound() {
     let ctx, master, noise;
     function ready(volume) {
         if (!volume) return false;
-        const Audio = globalThis.AudioContext || globalThis.webkitAudioContext;
-        if (!Audio) return false;
         try {
-            ctx ??= new Audio();
+            ctx ??= sharedAudioContext();
             if (ctx.state === 'suspended') void ctx.resume().catch(() => {});
             if (!master) { master = ctx.createGain(); master.connect(ctx.destination); }
             master.gain.value = Math.max(0, Math.min(1, volume)) * .7;

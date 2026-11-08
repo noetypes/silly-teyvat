@@ -1,3 +1,14 @@
+# Silly Teyvat 1.72.0: Lighter on a phone
+
+Measured in headless Chrome with the CPU slowed four times (`node tools/bench-perf.mjs`), then fixed:
+
+- **The first tap on the menu no longer stalls.** Opening the Paimon menu the first time created the sound engine inside the tap, a 200 ms freeze at 4× slowdown. It is created while the page is idle, and interface, battle and dice sounds now share one `AudioContext` instead of making three.
+- **The map opens with a tenth of the elements.** Waypoint markers outside the view are not drawn, the waypoint list is built only once its panel is open (phones start with it closed), rows below the fold are skipped until they scroll near, and choosing a waypoint redraws the two markers that changed instead of all of them. Opening the map: 2,831 new elements before, 270 now; the cost of opening it fell by 40%, reopening it by 54%.
+- **Reading while a reply streams costs less per frame.** The settings panel is painted only while it is on screen, and its Reset buttons are worked out in one pass over the settings instead of a pass per button (11.9 ms to 6.9 ms of script per frame, in a 100-message chat).
+- **Starter-location music is checked six files at a time**, not all two hundred at once, when a game update adds locations.
+- **Flows that were flags are now state machines** (`machine.js`, checked by `node tools/test-machine.mjs`): reading / review / hidden and the Paimon menu with its namecard picker (`index.js`), the map card's list / details / place / editor views and its one-job-at-a-time busy state (`world-map.js`), the battle board's phases, and a fight being idle, forced or on the board (`battle-ui.js`, `combat.js`). Each state lists what may follow it, and what must happen on the way in or out is written once. An illegal move is refused instead of leaving half-set flags behind.
+- **Fixed:** if the Characters screen could not list a character's sprites, its controls stayed locked until another character was chosen. A failed load now unlocks them so another outfit or character can be tried.
+
 # Silly Teyvat 1.71.0: Everyone in the scene speaks
 
 - **One reply can voice the whole scene.** A reply is written in speaker parts, each starting with a name and a colon (`Kamisato Ayato:`, `Narrator:`), and every part is saved as its own chat message. The name plate, sprites, expressions, CGs and Trust follow whoever is talking, and the history shows the model who said what (`group-reply.js`).

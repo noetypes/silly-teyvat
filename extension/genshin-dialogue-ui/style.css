@@ -1836,6 +1836,8 @@ dialog#gi-world-map#gi-world-map[open][data-enter="minimap"] { animation: gi-map
 }
 #gi-world-map .gi-map-waypoint-list button:hover { background: linear-gradient(90deg, #ece5d826, #ece5d80a); translate: 3px 0; }
 #gi-world-map .gi-map-waypoint-list button[aria-current="true"] { background: linear-gradient(90deg, #d3bc8e40, #d3bc8e0d); box-shadow: inset 3px 0 0 var(--ty-gold-hi); }
+/* Waypoint rows below the fold are neither styled nor laid out until they scroll near. */
+#gi-world-map .gi-map-waypoint-list > button { content-visibility: auto; contain-intrinsic-size: auto 52px; }
 #gi-world-map .gi-map-waypoint-list img { width: 22px; height: 28px; object-fit: contain; }
 #gi-world-map .gi-map-waypoint-list span { display: grid; min-width: 0; }
 #gi-world-map .gi-map-waypoint-list b { font-weight: normal; font-size: 14px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }

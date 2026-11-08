@@ -1,14 +1,13 @@
 // Synthesised battle sounds: elemental impacts, reactions, heals, buffs, bursts and
 // fanfares. Everything is generated with Web Audio; no recorded game audio is bundled.
 // clips: false keeps every sound synthesised (the audition page compares both).
+import {sharedAudioContext} from './audio-context.js';
 export function createBattleSound({clips = true} = {}) {
     let ctx, master, air, hall, noise, volume = 0;
     function ready() {
         if (!volume) return false;
-        const Audio = globalThis.AudioContext || globalThis.webkitAudioContext;
-        if (!Audio) return false;
         try {
-            ctx ??= new Audio();
+            ctx ??= sharedAudioContext();
             if (ctx.state === 'suspended') void ctx.resume().catch(() => {});
             if (!master) {
                 master = ctx.createDynamicsCompressor(); master.threshold.value = -14; master.ratio.value = 4; master.connect(ctx.destination);

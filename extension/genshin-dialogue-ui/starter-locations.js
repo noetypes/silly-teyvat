@@ -110,17 +110,24 @@ export function seedWorldLocations(ctx,catalog,availableMusic=[]){
     }
     prefs.starterLocationsVersion=catalog.version;ctx.saveSettingsDebounced();return added;
 }
+// Like Promise.all(list.map(fn)), but never more than `limit` calls at once. Results keep the list's order.
+async function mapLimit(list,limit,fn){
+    const out=new Array(list.length);let next=0;
+    await Promise.all(Array.from({length:Math.min(limit,list.length)},async()=>{while(next<list.length){const i=next++;out[i]=await fn(list[i]);}}));
+    return out;
+}
 export async function loadStarterLocations(ctx){
     if(mediaSettings(ctx).starterLocationsVersion>=starterCatalogVersion)return 0;
     const response=await fetch(new URL('assets/world-locations/catalog.json',import.meta.url));
     if(!response.ok)throw new Error('Starter location catalog could not be loaded. Your existing map is unchanged.');
     const catalog=await response.json();
     const candidates=(catalog.defaultMusicLibrary || []).filter(track=>/^music-game-[0-9a-f]{20}$/.test(track?.id || '')&&/^\/user\/files\/[a-z0-9-]+\.m4a$/.test(track?.path || ''));
-    const available=await Promise.all(candidates.map(async track=>{
+    // About two hundred tracks: asked a few at a time, so a phone hosting SillyTavern is not hit by all of them at once.
+    const available=await mapLimit(candidates,6,async track=>{
         try{
             const res=await fetch(track.path,{method:'HEAD'});
             return res.ok&&!res.redirected&&/^audio\//i.test(res.headers.get('content-type') || '')?track:null;
         }catch{return null;}
-    }));
+    });
     return seedWorldLocations(ctx,catalog,available.filter(Boolean));
 }

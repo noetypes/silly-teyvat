@@ -21,6 +21,7 @@ import {mountCharacterBackdrop} from './character-backdrop.js';
 import {elementCrest} from './element-crest.js';
 import {elementIcon} from './battle-icons.js';
 import {mountStarterDeck} from './starter-decks.js';
+import {createMachine} from './machine.js';
 const KEY = 'genshin_dialogue_ui';
 export const expressionLabels = 'admiration amusement anger annoyance approval caring confusion curiosity desire disappointment disapproval disgust embarrassment excitement fear gratitude grief joy love nervousness optimism pride realization relief remorse sadness surprise neutral'.split(' ');
 export function validFolder(value) {
@@ -175,7 +176,7 @@ export function mountWardrobe({host, getContext, onChange = async () => {}, onMe
     const abort = new AbortController();
     const trimmer = createSpriteTrimmer({ inventory: path => path === folder() ? Promise.resolve(sprites) : adapter.list(path), concurrency: 2 });
     const $ = sel => dialog.querySelector(sel);
-    let character, sets = [], sprites = [], selected, selectedCG, tab = 'attributes', backup, revision = 0, busy = false, ready = false, opener,personaRefreshPending=false;
+    let character, sets = [], sprites = [], selected, selectedCG, tab = 'attributes', backup, revision = 0, opener,personaRefreshPending=false;
     const status = text => { const p=$('footer p'); p.textContent = text; p.classList.remove('gi-toast'); void p.offsetWidth; p.classList.add('gi-toast'); };
     const backgroundUI=mountBackgroundWardrobe({panel:backgroundPanel,getContext,adapter:mediaAdapter,onChange:onMediaChange,status,openMap:options=>{dialog.close();return openMap(options);},preview:(location,region)=>{
         if(tab!=='backgrounds')return;const img=$('.gi-wardrobe-preview img');clearArt(img);img.hidden=!location?.path;if(location?.path)img.src=localMediaPath(location.path);else img.removeAttribute('src');$('.gi-cs-identity h3').textContent=region?.name || 'World travel';$('.gi-outfit-caption').textContent=location?.label || 'Choose a region and add locations';
@@ -416,7 +417,7 @@ export function mountWardrobe({host, getContext, onChange = async () => {}, onMe
         $('.gi-roster').hidden=tab==='backgrounds';paintTitle();$('.gi-wardrobe-controls').classList.remove('gi-panel-in');void $('.gi-wardrobe-controls').offsetWidth;$('.gi-wardrobe-controls').classList.add('gi-panel-in');dialog.classList.toggle('gi-background-wardrobe',tab==='backgrounds');
         for(const button of dialog.querySelectorAll('.gi-wardrobe-tabs button'))button.setAttribute('aria-pressed',String(button.dataset.w===`tab-${tab}`));
         if(tab==='backgrounds'){backgroundUI.refresh();return;}
-        if(!ready)return;
+        if(!ready())return;
         if(tab==='moveset')movesetUI.refresh();
         $('.gi-cs-identity h3').textContent=character?.name || '';
         if(tab==='cgs'){renderCGs();if(!selectedCG&&cgs().length)chooseCG(cgs()[0]);else if(!selectedCG){$('.gi-wardrobe-preview img').hidden=true;$('.gi-outfit-caption').textContent='Scene artwork';}const n=cgs().filter(cg=>cg.path).length;status(n?`${n} scene ${n===1?'artwork':'artworks'} for ${character?.name || 'this character'}.`:`No scene artwork for ${character?.name || 'this character'} yet. Add some below.`);}
@@ -441,13 +442,27 @@ export function mountWardrobe({host, getContext, onChange = async () => {}, onMe
         }
         grid.append(addTile('add-blank-sprite','Add expression'));
     }
+    // The character's sprites: not loaded yet, loading (controls inert), ready, or failed. A failed load used to
+    // leave the controls inert for good; now the player can pick another outfit or character to try again.
+    const content = createMachine({ name: 'wardrobe-content', initial: 'empty', states: {
+        empty: { on: { LOAD: 'loading', CLOSE: { target: 'empty', internal: true } } },
+        loading: { on: { LOAD: 'loading', READY: 'ready', FAIL: 'failed', CLOSE: 'empty' } },
+        ready: { on: { LOAD: 'loading', CLOSE: 'empty' } },
+        failed: { on: { LOAD: 'loading', CLOSE: 'empty' } },
+    }, onChange: state => { $('.gi-wardrobe-controls').inert = state === 'loading'; } });
+    // One action at a time (upload, save, delete...); the dialog is marked busy and its controls disabled meanwhile.
+    const task = createMachine({ name: 'wardrobe-task', initial: 'idle', states: {
+        idle: { on: { WORK: 'working' } }, working: { on: { DONE: 'idle' } },
+    }, onChange: state => { if (state === 'working') dialog.setAttribute('aria-busy', 'true'); else dialog.removeAttribute('aria-busy'); } });
+    const ready = () => content.is('ready'), busy = () => task.is('working');
     async function load() {
-        const token = ++revision, path = folder(); ready = false; $('.gi-wardrobe-controls').inert = true;
+        const token = ++revision, path = folder(); content.send('LOAD');
         selected = undefined; sprites = []; trimmer.reset(); $('.gi-sprite-detail').hidden = true; $('.gi-remove-confirm').hidden = true;
         $('.gi-selected-sprite-tools').hidden = true;
         $('.gi-expression-grid').replaceChildren(); $('.gi-cg-grid').replaceChildren(); showCGVideo(null);
         const preview = $('.gi-wardrobe-preview img'); clearArt(preview); preview.hidden = true; preview.removeAttribute('src');
-        const files = await adapter.list(path);
+        let files;
+        try { files = await adapter.list(path); } catch (error) { if (token === revision) content.send('FAIL'); throw error; }
         if (token !== revision || !dialog.open) return;
         sprites = files;
         $('.gi-current-outfit').textContent = `Equipped: ${sets.find(x => x.folder === currentFolder())?.label || currentFolder()}`;
@@ -462,7 +477,7 @@ export function mountWardrobe({host, getContext, onChange = async () => {}, onMe
         await new Promise(resolve => requestAnimationFrame(() => setTimeout(resolve, 0)));
         if (token !== revision || !dialog.open) return;
         propertiesUI.refresh(); startingTrustUI.refresh(); starterDeckUI.refresh(); personaProfileUI.refresh(); burstAudioUI.refresh();
-        populateExpressions(); renderSprites(); ready = true; $('.gi-wardrobe-controls').inert = false;
+        populateExpressions(); renderSprites(); content.send('READY');
         const personaExpression = character.isPersona && sprites.find(x => spriteIdentity(x.path).name === personaSpriteSettings(getContext(),character.personaAvatar).expression);
         if (personaExpression && personaExpression !== first) chooseSprite(personaExpression);
         if (!first && spriteDrafts(getContext(),folder()).length) chooseSprite(draftSprite(folder(),spriteDrafts(getContext(),folder())[0]));
@@ -516,18 +531,18 @@ export function mountWardrobe({host, getContext, onChange = async () => {}, onMe
         if (name === 'close') { dialog.close(); return; }
         if (name === 'archive' || name === 'archive-close') { showArchive(name === 'archive'); return; }
         if (name === 'zoom') { setZoom(dialog.dataset.zoom !== 'on'); return; }
-        if (busy) return;
+        if (busy()) return;
         if (name.startsWith('tab-')) { switchTab(name.slice(4)); return; }
         if (name === 'section-prev' || name === 'section-next') { stepSection(name === 'section-next' ? 1 : -1); return; }
         if (name === 'character-prev' || name === 'character-next') { stepCharacter(name === 'character-next' ? 1 : -1); return; }
-        if (!ready) return;
+        if (!ready()) return;
         if (!character) return;
         if (name === 'remove') { $('.gi-remove-confirm').hidden = false; $('.gi-remove-confirm p').textContent = `Remove ${spriteIdentity(selected.path).filename} from this set? Saved scenes using this image need the file. Undo is available until this page is reloaded.`; return; }
         if (name === 'cancel-remove') { $('.gi-remove-confirm').hidden = true; return; }
         if (name === 'set-new' || name === 'set-rename' || name === 'set-delete') { openSetEditor(name.slice(4)); return; }
         if (name === 'set-cancel') { closeSetEditor(); return; }
         let uploaded = 0;
-        busy = true; dialog.setAttribute('aria-busy', 'true');
+        task.send('WORK');
         dialog.querySelectorAll('input, select, textarea, button:not([data-w="close"])').forEach(el => el.disabled = true);
         try {
             if(name==='add-blank-sprite'){
@@ -703,7 +718,7 @@ export function mountWardrobe({host, getContext, onChange = async () => {}, onMe
             if (uploaded) { try { await changed(); await load(); } catch {} }
             status((uploaded ? `${uploaded} sprites uploaded before the error. ` : '') + (error.message || 'Sprite operation failed.'));
         }
-        finally { busy = false; dialog.removeAttribute('aria-busy'); dialog.querySelectorAll('input, select, textarea, button').forEach(el => el.disabled = false);$('#gi-character-x').disabled=!$('#gi-manual-position').checked;if(personaRefreshPending){personaRefreshPending=false;void renderRoster().catch(e=>status(e.message));} }
+        finally { task.send('DONE'); dialog.querySelectorAll('input, select, textarea, button').forEach(el => el.disabled = false);$('#gi-character-x').disabled=!$('#gi-manual-position').checked;if(personaRefreshPending){personaRefreshPending=false;void renderRoster().catch(e=>status(e.message));} }
     }
     dialog.addEventListener('click', e => { const name = e.target.closest('[data-w]')?.dataset.w; if (name) void action(name); }, {signal:abort.signal});
     const editCG=(id,event,apply)=>$(id).addEventListener(event,e=>{if(!selectedCG)return;apply(e.target);getContext().saveSettingsDebounced();},{signal:abort.signal});
@@ -715,7 +730,7 @@ export function mountWardrobe({host, getContext, onChange = async () => {}, onMe
     editCG('#gi-cg-video-volume','input',input=>{selectedCG.videoVolume=Number(input.value);paintCGVolume('video',selectedCG.videoVolume);});
     editCG('#gi-cg-audio-volume','input',input=>{selectedCG.audioVolume=Number(input.value);paintCGVolume('audio',selectedCG.audioVolume);});
     dialog.addEventListener('change',event=>{
-        if(busy||!character)return;const cp=characterPreferences(getContext(),character.avatar);let classification=false;
+        if(busy()||!character)return;const cp=characterPreferences(getContext(),character.avatar);let classification=false;
         switch(event.target.id){
             case 'gi-persona-visible':if(!character.isPersona)return;setPersonaSpriteSetting(getContext(),'enabled',event.target.checked,character.personaAvatar);break;
             case 'gi-character-expression-mode':cp.expressionMode=event.target.value;classification=true;break;
@@ -728,8 +743,8 @@ export function mountWardrobe({host, getContext, onChange = async () => {}, onMe
         }
         getContext().saveSettingsDebounced();void onChange(character,classification?{classification:true}:{presentation:true}).then(()=>status(classification?'Sprite classification mode saved.':'Scale and placement saved for this scene and future scenes.')).catch(e=>status(e.message));
     },{signal:abort.signal});
-    $('#gi-outfit').addEventListener('change', () => { closeSetEditor(); if (!busy) load().catch(e => status(e.message)); }, {signal:abort.signal});
-    dialog.addEventListener('close', () => { revision++; trimmer.reset(); arrival=false;dialog.classList.remove('gi-cs-arrive','gi-cs-sweep');setZoom(false);backdrop.stop(); showArchive(false); opener?.focus(); }, {signal:abort.signal});
+    $('#gi-outfit').addEventListener('change', () => { closeSetEditor(); if (!busy()) load().catch(e => status(e.message)); }, {signal:abort.signal});
+    dialog.addEventListener('close', () => { revision++; trimmer.reset(); content.send('CLOSE'); arrival=false;dialog.classList.remove('gi-cs-arrive','gi-cs-sweep');setZoom(false);backdrop.stop(); showArchive(false); opener?.focus(); }, {signal:abort.signal});
     // Q/E change character and W/S change section, as in the game. Text fields keep their letters.
     dialog.addEventListener('keydown', event => {
         // Escape leaves the character list before it leaves the screen, even from its search box.
@@ -754,7 +769,7 @@ export function mountWardrobe({host, getContext, onChange = async () => {}, onMe
         if(dialog.open)dialog.focus({preventScroll:true});
     }
     function archiveCard(ctx,c){
-        const b=makeButton('',()=>{if(busy)return;showArchive(false);selectCharacter(c).catch(e=>status(e.message));}),element=characterProperties(ctx,c).element,icon=elementCrest(element)&&document.createElement('img');
+        const b=makeButton('',()=>{if(busy())return;showArchive(false);selectCharacter(c).catch(e=>status(e.message));}),element=characterProperties(ctx,c).element,icon=elementCrest(element)&&document.createElement('img');
         b.dataset.element=element;b.dataset.giSound='section-profile';b.setAttribute('aria-label',c.isPersona?`${c.name} (your persona)`:c.name);b.setAttribute('aria-pressed',String(c.avatar===character?.avatar));
         const art=document.createElement('img');art.alt='';art.loading='lazy';art.src=circularCharacterAvatar(ctx,c);
         const face=document.createElement('span');face.className='gi-cs-archive-face';face.append(art);
@@ -780,7 +795,7 @@ export function mountWardrobe({host, getContext, onChange = async () => {}, onMe
         $('.gi-roster-reset').hidden=!filtered;$('.gi-roster-count').textContent=`${characters.length} shown`;$('.gi-cs-archive-open')?.toggleAttribute('data-filtered',filtered&&!!['type','element','body','gender','region'].some(key=>view[key]));
         $('#gi-hide-non-genshin').checked=hide;
         $('.gi-roster').replaceChildren(...characters.map(c=>{
-            const b=makeButton(c.name,()=>{if(!busy)selectCharacter(c).catch(e=>status(e.message));});b.dataset.avatar=c.avatar;b.dataset.giSound='section-profile';
+            const b=makeButton(c.name,()=>{if(!busy())selectCharacter(c).catch(e=>status(e.message));});b.dataset.avatar=c.avatar;b.dataset.giSound='section-profile';
             b.title=c.isPersona?`${c.name} (your persona)`:c.name;b.setAttribute('aria-label',b.title);
             if(c.isPersona){b.dataset.persona='true';const badge=document.createElement('span');badge.className='gi-persona-badge';badge.textContent='You';b.append(badge);}
             if(party.includes(c.avatar))b.dataset.party='true';
@@ -804,10 +819,10 @@ export function mountWardrobe({host, getContext, onChange = async () => {}, onMe
             opener = document.activeElement;
             if (!dialog.open) { dialog.showModal(); dialog.focus({preventScroll:true}); }
             backdrop.start();
-            if (busy) { status('Finishing the current sprite operation…'); personaRefreshPending = true; return; }
+            if (busy()) { status('Finishing the current sprite operation…'); personaRefreshPending = true; return; }
             await renderRoster(options.persona?personaCard(getContext())?.avatar:options.avatar);
         },
-        async refreshPersona(){if(!dialog.open)return;if(busy){personaRefreshPending=true;return;}await renderRoster(character?.isPersona?personaCard(getContext())?.avatar:undefined);},
+        async refreshPersona(){if(!dialog.open)return;if(busy()){personaRefreshPending=true;return;}await renderRoster(character?.isPersona?personaCard(getContext())?.avatar:undefined);},
         close() { if (dialog.open) dialog.close(); },
         dispose() { revision++; abort.abort(); backdrop.dispose(); trimmer.reset(); propertiesUI.dispose();startingTrustUI.dispose();starterDeckUI.dispose();movesetUI.dispose();burstAudioUI.dispose();personaProfileUI.dispose();backgroundUI.dispose();dialog.close(); dialog.remove(); },
     };

@@ -15,6 +15,7 @@ import {createBattleSound} from './battle-sound.js';
 import {createParticles,glyph,weaponIcon,EL_COLORS,SWORD_SVG} from './battle-fx.js';
 import {elementImg,reactionIcon,skillIcon,characterIcon,summonArt,fieldIcon,formArt} from './battle-icons.js';
 import {createWeaponFx,weaponOf,strikeKind} from './battle-weapons.js';
+import {createMachine} from './machine.js';
 
 const el=(tag,cls,text)=>{const n=document.createElement(tag);if(cls)n.className=cls;if(text!==undefined)n.textContent=text;return n;};
 // Battle numbers are saved in the chat's metadata, which an imported chat can fill, so any that go into markup are made numbers first.
@@ -102,8 +103,23 @@ export function mountBattle({host,sound=createBattleSound(),onBurst=()=>{},onSto
     host.append(dialog);
     const $=s=>dialog.querySelector(s),abort=new AbortController(),on=(node,type,fn,opt={})=>node.addEventListener(type,fn,{signal:abort.signal,...opt});
     const particles=createParticles(dialog.querySelector('.gb-particles'));
+    // The board's phase. Each phase lists the phases that may follow it, so a stray timer or click cannot leave the
+    // board somewhere no part of the flow expects. intro: VS, coin toss and starting hand. turn: yours to act.
+    // busy: events are playing. enemy: the opponent acts. choose: pick the next character. done: the round is
+    // over and being saved. result: Victory or the summary, until Continue. A new run or a cancel may come at any time.
+    const phase=createMachine({name:'battle-phase',initial:'idle',states:{
+        idle:{on:{intro:'intro',busy:'busy',result:'result',idle:{target:'idle',internal:true}}},
+        intro:{on:{turn:'turn',intro:'intro',busy:'busy',result:'result',idle:'idle'}},
+        turn:{on:{busy:'busy',enemy:'enemy',choose:'choose',turn:{target:'turn',internal:true},intro:'intro',result:'result',idle:'idle'}},
+        busy:{on:{turn:'turn',enemy:'enemy',choose:'choose',done:'done',busy:{target:'busy',internal:true},intro:'intro',result:'result',idle:'idle'}},
+        enemy:{on:{turn:'turn',busy:'busy',choose:'choose',enemy:{target:'enemy',internal:true},intro:'intro',result:'result',idle:'idle'}},
+        choose:{on:{turn:'turn',busy:'busy',choose:{target:'choose',internal:true},intro:'intro',result:'result',idle:'idle'}},
+        done:{on:{result:'result',busy:'busy',intro:'intro',done:{target:'done',internal:true},idle:'idle'}},
+        result:{on:{idle:'idle',intro:'intro',busy:'busy',result:{target:'result',internal:true}}},
+    },onChange:state=>{if(state!=='idle')dialog.dataset.mode=state;},onIgnored:(event,from)=>console.warn(`[Silly Teyvat] Battle: ${event} is not possible from ${from}`)});
+    const go=name=>phase.send(name);
     // round: the live round from battle-engine.js. pick: what you are about to do, waiting for Confirm.
-    let autoPlay=false,autoBusy=false,state,round=null,pick=null,picked=null,tuning=false,mode='',opts={},speed=1,skipAll=false,disposed=false,closeTimer=0,turnDone=null,choose=null,finish=null,lastTurn='',token=0,introDone=null;
+    let autoPlay=false,autoBusy=false,state,round=null,pick=null,picked=null,tuning=false,opts={},speed=1,skipAll=false,disposed=false,closeTimer=0,turnDone=null,choose=null,finish=null,lastTurn='',token=0,introDone=null;
     const cards=new Map();
     const say=text=>{$('.tb-log').textContent=text;};
     const reduced=()=>Boolean(opts.reducedMotion);
@@ -309,13 +325,13 @@ export function mountBattle({host,sound=createBattleSound(),onBurst=()=>{},onSto
         return `<small>${KIND_LABEL[move.kind]}${move.kind==='burst'&&!move.swapped?u.kit?.resource?` · ${escapeHtml(u.kit.resource.label)} ${whole(u.energy)}/${whole(u.maxEnergy)}`:` · Energy ${whole(u.energy)}/${whole(u.maxEnergy)}`:''}${move.spend?.nightsoul?` · ${move.spend.nightsoul} Nightsoul`:''}</small><strong>${escapeHtml(move.name)}</strong><span class="tb-cost-row">${costRow(cost)}${move.kind==='burst'?`<span class="tb-energy-cost" title="${whole(u.maxEnergy) || 2} Energy"><b>${whole(u.maxEnergy) || 2}</b></span>`:''}</span><p>${escapeHtml(describeMove(move,u.element==='None'?'Physical':u.element))}</p>`;
     }
     function unitTip(id,card){
-        const u=unitById(state,id);if(!u||!mode)return;
+        const u=unitById(state,id);if(!u||phase.is('idle'))return;
         const intent=u.side==='enemy'&&isActive(state,u)?intentPreview(state,u):null;
         const statuses=escapeHtml((u.statuses || []).map(s=>`${s.label || s.stat}`).filter((v,i,a)=>a.indexOf(v)===i).join(', '));
         showTip(card,`<small>${u.side==='enemy'?(u.element==='Physical'?'Enemy':`${escapeHtml(u.element)} enemy`):escapeHtml(u.kit.role)}${isActive(state,u)?' · Active':''}</small><strong>${escapeHtml(u.name)}</strong><p>${Math.max(0,whole(u.hp))} / ${whole(u.maxHp)} HP${u.shield?` · Shield ${whole(u.shield)}`:''}${u.weakTo?` · Weak to ${escapeHtml(u.weakTo)}`:''}${u.armor?` · Armor ${whole(u.armor)}%`:''}${u.evasion?` · Evasion ${whole(u.evasion)}%`:''}</p>${statuses?`<p>${statuses}</p>`:''}${intent&&!intent.skip?`<p class="tb-tip-intent">Next: <b>${escapeHtml(intent.name)}</b></p>`:''}`);
     }
     // ---- Your turn: choosing, previewing, confirming ---------------------------------
-    const myTurn=()=>mode==='turn'&&round&&!round.over&&round.turn==='party'&&!round.needsActive;
+    const myTurn=()=>phase.is('turn')&&round&&!round.over&&round.turn==='party'&&!round.needsActive;
     function deny(selector,reason){
         sound.deny();if(reason)say(reason);
         const node=typeof selector==='string'?dialog.querySelector(selector):selector;if(node){node.classList.remove('tb-shake');void node.offsetWidth;node.classList.add('tb-shake');}
@@ -423,14 +439,14 @@ export function mountBattle({host,sound=createBattleSound(),onBurst=()=>{},onSto
         if(!check.ok){deny(pick.type==='skill'?`.tb-skills [data-move="${pick.move}"]`:'.tb-drawer',check.reason);return;}
         const action=pickAction(),kind=pick.type,item=kind==='card'?round.hand[pick.index]:null,before=round.turn;
         pick=null;picked=null;tuning=false;
-        const at=token;mode='busy';refresh();sound.unlock();
+        const at=token;go('busy');refresh();sound.unlock();
         const r=takeAction(round,action);
-        if(!r.ok){mode='turn';deny('.tb-drawer',r.reason);refresh();return;}
+        if(!r.ok){go('turn');deny('.tb-drawer',r.reason);refresh();return;}
         if(kind==='card')await playCardFx(item,action.target);
         await playEvents(r.events);if(!live(at))return;
         if(round.pendingReroll){round.pendingReroll=false;await tossUp();if(!live(at))return;}
         if(round.pendingChoice){await offerCards();if(!live(at))return;}
-        mode='turn';
+        go('turn');
         if(kind==='card'&&round.turn===before&&!round.over&&!round.needsActive){refresh();return;}
         refresh();endTurn();
     }
@@ -445,7 +461,7 @@ export function mountBattle({host,sound=createBattleSound(),onBurst=()=>{},onSto
                 const action=bestAction(round);
                 if(action.type==='end'){await combat({type:'end'});return;}
                 // Elemental Tuning: a Fast Action, so the turn goes on.
-                if(action.type==='tune'){const card=round.hand[action.index],r=tuneDie(round,action.die,action.index);if(!r.ok){await combat({type:'end'});return;}mode='busy';refresh();await tuneFx(card,activeOf(round.state,'party')?.element);await playEvents(r.events);mode='turn';refresh();continue;}
+                if(action.type==='tune'){const card=round.hand[action.index],r=tuneDie(round,action.die,action.index);if(!r.ok){await combat({type:'end'});return;}go('busy');refresh();await tuneFx(card,activeOf(round.state,'party')?.element);await playEvents(r.events);go('turn');refresh();continue;}
                 select(action.type==='card'?{type:'card',index:action.index,target:action.target}:action.type==='switch'?{type:'switch',id:action.id}:{type:'skill',move:action.move,target:action.target});
                 const before=round.hand.length;await confirm();
                 // A card the planner wanted but could not play: end the round rather than loop.
@@ -460,7 +476,7 @@ export function mountBattle({host,sound=createBattleSound(),onBurst=()=>{},onSto
         const check=tuneCheck(round,dieIndex);if(!check.ok){deny(`.tb-drawer-dice [data-i="${dieIndex}"]`,check.reason);return;}
         const index=pick.index,card=round.hand[index];pick=null;tuning=false;
         const r=tuneDie(round,dieIndex,index);if(!r.ok){deny('.tb-drawer',r.reason);return;}
-        mode='busy';refresh();await tuneFx(card,check.element);mode='turn';await playEvents(r.events);refresh();
+        go('busy');refresh();await tuneFx(card,check.element);go('turn');await playEvents(r.events);refresh();
     }
     // Toss-Up: back to the Roll Phase with the dice you still have.
     async function tossUp(){
@@ -512,7 +528,7 @@ export function mountBattle({host,sound=createBattleSound(),onBurst=()=>{},onSto
     function paintSkills(){
         const skills=$('.tb-skills');skills.replaceChildren();
         const u=round?activeOf(state,'party'):null;
-        if(!u||mode==='intro'){dialog.style.removeProperty('--active');return;}
+        if(!u||phase.is('intro')){dialog.style.removeProperty('--active');return;}
         dialog.style.setProperty('--active',EL_COLORS[u.element] || EL_COLORS.None);
         if(pick?.type==='switch'){
             const b=el('button','tb-move tb-move-switch tb-picked');b.type='button';
@@ -599,20 +615,19 @@ export function mountBattle({host,sound=createBattleSound(),onBurst=()=>{},onSto
     }
     function paintPlates(){
         const you=$('.tb-plate-you'),foe=$('.tb-plate-foe');
-        you.querySelector('small').textContent=round?.turn==='party'&&mode!=='intro'?'Now Acting':'Now Waiting…';
+        you.querySelector('small').textContent=round?.turn==='party'&&!phase.is('intro')?'Now Acting':'Now Waiting…';
         foe.querySelector('small').textContent=round?.turn==='enemy'?'Now Acting':'Now Waiting…';
         you.querySelector('.tb-ended').hidden=!round?.ended.party;foe.querySelector('.tb-ended').hidden=!round?.ended.enemy;
         dialog.dataset.turn=round?.turn || '';
         const end=$('.tb-end');end.disabled=!myTurn();end.classList.toggle('tb-go',myTurn()&&!pick);
-        $('.tb-flee').disabled=!myTurn();$('.tb-auto').disabled=!round||round.over||mode==='intro'||mode==='done';paintAuto();
+        $('.tb-flee').disabled=!myTurn();$('.tb-auto').disabled=!round||round.over||phase.is('intro')||phase.is('done');paintAuto();
         for(const [id,card] of cards){const u=unitById(state,id);card.classList.toggle('tb-switchable',myTurn()&&u.side==='party'&&alive(u)&&!isActive(state,u));}
     }
     function refresh(){
         if(!state)return;
-        if(mode)dialog.dataset.mode=mode;
         paintUnits();paintDice();paintHand();paintSkills();paintIntents();paintPlates();paintPreview();
         if(choose)paintChoose();
-        const skip=$('.tb-skip');skip.hidden=!['busy','enemy'].includes(mode)||skipAll;if(skip.hidden){skip.textContent='⏩';}
+        const skip=$('.tb-skip');skip.hidden=!phase.is('busy','enemy')||skipAll;if(skip.hidden){skip.textContent='⏩';}
     }
     // Choosing a character: at the start of a fight, and when your active character falls.
     function paintChoose(){
@@ -963,7 +978,7 @@ export function mountBattle({host,sound=createBattleSound(),onBurst=()=>{},onSto
     async function run(snapshot,options={}){
         const at=++token;
         opts={...options};sound.setVolume(opts.volume ?? .8);dialog.classList.toggle('gb-reduced',Boolean(opts.reducedMotion));speed=1;skipAll=false;
-        setup(snapshot,opts.player);mode='intro';dialog.dataset.mode='intro';open();
+        setup(snapshot,opts.player);go('intro');open();
         let hand=state.hand || [],deck=[...deckFrom(state.bag,hand),...(state.team?.party?.deckAdds || [])],first=opts.enemyFirst?'enemy':state.first || 'party';
         // A new fight: VS, the coin toss (an enemy that started the fight goes first), the starting hand, then your character.
         if(state.fresh||!activeOf(state,'party')){
@@ -984,25 +999,25 @@ export function mountBattle({host,sound=createBattleSound(),onBurst=()=>{},onSto
         const dice=await opts.roll?.(state);if(!live(at)||!dice)return null;
         round=startRound(state,{dice,first,hand,deck,items:ITEMS,strikeBack:opts.strikeBack!==false,difficulty:state.difficulty});round.chooser=true;
         state=structuredClone(round.state);state.hand=round.hand;
-        mode='turn';dialog.dataset.mode='turn';refresh();
+        go('turn');refresh();
         await phaseBanner('Action Phase','phase');if(!live(at))return null;
         if(round.timeline.length){await playEvents(round.timeline.slice());if(!live(at))return null;}
         let guard=400;
         while(live(at)&&!round.over&&round.phase==='action'&&guard-->0){
             if(round.needsActive){
-                mode='choose';refresh();const id=autoPlay?bestAction(round).id:await chooseCharacter({title:'Choose your next character',notActive:true});if(!live(at)||!id)return null;
-                const r=switchTo(round,id);mode='turn';await playEvents(r.events);continue;
+                go('choose');refresh();const id=autoPlay?bestAction(round).id:await chooseCharacter({title:'Choose your next character',notActive:true});if(!live(at)||!id)return null;
+                const r=switchTo(round,id);go('turn');await playEvents(r.events);continue;
             }
             if(round.turn!==lastTurn){lastTurn=round.turn;await phaseBanner(round.turn==='party'?'Your Turn':'Your Opponent\'s Turn…',round.turn==='party'?'you':'foe');if(!live(at))return null;}
             if(round.turn==='enemy'){
-                mode='enemy';setActing('enemy');refresh();await wait(reduced()?150:550);if(!live(at))return null;
+                go('enemy');setActing('enemy');refresh();await wait(reduced()?150:550);if(!live(at))return null;
                 const r=enemyTurn(round);await playEvents(r.events);if(!live(at))return null;
                 if(round.turn==='enemy'&&!round.ended.party)lastTurn='';
                 continue;
             }
             // A prepared skill is the character's next action: it plays by itself.
-            if(preparedDue(round)){mode='busy';setActing('party');refresh();const p=statusOfUnit(activeOf(round.state,'party'),'preparing');banner(p?.move?.name || 'Prepared skill','Prepared skill',null,'tb-banner-note');await wait(reduced()?150:600);const r=usePrepared(round);await playEvents(r.events);if(!live(at))return null;continue;}
-            mode='turn';setActing('party');speed=1;skipAll=false;refresh();
+            if(preparedDue(round)){go('busy');setActing('party');refresh();const p=statusOfUnit(activeOf(round.state,'party'),'preparing');banner(p?.move?.name || 'Prepared skill','Prepared skill',null,'tb-banner-note');await wait(reduced()?150:600);const r=usePrepared(round);await playEvents(r.events);if(!live(at))return null;continue;}
+            go('turn');setActing('party');speed=1;skipAll=false;refresh();
             const turn=new Promise(resolve=>{turnDone=resolve;});
             if(autoPlay)void autoTurn();
             await turn;
@@ -1010,18 +1025,18 @@ export function mountBattle({host,sound=createBattleSound(),onBurst=()=>{},onSto
             if(round.turn==='party'&&!round.ended.enemy)lastTurn='';
         }
         if(!live(at))return null;
-        mode='busy';pick=null;refresh();
+        go('busy');pick=null;refresh();
         if(!round.over&&round.phase==='end'){const r=endPhase(round);await playEvents(r.events);if(!live(at))return null;}
         if(round.over==='victory'&&effectsOn()){await finale();if(!live(at))return null;}
         const result=finishRound(round);
-        mode='done';refresh();
+        go('done');refresh();
         return result;
     }
     // The last blow: a held breath of colour over the board before Victory.
     async function finale(){dialog.classList.add('tb-won');sound.finale?.();await wait(1300);}
     // ---- Result -----------------------------------------------------------------------
     function showResult(snapshot,result,{loot=[]}={}){
-        mode='result';dialog.dataset.mode='result';hideTip();
+        go('result');hideTip();
         const box=$('.tb-result');box.hidden=false;box.dataset.outcome=result.victory?'victory':result.wiped?'wipe':result.fled?'fled':'round';
         box.querySelector('h3').textContent=result.victory?'Victory':result.wiped?'Defeat':result.fled?'Escaped':`Round ${snapshot.round}`;
         box.querySelector('.tb-result-sub').textContent=result.victory||result.wiped||result.fled?'':`${result.first==='party'?'You act':'The enemy acts'} first next round.`;
@@ -1053,7 +1068,7 @@ export function mountBattle({host,sound=createBattleSound(),onBurst=()=>{},onSto
         const crest=box.querySelector('.tb-result-crest').getBoundingClientRect(),frame=box.getBoundingClientRect();
         box.style.setProperty('--cx',`${Math.round(crest.left-frame.left+crest.width/2)}px`);box.style.setProperty('--cy',`${Math.round(crest.top-frame.top+crest.height/2)}px`);
     }
-    on($('.tb-continue'),'click',()=>{if(mode!=='result')return;mode='';const f=finish;finish=null;close(true);f?.(true);});
+    on($('.tb-continue'),'click',()=>{if(!phase.is('result'))return;go('idle');const f=finish;finish=null;close(true);f?.(true);});
     function close(animated){
         if(!dialog.open)return;particles.clear();hideTip();
         if(!animated||reduced()){dialog.close();return;}
@@ -1070,10 +1085,10 @@ export function mountBattle({host,sound=createBattleSound(),onBurst=()=>{},onSto
     }
     async function combat(action){
         if(!myTurn())return;const at=token;
-        pick=null;mode='busy';refresh();sound.unlock();
-        const r=takeAction(round,action);if(!r.ok){mode='turn';deny('.tb-end',r.reason);refresh();return;}
+        pick=null;go('busy');refresh();sound.unlock();
+        const r=takeAction(round,action);if(!r.ok){go('turn');deny('.tb-end',r.reason);refresh();return;}
         await playEvents(r.events);if(!live(at))return;
-        mode='turn';refresh();if(round.turn!=='party'||round.over||round.phase!=='action'||action.type!=='card')endTurn();
+        go('turn');refresh();if(round.turn!=='party'||round.over||round.phase!=='action'||action.type!=='card')endTurn();
     }
     // The hourglass ends your round at once.
     on($('.tb-end'),'click',()=>{if(myTurn()){ask('#tb-confirm-flee',false);void combat({type:'end'});}});
@@ -1087,7 +1102,7 @@ export function mountBattle({host,sound=createBattleSound(),onBurst=()=>{},onSto
     on($('.tb-tune'),'click',event=>{event.stopPropagation();if(pick?.type!=='card')return;tuning=!tuning;sound.select();refresh();});
     on($('.tb-cancel'),'click',event=>{event.stopPropagation();clearPick();});
     on($('.tb-skip'),'click',()=>{if(speed<3){speed=3;$('.tb-skip').textContent='⏭';}else{skipAll=true;$('.tb-skip').hidden=true;}});
-    on(dialog,'cancel',event=>{event.preventDefault();if(mode==='result')$('.tb-continue').click();else if(confirmOpen('#tb-confirm-flee'))ask('#tb-confirm-flee',false);else if(pick)clearPick();});
+    on(dialog,'cancel',event=>{event.preventDefault();if(phase.is('result'))$('.tb-continue').click();else if(confirmOpen('#tb-confirm-flee'))ask('#tb-confirm-flee',false);else if(pick)clearPick();});
     on(dialog,'keydown',event=>{
         if(event.target.closest?.('input,textarea,select'))return;
         const key=event.key.toLowerCase();
@@ -1116,7 +1131,7 @@ export function mountBattle({host,sound=createBattleSound(),onBurst=()=>{},onSto
         // After the round is saved: the Victory screen, or the round's summary, until Continue.
         result:showResult,
         // Plays engine events on a board set up from a snapshot (tests and previews).
-        async replay(snapshot,events,options={}){const at=++token;opts={...options};sound.setVolume(opts.volume ?? 0);setup(snapshot,opts.player);if(snapshot.active)state.active={...snapshot.active};mode='busy';open();refresh();await playEvents(events);return live(at);},
+        async replay(snapshot,events,options={}){const at=++token;opts={...options};sound.setVolume(opts.volume ?? 0);setup(snapshot,opts.player);if(snapshot.active)state.active={...snapshot.active};go('busy');open();refresh();await playEvents(events);return live(at);},
         cancel(){stop();close(false);},
         dispose(){stop();disposed=true;clearTimeout(closeTimer);abort.abort();particles.dispose();sound.dispose();dialog.remove();},
     };

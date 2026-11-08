@@ -1,4 +1,5 @@
 import {activeGroup,inPartyChat} from './party.js';
+import {createMachine} from './machine.js';
 import {loadCharacterProperties,registerGenshinTags} from './character-properties.js';
 import {registerOfficialArt} from './official-art.js';
 import {mountCombat} from './combat.js';
@@ -105,15 +106,29 @@ let abort;
 let observer;
 let generationObserver;
 let resizeObserver;
+let settingsObserver;
 let frame = 0;
 let timer;
 let readyTimer;
 let subscriptions = [];
 let current = null;
 let followLatest = true;
-let menuOpen = false;
-let history = false;
-let hidden = false;
+// What the player is looking at: the dialogue page (reading), the whole transcript (review) or only the scene
+// (hidden). These exclude one another, which a pair of booleans could not promise. SHOW only lifts the scene
+// back in; RESET returns to the dialogue page; OPEN_REVIEW is what editing or deleting a message forces.
+const view = createMachine({ name: 'view', initial: 'reading', states: {
+    reading: { on: { REVIEW: 'review', OPEN_REVIEW: 'review', HIDE: 'hidden', SHOW: { target: 'reading', internal: true }, RESET: { target: 'reading', internal: true } } },
+    review: { on: { REVIEW: 'reading', OPEN_REVIEW: { target: 'review', internal: true }, HIDE: 'hidden', SHOW: { target: 'review', internal: true }, RESET: 'reading' } },
+    hidden: { on: { HIDE: 'reading', REVIEW: 'review', OPEN_REVIEW: 'review', SHOW: 'reading', RESET: 'reading' } },
+}, onChange: () => stopAuto() });
+// The Paimon menu: shut, open, or open with the namecard picker showing. Closing leaves the picker too.
+const menu = createMachine({ name: 'menu', initial: 'closed', states: {
+    closed: { on: { TOGGLE: 'open', OPEN: 'open', CLOSE: { target: 'closed', internal: true } } },
+    open: { on: { TOGGLE: 'closed', OPEN: { target: 'open', internal: true }, CLOSE: 'closed', NAMECARDS: 'namecards' } },
+    namecards: { on: { TOGGLE: 'closed', OPEN: 'open', CLOSE: 'closed', NAMECARDS: 'open', BACK: 'open' } },
+} });
+const inReview = () => view.is('review'), uiHidden = () => view.is('hidden');
+const menuIsOpen = () => !menu.is('closed'), pickingNamecard = () => menu.is('namecards');
 let composing = true;
 let generating = false;
 let regenerating = false;
@@ -281,7 +296,7 @@ function bridgeChatSwitch(){
 }
 function schedule() {
     if (!mounted || frame) return;
-    frame = requestAnimationFrame(() => { frame = 0; refresh(); });
+    frame = requestAnimationFrame(() => { frame = 0; refresh({passive:true}); });
 }
 function conflictText() {
     const settings = context().extensionSettings;
@@ -292,18 +307,26 @@ function conflictText() {
     if (settings['Guinevere-UI-Extension']?.enabled) issues.push('Guinevere is also replacing the interface. Turn off its replacement layout if controls overlap.');
     return issues.join(' ');
 }
-function syncSettings() {
+// A closed settings drawer is not worth painting. checkVisibility() also covers a collapsed SillyTavern drawer around it.
+function settingsShown() {
+    const panel = document.querySelector('#gi-settings');
+    return Boolean(panel) && (panel.checkVisibility ? panel.checkVisibility() : panel.getClientRects().length > 0);
+}
+function syncSettings(force=true) {
     const prefs = preferences();
-    // Saved Connection Manager profiles that can answer a chat prompt, for the CG classifier and Teyvat Choices.
     const profiles=context().extensionSettings.connectionManager?.profiles || [];
+    // A profile deleted in Connection Manager falls back to the main API rather than failing every time.
+    if(prefs.choicesProfile&&profiles.length&&!profiles.some(p=>p.id===prefs.choicesProfile)){prefs.choicesProfile='';context().saveSettingsDebounced();}
+    // The panel's inputs are painted only while it can be seen, or when a change was made on purpose (force).
+    // Chat mutations and streaming call this every frame, and the panel is closed almost all of the time.
+    if(!force&&!settingsShown())return;
+    // Saved Connection Manager profiles that can answer a chat prompt, for the CG classifier and Teyvat Choices.
     const usable=profiles.filter(p=>{const api=context().CONNECT_API_MAP?.[p.api];return api ? api.selected==='openai'&&api.source || api.selected==='textgenerationwebui'&&api.type : Boolean(p.api);});
     const signature=JSON.stringify(usable.map(p=>[p.id,p.name,p.model,p.api]));
     for(const [selector,empty] of [['#gi-cg-profile','Choose a saved connection profile'],['#gi-choices-profile','Main API']]){
         const select=document.querySelector(selector);
         if(select&&select.dataset.profiles!==signature){select.replaceChildren(new Option(empty,''),...usable.map(p=>new Option(`${p.name || p.id}${p.model&&!String(p.name || '').includes(p.model)?' · '+p.model:''}`,p.id)));select.dataset.profiles=signature;}
     }
-    // A profile deleted in Connection Manager falls back to the main API rather than failing every time.
-    if(prefs.choicesProfile&&profiles.length&&!profiles.some(p=>p.id===prefs.choicesProfile)){prefs.choicesProfile='';context().saveSettingsDebounced();}
     document.querySelectorAll('#gi-settings [data-gi-setting]').forEach(input => {
         if(document.activeElement===input)return;
         const value = prefs[input.dataset.giSetting];
@@ -335,7 +358,7 @@ function holdsNarration(ctx, latest) {
     if (!message || message.is_user || newest?.is_user) return false;
     return extra.type === 'narrator' || Boolean(extra.silly_teyvat_combat || extra.silly_teyvat_travel);
 }
-function refresh() {
+function refresh({passive=false}={}) {
     if (!mounted) return;
     const prefs = preferences();
     const ctx = context();
@@ -349,7 +372,8 @@ function refresh() {
     // returned. Dialogue controls still wait for an actual rendered message.
     const sceneActive = prefs.enabled && inChat;
     const active = sceneActive && list.length > 0;
-    if ((editing() || deleting()) && active) { history = true; hidden = false; stopAuto(); }
+    if ((editing() || deleting()) && active) { view.send('OPEN_REVIEW'); stopAuto(); }
+    const history = inReview(), hidden = uiHidden(), menuOpen = menuIsOpen();
     if (!list.some(el => el.getAttribute('mesid') === current)) current = list.at(-1)?.getAttribute('mesid') ?? null;
     else if (followLatest) {
         // A new message never pulls the reader away: move on only once the current message is on its
@@ -406,7 +430,7 @@ function refresh() {
     if (toolbar.classList.contains('gi-open') !== menuOpen) {
         toolbar.classList.toggle('gi-open', menuOpen); toolbar.inert = !menuOpen; toolbar.setAttribute('aria-hidden', String(!menuOpen));
         document.body.classList.toggle('gi-menu-open', menuOpen);
-        if (menuOpen) paintProfile(); else { pickingNamecard = false; paintNamecards(); }
+        if (menuOpen) paintProfile(); else paintNamecards();
     }
     const toggle = document.querySelector('#gi-toolbar [data-gi-action="toggle"]');
     toggle.setAttribute('aria-pressed', String(paimonOn(prefs)));
@@ -449,7 +473,7 @@ function refresh() {
     const conflict = conflictText();
     notice.hidden = !prefs.enabled || !conflict || conflict === dismissedNotice || hidden;
     notice.querySelector('p').textContent = conflict;
-    syncSettings();
+    syncSettings(!passive);
     // Measure everything first: reading layout between these writes would force a reflow for each one.
     const arrow=document.querySelector('#gi-navigation [data-gi-action="next"]').getBoundingClientRect(),nav=document.querySelector('#gi-navigation').getBoundingClientRect();
     const dialogue=(selected?.querySelector('.gi-page') || selected?.querySelector('.mes_block') || document.querySelector('#chat')).getBoundingClientRect();
@@ -479,13 +503,13 @@ function paintProfile() {
     paintNamecards();
 }
 // The namecard picker: "Match companion" first, then every downloaded namecard.
-let pickingNamecard = false;
 function paintNamecards() {
     const box = document.querySelector('#gi-toolbar .gi-pm-namecards'), toolbar = document.querySelector('#gi-toolbar');
     if (!box) return;
-    box.hidden = !pickingNamecard; toolbar.classList.toggle('gi-pm-picking', pickingNamecard);
-    document.querySelectorAll('#gi-toolbar [data-gi-action="namecards"]').forEach(b => b.setAttribute('aria-expanded', String(pickingNamecard)));
-    if (!pickingNamecard) return;
+    const picking = pickingNamecard();
+    box.hidden = !picking; toolbar.classList.toggle('gi-pm-picking', picking);
+    document.querySelectorAll('#gi-toolbar [data-gi-action="namecards"]').forEach(b => b.setAttribute('aria-expanded', String(picking)));
+    if (!picking) return;
     const chosen = preferences().namecard, list = box.querySelector('.gi-pm-nc-list');
     const ctx = context(), companion = chooseNamecard('', ctx.groupId ? '' : ctx.characters?.[ctx.characterId]?.name);
     // Built once the namecards have loaded. The first tile follows the companion of the open chat.
@@ -516,8 +540,7 @@ function setEnabled(value) {
     preferences().enabled = value;
     if(value){startCharacterAtHome(context());personaSession?.request();}
     else loadingUI?.hide();
-    history = false;
-    hidden = false;
+    view.send('RESET');
     composing = preferences().composer;
     followLatest = true;
     stopAuto();
@@ -555,7 +578,7 @@ function jumpToArrival() {
     stopAuto(); reveal.finish(); selectMessage(messages().length - 1);
 }
 function retreat() {
-    if (history || hidden) return;
+    if (!view.is('reading')) return;
     const list = messages();
     const index = list.findIndex(el => el.getAttribute('mesid') === current);
     const page = pageState(list[index]);
@@ -563,7 +586,7 @@ function retreat() {
     else if (index > 0) selectMessage(index - 1, -1);
 }
 function advance() {
-    if (history || hidden) return false;
+    if (!view.is('reading')) return false;
     if (reveal.finish()) { refresh(); return true; }
     const list = messages();
     const index = list.findIndex(el => el.getAttribute('mesid') === current);
@@ -598,23 +621,22 @@ function queueAuto() {
 }
 async function openWorldMap(options){await personaSession?.ensureJourney();worldMapUI?.open(options);}
 function toggleHistory() {
-    if (history && (editing() || deleting())) { announce('Finish or cancel message editing or deletion before closing Dialogue Review.'); return; }
+    if (inReview() && (editing() || deleting())) { announce('Finish or cancel message editing or deletion before closing Dialogue Review.'); return; }
     visit++;
-    history = !history;
-    hidden = false;
+    view.send('REVIEW');
     stopAuto();
     refresh();
     cardArtUI?.refresh();
-    if (history) {
+    if (inReview()) {
         document.querySelector('#chat .gi-current')?.scrollIntoView({ block: 'center' });
         document.querySelector('#gi-review-heading button')?.focus();
     } else document.querySelector('#gi-toolbar [data-gi-action="history"]')?.focus();
 }
 function handleAction(event) {
-    if (menuOpen && !event.target.closest('#gi-launcher, #gi-toolbar')) { menuOpen = false; schedule(); }
+    if (menuIsOpen() && !event.target.closest('#gi-launcher, #gi-toolbar')) { menu.send('CLOSE'); schedule(); }
     const target = event.target.closest('[data-gi-action]');
     if (!target) {
-        if (!preferences().enabled || history || hidden || !event.target.closest('#chat .gi-current') && event.target.id !== 'chat' || event.target.closest('a, button, input, textarea, video, audio') || getSelection()?.toString()) return;
+        if (!preferences().enabled || !view.is('reading') || !event.target.closest('#chat .gi-current') && event.target.id !== 'chat' || event.target.closest('a, button, input, textarea, video, audio') || getSelection()?.toString()) return;
         stopAuto();
         if (reveal.finish()) refresh();
         else if (preferences().tapAdvance) advance();
@@ -623,29 +645,29 @@ function handleAction(event) {
     const action = target.dataset.giAction;
     const list = messages();
     switch (action) {
-        case 'menu': menuOpen = hidden || !menuOpen; if (menuOpen) hidden = false; refresh(); if (menuOpen) document.querySelector('#gi-toolbar .gi-pm-switch')?.focus({ preventScroll: true }); break;
+        case 'menu': menu.send(uiHidden() ? 'OPEN' : 'TOGGLE'); if (menuIsOpen()) view.send('SHOW'); refresh(); if (menuIsOpen()) document.querySelector('#gi-toolbar .gi-pm-switch')?.focus({ preventScroll: true }); break;
         case 'namecards':
-            pickingNamecard = !pickingNamecard; paintNamecards();
-            if (pickingNamecard) (document.querySelector('#gi-toolbar .gi-pm-nc-list [aria-checked="true"]') || document.querySelector('#gi-toolbar .gi-pm-nc-list button'))?.focus({ preventScroll: true });
+            menu.send('NAMECARDS'); paintNamecards();
+            if (pickingNamecard()) (document.querySelector('#gi-toolbar .gi-pm-nc-list [aria-checked="true"]') || document.querySelector('#gi-toolbar .gi-pm-nc-list button'))?.focus({ preventScroll: true });
             break;
         case 'namecard': preferences().namecard = target.dataset.namecard || ''; context().saveSettingsDebounced(); paintProfile(); announce(`Namecard: ${target.title}.`); break;
-        case 'st-drawer': menuOpen = false; refresh(); document.querySelector(`#${CSS.escape(target.dataset.drawer)} > .drawer-toggle`)?.click(); break;
-        case 'persona': menuOpen=false;refresh();wardrobeUI?.open({persona:true}).catch(fail);break;
-        case 'map': menuOpen = false; refresh(); void openWorldMap().catch(fail); break;
+        case 'st-drawer': menu.send('CLOSE'); refresh(); document.querySelector(`#${CSS.escape(target.dataset.drawer)} > .drawer-toggle`)?.click(); break;
+        case 'persona': menu.send('CLOSE');refresh();wardrobeUI?.open({persona:true}).catch(fail);break;
+        case 'map': menu.send('CLOSE'); refresh(); void openWorldMap().catch(fail); break;
         case 'toggle': togglePaimon(); break;
         case 'paimon-link': linkPaimon(preferences(),target.dataset.group,target.getAttribute('aria-pressed')!=='true'); context().saveSettingsDebounced(); refresh(); break;
         case 'solo-journey': {
             // The journey is saved and opened before CHAT_CHANGED takes its own hold, so cover the
             // welcome page from the click, showing the place the journey begins.
-            menuOpen = false; refresh();
+            menu.send('CLOSE'); refresh();
             const release = preferences().enabled ? loadingUI?.hold(loadingPlace(context(), personaCard(context())?.avatar)) : null;
             void (personaSession?.flush({ startJourney: true }) || Promise.resolve()).finally(() => release?.());
             break;
         }
         case 'history': toggleHistory(); break;
-        case 'hide': hidden = !hidden; if (hidden) menuOpen = false; history = false; stopAuto(); refresh(); break;
+        case 'hide': view.send('HIDE'); if (uiHidden()) menu.send('CLOSE'); stopAuto(); refresh(); break;
         case 'compose':
-            composing = !composing; preferences().composer = composing; context().saveSettingsDebounced(); hidden = false; stopAuto(); refresh();
+            composing = !composing; preferences().composer = composing; context().saveSettingsDebounced(); view.send('SHOW'); stopAuto(); refresh();
             if (composing) document.querySelector('#send_textarea')?.focus();
             break;
         case 'regenerate': void regenerateCurrent(); break;
@@ -671,11 +693,11 @@ function handleAction(event) {
             syncSettings();
             break;
         }
-        case 'wardrobe': menuOpen = false; refresh(); wardrobeUI?.open().catch(fail); break;
-        case 'inventory': menuOpen = false; refresh(); inventoryUI?.open(); break;
-        case 'trust': menuOpen = false; refresh(); trustUI?.open(); break;
-        case 'card-search': menuOpen = false; refresh(); cardSearchUI?.open(); break;
-        case 'gallery': menuOpen = false; refresh(); mediaUI?.openGallery(); break;
+        case 'wardrobe': menu.send('CLOSE'); refresh(); wardrobeUI?.open().catch(fail); break;
+        case 'inventory': menu.send('CLOSE'); refresh(); inventoryUI?.open(); break;
+        case 'trust': menu.send('CLOSE'); refresh(); trustUI?.open(); break;
+        case 'card-search': menu.send('CLOSE'); refresh(); cardSearchUI?.open(); break;
+        case 'gallery': menu.send('CLOSE'); refresh(); mediaUI?.openGallery(); break;
         case 'share-extension': void shareUI?.exportExtension(); break;
         case 'share-export': void shareUI?.exportGameData(); break;
         case 'share-import': shareUI?.chooseImport(); break;
@@ -683,7 +705,7 @@ function handleAction(event) {
         case 'share-game-data': void shareUI?.checkGameData(); break;
         case 'audio-unlock': mediaUI?.unlockAudio().then(()=>announce('Sprite audio enabled on this device.')).catch(()=>fail(new Error('Audio is blocked by this browser. Check its sound permissions.'))); break;
         case 'settings':
-            menuOpen = false; refresh();
+            menu.send('CLOSE'); refresh();
             if (!document.querySelector('#rm_extensions_block') || document.querySelector('#rm_extensions_block').classList.contains('closedDrawer')) {
                 document.querySelector('#extensions-settings-button .drawer-toggle')?.click();
             }
@@ -703,15 +725,15 @@ function giftCard(id,avatar){
 async function regenerateCurrent(){
     const ctx=context(),state=regenerationState(ctx,{id:Number(current),generating,editing:editing()||deleting(),busy:regenerating});
     if(!state.allowed){announce(state.reason);return;}
-    regenerating=true;stopAuto();followLatest=true;hidden=false;visit++;reveal.reset();
+    regenerating=true;stopAuto();followLatest=true;view.send('SHOW');visit++;reveal.reset();
     const selected=messages().find(el=>el.getAttribute('mesid')===current);const page=pageState(selected);page.index=0;
     refresh();announce('Regenerating this character’s reply.');
     try{await regenerateReply(ctx,state);}catch(error){console.warn('[Silly Teyvat] Regeneration unavailable',error);fail(error?.message?error:new Error('Could not regenerate this reply.'));}
     finally{regenerating=false;schedule();}
 }
 function handleKey(event) {
-    if (event.key === 'Escape' && menuOpen && pickingNamecard) { event.preventDefault(); pickingNamecard = false; paintNamecards(); document.querySelector('#gi-toolbar .gi-pm-edit')?.focus(); return; }
-    if (event.key === 'Escape' && menuOpen) { event.preventDefault(); menuOpen = false; refresh(); document.querySelector('#gi-launcher').focus(); return; }
+    if (event.key === 'Escape' && pickingNamecard()) { event.preventDefault(); menu.send('BACK'); paintNamecards(); document.querySelector('#gi-toolbar .gi-pm-edit')?.focus(); return; }
+    if (event.key === 'Escape' && menuIsOpen()) { event.preventDefault(); menu.send('CLOSE'); refresh(); document.querySelector('#gi-launcher').focus(); return; }
     if (event.altKey && !event.ctrlKey && !event.metaKey && event.code === 'KeyG') {
         event.preventDefault(); togglePaimon(); return;
     }
@@ -725,9 +747,9 @@ function handleKey(event) {
         else if (preferences().tapAdvance) advance();
         return;
     }
-    if (event.key === 'Escape' && (hidden || history)) {
+    if (event.key === 'Escape' && !view.is('reading')) {
         event.preventDefault();
-        if (hidden) { hidden = false; refresh(); document.querySelector('#gi-toolbar [data-gi-action="hide"]')?.focus(); }
+        if (uiHidden()) { view.send('SHOW'); refresh(); document.querySelector('#gi-toolbar [data-gi-action="hide"]')?.focus(); }
         else toggleHistory();
     } else if (event.target.closest('#gi-navigation, #gi-toolbar') && /^Arrow(Left|Right)$/.test(event.key)) {
         event.preventDefault();
@@ -824,8 +846,8 @@ export async function initialize(options = {}) {
     host.querySelector('.gi-pm-signature').addEventListener('change', event => { preferences().signature = event.target.value.trim().slice(0, 60); context().saveSettingsDebounced(); }, { signal: abort.signal });
     const manifest = fetch(new URL('manifest.json', import.meta.url)).then(r => r.json());
     manifest.then(m => { host.querySelector('.gi-pm-version').textContent = m.version || ''; }).catch(() => {});
-    characterAvatarsReady.then(()=>{if(mounted&&menuOpen)paintProfile();});
-    namecardsReady.then(() => { if (menuOpen) paintProfile(); });
+    characterAvatarsReady.then(()=>{if(mounted&&menuIsOpen())paintProfile();});
+    namecardsReady.then(() => { if (menuIsOpen()) paintProfile(); });
     await loadCharacterProperties();
     if(!mounted||version!==mountVersion)return;
     stageEffects=mountStageEffects({host,getContext:context});
@@ -861,6 +883,8 @@ export async function initialize(options = {}) {
         document.querySelector('#extensions_settings2').insertAdjacentHTML('beforeend', html);
         renderFeatureSwitches(document.querySelector('#gi-settings'));
         structureSettings(document.querySelector('#gi-settings'));bindSettingsSearch(document.querySelector('#gi-settings'),abort.signal);
+        // The panel is painted only while it is on screen (syncSettings), so opening its drawer asks for a refresh.
+        if(typeof ResizeObserver!=='undefined'){settingsObserver=new ResizeObserver(()=>schedule());settingsObserver.observe(document.querySelector('#gi-settings'));}
         manifest.then(m => { const footer = document.querySelector('#gi-settings .gi-set-footer span'); if (footer) footer.textContent = m.version || ''; }).catch(() => {});
     } catch (error) {
         console.warn('[Silly Teyvat] Settings panel unavailable. Alt+G and the compass still work.', error);
@@ -976,7 +1000,7 @@ export async function initialize(options = {}) {
     });
     for (const key of ['CHAT_CHANGED', 'CHAT_LOADED']) subscribe(key, () => {
         if(preferences().enabled)personaSession?.request();
-        trustUI?.close();choiceUI?.reset(); spriteUI?.reset(); mediaUI?.reset();backgroundUI?.reset(); reveal.reset(); visit++; pageStates = new WeakMap(); current = null; followLatest = true; history = false; hidden = false; generating = false; stopAuto(); schedule();
+        trustUI?.close();choiceUI?.reset(); spriteUI?.reset(); mediaUI?.reset();backgroundUI?.reset(); reveal.reset(); visit++; pageStates = new WeakMap(); current = null; followLatest = true; view.send('RESET'); generating = false; stopAuto(); schedule();
     });
     // A reply may voice everyone present, one part per speaker (group-reply.js). SillyTavern's cut at
     // another member's name is held off while it is written, and MESSAGE_RECEIVED splits it instead.
@@ -985,7 +1009,7 @@ export async function initialize(options = {}) {
     for(const key of ['GENERATION_STOPPED','CHAT_CHANGED'])subscribe(key,forgetGroupReply);
     subscribe('CHARACTER_MESSAGE_RENDERED',id=>finishSplitReply(context(),id));
     subscribe('MESSAGE_SWIPED',id=>{if(preferences().enabled)restoreSwipedSpeaker(context(),id);});
-    subscribe('GENERATION_STARTED', type => { if (type === 'quiet') return; generating = true; followLatest = true; hidden = false; stopAuto(); schedule(); announce('Reply is being written. The native Stop button is available.'); });
+    subscribe('GENERATION_STARTED', type => { if (type === 'quiet') return; generating = true; followLatest = true; view.send('SHOW'); stopAuto(); schedule(); announce('Reply is being written. The native Stop button is available.'); });
     // AI Config edits and preset switches flow back into Settings → Prompts.
     for (const key of ['SETTINGS_UPDATED', 'OAI_PRESET_CHANGED_AFTER', 'MAIN_API_CHANGED']) subscribe(key, () => syncRoleplayPrompts(context(), preferences().enabled));
     subscribe('CHAT_COMPLETION_PROMPT_READY', data => { if (data?.dryRun) return; dropRoleplayPrompts(context(), preferences().enabled, data?.chat, [trustPrompt(context()),twinRolesPrompt(context())]); stripPromptTrustTags(data?.chat); if(preferences().enabled)rewriteGroupNudge(data?.chat,context().name1); });
@@ -1023,6 +1047,7 @@ export function dispose() {
     observer?.disconnect();
     generationObserver?.disconnect();
     resizeObserver?.disconnect();
+    settingsObserver?.disconnect();settingsObserver=undefined;
     reveal.reset();
     personaSession?.dispose();personaSession=undefined;loadingUI?.dispose();loadingUI=undefined;keyboardFrame?.dispose();keyboardFrame=undefined;soloChatUI?.dispose();soloChatUI=undefined;
     wardrobeUI?.dispose(); wardrobeUI = undefined;
@@ -1056,7 +1081,7 @@ export function dispose() {
     document.querySelectorAll('#chat .gi-page').forEach(el => el.remove());
     document.querySelectorAll('#chat .gi-paginated').forEach(el => el.classList.remove('gi-paginated'));
     pageStates = new WeakMap();
-    current = null; followLatest = true; menuOpen = false; pickingNamecard = false; history = false; hidden = false; generating = false;
+    current = null; followLatest = true; menu.send('CLOSE'); view.send('RESET'); generating = false;
     // Switched back on later, the place is read afresh rather than compared with one from before it was off.
     lastPlaceId = ''; dismissedNotice = '';
 }

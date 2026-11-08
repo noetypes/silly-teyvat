@@ -53,12 +53,15 @@ const differs=(input,value)=>input.type==='checkbox'?input.checked!==Boolean(val
 // Values come from the inputs, so a Reset is lit exactly when something on screen differs.
 export function paintResets(panel,defaults){
     if(!panel)return;
+    // One pass over the inputs, grouped by setting, instead of a scan of every input for every key of every Reset.
+    const byKey=new Map();
+    for(const input of settingInputs(panel)){const key=input.dataset.giSetting;if(!Object.hasOwn(defaults,key)||!differs(input,defaults[key]))continue;byKey.set(key,(byKey.get(key)||0)+1);}
     for(const button of panel.querySelectorAll('.gi-set-reset')){
-        const changed=button.dataset.keys.split(' ').filter(key=>Object.hasOwn(defaults,key)&&settingInputs(panel).some(input=>input.dataset.giSetting===key&&differs(input,defaults[key])));
+        const changed=button.dataset.keys.split(' ').filter(key=>byKey.has(key));
         button.disabled=!changed.length;button.title=changed.length?`${changed.length} changed`:'All default';
     }
     for(const drawer of panel.querySelectorAll('.gi-set-advanced')){
-        const changed=settingInputs(drawer).filter(input=>Object.hasOwn(defaults,input.dataset.giSetting)&&differs(input,defaults[input.dataset.giSetting])).length;
+        const changed=settingInputs(drawer).filter(input=>Object.hasOwn(defaults,input.dataset.giSetting)&&byKey.has(input.dataset.giSetting)&&differs(input,defaults[input.dataset.giSetting])).length;
         drawer.querySelector('.gi-set-advanced-count').textContent=changed?`${changed} changed`:'';
     }
 }
