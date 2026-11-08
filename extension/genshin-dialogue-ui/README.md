@@ -1,3 +1,9 @@
+# Silly Teyvat 1.72.1: Smaller backgrounds
+
+- **Location backgrounds are 82% smaller**: 221 WebP and JPEG pictures went from 469 MB to 86 MB, so a scene change on a phone loads about 400 KB instead of 2 MB (and the pack, the tester ZIP and the distribution repository shrink with it). Names, formats and the 1920×1080 size are unchanged, so saved scenes and the catalog need nothing. Quality went from near-lossless to WebP/JPEG 90, raised for the 40 pictures with the most fine detail; the median picture differs from the original by 38 dB PSNR, and the worst case is not distinguishable at 3× zoom.
+- The 38 PNG backgrounds (124 MB) are left as they are: changing their format would change the file names saved scenes point to.
+- `python3 tools/recompress-backgrounds.py --archive DIR` repeats this for new pictures. It archives each original first, then replaces it and updates `game-data.json`. The 221 originals are kept in `silly-teyvat-data/backups/world-location-backgrounds-lossless-2026-11-08/`.
+
 # Silly Teyvat 1.72.0: Lighter on a phone
 
 Measured in headless Chrome with the CPU slowed four times (`node tools/bench-perf.mjs`), then fixed:

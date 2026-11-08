@@ -148,6 +148,14 @@ compatibility links. They are not part
 of the distributable pack manifest and may contain private settings or research
 downloads. Do not publish it or the `backups/` directory.
 
+## Shrink location backgrounds
+
+A new 1920×1080 background arrives near-lossless (about 2 MB). `tools/recompress-backgrounds.py --archive DIR`
+(Pillow with WebP on `PYTHONPATH`) re-encodes the WebP and JPEG ones in the pack at quality 90, higher for
+detailed pictures, keeping names, formats and pixel sizes. It copies each original into `DIR` first (keep it
+under `silly-teyvat-data/backups/`), replaces the file atomically and updates `game-data.json`. Use `--dry-run`
+to see sizes and PSNR first. PNG files are skipped because renaming one would break saved scenes.
+
 ## History and recovery
 
 The initial migration removes media and `work/` from all published Git history,
