@@ -86,14 +86,6 @@
 
 /* Background regions use the same collection tiles as scene artwork. */
 #gi-wardrobe .gi-wardrobe-tabs { flex-wrap:wrap; }
-#gi-wardrobe .gi-bg-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(120px,1fr)); gap:8px; margin-block:12px; }
-#gi-wardrobe .gi-bg-grid button { display:flex; flex-direction:column; padding:4px; border-radius:8px; gap:5px; height:126px; overflow:hidden; }
-#gi-wardrobe .gi-bg-grid :is(img,.gi-slot-placeholder) { width:100%; height:88px; flex:0 0 auto; object-fit:cover; }
-#gi-wardrobe .gi-bg-grid .gi-slot-placeholder { display:grid; place-items:center; padding:0; font-size:38px; line-height:1; }
-#gi-wardrobe .gi-bg-grid button > span:not(.gi-slot-placeholder) { font-size:11px; overflow:hidden; line-height:1.2; }
-#gi-wardrobe.gi-background-wardrobe .gi-wardrobe-preview img { object-fit:contain; }
-#gi-wardrobe [data-panel="backgrounds"][aria-busy] { opacity:.7; }
-#gi-wardrobe #gi-bg-library { min-height:120px; }
 
 #gi-wardrobe .gi-roster-tools { display: flex; align-items: center; flex-wrap: wrap; gap: 8px 16px; padding: 6px 22px 0; }
 #gi-wardrobe .gi-roster-tools input[type="search"] { flex: 0 1 260px; min-width: 140px; min-height: 34px; padding: 4px 14px; border: 1px solid #cfbf9560; border-radius: 18px; background: #0d1220b3; color: inherit; font: inherit; font-size: 14px; }

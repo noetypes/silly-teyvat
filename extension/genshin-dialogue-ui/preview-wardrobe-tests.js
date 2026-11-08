@@ -25,6 +25,10 @@ export async function runWardrobeAndCanvasTests(){
     try{
         check('slot numbering avoids existing names regardless of case',nextSlotName('expression',['Expression','expression-1','expression-3'])==='expression-2');
         await open();
+        check('the character menu has no Backgrounds tab',![...host.querySelectorAll('.gi-wardrobe-tabs button')].some(b=>/background/i.test(b.textContent)||b.dataset.w==='tab-backgrounds')&&!host.querySelector('[data-panel="backgrounds"]'));
+        {const dialog=host.querySelector('#gi-wardrobe'),vv=globalThis.visualViewport;
+         if(vv){vv.dispatchEvent(new Event('resize'));check('pinching the page puts the sprite stage in its simple state',dialog.classList.contains('gi-pinching'));
+           await new Promise(r=>setTimeout(r,520));check('and brings the full stage back once the viewport settles',!dialog.classList.contains('gi-pinching'));}}
         const faces=()=>[...host.querySelectorAll('.gi-roster button')].map(b=>b.dataset.avatar);
         check('characters without the Genshin tag are hidden by default, except the selected one',$('#gi-hide-non-genshin').checked&&faces().join()==='Klee.png');
         $('#gi-hide-non-genshin').click();await pause(15);check('turning off Hide non-Genshin lists every character',faces().join()==='Klee.png,Nahida.png'&&prefs.hideNonGenshin===false);

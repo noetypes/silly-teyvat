@@ -53,11 +53,12 @@ function encounterRuleChecks(check){
  const stranger=cardPortrait({characters:[]},card('Somebody'));
  check('avatars that are not installed cards get the same frame as the character list',stranger.classList.contains('gi-card-frame')&&stranger.firstChild.classList.contains('gi-card-img-frame'));
  check('uploaded images are recognised by their shape alone',cardShape(208,248)===true&&cardShape(420,720)==='tcg'&&cardShape(1000,1800)==='tcg'&&cardShape(512,768)===false&&cardShape(0,0)===false);
- const root=document.createElement('div');root.innerHTML='<div id="persona-management-block"><div id="user_avatar_block"><div class="avatar"><img src="/thumbnail?type=persona&amp;file=Traveler.png"></div></div></div><div id="chat"><div class="recentChat group" data-group="j1"><div class="avatar"><img src="data:image/gif;base64,R0lGODlhAQABAAAAACw="></div></div></div>';document.body.append(root);
- const hadCardArt=document.body.classList.contains('gi-card-art-on'),art=mountCardArt({getContext:()=>({characters:[card('Klee')],groups:[{id:'j1',silly_teyvat_journey:{source:{avatar:'Klee.png'}}}]}),root});
- const [persona,journey]=root.querySelectorAll('img');
+ const root=document.createElement('div');root.innerHTML='<div id="persona-management-block"><div id="user_avatar_block"><div class="avatar"><img src="/thumbnail?type=persona&amp;file=Traveler.png"></div></div></div><div id="chat"><div class="recentChat group" data-group="j1"><div class="avatar"><img src="data:image/gif;base64,R0lGODlhAQABAAAAACw="></div></div><div class="recentChat group" data-group="j2"><div class="avatar"><img src="data:image/gif;base64,R0lGODlhAQABAAAAACw="></div></div></div>';document.body.append(root);
+ const hadCardArt=document.body.classList.contains('gi-card-art-on'),art=mountCardArt({getContext:()=>({characters:[card('Klee')],groups:[{id:'j1',silly_teyvat_journey:{source:{avatar:'Klee.png'}}},{id:'j2',silly_teyvat_journey:{source:{avatar:'persona:Traveler.png',chatId:'solo:x'}}}]}),root});
+ const [persona,journey,soloPersona]=root.querySelectorAll('img');
  check('persona images in Persona Management are shown whole, like character cards',persona.getAttribute('src')==='/User Avatars/Traveler.png'&&persona.classList.contains('gi-card-img'));
  check('a solo journey portrait is drawn from the card it was taken from',journey.getAttribute('src')==='/characters/Klee.png'&&journey.closest('.avatar').classList.contains('gi-card-art'));
+ check('a solo journey played as a persona shows the persona image whole, like Persona Management',soloPersona.getAttribute('src')==='/User Avatars/Traveler.png'&&soloPersona.classList.contains('gi-card-img')&&soloPersona.closest('.avatar').classList.contains('gi-card-art'));
  art.dispose();root.remove();document.body.classList.toggle('gi-card-art-on',hadCardArt);
  check('turning card art off puts back the stored portrait',journey.getAttribute('src').startsWith('data:')&&!journey.closest('.avatar').classList.contains('gi-card-art'));
 }

@@ -22,7 +22,7 @@
 
 /* ---------- Pedestal only under a visible character sprite ---------- */
 #gi-wardrobe .gi-cs-pedestal { transition: opacity 260ms ease; }
-#gi-wardrobe:is([data-tab="cgs"], [data-tab="backgrounds"]) .gi-cs-pedestal,
+#gi-wardrobe:is([data-tab="cgs"]) .gi-cs-pedestal,
 #gi-wardrobe .gi-wardrobe-preview:has(> img[hidden]) .gi-cs-pedestal,
 #gi-wardrobe .gi-wardrobe-preview:not(:has(> img[src])) .gi-cs-pedestal { opacity: 0; visibility: hidden; }
 

@@ -29,17 +29,9 @@ export async function runBackgroundTests(){
         // Background-only fixtures have no loaded party; travel logging is covered separately.
         ctx.characters=[{name:'Klee',avatar:'Klee.png'}];
         wardrobe=mountWardrobe({host,getContext:()=>ctx,adapter:{list:async()=>[]},mediaAdapter:adapter});await wardrobe.open();
-        const $=s=>host.querySelector(s),click=async action=>{$(`[data-bg="${action}"]`).click();await pause();};
-        $('[data-w="tab-backgrounds"]').click();check('wardrobe exposes a shared Backgrounds section',!$('[data-panel="backgrounds"]').hidden&&$('.gi-roster').hidden&&!!$('.gi-character-staging').closest('[hidden]'));
-        $('#gi-bg-new-region').value='Inazuma';await click('add-region');check('creating a region never automatically travels out of the active region',prefs.backgroundRegions.some(r=>r.name==='Inazuma')&&travelState(ctx).regionId==='liyue');
-        const inazuma=prefs.backgroundRegions.find(r=>r.name==='Inazuma');$('#gi-bg-region').value=inazuma.id;$('#gi-bg-region').dispatchEvent(new Event('change',{bubbles:true}));await pause();check('region dropdown explicitly changes this chat’s travel lock',travelState(ctx).regionId===inazuma.id);
-        await click('add-location');await click('add-location');check('background plus creates numbered blank locations',inazuma.locations.map(l=>l.label).join('|')==='location|location-1'&&$('.gi-bg-grid').lastElementChild.dataset.bg==='add-location');
-        $('#gi-bg-label').value='Ritou';$('#gi-bg-aliases').value='Port of Ritou\nHarbor entrance';$('#gi-bg-description').value='Standing in Ritou';await click('save-location');check('location names, aliases and descriptions are editable',inazuma.locations[1].label==='Ritou'&&inazuma.locations[1].classifications.length===2);
-        const data=new DataTransfer();data.items.add(new File(['fixture'],'Island.webp',{type:'image/webp'}));$('#gi-bg-files').files=data.files;await click('upload');check('artwork fills the selected blank location without duplicating it',inazuma.locations.length===2&&inazuma.locations[1].path===path&&!inazuma.locations[1].blank);
-        await click('visit');check('manual entry location stays inside the selected region',travelState(ctx).location.label==='Ritou'&&travelState(ctx).regionId===inazuma.id);
-        await click('load-library');$('#gi-bg-library').options[0].selected=true;await click('import-library');check('existing native backgrounds can be assigned without uploads',inazuma.locations.some(l=>l.label==='Native lake'&&l.path===path));
-        const regionsBefore=prefs.backgroundRegions.length;$('#gi-bg-new-region').value='Mondstadt';await click('add-region');check('duplicate region names are rejected',prefs.backgroundRegions.length===regionsBefore);
-        await click('remove-location');check('removing an assignment keeps its image and recorded travel snapshot',inazuma.locations.length===2&&travelState(ctx).location.path===path);
+        const $=s=>host.querySelector(s);
+        // Backgrounds are changed on the world map; the character menu no longer has a section for them.
+        check('the character menu has no Backgrounds section',!$('[data-w="tab-backgrounds"]')&&!$('[data-panel="backgrounds"]')&&![...host.querySelectorAll('.gi-wardrobe-tabs span')].some(x=>/background/i.test(x.textContent))&&!$('.gi-roster').hidden);
         const state=travelState(ctx);wardrobe.dispose();wardrobe=undefined;
         const second={...ctx,chatMetadata:{}};check('different chats have independent region locks',travelState(second).regionId===''&&travelState(ctx)===state);
         let rejected=false;try{visitLocation(ctx,'tree');}catch{rejected=true;}check('cross-region manual location requests are rejected',rejected);

@@ -44,7 +44,7 @@ Elemental rolls now use the supplied textured Genius Invokation glTF model. All 
 
 ## Wilderness and elemental combat (1.16)
 
-Wilderness waypoints can spawn a configured enemy at an editable chance. Choose enemy pools from the map or Backgrounds, and set card roles, elements, body models, regions, HP and death messages in Sprite Wardrobe. Enemy cards and tied-character selectors are kept separate. Forty existing wilderness waypoints have starter pools and a 40% chance.
+Wilderness waypoints can spawn a configured enemy at an editable chance. Choose enemy pools from the map, and set card roles, elements, body models, regions, HP and death messages in Sprite Wardrobe. Enemy cards and tied-character selectors are kept separate. Forty existing wilderness waypoints have starter pools and a 40% chance.
 
 Sending a message with the **sword toggle** armed rolls one 3D elemental die per playable ally plus two. Matching elements and Omni deal configurable random damage. Enemy health and attack facts are saved, surviving enemies react through their own cards, and a death message precedes unloading a defeated enemy. Ordinary conversation remains available. [Setup, behavior, metadata exceptions and dice provenance](COMBAT.md).
 
@@ -195,12 +195,12 @@ Removing an artwork assignment keeps the uploaded file, so saved CG scenes remai
 
 ## Regional backgrounds
 
-Open **Sprite Wardrobe → Backgrounds**. Backgrounds are shared scene locations, independent of the selected character, sprites and CGs.
+Backgrounds are shared scene locations, independent of the selected character, sprites and CGs. They are managed on the **World map**: the character menu has no Backgrounds section.
 
-1. Enter a region name, such as `Mondstadt`, and press **Add region**. Select it in **Travel region** to enter it. Adding a region alone never takes you out of your current region.
-2. Upload background images or expand **Use existing SillyTavern backgrounds → Load background library** and assign selected images to the region. The final **+** tile creates an empty location slot that can be named before its image is added.
-3. Select each location and set its name, optional aliases and recognition description, then press **Save location details**. For example, `Windrise` can also match `Windrise tree` or `Statue of The Seven`. Several images can share a classification; the first matching assigned image is used.
-4. Select artwork and press **Set current location** to choose where the scene starts. Switching to an existing region begins at its first available background.
+1. Open the map (the round minimap at the top left), press **＋ Waypoint**, and click or tap a place on it. In the card choose a region, or **New region…** to add one, and upload a background picture. Adding a region never takes you out of your current region.
+2. Select a waypoint and use the pencil to change its name, description, aliases and picture. For example, `Windrise` can also match `Windrise tree` or `Statue of The Seven`. Several images can share a classification; the first matching one wins.
+3. **Teleport** on a waypoint takes the party there, and switching to an existing region begins at its first available background.
+4. A background that has no pin yet can be linked from **Background** in the waypoint card, without duplicating its file.
 5. Keep **Classify locations and show backgrounds** enabled. Under **Location classifier**, choose Main API, a saved Connection Manager profile or WebLLM. This choice is independent of the sprite and CG classifiers. Main API reasoning bypass starts enabled and only affects location requests. Edit the prompt if desired, then press **Save classifier settings**. `{{options}}` supplies the selected region's location names and aliases; `{{message}}` can include the classification input.
 
 After a complete character response, the classifier receives the selected region, current location, two preceding messages and that response, including narration. It chooses the party's current physical location. Mentions, memories and planned destinations should not change it. **Only locations in the selected region are offered, and responses naming anything outside that list are rejected.** No match keeps the current background. Streaming and player messages retain the background without making location requests.
@@ -255,11 +255,11 @@ Only the suggestion request disables thinking; normal generation settings stay i
 
 Travel, waypoint creation, group copies and media uploads use local IDs without browser UUID helpers, including on mobile LAN HTTP connections. Existing saved IDs stay valid.
 
-The round minimap at the top left opens the full Teyvat map. You can also open it through **Sprite Wardrobe → Backgrounds → Open world map**. Drag to pan, pinch or use the plus/minus controls to zoom. Only your own waypoints are shown.
+The round minimap at the top left opens the full Teyvat map. Drag to pan, pinch or use the plus/minus controls to zoom. Only your own waypoints are shown.
 
 1. Press **＋ Waypoint**, then click or tap a location on the map. **Place at map centre** also works.
-2. Enter a name and description, choose its region, then upload a background picture. The picture is added to that region in the Backgrounds wardrobe. Region membership comes from your selection. Add aliases under **Additional classifications** to help the location classifier recognize it.
-3. If the background is already uploaded, select its region and choose it under **Link existing background**. Alternatively, select it in the wardrobe and press **Place selected background on map**. This links the existing item without duplicating the file.
+2. Enter a name and description, choose its region, then upload a background picture. The picture is added to that region. Region membership comes from your selection. Add aliases under **Additional classifications** to help the location classifier recognize it.
+3. If the background is already uploaded, select its region and choose it under **Link existing background**. This links the existing item without duplicating the file.
 4. Press **Save waypoint**. Saving creates the destination without moving the party. Click the marker or its name in the waypoint list to see the description, distance and **Teleport** button.
 5. **Teleport** immediately selects that waypoint’s background and region. The model never changes your location; only you do.
 

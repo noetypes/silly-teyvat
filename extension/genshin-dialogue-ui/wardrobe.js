@@ -2,7 +2,7 @@ import {isNarrator} from './narrator.js';
 import {activeGroup,inPartyChat} from './party.js';
 import {mountCharacterProperties,characterProperties,hasGenshinTag,ELEMENTS} from './character-properties.js';
 import {mountStartingTrust} from './trust-ui.js';
-import {createSpriteTrimmer} from './sprite-trim.js';
+import {createSpriteTrimmer,supportsViewBox} from './sprite-trim.js';
 import {linkedCard,linkedCardAvatar,linkedPersonaAvatars,playedAvatars} from './persona-link.js';
 import {newLocalId} from './local-id.js';
 import {requiredCGTrust,TRUST_MAX} from './scene-trust.js';
@@ -11,7 +11,6 @@ import {requiredCGTrust,TRUST_MAX} from './scene-trust.js';
 import { createMediaAdapter, mediaSettings, spriteAudioKey, localMediaPath, isVideoCG, registerExpression, syncExpressionControls } from './media-store.js';
 import { characterPreferences, bounded, roster } from './staging.js';
 import { nextSlotName, spriteDrafts, draftSprite } from './wardrobe-slots.js';
-import { mountBackgroundWardrobe } from './background-wardrobe.js';
 import { backgroundRegions } from './backgrounds.js';
 import { mountMovesetEditor } from './moveset-editor.js';
 import {personaCard,personaFolder,personaSpriteSettings,setPersonaSpriteSetting,mountPersonaProfile,createPersonaAdapter} from './persona-wardrobe.js';
@@ -131,7 +130,7 @@ const ROSTER_ORDER={
     region:t=>t.region?regionRank(t.region):REGION_ORDER.length+1,
     type:t=>['playable','npc','enemy'].indexOf(t.type),
 };
-export function mountWardrobe({host, getContext, onChange = async () => {}, onMediaChange = () => {}, openMap = () => {}, previewAudio = async () => {}, previewCG = async () => {}, mediaAdapter = createMediaAdapter(getContext), adapter = createWardrobeAdapter(getContext), personaAdapter = createPersonaAdapter(getContext)}) {
+export function mountWardrobe({host, getContext, onChange = async () => {}, onMediaChange = () => {}, previewAudio = async () => {}, previewCG = async () => {}, mediaAdapter = createMediaAdapter(getContext), adapter = createWardrobeAdapter(getContext), personaAdapter = createPersonaAdapter(getContext)}) {
     const dialog = document.createElement('dialog'); dialog.id = 'gi-wardrobe'; dialog.dataset.tab = 'attributes';
     dialog.setAttribute('aria-labelledby', 'gi-wardrobe-title'); dialog.tabIndex = -1;
     dialog.innerHTML = `<header><div><h2 id="gi-wardrobe-title">Character Customization</h2></div><button type="button" data-w="close" aria-label="Close Character Customization">×</button></header>
@@ -142,7 +141,7 @@ export function mountWardrobe({host, getContext, onChange = async () => {}, onMe
         <label>Character scale (%)<input id="gi-character-scale" type="number" min="10" max="300" step="1" value="100"></label>
         <label class="gi-check"><input id="gi-manual-position" type="checkbox">Set this character’s horizontal position</label><label>Horizontal position (% of screen)<input id="gi-character-x" type="number" min="0" max="100" step="1" value="50"></label>
         <label>Raise from bottom (% of screen)<input id="gi-character-y" type="number" min="-40" max="50" step="1" value="0"></label>
-        </details><nav class="gi-wardrobe-tabs" aria-label="Character Customization section"><button type="button" data-w="tab-attributes" aria-pressed="true"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="9" cy="11" r="2.5"/><path d="M5.5 17c.8-2 2-3 3.5-3s2.7 1 3.5 3M15 10h4M15 14h3"/></svg><span>Profile</span></button><button type="button" data-w="tab-weapon" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="5" r="2.5"/><path d="M12 8v7M8 11h8M9.5 21l2.5-6 2.5 6M3 21h18"/></svg><span>Staging</span></button><button type="button" data-w="tab-sprites" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8.5 14.5c1 1.3 2.1 2 3.5 2s2.5-.7 3.5-2"/><path d="M9 9.5h.01M15 9.5h.01"/></svg><span>Expressions</span></button><button type="button" data-w="tab-cgs" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="8.5" cy="10" r="1.6"/><path d="m21 15-5-5-8 9"/></svg><span>Scenes</span></button><button type="button" data-w="tab-outfits" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 3 4 6l2 4 2-1v12h8V9l2 1 2-4-4-3c-.6 1.6-2.2 2.6-4 2.6S8.6 4.6 8 3Z"/></svg><span>Outfits</span></button><button type="button" data-w="tab-backgrounds" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 19 9 9l4 6 3-4 5 8Z"/><circle cx="16" cy="6" r="2"/></svg><span>Backgrounds</span></button></nav><div data-panel="sprites"><label for="gi-outfit">Sprite set</label><div class="gi-wardrobe-row"><select id="gi-outfit"></select><button type="button" data-w="equip">Use set</button></div>
+        </details><nav class="gi-wardrobe-tabs" aria-label="Character Customization section"><button type="button" data-w="tab-attributes" aria-pressed="true"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="9" cy="11" r="2.5"/><path d="M5.5 17c.8-2 2-3 3.5-3s2.7 1 3.5 3M15 10h4M15 14h3"/></svg><span>Profile</span></button><button type="button" data-w="tab-weapon" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="5" r="2.5"/><path d="M12 8v7M8 11h8M9.5 21l2.5-6 2.5 6M3 21h18"/></svg><span>Staging</span></button><button type="button" data-w="tab-sprites" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8.5 14.5c1 1.3 2.1 2 3.5 2s2.5-.7 3.5-2"/><path d="M9 9.5h.01M15 9.5h.01"/></svg><span>Expressions</span></button><button type="button" data-w="tab-cgs" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="8.5" cy="10" r="1.6"/><path d="m21 15-5-5-8 9"/></svg><span>Scenes</span></button><button type="button" data-w="tab-outfits" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 3 4 6l2 4 2-1v12h8V9l2 1 2-4-4-3c-.6 1.6-2.2 2.6-4 2.6S8.6 4.6 8 3Z"/></svg><span>Outfits</span></button></nav><div data-panel="sprites"><label for="gi-outfit">Sprite set</label><div class="gi-wardrobe-row"><select id="gi-outfit"></select><button type="button" data-w="equip">Use set</button></div>
         <p class="gi-current-outfit"></p>
         <div class="gi-wardrobe-row gi-set-tools" role="group" aria-label="Manage sprite sets"><button type="button" data-w="set-new">New set</button><button type="button" data-w="set-rename">Rename</button><button type="button" data-w="set-delete">Delete</button></div>
         <div class="gi-set-editor" hidden><label class="gi-set-name-row"><span class="gi-set-editor-title"></span><input id="gi-set-editor-name" maxlength="80" autocomplete="off"></label><label class="gi-check gi-set-copy-row"><input type="checkbox" id="gi-set-copy">Start from a copy of the selected set</label><p class="gi-set-editor-note"></p><div class="gi-wardrobe-row"><button type="button" data-w="set-confirm">Create set</button><button type="button" data-w="set-forget" hidden>Remove from list</button><button type="button" data-w="set-delete-files" hidden>Delete set and sprites</button><button type="button" data-w="set-cancel">Cancel</button></div></div>
@@ -171,16 +170,19 @@ export function mountWardrobe({host, getContext, onChange = async () => {}, onMe
         <section class="gi-cg-section"><h3>Add artwork</h3><label>Artwork files<input id="gi-cg-files" type="file" accept="image/png,image/webp,image/jpeg,image/gif,image/avif,video/mp4,video/webm,video/quicktime,.m4v,.mov" multiple></label><div class="gi-wardrobe-row"><button type="button" data-w="upload-cg">Add scene artwork</button><button type="button" data-w="recheck-cg">Recheck visible message</button></div></section>
         </div>
         </section></div><footer><p role="status" aria-live="polite"></p><button type="button" data-w="undo" hidden>Undo remove</button></footer>`;
-    const backgroundPanel=document.createElement('div');backgroundPanel.dataset.panel='backgrounds';backgroundPanel.hidden=true;dialog.querySelector('.gi-wardrobe-controls').append(backgroundPanel);
     host.append(dialog);
     const abort = new AbortController();
+    // Pinching the page zoom (a laptop trackpad, a phone) re-rasterises the screen under the fingers. The sprite's reflection,
+    // its shadow and the large drifting nebula layers made that stage slow to settle: the figure could show at the wrong size and
+    // over other panels until it had caught up. While the viewport is being pinched or panned they are switched off, and
+    // switched back on a moment after it settles.
+    let pinchTimer = 0;
+    const pinching = () => { dialog.classList.add('gi-pinching'); clearTimeout(pinchTimer); pinchTimer = setTimeout(() => dialog.classList.remove('gi-pinching'), 400); };
+    for (const type of ['resize', 'scroll']) globalThis.visualViewport?.addEventListener(type, pinching, { passive: true, signal: abort.signal });
     const trimmer = createSpriteTrimmer({ inventory: path => path === folder() ? Promise.resolve(sprites) : adapter.list(path), concurrency: 2 });
     const $ = sel => dialog.querySelector(sel);
     let character, sets = [], sprites = [], selected, selectedCG, tab = 'attributes', backup, revision = 0, opener,personaRefreshPending=false;
     const status = text => { const p=$('footer p'); p.textContent = text; p.classList.remove('gi-toast'); void p.offsetWidth; p.classList.add('gi-toast'); };
-    const backgroundUI=mountBackgroundWardrobe({panel:backgroundPanel,getContext,adapter:mediaAdapter,onChange:onMediaChange,status,openMap:options=>{dialog.close();return openMap(options);},preview:(location,region)=>{
-        if(tab!=='backgrounds')return;const img=$('.gi-wardrobe-preview img');clearArt(img);img.hidden=!location?.path;if(location?.path)img.src=localMediaPath(location.path);else img.removeAttribute('src');$('.gi-cs-identity h3').textContent=region?.name || 'World travel';$('.gi-outfit-caption').textContent=location?.label || 'Choose a region and add locations';
-    }});
     const propertiesPanel=document.createElement('details');propertiesPanel.className='gi-card-properties';$('.gi-character-staging').before(propertiesPanel);
     const propertiesUI=mountCharacterProperties({panel:propertiesPanel,getContext,getCharacter:()=>character,status,onChange:()=>{startingTrustUI.refresh();starterDeckUI.refresh();paintElement();onChange(character,{classification:true});}});
     const trustPanel=document.createElement('details');trustPanel.className='gi-card-properties gi-start-trust';propertiesPanel.after(trustPanel);
@@ -229,7 +231,14 @@ export function mountWardrobe({host, getContext, onChange = async () => {}, onMe
         arrival=false;const img=$('.gi-wardrobe-preview > img'),tint=$('.gi-cs-tint');
         if(!img.hidden&&img.currentSrc){
             Object.assign(tint.style,{left:`${img.offsetLeft}px`,top:`${img.offsetTop}px`,width:`${img.offsetWidth}px`,height:`${img.offsetHeight}px`});
-            tint.style.setProperty('--cs-sprite',`url("${img.currentSrc}")`);replay(dialog,'gi-cs-arrive');
+            tint.style.setProperty('--cs-sprite',`url("${img.currentSrc}")`);
+            // A cropped-by-CSS image still has its whole file as the tint's mask: place the mask so the cropped part fills the tint, as the image does.
+            const box=img.dataset.box?.split(',').map(Number);
+            if(box?.length===4&&img.naturalWidth){
+                const [l,t,r,b]=box,W=img.naturalWidth,H=img.naturalHeight,bw=img.offsetWidth,bh=img.offsetHeight,cw=(r-l)*W,ch=(b-t)*H,fit=Math.min(bw/cw,bh/ch);
+                for(const prefix of ['','-webkit-']){tint.style.setProperty(`${prefix}mask-size`,`${W*fit}px ${H*fit}px`);tint.style.setProperty(`${prefix}mask-position`,`${(bw-cw*fit)/2-l*W*fit}px ${bh-ch*fit-t*H*fit}px`);}
+            }else for(const prefix of ['','-webkit-']){tint.style.removeProperty(`${prefix}mask-size`);tint.style.removeProperty(`${prefix}mask-position`);}
+            replay(dialog,'gi-cs-arrive');
         }
         backdrop.arrive();
     }
@@ -265,23 +274,38 @@ export function mountWardrobe({host, getContext, onChange = async () => {}, onMe
     // Load the neutral first, but reveal only the decoded final crop. Showing
     // the padded original first makes the figure jump in size after its arrival.
     // A stale crop must never repaint another character, scene or background.
-    function clearArt(img) { delete img.dataset.art; img.style.visibility = ''; }
+    function clearArt(img) { delete img.dataset.art; delete img.dataset.box; img.style.visibility = ''; img.style.objectViewBox = ''; }
+    // A crop either swaps the image for a trimmed copy, or (Chrome, Edge) leaves the file alone and sets object-view-box.
+    function applyCrop(img, crop) {
+        if (crop.viewBox) { img.style.objectViewBox = crop.viewBox; img.dataset.box = [crop.box.left, crop.box.top, crop.box.right, crop.box.bottom].join(','); }
+        else { img.style.objectViewBox = ''; delete img.dataset.box; img.src = crop.url; }
+    }
     function setArt(img, spriteFolder, path, trim = true) {
         // Tab changes often reselect the same sprite. Keep a finished crop in
         // place instead of resetting its source to the original padded image.
         if (img.dataset.art === path && img.style.visibility !== 'hidden' && img.complete && img.naturalWidth) return;
-        img.dataset.art = path; img.style.visibility = 'hidden'; if (img.getAttribute('src') !== path) img.src = path;
+        img.dataset.art = path; img.style.visibility = 'hidden'; img.style.objectViewBox = ''; delete img.dataset.box; if (img.getAttribute('src') !== path) img.src = path;
         if (!trim) return;
         const generation = trimmer.generation;
-        const crop = mediaSettings(getContext()).trimSprites === false ? Promise.resolve(null) : trimmer.trim(spriteFolder, path);
+        // The figure appears from its own outline at once; the crop shared by all its expressions follows, and
+        // swaps in quietly (no second arrival) if it differs. Boxes already known are used straight away.
+        let shown; const revealed = new Promise(resolve => { shown = resolve; });
+        const refine = promise => promise.catch(() => null).then(async better => {
+            await revealed;
+            if (!better || trimmer.generation !== generation || !dialog.open || img.dataset.art !== path || !img.naturalWidth) return;
+            if (!better.viewBox) { const probe = new Image(); probe.src = better.url; await probe.decode().catch(() => {}); }
+            if (trimmer.generation !== generation || img.dataset.art !== path) return;
+            applyCrop(img, better);
+        });
+        const crop = mediaSettings(getContext()).trimSprites === false ? Promise.resolve(null) : trimmer.trim(spriteFolder, path, { refine, viewBox: supportsViewBox(), dims: img.complete && img.naturalWidth && img.getAttribute('src') === path ? `${img.naturalWidth}x${img.naturalHeight}` : undefined });
         crop.catch(() => null).then(async trimmed => {
             if (trimmer.generation !== generation || !img.isConnected || img.dataset.art !== path || img.getAttribute('src') !== path) return;
-            if (trimmed) img.src = trimmed.url;
+            if (trimmed) applyCrop(img, trimmed);
             await img.decode().catch(() => {});
             if (trimmer.generation !== generation || !dialog.open || img.dataset.art !== path || img.getAttribute('src') !== (trimmed?.url || path) || !img.naturalWidth) return;
             img.style.visibility = '';
             if (arrival) playArrival();
-        });
+        }).finally(shown);
     }
     function chooseSprite(sprite, trim = true) {
         selected = sprite;
@@ -390,7 +414,7 @@ export function mountWardrobe({host, getContext, onChange = async () => {}, onMe
     // The breadcrumb names the element and the character, as in the game; the rail shows the section.
     function paintTitle(){
         const element=character?characterProperties(getContext(),character).element:'None';
-        $('#gi-wardrobe-title').textContent=tab==='backgrounds'?'Teyvat / Backgrounds':character?`${element==='None'?'Character':element} / ${character.name}`:'Characters';
+        $('#gi-wardrobe-title').textContent=character?`${element==='None'?'Character':element} / ${character.name}`:'Characters';
     }
     function paintElement(){
         const element=character?characterProperties(getContext(),character).element:'None';
@@ -404,7 +428,7 @@ export function mountWardrobe({host, getContext, onChange = async () => {}, onMe
     function stepSection(by){const tabs=[...dialog.querySelectorAll('.gi-wardrobe-tabs button')],at=tabs.findIndex(b=>b.dataset.w===`tab-${tab}`);tabs[(at+by+tabs.length)%tabs.length].click();}
     function stepCharacter(by){
         const faces=[...dialog.querySelectorAll('.gi-roster button')],at=faces.findIndex(b=>b.getAttribute('aria-pressed')==='true');
-        if(tab!=='backgrounds'&&faces.length>1)faces[(at+by+faces.length)%faces.length].click();
+        if(faces.length>1)faces[(at+by+faces.length)%faces.length].click();
     }
     function centreSelectedFace(){
         const strip=$('.gi-roster'),face=strip.querySelector('button[aria-pressed="true"]');if(!face)return;
@@ -414,9 +438,8 @@ export function mountWardrobe({host, getContext, onChange = async () => {}, onMe
     function switchTab(next) {
         if(next!==tab&&dialog.open)replay(dialog,'gi-cs-sweep');
         tab=next;dialog.dataset.tab=tab;for(const panel of dialog.querySelectorAll('[data-panel]'))panel.hidden=panel.dataset.panel!==tab;
-        $('.gi-roster').hidden=tab==='backgrounds';paintTitle();$('.gi-wardrobe-controls').classList.remove('gi-panel-in');void $('.gi-wardrobe-controls').offsetWidth;$('.gi-wardrobe-controls').classList.add('gi-panel-in');dialog.classList.toggle('gi-background-wardrobe',tab==='backgrounds');
+        paintTitle();$('.gi-wardrobe-controls').classList.remove('gi-panel-in');void $('.gi-wardrobe-controls').offsetWidth;$('.gi-wardrobe-controls').classList.add('gi-panel-in');
         for(const button of dialog.querySelectorAll('.gi-wardrobe-tabs button'))button.setAttribute('aria-pressed',String(button.dataset.w===`tab-${tab}`));
-        if(tab==='backgrounds'){backgroundUI.refresh();return;}
         if(!ready())return;
         if(tab==='moveset')movesetUI.refresh();
         $('.gi-cs-identity h3').textContent=character?.name || '';
@@ -482,7 +505,7 @@ export function mountWardrobe({host, getContext, onChange = async () => {}, onMe
         if (personaExpression && personaExpression !== first) chooseSprite(personaExpression);
         if (!first && spriteDrafts(getContext(),folder()).length) chooseSprite(draftSprite(folder(),spriteDrafts(getContext(),folder())[0]));
         switchTab(tab);
-        status(tab==='backgrounds'?'Choose your travel region and manage its location backgrounds.':sprites.length ? `${sprites.length} sprites in ${path}. Select a sprite to preview it. Use set equips the outfit.` : `No sprites in ${path}. Add images below to create this set.`);
+        status(sprites.length ? `${sprites.length} sprites in ${path}. Select a sprite to preview it. Use set equips the outfit.` : `No sprites in ${path}. Add images below to create this set.`);
     }
     async function selectCharacter(c) {
         character = c;expectArrival();paintElement();const cp=characterPreferences(getContext(),c.avatar);$('#gi-character-expression-mode').value=cp.expressionMode || 'inherit';$('#gi-character-scale').value=cp.scale ?? 100;$('#gi-manual-position').checked=cp.positionX!=null;$('#gi-character-x').value=cp.positionX ?? 50;$('#gi-character-x').disabled=cp.positionX==null;$('#gi-character-y').value=cp.offsetY ?? 0; selectedCG=undefined;$('#gi-cg-label').value='';$('#gi-cg-description').value='';$('#gi-cg-classifications').value='';$('.gi-cs-identity h3').textContent = c.name;
@@ -744,7 +767,7 @@ export function mountWardrobe({host, getContext, onChange = async () => {}, onMe
         getContext().saveSettingsDebounced();void onChange(character,classification?{classification:true}:{presentation:true}).then(()=>status(classification?'Sprite classification mode saved.':'Scale and placement saved for this scene and future scenes.')).catch(e=>status(e.message));
     },{signal:abort.signal});
     $('#gi-outfit').addEventListener('change', () => { closeSetEditor(); if (!busy()) load().catch(e => status(e.message)); }, {signal:abort.signal});
-    dialog.addEventListener('close', () => { revision++; trimmer.reset(); content.send('CLOSE'); arrival=false;dialog.classList.remove('gi-cs-arrive','gi-cs-sweep');setZoom(false);backdrop.stop(); showArchive(false); opener?.focus(); }, {signal:abort.signal});
+    dialog.addEventListener('close', () => { clearTimeout(pinchTimer); dialog.classList.remove('gi-pinching'); revision++; trimmer.reset(); content.send('CLOSE'); arrival=false;dialog.classList.remove('gi-cs-arrive','gi-cs-sweep');setZoom(false);backdrop.stop(); showArchive(false); opener?.focus(); }, {signal:abort.signal});
     // Q/E change character and W/S change section, as in the game. Text fields keep their letters.
     dialog.addEventListener('keydown', event => {
         // Escape leaves the character list before it leaves the screen, even from its search box.
@@ -811,7 +834,7 @@ export function mountWardrobe({host, getContext, onChange = async () => {}, onMe
     async function renderRoster(preferred){
         const ctx=getContext(),persona=personaCard(ctx),characters=paintRoster();
         const chosen=characters.find(c=>c.avatar===preferred)||characters.find(c=>c.avatar===character?.avatar)||persona||ctx.characters?.[ctx.characterId]||characters[0];
-        if(chosen)await selectCharacter(chosen);else{paintElement();switchTab('backgrounds');status('Add regions and backgrounds, or import a character to manage sprites.');}
+        if(chosen)await selectCharacter(chosen);else{paintElement();switchTab('attributes');status('Import a character to manage sprites.');}
     }
     characterAvatarsReady.then(()=>{if(!abort.signal.aborted&&dialog.open)paintRoster();});
     return {
@@ -824,6 +847,6 @@ export function mountWardrobe({host, getContext, onChange = async () => {}, onMe
         },
         async refreshPersona(){if(!dialog.open)return;if(busy()){personaRefreshPending=true;return;}await renderRoster(character?.isPersona?personaCard(getContext())?.avatar:undefined);},
         close() { if (dialog.open) dialog.close(); },
-        dispose() { revision++; abort.abort(); backdrop.dispose(); trimmer.reset(); propertiesUI.dispose();startingTrustUI.dispose();starterDeckUI.dispose();movesetUI.dispose();burstAudioUI.dispose();personaProfileUI.dispose();backgroundUI.dispose();dialog.close(); dialog.remove(); },
+        dispose() { clearTimeout(pinchTimer); revision++; abort.abort(); backdrop.dispose(); trimmer.reset(); propertiesUI.dispose();startingTrustUI.dispose();starterDeckUI.dispose();movesetUI.dispose();burstAudioUI.dispose();personaProfileUI.dispose();dialog.close(); dialog.remove(); },
     };
 }

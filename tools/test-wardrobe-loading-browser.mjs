@@ -9,6 +9,8 @@ let image;
 const requested=[],held=new Map();
 let holdNeutral=true,holdExpressions=true;
 const release=async key=>{const route=held.get(key);held.delete(key);await route.fulfill({contentType:'image/png',body:image});};
+// NO_VIEW_BOX=1 runs the same checks on the path browsers without object-view-box use (a cropped copy made on a canvas).
+if(process.env.NO_VIEW_BOX)await page.addInitScript(()=>{const supports=CSS.supports.bind(CSS);CSS.supports=(...args)=>args[0]==='object-view-box'?false:supports(...args);});
 await page.addInitScript(()=>{window.requestAnimationFrame=fn=>setTimeout(()=>fn(performance.now()),16);window.cancelAnimationFrame=clearTimeout;});
 await page.route('**/wardrobe-loading-fixture/**',async route=>{
     const key=new URL(route.request().url()).pathname.split('/').slice(-2).join('/');requested.push(key);
@@ -29,7 +31,7 @@ try{
         window.arrivals=[];
         document.addEventListener('animationstart',event=>{
             if(event.target.matches('.gi-wardrobe-preview > img')&&event.animationName==='ty-fade'){
-                const img=event.target;window.arrivals.push({src:img.currentSrc,width:img.naturalWidth,height:img.naturalHeight,visibility:getComputedStyle(img).visibility});
+                const img=event.target;window.arrivals.push({src:img.currentSrc,art:img.dataset.art,width:img.naturalWidth,height:img.naturalHeight,visibility:getComputedStyle(img).visibility,view:img.style.objectViewBox});
             }
         });
         const {mountWardrobe}=await import('./wardrobe.js');
@@ -45,16 +47,19 @@ try{
     assert.equal(await page.locator('.gi-wardrobe-preview img').evaluate(el=>getComputedStyle(el).visibility),'hidden','the original stays hidden while loading');
     holdNeutral=false;await release('Klee/neutral.png');
     await page.evaluate(()=>window.fixtureOpen);
-    // Background scans are deliberately stalled longer than the old arrival
-    // timeout. Controls can be used, but no padded sprite or early fade appears.
-    await page.waitForTimeout(800);
-    assert.equal(await page.locator('.gi-wardrobe-preview img').evaluate(el=>getComputedStyle(el).visibility),'hidden');
-    assert.equal(await page.locator('#gi-wardrobe').evaluate(el=>el.classList.contains('gi-cs-arrive')),false);
-    assert.equal(await page.evaluate(()=>window.arrivals.length),0,'arrival must wait for the final image');
+    // Background scans are deliberately stalled. The figure no longer waits for them: it appears from its own
+    // outline, already cropped, while the other expressions are still being read.
+    await page.waitForFunction(()=>window.arrivals.length===1,null,{timeout:3000});
+    const early=await page.evaluate(()=>window.arrivals[0]);
+    assert.equal(early.visibility,'visible','the neutral appears without waiting for the other expressions');
+    assert.ok(early.art.endsWith('Klee/neutral.png'));
+    // Known transparent padding (32 of 128 across, 16 of 192 down) is cropped away at the moment it appears.
+    const cropped=early.view?early.view:`${early.width}x${early.height}`;
+    assert.ok(early.view?/^inset\(8\.33\d*% 25(\.0+)?%/.test(early.view):early.src.startsWith('blob:')&&early.width===64&&early.height===160,`the first sight is the cropped figure (${cropped})`);
     assert.equal(await page.locator('.gi-wardrobe-controls').evaluate(el=>el.inert),false);
     assert.equal(requested.filter(key=>key.startsWith('Klee/expression-')).length,2,'at most two background images should be in flight');
     assert.ok(!requested.includes('Klee/scene.png'),'Scenes must not load while browsing Profile');
-    console.log('PASS neutral loads first and stays hidden through trimming; background decoding is bounded; scenes wait for their tab');
+    console.log('PASS neutral loads first and appears before the other expressions are scanned; background decoding is bounded; scenes wait for their tab');
 
     await page.locator('.gi-roster [data-avatar="Nahida.png"]').click();
     await page.waitForFunction(()=>document.querySelector('.gi-wardrobe-preview img')?.dataset.art?.endsWith('Nahida/neutral.png')&&!document.querySelector('.gi-wardrobe-controls').inert);
@@ -65,16 +70,18 @@ try{
     assert.equal(requested.filter(key=>key.startsWith('Klee/')).length,oldRequests,'switching stops queued scans for the previous character');
     assert.ok(await page.locator('.gi-wardrobe-preview img').evaluate(el=>el.dataset.art.endsWith('Nahida/neutral.png')),'late work must not restore Klee');
     console.log('PASS rapid character switching cancels queued scans and rejects stale previews');
-    await page.waitForFunction(()=>window.arrivals.length===1);
-    const arrival=await page.evaluate(()=>window.arrivals[0]);
-    assert.ok(arrival.src.startsWith('blob:'),'arrival must use the cropped image');
-    assert.deepEqual([arrival.width,arrival.height,arrival.visibility],[64,160,'visible']);
+    await page.waitForFunction(()=>window.arrivals.some(a=>a.art.endsWith('Nahida/neutral.png')));
+    const arrival=await page.evaluate(()=>window.arrivals.find(a=>a.art.endsWith('Nahida/neutral.png')));
+    assert.equal(arrival.visibility,'visible');
+    assert.ok(arrival.view?/^inset\(/.test(arrival.view):(arrival.src.startsWith('blob:')&&arrival.width===64&&arrival.height===160),'arrival uses the cropped figure');
     await page.waitForTimeout(650);
-    assert.deepEqual(await page.locator('.gi-wardrobe-preview img').evaluate(el=>[el.currentSrc,el.naturalWidth,el.naturalHeight]),[arrival.src,64,160],'the image must retain its size and source after arrival');
+    const settled=()=>page.locator('.gi-wardrobe-preview img').evaluate(el=>[el.currentSrc,el.style.objectViewBox,el.naturalWidth,el.naturalHeight]);
+    const after=await settled();
+    assert.deepEqual(after,[arrival.src,arrival.view,arrival.width,arrival.height],'the image must keep its crop after arrival (no later size jump)');
     await page.locator('[data-w="tab-sprites"]').click();
-    assert.equal(await page.locator('.gi-wardrobe-preview img').evaluate(el=>el.currentSrc),arrival.src,'a tab change must keep the prepared crop');
+    assert.deepEqual(await settled(),after,'a tab change must keep the prepared crop');
     await page.locator('[data-w="tab-attributes"]').click();
-    console.log('PASS arrival starts with the decoded final crop, with no later size jump or tab-change flash');
+    console.log('PASS arrival shows the cropped figure, with no later size jump or tab-change flash');
 
     await page.locator('.gi-roster [data-avatar="Klee.png"]').click();
     await page.waitForFunction(()=>document.querySelector('.gi-wardrobe-preview img')?.dataset.art?.endsWith('Klee/neutral.png')&&!document.querySelector('.gi-wardrobe-controls').inert);

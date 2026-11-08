@@ -65,14 +65,13 @@
 #gi-wardrobe header .gi-roster button[aria-pressed="true"]::after { left: 0; right: 0; bottom: 0; width: auto; height: 3px; rotate: none; translate: none; border-radius: 2px 2px 0 0; background: var(--cs-hi); box-shadow: 0 0 10px var(--cs-hi); }
 #gi-wardrobe .gi-cs-key { display: grid; place-items: center; flex: none; width: 26px; height: 26px; min-height: 0; padding: 0; border: 0; border-radius: 5px; background: #ece5d8; color: #2e3648; font-size: 15px; line-height: 1; box-shadow: 0 1px 4px #0005; }
 #gi-wardrobe .gi-cs-key:hover { background: #fff; box-shadow: 0 0 0 3px #ffffff30; color: #2e3648; }
-#gi-wardrobe[data-tab="backgrounds"] :is(header .gi-cs-key, .gi-cs-step, .gi-cs-archive-open) { display: none; }
 #gi-wardrobe header > button[data-w="close"] { grid-column: 5; justify-self: end; width: 48px; height: 48px; border: 3px solid #0000; background: var(--ty-cream) padding-box; box-shadow: 0 0 0 1.5px #ece5d8a0; font-size: 30px; }
 #gi-wardrobe header > button[data-w="close"]:hover { box-shadow: 0 0 0 1.5px #fff, 0 0 12px #fff8; }
 
 /* ---------- Stage ---------- */
 #gi-wardrobe .gi-wardrobe-body { position: static; flex: 1; min-height: 0; }
 #gi-wardrobe .gi-wardrobe-preview { z-index: 1; min-width: 0; }
-#gi-wardrobe .gi-wardrobe-preview > img { will-change: transform; transform: var(--cs-camera, none); transform-origin: 50% 6%; object-position: 50% 100%; transition: transform 420ms var(--ty-ease); filter: drop-shadow(0 6px 18px #0004); }
+#gi-wardrobe .gi-wardrobe-preview > img { transform: var(--cs-camera, none); transform-origin: 50% 6%; object-position: 50% 100%; transition: transform 420ms var(--ty-ease); filter: drop-shadow(0 6px 18px #0004); }
 #gi-wardrobe .gi-cs-pedestal { bottom: var(--cs-floor, 34px); width: min(56%, 340px); aspect-ratio: 5 / 1; translate: -50% 42%; background: radial-gradient(closest-side, #0006, #0000); box-shadow: none; animation: none; }
 #gi-wardrobe:is([data-tab="moveset"]) { --cs-camera: scale(1.16); }
 #gi-wardrobe[data-tab="sprites"][data-zoom="on"] { --cs-camera: scale(1.62); }
@@ -178,7 +177,7 @@
     #gi-wardrobe.gi-cs-sweep .gi-wardrobe-tabs button[aria-pressed="true"] span::after { content: ""; position: absolute; left: 22px; top: 50%; width: min(17vw, 280px); height: 7px; translate: 0 -50%; transform-origin: 0 50%; clip-path: polygon(0 50%, 24% 0, 100% 50%, 24% 100%); background: linear-gradient(90deg, #fff0, #fff 22%, #ffffff90 52%, #fff0); filter: blur(.8px); pointer-events: none; animation: cs-streak 430ms ease-out both; }
     #gi-wardrobe .gi-wardrobe-preview { position: relative; overflow: visible; padding: 2dvh 0 var(--cs-floor); }
     #gi-wardrobe .gi-wardrobe-preview > img { -webkit-box-reflect: below 1px linear-gradient(#0000 76%, #ffffff40); }
-    #gi-wardrobe:is([data-tab="sprites"][data-zoom="on"], [data-tab="moveset"], [data-tab="cgs"], [data-tab="backgrounds"]) .gi-wardrobe-preview > img { -webkit-box-reflect: unset; }
+    #gi-wardrobe:is([data-tab="sprites"][data-zoom="on"], [data-tab="moveset"], [data-tab="cgs"]) .gi-wardrobe-preview > img { -webkit-box-reflect: unset; }
     #gi-wardrobe .gi-cs-side { padding: clamp(14px, 3.2dvh, 34px) calc(env(safe-area-inset-right, 0px) + var(--cs-gutter)) 76px 8px; }
     #gi-wardrobe footer { position: absolute; left: 0; right: 0; bottom: 0; min-height: 0; padding: 0 calc(env(safe-area-inset-right, 0px) + 28px) calc(env(safe-area-inset-bottom, 0px) + 16px) calc(env(safe-area-inset-left, 0px) + 22px); pointer-events: none; }
     #gi-wardrobe footer > * { pointer-events: auto; }
@@ -225,3 +224,8 @@
     #gi-wardrobe header .gi-roster button[aria-pressed="true"] .gi-roster-face { left: 3px; width: 38px; height: 38px; }
 }
 @media (hover: none) { #gi-wardrobe .gi-cs-keys, #gi-wardrobe header > .gi-cs-key { display: none; } }
+
+/* Pinch-zooming the page: keep the stage simple until it settles (wardrobe.js). */
+#gi-wardrobe.gi-pinching .gi-wardrobe-preview > img { -webkit-box-reflect: unset; filter: none; transition: none; }
+#gi-wardrobe.gi-pinching :is(.gi-cs-nebula, .gi-cs-sky *, .gi-cs-tint) { animation-play-state: paused; will-change: auto; }
+#gi-wardrobe.gi-pinching :is(.gi-cs-nebula, .gi-cs-pedestal) { visibility: hidden; }

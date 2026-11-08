@@ -1,3 +1,16 @@
+# Silly Teyvat 1.74.0: A quicker character menu
+
+- **The neutral sprite appears almost at once when you move between characters.** It used to wait until every expression in the folder had been decoded and scanned to work out one shared crop (seconds for a character with many sprites), and it threw that work away each time. Now the figure appears from its own outline immediately, the shared crop is worked out in the background and swapped in quietly if it differs, and crop boxes are remembered between visits, so a character you have seen costs one image decode. In Chrome and Edge the crop is applied in CSS (`object-view-box`), with no copy made at all. On a test character with 23 sprites at 4× CPU slowdown: 772 ms before, 322–371 ms now (about 90 ms at full speed).
+- **Pinching the page while the character menu is open no longer leaves the sprite at the wrong size or over other panels.** While the viewport is being pinched or panned the stage drops its reflection, shadow and drifting nebula layers, and brings them back a moment after it settles. I could not reproduce the glitch on a test browser (the layout is identical after a fast pinch), so this removes the effects that make that stage slow to re-draw; please tell me if it still happens.
+- **The Backgrounds section is gone from the character menu.** Backgrounds are changed on the World map (waypoint card: region, picture, link an existing background). The tab's panel, its styles and `background-wardrobe.js` are removed. The one thing only that panel did was assigning SillyTavern's own background library to a region.
+- **A solo journey played as a persona shows the persona's image whole**, like Persona Management, in Recent Chats and other group menus, instead of a cropped thumbnail in a frame. (Journeys played as a character card already showed the card.)
+
+# Map performance
+
+- Selecting a waypoint reuses pins and list rows, with shared roster and badge calculations. Nearby destinations pan directly; longer trips retain the camera flight.
+- Tile images are cached in a bounded pool sized to the viewport and device memory. Sharp tiles load after movement settles, while the bundled overview stays available. Failed tiles can retry, and closing the map stops its camera animation.
+- Map movement avoids repeated marker scans and expensive decorative effects. Reduced motion remains supported.
+
 # Silly Teyvat 1.73.1: Sprites converted
 
 - **The installed sprites are WebP now**: 2,243 sprites went from 2.8 GB to 0.5 GB (82% smaller; the characters folder from 3.0 GB to 0.8 GB). The worst picture is 36.2 dB from its PNG, the median 42.4 dB, and every transparent edge is identical. The PNGs are archived in `silly-teyvat-data/backups/sprites-png-2026-11-08/` with a `conversion-report.json`; `art/sprites/` and the Official Art folders are unchanged.

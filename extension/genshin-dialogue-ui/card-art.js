@@ -50,6 +50,9 @@ function sourceOf(img, src, ctx) {
     if (persona) return {key: `persona:${persona}`, url: personaFull(persona)};
     const file = thumbFile(src) || (src.startsWith('data:') ? journeyCard(img, ctx) : null);
     if (!file) return null;
+    // A journey the player began as a persona without a character card names the persona ("persona:File.png"):
+    // it shows that persona's own image whole, as Persona Management does.
+    if (typeof file === 'string' && file.startsWith('persona:') && !ctx.characters?.some(c => c.avatar === file)) return {key: file, url: personaFull(file.slice('persona:'.length))};
     return {key: file, url: ctx.characters?.some(c => c.avatar === file) ? full(file) : ''};
 }
 function apply(img, ctx) {
