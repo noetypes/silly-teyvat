@@ -42,8 +42,11 @@ const NATIONS=[
 ];
 // The closest zoom out (Leaflet zoom, -5 to 1) at which waypoint badges still show.
 const BADGE_ZOOM=-2;
-// Brief acceleration over the first 10%, then a long, gentle deceleration.
-const cameraEasing=t=>t<.1?t*t/.1:1-(1-t)*(1-t)/.9;
+// Brief acceleration, followed by exponentially decaying velocity. Integrate
+// both parts and normalize their area to land exactly on the destination.
+const cameraRamp=.1,cameraDecay=7,cameraTail=(1-cameraRamp)/cameraDecay;
+const cameraArea=cameraRamp/2-cameraTail*Math.expm1(-cameraDecay);
+const cameraEasing=t=>(t<cameraRamp?t*t/(2*cameraRamp):cameraRamp/2-cameraTail*Math.expm1(-cameraDecay*(t-cameraRamp)/(1-cameraRamp)))/cameraArea;
 const reducedMotion=()=>document.body.classList.contains('gi-reduced-motion') || Boolean(globalThis.matchMedia?.('(prefers-reduced-motion: reduce)').matches);
 
 export function mountWorldMap({host,getContext,adapter=createMediaAdapter(getContext),onChange=()=>{},announce=()=>{},prepareTeleport=async()=>({decisions:[]}),commitTeleport=()=>true,onTeleport=()=>{},retryCast=()=>{},openMusic=()=>{},openMusicLibrary=()=>{},openCardSearch=()=>{},openJourney=id=>createJourneyLibraryAdapter().open(id)}){

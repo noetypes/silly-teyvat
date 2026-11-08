@@ -1,3 +1,7 @@
+# Silly Teyvat 1.74.4: Exponential camera slowdown
+
+- Camera velocity now decays exponentially as it approaches the destination, keeping the brief acceleration and 0.5 / 0.8 / 1.1-second timings. The curve lands exactly on the destination without a final position jump.
+
 # Silly Teyvat 1.74.3: Quicker camera starts
 
 - Map travel takes 0.5 seconds nearby, 0.8 seconds for longer flights, and 1.1 seconds between regions. Acceleration uses only the first 10% of the animation, keeping the gentle slowdown toward the destination.
