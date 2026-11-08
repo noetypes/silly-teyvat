@@ -1,3 +1,7 @@
+# Silly Teyvat 1.74.5: Longer camera travel
+
+- Restored 0.8 seconds for nearby waypoints, 1.1 seconds for longer flights, and 1.8 seconds for region changes, retaining the tuned exponential slowdown.
+
 # Silly Teyvat 1.74.4: Exponential camera slowdown
 
 - Camera velocity now decays exponentially as it approaches the destination, keeping the brief acceleration and 0.5 / 0.8 / 1.1-second timings. The curve lands exactly on the destination without a final position jump.
