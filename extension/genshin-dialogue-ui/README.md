@@ -1,3 +1,7 @@
+# Silly Teyvat 1.74.2: Gentler map travel
+
+- Camera movement now eases in and out, taking 0.8 seconds for nearby waypoints, 1.1 seconds for longer flights, and 1.8 seconds for region changes. Click feedback stays immediate, and reduced motion still jumps directly to the destination.
+
 # Silly Teyvat 1.74.1: A faster map
 
 - Selecting a waypoint reuses pins and list rows, with shared roster and badge calculations. Nearby destinations pan directly; longer trips retain the camera flight.

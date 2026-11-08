@@ -35,7 +35,7 @@ try{
         const original=list.querySelector('[data-location="p1"]');
         for(const id of ['p0','p1','p2','p3','p0']){
             const start=performance.now();list.querySelector(`[data-location="${id}"]`).click();times.push(performance.now()-start);
-            await new Promise(resolve=>setTimeout(resolve,1000));
+            await new Promise(resolve=>setTimeout(resolve,1250));
         }
         observer.disconnect();
         const frames=[];let previous=0;
@@ -85,10 +85,19 @@ try{
             window.testMap.setView([-1800,-11000],-1.5,{animate:false});
             const samples=[];const sample=()=>samples.push(window.testMap.getZoom());window.testMap.on('zoom',sample);
             list.querySelector('[data-location="p0"]').click();list.querySelector('[data-location="p1"]').click();
-            await new Promise(r=>setTimeout(r,600));window.testMap.off('zoom',sample);
+            await new Promise(r=>setTimeout(r,900));window.testMap.off('zoom',sample);
             return samples.every(z=>Math.abs(z+1.5)<.01);
         });
         assert.ok(fixedZoom,'nearby selection pans without a zoom excursion');
+        const easing=await page.evaluate(async()=>{
+            const map=window.testMap,pan=[],flight=[];
+            map.panBy([150,0],{animate:true,duration:.35,easing:t=>{pan.push(t);return t*t*(3-2*t);}});
+            await new Promise(r=>setTimeout(r,450));
+            map.flyTo([0,-9000],-2,{duration:.35,easing:t=>{flight.push(t);return t*t*(3-2*t);}});
+            await new Promise(r=>setTimeout(r,450));
+            return {pan:pan.length,flight:flight.length};
+        });
+        assert.ok(easing.pan>3&&easing.flight>3,'both pane panning and pan/zoom flights honor custom easing');
         await page.evaluate(()=>{window.fixture.close();window.fixture.open();});
         if(mobile&&await page.locator('#gi-world-map').getAttribute('data-panel')!=='open')await page.locator('[data-map="panel"]').click();
         assert.equal(await page.locator('.gi-map-waypoint-list [data-location="p0"] b').textContent(),'Renamed place');

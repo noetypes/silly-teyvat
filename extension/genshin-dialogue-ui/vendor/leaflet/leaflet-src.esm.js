@@ -3045,13 +3045,15 @@ var PosAnimation = Evented.extend({
 	// duration in seconds (`0.25` by default) and easing linearity factor (3rd
 	// argument of the [cubic bezier curve](https://cubic-bezier.com/#0,0,.5,1),
 	// `0.5` by default).
-	run: function (el, newPos, duration, easeLinearity) {
+	run: function (el, newPos, duration, easeLinearity, easing) {
 		this.stop();
 
 		this._el = el;
 		this._inProgress = true;
 		this._duration = duration || 0.25;
 		this._easeOutPower = 1 / Math.max(easeLinearity || 0.5, 0.2);
+		// Silly Teyvat: optional easing for deliberate camera navigation.
+		this._easing = typeof easing === 'function' ? easing : null;
 
 		this._startPos = getPosition(el);
 		this._offset = newPos.subtract(this._startPos);
@@ -3113,7 +3115,7 @@ var PosAnimation = Evented.extend({
 	},
 
 	_easeOut: function (t) {
-		return 1 - Math.pow(1 - t, this._easeOutPower);
+		return this._easing ? this._easing(t) : 1 - Math.pow(1 - t, this._easeOutPower);
 	}
 });
 
@@ -3450,7 +3452,7 @@ var Map = Evented.extend({
 			addClass(this._mapPane, 'leaflet-pan-anim');
 
 			var newPos = this._getMapPanePos().subtract(offset).round();
-			this._panAnim.run(this._mapPane, newPos, options.duration || 0.25, options.easeLinearity);
+			this._panAnim.run(this._mapPane, newPos, options.duration || 0.25, options.easeLinearity, options.easing);
 		} else {
 			this._rawPanBy(offset);
 			this.fire('move').fire('moveend');
@@ -3509,7 +3511,8 @@ var Map = Evented.extend({
 		function w(s) { return w0 * (cosh(r0) / cosh(r0 + rho * s)); }
 		function u(s) { return w0 * (cosh(r0) * tanh(r0 + rho * s) - sinh(r0)) / rho2; }
 
-		function easeOut(t) { return 1 - Math.pow(1 - t, 1.5); }
+		// Silly Teyvat: keep the default curve unless navigation supplies one.
+		function easeOut(t) { return typeof options.easing === 'function' ? options.easing(t) : 1 - Math.pow(1 - t, 1.5); }
 
 		var start = Date.now(),
 		    S = (r(1) - r0) / rho,
