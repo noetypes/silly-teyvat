@@ -1,3 +1,9 @@
+# Silly Teyvat 1.73.1: Sprites converted
+
+- **The installed sprites are WebP now**: 2,243 sprites went from 2.8 GB to 0.5 GB (82% smaller; the characters folder from 3.0 GB to 0.8 GB). The worst picture is 36.2 dB from its PNG, the median 42.4 dB, and every transparent edge is identical. The PNGs are archived in `silly-teyvat-data/backups/sprites-png-2026-11-08/` with a `conversion-report.json`; `art/sprites/` and the Official Art folders are unchanged.
+- `tools/convert-sprites.py` skips symlinked folders, such as `Name: Variant` aliases of `Name Variant`, so each sprite is converted once.
+- Reload SillyTavern in each open browser so it reads the new files.
+
 # Silly Teyvat 1.73.0: Sprites by name
 
 - **A sprite is its folder and its name, not its file type.** Voice lines and sizes assigned to a sprite are remembered as `Klee/neutral`, whether the file is `neutral.png` or `neutral.webp`. Existing settings, and settings from a tester package, are renamed the first time this version starts. Saved scenes that name `joy.png` draw the converted `joy.webp`: the stage looks the folder's listing up (once per folder) and draws again with the right file.

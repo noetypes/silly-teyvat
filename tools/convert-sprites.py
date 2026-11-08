@@ -15,7 +15,7 @@ For every sprite PNG inside a character's sprite folder (and its outfit sub-fold
   3. write the .webp next to it, then remove the .png.
 A sprite that cannot meet the bar at quality 96 stays a PNG, and is listed.
 
-Not touched: the character cards (PNG files directly in the characters folder), every "Official Art" folder (the
+Not touched: symlinked folders and files (aliases; the real ones are converted), the character cards (PNG files directly in the characters folder), every "Official Art" folder (the
 reference art the sprite workflow reads by its .png path), and any sprite that already has a .webp of its name.
 Run it again after new sprites are installed; it only converts what is still a PNG.
 Install the matching extension first (1.73.0 or later): older versions look sprites up by their .png name.
@@ -73,7 +73,8 @@ def convert(args):
 
 def find_sprites(root, only):
     found = []
-    for folder in sorted(p for p in root.iterdir() if p.is_dir()):
+    # Some folders are aliases ("Name: Variant" -> "Name Variant", for names SillyTavern cannot store): the real folder is converted once.
+    for folder in sorted(p for p in root.iterdir() if p.is_dir() and not p.is_symlink()):
         if only and folder.name not in only:
             continue
         for current, dirs, files in os.walk(folder):
@@ -81,7 +82,7 @@ def find_sprites(root, only):
             if Path(current).name in SKIP_FOLDERS:
                 continue
             for name in sorted(files):
-                if name.lower().endswith('.png') and not name.startswith('.'):
+                if name.lower().endswith('.png') and not name.startswith('.') and not (Path(current) / name).is_symlink():
                     found.append(Path(current) / name)
     return found
 
