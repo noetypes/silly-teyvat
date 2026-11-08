@@ -57,6 +57,16 @@ The installed SillyTavern 1.19.0 source was checked for `setExtensionPrompt`, `e
 
 ## Verification
 
+### Map performance, 8 November 2026
+
+Waypoint selection updates only the previous and new highlights; list buttons and marker instances survive selection, preserving keyboard focus. A map refresh builds one resident index and shares badge/quest presentation between pins and list rows. Region bounds are cached until the waypoint data changes. Live roster, persona, card-role, search and location edits invalidate the cache, including edits made in place.
+
+Marker visibility uses an overscan region and a smaller safe region, checked at most every 100 ms during movement and again at rest. Nearby selections pan at a fixed zoom; distant flights retain their pan/zoom transition. Moving maps pause decorative pulses and avoid blur/glow work. Sharp tiles update at rest, with the local overview underneath; intermediate zoom levels do not trigger sharp-tile downloads.
+
+Each map keeps an LRU pool of detached decoded tile images, shared between its overview and detail layers. The pool holds up to twice the viewport's tile count, capped at 32 tiles for devices reporting at most 2 GB or data saving, 96 for 4 GB or unknown memory, and 192 for larger devices (approximately 8/24/48 MiB of RGBA pixels, excluding visible tiles and browser overhead). Resizing recalculates the limit. Failed and unfinished images are excluded; teardown releases the pool and cancels pending completion callbacks. The browser's normal HTTP cache still applies; no persistent tile storage is added.
+
+`tools/test-map-performance-browser.mjs` exercises 240 waypoints and 240 character cards. In a desktop Chrome fixture at 4× CPU slowdown, synchronous selection fell from roughly 1.3 seconds to 15–28 ms, with no list-child mutations. A phone viewport at 6× slowdown and simulated 2 GB device memory measured roughly 25–65 ms. Pan p95 was about 16.7 ms in both optimized fixtures. These synthetic checks use local tile responses; they do not guarantee frame rate on every device or measure remote tile latency.
+
 `verification.json` records automated suites and responsive integration checks. Map checks cover coordinate round trips, scale-independent distances, all-region system context, uploaded and existing background links, teleport guards, classifier-driven minimap movement, history, region changes, chat switching and cleanup. Browser checks use disposable mock chats and storage; they do not make real model requests.
 
 ## Starter encounters, 25 October 2026

@@ -5,7 +5,7 @@ import {mediaSettings} from './media-store.js';
 import {newLocalId} from './local-id.js';
 import {playedAvatars} from './persona-link.js';
 import {ABYSS_HOME,abyssAvatar} from './twin-roles.js';
-import {guildBranch,isGuildStaff} from './guild.js';
+import {guildBranch,isGuildStaff,isGuildLocation,findKatheryne} from './guild.js';
 
 const MAX_ENCOUNTERED=3;
 // Assigned homes and this chat's travelling placements are separate from the
@@ -20,6 +20,23 @@ export function locationResidents(ctx,id){
     // Katheryne is at every Guild branch and nowhere else, wherever her card says she lives.
     const branch=guildBranch(ctx,id);
     return (ctx.characters || []).filter(c=>(isGuildStaff(ctx,c.avatar)?branch:homes.get(c.avatar)===id)&&!played.has(c.avatar)&&!isEnemy(ctx,c));
+}
+// A map paint needs every roster. Build the shared home/persona/role lookup once,
+// rather than scanning every location and card again for each pin and list row.
+// This index is owned by that paint; no persistent cache can outlive a cast edit.
+export function locationResidentsIndex(ctx){
+    const locations=(mediaSettings(ctx).backgroundRegions || []).flatMap(r=>r.locations),homes=new Map(),result=new Map();
+    for(const location of locations)for(const avatar of location.residents || [])homes.set(avatar,location.id);
+    const abyss=abyssAvatar(ctx);if(abyss)homes.set(abyss,ABYSS_HOME);
+    for(const [avatar,destination] of Object.entries(ctx.chatMetadata?.silly_teyvat_cast?.placements || {}))homes.set(avatar,destination);
+    const played=playedAvatars(ctx),staff=findKatheryne(ctx)?.avatar,branches=locations.filter(isGuildLocation).map(l=>l.id);
+    for(const card of ctx.characters || []){
+        if(played.has(card.avatar)||isEnemy(ctx,card))continue;
+        for(const id of card.avatar===staff?branches:[homes.get(card.avatar)]){
+            if(!id)continue;if(!result.has(id))result.set(id,[]);result.get(id).push(card);
+        }
+    }
+    return result;
 }
 export function encounterRate(ctx){
     const value=Number(mediaSettings(ctx).encounterRate ?? 40);

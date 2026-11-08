@@ -13,10 +13,11 @@ export const WAYPOINT_BADGES=Object.freeze({
     boss:{label:'Boss',icon:icon('boss')},
 });
 const avatarName=(ctx,avatar)=>ctx.characters?.find(c=>c.avatar===avatar)?.name ?? String(avatar || '').replace(/\.[^.]+$/,'');
-export function waypointBadges(ctx,location){
+export function waypointBadges(ctx,location,residents){
     if(!location)return [];
     const badges=[];
-    if(locationResidents(ctx,location.id).length)badges.push('people');
+    const people=residents?residents.get(location.id):locationResidents(ctx,location.id);
+    if(people?.length)badges.push('people');
     if(location.wilderness)badges.push(waypointBoss(ctx,location)?'boss':'wilderness');
     return badges;
 }
@@ -33,9 +34,11 @@ function enemyCounts(ctx,region){
     for(const place of (region?.locations || []).filter(l=>l.wilderness))for(const name of new Set((place.enemyPool || []).map(a=>avatarName(ctx,a))))if(!isTcgBoss(name))counts.set(name,(counts.get(name) || 0)+1);
     return counts;
 }
-export function waypointEnemy(ctx,location,region){
+export function waypointEnemy(ctx,location,region,regionCounts){
     if(!location?.wilderness)return '';
-    const counts=enemyCounts(ctx,region),rank=names=>names.filter(n=>!isTcgBoss(n)&&characterIcon(n)).sort((a,b)=>(counts.get(b) || 0)-(counts.get(a) || 0))[0] || '';
+    let counts=regionCounts?.get(region);
+    if(!counts){counts=enemyCounts(ctx,region);regionCounts?.set(region,counts);}
+    const rank=names=>names.filter(n=>!isTcgBoss(n)&&characterIcon(n)).sort((a,b)=>(counts.get(b) || 0)-(counts.get(a) || 0))[0] || '';
     return rank([...new Set((location.enemyPool || []).map(a=>avatarName(ctx,a)))]) || rank([...counts.keys()]);
 }
 export const badgeLabels=(badges,boss='',enemy='')=>badges.map(b=>b==='boss'&&boss?`Boss: ${boss}`:b==='wilderness'&&enemy?`Wilderness: ${enemy}`:WAYPOINT_BADGES[b].label).join(', ');
