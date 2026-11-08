@@ -1,8 +1,10 @@
 import {backgroundRegions} from './backgrounds.js';
 import {mediaSettings} from './media-store.js';
 import {validMapPoint} from './world-data.js';
+import {fillBattleMusic} from './battle-music-defaults.js';
 
-const starterCatalogVersion=19;
+// 20: every location without a battle track gets its region's battle theme (battle-music-defaults.js).
+const starterCatalogVersion=20;
 const OLD_STARFELL_DESCRIPTION='A lake in Starfell Valley, with a Statue of The Seven on the island. The point and archive image show the in-game overlook.';
 const OLD_FEIYUN_DESCRIPTION='The Feiyun Commerce Guild family residence is in Liyue Harbor. The map pin uses the named Feiyun Slope point as a public approach to the district; the clean background is the nearby Heyu Tea House, not the residence itself.';
 // Import once per user. Removing or editing a starter remains respected.
@@ -97,7 +99,7 @@ export function seedWorldLocations(ctx,catalog,availableMusic=[]){
             location.source=record.source;
             if(record.imageReview)location.imageReview=structuredClone(record.imageReview);
         }
-        prefs.starterLocationsVersion=catalog.version;ctx.saveSettingsDebounced();return added;
+        fillBattleMusic(prefs);prefs.starterLocationsVersion=catalog.version;ctx.saveSettingsDebounced();return added;
     }
     for(const record of catalog.locations){
         if(!validMapPoint(record.waypoint)||!record.asset||!/^[a-z0-9-]+\.(png|jpe?g|webp|gif)$/i.test(record.asset))continue;
@@ -108,7 +110,7 @@ export function seedWorldLocations(ctx,catalog,availableMusic=[]){
         location.path=new URL(`assets/world-locations/${asset}`,import.meta.url).pathname;
         location.blank=false;location.residents=[];region.locations.push(location);added++;
     }
-    prefs.starterLocationsVersion=catalog.version;ctx.saveSettingsDebounced();return added;
+    fillBattleMusic(prefs);prefs.starterLocationsVersion=catalog.version;ctx.saveSettingsDebounced();return added;
 }
 // Like Promise.all(list.map(fn)), but never more than `limit` calls at once. Results keep the list's order.
 async function mapLimit(list,limit,fn){

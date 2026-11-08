@@ -277,6 +277,8 @@ export async function runBattleTests(){
         check('each side\'s active character steps forward',card('k').classList.contains('tb-front')&&card('h').classList.contains('tb-front')&&!card('x').classList.contains('tb-front'));
         check('HP shows on each card as a number badge',card('x').querySelector('.tb-hp b').textContent==='10');
         check('the enemy in front shows its next move and target',!card('h').querySelector('.tb-intent').hidden&&card('s').querySelector('.tb-intent').hidden&&!card('k').querySelector('.tb-incoming').hidden);
+        {const pips=id=>[...card(id).querySelectorAll('.tb-energy i')],special=card('h')&&screen.units.find(u=>u.id==='h').kit.moves.findIndex(m=>m.kind==='special');
+        check('an opponent shows diamonds for how charged its special move is, like a character\'s Energy',special>=0&&pips('h').length===screen.units.find(u=>u.id==='h').kit.moves[special].cooldown&&pips('h').filter(i=>i.classList.contains('tb-on')).length===1&&/1\/\d charged/.test(card('h').querySelector('.tb-energy').title)&&pips('s').length>0);}
         q('.tb-skills [data-move="1"]').click();
         check('choosing a skill previews it: details, dice, the target and its HP change',dialog.classList.contains('tb-previewing')&&!q('.tb-detail').hidden&&/Jumpy Dumpty/.test(q('.tb-detail').textContent)&&card('h').classList.contains('tb-aim')&&/−\d/.test(card('h').querySelector('.tb-delta').textContent)&&dialog.querySelectorAll('.tb-drawer-dice [aria-pressed="true"]').length===3);
         q('.tb-cancel').click();check('cancel puts the choice down',!dialog.classList.contains('tb-previewing')&&q('.tb-detail').hidden);

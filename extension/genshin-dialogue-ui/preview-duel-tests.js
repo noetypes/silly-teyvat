@@ -132,6 +132,36 @@ export async function runDuelTests(){
         ui.sync({on:true,id:0,idle:true});await pause(60);check('a companion saying the phrase starts nothing',log.rolls===0);ui.dispose();}
         {const chat=[{name:'Hilichurl Fighter',original_avatar:'Hilichurl Fighter.png',mes:'“Ya!” [start_combat]'}];const {ctx,ui,log}=fixture({enemy:true,chat});
         ctx.extensionSettings.genshin_dialogue_ui.combatTriggerPhrase='';ui.sync({on:true,id:0,idle:true});await pause(60);check('an empty phrase turns enemy-started fights off',log.rolls===0&&!ctx.extensionPrompts.silly_teyvat_combat.value.includes('combat trigger phrase'));ui.dispose();}
+        // ---- Battle music ----
+        // It starts when you battle a friend and lasts until you win, flee, or send a message with Attack off.
+        {const {ctx,ui}=fixture();ui.sync({on:true,id:0,idle:true});
+        check('friendly company alone does not start battle music',ui.engaged===false);
+        await sendArmed(ctx,ui);check('choosing who to battle is not yet a fight',ui.engaged===false);
+        dialog().querySelector('.gi-ask-row input').click();dialog().querySelector('[data-answer="battle"]').click();
+        await until(()=>ui.engaged,'the battle music');check('battle music starts as you enter combat with a friend',ui.engaged);
+        await until(()=>!ui.busy,'the round to end');await pause(60);
+        check('and keeps playing after a round that nobody won',ui.engaged===true);
+        if(ui.armed)sword().click();ctx.chat.push({name:'Traveler',is_user:true,mes:'Let us talk.'});await ui.onUserMessage(ctx.chat.length-1);
+        check('a message sent with Attack off ends it',ui.engaged===false);ui.dispose();}
+        {const {ctx,ui,log}=fixture();ui.sync({on:true,id:0,idle:true});partyMember(ctx,'Klee.png');partyStore(ctx)['Klee.png'].hp=1;Math.random=()=>0;
+        await sendArmed(ctx,ui);[...dialog().querySelectorAll('.gi-ask-row')].find(r=>r.textContent.includes('Klee')).querySelector('input').click();dialog().querySelector('[data-answer="battle"]').click();
+        await until(()=>dialog().open&&dialog().textContent.includes('is down'),'the win');dialog().querySelector('[data-answer="leave"]').click();await until(()=>log.removed.length===1,'the friend leaving');await pause(60);
+        check('winning the fight ends the battle music',ui.engaged===false);Math.random=originalRandom;ui.dispose();}
+        // Playing an enemy turns it around: friendly enemies start nothing, the hostile characters around you do.
+        {const reversed=(enemy=false,friends=true)=>{const made=fixture({enemy});const {ctx}=made;ctx.userAvatar='me.png';ctx.extensionSettings.genshin_dialogue_ui.personaCharacters={'me.png':'Hilichurl Fighter.png'};ctx.characters.push(card('Azhdaha',{role:'enemy',maxHp:40}));
+            if(!friends){ctx.groups[0].members=['Hilichurl Fighter.png'];ctx.chatMetadata.silly_teyvat_cast.core=[];}
+            ctx.chatMetadata.silly_teyvat_cast.encounter.enemies=['Hilichurl Fighter.png'];ctx.groups[0].members=[...new Set([...ctx.groups[0].members,'Hilichurl Fighter.png'])];return made;};
+        {const {ui}=reversed(true,false);ui.sync({on:true,id:0,idle:true});
+        check('meeting a friendly enemy does not start battle music',ui.engaged===false&&root.querySelector('#gi-combat').hidden);ui.dispose();}
+        {const {ui}=reversed(true,true);ui.sync({on:true,id:0,idle:true});
+        check('meeting the hostile characters does, and they are not listed as enemies',ui.engaged===true&&root.querySelector('#gi-combat').hidden);ui.dispose();}
+        {const {ctx,ui}=reversed(true,true);ctx.chatMetadata.silly_teyvat_cast.encounter.enemies.push('Azhdaha.png');ctx.groups[0].members.push('Azhdaha.png');ctx.groups[0].members=ctx.groups[0].members.filter(a=>a!=='Klee.png'&&a!=='Nahida.png');ui.sync({on:true,id:0,idle:true});
+        check('a boss is hostile to an enemy and starts it as usual',ui.engaged===true&&root.querySelector('.gi-enemy-health')?.textContent.includes('Azhdaha')&&!root.querySelector('.gi-enemy-health')?.textContent.includes('Hilichurl'));ui.dispose();}
+        {const chat=[{name:'Klee',original_avatar:'Klee.png',mes:'“Monster!” [start_combat]'}];const made=reversed(true,true);made.ctx.chat=chat;Math.random=()=>0;made.ui.sync({on:true,id:0,idle:true});
+        await until(()=>made.log.rolls>0||made.log.plans.length>0,'the hostile character\'s attack');
+        check('a hostile character can start the fight by writing the phrase, and fights you as a duel',made.log.plans[0].units.find(u=>u.side==='enemy').id==='Klee.png'&&made.log.plans[0].units.find(u=>u.side==='enemy').duel);Math.random=originalRandom;await pause(100);made.ui.dispose();}
+        {const chat=[{name:'Hilichurl Fighter',original_avatar:'Hilichurl Fighter.png',mes:'“Ya!” [start_combat]'}];const made=reversed(true,true);made.ctx.chat=chat;made.ui.sync({on:true,id:0,idle:true});await pause(80);
+        check('a friendly enemy writing the phrase starts nothing',made.log.plans.length===0);made.ui.dispose();}}
         return results.join('\n')+`\n${results.length} duel and trigger checks passed`;
     }finally{Math.random=originalRandom;root.remove();}
 }

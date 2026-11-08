@@ -26,6 +26,7 @@ import { mountBackgrounds, backgroundRegions, travelState } from './backgrounds.
 import { mountWorldMap } from './world-map.js';
 import {beginOpeningScene} from './opening-scene.js';
 import {enemySpeaker} from './enemy-actions.js';
+import {hostileSpeaker,syncEnemyPersonaPrompt,enemyPersonaPrompt} from './enemy-persona.js';
 import { mountLocationCast } from './location-cast.js';
 import { loadCharacterHomes } from './character-homes.js';
 import { castIdentity, defaultCharacterLocation } from './location-cast.js';
@@ -161,7 +162,7 @@ function pageState(message) {
     if (state.html !== source.innerHTML || state.mode !== mode) {
         state.mode = mode;
         state.html = source.innerHTML;
-        state.pages = dialoguePages(source, prefs, { is_user: message.getAttribute('is_user') === 'true', is_system: message.getAttribute('is_system') === 'true', is_narrator:entry?.extra?.type==='narrator'||narratorMessage(entry),is_enemy:Boolean(enemySpeaker(context(),entry)), nameTags });
+        state.pages = dialoguePages(source, prefs, { is_user: message.getAttribute('is_user') === 'true', is_system: message.getAttribute('is_system') === 'true', is_narrator:entry?.extra?.type==='narrator'||narratorMessage(entry),is_enemy:Boolean(enemySpeaker(context(),entry)||hostileSpeaker(context(),entry)), nameTags });
         if (hint) { const page = document.createDocumentFragment(); page.append(hint); page.giNarration = true; state.pages.push(page); }
         state.index = Math.max(0, Math.min(state.index, state.pages.length - 1));
     }
@@ -420,7 +421,7 @@ function refresh({passive=false}={}) {
     document.querySelectorAll('#gi-toolbar .gi-pm-tavern img[data-persona]').forEach(img => { const src = drawerIcon('persona-management-button', personaMenuIcon(ctx)); if (img.src !== src) img.src = src; });
     if (menuOpen) paintProfile();
     combatUI?.sync({on:Boolean(prefs.enabled&&inChat&&!openingHome),id:Number(current),generating:generating||groupGenerating||locationCastUI?.busy||personaSession?.busy,show:Boolean(active&&!history&&!hidden),idle:!(morePages||index<list.length-1||generating||reveal.revealing)});
-    locationMusicUI?.sync({on:Boolean(prefs.enabled&&inChat&&!openingHome),viewed:placeNow?.location || null,combat:Boolean(prefs.enabled&&inChat&&!openingHome&&(combatUI?.busy||activeEnemies(ctx).some(enemy=>!activeGroup(ctx)?.disabled_members?.includes(enemy.avatar))))});
+    locationMusicUI?.sync({on:Boolean(prefs.enabled&&inChat&&!openingHome),viewed:placeNow?.location || null,combat:Boolean(prefs.enabled&&inChat&&!openingHome&&(combatUI?.busy||combatUI?.engaged||activeEnemies(ctx).some(enemy=>!activeGroup(ctx)?.disabled_members?.includes(enemy.avatar))))});
     soloChatUI?.sync({on:Boolean(prefs.enabled && inChat)});
     choiceUI?.sync({ on: Boolean(prefs.enabled && inChat && !soloChatUI?.solo), suggested:prefs.choices, generating:generating||groupGenerating||Boolean(combatUI?.busy)||Boolean(locationCastUI?.busy) });
     if (active && !history) {
@@ -1020,8 +1021,8 @@ export async function initialize(options = {}) {
     subscribe('GENERATION_STARTED', type => { if (type === 'quiet') return; generating = true; followLatest = true; view.send('SHOW'); stopAuto(); schedule(); announce('Reply is being written. The native Stop button is available.'); });
     // AI Config edits and preset switches flow back into Settings → Prompts.
     for (const key of ['SETTINGS_UPDATED', 'OAI_PRESET_CHANGED_AFTER', 'MAIN_API_CHANGED']) subscribe(key, () => syncRoleplayPrompts(context(), preferences().enabled));
-    subscribe('CHAT_COMPLETION_PROMPT_READY', data => { if (data?.dryRun) return; dropRoleplayPrompts(context(), preferences().enabled, data?.chat, [trustPrompt(context()),twinRolesPrompt(context())]); stripPromptTrustTags(data?.chat); if(preferences().enabled)rewriteGroupNudge(data?.chat,context().name1); });
-    subscribe('GENERATION_AFTER_COMMANDS',(type,params)=>{worldMapUI?.syncPrompt(preferences().enabled);syncCombatPrompt(context(),preferences().enabled);syncTrustPrompt(context(),preferences().enabled);syncTwinPrompt(context(),preferences().enabled);noteGeneration(type,params);syncRoleplayPrompts(context(),preferences().enabled);if(preferences().enabled)wearTwinCards(context());});
+    subscribe('CHAT_COMPLETION_PROMPT_READY', data => { if (data?.dryRun) return; dropRoleplayPrompts(context(), preferences().enabled, data?.chat, [trustPrompt(context()),twinRolesPrompt(context()),enemyPersonaPrompt(context())]); stripPromptTrustTags(data?.chat); if(preferences().enabled)rewriteGroupNudge(data?.chat,context().name1); });
+    subscribe('GENERATION_AFTER_COMMANDS',(type,params)=>{worldMapUI?.syncPrompt(preferences().enabled);syncCombatPrompt(context(),preferences().enabled);syncTrustPrompt(context(),preferences().enabled);syncTwinPrompt(context(),preferences().enabled);syncEnemyPersonaPrompt(context(),preferences().enabled);noteGeneration(type,params);syncRoleplayPrompts(context(),preferences().enabled);if(preferences().enabled)wearTwinCards(context());});
     for(const key of ['GENERATE_AFTER_DATA','GENERATION_ENDED','GENERATION_STOPPED','CHAT_CHANGED'])subscribe(key,restoreTwinCards);
     subscribe('CHARACTER_FIRST_MESSAGE_SELECTED',args=>{const text=preferences().enabled&&abyssGreeting(context(),args?.character);if(text)args.output=text;});
     subscribe('GROUP_WRAPPER_STARTED',args=>{groupGenerating=true;if(preferences().enabled)startGroupRound(context(),args?.type);schedule();});
@@ -1076,7 +1077,7 @@ export function dispose() {
     choiceUI?.dispose();
     choiceUI = undefined;
     disposeHudIcons();
-    syncRoleplayPrompts(context(),false);syncTrustPrompt(context(),false);syncTwinPrompt(context(),false);restoreTwinCards();forgetGroupReply();endGroupRound();delete globalThis.sillyTeyvatGenerateInterceptor;clearPromptOrder(context());
+    syncRoleplayPrompts(context(),false);syncTrustPrompt(context(),false);syncTwinPrompt(context(),false);syncEnemyPersonaPrompt(context(),false);restoreTwinCards();forgetGroupReply();endGroupRound();delete globalThis.sillyTeyvatGenerateInterceptor;clearPromptOrder(context());
     abort?.abort();
     for (const [source, type, handler] of subscriptions) source.removeListener(type, handler);
     subscriptions = [];

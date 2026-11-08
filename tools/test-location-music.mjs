@@ -67,7 +67,7 @@ const ctx={characterId:0,chatId:'fixture',chatMetadata:{silly_teyvat_world:{regi
 const a=addMusicTrack(ctx,{path:'/user/files/a.mp3',name:'a.mp3'},'First');const b=addMusicTrack(ctx,{path:'/user/files/b.mp3',name:'b.mp3'},'Second');
 saveLocationMusic(ctx,'wild',{tracks:[a.id,b.id,a.id],combatTrack:b.id});
 check('a combat designation is removed from the normal playlist and duplicate ids are removed',()=>assert.deepEqual(wild.music,{tracks:[a.id],combatTrack:b.id}));
-check('towns cannot accept a combat-music designation',()=>assert.throws(()=>saveLocationMusic(ctx,'town',{tracks:[a.id],combatTrack:b.id}),/Wilderness/));
+check('a town accepts a battle track too, because a fight can start anywhere',()=>{saveLocationMusic(ctx,'town',{tracks:[a.id],combatTrack:b.id});assert.deepEqual(town.music,{tracks:[a.id],combatTrack:b.id});const cue=locationMusicCue({...ctx,chatMetadata:{silly_teyvat_world:{regionId:'r',location:{id:'town'}}}});assert.equal(cue.combatTrack.id,b.id);assert.deepEqual(cue.tracks.map(t=>t.id),[a.id]);});
 renameMusicTrack(ctx,a.id,'<img src=x onerror=alert(1)>');
 check('renaming music preserves its stable assignment and uploaded path',()=>{assert.equal(wild.music.tracks[0],a.id);assert.equal(a.path,'/user/files/a.mp3');});
 saveLocationMusic(ctx,'town',{tracks:[a.id]});ctx.chatMetadata.silly_teyvat_world.location={id:'town'};
@@ -84,5 +84,17 @@ check('remote and invalid uploaded paths are rejected',()=>assert.throws(()=>add
     check('once she takes her second form the arena plays phase 2',()=>{const cue=locationMusicCue(actx,null,new Set(['Crimson Witch of Embers']));assert.equal(cue.combatTrack.id,'phase-two');assert.deepEqual(cue.tracks.map(t=>t.id),['explore']);});
     check('saving the waypoint playlist keeps its form tracks',()=>{saveLocationMusic(actx,'arena',{tracks:['explore'],combatTrack:'phase-one'});assert.deepEqual(arena.music.formTracks,{'Crimson Witch of Embers':'phase-two'});});
     check('removing a form track from the library unlinks it',()=>{removeMusicTrack(actx,'phase-two');assert.deepEqual(arena.music.formTracks,{});assert.equal(locationMusicCue(actx,null,new Set(['Crimson Witch of Embers'])).combatTrack.id,'phase-one');});
+}
+// Every location without a battle track gets its region's theme; chosen tracks and playlists stay.
+{
+    const {fillBattleMusic,REGION_BATTLE_TRACKS}=await import('../extension/genshin-dialogue-ui/battle-music-defaults.js');
+    const theme=REGION_BATTLE_TRACKS.Mondstadt,mine='my-own-battle',other=REGION_BATTLE_TRACKS.Liyue;
+    const prefs={musicLibrary:[{id:theme},{id:mine},{id:other}],backgroundRegions:[
+        {name:'Mondstadt',locations:[{id:'town',wilderness:false},{id:'wild',wilderness:true,music:{tracks:['x',theme],combatTrack:null}},{id:'chosen',music:{tracks:['x'],combatTrack:mine}},{id:'quiet',music:{tracks:[],combatTrack:null}},{id:'gone',music:{tracks:['x'],combatTrack:'deleted-track'}}]},
+        {name:'liyue',locations:[{id:'harbor'}]},{name:'Custom Land',locations:[{id:'elsewhere'}]}]};
+    const filled=fillBattleMusic(prefs),by=id=>prefs.backgroundRegions.flatMap(r=>r.locations).find(l=>l.id===id);
+    check('every location without a battle track is filled, wherever it is',()=>{assert.equal(filled,5);assert.equal(by('town').music.combatTrack,theme);assert.deepEqual(by('town').music.tracks,[]);assert.equal(by('wild').music.combatTrack,theme);assert.equal(by('harbor').music.combatTrack,other);assert.equal(by('gone').music.combatTrack,theme);});
+    check('the theme is kept out of the exploration playlist, and chosen tracks and empty playlists are respected',()=>{assert.deepEqual(by('wild').music.tracks,['x']);assert.equal(by('chosen').music.combatTrack,mine);assert.deepEqual(by('quiet').music.tracks,[]);assert.equal(by('elsewhere').music,undefined);});
+    check('filling twice changes nothing, and a theme missing from the library is never assigned',()=>{assert.equal(fillBattleMusic(prefs),0);const bare={musicLibrary:[],backgroundRegions:[{name:'Mondstadt',locations:[{id:'t'}]}]};assert.equal(fillBattleMusic(bare),0);assert.equal(bare.backgroundRegions[0].locations[0].music,undefined);});
 }
 console.log(JSON.stringify({passed:checks.length,checks},null,2));

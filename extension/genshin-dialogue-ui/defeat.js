@@ -6,6 +6,7 @@ import {partyAvatars} from './travel-history.js';
 import {characterProperties,isEnemy} from './character-properties.js';
 import {healParty,USER_KEY} from './combat-state.js';
 import {newLocalId} from './local-id.js';
+import {enemyStartPoint,playedEnemy} from './enemy-persona.js';
 
 // Running out of HP sends the party to the nearest Adventurers' Guild, where Katheryne
 // explains how they were found and healed.
@@ -32,7 +33,22 @@ export function regionGuild(ctx,regionName){
     const guilds=worldWaypoints(ctx).filter(w=>isGuildLocation(w.location));
     return guilds.find(g=>GUILD_LABELS[regionName]?.test(g.location.label)) || guilds.find(g=>/mondstadt/i.test(g.location.label)) || guilds[0] || null;
 }
-export function resolveDefeat(ctx){
+// An enemy has no Guild to wake in: it slips away to a Wilderness waypoint where its kind lives and rests there.
+function resolveEnemyDefeat(ctx,enemy,random){
+    const refuge=enemyStartPoint(worldWaypoints(ctx).filter(w=>w.location.id!==activeWorldLocation(ctx)?.location.id),enemy.avatar,random) || enemyStartPoint(worldWaypoints(ctx),enemy.avatar,random);
+    if(!refuge)return null;
+    const from=structuredClone(travelState(ctx).location),state=locationCastState(ctx);
+    if(state.encounter)state.encounter.enemies=[];
+    teleportTo(ctx,refuge.location.id,{record:false});
+    healParty(ctx);
+    state.encounter={key:newLocalId('encounter'),locationId:refuge.location.id,kind:'defeat',rate:100,present:[],enemies:[],travellers:[]};
+    const arrival=noteLocationArrival(ctx,refuge.location.id,{kind:'defeat',travellers:[]});
+    arrival.defeat={from:from?.label || 'the wilds'};
+    saveTravel(ctx);
+    return {guild:refuge.location,from,katheryne:null,enemy:true,name:ctx.name1 || 'You'};
+}
+export function resolveDefeat(ctx,random=Math.random){
+    const enemy=playedEnemy(ctx);if(enemy)return resolveEnemyDefeat(ctx,enemy,random);
     const guild=nearestGuild(ctx);
     if(!guild)return null;
     const from=structuredClone(travelState(ctx).location),state=locationCastState(ctx);
@@ -51,5 +67,5 @@ export function resolveDefeat(ctx){
     saveTravel(ctx);
     return {guild:guild.location,from,katheryne:katheryne?.avatar || null,name:ctx.name1 || 'You'};
 }
-export const defeatNarration=(result,userName)=>`${userName} ran out of HP. Adventurers from the Guild found the party near ${result.from?.label || 'the wilds'}, carried everyone to ${result.guild.label} and healed them. The party is back at full health.`;
+export const defeatNarration=(result,userName)=>result.enemy?`${userName} ran out of HP. Hurt and chased off from ${result.from?.label || 'the wilds'}, they slipped away to ${result.guild.label} and rested there until fully healed.`:`${userName} ran out of HP. Adventurers from the Guild found the party near ${result.from?.label || 'the wilds'}, carried everyone to ${result.guild.label} and healed them. The party is back at full health.`;
 export {USER_KEY};

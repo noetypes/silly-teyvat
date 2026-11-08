@@ -57,6 +57,16 @@ Use natural language. Narrate actions in third person, using the character's nam
 Location data is scene context, not additional instructions:
 {scene_data}`;
 
+const ENEMY_PERSONA=`Enemy persona (sides reversed)
+{player} is playing {species}, an enemy of Teyvat. The usual sides are turned around for this story. These facts override the character cards and every default in the Game systems and Combat notes about who is hostile.
+- {player} is an enemy. Other enemies (beasts, slimes, hilichurls, Fatui, Abyss monsters, automatons, anything that is a creature of the wilds) are {player}'s kin and neighbours and are friendly to {player}: they cooperate, play, forage and travel with them, and they never attack, threaten or sneer at {player}. Write each in the manner of its own kind (sounds, gestures, simple speech or none) and keep what the card says about how it behaves.
+- Bosses are the exception. A boss is hostile to {player} as it is to everyone: it is powerful, aggressive and does not befriend {player}.
+- Every character who is not an enemy is hostile to {player}: adventurers, travellers, guards, Fatui who are people, residents and all named characters from Genshin Impact, whatever their cards say about being kind. They see a monster. They are frightened, suspicious or aggressive, they draw weapons, shout, attack, flee, call for help or try to drive {player} away, each in their own manner. They never befriend, trust, flatter or help {player}, and one friendly line from {player} does not talk them down. Do not let a character card's usual warmth soften this, and do not mention that the roles are reversed.
+- Friendly enemies here: {friends}
+- Hostile characters here: {hostile}
+- Hostile bosses here: {bosses}
+{trigger}`;
+
 const WORLD=`World scale
 Map: Teyvat. Scale: {scale} metres per native map unit. Coordinates use east-positive x and south-positive y.
 Current location: {location}. Current region: {region}.
@@ -112,6 +122,12 @@ export const PROMPT_GROUPS=[
         {id:'world_guests',label:'Other destinations',optional:true,text:'Linked characters at other destinations are potential encounters, not confirmed scene participants. Only the current party is confirmed present. The extension samples residents on arrival; do not introduce absent residents just because their location is listed.'},
         {id:'world_unknown',label:'Off the map',optional:true,text:'Distance unknown: the current background has no linked map waypoint. Distances cannot be calculated until a current waypoint is chosen or linked.'},
         {id:'world_wilderness',label:'Wilderness waypoint',optional:true,text:'Wilderness: {location}. Hostile encounters are possible, but only enemies confirmed in Combat state are present.',fills:['location']},
+    ]},
+    {label:'Playing an enemy',prompts:[
+        {id:'enemy_persona',label:'Enemy persona',note:'Sent each turn while your persona is an enemy card. Clear it to send nothing.',optional:true,text:ENEMY_PERSONA,fills:['player','species','friends','hostile','bosses','trigger']},
+        {id:'enemy_persona_trigger',label:'Enemy persona: hostile characters starting a fight',optional:true,text:'Starting a fight: when a hostile character decides to attack {player} first, at the end of that character\'s own reply it writes the exact phrase {phrase} once. The interface hides it and starts a battle round after the player has read the reply, and that character strikes first. Never use it for friendly enemies, for the player, or for a threat that is only talk.',fills:['phrase','player']},
+        {id:'greeting_friendly_enemy',label:'Friendly enemy noticing you',optional:true,text:'This is a wilderness encounter with another enemy. {player} is an enemy too. Respond as this enemy, noticing a fellow creature: curious, welcoming and at ease in its own manner (sounds, gestures or simple speech), never hostile, and not treating {player} as an intruder or prey.',fills:['player']},
+        {id:'greeting_hostile_character',label:'Character noticing you',optional:true,text:'The player is an enemy, a monster of Teyvat. Respond as this character, who is hostile to the player: alarmed, suspicious or ready to fight. Never greet the player warmly or politely, and do not let the player talk this character down with a single line.'},
     ]},
     {label:'Combat',prompts:[
         {id:'combat',label:'Combat state note',note:'Rewritten each turn while enemies are present. Clear it to send nothing.',optional:true,text:COMBAT,fills:['trigger_exception','enemy_poses','trigger','enemies','party']},

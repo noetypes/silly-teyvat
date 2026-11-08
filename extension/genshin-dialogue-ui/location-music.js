@@ -13,8 +13,8 @@ export function mountLocationMusic({host,getContext,adapter=createMediaAdapter(g
     const picker=document.createElement('dialog');picker.id='gi-location-music';picker.className='gi-music-dialog';picker.setAttribute('aria-labelledby','gi-location-music-title');
     picker.innerHTML=`<header><div><h2 id="gi-location-music-title">Waypoint music</h2><p class="gi-music-location"></p></div><button type="button" data-music="close-picker" aria-label="Close waypoint music">×</button></header>
         <p>Select exploration tracks. Multiple tracks play in a shuffled cycle.</p><div class="gi-music-choices" role="group" aria-label="Exploration music"></div>
-        <section class="gi-music-combat"><h3>Combat music</h3><label>Wilderness combat track<select data-music-combat aria-label="Combat music track"></select></label><small>The combat track is excluded from exploration. It loops during a hostile encounter, then the exploration song resumes.</small></section>
-        <p class="gi-music-wilderness-note">Combat music is available for Wilderness waypoints.</p><p class="gi-music-now" role="status" aria-live="polite"></p><p class="gi-music-status" role="status" aria-live="polite"></p>
+        <section class="gi-music-combat"><h3>Battle music</h3><label>Battle track<select data-music-combat aria-label="Battle music track"></select></label><small>The battle track is excluded from exploration. It loops during a fight here, wherever it starts, then the exploration song resumes.</small></section>
+        <p class="gi-music-wilderness-note" hidden>Battle music can be set at any waypoint.</p><p class="gi-music-now" role="status" aria-live="polite"></p><p class="gi-music-status" role="status" aria-live="polite"></p>
         <footer><button type="button" data-music="library">Manage music library</button><button type="button" data-music="close-picker">Cancel</button><button type="button" data-music="save">Save waypoint music</button></footer>`;
     host.append(library,picker);
     const abort=new AbortController(),on=(node,type,handler)=>node.addEventListener(type,handler,{signal:abort.signal});
@@ -38,7 +38,7 @@ export function mountLocationMusic({host,getContext,adapter=createMediaAdapter(g
         const cue=locationMusicCue(ctx,lastViewed,new Set([...encounterForms(ctx),...liveForms]));
         chatKey=identity;
         if(!lastOn){library.close();picker.close();}
-        player.configure({...cue,active:lastOn,enabled:lastOn&&prefs.locationMusicEnabled!==false,volume:musicVolume(ctx),inCombat:Boolean(cue.location?.wilderness&&lastCombat)});
+        player.configure({...cue,active:lastOn,enabled:lastOn&&prefs.locationMusicEnabled!==false,volume:musicVolume(ctx),inCombat:Boolean(cue.location&&lastCombat)});
         paintPlaying();
     }
     function changed(){sync();onChange();}
@@ -64,12 +64,12 @@ export function mountLocationMusic({host,getContext,adapter=createMediaAdapter(g
         picker.querySelector('[data-music="save"]').disabled=!location;
         const choices=picker.querySelector('.gi-music-choices');choices.replaceChildren();
         for(const track of tracks){
-            const label=document.createElement('label');label.className='gi-music-choice';const checkbox=document.createElement('input');checkbox.type='checkbox';checkbox.dataset.musicTrack=track.id;checkbox.disabled=Boolean(location?.wilderness&&combatDraft===track.id);checkbox.checked=!checkbox.disabled&&draft.has(track.id);
+            const label=document.createElement('label');label.className='gi-music-choice';const checkbox=document.createElement('input');checkbox.type='checkbox';checkbox.dataset.musicTrack=track.id;checkbox.disabled=combatDraft===track.id;checkbox.checked=!checkbox.disabled&&draft.has(track.id);
             const text=document.createElement('span');text.textContent=track.label || track.name;const filename=document.createElement('small');filename.textContent=checkbox.disabled?'Combat only':track.name;text.append(filename);label.append(checkbox,text);choices.append(label);
         }
         if(!tracks.length){const empty=document.createElement('p');empty.textContent='Your music library is empty. Open Manage music library to upload tracks.';choices.append(empty);}
-        picker.querySelector('.gi-music-combat').hidden=!location?.wilderness;picker.querySelector('.gi-music-wilderness-note').hidden=Boolean(location?.wilderness);
-        const combat=picker.querySelector('[data-music-combat]');combat.replaceChildren(new Option('No combat track',''),...tracks.map(track=>new Option(track.label || track.name,track.id)));combat.value=combatDraft || '';
+        picker.querySelector('.gi-music-combat').hidden=false;picker.querySelector('.gi-music-wilderness-note').hidden=true;
+        const combat=picker.querySelector('[data-music-combat]');combat.replaceChildren(new Option('No battle track',''),...tracks.map(track=>new Option(track.label || track.name,track.id)));combat.value=combatDraft || '';
     }
     async function upload(){
         if(busy)return;const input=library.querySelector('[data-music-files]'),files=[...(input.files || [])];
@@ -96,7 +96,7 @@ export function mountLocationMusic({host,getContext,adapter=createMediaAdapter(g
             if(name==='rename'){renameMusicTrack(ctx,id,row.querySelector('input').value);status(library,'Track label saved.');renderLibrary();if(picker.open)renderPicker();changed();return;}
             if(name==='preview'){player.preview(musicLibrary(ctx).find(track=>track.id===id));paintPlaying();return;}
             if(name==='remove'){removeMusicTrack(ctx,id);if(player.status.track?.id===id)player.stopPreview();draft.delete(id);if(combatDraft===id)combatDraft=null;renderLibrary();if(picker.open)renderPicker();changed();status(library,'Removed from the library and waypoint playlists. The uploaded file is kept on the server.');return;}
-            if(name==='save'){const location=musicLocation(ctx,locationId);saveLocationMusic(ctx,locationId,{tracks:[...draft],combatTrack:location?.wilderness?combatDraft:null});changed();picker.close();announce(`Music saved for ${location.label}.`);}
+            if(name==='save'){const location=musicLocation(ctx,locationId);saveLocationMusic(ctx,locationId,{tracks:[...draft],combatTrack:combatDraft});changed();picker.close();announce(`Music saved for ${location.label}.`);}
         }catch(error){status(button.closest('dialog'),error.message);}
     }
     on(library,'click',action);on(picker,'click',action);
@@ -111,7 +111,7 @@ export function mountLocationMusic({host,getContext,adapter=createMediaAdapter(g
         formChanged(form){if(disposed||typeof form!=='string'||!form)return;liveForms.add(form);sync();},
         roundSettled(){if(liveForms.size){liveForms.clear();sync();}},
         openLibrary(){if(disposed)return;renderLibrary();status(library,'');if(!library.open)library.showModal();},
-        openLocation(id){if(disposed)return;const location=musicLocation(getContext(),id);if(!location){announce('This waypoint is no longer available.');return;}locationId=id;draft=new Set(location.music?.tracks || []);combatDraft=location.wilderness?location.music?.combatTrack || null:null;renderPicker();status(picker,'');if(!picker.open)picker.showModal();},
+        openLocation(id){if(disposed)return;const location=musicLocation(getContext(),id);if(!location){announce('This waypoint is no longer available.');return;}locationId=id;draft=new Set(location.music?.tracks || []);combatDraft=location.music?.combatTrack || null;renderPicker();status(picker,'');if(!picker.open)picker.showModal();},
         dispose(){if(disposed)return;disposed=true;abort.abort();library.close();picker.close();player.dispose();library.remove();picker.remove();},
     };return api;
 }

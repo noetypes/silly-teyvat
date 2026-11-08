@@ -58,6 +58,8 @@
 .tb-hp.tb-bump { animation: tb-bump 420ms var(--ty-ease, ease); }
 @keyframes tb-bump { 40% { transform: scale(1.3); } }
 .tb-energy { position: absolute; right: -8px; top: 10%; z-index: 3; display: grid; gap: 6px; }
+.tb-energy[hidden] { display: none; }
+.tb-enemy .tb-energy, .tb-foe .tb-energy { top: 8%; }
 .tb-energy i { width: 13px; height: 13px; rotate: 45deg; background: #2d3d48; border: 1.5px solid #e2cf9f; box-shadow: 0 1px 3px #0008; }
 .tb-energy i.tb-on { background: radial-gradient(circle, #fffbe8 0 18%, #ffd76a 45%, #f3a93a); border-color: #fff4cf; box-shadow: 0 0 10px #ffcf5a; }
 .tb-card.tb-ready .tb-energy i { animation: tb-ready 900ms ease-in-out infinite alternate; }

@@ -21,6 +21,7 @@ import {createBurstVoicePlayer} from './burst-audio.js';
 import {EL_COLORS,SWORD_SVG} from './battle-fx.js';
 import {renderPrompt} from './prompt-templates.js';
 import {locationCardPool} from './card-pools.js';
+import {hostileSpeaker,playingEnemy} from './enemy-persona.js';
 
 export async function appendCombatMessage(ctx,{name='Narrator',text,avatar,event}){
     const message={name,is_user:false,is_system:false,send_date:new Date().toISOString(),mes:text,extra:{silly_teyvat_combat:event,silly_teyvat_combat_scene:structuredClone(activeEnemies(ctx))}};
@@ -126,10 +127,23 @@ export function mountCombat({host,getContext,onChange=()=>{},announce=()=>{},ada
         fighting:{on:{END:'idle',END_FORCED:'forcing'}},
     }});
     const busy=()=>fight.is('fighting');
-    const dice=diceAdapter || mountElementalDice({host}),battle=battleAdapter || mountBattle({host,onBurst:unit=>burstVoice.play(unit),onStopVoice:()=>burstVoice.stop(),onTransform:unit=>onChange({transformed:unit})});const hits=new Map(),shown=new Map();let disposed=false,enabled=false,writing=false,revision=0,key='',paint='',lastId=-1,armed=false,target='',visit='',lastView={};
+    const dice=diceAdapter || mountElementalDice({host}),battle=battleAdapter || mountBattle({host,onBurst:unit=>burstVoice.play(unit),onStopVoice:()=>burstVoice.stop(),onTransform:unit=>onChange({transformed:unit})});const hits=new Map(),shown=new Map();let disposed=false,enabled=false,writing=false,revision=0,key='',paint='',lastId=-1,armed=false,target='',visit='',lastView={},duelMusic=false,calmedFor='',sceneFor='';
     const eligibleEnemies=ctx=>{const disabled=activeGroup(ctx)?.disabled_members || [];return activeEnemies(ctx).filter(e=>!disabled.includes(e.avatar));};
     // Party members you can square off against when no enemies are about: everyone present who is on their feet.
     const duelCandidates=ctx=>partyMembers(ctx).filter(a=>a!==USER_KEY&&partyMember(ctx,a).hp>0);
+    // Battle music. It plays while a hostile enemy is here or a round is on the board, and also from the moment you
+    // choose to battle someone friendly (a duel), until you win, flee, or send a message with Attack off. While an
+    // enemy is played the roles are reversed: the characters around you are the hostile ones, and meeting them
+    // starts the music, which a win or a flight ends for as long as you stay.
+    const sceneKey=ctx=>JSON.stringify([ctx.chatMetadata?.silly_teyvat_world?.location?.id || '',ctx.chatMetadata?.silly_teyvat_cast?.encounter?.key || '']);
+    const hostileCharacters=ctx=>playingEnemy(ctx)?duelCandidates(ctx):[];
+    const endDuelMusic=(calm=false)=>{duelMusic=false;if(calm)calmedFor=sceneKey(getContext());};
+    function engaged(){
+        if(!enabled)return false;
+        const ctx=getContext();
+        if(busy()||fight.is('forcing')||duelMusic||eligibleEnemies(ctx).length)return true;
+        return hostileCharacters(ctx).length>0&&calmedFor!==sceneKey(ctx);
+    }
     function paintControls(enemies=eligibleEnemies(getContext())){
         placeControls();
         const ctx=getContext();
@@ -190,6 +204,7 @@ export function mountCombat({host,getContext,onChange=()=>{},announce=()=>{},ada
             const asEnemy=duel&&Boolean(linkedCard(ctx))&&isEnemy(ctx,linkedCard(ctx));
             const loot=asEnemy?(result.victory?rollLoot(snapshot.units.filter(u=>u.side==='enemy'),{pool:locationCardPool(ctx,ctx.chatMetadata?.silly_teyvat_world?.location?.id)}):[]):duel?[]:result.victory?rollLoot([...enemies,...unpaidEnemies(visitStore)],{pool,size:Object.keys(visitStore?.enemies || {}).length}):rollBossLoot(enemies.filter(u=>fallen.some(f=>f.id===u.id)),{pool});
             const saved=commitRound(getContext(),snapshot,result,id,{items:used,loot});if(!saved){battle.cancel?.();return;}
+            if(duel&&(result.victory||result.fled||result.wiped))endDuelMusic(true);
             // A searched card in the loot is found: its Quest markers go, and the search ends with the last one.
             const quest=completeCardSearch(getContext(),loot);
             const target=result.state.units.find(u=>u.id===avatar),before=snapshot.units.find(u=>u.id===avatar);
@@ -272,8 +287,8 @@ export function mountCombat({host,getContext,onChange=()=>{},announce=()=>{},ada
     function pendingTrigger(ctx){
         const phrase=combatTrigger(ctx),index=ctx.chat.length-1,message=ctx.chat[index];
         if(!phrase||!message||message.is_user||message.is_system||message.extra?.type==='narrator'||message.extra?.silly_teyvat_combat)return null;
-        const card=enemySpeaker(ctx,message);
-        if(!card||!hasCombatTrigger(message.mes,phrase)||!eligibleEnemies(ctx).some(e=>e.avatar===card.avatar))return null;
+        const card=enemySpeaker(ctx,message) || hostileSpeaker(ctx,message);
+        if(!card||!hasCombatTrigger(message.mes,phrase)||!(eligibleEnemies(ctx).some(e=>e.avatar===card.avatar)||!isEnemy(ctx,card)&&hostileCharacters(ctx).includes(card.avatar)))return null;
         const key=`${message.swipe_id ?? 0}:${hashOf(message.mes)}`;
         return message.extra?.silly_teyvat_forced?.key===key?null:{message,card,key};
     }
@@ -282,7 +297,8 @@ export function mountCombat({host,getContext,onChange=()=>{},announce=()=>{},ada
         const record={key,avatar:card.avatar,status:'rolling'};message.extra ??= {};message.extra.silly_teyvat_forced=record;
         try{
             announce(`${card.name} attacks first.`);
-            const event=await attack(card.avatar,{enemyFirst:true,attackId:newLocalId('forced')});
+            // A hostile character (while you play an enemy) fights you as a duel; an enemy fights as usual.
+            const event=await attack(card.avatar,{enemyFirst:true,attackId:newLocalId('forced'),duel:isEnemy(getContext(),card)?null:[card.avatar]});
             record.status=event?'resolved':'cancelled';
         }finally{fight.context.forced=false;fight.send('DONE');}
         await getContext().saveChat?.();
@@ -295,13 +311,15 @@ export function mountCombat({host,getContext,onChange=()=>{},announce=()=>{},ada
         syncCombatPrompt(getContext(),enabled);announce(`${result.name} was carried to ${result.guild.label} and healed.`);onChange({defeated:USER_KEY,moved:true});
     }
     return {
-        get busy(){return busy();},attack,
+        get busy(){return busy();},get engaged(){return engaged();},attack,
         get armed(){return armed;},setArmed,
         // Kept as an empty compatibility surface. Attacks are never reply choices.
         actions(){return [];},
         cancelPending(){revision++;dice.cancel?.();battle.cancel?.();if(settle)closeAsk(null);},
         async onUserMessage(id){
             const ctx=getContext(),index=Number.isInteger(Number(id))?Number(id):ctx.chat.length-1,message=ctx.chat[index];
+            // A message sent with Attack off ends the battle music of a duel.
+            if(message?.is_user&&!armed&&!busy()&&!message.extra?.silly_teyvat_send_attack)endDuelMusic();
             if(disposed||!enabled||!armed||busy()||index!==ctx.chat.length-1||!message?.is_user||message.is_system||!message.mes?.trim()||message.extra?.silly_teyvat_send_attack)return null;
             const enemy=eligibleEnemies(ctx).find(e=>e.avatar===target);
             if(!enemy&&!duelCandidates(ctx).length)return null;
@@ -315,7 +333,7 @@ export function mountCombat({host,getContext,onChange=()=>{},announce=()=>{},ada
                 const foes=await chooseDuel();
                 if(!same())return null;
                 if(!foes.length){record.status='declined';await ctx.saveChat?.();return null;}
-                Object.assign(record,{avatar:foes[0],status:'rolling',duel:true});
+                Object.assign(record,{avatar:foes[0],status:'rolling',duel:true});duelMusic=true;
                 event=await attack(foes[0],{duringSend:true,react:false,attackId:record.id,duel:foes});
                 if(!same())return null;
                 // A friend beaten in a duel was revived or has left already; the conversation carries on.
@@ -330,8 +348,9 @@ export function mountCombat({host,getContext,onChange=()=>{},announce=()=>{},ada
         },
         sync({on,id,generating=false,show=true,idle=true}={}){
             burstVoice.sync({enabled:on});
-            const ctx=getContext(),nextKey=combatIdentity(ctx);if(nextKey!==key){revision++;dice.cancel?.();battle.cancel?.();if(settle&&key)closeAsk(null);key=nextKey;paint='';armed=false;target='';visit='';}if(enabled&&!on){revision++;dice.cancel?.();battle.cancel?.();armed=false;}enabled=Boolean(on);writing=generating;lastId=id;lastView={show,idle};
+            const ctx=getContext(),nextKey=combatIdentity(ctx);if(nextKey!==key){revision++;dice.cancel?.();battle.cancel?.();if(settle&&key)closeAsk(null);key=nextKey;paint='';armed=false;target='';visit='';duelMusic=false;calmedFor='';}if(enabled&&!on){revision++;dice.cancel?.();battle.cancel?.();armed=false;}enabled=Boolean(on);writing=generating;lastId=id;lastView={show,idle};
             syncCombatPrompt(ctx,enabled);
+            const here=sceneKey(ctx);if(sceneFor!==here){sceneFor=here;if(!busy())duelMusic=false;calmedFor='';}
             const disabled=activeGroup(ctx)?.disabled_members || [];
             const currentEnemies=enabled?activeEnemies(ctx).filter(e=>!disabled.includes(e.avatar)):[],message=ctx.chat?.[id];
             const nextVisit=[...new Set(currentEnemies.map(e=>e.key))].sort().join('|');

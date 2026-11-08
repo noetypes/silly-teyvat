@@ -9,6 +9,7 @@ import {newLocalId} from './local-id.js';
 import {homeRegionName,regionGuild} from './defeat.js';
 import {loadCharacterHomes} from './character-homes.js';
 import {teleportTo,worldWaypoints} from './world-data.js';
+import {enemyStartPoint,isBossAvatar,playedEnemy} from './enemy-persona.js';
 
 export function inheritCharacterHistory(ctx,card){
     if(!card)return 0;let count=0;
@@ -62,15 +63,31 @@ export async function repairSoloPortraits(ctx,fetchImpl=fetch){
     }
     return repaired;
 }
-export function makeSoloJourney(ctx){
+// A solo journey played as an enemy begins in the wilds, not at a Guild: at a random Wilderness waypoint where that
+// enemy appears (or any Wilderness waypoint if it appears nowhere), with another of its kind already there.
+export function enemyJourneyStart(ctx,random=Math.random){
+    const enemy=playedEnemy(ctx);if(!enemy)return null;
+    const start=enemyStartPoint(worldWaypoints(ctx),enemy.avatar,random);
+    return start?{enemy,start}:null;
+}
+export function makeSoloJourney(ctx,random=Math.random){
     const card=personaCard(ctx),chatId='Silly-Teyvat-'+newLocalId('solo'),name=card?.name || ctx.name1 || 'Player';
     const metadata=structuredClone(ctx.chatMetadata || {});delete metadata.main_chat;
     metadata.silly_teyvat_cast={core:[],managed:[],placements:{},source:{avatar:card?.avatar || '__user__',chatId:'solo:'+chatId}};
     // A solo journey begins alone at the player's character's home. A persona with no card, or a card
     // with no home on the map, begins at the Adventurers' Guild of their region. The empty opening
     // scene is what keeps the people who live there out until the player comes back later.
-    const home=defaultCharacterLocation(ctx,card?.avatar),start=worldWaypoints(ctx).find(w=>w.location.id===home?.id) || regionGuild(ctx,homeRegionName(ctx,linkedCard(ctx) || card));
-    if(start){delete metadata.silly_teyvat_world;try{teleportTo({...ctx,chat:[],chatMetadata:metadata,saveMetadataDebounced:null,saveChat:null,setExtensionPrompt:null},start.location.id,{record:false});metadata.silly_teyvat_cast.encounter=rollLocationEncounter(ctx,start.location.id,[],{kind:'open'});noteLocationArrival({chatMetadata:metadata},start.location.id,{kind:'open'});}catch(error){console.warn('[Silly Teyvat] Solo journey start',error);}}
+    const home=defaultCharacterLocation(ctx,card?.avatar),enemyStart=enemyJourneyStart(ctx,random);
+    const start=enemyStart?.start || worldWaypoints(ctx).find(w=>w.location.id===home?.id) || regionGuild(ctx,homeRegionName(ctx,linkedCard(ctx) || card));
+    if(start){delete metadata.silly_teyvat_world;try{
+        teleportTo({...ctx,chat:[],chatMetadata:metadata,saveMetadataDebounced:null,saveChat:null,setExtensionPrompt:null},start.location.id,{record:false});
+        if(enemyStart){
+            // The wilds are the player's home: a real arrival, with another of their kind there to greet them (unless they are a boss).
+            const scene=rollLocationEncounter(ctx,start.location.id,[],{kind:'travel',random});
+            if(!isBossAvatar(ctx,enemyStart.enemy.avatar)&&!scene.enemies.includes(enemyStart.enemy.avatar))scene.enemies.unshift(enemyStart.enemy.avatar);
+            scene.present=[];metadata.silly_teyvat_cast.encounter=scene;noteLocationArrival({chatMetadata:metadata},start.location.id,{kind:'travel'});
+        }else{metadata.silly_teyvat_cast.encounter=rollLocationEncounter(ctx,start.location.id,[],{kind:'open'});noteLocationArrival({chatMetadata:metadata},start.location.id,{kind:'open'});}
+    }catch(error){console.warn('[Silly Teyvat] Solo journey start',error);}}
     // SillyTavern's own welcome page (its "SillyTavern System" lines and Assistant greeting) stays out of the journey; only what the player wrote and Silly Teyvat's tagged notices carry over.
     const ownNotice=message=>Object.keys(message.extra || {}).some(key=>key.startsWith('silly_teyvat'));
     const narrator=narratorAvatar(ctx),messages=structuredClone(ctx.chat || []).filter(message=>message.is_user || ownNotice(message));
@@ -104,8 +121,10 @@ export function createPersonaSession({getContext,adapter=createPersonaSessionAda
         for(let attempt=0;pending&&!disposed&&attempt<8;attempt++){
             pending=false;const ctx=getContext(),card=linkedCard(ctx),identity=key(),valid=()=>!disposed&&key()===identity;
             const group=activeGroup(ctx),ownSingle=!inPartyChat(ctx)&&card&&ctx.characters?.[ctx.characterId]?.avatar===card.avatar;
-            const history=card&&(ctx.chat || []).some(m=>!m.is_user&&!m.is_system&&m.extra?.type!=='narrator'&&(m.original_avatar?m.original_avatar===card.avatar:m.name===card.name));
-            const remove=card&&group?.members?.includes(card.avatar);
+            // An enemy card the player plays still stands in the world as its own kind, so its group messages are not the player's.
+            const kin=Boolean(playedEnemy(ctx));
+            const history=card&&!kin&&(ctx.chat || []).some(m=>!m.is_user&&!m.is_system&&m.extra?.type!=='narrator'&&(m.original_avatar?m.original_avatar===card.avatar:m.name===card.name));
+            const remove=card&&!kin&&group?.members?.includes(card.avatar);
             const newJourney=start&&!inPartyChat(ctx)&&ctx.characterId==null;start=false;
             if(!ownSingle&&!history&&!remove&&!newJourney)continue;
             if(await adapter.busy?.()){start=newJourney;return;}

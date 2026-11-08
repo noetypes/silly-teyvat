@@ -1185,7 +1185,7 @@ export function endPhase(round){
     const kept=drawn.slice(0,Math.max(0,HAND_MAX-round.hand.length));round.hand.push(...kept);round.deck=[...deck,...drawn.slice(kept.length)];
     if(drawn.length)push({type:'draw',cards:kept,burned:drawn.slice(kept.length)});
     noteDrawn(drawn,round);c.drawnTriggers(kept);
-    push({type:'statuses',fields:structuredClone(state.fields),supports:structuredClone(state.supports || []),units:state.units.map(u=>({id:u.id,aura:auraList(u.aura),statuses:structuredClone(u.statuses || []),shield:u.shield || 0,energy:u.energy || 0,hp:u.hp,intent:u.intent || null}))});
+    push({type:'statuses',fields:structuredClone(state.fields),supports:structuredClone(state.supports || []),units:state.units.map(u=>({id:u.id,aura:auraList(u.aura),statuses:structuredClone(u.statuses || []),shield:u.shield || 0,energy:u.energy || 0,hp:u.hp,intent:u.intent || null,cooldowns:structuredClone(u.cooldowns || {}),enraged:Boolean(u.enraged),usedRage:Boolean(u.usedRage)}))});
     state.round++;round.phase='over';
     return {ok:true,events:slice(round,start)};
 }

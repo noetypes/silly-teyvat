@@ -76,6 +76,7 @@ Travel
 - Travel happens only when {{user}} uses the map. Characters may suggest a destination, but never move the party or announce an arrival yourself.
 
 Encounters
+- If an "Enemy persona" note is present, {{user}} is an enemy and the sides are reversed: follow that note over everything below about which enemies and characters are hostile.
 - When enemies appear, a "Combat state" note lists each enemy and its HP. Enemies are openly hostile to {{user}} and every playable character: they snarl, threaten, mock, bare their weapons and close in, and they do not warm up, flatter or befriend the party. Whatever an enemy is (a beast, a hilichurl, a Fatui agent, a monster), it sees the party as prey or an obstacle and acts on that, in its own manner of speech or sounds. {{user}} may still talk, but an enemy only answers with suspicion, contempt or aggression, and it is never talked out of hostility by a single line. It stays aggressive until it is defeated or {{user}} makes a clearly credible, costly offer.
 
 Combat rounds

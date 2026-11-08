@@ -145,6 +145,15 @@ export function mountBattle({host,sound=createBattleSound(),onBurst=()=>{},onSto
         on(card,'pointerenter',()=>unitTip(u.id,card));on(card,'pointerleave',hideTip);on(card,'focus',()=>{if(card.matches(':focus-visible'))unitTip(u.id,card);});on(card,'blur',hideTip);
         cards.set(u.id,card);return card;
     }
+    // How charged an opponent's special move is: its cooldown counts down each End Phase, so the diamonds fill up
+    // until the move is ready. An enemy about to rage is ready at once. Foes with no special have no diamonds.
+    function foeCharge(u){
+        const moves=u.kit?.moves || [],index=moves.findIndex(m=>m.kind==='special');
+        if(index<0)return null;
+        const total=Math.max(1,Math.min(6,Math.round(Number(moves[index].cooldown) || 3))),left=u.cooldowns?.[index];
+        const remaining=Math.max(0,Math.min(total,left===undefined?total-1:Number(left) || 0));
+        return {name:moves[index].name,total,on:total-remaining,ready:remaining<=0||Boolean(u.enraged&&!u.usedRage)};
+    }
     function paintUnit(u){
         const card=cards.get(u.id);if(!card)return;
         const hp=Math.max(0,u.hp),auras=auraList(u.aura),aura=auras.join(' ');
@@ -160,9 +169,16 @@ export function mountBattle({host,sound=createBattleSound(),onBurst=()=>{},onSto
             auraNode.title=auras.length?`${auras.join(' and ')} applied${auras.includes(innateAura(u))?` (${u.name} is made of ${innateAura(u)})`:''}`:'';
             if(aura){auraNode.classList.remove('tb-pop');void auraNode.offsetWidth;auraNode.classList.add('tb-pop');}
         }
+        const pips=card.querySelector('.tb-energy');
         if(u.side==='party'){
-            const pips=card.querySelector('.tb-energy');pips.classList.toggle('tb-resource',Boolean(u.kit?.resource));pips.title=u.kit?.resource?`${u.kit.resource.label}: ${whole(u.energy || 0)}/${whole(u.maxEnergy)} (the Burst needs ${u.kit.resource.min})`:'';pips.replaceChildren(...Array.from({length:u.maxEnergy || 2},(_,i)=>{const pip=el('i');if(i<(u.energy || 0))pip.className='tb-on';return pip;}));
+            pips.classList.toggle('tb-resource',Boolean(u.kit?.resource));pips.title=u.kit?.resource?`${u.kit.resource.label}: ${whole(u.energy || 0)}/${whole(u.maxEnergy)} (the Burst needs ${u.kit.resource.min})`:'';pips.replaceChildren(...Array.from({length:u.maxEnergy || 2},(_,i)=>{const pip=el('i');if(i<(u.energy || 0))pip.className='tb-on';return pip;}));
             card.classList.toggle('tb-ready',burstReady(u));
+        }else{
+            // An opponent's Burst (its special move) is charged by waiting: the same diamonds show how close it is.
+            const charge=foeCharge(u);pips.hidden=!charge;pips.classList.remove('tb-resource');
+            if(charge){pips.title=`${charge.name}: ${charge.ready?'charged and ready':`${charge.on}/${charge.total} charged`}`;pips.replaceChildren(...Array.from({length:charge.total},(_,i)=>{const pip=el('i');if(i<charge.on)pip.className='tb-on';return pip;}));}
+            else pips.replaceChildren();
+            card.classList.toggle('tb-ready',Boolean(charge?.ready)&&hp>0);
         }
         const list=card.querySelector('.tb-status');list.replaceChildren();const seen=new Set();
         for(const s of u.statuses || []){
@@ -862,6 +878,7 @@ export function mountBattle({host,sound=createBattleSound(),onBurst=()=>{},onSto
                     const move=movesOf(actor).find(m=>m.name===e.name&&(m.kind===e.kind||e.kind==='technique')) || {name:e.name,kind:e.kind};
                     toast(actor,move);
                     acting={actor:e.actor,kind:strikeKind(actor,move,e.kind)};
+                    if(e.kind==='special'&&actor.side==='enemy'){const at=(actor.kit?.moves || []).findIndex(m=>m.name===e.name&&m.kind==='special');if(at>=0){actor.cooldowns={...actor.cooldowns,[at]:move.cooldown || 3};paintUnit(actor);}}
                     if(e.kind==='burst'||e.kind==='special'&&actor.side==='enemy'){
                         void Promise.resolve(onBurst(actor,e)).catch(error=>console.warn('[Silly Teyvat] Burst voice',error));
                         if(e.kind==='burst'){await cinematic(actor,e.element);if(actor.side==='party')await splash(actor,move);}
@@ -937,7 +954,7 @@ export function mountBattle({host,sound=createBattleSound(),onBurst=()=>{},onSto
                 }
                 case 'enrage':{cards.get(e.actor)?.classList.add('tb-enraged');floatText(e.actor,'Enraged!','gb-enrage');sound.enrage();await wait(650);break;}
                 case 'defeat':case 'downed':{const card=cards.get(e.target);const p=centerOf(e.target);if(effectsOn())particles.sparkle(p.x,p.y,EL_COLORS[target?.element] || '#fff');card?.classList.add('tb-falling');setTimeout(()=>card?.classList.remove('tb-falling'),900);e.type==='defeat'?sound.defeat():sound.downed();await wait(820);break;}
-                case 'statuses':if(e.fields){state.fields=e.fields;paintFields(state.fields);}if(e.supports){state.supports=e.supports;paintSummons(state.summons || []);}for(const s of e.units){const u=view.get(s.id);if(!u)continue;Object.assign(u,{aura:s.aura,statuses:s.statuses,shield:s.shield,energy:s.energy,hp:s.hp,intent:s.intent});paintUnit(u);}break;
+                case 'statuses':if(e.fields){state.fields=e.fields;paintFields(state.fields);}if(e.supports){state.supports=e.supports;paintSummons(state.summons || []);}for(const s of e.units){const u=view.get(s.id);if(!u)continue;Object.assign(u,{aura:s.aura,statuses:s.statuses,shield:s.shield,energy:s.energy,hp:s.hp,intent:s.intent},s.cooldowns?{cooldowns:s.cooldowns,enraged:s.enraged,usedRage:s.usedRage}:{});paintUnit(u);}break;
             }
         }
         endBurst();for(const card of cards.values())card.classList.remove('tb-acting');

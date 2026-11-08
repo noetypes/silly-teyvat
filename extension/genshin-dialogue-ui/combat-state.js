@@ -12,6 +12,7 @@ import {isTcgBoss} from './boss-kits.js';
 import {restockBag} from './battle-items.js';
 import {journeyBag} from './starter-decks.js';
 import {COMBAT_COMPANIONS,defaultKit} from './combat-kits.js';
+import {hostileEnemy,playingEnemy} from './enemy-persona.js';
 export const DICE_FACES=[...ELEMENTS,'Omni'];
 export const combatIdentity=ctx=>`${ctx.groupId || ctx.characterId}:${ctx.getCurrentChatId?.() || ctx.chatId || ''}`;
 // Version 2 is the turn-based system. Health and battles saved by the older dice combat are discarded.
@@ -57,11 +58,19 @@ export function activeEnemies(ctx){
     const listed=encounter&&encounter.locationId===locationId?encounter.enemies || []:[];
     const avatars=[...new Set([...listed,...sceneMembers(ctx).filter(a=>isEnemy(ctx,a)&&!cast.managed?.includes(a)&&!elsewhere(a))])];
     const visit=store.visits[key] ??= {locationId,enemies:{}},played=playedAvatars(ctx);
-    return avatars.filter(a=>!played.has(a)&&isEnemy(ctx,a)&&ctx.characters?.some(c=>c.avatar===a)).map(avatar=>{
+    // Playing an enemy, only bosses are hostile; the other enemies are friends (friendlyEnemies).
+    return avatars.filter(a=>!played.has(a)&&isEnemy(ctx,a)&&hostileEnemy(ctx,a)&&ctx.characters?.some(c=>c.avatar===a)).map(avatar=>{
         let enemy=visit.enemies[avatar];
         if(!enemy){const props=characterProperties(ctx,avatar),max=enemyMaxHp(ctx,avatar);enemy=visit.enemies[avatar]={avatar,hp:max,maxHp:max,deathMessage:props.deathMessage,defeated:false};}
         return {...enemy,key};
     }).filter(e=>!e.defeated&&!e.fled&&e.hp>0);
+}
+// Enemies in this encounter that are on the player's side: while an enemy is played, every enemy but a boss.
+export function friendlyEnemies(ctx){
+    if(!playingEnemy(ctx))return [];
+    const encounter=ctx.chatMetadata?.silly_teyvat_cast?.encounter,locationId=ctx.chatMetadata?.silly_teyvat_world?.location?.id;
+    const listed=encounter&&encounter.locationId===locationId?encounter.enemies || []:[];
+    return [...new Set(listed)].filter(a=>isEnemy(ctx,a)&&!hostileEnemy(ctx,a)&&ctx.characters?.some(c=>c.avatar===a));
 }
 // Enemy health is set when it first appears, scaled by difficulty and the size of the party it meets.
 export const combatDifficulty=ctx=>DIFFICULTY[mediaSettings(ctx).combatDifficulty]?mediaSettings(ctx).combatDifficulty:'normal';
@@ -73,7 +82,8 @@ export function allyElement(ctx,ally){
     const own=characterProperties(ctx,personaCard(ctx)).element;
     return own!=='None'?own:characterProperties(ctx,linkedCard(ctx)).element;
 }
-export function combatAllies(ctx){const disabled=activeGroup(ctx)?.disabled_members || [],played=playedAvatars(ctx);return [userAlly(ctx),...combatCompanions(ctx,disabled,played)];}
+export function combatAllies(ctx){const disabled=activeGroup(ctx)?.disabled_members || [],played=playedAvatars(ctx);// An enemy fights alone: the characters around it are hostile to it.
+    return [userAlly(ctx),...(playingEnemy(ctx)?[]:combatCompanions(ctx,disabled,played))];}
 function combatCompanions(ctx,disabled,played){return sceneMembers(ctx).filter(a=>!disabled.includes(a)&&!played.has(a)&&!isEnemy(ctx,a)).map(a=>ctx.characters.find(c=>c.avatar===a)).filter(c=>c&&(characterProperties(ctx,c).playable||COMBAT_COMPANIONS.has(String(c.name).trim().toLowerCase())));}
 // ---- Party health -------------------------------------------------------------
 // You and every non-hostile scene member have health. Enemies strike back with their

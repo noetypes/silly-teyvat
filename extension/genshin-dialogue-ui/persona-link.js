@@ -1,5 +1,6 @@
 import {mediaSettings} from './media-store.js';
 import {activePersonaAvatar} from './persona-wardrobe.js';
+import {isEnemy} from './character-properties.js';
 // A persona can be a character card taken over by the player. The linked card
 // then shares its sprites and outfits with the persona and leaves the world's
 // random encounters while that persona is active. The two Traveler personas
@@ -17,9 +18,12 @@ export function linkedCardAvatar(ctx, personaAvatar = activePersonaAvatar(ctx)) 
 }
 export const linkedCard = (ctx, personaAvatar) => { const avatar = linkedCardAvatar(ctx, personaAvatar); return avatar ? ctx.characters.find(c => c.avatar === avatar) : undefined; };
 // Cards currently played by the active persona.
+// An enemy card is the exception: playing a Hilichurl does not remove the others from the wilds, so its kin still
+// appear in encounters (friendly to the player, see enemy-persona.js).
 export function playedAvatars(ctx) {
     const avatar = linkedCardAvatar(ctx);
-    return avatar ? new Set([avatar]) : new Set();
+    if (!avatar) return new Set();
+    return isEnemy(ctx, avatar) ? new Set() : new Set([avatar]);
 }
 export const linkedPersonaAvatars = (ctx, cardAvatar) => Object.entries(personaLinks(ctx)).filter(([, card]) => card === cardAvatar).map(([persona]) => persona);
 export function linkPersona(ctx, personaAvatar, cardAvatar) {

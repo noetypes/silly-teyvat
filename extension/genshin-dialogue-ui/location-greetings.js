@@ -1,4 +1,5 @@
 import {isEnemy} from './character-properties.js';
+import {greetingNote,playedEnemy} from './enemy-persona.js';
 import {backgroundRegions} from './backgrounds.js';
 import {syncWorldPrompt} from './world-data.js';
 import {promptText,renderPrompt} from './prompt-templates.js';
@@ -15,14 +16,15 @@ export function locationGreetingPrompt(ctx,character,destination,home,entry={}){
     const names=avatars=>(avatars || []).map(a=>ctx.characters.find(c=>c.avatar===a)?.name).filter(Boolean);
     return renderPrompt(ctx,'greeting',{character:character.name,player:ctx.name1 || 'the player',
         defeat_note:entry.reason==='defeat'?renderPrompt(ctx,'greeting_defeat',{place:entry.defeatFrom || 'the wilds'}):'',
-        enemy_note:isEnemy(ctx,character)?promptText(ctx,'greeting_enemy'):'',
+        enemy_note:greetingNote(ctx,character),
         scene_data:JSON.stringify({character:character.name,player:ctx.name1 || 'the player',currentLocation:destination.label,description:destination.description || '',usualLocation:home?.label || 'Elsewhere',arrivingCompanions:names(entry.travellers),residents:names(entry.residents),everyonePresent:names(entry.sceneAvatars)})});
 }
 
 export function soloGreetingPrompt(ctx,character,destination,home,entry={}){
     const player=ctx.name1 || 'the player',played=playedCharacter(ctx);
     const player_note=played?renderPrompt(ctx,'greeting_solo_known',{character:character.name,player,player_card:played.name}):renderPrompt(ctx,'greeting_solo_new',{character:character.name,player});
-    return renderPrompt(ctx,'greeting_solo',{character:character.name,player,player_note,
+    const hostile=playedEnemy(ctx)&&!isEnemy(ctx,character)?' '+promptText(ctx,'greeting_hostile_character'):'';
+    return renderPrompt(ctx,'greeting_solo',{character:character.name,player,player_note:player_note+hostile,
         defeat_note:entry.reason==='defeat'?renderPrompt(ctx,'greeting_defeat',{place:entry.defeatFrom || 'the wilds'}):'',
         scene_data:JSON.stringify({character:character.name,player,playerIs:played?.name || null,currentLocation:destination.label,description:destination.description || '',usualLocation:home?.label || 'Elsewhere'})});
 }

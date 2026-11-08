@@ -50,6 +50,13 @@ export async function runEnemySpriteTests(){
         check('after the transformation, and after the fight, she shows the Crimson Witch sprite',asked.join()==='crimson_witch,crimson_witch');
         sctx.chatMetadata.silly_teyvat_world.location.id='elsewhere';asked.length=0;await resolveEnemyScene(sctx,spriteAdapter,stage,line);
         check('a new encounter meets her in her first form again',asked.join()==='neutral');
+        // Playing an enemy turns the stage around: you and the enemies stand on the left, the characters facing you on the right.
+        {const left=name=>parseFloat(img(name)?.style.left);
+        const sized=(name,x)=>({...sprite(name,x),model:.9,baseH:.8,aspect:.6});
+        scene=[sized('Klee',.1),sized('Slime',.6)];say('“Over here.”');await pause(60);
+        check('usually the characters stand on the left and the enemies on the right',left('Klee')<left('Slime'));
+        ctx.userAvatar='me.png';ctx.extensionSettings.genshin_dialogue_ui.personaCharacters={'me.png':'Slime.png'};ctx.chat.push({name:'Klee',original_avatar:'Klee.png',mes:'“Eek!”'});ui.sync({on:true,id:ctx.chat.length-1,page:0,text:'Eek',complete:true,generating:false});await pause(60);
+        check('while you play an enemy, the enemies stand on the left and the characters on the right',left('Slime')<left('Klee'));}
         return out.join('\n');
     }finally{ui?.dispose();host.remove();document.body.classList.toggle('gi-reduced-motion',motion);}
 }

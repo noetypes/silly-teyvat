@@ -8,6 +8,7 @@ import { stageScene, createStageRoster, expressionMode, fitModelHeights, refresh
 import { chooseVisible, layoutStage, compactViewport } from './stage-layout.js';
 import { keyboardShown } from './keyboard-frame.js';
 import { stageCharacter } from './persona-wardrobe.js';
+import { playingEnemy } from './enemy-persona.js';
 import { previousSpeech, expressionContext } from './narration.js';
 import { createSpriteTrimmer } from './sprite-trim.js';
 import { healSceneSources } from './sprite-files.js';
@@ -258,13 +259,14 @@ export function mountPageSprites({ host, getContext, adapter = createNativeSprit
         if (!staged.length) return;
         const typing = keyboardUp();
         const W = stage.clientWidth || innerWidth, H = typing ? stable.H : stage.clientHeight || innerHeight;
-        // Party on the left (you first), enemies on the right, as in a Genshin standoff.
-        const order = { user: 0, companion: 1, enemy: 2 };
+        // Party on the left (you first), enemies on the right, as in a Genshin standoff. Playing an enemy turns the
+        // sides around: you and the enemies stand on the left, and the characters facing you on the right.
+        const reversed = playingEnemy(ctx), order = reversed ? { user: 0, enemy: 1, companion: 2 } : { user: 0, companion: 1, enemy: 2 };
         staged.sort((a, b) => order[kindOf(a.sprite)] - order[kindOf(b.sprite)] || scene.indexOf(a.sprite) - scene.indexOf(b.sprite));
         const items = staged.map(({ image, sprite }) => {
             const card = stageCharacter(ctx, sprite), cp = p.characterSprites?.[card?.avatar || sprite.avatar] || {};
             const look = livePresentation(sprite, staged.length >= 3 && staged.some(x => x.sprite.presentation?.focus) && compactViewport(W, H));
-            return { group: kindOf(sprite) === 'enemy' ? 1 : 0, h: sprite.h, aspect: Number(image.dataset.trim) || sprite.aspect, scale: (sprite.presentation ? liveSpriteScale(ctx, sprite, card) : 1) * look.focusScale,
+            return { group: (kindOf(sprite) === 'enemy') !== reversed ? 1 : 0, h: sprite.h, aspect: Number(image.dataset.trim) || sprite.aspect, scale: (sprite.presentation ? liveSpriteScale(ctx, sprite, card) : 1) * look.focusScale,
                 lift: Math.max(-.4, Math.min(.5, 1 - sprite.h - sprite.y)), pinned: cp.positionX == null ? null : bounded(cp.positionX, 0, 100, 50) / 100 };
         });
         // On a phone on its side the HUD runs along the top edge; frame faces just under it.
@@ -307,7 +309,7 @@ export function mountPageSprites({ host, getContext, adapter = createNativeSprit
         // Sizes come from current settings, so earlier pages follow Wardrobe changes.
         const scales=scene.map(sprite=>sprite.presentation?liveSpriteScale(getContext(),sprite):1);key+=`:scale:${scales.join(',')}`;
         const depth=scene.length>=3&&scene.some(sprite=>sprite.presentation?.focus)&&compactViewport(stage.clientWidth || innerWidth,stage.clientHeight || innerHeight);
-        const looks=scene.map(sprite=>livePresentation(sprite,depth));key+=`:look:${JSON.stringify(looks)}:${stage.clientWidth}x${stage.clientHeight}`;
+        const looks=scene.map(sprite=>livePresentation(sprite,depth));key+=`:look:${JSON.stringify(looks)}:${stage.clientWidth}x${stage.clientHeight}${playingEnemy(getContext())?':sides-reversed':''}`;
         document.body.classList.toggle('gi-sprite-replay', active && (scene.length > 0 || Boolean(openingCharacter(getContext()))));
         document.body.classList.toggle('gi-sprite-crowd', scene.length >= 4);
         if (displayed === key) return;

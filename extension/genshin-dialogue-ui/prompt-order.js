@@ -10,6 +10,7 @@ export const ORDERED = [
     {key:'silly_teyvat_rp_systems',name:'Silly Teyvat: Game systems',editable:'systems',after:'silly_teyvat_rp_character'},
     {key:'silly_teyvat_trust',name:'Silly Teyvat: Trust (updates each turn)',after:'silly_teyvat_rp_systems'},
     {key:'silly_teyvat_twins',name:'Silly Teyvat: Twin roles (updates each turn)',after:'silly_teyvat_trust'},
+    {key:'silly_teyvat_enemy_persona',name:'Silly Teyvat: Enemy persona (updates each turn)',after:'silly_teyvat_twins'},
     {key:'silly_teyvat_rp_style',name:'Silly Teyvat: Writing style',editable:'style',after:'chatHistory'},
     {key:'silly_teyvat_world_scale',name:'Silly Teyvat: World scale (updates each turn)',after:'silly_teyvat_rp_style'},
     {key:'silly_teyvat_combat',name:'Silly Teyvat: Combat state (updates each turn)',after:'silly_teyvat_world_scale'},

@@ -1,3 +1,18 @@
+# Unreleased: Character configuration review
+
+- A consistent slate editor improves contrast over elemental backgrounds, with more room for forms and visible section names on phones and tablets.
+- Starting Trust, Starter Deck and linking sprite folders have accessible disclosure headings again. Audio and imports are folded into named sections; Burst audio lives in Moveset.
+- Outfits distinguish previewing from equipping. The labelled character browser has responsive filters, empty-result guidance and contained keyboard focus.
+- [Review findings and validation](../../docs/ui-reviews/2026-11-08-character-menu.md). Run `node tools/test-wardrobe-ui-browser.mjs` for the responsive and keyboard checks.
+
+# Silly Teyvat 1.76.0: Battle music everywhere, and playing as an enemy
+
+- **Every waypoint has battle music.** Towns and other non-Wilderness places can now be given a battle track in *Choose music* (the old Wilderness-only limit is gone, because you can start a fight anywhere). Existing installs fill every waypoint that had none with its region's open-world combat theme (Rite of Battle, Rapid as Wildfires, Duel in the Mist, Swirls of the Stream, Rondeau des fleurs et des rapieres, Anthem of the Savannah, To Light the Aeon Dark, Triumph on the Ice) on first load; a track you chose and every exploration playlist stay as they are. All 20 boss arenas already had the boss's own theme where the game gives one (the wiki's Soundtrack Usage lists none for the other open-world bosses, which use their region's combat music), so nothing new was downloaded.
+- **Battle music follows the fight.** Choosing to battle a friendly character (Attack on, then picking who) starts the battle music at once, and it keeps playing between rounds until you win, flee, or send a message with Attack off.
+- **Playing an enemy persona.** A solo journey now begins at a random Wilderness waypoint where that enemy appears (any Wilderness waypoint if it appears nowhere), with another of its kind already there to greet you, instead of at the Adventurers' Guild. The sides are reversed: you and the enemies stand on the left of the stage, characters on the right. Enemies are friendly, bosses stay hostile, and every character is hostile to you; a new *Enemy persona* prompt (Settings → Prompts, and in the prompt order) tells the model so each turn, hostile characters can start a duel by writing the combat trigger phrase, meeting them starts battle music while meeting a friendly enemy does not, and running out of HP sends you to a refuge in the wilds instead of a Guild. Other enemies of your kind can now appear in the wilds.
+- **Opponent charge diamonds.** On the battle board every opponent card shows diamonds for how charged its special move is (they fill as its cooldown counts down and glow when it is ready), like a character's Energy.
+- Tests: `node tools/test-enemy-persona.mjs`; the music, duel, battle, enemy-sprite and identity preview suites cover the rest.
+
 # Silly Teyvat 1.74.7: Combat deck, sprite Trust and stage fixes
 
 - **Combat deck.** The Inventory has − / + under *Combat deck* on every card. Battles deal from a deck of at most 30 cards; new cards join it automatically while it has room, and cards you remove stay in the bag.
