@@ -285,8 +285,22 @@ export function mountWardrobe({host, getContext, onChange = async () => {}, onMe
         // Tab changes often reselect the same sprite. Keep a finished crop in
         // place instead of resetting its source to the original padded image.
         if (img.dataset.art === path && img.style.visibility !== 'hidden' && img.complete && img.naturalWidth) return;
-        img.dataset.art = path; img.style.visibility = 'hidden'; img.style.objectViewBox = ''; delete img.dataset.box; if (img.getAttribute('src') !== path) img.src = path;
-        if (!trim) return;
+        // Switching between sprites: keep the current figure on screen until the next one has loaded and
+        // decoded, then swap in one step so there is never a frame with neither visible.
+        if (img.getAttribute('src') && img.style.visibility !== 'hidden' && img.complete && img.naturalWidth && img.getAttribute('src') !== path) {
+            img.dataset.art = path;
+            const probe = new Image(); probe.src = path;
+            probe.decode().catch(() => {}).then(() => {
+                if (img.dataset.art !== path) return;
+                beginArt(img, spriteFolder, path, trim, false);
+            });
+            return;
+        }
+        beginArt(img, spriteFolder, path, trim, true);
+    }
+    function beginArt(img, spriteFolder, path, trim, hide) {
+        img.dataset.art = path; if (hide) img.style.visibility = 'hidden'; img.style.objectViewBox = ''; delete img.dataset.box; if (img.getAttribute('src') !== path) img.src = path;
+        if (!trim) { if (!hide) img.style.visibility = ''; return; }
         const generation = trimmer.generation;
         // The figure appears from its own outline at once; the crop shared by all its expressions follows, and
         // swaps in quietly (no second arrival) if it differs. Boxes already known are used straight away.
