@@ -71,7 +71,7 @@ Every playable character with a Genius Invokation character card (108) fights wi
 | Prepared skill | Played by itself as the character's next action; switching out cancels it. |
 | Piercing | Hits enemies on standby, ignores shields and bonuses. |
 
-**Balance (1.67).** `tools/simulate-battles.mjs` plays whole fights with these kits, the Starter deck, rerolls and the Auto planner. Ordinary enemies have 70% of their table health (`NORMAL_ENEMY_HP` in battle-engine.js); bosses 55% of their table health and 90% of their damage (boss-kits.js). Four characters: one or two weak enemies ~3 rounds; two or three mixed ~5; a tough pair ~6; a boss ~8 (90th percentile 12), costing about 40% of the party's health, someone falling in about a third of fights, nearly always won with good play and about two thirds of the time by a player who never tunes dice. An enemy's own element deals a quarter less to it.
+**Balance (1.67).** `tools/simulate-battles.mjs` plays whole fights with these kits, the Starter deck, rerolls and the Auto planner. Ordinary enemies have 70% of their table health (`NORMAL_ENEMY_HP` in battle-engine.js), and common ones (40 table health or less: hilichurls, slimes, samachurls, Treasure Hoarders…) a further 65% of that (`COMMON_ENEMY_HP`) for short encounters; bosses 55% of their table health and 90% of their damage (boss-kits.js). Four characters: one or two weak enemies ~3 rounds; two or three mixed ~5; a tough pair ~6; a boss ~8 (90th percentile 12), costing about 40% of the party's health, someone falling in about a third of fights, nearly always won with good play and about two thirds of the time by a player who never tunes dice. An enemy's own element deals a quarter less to it.
 
 ## Genius Invokation TCG enemies
 
@@ -149,6 +149,10 @@ The 29 cards from Northern Smoked Chicken down were added in 1.53. Silly Teyvat 
 - **New Events:** Strategize (draw 2), Crystal Shrapnel, Aedon (a Combat Action that hits the active foe and ends your turn), Leave It to Me!, Changing Shifts, Quick Knit, Guardian's Oath (clears every summon), Heavy Strike, "Called In For Cleanup", The Bestest Travel Companion!, The Legend of Vennessa, Covenant of Rock, and the Elemental Resonances Enduring Rock, Fervent Flames, Shattering Ice, Soothing Water, High Voltage and Impetuous Winds.
 
 The new cards join the regions' card drops, and each location now keeps 7 common, 7 uncommon and 4 rare cards from its region's list. The Inventory has a tab for each new kind.
+
+**Combat deck.** Battles deal from a deck of at most 30 cards taken from the bag. In the Inventory, select a card and use **−** and **+** under *Combat deck* to take copies out of the deck or put them back; the header shows *Deck n/30*. While the deck has room, cards that join the bag (drops, restocks) are added to it automatically, and a card you removed by hand is not put back. Cards you play leave both the deck and the bag.
+
+**Paying for cards.** Automatic payment spends the dice nobody in the party can use first, then dice that do not match the active character's element, and the active character's own element last. Pick dice by hand to override it.
 
 Open **Inventory** from the Paimon menu to see every card in the bag, with its cost, quality and effect. Cards won since you last opened it are tagged *New*.
 

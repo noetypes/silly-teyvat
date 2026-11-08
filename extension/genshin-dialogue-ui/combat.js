@@ -81,10 +81,13 @@ export function mountCombat({host,getContext,onChange=()=>{},announce=()=>{},ada
     const dock=document.createElement('div');dock.id='gi-attack-dock';host.append(dock);
     function placeControls(){
         const panel=host.querySelector('#gi-choices'),heading=panel?.querySelector('.gi-choices-heading'),refresh=heading?.querySelector('.gi-choice-refresh');
-        if(panel&&refresh&&!panel.hidden&&!refresh.hidden&&panel.getClientRects().length){if(controls.parentElement!==heading||controls.nextElementSibling!==refresh)heading.insertBefore(controls,refresh);}
+        if(panel&&refresh&&!panel.hidden&&!refresh.hidden&&(panel.checkVisibility?panel.checkVisibility():panel.getClientRects().length)){if(controls.parentElement!==heading||controls.nextElementSibling!==refresh)heading.insertBefore(controls,refresh);}
         else if(controls.parentElement!==dock)dock.append(controls);
     }
-    const layout=new MutationObserver(placeControls);layout.observe(host,{subtree:true,childList:true,attributes:true,attributeFilter:['hidden']});layout.observe(document.body,{attributes:true,attributeFilter:['class']});placeControls();
+    // Sprites coming and going (and their hidden flags while they decode) change nothing about where Attack sits, and
+    // placeControls measures layout, so those mutations are skipped: with a crowded stage they came in dozens.
+    const inStage=record=>Boolean((record.target.nodeType===Node.ELEMENT_NODE?record.target:record.target.parentElement)?.closest('#gi-sprite-stage'));
+    const layout=new MutationObserver(records=>{if(records.every(inStage))return;placeControls();});layout.observe(host,{subtree:true,childList:true,attributes:true,attributeFilter:['hidden']});layout.observe(document.body,{attributes:true,attributeFilter:['class']});placeControls();
     const sword=controls.querySelector('button'),abort=new AbortController();
     // One dialog asks every combat question: which party members to fight, and whether to revive a fallen one.
     const dialog=document.createElement('dialog');dialog.id='gi-combat-ask';dialog.setAttribute('aria-labelledby','gi-combat-ask-title');host.append(dialog);

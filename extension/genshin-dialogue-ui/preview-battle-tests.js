@@ -3,12 +3,12 @@ import {ITEMS,rollLoot,applyDiceItem,STARTER_BAG} from './battle-items.js';
 import {defaultKit,describeMove,escapeHtml,hasBundledKit,mergeKit,playableKit,foeKit} from './combat-kits.js';
 import {mountBattle} from './battle-ui.js';
 import {mountMovesetEditor} from './moveset-editor.js';
-import {kitForCard,roundNarration,tcgArt,tcgCardsReady} from './battle-state.js';
+import {kitForCard,roundNarration,tcgArt,tcgCardsReady,partyDeck,setDeckCount,partyBag,DECK_MAX} from './battle-state.js';
 import {combatAllies} from './combat-state.js';
 import {iconsReady,skillIcon,reactionIcon,elementIcon,characterIcon,summonArt} from './battle-icons.js';
 import {weaponOf,strikeKind} from './battle-weapons.js';
 import {STARTER_SIZE,newJourneyBag,journeyBag,saveStarterDeck,starterDeckOf,randomDeck,mountStarterDeck} from './starter-decks.js';
-import {bagCount,restockBag} from './battle-items.js';
+import {bagCount,restockBag,addToBag} from './battle-items.js';
 
 // Turn-based battle rules, the battle screen and the Moveset editor.
 export async function runBattleTests(){
@@ -46,6 +46,7 @@ export async function runBattleTests(){
         check('a character without an element pays with any dice',costOf({element:'None'},{kind:'skill',cost:2}).any===2);
         check('the element first, then Omni',chooseDice([{face:'Omni'},{face:'Pyro'},{face:'Pyro'},{face:'Geo'}],costOf(klee,{kind:'skill',cost:3})).join()==='1,2,0');
         check('any-dice costs spend the dice nobody can use, Omni last',chooseDice([{face:'Omni'},{face:'Pyro'},{face:'Geo'},{face:'Hydro'}],{element:'Pyro',matching:1,any:2,total:3},new Set(['Pyro','Hydro'])).join()==='1,2,3');
+        check('cards pay with dice other than the active character\'s element first',chooseDice([{face:'Pyro'},{face:'Hydro'},{face:'Geo'}],{element:null,matching:0,any:1,total:1},new Set(['Pyro','Hydro','Geo']),'Pyro').join()==='1'&&chooseDice([{face:'Pyro'},{face:'Hydro'}],{element:null,matching:0,any:1,total:1},new Set(['Pyro','Hydro'])).join()==='0'&&chooseDice([{face:'Pyro'},{face:'Omni'}],{element:null,matching:0,any:1,total:1},new Set(['Pyro']),'Pyro').join()==='0');
         check('a move that cannot be paid for is refused',chooseDice([{face:'Hydro'}],costOf(klee,klee.kit.moves[1]))===null);
         check('the dice column sorts Omni, then the active element, then the party\'s',sortDice([{face:'Geo'},{face:'Hydro'},{face:'Pyro'},{face:'Omni'}],{...kx,active:{party:'k'}}).map(d=>d.face).join()==='Omni,Pyro,Hydro,Geo');
         // Reactions and combos
@@ -169,6 +170,14 @@ export async function runBattleTests(){
             check('a new journey is dealt its character\'s own starter deck',bag['sweet-madame']===4&&bag.starsigns===2&&bagCount(bag)===20&&store.starter.starsigns===2);
             bag['sweet-madame']=0;journeyBag(deckCtx,store);check('the bag is dealt only once per journey',store.bag['sweet-madame']===0);
             saveStarterDeck(deckCtx,'klee.png',{cards:starterDeckOf(deckCtx,'klee.png').cards,random:true});
+            {const ctx={characters:[{name:'Fischl',avatar:'fischl.png',data:{extensions:{silly_teyvat:{element:'Electro'}}}}],characterId:0,chatMetadata:{},extensionSettings:{}};
+            const deck=partyDeck(ctx),bag=partyBag(ctx);
+            check('the combat deck starts as the bag, within thirty cards',bagCount(deck)===bagCount(bag)&&bagCount(deck)<=DECK_MAX);
+            addToBag(bag,Array(25).fill('toss-up'));check('new cards fill the deck up to thirty and no further',bagCount(partyDeck(ctx))===DECK_MAX&&bagCount(bag)>DECK_MAX);
+            setDeckCount(ctx,'toss-up',0);const emptied=bagCount(partyDeck(ctx));check('a card can be taken out of the deck and stays in the bag',!partyDeck(ctx)['toss-up']&&bag['toss-up']>0&&emptied<DECK_MAX);
+            check('a removed card is not put back while the deck has room',!partyDeck(ctx)['toss-up']);
+            addToBag(bag,['nre']);check('a card that joins the bag later takes the free space',partyDeck(ctx).nre>=1);
+            check('copies cannot exceed the bag or the limit',setDeckCount(ctx,'toss-up',999)<=bag['toss-up']&&bagCount(partyDeck(ctx))<=DECK_MAX);}
             const rolled=newJourneyBag(deckCtx,()=>.3);check('Randomize deals twenty random cards',bagCount(rolled)===STARTER_SIZE&&Object.keys(rolled).every(id=>ITEMS[id])&&Object.values(rolled).every(n=>n<=4));
             check('random decks favour common cards',(()=>{let common=0;for(let i=0;i<40;i++)for(const [id,n] of Object.entries(randomDeck()))if(ITEMS[id].rarity===1)common+=n;return common>40*STARTER_SIZE*.5;})());
             check('a rest tops the bag back up to the journey\'s own starter deck',restockBag({starsigns:1},store.starter).starsigns===2&&restockBag({},store.starter)['sweet-madame']===4);

@@ -1,4 +1,5 @@
 import {trustChange,stripTrustTags,hideTrustTags} from './trust-tags.js';
+import {defaultSpriteTrust,requiredSpriteTrust,spriteTrustAllowed} from './sprite-trust.js';
 import {TRUST_BANDS,askThoughts,cleanThoughts,messageTrust,presentCharacters,savedThoughts,stripPromptTrustTags,syncTrustPrompt,thoughtsPrompt,trustBand,trustLevels,trustOf,trustPrompt,trustRoster} from './trust.js';
 import {GIFT_CHANGE,giftNarration,giftReplyPrompt,giftVerdict,giveGift} from './gifts.js';
 import {RELATIONSHIP_TRUST,UNRATED_TRUST,relationshipNames,resetStartingTrust,setStartingTrust,startingTrust,startingTrustList} from './relationship-trust.js';
@@ -70,6 +71,12 @@ export async function runTrustTests(){
         check('the prompt explains the tags and what low trust means',prompt.includes('[Trust +0.5]')&&prompt.includes('[Trust -1]')&&prompt.includes('never means they dislike')&&prompt.includes('even ones they would otherwise refuse'));
         check('present characters\' likes and dislikes are in the prompt',prompt.includes('Fish and Chips')&&prompt.includes('Butter Crab')&&prompt.includes('Likes')&&prompt.includes('Dislikes'));
         check('turning it off sends nothing',trustPrompt(context(ctx.chat,{trustSystem:false}))==='');
+        {const c=context([],{});
+        check('love and desire sprites need 3 hearts by default, their numbered variants 4',defaultSpriteTrust('/characters/Klee/love.png')===3&&defaultSpriteTrust('/characters/Klee/desire.webp')===3&&defaultSpriteTrust('/characters/Klee/love-1.png')===4&&defaultSpriteTrust('/characters/Klee/desire-1.webp')===4&&defaultSpriteTrust('/characters/Klee/joy.png')===0);
+        check('a sprite is offered only at or above its minimum Trust',!spriteTrustAllowed(c,'Klee','/characters/Klee/love-1.png',3.9)&&spriteTrustAllowed(c,'Klee','/characters/Klee/love-1.png',4)&&!spriteTrustAllowed(c,'Klee','/characters/Klee/love.png',2.5)&&spriteTrustAllowed(c,'Klee','/characters/Klee/love.png',3));
+        c.extensionSettings.genshin_dialogue_ui.spriteTrust={'Klee/love-1':2};
+        check('a saved minimum replaces the default',requiredSpriteTrust(c,'Klee','/characters/Klee/love-1.png')===2&&spriteTrustAllowed(c,'Klee','/characters/Klee/love-1.png',2));
+        check('turning Trust off lifts every sprite requirement',spriteTrustAllowed(context([],{trustSystem:false}),'Klee','/characters/Klee/love-1.png',0));}
         const injected={};ctx.setExtensionPrompt=(key,value)=>{injected[key]=value;};syncTrustPrompt(ctx);
         check('text completion gets it as an extension prompt',injected.silly_teyvat_trust===prompt);
         syncTrustPrompt(ctx,false);check('and it is cleared on the way out',injected.silly_teyvat_trust==='');

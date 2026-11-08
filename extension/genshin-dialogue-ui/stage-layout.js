@@ -48,16 +48,13 @@ export function layoutStage(items, { width: W, height: H, dialogueTop, topInset 
     const ceiling = Math.max(topInset, H * (1 - Math.max(...items.map(i => i.h))));
     const ratio = shortest / tallest;
     const maxHeight = Math.max(1, (D - ceiling) / (1 - .65 * ratio));
-    let factor = Math.min(H, (H - ceiling) / tallest, maxHeight / tallest);
+    const factor = Math.min(H, (H - ceiling) / tallest, maxHeight / tallest);
     const aspect = i => Number.isFinite(i.aspect) && i.aspect > 0 ? i.aspect : 2 / 3;
+    // Figures are sized by height alone: the width of the row never shrinks them. A crowded row
+    // overlaps instead, so the Sprite height setting means the same on every screen.
     const gutter = Math.max(6, W * .015), room = W - gutter * 2;
-    // An upright phone with three or more on stage gets smaller figures with less overlap, so the
-    // row is not a pile; elsewhere figures stand close together instead of spreading to the edges.
-    const compact = compactViewport(W, H), upright = H > W, crowded = upright && compact && n >= 3;
-    const overlap = crowded ? .46 : compact ? .68 : .62;
-    const widths = items.map((i, x) => natural[x] * factor * Math.min(aspect(i), .62));
-    const span = widths.reduce((a, b) => a + b, 0) - widths.slice(1).reduce((sum, v, x) => sum + overlap * Math.min(v, widths[x]), 0);
-    factor *= Math.min(1, room / span);
+    const compact = compactViewport(W, H), upright = H > W;
+    const overlap = compact ? .68 : .62;
     const heights = natural.map(h => h * factor), smallestPx = Math.min(...heights);
     // Prefer feet at the viewport bottom, but bring the entire row up if needed.
     // Position offsets remain explicit per-character overrides.

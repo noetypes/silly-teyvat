@@ -76,7 +76,8 @@
 #gi-battle .tb-art > .tb-dynamic { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 50%; display: block; border-radius: inherit; opacity: 0; transition: opacity .18s ease; pointer-events: none; }
 #gi-battle .tb-portrait .tb-art > .tb-dynamic { object-position: 50% 15%; }
 #gi-battle .tb-art > .tb-dynamic.tb-ready { opacity: 1; }
-#gi-battle .tb-art:has(> .tb-dynamic.tb-ready) > img { visibility: hidden; }
+/* The Dynamic Skin is itself an <img> when it is an animated WebP, so only the static art is hidden. */
+#gi-battle .tb-art:has(> .tb-dynamic.tb-ready) > img:not(.tb-dynamic) { visibility: hidden; }
 #gi-battle .tb-dynamic-on .tb-art { box-shadow: 0 0 0 2px #fff, 0 0 26px 8px var(--el); }
 
 /* 1.68 Playing cards by dragging: the card follows the pointer, and the character it would land on lights up. */

@@ -3305,6 +3305,16 @@ body.gi-enabled #chat > .mes.gi-combat-log { display: none !important; }
 }
 @media (prefers-reduced-motion: reduce) { #gi-inventory, #gi-inventory * { animation-duration: 1ms !important; transition-duration: 1ms !important; } }
 
+/* Combat deck (1.75): a mark on each tile and − / + controls in the details. */
+.gi-inv-deck-mark { position: absolute; left: 7px; bottom: 22px; z-index: 1; padding: 0 6px; border-radius: 3px; font-size: 12px; font-style: normal; color: #e9f3ff; background: #2f5f8fcc; box-shadow: 0 0 0 1px #8fc1ee99; }
+.gi-inv-d-deck { margin: 8px 0; padding: 8px 10px; border-radius: 6px; background: #0003; }
+.gi-inv-d-deck h4 { margin: 0 0 6px; font-size: 14px; font-weight: 400; opacity: .85; }
+.gi-inv-deck-row { display: flex; align-items: center; gap: 10px; }
+.gi-inv-deck-row button { width: 34px; height: 34px; border: 0; border-radius: 50%; font-size: 20px; line-height: 1; color: #4a4033; background: #ece5d8; cursor: pointer; }
+.gi-inv-deck-row button:disabled { opacity: .35; cursor: default; }
+.gi-inv-deck-n { flex: 1; text-align: center; font-size: 16px; }
+.gi-inv-deck-note { display: block; margin-top: 6px; font-size: 12px; opacity: .75; }
+
 /* ---------- Trust (1.53): five hearts per character, and a thought box in the style of Genshin's paper dialogs ---------- */
 .gi-hearts { display: inline-flex; gap: 2px; filter: drop-shadow(0 0 1px #8a6b3f); vertical-align: middle; }
 .gi-hearts i { display: block; width: var(--heart, 18px); aspect-ratio: 1; background: linear-gradient(90deg, #f28aa6 var(--fill), var(--heart-empty, #d9cdb8) var(--fill)); -webkit-mask: var(--gi-heart-mask) center / contain no-repeat; mask: var(--gi-heart-mask) center / contain no-repeat; }
@@ -4579,6 +4589,7 @@ body.gi-keyboard :is(#gi-background-stage,#gi-sprite-stage,#gi-cg-stage,#gi-lett
     .tb-turn-tools { top: calc(100% + 30px); }
     .tb-foe-acts, .tb-dice-left { height: 20px; min-width: 24px; font-size: 12px; }
     #gi-battle .tb-intro h3 { font-size: 22px; } .tb-coin { width: 84px; height: 84px; } .tb-coin b { font-size: 38px; }
+    #gi-battle .tb-result[data-outcome="victory"] { --vt: 44px; }
     #gi-battle .tb-result[data-outcome="victory"] h3 { font-size: 44px; }
 }
 /* Upright phones: panels sit over the bottom of the table. */
@@ -4929,8 +4940,10 @@ body.gi-reduced-motion #gi-attack-controls #gi-attack-toggle[aria-pressed="true"
 #gi-battle .tb-result[data-outcome="victory"] .tb-result-crest { position: absolute; left: 50%; top: 50%; z-index: 0; display: block; width: 150px; aspect-ratio: 1; translate: -50% -50%; opacity: .9; filter: drop-shadow(0 0 18px #ffb54acc); animation: tb-crest-in 900ms cubic-bezier(.2, .9, .3, 1.2) both, tb-crest-glow 2.6s 900ms ease-in-out infinite; }
 #gi-battle .tb-result-crest svg { display: block; width: 100%; height: 100%; }
 /* The light band behind the title. */
-#gi-battle .tb-result[data-outcome="victory"] .tb-result-head::before { content: ""; position: absolute; left: 50%; top: 50%; z-index: 1; width: min(620px, 92vw); height: 70px; translate: -50% -50%; pointer-events: none;
-    background: radial-gradient(ellipse 50% 50% at center, #ffcf6b66, #0000 75%), linear-gradient(90deg, #0000, #fff2c4 50%, #0000) center 12% / 100% 1.5px no-repeat, linear-gradient(90deg, #0000, #fff2c4 50%, #0000) center 88% / 100% 1.5px no-repeat;
+/* --vt is the title's font size. The two lines stand clear of the letters, above the capitals and below the descender of the y; the band sits a little above the head's centre because the letters do. */
+#gi-battle .tb-result[data-outcome="victory"] { --vt: 64px; }
+#gi-battle .tb-result[data-outcome="victory"] .tb-result-head::before { content: ""; position: absolute; left: 50%; top: 50%; z-index: 1; width: min(620px, 92vw); height: calc(var(--vt) * 1.4); translate: -50% calc(-50% - var(--vt) * .08); pointer-events: none;
+    background: radial-gradient(ellipse 50% 50% at center, #ffcf6b66, #0000 75%), linear-gradient(90deg, #0000, #fff2c4 50%, #0000) center top / 100% 1.5px no-repeat, linear-gradient(90deg, #0000, #fff2c4 50%, #0000) center bottom / 100% 1.5px no-repeat;
     animation: tb-band 900ms 250ms cubic-bezier(.2, .8, .3, 1) both; }
 /* Beams: a large square centred on the crest, so turning it keeps them on the crest. */
 #gi-battle .tb-result[data-outcome="victory"] .tb-result-rays { inset: auto; left: var(--cx, 50%); top: var(--cy, 40%); width: 260vmax; height: 260vmax; translate: -50% -50%; opacity: 0;
@@ -4961,7 +4974,8 @@ body.gi-reduced-motion #gi-attack-controls #gi-attack-toggle[aria-pressed="true"
 #gi-battle .tb-result[data-outcome="victory"] .tb-loot-card::after { content: ""; position: absolute; inset: 0; border-radius: 6px; pointer-events: none; background: linear-gradient(115deg, #0000 35%, #fffbe8cc 50%, #0000 65%) 150% 0 / 300% 100% no-repeat; animation: tb-shine 700ms calc(2100ms + var(--i, 0) * 180ms) ease-in-out both; }
 
 /* Cards found: point at one (or focus it) and it grows and says what it does. */
-#gi-battle .tb-loot { gap: 14px; }
+/* Card details open over the Victory crest, its band and its lines, never beneath them. */
+#gi-battle .tb-loot { position: relative; z-index: 6; gap: 14px; }
 #gi-battle .tb-loot-card { position: relative; outline: none; transition: scale 220ms var(--ty-ease, ease), translate 220ms var(--ty-ease, ease); }
 #gi-battle .tb-loot-card img { transition: box-shadow 220ms ease; }
 #gi-battle .tb-loot-card:is(:hover, :focus-visible) { z-index: 3; scale: 1.45; translate: 0 -16px; }
@@ -4995,8 +5009,8 @@ body.gi-reduced-motion #gi-attack-controls #gi-attack-toggle[aria-pressed="true"
     #gi-battle .tb-result { padding: 6px 16px; }
     #gi-battle .tb-result-card { gap: 6px; padding: 6px 20px 10px; }
     #gi-battle .tb-result[data-outcome="victory"] .tb-result-head { min-height: 64px; }
-    #gi-battle .tb-result[data-outcome="victory"] .tb-result-head::before { height: 50px; }
     #gi-battle .tb-result[data-outcome="victory"] .tb-result-crest { width: 70px; }
+    #gi-battle .tb-result[data-outcome="victory"] { --vt: 40px; }
     #gi-battle .tb-result[data-outcome="victory"] h3 { font-size: 40px; }
     #gi-battle .tb-result-stars i { scale: .55; }
     #gi-battle .tb-result-party { gap: 10px; }
@@ -5104,7 +5118,8 @@ body.gi-reduced-motion #gi-attack-controls #gi-attack-toggle[aria-pressed="true"
 #gi-battle .tb-art > .tb-dynamic { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 50%; display: block; border-radius: inherit; opacity: 0; transition: opacity .18s ease; pointer-events: none; }
 #gi-battle .tb-portrait .tb-art > .tb-dynamic { object-position: 50% 15%; }
 #gi-battle .tb-art > .tb-dynamic.tb-ready { opacity: 1; }
-#gi-battle .tb-art:has(> .tb-dynamic.tb-ready) > img { visibility: hidden; }
+/* The Dynamic Skin is itself an <img> when it is an animated WebP, so only the static art is hidden. */
+#gi-battle .tb-art:has(> .tb-dynamic.tb-ready) > img:not(.tb-dynamic) { visibility: hidden; }
 #gi-battle .tb-dynamic-on .tb-art { box-shadow: 0 0 0 2px #fff, 0 0 26px 8px var(--el); }
 
 /* 1.68 Playing cards by dragging: the card follows the pointer, and the character it would land on lights up. */

@@ -11,6 +11,9 @@ import { stageCharacter } from './persona-wardrobe.js';
 import { previousSpeech, expressionContext } from './narration.js';
 import { createSpriteTrimmer } from './sprite-trim.js';
 import { healSceneSources } from './sprite-files.js';
+import { spriteTrustAllowed } from './sprite-trust.js';
+import { trustEnabled } from './trust.js';
+import { sceneTrustLevels } from './scene-trust.js';
 import { sceneMembers, activeEnemies } from './combat-state.js';
 const STORE = 'silly_teyvat';
 // A narration inherits the scene before it, which may still show someone who has since left (for
@@ -103,7 +106,9 @@ export function createNativeSpriteAdapter({ capture = captureScene } = {}) {
         async resolve(ctx, message, emotion, base, { keepVariant = false } = {}) {
             const { avatar, folder } = folderFor(ctx, message);
             if (!folder) return { scene: base, emotion };
-            const sprites = await inventory(folder);
+            // A sprite with a minimum Trust (love, desire…) is only offered once the character trusts the player that much.
+            const level = trustEnabled(ctx) && avatar && avatar !== '__user__' ? sceneTrustLevels(ctx, message)(avatar) : Infinity;
+            const sprites = (await inventory(folder)).filter(x => spriteTrustAllowed(ctx, folder, x.path, level));
             const settings = ctx.extensionSettings.expressions || {};
             let matches = sprites.filter(x => x.label === emotion);
             if (!matches.length) matches = sprites.filter(x => x.label === settings.fallback_expression);
@@ -304,6 +309,7 @@ export function mountPageSprites({ host, getContext, adapter = createNativeSprit
         const depth=scene.length>=3&&scene.some(sprite=>sprite.presentation?.focus)&&compactViewport(stage.clientWidth || innerWidth,stage.clientHeight || innerHeight);
         const looks=scene.map(sprite=>livePresentation(sprite,depth));key+=`:look:${JSON.stringify(looks)}:${stage.clientWidth}x${stage.clientHeight}`;
         document.body.classList.toggle('gi-sprite-replay', active && (scene.length > 0 || Boolean(openingCharacter(getContext()))));
+        document.body.classList.toggle('gi-sprite-crowd', scene.length >= 4);
         if (displayed === key) return;
         displayed = key; lastScene = scene;
         const version=++drawVersion,previousImages=[...stage.children].filter(el=>el.tagName==='IMG'),nextImages=[],decoding=[],swaps=new Map();
@@ -363,8 +369,9 @@ export function mountPageSprites({ host, getContext, adapter = createNativeSprit
             const live=previousImages.filter(image=>image.dataset.leaving!=='true');
             const before=new Set(live.map(image=>enemyOf({avatar:image.dataset.avatar,folder:image.dataset.folder})).filter(Boolean));
             const fresh=new Set(nextImages.filter(image=>!image.isConnected&&!swaps.has(image)));
-            for(const image of nextImages)stage.append(image);
-            for(const image of [...stage.children])if(image.dataset.leaving==='true')stage.append(image);
+            // Moving a node that is already in place restarts its animations and styles, so only a changed order is applied.
+            const order=[...nextImages,...[...stage.children].filter(image=>image.dataset.leaving==='true'&&!nextImages.includes(image))];
+            if(order.length!==stage.children.length||order.some((image,i)=>stage.children[i]!==image))for(const image of order)stage.append(image);
             const motion=!stillMotion();
             for(const image of live)if(!nextImages.includes(image)){
                 // A new expression replaces the old node at once (see above) and eases from its
@@ -458,7 +465,7 @@ export function mountPageSprites({ host, getContext, adapter = createNativeSprit
             const key = chatKey(ctx);
             if (key !== lastChat) { this.reset(); lastChat = key; }
             active = on;
-            if (!on) { selection = ''; document.body.classList.remove('gi-sprite-replay'); stage.hidden = true; return; }
+            if (!on) { selection = ''; document.body.classList.remove('gi-sprite-replay', 'gi-sprite-crowd'); stage.hidden = true; return; }
             stage.hidden = false;
             // The dialogue box moved (the scene opened, the reply box appeared, the UI was hidden): re-fit.
             if (arranged.images.length && arranged.images.every(image => image.isConnected) && !keyboardUp() && Math.abs(dialogueTop(stage.clientHeight || innerHeight) - arranged.top) > 12) arrange(arranged.images, arranged.scene);
@@ -664,7 +671,7 @@ export function mountPageSprites({ host, getContext, adapter = createNativeSprit
             image.dataset.leaving = 'true';
             if (stillMotion()) image.remove(); else animate(image, 'gi-enemy-defeat', () => image.remove());
         },
-        reset() { epoch++;drawVersion++;initialPreparation=null;fallen.clear(); selection = displayed = ''; pending.clear(); speechSeeds.clear(); selectedPage = undefined; lastScene = []; lastDraw = null; stageAt = -1; adapter.reset?.(); stage.replaceChildren(); document.body.classList.remove('gi-sprite-replay'); },
+        reset() { epoch++;drawVersion++;initialPreparation=null;fallen.clear(); selection = displayed = ''; pending.clear(); speechSeeds.clear(); selectedPage = undefined; lastScene = []; lastDraw = null; stageAt = -1; adapter.reset?.(); stage.replaceChildren(); document.body.classList.remove('gi-sprite-replay', 'gi-sprite-crowd'); },
         dispose() { unmounted=true; this.reset(); trimmer?.reset?.(); removeEventListener('resize', onResize); globalThis.visualViewport?.removeEventListener('resize', onResize); cancelAnimationFrame(resizeFrame); stage.remove(); },
     };
 }

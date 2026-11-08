@@ -7,7 +7,7 @@
 // use a skill, switch characters, flee or end your round (Combat Actions). Every action plays out
 // at once: skill name, the card lunging, impacts, damage numbers, reactions and sounds.
 import {startRound,useSkill,switchTo,playCard,tuneDie,declareEnd,flee as fleeAction,enemyTurn,endPhase,finishRound,moveCheck,cardCheck,cardCost,tuneCheck,switchCost,costOf,anyCost,chooseDice,diceFit,forecast,bestAction,takeAction,movesOf,preparedDue,usePrepared,chooseCard,
-    drawCards,deckFrom,sortDice,activeOf,isActive,isStunned,alive,unitById,moveElement,moveNeedsTarget,intentPreview,fleeChance,partyElements,auraList,innateAura,burstReady,REACTIONS,RESONANCE,ELEMENTS,FIELDS,HAND_START} from './battle-engine.js';
+    drawCards,deckFrom,sortDice,activeOf,isActive,isStunned,alive,unitById,moveElement,moveNeedsTarget,intentPreview,fleeChance,partyElements,activeElement,auraList,innateAura,burstReady,REACTIONS,RESONANCE,ELEMENTS,FIELDS,HAND_START} from './battle-engine.js';
 import {describeMove,escapeHtml,KIND_LABEL} from './combat-kits.js';
 // Cards in a battle include the ones skills create (CARD_DEFS); the board reads them all as ITEMS.
 import {CARD_DEFS as ITEMS,itemArt,kindLabel} from './battle-items.js';
@@ -423,7 +423,7 @@ export function mountBattle({host,sound=createBattleSound(),onBurst=()=>{},onSto
         const dice=picked&&picked.length?picked:undefined;
         if(pick.type==='skill')return moveCheck(round,pick.move,dice);
         if(pick.type==='card')return cardCheck(round,pick.index,pick.target,dice);
-        if(pick.type==='switch'){const cost=switchCost(round);if(!round.dice||!cost.total)return {ok:true,dice:[]};const d=dice?diceFit(round.dice,dice,cost)?dice:null:chooseDice(round.dice,cost,partyElements(state));return d?{ok:true,dice:d}:{ok:false,reason:'Switching costs 1 die.'};}
+        if(pick.type==='switch'){const cost=switchCost(round);if(!round.dice||!cost.total)return {ok:true,dice:[]};const d=dice?diceFit(round.dice,dice,cost)?dice:null:chooseDice(round.dice,cost,partyElements(state),activeElement(state));return d?{ok:true,dice:d}:{ok:false,reason:'Switching costs 1 die.'};}
         return {ok:false};
     }
     function pickAction(){

@@ -99,7 +99,7 @@ export async function runStagingTests(){
         check('on a phone on its side the row stands close together instead of spreading to the edges',Math.max(...gaps(landscape))<landscape[0].width*.45&&landscape[0].left>40&&Math.abs((landscape[0].left+landscape[2].left+landscape[2].width)/2-426)<2);
         check('on a desktop neighbours stand close, with a wider gap before the enemy',Math.max(...gaps(desk))<desk[0].width*.7&&gaps(desk)[1]>gaps(desk)[0]);
         const upright=layoutStage([1,1,1].map(()=>({h:.88,aspect:.53,scale:1,lift:0})),{width:393,height:660,dialogueTop:400}),crowd=layoutStage([1,1,1,1].map(()=>({h:.88,aspect:.53,scale:1,lift:0})),{width:393,height:660,dialogueTop:400}),pair=layoutStage([1,1].map(()=>({h:.88,aspect:.53,scale:1,lift:0})),{width:393,height:660,dialogueTop:400});
-        check('three or more on an upright phone are smaller and overlap less than a pair',upright[0].width<pair[0].width*.8&&crowd[0].width<upright[0].width&&upright.every((b,i)=>i===0||b.left<upright[i-1].left+upright[i-1].width*.75));}}
+        check('figures are sized by height alone: a crowd is as tall as a pair, on screen, and overlaps instead of shrinking',Math.abs(upright[0].height-pair[0].height)<.01&&Math.abs(crowd[0].height-pair[0].height)<.01&&Math.abs(crowd[0].width-pair[0].width)<.01&&crowd.every(b=>b.left>=-1&&b.left+b.width<=393+1));}}
         prefs.spriteDim=false;prefs.spriteGlobalScale=100;prefs.characterSprites={};prefs.spriteScales={};
         check('classification defaults to per page',expressionMode(ctx,ctx.chat[0])==='page');
         prefs.characterSprites['Klee.png']={expressionMode:'message'};check('a character can override classification to whole messages',expressionMode(ctx,ctx.chat[0])==='message');

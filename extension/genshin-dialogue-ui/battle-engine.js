@@ -34,7 +34,10 @@ export const DIFFICULTY={easy:{hp:.8,damage:.7},normal:{hp:1,damage:1},hard:{hp:
 // 1.67 balance (tools/simulate-battles.mjs): ordinary enemies have 70% of their table health, so a fight with
 // them takes a few messages; bosses keep theirs (their tables in boss-kits.js set it).
 export const NORMAL_ENEMY_HP=.7;
-export function encounterHp(base,{boss=false,members=1,difficulty='normal'}={}){return Math.max(1,Math.round(base*(boss?1:NORMAL_ENEMY_HP)*(DIFFICULTY[difficulty] || DIFFICULTY.normal).hp*partyScale(members).hp));}
+// Common enemies (hilichurls, slimes, samachurls, Treasure Hoarders… with 40 or less table health) have a further
+// share of that, so their fights are short; elites and bosses keep theirs.
+export const COMMON_ENEMY_HP=.65,COMMON_ENEMY_BASE=40;
+export function encounterHp(base,{boss=false,members=1,difficulty='normal',common=!boss&&base<=COMMON_ENEMY_BASE}={}){return Math.max(1,Math.round(base*(boss?1:NORMAL_ENEMY_HP)*(common?COMMON_ENEMY_HP:1)*(DIFFICULTY[difficulty] || DIFFICULTY.normal).hp*partyScale(members).hp));}
 export const partyScale=members=>{const n=Math.max(1,Math.min(6,members || 1));return {hp:.6+.05*n,damage:.7+.05*n};};
 // Genius Invokation's table: 8 dice a round, 5 cards to start, 2 drawn each End Phase, 10 at most in hand.
 export const DICE_PER_ROUND=8,HAND_START=5,HAND_DRAW=2,HAND_MAX=10,SWITCH_COST=1;
@@ -109,6 +112,7 @@ export const resourceOf=u=>u?.kit?.resource || null;
 
 // ---- Dice -------------------------------------------------------------------------
 export const diceCount=(resonance=[])=>DICE_PER_ROUND+(resonance.includes('Electro')?1:0);
+export const activeElement=state=>{const u=activeOf(state,'party');return u&&ELEMENTS.includes(u.element)?u.element:null;};
 export function partyElements(state){return new Set(side(state,'party').filter(alive).map(u=>u.element).filter(e=>ELEMENTS.includes(e)));}
 const face=random=>DICE_FACES[Math.min(7,Math.floor(clampRandom(random)*8))];
 export function rollFuel(state,{random=Math.random,count}={}){
@@ -149,12 +153,16 @@ export function costOf(u,move){
 export const anyCost=n=>({element:null,matching:0,any:Math.max(0,Math.round(Number(n)||0)),total:Math.max(0,Math.round(Number(n)||0))});
 // Picks dice for a cost the way the game does: the exact element first, then Omni; any-dice costs use the
 // dice your party can least use first and Omni last. Returns pool indices, or null when it cannot be paid.
-export function chooseDice(dice,cost,partyEls=new Set()){
+// Dice that match the active character's element are the ones their next Skill needs, so they are spent last
+// (activeEl): after the dice nobody can use, any other element comes before them.
+export function chooseDice(dice,cost,partyEls=new Set(),activeEl=null){
     const free=dice.map((d,i)=>({i,face:d.face})),used=new Set(),out=[];
     const take=(n,test)=>{for(const d of free){if(n<=0)break;if(!used.has(d.i)&&test(d)){used.add(d.i);out.push(d.i);n--;}}return n;};
     let need=cost.matching;
     if(need>0){need=take(need,d=>d.face===cost.element);need=take(need,d=>d.face==='Omni');if(need>0)return null;}
     let any=cost.any;
+    any=take(any,d=>d.face!=='Omni'&&!partyEls.has(d.face)&&d.face!==activeEl);
+    if(activeEl)any=take(any,d=>d.face!=='Omni'&&d.face!==activeEl&&d.face!==cost.element);
     any=take(any,d=>d.face!=='Omni'&&!partyEls.has(d.face));
     any=take(any,d=>d.face!=='Omni'&&d.face!==cost.element);
     any=take(any,d=>d.face!=='Omni');
@@ -920,7 +928,7 @@ export function moveCheck(round,moveIndex,picked){
     const crucible=side(state,'party').some(x=>alive(x)&&statusOf(x,'crucible'));
     if(move.spend?.nightsoul&&!crucible&&nightsoulOf(u)<move.spend.nightsoul)return {ok:false,reason:`${u.name} needs ${move.spend.nightsoul} Nightsoul point${move.spend.nightsoul>1?'s':''}.`};
     if(!round.dice)return {ok:true,dice:[],cost:costOf(u,move)};
-    const cost=costOf(u,move),dice=picked?diceFit(round.dice,picked,cost)?picked:null:chooseDice(round.dice,cost,partyElements(state));
+    const cost=costOf(u,move),dice=picked?diceFit(round.dice,picked,cost)?picked:null:chooseDice(round.dice,cost,partyElements(state),activeElement(state));
     return dice?{ok:true,dice,cost}:{ok:false,reason:'Not enough dice.',cost};
 }
 const spend=(round,indices)=>{if(!round.dice)return;const gone=new Set(indices);round.dice=round.dice.filter((_,i)=>!gone.has(i));};
@@ -969,7 +977,7 @@ export function switchTo(round,id,{dice}={}){
     if(!forced&&isActive(state,u))return fail(`${u.name} is already active.`);
     const cost=forced?anyCost(0):switchCost(round);
     let paid=[];
-    if(round.dice&&cost.total){paid=dice?diceFit(round.dice,dice,cost)?dice:null:chooseDice(round.dice,cost,partyElements(state));if(!paid)return fail('Switching costs 1 die.');}
+    if(round.dice&&cost.total){paid=dice?diceFit(round.dice,dice,cost)?dice:null:chooseDice(round.dice,cost,partyElements(state),activeElement(state));if(!paid)return fail('Switching costs 1 die.');}
     const start=round.timeline.length,from=state.active.party,c=core(round);
     spend(round,paid);state.active.party=id;u.plungeRound=state.round;
     const team=state.team?.party || {};
@@ -1021,7 +1029,7 @@ export function cardCheck(round,handIndex,target,picked){
     if(item.needs==='cost3'&&!round.hand.some((h,i)=>i!==handIndex&&Math.max(0,(round.items[h]?.cost || 0)-(state.team?.party?.cheaper?.[h] || 0))===3))return {ok:false,reason:'You need a card that costs 3 in your hand.'};
     const cost=anyCost(cardCost(round,item,id).cost);
     if(!round.dice||!cost.total)return {ok:true,dice:[],cost,item,id};
-    const dice=picked?diceFit(round.dice,picked,cost)?picked:null:chooseDice(round.dice,cost,partyElements(state));
+    const dice=picked?diceFit(round.dice,picked,cost)?picked:null:chooseDice(round.dice,cost,partyElements(state),activeElement(state));
     return dice?{ok:true,dice,cost,item,id}:{ok:false,reason:'Not enough dice.',cost,item,id};
 }
 // Fast Action: play a card from hand. It works at once; your turn goes on.

@@ -34,3 +34,14 @@ before accepting an asynchronous classification result.
 Turning Trust off disables the Trust requirement. Recorded scenes, Gallery and
 manual Preview CG remain available. Changing a requirement preserves recorded
 choices; **Recheck visible message** explicitly evaluates that reply again.
+
+## Minimum Trust for expression sprites
+
+In **Character Customization → Expressions**, select a sprite and set **Minimum Trust to
+be classified** (0–5 hearts, saved per sprite as `spriteTrust`). The classifier only offers a
+sprite once that character's Trust toward the player reaches the minimum; if no sprite for
+the chosen emotion qualifies, the usual fallback expression is used. Defaults: plain `love`
+and `desire` need 3, numbered variants such as `love-1` and `desire-1` need 4, and every other
+sprite needs none. Clearing the field, or typing the default, returns the sprite to its default.
+As with scenes, older replies are checked against the Trust that existed at that reply, and
+turning Trust off disables every sprite requirement (`sprite-trust.js`).

@@ -1,3 +1,4 @@
+import {requiredSpriteTrust,defaultSpriteTrust} from './sprite-trust.js';
 import {isNarrator} from './narrator.js';
 import {activeGroup,inPartyChat} from './party.js';
 import {mountCharacterProperties,characterProperties,hasGenshinTag,ELEMENTS} from './character-properties.js';
@@ -148,7 +149,7 @@ export function mountWardrobe({host, getContext, onChange = async () => {}, onMe
         <details><summary>Link an existing sprite folder</summary><label>Set name<input id="gi-outfit-name" placeholder="Summer outfit" maxlength="80"></label><label>Sprite folder<input id="gi-outfit-folder" placeholder="Character/Summer" maxlength="257"></label><div class="gi-wardrobe-row"><button type="button" data-w="add-set">Add set</button></div></details>
         <h3>Expressions</h3><div class="gi-expression-grid" aria-label="Sprites in this set"></div>
         <div class="gi-sprite-detail" hidden><span></span><button type="button" data-w="remove">Remove sprite</button></div>
-        <div class="gi-selected-sprite-tools" hidden><label>Selected sprite scale (%)<input id="gi-sprite-scale" type="number" min="10" max="300" step="1" value="100"></label><label for="gi-rename-expression">Rename this expression in this set</label><div class="gi-wardrobe-row"><input id="gi-rename-expression" maxlength="60" placeholder="e.g. smug"><button type="button" data-w="rename-expression">Rename</button></div>
+        <div class="gi-selected-sprite-tools" hidden><label>Selected sprite scale (%)<input id="gi-sprite-scale" type="number" min="10" max="300" step="1" value="100"></label><label title="The classifier only picks this sprite once the character trusts you this much (0 to 5 hearts). Love and desire need 3, their numbered variants 4. Ignored while Trust is off.">Minimum Trust to be classified<input id="gi-sprite-trust" type="number" min="0" max="5" step="0.5" value="0"></label><label for="gi-rename-expression">Rename this expression in this set</label><div class="gi-wardrobe-row"><input id="gi-rename-expression" maxlength="60" placeholder="e.g. smug"><button type="button" data-w="rename-expression">Rename</button></div>
         <div class="gi-sprite-audio-tools"><h3>Sprite audio</h3><div class="gi-audio-list" aria-label="Audio assigned to selected sprite"></div><label>Audio files<input id="gi-audio-files" type="file" accept="audio/*,.m4a,.flac" multiple></label><button type="button" data-w="upload-audio">Add audio to selected sprite</button></div></div>
         <div class="gi-remove-confirm" hidden><p></p><button type="button" data-w="confirm-remove">Remove</button><button type="button" data-w="cancel-remove">Cancel</button></div>
         <label for="gi-upload-expression">Upload expression</label><select id="gi-upload-expression"></select>
@@ -316,8 +317,8 @@ export function mountWardrobe({host, getContext, onChange = async () => {}, onMe
         $('.gi-sprite-detail').hidden = false; $('.gi-sprite-detail span').textContent = spriteIdentity(sprite.path).filename;
         $('button[data-w="use-persona-sprite"]').hidden=!character.isPersona || Boolean(sprite.blank);
         $('.gi-remove-confirm').hidden = true;
-        $('.gi-selected-sprite-tools').hidden = false; $('#gi-rename-expression').value = sprite.label;const prefs=mediaSettings(getContext());$('#gi-sprite-scale').value=prefs.spriteScales?.[spriteAudioKey(folder(),sprite.path)] ?? 100;
-        $('#gi-sprite-scale').closest('label').hidden=Boolean(sprite.blank);$('.gi-sprite-audio-tools').hidden=Boolean(sprite.blank);
+        $('.gi-selected-sprite-tools').hidden = false; $('#gi-rename-expression').value = sprite.label;const prefs=mediaSettings(getContext());$('#gi-sprite-scale').value=prefs.spriteScales?.[spriteAudioKey(folder(),sprite.path)] ?? 100;$('#gi-sprite-trust').value=requiredSpriteTrust(getContext(),folder(),sprite.path);
+        $('#gi-sprite-scale').closest('label').hidden=Boolean(sprite.blank);$('#gi-sprite-trust').closest('label').hidden=Boolean(sprite.blank);$('.gi-sprite-audio-tools').hidden=Boolean(sprite.blank);
         if(!sprite.blank)renderAudio();
         $('button[data-w="upload"]').textContent=sprite.blank?`Add image to ${sprite.name}`:'Add sprites';
         if(sprite.blank){$('#gi-use-file-labels').checked=false;$('#gi-upload-expression').value=sprite.label;status(`Empty ${sprite.name}. Rename it or choose an image to fill this slot.`);}
@@ -667,7 +668,7 @@ export function mountWardrobe({host, getContext, onChange = async () => {}, onMe
                     return;
                 }
                 const copies=await adapter.rename(folder(),sprites,old,label),prefs=mediaSettings(getContext());
-                for(const copy of copies){prefs.archivedSprites[localMediaPath(copy.sprite.path)]=copy.archive.path;const files=prefs.spriteAudioFiles[spriteAudioKey(folder(),copy.sprite.path)];if(files)prefs.spriteAudioFiles[spriteAudioKey(folder(),copy.newPath)]=structuredClone(files);if(prefs.spriteScales?.[spriteAudioKey(folder(),copy.sprite.path)]!=null)prefs.spriteScales[spriteAudioKey(folder(),copy.newPath)]=prefs.spriteScales[spriteAudioKey(folder(),copy.sprite.path)];}
+                for(const copy of copies){prefs.archivedSprites[localMediaPath(copy.sprite.path)]=copy.archive.path;const files=prefs.spriteAudioFiles[spriteAudioKey(folder(),copy.sprite.path)];if(files)prefs.spriteAudioFiles[spriteAudioKey(folder(),copy.newPath)]=structuredClone(files);if(prefs.spriteScales?.[spriteAudioKey(folder(),copy.sprite.path)]!=null)prefs.spriteScales[spriteAudioKey(folder(),copy.newPath)]=prefs.spriteScales[spriteAudioKey(folder(),copy.sprite.path)];if(prefs.spriteTrust?.[spriteAudioKey(folder(),copy.sprite.path)]!=null)prefs.spriteTrust[spriteAudioKey(folder(),copy.newPath)]=prefs.spriteTrust[spriteAudioKey(folder(),copy.sprite.path)];}
                 if(!expressionLabels.includes(label))registerExpression(getContext(),label);
                 const native=getContext().extensionSettings.expressions;if(native?.fallback_expression===old)native.fallback_expression=label;
                 getContext().saveSettingsDebounced();await changed(folder(),{renamedFrom:old,renamedTo:label});await load();status(`Renamed ${old} to ${label} in ${folder()}. Character Expressions has the new label.`);
@@ -762,6 +763,14 @@ export function mountWardrobe({host, getContext, onChange = async () => {}, onMe
             case 'gi-character-x':cp.positionX=bounded(event.target.value,0,100,50);event.target.value=cp.positionX;break;
             case 'gi-character-y':cp.offsetY=bounded(event.target.value,-40,50,0);event.target.value=cp.offsetY;break;
             case 'gi-sprite-scale':if(!selected || selected.blank)return;const prefs=mediaSettings(getContext());prefs.spriteScales ??= {};event.target.value=prefs.spriteScales[spriteAudioKey(folder(),selected.path)]=bounded(event.target.value,10,300,100);break;
+            case 'gi-sprite-trust':{
+                if(!selected || selected.blank)return;
+                const prefs=mediaSettings(getContext()),key=spriteAudioKey(folder(),selected.path);prefs.spriteTrust ??= {};
+                // An empty field, or the default value, goes back to following the default.
+                const value=event.target.value===''?null:bounded(event.target.value,0,5,0);
+                if(value===null||value===defaultSpriteTrust(selected.path))delete prefs.spriteTrust[key];else prefs.spriteTrust[key]=Math.round(value*10)/10;
+                event.target.value=requiredSpriteTrust(getContext(),folder(),selected.path);break;
+            }
             default:return;
         }
         getContext().saveSettingsDebounced();void onChange(character,classification?{classification:true}:{presentation:true}).then(()=>status(classification?'Sprite classification mode saved.':'Scale and placement saved for this scene and future scenes.')).catch(e=>status(e.message));

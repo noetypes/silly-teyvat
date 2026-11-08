@@ -313,6 +313,7 @@
     .tb-turn-tools { top: calc(100% + 30px); }
     .tb-foe-acts, .tb-dice-left { height: 20px; min-width: 24px; font-size: 12px; }
     #gi-battle .tb-intro h3 { font-size: 22px; } .tb-coin { width: 84px; height: 84px; } .tb-coin b { font-size: 38px; }
+    #gi-battle .tb-result[data-outcome="victory"] { --vt: 44px; }
     #gi-battle .tb-result[data-outcome="victory"] h3 { font-size: 44px; }
 }
 /* Upright phones: panels sit over the bottom of the table. */

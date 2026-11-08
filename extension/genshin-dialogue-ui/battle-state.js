@@ -19,6 +19,33 @@ export const tcgCardsReady=fetch(new URL('./assets/tcg/characters.json',import.m
 export const tcgArt=name=>name&&tcgCards.has(name)?new URL(`./assets/tcg/characters/${encodeURIComponent(String(name).replace(/:/g,''))}.webp`,import.meta.url).href:'';
 // The party's shared item bag, saved per chat. A new journey starts with its character's starter deck.
 export const partyBag=ctx=>journeyBag(ctx,combatState(ctx));
+// The combat deck: the cards of the bag that battles deal from, at most DECK_MAX. It is saved beside the bag
+// (combat state `deck`) with a snapshot of the bag it was last matched to (`deckBag`), so a card that arrives in
+// the bag (a victory drop, a restock) joins the deck while there is room, and one that leaves the bag leaves the deck.
+// A card removed from the deck by hand stays in the bag and is not re-added.
+export const DECK_MAX=30;
+const deckSize=deck=>Object.values(deck).reduce((n,c)=>n+c,0);
+export function partyDeck(ctx){
+    const store=combatState(ctx),bag=partyBag(ctx),deck=store.deck ??= {},was=store.deckBag,fresh=!was;
+    for(const id of Object.keys(deck)){const have=ITEMS[id]?bag[id] || 0:0;if(deck[id]>have)deck[id]=have;if(!(deck[id]>0))delete deck[id];}
+    let total=deckSize(deck);
+    for(const id of Object.keys(bag)){
+        if(!ITEMS[id])continue;
+        const gain=fresh?bag[id]:Math.max(0,bag[id]-(was[id] || 0)),add=Math.min(gain,DECK_MAX-total,bag[id]-(deck[id] || 0));
+        if(add>0){deck[id]=(deck[id] || 0)+add;total+=add;}
+    }
+    store.deckBag={...bag};
+    return deck;
+}
+// Sets how many copies of a card are in the deck, within what the bag holds and the deck's size limit.
+export function setDeckCount(ctx,id,count){
+    const bag=partyBag(ctx),deck=partyDeck(ctx);
+    if(!ITEMS[id])return 0;
+    const others=deckSize(deck)-(deck[id] || 0),next=Math.max(0,Math.min(Math.floor(Number(count)) || 0,bag[id] || 0,DECK_MAX-others));
+    if(next)deck[id]=next;else delete deck[id];
+    ctx.saveMetadataDebounced?.();
+    return next;
+}
 
 // Where a fighter's moveset edits are saved: the card avatar, or the persona key for your own persona.
 export function kitKey(ctx,ally){
@@ -78,7 +105,7 @@ export function battleSnapshot(ctx,{portrait=()=>'',duel=null}={}){
     }
     // Elemental enemies enter with their own element applied (see innateAura).
     for(const u of units)if(u.hp>0&&innateAura(u)&&!auraList(u.aura).length)u.aura={element:innateAura(u),elements:[innateAura(u)]};
-    const state={key,duel:Boolean(duel),round:saved.round || 1,units,summons:structuredClone(saved.summons || []),fields:structuredClone(saved.fields || []),supports:structuredClone(saved.supports || []),supportSeq:saved.supportSeq || 0,difficulty:combatDifficulty(ctx),bag:{...partyBag(ctx)}};
+    const state={key,duel:Boolean(duel),round:saved.round || 1,units,summons:structuredClone(saved.summons || []),fields:structuredClone(saved.fields || []),supports:structuredClone(saved.supports || []),supportSeq:saved.supportSeq || 0,difficulty:combatDifficulty(ctx),bag:{...partyDeck(ctx)}};
     // Genius Invokation's table: each side's active character, the cards in hand and who acts first.
     // A new fight (no saved active character) begins with the coin toss, the starting hand and a choice of character.
     const pick=(sideName,id)=>units.some(u=>u.side===sideName&&u.id===id&&u.hp>0)?id:null;
@@ -132,9 +159,14 @@ export function commitRound(ctx,before,result,id,{items=[],loot=[]}={}){
     else{saved.active={...(result.active || after.active || {})};saved.hand=[...(result.hand || [])];saved.first=result.first || 'party';}
     // Only the whole party falling loses a fight now. Anyone still down when it is won or escaped comes to with 1 HP.
     if(result.victory||result.fled)for(const u of after.units)if(u.side==='party'&&!u.duel&&u.hp<=0&&u.isUser)party[u.id].hp=1;
-    const bag=partyBag(ctx);
-    for(const id of items){if(bag[id]>0)bag[id]--;if(bag[id]===0)delete bag[id];}
-    addToBag(bag,loot);
+    const bag=partyBag(ctx),deck=partyDeck(ctx),seen=combatState(ctx).deckBag;
+    // A card played leaves the deck, the bag and the snapshot together; loot is then matched into the deck.
+    for(const id of items){
+        if(bag[id]>0)bag[id]--;if(bag[id]===0)delete bag[id];
+        if(deck[id]>0)deck[id]--;if(deck[id]===0)delete deck[id];
+        if(seen[id]>0)seen[id]--;if(seen[id]===0)delete seen[id];
+    }
+    addToBag(bag,loot);partyDeck(ctx);
     const fled=result.fled?after.units.filter(u=>u.side==='enemy'&&!u.duel&&u.hp>0).map(u=>u.id):[];
     const event={id,kind:result.fled?'flee':'round',key:before.key,round:before.round,defeated,downed,fled,victory:result.victory,stats:result.stats,items,loot,...(before.duel?{duel:true}:{})};
     store.events.push(event);

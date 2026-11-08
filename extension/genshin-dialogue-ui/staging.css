@@ -7,6 +7,8 @@
 body.gi-sprite-idle #gi-sprite-stage img[data-layout="stage"]:not([data-leaving="true"]) { animation: gi-sprite-breathe 4.8s ease-in-out infinite; }
 body.gi-sprite-idle #gi-sprite-stage img[data-layout="stage"]:nth-child(2n) { animation-duration: 5.4s; animation-delay: -1.7s; }
 body.gi-sprite-idle #gi-sprite-stage img[data-layout="stage"]:nth-child(3n) { animation-duration: 6.1s; animation-delay: -3.1s; }
+/* Four or more on stage: only the speaker breathes. Eight looping animations over blurred shadows kept the compositor busy all the time. */
+body.gi-sprite-idle.gi-sprite-crowd #gi-sprite-stage img[data-layout="stage"]:not([data-focus="true"]) { animation: none; }
 @keyframes gi-sprite-breathe { 0%,100% { scale: 1 .989; } 50% { scale: 1.004 1; } }
 #gi-sprite-stage img.gi-sprite-enter { animation: gi-sprite-enter .6s var(--ty-ease,ease) both !important; }
 #gi-sprite-stage img.gi-sprite-exit { animation: gi-sprite-exit .45s ease-in forwards !important; pointer-events: none; }

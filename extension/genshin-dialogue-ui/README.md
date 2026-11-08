@@ -1,3 +1,12 @@
+# Silly Teyvat 1.74.7: Combat deck, sprite Trust and stage fixes
+
+- **Combat deck.** The Inventory has − / + under *Combat deck* on every card. Battles deal from a deck of at most 30 cards; new cards join it automatically while it has room, and cards you remove stay in the bag.
+- **Sprite Trust minimums.** Character Customization → Expressions sets a minimum Trust per sprite. `love` and `desire` default to 3 hearts, numbered variants such as `love-1` to 4. Turning Trust off disables them.
+- **Sprites by height.** The stage sizes sprites by height only; a crowded row overlaps instead of shrinking.
+- **Hostile enemies.** Enemy prompts now make enemies openly hostile to {{user}} and every playable character.
+- **Dice and HP.** Cards pay with dice that do not match the active character's element first. Common enemies have 65% of their previous HP.
+- **Fixes.** Animated Dynamic Skins (Sayu's among them) no longer hide themselves in battle. On the Victory screen, card details draw over the crest and the two lines clear the letters. Fewer layout measurements and idle animations on a crowded stage.
+
 # Silly Teyvat 1.74.6: Longer flights to distant waypoints
 
 - Selecting a waypoint in another region, or at least a screen-length away at the destination zoom, uses the same 1.8-second flight as the region selector. Nearby pans remain 0.8 seconds, shorter pan/zoom flights remain 1.1 seconds, and exponential easing is preserved.

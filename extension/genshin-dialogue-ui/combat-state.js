@@ -102,6 +102,6 @@ const partyLine=ctx=>partyStatus(ctx).map(m=>`${m.name}: ${m.hp}/${m.maxHp} HP${
 export function combatPrompt(ctx){
     const disabled=activeGroup(ctx)?.disabled_members || [],enemies=activeEnemies(ctx).filter(e=>!disabled.includes(e.avatar));if(!enemies.length)return '';
     const phrase=combatTrigger(ctx);
-    return renderPrompt(ctx,'combat',{trigger_exception:phrase?' except through the combat trigger phrase below':'',enemy_poses:promptText(ctx,'combat_poses'),trigger:combatTriggerPrompt(phrase,ctx),enemies:enemies.map(e=>`${ctx.characters.find(c=>c.avatar===e.avatar)?.name}: ${e.hp}/${e.maxHp} HP. Hostile encounter, still able to communicate.`).join('\n'),party:partyLine(ctx)});
+    return renderPrompt(ctx,'combat',{trigger_exception:phrase?' except through the combat trigger phrase below':'',enemy_poses:promptText(ctx,'combat_poses'),trigger:combatTriggerPrompt(phrase,ctx),enemies:enemies.map(e=>`${ctx.characters.find(c=>c.avatar===e.avatar)?.name}: ${e.hp}/${e.maxHp} HP. Openly hostile to the party, aggressive and threatening, though still able to communicate.`).join('\n'),party:partyLine(ctx)});
 }
 export function syncCombatPrompt(ctx,on=true){const text=on?combatPrompt(ctx):'';const injected=syncPromptOrder(ctx,{silly_teyvat_combat:text})?'':text;if(ctx.extensionPrompts?.silly_teyvat_combat?.value!==injected)ctx.setExtensionPrompt?.('silly_teyvat_combat',injected,1,0,false,0);return text;}

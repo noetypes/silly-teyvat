@@ -27,7 +27,7 @@ export function spriteLocation(src){
 // recorded under both extensions) their lists are joined without repeating an entry. Returns true when it changed anything.
 export function normalizeSpriteKeys(prefs){
     let changed=false;
-    for(const field of ['spriteAudioFiles','spriteScales']){
+    for(const field of ['spriteAudioFiles','spriteScales','spriteTrust']){
         const table=prefs?.[field];
         if(!table||typeof table!=='object')continue;
         for(const key of Object.keys(table)){
