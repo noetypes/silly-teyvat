@@ -117,15 +117,19 @@ export function mountWorldMap({host,getContext,adapter=createMediaAdapter(getCon
         dialog.classList.toggle('gi-map-near',map.getZoom()>=BADGE_ZOOM);
     }
     // Keep the target clear of the detail card: right column on wide screens, bottom sheet on portrait phones.
-    function flyTo(point,zoom){
+    function flyTo(point,zoom,regionChange=false){
         if(!map)return;let target=toLatLng(point);
+        const size=map.getSize(),distance=map.project(target,zoom).distanceTo(map.project(map.getCenter(),zoom));
+        // Measure at the destination zoom so zooming out cannot make a distant
+        // waypoint look nearby. A screen-length move gets the region-flight pace.
+        const longFlight=regionChange||distance>=Math.max(size.x,size.y);
         const panel=dialog.dataset.panel==='open'&&!compact()?$('.gi-map-panel').offsetWidth/2:0;
         if(!sidebar.hidden||panel){const sheet=globalThis.matchMedia?.('(max-width: 600px) and (orientation: portrait)').matches,card=sidebar.hidden?[0,0]:sheet?[0,sidebar.offsetHeight/2]:[sidebar.offsetWidth/2,0];target=map.unproject(map.project(target,zoom).add([card[0]-panel,card[1]]),zoom);}
         if(reducedMotion()||!dialog.open)map.setView(target,zoom,{animate:false});
         // Nearby selections at the same zoom only translate the pane. flyTo
         // otherwise reprojects every marker at a fractional zoom on every frame.
-        else if(Math.abs(map.getZoom()-zoom)<.01&&map.latLngToContainerPoint(target).distanceTo(map.getSize().divideBy(2))<Math.max(map.getSize().x,map.getSize().y))map.panTo(target,{animate:true,duration:.8,easing:cameraEasing});
-        else map.flyTo(target,zoom,{duration:1.1,easing:cameraEasing});
+        else if(!longFlight&&Math.abs(map.getZoom()-zoom)<.01&&map.latLngToContainerPoint(target).distanceTo(size.divideBy(2))<Math.max(size.x,size.y))map.panTo(target,{animate:true,duration:.8,easing:cameraEasing});
+        else map.flyTo(target,zoom,{duration:longFlight?1.8:1.1,easing:cameraEasing});
     }
     // Top region selector: nations plus any custom regions that have waypoints.
     // The loading screen's region emblems; Teyvat itself and custom regions share its plain one.
@@ -233,8 +237,13 @@ export function mountWorldMap({host,getContext,adapter=createMediaAdapter(getCon
     function scheduleCull(){if(!cullFrame)cullFrame=setTimeout(()=>{cullFrame=0;if(!disposed)cullMarkers();},100);}
     function select(item){
         const previous=selectedId;
+        // Prefer the visible selected/current waypoint's assigned region. After
+        // manual panning, use the region being viewed rather than the party's home.
+        const from=[markerCache.get(previous)?.item,activeWorldLocation(getContext())].find(w=>w&&map.getBounds().contains(toLatLng(w.point)));
+        const viewedRegion=from?null:regionAtView();
+        const regionChange=from?from.region.id!==item.region.id:Boolean(viewedRegion&&viewedRegion.name.toLowerCase()!==item.region.name.toLowerCase());
         showDetails(item);if(previous!==selectedId)highlight(previous,false);highlight(selectedId,true);
-        flyTo(item.point,Math.max(map.getZoom(),-1.5));
+        flyTo(item.point,Math.max(map.getZoom(),-1.5),regionChange);
     }
     const listCache=new Map();
     // A closed panel (phones start with it closed) is not built; opening it builds the list then.

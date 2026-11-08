@@ -89,6 +89,29 @@ try{
             return samples.every(z=>Math.abs(z+1.5)<.01);
         });
         assert.ok(fixedZoom,'nearby selection pans without a zoom excursion');
+        const navigation=await page.evaluate(()=>{
+            const map=window.testMap,regions=window.mapContext.extensionSettings.genshin_dialogue_ui.backgroundRegions;
+            const pick=id=>document.querySelector(`.gi-map-waypoint-list [data-location="${id}"]`).click();
+            const [a,b,c]=regions[1].locations,originalPoints=[a,b,c].map(l=>l.waypoint);
+            const pan=map.panTo,fly=map.flyTo,moves=[];
+            map.panTo=function(target,options){moves.push(['pan',options.duration]);return pan.call(this,target,{...options,animate:false});};
+            map.flyTo=function(target,zoom,options){moves.push(['flight',options.duration]);return fly.call(this,target,zoom,{...options,animate:false});};
+            try{
+                // A neighboring pin across a region boundary still gets 1.8 s.
+                a.waypoint={mapId:'teyvat',x:-10800,y:-1800};
+                b.waypoint={mapId:'teyvat',x:0,y:-1800};
+                c.waypoint={mapId:'teyvat',x:200,y:-1800};
+                window.fixture.sync({on:true});
+                map.setView([-1800,-11000],-1.5,{animate:false});pick('p1');
+                pick('p30');pick('p31');
+                map.setView([-1800,0],-2,{animate:false});pick('p32');
+                return moves;
+            }finally{
+                map.panTo=pan;map.flyTo=fly;
+                [a,b,c].forEach((l,i)=>{l.waypoint=originalPoints[i];});window.fixture.sync({on:true});
+            }
+        });
+        assert.deepEqual(navigation,[['pan',.8],['flight',1.8],['flight',1.8],['flight',1.1]],'nearby, cross-region, distant and shorter zooming selections use their intended durations');
         const easing=await page.evaluate(async()=>{
             const map=window.testMap,pan=[],flight=[];
             map.panBy([150,0],{animate:true,duration:.35,easing:t=>{pan.push(t);return t*t*(3-2*t);}});

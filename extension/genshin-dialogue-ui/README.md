@@ -1,3 +1,7 @@
+# Silly Teyvat 1.74.6: Longer flights to distant waypoints
+
+- Selecting a waypoint in another region, or at least a screen-length away at the destination zoom, uses the same 1.8-second flight as the region selector. Nearby pans remain 0.8 seconds, shorter pan/zoom flights remain 1.1 seconds, and exponential easing is preserved.
+
 # Silly Teyvat 1.74.5: Longer camera travel
 
 - Restored 0.8 seconds for nearby waypoints, 1.1 seconds for longer flights, and 1.8 seconds for region changes, retaining the tuned exponential slowdown.
