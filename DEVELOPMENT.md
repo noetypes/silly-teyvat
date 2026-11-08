@@ -37,3 +37,9 @@ Run `node tools/bench-perf.mjs` (Playwright on `NODE_PATH`, the preview served a
 What these numbers do not show: SillyTavern itself takes about 3.2 s of a 4× slowed page's 3.5 s boot, and the extension's own start (about 108 module files, 1.9 MB of JavaScript, 0.6 MB compressed) adds about 0.2 s, so the extension's start-up is not where a phone loses time. What does cost is repeated work during play (a redraw per streamed word, thousands of map elements) and first-use stalls (creating the sound engine, decoding sprites).
 
 Flows with several phases (a card that is a list, details, a place picker or an editor; a battle that is in intro, your turn, the enemy's turn or the result) are written as machines with `createMachine` in `machine.js`: name the states, list the events each accepts, put entry and exit work in one place. Do not add a second boolean beside one; add a state.
+
+## Sprites
+
+SillyTavern serves sprites from `data/default-user/characters/<Name>/` (and `<Name>/<Outfit>/`). Anything the extension remembers about a sprite is keyed by folder and name without the extension (`sprite-files.js`: `spriteAudioKey`, `spriteLocation`, `healSceneSources`), so the same sprite may be a PNG or a WebP. Never build a key from a file name by hand; use `spriteAudioKey`.
+
+`tools/convert-sprites.py --archive DIR` converts sprite PNGs to WebP quality 90 and archives the originals (see its header for what it skips). Run it after installing newly generated sprites; it only converts what is still a PNG. `art/sprites/` holds the generation runs and their hashes and is never converted. Checks: `node tools/test-sprite-files.mjs` and `node tools/test-sprite-files-browser.mjs`.

@@ -1,3 +1,10 @@
+# Silly Teyvat 1.73.0: Sprites by name
+
+- **A sprite is its folder and its name, not its file type.** Voice lines and sizes assigned to a sprite are remembered as `Klee/neutral`, whether the file is `neutral.png` or `neutral.webp`. Existing settings, and settings from a tester package, are renamed the first time this version starts. Saved scenes that name `joy.png` draw the converted `joy.webp`: the stage looks the folder's listing up (once per folder) and draws again with the right file.
+- **`tools/convert-sprites.py` turns sprite PNGs into WebP** (quality 90, transparency kept exact): 2.7 GB of sprites become about 0.4 GB, so a scene change on a phone loads about 100 KB per character instead of 1.2 MB. On a test of 136 sprites the worst picture was 39.8 dB from the original (the median 43.5 dB) with identical transparency, and no difference shows when laid over magenta or white. It archives every PNG first and leaves the character cards, the Official Art folders and anything that cannot meet the bar alone.
+- Install this version before converting: older versions look sprites up by their `.png` name. After converting, reload SillyTavern so open pages read the new files.
+- Sprites uploaded in the wardrobe keep whatever type the file has; SillyTavern already replaces a sprite of the same name whatever its type.
+
 # Silly Teyvat 1.72.1: Smaller backgrounds
 
 - **Location backgrounds are 82% smaller**: 221 WebP and JPEG pictures went from 469 MB to 86 MB, so a scene change on a phone loads about 400 KB instead of 2 MB (and the pack, the tester ZIP and the distribution repository shrink with it). Names, formats and the 1920×1080 size are unchanged, so saved scenes and the catalog need nothing. Quality went from near-lossless to WebP/JPEG 90, raised for the 40 pictures with the most fine detail; the median picture differs from the original by 38 dB PSNR, and the worst case is not distinguishable at 3× zoom.

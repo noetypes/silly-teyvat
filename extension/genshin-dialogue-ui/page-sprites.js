@@ -10,6 +10,7 @@ import { keyboardShown } from './keyboard-frame.js';
 import { stageCharacter } from './persona-wardrobe.js';
 import { previousSpeech, expressionContext } from './narration.js';
 import { createSpriteTrimmer } from './sprite-trim.js';
+import { healSceneSources } from './sprite-files.js';
 import { sceneMembers, activeEnemies } from './combat-state.js';
 const STORE = 'silly_teyvat';
 // A narration inherits the scene before it, which may still show someone who has since left (for
@@ -153,7 +154,14 @@ const liveArrival = (ctx, id) => travelled(ctx.chat[id]) && !beforeArrival(ctx, 
 export function mountPageSprites({ host, getContext, adapter = createNativeSpriteAdapter(), isDefeated = () => false, announce = () => {}, renderMessage = () => null, onAppearance = () => {}, decodeImage = image => image.decode?.() || Promise.resolve(), trimmer = adapter.inventory ? createSpriteTrimmer({ inventory: adapter.inventory }) : null }) {
     const stage = document.createElement('div'); stage.id = 'gi-sprite-stage'; stage.setAttribute('aria-hidden', 'true'); host.append(stage);
     let active = false, selection = '', displayed = '', epoch = 0, lastScene = [], lastChat = null, selectedPage;
-    let drawVersion=0,committedVersion=0,initialPreparation=null;
+    let drawVersion=0,committedVersion=0,initialPreparation=null,unmounted=false;
+    // Scenes saved before a sprite was converted (joy.png, now joy.webp) name the old file. Each folder's listing is
+    // loaded once; until it is, a saved sprite is held back, then the scene is drawn again with the right files.
+    const listings=new Map(),loading=new Map();
+    const listingFor=folder=>adapter.inventory?listings.get(folder):[];
+    function loadListings(folders){
+        return Promise.all(folders.map(folder=>loading.get(folder) ?? loading.set(folder,Promise.resolve(adapter.inventory(folder)).then(list=>{listings.set(folder,Array.isArray(list)?list:[]);},()=>{listings.set(folder,[]);})).get(folder)));
+    }
     // A defeated enemy stays off every later page of its encounter. One still on the stage keeps its
     // place until its fall has played (the round is saved before the battle screen closes).
     const fallen = new Set();
@@ -283,6 +291,8 @@ export function mountPageSprites({ host, getContext, adapter = createNativeSprit
     globalThis.visualViewport?.addEventListener('resize', onResize, { passive: true });
     function draw(scene, key) {
         lastDraw = { scene, key };
+        const healed=healSceneSources(scene,listingFor),callerKey=key;scene=healed.scene;
+        if(healed.pending.length)void loadListings(healed.pending).then(()=>{if(!unmounted&&lastDraw?.key===callerKey){displayed='';draw(lastDraw.scene,lastDraw.key);}});
         scene=openingScene(getContext(),scene);key+=`:opening:${openingCharacter(getContext()) || ''}`;
         const gone = avatar => avatar && isDefeated(getContext(), avatar) && (fallen.has(avatar) || !enemyImage(avatar));
         scene = scene.filter(sprite => !gone(enemyOf(sprite)));
@@ -655,6 +665,6 @@ export function mountPageSprites({ host, getContext, adapter = createNativeSprit
             if (stillMotion()) image.remove(); else animate(image, 'gi-enemy-defeat', () => image.remove());
         },
         reset() { epoch++;drawVersion++;initialPreparation=null;fallen.clear(); selection = displayed = ''; pending.clear(); speechSeeds.clear(); selectedPage = undefined; lastScene = []; lastDraw = null; stageAt = -1; adapter.reset?.(); stage.replaceChildren(); document.body.classList.remove('gi-sprite-replay'); },
-        dispose() { this.reset(); trimmer?.reset?.(); removeEventListener('resize', onResize); globalThis.visualViewport?.removeEventListener('resize', onResize); cancelAnimationFrame(resizeFrame); stage.remove(); },
+        dispose() { unmounted=true; this.reset(); trimmer?.reset?.(); removeEventListener('resize', onResize); globalThis.visualViewport?.removeEventListener('resize', onResize); cancelAnimationFrame(resizeFrame); stage.remove(); },
     };
 }
