@@ -42,7 +42,8 @@ const NATIONS=[
 ];
 // The closest zoom out (Leaflet zoom, -5 to 1) at which waypoint badges still show.
 const BADGE_ZOOM=-2;
-const cameraEasing=t=>(1-Math.cos(Math.PI*t))/2;
+// Brief acceleration over the first 10%, then a long, gentle deceleration.
+const cameraEasing=t=>t<.1?t*t/.1:1-(1-t)*(1-t)/.9;
 const reducedMotion=()=>document.body.classList.contains('gi-reduced-motion') || Boolean(globalThis.matchMedia?.('(prefers-reduced-motion: reduce)').matches);
 
 export function mountWorldMap({host,getContext,adapter=createMediaAdapter(getContext),onChange=()=>{},announce=()=>{},prepareTeleport=async()=>({decisions:[]}),commitTeleport=()=>true,onTeleport=()=>{},retryCast=()=>{},openMusic=()=>{},openMusicLibrary=()=>{},openCardSearch=()=>{},openJourney=id=>createJourneyLibraryAdapter().open(id)}){
@@ -120,8 +121,8 @@ export function mountWorldMap({host,getContext,adapter=createMediaAdapter(getCon
         if(reducedMotion()||!dialog.open)map.setView(target,zoom,{animate:false});
         // Nearby selections at the same zoom only translate the pane. flyTo
         // otherwise reprojects every marker at a fractional zoom on every frame.
-        else if(Math.abs(map.getZoom()-zoom)<.01&&map.latLngToContainerPoint(target).distanceTo(map.getSize().divideBy(2))<Math.max(map.getSize().x,map.getSize().y))map.panTo(target,{animate:true,duration:.8,easing:cameraEasing});
-        else map.flyTo(target,zoom,{duration:1.1,easing:cameraEasing});
+        else if(Math.abs(map.getZoom()-zoom)<.01&&map.latLngToContainerPoint(target).distanceTo(map.getSize().divideBy(2))<Math.max(map.getSize().x,map.getSize().y))map.panTo(target,{animate:true,duration:.5,easing:cameraEasing});
+        else map.flyTo(target,zoom,{duration:.8,easing:cameraEasing});
     }
     // Top region selector: nations plus any custom regions that have waypoints.
     // The loading screen's region emblems; Teyvat itself and custom regions share its plain one.
@@ -162,8 +163,8 @@ export function mountWorldMap({host,getContext,adapter=createMediaAdapter(getCon
     function flyToRegion(name){
         if(!map)return;const target=regionTargets().find(r=>r.name===name),panel=dialog.dataset.panel==='open'&&!compact()?$('.gi-map-panel').offsetWidth:0,card=sidebar.hidden||compact()?0:sidebar.offsetWidth+16;
         const options={paddingTopLeft:[panel+24,90],paddingBottomRight:[card+24,40],maxZoom:-1.5};
-        if(!target){if(reducedMotion())map.setView([1700,500],-3.5,{animate:false});else map.flyTo([1700,500],-3.5,{duration:1.8,easing:cameraEasing});return;}
-        if(reducedMotion())map.fitBounds(target.bounds,{...options,animate:false});else map.flyToBounds(target.bounds,{...options,duration:1.8,easing:cameraEasing});
+        if(!target){if(reducedMotion())map.setView([1700,500],-3.5,{animate:false});else map.flyTo([1700,500],-3.5,{duration:1.1,easing:cameraEasing});return;}
+        if(reducedMotion())map.fitBounds(target.bounds,{...options,animate:false});else map.flyToBounds(target.bounds,{...options,duration:1.1,easing:cameraEasing});
     }
     function ensureMap(){
         if(map)return;map=makeMap($('.gi-map-canvas'),{zoomControl:false,animate:!reducedMotion()});markers=L.layerGroup().addTo(map);

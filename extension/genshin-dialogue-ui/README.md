@@ -1,3 +1,7 @@
+# Silly Teyvat 1.74.3: Quicker camera starts
+
+- Map travel takes 0.5 seconds nearby, 0.8 seconds for longer flights, and 1.1 seconds between regions. Acceleration uses only the first 10% of the animation, keeping the gentle slowdown toward the destination.
+
 # Silly Teyvat 1.74.2: Gentler map travel
 
 - Camera movement now eases in and out, taking 0.8 seconds for nearby waypoints, 1.1 seconds for longer flights, and 1.8 seconds for region changes. Click feedback stays immediate, and reduced motion still jumps directly to the destination.
