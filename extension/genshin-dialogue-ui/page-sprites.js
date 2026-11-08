@@ -153,7 +153,7 @@ export function createNativeSpriteAdapter({ capture = captureScene } = {}) {
     };
 }
 const travelled = message => Boolean(message?.extra?.silly_teyvat_travel);
-const beforeArrival = (ctx, id) => ctx.chat.slice(id + 1).some(travelled);
+const beforeArrival = (ctx, id) => { for (let i = id + 1; i < ctx.chat.length; i++) if (travelled(ctx.chat[i])) return true; return false; };
 // The newest arrival, while the party is still there. Its sprites follow the party as it settles in.
 const liveArrival = (ctx, id) => travelled(ctx.chat[id]) && !beforeArrival(ctx, id) && ctx.chatMetadata?.silly_teyvat_world?.location?.id === ctx.chat[id].extra.silly_teyvat_travel.to?.id;
 export function mountPageSprites({ host, getContext, adapter = createNativeSpriteAdapter(), isDefeated = () => false, announce = () => {}, renderMessage = () => null, onAppearance = () => {}, decodeImage = image => image.decode?.() || Promise.resolve(), trimmer = adapter.inventory ? createSpriteTrimmer({ inventory: adapter.inventory }) : null }) {
@@ -449,6 +449,8 @@ export function mountPageSprites({ host, getContext, adapter = createNativeSprit
             if (!isCurrent()) return base;
             spoken = (await adapter.resolve(ctx, prior.message, emotion || 'neutral', base.length ? base : adapter.capture())).scene;
             speechSeeds.set(seedKey, spoken);
+            // Only the lines near the reader are ever asked for again, so a long chat does not keep every scene it has seeded.
+            while (speechSeeds.size > 64) speechSeeds.delete(speechSeeds.keys().next().value);
         }
         if (!base.length) return structuredClone(spoken);
         const scene = structuredClone(base);

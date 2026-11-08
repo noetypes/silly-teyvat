@@ -19,7 +19,8 @@ const BUDGET={
     'menu second open':{script:30,longTasks:0},
     'map open':{task:1200,longTasks:3},
     'map reopen':{task:500,longTasks:1},
-    'dialogue streaming (100 messages)':{scriptPerFrame:8,p95Frame:25},
+    // style: a :has() anchored on #chat once re-styled every message on each text change; 100 messages cost ~270 ms then and ~110 ms now.
+    'dialogue streaming (100 messages)':{scriptPerFrame:8,p95Frame:25,style:190},
     'battle (auto, crowd)':{p95Frame:25,longTasks:2},
 };
 setTimeout(()=>{console.error('bench-perf: timed out');process.exit(2);},240000).unref();

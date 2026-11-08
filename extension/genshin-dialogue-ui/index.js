@@ -61,7 +61,7 @@ const KEY = 'genshin_dialogue_ui';
 // A GitHub install takes the repository's name, so the folder is read from where this file is served.
 const FOLDER = `third-party/${decodeURIComponent(new URL('./', import.meta.url).pathname.split('/').filter(Boolean).at(-1))}`;
 const defaults = Object.freeze({ ...stagingDefaults, enabled: false, choices: true, composer: true, reducedMotion: false, textScale: 1, scrim: 0.8, revealSpeed: 45, tapAdvance: true, pageExpressions: true, narration: false, narrationMode: 'quotes', narrationKeyword: 'Narrator:', hideDialogueQuotes:false, nameTagFilter:true, nameTagScope:'all', nameTagExtra:'', wardrobe: true, locationEncounters:true, locationCharacterLimit:5, randomEncounters:true, encounterRate:40, allowMainDeparture:false, worldPromptAllRegions:false, roleplayPromptsEnabled:true, wildernessEncounters:true, maxEnemies:3, combatDamageMin:1, combatDamageMax:6, enemyStrikeBack:true,combatTriggerPhrase:'[start_combat]', enemyDamageMin:2, enemyDamageMax:6, enemyDice:4, userMaxHp:30, combatDifficulty:'normal', battleEffects:true, battleSound:true,uiSound:true,uiSoundVolume:.7, personaSpriteClassify:false, soloGreeting:'standard', personaIcon: 'Aether', personaIconMode:'auto', hudTopIcons:'auto', namecard:'', signature:'', trimSprites:true, cgEnabled:true, cgClassifier:'main', cgProfile:'', choicesProfile:'', cgBypassReasoning:true, choicesBypassReasoning:true, cgPrompt:defaultCGPrompt, cgDisplayMode:'each', cgCooldown:10, cgAudio:true, spriteAudio:true, burstAudio:true, spriteVolume:.8, diceSound:true, trustSystem:false, travelerTwin:'Aether', master:true, cardArt:true, paimonLinks:PAIMON_LINKS, paimonRestore:{} });
-const bodyClasses = ['gi-menu-open', 'gi-enabled', 'gi-scene', 'gi-history', 'gi-hidden', 'gi-compose', 'gi-generating', 'gi-reduced-motion', 'gi-reading', 'gi-choices-enabled', 'gi-native-staging', 'gi-sprite-idle', 'gi-hud-top-off'];
+const bodyClasses = ['gi-menu-open', 'gi-enabled', 'gi-scene', 'gi-history', 'gi-hidden', 'gi-compose', 'gi-generating', 'gi-reduced-motion', 'gi-reading', 'gi-choices-enabled', 'gi-native-staging', 'gi-sprite-idle', 'gi-hud-top-off', 'gi-welcome'];
 const icons = {
     compass: '<path d="m12 2 3 7 7 3-7 3-3 7-3-7-7-3 7-3Z"/><path d="m12 8 4 4-4 4-4-4Z"/>',
     back: '<path d="M9 14 4 9l5-5"/><path d="M4 9h10.5a5.5 5.5 0 0 1 0 11H11"/>',
@@ -168,12 +168,12 @@ function pageState(message) {
     return state;
 }
 function presentPage(selected, state, active) {
-    document.querySelectorAll('#chat .gi-paginated').forEach(el => {
+    for (const el of Array.from(chatWith('gi-paginated'))) {
         if (el !== selected || !active) {
             el.classList.remove('gi-paginated');
             el.querySelector('.gi-page')?.remove();
         }
-    });
+    }
     if (!active || !state.source) { reveal.reset(); return; }
     selected.classList.add('gi-paginated');
     let view = selected.querySelector('.gi-page');
@@ -203,6 +203,8 @@ function announcePage(selected) {
 }
 
 function context() { return SillyTavern.getContext(); }
+// Buttons live in the extension's own roots, so look there rather than through the whole page.
+const uiActions = name => ['#gi-root', '#gi-settings'].flatMap(root => [...(document.querySelector(root)?.querySelectorAll(`[data-gi-action="${name}"]`) || [])]);
 // Auto hides the top-right SillyTavern icons on phones, upright or on their side; every panel is also in the Paimon menu.
 const topIconsHidden = prefs => prefs.hudTopIcons === 'off' || prefs.hudTopIcons === 'auto' && matchMedia('(max-width: 768px), (max-height: 500px)').matches;
 function preferences() {
@@ -235,7 +237,9 @@ function messages() {
 }
 // Battle round summaries stay in the chat for the roleplay model to read, but are not shown as dialogue.
 const combatLog = message => message?.extra?.silly_teyvat_combat?.kind === 'round';
-function editing() { return Boolean(document.querySelector('#chat .edit_textarea, #chat .reasoning_edit_textarea')); }
+// Class lookups on #chat come from the browser's cached index; a descendant selector would walk every message each refresh.
+const chatWith = name => document.querySelector('#chat')?.getElementsByClassName(name) || [];
+function editing() { return chatWith('edit_textarea').length > 0 || chatWith('reasoning_edit_textarea').length > 0; }
 function deleting() {
     const panel = document.querySelector('#dialogue_del_mes');
     return Boolean(panel && !panel.hidden && getComputedStyle(panel).display !== 'none');
@@ -388,12 +392,13 @@ function refresh({passive=false}={}) {
     const page = pageState(selected);
     const morePages = page.index < page.pages.length - 1;
     const narrated = Boolean(page.pages[page.index]?.giNarration);
-    document.querySelectorAll('#chat .gi-narration').forEach(el => { if (el !== selected || !narrated || !active) el.classList.remove('gi-narration'); });
+    for (const el of Array.from(chatWith('gi-narration'))) if (el !== selected || !narrated || !active) el.classList.remove('gi-narration');
     if (active && narrated) selected.classList.add('gi-narration');
     presentPage(selected, page, active && !history);
-    document.querySelectorAll('#chat > .mes.gi-current').forEach(el => { if (el !== selected || !active) el.classList.remove('gi-current'); });
+    for (const el of Array.from(chatWith('gi-current'))) if (el.parentElement?.id === 'chat' && (el !== selected || !active)) el.classList.remove('gi-current');
     if (active && selected) selected.classList.add('gi-current');
-    const flags = { 'gi-native-staging': prefs.enabled && prefs.nativeStaging, 'gi-sprite-idle': prefs.enabled && prefs.spriteIdle !== false, 'gi-hud-top-off': prefs.enabled && prefs.choices && topIconsHidden(prefs), 'gi-enabled': prefs.enabled, 'gi-scene': sceneActive, 'gi-history': active && history, 'gi-hidden': active && hidden, 'gi-compose': active && (composing || history), 'gi-generating': active && generating, 'gi-reading': active && (morePages || index < list.length - 1 || generating || reveal.revealing), 'gi-reduced-motion': prefs.enabled && (prefs.reducedMotion || Boolean(ctx.powerUserSettings?.reduced_motion)) };
+    // The welcome page is styled by this class rather than by #chat:has(> .welcomePanel): a :has() on #chat is re-checked on every text change in it, and re-styles every message with it.
+    const flags = { 'gi-welcome': Boolean(document.querySelector('#chat > .welcomePanel')), 'gi-native-staging': prefs.enabled && prefs.nativeStaging, 'gi-sprite-idle': prefs.enabled && prefs.spriteIdle !== false, 'gi-hud-top-off': prefs.enabled && prefs.choices && topIconsHidden(prefs), 'gi-enabled': prefs.enabled, 'gi-scene': sceneActive, 'gi-history': active && history, 'gi-hidden': active && hidden, 'gi-compose': active && (composing || history), 'gi-generating': active && generating, 'gi-reading': active && (morePages || index < list.length - 1 || generating || reveal.revealing), 'gi-reduced-motion': prefs.enabled && (prefs.reducedMotion || Boolean(ctx.powerUserSettings?.reduced_motion)) };
     for (const [name, value] of Object.entries(flags)) document.body.classList.toggle(name, Boolean(value));
     spriteUI?.sync({ on: Boolean(sceneActive && !history && (prefs.nativeStaging || prefs.pageExpressions || prefs.narration)), id: selected ? Number(current) : -1, page: page.index, text: page.pages[page.index]?.textContent || '', narration: narrated, classifyPages: prefs.pageExpressions, enemyAction:page.pages[page.index]?.giEnemyAction || 'neutral', complete: !generating || index < list.length - 1 || morePages, generating });
     stageEffects?.sync(Boolean(sceneActive&&!history&&!hidden),Boolean(reveal.revealing||generating));
@@ -403,10 +408,10 @@ function refresh({passive=false}={}) {
     if(placeNow?.location?.id){if(prefs.enabled&&lastPlaceId&&placeNow.location.id!==lastPlaceId)holdTravelLoad(placeNow);lastPlaceId=placeNow.location.id;}
     locationCastUI?.sync({on:Boolean(prefs.enabled&&inChat&&!openingHome),generating:generating||groupGenerating||combatUI?.busy||personaSession?.busy});
     worldMapUI?.sync({on:Boolean(prefs.enabled&&inChat),show:Boolean(sceneActive&&!history&&!hidden&&!menuOpen),location:backgroundUI?.current,loading:Boolean(loadingUI?.visible)});
-    document.querySelectorAll('[data-gi-action="wardrobe"]').forEach(el => el.hidden = !prefs.wardrobe);
-    document.querySelectorAll('[data-gi-action="trust"]').forEach(el => el.hidden = !prefs.trustSystem);
+    for (const el of uiActions('wardrobe')) el.hidden = !prefs.wardrobe;
+    for (const el of uiActions('trust')) el.hidden = !prefs.trustSystem;
     const atGuild = Boolean(prefs.enabled && inChat && currentGuild(ctx));
-    document.querySelectorAll('[data-gi-action="card-search"]').forEach(el => el.hidden = !atGuild);
+    for (const el of uiActions('card-search')) el.hidden = !atGuild;
     if (!atGuild && cardSearchUI?.isOpen) cardSearchUI.close();
     if (!prefs.wardrobe) wardrobeUI?.close();
     // Top-right SillyTavern icons: shown, hidden, or (Auto) hidden on phones for a clean layout.
