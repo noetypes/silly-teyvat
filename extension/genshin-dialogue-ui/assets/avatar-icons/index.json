@@ -249,6 +249,7 @@
     "Odette": "odette-b0112d.webp",
     "Ororon": "ororon-600dd7.webp",
     "Pahsiv": "pahsiv-6aeb37.webp",
+    "Paimon": "sprite-paimon-a2c67fb293.webp",
     "Pitot": "sprite-pitot-abdcf57208.webp",
     "Plate": "sprite-plate-8874046fee.webp",
     "Provisional Head Priestess of the Asase Shrine": "provisional-head-priestess-of-the-asase-shrine-5e3389.webp",
@@ -348,5 +349,9 @@
     "Zhongli": "zhongli-55d58f.webp",
     "Zibai": "zibai-dadc10.webp"
   },
-  "spriteCrops": "art/sprites/2026-11-09-enemy-npc-head-icons/run.json"
+  "spriteCrops": "art/sprites/2026-11-09-enemy-npc-head-icons/run.json",
+  "spriteCropRuns": [
+    "art/sprites/2026-11-09-enemy-npc-head-icons/run.json",
+    "art/sprites/2026-11-09-paimon-face-icon/run.json"
+  ]
 }

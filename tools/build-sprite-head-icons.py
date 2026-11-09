@@ -38,6 +38,7 @@ def write_image(image, path, **options):
 
 
 def main(run_path):
+    run_path = run_path.resolve()
     manifest = run_path / 'run.json'
     run = json.loads(manifest.read_text())
     index_path = ASSETS / 'index.json'
@@ -76,7 +77,11 @@ def main(run_path):
                      asset_sha256=digest(webp))
         previews.append((entry['name'], image))
     index['icons'] = dict(sorted(index['icons'].items()))
-    index['spriteCrops'] = str(manifest.relative_to(ROOT))
+    provenance = str(manifest.relative_to(ROOT))
+    index.setdefault('spriteCrops', provenance)
+    index['spriteCropRuns'] = list(dict.fromkeys([
+        *index.get('spriteCropRuns', [index['spriteCrops']]), provenance,
+    ]))
     index_path.write_text(json.dumps(index, indent=2, ensure_ascii=False) + '\n')
     manifest.write_text(json.dumps(run, indent=2, ensure_ascii=False) + '\n')
     font = ImageFont.load_default(size=13)
