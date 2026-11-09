@@ -1,0 +1,539 @@
+{
+  "request": "User supplied official artwork and in-game model and requested a newly regenerated Albedo neutral.",
+  "references": [
+    {
+      "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-09-albedo-official-model-neutral/references/Albedo/official.png",
+      "original_path": "/var/folders/yb/h8ks0jfd6jl0jdj3npytrx2r0000gn/T/codex-clipboard-b5597cf9-a69b-4859-891e-5003d4b9ac86.png",
+      "sha256": "d412cddc10fd364de2570f25c0050a3c9664bbde304d919e95a5d6ee01358348",
+      "purpose": "Primary identity, costume and illustration reference"
+    },
+    {
+      "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-09-albedo-official-model-neutral/references/Albedo/model.png",
+      "original_path": "/var/folders/yb/h8ks0jfd6jl0jdj3npytrx2r0000gn/T/codex-clipboard-589e5259-ac37-40d9-86da-e18beb30d85f.png",
+      "sha256": "8d5461d3c523ae89002889038bd9cd97048da91a9f78957622983ccd2eb5a54b",
+      "purpose": "Secondary model, costume and hairstyle reference"
+    }
+  ],
+  "generation": {
+    "tool": "image_gen.imagegen",
+    "arguments": {
+      "prompt": "Use case: stylized-concept. Create one full-body neutral character sprite of Albedo from Genshin Impact for a visual novel. Image 1 is the user-supplied official artwork, the primary reference for his identity, hair, face, outfit, colors and detailed anime illustration rendering. Image 2 is the user-supplied in-game model, a secondary reference for his hairstyle, costume construction and natural hanging coat panels. Preserve his pale skin, teal eyes, light blond hair and distinctive navy, white and gold alchemist outfit. Give him the project's petite Medium Male anime build, compact and youthful rather than tall or long-legged. Draw a calm, neutral expression, both eyes open, one coherent closed mouth, and a relaxed natural standing pose with arms at his sides. Hands should be simple and naturally articulated, each a complete human hand with a palm, four fingers and a separate opposable thumb, naturally separated from clothing. Exactly two legs and two feet belonging to one pelvis, feet slightly separated. Full figure including all hair, hands, coat tails and shoes, framed at about 92\u201396% of image height with a little padding at top and bottom. Crisp polished anime game illustration with detailed costume and clean edges. Transparent background with genuine alpha. No sword, scenery, text, labels, watermark, floating effects or ground shadow.",
+      "referenced_image_paths": [
+        "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-09-albedo-official-model-neutral/references/Albedo/official.png",
+        "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-09-albedo-official-model-neutral/references/Albedo/model.png"
+      ],
+      "transparent_background": true
+    },
+    "returned_output_path": "/Users/alexachan/.codex/generated_images/01a1c17b-8c99-7e41-81d8-58a4cd3eff89/exec-35b0369e-5b6f-46ff-aaf2-02d675f290d0.png",
+    "raw_path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-09-albedo-official-model-neutral/raw/Albedo/neutral-v001.png",
+    "candidate_path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-09-albedo-official-model-neutral/candidates/Albedo/neutral-v001.png",
+    "sha256": "3e0bab34da68aa40b09f0a07cd8889f0a24955bb5f0aac8e88ad0cdc3bc6becd",
+    "dimensions": [
+      945,
+      1665
+    ],
+    "png_color_type": 6,
+    "framing_transform": null,
+    "approval": "pending explicit user approval"
+  },
+  "generation_v002": {
+    "feedback": "Pretty much perfect, just give him a more interesting pose that suits his character",
+    "method": "Fresh regeneration using the original authorized references, not an edit of v001",
+    "tool": "image_gen.imagegen",
+    "arguments": {
+      "prompt": "Use case: stylized-concept. Create one full-body neutral character sprite of Albedo from Genshin Impact for a visual novel. Image 1 is the user-supplied official artwork, the primary reference for his identity, hair, face, outfit, colors and detailed anime illustration rendering. Image 2 is the user-supplied in-game model, a secondary reference for his hairstyle, costume construction and natural hanging coat panels. Preserve his pale skin, teal eyes, light blond hair and distinctive navy, white and gold alchemist outfit. Give him the project's petite Medium Male anime build, compact and youthful rather than tall or long-legged. Give him a more interesting, thoughtful pose suited to a composed alchemist: stand with weight gently shifted, torso subtly angled, one gloved hand held loosely near his chest as if considering an observation, the other resting relaxed at his side. A calm neutral expression, both eyes open, one coherent closed mouth. Hands should be simple and naturally articulated, each a complete human hand with a palm, four fingers and a separate opposable thumb, naturally separated from clothing. Exactly two legs and two feet belonging to one pelvis, feet slightly separated. Full figure including all hair, hands, coat tails and shoes, framed at about 92\u201396% of image height with a little padding at top and bottom. Crisp polished anime game illustration with detailed costume and clean edges. Transparent background with genuine alpha. No sword, scenery, text, labels, watermark, floating effects or ground shadow.",
+      "referenced_image_paths": [
+        "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-09-albedo-official-model-neutral/references/Albedo/official.png",
+        "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-09-albedo-official-model-neutral/references/Albedo/model.png"
+      ],
+      "transparent_background": true
+    },
+    "returned_output_path": "/Users/alexachan/.codex/generated_images/01a1c17b-8c99-7e41-81d8-58a4cd3eff89/exec-f97269ed-dcd2-4350-989e-94c6d920277a.png",
+    "raw_path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-09-albedo-official-model-neutral/raw/Albedo/neutral-v002.png",
+    "candidate_path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-09-albedo-official-model-neutral/candidates/Albedo/neutral-v002.png",
+    "sha256": "cb835dee7a583333b3791e8b326624599e47429651306cf7122d6123d93f1155",
+    "dimensions": [
+      965,
+      1630
+    ],
+    "png_color_type": 6,
+    "framing_transform": null,
+    "approval": "approved",
+    "approving_message": "Approved. Regenerate his 22-sprite set using this neutral."
+  },
+  "expression_jobs": [
+    {
+      "emotion": "annoyance",
+      "tool": "image_gen.imagegen",
+      "arguments": {
+        "prompt": "Create a full-body annoyance expression sprite of Albedo for a visual novel. The sole image reference is the user's explicitly approved neutral: preserve the exact character identity, petite Medium Male proportions, hair, teal eye design, skin tone, costume, accessories, and polished anime rendering. Vary the pose and body language for this emotion while keeping his proportions at least as petite as the reference. Acting: A restrained irritated frown, brows slightly lowered, one hand resting at his hip while the other gestures subtly. Use a simple readable gesture; each visible hand has a palm, four fingers and a separate opposable thumb, naturally articulated and distinct from clothing. Exactly two legs and two feet from one pelvis, in an uncomplicated stance with feet separated or slightly staggered. One coherent mouth. Full body including hair, hands, coat and shoes, about 92\u201396% of image height with modest top and bottom padding. Genuine transparent background. No scenery, text, labels, watermark, floating effects or baked ground shadow.",
+        "referenced_image_paths": [
+          "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-09-albedo-official-model-neutral/candidates/Albedo/neutral-v002.png"
+        ],
+        "transparent_background": true
+      },
+      "source": "/Users/alexachan/.codex/generated_images/01a1c17b-8c99-7e41-81d8-58a4cd3eff89/exec-1e144cd3-b3a9-4f06-849f-e303e70f689b.png",
+      "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-09-albedo-official-model-neutral/raw/Albedo/annoyance.png",
+      "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-09-albedo-official-model-neutral/candidates/Albedo/annoyance.png",
+      "sha256": "53708fd60cfcd244da4adb6062fdedf387a838b29d94f4c547b39eac27b87d97",
+      "dimensions": [
+        965,
+        1630
+      ],
+      "png_color_type": 6,
+      "approval": "candidate for user review"
+    },
+    {
+      "emotion": "smug",
+      "tool": "image_gen.imagegen",
+      "arguments": {
+        "prompt": "Create a full-body smug expression sprite of Albedo for a visual novel. The sole image reference is the user's explicitly approved neutral: preserve the exact character identity, petite Medium Male proportions, hair, teal eye design, skin tone, costume, accessories, and polished anime rendering. Vary the pose and body language for this emotion while keeping his proportions at least as petite as the reference. Acting: A small knowing smile and slightly raised eyebrow, with a poised, confident tilt of his head and one hand near his chest. Use a simple readable gesture; each visible hand has a palm, four fingers and a separate opposable thumb, naturally articulated and distinct from clothing. Exactly two legs and two feet from one pelvis, in an uncomplicated stance with feet separated or slightly staggered. One coherent mouth. Full body including hair, hands, coat and shoes, about 92\u201396% of image height with modest top and bottom padding. Genuine transparent background. No scenery, text, labels, watermark, floating effects or baked ground shadow.",
+        "referenced_image_paths": [
+          "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-09-albedo-official-model-neutral/candidates/Albedo/neutral-v002.png"
+        ],
+        "transparent_background": true
+      },
+      "source": "/Users/alexachan/.codex/generated_images/01a1c17b-8c99-7e41-81d8-58a4cd3eff89/exec-c4ceac8e-17c6-496c-8fcb-fc25ec817093.png",
+      "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-09-albedo-official-model-neutral/raw/Albedo/smug.png",
+      "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-09-albedo-official-model-neutral/candidates/Albedo/smug.png",
+      "sha256": "cb8ca65a6913496cd852dd7a403e535cfbcd69a13ff2901ab8fb98b04913a4ae",
+      "dimensions": [
+        965,
+        1630
+      ],
+      "png_color_type": 6,
+      "approval": "candidate for user review"
+    },
+    {
+      "emotion": "confusion",
+      "tool": "image_gen.imagegen",
+      "arguments": {
+        "prompt": "Create a full-body confusion expression sprite of Albedo for a visual novel. The sole image reference is the user's explicitly approved neutral: preserve the exact character identity, petite Medium Male proportions, hair, teal eye design, skin tone, costume, accessories, and polished anime rendering. Vary the pose and body language for this emotion while keeping his proportions at least as petite as the reference. Acting: A puzzled expression and gently tilted head, one hand raised near his chin in thought. Use a simple readable gesture; each visible hand has a palm, four fingers and a separate opposable thumb, naturally articulated and distinct from clothing. Exactly two legs and two feet from one pelvis, in an uncomplicated stance with feet separated or slightly staggered. One coherent mouth. Full body including hair, hands, coat and shoes, about 92\u201396% of image height with modest top and bottom padding. Genuine transparent background. No scenery, text, labels, watermark, floating effects or baked ground shadow.",
+        "referenced_image_paths": [
+          "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-09-albedo-official-model-neutral/candidates/Albedo/neutral-v002.png"
+        ],
+        "transparent_background": true
+      },
+      "source": "/Users/alexachan/.codex/generated_images/01a1c17b-8c99-7e41-81d8-58a4cd3eff89/exec-a9932527-a729-4acf-ad96-841ab947b444.png",
+      "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-09-albedo-official-model-neutral/raw/Albedo/confusion.png",
+      "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-09-albedo-official-model-neutral/candidates/Albedo/confusion.png",
+      "sha256": "42a9dd5ceccf05ba6de3b308c0bfaf1a623d87e54c877a16be5cc65b25ab92c4",
+      "dimensions": [
+        965,
+        1630
+      ],
+      "png_color_type": 6,
+      "approval": "candidate for user review"
+    },
+    {
+      "emotion": "love",
+      "tool": "image_gen.imagegen",
+      "arguments": {
+        "prompt": "Create a full-body love expression sprite of Albedo for a visual novel. The sole image reference is the user's explicitly approved neutral: preserve the exact character identity, petite Medium Male proportions, hair, teal eye design, skin tone, costume, accessories, and polished anime rendering. Vary the pose and body language for this emotion while keeping his proportions at least as petite as the reference. Acting: A warm affectionate smile and softened eyes, one hand resting over his heart, posture open and gentle. Use a simple readable gesture; each visible hand has a palm, four fingers and a separate opposable thumb, naturally articulated and distinct from clothing. Exactly two legs and two feet from one pelvis, in an uncomplicated stance with feet separated or slightly staggered. One coherent mouth. Full body including hair, hands, coat and shoes, about 92\u201396% of image height with modest top and bottom padding. Genuine transparent background. No scenery, text, labels, watermark, floating effects or baked ground shadow.",
+        "referenced_image_paths": [
+          "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-09-albedo-official-model-neutral/candidates/Albedo/neutral-v002.png"
+        ],
+        "transparent_background": true
+      },
+      "source": "/Users/alexachan/.codex/generated_images/01a1c17b-8c99-7e41-81d8-58a4cd3eff89/exec-eeb865e5-2511-4af5-8e71-0fa133efa388.png",
+      "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-09-albedo-official-model-neutral/raw/Albedo/love.png",
+      "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-09-albedo-official-model-neutral/candidates/Albedo/love.png",
+      "sha256": "0348d65bf676a5fbc906b0e92401362f9398422555ca8b20003cc06df55d91ae",
+      "dimensions": [
+        965,
+        1630
+      ],
+      "png_color_type": 6,
+      "approval": "candidate for user review"
+    },
+    {
+      "emotion": "excitement",
+      "tool": "image_gen.imagegen",
+      "arguments": {
+        "prompt": "Create a full-body excitement expression sprite of Albedo for a visual novel. The sole image reference is the user's explicitly approved neutral: preserve the exact character identity, petite Medium Male proportions, hair, teal eye design, skin tone, costume, accessories, and polished anime rendering. Vary the pose and body language for this emotion while keeping his proportions at least as petite as the reference. Acting: Bright eager eyes and a delighted smile, leaning forward slightly with one hand lifted in animated discovery. Use a simple readable gesture; each visible hand has a palm, four fingers and a separate opposable thumb, naturally articulated and distinct from clothing. Exactly two legs and two feet from one pelvis, in an uncomplicated stance with feet separated or slightly staggered. One coherent mouth. Full body including hair, hands, coat and shoes, about 92\u201396% of image height with modest top and bottom padding. Genuine transparent background. No scenery, text, labels, watermark, floating effects or baked ground shadow.",
+        "referenced_image_paths": [
+          "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-09-albedo-official-model-neutral/candidates/Albedo/neutral-v002.png"
+        ],
+        "transparent_background": true
+      },
+      "source": "/Users/alexachan/.codex/generated_images/01a1c17b-8c99-7e41-81d8-58a4cd3eff89/exec-a5aaf5cd-e4e0-46d6-8052-ec18e88ed8f5.png",
+      "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-09-albedo-official-model-neutral/raw/Albedo/excitement.png",
+      "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-09-albedo-official-model-neutral/candidates/Albedo/excitement.png",
+      "sha256": "304566618d81bf59cb1b7c60db3757d767b5498da791dbd0a65e59c453197e64",
+      "dimensions": [
+        965,
+        1630
+      ],
+      "png_color_type": 6,
+      "approval": "candidate for user review"
+    },
+    {
+      "emotion": "joy",
+      "tool": "image_gen.imagegen",
+      "arguments": {
+        "prompt": "Create a full-body joy expression sprite of Albedo for a visual novel. The sole image reference is the user's explicitly approved neutral: preserve the exact character identity, petite Medium Male proportions, hair, teal eye design, skin tone, costume, accessories, and polished anime rendering. Vary the pose and body language for this emotion while keeping his proportions at least as petite as the reference. Acting: A broad happy smile and bright eyes, standing openly with one hand raised in a relaxed welcoming gesture. Use a simple readable gesture; each visible hand has a palm, four fingers and a separate opposable thumb, naturally articulated and distinct from clothing. Exactly two legs and two feet from one pelvis, in an uncomplicated stance with feet separated or slightly staggered. One coherent mouth. Full body including hair, hands, coat and shoes, about 92\u201396% of image height with modest top and bottom padding. Genuine transparent background. No scenery, text, labels, watermark, floating effects or baked ground shadow.",
+        "referenced_image_paths": [
+          "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-09-albedo-official-model-neutral/candidates/Albedo/neutral-v002.png"
+        ],
+        "transparent_background": true
+      },
+      "source": "/Users/alexachan/.codex/generated_images/01a1c17b-8c99-7e41-81d8-58a4cd3eff89/exec-8b6636d7-aa4c-42ab-b675-a7b32e6f294d.png",
+      "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-09-albedo-official-model-neutral/raw/Albedo/joy.png",
+      "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-09-albedo-official-model-neutral/candidates/Albedo/joy.png",
+      "sha256": "d0f1b717755accbf05cddf087260ff2fbacce613a37d4ac71cf37ee91bbff296",
+      "dimensions": [
+        965,
+        1630
+      ],
+      "png_color_type": 6,
+      "approval": "candidate for user review"
+    },
+    {
+      "emotion": "fear",
+      "tool": "image_gen.imagegen",
+      "arguments": {
+        "prompt": "Create a full-body fear expression sprite of Albedo for a visual novel. The sole image reference is the user's explicitly approved neutral: preserve the exact character identity, petite Medium Male proportions, hair, teal eye design, skin tone, costume, accessories, and polished anime rendering. Vary the pose and body language for this emotion while keeping his proportions at least as petite as the reference. Acting: Wide worried eyes and tense brows, leaning back slightly with one hand raised protectively near his chest. Use a simple readable gesture; each visible hand has a palm, four fingers and a separate opposable thumb, naturally articulated and distinct from clothing. Exactly two legs and two feet from one pelvis, in an uncomplicated stance with feet separated or slightly staggered. One coherent mouth. Full body including hair, hands, coat and shoes, about 92\u201396% of image height with modest top and bottom padding. Genuine transparent background. No scenery, text, labels, watermark, floating effects or baked ground shadow.",
+        "referenced_image_paths": [
+          "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-09-albedo-official-model-neutral/candidates/Albedo/neutral-v002.png"
+        ],
+        "transparent_background": true
+      },
+      "source": "/Users/alexachan/.codex/generated_images/01a1c17b-8c99-7e41-81d8-58a4cd3eff89/exec-77f21023-685b-4df8-b8ee-bb8456d64581.png",
+      "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-09-albedo-official-model-neutral/raw/Albedo/fear.png",
+      "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-09-albedo-official-model-neutral/candidates/Albedo/fear.png",
+      "sha256": "ddd87e21441acd046070634aaf2fcd7b7c94b799d584d8bbbaffba5d0619daeb",
+      "dimensions": [
+        965,
+        1630
+      ],
+      "png_color_type": 6,
+      "approval": "candidate for user review"
+    },
+    {
+      "emotion": "pride",
+      "tool": "image_gen.imagegen",
+      "arguments": {
+        "prompt": "Create a full-body pride expression sprite of Albedo for a visual novel. The sole image reference is the user's explicitly approved neutral: preserve the exact character identity, petite Medium Male proportions, hair, teal eye design, skin tone, costume, accessories, and polished anime rendering. Vary the pose and body language for this emotion while keeping his proportions at least as petite as the reference. Acting: A composed satisfied smile and confident upright posture, one hand resting at his hip. Use a simple readable gesture; each visible hand has a palm, four fingers and a separate opposable thumb, naturally articulated and distinct from clothing. Exactly two legs and two feet from one pelvis, in an uncomplicated stance with feet separated or slightly staggered. One coherent mouth. Full body including hair, hands, coat and shoes, about 92\u201396% of image height with modest top and bottom padding. Genuine transparent background. No scenery, text, labels, watermark, floating effects or baked ground shadow.",
+        "referenced_image_paths": [
+          "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-09-albedo-official-model-neutral/candidates/Albedo/neutral-v002.png"
+        ],
+        "transparent_background": true
+      },
+      "source": "/Users/alexachan/.codex/generated_images/01a1c17b-8c99-7e41-81d8-58a4cd3eff89/exec-3b0730ab-719a-4c09-aa68-0768e4b0f71f.png",
+      "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-09-albedo-official-model-neutral/raw/Albedo/pride.png",
+      "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-09-albedo-official-model-neutral/candidates/Albedo/pride.png",
+      "sha256": "495e7a5b27992166f0e8776e94295d44c7210a67205b87d565c6c2c9b30a0f99",
+      "dimensions": [
+        965,
+        1630
+      ],
+      "png_color_type": 6,
+      "approval": "candidate for user review"
+    },
+    {
+      "emotion": "desire",
+      "tool": "image_gen.imagegen",
+      "arguments": {
+        "prompt": "Create a full-body desire expression sprite of Albedo for a visual novel. The sole image reference is the user's explicitly approved neutral: preserve the exact character identity, petite Medium Male proportions, hair, teal eye design, skin tone, costume, accessories, and polished anime rendering. Vary the pose and body language for this emotion while keeping his proportions at least as petite as the reference. Acting: A subtle wistful affectionate expression, lightly flushed cheeks, softened open eyes and a hopeful gaze, one hand near his heart, tasteful and fully clothed. Use a simple readable gesture; each visible hand has a palm, four fingers and a separate opposable thumb, naturally articulated and distinct from clothing. Exactly two legs and two feet from one pelvis, in an uncomplicated stance with feet separated or slightly staggered. One coherent mouth. Full body including hair, hands, coat and shoes, about 92\u201396% of image height with modest top and bottom padding. Genuine transparent background. No scenery, text, labels, watermark, floating effects or baked ground shadow.",
+        "referenced_image_paths": [
+          "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-09-albedo-official-model-neutral/candidates/Albedo/neutral-v002.png"
+        ],
+        "transparent_background": true
+      },
+      "source": "/Users/alexachan/.codex/generated_images/01a1c17b-8c99-7e41-81d8-58a4cd3eff89/exec-9c85633c-6a83-4e95-8161-8b90e4b1efb6.png",
+      "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-09-albedo-official-model-neutral/raw/Albedo/desire.png",
+      "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-09-albedo-official-model-neutral/candidates/Albedo/desire.png",
+      "sha256": "a93b5bba8dedb1253d0ce085c6012ad28b4f50e0953211986d9d19de1bb6abac",
+      "dimensions": [
+        965,
+        1630
+      ],
+      "png_color_type": 6,
+      "approval": "candidate for user review"
+    },
+    {
+      "emotion": "anger",
+      "tool": "image_gen.imagegen",
+      "arguments": {
+        "prompt": "Create a full-body anger expression sprite of Albedo for a visual novel. The sole image reference is the user's explicitly approved neutral: preserve the exact character identity, petite Medium Male proportions, hair, teal eye design, skin tone, costume, accessories, and polished anime rendering. Vary the pose and body language for this emotion while keeping his proportions at least as petite as the reference. Acting: A clear stern frown and narrowed eyes, upright tense stance, hands at his sides. Use a simple readable gesture; each visible hand has a palm, four fingers and a separate opposable thumb, naturally articulated and distinct from clothing. Exactly two legs and two feet from one pelvis, in an uncomplicated stance with feet separated or slightly staggered. One coherent mouth. Full body including hair, hands, coat and shoes, about 92\u201396% of image height with modest top and bottom padding. Genuine transparent background. No scenery, text, labels, watermark, floating effects or baked ground shadow.",
+        "referenced_image_paths": [
+          "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-09-albedo-official-model-neutral/candidates/Albedo/neutral-v002.png"
+        ],
+        "transparent_background": true
+      },
+      "source": "/Users/alexachan/.codex/generated_images/01a1c17b-8c99-7e41-81d8-58a4cd3eff89/exec-2e3ba7cb-9c6e-43bb-b7d2-6d55413d801d.png",
+      "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-09-albedo-official-model-neutral/raw/Albedo/anger.png",
+      "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-09-albedo-official-model-neutral/candidates/Albedo/anger.png",
+      "sha256": "1df7af94d869e509406f6693cee3e84ba783a2e02d25233ff53e117f2f1c5447",
+      "dimensions": [
+        965,
+        1630
+      ],
+      "png_color_type": 6,
+      "approval": "candidate for user review"
+    },
+    {
+      "emotion": "grief",
+      "tool": "image_gen.imagegen",
+      "arguments": {
+        "prompt": "Create a full-body grief expression sprite of Albedo for a visual novel. The sole image reference is the user's explicitly approved neutral: preserve the exact character identity, petite Medium Male proportions, hair, teal eye design, skin tone, costume, accessories, and polished anime rendering. Vary the pose and body language for this emotion while keeping his proportions at least as petite as the reference. Acting: Deep sorrow with downcast eyes and a small trembling closed mouth, shoulders lowered and one hand near his heart. Use a simple readable gesture; each visible hand has a palm, four fingers and a separate opposable thumb, naturally articulated and distinct from clothing. Exactly two legs and two feet from one pelvis, in an uncomplicated stance with feet separated or slightly staggered. One coherent mouth. Full body including hair, hands, coat and shoes, about 92\u201396% of image height with modest top and bottom padding. Genuine transparent background. No scenery, text, labels, watermark, floating effects or baked ground shadow.",
+        "referenced_image_paths": [
+          "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-09-albedo-official-model-neutral/candidates/Albedo/neutral-v002.png"
+        ],
+        "transparent_background": true
+      },
+      "source": "/Users/alexachan/.codex/generated_images/01a1c17b-8c99-7e41-81d8-58a4cd3eff89/exec-86b4236b-64c8-4603-af7e-f8411bbb1611.png",
+      "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-09-albedo-official-model-neutral/raw/Albedo/grief.png",
+      "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-09-albedo-official-model-neutral/candidates/Albedo/grief.png",
+      "sha256": "f1f2b4b42f599f7a96432027f5b701f15b791975e45be2bbf032f76c1a06dfb1",
+      "dimensions": [
+        965,
+        1630
+      ],
+      "png_color_type": 6,
+      "approval": "candidate for user review"
+    },
+    {
+      "emotion": "sadness",
+      "tool": "image_gen.imagegen",
+      "arguments": {
+        "prompt": "Create a full-body sadness expression sprite of Albedo for a visual novel. The sole image reference is the user's explicitly approved neutral: preserve the exact character identity, petite Medium Male proportions, hair, teal eye design, skin tone, costume, accessories, and polished anime rendering. Vary the pose and body language for this emotion while keeping his proportions at least as petite as the reference. Acting: A quiet sad expression with softened lowered brows, eyes downcast and arms relaxed. Use a simple readable gesture; each visible hand has a palm, four fingers and a separate opposable thumb, naturally articulated and distinct from clothing. Exactly two legs and two feet from one pelvis, in an uncomplicated stance with feet separated or slightly staggered. One coherent mouth. Full body including hair, hands, coat and shoes, about 92\u201396% of image height with modest top and bottom padding. Genuine transparent background. No scenery, text, labels, watermark, floating effects or baked ground shadow.",
+        "referenced_image_paths": [
+          "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-09-albedo-official-model-neutral/candidates/Albedo/neutral-v002.png"
+        ],
+        "transparent_background": true
+      },
+      "source": "/Users/alexachan/.codex/generated_images/01a1c17b-8c99-7e41-81d8-58a4cd3eff89/exec-aa7e9078-bd71-407f-bfac-4b819a5b2667.png",
+      "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-09-albedo-official-model-neutral/raw/Albedo/sadness.png",
+      "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-09-albedo-official-model-neutral/candidates/Albedo/sadness.png",
+      "sha256": "50ebc71f6e8cb5d818c705abd6e4cfeb906ddf95f9fddba9c903bb9644492b5a",
+      "dimensions": [
+        965,
+        1630
+      ],
+      "png_color_type": 6,
+      "approval": "candidate for user review"
+    },
+    {
+      "emotion": "disgust",
+      "tool": "image_gen.imagegen",
+      "arguments": {
+        "prompt": "Create a full-body disgust expression sprite of Albedo for a visual novel. The sole image reference is the user's explicitly approved neutral: preserve the exact character identity, petite Medium Male proportions, hair, teal eye design, skin tone, costume, accessories, and polished anime rendering. Vary the pose and body language for this emotion while keeping his proportions at least as petite as the reference. Acting: A restrained nose scrunch and small closed displeased mouth, leaning back slightly with one hand near his chest. Use a simple readable gesture; each visible hand has a palm, four fingers and a separate opposable thumb, naturally articulated and distinct from clothing. Exactly two legs and two feet from one pelvis, in an uncomplicated stance with feet separated or slightly staggered. One coherent mouth. Full body including hair, hands, coat and shoes, about 92\u201396% of image height with modest top and bottom padding. Genuine transparent background. No scenery, text, labels, watermark, floating effects or baked ground shadow.",
+        "referenced_image_paths": [
+          "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-09-albedo-official-model-neutral/candidates/Albedo/neutral-v002.png"
+        ],
+        "transparent_background": true
+      },
+      "source": "/Users/alexachan/.codex/generated_images/01a1c17b-8c99-7e41-81d8-58a4cd3eff89/exec-160d8c6e-c142-4474-8097-44bc405f6f9a.png",
+      "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-09-albedo-official-model-neutral/raw/Albedo/disgust.png",
+      "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-09-albedo-official-model-neutral/candidates/Albedo/disgust.png",
+      "sha256": "ca1462f3ff905f238efad296bcbb6d09e23fd81c62c0bb36b4946ceaa6ed1ff9",
+      "dimensions": [
+        965,
+        1630
+      ],
+      "png_color_type": 6,
+      "approval": "candidate for user review"
+    },
+    {
+      "emotion": "disappointment",
+      "tool": "image_gen.imagegen",
+      "arguments": {
+        "prompt": "Create a full-body disappointment expression sprite of Albedo for a visual novel. The sole image reference is the user's explicitly approved neutral: preserve the exact character identity, petite Medium Male proportions, hair, teal eye design, skin tone, costume, accessories, and polished anime rendering. Vary the pose and body language for this emotion while keeping his proportions at least as petite as the reference. Acting: A subdued disappointed frown and lowered gaze, shoulders slightly slack, hands relaxed at his sides. Use a simple readable gesture; each visible hand has a palm, four fingers and a separate opposable thumb, naturally articulated and distinct from clothing. Exactly two legs and two feet from one pelvis, in an uncomplicated stance with feet separated or slightly staggered. One coherent mouth. Full body including hair, hands, coat and shoes, about 92\u201396% of image height with modest top and bottom padding. Genuine transparent background. No scenery, text, labels, watermark, floating effects or baked ground shadow.",
+        "referenced_image_paths": [
+          "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-09-albedo-official-model-neutral/candidates/Albedo/neutral-v002.png"
+        ],
+        "transparent_background": true
+      },
+      "source": "/Users/alexachan/.codex/generated_images/01a1c17b-8c99-7e41-81d8-58a4cd3eff89/exec-1c536d75-bc5f-4483-b3e1-6d24e522f86c.png",
+      "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-09-albedo-official-model-neutral/raw/Albedo/disappointment.png",
+      "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-09-albedo-official-model-neutral/candidates/Albedo/disappointment.png",
+      "sha256": "eb00d4c0d5512ddb0a95ac861f6ad008f84b30100aed6b3f4f69b30614ce7b4e",
+      "dimensions": [
+        965,
+        1630
+      ],
+      "png_color_type": 6,
+      "approval": "candidate for user review"
+    },
+    {
+      "emotion": "relief",
+      "tool": "image_gen.imagegen",
+      "arguments": {
+        "prompt": "Create a full-body relief expression sprite of Albedo for a visual novel. The sole image reference is the user's explicitly approved neutral: preserve the exact character identity, petite Medium Male proportions, hair, teal eye design, skin tone, costume, accessories, and polished anime rendering. Vary the pose and body language for this emotion while keeping his proportions at least as petite as the reference. Acting: A gentle relieved smile and softened eyes, one hand loosely resting on his chest, shoulders relaxing. Use a simple readable gesture; each visible hand has a palm, four fingers and a separate opposable thumb, naturally articulated and distinct from clothing. Exactly two legs and two feet from one pelvis, in an uncomplicated stance with feet separated or slightly staggered. One coherent mouth. Full body including hair, hands, coat and shoes, about 92\u201396% of image height with modest top and bottom padding. Genuine transparent background. No scenery, text, labels, watermark, floating effects or baked ground shadow.",
+        "referenced_image_paths": [
+          "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-09-albedo-official-model-neutral/candidates/Albedo/neutral-v002.png"
+        ],
+        "transparent_background": true
+      },
+      "source": "/Users/alexachan/.codex/generated_images/01a1c17b-8c99-7e41-81d8-58a4cd3eff89/exec-c79f0f6b-aa41-441c-9c8d-fa88e62f7289.png",
+      "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-09-albedo-official-model-neutral/raw/Albedo/relief.png",
+      "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-09-albedo-official-model-neutral/candidates/Albedo/relief.png",
+      "sha256": "44311bdde46a4bb6555a4789b3b7a6c0460e951e523055e0109595c6fc875017",
+      "dimensions": [
+        965,
+        1630
+      ],
+      "png_color_type": 6,
+      "approval": "candidate for user review"
+    },
+    {
+      "emotion": "admiration",
+      "tool": "image_gen.imagegen",
+      "arguments": {
+        "prompt": "Create a full-body admiration expression sprite of Albedo for a visual novel. The sole image reference is the user's explicitly approved neutral: preserve the exact character identity, petite Medium Male proportions, hair, teal eye design, skin tone, costume, accessories, and polished anime rendering. Vary the pose and body language for this emotion while keeping his proportions at least as petite as the reference. Acting: Bright attentive eyes and a small appreciative smile, one hand raised lightly near his chest. Use a simple readable gesture; each visible hand has a palm, four fingers and a separate opposable thumb, naturally articulated and distinct from clothing. Exactly two legs and two feet from one pelvis, in an uncomplicated stance with feet separated or slightly staggered. One coherent mouth. Full body including hair, hands, coat and shoes, about 92\u201396% of image height with modest top and bottom padding. Genuine transparent background. No scenery, text, labels, watermark, floating effects or baked ground shadow.",
+        "referenced_image_paths": [
+          "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-09-albedo-official-model-neutral/candidates/Albedo/neutral-v002.png"
+        ],
+        "transparent_background": true
+      },
+      "source": "/Users/alexachan/.codex/generated_images/01a1c17b-8c99-7e41-81d8-58a4cd3eff89/exec-3384ca2e-49cd-4fbd-80fc-d4dfc7642db7.png",
+      "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-09-albedo-official-model-neutral/raw/Albedo/admiration.png",
+      "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-09-albedo-official-model-neutral/candidates/Albedo/admiration.png",
+      "sha256": "390172a6f3c7e3a3dcc2de70536d73a783dc5940765b6012061d3199ca36a5db",
+      "dimensions": [
+        965,
+        1629
+      ],
+      "png_color_type": 6,
+      "approval": "candidate for user review"
+    },
+    {
+      "emotion": "gratitude",
+      "tool": "image_gen.imagegen",
+      "arguments": {
+        "prompt": "Create a full-body gratitude expression sprite of Albedo for a visual novel. The sole image reference is the user's explicitly approved neutral: preserve the exact character identity, petite Medium Male proportions, hair, teal eye design, skin tone, costume, accessories, and polished anime rendering. Vary the pose and body language for this emotion while keeping his proportions at least as petite as the reference. Acting: A sincere warm smile and gentle gaze, one hand placed over his heart with a slight appreciative bow. Use a simple readable gesture; each visible hand has a palm, four fingers and a separate opposable thumb, naturally articulated and distinct from clothing. Exactly two legs and two feet from one pelvis, in an uncomplicated stance with feet separated or slightly staggered. One coherent mouth. Full body including hair, hands, coat and shoes, about 92\u201396% of image height with modest top and bottom padding. Genuine transparent background. No scenery, text, labels, watermark, floating effects or baked ground shadow.",
+        "referenced_image_paths": [
+          "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-09-albedo-official-model-neutral/candidates/Albedo/neutral-v002.png"
+        ],
+        "transparent_background": true
+      },
+      "source": "/Users/alexachan/.codex/generated_images/01a1c17b-8c99-7e41-81d8-58a4cd3eff89/exec-ccf9f3b5-e4d2-4c0f-8319-3a2ba29a99ac.png",
+      "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-09-albedo-official-model-neutral/raw/Albedo/gratitude.png",
+      "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-09-albedo-official-model-neutral/candidates/Albedo/gratitude.png",
+      "sha256": "6590fa23aec9e8f018680b2c495a28b59d49a2b0678e277bbd19fddbf38cc42f",
+      "dimensions": [
+        965,
+        1630
+      ],
+      "png_color_type": 6,
+      "approval": "candidate for user review"
+    },
+    {
+      "emotion": "embarrassment",
+      "tool": "image_gen.imagegen",
+      "arguments": {
+        "prompt": "Create a full-body embarrassment expression sprite of Albedo for a visual novel. The sole image reference is the user's explicitly approved neutral: preserve the exact character identity, petite Medium Male proportions, hair, teal eye design, skin tone, costume, accessories, and polished anime rendering. Vary the pose and body language for this emotion while keeping his proportions at least as petite as the reference. Acting: A modest blush and shy averted gaze, one hand raised near his cheek without obscuring his face. Use a simple readable gesture; each visible hand has a palm, four fingers and a separate opposable thumb, naturally articulated and distinct from clothing. Exactly two legs and two feet from one pelvis, in an uncomplicated stance with feet separated or slightly staggered. One coherent mouth. Full body including hair, hands, coat and shoes, about 92\u201396% of image height with modest top and bottom padding. Genuine transparent background. No scenery, text, labels, watermark, floating effects or baked ground shadow.",
+        "referenced_image_paths": [
+          "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-09-albedo-official-model-neutral/candidates/Albedo/neutral-v002.png"
+        ],
+        "transparent_background": true
+      },
+      "source": "/Users/alexachan/.codex/generated_images/01a1c17b-8c99-7e41-81d8-58a4cd3eff89/exec-00017cac-d649-4799-96ae-02268a6df66c.png",
+      "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-09-albedo-official-model-neutral/raw/Albedo/embarrassment.png",
+      "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-09-albedo-official-model-neutral/candidates/Albedo/embarrassment.png",
+      "sha256": "2ddd7a64a026a49ce21ebf4a9250820159cc3aa2605b37ddd7fc1822a4488392",
+      "dimensions": [
+        965,
+        1630
+      ],
+      "png_color_type": 6,
+      "approval": "candidate for user review"
+    },
+    {
+      "emotion": "caring",
+      "tool": "image_gen.imagegen",
+      "arguments": {
+        "prompt": "Create a full-body caring expression sprite of Albedo for a visual novel. The sole image reference is the user's explicitly approved neutral: preserve the exact character identity, petite Medium Male proportions, hair, teal eye design, skin tone, costume, accessories, and polished anime rendering. Vary the pose and body language for this emotion while keeping his proportions at least as petite as the reference. Acting: A gentle concerned expression and reassuring smile, one hand held open near his torso in a calm gesture. Use a simple readable gesture; each visible hand has a palm, four fingers and a separate opposable thumb, naturally articulated and distinct from clothing. Exactly two legs and two feet from one pelvis, in an uncomplicated stance with feet separated or slightly staggered. One coherent mouth. Full body including hair, hands, coat and shoes, about 92\u201396% of image height with modest top and bottom padding. Genuine transparent background. No scenery, text, labels, watermark, floating effects or baked ground shadow.",
+        "referenced_image_paths": [
+          "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-09-albedo-official-model-neutral/candidates/Albedo/neutral-v002.png"
+        ],
+        "transparent_background": true
+      },
+      "source": "/Users/alexachan/.codex/generated_images/01a1c17b-8c99-7e41-81d8-58a4cd3eff89/exec-13329d3e-7e22-4cdd-8394-6891a4ad3a65.png",
+      "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-09-albedo-official-model-neutral/raw/Albedo/caring.png",
+      "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-09-albedo-official-model-neutral/candidates/Albedo/caring.png",
+      "sha256": "3af0121ace9511011c20bbfdaba98297f34cc9378272741ae5d073394eb86e4c",
+      "dimensions": [
+        965,
+        1630
+      ],
+      "png_color_type": 6,
+      "approval": "candidate for user review"
+    },
+    {
+      "emotion": "love-1",
+      "tool": "image_gen.imagegen",
+      "arguments": {
+        "prompt": "Create a full-body love-1 expression sprite of Albedo for a visual novel. The sole image reference is the user's explicitly approved neutral: preserve the exact character identity, petite Medium Male proportions, hair, teal eye design, skin tone, costume, accessories, and polished anime rendering. Vary the pose and body language for this emotion while keeping his proportions at least as petite as the reference. Acting: An openly joyful affectionate smile, both eyes visibly open; one solid white heart-shaped pupil centered inside each intact teal iris, preserving the iris outlines and a visible teal border. These are pupils, not highlights or floating symbols. One hand rests over his heart. Use a simple readable gesture; each visible hand has a palm, four fingers and a separate opposable thumb, naturally articulated and distinct from clothing. Exactly two legs and two feet from one pelvis, in an uncomplicated stance with feet separated or slightly staggered. One coherent mouth. Full body including hair, hands, coat and shoes, about 92\u201396% of image height with modest top and bottom padding. Genuine transparent background. No scenery, text, labels, watermark, floating effects or baked ground shadow.",
+        "referenced_image_paths": [
+          "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-09-albedo-official-model-neutral/candidates/Albedo/neutral-v002.png"
+        ],
+        "transparent_background": true
+      },
+      "source": "/Users/alexachan/.codex/generated_images/01a1c17b-8c99-7e41-81d8-58a4cd3eff89/exec-c1ab2580-5751-4377-8b8d-cd6fcabe5dd7.png",
+      "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-09-albedo-official-model-neutral/raw/Albedo/love-1.png",
+      "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-09-albedo-official-model-neutral/candidates/Albedo/love-1.png",
+      "sha256": "b5d4dcf928a9370626a7d5a72aa11ac34ad335a5e930d43d7147f2b2a4956740",
+      "dimensions": [
+        965,
+        1630
+      ],
+      "png_color_type": 6,
+      "approval": "candidate for user review"
+    },
+    {
+      "emotion": "desire-1",
+      "tool": "image_gen.imagegen",
+      "arguments": {
+        "prompt": "Create a full-body desire-1 expression sprite of Albedo for a visual novel. The sole image reference is the user's explicitly approved neutral: preserve the exact character identity, petite Medium Male proportions, hair, teal eye design, skin tone, costume, accessories, and polished anime rendering. Vary the pose and body language for this emotion while keeping his proportions at least as petite as the reference. Acting: A wistful affectionate expression with soft blush and a hopeful gaze, both eyes visibly open; one solid white heart-shaped pupil centered inside each intact teal iris, preserving the iris outlines and a visible teal border. These are pupils, not highlights or floating symbols. One hand rests near his chest; tasteful and fully clothed. Use a simple readable gesture; each visible hand has a palm, four fingers and a separate opposable thumb, naturally articulated and distinct from clothing. Exactly two legs and two feet from one pelvis, in an uncomplicated stance with feet separated or slightly staggered. One coherent mouth. Full body including hair, hands, coat and shoes, about 92\u201396% of image height with modest top and bottom padding. Genuine transparent background. No scenery, text, labels, watermark, floating effects or baked ground shadow.",
+        "referenced_image_paths": [
+          "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-09-albedo-official-model-neutral/candidates/Albedo/neutral-v002.png"
+        ],
+        "transparent_background": true
+      },
+      "source": "/Users/alexachan/.codex/generated_images/01a1c17b-8c99-7e41-81d8-58a4cd3eff89/exec-33e77715-c7ca-49ac-9da6-0f194687d86a.png",
+      "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-09-albedo-official-model-neutral/raw/Albedo/desire-1.png",
+      "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-09-albedo-official-model-neutral/candidates/Albedo/desire-1.png",
+      "sha256": "75756aac2869ee9114ff76b8a2efa5d046e1bcb1cc4d144b1db3fc39799b0a85",
+      "dimensions": [
+        965,
+        1630
+      ],
+      "png_color_type": 6,
+      "approval": "candidate for user review"
+    }
+  ],
+  "pack": {
+    "order": [
+      "neutral",
+      "annoyance",
+      "smug",
+      "confusion",
+      "love",
+      "excitement",
+      "joy",
+      "fear",
+      "pride",
+      "desire",
+      "anger",
+      "grief",
+      "sadness",
+      "disgust",
+      "disappointment",
+      "relief",
+      "admiration",
+      "gratitude",
+      "embarrassment",
+      "caring",
+      "love-1",
+      "desire-1"
+    ],
+    "directory": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-09-albedo-official-model-neutral/sprites/Albedo",
+    "neutral": "approved v002",
+    "expressions": "approved by user: Good, replace his current sprites with these.",
+    "previews": "Grid order follows pack.order, left to right then top to bottom; face sheets use a fixed upper-image crop.",
+    "archive": "Albedo-22-sprite-candidates.zip"
+  },
+  "installation_manifest": "installation.json"
+}

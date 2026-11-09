@@ -1,0 +1,21 @@
+{
+  "emotion": "caring",
+  "tool": "image_gen.imagegen",
+  "arguments": {
+    "prompt": "Create a full-body caring expression sprite of Albedo for a visual novel. The sole image reference is the user's explicitly approved neutral: preserve the exact character identity, petite Medium Male proportions, hair, teal eye design, skin tone, costume, accessories, and polished anime rendering. Vary the pose and body language for this emotion while keeping his proportions at least as petite as the reference. Acting: A gentle concerned expression and reassuring smile, one hand held open near his torso in a calm gesture. Use a simple readable gesture; each visible hand has a palm, four fingers and a separate opposable thumb, naturally articulated and distinct from clothing. Exactly two legs and two feet from one pelvis, in an uncomplicated stance with feet separated or slightly staggered. One coherent mouth. Full body including hair, hands, coat and shoes, about 92\u201396% of image height with modest top and bottom padding. Genuine transparent background. No scenery, text, labels, watermark, floating effects or baked ground shadow.",
+    "referenced_image_paths": [
+      "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-09-albedo-official-model-neutral/candidates/Albedo/neutral-v002.png"
+    ],
+    "transparent_background": true
+  },
+  "source": "/Users/alexachan/.codex/generated_images/01a1c17b-8c99-7e41-81d8-58a4cd3eff89/exec-13329d3e-7e22-4cdd-8394-6891a4ad3a65.png",
+  "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-09-albedo-official-model-neutral/raw/Albedo/caring.png",
+  "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-09-albedo-official-model-neutral/candidates/Albedo/caring.png",
+  "sha256": "3af0121ace9511011c20bbfdaba98297f34cc9378272741ae5d073394eb86e4c",
+  "dimensions": [
+    965,
+    1630
+  ],
+  "png_color_type": 6,
+  "approval": "candidate for user review"
+}
