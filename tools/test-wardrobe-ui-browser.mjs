@@ -30,9 +30,10 @@ try{
         await window.wardrobeUX.open();
     });
     await settled();
-    assert.equal(await page.locator('#gi-wardrobe-title').innerText(),'Pyro / Klee');
+    assert.equal(await page.locator('#gi-wardrobe-title').innerText(),'Klee','the heading is only the name');
+    assert.equal(await page.locator('.gi-cs-emblem').getAttribute('aria-label'),'Pyro','the crest names the element');
     await page.evaluate(()=>window.wardrobeUX.open({avatar:'Sigewinne.png'}));await settled();
-    assert.equal(await page.locator('#gi-wardrobe-title').innerText(),'Hydro / Sigewinne');
+    assert.equal(await page.locator('#gi-wardrobe-title').innerText(),'Sigewinne');
     await page.evaluate(()=>window.wardrobeUX.open({avatar:'Character 1.png'}));await settled();
     assert.equal(await page.locator('#gi-wardrobe-title').innerText(),'Character 1','unaligned characters show only their name');
     await page.evaluate(()=>window.wardrobeUX.open({avatar:'Klee.png'}));await settled();
@@ -42,7 +43,7 @@ try{
     const touch=await page.context().newCDPSession(page);
     await touch.send('Emulation.setTouchEmulationEnabled',{enabled:true,maxTouchPoints:1});
     for(const [width,height] of views){
-        await page.setViewportSize({width,height});
+        await page.setViewportSize({width,height});await page.waitForTimeout(120);
         const selector=await page.evaluate(()=>{
             const r=el=>{const b=el.getBoundingClientRect();return {left:b.left,right:b.right,top:b.top,bottom:b.bottom,mid:(b.left+b.right)/2};};
             const strip=document.querySelector('header .gi-roster');strip.scrollTop=100;
@@ -51,7 +52,14 @@ try{
         const mobile=width<=900||height<=550,landscape=mobile&&width>height;
         if(landscape){
             assert.ok(selector.title.right<=selector.group.left&&selector.group.right<=selector.close.left,`${width}x${height}: title, portrait group and close have separate columns`);
-        }else assert.ok(Math.abs(selector.group.mid-width/2)<1,`${width}x${height}: portrait group is centered on screen`);
+        }
+        assert.ok(Math.abs(selector.group.mid-width/2)<1,`${width}x${height}: portrait group is centered on screen`);
+        const whole=await page.locator('header .gi-roster').evaluate(strip=>{const s=strip.getBoundingClientRect(),cs=getComputedStyle(strip),left=s.left+parseFloat(cs.paddingLeft),right=s.right-parseFloat(cs.paddingRight),faces=[...strip.querySelectorAll(':scope > button')].map(b=>b.getBoundingClientRect()).filter(r=>r.right>left+1&&r.left<right-1);return {cut:faces.filter(r=>r.left<left-1||r.right>right+1).length,shown:faces.length};});
+        assert.ok(whole.cut===0&&whole.shown%2===1,`${width}x${height}: the strip shows a whole, odd number of portraits (${JSON.stringify(whole)})`);
+        const cross=await page.locator('header > [data-w="close"]').evaluate(b=>{const r=b.getBoundingClientRect(),c=b.querySelector('svg').getBoundingClientRect();return Math.abs((r.left+r.right)-(c.left+c.right))/2+Math.abs((r.top+r.bottom)-(c.top+c.bottom))/2;});
+        assert.ok(cross<0.6,`${width}x${height}: the close cross is centred in its circle`);
+        const rail=await page.locator('.gi-wardrobe-tabs').evaluate(el=>{const r=el.getBoundingClientRect();return [...el.children].filter(b=>b.getBoundingClientRect().bottom<r.bottom&&b.getBoundingClientRect().top>r.top).every(b=>b.scrollWidth<=b.clientWidth+1&&b.getBoundingClientRect().right<=r.right+1);});
+        if(!mobile||landscape)assert.ok(rail,`${width}x${height}: section names in the rail are not cropped`);
         assert.ok(Math.abs((selector.strip.left-selector.q.right)-(selector.e.left-selector.strip.right))<1,`${width}x${height}: Q/E have even spacing`);
         assert.equal(selector.scrollTop,0,`${width}x${height}: portrait strip cannot scroll vertically`);
         assert.ok(selector.scrollHeight<=selector.clientHeight,`${width}x${height}: no vertical overflow in portraits`);
@@ -75,9 +83,9 @@ try{
         assert.equal(await page.locator('header .gi-roster img').first().evaluate(el=>el.draggable),false,'portraits do not start native image drags');
         if(width===390){
             await page.locator('[data-w="character-next"]').click();await settled();
-            assert.equal(await page.locator('#gi-wardrobe-title').innerText(),'Dendro / Nahida','mobile right arrow selects the next character');
+            assert.equal(await page.locator('#gi-wardrobe-title').innerText(),'Nahida','mobile right arrow selects the next character');
             await page.locator('[data-w="character-prev"]').click();await settled();
-            assert.equal(await page.locator('#gi-wardrobe-title').innerText(),'Pyro / Klee','mobile left arrow selects the previous character');
+            assert.equal(await page.locator('#gi-wardrobe-title').innerText(),'Klee','mobile left arrow selects the previous character');
             const x=selector.strip.mid,y=(selector.strip.top+selector.strip.bottom)/2;
             await touch.send('Input.dispatchTouchEvent',{type:'touchStart',touchPoints:[{x,y}]});
             await touch.send('Input.dispatchTouchEvent',{type:'touchMove',touchPoints:[{x,y:y+40}]});
@@ -94,7 +102,7 @@ try{
                 assert.ok(Math.abs(mid-width/2)<1,`${width}x${height}: the sprite stage is centered on screen`);
             }
             if(tab==='moveset'){
-                assert.equal(await page.locator('.gi-moveset-rules').evaluate(el=>el.open),false,`${width}x${height}: Moveset rules start folded`);
+                assert.equal(await page.locator('.gi-moveset-rules, .gi-moveset-note').count(),0,`${width}x${height}: no Moveset rules text`);
                 const effect=await page.locator('.gi-effect select').first().evaluate(el=>el.scrollWidth<=el.clientWidth+1);
                 assert.ok(effect,`${width}x${height}: effect selects are wide enough for their text`);
                 const fields=await page.locator('.gi-moveset :is(select,input:not([type="checkbox"]))').evaluateAll(nodes=>nodes.filter(n=>n.getClientRects().length).map(n=>({height:n.getBoundingClientRect().height,name:n.dataset.k||n.dataset.m||n.dataset.f})));
@@ -114,6 +122,17 @@ try{
             assert.deepEqual(bounds.overflow,[],`${width}x${height} ${tab}: fields fit editor`);
             assert.ok(bounds.labels.every(d=>d!=='none'),`${width}x${height}: all section labels visible`);
             if(tab==='attributes'){
+                await page.waitForFunction(()=>!document.querySelector('#gi-wardrobe').classList.contains('gi-pinching'));await page.waitForTimeout(450);
+                const floor=await page.evaluate(()=>{const p=document.querySelector('.gi-cs-pedestal').getBoundingClientRect(),i=document.querySelector('.gi-wardrobe-preview > img').getBoundingClientRect();return Math.abs((p.top+p.height*.58)-i.bottom);});
+                assert.ok(floor<3,`${width}x${height}: the floor shadow sits at the sprite's feet (${floor})`);
+                if(landscape){
+                    const edge=await page.evaluate(()=>document.querySelector('.gi-cs-side').getBoundingClientRect().bottom-document.querySelector('[data-w="archive"]').getBoundingClientRect().bottom);
+                    assert.ok(Math.abs(edge)<1.5,`${width}x${height}: the slate ends level with the All Characters button (${edge})`);
+                }
+                if(mobile&&!landscape){
+                    const room=await page.locator('.gi-wardrobe-tabs').evaluate(el=>{const r=el.getBoundingClientRect(),b=el.querySelector('[aria-pressed="true"]').getBoundingClientRect();return r.bottom-b.bottom;});
+                    assert.ok(room>=8,`${width}x${height}: the selected section's shadow fits its row (${room})`);
+                }
                 const play=await page.evaluate(()=>{const a=document.querySelector('.gi-cs-actions').getBoundingClientRect(),c=document.querySelector('.gi-wardrobe-controls').getBoundingClientRect(),side=document.querySelector('.gi-cs-side').getBoundingClientRect();return {gap:a.top-c.bottom,inside:a.bottom<=side.bottom+1};});
                 assert.ok(play.gap>=-1&&play.inside,`${width}x${height}: Play as sits below the editor, not over it`);
             }
@@ -226,9 +245,9 @@ try{
     await page.evaluate(async()=>{window.wardrobeUXContext.characters=window.wardrobeUXContext.characters.slice(0,2);await window.wardrobeUX.open({avatar:'Klee.png'});});await settled();
     await page.locator('[data-w="tab-sprites"]').click();
     await page.locator('[data-w="character-next"]').click();await settled();
-    assert.equal(await page.locator('#gi-wardrobe-title').innerText(),'Dendro / Nahida');
+    assert.equal(await page.locator('#gi-wardrobe-title').innerText(),'Nahida');
     await page.locator('[data-w="character-prev"]').click();await settled();
-    assert.equal(await page.locator('#gi-wardrobe-title').innerText(),'Pyro / Klee');
+    assert.equal(await page.locator('#gi-wardrobe-title').innerText(),'Klee');
     await page.keyboard.press('w');assert.equal(await page.locator('#gi-wardrobe').getAttribute('data-tab'),'weapon');
     await page.keyboard.press('s');assert.equal(await page.locator('#gi-wardrobe').getAttribute('data-tab'),'sprites');
     await spriteHeart.locator('[data-hearts="3"]').click();

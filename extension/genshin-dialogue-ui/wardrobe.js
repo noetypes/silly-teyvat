@@ -251,6 +251,13 @@ export function mountWardrobe({host, getContext, onChange = async () => {}, onMe
         abort.signal.addEventListener('abort',()=>{sizes.disconnect();items.disconnect();},{once:true});paint();
     }
     for(const strip of dialog.querySelectorAll('header .gi-roster, .gi-wardrobe-tabs, .gi-roster-view, .gi-wardrobe-controls'))edgeHints(strip);
+    {
+        const refit=()=>{fitRoster();centreSelectedFace();},sizes=new ResizeObserver(refit),faces=new MutationObserver(refit);
+        sizes.observe($('header'));faces.observe($('header .gi-roster'),{childList:true});
+        abort.signal.addEventListener('abort',()=>{sizes.disconnect();faces.disconnect();},{once:true});
+    }
+    // Drawn crosses sit exactly in the middle of their circles, unlike a text glyph.
+    for(const button of dialog.querySelectorAll('header > [data-w="close"], .gi-cs-archive-close'))button.innerHTML='<svg class="gi-cs-cross" viewBox="0 0 24 24" aria-hidden="true"><path d="M6.5 6.5l11 11M17.5 6.5l-11 11"/></svg>';
     const backdrop=mountCharacterBackdrop({sky:$('.gi-cs-sky'),behind:$('.gi-cs-sky canvas'),front:$('.gi-cs-motes'),stage:$('.gi-wardrobe-preview')});
     // A new character stands in lit by their element, and the beams rise as they appear. The tint is the
     // sprite's own outline, so it waits for the final (trimmed) image rather than the first load.
@@ -464,7 +471,11 @@ export function mountWardrobe({host, getContext, onChange = async () => {}, onMe
     function paintTitle(){
         const element=character?characterProperties(getContext(),character).element:'None';
         const name=character?.name || 'Characters';
-        $('#gi-wardrobe-title').textContent=element==='None'?name:`${element} / ${name}`;
+        // The crest names the element, so the heading carries only the character's name.
+        const emblem=$('.gi-cs-emblem');
+        if(emblem){if(element==='None'){emblem.setAttribute('aria-hidden','true');emblem.removeAttribute('role');emblem.removeAttribute('aria-label');}else{emblem.removeAttribute('aria-hidden');emblem.setAttribute('role','img');emblem.setAttribute('aria-label',element);}}
+        $('#gi-wardrobe-title').textContent=name;$('#gi-wardrobe-title').title=element==='None'?name:`${element} · ${name}`;
+        if(dialog.open){fitRoster();centreSelectedFace();}
     }
     function paintElement(){
         const element=character?characterProperties(getContext(),character).element:'None';
@@ -479,6 +490,29 @@ export function mountWardrobe({host, getContext, onChange = async () => {}, onMe
     function stepCharacter(by){
         const faces=[...dialog.querySelectorAll('.gi-roster button')],at=faces.findIndex(b=>b.getAttribute('aria-pressed')==='true');
         if(faces.length>1)faces[(at+by+faces.length)%faces.length].click();
+    }
+    // The portrait group is centred on the screen. When it shares a row with the title, it takes the width the title
+    // and close button leave on both sides; the strip then shows a whole, odd number of portraits, so the selected
+    // one sits in the middle and none is cut off.
+    function fitRoster(){
+        const header=$('header'),group=$('.gi-cs-character-select'),title=$('.gi-cs-title'),name=$('#gi-wardrobe-title'),close=$('header > [data-w="close"]');
+        const strip=$('header .gi-roster'),faces=strip.querySelectorAll(':scope > button');
+        if(!group||!dialog.open)return;
+        strip.style.width='';group.style.maxWidth='';title.style.maxWidth='';
+        const hr=header.getBoundingClientRect(),gr=group.getBoundingClientRect(),tr=title.getBoundingClientRect();
+        if(tr.bottom>gr.top+1&&tr.top<gr.bottom-1){
+            const need=Math.max(name.getBoundingClientRect().left-hr.left+name.scrollWidth+4,hr.right-close.getBoundingClientRect().left)+12;
+            const side=Math.min(need,(hr.width-Math.min(hr.width*.5,330))/2);
+            group.style.maxWidth=`${hr.width-2*side}px`;title.style.maxWidth=`${Math.max(0,side-8-(tr.left-hr.left))}px`;
+        }
+        if(faces.length<2)return;
+        dialog.classList.add('gi-cs-measure');
+        const css=getComputedStyle(strip),pad=parseFloat(css.paddingLeft)+parseFloat(css.paddingRight),gap=parseFloat(css.columnGap)||0;
+        const room=strip.clientWidth-pad,size=faces[faces.length-1].offsetWidth,split=strip.querySelector('[data-party="true"] + button:not([data-party])');
+        dialog.classList.remove('gi-cs-measure');
+        const extra=split?parseFloat(getComputedStyle(split).marginLeft)||0:0;
+        let count=Math.max(1,Math.floor((room-extra+gap)/(size+gap)));if(count%2===0)count--;
+        if(count<faces.length&&size>0)strip.style.width=`${count*size+(count-1)*gap+extra+pad}px`;
     }
     function centreSelectedFace(){
         const strip=$('.gi-roster'),face=strip.querySelector('button[aria-pressed="true"]');if(!face)return;

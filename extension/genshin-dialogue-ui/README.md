@@ -1,3 +1,10 @@
+# Silly Teyvat 1.76.6: Character menu on phones
+
+- **Landscape phones.** The portrait strip is centred on the screen with its arrows evenly spaced, and shows a whole, odd number of portraits so the selected one sits in the middle; the title takes only the room its name needs. Section names in the left rail clear the notch. The slate runs down level with the All Characters button.
+- **Portrait phones.** The slate is a little shorter, so the sprite is larger, and the strip fits five whole portraits. The selected section's shadow is no longer clipped by its row.
+- **Everywhere.** The heading is the element crest and the character's name. Close buttons draw a centred cross. The floor shadow follows the sprite's feet in every layout, including the Moveset camera, and hides while zoomed in. The Moveset rules text is gone; Reset to default is available only after a moveset has been edited.
+- Checks: `node tools/test-wardrobe-ui-browser.mjs` (centring, whole portraits, uncropped rail, slate edge, shadow placement).
+
 # Silly Teyvat 1.76.5: Character configuration review
 
 - **Mobile wardrobe space.** Portrait sections and All Characters filters use single horizontally scrolling rows. Mobile character navigation shows arrows; selected portraits and artwork tiles have room for their glow. The slate no longer repeats the character name and preview caption. Landscape restores the vertical section rail, widens the slate, uses a compact All Characters icon, and gives the element/name heading its own header column. The character browser close button has a separate row from search. [Mobile checks](../../docs/ui-reviews/2026-11-09-mobile-wardrobe.md).

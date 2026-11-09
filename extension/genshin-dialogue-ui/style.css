@@ -4461,6 +4461,76 @@ body.gi-reduced-motion #gi-wardrobe .gi-cs-tint { display: none !important; }
     #gi-wardrobe .gi-cs-archive-name { min-height: 34px; font-size: 12px; overflow-wrap: break-word; }
 }
 
+/* ---------- Phone review: centred portraits, uncropped rails, grounded sprites ---------- */
+/* fitRoster() (wardrobe.js) measures the room the portrait group may use, then shows a whole, odd count. */
+#gi-wardrobe.gi-cs-measure .gi-cs-character-select { width: 100vw; }
+#gi-wardrobe.gi-cs-measure header .gi-roster { flex: 1 1 0; width: 0; min-width: 0; }
+/* A fitted strip's end portraits are whole: its fade only covers the padding, where a neighbour's edge can show. */
+#gi-wardrobe header .gi-roster[data-more] { -webkit-mask: linear-gradient(to right, var(--cs-fade-a, #000), #000 12px, #000 calc(100% - 12px), var(--cs-fade-b, #000)); mask: linear-gradient(to right, var(--cs-fade-a, #000), #000 12px, #000 calc(100% - 12px), var(--cs-fade-b, #000)); }
+/* Close buttons draw their cross, centred in the circle. */
+#gi-wardrobe :is(header > [data-w="close"], .gi-cs-archive-close) { display: grid; place-items: center; padding: 0; line-height: 0; }
+#gi-wardrobe .gi-cs-cross { width: 46%; height: 46%; fill: none; stroke: currentColor; stroke-width: 2.6; stroke-linecap: round; }
+/* The heading is the crest plus the name. */
+#gi-wardrobe .gi-cs-title h2 { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+/* The shadow under the sprite follows its feet, including the camera's zoom (origin 6% from the top). */
+#gi-wardrobe { --cs-zoom: 1; --cs-stage-top: 2dvh; }
+#gi-wardrobe[data-tab="moveset"] { --cs-zoom: 1.16; }
+#gi-wardrobe[data-tab="sprites"][data-zoom="on"] { --cs-zoom: 1.62; }
+#gi-wardrobe .gi-wardrobe-preview { padding-top: var(--cs-stage-top); padding-bottom: var(--cs-floor, 34px); }
+#gi-wardrobe .gi-cs-pedestal {
+    top: calc(var(--cs-stage-top) + (100% - var(--cs-stage-top) - var(--cs-floor, 34px)) * (.06 + .94 * var(--cs-zoom)));
+    bottom: auto; translate: -50% -58%; transition: top 420ms var(--ty-ease), opacity 260ms ease;
+}
+#gi-wardrobe[data-tab="sprites"][data-zoom="on"] .gi-cs-pedestal { opacity: 0; }
+@media (max-width: 900px), (max-height: 550px) {
+    #gi-wardrobe { --cs-floor: 10px; --cs-stage-top: 6px; }
+    #gi-wardrobe[data-tab="moveset"] { --cs-zoom: 1; --cs-camera: none; }
+    #gi-wardrobe[data-tab="sprites"][data-zoom="on"] { --cs-zoom: 1.4; --cs-camera: scale(1.4); }
+    #gi-wardrobe .gi-wardrobe-preview { padding-inline: 6px; }
+    #gi-wardrobe .gi-cs-zoom { left: auto; right: 10px; bottom: calc(var(--cs-floor) + 4px); translate: none; }
+    /* The selected section's shadow fits inside its scrolling row or rail. */
+    #gi-wardrobe .gi-wardrobe-tabs button[aria-pressed="true"] { box-shadow: 0 2px 6px #0005; }
+}
+@media (max-width: 900px) and (orientation: portrait) {
+    #gi-wardrobe .gi-cs-rail { padding: 0 8px; }
+    #gi-wardrobe .gi-wardrobe-tabs { padding: 6px 4px 10px; }
+}
+@media (max-width: 600px) and (orientation: portrait) {
+    /* Slimmer arrows and portraits leave room for five whole portraits on a phone. */
+    #gi-wardrobe .gi-cs-character-select { gap: 6px; }
+    #gi-wardrobe .gi-cs-character-select > .gi-cs-key { width: 28px; }
+    #gi-wardrobe header .gi-roster { padding-inline: 10px; }
+    #gi-wardrobe header .gi-roster button { width: 48px; }
+    #gi-wardrobe header .gi-roster .gi-roster-face { left: 4px; }
+    #gi-wardrobe header .gi-roster button[aria-pressed="true"] .gi-roster-face { left: 1px; }
+    /* A slightly shorter slate leaves the sprite more of the screen. */
+    #gi-wardrobe .gi-wardrobe-body { grid-template-rows: auto minmax(100px, 32dvh) minmax(0, 1fr); }
+}
+@media (max-width: 600px) and (max-height: 650px) and (orientation: portrait) {
+    #gi-wardrobe .gi-wardrobe-body { grid-template-rows: auto minmax(90px, 25dvh) minmax(0, 1fr); }
+}
+/* Landscape phones: crest and name on the left, portraits centred on the screen, a rail wide enough for its
+   names beside the notch, and a slate that runs down to the bottom of the All Characters button. */
+@media (max-width: 900px) and (orientation: landscape), (max-height: 550px) and (orientation: landscape) {
+    #gi-wardrobe { --cs-select-max: calc(100% - 2 * (env(safe-area-inset-left, 0px) + 160px)); --cs-base: calc(env(safe-area-inset-bottom, 0px) + 8px); --cs-floor: calc(var(--cs-base) + 46px); }
+    #gi-wardrobe header { position: relative; grid-template-columns: minmax(0, 1fr) 40px; grid-template-rows: 56px; min-height: 56px; }
+    #gi-wardrobe .gi-cs-title { grid-column: 1; gap: 8px; max-width: calc(50% - var(--cs-select-max) / 2 - 12px); }
+    #gi-wardrobe .gi-cs-emblem { display: block; width: 34px; height: 34px; }
+    #gi-wardrobe .gi-cs-title h2 { font-size: 17px; }
+    #gi-wardrobe header > button[data-w="close"] { grid-column: 2; }
+    #gi-wardrobe .gi-cs-character-select { position: absolute; left: 50%; top: 0; translate: -50% 0; width: max-content; max-width: var(--cs-select-max); height: 56px; gap: 10px; justify-content: center; }
+    #gi-wardrobe header .gi-roster { height: 56px; padding-block: 8px; }
+    #gi-wardrobe header .gi-roster button { width: 44px; height: 40px; }
+    #gi-wardrobe header .gi-roster .gi-roster-face { left: 5px; width: 34px; height: 34px; }
+    #gi-wardrobe header .gi-roster button[aria-pressed="true"] .gi-roster-face { left: 3px; width: 38px; height: 38px; }
+    #gi-wardrobe .gi-wardrobe-body { grid-template-columns: calc(env(safe-area-inset-left, 0px) + 128px) minmax(100px, 1fr) minmax(280px, 46%); }
+    #gi-wardrobe .gi-cs-rail { padding: 2px 0 calc(var(--cs-base) + 44px) calc(env(safe-area-inset-left, 0px) + 6px); }
+    #gi-wardrobe .gi-wardrobe-tabs { padding: 4px 10px 8px 4px; }
+    #gi-wardrobe .gi-cs-side { margin-bottom: var(--cs-base); }
+    #gi-wardrobe footer { position: absolute; left: 0; bottom: 0; right: max(280px, 46%); z-index: 5; display: flex; align-items: flex-end; min-height: 0; padding: 0 12px var(--cs-base) calc(env(safe-area-inset-left, 0px) + 10px); pointer-events: none; }
+    #gi-wardrobe footer > * { pointer-events: auto; }
+}
+
 /* 1.59: Scene Gallery and scene conditions */
 #gi-cg-gallery{position:fixed;inset:0;box-sizing:border-box;width:min(960px,calc(100vw - 32px));height:min(680px,calc(100dvh - 32px));max-width:none;max-height:none;margin:auto;padding:0;border:0;border-radius:18px;overflow:hidden;color:#ece5d8;font-family:var(--ty-font,"Silly Teyvat Dialogue",sans-serif);background:radial-gradient(ellipse 80% 60% at 70% 0%,#d7bd8426,transparent 70%),linear-gradient(160deg,#2a3147f7,#1b2030fa);box-shadow:0 0 0 1px #d3bc8e66,0 24px 60px #0009}
 #gi-cg-gallery[open]{display:grid;grid-template-rows:auto auto minmax(0,1fr)}
