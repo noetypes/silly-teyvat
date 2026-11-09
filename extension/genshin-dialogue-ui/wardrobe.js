@@ -215,13 +215,13 @@ export function mountWardrobe({host, getContext, onChange = async () => {}, onMe
         const sprites=$('[data-panel="sprites"]'),outfits=document.createElement('div');outfits.dataset.panel='outfits';outfits.hidden=true;
         const firstHeading=sprites.querySelector('h3');while(sprites.firstChild&&sprites.firstChild!==firstHeading)outfits.append(sprites.firstChild);sprites.before(outfits);
         const attributes=document.createElement('div');attributes.dataset.panel='attributes';propertiesPanel.open=true;attributes.append(personaPanel,propertiesPanel,trustPanel,deckPanel);
-        const takeOver=document.createElement('section');takeOver.className='gi-takeover';takeOver.innerHTML='<button type="button" data-w="take-over"></button><small>Use this character as your persona. While you play them they leave the world’s random encounters and share one set of sprites with your persona.</small>';$('.gi-cs-actions').append(takeOver);
+        const takeOver=document.createElement('section');takeOver.className='gi-takeover';takeOver.innerHTML='<button type="button" data-w="take-over" title="Use this character as your persona. While you play them they leave the world’s random encounters and share one set of sprites with your persona."></button>';$(':scope > footer').append(takeOver);
         const weapon=document.createElement('div');weapon.dataset.panel='weapon';weapon.hidden=true;const staging=$('.gi-character-staging');staging.open=true;weapon.append(staging);
         // Moveset: the three battle moves, right after Profile.
         const moveset=document.createElement('div');moveset.dataset.panel='moveset';moveset.hidden=true;
         $('[data-w="tab-attributes"]').insertAdjacentHTML('afterend','<button type="button" data-w="tab-moveset" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14.5 3.5h6v6L9 21l-6-6Z"/><path d="m11 13 3-3M3 21l3-3"/></svg><span>Moveset</span></button>');
         controls.prepend(attributes,moveset,weapon);sprites.hidden=true;
-        $('.gi-wardrobe-preview').insertAdjacentHTML('afterbegin','<i class="gi-cs-pedestal" aria-hidden="true"></i>');$('.gi-wardrobe-preview > img').insertAdjacentHTML('afterend','<i class="gi-cs-tint" aria-hidden="true"></i><button type="button" class="gi-cs-zoom" data-w="zoom" aria-pressed="false" aria-label="Zoom in" title="Zoom in"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m15.5 15.5 5 5M10.5 7.5v6M7.5 10.5h6"/></svg></button>');
+        $('.gi-wardrobe-preview').insertAdjacentHTML('afterbegin','<i class="gi-cs-pedestal" aria-hidden="true"></i>');$('.gi-wardrobe-preview > img').insertAdjacentHTML('afterend','<i class="gi-cs-tint" aria-hidden="true"></i><button type="button" class="gi-cs-zoom" data-w="zoom" aria-pressed="false" aria-label="Zoom in" title="Zoom in"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m15.5 15.5 5 5M7.5 10.5h6"/><path class="gi-cs-zoom-plus" d="M10.5 7.5v6"/></svg></button>');
     }
     for(const button of dialog.querySelectorAll('.gi-wardrobe-tabs button')){
         button.dataset.giSound='section-tab';button.setAttribute('aria-label',button.textContent.trim());
@@ -481,10 +481,11 @@ export function mountWardrobe({host, getContext, onChange = async () => {}, onMe
         const element=character?characterProperties(getContext(),character).element:'None';
         dialog.dataset.element=element;$('.gi-cs-emblem').innerHTML=elementCrest(element);backdrop.setElement(element);paintTitle();
     }
-    // Expressions opens on the whole figure; this moves in on the face to judge one expression.
-    function setZoom(on){
-        dialog.dataset.zoom=on?'on':'off';const button=$('.gi-cs-zoom'),label=on?'Zoom out':'Zoom in';
-        button.setAttribute('aria-pressed',String(on));button.setAttribute('aria-label',label);button.title=label;
+    // The stage opens on the whole figure; two steps move in on the face, and a third returns to the whole figure.
+    function setZoom(level){
+        level=Math.max(0,Math.min(2,Number(level)||0));dialog.dataset.zoom=String(level);
+        const button=$('.gi-cs-zoom'),label=level<2?'Zoom in':'Back to full view';
+        button.dataset.level=String(level);button.setAttribute('aria-pressed',String(level>0));button.setAttribute('aria-label',label);button.title=label;
     }
     function stepSection(by){const tabs=[...dialog.querySelectorAll('.gi-wardrobe-tabs button')],at=tabs.findIndex(b=>b.dataset.w===`tab-${tab}`);tabs[(at+by+tabs.length)%tabs.length].click();}
     function stepCharacter(by){
@@ -499,20 +500,29 @@ export function mountWardrobe({host, getContext, onChange = async () => {}, onMe
         const strip=$('header .gi-roster'),faces=strip.querySelectorAll(':scope > button');
         if(!group||!dialog.open)return;
         strip.style.width='';group.style.maxWidth='';title.style.maxWidth='';
-        const hr=header.getBoundingClientRect(),gr=group.getBoundingClientRect(),tr=title.getBoundingClientRect();
+        const hr=header.getBoundingClientRect(),gr=group.getBoundingClientRect(),tr=title.getBoundingClientRect();let sameRow=false;
         if(tr.bottom>gr.top+1&&tr.top<gr.bottom-1){
-            const need=Math.max(name.getBoundingClientRect().left-hr.left+name.scrollWidth+4,hr.right-close.getBoundingClientRect().left)+12;
+            // The room kept for the title is the same for every character (a name as long as "Aether"), so the
+            // number of portraits never depends on who is selected; longer names use what the portraits leave.
+            const need=Math.max(name.getBoundingClientRect().left-hr.left+nameRoom(name)+4,hr.right-close.getBoundingClientRect().left)+12;
             const side=Math.min(need,(hr.width-Math.min(hr.width*.5,330))/2);
-            group.style.maxWidth=`${hr.width-2*side}px`;title.style.maxWidth=`${Math.max(0,side-8-(tr.left-hr.left))}px`;
+            group.style.maxWidth=`${hr.width-2*side}px`;sameRow=true;
         }
-        if(faces.length<2)return;
-        dialog.classList.add('gi-cs-measure');
-        const css=getComputedStyle(strip),pad=parseFloat(css.paddingLeft)+parseFloat(css.paddingRight),gap=parseFloat(css.columnGap)||0;
-        const room=strip.clientWidth-pad,size=faces[faces.length-1].offsetWidth,split=strip.querySelector('[data-party="true"] + button:not([data-party])');
-        dialog.classList.remove('gi-cs-measure');
-        const extra=split?parseFloat(getComputedStyle(split).marginLeft)||0:0;
-        let count=Math.max(1,Math.floor((room-extra+gap)/(size+gap)));if(count%2===0)count--;
-        if(count<faces.length&&size>0)strip.style.width=`${count*size+(count-1)*gap+extra+pad}px`;
+        if(faces.length>=2){
+            dialog.classList.add('gi-cs-measure');
+            const css=getComputedStyle(strip),pad=parseFloat(css.paddingLeft)+parseFloat(css.paddingRight),gap=parseFloat(css.columnGap)||0;
+            const room=strip.clientWidth-pad,size=faces[faces.length-1].offsetWidth,split=strip.querySelector('[data-party="true"] + button:not([data-party])');
+            dialog.classList.remove('gi-cs-measure');
+            const extra=split?parseFloat(getComputedStyle(split).marginLeft)||0:0;
+            let count=Math.max(1,Math.floor((room-extra+gap)/(size+gap)));if(count%2===0)count--;
+            if(count<faces.length&&size>0)strip.style.width=`${count*size+(count-1)*gap+extra+pad}px`;
+        }
+        if(sameRow)title.style.maxWidth=`${Math.max(0,group.getBoundingClientRect().left-tr.left-12)}px`;
+    }
+    let nameMeasure;
+    function nameRoom(name){
+        nameMeasure??=document.createElement('canvas').getContext('2d');nameMeasure.font=getComputedStyle(name).font;
+        return Math.ceil(nameMeasure.measureText('Aether').width);
     }
     function centreSelectedFace(){
         const strip=$('.gi-roster'),face=strip.querySelector('button[aria-pressed="true"]');if(!face)return;
@@ -649,7 +659,7 @@ export function mountWardrobe({host, getContext, onChange = async () => {}, onMe
     async function action(name) {
         if (name === 'close') { dialog.close(); return; }
         if (name === 'archive' || name === 'archive-close') { showArchive(name === 'archive'); return; }
-        if (name === 'zoom') { setZoom(dialog.dataset.zoom !== 'on'); return; }
+        if (name === 'zoom') { setZoom(((Number(dialog.dataset.zoom)||0)+1)%3); return; }
         if (busy()) return;
         if (name.startsWith('tab-')) { switchTab(name.slice(4)); return; }
         if (name === 'section-prev' || name === 'section-next') { stepSection(name === 'section-next' ? 1 : -1); return; }

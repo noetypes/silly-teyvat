@@ -74,9 +74,8 @@
 #gi-wardrobe .gi-wardrobe-preview > img { transform: var(--cs-camera, none); transform-origin: 50% 6%; object-position: 50% 100%; transition: transform 420ms var(--ty-ease); filter: drop-shadow(0 6px 18px #0004); }
 #gi-wardrobe .gi-cs-pedestal { bottom: var(--cs-floor, 34px); width: min(56%, 340px); aspect-ratio: 5 / 1; translate: -50% 42%; background: radial-gradient(closest-side, #0006, #0000); box-shadow: none; animation: none; }
 #gi-wardrobe:is([data-tab="moveset"]) { --cs-camera: scale(1.16); }
-#gi-wardrobe[data-tab="sprites"][data-zoom="on"] { --cs-camera: scale(1.62); }
 #gi-wardrobe .gi-cs-zoom { position: absolute; left: 50%; bottom: calc(var(--cs-floor, 34px) - 26px); z-index: 3; display: none; place-items: center; width: 42px; height: 42px; min-height: 0; padding: 0; border: 3px solid #0000; border-radius: 50%; background: #3d4557 padding-box; box-shadow: 0 0 0 1.5px #ece5d8a0; color: #ece5d8; translate: -50% 0; }
-#gi-wardrobe[data-tab="sprites"] .gi-cs-zoom { display: grid; }
+#gi-wardrobe:not([data-tab="cgs"]) .gi-cs-zoom { display: grid; }
 #gi-wardrobe .gi-cs-zoom svg { width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; }
 #gi-wardrobe .gi-cs-zoom:hover, #gi-wardrobe .gi-cs-zoom[aria-pressed="true"] { background: #4f5a70 padding-box; color: #fff; box-shadow: 0 0 0 1.5px #fff; }
 #gi-wardrobe .gi-cs-zoom[aria-pressed="true"] svg path { d: path("m15.5 15.5 5 5M7.5 10.5h6"); }
@@ -174,7 +173,7 @@
     #gi-wardrobe.gi-cs-sweep .gi-wardrobe-tabs button:not([aria-pressed="true"]) { animation: cs-rail-dim 430ms ease both; }
     #gi-wardrobe .gi-wardrobe-preview { position: relative; overflow: visible; padding: 2dvh 0 var(--cs-floor); }
     #gi-wardrobe .gi-wardrobe-preview > img { -webkit-box-reflect: below 1px linear-gradient(#0000 76%, #ffffff40); }
-    #gi-wardrobe:is([data-tab="sprites"][data-zoom="on"], [data-tab="moveset"], [data-tab="cgs"]) .gi-wardrobe-preview > img { -webkit-box-reflect: unset; }
+    #gi-wardrobe:is([data-zoom="1"], [data-zoom="2"], [data-tab="moveset"], [data-tab="cgs"]) .gi-wardrobe-preview > img { -webkit-box-reflect: unset; }
     #gi-wardrobe .gi-cs-side { padding: clamp(14px, 3.2dvh, 34px) calc(env(safe-area-inset-right, 0px) + var(--cs-gutter)) 76px 8px; }
     #gi-wardrobe footer { position: absolute; left: 0; right: 0; bottom: 0; min-height: 0; padding: 0 calc(env(safe-area-inset-right, 0px) + 28px) calc(env(safe-area-inset-bottom, 0px) + 16px) calc(env(safe-area-inset-left, 0px) + 22px); pointer-events: none; }
     #gi-wardrobe footer > * { pointer-events: auto; }
@@ -203,7 +202,6 @@
     #gi-wardrobe .gi-cs-archive-open { width: 36px; height: 36px; }
     #gi-wardrobe .gi-cs-archive-open svg { width: 20px; height: 20px; }
     #gi-wardrobe[data-tab="moveset"] { --cs-camera: none; }
-    #gi-wardrobe[data-tab="sprites"][data-zoom="on"] { --cs-camera: scale(1.4); }
 }
 @media (max-width: 600px) and (orientation: portrait) {
     #gi-wardrobe header { grid-template-columns: minmax(0, 1fr) auto; }
@@ -517,17 +515,14 @@ body.gi-reduced-motion #gi-wardrobe .gi-cs-tint { display: none !important; }
 /* The shadow under the sprite follows its feet, including the camera's zoom (origin 6% from the top). */
 #gi-wardrobe { --cs-zoom: 1; --cs-stage-top: 2dvh; }
 #gi-wardrobe[data-tab="moveset"] { --cs-zoom: 1.16; }
-#gi-wardrobe[data-tab="sprites"][data-zoom="on"] { --cs-zoom: 1.62; }
 #gi-wardrobe .gi-wardrobe-preview { padding-top: var(--cs-stage-top); padding-bottom: var(--cs-floor, 34px); }
 #gi-wardrobe .gi-cs-pedestal {
     top: calc(var(--cs-stage-top) + (100% - var(--cs-stage-top) - var(--cs-floor, 34px)) * (.06 + .94 * var(--cs-zoom)));
     bottom: auto; translate: -50% -58%; transition: top 420ms var(--ty-ease), opacity 260ms ease;
 }
-#gi-wardrobe[data-tab="sprites"][data-zoom="on"] .gi-cs-pedestal { opacity: 0; }
 @media (max-width: 900px), (max-height: 550px) {
     #gi-wardrobe { --cs-floor: 10px; --cs-stage-top: 6px; }
     #gi-wardrobe[data-tab="moveset"] { --cs-zoom: 1; --cs-camera: none; }
-    #gi-wardrobe[data-tab="sprites"][data-zoom="on"] { --cs-zoom: 1.4; --cs-camera: scale(1.4); }
     #gi-wardrobe .gi-wardrobe-preview { padding-inline: 6px; }
     #gi-wardrobe .gi-cs-zoom { left: auto; right: 10px; bottom: calc(var(--cs-floor) + 4px); translate: none; }
     /* The selected section's shadow fits inside its scrolling row or rail. */
@@ -571,4 +566,53 @@ body.gi-reduced-motion #gi-wardrobe .gi-cs-tint { display: none !important; }
     #gi-wardrobe .gi-cs-side { margin-bottom: var(--cs-base); }
     #gi-wardrobe footer { position: absolute; left: 0; bottom: 0; right: max(280px, 46%); z-index: 5; display: flex; align-items: flex-end; min-height: 0; padding: 0 12px var(--cs-base) calc(env(safe-area-inset-left, 0px) + 10px); pointer-events: none; }
     #gi-wardrobe footer > * { pointer-events: auto; }
+}
+
+/* ---------- Zoom, Play as, open editors ---------- */
+/* Zoom works on every section but Scenes: two steps in, then back to the whole figure. */
+#gi-wardrobe .gi-wardrobe-preview:has(> img[hidden]) .gi-cs-zoom { display: none; }
+#gi-wardrobe .gi-cs-zoom[data-level="2"] .gi-cs-zoom-plus { display: none; }
+#gi-wardrobe[data-zoom="1"]:not([data-tab="cgs"]) { --cs-zoom: 1.45; --cs-camera: scale(1.45); }
+#gi-wardrobe[data-zoom="2"]:not([data-tab="cgs"]) { --cs-zoom: 2; --cs-camera: scale(2); }
+#gi-wardrobe:is([data-zoom="1"], [data-zoom="2"]):not([data-tab="cgs"]) .gi-cs-pedestal { opacity: 0; }
+@media (max-width: 900px), (max-height: 550px) {
+    #gi-wardrobe[data-zoom="1"]:not([data-tab="cgs"]) { --cs-zoom: 1.35; --cs-camera: scale(1.35); }
+    #gi-wardrobe[data-zoom="2"]:not([data-tab="cgs"]) { --cs-zoom: 1.8; --cs-camera: scale(1.8); }
+}
+/* Character & enemy properties and staging are always open: no disclosure heading to hide them behind. */
+#gi-wardrobe :is(.gi-character-staging, .gi-card-properties:not(.gi-start-trust, .gi-starter-deck)) > summary { display: none; }
+/* Long expression names wrap inside their tile instead of being cut off. */
+#gi-wardrobe .gi-expression-grid button > span:not(.gi-slot-placeholder) { overflow: visible; white-space: normal; text-overflow: clip; overflow-wrap: anywhere; }
+#gi-wardrobe .gi-wardrobe-controls .gi-expression-grid { grid-template-columns: repeat(auto-fill, minmax(90px, 1fr)); }
+@media (max-width: 600px) and (orientation: portrait) { #gi-wardrobe .gi-expression-grid button > span:not(.gi-slot-placeholder) { font-size: 11.5px; padding-inline: 2px; } }
+/* Play as sits in the bottom bar, level with All Characters, at the same height, right aligned. */
+#gi-wardrobe { --cs-foot-h: 40px; }
+#gi-wardrobe .gi-cs-actions:empty { display: none; }
+#gi-wardrobe footer { display: flex; align-items: center; }
+#gi-wardrobe footer p { flex: 1 1 auto; }
+#gi-wardrobe .gi-cs-archive-open { height: var(--cs-foot-h); min-height: var(--cs-foot-h); padding-block: 0; }
+#gi-wardrobe footer .gi-takeover { display: flex; flex: 0 1 auto; min-width: 0; max-width: 48%; margin: 0 0 0 auto; padding: 0; border: 0; background: none; }
+#gi-wardrobe footer .gi-takeover[hidden] { display: none; }
+#gi-wardrobe footer .gi-takeover button { min-width: 0; max-width: 100%; height: var(--cs-foot-h); min-height: var(--cs-foot-h); padding: 0 16px; border-radius: 22px; font-size: 14px; line-height: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+@media (min-width: 901px) and (min-height: 551px) {
+    #gi-wardrobe footer { padding-right: calc(env(safe-area-inset-right, 0px) + 20px); }
+}
+@media (max-width: 900px), (max-height: 550px) {
+    #gi-wardrobe { --cs-foot-h: 36px; }
+    #gi-wardrobe footer .gi-takeover button { padding-inline: 14px; font-size: 13px; }
+}
+@media (max-width: 900px) and (orientation: portrait) {
+    #gi-wardrobe footer { padding-right: calc(env(safe-area-inset-right, 0px) + 10px); }
+}
+@media (max-width: 600px) and (orientation: portrait) {
+    #gi-wardrobe footer { position: relative; padding-right: calc(env(safe-area-inset-right, 0px) + 8px); }
+    /* Status messages float just above the bar as a fading toast, leaving the row to its two buttons. */
+    #gi-wardrobe footer p { position: absolute; left: 50%; bottom: calc(100% + 8px); flex: none; width: max-content; max-width: calc(100% - 32px); padding: 5px 12px; border-radius: 14px; background: #0b1120e6; box-shadow: 0 2px 8px #0006; translate: -50% 0; pointer-events: none; }
+    #gi-wardrobe footer p:not(.gi-toast), #gi-wardrobe footer p:empty { display: none; }
+}
+/* Landscape: section bubbles fit their names, as in portrait. */
+@media (max-width: 900px) and (orientation: landscape), (max-height: 550px) and (orientation: landscape) {
+    #gi-wardrobe .gi-wardrobe-tabs { align-items: flex-start; }
+    #gi-wardrobe .gi-wardrobe-tabs button { width: auto; max-width: 100%; }
+    #gi-wardrobe footer { align-items: flex-end; }
 }

@@ -1,3 +1,11 @@
+# Silly Teyvat 1.76.7: Character menu controls
+
+- **Play as** sits in the bottom bar on every section, level with and as tall as All Characters, right aligned under the slate (beside the slate in landscape). Its explanation moved to a tooltip. On phones in portrait, status messages float above the bar as a fading toast.
+- **Zoom** is on every section except Scenes: two steps closer, then back to the whole figure.
+- Character & enemy properties and the Staging settings are always shown, without dropdown headings.
+- The number of portraits in the top strip no longer depends on the selected character's name; it always keeps room for a name as long as "Aether", and longer names use the space the portraits leave.
+- Landscape section bubbles fit their names. Expression tiles are wider, so names such as "embarrassment" fit.
+
 # Silly Teyvat 1.76.6: Character menu on phones
 
 - **Landscape phones.** The portrait strip is centred on the screen with its arrows evenly spaced, and shows a whole, odd number of portraits so the selected one sits in the middle; the title takes only the room its name needs. Section names in the left rail clear the notch. The slate runs down level with the All Characters button.

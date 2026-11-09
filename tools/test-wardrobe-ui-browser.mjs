@@ -60,6 +60,16 @@ try{
         assert.ok(cross<0.6,`${width}x${height}: the close cross is centred in its circle`);
         const rail=await page.locator('.gi-wardrobe-tabs').evaluate(el=>{const r=el.getBoundingClientRect();return [...el.children].filter(b=>b.getBoundingClientRect().bottom<r.bottom&&b.getBoundingClientRect().top>r.top).every(b=>b.scrollWidth<=b.clientWidth+1&&b.getBoundingClientRect().right<=r.right+1);});
         if(!mobile||landscape)assert.ok(rail,`${width}x${height}: section names in the rail are not cropped`);
+        if(landscape){
+            const bubble=await page.locator('.gi-wardrobe-tabs [aria-pressed="true"]').evaluate(b=>{const range=document.createRange();range.selectNodeContents(b.querySelector('span'));return b.getBoundingClientRect().width-range.getBoundingClientRect().width;});
+            assert.ok(bubble<40,`${width}x${height}: the selected section bubble fits its name (${bubble})`);
+            const before=await page.locator('header .gi-roster').evaluate(el=>el.getBoundingClientRect().width);
+            await page.evaluate(()=>window.wardrobeUX.open({avatar:'Sangonomiya Kokomi.png'}));await settled();await page.waitForTimeout(60);
+            const after=await page.locator('header .gi-roster').evaluate(el=>el.getBoundingClientRect().width);
+            const title=await page.evaluate(()=>{const t=document.querySelector('.gi-cs-title').getBoundingClientRect(),g=document.querySelector('.gi-cs-character-select').getBoundingClientRect();return g.left-t.right;});
+            await page.evaluate(()=>window.wardrobeUX.open({avatar:'Klee.png'}));await settled();
+            assert.ok(Math.abs(before-after)<1&&title>=0,`${width}x${height}: the number of portraits does not depend on the name (${before} vs ${after}, gap ${title})`);
+        }
         assert.ok(Math.abs((selector.strip.left-selector.q.right)-(selector.e.left-selector.strip.right))<1,`${width}x${height}: Q/E have even spacing`);
         assert.equal(selector.scrollTop,0,`${width}x${height}: portrait strip cannot scroll vertically`);
         assert.ok(selector.scrollHeight<=selector.clientHeight,`${width}x${height}: no vertical overflow in portraits`);
@@ -101,6 +111,17 @@ try{
                 const mid=await page.locator('.gi-wardrobe-preview').evaluate(el=>{const r=el.getBoundingClientRect();return (r.left+r.right)/2;});
                 assert.ok(Math.abs(mid-width/2)<1,`${width}x${height}: the sprite stage is centered on screen`);
             }
+            const zoom=page.locator('.gi-cs-zoom');
+            assert.equal(await zoom.isVisible(),tab!=='cgs',`${width}x${height} ${tab}: zoom is offered on every section but Scenes`);
+            if(tab==='weapon'){
+                assert.equal(await page.locator('.gi-character-staging > summary').isVisible(),false,`${width}x${height}: no Stage placement dropdown`);
+                assert.equal(await page.locator('#gi-character-scale').isVisible(),true,`${width}x${height}: staging fields are always shown`);
+                if(width===1440||width===390){
+                    const steps=[];for(let i=0;i<3;i++){await zoom.click();steps.push(await page.locator('#gi-wardrobe').evaluate(el=>[el.dataset.zoom,getComputedStyle(el).getPropertyValue('--cs-zoom').trim()].join('@')));}
+                    assert.equal(steps.map(x=>x.split('@')[0]).join(),'1,2,0',`${width}x${height}: zoom steps in twice, then back (${steps})`);
+                    assert.ok(parseFloat(steps[0].split('@')[1])>1&&parseFloat(steps[1].split('@')[1])>parseFloat(steps[0].split('@')[1]),`${width}x${height}: each zoom step is closer (${steps})`);
+                }
+            }
             if(tab==='moveset'){
                 assert.equal(await page.locator('.gi-moveset-rules, .gi-moveset-note').count(),0,`${width}x${height}: no Moveset rules text`);
                 const effect=await page.locator('.gi-effect select').first().evaluate(el=>el.scrollWidth<=el.clientWidth+1);
@@ -133,8 +154,11 @@ try{
                     const room=await page.locator('.gi-wardrobe-tabs').evaluate(el=>{const r=el.getBoundingClientRect(),b=el.querySelector('[aria-pressed="true"]').getBoundingClientRect();return r.bottom-b.bottom;});
                     assert.ok(room>=8,`${width}x${height}: the selected section's shadow fits its row (${room})`);
                 }
-                const play=await page.evaluate(()=>{const a=document.querySelector('.gi-cs-actions').getBoundingClientRect(),c=document.querySelector('.gi-wardrobe-controls').getBoundingClientRect(),side=document.querySelector('.gi-cs-side').getBoundingClientRect();return {gap:a.top-c.bottom,inside:a.bottom<=side.bottom+1};});
-                assert.ok(play.gap>=-1&&play.inside,`${width}x${height}: Play as sits below the editor, not over it`);
+                const play=await page.evaluate(()=>{const r=s=>document.querySelector(s).getBoundingClientRect(),p=r('[data-w="take-over"]'),a=r('[data-w="archive"]'),side=r('.gi-cs-side');return {level:Math.abs(p.bottom-a.bottom),height:Math.abs(p.height-a.height),right:p.right,sideRight:side.right,sideLeft:side.left,helper:document.querySelectorAll('.gi-takeover small').length};});
+                assert.ok(play.level<1&&play.height<1&&play.helper===0,`${width}x${height}: Play as is level with and as tall as All Characters, without helper text (${JSON.stringify(play)})`);
+                assert.ok(landscape?play.right<=play.sideLeft:Math.abs(play.right-play.sideRight)<1.5,`${width}x${height}: Play as is right aligned (${JSON.stringify(play)})`);
+                assert.equal(await page.locator('.gi-card-properties:not(.gi-start-trust, .gi-starter-deck) > summary').isVisible(),false,`${width}x${height}: no Character & enemy properties dropdown`);
+                assert.equal(await page.locator('#gi-character-scale').isVisible(),false,'staging fields belong to Staging');
             }
         }
         await page.locator('[data-w="tab-sprites"]').click();
