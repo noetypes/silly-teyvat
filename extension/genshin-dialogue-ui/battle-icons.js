@@ -2,10 +2,11 @@
 // Genius Invokation skill icons, round character icons and summon cards. Anything without
 // a downloaded icon falls back to Silly Teyvat's own glyphs.
 import {glyph} from './battle-fx.js';
+import {avatarIcon,avatarIconsReady} from './avatar-icons.js';
 const ELEMENTS=['Pyro','Hydro','Anemo','Electro','Dendro','Cryo','Geo'];
 let index={reactions:{},skills:{},icons:{},summons:{},fields:{}};
 const url=path=>new URL(`./assets/battle/${path}`,import.meta.url).href;
-export const iconsReady=fetch(url('index.json')).then(r=>r.ok?r.json():null).then(data=>{if(data)index={...index,...data};}).catch(()=>{});
+export const iconsReady=Promise.all([avatarIconsReady,fetch(url('index.json')).then(r=>r.ok?r.json():null).then(data=>{if(data)index={...index,...data};}).catch(()=>{})]);
 export const elementIcon=(element,white=false)=>ELEMENTS.includes(element)?url(`elements/${element}${white?'-white':''}.svg`):'';
 // An element as an <img> (coloured, or white for use on a coloured background), or the built-in glyph.
 export function elementImg(element,{white=false,cls='tb-el-img'}={}){
@@ -16,7 +17,7 @@ export const reactionIcon=name=>{const file=index.reactions[String(name).split('
 export const skillIcon=move=>{const entry=move&&index.skills[move.name];return entry?url(`skills/${entry.file}`):'';};
 // The same art as a white glyph for the bronze medallions (tools/build-skill-glyphs.py).
 export const skillGlyph=move=>{const entry=move&&index.skills[move.name];return entry?url(`glyphs/${entry.file}`):'';};
-export const characterIcon=name=>index.icons[name]?url(`icons/${index.icons[name]}`):'';
+export const characterIcon=name=>avatarIcon(name) || (index.icons[name]?url(`icons/${index.icons[name]}`):'');
 // Card art for an enemy's second form (assets/tcg/forms), shown on the board once it transforms.
 export const formArt=name=>name?new URL(`./assets/tcg/forms/${encodeURIComponent(name)}.webp`,import.meta.url).href:'';
 export const summonArt=name=>index.summons[name]?url(`summons/${index.summons[name]}`):'';

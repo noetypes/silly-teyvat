@@ -5,7 +5,7 @@ import {characterIcon} from './battle-icons.js';
 // The small icons beside a map waypoint. They are worked out from the live roster and wilderness settings
 // every time the map paints, so moving a character, toggling Wilderness or changing the enemy pool updates them.
 // A boss replaces the wilderness badge, which shows a common enemy of the region (waypointEnemy): every boss arena is also wilderness. The badge is that boss's own icon
-// (the wiki enemy icon the battle screen uses), or the general boss emblem until the icons have loaded.
+// (the transparent head portrait the battle screen uses), or the general boss emblem until the icons have loaded.
 const icon=name=>new URL(`assets/icons/map-badge-${name}.webp`,import.meta.url).href;
 export const WAYPOINT_BADGES=Object.freeze({
     people:{label:'Characters here',icon:icon('people')},
@@ -27,7 +27,7 @@ export function waypointBoss(ctx,location){
     return (location.enemyPool || []).map(avatar=>avatarName(ctx,avatar)).find(isTcgBoss) || '';
 }
 // The wilderness badge shows a common enemy of the waypoint's region: of the enemies in this waypoint's
-// pool, the one found in the most wilderness pools of its region (bosses aside), with a wiki icon. A
+// pool, the one found in the most wilderness pools of its region (bosses aside), with a portrait. A
 // waypoint with an empty pool takes its region's most common enemy; with no icon at all, the emblem stays.
 function enemyCounts(ctx,region){
     const counts=new Map();

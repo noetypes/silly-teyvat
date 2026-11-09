@@ -49,3 +49,11 @@ Flows with several phases (a card that is a list, details, a place picker or an 
 SillyTavern serves sprites from `data/default-user/characters/<Name>/` (and `<Name>/<Outfit>/`). Anything the extension remembers about a sprite is keyed by folder and name without the extension (`sprite-files.js`: `spriteAudioKey`, `spriteLocation`, `healSceneSources`), so the same sprite may be a PNG or a WebP. Never build a key from a file name by hand; use `spriteAudioKey`.
 
 `tools/convert-sprites.py --archive DIR` converts sprite PNGs to WebP quality 90 and archives the originals (see its header for what it skips). Run it after installing newly generated sprites; it only converts what is still a PNG. `art/sprites/` holds the generation runs and their hashes and is never converted. Checks: `node tools/test-sprite-files.mjs` and `node tools/test-sprite-files-browser.mjs`.
+
+Enemy and NPC circular portraits are non-generative crops recorded in
+`art/sprites/2026-11-09-enemy-npc-head-icons/run.json`. Rebuild with
+`python3 tools/build-sprite-head-icons.py` (Pillow), then migrate that run and
+`extension/genshin-dialogue-ui/assets/avatar-icons` into the data pack.
+`node tools/test-sprite-head-icons-browser.mjs` checks full catalog coverage,
+transparency, card-name aliases and shared wardrobe/combat/map portraits; it uses
+the same Playwright setup and `IDENTITY_PREVIEW_URL` as the other browser checks.

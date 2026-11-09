@@ -1,3 +1,7 @@
+# Silly Teyvat 1.76.11: Enemy and NPC head icons
+
+- All 104 enemies and 46 NPCs now have transparent circular head portraits cropped from their installed neutral sprites, with individual framing for creatures and machines. Character Customization, combat, inventory, Trust, linked personas and map enemy badges use the shared portraits.
+
 # Silly Teyvat 1.76.10: Menus cover the welcome panel
 
 - SillyTavern's menus (AI Config, User Settings and the rest) are now at least as wide as the chat column and start just under the top icons, so they fully cover the "SillyTavern release" welcome panel when it is on screen. On phones they are 6px from each edge instead of 12px.
