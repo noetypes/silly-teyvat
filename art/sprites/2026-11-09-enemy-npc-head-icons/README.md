@@ -17,6 +17,19 @@ containing colons also have aliases matching SillyTavern's sanitized card names.
 are preserved in `draft-v1/` and `draft-v2/`; `sources-*.jpg` shows source framing.
 All media is kept in the external pack and registered in `game-data.json`.
 
+## Face-centering revision
+
+The user requested centred NPC faces, specifically Katheryne, after the initial
+installation. All 46 NPCs were reviewed for framing; `face_center_source` records
+the selected facial midpoint in original sprite pixels. The square crop is
+centred on that point, rather than the full sprite's alpha bounds. A few crops
+are slightly wider to retain more headwear. Sprite artwork is unchanged.
+
+The current NPC PNGs have the suffix `face-centered-v002`. Current contact sheets
+are in `previews-face-centered-v002/`. Original PNGs, WebPs and contact sheets
+remain intact, and `revisions/before-face-centering-v002.json` preserves the
+previous exact crop records. Enemy crops are unchanged.
+
 Rebuild with `python3 tools/build-sprite-head-icons.py` (Pillow required). Rebuilds
 check source hashes and refuse to overwrite different outputs. Archive a previous
 framing pass before changing its coordinates. Migrate only this run and

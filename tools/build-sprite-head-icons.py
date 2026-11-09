@@ -61,7 +61,9 @@ def main(run_path):
         image = sprite.crop(crop).resize((SIZE, SIZE), Image.Resampling.LANCZOS)
         image.putalpha(ImageChops.multiply(image.getchannel('A'), mask))
         slug = re.sub(r'[^a-z0-9]+', '-', entry['name'].lower()).strip('-')
-        png = run_path / 'icons' / f'{slug}.png'
+        # Revised framing gets a new file; keep earlier crops and external links intact.
+        revision = entry.get('icon_revision', '')
+        png = run_path / 'icons' / f'{slug}{"-" + revision if revision else ""}.png'
         write_image(image, png, format='PNG')
         # Content-addressed names refresh browser caches and preserve older assets.
         filename = f'sprite-{slug}-{digest(png)[:10]}.webp'
@@ -88,7 +90,7 @@ def main(run_path):
             sheet.paste(image, (x + 10, y + 4), image)
             draw.text((x + 3, y + 169), f'{start + j} {name[:23]}', font=font, fill='white')
             draw.text((x + 3, y + 187), name[23:48], font=font, fill='white')
-        path = run_path / 'previews' / f'head-icons-{start // 30 + 1}.jpg'
+        path = run_path / run.get('preview_directory', 'previews') / f'head-icons-{start // 30 + 1}.jpg'
         write_image(sheet, path, format='JPEG', quality=90)
     print(f"Built {len(previews)} transparent sprite head icons")
 

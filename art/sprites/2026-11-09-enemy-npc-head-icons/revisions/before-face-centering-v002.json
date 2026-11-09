@@ -1,0 +1,4655 @@
+{
+  "method": "Non-generative crop and resize of installed neutral sprite art; original alpha retained, circular alpha mask.",
+  "entries": [
+    {
+      "name": "Abyss Herald: Wicked Torrents",
+      "role": "enemy",
+      "source": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Abyss Herald: Wicked Torrents/neutral.webp",
+      "source_sha256": "c02fc73f7590c6427cbd046c28f7e1dc60bbbfdac3a2b9292038aeb1640f6e6d",
+      "size": [
+        940,
+        1673
+      ],
+      "alpha_bounds": [
+        48,
+        15,
+        940,
+        1673
+      ],
+      "crop_normalized": [
+        0.57,
+        0.17,
+        0.35
+      ],
+      "crop_pixels": [
+        266,
+        7,
+        846,
+        587
+      ],
+      "output": "art/sprites/2026-11-09-enemy-npc-head-icons/icons/abyss-herald-wicked-torrents.png",
+      "output_sha256": "4f5ab463d6704ba0af1b4ab761dd2acbc7daee458965cca3efc376bbef690f32",
+      "asset": "extension/genshin-dialogue-ui/assets/avatar-icons/sprite-abyss-herald-wicked-torrents-4f5ab463d6.webp",
+      "asset_sha256": "90c231e317bfd5e17fdf236ea018225b9429ef12df850fbf6cb745ed1b8cb7da"
+    },
+    {
+      "name": "Abyss Lector: Fathomless Flames",
+      "role": "enemy",
+      "source": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Abyss Lector: Fathomless Flames/neutral.webp",
+      "source_sha256": "c4e79a477f8474e3adee82495fe1e0673f13fb7c90ebe368a4fdd285acaab70d",
+      "size": [
+        1024,
+        1536
+      ],
+      "alpha_bounds": [
+        31,
+        8,
+        1010,
+        1536
+      ],
+      "crop_normalized": [
+        0.5,
+        0.2,
+        0.4
+      ],
+      "crop_pixels": [
+        215,
+        8,
+        826,
+        619
+      ],
+      "output": "art/sprites/2026-11-09-enemy-npc-head-icons/icons/abyss-lector-fathomless-flames.png",
+      "output_sha256": "06cf1afd554bd1d4153ed97ed2cebf004fa1d70e20727e8bbdd17aab50cf5f4a",
+      "asset": "extension/genshin-dialogue-ui/assets/avatar-icons/sprite-abyss-lector-fathomless-flames-06cf1afd55.webp",
+      "asset_sha256": "2e127e3f0f1f241fc008bf61323d156c54716dceef864560d90c28ca9b2d62ba"
+    },
+    {
+      "name": "Abyss Lector: Violet Lightning",
+      "role": "enemy",
+      "source": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Abyss Lector: Violet Lightning/neutral.webp",
+      "source_sha256": "a577ee86e355fd4896482200babed557e582d467df10715f8ab0ece7818f52a2",
+      "size": [
+        1086,
+        1448
+      ],
+      "alpha_bounds": [
+        45,
+        10,
+        973,
+        1378
+      ],
+      "crop_normalized": [
+        0.53,
+        0.18,
+        0.38
+      ],
+      "crop_pixels": [
+        277,
+        -4,
+        797,
+        516
+      ],
+      "output": "art/sprites/2026-11-09-enemy-npc-head-icons/icons/abyss-lector-violet-lightning.png",
+      "output_sha256": "0449b6e473cfce6be5cc531d099719758845c01352500fe6c730ef4d5f560c04",
+      "asset": "extension/genshin-dialogue-ui/assets/avatar-icons/sprite-abyss-lector-violet-lightning-0449b6e473.webp",
+      "asset_sha256": "8acef682353f76ce075d356481726023b63e1d9064f6a8210f4a082ffa5c8e2b"
+    },
+    {
+      "name": "Adel",
+      "role": "character",
+      "source": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Adel/neutral.webp",
+      "source_sha256": "e93cc6306bf7e047e3eb57ee1874440edcdccac580921c82394aaff8c041969a",
+      "size": [
+        1024,
+        1536
+      ],
+      "alpha_bounds": [
+        0,
+        18,
+        1000,
+        1512
+      ],
+      "crop_normalized": [
+        0.5,
+        0.105,
+        0.24
+      ],
+      "crop_pixels": [
+        320,
+        -5,
+        679,
+        354
+      ],
+      "output": "art/sprites/2026-11-09-enemy-npc-head-icons/icons/adel.png",
+      "output_sha256": "2ad61af5b1b094ea1ce546bf99a7f5050600660d437d9e94e8727167a748ab58",
+      "asset": "extension/genshin-dialogue-ui/assets/avatar-icons/sprite-adel-2ad61af5b1.webp",
+      "asset_sha256": "917c092d8632abdfc5059e7eb10d60b900b674252fc3953413bd31c9360e38a2"
+    },
+    {
+      "name": "All-Devouring Narwhal",
+      "role": "enemy",
+      "source": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/All-Devouring Narwhal/neutral.webp",
+      "source_sha256": "2495426cf14f20df040c734e07401c3ed0633384ccc0a202216a6329062cc37c",
+      "size": [
+        1554,
+        1012
+      ],
+      "alpha_bounds": [
+        0,
+        16,
+        1554,
+        1012
+      ],
+      "crop_normalized": [
+        0.30909,
+        0.6468,
+        0.441
+      ],
+      "crop_pixels": [
+        261,
+        441,
+        700,
+        880
+      ],
+      "output": "art/sprites/2026-11-09-enemy-npc-head-icons/icons/all-devouring-narwhal.png",
+      "output_sha256": "608d01f8b9764e0505572a59aee583a619452c682cfd4dc331c88502cfc1ac9e",
+      "asset": "extension/genshin-dialogue-ui/assets/avatar-icons/sprite-all-devouring-narwhal-608d01f8b9.webp",
+      "asset_sha256": "2097da644da8b40e3b38c45e991350e1158ca6707723f533eb27617e809d3cf0"
+    },
+    {
+      "name": "Aloha",
+      "role": "character",
+      "source": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Aloha/neutral.webp",
+      "source_sha256": "019273a64fb16379e2ce7b9276f572017aaf544ff5b961e65fb82ad8230c04f0",
+      "size": [
+        935,
+        1682
+      ],
+      "alpha_bounds": [
+        0,
+        12,
+        921,
+        1657
+      ],
+      "crop_normalized": [
+        0.5,
+        0.105,
+        0.24
+      ],
+      "crop_pixels": [
+        263,
+        -13,
+        658,
+        382
+      ],
+      "output": "art/sprites/2026-11-09-enemy-npc-head-icons/icons/aloha.png",
+      "output_sha256": "16820c0297c39b3f4cbea1d521fb1686f3c0354a5691e2ffea1b505b4e61b35d",
+      "asset": "extension/genshin-dialogue-ui/assets/avatar-icons/sprite-aloha-16820c0297.webp",
+      "asset_sha256": "f271689cf037b3943fcefc19e63e03c09d30ac83089e05f040ba744e6f72d4e3"
+    },
+    {
+      "name": "Anemo Samachurl",
+      "role": "enemy",
+      "source": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Anemo Samachurl/neutral.webp",
+      "source_sha256": "72f23e31e7b5764ff4278a57be6f9fe127d6de1fceaefc029f443691c4a2210c",
+      "size": [
+        1247,
+        1261
+      ],
+      "alpha_bounds": [
+        0,
+        0,
+        1227,
+        1261
+      ],
+      "crop_normalized": [
+        0.64,
+        0.43,
+        0.59
+      ],
+      "crop_pixels": [
+        413,
+        170,
+        1157,
+        914
+      ],
+      "output": "art/sprites/2026-11-09-enemy-npc-head-icons/icons/anemo-samachurl.png",
+      "output_sha256": "6bd67080320737f0affc504a98f03a68a167f4a404a5ec0e8e2ed4a2e3410f96",
+      "asset": "extension/genshin-dialogue-ui/assets/avatar-icons/sprite-anemo-samachurl-6bd6708032.webp",
+      "asset_sha256": "68e71da6a109abe8bf57f1abb7c5e86ebcbfc1128ff31e272540bac31f9d239a"
+    },
+    {
+      "name": "Annihilation Specialist Mek - Ousia",
+      "role": "enemy",
+      "source": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Annihilation Specialist Mek - Ousia/neutral.webp",
+      "source_sha256": "5f1227fee01f4cb0e584fe470b59e3d70eb8d47a77ce18e0171ceb15e791829f",
+      "size": [
+        1024,
+        1536
+      ],
+      "alpha_bounds": [
+        33,
+        13,
+        1010,
+        1536
+      ],
+      "crop_normalized": [
+        0.48,
+        0.14,
+        0.28
+      ],
+      "crop_pixels": [
+        289,
+        13,
+        715,
+        439
+      ],
+      "output": "art/sprites/2026-11-09-enemy-npc-head-icons/icons/annihilation-specialist-mek-ousia.png",
+      "output_sha256": "cf8f221caf3175535d6f0a9f4c89e0b3be7af90863078245912777b4f9f48c41",
+      "asset": "extension/genshin-dialogue-ui/assets/avatar-icons/sprite-annihilation-specialist-mek-ousia-cf8f221caf.webp",
+      "asset_sha256": "2bd8e690bfc4f703c2e958797e64a5f21e38a2a034a0183f2fd9156b458d5f28"
+    },
+    {
+      "name": "Annihilation Specialist Mek - Pneuma",
+      "role": "enemy",
+      "source": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Annihilation Specialist Mek - Pneuma/neutral.webp",
+      "source_sha256": "469abe97210202f356318a9d6500001aa0072078ff30966ed5101034d582b158",
+      "size": [
+        1254,
+        1254
+      ],
+      "alpha_bounds": [
+        25,
+        0,
+        1254,
+        1254
+      ],
+      "crop_normalized": [
+        0.48,
+        0.14,
+        0.28
+      ],
+      "crop_pixels": [
+        439,
+        0,
+        790,
+        351
+      ],
+      "output": "art/sprites/2026-11-09-enemy-npc-head-icons/icons/annihilation-specialist-mek-pneuma.png",
+      "output_sha256": "86148f825595d5d0c1724251376322b17d1bb52f4355490e20405b108da22947",
+      "asset": "extension/genshin-dialogue-ui/assets/avatar-icons/sprite-annihilation-specialist-mek-pneuma-86148f8255.webp",
+      "asset_sha256": "7d4271fb254daf2806b6cfa3e15d0260679f54e64aef5ee93546e82c4cba30bc"
+    },
+    {
+      "name": "Anselm",
+      "role": "character",
+      "source": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Anselm/neutral.webp",
+      "source_sha256": "cb6a279ebb0e51ab51d266ef0aa82cd62d7ab997cdc645320ee0cc9537e390bb",
+      "size": [
+        1024,
+        1536
+      ],
+      "alpha_bounds": [
+        0,
+        13,
+        970,
+        1513
+      ],
+      "crop_normalized": [
+        0.5,
+        0.105,
+        0.24
+      ],
+      "crop_pixels": [
+        305,
+        -10,
+        665,
+        350
+      ],
+      "output": "art/sprites/2026-11-09-enemy-npc-head-icons/icons/anselm.png",
+      "output_sha256": "d2a82f93159b36049910a87a54b36d0f697887486c3d4a8b0779bc15cd1e0d46",
+      "asset": "extension/genshin-dialogue-ui/assets/avatar-icons/sprite-anselm-d2a82f9315.webp",
+      "asset_sha256": "3bf4c13e17b6ed0c141a35974e198667c945f58d517c3fb4a7512a27f842072f"
+    },
+    {
+      "name": "Araja",
+      "role": "character",
+      "source": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Araja/neutral.webp",
+      "source_sha256": "39aca2ba191c28b3b6e6ee3f9e2e0d1b5e164b4b4d5f8aee999d4e9a94d571ab",
+      "size": [
+        1303,
+        1207
+      ],
+      "alpha_bounds": [
+        25,
+        0,
+        1271,
+        1197
+      ],
+      "crop_normalized": [
+        0.5,
+        0.53,
+        0.69
+      ],
+      "crop_pixels": [
+        235,
+        221,
+        1061,
+        1047
+      ],
+      "output": "art/sprites/2026-11-09-enemy-npc-head-icons/icons/araja.png",
+      "output_sha256": "7d742b0751c8dc0f61c4136cd051eb22bb1b02513d33a926010936c6eb633dc7",
+      "asset": "extension/genshin-dialogue-ui/assets/avatar-icons/sprite-araja-7d742b0751.webp",
+      "asset_sha256": "37fcd275c6045f0ae95d4fe61984c82b5b6f40d9e4e45658a5535fcabff07069"
+    },
+    {
+      "name": "Arama",
+      "role": "character",
+      "source": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Arama/neutral.webp",
+      "source_sha256": "74ad82e138bd6379a6149c8f8e3e7172211197523bb11aa5d36fbfae1ae13658",
+      "size": [
+        1199,
+        1312
+      ],
+      "alpha_bounds": [
+        0,
+        8,
+        1183,
+        1292
+      ],
+      "crop_normalized": [
+        0.5,
+        0.41,
+        0.65
+      ],
+      "crop_pixels": [
+        174,
+        117,
+        1009,
+        952
+      ],
+      "output": "art/sprites/2026-11-09-enemy-npc-head-icons/icons/arama.png",
+      "output_sha256": "87eb61bd725a18f6b292c3605f61a5b82672d7d47817f320a06acc31b53a1d73",
+      "asset": "extension/genshin-dialogue-ui/assets/avatar-icons/sprite-arama-87eb61bd72.webp",
+      "asset_sha256": "f115cd9ff773ad9e72da5c636a41c2abafb3219eeb10451ae14bcb83de0ee7b7"
+    },
+    {
+      "name": "Aranakula",
+      "role": "character",
+      "source": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Aranakula/neutral.webp",
+      "source_sha256": "44e55fb3a4b4756228a1f7d429b85367a96643156b951ad3e7d38197b2460259",
+      "size": [
+        1374,
+        1145
+      ],
+      "alpha_bounds": [
+        0,
+        13,
+        1320,
+        1128
+      ],
+      "crop_normalized": [
+        0.5,
+        0.56,
+        0.66
+      ],
+      "crop_pixels": [
+        292,
+        269,
+        1028,
+        1005
+      ],
+      "output": "art/sprites/2026-11-09-enemy-npc-head-icons/icons/aranakula.png",
+      "output_sha256": "25e5c15264729c8b4d762e00ea02282afc6dfba6de5874d48d614a941c81680c",
+      "asset": "extension/genshin-dialogue-ui/assets/avatar-icons/sprite-aranakula-25e5c15264.webp",
+      "asset_sha256": "acb08c91a1bf1a5f310c4b79360213c7ca49867a619f617c5fe31b427cfa573d"
+    },
+    {
+      "name": "Areta",
+      "role": "character",
+      "source": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Areta/neutral.webp",
+      "source_sha256": "d531c5133d3291c34af96933bce9c546a26ec33a49af26455430a8ce6a2fd79c",
+      "size": [
+        1024,
+        1536
+      ],
+      "alpha_bounds": [
+        81,
+        15,
+        980,
+        1505
+      ],
+      "crop_normalized": [
+        0.5,
+        0.105,
+        0.24
+      ],
+      "crop_pixels": [
+        352,
+        -8,
+        710,
+        350
+      ],
+      "output": "art/sprites/2026-11-09-enemy-npc-head-icons/icons/areta.png",
+      "output_sha256": "3547cb132f7a7d9e6a341ba2f8c7bb287116822151c1540f78f3e82a14a4ea1d",
+      "asset": "extension/genshin-dialogue-ui/assets/avatar-icons/sprite-areta-3547cb132f.webp",
+      "asset_sha256": "7174e1930c6f968748fcfebad4bc5c486ef59cf3f87368f9f603941aaa6d1072"
+    },
+    {
+      "name": "Arithmetic Enhancer Mek - Ousia",
+      "role": "enemy",
+      "source": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Arithmetic Enhancer Mek - Ousia/neutral.webp",
+      "source_sha256": "9869f4687c7e9196dbe37fa89ac15074668391e3d9b36898d77365a2b16f1c8f",
+      "size": [
+        1391,
+        1131
+      ],
+      "alpha_bounds": [
+        51,
+        29,
+        1369,
+        1131
+      ],
+      "crop_normalized": [
+        0.54,
+        0.38,
+        0.72
+      ],
+      "crop_pixels": [
+        366,
+        51,
+        1159,
+        844
+      ],
+      "output": "art/sprites/2026-11-09-enemy-npc-head-icons/icons/arithmetic-enhancer-mek-ousia.png",
+      "output_sha256": "68403c90417b90a3fb3868685960a2f1bf3862b09da015084f6f29eee3ef79e1",
+      "asset": "extension/genshin-dialogue-ui/assets/avatar-icons/sprite-arithmetic-enhancer-mek-ousia-68403c9041.webp",
+      "asset_sha256": "79a8f010d46e9f38be96a827b5210666307de57d4d5e291fbdd4bf015d8d97e5"
+    },
+    {
+      "name": "Arithmetic Enhancer Mek - Pneuma",
+      "role": "enemy",
+      "source": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Arithmetic Enhancer Mek - Pneuma/neutral.webp",
+      "source_sha256": "cd20eb4884e810e9c0349894a43b307280863a6afe53835a7e5322cf693d0d3b",
+      "size": [
+        1391,
+        1131
+      ],
+      "alpha_bounds": [
+        0,
+        28,
+        1369,
+        1131
+      ],
+      "crop_normalized": [
+        0.54,
+        0.38,
+        0.72
+      ],
+      "crop_pixels": [
+        342,
+        50,
+        1136,
+        844
+      ],
+      "output": "art/sprites/2026-11-09-enemy-npc-head-icons/icons/arithmetic-enhancer-mek-pneuma.png",
+      "output_sha256": "37979a847a3baa51680b6c8f779cd89d07a2fd0f21afa45f1ef38c6ab877345d",
+      "asset": "extension/genshin-dialogue-ui/assets/avatar-icons/sprite-arithmetic-enhancer-mek-pneuma-37979a847a.webp",
+      "asset_sha256": "bcc24d4c8afde971096cb34bd83e56655cc9c87e3a68cc7221842930265ddb77"
+    },
+    {
+      "name": "Assault Specialist Mek - Ousia",
+      "role": "enemy",
+      "source": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Assault Specialist Mek - Ousia/neutral.webp",
+      "source_sha256": "cbf65bbafd885116313b48c8742de4e5baf247973520f5ee52a841f731dce7ad",
+      "size": [
+        1437,
+        1095
+      ],
+      "alpha_bounds": [
+        35,
+        1,
+        1421,
+        1077
+      ],
+      "crop_normalized": [
+        0.6,
+        0.22,
+        0.3
+      ],
+      "crop_pixels": [
+        705,
+        76,
+        1028,
+        399
+      ],
+      "output": "art/sprites/2026-11-09-enemy-npc-head-icons/icons/assault-specialist-mek-ousia.png",
+      "output_sha256": "97f3be236350ec00c9bdc8bbe869d5a98055795ef4ba3dce8d1127344667fdf3",
+      "asset": "extension/genshin-dialogue-ui/assets/avatar-icons/sprite-assault-specialist-mek-ousia-97f3be2363.webp",
+      "asset_sha256": "24bb8bd18c6e058ca40ce028520d226caacff1ed326b161211ff22eaac1dc4e8"
+    },
+    {
+      "name": "Assault Specialist Mek - Pneuma",
+      "role": "enemy",
+      "source": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Assault Specialist Mek - Pneuma/neutral.webp",
+      "source_sha256": "1d125e0aa544ddf38ca4c3dc9f3dc1226555552abe93391cc78ca793c5c87302",
+      "size": [
+        1437,
+        1095
+      ],
+      "alpha_bounds": [
+        27,
+        14,
+        1417,
+        1079
+      ],
+      "crop_normalized": [
+        0.6,
+        0.22,
+        0.3
+      ],
+      "crop_pixels": [
+        701,
+        88,
+        1021,
+        408
+      ],
+      "output": "art/sprites/2026-11-09-enemy-npc-head-icons/icons/assault-specialist-mek-pneuma.png",
+      "output_sha256": "e50b02ef169c4f7fd8a69d5876832edc3a98a20b24eb70502c5c51bafe39016d",
+      "asset": "extension/genshin-dialogue-ui/assets/avatar-icons/sprite-assault-specialist-mek-pneuma-e50b02ef16.webp",
+      "asset_sha256": "9ea9f5e0c8657d1beba6d91643f63e3ecaa6af4c48b26ac78a72f4bd7df9e4d4"
+    },
+    {
+      "name": "Aurelius",
+      "role": "character",
+      "source": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Aurelius/neutral.webp",
+      "source_sha256": "b4d3940655e7b7ba584bddc93c099d51251215ea40bc650df381e3339268db27",
+      "size": [
+        970,
+        1621
+      ],
+      "alpha_bounds": [
+        98,
+        19,
+        869,
+        1621
+      ],
+      "crop_normalized": [
+        0.5,
+        0.105,
+        0.24
+      ],
+      "crop_pixels": [
+        292,
+        -5,
+        676,
+        379
+      ],
+      "output": "art/sprites/2026-11-09-enemy-npc-head-icons/icons/aurelius.png",
+      "output_sha256": "19f7e592629fce6f1f50f0905788072fbd514d1ac10b8c276e071d43825c764d",
+      "asset": "extension/genshin-dialogue-ui/assets/avatar-icons/sprite-aurelius-19f7e59262.webp",
+      "asset_sha256": "8757b15f8d3c6e3421bd7bc90d00fffc26b0fccdb5c6cbdd4708c414f4982507"
+    },
+    {
+      "name": "Aybak",
+      "role": "character",
+      "source": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Aybak/neutral.webp",
+      "source_sha256": "1a4b7b892c52173d0dbd25908ad40f9c33b2971e3ba1a9e021b97fbb69cd911f",
+      "size": [
+        1014,
+        1550
+      ],
+      "alpha_bounds": [
+        0,
+        15,
+        988,
+        1550
+      ],
+      "crop_normalized": [
+        0.5,
+        0.105,
+        0.24
+      ],
+      "crop_pixels": [
+        310,
+        -8,
+        678,
+        360
+      ],
+      "output": "art/sprites/2026-11-09-enemy-npc-head-icons/icons/aybak.png",
+      "output_sha256": "9868e41460519cf633f757678bc3a46668f81ff34511c7aa2c2b7c39c5bee818",
+      "asset": "extension/genshin-dialogue-ui/assets/avatar-icons/sprite-aybak-9868e41460.webp",
+      "asset_sha256": "303f5e48767d16ce8442f3da3b510d2d8bbbf269ced0b8872174c4215ca4aaf8"
+    },
+    {
+      "name": "Azhdaha",
+      "role": "enemy",
+      "source": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Azhdaha/neutral.webp",
+      "source_sha256": "bf6501def47f9ded3a3a66230de39bfe6fae9f86b02d32d6252d9b791e24ed7e",
+      "size": [
+        1503,
+        1047
+      ],
+      "alpha_bounds": [
+        16,
+        0,
+        1503,
+        1047
+      ],
+      "crop_normalized": [
+        0.2205,
+        0.6675,
+        0.585
+      ],
+      "crop_pixels": [
+        38,
+        393,
+        650,
+        1005
+      ],
+      "output": "art/sprites/2026-11-09-enemy-npc-head-icons/icons/azhdaha.png",
+      "output_sha256": "4a221a2bf81e0ed7c775115cb471dd9cfe689d2b237e87aac33d0420d959a3e5",
+      "asset": "extension/genshin-dialogue-ui/assets/avatar-icons/sprite-azhdaha-4a221a2bf8.webp",
+      "asset_sha256": "595ee91d8581ef5b64769a1e21df6075bb4e6c7705d38f0bf1b44c91f7d281b6"
+    },
+    {
+      "name": "Babel",
+      "role": "character",
+      "source": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Babel/neutral.webp",
+      "source_sha256": "4740285a3757b483ecd403b4aef746cca534d953c68d38be17190305483e5109",
+      "size": [
+        1024,
+        1536
+      ],
+      "alpha_bounds": [
+        23,
+        0,
+        1010,
+        1522
+      ],
+      "crop_normalized": [
+        0.5,
+        0.105,
+        0.24
+      ],
+      "crop_pixels": [
+        334,
+        -23,
+        699,
+        342
+      ],
+      "output": "art/sprites/2026-11-09-enemy-npc-head-icons/icons/babel.png",
+      "output_sha256": "c5505c7f80a017c325ded313f13eb41f92b7762a6350b56d43abaea317a8afe1",
+      "asset": "extension/genshin-dialogue-ui/assets/avatar-icons/sprite-babel-c5505c7f80.webp",
+      "asset_sha256": "b4874c536930f413dcdfc8c816aa531dc65b7fef11c4d6a915b18f69a2de4ba7"
+    },
+    {
+      "name": "Black Serpent Knight: Rockbreaker Ax",
+      "role": "enemy",
+      "source": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Black Serpent Knight: Rockbreaker Ax/neutral.webp",
+      "source_sha256": "10208d87a0995b3f82194d6c7c27d7254a93018820fab8751a735307717eb8db",
+      "size": [
+        1199,
+        1312
+      ],
+      "alpha_bounds": [
+        0,
+        0,
+        1175,
+        1288
+      ],
+      "crop_normalized": [
+        0.53,
+        0.23,
+        0.36
+      ],
+      "crop_pixels": [
+        391,
+        64,
+        855,
+        528
+      ],
+      "output": "art/sprites/2026-11-09-enemy-npc-head-icons/icons/black-serpent-knight-rockbreaker-ax.png",
+      "output_sha256": "9fa6e0963495235801edd0b3a735a0108ea2f09ae31db2db1e7b350873cf8d03",
+      "asset": "extension/genshin-dialogue-ui/assets/avatar-icons/sprite-black-serpent-knight-rockbreaker-ax-9fa6e09634.webp",
+      "asset_sha256": "7fdbb878046ff7007792ce159efd843380b03a7174d117dcbfb2c3e0edadeaee"
+    },
+    {
+      "name": "Black Serpent Knight: Windcutter",
+      "role": "enemy",
+      "source": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Black Serpent Knight: Windcutter/neutral.webp",
+      "source_sha256": "a239c1f4a17b2da63cee91f6781d88fe318ff63d40eeb43918836b1ca61a2fe5",
+      "size": [
+        1086,
+        1448
+      ],
+      "alpha_bounds": [
+        0,
+        17,
+        1080,
+        1448
+      ],
+      "crop_normalized": [
+        0.58,
+        0.17,
+        0.34
+      ],
+      "crop_pixels": [
+        383,
+        17,
+        870,
+        504
+      ],
+      "output": "art/sprites/2026-11-09-enemy-npc-head-icons/icons/black-serpent-knight-windcutter.png",
+      "output_sha256": "d47646a1e5f5439f31c7cadfa06497805bcdbd4cbdfe411e3b27977d07cdbcc9",
+      "asset": "extension/genshin-dialogue-ui/assets/avatar-icons/sprite-black-serpent-knight-windcutter-d47646a1e5.webp",
+      "asset_sha256": "b9e03bf802286e979f4a16ae09b267076cd50e1c2ff74cb27fb75c1344b49bc9"
+    },
+    {
+      "name": "Blazing Axe Mitachurl",
+      "role": "enemy",
+      "source": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Blazing Axe Mitachurl/neutral.webp",
+      "source_sha256": "6319171f6c81e9a7ea24e82ea52456ac89303e41469811689ee83a1d68208ba4",
+      "size": [
+        1197,
+        1314
+      ],
+      "alpha_bounds": [
+        58,
+        10,
+        1167,
+        1302
+      ],
+      "crop_normalized": [
+        0.70592,
+        0.4556,
+        0.408
+      ],
+      "crop_pixels": [
+        577,
+        335,
+        1104,
+        862
+      ],
+      "output": "art/sprites/2026-11-09-enemy-npc-head-icons/icons/blazing-axe-mitachurl.png",
+      "output_sha256": "1658da116cb7319b4cb77b7ab0d736444c7b8b9d9b65a58d0648384b1985ce2e",
+      "asset": "extension/genshin-dialogue-ui/assets/avatar-icons/sprite-blazing-axe-mitachurl-1658da116c.webp",
+      "asset_sha256": "d27d1609a0d28f5a33973583d6e7d7ff9be693b2ce56e3bff75112e7871a4fe0"
+    },
+    {
+      "name": "Consecrated Fanged Beast",
+      "role": "enemy",
+      "source": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Consecrated Fanged Beast/neutral.webp",
+      "source_sha256": "a71c38d2c70ade881537c1fde28c7c78d9dd72bf0172b0df195ea1c966dac26c",
+      "size": [
+        1536,
+        1024
+      ],
+      "alpha_bounds": [
+        0,
+        0,
+        1535,
+        1024
+      ],
+      "crop_normalized": [
+        0.27,
+        0.404,
+        0.416
+      ],
+      "crop_pixels": [
+        201,
+        201,
+        627,
+        627
+      ],
+      "output": "art/sprites/2026-11-09-enemy-npc-head-icons/icons/consecrated-fanged-beast.png",
+      "output_sha256": "acce37ca1dfa95dc70ac00089608bf36724ebcf706b947b366717772451a592f",
+      "asset": "extension/genshin-dialogue-ui/assets/avatar-icons/sprite-consecrated-fanged-beast-acce37ca1d.webp",
+      "asset_sha256": "bf7f0b7134fa71a0e46416dcb72f16f84977ddb411871146eec4d299d7a4472b"
+    },
+    {
+      "name": "Consecrated Flying Serpent",
+      "role": "enemy",
+      "source": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Consecrated Flying Serpent/neutral.webp",
+      "source_sha256": "e03dc148b3842458a89451379ed354dc5e1e2cf16fb6966bc886111bd9319f56",
+      "size": [
+        1199,
+        1312
+      ],
+      "alpha_bounds": [
+        0,
+        9,
+        1181,
+        1312
+      ],
+      "crop_normalized": [
+        0.34,
+        0.2656,
+        0.323
+      ],
+      "crop_pixels": [
+        191,
+        145,
+        612,
+        566
+      ],
+      "output": "art/sprites/2026-11-09-enemy-npc-head-icons/icons/consecrated-flying-serpent.png",
+      "output_sha256": "50d7b8aa62d521e37f8b2ba69360b03553fca04bd03936445ad370d75104f180",
+      "asset": "extension/genshin-dialogue-ui/assets/avatar-icons/sprite-consecrated-flying-serpent-50d7b8aa62.webp",
+      "asset_sha256": "61708bdbf186d21ae3cf31d93352c4deae7b73e3d6613929235fec97fb08ff65"
+    },
+    {
+      "name": "Consecrated Horned Crocodile",
+      "role": "enemy",
+      "source": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Consecrated Horned Crocodile/neutral.webp",
+      "source_sha256": "350568a7dd34590a963b041344bc118b8d9c3970b90c83a3c5909a7a8d9b8d05",
+      "size": [
+        1536,
+        1024
+      ],
+      "alpha_bounds": [
+        81,
+        15,
+        1506,
+        1004
+      ],
+      "crop_normalized": [
+        0.25527,
+        0.382,
+        0.352
+      ],
+      "crop_pixels": [
+        271,
+        219,
+        619,
+        567
+      ],
+      "output": "art/sprites/2026-11-09-enemy-npc-head-icons/icons/consecrated-horned-crocodile.png",
+      "output_sha256": "d48fa7efba33abbb40bb8618116f394afa8a1cf289f6bb3b6cb3354acbc1973e",
+      "asset": "extension/genshin-dialogue-ui/assets/avatar-icons/sprite-consecrated-horned-crocodile-d48fa7efba.webp",
+      "asset_sha256": "111b683dcf47dda84a281bab25e410d19cab8e06afc1a89c9f9f05a48d5c2e28"
+    },
+    {
+      "name": "Consecrated Scorpion",
+      "role": "enemy",
+      "source": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Consecrated Scorpion/neutral.webp",
+      "source_sha256": "bec6bffba8447a3c7fdf31d083b3cbd3f32b7da4f4f53d699ecb9615c1064484",
+      "size": [
+        1536,
+        1024
+      ],
+      "alpha_bounds": [
+        0,
+        0,
+        1518,
+        1024
+      ],
+      "crop_normalized": [
+        0.48177,
+        0.58,
+        0.495
+      ],
+      "crop_pixels": [
+        478,
+        340,
+        985,
+        847
+      ],
+      "output": "art/sprites/2026-11-09-enemy-npc-head-icons/icons/consecrated-scorpion.png",
+      "output_sha256": "853e7ee0a686df018fd1165f85e39ade0c31891148ee5e8628f4ebd07d50d92a",
+      "asset": "extension/genshin-dialogue-ui/assets/avatar-icons/sprite-consecrated-scorpion-853e7ee0a6.webp",
+      "asset_sha256": "d2704d374839c4df2ce91eb0f45ad0aae1361027e2e12cc58ee00418c96ee303"
+    },
+    {
+      "name": "Crackling Axe Mitachurl",
+      "role": "enemy",
+      "source": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Crackling Axe Mitachurl/neutral.webp",
+      "source_sha256": "c69beaa696cc97aff82a1f16a1b6c83e84b3635b2706a41ffddd12a84e974722",
+      "size": [
+        1199,
+        1312
+      ],
+      "alpha_bounds": [
+        0,
+        1,
+        1194,
+        1312
+      ],
+      "crop_normalized": [
+        0.64,
+        0.27,
+        0.44
+      ],
+      "crop_pixels": [
+        476,
+        66,
+        1053,
+        643
+      ],
+      "output": "art/sprites/2026-11-09-enemy-npc-head-icons/icons/crackling-axe-mitachurl.png",
+      "output_sha256": "b0f25218aaa2297a41ccc241d11cd36434132b1e31ebbef8452b6068e800b15b",
+      "asset": "extension/genshin-dialogue-ui/assets/avatar-icons/sprite-crackling-axe-mitachurl-b0f25218aa.webp",
+      "asset_sha256": "09c97b53c0e56b77bc16f3006113370ee7a6e641164509adda14be97d86fd44a"
+    },
+    {
+      "name": "Cryo Abyss Mage",
+      "role": "enemy",
+      "source": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Cryo Abyss Mage/neutral.webp",
+      "source_sha256": "1de650ef84b0bb2a4d8c01b02bc5e8f05edfd1860adff22d216eb54fb1cb12fa",
+      "size": [
+        1060,
+        1484
+      ],
+      "alpha_bounds": [
+        0,
+        11,
+        1060,
+        1484
+      ],
+      "crop_normalized": [
+        0.52,
+        0.4,
+        0.54
+      ],
+      "crop_pixels": [
+        154,
+        203,
+        949,
+        998
+      ],
+      "output": "art/sprites/2026-11-09-enemy-npc-head-icons/icons/cryo-abyss-mage.png",
+      "output_sha256": "59968a7213a2fbab6819ca3da020444100e10265da2b09bae55e57fb22ab0b28",
+      "asset": "extension/genshin-dialogue-ui/assets/avatar-icons/sprite-cryo-abyss-mage-59968a7213.webp",
+      "asset_sha256": "566997a55462a467d913ce9cf856dbd65a4c08c8ec23925611e79d905393b043"
+    },
+    {
+      "name": "Cryo Hilichurl Shooter",
+      "role": "enemy",
+      "source": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Cryo Hilichurl Shooter/neutral.webp",
+      "source_sha256": "bd8cd710e10de6a5e8b8ad8b67a0ea5312409a1056712db9414aa0fd519c91e5",
+      "size": [
+        1122,
+        1402
+      ],
+      "alpha_bounds": [
+        0,
+        6,
+        1110,
+        1402
+      ],
+      "crop_normalized": [
+        0.37,
+        0.24,
+        0.45
+      ],
+      "crop_pixels": [
+        97,
+        27,
+        725,
+        655
+      ],
+      "output": "art/sprites/2026-11-09-enemy-npc-head-icons/icons/cryo-hilichurl-shooter.png",
+      "output_sha256": "2f1a3c5127e7467419a5ea9a43ca292b60f926ff6e2791ef8968ef9fe5a20cda",
+      "asset": "extension/genshin-dialogue-ui/assets/avatar-icons/sprite-cryo-hilichurl-shooter-2f1a3c5127.webp",
+      "asset_sha256": "4a3832470739fefc79c4e68c05dc29666e16b6b3de7577ee81fb9adc82959c16"
+    },
+    {
+      "name": "Cryo Hypostasis",
+      "role": "enemy",
+      "source": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Cryo Hypostasis/neutral.webp",
+      "source_sha256": "d9f63a44bac6bf0829663d49cd01377f5c58e3c09ec7beb3a210c2d806890415",
+      "size": [
+        1288,
+        1221
+      ],
+      "alpha_bounds": [
+        0,
+        15,
+        1262,
+        1221
+      ],
+      "crop_normalized": [
+        0.5,
+        0.5,
+        1.02
+      ],
+      "crop_pixels": [
+        16,
+        3,
+        1246,
+        1233
+      ],
+      "output": "art/sprites/2026-11-09-enemy-npc-head-icons/icons/cryo-hypostasis.png",
+      "output_sha256": "12135e956c828a1e4ce1478775bbe8480dd9cc60cbffb8af32f4782f49c789af",
+      "asset": "extension/genshin-dialogue-ui/assets/avatar-icons/sprite-cryo-hypostasis-12135e956c.webp",
+      "asset_sha256": "31067650d6a0cab5a97985a0cab9adcb474862995a9d16947587a474acefebc0"
+    },
+    {
+      "name": "Cryo Slime",
+      "role": "enemy",
+      "source": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Cryo Slime/neutral.webp",
+      "source_sha256": "6fdb196d2324e8807151ddaa29ffd4e6f58154d81c8c07b534835b2c118ce1ad",
+      "size": [
+        1330,
+        1182
+      ],
+      "alpha_bounds": [
+        0,
+        16,
+        1312,
+        1182
+      ],
+      "crop_normalized": [
+        0.5,
+        0.54,
+        0.9
+      ],
+      "crop_pixels": [
+        132,
+        121,
+        1181,
+        1170
+      ],
+      "output": "art/sprites/2026-11-09-enemy-npc-head-icons/icons/cryo-slime.png",
+      "output_sha256": "5c10e5f004b5b643b41849b3d4bc6e8d64dad3807ae7726004b9c9f3eeba3a7e",
+      "asset": "extension/genshin-dialogue-ui/assets/avatar-icons/sprite-cryo-slime-5c10e5f004.webp",
+      "asset_sha256": "1f8f0083342fa9236a0305bf7c180aadc11288fb690fa9b084877f1efe264f9d"
+    },
+    {
+      "name": "Cryo Whopperflower",
+      "role": "enemy",
+      "source": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Cryo Whopperflower/neutral.webp",
+      "source_sha256": "7fe746f354ee93276d95d501ecb882687fc74cecb92f0bcb17d6e718c8bdb034",
+      "size": [
+        1230,
+        1278
+      ],
+      "alpha_bounds": [
+        0,
+        9,
+        1220,
+        1253
+      ],
+      "crop_normalized": [
+        0.5,
+        0.49,
+        0.48
+      ],
+      "crop_pixels": [
+        312,
+        320,
+        909,
+        917
+      ],
+      "output": "art/sprites/2026-11-09-enemy-npc-head-icons/icons/cryo-whopperflower.png",
+      "output_sha256": "dacd5e71507aa7ec99593cad65bfa1c0598e13240f2bf44a962f1786eef6b74f",
+      "asset": "extension/genshin-dialogue-ui/assets/avatar-icons/sprite-cryo-whopperflower-dacd5e7150.webp",
+      "asset_sha256": "c64baa37359f4ae050f4666008a3e5810bfa100d0a220280797ba0181d43733e"
+    },
+    {
+      "name": "Dendro Samachurl",
+      "role": "enemy",
+      "source": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Dendro Samachurl/neutral.webp",
+      "source_sha256": "f55954c7d25aca49ee83095cc6f28f97343a20ccd939c1bf3359fc09871a2407",
+      "size": [
+        1024,
+        1536
+      ],
+      "alpha_bounds": [
+        0,
+        9,
+        1012,
+        1536
+      ],
+      "crop_normalized": [
+        0.79769,
+        0.59,
+        0.52
+      ],
+      "crop_pixels": [
+        410,
+        513,
+        1204,
+        1307
+      ],
+      "output": "art/sprites/2026-11-09-enemy-npc-head-icons/icons/dendro-samachurl.png",
+      "output_sha256": "76baa674a0269d6c71f6558f43458298a88dc36ac29706d4456e5643e2f9b99f",
+      "asset": "extension/genshin-dialogue-ui/assets/avatar-icons/sprite-dendro-samachurl-76baa674a0.webp",
+      "asset_sha256": "01a869f30b03c5edf54db26905da2d9d01c1edf48dd5535a0dfe01d9a6bbaee2"
+    },
+    {
+      "name": "Dvalin",
+      "role": "enemy",
+      "source": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Dvalin/neutral.webp",
+      "source_sha256": "07ebfd30025bac6f4c75628dfba2f946470a597e8a88c78d4a60b0a5339ba49b",
+      "size": [
+        1536,
+        1024
+      ],
+      "alpha_bounds": [
+        0,
+        5,
+        1522,
+        1024
+      ],
+      "crop_normalized": [
+        0.52,
+        0.29,
+        0.48
+      ],
+      "crop_pixels": [
+        547,
+        56,
+        1036,
+        545
+      ],
+      "output": "art/sprites/2026-11-09-enemy-npc-head-icons/icons/dvalin.png",
+      "output_sha256": "649bf9881987b3556aff456542d3d9b1247e1fbc81128f06252bf7afb97b4360",
+      "asset": "extension/genshin-dialogue-ui/assets/avatar-icons/sprite-dvalin-649bf98819.webp",
+      "asset_sha256": "6ef078294a79472a1070fdc72917c51dceba930ad40fc5e898b45fea544c243b"
+    },
+    {
+      "name": "Egle",
+      "role": "character",
+      "source": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Egle/neutral.webp",
+      "source_sha256": "5808b600b6d76c9ee4cbb136acef25d3161ffb7ab4cecd0f68d37c310fbf25a1",
+      "size": [
+        936,
+        1681
+      ],
+      "alpha_bounds": [
+        39,
+        12,
+        902,
+        1667
+      ],
+      "crop_normalized": [
+        0.5,
+        0.105,
+        0.24
+      ],
+      "crop_pixels": [
+        272,
+        -13,
+        669,
+        384
+      ],
+      "output": "art/sprites/2026-11-09-enemy-npc-head-icons/icons/egle.png",
+      "output_sha256": "128752ba8ba096b6ad044a05c49feed646270c7fd67a8416313656a437ba9a3c",
+      "asset": "extension/genshin-dialogue-ui/assets/avatar-icons/sprite-egle-128752ba8b.webp",
+      "asset_sha256": "4e102cce6dc30b5426368393791d52be1fbbc5aa3dd71df355f85ad33107e38f"
+    },
+    {
+      "name": "Electro Abyss Mage",
+      "role": "enemy",
+      "source": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Electro Abyss Mage/neutral.webp",
+      "source_sha256": "73586233921491ec1b12771d8a4fec28a433543e5e0447112c1d4b66dbb7b74f",
+      "size": [
+        1247,
+        1261
+      ],
+      "alpha_bounds": [
+        0,
+        25,
+        1235,
+        1261
+      ],
+      "crop_normalized": [
+        0.59,
+        0.27,
+        0.48
+      ],
+      "crop_pixels": [
+        432,
+        62,
+        1025,
+        655
+      ],
+      "output": "art/sprites/2026-11-09-enemy-npc-head-icons/icons/electro-abyss-mage.png",
+      "output_sha256": "f2d7696a492d21c5696a29e3daaa98f0b6f2fff0820663d1caccf3a5982fb9bc",
+      "asset": "extension/genshin-dialogue-ui/assets/avatar-icons/sprite-electro-abyss-mage-f2d7696a49.webp",
+      "asset_sha256": "ff2352685220dd504b0666fc43f7ea097119552d963d22a96f67620dc20dfb85"
+    },
+    {
+      "name": "Electro Hilichurl Shooter",
+      "role": "enemy",
+      "source": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Electro Hilichurl Shooter/neutral.webp",
+      "source_sha256": "db7acdf37a77bbd439b093521d6d79eb5a6a0ef871eaac1eeb8a31990f19f974",
+      "size": [
+        1085,
+        1450
+      ],
+      "alpha_bounds": [
+        0,
+        0,
+        1085,
+        1435
+      ],
+      "crop_normalized": [
+        0.45,
+        0.26,
+        0.45
+      ],
+      "crop_pixels": [
+        165,
+        50,
+        811,
+        696
+      ],
+      "output": "art/sprites/2026-11-09-enemy-npc-head-icons/icons/electro-hilichurl-shooter.png",
+      "output_sha256": "3e12a4553263936cbfe463cde4eff88198532f9a0491a98c3ee9c95940f791c0",
+      "asset": "extension/genshin-dialogue-ui/assets/avatar-icons/sprite-electro-hilichurl-shooter-3e12a45532.webp",
+      "asset_sha256": "970fc7975e42536728674512280dcf8af6112194849aea60558a3c62641d0034"
+    },
+    {
+      "name": "Electro Hypostasis",
+      "role": "enemy",
+      "source": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Electro Hypostasis/neutral.webp",
+      "source_sha256": "7b9900134b471f4f35b1d91fb40e425664e12bcd4a1d1069b8d123b470b713c3",
+      "size": [
+        1362,
+        1155
+      ],
+      "alpha_bounds": [
+        0,
+        21,
+        1343,
+        1135
+      ],
+      "crop_normalized": [
+        0.5,
+        0.5,
+        1.02
+      ],
+      "crop_pixels": [
+        104,
+        10,
+        1240,
+        1146
+      ],
+      "output": "art/sprites/2026-11-09-enemy-npc-head-icons/icons/electro-hypostasis.png",
+      "output_sha256": "bbf64368c1bb55faf93602254d9174d116763c890db8dd3765632e5c1e7d6e1a",
+      "asset": "extension/genshin-dialogue-ui/assets/avatar-icons/sprite-electro-hypostasis-bbf64368c1.webp",
+      "asset_sha256": "07848ac3a2d4bfd9923d69ae1ae2997bc8d49e40648c5fa1adfd6a1348777d0a"
+    },
+    {
+      "name": "Electro Samachurl",
+      "role": "enemy",
+      "source": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Electro Samachurl/neutral.webp",
+      "source_sha256": "a01eb79a25b487271025c2c50fd27a567e2949c182fd8f22eaf41770d871533e",
+      "size": [
+        1016,
+        1548
+      ],
+      "alpha_bounds": [
+        13,
+        0,
+        1016,
+        1548
+      ],
+      "crop_normalized": [
+        0.72,
+        0.56,
+        0.46
+      ],
+      "crop_pixels": [
+        379,
+        511,
+        1091,
+        1223
+      ],
+      "output": "art/sprites/2026-11-09-enemy-npc-head-icons/icons/electro-samachurl.png",
+      "output_sha256": "d6d64299afa370b96ef648b4c5cb268aad7413c3c8d1aef125b770467acf18dc",
+      "asset": "extension/genshin-dialogue-ui/assets/avatar-icons/sprite-electro-samachurl-d6d64299af.webp",
+      "asset_sha256": "ade0ec99494cf051dc93374c3cce1adc282d0898703cc463e66cbc1e3f78b29a"
+    },
+    {
+      "name": "Electro Slime",
+      "role": "enemy",
+      "source": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Electro Slime/neutral.webp",
+      "source_sha256": "1232c06f9a959bdafb7fad361ab9bc493cd07b1dce9d65f85747b5f3698bf957",
+      "size": [
+        1154,
+        1363
+      ],
+      "alpha_bounds": [
+        0,
+        10,
+        1150,
+        1363
+      ],
+      "crop_normalized": [
+        0.5,
+        0.62,
+        0.86
+      ],
+      "crop_pixels": [
+        -7,
+        267,
+        1157,
+        1431
+      ],
+      "output": "art/sprites/2026-11-09-enemy-npc-head-icons/icons/electro-slime.png",
+      "output_sha256": "9baf6771553a179efc30944043571e1e5b38c23a70bf6d000b1fd76ddc299379",
+      "asset": "extension/genshin-dialogue-ui/assets/avatar-icons/sprite-electro-slime-9baf677155.webp",
+      "asset_sha256": "04151d10aa02987425b04ecaea8c36c60739047dd6e5d18de8e14fa06e6a68c0"
+    },
+    {
+      "name": "Emperor of Fire and Iron",
+      "role": "enemy",
+      "source": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Emperor of Fire and Iron/neutral.webp",
+      "source_sha256": "af6279a119e15f7eeac3b5593e0e28643c2c19b671f31c00cd10f8a58849fa89",
+      "size": [
+        1515,
+        1038
+      ],
+      "alpha_bounds": [
+        0,
+        0,
+        1481,
+        1038
+      ],
+      "crop_normalized": [
+        0.55,
+        0.69,
+        0.595
+      ],
+      "crop_pixels": [
+        506,
+        407,
+        1124,
+        1025
+      ],
+      "output": "art/sprites/2026-11-09-enemy-npc-head-icons/icons/emperor-of-fire-and-iron.png",
+      "output_sha256": "cb6d895f5ddf456d8deb9b3acb0ad00ed1bc547f376444349cb089a12cdede11",
+      "asset": "extension/genshin-dialogue-ui/assets/avatar-icons/sprite-emperor-of-fire-and-iron-cb6d895f5d.webp",
+      "asset_sha256": "269860bb0a7c83a6537897b8f85e0185e683b0025b9cbffedd803578fa4a02e0"
+    },
+    {
+      "name": "Eremite Daythunder",
+      "role": "enemy",
+      "source": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Eremite Daythunder/neutral.webp",
+      "source_sha256": "270bc41d92a78c642f09258bc0226b3a72e45b3c3bea7ddd8388614b26e32957",
+      "size": [
+        1254,
+        1254
+      ],
+      "alpha_bounds": [
+        0,
+        17,
+        1236,
+        1254
+      ],
+      "crop_normalized": [
+        0.67,
+        0.12,
+        0.3
+      ],
+      "crop_pixels": [
+        643,
+        -20,
+        1014,
+        351
+      ],
+      "output": "art/sprites/2026-11-09-enemy-npc-head-icons/icons/eremite-daythunder.png",
+      "output_sha256": "3565cb9b5fb378e076253a1d320525a6d76f60f3cde1141c248bf2a36e7521dd",
+      "asset": "extension/genshin-dialogue-ui/assets/avatar-icons/sprite-eremite-daythunder-3565cb9b5f.webp",
+      "asset_sha256": "f83c714106d2f354e83173fa5eaaddb61e7f7613210f7bb8863d3a512cb775bf"
+    },
+    {
+      "name": "Eremite Desert Clearwater",
+      "role": "enemy",
+      "source": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Eremite Desert Clearwater/neutral.webp",
+      "source_sha256": "c167d71528c0e3f550a230290c90fc1d0cb7465d39aa64e5a6608f593cdb5a2d",
+      "size": [
+        1067,
+        1474
+      ],
+      "alpha_bounds": [
+        0,
+        19,
+        1067,
+        1474
+      ],
+      "crop_normalized": [
+        0.36,
+        0.14,
+        0.29
+      ],
+      "crop_pixels": [
+        173,
+        12,
+        595,
+        434
+      ],
+      "output": "art/sprites/2026-11-09-enemy-npc-head-icons/icons/eremite-desert-clearwater.png",
+      "output_sha256": "bfb142f681df861653711472f1328b43c42fb4124f0b311cd83bd47ad87b3493",
+      "asset": "extension/genshin-dialogue-ui/assets/avatar-icons/sprite-eremite-desert-clearwater-bfb142f681.webp",
+      "asset_sha256": "eff8ffbf2dd8c33afd760d24b55de0e4195ff4b03c78001391a26dd5272f8a7b"
+    },
+    {
+      "name": "Eremite Floral Ring-Dancer",
+      "role": "enemy",
+      "source": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Eremite Floral Ring-Dancer/neutral.webp",
+      "source_sha256": "1bfa2e2bae4a5f1331e3497af7d72ba9d22a37102da6a2ed34773db9573b2319",
+      "size": [
+        1024,
+        1536
+      ],
+      "alpha_bounds": [
+        0,
+        13,
+        1012,
+        1536
+      ],
+      "crop_normalized": [
+        0.46,
+        0.31,
+        0.31
+      ],
+      "crop_pixels": [
+        230,
+        249,
+        702,
+        721
+      ],
+      "output": "art/sprites/2026-11-09-enemy-npc-head-icons/icons/eremite-floral-ring-dancer.png",
+      "output_sha256": "e1a8d8fdd73bfbf04abc812883bd69c5a98bc68d9ccdf5fad9aaebc2746e899f",
+      "asset": "extension/genshin-dialogue-ui/assets/avatar-icons/sprite-eremite-floral-ring-dancer-e1a8d8fdd7.webp",
+      "asset_sha256": "dc983a058343f6a96abcbef9f46e210f07012d93fa30565ac931641efb40a614"
+    },
+    {
+      "name": "Eremite Scorching Loremaster",
+      "role": "enemy",
+      "source": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Eremite Scorching Loremaster/neutral.webp",
+      "source_sha256": "6dc921f503d63fd507d649668e7171a3a6f2674589dcf834f663f06833251640",
+      "size": [
+        1024,
+        1536
+      ],
+      "alpha_bounds": [
+        0,
+        17,
+        1023,
+        1516
+      ],
+      "crop_normalized": [
+        0.53,
+        0.22,
+        0.35
+      ],
+      "crop_pixels": [
+        280,
+        84,
+        805,
+        609
+      ],
+      "output": "art/sprites/2026-11-09-enemy-npc-head-icons/icons/eremite-scorching-loremaster.png",
+      "output_sha256": "af6fb9c35230d0e00cd5641952b64e9fa2e7a2d06be88bd3569c9fe4d30818d6",
+      "asset": "extension/genshin-dialogue-ui/assets/avatar-icons/sprite-eremite-scorching-loremaster-af6fb9c352.webp",
+      "asset_sha256": "96616e8f3f19776ba40a86c4c8e59ec47f57aea3f9d69c672ebb7a833c377676"
+    },
+    {
+      "name": "Eremite Stone Enchanter",
+      "role": "enemy",
+      "source": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Eremite Stone Enchanter/neutral.webp",
+      "source_sha256": "88df941823b22d14894e6fbb9826455ad668d726b20093acb9585d2a6d6ee3ac",
+      "size": [
+        1349,
+        1166
+      ],
+      "alpha_bounds": [
+        0,
+        0,
+        1349,
+        1166
+      ],
+      "crop_normalized": [
+        0.71575,
+        0.31,
+        0.3225
+      ],
+      "crop_pixels": [
+        778,
+        173,
+        1154,
+        549
+      ],
+      "output": "art/sprites/2026-11-09-enemy-npc-head-icons/icons/eremite-stone-enchanter.png",
+      "output_sha256": "2bd7a5c8e29d0773b62b556159f156d04402e4c3525429ae8b55c6d7db4fe27c",
+      "asset": "extension/genshin-dialogue-ui/assets/avatar-icons/sprite-eremite-stone-enchanter-2bd7a5c8e2.webp",
+      "asset_sha256": "b79c1f62ec4a4a615bcfaa72bfc5264bddb4612a48f563165b4405e059625d17"
+    },
+    {
+      "name": "Eremite Sunfrost",
+      "role": "enemy",
+      "source": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Eremite Sunfrost/neutral.webp",
+      "source_sha256": "a1c99003cff5b1fe6723f11f932e420b32d3e8817335938b5eba84333566e800",
+      "size": [
+        1018,
+        1545
+      ],
+      "alpha_bounds": [
+        0,
+        10,
+        1018,
+        1515
+      ],
+      "crop_normalized": [
+        0.55,
+        0.14,
+        0.31
+      ],
+      "crop_pixels": [
+        326,
+        -13,
+        793,
+        454
+      ],
+      "output": "art/sprites/2026-11-09-enemy-npc-head-icons/icons/eremite-sunfrost.png",
+      "output_sha256": "df8fe72de05f1be1e7d68aa0e45a2c81b734db329ceef5e0caa36fc4907e811b",
+      "asset": "extension/genshin-dialogue-ui/assets/avatar-icons/sprite-eremite-sunfrost-df8fe72de0.webp",
+      "asset_sha256": "f2982c9b81e49413ce57bb81a62cf8a780083f962baa561d058782ae3e54b011"
+    },
+    {
+      "name": "Eveliina",
+      "role": "character",
+      "source": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Eveliina/neutral.webp",
+      "source_sha256": "e985662d33b881a2952b4c1425a85f937e43938fc00fb12a4a984fbc449504b5",
+      "size": [
+        934,
+        1683
+      ],
+      "alpha_bounds": [
+        0,
+        14,
+        904,
+        1673
+      ],
+      "crop_normalized": [
+        0.5,
+        0.105,
+        0.24
+      ],
+      "crop_pixels": [
+        253,
+        -11,
+        651,
+        387
+      ],
+      "output": "art/sprites/2026-11-09-enemy-npc-head-icons/icons/eveliina.png",
+      "output_sha256": "bd220d651d34e80d2058ac5ec8f4ab5638bcc769be66516e01227a1b88f9baa5",
+      "asset": "extension/genshin-dialogue-ui/assets/avatar-icons/sprite-eveliina-bd220d651d.webp",
+      "asset_sha256": "1a43db830436009603cced86c00673c99849f870e7ad86042808b29a7e75701e"
+    },
+    {
+      "name": "Experimental Field Generator",
+      "role": "enemy",
+      "source": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Experimental Field Generator/neutral.webp",
+      "source_sha256": "19c1a4e4b8e21da93d73c573b77f5287f00a58d575235d7fd76f561a308f51f2",
+      "size": [
+        1430,
+        1100
+      ],
+      "alpha_bounds": [
+        0,
+        28,
+        1414,
+        1100
+      ],
+      "crop_normalized": [
+        0.52,
+        0.49,
+        0.75
+      ],
+      "crop_pixels": [
+        333,
+        151,
+        1137,
+        955
+      ],
+      "output": "art/sprites/2026-11-09-enemy-npc-head-icons/icons/experimental-field-generator.png",
+      "output_sha256": "c45227ea2f504118682ac94faff19ee22cad4db08d60b597bea37cdf5badb775",
+      "asset": "extension/genshin-dialogue-ui/assets/avatar-icons/sprite-experimental-field-generator-c45227ea2f.webp",
+      "asset_sha256": "5c055e6ccc13c034750cc68db33ab1ee370619aa1f8829394c48e0ce2d331aea"
+    },
+    {
+      "name": "Fatui Cryo Cicin Mage",
+      "role": "enemy",
+      "source": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Fatui Cryo Cicin Mage/neutral.webp",
+      "source_sha256": "e55e385e4986babd4d9bd1d0e7f2444ff79301e206a225c7ad1fe2f9cb80aa0f",
+      "size": [
+        1185,
+        1327
+      ],
+      "alpha_bounds": [
+        17,
+        5,
+        1179,
+        1311
+      ],
+      "crop_normalized": [
+        0.46,
+        0.25,
+        0.34
+      ],
+      "crop_pixels": [
+        330,
+        110,
+        774,
+        554
+      ],
+      "output": "art/sprites/2026-11-09-enemy-npc-head-icons/icons/fatui-cryo-cicin-mage.png",
+      "output_sha256": "493845f27c8c3c440dd36aa0a49eee0c3e907b7df79883c54e8a8cd86dfcc51b",
+      "asset": "extension/genshin-dialogue-ui/assets/avatar-icons/sprite-fatui-cryo-cicin-mage-493845f27c.webp",
+      "asset_sha256": "08212b00ae24d2816207a135af3aa83a7b46d491b929994ab6cea1b0bd3ef102"
+    },
+    {
+      "name": "Fatui Electro Cicin Mage",
+      "role": "enemy",
+      "source": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Fatui Electro Cicin Mage/neutral.webp",
+      "source_sha256": "4cb15cdab1a7a1273bff07ff30eb6cab6d9d14a30571de279f19d4e4f19f3dbd",
+      "size": [
+        1024,
+        1536
+      ],
+      "alpha_bounds": [
+        0,
+        17,
+        1012,
+        1536
+      ],
+      "crop_normalized": [
+        0.53,
+        0.236,
+        0.306
+      ],
+      "crop_pixels": [
+        304,
+        143,
+        769,
+        608
+      ],
+      "output": "art/sprites/2026-11-09-enemy-npc-head-icons/icons/fatui-electro-cicin-mage.png",
+      "output_sha256": "c46b7fb7f7c9faaf821f9aac31fe99c614435f0528f0efe4c4316e0c64692e11",
+      "asset": "extension/genshin-dialogue-ui/assets/avatar-icons/sprite-fatui-electro-cicin-mage-c46b7fb7f7.webp",
+      "asset_sha256": "f755bde7d7abfef3887b75a36884f937ec25fa163725a99f1aa1fa671419dbd1"
+    },
+    {
+      "name": "Fatui Pyro Agent",
+      "role": "enemy",
+      "source": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Fatui Pyro Agent/neutral.webp",
+      "source_sha256": "2fddbffefcc9c3e6b66ea6a4cd218eaec614ff17013f30a9281f39b7e0fd93a6",
+      "size": [
+        1277,
+        1231
+      ],
+      "alpha_bounds": [
+        49,
+        0,
+        1221,
+        1216
+      ],
+      "crop_normalized": [
+        0.38,
+        0.17,
+        0.34
+      ],
+      "crop_pixels": [
+        288,
+        0,
+        701,
+        413
+      ],
+      "output": "art/sprites/2026-11-09-enemy-npc-head-icons/icons/fatui-pyro-agent.png",
+      "output_sha256": "495014226cff12d982c1b59d5109ea455e048d00821a80e424156fe5087c719e",
+      "asset": "extension/genshin-dialogue-ui/assets/avatar-icons/sprite-fatui-pyro-agent-495014226c.webp",
+      "asset_sha256": "016e087850d178e5bf0dc0efe17aeb9b0d7aafc491f60c927979e52ca8ccfba1"
+    },
+    {
+      "name": "Fatui Skirmisher - Anemoboxer Vanguard",
+      "role": "enemy",
+      "source": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Fatui Skirmisher - Anemoboxer Vanguard/neutral.webp",
+      "source_sha256": "c54a5bbb93a94a7b244e869b6624a98e0a85ab45ae2efcbae14a28bc0bd42710",
+      "size": [
+        1239,
+        1270
+      ],
+      "alpha_bounds": [
+        27,
+        11,
+        1222,
+        1255
+      ],
+      "crop_normalized": [
+        0.44,
+        0.15,
+        0.35
+      ],
+      "crop_pixels": [
+        335,
+        -20,
+        770,
+        415
+      ],
+      "output": "art/sprites/2026-11-09-enemy-npc-head-icons/icons/fatui-skirmisher-anemoboxer-vanguard.png",
+      "output_sha256": "8a819a5985626e197858c09c14e354d7cea6717cc1ec915d1ccb1bc498cdec41",
+      "asset": "extension/genshin-dialogue-ui/assets/avatar-icons/sprite-fatui-skirmisher-anemoboxer-vanguard-8a819a5985.webp",
+      "asset_sha256": "75cfee4bd75c97d40a63f0a0da5e163d9d7ec49651566d891854cc34ee6a1fc7"
+    },
+    {
+      "name": "Fatui Skirmisher - Cryogunner Legionnaire",
+      "role": "enemy",
+      "source": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Fatui Skirmisher - Cryogunner Legionnaire/neutral.webp",
+      "source_sha256": "db15ec6f8ff6f592290833c51a88d2f9b77acfb808eb430d91bb61e2679436ad",
+      "size": [
+        1119,
+        1406
+      ],
+      "alpha_bounds": [
+        0,
+        25,
+        1118,
+        1406
+      ],
+      "crop_normalized": [
+        0.71,
+        0.33,
+        0.42
+      ],
+      "crop_pixels": [
+        504,
+        191,
+        1084,
+        771
+      ],
+      "output": "art/sprites/2026-11-09-enemy-npc-head-icons/icons/fatui-skirmisher-cryogunner-legionnaire.png",
+      "output_sha256": "0c52653e18695be1c97f4d0ef147d7ab686ed3a04be9a157caf3914d2a6adc51",
+      "asset": "extension/genshin-dialogue-ui/assets/avatar-icons/sprite-fatui-skirmisher-cryogunner-legionnaire-0c52653e18.webp",
+      "asset_sha256": "da4eb4d9b5bd083e1e30fa03fc8139f911182c9857e814d7bb890199ae887500"
+    },
+    {
+      "name": "Fatui Skirmisher - Electrohammer Vanguard",
+      "role": "enemy",
+      "source": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Fatui Skirmisher - Electrohammer Vanguard/neutral.webp",
+      "source_sha256": "adc3ea3b8d4880bbb795734ee8d02c6bd85e5febfb560ab8a589a824d8e63d2c",
+      "size": [
+        1324,
+        1188
+      ],
+      "alpha_bounds": [
+        0,
+        10,
+        1324,
+        1188
+      ],
+      "crop_normalized": [
+        0.25,
+        0.13,
+        0.27
+      ],
+      "crop_pixels": [
+        172,
+        4,
+        490,
+        322
+      ],
+      "output": "art/sprites/2026-11-09-enemy-npc-head-icons/icons/fatui-skirmisher-electrohammer-vanguard.png",
+      "output_sha256": "9fdcb9c3bdd820436dba81765f7eb09cce7f979e198287d7490c938306e28d97",
+      "asset": "extension/genshin-dialogue-ui/assets/avatar-icons/sprite-fatui-skirmisher-electrohammer-vanguard-9fdcb9c3bd.webp",
+      "asset_sha256": "84c38390931d37ac525ec36812caefe0a10e78eb2f16ee0643b8260ee5ef0395"
+    },
+    {
+      "name": "Fatui Skirmisher - Geochanter Bracer",
+      "role": "enemy",
+      "source": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Fatui Skirmisher - Geochanter Bracer/neutral.webp",
+      "source_sha256": "9a6889c2259a397fe54c0964007fa0df3ff49b111b7f1d7d51e9da561824a5c9",
+      "size": [
+        906,
+        1737
+      ],
+      "alpha_bounds": [
+        0,
+        15,
+        888,
+        1717
+      ],
+      "crop_normalized": [
+        0.68117,
+        0.207,
+        0.261
+      ],
+      "crop_pixels": [
+        383,
+        145,
+        827,
+        589
+      ],
+      "output": "art/sprites/2026-11-09-enemy-npc-head-icons/icons/fatui-skirmisher-geochanter-bracer.png",
+      "output_sha256": "de0f6fbc77bc958c4142bbfe0511e178b9efd84cde02a2c34af670f145fa76a5",
+      "asset": "extension/genshin-dialogue-ui/assets/avatar-icons/sprite-fatui-skirmisher-geochanter-bracer-de0f6fbc77.webp",
+      "asset_sha256": "c4e4c0009475713ebd6ebd7fdfc2059d7fc52ca232ecb0c3158ce29a0ca0a2e1"
+    },
+    {
+      "name": "Fatui Skirmisher - Hydrogunner Legionnaire",
+      "role": "enemy",
+      "source": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Fatui Skirmisher - Hydrogunner Legionnaire/neutral.webp",
+      "source_sha256": "672c82e66aaef776725b326053ccc64cea4ff96a816373a82c73576d1cb3a0b7",
+      "size": [
+        1117,
+        1408
+      ],
+      "alpha_bounds": [
+        0,
+        14,
+        1104,
+        1408
+      ],
+      "crop_normalized": [
+        0.71,
+        0.33,
+        0.42
+      ],
+      "crop_pixels": [
+        491,
+        182,
+        1076,
+        767
+      ],
+      "output": "art/sprites/2026-11-09-enemy-npc-head-icons/icons/fatui-skirmisher-hydrogunner-legionnaire.png",
+      "output_sha256": "dc869201ecea3ff44a7adb16f23bbb21bb176b346db14a58a6dc5b9f9da94524",
+      "asset": "extension/genshin-dialogue-ui/assets/avatar-icons/sprite-fatui-skirmisher-hydrogunner-legionnaire-dc869201ec.webp",
+      "asset_sha256": "2887d490fdcf371d0cfec464b46a59d07e419542952663c68084f9de778c0ae2"
+    },
+    {
+      "name": "Fatui Skirmisher - Pyroslinger Bracer",
+      "role": "enemy",
+      "source": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Fatui Skirmisher - Pyroslinger Bracer/neutral.webp",
+      "source_sha256": "1fc46cf58ddc21e70bacb4b503bb1d3ae9d1e453b4045393cdab86bd18bc2dd6",
+      "size": [
+        1040,
+        1512
+      ],
+      "alpha_bounds": [
+        33,
+        4,
+        1000,
+        1512
+      ],
+      "crop_normalized": [
+        0.53,
+        0.13,
+        0.29
+      ],
+      "crop_pixels": [
+        327,
+        -18,
+        764,
+        419
+      ],
+      "output": "art/sprites/2026-11-09-enemy-npc-head-icons/icons/fatui-skirmisher-pyroslinger-bracer.png",
+      "output_sha256": "b70900ad7a1bc75448a40948bfa5f9bf028d140c940fbeada7579d0c82eb5c4d",
+      "asset": "extension/genshin-dialogue-ui/assets/avatar-icons/sprite-fatui-skirmisher-pyroslinger-bracer-b70900ad7a.webp",
+      "asset_sha256": "aae7091aed60df2f1bafacc95b9b1e3636f59cf7dd6981527d259ee4de3c76f7"
+    },
+    {
+      "name": "Frost Operative",
+      "role": "enemy",
+      "source": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Frost Operative/neutral.webp",
+      "source_sha256": "1a916881dfa4a944321c77ac059a68e2835ae3a2055a62903a5e606c6b834dab",
+      "size": [
+        927,
+        1697
+      ],
+      "alpha_bounds": [
+        0,
+        29,
+        888,
+        1651
+      ],
+      "crop_normalized": [
+        0.49,
+        0.17,
+        0.32
+      ],
+      "crop_pixels": [
+        176,
+        45,
+        695,
+        564
+      ],
+      "output": "art/sprites/2026-11-09-enemy-npc-head-icons/icons/frost-operative.png",
+      "output_sha256": "f9916e7bcb17868be293de1ebcb523a76a9c82e8c0147e6a95a1398c68340169",
+      "asset": "extension/genshin-dialogue-ui/assets/avatar-icons/sprite-frost-operative-f9916e7bcb.webp",
+      "asset_sha256": "7c4d4bb0e56fbbd91e7ddc74ac0a339044e85b9e8740c20b1d3fd3854cdf4d58"
+    },
+    {
+      "name": "Geo Samachurl",
+      "role": "enemy",
+      "source": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Geo Samachurl/neutral.webp",
+      "source_sha256": "94eb943198dbe48134c6d8b9eb211bed0ffc906f5048846a7eaec4cce24bd289",
+      "size": [
+        1211,
+        1299
+      ],
+      "alpha_bounds": [
+        0,
+        0,
+        1204,
+        1299
+      ],
+      "crop_normalized": [
+        0.45,
+        0.49,
+        0.56
+      ],
+      "crop_pixels": [
+        178,
+        273,
+        905,
+        1000
+      ],
+      "output": "art/sprites/2026-11-09-enemy-npc-head-icons/icons/geo-samachurl.png",
+      "output_sha256": "d7ca2590ae1eeb2f8d3f8738893014057f7fa1470fd0ea4e66cf73522546a9df",
+      "asset": "extension/genshin-dialogue-ui/assets/avatar-icons/sprite-geo-samachurl-d7ca2590ae.webp",
+      "asset_sha256": "a70c245a7c3de5a53bad60938206bbf04a3f41513dc842d71c264e841f076bb2"
+    },
+    {
+      "name": "Geo Slime",
+      "role": "enemy",
+      "source": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Geo Slime/neutral.webp",
+      "source_sha256": "408ce221cc630d32693d5f813d3be6e24adfd1f88992f9b6350d48e06eb165d5",
+      "size": [
+        1536,
+        1024
+      ],
+      "alpha_bounds": [
+        0,
+        9,
+        1514,
+        1006
+      ],
+      "crop_normalized": [
+        0.5,
+        0.54,
+        0.92
+      ],
+      "crop_pixels": [
+        298,
+        89,
+        1215,
+        1006
+      ],
+      "output": "art/sprites/2026-11-09-enemy-npc-head-icons/icons/geo-slime.png",
+      "output_sha256": "16cbc65ae379e35be716706d3610662cc1d3c775272d17d8304c92978e0bac1c",
+      "asset": "extension/genshin-dialogue-ui/assets/avatar-icons/sprite-geo-slime-16cbc65ae3.webp",
+      "asset_sha256": "1172bb209fd2e13a4e9688abe96cdaa3002fbad05c85a9f865edd59e5da00ab6"
+    },
+    {
+      "name": "Gluttonous Yumkasaur Mountain King",
+      "role": "enemy",
+      "source": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Gluttonous Yumkasaur Mountain King/neutral.webp",
+      "source_sha256": "f40c73b4417588bb6836ae75753fe411aeffac5f158e866efdd0f06e4301bc12",
+      "size": [
+        1372,
+        1147
+      ],
+      "alpha_bounds": [
+        27,
+        0,
+        1357,
+        1147
+      ],
+      "crop_normalized": [
+        0.59,
+        0.27,
+        0.57
+      ],
+      "crop_pixels": [
+        485,
+        -17,
+        1139,
+        637
+      ],
+      "output": "art/sprites/2026-11-09-enemy-npc-head-icons/icons/gluttonous-yumkasaur-mountain-king.png",
+      "output_sha256": "f94e1ca110ac327e3f1c7b7acc520c221955d8eff23f03da7259d60a56faa086",
+      "asset": "extension/genshin-dialogue-ui/assets/avatar-icons/sprite-gluttonous-yumkasaur-mountain-king-f94e1ca110.webp",
+      "asset_sha256": "9994118710842f5f1babb6f9303bd21ff9eff5dd0ca6ec8863d642a9c840bb22"
+    },
+    {
+      "name": "Golden Wolflord",
+      "role": "enemy",
+      "source": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Golden Wolflord/neutral.webp",
+      "source_sha256": "3cf4564f95aed6fef07869da81265a11a37c50ec3a698f0c463f4e32bd21744a",
+      "size": [
+        1312,
+        1199
+      ],
+      "alpha_bounds": [
+        19,
+        18,
+        1296,
+        1182
+      ],
+      "crop_normalized": [
+        0.3174,
+        0.774,
+        0.468
+      ],
+      "crop_pixels": [
+        152,
+        646,
+        697,
+        1191
+      ],
+      "output": "art/sprites/2026-11-09-enemy-npc-head-icons/icons/golden-wolflord.png",
+      "output_sha256": "f7c61d020f4c2606f6d351c1f86da0dc641e8712cd58d6e1a3bc866ca2e44a76",
+      "asset": "extension/genshin-dialogue-ui/assets/avatar-icons/sprite-golden-wolflord-f7c61d020f.webp",
+      "asset_sha256": "9db83eb002f27cf51dc24cc85c9d6ea11314c4de40e34e5396af745ee4ed05b6"
+    },
+    {
+      "name": "Goldflame Qucusaur Tyrant",
+      "role": "enemy",
+      "source": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Goldflame Qucusaur Tyrant/neutral.webp",
+      "source_sha256": "86d99b3064719b75fb4164f69355e73e668152878c5be54193b9ad1384360ff9",
+      "size": [
+        1473,
+        1068
+      ],
+      "alpha_bounds": [
+        97,
+        0,
+        1473,
+        1068
+      ],
+      "crop_normalized": [
+        0.71269,
+        0.338,
+        0.44
+      ],
+      "crop_pixels": [
+        843,
+        126,
+        1313,
+        596
+      ],
+      "output": "art/sprites/2026-11-09-enemy-npc-head-icons/icons/goldflame-qucusaur-tyrant.png",
+      "output_sha256": "5931d3b5e918d202aeedf6456e6ac9c720043f33e22997184c4d2c5e532018e9",
+      "asset": "extension/genshin-dialogue-ui/assets/avatar-icons/sprite-goldflame-qucusaur-tyrant-5931d3b5e9.webp",
+      "asset_sha256": "e9254a76287f0d903d9127e8ce636f932ed49c5bda533872848a84484dde69e5"
+    },
+    {
+      "name": "Granny Ruoxin",
+      "role": "character",
+      "source": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Granny Ruoxin/neutral.webp",
+      "source_sha256": "d31dbd07648e00e43924a1c5d52c89cd94d20a93dbba367d0c86964b23c3b24e",
+      "size": [
+        914,
+        1721
+      ],
+      "alpha_bounds": [
+        0,
+        9,
+        900,
+        1699
+      ],
+      "crop_normalized": [
+        0.5,
+        0.105,
+        0.24
+      ],
+      "crop_pixels": [
+        247,
+        -17,
+        653,
+        389
+      ],
+      "output": "art/sprites/2026-11-09-enemy-npc-head-icons/icons/granny-ruoxin.png",
+      "output_sha256": "63c7acbca5d413c61b5bf21e6739b88dfd953a4814cc311413db0b33f1a8e9f7",
+      "asset": "extension/genshin-dialogue-ui/assets/avatar-icons/sprite-granny-ruoxin-63c7acbca5.webp",
+      "asset_sha256": "81462282a10d6b435d82e978755f6cd4abe1301d4c49c00f1e8e929c1aae85fb"
+    },
+    {
+      "name": "Grounded Geoshroom",
+      "role": "enemy",
+      "source": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Grounded Geoshroom/neutral.webp",
+      "source_sha256": "4fc65719986d76e7bab8d5acde8a5bdf9d9a8a0487b40c2d1fdfa5d6679e79a7",
+      "size": [
+        1240,
+        1269
+      ],
+      "alpha_bounds": [
+        0,
+        7,
+        1226,
+        1269
+      ],
+      "crop_normalized": [
+        0.45,
+        0.4,
+        0.7
+      ],
+      "crop_pixels": [
+        110,
+        70,
+        993,
+        953
+      ],
+      "output": "art/sprites/2026-11-09-enemy-npc-head-icons/icons/grounded-geoshroom.png",
+      "output_sha256": "63dff303306e59673a8391225823ea115be07b186bfbfd466a81b8eecbda4bc5",
+      "asset": "extension/genshin-dialogue-ui/assets/avatar-icons/sprite-grounded-geoshroom-63dff30330.webp",
+      "asset_sha256": "ddf53a7c3074b85df7c1563999c6b34e00644c2ed63fd01d32b59769bbb750da"
+    },
+    {
+      "name": "Grounded Hydroshroom",
+      "role": "enemy",
+      "source": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Grounded Hydroshroom/neutral.webp",
+      "source_sha256": "176772dfdedb5b751ae7220b58a82c6ecefa7886bcdf5e64edeec506bd659518",
+      "size": [
+        1039,
+        1514
+      ],
+      "alpha_bounds": [
+        27,
+        21,
+        1038,
+        1484
+      ],
+      "crop_normalized": [
+        0.49,
+        0.44,
+        0.64
+      ],
+      "crop_pixels": [
+        54,
+        197,
+        990,
+        1133
+      ],
+      "output": "art/sprites/2026-11-09-enemy-npc-head-icons/icons/grounded-hydroshroom.png",
+      "output_sha256": "0dc79d17c0655be5c0cac723b878ed7a88e1ba21994f71129a96f0965b06db4b",
+      "asset": "extension/genshin-dialogue-ui/assets/avatar-icons/sprite-grounded-hydroshroom-0dc79d17c0.webp",
+      "asset_sha256": "1aded9df6ed47a0d28a11870e9c0ba73bbb08fca71618666c0639cc93af5e897"
+    },
+    {
+      "name": "Guardian of Apep's Oasis",
+      "role": "enemy",
+      "source": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Guardian of Apep's Oasis/neutral.webp",
+      "source_sha256": "2a646ed9f818da795f5d32c2921d0e549e5f5e6bf40f87f8b79cf80c5b71aab9",
+      "size": [
+        1323,
+        1189
+      ],
+      "alpha_bounds": [
+        0,
+        14,
+        1319,
+        1189
+      ],
+      "crop_normalized": [
+        0.56,
+        0.25,
+        0.5
+      ],
+      "crop_pixels": [
+        445,
+        14,
+        1033,
+        602
+      ],
+      "output": "art/sprites/2026-11-09-enemy-npc-head-icons/icons/guardian-of-apep-s-oasis.png",
+      "output_sha256": "f076a2babdf2ed1d981b47a468a2d1a6de857dffd8c6ff5140724d98a7f06a9c",
+      "asset": "extension/genshin-dialogue-ui/assets/avatar-icons/sprite-guardian-of-apep-s-oasis-f076a2babd.webp",
+      "asset_sha256": "9e48975608a5598cb637d9a59068282143002723691bae18df65d84bcd4b226c"
+    },
+    {
+      "name": "Hilichurl Berserker",
+      "role": "enemy",
+      "source": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Hilichurl Berserker/neutral.webp",
+      "source_sha256": "9db77418ea96fb8eee24bdd3540fc6d69405156ce1a77ec2560cc76c5fd56c33",
+      "size": [
+        1206,
+        1305
+      ],
+      "alpha_bounds": [
+        0,
+        14,
+        1205,
+        1289
+      ],
+      "crop_normalized": [
+        0.55,
+        0.24,
+        0.48
+      ],
+      "crop_pixels": [
+        357,
+        14,
+        969,
+        626
+      ],
+      "output": "art/sprites/2026-11-09-enemy-npc-head-icons/icons/hilichurl-berserker.png",
+      "output_sha256": "f7b64e3cca9b77c70328c2cefcb98a4cc80d556c22254f65e8c702f55cfe2483",
+      "asset": "extension/genshin-dialogue-ui/assets/avatar-icons/sprite-hilichurl-berserker-f7b64e3cca.webp",
+      "asset_sha256": "f8252adf998274fe6beec0c2a2c9d758801517cfe90adc6b95f389809d46f4d8"
+    },
+    {
+      "name": "Hilichurl Fighter",
+      "role": "enemy",
+      "source": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Hilichurl Fighter/neutral.webp",
+      "source_sha256": "3d7cfe8c4f660c1eb849d568a73b6c22af41047c35009e0bdd2d9d3225b3bb9d",
+      "size": [
+        1161,
+        1354
+      ],
+      "alpha_bounds": [
+        0,
+        1,
+        1161,
+        1354
+      ],
+      "crop_normalized": [
+        0.49,
+        0.25,
+        0.48
+      ],
+      "crop_pixels": [
+        244,
+        15,
+        893,
+        664
+      ],
+      "output": "art/sprites/2026-11-09-enemy-npc-head-icons/icons/hilichurl-fighter.png",
+      "output_sha256": "f71c5439cbda01f22b8b2cb2aab19dbd6468208d4b3754a7561d162425286784",
+      "asset": "extension/genshin-dialogue-ui/assets/avatar-icons/sprite-hilichurl-fighter-f71c5439cb.webp",
+      "asset_sha256": "4cfddacd0640a8911e697eb37a92c85429e3931c27438cd19c55929301272eef"
+    },
+    {
+      "name": "Hilichurl Shooter",
+      "role": "enemy",
+      "source": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Hilichurl Shooter/neutral.webp",
+      "source_sha256": "69b0120d3be856d98db714b417530ac173237ad414feebf087cccb65e930f11f",
+      "size": [
+        1024,
+        1536
+      ],
+      "alpha_bounds": [
+        37,
+        1,
+        1006,
+        1536
+      ],
+      "crop_normalized": [
+        0.47,
+        0.22,
+        0.44
+      ],
+      "crop_pixels": [
+        155,
+        1,
+        830,
+        676
+      ],
+      "output": "art/sprites/2026-11-09-enemy-npc-head-icons/icons/hilichurl-shooter.png",
+      "output_sha256": "e3e226ea54e9834e53631f105ce06719a7ae8092df9a64577db16cbc7f69d4a4",
+      "asset": "extension/genshin-dialogue-ui/assets/avatar-icons/sprite-hilichurl-shooter-e3e226ea54.webp",
+      "asset_sha256": "f28f17aba4a7fcc4b4f5aae2f38d9dc042f448361c9059833fbfdfff4e3a1d6e"
+    },
+    {
+      "name": "Hydro Abyss Mage",
+      "role": "enemy",
+      "source": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Hydro Abyss Mage/neutral.webp",
+      "source_sha256": "d945b8f53de33c3fe44b92c5565ebccc0af841b9b6d0e2d337250c7f066c16b8",
+      "size": [
+        1362,
+        1155
+      ],
+      "alpha_bounds": [
+        0,
+        20,
+        1344,
+        1155
+      ],
+      "crop_normalized": [
+        0.48,
+        0.27,
+        0.46
+      ],
+      "crop_pixels": [
+        384,
+        65,
+        906,
+        587
+      ],
+      "output": "art/sprites/2026-11-09-enemy-npc-head-icons/icons/hydro-abyss-mage.png",
+      "output_sha256": "6dc86ffc2e4bcd0ee72f9f90d96e73c1c0231c24612de74d704c34853d8d823e",
+      "asset": "extension/genshin-dialogue-ui/assets/avatar-icons/sprite-hydro-abyss-mage-6dc86ffc2e.webp",
+      "asset_sha256": "b043fbb1c6c3cd091b003b6c70112ab7ca781998fea632c4b664181ae6cb0128"
+    },
+    {
+      "name": "Hydro Hilichurl Rogue",
+      "role": "enemy",
+      "source": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Hydro Hilichurl Rogue/neutral.webp",
+      "source_sha256": "98e8e73d3b6ba8ae7160f1012b927466e2d629baf6642cfe42b8f8cccb281ec1",
+      "size": [
+        1199,
+        1312
+      ],
+      "alpha_bounds": [
+        38,
+        13,
+        1167,
+        1312
+      ],
+      "crop_normalized": [
+        0.5,
+        0.2,
+        0.35
+      ],
+      "crop_pixels": [
+        375,
+        45,
+        830,
+        500
+      ],
+      "output": "art/sprites/2026-11-09-enemy-npc-head-icons/icons/hydro-hilichurl-rogue.png",
+      "output_sha256": "17250eb79cc79320c464bcd7727b7e81ead5915754753506f17f0dcb4b1eb8af",
+      "asset": "extension/genshin-dialogue-ui/assets/avatar-icons/sprite-hydro-hilichurl-rogue-17250eb79c.webp",
+      "asset_sha256": "1d011e05247f5751f976d988eac09561fb4d36939d2282f3367966efc50b6131"
+    },
+    {
+      "name": "Hydro Hypostasis",
+      "role": "enemy",
+      "source": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Hydro Hypostasis/neutral.webp",
+      "source_sha256": "210c35f97b20318d286595357fe48f48a47a569a9821f49fa4c15e51c546d8f2",
+      "size": [
+        1288,
+        1221
+      ],
+      "alpha_bounds": [
+        0,
+        19,
+        1266,
+        1221
+      ],
+      "crop_normalized": [
+        0.5,
+        0.5,
+        1.02
+      ],
+      "crop_pixels": [
+        20,
+        7,
+        1246,
+        1233
+      ],
+      "output": "art/sprites/2026-11-09-enemy-npc-head-icons/icons/hydro-hypostasis.png",
+      "output_sha256": "a38885c04c0092539613a635b904c0b1c030ecc01a42f6bd31261c8a8f4c260b",
+      "asset": "extension/genshin-dialogue-ui/assets/avatar-icons/sprite-hydro-hypostasis-a38885c04c.webp",
+      "asset_sha256": "c1717dd3bd95874538b36cfda5712efa164fcc9edd1a08539f689d8ebb12a477"
+    },
+    {
+      "name": "Hydro Samachurl",
+      "role": "enemy",
+      "source": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Hydro Samachurl/neutral.webp",
+      "source_sha256": "9b2a56794433536e532f09ed9f86ce43f0fb96c9d00ee1587d5c391510c58197",
+      "size": [
+        893,
+        1760
+      ],
+      "alpha_bounds": [
+        0,
+        24,
+        877,
+        1760
+      ],
+      "crop_normalized": [
+        0.66,
+        0.59,
+        0.5
+      ],
+      "crop_pixels": [
+        145,
+        614,
+        1013,
+        1482
+      ],
+      "output": "art/sprites/2026-11-09-enemy-npc-head-icons/icons/hydro-samachurl.png",
+      "output_sha256": "62f89f3bad1ebd6bc442f6c574301bb6a5f30bb829ed6e3395e7bb35751a2347",
+      "asset": "extension/genshin-dialogue-ui/assets/avatar-icons/sprite-hydro-samachurl-62f89f3bad.webp",
+      "asset_sha256": "89263fbee4e504c07880a2227ccf4a9bc62660d1f016c0f8d82517f79dad40c1"
+    },
+    {
+      "name": "Hydro Slime",
+      "role": "enemy",
+      "source": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Hydro Slime/neutral.webp",
+      "source_sha256": "2392d79cbc83a2de05544195872fcf6cd790316cb07646cfd41512b89ce8df84",
+      "size": [
+        1536,
+        1024
+      ],
+      "alpha_bounds": [
+        0,
+        48,
+        1520,
+        1024
+      ],
+      "crop_normalized": [
+        0.46,
+        0.5,
+        0.95
+      ],
+      "crop_pixels": [
+        236,
+        72,
+        1163,
+        999
+      ],
+      "output": "art/sprites/2026-11-09-enemy-npc-head-icons/icons/hydro-slime.png",
+      "output_sha256": "a681cd757fbd9bf7bfe9e72538ac1a324b8186ff6884f2b4ac1fa08811ae61f2",
+      "asset": "extension/genshin-dialogue-ui/assets/avatar-icons/sprite-hydro-slime-a681cd757f.webp",
+      "asset_sha256": "49ac8989657d4d64022669b0bd3f4c37241b30db443b038b3dbfc58c760a5238"
+    },
+    {
+      "name": "Hydro Tulpa",
+      "role": "enemy",
+      "source": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Hydro Tulpa/neutral.webp",
+      "source_sha256": "0ea44ca6519ee81d3fe2ff69b3908fd0aec4e9d8fce1fbc24d816f15a9cc30c7",
+      "size": [
+        1515,
+        1038
+      ],
+      "alpha_bounds": [
+        0,
+        8,
+        1509,
+        1038
+      ],
+      "crop_normalized": [
+        0.5,
+        0.35,
+        0.65
+      ],
+      "crop_pixels": [
+        420,
+        34,
+        1090,
+        704
+      ],
+      "output": "art/sprites/2026-11-09-enemy-npc-head-icons/icons/hydro-tulpa.png",
+      "output_sha256": "32062bf4704125f20f47d7ffd4ba6456d0e1651508b9fb14e9afd651f6ad8811",
+      "asset": "extension/genshin-dialogue-ui/assets/avatar-icons/sprite-hydro-tulpa-32062bf470.webp",
+      "asset_sha256": "780c0cc11ebcd44472cb0823c1d490182a047d0e2d25f419b73475f5bafc2841"
+    },
+    {
+      "name": "Ice Shieldwall Mitachurl",
+      "role": "enemy",
+      "source": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Ice Shieldwall Mitachurl/neutral.webp",
+      "source_sha256": "de7220545d4fb68d200bb590a8ce9b016b2ce05903b9c694aee2befaf12e2338",
+      "size": [
+        1207,
+        1303
+      ],
+      "alpha_bounds": [
+        0,
+        0,
+        1207,
+        1303
+      ],
+      "crop_normalized": [
+        0.31,
+        0.37,
+        0.5
+      ],
+      "crop_pixels": [
+        48,
+        156,
+        700,
+        808
+      ],
+      "output": "art/sprites/2026-11-09-enemy-npc-head-icons/icons/ice-shieldwall-mitachurl.png",
+      "output_sha256": "dde2faab8cafaafc8b3981e907fa4f122769bed8a0baf6c7385bf228829bc6a5",
+      "asset": "extension/genshin-dialogue-ui/assets/avatar-icons/sprite-ice-shieldwall-mitachurl-dde2faab8c.webp",
+      "asset_sha256": "66ace88a1a0741008483f34629417ee3ddac9684ac2fd7e9355e0278229d1f3e"
+    },
+    {
+      "name": "Jadeplume Terrorshroom",
+      "role": "enemy",
+      "source": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Jadeplume Terrorshroom/neutral.webp",
+      "source_sha256": "362eb85da1e0fee654a2271ec4ddf47cbac2a907eff8751f6fd96059f6ebb4b2",
+      "size": [
+        1340,
+        1174
+      ],
+      "alpha_bounds": [
+        0,
+        0,
+        1339,
+        1174
+      ],
+      "crop_normalized": [
+        0.25355,
+        0.44,
+        0.464
+      ],
+      "crop_pixels": [
+        67,
+        244,
+        612,
+        789
+      ],
+      "output": "art/sprites/2026-11-09-enemy-npc-head-icons/icons/jadeplume-terrorshroom.png",
+      "output_sha256": "70804d3e682f63eac2c01cf7ee52c72e55a739094e3de889c9006e6a459da1f1",
+      "asset": "extension/genshin-dialogue-ui/assets/avatar-icons/sprite-jadeplume-terrorshroom-70804d3e68.webp",
+      "asset_sha256": "7cbc883413435d04df9660ad265dda5c534002df834b1a9c75331b4a8c2ede61"
+    },
+    {
+      "name": "Jakob",
+      "role": "character",
+      "source": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Jakob/neutral.webp",
+      "source_sha256": "523dacd78354cf82cfea507029ad93a5e4de46e38c99af02d4aa8920e3a0c09d",
+      "size": [
+        935,
+        1683
+      ],
+      "alpha_bounds": [
+        49,
+        37,
+        916,
+        1645
+      ],
+      "crop_normalized": [
+        0.5,
+        0.105,
+        0.24
+      ],
+      "crop_pixels": [
+        290,
+        13,
+        676,
+        399
+      ],
+      "output": "art/sprites/2026-11-09-enemy-npc-head-icons/icons/jakob.png",
+      "output_sha256": "b2340a14877786c243c0b587f21b749c732ab457c4f0f4c003938338951400ba",
+      "asset": "extension/genshin-dialogue-ui/assets/avatar-icons/sprite-jakob-b2340a1487.webp",
+      "asset_sha256": "873313467329c4804149c0b01fb0d5b759e9d79ce0a865251f4bf18417a3409e"
+    },
+    {
+      "name": "Jeht",
+      "role": "character",
+      "source": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Jeht/neutral.webp",
+      "source_sha256": "eb2aa7a5170ab3adc20f102244fd5b014ece15d0329f3a6d4e670d3f072c40bc",
+      "size": [
+        887,
+        1774
+      ],
+      "alpha_bounds": [
+        0,
+        0,
+        877,
+        1750
+      ],
+      "crop_normalized": [
+        0.5,
+        0.105,
+        0.24
+      ],
+      "crop_pixels": [
+        228,
+        -26,
+        648,
+        394
+      ],
+      "output": "art/sprites/2026-11-09-enemy-npc-head-icons/icons/jeht.png",
+      "output_sha256": "21f8edfddd186c5909340fdbf7457810d093f949b8109da2be1057d4bf4fde0a",
+      "asset": "extension/genshin-dialogue-ui/assets/avatar-icons/sprite-jeht-21f8edfddd.webp",
+      "asset_sha256": "fb59e885479d46655fb14ab1af61b4c294f4eb0e7653e79b9cb4ea9765a94792"
+    },
+    {
+      "name": "Kairagi: Dancing Thunder",
+      "role": "enemy",
+      "source": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Kairagi Dancing Thunder/neutral.webp",
+      "source_sha256": "e95ea64762c630733cf1a2effcbfababa555d094f872a3b915302d682aefc5f7",
+      "size": [
+        1209,
+        1301
+      ],
+      "alpha_bounds": [
+        47,
+        0,
+        1185,
+        1287
+      ],
+      "crop_normalized": [
+        0.52,
+        0.21,
+        0.39
+      ],
+      "crop_pixels": [
+        388,
+        19,
+        890,
+        521
+      ],
+      "output": "art/sprites/2026-11-09-enemy-npc-head-icons/icons/kairagi-dancing-thunder.png",
+      "output_sha256": "0745da11db8a86643ffbef8fd4ecdd12328f44540da8be33dc787f1bc82f14cf",
+      "asset": "extension/genshin-dialogue-ui/assets/avatar-icons/sprite-kairagi-dancing-thunder-0745da11db.webp",
+      "asset_sha256": "0fa62cca25672da4160d5233ef4795080108aa02be28a8c3064d0103ccd91787"
+    },
+    {
+      "name": "Kairagi: Fiery Might",
+      "role": "enemy",
+      "source": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Kairagi Fiery Might/neutral.webp",
+      "source_sha256": "ff7eaa971ed64c621ad8f4f38f6a93572d3bb3a88352f86d0448dce9db6fbe5e",
+      "size": [
+        1145,
+        1374
+      ],
+      "alpha_bounds": [
+        28,
+        14,
+        1087,
+        1356
+      ],
+      "crop_normalized": [
+        0.64,
+        0.19,
+        0.37
+      ],
+      "crop_pixels": [
+        457,
+        20,
+        954,
+        517
+      ],
+      "output": "art/sprites/2026-11-09-enemy-npc-head-icons/icons/kairagi-fiery-might.png",
+      "output_sha256": "04789c65c71199936eada7254d277ace6b64af49e7c55a53e4bf67575f26558c",
+      "asset": "extension/genshin-dialogue-ui/assets/avatar-icons/sprite-kairagi-fiery-might-04789c65c7.webp",
+      "asset_sha256": "74b299a1a39c5091c47a51d83c132ff24b385b306339888470d7594fe7372fc5"
+    },
+    {
+      "name": "Katheryne",
+      "role": "character",
+      "source": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Katheryne/neutral.webp",
+      "source_sha256": "39ca569e3bb82d5ac2feb55c5f608289c3ca891f2f75c1b94895a8027d9fb3bb",
+      "size": [
+        1086,
+        1448
+      ],
+      "alpha_bounds": [
+        195,
+        21,
+        1025,
+        1417
+      ],
+      "crop_normalized": [
+        0.5,
+        0.105,
+        0.24
+      ],
+      "crop_pixels": [
+        442,
+        0,
+        777,
+        335
+      ],
+      "output": "art/sprites/2026-11-09-enemy-npc-head-icons/icons/katheryne.png",
+      "output_sha256": "341462c12ed5f87c3cdd1e0959eed8cf488e175513ad2d0e9e220faaff53bafc",
+      "asset": "extension/genshin-dialogue-ui/assets/avatar-icons/sprite-katheryne-341462c12e.webp",
+      "asset_sha256": "642c06ce13caa843d90da5de6d28a91406a347e9c13e92508f14c599a8c9e914"
+    },
+    {
+      "name": "Knyazev",
+      "role": "character",
+      "source": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Knyazev/neutral.webp",
+      "source_sha256": "31d65e7520828a191f1496604f9c2473858807ddab550d2a4eda5740775e95fa",
+      "size": [
+        918,
+        1714
+      ],
+      "alpha_bounds": [
+        0,
+        0,
+        888,
+        1700
+      ],
+      "crop_normalized": [
+        0.5,
+        0.105,
+        0.24
+      ],
+      "crop_pixels": [
+        240,
+        -26,
+        648,
+        382
+      ],
+      "output": "art/sprites/2026-11-09-enemy-npc-head-icons/icons/knyazev.png",
+      "output_sha256": "d4833a845065ec3513ca7f9c138ac39f16302a650de8af1ba2732cceac2a156d",
+      "asset": "extension/genshin-dialogue-ui/assets/avatar-icons/sprite-knyazev-d4833a8450.webp",
+      "asset_sha256": "3bbcda416aef2a76854347d285384a6950d8585bd5793ff9644eb39152b6ea64"
+    },
+    {
+      "name": "Komaki",
+      "role": "character",
+      "source": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Komaki/neutral.webp",
+      "source_sha256": "bc6a4be1afb927d485dc5205f20f962823f7bbca0698911ce13ce19f73afbeab",
+      "size": [
+        1024,
+        1536
+      ],
+      "alpha_bounds": [
+        57,
+        17,
+        970,
+        1522
+      ],
+      "crop_normalized": [
+        0.54747,
+        0.105,
+        0.24
+      ],
+      "crop_pixels": [
+        376,
+        -5,
+        737,
+        356
+      ],
+      "output": "art/sprites/2026-11-09-enemy-npc-head-icons/icons/komaki.png",
+      "output_sha256": "e9d00a09bd639732550cc168bba0deb5024d5b6bfc2c17d9c117e638dd0f943f",
+      "asset": "extension/genshin-dialogue-ui/assets/avatar-icons/sprite-komaki-e9d00a09bd.webp",
+      "asset_sha256": "2e7a406db82b50f8c27cff652b6d4ceabecb321ec8fbf5fbef918c947eb265cf"
+    },
+    {
+      "name": "Kujou Masahito",
+      "role": "character",
+      "source": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Kujou Masahito/neutral.webp",
+      "source_sha256": "50402d834c60b71cf7e984cc42efae10be2cad4728f47eb17fa2b54d398034e8",
+      "size": [
+        1024,
+        1536
+      ],
+      "alpha_bounds": [
+        24,
+        0,
+        1004,
+        1524
+      ],
+      "crop_normalized": [
+        0.5,
+        0.14,
+        0.28
+      ],
+      "crop_pixels": [
+        300,
+        0,
+        727,
+        427
+      ],
+      "output": "art/sprites/2026-11-09-enemy-npc-head-icons/icons/kujou-masahito.png",
+      "output_sha256": "223d63ae1d4124d3a201b79d551e17c2581009630480de7a4deb1727430633b5",
+      "asset": "extension/genshin-dialogue-ui/assets/avatar-icons/sprite-kujou-masahito-223d63ae1d.webp",
+      "asset_sha256": "6113a0159c50deeb5472462491c5516c93e6dd7d2d0d0024091f2e55d433c6dc"
+    },
+    {
+      "name": "Kukkia",
+      "role": "character",
+      "source": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Kukkia/neutral.webp",
+      "source_sha256": "7427b00820cd85a879e36b32b03bd96f628968c030af5c3d03991f8b7a24ebbd",
+      "size": [
+        935,
+        1683
+      ],
+      "alpha_bounds": [
+        82,
+        0,
+        854,
+        1667
+      ],
+      "crop_normalized": [
+        0.5,
+        0.105,
+        0.24
+      ],
+      "crop_pixels": [
+        268,
+        -25,
+        668,
+        375
+      ],
+      "output": "art/sprites/2026-11-09-enemy-npc-head-icons/icons/kukkia.png",
+      "output_sha256": "222d024a7b75a9dd03c5b11799e257d4e7dd6f3d011a64569c7625518464339a",
+      "asset": "extension/genshin-dialogue-ui/assets/avatar-icons/sprite-kukkia-222d024a7b.webp",
+      "asset_sha256": "b067672b8a0f7dd6cc534269c818c7668ce208612df826f0cb45f8fc66983412"
+    },
+    {
+      "name": "La Signora",
+      "role": "enemy",
+      "source": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/La Signora/neutral.webp",
+      "source_sha256": "6e05f470af9d4eff8a6c791dba845a9a34cafda826cc4cf54e6213188be43574",
+      "size": [
+        1024,
+        1536
+      ],
+      "alpha_bounds": [
+        0,
+        5,
+        1008,
+        1536
+      ],
+      "crop_normalized": [
+        0.51,
+        0.15,
+        0.3
+      ],
+      "crop_pixels": [
+        285,
+        5,
+        744,
+        464
+      ],
+      "output": "art/sprites/2026-11-09-enemy-npc-head-icons/icons/la-signora.png",
+      "output_sha256": "e91c7d51a2cbf2677c45c3bf042d434d52ad7d5c5620e16b1242e5250247c4d1",
+      "asset": "extension/genshin-dialogue-ui/assets/avatar-icons/sprite-la-signora-e91c7d51a2.webp",
+      "asset_sha256": "678d8bd633a7d34899ea3ca3241185c20bc6166af7bc7f5ce7c58d5d89565761"
+    },
+    {
+      "name": "Large Cryo Slime",
+      "role": "enemy",
+      "source": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Large Cryo Slime/neutral.webp",
+      "source_sha256": "8d5dc894249f49021417e3a9a3d8dc18a1de1b0351916b328ae5448775e8d491",
+      "size": [
+        1440,
+        1092
+      ],
+      "alpha_bounds": [
+        0,
+        8,
+        1440,
+        1092
+      ],
+      "crop_normalized": [
+        0.5,
+        0.6,
+        0.94
+      ],
+      "crop_pixels": [
+        210,
+        149,
+        1229,
+        1168
+      ],
+      "output": "art/sprites/2026-11-09-enemy-npc-head-icons/icons/large-cryo-slime.png",
+      "output_sha256": "b838fa2301e4e640f81ba33c56cc3315075826e64d1c67aee1faf2d166bc9924",
+      "asset": "extension/genshin-dialogue-ui/assets/avatar-icons/sprite-large-cryo-slime-b838fa2301.webp",
+      "asset_sha256": "43b9e9d62824747bc6e6e6f227a36988c01e447ceebd2913d8d0d36da3c28de0"
+    },
+    {
+      "name": "Large Electro Slime",
+      "role": "enemy",
+      "source": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Large Electro Slime/neutral.webp",
+      "source_sha256": "4ebc420636cfc93e74cbcbce81ab2e3cba0087a996c37591a4ba02a4c88e5186",
+      "size": [
+        1337,
+        1176
+      ],
+      "alpha_bounds": [
+        25,
+        45,
+        1333,
+        1176
+      ],
+      "crop_normalized": [
+        0.5,
+        0.63,
+        0.85
+      ],
+      "crop_pixels": [
+        198,
+        277,
+        1159,
+        1238
+      ],
+      "output": "art/sprites/2026-11-09-enemy-npc-head-icons/icons/large-electro-slime.png",
+      "output_sha256": "821c739866a1b8ed308ec09a67b50e98c55f4dd6442ff79a21d6530b3426a3c0",
+      "asset": "extension/genshin-dialogue-ui/assets/avatar-icons/sprite-large-electro-slime-821c739866.webp",
+      "asset_sha256": "8284fd8948ce9079bb97df759e37f63994b2a50e11d433aef8c58f7de70102bb"
+    },
+    {
+      "name": "Large Hydro Slime",
+      "role": "enemy",
+      "source": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Large Hydro Slime/neutral.webp",
+      "source_sha256": "eb1d6a64ae9a3c8955c72619072022532a027328dee6951379e9805fcbbd7efa",
+      "size": [
+        1567,
+        1004
+      ],
+      "alpha_bounds": [
+        0,
+        28,
+        1553,
+        1004
+      ],
+      "crop_normalized": [
+        0.5,
+        0.51,
+        0.9
+      ],
+      "crop_pixels": [
+        338,
+        87,
+        1216,
+        965
+      ],
+      "output": "art/sprites/2026-11-09-enemy-npc-head-icons/icons/large-hydro-slime.png",
+      "output_sha256": "b660bbb265f1c1214745867e03f7ad1baec72007db18f798efb87faf2161104c",
+      "asset": "extension/genshin-dialogue-ui/assets/avatar-icons/sprite-large-hydro-slime-b660bbb265.webp",
+      "asset_sha256": "71efd3828973427599b2dd3267f0b8ed08fb552c242ef6a07cd8537fc3381eb3"
+    },
+    {
+      "name": "Large Pyro Slime",
+      "role": "enemy",
+      "source": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Large Pyro Slime/neutral.webp",
+      "source_sha256": "124d6d8ce76db2a5c7e2cc5abb827daabb8ebadbbc19899d9c979fe2ed31bc30",
+      "size": [
+        1433,
+        1098
+      ],
+      "alpha_bounds": [
+        49,
+        72,
+        1351,
+        1001
+      ],
+      "crop_normalized": [
+        0.5,
+        0.48,
+        0.92
+      ],
+      "crop_pixels": [
+        272,
+        90,
+        1127,
+        945
+      ],
+      "output": "art/sprites/2026-11-09-enemy-npc-head-icons/icons/large-pyro-slime.png",
+      "output_sha256": "3915dcddf0ee64e4969bc18121021f4267841f72ee65d029502b20b4a29aa84f",
+      "asset": "extension/genshin-dialogue-ui/assets/avatar-icons/sprite-large-pyro-slime-3915dcddf0.webp",
+      "asset_sha256": "e1c0ea0b77c633f5841d943ccd98d6f1d9570e550a18201ba2272c3ce57efc59"
+    },
+    {
+      "name": "Lasselin",
+      "role": "character",
+      "source": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Lasselin/neutral.webp",
+      "source_sha256": "021f0128d24fb07a3351273b4c40c0cdc055559214ff25655c627115ea238258",
+      "size": [
+        941,
+        1672
+      ],
+      "alpha_bounds": [
+        74,
+        18,
+        866,
+        1655
+      ],
+      "crop_normalized": [
+        0.5,
+        0.105,
+        0.24
+      ],
+      "crop_pixels": [
+        274,
+        -7,
+        667,
+        386
+      ],
+      "output": "art/sprites/2026-11-09-enemy-npc-head-icons/icons/lasselin.png",
+      "output_sha256": "137a12a138d6cb417be80554c376af0d4f336df5120f583da701c345b816f3a3",
+      "asset": "extension/genshin-dialogue-ui/assets/avatar-icons/sprite-lasselin-137a12a138.webp",
+      "asset_sha256": "eb7e6c2c2aa3d9be5d96cae7085d3f4d4d313658fe06adf73c4b5b6eb199b83d"
+    },
+    {
+      "name": "Lord of Eroded Primal Fire",
+      "role": "enemy",
+      "source": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Lord of Eroded Primal Fire/neutral.webp",
+      "source_sha256": "4096a37e6eeb19154ad102ef883ce78e2f164baafd46f2eaaad37679d3ec0664",
+      "size": [
+        1254,
+        1254
+      ],
+      "alpha_bounds": [
+        0,
+        9,
+        1254,
+        1254
+      ],
+      "crop_normalized": [
+        0.45,
+        0.28,
+        0.312
+      ],
+      "crop_pixels": [
+        370,
+        164,
+        758,
+        552
+      ],
+      "output": "art/sprites/2026-11-09-enemy-npc-head-icons/icons/lord-of-eroded-primal-fire.png",
+      "output_sha256": "309a66064123a436d830e48479f06bf209286f145eb8468c78393e8614b17c82",
+      "asset": "extension/genshin-dialogue-ui/assets/avatar-icons/sprite-lord-of-eroded-primal-fire-309a660641.webp",
+      "asset_sha256": "cecb583afe40c6d9be028322f52c78b869155af1863e92bd5b7d859e6b1ed80b"
+    },
+    {
+      "name": "Lyris",
+      "role": "character",
+      "source": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Lyris/neutral.webp",
+      "source_sha256": "b6f5022f3a3c0bb54013acc7d738125f32ba0e6c467b57bcd75fce33e5f55a38",
+      "size": [
+        992,
+        1586
+      ],
+      "alpha_bounds": [
+        0,
+        16,
+        991,
+        1586
+      ],
+      "crop_normalized": [
+        0.5,
+        0.105,
+        0.24
+      ],
+      "crop_pixels": [
+        307,
+        -8,
+        684,
+        369
+      ],
+      "output": "art/sprites/2026-11-09-enemy-npc-head-icons/icons/lyris.png",
+      "output_sha256": "cb133bc889122435c0bacc75c87a474e98e5d9d9410693a1804d1f6c813493e0",
+      "asset": "extension/genshin-dialogue-ui/assets/avatar-icons/sprite-lyris-cb133bc889.webp",
+      "asset_sha256": "33c5d37eb6ca36e4c911030c2f99a5a2b38edea65b7951da5d3c03d4bc2f7859"
+    },
+    {
+      "name": "Maguu Kenki",
+      "role": "enemy",
+      "source": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Maguu Kenki/neutral.webp",
+      "source_sha256": "e09e7c1f5e748041f145a39409a17fdfda9908bdad3e27823c8457427c100834",
+      "size": [
+        1140,
+        1380
+      ],
+      "alpha_bounds": [
+        31,
+        1,
+        1108,
+        1366
+      ],
+      "crop_normalized": [
+        0.53,
+        0.35,
+        0.46
+      ],
+      "crop_pixels": [
+        288,
+        165,
+        916,
+        793
+      ],
+      "output": "art/sprites/2026-11-09-enemy-npc-head-icons/icons/maguu-kenki.png",
+      "output_sha256": "97e3b7f90ddbb7975ab9c589b40fa64e55958d457f6fa5e1f8846415bb16af28",
+      "asset": "extension/genshin-dialogue-ui/assets/avatar-icons/sprite-maguu-kenki-97e3b7f90d.webp",
+      "asset_sha256": "e6ce91924de3920d175f2e3f801071deaeecdd66a2af9af0f756d08259889943"
+    },
+    {
+      "name": "Maryam",
+      "role": "character",
+      "source": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Maryam/neutral.webp",
+      "source_sha256": "77953c33de95cfb47f527a16109f6f051d3f0c5f98d9273ba058db5bd113a727",
+      "size": [
+        935,
+        1683
+      ],
+      "alpha_bounds": [
+        41,
+        15,
+        917,
+        1667
+      ],
+      "crop_normalized": [
+        0.5,
+        0.105,
+        0.24
+      ],
+      "crop_pixels": [
+        281,
+        -10,
+        677,
+        386
+      ],
+      "output": "art/sprites/2026-11-09-enemy-npc-head-icons/icons/maryam.png",
+      "output_sha256": "01eda5f78319eb6368066f01219ac1e35bb9951ea59f65cde307c480140f10d9",
+      "asset": "extension/genshin-dialogue-ui/assets/avatar-icons/sprite-maryam-01eda5f783.webp",
+      "asset_sha256": "05455a1df446f82b62d687f10b2f7842a1bc05fee9756b2359d3872acb2c43e7"
+    },
+    {
+      "name": "Master Lu",
+      "role": "character",
+      "source": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Master Lu/neutral.webp",
+      "source_sha256": "bfc6217f375ade480602779dd1901cb8c05e48be941826418f7df4eb8198dfc7",
+      "size": [
+        1024,
+        1536
+      ],
+      "alpha_bounds": [
+        75,
+        22,
+        982,
+        1522
+      ],
+      "crop_normalized": [
+        0.5,
+        0.105,
+        0.24
+      ],
+      "crop_pixels": [
+        348,
+        0,
+        708,
+        360
+      ],
+      "output": "art/sprites/2026-11-09-enemy-npc-head-icons/icons/master-lu.png",
+      "output_sha256": "fc639d0e2737d86fc5a80b4ccbcf14dc29100013e0410726cd70e39c01d5e500",
+      "asset": "extension/genshin-dialogue-ui/assets/avatar-icons/sprite-master-lu-fc639d0e27.webp",
+      "asset_sha256": "1dc62af54df84c5ea9bdc3c566fc0def2e36c9355feceb5097d69d102b21a5ef"
+    },
+    {
+      "name": "Mayskaya",
+      "role": "character",
+      "source": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Mayskaya/neutral.webp",
+      "source_sha256": "b0cddca3f5f97b37c7a80a3285e820952a00e34de3e9db18699d4c8e1359932f",
+      "size": [
+        935,
+        1683
+      ],
+      "alpha_bounds": [
+        0,
+        0,
+        913,
+        1669
+      ],
+      "crop_normalized": [
+        0.5,
+        0.105,
+        0.24
+      ],
+      "crop_pixels": [
+        256,
+        -25,
+        657,
+        376
+      ],
+      "output": "art/sprites/2026-11-09-enemy-npc-head-icons/icons/mayskaya.png",
+      "output_sha256": "7eb2bdc7f75b5d5fcc8c26c6de28d40dfeda35219aa450195325cd3725a32036",
+      "asset": "extension/genshin-dialogue-ui/assets/avatar-icons/sprite-mayskaya-7eb2bdc7f7.webp",
+      "asset_sha256": "87b50a592407f778606087686b944c000d74846939d570c0cb5eece8e5a1a8bd"
+    },
+    {
+      "name": "Mazatl",
+      "role": "character",
+      "source": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Mazatl/neutral.webp",
+      "source_sha256": "a6c7dce16f1e818b44d24eea37bee4a9070cb02fbff81b900b2f7043ba74a9e0",
+      "size": [
+        937,
+        1679
+      ],
+      "alpha_bounds": [
+        0,
+        3,
+        913,
+        1679
+      ],
+      "crop_normalized": [
+        0.5,
+        0.105,
+        0.24
+      ],
+      "crop_pixels": [
+        256,
+        -22,
+        658,
+        380
+      ],
+      "output": "art/sprites/2026-11-09-enemy-npc-head-icons/icons/mazatl.png",
+      "output_sha256": "9e98ea4a8a1fde556ca2dc216c6f97b7d8d462b3837a847f2a0ce8970f63107f",
+      "asset": "extension/genshin-dialogue-ui/assets/avatar-icons/sprite-mazatl-9e98ea4a8a.webp",
+      "asset_sha256": "b1ba1a1bef976f662345d341a28a014319b0253d2c5c2449c81e12e972bee657"
+    },
+    {
+      "name": "Millennial Pearl Seahorse",
+      "role": "enemy",
+      "source": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Millennial Pearl Seahorse/neutral.webp",
+      "source_sha256": "ee52f1d7d907363d595a759107910e932600849547433e31587ffbef7d7088c0",
+      "size": [
+        1443,
+        1090
+      ],
+      "alpha_bounds": [
+        0,
+        15,
+        1401,
+        1090
+      ],
+      "crop_normalized": [
+        0.77,
+        0.36,
+        0.408
+      ],
+      "crop_pixels": [
+        859,
+        182,
+        1298,
+        621
+      ],
+      "output": "art/sprites/2026-11-09-enemy-npc-head-icons/icons/millennial-pearl-seahorse.png",
+      "output_sha256": "5f3eede385035d2d4ddc68e66140e925bb2d79617439937c8baa3df2f96185b7",
+      "asset": "extension/genshin-dialogue-ui/assets/avatar-icons/sprite-millennial-pearl-seahorse-5f3eede385.webp",
+      "asset_sha256": "5381fe8393e58522d7fa8897927081080092a4d5f6fa3cf8c8f1529f510909f4"
+    },
+    {
+      "name": "Mirror Maiden",
+      "role": "enemy",
+      "source": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Mirror Maiden/neutral.webp",
+      "source_sha256": "19bcb8953ce1b6c429496c5c6502d20e543c03ad814686bb4037270c125e98b5",
+      "size": [
+        1024,
+        1536
+      ],
+      "alpha_bounds": [
+        0,
+        15,
+        1006,
+        1522
+      ],
+      "crop_normalized": [
+        0.48,
+        0.17,
+        0.32
+      ],
+      "crop_pixels": [
+        242,
+        30,
+        724,
+        512
+      ],
+      "output": "art/sprites/2026-11-09-enemy-npc-head-icons/icons/mirror-maiden.png",
+      "output_sha256": "9c5e15666feac7db04e58b7ecd15fab2ba536a547ac0d040e21d678ef530837f",
+      "asset": "extension/genshin-dialogue-ui/assets/avatar-icons/sprite-mirror-maiden-9c5e15666f.webp",
+      "asset_sha256": "592769001668e7d942b76175a1cc360744be1adf9aafa61bbbd0a6ecb530ff25"
+    },
+    {
+      "name": "Mécantre",
+      "role": "character",
+      "source": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Mécantre/neutral.webp",
+      "source_sha256": "6c4c0d679556e375e2095dff80c6981d566ab44374d20009b7b98e3e48a58f6e",
+      "size": [
+        937,
+        1678
+      ],
+      "alpha_bounds": [
+        98,
+        15,
+        881,
+        1648
+      ],
+      "crop_normalized": [
+        0.5,
+        0.105,
+        0.24
+      ],
+      "crop_pixels": [
+        294,
+        -10,
+        686,
+        382
+      ],
+      "output": "art/sprites/2026-11-09-enemy-npc-head-icons/icons/m-cantre.png",
+      "output_sha256": "5019668e79db52efc0ec91420348aa6ff1a46395a9f871b7f46a2857a377ee30",
+      "asset": "extension/genshin-dialogue-ui/assets/avatar-icons/sprite-m-cantre-5019668e79.webp",
+      "asset_sha256": "4532d1860885fa7be00a05012f915e2bfb512e79fe9b4425ce70f5b9557cd45d"
+    },
+    {
+      "name": "Neko",
+      "role": "character",
+      "source": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Neko/neutral.webp",
+      "source_sha256": "a5a9bb6515b4362a586aef9abcf153d35f6e783cafb187f91b571f0cf1869144",
+      "size": [
+        1024,
+        1536
+      ],
+      "alpha_bounds": [
+        0,
+        19,
+        1010,
+        1536
+      ],
+      "crop_normalized": [
+        0.58,
+        0.22,
+        0.48
+      ],
+      "crop_pixels": [
+        222,
+        -11,
+        950,
+        717
+      ],
+      "output": "art/sprites/2026-11-09-enemy-npc-head-icons/icons/neko.png",
+      "output_sha256": "35bb74f92a0b141d64675028c1c3920e887cf00d2ee0fd445cbb77d9cf66d1b8",
+      "asset": "extension/genshin-dialogue-ui/assets/avatar-icons/sprite-neko-35bb74f92a.webp",
+      "asset_sha256": "1892de7a309469c69bd7236a0f61c01d3a97466be480513ad26e9c7ece965000"
+    },
+    {
+      "name": "Nishikino Reirei",
+      "role": "character",
+      "source": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Nishikino Reirei/neutral.webp",
+      "source_sha256": "600b162811ca1cc526c79d6b88baa184fe7579f9bea8b9fe1464cb5111b5108e",
+      "size": [
+        954,
+        1648
+      ],
+      "alpha_bounds": [
+        41,
+        17,
+        922,
+        1618
+      ],
+      "crop_normalized": [
+        0.5,
+        0.105,
+        0.24
+      ],
+      "crop_pixels": [
+        290,
+        -7,
+        674,
+        377
+      ],
+      "output": "art/sprites/2026-11-09-enemy-npc-head-icons/icons/nishikino-reirei.png",
+      "output_sha256": "a35771856ad722f312793b8cb1f80e7032f4e3425197874574ef8d14c531ff23",
+      "asset": "extension/genshin-dialogue-ui/assets/avatar-icons/sprite-nishikino-reirei-a35771856a.webp",
+      "asset_sha256": "15df2c14ad4bc5d2c21d75ef14af8dd8b12359e9c4fa3f1bd7312d97e60606d5"
+    },
+    {
+      "name": "Nobushi: Hitsukeban",
+      "role": "enemy",
+      "source": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Nobushi: Hitsukeban/neutral.webp",
+      "source_sha256": "a2d5449658a3d8945b62c5d45cc0901e83e2bf8e30945e6f0951989c048cf5c5",
+      "size": [
+        1024,
+        1536
+      ],
+      "alpha_bounds": [
+        0,
+        0,
+        1010,
+        1536
+      ],
+      "crop_normalized": [
+        0.54,
+        0.14,
+        0.32
+      ],
+      "crop_pixels": [
+        299,
+        -31,
+        791,
+        461
+      ],
+      "output": "art/sprites/2026-11-09-enemy-npc-head-icons/icons/nobushi-hitsukeban.png",
+      "output_sha256": "f7b13652c5b4466ea72ced532dd668f50b5b5cf00455ad8179b7e2bd18637389",
+      "asset": "extension/genshin-dialogue-ui/assets/avatar-icons/sprite-nobushi-hitsukeban-f7b13652c5.webp",
+      "asset_sha256": "eb954fa601410d645f2ed0ea493c14268be81cfd0a32169c41478a46184bffe2"
+    },
+    {
+      "name": "Nobushi: Jintouban",
+      "role": "enemy",
+      "source": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Nobushi: Jintouban/neutral.webp",
+      "source_sha256": "e4055f73e92931a5382eeb71b1501fcebc004cdf3f2900fa54c44f1dc09515f3",
+      "size": [
+        971,
+        1620
+      ],
+      "alpha_bounds": [
+        25,
+        16,
+        947,
+        1604
+      ],
+      "crop_normalized": [
+        0.48,
+        0.23,
+        0.35
+      ],
+      "crop_pixels": [
+        190,
+        103,
+        746,
+        659
+      ],
+      "output": "art/sprites/2026-11-09-enemy-npc-head-icons/icons/nobushi-jintouban.png",
+      "output_sha256": "ae65a7ea385e2cd2453a6e21f01c8d21dbc588be0bf7bfd61168a04eecaf03b5",
+      "asset": "extension/genshin-dialogue-ui/assets/avatar-icons/sprite-nobushi-jintouban-ae65a7ea38.webp",
+      "asset_sha256": "13ca9e64ad34313c9214ab37ec60b0a8a7d60d8dd046b1dcadb961d78df50c5f"
+    },
+    {
+      "name": "Nobushi: Kikouban",
+      "role": "enemy",
+      "source": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Nobushi: Kikouban/neutral.webp",
+      "source_sha256": "084483701203feb22cbbcb02b9f3b67ab265f99553feff65fb6b0a1fef3a8dee",
+      "size": [
+        1127,
+        1396
+      ],
+      "alpha_bounds": [
+        0,
+        0,
+        1107,
+        1380
+      ],
+      "crop_normalized": [
+        0.52,
+        0.18,
+        0.34
+      ],
+      "crop_pixels": [
+        341,
+        14,
+        810,
+        483
+      ],
+      "output": "art/sprites/2026-11-09-enemy-npc-head-icons/icons/nobushi-kikouban.png",
+      "output_sha256": "778e5bbe2070a273284d5e54e7b980a92a967d9eaca4169264bcc60eaab4a382",
+      "asset": "extension/genshin-dialogue-ui/assets/avatar-icons/sprite-nobushi-kikouban-778e5bbe20.webp",
+      "asset_sha256": "4150cccce2a8fb9972a73a10b4b29c96415d5307528286a24eb66f7ddc6c8acc"
+    },
+    {
+      "name": "Pitot",
+      "role": "character",
+      "source": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Pitot/neutral.webp",
+      "source_sha256": "f9b98875198139d6f3468377282051335ca9e6048c9dea3ee515917115afe1e8",
+      "size": [
+        940,
+        1674
+      ],
+      "alpha_bounds": [
+        0,
+        13,
+        877,
+        1664
+      ],
+      "crop_normalized": [
+        0.5,
+        0.105,
+        0.24
+      ],
+      "crop_pixels": [
+        240,
+        -12,
+        636,
+        384
+      ],
+      "output": "art/sprites/2026-11-09-enemy-npc-head-icons/icons/pitot.png",
+      "output_sha256": "a2b450aa653751b5b6854e0082d437ba3e89a2f328d347673a39d498b9ef37af",
+      "asset": "extension/genshin-dialogue-ui/assets/avatar-icons/sprite-pitot-a2b450aa65.webp",
+      "asset_sha256": "4b24390a5b8b5ebf79053a8acd8953fc802db3724d6c05ef7f822e0f5d9cf4eb"
+    },
+    {
+      "name": "Plate",
+      "role": "character",
+      "source": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Plate/neutral.webp",
+      "source_sha256": "5590ed178afd4d772f9841996b306b046a66752d925e7fc298e93669852a080e",
+      "size": [
+        1254,
+        1254
+      ],
+      "alpha_bounds": [
+        0,
+        16,
+        1226,
+        1238
+      ],
+      "crop_normalized": [
+        0.53,
+        0.24,
+        0.49
+      ],
+      "crop_pixels": [
+        350,
+        10,
+        949,
+        609
+      ],
+      "output": "art/sprites/2026-11-09-enemy-npc-head-icons/icons/plate.png",
+      "output_sha256": "360cb11b059d2c302fa872032097ae7d3781071230fc3a64f9f5089ab7f87de5",
+      "asset": "extension/genshin-dialogue-ui/assets/avatar-icons/sprite-plate-360cb11b05.webp",
+      "asset_sha256": "45a45a122c6258d41625a8f64efa7c1f35ead973a2bd4f618994ab93f0d0f6e3"
+    },
+    {
+      "name": "Pyro Abyss Mage",
+      "role": "enemy",
+      "source": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Pyro Abyss Mage/neutral.webp",
+      "source_sha256": "a3ffad257d7100dda67de49fadc25487ac44d499e2e4b0b2e6cca03225917f39",
+      "size": [
+        1254,
+        1254
+      ],
+      "alpha_bounds": [
+        49,
+        12,
+        1234,
+        1242
+      ],
+      "crop_normalized": [
+        0.43,
+        0.48,
+        0.5
+      ],
+      "crop_pixels": [
+        251,
+        295,
+        866,
+        910
+      ],
+      "output": "art/sprites/2026-11-09-enemy-npc-head-icons/icons/pyro-abyss-mage.png",
+      "output_sha256": "76533a41207f48b5540144443f0296e0b2fe1447dada4272c21062a8e9ed5a81",
+      "asset": "extension/genshin-dialogue-ui/assets/avatar-icons/sprite-pyro-abyss-mage-76533a4120.webp",
+      "asset_sha256": "da3864a2d797574a7bc05709dee377cf18375d22e18fd96a89e285a38004741a"
+    },
+    {
+      "name": "Pyro Whopperflower",
+      "role": "enemy",
+      "source": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Pyro Whopperflower/neutral.webp",
+      "source_sha256": "08f936ba7080dddb893f2aaaa9df2b53aab6512d1b942c5c2196bcc97cad3f96",
+      "size": [
+        1222,
+        1287
+      ],
+      "alpha_bounds": [
+        0,
+        23,
+        1222,
+        1287
+      ],
+      "crop_normalized": [
+        0.46,
+        0.56,
+        0.47
+      ],
+      "crop_pixels": [
+        265,
+        434,
+        859,
+        1028
+      ],
+      "output": "art/sprites/2026-11-09-enemy-npc-head-icons/icons/pyro-whopperflower.png",
+      "output_sha256": "7813c9084b8c6997c9a03431e9681c87ab99c588b3975205ce2a2cc1646bf050",
+      "asset": "extension/genshin-dialogue-ui/assets/avatar-icons/sprite-pyro-whopperflower-7813c9084b.webp",
+      "asset_sha256": "d194448c2d05f13d249f0d993e2fd19ea8da88c25a4bb1489ee5afa88cae56f1"
+    },
+    {
+      "name": "Rene",
+      "role": "character",
+      "source": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Rene/neutral.webp",
+      "source_sha256": "0e1a254cf57137b03481764ebb2c722617eb39049e1772a42ae8a234be94db48",
+      "size": [
+        1024,
+        1536
+      ],
+      "alpha_bounds": [
+        35,
+        6,
+        1006,
+        1527
+      ],
+      "crop_normalized": [
+        0.5,
+        0.155,
+        0.24
+      ],
+      "crop_pixels": [
+        338,
+        59,
+        703,
+        424
+      ],
+      "output": "art/sprites/2026-11-09-enemy-npc-head-icons/icons/rene.png",
+      "output_sha256": "5a22b798634f1b46da8e96e8c90665fc6064bc3c8d128bea105c966372c20f52",
+      "asset": "extension/genshin-dialogue-ui/assets/avatar-icons/sprite-rene-5a22b79863.webp",
+      "asset_sha256": "d857d62378d3f47f6dd85eb5d941614c91f44f0bbc3bca793e3f28f7b4d13a5e"
+    },
+    {
+      "name": "Rhodeia of Loch",
+      "role": "enemy",
+      "source": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Rhodeia of Loch/neutral.webp",
+      "source_sha256": "857226a8d545d0eca068bfda019d7270b047b31897f3092209ec16264617f1f2",
+      "size": [
+        1620,
+        971
+      ],
+      "alpha_bounds": [
+        27,
+        19,
+        1604,
+        959
+      ],
+      "crop_normalized": [
+        0.41198,
+        0.2,
+        0.423
+      ],
+      "crop_pixels": [
+        478,
+        8,
+        876,
+        406
+      ],
+      "output": "art/sprites/2026-11-09-enemy-npc-head-icons/icons/rhodeia-of-loch.png",
+      "output_sha256": "f03b80ba49c543944e0be05eb04149be493dc1bea5a412aab166aedccce7ff7a",
+      "asset": "extension/genshin-dialogue-ui/assets/avatar-icons/sprite-rhodeia-of-loch-f03b80ba49.webp",
+      "asset_sha256": "9851b505d694adc04c3104f410fa4e53d859ec4d59f12269f2e87c27ee5d1365"
+    },
+    {
+      "name": "Rock Shieldwall Mitachurl",
+      "role": "enemy",
+      "source": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Rock Shieldwall Mitachurl/neutral.webp",
+      "source_sha256": "6bb97e2cac1f9bdec148653e9eec9ce108f10b8613ee54e1b90d758dc8023142",
+      "size": [
+        1254,
+        1254
+      ],
+      "alpha_bounds": [
+        2,
+        0,
+        1198,
+        1240
+      ],
+      "crop_normalized": [
+        0.29,
+        0.34,
+        0.52
+      ],
+      "crop_pixels": [
+        26,
+        99,
+        671,
+        744
+      ],
+      "output": "art/sprites/2026-11-09-enemy-npc-head-icons/icons/rock-shieldwall-mitachurl.png",
+      "output_sha256": "d7f0e06e1d5aecfbf7f27a0600507040b30f961937540acdd44c36e800b0500c",
+      "asset": "extension/genshin-dialogue-ui/assets/avatar-icons/sprite-rock-shieldwall-mitachurl-d7f0e06e1d.webp",
+      "asset_sha256": "c4c5341c2dd0d1d545f99c8a97bc98b11223b2db13bb58aea37121147628caf3"
+    },
+    {
+      "name": "Rockfond Rifthound",
+      "role": "enemy",
+      "source": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Rockfond Rifthound/neutral.webp",
+      "source_sha256": "5f1171229737a14c957951dc247c79c5aaac1a9d4eb209f1b68d8ba16b545ba2",
+      "size": [
+        1413,
+        1113
+      ],
+      "alpha_bounds": [
+        26,
+        8,
+        1395,
+        1113
+      ],
+      "crop_normalized": [
+        0.22,
+        0.54,
+        0.63
+      ],
+      "crop_pixels": [
+        -21,
+        257,
+        675,
+        953
+      ],
+      "output": "art/sprites/2026-11-09-enemy-npc-head-icons/icons/rockfond-rifthound.png",
+      "output_sha256": "325e16ea6fd4ec289d842d73e9e60a410550263899c779e412603ddc7d45dbe2",
+      "asset": "extension/genshin-dialogue-ui/assets/avatar-icons/sprite-rockfond-rifthound-325e16ea6f.webp",
+      "asset_sha256": "c8e848ce30bce6caf906ad6847d55cf928ea052e1646b2108153d0e041e9aaf6"
+    },
+    {
+      "name": "Ruin Drake: Earthguard",
+      "role": "enemy",
+      "source": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Ruin Drake Earthguard/neutral.webp",
+      "source_sha256": "54518455929d2f1881f9af2ab72814261783361c549ad3bad0e31f7faae13df6",
+      "size": [
+        1289,
+        1221
+      ],
+      "alpha_bounds": [
+        0,
+        10,
+        1289,
+        1221
+      ],
+      "crop_normalized": [
+        0.2,
+        0.49,
+        0.58
+      ],
+      "crop_pixels": [
+        -93,
+        252,
+        609,
+        954
+      ],
+      "output": "art/sprites/2026-11-09-enemy-npc-head-icons/icons/ruin-drake-earthguard.png",
+      "output_sha256": "c28140c02b64ce58acfc1d497795a486077ad7712be68ce35df93750a99812ea",
+      "asset": "extension/genshin-dialogue-ui/assets/avatar-icons/sprite-ruin-drake-earthguard-c28140c02b.webp",
+      "asset_sha256": "827e6a93eb4292f30efda3b6e5693fb45edea2ae26024163291961b9e19fd318"
+    },
+    {
+      "name": "Ruin Guard",
+      "role": "enemy",
+      "source": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Ruin Guard/neutral.webp",
+      "source_sha256": "3a2ccd54be207983aef7993a6f9690b380804a482a8e44a934a1afbc88061856",
+      "size": [
+        1402,
+        1122
+      ],
+      "alpha_bounds": [
+        0,
+        0,
+        1402,
+        1122
+      ],
+      "crop_normalized": [
+        0.49,
+        0.22,
+        0.55
+      ],
+      "crop_pixels": [
+        378,
+        -62,
+        995,
+        555
+      ],
+      "output": "art/sprites/2026-11-09-enemy-npc-head-icons/icons/ruin-guard.png",
+      "output_sha256": "71a5c865e1513cd3976d6074e99540592da8d77035dc342b59f51ca961ba1c6a",
+      "asset": "extension/genshin-dialogue-ui/assets/avatar-icons/sprite-ruin-guard-71a5c865e1.webp",
+      "asset_sha256": "ded17dc8202f855814ce96fcea1e26ca1e771944dcabdc278bd9134fba72a763"
+    },
+    {
+      "name": "Sedile",
+      "role": "character",
+      "source": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Sedile/neutral.webp",
+      "source_sha256": "d3fe2be54d3e6ce285829b0e8aa29347c069b5011d0d0c09858e0d91eb719552",
+      "size": [
+        951,
+        1654
+      ],
+      "alpha_bounds": [
+        0,
+        0,
+        935,
+        1654
+      ],
+      "crop_normalized": [
+        0.5,
+        0.21,
+        0.45
+      ],
+      "crop_pixels": [
+        96,
+        -25,
+        840,
+        719
+      ],
+      "output": "art/sprites/2026-11-09-enemy-npc-head-icons/icons/sedile.png",
+      "output_sha256": "aae39e8a677f9a74a5f7f9b13a620b4839fda0b18dcf4d48c20c22c5db0d3980",
+      "asset": "extension/genshin-dialogue-ui/assets/avatar-icons/sprite-sedile-aae39e8a67.webp",
+      "asset_sha256": "7fc9510c683742c2bf535d7888cd08c1ee4f909c348018ed0e9240e911e37b17"
+    },
+    {
+      "name": "Shajar",
+      "role": "character",
+      "source": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Shajar/neutral.webp",
+      "source_sha256": "82ec443dd07b56db7199116963447ef457191f3fa86128f9679f8f88230bfd73",
+      "size": [
+        935,
+        1681
+      ],
+      "alpha_bounds": [
+        41,
+        17,
+        897,
+        1665
+      ],
+      "crop_normalized": [
+        0.5,
+        0.105,
+        0.24
+      ],
+      "crop_pixels": [
+        271,
+        -8,
+        667,
+        388
+      ],
+      "output": "art/sprites/2026-11-09-enemy-npc-head-icons/icons/shajar.png",
+      "output_sha256": "1312efd50e13d2ec6bdbbbc3b63729a3e7d5f2c3f82a917b14bc3bd96c8a83a4",
+      "asset": "extension/genshin-dialogue-ui/assets/avatar-icons/sprite-shajar-1312efd50e.webp",
+      "asset_sha256": "673da3a6b17c628dde29c2a146c70f7aab3879c893ba7d871e5d03b37f682621"
+    },
+    {
+      "name": "Stonehide Lawachurl",
+      "role": "enemy",
+      "source": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Stonehide Lawachurl/neutral.webp",
+      "source_sha256": "44bf97b4158f66d7bf9f9a98bd3d97071145e495d3cb06e27b3c11e0a3b42f4c",
+      "size": [
+        1254,
+        1254
+      ],
+      "alpha_bounds": [
+        89,
+        0,
+        1144,
+        1244
+      ],
+      "crop_normalized": [
+        0.46,
+        0.28,
+        0.54
+      ],
+      "crop_pixels": [
+        238,
+        12,
+        910,
+        684
+      ],
+      "output": "art/sprites/2026-11-09-enemy-npc-head-icons/icons/stonehide-lawachurl.png",
+      "output_sha256": "0afa4742672993ea5d2189caa9eb7326cb07607fba3239ecfa28e38d2be60e60",
+      "asset": "extension/genshin-dialogue-ui/assets/avatar-icons/sprite-stonehide-lawachurl-0afa474267.webp",
+      "asset_sha256": "ddd43542a873a535b83db11d0271f2134712ceaaa525cc6fc8e43d9f6010bbc7"
+    },
+    {
+      "name": "Suppression Specialist Mek - Ousia",
+      "role": "enemy",
+      "source": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Suppression Specialist Mek - Ousia/neutral.webp",
+      "source_sha256": "93177b659bc9baf62fa9bcff65c5b6f0cb6426f1fd8c0b973dae8c0519469c1e",
+      "size": [
+        1254,
+        1254
+      ],
+      "alpha_bounds": [
+        33,
+        0,
+        1240,
+        1254
+      ],
+      "crop_normalized": [
+        0.51,
+        0.104,
+        0.288
+      ],
+      "crop_pixels": [
+        468,
+        -50,
+        829,
+        311
+      ],
+      "output": "art/sprites/2026-11-09-enemy-npc-head-icons/icons/suppression-specialist-mek-ousia.png",
+      "output_sha256": "d90351c711b16ac46bc911f1c1dfc69449c6d9d266c9b4d1b83f1ceaecdafd0f",
+      "asset": "extension/genshin-dialogue-ui/assets/avatar-icons/sprite-suppression-specialist-mek-ousia-d90351c711.webp",
+      "asset_sha256": "fe8e33f02b03780fb3b67e5d2684fbe19b5f4a4a4635a7c0ef6b2ca828e6a373"
+    },
+    {
+      "name": "Suppression Specialist Mek - Pneuma",
+      "role": "enemy",
+      "source": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Suppression Specialist Mek - Pneuma/neutral.webp",
+      "source_sha256": "eacc549fb3f6037a05bcffb8f125c481908057c927d615e1baaa555f46c08469",
+      "size": [
+        1254,
+        1254
+      ],
+      "alpha_bounds": [
+        0,
+        0,
+        1240,
+        1254
+      ],
+      "crop_normalized": [
+        0.51,
+        0.104,
+        0.288
+      ],
+      "crop_pixels": [
+        452,
+        -50,
+        813,
+        311
+      ],
+      "output": "art/sprites/2026-11-09-enemy-npc-head-icons/icons/suppression-specialist-mek-pneuma.png",
+      "output_sha256": "726c5c1a03963333a7952ff7ce41f1485e9e47640f6ee08d317e508868ce0449",
+      "asset": "extension/genshin-dialogue-ui/assets/avatar-icons/sprite-suppression-specialist-mek-pneuma-726c5c1a03.webp",
+      "asset_sha256": "791ef5e48c55814c49923a532525d17e809e28dfb5841be7b1f75e48ae01c134"
+    },
+    {
+      "name": "Tainted Hydro Phantasm",
+      "role": "enemy",
+      "source": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Tainted Hydro Phantasm/neutral.webp",
+      "source_sha256": "bc18b2847cc68b7dd2e28936f40bdbbe7293045a874319eb26703d43cd16084f",
+      "size": [
+        1448,
+        1086
+      ],
+      "alpha_bounds": [
+        0,
+        17,
+        1424,
+        1086
+      ],
+      "crop_normalized": [
+        0.46076,
+        0.6075,
+        0.675
+      ],
+      "crop_pixels": [
+        295,
+        305,
+        1017,
+        1027
+      ],
+      "output": "art/sprites/2026-11-09-enemy-npc-head-icons/icons/tainted-hydro-phantasm.png",
+      "output_sha256": "55cf621f286fa43c4ccc2e1bf11e1c26f1b504a20071148032e2e8a7e99ea616",
+      "asset": "extension/genshin-dialogue-ui/assets/avatar-icons/sprite-tainted-hydro-phantasm-55cf621f28.webp",
+      "asset_sha256": "3a5826cbf8ab2f70ce91b49bc7e32ebbfef63449730485c3928397d8d2d367cc"
+    },
+    {
+      "name": "Taroumaru",
+      "role": "character",
+      "source": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Taroumaru/neutral.webp",
+      "source_sha256": "65861783b7aaf5713780118aec6fcf32db20bb6e636d6a90152f078c36b5b966",
+      "size": [
+        1501,
+        1048
+      ],
+      "alpha_bounds": [
+        0,
+        0,
+        1473,
+        1032
+      ],
+      "crop_normalized": [
+        0.63647,
+        0.301,
+        0.558
+      ],
+      "crop_pixels": [
+        650,
+        23,
+        1226,
+        599
+      ],
+      "output": "art/sprites/2026-11-09-enemy-npc-head-icons/icons/taroumaru.png",
+      "output_sha256": "0172d62fe39d83d3f0dee7468997a2763eb48b99230bbbe426cedee71be33439",
+      "asset": "extension/genshin-dialogue-ui/assets/avatar-icons/sprite-taroumaru-0172d62fe3.webp",
+      "asset_sha256": "c4f09a3202ae921839e98006700ed017c03c5161e447ec79a7a3c3ff191ead95"
+    },
+    {
+      "name": "Tetreaux",
+      "role": "character",
+      "source": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Tetreaux/neutral.webp",
+      "source_sha256": "95c855cb90eb8f1ee9fafc3fb3ff221b3ad833f5c82f62dd2d939eefc9aff0d8",
+      "size": [
+        935,
+        1683
+      ],
+      "alpha_bounds": [
+        33,
+        17,
+        897,
+        1653
+      ],
+      "crop_normalized": [
+        0.5,
+        0.105,
+        0.24
+      ],
+      "crop_pixels": [
+        268,
+        -8,
+        661,
+        385
+      ],
+      "output": "art/sprites/2026-11-09-enemy-npc-head-icons/icons/tetreaux.png",
+      "output_sha256": "7f9396223d81c2a5245e551db68e212450028cda8a45380c690c1132e9276450",
+      "asset": "extension/genshin-dialogue-ui/assets/avatar-icons/sprite-tetreaux-7f9396223d.webp",
+      "asset_sha256": "a4eaaea1586f903a2e68ed4aa2f1837326a8537cff7eb57955753fb574941136"
+    },
+    {
+      "name": "Teucer",
+      "role": "character",
+      "source": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Teucer/neutral.webp",
+      "source_sha256": "7993b24d97279a32dc3e9f7f79fae4b7857c2533a4061749ed916cfcefc7d8e5",
+      "size": [
+        934,
+        1684
+      ],
+      "alpha_bounds": [
+        41,
+        14,
+        916,
+        1674
+      ],
+      "crop_normalized": [
+        0.5,
+        0.105,
+        0.24
+      ],
+      "crop_pixels": [
+        280,
+        -11,
+        678,
+        387
+      ],
+      "output": "art/sprites/2026-11-09-enemy-npc-head-icons/icons/teucer.png",
+      "output_sha256": "4e37b4a146862e5e0ffeff7dfec26c16a08de3adc9d6552877cbfd25ee3e62b2",
+      "asset": "extension/genshin-dialogue-ui/assets/avatar-icons/sprite-teucer-4e37b4a146.webp",
+      "asset_sha256": "9b97c2d5a221efef20d6c9726c80be53c0b2038a594e333bd0e232d5148a4b03"
+    },
+    {
+      "name": "Thunder Manifestation",
+      "role": "enemy",
+      "source": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Thunder Manifestation/neutral.webp",
+      "source_sha256": "9558057fc708edbbd00a4a5d13e2a10892ee5757bc7e6b758f937c3905f4225a",
+      "size": [
+        1672,
+        941
+      ],
+      "alpha_bounds": [
+        12,
+        13,
+        1662,
+        926
+      ],
+      "crop_normalized": [
+        0.5,
+        0.39,
+        0.65
+      ],
+      "crop_pixels": [
+        540,
+        73,
+        1133,
+        666
+      ],
+      "output": "art/sprites/2026-11-09-enemy-npc-head-icons/icons/thunder-manifestation.png",
+      "output_sha256": "3b6663f87d8d818c2559819b8f787b6b1f295cdd7ddad993939d82ff3d77c309",
+      "asset": "extension/genshin-dialogue-ui/assets/avatar-icons/sprite-thunder-manifestation-3b6663f87d.webp",
+      "asset_sha256": "68cd464c1d4ad84ba6ed987c19f48d30709f8eea711e44be7d9f5853cb7004b4"
+    },
+    {
+      "name": "Thundercraven Rifthound",
+      "role": "enemy",
+      "source": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Thundercraven Rifthound/neutral.webp",
+      "source_sha256": "46ea5eadc70cb25f22798645a1958fbb4f796aa610e310f92348850e78e4d351",
+      "size": [
+        1349,
+        1166
+      ],
+      "alpha_bounds": [
+        27,
+        15,
+        1338,
+        1166
+      ],
+      "crop_normalized": [
+        0.23,
+        0.57,
+        0.6
+      ],
+      "crop_pixels": [
+        -17,
+        326,
+        674,
+        1017
+      ],
+      "output": "art/sprites/2026-11-09-enemy-npc-head-icons/icons/thundercraven-rifthound.png",
+      "output_sha256": "b3e0a0ed8660da36597e2ec35da5b149685407931978db325e3a7dddceff62d3",
+      "asset": "extension/genshin-dialogue-ui/assets/avatar-icons/sprite-thundercraven-rifthound-b3e0a0ed86.webp",
+      "asset_sha256": "6e12793d008efbc13f9789de03c7735ee82812debdd6ead621b8c1e139501afe"
+    },
+    {
+      "name": "Tiepolo",
+      "role": "character",
+      "source": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Tiepolo/neutral.webp",
+      "source_sha256": "63ecb81c78b860da9cf9ce31881241eeec1465df2daf84af2b504f488415d7cd",
+      "size": [
+        935,
+        1683
+      ],
+      "alpha_bounds": [
+        25,
+        32,
+        909,
+        1649
+      ],
+      "crop_normalized": [
+        0.5,
+        0.105,
+        0.24
+      ],
+      "crop_pixels": [
+        273,
+        8,
+        661,
+        396
+      ],
+      "output": "art/sprites/2026-11-09-enemy-npc-head-icons/icons/tiepolo.png",
+      "output_sha256": "d448b90a0c5efa0c506fe6185cc56b443bdbef259c4b568f65ff88c908978855",
+      "asset": "extension/genshin-dialogue-ui/assets/avatar-icons/sprite-tiepolo-d448b90a0c.webp",
+      "asset_sha256": "7512238ca22a75914ddbef3dced7e7c9576401af82f241bd2b4a486f6db144fa"
+    },
+    {
+      "name": "Tisoc",
+      "role": "character",
+      "source": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Tisoc/neutral.webp",
+      "source_sha256": "0aa10f816d7d6b9bed42f3fe6e35b2954f76f4da5642e9045e59479dc3f4c169",
+      "size": [
+        941,
+        1672
+      ],
+      "alpha_bounds": [
+        0,
+        15,
+        921,
+        1642
+      ],
+      "crop_normalized": [
+        0.5,
+        0.105,
+        0.24
+      ],
+      "crop_pixels": [
+        266,
+        -9,
+        656,
+        381
+      ],
+      "output": "art/sprites/2026-11-09-enemy-npc-head-icons/icons/tisoc.png",
+      "output_sha256": "2b93cda05b20b585f1085cb90325cde982c90ea1dbf97282209d1d52cf12c441",
+      "asset": "extension/genshin-dialogue-ui/assets/avatar-icons/sprite-tisoc-2b93cda05b.webp",
+      "asset_sha256": "d84a8ab318697213e83204d13fbfa25ac330921eb675c11167ddc5135c337574"
+    },
+    {
+      "name": "Tlapalli",
+      "role": "character",
+      "source": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Tlapalli/neutral.webp",
+      "source_sha256": "0521bb4ff6b387e45fc5d55f55bbc2f63d25461b5b6310f8f6cb4330017f1892",
+      "size": [
+        935,
+        1683
+      ],
+      "alpha_bounds": [
+        0,
+        0,
+        934,
+        1667
+      ],
+      "crop_normalized": [
+        0.5,
+        0.16,
+        0.3
+      ],
+      "crop_pixels": [
+        217,
+        17,
+        717,
+        517
+      ],
+      "output": "art/sprites/2026-11-09-enemy-npc-head-icons/icons/tlapalli.png",
+      "output_sha256": "bc2f6115e19e53ab775b825b8cee8cc5eda7d6fef959630687cecea392422b31",
+      "asset": "extension/genshin-dialogue-ui/assets/avatar-icons/sprite-tlapalli-bc2f6115e1.webp",
+      "asset_sha256": "69d18d22299f1de93e2df0eb1feec9ebd0847bfe6e1d9e63255e9452d4757192"
+    },
+    {
+      "name": "Tonia",
+      "role": "character",
+      "source": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Tonia/neutral.webp",
+      "source_sha256": "9dc6ac38714c21d5148617ebfb269762854df8a8dc47de78dd897585ec79dbed",
+      "size": [
+        935,
+        1683
+      ],
+      "alpha_bounds": [
+        0,
+        19,
+        921,
+        1683
+      ],
+      "crop_normalized": [
+        0.5,
+        0.105,
+        0.24
+      ],
+      "crop_pixels": [
+        261,
+        -6,
+        660,
+        393
+      ],
+      "output": "art/sprites/2026-11-09-enemy-npc-head-icons/icons/tonia.png",
+      "output_sha256": "382999cb2d536d5787a43cb3f17a7cab6b98fef8b00ce5150d08d7570aab07d4",
+      "asset": "extension/genshin-dialogue-ui/assets/avatar-icons/sprite-tonia-382999cb2d.webp",
+      "asset_sha256": "639e4f4a3ef2399cc681095d70c6d1511149208d0090796b4966ec032c47fc40"
+    },
+    {
+      "name": "Treasure Hoarders - Marksman",
+      "role": "enemy",
+      "source": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Treasure Hoarders - Marksman/neutral.webp",
+      "source_sha256": "40afb47301108892a9709cf1d20923d0212c5a7210365ed75bb1aea7a236e167",
+      "size": [
+        937,
+        1678
+      ],
+      "alpha_bounds": [
+        0,
+        23,
+        936,
+        1678
+      ],
+      "crop_normalized": [
+        0.61,
+        0.13,
+        0.32
+      ],
+      "crop_pixels": [
+        306,
+        -27,
+        836,
+        503
+      ],
+      "output": "art/sprites/2026-11-09-enemy-npc-head-icons/icons/treasure-hoarders-marksman.png",
+      "output_sha256": "3d5f8a3dd1e74234eaf26bba95fd731bba4cf6e291ae9c0a05e514e776358cc8",
+      "asset": "extension/genshin-dialogue-ui/assets/avatar-icons/sprite-treasure-hoarders-marksman-3d5f8a3dd1.webp",
+      "asset_sha256": "a215fd964e7d5023384bf22b86a237b13f552e807a662e6dec265c6f9143fb45"
+    },
+    {
+      "name": "Treasure Hoarders - Scout",
+      "role": "enemy",
+      "source": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Treasure Hoarders - Scout/neutral.webp",
+      "source_sha256": "e0648ace3bf627941c420319bd4b3bc62abb3daa003c5981e32a3da203e240f5",
+      "size": [
+        919,
+        1711
+      ],
+      "alpha_bounds": [
+        41,
+        4,
+        901,
+        1711
+      ],
+      "crop_normalized": [
+        0.451,
+        0.14,
+        0.297
+      ],
+      "crop_pixels": [
+        175,
+        -11,
+        682,
+        496
+      ],
+      "output": "art/sprites/2026-11-09-enemy-npc-head-icons/icons/treasure-hoarders-scout.png",
+      "output_sha256": "bf6f4126b333bd959ebd0b4e4b811ce78fc7cd5873692499f40d138c7defefa0",
+      "asset": "extension/genshin-dialogue-ui/assets/avatar-icons/sprite-treasure-hoarders-scout-bf6f4126b3.webp",
+      "asset_sha256": "cae4ec4a03a8e5fd106610a8d2dbf900f00119cee004bf25ead41e05d1975f13"
+    },
+    {
+      "name": "Treasure Hoarders: Gravedigger",
+      "role": "enemy",
+      "source": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Treasure Hoarders Gravedigger/neutral.webp",
+      "source_sha256": "59cde59847baeef2ee6a9806c14e224b7ed4533705e00b8bdc2cceae0d8c5cb3",
+      "size": [
+        1342,
+        1172
+      ],
+      "alpha_bounds": [
+        0,
+        16,
+        1334,
+        1172
+      ],
+      "crop_normalized": [
+        0.38069,
+        0.1505,
+        0.3315
+      ],
+      "crop_pixels": [
+        316,
+        -2,
+        699,
+        381
+      ],
+      "output": "art/sprites/2026-11-09-enemy-npc-head-icons/icons/treasure-hoarders-gravedigger.png",
+      "output_sha256": "98067c10a6b569f28e7495335bd9e6d273b2dbd9ec62479ac120f614dd39ee4a",
+      "asset": "extension/genshin-dialogue-ui/assets/avatar-icons/sprite-treasure-hoarders-gravedigger-98067c10a6.webp",
+      "asset_sha256": "d9c014a03f50c523ba0d79c353815ff7e1a50c47feb64acdf5dd728f9c2f36c9"
+    },
+    {
+      "name": "Treasure Hoarders: Pyro Potioneer",
+      "role": "enemy",
+      "source": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Treasure Hoarders Pyro Potioneer/neutral.webp",
+      "source_sha256": "19221e28c49e5f38e128ead6c051311e3c8e987de46e7a7dfd2be5deee56b14f",
+      "size": [
+        1106,
+        1422
+      ],
+      "alpha_bounds": [
+        27,
+        15,
+        1104,
+        1422
+      ],
+      "crop_normalized": [
+        0.48271,
+        0.13,
+        0.288
+      ],
+      "crop_pixels": [
+        344,
+        -5,
+        749,
+        400
+      ],
+      "output": "art/sprites/2026-11-09-enemy-npc-head-icons/icons/treasure-hoarders-pyro-potioneer.png",
+      "output_sha256": "331196039471cf6d44a20037c8bcaefb567772df846f71fb37807a1a96d0620c",
+      "asset": "extension/genshin-dialogue-ui/assets/avatar-icons/sprite-treasure-hoarders-pyro-potioneer-3311960394.webp",
+      "asset_sha256": "2495580cdf1dc52faaef4af68d058b4ef39372610b9ce8f171fdee921d4abca3"
+    },
+    {
+      "name": "Tzompantli",
+      "role": "character",
+      "source": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Tzompantli/neutral.webp",
+      "source_sha256": "14bd30715e1d2e865860a61f1bb42b1efef06d914bf8a977c7508e52def15e69",
+      "size": [
+        935,
+        1683
+      ],
+      "alpha_bounds": [
+        0,
+        21,
+        915,
+        1683
+      ],
+      "crop_normalized": [
+        0.5,
+        0.105,
+        0.24
+      ],
+      "crop_pixels": [
+        258,
+        -4,
+        657,
+        395
+      ],
+      "output": "art/sprites/2026-11-09-enemy-npc-head-icons/icons/tzompantli.png",
+      "output_sha256": "413a04709ed18b527ccb17c53e520a4af27f54dd9d848eb85003bdab17a56279",
+      "asset": "extension/genshin-dialogue-ui/assets/avatar-icons/sprite-tzompantli-413a04709e.webp",
+      "asset_sha256": "65ebb5b09e69bbc85996c7f35844dac46bad90b5b33cfea55030a0f116c448fe"
+    },
+    {
+      "name": "Valdis",
+      "role": "character",
+      "source": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Valdis/neutral.webp",
+      "source_sha256": "d5fba46265305aca1a55f35c0aea2be081545575365ca41839d0cc774dd4e270",
+      "size": [
+        936,
+        1680
+      ],
+      "alpha_bounds": [
+        0,
+        24,
+        922,
+        1662
+      ],
+      "crop_normalized": [
+        0.5,
+        0.105,
+        0.24
+      ],
+      "crop_pixels": [
+        264,
+        -1,
+        657,
+        392
+      ],
+      "output": "art/sprites/2026-11-09-enemy-npc-head-icons/icons/valdis.png",
+      "output_sha256": "44b331cbc249ac2de43f782deb95e863d0cb2d9ebbc96ae4222040ed0d3577aa",
+      "asset": "extension/genshin-dialogue-ui/assets/avatar-icons/sprite-valdis-44b331cbc2.webp",
+      "asset_sha256": "7c4592565ee25363137f385dd73ba68e1ac4abaeda14c8b7b623501785fa5db5"
+    },
+    {
+      "name": "Virda",
+      "role": "character",
+      "source": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Virda/neutral.webp",
+      "source_sha256": "842ba23b1788df5598a9bcd2d08ce521fafab56314ee40e513bbb4f9ca54f8b2",
+      "size": [
+        941,
+        1672
+      ],
+      "alpha_bounds": [
+        0,
+        24,
+        933,
+        1672
+      ],
+      "crop_normalized": [
+        0.5,
+        0.25,
+        0.47
+      ],
+      "crop_pixels": [
+        79,
+        48,
+        854,
+        823
+      ],
+      "output": "art/sprites/2026-11-09-enemy-npc-head-icons/icons/virda.png",
+      "output_sha256": "37e2d544aa4f8b95683bed3ac9d75042ee0048194f854b9bbd8d7c548d322473",
+      "asset": "extension/genshin-dialogue-ui/assets/avatar-icons/sprite-virda-37e2d544aa.webp",
+      "asset_sha256": "c8c2428923736aaa3918c9c0338ec454980f43dba35cbec958e459cff6732775"
+    },
+    {
+      "name": "Wayward Hermetic Spiritspeaker",
+      "role": "enemy",
+      "source": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Wayward Hermetic Spiritspeaker/neutral.webp",
+      "source_sha256": "cff0cd43da02372fedeb5fd593d004a24229918839135d4124643f2be3e224c6",
+      "size": [
+        1140,
+        1380
+      ],
+      "alpha_bounds": [
+        23,
+        0,
+        1139,
+        1380
+      ],
+      "crop_normalized": [
+        0.46,
+        0.21,
+        0.3
+      ],
+      "crop_pixels": [
+        329,
+        83,
+        743,
+        497
+      ],
+      "output": "art/sprites/2026-11-09-enemy-npc-head-icons/icons/wayward-hermetic-spiritspeaker.png",
+      "output_sha256": "ef944e8bda103e0ed8d484e16589aad7739cda360e2935c2f315982d7f558b20",
+      "asset": "extension/genshin-dialogue-ui/assets/avatar-icons/sprite-wayward-hermetic-spiritspeaker-ef944e8bda.webp",
+      "asset_sha256": "3b99ab0491d9c15635efc65c47113ae8bf68f27f92519f813c64307446ffc8d3"
+    },
+    {
+      "name": "Whistle",
+      "role": "character",
+      "source": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Whistle/neutral.webp",
+      "source_sha256": "20ea0671372c5310e1d9e3781212d62b34bbb665ee60bfc7ecd58e9445ce728f",
+      "size": [
+        1199,
+        1312
+      ],
+      "alpha_bounds": [
+        25,
+        10,
+        1180,
+        1312
+      ],
+      "crop_normalized": [
+        0.49,
+        0.24,
+        0.52
+      ],
+      "crop_pixels": [
+        252,
+        -16,
+        929,
+        661
+      ],
+      "output": "art/sprites/2026-11-09-enemy-npc-head-icons/icons/whistle.png",
+      "output_sha256": "47fb52951c87c3e8de90ad3840406db4d55fb58fbf3956f534e8b8e04ebc0eec",
+      "asset": "extension/genshin-dialogue-ui/assets/avatar-icons/sprite-whistle-47fb52951c.webp",
+      "asset_sha256": "ee74201269f6f29a24f9b73e1988f8179316049237edd1a89139195465c09199"
+    },
+    {
+      "name": "Winged Cryoshroom",
+      "role": "enemy",
+      "source": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Winged Cryoshroom/neutral.webp",
+      "source_sha256": "108c5d21a1266285a686f36013b95a50e3004670132469bc1c3a6a3d1ddf84a6",
+      "size": [
+        1347,
+        1167
+      ],
+      "alpha_bounds": [
+        0,
+        19,
+        1347,
+        1167
+      ],
+      "crop_normalized": [
+        0.57,
+        0.63,
+        0.54
+      ],
+      "crop_pixels": [
+        458,
+        432,
+        1078,
+        1052
+      ],
+      "output": "art/sprites/2026-11-09-enemy-npc-head-icons/icons/winged-cryoshroom.png",
+      "output_sha256": "1a80799eb15331470de7c4506fe18e7b61d3b90cd352899a8ab36e1163bed751",
+      "asset": "extension/genshin-dialogue-ui/assets/avatar-icons/sprite-winged-cryoshroom-1a80799eb1.webp",
+      "asset_sha256": "a292a707ddc1e5a270c3954ac9cd692ddc834b159a265181835f57a8e9afb941"
+    },
+    {
+      "name": "Winged Dendroshroom",
+      "role": "enemy",
+      "source": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Winged Dendroshroom/neutral.webp",
+      "source_sha256": "5fb73f9b41a066c9671fec7a2ab75ab65507da6d0115a25678890b6c5cd67f9c",
+      "size": [
+        1230,
+        1278
+      ],
+      "alpha_bounds": [
+        0,
+        0,
+        1230,
+        1278
+      ],
+      "crop_normalized": [
+        0.49,
+        0.42,
+        0.58
+      ],
+      "crop_pixels": [
+        232,
+        166,
+        973,
+        907
+      ],
+      "output": "art/sprites/2026-11-09-enemy-npc-head-icons/icons/winged-dendroshroom.png",
+      "output_sha256": "400b9b857b9c8b5f4286280a1738c422855d9dca6db40a16442a5030c5e44111",
+      "asset": "extension/genshin-dialogue-ui/assets/avatar-icons/sprite-winged-dendroshroom-400b9b857b.webp",
+      "asset_sha256": "7a937c1d41275dc35655a1652a68acbacc74936323244af6d52fcab3e43db528"
+    },
+    {
+      "name": "Wooden Shieldwall Mitachurl",
+      "role": "enemy",
+      "source": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Wooden Shieldwall Mitachurl/neutral.webp",
+      "source_sha256": "cd314abba2c069bbbbe2d85402fbcaee353bad4e6e5f6e0a0b80580938863263",
+      "size": [
+        1215,
+        1295
+      ],
+      "alpha_bounds": [
+        0,
+        0,
+        1157,
+        1286
+      ],
+      "crop_normalized": [
+        0.34,
+        0.33,
+        0.46
+      ],
+      "crop_pixels": [
+        97,
+        128,
+        689,
+        720
+      ],
+      "output": "art/sprites/2026-11-09-enemy-npc-head-icons/icons/wooden-shieldwall-mitachurl.png",
+      "output_sha256": "8496890775e218e9eded53a1d575408991060f348565bf09fdc5030a22dfa99b",
+      "asset": "extension/genshin-dialogue-ui/assets/avatar-icons/sprite-wooden-shieldwall-mitachurl-8496890775.webp",
+      "asset_sha256": "5ca2c58c11c921cf478e63540cf485526fdcf72fded77b58f2617ad969017b5b"
+    },
+    {
+      "name": "Xavier",
+      "role": "character",
+      "source": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Xavier/neutral.webp",
+      "source_sha256": "75efe4222860729146f6f310774297a64034f9d189d8bdaee15f358da4a9e49b",
+      "size": [
+        1024,
+        1536
+      ],
+      "alpha_bounds": [
+        0,
+        16,
+        992,
+        1514
+      ],
+      "crop_normalized": [
+        0.5,
+        0.105,
+        0.24
+      ],
+      "crop_pixels": [
+        316,
+        -7,
+        676,
+        353
+      ],
+      "output": "art/sprites/2026-11-09-enemy-npc-head-icons/icons/xavier.png",
+      "output_sha256": "9529f374ac707e7af9f56eedfc2d7130cb8a433631e4ed14a4961866c43cd969",
+      "asset": "extension/genshin-dialogue-ui/assets/avatar-icons/sprite-xavier-9529f374ac.webp",
+      "asset_sha256": "dc9510c90bba371543322f4b75e796cd8819d743a42ac22c54d010652780227d"
+    }
+  ]
+}

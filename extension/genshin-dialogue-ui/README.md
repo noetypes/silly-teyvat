@@ -1,3 +1,7 @@
+# Silly Teyvat 1.76.12: Centred NPC faces
+
+- Reframed all 46 NPC circular portraits around their faces, including Katheryne's left-offset head. Individual face positions now determine the crop centre, with extra space for larger headwear where needed. Transparency is preserved across every shared portrait view.
+
 # Silly Teyvat 1.76.11: Enemy and NPC head icons
 
 - All 104 enemies and 46 NPCs now have transparent circular head portraits cropped from their installed neutral sprites, with individual framing for creatures and machines. Character Customization, combat, inventory, Trust, linked personas and map enemy badges use the shared portraits.
