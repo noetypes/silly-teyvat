@@ -18,7 +18,7 @@ Requires **SillyTavern 1.19.0 or later**, Git, and about **7 GB of free disk spa
 3. Connect your own **Chat Completion API** in SillyTavern. No model subscription or API credentials are included.
 4. Choose a persona (Aether and Lumine are included), open a Genshin character card, and start chatting. The Paimon menu opens **Characters**, **Map**, **Inventory** and the other game screens. If dialogue view is off, switch **Silly Teyvat** on in that menu or press **Alt+G**.
 
-The download includes **273 character cards, 2,424 sprites, 928 uploaded files, 15 personas, two lorebooks, the Teyvat Slate theme and Teyvat Choices**. Map backgrounds, portraits, TCG artwork, dice, fonts and interface assets are included with the extension. Your existing SillyTavern content is kept.
+The download includes **273 character cards, 2,424 sprites, 928 uploaded files, the Aether and Lumine personas, two lorebooks, the Teyvat Slate theme and Teyvat Choices**. Map backgrounds, portraits, TCG artwork, dice, fonts and interface assets are included with the extension. Your existing SillyTavern content is kept.
 
 If you chose **Not now**, open **Extensions → Silly Teyvat → Share → Check for game data**. Interrupted downloads can be retried; files already installed are skipped. Update the extension through SillyTavern's extension manager; newer game data is offered automatically when available.
 
@@ -45,7 +45,7 @@ Expressions use SillyTavern's **Character Expressions** classifier settings. Cha
 
 ### Playing as anyone
 
-- Play as the Traveler, or use **Play as** to become any character, NPC or enemy. Your persona shares the card's sprites, outfits and moveset.
+- Play as the Traveler, or use **Play as {{char}}** in Character Customization to become any character, NPC or enemy. Aether and Lumine are the only personas that come with the game; Play as creates a persona for anyone else, sharing the card's sprites, outfits and moveset.
 - The Travelers begin the game as it begins: arriving in Teyvat with nobody knowing them. Whichever twin you don't play becomes the Abyss twin.
 - Playing an enemy reverses the sides. You start in the wilderness among your own kind, and the characters of Teyvat are hostile to you.
 
@@ -90,4 +90,4 @@ Expressions use SillyTavern's **Character Expressions** classifier settings. Cha
 - Scene choices, Trust and travel are saved in the chat. Uploaded media and settings are kept on the SillyTavern server; copy them together if you move servers.
 - To uninstall, turn Silly Teyvat off, remove it in the extension manager and reload. Saved scene data in chats is harmless without it.
 
-More detail: [Combat](COMBAT.md) · [Location catalog](LOCATION-CATALOG.md) · [Location music](LOCATION-MUSIC.md) · [Character research](CHARACTER-RESEARCH.md) · [Asset guidelines](ASSET-GUIDELINES.md)
+Guides: [Combat](https://github.com/noetypes/silly-teyvat/blob/main/docs/guides/COMBAT.md) · [Trust, gifts and scenes](https://github.com/noetypes/silly-teyvat/blob/main/docs/guides/TRUST-GIFTS-AND-SCENES.md) · [Location catalog](https://github.com/noetypes/silly-teyvat/blob/main/docs/guides/LOCATION-CATALOG.md) · [Location music](https://github.com/noetypes/silly-teyvat/blob/main/docs/guides/LOCATION-MUSIC.md) · [Teyvat Choices](https://github.com/noetypes/silly-teyvat/blob/main/docs/guides/QUICK-REPLIES.md)

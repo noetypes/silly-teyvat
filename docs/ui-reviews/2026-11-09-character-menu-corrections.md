@@ -12,7 +12,7 @@ Implemented the requested follow-up using the supplied Genshin character-menu sc
 
 ## Verification
 
-`tools/test-wardrobe-ui-browser.mjs` checks all six sections at 1440×900, 1024×768, 901×600, 900×700, 768×1024, 390×844, 320×568 and 844×390. Additional checks cover heading values, centered sparse/overflowing rosters, equal Q/E gaps, visible Q/E/W/S buttons and their actions, selected-portrait bounds, vertical scroll prevention, a simulated vertical touch drag, compact/centered disclosure headers, upload spacing, exact empty-scene wording and the existing keyboard/focus flows.
+`tools/tests/test-wardrobe-ui-browser.mjs` checks all six sections at 1440×900, 1024×768, 901×600, 900×700, 768×1024, 390×844, 320×568 and 844×390. Additional checks cover heading values, centered sparse/overflowing rosters, equal Q/E gaps, visible Q/E/W/S buttons and their actions, selected-portrait bounds, vertical scroll prevention, a simulated vertical touch drag, compact/centered disclosure headers, upload spacing, exact empty-scene wording and the existing keyboard/focus flows.
 
 The wardrobe (104 checks) and persona (27 checks) preview suites pass. The sprite-loading suite passes its neutral-first, stale-load cancellation, crop stability, scene loading and close/reopen checks. Syntax checks, CSS regeneration and `git diff --check` pass.
 

@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
 """Write example dialogue (mes_example) into Silly Teyvat character cards.
 
-character-cards/example-dialogue/<Name>.txt is the source: the text of the card's
+content/character-cards/example-dialogue/<Name>.txt is the source: the text of the card's
 "Example Dialogue" field, in the Silly Teyvat layout (narration and dialogue on
 separate lines, nothing mixed in one paragraph). This tool copies each file into
 
-  * the matching source JSON in the repository (character-cards/paimon and
-    character-cards/location-npcs), and its importable PNG where one exists;
+  * the matching source JSON in the repository (content/character-cards/paimon and
+    content/character-cards/location-npcs), and its importable PNG where one exists;
   * with --characters DIR, the card PNG in a SillyTavern characters folder.
 
 Only the mes_example field changes. Image data and every other PNG chunk are
@@ -28,7 +28,7 @@ import struct
 import sys
 import zlib
 
-ROOT = pathlib.Path(__file__).resolve().parent.parent / 'character-cards'
+ROOT = pathlib.Path(__file__).resolve().parent.parent / 'content' / 'character-cards'
 EXAMPLES = ROOT / 'example-dialogue'
 TEXT_KEYS = {b'chara', b'ccv3'}
 PNG_MAGIC = b'\x89PNG\r\n\x1a\n'

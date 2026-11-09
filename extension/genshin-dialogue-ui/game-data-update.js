@@ -3,7 +3,7 @@
 // each file last changed. A first install downloads the whole export; an update reads only the
 // changed files from it with byte ranges, falling back to the whole file when the host refuses.
 import {readZip} from './zip-store.js';
-import {existingFiles} from './share-package.js';
+import {existingFiles,shippedEntry} from './share-package.js';
 export const RELEASE_FILE='game-data-release.json',FORMAT=1;
 const extensionRoot=new URL('./',import.meta.url),GROUP_BYTES=8<<20;
 const parts=version=>[0,1,2].map(index=>Number.parseInt(String(version).split(/[.+-]/)[index],10) || 0);
@@ -42,10 +42,10 @@ export async function loadRelease(fetcher=fetch){
 // named parts of the export's manifest file so that a change to one replaces only that one.
 export function updatePlan(release,installed){
     if(!release)return {kind:'none',paths:[],bytes:0};
-    if(!installed)return {kind:'install',paths:Object.keys(release.files),bytes:release.bytes};
+    if(!installed)return {kind:'install',paths:Object.keys(release.files).filter(shippedEntry),bytes:release.bytes};
     if(compareVersions(installed,release.version)>=0)return {kind:'none',paths:[],bytes:0};
     const changed=name=>compareVersions(release.files[name]?.since ?? release.parts?.[name]?.since,installed)>0;
-    const paths=Object.keys(release.files).filter(name=>name!==release.manifest&&changed(name));
+    const paths=Object.keys(release.files).filter(name=>name!==release.manifest&&shippedEntry(name)&&changed(name));
     const parts=Object.keys(release.parts || {}).filter(changed);
     const bytes=[...paths,release.manifest].reduce((sum,name)=>sum+release.files[name].size,0);
     return {kind:'update',paths:[...paths,release.manifest],parts,bytes};

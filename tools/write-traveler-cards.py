@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Write the Traveler's Cove opening into Aether's and Lumine's cards.
 
-character-cards/travelers/*.json is the source. Pass the SillyTavern characters
+content/character-cards/travelers/*.json is the source. Pass the SillyTavern characters
 folder to embed each card in its PNG; the image data is left untouched.
 """
 import base64
@@ -11,7 +11,7 @@ import struct
 import sys
 import zlib
 
-ROOT = pathlib.Path(__file__).resolve().parent.parent / 'character-cards' / 'travelers'
+ROOT = pathlib.Path(__file__).resolve().parent.parent / 'content' / 'character-cards' / 'travelers'
 TEXT_KEYS = {b'chara', b'ccv3'}
 
 

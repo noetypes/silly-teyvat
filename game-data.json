@@ -6537,897 +6537,1029 @@
       "bytes": 2305023,
       "sha256": "9fee2a996a93540c0fbdfbb29e90080e9c922310dd64c70d2b39cd9074dd06e0"
     },
-    "character-cards/enemy-tcg/Cryo Whopperflower.png": {
+    "content/character-cards/enemy-tcg/Cryo Whopperflower.png": {
       "bytes": 2599652,
       "sha256": "7c5c894eac05e42c1adcbe594a68d25ec1c8563def35e674c51ae65f3bc42263"
     },
-    "character-cards/enemy-tcg/Geo Slime.png": {
+    "content/character-cards/enemy-tcg/Geo Slime.png": {
       "bytes": 2039736,
       "sha256": "6bb6b48eb21e589cdb764c98c8caf8613303a558f326312bdde50149d50c713e"
     },
-    "character-cards/enemy-tcg/Large Electro Slime.png": {
+    "content/character-cards/enemy-tcg/Large Electro Slime.png": {
       "bytes": 1978879,
       "sha256": "87fdbb2c1a9e164b4f3db06bd790fe5dee1c04f34f3771462c9a09b82674e48a"
     },
-    "character-cards/enemy-tcg/Large Pyro Slime.png": {
+    "content/character-cards/enemy-tcg/Large Pyro Slime.png": {
       "bytes": 1952959,
       "sha256": "ae852d105fe78ae641bacc9831aa12b9957123b33edcc3eb9bad482946f42f45"
     },
-    "character-cards/enemy-tcg/Treasure Hoarders - Marksman.png": {
+    "content/character-cards/enemy-tcg/Treasure Hoarders - Marksman.png": {
       "bytes": 2546197,
       "sha256": "b5aad464808fc94c39d82d9552b1985579d1dd3edae2c8fff62414dfeefc546d"
     },
-    "character-cards/enemy-tcg/Treasure Hoarders - Scout.png": {
+    "content/character-cards/enemy-tcg/Treasure Hoarders - Scout.png": {
       "bytes": 2598642,
       "sha256": "030a0c42afb3df833e9f86c126f8f24e080ba0edef68fd64887be7a67c6c00b0"
     },
-    "character-cards/enemy-tcg/Treasure Hoarders Gravedigger.png": {
+    "content/character-cards/enemy-tcg/Treasure Hoarders Gravedigger.png": {
       "bytes": 2736152,
       "sha256": "819e314d5ef0bd6bc5e93ed24842d79ee18ac4b64eea20622ad54981a22c9fd2"
     },
-    "character-cards/enemy-tcg/Treasure Hoarders Pyro Potioneer.png": {
+    "content/character-cards/enemy-tcg/Treasure Hoarders Pyro Potioneer.png": {
       "bytes": 2656102,
       "sha256": "f19434cde7211694a74621c8a401e6bb4745fff3885497cf6859221ebc26433f"
     },
-    "character-cards/npc-tcg/Adel.png": {
+    "content/character-cards/npc-tcg/Adel.png": {
       "bytes": 2475450,
       "sha256": "a2a729face87f902b557a58f07b0efa8906857878b61f4428997a50f91a65bdb"
     },
-    "character-cards/npc-tcg/Aloha.png": {
+    "content/character-cards/npc-tcg/Aloha.png": {
       "bytes": 2870458,
       "sha256": "be5ba8f97acad48d3bb3b6aaff2e9b8a877a6c0bf547cf1627f0b00334eaeeea"
     },
-    "character-cards/npc-tcg/Anselm.png": {
+    "content/character-cards/npc-tcg/Anselm.png": {
       "bytes": 2693563,
       "sha256": "502d0f05a16e0cacd6778aa3d07cc1f90d9fa3a62e3ea0aafe50b0b9915cf137"
     },
-    "character-cards/npc-tcg/Araja.png": {
+    "content/character-cards/npc-tcg/Araja.png": {
       "bytes": 2606845,
       "sha256": "122eb7c194c45d0362adb0f22f221f360006399c73281cfe9dd35f3205f4f581"
     },
-    "character-cards/npc-tcg/Arama.png": {
+    "content/character-cards/npc-tcg/Arama.png": {
       "bytes": 2746995,
       "sha256": "1fafd9d45fdf0f791d6f6314e7fb0a83048d7234de4b74724857d11b08804c76"
     },
-    "character-cards/npc-tcg/Aranakula.png": {
+    "content/character-cards/npc-tcg/Aranakula.png": {
       "bytes": 2611900,
       "sha256": "d211b58512a6ea522c3bbb8051ee95809153dd4b5e1422b0cb6a7812c29af2a9"
     },
-    "character-cards/npc-tcg/Areta.png": {
+    "content/character-cards/npc-tcg/Areta.png": {
       "bytes": 2919138,
       "sha256": "65fe5740aa9e8de5a989c8e9d19b4b7c3ef3b68a918a531d81a4f65ab6e05607"
     },
-    "character-cards/npc-tcg/Aurelius.png": {
+    "content/character-cards/npc-tcg/Aurelius.png": {
       "bytes": 2470190,
       "sha256": "edd546c493097b3ffd6b6589003448aa391798a14729039ea97e6f703df161ea"
     },
-    "character-cards/npc-tcg/Aybak.png": {
+    "content/character-cards/npc-tcg/Aybak.png": {
       "bytes": 2755287,
       "sha256": "940f7f7bda4853ac4af7f1239bee2d3802a661478cabdf12b22d320dd7430c19"
     },
-    "character-cards/npc-tcg/Babel.png": {
+    "content/character-cards/npc-tcg/Babel.png": {
       "bytes": 2765332,
       "sha256": "3be47057a4338b1d38f6f4172331cb72606be11172bb3ffd452b8e8f99f9d9cf"
     },
-    "character-cards/npc-tcg/Egle.png": {
+    "content/character-cards/npc-tcg/Egle.png": {
       "bytes": 2715312,
       "sha256": "7f06da0fe5d6138c02dfce59188a9c803ad736288cb80efe12687292c05ccbd0"
     },
-    "character-cards/npc-tcg/Eveliina.png": {
+    "content/character-cards/npc-tcg/Eveliina.png": {
       "bytes": 2508090,
       "sha256": "8b4ea47834ec14cb2d505a1709f8e6cf7cb555a77072b5c7d6d8f100da80caec"
     },
-    "character-cards/npc-tcg/Granny Ruoxin.png": {
+    "content/character-cards/npc-tcg/Granny Ruoxin.png": {
       "bytes": 2643504,
       "sha256": "3c78cf2a474d79a73aa10c4b56259da3a1bbc3e52089172c2ddee84583492cca"
     },
-    "character-cards/npc-tcg/Jakob.png": {
+    "content/character-cards/npc-tcg/Jakob.png": {
       "bytes": 3054208,
       "sha256": "1411c529614f4be90b668bd398b4beddce550db520ccbb361189347e21819397"
     },
-    "character-cards/npc-tcg/Jeht.png": {
+    "content/character-cards/npc-tcg/Jeht.png": {
       "bytes": 2840615,
       "sha256": "fd8d0fb5bf8ca945066b9a0cb7d677d1578f385c32ab62c419e485a351098951"
     },
-    "character-cards/npc-tcg/Katheryne.png": {
+    "content/character-cards/npc-tcg/Katheryne.png": {
       "bytes": 2468087,
       "sha256": "07cb5e3bd722b31f6064cde8638a5b7325b4350eef4b895ae9c9fbea3e8e78b3"
     },
-    "character-cards/npc-tcg/Knyazev.png": {
+    "content/character-cards/npc-tcg/Knyazev.png": {
       "bytes": 2787434,
       "sha256": "ca87bde12db3215381fac541fe0aeb3b3700438c8d006f849ce604748ffa78da"
     },
-    "character-cards/npc-tcg/Komaki.png": {
+    "content/character-cards/npc-tcg/Komaki.png": {
       "bytes": 2569816,
       "sha256": "f22b799f88efa7e37a76f0b890cc78e2bc479f94d2e61def265f556866f46590"
     },
-    "character-cards/npc-tcg/Kujou Masahito.png": {
+    "content/character-cards/npc-tcg/Kujou Masahito.png": {
       "bytes": 2724623,
       "sha256": "92bb6102ade13a7a0c9fdcae2ccf6333b3b1522cf15c4bbfae8becee0ab291f1"
     },
-    "character-cards/npc-tcg/Kukkia.png": {
+    "content/character-cards/npc-tcg/Kukkia.png": {
       "bytes": 2887658,
       "sha256": "c3499ffe35a879ca9a1d918e7defd0c2d02f6d3902321755115c4da00fcbc5a2"
     },
-    "character-cards/npc-tcg/Lasselin.png": {
+    "content/character-cards/npc-tcg/Lasselin.png": {
       "bytes": 2653565,
       "sha256": "45c62fc635411f7abbfb28f53ebf2747a5f607408df23e3f57a8c241cd20744c"
     },
-    "character-cards/npc-tcg/Lyris.png": {
+    "content/character-cards/npc-tcg/Lyris.png": {
       "bytes": 2734532,
       "sha256": "8e4925026ee2581f673fc4983da945bf5c3b1c90cd5c3e9a5c2d954e93f623b6"
     },
-    "character-cards/npc-tcg/Maryam.png": {
+    "content/character-cards/npc-tcg/Maryam.png": {
       "bytes": 2685559,
       "sha256": "4ee673571c174b9fa3953b5e714361e7f8abc55e69eb3494702eaac2b630c44d"
     },
-    "character-cards/npc-tcg/Master Lu.png": {
+    "content/character-cards/npc-tcg/Master Lu.png": {
       "bytes": 2260302,
       "sha256": "afb2b51d066572ef3235f022b213a624d81d923ee08b953bf5079596331d8eff"
     },
-    "character-cards/npc-tcg/Mayskaya.png": {
+    "content/character-cards/npc-tcg/Mayskaya.png": {
       "bytes": 2778946,
       "sha256": "7efceb6427e331ca5f8ab5463c698fa2a9abc94357e4ea1d10b87a9c7b9145dd"
     },
-    "character-cards/npc-tcg/Mazatl.png": {
+    "content/character-cards/npc-tcg/Mazatl.png": {
       "bytes": 2628915,
       "sha256": "2ca2dcc4d8751b7b42a00f8404f459f0ed5d30b50a6e04fde4a881f9582b569d"
     },
-    "character-cards/npc-tcg/M\u00e9cantre.png": {
+    "content/character-cards/npc-tcg/M\u00e9cantre.png": {
       "bytes": 2917657,
       "sha256": "84e5f566119071ff58304e504df9886bcc3bec321ebf9fca3a1a3c88e2da0fac"
     },
-    "character-cards/npc-tcg/Neko.png": {
+    "content/character-cards/npc-tcg/Neko.png": {
       "bytes": 2344946,
       "sha256": "4fabc6f9c5c157ecd6de26eac92881110fe7a76a6c077bc44f5e36f3933c947e"
     },
-    "character-cards/npc-tcg/Nishikino Reirei.png": {
+    "content/character-cards/npc-tcg/Nishikino Reirei.png": {
       "bytes": 2713524,
       "sha256": "42d70abaaaa1424ae5ca9dd47df74eb2dc78d86c88732f8744efa5ee1631ffe4"
     },
-    "character-cards/npc-tcg/Pitot.png": {
+    "content/character-cards/npc-tcg/Pitot.png": {
       "bytes": 2983641,
       "sha256": "398b1fcaa96aba3caaad7f83edc289e4a3cb760b6581b96e4c4bd185b2253f6a"
     },
-    "character-cards/npc-tcg/Plate.png": {
+    "content/character-cards/npc-tcg/Plate.png": {
       "bytes": 2859103,
       "sha256": "5f44291af182c4d01263f671e1a10a0abe0ab3ccc65f525829b132206b7ab75a"
     },
-    "character-cards/npc-tcg/Rene.png": {
+    "content/character-cards/npc-tcg/Rene.png": {
       "bytes": 3012956,
       "sha256": "05dc46e29c6372238e050e891ef5a27cee08aed1644a6e5943b0f97a467c7f62"
     },
-    "character-cards/npc-tcg/Sedile.png": {
+    "content/character-cards/npc-tcg/Sedile.png": {
       "bytes": 2550479,
       "sha256": "6879dcba8a5764fcbe12ed10ca1c5ed1c818cd24264909c9c11a79fc0b923f56"
     },
-    "character-cards/npc-tcg/Shajar.png": {
+    "content/character-cards/npc-tcg/Shajar.png": {
       "bytes": 2546181,
       "sha256": "de94046c066c0a9bc57bc28689b762655c7a9d39db937885b55f7948dec905e0"
     },
-    "character-cards/npc-tcg/Taroumaru.png": {
+    "content/character-cards/npc-tcg/Taroumaru.png": {
       "bytes": 2935287,
       "sha256": "1fd460a9522421addb96f4be67e3e99781aac7305ee676939e9c0f144edec05c"
     },
-    "character-cards/npc-tcg/Tetreaux.png": {
+    "content/character-cards/npc-tcg/Tetreaux.png": {
       "bytes": 2907785,
       "sha256": "b051a7359d5ac675ebbfd32bf95f1267df6afeb234eea02fad48e247b50acf27"
     },
-    "character-cards/npc-tcg/Teucer.png": {
+    "content/character-cards/npc-tcg/Teucer.png": {
       "bytes": 2782293,
       "sha256": "e2ead05cddb78dd3457459cdd8c5783725781e11d46e38edef34c92c0a3a5a29"
     },
-    "character-cards/npc-tcg/Tiepolo.png": {
+    "content/character-cards/npc-tcg/Tiepolo.png": {
       "bytes": 2872103,
       "sha256": "53706a003e72955a182cd6734cbee954338101062d343c736e74c238fee78215"
     },
-    "character-cards/npc-tcg/Tisoc.png": {
+    "content/character-cards/npc-tcg/Tisoc.png": {
       "bytes": 2924352,
       "sha256": "194c6770cacafcb712fc3ffb4f76ff4b62d0ba17fb9f848df199fd75ee5226e6"
     },
-    "character-cards/npc-tcg/Tlapalli.png": {
+    "content/character-cards/npc-tcg/Tlapalli.png": {
       "bytes": 2931172,
       "sha256": "861d182091cf2b1c03d3a14e24f4b902eb179911f080210f739b67011b8e4aa7"
     },
-    "character-cards/npc-tcg/Tonia.png": {
+    "content/character-cards/npc-tcg/Tonia.png": {
       "bytes": 2544932,
       "sha256": "75ad9164ad7621027d4a9d1fd53f364dd2d400406977952138d47e95666eb9fc"
     },
-    "character-cards/npc-tcg/Tzompantli.png": {
+    "content/character-cards/npc-tcg/Tzompantli.png": {
       "bytes": 2824937,
       "sha256": "65ac5205f2ee89f1117376ab229f43e35275f8c4cae1a1a025ae3818d3050872"
     },
-    "character-cards/npc-tcg/Valdis.png": {
+    "content/character-cards/npc-tcg/Valdis.png": {
       "bytes": 2778046,
       "sha256": "194244a75b3024197cb6791f7bb7e01b4636b57d79a8d36db9c0aaba85018c3b"
     },
-    "character-cards/npc-tcg/Virda.png": {
+    "content/character-cards/npc-tcg/Virda.png": {
       "bytes": 2567280,
       "sha256": "62ea7909211bd26843fb2a69a2ba644f50753148d969457c2a936c5afbecf366"
     },
-    "character-cards/npc-tcg/Whistle.png": {
+    "content/character-cards/npc-tcg/Whistle.png": {
       "bytes": 2398129,
       "sha256": "5f82b93f771e029deb5405e0ace5c3e9387e8bac40655e7212c68c2264dea034"
     },
-    "character-cards/npc-tcg/Xavier.png": {
+    "content/character-cards/npc-tcg/Xavier.png": {
       "bytes": 2798812,
       "sha256": "930ca47f0041bac3073300ef7df93cc4e101b3f87ca10f1c10d6177c831ff357"
     },
-    "character-cards/paimon/Paimon.png": {
+    "content/character-cards/paimon/Paimon.png": {
       "bytes": 1868924,
       "sha256": "31de8ee7045dbe3248330a321502e1888cb708b3da415245e5ade9ce303d2dac"
     },
-    "character-cards/tcg-bosses/All-Devouring Narwhal.png": {
+    "content/character-cards/tcg-bosses/All-Devouring Narwhal.png": {
       "bytes": 572652,
       "sha256": "d49bd74d86e1a563ff6d7f7f6bd8e9a783cc2feb11f082db80f76a371107e293"
     },
-    "character-cards/tcg-bosses/Azhdaha.png": {
+    "content/character-cards/tcg-bosses/Azhdaha.png": {
       "bytes": 598167,
       "sha256": "e93191d9a4bd4918b25788f09b68e8e7e1421273d571c853ad78a6288831965d"
     },
-    "character-cards/tcg-bosses/Cryo Hypostasis.png": {
+    "content/character-cards/tcg-bosses/Cryo Hypostasis.png": {
       "bytes": 641040,
       "sha256": "753ccdba89aafc3bb236638f3d522c8cc524892e2da54944d3fe3288581c83eb"
     },
-    "character-cards/tcg-bosses/Dvalin.png": {
+    "content/character-cards/tcg-bosses/Dvalin.png": {
       "bytes": 601418,
       "sha256": "bbe819273627a687bea1e5400c8c99139484b2d8d8a7d45f2f60962b9dfc790f"
     },
-    "character-cards/tcg-bosses/Electro Hypostasis.png": {
+    "content/character-cards/tcg-bosses/Electro Hypostasis.png": {
       "bytes": 585303,
       "sha256": "e95b3599aca11c720d893d0c9a0a18a6ccaa23c6c618d8d1d88907479ff0fe2f"
     },
-    "character-cards/tcg-bosses/Emperor of Fire and Iron.png": {
+    "content/character-cards/tcg-bosses/Emperor of Fire and Iron.png": {
       "bytes": 638096,
       "sha256": "12ef3f209f1770ef442381ec90a8b71fcd77e27981b73a9d5df12f9e4a24dca2"
     },
-    "character-cards/tcg-bosses/Experimental Field Generator.png": {
+    "content/character-cards/tcg-bosses/Experimental Field Generator.png": {
       "bytes": 665726,
       "sha256": "7e8e883e5613a6101f133703d6d9dddf1952e3aada84408050c1b6acd8c86ad8"
     },
-    "character-cards/tcg-bosses/Gluttonous Yumkasaur Mountain King.png": {
+    "content/character-cards/tcg-bosses/Gluttonous Yumkasaur Mountain King.png": {
       "bytes": 610207,
       "sha256": "a40f390de5d3e0e9c1defed02034602971d3673b876fdca1abda724f55980011"
     },
-    "character-cards/tcg-bosses/Golden Wolflord.png": {
+    "content/character-cards/tcg-bosses/Golden Wolflord.png": {
       "bytes": 610400,
       "sha256": "ca5e52a7bbd95e11f1fb07e1d606ce744dcd1c53ceacdba8212875d7c34d3171"
     },
-    "character-cards/tcg-bosses/Goldflame Qucusaur Tyrant.png": {
+    "content/character-cards/tcg-bosses/Goldflame Qucusaur Tyrant.png": {
       "bytes": 621587,
       "sha256": "3905821cfdd835a54da8894d7ea1de64a77f92acda8b53e177a312fa415608bb"
     },
-    "character-cards/tcg-bosses/Guardian of Apep's Oasis.png": {
+    "content/character-cards/tcg-bosses/Guardian of Apep's Oasis.png": {
       "bytes": 659337,
       "sha256": "9a714f2523fa849cec37ecc206b4f1e1a66d53160b90d5a69eafe9db341648e9"
     },
-    "character-cards/tcg-bosses/Hydro Hypostasis.png": {
+    "content/character-cards/tcg-bosses/Hydro Hypostasis.png": {
       "bytes": 615445,
       "sha256": "bf5cd25a4725912d397e31fba3076c22c96227ed03fc3054377d9868b4acbd22"
     },
-    "character-cards/tcg-bosses/Hydro Tulpa.png": {
+    "content/character-cards/tcg-bosses/Hydro Tulpa.png": {
       "bytes": 554452,
       "sha256": "de5e716de78e3b30e32d46e7b11da561902acf717261c8ff2ba758721af52428"
     },
-    "character-cards/tcg-bosses/Jadeplume Terrorshroom.png": {
+    "content/character-cards/tcg-bosses/Jadeplume Terrorshroom.png": {
       "bytes": 546119,
       "sha256": "9c683c80296bca20adbd84140c4b809b8176a46cdb243503e6619226a5bccf1e"
     },
-    "character-cards/tcg-bosses/Lord of Eroded Primal Fire.png": {
+    "content/character-cards/tcg-bosses/Lord of Eroded Primal Fire.png": {
       "bytes": 702858,
       "sha256": "69c858acb4acf13f3dbd0058ccee02dde59c81c5e79c2e029c714d83551bd2de"
     },
-    "character-cards/tcg-bosses/Maguu Kenki.png": {
+    "content/character-cards/tcg-bosses/Maguu Kenki.png": {
       "bytes": 635445,
       "sha256": "202924550a998d51ebc6829ec4a0decf4a31f8e6a2665bc489966a0674bf8fb0"
     },
-    "character-cards/tcg-bosses/Millennial Pearl Seahorse.png": {
+    "content/character-cards/tcg-bosses/Millennial Pearl Seahorse.png": {
       "bytes": 590946,
       "sha256": "b6d5a9b22ce3ecb98c2bb5bacba45ccaae4345b8e3040c2d534db6a5ef1b6087"
     },
-    "character-cards/tcg-bosses/Rhodeia of Loch.png": {
+    "content/character-cards/tcg-bosses/Rhodeia of Loch.png": {
       "bytes": 488566,
       "sha256": "2d782bfb29379345335161f05d0551471bd4ac085ea5de2ee7777ebe76d3076d"
     },
-    "character-cards/tcg-bosses/Thunder Manifestation.png": {
+    "content/character-cards/tcg-bosses/Thunder Manifestation.png": {
       "bytes": 623959,
       "sha256": "de20966575aef7c9f79d9c9d52e93e3bf596618588c72b1d6163009886dc4dd9"
     },
-    "character-cards/tcg-enemies/Abyss Herald Wicked Torrents.png": {
+    "content/character-cards/tcg-enemies/Abyss Herald Wicked Torrents.png": {
       "bytes": 580200,
       "sha256": "21be8bf78dff22a3f3b3957d58d924dd57918df7a37e67fac0553d239bc63faf"
     },
-    "character-cards/tcg-enemies/Abyss Lector Fathomless Flames.png": {
+    "content/character-cards/tcg-enemies/Abyss Lector Fathomless Flames.png": {
       "bytes": 569182,
       "sha256": "218d9012d8337fb65f36c88ef142dd6ee860d07863ab9c263772efa0c5cc985a"
     },
-    "character-cards/tcg-enemies/Abyss Lector Violet Lightning.png": {
+    "content/character-cards/tcg-enemies/Abyss Lector Violet Lightning.png": {
       "bytes": 583054,
       "sha256": "5e98bf2f3823b163e6a7b494c7f3abd16ef243af7a2f79c48f5c71d838754075"
     },
-    "character-cards/tcg-enemies/Anemo Samachurl.png": {
+    "content/character-cards/tcg-enemies/Anemo Samachurl.png": {
       "bytes": 556879,
       "sha256": "2427664a2a9c242d26f35cccf4007da3b8f3eb1dbc72977f31a39f86a76c609f"
     },
-    "character-cards/tcg-enemies/Annihilation Specialist Mek - Ousia.png": {
+    "content/character-cards/tcg-enemies/Annihilation Specialist Mek - Ousia.png": {
       "bytes": 573789,
       "sha256": "d8b4e7193974be8491060e90aeb34f70f2ffc15fb99b639f86db1b8c33a99f7e"
     },
-    "character-cards/tcg-enemies/Annihilation Specialist Mek - Pneuma.png": {
+    "content/character-cards/tcg-enemies/Annihilation Specialist Mek - Pneuma.png": {
       "bytes": 572486,
       "sha256": "c6325a936b600ec0d75ad09f9f0aa759f9496c1f9823f76a4bb58dfb37cdae0e"
     },
-    "character-cards/tcg-enemies/Arithmetic Enhancer Mek - Ousia.png": {
+    "content/character-cards/tcg-enemies/Arithmetic Enhancer Mek - Ousia.png": {
       "bytes": 544390,
       "sha256": "b02b83ccbe052559a882dae4b510f6c3c12dbfe8f4bf734e891c6d41750673a4"
     },
-    "character-cards/tcg-enemies/Arithmetic Enhancer Mek - Pneuma.png": {
+    "content/character-cards/tcg-enemies/Arithmetic Enhancer Mek - Pneuma.png": {
       "bytes": 543882,
       "sha256": "29e9076711d9f23f7d6fde5681adb0950332de0b41dd38a18e0dc2cf2f5f7c03"
     },
-    "character-cards/tcg-enemies/Assault Specialist Mek - Ousia.png": {
+    "content/character-cards/tcg-enemies/Assault Specialist Mek - Ousia.png": {
       "bytes": 620138,
       "sha256": "dc7df8e1600f08fdeb95c72cab388623ac8f1bd508797f28f05fe9575cfdf992"
     },
-    "character-cards/tcg-enemies/Assault Specialist Mek - Pneuma.png": {
+    "content/character-cards/tcg-enemies/Assault Specialist Mek - Pneuma.png": {
       "bytes": 620049,
       "sha256": "968341909ac557a1a0fb494c45ae5326da46131ce83ca642189af9b364377876"
     },
-    "character-cards/tcg-enemies/Black Serpent Knight Rockbreaker Ax.png": {
+    "content/character-cards/tcg-enemies/Black Serpent Knight Rockbreaker Ax.png": {
       "bytes": 636493,
       "sha256": "3082858b6fc2f0201d05f8f55df429b4622fbe6f605016fba995e672784966ff"
     },
-    "character-cards/tcg-enemies/Black Serpent Knight Windcutter.png": {
+    "content/character-cards/tcg-enemies/Black Serpent Knight Windcutter.png": {
       "bytes": 622042,
       "sha256": "96c2eed1dd0ccaeab4ddc7e9f98a06fea9f1c52ba7a4f514d81754c88e0d4ad5"
     },
-    "character-cards/tcg-enemies/Blazing Axe Mitachurl.png": {
+    "content/character-cards/tcg-enemies/Blazing Axe Mitachurl.png": {
       "bytes": 619705,
       "sha256": "caeb5338db2eab1dadd0ab83a1e564da67d467f20032bcf4e35338128b6d3dfa"
     },
-    "character-cards/tcg-enemies/Consecrated Fanged Beast.png": {
+    "content/character-cards/tcg-enemies/Consecrated Fanged Beast.png": {
       "bytes": 585934,
       "sha256": "11310402a0bea8a019150650a5cbac7655e2d8326c1dba5567fb2978a0fd0cc3"
     },
-    "character-cards/tcg-enemies/Consecrated Flying Serpent.png": {
+    "content/character-cards/tcg-enemies/Consecrated Flying Serpent.png": {
       "bytes": 625976,
       "sha256": "d2103763f0d5399cc1d25c9c57a00d8613843800363e8a8da44fc5f2e5716d97"
     },
-    "character-cards/tcg-enemies/Consecrated Horned Crocodile.png": {
+    "content/character-cards/tcg-enemies/Consecrated Horned Crocodile.png": {
       "bytes": 592898,
       "sha256": "5dcd614238f5b173d5b83a4006df09021fdd882f496565fa01cffd1c6312b1c5"
     },
-    "character-cards/tcg-enemies/Consecrated Scorpion.png": {
+    "content/character-cards/tcg-enemies/Consecrated Scorpion.png": {
       "bytes": 583039,
       "sha256": "8f80c8f293fa4f84837418e0276cf18bca3d878e80f83f7af831ef29a9377214"
     },
-    "character-cards/tcg-enemies/Crackling Axe Mitachurl.png": {
+    "content/character-cards/tcg-enemies/Crackling Axe Mitachurl.png": {
       "bytes": 585293,
       "sha256": "a4c31687b9f309a013f4c8e441bf794e999eed66ca0670a6de696b448d988a16"
     },
-    "character-cards/tcg-enemies/Cryo Abyss Mage.png": {
+    "content/character-cards/tcg-enemies/Cryo Abyss Mage.png": {
       "bytes": 562421,
       "sha256": "54c8737d943230bd67ad83f92e24e853c8b8d52717b22fe7cd9bc3def0f7e44a"
     },
-    "character-cards/tcg-enemies/Cryo Hilichurl Shooter.png": {
+    "content/character-cards/tcg-enemies/Cryo Hilichurl Shooter.png": {
       "bytes": 582663,
       "sha256": "41996ce6124a48779d8a8468f5287f4f0ba3985aae2731d358c2f7b8703a05d4"
     },
-    "character-cards/tcg-enemies/Cryo Slime.png": {
+    "content/character-cards/tcg-enemies/Cryo Slime.png": {
       "bytes": 422039,
       "sha256": "5a5eec14f96a839e978dfddd5a2a6adcf3febb83c16e9e487770670ce8e69cfe"
     },
-    "character-cards/tcg-enemies/Dendro Samachurl.png": {
+    "content/character-cards/tcg-enemies/Dendro Samachurl.png": {
       "bytes": 560177,
       "sha256": "ed3390a2fe8b28842439555628eedda2a4bbffc824685b547ae4f9f92e36a842"
     },
-    "character-cards/tcg-enemies/Electro Abyss Mage.png": {
+    "content/character-cards/tcg-enemies/Electro Abyss Mage.png": {
       "bytes": 513981,
       "sha256": "31d226c1d1b659ee8d0ddccd1db56e550a90f119dedf4f1316703cbc8a26af81"
     },
-    "character-cards/tcg-enemies/Electro Hilichurl Shooter.png": {
+    "content/character-cards/tcg-enemies/Electro Hilichurl Shooter.png": {
       "bytes": 570889,
       "sha256": "b3e4238ff104d0665f3b4f83e4cd99a04be67a785930fa30c1d96b2c04bebcd7"
     },
-    "character-cards/tcg-enemies/Electro Samachurl.png": {
+    "content/character-cards/tcg-enemies/Electro Samachurl.png": {
       "bytes": 596001,
       "sha256": "89fa2015e7bb8d86ad671583ba40a06558ac5d301f8c3c4b03744976f3d21410"
     },
-    "character-cards/tcg-enemies/Electro Slime.png": {
+    "content/character-cards/tcg-enemies/Electro Slime.png": {
       "bytes": 531694,
       "sha256": "9ad71a088ed5f8d83ce72f08742e1e4a8bab726d08f1c71299945923da6ee14c"
     },
-    "character-cards/tcg-enemies/Eremite Daythunder.png": {
+    "content/character-cards/tcg-enemies/Eremite Daythunder.png": {
       "bytes": 547070,
       "sha256": "afc93a711ba1b98a2da866f8dbfb79bdb564f915603085a1123d490bcfc4d078"
     },
-    "character-cards/tcg-enemies/Eremite Desert Clearwater.png": {
+    "content/character-cards/tcg-enemies/Eremite Desert Clearwater.png": {
       "bytes": 533264,
       "sha256": "3dea6de75884d6de17d486633d6afd746967f8280f26aad60dd3db98983e83a9"
     },
-    "character-cards/tcg-enemies/Eremite Floral Ring-Dancer.png": {
+    "content/character-cards/tcg-enemies/Eremite Floral Ring-Dancer.png": {
       "bytes": 591859,
       "sha256": "9a34b5618b8e6ee5abac1e934f58d56bae9bd45fcaf9490710aa3843a9bee06f"
     },
-    "character-cards/tcg-enemies/Eremite Scorching Loremaster.png": {
+    "content/character-cards/tcg-enemies/Eremite Scorching Loremaster.png": {
       "bytes": 622391,
       "sha256": "2162681f966d802f9db68dac38c622d159eba5ae05c884508d2d4d56bad8f4d8"
     },
-    "character-cards/tcg-enemies/Eremite Stone Enchanter.png": {
+    "content/character-cards/tcg-enemies/Eremite Stone Enchanter.png": {
       "bytes": 588730,
       "sha256": "c6e2a811a3aa23cd4560d76e5a05d0d7e22d553d61bdb2c8f5c74c72d18848e7"
     },
-    "character-cards/tcg-enemies/Eremite Sunfrost.png": {
+    "content/character-cards/tcg-enemies/Eremite Sunfrost.png": {
       "bytes": 547425,
       "sha256": "e5f491dc3113ec4ba6b7adbf6bbe825bedfa5d61224739f36da5d019238eece7"
     },
-    "character-cards/tcg-enemies/Fatui Electro Cicin Mage.png": {
+    "content/character-cards/tcg-enemies/Fatui Electro Cicin Mage.png": {
       "bytes": 643640,
       "sha256": "e83de2027cc4ba2c60afa081fedd2fef60f7d01d0537bedab037c76931ad8ef2"
     },
-    "character-cards/tcg-enemies/Fatui Skirmisher - Anemoboxer Vanguard.png": {
+    "content/character-cards/tcg-enemies/Fatui Skirmisher - Anemoboxer Vanguard.png": {
       "bytes": 535959,
       "sha256": "3e491b0a3087f5f76e3876baf5ad807c489313fad1ffe201531d4a3a6b15335b"
     },
-    "character-cards/tcg-enemies/Fatui Skirmisher - Cryogunner Legionnaire.png": {
+    "content/character-cards/tcg-enemies/Fatui Skirmisher - Cryogunner Legionnaire.png": {
       "bytes": 533442,
       "sha256": "1cc512855865c1c992c01ebf6f33097be7b0d590d3602e0368349072620cf6c4"
     },
-    "character-cards/tcg-enemies/Fatui Skirmisher - Electrohammer Vanguard.png": {
+    "content/character-cards/tcg-enemies/Fatui Skirmisher - Electrohammer Vanguard.png": {
       "bytes": 523362,
       "sha256": "0222cf58fb0b6d7da81160dd807ffea27d0ea455b49ff6d0144e4304cc39ae8d"
     },
-    "character-cards/tcg-enemies/Fatui Skirmisher - Geochanter Bracer.png": {
+    "content/character-cards/tcg-enemies/Fatui Skirmisher - Geochanter Bracer.png": {
       "bytes": 517107,
       "sha256": "c46a70225c8f1a5d1b19bc7b4a488df11081edd4d9e3d1e0ae7ea736b7a93bd4"
     },
-    "character-cards/tcg-enemies/Fatui Skirmisher - Hydrogunner Legionnaire.png": {
+    "content/character-cards/tcg-enemies/Fatui Skirmisher - Hydrogunner Legionnaire.png": {
       "bytes": 515845,
       "sha256": "15cd4222f822adeb7e2a8e3cd264fb6124773a0e4844edca41ff98fbf9758cfc"
     },
-    "character-cards/tcg-enemies/Fatui Skirmisher - Pyroslinger Bracer.png": {
+    "content/character-cards/tcg-enemies/Fatui Skirmisher - Pyroslinger Bracer.png": {
       "bytes": 486091,
       "sha256": "0566c391e080887c0e9a31b8d996e656ac93ef437a30005e42ba9fe8209f85d9"
     },
-    "character-cards/tcg-enemies/Frost Operative.png": {
+    "content/character-cards/tcg-enemies/Frost Operative.png": {
       "bytes": 592559,
       "sha256": "dadfbf1abda87f06fb84564015614d78d042e5fea76caeac26beb47ace501a5c"
     },
-    "character-cards/tcg-enemies/Geo Samachurl.png": {
+    "content/character-cards/tcg-enemies/Geo Samachurl.png": {
       "bytes": 568032,
       "sha256": "4e6758e320f852dcd1da75bd6aa208a23011bd1f3ecca31c293c2891fdb36f77"
     },
-    "character-cards/tcg-enemies/Grounded Geoshroom.png": {
+    "content/character-cards/tcg-enemies/Grounded Geoshroom.png": {
       "bytes": 501573,
       "sha256": "fc1d495fd453127a14113539281bcc4e474cefea9cfdada4d36b01981497aadd"
     },
-    "character-cards/tcg-enemies/Grounded Hydroshroom.png": {
+    "content/character-cards/tcg-enemies/Grounded Hydroshroom.png": {
       "bytes": 496739,
       "sha256": "977865451909eb0adbf3ddbe835d5f80f6db8151929d1b9e5c52133f4aff4bdb"
     },
-    "character-cards/tcg-enemies/Hilichurl Berserker.png": {
+    "content/character-cards/tcg-enemies/Hilichurl Berserker.png": {
       "bytes": 603249,
       "sha256": "b105c48ba1fe444ee1e1f66d1fded9e274f5409780797ec0a120a9e9dd3aef6c"
     },
-    "character-cards/tcg-enemies/Hilichurl Fighter.png": {
+    "content/character-cards/tcg-enemies/Hilichurl Fighter.png": {
       "bytes": 558733,
       "sha256": "dd62b35d67478e9fc713858e6baf942f2273ce4b9ae980881272067b05da8ffa"
     },
-    "character-cards/tcg-enemies/Hilichurl Shooter.png": {
+    "content/character-cards/tcg-enemies/Hilichurl Shooter.png": {
       "bytes": 559371,
       "sha256": "b91a63a3797176ad0d4ca2a21d3583805ec38ff1b1c1de4af3dd26677145544b"
     },
-    "character-cards/tcg-enemies/Hydro Abyss Mage.png": {
+    "content/character-cards/tcg-enemies/Hydro Abyss Mage.png": {
       "bytes": 583081,
       "sha256": "8aaed4e9c732f657e28d5ae5daec3ac56aa6216d4608fdd2bc6499968a9126b1"
     },
-    "character-cards/tcg-enemies/Hydro Hilichurl Rogue.png": {
+    "content/character-cards/tcg-enemies/Hydro Hilichurl Rogue.png": {
       "bytes": 562757,
       "sha256": "f2629e99f9c17e3aae25a52c6c0e6aa098950d1f356292f755439b65f323e03b"
     },
-    "character-cards/tcg-enemies/Hydro Samachurl.png": {
+    "content/character-cards/tcg-enemies/Hydro Samachurl.png": {
       "bytes": 569508,
       "sha256": "ac85095397eb143e6990aba4ce8b2446554992816ab52f7f3908a1644d6491c1"
     },
-    "character-cards/tcg-enemies/Hydro Slime.png": {
+    "content/character-cards/tcg-enemies/Hydro Slime.png": {
       "bytes": 496561,
       "sha256": "99ff2f073d17c64fd3e9726afdf273dc76923ae5318e2e05ef64ff135393a233"
     },
-    "character-cards/tcg-enemies/Ice Shieldwall Mitachurl.png": {
+    "content/character-cards/tcg-enemies/Ice Shieldwall Mitachurl.png": {
       "bytes": 560339,
       "sha256": "30d6311adb78ea9752a1e62db302984f8f5bec4968c666263b0bbd7762c7343d"
     },
-    "character-cards/tcg-enemies/Kairagi Dancing Thunder.png": {
+    "content/character-cards/tcg-enemies/Kairagi Dancing Thunder.png": {
       "bytes": 552151,
       "sha256": "0bada628b256fbba1600dc0947d904eeb0bd84e1ee7ce6ecd598fff2ec9d36ca"
     },
-    "character-cards/tcg-enemies/Kairagi Fiery Might.png": {
+    "content/character-cards/tcg-enemies/Kairagi Fiery Might.png": {
       "bytes": 595157,
       "sha256": "94a60c853133c2b91472a5c89c3ead920258ad34dbc1fc4fb56f4049998ceaf3"
     },
-    "character-cards/tcg-enemies/La Signora.png": {
+    "content/character-cards/tcg-enemies/La Signora.png": {
       "bytes": 538456,
       "sha256": "fd2add819d84366f12e34dbe536ff6f34c81884851a634954234f9aa388adec3"
     },
-    "character-cards/tcg-enemies/Large Cryo Slime.png": {
+    "content/character-cards/tcg-enemies/Large Cryo Slime.png": {
       "bytes": 456443,
       "sha256": "5867dfb56d0c003d28f689132ee53810dde3763cfb84249219b61f8c663e0313"
     },
-    "character-cards/tcg-enemies/Large Hydro Slime.png": {
+    "content/character-cards/tcg-enemies/Large Hydro Slime.png": {
       "bytes": 437731,
       "sha256": "78bb0fea75c3127b516d7289dc06972f79d72ce845b45e628e6272b5c20941c3"
     },
-    "character-cards/tcg-enemies/Mirror Maiden.png": {
+    "content/character-cards/tcg-enemies/Mirror Maiden.png": {
       "bytes": 578901,
       "sha256": "8406368fbfd67b1ba3ac1e8dc8521777ebd8950c9bc3f05dc354ad9d73c32207"
     },
-    "character-cards/tcg-enemies/Nobushi Hitsukeban.png": {
+    "content/character-cards/tcg-enemies/Nobushi Hitsukeban.png": {
       "bytes": 617877,
       "sha256": "5e56e656ac325a205b43c1c819ddf5fc5a50348623049344df20d9c7d132afd8"
     },
-    "character-cards/tcg-enemies/Nobushi Jintouban.png": {
+    "content/character-cards/tcg-enemies/Nobushi Jintouban.png": {
       "bytes": 613393,
       "sha256": "a7ee637cb8e750a84a3319cd50996bf4a4c60ab612945e5a564c133b81e6b964"
     },
-    "character-cards/tcg-enemies/Nobushi Kikouban.png": {
+    "content/character-cards/tcg-enemies/Nobushi Kikouban.png": {
       "bytes": 617103,
       "sha256": "50f420bcc163a461bced7c82da8930f411803c458e18911e9da71b22c13235cd"
     },
-    "character-cards/tcg-enemies/Pyro Abyss Mage.png": {
+    "content/character-cards/tcg-enemies/Pyro Abyss Mage.png": {
       "bytes": 481062,
       "sha256": "b6de41f7497d27adfae50ff489ac3d4cedcadd1c5e0d795bc6d9bd6047c24d79"
     },
-    "character-cards/tcg-enemies/Pyro Whopperflower.png": {
+    "content/character-cards/tcg-enemies/Pyro Whopperflower.png": {
       "bytes": 557862,
       "sha256": "99349eeee2a3a4287815a0489d5dd82dc0ac618f431aeb15e19e25039b540114"
     },
-    "character-cards/tcg-enemies/Rock Shieldwall Mitachurl.png": {
+    "content/character-cards/tcg-enemies/Rock Shieldwall Mitachurl.png": {
       "bytes": 538926,
       "sha256": "e4be4569b2e2c30dba8f5b868a2402ab6af3a6274b058f098cbb781d7faa3c55"
     },
-    "character-cards/tcg-enemies/Rockfond Rifthound.png": {
+    "content/character-cards/tcg-enemies/Rockfond Rifthound.png": {
       "bytes": 541158,
       "sha256": "837074c7d7f1e29385aaa099888781e701f0cac422d3c386f970a35a3a60dcbb"
     },
-    "character-cards/tcg-enemies/Ruin Drake Earthguard.png": {
+    "content/character-cards/tcg-enemies/Ruin Drake Earthguard.png": {
       "bytes": 501260,
       "sha256": "72b1af1ef88a9aaff3d0bbb9a835366f5b8da756d0da9fb52f421b80281ccb00"
     },
-    "character-cards/tcg-enemies/Ruin Guard.png": {
+    "content/character-cards/tcg-enemies/Ruin Guard.png": {
       "bytes": 573204,
       "sha256": "9d33a61acdb3436f2f93e18f4924e5f77107bb77f024721936245c3a006c8577"
     },
-    "character-cards/tcg-enemies/Stonehide Lawachurl.png": {
+    "content/character-cards/tcg-enemies/Stonehide Lawachurl.png": {
       "bytes": 619245,
       "sha256": "58bec11a427910ece03a914b6db1d1a74e1fedb251d0011fca334270b836d8ca"
     },
-    "character-cards/tcg-enemies/Suppression Specialist Mek - Ousia.png": {
+    "content/character-cards/tcg-enemies/Suppression Specialist Mek - Ousia.png": {
       "bytes": 621590,
       "sha256": "fce8d12187699478ca83b1014953868ce4a43dd1dfe3e5906c94146117ae8b1c"
     },
-    "character-cards/tcg-enemies/Suppression Specialist Mek - Pneuma.png": {
+    "content/character-cards/tcg-enemies/Suppression Specialist Mek - Pneuma.png": {
       "bytes": 617443,
       "sha256": "eb0ef1d0be9cbefc3c1f1d929f2600023cf89fe17178debdd1c7b3a030214a0c"
     },
-    "character-cards/tcg-enemies/Tainted Hydro Phantasm.png": {
+    "content/character-cards/tcg-enemies/Tainted Hydro Phantasm.png": {
       "bytes": 438312,
       "sha256": "beb6f59edf151d335e597800a4cb5bf072a023407ed761df1c5e568f1748b0b9"
     },
-    "character-cards/tcg-enemies/Thundercraven Rifthound.png": {
+    "content/character-cards/tcg-enemies/Thundercraven Rifthound.png": {
       "bytes": 541364,
       "sha256": "5c496cd689e0806cba2391e35c32c816e8bab36c8ee54200a8569d657e1def65"
     },
-    "character-cards/tcg-enemies/Wayward Hermetic Spiritspeaker.png": {
+    "content/character-cards/tcg-enemies/Wayward Hermetic Spiritspeaker.png": {
       "bytes": 575995,
       "sha256": "cd7193c6c9db18a995dd61e2a7f09ca6afd18303092d830eb17099f545bb6b7d"
     },
-    "character-cards/tcg-enemies/Winged Cryoshroom.png": {
+    "content/character-cards/tcg-enemies/Winged Cryoshroom.png": {
       "bytes": 523754,
       "sha256": "5f71088b6045825df3d94ceb3c75b76031d54deabe83c6e757232e193434492b"
     },
-    "character-cards/tcg-enemies/Winged Dendroshroom.png": {
+    "content/character-cards/tcg-enemies/Winged Dendroshroom.png": {
       "bytes": 509914,
       "sha256": "b9c16849c5f68eb79854bc53722741b7c774ea0a2a542d35e61c96e60e33aeac"
     },
-    "character-cards/tcg-enemies/Wooden Shieldwall Mitachurl.png": {
+    "content/character-cards/tcg-enemies/Wooden Shieldwall Mitachurl.png": {
       "bytes": 598628,
       "sha256": "1d07872b69d1b158c3ec1309edd7805be365b14bf4c4f906ce90544bcd5d9525"
     },
-    "character-cards/tone-audit/Aether.png": {
+    "content/character-cards/tone-audit/Aether.png": {
       "bytes": 134477,
       "sha256": "818745e4e7bb96340151ad0d75276ab631ab919d2feff488e50861d6347b402c"
     },
-    "character-cards/tone-audit/Aino.png": {
+    "content/character-cards/tone-audit/Aino.png": {
       "bytes": 156264,
       "sha256": "f5b31992291f9138d9c3bc6168d1e0ddd528724c49faeed1aaff6823c75e1063"
     },
-    "character-cards/tone-audit/Alhaitham.png": {
+    "content/character-cards/tone-audit/Alhaitham.png": {
       "bytes": 141445,
       "sha256": "b21ebea31bf86110ea64e86566823521d7c61ed9f0d790a90f5fb5c4b5c3cc17"
     },
-    "character-cards/tone-audit/Aloy.png": {
+    "content/character-cards/tone-audit/Aloy.png": {
       "bytes": 138563,
       "sha256": "ab1212d597ebd5d56e4fb404fb61ba9db139592785edf285e7ce04f682b4e337"
     },
-    "character-cards/tone-audit/Amber.png": {
+    "content/character-cards/tone-audit/Amber.png": {
       "bytes": 132676,
       "sha256": "da89b06162115dc2b500cca7a3ae47ef5ab8a128b1e55f5d61bca86fd9fed8ba"
     },
-    "character-cards/tone-audit/Arataki Itto.png": {
+    "content/character-cards/tone-audit/Arataki Itto.png": {
       "bytes": 151665,
       "sha256": "61bb448d08e194a467842e00a855fb2de4bca09cdc57cc821ca73208683067e7"
     },
-    "character-cards/tone-audit/Arlecchino.png": {
+    "content/character-cards/tone-audit/Arlecchino.png": {
       "bytes": 144220,
       "sha256": "c08afee08a56d2e92daa62e4a56a4566e43ffd36791d5064f534b1cf80c7b2ef"
     },
-    "character-cards/tone-audit/Barbara.png": {
+    "content/character-cards/tone-audit/Barbara.png": {
       "bytes": 147814,
       "sha256": "5891bc2df92c081dde6003cbe541484582240a12315083766c46f5f3f1e8088e"
     },
-    "character-cards/tone-audit/Bennett.png": {
+    "content/character-cards/tone-audit/Bennett.png": {
       "bytes": 138718,
       "sha256": "0ed5988e099c61a9713c400e89598797ba564f4a82711050c8f93fd100fc18ee"
     },
-    "character-cards/tone-audit/Charlotte.png": {
+    "content/character-cards/tone-audit/Charlotte.png": {
       "bytes": 143936,
       "sha256": "d29684d7abfcaf944518e0b42b12dddbef15d5756c6b2afa42711d6e728e79e4"
     },
-    "character-cards/tone-audit/Chevreuse.png": {
+    "content/character-cards/tone-audit/Chevreuse.png": {
       "bytes": 153435,
       "sha256": "4628db64f9e8c044f3aa6ee899a3d8ec80b642bff4100720929d5f64837c2c39"
     },
-    "character-cards/tone-audit/Citlali.png": {
+    "content/character-cards/tone-audit/Citlali.png": {
       "bytes": 161107,
       "sha256": "1e0aa72a81785f462db188d5e529ceee9e9c4f0cdcb10f08f02612d90928859e"
     },
-    "character-cards/tone-audit/Dahlia.png": {
+    "content/character-cards/tone-audit/Dahlia.png": {
       "bytes": 143360,
       "sha256": "004bae314b31f1d28a900f8a7e1617a6273775b9eeacbef914f97be422d2a34a"
     },
-    "character-cards/tone-audit/Dehya.png": {
+    "content/character-cards/tone-audit/Dehya.png": {
       "bytes": 145115,
       "sha256": "91e0cf870b4468c02b0d4dc3d5b5d7934e5c41b623d207ba50015e13b153e704"
     },
-    "character-cards/tone-audit/Diona.png": {
+    "content/character-cards/tone-audit/Diona.png": {
       "bytes": 152245,
       "sha256": "c13f306c12f7b2bb9b8504819b353b2e52e85aaaeca8fd59e715fbe955dd8c5c"
     },
-    "character-cards/tone-audit/Durin.png": {
+    "content/character-cards/tone-audit/Durin.png": {
       "bytes": 152651,
       "sha256": "078ef92c725c197eb617d8e9a1e587e639746505ca42bed43aefacb39799e3cf"
     },
-    "character-cards/tone-audit/Eremite Desert Clearwater.png": {
+    "content/character-cards/tone-audit/Eremite Desert Clearwater.png": {
       "bytes": 533224,
       "sha256": "8dde5c3cc8072c428dc0cdae42330010a17dedfe79e66443dd21e870b2228bed"
     },
-    "character-cards/tone-audit/Escoffier.png": {
+    "content/character-cards/tone-audit/Escoffier.png": {
       "bytes": 148074,
       "sha256": "d5295f94d6eb07e70cb3fbf830909a684050add8e23cc492ec343aaa9d411081"
     },
-    "character-cards/tone-audit/Eula.png": {
+    "content/character-cards/tone-audit/Eula.png": {
       "bytes": 145518,
       "sha256": "333fea677621b06a17918b79b21a748f6a2f2c7561cfcb30ef21986b354236a7"
     },
-    "character-cards/tone-audit/Faruzan.png": {
+    "content/character-cards/tone-audit/Faruzan.png": {
       "bytes": 150112,
       "sha256": "00f04d0dc542707de7322d7e1b83ccb1e0d360c01f3fc41aba8697291c8ade7b"
     },
-    "character-cards/tone-audit/Fatui Skirmisher - Cryogunner Legionnaire.png": {
+    "content/character-cards/tone-audit/Fatui Skirmisher - Cryogunner Legionnaire.png": {
       "bytes": 533602,
       "sha256": "d9cc81c939cd248ecccf6fd6561703442eefdb3e4436c07885fdb5d9953dee1c"
     },
-    "character-cards/tone-audit/Fatui Skirmisher - Hydrogunner Legionnaire.png": {
+    "content/character-cards/tone-audit/Fatui Skirmisher - Hydrogunner Legionnaire.png": {
       "bytes": 515829,
       "sha256": "35223e2146354496dd70bc3528b4aec309826023d87da9772b4439e8d7bafb65"
     },
-    "character-cards/tone-audit/Fischl.png": {
+    "content/character-cards/tone-audit/Fischl.png": {
       "bytes": 146475,
       "sha256": "de48cec6562f27e264778606221d2c2e2d7593af4fa98e59190c55527815102e"
     },
-    "character-cards/tone-audit/Flins.png": {
+    "content/character-cards/tone-audit/Flins.png": {
       "bytes": 145737,
       "sha256": "4e1b276da8d861d785b1c0aefb85cc8f25ebac2c17db87d9ae33fc2f25b07474"
     },
-    "character-cards/tone-audit/Furina.png": {
+    "content/character-cards/tone-audit/Furina.png": {
       "bytes": 149141,
       "sha256": "c9a3da3c30dcce0cbe976c2b19bcd82515e891b7050b11e3f010fda7eda6298b"
     },
-    "character-cards/tone-audit/Gaming.png": {
+    "content/character-cards/tone-audit/Gaming.png": {
       "bytes": 137052,
       "sha256": "8d34e4c935cfb91f47218cd168cada2a5f63d30dc751a98408b0df427d42a276"
     },
-    "character-cards/tone-audit/Gorou.png": {
+    "content/character-cards/tone-audit/Gorou.png": {
       "bytes": 149025,
       "sha256": "ec11052a04c14cdef42bfa014f2f002b4195b35fece811570d2535405169cc9d"
     },
-    "character-cards/tone-audit/Hilichurl Fighter.png": {
+    "content/character-cards/tone-audit/Hilichurl Fighter.png": {
       "bytes": 558653,
       "sha256": "ecde1294da272493727f7e2f8427ba52b0b37783b1fe5d75c682053c3da48309"
     },
-    "character-cards/tone-audit/Hilichurl Shooter.png": {
+    "content/character-cards/tone-audit/Hilichurl Shooter.png": {
       "bytes": 559379,
       "sha256": "75eecb15f8824b9c37d7feb6d8e4ceeb3b6f47d57b9413c988e962f865d0540b"
     },
-    "character-cards/tone-audit/Hu Tao.png": {
+    "content/character-cards/tone-audit/Hu Tao.png": {
       "bytes": 149422,
       "sha256": "00d294998896bfefe21ca267a8a97fe2c7766e4322491db9f9f003422e300f68"
     },
-    "character-cards/tone-audit/Hydro Samachurl.png": {
+    "content/character-cards/tone-audit/Hydro Samachurl.png": {
       "bytes": 569452,
       "sha256": "f195380fe398a87f39f529ab0c66aa2256cc7d73783d47ae7c69a0a96d5b7e8b"
     },
-    "character-cards/tone-audit/Illuga.png": {
+    "content/character-cards/tone-audit/Illuga.png": {
       "bytes": 148342,
       "sha256": "b8a30844dff7cbf3ff90bc7c37156ef0b277a8d7ce9bfdc6c7c34a759b928e3d"
     },
-    "character-cards/tone-audit/Kachina.png": {
+    "content/character-cards/tone-audit/Kachina.png": {
       "bytes": 161258,
       "sha256": "1c9ec6388115e0a90bceeae87b41b44d4e89147ee4d903ef8ca002a20a812ede"
     },
-    "character-cards/tone-audit/Kaeya.png": {
+    "content/character-cards/tone-audit/Kaeya.png": {
       "bytes": 140424,
       "sha256": "7ccd5a453e01c8ab05943af17f45a27d8316b186547804bc6a65ca1ce8bd6136"
     },
-    "character-cards/tone-audit/Katheryne.png": {
+    "content/character-cards/tone-audit/Katheryne.png": {
       "bytes": 275311,
       "sha256": "93e1ba742ecfcbe0fd9e605e49aa54c7625311b4cb31193ecae8c14e1d5ffb25"
     },
-    "character-cards/tone-audit/Kaveh.png": {
+    "content/character-cards/tone-audit/Kaveh.png": {
       "bytes": 147449,
       "sha256": "fb6cf9fc4e4c7404b0e0206391beda8fc6aadf8b50391b017167af68649cbd43"
     },
-    "character-cards/tone-audit/Keqing.png": {
+    "content/character-cards/tone-audit/Keqing.png": {
       "bytes": 145866,
       "sha256": "0e6231d39792dacabc6217e9d6ee387b9a9e741fba22053f1621274089a0f207"
     },
-    "character-cards/tone-audit/Kirara.png": {
+    "content/character-cards/tone-audit/Kirara.png": {
       "bytes": 152138,
       "sha256": "648a985e86136f367bd10d71efbb487a87b5a8f15be259010112b4da057d68e0"
     },
-    "character-cards/tone-audit/Klee.png": {
+    "content/character-cards/tone-audit/Klee.png": {
       "bytes": 145552,
       "sha256": "5cc83ae3964f7b3579d810e60cd97bb5f6c00303cb1cb0b9968d0319f2189138"
     },
-    "character-cards/tone-audit/Lan Yan.png": {
+    "content/character-cards/tone-audit/Lan Yan.png": {
       "bytes": 149416,
       "sha256": "b36accfca543b8fed9758bec154fa4078d723a4a247a2edabdcbb36b828d446d"
     },
-    "character-cards/tone-audit/Layla.png": {
+    "content/character-cards/tone-audit/Layla.png": {
       "bytes": 152217,
       "sha256": "aa796959a4d8ce915475581d8a6c9fa635da92b3b590c1dc00488a6a47a51ccb"
     },
-    "character-cards/tone-audit/Linnea.png": {
+    "content/character-cards/tone-audit/Linnea.png": {
       "bytes": 147256,
       "sha256": "8fef517c09dd363a2a9eaa0ae84fb7a8c703d5f331c7da39d3045e6222c5f9e7"
     },
-    "character-cards/tone-audit/Lisa.png": {
+    "content/character-cards/tone-audit/Lisa.png": {
       "bytes": 140061,
       "sha256": "fb3507bd607b4f66c6ee8f31ef4955aa7de8ca112c80f1115242e4b5494a061c"
     },
-    "character-cards/tone-audit/Lumine.png": {
+    "content/character-cards/tone-audit/Lumine.png": {
       "bytes": 134874,
       "sha256": "1119a695f18e4d0df5b3024e83addf29349dae1a4be79fba89919804ac336faa"
     },
-    "character-cards/tone-audit/Lyney.png": {
+    "content/character-cards/tone-audit/Lyney.png": {
       "bytes": 140478,
       "sha256": "b8a7b4c96c23b61e9b284e1c5a675ed04af20b5cb22e40ea163c9781a1871108"
     },
-    "character-cards/tone-audit/Mika.png": {
+    "content/character-cards/tone-audit/Mika.png": {
       "bytes": 142432,
       "sha256": "9030dd390a6b65272b012f7b3f4d56e63150f6a01d6c2d69657fdf2c02396d17"
     },
-    "character-cards/tone-audit/Mona.png": {
+    "content/character-cards/tone-audit/Mona.png": {
       "bytes": 143900,
       "sha256": "86464f764465048f97179890f0250f0ad965760a7df8be1484c2cc9ec4649851"
     },
-    "character-cards/tone-audit/Nahida.png": {
+    "content/character-cards/tone-audit/Nahida.png": {
       "bytes": 166309,
       "sha256": "760a64bc77c6dd37c9329e7fb842f19ff42a34083debfcdd36e497883f5445b9"
     },
-    "character-cards/tone-audit/Noelle.png": {
+    "content/character-cards/tone-audit/Noelle.png": {
       "bytes": 143599,
       "sha256": "55bbedf9a0cfbe020373b24942070b6734798c1fae6f22bc2fd4099fdb5c8721"
     },
-    "character-cards/tone-audit/Ororon.png": {
+    "content/character-cards/tone-audit/Ororon.png": {
       "bytes": 157010,
       "sha256": "2ab878975395d85da8d58996a609a068592d4f23cb87015ebd12049b7e278804"
     },
-    "character-cards/tone-audit/Paimon.png": {
+    "content/character-cards/tone-audit/Paimon.png": {
       "bytes": 1872436,
       "sha256": "bc116d572a068b50fc58a5ec72d77bdbc695c1648999aaf267613b5538300cb6"
     },
-    "character-cards/tone-audit/Prune.png": {
+    "content/character-cards/tone-audit/Prune.png": {
       "bytes": 148195,
       "sha256": "86632ee65af318b84aff2e3c35a98094b63c74838a75466422979c958ef93753"
     },
-    "character-cards/tone-audit/Qiqi.png": {
+    "content/character-cards/tone-audit/Qiqi.png": {
       "bytes": 149502,
       "sha256": "8f8239b6fce781341d9b03bfd7fa5672b389982cf7cfe3ae4fbe6aa45cd41064"
     },
-    "character-cards/tone-audit/Razor.png": {
+    "content/character-cards/tone-audit/Razor.png": {
       "bytes": 137726,
       "sha256": "bdf2712a21654051f66655aa60900e5e8e8008219a80a670592bb4efe0593d52"
     },
-    "character-cards/tone-audit/Rosaria.png": {
+    "content/character-cards/tone-audit/Rosaria.png": {
       "bytes": 136589,
       "sha256": "034458bd57489ec6273a7d7bb1f590cbc6da83044b141eb5379f15c28f45e778"
     },
-    "character-cards/tone-audit/Sayu.png": {
+    "content/character-cards/tone-audit/Sayu.png": {
       "bytes": 141914,
       "sha256": "79935db8c6f8227d169d81997b634fb1b996e693cc5712de431faed72f61a13c"
     },
-    "character-cards/tone-audit/Sethos.png": {
+    "content/character-cards/tone-audit/Sethos.png": {
       "bytes": 144178,
       "sha256": "0b32be8144866ed006109729e114721c11e1f6b47a91acefe5f0d4bcae690e9f"
     },
-    "character-cards/tone-audit/Shikanoin Heizou.png": {
+    "content/character-cards/tone-audit/Shikanoin Heizou.png": {
       "bytes": 140139,
       "sha256": "281360c12e483a9e4cc4830f7223dc4d35eaf5f524e35402da95fa69666d0e14"
     },
-    "character-cards/tone-audit/Sigewinne.png": {
+    "content/character-cards/tone-audit/Sigewinne.png": {
       "bytes": 151028,
       "sha256": "b7523495e32a6302f7c9f8baae9ff9a62c7c19e7e19739e43a291812650597ff"
     },
-    "character-cards/tone-audit/Sucrose.png": {
+    "content/character-cards/tone-audit/Sucrose.png": {
       "bytes": 146889,
       "sha256": "2af90e5bfef80e7cc321139172d61badcde14b654d8d99f26194da8483a7744b"
     },
-    "character-cards/tone-audit/Tartaglia.png": {
+    "content/character-cards/tone-audit/Tartaglia.png": {
       "bytes": 148602,
       "sha256": "2abbf777fb881fd5940e1199a51f9d09b0d866d4af307c8a8a24fa8ae7c3ced1"
     },
-    "character-cards/tone-audit/Teucer.png": {
+    "content/character-cards/tone-audit/Teucer.png": {
       "bytes": 521061,
       "sha256": "cf22e9609f7ec6de457022ea343995122ce19bf54eaa3b1a845c950b96fcca3a"
     },
-    "character-cards/tone-audit/Tonia.png": {
+    "content/character-cards/tone-audit/Tonia.png": {
       "bytes": 2025160,
       "sha256": "fb801011e6d89ae010eb41291a69f246cce134b56bcc21d13647f3277910fcdf"
     },
-    "character-cards/tone-audit/Varesa.png": {
+    "content/character-cards/tone-audit/Varesa.png": {
       "bytes": 154020,
       "sha256": "27763d7618628c6dcd25f72dee6c70854c0a9fc495f9be2ada52885fb5adf1e0"
     },
-    "character-cards/tone-audit/Venti.png": {
+    "content/character-cards/tone-audit/Venti.png": {
       "bytes": 139232,
       "sha256": "c0936737573eba733b48a53d2bc3e936c8070f63fea6c455c624a59a28f9b522"
     },
-    "character-cards/tone-audit/Vesna.png": {
+    "content/character-cards/tone-audit/Vesna.png": {
       "bytes": 148271,
       "sha256": "ca8b12b6ede6a8d5c32b1fe5961f1401bcbab62730126248bb9983b7d03aa5b5"
     },
-    "character-cards/tone-audit/Vodyanitsa.png": {
+    "content/character-cards/tone-audit/Vodyanitsa.png": {
       "bytes": 146710,
       "sha256": "7bd9bdb594753725d2f7c3983271470418784dcee299db20033456e4486390c5"
     },
-    "character-cards/tone-audit/Wooden Shieldwall Mitachurl.png": {
+    "content/character-cards/tone-audit/Wooden Shieldwall Mitachurl.png": {
       "bytes": 598608,
       "sha256": "256a7c130e433cc54bbb28f734a1ea700b5f7c2fb0e8b66e37f5b9194011557f"
     },
-    "character-cards/tone-audit/Xiangling.png": {
+    "content/character-cards/tone-audit/Xiangling.png": {
       "bytes": 131187,
       "sha256": "93dfe8818a53b1895c4e820ef6d9369129fd2d7c7a634658477a5be1aec1b9da"
     },
-    "character-cards/tone-audit/Xianyun.png": {
+    "content/character-cards/tone-audit/Xianyun.png": {
       "bytes": 138097,
       "sha256": "681739ab9b98fe2a4d1640f304eecd69a0d09c6db749fd1e6a5c61ff905716ac"
     },
-    "character-cards/tone-audit/Xinyan.png": {
+    "content/character-cards/tone-audit/Xinyan.png": {
       "bytes": 137106,
       "sha256": "54a490f12361071d160351ae1a47c0bbce7b759ff8c11b973a9ad80ce508e4d9"
     },
-    "character-cards/tone-audit/Yanfei.png": {
+    "content/character-cards/tone-audit/Yanfei.png": {
       "bytes": 149024,
       "sha256": "141f24c3bc05e51e420838c636d889d01d59c7505655469614f10520815f5a1a"
     },
-    "character-cards/tone-audit/Yaoyao.png": {
+    "content/character-cards/tone-audit/Yaoyao.png": {
       "bytes": 161839,
       "sha256": "9399ceef3f6cfe19f436a941c4b20b7bd404736fdb0e52a766a226c40af13240"
     },
-    "character-cards/tone-audit/Yoimiya.png": {
+    "content/character-cards/tone-audit/Yoimiya.png": {
       "bytes": 144538,
       "sha256": "309ef9efabd38ca20545c3a9a4eeea6e54d5ecfd2f8e610155e96e9cacc6e373"
+    },
+    "docs/screenshots/centered-menu-desktop.jpg": {
+      "bytes": 66111,
+      "sha256": "a943dc02939deafce984f23ae0fe14655a1ccca850cc0dc9fc798d40eb2b2cd9"
+    },
+    "docs/screenshots/centered-menu-mobile.jpg": {
+      "bytes": 45390,
+      "sha256": "5bb22304130a00e9f6ac971788047bf452fe76a86923c14803b6ab0b14dce27c"
+    },
+    "docs/screenshots/choices-hud-desktop.jpg": {
+      "bytes": 89920,
+      "sha256": "b82bc88805fe10772cdea3a63fcf1c65a61eb67effa467f301bbac95f032ea93"
+    },
+    "docs/screenshots/choices-hud-mobile.jpg": {
+      "bytes": 56489,
+      "sha256": "27845e8b970bfb799d2e0af4deab6b2fefc8bcc12b82d443dcf1a7eb468c5bf5"
+    },
+    "docs/screenshots/dialogue-desktop.jpg": {
+      "bytes": 110727,
+      "sha256": "5a42b5e8c2f64f5f07da0e24186ed24014d2a78e81bcf77554be5a8e9abd4bc7"
+    },
+    "docs/screenshots/dialogue-mobile.jpg": {
+      "bytes": 50912,
+      "sha256": "288b6c983053f3a76ed23d32a63b1ab9e4e700ea09f42ddfcf7928e766eba4e7"
+    },
+    "docs/screenshots/dialogue-pages-desktop.jpg": {
+      "bytes": 75364,
+      "sha256": "09c7c259eff972d074f238d5d4e84636024e4ab19bd1ad0264b36607d634060b"
+    },
+    "docs/screenshots/dialogue-pages-mobile.jpg": {
+      "bytes": 48127,
+      "sha256": "313ca01ddff8a5ebbd9d2e26319443a0e5e90475fc182bdbd052b85df5a7d616"
+    },
+    "docs/screenshots/dialogue-review.jpg": {
+      "bytes": 93308,
+      "sha256": "e0e95c65e5bbe3a947f2a87f7b1a5872fac17a3ca7d31c8ea9422b953b823d11"
+    },
+    "docs/screenshots/silly-teyvat-companion-landscape.png": {
+      "bytes": 31209,
+      "sha256": "ecaa03420acd028dd8d71e4a4a93259188a8b765671c1ba5e119a77649f3de88"
+    },
+    "docs/screenshots/silly-teyvat-companion-mobile.png": {
+      "bytes": 34120,
+      "sha256": "cb27f4a3bd8eb925a11159693ba8d30d00d5259b09bdf3fd76cc663d12699939"
+    },
+    "docs/screenshots/silly-teyvat-desktop.jpg": {
+      "bytes": 79075,
+      "sha256": "278e65b1ed508604ea83722a78dad1f0574fc21e25b40744b18e5360b37d3655"
+    },
+    "docs/screenshots/silly-teyvat-group.jpg": {
+      "bytes": 93993,
+      "sha256": "46210712603016cf0052a0365d23b434a0d54b379cd7bd31be49f08decc64848"
+    },
+    "docs/screenshots/silly-teyvat-location-candidates.jpg": {
+      "bytes": 300553,
+      "sha256": "0a4bed4438b929cfb2ff34965570273258fa37d21116b85128e6cf17c6ee4118"
+    },
+    "docs/screenshots/silly-teyvat-location-characters.png": {
+      "bytes": 226313,
+      "sha256": "7d2444f06921c06fdec0c3904032047f969ad17ff99cbfe9c7adb26cab367f70"
+    },
+    "docs/screenshots/silly-teyvat-mobile.jpg": {
+      "bytes": 55761,
+      "sha256": "bf83ea4c0d620c74fa261e70172724c3a7ed56f8e0e77eefb419b53e00ebe548"
+    },
+    "docs/screenshots/silly-teyvat-settings.jpg": {
+      "bytes": 92653,
+      "sha256": "fa41cc4f608923798782f4df4aecf49114c9b75d64e3dbd8239afc70048d731d"
+    },
+    "docs/screenshots/silly-teyvat-v111-picker-desktop.jpg": {
+      "bytes": 60286,
+      "sha256": "050571723552e9f794130e2d06409bf5f608ed4419f9ab7bbc2d2407f56248eb"
+    },
+    "docs/screenshots/silly-teyvat-v111-picker-landscape.jpg": {
+      "bytes": 33983,
+      "sha256": "f1a8365e32263b8d68fb666d9615fc61b51c43ffc58f7bd28e99ca1098a89802"
+    },
+    "docs/screenshots/silly-teyvat-v111-picker-portrait.jpg": {
+      "bytes": 34530,
+      "sha256": "fb27112b43a5bd5dd2657102614ba575b703988fe6ac35d6dfff62311e0fc560"
+    },
+    "docs/screenshots/silly-teyvat-v113-dialogue.jpg": {
+      "bytes": 115813,
+      "sha256": "a784067e7e589d7d1486cfbf2d0fedf794cb93fffe04dcfe154f06d69d2c61d1"
+    },
+    "docs/screenshots/silly-teyvat-v113-waypoints.jpg": {
+      "bytes": 175403,
+      "sha256": "dc54941ed53291cde421a3f4c9b7e6093b1545b8c30c11b5171f57ad82f27bc8"
+    },
+    "docs/screenshots/silly-teyvat-v14-landscape.jpg": {
+      "bytes": 42512,
+      "sha256": "fa749c2ce33b2fedafe909de1118a015fe12d4fa784f7987fdd8bb976ddbe8f1"
+    },
+    "docs/screenshots/silly-teyvat-v14-narration.jpg": {
+      "bytes": 67777,
+      "sha256": "88a46c3526cc9a81dc7b7b5426634b98a0d9021f3ed03b00b82066e2da570ab5"
+    },
+    "docs/screenshots/silly-teyvat-v14-portrait.jpg": {
+      "bytes": 60978,
+      "sha256": "64db6193291090dd833e3ef7d592e8dfb5dfc1a56a7b616164a391852fb3964b"
+    },
+    "docs/screenshots/silly-teyvat-v14-wardrobe-mobile.jpg": {
+      "bytes": 49862,
+      "sha256": "a2f3047214e7d4ac387aa361e73f8e26abbb911d1295d0d581aed3de14d0785e"
+    },
+    "docs/screenshots/silly-teyvat-v14-wardrobe.jpg": {
+      "bytes": 74729,
+      "sha256": "f7e13c857b95d917304865b7de7fc5b67d95074096801c80aa9ae9a3a443136f"
+    },
+    "docs/screenshots/silly-teyvat-v141-desktop.jpg": {
+      "bytes": 84830,
+      "sha256": "edf2ea1ec3a97472be5bbf165ccc3cfd4381523b521c33f224ec9fc0459a3eaa"
+    },
+    "docs/screenshots/silly-teyvat-v141-landscape.jpg": {
+      "bytes": 46235,
+      "sha256": "830d7684d61ac7725960d63248dad6a1b61dce8a5cf0fea75f8836610617269d"
+    },
+    "docs/screenshots/silly-teyvat-v141-portrait.jpg": {
+      "bytes": 65235,
+      "sha256": "f95fd82afc721b752a9dd7038041c33eea9f63f7af9202e8dc2b19d5fa6e6d84"
+    },
+    "docs/screenshots/silly-teyvat-v142-landscape.jpg": {
+      "bytes": 41929,
+      "sha256": "54229a9e6ed7abf32bf10d3e3b2ef82360b62aecf7d6b37d0865dc131859baa2"
+    },
+    "docs/screenshots/silly-teyvat-v142-portrait.jpg": {
+      "bytes": 58310,
+      "sha256": "f8f22d319b7c38f89f8aaa138d745cbaade1cd646f73f897d1a133aa84aba188"
+    },
+    "docs/screenshots/theme-settings.jpg": {
+      "bytes": 138745,
+      "sha256": "4e1bf0363dc6b65e9904f03cb274c6dc5630069f76def19d196083a92e8c576e"
     },
     "extension/genshin-dialogue-ui/assets/avatar-icons/a-hollow-dream-beyond-form-9ca1a8.webp": {
       "bytes": 15544,
@@ -22648,138 +22780,6 @@
     "extension/genshin-dialogue-ui/preview-silence.wav": {
       "bytes": 3244,
       "sha256": "4e9cc5bbce2136140462d11c5fec6e6c1ed10602c2bca874dbb58e7b9be21092"
-    },
-    "screenshots/centered-menu-desktop.jpg": {
-      "bytes": 66111,
-      "sha256": "a943dc02939deafce984f23ae0fe14655a1ccca850cc0dc9fc798d40eb2b2cd9"
-    },
-    "screenshots/centered-menu-mobile.jpg": {
-      "bytes": 45390,
-      "sha256": "5bb22304130a00e9f6ac971788047bf452fe76a86923c14803b6ab0b14dce27c"
-    },
-    "screenshots/choices-hud-desktop.jpg": {
-      "bytes": 89920,
-      "sha256": "b82bc88805fe10772cdea3a63fcf1c65a61eb67effa467f301bbac95f032ea93"
-    },
-    "screenshots/choices-hud-mobile.jpg": {
-      "bytes": 56489,
-      "sha256": "27845e8b970bfb799d2e0af4deab6b2fefc8bcc12b82d443dcf1a7eb468c5bf5"
-    },
-    "screenshots/dialogue-desktop.jpg": {
-      "bytes": 110727,
-      "sha256": "5a42b5e8c2f64f5f07da0e24186ed24014d2a78e81bcf77554be5a8e9abd4bc7"
-    },
-    "screenshots/dialogue-mobile.jpg": {
-      "bytes": 50912,
-      "sha256": "288b6c983053f3a76ed23d32a63b1ab9e4e700ea09f42ddfcf7928e766eba4e7"
-    },
-    "screenshots/dialogue-pages-desktop.jpg": {
-      "bytes": 75364,
-      "sha256": "09c7c259eff972d074f238d5d4e84636024e4ab19bd1ad0264b36607d634060b"
-    },
-    "screenshots/dialogue-pages-mobile.jpg": {
-      "bytes": 48127,
-      "sha256": "313ca01ddff8a5ebbd9d2e26319443a0e5e90475fc182bdbd052b85df5a7d616"
-    },
-    "screenshots/dialogue-review.jpg": {
-      "bytes": 93308,
-      "sha256": "e0e95c65e5bbe3a947f2a87f7b1a5872fac17a3ca7d31c8ea9422b953b823d11"
-    },
-    "screenshots/silly-teyvat-companion-landscape.png": {
-      "bytes": 31209,
-      "sha256": "ecaa03420acd028dd8d71e4a4a93259188a8b765671c1ba5e119a77649f3de88"
-    },
-    "screenshots/silly-teyvat-companion-mobile.png": {
-      "bytes": 34120,
-      "sha256": "cb27f4a3bd8eb925a11159693ba8d30d00d5259b09bdf3fd76cc663d12699939"
-    },
-    "screenshots/silly-teyvat-location-candidates.jpg": {
-      "bytes": 300553,
-      "sha256": "0a4bed4438b929cfb2ff34965570273258fa37d21116b85128e6cf17c6ee4118"
-    },
-    "screenshots/silly-teyvat-location-characters.png": {
-      "bytes": 226313,
-      "sha256": "7d2444f06921c06fdec0c3904032047f969ad17ff99cbfe9c7adb26cab367f70"
-    },
-    "screenshots/silly-teyvat-v111-picker-desktop.jpg": {
-      "bytes": 60286,
-      "sha256": "050571723552e9f794130e2d06409bf5f608ed4419f9ab7bbc2d2407f56248eb"
-    },
-    "screenshots/silly-teyvat-v111-picker-landscape.jpg": {
-      "bytes": 33983,
-      "sha256": "f1a8365e32263b8d68fb666d9615fc61b51c43ffc58f7bd28e99ca1098a89802"
-    },
-    "screenshots/silly-teyvat-v111-picker-portrait.jpg": {
-      "bytes": 34530,
-      "sha256": "fb27112b43a5bd5dd2657102614ba575b703988fe6ac35d6dfff62311e0fc560"
-    },
-    "screenshots/silly-teyvat-v113-dialogue.jpg": {
-      "bytes": 115813,
-      "sha256": "a784067e7e589d7d1486cfbf2d0fedf794cb93fffe04dcfe154f06d69d2c61d1"
-    },
-    "screenshots/silly-teyvat-v113-waypoints.jpg": {
-      "bytes": 175403,
-      "sha256": "dc54941ed53291cde421a3f4c9b7e6093b1545b8c30c11b5171f57ad82f27bc8"
-    },
-    "screenshots/theme-settings.jpg": {
-      "bytes": 138745,
-      "sha256": "4e1bf0363dc6b65e9904f03cb274c6dc5630069f76def19d196083a92e8c576e"
-    },
-    "silly-teyvat-desktop.jpg": {
-      "bytes": 79075,
-      "sha256": "278e65b1ed508604ea83722a78dad1f0574fc21e25b40744b18e5360b37d3655"
-    },
-    "silly-teyvat-group.jpg": {
-      "bytes": 93993,
-      "sha256": "46210712603016cf0052a0365d23b434a0d54b379cd7bd31be49f08decc64848"
-    },
-    "silly-teyvat-mobile.jpg": {
-      "bytes": 55761,
-      "sha256": "bf83ea4c0d620c74fa261e70172724c3a7ed56f8e0e77eefb419b53e00ebe548"
-    },
-    "silly-teyvat-settings.jpg": {
-      "bytes": 92653,
-      "sha256": "fa41cc4f608923798782f4df4aecf49114c9b75d64e3dbd8239afc70048d731d"
-    },
-    "silly-teyvat-v14-landscape.jpg": {
-      "bytes": 42512,
-      "sha256": "fa749c2ce33b2fedafe909de1118a015fe12d4fa784f7987fdd8bb976ddbe8f1"
-    },
-    "silly-teyvat-v14-narration.jpg": {
-      "bytes": 67777,
-      "sha256": "88a46c3526cc9a81dc7b7b5426634b98a0d9021f3ed03b00b82066e2da570ab5"
-    },
-    "silly-teyvat-v14-portrait.jpg": {
-      "bytes": 60978,
-      "sha256": "64db6193291090dd833e3ef7d592e8dfb5dfc1a56a7b616164a391852fb3964b"
-    },
-    "silly-teyvat-v14-wardrobe-mobile.jpg": {
-      "bytes": 49862,
-      "sha256": "a2f3047214e7d4ac387aa361e73f8e26abbb911d1295d0d581aed3de14d0785e"
-    },
-    "silly-teyvat-v14-wardrobe.jpg": {
-      "bytes": 74729,
-      "sha256": "f7e13c857b95d917304865b7de7fc5b67d95074096801c80aa9ae9a3a443136f"
-    },
-    "silly-teyvat-v141-desktop.jpg": {
-      "bytes": 84830,
-      "sha256": "edf2ea1ec3a97472be5bbf165ccc3cfd4381523b521c33f224ec9fc0459a3eaa"
-    },
-    "silly-teyvat-v141-landscape.jpg": {
-      "bytes": 46235,
-      "sha256": "830d7684d61ac7725960d63248dad6a1b61dce8a5cf0fea75f8836610617269d"
-    },
-    "silly-teyvat-v141-portrait.jpg": {
-      "bytes": 65235,
-      "sha256": "f95fd82afc721b752a9dd7038041c33eea9f63f7af9202e8dc2b19d5fa6e6d84"
-    },
-    "silly-teyvat-v142-landscape.jpg": {
-      "bytes": 41929,
-      "sha256": "54229a9e6ed7abf32bf10d3e3b2ef82360b62aecf7d6b37d0865dc131859baa2"
-    },
-    "silly-teyvat-v142-portrait.jpg": {
-      "bytes": 58310,
-      "sha256": "f8f22d319b7c38f89f8aaa138d745cbaade1cd646f73f897d1a133aa84aba188"
     }
   }
 }

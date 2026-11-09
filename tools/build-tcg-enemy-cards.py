@@ -4,7 +4,7 @@
 Usage: build-tcg-enemy-cards.py [--data CARDS_JSON] [--install CHARACTERS_DIR]
 Needs Pillow. Reads work/tcg-enemies/cards.json (tools/fetch-tcg-enemies.py; --data names another
 list, such as the new-cards.json of fetch-tcg-enemies.py --new) and writes one
-PNG card per enemy to character-cards/tcg-enemies/, with the enemy's TCG character card as the
+PNG card per enemy to content/character-cards/tcg-enemies/, with the enemy's TCG character card as the
 portrait. Enemies that already have a card in CHARACTERS_DIR keep their card data: only the
 portrait image is replaced (the old file is copied to ../backups/ first). New cards carry the
 Silly Teyvat enemy properties (role, HP, death message) and canon-compatible text built from
@@ -17,7 +17,7 @@ from PIL import Image, PngImagePlugin
 
 REPO = Path(__file__).resolve().parent.parent
 DATA = Path(sys.argv[sys.argv.index('--data') + 1]) if '--data' in sys.argv else REPO / 'work/tcg-enemies/cards.json'
-OUT = REPO / 'character-cards/tcg-enemies'
+OUT = REPO / 'content/character-cards/tcg-enemies'
 PROPS = REPO / 'extension/genshin-dialogue-ui/assets/character-properties.json'
 HEADERS = {'User-Agent': 'SillyTeyvat/1.40 (tcg enemy cards)'}
 TAGS = ['Genshin Impact', 'Enemy', 'Optional Encounter', 'Roleplay', 'Genshin', 'Genius Invokation TCG']

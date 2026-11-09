@@ -29459,71 +29459,6 @@
     "enabled": true,
     "folder": "Lumine",
     "expression": "neutral"
-   },
-   "takeover-Blazing_Axe_Mitachurl.png": {
-    "enabled": true,
-    "folder": "Blazing Axe Mitachurl",
-    "expression": "neutral"
-   },
-   "takeover-Diluc.png": {
-    "enabled": true,
-    "folder": "Diluc",
-    "expression": "neutral"
-   },
-   "takeover-Kachina.png": {
-    "enabled": true,
-    "folder": "Kachina",
-    "expression": "neutral"
-   },
-   "takeover-Aino.png": {
-    "enabled": true,
-    "folder": "Aino",
-    "expression": "neutral"
-   },
-   "takeover-Klee.png": {
-    "enabled": true,
-    "folder": "Klee",
-    "expression": "neutral"
-   },
-   "takeover-Hu_Tao.png": {
-    "enabled": true,
-    "folder": "Hu Tao",
-    "expression": "neutral"
-   },
-   "takeover-Arlecchino.png": {
-    "enabled": true,
-    "folder": "Arlecchino",
-    "expression": "neutral"
-   },
-   "takeover-Nahida.png": {
-    "enabled": true,
-    "folder": "Nahida",
-    "expression": "neutral"
-   },
-   "takeover-Alhaitham.png": {
-    "enabled": true,
-    "folder": "Alhaitham",
-    "expression": "neutral"
-   },
-   "takeover-Lohen.png": {
-    "enabled": true,
-    "folder": "Lohen",
-    "expression": "neutral"
-   },
-   "takeover-Sayu.png": {
-    "enabled": true,
-    "folder": "Sayu",
-    "expression": "neutral"
-   },
-   "takeover-Anemo_Samachurl.png": {
-    "enabled": true,
-    "folder": "Anemo Samachurl",
-    "expression": "neutral"
-   },
-   "takeover-Ice_Shieldwall_Mitachurl.png": {
-    "enabled": true,
-    "folder": "Ice Shieldwall Mitachurl",
-    "expression": "neutral"
    }
   },
   "characterProperties": {
@@ -32210,20 +32145,7 @@
   "burstAudio": true,
   "personaCharacters": {
    "teyvat-persona-aether.png": "Aether.png",
-   "teyvat-persona-lumine.png": "Lumine.png",
-   "takeover-Blazing_Axe_Mitachurl.png": "Blazing Axe Mitachurl.png",
-   "takeover-Diluc.png": "Diluc.png",
-   "takeover-Kachina.png": "Kachina.png",
-   "takeover-Aino.png": "Aino.png",
-   "takeover-Klee.png": "Klee.png",
-   "takeover-Hu_Tao.png": "Hu Tao.png",
-   "takeover-Arlecchino.png": "Arlecchino.png",
-   "takeover-Nahida.png": "Nahida.png",
-   "takeover-Alhaitham.png": "Alhaitham.png",
-   "takeover-Lohen.png": "Lohen.png",
-   "takeover-Sayu.png": "Sayu.png",
-   "takeover-Anemo_Samachurl.png": "Anemo Samachurl.png",
-   "takeover-Ice_Shieldwall_Mitachurl.png": "Ice Shieldwall Mitachurl.png"
+   "teyvat-persona-lumine.png": "Lumine.png"
   },
   "unifiedPersonasVersion": 1,
   "maxEnemies": 3,

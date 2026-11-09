@@ -1,12 +1,12 @@
 import {mediaSettings} from './media-store.js';
 import {activePersonaAvatar} from './persona-wardrobe.js';
 import {isEnemy} from './character-properties.js';
+import {BUNDLED_PERSONAS} from './bundled-personas.js';
 // A persona can be a character card taken over by the player. The linked card
 // then shares its sprites and outfits with the persona and leaves the world's
 // random encounters while that persona is active. The two Traveler personas
 // that ship with Silly Teyvat are linked to their cards from the start.
-const BUILT_IN = {'teyvat-persona-aether.png':'Aether.png','teyvat-persona-lumine.png':'Lumine.png'};
-export const personaLinks = ctx => ({...BUILT_IN,...mediaSettings(ctx).personaCharacters});
+export const personaLinks = ctx => ({...BUNDLED_PERSONAS,...mediaSettings(ctx).personaCharacters});
 export function linkedCardAvatar(ctx, personaAvatar = activePersonaAvatar(ctx)) {
     const avatar = personaLinks(ctx)[personaAvatar];
     if(avatar && (ctx.characters || []).some(c => c.avatar === avatar))return avatar;

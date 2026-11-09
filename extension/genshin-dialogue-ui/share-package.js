@@ -4,6 +4,7 @@
 import {hasGenshinTag} from './character-properties.js';
 import {createZipWriter,readZip} from './zip-store.js';
 import {newUuid} from './local-id.js';
+import {isBundledPersona,ownPersonaSettings,withBundledPersonas} from './bundled-personas.js';
 const KEY='genshin_dialogue_ui';
 export const FILE_LIST='package-files.json',CONFIG_FILE='configured-settings.json',GAME_MANIFEST='silly-teyvat-game-data.json';
 const FOLDER='genshin-dialogue-ui',FORMAT=1,SET_FOLDERS=['Official Art','Chibi'],THEME='Teyvat Slate',QUICK_REPLIES='Teyvat Choices';
@@ -31,7 +32,7 @@ const IMAGE_FILE=/\.(png|webp|jpe?g|gif|avif)$/i;
 // The server stores a folder under its sanitized name, but lists it under the name it was asked for.
 export const diskFolder=folder=>folder.split('/').map(part=>part.replace(/[?<>\\:*|"\x00-\x1f]/g,'')).join('/');
 export function shareableSettings(prefs){
-    const copy=structuredClone(prefs || {});
+    const copy=structuredClone(withBundledPersonas(prefs || {}));
     for(const key of PRIVATE_SETTINGS)delete copy[key];
     return relocateSettings(copy,extensionRoot.pathname,true);
 }
@@ -83,7 +84,10 @@ export function spriteFolders(ctx,prefs,cards){
     });
     return [...new Set([...folders].map(diskFolder))];
 }
-export const gamePersonas=prefs=>[...new Set([...Object.keys(prefs.personaCharacters || {}),...Object.keys(prefs.personaSprites || {})])];
+// Only Aether and Lumine ship; personas made with Play as belong to the player who made them.
+export const gamePersonas=prefs=>[...new Set([...Object.keys(prefs.personaCharacters || {}),...Object.keys(prefs.personaSprites || {})])].filter(isBundledPersona);
+// Game data from before this rule may carry other personas: leave them out of an install.
+export const shippedEntry=path=>!path.startsWith('avatars/')||isBundledPersona(path.slice(8));
 export function isSafeEntry(name){return !/^[/\\]|\\|\0/.test(name)&&!name.split('/').some(part=>part==='..'||part==='.'||!part);}
 export function spriteUpload(path){
     const parts=path.split('/'),file=parts.pop(),spriteName=stem(file),label=spriteName.toLowerCase().match(/^(.+?)(?:[-\\.].*?)?$/)?.[1] ?? spriteName.toLowerCase();
@@ -98,7 +102,7 @@ export async function applyPackagedSettings(ctx){
     if(Object.keys(ctx.extensionSettings[KEY] || {}).length)return false;
     const response=await fetch(new URL(CONFIG_FILE,extensionRoot));
     if(!response.ok)return false;
-    ctx.extensionSettings[KEY]=relocateSettings((await response.json()).settings);
+    ctx.extensionSettings[KEY]=relocateSettings(withBundledPersonas((await response.json()).settings));
     ctx.saveSettingsDebounced();
     return true;
 }
@@ -223,7 +227,7 @@ function mergeNative(ctx,manifest,replace){
     mergeTags(ctx,manifest);
     if(!power)return;
     power.personas ??= {};power.persona_descriptions ??= {};
-    for(const persona of manifest.personas || []){
+    for(const persona of (manifest.personas || []).filter(item=>isBundledPersona(item.avatar))){
         power.personas[persona.avatar] ??= persona.name;
         if(persona.description)power.persona_descriptions[persona.avatar] ??= persona.description;
     }
@@ -268,9 +272,9 @@ export async function importArchive({ctx,zip,replace=false,overwrite=new Set(),u
     if(!manifestEntry)throw new Error('This file is not a Silly Teyvat game data export.');
     const root=manifestEntry.name.slice(0,-GAME_MANIFEST.length),manifest=JSON.parse(await (await zip.read(manifestEntry)).text());
     if(manifest.format!==FORMAT)throw new Error('This game data was made by a different version of Silly Teyvat.');
-    manifest.settings=relocateSettings(manifest.settings);
+    manifest.settings=relocateSettings(withBundledPersonas(manifest.settings));
     const post=api(ctx,signal),send=uploaders(ctx,signal),entries=[...zip.entries.values()].filter(entry=>entry!==manifestEntry).map(entry=>({entry,path:entry.name.slice(root.length)}));
-    const usable=entries.filter(({path})=>isSafeEntry(path)&&KINDS.includes(path.split('/')[0])),present=replace?new Set():await existingFiles(ctx,usable.map(item=>item.path),{signal,post});
+    const usable=entries.filter(({path})=>isSafeEntry(path)&&KINDS.includes(path.split('/')[0])&&shippedEntry(path)),present=replace?new Set():await existingFiles(ctx,usable.map(item=>item.path),{signal,post});
     for(const {entry} of usable)if(overwrite.has(entry.name))present.delete(entry.name.slice(root.length));
     const failed=[];let added=0,skipped=0,done=0;
     for(const {entry,path} of usable){
@@ -287,7 +291,11 @@ export async function importArchive({ctx,zip,replace=false,overwrite=new Set(),u
     await importLook(ctx,saved,await post('/api/settings/get'),manifest,replace,overwrite);
     mergeNative(ctx,manifest,replace);
     const prefs=ctx.extensionSettings[KEY] ??= {};
-    if(useSettings)ctx.extensionSettings[KEY]={...manifest.settings,...Object.fromEntries(PRIVATE_SETTINGS.filter(key=>key in prefs).map(key=>[key,prefs[key]]))};
+    if(useSettings){
+        const own=ownPersonaSettings(prefs),next={...manifest.settings,...Object.fromEntries(PRIVATE_SETTINGS.filter(key=>key in prefs).map(key=>[key,prefs[key]]))};
+        for(const [key,map] of Object.entries(own))next[key]={...next[key],...map};
+        ctx.extensionSettings[KEY]=next;
+    }
     else mergeSettings(prefs,manifest.settings,replace);
     await ctx.getCharacters?.();
     await mergeLorebookSettings(manifest,await import('/scripts/world-info.js'));

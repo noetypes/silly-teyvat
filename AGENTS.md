@@ -1,9 +1,20 @@
 # Working in Silly Teyvat
 
 - Read the relevant project documentation before changing files and inspect Git status. Preserve unrelated local work.
-- For character sprite artwork, read [SPRITE-GENERATION.md](SPRITE-GENERATION.md) before making any generation request. Its user-approved reference and approval rules supersede the older prompt documents in the historical `2026-10-24/th` workspace.
+- For character sprite artwork, read [SPRITE-GENERATION.md](docs/development/SPRITE-GENERATION.md) before making any generation request. Its user-approved reference and approval rules supersede the older prompt documents in the historical `2026-10-24/th` workspace.
 - Sprite art work belongs in this repository under `art/sprites/`. Do not change extension code, character cards, lorebooks, personas, or the live SillyTavern installation as part of an artwork-only request.
 - Never infer neutral approval from an earlier version, silence, elapsed time, or an agent's own assessment. Wait for the user's explicit approval of the current neutral before generating that character's expressions.
+
+## Repository layout
+
+- Keep the layout described in the root `README.md`: the extension in `extension/genshin-dialogue-ui/`, SillyTavern content in `content/`, artwork runs in `art/`, scripts in `tools/` with checks in `tools/tests/`, and documentation in `docs/` (`guides/`, `development/`, `research/`, plus review and release records). Only `README.md`, `LICENSE`, `AGENTS.md`, `.gitignore` and `game-data.json` belong at the top level.
+- Every file inside `extension/genshin-dialogue-ui/` ships to players. Keep documentation in `docs/`, not in the extension folder, apart from its player `README.md`.
+- Media lives in the data pack, at the same relative path as in the repository. Moving a media file means moving it in the pack too, renaming its `game-data.json` entry and running `python3 tools/game-data.py link` and `check`.
+
+## Personas
+
+- Only two personas ship with the game: Aether (`teyvat-persona-aether.png`) and Lumine (`teyvat-persona-lumine.png`), listed in `extension/genshin-dialogue-ui/bundled-personas.js`. Never bundle any other persona in game data, first-run settings (`configured-settings.json`), exports or releases.
+- Every other persona belongs to the player who made it. They are created when someone chooses **Play as {{char}}** in Character Customization. Personas in the developer's own SillyTavern are test data, not game content.
 
 ## Versions and release notes
 

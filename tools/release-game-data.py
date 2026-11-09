@@ -19,6 +19,8 @@ RELEASE = EXTENSION / 'game-data-release.json'
 MANIFEST = 'silly-teyvat-game-data.json'
 FORMAT = 1
 SHA_DIGITS = 16
+# Only the Travelers' personas ship (extension/genshin-dialogue-ui/bundled-personas.js).
+BUNDLED_PERSONAS = {'teyvat-persona-aether.png', 'teyvat-persona-lumine.png'}
 
 
 def version_key(version):
@@ -143,7 +145,8 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument('zip', type=Path, help='the ZIP from Export game data, exactly as uploaded')
     parser.add_argument('--url', required=True, help='https:// address of the uploaded ZIP; use a different address for every release')
-    parser.add_argument('--version', help='defaults to the extension version in manifest.json')
+    parser.add_argument('--version', required=True,
+                        help='game data version, separate from the extension version (for example 1.78.0)')
     parser.add_argument('--output', type=Path, default=RELEASE)
     parser.add_argument('--settings-output', type=Path, help='first-run settings file (defaults to configured-settings.json beside the release manifest)')
     parser.add_argument('--force', action='store_true', help='replace a release of the same version')
@@ -153,7 +156,7 @@ def main():
     args = parser.parse_args()
     if not args.url.startswith('https://'):
         raise SystemExit('The address must start with https://.')
-    version = args.version or json.loads((EXTENSION / 'manifest.json').read_text())['version']
+    version = args.version
     previous = json.loads(args.output.read_text()) if args.output.is_file() else None
     release = build(args.zip.resolve(), args.url, version, previous)
     if bool(args.chunk_dir) != bool(args.chunk_base_url):
@@ -168,6 +171,8 @@ def main():
     # applyPackagedSettings leaves an existing user's preferences completely untouched.
     for key in ('choicesProfile', 'cgProfile', 'signature', 'gameData'):
         settings.pop(key, None)
+    for key in ('personaCharacters', 'personaSprites'):
+        settings[key] = {avatar: value for avatar, value in (settings.get(key) or {}).items() if avatar in BUNDLED_PERSONAS}
     settings.update({'master': True, 'enabled': True, 'personaSprite': False,
                      'personaSpriteFolder': 'Aether', 'personaSpriteExpression': 'neutral'})
     settings_output = args.settings_output or args.output.with_name('configured-settings.json')

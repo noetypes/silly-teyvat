@@ -1,7 +1,7 @@
 // Every waypoint plays its region's battle theme when a fight starts there, town or wilderness, because you can
 // start one anywhere. These are the regions' open-world combat themes (Genshin Impact Wiki, Soundtrack Usage for
 // each track: "Open-World Combat"). Boss arenas keep the boss's own theme where the game gives it one
-// (audio-library/2026-10-29/boss-music.json and 2026-11-07), and use the region theme otherwise, as the game does.
+// (docs/research/music/2026-10-29/boss-music.json and 2026-11-07), and use the region theme otherwise, as the game does.
 export const REGION_BATTLE_TRACKS=Object.freeze({
     Mondstadt:'music-game-c9f040240e3ec2351e17', // Rite of Battle
     Liyue:'music-game-961b9aea787f89d35266', // Rapid as Wildfires

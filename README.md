@@ -18,7 +18,7 @@ Requires **SillyTavern 1.19.0 or later**, Git, and about **7 GB of free disk spa
 3. Connect your own **Chat Completion API** in SillyTavern. No model subscription or API credentials are included.
 4. Choose a persona (Aether and Lumine are included), open a Genshin character card, and start chatting. The Paimon menu opens **Characters**, **Map**, **Inventory** and the other game screens. If dialogue view is off, switch **Silly Teyvat** on in that menu or press **Alt+G**.
 
-The download includes **273 character cards, 2,424 sprites, 928 uploaded files, 15 personas, two lorebooks, the Teyvat Slate theme and Teyvat Choices**. Map backgrounds, portraits, TCG artwork, dice, fonts and interface assets are included with the extension. Your existing SillyTavern content is kept.
+The download includes **273 character cards, 2,424 sprites, 928 uploaded files, the Aether and Lumine personas, two lorebooks, the Teyvat Slate theme and Teyvat Choices**. Map backgrounds, portraits, TCG artwork, dice, fonts and interface assets are included with the extension. Your existing SillyTavern content is kept.
 
 If you chose **Not now**, open **Extensions → Silly Teyvat → Share → Check for game data**. Interrupted downloads can be retried; files already installed are skipped. Update the extension through SillyTavern's extension manager; newer game data is offered automatically when available.
 
@@ -45,7 +45,7 @@ Expressions use SillyTavern's **Character Expressions** classifier settings. Cha
 
 ### Playing as anyone
 
-- Play as the Traveler, or use **Play as** to become any character, NPC or enemy. Your persona shares the card's sprites, outfits and moveset.
+- Play as the Traveler, or use **Play as {{char}}** in Character Customization to become any character, NPC or enemy. Aether and Lumine are the only personas that come with the game; Play as creates a persona for anyone else, sharing the card's sprites, outfits and moveset.
 - The Travelers begin the game as it begins: arriving in Teyvat with nobody knowing them. Whichever twin you don't play becomes the Abyss twin.
 - Playing an enemy reverses the sides. You start in the wilderness among your own kind, and the characters of Teyvat are hostile to you.
 
@@ -90,12 +90,23 @@ Expressions use SillyTavern's **Character Expressions** classifier settings. Cha
 - Scene choices, Trust and travel are saved in the chat. Uploaded media and settings are kept on the SillyTavern server; copy them together if you move servers.
 - To uninstall, turn Silly Teyvat off, remove it in the extension manager and reload. Saved scene data in chats is harmless without it.
 
-More detail: [Combat](COMBAT.md) · [Location catalog](LOCATION-CATALOG.md) · [Location music](LOCATION-MUSIC.md) · [Character research](CHARACTER-RESEARCH.md) · [Asset guidelines](extension/genshin-dialogue-ui/ASSET-GUIDELINES.md)
+Guides: [Combat](docs/guides/COMBAT.md) · [Trust, gifts and scenes](docs/guides/TRUST-GIFTS-AND-SCENES.md) · [Location catalog](docs/guides/LOCATION-CATALOG.md) · [Location music](docs/guides/LOCATION-MUSIC.md) · [Teyvat Choices](docs/guides/QUICK-REPLIES.md) · [All documentation](docs/README.md)
 
 ## Source repository
 
 This repository holds the source. Players should install the [distribution](https://github.com/noetypes/silly-teyvat-dist); game downloads are published in [silly-teyvat-assets](https://github.com/noetypes/silly-teyvat-assets).
 
-- The extension is in `extension/genshin-dialogue-ui/`, the Teyvat Slate theme in `theme/` and Teyvat Choices in `quick-replies/`.
-- Media lives in a separate local data pack, not in Git. See [GAME-DATA.md](GAME-DATA.md).
-- Workflow, checks and releases: [DEVELOPMENT.md](DEVELOPMENT.md). Sprite artwork: [SPRITE-GENERATION.md](SPRITE-GENERATION.md). Asset sources: [SOURCES.md](SOURCES.md).
+```text
+extension/genshin-dialogue-ui/   the SillyTavern extension, exactly as players install it
+content/                         what the game installs into SillyTavern
+  character-cards/               card sources, example dialogue and card art records
+  theme/                         Teyvat Slate theme
+  quick-replies/                 Teyvat Choices quick replies
+art/                             artwork generation runs and their provenance (sprites, TCG cards, backgrounds)
+tools/                           build, release, install and data-pack scripts
+  tests/                         automated checks and benchmarks
+docs/                            guides, development docs, research, reviews and release records
+game-data.json                   manifest of the media kept in the separate data pack
+```
+
+Images, audio and fonts are not stored in Git. They live in a separate local data pack and are linked into the checkout; see [GAME-DATA.md](docs/development/GAME-DATA.md). Start with [DEVELOPMENT.md](docs/development/DEVELOPMENT.md) for the workflow, checks and releases, and [docs/README.md](docs/README.md) for everything else.

@@ -24,15 +24,15 @@ The elemental backdrop, character artwork, cream controls and gold accents give 
 
 - JavaScript syntax checks and `git diff --check` pass; CSS rebuilt from source layers.
 - Existing browser suites: wardrobe **104**, persona **27**, persona-link **12**, staging **78**, media **73** checks pass (**294** total).
-- `tools/test-wardrobe-ui-browser.mjs` exercises all six sections at **1440×900, 1024×768, 901×600, 900×700, 768×1024, 390×844, 320×568 and 844×390**. It checks editor bounds, horizontal field overflow, usable scroll height, visible navigation names, character-browser space, disclosure access, outfit state, empty-slot import guidance, Burst audio placement, search recovery, focus containment and reduced-motion tint handling.
-- `tools/test-wardrobe-loading-browser.mjs` passes: neutral-first loading, bounded background image decoding, stale-request cancellation, prepared sprite crops, on-demand scene loading, close/reopen handling and editable empty folders.
+- `tools/tests/test-wardrobe-ui-browser.mjs` exercises all six sections at **1440×900, 1024×768, 901×600, 900×700, 768×1024, 390×844, 320×568 and 844×390**. It checks editor bounds, horizontal field overflow, usable scroll height, visible navigation names, character-browser space, disclosure access, outfit state, empty-slot import guidance, Burst audio placement, search recovery, focus containment and reduced-motion tint handling.
+- `tools/tests/test-wardrobe-loading-browser.mjs` passes: neutral-first loading, bounded background image decoding, stale-request cancellation, prepared sprite crops, on-demand scene loading, close/reopen handling and editable empty folders.
 - Visually inspected the installed desktop and phone expression editor in Chrome. Test screenshots are saved under `/private/tmp/silly-teyvat-wardrobe-review/`.
 
 Tests use disposable preview contexts and in-memory adapters. They do not submit chats, generate artwork, or upload/delete real sprites. Mobile checks use browser viewport emulation; they do not establish physical-device or screen-reader certification.
 
 ## Live installation
 
-The standard `sync-live.sh --check` stopped on a pre-existing data-pack checksum mismatch for `character-cards/paimon/Paimon.png`. Its content and catalog were left unchanged.
+The standard `sync-live.sh --check` stopped on a pre-existing data-pack checksum mismatch for `content/character-cards/paimon/Paimon.png`. Its content and catalog were left unchanged.
 
 Before installation, the live `wardrobe.js` and `character-screen.css` were verified byte-for-byte against their original Git versions. The reviewed menu was installed as a scoped update: those two files and only the matching wardrobe layer inside live `style.css`. Other live CSS and code were preserved. Backups are under `/private/tmp/silly-teyvat-wardrobe-install-backup/`. The live manifest was left at its existing version because this was a scoped UI installation, not installation of the repository's other pending changes.
 

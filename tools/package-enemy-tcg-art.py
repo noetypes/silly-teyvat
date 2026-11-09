@@ -13,7 +13,7 @@ from PIL import Image
 ROOT=Path(__file__).resolve().parent.parent
 DATA=Path(os.environ.get('SILLY_TEYVAT_DATA',ROOT.parent/'silly-teyvat-data')).expanduser().resolve()
 CHARS=Path(os.environ.get('SILLY_TEYVAT_CHARACTERS','/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters'))
-ART=ROOT/'art/tcg/enemy-cards';IMPORTS=ROOT/'character-cards/enemy-tcg'
+ART=ROOT/'art/tcg/enemy-cards';IMPORTS=ROOT/'content/character-cards/enemy-tcg'
 TCG=ROOT/'extension/genshin-dialogue-ui/assets/tcg'
 MANIFEST=ROOT/'game-data.json'
 spec=importlib.util.spec_from_file_location('npc_art',ROOT/'tools/package-npc-tcg-art.py')

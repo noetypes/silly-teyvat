@@ -45,13 +45,13 @@ is not a physical phone hardware benchmark or a network-speed benchmark.
 Commands (Playwright provided through `NODE_PATH`, local preview on port 8765):
 
 ```
-node tools/test-map-performance-browser.mjs --cpu 4
-node tools/test-map-performance-browser.mjs --mobile --cpu 6
+node tools/tests/test-map-performance-browser.mjs --cpu 4
+node tools/tests/test-map-performance-browser.mjs --mobile --cpu 6
 ```
 
 JavaScript syntax checks, CSS bundle/source agreement, and `git diff --check`
 passed. The regular live-sync preflight is blocked by a pre-existing media
-checksum mismatch for `character-cards/paimon/Paimon.png`. A separate read-only
+checksum mismatch for `content/character-cards/paimon/Paimon.png`. A separate read-only
 comparison found no live-only extension source files and only the intended map
 source changes plus existing local README additions. The targeted installer
 backs up and verifies the six update files without modifying media or other
