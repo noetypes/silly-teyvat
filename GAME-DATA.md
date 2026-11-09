@@ -3,8 +3,10 @@
 Git contains source code, JSON catalogs, provenance and tools. Images (including
 character cards and sprite art), audio, fonts and model buffers live outside the
 repository. Research downloads, caches and private task backups live there too.
-The data pack is local and is not uploaded to GitHub. Only the extension's own media goes out,
-inside the [distribution repository](#publish-the-extension).
+The developer data pack stays local. Players get the extension's media from the
+[distribution repository](#publish-the-extension), and a curated export of the finished game
+from the [public assets repository](https://github.com/noetypes/silly-teyvat-assets). Research,
+backups and the art workspace are never uploaded.
 
 The default layout is:
 
@@ -112,12 +114,14 @@ whole ZIP; anything smaller is read by byte range. The popup counts files and ta
 already present and failed.
 
 **Not now** is remembered for that release. **Check for game data** in Share always asks. Every
-file is checked against the release before it is installed. A source checkout has no release
-file, so it never asks.
+file is checked against the release before it is installed. A development copy without a release file never asks. Published source checkouts include
+the manifest for reproducibility; the player install remains the distribution repository.
 
 To publish:
 
-1. In a SillyTavern with the finished game data, choose **Export game data**.
+1. In a SillyTavern with the finished game data, choose **Export game data**, or run
+   `node tools/export-game-data.mjs --out ../silly-teyvat-data/releases/silly-teyvat-game-data-VERSION.zip`.
+   The CLI uses the same exporter against localhost, fails on missing files and excludes private settings.
 2. Upload the ZIP unchanged to a host that allows downloads from other sites (CORS) and byte ranges.
    Use a new address for every release, for example a file named after the version. Players on
    older versions read their offsets from the old address.
@@ -127,8 +131,45 @@ To publish:
    because players who have that version would never be offered it.
 4. Commit the release file with the extension version bump, then publish the extension (above).
 
-GitHub release downloads cannot be used: they send no CORS headers, so a browser cannot fetch
-them. Hugging Face (a dataset repository) and Cloudflare R2 (with a CORS rule) both work.
+GitHub release downloads cannot be used directly: their download host does not send the
+necessary CORS headers. Hugging Face (a dataset repository), Cloudflare R2 (with a CORS rule),
+and GitHub **raw files** support browser downloads.
+
+### Current GitHub assets hosting
+
+Publishing also writes `configured-settings.json` beside the release manifest. It enables story
+view and supplies game defaults on a new installation, strips private connection choices and
+signatures, and leaves existing extension preferences untouched. Choose an included persona
+for its own sprite; the developer's last active persona is never selected for the player.
+
+The first complete public game pack is **1.77.0** (2,088,135,982 bytes). It contains 273 cards,
+2,424 sprites, 928 uploaded files, 15 personas, two lorebooks, the theme and quick replies.
+Map backgrounds and other extension-owned media ship in the distribution repository.
+
+The assets repository holds the exported ZIP in 48 MiB parts, under an immutable version tag.
+The extension verifies and installs these parts one at a time on first install, keeping at most
+two parts in its download cache, and can read changed
+files by byte range across part boundaries on updates. No GitHub login or extra server plugin
+is needed. Keep old tags and their files available.
+
+```sh
+node tools/export-game-data.mjs --out ../silly-teyvat-data/releases/silly-teyvat-game-data-1.77.0.zip --version 1.77.0
+python3 tools/release-game-data.py ../silly-teyvat-data/releases/silly-teyvat-game-data-1.77.0.zip --version 1.77.0 \
+  --url https://raw.githubusercontent.com/noetypes/silly-teyvat-assets/v1.77.0/silly-teyvat-game-data-1.77.0-001.part \
+  --chunk-dir ../silly-teyvat-assets \
+  --chunk-base-url https://raw.githubusercontent.com/noetypes/silly-teyvat-assets/v1.77.0
+```
+
+For future releases, bump the extension version first, replace the version in these commands,
+commit/tag/push the assets, then commit the source manifest and build/push the distribution.
+Verify an anonymous browser can fetch full parts and byte ranges from the tag's raw URLs.
+`--chunk-mb` controls the part size. The `--url` value names the first part; `chunks` in the release
+manifest describes the complete archive. Files with unchanged checksums retain their `since`
+version. Published chunks are immutable: the tool refuses to overwrite different existing parts.
+
+Exports store bundled media assignments as portable `silly-teyvat:/` paths. Import resolves them
+to the actual extension folder, and also accepts old `genshin-dialogue-ui` paths. Custom uploads
+and native sprite paths retain their names.
 
 ## Add or update media
 

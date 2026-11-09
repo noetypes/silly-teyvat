@@ -1,3 +1,35 @@
+# Silly Teyvat
+
+A Genshin-inspired visual novel and card-battle game inside SillyTavern.
+
+## Install and play
+
+Requires **SillyTavern 1.19.0 or later**, Git, and about **7 GB of free disk space** for the extension, game data and download. Run the asset download on the server computer at `http://localhost:8000` (or use HTTPS). Once installed, other browsers and phones use the same server's assets.
+
+1. In SillyTavern, open **Extensions → Install extension** and paste:
+   ```text
+   https://github.com/noetypes/silly-teyvat-dist
+   ```
+2. Reload SillyTavern. Accept **Download** when Silly Teyvat offers its game data (**2.09 GB**). Keep the page open while it downloads and installs, then choose **Reload** when finished.
+3. Connect your own **Chat Completion API** in SillyTavern. No model subscription or API credentials are included.
+4. Choose a persona (Aether and Lumine are included), open a Genshin character card, and start chatting. The Paimon menu opens **Characters**, **Map**, **Inventory** and the other game screens. If dialogue view is off, switch **Silly Teyvat** on in that menu or press **Alt+G**.
+
+The download includes **273 character cards, 2,424 sprites, 928 uploaded files, 15 personas, two lorebooks, the Teyvat Slate theme and Teyvat Choices**. Map backgrounds, portraits, TCG artwork, dice, fonts and interface assets are included with the extension. Character assignments, sprite sets, scenes, music playlists and combat settings arrive with the game data. Your existing content is kept on first install.
+
+If you chose **Not now**, open **Extensions → Silly Teyvat → Share → Check for game data**. Interrupted imports can be retried; files already installed are skipped. Downloads need localhost or HTTPS for checksum verification. After the initial install, update the extension through SillyTavern's extension manager; a newer game-data release is offered automatically when available.
+
+For changing expressions, use SillyTavern's **Character Expressions** classifier settings; the extension uses that classifier and the included sprite folders. Chatting, choices and scene classification use your own configured model connection.
+
+## Version 1.77.1: First-run configuration
+
+- Load packaged game settings before filling extension defaults, so new installations start with story view and the published game configuration enabled. Existing preferences and disabled installations are preserved.
+
+## Version 1.77.0: Complete game download
+
+- A fresh install starts with the game configuration and offers the full game-data pack automatically, with progress, checksums and retry support.
+- Versioned download parts install one at a time directly from the public GitHub assets repository, avoiding a multi-gigabyte browser buffer; updates can fetch only changed files.
+- Bundled backgrounds and scene paths follow the installed extension folder, including `silly-teyvat-dist`.
+
 # Silly Teyvat 1.76.12: Centred NPC faces
 
 - Reframed all 46 NPC circular portraits around their faces, including Katheryne's left-offset head. Individual face positions now determine the crop centre, with extra space for larger headwear where needed. Transparency is preserved across every shared portrait view.
@@ -1120,30 +1152,9 @@ Travel is saved as a native narrator message, for example: `Traveler and Xilonen
 
 A Genshin Impact inspired dialogue interface and matching SillyTavern theme for your fan VN. Gold speaker names, ivory dialogue, white HUD symbols, centered menus, suggested replies, text reveal and remembered sprite scenes.
 
-## Install or update
+## Source and development
 
-In SillyTavern, open **Extensions → Install extension**, paste the address of this GitHub
-repository and choose **Install for me**. After it loads, Silly Teyvat offers to download its game
-data (characters, sprites, scenes, music and lorebooks) and shows the size first. **Not now** waits
-until the next release; **Settings → Share → Check for game data** asks again.
-
-To hear about updates, turn on **Notify on extension updates** in **Manage extensions**, or update
-Silly Teyvat there. After an update that comes with new game data, Silly Teyvat offers just the
-files that changed. If you installed an earlier copy by unzipping it into a `genshin-dialogue-ui`
-folder, delete that folder first so that two copies don't run at once. Your settings are kept.
-
-### From the source repository
-
-Install the separate data pack and run `python3 tools/game-data.py link`, then
-`bash tools/sync-live.sh` from the repository. The installer copies source and
-links external media into `SillyTavern/data/<your-user>/extensions/genshin-dialogue-ui/`.
-See `GAME-DATA.md` in the repository. Set `SILLY_TEYVAT_LIVE` for another server
-directory and `SILLY_TEYVAT_DATA` for another data pack location. Keep the
-extension folder name for compatibility with existing settings.
-
-Refresh SillyTavern. Open **Extensions → Silly Teyvat** and enable dialogue view, or open the top-left Paimon menu and select the compass icon (**Silly Teyvat: On** for screen readers). **Alt+G** also toggles dialogue view. Opening or closing the menu does not change whether the extension is enabled. Select a character or group chat.
-
-For matching native menus, import `theme/Teyvat Slate.json` using **User Settings → UI Theme → Import**, then select **Teyvat Slate**. The extension also works with other themes. An optional copy of the theme CSS is supplied for reference.
+The [main repository](https://github.com/noetypes/silly-teyvat) contains the source, tools and development documentation. This repository is the installable distribution, generated from that source with real media files. It needs no Python, symlinks, manual sprite copying or developer data pack on the player's machine.
 
 ## Reading dialogue
 

@@ -1,7 +1,7 @@
 // Settings > Share: one long job at a time, with progress and a way to stop it.
 import {exportExtension,exportGameData,importArchive,importGameData} from './share-package.js';
 import {openDownload} from './zip-store.js';
-import {RangeUnsupported,checkLocal,downloadRelease,formatBytes,loadRelease,rangedArchive,updatePlan,wholeDownload} from './game-data-update.js';
+import {RangeUnsupported,checkLocal,chunkedArchive,downloadRelease,formatBytes,loadRelease,rangedArchive,updatePlan,wholeDownload} from './game-data-update.js';
 const stamp=()=>new Date().toISOString().slice(0,10),KEY='genshin_dialogue_ui',files=n=>`${n} ${n===1?'file':'files'}`;
 export function mountShare({getContext,announce,signal:mountSignal}){
     const $=selector=>document.querySelector(selector);
@@ -67,7 +67,7 @@ export function mountShare({getContext,announce,signal:mountSignal}){
         await ctx.callGenericPopup(body,ctx.POPUP_TYPE.TEXT,'',{okButton:'OK'});
     }
     async function installGameData(release,plan){
-        let result=null;const close=progressPopup(!plan.need.length?'Already have it':plan.kind==='install'?'Downloading game data':`Updating game data to ${release.version}`);
+        let result=null,installed=false;const close=progressPopup(!plan.need.length?'Already have it':plan.kind==='install'?'Downloading game data':`Updating game data to ${release.version}`);
         const have=plan.have.length,total=plan.need.length+have;
         counts({have});step(`${have} of ${files(total)} already here`);
         await run('Downloading game data',async({signal})=>{
@@ -81,7 +81,8 @@ export function mountShare({getContext,announce,signal:mountSignal}){
             if(!wholeDownload(release,plan))try{paint('Downloading game data',have,total);result=await importArchive({ctx,zip:rangedArchive(release,plan.paths,{signal}),overwrite,report:installing,signal});}
             catch(error){if(!(error instanceof RangeUnsupported))throw error;console.info('[Silly Teyvat]',error.message,'Downloading all of it instead.');}
             if(!result){
-                const zip=await downloadRelease(release,{signal,report:(done,size)=>{paint('Downloading game data',done,size);step(`${formatBytes(done)} of ${formatBytes(size)}`);}});
+                const options={signal,report:(done,size)=>{paint('Downloading game data',done,size);step(`${formatBytes(done)} of ${formatBytes(size)}`);}};
+                const zip=release.chunks?chunkedArchive(release,plan.paths,options):await downloadRelease(release,options);
                 result=await importArchive({ctx,zip,overwrite,report:installing,signal});
             }
             if(result.failed.length){
@@ -89,10 +90,11 @@ export function mountShare({getContext,announce,signal:mountSignal}){
                 throw new Error(`${result.failed.length} game data files could not be installed. Choose Check for game data in Share to try again.`);
             }
             ctx.extensionSettings[KEY].gameData={version:release.version};ctx.saveSettingsDebounced();
+            installed=true;
             paint(`Game data ${release.version} is installed: ${files(result.added)} added, ${have+result.skipped} already here. Reload the page to finish.`);
         });
         await close();
-        if(result&&!result.failed.length&&await ask(`Game data ${release.version} is installed. Reload SillyTavern now to finish?`,'Reload','Later'))location.reload();
+        if(installed&&await ask(`Game data ${release.version} is installed. Reload SillyTavern now to finish?`,'Reload','Later'))location.reload();
     }
     // At startup, a release this player turned down is not offered again; Check for game data always asks.
     async function checkGameData({startup=false}={}){

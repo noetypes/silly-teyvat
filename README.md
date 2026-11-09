@@ -1,3 +1,27 @@
+# Silly Teyvat
+
+A Genshin-inspired visual novel and card-battle game inside SillyTavern, with a travelling party, world map, character sprites, music, scenes and Genius Invokation battles.
+
+## Install and play
+
+Requires **SillyTavern 1.19.0 or later**, Git, and about **7 GB of free disk space** for the extension, game data and download. Run the asset download on the server computer at `http://localhost:8000` (or use HTTPS). Once installed, other browsers and phones use the same server's assets.
+
+1. In SillyTavern, open **Extensions → Install extension** and paste:
+   ```text
+   https://github.com/noetypes/silly-teyvat-dist
+   ```
+2. Reload SillyTavern. Accept **Download** when Silly Teyvat offers its game data (**2.09 GB**). Keep the page open while it downloads and installs, then choose **Reload** when finished.
+3. Connect your own **Chat Completion API** in SillyTavern. No model subscription or API credentials are included.
+4. Choose a persona (Aether and Lumine are included), open a Genshin character card, and start chatting. The Paimon menu opens **Characters**, **Map**, **Inventory** and the other game screens. If dialogue view is off, switch **Silly Teyvat** on in that menu or press **Alt+G**.
+
+The download includes **273 character cards, 2,424 sprites, 928 uploaded files, 15 personas, two lorebooks, the Teyvat Slate theme and Teyvat Choices**. Map backgrounds, portraits, TCG artwork, dice, fonts and interface assets are included with the extension. Character assignments, sprite sets, scenes, music playlists and combat settings arrive with the game data. Your existing content is kept on first install.
+
+If you chose **Not now**, open **Extensions → Silly Teyvat → Share → Check for game data**. Interrupted imports can be retried; files already installed are skipped. Downloads need localhost or HTTPS for checksum verification. After the initial install, update the extension through SillyTavern's extension manager; a newer game-data release is offered automatically when available.
+
+For changing expressions, use SillyTavern's **Character Expressions** classifier settings; the extension uses that classifier and the included sprite folders. Chatting, choices and scene classification use your own configured model connection.
+
+Source: this repository. [Installable extension](https://github.com/noetypes/silly-teyvat-dist) · [Game downloads](https://github.com/noetypes/silly-teyvat-assets) · [Development guide](DEVELOPMENT.md).
+
 # Silly Teyvat 1.44.2: External game data
 
 Images, audio, fonts and model buffers now live in a separate local data pack.
@@ -75,18 +99,9 @@ Travel is saved as a native narrator message, for example: `Traveler and Xilonen
 
 A Genshin Impact inspired dialogue interface and matching SillyTavern theme for your fan VN. Gold speaker names, ivory dialogue, white HUD symbols, centered menus, suggested replies, text reveal and remembered sprite scenes.
 
-## Install or update
+## Developer installation
 
-Obtain the separate data pack and follow [the data setup guide](GAME-DATA.md).
-Run `python3 tools/game-data.py link`, then `bash tools/sync-live.sh` to copy
-source and link media into `SillyTavern/data/<your-user>/extensions/genshin-dialogue-ui/`.
-Set `SILLY_TEYVAT_LIVE` for a different server directory. Keep that folder name:
-the extension is called **Silly Teyvat** in the interface, while its folder and
-settings key stay compatible with earlier installations.
-
-Refresh SillyTavern. Open **Extensions → Silly Teyvat** and enable dialogue view, or open the top-left Paimon menu and select the compass icon (**Silly Teyvat: On** for screen readers). **Alt+G** also toggles dialogue view. Opening or closing the menu does not change whether the extension is enabled. Select a character or group chat.
-
-For matching native menus, import `theme/Teyvat Slate.json` using **User Settings → UI Theme → Import**, then select **Teyvat Slate**. The extension also works with other themes. An optional copy of the theme CSS is supplied for reference.
+This is the source repository. Players should use the [installable distribution](https://github.com/noetypes/silly-teyvat-dist). Source checkouts need the separate local data pack; see [GAME-DATA.md](GAME-DATA.md) and [DEVELOPMENT.md](DEVELOPMENT.md).
 
 ## Reading dialogue
 

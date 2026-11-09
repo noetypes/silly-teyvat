@@ -805,7 +805,9 @@ export async function initialize(options = {}) {
     mounted = true;
     const version = ++mountVersion;
     abort = new AbortController();
-    if (preferences().master === false) { await mountDormant(version); return; }
+    // Inspect the stored switch without filling defaults: that would make a fresh install
+    // look configured already and prevent applyPackagedSettings from loading the game defaults.
+    if (context().extensionSettings[KEY]?.master === false) { await mountDormant(version); return; }
     try{await applyPackagedSettings(context());}catch(error){console.warn('[Silly Teyvat] Packaged settings',error);}
     if(migrateCGDisplay(mediaSettings(context())))context().saveSettingsDebounced();
     // 1.73: per-sprite settings are keyed by name, not file extension, so sprites can be converted to WebP.

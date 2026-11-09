@@ -24,6 +24,24 @@ The **Silly Teyvat** switch at the top of its settings calls `dispose()` and rem
 
 `tools/sync-live.sh` writes `package-files.json` into the installed extension. The browser cannot list a folder, so **Export extension** reads this inventory. Run `node tools/test-share-package.mjs` after changing the export or import code, and `node tools/test-game-data-update.mjs` after changing published game data (`game-data-update.js`, `tools/release-game-data.py`). See [GAME-DATA.md](GAME-DATA.md#share-with-testers) for what each package contains. An import merges the tester's settings into the player's, so anything saved in settings that is later drawn as markup must be cleaned where it is read: `node tools/test-saved-kits.mjs` checks that saved movesets reach the battle screen only as numbers and known words, and that a plain save round-trips unchanged.
 
+## Public install verification
+
+Use a separate empty SillyTavern profile to check the player path, never the live development profile:
+
+```sh
+# In the SillyTavern server folder, using its existing dependencies:
+node server.js --dataRoot /tmp/teyvat-release-test/data --port 8002 --listen false --browserLaunchEnabled false
+# In this repository, with Playwright available on NODE_PATH:
+node tools/test-release-install-browser.mjs --server http://localhost:8002 --install
+```
+
+The browser test uses SillyTavern's native GitHub installer, accepts the automatic game-data offer,
+installs the public hosted pack, reloads, opens Klee and checks the world map. It checks the new
+installation starts with story view enabled and that bundled backgrounds use the distribution's
+folder name. Screenshots and counts go under `/tmp/silly-teyvat-release-install/` by default
+(`--out` changes it). Allow time and disk space for the full real download. The test refuses port
+8000 and rejects nonempty character libraries when installing.
+
 ## Responsive interface checks
 
 Run `node tools/test-starter-cgs.mjs` for the bundled scene artworks and keyboard detection. To add a starter scene, add a record with its wiki file name to `assets/cgs/catalog.json` (with `"display": "frame"` unless the artwork is 16:9, so it opens in a frame rather than replacing the background), run `python3 tools/fetch-cgs.py` (needs Pillow) and then `python3 tools/game-data.py migrate --only extension/genshin-dialogue-ui/assets/cgs`.

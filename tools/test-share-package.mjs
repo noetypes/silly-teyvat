@@ -1,7 +1,7 @@
 // Exports round-trip through the ZIP code, and nothing private leaves in a shared package.
 import assert from 'node:assert/strict';
 import {createZipWriter,readZip,crc32} from '../extension/genshin-dialogue-ui/zip-store.js';
-import {shareableSettings,mergeSettings,referencedPaths,spriteFolders,diskFolder,gamePersonas,gameCards,isSafeEntry,spriteUpload} from '../extension/genshin-dialogue-ui/share-package.js';
+import {shareableSettings,relocateSettings,mergeSettings,referencedPaths,spriteFolders,diskFolder,gamePersonas,gameCards,isSafeEntry,spriteUpload} from '../extension/genshin-dialogue-ui/share-package.js';
 import {execFileSync} from 'node:child_process';
 import fs from 'node:fs';
 import os from 'node:os';
@@ -37,6 +37,13 @@ const prefs={enabled:true,choicesProfile:'uuid',cgProfile:'uuid',signature:'mine
 const clean=shareableSettings(prefs);
 assert.deepEqual(Object.keys(clean).filter(key=>/Profile|signature/.test(key)),[]);
 assert.equal(prefs.signature,'mine','the live settings are untouched');
+const oldPath='/scripts/extensions/third-party/genshin-dialogue-ui/assets/world-locations/library.webp';
+const portable=shareableSettings({backgroundRegions:[{locations:[{path:oldPath}]}],uploaded:'/user/files/my-scene.webp'});
+assert.equal(portable.backgroundRegions[0].locations[0].path,'silly-teyvat:/assets/world-locations/library.webp');
+const relocated=relocateSettings(portable,'/scripts/extensions/third-party/silly-teyvat-dist/');
+assert.equal(relocated.backgroundRegions[0].locations[0].path,'/scripts/extensions/third-party/silly-teyvat-dist/assets/world-locations/library.webp');
+assert.equal(relocated.uploaded,'/user/files/my-scene.webp');
+assert.equal(relocateSettings(oldPath,'/scripts/extensions/third-party/custom-folder/'),'/scripts/extensions/third-party/custom-folder/assets/world-locations/library.webp','old exports also import into any folder name');
 assert.deepEqual(referencedPaths('{"path":"/user/files/a-b.ogg","x":"/user/files/a-b.ogg","y":"/user/files/c.m4a?t=1"}','/user/files/'),['/user/files/a-b.ogg','/user/files/c.m4a']);
 assert.deepEqual(gamePersonas(prefs).sort(),['takeover-Klee.png','teyvat-persona-aether.png']);
 const ctx={characters:[{avatar:'Klee.png',name:'Klee'},{avatar:'Katheryne.png',name:'Katheryne',tags:['Genshin']},{avatar:'Private.png',name:'Private'}],extensionSettings:{expressionOverrides:[{name:'Klee',path:'Klee/Official Art'}]}};

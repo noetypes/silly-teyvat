@@ -5,9 +5,10 @@ import fs from 'node:fs';
 import http from 'node:http';
 import os from 'node:os';
 import path from 'node:path';
+import {createHash} from 'node:crypto';
 import {createZipWriter} from '../extension/genshin-dialogue-ui/zip-store.js';
 import {shareableSettings} from '../extension/genshin-dialogue-ui/share-package.js';
-import {RangeUnsupported,compareVersions,downloadRelease,formatBytes,localPlan,localUrl,rangedArchive,updatePlan,validRelease,wholeDownload} from '../extension/genshin-dialogue-ui/game-data-update.js';
+import {RangeUnsupported,chunkedArchive,compareVersions,downloadRelease,formatBytes,localPlan,localUrl,rangedArchive,updatePlan,validRelease,wholeDownload} from '../extension/genshin-dialogue-ui/game-data-update.js';
 
 const folder=fs.mkdtempSync(path.join(os.tmpdir(),'teyvat-release-')),tool=new URL('./release-game-data.py',import.meta.url).pathname;
 async function exportZip(name,files){
@@ -94,6 +95,39 @@ assert.deepEqual(new Uint8Array(await (await full.read(full.entries.get('cards/K
 await assert.rejects(downloadRelease({...two,bytes:two.bytes+1},{fetcher:local}),/instead of/);
 assert.ok(requests>0);
 server.close();
+
+// Static hosts can serve the same ZIP in small parts. Files may straddle part boundaries.
+const chunks=[],chunkSize=1024;
+for(let offset=0;offset<bytes.length;offset+=chunkSize){
+    const data=bytes.subarray(offset,offset+chunkSize);
+    chunks.push({url:`https://data.example/${chunks.length}.part`,offset,size:data.length,sha256:createHash('sha256').update(data).digest('hex')});
+}
+const multipart={...two,chunks};
+assert.ok(validRelease(multipart));
+assert.equal(validRelease({...multipart,chunks:chunks.slice(1)}),false,'download parts must cover the entire ZIP');
+assert.equal(validRelease({...multipart,chunks:[{...chunks[0],url:'http://unsafe.example/file'},...chunks.slice(1)]}),false);
+const multipartFetch=async(url,options={})=>{
+    const chunk=chunks.find(item=>item.url===url);assert.ok(chunk);
+    const data=bytes.subarray(chunk.offset,chunk.offset+chunk.size),range=/bytes=(\d+)-(\d+)/.exec(options.headers?.Range || '');
+    return range?new Response(data.subarray(Number(range[1]),Number(range[2])+1),{status:206}):new Response(data);
+};
+const split=rangedArchive(multipart,plan.paths,{fetcher:multipartFetch});
+assert.deepEqual(new Uint8Array(await (await split.read(split.entries.get('cards/Klee.png'))).arrayBuffer()),changedKlee,'ranges span every required part');
+const splitProgress=[],joined=await downloadRelease(multipart,{fetcher:multipartFetch,report:done=>splitProgress.push(done)});
+assert.equal(splitProgress.at(-1),bytes.length);
+assert.deepEqual(new Uint8Array(await (await joined.read(joined.entries.get('cards/Klee.png'))).arrayBuffer()),changedKlee);
+const streamed=chunkedArchive(multipart,Object.keys(two.files),{fetcher:multipartFetch});
+for(const [name,data] of Object.entries({'cards/Klee.png':changedKlee,'cards/Hu Tao.png':new TextEncoder().encode('new'),'sprites/Klee/joy.png':joy})){
+    assert.deepEqual(new Uint8Array(await (await streamed.read(streamed.entries.get(name))).arrayBuffer()),data,'bounded streaming reads files across download parts');
+}
+await assert.rejects(chunkedArchive({...multipart,chunks:[{...chunks[0],sha256:'0'.repeat(64)},...chunks.slice(1)]},Object.keys(two.files),{fetcher:multipartFetch}).read(streamed.entries.get('cards/Klee.png')),/checksum/);
+await assert.rejects(downloadRelease({...multipart,chunks:[{...chunks[0],sha256:'0'.repeat(64)},...chunks.slice(1)]},{fetcher:multipartFetch}),/checksum/);
+// The publisher produces byte-for-byte parts with matching offsets and hashes.
+const splitOutput=path.join(folder,'split-release.json'),splitDir=path.join(folder,'parts');
+execFileSync('python3',[tool,second,'--url','https://data.example/download.zip','--version','1.2.0','--output',splitOutput,'--chunk-dir',splitDir,'--chunk-base-url','https://data.example/v1.2.0','--chunk-mb','1']);
+const published=JSON.parse(fs.readFileSync(splitOutput));
+assert.ok(validRelease(published));
+assert.deepEqual(Buffer.concat(published.chunks.map(chunk=>fs.readFileSync(path.join(splitDir,new URL(chunk.url).pathname.split('/').at(-1))))),bytes);
 
 // A re-zipped (compressed) copy cannot be read by range, so the tool refuses it.
 execFileSync('unzip',['-q',second,'-d',path.join(folder,'out')]);

@@ -11,6 +11,7 @@ import json
 from pathlib import Path
 import struct
 import zipfile
+from urllib.parse import quote
 
 REPO = Path(__file__).resolve().parent.parent
 EXTENSION = REPO / 'extension/genshin-dialogue-ui'
@@ -96,13 +97,33 @@ def build(zip_path, url, version, previous):
     }
 
 
+def split_archive(zip_path, directory, base_url, chunk_bytes):
+    """Host an ordinary export on CORS-enabled static hosting with per-file size limits."""
+    if not base_url.startswith('https://') or chunk_bytes <= 0:
+        raise ValueError('Chunk hosting needs an https:// base URL and a positive chunk size.')
+    directory.mkdir(parents=True, exist_ok=True)
+    chunks, offset = [], 0
+    with zip_path.open('rb') as raw:
+        while block := raw.read(chunk_bytes):
+            name = f'{zip_path.stem}-{len(chunks) + 1:03d}.part'
+            target = directory / name
+            if target.exists() and target.read_bytes() != block:
+                raise ValueError(f'Refusing to overwrite a different download part: {target}')
+            if not target.exists():
+                target.write_bytes(block)
+            chunks.append({'url': base_url.rstrip('/') + '/' + quote(name), 'offset': offset,
+                           'size': len(block), 'sha256': hashlib.sha256(block).hexdigest()})
+            offset += len(block)
+    return chunks
+
+
 def check_version(release, previous, force):
     if not previous:
         return
     old, new = version_key(previous['version']), version_key(release['version'])
     if new < old:
         raise ValueError(f'Version {release["version"]} is older than the published {previous["version"]}.')
-    if new == old and not force and (previous.get('sha256') != release['sha256'] or previous.get('url') != release['url']):
+    if new == old and not force and (previous.get('sha256') != release['sha256'] or previous.get('url') != release['url'] or previous.get('chunks') != release.get('chunks')):
         raise ValueError(f'Game data {release["version"]} is already published with a different file. '
                          'Players who have it would not be offered this one: release it with a newer extension version, or pass --force.')
 
@@ -124,15 +145,33 @@ def main():
     parser.add_argument('--url', required=True, help='https:// address of the uploaded ZIP; use a different address for every release')
     parser.add_argument('--version', help='defaults to the extension version in manifest.json')
     parser.add_argument('--output', type=Path, default=RELEASE)
+    parser.add_argument('--settings-output', type=Path, help='first-run settings file (defaults to configured-settings.json beside the release manifest)')
     parser.add_argument('--force', action='store_true', help='replace a release of the same version')
+    parser.add_argument('--chunk-dir', type=Path, help='split the ZIP into static-hosted download parts in this directory')
+    parser.add_argument('--chunk-base-url', help='https:// directory containing the published parts (use an immutable version tag)')
+    parser.add_argument('--chunk-mb', type=int, default=48, help='maximum part size in MiB (default: 48, below GitHub file limits)')
     args = parser.parse_args()
     if not args.url.startswith('https://'):
         raise SystemExit('The address must start with https://.')
     version = args.version or json.loads((EXTENSION / 'manifest.json').read_text())['version']
     previous = json.loads(args.output.read_text()) if args.output.is_file() else None
     release = build(args.zip.resolve(), args.url, version, previous)
+    if bool(args.chunk_dir) != bool(args.chunk_base_url):
+        raise ValueError('Use --chunk-dir and --chunk-base-url together.')
+    if args.chunk_dir:
+        release['chunks'] = split_archive(args.zip.resolve(), args.chunk_dir, args.chunk_base_url, args.chunk_mb << 20)
     check_version(release, previous, args.force)
     args.output.write_text(dump(release))
+    with zipfile.ZipFile(args.zip) as archive:
+        settings = json.loads(archive.read(release['manifest'])).get('settings') or {}
+    # Install a playable first-run configuration before the extension fills in its defaults.
+    # applyPackagedSettings leaves an existing user's preferences completely untouched.
+    for key in ('choicesProfile', 'cgProfile', 'signature', 'gameData'):
+        settings.pop(key, None)
+    settings.update({'master': True, 'enabled': True, 'personaSprite': False,
+                     'personaSpriteFolder': 'Aether', 'personaSpriteExpression': 'neutral'})
+    settings_output = args.settings_output or args.output.with_name('configured-settings.json')
+    settings_output.write_text(json.dumps({'settings': settings}, ensure_ascii=False, indent=1) + '\n')
     changed = sum(entry['since'] == version for entry in release['files'].values())
     print(f'Game data {version}: {len(release["files"])} files, {release["bytes"]:,} bytes; '
           f'{changed} changed in this release. Wrote {args.output.relative_to(REPO) if args.output.is_relative_to(REPO) else args.output}')

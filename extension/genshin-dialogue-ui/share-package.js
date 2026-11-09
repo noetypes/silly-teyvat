@@ -11,6 +11,19 @@ const FOLDER='genshin-dialogue-ui',FORMAT=1,SET_FOLDERS=['Official Art','Chibi']
 // game data release describes this server only.
 const PRIVATE_SETTINGS=['choicesProfile','cgProfile','signature','gameData'];
 const extensionRoot=new URL('./',import.meta.url);
+const PORTABLE_ROOT='silly-teyvat:/';
+// Packaged assignments refer to this extension, regardless of the Git repository's folder name.
+// Accept old exports made before paths were portable as well.
+export function relocateSettings(value,root=extensionRoot.pathname,portable=false){
+    if(typeof value==='string'){
+        const legacy=value.replace(/^\/scripts\/extensions\/third-party\/(?:genshin-dialogue-ui|silly-teyvat-dist)\//,PORTABLE_ROOT);
+        const relative=legacy.startsWith(PORTABLE_ROOT)?legacy.slice(PORTABLE_ROOT.length):value.startsWith(root)?value.slice(root.length):null;
+        return relative===null?value:(portable?PORTABLE_ROOT:root)+relative;
+    }
+    if(Array.isArray(value))return value.map(item=>relocateSettings(item,root,portable));
+    if(value&&typeof value==='object')return Object.fromEntries(Object.entries(value).map(([key,item])=>[key,relocateSettings(item,root,portable)]));
+    return value;
+}
 const segments=path=>path.split('/').map(encodeURIComponent).join('/');
 const stem=name=>name.replace(/\.[^.]+$/,'');
 const decoded=part=>{try{return decodeURIComponent(part);}catch{return part;}};
@@ -20,7 +33,7 @@ export const diskFolder=folder=>folder.split('/').map(part=>part.replace(/[?<>\\
 export function shareableSettings(prefs){
     const copy=structuredClone(prefs || {});
     for(const key of PRIVATE_SETTINGS)delete copy[key];
-    return copy;
+    return relocateSettings(copy,extensionRoot.pathname,true);
 }
 export function referencedPaths(text,prefix){
     const found=String(text).match(new RegExp(`${prefix.replace(/[/]/g,'\\/')}[^"\\\\?#]+`,'g')) || [];
@@ -85,7 +98,7 @@ export async function applyPackagedSettings(ctx){
     if(Object.keys(ctx.extensionSettings[KEY] || {}).length)return false;
     const response=await fetch(new URL(CONFIG_FILE,extensionRoot));
     if(!response.ok)return false;
-    ctx.extensionSettings[KEY]=(await response.json()).settings;
+    ctx.extensionSettings[KEY]=relocateSettings((await response.json()).settings);
     ctx.saveSettingsDebounced();
     return true;
 }
@@ -255,6 +268,7 @@ export async function importArchive({ctx,zip,replace=false,overwrite=new Set(),u
     if(!manifestEntry)throw new Error('This file is not a Silly Teyvat game data export.');
     const root=manifestEntry.name.slice(0,-GAME_MANIFEST.length),manifest=JSON.parse(await (await zip.read(manifestEntry)).text());
     if(manifest.format!==FORMAT)throw new Error('This game data was made by a different version of Silly Teyvat.');
+    manifest.settings=relocateSettings(manifest.settings);
     const post=api(ctx,signal),send=uploaders(ctx,signal),entries=[...zip.entries.values()].filter(entry=>entry!==manifestEntry).map(entry=>({entry,path:entry.name.slice(root.length)}));
     const usable=entries.filter(({path})=>isSafeEntry(path)&&KINDS.includes(path.split('/')[0])),present=replace?new Set():await existingFiles(ctx,usable.map(item=>item.path),{signal,post});
     for(const {entry} of usable)if(overwrite.has(entry.name))present.delete(entry.name.slice(root.length));
