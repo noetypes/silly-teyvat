@@ -1,0 +1,43 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "extension-static",
+      "runtimeExecutable": "python3",
+      "runtimeArgs": [
+        "-m",
+        "http.server",
+        "8765",
+        "--bind",
+        "127.0.0.1",
+        "--directory",
+        "extension/genshin-dialogue-ui"
+      ],
+      "port": 8765
+    },
+    {
+      "name": "extension-static-8766",
+      "runtimeExecutable": "python3",
+      "runtimeArgs": [
+        "-m",
+        "http.server",
+        "8766",
+        "--bind",
+        "127.0.0.1",
+        "--directory",
+        "extension/genshin-dialogue-ui"
+      ],
+      "port": 8766
+    },
+    {
+      "name": "extension-threaded",
+      "runtimeExecutable": "python3",
+      "runtimeArgs": [
+        "-c",
+        "import functools,http.server as h\nclass S(h.ThreadingHTTPServer):\n    request_queue_size=1024\n    daemon_threads=True\nS(('127.0.0.1',8791),functools.partial(h.SimpleHTTPRequestHandler,directory='extension/genshin-dialogue-ui')).serve_forever()"
+      ],
+      "port": 8791,
+      "autoPort": false
+    }
+  ]
+}
