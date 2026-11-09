@@ -1,3 +1,7 @@
+# Silly Teyvat 1.76.10: Menus cover the welcome panel
+
+- SillyTavern's menus (AI Config, User Settings and the rest) are now at least as wide as the chat column and start just under the top icons, so they fully cover the "SillyTavern release" welcome panel when it is on screen. On phones they are 6px from each edge instead of 12px.
+
 # Silly Teyvat 1.76.9: Nine portraits at most
 
 - The portrait strip at the top of Character Customization shows at most nine whole portraits on any screen, centred with the selected one in the middle. Its width never depends on the selected character's name; the browser check now verifies this at desktop sizes too (1920, 1440 and 1280 wide).

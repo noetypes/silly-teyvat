@@ -1154,12 +1154,15 @@ body.gi-choices-enabled :is(#left-nav-panel, #rm_api_block, #AdvancedFormatting,
     position: fixed !important;
     inset: 50dvh auto auto 50vw !important;
     transform: translate(-50%, -50%) !important;
-    width: min(1000px, calc(100vw - 48px)) !important;
+    /* Cover SillyTavern's welcome panel (the "release" card): it spans the chat
+       column (~60vw) from just under the HUD, so the menu is at least that wide
+       and starts at the same height. */
+    width: min(max(1000px, 62vw), calc(100vw - 48px)) !important;
     min-width: 0 !important;
     max-width: calc(100vw - 48px) !important;
-    height: min(82dvh, calc(100dvh - 144px), 880px) !important;
+    height: calc(100dvh - 120px) !important;
     min-height: 0 !important;
-    max-height: calc(100dvh - 144px) !important;
+    max-height: calc(100dvh - 120px) !important;
     margin: 0 !important;
     padding: 18px !important;
     overflow: auto !important;
@@ -1176,8 +1179,8 @@ body.gi-choices-enabled :is(#left-nav-panel, #WorldInfo, #right-nav-panel) > .dr
 @media (max-width: 560px) {
 
     body.gi-choices-enabled :is(#left-nav-panel, #rm_api_block, #AdvancedFormatting, #WorldInfo, #user-settings-block, #Backgrounds, #rm_extensions_block, #PersonaManagement, #right-nav-panel) {
-        width: calc(100vw - 24px) !important;
-        max-width: calc(100vw - 24px) !important;
+        width: calc(100vw - 12px) !important;
+        max-width: calc(100vw - 12px) !important;
         height: calc(100dvh - 112px) !important;
         max-height: calc(100dvh - 112px) !important;
         padding: 12px !important;
