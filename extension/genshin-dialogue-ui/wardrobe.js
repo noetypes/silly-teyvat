@@ -14,6 +14,7 @@ import { characterPreferences, bounded, roster } from './staging.js';
 import { nextSlotName, spriteDrafts, draftSprite } from './wardrobe-slots.js';
 import { backgroundRegions } from './backgrounds.js';
 import { mountMovesetEditor } from './moveset-editor.js';
+import { mountCombatArtEditor } from './combat-art-editor.js';
 import {personaCard,personaFolder,personaSpriteSettings,setPersonaSpriteSetting,mountPersonaProfile,createPersonaAdapter} from './persona-wardrobe.js';
 import {circularCharacterAvatar,characterAvatarsReady} from './character-avatars.js';
 import {mountBurstAudioEditor} from './burst-audio.js';
@@ -137,7 +138,7 @@ export function mountWardrobe({host, getContext, onChange = async () => {}, onMe
     dialog.innerHTML = `<header><div><h2 id="gi-wardrobe-title">Character Customization</h2></div><button type="button" data-w="close" aria-label="Close Character Customization">×</button></header>
         <div class="gi-roster-tools"><input type="search" id="gi-character-search" placeholder="Search characters" aria-label="Search characters" autocomplete="off" maxlength="80"><label class="gi-check gi-roster-filter"><input type="checkbox" id="gi-hide-non-genshin">Hide non-Genshin</label><div class="gi-roster-view" role="group" aria-label="Filter and sort characters"><label>Type<select data-roster="type"><option value="">All</option><option value="playable">Playable</option><option value="npc">NPC</option><option value="enemy">Enemy</option></select></label><label>Element<select data-roster="element"><option value="">All</option>${[...ELEMENTS,'None'].map(e=>`<option>${e}</option>`).join('')}</select></label><label>Body<select data-roster="body"><option value="">All</option><option value="small">Small</option><option value="medium">Medium</option><option value="tall">Tall</option><option value="unknown">Unspecified</option></select></label><label>Gender<select data-roster="gender"><option value="">All</option><option value="female">Female</option><option value="male">Male</option><option value="unknown">Unspecified</option></select></label><label>Region<select data-roster="region"><option value="">All</option></select></label><label>Sort<select data-roster="sort"><option value="">Party first</option><option value="name">Name</option><option value="element">Element</option><option value="body">Body type</option><option value="region">Region</option><option value="type">Type</option></select></label><button type="button" class="gi-roster-reset" hidden>Reset</button><output class="gi-roster-count" aria-live="polite"></output></div></div><nav class="gi-roster" aria-label="Choose a character"></nav>
         <div class="gi-wardrobe-body"><section class="gi-wardrobe-preview"><img alt="Selected sprite preview" hidden><h3></h3><p class="gi-outfit-caption"></p></section>
-        <section class="gi-wardrobe-controls"><details class="gi-character-staging" open><summary>Stage placement</summary><p class="gi-cs-note">Changes save automatically.</p>
+        <section class="gi-wardrobe-controls"><details class="gi-character-staging" open><summary>Stage placement</summary>
         <label title="When to choose this character’s expression automatically.">Expression timing<select id="gi-character-expression-mode"><option value="inherit">Use extension setting</option><option value="page">Once per dialogue page</option><option value="message">Once per complete message</option></select></label>
         <label>Character scale (%)<input id="gi-character-scale" type="number" min="10" max="300" step="1" value="100"></label>
         <label class="gi-check"><input id="gi-manual-position" type="checkbox">Set this character’s horizontal position</label><label>Horizontal position (% of screen)<input id="gi-character-x" type="number" min="0" max="100" step="1" value="50"></label>
@@ -195,6 +196,8 @@ export function mountWardrobe({host, getContext, onChange = async () => {}, onMe
     const personaPanel=document.createElement('section');
     $('.gi-sprite-detail').insertAdjacentHTML('afterbegin','<button type="button" data-w="use-persona-sprite" hidden>Use this expression</button>');
     $('.gi-character-staging').insertAdjacentHTML('afterbegin','<label class="gi-check" id="gi-persona-display-control" hidden><input id="gi-persona-visible" type="checkbox">Show your persona in the scene</label>');
+    $('.gi-character-staging').insertAdjacentHTML('afterbegin','<h3 class="gi-cs-heading">Stage placement</h3>');
+    const propertiesHeading=document.createElement('h3');propertiesHeading.className='gi-cs-heading';propertiesHeading.textContent='Properties';propertiesPanel.before(propertiesHeading);
     const personaProfileUI=mountPersonaProfile({panel:personaPanel,getContext,getCharacter:()=>character,adapter:personaAdapter,status,onChange:async card=>{await renderRoster();await onChange(card,{presentation:true});}});
     {
         // Genshin character screen: top bar (crest and name, party strip, close), section rail, centre stage, detail column.
@@ -214,12 +217,12 @@ export function mountWardrobe({host, getContext, onChange = async () => {}, onMe
         $(':scope > footer').insertAdjacentHTML('afterbegin','<button type="button" class="gi-cs-archive-open" data-w="archive" data-gi-sound="screen" aria-label="All characters" title="All characters"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="4" width="7" height="7" rx="1.6"/><rect x="13" y="4" width="7" height="7" rx="1.6"/><rect x="4" y="13" width="7" height="7" rx="1.6"/><rect x="13" y="13" width="7" height="7" rx="1.6"/></svg></button>');
         const sprites=$('[data-panel="sprites"]'),outfits=document.createElement('div');outfits.dataset.panel='outfits';outfits.hidden=true;
         const firstHeading=sprites.querySelector('h3');while(sprites.firstChild&&sprites.firstChild!==firstHeading)outfits.append(sprites.firstChild);sprites.before(outfits);
-        const attributes=document.createElement('div');attributes.dataset.panel='attributes';propertiesPanel.open=true;attributes.append(personaPanel,propertiesPanel,trustPanel,deckPanel);
+        const attributes=document.createElement('div');attributes.dataset.panel='attributes';propertiesPanel.open=true;attributes.append(personaPanel,propertiesHeading,propertiesPanel,trustPanel);
         const takeOver=document.createElement('section');takeOver.className='gi-takeover';takeOver.innerHTML='<button type="button" data-w="take-over" title="Use this character as your persona. While you play them they leave the world’s random encounters and share one set of sprites with your persona."></button>';$(':scope > footer').append(takeOver);
         const weapon=document.createElement('div');weapon.dataset.panel='weapon';weapon.hidden=true;const staging=$('.gi-character-staging');staging.open=true;weapon.append(staging);
-        // Moveset: the three battle moves, right after Profile.
+        // Combat: stats, the three battle moves, their art and the starter deck, right after Profile.
         const moveset=document.createElement('div');moveset.dataset.panel='moveset';moveset.hidden=true;
-        $('[data-w="tab-attributes"]').insertAdjacentHTML('afterend','<button type="button" data-w="tab-moveset" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14.5 3.5h6v6L9 21l-6-6Z"/><path d="m11 13 3-3M3 21l3-3"/></svg><span>Moveset</span></button>');
+        $('[data-w="tab-attributes"]').insertAdjacentHTML('afterend','<button type="button" data-w="tab-moveset" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14.5 3.5h6v6L9 21l-6-6Z"/><path d="m11 13 3-3M3 21l3-3"/></svg><span>Combat</span></button>');
         controls.prepend(attributes,moveset,weapon);sprites.hidden=true;
         $('.gi-wardrobe-preview').insertAdjacentHTML('afterbegin','<i class="gi-cs-pedestal" aria-hidden="true"></i>');$('.gi-wardrobe-preview > img').insertAdjacentHTML('afterend','<i class="gi-cs-tint" aria-hidden="true"></i><button type="button" class="gi-cs-zoom" data-w="zoom" aria-pressed="false" aria-label="Zoom in" title="Zoom in"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m15.5 15.5 5 5M7.5 10.5h6"/><path class="gi-cs-zoom-plus" d="M10.5 7.5v6"/></svg></button>');
     }
@@ -281,6 +284,9 @@ export function mountWardrobe({host, getContext, onChange = async () => {}, onMe
     function expectArrival(){arrival=true;dialog.classList.remove('gi-cs-arrive');}
     const movesetEditor=document.createElement('section');$('[data-panel="moveset"]').append(movesetEditor);
     const movesetUI=mountMovesetEditor({panel:movesetEditor,getContext,getCharacter:()=>character,status});
+    const artPanel=document.createElement('section');$('[data-panel="moveset"]').append(artPanel,deckPanel);deckPanel.classList.add('gi-editor-disclosure');
+    const combatArtUI=mountCombatArtEditor({panel:artPanel,getContext,getCharacter:()=>character,adapter:mediaAdapter,status});
+    movesetEditor.addEventListener('click',event=>{if(event.target.closest('[data-save-kit],[data-reset-kit]'))setTimeout(()=>combatArtUI.refresh());},{signal:abort.signal});
     const burstPanel=document.createElement('section');$('[data-panel="moveset"]').append(burstPanel);
     disclosure(burstPanel,'Elemental Burst audio');
     const burstAudioUI=mountBurstAudioEditor({panel:burstPanel,getContext,getCharacter:()=>character,adapter:mediaAdapter,previewAudio,status});
@@ -540,7 +546,7 @@ export function mountWardrobe({host, getContext, onChange = async () => {}, onMe
             if(active&&dialog.open)button.scrollIntoView({block:'nearest',inline:'nearest'});
         }
         if(!ready())return;
-        if(tab==='moveset'){movesetUI.refresh();burstAudioUI.refresh();}
+        if(tab==='moveset'){movesetUI.refresh();combatArtUI.refresh();burstAudioUI.refresh();}
         $('.gi-cs-identity h3').textContent=character?.name || '';
         if(tab==='cgs'){renderCGs();if(!selectedCG&&cgs().length)chooseCG(cgs()[0]);else if(!selectedCG){$('.gi-wardrobe-preview img').hidden=true;$('.gi-outfit-caption').textContent='Scene artwork';}const n=cgs().filter(cg=>cg.path).length;status(n?`${n} scene ${n===1?'artwork':'artworks'} for ${character?.name || 'this character'}.`:`No scene artwork for ${character?.name || 'this character'}.`);}
         else if(selected)chooseSprite(selected);
@@ -970,6 +976,6 @@ export function mountWardrobe({host, getContext, onChange = async () => {}, onMe
         },
         async refreshPersona(){if(!dialog.open)return;if(busy()){personaRefreshPending=true;return;}await renderRoster(character?.isPersona?personaCard(getContext())?.avatar:undefined);},
         close() { if (dialog.open) dialog.close(); },
-        dispose() { clearTimeout(pinchTimer); revision++; abort.abort(); backdrop.dispose(); trimmer.reset(); propertiesUI.dispose();startingTrustUI.dispose();starterDeckUI.dispose();movesetUI.dispose();burstAudioUI.dispose();personaProfileUI.dispose();dialog.close(); dialog.remove(); },
+        dispose() { clearTimeout(pinchTimer); revision++; abort.abort(); backdrop.dispose(); trimmer.reset(); propertiesUI.dispose();startingTrustUI.dispose();starterDeckUI.dispose();movesetUI.dispose();combatArtUI.dispose();burstAudioUI.dispose();personaProfileUI.dispose();dialog.close(); dialog.remove(); },
     };
 }

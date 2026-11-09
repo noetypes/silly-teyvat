@@ -14,6 +14,7 @@ import {CARD_DEFS as ITEMS,itemArt,kindLabel} from './battle-items.js';
 import {createBattleSound} from './battle-sound.js';
 import {createParticles,glyph,weaponIcon,EL_COLORS,SWORD_SVG} from './battle-fx.js';
 import {elementImg,reactionIcon,skillIcon,characterIcon,summonArt,fieldIcon,formArt} from './battle-icons.js';
+import {moveArt} from './combat-art.js';
 import {createWeaponFx,weaponOf,strikeKind} from './battle-weapons.js';
 import {createMachine} from './machine.js';
 
@@ -335,7 +336,7 @@ export function mountBattle({host,sound=createBattleSound(),onBurst=()=>{},onSto
     // Dice costs as the game draws them: a hexagon in the element's colour (white for any dice) with the count.
     const hexCost=(element,n,cls='')=>`<span class="tb-cost ${cls}" style="--el:${EL_COLORS[element] || '#e9e4f5'}">${element?elementImg(element,{white:true}):''}<b>${whole(n)}</b></span>`;
     const costRow=cost=>!cost.total?hexCost(null,0,'tb-free'):`${cost.matching?hexCost(cost.element,cost.matching):''}${cost.any?hexCost(null,cost.any,'tb-any'):''}`;
-    const moveIcon=(u,move)=>{const src=skillIcon(move);return src?`<img class="tb-skill-img" src="${src}" alt="" draggable="false">`:move.kind==='normal'?weaponIcon(u.kit.weapon):u.element==='None'?glyph('Omni'):elementImg(u.element,{white:true});};
+    const moveIcon=(u,move)=>{const src=moveArt(u,move) || skillIcon(move);return src?`<img class="tb-skill-img" src="${src}" alt="" draggable="false">`:move.kind==='normal'?weaponIcon(u.kit.weapon):u.element==='None'?glyph('Omni'):elementImg(u.element,{white:true});};
     function moveText(u,move){
         const cost=costOf(u,move);
         return `<small>${KIND_LABEL[move.kind]}${move.kind==='burst'&&!move.swapped?u.kit?.resource?` · ${escapeHtml(u.kit.resource.label)} ${whole(u.energy)}/${whole(u.maxEnergy)}`:` · Energy ${whole(u.energy)}/${whole(u.maxEnergy)}`:''}${move.spend?.nightsoul?` · ${move.spend.nightsoul} Nightsoul`:''}</small><strong>${escapeHtml(move.name)}</strong><span class="tb-cost-row">${costRow(cost)}${move.kind==='burst'?`<span class="tb-energy-cost" title="${whole(u.maxEnergy) || 2} Energy"><b>${whole(u.maxEnergy) || 2}</b></span>`:''}</span><p>${escapeHtml(describeMove(move,u.element==='None'?'Physical':u.element))}</p>`;
@@ -589,7 +590,7 @@ export function mountBattle({host,sound=createBattleSound(),onBurst=()=>{},onSto
         if(!pick)return;
         const u=activeOf(state,'party'),check=pickCheck(),cost=pickCost();
         // Detail panel.
-        if(pick.type==='skill')detail.innerHTML=`${skillIcon(movesOf(u)[pick.move])?`<img class="tb-detail-icon" src="${skillIcon(movesOf(u)[pick.move])}" alt="">`:''}${moveText(u,movesOf(u)[pick.move])}`;
+        if(pick.type==='skill')detail.innerHTML=`${moveArt(u,movesOf(u)[pick.move]) || skillIcon(movesOf(u)[pick.move])?`<img class="tb-detail-icon" src="${moveArt(u,movesOf(u)[pick.move]) || skillIcon(movesOf(u)[pick.move])}" alt="">`:''}${moveText(u,movesOf(u)[pick.move])}`;
         else if(pick.type==='switch'){const t=unitById(state,pick.id);detail.innerHTML=`<small>Switch Character</small><strong>${escapeHtml(t.name)}</strong><span class="tb-cost-row">${costRow(switchCost(round))}</span><p>${escapeHtml(t.name)} steps forward as your active character. This ends your turn.${round.freeSwitch?' Impetuous Winds makes this switch free.':''}</p>`;cards.get(pick.id)?.classList.add('tb-picked');}
         else{const id=round.hand[pick.index],item=ITEMS[id];detail.innerHTML=`<img class="tb-detail-card" src="${itemArt(id)}" alt=""><small>${escapeHtml(kindLabel(item))} card</small><strong>${escapeHtml(item.name)}</strong><span class="tb-cost-row">${hexCost(null,cardCost(round,item).cost,'tb-any')}</span><p>${escapeHtml(item.text)}</p><p class="tb-detail-note">${item.combat?'A Combat Action: playing it ends your turn.':'Playing a card does not end your turn.'}</p>`;
             banner(`Play Card: ${item.name}`,'',null,'tb-banner-hold');}
@@ -753,7 +754,7 @@ export function mountBattle({host,sound=createBattleSound(),onBurst=()=>{},onSto
     // ---- Elemental Burst: the card switches to its Dynamic Skin, then the splash art, then the strike ----------
     // The Dynamic Skin stays until the Burst has finished (endBurst), when the static art comes back.
     async function dynamicSkin(u){
-        const card=cards.get(u.id),art=card?.querySelector('.tb-art');if(!art||!u.card||!effectsOn())return;
+        const card=cards.get(u.id),art=card?.querySelector('.tb-art');if(!art||!u.card||u.customArt||!effectsOn())return;
         const src=dynamicSkinUrl(await loadDynamicSkins(),u.card);if(!src)return;
         art.querySelector('.tb-dynamic')?.remove();
         const video=/\.(webm|mp4)(\?|$)/i.test(src),node=video?el('video','tb-dynamic'):el('img','tb-dynamic');
@@ -775,7 +776,7 @@ export function mountBattle({host,sound=createBattleSound(),onBurst=()=>{},onSto
         if(skipAll)return;
         const box=dialog.querySelector('.gb-splash'),img=box.querySelector('img');box.style.setProperty('--el',EL_COLORS[u.element] || EL_COLORS.None);box.dataset.el=u.element;
         box.querySelector('.gb-splash-glyph').innerHTML=ELEMENTS.includes(u.element)?elementImg(u.element,{white:true}):glyph('Omni');
-        const src=u.card?splashUrl(u.card):'';
+        const src=u.burstArt || (u.card?splashUrl(u.card):'');
         img.hidden=true;
         await new Promise(resolve=>{const done=()=>{img.onload=img.onerror=null;img.hidden=false;resolve();};img.onload=done;img.onerror=()=>{const art=artOf(u);if(art&&img.src!==new URL(art,location.href).href){img.src=art;}else done();};img.src=src || artOf(u);setTimeout(done,500);});
         box.querySelector('small').textContent=`${u.name} · Elemental Burst`;box.querySelector('strong').textContent=move.name;

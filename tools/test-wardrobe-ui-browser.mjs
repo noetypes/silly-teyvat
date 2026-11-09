@@ -26,7 +26,7 @@ try{
         const ctx={characters:names.map(name=>({name,avatar:name+'.png'})),characterId:0,chat:[],extensionSettings:{genshin_dialogue_ui:{hideNonGenshin:false,outfits:{'Klee.png':[{label:'Winter',folder:'Klee/Winter'}] }},expressions:{custom:[]}},saveSettingsDebounced(){}};
         window.wardrobeUXContext=ctx;
         const files=['neutral','joy','love-1'].map(label=>({label:label.split('-')[0],path:new URL(`assets/preview/Klee/${label}.png`,location.href).pathname}));
-        window.wardrobeUX=mountWardrobe({host:document.body,getContext:()=>ctx,adapter:{list:async()=>files,refreshNative:async()=>{}}});
+        window.wardrobeUX=mountWardrobe({host:document.body,getContext:()=>ctx,adapter:{list:async()=>files,refreshNative:async()=>{}},mediaAdapter:{upload:async(file)=>({id:'art',path:new URL('assets/preview/Klee/joy.png',location.href).pathname,name:file.name})}});
         await window.wardrobeUX.open();
     });
     await settled();
@@ -154,9 +154,10 @@ try{
                     const room=await page.locator('.gi-wardrobe-tabs').evaluate(el=>{const r=el.getBoundingClientRect(),b=el.querySelector('[aria-pressed="true"]').getBoundingClientRect();return r.bottom-b.bottom;});
                     assert.ok(room>=8,`${width}x${height}: the selected section's shadow fits its row (${room})`);
                 }
-                const play=await page.evaluate(()=>{const r=s=>document.querySelector(s).getBoundingClientRect(),p=r('[data-w="take-over"]'),a=r('[data-w="archive"]'),side=r('.gi-cs-side');return {level:Math.abs(p.bottom-a.bottom),height:Math.abs(p.height-a.height),right:p.right,sideRight:side.right,sideLeft:side.left,helper:document.querySelectorAll('.gi-takeover small').length};});
+                const play=await page.evaluate(()=>{const r=s=>document.querySelector(s).getBoundingClientRect(),p=r('[data-w="take-over"]'),a=r('[data-w="archive"]'),side=r('.gi-cs-side');return {level:Math.abs(p.bottom-a.bottom),height:Math.abs(p.height-a.height),gap:p.left-a.right,right:p.right,sideLeft:side.left,helper:document.querySelectorAll('.gi-takeover small').length,status:document.querySelector('#gi-wardrobe footer p').getBoundingClientRect().width};});
                 assert.ok(play.level<1&&play.height<1&&play.helper===0,`${width}x${height}: Play as is level with and as tall as All Characters, without helper text (${JSON.stringify(play)})`);
-                assert.ok(landscape?play.right<=play.sideLeft:Math.abs(play.right-play.sideRight)<1.5,`${width}x${height}: Play as is right aligned (${JSON.stringify(play)})`);
+                assert.ok(play.gap>=6&&play.gap<=20&&(!landscape||play.right<=play.sideLeft),`${width}x${height}: Play as follows All Characters on the left (${JSON.stringify(play)})`);
+                assert.ok(play.status<=1,`${width}x${height}: no status text pops up in the bottom bar`);
                 assert.equal(await page.locator('.gi-card-properties:not(.gi-start-trust, .gi-starter-deck) > summary').isVisible(),false,`${width}x${height}: no Character & enemy properties dropdown`);
                 assert.equal(await page.locator('#gi-character-scale').isVisible(),false,'staging fields belong to Staging');
             }
@@ -211,7 +212,22 @@ try{
     }
     await page.setViewportSize({width:1440,height:900});
     await page.locator('[data-w="tab-attributes"]').click();
-    for(const text of ['Starting trust','Starter deck'])assert.equal(await page.getByText(text,{exact:true}).evaluate(el=>getComputedStyle(el).display!=='none'),true,`${text} disclosure is visible`);
+    assert.equal(await page.getByText('Starting trust',{exact:true}).evaluate(el=>getComputedStyle(el).display!=='none'),true,'Starting trust disclosure is visible');
+    assert.equal(await page.locator('[data-panel="attributes"] .gi-starter-deck').count(),0,'Starter deck has moved out of Profile');
+    await page.locator('[data-w="tab-moveset"]').click();
+    assert.equal(await page.locator('[data-w="tab-moveset"]').innerText(),'Combat','the Moveset section is called Combat');
+    assert.deepEqual(await page.locator('[data-panel="moveset"] h3:visible').allInnerTexts(),['Stats','Attacks','Art'],'Combat has Stats, Attacks and Art headings');
+    assert.equal(await page.getByText('Starter deck',{exact:true}).isVisible(),true,'Starter deck is in Combat');
+    // Art: the card, Burst art and each move show their game art; a new image saves at once and Default restores it.
+    const slots=await page.locator('.gi-art-tile').evaluateAll(t=>t.map(x=>x.dataset.slot));
+    assert.deepEqual(slots,['card','burst','0','1','2'],'Art shows the card, Burst art and three moves');
+    await page.locator('.gi-art-tile[data-slot="1"] input[type="file"]').setInputFiles({name:'skill.png',mimeType:'image/png',buffer:Buffer.from('89504e470d0a1a0a','hex')});
+    await page.waitForFunction(()=>document.querySelector('.gi-art-tile[data-slot="1"]')?.hasAttribute('data-custom'));
+    const saved=await page.evaluate(async()=>{const {combatArt,moveArt}=await import('./combat-art.js');const ctx=window.wardrobeUXContext,art=combatArt(ctx,ctx.characters[0]);const kit={moves:[{name:'a'},{name:'b'},{name:'c'}]};return {art,unit:moveArt({moveArt:art.moves,kit},kit.moves[1]),form:moveArt({moveArt:art.moves,kit,form:'x'},kit.moves[1])};});
+    assert.ok(saved.art.moves[1]&&saved.unit===saved.art.moves[1]&&saved.form==='','a new move icon is saved and used in battle (not by a second form)');
+    await page.locator('.gi-art-tile[data-slot="1"] [data-art-reset]').click();
+    assert.equal(await page.locator('.gi-art-tile[data-slot="1"]').getAttribute('data-custom'),null,'Default restores the game icon');
+    await page.locator('[data-w="tab-attributes"]').click();
     await page.locator('[data-w="tab-outfits"]').click();
     assert.equal(await page.locator('[data-w="equip"]').isDisabled(),true,'equipped set is clearly identified');
     await page.locator('#gi-outfit').selectOption('Klee/Winter');await settled();

@@ -480,7 +480,6 @@ body.gi-reduced-motion #gi-wardrobe .gi-cs-tint { display: none !important; }
     #gi-wardrobe .gi-takeover button { min-width: 0; min-height: 38px; height: 38px; padding-inline: 20px; font-size: 14px; }
 }
 @media (max-width: 600px) and (orientation: portrait) {
-    #gi-wardrobe .gi-cs-actions, #gi-wardrobe .gi-takeover, #gi-wardrobe .gi-takeover button { width: 100%; }
     /* Slimmer section row and footer leave the editor more height. */
     #gi-wardrobe .gi-cs-rail { padding: 4px 8px; }
     #gi-wardrobe .gi-wardrobe-tabs { padding: 2px; }
@@ -606,9 +605,6 @@ body.gi-reduced-motion #gi-wardrobe .gi-cs-tint { display: none !important; }
 }
 @media (max-width: 600px) and (orientation: portrait) {
     #gi-wardrobe footer { position: relative; padding-right: calc(env(safe-area-inset-right, 0px) + 8px); }
-    /* Status messages float just above the bar as a fading toast, leaving the row to its two buttons. */
-    #gi-wardrobe footer p { position: absolute; left: 50%; bottom: calc(100% + 8px); flex: none; width: max-content; max-width: calc(100% - 32px); padding: 5px 12px; border-radius: 14px; background: #0b1120e6; box-shadow: 0 2px 8px #0006; translate: -50% 0; pointer-events: none; }
-    #gi-wardrobe footer p:not(.gi-toast), #gi-wardrobe footer p:empty { display: none; }
 }
 /* Landscape: section bubbles fit their names, as in portrait. */
 @media (max-width: 900px) and (orientation: landscape), (max-height: 550px) and (orientation: landscape) {
@@ -616,3 +612,48 @@ body.gi-reduced-motion #gi-wardrobe .gi-cs-tint { display: none !important; }
     #gi-wardrobe .gi-wardrobe-tabs button { width: auto; max-width: 100%; }
     #gi-wardrobe footer { align-items: flex-end; }
 }
+
+/* ---------- Headings, Combat art, bottom bar, continuous header ---------- */
+/* Status messages are announced to screen readers only; nothing pops up above the bottom bar. */
+#gi-wardrobe footer p { position: absolute !important; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+/* Play as follows All Characters on the left of the bottom bar. */
+#gi-wardrobe footer .gi-takeover { margin-left: 0; }
+/* Section headings inside the editor. */
+#gi-wardrobe .gi-wardrobe-controls h3 { margin: 18px 0 8px; padding: 0 0 6px; border-bottom: 1px solid #d3bc8e40; font-size: 15px; letter-spacing: .02em; color: #ead6a3; }
+/* The editor starts at its first line, without an empty band above it. */
+#gi-wardrobe .gi-wardrobe-controls { padding-top: 2px; }
+#gi-wardrobe [data-panel] > :first-child, #gi-wardrobe [data-panel] > [hidden]:first-child + *,
+#gi-wardrobe :is(.gi-persona-profile, .gi-moveset, .gi-character-staging) > h3:first-child { margin-top: 0; }
+#gi-wardrobe [data-panel] > details:is(.gi-character-staging, .gi-card-properties:not(.gi-start-trust, .gi-starter-deck)) { margin-top: 0; }
+/* Combat → Art: the card, Burst art and move icons a battle shows; each tile picks a new image. */
+#gi-wardrobe .gi-art-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(92px, 1fr)); gap: 12px; padding: 4px 2px; }
+#gi-wardrobe .gi-art-tile { display: grid; gap: 6px; align-content: start; min-width: 0; }
+#gi-wardrobe .gi-art-pick { position: relative; display: grid; gap: 6px; margin: 0; cursor: pointer; }
+#gi-wardrobe .gi-art-pick input { position: absolute; width: 1px; height: 1px; opacity: 0; pointer-events: none; }
+#gi-wardrobe .gi-art-pick:focus-within .gi-art-thumb { outline: 2px solid #f2dca0; outline-offset: 3px; }
+#gi-wardrobe .gi-art-thumb { position: relative; display: grid; place-items: center; aspect-ratio: 7 / 10; overflow: hidden; border: 1px solid #d3bc8e55; border-radius: 6px 6px 14px 6px; background: linear-gradient(170deg, #6c5a46, #37415a 62%, #262f42); box-shadow: 0 2px 8px #0005; transition: box-shadow 160ms ease, transform 160ms ease; }
+#gi-wardrobe .gi-art-pick:hover .gi-art-thumb { box-shadow: 0 0 0 2px #ece5d8; transform: translateY(-2px); }
+#gi-wardrobe .gi-art-thumb img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+#gi-wardrobe .gi-art-tile[data-kind="move"] .gi-art-thumb { aspect-ratio: 1; border-radius: 50%; background: radial-gradient(circle at 50% 40%, #4b5874, #1d2433); }
+#gi-wardrobe .gi-art-tile[data-kind="move"] .gi-art-thumb img { inset: 14%; width: 72%; height: 72%; object-fit: contain; }
+#gi-wardrobe .gi-art-tile[data-kind="move"][data-custom] .gi-art-thumb img { inset: 0; width: 100%; height: 100%; object-fit: cover; }
+#gi-wardrobe .gi-art-empty { font-size: 28px; font-style: normal; color: #ead6a3; }
+#gi-wardrobe .gi-art-thumb:has(img) .gi-art-empty { display: none; }
+#gi-wardrobe .gi-art-name { font-size: 12px; line-height: 1.25; text-align: center; color: #ece5d8; overflow-wrap: anywhere; }
+#gi-wardrobe .gi-art-tile > [data-art-reset] { justify-self: center; min-height: 26px; padding: 2px 12px; border-radius: 13px; font-size: 12px; }
+/* Portrait phones: a slightly shorter top band that fades into the backdrop instead of ending in an edge. */
+@media (max-width: 900px) and (orientation: portrait) {
+    #gi-wardrobe header { background: linear-gradient(var(--cs-band), color-mix(in srgb, var(--cs-band) 55%, transparent) 55%, transparent); box-shadow: none; }
+}
+@media (max-width: 600px) and (orientation: portrait) {
+    #gi-wardrobe header { grid-template-rows: 44px 58px; }
+    #gi-wardrobe .gi-cs-emblem { width: 38px; height: 38px; }
+    #gi-wardrobe .gi-cs-title h2 { font-size: 20px; }
+    #gi-wardrobe .gi-cs-character-select { top: calc(env(safe-area-inset-top, 0px) + 44px); height: 58px; }
+    #gi-wardrobe header .gi-roster { height: 58px; padding-block: 5px; }
+    #gi-wardrobe header .gi-roster button { height: 48px; }
+    #gi-wardrobe header .gi-roster .gi-roster-face { left: 6px; width: 36px; height: 36px; }
+    #gi-wardrobe header .gi-roster button[aria-pressed="true"] .gi-roster-face { left: 3px; width: 42px; height: 42px; }
+}
+#gi-wardrobe [data-panel="moveset"] > .gi-combat-art { margin-bottom: 14px; }
+@media (min-width: 901px) and (min-height: 551px) { #gi-wardrobe .gi-cs-side { padding-top: 14px; } }

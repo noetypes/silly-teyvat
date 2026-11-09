@@ -35,12 +35,12 @@ export function mountMovesetEditor({panel,getContext,getCharacter,status=()=>{}}
         const ctx=getContext(),props=characterProperties(ctx,card),enemy=props.role==='enemy';
         kit=structuredClone(kitForCard(ctx,card));
         const element=enemy?kit.element:props.element;
-        panel.innerHTML=`
+        panel.innerHTML=`<h3 class="gi-cs-heading">Stats</h3>
             <div class="gi-moveset-head">
                 <label>Role<select data-k="role">${[...ROLES,'Enemy'].map(x=>opt(x)).join('')}</select></label>
                 ${enemy?`<label>Element<select data-k="element">${['Physical',...ELEMENTS].map(x=>opt(x)).join('')}</select></label>
                 <label>Shield<input data-k="shield" type="number" min="0" max="99" value="${esc(kit.shield || 0)}"></label>
-                <label>Shield weak to / weakness<select data-k="weakTo">${opt('','None')}${ELEMENTS.map(x=>opt(x)).join('')}</select></label>
+                <label>Shield weakness<select data-k="weakTo">${opt('','None')}${ELEMENTS.map(x=>opt(x)).join('')}</select></label>
                 <label>Armor (% less damage)<input data-k="armor" type="number" min="0" max="90" value="${esc(kit.armor || 0)}"></label>
                 <label>Armor broken by<select data-k="armorBreak">${opt('','Nothing')}${ELEMENTS.map(x=>opt(x)).join('')}</select></label>
                 <label>Evasion (%)<input data-k="evasion" type="number" min="0" max="80" value="${esc(kit.evasion || 0)}"></label>
@@ -50,6 +50,7 @@ export function mountMovesetEditor({panel,getContext,getCharacter,status=()=>{}}
                 <label>Dodge (%)<input data-k="evasion" type="number" min="0" max="90" value="${esc(kit.evasion || 0)}"></label>
                 <label class="gi-check" title="Normal Attacks deal this character's element instead of Physical damage, from the start of every fight"><input type="checkbox" data-k="infusion">Elemental infusion</label>`}
             </div>
+            <h3 class="gi-cs-heading">Attacks</h3>
             ${kit.moves.map((move,i)=>`<section class="gi-move-edit" data-move="${i}">
                 <div class="gi-move-head"><small>${KIND_LABEL[move.kind]}</small><input data-m="name" maxlength="80" value="${esc(move.name)}" aria-label="${KIND_LABEL[move.kind]} name"></div>
                 <div class="gi-move-row">

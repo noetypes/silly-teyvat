@@ -1,3 +1,10 @@
+# Silly Teyvat 1.76.8: Combat section and art
+
+- **Moveset is now Combat**, with Stats, Attacks and Art headings and the Starter deck (moved from Profile). Art shows the TCG card, Elemental Burst art and each attack's icon that battles use; tap one to upload a replacement, or Default to restore the game's art. Replacements apply to the card's battles (and to a persona playing that card), and a custom card replaces its animated Dynamic Skin.
+- Profile has a Properties heading and Staging a Stage placement heading, with less empty space above the first item. The enemy field reads "Shield weakness".
+- Play as follows All Characters on the left of the bottom bar. Status messages no longer pop up there; screen readers still announce them.
+- Phones in portrait: a slightly shorter top band that fades into the backdrop, with no edge above the section tabs.
+
 # Silly Teyvat 1.76.7: Character menu controls
 
 - **Play as** sits in the bottom bar on every section, level with and as tall as All Characters, right aligned under the slate (beside the slate in landscape). Its explanation moved to a tooltip. On phones in portrait, status messages float above the bar as a fading toast.

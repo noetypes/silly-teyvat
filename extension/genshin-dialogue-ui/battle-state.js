@@ -11,6 +11,7 @@ import {activeGroup} from './party.js';
 import {resonanceOf,planIntent,innateAura,auraList,applyForm} from './battle-engine.js';
 import {addToBag,CARD_DEFS,ITEMS} from './battle-items.js';
 import {formArt} from './battle-icons.js';
+import {combatArt} from './combat-art.js';
 import {journeyBag} from './starter-decks.js';
 
 // Genius Invokation TCG card art, for characters and enemies that have a card of the same name.
@@ -91,18 +92,19 @@ export function battleSnapshot(ctx,{portrait=()=>'',duel=null,includeEnemies=fal
     for(const ally of duel?combatAllies(ctx).filter(a=>a.avatar===USER_KEY):combatAllies(ctx)){
         const kit=kitForAlly(ctx,ally),m=partyMember(ctx,ally.avatar),keep=saved.units[ally.avatar] || {};
         const card=ally.avatar===USER_KEY?linkedCard(ctx):ctx.characters.find(c=>c.avatar===ally.avatar);
-        units.push({id:ally.avatar,side:'party',name:m.name,card:card?.name || '',img:portrait(ctx,ally.avatar),circle:circularCharacterAvatar(ctx,ally.avatar===USER_KEY?personaCard(ctx):card) || portrait(ctx,ally.avatar),art:tcgArt(card?.name),element:allyElement(ctx,ally),isUser:ally.avatar===USER_KEY,
+        const own=combatArt(ctx,ally.avatar===USER_KEY?personaCard(ctx):card);
+        units.push({id:ally.avatar,side:'party',name:m.name,card:card?.name || '',img:portrait(ctx,ally.avatar),circle:circularCharacterAvatar(ctx,ally.avatar===USER_KEY?personaCard(ctx):card) || portrait(ctx,ally.avatar),art:own.card || tcgArt(card?.name),customArt:Boolean(own.card),burstArt:own.burst,moveArt:own.moves,element:allyElement(ctx,ally),isUser:ally.avatar===USER_KEY,
             hp:m.hp,maxHp:m.maxHp,shield:keep.shield || 0,energy:keep.energy ?? 0,maxEnergy:Math.max(1,Math.min(5,Number(kit.energy)||2)),aura:keep.aura || null,statuses:keep.statuses || [],evasion:Math.max(0,Math.min(90,Number(kit.evasion)||0)),kit});
     }
     for(const avatar of duel || []){
-        const card=ctx.characters.find(c=>c.avatar===avatar),m=partyMember(ctx,avatar),element=characterProperties(ctx,card).element,kit=foeKit(kitForCard(ctx,card));
-        units.push({id:avatar,side:'enemy',duel:true,name:m.name,card:card?.name || '',img:portrait(ctx,avatar),circle:circularCharacterAvatar(ctx,card) || portrait(ctx,avatar),art:tcgArt(card?.name),element:element==='None'?'Physical':element,
+        const card=ctx.characters.find(c=>c.avatar===avatar),m=partyMember(ctx,avatar),element=characterProperties(ctx,card).element,kit=foeKit(kitForCard(ctx,card)),own=combatArt(ctx,card);
+        units.push({id:avatar,side:'enemy',duel:true,name:m.name,card:card?.name || '',img:portrait(ctx,avatar),circle:circularCharacterAvatar(ctx,card) || portrait(ctx,avatar),art:own.card || tcgArt(card?.name),customArt:Boolean(own.card),burstArt:own.burst,moveArt:own.moves,element:element==='None'?'Physical':element,
             hp:m.hp,maxHp:m.maxHp,shield:0,energy:0,maxEnergy:0,aura:null,statuses:[],cooldowns:{},enraged:false,usedRage:false,intent:null,armor:0,armorBreak:'',weakTo:'',evasion:Number(kit.evasion)||0,kit,visit:'duel'});
     }
     for(const e of enemies){
-        const card=ctx.characters.find(c=>c.avatar===e.avatar),kit=kitForCard(ctx,card),keep=saved.units[e.avatar],own=characterProperties(ctx,card).element;
+        const card=ctx.characters.find(c=>c.avatar===e.avatar),kit=kitForCard(ctx,card),keep=saved.units[e.avatar],own=characterProperties(ctx,card).element,art=combatArt(ctx,card);
         // An element chosen in the Moveset editor wins over the card's.
-        units.push({id:e.avatar,side:'enemy',name:card?.name || 'Enemy',card:card?.name || '',img:portrait(ctx,e.avatar),circle:card?circularCharacterAvatar(ctx,card) || portrait(ctx,e.avatar):'',art:tcgArt(card?.name),element:kit.custom&&kit.element || (own==='None'?'Physical':own),
+        units.push({id:e.avatar,side:'enemy',name:card?.name || 'Enemy',card:card?.name || '',img:portrait(ctx,e.avatar),circle:card?circularCharacterAvatar(ctx,card) || portrait(ctx,e.avatar):'',art:art.card || tcgArt(card?.name),customArt:Boolean(art.card),burstArt:art.burst,moveArt:art.moves,element:kit.custom&&kit.element || (own==='None'?'Physical':own),
             hp:e.hp,maxHp:e.maxHp,shield:keep?keep.shield || 0:Number(kit.shield)||0,energy:0,maxEnergy:0,aura:keep?.aura || null,statuses:keep?.statuses || [],cooldowns:structuredClone(keep?.cooldowns || {}),enraged:Boolean(keep?.enraged),usedRage:Boolean(keep?.usedRage),intent:keep?.intent || null,
             armor:keep?.armor ?? (Number(kit.armor)||0),armorBreak:kit.armorBreak || '',weakTo:kit.weakTo || '',evasion:Number(kit.evasion)||0,kit,visit:e.key});
         // A second form taken earlier in this encounter (La Signora's Crimson Witch of Embers) lasts for the rest of it.
