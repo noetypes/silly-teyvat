@@ -39,7 +39,7 @@ try{
     await page.evaluate(()=>window.wardrobeUX.open({avatar:'Klee.png'}));await settled();
     assert.equal(await page.locator('.gi-cs-tint').evaluate(el=>getComputedStyle(el).display),'none','reduced motion never leaves the arrival tint over the character');
     assert.equal(await page.locator('.gi-cs-identity').isVisible(),false,'redundant character and preview heading is removed from the slate');
-    const views=[[1440,900],[1024,768],[901,600],[900,700],[768,1024],[390,844],[320,568],[844,390],[568,320],[932,430]];
+    const views=[[1920,1080],[1440,900],[1280,800],[1024,768],[901,600],[900,700],[768,1024],[390,844],[320,568],[844,390],[568,320],[932,430]];
     const touch=await page.context().newCDPSession(page);
     await touch.send('Emulation.setTouchEmulationEnabled',{enabled:true,maxTouchPoints:1});
     for(const [width,height] of views){
@@ -55,7 +55,7 @@ try{
         }
         assert.ok(Math.abs(selector.group.mid-width/2)<1,`${width}x${height}: portrait group is centered on screen`);
         const whole=await page.locator('header .gi-roster').evaluate(strip=>{const s=strip.getBoundingClientRect(),cs=getComputedStyle(strip),left=s.left+parseFloat(cs.paddingLeft),right=s.right-parseFloat(cs.paddingRight),faces=[...strip.querySelectorAll(':scope > button')].map(b=>b.getBoundingClientRect()).filter(r=>r.right>left+1&&r.left<right-1);return {cut:faces.filter(r=>r.left<left-1||r.right>right+1).length,shown:faces.length};});
-        assert.ok(whole.cut===0&&whole.shown%2===1,`${width}x${height}: the strip shows a whole, odd number of portraits (${JSON.stringify(whole)})`);
+        assert.ok(whole.cut===0&&whole.shown%2===1&&whole.shown<=9,`${width}x${height}: the strip shows a whole, odd number of portraits (${JSON.stringify(whole)})`);
         const cross=await page.locator('header > [data-w="close"]').evaluate(b=>{const r=b.getBoundingClientRect(),c=b.querySelector('svg').getBoundingClientRect();return Math.abs((r.left+r.right)-(c.left+c.right))/2+Math.abs((r.top+r.bottom)-(c.top+c.bottom))/2;});
         assert.ok(cross<0.6,`${width}x${height}: the close cross is centred in its circle`);
         const rail=await page.locator('.gi-wardrobe-tabs').evaluate(el=>{const r=el.getBoundingClientRect();return [...el.children].filter(b=>b.getBoundingClientRect().bottom<r.bottom&&b.getBoundingClientRect().top>r.top).every(b=>b.scrollWidth<=b.clientWidth+1&&b.getBoundingClientRect().right<=r.right+1);});
@@ -63,12 +63,14 @@ try{
         if(landscape){
             const bubble=await page.locator('.gi-wardrobe-tabs [aria-pressed="true"]').evaluate(b=>{const range=document.createRange();range.selectNodeContents(b.querySelector('span'));return b.getBoundingClientRect().width-range.getBoundingClientRect().width;});
             assert.ok(bubble<40,`${width}x${height}: the selected section bubble fits its name (${bubble})`);
+        }
+        {
             const before=await page.locator('header .gi-roster').evaluate(el=>el.getBoundingClientRect().width);
             await page.evaluate(()=>window.wardrobeUX.open({avatar:'Sangonomiya Kokomi.png'}));await settled();await page.waitForTimeout(60);
             const after=await page.locator('header .gi-roster').evaluate(el=>el.getBoundingClientRect().width);
             const title=await page.evaluate(()=>{const t=document.querySelector('.gi-cs-title').getBoundingClientRect(),g=document.querySelector('.gi-cs-character-select').getBoundingClientRect();return g.left-t.right;});
             await page.evaluate(()=>window.wardrobeUX.open({avatar:'Klee.png'}));await settled();
-            assert.ok(Math.abs(before-after)<1&&title>=0,`${width}x${height}: the number of portraits does not depend on the name (${before} vs ${after}, gap ${title})`);
+            assert.ok(Math.abs(before-after)<1&&(title>=0||!landscape&&width<=1100),`${width}x${height}: the number of portraits does not depend on the name (${before} vs ${after}, gap ${title})`);
         }
         assert.ok(Math.abs((selector.strip.left-selector.q.right)-(selector.e.left-selector.strip.right))<1,`${width}x${height}: Q/E have even spacing`);
         assert.equal(selector.scrollTop,0,`${width}x${height}: portrait strip cannot scroll vertically`);

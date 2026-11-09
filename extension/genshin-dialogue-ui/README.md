@@ -1,3 +1,7 @@
+# Silly Teyvat 1.76.9: Nine portraits at most
+
+- The portrait strip at the top of Character Customization shows at most nine whole portraits on any screen, centred with the selected one in the middle. Its width never depends on the selected character's name; the browser check now verifies this at desktop sizes too (1920, 1440 and 1280 wide).
+
 # Silly Teyvat 1.76.8: Combat section and art
 
 - **Moveset is now Combat**, with Stats, Attacks and Art headings and the Starter deck (moved from Profile). Art shows the TCG card, Elemental Burst art and each attack's icon that battles use; tap one to upload a replacement, or Default to restore the game's art. Replacements apply to the card's battles (and to a persona playing that card), and a custom card replaces its animated Dynamic Skin.

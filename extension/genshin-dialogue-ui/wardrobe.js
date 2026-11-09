@@ -498,6 +498,8 @@ export function mountWardrobe({host, getContext, onChange = async () => {}, onMe
         const faces=[...dialog.querySelectorAll('.gi-roster button')],at=faces.findIndex(b=>b.getAttribute('aria-pressed')==='true');
         if(faces.length>1)faces[(at+by+faces.length)%faces.length].click();
     }
+    // At most nine portraits show at once on any screen; odd, so the selected one can sit in the middle.
+    const ROSTER_MAX=9;
     // The portrait group is centred on the screen. When it shares a row with the title, it takes the width the title
     // and close button leave on both sides; the strip then shows a whole, odd number of portraits, so the selected
     // one sits in the middle and none is cut off.
@@ -520,7 +522,7 @@ export function mountWardrobe({host, getContext, onChange = async () => {}, onMe
             const room=strip.clientWidth-pad,size=faces[faces.length-1].offsetWidth,split=strip.querySelector('[data-party="true"] + button:not([data-party])');
             dialog.classList.remove('gi-cs-measure');
             const extra=split?parseFloat(getComputedStyle(split).marginLeft)||0:0;
-            let count=Math.max(1,Math.floor((room-extra+gap)/(size+gap)));if(count%2===0)count--;
+            let count=Math.min(ROSTER_MAX,Math.max(1,Math.floor((room-extra+gap)/(size+gap))));if(count%2===0)count--;
             if(count<faces.length&&size>0)strip.style.width=`${count*size+(count-1)*gap+extra+pad}px`;
         }
         if(sameRow)title.style.maxWidth=`${Math.max(0,group.getBoundingClientRect().left-tr.left-12)}px`;
