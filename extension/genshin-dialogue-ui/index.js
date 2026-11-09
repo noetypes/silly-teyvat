@@ -902,7 +902,13 @@ export async function initialize(options = {}) {
     }
     if (!mounted || version !== mountVersion) return;
     shareUI=mountShare({getContext:context,announce,signal:abort.signal});shareUI.bind();
-    void shareUI.checkGameData({startup:true}).catch(error=>console.warn('[Silly Teyvat] Game data check',error));
+    // The activate hook can mount this before SillyTavern has loaded its characters, which made every
+    // card look missing. APP_READY comes after they load, and fires at once for a late listener.
+    let gameDataChecked=false;
+    subscribe('APP_READY',()=>{
+        if(gameDataChecked||version!==mountVersion)return;gameDataChecked=true;
+        void shareUI?.checkGameData({startup:true}).catch(error=>console.warn('[Silly Teyvat] Game data check',error));
+    });
     uiSound=createUiSound({getVolume:()=>preferences().uiSound?preferences().uiSoundVolume:0});mountUiSound({sound:uiSound,signal:abort.signal});
     document.addEventListener('click', handleAction, { signal: abort.signal });
     document.addEventListener('keydown', handleKey, { signal: abort.signal });
