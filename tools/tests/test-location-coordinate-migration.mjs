@@ -1,10 +1,12 @@
 import fs from 'node:fs';
 import assert from 'node:assert/strict';
-let source=fs.readFileSync('extension/genshin-dialogue-ui/starter-locations.js','utf8').replace(/^import .*;\n/gm,'');
+const extension=new URL('../../extension/genshin-dialogue-ui/',import.meta.url);
+let source=fs.readFileSync(new URL('starter-locations.js',extension),'utf8').replace(/^import .*;\n/gm,'');
 source=source.replaceAll('import.meta.url', JSON.stringify('https://example.test/starter-locations.js'));
-source='const backgroundRegions=ctx=>ctx.regions; const mediaSettings=ctx=>ctx.prefs; const validMapPoint=p=>!!p;\n'+source;
+// Stand-ins for the stripped imports. Battle music filling is covered by test-location-music.mjs.
+source='const backgroundRegions=ctx=>ctx.regions; const mediaSettings=ctx=>ctx.prefs; const validMapPoint=p=>!!p; const fillBattleMusic=()=>{};\n'+source;
 const {seedWorldLocations}=await import('data:text/javascript;base64,'+Buffer.from(source).toString('base64'));
-const full=JSON.parse(fs.readFileSync('extension/genshin-dialogue-ui/assets/world-locations/catalog.json'));
+const full=JSON.parse(fs.readFileSync(new URL('assets/world-locations/catalog.json',extension)));
 const rec=full.locations.find(x=>x.id==='wilderness-port-ormos');
 const catalog={version:7,locations:[rec]};
 function run(version,waypoint){const ctx={prefs:{starterLocationsVersion:version},regions:[{name:'Sumeru',locations:waypoint?[{id:rec.id,label:rec.label,waypoint,path:'/custom'}]:[]}],saveSettingsDebounced(){}};seedWorldLocations(ctx,catalog);return ctx;}
