@@ -16,7 +16,12 @@ import {journeyBag} from './starter-decks.js';
 // Genius Invokation TCG card art, for characters and enemies that have a card of the same name.
 let tcgCards=new Set();
 export const tcgCardsReady=fetch(new URL('./assets/tcg/characters.json',import.meta.url)).then(r=>r.ok?r.json():[]).then(list=>{tcgCards=new Set(list);}).catch(()=>{});
-export const tcgArt=name=>name&&tcgCards.has(name)?new URL(`./assets/tcg/characters/${encodeURIComponent(String(name).replace(/:/g,''))}.webp`,import.meta.url).href:'';
+export const tcgArt=name=>{
+    if(!name)return '';
+    // Some native cards omit a colon from the display name but retain the same enemy.
+    const canonical=tcgCards.has(name)?name:[...tcgCards].find(n=>n.replace(/:/g,'')===String(name));
+    return canonical?new URL(`./assets/tcg/characters/${encodeURIComponent(canonical.replace(/:/g,''))}.webp`,import.meta.url).href:'';
+};
 // The party's shared item bag, saved per chat. A new journey starts with its character's starter deck.
 export const partyBag=ctx=>journeyBag(ctx,combatState(ctx));
 // The combat deck: the cards of the bag that battles deal from, at most DECK_MAX. It is saved beside the bag
@@ -79,9 +84,9 @@ export const duelKey=avatars=>`duel:${[...avatars].sort().join('|')}`;
 export const unpaidEnemies=visit=>Object.values(visit?.enemies || {}).map(e=>e.spoils).filter(Boolean);
 const battleStore=(ctx,key)=>{const store=combatState(ctx);store.battles ??= {};return store.battles[key] ??= {round:1,units:{},summons:[]};};
 // duel: party members the player fights on their own. They take the enemy side with their own HP.
-export function battleSnapshot(ctx,{portrait=()=>'',duel=null}={}){
+export function battleSnapshot(ctx,{portrait=()=>'',duel=null,includeEnemies=false}={}){
     const disabled=activeGroup(ctx)?.disabled_members || [];
-    const enemies=duel?[]:activeEnemies(ctx).filter(e=>!disabled.includes(e.avatar)),key=duel?duelKey(duel):battleKey(enemies),saved=battleStore(ctx,key);
+    const enemies=duel&&!includeEnemies?[]:activeEnemies(ctx).filter(e=>!disabled.includes(e.avatar)&&!duel?.includes(e.avatar)),key=duel?duelKey(duel)+(enemies.length?`:${battleKey(enemies)}`:''):battleKey(enemies),saved=battleStore(ctx,key);
     const units=[];
     for(const ally of duel?combatAllies(ctx).filter(a=>a.avatar===USER_KEY):combatAllies(ctx)){
         const kit=kitForAlly(ctx,ally),m=partyMember(ctx,ally.avatar),keep=saved.units[ally.avatar] || {};

@@ -38,7 +38,7 @@ import { setLocationCharacterLimit } from './location-capacity.js';
 import { createJourneyLibraryAdapter, purgeLegacyJourneys, isLegacyJourneyGroup } from './journey-library.js';
 import { mountCardArt } from './card-art.js';
 import { mountInventory } from './inventory.js';
-import { mountCardSearch, currentGuild, QUEST_MENU_ICON } from './card-search.js';
+import { mountCardSearch, QUEST_MENU_ICON } from './card-search.js';
 import {trustEnabled,presentCharacters,syncTrustPrompt,trustPrompt,stripPromptTrustTags} from './trust.js';
 import {hideTrustTags} from './trust-tags.js';
 import {abyssGreeting,freshenTwinPersonas,keepAbyssGreeting,restoreTwinCards,syncTwinPrompt,twinRolesPrompt,wearTwinCards} from './twin-roles.js';
@@ -93,7 +93,7 @@ const menuButton = (action, label, icon = action) => MENU_ICONS.has(icon)
     : button(action, label, icon, false);
 // Trust has no icon in the game, so its heart is drawn to match them: their white, their outline.
 const TRUST_ICON = `data:image/svg+xml,${encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 21.2 3.6 12.8a5.4 5.4 0 0 1 7.6-7.6l.8.8.8-.8a5.4 5.4 0 0 1 7.6 7.6Z" fill="#fff" stroke="#1c1c1c" stroke-width="1" stroke-linejoin="round"/></svg>')}`;
-// Card Search is only offered at an Adventurers' Guild (card-search.js), with the game's Quests icon.
+// Card Search is available throughout a chat, with the game's Quests icon.
 const questButton = () => `<button type="button" data-gi-action="card-search" aria-label="Card Search" hidden><img class="gi-pm-icon" src="${QUEST_MENU_ICON}" alt="" aria-hidden="true" draggable="false"><span>Card Search</span></button>`;
 const trustButton = () => `<button type="button" data-gi-action="trust" aria-label="Trust"><img class="gi-pm-icon" src="${TRUST_ICON}" alt="" aria-hidden="true" draggable="false"><span>Trust</span></button>`;
 let mounted = false;
@@ -411,9 +411,9 @@ function refresh({passive=false}={}) {
     worldMapUI?.sync({on:Boolean(prefs.enabled&&inChat),show:Boolean(sceneActive&&!history&&!hidden&&!menuOpen),location:backgroundUI?.current,loading:Boolean(loadingUI?.visible)});
     for (const el of uiActions('wardrobe')) el.hidden = !prefs.wardrobe;
     for (const el of uiActions('trust')) el.hidden = !prefs.trustSystem;
-    const atGuild = Boolean(prefs.enabled && inChat && currentGuild(ctx));
-    for (const el of uiActions('card-search')) el.hidden = !atGuild;
-    if (!atGuild && cardSearchUI?.isOpen) cardSearchUI.close();
+    const canSearch = Boolean(prefs.enabled && inChat);
+    for (const el of uiActions('card-search')) el.hidden = !canSearch;
+    if (!canSearch && cardSearchUI?.isOpen) cardSearchUI.close();
     if (!prefs.wardrobe) wardrobeUI?.close();
     // Top-right SillyTavern icons: shown, hidden, or (Auto) hidden on phones for a clean layout.
     const hideTop = topIconsHidden(prefs);

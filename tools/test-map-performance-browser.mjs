@@ -5,6 +5,8 @@ import {createRequire} from 'node:module';
 const {chromium}=createRequire(import.meta.url)('playwright');
 const baseline=process.argv.includes('--baseline'),mobile=process.argv.includes('--mobile'),cpu=Number(process.argv[process.argv.indexOf('--cpu')+1])||4;
 const browser=await chromium.launch({channel:'chrome',headless:true});
+const browserCdp=await browser.newBrowserCDPSession();
+const graphics=(await browserCdp.send('SystemInfo.getInfo')).gpu.featureStatus;
 const page=await browser.newPage({viewport:mobile?{width:412,height:915}:{width:1440,height:900},isMobile:mobile,hasTouch:mobile}),errors=[];
 await page.addInitScript(memory=>Object.defineProperty(navigator,'deviceMemory',{get:()=>memory}),mobile?2:8);
 page.on('pageerror',e=>errors.push(e.message));
@@ -43,12 +45,63 @@ try{
         frames.sort((a,b)=>a-b);
         return {openMs:window.mapOpenMs,clickMs:times.map(n=>+n.toFixed(1)),p95FrameMs:+frames[Math.floor(frames.length*.95)].toFixed(1),listChildChanges:mutations.length,reusedListNode:original===list.querySelector('[data-location="p1"]')};
     });
-    console.log(JSON.stringify({cpu,mobile,...timings},null,2));
+    // Include a whole-world pan/zoom flight: a steady-zoom pan alone misses
+    // the cost of repositioning every visible DOM marker on each zoom frame.
+    await cdp.send('Performance.enable');
+    await page.evaluate(()=>window.testMap.setView([0,-5000],-3,{animate:false}));
+    await page.waitForTimeout(400);
+    const metric=async()=>Object.fromEntries((await cdp.send('Performance.getMetrics')).metrics.map(m=>[m.name,m.value]));
+    const beforeFlight=await metric();
+    const flight=await page.evaluate(async()=>{
+        const map=window.testMap,frames=[];let previous=0,frameId=0,updates=0;
+        const observer=new MutationObserver(records=>{updates+=records.length;});
+        observer.observe(map.getPane('markerPane'),{attributes:true,subtree:true,attributeFilter:['style']});
+        const frame=t=>{if(previous)frames.push(t-previous);previous=t;frameId=requestAnimationFrame(frame);};
+        frameId=requestAnimationFrame(frame);
+        await new Promise(resolve=>{map.once('moveend',resolve);document.querySelector('.gi-map-waypoint-list [data-location="p0"]').click();});
+        cancelAnimationFrame(frameId);observer.disconnect();frames.sort((a,b)=>a-b);
+        return {p95FrameMs:+frames[Math.floor(frames.length*.95)].toFixed(1),markerStyleChanges:updates};
+    });
+    const afterFlight=await metric();
+    for(const [name,key] of [['scriptMs','ScriptDuration'],['styleMs','RecalcStyleDuration'],['layoutMs','LayoutDuration']])flight[name]=+((afterFlight[key]-beforeFlight[key])*1000).toFixed(1);
+    console.log(JSON.stringify({cpu,mobile,graphics,...timings,flight},null,2));
     if(!baseline){
+        const markerChecks=await page.evaluate(async()=>{
+            const {L,mapMarker,waypointIcon}=await import('./map-engine.js'),map=window.testMap;
+            const options={icon:waypointIcon(),zIndexOffset:500},point=map.getCenter();
+            const optimized=mapMarker(point,options).addTo(map),stock=L.marker(point,options).addTo(map);
+            const position=marker=>L.DomUtil.getPosition(marker.getElement());
+            const same=()=>position(optimized).equals(position(stock))&&optimized.getElement().style.zIndex===stock.getElement().style.zIndex;
+            let changes=0;
+            const observer=new MutationObserver(records=>{changes+=records.length;});
+            observer.observe(optimized.getElement(),{attributes:true,attributeFilter:['style']});
+            for(let i=0;i<20;i++)optimized.update();
+            await Promise.resolve();observer.disconnect();
+            const positions=[];
+            const check=step=>{const ok=same();positions.push({step,ok,optimized:[position(optimized),optimized.getElement().style.zIndex],stock:[position(stock),stock.getElement().style.zIndex]});return ok;};
+            let correct=check('initial');
+            for(const zoom of [-3,-2,-1.5]){map.setZoom(zoom,{animate:false});correct=check(`zoom ${zoom}`)&&correct;}
+            const moved=L.latLng(point.lat+100,point.lng+100);
+            optimized.setLatLng(moved);stock.setLatLng(moved);correct=check('move')&&correct;
+            optimized.setIcon(waypointIcon({selected:true}));stock.setIcon(waypointIcon({selected:true}));correct=check('icon')&&correct;
+            optimized.setZIndexOffset(1000);stock.setZIndexOffset(1000);correct=check('stacking')&&correct;
+            optimized.remove();optimized.addTo(map);correct=check('readd')&&correct;
+            const paneHint=getComputedStyle(map.getPane('mapPane')).willChange;
+            const pinHint=getComputedStyle(optimized.getElement()).willChange;
+            const keyboard=optimized.getElement().tabIndex===0;
+            optimized.remove();stock.remove();
+            return {changes,correct,paneHint,pinHint,keyboard,positions};
+        });
+        assert.equal(markerChecks.changes,0,'unchanged rounded marker positions do not write styles');
+        assert.ok(markerChecks.correct,`zoom, moving, icon replacement, stacking and culling match stock Leaflet: ${JSON.stringify(markerChecks.positions.filter(p=>!p.ok))}`);
+        assert.ok(markerChecks.keyboard,'map markers retain keyboard focus');
+        assert.equal(markerChecks.paneHint,'transform','the shared camera pane is prepared for compositing');
+        assert.equal(markerChecks.pinHint,'auto','individual markers do not request extra graphics layers');
         assert.ok(timings.reusedListNode,'selection preserves list nodes and keyboard focus');
         assert.equal(timings.listChildChanges,0,'selection does not rebuild the waypoint list');
         assert.ok(Math.max(...timings.clickMs)<100,'selection must avoid full-world recomputation under CPU throttling');
         assert.ok(timings.p95FrameMs<35,'panning should avoid sustained missed frames');
+        assert.ok(flight.p95FrameMs<35,'whole-world waypoint flights should avoid sustained missed frames');
         await page.evaluate(()=>{
             const ctx=window.mapContext;ctx.extensionSettings.genshin_dialogue_ui.backgroundRegions[0].locations[0].label='Renamed place';
             ctx.extensionSettings.genshin_dialogue_ui.backgroundRegions[0].locations[1].residents=[];
@@ -121,7 +174,9 @@ try{
             return {pan:pan.length,flight:flight.length};
         });
         assert.ok(easing.pan>3&&easing.flight>3,'both pane panning and pan/zoom flights honor custom easing');
-        await page.evaluate(()=>{window.fixture.close();window.fixture.open();});
+        const closedHint=await page.evaluate(()=>{window.fixture.close();return getComputedStyle(window.testMap.getPane('mapPane')).willChange;});
+        assert.equal(closedHint,'auto','closing the map releases compositing hints');
+        await page.evaluate(()=>window.fixture.open());
         if(mobile&&await page.locator('#gi-world-map').getAttribute('data-panel')!=='open')await page.locator('[data-map="panel"]').click();
         assert.equal(await page.locator('.gi-map-waypoint-list [data-location="p0"] b').textContent(),'Renamed place');
         const rostersAgree=await page.evaluate(async()=>{
@@ -144,7 +199,21 @@ try{
         await page.evaluate(()=>{window.fixture.dispose();});
         await page.waitForTimeout(1000);
         assert.equal(await page.locator('#gi-world-map').count(),0);
+        const fallback=await page.evaluate(async()=>{
+            const {L,makeMap,mapMarker,waypointIcon}=await import('./map-engine.js');
+            const any3d=L.Browser.any3d,host=document.createElement('div');
+            host.style.cssText='position:fixed;width:300px;height:200px';document.body.append(host);
+            let map;
+            try{
+                L.Browser.any3d=false;
+                map=makeMap(host,{interactive:false,details:false});map.setView([0,0],-2);
+                const marker=mapMarker([0,0],{icon:waypointIcon()}).addTo(map),icon=marker.getElement();
+                marker.setLatLng([100,100]);
+                return Number.isFinite(parseFloat(icon.style.left))&&Number.isFinite(parseFloat(icon.style.top));
+            }finally{map?.remove();host.remove();L.Browser.any3d=any3d;}
+        });
+        assert.ok(fallback,'markers keep Leaflet’s positioning fallback when 3D transforms are unavailable');
         assert.deepEqual(errors,[],'no late animation or disposal errors');
-        console.log('PASS incremental selection, mutable cache invalidation, cast moves, decoded tile reuse, tile retries, camera interruption, reopening and disposal');
+        console.log('PASS incremental selection, marker reuse and positioning, compositing lifecycle, mutable cache invalidation, cast moves, decoded tile reuse, tile retries, camera interruption, reopening, fallback and disposal');
     }
 }finally{await browser.close();}

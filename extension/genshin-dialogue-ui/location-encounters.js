@@ -5,7 +5,8 @@ import {mediaSettings} from './media-store.js';
 import {newLocalId} from './local-id.js';
 import {playedAvatars} from './persona-link.js';
 import {ABYSS_HOME,abyssAvatar} from './twin-roles.js';
-import {guildBranch,isGuildStaff,isGuildLocation,findKatheryne} from './guild.js';
+import {guildBranch,isGuildStaff,isGuildLocation,findKatheryne,guildStaffAbsent} from './guild.js';
+import {companionSide,playingEnemy} from './enemy-persona.js';
 
 const MAX_ENCOUNTERED=3;
 // Assigned homes and this chat's travelling placements are separate from the
@@ -19,7 +20,7 @@ export function locationResidents(ctx,id){
     const played=playedAvatars(ctx);
     // Katheryne is at every Guild branch and nowhere else, wherever her card says she lives.
     const branch=guildBranch(ctx,id);
-    return (ctx.characters || []).filter(c=>(isGuildStaff(ctx,c.avatar)?branch:homes.get(c.avatar)===id)&&!played.has(c.avatar)&&!isEnemy(ctx,c));
+    return (ctx.characters || []).filter(c=>(isGuildStaff(ctx,c.avatar)?branch&&!guildStaffAbsent(ctx,id):homes.get(c.avatar)===id)&&!played.has(c.avatar)&&!isEnemy(ctx,c));
 }
 // A map paint needs every roster. Build the shared home/persona/role lookup once,
 // rather than scanning every location and card again for each pin and list row.
@@ -32,7 +33,7 @@ export function locationResidentsIndex(ctx){
     const played=playedAvatars(ctx),staff=findKatheryne(ctx)?.avatar,branches=locations.filter(isGuildLocation).map(l=>l.id);
     for(const card of ctx.characters || []){
         if(played.has(card.avatar)||isEnemy(ctx,card))continue;
-        for(const id of card.avatar===staff?branches:[homes.get(card.avatar)]){
+        for(const id of card.avatar===staff?branches.filter(id=>!guildStaffAbsent(ctx,id)):[homes.get(card.avatar)]){
             if(!id)continue;if(!result.has(id))result.set(id,[]);result.get(id).push(card);
         }
     }
@@ -62,10 +63,12 @@ export function rollLocationEncounter(ctx,locationId,travellers=[],{random=Math.
     if(kind==='open'||bypass)return scene;
     const left=ctx.chatMetadata?.silly_teyvat_cast?.leftBehind || {},residents=prefs.locationEncounters===false?[]:locationResidents(ctx,locationId).filter(c=>!party.has(c.avatar));
     const stays=c=>isFavorite(c)||isGuildStaff(ctx,c.avatar)||residents.length<=MAX_ENCOUNTERED&&left[c.avatar]===locationId;
-    const others=residents.filter(c=>!stays(c)).map(c=>c.avatar),pool=[...wildernessCandidates(ctx,locationId,kind)];
+    const leftEnemies=playingEnemy(ctx)?(ctx.characters || []).filter(c=>isEnemy(ctx,c)&&companionSide(ctx,c.avatar)&&left[c.avatar]===locationId&&!party.has(c.avatar)).map(c=>c.avatar):[];
+    const others=residents.filter(c=>!stays(c)).map(c=>c.avatar),pool=[...new Set([...wildernessCandidates(ctx,locationId,kind),...leftEnemies])].filter(a=>!party.has(a));
     scene.present=residents.filter(stays).map(c=>c.avatar);
     if(!scene.present.length&&others.length)scene.present.push(takeRandom(others,random));
-    if(pool.length)scene.enemies.push(takeRandom(pool,random));
+    if(leftEnemies.length<=MAX_ENCOUNTERED)for(const avatar of leftEnemies){scene.enemies.push(avatar);pool.splice(pool.indexOf(avatar),1);}
+    if(!scene.enemies.length&&pool.length)scene.enemies.push(takeRandom(pool,random));
     const enemyRate=wildernessEncounterRate(ctx,wildernessLocation(ctx,locationId)),extras=[...others,...pool];
     while(extras.length&&scene.present.length+scene.enemies.length<MAX_ENCOUNTERED){
         const avatar=takeRandom(extras,random),enemy=pool.includes(avatar);

@@ -1,3 +1,15 @@
+# Silly Teyvat 1.75.1: Original enemy cards
+
+Eight previously makeshift enemy cards have one-pass original illustrations: Cryo Whopperflower, Geo Slime, Large Electro Slime, Large Pyro Slime, Treasure Hoarders - Marksman, Treasure Hoarders - Scout, Treasure Hoarders: Gravedigger and Treasure Hoarders: Pyro Potioneer. Their battle art and native character portraits match. They are fan-made, not official TCG cards. Prompts and the review gallery are in `art/tcg/enemy-cards/`.
+
+The small Geo Slime fights physically; the large slimes and Cryo Whopperflower have 56 base HP like comparable large-slime and Pyro Whopperflower kits. The marksman targets weak party members, the scout throws knives and dodges, the gravedigger weakens with dust, and the potioneer leaves a brief Pyro reagent. The Whopperflower's charging shield and the slimes' sustained elemental effects approximate their overworld behavior with supported combat mechanics. Sources: [TCG card gallery](https://genshin-impact.fandom.com/wiki/Genius_Invokation_TCG/Gallery/Cards), [slime group](https://genshin-impact.fandom.com/wiki/Slime), [Cryo Whopperflower](https://genshin-impact.fandom.com/wiki/Cryo_Whopperflower), [Treasure Hoarder group](https://genshin-impact.fandom.com/wiki/Treasure_Hoarders/Enemy_Group) and [Pyro Potioneer behavior](https://genshin-impact.fandom.com/wiki/Mutual_Security_Enhancing_Simulation/Synthesized_Intel). Existing battles keep their stored HP; custom moveset and HP overrides are preserved.
+
+# Silly Teyvat 1.75: NPC battles and wilderness openings
+
+All 46 bundled NPCs have individual three-move kits and original character card art. Most NPCs have 16–30 HP and their victories grant weak-tier location card drops; experienced fighters and unusual beings are stronger. Katheryne has 110 HP, stronger moves and boss-tier loot. If defeated at a Guild, she is absent for the rest of that visit; leaving restores her health and the next Guild encounter has a fresh Katheryne who acts as though nothing happened. A player's saved HP or moveset overrides remain in force.
+
+Starting a new enemy-card chat chooses a random wilderness waypoint whose pool includes that card, or a region-appropriate wilderness fallback if no pool includes it, and starts the enemy encounter immediately. Resuming a saved chat keeps its location. Card Search can be opened from any location.
+
 # Silly Teyvat 1.33: Wilderness encounters and turn-based elemental combat
 
 Installed in the local SillyTavern user extension directory. Refresh SillyTavern on each device to load the update and the newly tagged cards. Your chats, portraits, greetings and original sprite files are preserved.
@@ -85,7 +97,9 @@ Since 1.65 La Signora is a boss (`boss-kits.js`): boss balance, the guaranteed r
 
 ## Playing an enemy (1.76)
 
-When the persona is linked to an enemy card, `enemy-persona.js` reverses the sides. Only bosses are hostile to the player (never the player's own kind); every other enemy is a friend and takes no part in the fight. Every character who is not an enemy is hostile: they are the foes of a duel (Attack on, then pick who), they can start one by writing the combat trigger phrase, and they never fight beside you. A solo journey starts at a random Wilderness waypoint where the enemy appears (otherwise any Wilderness waypoint) with a friendly one of its kind present. The stage puts you and the enemies on the left. The *Enemy persona* prompt, rewritten every turn, lists who is friendly and who is hostile. Defeat sends you to a Wilderness refuge, not a Guild. Battle music: friendly enemies do not start it; hostile characters do until you win or flee.
+When the persona is linked to an enemy card, `enemy-persona.js` reverses the sides. Only bosses are hostile to the player (never the player's own kind); every other enemy is a friend and takes no part in the fight. Every character who is not an enemy is hostile: Attack fights all present non-enemies without a target confirmation, including hostile bosses in that encounter, and defeated hostile characters leave without a revive question. Non-boss enemies can travel with the player: departure asks about each one, accepted companions remain at the destination, and declined companions stay where they were left. Non-enemies and bosses do not follow. A solo journey starts alone at a random Wilderness waypoint where the enemy appears (otherwise any Wilderness waypoint), with no residents or enemies on the opening visit. Encounters begin after travel; other enemies of the player's kind can still appear then. The stage puts you and the enemies on the left. The *Enemy persona* prompt, rewritten every turn, lists who is friendly and who is hostile. Defeat sends you to a Wilderness refuge, not a Guild. Battle music: friendly enemies do not start it; hostile characters do until you win or flee.
+
+The configured combat trigger (by default `[start_combat]`) works in any AI participant's reply, regardless of the player's persona or the speaker's enemy/character role. After the reply is read, the attacker starts a round without a confirmation. Bracketed triggers are hidden from AI dialogue, and each reply/swipe is handled once. Player messages do not trigger this automatic attack.
 
 ## Opponent charge
 

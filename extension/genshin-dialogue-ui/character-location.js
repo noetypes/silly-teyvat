@@ -8,22 +8,28 @@ import {rollLocationEncounter} from './location-encounters.js';
 import {saveTravel,travelState} from './backgrounds.js';
 import {beginOpeningScene} from './opening-scene.js';
 import {isNarrator} from './narrator.js';
+import {enemyNative} from './enemy-regions.js';
 
 // Called when a solo card opens a new chat. A chat that already has a saved location
 // resumes there instead, and group conversion or history views never move it.
 export const hasSavedLocation=ctx=>Boolean(travelState(ctx).location?.id);
-export function startCharacterAtHome(ctx){
+export function startCharacterAtHome(ctx,random=Math.random){
     if(ctx.groupId)return startGroupAtHome(ctx);
     if(inPartyChat(ctx))return false;
     const character=ctx.characters?.[ctx.characterId];if(!character||playedAvatars(ctx).has(character.avatar))return false;
     if(hasSavedLocation(ctx))return false;
-    const points=worldWaypoints(ctx),defaultHome=defaultCharacterLocation(ctx,character.avatar),home=points.find(item=>item.location.id===defaultHome?.id)?.location || points.find(item=>item.location.id===travelState(ctx).location?.id)?.location || points[0]?.location;
+    const points=worldWaypoints(ctx),enemy=isEnemy(ctx,character),defaultHome=defaultCharacterLocation(ctx,character.avatar);
+    const habitats=enemy?points.filter(({location})=>location.wilderness&&(location.enemyPool || []).includes(character.avatar)):[];
+    const regional=enemy?points.filter(({region,location})=>location.wilderness&&enemyNative(character.name,region.name)):[];
+    const options=habitats.length?habitats:regional;
+    const home=(options.length?options[Math.min(options.length-1,Math.floor(random()*options.length))].location:null) || points.find(item=>item.location.id===defaultHome?.id)?.location || points[0]?.location;
     beginOpeningScene(ctx,character.avatar,home?.id);if(!home)return false;
     const state=locationCastState(ctx);
-    state.core=[character.avatar];
-    state.managed=[];state.placements[character.avatar]=home.id;
+    state.core=enemy?[]:[character.avatar];
+    state.managed=[];if(!enemy)state.placements[character.avatar]=home.id;
     teleportTo(ctx,home.id,{record:false});
-    state.encounter=rollLocationEncounter(ctx,home.id,[character.avatar],{kind:'open'});
+    state.encounter=rollLocationEncounter(ctx,home.id,enemy?[]:[character.avatar],{kind:'open'});
+    if(enemy)state.encounter.enemies=[character.avatar];
     noteLocationArrival(ctx,home.id,{kind:'open',travellers:[character.avatar]});saveTravel(ctx);return true;
 }
 

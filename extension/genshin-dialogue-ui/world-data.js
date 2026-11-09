@@ -9,6 +9,7 @@ import {residentsAt} from './location-cast.js';
 import {recordTravel} from './travel-history.js';
 import {promptText,renderPrompt} from './prompt-templates.js';
 import {abyssAvatar} from './twin-roles.js';
+import {leaveDefeatedGuildStaff,isGuildLocation} from './guild.js';
 
 // Coordinates are native HoYoLAB map units, not screen pixels or latitude.
 // Waypoint x/y never change with the art version; only the tile grid's size and origin do.
@@ -50,9 +51,10 @@ export function worldScalePrompt(ctx){
         return [item.location.wilderness?renderPrompt(ctx,'world_wilderness',{location:clean(item.location.label)}):'',
             `- ${clean(item.location.label)} | Region: ${clean(item.region.name)} | ${distance==null?'Distance unknown':`${Math.round(distance)} m; direction ${directionFrom(current.point,item.point)}; baseline walking ${minutes.toFixed(1)} min`} | Coordinates: (${item.point.x.toFixed(1)}, ${item.point.y.toFixed(1)})${item.location.description?` | Description: ${clean(item.location.description)}`:''}${residents.length?` | Linked characters here: ${residents.map(c=>clean(c.name)).join(', ')}`:''}`].filter(Boolean);
     });
+    const guildNote=ctx.chatMetadata?.silly_teyvat_cast?.guildStaffReturned&&isGuildLocation(current?.location)?' Katheryne is at the counter again, acting as though the earlier fight never happened; she does not acknowledge or remember it.':'';
     return renderPrompt(ctx,'world',{scale,location:clean(current?.location.label || state.location?.label || 'Unknown'),region:clean(region?.name || 'Unknown'),speed,scope:mediaSettings(ctx).worldPromptAllRegions?'entire world':'current region only',
         guests_note:mediaSettings(ctx).locationEncounters!==false?promptText(ctx,'world_guests'):'',unknown_note:current?'':promptText(ctx,'world_unknown'),
-        party:party.length?`Current party: ${party.filter(a=>!isEnemy(ctx,a)).map(a=>clean(ctx.characters?.find(c=>c.avatar===a)?.name || a)).join(', ')}.`:'',waypoints:rows.join('\n')});
+        party:party.length?`Current party: ${party.filter(a=>!isEnemy(ctx,a)).map(a=>clean(ctx.characters?.find(c=>c.avatar===a)?.name || a)).join(', ')}.`:'',waypoints:rows.join('\n')})+guildNote;
 }
 export function syncWorldPrompt(ctx,enabled=true){
     const value=enabled?worldScalePrompt(ctx):'';
@@ -66,7 +68,7 @@ export function syncWorldPrompt(ctx,enabled=true){
 export function teleportTo(ctx,locationId,{avatars,record=true,encounter}={}){
     const target=worldWaypoints(ctx).find(w=>w.location.id===locationId);
     if(!target)throw new Error('Choose a waypoint with background artwork.');
-    const state=travelState(ctx),from=structuredClone(state.location);state.regionId=target.region.id;state.epoch=newLocalId();state.location=structuredClone(target.location);state.entry=structuredClone(target.location);
+    const state=travelState(ctx),from=structuredClone(state.location);leaveDefeatedGuildStaff(ctx,from,target.location);state.regionId=target.region.id;state.epoch=newLocalId();state.location=structuredClone(target.location);state.entry=structuredClone(target.location);
     const last=ctx.chat?.at(-1);
     // Teleport takes effect immediately; old dialogue must not classify us back.
     state.manualAt=last?{id:ctx.chat.length-1,swipe:String(last.swipe_id ?? 0),signature:pageSignature(last.mes || '')}:null;

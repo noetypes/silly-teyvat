@@ -55,7 +55,7 @@ export function activeEnemies(ctx){
     // An enemy left in the group from a fight somewhere else (defeated, fled or left behind) does not
     // follow the party: it is present here only if this location's encounter lists it.
     const elsewhere=a=>Object.entries(store.visits).some(([k,v])=>k!==key&&v.locationId!==locationId&&v.enemies?.[a]);
-    const listed=encounter&&encounter.locationId===locationId?encounter.enemies || []:[];
+    const listed=encounter&&encounter.locationId===locationId?[...(encounter.enemies || []),...(encounter.travellers || [])]:[];
     const avatars=[...new Set([...listed,...sceneMembers(ctx).filter(a=>isEnemy(ctx,a)&&!cast.managed?.includes(a)&&!elsewhere(a))])];
     const visit=store.visits[key] ??= {locationId,enemies:{}},played=playedAvatars(ctx);
     // Playing an enemy, only bosses are hostile; the other enemies are friends (friendlyEnemies).
@@ -69,7 +69,7 @@ export function activeEnemies(ctx){
 export function friendlyEnemies(ctx){
     if(!playingEnemy(ctx))return [];
     const encounter=ctx.chatMetadata?.silly_teyvat_cast?.encounter,locationId=ctx.chatMetadata?.silly_teyvat_world?.location?.id;
-    const listed=encounter&&encounter.locationId===locationId?encounter.enemies || []:[];
+    const listed=encounter&&encounter.locationId===locationId?[...(encounter.enemies || []),...(encounter.travellers || [])]:[];
     return [...new Set(listed)].filter(a=>isEnemy(ctx,a)&&!hostileEnemy(ctx,a)&&ctx.characters?.some(c=>c.avatar===a));
 }
 // Enemy health is set when it first appears, scaled by difficulty and the size of the party it meets.

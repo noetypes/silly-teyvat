@@ -35,7 +35,7 @@ export function mountMovesetEditor({panel,getContext,getCharacter,status=()=>{}}
         const ctx=getContext(),props=characterProperties(ctx,card),enemy=props.role==='enemy';
         kit=structuredClone(kitForCard(ctx,card));
         const element=enemy?kit.element:props.element;
-        panel.innerHTML=`<p class="gi-moveset-note">${enemy?'Enemies take two actions a round on their turns: an Attack, or their Special when its cooldown is ready (or at once when enraged below half health).':'As in Genius Invokation, a Normal Attack costs one die of this character\'s element and the rest any dice; Elemental Skills and Bursts cost dice of the element (Omni counts, and Elemental Tuning turns a die). Bursts also need full Energy.'} Maximum HP (${esc(props.maxHp)}) is set in Profile.${kit.custom?' <b>Edited.</b>':''}</p>
+        panel.innerHTML=`<details class="gi-moveset-rules"><summary>${enemy?'How enemies act':'How moves cost dice'}${kit.custom?' <b>Edited</b>':''}</summary><p class="gi-moveset-note">${enemy?'Enemies take two actions a round on their turns: an Attack, or their Special when its cooldown is ready (or at once when enraged below half health).':'As in Genius Invokation, a Normal Attack costs one die of this character\'s element and the rest any dice; Elemental Skills and Bursts cost dice of the element (Omni counts, and Elemental Tuning turns a die). Bursts also need full Energy.'} Maximum HP (${esc(props.maxHp)}) is set in Profile.</p></details>
             <div class="gi-moveset-head">
                 <label>Role<select data-k="role">${[...ROLES,'Enemy'].map(x=>opt(x)).join('')}</select></label>
                 ${enemy?`<label>Element<select data-k="element">${['Physical',...ELEMENTS].map(x=>opt(x)).join('')}</select></label>

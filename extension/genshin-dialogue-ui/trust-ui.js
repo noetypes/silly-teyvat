@@ -15,6 +15,35 @@ export function heartRow(level){
     for(let i=0;i<TRUST_MAX;i++){const heart=el('i');heart.style.setProperty('--fill',`${Math.round(Math.max(0,Math.min(1,level-i))*100)}%`);row.append(heart);}
     return row;
 }
+// Editable version of the Trust menu's five-heart meter. The existing input remains
+// the saved value, so fractional requirements and change handlers keep working.
+export function mountHeartInput({input,signal}){
+    const label=input.closest('label'),field=el('div','gi-required-trust'),caption=el('span','','Required Trust');
+    field.title=label.title;caption.id=input.id+'-label';input.hidden=true;
+    const controls=el('div','gi-heart-input'),slider=el('span','gi-heart-slider'),clear=el('button','gi-heart-clear','×'),value=el('output','gi-heart-value');
+    slider.tabIndex=0;slider.setAttribute('role','slider');slider.setAttribute('aria-labelledby',caption.id);slider.setAttribute('aria-valuemin','0');slider.setAttribute('aria-valuemax',String(TRUST_MAX));
+    clear.type='button';clear.setAttribute('aria-label','Clear required Trust');clear.title='No Trust required';
+    label.replaceWith(field);field.append(caption,input,controls);controls.append(slider,value,clear);
+    const clean=n=>Math.max(0,Math.min(TRUST_MAX,Math.round((Number(n)||0)*10)/10));
+    function refresh(){
+        const level=clean(input.value),hearts=heartRow(level);hearts.removeAttribute('role');hearts.setAttribute('aria-hidden','true');
+        hearts.querySelectorAll('i').forEach((heart,i)=>{heart.dataset.hearts=String(i+1);});slider.replaceChildren(hearts);
+        slider.setAttribute('aria-valuenow',String(level));slider.setAttribute('aria-valuetext',level?`${level} of ${TRUST_MAX} hearts`:'No Trust required');
+        slider.setAttribute('aria-disabled',String(input.disabled));slider.tabIndex=input.disabled?-1:0;clear.disabled=input.disabled;value.textContent=`${level} / ${TRUST_MAX}`;
+    }
+    function set(level){
+        if(input.disabled)return;
+        input.value=String(clean(level));input.dispatchEvent(new Event('change',{bubbles:true}));refresh();
+    }
+    slider.addEventListener('click',event=>{const heart=event.target.closest('[data-hearts]');if(heart){slider.focus({preventScroll:true});set(heart.dataset.hearts);}},{signal});
+    slider.addEventListener('keydown',event=>{
+        const level=clean(input.value),step=Number(input.step)||.1,next={ArrowLeft:level-step,ArrowDown:level-step,ArrowRight:level+step,ArrowUp:level+step,Home:0,End:TRUST_MAX,PageUp:level+1,PageDown:level-1}[event.key];
+        if(next!==undefined){event.preventDefault();event.stopPropagation();set(next);}
+    },{signal});
+    clear.addEventListener('click',()=>set(0),{signal});input.addEventListener('change',refresh,{signal});
+    const disabled=new MutationObserver(refresh);disabled.observe(input,{attributes:true,attributeFilter:['disabled']});
+    signal.addEventListener('abort',()=>disabled.disconnect(),{once:true});refresh();return {refresh,field};
+}
 const portrait=(ctx,card)=>circularCharacterAvatar(ctx,card) || ctx.getThumbnailUrl?.('avatar',card.avatar) || `/characters/${encodeURIComponent(card.avatar)}`;
 
 export function mountTrust({host,getContext,announce=()=>{}}){

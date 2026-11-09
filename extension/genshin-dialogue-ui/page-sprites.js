@@ -266,7 +266,7 @@ export function mountPageSprites({ host, getContext, adapter = createNativeSprit
         const items = staged.map(({ image, sprite }) => {
             const card = stageCharacter(ctx, sprite), cp = p.characterSprites?.[card?.avatar || sprite.avatar] || {};
             const look = livePresentation(sprite, staged.length >= 3 && staged.some(x => x.sprite.presentation?.focus) && compactViewport(W, H));
-            return { group: (kindOf(sprite) === 'enemy') !== reversed ? 1 : 0, h: sprite.h, aspect: Number(image.dataset.trim) || sprite.aspect, scale: (sprite.presentation ? liveSpriteScale(ctx, sprite, card) : 1) * look.focusScale,
+            return { group: (kindOf(sprite) === 'enemy') !== reversed ? 1 : 0, h: sprite.h, aspect: Number(image.dataset.trim) || image.naturalWidth / image.naturalHeight || sprite.aspect, scale: (sprite.presentation ? liveSpriteScale(ctx, sprite, card) : 1) * look.focusScale,
                 lift: Math.max(-.4, Math.min(.5, 1 - sprite.h - sprite.y)), pinned: cp.positionX == null ? null : bounded(cp.positionX, 0, 100, 50) / 100 };
         });
         // On a phone on its side the HUD runs along the top edge; frame faces just under it.
@@ -334,7 +334,7 @@ export function mountPageSprites({ host, getContext, adapter = createNativeSprit
             const place=()=>{
                 if(native)return;
                 // A trimmed copy is exactly the figure, so its box takes the cropped aspect.
-                const aspect=Number(image.dataset.trim) || sprite.aspect;
+                const aspect=Number(image.dataset.trim) || image.naturalWidth / image.naturalHeight || sprite.aspect;
                 Object.assign(image.style, { left: `${sprite.x * 100}vw`, top: `${sprite.y * 100}dvh`, width: `${sprite.w * 100}vw`, height: `${sprite.h * 100}dvh` });
                 if (aspect && Number.isFinite(sprite.centre)) {
                     image.style.width = `${sprite.h * aspect * 100}dvh`;

@@ -1,0 +1,283 @@
+{
+  "tool": "built-in image_gen.imagegen",
+  "policy": "one generation per NPC; no regenerations",
+  "cards": [
+    {
+      "name": "Adel",
+      "sprite": "art/sprites/2026-11-07-location-npc-neutrals/candidates/Adel/neutral-v001.png",
+      "style": "extension/genshin-dialogue-ui/assets/tcg/characters/Amber.webp",
+      "prompt": "Create one vertical Genius Invokation TCG character card illustration for Adel. Image 1 is the exact character appearance reference; preserve his grey hair, glasses and teal-gold clothing. Image 2 is the reference for finished card frame, stylized anime illustration, composition and visual treatment. Depict Adel thoughtfully studying records in an elegant Sumeru academic setting. No text or watermark.",
+      "review": "accepted by user"
+    },
+    {
+      "name": "Aloha",
+      "sprite": "art/sprites/2026-11-07-location-npc-neutrals/candidates/Aloha/neutral-v001.png",
+      "style": "extension/genshin-dialogue-ui/assets/tcg/characters/Amber.webp",
+      "prompt": "Create one vertical Genius Invokation TCG character card illustration for Aloha, manager of Sunnyshine Alpaca Park in Natlan. Image 1 is her appearance reference: faithfully preserve her features, hair, clothing and accessories. Image 2 is the reference for finished card frame, anime illustration style, color and composition. Show her welcoming visitors in her cheerful alpaca park, with an alpaca nearby. No text or watermark."
+    },
+    {
+      "name": "Taroumaru",
+      "sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Taroumaru/neutral.webp",
+      "style": "/Users/alexachan/Documents/Codex/silly-teyvat/extension/genshin-dialogue-ui/assets/tcg/characters/Diona.webp",
+      "prompt": "Create one vertical Genius Invokation TCG character card illustration for Taroumaru. Image 1 is the character appearance reference: faithfully preserve their features, hair, clothing, species and accessories. Image 2 is a reference for the finished card frame, stylized anime illustration, color and composition. Character context: Taroumaru is a dog NPC; it does not have a playable body type. Show a distinctive scene that suits this character. No text or watermark."
+    },
+    {
+      "name": "Teucer",
+      "sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Teucer/neutral.webp",
+      "style": "/Users/alexachan/Documents/Codex/silly-teyvat/extension/genshin-dialogue-ui/assets/tcg/characters/Tartaglia.webp",
+      "prompt": "Create one vertical Genius Invokation TCG character card illustration for Teucer. Image 1 is the character appearance reference: faithfully preserve their features, hair, clothing, species and accessories. Image 2 is a reference for the finished card frame, stylized anime illustration, color and composition. Character context: Teucer is a non-playable child NPC; its model does not map to one of the five playable body types. Show a distinctive scene that suits this character. No text or watermark."
+    },
+    {
+      "name": "Tonia",
+      "sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Tonia/neutral.webp",
+      "style": "/Users/alexachan/Documents/Codex/silly-teyvat/extension/genshin-dialogue-ui/assets/tcg/characters/Tartaglia.webp",
+      "prompt": "Create one vertical Genius Invokation TCG character card illustration for Tonia. Image 1 is the character appearance reference: faithfully preserve their features, hair, clothing, species and accessories. Image 2 is a reference for the finished card frame, stylized anime illustration, color and composition. Character context: Tonia is a non-playable NPC; its model does not map to one of the five playable body types. Show a distinctive scene that suits this character. No text or watermark."
+    },
+    {
+      "name": "Katheryne",
+      "sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Katheryne/neutral.webp",
+      "style": "/Users/alexachan/Documents/Codex/silly-teyvat/extension/genshin-dialogue-ui/assets/tcg/characters/Amber.webp",
+      "prompt": "Create one vertical Genius Invokation TCG character card illustration for Katheryne. Image 1 is the character appearance reference: faithfully preserve their features, hair, clothing, species and accessories. Image 2 is a reference for the finished card frame, stylized anime illustration, color and composition. Character context: Katheryne is a non-playable bionic puppet receptionist who works at the Adventurers' Guild in every nation; the wiki lists no single region for her. Show a distinctive scene that suits this character. No text or watermark."
+    },
+    {
+      "name": "Anselm",
+      "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/candidates/Anselm/neutral-v001.png",
+      "style": "/Users/alexachan/Documents/Codex/silly-teyvat/extension/genshin-dialogue-ui/assets/tcg/characters/Fischl.webp",
+      "prompt": "Create one vertical Genius Invokation TCG character card illustration for Anselm. Image 1 is the character appearance reference: faithfully preserve their features, hair, clothing, species and accessories. Image 2 is a reference for the finished card frame, stylized anime illustration, color and composition. Character context: The expedition team’s garrison commander and former captain of the Knights’ Sixth Company. He manages administrative duties at the keep and must contend with Varka’s habit of disappearing. Show a distinctive scene that suits this character. No text or watermark."
+    },
+    {
+      "name": "Araja",
+      "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/candidates/Araja/neutral-v001.png",
+      "style": "/Users/alexachan/Documents/Codex/silly-teyvat/extension/genshin-dialogue-ui/assets/tcg/characters/Collei.webp",
+      "prompt": "Create one vertical Genius Invokation TCG character card illustration for Araja. Image 1 is the character appearance reference: faithfully preserve their features, hair, clothing, species and accessories. Image 2 is a reference for the finished card frame, stylized anime illustration, color and composition. Character context: The Aranara village chief. Araja became the Tree of Dreams and manifests within the dream; age and sacrifice have cost him many memories. He is patient and protective of the Aranara. Show a distinctive scene that suits this character. No text or watermark."
+    },
+    {
+      "name": "Arama",
+      "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/candidates/Arama/neutral-v001.png",
+      "style": "/Users/alexachan/Documents/Codex/silly-teyvat/extension/genshin-dialogue-ui/assets/tcg/characters/Collei.webp",
+      "prompt": "Create one vertical Genius Invokation TCG character card illustration for Arama. Image 1 is the character appearance reference: faithfully preserve their features, hair, clothing, species and accessories. Image 2 is a reference for the finished card frame, stylized anime illustration, color and composition. Character context: A small Aranara concerned for the forest and its friends, speaking in the Aranara’s distinctive vocabulary of Nara, dreams and memories. Show a distinctive scene that suits this character. No text or watermark."
+    },
+    {
+      "name": "Aranakula",
+      "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/candidates/Aranakula/neutral-v001.png",
+      "style": "/Users/alexachan/Documents/Codex/silly-teyvat/extension/genshin-dialogue-ui/assets/tcg/characters/Collei.webp",
+      "prompt": "Create one vertical Genius Invokation TCG character card illustration for Aranakula. Image 1 is the character appearance reference: faithfully preserve their features, hair, clothing, species and accessories. Image 2 is a reference for the finished card frame, stylized anime illustration, color and composition. Character context: A gentle, anxious Aranara who tends the nursery with Arakara and believes growing flowers can help protect the forest. Show a distinctive scene that suits this character. No text or watermark."
+    },
+    {
+      "name": "Areta",
+      "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/candidates/Areta/neutral-v001.png",
+      "style": "/Users/alexachan/Documents/Codex/silly-teyvat/extension/genshin-dialogue-ui/assets/tcg/characters/Furina.webp",
+      "prompt": "Create one vertical Genius Invokation TCG character card illustration for Areta. Image 1 is the character appearance reference: faithfully preserve their features, hair, clothing, species and accessories. Image 2 is a reference for the finished card frame, stylized anime illustration, color and composition. Character context: Areta Cappadoce is a doctor in Fleuve Cendre. She attends to local health and wishes people there could get more sunlight. Show a distinctive scene that suits this character. No text or watermark."
+    },
+    {
+      "name": "Aurelius",
+      "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/candidates/Aurelius/neutral-v001.png",
+      "style": "/Users/alexachan/Documents/Codex/silly-teyvat/extension/genshin-dialogue-ui/assets/tcg/characters/Collei.webp",
+      "prompt": "Create one vertical Genius Invokation TCG character card illustration for Aurelius. Image 1 is the character appearance reference: faithfully preserve their features, hair, clothing, species and accessories. Image 2 is a reference for the finished card frame, stylized anime illustration, color and composition. Character context: A hunter from Mondstadt who lives in Vimara Village. He resists the stereotype that every Mondstadter is a poet and has reflected on giving up unrealistic dreams. Show a distinctive scene that suits this character. No text or watermark."
+    },
+    {
+      "name": "Aybak",
+      "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/candidates/Aybak/neutral-v001.png",
+      "style": "/Users/alexachan/Documents/Codex/silly-teyvat/extension/genshin-dialogue-ui/assets/tcg/characters/Collei.webp",
+      "prompt": "Create one vertical Genius Invokation TCG character card illustration for Aybak. Image 1 is the character appearance reference: faithfully preserve their features, hair, clothing, species and accessories. Image 2 is a reference for the finished card frame, stylized anime illustration, color and composition. Character context: An Eremite mercenary encountered at Caravan Ribat. Speak as an individual mercenary whose work brings him to the frontier, without assuming all Eremites share the same motives. Show a distinctive scene that suits this character. No text or watermark."
+    },
+    {
+      "name": "Babel",
+      "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/candidates/Babel/neutral-v001.png",
+      "style": "/Users/alexachan/Documents/Codex/silly-teyvat/extension/genshin-dialogue-ui/assets/tcg/characters/Collei.webp",
+      "prompt": "Create one vertical Genius Invokation TCG character card illustration for Babel. Image 1 is the character appearance reference: faithfully preserve their features, hair, clothing, species and accessories. Image 2 is a reference for the finished card frame, stylized anime illustration, color and composition. Character context: Matriarch of the Tanit tribe. A calculating leader, Babel takes Jeht into the tribe while pursuing her own interests. Her courtesy can conceal manipulation. Show a distinctive scene that suits this character. No text or watermark."
+    },
+    {
+      "name": "Egle",
+      "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/candidates/Egle/neutral-v001.png",
+      "style": "/Users/alexachan/Documents/Codex/silly-teyvat/extension/genshin-dialogue-ui/assets/tcg/characters/Fischl.webp",
+      "prompt": "Create one vertical Genius Invokation TCG character card illustration for Egle. Image 1 is the character appearance reference: faithfully preserve their features, hair, clothing, species and accessories. Image 2 is a reference for the finished card frame, stylized anime illustration, color and composition. Character context: A Lightkeeper ratnik at Cliffwatch Camp who worries about her comrades’ safe return and reminds others, including Captain Illuga, to rest. Show a distinctive scene that suits this character. No text or watermark."
+    },
+    {
+      "name": "Eveliina",
+      "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/candidates/Eveliina/neutral-v001.png",
+      "style": "/Users/alexachan/Documents/Codex/silly-teyvat/extension/genshin-dialogue-ui/assets/tcg/characters/Fischl.webp",
+      "prompt": "Create one vertical Genius Invokation TCG character card illustration for Eveliina. Image 1 is the character appearance reference: faithfully preserve their features, hair, clothing, species and accessories. Image 2 is a reference for the finished card frame, stylized anime illustration, color and composition. Character context: A Frostmoon Scion acolyte who greets visitors at the Light-Bathed Platform and admires the Idol of the New Moon. Show a distinctive scene that suits this character. No text or watermark."
+    },
+    {
+      "name": "Granny Ruoxin",
+      "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/candidates/Granny Ruoxin/neutral-v001.png",
+      "style": "/Users/alexachan/Documents/Codex/silly-teyvat/extension/genshin-dialogue-ui/assets/tcg/characters/Xiangling.webp",
+      "prompt": "Create one vertical Genius Invokation TCG character card illustration for Granny Ruoxin. Image 1 is the character appearance reference: faithfully preserve their features, hair, clothing, species and accessories. Image 2 is a reference for the finished card frame, stylized anime illustration, color and composition. Character context: The community leader is a former Heyu Tea House actress from Liyue Harbor who chose village life. Gentle and perceptive, she cares for her neighbors and carries memories of an adventurer who never returned. Show a distinctive scene that suits this character. No text or watermark."
+    },
+    {
+      "name": "Jakob",
+      "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/candidates/Jakob/neutral-v001.png",
+      "style": "/Users/alexachan/Documents/Codex/silly-teyvat/extension/genshin-dialogue-ui/assets/tcg/characters/Furina.webp",
+      "prompt": "Create one vertical Genius Invokation TCG character card illustration for Jakob. Image 1 is the character appearance reference: faithfully preserve their features, hair, clothing, species and accessories. Image 2 is a reference for the finished card frame, stylized anime illustration, color and composition. Character context: Jakob Ingold was connected to the Narzissenkreuz Institute and Ordo. His history spans the cataclysm and later transformation into an artificial apostle. Show a distinctive scene that suits this character. No text or watermark."
+    },
+    {
+      "name": "Jeht",
+      "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/candidates/Jeht/neutral-v001.png",
+      "style": "/Users/alexachan/Documents/Codex/silly-teyvat/extension/genshin-dialogue-ui/assets/tcg/characters/Collei.webp",
+      "prompt": "Create one vertical Genius Invokation TCG character card illustration for Jeht. Image 1 is the character appearance reference: faithfully preserve their features, hair, clothing, species and accessories. Image 2 is a reference for the finished card frame, stylized anime illustration, color and composition. Character context: A young Eremite whose father Jebrael and mother Ufairah have died. Jeht is capable, direct, emotionally vulnerable and deeply loyal to those who earn her trust. Show a distinctive scene that suits this character. No text or watermark."
+    },
+    {
+      "name": "Knyazev",
+      "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/candidates/Knyazev/neutral-v001.png",
+      "style": "/Users/alexachan/Documents/Codex/silly-teyvat/extension/genshin-dialogue-ui/assets/tcg/characters/Tartaglia.webp",
+      "prompt": "Create one vertical Genius Invokation TCG character card illustration for Knyazev. Image 1 is the character appearance reference: faithfully preserve their features, hair, clothing, species and accessories. Image 2 is a reference for the finished card frame, stylized anime illustration, color and composition. Character context: A trader at Rankova Zorya whose stock includes decorations for snowmen. His inventory and the village depend on restoration progress. Show a distinctive scene that suits this character. No text or watermark."
+    },
+    {
+      "name": "Komaki",
+      "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/candidates/Komaki/neutral-v001.png",
+      "style": "/Users/alexachan/Documents/Codex/silly-teyvat/extension/genshin-dialogue-ui/assets/tcg/characters/Yoimiya.webp",
+      "prompt": "Create one vertical Genius Invokation TCG character card illustration for Komaki. Image 1 is the character appearance reference: faithfully preserve their features, hair, clothing, species and accessories. Image 2 is a reference for the finished card frame, stylized anime illustration, color and composition. Character context: A village elder who speaks warmly of Watatsumi’s long history and cultivates Spiritherbs used in her fortune-telling. Show a distinctive scene that suits this character. No text or watermark."
+    },
+    {
+      "name": "Kujou Masahito",
+      "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/candidates/Kujou Masahito/neutral-v001.png",
+      "style": "/Users/alexachan/Documents/Codex/silly-teyvat/extension/genshin-dialogue-ui/assets/tcg/characters/Yoimiya.webp",
+      "prompt": "Create one vertical Genius Invokation TCG character card illustration for Kujou Masahito. Image 1 is the character appearance reference: faithfully preserve their features, hair, clothing, species and accessories. Image 2 is a reference for the finished card frame, stylized anime illustration, color and composition. Character context: A Shogunate general of the Tenryou Commission and eldest son of Kujou Takayuki. He questioned the Vision Hunt Decree even while serving in the Shogun’s army. He is Kamaji’s older brother and Sara’s adoptive brother. Show a distinctive scene that suits this character. No text or watermark."
+    },
+    {
+      "name": "Kukkia",
+      "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/candidates/Kukkia/neutral-v001.png",
+      "style": "/Users/alexachan/Documents/Codex/silly-teyvat/extension/genshin-dialogue-ui/assets/tcg/characters/Fischl.webp",
+      "prompt": "Create one vertical Genius Invokation TCG character card illustration for Kukkia. Image 1 is the character appearance reference: faithfully preserve their features, hair, clothing, species and accessories. Image 2 is a reference for the finished card frame, stylized anime illustration, color and composition. Character context: A Frostmoon Scions adherent who offers prayers to the Moon Goddess and shares flowers with visitors who come to pray. Show a distinctive scene that suits this character. No text or watermark."
+    },
+    {
+      "name": "Lasselin",
+      "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/candidates/Lasselin/neutral-v001.png",
+      "style": "/Users/alexachan/Documents/Codex/silly-teyvat/extension/genshin-dialogue-ui/assets/tcg/characters/Furina.webp",
+      "prompt": "Create one vertical Genius Invokation TCG character card illustration for Lasselin. Image 1 is the character appearance reference: faithfully preserve their features, hair, clothing, species and accessories. Image 2 is a reference for the finished card frame, stylized anime illustration, color and composition. Character context: Chief mate of the Rusty Rudder. She knows the establishment and its customers and has stories to tell about the people who come through. Show a distinctive scene that suits this character. No text or watermark."
+    },
+    {
+      "name": "Lyris",
+      "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/candidates/Lyris/neutral-v001.png",
+      "style": "/Users/alexachan/Documents/Codex/silly-teyvat/extension/genshin-dialogue-ui/assets/tcg/characters/Furina.webp",
+      "prompt": "Create one vertical Genius Invokation TCG character card illustration for Lyris. Image 1 is the character appearance reference: faithfully preserve their features, hair, clothing, species and accessories. Image 2 is a reference for the finished card frame, stylized anime illustration, color and composition. Character context: An Oceanid who directed the Narzissenkreuz Institute around five hundred years ago and belonged to the Narzissenkreuz Ordo. The entity called Mary-Ann is a related creation, not simply Lyris under another name. Show a distinctive scene that suits this character. No text or watermark."
+    },
+    {
+      "name": "Maryam",
+      "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/candidates/Maryam/neutral-v001.png",
+      "style": "/Users/alexachan/Documents/Codex/silly-teyvat/extension/genshin-dialogue-ui/assets/tcg/characters/Collei.webp",
+      "prompt": "Create one vertical Genius Invokation TCG character card illustration for Maryam. Image 1 is the character appearance reference: faithfully preserve their features, hair, clothing, species and accessories. Image 2 is a reference for the finished card frame, stylized anime illustration, color and composition. Character context: Owner of the Gilded Journey hotel. She welcomes weary travelers, values fair prices and safe shelter, and advises guests to choose lodgings carefully. Show a distinctive scene that suits this character. No text or watermark."
+    },
+    {
+      "name": "Master Lu",
+      "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/candidates/Master Lu/neutral-v001.png",
+      "style": "/Users/alexachan/Documents/Codex/silly-teyvat/extension/genshin-dialogue-ui/assets/tcg/characters/Xiangling.webp",
+      "prompt": "Create one vertical Genius Invokation TCG character card illustration for Master Lu. Image 1 is the character appearance reference: faithfully preserve their features, hair, clothing, species and accessories. Image 2 is a reference for the finished card frame, stylized anime illustration, color and composition. Character context: A master carpenter and proprietor of Fanmu Carpenter's, proud of his workshop and his craft. He sells furnishing blueprints and has considered taking an apprentice. Show a distinctive scene that suits this character. No text or watermark."
+    },
+    {
+      "name": "Mayskaya",
+      "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/candidates/Mayskaya/neutral-v001.png",
+      "style": "/Users/alexachan/Documents/Codex/silly-teyvat/extension/genshin-dialogue-ui/assets/tcg/characters/Tartaglia.webp",
+      "prompt": "Create one vertical Genius Invokation TCG character card illustration for Mayskaya. Image 1 is the character appearance reference: faithfully preserve their features, hair, clothing, species and accessories. Image 2 is a reference for the finished card frame, stylized anime illustration, color and composition. Character context: A resident associated with the Chirping Balls activity at Rankova Zorya. Her part in the game becomes available through Vodyanitsa’s chronicle and the station’s restoration. Show a distinctive scene that suits this character. No text or watermark."
+    },
+    {
+      "name": "Mazatl",
+      "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/candidates/Mazatl/neutral-v001.png",
+      "style": "/Users/alexachan/Documents/Codex/silly-teyvat/extension/genshin-dialogue-ui/assets/tcg/characters/Mualani.webp",
+      "prompt": "Create one vertical Genius Invokation TCG character card illustration for Mazatl. Image 1 is the character appearance reference: faithfully preserve their features, hair, clothing, species and accessories. Image 2 is a reference for the finished card frame, stylized anime illustration, color and composition. Character context: Owner of Puff-Up Pauldrons at Easybreeze Market, selling gear for sports and beach activities. Energetic and enthusiastic about fitness. Show a distinctive scene that suits this character. No text or watermark."
+    },
+    {
+      "name": "Mécantre",
+      "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/candidates/Mécantre/neutral-v001.png",
+      "style": "/Users/alexachan/Documents/Codex/silly-teyvat/extension/genshin-dialogue-ui/assets/tcg/characters/Furina.webp",
+      "prompt": "Create one vertical Genius Invokation TCG character card illustration for Mécantre. Image 1 is the character appearance reference: faithfully preserve their features, hair, clothing, species and accessories. Image 2 is a reference for the finished card frame, stylized anime illustration, color and composition. Character context: A member of the Daydream Club and chief designer of the Teyvat Grand Cannon. He and his brother Babisse work on ambitious inventions in Petrichor. Show a distinctive scene that suits this character. No text or watermark."
+    },
+    {
+      "name": "Neko",
+      "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/candidates/Neko/neutral-v001.png",
+      "style": "/Users/alexachan/Documents/Codex/silly-teyvat/extension/genshin-dialogue-ui/assets/tcg/characters/Diona.webp",
+      "prompt": "Create one vertical Genius Invokation TCG character card illustration for Neko. Image 1 is the character appearance reference: faithfully preserve their features, hair, clothing, species and accessories. Image 2 is a reference for the finished card frame, stylized anime illustration, color and composition. Character context: A talking black cat and self-proclaimed provisional head priestess. She tends the shrine and remembers Hibiki with fondness, hoping visitors will help restore the place. She is a cat, not a human or a shapeshifter. Show a distinctive scene that suits this character. No text or watermark."
+    },
+    {
+      "name": "Nishikino Reirei",
+      "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/candidates/Nishikino Reirei/neutral-v001.png",
+      "style": "/Users/alexachan/Documents/Codex/silly-teyvat/extension/genshin-dialogue-ui/assets/tcg/characters/Yoimiya.webp",
+      "prompt": "Create one vertical Genius Invokation TCG character card illustration for Nishikino Reirei. Image 1 is the character appearance reference: faithfully preserve their features, hair, clothing, species and accessories. Image 2 is a reference for the finished card frame, stylized anime illustration, color and composition. Character context: A traveling doctor from Narukami Island, now helping people on Watatsumi after treating a Sangonomiya soldier. Direct and busy, she puts patients first. Show a distinctive scene that suits this character. No text or watermark."
+    },
+    {
+      "name": "Pitot",
+      "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/candidates/Pitot/neutral-v001.png",
+      "style": "/Users/alexachan/Documents/Codex/silly-teyvat/extension/genshin-dialogue-ui/assets/tcg/characters/Furina.webp",
+      "prompt": "Create one vertical Genius Invokation TCG character card illustration for Pitot. Image 1 is the character appearance reference: faithfully preserve their features, hair, clothing, species and accessories. Image 2 is a reference for the finished card frame, stylized anime illustration, color and composition. Character context: The Rusty Rudder’s helmsman and a merchant selling food ingredients. He understands that some things have a price beyond Mora. Show a distinctive scene that suits this character. No text or watermark."
+    },
+    {
+      "name": "Plate",
+      "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/candidates/Plate/neutral-v001.png",
+      "style": "/Users/alexachan/Documents/Codex/silly-teyvat/extension/genshin-dialogue-ui/assets/tcg/characters/Diona.webp",
+      "prompt": "Create one vertical Genius Invokation TCG character card illustration for Plate. Image 1 is the character appearance reference: faithfully preserve their features, hair, clothing, species and accessories. Image 2 is a reference for the finished card frame, stylized anime illustration, color and composition. Character context: Plate is a dog associated with Alyosha, Tugarin and Whistle. Alyosha has Tugarin help train Plate and Whistle to communicate through barks. Portray Plate as a dog: bark, move, sniff and react physically; do not give the dog human speech or human reasoning. Show a distinctive scene that suits this character. No text or watermark."
+    },
+    {
+      "name": "Rene",
+      "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/candidates/Rene/neutral-v001.png",
+      "style": "/Users/alexachan/Documents/Codex/silly-teyvat/extension/genshin-dialogue-ui/assets/tcg/characters/Furina.webp",
+      "prompt": "Create one vertical Genius Invokation TCG character card illustration for Rene. Image 1 is the character appearance reference: faithfully preserve their features, hair, clothing, species and accessories. Image 2 is a reference for the finished card frame, stylized anime illustration, color and composition. Character context: Rene de Petrichor was associated with the Narzissenkreuz Institute and Ordo, and pursued theories about the world’s fate. He dissolved himself and became Narzissenkreuz. Show a distinctive scene that suits this character. No text or watermark."
+    },
+    {
+      "name": "Sedile",
+      "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/candidates/Sedile/neutral-v001.png",
+      "style": "/Users/alexachan/Documents/Codex/silly-teyvat/extension/genshin-dialogue-ui/assets/tcg/characters/Furina.webp",
+      "prompt": "Create one vertical Genius Invokation TCG character card illustration for Sedile. Image 1 is the character appearance reference: faithfully preserve their features, hair, clothing, species and accessories. Image 2 is a reference for the finished card frame, stylized anime illustration, color and composition. Character context: A Melusine officer of the Marechaussee Phantom enjoying time off in Merusea Village. Her work makes her inquisitive with unfamiliar visitors, but she quickly reassures them. Show a distinctive scene that suits this character. No text or watermark."
+    },
+    {
+      "name": "Shajar",
+      "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/candidates/Shajar/neutral-v001.png",
+      "style": "/Users/alexachan/Documents/Codex/silly-teyvat/extension/genshin-dialogue-ui/assets/tcg/characters/Collei.webp",
+      "prompt": "Create one vertical Genius Invokation TCG character card illustration for Shajar. Image 1 is the character appearance reference: faithfully preserve their features, hair, clothing, species and accessories. Image 2 is a reference for the finished card frame, stylized anime illustration, color and composition. Character context: Bayda Harbor’s port master and a former Eremite. She handles inspections and welcomes visitors while managing the stress of harbor work. Show a distinctive scene that suits this character. No text or watermark."
+    },
+    {
+      "name": "Tetreaux",
+      "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/candidates/Tetreaux/neutral-v001.png",
+      "style": "/Users/alexachan/Documents/Codex/silly-teyvat/extension/genshin-dialogue-ui/assets/tcg/characters/Furina.webp",
+      "prompt": "Create one vertical Genius Invokation TCG character card illustration for Tetreaux. Image 1 is the character appearance reference: faithfully preserve their features, hair, clothing, species and accessories. Image 2 is a reference for the finished card frame, stylized anime illustration, color and composition. Character context: A bartender associated with the Spina di Rosula in Fleuve Cendre. He serves patrons and hears what passes around the bar. Show a distinctive scene that suits this character. No text or watermark."
+    },
+    {
+      "name": "Tiepolo",
+      "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/candidates/Tiepolo/neutral-v001.png",
+      "style": "/Users/alexachan/Documents/Codex/silly-teyvat/extension/genshin-dialogue-ui/assets/tcg/characters/Furina.webp",
+      "prompt": "Create one vertical Genius Invokation TCG character card illustration for Tiepolo. Image 1 is the character appearance reference: faithfully preserve their features, hair, clothing, species and accessories. Image 2 is a reference for the finished card frame, stylized anime illustration, color and composition. Character context: Petrichor’s elected leader, known as the Doge. He can speak about the village, its history and its people without claiming authority beyond his station. Show a distinctive scene that suits this character. No text or watermark."
+    },
+    {
+      "name": "Tisoc",
+      "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/candidates/Tisoc/neutral-v001.png",
+      "style": "/Users/alexachan/Documents/Codex/silly-teyvat/extension/genshin-dialogue-ui/assets/tcg/characters/Mualani.webp",
+      "prompt": "Create one vertical Genius Invokation TCG character card illustration for Tisoc. Image 1 is the character appearance reference: faithfully preserve their features, hair, clothing, species and accessories. Image 2 is a reference for the finished card frame, stylized anime illustration, color and composition. Character context: A member of the Scions of the Canopy knowledgeable about Flamegranates and the Mountain King Kongamato. He knows the fruits can explode on heavy impact. Show a distinctive scene that suits this character. No text or watermark."
+    },
+    {
+      "name": "Tlapalli",
+      "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/candidates/Tlapalli/neutral-v001.png",
+      "style": "/Users/alexachan/Documents/Codex/silly-teyvat/extension/genshin-dialogue-ui/assets/tcg/characters/Mualani.webp",
+      "prompt": "Create one vertical Genius Invokation TCG character card illustration for Tlapalli. Image 1 is the character appearance reference: faithfully preserve their features, hair, clothing, species and accessories. Image 2 is a reference for the finished card frame, stylized anime illustration, color and composition. Character context: Owner of Me & Dew. Her younger sister Atzilli is one of its winemakers, and Tlapalli worries about her immersion in research. Show a distinctive scene that suits this character. No text or watermark."
+    },
+    {
+      "name": "Tzompantli",
+      "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/candidates/Tzompantli/neutral-v001.png",
+      "style": "/Users/alexachan/Documents/Codex/silly-teyvat/extension/genshin-dialogue-ui/assets/tcg/characters/Mualani.webp",
+      "prompt": "Create one vertical Genius Invokation TCG character card illustration for Tzompantli. Image 1 is the character appearance reference: faithfully preserve their features, hair, clothing, species and accessories. Image 2 is a reference for the finished card frame, stylized anime illustration, color and composition. Character context: A Children of Echoes musician and owner of the Street Fighting Fontainian instrument shop. A visit to Fontaine introduced him to rock and roll. Show a distinctive scene that suits this character. No text or watermark."
+    },
+    {
+      "name": "Valdis",
+      "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/candidates/Valdis/neutral-v001.png",
+      "style": "/Users/alexachan/Documents/Codex/silly-teyvat/extension/genshin-dialogue-ui/assets/tcg/characters/Fischl.webp",
+      "prompt": "Create one vertical Genius Invokation TCG character card illustration for Valdis. Image 1 is the character appearance reference: faithfully preserve their features, hair, clothing, species and accessories. Image 2 is a reference for the finished card frame, stylized anime illustration, color and composition. Character context: A Lightkeeper ratnik who values preparation for the Wild Hunt and keeps track of specialized supplies, even if he occasionally overlooks one. Show a distinctive scene that suits this character. No text or watermark."
+    },
+    {
+      "name": "Virda",
+      "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/candidates/Virda/neutral-v001.png",
+      "style": "/Users/alexachan/Documents/Codex/silly-teyvat/extension/genshin-dialogue-ui/assets/tcg/characters/Furina.webp",
+      "prompt": "Create one vertical Genius Invokation TCG character card illustration for Virda. Image 1 is the character appearance reference: faithfully preserve their features, hair, clothing, species and accessories. Image 2 is a reference for the finished card frame, stylized anime illustration, color and composition. Character context: A Melusine living in Merusea Village who is keen to train and improve. She is curious about unfamiliar visitors. Show a distinctive scene that suits this character. No text or watermark."
+    },
+    {
+      "name": "Whistle",
+      "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/candidates/Whistle/neutral-v001.png",
+      "style": "/Users/alexachan/Documents/Codex/silly-teyvat/extension/genshin-dialogue-ui/assets/tcg/characters/Diona.webp",
+      "prompt": "Create one vertical Genius Invokation TCG character card illustration for Whistle. Image 1 is the character appearance reference: faithfully preserve their features, hair, clothing, species and accessories. Image 2 is a reference for the finished card frame, stylized anime illustration, color and composition. Character context: Whistle is a dog associated with Alyosha, Tugarin and Plate. Alyosha has Tugarin help train Whistle and Plate to communicate through barks. Portray Whistle as a dog: bark, move, sniff and react physically; do not give the dog human speech or human reasoning. Show a distinctive scene that suits this character. No text or watermark."
+    },
+    {
+      "name": "Xavier",
+      "sprite": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/candidates/Xavier/neutral-v001.png",
+      "style": "/Users/alexachan/Documents/Codex/silly-teyvat/extension/genshin-dialogue-ui/assets/tcg/characters/Yoimiya.webp",
+      "prompt": "Create one vertical Genius Invokation TCG character card illustration for Xavier. Image 1 is the character appearance reference: faithfully preserve their features, hair, clothing, species and accessories. Image 2 is a reference for the finished card frame, stylized anime illustration, color and composition. Character context: A Fontaine inventor from Petrichor who worked on the Mikage Furnace and developed a love of filmmaking. Enthusiastic about technology and stories, he tends to think on a grand scale. Show a distinctive scene that suits this character. No text or watermark."
+    }
+  ]
+}

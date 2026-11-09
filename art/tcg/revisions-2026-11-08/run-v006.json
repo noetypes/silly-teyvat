@@ -1,0 +1,30 @@
+{
+  "tool": "built-in image_gen.imagegen",
+  "mode": "fresh generation from original sprite and genuine TCG card; prior cards were not used as image inputs",
+  "feedback": "User found no flaws in v005, requested an alternative with a pen drawing a dress in the air, with v005 kept as fallback.",
+  "cards": [
+    {
+      "name": "Tonia",
+      "prompt": "Create a NEW vertical Genius Invokation TCG-style character card for Tonia from scratch. Image 1 is Tonia's original sprite for character appearance; Image 2 is a genuine TCG card for frame and art style only. Tonia is a petite preteen girl with the compact build, short childlike proportions, blue eyes, auburn pigtails, burgundy beret, dark gloves and pink-and-cream clothing of Image 1. In a charming fashion atelier with tall blue arched windows, dress mannequin, sewing supplies and flowers, she holds ONE open burgundy sketchbook in her left hand at waist height and uses a slender drawing pen in her right hand to trace a delicate luminous pink outline of a dress in the air above the book. Keep two anatomically correct separate arms and hands. The book opens toward Tonia, with the pages facing her and away from us. The viewer sees ONLY its exterior cover, spine and thin page edges: no inside page or drawing is visible on the outside surface. Keep the book geometry and supporting grip physically coherent from a single viewpoint. The dress outline floats in the air near the raised pen, separate from the book. Graceful full-body composition, soft lighting, complete illustrated card frame. No titles, written text or watermark.",
+      "references": [
+        {
+          "role": "subject sprite",
+          "path": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Tonia/neutral.webp",
+          "sha256": "9dc6ac38714c21d5148617ebfb269762854df8a8dc47de78dd897585ec79dbed"
+        },
+        {
+          "role": "genuine TCG style",
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/extension/genshin-dialogue-ui/assets/tcg/characters/Tartaglia.webp",
+          "sha256": "72343ecb836a0c2015dae0b4bf990c8caf5dcecd1dbc66b308d7bd88c414b3e2"
+        }
+      ],
+      "output": "Tonia-v006.png",
+      "sha256": "82fdd48aebc20242f5165edb829dc80964f69ff0c6c958b9410f574d7842f6bb",
+      "status": "artwork approved by user; requested deterministic corner trim, see trim-v006.json",
+      "dimensions": [
+        958,
+        1641
+      ]
+    }
+  ]
+}

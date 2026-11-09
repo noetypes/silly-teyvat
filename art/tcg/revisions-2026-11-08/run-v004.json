@@ -1,0 +1,52 @@
+{
+  "tool": "built-in image_gen.imagegen",
+  "mode": "fresh generation from original sprite and genuine TCG card; previous cards were not used as inputs",
+  "cards": [
+    {
+      "name": "Tonia",
+      "prompt": "Create a NEW vertical Genius Invokation TCG-style card illustration from scratch. Image 1 is Tonia's original character sprite and Image 2 is a real TCG card for the frame and rendering style only. Depict Tonia clearly as a petite preteen girl with a compact childlike build, short legs, rounded youthful features and age-appropriate proportions, not a tall adult. Preserve her auburn pigtails, blue eyes, burgundy beret, gloves, and pink-and-cream outfit from her sprite. Recreate the charming fashion atelier: tall blue arched windows, a dress mannequin, sewing supplies, flowers, soft pink magical dress sketches and ribbons. She stands holding an open sketchbook at waist height. Construct it as a real single bound book: visible illustrations only on the inside pages, a clearly separate solid blank outer cover below the pages, one spine joining the covers, and natural hands supporting it. No printed or illustrated inside pages on the exterior of the cover. Use a clear straightforward perspective. No extra hands, titles, text or watermark.",
+      "references": [
+        {
+          "role": "subject sprite",
+          "path": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Tonia/neutral.webp",
+          "sha256": "9dc6ac38714c21d5148617ebfb269762854df8a8dc47de78dd897585ec79dbed"
+        },
+        {
+          "role": "genuine TCG style",
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/extension/genshin-dialogue-ui/assets/tcg/characters/Tartaglia.webp",
+          "sha256": "72343ecb836a0c2015dae0b4bf990c8caf5dcecd1dbc66b308d7bd88c414b3e2"
+        }
+      ],
+      "output": "Tonia-v004.png",
+      "sha256": "467260d00b6bb49493f06a52846afd5fcbf2e54dc1d6efda0665ea399f52a112",
+      "status": "proportions liked; book perspective needs correction; see v005",
+      "dimensions": [
+        958,
+        1642
+      ]
+    },
+    {
+      "name": "Treasure Hoarders - Scout",
+      "prompt": "Create a NEW vertical Genius Invokation TCG-style enemy card from scratch. Image 1 is the Treasure Hoarders Scout's original sprite; Image 2 is a genuine enemy TCG card for visual style and frame only. Preserve the Scout's blond hair, dark face covering, white shirt, scarf, bracers and olive trousers. In an ancient stone ruin show him in a simple, relaxed three-quarter standing stance at eye level, without extreme action, foreshortening or any hand thrust toward the camera. Both shoulders must attach to one torso, each upper arm must extend from its own shoulder to a visible elbow, and each forearm from its elbow to its own wrist and hand, with two separate anatomically natural arms of matching length. Both arms stay near the torso, one hand holding a small throwing knife down at his side and the other resting near his belt. Correct five-finger hands and grounded legs. Natural, consistent perspective, polished anime card art, no text or watermark.",
+      "references": [
+        {
+          "role": "subject sprite",
+          "path": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Treasure Hoarders - Scout/neutral.webp",
+          "sha256": "e0648ace3bf627941c420319bd4b3bc62abb3daa003c5981e32a3da203e240f5"
+        },
+        {
+          "role": "genuine TCG style",
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/extension/genshin-dialogue-ui/assets/tcg/characters/Nobushi Jintouban.webp",
+          "sha256": "4c751bcf2695aef77164161acedd10b5f417242d183508f0348cf7cc6ce26e26"
+        }
+      ],
+      "output": "Treasure Hoarders - Scout-v004.png",
+      "sha256": "21b9e2cb1ed781cd5fae1e90d6fae79efdf5d58bb13db6d8f0a4a1d5175a7d02",
+      "status": "awaiting user review",
+      "dimensions": [
+        958,
+        1642
+      ]
+    }
+  ]
+}

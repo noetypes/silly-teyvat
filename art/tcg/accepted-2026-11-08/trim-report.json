@@ -1,0 +1,440 @@
+{
+  "method": "Reference alpha resized to each card; existing alpha and all RGB values preserved. Near-black partially transparent edge fringe cleared.",
+  "reference": "/Users/alexachan/Documents/Codex/silly-teyvat/extension/genshin-dialogue-ui/assets/tcg/characters/Tartaglia.webp",
+  "reference_sha256": "72343ecb836a0c2015dae0b4bf990c8caf5dcecd1dbc66b308d7bd88c414b3e2",
+  "cards": [
+    {
+      "name": "Adel",
+      "group": "npc",
+      "source": "art/tcg/npc-cards/Adel.png",
+      "output": "Adel.png",
+      "source_sha256": "e4ef207126866afe1492e77f9c3d60a3ed2f0ebdc45106b4546e1c1daac498bf",
+      "output_sha256": "9789bba37e5dcf27616051df9908e0ad1c6daf5201ff84c4ec36e87020133d81"
+    },
+    {
+      "name": "Aloha",
+      "group": "npc",
+      "source": "art/tcg/npc-cards/Aloha.png",
+      "output": "Aloha.png",
+      "source_sha256": "c67d9f9e596a736b795877bab1b18b0d3fa2a777cc8152e0ba2f29dd9dc076e1",
+      "output_sha256": "70d42363fdd139ef6a19192df3e97cfe7a7c02d87f2947f54b71302f9341ecda"
+    },
+    {
+      "name": "Taroumaru",
+      "group": "npc",
+      "source": "art/tcg/npc-cards/Taroumaru.png",
+      "output": "Taroumaru.png",
+      "source_sha256": "c9adcf9da8f5eb720c1203525f7fb34fcb6539579ac28952fa2d745bc857d6c8",
+      "output_sha256": "49645ae800a56bd464baf5af26646b05cc48dd96ee660edaa25588836f3a0095"
+    },
+    {
+      "name": "Teucer",
+      "group": "npc",
+      "source": "art/tcg/npc-cards/Teucer.png",
+      "output": "Teucer.png",
+      "source_sha256": "f0d9f15475cfe134b6a6e918601ee00934052d56cdb28bb51fbbe47d636d2ad5",
+      "output_sha256": "ad17875f3691efdcd1309c5e2389ae6ba400c00c0facb2c0c03d5e8e6bd26bc5"
+    },
+    {
+      "name": "Tonia",
+      "group": "npc",
+      "source": "art/tcg/revisions-2026-11-08/Tonia-v006-trimmed.png",
+      "output": "Tonia.png",
+      "preserve_alpha": true,
+      "source_sha256": "f2598a43189c377620cf65606c8ebd50bbafd7db682cc5431849233fe0f1ff62",
+      "output_sha256": "f2598a43189c377620cf65606c8ebd50bbafd7db682cc5431849233fe0f1ff62"
+    },
+    {
+      "name": "Katheryne",
+      "group": "npc",
+      "source": "art/tcg/npc-cards/Katheryne.png",
+      "output": "Katheryne.png",
+      "source_sha256": "6c3130926a18e63d2731c2ab37dec69a10daf18a6f857c86fbb1f7817c51ddda",
+      "output_sha256": "f532b4cabfa0972bb8d45d14fb0bd58dbafe23aa7ff5ce384eb21b2eb46b8be7"
+    },
+    {
+      "name": "Anselm",
+      "group": "npc",
+      "source": "art/tcg/npc-cards/Anselm.png",
+      "output": "Anselm.png",
+      "source_sha256": "516549c219edc64a358b371054b7474f2d011d06161d08d62c97fc7c730ab236",
+      "output_sha256": "daf680adbcbe153128eb65fe69282ff3b19860d496e2e5bfd821cec1787536c1"
+    },
+    {
+      "name": "Araja",
+      "group": "npc",
+      "source": "art/tcg/npc-cards/Araja.png",
+      "output": "Araja.png",
+      "source_sha256": "224f7ed06e2853096ea1e010a68cbe4c473110accc128155c172aba464398358",
+      "output_sha256": "846d9abaf7e6fc8f1aea641c13c706d2f5d73a64cb9f6d24672f46423ba30eea"
+    },
+    {
+      "name": "Arama",
+      "group": "npc",
+      "source": "art/tcg/npc-cards/Arama.png",
+      "output": "Arama.png",
+      "source_sha256": "cb9c35eda4fe2e2b0de15f27c47d7f8667505919b051dce618a1cf64d7f9e311",
+      "output_sha256": "de6d8f169238edee4a46d7283b123120bf747e1916cc2e81fb5a18cff25c4709"
+    },
+    {
+      "name": "Aranakula",
+      "group": "npc",
+      "source": "art/tcg/npc-cards/Aranakula.png",
+      "output": "Aranakula.png",
+      "source_sha256": "00feb126d4c433618e80151fbeeee42a1f2ce725dd8e5a1fc985682986a496cf",
+      "output_sha256": "3dd922bb0d901d410886e8355c865b449a25a23b553935ff3a40e6ca2357fe5f"
+    },
+    {
+      "name": "Areta",
+      "group": "npc",
+      "source": "art/tcg/npc-cards/Areta.png",
+      "output": "Areta.png",
+      "source_sha256": "41162cec7b809e087432b66c218de46b63f0beee62b2b8b81da71ecb2f45de59",
+      "output_sha256": "c5c9ffc4d7d8ac988427abb42b8c57780b81df066a986d05311b9c588c7b48dc"
+    },
+    {
+      "name": "Aurelius",
+      "group": "npc",
+      "source": "art/tcg/npc-cards/Aurelius.png",
+      "output": "Aurelius.png",
+      "source_sha256": "56f869f43d1fee5281bf305adf43ba2a21831d084260e11da5a119addc9c0118",
+      "output_sha256": "b588b7e2dd1997674f25e0eadef2717d4b9cdfcde5e30d95352727e1b93c70a8"
+    },
+    {
+      "name": "Aybak",
+      "group": "npc",
+      "source": "art/tcg/npc-cards/Aybak.png",
+      "output": "Aybak.png",
+      "source_sha256": "4ec25975215139698da537fe1c1e6e07799896a618281f5dc8f1c1611a29f81a",
+      "output_sha256": "0040039cf5b9f03972e290b86a16a37f7bcead898459099c72cddea27b67243f"
+    },
+    {
+      "name": "Babel",
+      "group": "npc",
+      "source": "art/tcg/revisions-2026-11-08/Babel-v003.png",
+      "output": "Babel.png",
+      "source_sha256": "1fe9b1710697f1bd784bdfe498640d6a1625df3bf1dea0386105f8ff419b9447",
+      "output_sha256": "18c9781d0cca83a125f89fec24a549cd87f51a0218cee09af95e82c25f7a6e30"
+    },
+    {
+      "name": "Egle",
+      "group": "npc",
+      "source": "art/tcg/npc-cards/Egle.png",
+      "output": "Egle.png",
+      "source_sha256": "ddc43897cca11e4d44fe0b131319c9f75ac401a68089d9071922d5dc1cc99a25",
+      "output_sha256": "f9cd55131f9cd9d61fd7ba2c5ab6d1f98ad062c1d78cfa5e873a51615614be9b"
+    },
+    {
+      "name": "Eveliina",
+      "group": "npc",
+      "source": "art/tcg/npc-cards/Eveliina.png",
+      "output": "Eveliina.png",
+      "source_sha256": "c56a1b3eeefa868bc6077e31aa9a4dc1166a6de047c33baebc691911d19f8ed3",
+      "output_sha256": "faf8d9898558b8c462c15bcd3f36f8419c6de24dc291e3ede7866c78f1f08ec4"
+    },
+    {
+      "name": "Granny Ruoxin",
+      "group": "npc",
+      "source": "art/tcg/revisions-2026-11-08/Granny Ruoxin-v003.png",
+      "output": "Granny Ruoxin.png",
+      "source_sha256": "f1ced93c45bf96f2cdeb909fbd894ad417548e728fe5287b86d35ea39b274e1e",
+      "output_sha256": "44525b407220fbbc25f41009ef8d6fe94861f05d4087f0cf6209c071f8a80520"
+    },
+    {
+      "name": "Jakob",
+      "group": "npc",
+      "source": "art/tcg/npc-cards/Jakob.png",
+      "output": "Jakob.png",
+      "source_sha256": "3e6b45fb4a3bb99d71e9df20a4d9714dc53b1d32490e4c14882ff681e3efeb8d",
+      "output_sha256": "ed0395206d3cc13cb25b72e1dedb8704b357c6c1d2234d7fbed9f413283e4fb4"
+    },
+    {
+      "name": "Jeht",
+      "group": "npc",
+      "source": "art/tcg/npc-cards/Jeht.png",
+      "output": "Jeht.png",
+      "source_sha256": "b6a2757977906597cb722e5b07245deaa2186445b766a1a4d507d4a9f7ba575e",
+      "output_sha256": "5852b78e945686b04f31d7e18e19f1bce61c5ae682db91b039bd9f07f40a3898"
+    },
+    {
+      "name": "Knyazev",
+      "group": "npc",
+      "source": "art/tcg/npc-cards/Knyazev.png",
+      "output": "Knyazev.png",
+      "source_sha256": "8e8f8e03bcc614fa501e7094d4e6a72e5f0f45a69cce08d6f26b77f4e54b79d2",
+      "output_sha256": "feb38fc31718aa6b17a2463dc1fdbe03ac5d8fdd0914d394f7ac543a962172a1"
+    },
+    {
+      "name": "Komaki",
+      "group": "npc",
+      "source": "art/tcg/revisions-2026-11-08/Komaki-v003.png",
+      "output": "Komaki.png",
+      "source_sha256": "a54f4e38e511910ae22851579f930bcab43bc705134e618f5777e44ce97f2fa3",
+      "output_sha256": "2c3a528f38b363aba50563ff0937a222d9a0600aa247131eba3a531b704106d6"
+    },
+    {
+      "name": "Kujou Masahito",
+      "group": "npc",
+      "source": "art/tcg/npc-cards/Kujou Masahito.png",
+      "output": "Kujou Masahito.png",
+      "source_sha256": "7412ad03ba01e84562b1308710fb5bced64caf710d48eac6abb9d6172850482c",
+      "output_sha256": "3942d38aee95e7bd8d05cf5b2de1426ed23d3445a25ad4303186a5533693ec14"
+    },
+    {
+      "name": "Kukkia",
+      "group": "npc",
+      "source": "art/tcg/npc-cards/Kukkia.png",
+      "output": "Kukkia.png",
+      "source_sha256": "31fb79f7b9b40a5661e1000917ca19e10a323a3764bd1e8c607daa829c114fdc",
+      "output_sha256": "b735bb0399a7df67e8d8739e90b6f1a96e1589bd39e84b124677e4d137352bd0"
+    },
+    {
+      "name": "Lasselin",
+      "group": "npc",
+      "source": "art/tcg/npc-cards/Lasselin.png",
+      "output": "Lasselin.png",
+      "source_sha256": "d47292c9b983ddc0108fedc28b6a522bff3ff3c0deca3301385982e4f889e5b3",
+      "output_sha256": "6e9668f47fd2ee9a5ce7830aca7a0efe436d3a3c38bb2e0fdae7c1824783ff70"
+    },
+    {
+      "name": "Lyris",
+      "group": "npc",
+      "source": "art/tcg/npc-cards/Lyris.png",
+      "output": "Lyris.png",
+      "source_sha256": "ff9fa7ad33a670b7e9febb6cd96220a8c3c59661599997b71926d67942a34a56",
+      "output_sha256": "21705fa5314dfb0143e5dce65365bc2f9b17742d4ed77fe9d2da94fe6b560fc5"
+    },
+    {
+      "name": "Maryam",
+      "group": "npc",
+      "source": "art/tcg/npc-cards/Maryam.png",
+      "output": "Maryam.png",
+      "source_sha256": "9cd80e026ae5bb121cc743fac989b907c6453662b82fd42e56269bac18ac4388",
+      "output_sha256": "762954df566313bedbe4ef99871aa483cd6a21a7bb5cabc70d9497ec96dc81dc"
+    },
+    {
+      "name": "Master Lu",
+      "group": "npc",
+      "source": "art/tcg/revisions-2026-11-08/Master Lu-v003.png",
+      "output": "Master Lu.png",
+      "source_sha256": "bb3053eb0f6f5ee390fef7131dd37e9b1a072fc7371d73629c36d184d5f1032c",
+      "output_sha256": "26f66a6ec7176a9baede88d328685c3ec6539654eb3ecfcbd8177a6970df08c8"
+    },
+    {
+      "name": "Mayskaya",
+      "group": "npc",
+      "source": "art/tcg/npc-cards/Mayskaya.png",
+      "output": "Mayskaya.png",
+      "source_sha256": "5d048e421349c435c0791f6ad4690cac1c24dffa33ed8f78f06884689eb7d112",
+      "output_sha256": "dc095f5d7b0eef752b8385c4d72c9ee223db7a709bc32370f6d2d01fc6652e27"
+    },
+    {
+      "name": "Mazatl",
+      "group": "npc",
+      "source": "art/tcg/npc-cards/Mazatl.png",
+      "output": "Mazatl.png",
+      "source_sha256": "1f8d35cac5eda8ba1752046e371710acc1b393ad1989c42a4e379bf11e9d3399",
+      "output_sha256": "3e32984a81dfaf041396e6b307d6c73de43cffda5077ff0d9898818230b71eb6"
+    },
+    {
+      "name": "Mécantre",
+      "group": "npc",
+      "source": "art/tcg/npc-cards/Mécantre.png",
+      "output": "Mécantre.png",
+      "source_sha256": "a45c4a6f73f84407fcd0e507e15c7fa12c339e9c6956761ffca8d1508b4a97c7",
+      "output_sha256": "1bee85941c7fd7af87ef87c58c203c1bc08915b499614e6b88fce0f131409936"
+    },
+    {
+      "name": "Neko",
+      "group": "npc",
+      "source": "art/tcg/revisions-2026-11-08/Neko-v003.png",
+      "output": "Neko.png",
+      "source_sha256": "7e31fa7be80c7dcff08d1a1eb94e5a9020e1bde0c1d500b85bc0837587d83361",
+      "output_sha256": "aed2429e5a185bba13e8069727ee18c025dfb9abf894df0b586182fb895a2fbd"
+    },
+    {
+      "name": "Nishikino Reirei",
+      "group": "npc",
+      "source": "art/tcg/npc-cards/Nishikino Reirei.png",
+      "output": "Nishikino Reirei.png",
+      "source_sha256": "eda77debaa1ac28ce3d4448f1fd11227ce50792ef1d512b3e82af0d7a43017d8",
+      "output_sha256": "450bd578fda7c79ab0f0eddc52b2664a1f70237e8c280026cc3ebdc45e7351cc"
+    },
+    {
+      "name": "Pitot",
+      "group": "npc",
+      "source": "art/tcg/npc-cards/Pitot.png",
+      "output": "Pitot.png",
+      "source_sha256": "f3c5695f81ce220d4b1ed5b4fa6301cb0ae44b3d29f228b5d0dbab4d198bb9f6",
+      "output_sha256": "9dbce92bb3e3c916cf717fa531f022efe63bca48255d8a73cc1fe7e62fcc057b"
+    },
+    {
+      "name": "Plate",
+      "group": "npc",
+      "source": "art/tcg/npc-cards/Plate.png",
+      "output": "Plate.png",
+      "source_sha256": "ffad287353174b4c124a3e91d6087ff85cc1cb9469fcd8ce12ac0f0d4203b02a",
+      "output_sha256": "5bfb398e4c774795e22963565a5588e266abc27fa2208b1a709431744efa8216"
+    },
+    {
+      "name": "Rene",
+      "group": "npc",
+      "source": "art/tcg/npc-cards/Rene.png",
+      "output": "Rene.png",
+      "source_sha256": "393a49def03f686a15f1f8d590adc1bf24d9fa89b16b0be3c32bb38903f7c60a",
+      "output_sha256": "60b528743f80b5f782a6ce78c8f563eb65ee31a5ba2fb234dd0ef6979f964bbe"
+    },
+    {
+      "name": "Sedile",
+      "group": "npc",
+      "source": "art/tcg/revisions-2026-11-08/Sedile-v003.png",
+      "output": "Sedile.png",
+      "source_sha256": "ec29dea41232c0bacc6640742e4d24d67edcc20f3f021329f7f4d66b8f05a480",
+      "output_sha256": "8d7a077fab2e818e444fb3011936180abb922f0253936f31d3ccd2e3751d0ecb"
+    },
+    {
+      "name": "Shajar",
+      "group": "npc",
+      "source": "art/tcg/npc-cards/Shajar.png",
+      "output": "Shajar.png",
+      "source_sha256": "5839aa91ddd040e560d9b1549b676b68cc405111451efc70d6634cbb6010da72",
+      "output_sha256": "8fdd88ca3a2d73e9d0cd0ebe9754ccdbb9ea9709902cf2e262b12e16647de193"
+    },
+    {
+      "name": "Tetreaux",
+      "group": "npc",
+      "source": "art/tcg/npc-cards/Tetreaux.png",
+      "output": "Tetreaux.png",
+      "source_sha256": "6c627ff5b2751f321484e8f42b6817fa113130e8217e38ac3405e3b7acd38614",
+      "output_sha256": "078c71c3c7d146d5987b2c2b78d1ee3fb87f2c6dce5630624ced1f2f1ad79ca8"
+    },
+    {
+      "name": "Tiepolo",
+      "group": "npc",
+      "source": "art/tcg/npc-cards/Tiepolo.png",
+      "output": "Tiepolo.png",
+      "source_sha256": "04c699c7cb80c50e4809413ccc95af184e06ed700ec6a7b8a5f2a2b92b79dcd7",
+      "output_sha256": "7b170b5726eda237785a0f53db0e0eac6b649b55bf74ea27f18f4700707784fa"
+    },
+    {
+      "name": "Tisoc",
+      "group": "npc",
+      "source": "art/tcg/revisions-2026-11-08/Tisoc-v003.png",
+      "output": "Tisoc.png",
+      "source_sha256": "68a6901c3d6d1edba036ed7ac564415099eb26b0a7d66dc183d2b7dc6735e02c",
+      "output_sha256": "111280ac4241b54fa2608db4c2b299684b20a76060062235b5ff1d5b4273d0e3"
+    },
+    {
+      "name": "Tlapalli",
+      "group": "npc",
+      "source": "art/tcg/npc-cards/Tlapalli.png",
+      "output": "Tlapalli.png",
+      "source_sha256": "75e41a43adc85d57a5f5ad6b19f40c82a29ef904d22f94cb560605db00adc79e",
+      "output_sha256": "6280f8897c0018aa5ddaf756f5a20030db04cf93251af4d1e5a993e359380b58"
+    },
+    {
+      "name": "Tzompantli",
+      "group": "npc",
+      "source": "art/tcg/revisions-2026-11-08/Tzompantli-v003.png",
+      "output": "Tzompantli.png",
+      "source_sha256": "13388322c1dfa575bfac2be265d35a30ade546b802eb2733d9b9dea82e34ca6d",
+      "output_sha256": "891dc1adf9bdc4fcdfc0765dda69ed3919bb07100f175dbf117030e8e68f89a9"
+    },
+    {
+      "name": "Valdis",
+      "group": "npc",
+      "source": "art/tcg/revisions-2026-11-08/Valdis-v003.png",
+      "output": "Valdis.png",
+      "source_sha256": "e9434c17bf9dec475222a195ff535a1a435d1ad4d7f41025960277014dd9d746",
+      "output_sha256": "fbf3e5a62342ec1afe10aab9261e1047bed0acb61008612329d5fb52d331b659"
+    },
+    {
+      "name": "Virda",
+      "group": "npc",
+      "source": "art/tcg/revisions-2026-11-08/Virda-v003.png",
+      "output": "Virda.png",
+      "source_sha256": "9fee2a996a93540c0fbdfbb29e90080e9c922310dd64c70d2b39cd9074dd06e0",
+      "output_sha256": "373bfd49ff62e875445c2929c83441f61bfe595da0cf7068ddf8ce19f1b80164"
+    },
+    {
+      "name": "Whistle",
+      "group": "npc",
+      "source": "art/tcg/npc-cards/Whistle.png",
+      "output": "Whistle.png",
+      "source_sha256": "34bba4b0db1e5ca9237c98b739aef123d2a69bbed1b1aa353e4857cea25c8ff3",
+      "output_sha256": "e8ef83e1e7fdebc237dfe92c4f031cd1e2afff3369406e4395026bd4995f6d71"
+    },
+    {
+      "name": "Xavier",
+      "group": "npc",
+      "source": "art/tcg/npc-cards/Xavier.png",
+      "output": "Xavier.png",
+      "source_sha256": "052f5ca0a3d5a4a5dd9ad87350856819e984b444b767f22b86803b4bf39d526c",
+      "output_sha256": "22a7b6beaefffaf0aeaa3906bf1bdf4a223e5c9e16db59c6534e928a45c39d19"
+    },
+    {
+      "name": "Cryo Whopperflower",
+      "group": "enemy",
+      "source": "art/tcg/enemy-cards/Cryo Whopperflower.png",
+      "output": "Cryo Whopperflower.png",
+      "source_sha256": "1d09ddb4741fb7204b4386ac7642404029f9643696229f622e6f65ed8680f6c0",
+      "output_sha256": "a6bb212b402299b18c3cf8bc374b6cd4e5b091c7b2941348e82383cd1b5ba108"
+    },
+    {
+      "name": "Geo Slime",
+      "group": "enemy",
+      "source": "art/tcg/enemy-cards/Geo Slime.png",
+      "output": "Geo Slime.png",
+      "source_sha256": "004c1f522cb0a0df2fbee38fc045deb5240ba007dc7b89d192b1fa49803dcdc8",
+      "output_sha256": "d21a172c71834d18c2caae4d9d35f1e9e4309965d4c51f8cc8d3eb4d0b69e8d1"
+    },
+    {
+      "name": "Large Electro Slime",
+      "group": "enemy",
+      "source": "art/tcg/enemy-cards/Large Electro Slime.png",
+      "output": "Large Electro Slime.png",
+      "source_sha256": "ce764a153179404232e962ad25afc357c1639eda0ffd275ab6b6dabcd7012ee6",
+      "output_sha256": "e7b86c7f2140f24f0588334357a9f462ab42eb051c455f4444d9e75d300d11b9"
+    },
+    {
+      "name": "Large Pyro Slime",
+      "group": "enemy",
+      "source": "art/tcg/enemy-cards/Large Pyro Slime.png",
+      "output": "Large Pyro Slime.png",
+      "source_sha256": "fa7da4b7e108795a2f318e0b2f73eff0fe5b19903c92aaa0e6790b4cbacfe80e",
+      "output_sha256": "4d5640aea2a17479f32a669c8e8b8fa6e705e3b0124b77a8c3b01b174b1d10b7"
+    },
+    {
+      "name": "Treasure Hoarders - Marksman",
+      "group": "enemy",
+      "source": "art/tcg/enemy-cards/Treasure Hoarders - Marksman.png",
+      "output": "Treasure Hoarders - Marksman.png",
+      "source_sha256": "3d58d881b7b3c3e096662db583895b77dbccec62f13374beb750adefc726fa5e",
+      "output_sha256": "afc556ede8d1f323f940118e32efd12414f06cd2dad20013be9c983072413964"
+    },
+    {
+      "name": "Treasure Hoarders - Scout",
+      "group": "enemy",
+      "source": "art/tcg/revisions-2026-11-08/Treasure Hoarders - Scout-v004.png",
+      "output": "Treasure Hoarders - Scout.png",
+      "source_sha256": "21b9e2cb1ed781cd5fae1e90d6fae79efdf5d58bb13db6d8f0a4a1d5175a7d02",
+      "output_sha256": "e500f5394020a39d82786eb64d2b870cf2ba20b1179218e58fc8addd86ccd31f"
+    },
+    {
+      "name": "Treasure Hoarders: Gravedigger",
+      "group": "enemy",
+      "source": "art/tcg/enemy-cards/Treasure Hoarders Gravedigger.png",
+      "output": "Treasure Hoarders Gravedigger.png",
+      "source_sha256": "9e2146520ab1dcf582d3841eb2945e919cce14f88a99be2c9957648e6563d25e",
+      "output_sha256": "935badb129f836dd98f06c491ca4ac55503c9675e9cb76212486212e0e5b53f2"
+    },
+    {
+      "name": "Treasure Hoarders: Pyro Potioneer",
+      "group": "enemy",
+      "source": "art/tcg/revisions-2026-11-08/Treasure Hoarders Pyro Potioneer-v003.png",
+      "output": "Treasure Hoarders Pyro Potioneer.png",
+      "source_sha256": "bf58055e00435612fc9b31e593f498289acadd03ae038bd48efad26c8597d8a5",
+      "output_sha256": "c90030587fdb8065c2ff236902fed995ee336865e192070a154407f33bf1515f"
+    }
+  ]
+}

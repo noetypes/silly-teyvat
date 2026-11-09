@@ -5,6 +5,8 @@ import {partyBag,battleSnapshot} from './battle-state.js';
 import {dialoguePages} from './narration.js';
 import {shouldGenerateAfterSend} from './choices-api.js';
 import {combatTrigger,hasCombatTrigger,combatTriggerPrompt} from './enemy-actions.js';
+import {leaveDefeatedGuildStaff} from './guild.js';
+import {locationResidents,rollLocationEncounter} from './location-encounters.js';
 
 // The Attack circle, fighting party members on your own, and enemies that start the fight themselves.
 export async function runDuelTests(){
@@ -104,12 +106,39 @@ export async function runDuelTests(){
         adapter.react=adapter.react.bind(adapter);await adapter.react(()=>ctx,{avatar:'Klee.png',id:'a',damage:4,hpAfter:6,maxHp:10,duel:true},()=>true);
         check('a friend sparring in a duel is never described to the model as an enemy',prompts.length===1&&prompts[0].includes('Klee just took 4 damage')&&!/enemy/i.test(prompts[0]));}
 
+        // Ordinary NPC duels use their own weak moves and award location cards.
+        {const {ctx,ui,log}=fixture();const avatar='Adel.png';
+        ctx.characters.push(card('Adel',{role:'character',playable:false,element:'None'}));ctx.groups[0].members=[avatar];ctx.chatMetadata.silly_teyvat_cast.core=[avatar];
+        partyMember(ctx,avatar);check('an ordinary NPC has the intended low health',partyMember(ctx,avatar).maxHp===22);
+        partyStore(ctx)[avatar].hp=1;delete partyBag(ctx)['fried-egg'];ui.sync({on:true,id:0,idle:true});await sendArmed(ctx,ui);
+        dialog().querySelector('.gi-ask-row input').click();Math.random=()=>0;dialog().querySelector('[data-answer="battle"]').click();
+        await until(()=>log.messages.some(m=>m.event.kind==='ally'),'NPC defeat');
+        check('an NPC uses its own moves and drops a low-tier card',log.plans[0].units.find(u=>u.id===avatar).kit.moves.some(m=>m.name==='Orderly Inspection')&&combatState(ctx).events.at(-1).loot.length===1);
+        Math.random=originalRandom;ui.dispose();}
+
+        // Katheryne is a boss-level NPC, disappears for the visit, and returns after departure.
+        {const {ctx,ui,log}=fixture();const avatar='Katheryne.png';
+        ctx.characters.push(card('Katheryne',{role:'character',playable:false,element:'None'}));
+        ctx.groups[0].members=[avatar];ctx.chatMetadata.silly_teyvat_world.location={id:'guild'};
+        ctx.extensionSettings.genshin_dialogue_ui.backgroundRegions=[{id:'mond',name:'Mondstadt',locations:[{id:'guild',label:"Adventurers' Guild, Mondstadt",residents:[]},{id:'road',label:'Road',wilderness:true}]}];
+        ctx.chatMetadata.silly_teyvat_cast={core:[avatar],managed:[],placements:{},encounter:{key:'guild-visit',locationId:'guild',present:[avatar],travellers:[],enemies:[]}};
+        partyMember(ctx,avatar);check('Katheryne has boss-level health',partyMember(ctx,avatar).maxHp===110);
+        partyStore(ctx)[avatar].hp=1;ui.sync({on:true,id:0,idle:true});await sendArmed(ctx,ui);
+        dialog().querySelector('.gi-ask-row input').click();Math.random=()=>0;dialog().querySelector('[data-answer="battle"]').click();
+        await until(()=>log.messages.some(m=>m.event.kind==='ally'),'Katheryne defeat');
+        check('Katheryne uses her own kit and drops cards',log.plans[0].units.find(u=>u.id===avatar).kit.moves.some(m=>m.name==='Ad Astra Abyssosque')&&combatState(ctx).events.at(-1).loot.length>0);
+        check('defeated Katheryne leaves this Guild visit without a revive question',log.removed.includes(avatar)&&!dialog().open&&!locationResidents(ctx,'guild').some(c=>c.avatar===avatar));
+        check('leaving restores her for a later Guild encounter',leaveDefeatedGuildStaff(ctx,{id:'guild'},{id:'road'})&&partyMember(ctx,avatar).hp===110&&rollLocationEncounter(ctx,'guild',[],{random:()=>0}).present.includes(avatar));
+        Math.random=originalRandom;ui.dispose();}
+
         // ---- Enemies that start the fight ----
         {const phrase=combatTrigger({extensionSettings:{genshin_dialogue_ui:{}}});
         check('the default battle phrase is a hidden marker',phrase==='[start_combat]'&&combatTrigger({extensionSettings:{genshin_dialogue_ui:{combatTriggerPhrase:'  Taste steel!  '}}})==='Taste steel!'&&combatTrigger({extensionSettings:{genshin_dialogue_ui:{combatTriggerPhrase:''}}})==='');
         check('the phrase is matched without regard to case',hasCombatTrigger('He lunges. [START_COMBAT]',phrase)&&!hasCombatTrigger('He lunges.',phrase)&&!hasCombatTrigger('anything','' ));
         const pagesOf=(html,prefs={})=>{const el=document.createElement('div');el.innerHTML=html;return dialoguePages(el,prefs,{is_enemy:true}).map(p=>p.textContent);};
         check('a bracketed phrase is hidden from the dialogue',pagesOf('<p>“Die!” [start_combat]</p>').join('|')==='“Die!” ');
+        {const el=document.createElement('div');el.innerHTML='<p>“En garde!” [start_combat]</p>';
+        check('the same marker is hidden for a non-enemy speaker',dialoguePages(el,{},{}).map(p=>p.textContent).join('|')==='“En garde!” ');}
         check('a half-written phrase is hidden while the reply streams',pagesOf('<p>“Die!” [start_co</p>').join('|')==='“Die!” ');
         check('plain words stay visible as part of what the enemy says',pagesOf('<p>“Taste steel!”</p>',{combatTriggerPhrase:'Taste steel!'}).join('|')==='“Taste steel!”');
         check('a custom marker is hidden too, and an empty phrase hides nothing',pagesOf('<p>“Die!” [FIGHT]</p>',{combatTriggerPhrase:'[FIGHT]'})[0]==='“Die!” '&&pagesOf('<p>“Die!” [start_combat]</p>',{combatTriggerPhrase:''})[0]==='“Die!” [start_combat]');
@@ -129,7 +158,16 @@ export async function runDuelTests(){
         {const chat=[{name:'Hilichurl Fighter',original_avatar:'Hilichurl Fighter.png',mes:'“Ya!”'}];const {ui,log}=fixture({enemy:true,chat});
         ui.sync({on:true,id:0,idle:true});await pause(60);check('an enemy that does not say the phrase starts nothing',log.rolls===0);ui.dispose();}
         {const chat=[{name:'Klee',original_avatar:'Klee.png',mes:'“Ya!” [start_combat]'}];const {ui,log}=fixture({enemy:true,chat});
-        ui.sync({on:true,id:0,idle:true});await pause(60);check('a companion saying the phrase starts nothing',log.rolls===0);ui.dispose();}
+        ui.sync({on:true,id:0,idle:true});await until(()=>log.plans.length,'a companion triggering combat');check('a non-enemy saying the phrase starts combat for a normal persona',log.plans[0].units.some(u=>u.side==='enemy'&&u.id==='Klee.png')&&!dialog().open);await until(()=>!ui.busy,'the forced round');ui.dispose();}
+        {const {ctx,ui,log}=fixture({chat:[{name:'Nahida',original_avatar:'Nahida.png',mes:'“Fight me!” [start_combat]'}]});
+        ctx.userAvatar='me.png';ctx.extensionSettings.genshin_dialogue_ui.personaCharacters={'me.png':'Klee.png'};
+        ui.sync({on:true,id:0,idle:true});await until(()=>log.plans.length,'a character challenging a character persona');
+        check('a non-enemy can trigger combat against another non-enemy persona',log.plans[0].units.some(u=>u.id==='Nahida.png'&&u.side==='enemy')&&log.plans[0].enemyFirst&&!dialog().open);await until(()=>!ui.busy,'the character round');ui.dispose();}
+        {const {ui,log}=fixture({enemy:true,chat:[{name:'Narrator',mes:'The Hilichurl attacks. [start_combat]',extra:{type:'narrator'}}]});
+        ui.sync({on:true,id:0,idle:true});await until(()=>log.plans.length,'a narrator trigger');
+        check('a narrator marker starts combat with the present hostile side',log.plans[0].units.some(u=>u.id==='Hilichurl Fighter.png'&&u.side==='enemy'));await until(()=>!ui.busy,'the narrated round');ui.dispose();}
+        {const {ui,log}=fixture({enemy:true,chat:[{name:'Traveler',is_user:true,mes:'[start_combat]'}]});
+        ui.sync({on:true,id:0,idle:true});await pause(60);check('player text does not trigger an automatic AI attack',log.plans.length===0);ui.dispose();}
         {const chat=[{name:'Hilichurl Fighter',original_avatar:'Hilichurl Fighter.png',mes:'“Ya!” [start_combat]'}];const {ctx,ui,log}=fixture({enemy:true,chat});
         ctx.extensionSettings.genshin_dialogue_ui.combatTriggerPhrase='';ui.sync({on:true,id:0,idle:true});await pause(60);check('an empty phrase turns enemy-started fights off',log.rolls===0&&!ctx.extensionPrompts.silly_teyvat_combat.value.includes('combat trigger phrase'));ui.dispose();}
         // ---- Battle music ----
@@ -160,8 +198,25 @@ export async function runDuelTests(){
         {const chat=[{name:'Klee',original_avatar:'Klee.png',mes:'“Monster!” [start_combat]'}];const made=reversed(true,true);made.ctx.chat=chat;Math.random=()=>0;made.ui.sync({on:true,id:0,idle:true});
         await until(()=>made.log.rolls>0||made.log.plans.length>0,'the hostile character\'s attack');
         check('a hostile character can start the fight by writing the phrase, and fights you as a duel',made.log.plans[0].units.find(u=>u.side==='enemy').id==='Klee.png'&&made.log.plans[0].units.find(u=>u.side==='enemy').duel);Math.random=originalRandom;await pause(100);made.ui.dispose();}
-        {const chat=[{name:'Hilichurl Fighter',original_avatar:'Hilichurl Fighter.png',mes:'“Ya!” [start_combat]'}];const made=reversed(true,true);made.ctx.chat=chat;made.ui.sync({on:true,id:0,idle:true});await pause(80);
-        check('a friendly enemy writing the phrase starts nothing',made.log.plans.length===0);made.ui.dispose();}}
+        {const chat=[{name:'Hilichurl Fighter',original_avatar:'Hilichurl Fighter.png',mes:'“Ya!” [start_combat]'}];const made=reversed(true,true);made.ctx.chat=chat;delete partyBag(made.ctx)['fried-egg'];made.ui.sync({on:true,id:0,idle:true});await pause(80);
+        check('a friendly enemy writing the phrase starts combat too',made.log.plans.length===1&&made.log.plans[0].units.some(u=>u.side==='enemy'&&u.id==='Hilichurl Fighter.png'));await until(()=>!made.ui.busy,'the friendly enemy round');made.ui.dispose();}
+        {const {ctx,ui,log}=reversed(true,true);ui.sync({on:true,id:0,idle:true});
+        check('enemy personas arm Attack directly against hostile characters',ui.setArmed(true)&&sword().title==='Attack after sending: on');
+        ctx.chat.push({name:'Monster',is_user:true,mes:'Attack!'});const pending=ui.onUserMessage(ctx.chat.length-1);
+        await until(()=>log.plans.length,'automatic reversed attack');
+        check('Attack fights every present non-enemy without a confirmation',!dialog().open&&log.plans[0].units.filter(u=>u.side==='enemy').map(u=>u.id).sort().join()==='Klee.png,Nahida.png');
+        await pending;ui.dispose();}
+        {const {ctx,ui,log}=reversed(true,true);ctx.chatMetadata.silly_teyvat_cast.encounter.enemies.push('Azhdaha.png');ctx.groups[0].members.push('Azhdaha.png');
+        ui.sync({on:true,id:0,idle:true});ui.setArmed(true);ctx.chat.push({name:'Monster',is_user:true,mes:'Attack everyone!'});const pending=ui.onUserMessage(ctx.chat.length-1);
+        await until(()=>log.plans.length,'a mixed hostile encounter');
+        check('hostile bosses remain in the fight alongside all non-enemies',log.plans[0].units.filter(u=>u.side==='enemy').map(u=>u.id).sort().join()==='Azhdaha.png,Klee.png,Nahida.png'&&!dialog().open);
+        await pending;ui.dispose();}
+        {const {ctx,ui,log}=reversed(true,true);
+        for(const a of ['Klee.png','Nahida.png']){partyMember(ctx,a);partyStore(ctx)[a].hp=1;}
+        log.onPlan=state=>{const me=state.units.find(u=>u.isUser);me.kit={...me.kit,moves:me.kit.moves.map(move=>({...move,effects:[{type:'damage',target:'all',power:999}]}))};};
+        ui.sync({on:true,id:0,idle:true});ui.setArmed(true);ctx.chat.push({name:'Monster',is_user:true,mes:'Attack!'});Math.random=()=>0;
+        await ui.onUserMessage(ctx.chat.length-1);
+        check('defeated hostile characters leave without a revive confirmation',!dialog().open&&log.removed.length===2&&log.messages.filter(m=>m.event.kind==='death').length===2);Math.random=originalRandom;ui.dispose();}}
         return results.join('\n')+`\n${results.length} duel and trigger checks passed`;
     }finally{Math.random=originalRandom;root.remove();}
 }

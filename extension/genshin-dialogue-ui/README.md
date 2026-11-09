@@ -1,9 +1,41 @@
-# Unreleased: Character configuration review
+# Silly Teyvat 1.76.5: Character configuration review
+
+- **Mobile wardrobe space.** Portrait sections and All Characters filters use single horizontally scrolling rows. Mobile character navigation shows arrows; selected portraits and artwork tiles have room for their glow. The slate no longer repeats the character name and preview caption. Landscape restores the vertical section rail, widens the slate, uses a compact All Characters icon, and gives the element/name heading its own header column. The character browser close button has a separate row from search. [Mobile checks](../../docs/ui-reviews/2026-11-09-mobile-wardrobe.md).
+
+- **Centered stage and clickable Trust hearts.** Desktop sprites sit at the screen center beside a narrower editor; the bottom shade fades upward. Q/E remain, W/S indicators and lingering header streaks are removed. Moveset fields align, and sprite/scene Required Trust uses the Trust menu’s five-heart artwork with click and keyboard editing. [Validation](../../docs/ui-reviews/2026-11-09-wardrobe-centering-and-trust.md).
+
+- **Reference-menu corrections.** Element/name headings and Q/E/W/S controls are restored. The portrait selector stays centered and cannot scroll vertically; enlarged portraits retain their full rim. Audio/import headings are compact, imports use consistent spacing, and empty-scene status text no longer points below the footer. [Follow-up checks](../../docs/ui-reviews/2026-11-09-character-menu-corrections.md).
 
 - A consistent slate editor improves contrast over elemental backgrounds, with more room for forms and visible section names on phones and tablets.
 - Starting Trust, Starter Deck and linking sprite folders have accessible disclosure headings again. Audio and imports are folded into named sections; Burst audio lives in Moveset.
 - Outfits distinguish previewing from equipping. The labelled character browser has responsive filters, empty-result guidance and contained keyboard focus.
 - [Review findings and validation](../../docs/ui-reviews/2026-11-08-character-menu.md). Run `node tools/test-wardrobe-ui-browser.mjs` for the responsive and keyboard checks.
+- **Layout pass across desktop, tablet and phone.** "Play as" sits below the Profile editor behind a divider instead of reading as part of the form, and fills the width on phones. Profile fields stack their labels when the editor is narrow, and Moveset effects use two columns, so selects are no longer cut off. Moveset rules fold into "How moves cost dice". The portrait strip, phone section tabs, list filters and the editor fade at an edge with more to scroll. Landscape phones keep the last section name above the floor shade and show two rows in the character list. A position field switched off by its checkbox looks disabled.
+- Fixed the media check: Paimon's card image had been re-saved with the example-dialogue update (same pixels, new embedded card data), and its manifest checksum now matches.
+
+# Silly Teyvat 1.76.4: Map compositing
+
+- The open map prepares its shared camera and tile levels for browser GPU compositing, releasing those hints on close. Individual waypoints and tiles do not request extra graphics layers.
+- Map pins skip redundant position writes while retaining Leaflet's zoom, stacking, keyboard interaction and positioning fallback. Decoded tile caches remain bounded for lower-memory devices.
+- The map browser check now reports graphics capability and measures a populated pan/zoom flight as well as steady-zoom panning. Hardware acceleration remains a browser setting; the extension cannot force it on.
+
+# Silly Teyvat 1.76.3: Combat triggers and reversed travel
+
+- Any character's combat trigger starts a fight after their reply is read, regardless of either card's role or the player's persona. Bracketed markers are hidden on all AI dialogue, and the same reply cannot start another round on replay.
+- An enemy persona's Attack starts against every present non-enemy without a target confirmation; hostile bosses remain in the battle too. Defeated hostile characters leave without a revive question.
+- Departing as an enemy offers each non-boss enemy companion. Accepted companions remain in the next scene and travel history; declined companions can be found where they stayed. Non-enemies and bosses do not follow.
+- Checks: `node tools/test-enemy-persona.mjs`; the duel, combat, send-attack, travel, cast and encounter preview suites.
+
+# Silly Teyvat 1.76.2: Persona sprite identity and height
+
+- Enemy expression handling keeps the player separate from NPCs sharing the same sprite folder. Narration no longer creates a second copy, and saved empty solo openings hide the phantom copy from older page caches.
+- Sprite layout uses the decoded image's proportions when no crop is needed, so square and wide artwork fills its model-based height. Personas use the same body model and size settings as their linked card.
+- Regression checks use the production expression adapter: `node tools/test-solo-opening-browser.mjs --enemy`; `node tools/test-sprite-height-browser.mjs` checks square and wide art on desktop and mobile, with trimming on and off.
+
+# Silly Teyvat 1.76.1: Enemy personas start alone
+
+- Starting a solo journey as an enemy keeps the random Wilderness habitat but opens with only the player's sprite and the Narrator. No residents or enemies spawn on that first visit, including another enemy that looks like the player. Encounters resume normally after travel.
+- Regression checks: `node tools/test-enemy-persona.mjs` and `node tools/test-solo-opening-browser.mjs --enemy`.
 
 # Silly Teyvat 1.76.0: Battle music everywhere, and playing as an enemy
 
@@ -12,6 +44,18 @@
 - **Playing an enemy persona.** A solo journey now begins at a random Wilderness waypoint where that enemy appears (any Wilderness waypoint if it appears nowhere), with another of its kind already there to greet you, instead of at the Adventurers' Guild. The sides are reversed: you and the enemies stand on the left of the stage, characters on the right. Enemies are friendly, bosses stay hostile, and every character is hostile to you; a new *Enemy persona* prompt (Settings → Prompts, and in the prompt order) tells the model so each turn, hostile characters can start a duel by writing the combat trigger phrase, meeting them starts battle music while meeting a friendly enemy does not, and running out of HP sends you to a refuge in the wilds instead of a Guild. Other enemies of your kind can now appear in the wilds.
 - **Opponent charge diamonds.** On the battle board every opponent card shows diamonds for how charged its special move is (they fill as its cooldown counts down and glow when it is ready), like a character's Energy.
 - Tests: `node tools/test-enemy-persona.mjs`; the music, duel, battle, enemy-sprite and identity preview suites cover the rest.
+
+# Silly Teyvat 1.75.1: Enemy TCG cards
+
+- **Eight new enemy cards.** Cryo Whopperflower, Geo Slime, Large Electro Slime, Large Pyro Slime and the four Treasure Hoarders now use original one-pass TCG-style illustrations for battle and Character Management. Each used the installed enemy sprite and a genuine enemy card as visual references. The [review gallery](../../art/tcg/enemy-cards/review.html) and prompt records are in the source workspace; all eight await review.
+- **Distinct enemy kits.** Treasure Hoarders use their crossbow, knives, shovel or burning reagents; Geo Slime has physical bounces, Large Electro Slime uses chain discharge, Large Pyro Slime scatters fire and Cryo Whopperflower charges behind a brief shield. Small slimes and Treasure Hoarders remain common enemies, while the large slimes and Whopperflower have HP in line with their existing TCG counterparts. Saved HP and Moveset overrides remain intact, and existing encounters keep their current HP.
+
+# Silly Teyvat 1.75.0: NPC cards and battles
+
+- **NPC TCG cards and movesets.** Forty-six non-playable residents have original, individually generated card art and three named moves. Their portraits in Character Management and battle use the same art. Most have modest health and weak-tier card drops; a few experienced fighters and unusual beings are tougher. Existing Moveset and HP overrides continue to win.
+- **Katheryne's secret.** Katheryne has a boss-level 110 HP and a powerful kit. If defeated at a Guild, she leaves the scene for that visit. After the player departs, a fresh Katheryne is waiting at the Guild with full health and behaves as though the fight never happened.
+- **Card Search everywhere.** Open Card Search from the Paimon menu or any waypoint's map details. Starting a new chat with an enemy chooses a matching wilderness waypoint and places that enemy in the opening encounter, ready for battle after its greeting. Saved chat locations are preserved.
+- **Artwork review.** Each NPC image was generated once using its sprite and an existing TCG card as references. The review gallery and prompt records live at `art/tcg/npc-cards/`; the user accepted Adel's card and the rest await review.
 
 # Silly Teyvat 1.74.7: Combat deck, sprite Trust and stage fixes
 
@@ -109,9 +153,9 @@ Measured in headless Chrome with the CPU slowed four times (`node tools/bench-pe
   now replaces its usual art exactly, at the same size and in the same place, instead of covering
   only half of it. HP, Energy and statuses stay on top where they always are.
 
-# Silly Teyvat 1.69.0: Card Search at the Adventurers' Guild
+# Silly Teyvat 1.69.0: Card Search
 
-- **Card Search.** At any Adventurers' Guild branch, the Paimon menu shows a **Card Search** tile (and the Guild's waypoint details on the map offer **Open Card Search**). It lists every Action card with a search box, card-type filters (and a **Selected** filter), sorting by Quality, Name, Cost, Places found or In bag, and a reverse-order button. The detail panel shows each card's effect, how many you carry and every Wilderness or Boss waypoint that drops it. Cards that no wild place drops can't be chosen.
+- **Card Search.** The Paimon menu shows a **Card Search** tile at any location, and waypoint details on the map offer **Open Card Search**. It lists every Action card with a search box, card-type filters (and a **Selected** filter), sorting by Quality, Name, Cost, Places found or In bag, and a reverse-order button. The detail panel shows each card's effect, how many you carry and every Wilderness or Boss waypoint that drops it. Cards that no wild place drops can't be chosen.
 - **Quest markers.** Once a search starts, every Wilderness and Boss waypoint whose card drops include a searched card gets the game's blue world-quest marker. It shows at every zoom level, its name lists the cards, the waypoint list highlights those places, and the waypoint details say which searched cards drop there.
 - **Finding a card ends its part of the search.** When a battle's loot includes a searched card, its markers go and a message says what was found and what is left. The last card ends the search. Return to any Guild to add or remove cards, or stop the search. The search is saved per chat, like the party's bag (`card-search.js`).
 

@@ -1,0 +1,366 @@
+{
+  "tool": "built-in image_gen.imagegen",
+  "mode": "fresh generation from sprite and genuine TCG-card references; no previous generated card used as an image input",
+  "abandoned_edit_pass": [
+    {
+      "file": "Granny Ruoxin-v002.png",
+      "sha256": "a47055bb7d56a039903bd200945548a2c0cee465495b837d97bbc0e8d64f0c9c",
+      "status": "abandoned, unapproved edit pass"
+    },
+    {
+      "file": "Treasure Hoarders - Scout-v002.png",
+      "sha256": "81d1a02bf11fefe66e02a48441add6e815e61188dbc778d53b2abbe09110c148",
+      "status": "abandoned, unapproved edit pass"
+    },
+    {
+      "file": "Treasure Hoarders Pyro Potioneer-v002.png",
+      "sha256": "ce1cc94c1949d32c0c33973f2fb9b81a3347d38b6560487e6b6696824f7b24c0",
+      "status": "abandoned, unapproved edit pass"
+    }
+  ],
+  "cards": [
+    {
+      "name": "Treasure Hoarders - Scout",
+      "group": "enemy",
+      "prompt": "Create a NEW vertical Genius Invokation TCG-style character card from scratch for Treasure Hoarders - Scout. Image 1 is the original subject sprite: preserve the character's identity, face, body type, colors and clothing. Image 2 is an existing genuine TCG card, a style and frame reference only. A nimble scout throwing knives in ancient ruins. Use straightforward eye-level three-quarter perspective, an anatomically credible athletic stance with both feet grounded, a consistent camera angle, natural proportions, two coherent arms, exactly two hands, and clearly readable hands. Produce polished Genshin-style anime illustration with a complete card frame. Natural, consistent perspective. No title, text or watermark.",
+      "feedback": "Correct the figure's bad anatomy and perspective. Give the scout a natural, readable pose with anatomically coherent limbs, hands and body proportions. Keep his identity, costume, setting, action and overall composition as close to the original as possible.",
+      "references": [
+        {
+          "role": "subject sprite",
+          "path": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Treasure Hoarders - Scout/neutral.webp",
+          "sha256": "e0648ace3bf627941c420319bd4b3bc62abb3daa003c5981e32a3da203e240f5"
+        },
+        {
+          "role": "genuine TCG style",
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/extension/genshin-dialogue-ui/assets/tcg/characters/Nobushi Jintouban.webp",
+          "sha256": "4c751bcf2695aef77164161acedd10b5f417242d183508f0348cf7cc6ce26e26"
+        }
+      ],
+      "output": "Treasure Hoarders - Scout-v003.png",
+      "sha256": "ffd560de208f8f40043a7258596f7ea0134bcb6dfa68aec54b7d5e873ead5766",
+      "status": "rejected by user; see v004",
+      "dimensions": [
+        958,
+        1642
+      ],
+      "card_shape_matches": true
+    },
+    {
+      "name": "Treasure Hoarders Pyro Potioneer",
+      "group": "enemy",
+      "prompt": "Create a NEW vertical Genius Invokation TCG-style character card from scratch for Treasure Hoarders Pyro Potioneer. Image 1 is the original subject sprite: preserve the character's identity, face, body type, colors and clothing. Image 2 is an existing genuine TCG card, a style and frame reference only. The masked potioneer stands in a ruin holding one simple open potion bottle upright at chest height. Place the bottle and hand on the same believable perspective plane with an anatomically accurate five-finger grip; show a small fiery spill on the ground. Avoid foreshortened fingers and distorted bottle shapes. Produce polished Genshin-style anime illustration with a complete card frame. Natural, consistent perspective. No title, text or watermark.",
+      "feedback": "Correct the bottle perspective and warped fingers: show one coherent bottle in a natural grip, with exactly five anatomically plausible fingers per visible hand. Preserve the character, clothing, action, lighting, framing and background as closely as possible.",
+      "references": [
+        {
+          "role": "subject sprite",
+          "path": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Treasure Hoarders Pyro Potioneer/neutral.webp",
+          "sha256": "19221e28c49e5f38e128ead6c051311e3c8e987de46e7a7dfd2be5deee56b14f"
+        },
+        {
+          "role": "genuine TCG style",
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/extension/genshin-dialogue-ui/assets/tcg/characters/Eremite Scorching Loremaster.webp",
+          "sha256": "49ecb0fcf60799a4f19f15a161b0c0babb9a2de9e9daba8bb100c7dc7ed4ffa9"
+        }
+      ],
+      "output": "Treasure Hoarders Pyro Potioneer-v003.png",
+      "sha256": "bf58055e00435612fc9b31e593f498289acadd03ae038bd48efad26c8597d8a5",
+      "status": "awaiting user review",
+      "dimensions": [
+        958,
+        1641
+      ],
+      "card_shape_matches": true
+    },
+    {
+      "name": "Babel",
+      "group": "npc",
+      "prompt": "Create a NEW vertical Genius Invokation TCG-style character card from scratch for Babel. Image 1 is the original subject sprite: preserve the character's identity, face, body type, colors and clothing. Image 2 is an existing genuine TCG card, a style and frame reference only. The Tanit matriarch sits on a low red-cushioned throne within a warmly lit desert tent, an imposing desert citadel and banners behind her. Pose her in a dignified, relaxed seated pose with uncrossed legs and naturally placed feet, both hands anatomically correct. Rich gold and crimson colors. Produce polished Genshin-style anime illustration with a complete card frame. Natural, consistent perspective. No title, text or watermark.",
+      "feedback": "Fix only the crossed-leg anatomy and perspective, making both legs physically coherent and naturally positioned, and correct warped fingers on both hands. Preserve her face, costume, pose, framing, the setting and every other element as closely as possible.",
+      "references": [
+        {
+          "role": "subject sprite",
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/candidates/Babel/neutral-v001.png",
+          "sha256": "c5fb9b304608441dcbb7a3d5f10aca70eb5148498efef27b5c7dbccee947d81f"
+        },
+        {
+          "role": "genuine TCG style",
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/extension/genshin-dialogue-ui/assets/tcg/characters/Collei.webp",
+          "sha256": "51d54dee3e0f76b4ea944f747ecaeac13ae4b3414f187f40ad19245eea5440f5"
+        }
+      ],
+      "output": "Babel-v003.png",
+      "sha256": "1fe9b1710697f1bd784bdfe498640d6a1625df3bf1dea0386105f8ff419b9447",
+      "status": "awaiting user review",
+      "dimensions": [
+        958,
+        1642
+      ],
+      "card_shape_matches": true
+    },
+    {
+      "name": "Granny Ruoxin",
+      "group": "npc",
+      "prompt": "Create a NEW vertical Genius Invokation TCG-style character card from scratch for Granny Ruoxin. Image 1 is the original subject sprite: preserve the character's identity, face, body type, colors and clothing. Image 2 is an existing genuine TCG card, a style and frame reference only. A kind elderly village leader sits on a Qingce terrace with a teacup and a single open memory book resting flat across her lap. The book has a clear spine, two rectangular page surfaces in consistent perspective, and naturally resting hands. In the background are yellow flowers, green mountains and Liyue water under warm daylight. Produce polished Genshin-style anime illustration with a complete card frame. Natural, consistent perspective. No title, text or watermark.",
+      "feedback": "Correct the strange perspective of the book: make it a single solid open book with consistent covers, spine, pages and foreshortening, resting naturally on her lap with her hands placed plausibly. Preserve her face, clothing, pose, scene, lighting and composition as closely as possible.",
+      "references": [
+        {
+          "role": "subject sprite",
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/candidates/Granny Ruoxin/neutral-v001.png",
+          "sha256": "9b55dc0604b906f4e571b3b2752eec30bdf021913614a0ecdf7122cfe0ea4cbb"
+        },
+        {
+          "role": "genuine TCG style",
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/extension/genshin-dialogue-ui/assets/tcg/characters/Xiangling.webp",
+          "sha256": "e30aa9df7a7618f4a155e9a25470c8dafb085cf788ca12f1fd4c598831923e6f"
+        }
+      ],
+      "output": "Granny Ruoxin-v003.png",
+      "sha256": "f1ced93c45bf96f2cdeb909fbd894ad417548e728fe5287b86d35ea39b274e1e",
+      "status": "awaiting user review",
+      "dimensions": [
+        958,
+        1642
+      ],
+      "card_shape_matches": true
+    },
+    {
+      "name": "Komaki",
+      "group": "npc",
+      "prompt": "Create a NEW vertical Genius Invokation TCG-style character card from scratch for Komaki. Image 1 is the original subject sprite: preserve the character's identity, face, body type, colors and clothing. Image 2 is an existing genuine TCG card, a style and frame reference only. Watatsumi's elder sits peacefully in a garden of Spiritherbs with one open fortune book on a low table. Construct the book as two believable planar pages attached to one spine in the same perspective, and use anatomically accurate hands. Soft ocean light and a calm shrine atmosphere. Produce polished Genshin-style anime illustration with a complete card frame. Natural, consistent perspective. No title, text or watermark.",
+      "feedback": "Correct only the book's warped perspective. Make the open book structurally coherent, with a single spine, consistent page planes and natural grip. Preserve the existing character, face, clothing, pose, background, lighting and card composition as closely as possible.",
+      "references": [
+        {
+          "role": "subject sprite",
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/candidates/Komaki/neutral-v001.png",
+          "sha256": "3da18a6b27414e9e05b9300af2103884c90aeb6db9ae15afb3d45aa94ca2f05a"
+        },
+        {
+          "role": "genuine TCG style",
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/extension/genshin-dialogue-ui/assets/tcg/characters/Yoimiya.webp",
+          "sha256": "cf6ff2637120f07173fb65c44a0ad18787e23cab915bb34c3e6b8415e99abeae"
+        }
+      ],
+      "output": "Komaki-v003.png",
+      "sha256": "a54f4e38e511910ae22851579f930bcab43bc705134e618f5777e44ce97f2fa3",
+      "status": "awaiting user review",
+      "dimensions": [
+        958,
+        1642
+      ],
+      "card_shape_matches": true
+    },
+    {
+      "name": "Master Lu",
+      "group": "npc",
+      "prompt": "Create a NEW vertical Genius Invokation TCG-style character card from scratch for Master Lu. Image 1 is the original subject sprite: preserve the character's identity, face, body type, colors and clothing. Image 2 is an existing genuine TCG card, a style and frame reference only. A master carpenter in his warm Liyue workshop, carefully holding a realistically sized small wooden storage box in both hands. On the workbench is an unfinished plank with wood shavings and simple carpentry tools. No chair, chair blueprint or tiny furniture. Accurate hands and coherent proportions. Produce polished Genshin-style anime illustration with a complete card frame. Natural, consistent perspective. No title, text or watermark.",
+      "feedback": "Replace the tiny chair he is holding with a well-proportioned small handcrafted wooden storage box, sized realistically for his two hands. Replace the chair blueprint on the worktable with an unfinished wooden board and curled shavings. Remove the tiny chair and chair blueprint completely. Preserve his identity, pose, clothes, workshop, lighting and overall card composition.",
+      "references": [
+        {
+          "role": "subject sprite",
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/candidates/Master Lu/neutral-v001.png",
+          "sha256": "57396cb2708993f96c962e569e06ca40cff63e4ba4312e9482ed938497177586"
+        },
+        {
+          "role": "genuine TCG style",
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/extension/genshin-dialogue-ui/assets/tcg/characters/Xiangling.webp",
+          "sha256": "e30aa9df7a7618f4a155e9a25470c8dafb085cf788ca12f1fd4c598831923e6f"
+        }
+      ],
+      "output": "Master Lu-v003.png",
+      "sha256": "bb3053eb0f6f5ee390fef7131dd37e9b1a072fc7371d73629c36d184d5f1032c",
+      "status": "awaiting user review",
+      "dimensions": [
+        958,
+        1642
+      ],
+      "card_shape_matches": true
+    },
+    {
+      "name": "Neko",
+      "group": "npc",
+      "prompt": "Create a NEW vertical Genius Invokation TCG-style character card from scratch for Neko. Image 1 is the original subject sprite: preserve the character's identity, face, body type, colors and clothing. Image 2 is an existing genuine TCG card, a style and frame reference only. A plain black domestic cat, ordinary small cat size, sitting at Asase Shrine with other normal-sized cats. Neko is no larger than the other cats, with natural feline anatomy and no human body, giant scale, ornate hat or human costume. A simple quiet shrine scene, uncluttered natural composition. Produce polished Genshin-style anime illustration with a complete card frame. Natural, consistent perspective. No title, text or watermark.",
+      "feedback": "Make Neko a plain, ordinary black domestic cat, the same normal size and proportions as the other cats. Remove her exaggerated giant scale, elaborate costume, hat and ornate accessories. Simplify the composition into a quieter, simpler card showing a normal-sized black cat at the shrine with the other cats; retain the shrine setting and illustrated TCG style. Do not make her human or humanoid.",
+      "references": [
+        {
+          "role": "subject sprite",
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/candidates/Neko/neutral-v001.png",
+          "sha256": "4920015f9d999be7a4af389da948af5ae61e2f0888fcfaaaa1c0464263854fff"
+        },
+        {
+          "role": "genuine TCG style",
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/extension/genshin-dialogue-ui/assets/tcg/characters/Diona.webp",
+          "sha256": "d691ef29e2e05fa180a252d636b07e55ceb85b9e310de62f102f2d995ebbb17d"
+        }
+      ],
+      "output": "Neko-v003.png",
+      "sha256": "7e31fa7be80c7dcff08d1a1eb94e5a9020e1bde0c1d500b85bc0837587d83361",
+      "status": "awaiting user review",
+      "dimensions": [
+        958,
+        1642
+      ],
+      "card_shape_matches": true
+    },
+    {
+      "name": "Sedile",
+      "group": "npc",
+      "prompt": "Create a NEW vertical Genius Invokation TCG-style character card from scratch for Sedile. Image 1 is the original subject sprite: preserve the character's identity, face, body type, colors and clothing. Image 2 is an existing genuine TCG card, a style and frame reference only. A small Melusine officer relaxing in the colorful underwater village, with the short legs, small feet and compact, cute proportions of the sprite. The full figure is clearly grounded and no legs are elongated. A welcoming, inquisitive expression and gentle aquatic light. Produce polished Genshin-style anime illustration with a complete card frame. Natural, consistent perspective. No title, text or watermark.",
+      "feedback": "Correct Sedile's unnaturally long legs. Give her the short, compact, cute proportions of a small Melusine, with short legs and small feet coherent with her torso and seated pose. Preserve her identity, face, clothing, colors, pose, background and card composition as closely as possible.",
+      "references": [
+        {
+          "role": "subject sprite",
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/candidates/Sedile/neutral-v001.png",
+          "sha256": "b57ad25e699e036b426992ecf3763029c1f3a02654a6ad1da12083e476016398"
+        },
+        {
+          "role": "genuine TCG style",
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/extension/genshin-dialogue-ui/assets/tcg/characters/Furina.webp",
+          "sha256": "12c196d1da6d742ab7a03c7146c6685335f29d562f25f874621cca79b58d1a05"
+        }
+      ],
+      "output": "Sedile-v003.png",
+      "sha256": "ec29dea41232c0bacc6640742e4d24d67edcc20f3f021329f7f4d66b8f05a480",
+      "status": "awaiting user review",
+      "dimensions": [
+        958,
+        1642
+      ],
+      "card_shape_matches": true
+    },
+    {
+      "name": "Tisoc",
+      "group": "npc",
+      "prompt": "Create a NEW vertical Genius Invokation TCG-style character card from scratch for Tisoc. Image 1 is the original subject sprite: preserve the character's identity, face, body type, colors and clothing. Image 2 is an existing genuine TCG card, a style and frame reference only. A Scions of the Canopy resident holding a flamegranate against a verdant Natlan mountain setting. In the distant background show the Gluttonous Yumkasaur Mountain King matching Image 3's distinctive actual silhouette, ears, foliage, belly spiral, anatomy and colors. Accurate natural hands and clear depth. Produce polished Genshin-style anime illustration with a complete card frame. Natural, consistent perspective. No title, text or watermark.",
+      "feedback": "Replace the inaccurate animal in the background with the Gluttonous Yumkasaur Mountain King from Image 2, using its distinctive round green body, large orange ears, orange belly spiral, blue flower collar and leafy plumage as the exact anatomy and color reference. Retain the creature in the same distant background position and scale. Image 1 is the edit target; preserve Tisoc, his pose, flamegranates, scenery, frame and composition as closely as possible.",
+      "references": [
+        {
+          "role": "subject sprite",
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/candidates/Tisoc/neutral-v001.png",
+          "sha256": "49d07322b2a1e21db46a8c1270044fbbd4d1e36692e4ab79cbcec6e6d980ff13"
+        },
+        {
+          "role": "genuine TCG style",
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/extension/genshin-dialogue-ui/assets/tcg/characters/Mualani.webp",
+          "sha256": "97dd1ffe489e9ef9a0559659833801090961af52b222586c9e70e35ee017f8c7"
+        },
+        {
+          "role": "Yumkasaur sprite",
+          "path": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Gluttonous Yumkasaur Mountain King/neutral.webp",
+          "sha256": "f40c73b4417588bb6836ae75753fe411aeffac5f158e866efdd0f06e4301bc12"
+        }
+      ],
+      "output": "Tisoc-v003.png",
+      "sha256": "68a6901c3d6d1edba036ed7ac564415099eb26b0a7d66dc183d2b7dc6735e02c",
+      "status": "awaiting user review",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "card_shape_matches": false
+    },
+    {
+      "name": "Tonia",
+      "group": "npc",
+      "prompt": "Create a NEW vertical Genius Invokation TCG-style character card from scratch for Tonia. Image 1 is the original subject sprite: preserve the character's identity, face, body type, colors and clothing. Image 2 is an existing genuine TCG card, a style and frame reference only. A vertical, full-body fashion atelier scene with Tonia standing in the foreground, a friendly confident smile, blue eyes, auburn twin tails and a burgundy beret. She wears a long rose-and-cream dress and dark gloves, holds an open fashion-sketch book naturally in one hand and gestures up with a slender stylus as a glowing pink dress outline floats above it. Keep the delicate flowing pink ribbons, tall blue arched windows, a dress mannequin on the right, sewing spools and scissors, and warm flowers at the edges. Make the open book physically coherent: rectangular covers, one clear central spine, two connected page planes and a natural five-finger supporting grip. Preserve this graceful layered composition and gentle lighting. Produce polished Genshin-style anime illustration with a complete card frame. Natural, consistent perspective. No title, text or watermark.",
+      "feedback": "Fix only the open book's perspective, making its covers, central spine, page planes and the hand supporting it structurally coherent. This composition is a favorite: preserve her face and expression, outfit, hands apart from the supporting grip, pose, magic, mannequin, architecture, colors, lighting, framing and every other detail as closely as possible. Do not redesign the image.",
+      "references": [
+        {
+          "role": "subject sprite",
+          "path": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Tonia/neutral.webp",
+          "sha256": "9dc6ac38714c21d5148617ebfb269762854df8a8dc47de78dd897585ec79dbed"
+        },
+        {
+          "role": "genuine TCG style",
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/extension/genshin-dialogue-ui/assets/tcg/characters/Tartaglia.webp",
+          "sha256": "72343ecb836a0c2015dae0b4bf990c8caf5dcecd1dbc66b308d7bd88c414b3e2"
+        }
+      ],
+      "output": "Tonia-v003.png",
+      "sha256": "175d5f5639ffbf7ca51ab6bdd3175770e2595dba6d1dac0ca783cf49878893c2",
+      "status": "rejected by user; see v004",
+      "dimensions": [
+        958,
+        1642
+      ],
+      "card_shape_matches": true
+    },
+    {
+      "name": "Tzompantli",
+      "group": "npc",
+      "prompt": "Create a NEW vertical Genius Invokation TCG-style character card from scratch for Tzompantli. Image 1 is the original subject sprite: preserve the character's identity, face, body type, colors and clothing. Image 2 is an existing genuine TCG card, a style and frame reference only. A Natlan musician playing a single correctly constructed electric guitar in front of his instrument shop, backed by a bright Fontaine-inspired city square. The guitar has one neck attached to one body, six parallel strings from bridge to tuning pegs, a normal fretboard, accurate hand positions, and anatomically believable fingers. Background instruments should be simple recognizable guitars with correct necks and strings. Produce polished Genshin-style anime illustration with a complete card frame. Natural, consistent perspective. No title, text or watermark.",
+      "feedback": "Correct the strange instruments so that the guitar he holds is a coherent playable electric guitar with one continuous neck, correctly aligned strings and a realistic bridge and tuning pegs, naturally held and played. Make background instruments simple and anatomically plausible as well. Preserve his appearance, pose, outfit, scene, colors and framing.",
+      "references": [
+        {
+          "role": "subject sprite",
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/candidates/Tzompantli/neutral-v001.png",
+          "sha256": "f9848cd391254d2f7ac7741020bbdc7f364066d49e4dcba6a25becf02e419177"
+        },
+        {
+          "role": "genuine TCG style",
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/extension/genshin-dialogue-ui/assets/tcg/characters/Mualani.webp",
+          "sha256": "97dd1ffe489e9ef9a0559659833801090961af52b222586c9e70e35ee017f8c7"
+        }
+      ],
+      "output": "Tzompantli-v003.png",
+      "sha256": "13388322c1dfa575bfac2be265d35a30ade546b802eb2733d9b9dea82e34ca6d",
+      "status": "awaiting user review",
+      "dimensions": [
+        958,
+        1642
+      ],
+      "card_shape_matches": true
+    },
+    {
+      "name": "Valdis",
+      "group": "npc",
+      "prompt": "Create a NEW vertical Genius Invokation TCG-style character card from scratch for Valdis. Image 1 is the original subject sprite: preserve the character's identity, face, body type, colors and clothing. Image 2 is an existing genuine TCG card, a style and frame reference only. A Lightkeeper supply keeper sits at a snowy night camp with lanterns and mountain silhouettes. He studies a single parchment supply checklist held in one hand, with a simple rectangular sheet in consistent perspective and natural fingers; nearby is a neat pack of expedition supplies. Produce polished Genshin-style anime illustration with a complete card frame. Natural, consistent perspective. No title, text or watermark.",
+      "feedback": "Fix only the warped scroll perspective: show one coherent paper scroll, with believable planar surface, edges, rolled ends and a natural hand grip. Preserve his face, outfit, seated pose, equipment, scene, lighting and composition as closely as possible.",
+      "references": [
+        {
+          "role": "subject sprite",
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/candidates/Valdis/neutral-v001.png",
+          "sha256": "2b5442326cf2fffe2b9cbf9761258a7524e487a9c0ac14317c46745885b86d3f"
+        },
+        {
+          "role": "genuine TCG style",
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/extension/genshin-dialogue-ui/assets/tcg/characters/Fischl.webp",
+          "sha256": "098273b5abc95325bdb01ca6d1d8bf55f70aa7d8ed855c64b798cd0680ac1573"
+        }
+      ],
+      "output": "Valdis-v003.png",
+      "sha256": "e9434c17bf9dec475222a195ff535a1a435d1ad4d7f41025960277014dd9d746",
+      "status": "awaiting user review",
+      "dimensions": [
+        958,
+        1642
+      ],
+      "card_shape_matches": true
+    },
+    {
+      "name": "Virda",
+      "group": "npc",
+      "prompt": "Create a NEW vertical Genius Invokation TCG-style character card from scratch for Virda. Image 1 is the original subject sprite: preserve the character's identity, face, body type, colors and clothing. Image 2 is an existing genuine TCG card, a style and frame reference only. A compact, cute Melusine joyfully training beside luminous blue pools in Merusea Village. Far behind her, the Traveler and Paimon watch from a bridge. Give each exactly two arms and anatomically correct hands, with no extra, floating, or overlapping hand on the railing. Keep their scale small and the main focus on Virda. Produce polished Genshin-style anime illustration with a complete card frame. Natural, consistent perspective. No title, text or watermark.",
+      "feedback": "Remove the extra hand on the railing in the distant background. Traveler and Paimon should each have anatomically correct arms and hands, with no floating, duplicate or disembodied hand. Preserve Virda, her pose, the two background characters, the railing, scenery, colors and framing as closely as possible.",
+      "references": [
+        {
+          "role": "subject sprite",
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-07-location-npc-neutrals/candidates/Virda/neutral-v001.png",
+          "sha256": "490127cffd8d4d2dcea586e1f79477d8a5452fc09026a67ac3d4c450f56d5cc7"
+        },
+        {
+          "role": "genuine TCG style",
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/extension/genshin-dialogue-ui/assets/tcg/characters/Furina.webp",
+          "sha256": "12c196d1da6d742ab7a03c7146c6685335f29d562f25f874621cca79b58d1a05"
+        }
+      ],
+      "output": "Virda-v003.png",
+      "sha256": "9fee2a996a93540c0fbdfbb29e90080e9c922310dd64c70d2b39cd9074dd06e0",
+      "status": "awaiting user review",
+      "dimensions": [
+        958,
+        1642
+      ],
+      "card_shape_matches": true
+    }
+  ]
+}

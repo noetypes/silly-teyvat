@@ -94,7 +94,11 @@ def missing_characters():
     print(f'{len(found)} new character cards:', ', '.join(found))
 
 def main():
-    names = [n for n, v in json.loads((ROOT / 'assets/character-properties.json').read_text()).items() if v.get('playable') or v.get('role') == 'enemy']
+    props = json.loads((ROOT / 'assets/character-properties.json').read_text())
+    generated_file = OUT / 'generated-enemies.json'
+    generated = set(json.loads(generated_file.read_text())) if generated_file.exists() else set()
+    generated.update(n for n, v in props.items() if v.get('role') != 'enemy' and v.get('playable') is False)
+    names = [n for n, v in props.items() if (v.get('playable') or v.get('role') == 'enemy') and n not in generated]
     cards = {norm(t.replace(' (Character Card)', '')): u for t, u in category('Category:Genius Invokation TCG Character Cards').items()}
     actions = category('Category:Genius Invokation TCG Action Cards')
     total, found = 0, []
@@ -106,7 +110,7 @@ def main():
         if title not in actions: print('Missing item card', title, file=sys.stderr); continue
         total += save(actions[title], OUT / 'items' / f'{item}.webp'); time.sleep(.1)
     # Cards supplied by the user (Aether, Lumine, Paimon) are not on the wiki; keep them listed.
-    found += [n for n in SUPPLIED if (OUT / 'characters' / f'{n}.webp').exists() and n not in found]
+    found += [n for n in [*SUPPLIED, *generated] if (OUT / 'characters' / f"{n.replace(chr(58), '')}.webp").exists() and n not in found]
     (OUT / 'characters.json').write_text(json.dumps(sorted(found), indent=1))
     print(f'{len(found)} character cards, {len(ITEMS)} item cards, {total / 1e6:.1f} MB')
 
@@ -149,7 +153,9 @@ def missing_enemies():
     # drawn-enemies.json remembers which cards were drawn here, so they are redrawn rather than taken for TCG cards.
     drawn_file = OUT / 'drawn-enemies.json'
     drawn = json.loads(drawn_file.read_text()) if drawn_file.exists() else []
-    made = [n for n, v in props.items() if v.get('role') == 'enemy' and (n not in listed or n in drawn) and enemy_card(n, v.get('element', 'None'))]
+    generated_file = OUT / 'generated-enemies.json'
+    generated = set(json.loads(generated_file.read_text())) if generated_file.exists() else set()
+    made = [n for n, v in props.items() if v.get('role') == 'enemy' and n not in generated and (n not in listed or n in drawn) and enemy_card(n, v.get('element', 'None'))]
     drawn_file.write_text(json.dumps(sorted(made), indent=1))
     (OUT / 'characters.json').write_text(json.dumps(sorted(set(listed + made)), indent=1))
     print(f'{len(made)} enemy cards drawn from wiki icons:', ', '.join(made))

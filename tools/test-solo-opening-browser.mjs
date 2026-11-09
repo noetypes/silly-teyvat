@@ -2,33 +2,44 @@ import assert from 'node:assert/strict';
 import {createRequire} from 'node:module';
 
 const {chromium}=createRequire(import.meta.url)('playwright');
+const enemyPersona=process.argv.includes('--enemy');
 const base=process.env.IDENTITY_PREVIEW_URL || 'http://127.0.0.1:8000/scripts/extensions/third-party/genshin-dialogue-ui';
 const browser=await chromium.launch({headless:true,executablePath:'/Applications/Google Chrome.app/Contents/MacOS/Google Chrome'});
 const page=await browser.newPage();
 page.on('pageerror',error=>console.error(error.message));
 const heldSprites=[];let holdSprites=true;
 await page.addInitScript(()=>{window.requestAnimationFrame=fn=>setTimeout(()=>fn(performance.now()),16);window.cancelAnimationFrame=clearTimeout;});
+await page.route('**/api/sprites/get?*',route=>route.fulfill({json:[{label:'neutral',path:new URL('assets/preview/Klee/neutral.png',base+'/').pathname+'?opening-solo-fixture=1'}]}));
 try{
     await page.goto(base+'/preview.html');
     await page.waitForFunction(()=>document.body.classList.contains('gi-enabled'));
-    await page.evaluate(async()=>{
+    await page.evaluate(async enemyPersona=>{
         const extension=await import('./index.js');extension.dispose();document.querySelector('#chat').replaceChildren();
         const {NARRATOR_AVATAR}=await import('./narrator.js');
         const {makeSoloJourney}=await import('./persona-session.js');
-        const {createStageRoster}=await import('./staging.js');
+        const {createNativeSpriteAdapter}=await import('./page-sprites.js');
         const {deliverLocationGreeting}=await import('./location-greetings.js');
         const handlers=new Map(),eventTypes=Object.fromEntries(['CHAT_CHANGED','CHAT_LOADED','MESSAGE_RECEIVED','CHARACTER_MESSAGE_RENDERED','GENERATION_STARTED','GENERATION_ENDED'].map(key=>[key,key]));
         const eventSource={on(key,fn){if(!handlers.has(key))handlers.set(key,[]);handlers.get(key).push(fn);},removeListener(key,fn){handlers.set(key,(handlers.get(key)||[]).filter(f=>f!==fn));},async emit(key,...args){await Promise.all((handlers.get(key)||[]).map(fn=>fn(...args)));}};
-        const path=new URL('assets/preview/Klee/neutral.png',window.location.href).pathname;
+        const path=new URL('assets/preview/Klee/neutral.png',window.location.href).pathname+'?opening-solo-fixture=1';
         const location={id:'opening-beach',label:'Opening beach',path:new URL('preview-landscape.svg',window.location.href).pathname,description:'A quiet shore.',residents:[],waypoint:{mapId:'teyvat',x:0,y:0}};
         const prefs={enabled:true,nativeStaging:true,choices:false,cardArt:false,uiSound:false,locationMusic:false,trimSprites:false,starterLocationsVersion:999,homeBindingsVersion:999,personaWardrobeMigrated:true,personaCharacters:{'opening-player.png':'Klee.png'},personaSprites:{'opening-player.png':{enabled:true,folder:'Klee',expression:'neutral'}},defaultCharacterLocations:{'Klee.png':location.id},backgroundRegions:[{id:'opening-region',name:'Mondstadt',locations:[location]}]};
         const ctx={userAvatar:'opening-player.png',name1:'Klee',characters:[{name:'Klee',avatar:'Klee.png'},{name:'Narrator',avatar:NARRATOR_AVATAR}],groups:[],characterId:undefined,groupId:null,chatId:'welcome',chat:[],chatMetadata:{},extensionSettings:{genshin_dialogue_ui:prefs,expressions:{custom:[]}},powerUserSettings:{personas:{'opening-player.png':'Klee'},persona_descriptions:{}},eventTypes,eventSource,onlineStatus:'ok',getCurrentChatId(){return this.chatId;},getThumbnailUrl:()=>path,saveSettingsDebounced(){},saveChat:async()=>{},renderExtensionTemplateAsync:()=>fetch('settings.html').then(r=>r.text()),addOneMessage(message){const node=document.createElement('div');node.className='mes';node.setAttribute('mesid',String(ctx.chat.indexOf(message)));node.innerHTML='<div class="mes_block"><span class="name_text"></span><div class="mes_text"></div></div>';node.querySelector('.name_text').textContent=message.name;node.querySelector('.mes_text').textContent=message.mes;document.querySelector('#chat').append(node);}};
+        if(enemyPersona){
+            // Reuse the preview art, but give the played card and habitat real enemy metadata.
+            ctx.characters[0].data={extensions:{silly_teyvat:{role:'enemy'}}};
+            ctx.characters.push({name:'Amber',avatar:'Amber.png'});
+            Object.assign(location,{wilderness:true,enemyPool:['Klee.png'],enemyEncounterRate:100,residents:['Amber.png']});
+            prefs.encounterRate=100;
+        }
         window.openingFixture={ctx,introPending:false};window.SillyTavern={getContext:()=>ctx};
         ctx.generateQuietPrompt=()=>{window.openingFixture.introPending=true;return new Promise(resolve=>{window.finishIntro=()=>{window.openingFixture.introPending=false;resolve('Waves wash across the shore.');};});};
         const inventory=async()=>[{label:'neutral',path}];
-        await extension.initialize({spriteAdapter:{capture:()=>[],prepare:createStageRoster(inventory),classify:async()=>{throw Error('Opening must not classify');}},wardrobeAdapter:{list:inventory},journeyAdapter:{install:async()=>()=>{}},personaSessionAdapter:{busy:async()=>false,async createSolo(){const snapshot=makeSoloJourney(ctx);ctx.groupId='opening-solo';ctx.chatId=snapshot.chatId;ctx.groups.push({...snapshot.group,id:ctx.groupId});ctx.chatMetadata=snapshot.chat[0].chat_metadata;ctx.chat=snapshot.chat.slice(1);await eventSource.emit(eventTypes.CHAT_CHANGED);return {converted:true};}},castAdapter:{greet:(entry,valid)=>deliverLocationGreeting(()=>ctx,entry,valid,{loadScript:async()=>({isGenerating:()=>false,isChatSaving:false})})}});
-    });
-    await page.route('**/assets/preview/Klee/neutral.png',route=>{if(holdSprites)heldSprites.push(route);else return route.continue();});
+        const spriteAdapter=createNativeSpriteAdapter({capture:()=>[]});
+        spriteAdapter.classify=async()=>{throw Error('Opening must not classify');};
+        await extension.initialize({spriteAdapter,wardrobeAdapter:{list:inventory},journeyAdapter:{install:async()=>()=>{}},personaSessionAdapter:{busy:async()=>false,async createSolo(){const snapshot=makeSoloJourney(ctx);ctx.groupId='opening-solo';ctx.chatId=snapshot.chatId;ctx.groups.push({...snapshot.group,id:ctx.groupId});ctx.chatMetadata=snapshot.chat[0].chat_metadata;ctx.chat=snapshot.chat.slice(1);await eventSource.emit(eventTypes.CHAT_CHANGED);return {converted:true};}},castAdapter:{greet:(entry,valid)=>deliverLocationGreeting(()=>ctx,entry,valid,{loadScript:async()=>({isGenerating:()=>false,isChatSaving:false})})}});
+    },enemyPersona);
+    await page.route('**/assets/preview/Klee/neutral.png?opening-solo-fixture=1',route=>{if(holdSprites)heldSprites.push(route);else return route.continue();});
     await page.locator('#gi-launcher').click();
     await page.locator('[data-gi-action="solo-journey"]').click();
     await page.waitForFunction(()=>window.openingFixture.introPending);
@@ -43,17 +54,36 @@ try{
     assert.equal(await page.locator('#gi-background-stage').evaluate(el=>!el.hidden&&el.dataset.location==='Opening beach'),true);
     const sprite=page.locator('#gi-sprite-stage img[data-avatar="__user__"]');
     assert.equal(await sprite.evaluate(el=>!el.hidden&&el.complete&&el.naturalWidth>0),true,'the player sprite must already be decoded and displayed');
+    assert.equal(await page.locator('#gi-sprite-stage img').count(),1,'a solo opening must show exactly one player sprite');
+    assert.deepEqual(await page.evaluate(()=>window.openingFixture.ctx.chatMetadata.silly_teyvat_cast.encounter.enemies),[],'no enemy should spawn in the opening');
     assert.equal(await page.locator('#gi-navigation').evaluate(el=>el.hidden),true,'dialogue controls wait for actual dialogue');
     console.log('PASS loading closes with the background and player sprite visible while the intro is still pending');
     await page.evaluate(()=>window.finishIntro());
     await page.waitForFunction(()=>document.querySelector('#chat .gi-current .gi-page')?.textContent.includes('Waves wash'));
     assert.equal(await page.locator('#chat > .mes').count(),1);
+    // Let the production expression resolver finish before checking the final scene.
+    await page.waitForFunction(()=>window.openingFixture.ctx.chat[0]?.extra?.silly_teyvat?.swipes?.[0]?.[0]);
+    await page.waitForTimeout(250);
     assert.equal(await sprite.evaluate(el=>!el.hidden&&el.naturalWidth>0),true);
+    assert.equal(await page.locator('#gi-sprite-stage img').count(),1,'the intro must not add a duplicate of the player');
     assert.equal(await page.locator('#gi-background-stage').evaluate(el=>!el.hidden&&el.dataset.location==='Opening beach'),true);
     console.log('PASS the completed intro joins the existing scene without a synthetic message or missing visuals');
+    if(enemyPersona){
+        await page.evaluate(async()=>{
+            const ctx=window.openingFixture.ctx;
+            for(const data of Object.values(ctx.chat[0].extra.silly_teyvat.swipes[0])){
+                const player=data.scene.find(s=>s.avatar==='__user__');
+                data.scene.push({...player,avatar:'Klee.png',model:undefined,baseH:undefined,presentation:undefined});
+            }
+            await ctx.eventSource.emit(ctx.eventTypes.CHAT_CHANGED);
+        });
+        await page.waitForFunction(()=>document.querySelectorAll('#gi-sprite-stage img').length===1);
+        assert.equal(await sprite.isVisible(),true);
+        console.log('PASS reopening an old opening cache removes the phantom enemy copy');
+    }
     await page.evaluate(async()=>{(await import('./index.js')).dispose();});
 }catch(error){
-    console.error(await page.evaluate(()=>({pending:window.openingFixture?.introPending,groupId:window.openingFixture?.ctx.groupId,cast:window.openingFixture?.ctx.chatMetadata?.silly_teyvat_cast,loading:document.querySelector('#gi-loading')?.outerHTML.slice(0,180),status:document.querySelector('#gi-status')?.textContent})));
+    console.error(await page.evaluate(()=>({pending:window.openingFixture?.introPending,groupId:window.openingFixture?.ctx.groupId,cast:window.openingFixture?.ctx.chatMetadata?.silly_teyvat_cast,sprites:[...document.querySelectorAll('#gi-sprite-stage img')].map(img=>({src:img.getAttribute('src'),data:{...img.dataset}})),loading:document.querySelector('#gi-loading')?.outerHTML.slice(0,180),status:document.querySelector('#gi-status')?.textContent})));
     throw error;
 }finally{
     await page.close();await browser.close();

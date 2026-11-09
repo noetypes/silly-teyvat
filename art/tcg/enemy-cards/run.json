@@ -1,0 +1,95 @@
+{
+  "tool": "built-in image_gen.imagegen",
+  "method": "one generation per enemy; no regeneration",
+  "wiki_gallery": "https://genshin-impact.fandom.com/wiki/Genius_Invokation_TCG/Gallery/Cards",
+  "cards": [
+    {
+      "name": "Cryo Whopperflower",
+      "source_sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Cryo Whopperflower/neutral.webp",
+      "style_card": "/Users/alexachan/Documents/Codex/silly-teyvat/extension/genshin-dialogue-ui/assets/tcg/characters/Pyro Whopperflower.webp",
+      "prompt": "Create one vertical Genius Invokation TCG enemy character card for Cryo Whopperflower. Image 1 is the subject appearance reference: preserve identity, anatomy, proportions, distinctive clothing and equipment. Image 2 is an authentic existing enemy TCG card reference: match its illustrated card frame, polished Genshin-style anime rendering, composition and finish. An icy flowering monster springs from frost-dusted grass, its petals open amid swirling Cryo crystals; preserve the exact blue plant anatomy and snowflake-like side structures. Show only the requested enemy as the central subject. No title, text or watermark.",
+      "art_file": "Cryo Whopperflower.png",
+      "source_sprite_sha256": "7fe746f354ee93276d95d501ecb882687fc74cecb92f0bcb17d6e718c8bdb034",
+      "style_card_sha256": "5b8e909326fb2ca7d820394b11b144b540a97f351683529194de0eb093f757a6",
+      "art_sha256": "1d09ddb4741fb7204b4386ac7642404029f9643696229f622e6f65ed8680f6c0",
+      "review": "awaiting user review"
+    },
+    {
+      "name": "Geo Slime",
+      "source_sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Geo Slime/neutral.webp",
+      "style_card": "/Users/alexachan/Documents/Codex/silly-teyvat/extension/genshin-dialogue-ui/assets/tcg/characters/Cryo Slime.webp",
+      "prompt": "Create one vertical Genius Invokation TCG enemy character card for Geo Slime. Image 1 is the subject appearance reference: preserve identity, anatomy, proportions, distinctive clothing and equipment. Image 2 is an authentic existing enemy TCG card reference: match its illustrated card frame, polished Genshin-style anime rendering, composition and finish. A small golden Geo Slime bounces among broken rocks in a sunlit rocky ravine; preserve its rocky crown, glowing eyes and compact round slime anatomy. Show only the requested enemy as the central subject. No title, text or watermark.",
+      "art_file": "Geo Slime.png",
+      "source_sprite_sha256": "408ce221cc630d32693d5f813d3be6e24adfd1f88992f9b6350d48e06eb165d5",
+      "style_card_sha256": "67bf4a53ffae3a05528cac9eec9591c1b68510007d5b7755da3c31eebb9a9d14",
+      "art_sha256": "004c1f522cb0a0df2fbee38fc045deb5240ba007dc7b89d192b1fa49803dcdc8",
+      "review": "awaiting user review"
+    },
+    {
+      "name": "Large Electro Slime",
+      "source_sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Large Electro Slime/neutral.webp",
+      "style_card": "/Users/alexachan/Documents/Codex/silly-teyvat/extension/genshin-dialogue-ui/assets/tcg/characters/Large Cryo Slime.webp",
+      "prompt": "Create one vertical Genius Invokation TCG enemy character card for Large Electro Slime. Image 1 is the subject appearance reference: preserve identity, anatomy, proportions, distinctive clothing and equipment. Image 2 is an authentic existing enemy TCG card reference: match its illustrated card frame, polished Genshin-style anime rendering, composition and finish. A large purple Electro Slime releases arcs of violet electricity in a stormy field; preserve its exact round shape, bright eyes, antenna and markings. Show only the requested enemy as the central subject. No title, text or watermark.",
+      "art_file": "Large Electro Slime.png",
+      "source_sprite_sha256": "4ebc420636cfc93e74cbcbce81ab2e3cba0087a996c37591a4ba02a4c88e5186",
+      "style_card_sha256": "f95545e8a0cb2092b2612ae436062d451902fdd2616c54140251d2e2f309cac1",
+      "art_sha256": "ce764a153179404232e962ad25afc357c1639eda0ffd275ab6b6dabcd7012ee6",
+      "review": "awaiting user review"
+    },
+    {
+      "name": "Large Pyro Slime",
+      "source_sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Large Pyro Slime/neutral.webp",
+      "style_card": "/Users/alexachan/Documents/Codex/silly-teyvat/extension/genshin-dialogue-ui/assets/tcg/characters/Large Cryo Slime.webp",
+      "prompt": "Create one vertical Genius Invokation TCG enemy character card for Large Pyro Slime. Image 1 is the subject appearance reference: preserve identity, anatomy, proportions, distinctive clothing and equipment. Image 2 is an authentic existing enemy TCG card reference: match its illustrated card frame, polished Genshin-style anime rendering, composition and finish. A large orange Pyro Slime bounds through scorched grass with curling embers; preserve its round shape, small horns and glowing eyes. Show only the requested enemy as the central subject. No title, text or watermark.",
+      "art_file": "Large Pyro Slime.png",
+      "source_sprite_sha256": "124d6d8ce76db2a5c7e2cc5abb827daabb8ebadbbc19899d9c979fe2ed31bc30",
+      "style_card_sha256": "f95545e8a0cb2092b2612ae436062d451902fdd2616c54140251d2e2f309cac1",
+      "art_sha256": "fa7da4b7e108795a2f318e0b2f73eff0fe5b19903c92aaa0e6790b4cbacfe80e",
+      "review": "awaiting user review"
+    },
+    {
+      "name": "Treasure Hoarders - Marksman",
+      "source_sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Treasure Hoarders - Marksman/neutral.webp",
+      "style_card": "/Users/alexachan/Documents/Codex/silly-teyvat/extension/genshin-dialogue-ui/assets/tcg/characters/Hilichurl Shooter.webp",
+      "prompt": "Create one vertical Genius Invokation TCG enemy character card for Treasure Hoarders - Marksman. Image 1 is the subject appearance reference: preserve identity, anatomy, proportions, distinctive clothing and equipment. Image 2 is an authentic existing enemy TCG card reference: match its illustrated card frame, polished Genshin-style anime rendering, composition and finish. A human Treasure Hoarder marksman aims his crossbow from a rocky ruin beside a stolen treasure chest; preserve his hat, masked face, vest, colors and equipment. Show only the requested enemy as the central subject. No title, text or watermark.",
+      "art_file": "Treasure Hoarders - Marksman.png",
+      "source_sprite_sha256": "40afb47301108892a9709cf1d20923d0212c5a7210365ed75bb1aea7a236e167",
+      "style_card_sha256": "d437fe538fbecf60e58b64dfb334480d0755e7aecb00e97ade42905852c595f1",
+      "art_sha256": "3d58d881b7b3c3e096662db583895b77dbccec62f13374beb750adefc726fa5e",
+      "review": "awaiting user review"
+    },
+    {
+      "name": "Treasure Hoarders - Scout",
+      "source_sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Treasure Hoarders - Scout/neutral.webp",
+      "style_card": "/Users/alexachan/Documents/Codex/silly-teyvat/extension/genshin-dialogue-ui/assets/tcg/characters/Nobushi Jintouban.webp",
+      "prompt": "Create one vertical Genius Invokation TCG enemy character card for Treasure Hoarders - Scout. Image 1 is the subject appearance reference: preserve identity, anatomy, proportions, distinctive clothing and equipment. Image 2 is an authentic existing enemy TCG card reference: match its illustrated card frame, polished Genshin-style anime rendering, composition and finish. A human Treasure Hoarder scout nimbly throws small knives while dodging among old ruins; preserve his blond hair, face covering, vest and trousers. Show only the requested enemy as the central subject. No title, text or watermark.",
+      "art_file": "Treasure Hoarders - Scout.png",
+      "source_sprite_sha256": "e0648ace3bf627941c420319bd4b3bc62abb3daa003c5981e32a3da203e240f5",
+      "style_card_sha256": "4c751bcf2695aef77164161acedd10b5f417242d183508f0348cf7cc6ce26e26",
+      "art_sha256": "c67f3088358d0d43a6ed750e499eb1c6dfdcc4c94d5be29a8ff7dedb3a48b6c1",
+      "review": "awaiting user review"
+    },
+    {
+      "name": "Treasure Hoarders: Gravedigger",
+      "source_sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Treasure Hoarders Gravedigger/neutral.webp",
+      "style_card": "/Users/alexachan/Documents/Codex/silly-teyvat/extension/genshin-dialogue-ui/assets/tcg/characters/Nobushi Jintouban.webp",
+      "prompt": "Create one vertical Genius Invokation TCG enemy character card for Treasure Hoarders: Gravedigger. Image 1 is the subject appearance reference: preserve identity, anatomy, proportions, distinctive clothing and equipment. Image 2 is an authentic existing enemy TCG card reference: match its illustrated card frame, polished Genshin-style anime rendering, composition and finish. A human Treasure Hoarder gravedigger swings his long shovel through a spray of earth at an excavation site; preserve his broad straw hat, mask and simple work clothes. Show only the requested enemy as the central subject. No title, text or watermark.",
+      "art_file": "Treasure Hoarders Gravedigger.png",
+      "source_sprite_sha256": "59cde59847baeef2ee6a9806c14e224b7ed4533705e00b8bdc2cceae0d8c5cb3",
+      "style_card_sha256": "4c751bcf2695aef77164161acedd10b5f417242d183508f0348cf7cc6ce26e26",
+      "art_sha256": "9e2146520ab1dcf582d3841eb2945e919cce14f88a99be2c9957648e6563d25e",
+      "review": "awaiting user review"
+    },
+    {
+      "name": "Treasure Hoarders: Pyro Potioneer",
+      "source_sprite": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Treasure Hoarders Pyro Potioneer/neutral.webp",
+      "style_card": "/Users/alexachan/Documents/Codex/silly-teyvat/extension/genshin-dialogue-ui/assets/tcg/characters/Eremite Scorching Loremaster.webp",
+      "prompt": "Create one vertical Genius Invokation TCG enemy character card for Treasure Hoarders: Pyro Potioneer. Image 1 is the subject appearance reference: preserve identity, anatomy, proportions, distinctive clothing and equipment. Image 2 is an authentic existing enemy TCG card reference: match its illustrated card frame, polished Genshin-style anime rendering, composition and finish. A human Treasure Hoarder Pyro Potioneer throws a red flask that splashes into a small burning patch near old ruins; preserve his dark red hair, mask, dark coat and potion. Show only the requested enemy as the central subject. No title, text or watermark.",
+      "art_file": "Treasure Hoarders Pyro Potioneer.png",
+      "source_sprite_sha256": "19221e28c49e5f38e128ead6c051311e3c8e987de46e7a7dfd2be5deee56b14f",
+      "style_card_sha256": "49ecb0fcf60799a4f19f15a161b0c0babb9a2de9e9daba8bb100c7dc7ed4ffa9",
+      "art_sha256": "f0e38846f519f4da4bee76fba9d121ae927d576b88db56f81715b9d0702bd88f",
+      "review": "awaiting user review"
+    }
+  ]
+}

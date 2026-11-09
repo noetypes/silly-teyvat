@@ -7,6 +7,7 @@ import {BOSS_ROWS} from './boss-kits.js';
 import {ELEMENTS} from './battle-engine.js';
 import {TCG_KITS} from './tcg-kits.js';
 import {SPECIAL_KITS} from './tcg-special-kits.js';
+import {npcKit} from './npc-kits.js';
 
 export const WEAPONS=['sword','claymore','polearm','bow','catalyst','none'];
 export const ROLES=['DPS','Sub-DPS','Support','Healer','Shielder','Tank'];
@@ -181,22 +182,22 @@ const ENEMIES=[
     ['Hilichurl Shooter','Physical',22,['Crossbow Bolt',[D(4)]],['Volley',[D(2,'all')]],3],
     ['Hydro Samachurl','Hydro',24,['Water Spout',[D(3)]],['Rain Dance',[D(2,'all'),H(5,'party')]],3],
     ['Wooden Shieldwall Mitachurl','Physical',46,['Shield Bash',[D(5)]],['Charging Slam',[D(7)]],3,{armor:40,armorBreak:'Pyro'}],
-    ['Cryo Whopperflower','Cryo',28,['Petal Lash',[D(3)]],['Ambush Bite',[D(6)]],2,{weakTo:'Pyro'}],
+    ['Cryo Whopperflower','Cryo',56,['Frosted Headbutt',[D(4)],'Physical'],['Frigid Nectar Barrage',[D(3,'one',{hits:2}),D(2,'all')]],3,{weakTo:'Pyro'},['Icy Charge',[SH(4),D(4)]]],
     ['Eremite Sunfrost','Cryo',42,['Frost Glaive',[D(5)]],['Sunfrost Waltz',[D(3,'all')]],3],
     ['Fatui Cryo Cicin Mage','Cryo',36,['Ice Shards',[D(4)]],['Cicin Swarm',[SM('Cryo Cicins',2,2,'random')]],3,{evasion:15}],
     ['Fatui Pyro Agent','Pyro',40,['Blink Stab',[D(6)]],['Flame Dash',[D(3,'all')]],3,{evasion:25}],
     ['Fatui Skirmisher - Anemoboxer Vanguard','Anemo',40,['Gale Jab',[D(4)]],['Whirlwind Uppercut',[D(3,'all')]],3,{shield:8}],
     ['Fatui Skirmisher - Pyroslinger Bracer','Pyro',38,['Slingshot',[D(4)]],['Incendiary Grenade',[D(3,'all')]],3,{shield:10,weakTo:'Hydro'}],
-    ['Geo Slime','Geo',18,['Rock Bounce',[D(3)]],['Geo Shell',[SH(6)]],3],
+    ['Geo Slime','Geo',22,['Rocky Ram',[D(3)],'Physical'],['Rolling Impact',[D(5),BF('guard',15,1)],'Physical'],3,{infusion:false},['Hardened Bounce',[D(3),SH(2)],'Physical']],
     ['Hydro Slime','Hydro',18,['Splash',[D(3)]],['Tidal Hop',[D(4)]],3],
-    ['Large Electro Slime','Electro',32,['Electro Slam',[D(5)]],['Discharge',[D(3,'all')]],3],
-    ['Large Pyro Slime','Pyro',32,['Flame Leap',[D(5)]],['Combust',[D(3,'all')]],3],
+    ['Large Electro Slime','Electro',56,['Charged Bounce',[D(3)]],['Chain Discharge',[D(4),D(2,'all')]],3,{},['Electro Pulse',[D(4),SM('Residual Charge',2,1,'one',{element:'Electro'})]]],
+    ['Large Pyro Slime','Pyro',56,['Ignited Ram',[D(3)]],['Fireball Barrage',[D(2,'one',{hits:3}),SM('Lingering Embers',2,1,'one',{element:'Pyro'})]],3,{},['Blazing Leap',[D(5)]]],
     ['Pyro Abyss Mage','Pyro',34,['Fireball',[D(4)]],['Flame Pillars',[D(3,'all')]],3,{shield:14,weakTo:'Hydro'}],
     ['Ruin Guard','Physical',60,['Stomp',[D(5)]],['Rocket Barrage',[D(2,'random',{hits:4})]],2,{armor:20}],
-    ['Treasure Hoarders - Marksman','Physical',24,['Aimed Shot',[D(5,'weakest')]],['Rain of Arrows',[D(2,'all')]],3],
-    ['Treasure Hoarders - Scout','Physical',22,['Dagger Flurry',[D(2,'one',{hits:2})]],['Smoke Bomb',[BF('dodge',40,2),DB('weaken',20,1,'all')]],3,{evasion:20}],
-    ['Treasure Hoarders: Gravedigger','Physical',30,['Shovel Smash',[D(5)]],['Ground Burst',[D(3,'all')]],3],
-    ['Treasure Hoarders: Pyro Potioneer','Pyro',28,['Potion Toss',[D(3)]],['Firebomb Barrage',[D(3,'all')]],3],
+    ['Treasure Hoarders - Marksman','Physical',24,['Crossbow Shot',[D(4,'weakest')]],['Careful Aim',[D(6,'weakest')]],3,{},['Draw a Bead',[D(3,'weakest'),DB('vuln',10,1,'weakest')]]],
+    ['Treasure Hoarders - Scout','Physical',22,['Throwing Knife',[D(3)]],['Smoke and Knives',[D(4),BF('dodge',25,1)]],3,{evasion:15},['Quick Toss',[D(2,'one',{hits:2})]]],
+    ['Treasure Hoarders: Gravedigger','Physical',30,['Shovel Swing',[D(4)]],['Dust in the Eyes',[D(4),DB('weaken',25,1)]],3,{},['Earth Toss',[D(3),DB('weaken',15,1)]]],
+    ['Treasure Hoarders: Pyro Potioneer','Pyro',28,['Flask Toss',[D(3)]],['Incendiary Mixture',[D(3),SM('Burning Reagent',2,2,'one',{element:'Pyro'})]],3,{},['Scattered Reagent',[D(2,'all')]]],
     // Genius Invokation TCG enemy cards (tools/fetch-tcg-enemies.py): Normal Attack and Elemental Skill
     // alternate as Attacks (the Skill is the optional last entry), the Elemental Burst is the Special.
     // A move's third entry overrides its element, e.g. a Physical Normal Attack from an elemental enemy.
@@ -272,7 +273,7 @@ const keyOf=name=>String(name || '').toLowerCase().replace(/[^a-z0-9]+/g,'');
 const characterTable=new Map(TABLE.map(row=>[keyOf(row[0]),row]));
 const enemyTable=new Map([...ENEMIES,...BOSS_ROWS].map(row=>[keyOf(row[0]),row]));
 export const enemyElement=name=>enemyTable.get(keyOf(name))?.[1];
-export const hasBundledKit=name=>characterTable.has(keyOf(name))||enemyTable.has(keyOf(name))||/^(aether|lumine)$/i.test(String(name).trim());
+export const hasBundledKit=name=>Boolean(npcKit(name))||characterTable.has(keyOf(name))||enemyTable.has(keyOf(name))||/^(aether|lumine)$/i.test(String(name).trim());
 const clone=value=>structuredClone(value);
 
 function normal(weapon,name,element,override={}){
@@ -344,7 +345,8 @@ export function playableKit(kit){
 const ELEMENTAL_BEING=/slime|abyss (mage|herald|lector)|hypostasis|whopperflower|shroom|specter|phantasm|manifestation|tulpa|rhodeia|primal fire|cicin|rifthound|wolflord|oceanid|lawachurl/i;
 export const defaultInfusion=(name,element)=>ELEMENTS.includes(element)&&ELEMENTAL_BEING.test(String(name || ''));
 export function defaultKit(name,{element='None',enemy=false}={}){
-    if(enemy){const row=enemyTable.get(keyOf(name)),kit=row?enemyKit(row):genericEnemy(name,element==='None'?'Physical':element);kit.infusion=defaultInfusion(name,kit.element);return kit;}
+    if(enemy){const row=enemyTable.get(keyOf(name)),kit=row?enemyKit(row):genericEnemy(name,element==='None'?'Physical':element);kit.infusion ??= defaultInfusion(name,kit.element);return kit;}
+    const npc=npcKit(name);if(npc)return structuredClone(npc);
     if(/^(aether|lumine|traveler)$/i.test(String(name).trim()))return {...travelerKit(element),name};
     const row=characterTable.get(keyOf(name));
     if(row)return kitFromRow(row,element);
@@ -352,7 +354,7 @@ export function defaultKit(name,{element='None',enemy=false}={}){
     if(element!=='None'){kit.moves[0].element='Physical';}
     return kit;
 }
-export const defaultKitHp=(name,enemy)=>{const row=enemy?enemyTable.get(keyOf(name)):characterTable.get(keyOf(name));return row?row[2]:undefined;};
+export const defaultKitHp=(name,enemy)=>{const row=enemy?enemyTable.get(keyOf(name)):characterTable.get(keyOf(name));return row?row[2]:!enemy?npcKit(name)?.hp:undefined;};
 // Saved edits live in the player's settings, which a shared package can fill too, and their values
 // reach the battle screen's markup. Each is cut down to what the moveset editor itself writes; a
 // value that is not that is dropped, so the default shows instead.

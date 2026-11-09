@@ -16,6 +16,8 @@ export function playedEnemy(ctx){const card=linkedCard(ctx);return card&&isEnemy
 export const playingEnemy=ctx=>Boolean(playedEnemy(ctx));
 const cardOf=(ctx,avatar)=>ctx.characters?.find(c=>c.avatar===avatar);
 export const isBossAvatar=(ctx,avatar)=>isTcgBoss(cardOf(ctx,avatar)?.name);
+// Which side can travel with the player. Bosses stay at their encounter even when their kind is played.
+export const companionSide=(ctx,avatar)=>playingEnemy(ctx)?isEnemy(ctx,avatar)&&!isBossAvatar(ctx,avatar):!isEnemy(ctx,avatar);
 // Whether this enemy is hostile to the player. Without an enemy persona every enemy is. With one, only bosses
 // are, and the player's own kind never is (a boss meeting another of itself is not at war with it).
 export function hostileEnemy(ctx,avatar){

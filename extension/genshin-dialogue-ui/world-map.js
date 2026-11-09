@@ -6,7 +6,7 @@ import {clearedEnemies,restoreEnemies} from './combat-state.js';
 import {localMediaPath,createMediaAdapter} from './media-store.js';
 import {backgroundRegions,travelState,saveTravel} from './backgrounds.js';
 import {REGION_NAMES,worldSettings,worldWaypoints,activeWorldLocation,worldScale,walkingSpeed,mapDistance,directionFrom,formatDistance,syncWorldPrompt,worldScalePrompt,saveWaypoint,unpinWaypoint,teleportTo,validMapPoint,setWaypointArtwork} from './world-data.js';
-import {L,makeMap,toLatLng,toMapPoint,waypointIcon,playerIcon,waypointGlyph} from './map-engine.js';
+import {L,makeMap,mapMarker,toLatLng,toMapPoint,waypointIcon,playerIcon,waypointGlyph} from './map-engine.js';
 import {locationResidents,locationResidentsIndex,encountersBypassed,toggleEncounterBypass} from './location-encounters.js';
 import {mountLocationRosterPicker} from './location-roster-picker.js';
 import {musicSummary} from './location-music-state.js';
@@ -15,8 +15,7 @@ import {isJourneyGroup,createJourneyLibraryAdapter} from './journey-library.js';
 import {mountCardPoolMenu,locationCardPool,cardPoolSummary} from './card-pools.js';
 import {waypointBadges,waypointBoss,waypointEnemy,badgeLabels,badgeMarkup} from './waypoint-badges.js';
 import {iconsReady} from './battle-icons.js';
-import {searchedCards,questCardsAt,questLabel,questMarkup,currentGuild} from './card-search.js';
-import {isGuildLocation} from './guild.js';
+import {searchedCards,questCardsAt,questLabel,questMarkup} from './card-search.js';
 
 const svg=path=>`<svg viewBox="0 0 24 24" aria-hidden="true">${path}</svg>`;
 const ICON={
@@ -182,7 +181,7 @@ export function mountWorldMap({host,getContext,adapter=createMediaAdapter(getCon
         map.on('click',event=>{if(!placing()||busy())return;const point=toMapPoint(event.latlng);if(!validMapPoint(point)){status('Choose a point inside the drawn map.');return;}draft=point;paintDraft();if(!editing())showEditor();else $('#gi-map-coordinates').textContent=`x ${draft.x}, y ${draft.y}`;});
         updateScale();
     }
-    function paintDraft(){if(draftMarker)draftMarker.remove();draftMarker=null;if(draft&&map)draftMarker=L.marker(toLatLng(draft),{icon:waypointIcon({draft:true}),interactive:false}).addTo(map);}
+    function paintDraft(){if(draftMarker)draftMarker.remove();draftMarker=null;if(draft&&map)draftMarker=mapMarker(toLatLng(draft),{icon:waypointIcon({draft:true}),interactive:false}).addTo(map);}
     // Markers are kept between paints and only the ones whose look or place changed are rebuilt: choosing a
     // waypoint touches two of them, not every waypoint on the map.
     const markerCache=new Map();
@@ -199,14 +198,14 @@ export function mountWorldMap({host,getContext,adapter=createMediaAdapter(getCon
             const cached=markerCache.get(id);
             if(cached?.key===key){cached.item=item;highlight(id,isSelected);continue;}
             if(cached?.shown)markers.removeLayer(cached.marker);
-            const marker=L.marker(toLatLng(item.point),{icon:waypointIcon({current:isCurrent,selected:isSelected,badges:markup}),title:name,alt:name,keyboard:true,zIndexOffset:quest?500:0});
+            const marker=mapMarker(toLatLng(item.point),{icon:waypointIcon({current:isCurrent,selected:isSelected,badges:markup}),title:name,alt:name,keyboard:true,zIndexOffset:quest?500:0});
             marker.bindTooltip(element('span',item.location.label),{direction:'top',offset:[0,-30]});
             marker.on('click',event=>{L.DomEvent.stopPropagation(event);if(busy())return;cue('waypoint');select(markerCache.get(id).item);});
             markerCache.set(id,{key,marker,item,latlng:marker.getLatLng(),shown:false,selected:isSelected});
         }
         for(const [id,entry] of markerCache)if(!seen.has(id)){if(entry.shown)markers.removeLayer(entry.marker);markerCache.delete(id);}
         const nextPlayer=current?JSON.stringify(current.point):'';
-        if(nextPlayer!==playerKey){if(playerMarker)markers.removeLayer(playerMarker);playerMarker=current?L.marker(toLatLng(current.point),{icon:playerIcon(),interactive:false,keyboard:false,zIndexOffset:1000}).addTo(markers):null;playerKey=nextPlayer;}
+        if(nextPlayer!==playerKey){if(playerMarker)markers.removeLayer(playerMarker);playerMarker=current?mapMarker(toLatLng(current.point),{icon:playerIcon(),interactive:false,keyboard:false,zIndexOffset:1000}).addTo(markers):null;playerKey=nextPlayer;}
         cullMarkers(true);
     }
     function highlight(id,selected){
@@ -330,11 +329,8 @@ export function mountWorldMap({host,getContext,adapter=createMediaAdapter(getCon
         const wild=document.createElement('section');wild.className='gi-map-music';wild.append(element('h4','Wilderness encounters'),element('p',wildernessSummary(getContext(),item.location)),button('Edit wilderness encounters','wilderness'));body.append(wild);
         const quest=questCardsAt(getContext(),item.location);
         if(quest.length){const q=document.createElement('section');q.className='gi-map-music gi-map-quest';q.append(element('h4','Card Search'),element('p',`${questLabel(quest).replace(/^Quest: /,'')} ${quest.length===1?'drops':'can drop'} here.`));body.append(q);}
-        else if(isGuildLocation(item.location)){
-            const here=currentGuild(getContext())?.location.id===item.location.id,q=document.createElement('section');q.className='gi-map-music gi-map-quest';
-            q.append(element('h4','Card Search'),element('p',here?'Choose Action cards to look for. Quest markers show where they drop.':'Visit this Guild to start, change or stop a Card Search.'));
-            if(here)q.append(button('Open Card Search','card-search'));body.append(q);
-        }
+        const search=document.createElement('section');search.className='gi-map-music gi-map-quest';
+        search.append(element('h4','Card Search'),element('p','Choose Action cards to look for. Quest markers show where they drop.'),button('Open Card Search','card-search'));body.append(search);
         const cards=document.createElement('section');cards.className='gi-map-music';cards.append(element('h4','Card drops'),element('p',cardPoolSummary(locationCardPool(getContext(),item.location.id))),button('View card drops','card-drops'));body.append(cards);
         const music=document.createElement('section');music.className='gi-map-music';music.append(element('h4','Music'),element('p',musicSummary(item.location)),button('Choose music','music'));body.append(music);
         const actions=document.createElement('div');actions.className='gi-map-card-actions';

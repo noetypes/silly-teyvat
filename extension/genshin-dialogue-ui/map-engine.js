@@ -12,6 +12,23 @@ export const mapCRS=L.Util.extend({},L.CRS.Simple,{transformation:new L.Transfor
 export const mapBounds=L.latLngBounds([-origin[1],-origin[0]],[height-origin[1],width-origin[0]]);
 export const toLatLng=point=>L.latLng(point.y,point.x);
 export const toMapPoint=latlng=>({mapId:'teyvat',x:Math.round(latlng.lng*10)/10,y:Math.round(latlng.lat*10)/10});
+// Leaflet writes both transform and z-index on every fractional zoom frame,
+// even after rounding leaves a pin at the same pixel. Keep its normal marker
+// interaction/zoom behavior, but let the compositor reuse unchanged positions.
+// Check the element too: setIcon and viewport culling can replace/reinsert it.
+const MapMarker=L.Marker.extend({
+    _setPos(pos){
+        const icon=this._icon,shadow=this._shadow;
+        if(!this.options.riseOnHover&&!this.options.draggable&&icon===this._positionIcon&&shadow===this._positionShadow&&this._position?.equals(pos)&&this._zIndex===pos.y+this.options.zIndexOffset)return;
+        this._positionIcon=icon;this._positionShadow=shadow;this._position=pos.clone();
+        L.Marker.prototype._setPos.call(this,pos);
+    },
+    onRemove(map){
+        L.Marker.prototype.onRemove.call(this,map);
+        this._positionIcon=this._positionShadow=this._position=null;
+    },
+});
+export const mapMarker=(latlng,options)=>new MapMarker(latlng,options);
 const overviewBase=new URL('assets/map/overview/',import.meta.url).href;
 const tileBase=`https://act-webstatic.hoyoverse.com/map_manage/map/2/${version}/`;
 const clearTile='data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7';

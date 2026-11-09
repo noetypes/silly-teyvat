@@ -18,4 +18,10 @@ export function leaveOpeningScene(ctx,from,to){
     if(!opening.locationId)opening.locationId=from?.id || to.id;
     if(to.id!==opening.locationId)opening.active=false;
 }
-export function openingScene(ctx,scene,locationId){const avatar=openingCharacter(ctx,locationId);return avatar?scene.filter(s=>s.avatar===avatar||s.avatar==='__user__'||!s.avatar&&s.folder===ctx.characters?.find(c=>c.avatar===avatar)?.name):scene;}
+export function openingScene(ctx,scene,locationId=ctx.chatMetadata?.silly_teyvat_world?.location?.id){
+    const state=ctx.chatMetadata?.silly_teyvat_cast,encounter=state?.encounter;
+    // Older page caches can contain a phantom copy of an enemy persona. An empty solo
+    // opening is player-only, including when that saved opening is reopened.
+    if(state?.source?.chatId?.startsWith('solo:')&&encounter?.kind==='open'&&encounter.locationId===locationId&&!encounter.present?.length&&!encounter.enemies?.length&&!encounter.travellers?.length)return scene.filter(s=>s.avatar==='__user__');
+    const avatar=openingCharacter(ctx,locationId);return avatar?scene.filter(s=>s.avatar===avatar||s.avatar==='__user__'||!s.avatar&&s.folder===ctx.characters?.find(c=>c.avatar===avatar)?.name):scene;
+}

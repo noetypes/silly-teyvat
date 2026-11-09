@@ -92,9 +92,8 @@ export async function runCardSearchTests(){
         const menu=mountCardSearch({host,getContext:()=>ctx,announce:t=>said.push(t),onChange:()=>changed++});cleanup.push(()=>{menu.dispose();host.remove();});
         const dialog=host.querySelector('#gi-card-search');
         ctx.chatMetadata.silly_teyvat_world.location={id:'woods'};
-        check('the menu will not open away from a Guild',menu.open()===false&&!dialog.open&&/Visit an Adventurers/.test(said.at(-1)));
-        ctx.chatMetadata.silly_teyvat_world.location={id:'guild'};
-        check('at a Guild it opens with every card',menu.open()===true&&dialog.open&&dialog.querySelectorAll('.gi-cs-card').length===Object.keys(ITEMS).length&&dialog.querySelector('.gi-cs-branch').textContent==="Adventurers' Guild, Mondstadt");
+        check('the menu opens away from a Guild',menu.open()===true&&dialog.open&&dialog.querySelectorAll('.gi-cs-card').length===Object.keys(ITEMS).length);
+        check('the menu labels a search outside the Guild',dialog.querySelector('.gi-cs-branch').textContent==='Quest');
         const nowhere=Object.keys(ITEMS).find(id=>!cardDropSites(ctx).has(id));
         check('cards that drop nowhere wild cannot be chosen',Boolean(nowhere)&&dialog.querySelector(`.gi-cs-card[data-card="${nowhere}"]`).disabled&&!dialog.querySelector('.gi-cs-card[data-card="sweet-madame"]').disabled);
         check('Start is disabled until a card is picked, and Stop is hidden',dialog.querySelector('.gi-cs-start').disabled&&dialog.querySelector('.gi-cs-stop').hidden);
@@ -113,7 +112,7 @@ export async function runCardSearchTests(){
         dialog.querySelector('.gi-cs-start').click();
         check('Start saves the search and closes',!dialog.open&&searchedCards(ctx).join()==='fried-egg,sweet-madame'&&changed===1&&/Card Search started: 2 cards\. Quest markers at 2 waypoints/.test(said.at(-1)));
         menu.open();
-        check('returning to a Guild shows the current search',dialog.querySelectorAll('.gi-cs-card[aria-pressed="true"]').length===2&&dialog.querySelector('.gi-cs-start').textContent==='Update search'&&dialog.querySelector('.gi-cs-start').disabled&&!dialog.querySelector('.gi-cs-stop').hidden);
+        check('reopening the menu shows the current search',dialog.querySelectorAll('.gi-cs-card[aria-pressed="true"]').length===2&&dialog.querySelector('.gi-cs-start').textContent==='Update search'&&dialog.querySelector('.gi-cs-start').disabled&&!dialog.querySelector('.gi-cs-stop').hidden);
         dialog.querySelector('.gi-cs-card[data-card="sweet-madame"]').click();dialog.querySelector('.gi-cs-start').click();
         check('the search can be changed',searchedCards(ctx).join()==='fried-egg'&&/updated/.test(said.at(-1)));
         menu.open();dialog.querySelector('.gi-cs-stop').click();

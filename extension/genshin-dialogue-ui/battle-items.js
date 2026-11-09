@@ -88,7 +88,7 @@ export const ENEMY_TIERS=[
 export const WEAK_TIER=0,STANDARD_TIER=1,TOUGH_TIER=2,BOSS_TIER=3;
 export function enemyTier(enemy){
     const name=enemy.card || enemy.name;
-    if(isTcgBoss(name))return BOSS_TIER;
+    if(isTcgBoss(name)||/^kath[ae]r[iy]ne$/i.test(String(name || '').trim()))return BOSS_TIER;
     const hp=defaultKitHp(name,true) ?? enemy.maxHp;
     return hp<=30?WEAK_TIER:hp<45?STANDARD_TIER:TOUGH_TIER;
 }

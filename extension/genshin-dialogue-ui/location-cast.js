@@ -14,6 +14,7 @@ import {playedAvatars} from './persona-link.js';
 import {ABYSS_HOME,abyssAvatar} from './twin-roles.js';
 import {NARRATOR_AVATAR,narratorAvatar} from './narrator.js';
 import {isGuildStaff} from './guild.js';
+import {companionSide,playingEnemy} from './enemy-persona.js';
 
 export const castIdentity=ctx=>`${ctx.groupId || ctx.characterId}:${ctx.getCurrentChatId?.() || ctx.chatId || ''}`;
 export function locationCastState(ctx){
@@ -76,17 +77,17 @@ export function castMembership(ctx){
     const members=original.filter(a=>!played.has(a)),taken=original.filter(a=>played.has(a));
     const opening=openingCharacter(ctx);
     if(opening){const next=members.includes(opening)?[opening]:ctx.characters?.some(c=>c.avatar===opening)?[opening]:members.slice(0,1);const removed=original.filter(a=>!next.includes(a)),added=next.filter(a=>!members.includes(a));return {core:[...next],members:next,managed:[],added,removed,changed:added.length>0||removed.length>0,forced:null};}
-    let core=[...(state.core || members.filter(a=>!state.managed.includes(a)))].filter(a=>!isEnemy(ctx,a)&&!played.has(a));
-    const wanted=[...(mediaSettings(ctx).locationEncounters===false?members.filter(a=>!isEnemy(ctx,a)):residentsAt(ctx,travelState(ctx).location?.id).map(c=>c.avatar)),...activeEnemies(ctx).map(e=>e.avatar),...friendlyEnemies(ctx)].filter(a=>!played.has(a));
+    let core=[...(state.core || members.filter(a=>!state.managed.includes(a)))].filter(a=>companionSide(ctx,a)&&!played.has(a));
+    const wanted=[...(mediaSettings(ctx).locationEncounters===false?members.filter(a=>companionSide(ctx,a)):residentsAt(ctx,travelState(ctx).location?.id).map(c=>c.avatar)),...activeEnemies(ctx).map(e=>e.avatar),...friendlyEnemies(ctx)].filter(a=>!played.has(a));
     // Katheryne is part of the scene only at a Guild branch, even when a chat began with her.
     core=core.filter(a=>!isGuildStaff(ctx,a)||wanted.includes(a));
-    let removed=[...taken,...members.filter(a=>(state.managed.includes(a)||isEnemy(ctx,a)||isGuildStaff(ctx,a))&&!wanted.includes(a)&&!core.includes(a))];
+    let removed=[...taken,...members.filter(a=>(state.managed.includes(a)||!companionSide(ctx,a)||isEnemy(ctx,a)||isGuildStaff(ctx,a))&&!wanted.includes(a)&&!core.includes(a))];
     const added=wanted.filter(a=>!members.includes(a));
     let next=[...new Set([...members.filter(a=>!removed.includes(a)),...added])];
     const forced=null; // The player is a complete party even with no NPC members.
     const managed=[...new Set([...state.managed.filter(a=>wanted.includes(a)&&!core.includes(a)),...added.filter(a=>!core.includes(a))])];
     // The Narrator is the party only while no other card is in it, and is never one of its members in any other sense.
-    const narrator=narratorAvatar(ctx),alone=Boolean(group&&narrator&&!next.length),had=Boolean(group?.members?.includes(NARRATOR_AVATAR));
+    const narrator=narratorAvatar(ctx),alone=Boolean(narrator&&!next.length&&(group||state.guildStaffDefeatedAt)),had=Boolean(group?.members?.includes(NARRATOR_AVATAR));
     if(alone){next=[narrator];if(!had)added.push(narrator);}else if(had)removed=[...removed,NARRATOR_AVATAR];
     return {core:[...core],members:next,managed,added,removed,changed:added.length>0||removed.length>0,forced};
 }
@@ -96,17 +97,17 @@ export async function planTeleportParty(ctx,destination,ask,isCurrent=()=>true){
     const from=travelState(ctx).location?.id,members=partyAvatars(ctx),state=locationCastState(ctx);
     const group=activeGroup(ctx),disabled=group?.disabled_members || [];
     // Guild staff stay at the counter: never a traveller, and never asked to come along.
-    const goes=a=>!isEnemy(ctx,a)&&!isGuildStaff(ctx,a);
+    const goes=a=>companionSide(ctx,a)&&!isGuildStaff(ctx,a);
     const base={key:castIdentity(ctx),from,destination:destination.id,members:[...members],disabled:[...disabled],decisions:[],travellers:members.filter(goes)};
     if(from===destination.id)return base;
     // Roll once before asking about followers. Cancellation discards this draft;
     // Arrival membership uses the sampled residents, even when none are present.
     base.encounter=rollLocationEncounter(ctx,destination.id,base.travellers);
-    if(mediaSettings(ctx).locationEncounters===false)return base;
+    if(mediaSettings(ctx).locationEncounters===false&&!playingEnemy(ctx))return base;
     const flexible=Boolean(mediaSettings(ctx).allowMainDeparture);
     const main=[ctx.characters?.[ctx.characterId]?.avatar,state.source?.avatar,...(state.core || []),members[0]].find(a=>members.includes(a));
     const guestAvatars=residentsAt(ctx,from).filter(c=>state.managed.includes(c.avatar)&&!state.core?.includes(c.avatar)).map(c=>c.avatar);
-    const candidates=(ctx.characters || []).filter(c=>members.includes(c.avatar)&&goes(c.avatar)&&(flexible||guestAvatars.includes(c.avatar))).sort((a,b)=>Number(a.avatar===main)-Number(b.avatar===main));
+    const candidates=(ctx.characters || []).filter(c=>members.includes(c.avatar)&&goes(c.avatar)&&(playingEnemy(ctx)||flexible||guestAvatars.includes(c.avatar))).sort((a,b)=>Number(a.avatar===main)-Number(b.avatar===main));
     for(let index=0;index<candidates.length;index++){
         const character=candidates[index],forced=false;
         const answer=await ask(character,destination);

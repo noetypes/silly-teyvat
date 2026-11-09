@@ -1,0 +1,33 @@
+{
+  "operation": "Deterministic corner trim; no regeneration",
+  "feedback": "User approved the v006 artwork and requested removal of the black beyond its rounded corners.",
+  "source": {
+    "path": "Tonia-v006.png",
+    "sha256": "82fdd48aebc20242f5165edb829dc80964f69ff0c6c958b9410f574d7842f6bb"
+  },
+  "official_outline": {
+    "path": "extension/genshin-dialogue-ui/assets/tcg/characters/Tartaglia.webp",
+    "sha256": "72343ecb836a0c2015dae0b4bf990c8caf5dcecd1dbc66b308d7bd88c414b3e2",
+    "method": "Tartaglia alpha mask resized to the source dimensions with Lanczos, with near-black partially transparent fringe removed at the four corners"
+  },
+  "script": {
+    "path": "trim-tonia-corners.py",
+    "sha256": "d4e8481e80ede31ac5d5077bde86224455d9b53c5ee1bda437dc5c1a0cdd65a5"
+  },
+  "output": {
+    "path": "Tonia-v006-trimmed.png",
+    "sha256": "f2598a43189c377620cf65606c8ebd50bbafd7db682cc5431849233fe0f1ff62",
+    "dimensions": [
+      958,
+      1641
+    ],
+    "corner_alpha": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "unchanged_rgb": true
+  },
+  "status": "trimmed version awaiting user review; original v006 retained"
+}

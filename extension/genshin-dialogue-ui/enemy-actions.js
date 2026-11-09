@@ -13,30 +13,37 @@ export const hasCombatTrigger=(text,phrase)=>Boolean(phrase)&&String(text || '')
 // A bracketed phrase such as [start_combat] is a marker and is hidden from the dialogue; ordinary words stay visible.
 const markerPhrase=phrase=>/^(\[.+\]|<.+>|\{.+\})$/.test(phrase);
 const escapeRegExp=text=>text.replace(/[.*+?^${}()|[\]\\]/g,'\\$&');
-export function enemySpeaker(ctx,message){
-    if(!message||message.is_user||message.is_system)return null;
+export function combatSpeaker(ctx,message){
+    if(!message||message.is_user||message.is_system||message.extra?.type==='narrator')return null;
     const card=message.original_avatar?ctx.characters?.find(c=>c.avatar===message.original_avatar):ctx.characters?.find(c=>c.name===message.name);
-    return card&&isEnemy(ctx,card)?card:null;
+    return card || null;
 }
+export function enemySpeaker(ctx,message){const card=combatSpeaker(ctx,message);return card&&isEnemy(ctx,card)?card:null;}
 // This explicit action token is authored with the enemy's reply. No emotion
 // classifier, keyword search for attack prose or user message chooses its pose.
 export function enemyDialoguePages(pages,message,phrase=DEFAULT_COMBAT_TRIGGER){
-    if(!message.is_enemy)return pages;
+    if(message.is_user||message.is_system)return pages;
     const result=[];let attack=false;
     const hide=markerPhrase(phrase)?new RegExp(escapeRegExp(phrase),'gi'):null;
     // While the reply streams, a half-written marker at the very end is hidden as well.
     const partial=hide?new RegExp(`(?:${[...phrase].slice(0,-1).map((_,i)=>escapeRegExp(phrase.slice(0,i+2))).reverse().join('|')})$`,'i'):null;
     for(const page of pages){
         const walker=page.ownerDocument.createTreeWalker(page,NodeFilter.SHOW_TEXT);const nodes=[];while(walker.nextNode())nodes.push(walker.currentNode);
-        for(const node of nodes)if(node.data.includes(ENEMY_ATTACK_MARKER)){attack=true;node.data=node.data.split(ENEMY_ATTACK_MARKER).join('');}
-        for(const node of nodes)node.data=node.data.replace(/\[enemy_[a-z]*$/g,'');
+        if(message.is_enemy){
+            for(const node of nodes)if(node.data.includes(ENEMY_ATTACK_MARKER)){attack=true;node.data=node.data.split(ENEMY_ATTACK_MARKER).join('');}
+            for(const node of nodes)node.data=node.data.replace(/\[enemy_[a-z]*$/g,'');
+        }
         if(hide)for(const node of nodes){node.data=node.data.replace(hide,'');if(partial)node.data=node.data.replace(partial,'');}
         if(!page.textContent.trim()&&!page.querySelector('img,video,audio'))continue;
         page.giEnemyAction=attack?'attacking':'neutral';result.push(page);attack=false;
     }
     return result.length?result:pages;
 }
-export function enemySceneAvatar(ctx,sprite){const card=ctx.characters?.find(c=>c.avatar===sprite.avatar) || ctx.characters?.find(c=>c.name===sprite.folder?.split('/')[0]);return card&&isEnemy(ctx,card)?card.avatar:null;}
+export function enemySceneAvatar(ctx,sprite){
+    // The persona shares an enemy's folder, but is the player, never an NPC to resolve or duplicate.
+    if(sprite.avatar==='__user__')return null;
+    const card=ctx.characters?.find(c=>c.avatar===sprite.avatar) || ctx.characters?.find(c=>c.name===sprite.folder?.split('/')[0]);return card&&isEnemy(ctx,card)?card.avatar:null;
+}
 export async function resolveEnemyScene(ctx,adapter,scene,message,action='neutral'){
     const actor=enemySpeaker(ctx,message),cards=[...new Set([...scene.map(s=>enemySceneAvatar(ctx,s)).filter(Boolean),...(actor?[actor.avatar]:[])])];
     let next=scene;

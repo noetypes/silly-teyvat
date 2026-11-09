@@ -9,7 +9,7 @@ import {newLocalId} from './local-id.js';
 import {homeRegionName,regionGuild} from './defeat.js';
 import {loadCharacterHomes} from './character-homes.js';
 import {teleportTo,worldWaypoints} from './world-data.js';
-import {enemyStartPoint,isBossAvatar,playedEnemy} from './enemy-persona.js';
+import {enemyStartPoint,playedEnemy} from './enemy-persona.js';
 
 export function inheritCharacterHistory(ctx,card){
     if(!card)return 0;let count=0;
@@ -64,7 +64,7 @@ export async function repairSoloPortraits(ctx,fetchImpl=fetch){
     return repaired;
 }
 // A solo journey played as an enemy begins in the wilds, not at a Guild: at a random Wilderness waypoint where that
-// enemy appears (or any Wilderness waypoint if it appears nowhere), with another of its kind already there.
+// enemy appears (or any Wilderness waypoint if it appears nowhere). Like every solo journey, it starts alone.
 export function enemyJourneyStart(ctx,random=Math.random){
     const enemy=playedEnemy(ctx);if(!enemy)return null;
     const start=enemyStartPoint(worldWaypoints(ctx),enemy.avatar,random);
@@ -81,12 +81,8 @@ export function makeSoloJourney(ctx,random=Math.random){
     const start=enemyStart?.start || worldWaypoints(ctx).find(w=>w.location.id===home?.id) || regionGuild(ctx,homeRegionName(ctx,linkedCard(ctx) || card));
     if(start){delete metadata.silly_teyvat_world;try{
         teleportTo({...ctx,chat:[],chatMetadata:metadata,saveMetadataDebounced:null,saveChat:null,setExtensionPrompt:null},start.location.id,{record:false});
-        if(enemyStart){
-            // The wilds are the player's home: a real arrival, with another of their kind there to greet them (unless they are a boss).
-            const scene=rollLocationEncounter(ctx,start.location.id,[],{kind:'travel',random});
-            if(!isBossAvatar(ctx,enemyStart.enemy.avatar)&&!scene.enemies.includes(enemyStart.enemy.avatar))scene.enemies.unshift(enemyStart.enemy.avatar);
-            scene.present=[];metadata.silly_teyvat_cast.encounter=scene;noteLocationArrival({chatMetadata:metadata},start.location.id,{kind:'travel'});
-        }else{metadata.silly_teyvat_cast.encounter=rollLocationEncounter(ctx,start.location.id,[],{kind:'open'});noteLocationArrival({chatMetadata:metadata},start.location.id,{kind:'open'});}
+        metadata.silly_teyvat_cast.encounter=rollLocationEncounter(ctx,start.location.id,[],{kind:'open'});
+        noteLocationArrival({chatMetadata:metadata},start.location.id,{kind:'open'});
     }catch(error){console.warn('[Silly Teyvat] Solo journey start',error);}}
     // SillyTavern's own welcome page (its "SillyTavern System" lines and Assistant greeting) stays out of the journey; only what the player wrote and Silly Teyvat's tagged notices carry over.
     const ownNotice=message=>Object.keys(message.extra || {}).some(key=>key.startsWith('silly_teyvat'));

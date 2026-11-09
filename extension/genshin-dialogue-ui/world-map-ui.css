@@ -87,6 +87,10 @@ dialog#gi-world-map#gi-world-map[open][data-enter="minimap"] { animation: gi-map
 #gi-world-map .gi-map-surface { position: absolute; inset: 0; z-index: 0; isolation: isolate; min-width: 0; min-height: 0; overflow: hidden; background: #0f2433; }
 #gi-world-map .gi-map-canvas { position: absolute; inset: 0; background: #0f2433; }
 #gi-world-map .gi-map-surface { contain: layout paint; }
+/* Prepare shared camera/tile levels for GPU compositing while the map is open.
+   Never promote every pin or tile: that consumes texture memory on phones.
+   Closing the dialog releases these hints, including during its exit motion. */
+#gi-world-map[open] :is(.leaflet-map-pane, .leaflet-tile-container) { will-change: transform; }
 /* Avoid rerasterizing blurs and glowing pins behind moving map tiles. */
 #gi-world-map.gi-map-moving :is(.gi-map-round, .gi-map-region-current) { -webkit-backdrop-filter: none; backdrop-filter: none; }
 #gi-world-map.gi-map-moving .gi-waypoint > img { filter: none !important; transition: none; }

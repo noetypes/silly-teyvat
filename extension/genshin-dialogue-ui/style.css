@@ -1773,6 +1773,10 @@ dialog#gi-world-map#gi-world-map[open][data-enter="minimap"] { animation: gi-map
 #gi-world-map .gi-map-surface { position: absolute; inset: 0; z-index: 0; isolation: isolate; min-width: 0; min-height: 0; overflow: hidden; background: #0f2433; }
 #gi-world-map .gi-map-canvas { position: absolute; inset: 0; background: #0f2433; }
 #gi-world-map .gi-map-surface { contain: layout paint; }
+/* Prepare shared camera/tile levels for GPU compositing while the map is open.
+   Never promote every pin or tile: that consumes texture memory on phones.
+   Closing the dialog releases these hints, including during its exit motion. */
+#gi-world-map[open] :is(.leaflet-map-pane, .leaflet-tile-container) { will-change: transform; }
 /* Avoid rerasterizing blurs and glowing pins behind moving map tiles. */
 #gi-world-map.gi-map-moving :is(.gi-map-round, .gi-map-region-current) { -webkit-backdrop-filter: none; backdrop-filter: none; }
 #gi-world-map.gi-map-moving .gi-waypoint > img { filter: none !important; transition: none; }
@@ -3320,7 +3324,7 @@ body.gi-enabled #chat > .mes.gi-combat-log { display: none !important; }
 /* ---------- Trust (1.53): five hearts per character, and a thought box in the style of Genshin's paper dialogs ---------- */
 .gi-hearts { display: inline-flex; gap: 2px; filter: drop-shadow(0 0 1px #8a6b3f); vertical-align: middle; }
 .gi-hearts i { display: block; width: var(--heart, 18px); aspect-ratio: 1; background: linear-gradient(90deg, #f28aa6 var(--fill), var(--heart-empty, #d9cdb8) var(--fill)); -webkit-mask: var(--gi-heart-mask) center / contain no-repeat; mask: var(--gi-heart-mask) center / contain no-repeat; }
-#gi-root { --gi-heart-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 21.2 3.4 12.6a5.4 5.4 0 0 1 7.6-7.6l1 1 1-1a5.4 5.4 0 0 1 7.6 7.6Z'/%3E%3C/svg%3E"); }
+#gi-root, .gi-hearts { --gi-heart-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 21.2 3.4 12.6a5.4 5.4 0 0 1 7.6-7.6l1 1 1-1a5.4 5.4 0 0 1 7.6 7.6Z'/%3E%3C/svg%3E"); }
 
 #gi-trust { --trust-paper: #ece5d8; --trust-ink: #3d4557; position: fixed; inset: 0; box-sizing: border-box; width: min(960px, calc(100vw - 32px)); height: min(680px, calc(100dvh - 32px)); max-width: none; max-height: none; margin: auto; padding: 0; border: 0; border-radius: 18px; overflow: hidden; color: var(--trust-paper); font-family: var(--ty-font); background: radial-gradient(ellipse 80% 60% at 70% 0%, #f28aa633, transparent 70%), linear-gradient(160deg, #2a3147f7, #1b2030fa); box-shadow: 0 0 0 1px #d3bc8e66, 0 24px 60px #0009; }
 #gi-trust[open] { display: grid; grid-template-rows: auto minmax(0, 1fr) auto; animation: ty-fade 220ms ease both; }
@@ -3994,7 +3998,6 @@ body.gi-keyboard :is(#gi-background-stage,#gi-sprite-stage,#gi-cg-stage,#gi-lett
 #gi-wardrobe .gi-cs-sky[style*="--cs-nebula-b"] .gi-cs-nebula-near { opacity: .17; }
 @keyframes cs-roll { to { transform: translate3d(50%, 0, 0); } }
 @keyframes cs-rail-dim { 16%, 66% { opacity: .36; } }
-@keyframes cs-streak { 0% { opacity: 0; transform: scaleX(.2); } 26% { opacity: 1; transform: scaleX(1); } 100% { opacity: 0; transform: scaleX(1.16); } }
 #gi-wardrobe canvas.gi-cs-motes { z-index: 3; }
 
 /* ---------- Top band: crest, breadcrumb, Q portraits E, close ---------- */
@@ -4019,6 +4022,7 @@ body.gi-keyboard :is(#gi-background-stage,#gi-sprite-stage,#gi-cg-stage,#gi-lett
 #gi-wardrobe header .gi-roster button[aria-pressed="true"]::after { left: 0; right: 0; bottom: 0; width: auto; height: 3px; rotate: none; translate: none; border-radius: 2px 2px 0 0; background: var(--cs-hi); box-shadow: 0 0 10px var(--cs-hi); }
 #gi-wardrobe .gi-cs-key { display: grid; place-items: center; flex: none; width: 26px; height: 26px; min-height: 0; padding: 0; border: 0; border-radius: 5px; background: #ece5d8; color: #2e3648; font-size: 15px; line-height: 1; box-shadow: 0 1px 4px #0005; }
 #gi-wardrobe .gi-cs-key:hover { background: #fff; box-shadow: 0 0 0 3px #ffffff30; color: #2e3648; }
+#gi-wardrobe .gi-cs-key svg { display: none; width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
 #gi-wardrobe header > button[data-w="close"] { grid-column: 5; justify-self: end; width: 48px; height: 48px; border: 3px solid #0000; background: var(--ty-cream) padding-box; box-shadow: 0 0 0 1.5px #ece5d8a0; font-size: 30px; }
 #gi-wardrobe header > button[data-w="close"]:hover { box-shadow: 0 0 0 1.5px #fff, 0 0 12px #fff8; }
 
@@ -4099,7 +4103,7 @@ body.gi-keyboard :is(#gi-background-stage,#gi-sprite-stage,#gi-cg-stage,#gi-lett
 #gi-wardrobe .gi-cs-archive-open { position: relative; }
 #gi-wardrobe .gi-cs-archive-open[data-filtered]::after { content: ''; position: absolute; right: -1px; top: -1px; width: 11px; height: 11px; border-radius: 50%; background: #f2c561; box-shadow: 0 0 0 2px #232a39; }
 #gi-wardrobe .gi-cs-archive-close { flex: none; width: 44px; height: 44px; min-height: 0; padding: 0; font-size: 28px; line-height: 1; border-radius: 50%; }
-#gi-wardrobe .gi-cs-archive-grid { display: grid; flex: 1; grid-template-columns: repeat(auto-fill, minmax(112px, 1fr)); grid-auto-rows: max-content; gap: 12px; min-height: 0; overflow-y: auto; padding: 4px; scrollbar-width: thin; }
+#gi-wardrobe .gi-cs-archive-grid { display: grid; flex: 1; grid-template-columns: repeat(auto-fill, minmax(112px, 1fr)); grid-auto-rows: max-content; gap: 12px; min-height: 0; overflow-y: auto; padding: 14px; scrollbar-width: thin; }
 #gi-wardrobe .gi-cs-archive-grid button { position: relative; display: flex; flex-direction: column; min-height: 0; padding: 0; overflow: hidden; border: 0; border-radius: 6px 6px 16px 6px; background: linear-gradient(170deg, #6c5a46, #37415a 62%, #262f42); color: var(--ty-ink); box-shadow: 0 2px 8px #0005; }
 #gi-wardrobe .gi-cs-archive-grid button[aria-pressed="true"] { box-shadow: 0 0 0 2.5px #fff, 0 0 14px var(--cs-hi); }
 #gi-wardrobe .gi-cs-archive-grid button:hover { box-shadow: 0 0 0 2.5px #ece5d8; transform: translateY(-2px); }
@@ -4117,8 +4121,6 @@ body.gi-keyboard :is(#gi-background-stage,#gi-sprite-stage,#gi-cg-stage,#gi-lett
     #gi-wardrobe { --cs-floor: clamp(64px, 9dvh, 100px); }
     #gi-wardrobe .gi-wardrobe-body { grid-template-columns: var(--cs-side) minmax(0, 1fr) var(--cs-side); grid-template-rows: minmax(0, 1fr); }
     #gi-wardrobe .gi-cs-rail { position: relative; z-index: 2; display: flex; flex-direction: column; min-width: 0; min-height: 0; padding: clamp(10px, 3dvh, 30px) 8px 76px calc(env(safe-area-inset-left, 0px) + clamp(30px, 4.6vw, 92px)); }
-    #gi-wardrobe .gi-cs-keys { position: absolute; left: calc(env(safe-area-inset-left, 0px) + clamp(8px, 1.5vw, 32px)); top: clamp(22px, 4.4dvh, 42px); display: grid; gap: 3px; }
-    #gi-wardrobe .gi-cs-keys .gi-cs-key { width: 24px; height: 24px; font-size: 13px; }
     #gi-wardrobe .gi-wardrobe-tabs { flex: 1; justify-content: flex-start; align-items: flex-start; gap: clamp(0px, .6dvh, 6px); padding: 0; overflow: hidden auto; scrollbar-width: none; }
     #gi-wardrobe .gi-wardrobe-tabs button { position: relative; flex: none; height: clamp(42px, 7.2dvh, 66px); min-height: 0; padding: 0 12px 0 28px; border-radius: 0; background: none; box-shadow: none; color: #ffffffcc; font-size: clamp(19px, 1.75vw, 31px); text-shadow: 0 1px 6px #0006; transform-origin: 8px 50%; transition: transform 240ms var(--ty-ease), color 160ms ease; }
     #gi-wardrobe .gi-wardrobe-tabs button svg { display: none; }
@@ -4126,9 +4128,8 @@ body.gi-keyboard :is(#gi-background-stage,#gi-sprite-stage,#gi-cg-stage,#gi-lett
     #gi-wardrobe .gi-wardrobe-tabs button:hover { background: none; color: #fff; box-shadow: none; }
     #gi-wardrobe .gi-wardrobe-tabs button[aria-pressed="true"] { translate: none; transform: scale(1.16); background: none; box-shadow: none; color: #fff; text-shadow: 0 0 12px #fff8, 0 1px 6px #0006; }
     #gi-wardrobe .gi-wardrobe-tabs button[aria-pressed="true"]::before { left: 3px; width: 13px; height: 13px; background: #fff0; box-shadow: inset 0 0 0 1.5px #fff, inset 0 0 0 4px #0000, 0 0 8px #fff8; }
-    /* Choosing a section dims the others and sends a streak of light out from its name. */
+    /* Choosing a section briefly dims the others. */
     #gi-wardrobe.gi-cs-sweep .gi-wardrobe-tabs button:not([aria-pressed="true"]) { animation: cs-rail-dim 430ms ease both; }
-    #gi-wardrobe.gi-cs-sweep .gi-wardrobe-tabs button[aria-pressed="true"] span::after { content: ""; position: absolute; left: 22px; top: 50%; width: min(17vw, 280px); height: 7px; translate: 0 -50%; transform-origin: 0 50%; clip-path: polygon(0 50%, 24% 0, 100% 50%, 24% 100%); background: linear-gradient(90deg, #fff0, #fff 22%, #ffffff90 52%, #fff0); filter: blur(.8px); pointer-events: none; animation: cs-streak 430ms ease-out both; }
     #gi-wardrobe .gi-wardrobe-preview { position: relative; overflow: visible; padding: 2dvh 0 var(--cs-floor); }
     #gi-wardrobe .gi-wardrobe-preview > img { -webkit-box-reflect: below 1px linear-gradient(#0000 76%, #ffffff40); }
     #gi-wardrobe:is([data-tab="sprites"][data-zoom="on"], [data-tab="moveset"], [data-tab="cgs"]) .gi-wardrobe-preview > img { -webkit-box-reflect: unset; }
@@ -4145,7 +4146,6 @@ body.gi-keyboard :is(#gi-background-stage,#gi-sprite-stage,#gi-cg-stage,#gi-lett
 /* ---------- Narrow screens keep their stacked layout, on a darker glass so forms stay readable ---------- */
 @media (max-width: 900px), (max-height: 550px) {
     #gi-wardrobe .gi-cs-rail { position: relative; z-index: 2; display: flex; min-width: 0; min-height: 0; }
-    #gi-wardrobe .gi-cs-keys { display: none; }
     #gi-wardrobe .gi-wardrobe-tabs button { color: #ffffffd8; }
     #gi-wardrobe .gi-cs-side { margin: 0 calc(env(safe-area-inset-right, 0px) + 8px) 6px 0; padding: 10px 12px 8px; border-radius: 6px; background: #05091469; backdrop-filter: blur(6px); }
     #gi-wardrobe .gi-cs-identity { padding-bottom: 6px; border-bottom-width: 2px; }
@@ -4177,12 +4177,289 @@ body.gi-keyboard :is(#gi-background-stage,#gi-sprite-stage,#gi-cg-stage,#gi-lett
     #gi-wardrobe header .gi-roster .gi-roster-face { left: 5px; width: 34px; height: 34px; }
     #gi-wardrobe header .gi-roster button[aria-pressed="true"] .gi-roster-face { left: 3px; width: 38px; height: 38px; }
 }
-@media (hover: none) { #gi-wardrobe .gi-cs-keys, #gi-wardrobe header > .gi-cs-key { display: none; } }
 
 /* Pinch-zooming the page: keep the stage simple until it settles (wardrobe.js). */
 #gi-wardrobe.gi-pinching .gi-wardrobe-preview > img { -webkit-box-reflect: unset; filter: none; transition: none; }
 #gi-wardrobe.gi-pinching :is(.gi-cs-nebula, .gi-cs-sky *, .gi-cs-tint) { animation-play-state: paused; will-change: auto; }
 #gi-wardrobe.gi-pinching :is(.gi-cs-nebula, .gi-cs-pedestal) { visibility: hidden; }
+
+/* Configuration review: a calm slate editor on the elemental character stage. */
+#gi-wardrobe { --cs-side: clamp(320px, 29vw, 500px); --cs-gutter: 20px; }
+#gi-wardrobe header { min-height: 72px; }
+#gi-wardrobe canvas.gi-cs-motes { z-index: 2; }
+#gi-wardrobe .gi-cs-side {
+    z-index: 4; margin: 16px calc(env(safe-area-inset-right, 0px) + 20px) 12px 0; padding: 18px;
+    border: 1px solid #d3bc8e40; border-radius: 12px; background: #151d2ef5;
+    box-shadow: 0 12px 36px #0003; text-shadow: none;
+}
+#gi-wardrobe .gi-cs-identity { padding-bottom: 12px; border-bottom: 1px solid #d3bc8e70; }
+#gi-wardrobe .gi-cs-identity h3 { font-size: clamp(24px, 2vw, 32px); white-space: normal; overflow-wrap: anywhere; }
+#gi-wardrobe .gi-outfit-caption { font-size: 14px; color: #d8cfbd; overflow-wrap: anywhere; }
+#gi-wardrobe .gi-wardrobe-controls {
+    margin: 0; padding: 12px 6px 20px 2px; border: 0; background: none; box-shadow: none;
+    -webkit-mask: none; mask: none; scrollbar-gutter: stable;
+}
+#gi-wardrobe label { font-size: 14px; line-height: 1.5; color: #ece5d8; }
+#gi-wardrobe :is(input, select, textarea) { min-width: 0; max-width: 100%; }
+#gi-wardrobe input::placeholder, #gi-wardrobe textarea::placeholder { color: #aeb7c9; opacity: 1; }
+#gi-wardrobe select, #gi-wardrobe input:not([type="checkbox"]):not([type="file"]):not([type="range"]), #gi-wardrobe textarea { border-color: #7e8ba85c; background: #0e1524; color: #f4efe4; }
+#gi-wardrobe :is(button, summary, input, select, textarea):focus-visible { outline: 2px solid #f2dca0; outline-offset: 3px; }
+#gi-wardrobe button:disabled { opacity: .5; cursor: default; box-shadow: none; transform: none; }
+#gi-wardrobe .gi-wardrobe-row { flex-wrap: wrap; }
+#gi-wardrobe .gi-wardrobe-row > :first-child { flex: 1 1 140px; min-width: 0; }
+#gi-wardrobe .gi-set-tools > :first-child { flex: 0 0 auto; }
+#gi-wardrobe .gi-action-danger { color: #ffc8c1; border: 1px solid #dd8d815e; background: #6a343333; }
+#gi-wardrobe .gi-action-danger:hover { color: #ffe1dd; background: #6a343366; }
+#gi-wardrobe [data-panel] > details > summary { display: list-item; }
+#gi-wardrobe [data-panel] > details { margin-block: 12px; padding: 10px 12px; border: 1px solid #d3bc8e36; border-radius: 8px; background: #ffffff04; }
+#gi-wardrobe [data-panel] > :is(.gi-character-staging, .gi-card-properties:not(.gi-start-trust):first-of-type) { margin: 0; padding: 0; border: 0; background: none; }
+#gi-wardrobe .gi-editor-disclosure > summary, #gi-wardrobe .gi-sprite-import > summary { min-height: 28px; color: #ead6a3; }
+#gi-wardrobe .gi-editor-disclosure > section > h3, #gi-wardrobe .gi-editor-disclosure > div > h3 { display: none; }
+#gi-wardrobe .gi-selected-sprite-tools { padding: 12px; border-color: #d3bc8e36; background: #ffffff04; }
+#gi-wardrobe .gi-sprite-detail { flex-wrap: wrap; gap: 8px; }
+#gi-wardrobe .gi-sprite-detail > span { min-width: 0; overflow-wrap: anywhere; }
+#gi-wardrobe .gi-expression-grid { grid-template-columns: repeat(auto-fill, minmax(76px, 1fr)); }
+#gi-wardrobe :is(.gi-expression-grid, .gi-cg-grid) { padding: 14px; }
+#gi-wardrobe :is(.gi-expression-grid, .gi-cg-grid) button > span:not(.gi-slot-placeholder) { font-size: 12px; line-height: 1.3; padding: 5px 3px; }
+#gi-wardrobe .gi-cg-intro { margin-top: 0; font-size: 14px; color: #d8cfbd; }
+#gi-wardrobe .gi-card-properties > label:not(.gi-check, :has(textarea)) { grid-template-columns: minmax(90px, 34%) minmax(0, 1fr); font-size: 14px; }
+#gi-wardrobe footer { position: relative; z-index: 5; padding: 6px calc(env(safe-area-inset-right, 0px) + 20px) calc(env(safe-area-inset-bottom, 0px) + 8px) calc(env(safe-area-inset-left, 0px) + 20px); min-height: 54px; background: transparent; }
+#gi-wardrobe footer p { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: 13px; }
+#gi-wardrobe .gi-cs-archive-open { display: flex; gap: 8px; width: auto; min-height: 40px; height: auto; padding: 6px 14px; border: 1px solid #d3bc8e70; border-radius: 22px; box-shadow: none; font-size: 14px; }
+#gi-wardrobe .gi-cs-archive-open svg { width: 20px; height: 20px; }
+#gi-wardrobe header > .gi-cs-key { display: grid; width: 36px; height: 40px; font-size: 26px; }
+#gi-wardrobe .gi-cs-archive { background: #141c2ff5; backdrop-filter: none; }
+#gi-wardrobe .gi-cs-archive-top { display: grid; grid-template-columns: minmax(0, 1fr) 44px; position: relative; flex: none; padding: 0; gap: 10px; }
+#gi-wardrobe .gi-cs-archive-title { grid-column: 1; }
+#gi-wardrobe .gi-cs-archive-close { position: static; grid-column: 2; grid-row: 1; }
+#gi-wardrobe .gi-roster-tools { grid-column: 1 / -1; min-width: 0; }
+#gi-wardrobe .gi-roster-view { display: grid; width: 100%; grid-template-columns: repeat(6, minmax(90px, 1fr)) auto auto; align-items: end; }
+#gi-wardrobe .gi-roster-view select { width: 100%; min-width: 0; border-radius: 6px; min-height: 38px; }
+#gi-wardrobe .gi-roster-empty { margin: 10px 0; padding: 24px; border: 1px dashed #d3bc8e66; border-radius: 10px; color: #ece5d8; text-align: center; }
+#gi-wardrobe .gi-cs-archive-name { min-height: 42px; white-space: normal; overflow-wrap: anywhere; display: grid; place-items: center; }
+@media (min-width: 901px) and (min-height: 551px) {
+    #gi-wardrobe .gi-wardrobe-body { grid-template-columns: var(--cs-side) minmax(0, 1fr) var(--cs-side); }
+    #gi-wardrobe .gi-cs-rail { padding: 28px 8px 24px 36px; }
+    #gi-wardrobe .gi-wardrobe-tabs { gap: 6px; }
+    #gi-wardrobe .gi-wardrobe-tabs button { width: 100%; height: 48px; padding-left: 24px; font-size: clamp(18px, 1.45vw, 24px); color: #f4efe4; }
+    #gi-wardrobe .gi-wardrobe-tabs button[aria-pressed="true"] { transform: none; color: #f2dca0; text-shadow: 0 1px 6px #0006; }
+    #gi-wardrobe .gi-wardrobe-tabs button[aria-pressed="true"]::before { box-shadow: inset 0 0 0 1.5px #f2dca0; }
+    #gi-wardrobe .gi-wardrobe-preview { padding-bottom: var(--cs-floor); overflow: hidden; }
+}
+@media (max-width: 1050px) { #gi-wardrobe .gi-roster-view { grid-template-columns: repeat(3, minmax(90px, 1fr)); } }
+@media (max-width: 900px), (max-height: 550px) {
+    #gi-wardrobe .gi-wardrobe-body { display: grid; grid-template-columns: minmax(0, 38%) minmax(0, 1fr); grid-template-rows: auto minmax(0, 1fr); }
+    #gi-wardrobe .gi-cs-rail { grid-column: 1 / -1; padding: 6px 10px; }
+    #gi-wardrobe .gi-wardrobe-tabs { display: flex; width: 100%; flex-flow: row nowrap; justify-content: flex-start; gap: 4px; padding: 6px; overflow: auto hidden; scrollbar-width: none; touch-action: pan-x pinch-zoom; }
+    #gi-wardrobe .gi-wardrobe-tabs button { width: auto; flex: none; min-height: 42px; padding: 0 12px; gap: 7px; font-size: 14px; white-space: nowrap; }
+    #gi-wardrobe .gi-wardrobe-tabs button span { display: inline; }
+    #gi-wardrobe .gi-wardrobe-tabs button svg { width: 18px; height: 18px; }
+    #gi-wardrobe .gi-cs-side { margin: 4px 10px 10px 0; padding: 12px; background: #151d2ef5; backdrop-filter: none; }
+    #gi-wardrobe .gi-wardrobe-preview { overflow: hidden; }
+    #gi-wardrobe .gi-cs-emblem { width: 42px; height: 42px; }
+}
+@media (max-width: 600px) and (orientation: portrait) {
+    #gi-wardrobe header { grid-template-columns: minmax(0, 1fr) auto; min-height: 48px; }
+    #gi-wardrobe header > .gi-cs-key { display: none; }
+    #gi-wardrobe header .gi-roster { height: 50px; }
+    #gi-wardrobe .gi-wardrobe-body { grid-template-columns: minmax(0, 1fr); grid-template-rows: auto minmax(100px, 26dvh) minmax(0, 1fr); }
+    #gi-wardrobe .gi-wardrobe-tabs button { padding: 0 10px; }
+    #gi-wardrobe .gi-wardrobe-tabs button svg { display: none; }
+    #gi-wardrobe .gi-cs-side { margin: 0 8px 6px; }
+    #gi-wardrobe .gi-cs-identity { padding-bottom: 8px; }
+    #gi-wardrobe .gi-cs-identity h3 { font-size: 22px; }
+    #gi-wardrobe .gi-cs-archive-top { padding-right: 0; }
+    #gi-wardrobe .gi-cs-archive-grid { grid-template-columns: repeat(auto-fill, minmax(90px, 1fr)); }
+    #gi-wardrobe .gi-cs-archive { gap: 8px; padding-inline: 12px; }
+    #gi-wardrobe .gi-roster-tools input[type="search"] { flex: 1 1 100%; }
+    #gi-wardrobe footer { gap: 10px; padding-inline: 10px; }
+}
+@media (max-height: 550px) and (orientation: landscape) {
+    #gi-wardrobe header { min-height: 46px; }
+    #gi-wardrobe footer { min-height: 42px; padding-top: 2px; padding-bottom: calc(env(safe-area-inset-bottom, 0px) + 2px); }
+}
+@media (prefers-reduced-motion: reduce) {
+    #gi-wardrobe, #gi-wardrobe *, #gi-wardrobe::backdrop { animation: none !important; transition: none !important; }
+}
+/* Keep portraits within the shorter header, including the selected portrait's rim. */
+#gi-wardrobe header .gi-roster { margin-block: 0; padding-block: 0; }
+@media (max-width: 600px) and (orientation: portrait) {
+    #gi-wardrobe .gi-wardrobe-tabs button { justify-content: center; width: auto; min-height: 40px; padding: 0 12px; font-size: 13px; }
+    #gi-wardrobe .gi-expression-grid { grid-template-columns: repeat(auto-fill, minmax(70px, 1fr)); }
+}
+#gi-wardrobe .gi-cs-note { margin: 10px 0; font-size: 13px; color: #c1cada; }
+@media (max-width: 600px) and (max-height: 650px) and (orientation: portrait) {
+    #gi-wardrobe .gi-wardrobe-body { grid-template-rows: auto minmax(80px, 20dvh) minmax(0, 1fr); }
+}
+/* With animations disabled, the arrival tint must not stay over the character. */
+body.gi-reduced-motion #gi-wardrobe .gi-cs-tint { display: none !important; }
+@media (prefers-reduced-motion: reduce) { #gi-wardrobe .gi-cs-tint { display: none !important; } }
+@media (min-width: 901px) and (min-height: 551px) {
+    #gi-wardrobe header { grid-template-columns: minmax(300px, .9fr) 36px minmax(0, 2fr) 36px 48px; }
+}
+
+/* Reference-menu corrections: the selector is centered independently of the breadcrumb. */
+#gi-wardrobe header { grid-template-columns: minmax(0, 1fr) 48px; min-height: 84px; }
+#gi-wardrobe .gi-cs-title { max-width: calc(50vw - min(27vw, 530px) - 22px); }
+#gi-wardrobe header > button[data-w="close"] { grid-column: 2; }
+#gi-wardrobe .gi-cs-character-select {
+    position: absolute; left: 50%; top: env(safe-area-inset-top, 0px); translate: -50% 0;
+    display: flex; align-items: center; gap: 12px; width: max-content; max-width: min(54vw, 1060px); height: 84px; min-width: 0;
+}
+#gi-wardrobe .gi-cs-character-select > .gi-cs-key { display: grid; width: 28px; height: 28px; font-size: 15px; }
+#gi-wardrobe header .gi-roster {
+    flex: 0 1 auto; width: max-content; max-width: none; height: 84px; margin: 0; padding: 10px 14px;
+    overflow-x: auto; overflow-y: hidden; overscroll-behavior-y: none; touch-action: pan-x pinch-zoom;
+}
+#gi-wardrobe header .gi-roster button { height: 64px; }
+#gi-wardrobe header .gi-roster button[aria-pressed="true"] { transform: none; }
+#gi-wardrobe header .gi-roster button[aria-pressed="true"] .gi-roster-face { box-shadow: 0 0 0 2.5px #fff, 0 0 10px var(--cs-hi); }
+#gi-wardrobe header .gi-roster button[aria-pressed="true"]::after { box-shadow: 0 0 4px var(--cs-hi); }
+#gi-wardrobe header .gi-roster img { -webkit-user-drag: none; user-select: none; }
+#gi-wardrobe .gi-wardrobe-controls details:is(.gi-editor-disclosure, .gi-sprite-import) { padding: 0; }
+#gi-wardrobe .gi-wardrobe-controls details:is(.gi-editor-disclosure, .gi-sprite-import) > summary {
+    display: flex; align-items: center; gap: 9px; min-height: 34px; margin: 0; padding: 6px 10px; line-height: 20px; list-style: none;
+}
+#gi-wardrobe :is(.gi-editor-disclosure, .gi-sprite-import) > summary::-webkit-details-marker { display: none; }
+#gi-wardrobe :is(.gi-editor-disclosure, .gi-sprite-import) > summary::before {
+    content: ''; flex: none; width: 0; height: 0; border-top: 4px solid transparent; border-bottom: 4px solid transparent; border-left: 5px solid currentColor;
+    transform-origin: 2px 50%;
+}
+#gi-wardrobe :is(.gi-editor-disclosure, .gi-sprite-import)[open] > summary::before { transform: rotate(90deg); }
+#gi-wardrobe .gi-editor-disclosure > :not(summary) { padding: 0 12px 12px; }
+#gi-wardrobe .gi-sprite-import-body { display: grid; gap: 12px; padding: 12px; border-top: 1px solid #d3bc8e36; }
+#gi-wardrobe .gi-sprite-import-body label { margin: 0; }
+#gi-wardrobe .gi-sprite-import-body label:not(.gi-check) { display: grid; gap: 6px; }
+#gi-wardrobe .gi-sprite-import-body input[type="file"] { margin: 0; }
+#gi-wardrobe .gi-sprite-import-body > button { justify-self: start; }
+#gi-wardrobe .gi-sprite-import-body .gi-wardrobe-row { margin: 0; }
+/* A separate, centered portrait row leaves the full breadcrumb readable on smaller screens. */
+@media (max-width: 1100px) and (min-height: 551px), (max-width: 600px) and (orientation: portrait) {
+    #gi-wardrobe header { grid-template-rows: 48px 64px; padding-inline: 10px; }
+    #gi-wardrobe .gi-cs-title { max-width: none; }
+    #gi-wardrobe .gi-cs-emblem { width: 42px; height: 42px; margin: 0; }
+    #gi-wardrobe .gi-cs-character-select { top: calc(env(safe-area-inset-top, 0px) + 48px); max-width: calc(100% - 24px); height: 64px; gap: 10px; }
+    #gi-wardrobe header .gi-roster { grid-row: auto; grid-column: auto; height: 64px; padding-block: 6px; }
+    #gi-wardrobe header .gi-roster button { width: 52px; height: 52px; }
+    #gi-wardrobe header .gi-roster .gi-roster-face { left: 6px; width: 40px; height: 40px; }
+    #gi-wardrobe header .gi-roster button[aria-pressed="true"] .gi-roster-face { left: 3px; width: 46px; height: 46px; box-shadow: 0 0 0 2.5px #fff, 0 0 8px var(--cs-hi); }
+}
+@media (max-width: 900px), (max-height: 550px) {
+    #gi-wardrobe .gi-cs-rail { gap: 8px; }
+    #gi-wardrobe .gi-wardrobe-tabs { flex: 1; min-width: 0; width: auto; }
+    #gi-wardrobe .gi-cs-character-select > .gi-cs-key { width: 32px; height: 36px; }
+    #gi-wardrobe .gi-cs-key > span { display: none; }
+    #gi-wardrobe .gi-cs-key svg { display: block; }
+    #gi-wardrobe header .gi-roster button[aria-pressed="true"] .gi-roster-face { box-shadow: 0 0 0 2.5px #fff, 0 0 8px var(--cs-hi); }
+    #gi-wardrobe .gi-roster-view { display: flex; flex-flow: row nowrap; overflow: auto hidden; align-items: end; padding: 4px; scrollbar-width: thin; touch-action: pan-x pinch-zoom; }
+    #gi-wardrobe .gi-roster-view > * { flex: 0 0 auto; }
+    #gi-wardrobe .gi-roster-view label { width: 128px; }
+    #gi-wardrobe .gi-roster-count { white-space: nowrap; }
+}
+/* Landscape uses the same left-to-right structure as desktop, with a compact section rail. */
+@media (max-width: 900px) and (orientation: landscape), (max-height: 550px) and (orientation: landscape) {
+    #gi-wardrobe header { grid-template-columns: minmax(0, 22%) minmax(0, 1fr) 40px; grid-template-rows: auto; min-height: 64px; gap: 8px; }
+    #gi-wardrobe .gi-cs-title { min-width: 0; max-width: none; gap: 0; }
+    #gi-wardrobe .gi-cs-title h2 { font-size: 16px; }
+    #gi-wardrobe .gi-cs-emblem { display: none; }
+    #gi-wardrobe header > button[data-w="close"] { grid-column: 3; }
+    #gi-wardrobe .gi-cs-character-select { position: static; translate: none; width: 100%; max-width: none; height: 64px; gap: 8px; justify-content: center; }
+    #gi-wardrobe header .gi-roster { height: 64px; padding-block: 12px; }
+    #gi-wardrobe header .gi-roster button { height: 40px; }
+    #gi-wardrobe .gi-wardrobe-body { grid-template-columns: 124px minmax(100px, 1fr) minmax(280px, 46%); grid-template-rows: minmax(0, 1fr); }
+    #gi-wardrobe .gi-cs-rail { grid-column: 1; grid-row: 1; padding: 6px 0 6px calc(env(safe-area-inset-left, 0px) + 8px); }
+    #gi-wardrobe .gi-wardrobe-tabs { flex-direction: column; overflow: hidden auto; touch-action: pan-y pinch-zoom; padding: 6px; }
+    #gi-wardrobe .gi-wardrobe-tabs button { width: 100%; min-height: 36px; padding: 0 8px; font-size: 13px; justify-content: flex-start; }
+    #gi-wardrobe .gi-wardrobe-tabs button[aria-pressed="true"] { translate: none; }
+    #gi-wardrobe .gi-wardrobe-tabs button svg { display: none; }
+    #gi-wardrobe .gi-cs-side { margin: 6px 10px 6px 0; padding: 8px; }
+    #gi-wardrobe .gi-wardrobe-preview { padding: 6px; }
+    #gi-wardrobe .gi-cs-archive-open { width: 36px; height: 36px; min-height: 36px; padding: 0; justify-content: center; }
+    #gi-wardrobe .gi-cs-archive-open > span { display: none; }
+    #gi-wardrobe .gi-cs-archive { padding-top: calc(env(safe-area-inset-top, 0px) + 8px); padding-bottom: 8px; gap: 6px; }
+    #gi-wardrobe .gi-roster-tools input[type="search"] { flex: 1 1 220px; }
+}
+
+/* A continuous floor shade replaces the footer's hard horizontal band. */
+#gi-wardrobe::after {
+    content: ''; position: absolute; inset: 0; z-index: 2; pointer-events: none;
+    background: linear-gradient(to top, #080d1cf2 0%, #080d1c99 10%, #080d1c33 25%, #080d1c00 42%);
+}
+/* Consistent label flow and control height keep selects and inputs on the same baseline. */
+#gi-wardrobe .gi-moveset :is(.gi-moveset-head, .gi-move-row) { align-items: end; }
+#gi-wardrobe .gi-moveset :is(.gi-moveset-head, .gi-move-row, .gi-effect) > label:not(.gi-check) {
+    display: flex; flex-direction: column; justify-content: flex-end; gap: 6px; margin: 0;
+}
+#gi-wardrobe .gi-moveset :is(select, input:not([type="checkbox"])) { height: 38px; min-height: 38px; margin: 0; padding: 7px 10px; line-height: 22px; }
+#gi-wardrobe .gi-required-trust { display: grid; gap: 6px; margin: 10px 0; font-size: 14px; color: #ece5d8; }
+#gi-wardrobe .gi-heart-input { display: flex; align-items: center; flex-wrap: wrap; gap: 8px; }
+#gi-wardrobe .gi-heart-slider { display: inline-flex; padding: 4px; border: 1px solid transparent; border-radius: 6px; cursor: pointer; touch-action: manipulation; }
+#gi-wardrobe .gi-heart-slider[aria-disabled="true"] { opacity: .5; cursor: default; }
+#gi-wardrobe .gi-heart-slider:focus-visible { outline: 2px solid #f2dca0; outline-offset: 2px; }
+#gi-wardrobe .gi-required-trust .gi-hearts { --heart: 26px; gap: 3px; }
+#gi-wardrobe .gi-heart-value { color: #d8cfbd; font-size: 13px; white-space: nowrap; }
+#gi-wardrobe .gi-heart-clear { display: grid; place-items: center; width: 28px; height: 28px; min-height: 28px; padding: 0; border: 1px solid #d3bc8e55; background: transparent; color: #ece5d8; font-size: 20px; line-height: 1; }
+#gi-wardrobe .gi-heart-clear:hover { background: #ffffff15; color: #fff; }
+
+/* ---------- Layout review: fit, flow and scroll cues across desktop, tablet and phone ---------- */
+/* Scrolling strips and the editor fade at an edge that has more to show (wardrobe.js sets data-more and data-axis). */
+#gi-wardrobe :is(header .gi-roster, .gi-wardrobe-tabs, .gi-roster-view, .gi-wardrobe-controls)[data-more] { -webkit-mask: linear-gradient(to right, var(--cs-fade-a, #000), #000 36px, #000 calc(100% - 36px), var(--cs-fade-b, #000)); mask: linear-gradient(to right, var(--cs-fade-a, #000), #000 36px, #000 calc(100% - 36px), var(--cs-fade-b, #000)); }
+#gi-wardrobe :is(header .gi-roster, .gi-wardrobe-tabs, .gi-roster-view, .gi-wardrobe-controls)[data-more][data-axis="y"] { -webkit-mask: linear-gradient(var(--cs-fade-a, #000), #000 28px, #000 calc(100% - 28px), var(--cs-fade-b, #000)); mask: linear-gradient(var(--cs-fade-a, #000), #000 28px, #000 calc(100% - 28px), var(--cs-fade-b, #000)); }
+#gi-wardrobe [data-more~="start"] { --cs-fade-a: #0000; }
+#gi-wardrobe [data-more~="end"] { --cs-fade-b: #0000; }
+/* Section names stay above the floor shade, which otherwise dims the last one on short screens. */
+#gi-wardrobe .gi-cs-rail { z-index: 3; }
+/* The editor sizes its own rows, so narrow side cards stack fields instead of truncating them. */
+#gi-wardrobe .gi-wardrobe-controls { container: gi-editor / inline-size; }
+#gi-wardrobe [data-panel] > h3:first-child { margin-top: 0; }
+#gi-wardrobe .gi-card-properties > label:not(.gi-check, :has(textarea)) { grid-template-columns: minmax(100px, 30%) minmax(0, 1fr); }
+@container gi-editor (max-width: 330px) {
+    #gi-wardrobe .gi-card-properties > label:not(.gi-check, :has(textarea)) { grid-template-columns: minmax(0, 1fr); gap: 5px; }
+}
+@container gi-editor (max-width: 440px) {
+    #gi-wardrobe .gi-effect { grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr); }
+}
+@container gi-editor (max-width: 300px) {
+    #gi-wardrobe .gi-moveset-head { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+/* A field switched off by the checkbox above it looks switched off (not while the editor is loading). */
+#gi-wardrobe:not([aria-busy]) label:has(> :is(input, select, textarea):disabled) { opacity: .5; }
+/* Moveset rules fold away so the moves themselves come first. */
+#gi-wardrobe .gi-wardrobe-controls details.gi-moveset-rules { margin: 0 0 12px; padding: 0; border: 1px solid #d3bc8e36; border-radius: 8px; background: #ffffff04; }
+#gi-wardrobe .gi-moveset-rules > summary { display: flex; align-items: center; gap: 9px; min-height: 34px; padding: 6px 10px; color: #ead6a3; line-height: 20px; list-style: none; cursor: pointer; }
+#gi-wardrobe .gi-moveset-rules > summary::-webkit-details-marker { display: none; }
+#gi-wardrobe .gi-moveset-rules > summary::before { content: ''; flex: none; border-top: 4px solid transparent; border-bottom: 4px solid transparent; border-left: 5px solid currentColor; transform-origin: 2px 50%; }
+#gi-wardrobe .gi-moveset-rules[open] > summary::before { transform: rotate(90deg); }
+#gi-wardrobe .gi-moveset-rules > summary b { margin-left: auto; padding: 1px 8px; border-radius: 10px; background: #f2dca024; color: #f2dca0; font-size: 12px; font-weight: normal; }
+#gi-wardrobe .gi-moveset-rules > .gi-moveset-note { padding: 0 12px 12px; font-size: 13px; line-height: 1.45; }
+/* "Play as" is pinned under the Profile editor: a divider keeps it from reading as part of the form. */
+#gi-wardrobe[data-tab="attributes"] .gi-cs-actions { padding-top: 12px; border-top: 1px solid #d3bc8e30; }
+#gi-wardrobe .gi-cs-actions .gi-takeover { margin: 0; }
+@media (max-width: 900px), (max-height: 550px) {
+    #gi-wardrobe[data-tab="attributes"] .gi-cs-actions { padding-top: 8px; }
+    #gi-wardrobe .gi-takeover button { min-width: 0; min-height: 38px; height: 38px; padding-inline: 20px; font-size: 14px; }
+}
+@media (max-width: 600px) and (orientation: portrait) {
+    #gi-wardrobe .gi-cs-actions, #gi-wardrobe .gi-takeover, #gi-wardrobe .gi-takeover button { width: 100%; }
+    /* Slimmer section row and footer leave the editor more height. */
+    #gi-wardrobe .gi-cs-rail { padding: 4px 8px; }
+    #gi-wardrobe .gi-wardrobe-tabs { padding: 2px; }
+    #gi-wardrobe .gi-wardrobe-tabs button { min-height: 38px; }
+    #gi-wardrobe footer { min-height: 48px; padding-top: 4px; }
+    #gi-wardrobe .gi-cs-archive-open { min-height: 36px; padding-block: 4px; }
+}
+/* Short screens: the character list's search shares the close button's row, and cards are smaller,
+   so more than one row of characters is visible. */
+@media (max-height: 550px) {
+    #gi-wardrobe .gi-cs-archive-title { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+    #gi-wardrobe .gi-roster-tools { grid-column: 1; grid-row: 1; }
+    #gi-wardrobe .gi-cs-archive-close { align-self: start; width: 40px; height: 40px; }
+    #gi-wardrobe .gi-roster-view { gap: 6px 8px; padding-block: 2px; }
+    #gi-wardrobe .gi-roster-view label { font-size: 11px; }
+    #gi-wardrobe .gi-roster-view select { min-height: 32px; }
+    #gi-wardrobe .gi-cs-archive-grid { grid-template-columns: repeat(auto-fill, minmax(96px, 1fr)); gap: 8px; padding: 8px; }
+    #gi-wardrobe .gi-cs-archive-name { min-height: 34px; font-size: 12px; overflow-wrap: break-word; }
+}
 
 /* 1.59: Scene Gallery and scene conditions */
 #gi-cg-gallery{position:fixed;inset:0;box-sizing:border-box;width:min(960px,calc(100vw - 32px));height:min(680px,calc(100dvh - 32px));max-width:none;max-height:none;margin:auto;padding:0;border:0;border-radius:18px;overflow:hidden;color:#ece5d8;font-family:var(--ty-font,"Silly Teyvat Dialogue",sans-serif);background:radial-gradient(ellipse 80% 60% at 70% 0%,#d7bd8426,transparent 70%),linear-gradient(160deg,#2a3147f7,#1b2030fa);box-shadow:0 0 0 1px #d3bc8e66,0 24px 60px #0009}

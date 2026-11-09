@@ -1,7 +1,7 @@
 /* ---------- Trust (1.53): five hearts per character, and a thought box in the style of Genshin's paper dialogs ---------- */
 .gi-hearts { display: inline-flex; gap: 2px; filter: drop-shadow(0 0 1px #8a6b3f); vertical-align: middle; }
 .gi-hearts i { display: block; width: var(--heart, 18px); aspect-ratio: 1; background: linear-gradient(90deg, #f28aa6 var(--fill), var(--heart-empty, #d9cdb8) var(--fill)); -webkit-mask: var(--gi-heart-mask) center / contain no-repeat; mask: var(--gi-heart-mask) center / contain no-repeat; }
-#gi-root { --gi-heart-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 21.2 3.4 12.6a5.4 5.4 0 0 1 7.6-7.6l1 1 1-1a5.4 5.4 0 0 1 7.6 7.6Z'/%3E%3C/svg%3E"); }
+#gi-root, .gi-hearts { --gi-heart-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 21.2 3.4 12.6a5.4 5.4 0 0 1 7.6-7.6l1 1 1-1a5.4 5.4 0 0 1 7.6 7.6Z'/%3E%3C/svg%3E"); }
 
 #gi-trust { --trust-paper: #ece5d8; --trust-ink: #3d4557; position: fixed; inset: 0; box-sizing: border-box; width: min(960px, calc(100vw - 32px)); height: min(680px, calc(100dvh - 32px)); max-width: none; max-height: none; margin: auto; padding: 0; border: 0; border-radius: 18px; overflow: hidden; color: var(--trust-paper); font-family: var(--ty-font); background: radial-gradient(ellipse 80% 60% at 70% 0%, #f28aa633, transparent 70%), linear-gradient(160deg, #2a3147f7, #1b2030fa); box-shadow: 0 0 0 1px #d3bc8e66, 0 24px 60px #0009; }
 #gi-trust[open] { display: grid; grid-template-rows: auto minmax(0, 1fr) auto; animation: ty-fade 220ms ease both; }

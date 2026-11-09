@@ -1,0 +1,330 @@
+{
+  "approval": "User accepted all current cards and requested transparent pixels outside the official card outline, regardless of color.",
+  "cards": [
+    {
+      "name": "Adel",
+      "group": "npc",
+      "source": "art/tcg/npc-cards/Adel.png",
+      "output": "Adel.png"
+    },
+    {
+      "name": "Aloha",
+      "group": "npc",
+      "source": "art/tcg/npc-cards/Aloha.png",
+      "output": "Aloha.png"
+    },
+    {
+      "name": "Taroumaru",
+      "group": "npc",
+      "source": "art/tcg/npc-cards/Taroumaru.png",
+      "output": "Taroumaru.png"
+    },
+    {
+      "name": "Teucer",
+      "group": "npc",
+      "source": "art/tcg/npc-cards/Teucer.png",
+      "output": "Teucer.png"
+    },
+    {
+      "name": "Tonia",
+      "group": "npc",
+      "source": "art/tcg/revisions-2026-11-08/Tonia-v006-trimmed.png",
+      "output": "Tonia.png",
+      "preserve_alpha": true
+    },
+    {
+      "name": "Katheryne",
+      "group": "npc",
+      "source": "art/tcg/npc-cards/Katheryne.png",
+      "output": "Katheryne.png"
+    },
+    {
+      "name": "Anselm",
+      "group": "npc",
+      "source": "art/tcg/npc-cards/Anselm.png",
+      "output": "Anselm.png"
+    },
+    {
+      "name": "Araja",
+      "group": "npc",
+      "source": "art/tcg/npc-cards/Araja.png",
+      "output": "Araja.png"
+    },
+    {
+      "name": "Arama",
+      "group": "npc",
+      "source": "art/tcg/npc-cards/Arama.png",
+      "output": "Arama.png"
+    },
+    {
+      "name": "Aranakula",
+      "group": "npc",
+      "source": "art/tcg/npc-cards/Aranakula.png",
+      "output": "Aranakula.png"
+    },
+    {
+      "name": "Areta",
+      "group": "npc",
+      "source": "art/tcg/npc-cards/Areta.png",
+      "output": "Areta.png"
+    },
+    {
+      "name": "Aurelius",
+      "group": "npc",
+      "source": "art/tcg/npc-cards/Aurelius.png",
+      "output": "Aurelius.png"
+    },
+    {
+      "name": "Aybak",
+      "group": "npc",
+      "source": "art/tcg/npc-cards/Aybak.png",
+      "output": "Aybak.png"
+    },
+    {
+      "name": "Babel",
+      "group": "npc",
+      "source": "art/tcg/revisions-2026-11-08/Babel-v003.png",
+      "output": "Babel.png"
+    },
+    {
+      "name": "Egle",
+      "group": "npc",
+      "source": "art/tcg/npc-cards/Egle.png",
+      "output": "Egle.png"
+    },
+    {
+      "name": "Eveliina",
+      "group": "npc",
+      "source": "art/tcg/npc-cards/Eveliina.png",
+      "output": "Eveliina.png"
+    },
+    {
+      "name": "Granny Ruoxin",
+      "group": "npc",
+      "source": "art/tcg/revisions-2026-11-08/Granny Ruoxin-v003.png",
+      "output": "Granny Ruoxin.png"
+    },
+    {
+      "name": "Jakob",
+      "group": "npc",
+      "source": "art/tcg/npc-cards/Jakob.png",
+      "output": "Jakob.png"
+    },
+    {
+      "name": "Jeht",
+      "group": "npc",
+      "source": "art/tcg/npc-cards/Jeht.png",
+      "output": "Jeht.png"
+    },
+    {
+      "name": "Knyazev",
+      "group": "npc",
+      "source": "art/tcg/npc-cards/Knyazev.png",
+      "output": "Knyazev.png"
+    },
+    {
+      "name": "Komaki",
+      "group": "npc",
+      "source": "art/tcg/revisions-2026-11-08/Komaki-v003.png",
+      "output": "Komaki.png"
+    },
+    {
+      "name": "Kujou Masahito",
+      "group": "npc",
+      "source": "art/tcg/npc-cards/Kujou Masahito.png",
+      "output": "Kujou Masahito.png"
+    },
+    {
+      "name": "Kukkia",
+      "group": "npc",
+      "source": "art/tcg/npc-cards/Kukkia.png",
+      "output": "Kukkia.png"
+    },
+    {
+      "name": "Lasselin",
+      "group": "npc",
+      "source": "art/tcg/npc-cards/Lasselin.png",
+      "output": "Lasselin.png"
+    },
+    {
+      "name": "Lyris",
+      "group": "npc",
+      "source": "art/tcg/npc-cards/Lyris.png",
+      "output": "Lyris.png"
+    },
+    {
+      "name": "Maryam",
+      "group": "npc",
+      "source": "art/tcg/npc-cards/Maryam.png",
+      "output": "Maryam.png"
+    },
+    {
+      "name": "Master Lu",
+      "group": "npc",
+      "source": "art/tcg/revisions-2026-11-08/Master Lu-v003.png",
+      "output": "Master Lu.png"
+    },
+    {
+      "name": "Mayskaya",
+      "group": "npc",
+      "source": "art/tcg/npc-cards/Mayskaya.png",
+      "output": "Mayskaya.png"
+    },
+    {
+      "name": "Mazatl",
+      "group": "npc",
+      "source": "art/tcg/npc-cards/Mazatl.png",
+      "output": "Mazatl.png"
+    },
+    {
+      "name": "Mécantre",
+      "group": "npc",
+      "source": "art/tcg/npc-cards/Mécantre.png",
+      "output": "Mécantre.png"
+    },
+    {
+      "name": "Neko",
+      "group": "npc",
+      "source": "art/tcg/revisions-2026-11-08/Neko-v003.png",
+      "output": "Neko.png"
+    },
+    {
+      "name": "Nishikino Reirei",
+      "group": "npc",
+      "source": "art/tcg/npc-cards/Nishikino Reirei.png",
+      "output": "Nishikino Reirei.png"
+    },
+    {
+      "name": "Pitot",
+      "group": "npc",
+      "source": "art/tcg/npc-cards/Pitot.png",
+      "output": "Pitot.png"
+    },
+    {
+      "name": "Plate",
+      "group": "npc",
+      "source": "art/tcg/npc-cards/Plate.png",
+      "output": "Plate.png"
+    },
+    {
+      "name": "Rene",
+      "group": "npc",
+      "source": "art/tcg/npc-cards/Rene.png",
+      "output": "Rene.png"
+    },
+    {
+      "name": "Sedile",
+      "group": "npc",
+      "source": "art/tcg/revisions-2026-11-08/Sedile-v003.png",
+      "output": "Sedile.png"
+    },
+    {
+      "name": "Shajar",
+      "group": "npc",
+      "source": "art/tcg/npc-cards/Shajar.png",
+      "output": "Shajar.png"
+    },
+    {
+      "name": "Tetreaux",
+      "group": "npc",
+      "source": "art/tcg/npc-cards/Tetreaux.png",
+      "output": "Tetreaux.png"
+    },
+    {
+      "name": "Tiepolo",
+      "group": "npc",
+      "source": "art/tcg/npc-cards/Tiepolo.png",
+      "output": "Tiepolo.png"
+    },
+    {
+      "name": "Tisoc",
+      "group": "npc",
+      "source": "art/tcg/revisions-2026-11-08/Tisoc-v003.png",
+      "output": "Tisoc.png"
+    },
+    {
+      "name": "Tlapalli",
+      "group": "npc",
+      "source": "art/tcg/npc-cards/Tlapalli.png",
+      "output": "Tlapalli.png"
+    },
+    {
+      "name": "Tzompantli",
+      "group": "npc",
+      "source": "art/tcg/revisions-2026-11-08/Tzompantli-v003.png",
+      "output": "Tzompantli.png"
+    },
+    {
+      "name": "Valdis",
+      "group": "npc",
+      "source": "art/tcg/revisions-2026-11-08/Valdis-v003.png",
+      "output": "Valdis.png"
+    },
+    {
+      "name": "Virda",
+      "group": "npc",
+      "source": "art/tcg/revisions-2026-11-08/Virda-v003.png",
+      "output": "Virda.png"
+    },
+    {
+      "name": "Whistle",
+      "group": "npc",
+      "source": "art/tcg/npc-cards/Whistle.png",
+      "output": "Whistle.png"
+    },
+    {
+      "name": "Xavier",
+      "group": "npc",
+      "source": "art/tcg/npc-cards/Xavier.png",
+      "output": "Xavier.png"
+    },
+    {
+      "name": "Cryo Whopperflower",
+      "group": "enemy",
+      "source": "art/tcg/enemy-cards/Cryo Whopperflower.png",
+      "output": "Cryo Whopperflower.png"
+    },
+    {
+      "name": "Geo Slime",
+      "group": "enemy",
+      "source": "art/tcg/enemy-cards/Geo Slime.png",
+      "output": "Geo Slime.png"
+    },
+    {
+      "name": "Large Electro Slime",
+      "group": "enemy",
+      "source": "art/tcg/enemy-cards/Large Electro Slime.png",
+      "output": "Large Electro Slime.png"
+    },
+    {
+      "name": "Large Pyro Slime",
+      "group": "enemy",
+      "source": "art/tcg/enemy-cards/Large Pyro Slime.png",
+      "output": "Large Pyro Slime.png"
+    },
+    {
+      "name": "Treasure Hoarders - Marksman",
+      "group": "enemy",
+      "source": "art/tcg/enemy-cards/Treasure Hoarders - Marksman.png",
+      "output": "Treasure Hoarders - Marksman.png"
+    },
+    {
+      "name": "Treasure Hoarders - Scout",
+      "group": "enemy",
+      "source": "art/tcg/revisions-2026-11-08/Treasure Hoarders - Scout-v004.png",
+      "output": "Treasure Hoarders - Scout.png"
+    },
+    {
+      "name": "Treasure Hoarders: Gravedigger",
+      "group": "enemy",
+      "source": "art/tcg/enemy-cards/Treasure Hoarders Gravedigger.png",
+      "output": "Treasure Hoarders Gravedigger.png"
+    },
+    {
+      "name": "Treasure Hoarders: Pyro Potioneer",
+      "group": "enemy",
+      "source": "art/tcg/revisions-2026-11-08/Treasure Hoarders Pyro Potioneer-v003.png",
+      "output": "Treasure Hoarders Pyro Potioneer.png"
+    }
+  ]
+}

@@ -3,7 +3,7 @@
 // battle screen plays them, one round per message: Roll Phase, turns, End Phase, until a side falls.
 // The party is played by the Auto planner (bestAction); enemies by their own intents.
 //
-//   node tools/simulate-battles.mjs [runs] [--party=Fischl,Xiangling,...] [--only=weak|standard|tough|boss] [--naive]
+//   node tools/simulate-battles.mjs [runs] [--party=Fischl,Xiangling,...] [--only=weak|standard|tough|boss] [--enemy=name] [--naive]
 //
 // Prints, per encounter kind: win rate, rounds to win (median and 90th percentile), party health lost and
 // how often a character falls. The targets this build is tuned to are in COMBAT.md (Balance notes).
@@ -64,7 +64,9 @@ function fight(partyNames,enemies){
 }
 const pct=n=>`${Math.round(n*100)}%`,quantile=(list,q)=>{const s=[...list].sort((a,b)=>a-b);return s[Math.min(s.length-1,Math.floor(q*s.length))] ?? 0;};
 const fixedParty=flag('party','').split(',').filter(Boolean);
-const kinds=[
+const fixedEnemy=flag('enemy','');
+if(fixedEnemy&&!enemyNames.includes(fixedEnemy))throw new Error(`Unknown enemy: ${fixedEnemy}`);
+const kinds=fixedEnemy?[[fixedEnemy,()=>[fixedEnemy]]]:[
     ['weak (1-2 weak enemies)',()=>Array.from({length:1+Math.floor(random()*2)},()=>pick(byTier.weak))],
     ['standard (2-3 mixed)',()=>Array.from({length:2+Math.floor(random()*2)},()=>pick(random()<.5?byTier.weak:byTier.standard))],
     ['tough (1 tough + 1 standard)',()=>[pick(byTier.tough),pick(byTier.standard)]],

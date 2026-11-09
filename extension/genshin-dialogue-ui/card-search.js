@@ -1,7 +1,7 @@
-// Card Search: a commission taken at any Adventurers' Guild. The player picks Action cards to look for,
+// Card Search lets the player pick Action cards to look for,
 // and every Wilderness or Boss waypoint whose card drops include one of them gets a Quest marker on the
 // map. Winning a searched card in battle removes its markers; once every card is found the search ends.
-// The search is saved per chat, next to the party's bag. It is started, changed or stopped at a Guild.
+// The search is saved per chat, next to the party's bag, and can be managed anywhere.
 import {ITEMS,itemArt,kindLabel} from './battle-items.js';
 import {locationCardPool} from './card-pools.js';
 import {partyBag} from './battle-state.js';
@@ -172,15 +172,15 @@ export function mountCardSearch({host,getContext,announce=()=>{},onChange=()=>{}
     on($('.gi-cs-order'),'click',()=>{reversed=!reversed;$('.gi-cs-order').setAttribute('aria-pressed',String(reversed));paint();});
     on($('.gi-cs-clear'),'click',()=>{selected.clear();paint();});
     on($('.gi-cs-start'),'click',()=>{
-        const ctx=getContext();if(!currentGuild(ctx)){announce('Card Search can only be changed at an Adventurers\' Guild.');close();return;}
+        const ctx=getContext();
         const was=cardSearchActive(ctx),cards=setCardSearch(ctx,[...selected],{guild:guild?.location.id});
         const marked=new Set(cards.flatMap(id=>(sites.get(id) || []).map(s=>s.location.id))).size;
         const text=`${was?'Card Search updated':'Card Search started'}: ${cards.length} ${cards.length===1?'card':'cards'}. Quest markers at ${marked} ${marked===1?'waypoint':'waypoints'} on the map.`;
-        announce(text);globalThis.toastr?.info?.(text,'Adventurers\' Guild');onChange();close();
+        announce(text);globalThis.toastr?.info?.(text,'Card Search');onChange();close();
     });
     on($('.gi-cs-stop'),'click',()=>{
-        const ctx=getContext();if(!currentGuild(ctx)){close();return;}
-        stopCardSearch(ctx);selected.clear();announce('Card Search stopped. The quest markers are gone.');globalThis.toastr?.info?.('Card Search stopped.','Adventurers\' Guild');onChange();close();
+        const ctx=getContext();
+        stopCardSearch(ctx);selected.clear();announce('Card Search stopped. The quest markers are gone.');globalThis.toastr?.info?.('Card Search stopped.','Card Search');onChange();close();
     });
     on($('.gi-cs-close'),'click',()=>close());
     on(dialog,'cancel',event=>{event.preventDefault();close();});
@@ -189,13 +189,12 @@ export function mountCardSearch({host,getContext,announce=()=>{},onChange=()=>{}
     return {
         open(){
             const ctx=getContext();guild=currentGuild(ctx);
-            if(!guild){announce('Visit an Adventurers\' Guild to start, change or stop a Card Search.');return false;}
             sites=cardDropSites(ctx);bag={...(ctx.chatMetadata?partyBag(ctx):{})};
             selected=new Set(searchedCards(ctx));kind='all';focus=[...selected][0] || '';
-            $('.gi-cs-branch').textContent=guild.location.label;$('.gi-cs-query').value='';
+            $('.gi-cs-branch').textContent=guild?.location.label || 'Quest';$('.gi-cs-query').value='';
             paint();if(!dialog.open)dialog.showModal();
             $('.gi-cs-query').focus({preventScroll:true});
-            announce(`Card Search at ${guild.location.label}. ${selected.size?`Searching for ${selected.size} ${selected.size===1?'card':'cards'}.`:'No search yet.'}`);
+            announce(`Card Search. ${selected.size?`Searching for ${selected.size} ${selected.size===1?'card':'cards'}.`:'No search yet.'}`);
             return true;
         },
         get isOpen(){return dialog.open;},
