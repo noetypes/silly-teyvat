@@ -4,3 +4,11 @@
 - For character sprite artwork, read [SPRITE-GENERATION.md](SPRITE-GENERATION.md) before making any generation request. Its user-approved reference and approval rules supersede the older prompt documents in the historical `2026-10-24/th` workspace.
 - Sprite art work belongs in this repository under `art/sprites/`. Do not change extension code, character cards, lorebooks, personas, or the live SillyTavern installation as part of an artwork-only request.
 - Never infer neutral approval from an earlier version, silence, elapsed time, or an agent's own assessment. Wait for the user's explicit approval of the current neutral before generating that character's expressions.
+
+## Versions and release notes
+
+- Silly Teyvat is in public alpha. The extension version in `extension/genshin-dialogue-ui/manifest.json` has the form `0.NNa`: `0.50a` was the first public version, followed by `0.51a`, `0.52a`, `0.53a` and so on.
+- Every commit that changes the extension (anything under `extension/genshin-dialogue-ui/` that players receive) moves to the next number, one step at a time, however small the change. There are no patch numbers (`0.51.1`), no skipped numbers, and no reused numbers. Commits that only change documentation, tools, art runs or the data pack keep the current version.
+- Name the commit `Silly Teyvat 0.NNa: <short title>` and put the release notes in the commit message body. Do not add version sections or a changelog to either `README.md`. The READMEs are feature overviews: update them only when what players can do or see changes.
+- Ask the user before going past `0.99a`, dropping the `a`, or changing the scheme in any other way.
+- The game-data release version in `game-data-release.json` (for example `1.77.0`) is separate. It names the hosted download files, so never rename it to match the extension version.

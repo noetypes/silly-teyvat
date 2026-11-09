@@ -13,7 +13,7 @@ verification and adding assets. Never commit media binaries or research caches.
 3. Run `bash tools/sync-live.sh --check`. If the live copy has changes this repository doesn't, another agent has updated it: bring those changes into the repository first, and commit them separately. The check compares content through external media links.
 4. Install with `tools/sync-live.sh`. Set `SILLY_TEYVAT_LIVE` to use a different SillyTavern folder.
 5. Open `http://localhost:8000/scripts/extensions/third-party/genshin-dialogue-ui/preview.html` and run the `preview-*-tests.js` suites. In a background tab, shim `requestAnimationFrame` with `setTimeout` first, or the tests stall.
-6. Commit with the version bump in `manifest.json` and a short section at the top of the extension `README.md`.
+6. Commit with the version bump in `manifest.json`, using the `0.NNa` scheme in [AGENTS.md](AGENTS.md#versions-and-release-notes) (`0.50a`, `0.51a`, `0.52a`, …). Describe the change in the commit message, not the README. Update the feature overview in both `README.md` files (repository root and extension) only when a feature is added, removed or changes what players see.
 7. To release to players, run `python3 tools/build-dist.py --commit` and push the distribution repository. See [GAME-DATA.md](GAME-DATA.md#publish-the-extension).
 
 ## Switching Silly Teyvat off
