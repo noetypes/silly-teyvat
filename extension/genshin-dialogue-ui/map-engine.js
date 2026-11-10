@@ -15,11 +15,28 @@ export const mapCRS=L.Util.extend({},L.CRS.Simple,{transformation:new L.Transfor
 export const mapBounds=L.latLngBounds([-origin[1],-origin[0]],[height-origin[1],width-origin[0]]);
 export const toLatLng=point=>L.latLng(point.y,point.x);
 export const toMapPoint=latlng=>({mapId:'teyvat',x:Math.round(latlng.lng*10)/10,y:Math.round(latlng.lat*10)/10});
+// Flights and pinches redraw the camera every frame, flagging their zoom events. Leaflet rounds
+// each pin to whole pixels and, separately, the map tiles too, so on those frames a pin wobbled
+// up to a pixel against the map under it. Pins and tiles are placed exactly while the camera
+// moves and rounded again, for crisp edges, once it stops.
+const exactFrame=event=>Boolean(event&&(event.flyTo||event.pinch));
 // Leaflet writes both transform and z-index on every fractional zoom frame,
-// even after rounding leaves a pin at the same pixel. Keep its normal marker
+// even when a pin stays at the same place. Keep its normal marker
 // interaction/zoom behavior, but let the compositor reuse unchanged positions.
 // Check the element too: setIcon and viewport culling can replace/reinsert it.
 const MapMarker=L.Marker.extend({
+    getEvents(){
+        const events=L.Marker.prototype.getEvents.call(this);
+        events.zoom=this._onZoom;events.zoomend=events.moveend=this._settle;
+        return events;
+    },
+    _onZoom(event){this._exact=exactFrame(event);this.update();},
+    _settle(){if(this._exact){this._exact=false;this.update();}},
+    update(){
+        // (latLngToLayerPoint rounds the projected point itself, so the exact one is worked out here.)
+        if(this._icon&&this._map)this._setPos(this._exact?this._map.project(this._latlng).subtract(this._map.getPixelOrigin()):this._map.latLngToLayerPoint(this._latlng).round());
+        return this;
+    },
     _setPos(pos){
         const icon=this._icon,shadow=this._shadow;
         if(!this.options.riseOnHover&&!this.options.draggable&&icon===this._positionIcon&&shadow===this._positionShadow&&this._position?.equals(pos)&&this._zIndex===pos.y+this.options.zIndexOffset)return;
@@ -28,81 +45,10 @@ const MapMarker=L.Marker.extend({
     },
     onRemove(map){
         L.Marker.prototype.onRemove.call(this,map);
-        this._positionIcon=this._positionShadow=this._position=null;
+        this._positionIcon=this._positionShadow=this._position=null;this._exact=false;
     },
 });
 export const mapMarker=(latlng,options)=>new MapMarker(latlng,options);
-// Wheel and trackpad zoom glide toward where the input points, with the spot under the pointer
-// held still, the way a pinch does. Leaflet's own wheel zoom moves in half-level steps, each a
-// separate 250 ms ease-out that ignores input while it plays, so a steady scroll or pinch comes
-// out as stop-start pulses at any frame rate. Once the input rests, the zoom settles on the next
-// half level in the direction it was going (a mouse notch is one half level), because other
-// camera moves expect the map to rest on a step.
-const WHEEL_EASE_MS=55,WHEEL_SETTLE_MS=140;
-const SmoothWheelZoom=L.Handler.extend({
-    addHooks(){
-        const map=this._map,stop=map._stop;this._mapStop=stop;
-        // Any other camera move (a flight, a pan, a drag, closing the map) takes over from the glide.
-        map._stop=function(){this.smoothWheelZoom?._abort();return stop.call(this);};
-        this._listener=event=>this._onWheel(event);
-        map.getContainer().addEventListener('wheel',this._listener,{passive:false});
-    },
-    removeHooks(){
-        this._abort();this._map.getContainer().removeEventListener('wheel',this._listener);
-        this._map._stop=this._mapStop;
-    },
-    _onWheel(event){
-        const map=this._map;event.preventDefault();
-        // Leaflet's own zoom animation (buttons, keys, double-click) finishes first.
-        if(map._animatingZoom)return;
-        const px=event.deltaY*(event.deltaMode===1?40:event.deltaMode===2?800:1);if(!px)return;
-        const starting=!this._active;
-        if(starting){
-            this._mapStop.call(map);
-            this._active=true;this._zoom=this._target=map.getZoom();this._time=0;
-            map._moveStart(true,false);
-            this._frame=L.Util.requestAnimFrame(this._step,this);
-        }
-        // A pinch (ctrlKey) follows the fingers; a scroll or mouse wheel turns 120 px into a half level.
-        const change=-px/(event.ctrlKey?70:240);
-        this._target=Math.max(map.getMinZoom(),Math.min(map.getMaxZoom(),this._target+change));
-        this._direction=Math.sign(change);this._settled=false;this._lastInput=performance.now();
-        // The anchor is only re-read when the pointer moves, so pixel rounding cannot add up.
-        const point=map.mouseEventToContainerPoint(event);
-        if(!this._point||starting||point.distanceTo(this._point)>1){this._point=point;this._anchor=map.containerPointToLatLng(point);}
-    },
-    _step(now){
-        if(!this._active)return;
-        const map=this._map,dt=this._time?Math.min(64,now-this._time):16;this._time=now;
-        if(!this._settled&&performance.now()-this._lastInput>=WHEEL_SETTLE_MS){
-            const snap=map.options.zoomSnap;
-            if(snap){const steps=this._target/snap,next=this._direction>0?Math.ceil(steps-.25):Math.floor(steps+.25);this._target=map._limitZoom(next*snap)+0;}
-            this._settled=true;
-        }
-        const gap=this._target-this._zoom,zoom=Math.abs(gap)<.002?this._target:this._zoom+gap*(1-Math.exp(-dt/WHEEL_EASE_MS));
-        if(zoom!==this._zoom){
-            // Tiles keep their level mid-glide (cheap transforms only) until it reaches another one.
-            const level=Math.round(zoom)!==Math.round(this._zoom);this._zoom=zoom;
-            const center=map.unproject(map.project(this._anchor,zoom).subtract(this._point.subtract(map.getSize().divideBy(2))),zoom);
-            map._move(map._limitCenter(center,zoom,map.options.maxBounds),zoom,level?undefined:{flyTo:true});
-        }
-        if(this._settled&&zoom===this._target){
-            this._active=false;
-            // An unflagged zoom event lets the tile layers load the final level.
-            map.fire('zoom');map._moveEnd(true);
-            return;
-        }
-        this._frame=L.Util.requestAnimFrame(this._step,this);
-    },
-    _abort(){
-        if(!this._active)return;
-        this._active=false;L.Util.cancelAnimFrame(this._frame);
-        // Whatever takes over fires its own moveend; zoomend lets zoom-level listeners catch up.
-        this._map.fire('zoom');this._map.fire('zoomend');
-    },
-});
-L.Map.mergeOptions({smoothWheelZoom:false});
-L.Map.addInitHook('addHandler','smoothWheelZoom',SmoothWheelZoom);
 const overviewBase=new URL('assets/map/overview/',import.meta.url).href;
 const tileBase=`https://act-webstatic.hoyoverse.com/map_manage/map/2/${version}/`;
 const clearTile='data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7';
@@ -134,9 +80,26 @@ function prefetch(layer,{margin,lead}){
         return L.bounds(L.point(bounds.min.x-mx+Math.min(0,dx),bounds.min.y-my+Math.min(0,dy)),L.point(bounds.max.x+mx+Math.max(0,dx),bounds.max.y+my+Math.max(0,dy)));
     };
 }
+// The tile levels' side of exactFrame: the same unrounded placement as the pins on flagged frames.
+function exactTransforms(layer){
+    const resetView=layer._resetView,getEvents=layer.getEvents;
+    layer._resetView=function(event){this._exact=exactFrame(event);return resetView.call(this,event);};
+    layer._setZoomTransform=function(level,center,zoom){
+        if(!this._exact||!L.Browser.any3d)return L.GridLayer.prototype._setZoomTransform.call(this,level,center,zoom);
+        const scale=this._map.getZoomScale(zoom,level.zoom);
+        L.DomUtil.setTransform(level.el,level.origin.multiplyBy(scale).subtract(this._map._getNewPixelOrigin(center,zoom)),scale);
+    };
+    layer.getEvents=function(){
+        const events=getEvents.call(this),moveEnd=events.moveend;
+        const settle=()=>{if(this._exact&&this._map){this._exact=false;this._setZoomTransforms(this._map.getCenter(),this._map.getZoom());}};
+        events.zoomend=settle;events.moveend=function(event){settle();return moveEnd.call(this,event);};
+        return events;
+    };
+}
 function cachedTiles(urlFor,options,pool){
     const layer=L.gridLayer(options),records=new WeakMap();
     if(options.prefetch)prefetch(layer,options.prefetch);
+    exactTransforms(layer);
     // GridLayer's public createTile/done API keeps Leaflet's loading and pruning
     // behavior, while leaving decoded images intact on tileunload.
     layer.createTile=function(coords,done){
@@ -161,7 +124,7 @@ function cachedTiles(urlFor,options,pool){
     return layer;
 }
 export function makeMap(element,{interactive=true,details=true,zoomControl=interactive,animate=false}={}){
-    const map=L.map(element,{crs:mapCRS,minZoom:-5,maxZoom:1,zoomSnap:.5,zoomDelta:.5,attributionControl:false,zoomControl,dragging:interactive,touchZoom:interactive,scrollWheelZoom:interactive&&!animate,smoothWheelZoom:interactive&&animate,doubleClickZoom:interactive,boxZoom:interactive,keyboard:interactive,zoomAnimation:animate,fadeAnimation:false,markerZoomAnimation:animate,maxBounds:mapBounds.pad(.05),maxBoundsViscosity:.8});
+    const map=L.map(element,{crs:mapCRS,minZoom:-5,maxZoom:1,zoomSnap:.5,zoomDelta:.5,attributionControl:false,zoomControl,dragging:interactive,touchZoom:interactive,scrollWheelZoom:interactive,doubleClickZoom:interactive,boxZoom:interactive,keyboard:interactive,zoomAnimation:animate,fadeAnimation:false,markerZoomAnimation:animate,maxBounds:mapBounds.pad(.05),maxBoundsViscosity:.8});
     const pool=tilePool(element),constrained=(globalThis.navigator?.deviceMemory || 4)<=2||globalThis.navigator?.connection?.saveData;
     // Tiles load while the camera moves (not only once it stops), ahead of the view.
     const common={tileSize:256,bounds:mapBounds,noWrap:true,updateWhenZooming:false,updateWhenIdle:false,updateInterval:constrained?150:60,keepBuffer:constrained?2:4,prefetch:interactive?{margin:constrained?0:1,lead:constrained?1:3}:null};

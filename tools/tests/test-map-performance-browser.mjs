@@ -191,27 +191,37 @@ try{
         assert.equal(midFlight.resets,0,`a choice made mid-flight starts a new flight instead of jumping: ${JSON.stringify(midFlight)}`);
         assert.ok(midFlight.largest<200,`the camera moves continuously from where it was: ${JSON.stringify(midFlight)}`);
         assert.equal(midFlight.zoom,-1,'the new flight keeps the zoom the first one was headed for');
-        // Wheel and trackpad input glide continuously around the pointer, then rest on a half level.
-        // (Desktop only: the phone layout covers the map with the open list.)
+        // Pins stay on the map under them on every frame of a flight. Leaflet rounds pins and tiles
+        // to whole pixels separately, which made pins wobble up to a pixel against the map.
+        const alignment=await page.evaluate(async()=>{
+            const m=window.testMap,grid=Object.values(m._layers).find(l=>l._levels&&l.options.maxNativeZoom===-3),errors=[];
+            const parse=el=>{const t=el.style.transform,a=t.match(/translate3d\(([-\d.e]+)px, ([-\d.e]+)px/),s=t.match(/scale\(([-\d.e]+)\)/);return a&&{x:+a[1],y:+a[2],s:s?+s[1]:1};};
+            const measure=()=>{
+                const level=grid._levels[grid._tileZoom],tiles=level&&parse(level.el);if(!tiles)return;let worst=0;
+                for(const layer of Object.values(m._layers)){
+                    if(!layer._icon||!layer._latlng)continue;const pin=parse(layer._icon);if(!pin)continue;
+                    const p=m.project(layer._latlng,level.zoom).subtract(level.origin);worst=Math.max(worst,Math.hypot(pin.x-(tiles.x+tiles.s*p.x),pin.y-(tiles.y+tiles.s*p.y)));
+                }
+                errors.push(worst);
+            };
+            m.setView([-1800,-6000],-1.5,{animate:false});await new Promise(r=>setTimeout(r,100));
+            m.on('move',measure);m.flyTo([-1800,-9000],-1,{duration:1});
+            await new Promise(r=>m.once('moveend',r));m.off('move',measure);
+            const settled=m.getPane('markerPane').querySelector('.leaflet-marker-icon').style.transform;
+            // The first frame is still the resting view and the last one the rounded rest at the end.
+            const flying=errors.slice(1,-1);
+            return {frames:flying.length,worst:Math.max(...flying),settled};
+        });
+        assert.ok(alignment.frames>20&&alignment.worst<.05,`pins move with the map on every flight frame: ${JSON.stringify(alignment)}`);
+        assert.match(alignment.settled,/^translate3d\(-?\d+px, -?\d+px/,'pins rest on whole pixels once the camera stops');
+        // Wheel zoom keeps Leaflet's half-level steps. (Desktop only: the phone layout covers the map with the open list.)
         if(!mobile){
-            const box=await page.locator('.gi-map-canvas').boundingBox(),pointer=[box.x+box.width*.6,box.y+box.height*.5];
-            await page.evaluate(()=>{window.testMap.setView([-1800,-6000],-1.5,{animate:false});window.wheelZooms=[];window.testMap.on('zoom',window.wheelSample=()=>window.wheelZooms.push(window.testMap.getZoom()));});
-            await page.mouse.move(...pointer);
-            const anchor=await page.evaluate(([x,y])=>{const m=window.testMap,r=m.getContainer().getBoundingClientRect();return m.containerPointToLatLng([x-r.left,y-r.top]);},pointer);
-            for(let i=0;i<30;i++){await page.mouse.wheel(0,-8);await page.waitForTimeout(16);}
-            await page.waitForTimeout(700);
-            const glide=await page.evaluate(([x,y,a])=>{
-                const m=window.testMap,r=m.getContainer().getBoundingClientRect(),zooms=window.wheelZooms;m.off('zoom',window.wheelSample);
-                const p=m.latLngToContainerPoint(a);
-                return {count:zooms.length,step:Math.max(...zooms.slice(1).map((z,i)=>Math.abs(z-zooms[i]))),zoom:m.getZoom(),drift:Math.hypot(p.x-(x-r.left),p.y-(y-r.top)),moving:document.querySelector('#gi-world-map').classList.contains('gi-map-moving')};
-            },[...pointer,anchor]);
-            assert.ok(glide.count>10&&glide.step<.1,`wheel zoom glides in small steps, not half-level jumps: ${JSON.stringify(glide)}`);
-            assert.equal(glide.zoom,-0.5,`a steady scroll rests on the next half level it reached: ${JSON.stringify(glide)}`);
-            assert.ok(glide.drift<4,`the point under the pointer stays put: ${JSON.stringify(glide)}`);
-            assert.equal(glide.moving,false,'the glide ends with a moveend');
-            for(let i=0;i<2;i++){await page.mouse.wheel(0,100);await page.waitForTimeout(250);}
-            await page.waitForTimeout(600);
-            assert.equal(await page.evaluate(()=>window.testMap.getZoom()),-1.5,'each mouse-wheel notch is one half level');
+            const box=await page.locator('.gi-map-canvas').boundingBox();
+            await page.evaluate(()=>{window.testMap.setView([-1800,-6000],-1.5,{animate:false});window.wheelZooms=[];window.testMap.on('zoomend',window.wheelSample=()=>window.wheelZooms.push(window.testMap.getZoom()));});
+            await page.mouse.move(box.x+box.width*.6,box.y+box.height*.5);
+            for(let i=0;i<2;i++){await page.mouse.wheel(0,-100);await page.waitForTimeout(450);}
+            const steps=await page.evaluate(()=>{window.testMap.off('zoomend',window.wheelSample);return window.wheelZooms;});
+            assert.deepEqual(steps,[-1,-.5],'each mouse-wheel notch zooms one half level');
         }
         const closedHint=await page.evaluate(()=>{window.fixture.close();return getComputedStyle(window.testMap.getPane('mapPane')).willChange;});
         assert.equal(closedHint,'auto','closing the map releases compositing hints');
