@@ -2,6 +2,7 @@ import {mediaSettings} from './media-store.js';
 import {defaultKitHp,enemyElement} from './combat-kits.js';
 import {isTcgBoss} from './boss-kits.js';
 import {newUuid} from './local-id.js';
+import {baseName} from './card-name.js';
 export const ELEMENTS=['Pyro','Hydro','Anemo','Electro','Dendro','Cryo','Geo'];
 export const MODEL_SCALE_MIN=30,MODEL_SCALE_MAX=110;
 export const MODEL_TYPES=['small female','medium female','medium male','tall female','tall male'];
@@ -13,14 +14,14 @@ export function characterProperties(ctx,card){
     if(!card)return {role:'character',playable:false,element:'None',maxHp:30};
     const base={role:'character',playable:false,element:'None',modelType:'',region:'',maxHp:30,modelScale:90,deathMessage:'{name} falls still. The threat has passed.'};
     const fromCard=card.data?.extensions?.silly_teyvat || {},saved=mediaSettings(ctx).characterProperties?.[card.avatar] || {};
-    const data={...base,...bundled[card.name],...fromCard,...saved};
+    const known=baseName(card),data={...base,...bundled[known],...fromCard,...saved};
     data.role=data.role==='enemy'?'enemy':'character';data.playable=data.role!=='enemy'&&data.playable===true;
     if(!ELEMENTS.includes(data.element))data.element='None';
-    if(data.role==='enemy'&&data.element==='None'&&ELEMENTS.includes(enemyElement(card.name)))data.element=enemyElement(card.name);
+    if(data.role==='enemy'&&data.element==='None'&&ELEMENTS.includes(enemyElement(known)))data.element=enemyElement(known);
     // Maximum HP comes from the moveset unless chosen in Character Customization or by the
     // card's author (30 was the old default and is treated as unset). TCG bosses are balanced in
     // boss-kits.js, so the health written on their older cards never overrides it.
-    const kitHp=defaultKitHp(card.name,data.role==='enemy'),authored=fromCard.maxHp!==undefined&&Number(fromCard.maxHp)!==30&&!isTcgBoss(card.name);
+    const kitHp=defaultKitHp(known,data.role==='enemy'),authored=fromCard.maxHp!==undefined&&Number(fromCard.maxHp)!==30&&!isTcgBoss(known);
     if(!saved.hpCustom)data.maxHp=authored?fromCard.maxHp:kitHp ?? 30;
     if(card.isPersona){data.role='character';data.playable=true;}
     data.modelScale=Math.max(MODEL_SCALE_MIN,Math.min(MODEL_SCALE_MAX,Math.round(Number(data.modelScale)||90)));

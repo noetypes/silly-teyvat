@@ -8,6 +8,7 @@ import {isNarrator} from './narrator.js';
 import {mediaSettings} from './media-store.js';
 import {linkedCard} from './persona-link.js';
 import {isEnemy} from './character-properties.js';
+import {baseName} from './card-name.js';
 
 export const TRUST_MAX=5;
 export const RELATIONSHIP_TRUST={
@@ -157,7 +158,7 @@ export function relationshipNames(ctx,card){
 const clampTrust=value=>Math.max(0,Math.min(TRUST_MAX,Math.round(Number(value)*10)/10));
 const savedList=(ctx,card)=>mediaSettings(ctx).startingTrust?.[card.avatar] || {};
 function cardList(ctx,card){
-    return RELATIONSHIP_TRUST[card.name] || Object.fromEntries(relationshipNames(ctx,card).map(name=>[name,UNRATED_TRUST]));
+    return RELATIONSHIP_TRUST[baseName(card)] || Object.fromEntries(relationshipNames(ctx,card).map(name=>[name,UNRATED_TRUST]));
 }
 // Who a character already trusts, warmest first: [{name,value}].
 export function startingTrustList(ctx,card){

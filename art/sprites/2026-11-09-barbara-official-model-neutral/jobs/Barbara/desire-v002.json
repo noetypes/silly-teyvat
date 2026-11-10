@@ -1,0 +1,22 @@
+{
+  "emotion": "desire",
+  "revision": "v002",
+  "tool": "image_gen.imagegen",
+  "arguments": {
+    "prompt": "Create a fresh full-body desire expression sprite of Barbara from Genshin Impact for a visual novel. The sole image reference is her explicitly approved neutral: preserve her identity, petite Medium Female proportions, blond twin tails, blue-lavender eye design, skin tone, costume, blue Hydro Vision on her book, accessories, moderate saturation and polished anime rendering. Vary the pose and body language for the emotion while keeping her proportions at least as petite as the reference. Acting: Openly yearning affection: noticeably flushed cheeks, slightly parted lips, raised inner brows and an intent hopeful gaze, leaning slightly forward in eager anticipation with one hand near her heart and the other relaxed at her side. Tasteful and fully clothed, clearly legible at small size. Simple natural human hands, each with a palm, four fingers and a separate opposable thumb, anatomically articulated and clearly separated from sleeves and clothing. Exactly two legs and two feet from one pelvis, in an uncomplicated stance with feet slightly separated. One coherent mouth. Full body including headpiece, hair, hands, skirt, accessories and shoes, about 92\u201396% of image height with modest top and bottom padding. Genuine transparent background. No scenery, text, labels, watermark, floating effects or baked ground shadow.",
+    "referenced_image_paths": [
+      "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-09-barbara-official-model-neutral/candidates/Barbara/neutral-v009.png"
+    ],
+    "transparent_background": true
+  },
+  "source": "/Users/alexachan/.codex/generated_images/01a1c17b-8c99-7e41-81d8-58a4cd3eff89/exec-d0f07a7d-3a76-4f9b-82b6-0a866c2489ca.png",
+  "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-09-barbara-official-model-neutral/raw/Barbara/desire-v002.png",
+  "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-09-barbara-official-model-neutral/candidates/Barbara/desire-v002.png",
+  "sha256": "f774e039028b48e8be0bd855cb1b4c5894d110081f236789b68ed76884c0b4f4",
+  "dimensions": [
+    1024,
+    1536
+  ],
+  "png_color_type": 6,
+  "approval": "candidate for user review"
+}

@@ -14,8 +14,13 @@ export function linkedCardAvatar(ctx, personaAvatar = activePersonaAvatar(ctx)) 
     // Only an unambiguous exact name match is eligible; never guess from substrings.
     const name=ctx.powerUserSettings?.personas?.[personaAvatar];
     const matches=name?(ctx.characters || []).filter(c=>c.name?.trim().toLocaleLowerCase()===String(name).trim().toLocaleLowerCase()):[];
-    return matches.length===1?matches[0].avatar:'';
+    if(matches.length===1)return matches[0].avatar;
+    // A Play as persona is named after its card's file, so it still finds the card after losing its link or name.
+    const made=(ctx.characters || []).filter(c=>takeoverAvatar(c.avatar)===personaAvatar);
+    return made.length===1?made[0].avatar:'';
 }
+// The persona file Play as creates for a card.
+export const takeoverAvatar=cardAvatar=>`takeover-${String(cardAvatar || '').replace(/\.[^.]+$/,'').replace(/[^\p{L}\p{N}_-]/gu,'_').slice(0,80) || 'character'}.png`;
 export const linkedCard = (ctx, personaAvatar) => { const avatar = linkedCardAvatar(ctx, personaAvatar); return avatar ? ctx.characters.find(c => c.avatar === avatar) : undefined; };
 // Cards currently played by the active persona.
 // An enemy card is the exception: playing a Hilichurl does not remove the others from the wilds, so its kin still

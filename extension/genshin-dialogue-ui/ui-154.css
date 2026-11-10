@@ -29,7 +29,7 @@
 #gi-wardrobe .gi-start-trust>small,#gi-wardrobe .gi-start-trust-list>small{display:block !important;font-size:.85em;line-height:1.4;color:#d8d6cb}
 #gi-wardrobe .gi-start-trust-list{display:flex;flex-direction:column;gap:4px;max-height:280px;margin:8px 0;overflow-y:auto}
 #gi-wardrobe .gi-start-trust-row,#gi-wardrobe .gi-start-trust-add{display:flex;flex-wrap:nowrap;align-items:center;gap:6px;min-width:0;margin:0}
-#gi-wardrobe .gi-start-trust-row span{display:block;flex:1 1 0;min-width:0;overflow:hidden;font-size:.92em;text-overflow:ellipsis;white-space:nowrap;color:var(--ty-cream)}
+#gi-wardrobe .gi-start-trust-row>span:first-child{display:block;flex:1 1 0;min-width:0;overflow:hidden;font-size:.92em;text-overflow:ellipsis;white-space:nowrap;color:var(--ty-cream)}
 #gi-wardrobe .gi-start-trust input[type="number"]{flex:0 0 64px;box-sizing:border-box;width:64px;min-width:0;height:32px;min-height:0;margin:0;padding:2px 4px;text-align:center}
 #gi-wardrobe .gi-start-trust input[type="text"]{flex:1 1 0;box-sizing:border-box;width:auto;min-width:0;height:32px;min-height:0;margin:0;padding:2px 8px}
 #gi-wardrobe .gi-start-trust-row button{flex:0 0 30px;width:30px;min-width:0;height:30px;min-height:0;margin:0;padding:0;line-height:1}

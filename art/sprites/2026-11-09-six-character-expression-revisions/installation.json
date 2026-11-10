@@ -1,0 +1,160 @@
+{
+  "request": "All approved, replace their existing sprites",
+  "files": [
+    {
+      "character": "Columbina",
+      "emotion": "love-1",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-09-six-character-expression-revisions/sprites/Columbina/love-1.png",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Columbina/love-1.png",
+      "sha256": "8e5a4bc5be116f5e2e8e56d5cebbe3ce40de8134b50ec6fbb199d4af16234c27",
+      "previous": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Columbina/love-1.webp",
+      "previous_sha256": "76ea2151c9c4c1d064a95db2c8fa5989eb931706210c323f05e01d0792a9b237",
+      "backup": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-09-six-character-expression-revisions/installation-backup/Columbina/love-1.webp",
+      "action": "replace"
+    },
+    {
+      "character": "Columbina",
+      "emotion": "desire-1",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-09-six-character-expression-revisions/sprites/Columbina/desire-1.png",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Columbina/desire-1.png",
+      "sha256": "beaa67b143c4d1328ab53beb2b7d921626edefa79bb5c2d9261d6cf1c5f9f76c",
+      "previous": null,
+      "previous_sha256": null,
+      "backup": null,
+      "action": "add (no previous installed file)"
+    },
+    {
+      "character": "Columbina",
+      "emotion": "excitement",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-09-six-character-expression-revisions/sprites/Columbina/excitement.png",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Columbina/excitement.png",
+      "sha256": "727bb89aa54bca2c6d68f9e5041380411d89887e1cc02db6a83d8269c743e535",
+      "previous": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Columbina/excitement.webp",
+      "previous_sha256": "168845de95dd0b018ee0a4fd3c9f5d76528bfdc6f43ae708fdf8d6a80fb98ef5",
+      "backup": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-09-six-character-expression-revisions/installation-backup/Columbina/excitement.webp",
+      "action": "replace"
+    },
+    {
+      "character": "Columbina",
+      "emotion": "disappointment",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-09-six-character-expression-revisions/sprites/Columbina/disappointment.png",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Columbina/disappointment.png",
+      "sha256": "20d72c700a26005cfb108ff95d3939ef0a77f3d58a3add3b25095011e37a3dac",
+      "previous": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Columbina/disappointment.webp",
+      "previous_sha256": "32177b43bc8d5f755f7804769faa1a1649558f3d8be5a99cd7959e8ac7de0f99",
+      "backup": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-09-six-character-expression-revisions/installation-backup/Columbina/disappointment.webp",
+      "action": "replace"
+    },
+    {
+      "character": "Baizhu",
+      "emotion": "love-1",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-09-six-character-expression-revisions/sprites/Baizhu/love-1.png",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Baizhu/love-1.png",
+      "sha256": "e408147b78e7f1b4df327e035638de40d60c62994f3cb6296052db76b6ef0ac5",
+      "previous": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Baizhu/love-1.webp",
+      "previous_sha256": "0ca319f83801cf9f01ffbc7161b82b0ff7110171bab255ed728e8b160477bd12",
+      "backup": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-09-six-character-expression-revisions/installation-backup/Baizhu/love-1.webp",
+      "action": "replace"
+    },
+    {
+      "character": "Baizhu",
+      "emotion": "desire-1",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-09-six-character-expression-revisions/sprites/Baizhu/desire-1.png",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Baizhu/desire-1.png",
+      "sha256": "28d7aaeaee3a54380e5447192666932b248adc73943afc66f065ed4cd7df70c6",
+      "previous": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Baizhu/desire-1.webp",
+      "previous_sha256": "26b5a11e11f23e528645ebbf3193109b77d4807d6519fda5b3369a30101445d0",
+      "backup": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-09-six-character-expression-revisions/installation-backup/Baizhu/desire-1.webp",
+      "action": "replace"
+    },
+    {
+      "character": "Beidou",
+      "emotion": "love-1",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-09-six-character-expression-revisions/sprites/Beidou/love-1.png",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Beidou/love-1.png",
+      "sha256": "633dccca6601ca4793299d14933e1dbf1fa981fa93e180f214d47fd24182739b",
+      "previous": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Beidou/love-1.webp",
+      "previous_sha256": "d1a6e2865ecacc073a189d181e7dfba2f324dcee21ba86d1bb33149c46aa980d",
+      "backup": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-09-six-character-expression-revisions/installation-backup/Beidou/love-1.webp",
+      "action": "replace"
+    },
+    {
+      "character": "Beidou",
+      "emotion": "desire-1",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-09-six-character-expression-revisions/sprites/Beidou/desire-1.png",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Beidou/desire-1.png",
+      "sha256": "380c64ea588c4b0d3bd0208708d82a9541e32ff25349dc2a9291e8efc59ee9b2",
+      "previous": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Beidou/desire-1.webp",
+      "previous_sha256": "cdd80bebf90e416d5eb0eb2bb3a6cf9c97401588d59cd402ed998306470e6c6d",
+      "backup": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-09-six-character-expression-revisions/installation-backup/Beidou/desire-1.webp",
+      "action": "replace"
+    },
+    {
+      "character": "Bennett",
+      "emotion": "love-1",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-09-six-character-expression-revisions/sprites/Bennett/love-1.png",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Bennett/love-1.png",
+      "sha256": "bfd1e399a5c4382704c139c31757a1657e473c172dd2c0eee60c9aa972d4d46a",
+      "previous": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Bennett/love-1.webp",
+      "previous_sha256": "413aa9b387795409177996a3b09d47628b4c44983a0dc33753ab8c4f585e63d6",
+      "backup": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-09-six-character-expression-revisions/installation-backup/Bennett/love-1.webp",
+      "action": "replace"
+    },
+    {
+      "character": "Bennett",
+      "emotion": "desire-1",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-09-six-character-expression-revisions/sprites/Bennett/desire-1.png",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Bennett/desire-1.png",
+      "sha256": "73439f7712863ee9d71be62eeaa5a3fedfb7b0e7c9d474ac134d49de0a29e6e8",
+      "previous": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Bennett/desire-1.webp",
+      "previous_sha256": "69df4f45509f6d140488dd7ab3e413a9748b58849855b8fb0ea45c3b288e83f2",
+      "backup": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-09-six-character-expression-revisions/installation-backup/Bennett/desire-1.webp",
+      "action": "replace"
+    },
+    {
+      "character": "Chevreuse",
+      "emotion": "love-1",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-09-six-character-expression-revisions/sprites/Chevreuse/love-1.png",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Chevreuse/love-1.png",
+      "sha256": "3b8bd32a5e4cb91178e983fb460572852098a63381b181c2f08b4b627dcab6e7",
+      "previous": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Chevreuse/love-1.webp",
+      "previous_sha256": "bca54de6578a0f9c10b0783949aefc6adcf0dccca5d671e7cc5e4ceda1acea70",
+      "backup": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-09-six-character-expression-revisions/installation-backup/Chevreuse/love-1.webp",
+      "action": "replace"
+    },
+    {
+      "character": "Chevreuse",
+      "emotion": "desire-1",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-09-six-character-expression-revisions/sprites/Chevreuse/desire-1.png",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Chevreuse/desire-1.png",
+      "sha256": "49daee8f38b0915f966b9d79e622297aa36961e8918b0db50d1691b3dd92be47",
+      "previous": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Chevreuse/desire-1.webp",
+      "previous_sha256": "023394fa74fb7fc79113e1afb5ecffe54f33b87f6a239c205c08171ce227e15b",
+      "backup": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-09-six-character-expression-revisions/installation-backup/Chevreuse/desire-1.webp",
+      "action": "replace"
+    },
+    {
+      "character": "Chiori",
+      "emotion": "love-1",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-09-six-character-expression-revisions/sprites/Chiori/love-1.png",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Chiori/love-1.png",
+      "sha256": "826d4d28307f36756174c5ac14b244bcb2e786e3d770f87fd2bf346ef253b33e",
+      "previous": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Chiori/love-1.webp",
+      "previous_sha256": "3c8d4609692b48e7150ed2ca0abae710eac003b40232491a9cd542fe69bf24d6",
+      "backup": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-09-six-character-expression-revisions/installation-backup/Chiori/love-1.webp",
+      "action": "replace"
+    },
+    {
+      "character": "Chiori",
+      "emotion": "desire-1",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-09-six-character-expression-revisions/sprites/Chiori/desire-1.png",
+      "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Chiori/desire-1.png",
+      "sha256": "e4c80d489be2a138f2172d9219aad62b6b33639b745990a2e6b01f35c74f819c",
+      "previous": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Chiori/desire-1.webp",
+      "previous_sha256": "d14ad5f7f3b3379c122ba8f7efad6516586b6a2b5115c5092266a9508b51468e",
+      "backup": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-09-six-character-expression-revisions/installation-backup/Chiori/desire-1.webp",
+      "action": "replace"
+    }
+  ],
+  "verified": true
+}

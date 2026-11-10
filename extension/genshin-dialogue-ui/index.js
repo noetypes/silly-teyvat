@@ -23,6 +23,8 @@ import { CG_DISPLAY_MODES, defaultCGPrompt, localMediaPath, mediaSettings, migra
 import {clearPromptOrder} from './prompt-order.js';
 import {syncRoleplayPrompts,noteGeneration,paintRoleplayPrompts,bindRoleplayPrompts,dropRoleplayPrompts,renderPromptLibrary} from './roleplay-prompts.js';
 import { mountBackgrounds, backgroundRegions, travelState } from './backgrounds.js';
+import {mountBackgroundMenu} from './background-menu.js';
+import {worldWaypoints} from './world-data.js';
 import { mountWorldMap } from './world-map.js';
 import {beginOpeningScene} from './opening-scene.js';
 import {enemySpeaker} from './enemy-actions.js';
@@ -47,7 +49,7 @@ import {giveGift} from './gifts.js';
 import {namecardsReady,namecards,namecardUrl,chooseNamecard} from './namecards.js';
 import {structureSettings,paintResets,resetSection,bindSettingsSearch,clearSettingsSearch} from './settings-ui.js';
 import {renderFeatureSwitches,paintFeatureSwitches,setGroup,setSettings,paimonKeys,paimonOn,paimonValues,linkPaimon,PAIMON_LINKS} from './feature-switches.js';
-import {loadPersonaSupport,personaCard,syncPersonaSettings,setPersonaSpriteSetting} from './persona-wardrobe.js';
+import {loadPersonaSupport,personaCard,syncPersonaSettings,setPersonaSpriteSetting,adoptActivePersona} from './persona-wardrobe.js';
 import {circularCharacterAvatar,characterAvatarsReady,personaMenuIcon} from './character-avatars.js';
 import {createPersonaSession,repairSoloPortraits} from './persona-session.js';
 import {mountSoloChat} from './solo-chat.js';
@@ -142,7 +144,7 @@ let combatUI;
 let locationMusicUI;
 let spriteUI;
 let wardrobeUI,inventoryUI,trustUI,cardSearchUI;
-let personaSession,soloChatUI,loadingUI,keyboardFrame,lastPlaceId='';
+let personaSession,soloChatUI,loadingUI,keyboardFrame,lastPlaceId='',backgroundMenuUI;
 let mediaUI,shareUI,uiSound;
 let stageEffects;
 let visit = 0;
@@ -406,7 +408,7 @@ function refresh({passive=false}={}) {
     mediaUI?.sync({on:Boolean(active && !history && !hidden),id:Number(current),page:page.index,generating});
     backgroundUI?.sync({on:Boolean(sceneActive&&!history),id:selected ? Number(current) : -1,generating:generating||openingHome});
     const placeNow=backgroundUI?.current;
-    if(placeNow?.location?.id){if(prefs.enabled&&lastPlaceId&&placeNow.location.id!==lastPlaceId)holdTravelLoad(placeNow);lastPlaceId=placeNow.location.id;}
+    if(placeNow?.location?.id){if(prefs.enabled&&lastPlaceId&&placeNow.location.id!==lastPlaceId)holdTravelLoad(placeNow);if(placeNow.location.id!==lastPlaceId)backgroundMenuUI?.sync();lastPlaceId=placeNow.location.id;}
     locationCastUI?.sync({on:Boolean(prefs.enabled&&inChat&&!openingHome),generating:generating||groupGenerating||combatUI?.busy||personaSession?.busy});
     worldMapUI?.sync({on:Boolean(prefs.enabled&&inChat),show:Boolean(sceneActive&&!history&&!hidden&&!menuOpen),location:backgroundUI?.current,loading:Boolean(loadingUI?.visible)});
     for (const el of uiActions('wardrobe')) el.hidden = !prefs.wardrobe;
@@ -876,6 +878,12 @@ export async function initialize(options = {}) {
         openJourney:id=>journeyAdapter.open(id),
         prepareTeleport:location=>locationCastUI.prepareTeleport(location),commitTeleport:plan=>locationCastUI.commitTeleport(plan),onTeleport:jumpToArrival,retryCast:()=>locationCastUI.retry(),
         onChange:()=>{backgroundUI.refresh();schedule();}});
+    // SillyTavern's Backgrounds menu lists every location; choosing one in a journey teleports there.
+    backgroundMenuUI=mountBackgroundMenu({getContext:context,announce,
+        inJourney:()=>{const ctx=context();return Boolean(preferences().enabled&&(ctx.characterId!=null||ctx.groupId));},
+        canTeleport:id=>worldWaypoints(context()).some(w=>w.location.id===id),
+        currentLocation:()=>travelState(context()).location,
+        teleport:id=>worldMapUI.teleport(id)});
     mediaUI = mountSceneMedia({host,getContext:context,adapter:mediaAdapter,sound,announce});
     spriteUI = mountPageSprites({ host, getContext: context, adapter: spriteAdapter, isDefeated: defeatedHere, announce, renderMessage: id => document.querySelector(`#chat > .mes[mesid="${id}"] .mes_text`), onAppearance:event=>mediaUI?.appearance(event) });
     wardrobeUI = mountWardrobe({ host, getContext: context, adapter: wardrobeAdapter, personaAdapter, mediaAdapter, previewAudio:files=>mediaUI.previewAudio(files), previewCG:cg=>mediaUI.previewCG(cg), onMediaChange:(options={})=>{backgroundUI.refresh();if(options.reclassify)mediaUI.reclassifyCurrent();else mediaUI.refresh();schedule();}, onChange: async (character,options) => { if(options?.classification){schedule();return;}
@@ -982,11 +990,15 @@ export async function initialize(options = {}) {
         if (form) resizeObserver.observe(form);
     }
     for (const key of ['CHARACTER_MESSAGE_RENDERED', 'MESSAGE_UPDATED', 'MESSAGE_DELETED', 'MESSAGE_SWIPED', 'MESSAGE_SWIPE_DELETED', 'MORE_MESSAGES_LOADED', 'SETTINGS_UPDATED']) subscribe(key, schedule);
+    // Choosing a persona in SillyTavern's own list plays its character, as Play as does.
     subscribe('PERSONA_CHANGED',async()=>{
+        let played=null;try{played=await adoptActivePersona(context());}catch(error){console.warn('[Silly Teyvat] Persona switch',error);}
         if(preferences().enabled)personaSession?.request();
         syncPersonaSettings(context());context().saveSettingsDebounced();
         await wardrobeUI?.refreshPersona();
-        const persona=personaCard(context());if(persona)await spriteUI?.refreshSprite(persona);
+        const persona=personaCard(context());
+        if(played)await spriteUI?.refreshPresentation().catch(error=>console.warn('[Silly Teyvat] Persona stage',error));
+        else if(persona)await spriteUI?.refreshSprite(persona);
         refresh();schedule();
     });
     subscribe('MESSAGE_RECEIVED',(id,type)=>{try{splitReceivedReply(context(),id,type);}finally{forgetGroupReply();}tagNarratorMessage(context(),id);if(preferences().enabled)cleanMessageNameTags(context(),id,preferences());});
@@ -1077,6 +1089,7 @@ export function dispose() {
     uiSound?.dispose(); uiSound=undefined;
     mediaUI?.dispose(); mediaUI=undefined;
     backgroundUI?.dispose();backgroundUI=undefined;
+    backgroundMenuUI?.dispose();backgroundMenuUI=undefined;
     worldMapUI?.dispose();worldMapUI=undefined;
     locationCastUI?.dispose();locationCastUI=undefined;
     removeJourneyFilter?.();removeJourneyFilter=undefined;

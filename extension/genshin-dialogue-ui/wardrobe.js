@@ -23,6 +23,8 @@ import {elementCrest} from './element-crest.js';
 import {elementIcon} from './battle-icons.js';
 import {mountStarterDeck} from './starter-decks.js';
 import {createMachine} from './machine.js';
+import {baseName} from './card-name.js';
+import {mountCardProfile,createCardProfileAdapter} from './card-profile.js';
 const KEY = 'genshin_dialogue_ui';
 export const expressionLabels = 'admiration amusement anger annoyance approval caring confusion curiosity desire disappointment disapproval disgust embarrassment excitement fear gratitude grief joy love nervousness optimism pride realization relief remorse sadness surprise neutral'.split(' ');
 export function validFolder(value) {
@@ -132,8 +134,8 @@ const ROSTER_ORDER={
     region:t=>t.region?regionRank(t.region):REGION_ORDER.length+1,
     type:t=>['playable','npc','enemy'].indexOf(t.type),
 };
-export function mountWardrobe({host, getContext, onChange = async () => {}, onMediaChange = () => {}, previewAudio = async () => {}, previewCG = async () => {}, mediaAdapter = createMediaAdapter(getContext), adapter = createWardrobeAdapter(getContext), personaAdapter = createPersonaAdapter(getContext)}) {
-    const dialog = document.createElement('dialog'); dialog.id = 'gi-wardrobe'; dialog.dataset.tab = 'attributes';
+export function mountWardrobe({host, getContext, onChange = async () => {}, onMediaChange = () => {}, previewAudio = async () => {}, previewCG = async () => {}, mediaAdapter = createMediaAdapter(getContext), adapter = createWardrobeAdapter(getContext), personaAdapter = createPersonaAdapter(getContext), cardAdapter = createCardProfileAdapter(getContext)}) {
+    const dialog = document.createElement('dialog'); dialog.id = 'gi-wardrobe'; dialog.dataset.tab = 'attributes'; dialog.tabIndex = -1;
     dialog.setAttribute('aria-labelledby', 'gi-wardrobe-title'); dialog.tabIndex = -1;
     dialog.innerHTML = `<header><div><h2 id="gi-wardrobe-title">Character Customization</h2></div><button type="button" data-w="close" aria-label="Close Character Customization">×</button></header>
         <div class="gi-roster-tools"><input type="search" id="gi-character-search" placeholder="Search characters" aria-label="Search characters" autocomplete="off" maxlength="80"><label class="gi-check gi-roster-filter"><input type="checkbox" id="gi-hide-non-genshin">Hide non-Genshin</label><div class="gi-roster-view" role="group" aria-label="Filter and sort characters"><label>Type<select data-roster="type"><option value="">All</option><option value="playable">Playable</option><option value="npc">NPC</option><option value="enemy">Enemy</option></select></label><label>Element<select data-roster="element"><option value="">All</option>${[...ELEMENTS,'None'].map(e=>`<option>${e}</option>`).join('')}</select></label><label>Body<select data-roster="body"><option value="">All</option><option value="small">Small</option><option value="medium">Medium</option><option value="tall">Tall</option><option value="unknown">Unspecified</option></select></label><label>Gender<select data-roster="gender"><option value="">All</option><option value="female">Female</option><option value="male">Male</option><option value="unknown">Unspecified</option></select></label><label>Region<select data-roster="region"><option value="">All</option></select></label><label>Sort<select data-roster="sort"><option value="">Party first</option><option value="name">Name</option><option value="element">Element</option><option value="body">Body type</option><option value="region">Region</option><option value="type">Type</option></select></label><button type="button" class="gi-roster-reset" hidden>Reset</button><output class="gi-roster-count" aria-live="polite"></output></div></div><nav class="gi-roster" aria-label="Choose a character"></nav>
@@ -163,7 +165,7 @@ export function mountWardrobe({host, getContext, onChange = async () => {}, onMe
         <div data-panel="cgs" hidden><p class="gi-cg-intro" title="The classifier uses scene labels and descriptions to match artwork to replies, considering everyone present. Images, GIFs and videos are supported.">Scene artwork appears when a reply matches its label and description.</p><div class="gi-cg-grid" aria-label="Character scene artworks"></div>
         <section class="gi-cg-section gi-cg-details"><h3>Scene details</h3><label>Scene label<input id="gi-cg-label" maxlength="60" placeholder="Fish Blasting"></label><label>Additional classifications (one per line)<textarea id="gi-cg-classifications" rows="2" maxlength="1200" placeholder="Fish Blasting&#10;Fishing adventure"></textarea></label><label>When should this artwork appear?<textarea id="gi-cg-description" rows="4" maxlength="1200" placeholder="Klee is actively blasting fish by the lake."></textarea></label><label>How it appears<select id="gi-cg-display"><option value="scene">Replace background and sprites</option><option value="frame">Framed window</option></select><small>Phones always use a framed window. The CG display setting in Silly Teyvat can override this for every CG.</small></label>
         <fieldset class="gi-cg-needs" hidden><legend>Only show this scene when</legend><p class="gi-cg-needs-help">All conditions must be true. Scenes that do not qualify are left out of the classification prompt.</p>
-        <label title="This character's Trust toward you, from 0 to 5 hearts. Applies while Trust is enabled. Saved scenes and manual previews remain available.">Required Trust<input id="gi-cg-required-trust" type="number" min="0" max="${TRUST_MAX}" step="0.1" value="0"></label>
+        <label title="This character's Trust toward you, from 0 to 5 hearts. Applies while Trust is enabled. Saved scenes and manual previews remain available.">Required Trust<input id="gi-cg-required-trust" type="number" min="0" max="${TRUST_MAX}" step="0.5" value="0"></label>
         <div class="gi-cg-need"><span id="gi-cg-need-people-label">These characters are present</span><div class="gi-cg-chips" data-need="people" role="list" aria-labelledby="gi-cg-need-people-label"></div><div class="gi-wardrobe-row"><input id="gi-cg-need-character" list="gi-cg-character-names" placeholder="Character name" aria-labelledby="gi-cg-need-people-label" autocomplete="off"><datalist id="gi-cg-character-names"></datalist><button type="button" class="gi-cg-need-add" data-need="people">Add character</button></div></div>
         <div class="gi-cg-need"><span id="gi-cg-need-places-label">The party is at one of these locations</span><div class="gi-cg-chips" data-need="places" role="list" aria-labelledby="gi-cg-need-places-label"></div><div class="gi-wardrobe-row"><select id="gi-cg-need-location" aria-labelledby="gi-cg-need-places-label"></select><button type="button" class="gi-cg-need-add" data-need="places">Add location</button></div></div></fieldset>
         <div class="gi-cg-video-tools" hidden><label>Video volume <output id="gi-cg-video-volume-value">100%</output><input id="gi-cg-video-volume" type="range" min="0" max="100" step="5"></label><label class="gi-check"><input id="gi-cg-video-loop" type="checkbox">Loop video</label></div>
@@ -198,6 +200,9 @@ export function mountWardrobe({host, getContext, onChange = async () => {}, onMe
     $('.gi-character-staging').insertAdjacentHTML('afterbegin','<label class="gi-check" id="gi-persona-display-control" hidden><input id="gi-persona-visible" type="checkbox">Show your persona in the scene</label>');
     $('.gi-character-staging').insertAdjacentHTML('afterbegin','<h3 class="gi-cs-heading">Stage placement</h3>');
     const propertiesHeading=document.createElement('h3');propertiesHeading.className='gi-cs-heading';propertiesHeading.textContent='Properties';propertiesPanel.before(propertiesHeading);
+    // Name and card details at the top of Profile, under Properties.
+    const cardProfilePanel=document.createElement('section');propertiesHeading.after(cardProfilePanel);
+    const cardProfileUI=mountCardProfile({panel:cardProfilePanel,getContext,getCharacter:()=>character,adapter:cardAdapter,status,onChange:async card=>{await renderRoster(card.avatar);await onChange(card,{presentation:true});}});
     const personaProfileUI=mountPersonaProfile({panel:personaPanel,getContext,getCharacter:()=>character,adapter:personaAdapter,status,onChange:async card=>{await renderRoster();await onChange(card,{presentation:true});}});
     {
         // Genshin character screen: top bar (crest and name, party strip, close), section rail, centre stage, detail column.
@@ -217,7 +222,7 @@ export function mountWardrobe({host, getContext, onChange = async () => {}, onMe
         $(':scope > footer').insertAdjacentHTML('afterbegin','<button type="button" class="gi-cs-archive-open" data-w="archive" data-gi-sound="screen" aria-label="All characters" title="All characters"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="4" width="7" height="7" rx="1.6"/><rect x="13" y="4" width="7" height="7" rx="1.6"/><rect x="4" y="13" width="7" height="7" rx="1.6"/><rect x="13" y="13" width="7" height="7" rx="1.6"/></svg></button>');
         const sprites=$('[data-panel="sprites"]'),outfits=document.createElement('div');outfits.dataset.panel='outfits';outfits.hidden=true;
         const firstHeading=sprites.querySelector('h3');while(sprites.firstChild&&sprites.firstChild!==firstHeading)outfits.append(sprites.firstChild);sprites.before(outfits);
-        const attributes=document.createElement('div');attributes.dataset.panel='attributes';propertiesPanel.open=true;attributes.append(personaPanel,propertiesHeading,propertiesPanel,trustPanel);
+        const attributes=document.createElement('div');attributes.dataset.panel='attributes';propertiesPanel.open=true;attributes.append(personaPanel,propertiesHeading,cardProfilePanel,propertiesPanel,trustPanel);
         const takeOver=document.createElement('section');takeOver.className='gi-takeover';takeOver.innerHTML='<button type="button" data-w="take-over" title="Use this character as your persona. While you play them they leave the world’s random encounters and share one set of sprites with your persona."></button>';$(':scope > footer').append(takeOver);
         const weapon=document.createElement('div');weapon.dataset.panel='weapon';weapon.hidden=true;const staging=$('.gi-character-staging');staging.open=true;weapon.append(staging);
         // Combat: stats, the three battle moves, their art and the starter deck, right after Profile.
@@ -292,7 +297,7 @@ export function mountWardrobe({host, getContext, onChange = async () => {}, onMe
     const burstAudioUI=mountBurstAudioEditor({panel:burstPanel,getContext,getCharacter:()=>character,adapter:mediaAdapter,previewAudio,status});
     // A persona that plays a character card shares that card's sprites and sets.
     const regKey = c => c?.isPersona ? (linkedCardAvatar(getContext(), c.personaAvatar) || c.avatar) : c?.avatar;
-    const origFolder = c => c.isPersona ? (linkedCard(getContext(), c.personaAvatar)?.name ?? personaFolder(c.personaAvatar)) : c.name;
+    const origFolder = c => c.isPersona ? (linkedCard(getContext(), c.personaAvatar)?.name ?? personaFolder(c.personaAvatar)) : baseName(c);
     const folder = () => $('#gi-outfit').value;
     // The character's own folder is listed as Original until renamed. Its entry in the set registry
     // only carries that name, or hidden when it was removed from the list.
@@ -612,7 +617,7 @@ export function mountWardrobe({host, getContext, onChange = async () => {}, onMe
         }
         await new Promise(resolve => requestAnimationFrame(() => setTimeout(resolve, 0)));
         if (token !== revision || !dialog.open) return;
-        propertiesUI.refresh(); startingTrustUI.refresh(); starterDeckUI.refresh(); personaProfileUI.refresh(); burstAudioUI.refresh();
+        propertiesUI.refresh(); cardProfileUI.refresh(); startingTrustUI.refresh(); starterDeckUI.refresh(); personaProfileUI.refresh(); burstAudioUI.refresh();
         populateExpressions(); renderSprites(); content.send('READY');
         const personaExpression = character.isPersona && sprites.find(x => spriteIdentity(x.path).name === personaSpriteSettings(getContext(),character.personaAvatar).expression);
         if (personaExpression && personaExpression !== first) chooseSprite(personaExpression);
@@ -903,7 +908,8 @@ export function mountWardrobe({host, getContext, onChange = async () => {}, onMe
         }
         if (event.ctrlKey || event.metaKey || event.altKey || event.target.closest?.('dialog') !== dialog || event.target.matches?.('input:not([type="checkbox"]),select,textarea,[contenteditable]') || !$('.gi-cs-archive').hidden) return;
         const name = {q:'character-prev',e:'character-next',w:'section-prev',s:'section-next'}[event.key.toLowerCase()];
-        if (name) { event.preventDefault(); void action(name); }
+        // A key press would otherwise turn the clicked tab or portrait's focus ring on; the dialog keeps focus instead.
+        if (name) { event.preventDefault(); if (document.activeElement !== dialog && dialog.contains(document.activeElement)) dialog.focus({preventScroll:true}); void action(name); }
     }, {signal:abort.signal});
     // Hidden by default; the old "show" preference carries over when it was set.
     const hideNonGenshin=ctx=>{const prefs=mediaSettings(ctx);return prefs.hideNonGenshin ?? prefs.showNonGenshin!==true;};
@@ -978,6 +984,6 @@ export function mountWardrobe({host, getContext, onChange = async () => {}, onMe
         },
         async refreshPersona(){if(!dialog.open)return;if(busy()){personaRefreshPending=true;return;}await renderRoster(character?.isPersona?personaCard(getContext())?.avatar:undefined);},
         close() { if (dialog.open) dialog.close(); },
-        dispose() { clearTimeout(pinchTimer); revision++; abort.abort(); backdrop.dispose(); trimmer.reset(); propertiesUI.dispose();startingTrustUI.dispose();starterDeckUI.dispose();movesetUI.dispose();combatArtUI.dispose();burstAudioUI.dispose();personaProfileUI.dispose();dialog.close(); dialog.remove(); },
+        dispose() { clearTimeout(pinchTimer); revision++; abort.abort(); backdrop.dispose(); trimmer.reset(); propertiesUI.dispose();cardProfileUI.dispose();startingTrustUI.dispose();starterDeckUI.dispose();movesetUI.dispose();combatArtUI.dispose();burstAudioUI.dispose();personaProfileUI.dispose();dialog.close(); dialog.remove(); },
     };
 }

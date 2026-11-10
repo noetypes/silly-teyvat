@@ -1,5 +1,5 @@
 import {mediaSettings} from './media-store.js';
-import {linkedPersonaAvatars,linkPersona,linkedCard} from './persona-link.js';
+import {linkedPersonaAvatars,linkPersona,linkedCard,personaLinks,takeoverAvatar} from './persona-link.js';
 
 let nativePersonas;
 export async function loadPersonaSupport(ctx) {
@@ -100,6 +100,43 @@ export function savePersonaProfile(ctx, card, values) {
     ctx.saveSettingsDebounced?.();
     return descriptor;
 }
+// The native persona is a transport for the same card identity, not a second character with independent
+// appearance or combat settings: it is linked to the card and carries its name and description. Play as does
+// this, and so does choosing the persona in SillyTavern's own persona list.
+export function embodyCard(ctx,avatar,card,{replaceDescription=true}={}){
+    const power=ctx.powerUserSettings;if(!power||!avatar||!card)return false;
+    power.personas ??= {};power.persona_descriptions ??= {};
+    const description=card.data?.description || card.description || '',before=JSON.stringify([personaLinks(ctx)[avatar],power.personas[avatar],power.persona_descriptions[avatar]?.description]);
+    if(personaLinks(ctx)[avatar]!==card.avatar)linkPersona(ctx,avatar,card.avatar);
+    power.personas[avatar]=card.name;
+    // A card that has not loaded its long fields yet keeps the persona's description as it is. A persona chosen in
+    // SillyTavern's list keeps a description written for it (the Travelers' among them) and only fills an empty one.
+    const own=power.persona_descriptions[avatar]?.description;
+    if((description||!card.shallow)&&(replaceDescription||!own))power.persona_descriptions[avatar]={...power.persona_descriptions[avatar],description};
+    const prefs=mediaSettings(ctx);
+    if(!prefs.personaSprites?.[avatar]){const folder=ctx.extensionSettings.expressionOverrides?.find(x=>x.name===card.avatar.replace(/\.[^.]+$/,''))?.path || card.name;prefs.personaSprites ??= {};prefs.personaSprites[avatar]={enabled:true,folder,expression:'neutral'};}
+    const changed=before!==JSON.stringify([personaLinks(ctx)[avatar],power.personas[avatar],power.persona_descriptions[avatar]?.description]);
+    if(changed)ctx.saveSettingsDebounced?.();
+    return changed;
+}
+// After SillyTavern switches persona: a persona that plays a card becomes that card, as with Play as.
+// Returns the card, or null for a persona of the player's own.
+export async function adoptActivePersona(ctx){
+    const avatar=activePersonaAvatar(ctx);let card=linkedCard(ctx,avatar);if(!card)return null;
+    const index=ctx.characters.indexOf(card);
+    if(card.shallow&&index>=0){try{await ctx.unshallowCharacter?.(index);card=ctx.characters[index] || card;}catch(error){console.warn('[Silly Teyvat] Persona card',error);}}
+    if(avatar!==activePersonaAvatar(ctx))return null;
+    if(!embodyCard(ctx,avatar,card,{replaceDescription:false}))return card;
+    // SillyTavern already applied the persona's old name and description; apply the card's.
+    const power=ctx.powerUserSettings,descriptor=power.persona_descriptions[avatar] || {};
+    for(const [key,field] of Object.entries({description:'persona_description',position:'persona_description_position',depth:'persona_description_depth',role:'persona_description_role',lorebook:'persona_description_lorebook'}))if(descriptor[key]!==undefined)power[field]=descriptor[key];
+    if(nativePersonas){
+        const {setUserName}=await import('/script.js');
+        setUserName(card.name,{toastPersonaNameChange:false});nativePersonas.setPersonaDescription?.();
+        await nativePersonas.getUserAvatars?.();
+    }else ctx.name1=card.name;
+    return card;
+}
 export function createPersonaAdapter(getContext) {
     return {
         async saveProfile(card,values) {
@@ -126,7 +163,7 @@ export function createPersonaAdapter(getContext) {
             power.personas ??= {};power.persona_descriptions ??= {};
             let avatar=linkedPersonaAvatars(ctx,card.avatar).find(a=>Object.hasOwn(power.personas,a));
             if (!avatar) {
-                avatar=`takeover-${card.avatar.replace(/\.[^.]+$/,'').replace(/[^\p{L}\p{N}_-]/gu,'_').slice(0,80) || 'character'}.png`;
+                avatar=takeoverAvatar(card.avatar);
                 const image=await fetch(`/characters/${encodeURIComponent(card.avatar)}`);
                 if (!image.ok) throw new Error(`Could not read ${card.name}'s portrait (${image.status}).`);
                 const form=new FormData();form.append('overwrite_name',avatar);form.append('avatar',new File([await image.blob()],avatar,{type:'image/png'}));
@@ -138,11 +175,7 @@ export function createPersonaAdapter(getContext) {
                 const folder=ctx.extensionSettings.expressionOverrides?.find(x=>x.name===card.avatar.replace(/\.[^.]+$/,''))?.path || card.name;
                 const prefs=mediaSettings(ctx);prefs.personaSprites ??= {};prefs.personaSprites[avatar]={enabled:true,folder,expression:'neutral'};
             }
-            // The native persona is a transport for the same card identity, not a
-            // second character with independent appearance or combat settings.
-            linkPersona(ctx,avatar,card.avatar);
-            power.personas[avatar]=card.name;
-            power.persona_descriptions[avatar]={...power.persona_descriptions[avatar],description:card.data?.description || card.description || ''};
+            embodyCard(ctx,avatar,card);
             if (ctx.userAvatar!==undefined && !nativePersonas) {ctx.userAvatar=avatar;ctx.name1=card.name;}
             else {
                 nativePersonas ??= await import('/scripts/personas.js');

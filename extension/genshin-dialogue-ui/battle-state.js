@@ -13,6 +13,7 @@ import {addToBag,CARD_DEFS,ITEMS} from './battle-items.js';
 import {formArt} from './battle-icons.js';
 import {combatArt} from './combat-art.js';
 import {journeyBag} from './starter-decks.js';
+import {baseName} from './card-name.js';
 
 // Genius Invokation TCG card art, for characters and enemies that have a card of the same name.
 let tcgCards=new Set();
@@ -66,17 +67,17 @@ export function kitForCard(ctx,card){
         const linked=linkedCard(ctx,card.personaAvatar),element=props.element!=='None'?props.element:characterProperties(ctx,linked).element;
         // An enemy card you play keeps one moveset, edited as that enemy's; battles turn it into a character's.
         if(linked&&isEnemy(ctx,linked))return kitForCard(ctx,linked);
-        const base=linked?defaultKit(linked.name,{element}):{...travelerKit(element),name:card.name};
+        const base=linked?defaultKit(baseName(linked),{element}):{...travelerKit(element),name:card.name};
         return mergeKit(base,kitOverrides(ctx)[linked?.avatar || card.avatar]);
     }
-    return mergeKit(defaultKit(card.name,{element:props.element,enemy}),kitOverrides(ctx)[card.avatar]);
+    return mergeKit(defaultKit(baseName(card),{element:props.element,enemy}),kitOverrides(ctx)[card.avatar]);
 }
 export function kitForAlly(ctx,ally){
     if(ally.avatar!==USER_KEY)return kitForCard(ctx,ctx.characters.find(c=>c.avatar===ally.avatar));
     const element=allyElement(ctx,ally),card=linkedCard(ctx);
     // Playing an enemy card: its own moveset (with the edits saved for that card), turned into a character's.
     if(card&&isEnemy(ctx,card))return playableKit(kitForCard(ctx,card));
-    const base=card?defaultKit(card.name,{element}):{...travelerKit(element),name:ally.name};
+    const base=card?defaultKit(baseName(card),{element}):{...travelerKit(element),name:ally.name};
     return mergeKit(base,kitOverrides(ctx)[kitKey(ctx,ally)]);
 }
 export const battleKey=enemies=>[...new Set(enemies.map(e=>e.key))].sort().join('|') || 'none';

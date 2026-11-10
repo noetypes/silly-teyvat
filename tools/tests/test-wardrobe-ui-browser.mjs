@@ -170,6 +170,8 @@ try{
             return {left:button.left-pane.left,top:button.top-grid.top,right:grid.right-button.right,bottom:grid.bottom-button.bottom};
         });
         assert.ok(Object.values(glow).every(n=>n>=13),`${width}x${height}: expression selection glow has clearance inside the scrolling editor`);
+        const longLabel=await page.locator('.gi-expression-grid button:not(.gi-add-tile) > span').first().evaluate(el=>{const old=el.textContent;el.textContent='embarrassment-embarrassment';const s=getComputedStyle(el),r={lines:Math.round(el.getBoundingClientRect().height/parseFloat(s.lineHeight)*10)/10,clipped:el.scrollWidth>el.clientWidth,ellipsis:s.textOverflow};el.textContent=old;return r;});
+        assert.ok(longLabel.lines<=2&&longLabel.clipped&&longLabel.ellipsis==='ellipsis'&&await page.locator('.gi-expression-grid button:not(.gi-add-tile) > span').first().evaluate(el=>getComputedStyle(el).whiteSpace==='nowrap'),`${width}x${height}: long expression names stay on one line and are cut off (${JSON.stringify(longLabel)})`);
         for(const selector of ['.gi-editor-disclosure:has(.gi-sprite-audio-tools)','.gi-sprite-import']){
             const disclosure=await page.locator(selector).evaluate(el=>{const s=el.querySelector('summary'),box=s.getBoundingClientRect(),range=document.createRange();range.selectNodeContents(s);const text=range.getBoundingClientRect();return {height:el.getBoundingClientRect().height,offset:Math.abs((text.top+text.bottom-box.top-box.bottom)/2)};});
             assert.ok(disclosure.height<=38,'closed disclosure headers are compact');assert.ok(disclosure.offset<=2,'disclosure text is vertically centered');
@@ -262,6 +264,8 @@ try{
     assert.equal(await page.locator('#gi-sprite-trust').inputValue(),'3');
     await spriteHeart.press('ArrowLeft');assert.equal(await page.locator('#gi-sprite-trust').inputValue(),'2.5');
     assert.equal(await spriteHeart.locator('[data-hearts="3"]').evaluate(el=>el.style.getPropertyValue('--fill')),'50%');
+    await spriteHeart.locator('[data-hearts="2"]').click({position:{x:3,y:12}});assert.equal(await page.locator('#gi-sprite-trust').inputValue(),'1.5','the left half of a heart chooses half a heart');
+    await spriteHeart.locator('[data-hearts="3"]').click({position:{x:3,y:12}});
     assert.equal(await page.evaluate(async()=>{const {requiredSpriteTrust}=await import('./sprite-trust.js');return requiredSpriteTrust(window.wardrobeUXContext,'Klee',document.querySelector('.gi-expression-grid [aria-pressed="true"]').dataset.path);}),2.5);
     await page.locator('.gi-expression-grid [aria-label="Preview joy"]').click();assert.equal(await spriteHeart.getAttribute('aria-valuenow'),'0');
     await page.locator('.gi-expression-grid [aria-label="Preview neutral"]').click();assert.equal(await spriteHeart.getAttribute('aria-valuenow'),'2.5');
@@ -276,10 +280,10 @@ try{
     await page.locator('[data-w="tab-cgs"]').click();await page.locator('[data-w="add-blank-cg"]').click();await settled();
     const sceneHeart=page.locator('.gi-required-trust:has(#gi-cg-required-trust) .gi-heart-slider');
     await sceneHeart.locator('[data-hearts="4"]').click();await sceneHeart.press('ArrowLeft');
-    assert.equal(await sceneHeart.getAttribute('aria-valuenow'),'3.9');
-    assert.equal(await page.evaluate(()=>window.wardrobeUXContext.extensionSettings.genshin_dialogue_ui.characterCGs['Klee.png'][0].requiredTrust),3.9);
+    assert.equal(await sceneHeart.getAttribute('aria-valuenow'),'3.5');
+    assert.equal(await page.evaluate(()=>window.wardrobeUXContext.extensionSettings.genshin_dialogue_ui.characterCGs['Klee.png'][0].requiredTrust),3.5);
     await page.locator('[data-w="add-blank-cg"]').click();await settled();assert.equal(await sceneHeart.getAttribute('aria-valuenow'),'0');
-    await page.locator('.gi-cg-grid button:not(.gi-add-tile)').first().click();assert.equal(await sceneHeart.getAttribute('aria-valuenow'),'3.9');
+    await page.locator('.gi-cg-grid button:not(.gi-add-tile)').first().click();assert.equal(await sceneHeart.getAttribute('aria-valuenow'),'3.5');
     await page.locator('.gi-required-trust:has(#gi-cg-required-trust) .gi-heart-clear').click();assert.equal(await sceneHeart.getAttribute('aria-valuenow'),'0');
     await sceneHeart.locator('[data-hearts="3"]').click();
     await sceneHeart.scrollIntoViewIfNeeded();await page.screenshot({path:`${output}/scene-hearts.png`});

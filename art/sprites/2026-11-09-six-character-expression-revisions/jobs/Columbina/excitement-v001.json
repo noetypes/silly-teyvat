@@ -1,0 +1,22 @@
+{
+  "character": "Columbina",
+  "emotion": "excitement",
+  "tool": "image_gen.imagegen",
+  "arguments": {
+    "prompt": "Create one fresh full-body excitement expression sprite of Columbina from Genshin Impact for a visual novel. The only image reference is the user's explicitly approved neutral. Preserve identity, skin tone, facial design, hair, costume, accessories, proportions, colors and polished anime rendering. Preserve her petite floating silhouette, long dark hair with magenta ends, winged headpiece, and flowing white and blue costume; both legs and feet belong to one body. Retain the same or more compact proportions as the approved neutral; do not elongate the body. Give this expression distinct character-appropriate acting: A delighted smile and bright, excited expression, a gentle floating posture with arms naturally apart and hands relaxed near her sides. Use ordinary eyes and normal pupils, with no heart shapes. Use simple readable hand positions, without extreme foreshortening or interlaced hands. Each visible human hand has one palm, four fingers and a separate opposable thumb, naturally articulated, with hands separated clearly from sleeves or clothing. Exactly two legs and two feet from one pelvis, in a simple readable pose. One coherent mouth. Include the full silhouette including hair, headwear, hands, accessories and feet with modest top and bottom padding. True transparent background. No scenery, UI, text, labels, watermark, detached effects or ground shadow.",
+    "referenced_image_paths": [
+      "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-09-six-character-expression-revisions/references/Columbina/approved-neutral.png"
+    ],
+    "transparent_background": true
+  },
+  "source": "/Users/alexachan/.codex/generated_images/01a1c17b-8c99-7e41-81d8-58a4cd3eff89/exec-c500166b-d2bc-4690-bac9-a47797b0f572.png",
+  "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-09-six-character-expression-revisions/raw/Columbina/excitement-v001.png",
+  "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-09-six-character-expression-revisions/candidates/Columbina/excitement-v001.png",
+  "sha256": "727bb89aa54bca2c6d68f9e5041380411d89887e1cc02db6a83d8269c743e535",
+  "dimensions": [
+    1330,
+    1183
+  ],
+  "png_color_type": 6,
+  "approval": "pending user review"
+}

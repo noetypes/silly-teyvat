@@ -5,6 +5,7 @@ import {ITEMS} from './battle-items.js';
 import {characterProperties,ELEMENTS} from './character-properties.js';
 import {defaultKit,hasBundledKit,WEAPONS} from './combat-kits.js';
 import {mediaSettings} from './media-store.js';
+import {baseName} from './card-name.js';
 
 // Opposites for gift gameplay; other off-element dice and summons remain neutral.
 const OPPOSING={Pyro:['Hydro','Cryo'],Hydro:['Pyro'],Cryo:['Pyro'],Electro:['Cryo'],Dendro:['Pyro'],Anemo:['Geo'],Geo:['Anemo']};
@@ -21,11 +22,11 @@ function giftElement(id,item){
 export function giftTastes(ctx,card){
     if(typeof card==='string')card=ctx?.characters?.find(c=>c.name===card) || {name:card};
     if(!card)return null;
-    const base=tastesOf(card.name),likes=new Set(base?.likes),dislikes=new Set(base?.dislikes);
+    const base=tastesOf(baseName(card)),likes=new Set(base?.likes),dislikes=new Set(base?.dislikes);
     const element=ctx?characterProperties(ctx,card).element:'None';
     const saved=ctx&&card.avatar?mediaSettings(ctx).combatKits?.[card.avatar]:null;
     // Unknown characters do not inherit the generic fallback's sword preference.
-    const weapon=WEAPONS.includes(saved?.weapon)?saved.weapon:hasBundledKit(card.name)?defaultKit(card.name,{element}).weapon:null;
+    const weapon=WEAPONS.includes(saved?.weapon)?saved.weapon:hasBundledKit(baseName(card))?defaultKit(baseName(card),{element}).weapon:null;
     for(const [id,item] of Object.entries(ITEMS)){
         if(likes.has(id)||dislikes.has(id))continue;
         if(item.kind==='weapon'&&weapon){

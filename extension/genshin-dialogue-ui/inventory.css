@@ -96,10 +96,13 @@
 
 /* Bottom bar: the order toggle and sort pill, centred together. The sort list rises from the pill. */
 .gi-inv-foot { display: flex; justify-content: center; padding: 14px clamp(16px, 5vw, 96px) max(16px, env(safe-area-inset-bottom, 0px)); }
-.gi-inv-sortbar { display: flex; align-items: center; gap: 14px; }
+/* The Sort pill is what sits in the middle; the order button hangs off its left side. */
+.gi-inv-sortbar { position: relative; display: flex; align-items: center; }
 .gi-inv-order { display: grid; place-items: center; width: 50px; height: 50px; padding: 0; border: 0; border-radius: 50%; cursor: pointer; color: var(--inv-ink); background: var(--inv-paper); box-shadow: inset 0 0 0 2px #fff8, 0 0 0 1px #d3bc8e88, 0 4px 10px #0007; transition: transform 160ms var(--ty-ease, ease), filter 160ms; }
-.gi-inv-order svg { width: 24px; height: 24px; transition: rotate 240ms var(--ty-ease, ease); }
-.gi-inv-order[aria-pressed="true"] svg { rotate: 180deg; }
+.gi-inv-order { position: absolute; right: calc(100% + 14px); top: 50%; margin-top: -25px; }
+/* Reversing turns the icon over on its upright axis, so the up and down arrows change sides. */
+.gi-inv-order svg { width: 24px; height: 24px; transition: transform 300ms var(--ty-ease, ease); }
+.gi-inv-order[aria-pressed="true"] svg { transform: rotateY(180deg); }
 .gi-inv-order:hover, .gi-inv-sort-button:hover { filter: brightness(1.06); }
 .gi-inv-order:active, .gi-inv-sort-button:active { transform: scale(.96); }
 .gi-inv-sort { position: relative; }
@@ -130,7 +133,7 @@
     .gi-inv-d-hero { min-height: 150px; } .gi-inv-d-stat { margin-top: 8px; } .gi-inv-d-stat strong { font-size: 28px; }
     .gi-inv-d-effects li { font-size: 16px; } .gi-inv-d-set { font-size: 17px; } .gi-inv-d-use, .gi-inv-d-foot { font-size: 15px; }
     .gi-inv-group-head { font-size: 16px; padding: 8px 12px; } .gi-inv-grid { gap: 14px 12px; } .gi-inv-name { font-size: 12px; }
-    .gi-inv-foot { padding: 10px 12px max(10px, env(safe-area-inset-bottom, 0px)); } .gi-inv-order { width: 42px; height: 42px; } .gi-inv-sort-button { min-width: 200px; height: 42px; font-size: 15px; } .gi-inv-sort-menu { min-width: 200px; } .gi-inv-sort-menu li { height: 40px; font-size: 15px; }
+    .gi-inv-foot { padding: 10px 12px max(10px, env(safe-area-inset-bottom, 0px)); } .gi-inv-order { width: 42px; height: 42px; margin-top: -21px; right: calc(100% + 10px); } .gi-inv-sort-button { min-width: 200px; height: 42px; font-size: 15px; } .gi-inv-sort-menu { min-width: 200px; } .gi-inv-sort-menu li { height: 40px; font-size: 15px; }
     .gi-inv-empty { padding-bottom: 40px; } .gi-inv-empty-icon { width: 84px; height: 84px; } .gi-inv-empty-icon svg { width: 38px; height: 38px; } .gi-inv-empty p { font-size: 17px; }
 }
 @media (prefers-reduced-motion: reduce) { #gi-inventory, #gi-inventory * { animation-duration: 1ms !important; transition-duration: 1ms !important; } }

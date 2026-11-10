@@ -15,34 +15,53 @@ export function heartRow(level){
     for(let i=0;i<TRUST_MAX;i++){const heart=el('i');heart.style.setProperty('--fill',`${Math.round(Math.max(0,Math.min(1,level-i))*100)}%`);row.append(heart);}
     return row;
 }
-// Editable version of the Trust menu's five-heart meter. The existing input remains
-// the saved value, so fractional requirements and change handlers keep working.
-export function mountHeartInput({input,signal}){
-    const label=input.closest('label'),field=el('div','gi-required-trust'),caption=el('span','','Required Trust');
-    field.title=label.title;caption.id=input.id+'-label';input.hidden=true;
-    const controls=el('div','gi-heart-input'),slider=el('span','gi-heart-slider'),clear=el('button','gi-heart-clear','×'),value=el('output','gi-heart-value');
-    slider.tabIndex=0;slider.setAttribute('role','slider');slider.setAttribute('aria-labelledby',caption.id);slider.setAttribute('aria-valuemin','0');slider.setAttribute('aria-valuemax',String(TRUST_MAX));
-    clear.type='button';clear.setAttribute('aria-label','Clear required Trust');clear.title='No Trust required';
-    label.replaceWith(field);field.append(caption,input,controls);controls.append(slider,value,clear);
+// Editable version of the Trust menu's five-heart meter, in half hearts: the left half of a heart
+// chooses half of it, the right half the whole heart. The input stays the saved value, so older
+// fractional values still show and change handlers keep working.
+const halfStep=(level,by)=>Math.max(0,Math.min(TRUST_MAX,by>0?Math.floor(level*2+1e-6)/2+.5:Math.ceil(level*2-1e-6)/2-.5));
+export function heartScale({input,signal,labelledBy='',label='',emptyText='No Trust required',clearLabel='Clear required Trust',clear:withClear=true,watch=true}){
+    const controls=el('div','gi-heart-input'),slider=el('span','gi-heart-slider'),value=el('output','gi-heart-value');
+    const clear=withClear?el('button','gi-heart-clear','×'):null;
+    slider.tabIndex=0;slider.setAttribute('role','slider');if(labelledBy)slider.setAttribute('aria-labelledby',labelledBy);if(label)slider.setAttribute('aria-label',label);
+    slider.setAttribute('aria-valuemin','0');slider.setAttribute('aria-valuemax',String(TRUST_MAX));input.hidden=true;
+    controls.append(slider,value);
+    if(clear){clear.type='button';clear.setAttribute('aria-label',clearLabel);clear.title=emptyText;controls.append(clear);}
     const clean=n=>Math.max(0,Math.min(TRUST_MAX,Math.round((Number(n)||0)*10)/10));
+    // The hearts are drawn once and refilled after, so a hover preview never swaps the element being clicked.
+    function paint(level){
+        let hearts=slider.querySelector('.gi-hearts');
+        if(!hearts){hearts=heartRow(level);hearts.removeAttribute('role');hearts.setAttribute('aria-hidden','true');hearts.querySelectorAll('i').forEach((heart,i)=>{heart.dataset.hearts=String(i+1);});slider.replaceChildren(hearts);return;}
+        hearts.querySelectorAll('i').forEach((heart,i)=>heart.style.setProperty('--fill',`${Math.round(Math.max(0,Math.min(1,level-i))*100)}%`));
+    }
     function refresh(){
-        const level=clean(input.value),hearts=heartRow(level);hearts.removeAttribute('role');hearts.setAttribute('aria-hidden','true');
-        hearts.querySelectorAll('i').forEach((heart,i)=>{heart.dataset.hearts=String(i+1);});slider.replaceChildren(hearts);
-        slider.setAttribute('aria-valuenow',String(level));slider.setAttribute('aria-valuetext',level?`${level} of ${TRUST_MAX} hearts`:'No Trust required');
-        slider.setAttribute('aria-disabled',String(input.disabled));slider.tabIndex=input.disabled?-1:0;clear.disabled=input.disabled;value.textContent=`${level} / ${TRUST_MAX}`;
+        const level=clean(input.value);paint(level);
+        slider.setAttribute('aria-valuenow',String(level));slider.setAttribute('aria-valuetext',level?`${level} of ${TRUST_MAX} hearts`:emptyText);slider.title=level?`${level} / ${TRUST_MAX}`:emptyText;
+        slider.setAttribute('aria-disabled',String(input.disabled));slider.tabIndex=input.disabled?-1:0;if(clear)clear.disabled=input.disabled;value.textContent=`${level} / ${TRUST_MAX}`;
     }
     function set(level){
         if(input.disabled)return;
         input.value=String(clean(level));input.dispatchEvent(new Event('change',{bubbles:true}));refresh();
     }
-    slider.addEventListener('click',event=>{const heart=event.target.closest('[data-hearts]');if(heart){slider.focus({preventScroll:true});set(heart.dataset.hearts);}},{signal});
+    // Which half heart the pointer is over, from 0.5 to 5.
+    const at=event=>{const heart=event.target.closest?.('[data-hearts]');if(!heart)return null;const box=heart.getBoundingClientRect();return Number(heart.dataset.hearts)-(event.clientX-box.left<box.width/2-1?.5:0);};
+    slider.addEventListener('click',event=>{const level=at(event);if(level===null)return;slider.focus({preventScroll:true});set(level===clean(input.value)&&!clear?level-.5:level);},{signal});
+    slider.addEventListener('pointermove',event=>{if(input.disabled||event.pointerType==='touch')return;const level=at(event);if(level!==null){paint(level);slider.dataset.preview='true';}},{signal});
+    slider.addEventListener('pointerleave',()=>{if(slider.dataset.preview){delete slider.dataset.preview;refresh();}},{signal});
     slider.addEventListener('keydown',event=>{
-        const level=clean(input.value),step=Number(input.step)||.1,next={ArrowLeft:level-step,ArrowDown:level-step,ArrowRight:level+step,ArrowUp:level+step,Home:0,End:TRUST_MAX,PageUp:level+1,PageDown:level-1}[event.key];
+        const level=clean(input.value),next={ArrowLeft:halfStep(level,-1),ArrowDown:halfStep(level,-1),ArrowRight:halfStep(level,1),ArrowUp:halfStep(level,1),Home:0,End:TRUST_MAX,PageUp:level+1,PageDown:level-1}[event.key];
         if(next!==undefined){event.preventDefault();event.stopPropagation();set(next);}
     },{signal});
-    clear.addEventListener('click',()=>set(0),{signal});input.addEventListener('change',refresh,{signal});
-    const disabled=new MutationObserver(refresh);disabled.observe(input,{attributes:true,attributeFilter:['disabled']});
-    signal.addEventListener('abort',()=>disabled.disconnect(),{once:true});refresh();return {refresh,field};
+    clear?.addEventListener('click',()=>set(0),{signal});input.addEventListener('change',refresh,{signal});
+    if(watch){const disabled=new MutationObserver(refresh);disabled.observe(input,{attributes:true,attributeFilter:['disabled']});signal.addEventListener('abort',()=>disabled.disconnect(),{once:true});}
+    refresh();return {controls,refresh};
+}
+// The Required Trust field of a sprite or scene: replaces the input's label with the heart scale.
+export function mountHeartInput({input,signal}){
+    const label=input.closest('label'),field=el('div','gi-required-trust'),caption=el('span','','Required Trust');
+    field.title=label.title;caption.id=input.id+'-label';
+    const scale=heartScale({input,signal,labelledBy:caption.id});
+    label.replaceWith(field);field.append(caption,input,scale.controls);
+    return {refresh:scale.refresh,field};
 }
 const portrait=(ctx,card)=>circularCharacterAvatar(ctx,card) || ctx.getThumbnailUrl?.('avatar',card.avatar) || `/characters/${encodeURIComponent(card.avatar)}`;
 
@@ -125,24 +144,30 @@ export function mountTrust({host,getContext,announce=()=>{}}){
 // Character Customization: who this character already trusts when the player arrives as them.
 export function mountStartingTrust({panel,getContext,getCharacter,status=()=>{}}){
     panel.innerHTML=`<summary>Starting trust</summary><small>Where trust begins in a new chat when you play as one of these characters, from 0 to ${TRUST_MAX}. Anyone else starts at 0.</small><div class="gi-start-trust-list"></div>
-        <form class="gi-start-trust-add"><input type="text" maxlength="80" list="gi-start-trust-names" aria-label="Character or persona" placeholder="Add a character or persona"><input type="number" min="0" max="${TRUST_MAX}" step="0.1" value="1" aria-label="Starting trust"><button type="submit">Add</button><datalist id="gi-start-trust-names"></datalist></form>
+        <form class="gi-start-trust-add"><input type="text" maxlength="80" list="gi-start-trust-names" aria-label="Character or persona" placeholder="Add a character or persona"><input type="number" min="0" max="${TRUST_MAX}" step="0.5" value="1" aria-label="Starting trust"><button type="submit">Add</button><datalist id="gi-start-trust-names"></datalist></form>
         <button type="button" data-start-trust-reset>Reset to the card</button>`;
     const abort=new AbortController(),$=s=>panel.querySelector(s),on=(node,type,fn)=>node.addEventListener(type,fn,{signal:abort.signal});
     const list=$('.gi-start-trust-list'),add=$('.gi-start-trust-add'),[addName,addValue]=add.querySelectorAll('input');
+    // Rows are drawn again on every refresh; their listeners go with them.
+    let rowsAbort=new AbortController();
+    const addScale=heartScale({input:addValue,signal:abort.signal,label:'Starting trust',clear:false,watch:false,emptyText:'No starting trust'});
+    addValue.after(addScale.controls);
     const value=(card,name,input)=>{try{setStartingTrust(getContext(),card,name,input.value);refresh();}catch(error){status(error.message);}};
     function row(card,{name,value:trust}){
         const line=el('div','gi-start-trust-row'),input=document.createElement('input'),remove=el('button','','×');
-        input.type='number';input.min=0;input.max=TRUST_MAX;input.step=.1;input.value=trust;input.setAttribute('aria-label',`Starting trust as ${name}`);
+        input.type='number';input.min=0;input.max=TRUST_MAX;input.step=.5;input.value=trust;
         remove.type='button';remove.setAttribute('aria-label',`Remove ${name}`);
-        on(input,'change',()=>value(card,name,input));
-        on(remove,'click',()=>{setStartingTrust(getContext(),card,name,null);refresh();status(`${name} removed from ${card.name}'s starting trust.`);});
-        line.append(el('span','',name),input,remove);
+        const signal=rowsAbort.signal,scale=heartScale({input,signal,label:`Starting trust as ${name}`,clear:false,watch:false,emptyText:'No starting trust'});
+        input.addEventListener('change',()=>value(card,name,input),{signal});
+        remove.addEventListener('click',()=>{setStartingTrust(getContext(),card,name,null);refresh();status(`${name} removed from ${card.name}'s starting trust.`);},{signal});
+        line.append(el('span','',name),input,scale.controls,remove);
         return line;
     }
     function refresh(){
         const ctx=getContext(),card=getCharacter();
         panel.hidden=!card||Boolean(card.isPersona)||isEnemy(ctx,card);if(panel.hidden)return;
         const rows=startingTrustList(ctx,card),taken=new Set(rows.map(r=>r.name));
+        rowsAbort.abort();rowsAbort=new AbortController();
         list.replaceChildren(...rows.map(entry=>row(card,entry)));
         if(!rows.length)list.append(el('small','','Nobody yet. Everyone starts at 0.'));
         const names=[...(ctx.characters || []).filter(c=>c.name!==card.name&&!isEnemy(ctx,c)&&!isNarrator(c)).map(c=>c.name),...Object.values(ctx.powerUserSettings?.personas || {})];
@@ -150,8 +175,8 @@ export function mountStartingTrust({panel,getContext,getCharacter,status=()=>{}}
     }
     on(add,'submit',event=>{
         event.preventDefault();event.stopPropagation();const card=getCharacter(),name=addName.value.trim();if(!card||!name)return;
-        try{setStartingTrust(getContext(),card,name,addValue.value);addName.value='';refresh();status(`${name} added to ${card.name}'s starting trust.`);}catch(error){status(error.message);}
+        try{setStartingTrust(getContext(),card,name,addValue.value);addName.value='';addValue.value='1';addScale.refresh();refresh();status(`${name} added to ${card.name}'s starting trust.`);}catch(error){status(error.message);}
     });
     on($('[data-start-trust-reset]'),'click',()=>{const card=getCharacter();if(!card)return;resetStartingTrust(getContext(),card);refresh();status(`${card.name}'s starting trust is back to the card.`);});
-    return {refresh,dispose(){abort.abort();}};
+    return {refresh,dispose(){abort.abort();rowsAbort.abort();}};
 }

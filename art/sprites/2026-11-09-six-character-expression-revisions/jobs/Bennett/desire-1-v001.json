@@ -1,0 +1,22 @@
+{
+  "character": "Bennett",
+  "emotion": "desire-1",
+  "tool": "image_gen.imagegen",
+  "arguments": {
+    "prompt": "Create one fresh full-body desire-1 expression sprite of Bennett from Genshin Impact for a visual novel. The only image reference is the user's explicitly approved neutral. Preserve identity, skin tone, facial design, hair, costume, accessories, proportions, colors and polished anime rendering. Preserve his petite Medium Male proportions, white hair, goggles and adventurer outfit. Retain the same or more compact proportions as the approved neutral; do not elongate the body. Give this expression distinct character-appropriate acting: A wistful affectionate expression, a soft blush and a hopeful gaze, body angled gently with one hand near the heart. Tasteful and fully clothed. Both eyes visibly open; place one solid WHITE heart-shaped pupil centered in each eye's intact original-colored iris. Keep the iris outline and a clear colored border around each heart. The hearts are pupils, not catchlights, eye replacements or floating symbols. Use simple readable hand positions, without extreme foreshortening or interlaced hands. Each visible human hand has one palm, four fingers and a separate opposable thumb, naturally articulated, with hands separated clearly from sleeves or clothing. Exactly two legs and two feet from one pelvis, in a simple readable pose. One coherent mouth. Include the full silhouette including hair, headwear, hands, accessories and feet with modest top and bottom padding. True transparent background. No scenery, UI, text, labels, watermark, detached effects or ground shadow.",
+    "referenced_image_paths": [
+      "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-09-six-character-expression-revisions/references/Bennett/approved-neutral.png"
+    ],
+    "transparent_background": true
+  },
+  "source": "/Users/alexachan/.codex/generated_images/01a1c17b-8c99-7e41-81d8-58a4cd3eff89/exec-137a8e44-1169-4452-a2e5-8660dfa3eb13.png",
+  "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-09-six-character-expression-revisions/raw/Bennett/desire-1-v001.png",
+  "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-09-six-character-expression-revisions/candidates/Bennett/desire-1-v001.png",
+  "sha256": "73439f7712863ee9d71be62eeaa5a3fedfb7b0e7c9d474ac134d49de0a29e6e8",
+  "dimensions": [
+    895,
+    1756
+  ],
+  "png_color_type": 6,
+  "approval": "pending user review"
+}

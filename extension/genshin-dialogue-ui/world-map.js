@@ -420,6 +420,13 @@ export function mountWorldMap({host,getContext,adapter=createMediaAdapter(getCon
         host.append(banner);bannerTimer=setTimeout(()=>{banner?.remove();banner=null;},veil?4200:3500);
     }
     const api={
+        get busy(){return busy();},
+        async teleport(id){
+            if(busy()||disposed)return false;
+            const item=worldWaypoints(getContext()).find(w=>w.location.id===id);
+            if(!item)throw new Error('That place is not on the map.');
+            return teleport(item);
+        },
         open(options={}){
             if(busy()||disposed)return;opener=document.activeElement;
             const from=options.from?.getBoundingClientRect?.();
@@ -455,6 +462,19 @@ export function mountWorldMap({host,getContext,adapter=createMediaAdapter(getCon
         close,
         dispose(){if(disposed)return;disposed=true;enabled=false;api.syncPrompt(false);abort.abort();close();clearTimeout(veilTimer);clearTimeout(bannerTimer);veil?.remove();banner?.remove();rosterPicker.dispose();wildMenu.dispose();cardPoolMenu.dispose();removeMap(map);removeMap(minimap);markerCache.clear();listCache.clear();presentations.clear();points=[];targetCache=null;mini.remove();dialog.remove();},
     };
+    // Choose who comes along, wash the screen to light, move the party and record the journey. The map's Teleport
+    // and a location chosen in SillyTavern's Backgrounds menu both come here.
+    async function teleport(item){
+        const ctx=getContext(),token=revision,startChat=identity(ctx);task.send('TELEPORT');
+        try{
+            const plan=await prepareTeleport(item.location);
+            if(!plan||disposed||token!==revision||startChat!==identity(getContext()))return false;
+            if(!worldWaypoints(ctx).some(w=>w.location.id===item.location.id))throw new Error('This waypoint was removed while choosing companions.');
+            if(!commitTeleport(plan))return false;
+            playTeleport();teleportTo(ctx,item.location.id,{avatars:plan.travellers,encounter:plan.encounter});onTeleport();onChange();announce(`Teleported to ${item.location.label}, ${item.region.name}.`);
+            if(dialog.open)close();return true;
+        }finally{task.send('DONE');}
+    }
     async function action(name,target){
         if(busy()&&name!=='close')return;
         try{
@@ -482,17 +502,7 @@ export function mountWorldMap({host,getContext,adapter=createMediaAdapter(getCon
             if(name==='place-centre'){draft=toMapPoint(map.getCenter());paintDraft();showEditor();return;}
             if(name==='cancel'){const wasDetails=view.is('details');if(item&&!wasDetails){showDetails(item);paintMarkers();}else listWaypoints();status('');return;}
             if(name==='edit'&&item){draft=structuredClone(item.point);showEditor(item);paintDraft();return;}
-            if(name==='teleport'&&item){
-                const token=revision,startChat=identity(ctx);task.send('TELEPORT');
-                try{
-                    const plan=await prepareTeleport(item.location);
-                    if(!plan||disposed||token!==revision||startChat!==identity(getContext()))return;
-                    if(!worldWaypoints(ctx).some(w=>w.location.id===item.location.id))throw new Error('This waypoint was removed while choosing companions.');
-                    if(!commitTeleport(plan))return;
-                    playTeleport();teleportTo(ctx,item.location.id,{avatars:plan.travellers,encounter:plan.encounter});onTeleport();onChange();announce(`Teleported to ${item.location.label}, ${item.region.name}.`);close();
-                }finally{task.send('DONE');}
-                return;
-            }
+            if(name==='teleport'&&item){await teleport(item);return;}
             if(name==='residents'&&item){rosterPicker.open(item.location.id);return;}
             if(name==='restore-enemies'&&item){const n=restoreEnemies(getContext(),item.location.id);showDetails(item);status(n?`${n} defeated ${n===1?'enemy':'enemies'} can appear at ${item.location.label} again.`:'No defeated enemies here.');return;}
             if(name==='bypass'&&item){const on=toggleEncounterBypass(ctx,item.location.id);saveTravel(ctx);showDetails(item);status(on?`Encounters bypassed at ${item.location.label}. Applies on your next arrival.`:`Encounters restored at ${item.location.label}. Applies on your next arrival.`);return;}

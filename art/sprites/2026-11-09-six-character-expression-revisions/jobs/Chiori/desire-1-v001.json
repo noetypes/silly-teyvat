@@ -1,0 +1,22 @@
+{
+  "character": "Chiori",
+  "emotion": "desire-1",
+  "tool": "image_gen.imagegen",
+  "arguments": {
+    "prompt": "Create one fresh full-body desire-1 expression sprite of Chiori from Genshin Impact for a visual novel. The only image reference is the user's explicitly approved neutral. Preserve identity, skin tone, facial design, hair, costume, accessories, proportions, colors and polished anime rendering. Preserve her petite Medium Female proportions, dark hair, kimono-inspired outfit and accessories. Retain the same or more compact proportions as the approved neutral; do not elongate the body. Give this expression distinct character-appropriate acting: A wistful affectionate expression, a soft blush and a hopeful gaze, body angled gently with one hand near the heart. Tasteful and fully clothed. Both eyes visibly open; place one solid WHITE heart-shaped pupil centered in each eye's intact original-colored iris. Keep the iris outline and a clear colored border around each heart. The hearts are pupils, not catchlights, eye replacements or floating symbols. Use simple readable hand positions, without extreme foreshortening or interlaced hands. Each visible human hand has one palm, four fingers and a separate opposable thumb, naturally articulated, with hands separated clearly from sleeves or clothing. Exactly two legs and two feet from one pelvis, in a simple readable pose. One coherent mouth. Include the full silhouette including hair, headwear, hands, accessories and feet with modest top and bottom padding. True transparent background. No scenery, UI, text, labels, watermark, detached effects or ground shadow.",
+    "referenced_image_paths": [
+      "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-09-six-character-expression-revisions/references/Chiori/approved-neutral.png"
+    ],
+    "transparent_background": true
+  },
+  "source": "/Users/alexachan/.codex/generated_images/01a1c17b-8c99-7e41-81d8-58a4cd3eff89/exec-51985c0a-3a8a-4e56-aedf-c5839b470830.png",
+  "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-09-six-character-expression-revisions/raw/Chiori/desire-1-v001.png",
+  "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-09-six-character-expression-revisions/candidates/Chiori/desire-1-v001.png",
+  "sha256": "e4c80d489be2a138f2172d9219aad62b6b33639b745990a2e6b01f35c74f819c",
+  "dimensions": [
+    1145,
+    1374
+  ],
+  "png_color_type": 6,
+  "approval": "pending user review"
+}

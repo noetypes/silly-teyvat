@@ -1,0 +1,60 @@
+{
+  "user_request": "All accepted. Make a new Summertime Splash outfit folder for Barbara that has these.",
+  "destination": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Barbara/Summertime Splash",
+  "files_sha256": {
+    "admiration.png": "a581f9f86b83b7a9b9fc4ea96a91ae202f5e774e8a63b2f872c4409d77f8ecbe",
+    "anger.png": "fd6bb20bcf5ea4b01df058cf2fb5fb4c99a3d1efea8d5ee9d6405cf1fa576641",
+    "annoyance.png": "57b934d6870788de08cef54f40df270b9e00f64430652d158dabbf15e1ce2b00",
+    "caring.png": "d421cbcc407b3f98432c1bd26055c7f7ade2fc62631beeacc6d80b767d9fd202",
+    "confusion.png": "bab8c8ec32d4f7de90188cdad51e08474801cab6fcc76e15f70e589aedad4be5",
+    "desire-1.png": "6b8ccc9ee81c6df00260df612d12ce73312cc1ddb11f66a608fedf3c85bbbb90",
+    "desire.png": "251a4b04e12d6c29d06f5c9d539cbb3ea2f856bd6353cf8b644418e5c39568df",
+    "disappointment.png": "ee45cf0d530a18f86274bcf5afc7bb12f55dd2f19f9076e0d4c53c213eaa1e07",
+    "disgust.png": "944718794a5030186bb6b38d4ed087d12e1290f81ce2e52cf18a993132a2d21e",
+    "embarrassment.png": "6992a248a1a2a57f307f571686be64ae9511650958f9a74fade34d0e2af096e6",
+    "excitement.png": "2ac7b67d3bda85c7f85abccaa5e3ddba3de8275198b01ff389c41ab49319d611",
+    "fear.png": "9f9427387c37a1baa9af7e58612f18c208993c85f8c88ac1a32b48846fe01dfd",
+    "gratitude.png": "89d494c1d30b061782a406faf7e3f7e1041a18fe244513d933affb3df73907f4",
+    "grief.png": "db9157d69c2db90a3ab0a98d235e3e26ab7b5436e54a5f0779bf72d3013f8c03",
+    "joy.png": "250a9dba12e2f8be005332a738f4dff942af9bfee883d0c2ca4aa9ec9acef82d",
+    "love-1.png": "8c51583a35dfde3b64e63863110f65696bf057ab0f6b0324e8dce1842ca8acb1",
+    "love.png": "389aceb1399214d25f214e116f9e05768aaadd252991e657d6bf5efd3cf14a04",
+    "neutral.png": "cede653bcc93c1a4126f52409dcbb3d2817ea21263ad75a99862994be270aa79",
+    "pride.png": "1b9f713c4ce63d9c71c898ab543985f594fa51cb95acba12b2651c642c3c7fcb",
+    "relief.png": "f7895c82352f9f0d18dcfe9ffdfb463a2dfd3936f2ac44bc1b0675654624315d",
+    "sadness.png": "9e7177b1138d4860033563c52c2ca28c7ced856c0be372938f581306b4b44a23",
+    "smug.png": "af8e24c7e749790bbe5fe9042a679c35534f2fa2053253c5cf64cc32e3088b3c"
+  },
+  "original_folder_png_sha256": {
+    "gratitude.png": "46243a9941d3b8f01a59919eeefc6e2cdff72582af621f9b8bc57b7fd09ec912",
+    "excitement.png": "79a8f18256ac145b2a3af3e6cc810913cb443df100b333c020713d9df1f6eca9",
+    "neutral.png": "104fdfb4199313cbe14192e1451ccdfd1590250a7a75785c722337f1fac9cc7e",
+    "joy.png": "c65e1fd8cc8206177124e51b3765cde723491eff61d1213639edf0d9414f92e4",
+    "desire-1.png": "ad44dc75d3e43e36c1a0fe3eba1674a837f882d5a4b19e150da22dcbdf157916",
+    "admiration.png": "d827be018cd677356bca5201d8fcecd736ac63a46ebe1b1aa5ba73907bd9eb67",
+    "caring.png": "3de05a93fc73a52417f311e1835f516bfd86bbfbb8889dd82fa3b2a9c4ea591a",
+    "relief.png": "472ef4736fabbabba2324e04d100bf86951159c57bb0ebaca143ecb42694601c",
+    "disappointment.png": "b78cc12343c12e9fa49b307887739f50c6bf00626e0a82fb46af403588270103",
+    "annoyance.png": "d00bb5d7ee995425c7b0c5c678dfbc188916cc115a04a8ce92c6707b9218fd7f",
+    "disgust.png": "367dad1f0d4ecae9c690cde43bc560af9925d3a594153cb194b4bfc79d66fc26",
+    "anger.png": "bb20a04d6c0a14001a95d360b6bdb8a51aecdd645fe0a7c96b3a290184f26f2f",
+    "sadness.png": "ea3fc1dd695b2cb51fc5a860ba98fad42488773c3760c3410826e4f1f7aa8d6c",
+    "fear.png": "aa51dd5a5a997837b92c8a66b6e444f656a08f51d83c45ac6f9734781208e635",
+    "grief.png": "b27e5d594eddac977a71b2315ee9f2e17a33269a1b8e032ead1fe1551f4f2e7b",
+    "love-1.png": "1f6cdeaf7c8acf27b3d4ac5ad90dbab2573699136d5054e361f1e9893bef4ae1",
+    "confusion.png": "800dec07a973466b91bbeaea3413f3323a94b9542b08d9b4ede96e4d6f9c9824",
+    "embarrassment.png": "dafbe42dcaa4f22e4a8098352c67a3987d4b2c5dbfd300083290e28622dab451",
+    "love.png": "487db5958e025d597133b145e4e11d5e0454befc86881b4d413482b1e3509a86",
+    "desire.png": "be134f6d7d5fa7554a3eae4ed3919a2594e26200b532ef332634b45897bf249d",
+    "smug.png": "7b621bf876c9d8c6ab6db0d9024ad7a1076d600e46f4e623fdb104a87c2711ab",
+    "pride.png": "96af17f29a6c6fb112f270c18e70be6250bc9c4059be28d9e6a54f017dad9361"
+  },
+  "wardrobe_registration": {
+    "status": "registered and verified",
+    "entry": {
+      "label": "Summertime Splash",
+      "folder": "Barbara/Summertime Splash"
+    },
+    "ui": "22 sprites visible; Original remains equipped"
+  }
+}

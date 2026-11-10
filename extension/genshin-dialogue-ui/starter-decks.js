@@ -9,6 +9,7 @@ import {mediaSettings} from './media-store.js';
 import {activeGroup} from './party.js';
 import {escapeHtml,defaultKit,kitOverrides} from './combat-kits.js';
 import {characterProperties,isEnemy} from './character-properties.js';
+import {baseName} from './card-name.js';
 
 export const STARTER_SIZE=20;
 // No more than this many copies of one card, in a chosen or a random deck.
@@ -58,11 +59,11 @@ export function characterDeck(ctx,avatar){
     const deck={...STARTER_BAG},card=avatar?ctx?.characters?.find(c=>c.avatar===avatar):null;
     if(!card)return deck;
     const props=characterProperties(ctx,card),element=props.element;
-    let weapon='';try{weapon=kitOverrides(ctx)[avatar]?.weapon || defaultKit(card.name,{element}).weapon || '';}catch{weapon='';}
+    let weapon='';try{weapon=kitOverrides(ctx)[avatar]?.weapon || defaultKit(baseName(card),{element}).weapon || '';}catch{weapon='';}
     const [woven,artifact,resonance]=ELEMENT_CARDS[element] || [];
     swap(deck,'treasure-seelie',woven);swap(deck,'capricious-visage',artifact);swap(deck,'heavy-strike',resonance);
     swap(deck,'thundering-poise',WEAPON_CARD[weapon]);
-    const summon=OWN_SUMMON[card.name] || Object.entries(ITEMS).find(([,item])=>item.kind==='summon'&&item.rarity<=2&&item.effects?.some(e=>e.element===element))?.[0];
+    const summon=OWN_SUMMON[baseName(card)] || Object.entries(ITEMS).find(([,item])=>item.kind==='summon'&&item.rarity<=2&&item.effects?.some(e=>e.element===element))?.[0];
     swap(deck,'toy-guard',summon);
     return deck;
 }

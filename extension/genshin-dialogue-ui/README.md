@@ -40,19 +40,19 @@ Expressions use SillyTavern's **Character Expressions** classifier settings. Cha
 - Every visible character stands on stage with sprites sized by body type. The current speaker comes forward, and the others stay in the scene.
 - Expressions are chosen for each page or message and remembered, so revisiting old dialogue shows the same scene without asking the model again.
 - **Scene CGs**: hundreds of official artworks, including every character birthday illustration, are offered to a classifier that picks one when a reply fits. CGs can replace the background or open in a frame, and can be images, GIFs or videos with their own sound. Scenes can require certain characters or a location. The **Gallery** collects every scene a chat has shown.
-- **Character Customization** (the Paimon menu's Characters screen) edits each card's profile, outfits, expressions, scenes, staging, combat kit and starting Trust. You can upload your own sprite sets, expressions, voice clips and CGs.
+- **Character Customization** (the Paimon menu's Characters screen) edits each card's name, card details and portrait, profile, outfits, expressions, scenes, staging, combat kit and starting Trust. You can upload your own sprite sets, expressions, voice clips and CGs.
 - Sprites can have voice clips, and Elemental Bursts play Japanese Burst voice lines.
 
 ### Playing as anyone
 
-- Play as the Traveler, or use **Play as {{char}}** in Character Customization to become any character, NPC or enemy. Aether and Lumine are the only personas that come with the game; Play as creates a persona for anyone else, sharing the card's sprites, outfits and moveset.
+- Play as the Traveler, or use **Play as {{char}}** in Character Customization to become any character, NPC or enemy. Aether and Lumine are the only personas that come with the game; Play as creates a persona for anyone else, sharing the card's sprites, outfits and moveset. Choosing one of those personas in SillyTavern's persona list plays that character too.
 - The Travelers begin the game as it begins: arriving in Teyvat with nobody knowing them. Whichever twin you don't play becomes the Abyss twin.
 - Playing an enemy reverses the sides. You start in the wilderness among your own kind, and the characters of Teyvat are hostile to you.
 
 ### The world map
 
 - A full interactive map of Teyvat with **260 waypoints in eight regions**: Mondstadt, Liyue, Inazuma, Sumeru, Fontaine, Natlan, Nod-Krai and Snezhnaya. Each has its own background and music.
-- **Teleport** to any waypoint. Travel is recorded in the chat with real distances, and a classifier follows the party when the story moves somewhere within the current region.
+- **Teleport** to any waypoint, from the map or from the **Teyvat** tab of SillyTavern's Backgrounds menu, which shows every location picture. Travel is recorded in the chat with real distances, and a classifier follows the party when the story moves somewhere within the current region.
 - Characters live at the places they belong to, and you meet some of them when you arrive. When you leave, you choose who travels with you. Favourites are always there, and anyone left behind waits for you.
 - Wilderness waypoints have regional enemy pools, and **20 boss arenas** each hold one boss with its own music.
 - You can add, move and edit waypoints, set exploration and battle playlists per place, and adjust encounter chances.
@@ -64,7 +64,7 @@ Expressions use SillyTavern's **Character Expressions** classifier settings. Cha
 - Characters who already know the one you play start with suitable Trust.
 - Give cards from your Inventory as gifts. Everyone has favourite and least favourite cards, based on the game.
 - **What do they think of you?** in the Trust menu shows a character's private opinion of you.
-- Some sprites and scenes unlock only at a minimum Trust.
+- Some sprites and scenes unlock only at a minimum Trust, set in half hearts.
 
 ### Genius Invokation battles
 

@@ -1,0 +1,22 @@
+{
+  "emotion": "love",
+  "revision": "v002",
+  "tool": "image_gen.imagegen",
+  "arguments": {
+    "prompt": "Create a fresh full-body love expression sprite of Barbara from Genshin Impact for a visual novel. The sole image reference is her explicitly approved neutral: preserve her identity, petite Medium Female proportions, blond twin tails, blue-lavender eye design, skin tone, costume, blue Hydro Vision on her book, accessories, moderate saturation and polished anime rendering. Vary the pose and body language for the emotion while keeping her proportions at least as petite as the reference. Acting: A strongly expressive, openly joyful affectionate smile, raised inner brows, bright open eyes and a clear blush. Lean slightly forward with one hand near her heart and the other relaxed at her side; warmth should read clearly at small size. Simple natural human hands, each with a palm, four fingers and a separate opposable thumb, anatomically articulated and clearly separated from sleeves and clothing. Exactly two legs and two feet from one pelvis, in an uncomplicated stance with feet slightly separated. One coherent mouth. Full body including headpiece, hair, hands, skirt, accessories and shoes, about 92\u201396% of image height with modest top and bottom padding. Genuine transparent background. No scenery, text, labels, watermark, floating effects or baked ground shadow.",
+    "referenced_image_paths": [
+      "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-09-barbara-official-model-neutral/candidates/Barbara/neutral-v009.png"
+    ],
+    "transparent_background": true
+  },
+  "source": "/Users/alexachan/.codex/generated_images/01a1c17b-8c99-7e41-81d8-58a4cd3eff89/exec-9548774e-8bc6-4ec9-8d6a-a7b14454ae8c.png",
+  "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-09-barbara-official-model-neutral/raw/Barbara/love-v002.png",
+  "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-09-barbara-official-model-neutral/candidates/Barbara/love-v002.png",
+  "sha256": "487db5958e025d597133b145e4e11d5e0454befc86881b4d413482b1e3509a86",
+  "dimensions": [
+    1024,
+    1536
+  ],
+  "png_color_type": 6,
+  "approval": "candidate for user review"
+}

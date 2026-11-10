@@ -13,6 +13,7 @@ import {restockBag} from './battle-items.js';
 import {journeyBag} from './starter-decks.js';
 import {COMBAT_COMPANIONS,defaultKit} from './combat-kits.js';
 import {hostileEnemy,playingEnemy} from './enemy-persona.js';
+import {baseName} from './card-name.js';
 export const DICE_FACES=[...ELEMENTS,'Omni'];
 export const combatIdentity=ctx=>`${ctx.groupId || ctx.characterId}:${ctx.getCurrentChatId?.() || ctx.chatId || ''}`;
 // Version 2 is the turn-based system. Health and battles saved by the older dice combat are discarded.
@@ -40,7 +41,7 @@ export const defeatedHere=(ctx,avatar)=>Boolean(ctx.chatMetadata?.silly_teyvat_c
 export function enemyFormSprite(ctx,card){
     const entry=card&&ctx.chatMetadata?.silly_teyvat_combat?.visits?.[visitKey(ctx)]?.enemies?.[card.avatar];
     if(!entry?.form)return '';
-    const form=defaultKit(card.name,{enemy:true})?.transform;
+    const form=defaultKit(baseName(card),{enemy:true})?.transform;
     return form?.name===entry.form&&/^[a-z][a-z0-9_]{0,59}$/.test(form.sprite || '')?form.sprite:'';
 }
 // Second forms taken by enemies still standing in the current encounter (for the arena's phase 2 music).

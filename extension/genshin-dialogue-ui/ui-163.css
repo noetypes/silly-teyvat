@@ -95,3 +95,16 @@
     #gi-battle .tb-hand { overflow-x: auto; overflow-y: hidden; justify-content: safe center; padding-top: 14px; touch-action: pan-x; scrollbar-width: none; }
     #gi-battle .tb-hand .tb-item { margin: 0 2px; }
 }
+
+/* SillyTavern's Backgrounds menu: a Teyvat tab with every location picture, by region. */
+.gi-bg-teyvat { display: grid; gap: 14px; padding: 6px 2px 12px; }
+.gi-bg-teyvat .gi-bg-region[hidden], .gi-bg-teyvat .gi-bg-place[hidden] { display: none; }
+.gi-bg-teyvat .gi-bg-region h4 { margin: 0 0 8px; font-size: 1em; letter-spacing: .02em; color: var(--ty-gold-hi, #f2dca0); }
+.gi-bg-teyvat .gi-bg-places { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 8px; }
+.gi-bg-teyvat .gi-bg-place { position: relative; display: block; width: 100%; margin: 0; padding: 0; overflow: hidden; aspect-ratio: 16 / 9; border: 1px solid #d3bc8e40; border-radius: 6px; background: #0004; color: #fff; cursor: pointer; }
+.gi-bg-teyvat .gi-bg-place img { display: block; width: 100%; height: 100%; object-fit: cover; transition: transform 200ms ease; }
+.gi-bg-teyvat .gi-bg-place span { position: absolute; inset: auto 0 0; padding: 14px 6px 4px; overflow: hidden; background: linear-gradient(#0000, #000c); font-size: 12px; line-height: 1.25; text-align: left; text-overflow: ellipsis; white-space: nowrap; text-shadow: 0 1px 2px #000; }
+.gi-bg-teyvat .gi-bg-place:hover img, .gi-bg-teyvat .gi-bg-place:focus-visible img { transform: scale(1.05); }
+.gi-bg-teyvat .gi-bg-place:focus-visible { outline: 2px solid var(--ty-gold-hi, #f2dca0); outline-offset: 2px; }
+.gi-bg-teyvat .gi-bg-place.selected { border-color: var(--ty-gold-hi, #f2dca0); box-shadow: 0 0 0 2px var(--ty-gold-hi, #f2dca0); }
+.gi-bg-teyvat .gi-bg-empty { margin: 12px; opacity: .8; }

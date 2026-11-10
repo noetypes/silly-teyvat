@@ -440,6 +440,18 @@ body.gi-reduced-motion #gi-wardrobe .gi-cs-tint { display: none !important; }
 #gi-wardrobe .gi-heart-value { color: #d8cfbd; font-size: 13px; white-space: nowrap; }
 #gi-wardrobe .gi-heart-clear { display: grid; place-items: center; width: 28px; height: 28px; min-height: 28px; padding: 0; border: 1px solid #d3bc8e55; background: transparent; color: #ece5d8; font-size: 20px; line-height: 1; }
 #gi-wardrobe .gi-heart-clear:hover { background: #ffffff15; color: #fff; }
+#gi-wardrobe .gi-heart-slider[data-preview] .gi-hearts { opacity: .8; }
+/* Starting trust rows use the same half-heart scale, a little smaller. */
+#gi-wardrobe .gi-start-trust .gi-heart-input { flex: none; flex-wrap: nowrap; gap: 4px; }
+#gi-wardrobe .gi-start-trust .gi-heart-slider { padding: 2px; }
+#gi-wardrobe .gi-start-trust .gi-hearts { --heart: 18px; gap: 2px; }
+#gi-wardrobe .gi-start-trust .gi-heart-value { min-width: 40px; font-size: 12px; text-align: right; }
+/* In the list the hearts say it; the number stays in the tooltip, so names have room. */
+#gi-wardrobe .gi-start-trust-row .gi-heart-value { display: none; }
+/* Adding someone: their name on one line, then their hearts and Add. */
+#gi-wardrobe .gi-start-trust .gi-start-trust-add { flex-wrap: wrap; row-gap: 8px; }
+#gi-wardrobe .gi-start-trust .gi-start-trust-add input[type="text"] { flex: 1 1 100%; }
+#gi-wardrobe .gi-start-trust .gi-start-trust-add .gi-heart-input { flex: 1 1 auto; }
 
 /* ---------- Layout review: fit, flow and scroll cues across desktop, tablet and phone ---------- */
 /* Scrolling strips and the editor fade at an edge that has more to show (wardrobe.js sets data-more and data-axis). */
@@ -568,7 +580,7 @@ body.gi-reduced-motion #gi-wardrobe .gi-cs-tint { display: none !important; }
 }
 
 /* ---------- Zoom, Play as, open editors ---------- */
-/* Zoom works on every section but Scenes: two steps in, then back to the whole figure. */
+/* Zoom works on every section: two steps in, then back to the whole figure (Scenes: from their centre, below). */
 #gi-wardrobe .gi-wardrobe-preview:has(> img[hidden]) .gi-cs-zoom { display: none; }
 #gi-wardrobe .gi-cs-zoom[data-level="2"] .gi-cs-zoom-plus { display: none; }
 #gi-wardrobe[data-zoom="1"]:not([data-tab="cgs"]) { --cs-zoom: 1.45; --cs-camera: scale(1.45); }
@@ -581,7 +593,7 @@ body.gi-reduced-motion #gi-wardrobe .gi-cs-tint { display: none !important; }
 /* Character & enemy properties and staging are always open: no disclosure heading to hide them behind. */
 #gi-wardrobe :is(.gi-character-staging, .gi-card-properties:not(.gi-start-trust, .gi-starter-deck)) > summary { display: none; }
 /* Long expression names wrap inside their tile instead of being cut off. */
-#gi-wardrobe .gi-expression-grid button > span:not(.gi-slot-placeholder) { overflow: visible; white-space: normal; text-overflow: clip; overflow-wrap: anywhere; }
+#gi-wardrobe .gi-expression-grid button > span:not(.gi-slot-placeholder) { flex: 0 0 auto; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; overflow-wrap: normal; }
 #gi-wardrobe .gi-wardrobe-controls .gi-expression-grid { grid-template-columns: repeat(auto-fill, minmax(90px, 1fr)); }
 @media (max-width: 600px) and (orientation: portrait) { #gi-wardrobe .gi-expression-grid button > span:not(.gi-slot-placeholder) { font-size: 11.5px; padding-inline: 2px; } }
 /* Play as sits in the bottom bar, level with All Characters, at the same height, right aligned. */
@@ -657,3 +669,25 @@ body.gi-reduced-motion #gi-wardrobe .gi-cs-tint { display: none !important; }
 }
 #gi-wardrobe [data-panel="moveset"] > .gi-combat-art { margin-bottom: 14px; }
 @media (min-width: 901px) and (min-height: 551px) { #gi-wardrobe .gi-cs-side { padding-top: 14px; } }
+/* Profile: the card's name, then its SillyTavern details in a drawer. */
+#gi-wardrobe .gi-card-profile { display: grid; gap: 10px; margin: 0 0 14px; }
+#gi-wardrobe .gi-card-profile .gi-card-name { display: grid; gap: 6px; margin: 0; }
+#gi-wardrobe .gi-card-profile .gi-card-details { margin: 0; }
+#gi-wardrobe .gi-card-details-body { display: grid; gap: 10px; padding-top: 4px; }
+#gi-wardrobe .gi-card-details-body label { display: grid; gap: 6px; margin: 0; }
+#gi-wardrobe .gi-card-details-body textarea { min-height: 60px; max-height: 40dvh; resize: vertical; }
+#gi-wardrobe .gi-card-details-body > button { justify-self: start; }
+#gi-wardrobe .gi-card-portrait { display: flex; align-items: center; gap: 12px; }
+#gi-wardrobe .gi-card-portrait img { flex: none; width: 64px; height: 96px; object-fit: cover; border: 1px solid #d3bc8e55; border-radius: 6px; background: #0003; }
+#gi-wardrobe .gi-card-portrait label { flex: 1 1 auto; min-width: 0; }
+#gi-wardrobe .gi-card-portrait input[type="file"] { margin: 0; max-width: 100%; }
+/* A zoomed sprite is never cut off at the stage's edges: it passes under the panels around it. */
+#gi-wardrobe .gi-wardrobe-body > .gi-wardrobe-preview { overflow: visible; }
+/* Scenes sit in the middle of the stage, a little smaller than it, and zoom from their centre. */
+#gi-wardrobe[data-tab="cgs"] { --cs-camera: scale(.86); }
+#gi-wardrobe[data-tab="cgs"][data-zoom="1"] { --cs-camera: scale(1.25); }
+#gi-wardrobe[data-tab="cgs"][data-zoom="2"] { --cs-camera: scale(1.7); }
+#gi-wardrobe[data-tab="cgs"] .gi-wardrobe-preview { padding-top: var(--cs-floor, 34px); }
+#gi-wardrobe[data-tab="cgs"] .gi-wardrobe-preview > :is(img, .gi-cg-video-preview) { object-position: 50% 50%; transform: var(--cs-camera); transform-origin: 50% 50%; transition: transform 420ms var(--ty-ease); }
+#gi-wardrobe[data-tab="cgs"] .gi-cs-zoom,
+#gi-wardrobe[data-tab="cgs"] .gi-wardrobe-preview:has(> .gi-cg-video-preview) .gi-cs-zoom { display: grid; }
