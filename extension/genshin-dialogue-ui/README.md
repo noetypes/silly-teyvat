@@ -32,7 +32,7 @@ Expressions use SillyTavern's **Character Expressions** classifier settings. Cha
 - One reply can voice everyone in the scene. The model writes speaker parts (`Klee:`, `Narrator:`), and each part becomes its own message, so the name plate, sprite and expression follow whoever is talking.
 - Narration is shown apart from dialogue, and a hidden **Narrator** sets the scene whenever you are travelling alone.
 - **Teyvat Choices** suggests three replies after each character message. Click one to send it.
-- **Auto** reads for you, **History** opens the full transcript for editing and swiping, and **Hide UI** clears the screen for screenshots. Regenerate and Stop sit beside the dialogue box.
+- **Auto** reads for you, **History** opens the full transcript for editing and swiping, and **Hide UI** clears the screen for screenshots, and **Full Screen** hides the browser around the game on PC and Android (on iPhone, add SillyTavern to the Home Screen and open it from there). Regenerate and Stop sit beside the dialogue box.
 - The HUD icons and the Paimon menu open SillyTavern's own panels, restyled to match the game.
 
 ### Characters, sprites and scenes

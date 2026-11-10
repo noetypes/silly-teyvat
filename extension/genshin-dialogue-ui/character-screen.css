@@ -681,6 +681,9 @@ body.gi-reduced-motion #gi-wardrobe .gi-cs-tint { display: none !important; }
 #gi-wardrobe .gi-card-portrait img { flex: none; width: 64px; height: 96px; object-fit: cover; border: 1px solid #d3bc8e55; border-radius: 6px; background: #0003; }
 #gi-wardrobe .gi-card-portrait label { flex: 1 1 auto; min-width: 0; }
 #gi-wardrobe .gi-card-portrait input[type="file"] { margin: 0; max-width: 100%; }
+/* A card-shaped portrait shows whole, its own frame as the border, as card views elsewhere do. */
+body.gi-card-art-on #gi-wardrobe .gi-card-portrait.gi-card-portrait-card img { width: auto; height: 96px; aspect-ratio: 208 / 248; object-fit: contain; border: 0; border-radius: 0; background: none; filter: drop-shadow(0 3px 5px #000a); }
+body.gi-card-art-on #gi-wardrobe .gi-card-portrait.gi-card-portrait-tcg img { aspect-ratio: 420 / 720; }
 /* A zoomed sprite is never cut off at the stage's edges: it passes under the panels around it. */
 #gi-wardrobe .gi-wardrobe-body > .gi-wardrobe-preview { overflow: visible; }
 /* Scenes sit in the middle of the stage, a little smaller than it, and zoom from their centre. */

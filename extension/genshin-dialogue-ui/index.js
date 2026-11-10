@@ -60,10 +60,12 @@ import {nameTagNames,cleanMessageNameTags} from './name-tags.js';
 import {createKeyboardFrame} from './keyboard-frame.js';
 import {applyPackagedSettings} from './share-package.js';
 import {mountShare} from './share-ui.js';
+import * as fullscreen from './fullscreen.js';
+import {FRAME_CAP_OPTIONS,FRAME_CAP_MIN,FRAME_CAP_MAX,frameCapFps,setFrameCap} from './frame-rate.js';
 const KEY = 'genshin_dialogue_ui';
 // A GitHub install takes the repository's name, so the folder is read from where this file is served.
 const FOLDER = `third-party/${decodeURIComponent(new URL('./', import.meta.url).pathname.split('/').filter(Boolean).at(-1))}`;
-const defaults = Object.freeze({ ...stagingDefaults, enabled: false, choices: true, composer: true, reducedMotion: false, textScale: 1, scrim: 0.8, revealSpeed: 45, tapAdvance: true, pageExpressions: true, narration: false, narrationMode: 'quotes', narrationKeyword: 'Narrator:', hideDialogueQuotes:false, nameTagFilter:true, nameTagScope:'all', nameTagExtra:'', wardrobe: true, locationEncounters:true, locationCharacterLimit:5, randomEncounters:true, encounterRate:40, allowMainDeparture:false, worldPromptAllRegions:false, roleplayPromptsEnabled:true, wildernessEncounters:true, maxEnemies:3, combatDamageMin:1, combatDamageMax:6, enemyStrikeBack:true,combatTriggerPhrase:'[start_combat]', enemyDamageMin:2, enemyDamageMax:6, enemyDice:4, userMaxHp:30, combatDifficulty:'normal', battleEffects:true, battleSound:true,uiSound:true,uiSoundVolume:.7, personaSpriteClassify:false, soloGreeting:'standard', personaIcon: 'Aether', personaIconMode:'auto', hudTopIcons:'auto', namecard:'', signature:'', trimSprites:true, cgEnabled:true, cgClassifier:'main', cgProfile:'', choicesProfile:'', cgBypassReasoning:true, choicesBypassReasoning:true, cgPrompt:defaultCGPrompt, cgDisplayMode:'each', cgCooldown:10, cgAudio:true, spriteAudio:true, burstAudio:true, spriteVolume:.8, diceSound:true, trustSystem:false, travelerTwin:'Aether', master:true, cardArt:true, paimonLinks:PAIMON_LINKS, paimonRestore:{} });
+const defaults = Object.freeze({ ...stagingDefaults, enabled: false, choices: true, composer: true, reducedMotion: false, frameCap: 'unlimited', frameCapCustom: 90, textScale: 1, scrim: 0.8, revealSpeed: 45, tapAdvance: true, pageExpressions: true, narration: false, narrationMode: 'quotes', narrationKeyword: 'Narrator:', hideDialogueQuotes:false, nameTagFilter:true, nameTagScope:'all', nameTagExtra:'', wardrobe: true, locationEncounters:true, locationCharacterLimit:5, randomEncounters:true, encounterRate:40, allowMainDeparture:false, worldPromptAllRegions:false, roleplayPromptsEnabled:true, wildernessEncounters:true, maxEnemies:3, combatDamageMin:1, combatDamageMax:6, enemyStrikeBack:true,combatTriggerPhrase:'[start_combat]', enemyDamageMin:2, enemyDamageMax:6, enemyDice:4, userMaxHp:30, combatDifficulty:'normal', battleEffects:true, battleSound:true,uiSound:true,uiSoundVolume:.7, personaSpriteClassify:false, soloGreeting:'standard', personaIcon: 'Aether', personaIconMode:'auto', hudTopIcons:'auto', namecard:'', signature:'', trimSprites:true, cgEnabled:true, cgClassifier:'main', cgProfile:'', choicesProfile:'', cgBypassReasoning:true, choicesBypassReasoning:true, cgPrompt:defaultCGPrompt, cgDisplayMode:'each', cgCooldown:10, cgAudio:true, spriteAudio:true, burstAudio:true, spriteVolume:.8, diceSound:true, trustSystem:false, travelerTwin:'Aether', master:true, cardArt:true, paimonLinks:PAIMON_LINKS, paimonRestore:{} });
 const bodyClasses = ['gi-menu-open', 'gi-enabled', 'gi-scene', 'gi-history', 'gi-hidden', 'gi-compose', 'gi-generating', 'gi-reduced-motion', 'gi-reading', 'gi-choices-enabled', 'gi-native-staging', 'gi-sprite-idle', 'gi-hud-top-off', 'gi-welcome'];
 const icons = {
     compass: '<path d="m12 2 3 7 7 3-7 3-3 7-3-7-7-3 7-3Z"/><path d="m12 8 4 4-4 4-4-4Z"/>',
@@ -95,6 +97,11 @@ const menuButton = (action, label, icon = action) => MENU_ICONS.has(icon)
     : button(action, label, icon, false);
 // Trust has no icon in the game, so its heart is drawn to match them: their white, their outline.
 const TRUST_ICON = `data:image/svg+xml,${encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 21.2 3.6 12.8a5.4 5.4 0 0 1 7.6-7.6l.8.8.8-.8a5.4 5.4 0 0 1 7.6 7.6Z" fill="#fff" stroke="#1c1c1c" stroke-width="1" stroke-linejoin="round"/></svg>')}`;
+// Full Screen has no icon in the game either: corner brackets in the same white and outline,
+// pointing out to enter and in to leave.
+const cornerIcon = path => `data:image/svg+xml,${encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="${path}" stroke="#1c1c1c" stroke-width="4.2"/><path d="${path}" stroke="#fff" stroke-width="2.4"/></svg>`)}`;
+const FULLSCREEN_ICONS = { enter: cornerIcon('M4 9V4h5M15 4h5v5M20 15v5h-5M9 20H4v-5'), exit: cornerIcon('M9 4v5H4M20 9h-5V4M15 20v-5h5M4 15h5v5') };
+const fullscreenButton = () => `<button type="button" data-gi-action="fullscreen" aria-label="Full Screen" aria-pressed="false"><img class="gi-pm-icon" src="${FULLSCREEN_ICONS.enter}" alt="" aria-hidden="true" draggable="false"><span>Full Screen</span></button>`;
 // Card Search is available throughout a chat, with the game's Quests icon.
 const questButton = () => `<button type="button" data-gi-action="card-search" aria-label="Card Search" hidden><img class="gi-pm-icon" src="${QUEST_MENU_ICON}" alt="" aria-hidden="true" draggable="false"><span>Card Search</span></button>`;
 const trustButton = () => `<button type="button" data-gi-action="trust" aria-label="Trust"><img class="gi-pm-icon" src="${TRUST_ICON}" alt="" aria-hidden="true" draggable="false"><span>Trust</span></button>`;
@@ -223,6 +230,9 @@ function preferences() {
     if (!['main','profile','webllm'].includes(store[KEY].cgClassifier)) store[KEY].cgClassifier = 'main';
     if (!CG_DISPLAY_MODES.includes(store[KEY].cgDisplayMode)) store[KEY].cgDisplayMode = 'each';
     if (!['auto','on','off'].includes(store[KEY].hudTopIcons)) store[KEY].hudTopIcons = 'auto';
+    if (!FRAME_CAP_OPTIONS.includes(store[KEY].frameCap)) store[KEY].frameCap = 'unlimited';
+    store[KEY].frameCapCustom = Math.max(FRAME_CAP_MIN,Math.min(FRAME_CAP_MAX,Math.round(Number(store[KEY].frameCapCustom) || 90)));
+    setFrameCap(frameCapFps(store[KEY]));
     store[KEY].spriteVolume = Math.max(0,Math.min(1,Number(store[KEY].spriteVolume) || 0));
     store[KEY].uiSoundVolume = Math.max(0,Math.min(1,Number(store[KEY].uiSoundVolume) || 0));
     store[KEY].textScale = Math.min(1.4, Math.max(0.85, Number(store[KEY].textScale) || 1));
@@ -347,6 +357,7 @@ function syncSettings(force=true) {
     document.querySelector('#gi-cg-reasoning-row')?.toggleAttribute('hidden', prefs.cgClassifier !== 'main');
     document.querySelector('#gi-choices-reasoning-row')?.toggleAttribute('hidden', Boolean(prefs.choicesProfile));
     document.querySelector('#gi-crowd-max-row')?.toggleAttribute('hidden', prefs.spriteCrowd !== 'recent');
+    document.querySelector('#gi-frame-cap-custom-row')?.toggleAttribute('hidden', prefs.frameCap !== 'custom');
     const scale = document.querySelector('#gi-text-scale-value');
     const scrim = document.querySelector('#gi-scrim-value');
     if (scale) scale.value = `${Math.round(prefs.textScale * 100)}%`;
@@ -478,6 +489,7 @@ function refresh({passive=false}={}) {
     const hideLabel = hidden ? 'Show UI' : 'Hide UI';
     hide.setAttribute('aria-label', hideLabel);
     hide.querySelector('span').textContent = hideLabel; hide.setAttribute('aria-pressed', String(hidden));
+    paintFullscreen();
     const notice = document.querySelector('#gi-notice');
     const conflict = conflictText();
     notice.hidden = !prefs.enabled || !conflict || conflict === dismissedNotice || hidden;
@@ -641,6 +653,25 @@ function toggleHistory() {
         document.querySelector('#gi-review-heading button')?.focus();
     } else document.querySelector('#gi-toolbar [data-gi-action="history"]')?.focus();
 }
+// The Paimon menu's Full Screen tile follows the page's state, including Esc or the browser's own exit.
+function paintFullscreen() {
+    const tile = document.querySelector('#gi-toolbar [data-gi-action="fullscreen"]');
+    if (!tile) return;
+    // The tile keeps its short name (the longer one would wrap) and shows the state with its icon.
+    // Opened from the Home Screen, the game already fills it and there is nothing to leave.
+    tile.hidden = fullscreen.standalone();
+    const on = fullscreen.active(), label = on ? 'Exit Full Screen' : 'Full Screen';
+    tile.setAttribute('aria-pressed', String(on)); tile.setAttribute('aria-label', label);
+    tile.title = fullscreen.supported() ? label : fullscreen.hint();
+    const icon = tile.querySelector('img'), src = FULLSCREEN_ICONS[on ? 'exit' : 'enter'];
+    if (icon.getAttribute('src') !== src) icon.src = src;
+}
+function toggleFullscreen() {
+    if (!fullscreen.supported()) { const text = fullscreen.hint(); announce(text); globalThis.toastr?.info?.(text, 'Silly Teyvat'); return; }
+    // The menu closes first so the game is what fills the screen.
+    menu.send('CLOSE'); refresh();
+    void fullscreen.toggle();
+}
 function handleAction(event) {
     if (menuIsOpen() && !event.target.closest('#gi-launcher, #gi-toolbar')) { menu.send('CLOSE'); schedule(); }
     const target = event.target.closest('[data-gi-action]');
@@ -674,6 +705,7 @@ function handleAction(event) {
             break;
         }
         case 'history': toggleHistory(); break;
+        case 'fullscreen': toggleFullscreen(); break;
         case 'hide': view.send('HIDE'); if (uiHidden()) menu.send('CLOSE'); stopAuto(); refresh(); break;
         case 'compose':
             composing = !composing; preferences().composer = composing; context().saveSettingsDebounced(); view.send('SHOW'); stopAuto(); refresh();
@@ -845,7 +877,7 @@ export async function initialize(options = {}) {
                 <button type="button" class="gi-pm-switch" data-gi-action="toggle" aria-pressed="false" aria-label="Silly Teyvat"><span>Silly Teyvat</span><i aria-hidden="true"></i></button>
                 <button type="button" class="gi-pm-switch gi-pm-solo" data-gi-action="solo-journey" hidden><span>Start solo journey</span></button>
                 <section id="gi-pm-namecards" class="gi-pm-namecards" aria-label="Namecards" hidden><header><h3>Namecard</h3>${menuButton('namecards', 'Done', 'close')}</header><div class="gi-pm-nc-list" role="radiogroup" aria-label="Choose a namecard"></div></section>
-                <div class="gi-pm-grid">${menuButton('auto', 'Auto')}${menuButton('history', 'Review', 'book')}${menuButton('wardrobe', 'Characters')}${menuButton('inventory', 'Inventory', 'bag')}${questButton()}${trustButton()}${menuButton('map', 'Map')}${menuButton('gallery', 'Gallery', 'cg')}${menuButton('compose', 'Chat Box')}${menuButton('hide', 'Hide UI')}${menuButton('namecards', 'Namecard', 'namecard')}</div>
+                <div class="gi-pm-grid">${menuButton('auto', 'Auto')}${menuButton('history', 'Review', 'book')}${menuButton('wardrobe', 'Characters')}${menuButton('inventory', 'Inventory', 'bag')}${questButton()}${trustButton()}${menuButton('map', 'Map')}${menuButton('gallery', 'Gallery', 'cg')}${menuButton('compose', 'Chat Box')}${menuButton('hide', 'Hide UI')}${fullscreenButton()}${menuButton('namecards', 'Namecard', 'namecard')}</div>
                 <section class="gi-pm-tavern" aria-label="SillyTavern"><h3>SillyTavern</h3><div class="gi-pm-grid">${ST_DRAWERS.map(([id, label]) => `<button type="button" data-gi-action="st-drawer" data-drawer="${id}" aria-label="${label}"><img src="${drawerIcon(id)}" alt="" aria-hidden="true" draggable="false"${id === 'persona-management-button' ? ' data-persona' : ''}><span>${label}</span></button>`).join('')}</div></section>
             </div>
         </nav>
@@ -919,6 +951,7 @@ export async function initialize(options = {}) {
     });
     uiSound=createUiSound({getVolume:()=>preferences().uiSound?preferences().uiSoundVolume:0});mountUiSound({sound:uiSound,signal:abort.signal});
     document.addEventListener('click', handleAction, { signal: abort.signal });
+    fullscreen.onChange(() => { paintFullscreen(); announce(fullscreen.active() ? 'Full screen on.' : 'Full screen off.'); }, abort.signal);
     document.addEventListener('keydown', handleKey, { signal: abort.signal });
     renderPromptLibrary();
     bindRoleplayPrompts(context, abort.signal);
@@ -943,6 +976,9 @@ export async function initialize(options = {}) {
                 preferences()[key]=value;
             }else if(key==='cgCooldown'){
                 if(!Number.isInteger(value)||value<0||value>200){input.value=preferences().cgCooldown;announce('Choose from 0 to 200 messages.');return;}
+                preferences()[key]=value;
+            }else if(key==='frameCapCustom'){
+                if(!Number.isInteger(value)||value<FRAME_CAP_MIN||value>FRAME_CAP_MAX){input.value=preferences().frameCapCustom;announce(`Choose a cap from ${FRAME_CAP_MIN} to ${FRAME_CAP_MAX} frames a second.`);return;}
                 preferences()[key]=value;
             }else if(key==='maxEnemies'){
                 if(!Number.isInteger(value)||value<1||value>3){input.value=preferences().maxEnemies;announce('Choose from 1 to 3 enemies.');return;}

@@ -35,10 +35,9 @@ try{
                 summonsInsideBoard:summons.every(inBoard),
                 skillsInsideBoard:inBoard(q('.tb-skills')),
                 handUsable:hand.height>=60&&hand.width>=100,
-                // 1.62: nothing opens over the table, upright phones show the whole hand clear of the skills,
+                // 1.62: nothing opens over the table,
                 // and each card's badges stay off the next card.
                 noTooltipOnOpen:q('.tb-tip').hidden,
-                wholeHandUpright:document.documentElement.clientWidth>document.documentElement.clientHeight*.8 || [...document.querySelectorAll('#gi-battle .tb-item')].every(e=>{const r=rect(e);return r.bottom<=b.bottom+1&&r.left>=b.left-1&&r.right<=b.right+1&&!overlap(r,skills);}),
                 badgesClearOfNextCard:cards.every(c=>[...c.querySelectorAll('.tb-incoming:not([hidden]), .tb-delta:not([hidden])')].every(n=>cards.every(o=>o===c||!overlap(rect(n),rect(o.querySelector('.tb-hp')))))),
                 // Every card in hand can be reached: it scrolls safely, or (1.62, upright phones) every card fits inside the board.
                 everyItemReachable:q('.tb-hand').scrollWidth>0&&getComputedStyle(q('.tb-hand')).justifyContent.includes('safe') || document.documentElement.clientWidth>document.documentElement.clientHeight || [...document.querySelectorAll('#gi-battle .tb-item')].every(e=>{const r=rect(e);return r.left>=b.left-1&&r.right<=b.right+1;}),

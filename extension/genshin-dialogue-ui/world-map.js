@@ -124,12 +124,20 @@ export function mountWorldMap({host,getContext,adapter=createMediaAdapter(getCon
         const longFlight=regionChange||distance>=Math.max(size.x,size.y);
         const panel=dialog.dataset.panel==='open'&&!compact()?$('.gi-map-panel').offsetWidth/2:0;
         if(!sidebar.hidden||panel){const sheet=globalThis.matchMedia?.('(max-width: 600px) and (orientation: portrait)').matches,card=sidebar.hidden?[0,0]:sheet?[0,sidebar.offsetHeight/2]:[sidebar.offsetWidth/2,0];target=map.unproject(map.project(target,zoom).add([card[0]-panel,card[1]]),zoom);}
-        if(reducedMotion()||!dialog.open)map.setView(target,zoom,{animate:false});
+        if(reducedMotion()||!dialog.open){map.setView(target,zoom,{animate:false});return;}
+        cameraGoal={zoom:map._limitZoom(zoom)};
         // Nearby selections at the same zoom only translate the pane. flyTo
         // otherwise reprojects every marker at a fractional zoom on every frame.
-        else if(!longFlight&&Math.abs(map.getZoom()-zoom)<.01&&map.latLngToContainerPoint(target).distanceTo(size.divideBy(2))<Math.max(size.x,size.y))map.panTo(target,{animate:true,duration:.8,easing:cameraEasing});
+        // Mid-flight the zoom is between steps, and Leaflet turns a pan from there into an
+        // instant jump, so a flight that is still going is always continued with flyTo.
+        if(onZoomStep()&&!longFlight&&Math.abs(map.getZoom()-zoom)<.01&&map.latLngToContainerPoint(target).distanceTo(size.divideBy(2))<Math.max(size.x,size.y))map.panTo(target,{animate:true,duration:.8,easing:cameraEasing});
         else map.flyTo(target,zoom,{duration:longFlight?1.8:1.1,easing:cameraEasing});
     }
+    // Where the camera is headed while a waypoint flight plays (cleared once it stops), so a
+    // second choice mid-flight keeps the zoom the first one was going to rather than the zoom
+    // the flight happens to be passing through.
+    let cameraGoal=null;
+    const onZoomStep=()=>{const zoom=map.getZoom(),snap=map.options.zoomSnap;return !snap||Math.abs(zoom/snap-Math.round(zoom/snap))<1e-6;};
     // Top region selector: nations plus any custom regions that have waypoints.
     // The loading screen's region emblems; Teyvat itself and custom regions share its plain one.
     const emblemOf=name=>regionEmblem(NATIONS.some(n=>n.name===name)?name:'');
@@ -178,6 +186,7 @@ export function mountWorldMap({host,getContext,adapter=createMediaAdapter(getCon
         map.setView([1700,500],-3);map.on('zoomend moveend',updateScale);map.on('move zoom',scheduleCull);map.on('zoomend moveend',()=>cullMarkers());map.on('moveend',paintRegionBar);
         map.on('movestart zoomstart',()=>dialog.classList.add('gi-map-moving'));
         map.on('moveend zoomend',()=>dialog.classList.remove('gi-map-moving'));
+        map.on('moveend',()=>{cameraGoal=null;});
         map.on('click',event=>{if(!placing()||busy())return;const point=toMapPoint(event.latlng);if(!validMapPoint(point)){status('Choose a point inside the drawn map.');return;}draft=point;paintDraft();if(!editing())showEditor();else $('#gi-map-coordinates').textContent=`x ${draft.x}, y ${draft.y}`;});
         updateScale();
     }
@@ -242,7 +251,7 @@ export function mountWorldMap({host,getContext,adapter=createMediaAdapter(getCon
         const viewedRegion=from?null:regionAtView();
         const regionChange=from?from.region.id!==item.region.id:Boolean(viewedRegion&&viewedRegion.name.toLowerCase()!==item.region.name.toLowerCase());
         showDetails(item);if(previous!==selectedId)highlight(previous,false);highlight(selectedId,true);
-        flyTo(item.point,Math.max(map.getZoom(),-1.5),regionChange);
+        flyTo(item.point,Math.max(cameraGoal?.zoom ?? map.getZoom(),-1.5),regionChange);
     }
     const listCache=new Map();
     // A closed panel (phones start with it closed) is not built; opening it builds the list then.

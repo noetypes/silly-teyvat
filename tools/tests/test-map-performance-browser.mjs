@@ -174,6 +174,45 @@ try{
             return {pan:pan.length,flight:flight.length};
         });
         assert.ok(easing.pan>3&&easing.flight>3,'both pane panning and pan/zoom flights honor custom easing');
+        // A second waypoint chosen near the end of a cross-region flight continues from where the
+        // camera is (the zoom is between steps then), rather than resetting the view to it.
+        const midFlight=await page.evaluate(async()=>{
+            const map=window.testMap,pick=id=>document.querySelector(`.gi-map-waypoint-list [data-location="${id}"]`).click();
+            map.setView([-1800,-11000],-1,{animate:false});await new Promise(r=>setTimeout(r,100));
+            let resets=0,largest=0,previous=null;const reset=()=>resets++;
+            const move=()=>{const c=map.project(map.getCenter(),-1);if(previous)largest=Math.max(largest,c.distanceTo(previous));previous=c;};
+            pick('p30');await new Promise(r=>setTimeout(r,1500));
+            const between=Math.abs(map.getZoom()*2-Math.round(map.getZoom()*2))>1e-6;
+            map.on('viewreset',reset);map.on('move',move);pick('p31');
+            await new Promise(r=>setTimeout(r,2300));map.off('viewreset',reset);map.off('move',move);
+            return {between,resets,largest,zoom:map.getZoom()};
+        });
+        assert.ok(midFlight.between,'the second choice lands while the first flight is between zoom steps');
+        assert.equal(midFlight.resets,0,`a choice made mid-flight starts a new flight instead of jumping: ${JSON.stringify(midFlight)}`);
+        assert.ok(midFlight.largest<200,`the camera moves continuously from where it was: ${JSON.stringify(midFlight)}`);
+        assert.equal(midFlight.zoom,-1,'the new flight keeps the zoom the first one was headed for');
+        // Wheel and trackpad input glide continuously around the pointer, then rest on a half level.
+        // (Desktop only: the phone layout covers the map with the open list.)
+        if(!mobile){
+            const box=await page.locator('.gi-map-canvas').boundingBox(),pointer=[box.x+box.width*.6,box.y+box.height*.5];
+            await page.evaluate(()=>{window.testMap.setView([-1800,-6000],-1.5,{animate:false});window.wheelZooms=[];window.testMap.on('zoom',window.wheelSample=()=>window.wheelZooms.push(window.testMap.getZoom()));});
+            await page.mouse.move(...pointer);
+            const anchor=await page.evaluate(([x,y])=>{const m=window.testMap,r=m.getContainer().getBoundingClientRect();return m.containerPointToLatLng([x-r.left,y-r.top]);},pointer);
+            for(let i=0;i<30;i++){await page.mouse.wheel(0,-8);await page.waitForTimeout(16);}
+            await page.waitForTimeout(700);
+            const glide=await page.evaluate(([x,y,a])=>{
+                const m=window.testMap,r=m.getContainer().getBoundingClientRect(),zooms=window.wheelZooms;m.off('zoom',window.wheelSample);
+                const p=m.latLngToContainerPoint(a);
+                return {count:zooms.length,step:Math.max(...zooms.slice(1).map((z,i)=>Math.abs(z-zooms[i]))),zoom:m.getZoom(),drift:Math.hypot(p.x-(x-r.left),p.y-(y-r.top)),moving:document.querySelector('#gi-world-map').classList.contains('gi-map-moving')};
+            },[...pointer,anchor]);
+            assert.ok(glide.count>10&&glide.step<.1,`wheel zoom glides in small steps, not half-level jumps: ${JSON.stringify(glide)}`);
+            assert.equal(glide.zoom,-0.5,`a steady scroll rests on the next half level it reached: ${JSON.stringify(glide)}`);
+            assert.ok(glide.drift<4,`the point under the pointer stays put: ${JSON.stringify(glide)}`);
+            assert.equal(glide.moving,false,'the glide ends with a moveend');
+            for(let i=0;i<2;i++){await page.mouse.wheel(0,100);await page.waitForTimeout(250);}
+            await page.waitForTimeout(600);
+            assert.equal(await page.evaluate(()=>window.testMap.getZoom()),-1.5,'each mouse-wheel notch is one half level');
+        }
         const closedHint=await page.evaluate(()=>{window.fixture.close();return getComputedStyle(window.testMap.getPane('mapPane')).willChange;});
         assert.equal(closedHint,'auto','closing the map releases compositing hints');
         await page.evaluate(()=>window.fixture.open());

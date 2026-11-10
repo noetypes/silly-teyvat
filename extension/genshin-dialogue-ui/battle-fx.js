@@ -1,3 +1,4 @@
+import {requestFrame,cancelFrame} from './frame-rate.js';
 // Battle visuals shared by the battle screen: element glyphs, weapon icons and a canvas
 // particle system with an impact for each element and a screen-wide effect for each Burst.
 export const EL_COLORS={Pyro:'#ff8a4c',Hydro:'#4cc2f1',Anemo:'#74e0c0',Electro:'#c08cf5',Dendro:'#a5d34b',Cryo:'#a8e4f2',Geo:'#f5c542',Omni:'#f5e8bd',Physical:'#e8e2d4',None:'#d3bc8e'};
@@ -85,9 +86,9 @@ export function createParticles(canvas){
             }
         }
         ctx.globalAlpha=1;ctx.globalCompositeOperation='source-over';
-        if(parts.length||bolts.length)frame=requestAnimationFrame(loop);else last=0;
+        if(parts.length||bolts.length)frame=requestFrame(loop);else last=0;
     }
-    const start=()=>{if(!frame)frame=requestAnimationFrame(loop);};
+    const start=()=>{if(!frame)frame=requestFrame(loop);};
     const rand=(a,b)=>a+Math.random()*(b-a),pick=list=>list[Math.floor(Math.random()*list.length)];
     function add(n,make,delay=0){
         n=Math.min(Math.round(n),Math.max(0,LIMIT-parts.length));
@@ -241,6 +242,6 @@ export function createParticles(canvas){
         shield:(x,y,color='#f5d76a')=>{add(3,i=>({x,y,life:.6+i*.12,size:30+i*8,shape:'ring',shrink:false,color}));add(1,()=>({x,y,life:.5,size:34,shape:'hex',hollow:true,shrink:false,grow2:.6,color}));},
         sparkle:(x,y,color)=>{add(30,()=>({x,y,vx:rand(-340,340),vy:rand(-340,340),drag:3.5,life:rand(.4,.9),size:rand(3,6),color}));add(6,()=>({x:x+rand(-20,20),y:y+rand(-20,20),life:rand(.3,.6),size:rand(8,14),shape:'star',color:'#fff',delay:rand(0,.2)}));},
         clear(){parts.length=0;bolts.length=0;},
-        dispose(){cancelAnimationFrame(frame);frame=0;parts.length=0;bolts.length=0;},
+        dispose(){cancelFrame(frame);frame=0;parts.length=0;bolts.length=0;},
     };
 }

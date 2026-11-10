@@ -1,3 +1,4 @@
+import {requestFrame,cancelFrame} from './frame-rate.js';
 // The battle board, laid out and played like Genius Invokation TCG: enemies across the top, your
 // party below with each side's active character stepped forward, summons on the right, dice down
 // the right edge, skills in the bottom-right corner, your hand along the bottom and the round
@@ -747,8 +748,8 @@ export function mountBattle({host,sound=createBattleSound(),onBurst=()=>{},onSto
         const ms=Math.max(140,240/speed),turn=`rotate(${Math.atan2(b.y-a.y,b.x-a.x).toFixed(3)}rad)`;
         return new Promise(resolve=>{
             const anim=orb.animate([{transform:`translate(-50%,-50%) ${turn} scale(.6)`},{transform:`translate(calc(${b.x-a.x}px - 50%),calc(${b.y-a.y}px - 50%)) ${turn} scale(1.1)`}],{duration:ms,easing:'cubic-bezier(.5,0,.9,.6)'});
-            let raf=0;const tick=()=>{const t=anim.effect?.getComputedTiming().progress;if(t!=null)particles.trail(a.x+(b.x-a.x)*t,a.y+(b.y-a.y)*t,element);raf=requestAnimationFrame(tick);};raf=requestAnimationFrame(tick);
-            const done=()=>{cancelAnimationFrame(raf);orb.remove();resolve();};anim.onfinish=done;setTimeout(done,ms+80);
+            let raf=0;const tick=()=>{const t=anim.effect?.getComputedTiming().progress;if(t!=null)particles.trail(a.x+(b.x-a.x)*t,a.y+(b.y-a.y)*t,element);raf=requestFrame(tick);};raf=requestFrame(tick);
+            const done=()=>{cancelFrame(raf);orb.remove();resolve();};anim.onfinish=done;setTimeout(done,ms+80);
         });
     }
     // ---- Elemental Burst: the card switches to its Dynamic Skin, then the splash art, then the strike ----------

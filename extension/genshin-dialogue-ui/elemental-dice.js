@@ -1,3 +1,4 @@
+import {requestFrame,cancelFrame} from './frame-rate.js';
 // Genius Invokation style Roll Phase: banner, dice thrown onto the table and sorted,
 // then a summary of which party member each die can fuel (or, for a damage roll, who dealt what).
 import {createDiceSound} from './dice-sound.js';
@@ -17,8 +18,8 @@ const wait=ms=>new Promise(r=>setTimeout(r,ms));
 function countUp(node,to,ms,signal){
     const start=performance.now();
     return new Promise(resolve=>{
-        const step=now=>{if(signal.aborted){node.textContent=String(to);resolve();return;}const t=Math.min(1,(now-start)/ms);node.textContent=String(Math.round(to*(1-(1-t)**3)));if(t<1)requestAnimationFrame(step);else resolve();};
-        if(ms<=0){node.textContent=String(to);resolve();}else requestAnimationFrame(step);
+        const step=now=>{if(signal.aborted){node.textContent=String(to);resolve();return;}const t=Math.min(1,(now-start)/ms);node.textContent=String(Math.round(to*(1-(1-t)**3)));if(t<1)requestFrame(step);else resolve();};
+        if(ms<=0){node.textContent=String(to);resolve();}else requestFrame(step);
     });
 }
 export function mountElementalDice({host,stageFactory=createStage,sound=createDiceSound()}){
@@ -41,7 +42,7 @@ export function mountElementalDice({host,stageFactory=createStage,sound=createDi
         if(!animated||dialog.classList.contains('gi-instant')||disposed){done();return;}
         dialog.classList.add('gi-closing');closeTimer=setTimeout(done,240);
     }
-    function stop(animated=false){rerollAction=null;rerollButton.hidden=true;$('.gi-roll-picks').replaceChildren();sequence++;cancelAnimationFrame(frame);frame=0;summaryAbort?.abort();finish?.(false);finish=null;accept=null;redraw=null;close(animated);}
+    function stop(animated=false){rerollAction=null;rerollButton.hidden=true;$('.gi-roll-picks').replaceChildren();sequence++;cancelFrame(frame);frame=0;summaryAbort?.abort();finish?.(false);finish=null;accept=null;redraw=null;close(animated);}
     async function loadStage(){
         if(!stagePromise)stagePromise=stageFactory(canvas).then(value=>{if(disposed){value.dispose();return null;}return stage=value;}).catch(error=>{stagePromise=null;throw error;});
         return stagePromise;
@@ -116,7 +117,7 @@ export function mountElementalDice({host,stageFactory=createStage,sound=createDi
         if(result.hpAfter<=0)$('.gi-roll-target').classList.add('gi-defeated');
     }
     return {cancel:()=>stop(),roll(result,{reducedMotion=false,isCurrent=()=>true,describe,volume=0,reroll,pickAll=false,heading='Roll Phase'}={}){
-        if(disposed||!isCurrent())return Promise.resolve(false);sequence++;cancelAnimationFrame(frame);frame=0;summaryAbort?.abort();finish?.(false);finish=null;accept=null;redraw=null;const current=++sequence;
+        if(disposed||!isCurrent())return Promise.resolve(false);sequence++;cancelFrame(frame);frame=0;summaryAbort?.abort();finish?.(false);finish=null;accept=null;redraw=null;const current=++sequence;
         skip=reducedMotion;canvas.hidden=false;canvas.dataset.model='loading';dialog.dataset.phase='loading';
         dialog.classList.toggle('gi-instant',reducedMotion);dialog.classList.remove('gi-settled','gi-closing','gi-can-reroll');title(heading);
         $('.gi-roll-summary').hidden=true;$('.gi-roll-tags').replaceChildren();$('.gi-roll-target').classList.remove('gi-shake','gi-defeated');
@@ -174,13 +175,13 @@ export function mountElementalDice({host,stageFactory=createStage,sound=createDi
                 dialog.dataset.phase='rolling';if(!skip)sound.toss(volume);run();
             }
             let startTime=0;
-            function run(){startTime=performance.now();redraw=draw;cancelAnimationFrame(frame);frame=requestAnimationFrame(draw);}
+            function run(){startTime=performance.now();redraw=draw;cancelFrame(frame);frame=requestFrame(draw);}
                 function draw(now,lost=false){
-                    cancelAnimationFrame(frame);frame=0;if(!valid()){stop();return;}
+                    cancelFrame(frame);frame=0;if(!valid()){stop();return;}
                     const ms=settled||skip||lost?1e6:now-startTime;let done=false;
                     try{if(!lost)done=visual.draw(ms);const hits=visual.takeEvents?.();if(!skip&&!settled)sound.play(hits,volume);}catch(error){unavailable();return;}
                     if(done||ms>=1e6){if(settled){if(!lost){tags(visual,result);placePicks();}}else void reveal();}
-                    if(!settled)frame=requestAnimationFrame(draw);
+                    if(!settled)frame=requestFrame(draw);
                 }
             void start();
         });

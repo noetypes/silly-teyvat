@@ -231,9 +231,18 @@ var cancelFn = window.cancelAnimationFrame || getPrefixed('CancelAnimationFrame'
 // the browser doesn't have native support for
 // [`window.requestAnimationFrame`](https://developer.mozilla.org/docs/Web/API/window/requestAnimationFrame),
 // otherwise it's delayed. Returns a request ID that can be used to cancel the request.
+// Silly Teyvat: an optional frame scheduler (setFrameScheduler) can pace these frames,
+// for the extension's frame-rate cap. Without one, frames come from the browser as before.
+var frameScheduler = null;
+function setFrameScheduler(scheduler) {
+	frameScheduler = scheduler || null;
+}
+
 function requestAnimFrame(fn, context, immediate) {
 	if (immediate && requestFn === timeoutDefer) {
 		fn.call(context);
+	} else if (frameScheduler) {
+		return frameScheduler.request(bind(fn, context));
 	} else {
 		return requestFn.call(window, bind(fn, context));
 	}
@@ -243,7 +252,7 @@ function requestAnimFrame(fn, context, immediate) {
 // Cancels a previous `requestAnimFrame`. See also [window.cancelAnimationFrame](https://developer.mozilla.org/docs/Web/API/window/cancelAnimationFrame).
 function cancelAnimFrame(id) {
 	if (id) {
-		cancelFn.call(window, id);
+		if (frameScheduler) { frameScheduler.cancel(id); } else { cancelFn.call(window, id); }
 	}
 }
 
@@ -269,7 +278,8 @@ var Util = {
   requestFn: requestFn,
   cancelFn: cancelFn,
   requestAnimFrame: requestAnimFrame,
-  cancelAnimFrame: cancelAnimFrame
+  cancelAnimFrame: cancelAnimFrame,
+  setFrameScheduler: setFrameScheduler
 };
 
 // @class Class

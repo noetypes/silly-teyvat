@@ -1,3 +1,4 @@
+import {requestFrame,cancelFrame} from './frame-rate.js';
 // Attack animations shaped by each character's weapon type, as in Genshin Impact.
 // A character card moves the way its weapon fights, then the hit lands in that weapon's form:
 //   Sword     quick dash and a two-cut combo; Skill: a blur of a dash and a crossing X.
@@ -138,8 +139,8 @@ export function createWeaponFx({dialog,cards,centerOf,particles,sound,colors,spe
         const deg=Math.atan2(b.y-a.y,b.x-a.x),time=ms(kind==='arrow'?200:300),turn=`rotate(${deg.toFixed(3)}rad)`;
         const anim=node.animate([{transform:`translate(-50%,-50%) ${turn} scale(.7)`},{transform:`translate(calc(${(b.x-a.x).toFixed(1)}px - 50%),calc(${(b.y-a.y).toFixed(1)}px - 50%)) ${turn} scale(1.05)`}],{duration:time,easing:kind==='arrow'?'cubic-bezier(.3,0,.9,.7)':'cubic-bezier(.5,0,.9,.6)'});
         return new Promise(resolve=>{
-            let raf=0;const tick=()=>{const t=anim.effect?.getComputedTiming().progress;if(t!=null&&(kind!=='arrow'||element!=='Physical'))particles.trail(a.x+(b.x-a.x)*t,a.y+(b.y-a.y)*t,element);raf=requestAnimationFrame(tick);};raf=requestAnimationFrame(tick);
-            const done=()=>{cancelAnimationFrame(raf);node.remove();resolve();};anim.onfinish=done;setTimeout(done,time+80);
+            let raf=0;const tick=()=>{const t=anim.effect?.getComputedTiming().progress;if(t!=null&&(kind!=='arrow'||element!=='Physical'))particles.trail(a.x+(b.x-a.x)*t,a.y+(b.y-a.y)*t,element);raf=requestFrame(tick);};raf=requestFrame(tick);
+            const done=()=>{cancelFrame(raf);node.remove();resolve();};anim.onfinish=done;setTimeout(done,time+80);
         });
     }
     // ---- Hits: the weapon's mark on each target. ----

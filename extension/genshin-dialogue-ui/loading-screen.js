@@ -1,3 +1,4 @@
+import {requestFrame,cancelFrame} from './frame-rate.js';
 // A loading screen in the style of Genshin Impact's, shown over the stage while a chat opens or the
 // party travels, so half-loaded sprites and the previous place never show. The emblem is the
 // destination's region, the seven elements fill from left to right and a tip sits above them.
@@ -48,9 +49,9 @@ export function createLoadingScreen({random=Math.random,isReady=()=>true,onChang
         // Creep towards the last icon while work continues; sweep through the rest once it is done.
         progress+=(target-progress)*(target>=ELEMENTS.length?.16:.006);
         if(target-progress<.004)progress=target;
-        paint();frame=progress<target?requestAnimationFrame(step):0;
+        paint();frame=progress<target?requestFrame(step):0;
     }
-    const animate=()=>{cancelAnimationFrame(frame);frame=requestAnimationFrame(step);};
+    const animate=()=>{cancelFrame(frame);frame=requestFrame(step);};
     function setTip(){const [heading,body]=pickTip({location,random,last:lastTitle});lastTitle=heading;title.textContent=heading;text.textContent=body;}
     function rotateTip(){
         clearTimeout(swapTimer);tipBox.classList.add('gi-loading-swap');
@@ -75,7 +76,7 @@ export function createLoadingScreen({random=Math.random,isReady=()=>true,onChang
         root.classList.remove('gi-loading-out');root.classList.toggle('gi-loading-in',instant);root.style.transitionDuration=instant?'0s':'';
         root.hidden=false;document.body.classList.add('gi-loading-active');
         if(!instant){void root.offsetWidth;root.classList.add('gi-loading-in');}
-        requestAnimationFrame(()=>{root.style.transitionDuration='';});
+        requestFrame(()=>{root.style.transitionDuration='';});
         clearInterval(tipTimer);tipTimer=setInterval(rotateTip,TIP_INTERVAL);animate();
     }
     function finish(){
@@ -93,7 +94,7 @@ export function createLoadingScreen({random=Math.random,isReady=()=>true,onChang
                 leaving=true;root.classList.add('gi-loading-out');document.body.classList.remove('gi-loading-active');onChange();
                 fadeTimer=setTimeout(()=>{
                     if(token!==epoch||holds.size||!leaving)return;
-                    leaving=false;root.hidden=true;root.classList.remove('gi-loading-out','gi-loading-in');clearInterval(tipTimer);clearTimeout(swapTimer);tipBox.classList.remove('gi-loading-swap');cancelAnimationFrame(frame);frame=0;
+                    leaving=false;root.hidden=true;root.classList.remove('gi-loading-out','gi-loading-in');clearInterval(tipTimer);clearTimeout(swapTimer);tipBox.classList.remove('gi-loading-swap');cancelFrame(frame);frame=0;
                 },FADE_OUT);
             },Math.max(FILL_FINISH,MIN_VISIBLE-(performance.now()-shownAt)));
         };
@@ -113,7 +114,7 @@ export function createLoadingScreen({random=Math.random,isReady=()=>true,onChang
         update,
         // Drop every hold, e.g. when the extension is switched off.
         hide(){holds.clear();if(!root.hidden&&!leaving)finish();},
-        dispose(){epoch++;holds.clear();clearTimeout(settleTimer);clearTimeout(emblemTimer);clearTimeout(fadeTimer);clearTimeout(swapTimer);clearInterval(tipTimer);cancelAnimationFrame(frame);document.body.classList.remove('gi-loading-active');root.remove();},
+        dispose(){epoch++;holds.clear();clearTimeout(settleTimer);clearTimeout(emblemTimer);clearTimeout(fadeTimer);clearTimeout(swapTimer);clearInterval(tipTimer);cancelFrame(frame);document.body.classList.remove('gi-loading-active');root.remove();},
     };
     return api;
 }

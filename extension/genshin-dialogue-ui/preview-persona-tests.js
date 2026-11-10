@@ -32,7 +32,6 @@ export async function runPersonaWardrobeTests(){
         check('You badge and portrait file chooser are visible',getComputedStyle($('.gi-persona-badge')).display!=='none'&&getComputedStyle($('[data-persona="portrait"]')).display!=='none');
         check('the played card has exactly one shared entry',$(`.gi-roster button[data-avatar="Aether.png"]`)&&$('.gi-roster').children.length===3);
         check('persona profile loads native name, title, description and lorebook',$('[data-persona="name"]').value==='Aether'&&$('[data-persona="description"]').value==='Aether background'&&$('[data-persona="lorebook"]').value==='Genshin');
-        check('persona circular portrait uses official avatar art',$('.gi-roster button img').getAttribute('src').includes('/avatar-icons/aether'));
         check('persona profile cannot be changed into a hostile enemy',$('[data-prop="role"]').closest('label').hidden);
         $('.gi-roster button[data-avatar="Klee.png"]').click();await pause();
         check('AI card profile controls still work independently',$('.gi-persona-profile').hidden&&!$('[data-prop="role"]').closest('label').hidden);

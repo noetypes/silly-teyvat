@@ -2,6 +2,7 @@
 // its SillyTavern card (description, portrait, first message and so on). Changes are written to the
 // card file itself. Personas have their own profile (persona-wardrobe.js).
 import {baseName} from './card-name.js';
+import {cardShape} from './card-art.js';
 
 // [field, label, rows, data key where the V2 card's data block names it differently]
 export const CARD_FIELDS=[
@@ -96,6 +97,23 @@ export function mountCardProfile({panel,getContext,getCharacter,adapter=createCa
     const details=panel.querySelector('details'),name=field('name'),portrait=panel.querySelector('.gi-card-portrait img');
     let loaded='',token=0;
     const portraitUrl=card=>getContext().getThumbnailUrl?.('avatar',card.avatar) || `/characters/${encodeURIComponent(card.avatar)}`;
+    const portraitBox=panel.querySelector('.gi-card-portrait'),uploaded=new Map();let shown='';
+    // A portrait shaped like Genshin card art (or a TCG card) is shown whole as a card, as the character list,
+    // Persona Management and other card views do with Card art in SillyTavern on. SillyTavern's thumbnail is
+    // cropped to 2:3, so the full image is what tells the shape.
+    function paintPortrait(card,version=uploaded.get(card.avatar) || ''){
+        const thumb=portraitUrl(card),fullUrl=`/characters/${encodeURIComponent(card.avatar)}`,key=`${card.avatar}|${version}`;
+        if(shown===key)return;shown=key;
+        const withVersion=url=>version?`${url}${url.includes('?')?'&':'?'}v=${version}`:url;
+        portraitBox.classList.remove('gi-card-portrait-card','gi-card-portrait-tcg');portrait.src=withVersion(thumb);
+        if(!document.body.classList.contains('gi-card-art-on'))return;
+        const probe=new Image();probe.decoding='async';
+        probe.onload=()=>{
+            if(shown!==key)return;const shape=cardShape(probe.naturalWidth,probe.naturalHeight);if(!shape)return;
+            portrait.src=probe.src;portraitBox.classList.add('gi-card-portrait-card');portraitBox.classList.toggle('gi-card-portrait-tcg',shape==='tcg');
+        };
+        probe.src=withVersion(fullUrl);
+    }
     function paintDetails(card){for(const f of CARD_FIELDS)field(f[0]).value=cardField(card,f);loaded=card.avatar;}
     async function loadDetails(){
         const card=getCharacter();if(!card||card.isPersona)return;const mine=++token;
@@ -106,7 +124,7 @@ export function mountCardProfile({panel,getContext,getCharacter,adapter=createCa
     }
     function refresh(){
         const card=getCharacter();panel.hidden=!card||Boolean(card.isPersona);if(panel.hidden)return;
-        name.value=card.name;portrait.src=portraitUrl(card);
+        name.value=card.name;paintPortrait(card);
         if(loaded!==card.avatar){loaded='';for(const f of CARD_FIELDS)field(f[0]).value='';if(details.open)void loadDetails();}
     }
     on(details,'toggle',()=>{if(details.open&&loaded!==getCharacter()?.avatar)void loadDetails();});
@@ -132,7 +150,7 @@ export function mountCardProfile({panel,getContext,getCharacter,adapter=createCa
     });
     on(panel.querySelector('[data-card-portrait]'),'change',async event=>{
         const input=event.currentTarget,card=getCharacter(),file=input.files?.[0];if(!card||!file)return;input.disabled=true;
-        try{const fresh=await adapter.uploadPortrait(card,file);portrait.src=`${portraitUrl(fresh || card)}${portraitUrl(card).includes('?')?'&':'?'}v=${Date.now()}`;await onChange(fresh || card);status(`${card.name}'s portrait updated.`);}
+        try{const fresh=await adapter.uploadPortrait(card,file);uploaded.set(card.avatar,String(Date.now()));paintPortrait(fresh || card);await onChange(fresh || card);status(`${card.name}'s portrait updated.`);}
         catch(error){status(error.message);}
         finally{input.value='';input.disabled=false;}
     });

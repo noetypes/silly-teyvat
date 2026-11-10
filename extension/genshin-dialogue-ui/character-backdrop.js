@@ -1,3 +1,4 @@
+import {requestFrame,cancelFrame} from './frame-rate.js';
 // Character screen backdrop. The gradient and nebula layers are CSS (character-screen.css), so they
 // roll on the compositor; this paints the stars behind the sprite, the element's motes on both sides
 // of it, and the beams of light that greet a character. Each mote is a stamp drawn once to a small
@@ -179,7 +180,7 @@ export function mountCharacterBackdrop({sky,behind,front,stage}){
         frames=slowFrames=0;
     }
     function frame(now){
-        if(!running)return;raf=requestAnimationFrame(frame);
+        if(!running)return;raf=requestFrame(frame);
         const dt=Math.min(.05,(now-last)/1000 || 0);last=now;if(!width)return;paint(dt);watch(dt);
     }
     function resize(){
@@ -215,9 +216,9 @@ export function mountCharacterBackdrop({sky,behind,front,stage}){
         start(){
             void paintNebulae();resize();
             if(stillMotion()){if(width){for(const item of layers)item.veil=item.target;paint(0);}return;}
-            if(running)return;running=true;last=performance.now();raf=requestAnimationFrame(frame);
+            if(running)return;running=true;last=performance.now();raf=requestFrame(frame);
         },
-        stop(){running=false;beams=[];cancelAnimationFrame(raf);},
+        stop(){running=false;beams=[];cancelFrame(raf);},
         dispose(){this.stop();observer?.disconnect();for(const url of urls)URL.revokeObjectURL(url);urls.length=0;},
     };
 }

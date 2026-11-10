@@ -136,6 +136,14 @@ export async function runMediaTests() {
         const pick=host.querySelector('#gi-cg-gallery select');pick.value='Klee.png';pick.dispatchEvent(new Event('change'));
         check('the gallery filters by character with a discovered count',host.querySelectorAll('#gi-cg-gallery .gi-cg-gallery-grid button').length===1&&/Klee \(1 of 5\)/.test(pick.selectedOptions[0].textContent));
         host.querySelector('#gi-cg-gallery header button').click();check('the gallery closes',!host.querySelector('#gi-cg-gallery').open);
+        // Playing as a character: their CGs with someone else present are classified as that character's.
+        const asTartaglia={characters:[{name:'Tartaglia',avatar:'Tartaglia.png'},{name:'Teucer',avatar:'Teucer.png'}],userAvatar:'me.png',powerUserSettings:{personas:{'me.png':'Tartaglia'}},chatMetadata:{},
+            extensionSettings:{genshin_dialogue_ui:{cgEnabled:true,personaCharacters:{'me.png':'Tartaglia.png'},characterCGs:{'Tartaglia.png':[{id:'t-solo',label:'Training',path:artwork},{id:'t-teucer',label:'Toy shopping',path:artwork,requiredCharacters:['Teucer.png']}],'Teucer.png':[{id:'u-bday',label:'Birthday',path:artwork}]}}},
+            chat:[{name:'Teucer',original_avatar:'Teucer.png',mes:'Brother!'}],saveChat(){},saveSettingsDebounced(){},saveMetadataDebounced(){}};
+        const tartagliaScene=sceneCGs(asTartaglia,asTartaglia.chat[0]),credit=id=>tartagliaScene.owners.get(tartagliaScene.entries.find(e=>e.id===id));
+        check('a persona CG with another character present belongs to that character',credit('t-teucer')==='Teucer'&&credit('t-solo')==='Tartaglia'&&cgCategories(tartagliaScene.entries,tartagliaScene.owners).some(c=>c.label==='Teucer: Toy shopping'&&c.character==='Teucer'));
+        asTartaglia.chat[0].extra={silly_teyvat:{cgs:{0:{signature:'x',cg:{id:'t-teucer',label:'Toy shopping',path:artwork}}}}};
+        check('the gallery files that CG under the other character',discoveredCGs(asTartaglia)[0].avatar==='Teucer.png');
 
         // Trust gates only new scene selections, using each owner's level at this reply.
         media.dispose();media=undefined;

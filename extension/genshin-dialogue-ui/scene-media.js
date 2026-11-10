@@ -52,15 +52,25 @@ export function sceneCast(ctx,message) {
     const avatars = [speakerAvatar(ctx,message),...roster(ctx).map(card=>card.avatar),personaCard(ctx)?.avatar];
     return [...new Set(avatars.filter(avatar=>avatar && avatar!=='__user__'))];
 }
+// The characters a CG is credited to. The player's own CGs that need other characters present
+// (playing Tartaglia, a scene with Teucer) belong to those characters, so they are classified and
+// collected as theirs. Every other CG belongs to the character it is linked to.
+export function cgCredits(ctx,avatar,entry,persona=personaCard(ctx)) {
+    if (!persona?.avatar || avatar!==persona.avatar) return [avatar];
+    const others = list(entry.requiredCharacters).filter(x=>x!==avatar);
+    return others.length ? others : [avatar];
+}
 // The CGs of everyone in the scene that their conditions allow here, for one classification.
 export function sceneCGs(ctx,message) {
     const prefs = mediaSettings(ctx), cast = sceneCast(ctx,message), present = new Set(cast), location = travelState(ctx).location?.id || '';
     const persona = personaCard(ctx), entries = [], owners = new Map(), level = sceneTrustLevels(ctx,message);
+    const nameOf = avatar => ctx.characters?.find(card=>card.avatar===avatar)?.name || (persona?.avatar===avatar ? persona.name : '') || avatar.replace(/\.[a-z]+$/i,'');
     for (const avatar of cast) {
-        const name = ctx.characters?.find(card=>card.avatar===avatar)?.name || (persona?.avatar===avatar ? persona.name : '') || avatar.replace(/\.[a-z]+$/i,'');
         for (const entry of prefs.characterCGs[avatar] || []) {
-            if (!entry.path || entry.blank || !cgAllowed(entry,{present,location}) || !cgTrustAllowed(ctx,entry,level(avatar)) || owners.has(entry)) continue;
-            entries.push(entry); owners.set(entry,name);
+            if (!entry.path || entry.blank || !cgAllowed(entry,{present,location}) || owners.has(entry)) continue;
+            const credits = cgCredits(ctx,avatar,entry,persona);
+            if (!credits.every(who=>cgTrustAllowed(ctx,entry,level(who)))) continue;
+            entries.push(entry); owners.set(entry,credits.map(nameOf).join(' & '));
         }
     }
     return {entries,owners};
@@ -85,7 +95,8 @@ export function discoveredCGs(ctx) {
         for (const saved of Object.values(message?.extra?.silly_teyvat?.cgs || {})) {
             const cg = saved?.cg; if (!cg?.path) continue;
             const key = cg.id || cg.path, owner = live.find(x=>x.entry.id===cg.id);
-            if (!found.has(key)) found.set(key,{cg:owner?.entry || cg,avatar:owner?.avatar || '',messages:[]});
+            const avatar = owner ? cgCredits(ctx,owner.avatar,owner.entry)[0] : '';
+            if (!found.has(key)) found.set(key,{cg:owner?.entry || cg,avatar,messages:[]});
             if (!found.get(key).messages.includes(index)) found.get(key).messages.push(index);
         }
     });
@@ -285,7 +296,7 @@ export function mountSceneMedia({host,getContext,adapter=createMediaAdapter(getC
             const ctx=getContext(),prefs=mediaSettings(ctx),found=discoveredCGs(ctx),select=gallery.querySelector('select');
             const nameOf=avatar=>ctx.characters?.find(card=>card.avatar===avatar)?.name || (personaCard(ctx)?.avatar===avatar?personaCard(ctx).name:'') || 'Other scenes';
             const avatars=[...new Set(found.map(x=>x.avatar))].sort((a,b)=>nameOf(a).localeCompare(nameOf(b)));
-            const total=avatar=>(prefs.characterCGs[avatar] || []).filter(cg=>cg.path&&!cg.blank).length;
+            const total=avatar=>Object.entries(prefs.characterCGs).flatMap(([owner,entries])=>entries.filter(cg=>cg.path&&!cg.blank&&cgCredits(ctx,owner,cg)[0]===avatar)).length;
             const keep=select.value;
             select.replaceChildren(new Option(`All characters (${found.length})`,''),...avatars.map(avatar=>new Option(avatar?`${nameOf(avatar)} (${found.filter(x=>x.avatar===avatar).length} of ${total(avatar)})`:`Other scenes (${found.filter(x=>!x.avatar).length})`,avatar || '-')));
             select.value=[...select.options].some(o=>o.value===keep)?keep:'';
