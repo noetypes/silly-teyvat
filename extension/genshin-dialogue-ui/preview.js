@@ -5,7 +5,7 @@ const eventTypes = Object.fromEntries(['PERSONA_CHANGED','APP_READY', 'CHAT_CHAN
 const emit = (type,...args) => Promise.all((handlers.get(type) || []).map(fn => fn(...args)));
 const ctx = {
     userAvatar:'preview-traveler.png',
-    extensionSettings: { genshin_dialogue_ui: { enabled: true, composer: false, reducedMotion: false, textScale: 1, scrim: 0.8 } },
+    extensionSettings: { genshin_dialogue_ui: { enabled: true, composer: false, textScale: 1, scrim: 0.8 } },
     powerUserSettings: {personas:{'preview-traveler.png':'Traveler'},persona_descriptions:{'preview-traveler.png':{description:'A player-controlled Traveler in a disposable preview.',title:'The Traveler',position:0,depth:2,role:0}}},
     groups:[{id:'preview-group',members:['Klee.png','Nahida.png'],disabled_members:[]}],
     characters: [{name:'Klee',avatar:'Klee.png'},{name:'Nahida',avatar:'Nahida.png'}],

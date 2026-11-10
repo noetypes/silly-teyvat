@@ -321,9 +321,7 @@
 /* Reduced motion keeps the information and drops the movement */
 #gi-battle.gb-reduced *, #gi-battle.gb-reduced { animation-duration: 1ms !important; transition-duration: 1ms !important; }
 #gi-battle.gb-reduced .gb-float { animation: none !important; opacity: 1; }
-@media (prefers-reduced-motion: reduce) { #gi-battle *, #gi-battle { animation-duration: 1ms !important; transition-duration: 1ms !important; } }
 #gi-battle.gb-reduced .tb-card::before { display: none; }
-@media (prefers-reduced-motion: reduce) { #gi-battle .tb-card::before { display: none; } }
 
 /* Short landscape screens */
 @media (max-height: 560px) and (orientation: landscape) {

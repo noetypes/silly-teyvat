@@ -269,7 +269,7 @@ export async function runBattleTests(){
         screen.bag={'sweet-madame':2,'woven-flames':1,'adeptus-temptation':1};screen.hand=['sweet-madame','woven-flames','adeptus-temptation'];screen.active={party:'k',enemy:'h'};screen.first='party';
         for(const e of screen.units.filter(u=>u.side==='enemy'))planIntent(screen,e,()=>.1);
         const faces=['Pyro','Pyro','Pyro','Hydro','Omni','Geo','Cryo','Anemo'];let rolled=0;
-        const playing=ui.run(screen,{roll:async()=>{rolled++;return faces.map(face=>({face}));},reducedMotion:true,volume:0,player:{name:'Traveler',img:''}});
+        const playing=ui.run(screen,{roll:async()=>{rolled++;return faces.map(face=>({face}));},instant:true,volume:0,player:{name:'Traveler',img:''}});
         const dialog=host.querySelector('#gi-battle'),q=s=>dialog.querySelector(s),card=id=>q(`.tb-card[data-id="${id}"]`);
         const until=async(fn,ms=8000)=>{const end=performance.now()+ms;while(!fn()){if(performance.now()>end)return false;await new Promise(r=>setTimeout(r,20));}return true;};
         await until(()=>dialog.dataset.mode==='turn'&&dialog.dataset.turn==='party'&&!q('.tb-end').disabled);
@@ -302,7 +302,7 @@ export async function runBattleTests(){
         q('.tb-continue').click();await shown;check('Continue closes the board',!dialog.open);
         // A new fight opens with VS, the coin toss, the starting hand and a choice of character.
         const fresh=structuredClone(screen);fresh.fresh=true;fresh.hand=[];fresh.active={party:null,enemy:null};fresh.bag={'sweet-madame':3,'hash-brown':2,'lotus-crisp':1,'toss-up':1,'fried-egg':1};
-        const opening=ui.run(fresh,{roll:async()=>null,reducedMotion:true,volume:0});
+        const opening=ui.run(fresh,{roll:async()=>null,instant:true,volume:0});
         await until(()=>q('.tb-intro-hand'),8000);
         check('a new fight deals a starting hand of five',dialog.querySelectorAll('.tb-start-card').length===5&&/Starting Hand/.test(q('.tb-intro').textContent));
         q('.tb-start-card').click();check('cards can be marked to switch',q('.tb-start-card').getAttribute('aria-pressed')==='true');

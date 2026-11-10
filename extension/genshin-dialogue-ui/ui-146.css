@@ -22,8 +22,6 @@
    Open SillyTavern panels keep their place above it. */
 body.gi-loading-active :is(#gi-launcher,#gi-toolbar,#gi-minimap,.gi-region-banner,#gi-choices,#gi-cg-window){visibility:hidden !important}
 body.gi-loading-active #top-settings-holder>.drawer>.drawer-toggle,body.gi-loading-active #top-bar{visibility:hidden}
-@media (prefers-reduced-motion:reduce){#gi-loading,#gi-loading .gi-loading-tip,#gi-loading .gi-loading-emblem{transition:none}}
-body.gi-reduced-motion #gi-loading,body.gi-reduced-motion #gi-loading .gi-loading-tip{transition-duration:.01s}
 /* Phone keyboard open (keyboard-frame.js): the scene layers keep their pre-keyboard height, anchored
    to the bottom, so the background, sprites and CG rise together with the dialogue and reply box. */
 body.gi-keyboard :is(#gi-background-stage,#gi-sprite-stage,#gi-cg-stage,#gi-letterbox){top:auto !important;bottom:0 !important;height:var(--gi-scene-height,100%) !important}

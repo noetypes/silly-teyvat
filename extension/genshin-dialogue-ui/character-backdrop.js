@@ -6,7 +6,6 @@ import {requestFrame,cancelFrame} from './frame-rate.js';
 const TAU=Math.PI*2,rand=(a,b)=>a+Math.random()*(b-a),pick=list=>list[Math.floor(Math.random()*list.length)];
 const STAMP=128,REFERENCE_AREA=1440*900,MAX_DPR=1.5;
 const STAR_COLORS=['#ffffff','#ffd9ec','#ff9ec4','#ffb98a','#9fd8ff','#ffe8a8','#c9b5ff'];
-const stillMotion=()=>document.body.classList.contains('gi-reduced-motion')||Boolean(globalThis.matchMedia?.('(prefers-reduced-motion: reduce)').matches);
 
 function halo(ctx,color,reach,strength){
     // Fade to the same colour at no opacity: fading to transparent black leaves a dark fringe.
@@ -203,19 +202,16 @@ export function mountCharacterBackdrop({sky,behind,front,stage}){
         setElement(element){
             element=ELEMENTS[element]?element:'None';if(element===current)return;current=element;
             for(const item of layers)item.target=0;
-            const next=layer(element),still=stillMotion();
-            if(still){layers.length=0;next.veil=1;}
-            layers.push(next);if(still&&width)paint(0);
+            layers.push(layer(element));
         },
         // Light the beams over the stage, as a character takes their place.
         arrive(){
-            if(!running||!height||stillMotion())return;
+            if(!running||!height)return;
             const box=(stage||sky).getBoundingClientRect(),origin=sky.getBoundingClientRect();
             beamX=box.left+box.width/2-origin.left;beams=createBeams(height).map(beam=>({...beam,age:0}));
         },
         start(){
             void paintNebulae();resize();
-            if(stillMotion()){if(width){for(const item of layers)item.veil=item.target;paint(0);}return;}
             if(running)return;running=true;last=performance.now();raf=requestFrame(frame);
         },
         stop(){running=false;beams=[];cancelFrame(raf);},

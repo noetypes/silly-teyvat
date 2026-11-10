@@ -68,7 +68,6 @@
 .gi-trust-toast i { width: 20px; aspect-ratio: 1; background: #e77f9b; -webkit-mask: var(--gi-heart-mask) center / contain no-repeat; mask: var(--gi-heart-mask) center / contain no-repeat; }
 .gi-trust-down i { background: #7f8aa3; }
 @keyframes gi-trust-toast { 0% { opacity: 0; transform: translateY(-10px) scale(.94); } 8%, 86% { opacity: 1; transform: none; } 100% { opacity: 0; transform: translateY(-6px); } }
-body.gi-reduced-motion .gi-trust-toast { animation-name: ty-fade; }
 #gi-toolbar .gi-pm-grid button[data-gi-action="trust"] svg { fill: currentColor; }
 /* Gift, in the Inventory's detail panel. */
 .gi-inv-d-gift { position: sticky; bottom: 0; z-index: 1; display: grid; gap: 10px; padding: 12px 22px; background: #fdf3d6; box-shadow: inset 0 1px 0 #d3bc8e66; }

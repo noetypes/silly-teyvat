@@ -118,7 +118,7 @@ export async function runActionCardTests(){
         ui=mountBattle({host,sound:new Proxy({},{get:()=>()=>{}})});
         const screen=snap();screen.units[0].energy=0;screen.bag={'magic-guide':1,'paimon-companion':1,'oz':1,'strategize':1};screen.hand=['magic-guide','paimon-companion','oz','strategize'];screen.first='party';
         for(const e of screen.units.filter(u=>u.side==='enemy'))planIntent(screen,e,()=>.1);
-        const playing=ui.run(screen,{roll:async()=>omni(8),reducedMotion:true,volume:0,player:{name:'Traveler',img:''}});
+        const playing=ui.run(screen,{roll:async()=>omni(8),instant:true,volume:0,player:{name:'Traveler',img:''}});
         const dialog=host.querySelector('#gi-battle'),q=s=>dialog.querySelector(s),card=id=>q(`.tb-card[data-id="${id}"]`);
         const until=async(fn,ms=8000)=>{const end=performance.now()+ms;while(!fn()){if(performance.now()>end)return false;await new Promise(res=>setTimeout(res,20));}return true;};
         await until(()=>dialog.dataset.mode==='turn'&&dialog.dataset.turn==='party'&&!q('.tb-end').disabled);
@@ -126,7 +126,12 @@ export async function runActionCardTests(){
         check('a Weapon offers only members who wield it',card('k').classList.contains('tb-choosable')&&!card('x').classList.contains('tb-choosable')&&/Weapon card/.test(q('.tb-detail').textContent));
         q('.tb-go').click();await until(()=>card('k').querySelector('.tb-st-equip')&&dialog.dataset.mode==='turn');
         check('equipment shows on the character as its card',card('k').querySelector('.tb-st-equip img')?.src.includes('magic-guide'));
-        q('.tb-hand [data-item="paimon-companion"]').click();q('.tb-go').click();await until(()=>q('.tb-support')&&dialog.dataset.mode==='turn');
+        // Tapping the held card again plays it (as a double-click does): it leaves the hand as it flies.
+        const playedBefore=q('.tb-played').children.length;
+        q('.tb-hand [data-item="paimon-companion"]').click();q('.tb-hand [data-item="paimon-companion"]').click();
+        check('a played card leaves your hand at once and lands among the played cards after its flight',!q('.tb-hand [data-item="paimon-companion"]')&&q('.tb-played').children.length===playedBefore);
+        await until(()=>q('.tb-support')&&dialog.dataset.mode==='turn');
+        check('and then joins the played cards',q('.tb-played').children.length===playedBefore+1);
         check('a support takes a tile in your zone with its usages',q('.tb-summons-you .tb-support .tb-summon-rounds')?.textContent==='2');
         q('.tb-hand [data-item="oz"]').click();q('.tb-go').click();await until(()=>q('.tb-summons-you [data-summon="items:Oz"]')&&dialog.dataset.mode==='turn');
         check('a summon card puts its summon on the board',Boolean(q('.tb-summons-you [data-summon="items:Oz"].tb-summon-card')));

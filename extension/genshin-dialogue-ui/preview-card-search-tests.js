@@ -11,7 +11,7 @@ function world(){
     const place=(id,label,extra={})=>({id,label,path:`/${id}.webp`,waypoint:{mapId:'teyvat',x:id.length*10,y:0},residents:[],...extra});
     return {characterId:0,chatId:'search',characters:[],groups:[],chat:[],
         chatMetadata:{silly_teyvat_world:{regionId:'m',location:{id:'guild'}}},
-        extensionSettings:{genshin_dialogue_ui:{reducedMotion:true,backgroundRegions:[{id:'m',name:'Mondstadt',locations:[
+        extensionSettings:{genshin_dialogue_ui:{backgroundRegions:[{id:'m',name:'Mondstadt',locations:[
             place('guild',"Adventurers' Guild, Mondstadt"),place('town','Town Square',{cardPool:['sweet-madame','fried-egg']}),
             place('woods','Whispering Woods',{wilderness:true,cardPool:['sweet-madame','starsigns']}),
             place('cliffs','Cliffs',{wilderness:true,cardPool:['fried-egg','starsigns']}),
@@ -25,10 +25,10 @@ function fight(card){
     const unit=(name,role,element='None')=>({name,avatar:`${name}.png`,data:{extensions:{silly_teyvat:{role,playable:role==='character',element,maxHp:20}}}});
     const ctx={characterId:0,groupId:'g',chatId:'search-fight',characters:[unit('Klee','character','Pyro'),unit('Slime','enemy')],groups:[{id:'g',members:['Klee.png','Slime.png'],disabled_members:[]}],chat:[{name:'Slime',mes:'“Blub!”',is_user:false}],
         chatMetadata:{silly_teyvat_world:{location:{id:'wild'}},silly_teyvat_cast:{core:['Klee.png'],managed:['Slime.png'],placements:{},encounter:{key:'search-fight',locationId:'wild',enemies:['Slime.png'],present:[],travellers:['Klee.png']}}},
-        extensionSettings:{genshin_dialogue_ui:{reducedMotion:true,enemyStrikeBack:false,characterProperties:{},backgroundRegions:[{id:'r',name:'Mondstadt',locations:[{id:'wild',label:'Woods',wilderness:true,cardPool:[card]}]}]}},
+        extensionSettings:{genshin_dialogue_ui:{enemyStrikeBack:false,characterProperties:{},backgroundRegions:[{id:'r',name:'Mondstadt',locations:[{id:'wild',label:'Woods',wilderness:true,cardPool:[card]}]}]}},
         extensionPrompts:{},saveChat:async()=>{},saveSettingsDebounced(){},saveMetadataDebounced(){},getThumbnailUrl:()=>'',setExtensionPrompt(){}};
     const said=[],changes=[];
-    const ui=mountCombat({host,getContext:()=>ctx,announce:text=>said.push(text),onChange:event=>changes.push(event),adapter:{async append(c,record){c.chat.push({name:'Narrator',mes:record.text,is_user:false,extra:{type:'narrator',silly_teyvat_combat:record.event}});},async react(){}},diceAdapter:{async roll(){return true;},dispose(){}},battleAdapter:autoBattle({choose:round=>autoAction(round)})});
+    const ui=mountCombat({instant:true,host,getContext:()=>ctx,announce:text=>said.push(text),onChange:event=>changes.push(event),adapter:{async append(c,record){c.chat.push({name:'Narrator',mes:record.text,is_user:false,extra:{type:'narrator',silly_teyvat_combat:record.event}});},async react(){}},diceAdapter:{async roll(){return true;},dispose(){}},battleAdapter:autoBattle({choose:round=>autoAction(round)})});
     const sync=()=>ui.sync({on:true,id:ctx.chat.length-1});sync();
     return {ctx,said,changes,
         async win(){const entry=combatState(ctx).visits['search-fight'].enemies['Slime.png'],loot=[];entry.hp=1;for(let i=0;i<60&&!entry.defeated;i++){const event=await ui.attack('Slime.png',{react:false});loot.push(...(event?.loot || []));sync();}return loot;},

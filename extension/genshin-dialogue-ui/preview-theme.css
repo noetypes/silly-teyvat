@@ -337,11 +337,3 @@ body:not(.gi-scene) :is(#qr--bar .qr--button, .last_mes .suggested_reply):hover 
         padding-inline: 17px;
     }
 }
-
-@media (prefers-reduced-motion: reduce) {
-    #top-settings-holder > .drawer > .drawer-icon,
-    #right-nav-panel .character_select,
-    :is(.drawer-content, .popup, #options) .menu_button {
-        transition: none;
-    }
-}

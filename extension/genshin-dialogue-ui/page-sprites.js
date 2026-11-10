@@ -174,8 +174,21 @@ export function mountPageSprites({ host, getContext, adapter = createNativeSprit
     const enemyOf = sprite => enemySceneAvatar(getContext(), sprite);
     const enemyImage = avatar => [...stage.children].find(image => image.tagName === 'IMG' && image.dataset.leaving !== 'true' && enemyOf({ avatar: image.dataset.avatar, folder: image.dataset.folder }) === avatar);
     const actorImage = avatar => enemyImage(avatar) || [...stage.children].find(image => image.tagName === 'IMG' && image.dataset.leaving !== 'true' && image.dataset.avatar === avatar);
-    const stillMotion = () => document.body.classList.contains('gi-reduced-motion') || Boolean(globalThis.matchMedia?.('(prefers-reduced-motion: reduce)').matches);
-    function animate(image, cls, done = () => image.classList.remove(cls)) {
+    // Breathing and talking (staging.css) share one clock for every sprite, offset per character, so a
+    // new expression, a reshuffled stage or a finished entrance picks the motion up where it was.
+    const MOTIONS = new Set(['gi-sprite-breathe', 'gi-speak-bob', 'gi-speak-sway']);
+    const motionSeed = avatar => { let h = 2166136261; for (const c of avatar || '') h = Math.imul(h ^ c.charCodeAt(0), 16777619) >>> 0; return h; };
+    function syncMotion(image) {
+        if (!image?.isConnected) return;
+        const seed = motionSeed(image.dataset.avatar);
+        for (const animation of image.getAnimations?.() || []) {
+            if (!MOTIONS.has(animation.animationName)) continue;
+            const start = animation.animationName === 'gi-sprite-breathe' ? -(seed % 6000) : 0;
+            if (animation.startTime !== start) animation.startTime = start;
+        }
+    }
+    stage.addEventListener('animationstart', event => { if (MOTIONS.has(event.animationName)) syncMotion(event.target); });
+    function animate(image, cls, done = () => { image.classList.remove(cls); syncMotion(image); }) {
         image.classList.remove(cls); void image.offsetWidth; image.classList.add(cls);
         let timer = 0;
         const end = event => { if (event && event.target !== image) return; clearTimeout(timer); image.removeEventListener('animationend', end); done(); };
@@ -327,6 +340,8 @@ export function mountPageSprites({ host, getContext, adapter = createNativeSprit
             if(prior&&image!==prior){
                 // A new expression takes over the old one's place and look, then eases to its own.
                 swaps.set(image,prior);image.style.cssText=prior.style.cssText;image.dataset.layout=prior.dataset.layout || '';
+                // (its motion too: the same focus keeps the breath and the talking going without a break)
+                for(const key of ['focus','shake'])if(prior.dataset[key])image.dataset[key]=prior.dataset[key];
                 if(prior.dataset.trim)image.dataset.trim=prior.dataset.trim;
             }
             const trimEnabled=trimmer&&getContext().extensionSettings.genshin_dialogue_ui?.trimSprites!==false;
@@ -362,6 +377,8 @@ export function mountPageSprites({ host, getContext, adapter = createNativeSprit
                 // Listeners are darkened rather than faded, so the background never shows through them.
                 image.style.filter=[base,`brightness(${look.dim})`,look.shadow].filter(Boolean).join(' ');
                 image.dataset.focus=String(look.focus);image.dataset.shake=String(look.shake);
+                // Each character's own breathing pace, from 4.6 to 6 seconds.
+                image.style.setProperty('--gi-breath',`${(4.6+motionSeed(sprite.avatar || '')%1400/1000).toFixed(2)}s`);
             };
             if(swaps.has(image))image.giApply=apply;else apply();
         }
@@ -374,17 +391,16 @@ export function mountPageSprites({ host, getContext, adapter = createNativeSprit
             // Moving a node that is already in place restarts its animations and styles, so only a changed order is applied.
             const order=[...nextImages,...[...stage.children].filter(image=>image.dataset.leaving==='true'&&!nextImages.includes(image))];
             if(order.length!==stage.children.length||order.some((image,i)=>stage.children[i]!==image))for(const image of order)stage.append(image);
-            const motion=!stillMotion();
             for(const image of live)if(!nextImages.includes(image)){
                 // A new expression replaces the old node at once (see above) and eases from its
                 // look to its own. A character leaving the stage fades away behind the scene.
-                if(!motion||[...swaps.values()].includes(image)){image.remove();continue;}
+                if([...swaps.values()].includes(image)){image.remove();continue;}
                 image.dataset.leaving='true';stage.append(image);
                 animate(image,'gi-sprite-exit',()=>image.remove());
             }
             arrange(nextImages,scene,fresh);
-            if(swaps.size){void stage.offsetWidth;requestAnimationFrame(()=>{for(const image of swaps.keys()){image.giApply?.();delete image.giApply;}});}
-            if(!motion)return;
+            for(const image of nextImages)syncMotion(image);
+            if(swaps.size){void stage.offsetWidth;requestAnimationFrame(()=>{for(const image of swaps.keys()){image.giApply?.();delete image.giApply;syncMotion(image);}});}
             for(const image of fresh){
                 // An enemy that was not on the previous stage makes an entrance; others step in.
                 const enemy=enemyOf({avatar:image.dataset.avatar,folder:image.dataset.folder});
@@ -647,16 +663,16 @@ export function mountPageSprites({ host, getContext, adapter = createNativeSprit
         // After a round that hurt it: the enemy's sprite flinches.
         hit(avatar) {
             const image = enemyImage(avatar);
-            if (image && !stillMotion()) animate(image, 'gi-enemy-hit');
+            if (image) animate(image, 'gi-enemy-hit');
         },
         // A party member hurt in the round shakes; one who was healed glows and sparkles.
         hurt(avatar) {
             const image = actorImage(avatar);
-            if (image && !stillMotion()) animate(image, 'gi-sprite-hurt');
+            if (image) animate(image, 'gi-sprite-hurt');
         },
         heal(avatar) {
             const image = actorImage(avatar);
-            if (!image || stillMotion()) return;
+            if (!image) return;
             animate(image, 'gi-sprite-heal');
             const glow = document.createElement('div'); glow.className = 'gi-heal-fx'; glow.setAttribute('aria-hidden', 'true');
             const r = image.getBoundingClientRect(), s = stage.getBoundingClientRect();
@@ -673,7 +689,7 @@ export function mountPageSprites({ host, getContext, adapter = createNativeSprit
             const image = enemyImage(avatar);
             if (!image) return;
             image.dataset.leaving = 'true';
-            if (stillMotion()) image.remove(); else animate(image, 'gi-enemy-defeat', () => image.remove());
+            animate(image, 'gi-enemy-defeat', () => image.remove());
         },
         reset() { epoch++;drawVersion++;initialPreparation=null;fallen.clear(); selection = displayed = ''; pending.clear(); speechSeeds.clear(); selectedPage = undefined; lastScene = []; lastDraw = null; stageAt = -1; adapter.reset?.(); stage.replaceChildren(); document.body.classList.remove('gi-sprite-replay', 'gi-sprite-crowd'); },
         dispose() { unmounted=true; this.reset(); trimmer?.reset?.(); removeEventListener('resize', onResize); globalThis.visualViewport?.removeEventListener('resize', onResize); cancelAnimationFrame(resizeFrame); stage.remove(); },

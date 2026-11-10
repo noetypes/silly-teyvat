@@ -12,7 +12,7 @@ assert.deepEqual(run.entries.map(e=>e.name).sort(),Object.entries(properties).fi
 fs.mkdirSync(output,{recursive:true});
 const browser=await chromium.launch({headless:true,executablePath:'/Applications/Google Chrome.app/Contents/MacOS/Google Chrome'});
 try{
-    const page=await browser.newPage({viewport:{width:1440,height:900},reducedMotion:'reduce'});
+    const page=await browser.newPage({viewport:{width:1440,height:900}});
     await page.route('**/__head-icon-sprite/*',async route=>{
         const entry=run.entries[Number(new URL(route.request().url()).pathname.split('/').at(-1))];
         await route.fulfill({contentType:'image/webp',body:fs.readFileSync(entry.source)});
@@ -21,7 +21,7 @@ try{
     await page.goto(base+'/preview.html');
     await page.waitForFunction(()=>document.body.classList.contains('gi-enabled'));
     const checks=await page.evaluate(async entries=>{
-        (await import('./index.js')).dispose();document.body.classList.add('gi-enabled','gi-scene','gi-reduced-motion');
+        (await import('./index.js')).dispose();document.body.classList.add('gi-enabled','gi-scene');
         const {circularCharacterAvatar,characterAvatarsReady}=await import('./character-avatars.js');
         const {characterIcon,iconsReady}=await import('./battle-icons.js');
         const {badgeMarkup}=await import('./waypoint-badges.js');

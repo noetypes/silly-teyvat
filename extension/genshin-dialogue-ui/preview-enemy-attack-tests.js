@@ -20,7 +20,7 @@ export async function runEnemyAttackTests(){
             groups:[{id:'g',members:solo?['Slime.png']:['Klee.png','Slime.png'],disabled_members:[]}],
             chat:[{name:'Slime',mes:'“Grr.”',is_user:false,original_avatar:'Slime.png'}],
             chatMetadata:{silly_teyvat_world:{regionId:'wild-region',location:place('wild','Wilds',0,0,{wilderness:true})},silly_teyvat_cast:{core:['Klee.png'],managed:['Slime.png'],placements:{},encounter:{key:'visit-a',locationId:'wild',present:[],travellers:['Klee.png'],enemies:['Slime.png']}}},
-            extensionSettings:{genshin_dialogue_ui:{combatDamageMin:1,combatDamageMax:1,enemyDamageMin:2,enemyDamageMax:2,enemyDice:4,userMaxHp,reducedMotion:true,backgroundRegions:[
+            extensionSettings:{genshin_dialogue_ui:{combatDamageMin:1,combatDamageMax:1,enemyDamageMin:2,enemyDamageMax:2,enemyDice:4,userMaxHp,backgroundRegions:[
                 {id:'wild-region',name:'Wilds',locations:[place('wild','Wilds',0,0,{wilderness:true})]},
                 {id:'far',name:'Far',locations:[place('guild-far',"Adventurers' Guild, Far Harbor",5000,5000)]},
                 {id:'near',name:'Near',locations:[place('guild-near',"Adventurers' Guild, Nearby City",300,200),place('shop','Shop',10,10)]}]}},
@@ -30,7 +30,7 @@ export async function runEnemyAttackTests(){
     function mount(ctx,{defeats=[]}={}){
         const rolls=[],messages=[];
         const adapter={async append(c,record){messages.push(record);c.chat.push({name:record.name||'Narrator',mes:record.text,is_user:false,extra:{type:'narrator',silly_teyvat_combat:record.event}});},async react(){},async finishSend(){},async defeat(c){const r=resolveDefeat(c);defeats.push(r);return r;}};
-        const plans=[];const instance=mountCombat({host,getContext:()=>ctx,adapter,diceAdapter:{async roll(roll,options){rolls.push({roll,options});return true;},cancel(){},dispose(){}},battleAdapter:autoBattle({log:plans})});
+        const plans=[];const instance=mountCombat({instant:true,host,getContext:()=>ctx,adapter,diceAdapter:{async roll(roll,options){rolls.push({roll,options});return true;},cancel(){},dispose(){}},battleAdapter:autoBattle({log:plans})});
         instance.sync({on:true,id:ctx.chat.length-1});ui=instance;return {ui:instance,rolls,messages,defeats,plans};
     }
     try{

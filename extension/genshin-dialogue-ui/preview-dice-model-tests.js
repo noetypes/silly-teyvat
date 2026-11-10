@@ -8,7 +8,7 @@ export async function runDiceModelTests(){
     const roll={allies:Array(6).fill('Demo'),dice:faces.map((face,i)=>({face,match:i%2===0,damage:2})),damage:8,hpAfter:22};const original=JSON.stringify(roll);
     const heading=()=>({loading:'Loading dice…',rolling:'Roll phase',revealed:'Elements revealed'})[root.querySelector('#gi-elemental-roll')?.dataset.phase];const click=()=>root.querySelector('#gi-elemental-roll button').click();
     try{
-        ui=mountElementalDice({host:root});const pending=ui.roll(roll,{reducedMotion:true});
+        ui=mountElementalDice({host:root});const pending=ui.roll(roll,{instant:true});
         await waitFor(()=>heading()==='Elements revealed');
         const canvas=root.querySelector('canvas');check('supplied glTF loaded rather than original reconstruction',canvas.dataset.model==='supplied-gltf');
         check('real supplied mesh has 43,312 triangles',canvas.dataset.triangles==='43312');check('dice roll is driven by the rigid-body simulation',canvas.dataset.physics==='rigid');
@@ -27,8 +27,8 @@ export async function runDiceModelTests(){
         ui=mountElementalDice({host:root,stageFactory:async()=>{throw Error('Simulated unavailable WebGL');}});const fallback=ui.roll(roll);await waitFor(()=>heading()==='Elements revealed');check('unavailable WebGL keeps exact text result usable',root.querySelector('canvas').hidden&&root.querySelectorAll('.gi-dice-results li').length===8);click();check('fallback commits same result without rerolling',await fallback===true&&JSON.stringify(roll)===original);ui.dispose();
         let current=true;ui=mountElementalDice({host:root,stageFactory:async()=>fake});const stale=ui.roll(roll,{isCurrent:()=>current});current=false;check('chat switch during model readiness discards roll',await stale===false);ui.dispose();
         ui=mountElementalDice({host:root,stageFactory:async()=>fake});check('already stale result never opens dialog',await ui.roll(roll,{isCurrent:()=>false})===false&&!root.querySelector('dialog').open);ui.dispose();
-        ui=mountElementalDice({host:root,stageFactory:async()=>({...fake,draw(){throw Error('Simulated rendering failure');}})});const renderFailure=ui.roll(roll,{reducedMotion:true});await waitFor(()=>heading()==='Elements revealed');check('rendering failure leaves result accessible',root.querySelector('canvas').hidden);click();check('rendering failure cannot alter combat outcome',await renderFailure===true&&JSON.stringify(roll)===original);ui.dispose();
-        current=true;ui=mountElementalDice({host:root,stageFactory:async()=>fake});const changed=ui.roll(roll,{reducedMotion:true,isCurrent:()=>current});await waitFor(()=>heading()==='Elements revealed');current=false;click();check('Continue after chat switch cannot commit old result',await changed===false);ui.dispose();
+        ui=mountElementalDice({host:root,stageFactory:async()=>({...fake,draw(){throw Error('Simulated rendering failure');}})});const renderFailure=ui.roll(roll,{instant:true});await waitFor(()=>heading()==='Elements revealed');check('rendering failure leaves result accessible',root.querySelector('canvas').hidden);click();check('rendering failure cannot alter combat outcome',await renderFailure===true&&JSON.stringify(roll)===original);ui.dispose();
+        current=true;ui=mountElementalDice({host:root,stageFactory:async()=>fake});const changed=ui.roll(roll,{instant:true,isCurrent:()=>current});await waitFor(()=>heading()==='Elements revealed');current=false;click();check('Continue after chat switch cannot commit old result',await changed===false);ui.dispose();
         // Reroll Phase: logic keeps the unchosen dice and allows one reroll.
         {const state={units:[{id:'Klee.png',side:'party',element:'Pyro',hp:10}]};
         const base={kind:'fuel',allies:['Klee.png'],dice:[{face:'Pyro',match:true},{face:'Hydro',match:false},{face:'Geo',match:false}],rerolls:0};
@@ -39,7 +39,7 @@ export async function runDiceModelTests(){
         {let calls=0,rerolled;const stage={prepare(){},draw(){return true;},positions(){return roll.dice.map((d,index)=>({index,x:40+index*30,y:50,size:12}));},reroll(dice,indices){rerolled=indices;},dispose(){}};
         ui=mountElementalDice({host:root,stageFactory:async()=>stage});
         const next={...roll,dice:roll.dice.map(d=>({...d,match:true,damage:2})),damage:16,hpAfter:14,rerolls:1};
-        const pending=ui.roll(roll,{reducedMotion:true,reroll:indices=>{calls++;return {...next,rerolled:indices};}});await waitFor(()=>heading()==='Elements revealed');
+        const pending=ui.roll(roll,{instant:true,reroll:indices=>{calls++;return {...next,rerolled:indices};}});await waitFor(()=>heading()==='Elements revealed');
         const picks=[...root.querySelectorAll('.gi-die-pick')],again=root.querySelector('.gi-roll-reroll');
         check('reroll offers every die with the unmatched ones preselected',picks.length===8&&picks.filter(p=>p.getAttribute('aria-pressed')==='true').length===4&&!again.hidden&&again.textContent.includes('4'));
         picks[1].click();check('tapping a die changes the reroll choice',picks[1].getAttribute('aria-pressed')==='false'&&again.textContent.includes('3'));

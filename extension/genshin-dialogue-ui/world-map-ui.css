@@ -419,9 +419,3 @@ dialog#gi-world-map#gi-world-map[open][data-enter="minimap"] { animation: gi-map
 @media (min-width: 601px) and (min-height: 551px) {
     #gi-world-map[data-panel="open"] .gi-map-legal { left: calc(var(--gi-safe-l) + var(--gi-panel-w) + 22px); }
 }
-
-/* ---------- Reduced motion ---------- */
-@media (prefers-reduced-motion: reduce) {
-    :is(#gi-world-map, #gi-world-map *, #gi-minimap, #gi-minimap *, .gi-region-banner, .gi-region-banner *) { animation-duration: 1ms !important; animation-iteration-count: 1 !important; transition-duration: 1ms !important; }
-}
-body.gi-reduced-motion :is(#gi-world-map, #gi-world-map *, #gi-minimap, #gi-minimap *, .gi-region-banner, .gi-region-banner *) { animation-duration: 1ms !important; animation-iteration-count: 1 !important; transition-duration: 1ms !important; }

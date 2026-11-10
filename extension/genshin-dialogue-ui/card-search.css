@@ -111,14 +111,11 @@
     .gi-cs-actions { width: 100%; } .gi-cs-actions button { flex: 1 1 0; min-width: 0; height: 40px; padding: 0 4px; font-size: 13px; white-space: nowrap; }
     .gi-cs-actions .gi-cs-clear { flex: .6 1 0; }
 }
-@media (prefers-reduced-motion: reduce) { #gi-card-search[open] { animation: none; } }
 
 /* The Quest marker: the game's blue world-quest diamond, beside the waypoint at every zoom, bobbing gently. */
 .gi-waypoint-quest { position: absolute; left: 20px; top: -4px; z-index: 3; display: block; width: 16px; pointer-events: none; filter: drop-shadow(0 0 4px #4fc3ffcc) drop-shadow(0 1px 2px #000a); animation: gi-quest-bob 1.8s ease-in-out infinite; }
 #gi-world-map .gi-waypoint-quest img, .gi-waypoint-quest img { display: block; width: 100% !important; height: auto !important; }
 @keyframes gi-quest-bob { 50% { translate: 0 -2px; } }
-body.gi-reduced-motion .gi-waypoint-quest { animation: none; }
-@media (prefers-reduced-motion: reduce) { .gi-waypoint-quest { animation: none; } }
 #gi-world-map .gi-map-waypoint-list .gi-map-list-badges .gi-waypoint-quest { position: static; width: 14px; animation: none; filter: drop-shadow(0 0 3px #4fc3ffaa); }
 #gi-world-map .gi-map-waypoint-list button[data-quest="true"] { box-shadow: inset 3px 0 0 #4fc3ff; }
 #gi-world-map .gi-map-quest h4 { display: flex; align-items: center; gap: 6px; }

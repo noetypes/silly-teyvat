@@ -268,11 +268,6 @@ body.gi-enabled dialog.popup[open] { animation: ty-popup 260ms var(--ty-ease) bo
 @keyframes ty-popup { from { opacity: 0; scale: .96; } to { opacity: 1; scale: 1; } }
 :is(#gi-world-map, dialog[id^="gi-"]:not(#gi-elemental-roll):not(#gi-wardrobe))[open] { animation: ty-popup 300ms var(--ty-ease) both; }
 
-/* ---------- Reduced motion ---------- */
-@media (prefers-reduced-motion: reduce) {
-    #gi-root *, #gi-root *::before, #gi-root *::after, #gi-wardrobe *, #gi-elemental-roll *, #gi-elemental-roll::before { animation-duration: 1ms !important; animation-iteration-count: 1 !important; transition-duration: 1ms !important; }
-}
-body.gi-reduced-motion :is(#gi-toolbar, #gi-toolbar > *, #gi-menu-scrim, .gi-enemy-health, .gi-damage-pop, #chat .mes_block, #gi-wardrobe, #gi-wardrobe *, #gi-elemental-roll, #gi-elemental-roll *, #gi-elemental-roll::before) { animation-duration: 1ms !important; animation-iteration-count: 1 !important; transition-duration: 1ms !important; }
 #gi-toolbar .gi-pm-switch span { display: inline; }
 #gi-toolbar.gi-paimon .gi-pm-grid button:is(:hover, :focus-visible), #gi-toolbar.gi-paimon .gi-pm-switch:focus-visible { background-color: transparent; border-color: transparent; }
 #gi-toolbar.gi-paimon .gi-pm-switch:focus-visible { outline: 2px solid var(--ty-gold-hi); outline-offset: 2px; background: #ece5d81a; }

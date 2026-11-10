@@ -1,15 +1,24 @@
-#gi-sprite-stage img { transform-origin: center bottom; transform: scale(calc(var(--gi-sprite-scale,1) * var(--gi-focus-scale,1))); transition: transform var(--gi-focus-duration,.6s) var(--gi-focus-easing,ease), opacity var(--gi-focus-duration,.6s) var(--gi-focus-easing,ease), filter var(--gi-focus-duration,.6s) var(--gi-focus-easing,ease); }
+#gi-sprite-stage img { transform-origin: center bottom; transform: scale(calc(var(--gi-sprite-scale,1) * var(--gi-focus-scale,1))); transition: transform var(--gi-focus-duration,.6s) var(--gi-focus-easing,ease), opacity var(--gi-focus-duration,.6s) var(--gi-focus-easing,ease), filter var(--gi-focus-duration,.6s) var(--gi-focus-easing,ease), --gi-talk .45s ease; }
 /* 1.43 stage layout: the box already holds the figure's size, so only the speaker's focus scales it.
    Moving, growing and darkening all ease together when the speaker changes or someone joins. */
-#gi-sprite-stage img[data-layout="stage"] { transform: scale(var(--gi-focus-scale,1)); transition: transform var(--gi-focus-duration,.6s) var(--gi-focus-easing,ease), filter var(--gi-focus-duration,.6s) var(--gi-focus-easing,ease), opacity .3s ease, left .55s var(--ty-ease,ease), top .55s var(--ty-ease,ease), width .55s var(--ty-ease,ease), height .55s var(--ty-ease,ease); will-change: transform, filter; }
+#gi-sprite-stage img[data-layout="stage"] { transform: scale(var(--gi-focus-scale,1)); transition: transform var(--gi-focus-duration,.6s) var(--gi-focus-easing,ease), filter var(--gi-focus-duration,.6s) var(--gi-focus-easing,ease), opacity .3s ease, left .55s var(--ty-ease,ease), top .55s var(--ty-ease,ease), width .55s var(--ty-ease,ease), height .55s var(--ty-ease,ease), --gi-talk .45s ease; will-change: transform, filter; }
 #gi-sprite-stage img.gi-sprite-placing { transition: none !important; }
-/* A slow breath while standing; each sprite at its own pace. */
-body.gi-sprite-idle #gi-sprite-stage img[data-layout="stage"]:not([data-leaving="true"]) { animation: gi-sprite-breathe 4.8s ease-in-out infinite; }
-body.gi-sprite-idle #gi-sprite-stage img[data-layout="stage"]:nth-child(2n) { animation-duration: 5.4s; animation-delay: -1.7s; }
-body.gi-sprite-idle #gi-sprite-stage img[data-layout="stage"]:nth-child(3n) { animation-duration: 6.1s; animation-delay: -3.1s; }
+/* A slow breath while standing, and a soft bob and sway while the speaker talks. They move different
+   properties (scale; translate and rotate), so they layer rather than replace each other. Each
+   character breathes at its own pace (--gi-breath), and page-sprites.js keeps every sprite on one
+   clock, so a new expression or a reshuffled stage carries on mid-breath instead of starting over.
+   The talking motion always runs on the speaker and --gi-talk eases it in and out, so it never snaps. */
+@property --gi-talk { syntax: "<number>"; inherits: false; initial-value: 0; }
+body.gi-sprite-idle #gi-sprite-stage img[data-layout="stage"]:not([data-leaving="true"]) { animation: gi-sprite-breathe var(--gi-breath, 5.2s) ease-in-out infinite; }
+#gi-sprite-stage img[data-shake="true"]:not([data-leaving="true"]) { animation: gi-speak-bob .9s ease-in-out infinite, gi-speak-sway 2.6s ease-in-out infinite; }
+body.gi-sprite-idle #gi-sprite-stage img[data-layout="stage"][data-shake="true"]:not([data-leaving="true"]) { animation: gi-sprite-breathe var(--gi-breath, 5.2s) ease-in-out infinite, gi-speak-bob .9s ease-in-out infinite, gi-speak-sway 2.6s ease-in-out infinite; }
+body.gi-sprite-speaking #gi-sprite-stage img[data-shake="true"] { --gi-talk: 1; }
 /* Four or more on stage: only the speaker breathes. Eight looping animations over blurred shadows kept the compositor busy all the time. */
 body.gi-sprite-idle.gi-sprite-crowd #gi-sprite-stage img[data-layout="stage"]:not([data-focus="true"]) { animation: none; }
-@keyframes gi-sprite-breathe { 0%,100% { scale: 1 .989; } 50% { scale: 1.004 1; } }
+/* Rest is the natural size; the breath in is a little quicker than the breath out. */
+@keyframes gi-sprite-breathe { 0%,100% { scale: 1 1; } 42% { scale: 1.0018 1.0075; } }
+@keyframes gi-speak-bob { 0%,100% { translate: 0 0; } 50% { translate: 0 calc(var(--gi-talk) * -.38%); } }
+@keyframes gi-speak-sway { 0%,100% { rotate: 0deg; } 25% { rotate: calc(var(--gi-talk) * .22deg); } 75% { rotate: calc(var(--gi-talk) * -.22deg); } }
 #gi-sprite-stage img.gi-sprite-enter { animation: gi-sprite-enter .6s var(--ty-ease,ease) both !important; }
 #gi-sprite-stage img.gi-sprite-exit { animation: gi-sprite-exit .45s ease-in forwards !important; pointer-events: none; }
 @keyframes gi-sprite-enter { from { opacity: 0; translate: 0 3%; } }
@@ -25,10 +34,6 @@ body.gi-sprite-idle.gi-sprite-crowd #gi-sprite-stage img[data-layout="stage"]:no
 .gi-heal-fx i:nth-child(3n) { background: radial-gradient(circle, #fff 0 20%, #f4dc8a 45%, #0000 70%); }
 @keyframes gi-heal-wash { from { opacity: 0; } 30% { opacity: 1; } to { opacity: 0; } }
 @keyframes gi-heal-mote { 0% { opacity: 0; translate: 0 0; } 20% { opacity: 1; } 100% { opacity: 0; translate: 0 -420%; scale: .5; } }
-body.gi-sprite-speaking #gi-sprite-stage img[data-shake="true"] { animation: gi-speaking-shake .35s ease-in-out infinite !important; }
-@keyframes gi-speaking-shake { 0%,100% { translate: 0; rotate: 0deg; } 25% { translate: 1px; rotate: .1deg; } 75% { translate: -1px; rotate: -.1deg; } }
-body.gi-reduced-motion #gi-sprite-stage img { transition: none !important; animation: none !important; }
-body.gi-reduced-motion .gi-heal-fx { display: none; }
 /* Enemy sprites: an entrance when they first appear, a flinch after a round that hurt them, a fall when defeated. */
 body #gi-sprite-stage img.gi-enemy-enter[data-avatar] { animation: gi-enemy-enter .9s cubic-bezier(.2,.8,.25,1) both !important; }
 body #gi-sprite-stage img.gi-enemy-hit[data-avatar] { animation: gi-enemy-hit .55s ease-out !important; }
@@ -51,4 +56,3 @@ body.gi-cg-replace :is(.expression-holder,.expression-holder img) { visibility: 
 
 /* Keep history available while Prome's optional visibility classes are present. */
 body.gi-native-staging.gi-scene.gi-history #chat > .mes.displayNone { display: flex !important; }
-@media (prefers-reduced-motion: reduce) { #gi-sprite-stage img { transition: none !important; animation: none !important; } .gi-heal-fx { display: none; } }

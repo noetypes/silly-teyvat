@@ -46,7 +46,6 @@ const BADGE_ZOOM=-2;
 const cameraRamp=.1,cameraDecay=7,cameraTail=(1-cameraRamp)/cameraDecay;
 const cameraArea=cameraRamp/2-cameraTail*Math.expm1(-cameraDecay);
 const cameraEasing=t=>(t<cameraRamp?t*t/(2*cameraRamp):cameraRamp/2-cameraTail*Math.expm1(-cameraDecay*(t-cameraRamp)/(1-cameraRamp)))/cameraArea;
-const reducedMotion=()=>document.body.classList.contains('gi-reduced-motion') || Boolean(globalThis.matchMedia?.('(prefers-reduced-motion: reduce)').matches);
 
 export function mountWorldMap({host,getContext,adapter=createMediaAdapter(getContext),onChange=()=>{},announce=()=>{},prepareTeleport=async()=>({decisions:[]}),commitTeleport=()=>true,onTeleport=()=>{},retryCast=()=>{},openMusic=()=>{},openMusicLibrary=()=>{},openCardSearch=()=>{},openJourney=id=>createJourneyLibraryAdapter().open(id)}){
     const mini=document.createElement('button');mini.id='gi-minimap';mini.type='button';mini.dataset.giSound='none';mini.hidden=true;mini.setAttribute('aria-label','Open world map');
@@ -124,7 +123,7 @@ export function mountWorldMap({host,getContext,adapter=createMediaAdapter(getCon
         const longFlight=regionChange||distance>=Math.max(size.x,size.y);
         const panel=dialog.dataset.panel==='open'&&!compact()?$('.gi-map-panel').offsetWidth/2:0;
         if(!sidebar.hidden||panel){const sheet=globalThis.matchMedia?.('(max-width: 600px) and (orientation: portrait)').matches,card=sidebar.hidden?[0,0]:sheet?[0,sidebar.offsetHeight/2]:[sidebar.offsetWidth/2,0];target=map.unproject(map.project(target,zoom).add([card[0]-panel,card[1]]),zoom);}
-        if(reducedMotion()||!dialog.open){map.setView(target,zoom,{animate:false});return;}
+        if(!dialog.open){map.setView(target,zoom,{animate:false});return;}
         cameraGoal={zoom:map._limitZoom(zoom)};
         // Nearby selections at the same zoom only translate the pane. flyTo
         // otherwise reprojects every marker at a fractional zoom on every frame.
@@ -177,11 +176,11 @@ export function mountWorldMap({host,getContext,adapter=createMediaAdapter(getCon
     function flyToRegion(name){
         if(!map)return;const target=regionTargets().find(r=>r.name===name),panel=dialog.dataset.panel==='open'&&!compact()?$('.gi-map-panel').offsetWidth:0,card=sidebar.hidden||compact()?0:sidebar.offsetWidth+16;
         const options={paddingTopLeft:[panel+24,90],paddingBottomRight:[card+24,40],maxZoom:-1.5};
-        if(!target){if(reducedMotion())map.setView([1700,500],-3.5,{animate:false});else map.flyTo([1700,500],-3.5,{duration:1.8,easing:cameraEasing});return;}
-        if(reducedMotion())map.fitBounds(target.bounds,{...options,animate:false});else map.flyToBounds(target.bounds,{...options,duration:1.8,easing:cameraEasing});
+        if(!target){map.flyTo([1700,500],-3.5,{duration:1.8,easing:cameraEasing});return;}
+        map.flyToBounds(target.bounds,{...options,duration:1.8,easing:cameraEasing});
     }
     function ensureMap(){
-        if(map)return;map=makeMap($('.gi-map-canvas'),{zoomControl:false,animate:!reducedMotion()});markers=L.layerGroup().addTo(map);
+        if(map)return;map=makeMap($('.gi-map-canvas'),{zoomControl:false,animate:true});markers=L.layerGroup().addTo(map);
         const range=$('.gi-map-zoom-range');range.min=map.getMinZoom();range.max=map.getMaxZoom();
         map.setView([1700,500],-3);map.on('zoomend moveend',updateScale);map.on('move zoom',scheduleCull);map.on('zoomend moveend',()=>cullMarkers());map.on('moveend',paintRegionBar);
         map.on('movestart zoomstart',()=>dialog.classList.add('gi-map-moving'));
@@ -417,7 +416,7 @@ export function mountWorldMap({host,getContext,adapter=createMediaAdapter(getCon
     }
     // Genshin teleport: the screen washes to light, the scene swaps underneath, then it clears.
     function playTeleport(){
-        cue('teleport');if(reducedMotion())return;veil?.remove();clearTimeout(veilTimer);
+        cue('teleport');veil?.remove();clearTimeout(veilTimer);
         veil=document.createElement('div');veil.className='gi-teleport-veil';veil.setAttribute('aria-hidden','true');veil.innerHTML=`<i class="gi-teleport-ring"></i><i class="gi-teleport-ring"></i><img src="${waypointGlyph}" alt="">`;
         host.append(veil);veilTimer=setTimeout(()=>{veil?.remove();veil=null;},1500);
     }
@@ -446,7 +445,7 @@ export function mountWorldMap({host,getContext,adapter=createMediaAdapter(getCon
             const item=worldWaypoints(getContext()).find(w=>w.location.id===options.locationId),current=activeWorldLocation(getContext());
             if(item){showDetails(item);paintMarkers();renderList();map.setView(toLatLng(item.point),-1.5);flyTo(item.point,-1.5);}
             else if(options.locationId){if(current)map.setView(toLatLng(current.point),-1.5);startPlacement(options.locationId);}
-            else {listWaypoints();status('');if(current){map.setView(toLatLng(current.point),from?-1.5:-2);if(from&&!reducedMotion())setTimeout(()=>{if(dialog.open&&view.is('list'))map.flyTo(toLatLng(current.point),-2.5,{duration:.7});},180);}}
+            else {listWaypoints();status('');if(current){map.setView(toLatLng(current.point),from?-1.5:-2);if(from)setTimeout(()=>{if(dialog.open&&view.is('list'))map.flyTo(toLatLng(current.point),-2.5,{duration:.7});},180);}}
             updateScale();
         },
         sync({on,show=true,location,loading=false}={}){

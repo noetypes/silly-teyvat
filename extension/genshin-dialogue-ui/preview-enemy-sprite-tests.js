@@ -5,7 +5,6 @@ export async function runEnemySpriteTests(){
     const out=[],check=(name,ok)=>{out.push(`${ok?'PASS':'FAIL'} ${name}`);if(!ok)throw Error(out.join('\n'));};
     const pause=ms=>new Promise(r=>setTimeout(r,ms));
     const host=document.createElement('div');host.style.cssText='position:fixed;left:-200vw';document.body.append(host);let ui;
-    const motion=document.body.classList.contains('gi-reduced-motion');document.body.classList.remove('gi-reduced-motion');
     try{
         const card=(name,role)=>({name,avatar:name+'.png',data:{extensions:{silly_teyvat:{role}}}});
         const sprite=(name,x)=>({avatar:name+'.png',folder:name,src:`/characters/${name}/neutral.png`,expression:'neutral',x,y:.1,w:.3,h:.8});
@@ -58,5 +57,5 @@ export async function runEnemySpriteTests(){
         ctx.userAvatar='me.png';ctx.extensionSettings.genshin_dialogue_ui.personaCharacters={'me.png':'Slime.png'};ctx.chat.push({name:'Klee',original_avatar:'Klee.png',mes:'“Eek!”'});ui.sync({on:true,id:ctx.chat.length-1,page:0,text:'Eek',complete:true,generating:false});await pause(60);
         check('while you play an enemy, the enemies stand on the left and the characters on the right',left('Slime')<left('Klee'));}
         return out.join('\n');
-    }finally{ui?.dispose();host.remove();document.body.classList.toggle('gi-reduced-motion',motion);}
+    }finally{ui?.dispose();host.remove();}
 }

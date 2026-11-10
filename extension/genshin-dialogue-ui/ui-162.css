@@ -229,8 +229,6 @@ body #gi-attack-controls #gi-attack-toggle[aria-pressed="true"]::after {
 @keyframes gi-armed-breathe { 50% { box-shadow: inset 0 0 0 1.5px #fff6d6, inset 0 0 16px #ffe08aaa, 0 0 22px #f7cf6bcc; } }
 @keyframes gi-armed-halo { 50% { opacity: .45; scale: 1.18; } }
 @keyframes gi-armed-spark { from { scale: .6; opacity: 1; background: radial-gradient(circle, #fff8dd 0%, #ffd77a99 40%, #ffd77a00 70%); } }
-body.gi-reduced-motion #gi-attack-controls #gi-attack-toggle[aria-pressed="true"], body.gi-reduced-motion #gi-attack-controls #gi-attack-toggle[aria-pressed="true"]::before, body.gi-reduced-motion #gi-attack-controls #gi-attack-toggle[aria-pressed="true"]::after { animation: none; }
-@media (prefers-reduced-motion: reduce) { body #gi-attack-controls #gi-attack-toggle[aria-pressed="true"], body #gi-attack-controls #gi-attack-toggle[aria-pressed="true"]::before, body #gi-attack-controls #gi-attack-toggle[aria-pressed="true"]::after { animation: none; } }
 
 /* ==========================================================================
    The coin toss: a coin with two faces, 1 and 2, that spins and lands on the

@@ -318,9 +318,6 @@
     #gi-wardrobe header { min-height: 46px; }
     #gi-wardrobe footer { min-height: 42px; padding-top: 2px; padding-bottom: calc(env(safe-area-inset-bottom, 0px) + 2px); }
 }
-@media (prefers-reduced-motion: reduce) {
-    #gi-wardrobe, #gi-wardrobe *, #gi-wardrobe::backdrop { animation: none !important; transition: none !important; }
-}
 /* Keep portraits within the shorter header, including the selected portrait's rim. */
 #gi-wardrobe header .gi-roster { margin-block: 0; padding-block: 0; }
 @media (max-width: 600px) and (orientation: portrait) {
@@ -331,9 +328,6 @@
 @media (max-width: 600px) and (max-height: 650px) and (orientation: portrait) {
     #gi-wardrobe .gi-wardrobe-body { grid-template-rows: auto minmax(80px, 20dvh) minmax(0, 1fr); }
 }
-/* With animations disabled, the arrival tint must not stay over the character. */
-body.gi-reduced-motion #gi-wardrobe .gi-cs-tint { display: none !important; }
-@media (prefers-reduced-motion: reduce) { #gi-wardrobe .gi-cs-tint { display: none !important; } }
 @media (min-width: 901px) and (min-height: 551px) {
     #gi-wardrobe header { grid-template-columns: minmax(300px, .9fr) 36px minmax(0, 2fr) 36px 48px; }
 }

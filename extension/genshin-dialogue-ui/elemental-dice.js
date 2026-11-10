@@ -116,10 +116,10 @@ export function mountElementalDice({host,stageFactory=createStage,sound=createDi
         }else{big.textContent='Miss';big.classList.add('gi-hit','gi-miss');}
         if(result.hpAfter<=0)$('.gi-roll-target').classList.add('gi-defeated');
     }
-    return {cancel:()=>stop(),roll(result,{reducedMotion=false,isCurrent=()=>true,describe,volume=0,reroll,pickAll=false,heading='Roll Phase'}={}){
+    return {cancel:()=>stop(),roll(result,{instant=false,isCurrent=()=>true,describe,volume=0,reroll,pickAll=false,heading='Roll Phase'}={}){
         if(disposed||!isCurrent())return Promise.resolve(false);sequence++;cancelFrame(frame);frame=0;summaryAbort?.abort();finish?.(false);finish=null;accept=null;redraw=null;const current=++sequence;
-        skip=reducedMotion;canvas.hidden=false;canvas.dataset.model='loading';dialog.dataset.phase='loading';
-        dialog.classList.toggle('gi-instant',reducedMotion);dialog.classList.remove('gi-settled','gi-closing','gi-can-reroll');title(heading);
+        skip=instant;canvas.hidden=false;canvas.dataset.model='loading';dialog.dataset.phase='loading';
+        dialog.classList.toggle('gi-instant',instant);dialog.classList.remove('gi-settled','gi-closing','gi-can-reroll');title(heading);
         $('.gi-roll-summary').hidden=true;$('.gi-roll-tags').replaceChildren();$('.gi-roll-target').classList.remove('gi-shake','gi-defeated');
         const listResults=()=>$('.gi-dice-results').replaceChildren(...result.dice.map(d=>el('li',d.match?'gi-die-match':'',`${d.face}${d.match&&d.damage!==undefined?` +${d.damage}`:''}`)));listResults();
         $('.gi-dice-total').textContent='';$('.gi-roll-confirm-label').textContent='Skip';button.classList.remove('gi-ready');
@@ -134,7 +134,7 @@ export function mountElementalDice({host,stageFactory=createStage,sound=createDi
                 accept=()=>{const ok=valid();finish=null;stop(true);resolve(ok);};
                 $('.gi-roll-confirm-label').textContent='Confirm';button.classList.add('gi-ready');
                 offerReroll();
-                await summary(result,describe,reducedMotion||skip);
+                await summary(result,describe,instant||skip);
             }
             // Reroll Phase: unmatched dice start selected; tap dice to change the choice.
             function offerReroll(){
@@ -155,7 +155,7 @@ export function mountElementalDice({host,stageFactory=createStage,sound=createDi
                 rerollAction=()=>{
                     if(!picked.size||!valid())return;
                     const next=reroll([...picked]);if(!next||next===result)return;
-                    const indices=[...picked];result=next;summaryAbort?.abort();settled=false;accept=null;skip=reducedMotion;rerollAction=null;
+                    const indices=[...picked];result=next;summaryAbort?.abort();settled=false;accept=null;skip=instant;rerollAction=null;
                     box.replaceChildren();rerollButton.hidden=true;dialog.classList.remove('gi-settled','gi-can-reroll');title('Roll Phase');
                     $('.gi-roll-summary').hidden=true;$('.gi-roll-tags').replaceChildren();$('.gi-roll-target').classList.remove('gi-shake','gi-defeated');
                     listResults();$('.gi-dice-total').textContent='';$('.gi-roll-confirm-label').textContent='Skip';button.classList.remove('gi-ready');

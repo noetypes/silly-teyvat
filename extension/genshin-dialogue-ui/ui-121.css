@@ -117,8 +117,6 @@ body.gi-choices-enabled #rightNavHolder { order: 9; }
 #gi-attack-controls #gi-attack-toggle[aria-pressed="true"] .gi-attack-pip { background: #fff2c4; box-shadow: 0 0 8px #ffe08a; }
 @keyframes gi-attack-armed { 50% { box-shadow: inset 0 0 0 1.5px #ffe7bd, 0 0 28px #ef7a35d9, 0 3px 10px #0008; } }
 @media (max-width: 360px) { #gi-attack-controls #gi-attack-toggle .gi-attack-label { display: none; } #gi-attack-controls #gi-attack-toggle { padding-right: 9px; } }
-body.gi-reduced-motion #gi-attack-controls #gi-attack-toggle { animation: none; }
-@media (prefers-reduced-motion: reduce) { #gi-attack-controls #gi-attack-toggle { animation: none; } }
 
 /* ---------- Reroll Phase ---------- */
 #gi-elemental-roll .gi-roll-actions { display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 12px; margin: 14px 0 max(18px, 3vh); }
@@ -189,7 +187,6 @@ body.gi-reduced-motion #gi-attack-controls #gi-attack-toggle { animation: none; 
 #gi-elemental-roll .gi-roll-confirm::before, #gi-elemental-roll .gi-roll-confirm::after { content: ""; position: absolute; top: 50%; width: 12px; height: 12px; translate: 0 -50%; rotate: 45deg; background: linear-gradient(135deg, #f0d79a, #9a7139); box-shadow: 0 0 0 1.5px #4b341e; }
 #gi-elemental-roll .gi-roll-confirm::before { left: -7px; } #gi-elemental-roll .gi-roll-confirm::after { right: -7px; }
 @media (max-width: 640px) { #gi-elemental-roll .gi-roll-confirm { min-width: 220px; } .gi-roll-frame::before, .gi-roll-frame::after { height: 22px; } }
-@media (prefers-reduced-motion: reduce) { .gi-roll-light { transition: none; } }
 
 /* ---------- Map: top-middle region selector (after Kongying Tavern's area switcher) ---------- */
 #gi-world-map .gi-map-regionbar { position: absolute; z-index: 22; top: calc(var(--gi-safe-t) + 14px); left: 50%; translate: -50% 0; display: flex; flex-direction: column; align-items: center; }

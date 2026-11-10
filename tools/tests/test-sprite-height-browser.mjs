@@ -13,7 +13,9 @@ try{
     await page.waitForFunction(()=>document.body.classList.contains('gi-enabled'));
     await page.evaluate(async()=>{
         (await import('./index.js')).dispose();
-        document.body.classList.add('gi-reduced-motion');
+        // Measure settled sprites: entrances, breathing and expression fades are off for this check
+        // (specific enough to outrank the enemy entrance's own !important rule).
+        document.head.insertAdjacentHTML('beforeend','<style>html body #gi-sprite-stage img[data-avatar][data-layout]{animation:none!important;transition:none!important}</style>');
         const {mountPageSprites,createNativeSpriteAdapter}=await import('./page-sprites.js');
         const enemy={name:'Square',avatar:'Square.png',data:{extensions:{silly_teyvat:{role:'enemy',modelType:'custom',modelScale:50}}}};
         const tall={name:'Tall',avatar:'Tall.png',data:{extensions:{silly_teyvat:{modelType:'tall male'}}}};

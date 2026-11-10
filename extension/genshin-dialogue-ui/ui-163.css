@@ -12,7 +12,7 @@
 #gi-battle .tb-auto svg { transform: translateX(1px); }
 #gi-battle .tb-auto.tb-auto-on { color: #3a2a0c; background: radial-gradient(circle at 50% 35%, #ffe7a6, #d9a441); box-shadow: inset 0 0 0 2px #fff4d6, 0 0 0 2px #e9b84a, 0 0 14px #ffcf6acc, 0 4px 10px #0009; }
 #gi-battle .tb-auto.tb-auto-on .tb-tool-label { color: #ffe39a; }
-@media (prefers-reduced-motion: no-preference) { #gi-battle .tb-auto.tb-auto-on { animation: tb-auto-pulse 1.6s ease-in-out infinite; } }
+#gi-battle .tb-auto.tb-auto-on { animation: tb-auto-pulse 1.6s ease-in-out infinite; }
 @keyframes tb-auto-pulse { 50% { box-shadow: inset 0 0 0 2px #fff4d6, 0 0 0 2px #e9b84a, 0 0 22px #ffd77ae6, 0 4px 10px #0009; } }
 
 /* 1.66: the dice a card or skill will spend get a gold border. The die is clipped to its hexagon, so the

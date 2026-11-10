@@ -240,10 +240,8 @@ try{
             return locations.every(l=>JSON.stringify(locationResidents(ctx,l.id))===JSON.stringify(index.get(l.id)||[]));
         });
         assert.ok(rostersAgree,'batch rosters preserve Guild staff, player personas, Abyss twin, enemy and cast rules');
-        await page.emulateMedia({reducedMotion:'reduce'});
         await page.evaluate(()=>document.querySelector('.gi-map-waypoint-list [data-location="p0"]').click());
-        assert.equal(await page.locator('#gi-world-map').evaluate(el=>el.classList.contains('gi-map-moving')),false,'reduced motion jumps directly to the destination');
-        await page.waitForTimeout(100);
+        await page.waitForTimeout(2200);
         await page.screenshot({path:`/tmp/silly-teyvat-map-${mobile?'mobile':'desktop'}.png`});
         await page.evaluate(()=>{window.fixture.dispose();});
         await page.waitForTimeout(1000);

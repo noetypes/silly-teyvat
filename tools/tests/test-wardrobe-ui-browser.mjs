@@ -7,7 +7,7 @@ const base=process.env.IDENTITY_PREVIEW_URL || 'http://127.0.0.1:8877/extension/
 const output=process.env.WARDROBE_UI_OUTPUT || '/private/tmp/silly-teyvat-wardrobe-review';
 fs.mkdirSync(output,{recursive:true});
 const browser=await chromium.launch({headless:true,executablePath:'/Applications/Google Chrome.app/Contents/MacOS/Google Chrome'});
-const page=await browser.newPage({reducedMotion:'reduce'});
+const page=await browser.newPage();
 const errors=[];page.on('pageerror',e=>errors.push(e.message));
 // Supply the same real portrait for synthetic roster entries, avoiding broken fixture images.
 await page.route('**/thumbnail?*',async route=>{
@@ -20,7 +20,7 @@ try{
     await page.goto(base+'/preview.html');
     await page.waitForFunction(()=>document.body.classList.contains('gi-enabled'));
     await page.evaluate(async()=>{
-        (await import('./index.js')).dispose();document.body.classList.add('gi-enabled','gi-scene','gi-reduced-motion');
+        (await import('./index.js')).dispose();document.body.classList.add('gi-enabled','gi-scene');
         const {mountWardrobe}=await import('./wardrobe.js');
         const names=['Klee','Nahida','Sangonomiya Kokomi','Sigewinne',...Array.from({length:40},(_,i)=>`Character ${i+1}`)];
         const ctx={characters:names.map(name=>({name,avatar:name+'.png'})),characterId:0,chat:[],extensionSettings:{genshin_dialogue_ui:{hideNonGenshin:false,outfits:{'Klee.png':[{label:'Winter',folder:'Klee/Winter'}] }},expressions:{custom:[]}},saveSettingsDebounced(){}};
@@ -37,7 +37,10 @@ try{
     await page.evaluate(()=>window.wardrobeUX.open({avatar:'Character 1.png'}));await settled();
     assert.equal(await page.locator('#gi-wardrobe-title').innerText(),'Character 1','unaligned characters show only their name');
     await page.evaluate(()=>window.wardrobeUX.open({avatar:'Klee.png'}));await settled();
-    assert.equal(await page.locator('.gi-cs-tint').evaluate(el=>getComputedStyle(el).display),'none','reduced motion never leaves the arrival tint over the character');
+    // The arrival tint plays once and fades out completely, so it never stays over the character.
+    await page.waitForFunction(()=>{const tint=getComputedStyle(document.querySelector('.gi-cs-tint'));return tint.display==='none'||Number(tint.opacity)===0;},null,{timeout:3000});
+    // The layout checks below measure settled boxes, so the character screen stops animating from here.
+    await page.addStyleTag({content:'#gi-wardrobe, #gi-wardrobe *, #gi-wardrobe::backdrop { animation: none !important; transition: none !important; } #gi-wardrobe .gi-cs-tint { display: none !important; }'});
     assert.equal(await page.locator('.gi-cs-identity').isVisible(),false,'redundant character and preview heading is removed from the slate');
     const views=[[1920,1080],[1440,900],[1280,800],[1024,768],[901,600],[900,700],[768,1024],[390,844],[320,568],[844,390],[568,320],[932,430]];
     const touch=await page.context().newCDPSession(page);
@@ -169,7 +172,7 @@ try{
             const pane=el.closest('.gi-wardrobe-controls').getBoundingClientRect(),grid=el.getBoundingClientRect(),button=el.querySelector('[aria-pressed="true"]').getBoundingClientRect();
             return {left:button.left-pane.left,top:button.top-grid.top,right:grid.right-button.right,bottom:grid.bottom-button.bottom};
         });
-        assert.ok(Object.values(glow).every(n=>n>=13),`${width}x${height}: expression selection glow has clearance inside the scrolling editor`);
+        assert.ok(Object.values(glow).every(n=>n>=13),`${width}x${height}: expression selection glow has clearance inside the scrolling editor (${JSON.stringify(glow)})`);
         const longLabel=await page.locator('.gi-expression-grid button:not(.gi-add-tile) > span').first().evaluate(el=>{const old=el.textContent;el.textContent='embarrassment-embarrassment';const s=getComputedStyle(el),r={lines:Math.round(el.getBoundingClientRect().height/parseFloat(s.lineHeight)*10)/10,clipped:el.scrollWidth>el.clientWidth,ellipsis:s.textOverflow};el.textContent=old;return r;});
         assert.ok(longLabel.lines<=2&&longLabel.clipped&&longLabel.ellipsis==='ellipsis'&&await page.locator('.gi-expression-grid button:not(.gi-add-tile) > span').first().evaluate(el=>getComputedStyle(el).whiteSpace==='nowrap'),`${width}x${height}: long expression names stay on one line and are cut off (${JSON.stringify(longLabel)})`);
         for(const selector of ['.gi-editor-disclosure:has(.gi-sprite-audio-tools)','.gi-sprite-import']){
