@@ -183,6 +183,59 @@ export const SPECIAL_KITS={
     },
 };
 
+// The Traveler (Aether or Lumine) for each element they resonate with at a Statue of The Seven. Genius
+// Invokation has no Traveler cards, so these are written in its style from the in-game talents (Genshin Impact
+// Wiki, Traveler (Element) talent tables): the element's Normal Attack name, its Skill and its Burst. Burst
+// Energy follows the in-game cost (60 or 70 is 2, 80 is 3).
+export const TRAVELER_KITS={
+    // Palm Vortex, then Gust Surge's forward-moving tornado. Swirl does Elemental Absorption's work.
+    Anemo:{energy:2,
+        normal:{name:'Foreign Ironwind',effects:[D(4)]},
+        skill:{name:'Palm Vortex',cost:3,effects:[D(6)]},
+        burst:{name:'Gust Surge',cost:3,effects:[D(4),SUM('Gust Surge',2,2,{element:'Anemo'})]},
+    },
+    // Starfell Sword's meteorite blocks attacks; Wake of Earth's shockwaves reach the standby foes and raise a stone wall.
+    Geo:{energy:2,
+        normal:{name:'Foreign Rockblade',effects:[D(4)]},
+        skill:{name:'Starfell Sword',cost:3,effects:[D(4),SH(2)]},
+        burst:{name:'Wake of Earth',cost:3,effects:[D(6),PIERCE(2),SH(4,'activeAlly')]},
+    },
+    // Lightning Blade's Abundance Amulets give the others Energy; Bellowing Thunder's Lightning Shroud calls Falling
+    // Thunder on your active character's Normal Attacks, which deals Electro damage and restores their Energy.
+    Electro:{energy:3,
+        normal:{name:'Foreign Thundershock',effects:[D(4)]},
+        skill:{name:'Lightning Blade',cost:3,effects:[D(4),{type:'energy',amount:1,target:'others'}]},
+        burst:{name:'Bellowing Thunder',cost:3,effects:[D(6),TEAM({label:'Lightning Shroud',desc:'after your Normal Attack, Falling Thunder deals 2 Electro damage and restores 1 Energy (once a round, 2 rounds)',on:'normal',per:1,rounds:2,do:[D(2,'one',{element:'Electro'}),{type:'energy',amount:1,target:'activeAlly'}]})]},
+    },
+    // Razorgrass Blade, then the Lea Lotus Lamp, which keeps dealing Dendro damage.
+    Dendro:{energy:3,
+        normal:{name:'Foreign Fieldcleaver',effects:[D(4)]},
+        skill:{name:'Razorgrass Blade',cost:3,effects:[D(6)]},
+        burst:{name:'Surgent Manifestation',cost:3,effects:[D(4),SUM('Lea Lotus Lamp',4,2,{element:'Dendro'})]},
+    },
+    // Aquacrest Saber's Torrent Surge; Spotless Waters' Sourcewater Droplets heal the Traveler. Rising Waters' bubble
+    // drifts on, dealing Hydro damage.
+    Hydro:{energy:3,
+        normal:{name:'Foreign Stream',effects:[D(4)]},
+        skill:{name:'Aquacrest Saber',cost:3,effects:[D(6),H(2,'self')]},
+        burst:{name:'Rising Waters',cost:3,effects:[D(4),SUM('Rising Waters',4,2,{element:'Hydro'})]},
+    },
+    // Flowfire Blade enters Nightsoul's Blessing and leaves a Scorching Threshold that strikes alongside your active
+    // character, spending a Nightsoul point each time. Plains Scorcher restores Nightsoul points.
+    Pyro:{energy:2,
+        normal:{name:'Foreign Blaze',effects:[D(4)]},
+        skill:{name:'Flowfire Blade',cost:3,effects:[D(2),NS(2),TEAM({label:'Scorching Threshold',desc:'after your character\'s Normal Attack or Skill, spends 1 of the Traveler\'s Nightsoul points to deal 2 Pyro damage (once a round, 2 rounds)',on:['normal','skill'],per:1,rounds:2,spend:{nightsoul:1},do:[D(2,'one',{element:'Pyro'})]})]},
+        burst:{name:'Plains Scorcher',cost:3,effects:[D(6),NS(1,{enter:false})]},
+    },
+    // Ice Fog Piercer leaves a Frostpierce Star that fires ice crystals. Its hits are the Frostglow that Frostbound
+    // Javelin spends, so the Javelin strikes once more while the Star is out.
+    Cryo:{energy:2,
+        normal:{name:'Foreign Frostglint',effects:[D(4)]},
+        skill:{name:'Ice Fog Piercer',cost:3,effects:[D(2),SUM('Frostpierce Star',2,2,{element:'Cryo'})]},
+        burst:{name:'Frostbound Javelin',cost:3,effects:[D(2,'one',{hits:3}),D(2,'one',{when:'summonPresent',summon:'Frostpierce Star'})]},
+    },
+};
+
 // Cards these kits create. They never drop, sit in no Starter deck and leave the bag after the fight.
 const art=id=>id;
 export const GENERATED_CARDS={

@@ -4,6 +4,7 @@
 // The party is played by the Auto planner (bestAction); enemies by their own intents.
 //
 //   node tools/simulate-battles.mjs [runs] [--party=Fischl,Xiangling,...] [--only=weak|standard|tough|boss] [--enemy=name] [--naive]
+//   A party member can name an element after a colon: --party=Lumine:Geo,Xiangling plays the Geo Traveler.
 //
 // Prints, per encounter kind: win rate, rounds to win (median and 90th percentile), party health lost and
 // how often a character falls. The targets this build is tuned to are in COMBAT.md (Balance notes).
@@ -24,8 +25,8 @@ const enemyNames=Object.keys(props).filter(n=>props[n].role==='enemy');
 const tierOf=name=>isTcgBoss(name)?'boss':(defaultKitHp(name,true) ?? 30)<=30?'weak':(defaultKitHp(name,true) ?? 30)<45?'standard':'tough';
 const byTier={weak:[],standard:[],tough:[],boss:[]};for(const n of enemyNames)if(defaultKitHp(n,true))byTier[tierOf(n)].push(n);
 
-function unit(name,sideName,partySize){
-    const enemy=sideName==='enemy',element=props[name]?.element || 'Physical';
+function unit(spec,sideName,partySize){
+    const [name,chosen]=String(spec).split(':'),enemy=sideName==='enemy',element=chosen || props[name]?.element || 'Physical';
     const kit=defaultKit(name,{element,enemy});
     const hp=enemy?encounterHp(defaultKitHp(name,true) ?? 30,{boss:isTcgBoss(name),members:partySize}):defaultKitHp(name) ?? 30;
     return {id:`${sideName}:${name}`,side:sideName,name,card:name,element:enemy?kit.element:element,hp,maxHp:hp,shield:Number(kit.shield)||0,energy:0,maxEnergy:kit.energy || 2,

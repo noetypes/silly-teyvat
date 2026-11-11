@@ -1,7 +1,7 @@
 // Bridges chat metadata and the pure battle engine: builds a snapshot of the current
 // encounter, and commits a resolved round back to the saved HP and battle state.
 import {combatState,clearEnemy,activeEnemies,combatAllies,allyElement,partyMember,partyStore,USER_KEY,combatDifficulty} from './combat-state.js';
-import {defaultKit,mergeKit,kitOverrides,travelerKit,foeKit,playableKit} from './combat-kits.js';
+import {defaultKit,mergeKit,kitOverrideFor,travelerKit,foeKit,playableKit,burstSplashName} from './combat-kits.js';
 import {characterProperties,isEnemy} from './character-properties.js';
 import {circularCharacterAvatar} from './character-avatars.js';
 import {personaCard} from './persona-wardrobe.js';
@@ -68,9 +68,9 @@ export function kitForCard(ctx,card){
         // An enemy card you play keeps one moveset, edited as that enemy's; battles turn it into a character's.
         if(linked&&isEnemy(ctx,linked))return kitForCard(ctx,linked);
         const base=linked?defaultKit(baseName(linked),{element}):{...travelerKit(element),name:card.name};
-        return mergeKit(base,kitOverrides(ctx)[linked?.avatar || card.avatar]);
+        return mergeKit(base,kitOverrideFor(ctx,linked?.avatar || card.avatar,linked?baseName(linked):'Traveler',element));
     }
-    return mergeKit(defaultKit(baseName(card),{element:props.element,enemy}),kitOverrides(ctx)[card.avatar]);
+    return mergeKit(defaultKit(baseName(card),{element:props.element,enemy}),kitOverrideFor(ctx,card.avatar,enemy?'':baseName(card),props.element));
 }
 export function kitForAlly(ctx,ally){
     if(ally.avatar!==USER_KEY)return kitForCard(ctx,ctx.characters.find(c=>c.avatar===ally.avatar));
@@ -78,7 +78,7 @@ export function kitForAlly(ctx,ally){
     // Playing an enemy card: its own moveset (with the edits saved for that card), turned into a character's.
     if(card&&isEnemy(ctx,card))return playableKit(kitForCard(ctx,card));
     const base=card?defaultKit(baseName(card),{element}):{...travelerKit(element),name:ally.name};
-    return mergeKit(base,kitOverrides(ctx)[kitKey(ctx,ally)]);
+    return mergeKit(base,kitOverrideFor(ctx,kitKey(ctx,ally),card?baseName(card):'Traveler',element));
 }
 export const battleKey=enemies=>[...new Set(enemies.map(e=>e.key))].sort().join('|') || 'none';
 export const duelKey=avatars=>`duel:${[...avatars].sort().join('|')}`;
@@ -90,16 +90,18 @@ export function battleSnapshot(ctx,{portrait=()=>'',duel=null,includeEnemies=fal
     const disabled=activeGroup(ctx)?.disabled_members || [];
     const enemies=duel&&!includeEnemies?[]:activeEnemies(ctx).filter(e=>!disabled.includes(e.avatar)&&!duel?.includes(e.avatar)),key=duel?duelKey(duel)+(enemies.length?`:${battleKey(enemies)}`:''):battleKey(enemies),saved=battleStore(ctx,key);
     const units=[];
+    // The Travelers' Burst art follows the element they resonate with.
+    const travelerSplash=(name,element)=>{const file=burstSplashName(name,element);return file&&file!==name?new URL(`./assets/splash/${encodeURIComponent(file)}.webp`,import.meta.url).href:'';};
     for(const ally of duel?combatAllies(ctx).filter(a=>a.avatar===USER_KEY):combatAllies(ctx)){
         const kit=kitForAlly(ctx,ally),m=partyMember(ctx,ally.avatar),keep=saved.units[ally.avatar] || {};
         const card=ally.avatar===USER_KEY?linkedCard(ctx):ctx.characters.find(c=>c.avatar===ally.avatar);
         const own=combatArt(ctx,ally.avatar===USER_KEY?personaCard(ctx):card);
-        units.push({id:ally.avatar,side:'party',name:m.name,card:card?.name || '',img:portrait(ctx,ally.avatar),circle:circularCharacterAvatar(ctx,ally.avatar===USER_KEY?personaCard(ctx):card) || portrait(ctx,ally.avatar),art:own.card || tcgArt(card?.name),customArt:Boolean(own.card),burstArt:own.burst,moveArt:own.moves,element:allyElement(ctx,ally),isUser:ally.avatar===USER_KEY,
+        units.push({id:ally.avatar,side:'party',name:m.name,card:card?.name || '',img:portrait(ctx,ally.avatar),circle:circularCharacterAvatar(ctx,ally.avatar===USER_KEY?personaCard(ctx):card) || portrait(ctx,ally.avatar),art:own.card || tcgArt(card?.name),customArt:Boolean(own.card),burstArt:own.burst || travelerSplash(card?baseName(card):'',allyElement(ctx,ally)),moveArt:own.moves,element:allyElement(ctx,ally),isUser:ally.avatar===USER_KEY,
             hp:m.hp,maxHp:m.maxHp,shield:keep.shield || 0,energy:keep.energy ?? 0,maxEnergy:Math.max(1,Math.min(5,Number(kit.energy)||2)),aura:keep.aura || null,statuses:keep.statuses || [],evasion:Math.max(0,Math.min(90,Number(kit.evasion)||0)),kit});
     }
     for(const avatar of duel || []){
         const card=ctx.characters.find(c=>c.avatar===avatar),m=partyMember(ctx,avatar),element=characterProperties(ctx,card).element,kit=foeKit(kitForCard(ctx,card)),own=combatArt(ctx,card);
-        units.push({id:avatar,side:'enemy',duel:true,name:m.name,card:card?.name || '',img:portrait(ctx,avatar),circle:circularCharacterAvatar(ctx,card) || portrait(ctx,avatar),art:own.card || tcgArt(card?.name),customArt:Boolean(own.card),burstArt:own.burst,moveArt:own.moves,element:element==='None'?'Physical':element,
+        units.push({id:avatar,side:'enemy',duel:true,name:m.name,card:card?.name || '',img:portrait(ctx,avatar),circle:circularCharacterAvatar(ctx,card) || portrait(ctx,avatar),art:own.card || tcgArt(card?.name),customArt:Boolean(own.card),burstArt:own.burst || travelerSplash(baseName(card),element),moveArt:own.moves,element:element==='None'?'Physical':element,
             hp:m.hp,maxHp:m.maxHp,shield:0,energy:0,maxEnergy:0,aura:null,statuses:[],cooldowns:{},enraged:false,usedRage:false,intent:null,armor:0,armorBreak:'',weakTo:'',evasion:Number(kit.evasion)||0,kit,visit:'duel'});
     }
     for(const e of enemies){

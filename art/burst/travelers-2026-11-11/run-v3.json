@@ -1,0 +1,68 @@
+{
+  "status": "Four images approved; remaining five Lumine elements being regenerated.",
+  "images": [
+    {
+      "character": "Aether",
+      "element": "Dendro",
+      "path": "art/burst/travelers-2026-11-11/v3/Aether-Dendro.png",
+      "sha256": "fbf2b5cbb8b3fb37fb86147b65276ae2a02cdc22815b36837f9d9e91ab2b0d64",
+      "review": "approved"
+    },
+    {
+      "character": "Aether",
+      "element": "Hydro",
+      "path": "art/burst/travelers-2026-11-11/v3/Aether-Hydro.png",
+      "sha256": "5bed68ee36039742c8fcc972c557c1b12bcab13dbf21c348a81b582d014c8a7d",
+      "review": "approved"
+    },
+    {
+      "character": "Aether",
+      "element": "Cryo",
+      "path": "art/burst/travelers-2026-11-11/v3/Aether-Cryo.png",
+      "sha256": "5a306cedac16cc985d1683a722bb7b68f54db9cbceb1206da87e8f019e64c974",
+      "review": "approved"
+    },
+    {
+      "character": "Lumine",
+      "element": "Anemo",
+      "path": "art/burst/travelers-2026-11-11/v3/Lumine-Anemo.png",
+      "sha256": "a5ad54bea5975af8a7e8b6004abef74ad823be9b5150d393c959b88f8ece2439",
+      "review": "regenerate using original prompt"
+    },
+    {
+      "character": "Lumine",
+      "element": "Electro",
+      "path": "art/burst/travelers-2026-11-11/v3/Lumine-Electro.png",
+      "sha256": "f1820626d5d8f83cb8da5e693ecd3539809776a92e7f63229c203eba3123e330",
+      "review": "regenerate using original prompt"
+    },
+    {
+      "character": "Lumine",
+      "element": "Dendro",
+      "path": "art/burst/travelers-2026-11-11/v3/Lumine-Dendro.png",
+      "sha256": "713e2672085e99810de48b7e51daa720461c5ef7e2b8c79a48080bba94a1ecb1",
+      "review": "regenerate using original prompt"
+    },
+    {
+      "character": "Lumine",
+      "element": "Hydro",
+      "path": "art/burst/travelers-2026-11-11/v3/Lumine-Hydro.png",
+      "sha256": "718aa68645136817494beffefdd96bbb18206e1cdc829130728652d51b3c681d",
+      "review": "regenerate using original prompt"
+    },
+    {
+      "character": "Lumine",
+      "element": "Pyro",
+      "path": "art/burst/travelers-2026-11-11/v3/Lumine-Pyro.png",
+      "sha256": "dfde94b7fa01c852dfee66bb463465068d4aa88b97fe9be5429c247983d2fb82",
+      "review": "approved"
+    },
+    {
+      "character": "Lumine",
+      "element": "Cryo",
+      "path": "art/burst/travelers-2026-11-11/v3/Lumine-Cryo.png",
+      "sha256": "dad9391bceb475e49b34e96e383f5f0ec1f72acb04eaf2c0c707655c8e04481c",
+      "review": "regenerate using original prompt"
+    }
+  ]
+}

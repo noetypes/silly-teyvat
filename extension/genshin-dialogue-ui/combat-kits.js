@@ -6,7 +6,7 @@ import {mediaSettings} from './media-store.js';
 import {BOSS_ROWS} from './boss-kits.js';
 import {ELEMENTS} from './battle-engine.js';
 import {TCG_KITS} from './tcg-kits.js';
-import {SPECIAL_KITS} from './tcg-special-kits.js';
+import {SPECIAL_KITS,TRAVELER_KITS} from './tcg-special-kits.js';
 import {npcKit} from './npc-kits.js';
 
 export const WEAPONS=['sword','claymore','polearm','bow','catalyst','none'];
@@ -167,15 +167,6 @@ const TABLE=[
 ];
 // Companions who fight alongside the party even though their card is not a playable character.
 export const COMBAT_COMPANIONS=new Set(['paimon']);
-// The Traveler's kit depends on the element they resonate with.
-const TRAVELER={
-    Anemo:['Palm Vortex',[D(5)],'Gust Surge',[D(6,'all')]],
-    Geo:['Starfell Sword',[D(5),SH(3,'party')],'Wake of Earth',[D(3,'all',{hits:2}),BF('guard',15,2,'party')]],
-    Electro:['Lightning Blade',[D(4),EN(1,'others')],'Bellowing Thunder',[D(3,'all'),SM('Falling Thunder',3,2)]],
-    Dendro:['Razorgrass Blade',[D(5)],'Surgent Manifestation',[SM('Lea Lotus Lamp',2,3,'all')]],
-    Hydro:['Aquacrest Saber',[D(5)],'Rising Waters',[D(3,'all'),SM('Rising Waters',3,2)]],
-    Pyro:['Blazing Threshold',[D(4),SM('Scorching Threshold',2,2)],'Plane of Searing Ember',[D(6,'all')]],
-};
 // Enemies: [name, element ('Physical' when none), hp, basic move, special move, special cooldown, extras, second basic move]
 const ENEMIES=[
     ['Hilichurl Fighter','Physical',26,['Club Swing',[D(4)]],['Frenzied Flurry',[D(2,'one',{hits:3})]],3],
@@ -307,11 +298,24 @@ function kitFromRow([name,weapon,hp,energy,role,na,[skill,skillCost,skillFx],[bu
     if(extra.evasion)kit.evasion=extra.evasion;
     return kit;
 }
+// The Traveler's kit is the one for the element they resonate with (tcg-special-kits.js). Without an element
+// they have a plain sword kit.
 export function travelerKit(element){
-    const name='Traveler',[skill,skillFx,burst,burstFx]=TRAVELER[element] || [];
-    if(!skill)return {name,weapon:'sword',hp:34,energy:2,role:'DPS',moves:[normal('sword','Foreign Ironwind','Physical'),{kind:'skill',name:'Elemental Strike',cost:3,effects:[D(5)]},{kind:'burst',name:'Elemental Release',cost:3,effects:[D(6,'all')]}]};
-    return {name,weapon:'sword',hp:34,energy:2,role:'DPS',moves:[normal('sword','Foreign Ironwind','Physical'),{kind:'skill',name:skill,cost:3,effects:clone(skillFx)},{kind:'burst',name:burst,cost:3,effects:clone(burstFx)}]};
+    const name='Traveler',def=TRAVELER_KITS[element];
+    if(!def)return {name,weapon:'sword',hp:34,energy:2,role:'DPS',moves:[normal('sword','Foreign Ironwind','Physical'),{kind:'skill',name:'Elemental Strike',cost:3,effects:[D(5)]},{kind:'burst',name:'Elemental Release',cost:3,effects:[D(6,'all')]}]};
+    return {name,weapon:'sword',hp:34,energy:def.energy,role:def.role || 'DPS',tcg:true,moves:[{...normal('sword',def.normal.name,element),effects:clone(def.normal.effects)},{kind:'skill',name:def.skill.name,cost:def.skill.cost,effects:clone(def.skill.effects)},{kind:'burst',name:def.burst.name,cost:def.burst.cost,effects:clone(def.burst.effects)}]};
 }
+// Aether and Lumine (and a card simply named Traveler) change kit with their element, so a moveset edit is saved
+// for that element: an edit made while resonating with Geo stays with Geo. An edit saved before kits were kept
+// per element (under the plain key) still applies until the element changes (statue-resonance.js pins it then).
+export const isTravelerName=name=>/^(aether|lumine|traveler)$/i.test(String(name || '').trim());
+export const kitOverrideKey=(key,name,element)=>isTravelerName(name)&&TRAVELER_KITS[element]?`${key}#${element}`:key;
+export function kitOverrideFor(ctx,key,name,element){
+    const all=mediaSettings(ctx).combatKits || {},own=kitOverrideKey(key,name,element);
+    return all[own] ?? (own===key?undefined:all[key]);
+}
+// The Elemental Burst splash for a card: the Travelers have one for each element.
+export const burstSplashName=(name,element)=>/^(aether|lumine)$/i.test(String(name || '').trim())&&TRAVELER_KITS[element]?`${String(name).trim()[0].toUpperCase()}${String(name).trim().slice(1).toLowerCase()}-${element}`:String(name || '');
 function enemyKit([name,element,hp,basic,special,cooldown,extra={},skill,additional=[]]){
     const move=(kind,[moveName,effects,moveElement])=>({kind,name:moveName,cost:0,...(moveElement?{element:moveElement}:{}),effects:clone(effects)});
     const moves=[move('basic',basic),...(skill?[move('basic',skill)]:[]),...additional.map(m=>move('basic',m)),{...move('special',special),cooldown}];
@@ -427,7 +431,7 @@ function describeOne(effect,{t,el,elText,element}){
             return `Deals ${effect.power} ${el==='Physical'?'Physical ':elText}damage to ${t}${effect.hits>1?` ${effect.hits} times`:''}${effect.plus?.charged?` (+${effect.plus.charged} as a Charged Attack)`:''}${effect.plus?.plunge?` (+${effect.plus.plunge} as a Plunging Attack)`:''}${effect.consumeBond?`, +2 for each of up to ${effect.consumeBond} Bond of Life it removes from the target`:''}.`;
         case 'nightsoul':return effect.spend?`Spends ${effect.spend} Nightsoul point${effect.spend>1?'s':''}.`:effect.enter===false?`Gains ${effect.amount} Nightsoul point${effect.amount===1?'':'s'}.`:`Enters Nightsoul's Blessing${effect.amount?` with ${effect.amount} Nightsoul point${effect.amount===1?'':'s'}`:''}.`;
         case 'technique':return `Gives the Technique ${effect.name} (costs ${effect.cost} ${effect.cost===1?'die':'dice'}${effect.spend?.nightsoul?` and ${effect.spend.nightsoul} Nightsoul point`:''}): ${describeMove({effects:effect.effects},element)}`;
-        case 'status':return effect.status?.label?`${effect.side==='foe'?'Puts':'Creates'} ${effect.status.label}${effect.side==='foe'?' on the enemy side':''}.`:'';
+        case 'status':return effect.status?.label?`${effect.side==='foe'?'Puts':'Creates'} ${effect.status.label}${effect.side==='foe'?' on the enemy side':''}${effect.status.desc?`: ${effect.status.desc}`:''}.`:'';
         case 'addCard':return `${effect.choose?'Choose one of':'Adds'} ${[...new Set(effect.cards)].map(id=>id.split('-').map(w=>w[0].toUpperCase()+w.slice(1)).join(' ')).join(', ')} ${effect.to==='deck'?'to your deck':'to your hand'}.`;
         case 'cheaper':return `Cost Reduction on ${effect.amount || 1} card${(effect.amount || 1)>1?'s':''} in your hand.`;
         case 'cheaperCard':return `Cost Reduction on up to ${effect.amount} copies of a card in your hand.`;

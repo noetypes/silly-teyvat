@@ -993,7 +993,7 @@ export function mountBattle({host,sound=createBattleSound(),onBurst=()=>{},onSto
         $('.tb-combo').textContent='';$('.tb-result').hidden=true;$('.tb-banner').className='tb-banner';$('.tb-played').replaceChildren();$('.tb-intro').hidden=true;
         dialog.classList.remove('tb-previewing','tb-won');
         paintUnits();refresh();
-        for(const u of party().filter(u=>u.card)){const img=new Image();img.src=splashUrl(u.card);}
+        for(const u of party().filter(u=>u.card||u.burstArt)){const img=new Image();img.src=u.burstArt || splashUrl(u.card);}
         void loadDynamicSkins();
     }
     async function run(snapshot,options={}){

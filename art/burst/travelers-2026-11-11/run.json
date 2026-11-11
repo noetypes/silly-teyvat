@@ -1,0 +1,160 @@
+{
+  "references": "Traveler official artwork and in-game model; official Amber wish art for splash style",
+  "status": "Four images approved; remaining ten being regenerated.",
+  "images": [
+    {
+      "character": "Aether",
+      "element": "Anemo",
+      "file": "art/burst/travelers-2026-11-11/raw/Aether-Anemo.png",
+      "sha256": "78d643804b09298024c7c342a96e474c2a20255a3c81fd8d2832a49f45c137ad",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "review": "approved"
+    },
+    {
+      "character": "Lumine",
+      "element": "Anemo",
+      "file": "art/burst/travelers-2026-11-11/raw/Lumine-Anemo.png",
+      "sha256": "cab97f8ad46c6ed52b9bfa4288a90ea21769632b488a00d4703b0d608bdcf5a1",
+      "alpha_extrema": [
+        0,
+        254
+      ],
+      "review": "regenerate: hand issues"
+    },
+    {
+      "character": "Aether",
+      "element": "Geo",
+      "file": "art/burst/travelers-2026-11-11/raw/Aether-Geo.png",
+      "sha256": "f85d9da2ccf5d74e79345f41a92f55bcae3f8eca7844d65f113e8bb14c5ec63f",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "review": "regenerate: hand issues"
+    },
+    {
+      "character": "Lumine",
+      "element": "Geo",
+      "file": "art/burst/travelers-2026-11-11/raw/Lumine-Geo.png",
+      "sha256": "f35cc4ddcf75217dcf9e486853e42e992523965c37a6c54583cfe85f1ba5507f",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "review": "approved"
+    },
+    {
+      "character": "Aether",
+      "element": "Electro",
+      "file": "art/burst/travelers-2026-11-11/raw/Aether-Electro.png",
+      "sha256": "e905c1a7e43bcc1245c54b528a4d8234286c9c763e9bb7e5ebbbab19d3abfe67",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "review": "approved"
+    },
+    {
+      "character": "Lumine",
+      "element": "Electro",
+      "file": "art/burst/travelers-2026-11-11/raw/Lumine-Electro.png",
+      "sha256": "7a149a5756255642a8141f42e9273f830a67b45ee22ccc3d97d6d79fde00e1fd",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "review": "regenerate: hand issues"
+    },
+    {
+      "character": "Aether",
+      "element": "Dendro",
+      "file": "art/burst/travelers-2026-11-11/raw/Aether-Dendro.png",
+      "sha256": "3fb5154e29d42f2b6525a9bf5b69c5ca6f0e84b1a264921f73397a48498f0acb",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "review": "regenerate: hand issues"
+    },
+    {
+      "character": "Lumine",
+      "element": "Dendro",
+      "file": "art/burst/travelers-2026-11-11/raw/Lumine-Dendro.png",
+      "sha256": "8d5da5331e0164ccc1539737beaf5ed792f0720f5f25056e43b71af56a1cfcf3",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "review": "regenerate: hand issues"
+    },
+    {
+      "character": "Aether",
+      "element": "Hydro",
+      "file": "art/burst/travelers-2026-11-11/raw/Aether-Hydro.png",
+      "sha256": "12c0cd639ff18579b61333f6121005a0e3179eac10f3857a2bf597b129262a8e",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "review": "regenerate: hand issues"
+    },
+    {
+      "character": "Lumine",
+      "element": "Hydro",
+      "file": "art/burst/travelers-2026-11-11/raw/Lumine-Hydro.png",
+      "sha256": "5351bbd8732e77b2202fb66d64178bf5a50f31da4ea926547ce19416a37ef049",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "review": "regenerate: hand issues"
+    },
+    {
+      "character": "Aether",
+      "element": "Pyro",
+      "file": "art/burst/travelers-2026-11-11/raw/Aether-Pyro.png",
+      "sha256": "c74bf1658e8e689a1e6a7bf6645dba1d2fa861b20828d0be12da2c65424b38e0",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "review": "approved"
+    },
+    {
+      "character": "Lumine",
+      "element": "Pyro",
+      "file": "art/burst/travelers-2026-11-11/raw/Lumine-Pyro.png",
+      "sha256": "a09b7e87c9e43882aa8f84500e233a233ccb6bc1fb9289b680c2615fca4aebc1",
+      "alpha_extrema": [
+        0,
+        253
+      ],
+      "review": "regenerate: hand issues"
+    },
+    {
+      "character": "Aether",
+      "element": "Cryo",
+      "file": "art/burst/travelers-2026-11-11/raw/Aether-Cryo.png",
+      "sha256": "73a7dd2608afd0fe53e122c6aea36d7d59be82c945de3f1d9ae0bc6e0d23d6e2",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "review": "regenerate: hand issues"
+    },
+    {
+      "character": "Lumine",
+      "element": "Cryo",
+      "file": "art/burst/travelers-2026-11-11/raw/Lumine-Cryo.png",
+      "sha256": "f9b53129ce659dd934462474032d3ad348e9aa5f8944e27169e24e865c3518fd",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "review": "regenerate: hand issues"
+    }
+  ]
+}

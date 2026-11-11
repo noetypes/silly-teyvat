@@ -1,0 +1,19 @@
+{
+  "status": "Lumine Anemo v7 approved; final Electro candidate requested.",
+  "images": [
+    {
+      "character": "Lumine",
+      "element": "Anemo",
+      "path": "art/burst/travelers-2026-11-11/v7/Lumine-Anemo.png",
+      "sha256": "125a98bd8b9387e3b2228d52b46dba0fdba900a44536c13650b295f7245e82e6",
+      "review": "approved"
+    },
+    {
+      "character": "Lumine",
+      "element": "Electro",
+      "path": "art/burst/travelers-2026-11-11/v7/Lumine-Electro.png",
+      "sha256": "299cab8a816af7133ae26255243c2fd33015aa2d841b7d47bf5c26f84c227bf8",
+      "review": "regenerate once"
+    }
+  ]
+}

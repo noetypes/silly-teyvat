@@ -1,7 +1,8 @@
 // Character Customization → Combat → Art: shows the TCG card, Elemental Burst art and move icons a battle uses,
 // and lets each be replaced with an uploaded image or returned to the game's own art.
 import {combatArt,setCombatArt,combatArtKey} from './combat-art.js';
-import {KIND_LABEL} from './combat-kits.js';
+import {KIND_LABEL,burstSplashName} from './combat-kits.js';
+import {characterProperties} from './character-properties.js';
 import {kitForCard,tcgArt,tcgCardsReady} from './battle-state.js';
 import {skillIcon,iconsReady} from './battle-icons.js';
 import {linkedCard} from './persona-link.js';
@@ -24,7 +25,7 @@ export function mountCombatArtEditor({panel,getContext,getCharacter,adapter,stat
         const ctx=getContext(),art=combatArt(ctx,card),name=gameName(ctx,card),cardArt=tcgArt(name),moves=kitForCard(ctx,card).moves || [];
         const tiles=[
             tile('card','TCG card',{src:art.card || cardArt,custom:Boolean(art.card),kind:'card'}),
-            tile('burst','Burst art',{src:art.burst || splashUrl(name),fallback:art.burst?'':cardArt,custom:Boolean(art.burst),kind:'burst'}),
+            tile('burst','Burst art',{src:art.burst || splashUrl(burstSplashName(name,characterProperties(ctx,card).element)),fallback:art.burst?'':cardArt,custom:Boolean(art.burst),kind:'burst'}),
             ...moves.map((move,i)=>tile(String(i),move.name || KIND_LABEL[move.kind] || 'Move',{src:art.moves[i] || skillIcon(move),custom:Boolean(art.moves[i]),kind:'move'})),
         ];
         panel.innerHTML=`<h3>Art</h3><div class="gi-art-grid">${tiles.join('')}</div>`;

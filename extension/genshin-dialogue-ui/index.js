@@ -27,6 +27,7 @@ import { mountBackgrounds, backgroundRegions, travelState } from './backgrounds.
 import {mountBackgroundMenu} from './background-menu.js';
 import {worldWaypoints} from './world-data.js';
 import { mountWorldMap } from './world-map.js';
+import { mountStatueResonance } from './statue-resonance.js';
 import {beginOpeningScene} from './opening-scene.js';
 import {enemySpeaker} from './enemy-actions.js';
 import {hostileSpeaker,syncEnemyPersonaPrompt,enemyPersonaPrompt} from './enemy-persona.js';
@@ -109,7 +110,7 @@ const trustButton = () => `<button type="button" data-gi-action="trust" aria-lab
 let mounted = false;
 let removeJourneyFilter;
 let backgroundUI;
-let worldMapUI,cardArtUI;
+let worldMapUI,cardArtUI,statueUI;
 let locationCastUI;
 let groupGenerating=false;
 let openingHome=true,homeOpenRevision=0;
@@ -425,6 +426,8 @@ function refresh({passive=false}={}) {
     if(placeNow?.location?.id){if(prefs.enabled&&lastPlaceId&&placeNow.location.id!==lastPlaceId)holdTravelLoad(placeNow);if(placeNow.location.id!==lastPlaceId)backgroundMenuUI?.sync();lastPlaceId=placeNow.location.id;}
     locationCastUI?.sync({on:Boolean(prefs.enabled&&inChat&&!openingHome),generating:generating||groupGenerating||combatUI?.busy||personaSession?.busy});
     worldMapUI?.sync({on:Boolean(prefs.enabled&&inChat),show:Boolean(sceneActive&&!history&&!hidden&&!menuOpen),location:backgroundUI?.current,loading:Boolean(loadingUI?.visible)});
+    // Arriving at a Statue of The Seven offers the Traveler its element once the new place is on screen and nothing is busy.
+    statueUI?.sync({on:Boolean(prefs.enabled&&inChat),ready:Boolean(active&&!history&&!hidden&&!menuOpen&&!generating&&!groupGenerating&&!loadingUI?.visible&&!combatUI?.busy&&!combatUI?.engaged&&!locationCastUI?.busy&&!personaSession?.busy&&!worldMapUI?.busy&&!document.querySelector('dialog[open]:not(#gi-statue)'))});
     for (const el of uiActions('wardrobe')) el.hidden = !prefs.wardrobe;
     for (const el of uiActions('trust')) el.hidden = !prefs.trustSystem;
     const canSearch = Boolean(prefs.enabled && inChat);
@@ -912,7 +915,9 @@ export async function initialize(options = {}) {
         openMusic:id=>locationMusicUI.openLocation(id),openMusicLibrary:()=>locationMusicUI.openLibrary(),openCardSearch:()=>cardSearchUI?.open(),
         openJourney:id=>journeyAdapter.open(id),
         prepareTeleport:location=>locationCastUI.prepareTeleport(location),commitTeleport:plan=>locationCastUI.commitTeleport(plan),onTeleport:jumpToArrival,retryCast:()=>locationCastUI.retry(),
+        openStatue:location=>statueUI?.open(location),
         onChange:()=>{backgroundUI.refresh();schedule();}});
+    statueUI=mountStatueResonance({host,getContext:context,announce,onChange:schedule});
     // SillyTavern's Backgrounds menu lists every location; choosing one in a journey teleports there.
     backgroundMenuUI=mountBackgroundMenu({getContext:context,announce,
         inJourney:()=>{const ctx=context();return Boolean(preferences().enabled&&(ctx.characterId!=null||ctx.groupId));},
@@ -1131,7 +1136,7 @@ export function dispose() {
     mediaUI?.dispose(); mediaUI=undefined;
     backgroundUI?.dispose();backgroundUI=undefined;
     backgroundMenuUI?.dispose();backgroundMenuUI=undefined;
-    worldMapUI?.dispose();worldMapUI=undefined;
+    worldMapUI?.dispose();worldMapUI=undefined;statueUI?.dispose();statueUI=undefined;
     locationCastUI?.dispose();locationCastUI=undefined;
     removeJourneyFilter?.();removeJourneyFilter=undefined;
     combatUI?.dispose();combatUI=undefined;

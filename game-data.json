@@ -16397,6 +16397,10 @@
       "bytes": 6860,
       "sha256": "94616bf4da61035e521c639f524bf8c5c71060e1b4dddc456d6350604e524260"
     },
+    "extension/genshin-dialogue-ui/assets/icons/map-statue.webp": {
+      "bytes": 2888,
+      "sha256": "b570c8c5a49490977a5a27fa41b31ea70181ef2034fb985a2d3d87188a99a171"
+    },
     "extension/genshin-dialogue-ui/assets/map/overview/0_0_N3.webp": {
       "bytes": 34,
       "sha256": "b493881aa81fdb4cf04e7115ee87fc314e79ed1330cd12f5c1f8911b596affd8"
@@ -18837,6 +18841,34 @@
       "bytes": 11754,
       "sha256": "b2594f31ccff698855865b0d9e2351f2436ef2f22bff1ff827847ee7c9993dcc"
     },
+    "extension/genshin-dialogue-ui/assets/splash/Aether-Anemo.webp": {
+      "bytes": 657244,
+      "sha256": "87d9dad0eb6bf6a74b94d36f0ee0165d4e54198494aef4d7235b5d2790f8f7b3"
+    },
+    "extension/genshin-dialogue-ui/assets/splash/Aether-Cryo.webp": {
+      "bytes": 815068,
+      "sha256": "0aeb7b2edd6c49a406b1fd6c86ac8ec2db2c0500e83402f3ce70f4ae726cbb0c"
+    },
+    "extension/genshin-dialogue-ui/assets/splash/Aether-Dendro.webp": {
+      "bytes": 734532,
+      "sha256": "d56184f1d04af2d274a0223652d98a5ca97118d556c301d6a5f0b0ff72d0eee9"
+    },
+    "extension/genshin-dialogue-ui/assets/splash/Aether-Electro.webp": {
+      "bytes": 641028,
+      "sha256": "223b5f542775e7ee4ba1a4f55e34ae492013b0ad6b036ec69cc9bcf924049ef7"
+    },
+    "extension/genshin-dialogue-ui/assets/splash/Aether-Geo.webp": {
+      "bytes": 607550,
+      "sha256": "1a20c0e05f7e5e31e0601fcfb11b84edd654ee9161b21eba97202ac9e59c1b1b"
+    },
+    "extension/genshin-dialogue-ui/assets/splash/Aether-Hydro.webp": {
+      "bytes": 753368,
+      "sha256": "445f5b0090dd44eef9741ad341d85ac75e7a29fd39db09ec825622c3e433aa00"
+    },
+    "extension/genshin-dialogue-ui/assets/splash/Aether-Pyro.webp": {
+      "bytes": 613300,
+      "sha256": "a669ddbf22fd2fe36f5408a5b4f0ee1584163d4a208c4e39a53cab5d8063a3cf"
+    },
     "extension/genshin-dialogue-ui/assets/splash/Aino.webp": {
       "bytes": 258162,
       "sha256": "ce572f20f20e186b903aa91d61fd427a42b5115ab8329768267fcbbbc9897be6"
@@ -19096,6 +19128,34 @@
     "extension/genshin-dialogue-ui/assets/splash/Lohen.webp": {
       "bytes": 343160,
       "sha256": "2cda47716cef4a59f604e7821a59c5f5a29d0b17c7302d3b537c1672163a7d4f"
+    },
+    "extension/genshin-dialogue-ui/assets/splash/Lumine-Anemo.webp": {
+      "bytes": 720592,
+      "sha256": "59b57f331c0d5d0d2f20ea8f05142b44a0dd973b551d2a5f4f3e72a411fbb553"
+    },
+    "extension/genshin-dialogue-ui/assets/splash/Lumine-Cryo.webp": {
+      "bytes": 710998,
+      "sha256": "141cef416605930cd5d219c9d2561d10bf764710da61d7c8d085a91961c1c69a"
+    },
+    "extension/genshin-dialogue-ui/assets/splash/Lumine-Dendro.webp": {
+      "bytes": 705816,
+      "sha256": "aecd1f8e14ef1c25d1d0354b4d46a3bbadd0e33fa003eb78c7c754cb66c3c00f"
+    },
+    "extension/genshin-dialogue-ui/assets/splash/Lumine-Electro.webp": {
+      "bytes": 662478,
+      "sha256": "7a40c0ba7771e97354ecd5ab2e3ee10823943a7afe97879f6c555e4e909bcb4a"
+    },
+    "extension/genshin-dialogue-ui/assets/splash/Lumine-Geo.webp": {
+      "bytes": 637658,
+      "sha256": "c58e1f7c4d763e0fa8f95ad4ab12407a368ff91228fe6594dab9ece9c578e336"
+    },
+    "extension/genshin-dialogue-ui/assets/splash/Lumine-Hydro.webp": {
+      "bytes": 684540,
+      "sha256": "fdba6ab2f2d6287efbf7ff6bdce5f22d011ae41af684ad40334c3678ae94630d"
+    },
+    "extension/genshin-dialogue-ui/assets/splash/Lumine-Pyro.webp": {
+      "bytes": 736298,
+      "sha256": "1e5893e734fc58346fcdfbfdee5f9e33519f1fc4eb0013d67be421063d132ab4"
     },
     "extension/genshin-dialogue-ui/assets/splash/Lynette.webp": {
       "bytes": 240480,
@@ -22672,6 +22732,38 @@
     "extension/genshin-dialogue-ui/assets/world-locations/stadium-of-the-sacred-flame.webp": {
       "bytes": 519718,
       "sha256": "cbee476e79ec81643bce1070cdc300368cf58e7684d1e9f9b9af4a48b4d59fd6"
+    },
+    "extension/genshin-dialogue-ui/assets/world-locations/statue-fontaine.webp": {
+      "bytes": 99284,
+      "sha256": "5f2bbb39b6bfbd429e21ddb828c035a9ba02bb366e09d6b1fa079d4508008fe1"
+    },
+    "extension/genshin-dialogue-ui/assets/world-locations/statue-inazuma.webp": {
+      "bytes": 64182,
+      "sha256": "b570e88ba60f0c9fe3f294357df012fc61f5519bbc6090228db0a54418321e40"
+    },
+    "extension/genshin-dialogue-ui/assets/world-locations/statue-liyue.webp": {
+      "bytes": 62338,
+      "sha256": "2f2c450736b7bb69ef07936c6dc067e9dae614c21f46866f8860efd7d3a57f7f"
+    },
+    "extension/genshin-dialogue-ui/assets/world-locations/statue-mondstadt.webp": {
+      "bytes": 106042,
+      "sha256": "7a9a3fa41bd708908e93dd29aea6f50ae60de9e9005bfc5af2e4a9ffbfe22ca7"
+    },
+    "extension/genshin-dialogue-ui/assets/world-locations/statue-natlan.webp": {
+      "bytes": 84474,
+      "sha256": "cad8875c0eb53a107264f8bd38bb736bed6682e7ab4cb8131be0af2973b169c1"
+    },
+    "extension/genshin-dialogue-ui/assets/world-locations/statue-nod-krai.webp": {
+      "bytes": 65032,
+      "sha256": "3c1b837ae5895bac6cd9af3427130e118d26e5f5984c55595e02d002f9d1ddc2"
+    },
+    "extension/genshin-dialogue-ui/assets/world-locations/statue-snezhnaya.webp": {
+      "bytes": 46080,
+      "sha256": "aa09cdce7ae3a6a18777ad814d410eb06c88dd10a633e49f060e67beca3ca398"
+    },
+    "extension/genshin-dialogue-ui/assets/world-locations/statue-sumeru.webp": {
+      "bytes": 92880,
+      "sha256": "9e000a5d4940757f4a486f5841033ef10e03a417c1ce7b0f7f4b6f46ffb29d05"
     },
     "extension/genshin-dialogue-ui/assets/world-locations/sumeru-apam-woods.webp": {
       "bytes": 362600,

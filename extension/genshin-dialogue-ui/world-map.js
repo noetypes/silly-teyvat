@@ -16,6 +16,7 @@ import {mountCardPoolMenu,locationCardPool,cardPoolSummary} from './card-pools.j
 import {waypointBadges,waypointBoss,waypointEnemy,badgeLabels,badgeMarkup} from './waypoint-badges.js';
 import {iconsReady} from './battle-icons.js';
 import {searchedCards,questCardsAt,questLabel,questMarkup} from './card-search.js';
+import {isStatue,statueElement,statueIcon,resonanceTravelers} from './statue-resonance.js';
 
 const svg=path=>`<svg viewBox="0 0 24 24" aria-hidden="true">${path}</svg>`;
 const ICON={
@@ -47,7 +48,7 @@ const cameraRamp=.1,cameraDecay=7,cameraTail=(1-cameraRamp)/cameraDecay;
 const cameraArea=cameraRamp/2-cameraTail*Math.expm1(-cameraDecay);
 const cameraEasing=t=>(t<cameraRamp?t*t/(2*cameraRamp):cameraRamp/2-cameraTail*Math.expm1(-cameraDecay*(t-cameraRamp)/(1-cameraRamp)))/cameraArea;
 
-export function mountWorldMap({host,getContext,adapter=createMediaAdapter(getContext),onChange=()=>{},announce=()=>{},prepareTeleport=async()=>({decisions:[]}),commitTeleport=()=>true,onTeleport=()=>{},retryCast=()=>{},openMusic=()=>{},openMusicLibrary=()=>{},openCardSearch=()=>{},openJourney=id=>createJourneyLibraryAdapter().open(id)}){
+export function mountWorldMap({host,getContext,adapter=createMediaAdapter(getContext),onChange=()=>{},announce=()=>{},prepareTeleport=async()=>({decisions:[]}),commitTeleport=()=>true,onTeleport=()=>{},retryCast=()=>{},openMusic=()=>{},openMusicLibrary=()=>{},openCardSearch=()=>{},openStatue=()=>{},openJourney=id=>createJourneyLibraryAdapter().open(id)}){
     const mini=document.createElement('button');mini.id='gi-minimap';mini.type='button';mini.dataset.giSound='none';mini.hidden=true;mini.setAttribute('aria-label','Open world map');
     mini.innerHTML='<span class="gi-minimap-ring" aria-hidden="true"><span class="gi-minimap-glass"><span class="gi-minimap-canvas"></span><span class="gi-minimap-vignette"></span><span class="gi-minimap-player"><i class="gi-minimap-cone"></i><svg viewBox="0 0 24 24"><path d="M12 3 19 20l-7-4-7 4z"/></svg></span></span><span class="gi-minimap-north">N</span></span><span class="gi-minimap-label">World map</span>';
     const dialog=document.createElement('dialog');dialog.id='gi-world-map';dialog.setAttribute('aria-labelledby','gi-world-map-title');dialog.dataset.view='list';
@@ -202,11 +203,11 @@ export function mountWorldMap({host,getContext,adapter=createMediaAdapter(getCon
             // Card Search: a Quest marker beside every Wilderness or Boss waypoint that drops a searched card.
             const {name,markup,quest}=presentations.get(id);
             const isCurrent=current?.location.id===id,isSelected=selecting&&selectedId===id;
-            const key=JSON.stringify([item.point.x,item.point.y,name,isCurrent,markup,quest]);
+            const statue=isStatue(item.location),key=JSON.stringify([item.point.x,item.point.y,name,isCurrent,markup,quest,statue]);
             const cached=markerCache.get(id);
             if(cached?.key===key){cached.item=item;highlight(id,isSelected);continue;}
             if(cached?.shown)markers.removeLayer(cached.marker);
-            const marker=mapMarker(toLatLng(item.point),{icon:waypointIcon({current:isCurrent,selected:isSelected,badges:markup}),title:name,alt:name,keyboard:true,zIndexOffset:quest?500:0});
+            const marker=mapMarker(toLatLng(item.point),{icon:waypointIcon({current:isCurrent,selected:isSelected,badges:markup,glyph:statue?statueIcon:''}),title:name,alt:name,keyboard:true,zIndexOffset:quest?500:0});
             marker.bindTooltip(element('span',item.location.label),{direction:'top',offset:[0,-30]});
             marker.on('click',event=>{L.DomEvent.stopPropagation(event);if(busy())return;cue('waypoint');select(markerCache.get(id).item);});
             markerCache.set(id,{key,marker,item,latlng:marker.getLatLng(),shown:false,selected:isSelected});
@@ -268,10 +269,10 @@ export function mountWorldMap({host,getContext,adapter=createMediaAdapter(getCon
         const wanted=new Set(),nodes=shown.map(item=>{
             const id=item.location.id;wanted.add(id);
             const {labels,markup,quest}=presentations.get(id),isCurrent=current?.location.id===id,isSelected=!view.is('list')&&selectedId===id;
-            const key=JSON.stringify([item.location.label,item.region.name,labels,markup,quest,isCurrent]);
+            const key=JSON.stringify([item.location.label,item.region.name,labels,markup,quest,isCurrent,item.location.statue || '']);
             const cached=listCache.get(id);if(cached?.key===key){cached.node.setAttribute('aria-current',String(isSelected));return cached.node;}
             const b=document.createElement('button');b.type='button';b.dataset.map='select';b.dataset.location=id;b.dataset.giSound='waypoint';
-            const img=document.createElement('img');img.src=waypointGlyph;img.alt='';img.loading='lazy';img.decoding='async';
+            const img=document.createElement('img');img.src=isStatue(item.location)?statueIcon:waypointGlyph;img.alt='';img.loading='lazy';img.decoding='async';if(isStatue(item.location))b.dataset.statue='true';
             const text=document.createElement('span');text.append(element('b',item.location.label),element('small',item.region.name));b.append(img,text);
             if(labels.length){const marks=document.createElement('span');marks.className='gi-map-list-badges';marks.title=labels.join('. ');marks.innerHTML=markup;b.append(marks);b.setAttribute('aria-label',`${item.location.label}, ${item.region.name}. ${labels.join('. ')}`);}
             if(quest)b.dataset.quest='true';
@@ -286,7 +287,7 @@ export function mountWorldMap({host,getContext,adapter=createMediaAdapter(getCon
     function listWaypoints(){const previous=selectedId;selectedId=null;sidebar.replaceChildren();go('LIST');highlight(previous,false);}
     function cardHead(title,subtitle,glyph=true){
         const head=document.createElement('header');head.className='gi-map-card-head';
-        if(glyph){const img=document.createElement('img');img.src=waypointGlyph;img.alt='';img.className='gi-map-card-glyph';head.append(img);}
+        if(glyph){const img=document.createElement('img');img.src=typeof glyph==='string'?glyph:waypointGlyph;img.alt='';img.className='gi-map-card-glyph';head.append(img);}
         const text=document.createElement('div');if(subtitle)text.append(element('small',subtitle));text.append(element('h3',title));
         const close=document.createElement('button');close.type='button';close.dataset.map='cancel';close.className='gi-map-card-close';close.setAttribute('aria-label','Close details');close.innerHTML=ICON.close;
         head.append(text,close);return head;
@@ -302,6 +303,17 @@ export function mountWorldMap({host,getContext,adapter=createMediaAdapter(getCon
         if(chips.children.length)section.append(chips);else section.append(element('small','No enemies can appear here.'));
         const restore=button(defeated.length?`Restore defeated enemies (${defeated.length})`:'No defeated enemies','restore-enemies');restore.disabled=!defeated.length;
         section.append(restore);return section;
+    }
+    // A Statue of The Seven: the element it grants, and who can resonate with it. Resonating needs the party there.
+    function statueSection(item){
+        const ctx=getContext(),el=statueElement(item.location),here=activeWorldLocation(ctx)?.location.id===item.location.id,travelers=resonanceTravelers(ctx);
+        const section=document.createElement('section');section.className='gi-map-music gi-map-statue';section.dataset.element=el || 'none';
+        section.append(element('h4',el?`Statue of The Seven · ${el}`:'Statue of the New Moon'));
+        if(!el){section.append(element('p','The Traveler cannot resonate with any element here.'));return section;}
+        section.append(element('p',travelers.length?travelers.map(t=>`${t.card.name}: ${t.element==='None'?'no element':t.element}`).join(' · '):'Bring Aether or Lumine, or play as one, to resonate here.'));
+        const go=button(`Resonate with ${el}`,'statue');go.disabled=!here||!travelers.length;if(!here)go.title='Travel here first';
+        section.append(go);if(!here)section.append(element('small','Teleport here to resonate.'));
+        return section;
     }
     // The picture is its own control: choosing a file replaces this waypoint's background straight away.
     function artworkPicker(item){
@@ -326,6 +338,7 @@ export function mountWorldMap({host,getContext,adapter=createMediaAdapter(getCon
         body.append(artworkPicker(item));
         if(item.location.description)body.append(element('p',item.location.description));
         const distance=element('p',distances(item));distance.className='gi-waypoint-distance';body.append(distance);
+        if(isStatue(item.location))body.append(statueSection(item));
         const section=document.createElement('section');section.className='gi-map-residents';section.append(element('h4','Residents'));
         const present=locationResidents(getContext(),item.location.id),roster=document.createElement('div');roster.className='gi-map-chips';
         roster.append(...present.map(c=>element('span',c.name)));if(present.length)section.append(roster);
@@ -346,7 +359,7 @@ export function mountWorldMap({host,getContext,adapter=createMediaAdapter(getCon
         const teleport=button('','teleport');teleport.className='gi-map-teleport';teleport.dataset.giSound='none';const glyph=document.createElement('img');glyph.src=waypointGlyph;glyph.alt='';teleport.append(glyph,element('span','Teleport'));
         const bypass=button('Bypass Encounters','bypass');bypass.className='gi-map-bypass';bypass.setAttribute('aria-pressed',String(encountersBypassed(getContext(),item.location.id)));bypass.title='Arrive here without meeting any characters or enemies';
         actions.append(bypass,edit,teleport);
-        sidebar.replaceChildren(cardHead(item.location.label,item.region.name),body,actions);go('SELECT');
+        sidebar.replaceChildren(cardHead(item.location.label,item.region.name,isStatue(item.location)?statueIcon:true),body,actions);go('SELECT');
     }
     function regionChoices(select,selected){
         const regions=backgroundRegions(getContext());select.append(...regions.map(r=>new Option(r.name,r.id)));
@@ -515,6 +528,7 @@ export function mountWorldMap({host,getContext,adapter=createMediaAdapter(getCon
             if(name==='restore-enemies'&&item){const n=restoreEnemies(getContext(),item.location.id);showDetails(item);status(n?`${n} defeated ${n===1?'enemy':'enemies'} can appear at ${item.location.label} again.`:'No defeated enemies here.');return;}
             if(name==='bypass'&&item){const on=toggleEncounterBypass(ctx,item.location.id);saveTravel(ctx);showDetails(item);status(on?`Encounters bypassed at ${item.location.label}. Applies on your next arrival.`:`Encounters restored at ${item.location.label}. Applies on your next arrival.`);return;}
             if(name==='music'&&item){openMusic(item.location.id);return;}
+            if(name==='statue'&&item){if(activeWorldLocation(ctx)?.location.id===item.location.id){close();openStatue(item.location);}return;}
             if(name==='wilderness'&&item){wildLocation=item.location;wildMenu.open();return;}
             if(name==='card-drops'&&item){wildLocation=item.location;cardPoolMenu.open();return;}
             if(name==='music-library'){openMusicLibrary();return;}

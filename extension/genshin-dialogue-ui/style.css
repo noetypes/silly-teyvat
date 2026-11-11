@@ -5590,6 +5590,51 @@ body #gi-attack-controls #gi-attack-toggle[aria-pressed="true"]::after {
 .gi-bg-teyvat .gi-bg-place.selected { border-color: var(--ty-gold-hi, #f2dca0); box-shadow: 0 0 0 2px var(--ty-gold-hi, #f2dca0); }
 .gi-bg-teyvat .gi-bg-empty { margin: 12px; opacity: .8; }
 
+/* ---- Statues of The Seven ------------------------------------------------------------------------------------ */
+/* The statue's own map icon stands in for the waypoint pin, in the list and on the card. */
+#gi-world-map .gi-waypoint-statue > img { filter: drop-shadow(0 2px 3px #000b); }
+#gi-world-map .gi-map-statue { --statue-el: #7fd6ff; }
+#gi-world-map .gi-map-statue[data-element="Anemo"] { --statue-el: #74e0c6; }
+#gi-world-map .gi-map-statue[data-element="Geo"] { --statue-el: #f2c35a; }
+#gi-world-map .gi-map-statue[data-element="Electro"] { --statue-el: #c49bff; }
+#gi-world-map .gi-map-statue[data-element="Dendro"] { --statue-el: #a5d64a; }
+#gi-world-map .gi-map-statue[data-element="Hydro"] { --statue-el: #4fc3ff; }
+#gi-world-map .gi-map-statue[data-element="Pyro"] { --statue-el: #ff9a5c; }
+#gi-world-map .gi-map-statue[data-element="Cryo"] { --statue-el: #a8e8f5; }
+#gi-world-map .gi-map-statue h4 { color: var(--statue-el); }
+#gi-world-map .gi-map-statue small { display: block; margin-top: 6px; color: #cfc6b0; font-size: 12px; }
+
+#gi-statue { --statue-el: #7fd6ff; box-sizing: border-box; width: min(440px, calc(100vw - 32px)); max-height: calc(100dvh - 32px); overflow: auto; padding: 20px 20px 16px; border: 1px solid #d3bc8e88; border-radius: 14px; color: #ece5d8; background: radial-gradient(120% 70% at 50% 0%, color-mix(in srgb, var(--statue-el) 22%, transparent), transparent 70%), #263044f5; box-shadow: 0 12px 48px #000a; font-family: var(--ty-font); text-align: center; }
+#gi-statue[data-element="Anemo"] { --statue-el: #74e0c6; }
+#gi-statue[data-element="Geo"] { --statue-el: #f2c35a; }
+#gi-statue[data-element="Electro"] { --statue-el: #c49bff; }
+#gi-statue[data-element="Dendro"] { --statue-el: #a5d64a; }
+#gi-statue[data-element="Hydro"] { --statue-el: #4fc3ff; }
+#gi-statue[data-element="Pyro"] { --statue-el: #ff9a5c; }
+#gi-statue[data-element="Cryo"] { --statue-el: #a8e8f5; }
+#gi-statue::backdrop { background: #101928b8; backdrop-filter: blur(4px); }
+#gi-statue > small { display: block; font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: #d7c59c; }
+#gi-statue .gi-statue-icon { display: block; width: 52px; height: 52px; margin: 12px auto 4px; object-fit: contain; filter: drop-shadow(0 0 10px var(--statue-el)); }
+#gi-statue h2 { margin: 4px 0 8px; font: 21px/1.2 var(--ty-font); color: #f2dca0; }
+#gi-statue p { margin: 0 0 14px; font-size: 14px; line-height: 1.45; color: #e3dccb; }
+#gi-statue .gi-statue-list { display: flex; flex-direction: column; gap: 6px; margin: 0 0 14px; text-align: left; }
+#gi-statue .gi-statue-row { display: grid; grid-template-columns: 40px minmax(0, 1fr) auto; align-items: center; gap: 10px; padding: 6px 8px 6px 10px; border-radius: 10px; background: #1a2232b8; box-shadow: inset 0 0 0 1px #d3bc8e33; }
+#gi-statue .gi-circle-face { width: 40px; height: 40px; }
+#gi-statue .gi-statue-who { display: flex; flex-direction: column; min-width: 0; }
+#gi-statue .gi-statue-who strong { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-weight: normal; font-size: 15px; }
+#gi-statue .gi-statue-who small { font-size: 12px; color: #cfc6b0; }
+#gi-statue button { box-sizing: border-box; min-height: 40px; padding: 8px 16px; border: 0; border-radius: 999px; color: #ece5d8; background: #262c38; box-shadow: inset 0 0 0 1.5px #ffffff30; font: 14px var(--ty-font); cursor: pointer; }
+#gi-statue button:hover:not(:disabled) { color: #3d4557; background: #ece5d8; }
+#gi-statue .gi-statue-primary { color: #2d2718; background: #e6cf98; box-shadow: 0 0 12px color-mix(in srgb, var(--statue-el) 55%, transparent); }
+#gi-statue .gi-statue-primary:hover:not(:disabled) { color: #2d2718; background: #f4e2b4; }
+#gi-statue button:disabled { opacity: .55; cursor: default; }
+#gi-statue :is(button):focus-visible { outline: 2px solid #f2dca0; outline-offset: 2px; }
+#gi-statue .gi-statue-actions { display: flex; justify-content: center; }
+@media (max-width: 420px) {
+    #gi-statue .gi-statue-row { grid-template-columns: 36px minmax(0, 1fr); }
+    #gi-statue .gi-statue-row button { grid-column: 1 / -1; }
+}
+
 /* ---------- Card Search (1.69): the Adventurers' Guild's search menu and the map's Quest markers ---------- */
 #gi-card-search {
     --cs-paper: #ece5d8; --cs-ink: #3d4557; --cs-bar: #1d2232e6; --cs-gold: #d3bc8e; --cs-tile: clamp(108px, 9.5vw, 140px);

@@ -288,7 +288,7 @@ export function mountWardrobe({host, getContext, onChange = async () => {}, onMe
     }
     function expectArrival(){arrival=true;dialog.classList.remove('gi-cs-arrive');}
     const movesetEditor=document.createElement('section');$('[data-panel="moveset"]').append(movesetEditor);
-    const movesetUI=mountMovesetEditor({panel:movesetEditor,getContext,getCharacter:()=>character,status});
+    const movesetUI=mountMovesetEditor({panel:movesetEditor,getContext,getCharacter:()=>character,status,onElementChange:()=>{combatArtUI.refresh();propertiesUI.refresh();paintElement();onChange(character,{classification:true});}});
     const artPanel=document.createElement('section');$('[data-panel="moveset"]').append(artPanel,deckPanel);deckPanel.classList.add('gi-editor-disclosure');
     const combatArtUI=mountCombatArtEditor({panel:artPanel,getContext,getCharacter:()=>character,adapter:mediaAdapter,status});
     movesetEditor.addEventListener('click',event=>{if(event.target.closest('[data-save-kit],[data-reset-kit]'))setTimeout(()=>combatArtUI.refresh());},{signal:abort.signal});
