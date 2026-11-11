@@ -100,6 +100,14 @@ export function createLoadingScreen({random=Math.random,isReady=()=>true,onChang
         };
         settleTimer=setTimeout(poll,SETTLE_STEP);
     }
+    function dismiss(){
+        clearTimeout(settleTimer);const token=epoch;
+        settleTimer=setTimeout(()=>{
+            if(token!==epoch||holds.size)return;
+            leaving=false;root.hidden=true;root.classList.remove('gi-loading-out','gi-loading-in');document.body.classList.remove('gi-loading-active');
+            clearInterval(tipTimer);clearTimeout(swapTimer);tipBox.classList.remove('gi-loading-swap');cancelFrame(frame);frame=0;onChange();
+        },SETTLE_STEP);
+    }
     const api={
         get visible(){return !root.hidden&&!leaving;},
         get holds(){return holds.size;},
@@ -108,7 +116,9 @@ export function createLoadingScreen({random=Math.random,isReady=()=>true,onChang
             const fresh=root.hidden;enter({instant});update(info);if(fresh)setTip();
             const token={};holds.add(token);
             const safety=setTimeout(()=>release(),MAX_HOLD);
-            function release(){clearTimeout(safety);if(!holds.delete(token))return;if(!holds.size)finish();}
+            // unneeded: the work turned out not to need the screen. If this hold raised it, it goes at
+            // once rather than after the usual minimum, unless other work starts in the next moment.
+            function release({unneeded=false}={}){clearTimeout(safety);if(!holds.delete(token))return;if(holds.size)return;if(unneeded&&fresh)dismiss();else finish();}
             return release;
         },
         update,

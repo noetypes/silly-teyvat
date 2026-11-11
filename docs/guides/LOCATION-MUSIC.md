@@ -1,6 +1,6 @@
 # Location music
 
-Open the world map and use **Music library** in its region/waypoint panel. Upload one or more audio files, give each a label, and use Preview to audition it. MP3, WAV, M4A, OGG, WebM, AAC and FLAC use the existing authenticated SillyTavern upload endpoint, with a 50 MB per-file limit. Codec support depends on the browser. Music has an independent enable toggle and volume; character voices, CG audio and battle sound effects keep their existing settings.
+Open the world map and use **Music library** in its region/waypoint panel. Upload one or more audio files, give each a label, and use Preview to audition it. MP3, WAV, M4A, OGG, WebM, AAC and FLAC use the existing authenticated SillyTavern upload endpoint, with a 50 MB per-file limit. Codec support depends on the browser. Music has its own on/off switch and volume, here and under **Settings → CG & Audio**, where Main volume scales it along with voices, CG audio, sound effects and interface sounds.
 
 Select a waypoint, choose **Choose music**, check its exploration songs, then save. One song repeats; multiple songs play in shuffled cycles without an immediate repeat at a cycle boundary. Cancelling leaves the previous assignment intact. Opening a waypoint's settings does not travel there or replace the active location's music. Music follows the live travel location, including Teleport and region changes, rather than a historical scene being read.
 
@@ -13,7 +13,7 @@ The library is shared across waypoints. Relabelling keeps assignments intact. Re
 ## Stored data
 
 - `extensionSettings.genshin_dialogue_ui.musicLibrary`: `{id, label, name, path}` entries, referencing same-origin files.
-- `locationMusicEnabled` and `locationMusicVolume`: independent BGM preferences.
+- `locationMusicEnabled` and `locationMusicVolume`: BGM preferences. Playback volume is `locationMusicVolume` times `masterVolume` (`audio-levels.js`).
 - `backgroundRegions[].locations[].music`: `{tracks: [library IDs], combatTrack: ID | null, formTracks?: {form name: ID}}`. A form track replaces the combat track while an enemy in the current encounter is in that form: La Signora's arena plays Chrysalis Suspirii, then Saltatio Favillae once she is the Crimson Witch of Embers. The switch happens as the battle board shows the transformation; afterwards the saved encounter keeps it. Saving the waypoint playlist keeps form tracks; removing a track from the library unlinks it. Sources: `docs/research/music/2026-11-07/boss-music.json`.
 
 Music never alters combat rules, dice, HP or prompts. `index.js` supplies the existing combat controller's busy state and eligible live enemies. The separate player owns exploration, combat and preview channels and clears them on a chat/location change or disposal. No third-party streaming service or additional model request is involved.

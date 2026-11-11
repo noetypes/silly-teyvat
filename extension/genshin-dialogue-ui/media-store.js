@@ -4,6 +4,7 @@ import {newLocalId} from './local-id.js';
 import { finalizeChoiceRequest, finalizeReasoningRequest, preferReasoningOff } from './choices-api.js';
 import { defaultPrompt } from './prompt-templates.js';
 import { spriteAudioKey } from './sprite-files.js';
+import {volumeLevel} from './audio-levels.js';
 export function mediaSettings(ctx) {
     const prefs = ctx.extensionSettings.genshin_dialogue_ui ??= {};
     prefs.spriteAudioFiles ??= {}; prefs.characterCGs ??= {}; prefs.archivedSprites ??= {};
@@ -25,8 +26,8 @@ export const phoneLayout=()=>matchMedia('(max-width: 768px), (max-height: 500px)
 // "CG display" setting either follows each CG's own choice or puts every CG in one mode.
 export const CG_DISPLAY_MODES=['each','scene','frame'];
 export const cgDisplay=(cg,phone=phoneLayout(),mode='each')=>phone||mode==='frame'||mode!=='scene'&&cg?.display==='frame'?'frame':'scene';
-// Per-CG percentages scale the master volume in Silly Teyvat's settings.
-export const cgVolume=(prefs,percent)=>Math.max(0,Math.min(1,(prefs.spriteVolume ?? .8)*(percent ?? 100)/100));
+// Per-CG percentages scale the CG volume in Silly Teyvat's settings.
+export const cgVolume=(prefs,percent)=>Math.max(0,Math.min(1,volumeLevel(prefs,'cg')*(percent ?? 100)/100));
 // 1.50: framed or full-scene used to be one global setting; each CG now keeps its own.
 export function migrateCGDisplay(prefs){
     if(prefs.cgMode===undefined)return false;

@@ -4,6 +4,7 @@ import { speakerAvatar, roster } from './staging.js';
 import {personaCard} from './persona-wardrobe.js';
 import {travelState} from './backgrounds.js';
 import {sceneTrustLevels,cgTrustAllowed} from './scene-trust.js';
+import {volumeLevel} from './audio-levels.js';
 
 export function createSpriteSoundPlayer({ makeAudio = () => new Audio(), random = Math.random } = {}) {
     const audio = makeAudio(); let sequence = 0;
@@ -162,7 +163,7 @@ export function mountSceneMedia({host,getContext,adapter=createMediaAdapter(getC
     const spoken = new WeakMap();
     let audioKind='',audioCGKey='';
     function stopSound(){sound.stop();audioKind=audioCGKey='';}
-    function playSound(files,kind,key='',volume=mediaSettings(getContext()).spriteVolume){audioKind=kind;audioCGKey=key;return sound.play(files,volume);}
+    function playSound(files,kind,key='',volume=volumeLevel(mediaSettings(getContext()),'voice')){audioKind=kind;audioCGKey=key;return sound.play(files,volume);}
     const identity = ctx => `${ctx.groupId || ctx.characterId}:${ctx.getCurrentChatId?.() || ctx.chatId || ''}`;
     function hideStage() { stage.hidden = true; document.body.classList.remove('gi-cg-replace'); stageMedia.stop(); }
     function hideFrame() { frame.hidden = true; frameKey = ''; frameMedia.stop(); }

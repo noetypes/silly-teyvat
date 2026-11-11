@@ -24,6 +24,7 @@ import {locationCardPool} from './card-pools.js';
 import {npcKit} from './npc-kits.js';
 import {defeatGuildStaff} from './guild.js';
 import {hostileEnemy,playingEnemy} from './enemy-persona.js';
+import {volumeLevel} from './audio-levels.js';
 
 export async function appendCombatMessage(ctx,{name='Narrator',text,avatar,event}){
     const message={name,is_user:false,is_system:false,send_date:new Date().toISOString(),mes:text,extra:{silly_teyvat_combat:event,silly_teyvat_combat_scene:structuredClone(activeEnemies(ctx))}};
@@ -162,7 +163,7 @@ export function mountCombat({host,getContext,onChange=()=>{},announce=()=>{},ada
         announce(armed?(duelOnly?'Attack is on. When you send your next message you choose who to battle, or no one.':'Attack is on. Your next messages will also start a battle round.'):'Attack is off. Your messages will only speak.');return armed;
     }
     const current=(identity,token)=>!disposed&&enabled&&token===revision&&combatIdentity(getContext())===identity;
-    const prefs=ctx=>mediaSettings(ctx),volumeOf=(ctx,key)=>prefs(ctx)[key]===false?0:(prefs(ctx).spriteVolume ?? .8);
+    const prefs=ctx=>mediaSettings(ctx),volumeOf=(ctx,key)=>prefs(ctx)[key]===false?0:volumeLevel(prefs(ctx),'effects');
     // One full round in the manner of Genius Invokation: Roll Phase, then turns in alternation on the board, then the End Phase.
     // The finished round is saved and narrated, then the board shows Victory or the round's summary.
     // enemyFirst: the enemy started this fight, so it strikes before the party. duel: party members fought on your own.

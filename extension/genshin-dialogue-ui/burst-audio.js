@@ -3,6 +3,7 @@ import {createSpriteSoundPlayer} from './scene-media.js';
 import {linkedCard} from './persona-link.js';
 import {personaCard} from './persona-wardrobe.js';
 import {characterProperties,ELEMENTS} from './character-properties.js';
+import {volumeLevel} from './audio-levels.js';
 
 let defaults={};
 export const burstAudioReady=fetch(new URL('./assets/burst-audio/index.json',import.meta.url))
@@ -31,7 +32,7 @@ export function createBurstVoicePlayer({getContext,sound=createSpriteSoundPlayer
             if(!card)return;
             const files=burstAudioFiles(ctx,card).filter(file=>!file.element || file.element===unit.element);
             if(!files.length)return;
-            try{await sound.play(files,mediaSettings(ctx).spriteVolume ?? .8);}
+            try{await sound.play(files,volumeLevel(mediaSettings(ctx),'voice'));}
             catch(error){if(!warned.has(card.avatar)){warned.add(card.avatar);announce('Burst voice could not play. Check its audio files or enable audio on this device.');}}
         },
         stop(){sound.stop();},

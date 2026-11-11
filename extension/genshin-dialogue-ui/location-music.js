@@ -2,6 +2,7 @@ import {createMediaAdapter} from './media-store.js';
 import {musicSettings,musicLibrary,musicLocation,musicVolume,addMusicTrack,renameMusicTrack,removeMusicTrack,saveLocationMusic,locationMusicCue} from './location-music-state.js';
 import {createLocationMusicPlayer} from './location-music-player.js';
 import {encounterForms} from './combat-state.js';
+import {volumeLevel} from './audio-levels.js';
 
 export function mountLocationMusic({host,getContext,adapter=createMediaAdapter(getContext),announce=()=>{},onChange=()=>{},player:providedPlayer}={}){
     const library=document.createElement('dialog');library.id='gi-music-library';library.className='gi-music-dialog';library.setAttribute('aria-labelledby','gi-music-library-title');
@@ -38,7 +39,7 @@ export function mountLocationMusic({host,getContext,adapter=createMediaAdapter(g
         const cue=locationMusicCue(ctx,lastViewed,new Set([...encounterForms(ctx),...liveForms]));
         chatKey=identity;
         if(!lastOn){library.close();picker.close();}
-        player.configure({...cue,active:lastOn,enabled:lastOn&&prefs.locationMusicEnabled!==false,volume:musicVolume(ctx),inCombat:Boolean(cue.location&&lastCombat)});
+        player.configure({...cue,active:lastOn,enabled:lastOn&&prefs.locationMusicEnabled!==false,volume:volumeLevel(prefs,'music'),inCombat:Boolean(cue.location&&lastCombat)});
         paintPlaying();
     }
     function changed(){sync();onChange();}

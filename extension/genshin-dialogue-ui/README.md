@@ -79,6 +79,7 @@ Expressions use SillyTavern's **Character Expressions** classifier settings. Cha
 
 - The **Silly Teyvat** switch unloads the whole extension. Below it, feature sets (story view, choices, sprites, CGs, sounds, encounters, battles, Trust, prompts and card art) turn on and off separately.
 - Settings are searchable, every section has a Reset, and fine-tuning is folded under **Advanced**.
+- **CG & Audio** has a Main volume and separate volumes for music, voices, CG audio, sound effects and interface sounds.
 - Every prompt the extension sends, including its roleplay writing guides, is editable under **Settings → Prompts**.
 - Scene, location and choice requests can use the main API, a saved Connection Manager profile or WebLLM.
 - **Share** exports the extension or the game data as ZIP files for other players. API keys and connection profiles are never exported.

@@ -6,6 +6,7 @@ import {registerOfficialArt} from './official-art.js';
 import {mountCombat} from './combat.js';
 import {syncCombatPrompt,activeEnemies,defeatedHere} from './combat-state.js';
 import {mountLocationMusic} from './location-music.js';
+import {migrateVolumes,volumeLevel} from './audio-levels.js';
 /* Silly Teyvat, integrated suggested replies and native drawer presentation. */
 import { createTextReveal } from './text-reveal.js';
 import { mountPageSprites } from './page-sprites.js';
@@ -65,7 +66,7 @@ import {FRAME_CAP_OPTIONS,FRAME_CAP_MIN,FRAME_CAP_MAX,frameCapFps,setFrameCap} f
 const KEY = 'genshin_dialogue_ui';
 // A GitHub install takes the repository's name, so the folder is read from where this file is served.
 const FOLDER = `third-party/${decodeURIComponent(new URL('./', import.meta.url).pathname.split('/').filter(Boolean).at(-1))}`;
-const defaults = Object.freeze({ ...stagingDefaults, enabled: false, choices: true, composer: true, frameCap: 'unlimited', frameCapCustom: 90, textScale: 1, scrim: 0.8, revealSpeed: 45, tapAdvance: true, pageExpressions: true, narration: false, narrationMode: 'quotes', narrationKeyword: 'Narrator:', hideDialogueQuotes:false, nameTagFilter:true, nameTagScope:'all', nameTagExtra:'', wardrobe: true, locationEncounters:true, locationCharacterLimit:5, randomEncounters:true, encounterRate:40, allowMainDeparture:false, worldPromptAllRegions:false, roleplayPromptsEnabled:true, wildernessEncounters:true, maxEnemies:3, combatDamageMin:1, combatDamageMax:6, enemyStrikeBack:true,combatTriggerPhrase:'[start_combat]', enemyDamageMin:2, enemyDamageMax:6, enemyDice:4, userMaxHp:30, combatDifficulty:'normal', battleEffects:true, battleSound:true,uiSound:true,uiSoundVolume:.7, personaSpriteClassify:false, soloGreeting:'standard', personaIcon: 'Aether', personaIconMode:'auto', hudTopIcons:'auto', namecard:'', signature:'', trimSprites:true, cgEnabled:true, cgClassifier:'main', cgProfile:'', choicesProfile:'', cgBypassReasoning:true, choicesBypassReasoning:true, cgPrompt:defaultCGPrompt, cgDisplayMode:'each', cgCooldown:10, cgAudio:true, spriteAudio:true, burstAudio:true, spriteVolume:.8, diceSound:true, trustSystem:false, travelerTwin:'Aether', master:true, cardArt:true, paimonLinks:PAIMON_LINKS, paimonRestore:{} });
+const defaults = Object.freeze({ ...stagingDefaults, enabled: false, choices: true, composer: true, frameCap: 'unlimited', frameCapCustom: 90, textScale: 1, scrim: 0.8, revealSpeed: 45, tapAdvance: true, pageExpressions: true, narration: false, narrationMode: 'quotes', narrationKeyword: 'Narrator:', hideDialogueQuotes:false, nameTagFilter:true, nameTagScope:'all', nameTagExtra:'', wardrobe: true, locationEncounters:true, locationCharacterLimit:5, randomEncounters:true, encounterRate:40, allowMainDeparture:false, worldPromptAllRegions:false, roleplayPromptsEnabled:true, wildernessEncounters:true, maxEnemies:3, combatDamageMin:1, combatDamageMax:6, enemyStrikeBack:true,combatTriggerPhrase:'[start_combat]', enemyDamageMin:2, enemyDamageMax:6, enemyDice:4, userMaxHp:30, combatDifficulty:'normal', battleEffects:true, battleSound:true,uiSound:true,uiSoundVolume:.7,masterVolume:1,locationMusicEnabled:true,locationMusicVolume:.45,voiceVolume:.8,cgVolume:.8,effectsVolume:.8, personaSpriteClassify:false, soloGreeting:'standard', personaIcon: 'Aether', personaIconMode:'auto', hudTopIcons:'auto', namecard:'', signature:'', trimSprites:true, cgEnabled:true, cgClassifier:'main', cgProfile:'', choicesProfile:'', cgBypassReasoning:true, choicesBypassReasoning:true, cgPrompt:defaultCGPrompt, cgDisplayMode:'each', cgCooldown:10, cgAudio:true, spriteAudio:true, burstAudio:true, diceSound:true, trustSystem:false, travelerTwin:'Aether', master:true, cardArt:true, paimonLinks:PAIMON_LINKS, paimonRestore:{} });
 const bodyClasses = ['gi-menu-open', 'gi-enabled', 'gi-scene', 'gi-history', 'gi-hidden', 'gi-compose', 'gi-generating', 'gi-reading', 'gi-choices-enabled', 'gi-native-staging', 'gi-sprite-idle', 'gi-hud-top-off', 'gi-welcome'];
 const icons = {
     compass: '<path d="m12 2 3 7 7 3-7 3-3 7-3-7-7-3 7-3Z"/><path d="m12 8 4 4-4 4-4-4Z"/>',
@@ -223,6 +224,7 @@ function preferences() {
     // 1.43: "Recent speakers only" became one of the Crowded scenes choices.
     if (store[KEY].spriteCrowd === undefined && store[KEY].autoHideSprites) store[KEY].spriteCrowd = 'recent';
     if (!['auto', 'recent', 'all'].includes(store[KEY].spriteCrowd ?? 'auto')) store[KEY].spriteCrowd = 'auto';
+    migrateVolumes(store[KEY]);
     for (const [key, value] of Object.entries(defaults)) {
         if (typeof store[KEY][key] !== typeof value) store[KEY][key] = value;
     }
@@ -233,8 +235,6 @@ function preferences() {
     if (!FRAME_CAP_OPTIONS.includes(store[KEY].frameCap)) store[KEY].frameCap = 'unlimited';
     store[KEY].frameCapCustom = Math.max(FRAME_CAP_MIN,Math.min(FRAME_CAP_MAX,Math.round(Number(store[KEY].frameCapCustom) || 90)));
     setFrameCap(frameCapFps(store[KEY]));
-    store[KEY].spriteVolume = Math.max(0,Math.min(1,Number(store[KEY].spriteVolume) || 0));
-    store[KEY].uiSoundVolume = Math.max(0,Math.min(1,Number(store[KEY].uiSoundVolume) || 0));
     store[KEY].textScale = Math.min(1.4, Math.max(0.85, Number(store[KEY].textScale) || 1));
     store[KEY].revealSpeed = Math.min(150, Math.max(0, Number(store[KEY].revealSpeed) || 0));
     store[KEY].scrim = Math.min(0.95, Math.max(0.4, Number(store[KEY].scrim) || 0.8));
@@ -306,11 +306,15 @@ function holdTravelLoad(place){
     if(release)setTimeout(release,50);
 }
 // Held from the moment SillyTavern clears the chat until CHAT_CHANGED takes its own hold.
-let bridgeRelease=null;
+// SillyTavern also clears and redraws the same chat in place, for example when it saves a card
+// while the chat holds only the greeting (as it does after the open chat is deleted). The messages
+// then return under the same chat id with no CHAT_CHANGED, so their return ends the hold.
+let bridgeRelease=null,bridgeChatId=null;
 function bridgeChatSwitch(){
     if(bridgeRelease||!loadingUI)return;
+    bridgeChatId=context().getCurrentChatId?.() ?? null;
     const release=loadingUI.hold(loadingPlace(context()),{instant:true}),timer=setTimeout(()=>bridgeRelease?.(),3000);
-    bridgeRelease=()=>{clearTimeout(timer);bridgeRelease=null;release();};
+    bridgeRelease=(options)=>{clearTimeout(timer);bridgeRelease=null;release(options);};
 }
 function schedule() {
     if (!mounted || frame) return;
@@ -364,8 +368,7 @@ function syncSettings(force=true) {
     const speed = document.querySelector('#gi-reveal-speed-value');
     if (speed) speed.value = prefs.revealSpeed ? `${prefs.revealSpeed}/s` : 'Instant';
     if (scrim) scrim.value = `${Math.round(prefs.scrim * 100)}%`;
-    const volume=document.querySelector('#gi-sprite-volume-value');if(volume)volume.value=`${Math.round(prefs.spriteVolume*100)}%`;
-    const uiVolume=document.querySelector('#gi-ui-sound-volume-value');if(uiVolume)uiVolume.value=`${Math.round(prefs.uiSoundVolume*100)}%`;
+    for(const key of ['masterVolume','locationMusicVolume','voiceVolume','cgVolume','effectsVolume','uiSoundVolume']){const output=document.querySelector(`#gi-settings output[data-gi-volume="${key}"]`);if(output)output.value=`${Math.round(prefs[key]*100)}%`;}
     paintResets(document.querySelector('#gi-settings'),defaults);
 }
 // Event narration (attacks, reactions, travel and teleports) is appended moments
@@ -949,7 +952,7 @@ export async function initialize(options = {}) {
         if(gameDataChecked||version!==mountVersion)return;gameDataChecked=true;
         void shareUI?.checkGameData({startup:true}).catch(error=>console.warn('[Silly Teyvat] Game data check',error));
     });
-    uiSound=createUiSound({getVolume:()=>preferences().uiSound?preferences().uiSoundVolume:0});mountUiSound({sound:uiSound,signal:abort.signal});
+    uiSound=createUiSound({getVolume:()=>preferences().uiSound?volumeLevel(preferences(),'ui'):0});mountUiSound({sound:uiSound,signal:abort.signal});
     document.addEventListener('click', handleAction, { signal: abort.signal });
     fullscreen.onChange(() => { paintFullscreen(); announce(fullscreen.active() ? 'Full screen on.' : 'Full screen off.'); }, abort.signal);
     document.addEventListener('keydown', handleKey, { signal: abort.signal });
@@ -1004,7 +1007,9 @@ export async function initialize(options = {}) {
     observer = new MutationObserver(records => {
         // SillyTavern empties #chat before it announces the next chat (New Chat, another character).
         // Cover the stage in this same task, before a frame of the bare interface can paint.
-        if(preferences().enabled&&records.some(record=>record.target.id==='chat'&&[...record.removedNodes].some(node=>node.classList?.contains('mes')))&&!document.querySelector('#chat > .mes'))bridgeChatSwitch();
+        const shown=Boolean(document.querySelector('#chat > .mes'));
+        if(preferences().enabled&&!shown&&records.some(record=>record.target.id==='chat'&&[...record.removedNodes].some(node=>node.classList?.contains('mes'))))bridgeChatSwitch();
+        else if(bridgeRelease&&shown&&(context().getCurrentChatId?.() ?? null)===bridgeChatId)bridgeRelease({unneeded:true});
         // Ignore our own presentation copy; native streaming and edit mutations
         // still schedule a refresh. This avoids an observer/render feedback loop.
         if (records.some(record => !(record.target.nodeType === Node.ELEMENT_NODE ? record.target : record.target.parentElement)?.closest('.gi-page') &&

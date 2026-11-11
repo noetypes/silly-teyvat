@@ -93,12 +93,17 @@
 
             <section class="gi-set-page" data-page="media" role="tabpanel" hidden>
                 <h4>Audio</h4>
+                <label class="gi-row gi-row-range" for="gi-master-volume"><span>Main volume</span><output data-gi-volume="masterVolume"></output><input id="gi-master-volume" type="range" min="0" max="1" step="0.05" data-gi-setting="masterVolume"></label>
+                <label class="gi-row"><span>Background music</span><input type="checkbox" class="gi-switch" data-gi-setting="locationMusicEnabled"></label>
+                <label class="gi-row gi-row-range" for="gi-music-volume"><span>Music volume</span><output data-gi-volume="locationMusicVolume"></output><input id="gi-music-volume" type="range" min="0" max="1" step="0.05" data-gi-setting="locationMusicVolume"></label>
                 <label class="gi-row"><span>Elemental Burst voices</span><input type="checkbox" class="gi-switch" data-gi-setting="burstAudio"></label>
                 <label class="gi-row"><span>Sprite audio</span><input type="checkbox" class="gi-switch" data-gi-setting="spriteAudio"></label>
+                <label class="gi-row gi-row-range" for="gi-voice-volume"><span>Voice volume</span><output data-gi-volume="voiceVolume"></output><input id="gi-voice-volume" type="range" min="0" max="1" step="0.05" data-gi-setting="voiceVolume"></label>
                 <label class="gi-row"><span>CG audio</span><input type="checkbox" class="gi-switch" data-gi-setting="cgAudio"></label>
-                <label class="gi-row gi-row-range" for="gi-sprite-volume"><span>Volume</span><output id="gi-sprite-volume-value">80%</output><input id="gi-sprite-volume" type="range" min="0" max="1" step="0.05" data-gi-setting="spriteVolume"></label>
+                <label class="gi-row gi-row-range" for="gi-cg-volume"><span>CG volume</span><output data-gi-volume="cgVolume"></output><input id="gi-cg-volume" type="range" min="0" max="1" step="0.05" data-gi-setting="cgVolume"></label>
+                <label class="gi-row gi-row-range" for="gi-effects-volume" title="Battle and dice sounds. Turn each on or off under Battle"><span>Sound effects volume</span><output data-gi-volume="effectsVolume"></output><input id="gi-effects-volume" type="range" min="0" max="1" step="0.05" data-gi-setting="effectsVolume"></label>
                 <label class="gi-row"><span>Interface sounds</span><input type="checkbox" class="gi-switch" data-gi-setting="uiSound"></label>
-                <label class="gi-row gi-row-range" for="gi-ui-sound-volume"><span>Interface volume</span><output id="gi-ui-sound-volume-value">70%</output><input id="gi-ui-sound-volume" type="range" min="0" max="1" step="0.05" data-gi-setting="uiSoundVolume"></label>
+                <label class="gi-row gi-row-range" for="gi-ui-sound-volume"><span>Interface volume</span><output data-gi-volume="uiSoundVolume"></output><input id="gi-ui-sound-volume" type="range" min="0" max="1" step="0.05" data-gi-setting="uiSoundVolume"></label>
                 <div class="gi-set-actions"><button type="button" class="menu_button" data-gi-action="audio-unlock">Allow audio on this device</button></div>
                 <h4>Scene CGs</h4>
                 <label class="gi-row"><span>Classify CGs</span><input type="checkbox" class="gi-switch" data-gi-setting="cgEnabled"></label>
