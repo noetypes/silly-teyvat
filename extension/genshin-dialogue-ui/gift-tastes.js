@@ -6,6 +6,7 @@ import {characterProperties,ELEMENTS} from './character-properties.js';
 import {defaultKit,hasBundledKit,WEAPONS} from './combat-kits.js';
 import {mediaSettings} from './media-store.js';
 import {baseName} from './card-name.js';
+import {TRUST_MAX} from './relationship-trust.js';
 
 // Opposites for gift gameplay; other off-element dice and summons remain neutral.
 const OPPOSING={Pyro:['Hydro','Cryo'],Hydro:['Pyro'],Cryo:['Pyro'],Electro:['Cryo'],Dendro:['Pyro'],Anemo:['Geo'],Geo:['Anemo']};
@@ -19,8 +20,52 @@ function giftElement(id,item){
     if(item.kind==='artifact')return item.equip?.find(stat=>ELEMENTS.includes(stat.element))?.element;
     if(item.kind==='summon')return item.effects?.find(effect=>ELEMENTS.includes(effect.element))?.element;
 }
+// How far a gift moves trust, by whether the character likes it. The Gifts menu in Character
+// Customization can set any card's change for one character, from -TRUST_MAX to +TRUST_MAX.
+export const GIFT_CHANGE={liked:.5,disliked:-.5,neutral:.1};
+const tenth=n=>Math.round(n*10)/10;
+export const cleanGiftChange=value=>{const n=Number(value);return value===null||value===''||!Number.isFinite(n)?null:Math.max(-TRUST_MAX,Math.min(TRUST_MAX,tenth(n)));};
+const verdictOfChange=change=>change>GIFT_CHANGE.neutral?'liked':change<0?'disliked':'neutral';
+const resolve=(ctx,card)=>typeof card==='string'?ctx?.characters?.find(c=>c.name===card) || {name:card}:card;
+// Only cards that exist and only numbers survive, so an imported settings file cannot add anything else.
+export function giftTrustOverrides(ctx,card){
+    const saved=ctx&&card?.avatar?mediaSettings(ctx).giftTrust?.[card.avatar]:null,out={};
+    for(const [id,value] of Object.entries(saved && typeof saved==='object'?saved:{})){const change=cleanGiftChange(value);if(ITEMS[id]&&change!==null)out[id]=change;}
+    return out;
+}
+// Tastes as written and worked out from element and weapon, before any change set in the Gifts menu.
+export function defaultGiftVerdict(ctx,card,id){
+    const tastes=baseTastes(ctx,resolve(ctx,card));
+    return tastes?.likes.includes(id)?'liked':tastes?.dislikes.includes(id)?'disliked':'neutral';
+}
+export function giftChange(ctx,card,id){
+    card=resolve(ctx,card);
+    return giftTrustOverrides(ctx,card)[id] ?? GIFT_CHANGE[defaultGiftVerdict(ctx,card,id)];
+}
+export function setGiftTrust(ctx,card,id,value){
+    if(!card?.avatar||!ITEMS[id])throw new Error('That card cannot be given as a gift.');
+    const prefs=mediaSettings(ctx),change=cleanGiftChange(value);
+    if(value!==null&&change===null)throw new Error(`Choose a change from -${TRUST_MAX} to +${TRUST_MAX}.`);
+    // Choosing the default again removes the entry, so later changes to the default still reach it.
+    if(change===null||change===GIFT_CHANGE[defaultGiftVerdict(ctx,card,id)]){
+        const list=prefs.giftTrust?.[card.avatar];if(list){delete list[id];if(!Object.keys(list).length)delete prefs.giftTrust[card.avatar];}
+    }else ((prefs.giftTrust ??= {})[card.avatar] ??= {})[id]=change;
+    ctx.saveSettingsDebounced?.();
+}
+export function resetGiftTrust(ctx,card){
+    delete mediaSettings(ctx).giftTrust?.[card?.avatar];ctx.saveSettingsDebounced?.();
+}
+// What the model and the gift reply are told: a card set to raise trust more than a neutral gift is
+// liked, one set to lower it is disliked, anything between is neither.
 export function giftTastes(ctx,card){
-    if(typeof card==='string')card=ctx?.characters?.find(c=>c.name===card) || {name:card};
+    card=resolve(ctx,card);
+    const tastes=baseTastes(ctx,card),overrides=Object.entries(giftTrustOverrides(ctx,card));
+    if(!overrides.length)return tastes;
+    const likes=new Set(tastes?.likes),dislikes=new Set(tastes?.dislikes);
+    for(const [id,change] of overrides){likes.delete(id);dislikes.delete(id);const verdict=verdictOfChange(change);if(verdict==='liked')likes.add(id);else if(verdict==='disliked')dislikes.add(id);}
+    return likes.size||dislikes.size||tastes?{...tastes,likes:[...likes],dislikes:[...dislikes],note:tastes?.note || ''}:null;
+}
+function baseTastes(ctx,card){
     if(!card)return null;
     const base=tastesOf(baseName(card)),likes=new Set(base?.likes),dislikes=new Set(base?.dislikes);
     const element=ctx?characterProperties(ctx,card).element:'None';

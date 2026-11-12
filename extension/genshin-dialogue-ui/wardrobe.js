@@ -2,7 +2,7 @@ import {requiredSpriteTrust,defaultSpriteTrust} from './sprite-trust.js';
 import {isNarrator} from './narrator.js';
 import {activeGroup,inPartyChat} from './party.js';
 import {mountCharacterProperties,characterProperties,hasGenshinTag,ELEMENTS} from './character-properties.js';
-import {mountStartingTrust,mountHeartInput} from './trust-ui.js';
+import {mountStartingTrust,mountGiftTrust,mountHeartInput} from './trust-ui.js';
 import {createSpriteTrimmer,supportsViewBox} from './sprite-trim.js';
 import {linkedCard,linkedCardAvatar,linkedPersonaAvatars,playedAvatars} from './persona-link.js';
 import {newLocalId} from './local-id.js';
@@ -189,9 +189,12 @@ export function mountWardrobe({host, getContext, onChange = async () => {}, onMe
     let character, sets = [], sprites = [], selected, selectedCG, tab = 'attributes', backup, revision = 0, opener,personaRefreshPending=false;
     const status = text => { const p=$('footer p'); p.textContent = text; p.classList.remove('gi-toast'); void p.offsetWidth; p.classList.add('gi-toast'); };
     const propertiesPanel=document.createElement('details');propertiesPanel.className='gi-card-properties';$('.gi-character-staging').before(propertiesPanel);
-    const propertiesUI=mountCharacterProperties({panel:propertiesPanel,getContext,getCharacter:()=>character,status,onChange:()=>{startingTrustUI.refresh();starterDeckUI.refresh();paintElement();onChange(character,{classification:true});}});
+    const propertiesUI=mountCharacterProperties({panel:propertiesPanel,getContext,getCharacter:()=>character,status,onChange:()=>{startingTrustUI.refresh();giftTrustUI.refresh();starterDeckUI.refresh();paintElement();onChange(character,{classification:true});}});
     const trustPanel=document.createElement('details');trustPanel.className='gi-card-properties gi-start-trust';propertiesPanel.after(trustPanel);
     const startingTrustUI=mountStartingTrust({panel:trustPanel,getContext,getCharacter:()=>character,status});
+    // Gifts: how much each card raises or lowers this character's trust.
+    const giftPanel=document.createElement('details');giftPanel.className='gi-card-properties gi-start-trust';trustPanel.after(giftPanel);
+    const giftTrustUI=mountGiftTrust({panel:giftPanel,getContext,getCharacter:()=>character,status});
     // Starter deck: the twenty cards a new journey with this character starts with.
     const deckPanel=document.createElement('details');deckPanel.className='gi-card-properties';trustPanel.after(deckPanel);
     const starterDeckUI=mountStarterDeck({panel:deckPanel,getContext,getCharacter:()=>character,status});
@@ -222,7 +225,7 @@ export function mountWardrobe({host, getContext, onChange = async () => {}, onMe
         $(':scope > footer').insertAdjacentHTML('afterbegin','<button type="button" class="gi-cs-archive-open" data-w="archive" data-gi-sound="screen" aria-label="All characters" title="All characters"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="4" width="7" height="7" rx="1.6"/><rect x="13" y="4" width="7" height="7" rx="1.6"/><rect x="4" y="13" width="7" height="7" rx="1.6"/><rect x="13" y="13" width="7" height="7" rx="1.6"/></svg></button>');
         const sprites=$('[data-panel="sprites"]'),outfits=document.createElement('div');outfits.dataset.panel='outfits';outfits.hidden=true;
         const firstHeading=sprites.querySelector('h3');while(sprites.firstChild&&sprites.firstChild!==firstHeading)outfits.append(sprites.firstChild);sprites.before(outfits);
-        const attributes=document.createElement('div');attributes.dataset.panel='attributes';propertiesPanel.open=true;attributes.append(personaPanel,propertiesHeading,cardProfilePanel,propertiesPanel,trustPanel);
+        const attributes=document.createElement('div');attributes.dataset.panel='attributes';propertiesPanel.open=true;attributes.append(personaPanel,propertiesHeading,cardProfilePanel,propertiesPanel,trustPanel,giftPanel);
         const takeOver=document.createElement('section');takeOver.className='gi-takeover';takeOver.innerHTML='<button type="button" data-w="take-over" title="Use this character as your persona. While you play them they leave the world’s random encounters and share one set of sprites with your persona."></button>';$(':scope > footer').append(takeOver);
         const weapon=document.createElement('div');weapon.dataset.panel='weapon';weapon.hidden=true;const staging=$('.gi-character-staging');staging.open=true;weapon.append(staging);
         // Combat: stats, the three battle moves, their art and the starter deck, right after Profile.
@@ -617,7 +620,7 @@ export function mountWardrobe({host, getContext, onChange = async () => {}, onMe
         }
         await new Promise(resolve => requestAnimationFrame(() => setTimeout(resolve, 0)));
         if (token !== revision || !dialog.open) return;
-        propertiesUI.refresh(); cardProfileUI.refresh(); startingTrustUI.refresh(); starterDeckUI.refresh(); personaProfileUI.refresh(); burstAudioUI.refresh();
+        propertiesUI.refresh(); cardProfileUI.refresh(); startingTrustUI.refresh(); giftTrustUI.refresh(); starterDeckUI.refresh(); personaProfileUI.refresh(); burstAudioUI.refresh();
         populateExpressions(); renderSprites(); content.send('READY');
         const personaExpression = character.isPersona && sprites.find(x => spriteIdentity(x.path).name === personaSpriteSettings(getContext(),character.personaAvatar).expression);
         if (personaExpression && personaExpression !== first) chooseSprite(personaExpression);
@@ -984,6 +987,6 @@ export function mountWardrobe({host, getContext, onChange = async () => {}, onMe
         },
         async refreshPersona(){if(!dialog.open)return;if(busy()){personaRefreshPending=true;return;}await renderRoster(character?.isPersona?personaCard(getContext())?.avatar:undefined);},
         close() { if (dialog.open) dialog.close(); },
-        dispose() { clearTimeout(pinchTimer); revision++; abort.abort(); backdrop.dispose(); trimmer.reset(); propertiesUI.dispose();cardProfileUI.dispose();startingTrustUI.dispose();starterDeckUI.dispose();movesetUI.dispose();combatArtUI.dispose();burstAudioUI.dispose();personaProfileUI.dispose();dialog.close(); dialog.remove(); },
+        dispose() { clearTimeout(pinchTimer); revision++; abort.abort(); backdrop.dispose(); trimmer.reset(); propertiesUI.dispose();cardProfileUI.dispose();startingTrustUI.dispose();giftTrustUI.dispose();starterDeckUI.dispose();movesetUI.dispose();combatArtUI.dispose();burstAudioUI.dispose();personaProfileUI.dispose();dialog.close(); dialog.remove(); },
     };
 }

@@ -6,6 +6,8 @@ import {TRUST_MAX,trustBand,trustEnabled,trustRoster,messageTrust,askThoughts,sa
 import {circularCharacterAvatar} from './character-avatars.js';
 import {startingTrustList,setStartingTrust,resetStartingTrust} from './relationship-trust.js';
 import {isEnemy} from './character-properties.js';
+import {ITEMS,KIND_LABELS,itemArt,kindLabel} from './battle-items.js';
+import {GIFT_CHANGE,defaultGiftVerdict,giftTrustOverrides,setGiftTrust,resetGiftTrust} from './gift-tastes.js';
 
 const CLOSE='<svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="m6 6 12 12M18 6 6 18"/></svg>';
 const el=(tag,cls,text)=>{const n=document.createElement(tag);if(cls)n.className=cls;if(text!==undefined)n.textContent=text;return n;};
@@ -179,4 +181,60 @@ export function mountStartingTrust({panel,getContext,getCharacter,status=()=>{}}
     });
     on($('[data-start-trust-reset]'),'click',()=>{const card=getCharacter();if(!card)return;resetStartingTrust(getContext(),card);refresh();status(`${card.name}'s starting trust is back to the card.`);});
     return {refresh,dispose(){abort.abort();rowsAbort.abort();}};
+}
+// Character Customization: how much each card from the bag raises or lowers this character's trust
+// when given as a gift. Every card starts at what their tastes say; a changed row is marked.
+const GIFT_STEPS=[-2,-1,-.5,-.3,-.2,-.1,0,.1,.2,.3,.5,1,2];
+const signed=n=>n>0?`+${n}`:String(n);
+const VERDICT_WORD={liked:'Liked',disliked:'Disliked',neutral:'No strong feelings'};
+export function mountGiftTrust({panel,getContext,getCharacter,status=()=>{}}){
+    panel.classList.add('gi-gift-trust');
+    panel.innerHTML=`<summary>Gifts</summary><small>How much each card raises or lowers trust when you give it as a gift. Cards start at what this character likes (+${GIFT_CHANGE.liked}) or dislikes (${GIFT_CHANGE.disliked}); anything else adds ${GIFT_CHANGE.neutral}.</small>
+        <div class="gi-gift-trust-tools"><input type="search" maxlength="60" placeholder="Find a card" aria-label="Find a gift card"><select aria-label="Card type"><option value="">All cards</option>${Object.entries(KIND_LABELS).filter(([kind])=>Object.values(ITEMS).some(item=>item.kind===kind)).map(([kind,label])=>`<option value="${kind}">${label}</option>`).join('')}<option value="up">Raise trust</option><option value="down">Lower trust</option><option value="changed">Changed</option></select></div>
+        <div class="gi-gift-trust-list" role="list" aria-label="Gift cards"></div>
+        <button type="button" data-gift-trust-reset>Reset to their tastes</button>`;
+    const abort=new AbortController(),$=s=>panel.querySelector(s),on=(node,type,fn)=>node.addEventListener(type,fn,{signal:abort.signal});
+    const list=$('.gi-gift-trust-list'),search=$('input[type="search"]'),kind=$('.gi-gift-trust-tools select');
+    const order=Object.entries(ITEMS).sort((a,b)=>Object.keys(KIND_LABELS).indexOf(a[1].kind)-Object.keys(KIND_LABELS).indexOf(b[1].kind) || a[1].name.localeCompare(b[1].name));
+    // Rows are built once; refresh only fills them in for the character on screen.
+    const rows=order.map(([id,item])=>{
+        const line=el('div','gi-gift-trust-row'),art=el('img'),text=el('span','gi-gift-trust-name'),select=document.createElement('select');
+        line.setAttribute('role','listitem');line.dataset.id=id;line.dataset.kind=item.kind;line.dataset.search=item.name.toLocaleLowerCase();line.title=`${item.name}: ${item.text}`;
+        art.alt='';art.loading='lazy';art.draggable=false;art.src=itemArt(id);
+        text.append(el('b','',item.name),el('span','gi-gift-trust-note'));
+        select.setAttribute('aria-label',`Trust change for ${item.name}`);select.dataset.id=id;
+        line.append(art,text,select);
+        return line;
+    });
+    list.replaceChildren(...rows);
+    function paintRow(ctx,card,line,overrides){
+        const id=line.dataset.id,item=ITEMS[id],verdict=defaultGiftVerdict(ctx,card,id),base=GIFT_CHANGE[verdict],value=overrides[id] ?? base,select=line.querySelector('select');
+        const steps=[...new Set([...GIFT_STEPS,base,value])].sort((a,b)=>a-b);
+        select.replaceChildren(...steps.map(step=>new Option(signed(step),String(step),false,step===value)));
+        const changed=id in overrides;line.classList.toggle('gi-gift-trust-changed',changed);
+        line.classList.toggle('gi-gift-trust-up',value>GIFT_CHANGE.neutral);line.classList.toggle('gi-gift-trust-down',value<0);
+        line.querySelector('.gi-gift-trust-note').textContent=`${kindLabel(item)} · ${changed?`Changed (usually ${signed(base)})`:`${VERDICT_WORD[verdict]} (${signed(base)})`}`;
+    }
+    function filter(){
+        const query=search.value.trim().toLocaleLowerCase(),type=kind.value;let shown=0;
+        for(const line of rows){const show=(!query||line.dataset.search.includes(query))&&(!type||(['changed','up','down'].includes(type)?line.classList.contains(`gi-gift-trust-${type}`):line.dataset.kind===type));line.hidden=!show;if(show)shown++;}
+        let empty=list.querySelector('.gi-gift-trust-empty');
+        if(!shown&&!empty){empty=el('span','gi-gift-trust-empty','No cards match.');list.append(empty);}else if(shown)empty?.remove();
+    }
+    function refresh(){
+        const ctx=getContext(),card=getCharacter();
+        panel.hidden=!card||Boolean(card.isPersona)||isEnemy(ctx,card);if(panel.hidden)return;
+        const overrides=giftTrustOverrides(ctx,card);
+        for(const line of rows)paintRow(ctx,card,line,overrides);
+        $('[data-gift-trust-reset]').disabled=!Object.keys(overrides).length;
+        filter();
+    }
+    on(list,'change',event=>{
+        const select=event.target.closest('select');if(!select||select.value===''||panel.hidden)return;
+        const card=getCharacter(),item=ITEMS[select.dataset.id];if(!card||!item)return;
+        try{setGiftTrust(getContext(),card,select.dataset.id,Number(select.value));refresh();status(`${item.name} now changes ${card.name}'s trust by ${signed(Number(select.value))}.`);}catch(error){status(error.message);}
+    });
+    on(search,'input',filter);on(kind,'change',filter);
+    on($('[data-gift-trust-reset]'),'click',()=>{const card=getCharacter();if(!card)return;resetGiftTrust(getContext(),card);refresh();status(`${card.name}'s gifts are back to their tastes.`);});
+    return {refresh,dispose(){abort.abort();}};
 }

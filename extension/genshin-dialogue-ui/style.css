@@ -4400,6 +4400,24 @@ body.gi-keyboard :is(#gi-background-stage,#gi-sprite-stage,#gi-cg-stage,#gi-lett
 #gi-wardrobe .gi-start-trust .gi-start-trust-add { flex-wrap: wrap; row-gap: 8px; }
 #gi-wardrobe .gi-start-trust .gi-start-trust-add input[type="text"] { flex: 1 1 100%; }
 #gi-wardrobe .gi-start-trust .gi-start-trust-add .gi-heart-input { flex: 1 1 auto; }
+/* Gifts: every card with how much it moves trust. Liked cards glow gold, disliked ones red. */
+#gi-wardrobe .gi-gift-trust-tools { display: flex; gap: 6px; margin: 8px 0 0; }
+#gi-wardrobe .gi-gift-trust-tools input { flex: 1 1 0; box-sizing: border-box; min-width: 0; height: 32px; min-height: 0; margin: 0; padding: 2px 8px; }
+#gi-wardrobe .gi-gift-trust-tools select { flex: 0 0 auto; width: auto; max-width: 45%; height: 32px; min-height: 0; margin: 0; padding: 2px 6px; }
+#gi-wardrobe .gi-gift-trust-list { display: flex; flex-direction: column; gap: 4px; max-height: 340px; margin: 8px 0; overflow-y: auto; overscroll-behavior: contain; }
+#gi-wardrobe .gi-gift-trust-row { display: flex; align-items: center; gap: 8px; min-width: 0; padding: 3px 6px 3px 3px; border-radius: 6px; background: #ffffff0a; box-shadow: inset 3px 0 0 transparent; }
+#gi-wardrobe .gi-gift-trust-row[hidden] { display: none; }
+#gi-wardrobe .gi-gift-trust-row.gi-gift-trust-up { box-shadow: inset 3px 0 0 #d3bc8e; }
+#gi-wardrobe .gi-gift-trust-row.gi-gift-trust-down { box-shadow: inset 3px 0 0 #d9776b; }
+#gi-wardrobe .gi-gift-trust-row.gi-gift-trust-changed { background: #d3bc8e1f; }
+#gi-wardrobe .gi-gift-trust-row img { flex: none; width: 26px; aspect-ratio: .6; object-fit: cover; border-radius: 3px; box-shadow: 0 1px 4px #0008; }
+#gi-wardrobe .gi-gift-trust-name { display: grid; flex: 1 1 0; min-width: 0; line-height: 1.25; }
+#gi-wardrobe .gi-gift-trust-name b { overflow: hidden; color: var(--ty-cream, #ece5d8); font-size: .92em; font-weight: 600; text-overflow: ellipsis; white-space: nowrap; }
+#gi-wardrobe .gi-gift-trust-name .gi-gift-trust-note { overflow: hidden; color: #b9b2a3; font-size: .78em; text-overflow: ellipsis; white-space: nowrap; }
+#gi-wardrobe .gi-gift-trust-changed .gi-gift-trust-note { color: #f2dca0; }
+#gi-wardrobe .gi-gift-trust-row select { flex: 0 0 auto; width: 76px; height: 30px; min-height: 0; margin: 0; padding: 2px 4px; font-size: 13px; }
+#gi-wardrobe .gi-gift-trust-empty { display: block; padding: 6px 2px; color: #d8d6cb; font-size: .85em; }
+#gi-wardrobe .gi-gift-trust [data-gift-trust-reset] { display: block; width: auto; min-height: 32px; margin: 8px 0 0; padding: 2px 14px; }
 
 /* ---------- Layout review: fit, flow and scroll cues across desktop, tablet and phone ---------- */
 /* Scrolling strips and the editor fade at an edge that has more to show (wardrobe.js sets data-more and data-axis). */

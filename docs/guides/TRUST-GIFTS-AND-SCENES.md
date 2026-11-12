@@ -17,6 +17,12 @@ gives −0.5, and a neutral gift gives +0.1, within the usual 0–5 range.
 - Authored tastes and these additional preferences are both included in the Trust
   prompt and the recipient's gift reply instructions. Past gifts keep their recorded
   verdict and Trust change when character properties or movesets change.
+- **Gifts** in Character Customization (Profile, below **Starting trust**) lists
+  every card with the Trust change it gives that character, from −2 to +2. A card
+  set above +0.1 counts as liked and one set below 0 as disliked, in the Trust
+  prompt and the gift reply; anything between is neutral. Choosing a card's default
+  again removes the change, and **Reset to their tastes** removes them all. The
+  filter shows one card type, cards that raise or lower Trust, or changed cards.
 
 In **Character Customization → Scenes → Only show this scene when**, set
 **Required Trust** for the selected CG. The field saves when changed, accepts

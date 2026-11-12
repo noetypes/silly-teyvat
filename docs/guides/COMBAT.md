@@ -184,7 +184,7 @@ Winning a battle drops cards from the location's pool (see **View card drops** o
 
 ## Gifts and Trust
 
-With the **Trust system** on (Settings → World), every card in the Inventory has a **Gift** button. Choose someone in the scene and the card leaves your bag. A narrator line records the gift, then the character answers in a new reply. A card they like adds 0.5 Trust, a card they dislike takes 0.5 away, and anything else changes nothing. Ask a character what they like and they will tell you. See the extension `README.md` for how Trust works.
+With the **Trust system** on (Settings → World), every card in the Inventory has a **Gift** button. Choose someone in the scene and the card leaves your bag. A narrator line records the gift, then the character answers in a new reply. A card they like adds 0.5 Trust, a card they dislike takes 0.5 away, and anything else adds 0.1. The **Gifts** menu in Character Customization changes these amounts for each card and character. Ask a character what they like and they will tell you. See the extension `README.md` for how Trust works.
 
 ## Fleeing
 
