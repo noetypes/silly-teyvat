@@ -1,0 +1,8 @@
+{
+  "tool": "built-in image_gen.imagegen",
+  "name": "Odette",
+  "prompt": "Use case: stylized-concept. Create a new unofficial vertical Genius Invokation TCG character card for Odette from Genshin Impact. Image 1 is Odette's official splash art, the only character-identity reference: faithfully preserve her light-blue hair, face, black swan headpiece, blue-and-white ballet costume, accessories, colors and proportions. Image 2 is the genuine TCG character card of Nilou, a playable Genshin character. Use it only for the attractive dancer composition, elegant hand gestures, card frame and polished anime illustration style; do not depict Nilou or borrow her identity, costume, or hair. Show Odette in a poised, character-forward ballet pose amid Odette's dark swan wings and pale icy-blue ribbons, with her face and costume clear. Give both hands graceful relaxed gestures with anatomically coherent palms and exactly five digits each: four separate fingers and an opposable thumb, naturally attached, with enough spacing to read clearly and no missing, merged or extra digits. One complete slim ornate rounded rectangular card frame; natural anatomy; no lettering, title, watermark, or other characters.",
+  "official_reference": "extension/genshin-dialogue-ui/assets/splash/Odette.webp",
+  "tcg_reference": "extension/genshin-dialogue-ui/assets/tcg/characters/Nilou.webp",
+  "raw": "art/tcg/2026-11-11-ten-character-cards/retry-v6/raw/Odette.png"
+}

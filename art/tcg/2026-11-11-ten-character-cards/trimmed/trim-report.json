@@ -1,0 +1,77 @@
+{
+  "method": "Reference alpha resized to each card; existing alpha and all RGB values preserved. Near-black partially transparent edge fringe cleared.",
+  "reference": "/Users/alexachan/Documents/Codex/silly-teyvat/extension/genshin-dialogue-ui/assets/tcg/characters/Tartaglia.webp",
+  "reference_sha256": "72343ecb836a0c2015dae0b4bf990c8caf5dcecd1dbc66b308d7bd88c414b3e2",
+  "cards": [
+    {
+      "name": "Aloy",
+      "source": "art/tcg/2026-11-11-ten-character-cards/raw/Aloy.png",
+      "output": "Aloy.png",
+      "source_sha256": "fa3cd683e0cbb96a6a32b6341941b44309eb1d48dbc7369e83e87debac32aedc",
+      "output_sha256": "2e45c49dd808eb656ea93e7de8ef04c11737808b31c5f0444a9da684dca7f82c"
+    },
+    {
+      "name": "Linnea",
+      "source": "art/tcg/2026-11-11-ten-character-cards/raw/Linnea.png",
+      "output": "Linnea.png",
+      "source_sha256": "5941723fad05eb019a2e4a92686785f39dfe24b4ad4023fecf7312c1cbfc33fb",
+      "output_sha256": "d976ca3c1a92cc2b806cd95aa4fc2e518e4c9bdcae0acd4f4492bc80dcd47576"
+    },
+    {
+      "name": "Lohen",
+      "source": "art/tcg/2026-11-11-ten-character-cards/raw/Lohen.png",
+      "output": "Lohen.png",
+      "source_sha256": "2b0b59919653b57e52250f1ccc99f3a98e8d005c29e9abf2f4376bfa3010d34d",
+      "output_sha256": "1fcbea6c90c3a6620725a4915f7a84bc944cde950c0a3b66f90e18d742db5067"
+    },
+    {
+      "name": "Nicole",
+      "source": "art/tcg/2026-11-11-ten-character-cards/raw/Nicole.png",
+      "output": "Nicole.png",
+      "source_sha256": "fd1fdf868c1c36b05ed2ca049c2712ec107060265f0f266c5b0d430d4cb08f66",
+      "output_sha256": "3e7bafe5025be223e7e9c16ef8ef63c1290cda669f8b55fd619fa364c60b5d7a"
+    },
+    {
+      "name": "Odette",
+      "source": "art/tcg/2026-11-11-ten-character-cards/raw/Odette.png",
+      "output": "Odette.png",
+      "source_sha256": "93c4f90a1342ee8d3f5a8571397ca2b8a41306e5107d6e104376d96bd90fdb0d",
+      "output_sha256": "1646154585967f16c7e077f250bd7b6e6bdf5381a7c71437860de67cbac3c73c"
+    },
+    {
+      "name": "Prune",
+      "source": "art/tcg/2026-11-11-ten-character-cards/raw/Prune.png",
+      "output": "Prune.png",
+      "source_sha256": "bba9ffee4b1eee7a205699ea5d90a27a4a059f61144c083b4dbaf39d6c685e9a",
+      "output_sha256": "572d7492b75140c96804af7f40b4b8d6e1489fdffac61ef37566f4fd077f01aa"
+    },
+    {
+      "name": "Sandrone",
+      "source": "art/tcg/2026-11-11-ten-character-cards/raw/Sandrone.png",
+      "output": "Sandrone.png",
+      "source_sha256": "d382d7e18216f8909794509d266444dd4e517993507f4d8b940e3c8e0ca6e688",
+      "output_sha256": "e13dcef9b6b4228e1f207eca341eeca86e867859199e4e6b296122f47d3fba00"
+    },
+    {
+      "name": "Vesna",
+      "source": "art/tcg/2026-11-11-ten-character-cards/raw/Vesna.png",
+      "output": "Vesna.png",
+      "source_sha256": "ef248408b443e5bea6f33cde5ac9d3391c3790332ab9fac691f20c69a1b5a352",
+      "output_sha256": "cb0a3669ce544737d31c6c25811ee3d473addc65d4face33cf258549ec0df269"
+    },
+    {
+      "name": "Vodyanitsa",
+      "source": "art/tcg/2026-11-11-ten-character-cards/raw/Vodyanitsa.png",
+      "output": "Vodyanitsa.png",
+      "source_sha256": "cff1f839dda507fc8cb47e1a65c4f7b839776b21344b9059b9fa7e583d6eb7e0",
+      "output_sha256": "4531498ef38ca4d18af80560fcd9d971afcec7d7b2b81a649985a8e681c6c809"
+    },
+    {
+      "name": "Zibai",
+      "source": "art/tcg/2026-11-11-ten-character-cards/raw/Zibai.png",
+      "output": "Zibai.png",
+      "source_sha256": "0883876b4f4f0bd965f14348785a15ecd75493cf115a2fdacb935cb661222409",
+      "output_sha256": "f11537c4262ddca8388da71fafb365eb0dc08815de2c33cc917d6575708fb640"
+    }
+  ]
+}

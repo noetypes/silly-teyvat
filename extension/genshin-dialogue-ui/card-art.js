@@ -13,6 +13,8 @@ const TARGETS = [
     '#right-nav-panel .hotswap .avatar img', // favorites above the character list
     '#right-nav-panel .group_member .avatar img', // group members / add members
     '#right-nav-panel .avatar_collage img', // group avatar collages
+    '#right-nav-panel .group_select .avatar:not(.avatar_collage) img', // a group's own portrait in the character list
+    '#group_avatar_preview .avatar img', // the group editor's portrait (a journey's stored card copy)
     '#chat .recentChat .avatar img', // Recent Chats on the welcome screen
     'body.gi-history #chat .mes .avatar img', // Dialogue Review
     '#user_avatar_block .avatar img', // Persona Management
@@ -40,9 +42,12 @@ function mark(img, kind) {
 }
 function clear(img) { delete img.dataset.giThumb; delete img.dataset.giFile; delete img.dataset.giUrl; mark(img, null); }
 // A solo journey's portrait is a cropped copy stored in the group, so it is drawn from the card it was taken from.
+// The group editor's portrait has no row naming its group, so it is the group whose stored portrait it shows.
 function journeyCard(img, ctx) {
     const row = img.closest('[data-group], .group_select'), id = row?.dataset.group ?? row?.dataset.grid ?? row?.getAttribute('grid');
-    return id ? ctx.groups?.find(group => String(group.id) === String(id))?.silly_teyvat_journey?.source?.avatar : null;
+    const src = img.getAttribute('src');
+    const group = id ? ctx.groups?.find(g => String(g.id) === String(id)) : img.closest('#group_avatar_preview') ? ctx.groups?.find(g => g.avatar_url === src) : null;
+    return group?.silly_teyvat_journey?.source?.avatar || null;
 }
 // What an avatar shows: a character card, or a persona's own image, which is often card art too.
 function sourceOf(img, src, ctx) {

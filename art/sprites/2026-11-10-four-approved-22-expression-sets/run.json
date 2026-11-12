@@ -1,0 +1,1778 @@
+{
+  "request": "Regenerate Aether, Lumine, Diluc and Iansan 22-sprite sets based on these approved neutrals.",
+  "method": "built-in image_gen; each expression independently uses only its character\u2019s approved neutral",
+  "characters": {
+    "Aether": {
+      "approved_neutral": {
+        "source": "art/sprites/2026-11-10-aether-two-references-no-eye-prompt/candidates/Aether/neutral-v001.png",
+        "copy": "art/sprites/2026-11-10-four-approved-22-expression-sets/references/Aether/approved-neutral.png",
+        "sha256": "c9ae89bfcf5a5a08cf0e3d132d84f988c353829216d3e42afceec09a17f23401",
+        "approval_message": "I'll take the previous one."
+      },
+      "expressions": {
+        "annoyance": {
+          "status": "generated; awaiting review",
+          "prompt": "prompts/Aether/annoyance.txt",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body annoyance visual-novel sprite of Aether from Genshin Impact, using only the supplied user-approved neutral as the reference for identity, face, skin tone, hair, costume, accessories, colors, illustrated rendering and body proportions. Keep the character at least as petite as the reference without lengthening the torso or legs. Character: friendly and adventurous. Acting: show mild irritation with a restrained displeased expression, one hand at the hip; vary pose and gesture to communicate this emotion while preserving the reference identity and silhouette scale. Keep gestures simple, with right and left hands separate near the torso or sides; each complete hand has a palm, four fingers and a separate opposable thumb, naturally articulated without forcing hidden digits into view. Exactly two legs and two feet belonging to one pelvis, feet comfortably separated. One coherent mouth with a readable lip shape. Fully clothed, no weapon. Full body including hair, accessories, hands and shoes visible, approximately 2\u20134% padding above and below. True transparent background; no scenery, labels, UI, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-10-four-approved-22-expression-sets/references/Aether/approved-neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "returned_original": "/Users/alexachan/.codex/generated_images/01a1c7c8-1e02-7d01-aae2-3bd5084bd899/exec-666d004c-d6c1-4f0e-aaeb-6f00e85363de.png",
+          "raw": "raw/Aether/annoyance.png",
+          "candidate": "sprites/Aether/annoyance.png",
+          "sha256": "d55c68409ae564e735d45c0c8969631c5e8075df3c13ee4f90196523f2878279",
+          "format": "PNG",
+          "color_type": 6,
+          "dimensions": [
+            1007,
+            1562
+          ],
+          "framing_transform": "none"
+        },
+        "smug": {
+          "status": "generated; awaiting review",
+          "prompt": "prompts/Aether/smug.txt",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body smug visual-novel sprite of Aether from Genshin Impact, using only the supplied user-approved neutral as the reference for identity, face, skin tone, hair, costume, accessories, colors, illustrated rendering and body proportions. Keep the character at least as petite as the reference without lengthening the torso or legs. Character: friendly and adventurous. Acting: show self-assured amusement with a small knowing smile and an easy angled stance; vary pose and gesture to communicate this emotion while preserving the reference identity and silhouette scale. Keep gestures simple, with right and left hands separate near the torso or sides; each complete hand has a palm, four fingers and a separate opposable thumb, naturally articulated without forcing hidden digits into view. Exactly two legs and two feet belonging to one pelvis, feet comfortably separated. One coherent mouth with a readable lip shape. Fully clothed, no weapon. Full body including hair, accessories, hands and shoes visible, approximately 2\u20134% padding above and below. True transparent background; no scenery, labels, UI, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-10-four-approved-22-expression-sets/references/Aether/approved-neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "returned_original": "/Users/alexachan/.codex/generated_images/01a1c7c8-1e02-7d01-aae2-3bd5084bd899/exec-f66c0b50-6612-4a09-aa2f-b9411af065d8.png",
+          "raw": "raw/Aether/smug.png",
+          "candidate": "sprites/Aether/smug.png",
+          "sha256": "0f7267c3c5dc655f2b7c032a915f0a6a5d9e95ca7162caaa4f74e608bd6d55ea",
+          "format": "PNG",
+          "color_type": 6,
+          "dimensions": [
+            1007,
+            1562
+          ],
+          "framing_transform": "none"
+        },
+        "confusion": {
+          "status": "generated; awaiting review",
+          "prompt": "prompts/Aether/confusion.txt",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body confusion visual-novel sprite of Aether from Genshin Impact, using only the supplied user-approved neutral as the reference for identity, face, skin tone, hair, costume, accessories, colors, illustrated rendering and body proportions. Keep the character at least as petite as the reference without lengthening the torso or legs. Character: friendly and adventurous. Acting: show uncertainty with raised brows and a slight head tilt, one hand lifted near the torso; vary pose and gesture to communicate this emotion while preserving the reference identity and silhouette scale. Keep gestures simple, with right and left hands separate near the torso or sides; each complete hand has a palm, four fingers and a separate opposable thumb, naturally articulated without forcing hidden digits into view. Exactly two legs and two feet belonging to one pelvis, feet comfortably separated. One coherent mouth with a readable lip shape. Fully clothed, no weapon. Full body including hair, accessories, hands and shoes visible, approximately 2\u20134% padding above and below. True transparent background; no scenery, labels, UI, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-10-four-approved-22-expression-sets/references/Aether/approved-neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "returned_original": "/Users/alexachan/.codex/generated_images/01a1c7c8-1e02-7d01-aae2-3bd5084bd899/exec-a05c3ee0-6189-4690-8b05-d6f66c2b36f9.png",
+          "raw": "raw/Aether/confusion.png",
+          "candidate": "sprites/Aether/confusion.png",
+          "sha256": "bc098523a3a7deb3da9543e0b8c623bebc4803406ffb9681a8b8adf0105d7554",
+          "format": "PNG",
+          "color_type": 6,
+          "dimensions": [
+            1007,
+            1562
+          ],
+          "framing_transform": "none"
+        },
+        "love": {
+          "status": "generated; awaiting review",
+          "prompt": "prompts/Aether/love.txt",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body love visual-novel sprite of Aether from Genshin Impact, using only the supplied user-approved neutral as the reference for identity, face, skin tone, hair, costume, accessories, colors, illustrated rendering and body proportions. Keep the character at least as petite as the reference without lengthening the torso or legs. Character: friendly and adventurous. Acting: show warm affection and a gentle smile, one hand near the heart; vary pose and gesture to communicate this emotion while preserving the reference identity and silhouette scale. Keep gestures simple, with right and left hands separate near the torso or sides; each complete hand has a palm, four fingers and a separate opposable thumb, naturally articulated without forcing hidden digits into view. Exactly two legs and two feet belonging to one pelvis, feet comfortably separated. One coherent mouth with a readable lip shape. Fully clothed, no weapon. Full body including hair, accessories, hands and shoes visible, approximately 2\u20134% padding above and below. True transparent background; no scenery, labels, UI, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-10-four-approved-22-expression-sets/references/Aether/approved-neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "returned_original": "/Users/alexachan/.codex/generated_images/01a1c7c8-1e02-7d01-aae2-3bd5084bd899/exec-e9fee0c0-f84a-45f8-ae3e-f825897c6a47.png",
+          "raw": "raw/Aether/love.png",
+          "candidate": "sprites/Aether/love.png",
+          "sha256": "95c9979903daa5542cd1d3939566176f375f86592406d7a7bbc6fdbfc706973b",
+          "format": "PNG",
+          "color_type": 6,
+          "dimensions": [
+            1007,
+            1562
+          ],
+          "framing_transform": "none"
+        },
+        "excitement": {
+          "status": "on hold at user request",
+          "prompt": "art/sprites/2026-11-10-four-approved-22-expression-sets/prompts/Aether/excitement.txt"
+        },
+        "joy": {
+          "status": "on hold at user request",
+          "prompt": "art/sprites/2026-11-10-four-approved-22-expression-sets/prompts/Aether/joy.txt"
+        },
+        "fear": {
+          "status": "on hold at user request",
+          "prompt": "art/sprites/2026-11-10-four-approved-22-expression-sets/prompts/Aether/fear.txt"
+        },
+        "pride": {
+          "status": "on hold at user request",
+          "prompt": "art/sprites/2026-11-10-four-approved-22-expression-sets/prompts/Aether/pride.txt"
+        },
+        "desire": {
+          "status": "on hold at user request",
+          "prompt": "art/sprites/2026-11-10-four-approved-22-expression-sets/prompts/Aether/desire.txt"
+        },
+        "anger": {
+          "status": "on hold at user request",
+          "prompt": "art/sprites/2026-11-10-four-approved-22-expression-sets/prompts/Aether/anger.txt"
+        },
+        "grief": {
+          "status": "on hold at user request",
+          "prompt": "art/sprites/2026-11-10-four-approved-22-expression-sets/prompts/Aether/grief.txt"
+        },
+        "sadness": {
+          "status": "on hold at user request",
+          "prompt": "art/sprites/2026-11-10-four-approved-22-expression-sets/prompts/Aether/sadness.txt"
+        },
+        "disgust": {
+          "status": "on hold at user request",
+          "prompt": "art/sprites/2026-11-10-four-approved-22-expression-sets/prompts/Aether/disgust.txt"
+        },
+        "disappointment": {
+          "status": "on hold at user request",
+          "prompt": "art/sprites/2026-11-10-four-approved-22-expression-sets/prompts/Aether/disappointment.txt"
+        },
+        "relief": {
+          "status": "on hold at user request",
+          "prompt": "art/sprites/2026-11-10-four-approved-22-expression-sets/prompts/Aether/relief.txt"
+        },
+        "admiration": {
+          "status": "on hold at user request",
+          "prompt": "art/sprites/2026-11-10-four-approved-22-expression-sets/prompts/Aether/admiration.txt"
+        },
+        "gratitude": {
+          "status": "on hold at user request",
+          "prompt": "art/sprites/2026-11-10-four-approved-22-expression-sets/prompts/Aether/gratitude.txt"
+        },
+        "embarrassment": {
+          "status": "on hold at user request",
+          "prompt": "art/sprites/2026-11-10-four-approved-22-expression-sets/prompts/Aether/embarrassment.txt"
+        },
+        "caring": {
+          "status": "on hold at user request",
+          "prompt": "art/sprites/2026-11-10-four-approved-22-expression-sets/prompts/Aether/caring.txt"
+        },
+        "love-1": {
+          "status": "on hold at user request",
+          "prompt": "art/sprites/2026-11-10-four-approved-22-expression-sets/prompts/Aether/love-1.txt"
+        },
+        "desire-1": {
+          "status": "on hold at user request",
+          "prompt": "art/sprites/2026-11-10-four-approved-22-expression-sets/prompts/Aether/desire-1.txt"
+        }
+      },
+      "status": "on hold at user request"
+    },
+    "Lumine": {
+      "approved_neutral": {
+        "source": "art/sprites/2026-11-10-travelers-eye-and-diluc-pose-retry/candidates/Lumine/neutral-v001.png",
+        "copy": "art/sprites/2026-11-10-four-approved-22-expression-sets/references/Lumine/approved-neutral.png",
+        "sha256": "96cd8ef884c94d0fe312ca2de6d9329d5efd83d82e51e740015911630f3a54e5",
+        "approval_message": "Lumine is approved."
+      },
+      "expressions": {
+        "annoyance": {
+          "status": "approved and installed",
+          "prompt": "prompts/Lumine/annoyance.txt",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body annoyance visual-novel sprite of Lumine from Genshin Impact, using only the supplied user-approved neutral as the reference for identity, face, skin tone, hair, costume, accessories, colors, illustrated rendering and body proportions. Keep the character at least as petite as the reference without lengthening the torso or legs. Character: calm, spirited and curious. Acting: show mild irritation with a restrained displeased expression, one hand at the hip; vary pose and gesture to communicate this emotion while preserving the reference identity and silhouette scale. Keep gestures simple, with right and left hands separate near the torso or sides; each complete hand has a palm, four fingers and a separate opposable thumb, naturally articulated without forcing hidden digits into view. Exactly two legs and two feet belonging to one pelvis, feet comfortably separated. One coherent mouth with a readable lip shape. Fully clothed, no weapon. Full body including hair, accessories, hands and shoes visible, approximately 2\u20134% padding above and below. True transparent background; no scenery, labels, UI, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-10-four-approved-22-expression-sets/references/Lumine/approved-neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "returned_original": "/Users/alexachan/.codex/generated_images/01a1c7c8-1e02-7d01-aae2-3bd5084bd899/exec-4f6d1b1b-fe47-496d-b2c7-9fcce1b822a9.png",
+          "raw": "raw/Lumine/annoyance.png",
+          "candidate": "sprites/Lumine/annoyance.png",
+          "sha256": "0c8aac7509005c63bc3115de3d8598736eb080daa260358c2185e33c693d02ea",
+          "format": "PNG",
+          "color_type": 6,
+          "dimensions": [
+            1017,
+            1546
+          ],
+          "framing_transform": "none",
+          "approval": "approved",
+          "approval_message": "All accepted. Every sprite that I haven't said to regenerate (minus Aether's, he's on hold) is accepted and should be put into their respective folders, replacing their current sprites."
+        },
+        "smug": {
+          "status": "approved and installed",
+          "prompt": "prompts/Lumine/smug.txt",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body smug visual-novel sprite of Lumine from Genshin Impact, using only the supplied user-approved neutral as the reference for identity, face, skin tone, hair, costume, accessories, colors, illustrated rendering and body proportions. Keep the character at least as petite as the reference without lengthening the torso or legs. Character: calm, spirited and curious. Acting: show self-assured amusement with a small knowing smile and an easy angled stance; vary pose and gesture to communicate this emotion while preserving the reference identity and silhouette scale. Keep gestures simple, with right and left hands separate near the torso or sides; each complete hand has a palm, four fingers and a separate opposable thumb, naturally articulated without forcing hidden digits into view. Exactly two legs and two feet belonging to one pelvis, feet comfortably separated. One coherent mouth with a readable lip shape. Fully clothed, no weapon. Full body including hair, accessories, hands and shoes visible, approximately 2\u20134% padding above and below. True transparent background; no scenery, labels, UI, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-10-four-approved-22-expression-sets/references/Lumine/approved-neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "returned_original": "/Users/alexachan/.codex/generated_images/01a1c7c8-1e02-7d01-aae2-3bd5084bd899/exec-beadf2b1-b9a2-41b3-b8d3-29f35ab50c5d.png",
+          "raw": "raw/Lumine/smug.png",
+          "candidate": "sprites/Lumine/smug.png",
+          "sha256": "6a4a581a39f47f9915bf31ae855b1bc49f0c801544da3dce6ce38f7d4ab8b6d4",
+          "format": "PNG",
+          "color_type": 6,
+          "dimensions": [
+            1017,
+            1546
+          ],
+          "framing_transform": "none",
+          "approval": "approved",
+          "approval_message": "All accepted. Every sprite that I haven't said to regenerate (minus Aether's, he's on hold) is accepted and should be put into their respective folders, replacing their current sprites."
+        },
+        "confusion": {
+          "status": "generated; awaiting review",
+          "prompt": "prompts/Lumine/confusion.txt",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body confusion visual-novel sprite of Lumine from Genshin Impact, using only the supplied user-approved neutral as the reference for identity, face, skin tone, hair, costume, accessories, colors, illustrated rendering and body proportions. Keep the character at least as petite as the reference without lengthening the torso or legs. Character: calm, spirited and curious. Acting: show uncertainty with raised brows and a slight head tilt, one hand lifted near the torso; vary pose and gesture to communicate this emotion while preserving the reference identity and silhouette scale. Keep gestures simple, with right and left hands separate near the torso or sides; each complete hand has a palm, four fingers and a separate opposable thumb, naturally articulated without forcing hidden digits into view. Exactly two legs and two feet belonging to one pelvis, feet comfortably separated. One coherent mouth with a readable lip shape. Fully clothed, no weapon. Full body including hair, accessories, hands and shoes visible, approximately 2\u20134% padding above and below. True transparent background; no scenery, labels, UI, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-10-four-approved-22-expression-sets/references/Lumine/approved-neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "returned_original": "/Users/alexachan/.codex/generated_images/01a1c7c8-1e02-7d01-aae2-3bd5084bd899/exec-2547d96e-ac9b-4a5c-a48b-911aeefb4344.png",
+          "raw": "raw/Lumine/confusion.png",
+          "candidate": "sprites/Lumine/confusion.png",
+          "sha256": "f8f81fb0daf82ae64550f2d2b9324f303002d53e4157029745224715d429adc2",
+          "format": "PNG",
+          "color_type": 6,
+          "dimensions": [
+            1017,
+            1547
+          ],
+          "framing_transform": "none"
+        },
+        "love": {
+          "status": "generated; awaiting review",
+          "prompt": "prompts/Lumine/love.txt",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body love visual-novel sprite of Lumine from Genshin Impact, using only the supplied user-approved neutral as the reference for identity, face, skin tone, hair, costume, accessories, colors, illustrated rendering and body proportions. Keep the character at least as petite as the reference without lengthening the torso or legs. Character: calm, spirited and curious. Acting: show warm affection and a gentle smile, one hand near the heart; vary pose and gesture to communicate this emotion while preserving the reference identity and silhouette scale. Keep gestures simple, with right and left hands separate near the torso or sides; each complete hand has a palm, four fingers and a separate opposable thumb, naturally articulated without forcing hidden digits into view. Exactly two legs and two feet belonging to one pelvis, feet comfortably separated. One coherent mouth with a readable lip shape. Fully clothed, no weapon. Full body including hair, accessories, hands and shoes visible, approximately 2\u20134% padding above and below. True transparent background; no scenery, labels, UI, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-10-four-approved-22-expression-sets/references/Lumine/approved-neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "returned_original": "/Users/alexachan/.codex/generated_images/01a1c7c8-1e02-7d01-aae2-3bd5084bd899/exec-3fbe2ce5-99b5-43ce-b0db-6dcd8eab80cc.png",
+          "raw": "raw/Lumine/love.png",
+          "candidate": "sprites/Lumine/love.png",
+          "sha256": "acc89dd6c6ec907eb5b27fbbd897a3d56d77a4ee4ff3cd68ad08b7b58adbecd6",
+          "format": "PNG",
+          "color_type": 6,
+          "dimensions": [
+            1017,
+            1546
+          ],
+          "framing_transform": "none"
+        },
+        "excitement": {
+          "status": "approved and installed",
+          "prompt": "prompts/Lumine/excitement.txt",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body excitement visual-novel sprite of Lumine from Genshin Impact, using only the supplied user-approved neutral as the reference for identity, face, skin tone, hair, costume, accessories, colors, illustrated rendering and body proportions. Keep the character at least as petite as the reference without lengthening the torso or legs. Character: calm, spirited and curious. Acting: show animated anticipation with a bright expression, a slight forward lean and one hand raised near the torso; vary pose and gesture to communicate this emotion while preserving the reference identity and silhouette scale. Keep gestures simple, with right and left hands separate near the torso or sides; each complete hand has a palm, four fingers and a separate opposable thumb, naturally articulated without forcing hidden digits into view. Exactly two legs and two feet belonging to one pelvis, feet comfortably separated. One coherent mouth with a readable lip shape. Fully clothed, no weapon. Full body including hair, accessories, hands and shoes visible, approximately 2\u20134% padding above and below. True transparent background; no scenery, labels, UI, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-10-four-approved-22-expression-sets/references/Lumine/approved-neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "returned_original": "/Users/alexachan/.codex/generated_images/01a1c7c8-1e02-7d01-aae2-3bd5084bd899/exec-635c6331-688b-44c0-9a49-508cc26acb5d.png",
+          "raw": "raw/Lumine/excitement.png",
+          "candidate": "sprites/Lumine/excitement.png",
+          "sha256": "8ef77bdcaf356954cc8332c3ccf17973defc2d8d55701f6df6bb3032295d6959",
+          "format": "PNG",
+          "color_type": 6,
+          "dimensions": [
+            1017,
+            1546
+          ],
+          "framing_transform": "none",
+          "approval": "approved",
+          "approval_message": "All accepted. Every sprite that I haven't said to regenerate (minus Aether's, he's on hold) is accepted and should be put into their respective folders, replacing their current sprites."
+        },
+        "joy": {
+          "status": "approved and installed",
+          "prompt": "prompts/Lumine/joy.txt",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body joy visual-novel sprite of Lumine from Genshin Impact, using only the supplied user-approved neutral as the reference for identity, face, skin tone, hair, costume, accessories, colors, illustrated rendering and body proportions. Keep the character at least as petite as the reference without lengthening the torso or legs. Character: calm, spirited and curious. Acting: show open happiness with a bright smile and relaxed welcoming gesture; vary pose and gesture to communicate this emotion while preserving the reference identity and silhouette scale. Keep gestures simple, with right and left hands separate near the torso or sides; each complete hand has a palm, four fingers and a separate opposable thumb, naturally articulated without forcing hidden digits into view. Exactly two legs and two feet belonging to one pelvis, feet comfortably separated. One coherent mouth with a readable lip shape. Fully clothed, no weapon. Full body including hair, accessories, hands and shoes visible, approximately 2\u20134% padding above and below. True transparent background; no scenery, labels, UI, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-10-four-approved-22-expression-sets/references/Lumine/approved-neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "returned_original": "/Users/alexachan/.codex/generated_images/01a1c7c8-1e02-7d01-aae2-3bd5084bd899/exec-9565539b-4a67-4c15-a490-4ff861c35f58.png",
+          "raw": "raw/Lumine/joy.png",
+          "candidate": "sprites/Lumine/joy.png",
+          "sha256": "d5e0ff3d60281d7fa7585cea5d4957ff4ddc7d7c584453577f772f11268f4512",
+          "format": "PNG",
+          "color_type": 6,
+          "dimensions": [
+            1017,
+            1546
+          ],
+          "framing_transform": "none",
+          "approval": "approved",
+          "approval_message": "All accepted. Every sprite that I haven't said to regenerate (minus Aether's, he's on hold) is accepted and should be put into their respective folders, replacing their current sprites."
+        },
+        "fear": {
+          "status": "approved and installed",
+          "prompt": "prompts/Lumine/fear.txt",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body fear visual-novel sprite of Lumine from Genshin Impact, using only the supplied user-approved neutral as the reference for identity, face, skin tone, hair, costume, accessories, colors, illustrated rendering and body proportions. Keep the character at least as petite as the reference without lengthening the torso or legs. Character: calm, spirited and curious. Acting: show alarm with widened eyes, slightly drawn-back shoulders and one hand near the chest; vary pose and gesture to communicate this emotion while preserving the reference identity and silhouette scale. Keep gestures simple, with right and left hands separate near the torso or sides; each complete hand has a palm, four fingers and a separate opposable thumb, naturally articulated without forcing hidden digits into view. Exactly two legs and two feet belonging to one pelvis, feet comfortably separated. One coherent mouth with a readable lip shape. Fully clothed, no weapon. Full body including hair, accessories, hands and shoes visible, approximately 2\u20134% padding above and below. True transparent background; no scenery, labels, UI, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-10-four-approved-22-expression-sets/references/Lumine/approved-neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "returned_original": "/Users/alexachan/.codex/generated_images/01a1c7c8-1e02-7d01-aae2-3bd5084bd899/exec-c6ecccb4-66ab-4f06-9a0e-afdf982942ab.png",
+          "raw": "raw/Lumine/fear.png",
+          "candidate": "sprites/Lumine/fear.png",
+          "sha256": "407d62d412f4e15a444f1010542c17d977524375286ada1421f287150b98e5b2",
+          "format": "PNG",
+          "color_type": 6,
+          "dimensions": [
+            1017,
+            1546
+          ],
+          "framing_transform": "none",
+          "approval": "approved",
+          "approval_message": "All accepted. Every sprite that I haven't said to regenerate (minus Aether's, he's on hold) is accepted and should be put into their respective folders, replacing their current sprites."
+        },
+        "pride": {
+          "status": "approved and installed",
+          "prompt": "prompts/Lumine/pride.txt",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body pride visual-novel sprite of Lumine from Genshin Impact, using only the supplied user-approved neutral as the reference for identity, face, skin tone, hair, costume, accessories, colors, illustrated rendering and body proportions. Keep the character at least as petite as the reference without lengthening the torso or legs. Character: calm, spirited and curious. Acting: show quiet pride with lifted posture and a confident expression; vary pose and gesture to communicate this emotion while preserving the reference identity and silhouette scale. Keep gestures simple, with right and left hands separate near the torso or sides; each complete hand has a palm, four fingers and a separate opposable thumb, naturally articulated without forcing hidden digits into view. Exactly two legs and two feet belonging to one pelvis, feet comfortably separated. One coherent mouth with a readable lip shape. Fully clothed, no weapon. Full body including hair, accessories, hands and shoes visible, approximately 2\u20134% padding above and below. True transparent background; no scenery, labels, UI, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-10-four-approved-22-expression-sets/references/Lumine/approved-neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "returned_original": "/Users/alexachan/.codex/generated_images/01a1c7c8-1e02-7d01-aae2-3bd5084bd899/exec-783cb4e2-c2a9-4c7f-9868-a63002df7175.png",
+          "raw": "raw/Lumine/pride.png",
+          "candidate": "sprites/Lumine/pride.png",
+          "sha256": "e6e1cbc82e44bbad6eaeaf86ac251913af6f803b1150a08ef02649b6c1094c4d",
+          "format": "PNG",
+          "color_type": 6,
+          "dimensions": [
+            1017,
+            1546
+          ],
+          "framing_transform": "none",
+          "approval": "approved",
+          "approval_message": "All accepted. Every sprite that I haven't said to regenerate (minus Aether's, he's on hold) is accepted and should be put into their respective folders, replacing their current sprites."
+        },
+        "desire": {
+          "status": "generated; awaiting review",
+          "prompt": "prompts/Lumine/desire.txt",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body desire visual-novel sprite of Lumine from Genshin Impact, using only the supplied user-approved neutral as the reference for identity, face, skin tone, hair, costume, accessories, colors, illustrated rendering and body proportions. Keep the character at least as petite as the reference without lengthening the torso or legs. Character: calm, spirited and curious. Acting: show yearning anticipation with a soft intent expression and one hand near the heart; vary pose and gesture to communicate this emotion while preserving the reference identity and silhouette scale. Keep gestures simple, with right and left hands separate near the torso or sides; each complete hand has a palm, four fingers and a separate opposable thumb, naturally articulated without forcing hidden digits into view. Exactly two legs and two feet belonging to one pelvis, feet comfortably separated. One coherent mouth with a readable lip shape. Fully clothed, no weapon. Full body including hair, accessories, hands and shoes visible, approximately 2\u20134% padding above and below. True transparent background; no scenery, labels, UI, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-10-four-approved-22-expression-sets/references/Lumine/approved-neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "returned_original": "/Users/alexachan/.codex/generated_images/01a1c7c8-1e02-7d01-aae2-3bd5084bd899/exec-ce662f07-299e-4eb9-9ed8-5be1091debd7.png",
+          "raw": "raw/Lumine/desire.png",
+          "candidate": "sprites/Lumine/desire.png",
+          "sha256": "4faa4b624d54cb623e70dca7cf5df26bfceeeb86cf9eaa914d1ff8c247dddc08",
+          "format": "PNG",
+          "color_type": 6,
+          "dimensions": [
+            1017,
+            1546
+          ],
+          "framing_transform": "none"
+        },
+        "anger": {
+          "status": "generated; awaiting review",
+          "prompt": "prompts/Lumine/anger.txt",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body anger visual-novel sprite of Lumine from Genshin Impact, using only the supplied user-approved neutral as the reference for identity, face, skin tone, hair, costume, accessories, colors, illustrated rendering and body proportions. Keep the character at least as petite as the reference without lengthening the torso or legs. Character: calm, spirited and curious. Acting: show controlled anger with lowered brows, upright stance and hands separated near the sides; vary pose and gesture to communicate this emotion while preserving the reference identity and silhouette scale. Keep gestures simple, with right and left hands separate near the torso or sides; each complete hand has a palm, four fingers and a separate opposable thumb, naturally articulated without forcing hidden digits into view. Exactly two legs and two feet belonging to one pelvis, feet comfortably separated. One coherent mouth with a readable lip shape. Fully clothed, no weapon. Full body including hair, accessories, hands and shoes visible, approximately 2\u20134% padding above and below. True transparent background; no scenery, labels, UI, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-10-four-approved-22-expression-sets/references/Lumine/approved-neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "returned_original": "/Users/alexachan/.codex/generated_images/01a1c7c8-1e02-7d01-aae2-3bd5084bd899/exec-358ea799-b87a-4b3d-929d-339fef9cacd1.png",
+          "raw": "raw/Lumine/anger.png",
+          "candidate": "sprites/Lumine/anger.png",
+          "sha256": "f5f5d2c9fd523b7138dabfc1e35358d71e0e4ca13ce563b7b59393b71dfe949a",
+          "format": "PNG",
+          "color_type": 6,
+          "dimensions": [
+            1017,
+            1546
+          ],
+          "framing_transform": "none"
+        },
+        "grief": {
+          "status": "approved and installed",
+          "prompt": "prompts/Lumine/grief.txt",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body grief visual-novel sprite of Lumine from Genshin Impact, using only the supplied user-approved neutral as the reference for identity, face, skin tone, hair, costume, accessories, colors, illustrated rendering and body proportions. Keep the character at least as petite as the reference without lengthening the torso or legs. Character: calm, spirited and curious. Acting: show deep grief with lowered gaze, softened shoulders and one hand near the chest; vary pose and gesture to communicate this emotion while preserving the reference identity and silhouette scale. Keep gestures simple, with right and left hands separate near the torso or sides; each complete hand has a palm, four fingers and a separate opposable thumb, naturally articulated without forcing hidden digits into view. Exactly two legs and two feet belonging to one pelvis, feet comfortably separated. One coherent mouth with a readable lip shape. Fully clothed, no weapon. Full body including hair, accessories, hands and shoes visible, approximately 2\u20134% padding above and below. True transparent background; no scenery, labels, UI, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-10-four-approved-22-expression-sets/references/Lumine/approved-neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "returned_original": "/Users/alexachan/.codex/generated_images/01a1c7c8-1e02-7d01-aae2-3bd5084bd899/exec-ac918c03-0085-4798-a0f7-fadcc14a68c1.png",
+          "raw": "raw/Lumine/grief.png",
+          "candidate": "sprites/Lumine/grief.png",
+          "sha256": "78a4c5fa86a3a3da395b1d1ce4682e3e34e1042727c55b11cf640a4686e8597f",
+          "format": "PNG",
+          "color_type": 6,
+          "dimensions": [
+            1017,
+            1546
+          ],
+          "framing_transform": "none",
+          "approval": "approved",
+          "approval_message": "All accepted. Every sprite that I haven't said to regenerate (minus Aether's, he's on hold) is accepted and should be put into their respective folders, replacing their current sprites."
+        },
+        "sadness": {
+          "status": "approved and installed",
+          "prompt": "prompts/Lumine/sadness.txt",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body sadness visual-novel sprite of Lumine from Genshin Impact, using only the supplied user-approved neutral as the reference for identity, face, skin tone, hair, costume, accessories, colors, illustrated rendering and body proportions. Keep the character at least as petite as the reference without lengthening the torso or legs. Character: calm, spirited and curious. Acting: show quiet sadness with a downcast gaze and a subtle frown; vary pose and gesture to communicate this emotion while preserving the reference identity and silhouette scale. Keep gestures simple, with right and left hands separate near the torso or sides; each complete hand has a palm, four fingers and a separate opposable thumb, naturally articulated without forcing hidden digits into view. Exactly two legs and two feet belonging to one pelvis, feet comfortably separated. One coherent mouth with a readable lip shape. Fully clothed, no weapon. Full body including hair, accessories, hands and shoes visible, approximately 2\u20134% padding above and below. True transparent background; no scenery, labels, UI, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-10-four-approved-22-expression-sets/references/Lumine/approved-neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "returned_original": "/Users/alexachan/.codex/generated_images/01a1c7c8-1e02-7d01-aae2-3bd5084bd899/exec-b7b14937-0fe8-466b-9a71-b035b8520b3c.png",
+          "raw": "raw/Lumine/sadness.png",
+          "candidate": "sprites/Lumine/sadness.png",
+          "sha256": "108c8586c13b2dfc14b6bb6d203ebf15a6d48692ec1161745e01cf7f16abed58",
+          "format": "PNG",
+          "color_type": 6,
+          "dimensions": [
+            1017,
+            1547
+          ],
+          "framing_transform": "none",
+          "approval": "approved",
+          "approval_message": "All accepted. Every sprite that I haven't said to regenerate (minus Aether's, he's on hold) is accepted and should be put into their respective folders, replacing their current sprites."
+        },
+        "disgust": {
+          "status": "approved and installed",
+          "prompt": "prompts/Lumine/disgust.txt",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body disgust visual-novel sprite of Lumine from Genshin Impact, using only the supplied user-approved neutral as the reference for identity, face, skin tone, hair, costume, accessories, colors, illustrated rendering and body proportions. Keep the character at least as petite as the reference without lengthening the torso or legs. Character: calm, spirited and curious. Acting: show distaste with a restrained nose scrunch and a small closed displeased mouth; vary pose and gesture to communicate this emotion while preserving the reference identity and silhouette scale. Keep gestures simple, with right and left hands separate near the torso or sides; each complete hand has a palm, four fingers and a separate opposable thumb, naturally articulated without forcing hidden digits into view. Exactly two legs and two feet belonging to one pelvis, feet comfortably separated. One coherent mouth with a readable lip shape. Fully clothed, no weapon. Full body including hair, accessories, hands and shoes visible, approximately 2\u20134% padding above and below. True transparent background; no scenery, labels, UI, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-10-four-approved-22-expression-sets/references/Lumine/approved-neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "returned_original": "/Users/alexachan/.codex/generated_images/01a1c7c8-1e02-7d01-aae2-3bd5084bd899/exec-49e4baae-08c9-42c9-bb4f-2822d5981efc.png",
+          "raw": "raw/Lumine/disgust.png",
+          "candidate": "sprites/Lumine/disgust.png",
+          "sha256": "6772ea8a3b21baaf32f86c9a79eb04a3bb5ac01321309c6ae721dfa5230d87b4",
+          "format": "PNG",
+          "color_type": 6,
+          "dimensions": [
+            1017,
+            1546
+          ],
+          "framing_transform": "none",
+          "approval": "approved",
+          "approval_message": "All accepted. Every sprite that I haven't said to regenerate (minus Aether's, he's on hold) is accepted and should be put into their respective folders, replacing their current sprites."
+        },
+        "disappointment": {
+          "status": "approved and installed",
+          "prompt": "prompts/Lumine/disappointment.txt",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body disappointment visual-novel sprite of Lumine from Genshin Impact, using only the supplied user-approved neutral as the reference for identity, face, skin tone, hair, costume, accessories, colors, illustrated rendering and body proportions. Keep the character at least as petite as the reference without lengthening the torso or legs. Character: calm, spirited and curious. Acting: show subdued disappointment with lowered brows and a slight downward glance; vary pose and gesture to communicate this emotion while preserving the reference identity and silhouette scale. Keep gestures simple, with right and left hands separate near the torso or sides; each complete hand has a palm, four fingers and a separate opposable thumb, naturally articulated without forcing hidden digits into view. Exactly two legs and two feet belonging to one pelvis, feet comfortably separated. One coherent mouth with a readable lip shape. Fully clothed, no weapon. Full body including hair, accessories, hands and shoes visible, approximately 2\u20134% padding above and below. True transparent background; no scenery, labels, UI, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-10-four-approved-22-expression-sets/references/Lumine/approved-neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "returned_original": "/Users/alexachan/.codex/generated_images/01a1c7c8-1e02-7d01-aae2-3bd5084bd899/exec-81fcc6fc-46f0-401e-be45-eb572ff285d2.png",
+          "raw": "raw/Lumine/disappointment.png",
+          "candidate": "sprites/Lumine/disappointment.png",
+          "sha256": "7b0fdec2787670c682536d1e3ddf1c6bf97cfe6402bd05b5ec22c2b03d2d72c4",
+          "format": "PNG",
+          "color_type": 6,
+          "dimensions": [
+            1017,
+            1546
+          ],
+          "framing_transform": "none",
+          "approval": "approved",
+          "approval_message": "All accepted. Every sprite that I haven't said to regenerate (minus Aether's, he's on hold) is accepted and should be put into their respective folders, replacing their current sprites."
+        },
+        "relief": {
+          "status": "approved and installed",
+          "prompt": "prompts/Lumine/relief.txt",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body relief visual-novel sprite of Lumine from Genshin Impact, using only the supplied user-approved neutral as the reference for identity, face, skin tone, hair, costume, accessories, colors, illustrated rendering and body proportions. Keep the character at least as petite as the reference without lengthening the torso or legs. Character: calm, spirited and curious. Acting: show relief with softened posture and one hand resting near the heart; vary pose and gesture to communicate this emotion while preserving the reference identity and silhouette scale. Keep gestures simple, with right and left hands separate near the torso or sides; each complete hand has a palm, four fingers and a separate opposable thumb, naturally articulated without forcing hidden digits into view. Exactly two legs and two feet belonging to one pelvis, feet comfortably separated. One coherent mouth with a readable lip shape. Fully clothed, no weapon. Full body including hair, accessories, hands and shoes visible, approximately 2\u20134% padding above and below. True transparent background; no scenery, labels, UI, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-10-four-approved-22-expression-sets/references/Lumine/approved-neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "returned_original": "/Users/alexachan/.codex/generated_images/01a1c7c8-1e02-7d01-aae2-3bd5084bd899/exec-13317874-3910-459f-8494-5d992a308c7d.png",
+          "raw": "raw/Lumine/relief.png",
+          "candidate": "sprites/Lumine/relief.png",
+          "sha256": "bb5815013ea8bc68222dab3995b18f43ddb0d28bf6e064cb1b344af00c3ff736",
+          "format": "PNG",
+          "color_type": 6,
+          "dimensions": [
+            1017,
+            1546
+          ],
+          "framing_transform": "none",
+          "approval": "approved",
+          "approval_message": "All accepted. Every sprite that I haven't said to regenerate (minus Aether's, he's on hold) is accepted and should be put into their respective folders, replacing their current sprites."
+        },
+        "admiration": {
+          "status": "approved and installed",
+          "prompt": "prompts/Lumine/admiration.txt",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body admiration visual-novel sprite of Lumine from Genshin Impact, using only the supplied user-approved neutral as the reference for identity, face, skin tone, hair, costume, accessories, colors, illustrated rendering and body proportions. Keep the character at least as petite as the reference without lengthening the torso or legs. Character: calm, spirited and curious. Acting: show respect and admiration with an attentive gaze and an open, interested expression; vary pose and gesture to communicate this emotion while preserving the reference identity and silhouette scale. Keep gestures simple, with right and left hands separate near the torso or sides; each complete hand has a palm, four fingers and a separate opposable thumb, naturally articulated without forcing hidden digits into view. Exactly two legs and two feet belonging to one pelvis, feet comfortably separated. One coherent mouth with a readable lip shape. Fully clothed, no weapon. Full body including hair, accessories, hands and shoes visible, approximately 2\u20134% padding above and below. True transparent background; no scenery, labels, UI, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-10-four-approved-22-expression-sets/references/Lumine/approved-neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "returned_original": "/Users/alexachan/.codex/generated_images/01a1c7c8-1e02-7d01-aae2-3bd5084bd899/exec-1d4f04fc-5bcb-40af-8472-25cbf943c243.png",
+          "raw": "raw/Lumine/admiration.png",
+          "candidate": "sprites/Lumine/admiration.png",
+          "sha256": "cf7bed292d969273864a765b3c72a38a35c4012fc0a08760d8ed870209ef179e",
+          "format": "PNG",
+          "color_type": 6,
+          "dimensions": [
+            1017,
+            1546
+          ],
+          "framing_transform": "none",
+          "approval": "approved",
+          "approval_message": "All accepted. Every sprite that I haven't said to regenerate (minus Aether's, he's on hold) is accepted and should be put into their respective folders, replacing their current sprites."
+        },
+        "gratitude": {
+          "status": "approved and installed",
+          "prompt": "prompts/Lumine/gratitude.txt",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body gratitude visual-novel sprite of Lumine from Genshin Impact, using only the supplied user-approved neutral as the reference for identity, face, skin tone, hair, costume, accessories, colors, illustrated rendering and body proportions. Keep the character at least as petite as the reference without lengthening the torso or legs. Character: calm, spirited and curious. Acting: show sincere thanks with a warm expression and one hand placed over the chest; vary pose and gesture to communicate this emotion while preserving the reference identity and silhouette scale. Keep gestures simple, with right and left hands separate near the torso or sides; each complete hand has a palm, four fingers and a separate opposable thumb, naturally articulated without forcing hidden digits into view. Exactly two legs and two feet belonging to one pelvis, feet comfortably separated. One coherent mouth with a readable lip shape. Fully clothed, no weapon. Full body including hair, accessories, hands and shoes visible, approximately 2\u20134% padding above and below. True transparent background; no scenery, labels, UI, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-10-four-approved-22-expression-sets/references/Lumine/approved-neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "returned_original": "/Users/alexachan/.codex/generated_images/01a1c7c8-1e02-7d01-aae2-3bd5084bd899/exec-4f0ee314-e26b-4238-87cf-0093d87972f8.png",
+          "raw": "raw/Lumine/gratitude.png",
+          "candidate": "sprites/Lumine/gratitude.png",
+          "sha256": "a90ed44e652baa4eb7ac5b561a2647b3080bf12157ef07b3729316df99173260",
+          "format": "PNG",
+          "color_type": 6,
+          "dimensions": [
+            1017,
+            1546
+          ],
+          "framing_transform": "none",
+          "approval": "approved",
+          "approval_message": "All accepted. Every sprite that I haven't said to regenerate (minus Aether's, he's on hold) is accepted and should be put into their respective folders, replacing their current sprites."
+        },
+        "embarrassment": {
+          "status": "approved and installed",
+          "prompt": "prompts/Lumine/embarrassment.txt",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body embarrassment visual-novel sprite of Lumine from Genshin Impact, using only the supplied user-approved neutral as the reference for identity, face, skin tone, hair, costume, accessories, colors, illustrated rendering and body proportions. Keep the character at least as petite as the reference without lengthening the torso or legs. Character: calm, spirited and curious. Acting: show mild embarrassment with a shy averted gaze, faint blush and one hand near the face; vary pose and gesture to communicate this emotion while preserving the reference identity and silhouette scale. Keep gestures simple, with right and left hands separate near the torso or sides; each complete hand has a palm, four fingers and a separate opposable thumb, naturally articulated without forcing hidden digits into view. Exactly two legs and two feet belonging to one pelvis, feet comfortably separated. One coherent mouth with a readable lip shape. Fully clothed, no weapon. Full body including hair, accessories, hands and shoes visible, approximately 2\u20134% padding above and below. True transparent background; no scenery, labels, UI, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-10-four-approved-22-expression-sets/references/Lumine/approved-neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "returned_original": "/Users/alexachan/.codex/generated_images/01a1c7c8-1e02-7d01-aae2-3bd5084bd899/exec-89f026b7-52f1-47c1-ae6c-47bbdd87d7df.png",
+          "raw": "raw/Lumine/embarrassment.png",
+          "candidate": "sprites/Lumine/embarrassment.png",
+          "sha256": "6be76b734710ee374485f2eddcf4724e00b585e722b7e3e23892f118916ffb33",
+          "format": "PNG",
+          "color_type": 6,
+          "dimensions": [
+            1017,
+            1546
+          ],
+          "framing_transform": "none",
+          "approval": "approved",
+          "approval_message": "All accepted. Every sprite that I haven't said to regenerate (minus Aether's, he's on hold) is accepted and should be put into their respective folders, replacing their current sprites."
+        },
+        "caring": {
+          "status": "approved and installed",
+          "prompt": "prompts/Lumine/caring.txt",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body caring visual-novel sprite of Lumine from Genshin Impact, using only the supplied user-approved neutral as the reference for identity, face, skin tone, hair, costume, accessories, colors, illustrated rendering and body proportions. Keep the character at least as petite as the reference without lengthening the torso or legs. Character: calm, spirited and curious. Acting: show gentle concern with a warm, attentive expression and a modest open hand near the torso; vary pose and gesture to communicate this emotion while preserving the reference identity and silhouette scale. Keep gestures simple, with right and left hands separate near the torso or sides; each complete hand has a palm, four fingers and a separate opposable thumb, naturally articulated without forcing hidden digits into view. Exactly two legs and two feet belonging to one pelvis, feet comfortably separated. One coherent mouth with a readable lip shape. Fully clothed, no weapon. Full body including hair, accessories, hands and shoes visible, approximately 2\u20134% padding above and below. True transparent background; no scenery, labels, UI, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-10-four-approved-22-expression-sets/references/Lumine/approved-neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "returned_original": "/Users/alexachan/.codex/generated_images/01a1c7c8-1e02-7d01-aae2-3bd5084bd899/exec-b4628515-8310-46b1-b35f-3011a0abad59.png",
+          "raw": "raw/Lumine/caring.png",
+          "candidate": "sprites/Lumine/caring.png",
+          "sha256": "1572f5eae84845cac49ff65ce0abd375d3f0cd01a6184129edea3cdbadf45522",
+          "format": "PNG",
+          "color_type": 6,
+          "dimensions": [
+            1017,
+            1546
+          ],
+          "framing_transform": "none",
+          "approval": "approved",
+          "approval_message": "All accepted. Every sprite that I haven't said to regenerate (minus Aether's, he's on hold) is accepted and should be put into their respective folders, replacing their current sprites."
+        },
+        "love-1": {
+          "status": "generated; awaiting review",
+          "prompt": "prompts/Lumine/love-1.txt",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body love-1 visual-novel sprite of Lumine from Genshin Impact, using only the supplied user-approved neutral as the reference for identity, face, skin tone, hair, costume, accessories, colors, illustrated rendering and body proportions. Keep the character at least as petite as the reference without lengthening the torso or legs. Character: calm, spirited and curious. Acting: show openly joyful affection with an expressive smile and raised brows; vary pose and gesture to communicate this emotion while preserving the reference identity and silhouette scale. Both eyes visibly open: place one solid white heart-shaped pupil centered inside each original colored iris, retaining each iris outline, shading and visible colored border. These are pupils, not highlights or floating symbols. Keep gestures simple, with right and left hands separate near the torso or sides; each complete hand has a palm, four fingers and a separate opposable thumb, naturally articulated without forcing hidden digits into view. Exactly two legs and two feet belonging to one pelvis, feet comfortably separated. One coherent mouth with a readable lip shape. Fully clothed, no weapon. Full body including hair, accessories, hands and shoes visible, approximately 2\u20134% padding above and below. True transparent background; no scenery, labels, UI, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-10-four-approved-22-expression-sets/references/Lumine/approved-neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "returned_original": "/Users/alexachan/.codex/generated_images/01a1c7c8-1e02-7d01-aae2-3bd5084bd899/exec-4d83ca0d-d62a-4dea-ab9e-dec0e31358f4.png",
+          "raw": "raw/Lumine/love-1.png",
+          "candidate": "sprites/Lumine/love-1.png",
+          "sha256": "f776d8764d8729c7e139c618451cd564abec42596f90c9103ec8c076e67e5a74",
+          "format": "PNG",
+          "color_type": 6,
+          "dimensions": [
+            1017,
+            1546
+          ],
+          "framing_transform": "none"
+        },
+        "desire-1": {
+          "status": "generated; awaiting review",
+          "prompt": "prompts/Lumine/desire-1.txt",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body desire-1 visual-novel sprite of Lumine from Genshin Impact, using only the supplied user-approved neutral as the reference for identity, face, skin tone, hair, costume, accessories, colors, illustrated rendering and body proportions. Keep the character at least as petite as the reference without lengthening the torso or legs. Character: calm, spirited and curious. Acting: show wistful anticipation with soft open eyes and a distinct gentle body angle; vary pose and gesture to communicate this emotion while preserving the reference identity and silhouette scale. Both eyes visibly open: place one solid white heart-shaped pupil centered inside each original colored iris, retaining each iris outline, shading and visible colored border. These are pupils, not highlights or floating symbols. Keep gestures simple, with right and left hands separate near the torso or sides; each complete hand has a palm, four fingers and a separate opposable thumb, naturally articulated without forcing hidden digits into view. Exactly two legs and two feet belonging to one pelvis, feet comfortably separated. One coherent mouth with a readable lip shape. Fully clothed, no weapon. Full body including hair, accessories, hands and shoes visible, approximately 2\u20134% padding above and below. True transparent background; no scenery, labels, UI, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-10-four-approved-22-expression-sets/references/Lumine/approved-neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "returned_original": "/Users/alexachan/.codex/generated_images/01a1c7c8-1e02-7d01-aae2-3bd5084bd899/exec-8c64b258-6e5f-4c37-adfd-037dd3fb9d46.png",
+          "raw": "raw/Lumine/desire-1.png",
+          "candidate": "sprites/Lumine/desire-1.png",
+          "sha256": "aad3c4e016c2b8202f6b1bd540d20e9c7fc91633f351d1fd62f769485f0c1446",
+          "format": "PNG",
+          "color_type": 6,
+          "dimensions": [
+            1017,
+            1546
+          ],
+          "framing_transform": "none"
+        }
+      },
+      "status": "22 files generated; expressions await user review"
+    },
+    "Diluc": {
+      "approved_neutral": {
+        "source": "art/sprites/2026-11-10-aether-diluc-resting-neutral/candidates/Diluc/neutral-v001.png",
+        "copy": "art/sprites/2026-11-10-four-approved-22-expression-sets/references/Diluc/approved-neutral.png",
+        "sha256": "1a8596a0b94ffd2e1345948efca56af2623efeed5b4a90aea5c34a39689b749f",
+        "approval_message": "Diluc accepted."
+      },
+      "expressions": {
+        "annoyance": {
+          "status": "approved and installed",
+          "prompt": "prompts/Diluc/annoyance.txt",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body annoyance visual-novel sprite of Diluc from Genshin Impact, using only the supplied user-approved neutral as the reference for identity, face, skin tone, hair, costume, accessories, colors, illustrated rendering and body proportions. Keep the character at least as petite as the reference without lengthening the torso or legs. Character: reserved and dignified, with restrained acting. Acting: show mild irritation with a restrained displeased expression, one hand at the hip; vary pose and gesture to communicate this emotion while preserving the reference identity and silhouette scale. Keep gestures simple, with right and left hands separate near the torso or sides; each complete hand has a palm, four fingers and a separate opposable thumb, naturally articulated without forcing hidden digits into view. Exactly two legs and two feet belonging to one pelvis, feet comfortably separated. One coherent mouth with a readable lip shape. Fully clothed, no weapon. Full body including hair, accessories, hands and shoes visible, approximately 2\u20134% padding above and below. True transparent background; no scenery, labels, UI, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-10-four-approved-22-expression-sets/references/Diluc/approved-neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "returned_original": "/Users/alexachan/.codex/generated_images/01a1c7c8-1e02-7d01-aae2-3bd5084bd899/exec-924d7a32-109f-4a21-a150-4a4b2c5f7396.png",
+          "raw": "raw/Diluc/annoyance.png",
+          "candidate": "sprites/Diluc/annoyance.png",
+          "sha256": "b23509148e37b197c70d468336d675bf20e499482d3aeb4af2e1d1f6bb9ce54e",
+          "format": "PNG",
+          "color_type": 6,
+          "dimensions": [
+            824,
+            1908
+          ],
+          "framing_transform": "none",
+          "approval": "approved",
+          "approval_message": "All accepted. Every sprite that I haven't said to regenerate (minus Aether's, he's on hold) is accepted and should be put into their respective folders, replacing their current sprites."
+        },
+        "smug": {
+          "status": "approved and installed",
+          "prompt": "prompts/Diluc/smug.txt",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body smug visual-novel sprite of Diluc from Genshin Impact, using only the supplied user-approved neutral as the reference for identity, face, skin tone, hair, costume, accessories, colors, illustrated rendering and body proportions. Keep the character at least as petite as the reference without lengthening the torso or legs. Character: reserved and dignified, with restrained acting. Acting: show self-assured amusement with a small knowing smile and an easy angled stance; vary pose and gesture to communicate this emotion while preserving the reference identity and silhouette scale. Keep gestures simple, with right and left hands separate near the torso or sides; each complete hand has a palm, four fingers and a separate opposable thumb, naturally articulated without forcing hidden digits into view. Exactly two legs and two feet belonging to one pelvis, feet comfortably separated. One coherent mouth with a readable lip shape. Fully clothed, no weapon. Full body including hair, accessories, hands and shoes visible, approximately 2\u20134% padding above and below. True transparent background; no scenery, labels, UI, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-10-four-approved-22-expression-sets/references/Diluc/approved-neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "returned_original": "/Users/alexachan/.codex/generated_images/01a1c7c8-1e02-7d01-aae2-3bd5084bd899/exec-8b007991-da77-4626-90df-1eed876d3556.png",
+          "raw": "raw/Diluc/smug.png",
+          "candidate": "sprites/Diluc/smug.png",
+          "sha256": "a1753cfbe7986b1a66e3a5575be4145d328207c6fcf64550418f4829ab962dc9",
+          "format": "PNG",
+          "color_type": 6,
+          "dimensions": [
+            824,
+            1908
+          ],
+          "framing_transform": "none",
+          "approval": "approved",
+          "approval_message": "All accepted. Every sprite that I haven't said to regenerate (minus Aether's, he's on hold) is accepted and should be put into their respective folders, replacing their current sprites."
+        },
+        "confusion": {
+          "status": "approved and installed",
+          "prompt": "prompts/Diluc/confusion.txt",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body confusion visual-novel sprite of Diluc from Genshin Impact, using only the supplied user-approved neutral as the reference for identity, face, skin tone, hair, costume, accessories, colors, illustrated rendering and body proportions. Keep the character at least as petite as the reference without lengthening the torso or legs. Character: reserved and dignified, with restrained acting. Acting: show uncertainty with raised brows and a slight head tilt, one hand lifted near the torso; vary pose and gesture to communicate this emotion while preserving the reference identity and silhouette scale. Keep gestures simple, with right and left hands separate near the torso or sides; each complete hand has a palm, four fingers and a separate opposable thumb, naturally articulated without forcing hidden digits into view. Exactly two legs and two feet belonging to one pelvis, feet comfortably separated. One coherent mouth with a readable lip shape. Fully clothed, no weapon. Full body including hair, accessories, hands and shoes visible, approximately 2\u20134% padding above and below. True transparent background; no scenery, labels, UI, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-10-four-approved-22-expression-sets/references/Diluc/approved-neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "returned_original": "/Users/alexachan/.codex/generated_images/01a1c7c8-1e02-7d01-aae2-3bd5084bd899/exec-9d3dcc09-ade2-4aac-ad9c-ef7b345d5512.png",
+          "raw": "raw/Diluc/confusion.png",
+          "candidate": "sprites/Diluc/confusion.png",
+          "sha256": "e35fb62c181ed4d9b98053e560d7251e63e8f042d27f5f476379cfe2d6d9a360",
+          "format": "PNG",
+          "color_type": 6,
+          "dimensions": [
+            824,
+            1908
+          ],
+          "framing_transform": "none",
+          "approval": "approved",
+          "approval_message": "All accepted. Every sprite that I haven't said to regenerate (minus Aether's, he's on hold) is accepted and should be put into their respective folders, replacing their current sprites."
+        },
+        "love": {
+          "status": "approved and installed",
+          "prompt": "prompts/Diluc/love.txt",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body love visual-novel sprite of Diluc from Genshin Impact, using only the supplied user-approved neutral as the reference for identity, face, skin tone, hair, costume, accessories, colors, illustrated rendering and body proportions. Keep the character at least as petite as the reference without lengthening the torso or legs. Character: reserved and dignified, with restrained acting. Acting: show warm affection and a gentle smile, one hand near the heart; vary pose and gesture to communicate this emotion while preserving the reference identity and silhouette scale. Keep gestures simple, with right and left hands separate near the torso or sides; each complete hand has a palm, four fingers and a separate opposable thumb, naturally articulated without forcing hidden digits into view. Exactly two legs and two feet belonging to one pelvis, feet comfortably separated. One coherent mouth with a readable lip shape. Fully clothed, no weapon. Full body including hair, accessories, hands and shoes visible, approximately 2\u20134% padding above and below. True transparent background; no scenery, labels, UI, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-10-four-approved-22-expression-sets/references/Diluc/approved-neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "returned_original": "/Users/alexachan/.codex/generated_images/01a1c7c8-1e02-7d01-aae2-3bd5084bd899/exec-731a19a3-075b-4131-80b5-0b822d3b59a5.png",
+          "raw": "raw/Diluc/love.png",
+          "candidate": "sprites/Diluc/love.png",
+          "sha256": "886e3daa8a2b46c9853006dec8973406ca993fea596c3fd1d42143b91978df03",
+          "format": "PNG",
+          "color_type": 6,
+          "dimensions": [
+            824,
+            1908
+          ],
+          "framing_transform": "none",
+          "approval": "approved",
+          "approval_message": "All accepted. Every sprite that I haven't said to regenerate (minus Aether's, he's on hold) is accepted and should be put into their respective folders, replacing their current sprites."
+        },
+        "excitement": {
+          "status": "approved and installed",
+          "prompt": "prompts/Diluc/excitement.txt",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body excitement visual-novel sprite of Diluc from Genshin Impact, using only the supplied user-approved neutral as the reference for identity, face, skin tone, hair, costume, accessories, colors, illustrated rendering and body proportions. Keep the character at least as petite as the reference without lengthening the torso or legs. Character: reserved and dignified, with restrained acting. Acting: show animated anticipation with a bright expression, a slight forward lean and one hand raised near the torso; vary pose and gesture to communicate this emotion while preserving the reference identity and silhouette scale. Keep gestures simple, with right and left hands separate near the torso or sides; each complete hand has a palm, four fingers and a separate opposable thumb, naturally articulated without forcing hidden digits into view. Exactly two legs and two feet belonging to one pelvis, feet comfortably separated. One coherent mouth with a readable lip shape. Fully clothed, no weapon. Full body including hair, accessories, hands and shoes visible, approximately 2\u20134% padding above and below. True transparent background; no scenery, labels, UI, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-10-four-approved-22-expression-sets/references/Diluc/approved-neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "returned_original": "/Users/alexachan/.codex/generated_images/01a1c7c8-1e02-7d01-aae2-3bd5084bd899/exec-eacdde20-4ce6-4297-b7bb-009ed416a9cf.png",
+          "raw": "raw/Diluc/excitement.png",
+          "candidate": "sprites/Diluc/excitement.png",
+          "sha256": "7162141ceff12481f73f8a97bde16a6578e47153b51a2bbc0307bcfcca9ab92f",
+          "format": "PNG",
+          "color_type": 6,
+          "dimensions": [
+            824,
+            1908
+          ],
+          "framing_transform": "none",
+          "approval": "approved",
+          "approval_message": "All accepted. Every sprite that I haven't said to regenerate (minus Aether's, he's on hold) is accepted and should be put into their respective folders, replacing their current sprites."
+        },
+        "joy": {
+          "status": "approved and installed",
+          "prompt": "prompts/Diluc/joy.txt",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body joy visual-novel sprite of Diluc from Genshin Impact, using only the supplied user-approved neutral as the reference for identity, face, skin tone, hair, costume, accessories, colors, illustrated rendering and body proportions. Keep the character at least as petite as the reference without lengthening the torso or legs. Character: reserved and dignified, with restrained acting. Acting: show open happiness with a bright smile and relaxed welcoming gesture; vary pose and gesture to communicate this emotion while preserving the reference identity and silhouette scale. Keep gestures simple, with right and left hands separate near the torso or sides; each complete hand has a palm, four fingers and a separate opposable thumb, naturally articulated without forcing hidden digits into view. Exactly two legs and two feet belonging to one pelvis, feet comfortably separated. One coherent mouth with a readable lip shape. Fully clothed, no weapon. Full body including hair, accessories, hands and shoes visible, approximately 2\u20134% padding above and below. True transparent background; no scenery, labels, UI, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-10-four-approved-22-expression-sets/references/Diluc/approved-neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "returned_original": "/Users/alexachan/.codex/generated_images/01a1c7c8-1e02-7d01-aae2-3bd5084bd899/exec-8d2eb6b9-f590-4edf-b2be-5bcec31d1d5f.png",
+          "raw": "raw/Diluc/joy.png",
+          "candidate": "sprites/Diluc/joy.png",
+          "sha256": "ec619976987c96aae5032d6f1c7a2cea40d54728b5720da88536db627df2ef6d",
+          "format": "PNG",
+          "color_type": 6,
+          "dimensions": [
+            824,
+            1908
+          ],
+          "framing_transform": "none",
+          "approval": "approved",
+          "approval_message": "All accepted. Every sprite that I haven't said to regenerate (minus Aether's, he's on hold) is accepted and should be put into their respective folders, replacing their current sprites."
+        },
+        "fear": {
+          "status": "generated; awaiting review",
+          "prompt": "prompts/Diluc/fear.txt",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body fear visual-novel sprite of Diluc from Genshin Impact, using only the supplied user-approved neutral as the reference for identity, face, skin tone, hair, costume, accessories, colors, illustrated rendering and body proportions. Keep the character at least as petite as the reference without lengthening the torso or legs. Character: reserved and dignified, with restrained acting. Acting: show alarm with widened eyes, slightly drawn-back shoulders and one hand near the chest; vary pose and gesture to communicate this emotion while preserving the reference identity and silhouette scale. Keep gestures simple, with right and left hands separate near the torso or sides; each complete hand has a palm, four fingers and a separate opposable thumb, naturally articulated without forcing hidden digits into view. Exactly two legs and two feet belonging to one pelvis, feet comfortably separated. One coherent mouth with a readable lip shape. Fully clothed, no weapon. Full body including hair, accessories, hands and shoes visible, approximately 2\u20134% padding above and below. True transparent background; no scenery, labels, UI, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-10-four-approved-22-expression-sets/references/Diluc/approved-neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "returned_original": "/Users/alexachan/.codex/generated_images/01a1c7c8-1e02-7d01-aae2-3bd5084bd899/exec-d7dbef96-ca7c-4439-abae-7aeb0b2bccdd.png",
+          "raw": "raw/Diluc/fear.png",
+          "candidate": "sprites/Diluc/fear.png",
+          "sha256": "f51d60f94dcfe5215c7bd464e9433e4e69604cc360ff857decb0f803441387b1",
+          "format": "PNG",
+          "color_type": 6,
+          "dimensions": [
+            824,
+            1908
+          ],
+          "framing_transform": "none"
+        },
+        "pride": {
+          "status": "approved and installed",
+          "prompt": "prompts/Diluc/pride.txt",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body pride visual-novel sprite of Diluc from Genshin Impact, using only the supplied user-approved neutral as the reference for identity, face, skin tone, hair, costume, accessories, colors, illustrated rendering and body proportions. Keep the character at least as petite as the reference without lengthening the torso or legs. Character: reserved and dignified, with restrained acting. Acting: show quiet pride with lifted posture and a confident expression; vary pose and gesture to communicate this emotion while preserving the reference identity and silhouette scale. Keep gestures simple, with right and left hands separate near the torso or sides; each complete hand has a palm, four fingers and a separate opposable thumb, naturally articulated without forcing hidden digits into view. Exactly two legs and two feet belonging to one pelvis, feet comfortably separated. One coherent mouth with a readable lip shape. Fully clothed, no weapon. Full body including hair, accessories, hands and shoes visible, approximately 2\u20134% padding above and below. True transparent background; no scenery, labels, UI, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-10-four-approved-22-expression-sets/references/Diluc/approved-neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "returned_original": "/Users/alexachan/.codex/generated_images/01a1c7c8-1e02-7d01-aae2-3bd5084bd899/exec-d17e41b7-24e0-4452-93f3-171788182c5d.png",
+          "raw": "raw/Diluc/pride.png",
+          "candidate": "sprites/Diluc/pride.png",
+          "sha256": "036f6d47f640e37f3f5ac9f85f4c2973a95e695f402b81f4fd2608d8f3693084",
+          "format": "PNG",
+          "color_type": 6,
+          "dimensions": [
+            824,
+            1908
+          ],
+          "framing_transform": "none",
+          "approval": "approved",
+          "approval_message": "All accepted. Every sprite that I haven't said to regenerate (minus Aether's, he's on hold) is accepted and should be put into their respective folders, replacing their current sprites."
+        },
+        "desire": {
+          "status": "approved and installed",
+          "prompt": "prompts/Diluc/desire.txt",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body desire visual-novel sprite of Diluc from Genshin Impact, using only the supplied user-approved neutral as the reference for identity, face, skin tone, hair, costume, accessories, colors, illustrated rendering and body proportions. Keep the character at least as petite as the reference without lengthening the torso or legs. Character: reserved and dignified, with restrained acting. Acting: show yearning anticipation with a soft intent expression and one hand near the heart; vary pose and gesture to communicate this emotion while preserving the reference identity and silhouette scale. Keep gestures simple, with right and left hands separate near the torso or sides; each complete hand has a palm, four fingers and a separate opposable thumb, naturally articulated without forcing hidden digits into view. Exactly two legs and two feet belonging to one pelvis, feet comfortably separated. One coherent mouth with a readable lip shape. Fully clothed, no weapon. Full body including hair, accessories, hands and shoes visible, approximately 2\u20134% padding above and below. True transparent background; no scenery, labels, UI, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-10-four-approved-22-expression-sets/references/Diluc/approved-neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "returned_original": "/Users/alexachan/.codex/generated_images/01a1c7c8-1e02-7d01-aae2-3bd5084bd899/exec-83191027-6da9-4a7f-99d5-0c522b236ad9.png",
+          "raw": "raw/Diluc/desire.png",
+          "candidate": "sprites/Diluc/desire.png",
+          "sha256": "e77b4da70e03ca914917461328ab6eb41b597a1caf1ec337130f72d2cb083a65",
+          "format": "PNG",
+          "color_type": 6,
+          "dimensions": [
+            824,
+            1908
+          ],
+          "framing_transform": "none",
+          "approval": "approved",
+          "approval_message": "All accepted. Every sprite that I haven't said to regenerate (minus Aether's, he's on hold) is accepted and should be put into their respective folders, replacing their current sprites."
+        },
+        "anger": {
+          "status": "approved and installed",
+          "prompt": "prompts/Diluc/anger.txt",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body anger visual-novel sprite of Diluc from Genshin Impact, using only the supplied user-approved neutral as the reference for identity, face, skin tone, hair, costume, accessories, colors, illustrated rendering and body proportions. Keep the character at least as petite as the reference without lengthening the torso or legs. Character: reserved and dignified, with restrained acting. Acting: show controlled anger with lowered brows, upright stance and hands separated near the sides; vary pose and gesture to communicate this emotion while preserving the reference identity and silhouette scale. Keep gestures simple, with right and left hands separate near the torso or sides; each complete hand has a palm, four fingers and a separate opposable thumb, naturally articulated without forcing hidden digits into view. Exactly two legs and two feet belonging to one pelvis, feet comfortably separated. One coherent mouth with a readable lip shape. Fully clothed, no weapon. Full body including hair, accessories, hands and shoes visible, approximately 2\u20134% padding above and below. True transparent background; no scenery, labels, UI, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-10-four-approved-22-expression-sets/references/Diluc/approved-neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "returned_original": "/Users/alexachan/.codex/generated_images/01a1c7c8-1e02-7d01-aae2-3bd5084bd899/exec-db8d14cc-cc63-43f8-be1f-b3dc32b51690.png",
+          "raw": "raw/Diluc/anger.png",
+          "candidate": "sprites/Diluc/anger.png",
+          "sha256": "055ca09f69c72357672ded86434ebe3e7b7e0ca1d36fa2169449b12044a16ddc",
+          "format": "PNG",
+          "color_type": 6,
+          "dimensions": [
+            824,
+            1908
+          ],
+          "framing_transform": "none",
+          "approval": "approved",
+          "approval_message": "All accepted. Every sprite that I haven't said to regenerate (minus Aether's, he's on hold) is accepted and should be put into their respective folders, replacing their current sprites."
+        },
+        "grief": {
+          "status": "approved and installed",
+          "prompt": "prompts/Diluc/grief.txt",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body grief visual-novel sprite of Diluc from Genshin Impact, using only the supplied user-approved neutral as the reference for identity, face, skin tone, hair, costume, accessories, colors, illustrated rendering and body proportions. Keep the character at least as petite as the reference without lengthening the torso or legs. Character: reserved and dignified, with restrained acting. Acting: show deep grief with lowered gaze, softened shoulders and one hand near the chest; vary pose and gesture to communicate this emotion while preserving the reference identity and silhouette scale. Keep gestures simple, with right and left hands separate near the torso or sides; each complete hand has a palm, four fingers and a separate opposable thumb, naturally articulated without forcing hidden digits into view. Exactly two legs and two feet belonging to one pelvis, feet comfortably separated. One coherent mouth with a readable lip shape. Fully clothed, no weapon. Full body including hair, accessories, hands and shoes visible, approximately 2\u20134% padding above and below. True transparent background; no scenery, labels, UI, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-10-four-approved-22-expression-sets/references/Diluc/approved-neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "returned_original": "/Users/alexachan/.codex/generated_images/01a1c7c8-1e02-7d01-aae2-3bd5084bd899/exec-7496d6ba-3663-4d89-915a-bc1d96f02e1b.png",
+          "raw": "raw/Diluc/grief.png",
+          "candidate": "sprites/Diluc/grief.png",
+          "sha256": "31239569bec4a28ca63cad509bac0d07f1bfeae57ad2285472ece35f692f2fb9",
+          "format": "PNG",
+          "color_type": 6,
+          "dimensions": [
+            824,
+            1908
+          ],
+          "framing_transform": "none",
+          "approval": "approved",
+          "approval_message": "All accepted. Every sprite that I haven't said to regenerate (minus Aether's, he's on hold) is accepted and should be put into their respective folders, replacing their current sprites."
+        },
+        "sadness": {
+          "status": "approved and installed",
+          "prompt": "prompts/Diluc/sadness.txt",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body sadness visual-novel sprite of Diluc from Genshin Impact, using only the supplied user-approved neutral as the reference for identity, face, skin tone, hair, costume, accessories, colors, illustrated rendering and body proportions. Keep the character at least as petite as the reference without lengthening the torso or legs. Character: reserved and dignified, with restrained acting. Acting: show quiet sadness with a downcast gaze and a subtle frown; vary pose and gesture to communicate this emotion while preserving the reference identity and silhouette scale. Keep gestures simple, with right and left hands separate near the torso or sides; each complete hand has a palm, four fingers and a separate opposable thumb, naturally articulated without forcing hidden digits into view. Exactly two legs and two feet belonging to one pelvis, feet comfortably separated. One coherent mouth with a readable lip shape. Fully clothed, no weapon. Full body including hair, accessories, hands and shoes visible, approximately 2\u20134% padding above and below. True transparent background; no scenery, labels, UI, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-10-four-approved-22-expression-sets/references/Diluc/approved-neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "returned_original": "/Users/alexachan/.codex/generated_images/01a1c7c8-1e02-7d01-aae2-3bd5084bd899/exec-6735e727-258e-40e8-95a8-9496968035b1.png",
+          "raw": "raw/Diluc/sadness.png",
+          "candidate": "sprites/Diluc/sadness.png",
+          "sha256": "2e3aa91449947fb7ab4e759a36cb9e5a6a68c7ebc5c04fb2175d15ccb7edecd0",
+          "format": "PNG",
+          "color_type": 6,
+          "dimensions": [
+            824,
+            1908
+          ],
+          "framing_transform": "none",
+          "approval": "approved",
+          "approval_message": "All accepted. Every sprite that I haven't said to regenerate (minus Aether's, he's on hold) is accepted and should be put into their respective folders, replacing their current sprites."
+        },
+        "disgust": {
+          "status": "approved and installed",
+          "prompt": "prompts/Diluc/disgust.txt",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body disgust visual-novel sprite of Diluc from Genshin Impact, using only the supplied user-approved neutral as the reference for identity, face, skin tone, hair, costume, accessories, colors, illustrated rendering and body proportions. Keep the character at least as petite as the reference without lengthening the torso or legs. Character: reserved and dignified, with restrained acting. Acting: show distaste with a restrained nose scrunch and a small closed displeased mouth; vary pose and gesture to communicate this emotion while preserving the reference identity and silhouette scale. Keep gestures simple, with right and left hands separate near the torso or sides; each complete hand has a palm, four fingers and a separate opposable thumb, naturally articulated without forcing hidden digits into view. Exactly two legs and two feet belonging to one pelvis, feet comfortably separated. One coherent mouth with a readable lip shape. Fully clothed, no weapon. Full body including hair, accessories, hands and shoes visible, approximately 2\u20134% padding above and below. True transparent background; no scenery, labels, UI, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-10-four-approved-22-expression-sets/references/Diluc/approved-neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "returned_original": "/Users/alexachan/.codex/generated_images/01a1c7c8-1e02-7d01-aae2-3bd5084bd899/exec-687b92af-470c-45d9-b6b0-48c93f3a2da5.png",
+          "raw": "raw/Diluc/disgust.png",
+          "candidate": "sprites/Diluc/disgust.png",
+          "sha256": "7652845adac71e6459c917cf0e08a0bd0309253331cfb2218e616ef31ca7ae02",
+          "format": "PNG",
+          "color_type": 6,
+          "dimensions": [
+            824,
+            1908
+          ],
+          "framing_transform": "none",
+          "approval": "approved",
+          "approval_message": "All accepted. Every sprite that I haven't said to regenerate (minus Aether's, he's on hold) is accepted and should be put into their respective folders, replacing their current sprites."
+        },
+        "disappointment": {
+          "status": "approved and installed",
+          "prompt": "prompts/Diluc/disappointment.txt",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body disappointment visual-novel sprite of Diluc from Genshin Impact, using only the supplied user-approved neutral as the reference for identity, face, skin tone, hair, costume, accessories, colors, illustrated rendering and body proportions. Keep the character at least as petite as the reference without lengthening the torso or legs. Character: reserved and dignified, with restrained acting. Acting: show subdued disappointment with lowered brows and a slight downward glance; vary pose and gesture to communicate this emotion while preserving the reference identity and silhouette scale. Keep gestures simple, with right and left hands separate near the torso or sides; each complete hand has a palm, four fingers and a separate opposable thumb, naturally articulated without forcing hidden digits into view. Exactly two legs and two feet belonging to one pelvis, feet comfortably separated. One coherent mouth with a readable lip shape. Fully clothed, no weapon. Full body including hair, accessories, hands and shoes visible, approximately 2\u20134% padding above and below. True transparent background; no scenery, labels, UI, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-10-four-approved-22-expression-sets/references/Diluc/approved-neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "returned_original": "/Users/alexachan/.codex/generated_images/01a1c7c8-1e02-7d01-aae2-3bd5084bd899/exec-a7441882-a28e-4c7c-8cb4-1b062fa6a31d.png",
+          "raw": "raw/Diluc/disappointment.png",
+          "candidate": "sprites/Diluc/disappointment.png",
+          "sha256": "1a071f3fbd3edf89dd08b4bfbbc570d0cd1e67f8a3ef2a44e3905ad3e5907ce0",
+          "format": "PNG",
+          "color_type": 6,
+          "dimensions": [
+            824,
+            1908
+          ],
+          "framing_transform": "none",
+          "approval": "approved",
+          "approval_message": "All accepted. Every sprite that I haven't said to regenerate (minus Aether's, he's on hold) is accepted and should be put into their respective folders, replacing their current sprites."
+        },
+        "relief": {
+          "status": "approved and installed",
+          "prompt": "prompts/Diluc/relief.txt",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body relief visual-novel sprite of Diluc from Genshin Impact, using only the supplied user-approved neutral as the reference for identity, face, skin tone, hair, costume, accessories, colors, illustrated rendering and body proportions. Keep the character at least as petite as the reference without lengthening the torso or legs. Character: reserved and dignified, with restrained acting. Acting: show relief with softened posture and one hand resting near the heart; vary pose and gesture to communicate this emotion while preserving the reference identity and silhouette scale. Keep gestures simple, with right and left hands separate near the torso or sides; each complete hand has a palm, four fingers and a separate opposable thumb, naturally articulated without forcing hidden digits into view. Exactly two legs and two feet belonging to one pelvis, feet comfortably separated. One coherent mouth with a readable lip shape. Fully clothed, no weapon. Full body including hair, accessories, hands and shoes visible, approximately 2\u20134% padding above and below. True transparent background; no scenery, labels, UI, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-10-four-approved-22-expression-sets/references/Diluc/approved-neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "returned_original": "/Users/alexachan/.codex/generated_images/01a1c7c8-1e02-7d01-aae2-3bd5084bd899/exec-d6f76317-aae4-4807-a1dc-f18182aa8d2a.png",
+          "raw": "raw/Diluc/relief.png",
+          "candidate": "sprites/Diluc/relief.png",
+          "sha256": "beb2c063911806ea5415ee60382c04acc35567af98297fd6e9f502d76801f4e0",
+          "format": "PNG",
+          "color_type": 6,
+          "dimensions": [
+            824,
+            1908
+          ],
+          "framing_transform": "none",
+          "approval": "approved",
+          "approval_message": "All accepted. Every sprite that I haven't said to regenerate (minus Aether's, he's on hold) is accepted and should be put into their respective folders, replacing their current sprites."
+        },
+        "admiration": {
+          "status": "approved and installed",
+          "prompt": "prompts/Diluc/admiration.txt",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body admiration visual-novel sprite of Diluc from Genshin Impact, using only the supplied user-approved neutral as the reference for identity, face, skin tone, hair, costume, accessories, colors, illustrated rendering and body proportions. Keep the character at least as petite as the reference without lengthening the torso or legs. Character: reserved and dignified, with restrained acting. Acting: show respect and admiration with an attentive gaze and an open, interested expression; vary pose and gesture to communicate this emotion while preserving the reference identity and silhouette scale. Keep gestures simple, with right and left hands separate near the torso or sides; each complete hand has a palm, four fingers and a separate opposable thumb, naturally articulated without forcing hidden digits into view. Exactly two legs and two feet belonging to one pelvis, feet comfortably separated. One coherent mouth with a readable lip shape. Fully clothed, no weapon. Full body including hair, accessories, hands and shoes visible, approximately 2\u20134% padding above and below. True transparent background; no scenery, labels, UI, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-10-four-approved-22-expression-sets/references/Diluc/approved-neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "returned_original": "/Users/alexachan/.codex/generated_images/01a1c7c8-1e02-7d01-aae2-3bd5084bd899/exec-8b27dd27-0e0a-4763-8a19-babe106335a7.png",
+          "raw": "raw/Diluc/admiration.png",
+          "candidate": "sprites/Diluc/admiration.png",
+          "sha256": "a57a557b43a2d05738f6b7ba0a14e868838d0363573cbf2253d519d630185c17",
+          "format": "PNG",
+          "color_type": 6,
+          "dimensions": [
+            824,
+            1908
+          ],
+          "framing_transform": "none",
+          "approval": "approved",
+          "approval_message": "All accepted. Every sprite that I haven't said to regenerate (minus Aether's, he's on hold) is accepted and should be put into their respective folders, replacing their current sprites."
+        },
+        "gratitude": {
+          "status": "approved and installed",
+          "prompt": "prompts/Diluc/gratitude.txt",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body gratitude visual-novel sprite of Diluc from Genshin Impact, using only the supplied user-approved neutral as the reference for identity, face, skin tone, hair, costume, accessories, colors, illustrated rendering and body proportions. Keep the character at least as petite as the reference without lengthening the torso or legs. Character: reserved and dignified, with restrained acting. Acting: show sincere thanks with a warm expression and one hand placed over the chest; vary pose and gesture to communicate this emotion while preserving the reference identity and silhouette scale. Keep gestures simple, with right and left hands separate near the torso or sides; each complete hand has a palm, four fingers and a separate opposable thumb, naturally articulated without forcing hidden digits into view. Exactly two legs and two feet belonging to one pelvis, feet comfortably separated. One coherent mouth with a readable lip shape. Fully clothed, no weapon. Full body including hair, accessories, hands and shoes visible, approximately 2\u20134% padding above and below. True transparent background; no scenery, labels, UI, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-10-four-approved-22-expression-sets/references/Diluc/approved-neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "returned_original": "/Users/alexachan/.codex/generated_images/01a1c7c8-1e02-7d01-aae2-3bd5084bd899/exec-a481374e-65c2-428f-8737-db4e6d15ae35.png",
+          "raw": "raw/Diluc/gratitude.png",
+          "candidate": "sprites/Diluc/gratitude.png",
+          "sha256": "56072458535f02d63d84bff1041d1605df11b53b5bd852eee87ae952b7bc9d27",
+          "format": "PNG",
+          "color_type": 6,
+          "dimensions": [
+            824,
+            1908
+          ],
+          "framing_transform": "none",
+          "approval": "approved",
+          "approval_message": "All accepted. Every sprite that I haven't said to regenerate (minus Aether's, he's on hold) is accepted and should be put into their respective folders, replacing their current sprites."
+        },
+        "embarrassment": {
+          "status": "approved and installed",
+          "prompt": "prompts/Diluc/embarrassment.txt",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body embarrassment visual-novel sprite of Diluc from Genshin Impact, using only the supplied user-approved neutral as the reference for identity, face, skin tone, hair, costume, accessories, colors, illustrated rendering and body proportions. Keep the character at least as petite as the reference without lengthening the torso or legs. Character: reserved and dignified, with restrained acting. Acting: show mild embarrassment with a shy averted gaze, faint blush and one hand near the face; vary pose and gesture to communicate this emotion while preserving the reference identity and silhouette scale. Keep gestures simple, with right and left hands separate near the torso or sides; each complete hand has a palm, four fingers and a separate opposable thumb, naturally articulated without forcing hidden digits into view. Exactly two legs and two feet belonging to one pelvis, feet comfortably separated. One coherent mouth with a readable lip shape. Fully clothed, no weapon. Full body including hair, accessories, hands and shoes visible, approximately 2\u20134% padding above and below. True transparent background; no scenery, labels, UI, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-10-four-approved-22-expression-sets/references/Diluc/approved-neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "returned_original": "/Users/alexachan/.codex/generated_images/01a1c7c8-1e02-7d01-aae2-3bd5084bd899/exec-82680fbb-2d4f-444b-a788-639445bdef66.png",
+          "raw": "raw/Diluc/embarrassment.png",
+          "candidate": "sprites/Diluc/embarrassment.png",
+          "sha256": "b63c0dd625ed3a09340e5dc3e8c296a2cf759bc2407989adda3d035d0e305c4d",
+          "format": "PNG",
+          "color_type": 6,
+          "dimensions": [
+            824,
+            1908
+          ],
+          "framing_transform": "none",
+          "approval": "approved",
+          "approval_message": "All accepted. Every sprite that I haven't said to regenerate (minus Aether's, he's on hold) is accepted and should be put into their respective folders, replacing their current sprites."
+        },
+        "caring": {
+          "status": "approved and installed",
+          "prompt": "prompts/Diluc/caring.txt",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body caring visual-novel sprite of Diluc from Genshin Impact, using only the supplied user-approved neutral as the reference for identity, face, skin tone, hair, costume, accessories, colors, illustrated rendering and body proportions. Keep the character at least as petite as the reference without lengthening the torso or legs. Character: reserved and dignified, with restrained acting. Acting: show gentle concern with a warm, attentive expression and a modest open hand near the torso; vary pose and gesture to communicate this emotion while preserving the reference identity and silhouette scale. Keep gestures simple, with right and left hands separate near the torso or sides; each complete hand has a palm, four fingers and a separate opposable thumb, naturally articulated without forcing hidden digits into view. Exactly two legs and two feet belonging to one pelvis, feet comfortably separated. One coherent mouth with a readable lip shape. Fully clothed, no weapon. Full body including hair, accessories, hands and shoes visible, approximately 2\u20134% padding above and below. True transparent background; no scenery, labels, UI, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-10-four-approved-22-expression-sets/references/Diluc/approved-neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "returned_original": "/Users/alexachan/.codex/generated_images/01a1c7c8-1e02-7d01-aae2-3bd5084bd899/exec-af919435-92af-41fe-b402-e9d91f4c9117.png",
+          "raw": "raw/Diluc/caring.png",
+          "candidate": "sprites/Diluc/caring.png",
+          "sha256": "a8e7d3d0a91e8a23094ee13d2e7f5b48b72a43b00f5530214bbc3fa377767527",
+          "format": "PNG",
+          "color_type": 6,
+          "dimensions": [
+            824,
+            1908
+          ],
+          "framing_transform": "none",
+          "approval": "approved",
+          "approval_message": "All accepted. Every sprite that I haven't said to regenerate (minus Aether's, he's on hold) is accepted and should be put into their respective folders, replacing their current sprites."
+        },
+        "love-1": {
+          "status": "generated; awaiting review",
+          "prompt": "prompts/Diluc/love-1.txt",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body love-1 visual-novel sprite of Diluc from Genshin Impact, using only the supplied user-approved neutral as the reference for identity, face, skin tone, hair, costume, accessories, colors, illustrated rendering and body proportions. Keep the character at least as petite as the reference without lengthening the torso or legs. Character: reserved and dignified, with restrained acting. Acting: show openly joyful affection with an expressive smile and raised brows; vary pose and gesture to communicate this emotion while preserving the reference identity and silhouette scale. Both eyes visibly open: place one solid white heart-shaped pupil centered inside each original colored iris, retaining each iris outline, shading and visible colored border. These are pupils, not highlights or floating symbols. Keep gestures simple, with right and left hands separate near the torso or sides; each complete hand has a palm, four fingers and a separate opposable thumb, naturally articulated without forcing hidden digits into view. Exactly two legs and two feet belonging to one pelvis, feet comfortably separated. One coherent mouth with a readable lip shape. Fully clothed, no weapon. Full body including hair, accessories, hands and shoes visible, approximately 2\u20134% padding above and below. True transparent background; no scenery, labels, UI, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-10-four-approved-22-expression-sets/references/Diluc/approved-neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "returned_original": "/Users/alexachan/.codex/generated_images/01a1c7c8-1e02-7d01-aae2-3bd5084bd899/exec-6a0244c3-8009-4c62-b100-db023da6fa0a.png",
+          "raw": "raw/Diluc/love-1.png",
+          "candidate": "sprites/Diluc/love-1.png",
+          "sha256": "3187fd517ef71dc90004ada91f4df5cbff3aa7b7e277c46f3b98120a9c845926",
+          "format": "PNG",
+          "color_type": 6,
+          "dimensions": [
+            824,
+            1908
+          ],
+          "framing_transform": "none"
+        },
+        "desire-1": {
+          "status": "generated; awaiting review",
+          "prompt": "prompts/Diluc/desire-1.txt",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body desire-1 visual-novel sprite of Diluc from Genshin Impact, using only the supplied user-approved neutral as the reference for identity, face, skin tone, hair, costume, accessories, colors, illustrated rendering and body proportions. Keep the character at least as petite as the reference without lengthening the torso or legs. Character: reserved and dignified, with restrained acting. Acting: show wistful anticipation with soft open eyes and a distinct gentle body angle; vary pose and gesture to communicate this emotion while preserving the reference identity and silhouette scale. Both eyes visibly open: place one solid white heart-shaped pupil centered inside each original colored iris, retaining each iris outline, shading and visible colored border. These are pupils, not highlights or floating symbols. Keep gestures simple, with right and left hands separate near the torso or sides; each complete hand has a palm, four fingers and a separate opposable thumb, naturally articulated without forcing hidden digits into view. Exactly two legs and two feet belonging to one pelvis, feet comfortably separated. One coherent mouth with a readable lip shape. Fully clothed, no weapon. Full body including hair, accessories, hands and shoes visible, approximately 2\u20134% padding above and below. True transparent background; no scenery, labels, UI, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-10-four-approved-22-expression-sets/references/Diluc/approved-neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "returned_original": "/Users/alexachan/.codex/generated_images/01a1c7c8-1e02-7d01-aae2-3bd5084bd899/exec-646d2291-5f56-420f-b11c-d69b409921ba.png",
+          "raw": "raw/Diluc/desire-1.png",
+          "candidate": "sprites/Diluc/desire-1.png",
+          "sha256": "2c9506b027b4ca727a3eb6b2e85e977f05adebed73cace577b0154fcc1c18471",
+          "format": "PNG",
+          "color_type": 6,
+          "dimensions": [
+            824,
+            1908
+          ],
+          "framing_transform": "none"
+        }
+      },
+      "status": "22 files generated; expressions await user review"
+    },
+    "Iansan": {
+      "approved_neutral": {
+        "source": "art/sprites/2026-11-10-four-model-neutral-replacements/candidates/Iansan/neutral-v001.png",
+        "copy": "art/sprites/2026-11-10-four-approved-22-expression-sets/references/Iansan/approved-neutral.png",
+        "sha256": "ffe30a7385cff25aed68a9048340f79df0cfdf9848abfeb8443776439a7a90bc",
+        "approval_message": "Iansan accepted, try regenerating Aether Lumine and Diluc"
+      },
+      "expressions": {
+        "annoyance": {
+          "status": "generated; awaiting review",
+          "prompt": "prompts/Iansan/annoyance.txt",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body annoyance visual-novel sprite of Iansan from Genshin Impact, using only the supplied user-approved neutral as the reference for identity, face, skin tone, hair, costume, accessories, colors, illustrated rendering and body proportions. Keep the character at least as petite as the reference without lengthening the torso or legs. Character: energetic and confident, childlike and age-appropriate. Acting: show mild irritation with a restrained displeased expression, one hand at the hip; vary pose and gesture to communicate this emotion while preserving the reference identity and silhouette scale. Keep gestures simple, with right and left hands separate near the torso or sides; each complete hand has a palm, four fingers and a separate opposable thumb, naturally articulated without forcing hidden digits into view. Exactly two legs and two feet belonging to one pelvis, feet comfortably separated. One coherent mouth with a readable lip shape. Fully clothed, no weapon. Full body including hair, accessories, hands and shoes visible, approximately 2\u20134% padding above and below. True transparent background; no scenery, labels, UI, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-10-four-approved-22-expression-sets/references/Iansan/approved-neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "returned_original": "/Users/alexachan/.codex/generated_images/01a1c7c8-1e02-7d01-aae2-3bd5084bd899/exec-12ccf875-07aa-4628-a654-37f373173b6e.png",
+          "raw": "raw/Iansan/annoyance.png",
+          "candidate": "sprites/Iansan/annoyance.png",
+          "sha256": "d0f631a9b82852131e0cfd73b7a6f8bd3b59f4023ebedfa41519b8f8ea215ece",
+          "format": "PNG",
+          "color_type": 6,
+          "dimensions": [
+            935,
+            1683
+          ],
+          "framing_transform": "none"
+        },
+        "smug": {
+          "status": "generated; awaiting review",
+          "prompt": "prompts/Iansan/smug.txt",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body smug visual-novel sprite of Iansan from Genshin Impact, using only the supplied user-approved neutral as the reference for identity, face, skin tone, hair, costume, accessories, colors, illustrated rendering and body proportions. Keep the character at least as petite as the reference without lengthening the torso or legs. Character: energetic and confident, childlike and age-appropriate. Acting: show self-assured amusement with a small knowing smile and an easy angled stance; vary pose and gesture to communicate this emotion while preserving the reference identity and silhouette scale. Keep gestures simple, with right and left hands separate near the torso or sides; each complete hand has a palm, four fingers and a separate opposable thumb, naturally articulated without forcing hidden digits into view. Exactly two legs and two feet belonging to one pelvis, feet comfortably separated. One coherent mouth with a readable lip shape. Fully clothed, no weapon. Full body including hair, accessories, hands and shoes visible, approximately 2\u20134% padding above and below. True transparent background; no scenery, labels, UI, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-10-four-approved-22-expression-sets/references/Iansan/approved-neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "returned_original": "/Users/alexachan/.codex/generated_images/01a1c7c8-1e02-7d01-aae2-3bd5084bd899/exec-9a971917-4a07-4196-bedf-4f6a546198c0.png",
+          "raw": "raw/Iansan/smug.png",
+          "candidate": "sprites/Iansan/smug.png",
+          "sha256": "d38c94a909b27e65001d99bc1ee75593e30b0c289d7ebb2d07763d47cad6c778",
+          "format": "PNG",
+          "color_type": 6,
+          "dimensions": [
+            935,
+            1683
+          ],
+          "framing_transform": "none"
+        },
+        "confusion": {
+          "status": "generated; awaiting review",
+          "prompt": "prompts/Iansan/confusion.txt",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body confusion visual-novel sprite of Iansan from Genshin Impact, using only the supplied user-approved neutral as the reference for identity, face, skin tone, hair, costume, accessories, colors, illustrated rendering and body proportions. Keep the character at least as petite as the reference without lengthening the torso or legs. Character: energetic and confident, childlike and age-appropriate. Acting: show uncertainty with raised brows and a slight head tilt, one hand lifted near the torso; vary pose and gesture to communicate this emotion while preserving the reference identity and silhouette scale. Keep gestures simple, with right and left hands separate near the torso or sides; each complete hand has a palm, four fingers and a separate opposable thumb, naturally articulated without forcing hidden digits into view. Exactly two legs and two feet belonging to one pelvis, feet comfortably separated. One coherent mouth with a readable lip shape. Fully clothed, no weapon. Full body including hair, accessories, hands and shoes visible, approximately 2\u20134% padding above and below. True transparent background; no scenery, labels, UI, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-10-four-approved-22-expression-sets/references/Iansan/approved-neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "returned_original": "/Users/alexachan/.codex/generated_images/01a1c7c8-1e02-7d01-aae2-3bd5084bd899/exec-35e9c20f-4baf-48f8-8e76-c92e2bf892c3.png",
+          "raw": "raw/Iansan/confusion.png",
+          "candidate": "sprites/Iansan/confusion.png",
+          "sha256": "f6bf4a40bc98426926d2fb6121a42c1c66a95e4b2e2b57e13d9996ae620b725e",
+          "format": "PNG",
+          "color_type": 6,
+          "dimensions": [
+            935,
+            1683
+          ],
+          "framing_transform": "none"
+        },
+        "love": {
+          "status": "approved and installed",
+          "prompt": "prompts/Iansan/love.txt",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body love visual-novel sprite of Iansan from Genshin Impact, using only the supplied user-approved neutral as the reference for identity, face, skin tone, hair, costume, accessories, colors, illustrated rendering and body proportions. Keep the character at least as petite as the reference without lengthening the torso or legs. Character: energetic and confident, childlike and age-appropriate. Acting: show affectionate friendship and delight with a warm smile, as if pleased to see a trusted friend; vary pose and gesture to communicate this emotion while preserving the reference identity and silhouette scale. Keep gestures simple, with right and left hands separate near the torso or sides; each complete hand has a palm, four fingers and a separate opposable thumb, naturally articulated without forcing hidden digits into view. Exactly two legs and two feet belonging to one pelvis, feet comfortably separated. One coherent mouth with a readable lip shape. Fully clothed, no weapon. Full body including hair, accessories, hands and shoes visible, approximately 2\u20134% padding above and below. True transparent background; no scenery, labels, UI, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-10-four-approved-22-expression-sets/references/Iansan/approved-neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "returned_original": "/Users/alexachan/.codex/generated_images/01a1c7c8-1e02-7d01-aae2-3bd5084bd899/exec-57821cde-ccf9-499a-af5c-879673279d16.png",
+          "raw": "raw/Iansan/love.png",
+          "candidate": "sprites/Iansan/love.png",
+          "sha256": "f6cc0a399c286db89b074f415f39719d3c483db07f194872611ae5201b1a2048",
+          "format": "PNG",
+          "color_type": 6,
+          "dimensions": [
+            935,
+            1683
+          ],
+          "framing_transform": "none",
+          "approval": "approved",
+          "approval_message": "All accepted. Every sprite that I haven't said to regenerate (minus Aether's, he's on hold) is accepted and should be put into their respective folders, replacing their current sprites."
+        },
+        "excitement": {
+          "status": "approved and installed",
+          "prompt": "prompts/Iansan/excitement.txt",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body excitement visual-novel sprite of Iansan from Genshin Impact, using only the supplied user-approved neutral as the reference for identity, face, skin tone, hair, costume, accessories, colors, illustrated rendering and body proportions. Keep the character at least as petite as the reference without lengthening the torso or legs. Character: energetic and confident, childlike and age-appropriate. Acting: show animated anticipation with a bright expression, a slight forward lean and one hand raised near the torso; vary pose and gesture to communicate this emotion while preserving the reference identity and silhouette scale. Keep gestures simple, with right and left hands separate near the torso or sides; each complete hand has a palm, four fingers and a separate opposable thumb, naturally articulated without forcing hidden digits into view. Exactly two legs and two feet belonging to one pelvis, feet comfortably separated. One coherent mouth with a readable lip shape. Fully clothed, no weapon. Full body including hair, accessories, hands and shoes visible, approximately 2\u20134% padding above and below. True transparent background; no scenery, labels, UI, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-10-four-approved-22-expression-sets/references/Iansan/approved-neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "returned_original": "/Users/alexachan/.codex/generated_images/01a1c7c8-1e02-7d01-aae2-3bd5084bd899/exec-93e88c85-d12d-4c58-b716-0745350ccae3.png",
+          "raw": "raw/Iansan/excitement.png",
+          "candidate": "sprites/Iansan/excitement.png",
+          "sha256": "a2195affc6c064ec225b878ce96e369e5e420b244290d2127223b368715590bf",
+          "format": "PNG",
+          "color_type": 6,
+          "dimensions": [
+            935,
+            1683
+          ],
+          "framing_transform": "none",
+          "approval": "approved",
+          "approval_message": "All accepted. Every sprite that I haven't said to regenerate (minus Aether's, he's on hold) is accepted and should be put into their respective folders, replacing their current sprites."
+        },
+        "joy": {
+          "status": "approved and installed",
+          "prompt": "prompts/Iansan/joy.txt",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body joy visual-novel sprite of Iansan from Genshin Impact, using only the supplied user-approved neutral as the reference for identity, face, skin tone, hair, costume, accessories, colors, illustrated rendering and body proportions. Keep the character at least as petite as the reference without lengthening the torso or legs. Character: energetic and confident, childlike and age-appropriate. Acting: show open happiness with a bright smile and relaxed welcoming gesture; vary pose and gesture to communicate this emotion while preserving the reference identity and silhouette scale. Keep gestures simple, with right and left hands separate near the torso or sides; each complete hand has a palm, four fingers and a separate opposable thumb, naturally articulated without forcing hidden digits into view. Exactly two legs and two feet belonging to one pelvis, feet comfortably separated. One coherent mouth with a readable lip shape. Fully clothed, no weapon. Full body including hair, accessories, hands and shoes visible, approximately 2\u20134% padding above and below. True transparent background; no scenery, labels, UI, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-10-four-approved-22-expression-sets/references/Iansan/approved-neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "returned_original": "/Users/alexachan/.codex/generated_images/01a1c7c8-1e02-7d01-aae2-3bd5084bd899/exec-6459c2b2-8e50-4206-91b2-f86afe789d68.png",
+          "raw": "raw/Iansan/joy.png",
+          "candidate": "sprites/Iansan/joy.png",
+          "sha256": "ed456e5d84bf25d6c1f92a717b18a44bb96db42ca7611b6578e6c3f990937c02",
+          "format": "PNG",
+          "color_type": 6,
+          "dimensions": [
+            935,
+            1683
+          ],
+          "framing_transform": "none",
+          "approval": "approved",
+          "approval_message": "All accepted. Every sprite that I haven't said to regenerate (minus Aether's, he's on hold) is accepted and should be put into their respective folders, replacing their current sprites."
+        },
+        "fear": {
+          "status": "generated; awaiting review",
+          "prompt": "prompts/Iansan/fear.txt",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body fear visual-novel sprite of Iansan from Genshin Impact, using only the supplied user-approved neutral as the reference for identity, face, skin tone, hair, costume, accessories, colors, illustrated rendering and body proportions. Keep the character at least as petite as the reference without lengthening the torso or legs. Character: energetic and confident, childlike and age-appropriate. Acting: show alarm with widened eyes, slightly drawn-back shoulders and one hand near the chest; vary pose and gesture to communicate this emotion while preserving the reference identity and silhouette scale. Keep gestures simple, with right and left hands separate near the torso or sides; each complete hand has a palm, four fingers and a separate opposable thumb, naturally articulated without forcing hidden digits into view. Exactly two legs and two feet belonging to one pelvis, feet comfortably separated. One coherent mouth with a readable lip shape. Fully clothed, no weapon. Full body including hair, accessories, hands and shoes visible, approximately 2\u20134% padding above and below. True transparent background; no scenery, labels, UI, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-10-four-approved-22-expression-sets/references/Iansan/approved-neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "returned_original": "/Users/alexachan/.codex/generated_images/01a1c7c8-1e02-7d01-aae2-3bd5084bd899/exec-c5d05d85-9ad2-480f-b13f-90478cbdadf0.png",
+          "raw": "raw/Iansan/fear.png",
+          "candidate": "sprites/Iansan/fear.png",
+          "sha256": "889bdfa4f68cf8a894e814832dea071d12c6eaf9c252a00641093a9a445d0aea",
+          "format": "PNG",
+          "color_type": 6,
+          "dimensions": [
+            935,
+            1683
+          ],
+          "framing_transform": "none"
+        },
+        "pride": {
+          "status": "approved and installed",
+          "prompt": "prompts/Iansan/pride.txt",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body pride visual-novel sprite of Iansan from Genshin Impact, using only the supplied user-approved neutral as the reference for identity, face, skin tone, hair, costume, accessories, colors, illustrated rendering and body proportions. Keep the character at least as petite as the reference without lengthening the torso or legs. Character: energetic and confident, childlike and age-appropriate. Acting: show quiet pride with lifted posture and a confident expression; vary pose and gesture to communicate this emotion while preserving the reference identity and silhouette scale. Keep gestures simple, with right and left hands separate near the torso or sides; each complete hand has a palm, four fingers and a separate opposable thumb, naturally articulated without forcing hidden digits into view. Exactly two legs and two feet belonging to one pelvis, feet comfortably separated. One coherent mouth with a readable lip shape. Fully clothed, no weapon. Full body including hair, accessories, hands and shoes visible, approximately 2\u20134% padding above and below. True transparent background; no scenery, labels, UI, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-10-four-approved-22-expression-sets/references/Iansan/approved-neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "returned_original": "/Users/alexachan/.codex/generated_images/01a1c7c8-1e02-7d01-aae2-3bd5084bd899/exec-69733f0c-d93e-4ca8-8c0e-17c80d9c18de.png",
+          "raw": "raw/Iansan/pride.png",
+          "candidate": "sprites/Iansan/pride.png",
+          "sha256": "195a1cea2572553de707980c2d526d785a9bff716cf82e3e66c3beb458a58f35",
+          "format": "PNG",
+          "color_type": 6,
+          "dimensions": [
+            935,
+            1683
+          ],
+          "framing_transform": "none",
+          "approval": "approved",
+          "approval_message": "All accepted. Every sprite that I haven't said to regenerate (minus Aether's, he's on hold) is accepted and should be put into their respective folders, replacing their current sprites."
+        },
+        "desire": {
+          "status": "approved and installed",
+          "prompt": "prompts/Iansan/desire.txt",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body desire visual-novel sprite of Iansan from Genshin Impact, using only the supplied user-approved neutral as the reference for identity, face, skin tone, hair, costume, accessories, colors, illustrated rendering and body proportions. Keep the character at least as petite as the reference without lengthening the torso or legs. Character: energetic and confident, childlike and age-appropriate. Acting: show eager anticipation for a friendly adventure or favorite treat, with an expressive hopeful gaze; vary pose and gesture to communicate this emotion while preserving the reference identity and silhouette scale. Keep gestures simple, with right and left hands separate near the torso or sides; each complete hand has a palm, four fingers and a separate opposable thumb, naturally articulated without forcing hidden digits into view. Exactly two legs and two feet belonging to one pelvis, feet comfortably separated. One coherent mouth with a readable lip shape. Fully clothed, no weapon. Full body including hair, accessories, hands and shoes visible, approximately 2\u20134% padding above and below. True transparent background; no scenery, labels, UI, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-10-four-approved-22-expression-sets/references/Iansan/approved-neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "returned_original": "/Users/alexachan/.codex/generated_images/01a1c7c8-1e02-7d01-aae2-3bd5084bd899/exec-6b752140-213e-4c04-af6f-2fa31a6a24e7.png",
+          "raw": "raw/Iansan/desire.png",
+          "candidate": "sprites/Iansan/desire.png",
+          "sha256": "c7dd5c6821999e7836abd3ba22772c894b89793c567d15b7e488cc4bf882f114",
+          "format": "PNG",
+          "color_type": 6,
+          "dimensions": [
+            935,
+            1683
+          ],
+          "framing_transform": "none",
+          "approval": "approved",
+          "approval_message": "All accepted. Every sprite that I haven't said to regenerate (minus Aether's, he's on hold) is accepted and should be put into their respective folders, replacing their current sprites."
+        },
+        "anger": {
+          "status": "approved and installed",
+          "prompt": "prompts/Iansan/anger.txt",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body anger visual-novel sprite of Iansan from Genshin Impact, using only the supplied user-approved neutral as the reference for identity, face, skin tone, hair, costume, accessories, colors, illustrated rendering and body proportions. Keep the character at least as petite as the reference without lengthening the torso or legs. Character: energetic and confident, childlike and age-appropriate. Acting: show controlled anger with lowered brows, upright stance and hands separated near the sides; vary pose and gesture to communicate this emotion while preserving the reference identity and silhouette scale. Keep gestures simple, with right and left hands separate near the torso or sides; each complete hand has a palm, four fingers and a separate opposable thumb, naturally articulated without forcing hidden digits into view. Exactly two legs and two feet belonging to one pelvis, feet comfortably separated. One coherent mouth with a readable lip shape. Fully clothed, no weapon. Full body including hair, accessories, hands and shoes visible, approximately 2\u20134% padding above and below. True transparent background; no scenery, labels, UI, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-10-four-approved-22-expression-sets/references/Iansan/approved-neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "returned_original": "/Users/alexachan/.codex/generated_images/01a1c7c8-1e02-7d01-aae2-3bd5084bd899/exec-67c106cb-afa3-4068-bf6b-fd39bd69555a.png",
+          "raw": "raw/Iansan/anger.png",
+          "candidate": "sprites/Iansan/anger.png",
+          "sha256": "c461ffc5bb05cd368c5c2cea8723ed23cfc58fdb8daa026b39a5d557681880f0",
+          "format": "PNG",
+          "color_type": 6,
+          "dimensions": [
+            935,
+            1683
+          ],
+          "framing_transform": "none",
+          "approval": "approved",
+          "approval_message": "All accepted. Every sprite that I haven't said to regenerate (minus Aether's, he's on hold) is accepted and should be put into their respective folders, replacing their current sprites."
+        },
+        "grief": {
+          "status": "approved and installed",
+          "prompt": "prompts/Iansan/grief.txt",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body grief visual-novel sprite of Iansan from Genshin Impact, using only the supplied user-approved neutral as the reference for identity, face, skin tone, hair, costume, accessories, colors, illustrated rendering and body proportions. Keep the character at least as petite as the reference without lengthening the torso or legs. Character: energetic and confident, childlike and age-appropriate. Acting: show deep grief with lowered gaze, softened shoulders and one hand near the chest; vary pose and gesture to communicate this emotion while preserving the reference identity and silhouette scale. Keep gestures simple, with right and left hands separate near the torso or sides; each complete hand has a palm, four fingers and a separate opposable thumb, naturally articulated without forcing hidden digits into view. Exactly two legs and two feet belonging to one pelvis, feet comfortably separated. One coherent mouth with a readable lip shape. Fully clothed, no weapon. Full body including hair, accessories, hands and shoes visible, approximately 2\u20134% padding above and below. True transparent background; no scenery, labels, UI, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-10-four-approved-22-expression-sets/references/Iansan/approved-neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "returned_original": "/Users/alexachan/.codex/generated_images/01a1c7c8-1e02-7d01-aae2-3bd5084bd899/exec-c9b15240-bb56-4e4a-a15d-2be517bfdab6.png",
+          "raw": "raw/Iansan/grief.png",
+          "candidate": "sprites/Iansan/grief.png",
+          "sha256": "f321e131dbfa7f6467eab87a33bb679182c88c1770c7277ef5deff20c2a2ea85",
+          "format": "PNG",
+          "color_type": 6,
+          "dimensions": [
+            935,
+            1683
+          ],
+          "framing_transform": "none",
+          "approval": "approved",
+          "approval_message": "All accepted. Every sprite that I haven't said to regenerate (minus Aether's, he's on hold) is accepted and should be put into their respective folders, replacing their current sprites."
+        },
+        "sadness": {
+          "status": "approved and installed",
+          "prompt": "prompts/Iansan/sadness.txt",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body sadness visual-novel sprite of Iansan from Genshin Impact, using only the supplied user-approved neutral as the reference for identity, face, skin tone, hair, costume, accessories, colors, illustrated rendering and body proportions. Keep the character at least as petite as the reference without lengthening the torso or legs. Character: energetic and confident, childlike and age-appropriate. Acting: show quiet sadness with a downcast gaze and a subtle frown; vary pose and gesture to communicate this emotion while preserving the reference identity and silhouette scale. Keep gestures simple, with right and left hands separate near the torso or sides; each complete hand has a palm, four fingers and a separate opposable thumb, naturally articulated without forcing hidden digits into view. Exactly two legs and two feet belonging to one pelvis, feet comfortably separated. One coherent mouth with a readable lip shape. Fully clothed, no weapon. Full body including hair, accessories, hands and shoes visible, approximately 2\u20134% padding above and below. True transparent background; no scenery, labels, UI, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-10-four-approved-22-expression-sets/references/Iansan/approved-neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "returned_original": "/Users/alexachan/.codex/generated_images/01a1c7c8-1e02-7d01-aae2-3bd5084bd899/exec-690a9fef-b3fd-4b33-9c55-cb5a160adc04.png",
+          "raw": "raw/Iansan/sadness.png",
+          "candidate": "sprites/Iansan/sadness.png",
+          "sha256": "e11e2880432d17ecf4bec05f3feab6a923a840e3e558a2a6b24f0726a3d0c1c3",
+          "format": "PNG",
+          "color_type": 6,
+          "dimensions": [
+            935,
+            1683
+          ],
+          "framing_transform": "none",
+          "approval": "approved",
+          "approval_message": "All accepted. Every sprite that I haven't said to regenerate (minus Aether's, he's on hold) is accepted and should be put into their respective folders, replacing their current sprites."
+        },
+        "disgust": {
+          "status": "approved and installed",
+          "prompt": "prompts/Iansan/disgust.txt",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body disgust visual-novel sprite of Iansan from Genshin Impact, using only the supplied user-approved neutral as the reference for identity, face, skin tone, hair, costume, accessories, colors, illustrated rendering and body proportions. Keep the character at least as petite as the reference without lengthening the torso or legs. Character: energetic and confident, childlike and age-appropriate. Acting: show distaste with a restrained nose scrunch and a small closed displeased mouth; vary pose and gesture to communicate this emotion while preserving the reference identity and silhouette scale. Keep gestures simple, with right and left hands separate near the torso or sides; each complete hand has a palm, four fingers and a separate opposable thumb, naturally articulated without forcing hidden digits into view. Exactly two legs and two feet belonging to one pelvis, feet comfortably separated. One coherent mouth with a readable lip shape. Fully clothed, no weapon. Full body including hair, accessories, hands and shoes visible, approximately 2\u20134% padding above and below. True transparent background; no scenery, labels, UI, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-10-four-approved-22-expression-sets/references/Iansan/approved-neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "returned_original": "/Users/alexachan/.codex/generated_images/01a1c7c8-1e02-7d01-aae2-3bd5084bd899/exec-37258b1e-9745-46cd-aa4a-60dbbb676c3a.png",
+          "raw": "raw/Iansan/disgust.png",
+          "candidate": "sprites/Iansan/disgust.png",
+          "sha256": "75e975b960b4e02a02f469109c61eaff0c12c09e1982ad90fea790a09cd6db3b",
+          "format": "PNG",
+          "color_type": 6,
+          "dimensions": [
+            935,
+            1683
+          ],
+          "framing_transform": "none",
+          "approval": "approved",
+          "approval_message": "All accepted. Every sprite that I haven't said to regenerate (minus Aether's, he's on hold) is accepted and should be put into their respective folders, replacing their current sprites."
+        },
+        "disappointment": {
+          "status": "approved and installed",
+          "prompt": "prompts/Iansan/disappointment.txt",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body disappointment visual-novel sprite of Iansan from Genshin Impact, using only the supplied user-approved neutral as the reference for identity, face, skin tone, hair, costume, accessories, colors, illustrated rendering and body proportions. Keep the character at least as petite as the reference without lengthening the torso or legs. Character: energetic and confident, childlike and age-appropriate. Acting: show subdued disappointment with lowered brows and a slight downward glance; vary pose and gesture to communicate this emotion while preserving the reference identity and silhouette scale. Keep gestures simple, with right and left hands separate near the torso or sides; each complete hand has a palm, four fingers and a separate opposable thumb, naturally articulated without forcing hidden digits into view. Exactly two legs and two feet belonging to one pelvis, feet comfortably separated. One coherent mouth with a readable lip shape. Fully clothed, no weapon. Full body including hair, accessories, hands and shoes visible, approximately 2\u20134% padding above and below. True transparent background; no scenery, labels, UI, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-10-four-approved-22-expression-sets/references/Iansan/approved-neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "returned_original": "/Users/alexachan/.codex/generated_images/01a1c7c8-1e02-7d01-aae2-3bd5084bd899/exec-eba7866b-74c2-4403-ab1c-4bdfc9c9f4e6.png",
+          "raw": "raw/Iansan/disappointment.png",
+          "candidate": "sprites/Iansan/disappointment.png",
+          "sha256": "b133df4a3608ae36a3a39929f92f8bbeaf7799b5b318897c8e86b6bbf07cad75",
+          "format": "PNG",
+          "color_type": 6,
+          "dimensions": [
+            935,
+            1683
+          ],
+          "framing_transform": "none",
+          "approval": "approved",
+          "approval_message": "All accepted. Every sprite that I haven't said to regenerate (minus Aether's, he's on hold) is accepted and should be put into their respective folders, replacing their current sprites."
+        },
+        "relief": {
+          "status": "approved and installed",
+          "prompt": "prompts/Iansan/relief.txt",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body relief visual-novel sprite of Iansan from Genshin Impact, using only the supplied user-approved neutral as the reference for identity, face, skin tone, hair, costume, accessories, colors, illustrated rendering and body proportions. Keep the character at least as petite as the reference without lengthening the torso or legs. Character: energetic and confident, childlike and age-appropriate. Acting: show relief with softened posture and one hand resting near the heart; vary pose and gesture to communicate this emotion while preserving the reference identity and silhouette scale. Keep gestures simple, with right and left hands separate near the torso or sides; each complete hand has a palm, four fingers and a separate opposable thumb, naturally articulated without forcing hidden digits into view. Exactly two legs and two feet belonging to one pelvis, feet comfortably separated. One coherent mouth with a readable lip shape. Fully clothed, no weapon. Full body including hair, accessories, hands and shoes visible, approximately 2\u20134% padding above and below. True transparent background; no scenery, labels, UI, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-10-four-approved-22-expression-sets/references/Iansan/approved-neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "returned_original": "/Users/alexachan/.codex/generated_images/01a1c7c8-1e02-7d01-aae2-3bd5084bd899/exec-c4b85189-c8b9-4507-8214-0b8121026cca.png",
+          "raw": "raw/Iansan/relief.png",
+          "candidate": "sprites/Iansan/relief.png",
+          "sha256": "b6c279fbeb1b2700c36e6f6055bbb8a7031a3b823ecb38a0ec3f1c9e7f8bdbd9",
+          "format": "PNG",
+          "color_type": 6,
+          "dimensions": [
+            935,
+            1683
+          ],
+          "framing_transform": "none",
+          "approval": "approved",
+          "approval_message": "All accepted. Every sprite that I haven't said to regenerate (minus Aether's, he's on hold) is accepted and should be put into their respective folders, replacing their current sprites."
+        },
+        "admiration": {
+          "status": "approved and installed",
+          "prompt": "prompts/Iansan/admiration.txt",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body admiration visual-novel sprite of Iansan from Genshin Impact, using only the supplied user-approved neutral as the reference for identity, face, skin tone, hair, costume, accessories, colors, illustrated rendering and body proportions. Keep the character at least as petite as the reference without lengthening the torso or legs. Character: energetic and confident, childlike and age-appropriate. Acting: show respect and admiration with an attentive gaze and an open, interested expression; vary pose and gesture to communicate this emotion while preserving the reference identity and silhouette scale. Keep gestures simple, with right and left hands separate near the torso or sides; each complete hand has a palm, four fingers and a separate opposable thumb, naturally articulated without forcing hidden digits into view. Exactly two legs and two feet belonging to one pelvis, feet comfortably separated. One coherent mouth with a readable lip shape. Fully clothed, no weapon. Full body including hair, accessories, hands and shoes visible, approximately 2\u20134% padding above and below. True transparent background; no scenery, labels, UI, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-10-four-approved-22-expression-sets/references/Iansan/approved-neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "returned_original": "/Users/alexachan/.codex/generated_images/01a1c7c8-1e02-7d01-aae2-3bd5084bd899/exec-9d858537-506c-4b53-a761-63bbc8889ac7.png",
+          "raw": "raw/Iansan/admiration.png",
+          "candidate": "sprites/Iansan/admiration.png",
+          "sha256": "94c42e09f87f06be585c06f8443f29d1368254c33ef37e1b82fe80c91dd0724a",
+          "format": "PNG",
+          "color_type": 6,
+          "dimensions": [
+            935,
+            1683
+          ],
+          "framing_transform": "none",
+          "approval": "approved",
+          "approval_message": "All accepted. Every sprite that I haven't said to regenerate (minus Aether's, he's on hold) is accepted and should be put into their respective folders, replacing their current sprites."
+        },
+        "gratitude": {
+          "status": "approved and installed",
+          "prompt": "prompts/Iansan/gratitude.txt",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body gratitude visual-novel sprite of Iansan from Genshin Impact, using only the supplied user-approved neutral as the reference for identity, face, skin tone, hair, costume, accessories, colors, illustrated rendering and body proportions. Keep the character at least as petite as the reference without lengthening the torso or legs. Character: energetic and confident, childlike and age-appropriate. Acting: show sincere thanks with a warm expression and one hand placed over the chest; vary pose and gesture to communicate this emotion while preserving the reference identity and silhouette scale. Keep gestures simple, with right and left hands separate near the torso or sides; each complete hand has a palm, four fingers and a separate opposable thumb, naturally articulated without forcing hidden digits into view. Exactly two legs and two feet belonging to one pelvis, feet comfortably separated. One coherent mouth with a readable lip shape. Fully clothed, no weapon. Full body including hair, accessories, hands and shoes visible, approximately 2\u20134% padding above and below. True transparent background; no scenery, labels, UI, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-10-four-approved-22-expression-sets/references/Iansan/approved-neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "returned_original": "/Users/alexachan/.codex/generated_images/01a1c7c8-1e02-7d01-aae2-3bd5084bd899/exec-74b54bc4-8965-476e-a598-0a47f0f69ad7.png",
+          "raw": "raw/Iansan/gratitude.png",
+          "candidate": "sprites/Iansan/gratitude.png",
+          "sha256": "d803cdf73e75b9e234f6e3cac0344f93d85e01847912e80ec3079d0cde62ce9c",
+          "format": "PNG",
+          "color_type": 6,
+          "dimensions": [
+            935,
+            1683
+          ],
+          "framing_transform": "none",
+          "approval": "approved",
+          "approval_message": "All accepted. Every sprite that I haven't said to regenerate (minus Aether's, he's on hold) is accepted and should be put into their respective folders, replacing their current sprites."
+        },
+        "embarrassment": {
+          "status": "generated; awaiting review",
+          "prompt": "prompts/Iansan/embarrassment.txt",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body embarrassment visual-novel sprite of Iansan from Genshin Impact, using only the supplied user-approved neutral as the reference for identity, face, skin tone, hair, costume, accessories, colors, illustrated rendering and body proportions. Keep the character at least as petite as the reference without lengthening the torso or legs. Character: energetic and confident, childlike and age-appropriate. Acting: show mild embarrassment with a shy averted gaze, faint blush and one hand near the face; vary pose and gesture to communicate this emotion while preserving the reference identity and silhouette scale. Keep gestures simple, with right and left hands separate near the torso or sides; each complete hand has a palm, four fingers and a separate opposable thumb, naturally articulated without forcing hidden digits into view. Exactly two legs and two feet belonging to one pelvis, feet comfortably separated. One coherent mouth with a readable lip shape. Fully clothed, no weapon. Full body including hair, accessories, hands and shoes visible, approximately 2\u20134% padding above and below. True transparent background; no scenery, labels, UI, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-10-four-approved-22-expression-sets/references/Iansan/approved-neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "returned_original": "/Users/alexachan/.codex/generated_images/01a1c7c8-1e02-7d01-aae2-3bd5084bd899/exec-b0384210-3975-4d22-bd5a-6075e9db2370.png",
+          "raw": "raw/Iansan/embarrassment.png",
+          "candidate": "sprites/Iansan/embarrassment.png",
+          "sha256": "8d9a68a3da0e7bcc26d96861b80cfa13393c183977f9d78a0795a3d874fac190",
+          "format": "PNG",
+          "color_type": 6,
+          "dimensions": [
+            933,
+            1686
+          ],
+          "framing_transform": "none"
+        },
+        "caring": {
+          "status": "approved and installed",
+          "prompt": "prompts/Iansan/caring.txt",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body caring visual-novel sprite of Iansan from Genshin Impact, using only the supplied user-approved neutral as the reference for identity, face, skin tone, hair, costume, accessories, colors, illustrated rendering and body proportions. Keep the character at least as petite as the reference without lengthening the torso or legs. Character: energetic and confident, childlike and age-appropriate. Acting: show gentle concern with a warm, attentive expression and a modest open hand near the torso; vary pose and gesture to communicate this emotion while preserving the reference identity and silhouette scale. Keep gestures simple, with right and left hands separate near the torso or sides; each complete hand has a palm, four fingers and a separate opposable thumb, naturally articulated without forcing hidden digits into view. Exactly two legs and two feet belonging to one pelvis, feet comfortably separated. One coherent mouth with a readable lip shape. Fully clothed, no weapon. Full body including hair, accessories, hands and shoes visible, approximately 2\u20134% padding above and below. True transparent background; no scenery, labels, UI, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-10-four-approved-22-expression-sets/references/Iansan/approved-neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "returned_original": "/Users/alexachan/.codex/generated_images/01a1c7c8-1e02-7d01-aae2-3bd5084bd899/exec-1b6b8efd-1aae-44b9-bf54-663a12b69835.png",
+          "raw": "raw/Iansan/caring.png",
+          "candidate": "sprites/Iansan/caring.png",
+          "sha256": "f48117bd3a7495465e59635203881a0131a468143d974c9995c8bcac4d57a028",
+          "format": "PNG",
+          "color_type": 6,
+          "dimensions": [
+            935,
+            1683
+          ],
+          "framing_transform": "none",
+          "approval": "approved",
+          "approval_message": "All accepted. Every sprite that I haven't said to regenerate (minus Aether's, he's on hold) is accepted and should be put into their respective folders, replacing their current sprites."
+        },
+        "love-1": {
+          "status": "generated; awaiting review",
+          "prompt": "prompts/Iansan/love-1.txt",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body love-1 visual-novel sprite of Iansan from Genshin Impact, using only the supplied user-approved neutral as the reference for identity, face, skin tone, hair, costume, accessories, colors, illustrated rendering and body proportions. Keep the character at least as petite as the reference without lengthening the torso or legs. Character: energetic and confident, childlike and age-appropriate. Acting: show affectionate friendship and delight with a warm smile, as if pleased to see a trusted friend; vary pose and gesture to communicate this emotion while preserving the reference identity and silhouette scale. Both eyes visibly open: place one solid white heart-shaped pupil centered inside each original colored iris, retaining each iris outline, shading and visible colored border. These are pupils, not highlights or floating symbols. Keep gestures simple, with right and left hands separate near the torso or sides; each complete hand has a palm, four fingers and a separate opposable thumb, naturally articulated without forcing hidden digits into view. Exactly two legs and two feet belonging to one pelvis, feet comfortably separated. One coherent mouth with a readable lip shape. Fully clothed, no weapon. Full body including hair, accessories, hands and shoes visible, approximately 2\u20134% padding above and below. True transparent background; no scenery, labels, UI, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-10-four-approved-22-expression-sets/references/Iansan/approved-neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "returned_original": "/Users/alexachan/.codex/generated_images/01a1c7c8-1e02-7d01-aae2-3bd5084bd899/exec-ca3ac360-0ca3-4fcc-96cd-272b34cf4a1f.png",
+          "raw": "raw/Iansan/love-1.png",
+          "candidate": "sprites/Iansan/love-1.png",
+          "sha256": "3ac469239dfd064ffb563675c31be77a22f22d078e2b984490fa85ef7215b8c4",
+          "format": "PNG",
+          "color_type": 6,
+          "dimensions": [
+            935,
+            1683
+          ],
+          "framing_transform": "none"
+        },
+        "desire-1": {
+          "status": "generated; awaiting review",
+          "prompt": "prompts/Iansan/desire-1.txt",
+          "tool": "image_gen.imagegen",
+          "tool_arguments": {
+            "prompt": "Use case: stylized-concept. Create one full-body desire-1 visual-novel sprite of Iansan from Genshin Impact, using only the supplied user-approved neutral as the reference for identity, face, skin tone, hair, costume, accessories, colors, illustrated rendering and body proportions. Keep the character at least as petite as the reference without lengthening the torso or legs. Character: energetic and confident, childlike and age-appropriate. Acting: show eager anticipation for a friendly adventure or favorite treat, with an expressive hopeful gaze; vary pose and gesture to communicate this emotion while preserving the reference identity and silhouette scale. Both eyes visibly open: place one solid white heart-shaped pupil centered inside each original colored iris, retaining each iris outline, shading and visible colored border. These are pupils, not highlights or floating symbols. Keep gestures simple, with right and left hands separate near the torso or sides; each complete hand has a palm, four fingers and a separate opposable thumb, naturally articulated without forcing hidden digits into view. Exactly two legs and two feet belonging to one pelvis, feet comfortably separated. One coherent mouth with a readable lip shape. Fully clothed, no weapon. Full body including hair, accessories, hands and shoes visible, approximately 2\u20134% padding above and below. True transparent background; no scenery, labels, UI, watermark, floating effects or ground shadow.",
+            "referenced_image_paths": [
+              "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-10-four-approved-22-expression-sets/references/Iansan/approved-neutral.png"
+            ],
+            "transparent_background": true
+          },
+          "returned_original": "/Users/alexachan/.codex/generated_images/01a1c7c8-1e02-7d01-aae2-3bd5084bd899/exec-178d2a64-9bae-4136-a3a6-e77a10b2d071.png",
+          "raw": "raw/Iansan/desire-1.png",
+          "candidate": "sprites/Iansan/desire-1.png",
+          "sha256": "d8a58a139a2bb9ae06b01556f0f1fa9afc46d6a7163acfa3ec03d4458d2d2d78",
+          "format": "PNG",
+          "color_type": 6,
+          "dimensions": [
+            939,
+            1676
+          ],
+          "framing_transform": "none"
+        }
+      },
+      "status": "22 files generated; expressions await user review"
+    }
+  },
+  "expressions": [
+    "annoyance",
+    "smug",
+    "confusion",
+    "love",
+    "excitement",
+    "joy",
+    "fear",
+    "pride",
+    "desire",
+    "anger",
+    "grief",
+    "sadness",
+    "disgust",
+    "disappointment",
+    "relief",
+    "admiration",
+    "gratitude",
+    "embarrassment",
+    "caring",
+    "love-1",
+    "desire-1"
+  ],
+  "status": "Lumine, Diluc and Iansan generated for review; Aether on hold",
+  "user_steering": "Do Lumine, Diluc and Iansan first. Put Aether on hold."
+}

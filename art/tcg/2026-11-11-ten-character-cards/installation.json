@@ -1,0 +1,75 @@
+{
+  "status": "User approved and installed as battle TCG art",
+  "cards": [
+    {
+      "name": "Sandrone",
+      "approved_source": "art/tcg/2026-11-11-ten-character-cards/trimmed/Sandrone.png",
+      "source_sha256": "e13dcef9b6b4228e1f207eca341eeca86e867859199e4e6b296122f47d3fba00",
+      "battle_asset": "extension/genshin-dialogue-ui/assets/tcg/characters/Sandrone.webp",
+      "battle_sha256": "3e7a5f85ea5d6c8e27eb565bd71ea2de942ad974a487fcf7c0127c03f002c352"
+    },
+    {
+      "name": "Zibai",
+      "approved_source": "art/tcg/2026-11-11-ten-character-cards/trimmed/Zibai.png",
+      "source_sha256": "f11537c4262ddca8388da71fafb365eb0dc08815de2c33cc917d6575708fb640",
+      "battle_asset": "extension/genshin-dialogue-ui/assets/tcg/characters/Zibai.webp",
+      "battle_sha256": "6f7774bd4ade3d0bae6702ed78c30261ed1645ee943561e97db259543831d00f"
+    },
+    {
+      "name": "Vesna",
+      "approved_source": "art/tcg/2026-11-11-ten-character-cards/trimmed/Vesna.png",
+      "source_sha256": "cb0a3669ce544737d31c6c25811ee3d473addc65d4face33cf258549ec0df269",
+      "battle_asset": "extension/genshin-dialogue-ui/assets/tcg/characters/Vesna.webp",
+      "battle_sha256": "51d6bbe6e13f6f588cf709a664c5277ff18fec8279403e34223ae72401da83fd"
+    },
+    {
+      "name": "Prune",
+      "approved_source": "art/tcg/2026-11-11-ten-character-cards/trimmed/Prune.png",
+      "source_sha256": "572d7492b75140c96804af7f40b4b8d6e1489fdffac61ef37566f4fd077f01aa",
+      "battle_asset": "extension/genshin-dialogue-ui/assets/tcg/characters/Prune.webp",
+      "battle_sha256": "93322cfb35808c39183c554edf600a3a595fd31dea4c1a1c0c3de03161abd9e1"
+    },
+    {
+      "name": "Linnea",
+      "approved_source": "art/tcg/2026-11-11-ten-character-cards/trimmed/Linnea.png",
+      "source_sha256": "d976ca3c1a92cc2b806cd95aa4fc2e518e4c9bdcae0acd4f4492bc80dcd47576",
+      "battle_asset": "extension/genshin-dialogue-ui/assets/tcg/characters/Linnea.webp",
+      "battle_sha256": "4991cf0c914e1669f57463c36ba28f17adf1fbbc8c70ab996377db34810df00e"
+    },
+    {
+      "name": "Aloy",
+      "approved_source": "art/tcg/2026-11-11-ten-character-cards/retry/trimmed/Aloy.png",
+      "source_sha256": "ed89c55c110f4672ba830dcddb585f9db0ba84a95409860d5dbbe4ee3380d96a",
+      "battle_asset": "extension/genshin-dialogue-ui/assets/tcg/characters/Aloy.webp",
+      "battle_sha256": "d59300bde8934a30fa9fdd99822a9bfc3e9757b7521fc4b8da4d4ff4a3d82b24"
+    },
+    {
+      "name": "Lohen",
+      "approved_source": "art/tcg/2026-11-11-ten-character-cards/retry/trimmed/Lohen.png",
+      "source_sha256": "1fc2a56d76461cc605e89227baf6a694d9d384c0abc0dc00ba2211f98bc9e557",
+      "battle_asset": "extension/genshin-dialogue-ui/assets/tcg/characters/Lohen.webp",
+      "battle_sha256": "621cebc98fbc41134b4ea4959360f1309c9e2186f63c97b08b413d7025456cb6"
+    },
+    {
+      "name": "Nicole",
+      "approved_source": "art/tcg/2026-11-11-ten-character-cards/retry-v3/trimmed/Nicole.png",
+      "source_sha256": "227a74efe9a4a3f9a7ef60b1fd0901684cbd345aa66e994483d7c8d8325fac8b",
+      "battle_asset": "extension/genshin-dialogue-ui/assets/tcg/characters/Nicole.webp",
+      "battle_sha256": "49cc27ce23eb67d2463edc104478dd93e1bac8219ac4db7993c28f06af2dbb4e"
+    },
+    {
+      "name": "Vodyanitsa",
+      "approved_source": "art/tcg/2026-11-11-ten-character-cards/retry-v3/trimmed/Vodyanitsa.png",
+      "source_sha256": "abccbe258e976570b422bcfeba56313d12893289da2b466e5875371663a3a9d1",
+      "battle_asset": "extension/genshin-dialogue-ui/assets/tcg/characters/Vodyanitsa.webp",
+      "battle_sha256": "9061cba538a1f8d2e0f6a69bf8bc3db1f319d058b50e938748d2f58aa8d0418f"
+    },
+    {
+      "name": "Odette",
+      "approved_source": "art/tcg/2026-11-11-ten-character-cards/retry-v6/trimmed/Odette.png",
+      "source_sha256": "afab75c25ac4da0aba9a1ed83caf6e5d09761a5ebbcb2776fe16f86eeee061f7",
+      "battle_asset": "extension/genshin-dialogue-ui/assets/tcg/characters/Odette.webp",
+      "battle_sha256": "fe98fa1063231410027d4db637439dbdf450a1af5dcf9ce44262be9ad4a5ce89"
+    }
+  ]
+}

@@ -5,8 +5,11 @@ import {fillBattleMusic} from './battle-music-defaults.js';
 
 // 20: every location without a battle track gets its region's battle theme (battle-music-defaults.js).
 // 21: a Statue of The Seven in every region (the Statue of the New Moon in Nod-Krai).
-const starterCatalogVersion=21;
+// 22: refresh the seven approved Statue of The Seven backgrounds and their provenance.
+// 23: Starfell Lake's island statue is a Statue of The Seven (Anemo).
+const starterCatalogVersion=23;
 const OLD_STARFELL_DESCRIPTION='A lake in Starfell Valley, with a Statue of The Seven on the island. The point and archive image show the in-game overlook.';
+const OLD_STARFELL_STATUE_DESCRIPTION='A lake in Starfell Valley, with a Statue of The Seven on its island. A quiet place, far from any town.';
 const OLD_FEIYUN_DESCRIPTION='The Feiyun Commerce Guild family residence is in Liyue Harbor. The map pin uses the named Feiyun Slope point as a public approach to the district; the clean background is the nearby Heyu Tea House, not the residence itself.';
 // Import once per user. Removing or editing a starter remains respected.
 export function seedWorldLocations(ctx,catalog,availableMusic=[]){
@@ -90,6 +93,11 @@ export function seedWorldLocations(ctx,catalog,availableMusic=[]){
                 location.wilderness=false;location.enemyPool=[];
                 location.suggestedCharacters=structuredClone(record.suggestedCharacters);
                 if(location.description===OLD_STARFELL_DESCRIPTION)location.description=record.description;
+            }
+            // 23: Starfell Lake becomes a Statue of The Seven, unless the player already set a statue there.
+            if(prefs.starterLocationsVersion<23&&record.id==='expansion-starfell-lake'&&!Object.hasOwn(location,'statue')){
+                location.statue=record.statue;
+                if(location.description===OLD_STARFELL_STATUE_DESCRIPTION)location.description=record.description;
             }
             // 19: crowded locations were thinned out, so the suggested names on the map follow the new homes.
             if(prefs.starterLocationsVersion<19&&Array.isArray(record.suggestedCharacters))location.suggestedCharacters=structuredClone(record.suggestedCharacters);

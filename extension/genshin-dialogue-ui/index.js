@@ -331,9 +331,10 @@ function conflictText() {
     return issues.join(' ');
 }
 // A closed settings drawer is not worth painting. checkVisibility() also covers a collapsed SillyTavern drawer around it.
+// The panel's drawer is open and on screen, not just its header.
 function settingsShown() {
-    const panel = document.querySelector('#gi-settings');
-    return Boolean(panel) && (panel.checkVisibility ? panel.checkVisibility() : panel.getClientRects().length > 0);
+    const content = document.querySelector('#gi-settings .inline-drawer-content');
+    return Boolean(content) && (content.checkVisibility ? content.checkVisibility() : content.getClientRects().length > 0);
 }
 function syncSettings(force=true) {
     const prefs = preferences();
@@ -731,7 +732,12 @@ function handleAction(event) {
             const tab = target.dataset.tab;
             clearSettingsSearch(document.querySelector('#gi-settings'));
             document.querySelectorAll('#gi-settings .gi-set-tabs [data-tab]').forEach(b => b.setAttribute('aria-selected', String(b.dataset.tab === tab)));
-            document.querySelectorAll('#gi-settings .gi-set-page').forEach(page => { page.hidden = page.dataset.page !== tab; });
+            document.querySelectorAll('#gi-settings .gi-set-page').forEach(page => {
+                page.hidden = page.dataset.page !== tab;
+                // Only a tab change slides the page in, not the drawer opening (which would run both at once).
+                page.classList.remove('gi-set-enter');
+                if (!page.hidden) { void page.offsetWidth; page.classList.add('gi-set-enter'); }
+            });
             break;
         }
         case 'settings-reset': {
@@ -942,8 +948,13 @@ export async function initialize(options = {}) {
         document.querySelector('#extensions_settings2').insertAdjacentHTML('beforeend', html);
         renderFeatureSwitches(document.querySelector('#gi-settings'));
         structureSettings(document.querySelector('#gi-settings'));bindSettingsSearch(document.querySelector('#gi-settings'),abort.signal);
-        // The panel is painted only while it is on screen (syncSettings), so opening its drawer asks for a refresh.
-        if(typeof ResizeObserver!=='undefined'){settingsObserver=new ResizeObserver(()=>schedule());settingsObserver.observe(document.querySelector('#gi-settings'));}
+        // The panel is painted only while it is on screen (syncSettings). Its inputs are painted once, just before
+        // SillyTavern slides the drawer open, so the slide animates finished content. The observer only notices the
+        // drawer appearing some other way (the Extensions panel opening around it); it does not refresh the whole
+        // extension on every frame of the slide.
+        const settingsPanel=document.querySelector('#gi-settings');
+        settingsPanel.querySelector('.inline-drawer-toggle')?.addEventListener('click',()=>{if(!settingsShown())syncSettings();},{capture:true,signal:abort.signal});
+        if(typeof ResizeObserver!=='undefined'){let shown=settingsShown();settingsObserver=new ResizeObserver(()=>{const now=settingsShown();if(now&&!shown)syncSettings();shown=now;});settingsObserver.observe(settingsPanel.querySelector('.inline-drawer-content') || settingsPanel);}
         manifest.then(m => { const footer = document.querySelector('#gi-settings .gi-set-footer span'); if (footer) footer.textContent = m.version || ''; }).catch(() => {});
     } catch (error) {
         console.warn('[Silly Teyvat] Settings panel unavailable. Alt+G and the compass still work.', error);

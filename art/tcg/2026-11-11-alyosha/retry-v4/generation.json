@@ -1,0 +1,12 @@
+{
+  "tool": "built-in image_gen.imagegen",
+  "name": "Alyosha",
+  "prompt": "Use case: stylized-concept. Create one NEW unofficial Genius Invokation TCG character card for Alyosha from Genshin Impact. FORMAT: a narrow vertical card, width-to-height ratio 360:617 (approximately 0.5835, or 7:12), matching Image 2's tall slender proportions; aim for approximately 958 x 1642 pixels. The complete rounded frame follows the canvas edges with no margin. Image 1 is Alyosha's official splash artwork and the sole identity reference: preserve his youthful build, face, teal hair, red animal-eared white-furred hood, blue winter outfit, white cloak, patterned red scarf, accessories, and black-and-white dog Tugarin. Image 2 is the genuine Gorou playable-character TCG card, only a reference for vertical framing, crisp polished anime TCG illustration and the character-forward composition; do not depict Gorou or borrow his appearance. Show Alyosha standing in a natural, readable spear-bearing pose with Tugarin standing on level snowy ground BESIDE him, separate from Alyosha's legs, clothing, spear, effects, snow and the frame. Important: depict the entire dog head to tail, its full body in three-quarter side view with TWO front legs and TWO hind legs, all four distinct paws visible touching the snow. Leave clear negative space between all four legs, especially hind legs, with no overlap, cropping, concealment, extra or fused limbs. Snowy northern setting and restrained violet Electro motifs. Natural coherent anatomy and hands. One complete ornate TCG card, no text, title, watermark, extra humans, or comparison.",
+  "official_reference": "extension/genshin-dialogue-ui/assets/splash/Alyosha.webp",
+  "tcg_reference": "extension/genshin-dialogue-ui/assets/tcg/characters/Gorou.webp",
+  "raw": "art/tcg/2026-11-11-alyosha/retry-v4/raw/Alyosha.png",
+  "dimensions": [
+    990,
+    1588
+  ]
+}

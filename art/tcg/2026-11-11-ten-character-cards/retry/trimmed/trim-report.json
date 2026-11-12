@@ -1,0 +1,42 @@
+{
+  "method": "Reference alpha resized to each card; existing alpha and all RGB values preserved. Near-black partially transparent edge fringe cleared.",
+  "reference": "/Users/alexachan/Documents/Codex/silly-teyvat/extension/genshin-dialogue-ui/assets/tcg/characters/Tartaglia.webp",
+  "reference_sha256": "72343ecb836a0c2015dae0b4bf990c8caf5dcecd1dbc66b308d7bd88c414b3e2",
+  "cards": [
+    {
+      "name": "Aloy",
+      "source": "art/tcg/2026-11-11-ten-character-cards/retry/raw/Aloy.png",
+      "output": "Aloy.png",
+      "source_sha256": "4043b9e10fe8fa01b2499cd60a7b9afe05d1d1e55c804f1dbb53badb009a9051",
+      "output_sha256": "ed89c55c110f4672ba830dcddb585f9db0ba84a95409860d5dbbe4ee3380d96a"
+    },
+    {
+      "name": "Lohen",
+      "source": "art/tcg/2026-11-11-ten-character-cards/retry/raw/Lohen.png",
+      "output": "Lohen.png",
+      "source_sha256": "686d71b92eb4c46fbab3458d53f0cb74d7d76e0b1c585fdf2e31f182da9e3311",
+      "output_sha256": "1fc2a56d76461cc605e89227baf6a694d9d384c0abc0dc00ba2211f98bc9e557"
+    },
+    {
+      "name": "Nicole",
+      "source": "art/tcg/2026-11-11-ten-character-cards/retry/raw/Nicole.png",
+      "output": "Nicole.png",
+      "source_sha256": "e0164c3fdbc8ff77b519c535eec24159508cc7492037a2b1f034a9ae5fbc34ea",
+      "output_sha256": "52b8ceaf0a53fb7b8471e1c081ebaee3dc03aa52065f4909ef19164c5d903c61"
+    },
+    {
+      "name": "Odette",
+      "source": "art/tcg/2026-11-11-ten-character-cards/retry/raw/Odette.png",
+      "output": "Odette.png",
+      "source_sha256": "8a0d4ff5270c4055eb34af9a58ac573a97b167a705988848b6f8d902d245438f",
+      "output_sha256": "59020e419dfcc9e8f65665d2f22cf39f7d82daba9d1f9a0f84fafc1d11f72fad"
+    },
+    {
+      "name": "Vodyanitsa",
+      "source": "art/tcg/2026-11-11-ten-character-cards/retry/raw/Vodyanitsa.png",
+      "output": "Vodyanitsa.png",
+      "source_sha256": "2d08c902c1bf4a6fca2f09bf9263b5fa669388c7232b9456c00f979008c0cdfc",
+      "output_sha256": "8b977ed121f13ffe4cb7b621a9d5d96bbe2456d48fe4642c2a35c1ec4e54c71b"
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "method": "Reference alpha resized to each card; existing alpha and all RGB values preserved. Near-black partially transparent edge fringe cleared.",
+  "reference": "/Users/alexachan/Documents/Codex/silly-teyvat/extension/genshin-dialogue-ui/assets/tcg/characters/Tartaglia.webp",
+  "reference_sha256": "72343ecb836a0c2015dae0b4bf990c8caf5dcecd1dbc66b308d7bd88c414b3e2",
+  "cards": [
+    {
+      "name": "Odette",
+      "source": "art/tcg/2026-11-11-ten-character-cards/retry-v5/raw/Odette.png",
+      "output": "Odette.png",
+      "source_sha256": "aff5cab37bb031fa030b277c2355bf665ba150638e9505233a47778782b4eda2",
+      "output_sha256": "5a92f0a9c43b5a5fc2e4a74b308fa809efdbba74c7480ede2509a214278d4d23"
+    }
+  ]
+}

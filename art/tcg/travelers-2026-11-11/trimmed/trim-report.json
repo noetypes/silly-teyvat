@@ -1,0 +1,21 @@
+{
+  "method": "Reference alpha resized to each card; existing alpha and all RGB values preserved. Near-black partially transparent edge fringe cleared.",
+  "reference": "/Users/alexachan/Documents/Codex/silly-teyvat/extension/genshin-dialogue-ui/assets/tcg/characters/Tartaglia.webp",
+  "reference_sha256": "72343ecb836a0c2015dae0b4bf990c8caf5dcecd1dbc66b308d7bd88c414b3e2",
+  "cards": [
+    {
+      "name": "Aether",
+      "source": "art/tcg/travelers-2026-11-11/raw/Aether.png",
+      "output": "Aether.png",
+      "source_sha256": "47e4ffaca07475ca154a557abab367fc9ab452c629c8d8b2f95b51b3ebbd56cd",
+      "output_sha256": "c9c30e87aaae6c9faa30be95d2e39c4a84c95d5802fc1b81f9567ea0e9219b3c"
+    },
+    {
+      "name": "Lumine",
+      "source": "art/tcg/travelers-2026-11-11/raw/Lumine.png",
+      "output": "Lumine.png",
+      "source_sha256": "214029f0e2522762260d31802245cff6112ffb5be99b629f51d6dff547fe1989",
+      "output_sha256": "96578f912ea07ce2a795223e9808780b03da8347171a6b5fafec27576a1d0883"
+    }
+  ]
+}

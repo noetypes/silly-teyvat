@@ -2,10 +2,10 @@ import {regionEmblem} from './loading-screen.js';
 import {createMachine} from './machine.js';
 import {cue} from './ui-sound.js';
 import {mountWildernessMenu,wildernessSummary,wildernessPool} from './wilderness.js';
-import {clearedEnemies,restoreEnemies} from './combat-state.js';
+import {clearedEnemies,restoreEnemies,healParty} from './combat-state.js';
 import {localMediaPath,createMediaAdapter} from './media-store.js';
 import {backgroundRegions,travelState,saveTravel} from './backgrounds.js';
-import {REGION_NAMES,worldSettings,worldWaypoints,activeWorldLocation,worldScale,walkingSpeed,mapDistance,directionFrom,formatDistance,syncWorldPrompt,worldScalePrompt,saveWaypoint,unpinWaypoint,teleportTo,validMapPoint,setWaypointArtwork} from './world-data.js';
+import {REGION_NAMES,STATUE_KINDS,worldSettings,worldWaypoints,activeWorldLocation,worldScale,walkingSpeed,mapDistance,directionFrom,formatDistance,syncWorldPrompt,worldScalePrompt,saveWaypoint,unpinWaypoint,teleportTo,validMapPoint,setWaypointArtwork} from './world-data.js';
 import {L,makeMap,mapMarker,toLatLng,toMapPoint,waypointIcon,playerIcon,waypointGlyph} from './map-engine.js';
 import {locationResidents,locationResidentsIndex,encountersBypassed,toggleEncounterBypass} from './location-encounters.js';
 import {mountLocationRosterPicker} from './location-roster-picker.js';
@@ -309,6 +309,9 @@ export function mountWorldMap({host,getContext,adapter=createMediaAdapter(getCon
         const ctx=getContext(),el=statueElement(item.location),here=activeWorldLocation(ctx)?.location.id===item.location.id,travelers=resonanceTravelers(ctx);
         const section=document.createElement('section');section.className='gi-map-music gi-map-statue';section.dataset.element=el || 'none';
         section.append(element('h4',el?`Statue of The Seven · ${el}`:'Statue of the New Moon'));
+        // As in the game, the statue mends the party: on arrival, and again whenever you touch it while you are here.
+        const heal=button('Restore party HP','statue-heal');heal.disabled=!here;if(!here)heal.title='Travel here first';
+        section.append(element('p','Arriving here restores your party’s HP.'),heal);
         if(!el){section.append(element('p','The Traveler cannot resonate with any element here.'));return section;}
         section.append(element('p',travelers.length?travelers.map(t=>`${t.card.name}: ${t.element==='None'?'no element':t.element}`).join(' · '):'Bring Aether or Lumine, or play as one, to resonate here.'));
         const go=button(`Resonate with ${el}`,'statue');go.disabled=!here||!travelers.length;if(!here)go.title='Travel here first';
@@ -383,8 +386,12 @@ export function mountWorldMap({host,getContext,adapter=createMediaAdapter(getCon
         const link=document.createElement('select');link.id='gi-map-link';
         const files=input('gi-map-picture');files.type='file';files.accept='image/png,image/webp,image/jpeg,image/gif,image/avif';
         const aliases=input('gi-map-aliases',(item?.location.classifications || []).join('\n'),'textarea');aliases.rows=2;aliases.maxLength=1200;
+        // Any waypoint can be a Statue of The Seven: the Traveler resonates there and the party is healed on arrival.
+        const statue=document.createElement('select');statue.id='gi-map-statue';
+        statue.append(new Option('Not a statue',''),...STATUE_KINDS.map(k=>new Option(k==='New Moon'?'Statue of the New Moon (no element)':`Statue of The Seven · ${k}`,k)));
+        statue.value=STATUE_KINDS.includes(item?.location.statue)?item.location.statue:'';
         const coordinates=element('small',`x ${draft.x}, y ${draft.y}`);coordinates.id='gi-map-coordinates';
-        body.append(field('Name',name),field('Description',description),field('Region',region),custom,field('Background',link),field('Picture',files),field('Classifications (one per line)',aliases),coordinates);
+        body.append(field('Name',name),field('Description',description),field('Region',region),custom,field('Background',link),field('Picture',files),field('Classifications (one per line)',aliases),field('Statue',statue),coordinates);
         if(item){link.disabled=true;body.append(button('Unpin (keep background)','unpin'));}
         const actions=document.createElement('div');actions.className='gi-map-card-actions';const save=button('Save waypoint','save');save.className='gi-map-teleport gi-map-save';actions.append(button('Cancel','cancel'),save);
         sidebar.replaceChildren(cardHead(item?'Edit waypoint':'New waypoint','',false),body,actions);go('EDIT');
@@ -492,7 +499,8 @@ export function mountWorldMap({host,getContext,adapter=createMediaAdapter(getCon
             if(!plan||disposed||token!==revision||startChat!==identity(getContext()))return false;
             if(!worldWaypoints(ctx).some(w=>w.location.id===item.location.id))throw new Error('This waypoint was removed while choosing companions.');
             if(!commitTeleport(plan))return false;
-            playTeleport();teleportTo(ctx,item.location.id,{avatars:plan.travellers,encounter:plan.encounter});onTeleport();onChange();announce(`Teleported to ${item.location.label}, ${item.region.name}.`);
+            playTeleport();teleportTo(ctx,item.location.id,{avatars:plan.travellers,encounter:plan.encounter});onTeleport();onChange();announce(`Teleported to ${item.location.label}, ${item.region.name}.${isStatue(item.location)?' The statue restores your party’s HP.':''}`);
+            if(isStatue(item.location))globalThis.toastr?.success?.('The statue restores your party’s HP.',item.location.label);
             if(dialog.open)close();return true;
         }finally{task.send('DONE');}
     }
@@ -528,6 +536,7 @@ export function mountWorldMap({host,getContext,adapter=createMediaAdapter(getCon
             if(name==='restore-enemies'&&item){const n=restoreEnemies(getContext(),item.location.id);showDetails(item);status(n?`${n} defeated ${n===1?'enemy':'enemies'} can appear at ${item.location.label} again.`:'No defeated enemies here.');return;}
             if(name==='bypass'&&item){const on=toggleEncounterBypass(ctx,item.location.id);saveTravel(ctx);showDetails(item);status(on?`Encounters bypassed at ${item.location.label}. Applies on your next arrival.`:`Encounters restored at ${item.location.label}. Applies on your next arrival.`);return;}
             if(name==='music'&&item){openMusic(item.location.id);return;}
+            if(name==='statue-heal'&&item){if(activeWorldLocation(ctx)?.location.id===item.location.id){healParty(ctx);saveTravel(ctx);onChange();showDetails(item);status('The statue restores your party’s HP.');}return;}
             if(name==='statue'&&item){if(activeWorldLocation(ctx)?.location.id===item.location.id){close();openStatue(item.location);}return;}
             if(name==='wilderness'&&item){wildLocation=item.location;wildMenu.open();return;}
             if(name==='card-drops'&&item){wildLocation=item.location;cardPoolMenu.open();return;}
@@ -540,7 +549,7 @@ export function mountWorldMap({host,getContext,adapter=createMediaAdapter(getCon
                 Object.assign(worldSettings(ctx),{metresPerUnit:metres,walkingKph:speed});ctx.saveSettingsDebounced();api.syncPrompt();refresh({sidebarRefresh:true});onChange();status('World scale and all waypoint distances updated.');return;
             }
             if(name==='save'){
-                const args={id:selectedId,...regionValue(),label:$('#gi-map-name').value,description:$('#gi-map-description').value,classifications:$('#gi-map-aliases').value.split('\n'),point:structuredClone(draft),linkId:$('#gi-map-link').value};
+                const args={id:selectedId,...regionValue(),label:$('#gi-map-name').value,description:$('#gi-map-description').value,classifications:$('#gi-map-aliases').value.split('\n'),point:structuredClone(draft),linkId:$('#gi-map-link').value,statue:$('#gi-map-statue').value};
                 if(!args.label.trim())throw new Error('Give this waypoint a name.');
                 const file=$('#gi-map-picture').files[0],token=++revision,startChat=identity(ctx);
                 const controls=[...sidebar.querySelectorAll('button,input,select,textarea')].map(e=>[e,e.disabled]);

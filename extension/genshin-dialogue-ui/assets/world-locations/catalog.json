@@ -1,5 +1,5 @@
 {
-  "version": 21,
+  "version": 23,
   "retrieved": "2026-10-26",
   "coordinateSource": "https://sg-public-api-static.hoyolab.com/common/map_user/ys_obc/v1/map/map_anchor/list?map_id=2&app_sn=ys_obc&lang=en-us",
   "locations": [
@@ -9136,7 +9136,8 @@
       "id": "expansion-starfell-lake",
       "label": "Starfell Lake",
       "region": "Mondstadt",
-      "description": "A lake in Starfell Valley, with a Statue of The Seven on its island. A quiet place, far from any town.",
+      "description": "A lake in Starfell Valley, with a Statue of The Seven on its island. A quiet place, far from any town. The Traveler can resonate with Anemo here.",
+      "statue": "Anemo",
       "classifications": [
         "Starfell Lake",
         "Starfell Lake shore"
@@ -16534,8 +16535,8 @@
       "loreSource": "https://genshin-impact.fandom.com/wiki/Statue_of_The_Seven",
       "asset": "statue-mondstadt.webp",
       "dimensions": [
-        1920,
-        1080
+        1672,
+        941
       ],
       "candidate": false,
       "introducedVersion": 21,
@@ -16545,14 +16546,10 @@
         "playableCharacters": false,
         "gameUI": false,
         "captions": false,
-        "camera": "Official close render of this region's Statue of The Seven, from the Genshin Impact Wiki (Statue_of_The_Seven_Mondstadt.png).",
-        "editing": "Non-generative composite: the official 2134x3200 portrait render, scaled to 1080 px high and centred on a blurred, darkened copy of itself to fill 1920x1080. No AI generation.",
-        "imageSource": "https://genshin-impact.fandom.com/wiki/File:Statue_of_The_Seven_Mondstadt.png",
-        "imageURL": "https://static.wikia.nocookie.net/gensin-impact/images/c/c3/Statue_of_The_Seven_Mondstadt.png/revision/latest?cb=20260226143455",
-        "originalDimensions": [
-          2134,
-          3200
-        ]
+        "camera": "User-approved AI-generated landscape interpretation at pedestrian height; composition and statue details are not an in-game screenshot.",
+        "editing": "Generated with OpenAI image_gen from regional statue reference and location research; converted to WebP at the original generated dimensions. Windwail Highland additionally uses user-provided screenshots.",
+        "referenceSource": "https://genshin-impact.fandom.com/wiki/File:Statue_of_The_Seven_Mondstadt.png",
+        "referenceURL": "https://static.wikia.nocookie.net/gensin-impact/images/c/c3/Statue_of_The_Seven_Mondstadt.png/revision/latest?cb=20260226143455"
       },
       "music": {
         "tracks": [
@@ -16591,8 +16588,8 @@
       "loreSource": "https://genshin-impact.fandom.com/wiki/Statue_of_The_Seven",
       "asset": "statue-liyue.webp",
       "dimensions": [
-        1920,
-        1080
+        1672,
+        941
       ],
       "candidate": false,
       "introducedVersion": 21,
@@ -16602,14 +16599,10 @@
         "playableCharacters": false,
         "gameUI": false,
         "captions": false,
-        "camera": "Official close render of this region's Statue of The Seven, from the Genshin Impact Wiki (Statue_of_The_Seven_Liyue.png).",
-        "editing": "Non-generative composite: the official 2134x3200 portrait render, scaled to 1080 px high and centred on a blurred, darkened copy of itself to fill 1920x1080. No AI generation.",
-        "imageSource": "https://genshin-impact.fandom.com/wiki/File:Statue_of_The_Seven_Liyue.png",
-        "imageURL": "https://static.wikia.nocookie.net/gensin-impact/images/e/e0/Statue_of_The_Seven_Liyue.png/revision/latest?cb=20260226143504",
-        "originalDimensions": [
-          2134,
-          3200
-        ]
+        "camera": "User-approved AI-generated landscape interpretation at pedestrian height; composition and statue details are not an in-game screenshot.",
+        "editing": "Generated with OpenAI image_gen from the regional statue reference and location research; converted to WebP at the original generated dimensions.",
+        "referenceSource": "https://genshin-impact.fandom.com/wiki/File:Statue_of_The_Seven_Liyue.png",
+        "referenceURL": "https://static.wikia.nocookie.net/gensin-impact/images/e/e0/Statue_of_The_Seven_Liyue.png/revision/latest?cb=20260226143504"
       },
       "music": {
         "tracks": [
@@ -16649,8 +16642,8 @@
       "loreSource": "https://genshin-impact.fandom.com/wiki/Statue_of_The_Seven",
       "asset": "statue-inazuma.webp",
       "dimensions": [
-        1920,
-        1080
+        1672,
+        941
       ],
       "candidate": false,
       "introducedVersion": 21,
@@ -16660,14 +16653,10 @@
         "playableCharacters": false,
         "gameUI": false,
         "captions": false,
-        "camera": "Official close render of this region's Statue of The Seven, from the Genshin Impact Wiki (Statue_of_The_Seven_Inazuma.png).",
-        "editing": "Non-generative composite: the official 2134x3200 portrait render, scaled to 1080 px high and centred on a blurred, darkened copy of itself to fill 1920x1080. No AI generation.",
-        "imageSource": "https://genshin-impact.fandom.com/wiki/File:Statue_of_The_Seven_Inazuma.png",
-        "imageURL": "https://static.wikia.nocookie.net/gensin-impact/images/b/b3/Statue_of_The_Seven_Inazuma.png/revision/latest?cb=20260226143520",
-        "originalDimensions": [
-          2134,
-          3200
-        ]
+        "camera": "User-approved AI-generated landscape interpretation at pedestrian height; composition and statue details are not an in-game screenshot.",
+        "editing": "Generated with OpenAI image_gen from the regional statue reference and location research; converted to WebP at the original generated dimensions.",
+        "referenceSource": "https://genshin-impact.fandom.com/wiki/File:Statue_of_The_Seven_Inazuma.png",
+        "referenceURL": "https://static.wikia.nocookie.net/gensin-impact/images/b/b3/Statue_of_The_Seven_Inazuma.png/revision/latest?cb=20260226143520"
       },
       "music": {
         "tracks": [
@@ -16706,8 +16695,8 @@
       "loreSource": "https://genshin-impact.fandom.com/wiki/Statue_of_The_Seven",
       "asset": "statue-sumeru.webp",
       "dimensions": [
-        1920,
-        1080
+        1672,
+        941
       ],
       "candidate": false,
       "introducedVersion": 21,
@@ -16717,14 +16706,10 @@
         "playableCharacters": false,
         "gameUI": false,
         "captions": false,
-        "camera": "Official close render of this region's Statue of The Seven, from the Genshin Impact Wiki (Statue_of_The_Seven_Sumeru.png).",
-        "editing": "Non-generative composite: the official 2134x3200 portrait render, scaled to 1080 px high and centred on a blurred, darkened copy of itself to fill 1920x1080. No AI generation.",
-        "imageSource": "https://genshin-impact.fandom.com/wiki/File:Statue_of_The_Seven_Sumeru.png",
-        "imageURL": "https://static.wikia.nocookie.net/gensin-impact/images/8/87/Statue_of_The_Seven_Sumeru.png/revision/latest?cb=20260226143621",
-        "originalDimensions": [
-          2134,
-          3200
-        ]
+        "camera": "User-approved AI-generated landscape interpretation at pedestrian height; composition and statue details are not an in-game screenshot.",
+        "editing": "Generated with OpenAI image_gen from the regional statue reference and location research; converted to WebP at the original generated dimensions.",
+        "referenceSource": "https://genshin-impact.fandom.com/wiki/File:Statue_of_The_Seven_Sumeru.png",
+        "referenceURL": "https://static.wikia.nocookie.net/gensin-impact/images/8/87/Statue_of_The_Seven_Sumeru.png/revision/latest?cb=20260226143621"
       },
       "music": {
         "tracks": [
@@ -16764,8 +16749,8 @@
       "loreSource": "https://genshin-impact.fandom.com/wiki/Statue_of_The_Seven",
       "asset": "statue-fontaine.webp",
       "dimensions": [
-        1920,
-        1080
+        1672,
+        941
       ],
       "candidate": false,
       "introducedVersion": 21,
@@ -16775,14 +16760,10 @@
         "playableCharacters": false,
         "gameUI": false,
         "captions": false,
-        "camera": "Official close render of this region's Statue of The Seven, from the Genshin Impact Wiki (Statue_of_The_Seven_Fontaine.png).",
-        "editing": "Non-generative composite: the official 2134x3200 portrait render, scaled to 1080 px high and centred on a blurred, darkened copy of itself to fill 1920x1080. No AI generation.",
-        "imageSource": "https://genshin-impact.fandom.com/wiki/File:Statue_of_The_Seven_Fontaine.png",
-        "imageURL": "https://static.wikia.nocookie.net/gensin-impact/images/1/1e/Statue_of_The_Seven_Fontaine.png/revision/latest?cb=20260226143633",
-        "originalDimensions": [
-          2134,
-          3200
-        ]
+        "camera": "User-approved AI-generated landscape interpretation at pedestrian height; composition and statue details are not an in-game screenshot.",
+        "editing": "Generated with OpenAI image_gen from the regional statue reference and location research; converted to WebP at the original generated dimensions.",
+        "referenceSource": "https://genshin-impact.fandom.com/wiki/File:Statue_of_The_Seven_Fontaine.png",
+        "referenceURL": "https://static.wikia.nocookie.net/gensin-impact/images/1/1e/Statue_of_The_Seven_Fontaine.png/revision/latest?cb=20260226143633"
       },
       "music": {
         "tracks": [
@@ -16822,8 +16803,8 @@
       "loreSource": "https://genshin-impact.fandom.com/wiki/Statue_of_The_Seven",
       "asset": "statue-natlan.webp",
       "dimensions": [
-        1920,
-        1080
+        1672,
+        941
       ],
       "candidate": false,
       "introducedVersion": 21,
@@ -16833,14 +16814,10 @@
         "playableCharacters": false,
         "gameUI": false,
         "captions": false,
-        "camera": "Official close render of this region's Statue of The Seven, from the Genshin Impact Wiki (Statue_of_The_Seven_Natlan.png).",
-        "editing": "Non-generative composite: the official 2134x3200 portrait render, scaled to 1080 px high and centred on a blurred, darkened copy of itself to fill 1920x1080. No AI generation.",
-        "imageSource": "https://genshin-impact.fandom.com/wiki/File:Statue_of_The_Seven_Natlan.png",
-        "imageURL": "https://static.wikia.nocookie.net/gensin-impact/images/6/60/Statue_of_The_Seven_Natlan.png/revision/latest?cb=20260226143640",
-        "originalDimensions": [
-          2134,
-          3200
-        ]
+        "camera": "User-approved AI-generated landscape interpretation at pedestrian height; composition and statue details are not an in-game screenshot.",
+        "editing": "Generated with OpenAI image_gen from the regional statue reference and location research; converted to WebP at the original generated dimensions.",
+        "referenceSource": "https://genshin-impact.fandom.com/wiki/File:Statue_of_The_Seven_Natlan.png",
+        "referenceURL": "https://static.wikia.nocookie.net/gensin-impact/images/6/60/Statue_of_The_Seven_Natlan.png/revision/latest?cb=20260226143640"
       },
       "music": {
         "tracks": [
@@ -16937,8 +16914,8 @@
       "loreSource": "https://genshin-impact.fandom.com/wiki/Statue_of_The_Seven",
       "asset": "statue-snezhnaya.webp",
       "dimensions": [
-        1920,
-        1080
+        1672,
+        941
       ],
       "candidate": false,
       "introducedVersion": 21,
@@ -16948,14 +16925,10 @@
         "playableCharacters": false,
         "gameUI": false,
         "captions": false,
-        "camera": "Official close render of this region's Statue of The Seven, from the Genshin Impact Wiki (Statue_of_The_Seven_Snezhnaya.png).",
-        "editing": "Non-generative composite: the official 1080x1920 portrait render, scaled to 1080 px high and centred on a blurred, darkened copy of itself to fill 1920x1080. No AI generation.",
-        "imageSource": "https://genshin-impact.fandom.com/wiki/File:Statue_of_The_Seven_Snezhnaya.png",
-        "imageURL": "https://static.wikia.nocookie.net/gensin-impact/images/0/06/Statue_of_The_Seven_Snezhnaya.png/revision/latest?cb=20260801195558",
-        "originalDimensions": [
-          1080,
-          1920
-        ]
+        "camera": "User-approved AI-generated landscape interpretation at pedestrian height; composition and statue details are not an in-game screenshot.",
+        "editing": "Generated with OpenAI image_gen from the regional statue reference and location research; converted to WebP at the original generated dimensions.",
+        "referenceSource": "https://genshin-impact.fandom.com/wiki/File:Statue_of_The_Seven_Snezhnaya.png",
+        "referenceURL": "https://static.wikia.nocookie.net/gensin-impact/images/0/06/Statue_of_The_Seven_Snezhnaya.png/revision/latest?cb=20260801195558"
       },
       "music": {
         "tracks": [

@@ -1,0 +1,126 @@
+{
+  "tool": "OpenAI built-in image_gen",
+  "date": "2026-11-11",
+  "status": "Seven backgrounds approved by user and installed in the data pack.",
+  "entries": [
+    {
+      "region": "mondstadt",
+      "output": "mondstadt.png",
+      "statue_source": "https://genshin-impact.fandom.com/wiki/File:Statue_of_The_Seven_Mondstadt.png",
+      "location_marker": "https://sg-public-api-static.hoyolab.com/common/map_user/ys_obc/v1/map/point/info?point_id=19&map_id=2&app_sn=ys_obc&lang=en-us",
+      "location_source": "https://www.gosunoob.com/genshin-impact/dawn-winery-statue-of-seven-location/",
+      "prompt": "Use case: stylized-concept. Asset: Genshin Impact visual novel location background. The image reference is the exact in-game Mondstadt Statue of The Seven: preserve its recognizable stone sculpture and proportions. Create a wide 16:9 landscape at the Windwail Highland statue near Dawn Winery, at human eye height on the grassy hill beside the statue. Yellow-leaf trees, red windwheel asters, rolling Mondstadt hills and a glimpse toward the winery in distance. The statue is a solid inanimate monument, positioned to one side so foreground is usable for character sprites. Match Genshin Impact's colorful in-game environment aesthetic. Bright natural daylight. No people, creatures, HUD, lettering, logos, watermark.",
+      "review_status": "Regeneration requested",
+      "revision": {
+        "output": "mondstadt-revision.png",
+        "review_status": "Awaiting user review",
+        "prompt": "Use case: stylized-concept. Create a wide 16:9 Genshin Impact visual novel background depicting the specific Statue of the Seven in Windwail Highland near Dawn Winery. Reference image is the actual Mondstadt statue: faithfully preserve its hooded winged stone figure holding an orb, pedestal and silhouette. At eye height on the walkable grassy hilltop, the camera faces the statue set slightly to the right amid pale gray rocks, grass, red windwheel asters and golden-leaved trees; glimpses of Mondstadt's rolling green hills and Dawn Winery vineyards beyond. An inviting natural setting with spacious foreground for character sprites, natural soft afternoon light, authentic Genshin Impact environment aesthetic. Inanimate carved statue only; no people, animals, interface, text, logos or watermarks. Do not reproduce the blurred background of the reference."
+      },
+      "user_reference_revision": {
+        "output": "mondstadt-reference-revision.png",
+        "reference": "mondstadt-user-reference.png",
+        "reference_source": "User-provided in-game screenshot, 2026-11-11",
+        "tool": "OpenAI built-in image_gen",
+        "review_status": "Awaiting user review",
+        "prompt": "Use case: precise-object-edit. Asset: wide visual novel location background. Use the supplied in-game screenshot as the direct visual reference for Windwail Highland. Faithfully preserve the actual view, geographic shapes, grassy foreground with daisies, yellow and green trees, small red-roofed half-timbered building, broken stone pillars, river, distant rocky hills and especially the large cropped blue-glowing statue base on the right. Preserve its existing composition and authentic Genshin Impact game rendering; do not invent a full statue, city, vineyard or new landmarks. Create a clean seamless 16:9 frame from this view, removing only the upper-right close/microphone icons and lower-right control text and UID, naturally reconstructing the scenery under those overlays. No people, characters, text, UI or watermark."
+      },
+      "facing_revision": {
+        "output": "mondstadt-facing-revision.png",
+        "inputs": [
+          "mondstadt-reference-revision.png",
+          "mondstadt-user-reference-2.png",
+          "extension/genshin-dialogue-ui/assets/world-locations/statue-mondstadt.webp"
+        ],
+        "tool": "OpenAI built-in image_gen",
+        "review_status": "Awaiting user review",
+        "prompt": "Use case: precise-object-edit. Image 1 is the background to edit; image 2 shows the same statue and setting from farther back; image 3 shows the statue design. In image 1 make the Statue of the Seven modestly smaller and farther back on the right, so the entire pedestal and hooded winged stone figure are visible in the frame. Turn the figure to face the camera, holding its orb, matching the authentic Mondstadt statue in image 3. Keep its distinctive tall blue glowing pillar, large ring and stone base consistent with image 2. Keep the landscape, red-roofed building, ruins, cliffs, grassy foreground, sunlight and game rendering of image 1 as intact as possible. Wide 16:9, ground-level game background. No characters, UI, text, or watermark."
+      },
+      "closer_revision": {
+        "output": "mondstadt-closer-revision.png",
+        "inputs": [
+          "mondstadt-user-reference.png",
+          "mondstadt-user-reference-2.png",
+          "extension/genshin-dialogue-ui/assets/world-locations/statue-mondstadt.webp"
+        ],
+        "tool": "OpenAI built-in image_gen",
+        "review_status": "Approved by user",
+        "prompt": "Use case: stylized-concept. Create a fresh wide 16:9 Genshin Impact Windwail Highland visual novel background using the original reference images. Images 1 and 2 show this specific location and its actual statue pedestal; image 3 shows the Mondstadt statue facing forward. Show the entire Statue of the Seven on the right, facing toward the camera and fairly prominent in the near midground, with its full figure and blue glowing pillar and ring visible, and room around it. The statue should feel somewhat closer and larger than a distant landmark, but not cropped. Use a natural flexible camera viewpoint; prioritize an appealing, walkable scene over duplicating the camera position precisely. Retain the reference setting's grassy hill, tiny daisies, yellow-leaved trees, broken stone pillars, red-roofed half-timbered building, river and distant cliffs. Faithfully match the in-game look and the reference statue's winged hooded sculpture. No people, interface, text, watermark or logos."
+      },
+      "installed_asset": "extension/genshin-dialogue-ui/assets/world-locations/statue-mondstadt.webp",
+      "reference_input_at_generation": "extension/genshin-dialogue-ui/assets/world-locations/statue-mondstadt.webp",
+      "archived_reference_input": "../silly-teyvat-data/backups/2026-11-11-statue-backgrounds-before-refresh/statue-mondstadt.webp"
+    },
+    {
+      "region": "liyue",
+      "output": "liyue.png",
+      "statue_source": "https://genshin-impact.fandom.com/wiki/File:Statue_of_The_Seven_Liyue.png",
+      "location_marker": "https://sg-public-api-static.hoyolab.com/common/map_user/ys_obc/v1/map/point/info?point_id=33&map_id=2&app_sn=ys_obc&lang=en-us",
+      "location_source": "https://genshin-impact.fandom.com/wiki/Bishui_Plain",
+      "prompt": "Use case: stylized-concept. Asset: Genshin Impact visual novel location background. Reference image shows the exact in-game liyue Statue of The Seven: preserve its distinctive sculpture, plinth and proportions, as an inanimate stone monument. Scene: Bishui Plain, northern Dihua Marsh, beside the main road north of Stone Gate: shallow waterways with tall golden reeds, green-gray karst hills and a stone road on level ground. Wide 16:9 landscape, human eye height from a walkable surface beside the statue. Place statue to one side, keep usable open foreground for character sprites. Match Genshin Impact's colorful in-game environment aesthetic. Natural daylight. No living characters, animals, HUD, lettering, logos, watermark.",
+      "review_status": "Approved by user",
+      "installed_asset": "extension/genshin-dialogue-ui/assets/world-locations/statue-liyue.webp",
+      "reference_input_at_generation": "extension/genshin-dialogue-ui/assets/world-locations/statue-liyue.webp",
+      "archived_reference_input": "../silly-teyvat-data/backups/2026-11-11-statue-backgrounds-before-refresh/statue-liyue.webp"
+    },
+    {
+      "region": "inazuma",
+      "output": "inazuma.png",
+      "statue_source": "https://genshin-impact.fandom.com/wiki/File:Statue_of_The_Seven_Inazuma.png",
+      "location_marker": "https://sg-public-api-static.hoyolab.com/common/map_user/ys_obc/v1/map/point/info?point_id=12740&map_id=2&app_sn=ys_obc&lang=en-us",
+      "location_source": "https://genshin-impact.fandom.com/wiki/Statue_of_The_Seven",
+      "prompt": "Use case: stylized-concept. Asset: Genshin Impact visual novel location background. Reference image shows the exact in-game inazuma Statue of The Seven: preserve its distinctive sculpture, plinth and proportions, as an inanimate stone monument. Scene: Ritou on Narukami Island, on the road inland from the port: Japanese-inspired wooden buildings and fences, red maple trees, gently sloping path, and glimpses of the sea and harbor. Wide 16:9 landscape, human eye height from a walkable surface beside the statue. Place statue to one side, keep usable open foreground for character sprites. Match Genshin Impact's colorful in-game environment aesthetic. Natural daylight. No living characters, animals, HUD, lettering, logos, watermark.",
+      "review_status": "Approved by user",
+      "installed_asset": "extension/genshin-dialogue-ui/assets/world-locations/statue-inazuma.webp",
+      "reference_input_at_generation": "extension/genshin-dialogue-ui/assets/world-locations/statue-inazuma.webp",
+      "archived_reference_input": "../silly-teyvat-data/backups/2026-11-11-statue-backgrounds-before-refresh/statue-inazuma.webp"
+    },
+    {
+      "region": "sumeru",
+      "output": "sumeru.png",
+      "statue_source": "https://genshin-impact.fandom.com/wiki/File:Statue_of_The_Seven_Sumeru.png",
+      "location_marker": "https://sg-public-api-static.hoyolab.com/common/map_user/ys_obc/v1/map/point/info?point_id=28700&map_id=2&app_sn=ys_obc&lang=en-us",
+      "location_source": "https://genshin-impact.fandom.com/wiki/Mawtiyima_Forest",
+      "prompt": "Use case: stylized-concept. Asset: Genshin Impact visual novel location background. Reference image shows the exact in-game sumeru Statue of The Seven: preserve its distinctive sculpture, plinth and proportions, as an inanimate stone monument. Scene: Lokapala Jungle in Mawtiyima Forest: lush tropical undergrowth, immense blue mushroom canopies, hanging vines, mossy rocks and a forest path. Wide 16:9 landscape, human eye height from a walkable surface beside the statue. Place statue to one side, keep usable open foreground for character sprites. Match Genshin Impact's colorful in-game environment aesthetic. Natural daylight. No living characters, animals, HUD, lettering, logos, watermark.",
+      "review_status": "Approved by user",
+      "installed_asset": "extension/genshin-dialogue-ui/assets/world-locations/statue-sumeru.webp",
+      "reference_input_at_generation": "extension/genshin-dialogue-ui/assets/world-locations/statue-sumeru.webp",
+      "archived_reference_input": "../silly-teyvat-data/backups/2026-11-11-statue-backgrounds-before-refresh/statue-sumeru.webp"
+    },
+    {
+      "region": "fontaine",
+      "output": "fontaine.png",
+      "statue_source": "https://genshin-impact.fandom.com/wiki/File:Statue_of_The_Seven_Fontaine.png",
+      "location_marker": "https://sg-public-api-static.hoyolab.com/common/map_user/ys_obc/v1/map/point/info?point_id=55761&map_id=2&app_sn=ys_obc&lang=en-us",
+      "location_source": "https://www.keengamer.com/articles/guides/genshin-impact-all-erinnyes-forest-shrine-of-depths-locations-new-fontaine-shrines-in-4-2/",
+      "prompt": "Use case: stylized-concept. Asset: Genshin Impact visual novel location background. Reference image shows the exact in-game fontaine Statue of The Seven: preserve its distinctive sculpture, plinth and proportions, as an inanimate stone monument. Scene: Erinnyes Forest east of Marcotte Station: gently rolling grassy terrain, autumn-hued trees and Fontaine wildflowers, a path near Marcotte Station, distant pale cliffs. Wide 16:9 landscape, human eye height from a walkable surface beside the statue. Place statue to one side, keep usable open foreground for character sprites. Match Genshin Impact's colorful in-game environment aesthetic. Natural daylight. No living characters, animals, HUD, lettering, logos, watermark.",
+      "review_status": "Approved by user",
+      "installed_asset": "extension/genshin-dialogue-ui/assets/world-locations/statue-fontaine.webp",
+      "reference_input_at_generation": "extension/genshin-dialogue-ui/assets/world-locations/statue-fontaine.webp",
+      "archived_reference_input": "../silly-teyvat-data/backups/2026-11-11-statue-backgrounds-before-refresh/statue-fontaine.webp"
+    },
+    {
+      "region": "natlan",
+      "output": "natlan.png",
+      "statue_source": "https://genshin-impact.fandom.com/wiki/File:Statue_of_The_Seven_Natlan.png",
+      "location_marker": "https://sg-public-api-static.hoyolab.com/common/map_user/ys_obc/v1/map/point/info?point_id=79542&map_id=2&app_sn=ys_obc&lang=en-us",
+      "location_source": "https://www.icy-veins.com/genshin-impact/quahuacan-cliff",
+      "prompt": "Use case: stylized-concept. Asset: Genshin Impact visual novel location background. Reference image shows the exact in-game natlan Statue of The Seven: preserve its distinctive sculpture, plinth and proportions, as an inanimate stone monument. Scene: Quahuacan Cliff above the Masters of the Night-Wind: elevated but walkable rocky plateau, vivid highland grass, weathered volcanic stone and distant dramatic Natlan cliffs. Wide 16:9 landscape, human eye height from a walkable surface beside the statue. Place statue to one side, keep usable open foreground for character sprites. Match Genshin Impact's colorful in-game environment aesthetic. Natural daylight. No living characters, animals, HUD, lettering, logos, watermark.",
+      "review_status": "Approved by user",
+      "installed_asset": "extension/genshin-dialogue-ui/assets/world-locations/statue-natlan.webp",
+      "reference_input_at_generation": "extension/genshin-dialogue-ui/assets/world-locations/statue-natlan.webp",
+      "archived_reference_input": "../silly-teyvat-data/backups/2026-11-11-statue-backgrounds-before-refresh/statue-natlan.webp"
+    },
+    {
+      "region": "snezhnaya",
+      "output": "snezhnaya.png",
+      "statue_source": "https://genshin-impact.fandom.com/wiki/File:Statue_of_The_Seven_Snezhnaya.png",
+      "location_marker": "https://sg-public-api-static.hoyolab.com/common/map_user/ys_obc/v1/map/point/info?point_id=100644&map_id=2&app_sn=ys_obc&lang=en-us",
+      "location_source": "https://allthings.how/genshin-impact-7-0-where-to-find-all-five-snezhnaya-statues-of-the-seven/",
+      "prompt": "Use case: stylized-concept. Asset: Genshin Impact visual novel location background. Reference image shows the exact in-game snezhnaya Statue of The Seven: preserve its distinctive sculpture, plinth and proportions, as an inanimate stone monument. Scene: Snezhnograd between the city and Central Station: snow-covered pedestrian path, snowy fir trees, wintry Russian-inspired city architecture and railway station in the distance. Wide 16:9 landscape, human eye height from a walkable surface beside the statue. Place statue to one side, keep usable open foreground for character sprites. Match Genshin Impact's colorful in-game environment aesthetic. Natural daylight. No living characters, animals, HUD, lettering, logos, watermark.",
+      "review_status": "Approved by user",
+      "installed_asset": "extension/genshin-dialogue-ui/assets/world-locations/statue-snezhnaya.webp",
+      "reference_input_at_generation": "extension/genshin-dialogue-ui/assets/world-locations/statue-snezhnaya.webp",
+      "archived_reference_input": "../silly-teyvat-data/backups/2026-11-11-statue-backgrounds-before-refresh/statue-snezhnaya.webp"
+    }
+  ]
+}

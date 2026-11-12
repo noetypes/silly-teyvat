@@ -323,14 +323,20 @@ dialog#gi-world-map#gi-world-map[open][data-enter="minimap"] { animation: gi-map
 #gi-world-map:not(.gi-map-near) .gi-waypoint .gi-waypoint-badges { opacity: 0; scale: .6; visibility: hidden; transition: opacity 180ms ease, scale 180ms ease, visibility 0s 180ms; }
 .gi-waypoint-badge { display: block; width: 17px; height: 17px; box-sizing: border-box; padding: 2px; object-fit: contain; border-radius: 50%; background: #1b2232e6; box-shadow: 0 0 0 1px #d3bc8ecc, 0 1px 3px #000a; }
 .gi-waypoint-badge[data-badge="wilderness"], .gi-waypoint-badge[data-badge="boss"] { padding: 0; }
-.gi-waypoint-badge[data-badge="boss"] { box-shadow: 0 0 0 1px #f0a36b, 0 0 5px #e0703acc; }
-/* A boss's own icon is a square portrait: it fills the round badge, a little larger than the emblems. */
-.gi-waypoint-badge[data-boss-icon] { width: 20px; height: 20px; object-fit: cover; background: #2a2030; }
+/* A boss badge stands on a glowing crimson diamond, unlike the round gold-rimmed wilderness and people badges. */
+.gi-waypoint-boss { position: relative; display: grid; place-items: center; width: 26px; height: 26px; margin: -2px -4px -1px 0; }
+.gi-waypoint-boss::before { content: ""; position: absolute; inset: 4px; rotate: 45deg; border-radius: 3px; background: linear-gradient(135deg, #ffb27a, #d8342e 55%, #7a0f22); box-shadow: 0 0 0 1px #2a0a10, 0 0 7px #ff4a3acc; animation: gi-boss-glow 2.4s ease-in-out infinite; }
+@keyframes gi-boss-glow { 50% { box-shadow: 0 0 0 1px #2a0a10, 0 0 11px #ff5a3aee; } }
+@media (prefers-reduced-motion: reduce) { .gi-waypoint-boss::before { animation: none; } }
+.gi-waypoint-boss .gi-waypoint-badge[data-badge="boss"] { position: relative; width: 15px; height: 15px; background: #2a1018; box-shadow: 0 0 0 1px #ffd7a8, 0 1px 3px #000c; }
+/* A boss's own icon is a square portrait: it fills the round badge. */
+.gi-waypoint-badge[data-boss-icon] { object-fit: cover; }
 .gi-waypoint-badge[data-enemy-icon] { object-fit: cover; background: #2a2a34; }
-#gi-world-map .gi-map-waypoint-list .gi-waypoint-badge[data-boss-icon] { width: 20px; height: 20px; }
 #gi-world-map .gi-map-waypoint-list button:has(.gi-map-list-badges) { grid-template-columns: 22px minmax(0, 1fr) auto; }
 #gi-world-map .gi-map-waypoint-list .gi-map-list-badges, #gi-world-map .gi-map-waypoint-list .gi-map-list-badges .gi-waypoint-badges { position: static; display: flex; flex-direction: row; gap: 3px; }
 #gi-world-map .gi-map-waypoint-list .gi-waypoint-badge { width: 18px; height: 18px; }
+#gi-world-map .gi-map-waypoint-list .gi-waypoint-boss .gi-waypoint-badge { width: 15px; height: 15px; }
+#gi-world-map .gi-map-waypoint-list .gi-waypoint-boss { margin: -4px -2px; }
 .gi-map-player { background: none !important; border: 0 !important; pointer-events: none !important; }
 .gi-map-player svg { position: absolute; inset: 5px; width: 20px; height: 20px; fill: #fff; stroke: #2a74b8; stroke-width: 1.4; stroke-linejoin: round; filter: drop-shadow(0 0 4px #4ecbff) drop-shadow(0 1px 2px #000a); }
 .gi-map-player-pulse { position: absolute; inset: 0; border-radius: 50%; border: 2px solid #7fd6ff; animation: gi-pulse 2.2s ease-out infinite; }

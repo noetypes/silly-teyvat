@@ -1,0 +1,28 @@
+{
+  "method": "Reference alpha resized to each card; existing alpha and all RGB values preserved. Near-black partially transparent edge fringe cleared.",
+  "reference": "/Users/alexachan/Documents/Codex/silly-teyvat/extension/genshin-dialogue-ui/assets/tcg/characters/Tartaglia.webp",
+  "reference_sha256": "72343ecb836a0c2015dae0b4bf990c8caf5dcecd1dbc66b308d7bd88c414b3e2",
+  "cards": [
+    {
+      "name": "Nicole",
+      "source": "art/tcg/2026-11-11-ten-character-cards/retry-v3/raw/Nicole.png",
+      "output": "Nicole.png",
+      "source_sha256": "91eaef47e2178725887b46193d6d871a26a90c6d5f2a5c3a4a83aac67425b7bd",
+      "output_sha256": "227a74efe9a4a3f9a7ef60b1fd0901684cbd345aa66e994483d7c8d8325fac8b"
+    },
+    {
+      "name": "Odette",
+      "source": "art/tcg/2026-11-11-ten-character-cards/retry-v3/raw/Odette.png",
+      "output": "Odette.png",
+      "source_sha256": "69cd7597af932d3d34c63b84cf95c1cb7a57139fefa989c4d1b80323e486842b",
+      "output_sha256": "86ab0907babe4bd1c281be7295a372be2df716d60e2101b1070bcbb2dbbf0c9e"
+    },
+    {
+      "name": "Vodyanitsa",
+      "source": "art/tcg/2026-11-11-ten-character-cards/retry-v3/raw/Vodyanitsa.png",
+      "output": "Vodyanitsa.png",
+      "source_sha256": "8762705ec439162eab64e54155ab4822ab046ffeac0c4ad43838b11b2c96e50c",
+      "output_sha256": "abccbe258e976570b422bcfeba56313d12893289da2b466e5875371663a3a9d1"
+    }
+  ]
+}

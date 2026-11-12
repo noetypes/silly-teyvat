@@ -55,7 +55,7 @@ Expressions use SillyTavern's **Character Expressions** classifier settings. Cha
 - **Teleport** to any waypoint, from the map or from the **Teyvat** tab of SillyTavern's Backgrounds menu, which shows every location picture. Travel is recorded in the chat with real distances, and a classifier follows the party when the story moves somewhere within the current region.
 - Characters live at the places they belong to, and you meet some of them when you arrive. When you leave, you choose who travels with you. Favourites are always there, and anyone left behind waits for you.
 - Wilderness waypoints have regional enemy pools, and **20 boss arenas** each hold one boss with its own music.
-- Every region has a **Statue of The Seven**, marked with the statue's own map icon (Nod-Krai's is a Statue of the New Moon). Arrive with Aether or Lumine in your party, or while playing one of them, to resonate with the region's element.
+- Every region has a **Statue of The Seven**, marked with the statue's own map icon (Nod-Krai's is a Statue of the New Moon). Arriving at one restores your party's HP. Arrive with Aether or Lumine in your party, or while playing one of them, to resonate with the region's element. Starfell Lake is a statue too, and the waypoint editor can make any waypoint one.
 - You can add, move and edit waypoints, set exploration and battle playlists per place, and adjust encounter chances.
 - The model is told the current location and the distances and directions to other places, so travel times stay believable.
 

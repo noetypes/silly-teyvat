@@ -1,0 +1,563 @@
+{
+  "review_status": "Expression candidates awaiting user review; neutrals approved.",
+  "sheet_order": [
+    "neutral",
+    "annoyance",
+    "smug",
+    "confusion",
+    "love",
+    "excitement",
+    "joy",
+    "fear",
+    "pride",
+    "desire",
+    "anger",
+    "grief",
+    "sadness",
+    "disgust",
+    "disappointment",
+    "relief",
+    "admiration",
+    "gratitude",
+    "embarrassment",
+    "caring",
+    "love-1",
+    "desire-1"
+  ],
+  "characters": {
+    "Lumine": {
+      "neutral": {
+        "sha256": "96cd8ef884c94d0fe312ca2de6d9329d5efd83d82e51e740015911630f3a54e5",
+        "dimensions": [
+          1017,
+          1546
+        ],
+        "alpha": true
+      },
+      "annoyance": {
+        "sha256": "0c8aac7509005c63bc3115de3d8598736eb080daa260358c2185e33c693d02ea",
+        "dimensions": [
+          1017,
+          1546
+        ],
+        "alpha": true
+      },
+      "smug": {
+        "sha256": "6a4a581a39f47f9915bf31ae855b1bc49f0c801544da3dce6ce38f7d4ab8b6d4",
+        "dimensions": [
+          1017,
+          1546
+        ],
+        "alpha": true
+      },
+      "confusion": {
+        "sha256": "f8f81fb0daf82ae64550f2d2b9324f303002d53e4157029745224715d429adc2",
+        "dimensions": [
+          1017,
+          1547
+        ],
+        "alpha": true
+      },
+      "love": {
+        "sha256": "acc89dd6c6ec907eb5b27fbbd897a3d56d77a4ee4ff3cd68ad08b7b58adbecd6",
+        "dimensions": [
+          1017,
+          1546
+        ],
+        "alpha": true
+      },
+      "excitement": {
+        "sha256": "8ef77bdcaf356954cc8332c3ccf17973defc2d8d55701f6df6bb3032295d6959",
+        "dimensions": [
+          1017,
+          1546
+        ],
+        "alpha": true
+      },
+      "joy": {
+        "sha256": "d5e0ff3d60281d7fa7585cea5d4957ff4ddc7d7c584453577f772f11268f4512",
+        "dimensions": [
+          1017,
+          1546
+        ],
+        "alpha": true
+      },
+      "fear": {
+        "sha256": "407d62d412f4e15a444f1010542c17d977524375286ada1421f287150b98e5b2",
+        "dimensions": [
+          1017,
+          1546
+        ],
+        "alpha": true
+      },
+      "pride": {
+        "sha256": "e6e1cbc82e44bbad6eaeaf86ac251913af6f803b1150a08ef02649b6c1094c4d",
+        "dimensions": [
+          1017,
+          1546
+        ],
+        "alpha": true
+      },
+      "desire": {
+        "sha256": "4faa4b624d54cb623e70dca7cf5df26bfceeeb86cf9eaa914d1ff8c247dddc08",
+        "dimensions": [
+          1017,
+          1546
+        ],
+        "alpha": true
+      },
+      "anger": {
+        "sha256": "f5f5d2c9fd523b7138dabfc1e35358d71e0e4ca13ce563b7b59393b71dfe949a",
+        "dimensions": [
+          1017,
+          1546
+        ],
+        "alpha": true
+      },
+      "grief": {
+        "sha256": "78a4c5fa86a3a3da395b1d1ce4682e3e34e1042727c55b11cf640a4686e8597f",
+        "dimensions": [
+          1017,
+          1546
+        ],
+        "alpha": true
+      },
+      "sadness": {
+        "sha256": "108c8586c13b2dfc14b6bb6d203ebf15a6d48692ec1161745e01cf7f16abed58",
+        "dimensions": [
+          1017,
+          1547
+        ],
+        "alpha": true
+      },
+      "disgust": {
+        "sha256": "6772ea8a3b21baaf32f86c9a79eb04a3bb5ac01321309c6ae721dfa5230d87b4",
+        "dimensions": [
+          1017,
+          1546
+        ],
+        "alpha": true
+      },
+      "disappointment": {
+        "sha256": "7b0fdec2787670c682536d1e3ddf1c6bf97cfe6402bd05b5ec22c2b03d2d72c4",
+        "dimensions": [
+          1017,
+          1546
+        ],
+        "alpha": true
+      },
+      "relief": {
+        "sha256": "bb5815013ea8bc68222dab3995b18f43ddb0d28bf6e064cb1b344af00c3ff736",
+        "dimensions": [
+          1017,
+          1546
+        ],
+        "alpha": true
+      },
+      "admiration": {
+        "sha256": "cf7bed292d969273864a765b3c72a38a35c4012fc0a08760d8ed870209ef179e",
+        "dimensions": [
+          1017,
+          1546
+        ],
+        "alpha": true
+      },
+      "gratitude": {
+        "sha256": "a90ed44e652baa4eb7ac5b561a2647b3080bf12157ef07b3729316df99173260",
+        "dimensions": [
+          1017,
+          1546
+        ],
+        "alpha": true
+      },
+      "embarrassment": {
+        "sha256": "6be76b734710ee374485f2eddcf4724e00b585e722b7e3e23892f118916ffb33",
+        "dimensions": [
+          1017,
+          1546
+        ],
+        "alpha": true
+      },
+      "caring": {
+        "sha256": "1572f5eae84845cac49ff65ce0abd375d3f0cd01a6184129edea3cdbadf45522",
+        "dimensions": [
+          1017,
+          1546
+        ],
+        "alpha": true
+      },
+      "love-1": {
+        "sha256": "f776d8764d8729c7e139c618451cd564abec42596f90c9103ec8c076e67e5a74",
+        "dimensions": [
+          1017,
+          1546
+        ],
+        "alpha": true
+      },
+      "desire-1": {
+        "sha256": "aad3c4e016c2b8202f6b1bd540d20e9c7fc91633f351d1fd62f769485f0c1446",
+        "dimensions": [
+          1017,
+          1546
+        ],
+        "alpha": true
+      }
+    },
+    "Diluc": {
+      "neutral": {
+        "sha256": "1a8596a0b94ffd2e1345948efca56af2623efeed5b4a90aea5c34a39689b749f",
+        "dimensions": [
+          825,
+          1907
+        ],
+        "alpha": true
+      },
+      "annoyance": {
+        "sha256": "b23509148e37b197c70d468336d675bf20e499482d3aeb4af2e1d1f6bb9ce54e",
+        "dimensions": [
+          824,
+          1908
+        ],
+        "alpha": true
+      },
+      "smug": {
+        "sha256": "a1753cfbe7986b1a66e3a5575be4145d328207c6fcf64550418f4829ab962dc9",
+        "dimensions": [
+          824,
+          1908
+        ],
+        "alpha": true
+      },
+      "confusion": {
+        "sha256": "e35fb62c181ed4d9b98053e560d7251e63e8f042d27f5f476379cfe2d6d9a360",
+        "dimensions": [
+          824,
+          1908
+        ],
+        "alpha": true
+      },
+      "love": {
+        "sha256": "886e3daa8a2b46c9853006dec8973406ca993fea596c3fd1d42143b91978df03",
+        "dimensions": [
+          824,
+          1908
+        ],
+        "alpha": true
+      },
+      "excitement": {
+        "sha256": "7162141ceff12481f73f8a97bde16a6578e47153b51a2bbc0307bcfcca9ab92f",
+        "dimensions": [
+          824,
+          1908
+        ],
+        "alpha": true
+      },
+      "joy": {
+        "sha256": "ec619976987c96aae5032d6f1c7a2cea40d54728b5720da88536db627df2ef6d",
+        "dimensions": [
+          824,
+          1908
+        ],
+        "alpha": true
+      },
+      "fear": {
+        "sha256": "f51d60f94dcfe5215c7bd464e9433e4e69604cc360ff857decb0f803441387b1",
+        "dimensions": [
+          824,
+          1908
+        ],
+        "alpha": true
+      },
+      "pride": {
+        "sha256": "036f6d47f640e37f3f5ac9f85f4c2973a95e695f402b81f4fd2608d8f3693084",
+        "dimensions": [
+          824,
+          1908
+        ],
+        "alpha": true
+      },
+      "desire": {
+        "sha256": "e77b4da70e03ca914917461328ab6eb41b597a1caf1ec337130f72d2cb083a65",
+        "dimensions": [
+          824,
+          1908
+        ],
+        "alpha": true
+      },
+      "anger": {
+        "sha256": "055ca09f69c72357672ded86434ebe3e7b7e0ca1d36fa2169449b12044a16ddc",
+        "dimensions": [
+          824,
+          1908
+        ],
+        "alpha": true
+      },
+      "grief": {
+        "sha256": "31239569bec4a28ca63cad509bac0d07f1bfeae57ad2285472ece35f692f2fb9",
+        "dimensions": [
+          824,
+          1908
+        ],
+        "alpha": true
+      },
+      "sadness": {
+        "sha256": "2e3aa91449947fb7ab4e759a36cb9e5a6a68c7ebc5c04fb2175d15ccb7edecd0",
+        "dimensions": [
+          824,
+          1908
+        ],
+        "alpha": true
+      },
+      "disgust": {
+        "sha256": "7652845adac71e6459c917cf0e08a0bd0309253331cfb2218e616ef31ca7ae02",
+        "dimensions": [
+          824,
+          1908
+        ],
+        "alpha": true
+      },
+      "disappointment": {
+        "sha256": "1a071f3fbd3edf89dd08b4bfbbc570d0cd1e67f8a3ef2a44e3905ad3e5907ce0",
+        "dimensions": [
+          824,
+          1908
+        ],
+        "alpha": true
+      },
+      "relief": {
+        "sha256": "beb2c063911806ea5415ee60382c04acc35567af98297fd6e9f502d76801f4e0",
+        "dimensions": [
+          824,
+          1908
+        ],
+        "alpha": true
+      },
+      "admiration": {
+        "sha256": "a57a557b43a2d05738f6b7ba0a14e868838d0363573cbf2253d519d630185c17",
+        "dimensions": [
+          824,
+          1908
+        ],
+        "alpha": true
+      },
+      "gratitude": {
+        "sha256": "56072458535f02d63d84bff1041d1605df11b53b5bd852eee87ae952b7bc9d27",
+        "dimensions": [
+          824,
+          1908
+        ],
+        "alpha": true
+      },
+      "embarrassment": {
+        "sha256": "b63c0dd625ed3a09340e5dc3e8c296a2cf759bc2407989adda3d035d0e305c4d",
+        "dimensions": [
+          824,
+          1908
+        ],
+        "alpha": true
+      },
+      "caring": {
+        "sha256": "a8e7d3d0a91e8a23094ee13d2e7f5b48b72a43b00f5530214bbc3fa377767527",
+        "dimensions": [
+          824,
+          1908
+        ],
+        "alpha": true
+      },
+      "love-1": {
+        "sha256": "3187fd517ef71dc90004ada91f4df5cbff3aa7b7e277c46f3b98120a9c845926",
+        "dimensions": [
+          824,
+          1908
+        ],
+        "alpha": true
+      },
+      "desire-1": {
+        "sha256": "2c9506b027b4ca727a3eb6b2e85e977f05adebed73cace577b0154fcc1c18471",
+        "dimensions": [
+          824,
+          1908
+        ],
+        "alpha": true
+      }
+    },
+    "Iansan": {
+      "neutral": {
+        "sha256": "ffe30a7385cff25aed68a9048340f79df0cfdf9848abfeb8443776439a7a90bc",
+        "dimensions": [
+          935,
+          1683
+        ],
+        "alpha": true
+      },
+      "annoyance": {
+        "sha256": "d0f631a9b82852131e0cfd73b7a6f8bd3b59f4023ebedfa41519b8f8ea215ece",
+        "dimensions": [
+          935,
+          1683
+        ],
+        "alpha": true
+      },
+      "smug": {
+        "sha256": "d38c94a909b27e65001d99bc1ee75593e30b0c289d7ebb2d07763d47cad6c778",
+        "dimensions": [
+          935,
+          1683
+        ],
+        "alpha": true
+      },
+      "confusion": {
+        "sha256": "f6bf4a40bc98426926d2fb6121a42c1c66a95e4b2e2b57e13d9996ae620b725e",
+        "dimensions": [
+          935,
+          1683
+        ],
+        "alpha": true
+      },
+      "love": {
+        "sha256": "f6cc0a399c286db89b074f415f39719d3c483db07f194872611ae5201b1a2048",
+        "dimensions": [
+          935,
+          1683
+        ],
+        "alpha": true
+      },
+      "excitement": {
+        "sha256": "a2195affc6c064ec225b878ce96e369e5e420b244290d2127223b368715590bf",
+        "dimensions": [
+          935,
+          1683
+        ],
+        "alpha": true
+      },
+      "joy": {
+        "sha256": "ed456e5d84bf25d6c1f92a717b18a44bb96db42ca7611b6578e6c3f990937c02",
+        "dimensions": [
+          935,
+          1683
+        ],
+        "alpha": true
+      },
+      "fear": {
+        "sha256": "889bdfa4f68cf8a894e814832dea071d12c6eaf9c252a00641093a9a445d0aea",
+        "dimensions": [
+          935,
+          1683
+        ],
+        "alpha": true
+      },
+      "pride": {
+        "sha256": "195a1cea2572553de707980c2d526d785a9bff716cf82e3e66c3beb458a58f35",
+        "dimensions": [
+          935,
+          1683
+        ],
+        "alpha": true
+      },
+      "desire": {
+        "sha256": "c7dd5c6821999e7836abd3ba22772c894b89793c567d15b7e488cc4bf882f114",
+        "dimensions": [
+          935,
+          1683
+        ],
+        "alpha": true
+      },
+      "anger": {
+        "sha256": "c461ffc5bb05cd368c5c2cea8723ed23cfc58fdb8daa026b39a5d557681880f0",
+        "dimensions": [
+          935,
+          1683
+        ],
+        "alpha": true
+      },
+      "grief": {
+        "sha256": "f321e131dbfa7f6467eab87a33bb679182c88c1770c7277ef5deff20c2a2ea85",
+        "dimensions": [
+          935,
+          1683
+        ],
+        "alpha": true
+      },
+      "sadness": {
+        "sha256": "e11e2880432d17ecf4bec05f3feab6a923a840e3e558a2a6b24f0726a3d0c1c3",
+        "dimensions": [
+          935,
+          1683
+        ],
+        "alpha": true
+      },
+      "disgust": {
+        "sha256": "75e975b960b4e02a02f469109c61eaff0c12c09e1982ad90fea790a09cd6db3b",
+        "dimensions": [
+          935,
+          1683
+        ],
+        "alpha": true
+      },
+      "disappointment": {
+        "sha256": "b133df4a3608ae36a3a39929f92f8bbeaf7799b5b318897c8e86b6bbf07cad75",
+        "dimensions": [
+          935,
+          1683
+        ],
+        "alpha": true
+      },
+      "relief": {
+        "sha256": "b6c279fbeb1b2700c36e6f6055bbb8a7031a3b823ecb38a0ec3f1c9e7f8bdbd9",
+        "dimensions": [
+          935,
+          1683
+        ],
+        "alpha": true
+      },
+      "admiration": {
+        "sha256": "94c42e09f87f06be585c06f8443f29d1368254c33ef37e1b82fe80c91dd0724a",
+        "dimensions": [
+          935,
+          1683
+        ],
+        "alpha": true
+      },
+      "gratitude": {
+        "sha256": "d803cdf73e75b9e234f6e3cac0344f93d85e01847912e80ec3079d0cde62ce9c",
+        "dimensions": [
+          935,
+          1683
+        ],
+        "alpha": true
+      },
+      "embarrassment": {
+        "sha256": "8d9a68a3da0e7bcc26d96861b80cfa13393c183977f9d78a0795a3d874fac190",
+        "dimensions": [
+          933,
+          1686
+        ],
+        "alpha": true
+      },
+      "caring": {
+        "sha256": "f48117bd3a7495465e59635203881a0131a468143d974c9995c8bcac4d57a028",
+        "dimensions": [
+          935,
+          1683
+        ],
+        "alpha": true
+      },
+      "love-1": {
+        "sha256": "3ac469239dfd064ffb563675c31be77a22f22d078e2b984490fa85ef7215b8c4",
+        "dimensions": [
+          935,
+          1683
+        ],
+        "alpha": true
+      },
+      "desire-1": {
+        "sha256": "d8a58a139a2bb9ae06b01556f0f1fa9afc46d6a7163acfa3ec03d4458d2d2d78",
+        "dimensions": [
+          939,
+          1676
+        ],
+        "alpha": true
+      }
+    }
+  }
+}

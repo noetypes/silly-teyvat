@@ -46,5 +46,6 @@ export const badgeLabels=(badges,boss='',enemy='')=>badges.map(b=>b==='boss'&&bo
 export function badgeMarkup(badges,boss='',enemy=''){
     if(!badges.length)return '';
     const face=b=>b==='boss'&&boss&&characterIcon(boss) || b==='wilderness'&&enemy&&characterIcon(enemy) || '';
-    return `<span class="gi-waypoint-badges" aria-hidden="true">${badges.map(b=>{const own=face(b);return `<img class="gi-waypoint-badge" data-badge="${b}"${own?(b==='boss'?' data-boss-icon="true"':' data-enemy-icon="true"'):''} src="${own || WAYPOINT_BADGES[b].icon}" alt="" draggable="false">`;}).join('')}</span>`;
+    // A boss badge sits on a crimson diamond so boss arenas stand apart from ordinary wilderness at a glance.
+    return `<span class="gi-waypoint-badges" aria-hidden="true">${badges.map(b=>{const own=face(b),img=`<img class="gi-waypoint-badge" data-badge="${b}"${own?(b==='boss'?' data-boss-icon="true"':' data-enemy-icon="true"'):''} src="${own || WAYPOINT_BADGES[b].icon}" alt="" draggable="false">`;return b==='boss'?`<span class="gi-waypoint-boss">${img}</span>`:img;}).join('')}</span>`;
 }

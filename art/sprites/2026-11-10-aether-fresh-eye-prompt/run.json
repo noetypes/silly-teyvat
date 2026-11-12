@@ -1,0 +1,45 @@
+{
+  "request": "Regenerate one more from just the model and official art with no eye reference, but change the eye prompt.",
+  "method": "built-in image_gen, one asset per call",
+  "characters": {
+    "Aether": {
+      "references": [
+        {
+          "role": "official portrait: identity, costume and illustration style",
+          "source": "art/sprites/2026-11-10-aether-forward-gaze/references/Aether/official.png",
+          "copy": "art/sprites/2026-11-10-aether-fresh-eye-prompt/references/Aether/official.png",
+          "sha256": "670d3ba12f047f5e86315ac299a41fff2f410d9578d8224da4ae76c116175458"
+        },
+        {
+          "role": "user-provided in-game model: face, eyes and costume",
+          "source": "art/sprites/2026-11-10-aether-forward-gaze/references/Aether/model.png",
+          "copy": "art/sprites/2026-11-10-aether-fresh-eye-prompt/references/Aether/model.png",
+          "sha256": "0c0a379944c47543b045ac30e13fd1c4225a1dc466e57682a04b49bbc05ef872"
+        }
+      ],
+      "approval": "pending",
+      "status": "generated; awaiting user review",
+      "prompt": "prompts/Aether/neutral-v001.txt",
+      "tool": "image_gen.imagegen",
+      "tool_arguments": {
+        "prompt": "Use case: stylized-concept. Create a fresh full-body neutral visual-novel sprite of Aether from Genshin Impact using only the two supplied references. Image 1 is his official portrait, guiding identity, costume and polished anime illustration style. Image 2 is his in-game model, guiding his facial features, eye design, skin tone, hair, outfit, accessories and colors. Faithfully preserve these details, translating the model into the illustrated style of the official portrait. Petite Medium Male proportions. Stand in a relaxed three-quarter body angle with a gentle weight shift, right hand resting naturally on his hip and left arm lowered, hand relaxed at his side. His face is oriented toward the viewer and his eyes meet the viewer directly. Reproduce the model\u2019s natural golden eye design with clear, clean anime linework, balanced placement and matching gaze, keeping the irises and pupils distinct and unobstructed. Give him a calm resting expression with relaxed brows and a closed, level mouth. Hair and clothing hang naturally. Each hand has a palm, four fingers and a separate opposable thumb with natural articulation, without forcing hidden digits into view. Exactly two legs and two feet belonging to one pelvis, feet comfortably separated. No weapon. Full silhouette including hair, accessories, hands and shoes visible with approximately 2\u20134% top and bottom padding. Polished anime game artwork on a genuinely transparent background. No scenery, UI, labels, watermark, companions, floating effects or ground shadow.",
+        "referenced_image_paths": [
+          "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-10-aether-fresh-eye-prompt/references/Aether/official.png",
+          "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-10-aether-fresh-eye-prompt/references/Aether/model.png"
+        ],
+        "transparent_background": true
+      },
+      "returned_original": "/Users/alexachan/.codex/generated_images/01a1c7c8-1e02-7d01-aae2-3bd5084bd899/exec-ae45268c-f8f4-438e-ab91-929c6734e794.png",
+      "raw": "raw/Aether/neutral-v001.png",
+      "candidate": "candidates/Aether/neutral-v001.png",
+      "sha256": "c14019a76ce6a7d94f0b82cf6d0a45114f44508de1801984dd34edd358e442d3",
+      "format": "PNG",
+      "color_type": 6,
+      "dimensions": [
+        965,
+        1629
+      ],
+      "framing_transform": "none"
+    }
+  }
+}

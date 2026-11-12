@@ -1,0 +1,45 @@
+{
+  "tool": "built-in image_gen.imagegen",
+  "cards": [
+    {
+      "name": "Aloy",
+      "ref": "Ganyu",
+      "prompt": "Use case: stylized-concept. Generate a fresh, distinct unofficial vertical Genius Invokation TCG character card illustration for Aloy from Genshin Impact. Image 1 is the official character splash art and is authoritative for character identity, facial features, hairstyle, colors, exact clothing, accessories, body proportions and details; carefully match it. Image 2 is the genuine Ganyu TCG card, a style, framing and overall composition reference only; do not depict Ganyu or borrow their identity or outfit. Reimagine her in a confident standing three-quarter hunter pose, holding her intricate bow at rest, with braided red hair and her layered tribal-tech armor, blue lacing and fur exactly as the official reference. Snowy wilderness and subtle icy shapes frame her, with face and outfit clearly visible. Create a polished Genshin-style anime illustration with a complete slim ornate card frame, intentional attractive composition, legible face and natural anatomy. No title, text, labels, watermark or other characters.",
+      "official_reference": "extension/genshin-dialogue-ui/assets/splash/Aloy.webp",
+      "tcg_reference": "extension/genshin-dialogue-ui/assets/tcg/characters/Ganyu.webp",
+      "raw": "art/tcg/2026-11-11-ten-character-cards/retry/raw/Aloy.png"
+    },
+    {
+      "name": "Lohen",
+      "ref": "Albedo",
+      "prompt": "Use case: stylized-concept. Generate a fresh, distinct unofficial vertical Genius Invokation TCG character card illustration for Lohen from Genshin Impact. Image 1 is the official character splash art and is authoritative for character identity, facial features, hairstyle, colors, exact clothing, accessories, body proportions and details; carefully match it. Image 2 is the genuine Albedo TCG card, a style, framing and overall composition reference only; do not depict Albedo or borrow their identity or outfit. Reimagine his characteristic teal hair, intricate black-white-blue knightly clothing and spear accurately from the official art. Give him a dynamic but readable three-quarter pose with his spear, amid dark ice and blue-white crystalline accents, without obscuring his face or clothes. Create a polished Genshin-style anime illustration with a complete slim ornate card frame, intentional attractive composition, legible face and natural anatomy. No title, text, labels, watermark or other characters.",
+      "official_reference": "extension/genshin-dialogue-ui/assets/splash/Lohen.webp",
+      "tcg_reference": "extension/genshin-dialogue-ui/assets/tcg/characters/Albedo.webp",
+      "raw": "art/tcg/2026-11-11-ten-character-cards/retry/raw/Lohen.png"
+    },
+    {
+      "name": "Nicole",
+      "ref": "Mona",
+      "prompt": "Use case: stylized-concept. Generate a fresh, distinct unofficial vertical Genius Invokation TCG character card illustration for Nicole from Genshin Impact. Image 1 is the official character splash art and is authoritative for character identity, facial features, hairstyle, colors, exact clothing, accessories, body proportions and details; carefully match it. Image 2 is the genuine Mona TCG card, a style, framing and overall composition reference only; do not depict Mona or borrow their identity or outfit. Reimagine her exact blonde hair, blue-and-white outfit and distinctive accessories from the official art. Give her a confident upright three-quarter pose, her face clearly visible, with elegant luminous golden and blue cosmic motifs framing her. Create a polished Genshin-style anime illustration with a complete slim ornate card frame, intentional attractive composition, legible face and natural anatomy. No title, text, labels, watermark or other characters.",
+      "official_reference": "extension/genshin-dialogue-ui/assets/splash/Nicole.webp",
+      "tcg_reference": "extension/genshin-dialogue-ui/assets/tcg/characters/Mona.webp",
+      "raw": "art/tcg/2026-11-11-ten-character-cards/retry/raw/Nicole.png"
+    },
+    {
+      "name": "Odette",
+      "ref": "Furina",
+      "prompt": "Use case: stylized-concept. Generate a fresh, distinct unofficial vertical Genius Invokation TCG character card illustration for Odette from Genshin Impact. Image 1 is the official character splash art and is authoritative for character identity, facial features, hairstyle, colors, exact clothing, accessories, body proportions and details; carefully match it. Image 2 is the genuine Furina TCG card, a style, framing and overall composition reference only; do not depict Furina or borrow their identity or outfit. Reimagine her exact blue and white ballerina costume, hair, headdress and decorative details from the official art. Give her a poised ballet stance with a sweeping dark-blue swan-wing silhouette and delicate frost motifs framing her. Create a polished Genshin-style anime illustration with a complete slim ornate card frame, intentional attractive composition, legible face and natural anatomy. No title, text, labels, watermark or other characters.",
+      "official_reference": "extension/genshin-dialogue-ui/assets/splash/Odette.webp",
+      "tcg_reference": "extension/genshin-dialogue-ui/assets/tcg/characters/Furina.webp",
+      "raw": "art/tcg/2026-11-11-ten-character-cards/retry/raw/Odette.png"
+    },
+    {
+      "name": "Vodyanitsa",
+      "ref": "Sangonomiya Kokomi",
+      "prompt": "Use case: stylized-concept. Generate a fresh, distinct unofficial vertical Genius Invokation TCG character card illustration for Vodyanitsa from Genshin Impact. Image 1 is the official character splash art and is authoritative for character identity, facial features, hairstyle, colors, exact clothing, accessories, body proportions and details; carefully match it. Image 2 is the genuine Sangonomiya Kokomi TCG card, a style, framing and overall composition reference only; do not depict Sangonomiya Kokomi or borrow their identity or outfit. Reimagine her exact long teal hair, face, attire and aquatic features from the official art. Show her upright in a graceful flowing gesture, her face and torso clearly visible, with an elegant translucent water ribbon and music-like motifs framing her. Create a polished Genshin-style anime illustration with a complete slim ornate card frame, intentional attractive composition, legible face and natural anatomy. No title, text, labels, watermark or other characters.",
+      "official_reference": "extension/genshin-dialogue-ui/assets/splash/Vodyanitsa.webp",
+      "tcg_reference": "extension/genshin-dialogue-ui/assets/tcg/characters/Sangonomiya Kokomi.webp",
+      "raw": "art/tcg/2026-11-11-ten-character-cards/retry/raw/Vodyanitsa.png"
+    }
+  ]
+}

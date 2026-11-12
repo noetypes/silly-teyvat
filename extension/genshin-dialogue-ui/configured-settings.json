@@ -8434,7 +8434,36 @@
    "Columbina/excitement": [],
    "Columbina/fear": [],
    "Columbina/confusion": [],
-   "Columbina/disgust": []
+   "Columbina/disgust": [],
+   "Xavier/neutral": [],
+   "Wooden Shieldwall Mitachurl/neutral": [],
+   "Whistle/neutral": [],
+   "Vodyanitsa/neutral": [],
+   "Virda/neutral": [],
+   "Vesna/neutral": [],
+   "Valdis/neutral": [],
+   "Tzompantli/neutral": [],
+   "Tonia/neutral": [],
+   "Tlapalli/neutral": [],
+   "Tisoc/neutral": [],
+   "Tiepolo/neutral": [],
+   "Teucer/neutral": [],
+   "Tetreaux/neutral": [],
+   "Taroumaru/neutral": [],
+   "Shajar/neutral": [],
+   "Sedile/neutral": [],
+   "Rene/neutral": [],
+   "Plate/neutral": [],
+   "Pitot/neutral": [],
+   "Kairagi: Dancing Thunder/neutral": [],
+   "Jeht/neutral": [],
+   "Jakob/neutral": [],
+   "Hydro Hilichurl Rogue/neutral": [],
+   "Frost Operative/neutral": [],
+   "Fatui Electro Cicin Mage/neutral": [],
+   "Eveliina/neutral": [],
+   "Barbara/sadness": [],
+   "Barbara/smug": []
   },
   "characterCGs": {
    "Klee.png": [
@@ -8716,18 +8745,6 @@
    ],
    "Diluc.png": [
     {
-     "id": "teyvat-mw31bkmo-2r-coxmvqtr",
-     "starter": "birthday-diluc-2020",
-     "label": "Dawn Winery Toast",
-     "description": "Diluc in formal black holds a glass of drink against a bold red and white backdrop with his name. Use when Diluc presents himself formally, serves at Angel's Share or raises a glass.",
-     "classifications": [
-      "Glass of grape juice"
-     ],
-     "audio": [],
-     "path": "silly-teyvat:/assets/cgs/birthday/diluc-2020.webp",
-     "display": "frame"
-    },
-    {
      "id": "teyvat-mw31bkmo-2s-b6mn38tz",
      "starter": "birthday-diluc-2021",
      "label": "Behind the Bar",
@@ -8761,18 +8778,6 @@
      ],
      "audio": [],
      "path": "silly-teyvat:/assets/cgs/birthday/diluc-2023.webp",
-     "display": "frame"
-    },
-    {
-     "id": "teyvat-mw31bkmp-2v-qzqt9acs",
-     "starter": "birthday-diluc-2023-2",
-     "label": "Winery Cellar",
-     "description": "Diluc smiles slightly, standing before barrels at Dawn Winery with little birds flitting past. Use when Diluc is at Dawn Winery, inspects his cellar or welcomes a guest home.",
-     "classifications": [
-      "Wine barrels"
-     ],
-     "audio": [],
-     "path": "silly-teyvat:/assets/cgs/birthday/diluc-2023-2.webp",
      "display": "frame"
     },
     {
@@ -8925,18 +8930,6 @@
     }
    ],
    "Chongyun.png": [
-    {
-     "id": "teyvat-mw31bkmo-1w-8232rkxg",
-     "starter": "birthday-chongyun-2020",
-     "label": "Popsicle Talisman",
-     "description": "Chongyun holds a popsicle in one hand, talismans and snowflakes floating around him. Use when Chongyun cools down with an ice pop, prepares an exorcism or keeps his yang energy in check.",
-     "classifications": [
-      "Ice pop"
-     ],
-     "audio": [],
-     "path": "silly-teyvat:/assets/cgs/birthday/chongyun-2020.webp",
-     "display": "frame"
-    },
     {
      "id": "teyvat-mw31bkmo-1x-30imko33",
      "starter": "birthday-chongyun-2021",
@@ -9416,7 +9409,7 @@
      "id": "teyvat-mw31bkmr-8u-79u0f7p4",
      "starter": "birthday-qiqi-2021",
      "label": "Coconut Milk",
-     "description": "Qiqi sips coconut milk through a straw beside a lily pond, a question mark over her head. Use when Qiqi drinks coconut milk, tries to remember something or is confused.",
+     "description": "Qiqi sips coconut milk through a straw beside a lily pond. Use when Qiqi drinks coconut milk (\"Cocogoat milk\", as she calls it).",
      "classifications": [
       "Drinking from a coconut"
      ],
@@ -9482,7 +9475,10 @@
      ],
      "audio": [],
      "path": "silly-teyvat:/assets/cgs/birthday/qiqi-2025.webp",
-     "display": "frame"
+     "display": "frame",
+     "requiredCharacters": [
+      "Baizhu.png"
+     ]
     },
     {
      "id": "teyvat-mw31bkmr-90-wdkifpny",
@@ -9513,8 +9509,8 @@
     {
      "id": "teyvat-mw31bkmr-7p-0gsvnpql",
      "starter": "birthday-nahida-2023",
-     "label": "Leaf Glider",
-     "description": "Nahida floats gently among glowing green leaves and Dendro symbols. Use when Nahida uses her powers, glides or appears gently before someone.",
+     "label": "Dendro Swing",
+     "description": "Nahida floats gently on a swing among glowing green leaves and Dendro symbols. Use when Nahida uses her powers, glides or appears gently before someone.",
      "classifications": [
       "Floating on wind"
      ],
@@ -10111,13 +10107,16 @@
      "id": "teyvat-mw31bkmr-75-05634ntl",
      "starter": "birthday-lynette-2025",
      "label": "Flower Wand",
-     "description": "Lynette waves a wand as flowers and her plush companion appear around her. Use when Lynette does magic, rehearses or surprises someone.",
+     "description": "Lynette waves a wand as flowers and her plush companions appear around her. Arlecchino sips tea in the background. Use when Lynette does magic, rehearses or surprises someone.",
      "classifications": [
       "Magician's wand"
      ],
      "audio": [],
      "path": "silly-teyvat:/assets/cgs/birthday/lynette-2025.webp",
-     "display": "frame"
+     "display": "frame",
+     "requiredCharacters": [
+      "Arlecchino.png"
+     ]
     },
     {
      "id": "teyvat-mw31bkmr-76-e1t738tf",
@@ -10232,13 +10231,17 @@
      "id": "teyvat-mw31bkmr-77-ilk1s6sc",
      "starter": "birthday-lyney-2024",
      "label": "Hat Trick",
-     "description": "Lyney waves his wand over a top hat as a cake and his cat plush appear, chibi siblings cheering. Use when Lyney performs a trick, surprises someone or celebrates with family.",
+     "description": "Lyney waves his wand over a top hat as a birthday cake and his cat plush both appear, Lynette and Freminet cheering. Use when Lyney performs a trick on his birthday or celebrates with family.",
      "classifications": [
       "Pulling something from a hat"
      ],
      "audio": [],
      "path": "silly-teyvat:/assets/cgs/birthday/lyney-2024.webp",
-     "display": "frame"
+     "display": "frame",
+     "requiredCharacters": [
+      "Freminet.png",
+      "Lynette.png"
+     ]
     },
     {
      "id": "teyvat-mw31bkmr-78-aaam3d9u",
@@ -10619,18 +10622,6 @@
      "display": "frame"
     },
     {
-     "id": "teyvat-mw31bkmo-n-vs3whbpw",
-     "starter": "birthday-arataki-itto-2023-2",
-     "label": "Happy Oresama Day",
-     "description": "A chibi Itto pumps his fist and winks among sparkles while chibi Shinobu, a young boy and an old lady cheer him on around a Happy Oresama Day sign. Use when Itto throws himself a party, celebrates with the Arataki Gang or boasts about himself.",
-     "classifications": [
-      "Arataki Gang party"
-     ],
-     "audio": [],
-     "path": "silly-teyvat:/assets/cgs/birthday/arataki-itto-2023-2.webp",
-     "display": "frame"
-    },
-    {
      "id": "teyvat-mw31bkmo-o-zzuywdmq",
      "starter": "birthday-arataki-itto-2024",
      "label": "Wanted Poster",
@@ -10761,18 +10752,6 @@
      "display": "frame"
     },
     {
-     "id": "teyvat-mw31bkmo-1h-4pt6yufv",
-     "starter": "birthday-candace-2023-2",
-     "label": "Desert Picnic Mishap",
-     "description": "A chibi Candace stands on desert sand holding a basket of fruit, a speech bubble showing a sunny sky and a dropped bag, while chibi travellers wave in the background. Use when Candace has a light, comic moment in the desert, carries supplies or meets travellers at Aaru Village.",
-     "classifications": [
-      "Chibi desert stroll"
-     ],
-     "audio": [],
-     "path": "silly-teyvat:/assets/cgs/birthday/candace-2023-2.webp",
-     "display": "frame"
-    },
-    {
      "id": "teyvat-mw31bkmo-1i-e0evwm8v",
      "starter": "birthday-candace-2024",
      "label": "Night Market Glance",
@@ -10899,18 +10878,6 @@
      "display": "frame"
     },
     {
-     "id": "teyvat-mw31bkmo-29-gh4rz51k",
-     "starter": "birthday-collei-2023-2",
-     "label": "Branch Friends",
-     "description": "A chibi Collei and chibi Amber sit on a tree branch in a golden forest while a floating Fungus drifts below. Use when Collei spends time with Amber, plays in the forest or has a cute, lighthearted moment.",
-     "classifications": [
-      "Chibi forest outing"
-     ],
-     "audio": [],
-     "path": "silly-teyvat:/assets/cgs/birthday/collei-2023-2.webp",
-     "display": "frame"
-    },
-    {
      "id": "teyvat-mw31bkmo-2a-2pjiih2q",
      "starter": "birthday-collei-2024",
      "label": "Flowers for Cuilein",
@@ -10958,7 +10925,11 @@
      ],
      "audio": [],
      "path": "silly-teyvat:/assets/cgs/scenes/columbina-moon-returns-1.webp",
-     "display": "frame"
+     "display": "frame",
+     "requiredCharacters": [
+      "Aether.png",
+      "Paimon.png"
+     ]
     },
     {
      "id": "teyvat-mw31bkmo-2e-nf7up7g1",
@@ -11462,18 +11433,6 @@
      "display": "frame"
     },
     {
-     "id": "teyvat-mw31bkmo-2h-lcz60rvu",
-     "starter": "birthday-cyno-2023-2",
-     "label": "Chibi Desert Rest",
-     "description": "A chibi Cyno sits on desert sand by a cactus with a small fennec-like companion under an orange sun. Use when Cyno has a lighthearted desert moment or relaxes with a little animal.",
-     "classifications": [
-      "Chibi Cyno and fennec"
-     ],
-     "audio": [],
-     "path": "silly-teyvat:/assets/cgs/birthday/cyno-2023-2.webp",
-     "display": "frame"
-    },
-    {
      "id": "teyvat-mw31bkmo-2i-u52hp6x8",
      "starter": "birthday-cyno-2024",
      "label": "Card Duel",
@@ -11601,18 +11560,6 @@
      "display": "frame"
     },
     {
-     "id": "teyvat-mw31bkmo-2n-p5835ban",
-     "starter": "birthday-dehya-2023-2",
-     "label": "Chibi Rescue",
-     "description": "A chibi Dehya winks and gives a thumbs-up in the desert while a dizzy chibi mercenary lies at her feet. Use when Dehya wins a fight with ease, protects someone or has a comic, cocky moment.",
-     "classifications": [
-      "Chibi Dehya and Dunyarzad"
-     ],
-     "audio": [],
-     "path": "silly-teyvat:/assets/cgs/birthday/dehya-2023-2.webp",
-     "display": "frame"
-    },
-    {
      "id": "teyvat-mw31bkmo-2o-2slmr9sh",
      "starter": "birthday-dehya-2024",
      "label": "Payday on the Dock",
@@ -11634,18 +11581,6 @@
      ],
      "audio": [],
      "path": "silly-teyvat:/assets/cgs/birthday/dehya-2025.webp",
-     "display": "frame"
-    },
-    {
-     "id": "teyvat-mw31bkmo-2q-21vtefnj",
-     "starter": "birthday-dehya-2026",
-     "label": "Sword and Friend",
-     "description": "Dehya holds her greatsword aloft with a bold look while Dunyarzad smiles at her side. Use when Dehya protects or spends time with Dunyarzad, or shows off her strength.",
-     "classifications": [
-      "With Dunyarzad"
-     ],
-     "audio": [],
-     "path": "silly-teyvat:/assets/cgs/birthday/dehya-2026.webp",
      "display": "frame"
     }
    ],
@@ -13651,7 +13586,10 @@
      ],
      "audio": [],
      "path": "silly-teyvat:/assets/cgs/birthday/sucrose-2024.webp",
-     "display": "frame"
+     "display": "frame",
+     "requiredCharacters": [
+      "Paimon.png"
+     ]
     },
     {
      "id": "teyvat-mw31bkms-af-p7c9g9cp",
@@ -13701,7 +13639,10 @@
      ],
      "audio": [],
      "path": "silly-teyvat:/assets/cgs/birthday/tartaglia-2023.webp",
-     "display": "frame"
+     "display": "frame",
+     "requiredCharacters": [
+      "Teucer.png"
+     ]
     },
     {
      "id": "teyvat-mw31bkms-aj-81zdd9it",
@@ -13748,7 +13689,10 @@
       "Flipping pancakes"
      ],
      "audio": [],
-     "path": "silly-teyvat:/assets/cgs/scenes/maslenitsa-2023.webp"
+     "path": "silly-teyvat:/assets/cgs/scenes/maslenitsa-2023.webp",
+     "requiredCharacters": [
+      "Teucer.png"
+     ]
     },
     {
      "id": "teyvat-mw31bkms-an-cc67gfwd",
@@ -13759,55 +13703,29 @@
       "Serving pancakes"
      ],
      "audio": [],
-     "path": "silly-teyvat:/assets/cgs/scenes/maslenitsa-2024.webp"
+     "path": "silly-teyvat:/assets/cgs/scenes/maslenitsa-2024.webp",
+     "requiredCharacters": [
+      "Teucer.png"
+     ]
     },
     {
      "id": "teyvat-mw31bkms-ao-nu3vvlls",
      "starter": "scene-maslenitsa-2025-tartaglia",
      "label": "Maslenitsa Feast",
-     "description": "Tartaglia and his siblings gather around a table heaped with pancakes, jam and flowers as guests join the festivities. Use when Childe hosts a family meal, celebrates a holiday or introduces someone to his family.",
+     "description": "Tartaglia, Teucer, Freminet and Arlecchino gather around a table heaped with pancakes, jam and flowers as guests join the festivities. Use when Childe hosts a family meal, celebrates a holiday or introduces someone to his family.",
      "classifications": [
       "Family celebration"
      ],
      "audio": [],
-     "path": "silly-teyvat:/assets/cgs/scenes/maslenitsa-2025.webp"
+     "path": "silly-teyvat:/assets/cgs/scenes/maslenitsa-2025.webp",
+     "requiredCharacters": [
+      "Teucer.png",
+      "Freminet.png",
+      "Arlecchino.png"
+     ]
     }
    ],
-   "Teucer.png": [
-    {
-     "id": "teyvat-mw31bkms-ap-edotb52n",
-     "starter": "scene-maslenitsa-2023-teucer",
-     "label": "Flipping Pancakes",
-     "description": "Teucer cheers as his big brother Ajax flips a golden pancake high out of a frying pan under festive bunting. Use when Teucer celebrates Maslenitsa, watches his brother cook or eats pancakes with family.",
-     "classifications": [
-      "Maslenitsa festival"
-     ],
-     "audio": [],
-     "path": "silly-teyvat:/assets/cgs/scenes/maslenitsa-2023.webp"
-    },
-    {
-     "id": "teyvat-mw31bkms-aq-13571ouc",
-     "starter": "scene-maslenitsa-2024-teucer",
-     "label": "Pancake Breakfast",
-     "description": "Teucer sits at a cosy wooden kitchen table as his brother serves a plate of pancakes with a grin. Use when Teucer has breakfast with his brother, waits for food or spends a happy day at home.",
-     "classifications": [
-      "Family kitchen"
-     ],
-     "audio": [],
-     "path": "silly-teyvat:/assets/cgs/scenes/maslenitsa-2024.webp"
-    },
-    {
-     "id": "teyvat-mw31bkms-ar-ottgcfw9",
-     "starter": "scene-maslenitsa-2025-teucer",
-     "label": "Maslenitsa Feast",
-     "description": "Teucer and his siblings gather around a table piled with pancakes, jam and flowers while their big brother and guests join the celebration. Use when Teucer celebrates a holiday, shares a big family meal or shows off his siblings.",
-     "classifications": [
-      "Festive table"
-     ],
-     "audio": [],
-     "path": "silly-teyvat:/assets/cgs/scenes/maslenitsa-2025.webp"
-    }
-   ],
+   "Teucer.png": [],
    "Varesa.png": [
     {
      "id": "teyvat-mw31bkms-b2-jgjy0hha",
@@ -14673,7 +14591,59 @@
    "Aloha.png": [],
    "Aranakula.png": [],
    "Anselm.png": [],
-   "Araja.png": []
+   "Araja.png": [],
+   "Thunder Manifestation.png": [],
+   "Tetreaux.png": [],
+   "Taroumaru.png": [],
+   "Tainted Hydro Phantasm.png": [],
+   "Suppression Specialist Mek - Pneuma.png": [],
+   "Suppression Specialist Mek - Ousia.png": [],
+   "Shajar.png": [],
+   "Sedile.png": [],
+   "Sandrone.png": [],
+   "Ruin Guard.png": [],
+   "Ruin Drake Earthguard.png": [],
+   "Rockfond Rifthound.png": [],
+   "Rock Shieldwall Mitachurl.png": [],
+   "Rhodeia of Loch.png": [],
+   "Rene.png": [],
+   "Plate.png": [],
+   "Pitot.png": [],
+   "Nishikino Reirei.png": [],
+   "Neko.png": [],
+   "Mécantre.png": [],
+   "Mirror Maiden.png": [],
+   "Mazatl.png": [],
+   "Mayskaya.png": [],
+   "Lyris.png": [],
+   "Maryam.png": [],
+   "Master Lu.png": [],
+   "Lasselin.png": [],
+   "La Signora.png": [],
+   "Kukkia.png": [],
+   "Kujou Masahito.png": [],
+   "Komaki.png": [],
+   "Knyazev.png": [],
+   "Kairagi Dancing Thunder.png": [],
+   "Jeht.png": [],
+   "Jakob.png": [],
+   "Hydro Hilichurl Rogue.png": [],
+   "Granny Ruoxin.png": [],
+   "Frost Operative.png": [],
+   "Fatui Electro Cicin Mage.png": [],
+   "Eveliina.png": [],
+   "Eremite Scorching Loremaster.png": [],
+   "Eremite Floral Ring-Dancer.png": [],
+   "Consecrated Scorpion.png": [],
+   "Consecrated Horned Crocodile.png": [],
+   "Consecrated Flying Serpent.png": [],
+   "Consecrated Fanged Beast.png": [],
+   "Black Serpent Knight Windcutter.png": [],
+   "Black Serpent Knight Rockbreaker Ax.png": [],
+   "Babel.png": [],
+   "Aybak.png": [],
+   "Aurelius.png": [],
+   "Areta.png": []
   },
   "archivedSprites": {
    "/characters/Hydro%20Slime/attacking.png?t=20261026214633": "/user/files/silly-teyvat-teyvat-mvvvf1cg-2-cd027g5r.png",
@@ -16225,7 +16195,54 @@
    "Ruin Drake Earthguard.png": {},
    "Rockfond Rifthound.png": {},
    "Rock Shieldwall Mitachurl.png": {},
-   "Rhodeia of Loch.png": {}
+   "Rhodeia of Loch.png": {},
+   "Zhongli.png": {},
+   "Yun Jin.png": {},
+   "Yumemizuki Mizuki.png": {},
+   "Yelan.png": {},
+   "Yanfei.png": {},
+   "Yae Miko.png": {},
+   "Xinyan.png": {},
+   "Xingqiu.png": {},
+   "Xilonen.png": {},
+   "Xiao.png": {},
+   "Xianyun.png": {},
+   "Xavier.png": {},
+   "Wriothesley.png": {},
+   "Wooden Shieldwall Mitachurl.png": {},
+   "Whistle.png": {},
+   "Wanderer.png": {},
+   "Vodyanitsa.png": {},
+   "Virda.png": {},
+   "Vesna.png": {},
+   "Varka.png": {},
+   "Varesa.png": {},
+   "Valdis.png": {},
+   "Tzompantli.png": {},
+   "Tlapalli.png": {},
+   "Tisoc.png": {},
+   "Tiepolo.png": {},
+   "Teucer.png": {},
+   "Tetreaux.png": {},
+   "Tartaglia.png": {},
+   "Taroumaru.png": {},
+   "Sucrose.png": {},
+   "Skirk.png": {},
+   "Shajar.png": {},
+   "Sedile.png": {},
+   "Sandrone.png": {},
+   "Rosaria.png": {},
+   "Rene.png": {},
+   "Razor.png": {},
+   "Plate.png": {},
+   "Pitot.png": {},
+   "Kairagi Dancing Thunder.png": {},
+   "Jeht.png": {},
+   "Jakob.png": {},
+   "Hydro Hilichurl Rogue.png": {},
+   "Frost Operative.png": {},
+   "Fatui Electro Cicin Mage.png": {},
+   "Eveliina.png": {}
   },
   "spriteDrafts": {
    "Klee": [],
@@ -16380,13 +16397,7 @@
    "Iansan/Alternate Outfit 1": [],
    "Chevreuse": [],
    "Chiori": [],
-   "Emilie": [
-    {
-     "id": "teyvat-mw8hedr1-1-b0eg2bnu",
-     "name": "expression",
-     "label": "expression"
-    }
-   ],
+   "Emilie": [],
    "Faruzan": [],
    "Baizhu": [],
    "Blazing Axe Mitachurl": [],
@@ -16519,7 +16530,54 @@
    "Rockfond Rifthound": [],
    "Rock Shieldwall Mitachurl": [],
    "Rhodeia of Loch": [],
-   "Barbara/Summertime Splash": []
+   "Barbara/Summertime Splash": [],
+   "Zhongli": [],
+   "Yun Jin": [],
+   "Yumemizuki Mizuki": [],
+   "Yelan": [],
+   "Yanfei": [],
+   "Yae Miko": [],
+   "Xinyan": [],
+   "Xingqiu": [],
+   "Xilonen": [],
+   "Xiao": [],
+   "Xianyun": [],
+   "Xavier": [],
+   "Wriothesley": [],
+   "Wooden Shieldwall Mitachurl": [],
+   "Whistle": [],
+   "Wanderer": [],
+   "Vodyanitsa": [],
+   "Virda": [],
+   "Vesna": [],
+   "Varka": [],
+   "Varesa": [],
+   "Valdis": [],
+   "Tzompantli": [],
+   "Tlapalli": [],
+   "Tisoc": [],
+   "Tiepolo": [],
+   "Teucer": [],
+   "Tetreaux": [],
+   "Tartaglia": [],
+   "Taroumaru": [],
+   "Sucrose": [],
+   "Skirk": [],
+   "Shajar": [],
+   "Sedile": [],
+   "Sandrone": [],
+   "Rosaria": [],
+   "Rene": [],
+   "Razor": [],
+   "Plate": [],
+   "Pitot": [],
+   "Kairagi: Dancing Thunder": [],
+   "Jeht": [],
+   "Jakob": [],
+   "Hydro Hilichurl Rogue": [],
+   "Frost Operative": [],
+   "Fatui Electro Cicin Mage": [],
+   "Eveliina": []
   },
   "backgroundRegions": [
    {
@@ -16576,8 +16634,8 @@
       "description": "Diluc’s tavern in Mondstadt, staffed by Charles. A useful place to hear news and meet travelers.",
       "waypoint": {
        "mapId": "teyvat",
-       "x": 180.1,
-       "y": 15.2
+       "x": 71.5,
+       "y": -28
       },
       "coordinateMethod": "HoYoLAB point 14976.",
       "source": "https://genshin-impact.fandom.com/wiki/Angel%27s_Share",
@@ -16623,8 +16681,7 @@
        "Cat's Tail"
       ],
       "residents": [
-       "Diona.png",
-       "Rosaria.png"
+       "Diona.png"
       ],
       "candidate": true,
       "path": "silly-teyvat:/assets/world-locations/the-cat-s-tail.png",
@@ -16660,12 +16717,12 @@
       "loreSource": "https://genshin-impact.fandom.com/wiki/Knights_of_Favonius_Headquarters",
       "classifications": [
        "Jean’s office",
-       "Jean's office",
        "Favonius Headquarters"
       ],
       "residents": [
        "Jean.png",
-       "Kaeya.png"
+       "Kaeya.png",
+       "Klee.png"
       ],
       "candidate": true,
       "path": "silly-teyvat:/assets/world-locations/knights-of-favonius-headquarters.png",
@@ -16821,7 +16878,8 @@
       "loreSource": "https://genshin-impact.fandom.com/wiki/Rosaria/Profile",
       "residents": [
        "Barbara.png",
-       "Dahlia.png"
+       "Dahlia.png",
+       "Rosaria.png"
       ],
       "candidate": false,
       "introducedVersion": 3,
@@ -16981,8 +17039,7 @@
       "source": "https://genshin-impact.fandom.com/wiki/Wolvendom",
       "loreSource": "https://genshin-impact.fandom.com/wiki/Razor/Profile",
       "residents": [
-       "Razor.png",
-       "Aloy.png"
+       "Razor.png"
       ],
       "candidate": false,
       "introducedVersion": 3,
@@ -17509,7 +17566,7 @@
      {
       "id": "expansion-starfell-lake",
       "label": "Starfell Lake",
-      "description": "A lake in Starfell Valley, with a Statue of The Seven on its island. A quiet place, far from any town.",
+      "description": "A lake in Starfell Valley, with a Statue of The Seven on its island. A quiet place, far from any town. The Traveler can resonate with Anemo here.",
       "classifications": [
        "Starfell Lake",
        "Starfell Lake overlook"
@@ -17553,12 +17610,12 @@
       "path": "silly-teyvat:/assets/world-locations/expansion-starfell-lake.webp",
       "blank": false,
       "residents": [
-       "Paimon.png",
-       "Klee.png"
+       "Paimon.png"
       ],
       "wilderness": false,
       "enemyEncounterRate": 40,
-      "enemyPool": []
+      "enemyPool": [],
+      "statue": "Anemo"
      },
      {
       "id": "boss-electro-hypostasis",
@@ -17767,7 +17824,7 @@
      {
       "id": "map14-mondstadt-whispering-woods",
       "label": "Whispering Woods",
-      "description": "Dense woods between Starfell Lake and the City of Mondstadt, named for leaves whose rustling travelers mistake for whispers. The Traveler first met Venti and Dvalin here.",
+      "description": "Dense woods between Starfell Lake and the City of Mondstadt, named for leaves whose rustling travelers mistake for whispers.",
       "classifications": [
        "Whispering Woods",
        "Starfell Valley woods"
@@ -17776,8 +17833,8 @@
       "residents": [],
       "waypoint": {
        "mapId": "teyvat",
-       "x": 368,
-       "y": -106
+       "x": 411.6,
+       "y": -111.5
       },
       "coordinateMethod": "Center of the official HoYoLAB map label bounds for Whispering Woods; native map units. A label box is not a surveyed outline.",
       "coordinateSource": "https://sg-public-api-static.hoyolab.com/common/map_user/ys_obc/v1/map/map_anchor/list?map_id=2&app_sn=ys_obc&lang=en-us",
@@ -18308,6 +18365,55 @@
        "Rock Shieldwall Mitachurl.png",
        "Cryo Hilichurl Shooter.png"
       ]
+     },
+     {
+      "id": "statue-mondstadt",
+      "label": "Statue of The Seven, Windwail Highland",
+      "description": "A Statue of The Seven in the image of Barbatos, the Anemo Archon, on Windwail Highland between Springvale and Dawn Winery. The Traveler can resonate with Anemo here.",
+      "classifications": [
+       "Statue of The Seven, Windwail Highland",
+       "Windwail Highland Statue of The Seven",
+       "Statue of The Seven",
+       "Statue of the Seven",
+       "Statue"
+      ],
+      "suggestedCharacters": [],
+      "residents": [],
+      "waypoint": {
+       "mapId": "teyvat",
+       "x": -173.5,
+       "y": 475.5
+      },
+      "coordinateMethod": "HoYoLAB map 2 point 19 on the Statue of The Seven layer (label 2); the marker is the statue itself.",
+      "coordinateSource": "https://sg-public-api-static.hoyolab.com/common/map_user/ys_obc/v1/map/point/info?point_id=19&map_id=2&app_sn=ys_obc&lang=en-us",
+      "source": "https://genshin-impact.fandom.com/wiki/Statue_of_The_Seven",
+      "loreSource": "https://genshin-impact.fandom.com/wiki/Statue_of_The_Seven",
+      "candidate": false,
+      "introducedVersion": 21,
+      "statue": "Anemo",
+      "imageReview": {
+       "reviewed": "2026-11-11",
+       "playableCharacters": false,
+       "gameUI": false,
+       "captions": false,
+       "camera": "User-approved AI-generated landscape interpretation at pedestrian height; composition and statue details are not an in-game screenshot.",
+       "editing": "Generated with OpenAI image_gen from regional statue reference and location research; converted to WebP at the original generated dimensions. Windwail Highland additionally uses user-provided screenshots.",
+       "referenceSource": "https://genshin-impact.fandom.com/wiki/File:Statue_of_The_Seven_Mondstadt.png",
+       "referenceURL": "https://static.wikia.nocookie.net/gensin-impact/images/c/c3/Statue_of_The_Seven_Mondstadt.png/revision/latest?cb=20260226143455"
+      },
+      "music": {
+       "tracks": [
+        "music-game-cecfcc7b495e9ccfc146"
+       ],
+       "combatTrack": "music-game-c9f040240e3ec2351e17"
+      },
+      "musicResearch": {
+       "recommended": [],
+       "source": "https://genshin-impact.fandom.com/wiki/Dawn_Winery#Soundtracks",
+       "note": "Shares the music of nearby Dawn Winery."
+      },
+      "path": "silly-teyvat:/assets/world-locations/statue-mondstadt.webp",
+      "blank": false
      }
     ]
    },
@@ -20153,6 +20259,56 @@
       ],
       "path": "silly-teyvat:/assets/world-locations/map14-dihua-marsh.webp",
       "blank": false
+     },
+     {
+      "id": "statue-liyue",
+      "label": "Statue of The Seven, Bishui Plain",
+      "description": "A Statue of The Seven in the image of Morax, the Geo Archon, by the main road through Bishui Plain north of Stone Gate. The Traveler can resonate with Geo here.",
+      "classifications": [
+       "Statue of The Seven, Bishui Plain",
+       "Bishui Plain Statue of The Seven",
+       "Statue of The Seven",
+       "Statue of the Seven",
+       "Statue"
+      ],
+      "suggestedCharacters": [],
+      "residents": [],
+      "waypoint": {
+       "mapId": "teyvat",
+       "x": -1004,
+       "y": 1056
+      },
+      "coordinateMethod": "HoYoLAB map 2 point 33 on the Statue of The Seven layer (label 2); the marker is the statue itself.",
+      "coordinateSource": "https://sg-public-api-static.hoyolab.com/common/map_user/ys_obc/v1/map/point/info?point_id=33&map_id=2&app_sn=ys_obc&lang=en-us",
+      "source": "https://genshin-impact.fandom.com/wiki/Statue_of_The_Seven",
+      "loreSource": "https://genshin-impact.fandom.com/wiki/Statue_of_The_Seven",
+      "candidate": false,
+      "introducedVersion": 21,
+      "statue": "Geo",
+      "imageReview": {
+       "reviewed": "2026-11-11",
+       "playableCharacters": false,
+       "gameUI": false,
+       "captions": false,
+       "camera": "User-approved AI-generated landscape interpretation at pedestrian height; composition and statue details are not an in-game screenshot.",
+       "editing": "Generated with OpenAI image_gen from the regional statue reference and location research; converted to WebP at the original generated dimensions.",
+       "referenceSource": "https://genshin-impact.fandom.com/wiki/File:Statue_of_The_Seven_Liyue.png",
+       "referenceURL": "https://static.wikia.nocookie.net/gensin-impact/images/e/e0/Statue_of_The_Seven_Liyue.png/revision/latest?cb=20260226143504"
+      },
+      "music": {
+       "tracks": [
+        "music-game-ae0d61684c0e55827d08",
+        "music-game-444d2a6413ca21e05029"
+       ],
+       "combatTrack": "music-game-961b9aea787f89d35266"
+      },
+      "musicResearch": {
+       "recommended": [],
+       "source": "https://genshin-impact.fandom.com/wiki/Rhythm_Amidst_the_Reeds#Soundtrack_Usage",
+       "note": "Shares the music of nearby Dihua Marsh."
+      },
+      "path": "silly-teyvat:/assets/world-locations/statue-liyue.webp",
+      "blank": false
      }
     ]
    },
@@ -21977,6 +22133,55 @@
         "Crimson Witch of Embers": "music-game-0208b4894451bc0f0d05"
        }
       }
+     },
+     {
+      "id": "statue-inazuma",
+      "label": "Statue of The Seven, Ritou",
+      "description": "A Statue of The Seven in the image of the Raiden Shogun, the Electro Archon, on the road inland from Ritou on Narukami Island. The Traveler can resonate with Electro here.",
+      "classifications": [
+       "Statue of The Seven, Ritou",
+       "Ritou Statue of The Seven",
+       "Statue of The Seven",
+       "Statue of the Seven",
+       "Statue"
+      ],
+      "suggestedCharacters": [],
+      "residents": [],
+      "waypoint": {
+       "mapId": "teyvat",
+       "x": 3160.5,
+       "y": 4756
+      },
+      "coordinateMethod": "HoYoLAB map 2 point 12740 on the Statue of The Seven layer (label 2); the marker is the statue itself.",
+      "coordinateSource": "https://sg-public-api-static.hoyolab.com/common/map_user/ys_obc/v1/map/point/info?point_id=12740&map_id=2&app_sn=ys_obc&lang=en-us",
+      "source": "https://genshin-impact.fandom.com/wiki/Statue_of_The_Seven",
+      "loreSource": "https://genshin-impact.fandom.com/wiki/Statue_of_The_Seven",
+      "candidate": false,
+      "introducedVersion": 21,
+      "statue": "Electro",
+      "imageReview": {
+       "reviewed": "2026-11-11",
+       "playableCharacters": false,
+       "gameUI": false,
+       "captions": false,
+       "camera": "User-approved AI-generated landscape interpretation at pedestrian height; composition and statue details are not an in-game screenshot.",
+       "editing": "Generated with OpenAI image_gen from the regional statue reference and location research; converted to WebP at the original generated dimensions.",
+       "referenceSource": "https://genshin-impact.fandom.com/wiki/File:Statue_of_The_Seven_Inazuma.png",
+       "referenceURL": "https://static.wikia.nocookie.net/gensin-impact/images/b/b3/Statue_of_The_Seven_Inazuma.png/revision/latest?cb=20260226143520"
+      },
+      "music": {
+       "tracks": [
+        "music-game-940141856ef3d06b4ec2"
+       ],
+       "combatTrack": "music-game-f5f4773f2fc3b51456d1"
+      },
+      "musicResearch": {
+       "recommended": [],
+       "source": "https://genshin-impact.fandom.com/wiki/Ritou#Soundtracks",
+       "note": "Shares the music of nearby Ritou."
+      },
+      "path": "silly-teyvat:/assets/world-locations/statue-inazuma.webp",
+      "blank": false
      }
     ]
    },
@@ -23461,6 +23666,56 @@
       ],
       "path": "silly-teyvat:/assets/world-locations/map14-debris-of-panjvahe.webp",
       "blank": false
+     },
+     {
+      "id": "statue-sumeru",
+      "label": "Statue of The Seven, Lokapala Jungle",
+      "description": "A Statue of The Seven in the image of Lesser Lord Kusanali, the Dendro Archon, in Mawtiyima Forest in Lokapala Jungle. The Traveler can resonate with Dendro here.",
+      "classifications": [
+       "Statue of The Seven, Lokapala Jungle",
+       "Lokapala Jungle Statue of The Seven",
+       "Statue of The Seven",
+       "Statue of the Seven",
+       "Statue"
+      ],
+      "suggestedCharacters": [],
+      "residents": [],
+      "waypoint": {
+       "mapId": "teyvat",
+       "x": -3093.5,
+       "y": 2331.75
+      },
+      "coordinateMethod": "HoYoLAB map 2 point 28700 on the Statue of The Seven layer (label 2); the marker is the statue itself.",
+      "coordinateSource": "https://sg-public-api-static.hoyolab.com/common/map_user/ys_obc/v1/map/point/info?point_id=28700&map_id=2&app_sn=ys_obc&lang=en-us",
+      "source": "https://genshin-impact.fandom.com/wiki/Statue_of_The_Seven",
+      "loreSource": "https://genshin-impact.fandom.com/wiki/Statue_of_The_Seven",
+      "candidate": false,
+      "introducedVersion": 21,
+      "statue": "Dendro",
+      "imageReview": {
+       "reviewed": "2026-11-11",
+       "playableCharacters": false,
+       "gameUI": false,
+       "captions": false,
+       "camera": "User-approved AI-generated landscape interpretation at pedestrian height; composition and statue details are not an in-game screenshot.",
+       "editing": "Generated with OpenAI image_gen from the regional statue reference and location research; converted to WebP at the original generated dimensions.",
+       "referenceSource": "https://genshin-impact.fandom.com/wiki/File:Statue_of_The_Seven_Sumeru.png",
+       "referenceURL": "https://static.wikia.nocookie.net/gensin-impact/images/8/87/Statue_of_The_Seven_Sumeru.png/revision/latest?cb=20260226143621"
+      },
+      "music": {
+       "tracks": [
+        "music-game-11b83f3c4df9738b31a2",
+        "music-game-2f87831ebc735ab0c813"
+       ],
+       "combatTrack": "music-game-47a3fa038806ac3c8418"
+      },
+      "musicResearch": {
+       "recommended": [],
+       "source": "https://genshin-impact.fandom.com/wiki/A_Luminous_Path#Soundtrack_Usage",
+       "note": "Shares the music of nearby Bayda Harbor."
+      },
+      "path": "silly-teyvat:/assets/world-locations/statue-sumeru.webp",
+      "blank": false
      }
     ]
    },
@@ -24144,14 +24399,13 @@
       "path": "silly-teyvat:/assets/world-locations/fontaine-salacia-plain.webp",
       "blank": false,
       "wilderness": true,
-      "enemyEncounterRate": 100,
+      "enemyEncounterRate": 50,
       "enemyPool": [
        "Arithmetic Enhancer Mek - Ousia.png",
        "Tainted Hydro Phantasm.png",
-       "Suppression Specialist Mek - Pneuma.png",
-       "Anemo Samachurl.png",
        "Hydro Slime.png",
-       "Electro Hilichurl Shooter.png"
+       "Arithmetic Enhancer Mek - Pneuma.png",
+       "Suppression Specialist Mek - Pneuma.png"
       ],
       "music": {
        "tracks": [
@@ -25224,6 +25478,56 @@
        "Tainted Hydro Phantasm.png"
       ],
       "path": "silly-teyvat:/assets/world-locations/map14-elton-trench.webp",
+      "blank": false
+     },
+     {
+      "id": "statue-fontaine",
+      "label": "Statue of The Seven, Erinnyes Forest",
+      "description": "A Statue of The Seven in the image of Focalors, the Hydro Archon, in Erinnyes Forest east of Marcotte Station. The Traveler can resonate with Hydro here.",
+      "classifications": [
+       "Statue of The Seven, Erinnyes Forest",
+       "Erinnyes Forest Statue of The Seven",
+       "Statue of The Seven",
+       "Statue of the Seven",
+       "Statue"
+      ],
+      "suggestedCharacters": [],
+      "residents": [],
+      "waypoint": {
+       "mapId": "teyvat",
+       "x": -4385.75,
+       "y": -1479.25
+      },
+      "coordinateMethod": "HoYoLAB map 2 point 55761 on the Statue of The Seven layer (label 2); the marker is the statue itself.",
+      "coordinateSource": "https://sg-public-api-static.hoyolab.com/common/map_user/ys_obc/v1/map/point/info?point_id=55761&map_id=2&app_sn=ys_obc&lang=en-us",
+      "source": "https://genshin-impact.fandom.com/wiki/Statue_of_The_Seven",
+      "loreSource": "https://genshin-impact.fandom.com/wiki/Statue_of_The_Seven",
+      "candidate": false,
+      "introducedVersion": 21,
+      "statue": "Hydro",
+      "imageReview": {
+       "reviewed": "2026-11-11",
+       "playableCharacters": false,
+       "gameUI": false,
+       "captions": false,
+       "camera": "User-approved AI-generated landscape interpretation at pedestrian height; composition and statue details are not an in-game screenshot.",
+       "editing": "Generated with OpenAI image_gen from the regional statue reference and location research; converted to WebP at the original generated dimensions.",
+       "referenceSource": "https://genshin-impact.fandom.com/wiki/File:Statue_of_The_Seven_Fontaine.png",
+       "referenceURL": "https://static.wikia.nocookie.net/gensin-impact/images/1/1e/Statue_of_The_Seven_Fontaine.png/revision/latest?cb=20260226143633"
+      },
+      "music": {
+       "tracks": [
+        "music-game-faeb20fbfd43571a6cce",
+        "music-game-a5fc606be71de55ff28d"
+       ],
+       "combatTrack": "music-game-d2a298becacbb74de618"
+      },
+      "musicResearch": {
+       "recommended": [],
+       "source": "https://genshin-impact.fandom.com/wiki/Spring_Song#Soundtrack_Usage",
+       "note": "Shares the music of nearby Marcotte Station."
+      },
+      "path": "silly-teyvat:/assets/world-locations/statue-fontaine.webp",
       "blank": false
      }
     ]
@@ -26810,6 +27114,55 @@
        "Thundercraven Rifthound.png",
        "Cryo Slime.png"
       ]
+     },
+     {
+      "id": "statue-natlan",
+      "label": "Statue of The Seven, Quahuacan Cliff",
+      "description": "A Statue of The Seven in the image of Mavuika, the Pyro Archon, on Quahuacan Cliff above the Masters of the Night-Wind. The Traveler can resonate with Pyro here.",
+      "classifications": [
+       "Statue of The Seven, Quahuacan Cliff",
+       "Quahuacan Cliff Statue of The Seven",
+       "Statue of The Seven",
+       "Statue of the Seven",
+       "Statue"
+      ],
+      "suggestedCharacters": [],
+      "residents": [],
+      "waypoint": {
+       "mapId": "teyvat",
+       "x": -10600.2,
+       "y": 3610.1
+      },
+      "coordinateMethod": "HoYoLAB map 2 point 79542 on the Statue of The Seven layer (label 2); the marker is the statue itself.",
+      "coordinateSource": "https://sg-public-api-static.hoyolab.com/common/map_user/ys_obc/v1/map/point/info?point_id=79542&map_id=2&app_sn=ys_obc&lang=en-us",
+      "source": "https://genshin-impact.fandom.com/wiki/Statue_of_The_Seven",
+      "loreSource": "https://genshin-impact.fandom.com/wiki/Statue_of_The_Seven",
+      "candidate": false,
+      "introducedVersion": 21,
+      "statue": "Pyro",
+      "imageReview": {
+       "reviewed": "2026-11-11",
+       "playableCharacters": false,
+       "gameUI": false,
+       "captions": false,
+       "camera": "User-approved AI-generated landscape interpretation at pedestrian height; composition and statue details are not an in-game screenshot.",
+       "editing": "Generated with OpenAI image_gen from the regional statue reference and location research; converted to WebP at the original generated dimensions.",
+       "referenceSource": "https://genshin-impact.fandom.com/wiki/File:Statue_of_The_Seven_Natlan.png",
+       "referenceURL": "https://static.wikia.nocookie.net/gensin-impact/images/6/60/Statue_of_The_Seven_Natlan.png/revision/latest?cb=20260226143640"
+      },
+      "music": {
+       "tracks": [
+        "music-game-22db5a53ba4a47b53c5c"
+       ],
+       "combatTrack": "music-game-b779bea3247a427e7e31"
+      },
+      "musicResearch": {
+       "recommended": [],
+       "source": "https://genshin-impact.fandom.com/wiki/Ochkanatlan#Soundtracks",
+       "note": "Shares the music of nearby Ochkanatlan."
+      },
+      "path": "silly-teyvat:/assets/world-locations/statue-natlan.webp",
+      "blank": false
      }
     ]
    },
@@ -28183,6 +28536,60 @@
       },
       "path": "silly-teyvat:/assets/world-locations/map14-cliffwatch-camp.webp",
       "blank": false
+     },
+     {
+      "id": "statue-nod-krai",
+      "label": "Statue of the New Moon, Hiisi Island",
+      "description": "A Statue of the New Moon on Hiisi Island, carved by the Frostmoon Scions in the image of the Moon Goddess. It serves travelers as a Statue of The Seven does, but it lets the Traveler resonate with no element.",
+      "classifications": [
+       "Statue of the New Moon, Hiisi Island",
+       "Hiisi Island Statue of the New Moon",
+       "Statue of the New Moon",
+       "Statue of The Seven",
+       "Statue"
+      ],
+      "suggestedCharacters": [],
+      "residents": [],
+      "waypoint": {
+       "mapId": "teyvat",
+       "x": -11154.5,
+       "y": 681
+      },
+      "coordinateMethod": "HoYoLAB map 2 point 88127 on the Statue of The Seven layer (label 2); the marker is the statue itself.",
+      "coordinateSource": "https://sg-public-api-static.hoyolab.com/common/map_user/ys_obc/v1/map/point/info?point_id=88127&map_id=2&app_sn=ys_obc&lang=en-us",
+      "source": "https://genshin-impact.fandom.com/wiki/Statue_of_the_New_Moon",
+      "loreSource": "https://genshin-impact.fandom.com/wiki/Statue_of_the_New_Moon",
+      "candidate": false,
+      "introducedVersion": 21,
+      "statue": "New Moon",
+      "imageReview": {
+       "reviewed": "2026-11-11",
+       "playableCharacters": false,
+       "gameUI": false,
+       "captions": false,
+       "camera": "Official close render of this region's Statue of the New Moon, from the Genshin Impact Wiki (Statue_of_the_New_Moon.png).",
+       "editing": "Non-generative composite: the official 2134x3200 portrait render, scaled to 1080 px high and centred on a blurred, darkened copy of itself to fill 1920x1080. No AI generation.",
+       "imageSource": "https://genshin-impact.fandom.com/wiki/File:Statue_of_the_New_Moon.png",
+       "imageURL": "https://static.wikia.nocookie.net/gensin-impact/images/4/48/Statue_of_the_New_Moon.png/revision/latest?cb=20251014084318",
+       "originalDimensions": [
+        2134,
+        3200
+       ]
+      },
+      "music": {
+       "tracks": [
+        "music-game-d009761235c5fd9a29f0",
+        "music-game-5d75258b8abad8170b2e"
+       ],
+       "combatTrack": "music-game-955106d934821b9a5e82"
+      },
+      "musicResearch": {
+       "recommended": [],
+       "source": "https://genshin-impact.fandom.com/wiki/Rite_Beneath_the_Radiance#Soundtrack_Usage",
+       "note": "Shares the music of nearby Light-Bathed Platform."
+      },
+      "path": "silly-teyvat:/assets/world-locations/statue-nod-krai.webp",
+      "blank": false
      }
     ]
    },
@@ -29416,11 +29823,61 @@
       },
       "path": "silly-teyvat:/assets/world-locations/map14-zapolyarny-palace.webp",
       "blank": false
+     },
+     {
+      "id": "statue-snezhnaya",
+      "label": "Statue of The Seven, Snezhnograd",
+      "description": "A Statue of The Seven in the image of the Tsaritsa, the Cryo Archon, between Snezhnograd and Central Station. The Traveler can resonate with Cryo here.",
+      "classifications": [
+       "Statue of The Seven, Snezhnograd",
+       "Snezhnograd Statue of The Seven",
+       "Statue of The Seven",
+       "Statue of the Seven",
+       "Statue"
+      ],
+      "suggestedCharacters": [],
+      "residents": [],
+      "waypoint": {
+       "mapId": "teyvat",
+       "x": -7504.9,
+       "y": -7153
+      },
+      "coordinateMethod": "HoYoLAB map 2 point 100644 on the Statue of The Seven layer (label 2); the marker is the statue itself.",
+      "coordinateSource": "https://sg-public-api-static.hoyolab.com/common/map_user/ys_obc/v1/map/point/info?point_id=100644&map_id=2&app_sn=ys_obc&lang=en-us",
+      "source": "https://genshin-impact.fandom.com/wiki/Statue_of_The_Seven",
+      "loreSource": "https://genshin-impact.fandom.com/wiki/Statue_of_The_Seven",
+      "candidate": false,
+      "introducedVersion": 21,
+      "statue": "Cryo",
+      "imageReview": {
+       "reviewed": "2026-11-11",
+       "playableCharacters": false,
+       "gameUI": false,
+       "captions": false,
+       "camera": "User-approved AI-generated landscape interpretation at pedestrian height; composition and statue details are not an in-game screenshot.",
+       "editing": "Generated with OpenAI image_gen from the regional statue reference and location research; converted to WebP at the original generated dimensions.",
+       "referenceSource": "https://genshin-impact.fandom.com/wiki/File:Statue_of_The_Seven_Snezhnaya.png",
+       "referenceURL": "https://static.wikia.nocookie.net/gensin-impact/images/0/06/Statue_of_The_Seven_Snezhnaya.png/revision/latest?cb=20260801195558"
+      },
+      "music": {
+       "tracks": [
+        "music-game-03c4fdf21aca241a1808",
+        "music-game-8e8a607910b0e111ca9b"
+       ],
+       "combatTrack": "music-game-52c0f0a5702aeb40866c"
+      },
+      "musicResearch": {
+       "recommended": [],
+       "source": "https://genshin-impact.fandom.com/wiki/Snezhnograd#Soundtracks",
+       "note": "Shares the music of nearby The Korolevskiy Theater."
+      },
+      "path": "silly-teyvat:/assets/world-locations/statue-snezhnaya.webp",
+      "blank": false
      }
     ]
    }
   ],
-  "starterLocationsVersion": 20,
+  "starterLocationsVersion": 23,
   "locationEncounters": true,
   "worldMap": {
    "metresPerUnit": 5,
@@ -29749,8 +30206,14 @@
     "hpCustom": false
    },
    "Aether.png": {
+    "role": "character",
     "playable": true,
     "element": "Anemo",
+    "modelType": "medium male",
+    "region": "Otherworld",
+    "maxHp": 30,
+    "modelScale": 90,
+    "deathMessage": "{name} falls still. The threat has passed.",
     "elementMode": "traveler-resonance",
     "defaultElement": "Anemo",
     "supportedElements": [
@@ -29762,9 +30225,7 @@
      "Pyro",
      "Cryo"
     ],
-    "modelType": "medium male",
     "modelTypeStatus": "verified-shared-character-page",
-    "region": "Otherworld",
     "regionStatus": "exception",
     "visionStatus": "not-asserted",
     "sources": [
@@ -29804,7 +30265,7 @@
      "Traveler and Descender; no Teyvat nation affiliation.",
      "No Vision is asserted: this is the editable default affinity. Supported Traveler elements are Anemo, Geo, Electro, Dendro, Hydro, Pyro and Cryo."
     ],
-    "role": "character"
+    "hpCustom": false
    },
    "Lumine.png": {
     "playable": true,
@@ -32284,7 +32745,6 @@
    }
   ],
   "locationMusicEnabled": true,
-  "locationMusicVolume": 0.45,
   "roleplayPromptsEnabled": true,
   "roleplayPrompts": {
    "style": "[Silly Teyvat: Writing style]\nThis is a Genshin Impact story scene shown as a visual novel. Every line of your reply becomes its own dialogue box, so the layout below matters as much as the words.\n\nLayout\n- Each line is either narration or dialogue, never both. Leave a blank line between them. Never include quotation marks on a line with narration, quotes and narration should always be separated by a line break. \n- Dialogue sits inside double quotes with nothing else on that line. When the quote ends, start a new line. \n- Narration is plain third-person prose. Refer to {{char}} and {{user}} by name or pronoun, never \"I\" or \"you\" in narration. No asterisks, italics markers or brackets around it.\n- Speaker parts. The reply is written in parts, and each part starts with its speaker's full name and a colon on a new line, such as \"{{char}}:\". The interface shows each part with its own speaker's name and portrait.\n- {{char}} has the next part. Anyone else present in the scene may also speak or act in a part of their own, under their own name. Characters who aren't present don't speak.\n- Narration that belongs to no one (the place, the weather, a sound, the crowd) goes in a part that starts with \"Narrator:\". Narrator parts never contain dialogue.\n- Keep lines short or medium, one or two sentences. If a line grows long, break it at a natural pause or close the quote and open a new line. Never use a long-winded paragraph structure, frequent line breaks are always preferred.\n\nExample of the layout (the format only; {{char}} keeps their own voice, and Jean speaks only because she is present):\nKlee: Bouncing on her toes, Klee clutched the straps of her backpack with both hands.\n\n\"Ooh, you're the new adventurer! Jean said you might come by today.\"\n\nShe held out a round, faintly smoking bundle.\n\nJean: Jean set down her quill without looking up.\n\n\"Klee. What did we agree about greeting guests?\"\n\nNarrator: Somewhere under the desk, something small began to fizz.\n\nVoice\n- Dialogue is spoken, not written. Use contractions, fragments, trailing off, changing the subject, and the character's own slang and verbal habits. Read it in their voice; if it sounds like an essay or a speech, rewrite it.\n- Use commas, periods, ellipses or a new line where you would reach for a dash. Do not use em dashes or en dashes anywhere.\n- Narration is lean and concrete, like stage directions in a Genshin cutscene: a gesture, a sound, a glance, a change in the scene. Don't explain emotions the dialogue already shows.\n- Avoid the usual AI-writing habits: grand or poetic phrasing in casual moments, stacked adjectives, rhetorical triplets, \"a mix of X and Y\", eyes that sparkle or glint, voices \"barely above a whisper\", pointed one-word sentences for drama, and closing on a moral, a summary or a hint that something is about to change, em dashes.\n- Vary how lines begin. Don't start several lines in a row with the character's name.\n- Keep the warmth and humour of Genshin's writing: playful banter, earnest moments, a little absurdity.\n\nBoundaries\n- Never write a part for {{user}}, and never write their dialogue, thoughts, feelings, choices or actions anywhere. They speak in their own turns.\n- Others present speak only in their own parts, true to their own card. Inside {{char}}'s part, describe only what others are visibly already doing.\n- Stop at a natural point that leaves room for {{user}} to answer. Don't skip ahead in time, resolve the scene, or ask {{user}} what they will do next.\n\nBefore you send: every part starts with a speaker's name and a colon, and none of them is {{user}}.",
@@ -32298,7 +32758,7 @@
    "waypoints": 117
   },
   "hudAllButtons": false,
-  "namecard": "fontaine-completeness",
+  "namecard": "",
   "hudTopIcons": "auto",
   "personaIconMode": "auto",
   "burstAudio": true,
@@ -32886,20 +33346,25 @@
   "twinPersonasFresh": true,
   "travelerTwin": "Aether",
   "uiSound": true,
-  "uiSoundVolume": 0.7,
   "soloHintShown": true,
   "hideNonGenshin": true,
   "master": true,
   "cardArt": true,
-  "rosterView": {},
+  "rosterView": {
+   "type": "playable"
+  },
   "paimonLinks": [
    "story",
-   "choices"
+   "choices",
+   "stage",
+   "cgs",
+   "world",
+   "combat",
+   "trust",
+   "prompts",
+   "cardArt"
   ],
-  "paimonRestore": {
-   "enabled": true,
-   "choices": true
-  },
+  "paimonRestore": {},
   "choicesBypassReasoning": true,
   "cgDisplayMode": "each",
   "enemyAdditions": [

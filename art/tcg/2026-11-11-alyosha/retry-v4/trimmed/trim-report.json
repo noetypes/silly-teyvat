@@ -1,0 +1,14 @@
+{
+  "method": "Reference alpha resized to each card; existing alpha and all RGB values preserved. Near-black partially transparent edge fringe cleared.",
+  "reference": "/Users/alexachan/Documents/Codex/silly-teyvat/extension/genshin-dialogue-ui/assets/tcg/characters/Tartaglia.webp",
+  "reference_sha256": "72343ecb836a0c2015dae0b4bf990c8caf5dcecd1dbc66b308d7bd88c414b3e2",
+  "cards": [
+    {
+      "name": "Alyosha",
+      "source": "art/tcg/2026-11-11-alyosha/retry-v4/raw/Alyosha.png",
+      "output": "Alyosha.png",
+      "source_sha256": "90d8cc08ebfc30cee900a0b073243254d57e37f67049c0bca3269ee1c7a75431",
+      "output_sha256": "bc99ee6fdeec244a1a40039ade0d816595a6e296e6f2a092d2fdd80dc6240d1f"
+    }
+  ]
+}

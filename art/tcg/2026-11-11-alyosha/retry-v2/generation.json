@@ -1,0 +1,8 @@
+{
+  "tool": "built-in image_gen.imagegen",
+  "name": "Alyosha",
+  "prompt": "Use case: stylized-concept. Create one fresh unofficial vertical Genius Invokation TCG character card for Alyosha from Genshin Impact. Image 1 is Alyosha's official splash art, the authoritative identity reference: faithfully preserve his youthful proportions, teal hair, face, distinctive white-furred red-and-white animal hood, blue clothing, white cloak, red patterned scarf, accessories, and his black-and-white dog Tugarin. Image 2 is the genuine Cyno playable-character TCG card, used only for a dynamic polearm pose, framing and polished official TCG illustration style; do not depict Cyno or borrow his identity, costume, or colors. Give Alyosha a lively, clear polearm pose with Tugarin nearby, set against a snowy northern landscape with graceful violet Electro accents. Keep the character's face and distinctive hood readable, with natural proportions and coherent arms, hands, fingers and legs; render the dog with natural anatomy. Arrange both subjects within one complete slim ornate rounded rectangular TCG frame. No text, title, watermark, extra people or comparison sheet.",
+  "official_reference": "extension/genshin-dialogue-ui/assets/splash/Alyosha.webp",
+  "tcg_reference": "extension/genshin-dialogue-ui/assets/tcg/characters/Cyno.webp",
+  "raw": "art/tcg/2026-11-11-alyosha/retry-v2/raw/Alyosha.png"
+}

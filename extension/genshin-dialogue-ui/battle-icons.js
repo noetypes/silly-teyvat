@@ -14,9 +14,13 @@ export function elementImg(element,{white=false,cls='tb-el-img'}={}){
     return src?`<img class="${cls}" src="${src}" alt="" draggable="false">`:glyph(element);
 }
 export const reactionIcon=name=>{const file=index.reactions[String(name).split(' + ').at(-1)] || (/Aggravate|Spread/.test(name)?index.reactions.Quicken:'');return file?url(`reactions/${file}`):'';};
-export const skillIcon=move=>{const entry=move&&index.skills[move.name];return entry?url(`skills/${entry.file}`):'';};
+// The Traveler's Normal Attack in each element they resonate with: Foreign Ironwind's art on that element's disc,
+// the colour of the element's Skill and Burst icons. Kept here, not in index.json, which build-battle-icons.py rewrites.
+const TRAVELER_NORMALS={'Foreign Rockblade':'foreign-rockblade.webp','Foreign Thundershock':'foreign-thundershock.webp','Foreign Fieldcleaver':'foreign-fieldcleaver.webp','Foreign Stream':'foreign-stream.webp','Foreign Blaze':'foreign-blaze.webp','Foreign Frostglint':'foreign-frostglint.webp'};
+const skillEntry=move=>move&&(index.skills[move.name] || (TRAVELER_NORMALS[move.name]&&{file:TRAVELER_NORMALS[move.name],glyph:'foreign-ironwind.webp'}));
+export const skillIcon=move=>{const entry=skillEntry(move);return entry?url(`skills/${entry.file}`):'';};
 // The same art as a white glyph for the bronze medallions (tools/build-skill-glyphs.py).
-export const skillGlyph=move=>{const entry=move&&index.skills[move.name];return entry?url(`glyphs/${entry.file}`):'';};
+export const skillGlyph=move=>{const entry=skillEntry(move);return entry?url(`glyphs/${entry.glyph || entry.file}`):'';};
 export const characterIcon=name=>avatarIcon(name) || (index.icons[name]?url(`icons/${index.icons[name]}`):'');
 // Card art for an enemy's second form (assets/tcg/forms), shown on the board once it transforms.
 export const formArt=name=>name?new URL(`./assets/tcg/forms/${encodeURIComponent(name)}.webp`,import.meta.url).href:'';

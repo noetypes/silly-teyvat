@@ -35,9 +35,12 @@ assert.equal(TRAVELER_KITS.Anemo.skill.name,'Palm Vortex');assert.equal(TRAVELER
 assert.equal(defaultKit('Aether',{element:'None'}).moves[1].name,'Elemental Strike','no element keeps the plain kit');
 assert.equal(burstSplashName('Klee','Pyro'),'Klee','other characters keep their own splash');
 
-// One statue per region, with that region's element, and Nod-Krai's Statue of the New Moon granting none.
+// A statue in every region, with that region's element, and Nod-Krai's Statue of the New Moon granting none.
+// Starfell Lake's island statue (catalog 23) is Mondstadt's second.
 const catalog=JSON.parse(readFileSync(fileURLToPath(new URL('assets/world-locations/catalog.json',EXT)),'utf8'));
-const statues=catalog.locations.filter(isStatue);
+const starfell=catalog.locations.find(l=>l.id==='expansion-starfell-lake');
+assert.equal(statueElement(starfell),'Anemo','Starfell Lake is an Anemo statue');
+const statues=catalog.locations.filter(l=>isStatue(l)&&l!==starfell);
 const expected={Mondstadt:'Anemo',Liyue:'Geo',Inazuma:'Electro',Sumeru:'Dendro',Fontaine:'Hydro',Natlan:'Pyro','Nod-Krai':'',Snezhnaya:'Cryo'};
 assert.deepEqual(Object.fromEntries(statues.map(s=>[s.region,statueElement(s)])),expected);
 for(const statue of statues){

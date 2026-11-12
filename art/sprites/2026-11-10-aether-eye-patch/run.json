@@ -1,0 +1,52 @@
+{
+  "request": "Could you patch the eyes from this Aether onto the one you just generated?",
+  "method": "built-in image_gen with target, user-supplied eye reference, and aligned transparent markup",
+  "characters": {
+    "Aether": {
+      "references": [
+        {
+          "role": "edit target: exact latest candidate",
+          "source": "art/sprites/2026-11-10-aether-forward-gaze/candidates/Aether/neutral-v001.png",
+          "copy": "art/sprites/2026-11-10-aether-eye-patch/references/Aether/target.png",
+          "sha256": "bc4acc97d13d19afdaf50b00639548eea342c0241951b2783ce7c6a72317ae6c"
+        },
+        {
+          "role": "user-supplied eye appearance reference",
+          "source": "/var/folders/yb/h8ks0jfd6jl0jdj3npytrx2r0000gn/T/codex-clipboard-fb69088e-c8df-47a2-9c25-3b50a5e92744.png",
+          "copy": "art/sprites/2026-11-10-aether-eye-patch/references/Aether/eye-source.png",
+          "sha256": "30c95064f41bc8cc2c1e46f185657aa344ac8b15509d76f3f1e6ce67c57c2078"
+        },
+        {
+          "role": "transparent aligned eye-area markup, guidance only",
+          "source": "created for this correction",
+          "copy": "art/sprites/2026-11-10-aether-eye-patch/references/Aether/eye-markup.png",
+          "sha256": "9f3855d71ff2c0fbd8bf9c1a1e5cc5d594845e64080c9af81700c362863e7784"
+        }
+      ],
+      "approval": "pending",
+      "status": "generated; awaiting user review",
+      "prompt": "prompts/Aether/neutral-v001.txt",
+      "tool": "image_gen.imagegen",
+      "tool_arguments": {
+        "prompt": "Use case: precise-object-edit. Image 1 is the exact Aether neutral sprite to edit. Image 2 is the user-supplied eye reference: copy the appearance of both eyes from this Aether, matching their shapes, irises, pupils and calm forward gaze, adapting placement naturally to the target face. Image 3 is a transparent markup layer aligned to image 1; its magenta outlines indicate the two eye areas to correct, and are guidance only, never part of the artwork. Change only the target eyes as needed to match image 2. Preserve the target\u2019s head, face shape, hair, expression, body proportions, pose, costume, hands, shoes, full silhouette, illustration style, pixel dimensions, framing and transparent background. Do not add marks, text, scenery, effects or shadows.",
+        "referenced_image_paths": [
+          "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-10-aether-eye-patch/references/Aether/target.png",
+          "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-10-aether-eye-patch/references/Aether/eye-source.png",
+          "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-10-aether-eye-patch/references/Aether/eye-markup.png"
+        ],
+        "transparent_background": true
+      },
+      "returned_original": "/Users/alexachan/.codex/generated_images/01a1c7c8-1e02-7d01-aae2-3bd5084bd899/exec-946ad0f4-73c5-41f7-b837-4c7ed4ff9b77.png",
+      "raw": "raw/Aether/neutral-v001.png",
+      "candidate": "candidates/Aether/neutral-v001.png",
+      "sha256": "333351c483a201a93b5d5a9fbf32142b2f1d280a8ea6c03d8f51a15e9dfdd1df",
+      "format": "PNG",
+      "color_type": 6,
+      "dimensions": [
+        1003,
+        1568
+      ],
+      "framing_transform": "none"
+    }
+  }
+}

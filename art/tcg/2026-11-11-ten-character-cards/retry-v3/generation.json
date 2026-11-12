@@ -1,0 +1,29 @@
+{
+  "tool": "built-in image_gen.imagegen",
+  "cards": [
+    {
+      "name": "Nicole",
+      "ref": "Navia",
+      "prompt": "Use case: stylized-concept. Generate a fresh unofficial vertical Genius Invokation TCG character card for Nicole from Genshin Impact. Image 1 is the official character splash art, authoritative for identity, face, hair, clothing, accessories, palette, and proportions; preserve its precise distinctive details. Image 2 is the genuine Navia TCG card, only a reference for framing, polished anime finish and composition; do not depict Navia or copy their appearance. Place her in a self-assured seated three-quarter pose with one hand gesturing, surrounded by elegant golden light and deep-blue celestial forms. Keep her official hair, facial features, blue-and-white clothing, ornaments, and silhouette true to the reference. Create one distinctive, complete slim ornate rounded rectangular card with balanced composition, crisp expressive face, natural anatomy, and detailed official Genshin TCG illustration style. No other characters, no lettering, no title, no watermark.",
+      "official_reference": "extension/genshin-dialogue-ui/assets/splash/Nicole.webp",
+      "tcg_reference": "extension/genshin-dialogue-ui/assets/tcg/characters/Navia.webp",
+      "raw": "art/tcg/2026-11-11-ten-character-cards/retry-v3/raw/Nicole.png"
+    },
+    {
+      "name": "Odette",
+      "ref": "Kamisato Ayaka",
+      "prompt": "Use case: stylized-concept. Generate a fresh unofficial vertical Genius Invokation TCG character card for Odette from Genshin Impact. Image 1 is the official character splash art, authoritative for identity, face, hair, clothing, accessories, palette, and proportions; preserve its precise distinctive details. Image 2 is the genuine Kamisato Ayaka TCG card, only a reference for framing, polished anime finish and composition; do not depict Kamisato Ayaka or copy their appearance. Show her in a sweeping ballet turn, with a graceful profile and a dynamic but clear pose, dark swan-like wings and icy blue ribbons around her. Preserve her actual official hair, headpiece, dress design, and proportions. Create one distinctive, complete slim ornate rounded rectangular card with balanced composition, crisp expressive face, natural anatomy, and detailed official Genshin TCG illustration style. No other characters, no lettering, no title, no watermark.",
+      "official_reference": "extension/genshin-dialogue-ui/assets/splash/Odette.webp",
+      "tcg_reference": "extension/genshin-dialogue-ui/assets/tcg/characters/Kamisato Ayaka.webp",
+      "raw": "art/tcg/2026-11-11-ten-character-cards/retry-v3/raw/Odette.png"
+    },
+    {
+      "name": "Vodyanitsa",
+      "ref": "Yelan",
+      "prompt": "Use case: stylized-concept. Generate a fresh unofficial vertical Genius Invokation TCG character card for Vodyanitsa from Genshin Impact. Image 1 is the official character splash art, authoritative for identity, face, hair, clothing, accessories, palette, and proportions; preserve its precise distinctive details. Image 2 is the genuine Yelan TCG card, only a reference for framing, polished anime finish and composition; do not depict Yelan or copy their appearance. Show her in a playful, dynamic three-quarter pose with flowing teal hair, framed by translucent water and music motifs. Match her official face, flower hair ornaments, costume, and aquatic character closely. Create one distinctive, complete slim ornate rounded rectangular card with balanced composition, crisp expressive face, natural anatomy, and detailed official Genshin TCG illustration style. No other characters, no lettering, no title, no watermark.",
+      "official_reference": "extension/genshin-dialogue-ui/assets/splash/Vodyanitsa.webp",
+      "tcg_reference": "extension/genshin-dialogue-ui/assets/tcg/characters/Yelan.webp",
+      "raw": "art/tcg/2026-11-11-ten-character-cards/retry-v3/raw/Vodyanitsa.png"
+    }
+  ]
+}

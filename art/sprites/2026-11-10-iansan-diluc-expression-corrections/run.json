@@ -1,0 +1,230 @@
+{
+  "request": "Iansan: Embarrassed - 4 fingers; Fear - weird hands; Confused - warped hands; Smug - 6 fingers; Annoyance - Bad pinkie perspective; Desire-1 and Love-1 - Not distinct enough, try new poses with more of a blush. Diluc: Love-1, Desire-1 - Don't look like the emotions of love and desire, make them more distinct; Fear - 4 fingers.",
+  "jobs": {
+    "Iansan/embarrassment": {
+      "kind": "user-directed markup correction",
+      "feedback": "Embarrassed - 4 fingers",
+      "parent_target": "art/sprites/2026-11-10-four-approved-22-expression-sets/sprites/Iansan/embarrassment.png",
+      "parent_sha256": "8d9a68a3da0e7bcc26d96861b80cfa13393c183977f9d78a0795a3d874fac190",
+      "target_copy": "art/sprites/2026-11-10-iansan-diluc-expression-corrections/targets/Iansan/embarrassment.png",
+      "markup": "art/sprites/2026-11-10-iansan-diluc-expression-corrections/markup/Iansan/embarrassment.png",
+      "markup_sha256": "b98f24a4f4e3430be385b900dcb9d7aa801e3c3312be1ab46967a68cb768de86",
+      "prompt": "art/sprites/2026-11-10-iansan-diluc-expression-corrections/prompts/Iansan/embarrassment.txt",
+      "status": "generated; awaiting review",
+      "tool": "image_gen.imagegen",
+      "tool_arguments": {
+        "prompt": "Use case: precise-object-edit. Image 1 is the exact Iansan embarrassment expression to correct. Image 2 is a separate transparent annotation layer aligned to image 1: magenta rectangles mark hand areas, not artwork. User feedback: Embarrassed - 4 fingers. Correct only the indicated hands: make the anatomical construction natural, with one palm, four fingers and one opposable thumb per hand, with plausible lengths and articulation appropriate to each existing gesture. Do not force normally obscured digits to show. Preserve the original facial expression, pose, identity, proportions, costume, rendering, framing, dimensions and transparent background. Keep all other image content unchanged. Do not include annotation marks in the result.",
+        "referenced_image_paths": [
+          "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-10-iansan-diluc-expression-corrections/targets/Iansan/embarrassment.png",
+          "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-10-iansan-diluc-expression-corrections/markup/Iansan/embarrassment.png"
+        ],
+        "transparent_background": true
+      },
+      "returned_original": "/Users/alexachan/.codex/generated_images/01a1c7c8-1e02-7d01-aae2-3bd5084bd899/exec-1ec299fa-0e9b-43ea-b465-2e276b874eda.png",
+      "raw": "raw/Iansan/embarrassment-v002.png",
+      "candidate": "candidates/Iansan/embarrassment-v002.png",
+      "sha256": "e9f1f37ffc6854ff63c4a0983c2fc81f59fb02be03a6816c60285962cc173105",
+      "format": "PNG",
+      "color_type": 6,
+      "dimensions": [
+        933,
+        1686
+      ],
+      "framing_transform": "none"
+    },
+    "Iansan/fear": {
+      "kind": "user-directed markup correction",
+      "feedback": "Fear - weird hands",
+      "parent_target": "art/sprites/2026-11-10-four-approved-22-expression-sets/sprites/Iansan/fear.png",
+      "parent_sha256": "889bdfa4f68cf8a894e814832dea071d12c6eaf9c252a00641093a9a445d0aea",
+      "target_copy": "art/sprites/2026-11-10-iansan-diluc-expression-corrections/targets/Iansan/fear.png",
+      "markup": "art/sprites/2026-11-10-iansan-diluc-expression-corrections/markup/Iansan/fear.png",
+      "markup_sha256": "2cd2cd9729ec9ce9ce7b39ba52752cff0964aecd1f45d7f11c70cf552dbf2fa6",
+      "prompt": "art/sprites/2026-11-10-iansan-diluc-expression-corrections/prompts/Iansan/fear.txt",
+      "status": "generated; awaiting review",
+      "tool": "image_gen.imagegen",
+      "tool_arguments": {
+        "prompt": "Use case: precise-object-edit. Image 1 is the exact Iansan fear expression to correct. Image 2 is a separate transparent annotation layer aligned to image 1: magenta rectangles mark hand areas, not artwork. User feedback: Fear - weird hands. Correct only the indicated hands: make the anatomical construction natural, with one palm, four fingers and one opposable thumb per hand, with plausible lengths and articulation appropriate to each existing gesture. Do not force normally obscured digits to show. Preserve the original facial expression, pose, identity, proportions, costume, rendering, framing, dimensions and transparent background. Keep all other image content unchanged. Do not include annotation marks in the result.",
+        "referenced_image_paths": [
+          "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-10-iansan-diluc-expression-corrections/targets/Iansan/fear.png",
+          "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-10-iansan-diluc-expression-corrections/markup/Iansan/fear.png"
+        ],
+        "transparent_background": true
+      },
+      "returned_original": "/Users/alexachan/.codex/generated_images/01a1c7c8-1e02-7d01-aae2-3bd5084bd899/exec-5bb692da-99b2-49bd-aa03-69f74913aa1f.png",
+      "raw": "raw/Iansan/fear-v002.png",
+      "candidate": "candidates/Iansan/fear-v002.png",
+      "sha256": "48fb05ef36b6a7197b358abdba79f1eaba6bc36698bf8e25d32434719476debd",
+      "format": "PNG",
+      "color_type": 6,
+      "dimensions": [
+        935,
+        1683
+      ],
+      "framing_transform": "none"
+    },
+    "Iansan/confusion": {
+      "kind": "user-directed markup correction",
+      "feedback": "Confused - warped hands",
+      "parent_target": "art/sprites/2026-11-10-four-approved-22-expression-sets/sprites/Iansan/confusion.png",
+      "parent_sha256": "f6bf4a40bc98426926d2fb6121a42c1c66a95e4b2e2b57e13d9996ae620b725e",
+      "target_copy": "art/sprites/2026-11-10-iansan-diluc-expression-corrections/targets/Iansan/confusion.png",
+      "markup": "art/sprites/2026-11-10-iansan-diluc-expression-corrections/markup/Iansan/confusion.png",
+      "markup_sha256": "8226a09bd210c9a3bf20ba0a757b32781d3b298b0f9923d6bf7222f2aa95686a",
+      "prompt": "art/sprites/2026-11-10-iansan-diluc-expression-corrections/prompts/Iansan/confusion.txt",
+      "status": "generated; awaiting review",
+      "tool": "image_gen.imagegen",
+      "tool_arguments": {
+        "prompt": "Use case: precise-object-edit. Image 1 is the exact Iansan confusion expression to correct. Image 2 is a separate transparent annotation layer aligned to image 1: magenta rectangles mark hand areas, not artwork. User feedback: Confused - warped hands. Correct only the indicated hands: make the anatomical construction natural, with one palm, four fingers and one opposable thumb per hand, with plausible lengths and articulation appropriate to each existing gesture. Do not force normally obscured digits to show. Preserve the original facial expression, pose, identity, proportions, costume, rendering, framing, dimensions and transparent background. Keep all other image content unchanged. Do not include annotation marks in the result.",
+        "referenced_image_paths": [
+          "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-10-iansan-diluc-expression-corrections/targets/Iansan/confusion.png",
+          "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-10-iansan-diluc-expression-corrections/markup/Iansan/confusion.png"
+        ],
+        "transparent_background": true
+      },
+      "returned_original": "/Users/alexachan/.codex/generated_images/01a1c7c8-1e02-7d01-aae2-3bd5084bd899/exec-95131dad-dfeb-49cf-b73c-9494359bf86b.png",
+      "raw": "raw/Iansan/confusion-v002.png",
+      "candidate": "candidates/Iansan/confusion-v002.png",
+      "sha256": "115f1f6d7796f81cd81537f70714d675f97681b3fe19585a037ea43450d1adab",
+      "format": "PNG",
+      "color_type": 6,
+      "dimensions": [
+        935,
+        1683
+      ],
+      "framing_transform": "none"
+    },
+    "Iansan/smug": {
+      "kind": "user-directed markup correction",
+      "feedback": "Smug - 6 fingers",
+      "parent_target": "art/sprites/2026-11-10-four-approved-22-expression-sets/sprites/Iansan/smug.png",
+      "parent_sha256": "d38c94a909b27e65001d99bc1ee75593e30b0c289d7ebb2d07763d47cad6c778",
+      "target_copy": "art/sprites/2026-11-10-iansan-diluc-expression-corrections/targets/Iansan/smug.png",
+      "markup": "art/sprites/2026-11-10-iansan-diluc-expression-corrections/markup/Iansan/smug.png",
+      "markup_sha256": "ff84c8e6847e69c49c0b1d631de6af190647f4f67b7acf9493f317ec027fce36",
+      "prompt": "art/sprites/2026-11-10-iansan-diluc-expression-corrections/prompts/Iansan/smug.txt",
+      "status": "approved and installed",
+      "tool": "image_gen.imagegen",
+      "tool_arguments": {
+        "prompt": "Use case: precise-object-edit. Image 1 is the exact Iansan smug expression to correct. Image 2 is a separate transparent annotation layer aligned to image 1: magenta rectangles mark hand areas, not artwork. User feedback: Smug - 6 fingers. Correct only the indicated hands: make the anatomical construction natural, with one palm, four fingers and one opposable thumb per hand, with plausible lengths and articulation appropriate to each existing gesture. Do not force normally obscured digits to show. Preserve the original facial expression, pose, identity, proportions, costume, rendering, framing, dimensions and transparent background. Keep all other image content unchanged. Do not include annotation marks in the result.",
+        "referenced_image_paths": [
+          "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-10-iansan-diluc-expression-corrections/targets/Iansan/smug.png",
+          "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-10-iansan-diluc-expression-corrections/markup/Iansan/smug.png"
+        ],
+        "transparent_background": true
+      },
+      "returned_original": "/Users/alexachan/.codex/generated_images/01a1c7c8-1e02-7d01-aae2-3bd5084bd899/exec-060ffae3-6b1c-4d76-aa86-be274d81be65.png",
+      "raw": "raw/Iansan/smug-v002.png",
+      "candidate": "candidates/Iansan/smug-v002.png",
+      "sha256": "0f6c562f97f9c67bb82fbbfc5d25c9e1c10d9d82f3630738c480c6265983b02a",
+      "format": "PNG",
+      "color_type": 6,
+      "dimensions": [
+        935,
+        1683
+      ],
+      "framing_transform": "none",
+      "approval": "approved",
+      "approval_message": "Smug is accepted though"
+    },
+    "Iansan/annoyance": {
+      "kind": "user-directed markup correction",
+      "feedback": "Annoyance - Bad pinkie perspective",
+      "parent_target": "art/sprites/2026-11-10-four-approved-22-expression-sets/sprites/Iansan/annoyance.png",
+      "parent_sha256": "d0f631a9b82852131e0cfd73b7a6f8bd3b59f4023ebedfa41519b8f8ea215ece",
+      "target_copy": "art/sprites/2026-11-10-iansan-diluc-expression-corrections/targets/Iansan/annoyance.png",
+      "markup": "art/sprites/2026-11-10-iansan-diluc-expression-corrections/markup/Iansan/annoyance.png",
+      "markup_sha256": "9a9a47180a3ca7076254c31fd814a6a0501adfb96ba64364b8f9aa295f814238",
+      "prompt": "art/sprites/2026-11-10-iansan-diluc-expression-corrections/prompts/Iansan/annoyance.txt",
+      "status": "generated; awaiting review",
+      "tool": "image_gen.imagegen",
+      "tool_arguments": {
+        "prompt": "Use case: precise-object-edit. Image 1 is the exact Iansan annoyance expression to correct. Image 2 is a separate transparent annotation layer aligned to image 1: magenta rectangles mark hand areas, not artwork. User feedback: Annoyance - Bad pinkie perspective. Correct only the indicated hands: make the anatomical construction natural, with one palm, four fingers and one opposable thumb per hand, with plausible lengths and articulation appropriate to each existing gesture. Do not force normally obscured digits to show. Preserve the original facial expression, pose, identity, proportions, costume, rendering, framing, dimensions and transparent background. Keep all other image content unchanged. Do not include annotation marks in the result.",
+        "referenced_image_paths": [
+          "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-10-iansan-diluc-expression-corrections/targets/Iansan/annoyance.png",
+          "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-10-iansan-diluc-expression-corrections/markup/Iansan/annoyance.png"
+        ],
+        "transparent_background": true
+      },
+      "returned_original": "/Users/alexachan/.codex/generated_images/01a1c7c8-1e02-7d01-aae2-3bd5084bd899/exec-a063e172-55dd-4ab1-b79a-669db83141ce.png",
+      "raw": "raw/Iansan/annoyance-v002.png",
+      "candidate": "candidates/Iansan/annoyance-v002.png",
+      "sha256": "b785511fd2f9e7db38933908f681c18d4a5a8858253db829e315b171b8c15fbc",
+      "format": "PNG",
+      "color_type": 6,
+      "dimensions": [
+        935,
+        1683
+      ],
+      "framing_transform": "none"
+    },
+    "Diluc/fear": {
+      "kind": "user-directed markup correction",
+      "feedback": "Fear - 4 fingers",
+      "parent_target": "art/sprites/2026-11-10-four-approved-22-expression-sets/sprites/Diluc/fear.png",
+      "parent_sha256": "f51d60f94dcfe5215c7bd464e9433e4e69604cc360ff857decb0f803441387b1",
+      "target_copy": "art/sprites/2026-11-10-iansan-diluc-expression-corrections/targets/Diluc/fear.png",
+      "markup": "art/sprites/2026-11-10-iansan-diluc-expression-corrections/markup/Diluc/fear.png",
+      "markup_sha256": "7a2f5c57c7cbfb4778dea2ffed7042a1c2ea10666a472d0f5df1fe106bf99b70",
+      "prompt": "art/sprites/2026-11-10-iansan-diluc-expression-corrections/prompts/Diluc/fear.txt",
+      "status": "generated; awaiting review",
+      "tool": "image_gen.imagegen",
+      "tool_arguments": {
+        "prompt": "Use case: precise-object-edit. Image 1 is the exact Diluc fear expression to correct. Image 2 is a separate transparent annotation layer aligned to image 1: magenta rectangles mark hand areas, not artwork. User feedback: Fear - 4 fingers. Correct only the indicated hands: make the anatomical construction natural, with one palm, four fingers and one opposable thumb per hand, with plausible lengths and articulation appropriate to each existing gesture. Do not force normally obscured digits to show. Preserve the original facial expression, pose, identity, proportions, costume, rendering, framing, dimensions and transparent background. Keep all other image content unchanged. Do not include annotation marks in the result.",
+        "referenced_image_paths": [
+          "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-10-iansan-diluc-expression-corrections/targets/Diluc/fear.png",
+          "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-10-iansan-diluc-expression-corrections/markup/Diluc/fear.png"
+        ],
+        "transparent_background": true
+      },
+      "returned_original": "/Users/alexachan/.codex/generated_images/01a1c7c8-1e02-7d01-aae2-3bd5084bd899/exec-9d8af7fa-5eec-42b8-84d0-1ab28044635c.png",
+      "raw": "raw/Diluc/fear-v002.png",
+      "candidate": "candidates/Diluc/fear-v002.png",
+      "sha256": "359a870617779586b74faab8839f22bef667ca9a49aaa7f608860dcac5c2c91b",
+      "format": "PNG",
+      "color_type": 6,
+      "dimensions": [
+        824,
+        1908
+      ],
+      "framing_transform": "none"
+    },
+    "Iansan/love-1": {
+      "kind": "independent expression regeneration",
+      "feedback": "more distinct love and desire; new poses with more blush",
+      "approved_neutral": "art/sprites/2026-11-10-four-approved-22-expression-sets/references/Iansan/approved-neutral.png",
+      "reference": "art/sprites/2026-11-10-iansan-diluc-expression-corrections/references/Iansan/approved-neutral.png",
+      "reference_sha256": "ffe30a7385cff25aed68a9048340f79df0cfdf9848abfeb8443776439a7a90bc",
+      "prompt": "art/sprites/2026-11-10-iansan-diluc-expression-corrections/prompts/Iansan/love-1.txt",
+      "status": "pending"
+    },
+    "Iansan/desire-1": {
+      "kind": "independent expression regeneration",
+      "feedback": "more distinct love and desire; new poses with more blush",
+      "approved_neutral": "art/sprites/2026-11-10-four-approved-22-expression-sets/references/Iansan/approved-neutral.png",
+      "reference": "art/sprites/2026-11-10-iansan-diluc-expression-corrections/references/Iansan/approved-neutral.png",
+      "reference_sha256": "ffe30a7385cff25aed68a9048340f79df0cfdf9848abfeb8443776439a7a90bc",
+      "prompt": "art/sprites/2026-11-10-iansan-diluc-expression-corrections/prompts/Iansan/desire-1.txt",
+      "status": "pending"
+    },
+    "Diluc/love-1": {
+      "kind": "independent expression regeneration",
+      "feedback": "more distinct love and desire; express emotions more clearly",
+      "approved_neutral": "art/sprites/2026-11-10-four-approved-22-expression-sets/references/Diluc/approved-neutral.png",
+      "reference": "art/sprites/2026-11-10-iansan-diluc-expression-corrections/references/Diluc/approved-neutral.png",
+      "reference_sha256": "1a8596a0b94ffd2e1345948efca56af2623efeed5b4a90aea5c34a39689b749f",
+      "prompt": "art/sprites/2026-11-10-iansan-diluc-expression-corrections/prompts/Diluc/love-1.txt",
+      "status": "pending"
+    },
+    "Diluc/desire-1": {
+      "kind": "independent expression regeneration",
+      "feedback": "more distinct love and desire; express emotions more clearly",
+      "approved_neutral": "art/sprites/2026-11-10-four-approved-22-expression-sets/references/Diluc/approved-neutral.png",
+      "reference": "art/sprites/2026-11-10-iansan-diluc-expression-corrections/references/Diluc/approved-neutral.png",
+      "reference_sha256": "1a8596a0b94ffd2e1345948efca56af2623efeed5b4a90aea5c34a39689b749f",
+      "prompt": "art/sprites/2026-11-10-iansan-diluc-expression-corrections/prompts/Diluc/desire-1.txt",
+      "status": "pending"
+    }
+  },
+  "status": "superseded for remaining revisions by user request; Iansan smug accepted"
+}

@@ -54,32 +54,30 @@ export function layoutStage(items, { width: W, height: H, dialogueTop, topInset 
     // overlaps instead, so the Sprite height setting means the same on every screen.
     const gutter = Math.max(6, W * .015), room = W - gutter * 2;
     const compact = compactViewport(W, H), upright = H > W;
-    const overlap = compact ? .68 : .62;
     const heights = natural.map(h => h * factor), smallestPx = Math.min(...heights);
     // Prefer feet at the viewport bottom, but bring the entire row up if needed.
     // Position offsets remain explicit per-character overrides.
     const feet = Math.min(H, D + smallestPx * .65);
-    const w = items.map((i, x) => heights[x] * Math.min(aspect(i), .62));
-    const slot = room / n;
-    let centres = w.map((_, x) => gutter + slot * (x + .5));
-    // A sparse row (the even slots are wider than the figures) is pulled together: neighbours stand
-    // a little over their own width apart, with a wider gap where the party meets the enemies.
-    let packed = false;
+    // Each figure claims stage room by its own trimmed width, so a wide sprite (wings, a mount, a
+    // spread pose) pushes its neighbours aside instead of covering them. Its height is unchanged.
+    const w = items.map((i, x) => heights[x] * aspect(i));
+    let centres = [W / 2];
     if (n > 1) {
+        // Neighbours overlap by a fixed share of the narrower figure, so a wide sprite overlaps its
+        // neighbour no more than two ordinary ones do, with a wider gap where the party meets the
+        // enemies. A row too long for the screen closes up evenly, so every figure keeps a share of
+        // the stage in proportion to its width.
         const pitch = compact ? (upright ? .8 : .84) : .86, offsets = [0];
-        for (let x = 1; x < n; x++) offsets.push(offsets[x - 1] + (w[x - 1] + w[x]) / 2 * pitch + (items[x].group !== items[x - 1].group ? Math.min(w[x - 1], w[x]) * .3 : 0));
-        const left = -w[0] / 2, right = offsets[n - 1] + w[n - 1] / 2;
-        if (right - left <= room) { const shift = W / 2 - (left + right) / 2; centres = offsets.map(o => o + shift); packed = true; }
-    }
-    const fits = centres.every((c, x) => c - w[x] / 2 >= -.5 && c + w[x] / 2 <= W + .5) && w.slice(1).every((v, x) => (v + w[x]) / 2 - slot <= overlap * Math.min(v, w[x]) + .5);
-    if (!packed && !fits && n > 1) {
-        const first = w[0] / 2 + gutter, last = Math.max(first, W - gutter - w[n - 1] / 2);
-        centres = w.map((_, x) => first + (last - first) * x / (n - 1));
+        for (let x = 1; x < n; x++) { const narrow = Math.min(w[x - 1], w[x]); offsets.push(offsets[x - 1] + (w[x - 1] + w[x]) / 2 - narrow * (1 - pitch) + (items[x].group !== items[x - 1].group ? narrow * .3 : 0)); }
+        const span = offsets[n - 1], ends = (w[0] + w[n - 1]) / 2;
+        const k = span + ends <= room ? 1 : Math.max(0, (room - ends) / span);
+        const shift = W / 2 - (k * span + w[n - 1] / 2 - w[0] / 2) / 2;
+        centres = offsets.map(o => o * k + shift);
     }
     return items.map((i, x) => {
-        const box = heights[x] * aspect(i), core = Math.min(box, w[x]);
+        const box = w[x];
         let centre = Number.isFinite(i.pinned) ? i.pinned * W : centres[x];
-        if (core <= W) centre = Math.min(W - core / 2, Math.max(core / 2, centre));
+        if (box <= W) centre = Math.min(W - box / 2, Math.max(box / 2, centre));
         const lift = (Number(i.lift) || 0) * H;
         return { left: centre - box / 2, top: feet - heights[x] - lift, width: box, height: heights[x], z: x + 1 };
     });

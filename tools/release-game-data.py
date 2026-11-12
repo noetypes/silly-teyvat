@@ -23,6 +23,10 @@ SHA_DIGITS = 16
 BUNDLED_PERSONAS = {'teyvat-persona-aether.png', 'teyvat-persona-lumine.png'}
 
 
+DEVICE_PREFERENCES = ('masterVolume', 'locationMusicVolume', 'voiceVolume', 'cgVolume', 'effectsVolume', 'uiSoundVolume',
+                      'frameCap', 'frameCapCustom', 'reducedMotion')
+
+
 def version_key(version):
     parts = [int(part) if part.isdigit() else 0 for part in version.replace('-', '.').replace('+', '.').split('.')[:3]]
     return parts + [0] * (3 - len(parts))
@@ -169,7 +173,9 @@ def main():
         settings = json.loads(archive.read(release['manifest'])).get('settings') or {}
     # Install a playable first-run configuration before the extension fills in its defaults.
     # applyPackagedSettings leaves an existing user's preferences completely untouched.
-    for key in ('choicesProfile', 'cgProfile', 'signature', 'gameData'):
+    # Private choices, and the developer's own device preferences (sound levels, frame rate, motion),
+    # which a new player gets from the extension's defaults instead.
+    for key in ('choicesProfile', 'cgProfile', 'signature', 'gameData', *DEVICE_PREFERENCES):
         settings.pop(key, None)
     for key in ('personaCharacters', 'personaSprites'):
         settings[key] = {avatar: value for avatar, value in (settings.get(key) or {}).items() if avatar in BUNDLED_PERSONAS}

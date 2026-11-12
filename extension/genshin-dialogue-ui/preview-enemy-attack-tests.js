@@ -5,7 +5,7 @@ import {battleSnapshot,commitRound} from './battle-state.js';
 import {resolveRound} from './battle-engine.js';
 import {nearestGuild,resolveDefeat,findKatheryne,isGuildLocation} from './defeat.js';
 import {travelState} from './backgrounds.js';
-import {locationCastState} from './location-cast.js';
+import {locationCastState,commitTeleportParty} from './location-cast.js';
 
 // Party health, enemy moves in the battle round and the Guild rescue after a defeat.
 export async function runEnemyAttackTests(){
@@ -50,6 +50,12 @@ export async function runEnemyAttackTests(){
         check('the same round cannot be applied twice',commitRound(ctx,snap,round,'round-1')===null&&event.kind==='round');
         let stale=false;try{commitRound(ctx,snap,round,'round-2');}catch{stale=true;}check('a round resolved against old health is rejected',stale);
         healParty(ctx);check('healing restores everyone',partyStatus(ctx).every(m=>m.hp===m.maxHp));
+        {const statueCtx=fixture(),regions=statueCtx.extensionSettings.genshin_dialogue_ui.backgroundRegions;
+        regions[0].locations.push(place('statue','Statue of The Seven',50,50,{wilderness:true,statue:'Anemo'}),place('wilds-2','Deeper Wilds',80,80,{wilderness:true}));
+        const hurt=()=>{partyStatus(statueCtx);for(const entry of Object.values(combatState(statueCtx).party))entry.hp=1;};
+        hurt();commitTeleportParty(statueCtx,{destination:'wilds-2',decisions:[]});const stillHurt=partyStatus(statueCtx).every(m=>m.hp===1);
+        commitTeleportParty(statueCtx,{destination:'statue',decisions:[]});
+        check('arriving at a Statue of The Seven heals the party, even one set as wilderness',stillHurt&&partyStatus(statueCtx).every(m=>m.hp===m.maxHp));}
         check('the nearest Adventurers’ Guild is chosen by map distance',nearestGuild(ctx).location.id==='guild-near'&&isGuildLocation(nearestGuild(ctx).location)&&!isGuildLocation({label:'Shop'}));
 
         // Full flow through the combat UI: round, enemy counterattack, party health HUD.

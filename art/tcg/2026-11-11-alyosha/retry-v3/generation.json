@@ -1,0 +1,12 @@
+{
+  "tool": "built-in image_gen.imagegen",
+  "name": "Alyosha",
+  "prompt": "Use case: stylized-concept. Generate one NEW unofficial Genius Invokation TCG character card for Alyosha from Genshin Impact. FORMAT IS ESSENTIAL: the complete finished card must be a narrow vertical portrait with width-to-height ratio 360:617 (approximately 0.5835, about 7:12), matching the exact tall slender proportions of Image 2. Prefer a canvas approximately 958 by 1642 pixels. The outside edges of the complete card frame must align with the canvas edges, with no margin, and it must not be a wide 2:3 card. Image 1 is Alyosha's official splash artwork, authoritative for his young build, face, teal hair, red animal-eared white-furred hood, blue winter outfit, white cloak, patterned red scarf and equipment. Preserve these details and his black-and-white dog Tugarin. Image 2 is the genuine playable character Mika TCG card, used only for its narrow card proportions, character-forward framing, ornate card border and polished Genshin TCG illustration style. Do not depict Mika or borrow his character design. Depict Alyosha in a natural dynamic spear-bearing pose, with Tugarin nearby, in a snowy northern landscape with subtle violet Electro accents. Fit both into the narrow tall frame with Alyosha's face and costume clear. Natural coherent arms, hands and digits, legs and canine anatomy. One complete card, no letters, title, watermark, extra humans or comparison.",
+  "official_reference": "extension/genshin-dialogue-ui/assets/splash/Alyosha.webp",
+  "tcg_reference": "extension/genshin-dialogue-ui/assets/tcg/characters/Mika.webp",
+  "raw": "art/tcg/2026-11-11-alyosha/retry-v3/raw/Alyosha.png",
+  "dimensions": [
+    990,
+    1588
+  ]
+}

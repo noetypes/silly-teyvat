@@ -34,6 +34,8 @@ body.gi-card-art-on .avatar:is(.gi-card-art, .gi-card-frame, .gi-card-collage) {
     /* !important: the theme rings avatars with an ID-scoped box-shadow. */
     border: 0 !important; border-radius: 0 !important; background: none !important; box-shadow: none !important; outline: 0;
 }
+/* The group editor wraps its portrait in a bordered upload button; a card shows bare there too. */
+body.gi-card-art-on .add_avatar.avatar:has(> #group_avatar_preview .avatar:is(.gi-card-art, .gi-card-frame)) { border: 0 !important; border-radius: 0 !important; background: none !important; box-shadow: none !important; overflow: visible; }
 body.gi-card-art-on .avatar img:is(.gi-card-img, .gi-card-img-frame) {
     position: static; inset: auto; translate: none; flex: none; max-width: none; max-height: none; margin: 0;
     width: auto; border: 0; background: none;

@@ -1,0 +1,85 @@
+{
+  "tool": "built-in image_gen.imagegen",
+  "cards": [
+    {
+      "name": "Aloy",
+      "ref": "Ganyu",
+      "prompt": "Use case: stylized-concept. Create one NEW vertical Genius Invokation TCG character card illustration for Aloy from Genshin Impact. Image 1 is official Aloy artwork and is authoritative for identity, face, hair, outfit, body type, accessories and colors; preserve these faithfully. Image 2 is the genuine Ganyu TCG card, reference for card framing, visual finish, illustration style, and composition only; do not depict Ganyu or copy their appearance. A confident hunter drawing her bow amid snowy mountains and drifting ice. Fit the subject naturally inside a complete ornate rounded rectangular card frame, polished official Genshin anime illustration, coherent anatomy, no lettering, no title, no watermark, only one card.",
+      "official_reference": "extension/genshin-dialogue-ui/assets/splash/Aloy.webp",
+      "tcg_reference": "extension/genshin-dialogue-ui/assets/tcg/characters/Ganyu.webp",
+      "raw": "art/tcg/2026-11-11-ten-character-cards/raw/Aloy.png"
+    },
+    {
+      "name": "Linnea",
+      "ref": "Fischl",
+      "prompt": "Use case: stylized-concept. Create one NEW vertical Genius Invokation TCG character card illustration for Linnea from Genshin Impact. Image 1 is official Linnea artwork and is authoritative for identity, face, hair, outfit, body type, accessories and colors; preserve these faithfully. Image 2 is the genuine Fischl TCG card, reference for card framing, visual finish, illustration style, and composition only; do not depict Fischl or copy their appearance. A spirited, expressive pose amid warm golden light and lively mechanical motifs. Fit the subject naturally inside a complete ornate rounded rectangular card frame, polished official Genshin anime illustration, coherent anatomy, no lettering, no title, no watermark, only one card.",
+      "official_reference": "extension/genshin-dialogue-ui/assets/splash/Linnea.webp",
+      "tcg_reference": "extension/genshin-dialogue-ui/assets/tcg/characters/Fischl.webp",
+      "raw": "art/tcg/2026-11-11-ten-character-cards/raw/Linnea.png"
+    },
+    {
+      "name": "Lohen",
+      "ref": "Albedo",
+      "prompt": "Use case: stylized-concept. Create one NEW vertical Genius Invokation TCG character card illustration for Lohen from Genshin Impact. Image 1 is official Lohen artwork and is authoritative for identity, face, hair, outfit, body type, accessories and colors; preserve these faithfully. Image 2 is the genuine Albedo TCG card, reference for card framing, visual finish, illustration style, and composition only; do not depict Albedo or copy their appearance. A poised knight in an elegant stance, framed by dark, crisp angular motifs. Fit the subject naturally inside a complete ornate rounded rectangular card frame, polished official Genshin anime illustration, coherent anatomy, no lettering, no title, no watermark, only one card.",
+      "official_reference": "extension/genshin-dialogue-ui/assets/splash/Lohen.webp",
+      "tcg_reference": "extension/genshin-dialogue-ui/assets/tcg/characters/Albedo.webp",
+      "raw": "art/tcg/2026-11-11-ten-character-cards/raw/Lohen.png"
+    },
+    {
+      "name": "Nicole",
+      "ref": "Mona",
+      "prompt": "Use case: stylized-concept. Create one NEW vertical Genius Invokation TCG character card illustration for Nicole from Genshin Impact. Image 1 is official Nicole artwork and is authoritative for identity, face, hair, outfit, body type, accessories and colors; preserve these faithfully. Image 2 is the genuine Mona TCG card, reference for card framing, visual finish, illustration style, and composition only; do not depict Mona or copy their appearance. A mysterious, graceful pose amid luminous celestial and arcane motifs. Fit the subject naturally inside a complete ornate rounded rectangular card frame, polished official Genshin anime illustration, coherent anatomy, no lettering, no title, no watermark, only one card.",
+      "official_reference": "extension/genshin-dialogue-ui/assets/splash/Nicole.webp",
+      "tcg_reference": "extension/genshin-dialogue-ui/assets/tcg/characters/Mona.webp",
+      "raw": "art/tcg/2026-11-11-ten-character-cards/raw/Nicole.png"
+    },
+    {
+      "name": "Odette",
+      "ref": "Furina",
+      "prompt": "Use case: stylized-concept. Create one NEW vertical Genius Invokation TCG character card illustration for Odette from Genshin Impact. Image 1 is official Odette artwork and is authoritative for identity, face, hair, outfit, body type, accessories and colors; preserve these faithfully. Image 2 is the genuine Furina TCG card, reference for card framing, visual finish, illustration style, and composition only; do not depict Furina or copy their appearance. A theatrical, elegant pose amid flowing water and delicate blue stage motifs. Fit the subject naturally inside a complete ornate rounded rectangular card frame, polished official Genshin anime illustration, coherent anatomy, no lettering, no title, no watermark, only one card.",
+      "official_reference": "extension/genshin-dialogue-ui/assets/splash/Odette.webp",
+      "tcg_reference": "extension/genshin-dialogue-ui/assets/tcg/characters/Furina.webp",
+      "raw": "art/tcg/2026-11-11-ten-character-cards/raw/Odette.png"
+    },
+    {
+      "name": "Prune",
+      "ref": "Klee",
+      "prompt": "Use case: stylized-concept. Create one NEW vertical Genius Invokation TCG character card illustration for Prune from Genshin Impact. Image 1 is official Prune artwork and is authoritative for identity, face, hair, outfit, body type, accessories and colors; preserve these faithfully. Image 2 is the genuine Klee TCG card, reference for card framing, visual finish, illustration style, and composition only; do not depict Klee or copy their appearance. A lively playful pose, preserving her small childlike proportions, amid her own purple mechanical motifs. Fit the subject naturally inside a complete ornate rounded rectangular card frame, polished official Genshin anime illustration, coherent anatomy, no lettering, no title, no watermark, only one card.",
+      "official_reference": "extension/genshin-dialogue-ui/assets/splash/Prune.webp",
+      "tcg_reference": "extension/genshin-dialogue-ui/assets/tcg/characters/Klee.webp",
+      "raw": "art/tcg/2026-11-11-ten-character-cards/raw/Prune.png"
+    },
+    {
+      "name": "Sandrone",
+      "ref": "Arlecchino",
+      "prompt": "Use case: stylized-concept. Create one NEW vertical Genius Invokation TCG character card illustration for Sandrone from Genshin Impact. Image 1 is official Sandrone artwork and is authoritative for identity, face, hair, outfit, body type, accessories and colors; preserve these faithfully. Image 2 is the genuine Arlecchino TCG card, reference for card framing, visual finish, illustration style, and composition only; do not depict Arlecchino or copy their appearance. A composed, imposing pose amid finely detailed mechanical puppet motifs in cool blue tones. Fit the subject naturally inside a complete ornate rounded rectangular card frame, polished official Genshin anime illustration, coherent anatomy, no lettering, no title, no watermark, only one card.",
+      "official_reference": "extension/genshin-dialogue-ui/assets/splash/Sandrone.webp",
+      "tcg_reference": "extension/genshin-dialogue-ui/assets/tcg/characters/Arlecchino.webp",
+      "raw": "art/tcg/2026-11-11-ten-character-cards/raw/Sandrone.png"
+    },
+    {
+      "name": "Vesna",
+      "ref": "Eula",
+      "prompt": "Use case: stylized-concept. Create one NEW vertical Genius Invokation TCG character card illustration for Vesna from Genshin Impact. Image 1 is official Vesna artwork and is authoritative for identity, face, hair, outfit, body type, accessories and colors; preserve these faithfully. Image 2 is the genuine Eula TCG card, reference for card framing, visual finish, illustration style, and composition only; do not depict Eula or copy their appearance. A graceful dynamic pose amid pale wintry light and delicate swirling motifs. Fit the subject naturally inside a complete ornate rounded rectangular card frame, polished official Genshin anime illustration, coherent anatomy, no lettering, no title, no watermark, only one card.",
+      "official_reference": "extension/genshin-dialogue-ui/assets/splash/Vesna.webp",
+      "tcg_reference": "extension/genshin-dialogue-ui/assets/tcg/characters/Eula.webp",
+      "raw": "art/tcg/2026-11-11-ten-character-cards/raw/Vesna.png"
+    },
+    {
+      "name": "Vodyanitsa",
+      "ref": "Sangonomiya Kokomi",
+      "prompt": "Use case: stylized-concept. Create one NEW vertical Genius Invokation TCG character card illustration for Vodyanitsa from Genshin Impact. Image 1 is official Vodyanitsa artwork and is authoritative for identity, face, hair, outfit, body type, accessories and colors; preserve these faithfully. Image 2 is the genuine Sangonomiya Kokomi TCG card, reference for card framing, visual finish, illustration style, and composition only; do not depict Sangonomiya Kokomi or copy their appearance. A fluid, graceful pose among curling water and ethereal blue shapes. Fit the subject naturally inside a complete ornate rounded rectangular card frame, polished official Genshin anime illustration, coherent anatomy, no lettering, no title, no watermark, only one card.",
+      "official_reference": "extension/genshin-dialogue-ui/assets/splash/Vodyanitsa.webp",
+      "tcg_reference": "extension/genshin-dialogue-ui/assets/tcg/characters/Sangonomiya Kokomi.webp",
+      "raw": "art/tcg/2026-11-11-ten-character-cards/raw/Vodyanitsa.png"
+    },
+    {
+      "name": "Zibai",
+      "ref": "Ningguang",
+      "prompt": "Use case: stylized-concept. Create one NEW vertical Genius Invokation TCG character card illustration for Zibai from Genshin Impact. Image 1 is official Zibai artwork and is authoritative for identity, face, hair, outfit, body type, accessories and colors; preserve these faithfully. Image 2 is the genuine Ningguang TCG card, reference for card framing, visual finish, illustration style, and composition only; do not depict Ningguang or copy their appearance. A poised elegant pose amid luminous jade and geometric gold motifs. Fit the subject naturally inside a complete ornate rounded rectangular card frame, polished official Genshin anime illustration, coherent anatomy, no lettering, no title, no watermark, only one card.",
+      "official_reference": "extension/genshin-dialogue-ui/assets/splash/Zibai.webp",
+      "tcg_reference": "extension/genshin-dialogue-ui/assets/tcg/characters/Ningguang.webp",
+      "raw": "art/tcg/2026-11-11-ten-character-cards/raw/Zibai.png"
+    }
+  ]
+}

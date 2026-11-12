@@ -100,6 +100,11 @@ export async function runStagingTests(){
         check('on a desktop neighbours stand close, with a wider gap before the enemy',Math.max(...gaps(desk))<desk[0].width*.7&&gaps(desk)[1]>gaps(desk)[0]);
         const upright=layoutStage([1,1,1].map(()=>({h:.88,aspect:.53,scale:1,lift:0})),{width:393,height:660,dialogueTop:400}),crowd=layoutStage([1,1,1,1].map(()=>({h:.88,aspect:.53,scale:1,lift:0})),{width:393,height:660,dialogueTop:400}),pair=layoutStage([1,1].map(()=>({h:.88,aspect:.53,scale:1,lift:0})),{width:393,height:660,dialogueTop:400});
         check('figures are sized by height alone: a crowd is as tall as a pair, on screen, and overlaps instead of shrinking',Math.abs(upright[0].height-pair[0].height)<.01&&Math.abs(crowd[0].height-pair[0].height)<.01&&Math.abs(crowd[0].width-pair[0].width)<.01&&crowd.every(b=>b.left>=-1&&b.left+b.width<=393+1));}}
+        {const row=aspects=>layoutStage(aspects.map(a=>({h:.88,aspect:a,scale:1,lift:0})),{width:1700,height:1000,dialogueTop:700});
+        const plain=row([.5,.5,.5]),wide=row([.5,1,.5]),cover=(a,b)=>Math.max(0,a.left+a.width-b.left);
+        check('a wide sprite keeps its height but takes more of the stage, so its neighbours are not hidden',Math.abs(wide[1].height-plain[1].height)<.01&&wide[1].width>plain[1].width*1.9&&cover(wide[0],wide[1])<wide[0].width*.2&&cover(wide[1],wide[2])<wide[2].width*.2);
+        const phone=layoutStage([.5,1.4,.5,.5].map(a=>({h:.88,aspect:a,scale:1,lift:0})),{width:393,height:660,dialogueTop:400});
+        check('a crowded phone row with a wide sprite keeps every figure that fits on screen and keeps the order',phone.every(b=>b.width>393||b.left>=-1&&b.left+b.width<=393+1)&&phone.slice(1).every((b,i)=>b.left+b.width/2>phone[i].left+phone[i].width/2));}
         prefs.spriteDim=false;prefs.spriteGlobalScale=100;prefs.characterSprites={};prefs.spriteScales={};
         check('classification defaults to per page',expressionMode(ctx,ctx.chat[0])==='page');
         prefs.characterSprites['Klee.png']={expressionMode:'message'};check('a character can override classification to whole messages',expressionMode(ctx,ctx.chat[0])==='message');

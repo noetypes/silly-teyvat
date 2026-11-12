@@ -118,3 +118,10 @@ assert.deepEqual(arena.enemyPool,['La Signora.png']);
 assert.equal(arena.enemyEncounterRate,100);
 assert.equal(seedWorldLocations(arenaCtx,{version:17,locations:[signora]}),0);
 console.log('La Signora arena seeds once with her encounter.');
+
+// 23: Starfell Lake becomes an Anemo statue; a statue the player already set there is kept.
+{const starfell=full.locations.find(item=>item.id==='expansion-starfell-lake');
+const at=extra=>({prefs:{starterLocationsVersion:22},regions:[{name:'Mondstadt',locations:[{id:starfell.id,label:starfell.label,waypoint:starfell.waypoint,path:'/custom',description:'A lake in Starfell Valley, with a Statue of The Seven on its island. A quiet place, far from any town.',...extra}]}],saveSettingsDebounced(){}});
+let s=at({});seedWorldLocations(s,{version:23,locations:[starfell]});assert.equal(s.regions[0].locations[0].statue,'Anemo');assert.equal(s.regions[0].locations[0].description,starfell.description);
+s=at({statue:'Geo'});seedWorldLocations(s,{version:23,locations:[starfell]});assert.equal(s.regions[0].locations[0].statue,'Geo');
+console.log('Starfell Lake becomes a Statue of The Seven unless the player chose otherwise.');}

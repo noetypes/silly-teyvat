@@ -75,7 +75,9 @@ export function teleportTo(ctx,locationId,{avatars,record=true,encounter}={}){
     if(record)recordTravel(ctx,from,target.location,{avatars,reason:'teleport',encounter});
     saveTravel(ctx);syncWorldPrompt(ctx);return target;
 }
-export function saveWaypoint(ctx,{id,regionId,regionName,label,description='',classifications=[],point,path,linkId}){
+// What a waypoint can be as a Statue of The Seven: the element it grants, or Nod-Krai's Statue of the New Moon (none).
+export const STATUE_KINDS=Object.freeze(['Anemo','Geo','Electro','Dendro','Hydro','Pyro','Cryo','New Moon']);
+export function saveWaypoint(ctx,{id,regionId,regionName,label,description='',classifications=[],point,path,linkId,statue}){
     if(!validMapPoint(point))throw new Error('Choose a point inside the map.');
     label=String(label || '').trim().slice(0,80);if(!label)throw new Error('Give this waypoint a name.');
     const regions=backgroundRegions(ctx);
@@ -86,10 +88,13 @@ export function saveWaypoint(ctx,{id,regionId,regionName,label,description='',cl
     const artwork=localMediaPath(path || old?.location.path);
     if(!artwork)throw new Error('Add a background picture or link an existing background first.');
     if(!region){if(!name)throw new Error('Choose or name the waypoint’s region.');region={id:newLocalId(),name,locations:[]};regions.push(region);}
+    if(statue&&!STATUE_KINDS.includes(statue))throw new Error('Choose one of the Statue of The Seven elements.');
     const location=old?.location || {id:newLocalId()};
     if(old&&old.region!==region)old.region.locations.splice(old.region.locations.indexOf(location),1);
     if(!region.locations.includes(location))region.locations.push(location);
     Object.assign(location,{label,description:String(description).trim().slice(0,1500),classifications:[...new Set(classifications.map(s=>String(s).trim().slice(0,80)).filter(Boolean))],path:artwork,blank:false,waypoint:structuredClone(point)});
+    // Left out (undefined), a save keeps whatever the waypoint was; an empty string makes it an ordinary waypoint.
+    if(statue!==undefined){if(statue)location.statue=statue;else delete location.statue;}
     const state=travelState(ctx);
     if(state.location?.id===location.id){state.regionId=region.id;state.location=structuredClone(location);state.entry=structuredClone(location);saveTravel(ctx);}
     ctx.saveSettingsDebounced();syncWorldPrompt(ctx);return {region,location,point:location.waypoint};

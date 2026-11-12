@@ -122,8 +122,10 @@ export function commitTeleportParty(ctx,plan){
     if(plan.members&&JSON.stringify(partyAvatars(ctx))!==JSON.stringify(plan.members))return false;
     const group=activeGroup(ctx),disabled=group?.disabled_members || [];
     if(plan.disabled&&JSON.stringify(disabled)!==JSON.stringify(plan.disabled))return false;
-    // Towns are safe: the party recovers on arrival at any location that is not wilderness.
-    if(!locations(ctx).find(l=>l.id===plan.destination)?.wilderness)healParty(ctx);
+    // Towns are safe: the party recovers on arrival at any location that is not wilderness, and always at a
+    // Statue of The Seven, even one in the wilds.
+    const destination=locations(ctx).find(l=>l.id===plan.destination);
+    if(!destination?.wilderness||destination?.statue)healParty(ctx);
     const state=locationCastState(ctx);
     if(plan.encounter)state.encounter={...structuredClone(plan.encounter),travellers:[...(plan.travellers || [])]};
     if(plan.flexible){
