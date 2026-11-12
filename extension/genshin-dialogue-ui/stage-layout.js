@@ -31,6 +31,9 @@ export function chooseVisible(actors, { recent = [], crowd = 'auto', limit = 5, 
     return new Set(shown.map(a => a.key));
 }
 
+// How far an upright phone's row may close up (a share of the natural spacing) before it shrinks.
+const MIN_CLOSE = .62, MIN_SIZE = .45;
+
 // items: [{h, aspect, scale, lift, pinned, group}] — h is the figure's height as a fraction of the
 // viewport (tallest body model = Sprite height), lift a fraction of the viewport, pinned an
 // optional fixed centre (0..1), group a side of the standoff (0 your party, 1 the enemies).
@@ -50,14 +53,12 @@ export function layoutStage(items, { width: W, height: H, dialogueTop, topInset 
     const maxHeight = Math.max(1, (D - ceiling) / (1 - .65 * ratio));
     const factor = Math.min(H, (H - ceiling) / tallest, maxHeight / tallest);
     const aspect = i => Number.isFinite(i.aspect) && i.aspect > 0 ? i.aspect : 2 / 3;
-    // Figures are sized by height alone: the width of the row never shrinks them. A crowded row
-    // overlaps instead, so the Sprite height setting means the same on every screen.
+    // Figures are sized by height alone: the width of the row does not shrink them, apart from an
+    // upright phone (below). A crowded row overlaps instead, so the Sprite height setting means the
+    // same on every screen.
     const gutter = Math.max(6, W * .015), room = W - gutter * 2;
     const compact = compactViewport(W, H), upright = H > W;
-    const heights = natural.map(h => h * factor), smallestPx = Math.min(...heights);
-    // Prefer feet at the viewport bottom, but bring the entire row up if needed.
-    // Position offsets remain explicit per-character overrides.
-    const feet = Math.min(H, D + smallestPx * .65);
+    const heights = natural.map(h => h * factor);
     // Each figure claims stage room by its own trimmed width, so a wide sprite (wings, a mount, a
     // spread pose) pushes its neighbours aside instead of covering them. Its height is unchanged.
     const w = items.map((i, x) => heights[x] * aspect(i));
@@ -69,11 +70,22 @@ export function layoutStage(items, { width: W, height: H, dialogueTop, topInset 
         // the stage in proportion to its width.
         const pitch = compact ? (upright ? .8 : .84) : .86, offsets = [0];
         for (let x = 1; x < n; x++) { const narrow = Math.min(w[x - 1], w[x]); offsets.push(offsets[x - 1] + (w[x - 1] + w[x]) / 2 - narrow * (1 - pitch) + (items[x].group !== items[x - 1].group ? narrow * .3 : 0)); }
-        const span = offsets[n - 1], ends = (w[0] + w[n - 1]) / 2;
+        let span = offsets[n - 1], ends = (w[0] + w[n - 1]) / 2;
+        // A phone held upright is too narrow for a row of full-height figures: closing up alone
+        // would stack them on top of each other. There the row shrinks, all together, until
+        // neighbours stand at least about half a figure apart (never below MIN_SIZE, 45% of their size).
+        if (compact && upright && span * MIN_CLOSE + ends > room) {
+            const s = Math.max(MIN_SIZE, room / (span * MIN_CLOSE + ends));
+            for (let x = 0; x < n; x++) { heights[x] *= s; w[x] *= s; offsets[x] *= s; }
+            span *= s; ends *= s;
+        }
         const k = span + ends <= room ? 1 : Math.max(0, (room - ends) / span);
         const shift = W / 2 - (k * span + w[n - 1] / 2 - w[0] / 2) / 2;
         centres = offsets.map(o => o * k + shift);
     }
+    // Prefer feet at the viewport bottom, but bring the entire row up if needed.
+    // Position offsets remain explicit per-character overrides.
+    const feet = Math.min(H, D + Math.min(...heights) * .65);
     return items.map((i, x) => {
         const box = w[x];
         let centre = Number.isFinite(i.pinned) ? i.pinned * W : centres[x];
