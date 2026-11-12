@@ -4,6 +4,7 @@ import {mediaSettings} from './media-store.js';
 import {teleportTo,worldScalePrompt} from './world-data.js';
 import {startCharacterAtHome} from './character-location.js';
 import {mountWorldMap} from './world-map.js';
+import {travelHistoryText} from './travel-history.js';
 
 export async function runTravelTests(){
  const results=[],check=(name,ok)=>{results.push(`${ok?'PASS':'FAIL'} ${name}`);if(!ok)throw Error(name);},pause=()=>new Promise(r=>setTimeout(r,35));
@@ -22,7 +23,9 @@ export async function runTravelTests(){
   check('companion answers remain a draft until Teleport commits',travelState(ctx).location.id==='echoes'&&ctx.groups[0].members.join()==='Kachina.png'&&!Object.keys(locationCastState(ctx).placements).length);
   cast.commitTeleport(plan);teleportTo(ctx,'bubu',{avatars:plan.travellers});sync();await pause();
   check('Bubu residents replace the declined main card in the party',ctx.groups[0].members.join()==='Qiqi.png,Baizhu.png');
-  check('saved travel text excludes destination residents and the left-behind character',ctx.chat.at(-1).mes==='Traveler travelled 500 m from Children of Echoes to Bubu Pharmacy.');
+  check('saved travel text names who was found at the destination and leaves out the left-behind character',/^Traveler travelled 500 m from Children of Echoes to Bubu Pharmacy and found (Qiqi and Baizhu|Baizhu and Qiqi)\.$/.test(ctx.chat.at(-1).mes));
+  check('three people found are listed with a serial comma, and travellers are not listed as found',travelHistoryText(ctx,old,bubu,['Kachina.png'],['Kachina.png','Xilonen.png','Qiqi.png','Baizhu.png'])==='Traveler and Kachina travelled 500 m from Children of Echoes to Bubu Pharmacy and found Xilonen, Qiqi, and Baizhu.');
+  check('an empty destination keeps the plain travel text',travelHistoryText(ctx,old,road,[],[])==='Traveler travelled 1.00 km from Children of Echoes to Liyue road.');
   reset(['Kachina.png','Xilonen.png']);ctx.chatId='second';sync();await pause();pending=cast.prepareTeleport(road);await pause();
   check('other companions are asked before the main card',host.querySelector('h2').textContent==='Take Xilonen with you?');click('yes');await pause();check('taking another speaker unlocks the main-character choice',host.querySelector('h2').textContent==='Take Kachina with you?');click('no');plan=await pending;cast.commitTeleport(plan);teleportTo(ctx,'road',{avatars:plan.travellers});sync();await pause();
   check('Xilonen can become the sole remaining character',ctx.groups[0].members.join()==='Xilonen.png');

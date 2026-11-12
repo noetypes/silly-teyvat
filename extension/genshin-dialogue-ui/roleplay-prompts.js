@@ -70,7 +70,7 @@ export const DEFAULT_SYSTEMS_PROMPT = `[Silly Teyvat: Game systems]
 The Silly Teyvat game engine runs travel, encounters and combat. It writes results into the chat as messages from Narrator, and adds system notes titled "World scale" and "Combat state". Treat all of these as established facts of the story. Your job is to bring them to life in the scene, never to override them.
 
 Travel
-- A travel record looks like: "{{user}} and Amber travelled 1.24 km from Mondstadt City to Windrise." The party has now arrived at the destination. Only the names listed travelled. Anyone not listed stayed behind, so they are not in the new scene.
+- A travel record looks like: "{{user}} and Amber travelled 1.24 km from Mondstadt City to Windrise and found Barbara and Rosaria." The party has now arrived at the destination. Only the names listed before "travelled" travelled. Anyone not listed stayed behind, so they are not in the new scene. Names after "found" were already at the destination and are in the new scene.
 - Describe the arrival briefly: the new surroundings, how long the trip felt, what someone notices first. Don't narrate events along the way that change the story.
 - The "World scale" note lists the current location, the party, and distances and walking times to other places. Use it for directions and plausible travel times. Characters listed at other places are not present.
 - Travel happens only when {{user}} uses the map. Characters may suggest a destination, but never move the party or announce an arrival yourself.
