@@ -384,6 +384,8 @@ body, .drawer-content, .popup, #options, #send_textarea, select, input, textarea
 /* Buttons: Genshin cream pills. */
 :is(.drawer-content, .popup, #options) .menu_button:not(.redWarningBG):not(.popup-button-ok) { border-radius: 999px; }
 .popup .popup-controls .menu_button { position: relative; min-height: 42px; min-width: 150px; padding: 6px 28px 6px 50px; border: 0; border-radius: 999px; color: var(--teyvat-ink) !important; background: var(--teyvat-ivory) !important; box-shadow: 0 3px 12px rgba(0, 0, 0, .35); font-weight: normal; transition: background 160ms ease, transform 160ms ease, box-shadow 160ms ease; }
+.popup .popup-controls { max-width: 100%; flex-wrap: wrap; justify-content: center; gap: 10px 14px; }
+.popup .popup-controls .menu_button { flex: 0 1 auto; min-width: min(150px, 100%); max-width: 100%; white-space: nowrap; }
 .popup .popup-controls .menu_button:hover { background: #fff !important; box-shadow: 0 0 0 3px rgba(236, 229, 216, .25), 0 3px 12px rgba(0, 0, 0, .35); }
 .popup .popup-controls .menu_button:active { transform: scale(.97); }
 .popup .popup-controls .menu_button::before { content: ""; position: absolute; left: 5px; top: 50%; width: 32px; height: 32px; margin-top: -16px; border-radius: 50%; background: var(--teyvat-ink) center / 14px no-repeat; }

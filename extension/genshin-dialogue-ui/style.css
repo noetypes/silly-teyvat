@@ -1595,6 +1595,9 @@ body.gi-enabled .drawer-content.openDrawer { animation: ty-drawer 300ms var(--ty
 @keyframes ty-drawer { from { opacity: 0; translate: 0 -10px; } to { opacity: 1; translate: 0 0; } }
 body.gi-enabled dialog.popup[open] { animation: ty-popup 260ms var(--ty-ease) both; }
 @keyframes ty-popup { from { opacity: 0; scale: .96; } to { opacity: 1; scale: 1; } }
+/* Popup buttons wrap onto a second row instead of running past the dialog edge (e.g. Install extension). */
+body .popup .popup-controls { max-width: 100%; flex-wrap: wrap; justify-content: center; }
+body .popup .popup-controls .menu_button { flex: 0 1 auto; min-width: min(150px, 100%); max-width: 100%; white-space: nowrap; }
 :is(#gi-world-map, dialog[id^="gi-"]:not(#gi-elemental-roll):not(#gi-wardrobe))[open] { animation: ty-popup 300ms var(--ty-ease) both; }
 
 #gi-toolbar .gi-pm-switch span { display: inline; }
