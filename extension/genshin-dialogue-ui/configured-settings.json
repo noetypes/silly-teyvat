@@ -32840,7 +32840,7 @@
   ],
   "spriteDimBrightness": 0.55,
   "spriteIdle": false,
-  "spriteCrowd": "all",
+  "spriteCrowd": "auto",
   "soloEnemySprite": false,
   "soloCompanionSprite": false,
   "spriteFocusMode": "page",
@@ -33395,8 +33395,7 @@
   "nameTagFilter": true,
   "nameTagScope": "all",
   "nameTagExtra": "",
-  "guestSpeakers": false,
-  "personaSpriteClassify": false,
+  "personaSpriteClassify": true,
   "soloGreeting": "generated",
   "cgCooldown": 10,
   "starterDecks": {
