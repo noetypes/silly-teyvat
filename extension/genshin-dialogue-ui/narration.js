@@ -1,7 +1,7 @@
 import {enemyDialoguePages} from './enemy-actions.js';
 import { splitDialoguePages } from './dialogue-pages.js';
 import { hideTrustTags } from './trust-tags.js';
-import { hideNameTagPages } from './name-tags.js';
+import { hideNameTagPages, markGuestPages, ownTagNames, guestNamesFor } from './name-tags.js';
 // Quotes in HTML attributes are excluded by the caller. Apostrophes inside
 // words aren't speech marks. One double quote also counts while streaming.
 export function hasSpeech(text = '') {
@@ -21,13 +21,18 @@ export function plainMessage(message) {
 export function dialoguePages(root, prefs, message = {}) {
     if (!message.is_user) hideTrustTags(root);
     let pages = enemyDialoguePages(splitDialoguePages(root),message,typeof prefs.combatTriggerPhrase === 'string' ? prefs.combatTriggerPhrase.trim() : undefined);
+    // Guest speakers: a tag for someone else ("Oz:") gives them the pages after it (name-tags.js).
+    // A chat message (read back for sprites) carries its speaker's name; the live view passes the names.
+    const guestNames = message.guestNames || (prefs.guestSpeakers && message.name ? guestNamesFor(ownTagNames(null, message, prefs), prefs) : null);
+    if (!message.is_user && !message.is_system && guestNames) pages = markGuestPages(pages, guestNames).filter(page => page.textContent.trim() || page.querySelector?.('img,video,audio'));
     // Name tags ("Navia:") a model put before a line are hidden while the reply streams in (name-tags.js).
     if (!message.is_user && message.nameTags?.length) pages = hideNameTagPages(pages, message.nameTags).filter(page => page.textContent.trim() || page.querySelector?.('img,video,audio'));
-    if(message.is_narrator || message.extra?.type==='narrator'){for(const page of pages)page.giNarration=true;return pages;}
+    if(message.is_narrator || message.extra?.type==='narrator'){for(const page of pages){page.giNarration=true;delete page.giGuest;}return pages;}
     if (!prefs.narration || message.is_user || message.is_system) return pages;
     // Both rules apply: a page without quotes is narration, and so is everything after the keyword
     // ("Narrator:") on a page. Speaker parts that start with "Narrator:" are already narration messages.
-    const quotes = page => { page.giNarration = isNarration(message, page.textContent || ''); return page; };
+    // A page that opened with a guest's tag is their line, quotes or not.
+    const quotes = page => { page.giNarration = !page.giTagged && isNarration(message, page.textContent || ''); return page; };
     const keyword = typeof prefs.narrationKeyword === 'string' ? prefs.narrationKeyword.trim() : 'Narrator:';
     if (!keyword) return pages.map(quotes);
     const result = [];
@@ -43,7 +48,7 @@ export function dialoguePages(root, prefs, message = {}) {
             return [page, page.childNodes.length];
         };
         const before = doc.createRange(); before.setStart(page, 0); before.setEnd(...at(index));
-        const first = before.cloneContents(); if (first.textContent.trim()) result.push(quotes(first));
+        const first = before.cloneContents(); first.giGuest = page.giGuest; first.giTagged = page.giTagged; if (first.textContent.trim()) result.push(quotes(first));
         const after = doc.createRange(); after.setStart(...at(index + keyword.length)); after.setEnd(page, page.childNodes.length);
         const narration = after.cloneContents(); narration.giNarration = true;
         // Repeated literal markers on the same line are hidden too.
@@ -67,7 +72,7 @@ export function previousSpeech(chat, id, prefs = {}, beforePage = Infinity, rend
         let root = renderMessage(i);
         if (!root) { root = document.createElement('div'); root.textContent = plainMessage(message); }
         const pages = dialoguePages(root, { ...prefs, narration: true }, message);
-        const spoken = pages.map((page, index) => ({text:page.textContent, index, narration:page.giNarration})).filter(page => !page.narration && page.text.trim() && (i < id || page.index < beforePage));
+        const spoken = pages.map((page, index) => ({text:page.textContent, index, narration:page.giNarration || Boolean(page.giGuest)})).filter(page => !page.narration && page.text.trim() && (i < id || page.index < beforePage));
         if (spoken.length) return { message, id: i, page: spoken.at(-1).index, text: spoken.at(-1).text };
     }
     return null;

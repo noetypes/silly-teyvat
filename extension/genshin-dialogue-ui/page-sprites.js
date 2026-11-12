@@ -213,7 +213,8 @@ export function mountPageSprites({ host, getContext, adapter = createNativeSprit
     function focusScene(scene) {
         const ctx = getContext(), message = ctx.chat?.[stageAt], p = prefsNow();
         if (!message) return scene;
-        const speaking = !message.is_system && message.extra?.type !== 'narrator' &&
+        // A guest's line (Fischl speaking for Oz) lights nobody: the character is not the one talking.
+        const speaking = !message.is_system && message.extra?.type !== 'narrator' && !selectedPage?.guest &&
             (selectedPage?.kind !== 'narration' || p.spriteFocusMode === 'message');
         const avatar = speaking ? speakerAvatar(ctx, message) : '';
         return scene.map(sprite => sprite.presentation ? { ...sprite, presentation: { ...sprite.presentation, focus: Boolean(avatar) && (sprite.avatar === avatar || !sprite.avatar && stageCharacter(ctx, sprite)?.avatar === avatar) } } : sprite);
@@ -480,7 +481,7 @@ export function mountPageSprites({ host, getContext, adapter = createNativeSprit
         return scene;
     }
     return {
-        sync({ on, id, page, text, complete, generating, narration = false, classifyPages = true, enemyAction='neutral' }) {
+        sync({ on, id, page, text, complete, generating, narration = false, guest = false, classifyPages = true, enemyAction='neutral' }) {
             const ctx = getContext();
             const key = chatKey(ctx);
             if (key !== lastChat) { this.reset(); lastChat = key; }
@@ -522,9 +523,9 @@ export function mountPageSprites({ host, getContext, adapter = createNativeSprit
             const contextText = !enemy && !passive && !narration && mode === 'page' ? expressionContext(ctx.chat, id, page, text, ctx.extensionSettings.genshin_dialogue_ui, renderMessage) : text;
             const signature = pageSignature(text) + (contextText !== text ? `:context-v1:${pageSignature(contextText)}` : '') + (enemy?`:enemy-action:${action}`:'') + (mode==='message'?`:message:${fullSignature}`:'') + (narration ? `:narration:${anchor}` : '') + (personaClassify ? ':persona-v1' : '');
             const arriving = liveArrival(ctx, id), party = arriving ? roster(ctx).map(c => c.avatar).join() : '';
-            const identity = `${key}:${id}:${message.swipe_id ?? 0}:${page}:${signature}${arriving ? `:party:${party}` : ''}`;
+            const identity = `${key}:${id}:${message.swipe_id ?? 0}:${page}:${signature}${arriving ? `:party:${party}` : ''}${guest ? ':guest' : ''}`;
             selection = identity;
-            selectedPage = { message, page, signature, kind, identity };
+            selectedPage = { message, page, signature, kind, identity, guest };
             const cached = record(message, page, signature, kind);
             const hasEnemy=scene=>scene.some(s=>enemySceneAvatar(ctx,s));
             if (arriving && cached?.party !== party) {

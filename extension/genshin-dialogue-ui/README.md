@@ -30,6 +30,7 @@ Expressions use SillyTavern's **Character Expressions** classifier settings. Cha
 
 - Replies play as visual novel pages over the scene: gold speaker names, text that reveals at your chosen speed, and arrows, tap or keyboard to move between pages and messages.
 - One reply can voice everyone in the scene. The model writes speaker parts (`Klee:`, `Narrator:`), and each part becomes its own message, so the name plate, sprite and expression follow whoever is talking.
+- **Guest speakers** (Settings → Dialogue) lets a character voice someone without a card, such as Fischl speaking for Oz (`Oz:`) or Kinich for Ajaw (`Ajaw:`). Those lines show the guest's name, and the character's sprite stays unlit until their own name comes back.
 - Narration is shown apart from dialogue, and a hidden **Narrator** sets the scene whenever you are travelling alone.
 - **Teyvat Choices** suggests three replies after each character message. Click one to send it.
 - **Auto** reads for you, **History** opens the full transcript for editing and swiping, and **Hide UI** clears the screen for screenshots, and **Full Screen** hides the browser around the game on PC and Android (on iPhone, add SillyTavern to the Home Screen and open it from there). Regenerate and Stop sit beside the dialogue box.

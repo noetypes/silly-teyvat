@@ -58,7 +58,7 @@ import {mountSoloChat} from './solo-chat.js';
 import {ensureNarrator,narratorMessage,soloHintFor,tagNarratorMessage} from './narrator.js';
 import {freshJourneySource,openFreshSoloChat,randomizeGreeting} from './fresh-chat.js';
 import {createLoadingScreen} from './loading-screen.js';
-import {nameTagNames,cleanMessageNameTags} from './name-tags.js';
+import {nameTagNames,cleanMessageNameTags,ownTagNames,guestNamesFor} from './name-tags.js';
 import {createKeyboardFrame} from './keyboard-frame.js';
 import {applyPackagedSettings} from './share-package.js';
 import {mountShare} from './share-ui.js';
@@ -67,7 +67,7 @@ import {FRAME_CAP_OPTIONS,FRAME_CAP_MIN,FRAME_CAP_MAX,frameCapFps,setFrameCap} f
 const KEY = 'genshin_dialogue_ui';
 // A GitHub install takes the repository's name, so the folder is read from where this file is served.
 const FOLDER = `third-party/${decodeURIComponent(new URL('./', import.meta.url).pathname.split('/').filter(Boolean).at(-1))}`;
-const defaults = Object.freeze({ ...stagingDefaults, enabled: false, choices: true, composer: true, frameCap: 'unlimited', frameCapCustom: 90, textScale: 1, scrim: 0.8, revealSpeed: 45, tapAdvance: true, pageExpressions: true, narration: false, narrationMode: 'quotes', narrationKeyword: 'Narrator:', hideDialogueQuotes:false, nameTagFilter:true, nameTagScope:'all', nameTagExtra:'', wardrobe: true, locationEncounters:true, locationCharacterLimit:5, randomEncounters:true, encounterRate:40, allowMainDeparture:false, worldPromptAllRegions:false, roleplayPromptsEnabled:true, wildernessEncounters:true, maxEnemies:3, combatDamageMin:1, combatDamageMax:6, enemyStrikeBack:true,combatTriggerPhrase:'[start_combat]', enemyDamageMin:2, enemyDamageMax:6, enemyDice:4, userMaxHp:30, combatDifficulty:'normal', battleEffects:true, battleSound:true,uiSound:true,uiSoundVolume:.7,masterVolume:1,locationMusicEnabled:true,locationMusicVolume:.45,voiceVolume:.8,cgVolume:.8,effectsVolume:.8, personaSpriteClassify:false, soloGreeting:'standard', personaIcon: 'Aether', personaIconMode:'auto', hudTopIcons:'auto', namecard:'', signature:'', trimSprites:true, cgEnabled:true, cgClassifier:'main', cgProfile:'', choicesProfile:'', cgBypassReasoning:true, choicesBypassReasoning:true, cgPrompt:defaultCGPrompt, cgDisplayMode:'each', cgCooldown:10, cgAudio:true, spriteAudio:true, burstAudio:true, diceSound:true, trustSystem:false, travelerTwin:'Aether', master:true, cardArt:true, paimonLinks:PAIMON_LINKS, paimonRestore:{} });
+const defaults = Object.freeze({ ...stagingDefaults, enabled: false, choices: true, composer: true, frameCap: 'unlimited', frameCapCustom: 90, textScale: 1, scrim: 0.8, revealSpeed: 45, tapAdvance: true, pageExpressions: true, narration: false, narrationMode: 'quotes', narrationKeyword: 'Narrator:', hideDialogueQuotes:false, nameTagFilter:true, nameTagScope:'all', nameTagExtra:'', guestSpeakers:false, wardrobe: true, locationEncounters:true, locationCharacterLimit:5, randomEncounters:true, encounterRate:40, allowMainDeparture:false, worldPromptAllRegions:false, roleplayPromptsEnabled:true, wildernessEncounters:true, maxEnemies:3, combatDamageMin:1, combatDamageMax:6, enemyStrikeBack:true,combatTriggerPhrase:'[start_combat]', enemyDamageMin:2, enemyDamageMax:6, enemyDice:4, userMaxHp:30, combatDifficulty:'normal', battleEffects:true, battleSound:true,uiSound:true,uiSoundVolume:.7,masterVolume:1,locationMusicEnabled:true,locationMusicVolume:.45,voiceVolume:.8,cgVolume:.8,effectsVolume:.8, personaSpriteClassify:false, soloGreeting:'standard', personaIcon: 'Aether', personaIconMode:'auto', hudTopIcons:'auto', namecard:'', signature:'', trimSprites:true, cgEnabled:true, cgClassifier:'main', cgProfile:'', choicesProfile:'', cgBypassReasoning:true, choicesBypassReasoning:true, cgPrompt:defaultCGPrompt, cgDisplayMode:'each', cgCooldown:10, cgAudio:true, spriteAudio:true, burstAudio:true, diceSound:true, trustSystem:false, travelerTwin:'Aether', master:true, cardArt:true, paimonLinks:PAIMON_LINKS, paimonRestore:{} });
 const bodyClasses = ['gi-menu-open', 'gi-enabled', 'gi-scene', 'gi-history', 'gi-hidden', 'gi-compose', 'gi-generating', 'gi-reading', 'gi-choices-enabled', 'gi-native-staging', 'gi-sprite-idle', 'gi-hud-top-off', 'gi-welcome'];
 const icons = {
     compass: '<path d="m12 2 3 7 7 3-7 3-3 7-3-7-7-3 7-3Z"/><path d="m12 8 4 4-4 4-4-4Z"/>',
@@ -169,15 +169,25 @@ function pageState(message) {
     const prefs = preferences();
     const entry = context().chat?.[Number(message.getAttribute('mesid'))], hint = soloHintFor(entry);
     const nameTags = message.getAttribute('is_user') === 'true' ? [] : nameTagNames(context(), entry, prefs);
-    const mode = `${prefs.narration}:${prefs.narrationKeyword}:${prefs.combatTriggerPhrase}:${hint}:${nameTags.join('|')}`;
+    const guestNames = prefs.guestSpeakers && message.getAttribute('is_user') !== 'true' && entry ? guestNamesFor(ownTagNames(context(), entry, prefs), prefs) : null;
+    const mode = `${prefs.narration}:${prefs.narrationKeyword}:${prefs.combatTriggerPhrase}:${hint}:${nameTags.join('|')}:${guestNames ? guestNames.own.join('|') : ''}`;
     if (state.html !== source.innerHTML || state.mode !== mode) {
         state.mode = mode;
         state.html = source.innerHTML;
-        state.pages = dialoguePages(source, prefs, { is_user: message.getAttribute('is_user') === 'true', is_system: message.getAttribute('is_system') === 'true', is_narrator:entry?.extra?.type==='narrator'||narratorMessage(entry),is_enemy:Boolean(enemySpeaker(context(),entry)||hostileSpeaker(context(),entry)), nameTags });
+        state.pages = dialoguePages(source, prefs, { is_user: message.getAttribute('is_user') === 'true', is_system: message.getAttribute('is_system') === 'true', is_narrator:entry?.extra?.type==='narrator'||narratorMessage(entry),is_enemy:Boolean(enemySpeaker(context(),entry)||hostileSpeaker(context(),entry)), nameTags, guestNames });
         if (hint) { const page = document.createDocumentFragment(); page.append(hint); page.giNarration = true; state.pages.push(page); }
         state.index = Math.max(0, Math.min(state.index, state.pages.length - 1));
     }
     return state;
+}
+function showGuestName(selected, guest) {
+    for (const el of Array.from(chatWith('gi-guest'))) if (el !== selected || !guest) { el.classList.remove('gi-guest'); el.querySelector('.gi-guest-name')?.remove(); }
+    const name = selected?.querySelector('.name_text');
+    if (!guest || !name) return;
+    selected.classList.add('gi-guest');
+    let plate = selected.querySelector('.gi-guest-name');
+    if (!plate) { plate = document.createElement('span'); plate.className = 'gi-guest-name'; name.after(plate); }
+    if (plate.textContent !== guest) plate.textContent = guest;
 }
 function presentPage(selected, state, active) {
     for (const el of Array.from(chatWith('gi-paginated'))) {
@@ -211,7 +221,7 @@ function presentPage(selected, state, active) {
 }
 function announcePage(selected) {
     const state = pageState(selected);
-    announce(`${selected?.querySelector('.name_text')?.textContent || 'Message'}, page ${state.index + 1} of ${state.pages.length}.`);
+    announce(`${state.pages[state.index]?.giGuest || selected?.querySelector('.name_text')?.textContent || 'Message'}, page ${state.index + 1} of ${state.pages.length}.`);
 }
 
 function context() { return SillyTavern.getContext(); }
@@ -413,13 +423,16 @@ function refresh({passive=false}={}) {
     const narrated = Boolean(page.pages[page.index]?.giNarration);
     for (const el of Array.from(chatWith('gi-narration'))) if (el !== selected || !narrated || !active) el.classList.remove('gi-narration');
     if (active && narrated) selected.classList.add('gi-narration');
+    // Guest speakers: the name plate shows whoever the character is voicing (Oz, Ajaw) on their pages.
+    const guest = active && !narrated ? page.pages[page.index]?.giGuest || '' : '';
+    showGuestName(selected, guest);
     presentPage(selected, page, active && !history);
     for (const el of Array.from(chatWith('gi-current'))) if (el.parentElement?.id === 'chat' && (el !== selected || !active)) el.classList.remove('gi-current');
     if (active && selected) selected.classList.add('gi-current');
     // The welcome page is styled by this class rather than by #chat:has(> .welcomePanel): a :has() on #chat is re-checked on every text change in it, and re-styles every message with it.
     const flags = { 'gi-welcome': Boolean(document.querySelector('#chat > .welcomePanel')), 'gi-native-staging': prefs.enabled && prefs.nativeStaging, 'gi-sprite-idle': prefs.enabled && prefs.spriteIdle !== false, 'gi-hud-top-off': prefs.enabled && prefs.choices && topIconsHidden(prefs), 'gi-enabled': prefs.enabled, 'gi-scene': sceneActive, 'gi-history': active && history, 'gi-hidden': active && hidden, 'gi-compose': active && (composing || history), 'gi-generating': active && generating, 'gi-reading': active && (morePages || index < list.length - 1 || generating || reveal.revealing) };
     for (const [name, value] of Object.entries(flags)) document.body.classList.toggle(name, Boolean(value));
-    spriteUI?.sync({ on: Boolean(sceneActive && !history && (prefs.nativeStaging || prefs.pageExpressions || prefs.narration)), id: selected ? Number(current) : -1, page: page.index, text: page.pages[page.index]?.textContent || '', narration: narrated, classifyPages: prefs.pageExpressions, enemyAction:page.pages[page.index]?.giEnemyAction || 'neutral', complete: !generating || index < list.length - 1 || morePages, generating });
+    spriteUI?.sync({ on: Boolean(sceneActive && !history && (prefs.nativeStaging || prefs.pageExpressions || prefs.narration)), id: selected ? Number(current) : -1, page: page.index, text: page.pages[page.index]?.textContent || '', narration: narrated || Boolean(guest), guest: Boolean(guest), classifyPages: prefs.pageExpressions, enemyAction:page.pages[page.index]?.giEnemyAction || 'neutral', complete: !generating || index < list.length - 1 || morePages, generating });
     stageEffects?.sync(Boolean(sceneActive&&!history&&!hidden),Boolean(reveal.revealing||generating));
     mediaUI?.sync({on:Boolean(active && !history && !hidden),id:Number(current),page:page.index,generating});
     backgroundUI?.sync({on:Boolean(sceneActive&&!history),id:selected ? Number(current) : -1,generating:generating||openingHome});
@@ -1164,6 +1177,7 @@ export function dispose() {
     document.body.classList.remove(...bodyClasses);
     for (const name of ['--gi-text-scale', '--gi-scrim-opacity', '--gi-composer-height', '--gi-dialogue-height','--gi-stop-left','--gi-stop-top','--gi-action-size','--gi-action-width','--gi-action-top','--gi-action-left','--gi-attack-left']) document.body.style.removeProperty(name);
     document.querySelectorAll('#chat .gi-narration').forEach(el => el.classList.remove('gi-narration'));
+    showGuestName(null, '');
     document.querySelectorAll('#chat .gi-current').forEach(el => el.classList.remove('gi-current'));
     document.querySelectorAll('#chat .gi-page').forEach(el => el.remove());
     document.querySelectorAll('#chat .gi-paginated').forEach(el => el.classList.remove('gi-paginated'));

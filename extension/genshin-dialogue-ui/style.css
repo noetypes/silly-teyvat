@@ -337,6 +337,15 @@ body.gi-scene:not(.gi-history) #chat .gi-current .name_text {
     white-space: normal;
     overflow-wrap: anywhere;
 }
+/* Guest speakers: on a page the character voices for someone else ("Oz:"), the plate shows that name. */
+.gi-guest-name { display: none; }
+body.gi-scene:not(.gi-history) #chat .gi-current.gi-guest .name_text { display: none !important; }
+body.gi-scene:not(.gi-history) #chat .gi-current.gi-guest .gi-guest-name {
+    display: inline;
+    color: var(--gi-gold) !important;
+    white-space: normal;
+    overflow-wrap: anywhere;
+}
 
 /* Only the disposable presentation copy is paginated. History uses the source. */
 .gi-page { display: none; }
@@ -1196,7 +1205,7 @@ body.gi-scene:not(.gi-history) #chat .gi-current .gi-page { cursor: pointer; }
 #gi-sprite-stage img { position: absolute; max-width: none; max-height: none; margin: 0; }
 body.gi-sprite-replay :is(#expression-wrapper, #visual-novel-wrapper) { opacity: 0 !important; pointer-events: none !important; }
 
-body.gi-enabled #chat .mes :is(.name_text, .mes_text, .gi-page),
+body.gi-enabled #chat .mes :is(.name_text, .gi-guest-name, .mes_text, .gi-page),
 body.gi-scene:not(.gi-history) #chat .gi-current .ch_name,
 body.gi-scene:not(.gi-history) #chat .gi-current :is(.mes_text, .gi-page) {
     font-family: "Silly Teyvat Dialogue", "HYWenHei", sans-serif !important;

@@ -1,6 +1,6 @@
 import { dialoguePages, hasSpeech, plainMessage, previousSpeech, expressionContext } from './narration.js';
 import { mountPageSprites } from './page-sprites.js';
-import { nameTagNames, stripNameTags, cleanMessageNameTags } from './name-tags.js';
+import { nameTagNames, stripNameTags, cleanMessageNameTags, guestNamesFor, ownTagNames } from './name-tags.js';
 export async function runNarrationTests() {
     const results = [], pause = ms => new Promise(r => setTimeout(r,ms));
     const check = (name, ok) => { results.push(`${ok ? 'PASS' : 'FAIL'} ${name}`); if (!ok) throw new Error(name); };
@@ -22,6 +22,18 @@ export async function runNarrationTests() {
         const chat=[{name:'Navia',mes:'Navia: "Hi."',swipes:['Navia: "Hi."'],swipe_id:0}];cleanMessageNameTags({...ctx,chat},0,{});
         check('a reply is cleaned when it arrives, swipe included', chat[0].mes==='"Hi."' && chat[0].swipes[0]==='"Hi."');
         check('a streaming page hides a tag split across formatting', pages('<p><strong>Navia</strong>: “Hi.”</p>',{},{nameTags:names}).map(p=>p.textContent.trim()).join('|')==='“Hi.”');}
+        {const guestNames=guestNamesFor(['Fischl'],{}),texts=list=>list.map(p=>p.textContent.trim()).join('|'),guests=list=>list.map(p=>p.giGuest || '-').join('|');
+        const oz=pages('<p>Fischl: “Hi.”</p><p>Oz: “Milady.”</p><p>Oz bows.</p><p>“More.”</p><p>Fischl: “Enough.”</p>',{},{guestNames});
+        check('a guest tag gives the pages after it to the guest until the speaker’s tag returns', texts(oz)==='“Hi.”|“Milady.”|Oz bows.|“More.”|“Enough.”' && guests(oz)==='-|Oz|Oz|Oz|-' && oz[2].giNarration && !oz[3].giNarration);
+        const ajaw=pages('<p>Ajaw: I am the great Ajaw!</p>',{},{guestNames});
+        check('a guest’s tagged line is speech even without quotes', ajaw[0].giGuest==='Ajaw' && !ajaw[0].giNarration && ajaw[0].textContent.trim()==='I am the great Ajaw!');
+        check('a guest tag split across formatting is hidden', texts(pages('<p><strong>Oz</strong>: “Hi.”</p>',{},{guestNames}))==='“Hi.”' && pages('<p>**Oz:** “Hi.”</p>'.replace(/\*\*(.*?)\*\*/,'<strong>$1</strong>'),{},{guestNames})[0].giGuest==='Oz');
+        const kw=pages('<p>Oz: “Hm.”</p><p>Narrator: Wind.</p><p>“Still me.”</p>',{narrationMode:'keyword',narrationKeyword:'Narrator:'},{guestNames});
+        check('the narration keyword is not a guest and keeps the guest speaking', kw[1].giNarration && kw[1].textContent.trim()==='Wind.' && kw[2].giGuest==='Oz');
+        check('a saved chat message finds its guests when the setting is on', pages('<p>Oz: “Hi.”</p>',{guestSpeakers:true},{name:'Fischl'})[0].giGuest==='Oz' && !pages('<p>Oz: “Hi.”</p>',{},{name:'Fischl'})[0].giGuest);
+        check('without the setting, tags for others are left as text', pages('<p>Oz: “Hi.”</p>')[0].textContent.includes('Oz:'));
+        check('arrival cleaning keeps the speaker’s tags after a guest', stripNameTags('Fischl: “Hi.”\nOz: “Yes.”\nFischl: “Hm.”',['Fischl'],guestNames)==='“Hi.”\nOz: “Yes.”\nFischl: “Hm.”' && stripNameTags('Fischl: “Hi.”',['Fischl'],guestNames)==='“Hi.”');
+        check('the speaker’s own names always hand the lines back', ownTagNames(null,{name:'Kinich'},{nameTagFilter:false}).includes('Kinich'));}
         check('unquoted narration hides speaker on all pages', pages('<p>Wind rises.</p><p>Leaves fall.</p>').every(x => x.giNarration));
         const mixedQuotes = pages('<p>“Wow, traveller!”</p><p>Klee laughs and looks up with admiration.</p><p>“Can we do it again?”</p>');
         check('quoted dialogue surrounds a narrator page in one response', mixedQuotes.length===3 && !mixedQuotes[0].giNarration && mixedQuotes[1].giNarration && !mixedQuotes[2].giNarration);
