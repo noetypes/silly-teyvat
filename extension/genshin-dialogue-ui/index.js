@@ -383,15 +383,6 @@ function syncSettings(force=true) {
     for(const key of ['masterVolume','locationMusicVolume','voiceVolume','cgVolume','effectsVolume','uiSoundVolume']){const output=document.querySelector(`#gi-settings output[data-gi-volume="${key}"]`);if(output)output.value=`${Math.round(prefs[key]*100)}%`;}
     paintResets(document.querySelector('#gi-settings'),defaults);
 }
-// Event narration (attacks, reactions, travel and teleports) is appended moments
-// before the AI reply starts streaming. Keep it on screen until the reader
-// advances past it; a message the player sends always moves the view on.
-function holdsNarration(ctx, latest) {
-    if (current == null || latest == null || latest === current) return false;
-    const message = ctx.chat?.[Number(current)], newest = ctx.chat?.[Number(latest)], extra = message?.extra || {};
-    if (!message || message.is_user || newest?.is_user) return false;
-    return extra.type === 'narrator' || Boolean(extra.silly_teyvat_combat || extra.silly_teyvat_travel);
-}
 function refresh({passive=false}={}) {
     if (!mounted) return;
     const prefs = preferences();
@@ -410,11 +401,14 @@ function refresh({passive=false}={}) {
     const history = inReview(), hidden = uiHidden(), menuOpen = menuIsOpen();
     if (!list.some(el => el.getAttribute('mesid') === current)) current = list.at(-1)?.getAttribute('mesid') ?? null;
     else if (followLatest) {
-        // A new message never pulls the reader away: move on only once the current message is on its
-        // last page and fully revealed. Otherwise Next (or Auto) reaches the new message in turn.
+        // A new message never pulls the reader away. Only what the player does (a message they send,
+        // the narration of a gift they give) or the reply being regenerated moves the view on, once
+        // the current message is on its last page and fully revealed. Replies and other narration
+        // wait for Next (or Auto), even after they load.
         const latest = list.at(-1)?.getAttribute('mesid') ?? null, shown = list.find(el => el.getAttribute('mesid') === current);
         const unread = latest !== current && shown && (pageState(shown).index < pageState(shown).pages.length - 1 || reveal.revealing);
-        if (!unread && !holdsNarration(ctx, latest)) current = latest;
+        const newest = ctx.chat?.[Number(latest)];
+        if (!unread && (regenerating || newest?.is_user || newest?.extra?.silly_teyvat_gift)) current = latest;
     }
     const selected = list.find(el => el.getAttribute('mesid') === current);
     const index = list.indexOf(selected);
