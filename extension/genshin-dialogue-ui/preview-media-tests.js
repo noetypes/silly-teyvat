@@ -26,19 +26,28 @@ export async function runMediaTests() {
         host.querySelector('#gi-cg-window header button').click();sync(1);check('closed CG stays closed through refresh',host.querySelector('#gi-cg-window').hidden);
         sync(0);check('returning to an old message restores its CG without a call',!host.querySelector('#gi-cg-window').hidden&&cgCalls.length===1);
         media.dispose();media=mountSceneMedia({host,getContext:()=>ctx,adapter,sound});sync(0,1);check('CG metadata survives a remount',cgCalls.length===1&&!host.querySelector('#gi-cg-window').hidden);
-        {// A framed CG never covers the dialogue: one saved low on the screen comes back up above the box.
+        {// A framed CG opens sized to end above the dialogue box, then keeps that size until the player resizes it.
         const chat=document.querySelector('#chat'),box=document.createElement('div'),hadScene=document.body.classList.contains('gi-scene');
-        box.className='mes gi-current';box.innerHTML='<div class="mes_block"><div class="ch_name"><span class="name_text">Klee</span></div><div class="gi-page">“A picnic!”</div></div>';
         const others=[...chat.querySelectorAll(':scope > .gi-current')];others.forEach(node=>node.style.setProperty('display','none','important'));
+        box.className='mes gi-current';box.innerHTML='<div class="mes_block"><div class="ch_name"><span class="name_text">Klee</span></div><div class="gi-page">“A picnic!”</div></div>';
+        // The dialogue stands at the bottom of the screen as in the game, whatever state the preview page is in.
+        const chatStyle=chat.style.cssText;for(const [k,v] of Object.entries({position:'fixed',left:'0',right:'0',top:'auto',bottom:'80px',display:'flex','flex-direction':'column','align-items':'center'}))chat.style.setProperty(k,v,'important');
         document.body.classList.add('gi-scene');chat.append(box);
+        const frames=()=>new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)));
         try{
-            prefs.cgFrame={left:40,top:innerHeight-160,width:320,height:220};media.dispose();media=mountSceneMedia({host,getContext:()=>ctx,adapter,sound});sync(0,1);await pause(30);
-            const frame=host.querySelector('#gi-cg-window'),page=box.querySelector('.gi-page'),top=dialogueTop(),boxTop=box.getBoundingClientRect().top;
-            check('a framed CG stays above the dialogue box',!frame.hidden&&boxTop<innerHeight-40&&frame.getBoundingClientRect().bottom<=top+.5);
-            check('the frame leaves room for the longest page, so paging does not move it',top<=boxTop-(Number.parseFloat(getComputedStyle(page).maxHeight)-page.getBoundingClientRect().height)+.5&&top<boxTop-20);
-            page.textContent='“A picnic!” '.repeat(40);await new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)));
-            check('a longer page leaves the frame where it was',Math.abs(dialogueTop()-top)<1);
-        }finally{delete prefs.cgFrame;box.remove();others.forEach(node=>node.style.removeProperty('display'));if(!hadScene)document.body.classList.remove('gi-scene');}}
+            delete prefs.cgFrame;media.dispose();media=mountSceneMedia({host,getContext:()=>ctx,adapter,sound});sync(0,1);await pause(30);
+            const frame=host.querySelector('#gi-cg-window'),page=box.querySelector('.gi-page'),top=dialogueTop(),boxTop=box.getBoundingClientRect().top,first=frame.getBoundingClientRect();
+            check('a framed CG opens above the dialogue box',!frame.hidden&&boxTop<innerHeight-40&&first.bottom<=top+.5);
+            check('the default size leaves room for the longest page',top<=boxTop-(Number.parseFloat(getComputedStyle(page).maxHeight)-page.getBoundingClientRect().height)+.5&&top<boxTop-20);
+            const same=r=>Math.abs(r.width-first.width)<.5&&Math.abs(r.height-first.height)<.5&&Math.abs(r.top-first.top)<.5&&Math.abs(r.left-first.left)<.5;
+            page.textContent='“A picnic!” '.repeat(40);sync(0,2);await frames();
+            check('a longer page leaves the frame as it is',same(frame.getBoundingClientRect()));
+            chat.style.setProperty('bottom','45vh','important');sync(0,2);await frames();
+            check('the dialogue box moving up does not resize or move the frame',same(frame.getBoundingClientRect()));
+            chat.style.setProperty('bottom','80px','important');
+            window.dispatchEvent(new Event('resize'));sync(0,2);await frames();
+            check('a change of screen height alone (the keyboard) leaves the frame as it is',same(frame.getBoundingClientRect()));
+        }finally{delete prefs.cgFrame;chat.style.cssText=chatStyle;box.remove();others.forEach(node=>node.style.removeProperty('display'));if(!hadScene)document.body.classList.remove('gi-scene');}}
         Object.values(prefs.characterCGs).flat().forEach(c=>c.display='scene');sync(1);check('replacement CG ends after its message',!document.body.classList.contains('gi-cg-replace'));
         ctx.chat.push({name:'Klee',original_avatar:'Klee.png',mes:'“Hello!”'});sync(2);await pause(40);sync(2);check('no matching scene is cached',ctx.chat[2].extra.silly_teyvat.cgs[0].cg===null&&cgCalls.length===2);
         ctx.chat[2].mes='“A picnic again!”';sync(2);await pause(40);check('edited messages reclassify their CG',cgCalls.length===3&&ctx.chat[2].extra.silly_teyvat.cgs[0].cg.id==='picnic');{const grown=ctx.chat[2].mes;ctx.chat[2].mes=grown+' And more words still streaming';sync(2);await pause(40);check('a latest reply still growing is not classified yet',cgCalls.length===3);await pause(1000);check('it is classified once its text has settled, as a whole',cgCalls.length===4&&cgCalls[3].text.endsWith('still streaming'));ctx.chat[2].mes=grown;sync(2);await pause(60);cgCalls.length=3;}
@@ -116,9 +125,8 @@ export async function runMediaTests() {
         check('the frame matches its image',Math.abs(framedShape.width/framedShape.height-imageRatio)<.02);
         const handle=framed.querySelector('.gi-cg-resize');handle.dispatchEvent(new KeyboardEvent('keydown',{key:'ArrowLeft',bubbles:true}));const resized=framedImage.getBoundingClientRect();
         check('resizing keeps the image ratio',resized.width<framedShape.width&&Math.abs(resized.width/resized.height-imageRatio)<.02);
-        // The tallest a frame may grow is the top of the dialogue box: growing it further keeps it where it is.
-        for(let i=0;i<30;i++)handle.dispatchEvent(new KeyboardEvent('keydown',{key:'ArrowRight',bubbles:true}));
-        check('a frame grown past the dialogue line stops above the dialogue box',framed.getBoundingClientRect().bottom<=dialogueTop()+.5&&Math.abs(framedImage.getBoundingClientRect().width/framedImage.getBoundingClientRect().height-imageRatio)<.02);
+        for(let i=0;i<3;i++)handle.dispatchEvent(new KeyboardEvent('keydown',{key:'ArrowRight',bubbles:true}));const grown=framedImage.getBoundingClientRect();
+        check('the player can make the frame larger, keeping the image ratio',grown.width>framedShape.width&&Math.abs(grown.width/grown.height-imageRatio)<.02);
         host.querySelector('#gi-cg-window header button').click();
         media.previewCG(prefs.characterCGs['Klee.png'][0]);await pause(40);const previewImage=host.querySelector('#gi-cg-preview img').getBoundingClientRect();
         check('a framed preview matches its image',Math.abs(previewImage.width/previewImage.height-imageRatio)<.02);host.querySelector('#gi-cg-preview header button').click();await pause(10);

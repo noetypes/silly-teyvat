@@ -220,7 +220,6 @@ export function mountSceneMedia({host,getContext,adapter=createMediaAdapter(getC
     const api = {
         sync({on:enabled,id,page,generating}) {
             lastSync = {on:enabled,id,page,generating};
-            if (!frame.hidden) followDialogue();
             const ctx = getContext(), prefs = mediaSettings(ctx), nextChat = identity(ctx);
             if (nextChat !== chatKey) { api.reset(); chatKey = nextChat; }
             on = enabled;
@@ -346,27 +345,31 @@ export function mountSceneMedia({host,getContext,adapter=createMediaAdapter(getC
     gallery.querySelector('header button').addEventListener('click',()=>gallery.close(),{signal:abort.signal});
     preview.addEventListener('close',()=>{previewMedia.stop();if(audioKind==='preview')stopSound();stageMedia.resume();frameMedia.resume();},{signal:abort.signal});
     globalThis.matchMedia?.('(max-width: 768px), (max-height: 500px)').addEventListener('change',()=>{if(activeCG)paint(activeCG,selection);},{signal:abort.signal});
-    // A framed CG stays above the dialogue box, so it never covers the text. The box is measured as if it showed
-    // its longest page, so the frame keeps its size and place from page to page.
-    const frameBottom = () => Math.max(132,Math.min(innerHeight,dialogueTop())-6);
-    const frameLimits = () => ({maxWidth:innerWidth-12,maxHeight:frameBottom()-6});
     const screenLimits = () => ({maxWidth:innerWidth-12,maxHeight:innerHeight-12});
     const frameExtras = (box,bar) => {const extraWidth=box.offsetWidth-box.clientWidth;return {extraWidth,extraHeight:extraWidth+bar.offsetHeight};};
-    // The size and place the player chose (or the default one). The frame returns to it whenever there is room.
-    let preferred = null;
+    // The size and place the player chose by moving or resizing the frame. Until they do, the frame opens at its
+    // default place, sized once so it ends above the dialogue box with its longest page and never covers the text.
+    // Neither changes on its own afterwards: paging, the reply box opening or the keyboard leave the frame as it is.
+    let preferred = null, initial = null;
     const remembered = mediaSettings(getContext()).cgFrame;
     if (remembered && ['left','top','width','height'].every(k=>Number.isFinite(remembered[k]))) preferred = {...remembered};
-    // Each surface sizes itself as its image or video reports its shape, including a cached one.
+    function initialFrame() {
+        if (initial?.screen === innerWidth) return initial;
+        for (const k of ['left','top','width','height']) frame.style[k] = '';
+        const r = frame.getBoundingClientRect(), bottom = Math.max(r.top+120, Math.min(innerHeight-6, dialogueTop()-6));
+        return initial = {left:r.left, top:r.top, width:r.width, height:Math.min(r.height,bottom-r.top), maxHeight:bottom-r.top, screen:innerWidth};
+    }
+    // Each surface takes its image or video's shape, at the same area, as it reports its shape (a cached one too).
     function fitFrame() {
-        if(!preferred){const r=frame.getBoundingClientRect();preferred={left:r.left,top:r.top,width:r.width,height:r.height};}
-        Object.assign(frame.style,{left:`${preferred.left}px`,top:`${preferred.top}px`,width:`${preferred.width}px`,height:`${preferred.height}px`});
+        const base = preferred || initialFrame();
+        Object.assign(frame.style,{left:`${base.left}px`,top:`${base.top}px`,width:`${base.width}px`,height:`${base.height}px`});
         const ratio=frameMedia.ratio();
         if(ratio){
-            const size=fittedFrame({width:preferred.width,height:preferred.height,ratio,...frameExtras(frame,frame.querySelector('header')),...frameLimits()});
+            const limits=preferred?screenLimits():{maxWidth:innerWidth-12,maxHeight:base.maxHeight};
+            const size=fittedFrame({width:base.width,height:base.height,ratio,...frameExtras(frame,frame.querySelector('header')),...limits});
             frame.style.width=`${size.width}px`;frame.style.height=`${size.height}px`;
         }
         clampFrame();
-        fittedBottom=frameBottom();
     }
     function fitPreview() {
         preview.style.width=preview.style.height='';
@@ -376,21 +379,14 @@ export function mountSceneMedia({host,getContext,adapter=createMediaAdapter(getC
         preview.style.width=`${size.width}px`;preview.style.height=`${size.height}px`;
     }
     function clampFrame() {
-        const r = frame.getBoundingClientRect(), bottom = frameBottom();
-        const width = Math.min(Math.max(180,r.width),innerWidth-12), height = Math.min(Math.max(120,r.height),bottom-6);
-        frame.style.width = `${width}px`;
-        frame.style.height = `${height}px`;
-        frame.style.left = `${Math.max(6,Math.min(r.left,innerWidth-width-6))}px`;
-        frame.style.top = `${Math.max(6,Math.min(r.top,bottom-height))}px`;
-    }
-    // The dialogue box moved (the reply box opened, the window changed shape): fit the frame again.
-    let fittedBottom = NaN, floorFrame = 0;
-    function followDialogue() {
-        if (floorFrame) return;
-        floorFrame = requestAnimationFrame(() => { floorFrame = 0; if (!frame.hidden && Math.abs(frameBottom()-fittedBottom) > 2) fitFrame(); });
+        const r = frame.getBoundingClientRect();
+        frame.style.width = `${Math.min(Math.max(180,r.width),innerWidth-12)}px`;
+        frame.style.height = `${Math.min(Math.max(120,r.height),innerHeight-12)}px`;
+        frame.style.left = `${Math.max(6,Math.min(r.left,innerWidth-Math.min(r.width,innerWidth-12)-6))}px`;
+        frame.style.top = `${Math.max(6,Math.min(r.top,innerHeight-Math.min(r.height,innerHeight-12)-6))}px`;
     }
     function resizeFrame(width,ratio) {
-        const extras=frameExtras(frame,frame.querySelector('header')),next=Math.max(180,width),size=fittedFrame({width:next,height:(next-extras.extraWidth)/ratio+extras.extraHeight,ratio,...extras,...frameLimits()});
+        const extras=frameExtras(frame,frame.querySelector('header')),next=Math.max(180,width),size=fittedFrame({width:next,height:(next-extras.extraWidth)/ratio+extras.extraHeight,ratio,...extras,...screenLimits()});
         frame.style.width=`${size.width}px`;frame.style.height=`${size.height}px`;
     }
     let drag;
@@ -417,7 +413,10 @@ export function mountSceneMedia({host,getContext,adapter=createMediaAdapter(getC
         else{frame.style.width=`${r.width+({ArrowLeft:-20,ArrowRight:20}[event.key]||0)}px`;frame.style.height=`${r.height+({ArrowUp:-20,ArrowDown:20}[event.key]||0)}px`;}
         clampFrame();saveFrame();
     },{signal:abort.signal});
-    window.addEventListener('resize',()=>{if(!frame.hidden)fitFrame();if(preview.open)fitPreview();},{signal:abort.signal});
+    // Only a change of screen width (a phone turned, a window resized) fits the frame again. The on-screen
+    // keyboard changes only the height, and leaves the frame as it is.
+    let screenWidth = innerWidth;
+    window.addEventListener('resize',()=>{if(innerWidth!==screenWidth){screenWidth=innerWidth;if(!frame.hidden)fitFrame();}if(preview.open)fitPreview();},{signal:abort.signal});
     frameMedia.onResize(()=>{if(!frame.hidden)fitFrame();},abort.signal);
     previewMedia.onResize(()=>{if(preview.open)fitPreview();},abort.signal);
     return api;
