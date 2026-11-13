@@ -20,9 +20,13 @@ function giftElement(id,item){
     if(item.kind==='artifact')return item.equip?.find(stat=>ELEMENTS.includes(stat.element))?.element;
     if(item.kind==='summon')return item.effects?.find(effect=>ELEMENTS.includes(effect.element))?.element;
 }
-// How far a gift moves trust, by whether the character likes it. The Gifts menu in Character
-// Customization can set any card's change for one character, from -TRUST_MAX to +TRUST_MAX.
+// How far a gift moves trust. Written tastes give each liked or disliked card its own change; a liked
+// 5★ card (rarity 3) gives at most +1 and any other liked card at most +0.5 (GIFT_CHANGE.liked).
+// Likes worked out from element and weapon give less, more for rarer cards. The Gifts menu in
+// Character Customization can set any card's change for one character, from -TRUST_MAX to +TRUST_MAX.
 export const GIFT_CHANGE={liked:.5,disliked:-.5,neutral:.1};
+export const LIKED_MAX={1:.5,2:.5,3:1};
+const INFERRED={liked:{1:.2,2:.3,3:.6},disliked:-.3};
 const tenth=n=>Math.round(n*10)/10;
 export const cleanGiftChange=value=>{const n=Number(value);return value===null||value===''||!Number.isFinite(n)?null:Math.max(-TRUST_MAX,Math.min(TRUST_MAX,tenth(n)));};
 const verdictOfChange=change=>change>GIFT_CHANGE.neutral?'liked':change<0?'disliked':'neutral';
@@ -38,16 +42,23 @@ export function defaultGiftVerdict(ctx,card,id){
     const tastes=baseTastes(ctx,resolve(ctx,card));
     return tastes?.likes.includes(id)?'liked':tastes?.dislikes.includes(id)?'disliked':'neutral';
 }
+// The change a card gives before anything set in the Gifts menu.
+export function defaultGiftChange(ctx,card,id){
+    const tastes=baseTastes(ctx,resolve(ctx,card)),written=tastes?.change?.[id];
+    if(Number.isFinite(written))return written;
+    const verdict=tastes?.likes.includes(id)?'liked':tastes?.dislikes.includes(id)?'disliked':'neutral';
+    return verdict==='liked'?INFERRED.liked[ITEMS[id]?.rarity] ?? INFERRED.liked[1]:verdict==='disliked'?INFERRED.disliked:GIFT_CHANGE.neutral;
+}
 export function giftChange(ctx,card,id){
     card=resolve(ctx,card);
-    return giftTrustOverrides(ctx,card)[id] ?? GIFT_CHANGE[defaultGiftVerdict(ctx,card,id)];
+    return giftTrustOverrides(ctx,card)[id] ?? defaultGiftChange(ctx,card,id);
 }
 export function setGiftTrust(ctx,card,id,value){
     if(!card?.avatar||!ITEMS[id])throw new Error('That card cannot be given as a gift.');
     const prefs=mediaSettings(ctx),change=cleanGiftChange(value);
     if(value!==null&&change===null)throw new Error(`Choose a change from -${TRUST_MAX} to +${TRUST_MAX}.`);
     // Choosing the default again removes the entry, so later changes to the default still reach it.
-    if(change===null||change===GIFT_CHANGE[defaultGiftVerdict(ctx,card,id)]){
+    if(change===null||change===defaultGiftChange(ctx,card,id)){
         const list=prefs.giftTrust?.[card.avatar];if(list){delete list[id];if(!Object.keys(list).length)delete prefs.giftTrust[card.avatar];}
     }else ((prefs.giftTrust ??= {})[card.avatar] ??= {})[id]=change;
     ctx.saveSettingsDebounced?.();
@@ -86,5 +97,5 @@ function baseTastes(ctx,card){
     const notes=[base?.note];
     if(weapon)notes.push(weapon==='none'?'Has no usable weapon type; weapon gifts are unwelcome.':`Likes usable ${weapon} weapons and dislikes weapons of other types.`);
     if(ELEMENTS.includes(element))notes.push(`Likes ${element} artifacts, dice, resonances and summons; dislikes artifacts for other elements and ${OPPOSING[element].join('/')} elemental gifts.`);
-    return base||likes.size||dislikes.size?{...base,likes:[...likes],dislikes:[...dislikes],note:notes.filter(Boolean).join(' ')}:null;
+    return base||likes.size||dislikes.size?{...base,likes:[...likes],dislikes:[...dislikes],change:{...base?.change},note:notes.filter(Boolean).join(' ')}:null;
 }

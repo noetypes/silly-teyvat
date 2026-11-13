@@ -1,8 +1,20 @@
 # Gift preferences and scene Trust requirements
 
 Gift preferences now cover the expanded Inventory card pool. Existing named likes
-and dislikes take priority. A liked gift still gives +0.5 Trust, a disliked gift
-gives −0.5, and a neutral gift gives +0.1, within the usual 0–5 range.
+and dislikes take priority. Each written like and dislike in `character-tastes.js`
+carries its own Trust change, within the usual 0–5 range:
+
+- A liked 5★ card (rarity 3) gives up to +1; any other liked card gives up to +0.5.
+  The character's favourite gives the most, and lesser likes give less (+0.3 or +0.4,
+  or +0.7 or +0.8 for 5★ cards).
+- Besides food, characters like cards tied to them: their own summons, signature
+  weapons and home locations (Xiao and Wangshu Inn, Jean and Dandelion Field, Diluc
+  and Dawn Winery). A few dislike cards tied to someone they resent, such as the
+  Wanderer and Eye of Stormy Judgment.
+- Written dislikes give −0.5 for the strongest and −0.3 for the others. A neutral
+  gift gives +0.1.
+- Likes worked out from element and weapon (below) give +0.2 for 3★, +0.3 for 4★ and
+  +0.6 for 5★ cards. Dislikes worked out the same way give −0.3.
 
 - Weapons of the recipient's weapon type are liked; other weapon types are disliked.
   This follows the saved moveset weapon, or the character's bundled moveset.
@@ -18,7 +30,8 @@ gives −0.5, and a neutral gift gives +0.1, within the usual 0–5 range.
   prompt and the recipient's gift reply instructions. Past gifts keep their recorded
   verdict and Trust change when character properties or movesets change.
 - **Gifts** in Character Customization (Profile, below **Starting trust**) lists
-  every card with the Trust change it gives that character, from −2 to +2. A card
+  every card with the Trust change it gives that character, from −2 to +2, in steps
+  of 0.1 between −1 and +1. A card
   set above +0.1 counts as liked and one set below 0 as disliked, in the Trust
   prompt and the gift reply; anything between is neutral. Choosing a card's default
   again removes the change, and **Reset to their tastes** removes them all. The
