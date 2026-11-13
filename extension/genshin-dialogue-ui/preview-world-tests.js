@@ -2,6 +2,8 @@ import {mountWorldMap} from './world-map.js';
 import {mountBackgrounds,travelState,selectRegion,visitLocation} from './backgrounds.js';
 import {saveWaypoint,setWaypointArtwork,teleportTo,worldWaypoints,WORLD_PROMPT_KEY,mapDistance,TEYVAT_MAP} from './world-data.js';
 import {mapCRS,toMapPoint,toLatLng} from './map-engine.js';
+import {waypointEnemy} from './waypoint-badges.js';
+import {iconsReady} from './battle-icons.js';
 
 export async function runWorldMapTests(){
     const results=[],pause=()=>new Promise(r=>setTimeout(r,25)),check=(name,ok)=>{results.push(`${ok?'PASS':'FAIL'} ${name}`);if(!ok)throw new Error(name);};
@@ -13,6 +15,11 @@ export async function runWorldMapTests(){
     const sync=()=>mapUI?.sync({on:true,show:true,location:runtime?.current});
     const adapter={upload:async file=>({name:file.name,path})};
     try{
+        {await iconsReady;const c={characters:[]},pool=['Hilichurl Fighter.png','Hilichurl Shooter.png','Large Hydro Slime.png','Dvalin.png'],place=id=>({id,wilderness:true,enemyPool:[...pool]}),region={locations:[]};
+        const at=r=>waypointEnemy(c,place(`badge-pick-${r}`),region,null,()=>r);
+        check('the wilderness badge picks a random enemy from the waypoint pool, never the boss',at(0)==='Hilichurl Fighter'&&at(.5)==='Hilichurl Shooter'&&at(.99)==='Large Hydro Slime'&&at(.4)==='Hilichurl Shooter');
+        const kept=place('badge-pick-kept');waypointEnemy(c,kept,region,null,()=>.99);
+        check('the pick stays put across repaints until the pool changes',waypointEnemy(c,kept,region,null,()=>0)==='Large Hydro Slime'&&(kept.enemyPool=['Hilichurl Shooter.png','Ruin Guard.png'],waypointEnemy(c,kept,region,null,()=>.9))==='Ruin Guard');}
         const tree=saveWaypoint(ctx,{regionName:'Mondstadt',label:'Windrise',point:point(0,0),path,description:'The great tree.'});
         const lake=saveWaypoint(ctx,{regionId:tree.region.id,label:'Cider Lake',point:point(300,400),path});
         const port=saveWaypoint(ctx,{regionName:'Liyue',label:'Harbor',point:point(-1500,1000),path,description:'The port.'});
