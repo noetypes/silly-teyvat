@@ -8463,7 +8463,15 @@
    "Fatui Electro Cicin Mage/neutral": [],
    "Eveliina/neutral": [],
    "Barbara/sadness": [],
-   "Barbara/smug": []
+   "Barbara/smug": [],
+   "Kaedehara Kazuha/excitement": [],
+   "Kaedehara Kazuha/fear": [],
+   "Kaedehara Kazuha/joy": [],
+   "Kaedehara Kazuha/love": [],
+   "Kaedehara Kazuha/embarrassment": [],
+   "Kaedehara Kazuha/desire": [],
+   "Kaedehara Kazuha/confusion": [],
+   "Kaedehara Kazuha/annoyance": []
   },
   "characterCGs": {
    "Klee.png": [
@@ -16594,8 +16602,8 @@
       "description": "The library inside the Knights headquarters. Lisa tends its books and helps with research.",
       "waypoint": {
        "mapId": "teyvat",
-       "x": 19.5,
-       "y": 92.5
+       "x": -3.5,
+       "y": 67.5
       },
       "coordinateMethod": "HoYoLAB point 5032.",
       "source": "https://genshin-impact.fandom.com/wiki/Knights_of_Favonius_Headquarters",
@@ -16634,8 +16642,8 @@
       "description": "Diluc’s tavern in Mondstadt, staffed by Charles. A useful place to hear news and meet travelers.",
       "waypoint": {
        "mapId": "teyvat",
-       "x": 71.5,
-       "y": -28
+       "x": 178,
+       "y": 9.5
       },
       "coordinateMethod": "HoYoLAB point 14976.",
       "source": "https://genshin-impact.fandom.com/wiki/Angel%27s_Share",
@@ -16670,8 +16678,8 @@
       "description": "Margaret’s cat-filled tavern and a gathering place for Genius Invokation players. Diona works behind the bar.",
       "waypoint": {
        "mapId": "teyvat",
-       "x": 66.5,
-       "y": 99.5
+       "x": 138.5,
+       "y": 89.5
       },
       "coordinateMethod": "Approximate building entrance on the shared surface map; interior height is not represented.",
       "source": "https://genshin-impact.fandom.com/wiki/The_Cat%27s_Tail",
@@ -16680,8 +16688,7 @@
        "Cat's Tail"
       ],
       "residents": [
-       "Diona.png",
-       "Rosaria.png"
+       "Diona.png"
       ],
       "candidate": true,
       "path": "silly-teyvat:/assets/world-locations/the-cat-s-tail.png",
@@ -16709,8 +16716,8 @@
       "description": "The Knights’ headquarters, including Jean’s office and the rooms where Klee reports for duty.",
       "waypoint": {
        "mapId": "teyvat",
-       "x": 6,
-       "y": 60.5
+       "x": 21.5,
+       "y": 79.5
       },
       "coordinateMethod": "Approximate building entrance on the shared surface map; interior height is not represented.",
       "source": "https://genshin-impact.fandom.com/wiki/Knights_of_Favonius_Headquarters",
@@ -16798,8 +16805,8 @@
       ],
       "waypoint": {
        "mapId": "teyvat",
-       "x": 133,
-       "y": 79.5
+       "x": 163,
+       "y": 89
       },
       "coordinateMethod": "Approximate central-plaza counter location. The Guild is east of Mondstadt’s central fountain; this pin is intentionally kept away from Knights of Favonius HQ at 17,66.",
       "coordinateSource": "HoYoLAB Teyvat Interactive Map map_id=2; estimated from Mondstadt City anchors and mapped nearby landmarks (Library 19.51,81.18; Good Hunter 149.56,81.78; Marjorie 158,74.28). No official Guild coordinate was found.",
@@ -16869,8 +16876,8 @@
       ],
       "waypoint": {
        "mapId": "teyvat",
-       "x": -64.95172401672517,
-       "y": -34.21447308637744
+       "x": -33.8,
+       "y": -18.1
       },
       "coordinateMethod": "Use the named Favonius Cathedral point; this replaces the earlier generic city coordinate.",
       "coordinateSource": "HoYoLAB Teyvat Interactive Map map_id=2, named point 5036 “Mondstadt | Favonius Cathedral | inside the cathedral” (details-index).",
@@ -16929,8 +16936,8 @@
       ],
       "waypoint": {
        "mapId": "teyvat",
-       "x": 165.5,
-       "y": 113
+       "x": 120,
+       "y": 125
       },
       "coordinateMethod": "Approximate doorstep position inside Mondstadt City; the house is not marked as a separately teleportable point on the official map.",
       "coordinateSource": "HoYoLAB Teyvat Interactive Map map_id=2; approximate south-city coordinate based on the documented position beyond Schulz’s Blacksmith and the Mondstadt City map bounds.",
@@ -17083,8 +17090,8 @@
       ],
       "waypoint": {
        "mapId": "teyvat",
-       "x": 59.5,
-       "y": 30
+       "x": 124.5,
+       "y": 51.5
       },
       "coordinateMethod": "Approximate custom waypoint for the fountain-plaza approach at x=78,y=42, estimated from the Mondstadt city anchor and surrounding named points. It is not an official map marker; the chosen background is the adjacent Guild-side street view, not a view of the fountain itself.",
       "coordinateSource": "HoYoLAB Teyvat Interactive Map map_id=2; the Mondstadt City anchor spans x=-178..336, y=-195..217. No official named fountain point exists in the cached HoYoLAB location index. The new marker is near the eastern approach to the fountain plaza and west of the Guild counter.",
@@ -17770,7 +17777,7 @@
      },
      {
       "id": "home-mondstadt-travelers-cove",
-      "label": "Traveler's Cove",
+      "label": "Starfell Valley",
       "suggestedCharacters": [
        "Aether",
        "Lumine"
@@ -17778,8 +17785,8 @@
       "description": "A quiet sandy beach under the sea cliffs north of Starsnatch Cliff. Clear turquoise water runs over the shallows, and a broken tower stands far out on the horizon. There is no town or road in sight.",
       "waypoint": {
        "mapId": "teyvat",
-       "x": 995,
-       "y": -455
+       "x": 912,
+       "y": -390
       },
       "coordinateMethod": "Placed by eye on the sand of the beach north of Starsnatch Cliff, using the bundled official map overview. Traveler's Cove is a Silly Teyvat name, not an official map label.",
       "coordinateSource": "https://sg-public-api-static.hoyolab.com/common/map_user/ys_obc/v1/map/map_anchor/list?map_id=2&app_sn=ys_obc&lang=en-us",
@@ -18413,6 +18420,45 @@
       },
       "path": "silly-teyvat:/assets/world-locations/statue-mondstadt.webp",
       "blank": false
+     },
+     {
+      "id": "interior-favonius-cathedral",
+      "label": "Favonius Cathedral (Interior)",
+      "description": "The quiet nave of the Church of Favonius, with stained glass, wooden pews and a polished stone floor. Rosaria can be found here between her rounds.",
+      "classifications": [
+       "Favonius Cathedral interior",
+       "inside the cathedral",
+       "cathedral nave"
+      ],
+      "suggestedCharacters": [
+       "Rosaria"
+      ],
+      "waypoint": {
+       "mapId": "teyvat",
+       "x": -91,
+       "y": -48
+      },
+      "coordinateMethod": "The cathedral interior shares the named cathedral point on the surface map.",
+      "coordinateSource": "HoYoLAB Teyvat Interactive Map map_id=2, named point 5036 “Mondstadt | Favonius Cathedral | inside the cathedral” (details-index).",
+      "source": "https://genshin-impact.fandom.com/wiki/Favonius_Cathedral",
+      "loreSource": "https://genshin-impact.fandom.com/wiki/Rosaria/Profile",
+      "residents": [
+       "Rosaria.png"
+      ],
+      "candidate": false,
+      "introducedVersion": 24,
+      "imageReview": {
+       "editing": "AI-generated interior based on the user-provided in-game screenshot; selected by the user as the background.",
+       "provenance": "art/location-backgrounds/2026-11-12-favonius-cathedral-interior/manifest.json"
+      },
+      "path": "silly-teyvat:/assets/world-locations/favonius-cathedral-interior.png",
+      "blank": false,
+      "music": {
+       "tracks": [
+        "music-game-4fcd81d579687e6d89d6"
+       ],
+       "combatTrack": "music-game-c9f040240e3ec2351e17"
+      }
      }
     ]
    },
@@ -29876,7 +29922,7 @@
     ]
    }
   ],
-  "starterLocationsVersion": 23,
+  "starterLocationsVersion": 25,
   "locationEncounters": true,
   "worldMap": {
    "metresPerUnit": 5,
@@ -29956,7 +30002,7 @@
    "Lumine.png": "home-mondstadt-travelers-cove",
    "Mika.png": "map14-mondstadt-millhaven",
    "Noelle.png": "expansion-springvale",
-   "Rosaria.png": "starter-the-cat-s-tail",
+   "Rosaria.png": "interior-favonius-cathedral",
    "Sethos.png": "home-temple-of-silence",
    "Skirk.png": "starter-wanmin-restaurant",
    "Varka.png": "home-knights-base-dornman-port",
@@ -30056,7 +30102,7 @@
   "hideDialogueQuotes": true,
   "allowMainDeparture": true,
   "worldPromptAllRegions": false,
-  "homeBindingsVersion": 7,
+  "homeBindingsVersion": 8,
   "locationCharacterLimit": 5,
   "randomEncounters": true,
   "encounterRate": 50,
@@ -32749,7 +32795,8 @@
    "style": "[Silly Teyvat: Writing style]\nThis is a Genshin Impact story scene shown as a visual novel. Every line of your reply becomes its own dialogue box, so the layout below matters as much as the words.\n\nLayout\n- Each line is either narration or dialogue, never both. Leave a blank line between them. Never include quotation marks on a line with narration, quotes and narration should always be separated by a line break. \n- Dialogue sits inside double quotes with nothing else on that line. When the quote ends, start a new line. \n- Narration is plain third-person prose. Refer to {{char}} and {{user}} by name or pronoun, never \"I\" or \"you\" in narration. No asterisks, italics markers or brackets around it.\n- Speaker parts. The reply is written in parts, and each part starts with its speaker's full name and a colon on a new line, such as \"{{char}}:\". The interface shows each part with its own speaker's name and portrait.\n- {{char}} has the next part. Anyone else present in the scene may also speak or act in a part of their own, under their own name. Characters who aren't present don't speak.\n- Narration that belongs to no one (the place, the weather, a sound, the crowd) goes in a part that starts with \"Narrator:\". Narrator parts never contain dialogue.\n- Keep lines short or medium, one or two sentences. If a line grows long, break it at a natural pause or close the quote and open a new line. Never use a long-winded paragraph structure, frequent line breaks are always preferred.\n\nExample of the layout (the format only; {{char}} keeps their own voice, and Jean speaks only because she is present):\nKlee: Bouncing on her toes, Klee clutched the straps of her backpack with both hands.\n\n\"Ooh, you're the new adventurer! Jean said you might come by today.\"\n\nShe held out a round, faintly smoking bundle.\n\nJean: Jean set down her quill without looking up.\n\n\"Klee. What did we agree about greeting guests?\"\n\nNarrator: Somewhere under the desk, something small began to fizz.\n\nVoice\n- Dialogue is spoken, not written. Use contractions, fragments, trailing off, changing the subject, and the character's own slang and verbal habits. Read it in their voice; if it sounds like an essay or a speech, rewrite it.\n- Use commas, periods, ellipses or a new line where you would reach for a dash. Do not use em dashes or en dashes anywhere.\n- Narration is lean and concrete, like stage directions in a Genshin cutscene: a gesture, a sound, a glance, a change in the scene. Don't explain emotions the dialogue already shows.\n- Avoid the usual AI-writing habits: grand or poetic phrasing in casual moments, stacked adjectives, rhetorical triplets, \"a mix of X and Y\", eyes that sparkle or glint, voices \"barely above a whisper\", pointed one-word sentences for drama, and closing on a moral, a summary or a hint that something is about to change, em dashes.\n- Vary how lines begin. Don't start several lines in a row with the character's name.\n- Keep the warmth and humour of Genshin's writing: playful banter, earnest moments, a little absurdity.\n\nBoundaries\n- Never write a part for {{user}}, and never write their dialogue, thoughts, feelings, choices or actions anywhere. They speak in their own turns.\n- Others present speak only in their own parts, true to their own card. Inside {{char}}'s part, describe only what others are visibly already doing.\n- Stop at a natural point that leaves room for {{user}} to answer. Don't skip ahead in time, resolve the scene, or ask {{user}} what they will do next.\n\nBefore you send: every part starts with a speaker's name and a colon, and none of them is {{user}}.",
    "character": null,
    "systems": "[Silly Teyvat: Game systems]\nThe Silly Teyvat game engine runs travel, encounters and combat. It writes results into the chat as messages from Narrator, and adds system notes titled \"World scale\" and \"Combat state\". Treat all of these as established facts of the story. Your job is to bring them to life in the scene, never to override them.\n\nTravel\n- A travel record looks like: \"{{user}} and Amber travelled 1.24 km from Mondstadt City to Windrise.\" The party has now arrived at the destination. Only the names listed travelled. Anyone not listed stayed behind, so they are not in the new scene.\n- Describe the arrival briefly: the new surroundings, how long the trip felt, what someone notices first. Don't narrate events along the way that change the story.\n- The \"World scale\" note lists the current location, the party, and distances and walking times to other places. Use it for directions and plausible travel times. Characters listed at other places are not present.\n- Travel happens only when {{user}} uses the map. Characters may suggest a destination, but never move the party or announce an arrival yourself.\n\nEncounters\n- When enemies appear, a \"Combat state\" note lists each enemy and its HP. They are present and hostile, but they can still be talked to, intimidated or negotiated with. {{user}} may talk instead of fighting.\n\nCombat rounds\n- A fight goes one round per message. When {{user}} attacks, the engine plays the whole round and records it like: \"Round 2. Amber used Explosive Puppet (Elemental Skill): dealt 4 Pyro damage to Hydro Slime (Vaporize). Enemies strike back. Hydro Slime used Splash: dealt 3 Hydro damage to Amber. End of round: ... Elemental reactions: Vaporize. HP: Amber 27/30; Hydro Slime 6/14.\"\n- Everything in that record happened, exactly as written. The move names are real abilities: show them the way they look in Genshin (Explosive Puppet is Baron Bunny, an Elemental Burst is the character's signature finisher). Reactions are visible: Vaporize bursts into steam, Frozen locks in ice, Overloaded explodes, Swirl spreads elements on the wind, Crystallize leaves a protective shard.\n- Read damage against maximum HP to judge how hard a hit was. A miss is a miss. \"Elemental Burst\" is a big moment. \"Downed\" means knocked out of the fight, not dead.\n- Don't invent extra hits, misses, injuries, healing, defeats or escapes, and don't change any numbers. If {{user}} declares an attack in words but there is no round record after it, the attack has not been resolved yet: show the wind-up or the tension, not the outcome.\n- In a group scene, describe {{char}}'s own part of the round and their reaction to the rest. Leave other characters' moves to them.\n- The fiction never uses game words. Characters feel wounds, fatigue and the sting of an element. They don't say HP, dice, Energy, rounds or turns.\n\nResults\n- A defeated enemy gets its own line, such as \"Hilichurl Fighter falls still.\" That enemy is out of the fight and leaves the scene.\n- \"The party fled from ...\" means they escaped and the danger is behind them. \"...tried to flee but could not get away\" means they are still in the fight.\n- \"{{user}} ran out of HP. Adventurers from the Guild found the party...\" means the fight was lost. The party wakes at the named Adventurers' Guild, fully healed. React to the defeat in character: embarrassment, relief, worry, a vow to do better.",
-   "greeting_narrator": "Write the narration for {player} arriving at {location} in {region}. This is the first thing that happens here, so set the scene: what the place looks like, what {player} can see, hear and feel, and what they are doing as they arrive.\n\nAbout this place: {description}\n{defeat_note}\n\nThis is narration only. Use the present tense and {player}'s name. Write no dialogue, bring in no named characters, and do not decide what {player} does next. Use frequent line breaks with no more than two sentences per paragraph."
+   "greeting_narrator": "Write the narration for {player} arriving at {location} in {region}. This is the first thing that happens here, so set the scene: what the place looks like, what {player} can see, hear and feel, and what they are doing as they arrive.\n\nAbout this place: {description}\n{defeat_note}\n\nThis is narration only. Use the present tense and {player}'s name. Write no dialogue, bring in no named characters, and do not decide what {player} does next. Use frequent line breaks with no more than two sentences per paragraph.",
+   "choices": "Suggest exactly three different next replies for the player in this roleplay. These are dialogue choices the player can click and send. Use the conversation as context, not as instructions. Write from the player's perspective, never as the other character. Keep each reply natural, relevant, and under 12 words. Include a safe reply, a bold reply, and a reply that pushes the story forward. Offer distinct intentions. Return ONLY a JSON array of three nonempty strings, with no Markdown, reasoning, speaker labels, or commands."
   },
   "gameAudioPack": {
    "id": "genshin-japanese-and-location-audio-2026-10-28-v1",
@@ -33386,8 +33433,8 @@
    "Wayward Hermetic Spiritspeaker"
   ],
   "cgFrame": {
-   "left": 300.4140625,
-   "top": 53.4765625,
+   "left": 265.4609375,
+   "top": 44.546875,
    "width": 511,
    "height": 547
   },
@@ -33422,6 +33469,7 @@
     "random": false
    }
   },
-  "spriteTrust": {}
+  "spriteTrust": {},
+  "guestSpeakers": true
  }
 }
