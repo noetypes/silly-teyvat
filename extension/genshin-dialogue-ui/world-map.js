@@ -13,7 +13,7 @@ import {musicSummary} from './location-music-state.js';
 import {mediaSettings} from './media-store.js';
 import {isJourneyGroup,createJourneyLibraryAdapter} from './journey-library.js';
 import {mountCardPoolMenu,locationCardPool,cardPoolSummary} from './card-pools.js';
-import {waypointBadges,waypointBoss,waypointEnemy,badgeLabels,badgeMarkup} from './waypoint-badges.js';
+import {waypointBadges,waypointBoss,waypointEnemy,badgeLabels,badgeMarkup,isBossArena,domainIcon} from './waypoint-badges.js';
 import {iconsReady} from './battle-icons.js';
 import {searchedCards,questCardsAt,questLabel,questMarkup} from './card-search.js';
 import {isStatue,statueElement,statueIcon,resonanceTravelers} from './statue-resonance.js';
@@ -149,7 +149,9 @@ export function mountWorldMap({host,getContext,adapter=createMediaAdapter(getCon
         for(const item of points){
             const badges=waypointBadges(ctx,item.location,residents),boss=waypointBoss(ctx,item.location),enemy=waypointEnemy(ctx,item.location,item.region,counts),quest=questCardsAt(ctx,item.location,searching);
             const labels=[badgeLabels(badges,boss,enemy),questLabel(quest)].filter(Boolean),markup=badgeMarkup(badges,boss,enemy)+questMarkup(quest);
-            presentations.set(item.location.id,{labels,markup,quest:quest.length>0,name:labels.length?`${item.location.label} (${labels.join('; ')})`:item.location.label});
+            // A Statue of The Seven keeps its own pin; a boss-only waypoint shows the Domain marker; the rest the Teleport Waypoint.
+            const glyph=isStatue(item.location)?statueIcon:isBossArena(ctx,item.location)?domainIcon:'';
+            presentations.set(item.location.id,{labels,markup,glyph,quest:quest.length>0,name:labels.length?`${item.location.label} (${labels.join('; ')})`:item.location.label});
         }
     }
     function regionTargets(){
@@ -201,13 +203,13 @@ export function mountWorldMap({host,getContext,adapter=createMediaAdapter(getCon
         for(const item of points){
             const id=item.location.id;seen.add(id);
             // Card Search: a Quest marker beside every Wilderness or Boss waypoint that drops a searched card.
-            const {name,markup,quest}=presentations.get(id);
+            const {name,markup,quest,glyph}=presentations.get(id);
             const isCurrent=current?.location.id===id,isSelected=selecting&&selectedId===id;
-            const statue=isStatue(item.location),key=JSON.stringify([item.point.x,item.point.y,name,isCurrent,markup,quest,statue]);
+            const key=JSON.stringify([item.point.x,item.point.y,name,isCurrent,markup,quest,glyph]);
             const cached=markerCache.get(id);
             if(cached?.key===key){cached.item=item;highlight(id,isSelected);continue;}
             if(cached?.shown)markers.removeLayer(cached.marker);
-            const marker=mapMarker(toLatLng(item.point),{icon:waypointIcon({current:isCurrent,selected:isSelected,badges:markup,glyph:statue?statueIcon:''}),title:name,alt:name,keyboard:true,zIndexOffset:quest?500:0});
+            const marker=mapMarker(toLatLng(item.point),{icon:waypointIcon({current:isCurrent,selected:isSelected,badges:markup,glyph}),title:name,alt:name,keyboard:true,zIndexOffset:quest?500:0});
             marker.bindTooltip(element('span',item.location.label),{direction:'top',offset:[0,-30]});
             marker.on('click',event=>{L.DomEvent.stopPropagation(event);if(busy())return;cue('waypoint');select(markerCache.get(id).item);});
             markerCache.set(id,{key,marker,item,latlng:marker.getLatLng(),shown:false,selected:isSelected});
@@ -268,11 +270,11 @@ export function mountWorldMap({host,getContext,adapter=createMediaAdapter(getCon
         // holds exactly these buttons in this order: opening the map or choosing a waypoint rebuilds nothing.
         const wanted=new Set(),nodes=shown.map(item=>{
             const id=item.location.id;wanted.add(id);
-            const {labels,markup,quest}=presentations.get(id),isCurrent=current?.location.id===id,isSelected=!view.is('list')&&selectedId===id;
-            const key=JSON.stringify([item.location.label,item.region.name,labels,markup,quest,isCurrent,item.location.statue || '']);
+            const {labels,markup,quest,glyph}=presentations.get(id),isCurrent=current?.location.id===id,isSelected=!view.is('list')&&selectedId===id;
+            const key=JSON.stringify([item.location.label,item.region.name,labels,markup,quest,isCurrent,glyph]);
             const cached=listCache.get(id);if(cached?.key===key){cached.node.setAttribute('aria-current',String(isSelected));return cached.node;}
             const b=document.createElement('button');b.type='button';b.dataset.map='select';b.dataset.location=id;b.dataset.giSound='waypoint';
-            const img=document.createElement('img');img.src=isStatue(item.location)?statueIcon:waypointGlyph;img.alt='';img.loading='lazy';img.decoding='async';if(isStatue(item.location))b.dataset.statue='true';
+            const img=document.createElement('img');img.src=glyph || waypointGlyph;img.alt='';img.loading='lazy';img.decoding='async';if(isStatue(item.location))b.dataset.statue='true';
             const text=document.createElement('span');text.append(element('b',item.location.label),element('small',item.region.name));b.append(img,text);
             if(labels.length){const marks=document.createElement('span');marks.className='gi-map-list-badges';marks.title=labels.join('. ');marks.innerHTML=markup;b.append(marks);b.setAttribute('aria-label',`${item.location.label}, ${item.region.name}. ${labels.join('. ')}`);}
             if(quest)b.dataset.quest='true';
@@ -362,7 +364,7 @@ export function mountWorldMap({host,getContext,adapter=createMediaAdapter(getCon
         const teleport=button('','teleport');teleport.className='gi-map-teleport';teleport.dataset.giSound='none';const glyph=document.createElement('img');glyph.src=waypointGlyph;glyph.alt='';teleport.append(glyph,element('span','Teleport'));
         const bypass=button('Bypass Encounters','bypass');bypass.className='gi-map-bypass';bypass.setAttribute('aria-pressed',String(encountersBypassed(getContext(),item.location.id)));bypass.title='Arrive here without meeting any characters or enemies';
         actions.append(bypass,edit,teleport);
-        sidebar.replaceChildren(cardHead(item.location.label,item.region.name,isStatue(item.location)?statueIcon:true),body,actions);go('SELECT');
+        sidebar.replaceChildren(cardHead(item.location.label,item.region.name,presentations.get(item.location.id)?.glyph || true),body,actions);go('SELECT');
     }
     function regionChoices(select,selected){
         const regions=backgroundRegions(getContext());select.append(...regions.map(r=>new Option(r.name,r.id)));

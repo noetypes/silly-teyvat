@@ -26,6 +26,14 @@ export function waypointBoss(ctx,location){
     if(!location?.wilderness)return '';
     return (location.enemyPool || []).map(avatar=>avatarName(ctx,avatar)).find(isTcgBoss) || '';
 }
+// A boss arena: a wilderness waypoint whose enemy pool holds at least one boss and no other enemies.
+// Its pin becomes the Domain marker, worked out live like the badges, so editing the pool switches it back.
+export const domainIcon=new URL('assets/icons/map-domain.png',import.meta.url).href;
+export function isBossArena(ctx,location){
+    if(!location?.wilderness)return false;
+    const names=(location.enemyPool || []).map(avatar=>avatarName(ctx,avatar));
+    return names.length>0&&names.every(isTcgBoss);
+}
 // The wilderness badge shows a common enemy of the waypoint's region: of the enemies in this waypoint's
 // pool, the one found in the most wilderness pools of its region (bosses aside), with a portrait. A
 // waypoint with an empty pool takes its region's most common enemy; with no icon at all, the emblem stays.

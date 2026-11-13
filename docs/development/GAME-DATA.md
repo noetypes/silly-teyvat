@@ -132,7 +132,7 @@ To publish:
    `extension/genshin-dialogue-ui/game-data-release.json` and keeps each unchanged file's version
    from the previous release. It refuses a different file under an already-published version,
    because players who have that version would never be offered it.
-4. Commit the release file with the extension version bump, then publish the extension (above).
+4. Commit the release file, then push with the extension's release commit (the version moves only on a push to GitHub; see [AGENTS.md](../../AGENTS.md#versions-and-release-notes)) and publish the extension (above).
 
 GitHub release downloads cannot be used directly: their download host does not send the
 necessary CORS headers. Hugging Face (a dataset repository), Cloudflare R2 (with a CORS rule),
@@ -165,7 +165,7 @@ python3 tools/release-game-data.py ../silly-teyvat-data/releases/silly-teyvat-ga
   --chunk-base-url https://raw.githubusercontent.com/noetypes/silly-teyvat-assets/v1.77.0
 ```
 
-For future releases, bump the extension version first, replace the version in these commands,
+For future releases, make the extension's release commit (the version bump that goes with a push) first, replace the version in these commands,
 commit/tag/push the assets, then commit the source manifest and build/push the distribution.
 Verify an anonymous browser can fetch full parts and byte ranges from the tag's raw URLs.
 `--chunk-mb` controls the part size. The `--url` value names the first part; `chunks` in the release
