@@ -124,6 +124,16 @@ export function dialogueTop(doc=document){
     const spare=Number.isFinite(longest)?Math.max(0,longest-text.getBoundingClientRect().height):0;
     return Math.max(0,box.getBoundingClientRect().top-spare);
 }
+// The highest a framed CG may stand. SillyTavern's top bar (a clear strip with its drawer buttons on the right)
+// lies above the frame, so a header under it would take no clicks and its × would open a drawer instead.
+export function frameCeiling(doc=document){
+    const view=doc.defaultView;let bottom=0;
+    for(const bar of doc.querySelectorAll('#top-bar, #top-settings-holder')){
+        if(!bar.getClientRects().length||view.getComputedStyle(bar).visibility==='hidden')continue;
+        const r=bar.getBoundingClientRect();if(r.height&&r.top<view.innerHeight/3)bottom=Math.max(bottom,r.bottom);
+    }
+    return Math.max(6,Math.min(bottom+6,view.innerHeight*.3));
+}
 // One place to show a CG: an image (GIFs animate on their own) or a video with its sound.
 function createCGMedia(image){
     const video=document.createElement('video');video.hidden=true;video.playsInline=true;video.preload='auto';image.after(video);
@@ -346,6 +356,7 @@ export function mountSceneMedia({host,getContext,adapter=createMediaAdapter(getC
     preview.addEventListener('close',()=>{previewMedia.stop();if(audioKind==='preview')stopSound();stageMedia.resume();frameMedia.resume();},{signal:abort.signal});
     globalThis.matchMedia?.('(max-width: 768px), (max-height: 500px)').addEventListener('change',()=>{if(activeCG)paint(activeCG,selection);},{signal:abort.signal});
     const screenLimits = () => ({maxWidth:innerWidth-12,maxHeight:innerHeight-12});
+    const frameLimits = () => ({maxWidth:innerWidth-12,maxHeight:innerHeight-frameCeiling()-6});
     const frameExtras = (box,bar) => {const extraWidth=box.offsetWidth-box.clientWidth;return {extraWidth,extraHeight:extraWidth+bar.offsetHeight};};
     // The size and place the player chose by moving or resizing the frame. Until they do, the frame opens at its
     // default place, sized once so it ends above the dialogue box with its longest page and never covers the text.
@@ -365,7 +376,7 @@ export function mountSceneMedia({host,getContext,adapter=createMediaAdapter(getC
         Object.assign(frame.style,{left:`${base.left}px`,top:`${base.top}px`,width:`${base.width}px`,height:`${base.height}px`});
         const ratio=frameMedia.ratio();
         if(ratio){
-            const limits=preferred?screenLimits():{maxWidth:innerWidth-12,maxHeight:base.maxHeight};
+            const limits=preferred?frameLimits():{maxWidth:innerWidth-12,maxHeight:base.maxHeight};
             const size=fittedFrame({width:base.width,height:base.height,ratio,...frameExtras(frame,frame.querySelector('header')),...limits});
             frame.style.width=`${size.width}px`;frame.style.height=`${size.height}px`;
         }
@@ -378,15 +389,17 @@ export function mountSceneMedia({host,getContext,adapter=createMediaAdapter(getC
         const size=fittedFrame({width:preferred?.width || r.width,height:preferred?.height || r.height,ratio,...frameExtras(preview,preview.querySelector('header')),...screenLimits()});
         preview.style.width=`${size.width}px`;preview.style.height=`${size.height}px`;
     }
+    // The frame stays on screen and below the top bar, so its title bar and × are always where they look.
     function clampFrame() {
-        const r = frame.getBoundingClientRect();
-        frame.style.width = `${Math.min(Math.max(180,r.width),innerWidth-12)}px`;
-        frame.style.height = `${Math.min(Math.max(120,r.height),innerHeight-12)}px`;
-        frame.style.left = `${Math.max(6,Math.min(r.left,innerWidth-Math.min(r.width,innerWidth-12)-6))}px`;
-        frame.style.top = `${Math.max(6,Math.min(r.top,innerHeight-Math.min(r.height,innerHeight-12)-6))}px`;
+        const r = frame.getBoundingClientRect(), ceiling = frameCeiling();
+        const width = Math.min(Math.max(180,r.width),innerWidth-12), height = Math.min(Math.max(120,r.height),innerHeight-ceiling-6);
+        frame.style.width = `${width}px`;
+        frame.style.height = `${height}px`;
+        frame.style.left = `${Math.max(6,Math.min(r.left,innerWidth-width-6))}px`;
+        frame.style.top = `${Math.max(ceiling,Math.min(r.top,innerHeight-height-6))}px`;
     }
     function resizeFrame(width,ratio) {
-        const extras=frameExtras(frame,frame.querySelector('header')),next=Math.max(180,width),size=fittedFrame({width:next,height:(next-extras.extraWidth)/ratio+extras.extraHeight,ratio,...extras,...screenLimits()});
+        const extras=frameExtras(frame,frame.querySelector('header')),next=Math.max(180,width),size=fittedFrame({width:next,height:(next-extras.extraWidth)/ratio+extras.extraHeight,ratio,...extras,...frameLimits()});
         frame.style.width=`${size.width}px`;frame.style.height=`${size.height}px`;
     }
     let drag;

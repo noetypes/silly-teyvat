@@ -47,6 +47,16 @@ export async function runMediaTests() {
             chat.style.setProperty('bottom','80px','important');
             window.dispatchEvent(new Event('resize'));sync(0,2);await frames();
             check('a change of screen height alone (the keyboard) leaves the frame as it is',same(frame.getBoundingClientRect()));
+            // SillyTavern's top bar lies above the frame: a frame saved at the very top opens below it, so its
+            // title bar and × take their own clicks instead of the bar's.
+            const bar=document.querySelector('#top-bar'),barStyle=bar?.style.cssText;
+            if(bar)try{
+                bar.style.cssText='position:fixed;top:0;left:0;right:0;height:50px;z-index:3005;display:block;visibility:visible';
+                prefs.cgFrame={left:40,top:0,width:420,height:320};media.dispose();media=mountSceneMedia({host,getContext:()=>ctx,adapter,sound});sync(0,1);await pause(30);
+                const placed=host.querySelector('#gi-cg-window'),close=placed.querySelector('header button').getBoundingClientRect(),title=placed.querySelector('header span').getBoundingClientRect();
+                check('a frame saved under the top bar opens below it',placed.getBoundingClientRect().top>=bar.getBoundingClientRect().bottom);
+                check('the frame title bar and × take their own clicks',document.elementFromPoint(close.x+close.width/2,close.y+close.height/2)===placed.querySelector('header button')&&placed.querySelector('header').contains(document.elementFromPoint(title.x+4,title.y+title.height/2)));
+            }finally{bar.style.cssText=barStyle;}
         }finally{delete prefs.cgFrame;chat.style.cssText=chatStyle;box.remove();others.forEach(node=>node.style.removeProperty('display'));if(!hadScene)document.body.classList.remove('gi-scene');}}
         Object.values(prefs.characterCGs).flat().forEach(c=>c.display='scene');sync(1);check('replacement CG ends after its message',!document.body.classList.contains('gi-cg-replace'));
         ctx.chat.push({name:'Klee',original_avatar:'Klee.png',mes:'“Hello!”'});sync(2);await pause(40);sync(2);check('no matching scene is cached',ctx.chat[2].extra.silly_teyvat.cgs[0].cg===null&&cgCalls.length===2);
