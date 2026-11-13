@@ -1,5 +1,5 @@
 {
-  "version": 7,
+  "version": 8,
   "date": "2026-11-07",
   "notes": "Default resident cap: 5. Bundled overfull locations redistributed to suitable meeting points. Existing user moves are respected by the one-time relocation migration. Prune remains at Mondstadt Fountain Plaza. Travelling companions do not consume resident slots.",
   "characters": [
@@ -95,8 +95,8 @@
     },
     {
       "name": "Rosaria",
-      "locationId": "starter-the-cat-s-tail",
-      "rationale": "Rosaria skips her Cathedral duties and spends evenings at The Cat’s Tail, which is where her card greeting already opens.",
+      "locationId": "interior-favonius-cathedral",
+      "rationale": "Rosaria is a sister of the Church of Favonius; the cathedral nave is her public meeting point, and her greetings open there.",
       "loreSource": "https://genshin-impact.fandom.com/wiki/Rosaria/Profile"
     },
     {
@@ -1212,6 +1212,12 @@
       "from": "roleplay-nicole-voidsea-outlook-meeting-default",
       "to": "expansion-the-witch-s-garden",
       "rationale": "Her greeting opens in the Witch’s Garden. Preserve custom placements."
+    },
+    {
+      "name": "Rosaria",
+      "from": "starter-the-cat-s-tail",
+      "to": "interior-favonius-cathedral",
+      "rationale": "Move the bundled assignment to the cathedral interior to match her new greetings."
     }
   ]
 }

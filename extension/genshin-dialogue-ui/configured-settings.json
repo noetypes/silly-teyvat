@@ -16665,8 +16665,7 @@
       "id": "starter-the-cat-s-tail",
       "label": "The Cat's Tail",
       "suggestedCharacters": [
-       "Diona",
-       "Rosaria"
+       "Diona"
       ],
       "description": "Margaret’s cat-filled tavern and a gathering place for Genius Invokation players. Diona works behind the bar.",
       "waypoint": {
@@ -16681,7 +16680,8 @@
        "Cat's Tail"
       ],
       "residents": [
-       "Diona.png"
+       "Diona.png",
+       "Rosaria.png"
       ],
       "candidate": true,
       "path": "silly-teyvat:/assets/world-locations/the-cat-s-tail.png",
@@ -16878,8 +16878,7 @@
       "loreSource": "https://genshin-impact.fandom.com/wiki/Rosaria/Profile",
       "residents": [
        "Barbara.png",
-       "Dahlia.png",
-       "Rosaria.png"
+       "Dahlia.png"
       ],
       "candidate": false,
       "introducedVersion": 3,

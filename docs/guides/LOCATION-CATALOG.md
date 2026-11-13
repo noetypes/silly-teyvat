@@ -6,6 +6,10 @@ Images were visually reviewed for playable characters, game HUD, captions and ae
 
 ## Mondstadt
 
+### Favonius Cathedral (Interior)
+
+The cathedral nave in Mondstadt, with Rosaria as its default character. The interior shares the cathedral’s surface map point; the existing exterior remains a separate waypoint. The [background](../../extension/genshin-dialogue-ui/assets/world-locations/favonius-cathedral-interior.png) was generated from a user-provided in-game screenshot and selected by the user.
+
 ### Knights of Favonius Library
 
 The library inside the Knights headquarters. Lisa tends its books and helps with research.
@@ -82,7 +86,7 @@ Image review: Downloaded and visually reviewed: ground-level Mondstadt Adventure
 
 The Church of Favonius' cathedral and Rosaria's institutional home base as a sister who handles the church's less conventional work.
 
-Default characters: Barbara, Dahlia, Rosaria.
+Default characters: Barbara, Dahlia.
 
 [Background](../../extension/genshin-dialogue-ui/assets/world-locations/home-favonius-cathedral.webp) · [Image source](https://genshin-impact.fandom.com/wiki/File:Favonius_Cathedral_Exterior.png) · [Lore](https://genshin-impact.fandom.com/wiki/Rosaria/Profile)
 

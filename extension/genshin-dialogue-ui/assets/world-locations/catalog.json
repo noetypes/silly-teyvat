@@ -1,5 +1,5 @@
 {
-  "version": 23,
+  "version": 25,
   "retrieved": "2026-10-26",
   "coordinateSource": "https://sg-public-api-static.hoyolab.com/common/map_user/ys_obc/v1/map/map_anchor/list?map_id=2&app_sn=ys_obc&lang=en-us",
   "locations": [
@@ -160,8 +160,7 @@
       "label": "The Cat's Tail",
       "region": "Mondstadt",
       "suggestedCharacters": [
-        "Diona",
-        "Rosaria"
+        "Diona"
       ],
       "description": "Margaret’s cat-filled tavern and a gathering place for Genius Invokation players. Diona works behind the bar.",
       "waypoint": {
@@ -2525,6 +2524,47 @@
           "captions": false,
           "camera": "Downloaded and visually reviewed: front-facing exterior of Favonius Cathedral from its forecourt and steps, at ground-level perspective. No characters, HUD, or subtitles; Genshin watermark at lower right."
         }
+      }
+    },
+    {
+      "id": "interior-favonius-cathedral",
+      "label": "Favonius Cathedral (Interior)",
+      "region": "Mondstadt",
+      "description": "The quiet nave of the Church of Favonius, with stained glass, wooden pews and a polished stone floor. Rosaria can be found here between her rounds.",
+      "classifications": [
+        "Favonius Cathedral interior",
+        "inside the cathedral",
+        "cathedral nave"
+      ],
+      "suggestedCharacters": [
+        "Rosaria"
+      ],
+      "waypoint": {
+        "mapId": "teyvat",
+        "x": -64.95172401672517,
+        "y": -34.21447308637744
+      },
+      "coordinateMethod": "The cathedral interior shares the named cathedral point on the surface map.",
+      "coordinateSource": "HoYoLAB Teyvat Interactive Map map_id=2, named point 5036 “Mondstadt | Favonius Cathedral | inside the cathedral” (details-index).",
+      "source": "https://genshin-impact.fandom.com/wiki/Favonius_Cathedral",
+      "loreSource": "https://genshin-impact.fandom.com/wiki/Rosaria/Profile",
+      "residents": [],
+      "candidate": false,
+      "dimensions": [
+        1672,
+        941
+      ],
+      "asset": "favonius-cathedral-interior.png",
+      "introducedVersion": 24,
+      "imageReview": {
+        "editing": "AI-generated interior based on the user-provided in-game screenshot; selected by the user as the background.",
+        "provenance": "art/location-backgrounds/2026-11-12-favonius-cathedral-interior/manifest.json"
+      },
+      "music": {
+        "tracks": [
+          "music-game-4fcd81d579687e6d89d6"
+        ],
+        "combatTrack": "music-game-c9f040240e3ec2351e17"
       }
     },
     {
