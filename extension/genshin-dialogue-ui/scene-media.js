@@ -111,6 +111,19 @@ export function fittedFrame({width,height,extraWidth,extraHeight,ratio,maxWidth,
     const scale=Math.min(Math.max(1,(180-extraWidth)/mediaWidth,(120-extraHeight)/mediaHeight),(maxWidth-extraWidth)/mediaWidth,(maxHeight-extraHeight)/mediaHeight);
     return {width:mediaWidth*scale+extraWidth,height:mediaHeight*scale+extraHeight};
 }
+// The top of the dialogue box (name and text) as it stands with its longest page, or the bottom of the screen
+// when no dialogue is shown. A page shorter than the longest still leaves the same room above it.
+export function dialogueTop(doc=document){
+    const view=doc.defaultView,H=view.innerHeight,state=doc.body.classList;
+    if(!state.contains('gi-scene')||state.contains('gi-history')||state.contains('gi-hidden'))return H;
+    const shown=node=>Boolean(node?.getClientRects().length)&&view.getComputedStyle(node).display!=='none';
+    const box=[...doc.querySelectorAll('#chat > .mes.gi-current')].find(shown);
+    if(!shown(box)){const chat=doc.querySelector('#chat');return shown(chat)?chat.getBoundingClientRect().top:H;}
+    const text=[...box.querySelectorAll('.gi-page, .mes_text')].find(shown);
+    const longest=text?Number.parseFloat(view.getComputedStyle(text).maxHeight):NaN;
+    const spare=Number.isFinite(longest)?Math.max(0,longest-text.getBoundingClientRect().height):0;
+    return Math.max(0,box.getBoundingClientRect().top-spare);
+}
 // One place to show a CG: an image (GIFs animate on their own) or a video with its sound.
 function createCGMedia(image){
     const video=document.createElement('video');video.hidden=true;video.playsInline=true;video.preload='auto';image.after(video);
@@ -207,6 +220,7 @@ export function mountSceneMedia({host,getContext,adapter=createMediaAdapter(getC
     const api = {
         sync({on:enabled,id,page,generating}) {
             lastSync = {on:enabled,id,page,generating};
+            if (!frame.hidden) followDialogue();
             const ctx = getContext(), prefs = mediaSettings(ctx), nextChat = identity(ctx);
             if (nextChat !== chatKey) { api.reset(); chatKey = nextChat; }
             on = enabled;
@@ -332,33 +346,49 @@ export function mountSceneMedia({host,getContext,adapter=createMediaAdapter(getC
     gallery.querySelector('header button').addEventListener('click',()=>gallery.close(),{signal:abort.signal});
     preview.addEventListener('close',()=>{previewMedia.stop();if(audioKind==='preview')stopSound();stageMedia.resume();frameMedia.resume();},{signal:abort.signal});
     globalThis.matchMedia?.('(max-width: 768px), (max-height: 500px)').addEventListener('change',()=>{if(activeCG)paint(activeCG,selection);},{signal:abort.signal});
-    const frameLimits = () => ({maxWidth:innerWidth-12,maxHeight:innerHeight-12});
+    // A framed CG stays above the dialogue box, so it never covers the text. The box is measured as if it showed
+    // its longest page, so the frame keeps its size and place from page to page.
+    const frameBottom = () => Math.max(132,Math.min(innerHeight,dialogueTop())-6);
+    const frameLimits = () => ({maxWidth:innerWidth-12,maxHeight:frameBottom()-6});
+    const screenLimits = () => ({maxWidth:innerWidth-12,maxHeight:innerHeight-12});
     const frameExtras = (box,bar) => {const extraWidth=box.offsetWidth-box.clientWidth;return {extraWidth,extraHeight:extraWidth+bar.offsetHeight};};
+    // The size and place the player chose (or the default one). The frame returns to it whenever there is room.
+    let preferred = null;
+    const remembered = mediaSettings(getContext()).cgFrame;
+    if (remembered && ['left','top','width','height'].every(k=>Number.isFinite(remembered[k]))) preferred = {...remembered};
     // Each surface sizes itself as its image or video reports its shape, including a cached one.
     function fitFrame() {
+        if(!preferred){const r=frame.getBoundingClientRect();preferred={left:r.left,top:r.top,width:r.width,height:r.height};}
+        Object.assign(frame.style,{left:`${preferred.left}px`,top:`${preferred.top}px`,width:`${preferred.width}px`,height:`${preferred.height}px`});
         const ratio=frameMedia.ratio();
         if(ratio){
-            const r=frame.getBoundingClientRect(),size=fittedFrame({width:r.width,height:r.height,ratio,...frameExtras(frame,frame.querySelector('header')),...frameLimits()});
+            const size=fittedFrame({width:preferred.width,height:preferred.height,ratio,...frameExtras(frame,frame.querySelector('header')),...frameLimits()});
             frame.style.width=`${size.width}px`;frame.style.height=`${size.height}px`;
         }
         clampFrame();
+        fittedBottom=frameBottom();
     }
     function fitPreview() {
         preview.style.width=preview.style.height='';
         const ratio=previewMedia.ratio();if(!ratio||preview.dataset.display!=='frame')return;
-        const saved=mediaSettings(getContext()).cgFrame,r=preview.getBoundingClientRect();
-        const size=fittedFrame({width:saved?.width || r.width,height:saved?.height || r.height,ratio,...frameExtras(preview,preview.querySelector('header')),...frameLimits()});
+        const r=preview.getBoundingClientRect();
+        const size=fittedFrame({width:preferred?.width || r.width,height:preferred?.height || r.height,ratio,...frameExtras(preview,preview.querySelector('header')),...screenLimits()});
         preview.style.width=`${size.width}px`;preview.style.height=`${size.height}px`;
     }
     function clampFrame() {
-        const r = frame.getBoundingClientRect();
-        frame.style.width = `${Math.min(Math.max(180,r.width),innerWidth-12)}px`;
-        frame.style.height = `${Math.min(Math.max(120,r.height),innerHeight-12)}px`;
-        frame.style.left = `${Math.max(6,Math.min(r.left,innerWidth-Math.min(r.width,innerWidth-12)-6))}px`;
-        frame.style.top = `${Math.max(6,Math.min(r.top,innerHeight-Math.min(r.height,innerHeight-12)-6))}px`;
+        const r = frame.getBoundingClientRect(), bottom = frameBottom();
+        const width = Math.min(Math.max(180,r.width),innerWidth-12), height = Math.min(Math.max(120,r.height),bottom-6);
+        frame.style.width = `${width}px`;
+        frame.style.height = `${height}px`;
+        frame.style.left = `${Math.max(6,Math.min(r.left,innerWidth-width-6))}px`;
+        frame.style.top = `${Math.max(6,Math.min(r.top,bottom-height))}px`;
     }
-    const remembered = mediaSettings(getContext()).cgFrame;
-    if (remembered) for (const k of ['left','top','width','height']) if(Number.isFinite(remembered[k]))frame.style[k]=`${remembered[k]}px`;
+    // The dialogue box moved (the reply box opened, the window changed shape): fit the frame again.
+    let fittedBottom = NaN, floorFrame = 0;
+    function followDialogue() {
+        if (floorFrame) return;
+        floorFrame = requestAnimationFrame(() => { floorFrame = 0; if (!frame.hidden && Math.abs(frameBottom()-fittedBottom) > 2) fitFrame(); });
+    }
     function resizeFrame(width,ratio) {
         const extras=frameExtras(frame,frame.querySelector('header')),next=Math.max(180,width),size=fittedFrame({width:next,height:(next-extras.extraWidth)/ratio+extras.extraHeight,ratio,...extras,...frameLimits()});
         frame.style.width=`${size.width}px`;frame.style.height=`${size.height}px`;
@@ -378,7 +408,7 @@ export function mountSceneMedia({host,getContext,adapter=createMediaAdapter(getC
         else Object.assign(frame.style,drag.resize?{width:`${drag.width+dx}px`,height:`${drag.height+dy}px`}:{left:`${drag.left+dx}px`,top:`${drag.top+dy}px`});
         clampFrame();
     },{signal:abort.signal});
-    function saveFrame(){const r=frame.getBoundingClientRect();mediaSettings(getContext()).cgFrame={left:r.left,top:r.top,width:r.width,height:r.height};getContext().saveSettingsDebounced();}
+    function saveFrame(){const r=frame.getBoundingClientRect();preferred={left:r.left,top:r.top,width:r.width,height:r.height};mediaSettings(getContext()).cgFrame={...preferred};getContext().saveSettingsDebounced();}
     function rememberFrame() { if(!drag)return;drag=null;saveFrame(); }
     frame.addEventListener('pointerup',rememberFrame,{signal:abort.signal}); frame.addEventListener('pointercancel',rememberFrame,{signal:abort.signal});
     frame.querySelector('.gi-cg-resize').addEventListener('keydown',event=>{

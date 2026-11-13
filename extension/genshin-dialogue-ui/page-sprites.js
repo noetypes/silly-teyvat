@@ -8,7 +8,7 @@ import { stageScene, createStageRoster, expressionMode, fitModelHeights, refresh
 import { chooseVisible, layoutStage, compactViewport } from './stage-layout.js';
 import { keyboardShown } from './keyboard-frame.js';
 import { stageCharacter } from './persona-wardrobe.js';
-import { playingEnemy } from './enemy-persona.js';
+import { playingEnemy, hostileEnemy } from './enemy-persona.js';
 import { previousSpeech, expressionContext } from './narration.js';
 import { createSpriteTrimmer } from './sprite-trim.js';
 import { healSceneSources } from './sprite-files.js';
@@ -209,6 +209,15 @@ export function mountPageSprites({ host, getContext, adapter = createNativeSprit
     const prefsNow = () => ({ ...stagingDefaults, ...getContext().extensionSettings?.genshin_dialogue_ui });
     const kindOf = sprite => sprite.avatar === '__user__' ? 'user' : enemyOf(sprite) ? 'enemy' : 'companion';
     const actorOf = sprite => enemyOf(sprite) || sprite.avatar || sprite.folder || '';
+    // Which side of the standoff a sprite stands on: 0 is yours, 1 is whoever is hostile to you. Your own sprite is
+    // always on your side, whatever card you play. Playing an enemy puts your kind with you and the characters
+    // (and bosses) across from you; otherwise the enemies are across from you.
+    const sideOf = sprite => {
+        const kind = kindOf(sprite), ctx = getContext();
+        if (kind === 'user') return 0;
+        if (kind === 'enemy') return hostileEnemy(ctx, enemyOf(sprite)) ? 1 : 0;
+        return playingEnemy(ctx) ? 1 : 0;
+    };
     let stageAt = -1, lastDraw = null, arranged = { images: [], scene: [] };
     function focusScene(scene) {
         const ctx = getContext(), message = ctx.chat?.[stageAt], p = prefsNow();
@@ -273,14 +282,13 @@ export function mountPageSprites({ host, getContext, adapter = createNativeSprit
         if (!staged.length) return;
         const typing = keyboardUp();
         const W = stage.clientWidth || innerWidth, H = typing ? stable.H : stage.clientHeight || innerHeight;
-        // Party on the left (you first), enemies on the right, as in a Genshin standoff. Playing an enemy turns the
-        // sides around: you and the enemies stand on the left, and the characters facing you on the right.
-        const reversed = playingEnemy(ctx), order = reversed ? { user: 0, enemy: 1, companion: 2 } : { user: 0, companion: 1, enemy: 2 };
-        staged.sort((a, b) => order[kindOf(a.sprite)] - order[kindOf(b.sprite)] || scene.indexOf(a.sprite) - scene.indexOf(b.sprite));
+        // Your side on the left (you first), whoever is hostile to you on the right, as in a Genshin standoff. Playing
+        // an enemy only changes who is on which side, never how you stand: you are always first on the left.
+        staged.sort((a, b) => sideOf(a.sprite) - sideOf(b.sprite) || Number(kindOf(b.sprite) === 'user') - Number(kindOf(a.sprite) === 'user') || scene.indexOf(a.sprite) - scene.indexOf(b.sprite));
         const items = staged.map(({ image, sprite }) => {
             const card = stageCharacter(ctx, sprite), cp = p.characterSprites?.[card?.avatar || sprite.avatar] || {};
             const look = livePresentation(sprite, staged.length >= 3 && staged.some(x => x.sprite.presentation?.focus) && compactViewport(W, H));
-            return { group: (kindOf(sprite) === 'enemy') !== reversed ? 1 : 0, h: sprite.h, aspect: Number(image.dataset.trim) || image.naturalWidth / image.naturalHeight || sprite.aspect, scale: (sprite.presentation ? liveSpriteScale(ctx, sprite, card) : 1) * look.focusScale,
+            return { group: sideOf(sprite), h: sprite.h, aspect: Number(image.dataset.trim) || image.naturalWidth / image.naturalHeight || sprite.aspect, scale: (sprite.presentation ? liveSpriteScale(ctx, sprite, card) : 1) * look.focusScale,
                 lift: Math.max(-.4, Math.min(.5, 1 - sprite.h - sprite.y)), pinned: cp.positionX == null ? null : bounded(cp.positionX, 0, 100, 50) / 100 };
         });
         // On a phone on its side the HUD runs along the top edge; frame faces just under it.

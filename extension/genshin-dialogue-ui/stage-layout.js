@@ -33,6 +33,9 @@ export function chooseVisible(actors, { recent = [], crowd = 'auto', limit = 5, 
 
 // How far an upright phone's row may close up (a share of the natural spacing) before it shrinks.
 const MIN_CLOSE = .62, MIN_SIZE = .45;
+// With three or more on an upright phone, the figures at either end may stand this share of their
+// width past the screen edge, which leaves more of the stage (and a larger size) to those in the middle.
+export const EDGE_BLEED = .25;
 
 // items: [{h, aspect, scale, lift, pinned, group}] — h is the figure's height as a fraction of the
 // viewport (tallest body model = Sprite height), lift a fraction of the viewport, pinned an
@@ -57,7 +60,7 @@ export function layoutStage(items, { width: W, height: H, dialogueTop, topInset 
     // upright phone (below). A crowded row overlaps instead, so the Sprite height setting means the
     // same on every screen.
     const gutter = Math.max(6, W * .015), room = W - gutter * 2;
-    const compact = compactViewport(W, H), upright = H > W;
+    const compact = compactViewport(W, H), upright = H > W, bleed = compact && upright && n >= 3 ? EDGE_BLEED : 0;
     const heights = natural.map(h => h * factor);
     // Each figure claims stage room by its own trimmed width, so a wide sprite (wings, a mount, a
     // spread pose) pushes its neighbours aside instead of covering them. Its height is unchanged.
@@ -70,7 +73,8 @@ export function layoutStage(items, { width: W, height: H, dialogueTop, topInset 
         // the stage in proportion to its width.
         const pitch = compact ? (upright ? .8 : .84) : .86, offsets = [0];
         for (let x = 1; x < n; x++) { const narrow = Math.min(w[x - 1], w[x]); offsets.push(offsets[x - 1] + (w[x - 1] + w[x]) / 2 - narrow * (1 - pitch) + (items[x].group !== items[x - 1].group ? narrow * .3 : 0)); }
-        let span = offsets[n - 1], ends = (w[0] + w[n - 1]) / 2;
+        // ends: how much of the two end figures must stay on screen (all of them, or less of a bleeding edge).
+        let span = offsets[n - 1], ends = (w[0] + w[n - 1]) / 2 * (1 - 2 * bleed);
         // A phone held upright is too narrow for a row of full-height figures: closing up alone
         // would stack them on top of each other. There the row shrinks, all together, until
         // neighbours stand at least about half a figure apart (never below MIN_SIZE, 45% of their size).
@@ -89,7 +93,7 @@ export function layoutStage(items, { width: W, height: H, dialogueTop, topInset 
     return items.map((i, x) => {
         const box = w[x];
         let centre = Number.isFinite(i.pinned) ? i.pinned * W : centres[x];
-        if (box <= W) centre = Math.min(W - box / 2, Math.max(box / 2, centre));
+        if (box <= W) centre = Math.min(W - box * (.5 - bleed), Math.max(box * (.5 - bleed), centre));
         const lift = (Number(i.lift) || 0) * H;
         return { left: centre - box / 2, top: feet - heights[x] - lift, width: box, height: heights[x], z: x + 1 };
     });

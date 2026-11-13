@@ -55,7 +55,16 @@ export async function runEnemySpriteTests(){
         scene=[sized('Klee',.1),sized('Slime',.6)];say('“Over here.”');await pause(60);
         check('usually the characters stand on the left and the enemies on the right',left('Klee')<left('Slime'));
         ctx.userAvatar='me.png';ctx.extensionSettings.genshin_dialogue_ui.personaCharacters={'me.png':'Slime.png'};ctx.chat.push({name:'Klee',original_avatar:'Klee.png',mes:'“Eek!”'});ui.sync({on:true,id:ctx.chat.length-1,page:0,text:'Eek',complete:true,generating:false});await pause(60);
-        check('while you play an enemy, the enemies stand on the left and the characters on the right',left('Slime')<left('Klee'));}
+        check('while you play an enemy, the enemies stand on the left and the characters on the right',left('Slime')<left('Klee'));
+        // Your own sprite stands as it would for a playable character: first on your side, with the wider standoff
+        // gap between your side and the characters facing you, not between you and your own kind.
+        const box=avatar=>{const i=host.querySelector(`#gi-sprite-stage img[data-avatar="${avatar}"]`);return {left:parseFloat(i.style.left),right:parseFloat(i.style.left)+parseFloat(i.style.width),height:parseFloat(i.style.height)};};
+        scene=[sized('Klee',.1),sized('Slime',.6),{...sized('Slime',.3),avatar:'__user__',personaAvatar:'me.png',src:'/characters/Slime/me.png'}];
+        ctx.chat.push({name:'Klee',original_avatar:'Klee.png',mes:'“Two of them!”'});ui.sync({on:true,id:ctx.chat.length-1,page:0,text:'Two',complete:true,generating:false});await pause(60);
+        const you=box('__user__'),kin=box('Slime.png'),foe=box('Klee.png');
+        check('playing an enemy, you stand first on the left, then your kind, then the characters',you.left<kin.left&&kin.left<foe.left);
+        check('playing an enemy, the standoff gap falls between your side and the characters, not between you and your kind',kin.left-you.right<foe.left-kin.right-1);
+        check('playing an enemy, your sprite is sized like your kind standing beside you',Math.abs(you.height-kin.height)<1);}
         return out.join('\n');
     }finally{ui?.dispose();host.remove();}
 }

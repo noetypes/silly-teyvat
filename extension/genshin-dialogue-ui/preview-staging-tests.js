@@ -83,7 +83,8 @@ export async function runStagingTests(){
         const enemyTalks=chooseVisible([A('s','enemy',true),A('m','enemy'),A('me','user')],{recent:['m'],crowd:'all',soloEnemy:true});check('a speaking enemy is the one enemy shown',enemyTalks.size===2&&enemyTalks.has('s'));
         const limited=chooseVisible(six,{recent,crowd:'recent',limit:2});check('Recent speakers keeps the limit plus your own sprite',limited.size===2&&limited.has('me')&&limited.has('k'));
         const W=393,H=660,items=[1,1,1].map(()=>({h:.88,aspect:.53,scale:1,lift:0}));const boxes=layoutStage(items,{width:W,height:H,dialogueTop:400});
-        check('three sprites on an upright phone stay on screen and keep their faces above the dialogue',boxes.every(b=>b.left>=-1&&b.left+b.width<=W+1&&b.top+b.height*.35<=400.01));
+        const onScreen=(b,share=0)=>b.left>=-b.width*share-1&&b.left+b.width<=W+b.width*share+1;
+        check('three sprites on an upright phone keep at least three quarters on screen and their faces above the dialogue',boxes.every(b=>onScreen(b,.25)&&b.top+b.height*.35<=400.01)&&onScreen(boxes[1]));
         const wide=layoutStage([{h:.88,aspect:.5,scale:1,lift:0},{h:.88,aspect:.5,scale:1,lift:0}],{width:852,height:350,dialogueTop:170});
         check('a phone on its side keeps the tallest head at the configured limit',wide.every(b=>b.top>=42-.01&&b.top+b.height*.35<=170));
         for(const [width,height,dialogueTop] of [[393,660,400],[852,350,170],[1700,1000,700],[375,568,310]]){
@@ -99,15 +100,17 @@ export async function runStagingTests(){
         check('on a phone on its side the row stands close together instead of spreading to the edges',Math.max(...gaps(landscape))<landscape[0].width*.45&&landscape[0].left>40&&Math.abs((landscape[0].left+landscape[2].left+landscape[2].width)/2-426)<2);
         check('on a desktop neighbours stand close, with a wider gap before the enemy',Math.max(...gaps(desk))<desk[0].width*.7&&gaps(desk)[1]>gaps(desk)[0]);
         const upright=layoutStage([1,1,1].map(()=>({h:.88,aspect:.53,scale:1,lift:0})),{width:393,height:660,dialogueTop:400}),crowd=layoutStage([1,1,1,1].map(()=>({h:.88,aspect:.53,scale:1,lift:0})),{width:393,height:660,dialogueTop:400}),pair=layoutStage([1,1].map(()=>({h:.88,aspect:.53,scale:1,lift:0})),{width:393,height:660,dialogueTop:400});
-        check('on an upright phone a row of three shrinks so neighbours stand at least half a figure apart',upright[0].height<pair[0].height&&upright.slice(1).every((b,i)=>b.left-upright[i].left>=upright[i].width*.45)&&upright.every(b=>b.left>=-1&&b.left+b.width<=393+1));
-        check('an upright crowd shrinks no further than 45% and stays on screen',crowd[0].height>=580.8*.45*.99&&crowd.every(b=>b.left>=-1&&b.left+b.width<=393+1));
+        check('on an upright phone a row of three keeps neighbours at least half a figure apart',upright.slice(1).every((b,i)=>b.left-upright[i].left>=upright[i].width*.45)&&upright.every(b=>b.left>=-b.width*.25-1&&b.left+b.width<=393+b.width*.25+1)&&upright[1].left>=-1&&upright[1].left+upright[1].width<=393+1);
+        check('on an upright phone the end figures of a trio stand partly off screen, so the trio keeps the size of a pair',upright[0].left<0&&upright[2].left+upright[2].width>393&&upright[1].height>pair[1].height*.95);
+        check('an upright crowd shrinks no further than 45%, its middle stays on screen and its ends at least three quarters on',crowd[0].height>=580.8*.45*.99&&crowd.every((b,i)=>b.left>=-b.width*(i===0?.25:0)-1&&b.left+b.width<=393+b.width*(i===crowd.length-1?.25:0)+1));
+        check('an upright pair still stays fully on screen',pair.every(b=>b.left>=-1&&b.left+b.width<=393+1));
         const flat=layoutStage(trio,{width:852,height:350,dialogueTop:170,topInset:49}),flatPair=layoutStage(trio.slice(0,2),{width:852,height:350,dialogueTop:170,topInset:49});
         check('off an upright phone figures are sized by height alone: a trio is as tall as a pair',Math.abs(flat[0].height-flatPair[0].height)<.01&&Math.abs(desk[0].height-layoutStage(trio.slice(0,2),{width:1700,height:1000,dialogueTop:700})[0].height)<.01);}}
         {const row=aspects=>layoutStage(aspects.map(a=>({h:.88,aspect:a,scale:1,lift:0})),{width:1700,height:1000,dialogueTop:700});
         const plain=row([.5,.5,.5]),wide=row([.5,1,.5]),cover=(a,b)=>Math.max(0,a.left+a.width-b.left);
         check('a wide sprite keeps its height but takes more of the stage, so its neighbours are not hidden',Math.abs(wide[1].height-plain[1].height)<.01&&wide[1].width>plain[1].width*1.9&&cover(wide[0],wide[1])<wide[0].width*.2&&cover(wide[1],wide[2])<wide[2].width*.2);
         const phone=layoutStage([.5,1.4,.5,.5].map(a=>({h:.88,aspect:a,scale:1,lift:0})),{width:393,height:660,dialogueTop:400});
-        check('a crowded phone row with a wide sprite keeps every figure that fits on screen and keeps the order',phone.every(b=>b.width>393||b.left>=-1&&b.left+b.width<=393+1)&&phone.slice(1).every((b,i)=>b.left+b.width/2>phone[i].left+phone[i].width/2));}
+        check('a crowded phone row with a wide sprite keeps every figure that fits on screen and keeps the order',phone.every(b=>b.width>393||b.left>=-b.width*.25-1&&b.left+b.width<=393+b.width*.25+1)&&phone.slice(1).every((b,i)=>b.left+b.width/2>phone[i].left+phone[i].width/2));}
         prefs.spriteDim=false;prefs.spriteGlobalScale=100;prefs.characterSprites={};prefs.spriteScales={};
         check('classification defaults to per page',expressionMode(ctx,ctx.chat[0])==='page');
         prefs.characterSprites['Klee.png']={expressionMode:'message'};check('a character can override classification to whole messages',expressionMode(ctx,ctx.chat[0])==='message');
