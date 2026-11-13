@@ -99,7 +99,7 @@ export function mountBattle({host,sound=createBattleSound(),onBurst=()=>{},onSto
     </div>
     <div class="gb-burst" aria-hidden="true"><i></i></div>
     <canvas class="gb-particles" aria-hidden="true"></canvas>
-    <div class="gb-splash" aria-hidden="true"><i class="gb-splash-wash"></i><i class="gb-splash-lines"></i><i class="gb-splash-glyph"></i><img alt=""><div class="gb-splash-text"><small></small><strong></strong></div><i class="gb-splash-flash"></i></div>
+    <div class="gb-splash" aria-hidden="true"><i class="gb-splash-wash"></i><i class="gb-splash-lines"></i><i class="gb-splash-glyph"></i><img class="gb-splash-art" alt=""><div class="gb-splash-text"><small></small><strong></strong></div><i class="gb-splash-flash"></i></div>
     <div class="tb-result" hidden><i class="tb-result-rays" aria-hidden="true"></i><div class="tb-result-card"><div class="tb-result-head"><i class="tb-result-crest" aria-hidden="true">${ICON.crest.replaceAll('tb-crest-gold',`tb-crest-gold-${++boards}`)}</i><span class="tb-result-stars" aria-hidden="true">${'<i></i>'.repeat(8)}</span><h3></h3></div><p class="tb-result-sub"></p><ol class="tb-result-party"></ol><div class="tb-result-reactions"></div><div class="tb-loot"></div><button type="button" class="tb-continue"><span class="tb-continue-icon"></span><span class="tb-continue-text">Continue</span></button></div></div>
     <div class="gb-vignette" aria-hidden="true"></div><p class="gi-sr-only tb-log" role="log" aria-live="polite"></p>`;
     host.append(dialog);
@@ -777,7 +777,8 @@ export function mountBattle({host,sound=createBattleSound(),onBurst=()=>{},onSto
     }
     async function splash(u,move){
         if(skipAll)return;
-        const box=dialog.querySelector('.gb-splash'),img=box.querySelector('img');box.style.setProperty('--el',EL_COLORS[u.element] || EL_COLORS.None);box.dataset.el=u.element;
+        // The art by its class: once the element's emblem is drawn, the glyph holds an <img> of its own.
+        const box=dialog.querySelector('.gb-splash'),img=box.querySelector('.gb-splash-art');box.style.setProperty('--el',EL_COLORS[u.element] || EL_COLORS.None);box.dataset.el=u.element;
         box.querySelector('.gb-splash-glyph').innerHTML=ELEMENTS.includes(u.element)?elementImg(u.element,{white:true}):glyph('Omni');
         const src=u.burstArt || (u.card?splashUrl(u.card):'');
         img.hidden=true;
