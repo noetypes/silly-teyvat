@@ -14,11 +14,11 @@ Requires **SillyTavern 1.19.0 or later**, Git, and about **7 GB of free disk spa
    ```text
    https://github.com/noetypes/silly-teyvat-dist
    ```
-2. Reload SillyTavern. Accept **Download** when Silly Teyvat offers its game data (**2.29 GB**). Keep the page open while it downloads and installs, then choose **Reload** when finished.
+2. Reload SillyTavern. Accept **Download** when Silly Teyvat offers its game data (**2.14 GB**). Keep the page open while it downloads and installs, then choose **Reload** when finished.
 3. Connect your own **Chat Completion API** in SillyTavern. No model subscription or API credentials are included.
 4. Choose a persona (Aether and Lumine are included), open a Genshin character card, and start chatting. The Paimon menu opens **Characters**, **Map**, **Inventory** and the other game screens. If dialogue view is off, switch **Silly Teyvat** on in that menu or press **Alt+G**.
 
-The download includes **275 character cards, 2,490 sprites, 928 uploaded files, the Aether and Lumine personas, two lorebooks, the Teyvat Slate theme and Teyvat Choices**. Map backgrounds, portraits, TCG artwork, dice, fonts and interface assets are included with the extension. Your existing SillyTavern content is kept.
+The download includes **275 character cards, 2,484 sprites, 959 uploaded files, the Aether and Lumine personas, two lorebooks, the Teyvat Slate theme and Teyvat Choices**. Map backgrounds, portraits, TCG artwork, dice, fonts and interface assets are included with the extension. Your existing SillyTavern content is kept.
 
 If you chose **Not now**, open **Extensions → Silly Teyvat → Share → Check for game data**. Interrupted downloads can be retried; files already installed are skipped. Update the extension through SillyTavern's extension manager; newer game data is offered automatically when available.
 

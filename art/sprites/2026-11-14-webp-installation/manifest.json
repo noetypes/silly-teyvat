@@ -1,0 +1,979 @@
+{
+  "date": "2026-11-14",
+  "scope": "All pending generated PNG sprites in installed character and outfit folders. Official Art references, PNG character-card containers and art-run originals are retained.",
+  "tool": "tools/convert-sprites.py",
+  "archive": "silly-teyvat-data/backups/sprites-png-2026-11-14-release",
+  "alphaPreservedExactly": true,
+  "converted": [
+    {
+      "file": "Albedo/admiration.png",
+      "bytes": 1079398,
+      "webp_bytes": 219052,
+      "quality": 90,
+      "psnr": 44.2,
+      "alpha_diff": 0
+    },
+    {
+      "file": "Albedo/anger.png",
+      "bytes": 1150972,
+      "webp_bytes": 225006,
+      "quality": 90,
+      "psnr": 44.4,
+      "alpha_diff": 0
+    },
+    {
+      "file": "Albedo/annoyance.png",
+      "bytes": 1131683,
+      "webp_bytes": 216958,
+      "quality": 90,
+      "psnr": 44.6,
+      "alpha_diff": 0
+    },
+    {
+      "file": "Albedo/caring.png",
+      "bytes": 1066762,
+      "webp_bytes": 202626,
+      "quality": 90,
+      "psnr": 44.8,
+      "alpha_diff": 0
+    },
+    {
+      "file": "Albedo/confusion.png",
+      "bytes": 1065967,
+      "webp_bytes": 208160,
+      "quality": 90,
+      "psnr": 44.7,
+      "alpha_diff": 0
+    },
+    {
+      "file": "Albedo/desire-1.png",
+      "bytes": 1094051,
+      "webp_bytes": 209820,
+      "quality": 90,
+      "psnr": 44.6,
+      "alpha_diff": 0
+    },
+    {
+      "file": "Albedo/desire.png",
+      "bytes": 1084258,
+      "webp_bytes": 205766,
+      "quality": 90,
+      "psnr": 44.6,
+      "alpha_diff": 0
+    },
+    {
+      "file": "Albedo/disappointment.png",
+      "bytes": 1061854,
+      "webp_bytes": 198344,
+      "quality": 90,
+      "psnr": 44.7,
+      "alpha_diff": 0
+    },
+    {
+      "file": "Albedo/disgust.png",
+      "bytes": 1061977,
+      "webp_bytes": 207574,
+      "quality": 90,
+      "psnr": 44.9,
+      "alpha_diff": 0
+    },
+    {
+      "file": "Albedo/embarrassment.png",
+      "bytes": 1073039,
+      "webp_bytes": 208066,
+      "quality": 90,
+      "psnr": 44.8,
+      "alpha_diff": 0
+    },
+    {
+      "file": "Albedo/excitement.png",
+      "bytes": 1179268,
+      "webp_bytes": 219594,
+      "quality": 90,
+      "psnr": 44.7,
+      "alpha_diff": 0
+    },
+    {
+      "file": "Albedo/fear.png",
+      "bytes": 1079197,
+      "webp_bytes": 212094,
+      "quality": 90,
+      "psnr": 45.1,
+      "alpha_diff": 0
+    },
+    {
+      "file": "Albedo/gratitude.png",
+      "bytes": 1069575,
+      "webp_bytes": 211506,
+      "quality": 90,
+      "psnr": 44.5,
+      "alpha_diff": 0
+    },
+    {
+      "file": "Albedo/grief.png",
+      "bytes": 1047038,
+      "webp_bytes": 198798,
+      "quality": 90,
+      "psnr": 44.6,
+      "alpha_diff": 0
+    },
+    {
+      "file": "Albedo/joy.png",
+      "bytes": 1140017,
+      "webp_bytes": 233570,
+      "quality": 90,
+      "psnr": 44.0,
+      "alpha_diff": 0
+    },
+    {
+      "file": "Albedo/love-1.png",
+      "bytes": 1091948,
+      "webp_bytes": 211234,
+      "quality": 90,
+      "psnr": 44.4,
+      "alpha_diff": 0
+    },
+    {
+      "file": "Albedo/love.png",
+      "bytes": 1137544,
+      "webp_bytes": 222186,
+      "quality": 90,
+      "psnr": 44.6,
+      "alpha_diff": 0
+    },
+    {
+      "file": "Albedo/neutral.png",
+      "bytes": 1042672,
+      "webp_bytes": 200058,
+      "quality": 90,
+      "psnr": 45.0,
+      "alpha_diff": 0
+    },
+    {
+      "file": "Albedo/pride.png",
+      "bytes": 1087102,
+      "webp_bytes": 212174,
+      "quality": 90,
+      "psnr": 44.3,
+      "alpha_diff": 0
+    },
+    {
+      "file": "Albedo/relief.png",
+      "bytes": 1079404,
+      "webp_bytes": 207778,
+      "quality": 90,
+      "psnr": 45.0,
+      "alpha_diff": 0
+    },
+    {
+      "file": "Albedo/sadness.png",
+      "bytes": 1033547,
+      "webp_bytes": 197422,
+      "quality": 90,
+      "psnr": 44.8,
+      "alpha_diff": 0
+    },
+    {
+      "file": "Albedo/smug.png",
+      "bytes": 1077204,
+      "webp_bytes": 214870,
+      "quality": 90,
+      "psnr": 44.2,
+      "alpha_diff": 0
+    },
+    {
+      "file": "Baizhu/desire-1.png",
+      "bytes": 1929874,
+      "webp_bytes": 218428,
+      "quality": 90,
+      "psnr": 42.5,
+      "alpha_diff": 0
+    },
+    {
+      "file": "Baizhu/love-1.png",
+      "bytes": 1928111,
+      "webp_bytes": 236484,
+      "quality": 90,
+      "psnr": 41.8,
+      "alpha_diff": 0
+    },
+    {
+      "file": "Barbara/admiration.png",
+      "bytes": 1640348,
+      "webp_bytes": 169822,
+      "quality": 90,
+      "psnr": 43.1,
+      "alpha_diff": 0
+    },
+    {
+      "file": "Barbara/anger.png",
+      "bytes": 1675030,
+      "webp_bytes": 185306,
+      "quality": 90,
+      "psnr": 43.2,
+      "alpha_diff": 0
+    },
+    {
+      "file": "Barbara/annoyance.png",
+      "bytes": 1697254,
+      "webp_bytes": 187084,
+      "quality": 90,
+      "psnr": 42.9,
+      "alpha_diff": 0
+    },
+    {
+      "file": "Barbara/caring.png",
+      "bytes": 1730405,
+      "webp_bytes": 191048,
+      "quality": 90,
+      "psnr": 43.2,
+      "alpha_diff": 0
+    },
+    {
+      "file": "Barbara/confusion.png",
+      "bytes": 1657251,
+      "webp_bytes": 174548,
+      "quality": 90,
+      "psnr": 43.2,
+      "alpha_diff": 0
+    },
+    {
+      "file": "Barbara/desire-1.png",
+      "bytes": 1629229,
+      "webp_bytes": 169268,
+      "quality": 90,
+      "psnr": 43.2,
+      "alpha_diff": 0
+    },
+    {
+      "file": "Barbara/desire.png",
+      "bytes": 1683422,
+      "webp_bytes": 176506,
+      "quality": 90,
+      "psnr": 42.9,
+      "alpha_diff": 0
+    },
+    {
+      "file": "Barbara/disappointment.png",
+      "bytes": 1642119,
+      "webp_bytes": 165414,
+      "quality": 90,
+      "psnr": 44.4,
+      "alpha_diff": 0
+    },
+    {
+      "file": "Barbara/disgust.png",
+      "bytes": 1704471,
+      "webp_bytes": 183880,
+      "quality": 90,
+      "psnr": 43.5,
+      "alpha_diff": 0
+    },
+    {
+      "file": "Barbara/embarrassment.png",
+      "bytes": 1650812,
+      "webp_bytes": 172690,
+      "quality": 90,
+      "psnr": 43.4,
+      "alpha_diff": 0
+    },
+    {
+      "file": "Barbara/excitement.png",
+      "bytes": 1700232,
+      "webp_bytes": 190906,
+      "quality": 90,
+      "psnr": 43.4,
+      "alpha_diff": 0
+    },
+    {
+      "file": "Barbara/fear.png",
+      "bytes": 1685812,
+      "webp_bytes": 182778,
+      "quality": 90,
+      "psnr": 43.8,
+      "alpha_diff": 0
+    },
+    {
+      "file": "Barbara/gratitude.png",
+      "bytes": 1666144,
+      "webp_bytes": 176042,
+      "quality": 90,
+      "psnr": 42.9,
+      "alpha_diff": 0
+    },
+    {
+      "file": "Barbara/grief.png",
+      "bytes": 1658234,
+      "webp_bytes": 177248,
+      "quality": 90,
+      "psnr": 42.7,
+      "alpha_diff": 0
+    },
+    {
+      "file": "Barbara/joy.png",
+      "bytes": 1704773,
+      "webp_bytes": 187870,
+      "quality": 90,
+      "psnr": 42.8,
+      "alpha_diff": 0
+    },
+    {
+      "file": "Barbara/love-1.png",
+      "bytes": 1663894,
+      "webp_bytes": 174526,
+      "quality": 90,
+      "psnr": 43.6,
+      "alpha_diff": 0
+    },
+    {
+      "file": "Barbara/love.png",
+      "bytes": 1644907,
+      "webp_bytes": 179074,
+      "quality": 90,
+      "psnr": 42.8,
+      "alpha_diff": 0
+    },
+    {
+      "file": "Barbara/neutral.png",
+      "bytes": 1641119,
+      "webp_bytes": 177836,
+      "quality": 90,
+      "psnr": 44.4,
+      "alpha_diff": 0
+    },
+    {
+      "file": "Barbara/pride.png",
+      "bytes": 1743343,
+      "webp_bytes": 197352,
+      "quality": 90,
+      "psnr": 42.9,
+      "alpha_diff": 0
+    },
+    {
+      "file": "Barbara/relief.png",
+      "bytes": 1666645,
+      "webp_bytes": 177526,
+      "quality": 90,
+      "psnr": 43.6,
+      "alpha_diff": 0
+    },
+    {
+      "file": "Barbara/sadness.png",
+      "bytes": 1643117,
+      "webp_bytes": 173586,
+      "quality": 90,
+      "psnr": 43.5,
+      "alpha_diff": 0
+    },
+    {
+      "file": "Barbara/smug.png",
+      "bytes": 1672141,
+      "webp_bytes": 175706,
+      "quality": 90,
+      "psnr": 43.8,
+      "alpha_diff": 0
+    },
+    {
+      "file": "Barbara/Summertime Splash/admiration.png",
+      "bytes": 1616346,
+      "webp_bytes": 170136,
+      "quality": 90,
+      "psnr": 43.3,
+      "alpha_diff": 0
+    },
+    {
+      "file": "Barbara/Summertime Splash/anger.png",
+      "bytes": 1685327,
+      "webp_bytes": 186728,
+      "quality": 90,
+      "psnr": 43.3,
+      "alpha_diff": 0
+    },
+    {
+      "file": "Barbara/Summertime Splash/annoyance.png",
+      "bytes": 1689693,
+      "webp_bytes": 193300,
+      "quality": 90,
+      "psnr": 42.3,
+      "alpha_diff": 0
+    },
+    {
+      "file": "Barbara/Summertime Splash/caring.png",
+      "bytes": 1596446,
+      "webp_bytes": 168668,
+      "quality": 90,
+      "psnr": 42.6,
+      "alpha_diff": 0
+    },
+    {
+      "file": "Barbara/Summertime Splash/confusion.png",
+      "bytes": 1628474,
+      "webp_bytes": 174326,
+      "quality": 90,
+      "psnr": 43.3,
+      "alpha_diff": 0
+    },
+    {
+      "file": "Barbara/Summertime Splash/desire-1.png",
+      "bytes": 1880015,
+      "webp_bytes": 291320,
+      "quality": 90,
+      "psnr": 41.6,
+      "alpha_diff": 0
+    },
+    {
+      "file": "Barbara/Summertime Splash/desire.png",
+      "bytes": 1660672,
+      "webp_bytes": 179274,
+      "quality": 90,
+      "psnr": 42.9,
+      "alpha_diff": 0
+    },
+    {
+      "file": "Barbara/Summertime Splash/disappointment.png",
+      "bytes": 1630266,
+      "webp_bytes": 178722,
+      "quality": 90,
+      "psnr": 43.2,
+      "alpha_diff": 0
+    },
+    {
+      "file": "Barbara/Summertime Splash/disgust.png",
+      "bytes": 1629983,
+      "webp_bytes": 178970,
+      "quality": 90,
+      "psnr": 43.5,
+      "alpha_diff": 0
+    },
+    {
+      "file": "Barbara/Summertime Splash/embarrassment.png",
+      "bytes": 1598146,
+      "webp_bytes": 169894,
+      "quality": 90,
+      "psnr": 42.6,
+      "alpha_diff": 0
+    },
+    {
+      "file": "Barbara/Summertime Splash/excitement.png",
+      "bytes": 1729330,
+      "webp_bytes": 202860,
+      "quality": 90,
+      "psnr": 41.6,
+      "alpha_diff": 0
+    },
+    {
+      "file": "Barbara/Summertime Splash/fear.png",
+      "bytes": 1676236,
+      "webp_bytes": 187814,
+      "quality": 90,
+      "psnr": 42.8,
+      "alpha_diff": 0
+    },
+    {
+      "file": "Barbara/Summertime Splash/gratitude.png",
+      "bytes": 1656853,
+      "webp_bytes": 183070,
+      "quality": 90,
+      "psnr": 42.8,
+      "alpha_diff": 0
+    },
+    {
+      "file": "Barbara/Summertime Splash/grief.png",
+      "bytes": 1614477,
+      "webp_bytes": 171484,
+      "quality": 90,
+      "psnr": 42.7,
+      "alpha_diff": 0
+    },
+    {
+      "file": "Barbara/Summertime Splash/joy.png",
+      "bytes": 1727387,
+      "webp_bytes": 206688,
+      "quality": 90,
+      "psnr": 42.4,
+      "alpha_diff": 0
+    },
+    {
+      "file": "Barbara/Summertime Splash/love-1.png",
+      "bytes": 1635491,
+      "webp_bytes": 175288,
+      "quality": 90,
+      "psnr": 43.0,
+      "alpha_diff": 0
+    },
+    {
+      "file": "Barbara/Summertime Splash/love.png",
+      "bytes": 1644594,
+      "webp_bytes": 180596,
+      "quality": 90,
+      "psnr": 42.5,
+      "alpha_diff": 0
+    },
+    {
+      "file": "Barbara/Summertime Splash/neutral.png",
+      "bytes": 1622807,
+      "webp_bytes": 180258,
+      "quality": 90,
+      "psnr": 43.9,
+      "alpha_diff": 0
+    },
+    {
+      "file": "Barbara/Summertime Splash/pride.png",
+      "bytes": 1682175,
+      "webp_bytes": 195026,
+      "quality": 90,
+      "psnr": 42.4,
+      "alpha_diff": 0
+    },
+    {
+      "file": "Barbara/Summertime Splash/relief.png",
+      "bytes": 1671275,
+      "webp_bytes": 182896,
+      "quality": 90,
+      "psnr": 42.7,
+      "alpha_diff": 0
+    },
+    {
+      "file": "Barbara/Summertime Splash/sadness.png",
+      "bytes": 1596041,
+      "webp_bytes": 171368,
+      "quality": 90,
+      "psnr": 42.5,
+      "alpha_diff": 0
+    },
+    {
+      "file": "Barbara/Summertime Splash/smug.png",
+      "bytes": 1691003,
+      "webp_bytes": 192520,
+      "quality": 90,
+      "psnr": 42.3,
+      "alpha_diff": 0
+    },
+    {
+      "file": "Beidou/desire-1.png",
+      "bytes": 1527461,
+      "webp_bytes": 291192,
+      "quality": 90,
+      "psnr": 42.3,
+      "alpha_diff": 0
+    },
+    {
+      "file": "Beidou/love-1.png",
+      "bytes": 1586915,
+      "webp_bytes": 311092,
+      "quality": 90,
+      "psnr": 41.2,
+      "alpha_diff": 0
+    },
+    {
+      "file": "Bennett/desire-1.png",
+      "bytes": 1179780,
+      "webp_bytes": 251112,
+      "quality": 90,
+      "psnr": 43.2,
+      "alpha_diff": 0
+    },
+    {
+      "file": "Bennett/love-1.png",
+      "bytes": 1184606,
+      "webp_bytes": 253142,
+      "quality": 90,
+      "psnr": 41.9,
+      "alpha_diff": 0
+    },
+    {
+      "file": "Chevreuse/desire-1.png",
+      "bytes": 1800110,
+      "webp_bytes": 199028,
+      "quality": 90,
+      "psnr": 42.2,
+      "alpha_diff": 0
+    },
+    {
+      "file": "Chevreuse/love-1.png",
+      "bytes": 1757625,
+      "webp_bytes": 189824,
+      "quality": 90,
+      "psnr": 42.5,
+      "alpha_diff": 0
+    },
+    {
+      "file": "Chiori/desire-1.png",
+      "bytes": 971296,
+      "webp_bytes": 196146,
+      "quality": 90,
+      "psnr": 41.7,
+      "alpha_diff": 0
+    },
+    {
+      "file": "Chiori/love-1.png",
+      "bytes": 953704,
+      "webp_bytes": 203532,
+      "quality": 90,
+      "psnr": 41.6,
+      "alpha_diff": 0
+    },
+    {
+      "file": "Columbina/desire-1.png",
+      "bytes": 1681946,
+      "webp_bytes": 370230,
+      "quality": 90,
+      "psnr": 40.8,
+      "alpha_diff": 0
+    },
+    {
+      "file": "Columbina/disappointment.png",
+      "bytes": 1661271,
+      "webp_bytes": 370314,
+      "quality": 90,
+      "psnr": 40.9,
+      "alpha_diff": 0
+    },
+    {
+      "file": "Columbina/excitement.png",
+      "bytes": 1742146,
+      "webp_bytes": 385570,
+      "quality": 90,
+      "psnr": 39.7,
+      "alpha_diff": 0
+    },
+    {
+      "file": "Columbina/love-1.png",
+      "bytes": 1699610,
+      "webp_bytes": 382184,
+      "quality": 90,
+      "psnr": 40.3,
+      "alpha_diff": 0
+    },
+    {
+      "file": "Mitya/admiration.png",
+      "bytes": 1335659,
+      "webp_bytes": 248366,
+      "quality": 90,
+      "psnr": 41.9,
+      "alpha_diff": 0
+    },
+    {
+      "file": "Mitya/anger.png",
+      "bytes": 1321990,
+      "webp_bytes": 257848,
+      "quality": 90,
+      "psnr": 41.3,
+      "alpha_diff": 0
+    },
+    {
+      "file": "Mitya/annoyance.png",
+      "bytes": 1310599,
+      "webp_bytes": 257784,
+      "quality": 90,
+      "psnr": 41.7,
+      "alpha_diff": 0
+    },
+    {
+      "file": "Mitya/caring.png",
+      "bytes": 1297287,
+      "webp_bytes": 245492,
+      "quality": 90,
+      "psnr": 42.3,
+      "alpha_diff": 0
+    },
+    {
+      "file": "Mitya/confusion.png",
+      "bytes": 1266647,
+      "webp_bytes": 246470,
+      "quality": 90,
+      "psnr": 42.1,
+      "alpha_diff": 0
+    },
+    {
+      "file": "Mitya/desire.png",
+      "bytes": 1329886,
+      "webp_bytes": 244778,
+      "quality": 90,
+      "psnr": 42.2,
+      "alpha_diff": 0
+    },
+    {
+      "file": "Mitya/disappointment.png",
+      "bytes": 1180033,
+      "webp_bytes": 222826,
+      "quality": 90,
+      "psnr": 42.6,
+      "alpha_diff": 0
+    },
+    {
+      "file": "Mitya/disgust.png",
+      "bytes": 1294723,
+      "webp_bytes": 247072,
+      "quality": 90,
+      "psnr": 42.1,
+      "alpha_diff": 0
+    },
+    {
+      "file": "Mitya/embarrassment.png",
+      "bytes": 1203548,
+      "webp_bytes": 225480,
+      "quality": 90,
+      "psnr": 43.0,
+      "alpha_diff": 0
+    },
+    {
+      "file": "Mitya/excitement.png",
+      "bytes": 1414070,
+      "webp_bytes": 262698,
+      "quality": 90,
+      "psnr": 41.4,
+      "alpha_diff": 0
+    },
+    {
+      "file": "Mitya/fear.png",
+      "bytes": 1254292,
+      "webp_bytes": 234186,
+      "quality": 90,
+      "psnr": 42.1,
+      "alpha_diff": 0
+    },
+    {
+      "file": "Mitya/gratitude.png",
+      "bytes": 1348756,
+      "webp_bytes": 258384,
+      "quality": 90,
+      "psnr": 42.3,
+      "alpha_diff": 0
+    },
+    {
+      "file": "Mitya/grief.png",
+      "bytes": 1255208,
+      "webp_bytes": 240990,
+      "quality": 90,
+      "psnr": 42.5,
+      "alpha_diff": 0
+    },
+    {
+      "file": "Mitya/joy.png",
+      "bytes": 1271868,
+      "webp_bytes": 248978,
+      "quality": 90,
+      "psnr": 42.0,
+      "alpha_diff": 0
+    },
+    {
+      "file": "Mitya/love-1.png",
+      "bytes": 1417426,
+      "webp_bytes": 259482,
+      "quality": 90,
+      "psnr": 41.5,
+      "alpha_diff": 0
+    },
+    {
+      "file": "Mitya/love.png",
+      "bytes": 1260299,
+      "webp_bytes": 236314,
+      "quality": 90,
+      "psnr": 42.3,
+      "alpha_diff": 0
+    },
+    {
+      "file": "Mitya/neutral.png",
+      "bytes": 1239811,
+      "webp_bytes": 242906,
+      "quality": 90,
+      "psnr": 42.5,
+      "alpha_diff": 0
+    },
+    {
+      "file": "Mitya/pride.png",
+      "bytes": 1349824,
+      "webp_bytes": 262460,
+      "quality": 90,
+      "psnr": 41.6,
+      "alpha_diff": 0
+    },
+    {
+      "file": "Mitya/relief.png",
+      "bytes": 1273995,
+      "webp_bytes": 245256,
+      "quality": 90,
+      "psnr": 41.8,
+      "alpha_diff": 0
+    },
+    {
+      "file": "Mitya/sadness.png",
+      "bytes": 1141233,
+      "webp_bytes": 222520,
+      "quality": 90,
+      "psnr": 42.5,
+      "alpha_diff": 0
+    },
+    {
+      "file": "Mitya/smug.png",
+      "bytes": 1227367,
+      "webp_bytes": 238144,
+      "quality": 90,
+      "psnr": 42.6,
+      "alpha_diff": 0
+    },
+    {
+      "file": "Valeriy/admiration.png",
+      "bytes": 1346264,
+      "webp_bytes": 217886,
+      "quality": 90,
+      "psnr": 43.8,
+      "alpha_diff": 0
+    },
+    {
+      "file": "Valeriy/anger.png",
+      "bytes": 1332278,
+      "webp_bytes": 219506,
+      "quality": 90,
+      "psnr": 44.0,
+      "alpha_diff": 0
+    },
+    {
+      "file": "Valeriy/annoyance.png",
+      "bytes": 1332555,
+      "webp_bytes": 211440,
+      "quality": 90,
+      "psnr": 44.0,
+      "alpha_diff": 0
+    },
+    {
+      "file": "Valeriy/caring.png",
+      "bytes": 1315157,
+      "webp_bytes": 225482,
+      "quality": 90,
+      "psnr": 43.6,
+      "alpha_diff": 0
+    },
+    {
+      "file": "Valeriy/confusion.png",
+      "bytes": 1280770,
+      "webp_bytes": 215814,
+      "quality": 90,
+      "psnr": 44.2,
+      "alpha_diff": 0
+    },
+    {
+      "file": "Valeriy/desire.png",
+      "bytes": 1306516,
+      "webp_bytes": 211566,
+      "quality": 90,
+      "psnr": 44.0,
+      "alpha_diff": 0
+    },
+    {
+      "file": "Valeriy/disappointment.png",
+      "bytes": 1297532,
+      "webp_bytes": 216668,
+      "quality": 90,
+      "psnr": 44.1,
+      "alpha_diff": 0
+    },
+    {
+      "file": "Valeriy/disgust.png",
+      "bytes": 1326380,
+      "webp_bytes": 209992,
+      "quality": 90,
+      "psnr": 44.1,
+      "alpha_diff": 0
+    },
+    {
+      "file": "Valeriy/embarrassment.png",
+      "bytes": 1297702,
+      "webp_bytes": 206632,
+      "quality": 90,
+      "psnr": 44.1,
+      "alpha_diff": 0
+    },
+    {
+      "file": "Valeriy/excitement.png",
+      "bytes": 1419005,
+      "webp_bytes": 233380,
+      "quality": 90,
+      "psnr": 43.5,
+      "alpha_diff": 0
+    },
+    {
+      "file": "Valeriy/fear.png",
+      "bytes": 1355328,
+      "webp_bytes": 214662,
+      "quality": 90,
+      "psnr": 44.0,
+      "alpha_diff": 0
+    },
+    {
+      "file": "Valeriy/gratitude.png",
+      "bytes": 1302503,
+      "webp_bytes": 206836,
+      "quality": 90,
+      "psnr": 44.0,
+      "alpha_diff": 0
+    },
+    {
+      "file": "Valeriy/grief.png",
+      "bytes": 1257023,
+      "webp_bytes": 200322,
+      "quality": 90,
+      "psnr": 44.3,
+      "alpha_diff": 0
+    },
+    {
+      "file": "Valeriy/joy.png",
+      "bytes": 1369180,
+      "webp_bytes": 222882,
+      "quality": 90,
+      "psnr": 44.0,
+      "alpha_diff": 0
+    },
+    {
+      "file": "Valeriy/love.png",
+      "bytes": 1334907,
+      "webp_bytes": 219334,
+      "quality": 90,
+      "psnr": 43.9,
+      "alpha_diff": 0
+    },
+    {
+      "file": "Valeriy/neutral.png",
+      "bytes": 1274715,
+      "webp_bytes": 207592,
+      "quality": 90,
+      "psnr": 44.3,
+      "alpha_diff": 0
+    },
+    {
+      "file": "Valeriy/pride.png",
+      "bytes": 1350714,
+      "webp_bytes": 213136,
+      "quality": 90,
+      "psnr": 43.9,
+      "alpha_diff": 0
+    },
+    {
+      "file": "Valeriy/relief.png",
+      "bytes": 1326251,
+      "webp_bytes": 219140,
+      "quality": 90,
+      "psnr": 44.1,
+      "alpha_diff": 0
+    },
+    {
+      "file": "Valeriy/sadness.png",
+      "bytes": 1248526,
+      "webp_bytes": 193800,
+      "quality": 90,
+      "psnr": 44.5,
+      "alpha_diff": 0
+    },
+    {
+      "file": "Valeriy/smug.png",
+      "bytes": 1319724,
+      "webp_bytes": 213430,
+      "quality": 90,
+      "psnr": 43.9,
+      "alpha_diff": 0
+    }
+  ],
+  "kept_as_png": [],
+  "failed": []
+}
