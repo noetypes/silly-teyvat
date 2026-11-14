@@ -91,10 +91,17 @@ dialog#gi-world-map#gi-world-map[open][data-enter="minimap"] { animation: gi-map
    Never promote every pin or tile: that consumes texture memory on phones.
    Closing the dialog releases these hints, including during its exit motion. */
 #gi-world-map[open] :is(.leaflet-map-pane, .leaflet-tile-container) { will-change: transform; }
+/* Leaflet's stylesheet gives every tile `filter: inherit`, for old Internet Explorer. A child that inherits a property
+   which is not normally inherited is re-styled whenever its parent's style changes at all, and a tile level's
+   transform changes on every frame of a flight or pinch: some 200 tiles re-styled sixty times a second. */
+:is(#gi-world-map, #gi-minimap) .leaflet-tile { filter: none; }
 /* Avoid rerasterizing blurs and glowing pins behind moving map tiles. */
 #gi-world-map.gi-map-moving :is(.gi-map-round, .gi-map-region-current) { -webkit-backdrop-filter: none; backdrop-filter: none; }
 #gi-world-map.gi-map-moving .gi-waypoint > img { filter: none !important; transition: none; }
-#gi-world-map.gi-map-moving :is(.gi-waypoint-halo, .gi-map-player-pulse) { animation-play-state: paused; }
+#gi-world-map.gi-map-moving :is(.gi-waypoint-halo, .gi-map-player-pulse, .gi-waypoint-quest), #gi-world-map.gi-map-moving .gi-waypoint-boss::after { animation-play-state: paused; }
+/* On a flight the pins are drawn on one canvas (flightPins in map-engine.js) and the markers wait, unseen, where they stood. */
+#gi-world-map .gi-map-flight-pins { position: absolute; inset: 0; z-index: 450; width: 100%; height: 100%; pointer-events: none; }
+#gi-world-map .gi-map-flying :is(.leaflet-marker-pane, .leaflet-tooltip-pane) { visibility: hidden; }
 #gi-world-map .gi-map-canvas:focus-visible { outline: none; }
 .gi-map-vignette { position: absolute; inset: 0; z-index: 401; pointer-events: none; background: linear-gradient(#08111cb3, #0000 110px), linear-gradient(0deg, #08111c99, #0000 90px), radial-gradient(ellipse 130% 110% at 50% 50%, #0000 62%, #08111c80 100%); }
 .gi-map-reticle { display: none; position: absolute; left: 50%; top: 50%; z-index: 402; width: 38px; height: 38px; translate: -50% -50%; border-radius: 50%; pointer-events: none; border: 1.5px solid var(--ty-gold-hi); box-shadow: 0 0 0 1px #0007, 0 0 12px #f2dca066; }
@@ -325,9 +332,14 @@ dialog#gi-world-map#gi-world-map[open][data-enter="minimap"] { animation: gi-map
 .gi-waypoint-badge[data-badge="wilderness"], .gi-waypoint-badge[data-badge="boss"] { padding: 0; }
 /* A boss badge stands on a glowing crimson diamond, unlike the round gold-rimmed wilderness and people badges. */
 .gi-waypoint-boss { position: relative; display: grid; place-items: center; width: 26px; height: 26px; margin: -2px -4px -1px 0; }
-.gi-waypoint-boss::before { content: ""; position: absolute; inset: 4px; rotate: 45deg; border-radius: 3px; background: linear-gradient(135deg, #ffb27a, #d8342e 55%, #7a0f22); box-shadow: 0 0 0 1px #2a0a10, 0 0 7px #ff4a3acc; animation: gi-boss-glow 2.4s ease-in-out infinite; }
-@keyframes gi-boss-glow { 50% { box-shadow: 0 0 0 1px #2a0a10, 0 0 11px #ff5a3aee; } }
-@media (prefers-reduced-motion: reduce) { .gi-waypoint-boss::before { animation: none; } }
+.gi-waypoint-boss::before, .gi-waypoint-boss::after { content: ""; position: absolute; inset: 4px; rotate: 45deg; border-radius: 3px; }
+.gi-waypoint-boss::before { background: linear-gradient(135deg, #ffb27a, #d8342e 55%, #7a0f22); box-shadow: 0 0 0 1px #2a0a10, 0 0 7px #ff4a3acc; }
+/* The glow swells by fading a second, wider shadow in and out. Animating the shadow itself re-styled and repainted
+   every boss badge on every frame the map was open, the 25 in the list and the ones too far out to see included. */
+.gi-waypoint-boss::after { box-shadow: 0 0 11px #ff5a3aee; opacity: 0; animation: gi-boss-glow 2.4s ease-in-out infinite; }
+@keyframes gi-boss-glow { 50% { opacity: 1; } }
+#gi-world-map:not(.gi-map-near) .gi-waypoint .gi-waypoint-boss::after { animation: none; }
+@media (prefers-reduced-motion: reduce) { .gi-waypoint-boss::after { animation: none; } }
 .gi-waypoint-boss .gi-waypoint-badge[data-badge="boss"] { position: relative; width: 15px; height: 15px; background: #2a1018; box-shadow: 0 0 0 1px #ffd7a8, 0 1px 3px #000c; }
 /* A boss's own icon is a square portrait: it fills the round badge. */
 .gi-waypoint-badge[data-boss-icon] { object-fit: cover; }

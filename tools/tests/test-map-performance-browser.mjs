@@ -173,7 +173,7 @@ try{
             await new Promise(r=>setTimeout(r,450));
             return {pan:pan.length,flight:flight.length};
         });
-        assert.ok(easing.pan>3&&easing.flight>3,'both pane panning and pan/zoom flights honor custom easing');
+        assert.ok(easing.pan>3&&easing.flight>3,`both pane panning and pan/zoom flights honor custom easing: ${JSON.stringify(easing)}`);
         // A second waypoint chosen near the end of a cross-region flight continues from where the
         // camera is (the zoom is between steps then), rather than resetting the view to it.
         const midFlight=await page.evaluate(async()=>{
@@ -192,28 +192,65 @@ try{
         assert.ok(midFlight.largest<200,`the camera moves continuously from where it was: ${JSON.stringify(midFlight)}`);
         assert.equal(midFlight.zoom,-1,'the new flight keeps the zoom the first one was headed for');
         // Pins stay on the map under them on every frame of a flight. Leaflet rounds pins and tiles
-        // to whole pixels separately, which made pins wobble up to a pixel against the map.
+        // to whole pixels separately, which made pins wobble up to a pixel against the map. On a flight
+        // the pins are drawn on one canvas (flightPins) and the markers wait, hidden, until it lands.
         const alignment=await page.evaluate(async()=>{
-            const m=window.testMap,grid=Object.values(m._layers).find(l=>l._levels&&l.options.maxNativeZoom===-3),errors=[];
+            const m=window.testMap,pins=m._flightPins,grid=Object.values(m._layers).find(l=>l._levels&&l.options.maxNativeZoom===-3),errors=[];
             const parse=el=>{const t=el.style.transform,a=t.match(/translate3d\(([-\d.e]+)px, ([-\d.e]+)px/),s=t.match(/scale\(([-\d.e]+)\)/);return a&&{x:+a[1],y:+a[2],s:s?+s[1]:1};};
+            const pane=m.getPane('markerPane'),seen={active:0,hidden:0,painted:0,writes:0};
+            const observer=new MutationObserver(records=>{seen.writes+=records.length;});
             const measure=()=>{
-                const level=grid._levels[grid._tileZoom],tiles=level&&parse(level.el);if(!tiles)return;let worst=0;
+                const level=grid._levels[grid._tileZoom],tiles=level&&parse(level.el);if(!tiles||!pins.active)return;let worst=0;
+                const paneAt=m._getMapPanePos();
                 for(const layer of Object.values(m._layers)){
-                    if(!layer._icon||!layer._latlng)continue;const pin=parse(layer._icon);if(!pin)continue;
-                    const p=m.project(layer._latlng,level.zoom).subtract(level.origin);worst=Math.max(worst,Math.hypot(pin.x-(tiles.x+tiles.s*p.x),pin.y-(tiles.y+tiles.s*p.y)));
+                    if(!layer._icon||!layer._latlng)continue;
+                    // Where the tile level puts this place on screen, against where the canvas draws its pin.
+                    const p=m.project(layer._latlng,level.zoom).subtract(level.origin),drawn=pins.place(layer._latlng);
+                    worst=Math.max(worst,Math.hypot(drawn.x-(paneAt.x+tiles.x+tiles.s*p.x),drawn.y-(paneAt.y+tiles.y+tiles.s*p.y)));
                 }
-                errors.push(worst);
+                errors.push(worst);seen.active++;if(getComputedStyle(pane).visibility==='hidden')seen.hidden++;
+                // The pin under the middle of the view (p0, which the flight keeps near it) is really painted.
+                const at=pins.place(m._layers[Object.keys(m._layers).find(k=>m._layers[k]._icon&&m._layers[k].options.title?.startsWith('Renamed place'))]._latlng),ratio=pins.canvas.width/m.getSize().x;
+                const data=pins.canvas.getContext('2d').getImageData(Math.round(at.x*ratio)-2,Math.round((at.y-20)*ratio)-2,4,4).data;
+                if(data.some((v,i)=>i%4===3&&v>0))seen.painted++;
             };
-            m.setView([-1800,-6000],-1.5,{animate:false});await new Promise(r=>setTimeout(r,100));
-            m.on('move',measure);m.flyTo([-1800,-9000],-1,{duration:1});
+            m.setView([-1800,-11000],-1.5,{animate:false});await new Promise(r=>setTimeout(r,100));
+            const focusable=pane.querySelector('.leaflet-marker-icon[tabindex="0"]');focusable.focus();const focusedBefore=document.activeElement===focusable;
+            observer.observe(pane,{attributes:true,subtree:true,attributeFilter:['style']});
+            m.on('move',measure);m.flyTo([-1800,-10600],-1,{duration:1});
             await new Promise(r=>m.once('moveend',r));m.off('move',measure);
-            const settled=m.getPane('markerPane').querySelector('.leaflet-marker-icon').style.transform;
-            // The first frame is still the resting view and the last one the rounded rest at the end.
+            await Promise.resolve();observer.disconnect();
+            const settled=pane.querySelector('.leaflet-marker-icon').style.transform;
+            // The first frame is still the resting view and the last one the rest at the end: on those the canvas
+            // rounds each pin to a whole pixel, as the markers it takes over from, and hands back to, do.
             const flying=errors.slice(1,-1);
-            return {frames:flying.length,worst:Math.max(...flying),settled};
+            return {frames:flying.length,worst:Math.max(...flying),settled,seen,markers:pane.querySelectorAll('.leaflet-marker-icon').length,landed:!pins.active&&getComputedStyle(pane).visibility==='visible'&&pins.canvas.hidden,focusedBefore,focusKept:document.activeElement===focusable};
         });
         assert.ok(alignment.frames>20&&alignment.worst<.05,`pins move with the map on every flight frame: ${JSON.stringify(alignment)}`);
+        assert.equal(alignment.seen.hidden,alignment.seen.active,'markers are hidden while the flight canvas shows the pins');
+        assert.ok(alignment.seen.painted>alignment.frames*.9,`the flight canvas paints the pins: ${JSON.stringify(alignment)}`);
+        assert.ok(alignment.seen.writes<=alignment.markers*2,`markers are placed once on landing, not on every flight frame: ${JSON.stringify(alignment)}`);
+        assert.ok(alignment.landed,'landing hands the pins back to the markers');
+        assert.ok(alignment.focusedBefore&&alignment.focusKept,'a marker with keyboard focus has it again after the flight');
         assert.match(alignment.settled,/^translate3d\(-?\d+px, -?\d+px/,'pins rest on whole pixels once the camera stops');
+        // A flight between regions from a close view loads the detailed tiles of the place it lands on,
+        // not of everything it passes over (that was thousands of requests a flight).
+        const tilesBefore=tileRequests;
+        const journey=await page.evaluate(async()=>{
+            const m=window.testMap,sharp=Object.values(m._layers).find(l=>l._levels&&l.options.rest);
+            m.setView([-1800,-11000],-1.5,{animate:false});await new Promise(r=>setTimeout(r,400));
+            const filter=getComputedStyle(m.getPane('tilePane').querySelector('img.leaflet-tile')).filter;
+            m.flyTo([-1300,0],-1,{duration:1.2});await new Promise(r=>m.once('moveend',r));
+            await new Promise(r=>setTimeout(r,500));
+            const detail=Object.values(m._layers).find(l=>l._levels&&l.options.rest);
+            return {hadDetail:Boolean(sharp),filter,tileZoom:detail?._tileZoom,loaded:detail?[...detail.getContainer().querySelectorAll('img.leaflet-tile-loaded')].length:0};
+        });
+        const journeyTiles=tileRequests-tilesBefore;
+        assert.ok(journey.hadDetail,'the close view shows detailed tiles');
+        assert.equal(journey.filter,'none','tiles do not inherit a filter, so moving a tile level does not re-style them');
+        assert.equal(journey.tileZoom,-1,'the detailed tiles follow the zoom a flight lands on');
+        assert.ok(journey.loaded>0,'the place a flight lands on has its detailed tiles');
+        assert.ok(journeyTiles<300,`a flight does not load detailed tiles along its way: ${journeyTiles} requests`);
         // Wheel zoom keeps Leaflet's half-level steps. (Desktop only: the phone layout covers the map with the open list.)
         if(!mobile){
             const box=await page.locator('.gi-map-canvas').boundingBox();
@@ -222,6 +259,61 @@ try{
             for(let i=0;i<2;i++){await page.mouse.wheel(0,-100);await page.waitForTimeout(450);}
             const steps=await page.evaluate(()=>{window.testMap.off('zoomend',window.wheelSample);return window.wheelZooms;});
             assert.deepEqual(steps,[-1,-.5],'each mouse-wheel notch zooms one half level');
+        }
+        // Markers against where stock Leaflet would rest them, and who is showing the pins.
+        await page.evaluate(()=>{window.pinState=()=>{
+            const m=window.testMap,pane=m.getPane('markerPane');let worst=0;
+            for(const l of Object.values(m._layers)){if(!l._icon||!l._latlng)continue;const want=m.latLngToLayerPoint(l._latlng).round(),at=l._icon.style.transform.match(/translate3d\(([-\d.e]+)px, ([-\d.e]+)px/);worst=Math.max(worst,Math.hypot(+at[1]-want.x,+at[2]-want.y));}
+            return {flying:m._flightPins.active,markersShown:getComputedStyle(pane).visibility==='visible',canvasHidden:m._flightPins.canvas.hidden,worst};
+        };});
+        if(!mobile){
+            // A wheel zoom in mid-flight is Leaflet's own CSS animation: the markers take over from the canvas there,
+            // starting from where the canvas had them rather than from where they stood at take-off.
+            const box=await page.locator('.gi-map-canvas').boundingBox();
+            await page.evaluate(()=>{
+                const m=window.testMap;m.setView([-1800,-11000],-1.5,{animate:false});window.handoff=null;
+                // Each marker's glide starts from its transition's first keyframe: that is where the player sees it
+                // when the wheel turns, and it should be where the canvas last drew its pin.
+                m.on('zoomanim',window.handoffSample=()=>{
+                    if(window.handoff)return;const expected=new Map();
+                    for(const l of Object.values(m._layers))if(l._icon&&l._latlng)expected.set(l._icon,m.latLngToLayerPoint(l._latlng));
+                    const state=window.pinState();
+                    requestAnimationFrame(()=>{
+                        let worst=0,glides=0;
+                        for(const [icon,want] of expected){
+                            const glide=icon.getAnimations().find(a=>a.transitionProperty==='transform');if(!glide)continue;glides++;
+                            const from=new DOMMatrix(glide.effect.getKeyframes()[0].transform);worst=Math.max(worst,Math.hypot(from.e-want.x,from.f-want.y));
+                        }
+                        window.handoff={...state,worst,glides,markers:expected.size};
+                    });
+                });
+                m.flyTo([-1300,0],-1.5,{duration:1.8});
+            });
+            await page.waitForTimeout(500);
+            const flying=await page.evaluate(()=>window.pinState());
+            await page.mouse.move(box.x+box.width*.6,box.y+box.height*.5);await page.mouse.wheel(0,-100);
+            await page.waitForTimeout(900);
+            const wheel=await page.evaluate(()=>{window.testMap.off('zoomanim',window.handoffSample);return {handoff:window.handoff,after:window.pinState()};});
+            assert.ok(flying.flying&&!flying.markersShown,'the flight is on the canvas when the wheel turns');
+            assert.ok(wheel.handoff&&wheel.handoff.glides>wheel.handoff.markers*.9&&!wheel.handoff.flying&&wheel.handoff.markersShown&&wheel.handoff.worst<1.5,`a wheel zoom in mid-flight starts the markers from where the pins were: ${JSON.stringify(wheel)}`);
+            assert.ok(!wheel.after.flying&&wheel.after.markersShown&&wheel.after.canvasHidden&&wheel.after.worst<.01,`the markers rest where stock Leaflet puts them after it: ${JSON.stringify(wheel)}`);
+        }else{
+            // A pinch draws the pins on the canvas too, and its closing snap to a zoom step hands them back.
+            if(await page.locator('#gi-world-map').getAttribute('data-panel')==='open')await page.locator('[data-map="panel"]').click();
+            await page.evaluate(()=>{const m=window.testMap;m.setView([-1800,-9000],-2,{animate:false});window.pinch={frames:0,onCanvas:0};m.on('zoom',window.pinchSample=e=>{if(e?.pinch){window.pinch.frames++;if(m._flightPins.active&&getComputedStyle(m.getPane('markerPane')).visibility==='hidden')window.pinch.onCanvas++;}});});
+            await page.waitForTimeout(400);
+            // Earlier selections leave the details sheet over the lower half of the phone layout; pinch the map above it.
+            await page.evaluate(()=>document.querySelector('#gi-world-map [data-map="cancel"]')?.click());await page.waitForTimeout(300);
+            const box=await page.locator('.gi-map-canvas').boundingBox(),cx=box.x+box.width/2,cy=box.y+box.height*.35,fingers=d=>[{x:cx-d,y:cy,id:1},{x:cx+d,y:cy,id:2}];
+            assert.ok(await page.evaluate(([x,y])=>Boolean(document.elementFromPoint(x,y)?.closest('.gi-map-canvas')),[cx,cy]),'the pinch lands on the map');
+            await cdp.send('Input.dispatchTouchEvent',{type:'touchStart',touchPoints:fingers(40)});
+            for(let d=45;d<=150;d+=7){await cdp.send('Input.dispatchTouchEvent',{type:'touchMove',touchPoints:fingers(d)});await page.waitForTimeout(40);}
+            await cdp.send('Input.dispatchTouchEvent',{type:'touchEnd',touchPoints:[]});
+            await page.waitForTimeout(900);
+            const pinch=await page.evaluate(()=>{window.testMap.off('zoom',window.pinchSample);return {...window.pinch,after:window.pinState(),zoom:window.testMap.getZoom()};});
+            assert.ok(pinch.frames>3&&pinch.onCanvas===pinch.frames,`a pinch draws the pins on the canvas: ${JSON.stringify(pinch)}`);
+            assert.ok(pinch.zoom>-2&&!pinch.after.flying&&pinch.after.markersShown&&pinch.after.canvasHidden&&pinch.after.worst<.01,`the markers take over where the pinch ends: ${JSON.stringify(pinch)}`);
+            await page.locator('[data-map="panel"]').click();
         }
         const closedHint=await page.evaluate(()=>{window.fixture.close();return getComputedStyle(window.testMap.getPane('mapPane')).willChange;});
         assert.equal(closedHint,'auto','closing the map releases compositing hints');
@@ -261,6 +353,6 @@ try{
         });
         assert.ok(fallback,'markers keep Leaflet’s positioning fallback when 3D transforms are unavailable');
         assert.deepEqual(errors,[],'no late animation or disposal errors');
-        console.log('PASS incremental selection, marker reuse and positioning, compositing lifecycle, mutable cache invalidation, cast moves, decoded tile reuse, tile retries, camera interruption, reopening, fallback and disposal');
+        console.log('PASS incremental selection, marker reuse and positioning, flight and pinch pins, flight tile loading, compositing lifecycle, mutable cache invalidation, cast moves, decoded tile reuse, tile retries, camera interruption, reopening, fallback and disposal');
     }
 }finally{await browser.close();}

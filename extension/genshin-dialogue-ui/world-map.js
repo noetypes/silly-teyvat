@@ -6,8 +6,8 @@ import {clearedEnemies,restoreEnemies,healParty} from './combat-state.js';
 import {localMediaPath,createMediaAdapter} from './media-store.js';
 import {backgroundRegions,travelState,saveTravel} from './backgrounds.js';
 import {REGION_NAMES,STATUE_KINDS,worldSettings,worldWaypoints,activeWorldLocation,worldScale,walkingSpeed,mapDistance,directionFrom,formatDistance,syncWorldPrompt,worldScalePrompt,saveWaypoint,unpinWaypoint,teleportTo,validMapPoint,setWaypointArtwork} from './world-data.js';
-import {L,makeMap,mapMarker,toLatLng,toMapPoint,waypointIcon,playerIcon,waypointGlyph} from './map-engine.js';
-import {locationResidents,locationResidentsIndex,encountersBypassed,toggleEncounterBypass} from './location-encounters.js';
+import {L,makeMap,mapMarker,flightPins,toLatLng,toMapPoint,waypointIcon,waypointPin,playerIcon,playerPin,waypointGlyph} from './map-engine.js';
+import {locationResidentsIndex,encountersBypassed,toggleEncounterBypass} from './location-encounters.js';
 import {mountLocationRosterPicker} from './location-roster-picker.js';
 import {musicSummary} from './location-music-state.js';
 import {mediaSettings} from './media-store.js';
@@ -15,7 +15,7 @@ import {isJourneyGroup,createJourneyLibraryAdapter} from './journey-library.js';
 import {mountCardPoolMenu,locationCardPool,cardPoolSummary} from './card-pools.js';
 import {waypointBadges,waypointBoss,waypointEnemy,badgeLabels,badgeMarkup,isBossArena,domainIcon} from './waypoint-badges.js';
 import {iconsReady} from './battle-icons.js';
-import {searchedCards,questCardsAt,questLabel,questMarkup} from './card-search.js';
+import {searchedCards,questCardsAt,questLabel,questMarkup,QUEST_MARKER} from './card-search.js';
 import {isStatue,statueElement,statueIcon,resonanceTravelers} from './statue-resonance.js';
 
 const svg=path=>`<svg viewBox="0 0 24 24" aria-hidden="true">${path}</svg>`;
@@ -66,7 +66,7 @@ export function mountWorldMap({host,getContext,adapter=createMediaAdapter(getCon
     host.append(mini,dialog);
     const abort=new AbortController(),$=s=>dialog.querySelector(s),sidebar=$('.gi-map-sidebar'),list=$('.gi-map-waypoint-list');
     let wildLocation;
-    let map,minimap,markers,player,draftMarker,selectedId,draft,visible=false,enabled=false,disposed=false,opener,revision=0,chatKey='',signature='',miniKey='',viewLocation=null,regionFilter='',lastRegion=null,pendingBanner='',veil,banner,bannerTimer,veilTimer;
+    let map,minimap,markers,draftMarker,selectedId,draft,visible=false,enabled=false,disposed=false,opener,revision=0,chatKey='',signature='',miniKey='',viewLocation=null,regionFilter='',lastRegion=null,pendingBanner='',veil,banner,bannerTimer,veilTimer;
     // What the card beside the map shows. Placing and editing are states of this one machine, not flags beside it:
     // a draft marker exists exactly in 'place' and 'editor', and leaving them always throws it away.
     const view=createMachine({name:'world-map-view',initial:'list',states:{
@@ -141,11 +141,12 @@ export function mountWorldMap({host,getContext,adapter=createMediaAdapter(getCon
     // Top region selector: nations plus any custom regions that have waypoints.
     // The loading screen's region emblems; Teyvat itself and custom regions share its plain one.
     const emblemOf=name=>regionEmblem(NATIONS.some(n=>n.name===name)?name:'');
-    let points=[],presentations=new Map(),targetCache=null;
-    // Shared by markers and list rows until live settings/cast/search data change.
+    let points=[],presentations=new Map(),targetCache=null,residents=new Map();
+    // Shared by markers, list rows, the detail card and every click until live settings/cast/search data change
+    // (refresh, which sync calls when any of them does). Working one roster out alone scans every card for it.
     function cacheWaypoints(){
-        const ctx=getContext(),residents=locationResidentsIndex(ctx),counts=new Map(),searching=searchedCards(ctx);
-        points=worldWaypoints(ctx);presentations.clear();targetCache=null;
+        const ctx=getContext(),counts=new Map(),searching=searchedCards(ctx);
+        residents=locationResidentsIndex(ctx);points=worldWaypoints(ctx);presentations.clear();targetCache=null;
         for(const item of points){
             const badges=waypointBadges(ctx,item.location,residents),boss=waypointBoss(ctx,item.location),enemy=waypointEnemy(ctx,item.location,item.region,counts),quest=questCardsAt(ctx,item.location,searching);
             const labels=[badgeLabels(badges,boss,enemy),questLabel(quest)].filter(Boolean),markup=badgeMarkup(badges,boss,enemy)+questMarkup(quest);
@@ -182,8 +183,24 @@ export function mountWorldMap({host,getContext,adapter=createMediaAdapter(getCon
         if(!target){map.flyTo([1700,500],-3.5,{duration:1.8,easing:cameraEasing});return;}
         map.flyToBounds(target.bounds,{...options,duration:1.8,easing:cameraEasing});
     }
+    // Every waypoint as the flight canvas draws it (flightPins in map-engine.js), whether or not its marker is on the map.
+    function flightList(){
+        const selecting=view.is('details'),current=activeWorldLocation(getContext()),list=[];
+        for(const item of points){
+            const id=item.location.id,{glyph,quest}=presentations.get(id),latlng=toLatLng(item.point);
+            list.push(waypointPin(latlng,{glyph,selected:selecting&&selectedId===id,order:quest?500:0}));
+            // The Quest marker sits at the pin's top right (.gi-waypoint-quest).
+            if(quest)list.push({latlng,src:QUEST_MARKER,size:[16,18],anchor:[-4,40],shadow:{color:'#4fc3ffcc',y:0,blur:4},order:500});
+        }
+        if(current)list.push(playerPin(toLatLng(current.point)));
+        if(draft)list.push(waypointPin(toLatLng(draft),{draft:true,order:2000}));
+        return list;
+    }
+    let pins;
     function ensureMap(){
-        if(map)return;map=makeMap($('.gi-map-canvas'),{zoomControl:false,animate:true});markers=L.layerGroup().addTo(map);
+        if(map)return;map=makeMap($('.gi-map-canvas'),{zoomControl:false,animate:true});
+        pins=flightPins(map,flightList);pins.prepare([waypointGlyph,statueIcon,domainIcon,QUEST_MARKER]);
+        markers=L.layerGroup().addTo(map);
         const range=$('.gi-map-zoom-range');range.min=map.getMinZoom();range.max=map.getMaxZoom();
         map.setView([1700,500],-3);map.on('zoomend moveend',updateScale);map.on('move zoom',scheduleCull);map.on('zoomend moveend',()=>cullMarkers());map.on('moveend',paintRegionBar);
         map.on('movestart zoomstart',()=>dialog.classList.add('gi-map-moving'));
@@ -244,7 +261,8 @@ export function mountWorldMap({host,getContext,adapter=createMediaAdapter(getCon
             else if(!want&&entry.shown){markers.removeLayer(entry.marker);entry.shown=false;}
         }
     }
-    function scheduleCull(){if(!cullFrame)cullFrame=setTimeout(()=>{cullFrame=0;if(!disposed)cullMarkers();},100);}
+    // On a flight the canvas shows every pin, so the markers are sorted out once, where it lands.
+    function scheduleCull(){if(!cullFrame&&!pins.active)cullFrame=setTimeout(()=>{cullFrame=0;if(!disposed)cullMarkers();},100);}
     function select(item){
         const previous=selectedId;
         // Prefer the visible selected/current waypoint's assigned region. After
@@ -345,7 +363,7 @@ export function mountWorldMap({host,getContext,adapter=createMediaAdapter(getCon
         const distance=element('p',distances(item));distance.className='gi-waypoint-distance';body.append(distance);
         if(isStatue(item.location))body.append(statueSection(item));
         const section=document.createElement('section');section.className='gi-map-residents';section.append(element('h4','Residents'));
-        const present=locationResidents(getContext(),item.location.id),roster=document.createElement('div');roster.className='gi-map-chips';
+        const present=residents.get(item.location.id) || [],roster=document.createElement('div');roster.className='gi-map-chips';
         roster.append(...present.map(c=>element('span',c.name)));if(present.length)section.append(roster);
         if(item.location.suggestedCharacters?.length)section.append(element('small',`Suggested: ${item.location.suggestedCharacters.join(', ')}`));
         if((getContext().characters || []).length)section.append(button('Add character to location','residents'));
@@ -425,7 +443,7 @@ export function mountWorldMap({host,getContext,adapter=createMediaAdapter(getCon
         $('#gi-map-main-departure').checked=Boolean(mediaSettings(ctx).allowMainDeparture);$('#gi-map-world-scope').checked=Boolean(mediaSettings(ctx).worldPromptAllRegions);$('#gi-map-metres').value=worldScale(ctx);$('#gi-map-walking').value=walkingSpeed(ctx);$('.gi-world-prompt').textContent=worldScalePrompt(ctx) || 'Place a waypoint to add World scale to your system context.';
         $('#gi-map-encounters').checked=mediaSettings(ctx).locationEncounters!==false;
         renderList();paintMarkers();updateScale();
-        if(sidebarRefresh&&!view.is('editor','place')){const item=worldWaypoints(ctx).find(w=>w.location.id===selectedId);if(item)showDetails(item);else listWaypoints();}
+        if(sidebarRefresh&&!view.is('editor','place')){const item=points.find(w=>w.location.id===selectedId);if(item)showDetails(item);else listWaypoints();}
     }
     function close(){revision++;clearTimeout(cullFrame);cullFrame=0;map?.stop();dialog.classList.remove('gi-map-moving');regionMenu(false);rosterPicker.close();if(dialog.open)dialog.close();go('CLOSE');stopPlacing();opener?.focus?.();}
     function removeMap(instance){
@@ -464,7 +482,7 @@ export function mountWorldMap({host,getContext,adapter=createMediaAdapter(getCon
             else dialog.dataset.enter='pop';
             if(!dialog.dataset.panel)setPanel(!compact());
             dialog.showModal();ensureMap();map.invalidateSize();refresh();
-            const item=worldWaypoints(getContext()).find(w=>w.location.id===options.locationId),current=activeWorldLocation(getContext());
+            const item=points.find(w=>w.location.id===options.locationId),current=activeWorldLocation(getContext());
             if(item){showDetails(item);paintMarkers();renderList();map.setView(toLatLng(item.point),-1.5);flyTo(item.point,-1.5);}
             else if(options.locationId){if(current)map.setView(toLatLng(current.point),-1.5);startPlacement(options.locationId);}
             else {listWaypoints();status('');if(current){map.setView(toLatLng(current.point),from?-1.5:-2);if(from)setTimeout(()=>{if(dialog.open&&view.is('list'))map.flyTo(toLatLng(current.point),-2.5,{duration:.7});},180);}}
@@ -490,7 +508,7 @@ export function mountWorldMap({host,getContext,adapter=createMediaAdapter(getCon
         },
         syncPrompt(on=enabled){return syncWorldPrompt(getContext(),on);},
         close,
-        dispose(){if(disposed)return;disposed=true;enabled=false;api.syncPrompt(false);abort.abort();close();clearTimeout(veilTimer);clearTimeout(bannerTimer);veil?.remove();banner?.remove();rosterPicker.dispose();wildMenu.dispose();cardPoolMenu.dispose();removeMap(map);removeMap(minimap);markerCache.clear();listCache.clear();presentations.clear();points=[];targetCache=null;mini.remove();dialog.remove();},
+        dispose(){if(disposed)return;disposed=true;enabled=false;api.syncPrompt(false);abort.abort();close();clearTimeout(veilTimer);clearTimeout(bannerTimer);veil?.remove();banner?.remove();rosterPicker.dispose();wildMenu.dispose();cardPoolMenu.dispose();removeMap(map);removeMap(minimap);markerCache.clear();listCache.clear();presentations.clear();residents=new Map();points=[];targetCache=null;mini.remove();dialog.remove();},
     };
     // Choose who comes along, wash the screen to light, move the party and record the journey. The map's Teleport
     // and a location chosen in SillyTavern's Backgrounds menu both come here.
@@ -509,7 +527,7 @@ export function mountWorldMap({host,getContext,adapter=createMediaAdapter(getCon
     async function action(name,target){
         if(busy()&&name!=='close')return;
         try{
-            const ctx=getContext(),item=worldWaypoints(ctx).find(w=>w.location.id===selectedId);
+            const ctx=getContext(),item=points.find(w=>w.location.id===selectedId);
             if(name==='close'){close();return;}
             if(name==='panel'){setPanel(dialog.dataset.panel!=='open');return;}
             if(name==='regions'){regionMenu($('.gi-map-region-menu').hidden);return;}
@@ -518,8 +536,8 @@ export function mountWorldMap({host,getContext,adapter=createMediaAdapter(getCon
             if(name==='zoom-out'){map.zoomOut();return;}
             if(name==='region'){
                 regionFilter=target.dataset.region || '';renderList();
-                const points=worldWaypoints(ctx).filter(w=>!regionFilter||w.region.id===regionFilter).map(w=>toLatLng(w.point));
-                if(points.length){const bounds=L.latLngBounds(points),zoom=Math.min(-1.5,map.getBoundsZoom(bounds.pad(.35)));flyTo(toMapPoint(bounds.getCenter()),zoom);}
+                const shown=points.filter(w=>!regionFilter||w.region.id===regionFilter).map(w=>toLatLng(w.point));
+                if(shown.length){const bounds=L.latLngBounds(shown),zoom=Math.min(-1.5,map.getBoundsZoom(bounds.pad(.35)));flyTo(toMapPoint(bounds.getCenter()),zoom);}
                 return;
             }
             if(name==='resume-journey'){
@@ -529,7 +547,7 @@ export function mountWorldMap({host,getContext,adapter=createMediaAdapter(getCon
             }
             if(name==='add'){startPlacement();return;}
             if(name==='current'){const current=activeWorldLocation(ctx);if(current)select(current);else status('The current background is not linked to a map point yet.');return;}
-            if(name==='select'){const selected=worldWaypoints(ctx).find(w=>w.location.id===target.dataset.location);if(selected)select(selected);return;}
+            if(name==='select'){const selected=points.find(w=>w.location.id===target.dataset.location);if(selected)select(selected);return;}
             if(name==='place-centre'){draft=toMapPoint(map.getCenter());paintDraft();showEditor();return;}
             if(name==='cancel'){const wasDetails=view.is('details');if(item&&!wasDetails){showDetails(item);paintMarkers();}else listWaypoints();status('');return;}
             if(name==='edit'&&item){draft=structuredClone(item.point);showEditor(item);paintDraft();return;}
