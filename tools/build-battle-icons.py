@@ -74,18 +74,23 @@ def save_svg(url, target):
 def kits():
     script = """
     const K=await import(process.argv[1]);const props=JSON.parse((await import('fs')).readFileSync(process.argv[2],'utf8'));
-    const out={characters:{},summons:new Set()};
-    const add=(name,kit)=>{out.characters[name]=kit.moves.map(m=>m.name);for(const m of kit.moves)for(const e of m.effects||[])if(e.type==='summon')out.summons.add(e.name);};
-    for(const [name,p] of Object.entries(props))if(p.playable&&p.role!=='enemy'&&!/^(Aether|Lumine)$/.test(name))add(name,K.defaultKit(name,{element:p.element}));
-    for(const el of ['Anemo','Geo','Electro','Dendro','Hydro','Pyro'])add('Traveler '+el,K.travelerKit(el));
-    add('Paimon',K.defaultKit('Paimon',{element:'None'}));
-    // Enemies with a Genius Invokation card use its skills (combat-kits.js lists them after the older enemies).
-    const cards=new Set(JSON.parse((await import('fs')).readFileSync(process.argv[3],'utf8')));
-    for(const [name,p] of Object.entries(props))if(p.role==='enemy'&&cards.has(name))add(name,K.defaultKit(name,{enemy:true}));
+    const out={characters:{},moves:[],summons:new Set()};
+    const collect=(name,kit,element)=>{for(const m of kit.moves || []){
+        out.moves.push({...m,character:name,weapon:kit.weapon || 'none',element:m.element || m.effects?.find(e=>e.type==='damage'&&e.element)?.element || kit.element || element || 'Physical'});
+        for(const e of m.effects || [])if(e.type==='summon')out.summons.add(e.name);
+    }};
+    const add=(name,kit,element)=>{
+        out.characters[name]=kit.moves.map(m=>m.name);collect(name,kit,element);
+        if(kit.enemy)collect(name,K.playableKit(kit),element);
+        if(kit.transform)collect(name,kit.transform,kit.transform.element || element);
+    };
+    // NPCs, non-TCG enemies, played enemies and boss forms need icons too.
+    for(const [name,p] of Object.entries(props))add(name,K.defaultKit(name,{element:p.element,enemy:p.role==='enemy'}),p.element);
+    for(const el of ['None','Anemo','Geo','Electro','Dendro','Hydro','Pyro','Cryo'])add('Traveler '+el,K.travelerKit(el),el);
     // Summon cards (battle-cards.js), and the hilichurls Abyssal Summons can bring.
     const {TCG_CARDS}=await import(process.argv[4]);
     for(const card of Object.values(TCG_CARDS))for(const e of card.effects||[])if(e.type==='summon')for(const name of e.choices?e.choices.map(c=>c[0]):[e.name])out.summons.add(name);
-    console.log(JSON.stringify({characters:out.characters,summons:[...out.summons]}));
+    console.log(JSON.stringify({...out,summons:[...out.summons]}));
     """
     result = subprocess.run(['node', '--input-type=module', '-e', script, str(ROOT / 'combat-kits.js'), str(ROOT / 'assets/character-properties.json'), str(ROOT / 'assets/tcg/characters.json'), str(ROOT / 'battle-cards.js')], capture_output=True, text=True, check=True)
     return json.loads(result.stdout)

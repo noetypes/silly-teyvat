@@ -1,6 +1,14 @@
 {
   "version": 1,
   "files": {
+    "art/battle-icons/2026-11-14-missing-attack-icons/repaired-character-list.webp": {
+      "bytes": 87006,
+      "sha256": "572f1d2645276b41137ece2b65837e5a35c87f376e2329796b97c6fb6a75ff2d"
+    },
+    "art/battle-icons/2026-11-14-missing-attack-icons/sample-icons.webp": {
+      "bytes": 70500,
+      "sha256": "8ee4d438cda9114d758f5744b4bcd973fcf7dd8035cb53df761da9349770d5b2"
+    },
     "art/location-backgrounds/2026-11-07-signora-arena/raw.png": {
       "bytes": 2437051,
       "sha256": "e6a67672631284619620f32015e6ffb26b6f7ac7efbb5cf6a1c02c315ef2f855"
@@ -8581,6 +8589,18 @@
       "bytes": 1868924,
       "sha256": "31de8ee7045dbe3248330a321502e1888cb708b3da415245e5ade9ce303d2dac"
     },
+    "content/character-cards/portrait-fixes-2026-11-14/Fatui Cryo Cicin Mage.png": {
+      "bytes": 535231,
+      "sha256": "8926c016ff75ebe06c2061fe5577acd339201d4d9e65f3741bd63cda74fd7f81"
+    },
+    "content/character-cards/portrait-fixes-2026-11-14/Fatui Pyro Agent.png": {
+      "bytes": 471643,
+      "sha256": "45c7c6cbbef0f54b2039a9bdb1b8da05fd7d013eca41d56d1185bfeade0476d5"
+    },
+    "content/character-cards/portrait-fixes-2026-11-14/Tisoc.png": {
+      "bytes": 3343310,
+      "sha256": "314a830993ef5ebb655e2cb39c726fd7cf75293868a41056caa1d8fec59fed8b"
+    },
     "content/character-cards/snezhnaya-2026-11-12/Mitya.png": {
       "bytes": 119114,
       "sha256": "265f1648a0cad4792989bd61666237b10c42572d66310782d9a6bb6354fa26b7"
@@ -11093,6 +11113,10 @@
       "bytes": 4256,
       "sha256": "4f6b934b4d1bf4fb38b1c22ee09c57192f2cd5f660b0ebd24754c8c6e9fdfe76"
     },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/aba-movo.webp": {
+      "bytes": 2078,
+      "sha256": "10cb7b051907ff47c67e83a41fb19f6d6dff22feb1b1bdd7f32ce1f7d12847fb"
+    },
     "extension/genshin-dialogue-ui/assets/battle/glyphs/abductive-reasoning.webp": {
       "bytes": 2364,
       "sha256": "0599c45f6e143a374a83ad8c4d8711be126eaaad1b30ea48ede1b272d0c26acc"
@@ -11116,6 +11140,10 @@
     "extension/genshin-dialogue-ui/assets/battle/glyphs/adeptus-art-preserver-of-fortune.webp": {
       "bytes": 2038,
       "sha256": "8605aeb9f63caada4789f1249c455d9a343c8b3b08805fbe881463d39c5a880e"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/agile-thrust.webp": {
+      "bytes": 2348,
+      "sha256": "5cd21f43bcac8f899803d2453ba091b19bb421a505578647242aeead9b5bdeca"
     },
     "extension/genshin-dialogue-ui/assets/battle/glyphs/airborne-disease-prevention.webp": {
       "bytes": 1616,
@@ -11193,6 +11221,842 @@
       "bytes": 1040,
       "sha256": "113a5427437fd0ffb817920265bf2c4400f2aacdd722b76e82cb37ef0a480588"
     },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/aura-of-majesty.webp": {
+      "bytes": 2234,
+      "sha256": "1a926888e9936d8f53ed6ede78397823baa305631bde0a1ace20eca1603a7634"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/authored-a-brother-s-promise.webp": {
+      "bytes": 1416,
+      "sha256": "e3151dea3263eace08e8b0880f10b01176b0f2d2bbd4d27e0f2c2a061bd2bcd1"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/authored-a-little-sunlight.webp": {
+      "bytes": 1176,
+      "sha256": "e3f7a158035622ed0536ce0c9372eb6d36318d4db8dbdb20caa9b7b20bfa81b9"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/authored-a-song-remembered.webp": {
+      "bytes": 1064,
+      "sha256": "9e410dbe9f3c599f405ff51754d0b7619b90bea2930f5f9380069114f2892c2d"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/authored-acolyte-s-prayer.webp": {
+      "bytes": 1546,
+      "sha256": "5ded09facb12f0da69bc9ec34d75f92c7c9bc4b975c9abe2368c98d313071b96"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/authored-action.webp": {
+      "bytes": 1050,
+      "sha256": "b06e569c1b50bb43523b4b033dd85d6c0d04e0fdf76ce4d2e2a8135dbc58e109"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/authored-ad-astra-abyssosque.webp": {
+      "bytes": 1750,
+      "sha256": "7a5a921ff4b56ffd7d812771e06f068541a3555cb296594617ffd1a6ae74c78b"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/authored-alpaca-herding.webp": {
+      "bytes": 1236,
+      "sha256": "1b7be69c6fb5eec105340d1e4524b48896bede7f82f74a146bfde8c0a1e859f0"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/authored-apostle-s-ambition.webp": {
+      "bytes": 968,
+      "sha256": "b5e355062436f7630194aab86bdb56188ee8b6e77ffa3481d2d893a8f5a764e3"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/authored-bartender-s-tap.webp": {
+      "bytes": 886,
+      "sha256": "007d4b6c0d15c59ba4ec2e9c1f33d4d9d9bedfc7ff4679551bb62bdb945f498e"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/authored-beach-workout.webp": {
+      "bytes": 1410,
+      "sha256": "ae5bfcacb909fd750669c3a2247e5758ed0149746c4955e56a0ebca2c2755962"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/authored-blazing-leap.webp": {
+      "bytes": 1222,
+      "sha256": "dbc2ea827ddaac5109492044b497f6f68a04640ea6367ee9a6225aaf1ed412d3"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/authored-blink-stab.webp": {
+      "bytes": 1200,
+      "sha256": "d7660b1cdf2835ae76a3dc78b2732f1a80ee704c5eb3d97544ee9e3469096aad"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/authored-bounce.webp": {
+      "bytes": 788,
+      "sha256": "07f0db88af8493edfee74399008414e29b387c00ebe3a8d019849b3f52850415"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/authored-canine-counter.webp": {
+      "bytes": 1712,
+      "sha256": "b4f61c0e45cb1978a4464d2f53d84ef98aeb311259b81def38fff00455ebcabe"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/authored-canopy-throw.webp": {
+      "bytes": 1294,
+      "sha256": "1b7180e4e4a1a4f9f612d4bbb60675c58bb233e66cb1617e6305e6c8a6464f38"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/authored-careful-aim.webp": {
+      "bytes": 1618,
+      "sha256": "1dcc4e0a02f9ad67bc26a36cf6408d2a1717305701f604b1b6213e2c6d0dfbc1"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/authored-carpenter-s-tap.webp": {
+      "bytes": 1092,
+      "sha256": "b986a9f0762b9a5df0423f10b43f460b1aace133a094ab482606ead285f08680"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/authored-case-closed.webp": {
+      "bytes": 1416,
+      "sha256": "e3151dea3263eace08e8b0880f10b01176b0f2d2bbd4d27e0f2c2a061bd2bcd1"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/authored-cat-paw.webp": {
+      "bytes": 1294,
+      "sha256": "42b71b87e95999fb53e9ef0a53f45e097c0e12d1906e8b6c9c21d2a8cdd7045a"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/authored-chain-discharge.webp": {
+      "bytes": 1050,
+      "sha256": "b06e569c1b50bb43523b4b033dd85d6c0d04e0fdf76ce4d2e2a8135dbc58e109"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/authored-charged-bounce.webp": {
+      "bytes": 788,
+      "sha256": "07f0db88af8493edfee74399008414e29b387c00ebe3a8d019849b3f52850415"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/authored-charging-blast.webp": {
+      "bytes": 1050,
+      "sha256": "b06e569c1b50bb43523b4b033dd85d6c0d04e0fdf76ce4d2e2a8135dbc58e109"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/authored-charging-slam.webp": {
+      "bytes": 1070,
+      "sha256": "17ff424b71d4e1a645c9722113dbf92331be314d7a79748ad002b98afaf8ab1b"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/authored-chief-mate-s-call.webp": {
+      "bytes": 1750,
+      "sha256": "7a5a921ff4b56ffd7d812771e06f068541a3555cb296594617ffd1a6ae74c78b"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/authored-chirping-ball.webp": {
+      "bytes": 1330,
+      "sha256": "fd86fa5f63636e7052444c2cb0c891c3907d83bef5c5a1cfd5e182a7a30c261e"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/authored-cicin-swarm.webp": {
+      "bytes": 1680,
+      "sha256": "5f1c1ffb993065cfc6b155762e46c3e29a5507f439916321ec740dee1377858c"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/authored-cliffwatch-vigil.webp": {
+      "bytes": 1416,
+      "sha256": "e3151dea3263eace08e8b0880f10b01176b0f2d2bbd4d27e0f2c2a061bd2bcd1"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/authored-club-swing.webp": {
+      "bytes": 854,
+      "sha256": "623787b9b84883518795804a46f8ffb6f89059726926d0e13ba233fd0ef65c8f"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/authored-combo-slash.webp": {
+      "bytes": 1230,
+      "sha256": "c1eb04a0d2a77eeb8746a69475541cb1096f40fa096a061d89b201fe9bfe2bf0"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/authored-commission-blade.webp": {
+      "bytes": 1230,
+      "sha256": "c1eb04a0d2a77eeb8746a69475541cb1096f40fa096a061d89b201fe9bfe2bf0"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/authored-comrade-s-rest.webp": {
+      "bytes": 1508,
+      "sha256": "f24e153321068885af420257f64c9e327fc45b74295739e15177aaa59b8c56a4"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/authored-counter-service.webp": {
+      "bytes": 1270,
+      "sha256": "ca0a87c7cc734bdcd5652d7462558d0a95e74df4762ad5a6aada2549ff2deced"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/authored-crimson-lotus-moth.webp": {
+      "bytes": 784,
+      "sha256": "7f070bd6fa1fe2da8d78bdda1073b93aab2bb6484acdbfdf999ac2ced5143f4d"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/authored-crossbow-bolt.webp": {
+      "bytes": 1356,
+      "sha256": "6c2dc9f7ca7bfd76f11e2a3cb2aa1b533a4e5daa123841f749697f5d5d0ebe3e"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/authored-crossbow-shot.webp": {
+      "bytes": 1356,
+      "sha256": "6c2dc9f7ca7bfd76f11e2a3cb2aa1b533a4e5daa123841f749697f5d5d0ebe3e"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/authored-decimating-lash.webp": {
+      "bytes": 720,
+      "sha256": "84066a52884fb87084263d6ce3fc6110d56aca668a17381e5db59b2990341ac8"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/authored-desert-ambition.webp": {
+      "bytes": 1356,
+      "sha256": "04d0524aa4e29a87ac8134b1e7065ed8b488f71e485618611590676fac5d59df"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/authored-desert-contract.webp": {
+      "bytes": 1674,
+      "sha256": "786155c776813508aa0600d5579518ca0be2ac1758434d8fbb97ad8bf3082c55"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/authored-desert-footwork.webp": {
+      "bytes": 1572,
+      "sha256": "858a7d9189cc5be09fa3b5009aa16b7b0d280715f834ec057e006e6757f85737"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/authored-director-s-tap.webp": {
+      "bytes": 788,
+      "sha256": "07f0db88af8493edfee74399008414e29b387c00ebe3a8d019849b3f52850415"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/authored-doctor-s-orders.webp": {
+      "bytes": 536,
+      "sha256": "4a399bfceb770f99d456ae19b3092a7814d6182ee31bf368b957df7d2af67d56"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/authored-doctor-s-tap.webp": {
+      "bytes": 224,
+      "sha256": "f5cbd4023492cdd3f6194b7f7ee6b7606c499ab2269dbb365cf5bfaacbd604de"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/authored-doge-s-tap.webp": {
+      "bytes": 1294,
+      "sha256": "42b71b87e95999fb53e9ef0a53f45e097c0e12d1906e8b6c9c21d2a8cdd7045a"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/authored-draw-a-bead.webp": {
+      "bytes": 1356,
+      "sha256": "6c2dc9f7ca7bfd76f11e2a3cb2aa1b533a4e5daa123841f749697f5d5d0ebe3e"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/authored-dreaming-branch.webp": {
+      "bytes": 886,
+      "sha256": "ccaf831d674b28d9f8828adbdf8b474aff8d73a59a4b7284d256006de7df17f9"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/authored-du-plama.webp": {
+      "bytes": 718,
+      "sha256": "8d357a20d8c447da7f9e5b5a4ad8016d80843c599232a3f1cbbad951848369d4"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/authored-dust-in-the-eyes.webp": {
+      "bytes": 1050,
+      "sha256": "b06e569c1b50bb43523b4b033dd85d6c0d04e0fdf76ce4d2e2a8135dbc58e109"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/authored-earth-toss.webp": {
+      "bytes": 1196,
+      "sha256": "0c4051fbf40c0f6ed2196813ec4a000bd07885901047c2c2b8b8f9039ff2fa2f"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/authored-elder-s-tap.webp": {
+      "bytes": 940,
+      "sha256": "6bd1c81483f2a6839d931f81d0290971632c86977fed556aface582c83ccd9c9"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/authored-electro-pulse.webp": {
+      "bytes": 748,
+      "sha256": "32b4d6363c78ccc7a1ccdd816332f03163c8253978f0b00b927af4bff0d3771e"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/authored-elemental-release.webp": {
+      "bytes": 1502,
+      "sha256": "d56111f0c82a53c7b2eff09b4639e6262987425bd61b1b874d552ea380931467"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/authored-elemental-strike.webp": {
+      "bytes": 1260,
+      "sha256": "c682c038f23db3288f89d76b23037c470d40ebf086a4364374d407361892d8c0"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/authored-eremite-blade.webp": {
+      "bytes": 1230,
+      "sha256": "c1eb04a0d2a77eeb8746a69475541cb1096f40fa096a061d89b201fe9bfe2bf0"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/authored-eremite-experience.webp": {
+      "bytes": 1674,
+      "sha256": "786155c776813508aa0600d5579518ca0be2ac1758434d8fbb97ad8bf3082c55"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/authored-error-reset.webp": {
+      "bytes": 1768,
+      "sha256": "704664822c8538de3b5f130bbe584f263e93e637681fb83ae41d8ebf8997f788"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/authored-family-care.webp": {
+      "bytes": 1370,
+      "sha256": "468d67f409c4a21a1bef10e46a34f4d2fec6eaeba713b2f0ed75f92127e1b8de"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/authored-family-vintage.webp": {
+      "bytes": 1164,
+      "sha256": "dfe3cbcc5127e1a25efd1b1c37c090256eda1f3e5ef914303c471aa74951382c"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/authored-fanmu-craftsmanship.webp": {
+      "bytes": 1356,
+      "sha256": "04d0524aa4e29a87ac8134b1e7065ed8b488f71e485618611590676fac5d59df"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/authored-field-medicine.webp": {
+      "bytes": 730,
+      "sha256": "41876eb81fe28be2c4e0ea6205c40c6d3c5b75341eec49870bb704bbb6305f2b"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/authored-fireball-barrage.webp": {
+      "bytes": 1478,
+      "sha256": "a33372df119b9ea49cecba9de87bfe1a4776f415417d425c3ef16106abff519a"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/authored-fireball.webp": {
+      "bytes": 1222,
+      "sha256": "dbc2ea827ddaac5109492044b497f6f68a04640ea6367ee9a6225aaf1ed412d3"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/authored-flame-dash.webp": {
+      "bytes": 1478,
+      "sha256": "a33372df119b9ea49cecba9de87bfe1a4776f415417d425c3ef16106abff519a"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/authored-flame-pillars.webp": {
+      "bytes": 1478,
+      "sha256": "a33372df119b9ea49cecba9de87bfe1a4776f415417d425c3ef16106abff519a"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/authored-flamegranate-toss.webp": {
+      "bytes": 1710,
+      "sha256": "48afb4fdc23980a2af4259e77534cec63f26e1ae0cb3b2503a4d3c973aa36a8d"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/authored-flask-toss.webp": {
+      "bytes": 960,
+      "sha256": "42902cc2ca159d5ec2b200d301382a0a2434df8142f11ede0f4fb352a80ae138"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/authored-fleuve-treatment.webp": {
+      "bytes": 730,
+      "sha256": "41876eb81fe28be2c4e0ea6205c40c6d3c5b75341eec49870bb704bbb6305f2b"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/authored-flower-petal.webp": {
+      "bytes": 1384,
+      "sha256": "0f8880ae2aa4e5e404e049f04135f00c360738e22aa1993f5c5335271fe46edb"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/authored-flowers-for-the-forest.webp": {
+      "bytes": 1636,
+      "sha256": "5a3aee7772914f7eca2df5546ee10e878da48c3c1f93541a8b5c6dd69bc45250"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/authored-forest-friend.webp": {
+      "bytes": 2024,
+      "sha256": "0025c43bbc74e6e65666a9364386dedb9f75647178ad575f859f4d77f9922eff"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/authored-forest-memory.webp": {
+      "bytes": 2024,
+      "sha256": "0025c43bbc74e6e65666a9364386dedb9f75647178ad575f859f4d77f9922eff"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/authored-frenzied-flurry.webp": {
+      "bytes": 1050,
+      "sha256": "b06e569c1b50bb43523b4b033dd85d6c0d04e0fdf76ce4d2e2a8135dbc58e109"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/authored-friendly-nudge.webp": {
+      "bytes": 788,
+      "sha256": "07f0db88af8493edfee74399008414e29b387c00ebe3a8d019849b3f52850415"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/authored-frigid-nectar-barrage.webp": {
+      "bytes": 1840,
+      "sha256": "71a3fddee46c40f120425c3e0a35b3f9c53d1aa6c87cc9828e13e819bb442337"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/authored-frost-glaive.webp": {
+      "bytes": 718,
+      "sha256": "8d357a20d8c447da7f9e5b5a4ad8016d80843c599232a3f1cbbad951848369d4"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/authored-frostbound-javelin.webp": {
+      "bytes": 1662,
+      "sha256": "38bb9841b29e3890003d236f01360f6fc8b7c46dabf4e50dffb071693ebb90f7"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/authored-frosted-headbutt.webp": {
+      "bytes": 788,
+      "sha256": "07f0db88af8493edfee74399008414e29b387c00ebe3a8d019849b3f52850415"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/authored-frostmoon-prayer.webp": {
+      "bytes": 1636,
+      "sha256": "5a3aee7772914f7eca2df5546ee10e878da48c3c1f93541a8b5c6dd69bc45250"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/authored-furnace-gadget.webp": {
+      "bytes": 1768,
+      "sha256": "704664822c8538de3b5f130bbe584f263e93e637681fb83ae41d8ebf8997f788"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/authored-gale-jab.webp": {
+      "bytes": 976,
+      "sha256": "835b988db770cfa23133ed3cebd76d0c3b8a8c4a1a4e0aad4bb7a41cceaf80b7"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/authored-garrison-guard.webp": {
+      "bytes": 1508,
+      "sha256": "f24e153321068885af420257f64c9e327fc45b74295739e15177aaa59b8c56a4"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/authored-general-s-guard.webp": {
+      "bytes": 1508,
+      "sha256": "f24e153321068885af420257f64c9e327fc45b74295739e15177aaa59b8c56a4"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/authored-gilded-hospitality.webp": {
+      "bytes": 1178,
+      "sha256": "ce5d2add5eac5293534ea1a9c82944d1462ed351c7a75843bc4cf2b58e7f6bdf"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/authored-good-dog.webp": {
+      "bytes": 1548,
+      "sha256": "34a738af7ece39893202d4caf86324db5ae33c8352255c68ab8cdf04152b5518"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/authored-grand-cannon-trial.webp": {
+      "bytes": 1424,
+      "sha256": "13534020c3818b00f8ec3e3369cdfe883a72c78528eba13a17a3e9d90a4a15f9"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/authored-guest-s-warning.webp": {
+      "bytes": 784,
+      "sha256": "7f070bd6fa1fe2da8d78bdda1073b93aab2bb6484acdbfdf999ac2ced5143f4d"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/authored-harbor-inspection.webp": {
+      "bytes": 1898,
+      "sha256": "082a72f7da0804274b8590fcecac8d37d58981493ff2e2482b6615f3daac7159"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/authored-harbor-warning.webp": {
+      "bytes": 784,
+      "sha256": "7f070bd6fa1fe2da8d78bdda1073b93aab2bb6484acdbfdf999ac2ced5143f4d"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/authored-hardened-bounce.webp": {
+      "bytes": 1092,
+      "sha256": "b986a9f0762b9a5df0423f10b43f460b1aace133a094ab482606ead285f08680"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/authored-helmsman-s-push.webp": {
+      "bytes": 1496,
+      "sha256": "5ab726c2dc0264d4002dd93e77e82ae8a69d09298d2c86de9840a25821c68c9f"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/authored-house-special.webp": {
+      "bytes": 1164,
+      "sha256": "dfe3cbcc5127e1a25efd1b1c37c090256eda1f3e5ef914303c471aa74951382c"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/authored-hunter-s-mark.webp": {
+      "bytes": 1618,
+      "sha256": "1dcc4e0a02f9ad67bc26a36cf6408d2a1717305701f604b1b6213e2c6d0dfbc1"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/authored-hunter-s-shot.webp": {
+      "bytes": 1356,
+      "sha256": "6c2dc9f7ca7bfd76f11e2a3cb2aa1b533a4e5daa123841f749697f5d5d0ebe3e"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/authored-iai-sheathed.webp": {
+      "bytes": 1502,
+      "sha256": "d56111f0c82a53c7b2eff09b4639e6262987425bd61b1b874d552ea380931467"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/authored-ice-fog-piercer.webp": {
+      "bytes": 1842,
+      "sha256": "6f785d47eef24de42049cd7ae26a83f986267f087c06ea93386128cd5d420cfa"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/authored-ice-shards.webp": {
+      "bytes": 1396,
+      "sha256": "e07a59a73f34281aeaf829b4e3a69004c1c64d7fa300421fa6ce5b28339fd678"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/authored-icy-charge.webp": {
+      "bytes": 1396,
+      "sha256": "e07a59a73f34281aeaf829b4e3a69004c1c64d7fa300421fa6ce5b28339fd678"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/authored-ignited-ram.webp": {
+      "bytes": 788,
+      "sha256": "07f0db88af8493edfee74399008414e29b387c00ebe3a8d019849b3f52850415"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/authored-incendiary-grenade.webp": {
+      "bytes": 1244,
+      "sha256": "3bfa6123373c8dc215e7f74f22b48ecf6dd5d21c970752b0511a135e12d9c927"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/authored-incendiary-mixture.webp": {
+      "bytes": 1244,
+      "sha256": "3bfa6123373c8dc215e7f74f22b48ecf6dd5d21c970752b0511a135e12d9c927"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/authored-institute-of-dreams.webp": {
+      "bytes": 968,
+      "sha256": "b5e355062436f7630194aab86bdb56188ee8b6e77ffa3481d2d893a8f5a764e3"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/authored-inventor-s-tap.webp": {
+      "bytes": 1414,
+      "sha256": "168b74af9c68d8f937acee9648c78a5b40affa392cf42ddfe6fe4c275dd7f5b7"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/authored-komore-guardian.webp": {
+      "bytes": 1548,
+      "sha256": "34a738af7ece39893202d4caf86324db5ae33c8352255c68ab8cdf04152b5518"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/authored-law-of-the-harbor.webp": {
+      "bytes": 1674,
+      "sha256": "786155c776813508aa0600d5579518ca0be2ac1758434d8fbb97ad8bf3082c55"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/authored-leaping-strike.webp": {
+      "bytes": 788,
+      "sha256": "07f0db88af8493edfee74399008414e29b387c00ebe3a8d019849b3f52850415"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/authored-light-bathed-blessing.webp": {
+      "bytes": 1416,
+      "sha256": "e3151dea3263eace08e8b0880f10b01176b0f2d2bbd4d27e0f2c2a061bd2bcd1"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/authored-little-leaf.webp": {
+      "bytes": 1602,
+      "sha256": "f2fab32f107010bc9756fa341b9cf827e4ea9bd6c6daa4d9130e2c20b97fdfad"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/authored-loyal-companion.webp": {
+      "bytes": 1176,
+      "sha256": "e3f7a158035622ed0536ce0c9372eb6d36318d4db8dbdb20caa9b7b20bfa81b9"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/authored-mate-s-strike.webp": {
+      "bytes": 788,
+      "sha256": "07f0db88af8493edfee74399008414e29b387c00ebe3a8d019849b3f52850415"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/authored-matriarch-s-command.webp": {
+      "bytes": 1436,
+      "sha256": "e8aaf8e3e596d4171434cee45e35fe4853f66a7b9c32f3c0ac100cca1235a528"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/authored-me-dew-tasting.webp": {
+      "bytes": 1270,
+      "sha256": "ca0a87c7cc734bdcd5652d7462558d0a95e74df4762ad5a6aada2549ff2deced"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/authored-mercenary-slash.webp": {
+      "bytes": 1230,
+      "sha256": "c1eb04a0d2a77eeb8746a69475541cb1096f40fa096a061d89b201fe9bfe2bf0"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/authored-moonflower-offering.webp": {
+      "bytes": 1772,
+      "sha256": "7a7bb3ef55c4bfd2cb8329eedd35a002d14b8328bb08775415a62a7915160f71"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/authored-moonlit-touch.webp": {
+      "bytes": 784,
+      "sha256": "7f070bd6fa1fe2da8d78bdda1073b93aab2bb6484acdbfdf999ac2ced5143f4d"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/authored-mountain-king-surprise.webp": {
+      "bytes": 1548,
+      "sha256": "977aabdd07b21c8088a56210e10ccf3b8bdb90bca8e44e0a7c2787767f93ef6a"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/authored-mr-cyclops.webp": {
+      "bytes": 1768,
+      "sha256": "704664822c8538de3b5f130bbe584f263e93e637681fb83ae41d8ebf8997f788"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/authored-narzissenkreuz-theory.webp": {
+      "bytes": 1668,
+      "sha256": "fe7f121abd043f7fb9d086d7e37b256ba323f4f5b76d0fb322955a9ae2fa1fed"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/authored-nursery-care.webp": {
+      "bytes": 1772,
+      "sha256": "7a7bb3ef55c4bfd2cb8329eedd35a002d14b8328bb08775415a62a7915160f71"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/authored-oceanid-reflection.webp": {
+      "bytes": 1248,
+      "sha256": "7769f831fc26a20466b504a1dcfad7ffeb831a6556ec9b8f3e9ec91cd93823f5"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/authored-officer-s-tap.webp": {
+      "bytes": 788,
+      "sha256": "07f0db88af8493edfee74399008414e29b387c00ebe3a8d019849b3f52850415"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/authored-one-more-try.webp": {
+      "bytes": 1356,
+      "sha256": "04d0524aa4e29a87ac8134b1e7065ed8b488f71e485618611590676fac5d59df"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/authored-orderly-inspection.webp": {
+      "bytes": 1690,
+      "sha256": "6e04946a32f601d8907a3ea7657cbf655d576d3b1f7ecc3bff17b67f63dc5dfd"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/authored-ordo-experiment.webp": {
+      "bytes": 1768,
+      "sha256": "704664822c8538de3b5f130bbe584f263e93e637681fb83ae41d8ebf8997f788"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/authored-oto-tiga.webp": {
+      "bytes": 990,
+      "sha256": "6296f6184966281d7080fc4123ccfc00bcf1cff7e3eff7dd8449304d1aff82ab"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/authored-park-parade.webp": {
+      "bytes": 1356,
+      "sha256": "04d0524aa4e29a87ac8134b1e7065ed8b488f71e485618611590676fac5d59df"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/authored-paw-swipe.webp": {
+      "bytes": 1294,
+      "sha256": "42b71b87e95999fb53e9ef0a53f45e097c0e12d1906e8b6c9c21d2a8cdd7045a"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/authored-perpetual-cleansing.webp": {
+      "bytes": 1192,
+      "sha256": "91f0d3c6d6990d6c17a9a9a359846f74dd92c422b9ec11cba51f02947be1f494"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/authored-petrichor-accord.webp": {
+      "bytes": 1674,
+      "sha256": "786155c776813508aa0600d5579518ca0be2ac1758434d8fbb97ad8bf3082c55"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/authored-phantom-inquiry.webp": {
+      "bytes": 1546,
+      "sha256": "5ded09facb12f0da69bc9ec34d75f92c7c9bc4b975c9abe2368c98d313071b96"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/authored-physician-s-tap.webp": {
+      "bytes": 224,
+      "sha256": "f5cbd4023492cdd3f6194b7f7ee6b7606c499ab2269dbb365cf5bfaacbd604de"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/authored-playful-bark.webp": {
+      "bytes": 1712,
+      "sha256": "b4f61c0e45cb1978a4464d2f53d84ef98aeb311259b81def38fff00455ebcabe"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/authored-playful-toss.webp": {
+      "bytes": 784,
+      "sha256": "7f070bd6fa1fe2da8d78bdda1073b93aab2bb6484acdbfdf999ac2ced5143f4d"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/authored-portmaster-s-strike.webp": {
+      "bytes": 788,
+      "sha256": "07f0db88af8493edfee74399008414e29b387c00ebe3a8d019849b3f52850415"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/authored-practice-tap.webp": {
+      "bytes": 788,
+      "sha256": "07f0db88af8493edfee74399008414e29b387c00ebe3a8d019849b3f52850415"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/authored-prepared-supplies.webp": {
+      "bytes": 1690,
+      "sha256": "6e04946a32f601d8907a3ea7657cbf655d576d3b1f7ecc3bff17b67f63dc5dfd"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/authored-prototype-device.webp": {
+      "bytes": 1768,
+      "sha256": "704664822c8538de3b5f130bbe584f263e93e637681fb83ae41d8ebf8997f788"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/authored-provisional-priestess.webp": {
+      "bytes": 1548,
+      "sha256": "34a738af7ece39893202d4caf86324db5ae33c8352255c68ab8cdf04152b5518"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/authored-puff-up-power.webp": {
+      "bytes": 1236,
+      "sha256": "c981f2529c2fa7c42b5424afdb15627e1956a4c47ebaaeb4c193d9462abe2c95"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/authored-quick-toss.webp": {
+      "bytes": 784,
+      "sha256": "7f070bd6fa1fe2da8d78bdda1073b93aab2bb6484acdbfdf999ac2ced5143f4d"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/authored-raging-breath.webp": {
+      "bytes": 784,
+      "sha256": "7f070bd6fa1fe2da8d78bdda1073b93aab2bb6484acdbfdf999ac2ced5143f4d"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/authored-rain-dance.webp": {
+      "bytes": 1446,
+      "sha256": "56cef83cd5b7a67a849f3b615cf513599d9d097cb2d222757f027688837cbe94"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/authored-ratnik-strike.webp": {
+      "bytes": 788,
+      "sha256": "07f0db88af8493edfee74399008414e29b387c00ebe3a8d019849b3f52850415"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/authored-receptionist-s-strike.webp": {
+      "bytes": 788,
+      "sha256": "07f0db88af8493edfee74399008414e29b387c00ebe3a8d019849b3f52850415"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/authored-rhythm-tap.webp": {
+      "bytes": 794,
+      "sha256": "f13ca907fb72968842e138f790a2431122f0f0152cc409443bec2c1296db6646"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/authored-ribat-guard.webp": {
+      "bytes": 1508,
+      "sha256": "f24e153321068885af420257f64c9e327fc45b74295739e15177aaa59b8c56a4"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/authored-rocket-barrage.webp": {
+      "bytes": 1424,
+      "sha256": "13534020c3818b00f8ec3e3369cdfe883a72c78528eba13a17a3e9d90a4a15f9"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/authored-rocking-riff.webp": {
+      "bytes": 1330,
+      "sha256": "fd86fa5f63636e7052444c2cb0c891c3907d83bef5c5a1cfd5e182a7a30c261e"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/authored-rocky-ram.webp": {
+      "bytes": 788,
+      "sha256": "07f0db88af8493edfee74399008414e29b387c00ebe3a8d019849b3f52850415"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/authored-rolling-impact.webp": {
+      "bytes": 1050,
+      "sha256": "b06e569c1b50bb43523b4b033dd85d6c0d04e0fdf76ce4d2e2a8135dbc58e109"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/authored-rudder-s-turn.webp": {
+      "bytes": 1750,
+      "sha256": "7a5a921ff4b56ffd7d812771e06f068541a3555cb296594617ffd1a6ae74c78b"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/authored-safe-lodging.webp": {
+      "bytes": 1370,
+      "sha256": "17fb4ce776d6739995e29ab10e45dee5c96471976a368eeeaf75997fbf0822cd"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/authored-scattered-reagent.webp": {
+      "bytes": 960,
+      "sha256": "42902cc2ca159d5ec2b200d301382a0a2434df8142f11ede0f4fb352a80ae138"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/authored-scholar-s-touch.webp": {
+      "bytes": 1186,
+      "sha256": "31e0d782140f44f2c3ee04193572fcfbf0853130935ad7fd2c8f24b18990357b"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/authored-sharp-bark.webp": {
+      "bytes": 1712,
+      "sha256": "b4f61c0e45cb1978a4464d2f53d84ef98aeb311259b81def38fff00455ebcabe"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/authored-shield-bash.webp": {
+      "bytes": 1092,
+      "sha256": "b986a9f0762b9a5df0423f10b43f460b1aace133a094ab482606ead285f08680"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/authored-shovel-swing.webp": {
+      "bytes": 854,
+      "sha256": "623787b9b84883518795804a46f8ffb6f89059726926d0e13ba233fd0ef65c8f"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/authored-shrine-pounce.webp": {
+      "bytes": 1236,
+      "sha256": "1b7be69c6fb5eec105340d1e4524b48896bede7f82f74a146bfde8c0a1e859f0"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/authored-sixth-company-resolve.webp": {
+      "bytes": 1674,
+      "sha256": "786155c776813508aa0600d5579518ca0be2ac1758434d8fbb97ad8bf3082c55"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/authored-slam.webp": {
+      "bytes": 1070,
+      "sha256": "17ff424b71d4e1a645c9722113dbf92331be314d7a79748ad002b98afaf8ab1b"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/authored-slingshot.webp": {
+      "bytes": 1356,
+      "sha256": "6c2dc9f7ca7bfd76f11e2a3cb2aa1b533a4e5daa123841f749697f5d5d0ebe3e"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/authored-smoke-and-knives.webp": {
+      "bytes": 1460,
+      "sha256": "c75b7acd0cce71be56dc423a9c9a9c94ea632aa4e7d169db3b13af9f9f39d6bd"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/authored-snowman-supplies.webp": {
+      "bytes": 1690,
+      "sha256": "6e04946a32f601d8907a3ea7657cbf655d576d3b1f7ecc3bff17b67f63dc5dfd"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/authored-snowy-tap.webp": {
+      "bytes": 788,
+      "sha256": "07f0db88af8493edfee74399008414e29b387c00ebe3a8d019849b3f52850415"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/authored-song-of-the-forest.webp": {
+      "bytes": 1064,
+      "sha256": "9e410dbe9f3c599f405ff51754d0b7619b90bea2930f5f9380069114f2892c2d"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/authored-spiritherb-fortune.webp": {
+      "bytes": 1388,
+      "sha256": "fbc1c25203db76d8b7f2fd03d1288f77e6055a6cdc28540d45af228012742db1"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/authored-splash.webp": {
+      "bytes": 818,
+      "sha256": "28b9f07ee80971767afe123c6edf9df83a6367048e627500d50ce177faa90794"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/authored-staff-strike.webp": {
+      "bytes": 940,
+      "sha256": "6bd1c81483f2a6839d931f81d0290971632c86977fed556aface582c83ccd9c9"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/authored-station-game.webp": {
+      "bytes": 1668,
+      "sha256": "fe7f121abd043f7fb9d086d7e37b256ba323f4f5b76d0fb322955a9ae2fa1fed"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/authored-steady-course.webp": {
+      "bytes": 1898,
+      "sha256": "082a72f7da0804274b8590fcecac8d37d58981493ff2e2482b6615f3daac7159"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/authored-steady-the-rudder.webp": {
+      "bytes": 1898,
+      "sha256": "082a72f7da0804274b8590fcecac8d37d58981493ff2e2482b6615f3daac7159"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/authored-stomp.webp": {
+      "bytes": 788,
+      "sha256": "07f0db88af8493edfee74399008414e29b387c00ebe3a8d019849b3f52850415"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/authored-street-fighting-finale.webp": {
+      "bytes": 1174,
+      "sha256": "02ffc7bcad929725a8259906cf982606feefb22956b99ebdfa581e12f7efde2b"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/authored-sturdy-joinery.webp": {
+      "bytes": 1508,
+      "sha256": "f24e153321068885af420257f64c9e327fc45b74295739e15177aaa59b8c56a4"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/authored-sunfrost-waltz.webp": {
+      "bytes": 1446,
+      "sha256": "56cef83cd5b7a67a849f3b615cf513599d9d097cb2d222757f027688837cbe94"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/authored-tanit-strategy.webp": {
+      "bytes": 1690,
+      "sha256": "6e04946a32f601d8907a3ea7657cbf655d576d3b1f7ecc3bff17b67f63dc5dfd"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/authored-tea-house-paw.webp": {
+      "bytes": 1294,
+      "sha256": "42b71b87e95999fb53e9ef0a53f45e097c0e12d1906e8b6c9c21d2a8cdd7045a"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/authored-tenryou-formation.webp": {
+      "bytes": 1050,
+      "sha256": "b06e569c1b50bb43523b4b033dd85d6c0d04e0fdf76ce4d2e2a8135dbc58e109"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/authored-three-point-slash.webp": {
+      "bytes": 1230,
+      "sha256": "c1eb04a0d2a77eeb8746a69475541cb1096f40fa096a061d89b201fe9bfe2bf0"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/authored-throwing-knife.webp": {
+      "bytes": 854,
+      "sha256": "623787b9b84883518795804a46f8ffb6f89059726926d0e13ba233fd0ef65c8f"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/authored-tidal-hop.webp": {
+      "bytes": 1058,
+      "sha256": "d45a4f8c1cae0ba67052acf2a8cce8bf2814d8139331353b6dd7a89d8278de62"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/authored-timid-tap.webp": {
+      "bytes": 788,
+      "sha256": "07f0db88af8493edfee74399008414e29b387c00ebe3a8d019849b3f52850415"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/authored-toy-tap.webp": {
+      "bytes": 788,
+      "sha256": "07f0db88af8493edfee74399008414e29b387c00ebe3a8d019849b3f52850415"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/authored-trader-s-tap.webp": {
+      "bytes": 788,
+      "sha256": "07f0db88af8493edfee74399008414e29b387c00ebe3a8d019849b3f52850415"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/authored-training-drill.webp": {
+      "bytes": 1410,
+      "sha256": "ae5bfcacb909fd750669c3a2247e5758ed0149746c4955e56a0ebca2c2755962"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/authored-training-jab.webp": {
+      "bytes": 976,
+      "sha256": "835b988db770cfa23133ed3cebd76d0c3b8a8c4a1a4e0aad4bb7a41cceaf80b7"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/authored-tree-of-dreams.webp": {
+      "bytes": 1174,
+      "sha256": "02ffc7bcad929725a8259906cf982606feefb22956b99ebdfa581e12f7efde2b"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/authored-ultimate-cleansing.webp": {
+      "bytes": 1192,
+      "sha256": "91f0d3c6d6990d6c17a9a9a359846f74dd92c422b9ec11cba51f02947be1f494"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/authored-unsettling-touch.webp": {
+      "bytes": 784,
+      "sha256": "7f070bd6fa1fe2da8d78bdda1073b93aab2bb6484acdbfdf999ac2ced5143f4d"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/authored-unyielding-resolve.webp": {
+      "bytes": 1674,
+      "sha256": "786155c776813508aa0600d5579518ca0be2ac1758434d8fbb97ad8bf3082c55"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/authored-upa.webp": {
+      "bytes": 784,
+      "sha256": "7f070bd6fa1fe2da8d78bdda1073b93aab2bb6484acdbfdf999ac2ced5143f4d"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/authored-veteran-strike.webp": {
+      "bytes": 788,
+      "sha256": "07f0db88af8493edfee74399008414e29b387c00ebe3a8d019849b3f52850415"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/authored-village-council.webp": {
+      "bytes": 1690,
+      "sha256": "6e04946a32f601d8907a3ea7657cbf655d576d3b1f7ecc3bff17b67f63dc5dfd"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/authored-village-wisdom.webp": {
+      "bytes": 1690,
+      "sha256": "6e04946a32f601d8907a3ea7657cbf655d576d3b1f7ecc3bff17b67f63dc5dfd"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/authored-vimara-stalk.webp": {
+      "bytes": 1236,
+      "sha256": "1b7be69c6fb5eec105340d1e4524b48896bede7f82f74a146bfde8c0a1e859f0"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/authored-vintner-s-tap.webp": {
+      "bytes": 886,
+      "sha256": "007d4b6c0d15c59ba4ec2e9c1f33d4d9d9bedfc7ff4679551bb62bdb945f498e"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/authored-volley.webp": {
+      "bytes": 1618,
+      "sha256": "1dcc4e0a02f9ad67bc26a36cf6408d2a1717305701f604b1b6213e2c6d0dfbc1"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/authored-walking-stick.webp": {
+      "bytes": 940,
+      "sha256": "6bd1c81483f2a6839d931f81d0290971632c86977fed556aface582c83ccd9c9"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/authored-warm-welcome-home.webp": {
+      "bytes": 1178,
+      "sha256": "ce5d2add5eac5293534ea1a9c82944d1462ed351c7a75843bc4cf2b58e7f6bdf"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/authored-watatsumi-s-blessing.webp": {
+      "bytes": 1416,
+      "sha256": "e3151dea3263eace08e8b0880f10b01176b0f2d2bbd4d27e0f2c2a061bd2bcd1"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/authored-watchkeeper-strike.webp": {
+      "bytes": 1186,
+      "sha256": "31e0d782140f44f2c3ee04193572fcfbf0853130935ad7fd2c8f24b18990357b"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/authored-water-s-touch.webp": {
+      "bytes": 818,
+      "sha256": "28b9f07ee80971767afe123c6edf9df83a6367048e627500d50ce177faa90794"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/authored-water-spout.webp": {
+      "bytes": 818,
+      "sha256": "28b9f07ee80971767afe123c6edf9df83a6367048e627500d50ce177faa90794"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/authored-whirling-blaze.webp": {
+      "bytes": 1478,
+      "sha256": "a33372df119b9ea49cecba9de87bfe1a4776f415417d425c3ef16106abff519a"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/authored-whirlwind-uppercut.webp": {
+      "bytes": 1236,
+      "sha256": "c981f2529c2fa7c42b5424afdb15627e1956a4c47ebaaeb4c193d9462abe2c95"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/authored-wild-hunt-readiness.webp": {
+      "bytes": 1674,
+      "sha256": "786155c776813508aa0600d5579518ca0be2ac1758434d8fbb97ad8bf3082c55"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/authored-winter-bargain.webp": {
+      "bytes": 1674,
+      "sha256": "786155c776813508aa0600d5579518ca0be2ac1758434d8fbb97ad8bf3082c55"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/authored-world-formula.webp": {
+      "bytes": 1768,
+      "sha256": "704664822c8538de3b5f130bbe584f263e93e637681fb83ae41d8ebf8997f788"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/axe-and-aegis.webp": {
+      "bytes": 2174,
+      "sha256": "5171e30a91d2afc6d89d2501a4a9f8b8fa7c4956085a538e5ad5e01c6bd927f0"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/axe-swipe.webp": {
+      "bytes": 2518,
+      "sha256": "509d30ee7409a77059bc69d5be79f252abf2f182f9729dc37c51d44a75b9946b"
+    },
     "extension/genshin-dialogue-ui/assets/battle/glyphs/badaboom-hexbuster-hammer.webp": {
       "bytes": 1674,
       "sha256": "d6272734122dc6cf8e38a14feb5d7e14bfe882729f2b4465f4b27be75d7f1b70"
@@ -11225,17 +12089,45 @@
       "bytes": 1814,
       "sha256": "cbd5243c26ac727037c3f1fa9dd208ceb0d888088c4a57e08416c2f68876de88"
     },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/biting-shards.webp": {
+      "bytes": 2102,
+      "sha256": "c0c68181d9f88c25989f6b757ef9d46c3cd3f8a732c66f6035a6036335f10d04"
+    },
     "extension/genshin-dialogue-ui/assets/battle/glyphs/black-pheasant-strides-on-water.webp": {
       "bytes": 1674,
       "sha256": "d6272734122dc6cf8e38a14feb5d7e14bfe882729f2b4465f4b27be75d7f1b70"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/bladed-waltz.webp": {
+      "bytes": 2058,
+      "sha256": "d92b67467f31c4a16ab3baf906bb91ed99a637d90dcca2af6734f9bbd51a6e40"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/blaze-bloom.webp": {
+      "bytes": 1506,
+      "sha256": "6cf25ff60d5694ae7d06ffc3cfba736d694b511385e369abc3a894eec5715c96"
     },
     "extension/genshin-dialogue-ui/assets/battle/glyphs/blazing-blessing.webp": {
       "bytes": 1246,
       "sha256": "191f0d80b59a91ff37b9a5299f67a6599d7b50bcf5e8ff59a63ba061f3fd3720"
     },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/blazing-rebuke.webp": {
+      "bytes": 1996,
+      "sha256": "522dda34bcddfc30ed08f61371d521502603a382ea398cb08d9959c81883e155"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/blazing-strike.webp": {
+      "bytes": 1764,
+      "sha256": "b2e0e1f629d9523f52b95099c2860c216655499323e63b76dbd9e906a12af126"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/blitz-strike.webp": {
+      "bytes": 1534,
+      "sha256": "45f2f85163a021ffa4d60e13fca8edaa67f8ad12aeeb91017a1f20957533a04e"
+    },
     "extension/genshin-dialogue-ui/assets/battle/glyphs/blunt-refusal.webp": {
       "bytes": 1774,
       "sha256": "4fa55bb64ae36904a62f55a2cc3ba8762b08497961acfbf1747353f22bc84627"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/blustering-blade.webp": {
+      "bytes": 2182,
+      "sha256": "f5db27c01ad337c7030afd5b046e7e3c3257711fcd821afaad54b6be5dd7d54d"
     },
     "extension/genshin-dialogue-ui/assets/battle/glyphs/bolts-of-downfall.webp": {
       "bytes": 1958,
@@ -11253,9 +12145,37 @@
       "bytes": 1124,
       "sha256": "e2e63d79d957d210b795c6e8467b3f7551c7cba93f2d4c4223b95a3915eea444"
     },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/bubble-spray.webp": {
+      "bytes": 1460,
+      "sha256": "7e884733017a6bde2b28bfb4e883f7befe651f939564591ff33f8dc080a7a9ed"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/bubblefloat-blitz.webp": {
+      "bytes": 1696,
+      "sha256": "fba07942d608483d3fbfcec666a6ebab67e285a910131e2a6d1b83d93ee05a75"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/bubbling-offering.webp": {
+      "bytes": 2142,
+      "sha256": "1c9c0eef301c1cbcb68b3b70dab89866eeb112f87dcd67bc02558f997fc960be"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/buster-blaze.webp": {
+      "bytes": 1888,
+      "sha256": "a17a835791944290ad3b509055b229bbfc46bc9c1f08f0df7307cc687918933b"
+    },
     "extension/genshin-dialogue-ui/assets/battle/glyphs/by-the-horns.webp": {
       "bytes": 1778,
       "sha256": "d16c405830ac5b3cc6c79fe7ef1f9e3aa01f055be19879fb7fe2ea0df0a23ae3"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/caelestinum-finale-termini.webp": {
+      "bytes": 2486,
+      "sha256": "5a8db80811287d4804fc0e5f489ab9fbb9c712039574c3a3e963b85caea36749"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/calamitous-tides.webp": {
+      "bytes": 2294,
+      "sha256": "966c68f478586e7a85d70123bb24c61ccf6c8d54c4012c396df0b6e22580a393"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/cankering-claws.webp": {
+      "bytes": 2518,
+      "sha256": "509d30ee7409a77059bc69d5be79f252abf2f182f9729dc37c51d44a75b9946b"
     },
     "extension/genshin-dialogue-ui/assets/battle/glyphs/canopy-hunter-riding-high.webp": {
       "bytes": 922,
@@ -11268,6 +12188,10 @@
     "extension/genshin-dialogue-ui/assets/battle/glyphs/card-force-translocation.webp": {
       "bytes": 1850,
       "sha256": "984b4299dab409399ce85d89925fb599d9d08e5ea05e141cc1ef71b67478ef4e"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/carmine-chrysalis.webp": {
+      "bytes": 2268,
+      "sha256": "b37b8aeb4af9d16afddb90b63eea62c73d23d419635c8ddbe3ca562431872389"
     },
     "extension/genshin-dialogue-ui/assets/battle/glyphs/celestial-shower.webp": {
       "bytes": 2064,
@@ -11289,6 +12213,10 @@
       "bytes": 1084,
       "sha256": "b0abe09b6570f9a1f69a55f0d46afec0385dd7498e6fa71da68e3412e5c2bee6"
     },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/chilling-illustration.webp": {
+      "bytes": 2328,
+      "sha256": "38b6fca48478ea60763cd5bdfdf16f4fa73b220438a191292f762360be9e7c29"
+    },
     "extension/genshin-dialogue-ui/assets/battle/glyphs/chonghua-s-layered-frost.webp": {
       "bytes": 1640,
       "sha256": "cd340e098cdcf30e366a7d4c60c14b00dec26fa61a31195ec29220c0fcd8b456"
@@ -11296,6 +12224,10 @@
     "extension/genshin-dialogue-ui/assets/battle/glyphs/claw-and-thunder.webp": {
       "bytes": 1046,
       "sha256": "94a498b50d3e353e5056bd54b0530925f9b939f3d6d57191c9f3cda7d6a36ec0"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/claw-slash.webp": {
+      "bytes": 2374,
+      "sha256": "8e6fcaec3fd9f070fa1d3cce86a60bebbec9825a4f83b98311f8450556e9b1a4"
     },
     "extension/genshin-dialogue-ui/assets/battle/glyphs/cleaning-mode-carrier-frequency.webp": {
       "bytes": 1848,
@@ -11305,6 +12237,14 @@
       "bytes": 2322,
       "sha256": "5c50c43d6fd6e9ffa77aa1b3d8dd303ced82c6983517b8e68ced74b066fef3c9"
     },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/close-expulsion.webp": {
+      "bytes": 2514,
+      "sha256": "b7ac80921014ae850526be9268ee91c8f6a4a0ddd20f7accd9f9772f92375f09"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/close-range-charge.webp": {
+      "bytes": 2918,
+      "sha256": "9df2f81de36eaf727e92943fe7aa185f38d4df747e0f71a4bf680d69594629ec"
+    },
     "extension/genshin-dialogue-ui/assets/battle/glyphs/cloud-grazing-strike.webp": {
       "bytes": 2072,
       "sha256": "ceadd1b147ee55e5bd6c26f132be5ac44cc8c204fc90e15a1c1f9a8a9a25f8c3"
@@ -11312,6 +12252,10 @@
     "extension/genshin-dialogue-ui/assets/battle/glyphs/cloud-parting-star.webp": {
       "bytes": 2520,
       "sha256": "1e9a6fbc873696d6730cd111d38f0eff7336f7d12667b047d9a9e5ba1adc1445"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/combined-fire.webp": {
+      "bytes": 1834,
+      "sha256": "77b651b3462f8efced308b561272cc9bf9f838d035fd80416a975271ac036a02"
     },
     "extension/genshin-dialogue-ui/assets/battle/glyphs/compound-sedation-field.webp": {
       "bytes": 1182,
@@ -11325,6 +12269,14 @@
       "bytes": 1684,
       "sha256": "18cbb25059767bd2d49c65a0c35993dfcdb62174296900e30c3d33018859ff61"
     },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/corrosive-claws.webp": {
+      "bytes": 2410,
+      "sha256": "b57ea729477a3a26f9d3ce0d319aadfcd63cc25fe7b2b97cbcce78b456937928"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/corrosive-electro-crystal.webp": {
+      "bytes": 1624,
+      "sha256": "90c92b92f8f36377d91777829647f0e31f78f01d00845fee008b246c985a8ea6"
+    },
     "extension/genshin-dialogue-ui/assets/battle/glyphs/countermeasure-lumi-s-battle-cry.webp": {
       "bytes": 1534,
       "sha256": "1f0454514675c442a52eda3b75a1cbfbb280d5633079fbd3167358589f41d4a3"
@@ -11337,6 +12289,22 @@
       "bytes": 2076,
       "sha256": "032954e3fea77fa730b1d52ce2e1763f752a20a51e29aa4c14e80fee8520f2c1"
     },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/crushing-tail-attack.webp": {
+      "bytes": 2374,
+      "sha256": "8e6fcaec3fd9f070fa1d3cce86a60bebbec9825a4f83b98311f8450556e9b1a4"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/cryo-thorns.webp": {
+      "bytes": 2292,
+      "sha256": "b4cd9b7521c646a5d58aad3529dd2c9c6a57c684efea670506ab4ca5cc601328"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/crystal-cracker.webp": {
+      "bytes": 1648,
+      "sha256": "bec4092920c387a4a4f8faa777d10fd6751413916856078cedf24d911f0f9ebf"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/curative-bullet.webp": {
+      "bytes": 2180,
+      "sha256": "2d1b445f0463487de6e3de1fb3c0d75c03615288836f0572cc362d0f69745561"
+    },
     "extension/genshin-dialogue-ui/assets/battle/glyphs/cutting-torrent.webp": {
       "bytes": 1838,
       "sha256": "109343d68e35844f54545e25cd6b1438c36a2295e15c08c292ef0139358b4e94"
@@ -11344,6 +12312,10 @@
     "extension/genshin-dialogue-ui/assets/battle/glyphs/cyclonic-duster.webp": {
       "bytes": 2188,
       "sha256": "8dab60b016aebe9619b7863efdafc55bd1c17e6bead1cb8433e3ee1a51842a8c"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/da-plama.webp": {
+      "bytes": 2158,
+      "sha256": "69b202246f8be3bc00adbe1e24c164ff5097ba9b501cdebc3ff9fc5567167677"
     },
     "extension/genshin-dialogue-ui/assets/battle/glyphs/dance-of-abzendegi-distant-dreams-listening-spring.webp": {
       "bytes": 2680,
@@ -11389,13 +12361,33 @@
       "bytes": 2608,
       "sha256": "fd4b039f6f7424c32e4dfeea278ee0739a276715a82688d2f1915c3defc49653"
     },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/decimating-rockfall.webp": {
+      "bytes": 1996,
+      "sha256": "b09d617eca513a9af72b80fc093ef77ec1ee151f6ed499f70d7b7318ca1acf6c"
+    },
     "extension/genshin-dialogue-ui/assets/battle/glyphs/demonbane.webp": {
       "bytes": 2350,
       "sha256": "b090a277b6ec0d341fa459660d3d78fcd2630370b2f1d76f0af91ab1f77cac93"
     },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/den-of-thunder.webp": {
+      "bytes": 1778,
+      "sha256": "d16c405830ac5b3cc6c79fe7ef1f9e3aa01f055be19879fb7fe2ea0df0a23ae3"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/dendro-field.webp": {
+      "bytes": 1222,
+      "sha256": "c2f6cf0799924438356893d48e8e7cfbc46f5ba22252a73d5f50f127ce694129"
+    },
     "extension/genshin-dialogue-ui/assets/battle/glyphs/depth-clarion-dice.webp": {
       "bytes": 1768,
       "sha256": "fcf6da83c35e4bbd291c688846f4491d8c31df61d9f2205a04e9b6b42a6d3949"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/devouring-bite.webp": {
+      "bytes": 1482,
+      "sha256": "edfa9afa5bd808cc26598a25f8fe1e059c894692ce5ee4a04ab5e5055152bf68"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/divebomb.webp": {
+      "bytes": 1368,
+      "sha256": "a6b319ace26f5b3195069ac433691992785d682f2bf4ad3752e8572c343e9ed1"
     },
     "extension/genshin-dialogue-ui/assets/battle/glyphs/divine-maiden-s-deliverance.webp": {
       "bytes": 2288,
@@ -11421,6 +12413,14 @@
       "bytes": 2324,
       "sha256": "858da4897f6d18a1f6b4650627b94e56bed061ae73329def0743d062c6853fcf"
     },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/droplet-diffusion.webp": {
+      "bytes": 1684,
+      "sha256": "18cbb25059767bd2d49c65a0c35993dfcdb62174296900e30c3d33018859ff61"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/dvalin-s-cleansing.webp": {
+      "bytes": 2500,
+      "sha256": "3ff1f8c6bd7c7e287665e68ebf5e9428e49a0ab2611d7ade35cdd93bade6dfe3"
+    },
     "extension/genshin-dialogue-ui/assets/battle/glyphs/edict-of-entwined-splendor.webp": {
       "bytes": 2726,
       "sha256": "39e6223a7e1cae17ae207fa308dc2ee4afdbd922ba425e2191e6417a85eaa43d"
@@ -11429,9 +12429,41 @@
       "bytes": 2282,
       "sha256": "a9cc93a745114a800a56003275d6ca45cba0c8bd809143b7adefeada42091b66"
     },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/electro-crystal-projection.webp": {
+      "bytes": 1778,
+      "sha256": "d16c405830ac5b3cc6c79fe7ef1f9e3aa01f055be19879fb7fe2ea0df0a23ae3"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/elemental-buff-hydro.webp": {
+      "bytes": 2858,
+      "sha256": "eface639a1de15633082fa8cd05be69f87e3ce99f5a85f0a74951817915d2971"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/energy-boost-ousia.webp": {
+      "bytes": 2320,
+      "sha256": "c94c8059906fef3fef5e5efb1c633d264f93c48375f70d4f32625b5675dfe6d3"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/energy-boost-pneuma.webp": {
+      "bytes": 2318,
+      "sha256": "a9faae785418661ca264e093f56f5c9f0bb9d8d993cbcf25b0fd1d69ab2bb774"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/energy-burst-ousia.webp": {
+      "bytes": 2426,
+      "sha256": "1f8c76df73329d2e5db1f16983d5d9f0253b3e7d7fcf3b0650fc854e96f54292"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/energy-burst-pneuma.webp": {
+      "bytes": 2182,
+      "sha256": "c93abf6d1517d4010cd410c53f5055b98a24111570adbf25f0f451dd67d29eca"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/energy-surge.webp": {
+      "bytes": 2090,
+      "sha256": "80803885716d0924c7854c73f57f1b07eaa167e4899d6a9fbc7a62c5a0e182b6"
+    },
     "extension/genshin-dialogue-ui/assets/battle/glyphs/enigmatic-feint.webp": {
       "bytes": 1638,
       "sha256": "ec2ec8311169e8d1694aa0e33543c21e066ff942723a208fe97a5e75be53ee2f"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/eroded-flaming-feathers.webp": {
+      "bytes": 2032,
+      "sha256": "016d18309970ec9731b7f7ed5747740bac3d7e0f47d6db29c95db27aa450095f"
     },
     "extension/genshin-dialogue-ui/assets/battle/glyphs/eternal-tides.webp": {
       "bytes": 1736,
@@ -11441,6 +12473,10 @@
       "bytes": 1298,
       "sha256": "adc48f639005825ed2d7286286d2e3fedba47ee7e082ca48ef45edc123b4188d"
     },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/fang-bite.webp": {
+      "bytes": 2348,
+      "sha256": "5cd21f43bcac8f899803d2453ba091b19bb421a505578647242aeead9b5bdeca"
+    },
     "extension/genshin-dialogue-ui/assets/battle/glyphs/fantastic-voyage.webp": {
       "bytes": 1740,
       "sha256": "33839d641eb978f65fdf93d402003f3a3f66099c2db7b19094c7935799fc1e3a"
@@ -11448,6 +12484,10 @@
     "extension/genshin-dialogue-ui/assets/battle/glyphs/fashioner-s-tanglevine-shaft.webp": {
       "bytes": 1282,
       "sha256": "938074f521ba7e371ab0641b424675fdc0db51068c1999b905e6256cc43ec022"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/fatal-rainscreen.webp": {
+      "bytes": 1036,
+      "sha256": "3c2241ba1cf5b0ff55bb4f0cc08647b8404cfcae4aa98f778b5f17c7a38f735d"
     },
     "extension/genshin-dialogue-ui/assets/battle/glyphs/favonius-bladework-dancing-radiance.webp": {
       "bytes": 1758,
@@ -11473,6 +12513,14 @@
       "bytes": 2244,
       "sha256": "67449a8d6294dd450eb8dd2d64bb722b438319ba609b0992235f9dc63d51c242"
     },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/feather-spreading.webp": {
+      "bytes": 1792,
+      "sha256": "5636da4cc4ac52811adb46669eee790be5bdeeda0db0786be7f5df7000e4ebad"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/fierce-headbutt.webp": {
+      "bytes": 2514,
+      "sha256": "52f34ca0cd71a771ae7439ec91a81912715becc9f3a6a592293f485ac5446801"
+    },
     "extension/genshin-dialogue-ui/assets/battle/glyphs/fiery-rain.webp": {
       "bytes": 1346,
       "sha256": "79002452f9c8b734da2be2afed0ed9b4336091babf0126530a196133467a76cb"
@@ -11485,6 +12533,14 @@
       "bytes": 1850,
       "sha256": "984b4299dab409399ce85d89925fb599d9d08e5ea05e141cc1ef71b67478ef4e"
     },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/flame-of-salvation.webp": {
+      "bytes": 1682,
+      "sha256": "942c15ee5f0bcd87303c0659484e287a3e8af6c51d1126b251a23e9eee18f141"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/flamegranate-conflagration.webp": {
+      "bytes": 1964,
+      "sha256": "db37e3cb8b99c31f7671845b71c93b8759cf7adc0c7a5712bbf9e67995a67734"
+    },
     "extension/genshin-dialogue-ui/assets/battle/glyphs/flames-weave-life.webp": {
       "bytes": 1746,
       "sha256": "ba1fa2f799f72488618dfaea2a30c34ed37299a2f67d17174fd655659d873d46"
@@ -11492,6 +12548,10 @@
     "extension/genshin-dialogue-ui/assets/battle/glyphs/floral-brush.webp": {
       "bytes": 1260,
       "sha256": "c9058357f576f1669898536ee33b4621fd16a1e78fbe5a69452d08c778d601ca"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/floral-ring-caress.webp": {
+      "bytes": 2374,
+      "sha256": "8e6fcaec3fd9f070fa1d3cce86a60bebbec9825a4f83b98311f8450556e9b1a4"
     },
     "extension/genshin-dialogue-ui/assets/battle/glyphs/flowfire-blade.webp": {
       "bytes": 1514,
@@ -11505,9 +12565,17 @@
       "bytes": 1578,
       "sha256": "ca7b00b036d2e89373ca15cded57f1bec04b3f9a6354f0df5aa8212a1a78971c"
     },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/flying-fruit.webp": {
+      "bytes": 1572,
+      "sha256": "3dc01555d91591397177b67bbb063bb56af7f5d36aa107a9a519c61a1c97a8a4"
+    },
     "extension/genshin-dialogue-ui/assets/battle/glyphs/focused-fire-lightning-salvo.webp": {
       "bytes": 1710,
       "sha256": "1db0bd15fa0ba9aee2ff2f85cc76cdd76454150ec52ec4b833f191781232779c"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/fontemer-hoarthunder.webp": {
+      "bytes": 1962,
+      "sha256": "4bb2bc2c6b95a7cd38b1821abdea26330410e69bc4a195712d47175924127982"
     },
     "extension/genshin-dialogue-ui/assets/battle/glyphs/for-the-tsaritsa.webp": {
       "bytes": 2170,
@@ -11521,9 +12589,33 @@
       "bytes": 2292,
       "sha256": "b4cd9b7521c646a5d58aad3529dd2c9c6a57c684efea670506ab4ca5cc601328"
     },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/foreign-blaze.webp": {
+      "bytes": 2246,
+      "sha256": "05f9a5907287ed1035cb80b973961fb31a84f547c364c6445b1513df2718a2f3"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/foreign-fieldcleaver.webp": {
+      "bytes": 2216,
+      "sha256": "f1e92b99f800f80cc29bd136e97cfc25e03ac03124bb89bd5108d98b64748fc8"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/foreign-frostglint.webp": {
+      "bytes": 2820,
+      "sha256": "211440e2bea8432e4a2da72d8654f5043a05c08058f2ebc91716914422f3ae13"
+    },
     "extension/genshin-dialogue-ui/assets/battle/glyphs/foreign-ironwind.webp": {
       "bytes": 2244,
       "sha256": "67449a8d6294dd450eb8dd2d64bb722b438319ba609b0992235f9dc63d51c242"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/foreign-rockblade.webp": {
+      "bytes": 2254,
+      "sha256": "122aa241917eeb85fc8113580cfdd1ad751fcd0fa58aa6aef94ec0381710ef71"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/foreign-stream.webp": {
+      "bytes": 2232,
+      "sha256": "ba7e01d8e754933d96eb6329ad2b43ee48511a56b110d69ec108718e146d8b0b"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/foreign-thundershock.webp": {
+      "bytes": 2316,
+      "sha256": "494812be17003a5a179d1a5e2cfd9c30aea017e3784757e6501860cf70141bcd"
     },
     "extension/genshin-dialogue-ui/assets/battle/glyphs/formule-phenomenale-differential-analysis.webp": {
       "bytes": 1862,
@@ -11545,9 +12637,45 @@
       "bytes": 1986,
       "sha256": "ea01abe88e23953686f67796e2f11069426291180511c922a1a3bf988b8beb89"
     },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/framing-freezing-point-composition.webp": {
+      "bytes": 1814,
+      "sha256": "29b5e50833a8899f4b98885eb82589f722f24443ebce67c7a0350a9a7335c927"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/freezing-spray.webp": {
+      "bytes": 2090,
+      "sha256": "24cf45ba7bff6eade86232082f7e667c89bfffb6921ad0b0c51728710c39e63b"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/frigid-spray.webp": {
+      "bytes": 2322,
+      "sha256": "0e006b579df4b9d0b84ab335062fb298ddc6f0282ced2932cb388c2c1cb1c5ec"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/frost-cannon.webp": {
+      "bytes": 3014,
+      "sha256": "f91a2972cd30acc34af24a65bb35e92616a4e9077df3b4ad7c5ddecbf01ed9f4"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/frostblade-hailstorm.webp": {
+      "bytes": 2292,
+      "sha256": "b4cd9b7521c646a5d58aad3529dd2c9c6a57c684efea670506ab4ca5cc601328"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/frostdrift-offering.webp": {
+      "bytes": 1992,
+      "sha256": "7e40d1d4d6befef0b9aef9877672034a5364d2f46afd292c18c83ba600f892aa"
+    },
     "extension/genshin-dialogue-ui/assets/battle/glyphs/frostgnaw.webp": {
       "bytes": 1772,
       "sha256": "a28aaa0072a57f4c855d005ed18faafef26f2f21550c59c4138f8672b18037ab"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/frostspike-wave.webp": {
+      "bytes": 2472,
+      "sha256": "48c21d7185c02e6883f8e0a014a9a5bd21e9ad15f6990bdbc267c7263b352df7"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/frosty-assault.webp": {
+      "bytes": 2226,
+      "sha256": "2c5f7b4de8e939b50d3dc7a30b9d37221032d805b72e4d007330dc29e8d4700c"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/frosty-interjection.webp": {
+      "bytes": 1996,
+      "sha256": "692c1c6e6ed982d74243ad2dcfdec36321718d44d754040b714dee7f01c5991f"
     },
     "extension/genshin-dialogue-ui/assets/battle/glyphs/frozen-wilds.webp": {
       "bytes": 2068,
@@ -11561,9 +12689,17 @@
       "bytes": 1016,
       "sha256": "bf571fa978b7814ed31f17b0d5c31aaa1f03287596255a6854a6936182b6419c"
     },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/galeforce-shock.webp": {
+      "bytes": 1384,
+      "sha256": "a1209ed6c305b3c86fdf5c92b2c2cf1cef6fd03ee3d51cdb54411986f8728624"
+    },
     "extension/genshin-dialogue-ui/assets/battle/glyphs/garyuu-bladework.webp": {
       "bytes": 2244,
       "sha256": "67449a8d6294dd450eb8dd2d64bb722b438319ba609b0992235f9dc63d51c242"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/geocrystal-beam.webp": {
+      "bytes": 1856,
+      "sha256": "89855e8eb2cc15ef04858067902825bd044f5c64e17d40215deaf857c4c95112"
     },
     "extension/genshin-dialogue-ui/assets/battle/glyphs/glacial-illumination.webp": {
       "bytes": 2278,
@@ -11585,9 +12721,37 @@
       "bytes": 2282,
       "sha256": "a9cc93a745114a800a56003275d6ca45cba0c8bd809143b7adefeada42091b66"
     },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/golden-cankerbind.webp": {
+      "bytes": 2078,
+      "sha256": "fac9cc0ea5ee683b33d0844cbb40b9a123888a75a1c54f2385c64ee7b12135a2"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/goldflame-detonation.webp": {
+      "bytes": 2058,
+      "sha256": "1a343066139222f9d20f95949d0d8badffbca74596243a55b88429d755c75fa4"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/gravity-application-crush.webp": {
+      "bytes": 2410,
+      "sha256": "b57ea729477a3a26f9d3ce0d319aadfcd63cc25fe7b2b97cbcce78b456937928"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/gravity-application-field-reduction.webp": {
+      "bytes": 1450,
+      "sha256": "aba1a342283573187ddd9a4466c23df222a52ca195a0a027ade8055b078eeeb8"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/gravity-application-point-null.webp": {
+      "bytes": 1658,
+      "sha256": "47afb14d845462333f17637df2461163943ece44ad7e29daded7edc0e8aacfce"
+    },
     "extension/genshin-dialogue-ui/assets/battle/glyphs/great-secret-art-tenko-kenshin.webp": {
       "bytes": 1892,
       "sha256": "bf10550f3890fe92897f1a557624c9e9e5a3b91a7ea769c0019a7fdabfb36ebf"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/greataxe-smash.webp": {
+      "bytes": 2004,
+      "sha256": "f278381506ee5349bb9bcfb3b3ab8172ddb93850acb00b726c454bdf9457ea98"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/guard-stance.webp": {
+      "bytes": 1944,
+      "sha256": "cbacf889aee9d83f1b5dbfed2da7229026812677d0138d860f37c34f80e3eef7"
     },
     "extension/genshin-dialogue-ui/assets/battle/glyphs/guard-tactics-sword-and-shield.webp": {
       "bytes": 2340,
@@ -11629,9 +12793,17 @@
       "bytes": 1998,
       "sha256": "0fdb1c7094329340ed9c389f65929021282503f1ea398e0ce5d0cfb99632b423"
     },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/half-sword-technique.webp": {
+      "bytes": 2342,
+      "sha256": "5ac9cacec035e7cea2d5ed9ef6e89bd42b43b16e61ff055a94093bd1dc1e498a"
+    },
     "extension/genshin-dialogue-ui/assets/battle/glyphs/hanega-song-of-the-wind.webp": {
       "bytes": 1096,
       "sha256": "2b8006ce24ab3c845a7a37deb97c0c942a1182e7bc5a1467ed2a9120d06d5d5b"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/havoc-extinction.webp": {
+      "bytes": 2302,
+      "sha256": "2bcccb304787df875aa6b90824ba8fd7d5598c3a92c56f71b37816f69ab419e1"
     },
     "extension/genshin-dialogue-ui/assets/battle/glyphs/havoc-obliteration.webp": {
       "bytes": 1438,
@@ -11661,6 +12833,10 @@
       "bytes": 1684,
       "sha256": "fefd91cf3c547755f8e60a4ab7ceaf632f5da58bd497758ee766c50f972e160a"
     },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/hit-and-run.webp": {
+      "bytes": 1798,
+      "sha256": "62a578b30c059d941c2b6b5a48c27c7fa11ce912dfc90051affdd7b012457a82"
+    },
     "extension/genshin-dialogue-ui/assets/battle/glyphs/hiyoku-twin-blades.webp": {
       "bytes": 2386,
       "sha256": "281388050c33307d99fa8e72413145a3b4ac6f33607a249b33bd212fa50059a2"
@@ -11673,6 +12849,10 @@
       "bytes": 2134,
       "sha256": "5fe78e0f08490dfea51b28b7840fbcf0477f0fc60480bb8aae5f9dd6308afc5a"
     },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/howling-riftcall.webp": {
+      "bytes": 1926,
+      "sha256": "b20ead9faf5e59847d4d10be0bbc0c597b2c91d359b5624d9919a5bb566e699d"
+    },
     "extension/genshin-dialogue-ui/assets/battle/glyphs/hunter-s-advance.webp": {
       "bytes": 1570,
       "sha256": "80ccf4e763e1ddd62a2aa174f98412aa1b64065c765e8b015982ceb5ffd72e2a"
@@ -11681,13 +12861,33 @@
       "bytes": 2060,
       "sha256": "16fb75059a72e1c8e5b99a7b8558bcc08cfb0d40eb9f7b9d8c54964becb0dade"
     },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/hurtling-bolts.webp": {
+      "bytes": 1778,
+      "sha256": "d16c405830ac5b3cc6c79fe7ef1f9e3aa01f055be19879fb7fe2ea0df0a23ae3"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/ice-arrow.webp": {
+      "bytes": 2342,
+      "sha256": "4e23ad9504981bc6dbf571450d9c11083053de9520bb296e967c6cd1d85c3de1"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/ice-ring-waltz.webp": {
+      "bytes": 2526,
+      "sha256": "0ff6eacc0a98a132002d161473c269d9c676c04bb87bd83fab987911757c12eb"
+    },
     "extension/genshin-dialogue-ui/assets/battle/glyphs/icefang-rush.webp": {
       "bytes": 1932,
       "sha256": "7261ee14f61261c218c9157b01f545ff4e072405d0bd84e7674363d42344db32"
     },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/icespike-shot.webp": {
+      "bytes": 2292,
+      "sha256": "b4cd9b7521c646a5d58aad3529dd2c9c6a57c684efea670506ab4ca5cc601328"
+    },
     "extension/genshin-dialogue-ui/assets/battle/glyphs/icetide-vortex.webp": {
       "bytes": 1852,
       "sha256": "ff06e54fb423094ee60da00f5c3272b845f1fdd110261114d63ef5374b287773"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/ichimonji.webp": {
+      "bytes": 2342,
+      "sha256": "5ac9cacec035e7cea2d5ed9ef6e89bd42b43b16e61ff055a94093bd1dc1e498a"
     },
     "extension/genshin-dialogue-ui/assets/battle/glyphs/icy-paws.webp": {
       "bytes": 1738,
@@ -11700,6 +12900,10 @@
     "extension/genshin-dialogue-ui/assets/battle/glyphs/immersive-ordinance.webp": {
       "bytes": 1074,
       "sha256": "cb1507c0fcb79b81c7c9e9e41c8fd9d38992c2357d2abae802b770c8e33fcc44"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/influx-blast.webp": {
+      "bytes": 1330,
+      "sha256": "53b66360f6c3b43c486ac79e6bd83ffb3e30c9e1aac7b8487db14f021352090f"
     },
     "extension/genshin-dialogue-ui/assets/battle/glyphs/inuzaka-all-round-defense.webp": {
       "bytes": 946,
@@ -11716,6 +12920,10 @@
     "extension/genshin-dialogue-ui/assets/battle/glyphs/jade-screen.webp": {
       "bytes": 1492,
       "sha256": "85c48e662262b6401064d0e139807b8c487aae2ef5f067067623488054b5d19b"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/jumping-slam.webp": {
+      "bytes": 1664,
+      "sha256": "899cf5fea9b884593c9229cf333709c2123db400d71e26903e5b1746588f9343"
     },
     "extension/genshin-dialogue-ui/assets/battle/glyphs/jumpy-dumpty.webp": {
       "bytes": 1228,
@@ -11781,9 +12989,25 @@
       "bytes": 1698,
       "sha256": "9219a9d31cabfd5280dc963f75fad2fd13c0f7f8b91774d453ef89586a89f59c"
     },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/lacerating-slash.webp": {
+      "bytes": 2342,
+      "sha256": "5ac9cacec035e7cea2d5ed9ef6e89bd42b43b16e61ff055a94093bd1dc1e498a"
+    },
     "extension/genshin-dialogue-ui/assets/battle/glyphs/last-lightfall.webp": {
       "bytes": 1778,
       "sha256": "3d4d9d8fcb67eacc8e3fb37d4049f03928e35889ef1d03825dc2a849a52eb9c0"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/launch-grenade.webp": {
+      "bytes": 2384,
+      "sha256": "3e7b6301c5ef10e4173c08423921d7eda45be62a2dd8560175d0519adcf4c59c"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/leap-attack.webp": {
+      "bytes": 1698,
+      "sha256": "6a16ecd9153227e58c211d62fac7ff0da9dbc4e442be78c5da55b455057a1416"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/leaping-thunder.webp": {
+      "bytes": 2004,
+      "sha256": "f278381506ee5349bb9bcfb3b3ab8172ddb93850acb00b726c454bdf9457ea98"
     },
     "extension/genshin-dialogue-ui/assets/battle/glyphs/lemniscatic-wind-cycling.webp": {
       "bytes": 1038,
@@ -11801,6 +13025,10 @@
       "bytes": 1026,
       "sha256": "b50282abddb598be28c85e50cbc8f4a911cb38963d322a7c07b7f1c3e9718724"
     },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/life-stream.webp": {
+      "bytes": 2058,
+      "sha256": "ef771aff272280582fcd660c97c9bf4cd85569f02fa6af29ece4e89453f99179"
+    },
     "extension/genshin-dialogue-ui/assets/battle/glyphs/lightning-blade.webp": {
       "bytes": 1446,
       "sha256": "2143ee0b1da5d63aea7b3f74b61127bfdcd17c4e954c8923670ed0a1de7a86e6"
@@ -11808,6 +13036,14 @@
     "extension/genshin-dialogue-ui/assets/battle/glyphs/lightning-fang.webp": {
       "bytes": 1798,
       "sha256": "e15b8cde8262322d7ae29298b347a9283edf73e8f12d236de99670194406ada1"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/lightning-lockdown.webp": {
+      "bytes": 1654,
+      "sha256": "a1f7d0e1d7cddb5ab474af4241a7cff3504c8220a8f3fe32c81a9c2733758f64"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/lightning-raid.webp": {
+      "bytes": 1470,
+      "sha256": "bd63d73ffeaea6ef927f1633d125089253499cd579b505386a47800ac416ba4c"
     },
     "extension/genshin-dialogue-ui/assets/battle/glyphs/lightning-rose.webp": {
       "bytes": 1960,
@@ -11825,6 +13061,10 @@
       "bytes": 908,
       "sha256": "bdab38bf63f489cfe863a2fb0512974d8c4fa2221de9661193404d9d5625c525"
     },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/lingering-light.webp": {
+      "bytes": 1410,
+      "sha256": "2bfdc770e78858460164b01ad84dd4762eb07743c623bd09cf5fe929ef10112f"
+    },
     "extension/genshin-dialogue-ui/assets/battle/glyphs/liutian-archery.webp": {
       "bytes": 2342,
       "sha256": "4e23ad9504981bc6dbf571450d9c11083053de9520bb296e967c6cd1d85c3de1"
@@ -11841,6 +13081,10 @@
       "bytes": 2634,
       "sha256": "49811e8cc2dcb4a5118cb047c6467cee6b41d552ac45b993db266a72e7cfe55e"
     },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/majestic-dance.webp": {
+      "bytes": 2374,
+      "sha256": "8e6fcaec3fd9f070fa1d3cce86a60bebbec9825a4f83b98311f8450556e9b1a4"
+    },
     "extension/genshin-dialogue-ui/assets/battle/glyphs/manifest-judgment.webp": {
       "bytes": 2264,
       "sha256": "ab242aec1896d0172685370e85789b1bd6db91a5efee17fe6acafa2a4ef8f164"
@@ -11852,6 +13096,10 @@
     "extension/genshin-dialogue-ui/assets/battle/glyphs/masatsu-zetsugi-akaushi-burst.webp": {
       "bytes": 1768,
       "sha256": "af0ef540930cefbd1061dcbe458137b11accd855f8ae66e11a28f0b034988d8e"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/mechanical-thunderbow.webp": {
+      "bytes": 1700,
+      "sha256": "1539add2805692e9bda800447e70112e9b29269bee725419f3483513e0ad9c4d"
     },
     "extension/genshin-dialogue-ui/assets/battle/glyphs/memo-survival-guide-in-extreme-conditions.webp": {
       "bytes": 1572,
@@ -11869,6 +13117,10 @@
       "bytes": 1308,
       "sha256": "7413e5acf2546b46760d65d1200f1259547aed0b2795e83565125ec305e4f425"
     },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/misty-call.webp": {
+      "bytes": 1618,
+      "sha256": "46fe78ce0c1f95aec1732fa3e84c3b777107c28ef41f4ceec0f67c509d8c3e29"
+    },
     "extension/genshin-dialogue-ui/assets/battle/glyphs/molten-inferno.webp": {
       "bytes": 1146,
       "sha256": "56ddae987d91697801f1eb856f95bf1f7411ce6f4b061cec788507cf3c1842b2"
@@ -11884,6 +13136,18 @@
     "extension/genshin-dialogue-ui/assets/battle/glyphs/moonlit-melancholy.webp": {
       "bytes": 2518,
       "sha256": "7d90ac72cfaff31a4b8f7be9c4ee73858376e80eda76c58bad05cf7a0a9ee6aa"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/movo-lawa.webp": {
+      "bytes": 1564,
+      "sha256": "1dae6c099fe3e42db16e0f26b5262bf6e4a7d98ccb492d1076545b9e6dfaf755"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/multi-smash.webp": {
+      "bytes": 2128,
+      "sha256": "67f86a7924d4228ffd461963c3fa7e2de96658082ccc67ce806dda189fda7a4c"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/multishot.webp": {
+      "bytes": 1482,
+      "sha256": "94f4ad156f46e1d8eb04d226dcf3715e9edb75b801a532ec5e5dfa0d1ff971e0"
     },
     "extension/genshin-dialogue-ui/assets/battle/glyphs/musecatcher.webp": {
       "bytes": 1630,
@@ -11937,9 +13201,21 @@
       "bytes": 1886,
       "sha256": "e3362f270ba0200443222218265520806068ffa08b79122dc53879acdda8491d"
     },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/oceanid-mimic-summoning.webp": {
+      "bytes": 1548,
+      "sha256": "a8132639f3f3f0fa7f9457307f6ca5a635c112421cb9285fd598586493158fb2"
+    },
     "extension/genshin-dialogue-ui/assets/battle/glyphs/ocelotlicue-point.webp": {
       "bytes": 2484,
       "sha256": "16d86fac332b70f025dc97f8c292634f8a46ee455e2c3adc3f03ff5100f8b976"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/ominous-spirit-unleashed-geo.webp": {
+      "bytes": 1822,
+      "sha256": "45bd47e520ee3ff4c103ee4c3185c1bb1659751e99f5e39ddbbecfdaf8870dc0"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/ominous-star.webp": {
+      "bytes": 2198,
+      "sha256": "e8c3849d3811198f0b85c6d566e3016a2c501fd8e37bd029f770945044941f2f"
     },
     "extension/genshin-dialogue-ui/assets/battle/glyphs/opening-flourish.webp": {
       "bytes": 1366,
@@ -11948,6 +13224,10 @@
     "extension/genshin-dialogue-ui/assets/battle/glyphs/origin.webp": {
       "bytes": 2188,
       "sha256": "8dab60b016aebe9619b7863efdafc55bd1c17e6bead1cb8433e3ee1a51842a8c"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/overflow.webp": {
+      "bytes": 1764,
+      "sha256": "79069142b9518cc0403ec2172ce5c5c684eb246fc2b18fe49e77cd2481950e80"
     },
     "extension/genshin-dialogue-ui/assets/battle/glyphs/painted-dome.webp": {
       "bytes": 2486,
@@ -11977,21 +13257,45 @@
       "bytes": 1836,
       "sha256": "25e28ca9d78f54d5c609bebaa37a76f5369565be5af96980d82a6449169b8b38"
     },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/piercing-blow.webp": {
+      "bytes": 2518,
+      "sha256": "509d30ee7409a77059bc69d5be79f252abf2f182f9729dc37c51d44a75b9946b"
+    },
     "extension/genshin-dialogue-ui/assets/battle/glyphs/plains-scorcher.webp": {
       "bytes": 1744,
       "sha256": "3af45a6c64728c7360870f0b5aa93a101c703c17e0b15c201843a8d3d095360e"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/plama-lawa.webp": {
+      "bytes": 2410,
+      "sha256": "b57ea729477a3a26f9d3ce0d319aadfcd63cc25fe7b2b97cbcce78b456937928"
     },
     "extension/genshin-dialogue-ui/assets/battle/glyphs/planet-befall.webp": {
       "bytes": 1718,
       "sha256": "69fdf3d37e241a2f013c6a7948d5dfc83b04f611523440237b4ccaaa67bbf878"
     },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/plata-plama.webp": {
+      "bytes": 2918,
+      "sha256": "9df2f81de36eaf727e92943fe7aa185f38d4df747e0f71a4bf680d69594629ec"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/plunging-ice-shards.webp": {
+      "bytes": 2442,
+      "sha256": "be6abcd5472c1ab6ca8ea7e41393959aec6f9a894339a8567a3e6f0237d1480f"
+    },
     "extension/genshin-dialogue-ui/assets/battle/glyphs/pocztowy-demonspear.webp": {
       "bytes": 2188,
       "sha256": "8dab60b016aebe9619b7863efdafc55bd1c17e6bead1cb8433e3ee1a51842a8c"
     },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/prayer-to-the-winds.webp": {
+      "bytes": 1510,
+      "sha256": "7bd86ff8df0dc358fee668a3d8105a5707dcde9956f02ad82ad233dee52dae98"
+    },
     "extension/genshin-dialogue-ui/assets/battle/glyphs/precision-hydronic-cooler.webp": {
       "bytes": 2438,
       "sha256": "e73ec81f1f0e1e89473fd4688333118fe39e7356fffcfc5c4b55df9eaebf818f"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/precision-shot.webp": {
+      "bytes": 2374,
+      "sha256": "8e6fcaec3fd9f070fa1d3cce86a60bebbec9825a4f83b98311f8450556e9b1a4"
     },
     "extension/genshin-dialogue-ui/assets/battle/glyphs/pressurized-floe.webp": {
       "bytes": 1602,
@@ -12013,6 +13317,10 @@
       "bytes": 2486,
       "sha256": "16d26853b515e610b4ede5b44314332ef9adc6c33f7327bec982235977b3eec2"
     },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/pseudo-tengu-sweeper.webp": {
+      "bytes": 2068,
+      "sha256": "4da6812bb87fbff94555c3156c5f4f1f328addc78538f5094e84aed126be7e4b"
+    },
     "extension/genshin-dialogue-ui/assets/battle/glyphs/psyshkhwe-arietta.webp": {
       "bytes": 1684,
       "sha256": "18cbb25059767bd2d49c65a0c35993dfcdb62174296900e30c3d33018859ff61"
@@ -12021,9 +13329,17 @@
       "bytes": 1674,
       "sha256": "d6272734122dc6cf8e38a14feb5d7e14bfe882729f2b4465f4b27be75d7f1b70"
     },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/pursuer-s-mark.webp": {
+      "bytes": 1494,
+      "sha256": "191fa0f52864962b35cec3187ef95fcb74dec9b68b68e4472d6fe2e9fc1893d8"
+    },
     "extension/genshin-dialogue-ui/assets/battle/glyphs/pyronado.webp": {
       "bytes": 1500,
       "sha256": "19f2ef6cb6031db563bfa381a64408f9a659f6c532d5e1361421126b8222f460"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/radiance-in-flux.webp": {
+      "bytes": 2454,
+      "sha256": "97fb8bcf3c7a72090e844b6cef4668b0afaca70a1a8e77947a78e08aa86a8800"
     },
     "extension/genshin-dialogue-ui/assets/battle/glyphs/radiant-psalter.webp": {
       "bytes": 2168,
@@ -12033,9 +13349,21 @@
       "bytes": 2276,
       "sha256": "69dfe3f3c66df621dc2a9431b2b5ffa8473fe3c0ba9178a92e17de5e4acc1f58"
     },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/raging-charge.webp": {
+      "bytes": 2464,
+      "sha256": "04cb0b8c56ffc061e63be83a0099d0c37e77a54956ff2a4de28852c77061d0dd"
+    },
     "extension/genshin-dialogue-ui/assets/battle/glyphs/rain-of-stone.webp": {
       "bytes": 2072,
       "sha256": "ceadd1b147ee55e5bd6c26f132be5ac44cc8c204fc90e15a1c1f9a8a9a25f8c3"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/raincutter.webp": {
+      "bytes": 1726,
+      "sha256": "229cd8258be3ce2ed87dbba5a424cafb60a9e02681af09ca9e14513781832ffa"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/ram.webp": {
+      "bytes": 2918,
+      "sha256": "9df2f81de36eaf727e92943fe7aa185f38d4df747e0f71a4bf680d69594629ec"
     },
     "extension/genshin-dialogue-ui/assets/battle/glyphs/raphanus-sky-cluster.webp": {
       "bytes": 1456,
@@ -12045,6 +13373,14 @@
       "bytes": 2342,
       "sha256": "4e23ad9504981bc6dbf571450d9c11083053de9520bb296e967c6cd1d85c3de1"
     },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/rapid-hammer-strike.webp": {
+      "bytes": 2518,
+      "sha256": "509d30ee7409a77059bc69d5be79f252abf2f182f9729dc37c51d44a75b9946b"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/rapid-melee.webp": {
+      "bytes": 2518,
+      "sha256": "509d30ee7409a77059bc69d5be79f252abf2f182f9729dc37c51d44a75b9946b"
+    },
     "extension/genshin-dialogue-ui/assets/battle/glyphs/rapid-ritesword.webp": {
       "bytes": 2244,
       "sha256": "67449a8d6294dd450eb8dd2d64bb722b438319ba609b0992235f9dc63d51c242"
@@ -12052,6 +13388,10 @@
     "extension/genshin-dialogue-ui/assets/battle/glyphs/ravaging-confession.webp": {
       "bytes": 1938,
       "sha256": "160dde35d09b7188a4f7d1fbdea76f97b9ef6f5247b3088ae8aeea903486207b"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/ravaging-devourer.webp": {
+      "bytes": 2324,
+      "sha256": "877771c9a85ea8eece1de208d8d00a37305d7f7bda591051a74cd2faf37f532f"
     },
     "extension/genshin-dialogue-ui/assets/battle/glyphs/razorgrass-blade.webp": {
       "bytes": 1468,
@@ -12064,6 +13404,10 @@
     "extension/genshin-dialogue-ui/assets/battle/glyphs/rechitativ-sonorous-dawn.webp": {
       "bytes": 1292,
       "sha256": "5d7a975c9b408ee127acb6f9c30973d992d5d9f06a77b23d69fbf52de63a8fd2"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/reptilian-rage.webp": {
+      "bytes": 1496,
+      "sha256": "5ace44cca61756d4ed1f729e7b81b9e9061eb8fd57b2efe74f7065601c36a319"
     },
     "extension/genshin-dialogue-ui/assets/battle/glyphs/revelation-ladder-of-divine-ascent.webp": {
       "bytes": 2270,
@@ -12081,6 +13425,10 @@
       "bytes": 1792,
       "sha256": "6db4a1ec313d01d581db279511d1a82869fe01de11c58c1552d34348c1dbbe5f"
     },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/rimestorm-rite.webp": {
+      "bytes": 1546,
+      "sha256": "fd4d407412ac3b68ed4f3e911b8bbb19e991e87915696a28b56c0b8066462072"
+    },
     "extension/genshin-dialogue-ui/assets/battle/glyphs/ring-a-ding-ding-hexhunter-chime.webp": {
       "bytes": 1870,
       "sha256": "8d22512ffb0f3af6f128d3a4480df3a61e2b354712ad8b02ac6d4feb17c7e2f4"
@@ -12097,6 +13445,22 @@
       "bytes": 1684,
       "sha256": "18cbb25059767bd2d49c65a0c35993dfcdb62174296900e30c3d33018859ff61"
     },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/rippled-reflection.webp": {
+      "bytes": 1748,
+      "sha256": "67f96b13dcaef7a27a66fb26a56ecc04eab4c25e7e601306aa223cda1b854e0a"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/rippling-slash.webp": {
+      "bytes": 2348,
+      "sha256": "5cd21f43bcac8f899803d2453ba091b19bb421a505578647242aeead9b5bdeca"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/rising-scorchwind.webp": {
+      "bytes": 1962,
+      "sha256": "3036191205ce6703f3308f1c92b24cccc2c5de2021dd1dde6fc892fd2218376a"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/rising-slash.webp": {
+      "bytes": 1286,
+      "sha256": "014e8b99c733ba421e3649deff7844a82b922de699f9bbd7f169f6e240a5e93e"
+    },
     "extension/genshin-dialogue-ui/assets/battle/glyphs/rising-waters.webp": {
       "bytes": 2346,
       "sha256": "55907db14f5fd70e0728f8663166e1c4208a4ff0d41f17cefe7ff405882508ff"
@@ -12105,13 +13469,37 @@
       "bytes": 1674,
       "sha256": "d6272734122dc6cf8e38a14feb5d7e14bfe882729f2b4465f4b27be75d7f1b70"
     },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/rite-of-mortal-water.webp": {
+      "bytes": 1818,
+      "sha256": "89adbb92d53f935c97de1903082b7e178880cb1214b8b6832f1a294bc03b9be9"
+    },
     "extension/genshin-dialogue-ui/assets/battle/glyphs/rite-of-progeniture-tectonic-tide.webp": {
       "bytes": 1740,
       "sha256": "2750f24fbd04e81f39a0808c7572fc01d3689ab105ab8bdff2541927d121336a"
     },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/rite-of-rolling-thunder.webp": {
+      "bytes": 1924,
+      "sha256": "2ebc1bb511fe95577c3fe60198aba892602855541b039f718252f180c2a0b627"
+    },
     "extension/genshin-dialogue-ui/assets/battle/glyphs/rites-of-termination.webp": {
       "bytes": 2600,
       "sha256": "7747876dba94c9c8920defb6fed9712c7943dc0f8b4da7640670639573ea454c"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/roasted-nectar-burst.webp": {
+      "bytes": 1810,
+      "sha256": "b66cdc02657c1e286af69d9956db367ea3b93b08376561b47d932ea41dc276d3"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/rock-paper-scissors-combo.webp": {
+      "bytes": 1666,
+      "sha256": "6f4f8d880eda3d9184d315e6d29dd80f55403613db09895cf9cdaba2b74536f0"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/rock-projectile.webp": {
+      "bytes": 1702,
+      "sha256": "577f692b75c24b70fe0cf44365d51b82502642c065f5914ce2ed6ca280a4424d"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/rolling-spray.webp": {
+      "bytes": 1588,
+      "sha256": "1bcd96f577ae8fed7b38b399d1e7b756da09b49ebce15f921107675d6dcc688f"
     },
     "extension/genshin-dialogue-ui/assets/battle/glyphs/royal-descent-behold-itto-the-evil.webp": {
       "bytes": 2200,
@@ -12161,25 +13549,61 @@
       "bytes": 1746,
       "sha256": "ba1fa2f799f72488618dfaea2a30c34ed37299a2f67d17174fd655659d873d46"
     },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/savage-swell.webp": {
+      "bytes": 1684,
+      "sha256": "18cbb25059767bd2d49c65a0c35993dfcdb62174296900e30c3d33018859ff61"
+    },
     "extension/genshin-dialogue-ui/assets/battle/glyphs/savvy-strategy-splitting-the-spoils.webp": {
       "bytes": 1436,
       "sha256": "f839f2f6c67f43941c6c5ac57fbc128fc0ef39dedaac572e1c430513a1daf364"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/saw-toothed-surge.webp": {
+      "bytes": 1516,
+      "sha256": "a344eaf8fbc07a45058c25c5adccf066b13669994c5371612da6d2cf18b12f77"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/scattershot-vortex.webp": {
+      "bytes": 2210,
+      "sha256": "ed99a049abb037401692a15384a7fc4fff952c487dbb848c97fbc3eefec2d95e"
     },
     "extension/genshin-dialogue-ui/assets/battle/glyphs/schematic-setup.webp": {
       "bytes": 1786,
       "sha256": "ab3348085da1cf112190ee640e232c617518c375a5728bc2a0e98f3b66cb0f5f"
     },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/scorching-combo.webp": {
+      "bytes": 2400,
+      "sha256": "1c5df6791a6e3930ae6c97bcdf54d460933ff4dfeb42e00ae0045130de3f5863"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/scorching-leaves.webp": {
+      "bytes": 1664,
+      "sha256": "d24a73731088a7778e27e93308be0cad588b34921ea7d47cff557133e3f855bc"
+    },
     "extension/genshin-dialogue-ui/assets/battle/glyphs/scoring-cuts.webp": {
       "bytes": 2546,
       "sha256": "fbf56ad73b9da8aeab812f17a1f42bf0af4f07bb41b1082f6772af3fbe31dea7"
     },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/scorpion-strike.webp": {
+      "bytes": 2518,
+      "sha256": "509d30ee7409a77059bc69d5be79f252abf2f182f9729dc37c51d44a75b9946b"
+    },
     "extension/genshin-dialogue-ui/assets/battle/glyphs/seal-of-approval.webp": {
+      "bytes": 1682,
+      "sha256": "942c15ee5f0bcd87303c0659484e287a3e8af6c51d1126b251a23e9eee18f141"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/searing-blast.webp": {
+      "bytes": 1810,
+      "sha256": "b66cdc02657c1e286af69d9956db367ea3b93b08376561b47d932ea41dc276d3"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/searing-glare.webp": {
       "bytes": 1682,
       "sha256": "942c15ee5f0bcd87303c0659484e287a3e8af6c51d1126b251a23e9eee18f141"
     },
     "extension/genshin-dialogue-ui/assets/battle/glyphs/searing-onslaught.webp": {
       "bytes": 1030,
       "sha256": "43e62badff0b4c609d800d87de35e2a1f3f2ccea26b75b41fe52988eab94b1f8"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/searing-precept.webp": {
+      "bytes": 1618,
+      "sha256": "368de8fafa7d1f039d3a22e765857cec03a0f2f8b61749e7b32ef0b6088e560c"
     },
     "extension/genshin-dialogue-ui/assets/battle/glyphs/secret-art-musou-shinsetsu.webp": {
       "bytes": 2266,
@@ -12205,6 +13629,10 @@
       "bytes": 1628,
       "sha256": "02135f5462e571f0e856b93052932183c5dee28264205f281ba39db357752bfb"
     },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/severing-primal-fire.webp": {
+      "bytes": 1792,
+      "sha256": "f328357673fa8eab02d2f657755ad2225f0e6ee8cd63cdeaa110a688471aa3e0"
+    },
     "extension/genshin-dialogue-ui/assets/battle/glyphs/shadow-hunting-spear-custom.webp": {
       "bytes": 2080,
       "sha256": "f1eb05d0afecefcfa48d673010fd3ce20cba91a5d78555db6e2782cfcae6f3ed"
@@ -12225,6 +13653,22 @@
       "bytes": 1850,
       "sha256": "984b4299dab409399ce85d89925fb599d9d08e5ea05e141cc1ef71b67478ef4e"
     },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/shatterclamp-strike.webp": {
+      "bytes": 2514,
+      "sha256": "52f34ca0cd71a771ae7439ec91a81912715becc9f3a6a592293f485ac5446801"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/shattering-waves.webp": {
+      "bytes": 2348,
+      "sha256": "5cd21f43bcac8f899803d2453ba091b19bb421a505578647242aeead9b5bdeca"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/shield-riposte.webp": {
+      "bytes": 2014,
+      "sha256": "0c709f8c5dffa10515243d596f24c0e225e1fdf3ab93c7b87fe756cfaf2e5995"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/shield-sweep.webp": {
+      "bytes": 1980,
+      "sha256": "e43e8de3579cbd44275adf970d586bc37e1f8871eef0ab591d7b707406eca1d0"
+    },
     "extension/genshin-dialogue-ui/assets/battle/glyphs/shining-miracle.webp": {
       "bytes": 1432,
       "sha256": "6005e5597404d72ba064ae077afbcacadd3cc7fc5f71b7f1086e4e06c2628117"
@@ -12233,9 +13677,21 @@
       "bytes": 2340,
       "sha256": "6946bcdf32a0a82e730bf6c73ccb62ff806fd8ac20ca0aaf0ce3d7289187454c"
     },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/shock-of-the-enigmatic-abyss.webp": {
+      "bytes": 1772,
+      "sha256": "cb01a48d35b110519cfa9a0e848d8e02fe864a39e1e5e9cd67863402e0a920ea"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/shockwave-smash.webp": {
+      "bytes": 2440,
+      "sha256": "11f5a00d0f926a9a9dea5eb7e77b5a90bb86e460e5a58e0c9d47f2adb562f714"
+    },
     "extension/genshin-dialogue-ui/assets/battle/glyphs/short-range-rapid-interdiction-fire.webp": {
       "bytes": 1034,
       "sha256": "6284c2c54cd142550b689710cc8f042edd553ea9116553a4772b34047d56363d"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/short-range-snap-fire.webp": {
+      "bytes": 2514,
+      "sha256": "52f34ca0cd71a771ae7439ec91a81912715becc9f3a6a592293f485ac5446801"
     },
     "extension/genshin-dialogue-ui/assets/battle/glyphs/shuumatsuban-ninja-blade.webp": {
       "bytes": 1758,
@@ -12249,6 +13705,14 @@
       "bytes": 1462,
       "sha256": "a24696c8e1b3a45932895c63302f15aeb5c1ab94f5800aaf6b50f73633288f6c"
     },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/siphon-wave.webp": {
+      "bytes": 1510,
+      "sha256": "3da3361d436714105bbecefca16ed5fd0fad6ea944ff88b899919a2f431af69d"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/skilled-charge.webp": {
+      "bytes": 2348,
+      "sha256": "5cd21f43bcac8f899803d2453ba091b19bb421a505578647242aeead9b5bdeca"
+    },
     "extension/genshin-dialogue-ui/assets/battle/glyphs/skirmishing-spear.webp": {
       "bytes": 2188,
       "sha256": "8dab60b016aebe9619b7863efdafc55bd1c17e6bead1cb8433e3ee1a51842a8c"
@@ -12260,6 +13724,10 @@
     "extension/genshin-dialogue-ui/assets/battle/glyphs/skyward-sonnet.webp": {
       "bytes": 1064,
       "sha256": "e22c0d2e3f0192615642bbe67c617aaffcd7c7447c7d0f33b011785ca1da8cd5"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/slash-of-surging-tides.webp": {
+      "bytes": 1384,
+      "sha256": "abbcc86c61a5b031307bfb9153649ef2b983c5f9f684760f6893d080f3ebc254"
     },
     "extension/genshin-dialogue-ui/assets/battle/glyphs/snow-swan-variation.webp": {
       "bytes": 2732,
@@ -12293,6 +13761,18 @@
       "bytes": 2608,
       "sha256": "fd4b039f6f7424c32e4dfeea278ee0739a276715a82688d2f1915c3defc49653"
     },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/spiraling-whirl.webp": {
+      "bytes": 1824,
+      "sha256": "c305ce43b22f666005671241fabb1b9abc55247988a6fa32c8c583ddd0e098df"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/spirit-of-omen-s-awakening-dendro-spirit-serpent.webp": {
+      "bytes": 2164,
+      "sha256": "74aeabebc1dd9f1ac480d8a9e266c19c229cec98d76d256f334a2e5be54600d8"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/spirit-of-omen-s-awakening-pyro-scorpion.webp": {
+      "bytes": 2218,
+      "sha256": "0a18e102c2a81735df71cdb57c21f15572ea5ebb92d25855a3265fe0bbc92966"
+    },
     "extension/genshin-dialogue-ui/assets/battle/glyphs/spirit-reins-shadow-hunt.webp": {
       "bytes": 1554,
       "sha256": "194b7f7c97051b35fba66b5c3f8fe908ab0cca9861b1a6e9d9203638ddf98500"
@@ -12309,13 +13789,49 @@
       "bytes": 1778,
       "sha256": "d16c405830ac5b3cc6c79fe7ef1f9e3aa01f055be19879fb7fe2ea0df0a23ae3"
     },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/spiritspeaking-frost-star.webp": {
+      "bytes": 2292,
+      "sha256": "b4cd9b7521c646a5d58aad3529dd2c9c6a57c684efea670506ab4ca5cc601328"
+    },
     "extension/genshin-dialogue-ui/assets/battle/glyphs/spiritvessel-snapshot.webp": {
       "bytes": 1958,
       "sha256": "09a04b522e139de4b302058baa4921274adffeecc725e457b6a9ebfc1b208d1c"
     },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/splitrock-slam.webp": {
+      "bytes": 1738,
+      "sha256": "3b2fdf019f24c4c9ee711308a58d9dce4fd94306eb2bf3f29ac90af69d7012c6"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/spore-bullet.webp": {
+      "bytes": 2374,
+      "sha256": "8e6fcaec3fd9f070fa1d3cce86a60bebbec9825a4f83b98311f8450556e9b1a4"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/spouting-waves.webp": {
+      "bytes": 1434,
+      "sha256": "1b32b653d46d800cfa4c39e87e0b93e7650dd32574b63c9b9b6736f53dc5688b"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/sprawling-blighted-vines.webp": {
+      "bytes": 2580,
+      "sha256": "c6c87bd8d3e4fb157f49fc5b21700267b1479aa2c72405aa8333858390c7c25d"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/spread-fire.webp": {
+      "bytes": 1890,
+      "sha256": "006c03e10da0341e1e0f10d7644bae2ed79d726fb8df784c8aedef460f1b4758"
+    },
     "extension/genshin-dialogue-ui/assets/battle/glyphs/spring-spirit-summoning.webp": {
       "bytes": 1972,
       "sha256": "efabcaad78d401f6e0cda04f38715d61233182b4f3e15e3578c7d7a285bd46ec"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/sprinting-strike.webp": {
+      "bytes": 1504,
+      "sha256": "27ddcc5862db33383d3b03e2ff52d028cc1f9bdaaffa7ccc0e837eeeb5673677"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/staff-of-geo.webp": {
+      "bytes": 2444,
+      "sha256": "6f241df4d4d171a237dab2f2e81da178fac43458008b7ef1fb54d6492a3a3224"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/starfall-shower.webp": {
+      "bytes": 2082,
+      "sha256": "e6d03701c22a5f9f67d1e1b747e7c79b0359273a99d8452bb0313d9d54e823c0"
     },
     "extension/genshin-dialogue-ui/assets/battle/glyphs/starfell-sword.webp": {
       "bytes": 1274,
@@ -12361,13 +13877,33 @@
       "bytes": 2738,
       "sha256": "6ba23d3ce9401ae0fa5a4edba05a0a783e6da62c1960b1396aca39a99b065a96"
     },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/stinging-spine.webp": {
+      "bytes": 1890,
+      "sha256": "dfa9ec16315ed23b97328419328a244098adc0645164608ef129967384f5843e"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/stone-stance.webp": {
+      "bytes": 1870,
+      "sha256": "0103269812c0275ded03bdb3320f4bb94b14f881091cf97b397cb62abcae0152"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/storm-surge.webp": {
+      "bytes": 1712,
+      "sha256": "d88f9b5c9c700d07cd87cd72a1df757eb7e6c3683e2295dc858195825c37c9fb"
+    },
     "extension/genshin-dialogue-ui/assets/battle/glyphs/stormbreaker.webp": {
       "bytes": 1786,
       "sha256": "1b37c2ebacc6edda60490fc9e84bebfed1d88aa508f45ada6cb786f8be25b697"
     },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/strifeful-lightning.webp": {
+      "bytes": 1824,
+      "sha256": "ae6789ebf4eb0fc0c08254df7524f0f44521c880d8df77df223ccbb8a2feeff7"
+    },
     "extension/genshin-dialogue-ui/assets/battle/glyphs/strike-of-fortune.webp": {
       "bytes": 2276,
       "sha256": "69dfe3f3c66df621dc2a9431b2b5ffa8473fe3c0ba9178a92e17de5e4acc1f58"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/strike-of-the-dispossessed.webp": {
+      "bytes": 2374,
+      "sha256": "8e6fcaec3fd9f070fa1d3cce86a60bebbec9825a4f83b98311f8450556e9b1a4"
     },
     "extension/genshin-dialogue-ui/assets/battle/glyphs/strike-while-the-arrow-s-hot.webp": {
       "bytes": 1836,
@@ -12377,6 +13913,10 @@
       "bytes": 1752,
       "sha256": "1e7d8bec8d0dd26487bbbea1c58838bccd943785dea42ade56c0c69dd02f7413"
     },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/striking-staff.webp": {
+      "bytes": 2514,
+      "sha256": "b7ac80921014ae850526be9268ee91c8f6a4a0ddd20f7accd9f9772f92375f09"
+    },
     "extension/genshin-dialogue-ui/assets/battle/glyphs/suanni-s-gilded-dance.webp": {
       "bytes": 2302,
       "sha256": "034cda653b7982d3bdac9e1e2e035c46817c1f269766b135f057c5d4c894705d"
@@ -12384,6 +13924,18 @@
     "extension/genshin-dialogue-ui/assets/battle/glyphs/subjugation-koukou-sendou.webp": {
       "bytes": 1764,
       "sha256": "57d6a5bdb7f13ebfa67748a4a89df249e1307452f4f8c62626252b6c368ea5d6"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/sudden-charge.webp": {
+      "bytes": 1706,
+      "sha256": "849586763b3feada74376b60587c442eeb367ba65e11368719a07b9a49b3f8f9"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/summoning-of-stones.webp": {
+      "bytes": 2386,
+      "sha256": "ed43aea31f79eb387f9b63b0275f670e977a2cc26a82d1970f95f7dc58899ece"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/sundering-charge.webp": {
+      "bytes": 2410,
+      "sha256": "b57ea729477a3a26f9d3ce0d319aadfcd63cc25fe7b2b97cbcce78b456937928"
     },
     "extension/genshin-dialogue-ui/assets/battle/glyphs/super-saturated-syringing.webp": {
       "bytes": 2294,
@@ -12397,13 +13949,25 @@
       "bytes": 2218,
       "sha256": "003a82df4fb88d3f56bb3e111c89570c869db56046feca0d212f58714748899e"
     },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/supreme-strike.webp": {
+      "bytes": 2410,
+      "sha256": "b57ea729477a3a26f9d3ce0d319aadfcd63cc25fe7b2b97cbcce78b456937928"
+    },
     "extension/genshin-dialogue-ui/assets/battle/glyphs/surfshark-wavebreaker.webp": {
       "bytes": 1026,
       "sha256": "b95fbc8cd7a5c9dba17a6b4828894bb1e147c03bc457f9233f3724ede86d5c9d"
     },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/surge.webp": {
+      "bytes": 1684,
+      "sha256": "18cbb25059767bd2d49c65a0c35993dfcdb62174296900e30c3d33018859ff61"
+    },
     "extension/genshin-dialogue-ui/assets/battle/glyphs/surgent-manifestation.webp": {
       "bytes": 1454,
       "sha256": "efde17508a2aa0f3890cd3e82162593f65844259f1b354865942cb05f28a0586"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/surging-tides.webp": {
+      "bytes": 1764,
+      "sha256": "79069142b9518cc0403ec2172ce5c5c684eb246fc2b18fe49e77cd2481950e80"
     },
     "extension/genshin-dialogue-ui/assets/battle/glyphs/swallow-wisp-pinion-dance.webp": {
       "bytes": 1432,
@@ -12417,13 +13981,37 @@
       "bytes": 1590,
       "sha256": "401efedba3d94785f0050f3dfe08d1dcb5c9fe053007d8cdf911c2c27e539ea7"
     },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/swift-point.webp": {
+      "bytes": 2918,
+      "sha256": "9df2f81de36eaf727e92943fe7aa185f38d4df747e0f71a4bf680d69594629ec"
+    },
     "extension/genshin-dialogue-ui/assets/battle/glyphs/swiftshatter-spear.webp": {
       "bytes": 2010,
       "sha256": "f68254126cc5b576d375682c91196bef8929f66b25647e1440091aff6fa63247"
     },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/swirling-school-of-fish.webp": {
+      "bytes": 1808,
+      "sha256": "877062810934ba32dce687a53c14c720e74b43394c6cde4a812bd0ffd7560f6c"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/swirling-squall.webp": {
+      "bytes": 1650,
+      "sha256": "4f59d9fbdac4d85b2ea78ad1a436ddfa7250b72bb7a054c04d1a4fc92285db33"
+    },
     "extension/genshin-dialogue-ui/assets/battle/glyphs/sword-of-the-radiant-path.webp": {
       "bytes": 2732,
       "sha256": "07e25762658de9e97f2e1a07de76dee710424aaddf2f46a7be414829514c6bdc"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/tail-sweep.webp": {
+      "bytes": 2518,
+      "sha256": "509d30ee7409a77059bc69d5be79f252abf2f182f9729dc37c51d44a75b9946b"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/tainted-water-strike.webp": {
+      "bytes": 2348,
+      "sha256": "5cd21f43bcac8f899803d2453ba091b19bb421a505578647242aeead9b5bdeca"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/tainted-water-surge.webp": {
+      "bytes": 1990,
+      "sha256": "afbd80fb47effdd7e898932b4b5385a7247bbfbfb03bfc2d35b71a4c24959e52"
     },
     "extension/genshin-dialogue-ui/assets/battle/glyphs/targeted-treatment.webp": {
       "bytes": 1838,
@@ -12432,6 +14020,10 @@
     "extension/genshin-dialogue-ui/assets/battle/glyphs/tempered-sword.webp": {
       "bytes": 1746,
       "sha256": "ba1fa2f799f72488618dfaea2a30c34ed37299a2f67d17174fd655659d873d46"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/tempestuous-barrage.webp": {
+      "bytes": 1784,
+      "sha256": "b6394bb73942eb51ea1d1c35b552b4b1eb4ccf6cc6b0b0c077e42f0705cc500d"
     },
     "extension/genshin-dialogue-ui/assets/battle/glyphs/tengu-bowmanship.webp": {
       "bytes": 1958,
@@ -12453,6 +14045,14 @@
       "bytes": 1752,
       "sha256": "1e7d8bec8d0dd26487bbbea1c58838bccd943785dea42ade56c0c69dd02f7413"
     },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/the-end-falls.webp": {
+      "bytes": 2252,
+      "sha256": "703a28ae775ca14f19997fff42bbf6d27cd6326fce4291d6ebedc408b227af49"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/the-myriad-wilds.webp": {
+      "bytes": 1782,
+      "sha256": "41f74360edea100f32a9e85a39e5a59302f051eed06eb3b2eb533906c9816c61"
+    },
     "extension/genshin-dialogue-ui/assets/battle/glyphs/the-named-moment.webp": {
       "bytes": 1610,
       "sha256": "e359dc57a3a9f0f74b6107f17bfda46065e7d92d39834f8a73a8a83e69f306d8"
@@ -12469,6 +14069,18 @@
       "bytes": 2894,
       "sha256": "448f40241c8701777979c29acb071014fd438d991084ce40d763beb0148bde8c"
     },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/thorny-onslaught.webp": {
+      "bytes": 2558,
+      "sha256": "8ce63566e78833f800acef8621c1b22db7bd2ba46a8516d3c826cc74f481a43c"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/thunder-arrow.webp": {
+      "bytes": 1958,
+      "sha256": "09a04b522e139de4b302058baa4921274adffeecc725e457b6a9ebfc1b208d1c"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/thunderblast-hammer.webp": {
+      "bytes": 2270,
+      "sha256": "ef78ed39318ead3697e5da6be5e9b866ee00b5b63f90ebdf08c8e2dd3930d9ba"
+    },
     "extension/genshin-dialogue-ui/assets/battle/glyphs/thunderbolt-rush.webp": {
       "bytes": 1472,
       "sha256": "dc2c4538c51b5f561a74152a36fcdcd71de6a34119cf235a999c1d024e516ec3"
@@ -12477,6 +14089,46 @@
       "bytes": 1552,
       "sha256": "4b66d5e5c110658f56bf8b5de700b73f07be6a089ce319b94bd98ea8a812910a"
     },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/thunderbolt.webp": {
+      "bytes": 1778,
+      "sha256": "d16c405830ac5b3cc6c79fe7ef1f9e3aa01f055be19879fb7fe2ea0df0a23ae3"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/thunderbore-blast.webp": {
+      "bytes": 1848,
+      "sha256": "d544d68a39e11ead379fc00ce0109095105aaa9aed0b67d0dcfa1ac5aa63e952"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/thunderclap-totem.webp": {
+      "bytes": 1774,
+      "sha256": "35fdb6aae8abf2f7146f8357b84e764da9baa7e97ac1f184e547044e74a99657"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/thundering-shackles.webp": {
+      "bytes": 1692,
+      "sha256": "b1ddadc5b3c941412f7a4cf8491cf564cc07c93d3abf318304d561f60bf93713"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/thundering-shield.webp": {
+      "bytes": 2064,
+      "sha256": "9506e3f7cf16eaa61a655ceb11dc1dd9ac57ba0024d03cffe5cedb73589a6a2a"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/thundering-tide.webp": {
+      "bytes": 1616,
+      "sha256": "aea9a9784ae25cc7115e4c40455553f2aca01edb81e76a48dd3c85f69a4bdb6e"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/thunderous-wingslash.webp": {
+      "bytes": 1778,
+      "sha256": "d16c405830ac5b3cc6c79fe7ef1f9e3aa01f055be19879fb7fe2ea0df0a23ae3"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/thunderstorm-wave.webp": {
+      "bytes": 1908,
+      "sha256": "03a8a07e8a14773b689bebda105489638e84cf0a96f56ad246043a1eddc7448e"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/thunderstrike-hex.webp": {
+      "bytes": 1412,
+      "sha256": "0d38d668c79b26e946283fbc0d63c1bd6f271cfb76bccb68d7685e0c5fd4c2e0"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/tide-and-torrent.webp": {
+      "bytes": 2216,
+      "sha256": "cf0e67c8d66bc2c8ea87d972687899733499dc743d5253cf8ebda230534fbedb"
+    },
     "extension/genshin-dialogue-ui/assets/battle/glyphs/tidecaller.webp": {
       "bytes": 1374,
       "sha256": "32e3dfab0f8403cd78f05d00703a9aa20ecaed6d0d872608d3da0c150e3974c5"
@@ -12484,6 +14136,18 @@
     "extension/genshin-dialogue-ui/assets/battle/glyphs/time-to-get-serious.webp": {
       "bytes": 2792,
       "sha256": "881e03c0055cfb38f774899321ac551d82e2a1e6d389a6edfdaa549e10e5df41"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/torch-strike.webp": {
+      "bytes": 2514,
+      "sha256": "52f34ca0cd71a771ae7439ec91a81912715becc9f3a6a592293f485ac5446801"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/torrential-rebuke.webp": {
+      "bytes": 1904,
+      "sha256": "cdd6ed1deeef3f29009467e62919b13df834151d81c9a1bdd22f026dd48e9267"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/torrential-shock.webp": {
+      "bytes": 1652,
+      "sha256": "67f7c318f569409c25819f901e62059e9e6df03db30e7a43902c66aff1791337"
     },
     "extension/genshin-dialogue-ui/assets/battle/glyphs/toss-n-turn-spear.webp": {
       "bytes": 2080,
@@ -12501,6 +14165,10 @@
       "bytes": 1668,
       "sha256": "1962b9a04870ab51cfb28ed619b8a03db2632445615168687413352d5ffd7a3f"
     },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/triple-geosmash.webp": {
+      "bytes": 2410,
+      "sha256": "b57ea729477a3a26f9d3ce0d319aadfcd63cc25fe7b2b97cbcce78b456937928"
+    },
     "extension/genshin-dialogue-ui/assets/battle/glyphs/trump-card-kitty.webp": {
       "bytes": 1318,
       "sha256": "3aaef9f980b8d70203e677f3014eeae93e887bcb46c9ffdd0b62d8dd16cbc0be"
@@ -12517,6 +14185,22 @@
       "bytes": 1174,
       "sha256": "94af0182c78fc6ff90a6c3854b27f676bacb74a7071c0fbb0e2a82fc37332b93"
     },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/up-close-pummelling.webp": {
+      "bytes": 2514,
+      "sha256": "52f34ca0cd71a771ae7439ec91a81912715becc9f3a6a592293f485ac5446801"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/upa-shato.webp": {
+      "bytes": 1954,
+      "sha256": "6e2d16767bdabc1f429e40a8f0f63fac114503cf519d06d80fe27fae29ce0798"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/venomous-vines.webp": {
+      "bytes": 1778,
+      "sha256": "3c1a7ca3f436619dd7f6631f070f1c3da79d1a77f59b17139a058f5ddc42413d"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/vicious-kicks.webp": {
+      "bytes": 2348,
+      "sha256": "5cd21f43bcac8f899803d2453ba091b19bb421a505578647242aeead9b5bdeca"
+    },
     "extension/genshin-dialogue-ui/assets/battle/glyphs/vijnana-phala-mine.webp": {
       "bytes": 1596,
       "sha256": "66230edbb7025dd4321e5b453ef8ed33e20d01b23390627fdd566b5d60c75019"
@@ -12529,9 +14213,25 @@
       "bytes": 1158,
       "sha256": "24106897d27be7caf43ce20123c0db9a0f03b5f851e0fbf463350351d4dd47f8"
     },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/void-claw-strike.webp": {
+      "bytes": 2514,
+      "sha256": "52f34ca0cd71a771ae7439ec91a81912715becc9f3a6a592293f485ac5446801"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/volatile-spore-cloud.webp": {
+      "bytes": 1758,
+      "sha256": "37839f13cc63b068426c102fcd13f3e501c51aae7dda0e2d2906757a9f6ff871"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/vortex-edge.webp": {
+      "bytes": 2012,
+      "sha256": "85674e44a8b0e95625dbbff6a985f416610adc3e0d4c98c40d5ea1527ee6aa2d"
+    },
     "extension/genshin-dialogue-ui/assets/battle/glyphs/wake-of-earth.webp": {
       "bytes": 1556,
       "sha256": "d372d19b5b020b9066a10e3af3f4f8aa409fb0c43bad1a44ad36121527e579d9"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/water-ball.webp": {
+      "bytes": 1684,
+      "sha256": "18cbb25059767bd2d49c65a0c35993dfcdb62174296900e30c3d33018859ff61"
     },
     "extension/genshin-dialogue-ui/assets/battle/glyphs/weaving-blade.webp": {
       "bytes": 2282,
@@ -12540,6 +14240,26 @@
     "extension/genshin-dialogue-ui/assets/battle/glyphs/weighted-spike.webp": {
       "bytes": 2188,
       "sha256": "8dab60b016aebe9619b7863efdafc55bd1c17e6bead1cb8433e3ee1a51842a8c"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/whirling-cleave.webp": {
+      "bytes": 1398,
+      "sha256": "5838beba612f445d3aab1e7cc2a30571146ca40df02904ed9b64601997704347"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/whirling-lashes.webp": {
+      "bytes": 1414,
+      "sha256": "5970ec155dc886354d24071d5413ee8fe1ffbbcca3059e36213831a1623c3d15"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/whirling-legblades.webp": {
+      "bytes": 1202,
+      "sha256": "bad7f53a2b403cc7ec3bb310c795b88c6509aac2ca4a8d0bd274bda593d65005"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/whirling-scythe.webp": {
+      "bytes": 2348,
+      "sha256": "5cd21f43bcac8f899803d2453ba091b19bb421a505578647242aeead9b5bdeca"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/whirling-tail.webp": {
+      "bytes": 2342,
+      "sha256": "5ac9cacec035e7cea2d5ed9ef6e89bd42b43b16e61ff055a94093bd1dc1e498a"
     },
     "extension/genshin-dialogue-ui/assets/battle/glyphs/whirlwind-thrust.webp": {
       "bytes": 2024,
@@ -12552,6 +14272,14 @@
     "extension/genshin-dialogue-ui/assets/battle/glyphs/white-clouds-at-dawn.webp": {
       "bytes": 1732,
       "sha256": "6af4638a0f5446eab974e34e48cc6591a90cadcf28228c23cb1c983b7cdf1b8e"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/wild-thunderburst.webp": {
+      "bytes": 2222,
+      "sha256": "5c8edad29b58dadde189575f4ec5ae847e303da31c8830c91713bee763a63390"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/wildgrass-ball.webp": {
+      "bytes": 1638,
+      "sha256": "6c33def604d20770471c9e48d370e42c00d659cdb315c7230170867600219501"
     },
     "extension/genshin-dialogue-ui/assets/battle/glyphs/wind-realm-of-nasamjnin.webp": {
       "bytes": 1472,
@@ -12572,6 +14300,14 @@
     "extension/genshin-dialogue-ui/assets/battle/glyphs/windmuster-kick.webp": {
       "bytes": 2608,
       "sha256": "43cb5aed56b8ceab2c0bb94dcd9b7c2db029c2822f1916a5ba39a75313723766"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/wingcleave.webp": {
+      "bytes": 2514,
+      "sha256": "52f34ca0cd71a771ae7439ec91a81912715becc9f3a6a592293f485ac5446801"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/wolflord-s-strike.webp": {
+      "bytes": 2410,
+      "sha256": "b57ea729477a3a26f9d3ce0d319aadfcd63cc25fe7b2b97cbcce78b456937928"
     },
     "extension/genshin-dialogue-ui/assets/battle/glyphs/wondrous-trick-miracle-parade.webp": {
       "bytes": 3010,
@@ -13684,6 +15420,830 @@
     "extension/genshin-dialogue-ui/assets/battle/skills/aura-of-majesty.webp": {
       "bytes": 5820,
       "sha256": "f9582fd41e07200e030778b54cf5397c673bf12339e591ea990ed3e81fc5dfb3"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/skills/authored-a-brother-s-promise.webp": {
+      "bytes": 8854,
+      "sha256": "a416fba1ec158d12934f593ac01c3dc837fb13300cef60ba136b8799bc9efddb"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/skills/authored-a-little-sunlight.webp": {
+      "bytes": 7518,
+      "sha256": "5a13dc2d6cb9e33bac07c26b97192b45152c7c0522d0f74096458d4da717a74e"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/skills/authored-a-song-remembered.webp": {
+      "bytes": 7708,
+      "sha256": "60f7b40d948aa8c4b645431fa2cf896948983e26c71712c16dd0c144a40f3b3f"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/skills/authored-acolyte-s-prayer.webp": {
+      "bytes": 8984,
+      "sha256": "0214384e18d96a292ba7a8b3c6cddc9847f467572aa8c9c8e0de84917b92ffb0"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/skills/authored-action.webp": {
+      "bytes": 7902,
+      "sha256": "66f7be70ed052cd0b8c6fc897f29d1a3583789a913600d892c7f88ae23303c41"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/skills/authored-ad-astra-abyssosque.webp": {
+      "bytes": 9008,
+      "sha256": "08e541074f773fae4bd290f49b62d8a7a753ccdaa92c55768d9039ae7e180c30"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/skills/authored-alpaca-herding.webp": {
+      "bytes": 8222,
+      "sha256": "22105aa050fcd72c807fe4c056f2dc23148a95d441418f767f20ae40a7619f74"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/skills/authored-apostle-s-ambition.webp": {
+      "bytes": 7464,
+      "sha256": "c4dddc2e279043a19f3a15502243639be203f492bc5c4c689749f163b518bee3"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/skills/authored-bartender-s-tap.webp": {
+      "bytes": 7106,
+      "sha256": "97f512ff9c680a3cadcb8085c5ca1fd58805240f6bda07e45b32e74d29382bf3"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/skills/authored-beach-workout.webp": {
+      "bytes": 7754,
+      "sha256": "514f407eb081e8e3e7466fac66bf211053408baee9dbcf1493a195c28f6847e3"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/skills/authored-blazing-leap.webp": {
+      "bytes": 8784,
+      "sha256": "d0e199b6f9938dfa9144e4201cc5ef6cd35110f0453d9285c7df6e66606f9dc0"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/skills/authored-blink-stab.webp": {
+      "bytes": 9046,
+      "sha256": "fe6bed1dc5dcf3241fc5249f2caab95ffda41817d920f1da31e11316909f18a6"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/skills/authored-bounce.webp": {
+      "bytes": 9160,
+      "sha256": "ce31aac5d3e974c035e31cf2ff87b4c710697bfe6fcc8079cbb47f2c1d572265"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/skills/authored-canine-counter.webp": {
+      "bytes": 8568,
+      "sha256": "2d8c9d96dc4861b38e87cae534b703cc7569327ca7c70205493dd8869300238a"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/skills/authored-canopy-throw.webp": {
+      "bytes": 7550,
+      "sha256": "71dd0d6e40a10722ca4c07f039cf75df534fc23f075312de0bf686a965cacafc"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/skills/authored-careful-aim.webp": {
+      "bytes": 8940,
+      "sha256": "d248c1c9bbf2530376f2bc6e4d924244a65ad1d2d19124b1f10f2fe25ec05237"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/skills/authored-carpenter-s-tap.webp": {
+      "bytes": 7250,
+      "sha256": "41d50d00ab6c26b916f688158e84c39fd4be8b34bc333f2baa6055ac46c6ad80"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/skills/authored-case-closed.webp": {
+      "bytes": 8854,
+      "sha256": "a416fba1ec158d12934f593ac01c3dc837fb13300cef60ba136b8799bc9efddb"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/skills/authored-cat-paw.webp": {
+      "bytes": 7804,
+      "sha256": "888944c1a50b9c89acf4de97b059f2e5f26092daaa4a643d1e8bb026a4fb63ff"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/skills/authored-chain-discharge.webp": {
+      "bytes": 9584,
+      "sha256": "7edaca017bd010c28ae7f810c7522016cc8aef372a3c46e59e999382ea6c5325"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/skills/authored-charged-bounce.webp": {
+      "bytes": 9160,
+      "sha256": "ce31aac5d3e974c035e31cf2ff87b4c710697bfe6fcc8079cbb47f2c1d572265"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/skills/authored-charging-blast.webp": {
+      "bytes": 9714,
+      "sha256": "29d54446e3f37c7e444dd635c5c1ba0736ab636d04111d3d62e0feab116df548"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/skills/authored-charging-slam.webp": {
+      "bytes": 7542,
+      "sha256": "182136dc4195b9c82e8535467cbca4e3dfd2f95f0b71e6ba706f6b80421d2ad6"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/skills/authored-chief-mate-s-call.webp": {
+      "bytes": 9008,
+      "sha256": "08e541074f773fae4bd290f49b62d8a7a753ccdaa92c55768d9039ae7e180c30"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/skills/authored-chirping-ball.webp": {
+      "bytes": 8072,
+      "sha256": "12a898d23b635859e033797de234b50ed145d221f32f211fe2328dabeea824a2"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/skills/authored-cicin-swarm.webp": {
+      "bytes": 10302,
+      "sha256": "a8f3c0d0b0d9967be59784750079ec5885cf66a2a8c34986715f7e2be59e1c08"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/skills/authored-cliffwatch-vigil.webp": {
+      "bytes": 8854,
+      "sha256": "a416fba1ec158d12934f593ac01c3dc837fb13300cef60ba136b8799bc9efddb"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/skills/authored-club-swing.webp": {
+      "bytes": 7036,
+      "sha256": "2f4a9f44e9db506b2787690ddc8b6b8fbf7f4d9b24c4db4ccd3aabd2448bddd3"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/skills/authored-combo-slash.webp": {
+      "bytes": 7808,
+      "sha256": "5bca429d0b596145cdc15a27c68df0b73b061b9d6d7bc85d9d889ecac604c6ea"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/skills/authored-commission-blade.webp": {
+      "bytes": 7808,
+      "sha256": "5bca429d0b596145cdc15a27c68df0b73b061b9d6d7bc85d9d889ecac604c6ea"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/skills/authored-comrade-s-rest.webp": {
+      "bytes": 8004,
+      "sha256": "817d8fed009194bd38ab59be3b239d52a01cd7026f0d15d549a7791779a7c53e"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/skills/authored-counter-service.webp": {
+      "bytes": 7854,
+      "sha256": "7f19ee70bd3fec0bf171aaad5741399160e26d22d30453ce75f551af3096c23b"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/skills/authored-crimson-lotus-moth.webp": {
+      "bytes": 8418,
+      "sha256": "cc4c4fdaf811f2dd8ef69ed7f9711e6a74ccf0c6dc9980a1e2f6e7098ff598c4"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/skills/authored-crossbow-bolt.webp": {
+      "bytes": 8464,
+      "sha256": "99637862b0dc45a7d3f7d48c97e9cea30003829fbb06138ea079c81034d9d9ae"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/skills/authored-crossbow-shot.webp": {
+      "bytes": 8464,
+      "sha256": "99637862b0dc45a7d3f7d48c97e9cea30003829fbb06138ea079c81034d9d9ae"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/skills/authored-decimating-lash.webp": {
+      "bytes": 7734,
+      "sha256": "dda7c9b23d16994795673ff7db183f9b6c936463436a506aae503f53f102f0be"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/skills/authored-desert-ambition.webp": {
+      "bytes": 7796,
+      "sha256": "ced32ceae4b356c6293342d7cc3e109d5efb454b55251e1d901a5fb79454592c"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/skills/authored-desert-contract.webp": {
+      "bytes": 8340,
+      "sha256": "bec0663d92e4dca952e6912a2eb4958b15e11cc862493ec4356e3febdbadd402"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/skills/authored-desert-footwork.webp": {
+      "bytes": 8618,
+      "sha256": "fe941cdebbe32bab458e4c6a8087600c215c3fd10049f8516f3931a03a99a4bf"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/skills/authored-director-s-tap.webp": {
+      "bytes": 6966,
+      "sha256": "947c500d8fbd61c9d89df7d1901027415edcd1c95159502cfd2c6ef9c46615f2"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/skills/authored-doctor-s-orders.webp": {
+      "bytes": 6672,
+      "sha256": "8192bad6f315ed5aea708cde1348065a8c66c16d026b064afaf0fe7f5d1bbb2e"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/skills/authored-doctor-s-tap.webp": {
+      "bytes": 6086,
+      "sha256": "b974f1a0e4c6b7f2a62da8ec5a8066d3a7a1474e7560a2be8d753fa1f6963876"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/skills/authored-doge-s-tap.webp": {
+      "bytes": 7804,
+      "sha256": "888944c1a50b9c89acf4de97b059f2e5f26092daaa4a643d1e8bb026a4fb63ff"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/skills/authored-draw-a-bead.webp": {
+      "bytes": 8464,
+      "sha256": "99637862b0dc45a7d3f7d48c97e9cea30003829fbb06138ea079c81034d9d9ae"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/skills/authored-dreaming-branch.webp": {
+      "bytes": 6714,
+      "sha256": "e1cab7eb6386b3c0067afc889f83450aa613139112aca56a2e26ad5e7ae6e542"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/skills/authored-du-plama.webp": {
+      "bytes": 8022,
+      "sha256": "c52d569ce453577e6398bae642f567a30a6217d7278b0d8867342fb95c8df941"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/skills/authored-dust-in-the-eyes.webp": {
+      "bytes": 7902,
+      "sha256": "66f7be70ed052cd0b8c6fc897f29d1a3583789a913600d892c7f88ae23303c41"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/skills/authored-earth-toss.webp": {
+      "bytes": 7266,
+      "sha256": "470eea8adab0cba6f37f43d2716d81544da8059e52601a126b1a371ae193d67c"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/skills/authored-elder-s-tap.webp": {
+      "bytes": 7452,
+      "sha256": "00876fc1777e7a991af1506531487fe9ec2c5cb2c2adcbb4d4aa8aa4acf9215a"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/skills/authored-electro-pulse.webp": {
+      "bytes": 9266,
+      "sha256": "c71a5c7b389e2f9f3c07e5d2a49c21402c9dce708ee8a7200d85fb670cdc956a"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/skills/authored-elemental-release.webp": {
+      "bytes": 8372,
+      "sha256": "1e6c0e263fdd186666fadee6c4d9ac8cbe29e9af3eed7196329bb46ae1e32210"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/skills/authored-elemental-strike.webp": {
+      "bytes": 7910,
+      "sha256": "6c0a2b24b9a708218b1ab2e28682262a375b634d9162b48be3f3467d1233cbd1"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/skills/authored-eremite-blade.webp": {
+      "bytes": 7808,
+      "sha256": "5bca429d0b596145cdc15a27c68df0b73b061b9d6d7bc85d9d889ecac604c6ea"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/skills/authored-eremite-experience.webp": {
+      "bytes": 8340,
+      "sha256": "bec0663d92e4dca952e6912a2eb4958b15e11cc862493ec4356e3febdbadd402"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/skills/authored-error-reset.webp": {
+      "bytes": 8324,
+      "sha256": "cadaebaf102dd701d146671cb2536ecbada2727eae7e2cf1c3f1540a37b706cf"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/skills/authored-family-care.webp": {
+      "bytes": 7882,
+      "sha256": "5cddc6f3cbf55bf048444a9c989b4d76967cab124cce630bcd5f8dfe185a2d55"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/skills/authored-family-vintage.webp": {
+      "bytes": 7692,
+      "sha256": "c402045d1c739808d45a1f7002be955b1e2468738f61d384d36c8fdc1dc676ed"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/skills/authored-fanmu-craftsmanship.webp": {
+      "bytes": 7796,
+      "sha256": "ced32ceae4b356c6293342d7cc3e109d5efb454b55251e1d901a5fb79454592c"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/skills/authored-field-medicine.webp": {
+      "bytes": 7114,
+      "sha256": "f8f691b423f7f691fd1a1c8efd5d5ba2adb31031eb5dde8c6765287a7646c2f9"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/skills/authored-fireball-barrage.webp": {
+      "bytes": 9632,
+      "sha256": "46c89983560bef3f45e4f8a02d707b52454248eaef823ec251446eafad099fb0"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/skills/authored-fireball.webp": {
+      "bytes": 8784,
+      "sha256": "d0e199b6f9938dfa9144e4201cc5ef6cd35110f0453d9285c7df6e66606f9dc0"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/skills/authored-flame-dash.webp": {
+      "bytes": 9632,
+      "sha256": "46c89983560bef3f45e4f8a02d707b52454248eaef823ec251446eafad099fb0"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/skills/authored-flame-pillars.webp": {
+      "bytes": 9632,
+      "sha256": "46c89983560bef3f45e4f8a02d707b52454248eaef823ec251446eafad099fb0"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/skills/authored-flamegranate-toss.webp": {
+      "bytes": 10346,
+      "sha256": "6b7db3dedd43e3b764aee5fb9dc5cd223fc8c8164ef10350594853715d745345"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/skills/authored-flask-toss.webp": {
+      "bytes": 9038,
+      "sha256": "26f49d9fd7553e446ae14c0ffc1ad3a1b07ad65b37614509e3331a950786fa81"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/skills/authored-fleuve-treatment.webp": {
+      "bytes": 7114,
+      "sha256": "f8f691b423f7f691fd1a1c8efd5d5ba2adb31031eb5dde8c6765287a7646c2f9"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/skills/authored-flower-petal.webp": {
+      "bytes": 7880,
+      "sha256": "3da71344898f203c4fe79edaa1c56c617d39037e979ac322cf8880dcc5ae8299"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/skills/authored-flowers-for-the-forest.webp": {
+      "bytes": 8450,
+      "sha256": "89cf53af265493accb0afd94d24d87dca18b3daaac22e35a4e690a201e14ab99"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/skills/authored-forest-friend.webp": {
+      "bytes": 9724,
+      "sha256": "70d35102f463128cc2f5653c4769fe05b421003599a814dccf0a29eab7f40464"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/skills/authored-forest-memory.webp": {
+      "bytes": 9724,
+      "sha256": "70d35102f463128cc2f5653c4769fe05b421003599a814dccf0a29eab7f40464"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/skills/authored-frenzied-flurry.webp": {
+      "bytes": 7902,
+      "sha256": "66f7be70ed052cd0b8c6fc897f29d1a3583789a913600d892c7f88ae23303c41"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/skills/authored-friendly-nudge.webp": {
+      "bytes": 6966,
+      "sha256": "947c500d8fbd61c9d89df7d1901027415edcd1c95159502cfd2c6ef9c46615f2"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/skills/authored-frigid-nectar-barrage.webp": {
+      "bytes": 11506,
+      "sha256": "c565e9d762fdf5d5591d17251b92ba9967deb30e8bd943ca94240c1e8b302813"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/skills/authored-frost-glaive.webp": {
+      "bytes": 9362,
+      "sha256": "2350a8f6207a86d88d7f95c27c0686e55c62ad245ebd141af88652f8a46ac37c"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/skills/authored-frostbound-javelin.webp": {
+      "bytes": 10774,
+      "sha256": "128cb47293b2743625c7646d5eb1a86a5491bd23ac28f6d841222c82f09afa3c"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/skills/authored-frosted-headbutt.webp": {
+      "bytes": 6966,
+      "sha256": "947c500d8fbd61c9d89df7d1901027415edcd1c95159502cfd2c6ef9c46615f2"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/skills/authored-frostmoon-prayer.webp": {
+      "bytes": 8450,
+      "sha256": "89cf53af265493accb0afd94d24d87dca18b3daaac22e35a4e690a201e14ab99"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/skills/authored-furnace-gadget.webp": {
+      "bytes": 8324,
+      "sha256": "cadaebaf102dd701d146671cb2536ecbada2727eae7e2cf1c3f1540a37b706cf"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/skills/authored-gale-jab.webp": {
+      "bytes": 7918,
+      "sha256": "e81e9c15f5afa7f3d3f6c500196d8b574bf1ed8ded8f848efc4b0dd46f58684a"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/skills/authored-garrison-guard.webp": {
+      "bytes": 8004,
+      "sha256": "817d8fed009194bd38ab59be3b239d52a01cd7026f0d15d549a7791779a7c53e"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/skills/authored-general-s-guard.webp": {
+      "bytes": 8004,
+      "sha256": "817d8fed009194bd38ab59be3b239d52a01cd7026f0d15d549a7791779a7c53e"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/skills/authored-gilded-hospitality.webp": {
+      "bytes": 7748,
+      "sha256": "f6bd621d360cc87dbfb505207858b279d14f3cc66b0dd8cb98025f2acbdb00d5"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/skills/authored-good-dog.webp": {
+      "bytes": 8240,
+      "sha256": "c58e5170e3e19b0a791c53586dfb6ecee4827c008dfbc317bfa3462bb07d7820"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/skills/authored-grand-cannon-trial.webp": {
+      "bytes": 8006,
+      "sha256": "a0895f4f01f42340708a2fbd35a21ededa950afd515e573a6c551c4b092f2648"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/skills/authored-guest-s-warning.webp": {
+      "bytes": 7332,
+      "sha256": "acd7a3b5a7f12209d21032f2c17bcc7405a1998e9e0f355a6c69e75777a4bd2c"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/skills/authored-harbor-inspection.webp": {
+      "bytes": 9300,
+      "sha256": "421b30c068057a52dc9418f06f584292436b3ad3244b134e2f1be4e094481d15"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/skills/authored-harbor-warning.webp": {
+      "bytes": 7332,
+      "sha256": "acd7a3b5a7f12209d21032f2c17bcc7405a1998e9e0f355a6c69e75777a4bd2c"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/skills/authored-hardened-bounce.webp": {
+      "bytes": 7250,
+      "sha256": "41d50d00ab6c26b916f688158e84c39fd4be8b34bc333f2baa6055ac46c6ad80"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/skills/authored-helmsman-s-push.webp": {
+      "bytes": 8442,
+      "sha256": "f03ac068044f02007d8018c81df079063110ea3817721787e1c54353664ea101"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/skills/authored-house-special.webp": {
+      "bytes": 7692,
+      "sha256": "c402045d1c739808d45a1f7002be955b1e2468738f61d384d36c8fdc1dc676ed"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/skills/authored-hunter-s-mark.webp": {
+      "bytes": 8940,
+      "sha256": "d248c1c9bbf2530376f2bc6e4d924244a65ad1d2d19124b1f10f2fe25ec05237"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/skills/authored-hunter-s-shot.webp": {
+      "bytes": 8464,
+      "sha256": "99637862b0dc45a7d3f7d48c97e9cea30003829fbb06138ea079c81034d9d9ae"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/skills/authored-iai-sheathed.webp": {
+      "bytes": 10190,
+      "sha256": "49bd6fc6be2e7c13771fa6ace664d8e15de24a7668427262911b112bbaafaf3d"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/skills/authored-ice-fog-piercer.webp": {
+      "bytes": 11234,
+      "sha256": "a180aa43e3efc9db78ad0b865b2130cb8257e62ac01f7cb5295bf69c73cc2cae"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/skills/authored-ice-shards.webp": {
+      "bytes": 10018,
+      "sha256": "1491a30ca73ddb2e7a4c2e6a5dbf4903fdbf03caee8edfd19a013dd7f1248645"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/skills/authored-icy-charge.webp": {
+      "bytes": 10018,
+      "sha256": "1491a30ca73ddb2e7a4c2e6a5dbf4903fdbf03caee8edfd19a013dd7f1248645"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/skills/authored-ignited-ram.webp": {
+      "bytes": 7902,
+      "sha256": "45138fa81b878c05228e8b4150b1b6b7694252f0bc7cad8b4d1c990096c2d937"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/skills/authored-incendiary-grenade.webp": {
+      "bytes": 9870,
+      "sha256": "37f210ee33a99ceb605919e5001c84ec1bd4db32ed503ace19f64119328f5ef5"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/skills/authored-incendiary-mixture.webp": {
+      "bytes": 9870,
+      "sha256": "37f210ee33a99ceb605919e5001c84ec1bd4db32ed503ace19f64119328f5ef5"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/skills/authored-institute-of-dreams.webp": {
+      "bytes": 10232,
+      "sha256": "a4cb69a13c6e4f926be284d7826ddfca31c8ba0f4b124a4a098ad5dea4d7514f"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/skills/authored-inventor-s-tap.webp": {
+      "bytes": 7624,
+      "sha256": "0c5366172f0bfb2767b38835efa01a93c415d6c4e96c41052617a0edcbacaec5"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/skills/authored-komore-guardian.webp": {
+      "bytes": 8240,
+      "sha256": "c58e5170e3e19b0a791c53586dfb6ecee4827c008dfbc317bfa3462bb07d7820"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/skills/authored-law-of-the-harbor.webp": {
+      "bytes": 8340,
+      "sha256": "bec0663d92e4dca952e6912a2eb4958b15e11cc862493ec4356e3febdbadd402"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/skills/authored-leaping-strike.webp": {
+      "bytes": 9160,
+      "sha256": "ce31aac5d3e974c035e31cf2ff87b4c710697bfe6fcc8079cbb47f2c1d572265"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/skills/authored-light-bathed-blessing.webp": {
+      "bytes": 8854,
+      "sha256": "a416fba1ec158d12934f593ac01c3dc837fb13300cef60ba136b8799bc9efddb"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/skills/authored-little-leaf.webp": {
+      "bytes": 8918,
+      "sha256": "4314185be76a065ca12e42818d94332a1bbc4ddba3d3191070213a0b744ddba6"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/skills/authored-loyal-companion.webp": {
+      "bytes": 7518,
+      "sha256": "5a13dc2d6cb9e33bac07c26b97192b45152c7c0522d0f74096458d4da717a74e"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/skills/authored-mate-s-strike.webp": {
+      "bytes": 6966,
+      "sha256": "947c500d8fbd61c9d89df7d1901027415edcd1c95159502cfd2c6ef9c46615f2"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/skills/authored-matriarch-s-command.webp": {
+      "bytes": 7896,
+      "sha256": "085130c5bcec04439ffc36746d2b53ede1fc04f1184174336974f124f7b09a6f"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/skills/authored-me-dew-tasting.webp": {
+      "bytes": 7854,
+      "sha256": "7f19ee70bd3fec0bf171aaad5741399160e26d22d30453ce75f551af3096c23b"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/skills/authored-mercenary-slash.webp": {
+      "bytes": 7808,
+      "sha256": "5bca429d0b596145cdc15a27c68df0b73b061b9d6d7bc85d9d889ecac604c6ea"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/skills/authored-moonflower-offering.webp": {
+      "bytes": 8640,
+      "sha256": "9a010ecc7395c84719d9b35edd45d8bd7978114ce1f45380bbaedcb6ce381865"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/skills/authored-moonlit-touch.webp": {
+      "bytes": 7332,
+      "sha256": "acd7a3b5a7f12209d21032f2c17bcc7405a1998e9e0f355a6c69e75777a4bd2c"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/skills/authored-mountain-king-surprise.webp": {
+      "bytes": 9938,
+      "sha256": "85bf26660ea6f0581152f17babab31a7edd37a32bc3f45266333f45c45722094"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/skills/authored-mr-cyclops.webp": {
+      "bytes": 8324,
+      "sha256": "cadaebaf102dd701d146671cb2536ecbada2727eae7e2cf1c3f1540a37b706cf"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/skills/authored-narzissenkreuz-theory.webp": {
+      "bytes": 8166,
+      "sha256": "366a3fe72245ed06dbe04d333e51e40f73c1d3a74b421aa13afb3327903703c6"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/skills/authored-nursery-care.webp": {
+      "bytes": 8640,
+      "sha256": "9a010ecc7395c84719d9b35edd45d8bd7978114ce1f45380bbaedcb6ce381865"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/skills/authored-oceanid-reflection.webp": {
+      "bytes": 8924,
+      "sha256": "c27df96ca589ba835c229a2820d06c687d33ea119fdb97bcd4d3f36a3090fe10"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/skills/authored-officer-s-tap.webp": {
+      "bytes": 6966,
+      "sha256": "947c500d8fbd61c9d89df7d1901027415edcd1c95159502cfd2c6ef9c46615f2"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/skills/authored-one-more-try.webp": {
+      "bytes": 7796,
+      "sha256": "ced32ceae4b356c6293342d7cc3e109d5efb454b55251e1d901a5fb79454592c"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/skills/authored-orderly-inspection.webp": {
+      "bytes": 8326,
+      "sha256": "6c42b2df6f8c8a981423bd8c17dc5b35ed8c87f6233710ab4baf8484f5e623a0"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/skills/authored-ordo-experiment.webp": {
+      "bytes": 8324,
+      "sha256": "cadaebaf102dd701d146671cb2536ecbada2727eae7e2cf1c3f1540a37b706cf"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/skills/authored-oto-tiga.webp": {
+      "bytes": 8882,
+      "sha256": "2859228714876f57e364af770fc6ce8dda22b17e22cc03505efdba85156d64fe"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/skills/authored-park-parade.webp": {
+      "bytes": 7796,
+      "sha256": "ced32ceae4b356c6293342d7cc3e109d5efb454b55251e1d901a5fb79454592c"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/skills/authored-paw-swipe.webp": {
+      "bytes": 7804,
+      "sha256": "888944c1a50b9c89acf4de97b059f2e5f26092daaa4a643d1e8bb026a4fb63ff"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/skills/authored-perpetual-cleansing.webp": {
+      "bytes": 9938,
+      "sha256": "77ee6a7e495945ad83e05545d8b2c4b63d7e043414a2875ab7dcd35fb47c2ec5"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/skills/authored-petrichor-accord.webp": {
+      "bytes": 8340,
+      "sha256": "bec0663d92e4dca952e6912a2eb4958b15e11cc862493ec4356e3febdbadd402"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/skills/authored-phantom-inquiry.webp": {
+      "bytes": 8984,
+      "sha256": "0214384e18d96a292ba7a8b3c6cddc9847f467572aa8c9c8e0de84917b92ffb0"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/skills/authored-physician-s-tap.webp": {
+      "bytes": 6086,
+      "sha256": "b974f1a0e4c6b7f2a62da8ec5a8066d3a7a1474e7560a2be8d753fa1f6963876"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/skills/authored-playful-bark.webp": {
+      "bytes": 8568,
+      "sha256": "2d8c9d96dc4861b38e87cae534b703cc7569327ca7c70205493dd8869300238a"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/skills/authored-playful-toss.webp": {
+      "bytes": 7332,
+      "sha256": "acd7a3b5a7f12209d21032f2c17bcc7405a1998e9e0f355a6c69e75777a4bd2c"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/skills/authored-portmaster-s-strike.webp": {
+      "bytes": 6966,
+      "sha256": "947c500d8fbd61c9d89df7d1901027415edcd1c95159502cfd2c6ef9c46615f2"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/skills/authored-practice-tap.webp": {
+      "bytes": 6966,
+      "sha256": "947c500d8fbd61c9d89df7d1901027415edcd1c95159502cfd2c6ef9c46615f2"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/skills/authored-prepared-supplies.webp": {
+      "bytes": 8326,
+      "sha256": "6c42b2df6f8c8a981423bd8c17dc5b35ed8c87f6233710ab4baf8484f5e623a0"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/skills/authored-prototype-device.webp": {
+      "bytes": 8324,
+      "sha256": "cadaebaf102dd701d146671cb2536ecbada2727eae7e2cf1c3f1540a37b706cf"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/skills/authored-provisional-priestess.webp": {
+      "bytes": 8240,
+      "sha256": "c58e5170e3e19b0a791c53586dfb6ecee4827c008dfbc317bfa3462bb07d7820"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/skills/authored-puff-up-power.webp": {
+      "bytes": 7448,
+      "sha256": "aeecd5c8d7ce6661cc2a608b4d84449edcc4613bd12fd6f2caf9e4035a33ffe4"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/skills/authored-quick-toss.webp": {
+      "bytes": 7332,
+      "sha256": "acd7a3b5a7f12209d21032f2c17bcc7405a1998e9e0f355a6c69e75777a4bd2c"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/skills/authored-raging-breath.webp": {
+      "bytes": 9526,
+      "sha256": "1f18166db4e9133ecdcddc8a46741c37d169d3677b8e563a4c85d26264f8961d"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/skills/authored-rain-dance.webp": {
+      "bytes": 10458,
+      "sha256": "e3ed5230077e9342c07948f5e7b503e65bf00ef693e72386f975962ef1f2949c"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/skills/authored-ratnik-strike.webp": {
+      "bytes": 6966,
+      "sha256": "947c500d8fbd61c9d89df7d1901027415edcd1c95159502cfd2c6ef9c46615f2"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/skills/authored-receptionist-s-strike.webp": {
+      "bytes": 6966,
+      "sha256": "947c500d8fbd61c9d89df7d1901027415edcd1c95159502cfd2c6ef9c46615f2"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/skills/authored-rhythm-tap.webp": {
+      "bytes": 7250,
+      "sha256": "8e5e86bdd098e190ec7fb43351c7dfcd09c493b0e72f7978394ef6ce700e1e48"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/skills/authored-ribat-guard.webp": {
+      "bytes": 8004,
+      "sha256": "817d8fed009194bd38ab59be3b239d52a01cd7026f0d15d549a7791779a7c53e"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/skills/authored-rocket-barrage.webp": {
+      "bytes": 8006,
+      "sha256": "a0895f4f01f42340708a2fbd35a21ededa950afd515e573a6c551c4b092f2648"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/skills/authored-rocking-riff.webp": {
+      "bytes": 8072,
+      "sha256": "12a898d23b635859e033797de234b50ed145d221f32f211fe2328dabeea824a2"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/skills/authored-rocky-ram.webp": {
+      "bytes": 6966,
+      "sha256": "947c500d8fbd61c9d89df7d1901027415edcd1c95159502cfd2c6ef9c46615f2"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/skills/authored-rolling-impact.webp": {
+      "bytes": 7902,
+      "sha256": "66f7be70ed052cd0b8c6fc897f29d1a3583789a913600d892c7f88ae23303c41"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/skills/authored-rudder-s-turn.webp": {
+      "bytes": 9008,
+      "sha256": "08e541074f773fae4bd290f49b62d8a7a753ccdaa92c55768d9039ae7e180c30"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/skills/authored-safe-lodging.webp": {
+      "bytes": 8104,
+      "sha256": "9e3680c84626d314316f1b06aca35c7f020403d0a8e506d591fb6c5cb3ed353b"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/skills/authored-scattered-reagent.webp": {
+      "bytes": 9038,
+      "sha256": "26f49d9fd7553e446ae14c0ffc1ad3a1b07ad65b37614509e3331a950786fa81"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/skills/authored-scholar-s-touch.webp": {
+      "bytes": 8292,
+      "sha256": "e2ad0e59555057822b1d7f213871281ef49d7f64d558d06c1ad219c3b7da8a15"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/skills/authored-sharp-bark.webp": {
+      "bytes": 8568,
+      "sha256": "2d8c9d96dc4861b38e87cae534b703cc7569327ca7c70205493dd8869300238a"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/skills/authored-shield-bash.webp": {
+      "bytes": 7250,
+      "sha256": "41d50d00ab6c26b916f688158e84c39fd4be8b34bc333f2baa6055ac46c6ad80"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/skills/authored-shovel-swing.webp": {
+      "bytes": 7036,
+      "sha256": "2f4a9f44e9db506b2787690ddc8b6b8fbf7f4d9b24c4db4ccd3aabd2448bddd3"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/skills/authored-shrine-pounce.webp": {
+      "bytes": 8222,
+      "sha256": "22105aa050fcd72c807fe4c056f2dc23148a95d441418f767f20ae40a7619f74"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/skills/authored-sixth-company-resolve.webp": {
+      "bytes": 8340,
+      "sha256": "bec0663d92e4dca952e6912a2eb4958b15e11cc862493ec4356e3febdbadd402"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/skills/authored-slam.webp": {
+      "bytes": 8898,
+      "sha256": "0519ed7fabcdeb55ded70fc28de6a92c0c72d4b5837e9143ae2f5b6622d05e13"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/skills/authored-slingshot.webp": {
+      "bytes": 10116,
+      "sha256": "4fb68a2a98519ced87c5420f50ed3728d47c31a850097cf12551b628c61cb589"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/skills/authored-smoke-and-knives.webp": {
+      "bytes": 8156,
+      "sha256": "9624e36aa8b47d8c7cdd535aa83bd5f7a2765a44da2d11113872ce92889f88fc"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/skills/authored-snowman-supplies.webp": {
+      "bytes": 8326,
+      "sha256": "6c42b2df6f8c8a981423bd8c17dc5b35ed8c87f6233710ab4baf8484f5e623a0"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/skills/authored-snowy-tap.webp": {
+      "bytes": 6966,
+      "sha256": "947c500d8fbd61c9d89df7d1901027415edcd1c95159502cfd2c6ef9c46615f2"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/skills/authored-song-of-the-forest.webp": {
+      "bytes": 7708,
+      "sha256": "60f7b40d948aa8c4b645431fa2cf896948983e26c71712c16dd0c144a40f3b3f"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/skills/authored-spiritherb-fortune.webp": {
+      "bytes": 8440,
+      "sha256": "bcc70f083a4eca7499d19d0e07b6fb95cf1ab0635a1c7dada03bec31648c36e8"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/skills/authored-splash.webp": {
+      "bytes": 7574,
+      "sha256": "2272990097c18670aa57df6f6657e5c202dc404f7d68c9d369293289dff9a790"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/skills/authored-staff-strike.webp": {
+      "bytes": 7452,
+      "sha256": "00876fc1777e7a991af1506531487fe9ec2c5cb2c2adcbb4d4aa8aa4acf9215a"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/skills/authored-station-game.webp": {
+      "bytes": 8166,
+      "sha256": "366a3fe72245ed06dbe04d333e51e40f73c1d3a74b421aa13afb3327903703c6"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/skills/authored-steady-course.webp": {
+      "bytes": 9300,
+      "sha256": "421b30c068057a52dc9418f06f584292436b3ad3244b134e2f1be4e094481d15"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/skills/authored-steady-the-rudder.webp": {
+      "bytes": 9300,
+      "sha256": "421b30c068057a52dc9418f06f584292436b3ad3244b134e2f1be4e094481d15"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/skills/authored-stomp.webp": {
+      "bytes": 6966,
+      "sha256": "947c500d8fbd61c9d89df7d1901027415edcd1c95159502cfd2c6ef9c46615f2"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/skills/authored-street-fighting-finale.webp": {
+      "bytes": 7192,
+      "sha256": "c674d5def9f73fb9032477f154d20065f634029695947cca5b77acf596bfb881"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/skills/authored-sturdy-joinery.webp": {
+      "bytes": 8004,
+      "sha256": "817d8fed009194bd38ab59be3b239d52a01cd7026f0d15d549a7791779a7c53e"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/skills/authored-sunfrost-waltz.webp": {
+      "bytes": 10052,
+      "sha256": "d1dfb15afb8f0d6f54af5bace0c5cac3c3b4dfc5b20b54e83e121b2dc640d175"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/skills/authored-tanit-strategy.webp": {
+      "bytes": 8326,
+      "sha256": "6c42b2df6f8c8a981423bd8c17dc5b35ed8c87f6233710ab4baf8484f5e623a0"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/skills/authored-tea-house-paw.webp": {
+      "bytes": 7804,
+      "sha256": "888944c1a50b9c89acf4de97b059f2e5f26092daaa4a643d1e8bb026a4fb63ff"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/skills/authored-tenryou-formation.webp": {
+      "bytes": 7902,
+      "sha256": "66f7be70ed052cd0b8c6fc897f29d1a3583789a913600d892c7f88ae23303c41"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/skills/authored-three-point-slash.webp": {
+      "bytes": 9374,
+      "sha256": "f65365275881a92b5a275e7171f4263e2badb7049033487cc05e409a68a7b676"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/skills/authored-throwing-knife.webp": {
+      "bytes": 7036,
+      "sha256": "2f4a9f44e9db506b2787690ddc8b6b8fbf7f4d9b24c4db4ccd3aabd2448bddd3"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/skills/authored-tidal-hop.webp": {
+      "bytes": 8450,
+      "sha256": "b93cb6ea310c083a81821ca6b45cfad201c8d8b8519ae510389556ca7f931423"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/skills/authored-timid-tap.webp": {
+      "bytes": 6966,
+      "sha256": "947c500d8fbd61c9d89df7d1901027415edcd1c95159502cfd2c6ef9c46615f2"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/skills/authored-toy-tap.webp": {
+      "bytes": 6966,
+      "sha256": "947c500d8fbd61c9d89df7d1901027415edcd1c95159502cfd2c6ef9c46615f2"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/skills/authored-trader-s-tap.webp": {
+      "bytes": 6966,
+      "sha256": "947c500d8fbd61c9d89df7d1901027415edcd1c95159502cfd2c6ef9c46615f2"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/skills/authored-training-drill.webp": {
+      "bytes": 7754,
+      "sha256": "514f407eb081e8e3e7466fac66bf211053408baee9dbcf1493a195c28f6847e3"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/skills/authored-training-jab.webp": {
+      "bytes": 6886,
+      "sha256": "f0d0dde18b6b51894fb37a64bee633a79805b550bd61998ae606b4d7e32fad9c"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/skills/authored-tree-of-dreams.webp": {
+      "bytes": 7192,
+      "sha256": "c674d5def9f73fb9032477f154d20065f634029695947cca5b77acf596bfb881"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/skills/authored-ultimate-cleansing.webp": {
+      "bytes": 9938,
+      "sha256": "77ee6a7e495945ad83e05545d8b2c4b63d7e043414a2875ab7dcd35fb47c2ec5"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/skills/authored-unsettling-touch.webp": {
+      "bytes": 7332,
+      "sha256": "acd7a3b5a7f12209d21032f2c17bcc7405a1998e9e0f355a6c69e75777a4bd2c"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/skills/authored-unyielding-resolve.webp": {
+      "bytes": 8340,
+      "sha256": "bec0663d92e4dca952e6912a2eb4958b15e11cc862493ec4356e3febdbadd402"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/skills/authored-upa.webp": {
+      "bytes": 8418,
+      "sha256": "cc4c4fdaf811f2dd8ef69ed7f9711e6a74ccf0c6dc9980a1e2f6e7098ff598c4"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/skills/authored-veteran-strike.webp": {
+      "bytes": 6966,
+      "sha256": "947c500d8fbd61c9d89df7d1901027415edcd1c95159502cfd2c6ef9c46615f2"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/skills/authored-village-council.webp": {
+      "bytes": 8326,
+      "sha256": "6c42b2df6f8c8a981423bd8c17dc5b35ed8c87f6233710ab4baf8484f5e623a0"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/skills/authored-village-wisdom.webp": {
+      "bytes": 8326,
+      "sha256": "6c42b2df6f8c8a981423bd8c17dc5b35ed8c87f6233710ab4baf8484f5e623a0"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/skills/authored-vimara-stalk.webp": {
+      "bytes": 8222,
+      "sha256": "22105aa050fcd72c807fe4c056f2dc23148a95d441418f767f20ae40a7619f74"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/skills/authored-vintner-s-tap.webp": {
+      "bytes": 7106,
+      "sha256": "97f512ff9c680a3cadcb8085c5ca1fd58805240f6bda07e45b32e74d29382bf3"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/skills/authored-volley.webp": {
+      "bytes": 8940,
+      "sha256": "d248c1c9bbf2530376f2bc6e4d924244a65ad1d2d19124b1f10f2fe25ec05237"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/skills/authored-walking-stick.webp": {
+      "bytes": 7452,
+      "sha256": "00876fc1777e7a991af1506531487fe9ec2c5cb2c2adcbb4d4aa8aa4acf9215a"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/skills/authored-warm-welcome-home.webp": {
+      "bytes": 7748,
+      "sha256": "f6bd621d360cc87dbfb505207858b279d14f3cc66b0dd8cb98025f2acbdb00d5"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/skills/authored-watatsumi-s-blessing.webp": {
+      "bytes": 8854,
+      "sha256": "a416fba1ec158d12934f593ac01c3dc837fb13300cef60ba136b8799bc9efddb"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/skills/authored-watchkeeper-strike.webp": {
+      "bytes": 8292,
+      "sha256": "e2ad0e59555057822b1d7f213871281ef49d7f64d558d06c1ad219c3b7da8a15"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/skills/authored-water-s-touch.webp": {
+      "bytes": 6416,
+      "sha256": "df5f523565acfed68f22395df85ea5fdbc8cb7a56b5402e08c0fc4e8c9fcbfda"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/skills/authored-water-spout.webp": {
+      "bytes": 7574,
+      "sha256": "2272990097c18670aa57df6f6657e5c202dc404f7d68c9d369293289dff9a790"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/skills/authored-whirling-blaze.webp": {
+      "bytes": 9632,
+      "sha256": "46c89983560bef3f45e4f8a02d707b52454248eaef823ec251446eafad099fb0"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/skills/authored-whirlwind-uppercut.webp": {
+      "bytes": 8726,
+      "sha256": "f63f06c9923acbed047b6ffb93d17cfc17b69a4bedfa30caf0da20e0d90a4f87"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/skills/authored-wild-hunt-readiness.webp": {
+      "bytes": 8340,
+      "sha256": "bec0663d92e4dca952e6912a2eb4958b15e11cc862493ec4356e3febdbadd402"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/skills/authored-winter-bargain.webp": {
+      "bytes": 8340,
+      "sha256": "bec0663d92e4dca952e6912a2eb4958b15e11cc862493ec4356e3febdbadd402"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/skills/authored-world-formula.webp": {
+      "bytes": 8324,
+      "sha256": "cadaebaf102dd701d146671cb2536ecbada2727eae7e2cf1c3f1540a37b706cf"
     },
     "extension/genshin-dialogue-ui/assets/battle/skills/axe-and-aegis.webp": {
       "bytes": 5176,

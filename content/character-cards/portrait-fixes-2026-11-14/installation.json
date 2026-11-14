@@ -1,0 +1,33 @@
+{
+  "date": "2026-11-14T06:26:01.075Z",
+  "backup": "/Users/alexachan/Documents/Codex/silly-teyvat-data/backups/character-list-portraits-2026-11-14T06-26-00.600Z",
+  "entries": [
+    {
+      "name": "Fatui Pyro Agent",
+      "source": "extension/genshin-dialogue-ui/assets/tcg/characters/Fatui Pyro Agent.webp",
+      "beforeSHA256": "45c7c6cbbef0f54b2039a9bdb1b8da05fd7d013eca41d56d1185bfeade0476d5",
+      "afterSHA256": "45c7c6cbbef0f54b2039a9bdb1b8da05fd7d013eca41d56d1185bfeade0476d5",
+      "thumbnailSHA256": "4b90480ee63fdfd3afec19fe92ef9b5d6610caa2d7a65e1d0532058b9fa68781",
+      "metadataPreserved": true,
+      "packaged": "content/character-cards/portrait-fixes-2026-11-14/Fatui Pyro Agent.png"
+    },
+    {
+      "name": "Fatui Cryo Cicin Mage",
+      "source": "extension/genshin-dialogue-ui/assets/tcg/characters/Fatui Cryo Cicin Mage.webp",
+      "beforeSHA256": "bd55730d8b3fbbd7bf0aafe7786fe11b3a3ddcc56a6b42948c40be0d10e88278",
+      "afterSHA256": "8926c016ff75ebe06c2061fe5577acd339201d4d9e65f3741bd63cda74fd7f81",
+      "thumbnailSHA256": "d8bf514f821a1b28984f0bc88a25be1201dd911a781d3d2496dba0fd2ef2e311",
+      "metadataPreserved": true,
+      "packaged": "content/character-cards/portrait-fixes-2026-11-14/Fatui Cryo Cicin Mage.png"
+    },
+    {
+      "name": "Tisoc",
+      "source": "existing native card (TCG portrait already installed)",
+      "beforeSHA256": "6e2697c3c1b94749f45a1edaac90e158fe5a07765ec3b2997526179aabd53fd0",
+      "afterSHA256": "314a830993ef5ebb655e2cb39c726fd7cf75293868a41056caa1d8fec59fed8b",
+      "thumbnailSHA256": "9e588a41543dbdcda0076325b8fbe80b545a4fe35ac132b4533463b4e78fdfa7",
+      "metadataPreserved": true,
+      "packaged": "content/character-cards/portrait-fixes-2026-11-14/Tisoc.png"
+    }
+  ]
+}

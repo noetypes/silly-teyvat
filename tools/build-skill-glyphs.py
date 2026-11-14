@@ -8,6 +8,7 @@ disc) and writes assets/battle/glyphs/ with the same file names: the disc remove
 kept as white with alpha, so the battle board can draw it on a bronze medallion like the game.
 No network access.
 """
+import argparse
 import statistics
 from pathlib import Path
 from PIL import Image
@@ -34,10 +35,14 @@ def glyph(path):
     return out
 
 def main():
+    parser=argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--missing',action='store_true',help='Create only absent glyphs; preserve existing pack links and authored glyphs.')
+    args=parser.parse_args()
     target = ROOT / 'glyphs'; target.mkdir(exist_ok=True)
     total = 0
     for path in sorted((ROOT / 'skills').glob('*.webp')):
         out = target / path.name
+        if args.missing and out.exists():continue
         glyph(path).save(out, 'WEBP', quality=88, method=6)
         total += out.stat().st_size
     print(f'{len(list(target.glob("*.webp")))} glyphs, {total / 1e6:.2f} MB')

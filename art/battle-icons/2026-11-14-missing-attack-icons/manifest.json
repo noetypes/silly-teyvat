@@ -1,0 +1,2499 @@
+{
+  "date": "2026-11-14",
+  "tool": "tools/build-missing-attack-icons.py",
+  "method": "Hand-drawn geometric pictograms; no AI generation. Motifs follow move names and gameplay effects. Existing official art is preserved.",
+  "skillsFolder": "extension/genshin-dialogue-ui/assets/battle/skills",
+  "glyphsFolder": "extension/genshin-dialogue-ui/assets/battle/glyphs",
+  "icons": [
+    {
+      "move": "A Brother’s Promise",
+      "characters": [
+        "Teucer"
+      ],
+      "kind": "burst",
+      "element": "None",
+      "motif": "book",
+      "file": "authored-a-brother-s-promise.webp",
+      "skillSHA256": "a416fba1ec158d12934f593ac01c3dc837fb13300cef60ba136b8799bc9efddb",
+      "glyphSHA256": "e3151dea3263eace08e8b0880f10b01176b0f2d2bbd4d27e0f2c2a061bd2bcd1"
+    },
+    {
+      "move": "A Little Sunlight",
+      "characters": [
+        "Areta"
+      ],
+      "kind": "burst",
+      "element": "None",
+      "motif": "heart",
+      "file": "authored-a-little-sunlight.webp",
+      "skillSHA256": "5a13dc2d6cb9e33bac07c26b97192b45152c7c0522d0f74096458d4da717a74e",
+      "glyphSHA256": "e3f7a158035622ed0536ce0c9372eb6d36318d4db8dbdb20caa9b7b20bfa81b9"
+    },
+    {
+      "move": "A Song Remembered",
+      "characters": [
+        "Granny Ruoxin"
+      ],
+      "kind": "burst",
+      "element": "None",
+      "motif": "music",
+      "file": "authored-a-song-remembered.webp",
+      "skillSHA256": "60f7b40d948aa8c4b645431fa2cf896948983e26c71712c16dd0c144a40f3b3f",
+      "glyphSHA256": "9e410dbe9f3c599f405ff51754d0b7619b90bea2930f5f9380069114f2892c2d"
+    },
+    {
+      "move": "Acolyte’s Prayer",
+      "characters": [
+        "Eveliina"
+      ],
+      "kind": "skill",
+      "element": "None",
+      "motif": "book",
+      "file": "authored-acolyte-s-prayer.webp",
+      "skillSHA256": "0214384e18d96a292ba7a8b3c6cddc9847f467572aa8c9c8e0de84917b92ffb0",
+      "glyphSHA256": "5ded09facb12f0da69bc9ec34d75f92c7c9bc4b975c9abe2368c98d313071b96"
+    },
+    {
+      "move": "Action!",
+      "characters": [
+        "Xavier"
+      ],
+      "kind": "burst",
+      "element": "None",
+      "motif": "burst",
+      "file": "authored-action.webp",
+      "skillSHA256": "66f7be70ed052cd0b8c6fc897f29d1a3583789a913600d892c7f88ae23303c41",
+      "glyphSHA256": "b06e569c1b50bb43523b4b033dd85d6c0d04e0fdf76ce4d2e2a8135dbc58e109"
+    },
+    {
+      "move": "Ad Astra Abyssosque",
+      "characters": [
+        "Katheryne"
+      ],
+      "kind": "burst",
+      "element": "None",
+      "motif": "compass",
+      "file": "authored-ad-astra-abyssosque.webp",
+      "skillSHA256": "08e541074f773fae4bd290f49b62d8a7a753ccdaa92c55768d9039ae7e180c30",
+      "glyphSHA256": "7a5a921ff4b56ffd7d812771e06f068541a3555cb296594617ffd1a6ae74c78b"
+    },
+    {
+      "move": "Alpaca Herding",
+      "characters": [
+        "Aloha"
+      ],
+      "kind": "skill",
+      "element": "None",
+      "motif": "burst",
+      "file": "authored-alpaca-herding.webp",
+      "skillSHA256": "22105aa050fcd72c807fe4c056f2dc23148a95d441418f767f20ae40a7619f74",
+      "glyphSHA256": "1b7be69c6fb5eec105340d1e4524b48896bede7f82f74a146bfde8c0a1e859f0"
+    },
+    {
+      "move": "Apostle’s Ambition",
+      "characters": [
+        "Jakob"
+      ],
+      "kind": "burst",
+      "element": "None",
+      "motif": "star",
+      "file": "authored-apostle-s-ambition.webp",
+      "skillSHA256": "c4dddc2e279043a19f3a15502243639be203f492bc5c4c689749f163b518bee3",
+      "glyphSHA256": "b5e355062436f7630194aab86bdb56188ee8b6e77ffa3481d2d893a8f5a764e3"
+    },
+    {
+      "move": "Bartender’s Tap",
+      "characters": [
+        "Tetreaux"
+      ],
+      "kind": "normal",
+      "element": "Physical",
+      "motif": "cup",
+      "file": "authored-bartender-s-tap.webp",
+      "skillSHA256": "97f512ff9c680a3cadcb8085c5ca1fd58805240f6bda07e45b32e74d29382bf3",
+      "glyphSHA256": "007d4b6c0d15c59ba4ec2e9c1f33d4d9d9bedfc7ff4679551bb62bdb945f498e"
+    },
+    {
+      "move": "Beach Workout",
+      "characters": [
+        "Mazatl"
+      ],
+      "kind": "skill",
+      "element": "None",
+      "motif": "fist",
+      "file": "authored-beach-workout.webp",
+      "skillSHA256": "514f407eb081e8e3e7466fac66bf211053408baee9dbcf1493a195c28f6847e3",
+      "glyphSHA256": "ae5bfcacb909fd750669c3a2247e5758ed0149746c4955e56a0ebca2c2755962"
+    },
+    {
+      "move": "Blazing Leap",
+      "characters": [
+        "Large Pyro Slime"
+      ],
+      "kind": "basic",
+      "element": "Pyro",
+      "motif": "fire",
+      "file": "authored-blazing-leap.webp",
+      "skillSHA256": "d0e199b6f9938dfa9144e4201cc5ef6cd35110f0453d9285c7df6e66606f9dc0",
+      "glyphSHA256": "dbc2ea827ddaac5109492044b497f6f68a04640ea6367ee9a6225aaf1ed412d3"
+    },
+    {
+      "move": "Blink Stab",
+      "characters": [
+        "Fatui Pyro Agent"
+      ],
+      "kind": "basic",
+      "element": "Pyro",
+      "motif": "daggers",
+      "file": "authored-blink-stab.webp",
+      "skillSHA256": "fe6bed1dc5dcf3241fc5249f2caab95ffda41817d920f1da31e11316909f18a6",
+      "glyphSHA256": "d7660b1cdf2835ae76a3dc78b2732f1a80ee704c5eb3d97544ee9e3469096aad"
+    },
+    {
+      "move": "Bounce",
+      "characters": [
+        "Electro Slime",
+        "Large Cryo Slime"
+      ],
+      "kind": "basic",
+      "element": "Electro",
+      "motif": "club",
+      "file": "authored-bounce.webp",
+      "skillSHA256": "ce31aac5d3e974c035e31cf2ff87b4c710697bfe6fcc8079cbb47f2c1d572265",
+      "glyphSHA256": "07f0db88af8493edfee74399008414e29b387c00ebe3a8d019849b3f52850415"
+    },
+    {
+      "move": "Canine Counter",
+      "characters": [
+        "Taroumaru"
+      ],
+      "kind": "skill",
+      "element": "None",
+      "motif": "paw",
+      "file": "authored-canine-counter.webp",
+      "skillSHA256": "2d8c9d96dc4861b38e87cae534b703cc7569327ca7c70205493dd8869300238a",
+      "glyphSHA256": "b4f61c0e45cb1978a4464d2f53d84ef98aeb311259b81def38fff00455ebcabe"
+    },
+    {
+      "move": "Canopy Throw",
+      "characters": [
+        "Tisoc"
+      ],
+      "kind": "normal",
+      "element": "Physical",
+      "motif": "fruit",
+      "file": "authored-canopy-throw.webp",
+      "skillSHA256": "71dd0d6e40a10722ca4c07f039cf75df534fc23f075312de0bf686a965cacafc",
+      "glyphSHA256": "1b7180e4e4a1a4f9f612d4bbb60675c58bb233e66cb1617e6305e6c8a6464f38"
+    },
+    {
+      "move": "Careful Aim",
+      "characters": [
+        "Treasure Hoarders - Marksman"
+      ],
+      "kind": "special",
+      "element": "Physical",
+      "motif": "bow",
+      "file": "authored-careful-aim.webp",
+      "skillSHA256": "d248c1c9bbf2530376f2bc6e4d924244a65ad1d2d19124b1f10f2fe25ec05237",
+      "glyphSHA256": "1dcc4e0a02f9ad67bc26a36cf6408d2a1717305701f604b1b6213e2c6d0dfbc1"
+    },
+    {
+      "move": "Carpenter’s Tap",
+      "characters": [
+        "Master Lu"
+      ],
+      "kind": "normal",
+      "element": "Physical",
+      "motif": "shield",
+      "file": "authored-carpenter-s-tap.webp",
+      "skillSHA256": "41d50d00ab6c26b916f688158e84c39fd4be8b34bc333f2baa6055ac46c6ad80",
+      "glyphSHA256": "b986a9f0762b9a5df0423f10b43f460b1aace133a094ab482606ead285f08680"
+    },
+    {
+      "move": "Case Closed",
+      "characters": [
+        "Sedile"
+      ],
+      "kind": "burst",
+      "element": "None",
+      "motif": "book",
+      "file": "authored-case-closed.webp",
+      "skillSHA256": "a416fba1ec158d12934f593ac01c3dc837fb13300cef60ba136b8799bc9efddb",
+      "glyphSHA256": "e3151dea3263eace08e8b0880f10b01176b0f2d2bbd4d27e0f2c2a061bd2bcd1"
+    },
+    {
+      "move": "Cat Paw",
+      "characters": [
+        "Neko"
+      ],
+      "kind": "normal",
+      "element": "Physical",
+      "motif": "paw",
+      "file": "authored-cat-paw.webp",
+      "skillSHA256": "888944c1a50b9c89acf4de97b059f2e5f26092daaa4a643d1e8bb026a4fb63ff",
+      "glyphSHA256": "42b71b87e95999fb53e9ef0a53f45e097c0e12d1906e8b6c9c21d2a8cdd7045a"
+    },
+    {
+      "move": "Chain Discharge",
+      "characters": [
+        "Large Electro Slime"
+      ],
+      "kind": "special",
+      "element": "Electro",
+      "motif": "burst",
+      "file": "authored-chain-discharge.webp",
+      "skillSHA256": "7edaca017bd010c28ae7f810c7522016cc8aef372a3c46e59e999382ea6c5325",
+      "glyphSHA256": "b06e569c1b50bb43523b4b033dd85d6c0d04e0fdf76ce4d2e2a8135dbc58e109"
+    },
+    {
+      "move": "Charged Bounce",
+      "characters": [
+        "Large Electro Slime"
+      ],
+      "kind": "basic",
+      "element": "Electro",
+      "motif": "club",
+      "file": "authored-charged-bounce.webp",
+      "skillSHA256": "ce31aac5d3e974c035e31cf2ff87b4c710697bfe6fcc8079cbb47f2c1d572265",
+      "glyphSHA256": "07f0db88af8493edfee74399008414e29b387c00ebe3a8d019849b3f52850415"
+    },
+    {
+      "move": "Charging Blast",
+      "characters": [
+        "Grounded Geoshroom",
+        "Grounded Hydroshroom"
+      ],
+      "kind": "special",
+      "element": "Geo",
+      "motif": "burst",
+      "file": "authored-charging-blast.webp",
+      "skillSHA256": "29d54446e3f37c7e444dd635c5c1ba0736ab636d04111d3d62e0feab116df548",
+      "glyphSHA256": "b06e569c1b50bb43523b4b033dd85d6c0d04e0fdf76ce4d2e2a8135dbc58e109"
+    },
+    {
+      "move": "Charging Slam",
+      "characters": [
+        "Wooden Shieldwall Mitachurl"
+      ],
+      "kind": "special",
+      "element": "Physical",
+      "motif": "club",
+      "file": "authored-charging-slam.webp",
+      "skillSHA256": "182136dc4195b9c82e8535467cbca4e3dfd2f95f0b71e6ba706f6b80421d2ad6",
+      "glyphSHA256": "17ff424b71d4e1a645c9722113dbf92331be314d7a79748ad002b98afaf8ab1b"
+    },
+    {
+      "move": "Chief Mate’s Call",
+      "characters": [
+        "Lasselin"
+      ],
+      "kind": "burst",
+      "element": "None",
+      "motif": "compass",
+      "file": "authored-chief-mate-s-call.webp",
+      "skillSHA256": "08e541074f773fae4bd290f49b62d8a7a753ccdaa92c55768d9039ae7e180c30",
+      "glyphSHA256": "7a5a921ff4b56ffd7d812771e06f068541a3555cb296594617ffd1a6ae74c78b"
+    },
+    {
+      "move": "Chirping Ball",
+      "characters": [
+        "Mayskaya"
+      ],
+      "kind": "skill",
+      "element": "None",
+      "motif": "music",
+      "file": "authored-chirping-ball.webp",
+      "skillSHA256": "12a898d23b635859e033797de234b50ed145d221f32f211fe2328dabeea824a2",
+      "glyphSHA256": "fd86fa5f63636e7052444c2cb0c891c3907d83bef5c5a1cfd5e182a7a30c261e"
+    },
+    {
+      "move": "Cicin Swarm",
+      "characters": [
+        "Fatui Cryo Cicin Mage"
+      ],
+      "kind": "special",
+      "element": "Cryo",
+      "motif": "insect",
+      "file": "authored-cicin-swarm.webp",
+      "skillSHA256": "a8f3c0d0b0d9967be59784750079ec5885cf66a2a8c34986715f7e2be59e1c08",
+      "glyphSHA256": "5f1c1ffb993065cfc6b155762e46c3e29a5507f439916321ec740dee1377858c"
+    },
+    {
+      "move": "Cliffwatch Vigil",
+      "characters": [
+        "Egle"
+      ],
+      "kind": "burst",
+      "element": "None",
+      "motif": "book",
+      "file": "authored-cliffwatch-vigil.webp",
+      "skillSHA256": "a416fba1ec158d12934f593ac01c3dc837fb13300cef60ba136b8799bc9efddb",
+      "glyphSHA256": "e3151dea3263eace08e8b0880f10b01176b0f2d2bbd4d27e0f2c2a061bd2bcd1"
+    },
+    {
+      "move": "Club Swing",
+      "characters": [
+        "Hilichurl Fighter"
+      ],
+      "kind": "basic",
+      "element": "Physical",
+      "motif": "bird",
+      "file": "authored-club-swing.webp",
+      "skillSHA256": "2f4a9f44e9db506b2787690ddc8b6b8fbf7f4d9b24c4db4ccd3aabd2448bddd3",
+      "glyphSHA256": "623787b9b84883518795804a46f8ffb6f89059726926d0e13ba233fd0ef65c8f"
+    },
+    {
+      "move": "Combo Slash",
+      "characters": [
+        "Nobushi: Hitsukeban",
+        "Nobushi: Jintouban",
+        "Nobushi: Kikouban"
+      ],
+      "kind": "basic",
+      "element": "Physical",
+      "motif": "blade",
+      "file": "authored-combo-slash.webp",
+      "skillSHA256": "5bca429d0b596145cdc15a27c68df0b73b061b9d6d7bc85d9d889ecac604c6ea",
+      "glyphSHA256": "c1eb04a0d2a77eeb8746a69475541cb1096f40fa096a061d89b201fe9bfe2bf0"
+    },
+    {
+      "move": "Commission Blade",
+      "characters": [
+        "Kujou Masahito"
+      ],
+      "kind": "normal",
+      "element": "Physical",
+      "motif": "blade",
+      "file": "authored-commission-blade.webp",
+      "skillSHA256": "5bca429d0b596145cdc15a27c68df0b73b061b9d6d7bc85d9d889ecac604c6ea",
+      "glyphSHA256": "c1eb04a0d2a77eeb8746a69475541cb1096f40fa096a061d89b201fe9bfe2bf0"
+    },
+    {
+      "move": "Comrade’s Rest",
+      "characters": [
+        "Egle"
+      ],
+      "kind": "skill",
+      "element": "None",
+      "motif": "shield",
+      "file": "authored-comrade-s-rest.webp",
+      "skillSHA256": "817d8fed009194bd38ab59be3b239d52a01cd7026f0d15d549a7791779a7c53e",
+      "glyphSHA256": "f24e153321068885af420257f64c9e327fc45b74295739e15177aaa59b8c56a4"
+    },
+    {
+      "move": "Counter Service",
+      "characters": [
+        "Tetreaux"
+      ],
+      "kind": "skill",
+      "element": "None",
+      "motif": "cup",
+      "file": "authored-counter-service.webp",
+      "skillSHA256": "7f19ee70bd3fec0bf171aaad5741399160e26d22d30453ce75f551af3096c23b",
+      "glyphSHA256": "ca0a87c7cc734bdcd5652d7462558d0a95e74df4762ad5a6aada2549ff2deced"
+    },
+    {
+      "move": "Crimson Lotus Moth",
+      "characters": [
+        "La Signora"
+      ],
+      "kind": "basic",
+      "element": "Pyro",
+      "motif": "burst",
+      "file": "authored-crimson-lotus-moth.webp",
+      "skillSHA256": "cc4c4fdaf811f2dd8ef69ed7f9711e6a74ccf0c6dc9980a1e2f6e7098ff598c4",
+      "glyphSHA256": "7f070bd6fa1fe2da8d78bdda1073b93aab2bb6484acdbfdf999ac2ced5143f4d"
+    },
+    {
+      "move": "Crossbow Bolt",
+      "characters": [
+        "Hilichurl Shooter"
+      ],
+      "kind": "basic",
+      "element": "Physical",
+      "motif": "bow",
+      "file": "authored-crossbow-bolt.webp",
+      "skillSHA256": "99637862b0dc45a7d3f7d48c97e9cea30003829fbb06138ea079c81034d9d9ae",
+      "glyphSHA256": "6c2dc9f7ca7bfd76f11e2a3cb2aa1b533a4e5daa123841f749697f5d5d0ebe3e"
+    },
+    {
+      "move": "Crossbow Shot",
+      "characters": [
+        "Treasure Hoarders - Marksman"
+      ],
+      "kind": "basic",
+      "element": "Physical",
+      "motif": "bow",
+      "file": "authored-crossbow-shot.webp",
+      "skillSHA256": "99637862b0dc45a7d3f7d48c97e9cea30003829fbb06138ea079c81034d9d9ae",
+      "glyphSHA256": "6c2dc9f7ca7bfd76f11e2a3cb2aa1b533a4e5daa123841f749697f5d5d0ebe3e"
+    },
+    {
+      "move": "Decimating Lash",
+      "characters": [
+        "La Signora"
+      ],
+      "kind": "basic",
+      "element": "Pyro",
+      "motif": "star",
+      "file": "authored-decimating-lash.webp",
+      "skillSHA256": "dda7c9b23d16994795673ff7db183f9b6c936463436a506aae503f53f102f0be",
+      "glyphSHA256": "84066a52884fb87084263d6ce3fc6110d56aca668a17381e5db59b2990341ac8"
+    },
+    {
+      "move": "Desert Ambition",
+      "characters": [
+        "Babel"
+      ],
+      "kind": "burst",
+      "element": "None",
+      "motif": "shield",
+      "file": "authored-desert-ambition.webp",
+      "skillSHA256": "ced32ceae4b356c6293342d7cc3e109d5efb454b55251e1d901a5fb79454592c",
+      "glyphSHA256": "04d0524aa4e29a87ac8134b1e7065ed8b488f71e485618611590676fac5d59df"
+    },
+    {
+      "move": "Desert Contract",
+      "characters": [
+        "Aybak"
+      ],
+      "kind": "burst",
+      "element": "None",
+      "motif": "scroll",
+      "file": "authored-desert-contract.webp",
+      "skillSHA256": "bec0663d92e4dca952e6912a2eb4958b15e11cc862493ec4356e3febdbadd402",
+      "glyphSHA256": "786155c776813508aa0600d5579518ca0be2ac1758434d8fbb97ad8bf3082c55"
+    },
+    {
+      "move": "Desert Footwork",
+      "characters": [
+        "Jeht"
+      ],
+      "kind": "skill",
+      "element": "None",
+      "motif": "dance",
+      "file": "authored-desert-footwork.webp",
+      "skillSHA256": "fe941cdebbe32bab458e4c6a8087600c215c3fd10049f8516f3931a03a99a4bf",
+      "glyphSHA256": "858a7d9189cc5be09fa3b5009aa16b7b0d280715f834ec057e006e6757f85737"
+    },
+    {
+      "move": "Director’s Tap",
+      "characters": [
+        "Xavier"
+      ],
+      "kind": "normal",
+      "element": "Physical",
+      "motif": "club",
+      "file": "authored-director-s-tap.webp",
+      "skillSHA256": "947c500d8fbd61c9d89df7d1901027415edcd1c95159502cfd2c6ef9c46615f2",
+      "glyphSHA256": "07f0db88af8493edfee74399008414e29b387c00ebe3a8d019849b3f52850415"
+    },
+    {
+      "move": "Doctor’s Orders",
+      "characters": [
+        "Nishikino Reirei"
+      ],
+      "kind": "burst",
+      "element": "None",
+      "motif": "medicine",
+      "file": "authored-doctor-s-orders.webp",
+      "skillSHA256": "8192bad6f315ed5aea708cde1348065a8c66c16d026b064afaf0fe7f5d1bbb2e",
+      "glyphSHA256": "4a399bfceb770f99d456ae19b3092a7814d6182ee31bf368b957df7d2af67d56"
+    },
+    {
+      "move": "Doctor’s Tap",
+      "characters": [
+        "Areta"
+      ],
+      "kind": "normal",
+      "element": "Physical",
+      "motif": "medicine",
+      "file": "authored-doctor-s-tap.webp",
+      "skillSHA256": "b974f1a0e4c6b7f2a62da8ec5a8066d3a7a1474e7560a2be8d753fa1f6963876",
+      "glyphSHA256": "f5cbd4023492cdd3f6194b7f7ee6b7606c499ab2269dbb365cf5bfaacbd604de"
+    },
+    {
+      "move": "Doge’s Tap",
+      "characters": [
+        "Tiepolo"
+      ],
+      "kind": "normal",
+      "element": "Physical",
+      "motif": "paw",
+      "file": "authored-doge-s-tap.webp",
+      "skillSHA256": "888944c1a50b9c89acf4de97b059f2e5f26092daaa4a643d1e8bb026a4fb63ff",
+      "glyphSHA256": "42b71b87e95999fb53e9ef0a53f45e097c0e12d1906e8b6c9c21d2a8cdd7045a"
+    },
+    {
+      "move": "Draw a Bead",
+      "characters": [
+        "Treasure Hoarders - Marksman"
+      ],
+      "kind": "basic",
+      "element": "Physical",
+      "motif": "bow",
+      "file": "authored-draw-a-bead.webp",
+      "skillSHA256": "99637862b0dc45a7d3f7d48c97e9cea30003829fbb06138ea079c81034d9d9ae",
+      "glyphSHA256": "6c2dc9f7ca7bfd76f11e2a3cb2aa1b533a4e5daa123841f749697f5d5d0ebe3e"
+    },
+    {
+      "move": "Dreaming Branch",
+      "characters": [
+        "Araja"
+      ],
+      "kind": "normal",
+      "element": "Physical",
+      "motif": "tree",
+      "file": "authored-dreaming-branch.webp",
+      "skillSHA256": "e1cab7eb6386b3c0067afc889f83450aa613139112aca56a2e26ad5e7ae6e542",
+      "glyphSHA256": "ccaf831d674b28d9f8828adbdf8b474aff8d73a59a4b7284d256006de7df17f9"
+    },
+    {
+      "move": "Du Plama",
+      "characters": [
+        "Blazing Axe Mitachurl",
+        "Crackling Axe Mitachurl"
+      ],
+      "kind": "basic",
+      "element": "Pyro",
+      "motif": "axe",
+      "file": "authored-du-plama.webp",
+      "skillSHA256": "c52d569ce453577e6398bae642f567a30a6217d7278b0d8867342fb95c8df941",
+      "glyphSHA256": "8d357a20d8c447da7f9e5b5a4ad8016d80843c599232a3f1cbbad951848369d4"
+    },
+    {
+      "move": "Dust in the Eyes",
+      "characters": [
+        "Treasure Hoarders: Gravedigger"
+      ],
+      "kind": "special",
+      "element": "Physical",
+      "motif": "burst",
+      "file": "authored-dust-in-the-eyes.webp",
+      "skillSHA256": "66f7be70ed052cd0b8c6fc897f29d1a3583789a913600d892c7f88ae23303c41",
+      "glyphSHA256": "b06e569c1b50bb43523b4b033dd85d6c0d04e0fdf76ce4d2e2a8135dbc58e109"
+    },
+    {
+      "move": "Earth Toss",
+      "characters": [
+        "Treasure Hoarders: Gravedigger"
+      ],
+      "kind": "basic",
+      "element": "Physical",
+      "motif": "stone",
+      "file": "authored-earth-toss.webp",
+      "skillSHA256": "470eea8adab0cba6f37f43d2716d81544da8059e52601a126b1a371ae193d67c",
+      "glyphSHA256": "0c4051fbf40c0f6ed2196813ec4a000bd07885901047c2c2b8b8f9039ff2fa2f"
+    },
+    {
+      "move": "Elder’s Tap",
+      "characters": [
+        "Komaki"
+      ],
+      "kind": "normal",
+      "element": "Physical",
+      "motif": "staff",
+      "file": "authored-elder-s-tap.webp",
+      "skillSHA256": "00876fc1777e7a991af1506531487fe9ec2c5cb2c2adcbb4d4aa8aa4acf9215a",
+      "glyphSHA256": "6bd1c81483f2a6839d931f81d0290971632c86977fed556aface582c83ccd9c9"
+    },
+    {
+      "move": "Electro Pulse",
+      "characters": [
+        "Large Electro Slime"
+      ],
+      "kind": "basic",
+      "element": "Electro",
+      "motif": "lightning",
+      "file": "authored-electro-pulse.webp",
+      "skillSHA256": "c71a5c7b389e2f9f3c07e5d2a49c21402c9dce708ee8a7200d85fb670cdc956a",
+      "glyphSHA256": "32b4d6363c78ccc7a1ccdd816332f03163c8253978f0b00b927af4bff0d3771e"
+    },
+    {
+      "move": "Elemental Release",
+      "characters": [
+        "Traveler None"
+      ],
+      "kind": "burst",
+      "element": "None",
+      "motif": "blade",
+      "file": "authored-elemental-release.webp",
+      "skillSHA256": "1e6c0e263fdd186666fadee6c4d9ac8cbe29e9af3eed7196329bb46ae1e32210",
+      "glyphSHA256": "d56111f0c82a53c7b2eff09b4639e6262987425bd61b1b874d552ea380931467"
+    },
+    {
+      "move": "Elemental Strike",
+      "characters": [
+        "Traveler None"
+      ],
+      "kind": "skill",
+      "element": "None",
+      "motif": "club",
+      "file": "authored-elemental-strike.webp",
+      "skillSHA256": "6c0a2b24b9a708218b1ab2e28682262a375b634d9162b48be3f3467d1233cbd1",
+      "glyphSHA256": "c682c038f23db3288f89d76b23037c470d40ebf086a4364374d407361892d8c0"
+    },
+    {
+      "move": "Eremite Blade",
+      "characters": [
+        "Jeht"
+      ],
+      "kind": "normal",
+      "element": "Physical",
+      "motif": "blade",
+      "file": "authored-eremite-blade.webp",
+      "skillSHA256": "5bca429d0b596145cdc15a27c68df0b73b061b9d6d7bc85d9d889ecac604c6ea",
+      "glyphSHA256": "c1eb04a0d2a77eeb8746a69475541cb1096f40fa096a061d89b201fe9bfe2bf0"
+    },
+    {
+      "move": "Eremite Experience",
+      "characters": [
+        "Shajar"
+      ],
+      "kind": "burst",
+      "element": "None",
+      "motif": "scroll",
+      "file": "authored-eremite-experience.webp",
+      "skillSHA256": "bec0663d92e4dca952e6912a2eb4958b15e11cc862493ec4356e3febdbadd402",
+      "glyphSHA256": "786155c776813508aa0600d5579518ca0be2ac1758434d8fbb97ad8bf3082c55"
+    },
+    {
+      "move": "Error: Reset",
+      "characters": [
+        "Katheryne"
+      ],
+      "kind": "skill",
+      "element": "None",
+      "motif": "gear",
+      "file": "authored-error-reset.webp",
+      "skillSHA256": "cadaebaf102dd701d146671cb2536ecbada2727eae7e2cf1c3f1540a37b706cf",
+      "glyphSHA256": "704664822c8538de3b5f130bbe584f263e93e637681fb83ae41d8ebf8997f788"
+    },
+    {
+      "move": "Family Care",
+      "characters": [
+        "Tonia"
+      ],
+      "kind": "skill",
+      "element": "None",
+      "motif": "heart",
+      "file": "authored-family-care.webp",
+      "skillSHA256": "5cddc6f3cbf55bf048444a9c989b4d76967cab124cce630bcd5f8dfe185a2d55",
+      "glyphSHA256": "468d67f409c4a21a1bef10e46a34f4d2fec6eaeba713b2f0ed75f92127e1b8de"
+    },
+    {
+      "move": "Family Vintage",
+      "characters": [
+        "Tlapalli"
+      ],
+      "kind": "burst",
+      "element": "None",
+      "motif": "cup",
+      "file": "authored-family-vintage.webp",
+      "skillSHA256": "c402045d1c739808d45a1f7002be955b1e2468738f61d384d36c8fdc1dc676ed",
+      "glyphSHA256": "dfe3cbcc5127e1a25efd1b1c37c090256eda1f3e5ef914303c471aa74951382c"
+    },
+    {
+      "move": "Fanmu Craftsmanship",
+      "characters": [
+        "Master Lu"
+      ],
+      "kind": "burst",
+      "element": "None",
+      "motif": "shield",
+      "file": "authored-fanmu-craftsmanship.webp",
+      "skillSHA256": "ced32ceae4b356c6293342d7cc3e109d5efb454b55251e1d901a5fb79454592c",
+      "glyphSHA256": "04d0524aa4e29a87ac8134b1e7065ed8b488f71e485618611590676fac5d59df"
+    },
+    {
+      "move": "Field Medicine",
+      "characters": [
+        "Nishikino Reirei"
+      ],
+      "kind": "skill",
+      "element": "None",
+      "motif": "medicine",
+      "file": "authored-field-medicine.webp",
+      "skillSHA256": "f8f691b423f7f691fd1a1c8efd5d5ba2adb31031eb5dde8c6765287a7646c2f9",
+      "glyphSHA256": "41876eb81fe28be2c4e0ea6205c40c6d3c5b75341eec49870bb704bbb6305f2b"
+    },
+    {
+      "move": "Fireball",
+      "characters": [
+        "Pyro Abyss Mage"
+      ],
+      "kind": "basic",
+      "element": "Pyro",
+      "motif": "fire",
+      "file": "authored-fireball.webp",
+      "skillSHA256": "d0e199b6f9938dfa9144e4201cc5ef6cd35110f0453d9285c7df6e66606f9dc0",
+      "glyphSHA256": "dbc2ea827ddaac5109492044b497f6f68a04640ea6367ee9a6225aaf1ed412d3"
+    },
+    {
+      "move": "Fireball Barrage",
+      "characters": [
+        "Large Pyro Slime"
+      ],
+      "kind": "special",
+      "element": "Pyro",
+      "motif": "fire",
+      "file": "authored-fireball-barrage.webp",
+      "skillSHA256": "46c89983560bef3f45e4f8a02d707b52454248eaef823ec251446eafad099fb0",
+      "glyphSHA256": "a33372df119b9ea49cecba9de87bfe1a4776f415417d425c3ef16106abff519a"
+    },
+    {
+      "move": "Flame Dash",
+      "characters": [
+        "Fatui Pyro Agent"
+      ],
+      "kind": "special",
+      "element": "Pyro",
+      "motif": "fire",
+      "file": "authored-flame-dash.webp",
+      "skillSHA256": "46c89983560bef3f45e4f8a02d707b52454248eaef823ec251446eafad099fb0",
+      "glyphSHA256": "a33372df119b9ea49cecba9de87bfe1a4776f415417d425c3ef16106abff519a"
+    },
+    {
+      "move": "Flame Pillars",
+      "characters": [
+        "Pyro Abyss Mage"
+      ],
+      "kind": "special",
+      "element": "Pyro",
+      "motif": "fire",
+      "file": "authored-flame-pillars.webp",
+      "skillSHA256": "46c89983560bef3f45e4f8a02d707b52454248eaef823ec251446eafad099fb0",
+      "glyphSHA256": "a33372df119b9ea49cecba9de87bfe1a4776f415417d425c3ef16106abff519a"
+    },
+    {
+      "move": "Flamegranate Toss",
+      "characters": [
+        "Tisoc"
+      ],
+      "kind": "skill",
+      "element": "Pyro",
+      "motif": "fruit",
+      "file": "authored-flamegranate-toss.webp",
+      "skillSHA256": "6b7db3dedd43e3b764aee5fb9dc5cd223fc8c8164ef10350594853715d745345",
+      "glyphSHA256": "48afb4fdc23980a2af4259e77534cec63f26e1ae0cb3b2503a4d3c973aa36a8d"
+    },
+    {
+      "move": "Flask Toss",
+      "characters": [
+        "Treasure Hoarders: Pyro Potioneer"
+      ],
+      "kind": "basic",
+      "element": "Pyro",
+      "motif": "potion",
+      "file": "authored-flask-toss.webp",
+      "skillSHA256": "26f49d9fd7553e446ae14c0ffc1ad3a1b07ad65b37614509e3331a950786fa81",
+      "glyphSHA256": "42902cc2ca159d5ec2b200d301382a0a2434df8142f11ede0f4fb352a80ae138"
+    },
+    {
+      "move": "Fleuve Treatment",
+      "characters": [
+        "Areta"
+      ],
+      "kind": "skill",
+      "element": "None",
+      "motif": "medicine",
+      "file": "authored-fleuve-treatment.webp",
+      "skillSHA256": "f8f691b423f7f691fd1a1c8efd5d5ba2adb31031eb5dde8c6765287a7646c2f9",
+      "glyphSHA256": "41876eb81fe28be2c4e0ea6205c40c6d3c5b75341eec49870bb704bbb6305f2b"
+    },
+    {
+      "move": "Flower Petal",
+      "characters": [
+        "Kukkia"
+      ],
+      "kind": "normal",
+      "element": "Physical",
+      "motif": "flower",
+      "file": "authored-flower-petal.webp",
+      "skillSHA256": "3da71344898f203c4fe79edaa1c56c617d39037e979ac322cf8880dcc5ae8299",
+      "glyphSHA256": "0f8880ae2aa4e5e404e049f04135f00c360738e22aa1993f5c5335271fe46edb"
+    },
+    {
+      "move": "Flowers for the Forest",
+      "characters": [
+        "Aranakula"
+      ],
+      "kind": "burst",
+      "element": "None",
+      "motif": "flower",
+      "file": "authored-flowers-for-the-forest.webp",
+      "skillSHA256": "89cf53af265493accb0afd94d24d87dca18b3daaac22e35a4e690a201e14ab99",
+      "glyphSHA256": "5a3aee7772914f7eca2df5546ee10e878da48c3c1f93541a8b5c6dd69bc45250"
+    },
+    {
+      "move": "Forest Friend",
+      "characters": [
+        "Arama"
+      ],
+      "kind": "skill",
+      "element": "None",
+      "motif": "leaf",
+      "file": "authored-forest-friend.webp",
+      "skillSHA256": "70d35102f463128cc2f5653c4769fe05b421003599a814dccf0a29eab7f40464",
+      "glyphSHA256": "0025c43bbc74e6e65666a9364386dedb9f75647178ad575f859f4d77f9922eff"
+    },
+    {
+      "move": "Forest Memory",
+      "characters": [
+        "Araja"
+      ],
+      "kind": "skill",
+      "element": "None",
+      "motif": "leaf",
+      "file": "authored-forest-memory.webp",
+      "skillSHA256": "70d35102f463128cc2f5653c4769fe05b421003599a814dccf0a29eab7f40464",
+      "glyphSHA256": "0025c43bbc74e6e65666a9364386dedb9f75647178ad575f859f4d77f9922eff"
+    },
+    {
+      "move": "Frenzied Flurry",
+      "characters": [
+        "Hilichurl Fighter"
+      ],
+      "kind": "special",
+      "element": "Physical",
+      "motif": "burst",
+      "file": "authored-frenzied-flurry.webp",
+      "skillSHA256": "66f7be70ed052cd0b8c6fc897f29d1a3583789a913600d892c7f88ae23303c41",
+      "glyphSHA256": "b06e569c1b50bb43523b4b033dd85d6c0d04e0fdf76ce4d2e2a8135dbc58e109"
+    },
+    {
+      "move": "Friendly Nudge",
+      "characters": [
+        "Aloha"
+      ],
+      "kind": "normal",
+      "element": "Physical",
+      "motif": "club",
+      "file": "authored-friendly-nudge.webp",
+      "skillSHA256": "947c500d8fbd61c9d89df7d1901027415edcd1c95159502cfd2c6ef9c46615f2",
+      "glyphSHA256": "07f0db88af8493edfee74399008414e29b387c00ebe3a8d019849b3f52850415"
+    },
+    {
+      "move": "Frigid Nectar Barrage",
+      "characters": [
+        "Cryo Whopperflower"
+      ],
+      "kind": "special",
+      "element": "Cryo",
+      "motif": "leaf",
+      "file": "authored-frigid-nectar-barrage.webp",
+      "skillSHA256": "c565e9d762fdf5d5591d17251b92ba9967deb30e8bd943ca94240c1e8b302813",
+      "glyphSHA256": "71a3fddee46c40f120425c3e0a35b3f9c53d1aa6c87cc9828e13e819bb442337"
+    },
+    {
+      "move": "Frost Glaive",
+      "characters": [
+        "Eremite Sunfrost"
+      ],
+      "kind": "basic",
+      "element": "Cryo",
+      "motif": "axe",
+      "file": "authored-frost-glaive.webp",
+      "skillSHA256": "2350a8f6207a86d88d7f95c27c0686e55c62ad245ebd141af88652f8a46ac37c",
+      "glyphSHA256": "8d357a20d8c447da7f9e5b5a4ad8016d80843c599232a3f1cbbad951848369d4"
+    },
+    {
+      "move": "Frostbound Javelin",
+      "characters": [
+        "Traveler Cryo"
+      ],
+      "kind": "burst",
+      "element": "Cryo",
+      "motif": "ice",
+      "file": "authored-frostbound-javelin.webp",
+      "skillSHA256": "128cb47293b2743625c7646d5eb1a86a5491bd23ac28f6d841222c82f09afa3c",
+      "glyphSHA256": "38bb9841b29e3890003d236f01360f6fc8b7c46dabf4e50dffb071693ebb90f7"
+    },
+    {
+      "move": "Frosted Headbutt",
+      "characters": [
+        "Cryo Whopperflower"
+      ],
+      "kind": "basic",
+      "element": "Physical",
+      "motif": "club",
+      "file": "authored-frosted-headbutt.webp",
+      "skillSHA256": "947c500d8fbd61c9d89df7d1901027415edcd1c95159502cfd2c6ef9c46615f2",
+      "glyphSHA256": "07f0db88af8493edfee74399008414e29b387c00ebe3a8d019849b3f52850415"
+    },
+    {
+      "move": "Frostmoon Prayer",
+      "characters": [
+        "Kukkia"
+      ],
+      "kind": "burst",
+      "element": "None",
+      "motif": "flower",
+      "file": "authored-frostmoon-prayer.webp",
+      "skillSHA256": "89cf53af265493accb0afd94d24d87dca18b3daaac22e35a4e690a201e14ab99",
+      "glyphSHA256": "5a3aee7772914f7eca2df5546ee10e878da48c3c1f93541a8b5c6dd69bc45250"
+    },
+    {
+      "move": "Furnace Gadget",
+      "characters": [
+        "Xavier"
+      ],
+      "kind": "skill",
+      "element": "None",
+      "motif": "gear",
+      "file": "authored-furnace-gadget.webp",
+      "skillSHA256": "cadaebaf102dd701d146671cb2536ecbada2727eae7e2cf1c3f1540a37b706cf",
+      "glyphSHA256": "704664822c8538de3b5f130bbe584f263e93e637681fb83ae41d8ebf8997f788"
+    },
+    {
+      "move": "Gale Jab",
+      "characters": [
+        "Fatui Skirmisher - Anemoboxer Vanguard"
+      ],
+      "kind": "basic",
+      "element": "Anemo",
+      "motif": "fist",
+      "file": "authored-gale-jab.webp",
+      "skillSHA256": "e81e9c15f5afa7f3d3f6c500196d8b574bf1ed8ded8f848efc4b0dd46f58684a",
+      "glyphSHA256": "835b988db770cfa23133ed3cebd76d0c3b8a8c4a1a4e0aad4bb7a41cceaf80b7"
+    },
+    {
+      "move": "Garrison Guard",
+      "characters": [
+        "Anselm"
+      ],
+      "kind": "skill",
+      "element": "None",
+      "motif": "shield",
+      "file": "authored-garrison-guard.webp",
+      "skillSHA256": "817d8fed009194bd38ab59be3b239d52a01cd7026f0d15d549a7791779a7c53e",
+      "glyphSHA256": "f24e153321068885af420257f64c9e327fc45b74295739e15177aaa59b8c56a4"
+    },
+    {
+      "move": "General’s Guard",
+      "characters": [
+        "Kujou Masahito"
+      ],
+      "kind": "skill",
+      "element": "None",
+      "motif": "shield",
+      "file": "authored-general-s-guard.webp",
+      "skillSHA256": "817d8fed009194bd38ab59be3b239d52a01cd7026f0d15d549a7791779a7c53e",
+      "glyphSHA256": "f24e153321068885af420257f64c9e327fc45b74295739e15177aaa59b8c56a4"
+    },
+    {
+      "move": "Gilded Hospitality",
+      "characters": [
+        "Maryam"
+      ],
+      "kind": "burst",
+      "element": "None",
+      "motif": "house",
+      "file": "authored-gilded-hospitality.webp",
+      "skillSHA256": "f6bd621d360cc87dbfb505207858b279d14f3cc66b0dd8cb98025f2acbdb00d5",
+      "glyphSHA256": "ce5d2add5eac5293534ea1a9c82944d1462ed351c7a75843bc4cf2b58e7f6bdf"
+    },
+    {
+      "move": "Good Dog",
+      "characters": [
+        "Plate"
+      ],
+      "kind": "burst",
+      "element": "None",
+      "motif": "paw",
+      "file": "authored-good-dog.webp",
+      "skillSHA256": "c58e5170e3e19b0a791c53586dfb6ecee4827c008dfbc317bfa3462bb07d7820",
+      "glyphSHA256": "34a738af7ece39893202d4caf86324db5ae33c8352255c68ab8cdf04152b5518"
+    },
+    {
+      "move": "Grand Cannon Trial",
+      "characters": [
+        "Mécantre"
+      ],
+      "kind": "burst",
+      "element": "None",
+      "motif": "cannon",
+      "file": "authored-grand-cannon-trial.webp",
+      "skillSHA256": "a0895f4f01f42340708a2fbd35a21ededa950afd515e573a6c551c4b092f2648",
+      "glyphSHA256": "13534020c3818b00f8ec3e3369cdfe883a72c78528eba13a17a3e9d90a4a15f9"
+    },
+    {
+      "move": "Guest’s Warning",
+      "characters": [
+        "Maryam"
+      ],
+      "kind": "normal",
+      "element": "Physical",
+      "motif": "burst",
+      "file": "authored-guest-s-warning.webp",
+      "skillSHA256": "acd7a3b5a7f12209d21032f2c17bcc7405a1998e9e0f355a6c69e75777a4bd2c",
+      "glyphSHA256": "7f070bd6fa1fe2da8d78bdda1073b93aab2bb6484acdbfdf999ac2ced5143f4d"
+    },
+    {
+      "move": "Harbor Inspection",
+      "characters": [
+        "Shajar"
+      ],
+      "kind": "skill",
+      "element": "None",
+      "motif": "compass",
+      "file": "authored-harbor-inspection.webp",
+      "skillSHA256": "421b30c068057a52dc9418f06f584292436b3ad3244b134e2f1be4e094481d15",
+      "glyphSHA256": "082a72f7da0804274b8590fcecac8d37d58981493ff2e2482b6615f3daac7159"
+    },
+    {
+      "move": "Harbor Warning",
+      "characters": [
+        "Adel"
+      ],
+      "kind": "normal",
+      "element": "Physical",
+      "motif": "burst",
+      "file": "authored-harbor-warning.webp",
+      "skillSHA256": "acd7a3b5a7f12209d21032f2c17bcc7405a1998e9e0f355a6c69e75777a4bd2c",
+      "glyphSHA256": "7f070bd6fa1fe2da8d78bdda1073b93aab2bb6484acdbfdf999ac2ced5143f4d"
+    },
+    {
+      "move": "Hardened Bounce",
+      "characters": [
+        "Geo Slime"
+      ],
+      "kind": "basic",
+      "element": "Physical",
+      "motif": "shield",
+      "file": "authored-hardened-bounce.webp",
+      "skillSHA256": "41d50d00ab6c26b916f688158e84c39fd4be8b34bc333f2baa6055ac46c6ad80",
+      "glyphSHA256": "b986a9f0762b9a5df0423f10b43f460b1aace133a094ab482606ead285f08680"
+    },
+    {
+      "move": "Helmsman’s Push",
+      "characters": [
+        "Pitot"
+      ],
+      "kind": "normal",
+      "element": "Physical",
+      "motif": "compass",
+      "file": "authored-helmsman-s-push.webp",
+      "skillSHA256": "f03ac068044f02007d8018c81df079063110ea3817721787e1c54353664ea101",
+      "glyphSHA256": "5ab726c2dc0264d4002dd93e77e82ae8a69d09298d2c86de9840a25821c68c9f"
+    },
+    {
+      "move": "House Special",
+      "characters": [
+        "Tetreaux"
+      ],
+      "kind": "burst",
+      "element": "None",
+      "motif": "cup",
+      "file": "authored-house-special.webp",
+      "skillSHA256": "c402045d1c739808d45a1f7002be955b1e2468738f61d384d36c8fdc1dc676ed",
+      "glyphSHA256": "dfe3cbcc5127e1a25efd1b1c37c090256eda1f3e5ef914303c471aa74951382c"
+    },
+    {
+      "move": "Hunter’s Mark",
+      "characters": [
+        "Aurelius"
+      ],
+      "kind": "burst",
+      "element": "None",
+      "motif": "bow",
+      "file": "authored-hunter-s-mark.webp",
+      "skillSHA256": "d248c1c9bbf2530376f2bc6e4d924244a65ad1d2d19124b1f10f2fe25ec05237",
+      "glyphSHA256": "1dcc4e0a02f9ad67bc26a36cf6408d2a1717305701f604b1b6213e2c6d0dfbc1"
+    },
+    {
+      "move": "Hunter’s Shot",
+      "characters": [
+        "Aurelius"
+      ],
+      "kind": "normal",
+      "element": "Physical",
+      "motif": "bow",
+      "file": "authored-hunter-s-shot.webp",
+      "skillSHA256": "99637862b0dc45a7d3f7d48c97e9cea30003829fbb06138ea079c81034d9d9ae",
+      "glyphSHA256": "6c2dc9f7ca7bfd76f11e2a3cb2aa1b533a4e5daa123841f749697f5d5d0ebe3e"
+    },
+    {
+      "move": "Iai: Sheathed",
+      "characters": [
+        "Kairagi: Dancing Thunder",
+        "Kairagi: Fiery Might",
+        "Nobushi: Hitsukeban",
+        "Nobushi: Jintouban",
+        "Nobushi: Kikouban"
+      ],
+      "kind": "special",
+      "element": "Electro",
+      "motif": "blade",
+      "file": "authored-iai-sheathed.webp",
+      "skillSHA256": "49bd6fc6be2e7c13771fa6ace664d8e15de24a7668427262911b112bbaafaf3d",
+      "glyphSHA256": "d56111f0c82a53c7b2eff09b4639e6262987425bd61b1b874d552ea380931467"
+    },
+    {
+      "move": "Ice Fog Piercer",
+      "characters": [
+        "Traveler Cryo"
+      ],
+      "kind": "skill",
+      "element": "Cryo",
+      "motif": "ice",
+      "file": "authored-ice-fog-piercer.webp",
+      "skillSHA256": "a180aa43e3efc9db78ad0b865b2130cb8257e62ac01f7cb5295bf69c73cc2cae",
+      "glyphSHA256": "6f785d47eef24de42049cd7ae26a83f986267f087c06ea93386128cd5d420cfa"
+    },
+    {
+      "move": "Ice Shards",
+      "characters": [
+        "Fatui Cryo Cicin Mage"
+      ],
+      "kind": "basic",
+      "element": "Cryo",
+      "motif": "ice",
+      "file": "authored-ice-shards.webp",
+      "skillSHA256": "1491a30ca73ddb2e7a4c2e6a5dbf4903fdbf03caee8edfd19a013dd7f1248645",
+      "glyphSHA256": "e07a59a73f34281aeaf829b4e3a69004c1c64d7fa300421fa6ce5b28339fd678"
+    },
+    {
+      "move": "Icy Charge",
+      "characters": [
+        "Cryo Whopperflower"
+      ],
+      "kind": "basic",
+      "element": "Cryo",
+      "motif": "ice",
+      "file": "authored-icy-charge.webp",
+      "skillSHA256": "1491a30ca73ddb2e7a4c2e6a5dbf4903fdbf03caee8edfd19a013dd7f1248645",
+      "glyphSHA256": "e07a59a73f34281aeaf829b4e3a69004c1c64d7fa300421fa6ce5b28339fd678"
+    },
+    {
+      "move": "Ignited Ram",
+      "characters": [
+        "Large Pyro Slime"
+      ],
+      "kind": "basic",
+      "element": "Pyro",
+      "motif": "club",
+      "file": "authored-ignited-ram.webp",
+      "skillSHA256": "45138fa81b878c05228e8b4150b1b6b7694252f0bc7cad8b4d1c990096c2d937",
+      "glyphSHA256": "07f0db88af8493edfee74399008414e29b387c00ebe3a8d019849b3f52850415"
+    },
+    {
+      "move": "Incendiary Grenade",
+      "characters": [
+        "Fatui Skirmisher - Pyroslinger Bracer"
+      ],
+      "kind": "special",
+      "element": "Pyro",
+      "motif": "potion",
+      "file": "authored-incendiary-grenade.webp",
+      "skillSHA256": "37f210ee33a99ceb605919e5001c84ec1bd4db32ed503ace19f64119328f5ef5",
+      "glyphSHA256": "3bfa6123373c8dc215e7f74f22b48ecf6dd5d21c970752b0511a135e12d9c927"
+    },
+    {
+      "move": "Incendiary Mixture",
+      "characters": [
+        "Treasure Hoarders: Pyro Potioneer"
+      ],
+      "kind": "special",
+      "element": "Pyro",
+      "motif": "potion",
+      "file": "authored-incendiary-mixture.webp",
+      "skillSHA256": "37f210ee33a99ceb605919e5001c84ec1bd4db32ed503ace19f64119328f5ef5",
+      "glyphSHA256": "3bfa6123373c8dc215e7f74f22b48ecf6dd5d21c970752b0511a135e12d9c927"
+    },
+    {
+      "move": "Institute of Dreams",
+      "characters": [
+        "Lyris"
+      ],
+      "kind": "burst",
+      "element": "Hydro",
+      "motif": "star",
+      "file": "authored-institute-of-dreams.webp",
+      "skillSHA256": "a4cb69a13c6e4f926be284d7826ddfca31c8ba0f4b124a4a098ad5dea4d7514f",
+      "glyphSHA256": "b5e355062436f7630194aab86bdb56188ee8b6e77ffa3481d2d893a8f5a764e3"
+    },
+    {
+      "move": "Inventor’s Tap",
+      "characters": [
+        "Mécantre"
+      ],
+      "kind": "normal",
+      "element": "Physical",
+      "motif": "gear",
+      "file": "authored-inventor-s-tap.webp",
+      "skillSHA256": "0c5366172f0bfb2767b38835efa01a93c415d6c4e96c41052617a0edcbacaec5",
+      "glyphSHA256": "168b74af9c68d8f937acee9648c78a5b40affa392cf42ddfe6fe4c275dd7f5b7"
+    },
+    {
+      "move": "Komore Guardian",
+      "characters": [
+        "Taroumaru"
+      ],
+      "kind": "burst",
+      "element": "None",
+      "motif": "paw",
+      "file": "authored-komore-guardian.webp",
+      "skillSHA256": "c58e5170e3e19b0a791c53586dfb6ecee4827c008dfbc317bfa3462bb07d7820",
+      "glyphSHA256": "34a738af7ece39893202d4caf86324db5ae33c8352255c68ab8cdf04152b5518"
+    },
+    {
+      "move": "Law of the Harbor",
+      "characters": [
+        "Adel"
+      ],
+      "kind": "burst",
+      "element": "None",
+      "motif": "scroll",
+      "file": "authored-law-of-the-harbor.webp",
+      "skillSHA256": "bec0663d92e4dca952e6912a2eb4958b15e11cc862493ec4356e3febdbadd402",
+      "glyphSHA256": "786155c776813508aa0600d5579518ca0be2ac1758434d8fbb97ad8bf3082c55"
+    },
+    {
+      "move": "Leaping Strike",
+      "characters": [
+        "Kairagi: Dancing Thunder",
+        "Kairagi: Fiery Might"
+      ],
+      "kind": "basic",
+      "element": "Electro",
+      "motif": "club",
+      "file": "authored-leaping-strike.webp",
+      "skillSHA256": "ce31aac5d3e974c035e31cf2ff87b4c710697bfe6fcc8079cbb47f2c1d572265",
+      "glyphSHA256": "07f0db88af8493edfee74399008414e29b387c00ebe3a8d019849b3f52850415"
+    },
+    {
+      "move": "Light-Bathed Blessing",
+      "characters": [
+        "Eveliina"
+      ],
+      "kind": "burst",
+      "element": "None",
+      "motif": "book",
+      "file": "authored-light-bathed-blessing.webp",
+      "skillSHA256": "a416fba1ec158d12934f593ac01c3dc837fb13300cef60ba136b8799bc9efddb",
+      "glyphSHA256": "e3151dea3263eace08e8b0880f10b01176b0f2d2bbd4d27e0f2c2a061bd2bcd1"
+    },
+    {
+      "move": "Little Leaf",
+      "characters": [
+        "Arama"
+      ],
+      "kind": "normal",
+      "element": "Physical",
+      "motif": "leaf",
+      "file": "authored-little-leaf.webp",
+      "skillSHA256": "4314185be76a065ca12e42818d94332a1bbc4ddba3d3191070213a0b744ddba6",
+      "glyphSHA256": "f2fab32f107010bc9756fa341b9cf827e4ea9bd6c6daa4d9130e2c20b97fdfad"
+    },
+    {
+      "move": "Loyal Companion",
+      "characters": [
+        "Whistle"
+      ],
+      "kind": "burst",
+      "element": "None",
+      "motif": "heart",
+      "file": "authored-loyal-companion.webp",
+      "skillSHA256": "5a13dc2d6cb9e33bac07c26b97192b45152c7c0522d0f74096458d4da717a74e",
+      "glyphSHA256": "e3f7a158035622ed0536ce0c9372eb6d36318d4db8dbdb20caa9b7b20bfa81b9"
+    },
+    {
+      "move": "Mate’s Strike",
+      "characters": [
+        "Lasselin"
+      ],
+      "kind": "normal",
+      "element": "Physical",
+      "motif": "club",
+      "file": "authored-mate-s-strike.webp",
+      "skillSHA256": "947c500d8fbd61c9d89df7d1901027415edcd1c95159502cfd2c6ef9c46615f2",
+      "glyphSHA256": "07f0db88af8493edfee74399008414e29b387c00ebe3a8d019849b3f52850415"
+    },
+    {
+      "move": "Matriarch’s Command",
+      "characters": [
+        "Babel"
+      ],
+      "kind": "normal",
+      "element": "Physical",
+      "motif": "scroll",
+      "file": "authored-matriarch-s-command.webp",
+      "skillSHA256": "085130c5bcec04439ffc36746d2b53ede1fc04f1184174336974f124f7b09a6f",
+      "glyphSHA256": "e8aaf8e3e596d4171434cee45e35fe4853f66a7b9c32f3c0ac100cca1235a528"
+    },
+    {
+      "move": "Me & Dew Tasting",
+      "characters": [
+        "Tlapalli"
+      ],
+      "kind": "skill",
+      "element": "None",
+      "motif": "cup",
+      "file": "authored-me-dew-tasting.webp",
+      "skillSHA256": "7f19ee70bd3fec0bf171aaad5741399160e26d22d30453ce75f551af3096c23b",
+      "glyphSHA256": "ca0a87c7cc734bdcd5652d7462558d0a95e74df4762ad5a6aada2549ff2deced"
+    },
+    {
+      "move": "Mercenary Slash",
+      "characters": [
+        "Aybak"
+      ],
+      "kind": "normal",
+      "element": "Physical",
+      "motif": "blade",
+      "file": "authored-mercenary-slash.webp",
+      "skillSHA256": "5bca429d0b596145cdc15a27c68df0b73b061b9d6d7bc85d9d889ecac604c6ea",
+      "glyphSHA256": "c1eb04a0d2a77eeb8746a69475541cb1096f40fa096a061d89b201fe9bfe2bf0"
+    },
+    {
+      "move": "Moonflower Offering",
+      "characters": [
+        "Kukkia"
+      ],
+      "kind": "skill",
+      "element": "None",
+      "motif": "flower",
+      "file": "authored-moonflower-offering.webp",
+      "skillSHA256": "9a010ecc7395c84719d9b35edd45d8bd7978114ce1f45380bbaedcb6ce381865",
+      "glyphSHA256": "7a7bb3ef55c4bfd2cb8329eedd35a002d14b8328bb08775415a62a7915160f71"
+    },
+    {
+      "move": "Moonlit Touch",
+      "characters": [
+        "Eveliina"
+      ],
+      "kind": "normal",
+      "element": "Physical",
+      "motif": "burst",
+      "file": "authored-moonlit-touch.webp",
+      "skillSHA256": "acd7a3b5a7f12209d21032f2c17bcc7405a1998e9e0f355a6c69e75777a4bd2c",
+      "glyphSHA256": "7f070bd6fa1fe2da8d78bdda1073b93aab2bb6484acdbfdf999ac2ced5143f4d"
+    },
+    {
+      "move": "Mountain King Surprise",
+      "characters": [
+        "Tisoc"
+      ],
+      "kind": "burst",
+      "element": "Pyro",
+      "motif": "fruit",
+      "file": "authored-mountain-king-surprise.webp",
+      "skillSHA256": "85bf26660ea6f0581152f17babab31a7edd37a32bc3f45266333f45c45722094",
+      "glyphSHA256": "977aabdd07b21c8088a56210e10ccf3b8bdb90bca8e44e0a7c2787767f93ef6a"
+    },
+    {
+      "move": "Mr. Cyclops!",
+      "characters": [
+        "Teucer"
+      ],
+      "kind": "skill",
+      "element": "None",
+      "motif": "gear",
+      "file": "authored-mr-cyclops.webp",
+      "skillSHA256": "cadaebaf102dd701d146671cb2536ecbada2727eae7e2cf1c3f1540a37b706cf",
+      "glyphSHA256": "704664822c8538de3b5f130bbe584f263e93e637681fb83ae41d8ebf8997f788"
+    },
+    {
+      "move": "Narzissenkreuz Theory",
+      "characters": [
+        "Rene"
+      ],
+      "kind": "burst",
+      "element": "None",
+      "motif": "gear",
+      "file": "authored-narzissenkreuz-theory.webp",
+      "skillSHA256": "366a3fe72245ed06dbe04d333e51e40f73c1d3a74b421aa13afb3327903703c6",
+      "glyphSHA256": "fe7f121abd043f7fb9d086d7e37b256ba323f4f5b76d0fb322955a9ae2fa1fed"
+    },
+    {
+      "move": "Nursery Care",
+      "characters": [
+        "Aranakula"
+      ],
+      "kind": "skill",
+      "element": "None",
+      "motif": "flower",
+      "file": "authored-nursery-care.webp",
+      "skillSHA256": "9a010ecc7395c84719d9b35edd45d8bd7978114ce1f45380bbaedcb6ce381865",
+      "glyphSHA256": "7a7bb3ef55c4bfd2cb8329eedd35a002d14b8328bb08775415a62a7915160f71"
+    },
+    {
+      "move": "Oceanid Reflection",
+      "characters": [
+        "Lyris"
+      ],
+      "kind": "skill",
+      "element": "Hydro",
+      "motif": "water",
+      "file": "authored-oceanid-reflection.webp",
+      "skillSHA256": "c27df96ca589ba835c229a2820d06c687d33ea119fdb97bcd4d3f36a3090fe10",
+      "glyphSHA256": "7769f831fc26a20466b504a1dcfad7ffeb831a6556ec9b8f3e9ec91cd93823f5"
+    },
+    {
+      "move": "Officer’s Tap",
+      "characters": [
+        "Sedile"
+      ],
+      "kind": "normal",
+      "element": "Physical",
+      "motif": "club",
+      "file": "authored-officer-s-tap.webp",
+      "skillSHA256": "947c500d8fbd61c9d89df7d1901027415edcd1c95159502cfd2c6ef9c46615f2",
+      "glyphSHA256": "07f0db88af8493edfee74399008414e29b387c00ebe3a8d019849b3f52850415"
+    },
+    {
+      "move": "One More Try",
+      "characters": [
+        "Virda"
+      ],
+      "kind": "burst",
+      "element": "None",
+      "motif": "shield",
+      "file": "authored-one-more-try.webp",
+      "skillSHA256": "ced32ceae4b356c6293342d7cc3e109d5efb454b55251e1d901a5fb79454592c",
+      "glyphSHA256": "04d0524aa4e29a87ac8134b1e7065ed8b488f71e485618611590676fac5d59df"
+    },
+    {
+      "move": "Orderly Inspection",
+      "characters": [
+        "Adel"
+      ],
+      "kind": "skill",
+      "element": "None",
+      "motif": "scroll",
+      "file": "authored-orderly-inspection.webp",
+      "skillSHA256": "6c42b2df6f8c8a981423bd8c17dc5b35ed8c87f6233710ab4baf8484f5e623a0",
+      "glyphSHA256": "6e04946a32f601d8907a3ea7657cbf655d576d3b1f7ecc3bff17b67f63dc5dfd"
+    },
+    {
+      "move": "Ordo Experiment",
+      "characters": [
+        "Jakob"
+      ],
+      "kind": "skill",
+      "element": "None",
+      "motif": "gear",
+      "file": "authored-ordo-experiment.webp",
+      "skillSHA256": "cadaebaf102dd701d146671cb2536ecbada2727eae7e2cf1c3f1540a37b706cf",
+      "glyphSHA256": "704664822c8538de3b5f130bbe584f263e93e637681fb83ae41d8ebf8997f788"
+    },
+    {
+      "move": "Oto Tiga",
+      "characters": [
+        "Blazing Axe Mitachurl",
+        "Crackling Axe Mitachurl"
+      ],
+      "kind": "special",
+      "element": "Pyro",
+      "motif": "axe",
+      "file": "authored-oto-tiga.webp",
+      "skillSHA256": "2859228714876f57e364af770fc6ce8dda22b17e22cc03505efdba85156d64fe",
+      "glyphSHA256": "6296f6184966281d7080fc4123ccfc00bcf1cff7e3eff7dd8449304d1aff82ab"
+    },
+    {
+      "move": "Park Parade",
+      "characters": [
+        "Aloha"
+      ],
+      "kind": "burst",
+      "element": "None",
+      "motif": "shield",
+      "file": "authored-park-parade.webp",
+      "skillSHA256": "ced32ceae4b356c6293342d7cc3e109d5efb454b55251e1d901a5fb79454592c",
+      "glyphSHA256": "04d0524aa4e29a87ac8134b1e7065ed8b488f71e485618611590676fac5d59df"
+    },
+    {
+      "move": "Paw Swipe",
+      "characters": [
+        "Plate",
+        "Whistle"
+      ],
+      "kind": "normal",
+      "element": "Physical",
+      "motif": "paw",
+      "file": "authored-paw-swipe.webp",
+      "skillSHA256": "888944c1a50b9c89acf4de97b059f2e5f26092daaa4a643d1e8bb026a4fb63ff",
+      "glyphSHA256": "42b71b87e95999fb53e9ef0a53f45e097c0e12d1906e8b6c9c21d2a8cdd7045a"
+    },
+    {
+      "move": "Perpetual Cleansing",
+      "characters": [
+        "Dvalin"
+      ],
+      "kind": "basic",
+      "element": "Anemo",
+      "motif": "wind",
+      "file": "authored-perpetual-cleansing.webp",
+      "skillSHA256": "77ee6a7e495945ad83e05545d8b2c4b63d7e043414a2875ab7dcd35fb47c2ec5",
+      "glyphSHA256": "91f0d3c6d6990d6c17a9a9a359846f74dd92c422b9ec11cba51f02947be1f494"
+    },
+    {
+      "move": "Petrichor Accord",
+      "characters": [
+        "Tiepolo"
+      ],
+      "kind": "burst",
+      "element": "None",
+      "motif": "scroll",
+      "file": "authored-petrichor-accord.webp",
+      "skillSHA256": "bec0663d92e4dca952e6912a2eb4958b15e11cc862493ec4356e3febdbadd402",
+      "glyphSHA256": "786155c776813508aa0600d5579518ca0be2ac1758434d8fbb97ad8bf3082c55"
+    },
+    {
+      "move": "Phantom Inquiry",
+      "characters": [
+        "Sedile"
+      ],
+      "kind": "skill",
+      "element": "None",
+      "motif": "book",
+      "file": "authored-phantom-inquiry.webp",
+      "skillSHA256": "0214384e18d96a292ba7a8b3c6cddc9847f467572aa8c9c8e0de84917b92ffb0",
+      "glyphSHA256": "5ded09facb12f0da69bc9ec34d75f92c7c9bc4b975c9abe2368c98d313071b96"
+    },
+    {
+      "move": "Physician’s Tap",
+      "characters": [
+        "Nishikino Reirei"
+      ],
+      "kind": "normal",
+      "element": "Physical",
+      "motif": "medicine",
+      "file": "authored-physician-s-tap.webp",
+      "skillSHA256": "b974f1a0e4c6b7f2a62da8ec5a8066d3a7a1474e7560a2be8d753fa1f6963876",
+      "glyphSHA256": "f5cbd4023492cdd3f6194b7f7ee6b7606c499ab2269dbb365cf5bfaacbd604de"
+    },
+    {
+      "move": "Playful Bark",
+      "characters": [
+        "Plate"
+      ],
+      "kind": "skill",
+      "element": "None",
+      "motif": "paw",
+      "file": "authored-playful-bark.webp",
+      "skillSHA256": "2d8c9d96dc4861b38e87cae534b703cc7569327ca7c70205493dd8869300238a",
+      "glyphSHA256": "b4f61c0e45cb1978a4464d2f53d84ef98aeb311259b81def38fff00455ebcabe"
+    },
+    {
+      "move": "Playful Toss",
+      "characters": [
+        "Mayskaya"
+      ],
+      "kind": "normal",
+      "element": "Physical",
+      "motif": "burst",
+      "file": "authored-playful-toss.webp",
+      "skillSHA256": "acd7a3b5a7f12209d21032f2c17bcc7405a1998e9e0f355a6c69e75777a4bd2c",
+      "glyphSHA256": "7f070bd6fa1fe2da8d78bdda1073b93aab2bb6484acdbfdf999ac2ced5143f4d"
+    },
+    {
+      "move": "Portmaster’s Strike",
+      "characters": [
+        "Shajar"
+      ],
+      "kind": "normal",
+      "element": "Physical",
+      "motif": "club",
+      "file": "authored-portmaster-s-strike.webp",
+      "skillSHA256": "947c500d8fbd61c9d89df7d1901027415edcd1c95159502cfd2c6ef9c46615f2",
+      "glyphSHA256": "07f0db88af8493edfee74399008414e29b387c00ebe3a8d019849b3f52850415"
+    },
+    {
+      "move": "Practice Tap",
+      "characters": [
+        "Virda"
+      ],
+      "kind": "normal",
+      "element": "Physical",
+      "motif": "club",
+      "file": "authored-practice-tap.webp",
+      "skillSHA256": "947c500d8fbd61c9d89df7d1901027415edcd1c95159502cfd2c6ef9c46615f2",
+      "glyphSHA256": "07f0db88af8493edfee74399008414e29b387c00ebe3a8d019849b3f52850415"
+    },
+    {
+      "move": "Prepared Supplies",
+      "characters": [
+        "Valdis"
+      ],
+      "kind": "skill",
+      "element": "None",
+      "motif": "scroll",
+      "file": "authored-prepared-supplies.webp",
+      "skillSHA256": "6c42b2df6f8c8a981423bd8c17dc5b35ed8c87f6233710ab4baf8484f5e623a0",
+      "glyphSHA256": "6e04946a32f601d8907a3ea7657cbf655d576d3b1f7ecc3bff17b67f63dc5dfd"
+    },
+    {
+      "move": "Prototype Device",
+      "characters": [
+        "Mécantre"
+      ],
+      "kind": "skill",
+      "element": "None",
+      "motif": "gear",
+      "file": "authored-prototype-device.webp",
+      "skillSHA256": "cadaebaf102dd701d146671cb2536ecbada2727eae7e2cf1c3f1540a37b706cf",
+      "glyphSHA256": "704664822c8538de3b5f130bbe584f263e93e637681fb83ae41d8ebf8997f788"
+    },
+    {
+      "move": "Provisional Priestess",
+      "characters": [
+        "Neko"
+      ],
+      "kind": "burst",
+      "element": "None",
+      "motif": "paw",
+      "file": "authored-provisional-priestess.webp",
+      "skillSHA256": "c58e5170e3e19b0a791c53586dfb6ecee4827c008dfbc317bfa3462bb07d7820",
+      "glyphSHA256": "34a738af7ece39893202d4caf86324db5ae33c8352255c68ab8cdf04152b5518"
+    },
+    {
+      "move": "Puff-Up Power",
+      "characters": [
+        "Mazatl"
+      ],
+      "kind": "burst",
+      "element": "None",
+      "motif": "fist",
+      "file": "authored-puff-up-power.webp",
+      "skillSHA256": "aeecd5c8d7ce6661cc2a608b4d84449edcc4613bd12fd6f2caf9e4035a33ffe4",
+      "glyphSHA256": "c981f2529c2fa7c42b5424afdb15627e1956a4c47ebaaeb4c193d9462abe2c95"
+    },
+    {
+      "move": "Quick Toss",
+      "characters": [
+        "Treasure Hoarders - Scout"
+      ],
+      "kind": "basic",
+      "element": "Physical",
+      "motif": "burst",
+      "file": "authored-quick-toss.webp",
+      "skillSHA256": "acd7a3b5a7f12209d21032f2c17bcc7405a1998e9e0f355a6c69e75777a4bd2c",
+      "glyphSHA256": "7f070bd6fa1fe2da8d78bdda1073b93aab2bb6484acdbfdf999ac2ced5143f4d"
+    },
+    {
+      "move": "Raging Breath",
+      "characters": [
+        "Grounded Geoshroom",
+        "Grounded Hydroshroom"
+      ],
+      "kind": "basic",
+      "element": "Geo",
+      "motif": "burst",
+      "file": "authored-raging-breath.webp",
+      "skillSHA256": "1f18166db4e9133ecdcddc8a46741c37d169d3677b8e563a4c85d26264f8961d",
+      "glyphSHA256": "7f070bd6fa1fe2da8d78bdda1073b93aab2bb6484acdbfdf999ac2ced5143f4d"
+    },
+    {
+      "move": "Rain Dance",
+      "characters": [
+        "Hydro Samachurl"
+      ],
+      "kind": "special",
+      "element": "Hydro",
+      "motif": "dance",
+      "file": "authored-rain-dance.webp",
+      "skillSHA256": "e3ed5230077e9342c07948f5e7b503e65bf00ef693e72386f975962ef1f2949c",
+      "glyphSHA256": "56cef83cd5b7a67a849f3b615cf513599d9d097cb2d222757f027688837cbe94"
+    },
+    {
+      "move": "Ratnik Strike",
+      "characters": [
+        "Valdis"
+      ],
+      "kind": "normal",
+      "element": "Physical",
+      "motif": "club",
+      "file": "authored-ratnik-strike.webp",
+      "skillSHA256": "947c500d8fbd61c9d89df7d1901027415edcd1c95159502cfd2c6ef9c46615f2",
+      "glyphSHA256": "07f0db88af8493edfee74399008414e29b387c00ebe3a8d019849b3f52850415"
+    },
+    {
+      "move": "Receptionist’s Strike",
+      "characters": [
+        "Katheryne"
+      ],
+      "kind": "normal",
+      "element": "Physical",
+      "motif": "club",
+      "file": "authored-receptionist-s-strike.webp",
+      "skillSHA256": "947c500d8fbd61c9d89df7d1901027415edcd1c95159502cfd2c6ef9c46615f2",
+      "glyphSHA256": "07f0db88af8493edfee74399008414e29b387c00ebe3a8d019849b3f52850415"
+    },
+    {
+      "move": "Rhythm Tap",
+      "characters": [
+        "Tzompantli"
+      ],
+      "kind": "normal",
+      "element": "Physical",
+      "motif": "music",
+      "file": "authored-rhythm-tap.webp",
+      "skillSHA256": "8e5e86bdd098e190ec7fb43351c7dfcd09c493b0e72f7978394ef6ce700e1e48",
+      "glyphSHA256": "f13ca907fb72968842e138f790a2431122f0f0152cc409443bec2c1296db6646"
+    },
+    {
+      "move": "Ribat Guard",
+      "characters": [
+        "Aybak"
+      ],
+      "kind": "skill",
+      "element": "None",
+      "motif": "shield",
+      "file": "authored-ribat-guard.webp",
+      "skillSHA256": "817d8fed009194bd38ab59be3b239d52a01cd7026f0d15d549a7791779a7c53e",
+      "glyphSHA256": "f24e153321068885af420257f64c9e327fc45b74295739e15177aaa59b8c56a4"
+    },
+    {
+      "move": "Rocket Barrage",
+      "characters": [
+        "Ruin Guard"
+      ],
+      "kind": "special",
+      "element": "Physical",
+      "motif": "cannon",
+      "file": "authored-rocket-barrage.webp",
+      "skillSHA256": "a0895f4f01f42340708a2fbd35a21ededa950afd515e573a6c551c4b092f2648",
+      "glyphSHA256": "13534020c3818b00f8ec3e3369cdfe883a72c78528eba13a17a3e9d90a4a15f9"
+    },
+    {
+      "move": "Rocking Riff",
+      "characters": [
+        "Tzompantli"
+      ],
+      "kind": "skill",
+      "element": "None",
+      "motif": "music",
+      "file": "authored-rocking-riff.webp",
+      "skillSHA256": "12a898d23b635859e033797de234b50ed145d221f32f211fe2328dabeea824a2",
+      "glyphSHA256": "fd86fa5f63636e7052444c2cb0c891c3907d83bef5c5a1cfd5e182a7a30c261e"
+    },
+    {
+      "move": "Rocky Ram",
+      "characters": [
+        "Geo Slime"
+      ],
+      "kind": "basic",
+      "element": "Physical",
+      "motif": "club",
+      "file": "authored-rocky-ram.webp",
+      "skillSHA256": "947c500d8fbd61c9d89df7d1901027415edcd1c95159502cfd2c6ef9c46615f2",
+      "glyphSHA256": "07f0db88af8493edfee74399008414e29b387c00ebe3a8d019849b3f52850415"
+    },
+    {
+      "move": "Rolling Impact",
+      "characters": [
+        "Geo Slime"
+      ],
+      "kind": "special",
+      "element": "Physical",
+      "motif": "burst",
+      "file": "authored-rolling-impact.webp",
+      "skillSHA256": "66f7be70ed052cd0b8c6fc897f29d1a3583789a913600d892c7f88ae23303c41",
+      "glyphSHA256": "b06e569c1b50bb43523b4b033dd85d6c0d04e0fdf76ce4d2e2a8135dbc58e109"
+    },
+    {
+      "move": "Rudder’s Turn",
+      "characters": [
+        "Pitot"
+      ],
+      "kind": "burst",
+      "element": "None",
+      "motif": "compass",
+      "file": "authored-rudder-s-turn.webp",
+      "skillSHA256": "08e541074f773fae4bd290f49b62d8a7a753ccdaa92c55768d9039ae7e180c30",
+      "glyphSHA256": "7a5a921ff4b56ffd7d812771e06f068541a3555cb296594617ffd1a6ae74c78b"
+    },
+    {
+      "move": "Safe Lodging",
+      "characters": [
+        "Maryam"
+      ],
+      "kind": "skill",
+      "element": "None",
+      "motif": "house",
+      "file": "authored-safe-lodging.webp",
+      "skillSHA256": "9e3680c84626d314316f1b06aca35c7f020403d0a8e506d591fb6c5cb3ed353b",
+      "glyphSHA256": "17fb4ce776d6739995e29ab10e45dee5c96471976a368eeeaf75997fbf0822cd"
+    },
+    {
+      "move": "Scattered Reagent",
+      "characters": [
+        "Treasure Hoarders: Pyro Potioneer"
+      ],
+      "kind": "basic",
+      "element": "Pyro",
+      "motif": "potion",
+      "file": "authored-scattered-reagent.webp",
+      "skillSHA256": "26f49d9fd7553e446ae14c0ffc1ad3a1b07ad65b37614509e3331a950786fa81",
+      "glyphSHA256": "42902cc2ca159d5ec2b200d301382a0a2434df8142f11ede0f4fb352a80ae138"
+    },
+    {
+      "move": "Scholar’s Touch",
+      "characters": [
+        "Rene"
+      ],
+      "kind": "normal",
+      "element": "Physical",
+      "motif": "book",
+      "file": "authored-scholar-s-touch.webp",
+      "skillSHA256": "e2ad0e59555057822b1d7f213871281ef49d7f64d558d06c1ad219c3b7da8a15",
+      "glyphSHA256": "31e0d782140f44f2c3ee04193572fcfbf0853130935ad7fd2c8f24b18990357b"
+    },
+    {
+      "move": "Sharp Bark",
+      "characters": [
+        "Whistle"
+      ],
+      "kind": "skill",
+      "element": "None",
+      "motif": "paw",
+      "file": "authored-sharp-bark.webp",
+      "skillSHA256": "2d8c9d96dc4861b38e87cae534b703cc7569327ca7c70205493dd8869300238a",
+      "glyphSHA256": "b4f61c0e45cb1978a4464d2f53d84ef98aeb311259b81def38fff00455ebcabe"
+    },
+    {
+      "move": "Shield Bash",
+      "characters": [
+        "Wooden Shieldwall Mitachurl"
+      ],
+      "kind": "basic",
+      "element": "Physical",
+      "motif": "shield",
+      "file": "authored-shield-bash.webp",
+      "skillSHA256": "41d50d00ab6c26b916f688158e84c39fd4be8b34bc333f2baa6055ac46c6ad80",
+      "glyphSHA256": "b986a9f0762b9a5df0423f10b43f460b1aace133a094ab482606ead285f08680"
+    },
+    {
+      "move": "Shovel Swing",
+      "characters": [
+        "Treasure Hoarders: Gravedigger"
+      ],
+      "kind": "basic",
+      "element": "Physical",
+      "motif": "bird",
+      "file": "authored-shovel-swing.webp",
+      "skillSHA256": "2f4a9f44e9db506b2787690ddc8b6b8fbf7f4d9b24c4db4ccd3aabd2448bddd3",
+      "glyphSHA256": "623787b9b84883518795804a46f8ffb6f89059726926d0e13ba233fd0ef65c8f"
+    },
+    {
+      "move": "Shrine Pounce",
+      "characters": [
+        "Neko"
+      ],
+      "kind": "skill",
+      "element": "None",
+      "motif": "burst",
+      "file": "authored-shrine-pounce.webp",
+      "skillSHA256": "22105aa050fcd72c807fe4c056f2dc23148a95d441418f767f20ae40a7619f74",
+      "glyphSHA256": "1b7be69c6fb5eec105340d1e4524b48896bede7f82f74a146bfde8c0a1e859f0"
+    },
+    {
+      "move": "Sixth Company Resolve",
+      "characters": [
+        "Anselm"
+      ],
+      "kind": "burst",
+      "element": "None",
+      "motif": "scroll",
+      "file": "authored-sixth-company-resolve.webp",
+      "skillSHA256": "bec0663d92e4dca952e6912a2eb4958b15e11cc862493ec4356e3febdbadd402",
+      "glyphSHA256": "786155c776813508aa0600d5579518ca0be2ac1758434d8fbb97ad8bf3082c55"
+    },
+    {
+      "move": "Slam",
+      "characters": [
+        "Electro Slime",
+        "Large Cryo Slime"
+      ],
+      "kind": "special",
+      "element": "Electro",
+      "motif": "club",
+      "file": "authored-slam.webp",
+      "skillSHA256": "0519ed7fabcdeb55ded70fc28de6a92c0c72d4b5837e9143ae2f5b6622d05e13",
+      "glyphSHA256": "17ff424b71d4e1a645c9722113dbf92331be314d7a79748ad002b98afaf8ab1b"
+    },
+    {
+      "move": "Slingshot",
+      "characters": [
+        "Fatui Skirmisher - Pyroslinger Bracer"
+      ],
+      "kind": "basic",
+      "element": "Pyro",
+      "motif": "bow",
+      "file": "authored-slingshot.webp",
+      "skillSHA256": "4fb68a2a98519ced87c5420f50ed3728d47c31a850097cf12551b628c61cb589",
+      "glyphSHA256": "6c2dc9f7ca7bfd76f11e2a3cb2aa1b533a4e5daa123841f749697f5d5d0ebe3e"
+    },
+    {
+      "move": "Smoke and Knives",
+      "characters": [
+        "Treasure Hoarders - Scout"
+      ],
+      "kind": "special",
+      "element": "Physical",
+      "motif": "daggers",
+      "file": "authored-smoke-and-knives.webp",
+      "skillSHA256": "9624e36aa8b47d8c7cdd535aa83bd5f7a2765a44da2d11113872ce92889f88fc",
+      "glyphSHA256": "c75b7acd0cce71be56dc423a9c9a9c94ea632aa4e7d169db3b13af9f9f39d6bd"
+    },
+    {
+      "move": "Snowman Supplies",
+      "characters": [
+        "Knyazev"
+      ],
+      "kind": "skill",
+      "element": "None",
+      "motif": "scroll",
+      "file": "authored-snowman-supplies.webp",
+      "skillSHA256": "6c42b2df6f8c8a981423bd8c17dc5b35ed8c87f6233710ab4baf8484f5e623a0",
+      "glyphSHA256": "6e04946a32f601d8907a3ea7657cbf655d576d3b1f7ecc3bff17b67f63dc5dfd"
+    },
+    {
+      "move": "Snowy Tap",
+      "characters": [
+        "Tonia"
+      ],
+      "kind": "normal",
+      "element": "Physical",
+      "motif": "club",
+      "file": "authored-snowy-tap.webp",
+      "skillSHA256": "947c500d8fbd61c9d89df7d1901027415edcd1c95159502cfd2c6ef9c46615f2",
+      "glyphSHA256": "07f0db88af8493edfee74399008414e29b387c00ebe3a8d019849b3f52850415"
+    },
+    {
+      "move": "Song of the Forest",
+      "characters": [
+        "Arama"
+      ],
+      "kind": "burst",
+      "element": "None",
+      "motif": "music",
+      "file": "authored-song-of-the-forest.webp",
+      "skillSHA256": "60f7b40d948aa8c4b645431fa2cf896948983e26c71712c16dd0c144a40f3b3f",
+      "glyphSHA256": "9e410dbe9f3c599f405ff51754d0b7619b90bea2930f5f9380069114f2892c2d"
+    },
+    {
+      "move": "Spiritherb Fortune",
+      "characters": [
+        "Komaki"
+      ],
+      "kind": "skill",
+      "element": "None",
+      "motif": "staff",
+      "file": "authored-spiritherb-fortune.webp",
+      "skillSHA256": "bcc70f083a4eca7499d19d0e07b6fb95cf1ab0635a1c7dada03bec31648c36e8",
+      "glyphSHA256": "fbc1c25203db76d8b7f2fd03d1288f77e6055a6cdc28540d45af228012742db1"
+    },
+    {
+      "move": "Splash",
+      "characters": [
+        "Hydro Slime"
+      ],
+      "kind": "basic",
+      "element": "Hydro",
+      "motif": "water",
+      "file": "authored-splash.webp",
+      "skillSHA256": "2272990097c18670aa57df6f6657e5c202dc404f7d68c9d369293289dff9a790",
+      "glyphSHA256": "28b9f07ee80971767afe123c6edf9df83a6367048e627500d50ce177faa90794"
+    },
+    {
+      "move": "Staff Strike",
+      "characters": [
+        "Anemo Samachurl",
+        "Dendro Samachurl",
+        "Geo Samachurl"
+      ],
+      "kind": "basic",
+      "element": "Physical",
+      "motif": "staff",
+      "file": "authored-staff-strike.webp",
+      "skillSHA256": "00876fc1777e7a991af1506531487fe9ec2c5cb2c2adcbb4d4aa8aa4acf9215a",
+      "glyphSHA256": "6bd1c81483f2a6839d931f81d0290971632c86977fed556aface582c83ccd9c9"
+    },
+    {
+      "move": "Station Game",
+      "characters": [
+        "Mayskaya"
+      ],
+      "kind": "burst",
+      "element": "None",
+      "motif": "gear",
+      "file": "authored-station-game.webp",
+      "skillSHA256": "366a3fe72245ed06dbe04d333e51e40f73c1d3a74b421aa13afb3327903703c6",
+      "glyphSHA256": "fe7f121abd043f7fb9d086d7e37b256ba323f4f5b76d0fb322955a9ae2fa1fed"
+    },
+    {
+      "move": "Steady Course",
+      "characters": [
+        "Pitot"
+      ],
+      "kind": "skill",
+      "element": "None",
+      "motif": "compass",
+      "file": "authored-steady-course.webp",
+      "skillSHA256": "421b30c068057a52dc9418f06f584292436b3ad3244b134e2f1be4e094481d15",
+      "glyphSHA256": "082a72f7da0804274b8590fcecac8d37d58981493ff2e2482b6615f3daac7159"
+    },
+    {
+      "move": "Steady the Rudder",
+      "characters": [
+        "Lasselin"
+      ],
+      "kind": "skill",
+      "element": "None",
+      "motif": "compass",
+      "file": "authored-steady-the-rudder.webp",
+      "skillSHA256": "421b30c068057a52dc9418f06f584292436b3ad3244b134e2f1be4e094481d15",
+      "glyphSHA256": "082a72f7da0804274b8590fcecac8d37d58981493ff2e2482b6615f3daac7159"
+    },
+    {
+      "move": "Stomp",
+      "characters": [
+        "Ruin Guard"
+      ],
+      "kind": "basic",
+      "element": "Physical",
+      "motif": "club",
+      "file": "authored-stomp.webp",
+      "skillSHA256": "947c500d8fbd61c9d89df7d1901027415edcd1c95159502cfd2c6ef9c46615f2",
+      "glyphSHA256": "07f0db88af8493edfee74399008414e29b387c00ebe3a8d019849b3f52850415"
+    },
+    {
+      "move": "Street Fighting Finale",
+      "characters": [
+        "Tzompantli"
+      ],
+      "kind": "burst",
+      "element": "None",
+      "motif": "tree",
+      "file": "authored-street-fighting-finale.webp",
+      "skillSHA256": "c674d5def9f73fb9032477f154d20065f634029695947cca5b77acf596bfb881",
+      "glyphSHA256": "02ffc7bcad929725a8259906cf982606feefb22956b99ebdfa581e12f7efde2b"
+    },
+    {
+      "move": "Sturdy Joinery",
+      "characters": [
+        "Master Lu"
+      ],
+      "kind": "skill",
+      "element": "None",
+      "motif": "shield",
+      "file": "authored-sturdy-joinery.webp",
+      "skillSHA256": "817d8fed009194bd38ab59be3b239d52a01cd7026f0d15d549a7791779a7c53e",
+      "glyphSHA256": "f24e153321068885af420257f64c9e327fc45b74295739e15177aaa59b8c56a4"
+    },
+    {
+      "move": "Sunfrost Waltz",
+      "characters": [
+        "Eremite Sunfrost"
+      ],
+      "kind": "special",
+      "element": "Cryo",
+      "motif": "dance",
+      "file": "authored-sunfrost-waltz.webp",
+      "skillSHA256": "d1dfb15afb8f0d6f54af5bace0c5cac3c3b4dfc5b20b54e83e121b2dc640d175",
+      "glyphSHA256": "56cef83cd5b7a67a849f3b615cf513599d9d097cb2d222757f027688837cbe94"
+    },
+    {
+      "move": "Tanit Strategy",
+      "characters": [
+        "Babel"
+      ],
+      "kind": "skill",
+      "element": "None",
+      "motif": "scroll",
+      "file": "authored-tanit-strategy.webp",
+      "skillSHA256": "6c42b2df6f8c8a981423bd8c17dc5b35ed8c87f6233710ab4baf8484f5e623a0",
+      "glyphSHA256": "6e04946a32f601d8907a3ea7657cbf655d576d3b1f7ecc3bff17b67f63dc5dfd"
+    },
+    {
+      "move": "Tea House Paw",
+      "characters": [
+        "Taroumaru"
+      ],
+      "kind": "normal",
+      "element": "Physical",
+      "motif": "paw",
+      "file": "authored-tea-house-paw.webp",
+      "skillSHA256": "888944c1a50b9c89acf4de97b059f2e5f26092daaa4a643d1e8bb026a4fb63ff",
+      "glyphSHA256": "42b71b87e95999fb53e9ef0a53f45e097c0e12d1906e8b6c9c21d2a8cdd7045a"
+    },
+    {
+      "move": "Tenryou Formation",
+      "characters": [
+        "Kujou Masahito"
+      ],
+      "kind": "burst",
+      "element": "None",
+      "motif": "burst",
+      "file": "authored-tenryou-formation.webp",
+      "skillSHA256": "66f7be70ed052cd0b8c6fc897f29d1a3583789a913600d892c7f88ae23303c41",
+      "glyphSHA256": "b06e569c1b50bb43523b4b033dd85d6c0d04e0fdf76ce4d2e2a8135dbc58e109"
+    },
+    {
+      "move": "Three Point Slash",
+      "characters": [
+        "Kairagi: Dancing Thunder",
+        "Kairagi: Fiery Might"
+      ],
+      "kind": "basic",
+      "element": "Electro",
+      "motif": "blade",
+      "file": "authored-three-point-slash.webp",
+      "skillSHA256": "f65365275881a92b5a275e7171f4263e2badb7049033487cc05e409a68a7b676",
+      "glyphSHA256": "c1eb04a0d2a77eeb8746a69475541cb1096f40fa096a061d89b201fe9bfe2bf0"
+    },
+    {
+      "move": "Throwing Knife",
+      "characters": [
+        "Treasure Hoarders - Scout"
+      ],
+      "kind": "basic",
+      "element": "Physical",
+      "motif": "bird",
+      "file": "authored-throwing-knife.webp",
+      "skillSHA256": "2f4a9f44e9db506b2787690ddc8b6b8fbf7f4d9b24c4db4ccd3aabd2448bddd3",
+      "glyphSHA256": "623787b9b84883518795804a46f8ffb6f89059726926d0e13ba233fd0ef65c8f"
+    },
+    {
+      "move": "Tidal Hop",
+      "characters": [
+        "Hydro Slime"
+      ],
+      "kind": "special",
+      "element": "Hydro",
+      "motif": "water",
+      "file": "authored-tidal-hop.webp",
+      "skillSHA256": "b93cb6ea310c083a81821ca6b45cfad201c8d8b8519ae510389556ca7f931423",
+      "glyphSHA256": "d45a4f8c1cae0ba67052acf2a8cce8bf2814d8139331353b6dd7a89d8278de62"
+    },
+    {
+      "move": "Timid Tap",
+      "characters": [
+        "Aranakula"
+      ],
+      "kind": "normal",
+      "element": "Physical",
+      "motif": "club",
+      "file": "authored-timid-tap.webp",
+      "skillSHA256": "947c500d8fbd61c9d89df7d1901027415edcd1c95159502cfd2c6ef9c46615f2",
+      "glyphSHA256": "07f0db88af8493edfee74399008414e29b387c00ebe3a8d019849b3f52850415"
+    },
+    {
+      "move": "Toy Tap",
+      "characters": [
+        "Teucer"
+      ],
+      "kind": "normal",
+      "element": "Physical",
+      "motif": "club",
+      "file": "authored-toy-tap.webp",
+      "skillSHA256": "947c500d8fbd61c9d89df7d1901027415edcd1c95159502cfd2c6ef9c46615f2",
+      "glyphSHA256": "07f0db88af8493edfee74399008414e29b387c00ebe3a8d019849b3f52850415"
+    },
+    {
+      "move": "Trader’s Tap",
+      "characters": [
+        "Knyazev"
+      ],
+      "kind": "normal",
+      "element": "Physical",
+      "motif": "club",
+      "file": "authored-trader-s-tap.webp",
+      "skillSHA256": "947c500d8fbd61c9d89df7d1901027415edcd1c95159502cfd2c6ef9c46615f2",
+      "glyphSHA256": "07f0db88af8493edfee74399008414e29b387c00ebe3a8d019849b3f52850415"
+    },
+    {
+      "move": "Training Drill",
+      "characters": [
+        "Virda"
+      ],
+      "kind": "skill",
+      "element": "None",
+      "motif": "fist",
+      "file": "authored-training-drill.webp",
+      "skillSHA256": "514f407eb081e8e3e7466fac66bf211053408baee9dbcf1493a195c28f6847e3",
+      "glyphSHA256": "ae5bfcacb909fd750669c3a2247e5758ed0149746c4955e56a0ebca2c2755962"
+    },
+    {
+      "move": "Training Jab",
+      "characters": [
+        "Mazatl"
+      ],
+      "kind": "normal",
+      "element": "Physical",
+      "motif": "fist",
+      "file": "authored-training-jab.webp",
+      "skillSHA256": "f0d0dde18b6b51894fb37a64bee633a79805b550bd61998ae606b4d7e32fad9c",
+      "glyphSHA256": "835b988db770cfa23133ed3cebd76d0c3b8a8c4a1a4e0aad4bb7a41cceaf80b7"
+    },
+    {
+      "move": "Tree of Dreams",
+      "characters": [
+        "Araja"
+      ],
+      "kind": "burst",
+      "element": "None",
+      "motif": "tree",
+      "file": "authored-tree-of-dreams.webp",
+      "skillSHA256": "c674d5def9f73fb9032477f154d20065f634029695947cca5b77acf596bfb881",
+      "glyphSHA256": "02ffc7bcad929725a8259906cf982606feefb22956b99ebdfa581e12f7efde2b"
+    },
+    {
+      "move": "Ultimate Cleansing",
+      "characters": [
+        "Dvalin"
+      ],
+      "kind": "basic",
+      "element": "Anemo",
+      "motif": "wind",
+      "file": "authored-ultimate-cleansing.webp",
+      "skillSHA256": "77ee6a7e495945ad83e05545d8b2c4b63d7e043414a2875ab7dcd35fb47c2ec5",
+      "glyphSHA256": "91f0d3c6d6990d6c17a9a9a359846f74dd92c422b9ec11cba51f02947be1f494"
+    },
+    {
+      "move": "Unsettling Touch",
+      "characters": [
+        "Jakob"
+      ],
+      "kind": "normal",
+      "element": "Physical",
+      "motif": "burst",
+      "file": "authored-unsettling-touch.webp",
+      "skillSHA256": "acd7a3b5a7f12209d21032f2c17bcc7405a1998e9e0f355a6c69e75777a4bd2c",
+      "glyphSHA256": "7f070bd6fa1fe2da8d78bdda1073b93aab2bb6484acdbfdf999ac2ced5143f4d"
+    },
+    {
+      "move": "Unyielding Resolve",
+      "characters": [
+        "Jeht"
+      ],
+      "kind": "burst",
+      "element": "None",
+      "motif": "scroll",
+      "file": "authored-unyielding-resolve.webp",
+      "skillSHA256": "bec0663d92e4dca952e6912a2eb4958b15e11cc862493ec4356e3febdbadd402",
+      "glyphSHA256": "786155c776813508aa0600d5579518ca0be2ac1758434d8fbb97ad8bf3082c55"
+    },
+    {
+      "move": "Upa",
+      "characters": [
+        "Blazing Axe Mitachurl",
+        "Crackling Axe Mitachurl"
+      ],
+      "kind": "basic",
+      "element": "Pyro",
+      "motif": "burst",
+      "file": "authored-upa.webp",
+      "skillSHA256": "cc4c4fdaf811f2dd8ef69ed7f9711e6a74ccf0c6dc9980a1e2f6e7098ff598c4",
+      "glyphSHA256": "7f070bd6fa1fe2da8d78bdda1073b93aab2bb6484acdbfdf999ac2ced5143f4d"
+    },
+    {
+      "move": "Veteran Strike",
+      "characters": [
+        "Anselm"
+      ],
+      "kind": "normal",
+      "element": "Physical",
+      "motif": "club",
+      "file": "authored-veteran-strike.webp",
+      "skillSHA256": "947c500d8fbd61c9d89df7d1901027415edcd1c95159502cfd2c6ef9c46615f2",
+      "glyphSHA256": "07f0db88af8493edfee74399008414e29b387c00ebe3a8d019849b3f52850415"
+    },
+    {
+      "move": "Village Council",
+      "characters": [
+        "Tiepolo"
+      ],
+      "kind": "skill",
+      "element": "None",
+      "motif": "scroll",
+      "file": "authored-village-council.webp",
+      "skillSHA256": "6c42b2df6f8c8a981423bd8c17dc5b35ed8c87f6233710ab4baf8484f5e623a0",
+      "glyphSHA256": "6e04946a32f601d8907a3ea7657cbf655d576d3b1f7ecc3bff17b67f63dc5dfd"
+    },
+    {
+      "move": "Village Wisdom",
+      "characters": [
+        "Granny Ruoxin"
+      ],
+      "kind": "skill",
+      "element": "None",
+      "motif": "scroll",
+      "file": "authored-village-wisdom.webp",
+      "skillSHA256": "6c42b2df6f8c8a981423bd8c17dc5b35ed8c87f6233710ab4baf8484f5e623a0",
+      "glyphSHA256": "6e04946a32f601d8907a3ea7657cbf655d576d3b1f7ecc3bff17b67f63dc5dfd"
+    },
+    {
+      "move": "Vimara Stalk",
+      "characters": [
+        "Aurelius"
+      ],
+      "kind": "skill",
+      "element": "None",
+      "motif": "burst",
+      "file": "authored-vimara-stalk.webp",
+      "skillSHA256": "22105aa050fcd72c807fe4c056f2dc23148a95d441418f767f20ae40a7619f74",
+      "glyphSHA256": "1b7be69c6fb5eec105340d1e4524b48896bede7f82f74a146bfde8c0a1e859f0"
+    },
+    {
+      "move": "Vintner’s Tap",
+      "characters": [
+        "Tlapalli"
+      ],
+      "kind": "normal",
+      "element": "Physical",
+      "motif": "cup",
+      "file": "authored-vintner-s-tap.webp",
+      "skillSHA256": "97f512ff9c680a3cadcb8085c5ca1fd58805240f6bda07e45b32e74d29382bf3",
+      "glyphSHA256": "007d4b6c0d15c59ba4ec2e9c1f33d4d9d9bedfc7ff4679551bb62bdb945f498e"
+    },
+    {
+      "move": "Volley",
+      "characters": [
+        "Hilichurl Shooter"
+      ],
+      "kind": "special",
+      "element": "Physical",
+      "motif": "bow",
+      "file": "authored-volley.webp",
+      "skillSHA256": "d248c1c9bbf2530376f2bc6e4d924244a65ad1d2d19124b1f10f2fe25ec05237",
+      "glyphSHA256": "1dcc4e0a02f9ad67bc26a36cf6408d2a1717305701f604b1b6213e2c6d0dfbc1"
+    },
+    {
+      "move": "Walking Stick",
+      "characters": [
+        "Granny Ruoxin"
+      ],
+      "kind": "normal",
+      "element": "Physical",
+      "motif": "staff",
+      "file": "authored-walking-stick.webp",
+      "skillSHA256": "00876fc1777e7a991af1506531487fe9ec2c5cb2c2adcbb4d4aa8aa4acf9215a",
+      "glyphSHA256": "6bd1c81483f2a6839d931f81d0290971632c86977fed556aface582c83ccd9c9"
+    },
+    {
+      "move": "Warm Welcome Home",
+      "characters": [
+        "Tonia"
+      ],
+      "kind": "burst",
+      "element": "None",
+      "motif": "house",
+      "file": "authored-warm-welcome-home.webp",
+      "skillSHA256": "f6bd621d360cc87dbfb505207858b279d14f3cc66b0dd8cb98025f2acbdb00d5",
+      "glyphSHA256": "ce5d2add5eac5293534ea1a9c82944d1462ed351c7a75843bc4cf2b58e7f6bdf"
+    },
+    {
+      "move": "Watatsumi’s Blessing",
+      "characters": [
+        "Komaki"
+      ],
+      "kind": "burst",
+      "element": "None",
+      "motif": "book",
+      "file": "authored-watatsumi-s-blessing.webp",
+      "skillSHA256": "a416fba1ec158d12934f593ac01c3dc837fb13300cef60ba136b8799bc9efddb",
+      "glyphSHA256": "e3151dea3263eace08e8b0880f10b01176b0f2d2bbd4d27e0f2c2a061bd2bcd1"
+    },
+    {
+      "move": "Watchkeeper Strike",
+      "characters": [
+        "Egle"
+      ],
+      "kind": "normal",
+      "element": "Physical",
+      "motif": "book",
+      "file": "authored-watchkeeper-strike.webp",
+      "skillSHA256": "e2ad0e59555057822b1d7f213871281ef49d7f64d558d06c1ad219c3b7da8a15",
+      "glyphSHA256": "31e0d782140f44f2c3ee04193572fcfbf0853130935ad7fd2c8f24b18990357b"
+    },
+    {
+      "move": "Water Spout",
+      "characters": [
+        "Hydro Samachurl"
+      ],
+      "kind": "basic",
+      "element": "Hydro",
+      "motif": "water",
+      "file": "authored-water-spout.webp",
+      "skillSHA256": "2272990097c18670aa57df6f6657e5c202dc404f7d68c9d369293289dff9a790",
+      "glyphSHA256": "28b9f07ee80971767afe123c6edf9df83a6367048e627500d50ce177faa90794"
+    },
+    {
+      "move": "Water’s Touch",
+      "characters": [
+        "Lyris"
+      ],
+      "kind": "normal",
+      "element": "Physical",
+      "motif": "water",
+      "file": "authored-water-s-touch.webp",
+      "skillSHA256": "df5f523565acfed68f22395df85ea5fdbc8cb7a56b5402e08c0fc4e8c9fcbfda",
+      "glyphSHA256": "28b9f07ee80971767afe123c6edf9df83a6367048e627500d50ce177faa90794"
+    },
+    {
+      "move": "Whirling Blaze",
+      "characters": [
+        "La Signora"
+      ],
+      "kind": "special",
+      "element": "Pyro",
+      "motif": "fire",
+      "file": "authored-whirling-blaze.webp",
+      "skillSHA256": "46c89983560bef3f45e4f8a02d707b52454248eaef823ec251446eafad099fb0",
+      "glyphSHA256": "a33372df119b9ea49cecba9de87bfe1a4776f415417d425c3ef16106abff519a"
+    },
+    {
+      "move": "Whirlwind Uppercut",
+      "characters": [
+        "Fatui Skirmisher - Anemoboxer Vanguard"
+      ],
+      "kind": "special",
+      "element": "Anemo",
+      "motif": "fist",
+      "file": "authored-whirlwind-uppercut.webp",
+      "skillSHA256": "f63f06c9923acbed047b6ffb93d17cfc17b69a4bedfa30caf0da20e0d90a4f87",
+      "glyphSHA256": "c981f2529c2fa7c42b5424afdb15627e1956a4c47ebaaeb4c193d9462abe2c95"
+    },
+    {
+      "move": "Wild Hunt Readiness",
+      "characters": [
+        "Valdis"
+      ],
+      "kind": "burst",
+      "element": "None",
+      "motif": "scroll",
+      "file": "authored-wild-hunt-readiness.webp",
+      "skillSHA256": "bec0663d92e4dca952e6912a2eb4958b15e11cc862493ec4356e3febdbadd402",
+      "glyphSHA256": "786155c776813508aa0600d5579518ca0be2ac1758434d8fbb97ad8bf3082c55"
+    },
+    {
+      "move": "Winter Bargain",
+      "characters": [
+        "Knyazev"
+      ],
+      "kind": "burst",
+      "element": "None",
+      "motif": "scroll",
+      "file": "authored-winter-bargain.webp",
+      "skillSHA256": "bec0663d92e4dca952e6912a2eb4958b15e11cc862493ec4356e3febdbadd402",
+      "glyphSHA256": "786155c776813508aa0600d5579518ca0be2ac1758434d8fbb97ad8bf3082c55"
+    },
+    {
+      "move": "World Formula",
+      "characters": [
+        "Rene"
+      ],
+      "kind": "skill",
+      "element": "None",
+      "motif": "gear",
+      "file": "authored-world-formula.webp",
+      "skillSHA256": "cadaebaf102dd701d146671cb2536ecbada2727eae7e2cf1c3f1540a37b706cf",
+      "glyphSHA256": "704664822c8538de3b5f130bbe584f263e93e637681fb83ae41d8ebf8997f788"
+    }
+  ]
+}

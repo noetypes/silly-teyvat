@@ -74,7 +74,7 @@ Expressions use SillyTavern's **Character Expressions** classifier settings. Cha
 - Battles follow the Genius Invokation TCG: elemental dice and rerolls, active characters, switching, Elemental Tuning, Energy and Bursts, elemental reactions, summons, supports, weapons, artifacts and statuses. Newer mechanics such as Nightsoul, Techniques and Lunar reactions are included.
 - Over a hundred playable characters use their TCG card's kit, and every enemy and NPC has a moveset. You can edit any kit and replace the card art.
 - Aether and Lumine have a kit for each of their seven elements, based on the game's Skills and Bursts, with Burst splash art for every element. Change it at a Statue of The Seven or in Character Customization → Combat.
-- Every fight has full card animations, weapon-shaped attacks, Burst cinematics, battle sounds and a Victory screen. **Auto** can play your turns for you.
+- Every character, enemy and NPC has icons for their combat moves. Every fight has full card animations, weapon-shaped attacks, Burst cinematics, battle sounds and a Victory screen. **Auto** can play your turns for you.
 - Victories drop cards based on where you fought and how hard the fight was. Build a combat deck of up to 30 cards in the **Inventory**, and use **Card Search** to mark the places that drop a card you want.
 - If the whole party falls, you are carried to the nearest Adventurers' Guild, where Katheryne is always waiting.
 

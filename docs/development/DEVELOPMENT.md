@@ -76,6 +76,26 @@ Enemy and NPC circular portraits are non-generative crops recorded in
 transparency, card-name aliases and shared wardrobe/combat/map portraits; it uses
 the same Playwright setup and `IDENTITY_PREVIEW_URL` as the other browser checks.
 
+## Battle icons and native card thumbnails
+
+Run `python3 tools/build-missing-attack-icons.py` (Pillow and Node), then
+`python3 tools/build-skill-glyphs.py --missing` to complete move art. Both colored
+icons and white glyphs belong in `assets/battle/skills/` and `assets/battle/glyphs/`;
+`index.json` links move names to them. Migrate new media with `tools/game-data.py`
+before installing. `node tools/tests/test-battle-icon-coverage.mjs` checks the full
+roster, played-enemy Bursts, boss forms and every Traveler element.
+
+Native Character List portraits come from character PNGs, independently of the
+extension's circular head icons. Replacing a card on disk does not invalidate
+SillyTavern's `thumbnails/avatar/` cache. The targeted
+`tools/repair-character-list-portraits.mjs --user-dir <SillyTavern>/data/default-user`
+installs the existing TCG artwork for Fatui Pyro Agent and Fatui Cryo Cicin Mage,
+and refreshes Tisoc's already-correct portrait. It uses the native avatar endpoint,
+backs up originals and cached thumbnails in the data pack, restores every original
+PNG text chunk byte for byte after SillyTavern rewrites its legacy card format,
+and requests fresh thumbnails. Importable repaired cards and the installation
+record live in `content/character-cards/portrait-fixes-2026-11-14/`.
+
 ## Lorebook
 
 The Genshin Impact Lorebook lives in the live SillyTavern (`worlds/Genshin Impact Lorebook.json`) and ships in the game data export. After adding characters or waypoints, run `python3 tools/add-lorebook-entries.py --user-dir <SillyTavern>/data/default-user` to list cards and waypoints that no entry's key mentions yet, then add `--apply --backup DIR`. New entries come from the card descriptions and the location catalog; edit its `REWRITES` table for hand-written entries such as Mitya, Valeriy and the Armory Palace. A second run should report nothing to add.
