@@ -4,16 +4,18 @@ Gift preferences now cover the expanded Inventory card pool. Existing named like
 and dislikes take priority. Each written like and dislike in `character-tastes.js`
 carries its own Trust change, within the usual 0–5 range:
 
-- A liked 5★ card (rarity 3) gives up to +1; any other liked card gives up to +0.5.
-  The character's favourite gives the most, and lesser likes give less (+0.3 or +0.4,
-  or +0.7 or +0.8 for 5★ cards).
+- Likes spread from the character's favourite down to +0.3, evenly by how much they
+  like each card. A 5★ favourite (rarity 3) gives +1. A character who likes no 5★ card
+  has one favourite 3★ or 4★ card give +0.9 instead. Only the favourite and, for
+  characters with many likes, one other card reach +0.9; other 5★ likes give up to
+  +0.9 and other 3★ and 4★ likes up to +0.7.
 - Besides food, characters like cards tied to them: their own summons, signature
   weapons and home locations (Xiao and Wangshu Inn, Jean and Dandelion Field, Diluc
   and Dawn Winery). A few dislike cards tied to someone they resent, such as the
   Wanderer and Eye of Stormy Judgment.
 - Written dislikes give −0.5 for the strongest and −0.3 for the others. A neutral
   gift gives +0.1.
-- Likes worked out from element and weapon (below) give +0.2 for 3★, +0.3 for 4★ and
+- Likes worked out from element and weapon (below) give +0.3 for 3★, +0.4 for 4★ and
   +0.6 for 5★ cards. Dislikes worked out the same way give −0.3.
 
 - Weapons of the recipient's weapon type are liked; other weapon types are disliked.

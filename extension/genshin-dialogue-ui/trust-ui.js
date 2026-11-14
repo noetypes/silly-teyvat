@@ -7,7 +7,7 @@ import {circularCharacterAvatar} from './character-avatars.js';
 import {startingTrustList,setStartingTrust,resetStartingTrust} from './relationship-trust.js';
 import {isEnemy} from './character-properties.js';
 import {ITEMS,KIND_LABELS,itemArt,kindLabel} from './battle-items.js';
-import {GIFT_CHANGE,LIKED_MAX,defaultGiftChange,defaultGiftVerdict,giftTrustOverrides,setGiftTrust,resetGiftTrust} from './gift-tastes.js';
+import {GIFT_CHANGE,defaultGiftChange,defaultGiftVerdict,giftTrustOverrides,setGiftTrust,resetGiftTrust} from './gift-tastes.js';
 
 const CLOSE='<svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="m6 6 12 12M18 6 6 18"/></svg>';
 const el=(tag,cls,text)=>{const n=document.createElement(tag);if(cls)n.className=cls;if(text!==undefined)n.textContent=text;return n;};
@@ -189,7 +189,7 @@ const signed=n=>n>0?`+${n}`:String(n);
 const VERDICT_WORD={liked:'Liked',disliked:'Disliked',neutral:'No strong feelings'};
 export function mountGiftTrust({panel,getContext,getCharacter,status=()=>{}}){
     panel.classList.add('gi-gift-trust');
-    panel.innerHTML=`<summary>Gifts</summary><small>How much each card raises or lowers trust when you give it as a gift. Cards start at this character's tastes: a liked card gives up to +${LIKED_MAX[3]} if it is 5★ and up to +${LIKED_MAX[1]} otherwise, a disliked card down to ${GIFT_CHANGE.disliked}, and anything else adds ${GIFT_CHANGE.neutral}.</small>
+    panel.innerHTML=`<summary>Gifts</summary>
         <div class="gi-gift-trust-tools"><input type="search" maxlength="60" placeholder="Find a card" aria-label="Find a gift card"><select aria-label="Card type"><option value="">All cards</option>${Object.entries(KIND_LABELS).filter(([kind])=>Object.values(ITEMS).some(item=>item.kind===kind)).map(([kind,label])=>`<option value="${kind}">${label}</option>`).join('')}<option value="up">Raise trust</option><option value="down">Lower trust</option><option value="changed">Changed</option></select></div>
         <div class="gi-gift-trust-list" role="list" aria-label="Gift cards"></div>
         <button type="button" data-gift-trust-reset>Reset to their tastes</button>`;

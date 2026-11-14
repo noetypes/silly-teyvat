@@ -95,11 +95,11 @@ export async function runTrustTests(){
         const script={isGenerating:()=>false,isChatSaving:false};
         const gift=(c,id,avatar='Klee.png')=>giveGift(()=>c,{id,avatar},{loadScript:async()=>script});
         ctx=giftContext();const given=await gift(ctx,'fish-and-chips');
-        check('a liked gift raises trust',given.verdict==='liked'&&trustOf(ctx,'Klee.png')===GIFT_CHANGE.liked);
+        check('a liked gift raises trust',given.verdict==='liked'&&trustOf(ctx,'Klee.png')===.9);
         check('the card leaves the bag',ctx.chatMetadata.silly_teyvat_combat.bag['fish-and-chips']===1);
         check('the gift is narrated',ctx.chat[0].extra.type==='narrator'&&ctx.chat[0].mes===giftNarration(ctx,ctx.characters[0],ITEMS['fish-and-chips'])&&ctx.chat[0].mes.includes('Lumine')&&ctx.chat[0].mes.includes('Fish and Chips')&&ctx.chat[0].mes.includes('Klee'));
         check('the character answers in a saved reply without the tag',ctx.chat[1].name==='Klee'&&ctx.chat[1].original_avatar==='Klee.png'&&ctx.chat[1].mes==='"Oh! For me?"'&&ctx.chat.length===2);
-        check('a tag in the reply cannot count twice',trustOf(ctx,'Klee.png')===.5&&!messageTrust(ctx,{...ctx.chat[1],mes:'[Trust +1]'}));
+        check('a tag in the reply cannot count twice',trustOf(ctx,'Klee.png')===.9&&!messageTrust(ctx,{...ctx.chat[1],mes:'[Trust +1]'}));
         check('the reply is told how the gift landed',ctx.lastQuiet.quietPrompt.includes('really likes this')&&ctx.lastQuiet.forceChId===0&&ctx.lastQuiet.quietToLoud===true);
         ctx=giftContext();await gift(ctx,'butter-crab');
         check('a disliked gift lowers trust, and the last card empties its slot',ctx.chat[0].extra.silly_teyvat_gift.verdict==='disliked'&&ctx.lastQuiet.quietPrompt.includes('does not like this')&&!('butter-crab' in ctx.chatMetadata.silly_teyvat_combat.bag));
@@ -117,12 +117,12 @@ export async function runTrustTests(){
         setGiftTrust(ctx,klee,'starsigns',99);check('a change stays on the scale',giftChange(ctx,klee,'starsigns')===TRUST_MAX);
         ctx.extensionSettings.genshin_dialogue_ui.giftTrust['Klee.png'].nothing=3;ctx.extensionSettings.genshin_dialogue_ui.giftTrust['Klee.png']['sweet-madame']='<b>';
         check('saved changes keep only real cards and numbers',Object.keys(giftTrustOverrides(ctx,klee)).sort().join()==='fish-and-chips,starsigns');
-        resetGiftTrust(ctx,klee);check('reset goes back to their tastes',giftChange(ctx,klee,'fish-and-chips')===GIFT_CHANGE.liked&&!ctx.extensionSettings.genshin_dialogue_ui.giftTrust['Klee.png']);
+        resetGiftTrust(ctx,klee);check('reset goes back to their tastes',giftChange(ctx,klee,'fish-and-chips')===.9&&!ctx.extensionSettings.genshin_dialogue_ui.giftTrust['Klee.png']);
         {
             const giftPanel=document.createElement('details'),giftNotes=[],menu=mountGiftTrust({panel:giftPanel,getContext:()=>ctx,getCharacter:()=>klee,status:t=>giftNotes.push(t)});menu.refresh();
             const row=id=>giftPanel.querySelector(`.gi-gift-trust-row[data-id="${id}"]`);
-            check('the Gifts menu lists every card with its change',giftPanel.querySelectorAll('.gi-gift-trust-row').length===Object.keys(ITEMS).length&&row('fish-and-chips').querySelector('select').value==='0.5'&&row('butter-crab').querySelector('select').value==='-0.5'&&row('starsigns').querySelector('select').value==='0.1');
-            check('each card says how it lands by default',row('fish-and-chips').querySelector('.gi-gift-trust-note').textContent===`${kindLabel(ITEMS['fish-and-chips'])} · Liked (+0.5)`&&row('fish-and-chips').classList.contains('gi-gift-trust-up'));
+            check('the Gifts menu lists every card with its change',giftPanel.querySelectorAll('.gi-gift-trust-row').length===Object.keys(ITEMS).length&&row('fish-and-chips').querySelector('select').value==='0.9'&&row('butter-crab').querySelector('select').value==='-0.5'&&row('starsigns').querySelector('select').value==='0.1');
+            check('each card says how it lands by default',row('fish-and-chips').querySelector('.gi-gift-trust-note').textContent===`${kindLabel(ITEMS['fish-and-chips'])} · Liked (+0.9)`&&row('fish-and-chips').classList.contains('gi-gift-trust-up'));
             const pickChange=row('starsigns').querySelector('select');pickChange.value='-1';pickChange.dispatchEvent(new Event('change',{bubbles:true}));
             check('choosing a change saves it',giftChange(ctx,klee,'starsigns')===-1&&row('starsigns').classList.contains('gi-gift-trust-changed')&&row('starsigns').classList.contains('gi-gift-trust-down')&&giftNotes.at(-1).includes('-1')&&row('starsigns').querySelector('.gi-gift-trust-note').textContent.endsWith('Changed (usually +0.1)'));
             const kind=giftPanel.querySelector('.gi-gift-trust-tools select');kind.value='changed';kind.dispatchEvent(new Event('change'));
@@ -140,7 +140,7 @@ export async function runTrustTests(){
         check('a card you do not have cannot be given',await fails(ctx,'sweet-madame','Klee.png'));
         check('a gift waits for the current reply',await fails(ctx,'starsigns','Klee.png',{isGenerating:()=>true})&&ctx.chatMetadata.silly_teyvat_combat.bag.starsigns===1);
         ctx=giftContext();ctx.onlineStatus='no_connection';
-        check('with no connection the gift stands and the error says so',await fails(ctx,'fish-and-chips','Klee.png')&&ctx.chat.length===1&&trustOf(ctx,'Klee.png')===.5);
+        check('with no connection the gift stands and the error says so',await fails(ctx,'fish-and-chips','Klee.png')&&ctx.chat.length===1&&trustOf(ctx,'Klee.png')===.9);
         check('the gift prompt carries their tastes and trust',giftReplyPrompt(context(),card('Klee'),ITEMS['butter-crab'],'disliked',2).includes(tastesOf('Klee').note)&&giftReplyPrompt(context(),card('Klee'),ITEMS['butter-crab'],'disliked',2).includes('2 of 5'));
 
         ctx=context([says('Klee','"Hi" [Trust +2]')]);

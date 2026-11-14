@@ -1,5 +1,5 @@
 import assert from 'node:assert/strict';
-import {giftTastes,giftChange,LIKED_MAX} from '../../extension/genshin-dialogue-ui/gift-tastes.js';
+import {giftTastes,giftChange} from '../../extension/genshin-dialogue-ui/gift-tastes.js';
 import {tastesOf,CHARACTER_TASTES} from '../../extension/genshin-dialogue-ui/character-tastes.js';
 import {giftVerdict,giveGift,giftReplyPrompt} from '../../extension/genshin-dialogue-ui/gifts.js';
 import {ITEMS} from '../../extension/genshin-dialogue-ui/battle-items.js';
@@ -43,14 +43,20 @@ prefs.characterProperties={[klee.avatar]:{element:'Cryo'}};
 assert.equal(verdict('blizzard-strayer'),'liked','saved character elements control gifts');
 assert.equal(verdict('crimson-witch'),'disliked');
 delete prefs.characterProperties;
-// Written tastes give each card its own change: a liked 5★ card up to +1, any other liked card up to +0.5.
+// Written tastes give each card its own change, from +0.3 up to the favourite: +1 for a 5★ favourite and +0.9
+// for anyone who likes no 5★ card. Only a couple of likes come close to +1.
 for(const [name,t] of Object.entries(CHARACTER_TASTES)){
-    for(const id of t.likes)assert.ok(t.change[id]>.1&&t.change[id]<=LIKED_MAX[ITEMS[id].rarity],`${name} likes ${id} within its rarity's limit`);
+    const values=t.likes.map(id=>t.change[id]),favourite=t.likes[0],anyRare=t.likes.some(id=>ITEMS[id].rarity===3);
+    for(const value of values)assert.ok(value>=.3&&value<=1,`${name}'s likes give +0.3 to +1`);
+    assert.equal(t.change[favourite],anyRare?1:.9,`${name}'s favourite card gives ${anyRare?'+1':'+0.9'}`);
+    assert.ok(values.filter(value=>value>=.9).length<=2,`${name} has at most two likes close to +1`);
+    if(values.length>=3)assert.equal(Math.min(...values),.3,`${name}'s likes spread down to +0.3`);
     for(const id of t.dislikes)assert.ok(t.change[id]<0&&t.change[id]>=-.5,`${name} dislikes ${id} within -0.5`);
 }
-assert.equal(giftChange(ctx,klee,'fish-and-chips'),.5,'a favourite common card gives +0.5');
+assert.equal(giftChange(ctx,klee,'fish-and-chips'),.9,'a favourite 4★ card makes up for liking no 5★ card');
 assert.equal(giftChange(ctx,klee,'saurus-crackers'),.3,'a lesser like gives less');
-assert.equal(giftChange(ctx,klee,'guoba'),.3,'inferred likes give less than written ones');
+assert.equal(giftChange(ctx,klee,'guoba'),.4,'inferred 4★ likes give +0.4');
+assert.equal(giftChange(ctx,klee,'magic-guide'),.3,'inferred 3★ likes give +0.3');
 assert.equal(giftChange(ctx,klee,'starsigns'),.1);
 assert.equal(giftChange(ctx,'Xiao','primordial-jade-winged-spear'),1,'a signature 5★ card gives +1');
 assert.equal(JSON.stringify(tastesOf('Klee')),original,'expansion never mutates written tastes');
@@ -61,7 +67,7 @@ assert.ok(trustPrompt(ctx).includes('Magic Guide'),'Trust prompt includes expand
 ctx.onlineStatus='no_connection';
 ctx.chatMetadata.silly_teyvat_combat={version:2,visits:{},events:[],bag:{'magic-guide':1,'raven-bow':1}};
 const script={isGenerating:()=>false,isChatSaving:false};
-for(const [id,expected,level] of [['magic-guide','liked',.2],['raven-bow','disliked',0]]){
+for(const [id,expected,level] of [['magic-guide','liked',.3],['raven-bow','disliked',0]]){
     await assert.rejects(giveGift(()=>ctx,{id,avatar:klee.avatar},{loadScript:async()=>script}),/Your gift was given/);
     assert.equal(ctx.chat.at(-1).extra.silly_teyvat_gift.verdict,expected);
     assert.equal(trustOf(ctx,klee.avatar),level);

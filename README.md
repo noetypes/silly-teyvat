@@ -64,7 +64,7 @@ Expressions use SillyTavern's **Character Expressions** classifier settings. Cha
 
 - Each character has up to five hearts of Trust with you in each chat. They gain or lose it through the roleplay, and higher Trust makes them more willing to go along with you.
 - Characters who already know the one you play start with suitable Trust.
-- Give cards from your Inventory as gifts. Everyone has favourite and least favourite cards, based on the game, including their own summons, weapons and haunts. A favourite gives the most Trust, up to +1 for a 5★ card and +0.5 for any other. The **Gifts** menu in a character's profile sets how much each card raises or lowers their Trust.
+- Give cards from your Inventory as gifts. Everyone has favourite and least favourite cards, based on the game, including their own summons, weapons and haunts. A favourite gives the most Trust: +1 for a 5★ card, or +0.9 for someone who likes no 5★ card, and other likes give less, down to +0.3. The **Gifts** menu in a character's profile sets how much each card raises or lowers their Trust.
 - **What do they think of you?** in the Trust menu shows a character's private opinion of you.
 - Some sprites and scenes unlock only at a minimum Trust, set in half hearts.
 

@@ -20,13 +20,12 @@ function giftElement(id,item){
     if(item.kind==='artifact')return item.equip?.find(stat=>ELEMENTS.includes(stat.element))?.element;
     if(item.kind==='summon')return item.effects?.find(effect=>ELEMENTS.includes(effect.element))?.element;
 }
-// How far a gift moves trust. Written tastes give each liked or disliked card its own change; a liked
-// 5★ card (rarity 3) gives at most +1 and any other liked card at most +0.5 (GIFT_CHANGE.liked).
-// Likes worked out from element and weapon give less, more for rarer cards. The Gifts menu in
+// How far a gift moves trust. Written tastes give each liked or disliked card its own change, from +0.3
+// up to +1 for the character's favourite (see character-tastes.js). Likes worked out from element and
+// weapon give +0.3 for a 3★ card, +0.4 for 4★ and +0.6 for 5★. The Gifts menu in
 // Character Customization can set any card's change for one character, from -TRUST_MAX to +TRUST_MAX.
 export const GIFT_CHANGE={liked:.5,disliked:-.5,neutral:.1};
-export const LIKED_MAX={1:.5,2:.5,3:1};
-const INFERRED={liked:{1:.2,2:.3,3:.6},disliked:-.3};
+const INFERRED={liked:{1:.3,2:.4,3:.6},disliked:-.3};
 const tenth=n=>Math.round(n*10)/10;
 export const cleanGiftChange=value=>{const n=Number(value);return value===null||value===''||!Number.isFinite(n)?null:Math.max(-TRUST_MAX,Math.min(TRUST_MAX,tenth(n)));};
 const verdictOfChange=change=>change>GIFT_CHANGE.neutral?'liked':change<0?'disliked':'neutral';

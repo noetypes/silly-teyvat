@@ -212,7 +212,7 @@ In simulated boss fights (`node tools/simulate-battles.mjs 100 --party=Lumine:Ge
 
 The element is saved on the card, which a persona playing it shares. It changes at a **Statue of The Seven** (one in every region on the map; arriving with Aether or Lumine in the party, or while playing one, offers the region's element, and the statue's map card offers it again while you are there) or in **Character Customization → Combat**, whose Stats start with an Element choice for the two Travelers. Moveset edits are kept per element, so an edited Geo kit stays with Geo. The Elemental Burst plays that twin's splash art for the element. `node tools/tests/test-traveler-resonance.mjs` checks the kits, splashes, statues and element changes.
 
-Maximum HP stays in **Profile**. Each character's default comes from their moveset (30 to 42 by role); a value you or a card author chose is kept.
+Maximum HP is set in **Character Customization → Combat**, with the other Stats, and saved with **Save moveset**. Each character's default comes from their moveset (30 to 42 by role); a value you or a card author chose is kept, and **Reset to default** returns it to the moveset's value. New HP applies to new encounters; encounters already under way keep theirs.
 
 ## Paimon
 
