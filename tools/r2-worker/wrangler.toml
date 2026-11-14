@@ -9,4 +9,4 @@ workers_dev = true
 [[r2_buckets]]
 binding = "BUCKET"
 # The bucket created in the Cloudflare dashboard. Change this if yours has another name.
-bucket_name = "silly-teyvat-data"
+bucket_name = "sillyteyvat"

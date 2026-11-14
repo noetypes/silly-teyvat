@@ -198,7 +198,7 @@ Worker.
 One-time setup:
 
 1. In the Cloudflare dashboard, create the R2 bucket (Standard storage). Leave its public access
-   off; the Worker reads it directly. If its name is not `silly-teyvat-data`, change
+   off; the Worker reads it directly. The bucket is `sillyteyvat`; if that ever changes, change
    `bucket_name` in [`tools/r2-worker/wrangler.toml`](../../tools/r2-worker/wrangler.toml).
 2. Under **Workers & Pages**, choose a `workers.dev` subdomain if the account has none yet.
 3. Deploy (wrangler comes from npm; it asks to sign in to Cloudflare in the browser the first time):
@@ -218,7 +218,7 @@ python3 tools/release-game-data.py ../silly-teyvat-data/releases/silly-teyvat-ga
   --url W/vX.Y.Z/silly-teyvat-game-data-X.Y.Z-001.part \
   --chunk-dir ../silly-teyvat-data/releases/parts/vX.Y.Z \
   --chunk-base-url W/vX.Y.Z
-rclone copy ../silly-teyvat-data/releases/parts/vX.Y.Z r2:silly-teyvat-data/vX.Y.Z \
+rclone copy ../silly-teyvat-data/releases/parts/vX.Y.Z r2:sillyteyvat/vX.Y.Z \
   --immutable --s3-no-check-bucket
 curl -sI -H 'Origin: http://localhost:8000' -H 'Range: bytes=0-99' W/vX.Y.Z/silly-teyvat-game-data-X.Y.Z-001.part
 ```
