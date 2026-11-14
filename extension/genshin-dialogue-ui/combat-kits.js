@@ -152,11 +152,15 @@ const TABLE=[
     ['Jahoda',B,32,2,'Support','Strike While the Arrow\'s Hot',['Savvy Strategy: Splitting the Spoils',2,[D(4),BF('atk',15,2,'party')]],['Hidden Aces: Seven Tools of the Hunter',3,[SM('Purrsonal Coordinated Assistance Robots',2,3,'random',{heal:2})]]],
     ['Lauma',K,34,2,'Support','Peregrination of Linnunrata',['Runo: Dawnless Rest of Karsikko',2,[D(3,'all'),DB('vuln',20,2,'all')]],['Runo: All Hearts Become the Beating Moon',3,[BF('atk',35,2,'party'),H(3,'party')]]],
     ['Linnea',B,34,2,'Healer','Capture Protocol',['Countermeasure: Lumi\'s Battle Cry!',2,[SM('Lumi',3,2)]],['Memo: Survival Guide in Extreme Conditions',3,[D(4,'all'),H(5,'party')]]],
+    // Fan TCG adaptations: the Detection Core provides sustained Electro support; Valeriy protects
+    // the party while his Thunderburst Shells keep firing. See the Snezhnaya card source notes.
+    ['Mitya',K,32,2,'Sub-DPS','Chain Reaction',['Principle: Variable Detection',2,[D(3),SM('Detection Core',2,2)]],['Analysis: Gradient Theory',3,[D(6),BF('atk',20,2,'party')]]],
     ['Nicole',K,34,2,'Support','Allegoria',['Revelation: Uncreated Light',2,[BF('atk',25,2,'party'),SH(3,'party')]],['Revelation: Ladder of Divine Ascent',3,[D(5,'all'),SM('Arcane Projection',3,2)]]],
     ['Odette',S,34,2,'Sub-DPS','Snow Swan Variation',['Adagio: Phantom Night Dancers',2,[D(3,'all'),SM('Solo Dance Double',2,2)]],['Presto: Bluebird Finale',3,[D(3,'all',{hits:2})]]],
     ['Sandrone',C,38,3,'DPS','Formule Phenomenale: Self-Evident Proposition',['Formule Phenomenale: Differential Analysis',2,[D(3,'all')]],['Formule Phenomenale: Q.E.D.',3,[D(7,'all')]]],
     ['Skirk',S,34,3,'DPS','Havoc: Sunder',['Havoc: Warp',2,[D(3,'one',{hits:2}),INF(2)]],['Havoc: Ruin',3,[D(3,'one',{hits:4})]]],
     ['Tartaglia',B,34,2,'DPS','Cutting Torrent',['Foul Legacy: Raging Tide',2,[D(3,'one',{hits:2}),DB('vuln',10,2)]],['Havoc: Obliteration',3,[D(10)]]],
+    ['Valeriy',S,38,2,'Shielder','Guard Tactics: Sword and Shield',['Active Defense: Bastion Charge',2,[D(3),SH(6,'party')]],['Focused Fire: Lightning Salvo',3,[D(3,'all'),SM('Thunderburst Shells',2,2)]]],
     ['Vesna',S,34,2,'Sub-DPS','Vila Blade Dance',['The Art of Victory',2,[D(3,'all'),BF('atk',25,2)]],['For the Tsaritsa!',3,[D(3,'random',{hits:4})]]],
     ['Vodyanitsa',K,34,2,'Sub-DPS','Psyshkhwe Arietta',['Rechitativ: Sonorous Dawn',2,[D(3,'all'),SM('Horn of Spring\'s Call',3,2)]],['Koda: Sink With Thee',3,[D(7,'all')]]],
     // Elsewhere

@@ -1,0 +1,38 @@
+{
+  "neutral_source_run": "art/sprites/2026-11-13-valeriy-mitya-dual-reference-poses/run.json",
+  "neutral_creation_sources": "The approved neutrals were generated using user model screenshots plus official portraits; source run preserves those references and provenance.",
+  "expression_reference_rule": "Every expression independently uses only that character's exact approved neutral. No model, official portrait, previous expression or TCG art is an image reference.",
+  "characters": [
+    {
+      "name": "Mitya",
+      "approved_neutral": {
+        "path": "art/sprites/2026-11-13-valeriy-mitya-full-22/references/Mitya/approved-neutral.png",
+        "sha256": "8afc3dd1f90954240306f5f95e5362a59d7883d6a772629657bfe414978dd505",
+        "original_path": "art/sprites/2026-11-13-valeriy-mitya-dual-reference-poses/candidates/Mitya/neutral-v001.png"
+      },
+      "approval": {
+        "state": "approved",
+        "date": "2026-11-13",
+        "message": "Both approved, generate a 22-sprite set for each based on these neutrals",
+        "approved_path": "art/sprites/2026-11-13-valeriy-mitya-dual-reference-poses/candidates/Mitya/neutral-v001.png",
+        "approved_sha256": "8afc3dd1f90954240306f5f95e5362a59d7883d6a772629657bfe414978dd505"
+      }
+    },
+    {
+      "name": "Valeriy",
+      "approved_neutral": {
+        "path": "art/sprites/2026-11-13-valeriy-mitya-full-22/references/Valeriy/approved-neutral.png",
+        "sha256": "14481e6dccc092b8dfa03fd294f6dc1320d55fb1f137baa38733247c08c7ae9a",
+        "original_path": "art/sprites/2026-11-13-valeriy-mitya-dual-reference-poses/candidates/Valeriy/neutral-v001.png"
+      },
+      "approval": {
+        "state": "approved",
+        "date": "2026-11-13",
+        "message": "Both approved, generate a 22-sprite set for each based on these neutrals",
+        "approved_path": "art/sprites/2026-11-13-valeriy-mitya-dual-reference-poses/candidates/Valeriy/neutral-v001.png",
+        "approved_sha256": "14481e6dccc092b8dfa03fd294f6dc1320d55fb1f137baa38733247c08c7ae9a"
+      }
+    }
+  ],
+  "original_source_research": "content/character-cards/snezhnaya-2026-11-12/sources.json"
+}

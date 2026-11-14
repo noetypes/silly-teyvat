@@ -51,7 +51,7 @@ Expressions use SillyTavern's **Character Expressions** classifier settings. Cha
 
 ### The world map
 
-- A full interactive map of Teyvat with **269 waypoints in eight regions**: Mondstadt, Liyue, Inazuma, Sumeru, Fontaine, Natlan, Nod-Krai and Snezhnaya. Each has its own background and music.
+- A full interactive map of Teyvat with **270 waypoints in eight regions**: Mondstadt, Liyue, Inazuma, Sumeru, Fontaine, Natlan, Nod-Krai and Snezhnaya. Each has its own background and music.
 - **Teleport** to any waypoint, from the map or from the **Teyvat** tab of SillyTavern's Backgrounds menu, which shows every location picture. Travel is recorded in the chat with real distances, and a classifier follows the party when the story moves somewhere within the current region.
 - Characters live at the places they belong to, and you meet some of them when you arrive. When you leave, you choose who travels with you. Favourites are always there, and anyone left behind waits for you.
 - Wilderness waypoints have regional enemy pools, and **20 boss arenas** each hold one boss with its own music.

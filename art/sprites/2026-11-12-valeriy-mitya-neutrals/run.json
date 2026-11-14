@@ -1,0 +1,145 @@
+{
+  "created": "2026-11-12",
+  "tool": "built-in image_gen.imagegen",
+  "status": "neutral_candidates_awaiting_user_review",
+  "scope": "Neutral sprites only. No expressions or live installation.",
+  "reference_note": "No installed Official Art portrait exists for either character. User requested official art research; original transparent official portraits downloaded from the Genshin Wiki image CDN are the sole image reference for each neutral.",
+  "characters": [
+    {
+      "name": "Valeriy",
+      "source_url": "https://static.wikia.nocookie.net/gensin-impact/images/0/06/Valeriy_Portrait.png/revision/latest",
+      "source_page": "https://genshin-impact.fandom.com/wiki/Valeriy/Gallery",
+      "original_download_path": "/tmp/Valeriy_Portrait.png",
+      "reference_path": "art/sprites/2026-11-12-valeriy-mitya-neutrals/references/Valeriy/official.png",
+      "sha256": "05253e2735ef77b463339d5641feff48b029fa10574fcdeb45255ea567beae22",
+      "dimensions": [
+        1000,
+        1200
+      ],
+      "mode": "RGBA",
+      "approval": "pending",
+      "tcg_style_character": "Tartaglia"
+    },
+    {
+      "name": "Mitya",
+      "source_url": "https://static.wikia.nocookie.net/gensin-impact/images/5/5d/Mitya_Portrait.png/revision/latest",
+      "source_page": "https://genshin-impact.fandom.com/wiki/Mitya/Gallery",
+      "original_download_path": "/tmp/Mitya_Portrait.png",
+      "reference_path": "art/sprites/2026-11-12-valeriy-mitya-neutrals/references/Mitya/official.png",
+      "sha256": "6dd129216edc01deb1ba37820283db48c5c3ee096ff95de48b315835782f25a6",
+      "dimensions": [
+        1000,
+        1200
+      ],
+      "mode": "RGBA",
+      "approval": "pending",
+      "tcg_style_character": "Lisa"
+    }
+  ],
+  "generations": [
+    {
+      "name": "Valeriy",
+      "tool": "built-in image_gen.imagegen",
+      "actual_arguments": {
+        "prompt": "Use case: stylized-concept. Asset type: full-body transparent visual-novel neutral sprite candidate. Draw Valeriy from Genshin Impact using the single supplied official transparent portrait as the sole image reference for his identity, face, dark tousled hair, violet eyes, costume, armor, cape, palette and all accessories. Change the action pose into a calm, character-appropriate neutral standing pose, facing the viewer at a gentle three-quarter angle, with a composed attentive expression and closed relaxed mouth. Tall Male anime build: tall, broad-shouldered, substantial military physique, faithful to the source. Preserve his dark navy military uniform, gold trim, steel armor and dark fur collar, long white-and-navy cape with purple details and black fur edging. Let the cape hang naturally. His large gold-and-navy shield stands upright beside him, held calmly by his right hand without hiding his torso or face; his left arm rests relaxed by his side with a complete natural gloved hand, a palm, four fingers and one separate thumb. Exactly two legs and two feet, feet slightly apart in a simple stable stance. Polished Genshin anime illustration, clean line work and soft cel shading. Entire silhouette visible from hair and cape to both boot soles and shield, 92–96 percent canvas height, 2–4 percent padding above and below. True transparent background with clean alpha. No scenery, ground shadow, floating effects, UI, labels, text, watermark or border. This is one character on a portrait canvas.",
+        "referenced_image_paths": [
+          "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-12-valeriy-mitya-neutrals/references/Valeriy/official.png"
+        ],
+        "transparent_background": true
+      },
+      "returned_result": {
+        "output_hint": "Generated images are saved to /Users/alexachan/.codex/generated_images/01a1d338-c611-7c50-9d89-98c76ede327d as /Users/alexachan/.codex/generated_images/01a1d338-c611-7c50-9d89-98c76ede327d/exec-9c9bb36c-9652-4db6-9aa0-a6de7705e6f3.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.",
+        "image_url": "Image data preserved losslessly in raw/Valeriy/neutral-v001.png"
+      },
+      "approval": "pending",
+      "candidate": {
+        "path": "art/sprites/2026-11-12-valeriy-mitya-neutrals/candidates/Valeriy/neutral-v001.png",
+        "sha256": "3dd436f5842f9bc4e565cb9450a3eb21948d14fa2187e7c1da5ba5c7a81951aa",
+        "bytes": 2139404,
+        "dimensions": [
+          1024,
+          1536
+        ],
+        "mode": "RGBA",
+        "alpha_extrema": [
+          0,
+          254
+        ]
+      },
+      "raw": {
+        "path": "art/sprites/2026-11-12-valeriy-mitya-neutrals/raw/Valeriy/neutral-v001.png",
+        "sha256": "3dd436f5842f9bc4e565cb9450a3eb21948d14fa2187e7c1da5ba5c7a81951aa",
+        "bytes": 2139404,
+        "dimensions": [
+          1024,
+          1536
+        ],
+        "mode": "RGBA",
+        "alpha_extrema": [
+          0,
+          254
+        ]
+      },
+      "prompt_path": "art/sprites/2026-11-12-valeriy-mitya-neutrals/prompts/Valeriy/neutral-v001.txt",
+      "reference_sha256": "05253e2735ef77b463339d5641feff48b029fa10574fcdeb45255ea567beae22",
+      "non_generative_framing_transform": null,
+      "user_approval": {
+        "state": "pending",
+        "message": null
+      }
+    },
+    {
+      "name": "Mitya",
+      "tool": "built-in image_gen.imagegen",
+      "actual_arguments": {
+        "prompt": "Use case: stylized-concept. Asset type: full-body transparent visual-novel neutral sprite candidate. Draw Mitya from Genshin Impact using only the supplied official transparent portrait as the image reference for identity, face, soft silver-white hair with lavender-blue shadows, violet eyes, costume, ornaments and colors. A petite slender Medium Male anime build with compact torso and legs, retaining the source's youthful proportions without elongation. A relaxed upright standing pose facing the viewer at a slight three-quarter angle, warm attentive eyes and a small closed-mouth easygoing smile. Preserve his high white collar, dark navy fitted coat and trousers, purple and lavender panels with gold orbital designs, turquoise lining and tassels, turquoise gems, gold medallions, layered purple scarf and dark ankle boots. Let his long coat panels and distinctive scarf hang naturally, a gentle loose curve rather than an action sweep. Both arms rest comfortably at his sides; each visible hand has a palm, four fingers and one separate opposable thumb, fingers relaxed and separate from the cuffs. Exactly two legs and two feet, feet simply spaced in a natural stable stance. Polished Genshin anime illustration, clean line work and soft cel shading. One complete character silhouette including hair tips, scarf, ornaments and both boot soles. 92–96 percent canvas height, 2–4 percent top and bottom padding. True transparent background, clean alpha. No floating energy object, particles, scenery, ground shadow, UI, labels, text, watermark or border. Portrait canvas.",
+        "referenced_image_paths": [
+          "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-12-valeriy-mitya-neutrals/references/Mitya/official.png"
+        ],
+        "transparent_background": true
+      },
+      "returned_result": {
+        "output_hint": "Generated images are saved to /Users/alexachan/.codex/generated_images/01a1d338-c611-7c50-9d89-98c76ede327d as /Users/alexachan/.codex/generated_images/01a1d338-c611-7c50-9d89-98c76ede327d/exec-3a6abec9-2d5d-4b18-8058-fbbb4d54f34a.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.",
+        "image_url": "Image data preserved losslessly in raw/Mitya/neutral-v001.png"
+      },
+      "approval": "pending",
+      "candidate": {
+        "path": "art/sprites/2026-11-12-valeriy-mitya-neutrals/candidates/Mitya/neutral-v001.png",
+        "sha256": "11c340d3a3ced18a4e6ef56e473d503bc6e2193ad1365189154d152ac0433197",
+        "bytes": 987370,
+        "dimensions": [
+          1145,
+          1374
+        ],
+        "mode": "RGBA",
+        "alpha_extrema": [
+          0,
+          255
+        ]
+      },
+      "raw": {
+        "path": "art/sprites/2026-11-12-valeriy-mitya-neutrals/raw/Mitya/neutral-v001.png",
+        "sha256": "11c340d3a3ced18a4e6ef56e473d503bc6e2193ad1365189154d152ac0433197",
+        "bytes": 987370,
+        "dimensions": [
+          1145,
+          1374
+        ],
+        "mode": "RGBA",
+        "alpha_extrema": [
+          0,
+          255
+        ]
+      },
+      "prompt_path": "art/sprites/2026-11-12-valeriy-mitya-neutrals/prompts/Mitya/neutral-v001.txt",
+      "reference_sha256": "6dd129216edc01deb1ba37820283db48c5c3ee096ff95de48b315835782f25a6",
+      "non_generative_framing_transform": null,
+      "user_approval": {
+        "state": "pending",
+        "message": null
+      }
+    }
+  ],
+  "research_sources": "content/character-cards/snezhnaya-2026-11-12/sources.json",
+  "technical_checks_only": "PNG files decoded, dimensions and alpha recorded. No visual approval, autonomous repair or expression generation."
+}

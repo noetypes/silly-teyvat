@@ -1,5 +1,5 @@
 {
-  "version": 25,
+  "version": 26,
   "retrieved": "2026-10-26",
   "coordinateSource": "https://sg-public-api-static.hoyolab.com/common/map_user/ys_obc/v1/map/map_anchor/list?map_id=2&app_sn=ys_obc&lang=en-us",
   "locations": [
@@ -16548,6 +16548,64 @@
           "captions": false,
           "camera": "Genshin Impact Wiki in-game image of the location, reviewed on a contact sheet: no playable characters, HUD, UID or captions; ordinary NPCs and the game logo may remain. Recompressed to WebP at the original dimensions."
         }
+      }
+    },
+    {
+      "id": "home-glupov",
+      "label": "Glupov",
+      "region": "Snezhnaya",
+      "description": "The Fatui’s satellite city within Snezhnograd and their headquarters, with the Royal Armory Palace deep inside it. Mitya’s research brings him here, and Valeriy’s Special Assignments Battalion guards the Armory Palace and the people who work in it.",
+      "classifications": [
+        "Glupov",
+        "Armory Palace",
+        "Royal Armory Palace",
+        "Fatui headquarters",
+        "city of fools"
+      ],
+      "suggestedCharacters": [
+        "Mitya",
+        "Valeriy"
+      ],
+      "residents": [],
+      "waypoint": {
+        "mapId": "teyvat",
+        "x": -7470.0,
+        "y": -7640.5
+      },
+      "coordinateMethod": "Center of the official HoYoLAB map label bounds for Glupov (label 378); native map units. A label box is not a surveyed outline. The Armory Palace itself is not part of the open world, so the waypoint is the city that houses it.",
+      "coordinateSource": "https://sg-public-api-static.hoyolab.com/common/map_user/ys_obc/v1/map/map_anchor/list?map_id=2&app_sn=ys_obc&lang=en-us",
+      "source": "https://genshin-impact.fandom.com/wiki/Glupov",
+      "loreSource": "https://genshin-impact.fandom.com/wiki/Armory_Palace",
+      "asset": "glupov.webp",
+      "dimensions": [
+        1920,
+        1080
+      ],
+      "candidate": false,
+      "introducedVersion": 26,
+      "imageURL": "https://static.wikia.nocookie.net/gensin-impact/images/7/79/Glupov.png/revision/latest?cb=20260813095909",
+      "imageReview": {
+        "reviewed": "2026-11-13",
+        "playableCharacters": false,
+        "gameUI": false,
+        "captions": false,
+        "camera": "Genshin Impact Wiki in-game image of Glupov (File:Glupov.png), a ground-level view up the approach to the fortress. Reviewed in full and zoomed: three ordinary NPCs on the path and the game logo remain; no playable characters, HUD, UID or captions.",
+        "editing": "None; the wiki file’s original WebP bytes are kept unchanged (sha256 40ccda987568835cd9b6c020c86a1b011115466256bc5585bf744af172d85e42)."
+      },
+      "musicResearch": {
+        "recommended": [
+          "Heavy Is the Dew",
+          "Dream of the Black Snow Swan"
+        ],
+        "source": "https://genshin-impact.fandom.com/wiki/Glupov",
+        "note": "No Glupov soundtrack is documented; it uses the tracks of neighbouring Zapolyarny Palace in Snezhnograd."
+      },
+      "music": {
+        "tracks": [
+          "music-game-15f5e0811a6a64cfeb21",
+          "music-game-9b844f5de41a30a4753d"
+        ],
+        "combatTrack": null
       }
     },
     {

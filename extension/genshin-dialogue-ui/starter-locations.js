@@ -9,7 +9,8 @@ import {fillBattleMusic} from './battle-music-defaults.js';
 // 23: Starfell Lake's island statue is a Statue of The Seven (Anemo).
 // 24: Favonius Cathedral interior.
 // 25: remove Rosaria from the Cat's Tail suggestions.
-const starterCatalogVersion=25;
+// 26: Glupov, home of the Armory Palace, for Mitya and Valeriy (never at wilderness Snezhnograd).
+const starterCatalogVersion=26;
 const OLD_STARFELL_DESCRIPTION='A lake in Starfell Valley, with a Statue of The Seven on the island. The point and archive image show the in-game overlook.';
 const OLD_STARFELL_STATUE_DESCRIPTION='A lake in Starfell Valley, with a Statue of The Seven on its island. A quiet place, far from any town.';
 const OLD_FEIYUN_DESCRIPTION='The Feiyun Commerce Guild family residence is in Liyue Harbor. The map pin uses the named Feiyun Slope point as a public approach to the district; the clean background is the nearby Heyu Tea House, not the residence itself.';
@@ -100,6 +101,9 @@ export function seedWorldLocations(ctx,catalog,availableMusic=[]){
             if(prefs.starterLocationsVersion<23&&record.id==='expansion-starfell-lake'&&!Object.hasOwn(location,'statue')){
                 location.statue=record.statue;
                 if(location.description===OLD_STARFELL_STATUE_DESCRIPTION)location.description=record.description;
+            }
+            if(prefs.starterLocationsVersion<26&&record.id==='starter-snezhnograd'&&Array.isArray(location.suggestedCharacters)){
+                location.suggestedCharacters=location.suggestedCharacters.filter(name=>name!=='Mitya'&&name!=='Valeriy');
             }
             if(prefs.starterLocationsVersion<25&&record.id==='starter-the-cat-s-tail'&&Array.isArray(location.suggestedCharacters)){
                 location.suggestedCharacters=location.suggestedCharacters.filter(name=>name!=='Rosaria');

@@ -1,0 +1,167 @@
+{
+  "checked": "2026-11-12",
+  "scope": "Character card research and official art provenance. Generated assets are unofficial fan art.",
+  "research_limitations": [
+    "Direct Wiki character, profile and gallery HTML pages were unavailable (web fetch errors / HTTP 403). Indexed Wiki extracts were accessible. Mitya indexed page is an older pre-release snapshot; current playable details were corroborated through the official 7.2 announcement. No assertion that full current character stories or voice-over pages were verified.",
+    "No installed Official Art portraits existed for either character. The user requested official art research; downloaded original Wiki-hosted official transparent portraits were used as the sole reference for new neutral sprites."
+  ],
+  "characters": [
+    {
+      "name": "Valeriy",
+      "wiki_page": "https://genshin-impact.fandom.com/wiki/Valeriy",
+      "official_introduction": "https://www.hoyolab.com/article/46887682",
+      "official_update": "https://genshin.hoyoverse.com/en/news/detail/167187",
+      "portrait": {
+        "path": "art/sprites/2026-11-12-valeriy-mitya-neutrals/references/Valeriy/official.png",
+        "sha256": "05253e2735ef77b463339d5641feff48b029fa10574fcdeb45255ea567beae22",
+        "bytes": 220156,
+        "dimensions": [
+          1000,
+          1200
+        ],
+        "mode": "RGBA",
+        "alpha_extrema": [
+          0,
+          255
+        ],
+        "url": "https://static.wikia.nocookie.net/gensin-impact/images/0/06/Valeriy_Portrait.png/revision/latest",
+        "copyright": "HoYoverse; official character portrait reproduced by Genshin Impact Wiki",
+        "original_download_path": "/tmp/Valeriy_Portrait.png",
+        "modifications": "None; original downloaded bytes copied unchanged."
+      },
+      "wish_art": {
+        "path": "art/tcg/2026-11-12-valeriy-mitya/references/Valeriy/official-wish.png",
+        "sha256": "9f66a4fd73b32ecf1ad792201f171ff790670a6a9ca8192d68ddbef3f73d55c2",
+        "bytes": 343534,
+        "dimensions": [
+          1195,
+          969
+        ],
+        "mode": "RGBA",
+        "alpha_extrema": [
+          0,
+          255
+        ],
+        "url": "https://static.wikia.nocookie.net/gensin-impact/images/e/e6/Character_Valeriy_Full_Wish.png/revision/latest",
+        "copyright": "HoYoverse; official wish artwork reproduced by Genshin Impact Wiki",
+        "modifications": "None."
+      },
+      "canon_basis": [
+        {
+          "source": "https://genshin-impact.fandom.com/wiki/Trials_of_the_Brave_Warrior/Story",
+          "access": "indexed Wiki quest transcript",
+          "facts": [
+            "Onyx Agate respects Major Valeriy and recalls his emphasis on courtesy."
+          ]
+        },
+        {
+          "source": "https://genshin-impact.fandom.com/wiki/Valeriy/Change_History",
+          "access": "indexed Wiki page",
+          "facts": [
+            "First visual appearance in Sudden Snow; previously mentioned in the trial event."
+          ]
+        },
+        {
+          "source": "https://genshin.hoyoverse.com/m/en/news/detail/167043",
+          "access": "indexed official character introduction and skill showcase",
+          "facts": [
+            "Major in the Special Assignments Battalion; disciplined daily schedule."
+          ]
+        },
+        {
+          "source": "https://www.hoyolab.com/article/46887682",
+          "access": "official introduction link; body not readable through web fetch",
+          "corroboration": "https://allthings.how/valeriy-in-genshin-impact-7-2-electro-element-role-and-release-window/",
+          "facts": [
+            "Armory Palace protection duty; battalion commander."
+          ]
+        },
+        {
+          "source": "https://genshin.hoyoverse.com/en/news/detail/167187",
+          "access": "Official update found through indexing; complete page body unavailable. Current element and weapon categories corroborated by the readable current version summary below.",
+          "facts": [
+            "Current playable Electro character; Sword weapon category."
+          ],
+          "corroboration": "https://gamewith.net/genshin-impact/"
+        }
+      ],
+      "fan_interpretation": [
+        "All five greetings and example dialogue are original fan writing.",
+        "Neutral encounter timeline, visitor interactions, dialogue voice guidance and boundaries support roleplay rather than assert canon events.",
+        "No exact age/height or assumed relationship with the user."
+      ]
+    },
+    {
+      "name": "Mitya",
+      "wiki_page": "https://genshin-impact.fandom.com/wiki/Mitya",
+      "official_introduction": "https://www.hoyolab.com/article/46884007",
+      "official_update": "https://genshin.hoyoverse.com/en/news/detail/167187",
+      "portrait": {
+        "path": "art/sprites/2026-11-12-valeriy-mitya-neutrals/references/Mitya/official.png",
+        "sha256": "6dd129216edc01deb1ba37820283db48c5c3ee096ff95de48b315835782f25a6",
+        "bytes": 200860,
+        "dimensions": [
+          1000,
+          1200
+        ],
+        "mode": "RGBA",
+        "alpha_extrema": [
+          0,
+          255
+        ],
+        "url": "https://static.wikia.nocookie.net/gensin-impact/images/5/5d/Mitya_Portrait.png/revision/latest",
+        "copyright": "HoYoverse; official character portrait reproduced by Genshin Impact Wiki",
+        "original_download_path": "/tmp/Mitya_Portrait.png",
+        "modifications": "None; original downloaded bytes copied unchanged."
+      },
+      "wish_art": {
+        "path": "art/tcg/2026-11-12-valeriy-mitya/references/Mitya/official-wish.png",
+        "sha256": "8dcc3e73645d7f864847d5fb9994d06ef5814f13baacfa007547c19035e3f5b0",
+        "bytes": 380726,
+        "dimensions": [
+          1365,
+          985
+        ],
+        "mode": "RGBA",
+        "alpha_extrema": [
+          0,
+          255
+        ],
+        "url": "https://static.wikia.nocookie.net/gensin-impact/images/4/48/Character_Mitya_Full_Wish.png/revision/latest",
+        "copyright": "HoYoverse; official wish artwork reproduced by Genshin Impact Wiki",
+        "modifications": "None."
+      },
+      "canon_basis": [
+        {
+          "source": "https://genshin-impact.fandom.com/wiki/Mitya",
+          "access": "indexed older pre-release Wiki page",
+          "facts": [
+            "Snezhnayan character introduced in Sudden Snow."
+          ]
+        },
+        {
+          "source": "https://www.hoyolab.com/article/46884007",
+          "access": "readable official introduction",
+          "facts": [
+            "Royal Energy Commission specialist; title Rules Set at Naught; Electro; constellation Nodus Gordianus.",
+            "Enjoys theater, Snezhnograd walks and Podvorye Restaurant; values inspiration outside rigid attendance requirements.",
+            "His distinctive scarf is a companion; Valeriy monitors his schedule."
+          ]
+        },
+        {
+          "source": "https://genshin.hoyoverse.com/en/news/detail/167187",
+          "access": "Official update found through indexing; complete page body unavailable. Current element and weapon categories corroborated by the readable current version summary below.",
+          "facts": [
+            "Current playable Electro character; Catalyst weapon category."
+          ],
+          "corroboration": "https://gamewith.net/genshin-impact/"
+        }
+      ],
+      "fan_interpretation": [
+        "All five greetings and example dialogue are original fan writing.",
+        "Neutral encounter timeline, visitor interactions, dialogue voice guidance and boundaries support roleplay rather than assert canon events.",
+        "No exact age/height or assumed relationship with the user."
+      ]
+    }
+  ]
+}

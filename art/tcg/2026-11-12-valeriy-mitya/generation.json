@@ -1,0 +1,155 @@
+{
+  "created": "2026-11-12",
+  "tool": "built-in image_gen.imagegen",
+  "status": "candidates_awaiting_user_review",
+  "research_sources": "content/character-cards/snezhnaya-2026-11-12/sources.json",
+  "cards": [
+    {
+      "name": "Valeriy",
+      "tool": "built-in image_gen.imagegen",
+      "actual_arguments": {
+        "prompt": "Use case: stylized-concept. Asset type: one unofficial vertical Genius Invokation TCG character card illustration for Valeriy from Genshin Impact. Reference image 1 is Valeriy's official wish artwork: authoritative for his face, dark hair, violet eyes, Tall Male build, navy military uniform, metallic armor, gold details, purple sash, fur collar, white cape and massive gold-and-navy shield. Reference image 2 is the genuine Tartaglia TCG card: use ONLY its polished anime rendering, bold graphic background treatment, portrait card proportions and slim complete cream-and-gold rounded card border; do not depict Tartaglia or borrow his costume. Create a NEW composition of Valeriy as a steadfast commander, shown from head to lower legs, bracing his shield diagonally before him with a composed focused expression and his cape sweeping behind him. Let angular violet Electro arcs and restrained geometric fortress motifs fill a richly illustrated navy-and-purple background. The character must dominate the card with a large readable face, clean silhouette and strong layered graphic shapes, consistent with genuine Genshin TCG illustrations. Natural coherent anatomy, two arms and two legs; hand firmly on the shield grip. Full ornate rounded rectangular card frame contained in the canvas. Only one card, no lettering, nameplate, title, numbers, stats, dice icons or watermark. This is character card artwork, not a rules card.",
+        "referenced_image_paths": [
+          "/Users/alexachan/Documents/Codex/silly-teyvat/art/tcg/2026-11-12-valeriy-mitya/references/Valeriy/official-wish.png",
+          "/Users/alexachan/Documents/Codex/silly-teyvat/art/tcg/2026-11-12-valeriy-mitya/references/Valeriy/tcg-style.webp"
+        ],
+        "transparent_background": false
+      },
+      "returned_result": {
+        "output_hint": "Generated images are saved to /Users/alexachan/.codex/generated_images/01a1d338-c611-7c50-9d89-98c76ede327d as /Users/alexachan/.codex/generated_images/01a1d338-c611-7c50-9d89-98c76ede327d/exec-019eddb1-a1a9-417f-a0dc-b0f3e73db35e.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.",
+        "image_url": "Image data preserved losslessly in raw/Valeriy.png"
+      },
+      "approval": "pending",
+      "official_reference": {
+        "path": "art/tcg/2026-11-12-valeriy-mitya/references/Valeriy/official-wish.png",
+        "sha256": "9f66a4fd73b32ecf1ad792201f171ff790670a6a9ca8192d68ddbef3f73d55c2",
+        "bytes": 343534,
+        "dimensions": [
+          1195,
+          969
+        ],
+        "mode": "RGBA",
+        "alpha_extrema": [
+          0,
+          255
+        ]
+      },
+      "style_reference": {
+        "path": "art/tcg/2026-11-12-valeriy-mitya/references/Valeriy/tcg-style.webp",
+        "sha256": "72343ecb836a0c2015dae0b4bf990c8caf5dcecd1dbc66b308d7bd88c414b3e2",
+        "bytes": 44946,
+        "dimensions": [
+          360,
+          617
+        ],
+        "mode": "RGBA",
+        "alpha_extrema": [
+          0,
+          255
+        ],
+        "original_path": "extension/genshin-dialogue-ui/assets/tcg/characters/Tartaglia.webp",
+        "purpose": "Genuine TCG frame, rendering and composition only; no character identity."
+      },
+      "prompt_path": "art/tcg/2026-11-12-valeriy-mitya/prompts/Valeriy.txt",
+      "raw": {
+        "path": "art/tcg/2026-11-12-valeriy-mitya/raw/Valeriy.png",
+        "sha256": "c61753df465ec7ed1fc3d2895f8adca290f22740bb9a9f31347705872e81fc10",
+        "bytes": 2559626,
+        "dimensions": [
+          1024,
+          1536
+        ],
+        "mode": "RGB",
+        "alpha_extrema": null
+      },
+      "trimmed": {
+        "path": "art/tcg/2026-11-12-valeriy-mitya/trimmed/Valeriy.png",
+        "sha256": "856a3bad5316404719c9e6190d7f31717ad05761dab1434594ccc39680c577a5",
+        "bytes": 2704668,
+        "dimensions": [
+          1024,
+          1536
+        ],
+        "mode": "RGBA",
+        "alpha_extrema": [
+          0,
+          255
+        ]
+      }
+    },
+    {
+      "name": "Mitya",
+      "tool": "built-in image_gen.imagegen",
+      "actual_arguments": {
+        "prompt": "Use case: stylized-concept. Asset type: one unofficial vertical Genius Invokation TCG character card illustration for Mitya from Genshin Impact. Image 1 is Mitya's official wish artwork, authoritative for his face, silver-white lavender-shaded hair, violet eyes, petite slender Medium Male build, layered dark navy and purple coat, turquoise lining and tassels, gold orbital ornaments, gemstones and his distinctive long scarf. Image 2 is the genuine Lisa TCG card, reference ONLY for its polished Genshin anime rendering, bold graphic background, portrait card proportions and slim complete cream-and-gold rounded rectangular frame. Do not depict Lisa, borrow her witch costume or use her hat. Create a NEW composition of Mitya, shown large from head to lower legs, with an easy clever smile, one hand raised near his chest to guide a small luminous atom-like energy device while his other hand rests loosely by his hip. Each hand has a palm, four fingers and a separate opposable thumb with readable natural articulation. His purple-and-turquoise scarf curls around the composition as part of his costume. Fill the backdrop with crisp concentric orbital diagrams, violet lightning and turquoise energy currents on deep indigo; use coherent large graphic shapes rather than dense particles. The face is large and readable, the slim youthful proportions faithful to the source. One complete ornate rounded rectangular card border fully inside canvas, no lettering, titles, nameplate, numbers, stats, dice icons or watermark. Only one illustrated character card.",
+        "referenced_image_paths": [
+          "/Users/alexachan/Documents/Codex/silly-teyvat/art/tcg/2026-11-12-valeriy-mitya/references/Mitya/official-wish.png",
+          "/Users/alexachan/Documents/Codex/silly-teyvat/art/tcg/2026-11-12-valeriy-mitya/references/Mitya/tcg-style.webp"
+        ],
+        "transparent_background": false
+      },
+      "returned_result": {
+        "output_hint": "Generated images are saved to /Users/alexachan/.codex/generated_images/01a1d338-c611-7c50-9d89-98c76ede327d as /Users/alexachan/.codex/generated_images/01a1d338-c611-7c50-9d89-98c76ede327d/exec-fd37dc59-8c6f-47b6-a085-37eecfc39baa.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.",
+        "image_url": "Image data preserved losslessly in raw/Mitya.png"
+      },
+      "approval": "pending",
+      "official_reference": {
+        "path": "art/tcg/2026-11-12-valeriy-mitya/references/Mitya/official-wish.png",
+        "sha256": "8dcc3e73645d7f864847d5fb9994d06ef5814f13baacfa007547c19035e3f5b0",
+        "bytes": 380726,
+        "dimensions": [
+          1365,
+          985
+        ],
+        "mode": "RGBA",
+        "alpha_extrema": [
+          0,
+          255
+        ]
+      },
+      "style_reference": {
+        "path": "art/tcg/2026-11-12-valeriy-mitya/references/Mitya/tcg-style.webp",
+        "sha256": "d04d9701aba2cdae0f626f337668e3a16017b1a60794d17961215e6d1b81a0b3",
+        "bytes": 46248,
+        "dimensions": [
+          360,
+          617
+        ],
+        "mode": "RGBA",
+        "alpha_extrema": [
+          0,
+          255
+        ],
+        "original_path": "extension/genshin-dialogue-ui/assets/tcg/characters/Lisa.webp",
+        "purpose": "Genuine TCG frame, rendering and composition only; no character identity."
+      },
+      "prompt_path": "art/tcg/2026-11-12-valeriy-mitya/prompts/Mitya.txt",
+      "raw": {
+        "path": "art/tcg/2026-11-12-valeriy-mitya/raw/Mitya.png",
+        "sha256": "a0b858ce6436759157b8a015f8f18628f55b248c7e8267d3695982a676a58515",
+        "bytes": 2484014,
+        "dimensions": [
+          1024,
+          1536
+        ],
+        "mode": "RGB",
+        "alpha_extrema": null
+      },
+      "trimmed": {
+        "path": "art/tcg/2026-11-12-valeriy-mitya/trimmed/Mitya.png",
+        "sha256": "fd942d81575f162dcb8fc4c8abf4d2be4b2080f1f848dfcd75cdcdd232dcc457",
+        "bytes": 2666376,
+        "dimensions": [
+          1024,
+          1536
+        ],
+        "mode": "RGBA",
+        "alpha_extrema": [
+          0,
+          255
+        ]
+      }
+    }
+  ],
+  "finishing": "tools/trim-card-corners.py; reference alpha outline only, source RGB unchanged; see trimmed/trim-report.json."
+}

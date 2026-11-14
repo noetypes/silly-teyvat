@@ -1,0 +1,65 @@
+{
+  "date": "2026-11-13",
+  "authorization": "Create character cards for Mitya and Valeriy. Import them and place them at an appropriate location as their home, create TCG kits for them, use the existing sprites and TCG cards for their art.",
+  "home": {
+    "locationId": "starter-snezhnograd",
+    "rationale": "An existing Snezhnayan city waypoint, compatible with Mitya’s ordinary city outings and Valeriy visiting on duty. Gameplay home placement, not a claim about a private residence; Armory Palace/Glupov is not an existing waypoint."
+  },
+  "combat": "Original three-move Silly Teyvat TCG adaptations in combat-kits.js, not official Genius Invokation cards. Detection Core becomes a two-round Electro summon; Gradient Theory provides damage and party attack support. Bastion Charge grants a party shield; Lightning Salvo summons a two-round Electro barrage. Gradient Beacons, Impact Momentum and Stellar-Conduct are approximated rather than added as new engine mechanics.",
+  "characters": [
+    {
+      "name": "Mitya",
+      "card": "content/character-cards/snezhnaya-2026-11-12/Mitya.png",
+      "card_sha256": "836c8075c2e98aa56832f27be5c19614975f62e74d69eab6324bd7dc70b59f06",
+      "tcg_source": "art/tcg/2026-11-13-valeriy-mitya-style-revision/trimmed/Mitya.png",
+      "tcg_source_sha256": "522b69f44af6f7f3eb56341fd2fd144a5e1f17823bb1115fd373a64c993a5e6f",
+      "battle_art": "extension/genshin-dialogue-ui/assets/tcg/characters/Mitya.webp",
+      "battle_art_sha256": "9cdaf4bf3b240fe7c6766b4cd4fc6050ccbf9020a0b3fc280f4f296d43d3713a",
+      "sprites": "art/sprites/2026-11-13-valeriy-mitya-full-22/sprites/Mitya",
+      "sprite_count": 22,
+      "modelType": "medium male",
+      "hp": 32,
+      "role": "Sub-DPS",
+      "native_card": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Mitya.png",
+      "native_card_sha256": "6ee28c5036a84d4552292c546b6bd42f9693b9388005b0fa22b0de923bca50d8",
+      "native_import": "SillyTavern native PNG import endpoint; standard V2 conversion; API read-back verified",
+      "card_art_source": "content/character-cards/snezhnaya-2026-11-12/supplied-artwork/Mitya_Item.webp"
+    },
+    {
+      "name": "Valeriy",
+      "card": "content/character-cards/snezhnaya-2026-11-12/Valeriy.png",
+      "card_sha256": "819bc2c567f4a54110230394d09afe0447b49f26e97fbea7ed1f1522aa917783",
+      "tcg_source": "art/tcg/2026-11-13-valeriy-mitya-style-revision/trimmed/Valeriy.png",
+      "tcg_source_sha256": "1262147c0aa4ecedbe2241ba8b0fe514e5902bf7a2e51024d559eafeaa42071c",
+      "battle_art": "extension/genshin-dialogue-ui/assets/tcg/characters/Valeriy.webp",
+      "battle_art_sha256": "6025e4a53acfc074da7b45bf9b75ae2d583cd12bb9a79dd8b3638a58860f2a7d",
+      "sprites": "art/sprites/2026-11-13-valeriy-mitya-full-22/sprites/Valeriy",
+      "sprite_count": 22,
+      "modelType": "tall male",
+      "hp": 38,
+      "role": "Shielder",
+      "native_card": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Valeriy.png",
+      "native_card_sha256": "8f6b935acfbe76d957b06114ecc8c61a843f35d033def1d1bec5f3438ff3b3bb",
+      "native_import": "SillyTavern native PNG import endpoint; standard V2 conversion; API read-back verified",
+      "card_art_source": "content/character-cards/snezhnaya-2026-11-12/supplied-artwork/Valeriy_Item.webp"
+    }
+  ],
+  "installed": true,
+  "settings_backup": "/Users/alexachan/Documents/Codex/silly-teyvat-data/backups/mitya-valeriy-card-install-2026-11-13/settings-before-import.json",
+  "home_settings_verified": true,
+  "sprite_icons": "art/sprites/2026-11-13-valeriy-mitya-head-icons/run.json",
+  "verification": {
+    "native_card_API_readback": true,
+    "five_greetings_per_character": true,
+    "approved_sprite_hashes": true,
+    "native_and_default_homes": "starter-snezhnograd",
+    "live_extension_files": true,
+    "combat_smoke_test": "Skill dice and damage, support effects, Burst energy and damage, and End Phase Electro summons passed for both characters.",
+    "regression_tests": [
+      "test-saved-kits.mjs: 66 bundled kits",
+      "test-tcg-mechanics.mjs: 40 checks"
+    ],
+    "browser_used_for_import_or_verification": false
+  },
+  "supplied_artwork_update": "content/character-cards/snezhnaya-2026-11-12/supplied-artwork-installation.json"
+}

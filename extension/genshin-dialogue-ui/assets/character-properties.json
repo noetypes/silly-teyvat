@@ -6958,5 +6958,59 @@
   "modelType": "custom",
   "modelScale": 95,
   "region": "Inazuma"
+ },
+ "Mitya": {
+  "playable": true,
+  "element": "Electro",
+  "elementMode": "fixed",
+  "defaultElement": "Electro",
+  "supportedElements": null,
+  "modelType": "medium male",
+  "modelTypeStatus": "official-model-reference",
+  "region": "Snezhnaya",
+  "regionStatus": "researched-card-source",
+  "visionStatus": "element-tagged; literal possession not separately asserted",
+  "sources": [
+   {
+    "url": "https://www.hoyolab.com/article/46884007",
+    "supports": [
+     "identity",
+     "affiliation",
+     "appearance"
+    ],
+    "checked": "2026-11-12"
+   }
+  ],
+  "notes": [
+   "See content/character-cards/snezhnaya-2026-11-12/sources.json for research limitations. Combat is a fan TCG adaptation."
+  ],
+  "role": "character"
+ },
+ "Valeriy": {
+  "playable": true,
+  "element": "Electro",
+  "elementMode": "fixed",
+  "defaultElement": "Electro",
+  "supportedElements": null,
+  "modelType": "tall male",
+  "modelTypeStatus": "official-model-reference",
+  "region": "Snezhnaya",
+  "regionStatus": "researched-card-source",
+  "visionStatus": "element-tagged; literal possession not separately asserted",
+  "sources": [
+   {
+    "url": "https://www.hoyolab.com/article/46887682",
+    "supports": [
+     "identity",
+     "affiliation",
+     "appearance"
+    ],
+    "checked": "2026-11-12"
+   }
+  ],
+  "notes": [
+   "See content/character-cards/snezhnaya-2026-11-12/sources.json for research limitations. Combat is a fan TCG adaptation."
+  ],
+  "role": "character"
  }
 }

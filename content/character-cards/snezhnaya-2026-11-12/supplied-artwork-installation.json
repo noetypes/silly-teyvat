@@ -1,0 +1,189 @@
+{
+  "date": "2026-11-13",
+  "source": "Six images supplied by the user in this chat: Icon for circular portraits, Item for Character List/display cards, Wish for Burst splash art. No external source URL supplied.",
+  "method": "Icon and Wish WebP bytes copied exactly. Display card: PNG conversion and fixed [24,4,232,252] crop to the existing 208×248 card format; preserved all original character metadata text chunks. No generation or repainting.",
+  "backup": "/Users/alexachan/Documents/Codex/silly-teyvat-data/backups/mitya-valeriy-supplied-art-20261113-230302",
+  "characters": [
+    {
+      "name": "Valeriy",
+      "sources": {
+        "Icon": {
+          "supplied_path": "/Users/alexachan/Downloads/Valeriy_Icon.webp",
+          "preserved_source": "content/character-cards/snezhnaya-2026-11-12/supplied-artwork/Valeriy_Icon.webp",
+          "sha256": "aec1f92760e95e7ccdbc21228e7303f1362880de2ecd27ff7ebdf429d6bb94a9",
+          "dimensions": [
+            256,
+            256
+          ]
+        },
+        "Item": {
+          "supplied_path": "/Users/alexachan/Downloads/Valeriy_Item.webp",
+          "preserved_source": "content/character-cards/snezhnaya-2026-11-12/supplied-artwork/Valeriy_Item.webp",
+          "sha256": "35c3a0fb4a37e4f4143c14b224be8d9848205d37ee0700329f45b7ec4d806325",
+          "dimensions": [
+            256,
+            256
+          ]
+        },
+        "Wish": {
+          "supplied_path": "/Users/alexachan/Downloads/Valeriy_Wish.webp",
+          "preserved_source": "content/character-cards/snezhnaya-2026-11-12/supplied-artwork/Valeriy_Wish.webp",
+          "sha256": "23f0be5c8c77088720782639570a416649290ed5185e5639aed1abeff822e130",
+          "dimensions": [
+            2048,
+            1024
+          ]
+        }
+      },
+      "previous_icon": "sprite-valeriy-6963c560be.webp",
+      "display_crop_pixels": [
+        24,
+        4,
+        232,
+        252
+      ],
+      "display_dimensions": [
+        208,
+        248
+      ],
+      "installed_icon": "extension/genshin-dialogue-ui/assets/avatar-icons/valeriy-supplied-aec1f92760.webp",
+      "installed_burst": "extension/genshin-dialogue-ui/assets/splash/Valeriy.webp",
+      "cards": [
+        {
+          "kind": "packaged",
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/content/character-cards/snezhnaya-2026-11-12/Valeriy.png",
+          "before_sha256": "9e79221a12eab3b79a2b355750fa59ea7c9b064ab37ff4b39e2ba9e2fb18b176",
+          "after_sha256": "819bc2c567f4a54110230394d09afe0447b49f26e97fbea7ed1f1522aa917783",
+          "metadata_text_chunks_unchanged": true
+        },
+        {
+          "kind": "native",
+          "path": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Valeriy.png",
+          "before_sha256": "a42213917681b98a31a02c12455bae1eec07d721843ce5ca5a2c4d009c3b3cf7",
+          "after_sha256": "8f6b935acfbe76d957b06114ecc8c61a843f35d033def1d1bec5f3438ff3b3bb",
+          "metadata_text_chunks_unchanged": true
+        }
+      ],
+      "unchanged_tcg_sha256": "6025e4a53acfc074da7b45bf9b75ae2d583cd12bb9a79dd8b3638a58860f2a7d",
+      "unchanged_sprites": {
+        "admiration.png": "b526333a8b92d97ff0cd97e0429aea67f1731b8fb76b715eb3765754e94fb502",
+        "anger.png": "439caf4eba6984f0ab8b02d2bd5025ef457e10cf092bf9a89cb3037168d02a69",
+        "annoyance.png": "3cd53d6cedd7c5ae2a985053c8e312505c50f4b1e8e5a00233b19eaf26d51aa4",
+        "caring.png": "b37170560c63779109d95f2bd6ae9e2ab9d256ade480b3885d4d46ef17ae8f78",
+        "confusion.png": "ffde396c622aeb57aad03b40dd18f2a2472c72c3db510f03abaafcbc9cfdc433",
+        "desire-1.png": "6a678db07f138727cf53b511fdc28e0cef889eb6a18cc8f0fa25097c9e8e5ecc",
+        "desire.png": "3f9726cbe862f17dbddf3d58246efb5fbe8ef1075fed6446c41a82e7cca7feb7",
+        "disappointment.png": "9a865b79dd8a1d6b58846ad6fe84c1c216ed43e176fffc4ca68edcf16da93bef",
+        "disgust.png": "b8232d089ccc8c078da2405518403aade89e3c7754c1154d40dfb5ab389aa59d",
+        "embarrassment.png": "ab9155439838aa0f34a3c54a6141c135e35e2079dc3ee2c3af65e6c05a464441",
+        "excitement.png": "8828d722fbadfdba76f3315bd07d7a70b026d0298596bc57106bfbfdfb4380d0",
+        "fear.png": "b858037c86c938ea5a4b30e794d8e514c32466765683fe6bfd3fd44d5407d193",
+        "gratitude.png": "fcc18d6a25920e7de4653b513892ad35024847332bba559bc49359dc08f16b0e",
+        "grief.png": "3492c056cbe65238eef648aee6834c7cd52748832e56532811b9ca0cdae623e3",
+        "joy.png": "8b8de75e6e6480698568675d32c691690dc57e61ecc689b5d9a71e7f9a5d9303",
+        "love-1.png": "4c1205123be1f36fa7b1d9c166e329ca71e4fd85fdb9e9af1861fbe03f211a4e",
+        "love.png": "06308dfbcd3481f9bda35f30098459e6f657790d169098cd6d554f8f84d9eaf8",
+        "neutral.png": "14481e6dccc092b8dfa03fd294f6dc1320d55fb1f137baa38733247c08c7ae9a",
+        "pride.png": "e2a3ba5eb55eca4d997a19ff0c786c0a87deddd3f1d3b4106584afd20ed9972b",
+        "relief.png": "0026788588047f544b7f6f2dd148fb2a4d41f303aedd3191948e1f61603ad97f",
+        "sadness.png": "bb83f5dce6009b54c015103f266609fece954faf9aba642e0b349fff8bd76fee",
+        "smug.png": "f331e4a73d30ad84071eb8e3cd76fdaf9d995c5242712894bed3bb203439002b"
+      }
+    },
+    {
+      "name": "Mitya",
+      "sources": {
+        "Icon": {
+          "supplied_path": "/Users/alexachan/Downloads/Mitya_Icon.webp",
+          "preserved_source": "content/character-cards/snezhnaya-2026-11-12/supplied-artwork/Mitya_Icon.webp",
+          "sha256": "fe5a5d08ab1b1c59e9775770b27f9c31442e8c5601d3bc5c5a54af6f4baa365d",
+          "dimensions": [
+            256,
+            256
+          ]
+        },
+        "Item": {
+          "supplied_path": "/Users/alexachan/Downloads/Mitya_Item.webp",
+          "preserved_source": "content/character-cards/snezhnaya-2026-11-12/supplied-artwork/Mitya_Item.webp",
+          "sha256": "89fd8bee080b28568ae906f8dee835e8e1af3ef80e385bd1d92ffaaefed3fd3f",
+          "dimensions": [
+            256,
+            256
+          ]
+        },
+        "Wish": {
+          "supplied_path": "/Users/alexachan/Downloads/Mitya_Wish.webp",
+          "preserved_source": "content/character-cards/snezhnaya-2026-11-12/supplied-artwork/Mitya_Wish.webp",
+          "sha256": "9232549a8f7db77916443e9a992cf0e69b56da435051bc0ef57a72e1b675d2f5",
+          "dimensions": [
+            2048,
+            1024
+          ]
+        }
+      },
+      "previous_icon": "sprite-mitya-b0f3d8cba4.webp",
+      "display_crop_pixels": [
+        24,
+        4,
+        232,
+        252
+      ],
+      "display_dimensions": [
+        208,
+        248
+      ],
+      "installed_icon": "extension/genshin-dialogue-ui/assets/avatar-icons/mitya-supplied-fe5a5d08ab.webp",
+      "installed_burst": "extension/genshin-dialogue-ui/assets/splash/Mitya.webp",
+      "cards": [
+        {
+          "kind": "packaged",
+          "path": "/Users/alexachan/Documents/Codex/silly-teyvat/content/character-cards/snezhnaya-2026-11-12/Mitya.png",
+          "before_sha256": "d903215ef644194e643f716204f9139e9f8f3a7249f6cfd4aa77032168433faf",
+          "after_sha256": "836c8075c2e98aa56832f27be5c19614975f62e74d69eab6324bd7dc70b59f06",
+          "metadata_text_chunks_unchanged": true
+        },
+        {
+          "kind": "native",
+          "path": "/Users/alexachan/Documents/ChatGPT/Test/SillyTavern/data/default-user/characters/Mitya.png",
+          "before_sha256": "0a2fc026427a31a438fc3b1a95f0bb366a2902f98ccde127097d4ad1040ccdf6",
+          "after_sha256": "6ee28c5036a84d4552292c546b6bd42f9693b9388005b0fa22b0de923bca50d8",
+          "metadata_text_chunks_unchanged": true
+        }
+      ],
+      "unchanged_tcg_sha256": "9cdaf4bf3b240fe7c6766b4cd4fc6050ccbf9020a0b3fc280f4f296d43d3713a",
+      "unchanged_sprites": {
+        "admiration.png": "5d6f7868b8b38499e295c29f73b68666cd493b0d34f946cf567463583f124052",
+        "anger.png": "c58d9e567f73f2669b86b2fc95e6921b16e0dd7b57b95f0d59ba4bf6eba577cc",
+        "annoyance.png": "b15824e7e77f6bed9c3dee4f220b5712f2aba93d7203975b76aa0fb12497593c",
+        "caring.png": "1252eda8af9da1c99ec8d704f2485fa0aefdf884ad3853ac21341a8e989d4040",
+        "confusion.png": "c79a175fefa4bddd4f86e611f4e539eebe022727fa2fe436ba16ad71edb35531",
+        "desire-1.png": "6e6ba7410005c353e8a674d16d5b83d7ae2b0a3a721109ae4bf8a7791ca599f7",
+        "desire.png": "cf3bdc86dc58035f96694d12bbd9a1f7b5b0af3fad957571da2ffa56e520fa89",
+        "disappointment.png": "df271f6831835cefa5536138c3f2ef2f3be2d9ab3b2e3f6784b552b11fd391b2",
+        "disgust.png": "16bb7b0921285b6623f62ecee67a727dd72b72f1b18dc901c9c754bde18a0dc7",
+        "embarrassment.png": "154db7b3312678dc0f4a633d5b71b0b8c3d85c4e501b66a1a79c5700ed3024e4",
+        "excitement.png": "a4d2c2e8cefb3ec189ea5a3f1f7e000e169c6c56a97c095f94465bc30eccf01f",
+        "fear.png": "2dbd2618d8dcd1c3d57083c57b4dd946c0fcee93c81abac28c66a70754c1f384",
+        "gratitude.png": "337e647aea39de343b4bb3a97194351d91c0326e6ed3d538af7fc417de60d88f",
+        "grief.png": "c866c1c2d08197849ba2c7182e6659907b70f0bccd937bee8a56c777b8c6f337",
+        "joy.png": "2419da0795ad0cd6f2dc2a18401bd92f2182329a014a26f1e701a380fcff373c",
+        "love-1.png": "8e56c63c4bde45a5c62f2c2e844b25b8f8469dbbf276489e607a2125ca053c4e",
+        "love.png": "eca40585c7107ffcf0a7e1de5a57c3bb4725f65cb26a762dddf4a2b050c07ce9",
+        "neutral.png": "8afc3dd1f90954240306f5f95e5362a59d7883d6a772629657bfe414978dd505",
+        "pride.png": "d2d3d53700779f4a440bbf71ed37deac567d7ca16f834189eb739d1fdcf42d57",
+        "relief.png": "4b9e8d4c6b4c28e951499c0cf39c06f54b0f4c7df47a8b784d70a0b18fee3506",
+        "sadness.png": "b7bc5cc0085f25cd1c1d5ea274015243d32976f59b3848748219a90f3e714517",
+        "smug.png": "fe3a291c967a5c8021d604bcf573a9d1791cf73bd7838ae29f1069bc5a96ee77"
+      }
+    }
+  ],
+  "verification": {
+    "live_asset_links": true,
+    "exact_supplied_icon_and_wish_bytes": true,
+    "display_pixels_match_crop": true,
+    "all_native_and_packaged_card_metadata_preserved": true,
+    "card_shape_recognized": true,
+    "burst_filenames_resolve": true,
+    "existing_tcg_art_and_44_sprites_unchanged": true
+  }
+}

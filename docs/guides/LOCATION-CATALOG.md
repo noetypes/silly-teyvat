@@ -1236,6 +1236,14 @@ Image review: Ground-level shoreline view across shallow water toward a wrecked 
 
 ## Snezhnaya
 
+### Glupov
+
+The Fatui’s satellite city within Snezhnograd and their headquarters, home of the Royal Armory Palace. Default characters: Mitya and Valeriy. The Armory Palace is not part of the open world, so the waypoint is the centre of HoYoLAB’s Glupov map label. Music borrows neighbouring Zapolyarny Palace’s tracks.
+
+[Background](../../extension/genshin-dialogue-ui/assets/world-locations/glupov.webp) · [Image source](https://genshin-impact.fandom.com/wiki/File:Glupov.png) · [Lore](https://genshin-impact.fandom.com/wiki/Armory_Palace)
+
+Image review: the wiki’s in-game image, unchanged; a ground-level view up the approach to the fortress with three ordinary NPCs and the game logo, no playable characters, HUD or captions.
+
 ### Morepesok
 
 The coastal settlement where Tartaglia’s family lives. His family home is a natural reunion location.
@@ -1324,7 +1332,7 @@ Image review: Ground-height view along a snow path toward an igloo doorway. Seve
 
 Snezhnaya’s capital, with snowy lanes, residential streets, and warm-lit public spaces. It is the region’s main urban hub and a natural backdrop for everyday city scenes.
 
-Default characters: None. Unoccupied location.
+Default characters: None. Unoccupied location. Its wilderness enemy pool keeps it free of homes; Mitya and Valeriy live in neighbouring Glupov.
 
 [Background](../../extension/genshin-dialogue-ui/assets/world-locations/snezhnograd.jpg) · [Image source](https://www.rpgsite.net/news/21024-genshin-impact-version-7-0-snezhnaya-music-new-trailer) · [Lore](https://www.gamespress.com/Genshin-Impact-Finally-Lands-in-Snezhnaya-Teyvats-Seventh-Nation-on-Au)
 

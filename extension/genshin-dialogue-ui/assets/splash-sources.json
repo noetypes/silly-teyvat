@@ -1347,5 +1347,27 @@
     "Shikanoin Heizou": "trimmed wiki image (905, 954) does not exceed existing [905, 954] in both axes",
     "Yaoyao": "trimmed wiki image (890, 1036) does not exceed existing [890, 1037] in both axes",
     "Yumemizuki Mizuki": "trimmed wiki image (1066, 831) does not exceed existing [1066, 831] in both axes"
+  },
+  "userProvided": {
+    "Valeriy": {
+      "source": "content/character-cards/snezhnaya-2026-11-12/supplied-artwork/Valeriy_Wish.webp",
+      "source_description": "User-supplied Burst splash art",
+      "sha256": "23f0be5c8c77088720782639570a416649290ed5185e5639aed1abeff822e130",
+      "size": [
+        2048,
+        1024
+      ],
+      "transform": "none; original WebP bytes"
+    },
+    "Mitya": {
+      "source": "content/character-cards/snezhnaya-2026-11-12/supplied-artwork/Mitya_Wish.webp",
+      "source_description": "User-supplied Burst splash art",
+      "sha256": "9232549a8f7db77916443e9a992cf0e69b56da435051bc0ef57a72e1b675d2f5",
+      "size": [
+        2048,
+        1024
+      ],
+      "transform": "none; original WebP bytes"
+    }
   }
 }

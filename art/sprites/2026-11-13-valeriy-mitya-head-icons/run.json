@@ -1,0 +1,67 @@
+{
+  "method": "Non-generative circular head crops from the exact approved neutral sprites; built by tools/build-sprite-head-icons.py.",
+  "entries": [
+    {
+      "name": "Mitya",
+      "role": "character",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat-data/art/sprites/2026-11-13-valeriy-mitya-full-22/sprites/Mitya/neutral.png",
+      "source_sha256": "8afc3dd1f90954240306f5f95e5362a59d7883d6a772629657bfe414978dd505",
+      "crop_normalized": [
+        0.5,
+        0.105,
+        0.24
+      ],
+      "alpha_bounds": [
+        37,
+        10,
+        955,
+        1622
+      ],
+      "size": [
+        969,
+        1622
+      ],
+      "crop_pixels": [
+        302,
+        -14,
+        689,
+        373
+      ],
+      "output": "art/sprites/2026-11-13-valeriy-mitya-head-icons/icons/mitya.png",
+      "output_sha256": "b0f3d8cba40d1d4827ad8a93b1feb905d97c8fdcd3633411f9c381ebef10e2e7",
+      "asset": "extension/genshin-dialogue-ui/assets/avatar-icons/sprite-mitya-b0f3d8cba4.webp",
+      "asset_sha256": "9985dd35f3190d3657addc78de98e88fc370d6e9f11b2399d69d61a0d584c0fa"
+    },
+    {
+      "name": "Valeriy",
+      "role": "character",
+      "source": "/Users/alexachan/Documents/Codex/silly-teyvat-data/art/sprites/2026-11-13-valeriy-mitya-full-22/sprites/Valeriy/neutral.png",
+      "source_sha256": "14481e6dccc092b8dfa03fd294f6dc1320d55fb1f137baa38733247c08c7ae9a",
+      "crop_normalized": [
+        0.5,
+        0.105,
+        0.24
+      ],
+      "alpha_bounds": [
+        0,
+        0,
+        910,
+        1580
+      ],
+      "size": [
+        989,
+        1590
+      ],
+      "crop_pixels": [
+        266,
+        -24,
+        645,
+        355
+      ],
+      "output": "art/sprites/2026-11-13-valeriy-mitya-head-icons/icons/valeriy.png",
+      "output_sha256": "6963c560bed511914de433de8cac3a4c06e56a0b3317288438733a8a74a7cf2b",
+      "asset": "extension/genshin-dialogue-ui/assets/avatar-icons/sprite-valeriy-6963c560be.webp",
+      "asset_sha256": "0f548b05d58b13d4fca05527ec534b8eada60849f2a5d7d088669b3d418fd3ab"
+    }
+  ]
+}

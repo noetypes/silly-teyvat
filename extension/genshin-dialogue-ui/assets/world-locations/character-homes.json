@@ -1,5 +1,5 @@
 {
-  "version": 8,
+  "version": 9,
   "date": "2026-11-07",
   "notes": "Default resident cap: 5. Bundled overfull locations redistributed to suitable meeting points. Existing user moves are respected by the one-time relocation migration. Prune remains at Mondstadt Fountain Plaza. Travelling companions do not consume resident slots.",
   "characters": [
@@ -1016,6 +1016,18 @@
       "locationId": "map14-snezhnaya-huntsman-s-cabin",
       "rationale": "Quest-era roleplay placement; see the card’s source notes.",
       "loreSource": "https://www.hoyodex.com/wiki/genshin-impact/hunter-on-the-snowfields"
+    },
+    {
+      "name": "Mitya",
+      "locationId": "home-glupov",
+      "rationale": "Mitya’s energy research brings him to the Royal Armory Palace in Glupov, where the Special Assignments Battalion keeps him safe; his greetings stay in neighbouring Snezhnograd.",
+      "loreSource": "https://genshin-impact.fandom.com/wiki/Armory_Palace"
+    },
+    {
+      "name": "Valeriy",
+      "locationId": "home-glupov",
+      "rationale": "Valeriy commands the Special Assignments Battalion that guards the Royal Armory Palace in Glupov and its researchers, Mitya among them.",
+      "loreSource": "https://genshin-impact.fandom.com/wiki/Armory_Palace"
     }
   ],
   "relocations": [
@@ -1218,6 +1230,18 @@
       "from": "starter-the-cat-s-tail",
       "to": "interior-favonius-cathedral",
       "rationale": "Move the bundled assignment to the cathedral interior to match her new greetings."
+    },
+    {
+      "name": "Mitya",
+      "from": "starter-snezhnograd",
+      "to": "home-glupov",
+      "rationale": "Snezhnograd is a wilderness waypoint, and homes never share a waypoint with an enemy pool. Move the first bundled assignment to Glupov, home of the Armory Palace."
+    },
+    {
+      "name": "Valeriy",
+      "from": "starter-snezhnograd",
+      "to": "home-glupov",
+      "rationale": "Snezhnograd is a wilderness waypoint, and homes never share a waypoint with an enemy pool. Move the first bundled assignment to Glupov, home of the Armory Palace."
     }
   ]
 }

@@ -1,0 +1,149 @@
+{
+  "created": "2026-11-13",
+  "user_request": "Attached are Mitya and Valeriy's in-game models. Regenerate their sprites. Make sure that for the TCG cards , whatever other characters' card you are referencing is also an artstyle reference - it should be in the same style as the Genius Invokation TCG cards.",
+  "method": "built-in image_gen.imagegen",
+  "status": "neutral_candidates_awaiting_explicit_user_approval",
+  "reference_authorization": "User explicitly supplied in-game models as new references. Only the corresponding model screenshot is used for each new neutral. Earlier generations are not references.",
+  "references": [
+    {
+      "name": "Mitya",
+      "source": "user attachment",
+      "original_path": "/var/folders/yb/h8ks0jfd6jl0jdj3npytrx2r0000gn/T/codex-clipboard-9921c7c0-bde2-4763-a511-b0bf7bbc3474.png",
+      "path": "art/sprites/2026-11-13-valeriy-mitya-model-neutrals/references/Mitya/game-model.png",
+      "sha256": "4f3ae80b52b699688aeafb9ff939ac909c4a26b5513de297c0a920a1932104ee",
+      "role": "Sole image reference for regenerated neutral; model identity, costume, proportions and pose."
+    },
+    {
+      "name": "Valeriy",
+      "source": "user attachment",
+      "original_path": "/var/folders/yb/h8ks0jfd6jl0jdj3npytrx2r0000gn/T/codex-clipboard-1dd514fa-583b-4aeb-b1b8-2f49db9e915e.png",
+      "path": "art/sprites/2026-11-13-valeriy-mitya-model-neutrals/references/Valeriy/game-model.png",
+      "sha256": "dcdadc76061fa2ab0261ea62b89e003fd07aa5e3b4525a1044d775cb15b7565c",
+      "role": "Sole image reference for regenerated neutral; model identity, costume, proportions and pose."
+    }
+  ],
+  "generations": [
+    {
+      "name": "Mitya",
+      "kind": "neutral",
+      "tool": "built-in image_gen.imagegen",
+      "actual_arguments": {
+        "prompt": "Create a NEW full-body neutral visual-novel sprite of Mitya from Genshin Impact. The single supplied image is the user's in-game model screenshot and is the sole reference: reproduce this exact character design, face, hairstyle, eye design, proportions, costume construction, colors and asymmetric details. Translate the model into clean polished 2D anime sprite illustration with restrained cel shading and crisp controlled lines. Keep his slender petite Medium Male build and the screenshot's compact torso-to-leg proportions. Silver-white layered wavy hair, lavender shadows, violet eyes, small relaxed closed-mouth smile. His actual outfit has a white shirt and cravat, a gold atom-shaped pendant with amber and cyan stones centered on the chest, open high purple lapels, a fitted navy-and-purple buttoned waistcoat, dark outer coat, gold round shoulder fittings, long turquoise tassels, turquoise lining and trailing panels, large gold arcs on the lower coat tails, fitted dark trousers, tall purple boot cuffs and black-and-gold boots. Follow what is actually in the screenshot; keep the front pendant and collar visible. Relaxed natural standing pose close to the screenshot, facing the viewer, right arm resting comfortably down and left hand resting loosely near the hip; readable hands, four fingers and a separate thumb whenever visible. Exactly two legs and two feet with a simple slightly spaced stance. Entire silhouette including hair tuft, costume tails, dangling ornaments and both boot soles visible, about 94 percent of image height with modest padding. A single isolated character on a genuinely transparent alpha background. Do not reproduce the room, window, chair, carpet, floor, lighting cast on the room, cast shadow, labels or watermark. No added magic, weapons or floating objects. No generated artwork as reference.",
+        "referenced_image_paths": [
+          "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-13-valeriy-mitya-model-neutrals/references/Mitya/game-model.png"
+        ],
+        "transparent_background": true
+      },
+      "returned_result": {
+        "output_hint": "Generated images are saved to /Users/alexachan/.codex/generated_images/01a1d338-c611-7c50-9d89-98c76ede327d as /Users/alexachan/.codex/generated_images/01a1d338-c611-7c50-9d89-98c76ede327d/exec-9c6174c1-e73e-4691-8458-f8b79aeeb89a.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.",
+        "original_output_path": "/Users/alexachan/.codex/generated_images/01a1d338-c611-7c50-9d89-98c76ede327d/exec-9c6174c1-e73e-4691-8458-f8b79aeeb89a.png"
+      },
+      "raw": {
+        "path": "art/sprites/2026-11-13-valeriy-mitya-model-neutrals/raw/Mitya/neutral-v001.png",
+        "sha256": "915dc0123f5718bcabced203f77c6a5efad1b6a051e2f8a8846e4e4c88cc9036",
+        "bytes": 1145175,
+        "dimensions": [
+          935,
+          1683
+        ],
+        "mode": "RGBA",
+        "alpha_extrema": [
+          0,
+          255
+        ]
+      },
+      "candidate": {
+        "path": "art/sprites/2026-11-13-valeriy-mitya-model-neutrals/candidates/Mitya/neutral-v001.png",
+        "sha256": "915dc0123f5718bcabced203f77c6a5efad1b6a051e2f8a8846e4e4c88cc9036",
+        "bytes": 1145175,
+        "dimensions": [
+          935,
+          1683
+        ],
+        "mode": "RGBA",
+        "alpha_extrema": [
+          0,
+          255
+        ]
+      },
+      "approval": {
+        "state": "pending",
+        "message": null
+      },
+      "framing_transform": null,
+      "reference": {
+        "path": "art/sprites/2026-11-13-valeriy-mitya-model-neutrals/references/Mitya/game-model.png",
+        "sha256": "4f3ae80b52b699688aeafb9ff939ac909c4a26b5513de297c0a920a1932104ee",
+        "bytes": 1777341,
+        "dimensions": [
+          1000,
+          1800
+        ],
+        "mode": "RGB"
+      }
+    },
+    {
+      "name": "Valeriy",
+      "kind": "neutral",
+      "tool": "built-in image_gen.imagegen",
+      "actual_arguments": {
+        "prompt": "Create a NEW full-body neutral visual-novel sprite of Valeriy from Genshin Impact. The one supplied image is the user's in-game model screenshot and is the sole reference. Preserve the exact face, straight layered dark gray hair, violet eyes, measured neutral closed-mouth expression, skin tone, build, costume design, asymmetric armor and colors from that screenshot. Clean polished 2D anime sprite illustration with controlled outlines and restrained cel shading. Tall Male build, broad shoulders and tall stature with the model's natural proportions. Follow the model's specific asymmetric clothing: dark navy military coat with gold piping, high layered collar, magenta-white-purple diagonal chest sash, hanging silver chain, two black waist belts with gold hardware, three silver ornamental clasps on the lower front coat, dark trousers and tall black boots with blue-black fur tufts and gold fittings. His left shoulder and left arm, on the viewer's right, carry the large angular silver armor and armored gauntlet; his right shoulder, on the viewer's left, has the dark featherlike fur trim and the hanging pale cape with purple inner lining and black fur hem. Do not mirror, duplicate or symmetrize the armor. Calm frontal standing pose close to the model screenshot, both arms resting naturally at the sides, hands relaxed and distinguishable from clothing. Each visible hand is a natural palm with four fingers and a separate opposable thumb, with believable articulation. Exactly two legs and two feet, feet slightly apart. Reproduce the complete resting cape silhouette and both boots. No shield or weapon is held in this neutral, matching the supplied resting model. Single isolated full character on a truly transparent alpha background, about 94 percent of image height with modest head and foot padding. No room, windows, furniture, rug, floor, ground shadow, elemental effects, border, text or watermark.",
+        "referenced_image_paths": [
+          "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-13-valeriy-mitya-model-neutrals/references/Valeriy/game-model.png"
+        ],
+        "transparent_background": true
+      },
+      "returned_result": {
+        "output_hint": "Generated images are saved to /Users/alexachan/.codex/generated_images/01a1d338-c611-7c50-9d89-98c76ede327d as /Users/alexachan/.codex/generated_images/01a1d338-c611-7c50-9d89-98c76ede327d/exec-ed5c1a7b-b128-4256-93b4-00f2c2b5df23.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.",
+        "original_output_path": "/Users/alexachan/.codex/generated_images/01a1d338-c611-7c50-9d89-98c76ede327d/exec-ed5c1a7b-b128-4256-93b4-00f2c2b5df23.png"
+      },
+      "raw": {
+        "path": "art/sprites/2026-11-13-valeriy-mitya-model-neutrals/raw/Valeriy/neutral-v001.png",
+        "sha256": "407c3e7bad2cefa208a0d7e1d0c70cf3c9a7e139cfe11f2a7a5fddd5250ea197",
+        "bytes": 1187845,
+        "dimensions": [
+          935,
+          1681
+        ],
+        "mode": "RGBA",
+        "alpha_extrema": [
+          0,
+          255
+        ]
+      },
+      "candidate": {
+        "path": "art/sprites/2026-11-13-valeriy-mitya-model-neutrals/candidates/Valeriy/neutral-v001.png",
+        "sha256": "407c3e7bad2cefa208a0d7e1d0c70cf3c9a7e139cfe11f2a7a5fddd5250ea197",
+        "bytes": 1187845,
+        "dimensions": [
+          935,
+          1681
+        ],
+        "mode": "RGBA",
+        "alpha_extrema": [
+          0,
+          255
+        ]
+      },
+      "approval": {
+        "state": "pending",
+        "message": null
+      },
+      "framing_transform": null,
+      "reference": {
+        "path": "art/sprites/2026-11-13-valeriy-mitya-model-neutrals/references/Valeriy/game-model.png",
+        "sha256": "dcdadc76061fa2ab0261ea62b89e003fd07aa5e3b4525a1044d775cb15b7565c",
+        "bytes": 2429412,
+        "dimensions": [
+          1200,
+          2160
+        ],
+        "mode": "RGB"
+      }
+    }
+  ],
+  "approval": "pending per character and exact candidate hash",
+  "expressions_generated": false,
+  "installed": false,
+  "technical_verification": "Original PNGs decoded; dimensions, hashes and alpha verified. No visual approval or autonomous visual repair."
+}

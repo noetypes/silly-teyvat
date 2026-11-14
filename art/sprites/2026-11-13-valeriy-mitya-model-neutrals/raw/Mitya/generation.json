@@ -1,0 +1,23 @@
+{
+  "name": "Mitya",
+  "kind": "neutral",
+  "tool": "built-in image_gen.imagegen",
+  "actual_arguments": {
+    "prompt": "Create a NEW full-body neutral visual-novel sprite of Mitya from Genshin Impact. The single supplied image is the user's in-game model screenshot and is the sole reference: reproduce this exact character design, face, hairstyle, eye design, proportions, costume construction, colors and asymmetric details. Translate the model into clean polished 2D anime sprite illustration with restrained cel shading and crisp controlled lines. Keep his slender petite Medium Male build and the screenshot's compact torso-to-leg proportions. Silver-white layered wavy hair, lavender shadows, violet eyes, small relaxed closed-mouth smile. His actual outfit has a white shirt and cravat, a gold atom-shaped pendant with amber and cyan stones centered on the chest, open high purple lapels, a fitted navy-and-purple buttoned waistcoat, dark outer coat, gold round shoulder fittings, long turquoise tassels, turquoise lining and trailing panels, large gold arcs on the lower coat tails, fitted dark trousers, tall purple boot cuffs and black-and-gold boots. Follow what is actually in the screenshot; keep the front pendant and collar visible. Relaxed natural standing pose close to the screenshot, facing the viewer, right arm resting comfortably down and left hand resting loosely near the hip; readable hands, four fingers and a separate thumb whenever visible. Exactly two legs and two feet with a simple slightly spaced stance. Entire silhouette including hair tuft, costume tails, dangling ornaments and both boot soles visible, about 94 percent of image height with modest padding. A single isolated character on a genuinely transparent alpha background. Do not reproduce the room, window, chair, carpet, floor, lighting cast on the room, cast shadow, labels or watermark. No added magic, weapons or floating objects. No generated artwork as reference.",
+    "referenced_image_paths": [
+      "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-13-valeriy-mitya-model-neutrals/references/Mitya/game-model.png"
+    ],
+    "transparent_background": true
+  },
+  "returned_result": {
+    "output_hint": "Generated images are saved to /Users/alexachan/.codex/generated_images/01a1d338-c611-7c50-9d89-98c76ede327d as /Users/alexachan/.codex/generated_images/01a1d338-c611-7c50-9d89-98c76ede327d/exec-9c6174c1-e73e-4691-8458-f8b79aeeb89a.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.",
+    "original_output_path": "/Users/alexachan/.codex/generated_images/01a1d338-c611-7c50-9d89-98c76ede327d/exec-9c6174c1-e73e-4691-8458-f8b79aeeb89a.png"
+  },
+  "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-13-valeriy-mitya-model-neutrals/raw/Mitya/neutral-v001.png",
+  "candidate": "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-13-valeriy-mitya-model-neutrals/candidates/Mitya/neutral-v001.png",
+  "approval": {
+    "state": "pending",
+    "message": null
+  },
+  "framing_transform": null
+}

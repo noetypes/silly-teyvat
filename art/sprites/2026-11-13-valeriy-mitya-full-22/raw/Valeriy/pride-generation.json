@@ -1,0 +1,68 @@
+{
+  "id": "Valeriy/pride",
+  "name": "Valeriy",
+  "emotion": "pride",
+  "actual_arguments": {
+    "prompt": "Use case: stylized-concept. Generate ONE full-body transparent visual-novel pride sprite of Valeriy from Genshin Impact. The supplied image is his exact USER-APPROVED NEUTRAL and is the SOLE image reference for identity, face, anatomy, proportions, costume, colors and polished 2D linework/cel-shading. Independently start from this neutral; do not use another expression. Preserve his dark layered hair, violet irises, navy-gold uniform, diagonal sash, chain, double belts, pale purple-lined fur-edged cape and tall boots. Preserve the exact armor asymmetry: silver armor on his LEFT shoulder and arm, fur and cape at his RIGHT shoulder. Retain his Tall Male proportions and broad shoulders without elongation or added bulk. EXPRESSION AND ACTING: A dignified satisfied closed smile, steady eyes and a modestly raised chin. Stand tall with square relaxed shoulders, armored left hand settled on his belt and right arm extended slightly from his torso with a calm open palm, crediting a successful operation. Use his normal iris and pupil design from the neutral; ordinary eyes without alternate symbols. Change pose, head angle and body language to act this emotion; do not retain the neutral pose and change only the face. Hands should stay near the torso and mostly in the image plane: each visible hand has a palm, four naturally articulated fingers and one separate opposable thumb, clearly distinct from sleeves. Exactly two arms, two legs and two feet belonging to one pelvis, feet separated or only slightly staggered; no crossed legs or extreme foreshortening. Keep one coherent mouth. Entire silhouette, hair, cape or coat tails, both hands where visible and both boot soles inside frame; 92–96 percent visible height with 2–4 percent top/bottom padding. One isolated character on genuine transparent alpha. No scenery, props, weapons, floor, cast shadow, UI, labels, watermark, floating symbols or effects. This is a new expression candidate for user review.",
+    "referenced_image_paths": [
+      "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-13-valeriy-mitya-full-22/references/Valeriy/approved-neutral.png"
+    ],
+    "transparent_background": true
+  },
+  "tool": "built-in image_gen.imagegen",
+  "reference": {
+    "path": "art/sprites/2026-11-13-valeriy-mitya-full-22/references/Valeriy/approved-neutral.png",
+    "sha256": "14481e6dccc092b8dfa03fd294f6dc1320d55fb1f137baa38733247c08c7ae9a",
+    "bytes": 1274715,
+    "dimensions": [
+      989,
+      1590
+    ],
+    "mode": "RGBA",
+    "alpha_extrema": [
+      0,
+      255
+    ]
+  },
+  "returned_result": {
+    "original_output_path": "/Users/alexachan/.codex/generated_images/01a1d338-c611-7c50-9d89-98c76ede327d/exec-048a7b11-2764-46b5-8207-e6cd26204c45.png",
+    "output_hint": "Generated images are saved to /Users/alexachan/.codex/generated_images/01a1d338-c611-7c50-9d89-98c76ede327d as /Users/alexachan/.codex/generated_images/01a1d338-c611-7c50-9d89-98c76ede327d/exec-048a7b11-2764-46b5-8207-e6cd26204c45.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link."
+  },
+  "raw": {
+    "path": "art/sprites/2026-11-13-valeriy-mitya-full-22/raw/Valeriy/pride.png",
+    "sha256": "e2a3ba5eb55eca4d997a19ff0c786c0a87deddd3f1d3b4106584afd20ed9972b",
+    "bytes": 1350714,
+    "dimensions": [
+      989,
+      1590
+    ],
+    "mode": "RGBA",
+    "alpha_extrema": [
+      0,
+      255
+    ]
+  },
+  "sprite": {
+    "path": "art/sprites/2026-11-13-valeriy-mitya-full-22/sprites/Valeriy/pride.png",
+    "sha256": "e2a3ba5eb55eca4d997a19ff0c786c0a87deddd3f1d3b4106584afd20ed9972b",
+    "bytes": 1350714,
+    "dimensions": [
+      989,
+      1590
+    ],
+    "mode": "RGBA",
+    "alpha_extrema": [
+      0,
+      255
+    ]
+  },
+  "approval": {
+    "state": "approved",
+    "date": "2026-11-13",
+    "message": "All approved, put them in their respective folders.",
+    "approved_path": "art/sprites/2026-11-13-valeriy-mitya-full-22/sprites/Valeriy/pride.png",
+    "approved_sha256": "e2a3ba5eb55eca4d997a19ff0c786c0a87deddd3f1d3b4106584afd20ed9972b"
+  },
+  "framing_transform": null,
+  "technical_status": "PNG_with_transparency"
+}

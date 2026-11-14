@@ -1,0 +1,21 @@
+{
+  "method": "Reference alpha resized to each card; existing alpha and all RGB values preserved. Near-black partially transparent edge fringe cleared.",
+  "reference": "/Users/alexachan/Documents/Codex/silly-teyvat/extension/genshin-dialogue-ui/assets/tcg/characters/Tartaglia.webp",
+  "reference_sha256": "72343ecb836a0c2015dae0b4bf990c8caf5dcecd1dbc66b308d7bd88c414b3e2",
+  "cards": [
+    {
+      "name": "Mitya",
+      "source": "art/tcg/2026-11-13-valeriy-mitya-style-revision/raw/Mitya.png",
+      "output": "Mitya.png",
+      "source_sha256": "ddc665bb75f3a35512c6ab41ffd58230cb8d617687d9814a504299b03d35282d",
+      "output_sha256": "522b69f44af6f7f3eb56341fd2fd144a5e1f17823bb1115fd373a64c993a5e6f"
+    },
+    {
+      "name": "Valeriy",
+      "source": "art/tcg/2026-11-13-valeriy-mitya-style-revision/raw/Valeriy.png",
+      "output": "Valeriy.png",
+      "source_sha256": "da85f4459bb628849fb7ed48cffff12cd089698a7c5e97f12c382ffa6fb234b2",
+      "output_sha256": "1262147c0aa4ecedbe2241ba8b0fe514e5902bf7a2e51024d559eafeaa42071c"
+    }
+  ]
+}

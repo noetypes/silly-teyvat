@@ -1,0 +1,25 @@
+{
+  "name": "Valeriy",
+  "kind": "tcg",
+  "tool": "built-in image_gen.imagegen",
+  "actual_arguments": {
+    "prompt": "Create one new unofficial Genius Invokation TCG character card illustration for Valeriy from Genshin Impact. REFERENCE ROLES: Image 1, the user's Valeriy in-game model screenshot, is authoritative for identity, face, hair, eyes, proportions, costume colors and asymmetric armor. Image 2, the genuine Tartaglia Genius Invokation TCG card, is the PRIMARY ART-STYLE reference for EVERY PART of the illustration, including Valeriy's facial rendering, line quality, color blocking, shading and material treatment, not just frame or composition. Draw him as part of the same official card set, in that artist's style: elegant fine contours, clean broad flat color shapes, selective crisp cel shadows, soft shading used sparingly, simplified anime facial planes, decorative flat silhouettes, subtle painted texture and strong layered graphic composition. Match the reference's drawing simplification and restrained highlights. Avoid elaborate cinematic splash-art painting, glossy armored surfaces, photorealism, dense lightning, heavy airbrushing or 3D game screenshot rendering. Do not depict Tartaglia or borrow his costume, orange hair, red scarf, bow or Hydro motifs. Valeriy is a tall broad-shouldered officer with straight layered dark gray hair, violet eyes and composed serious expression. His navy coat has gold piping, a diagonal magenta-white-purple sash, silver chain and two black waist belts. Preserve his model's asymmetry: silver armor along his left shoulder and left arm, viewer's right in a frontal view; dark fur trim and white cape with purple lining hang from his right shoulder. No matching silver shoulder armor on the other side. Pose him in a calm three-quarter military stance, his armored left hand near his waist and his right arm relaxed, with cape forming one strong sweeping graphic shape behind him. Show large face and head through lower legs. A few flat violet Electro zigzags and restrained heraldic or fortress silhouettes provide a decorative indigo background, with open space and hierarchy like the genuine TCG card. Natural coherent anatomy, exactly two arms. Complete slim cream-and-gold rounded frame matching reference, vertical card about 7:12 aspect ratio. One illustrated card, no lettering, title, stats, icons, logos or watermark.",
+    "referenced_image_paths": [
+      "/Users/alexachan/Documents/Codex/silly-teyvat/art/tcg/2026-11-13-valeriy-mitya-style-revision/references/Valeriy/game-model.png",
+      "/Users/alexachan/Documents/Codex/silly-teyvat/art/tcg/2026-11-13-valeriy-mitya-style-revision/references/Valeriy/tcg-style.webp"
+    ],
+    "transparent_background": false
+  },
+  "returned_result": {
+    "output_hint": "Generated images are saved to /Users/alexachan/.codex/generated_images/01a1d338-c611-7c50-9d89-98c76ede327d as /Users/alexachan/.codex/generated_images/01a1d338-c611-7c50-9d89-98c76ede327d/exec-dcc2a586-41df-487c-8f35-12bbddb51c71.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.",
+    "original_output_path": "/Users/alexachan/.codex/generated_images/01a1d338-c611-7c50-9d89-98c76ede327d/exec-dcc2a586-41df-487c-8f35-12bbddb51c71.png"
+  },
+  "raw": "/Users/alexachan/Documents/Codex/silly-teyvat/art/tcg/2026-11-13-valeriy-mitya-style-revision/raw/Valeriy.png",
+  "approval": {
+    "state": "accepted",
+    "date": "2026-11-13",
+    "message": "TCG cards accepted.",
+    "selected_output": "art/tcg/2026-11-13-valeriy-mitya-style-revision/trimmed/Valeriy.png",
+    "selected_output_sha256": "1262147c0aa4ecedbe2241ba8b0fe514e5902bf7a2e51024d559eafeaa42071c"
+  }
+}

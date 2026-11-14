@@ -1,0 +1,206 @@
+{
+  "created": "2026-11-13",
+  "user_request": "TCG cards accepted. For neutrals, use both their model and their official portrait art as references, and give them a more interesting pose that suits their character.",
+  "method": "built-in image_gen.imagegen",
+  "status": "both_neutrals_explicitly_approved",
+  "reference_authorization": "User explicitly requested both model and official portrait for each new neutral. Both are used independently of earlier generated candidates; no TCG or generated art as a neutral reference.",
+  "references": [
+    {
+      "name": "Mitya",
+      "original_path": "art/sprites/2026-11-13-valeriy-mitya-model-neutrals/references/Mitya/game-model.png",
+      "path": "art/sprites/2026-11-13-valeriy-mitya-dual-reference-poses/references/Mitya/game-model.png",
+      "sha256": "4f3ae80b52b699688aeafb9ff939ac909c4a26b5513de297c0a920a1932104ee",
+      "role": "User in-game model: anatomy, face, construction, normal costume drape and asymmetric details.",
+      "modification": "None; original bytes preserved."
+    },
+    {
+      "name": "Mitya",
+      "original_path": "art/sprites/2026-11-12-valeriy-mitya-neutrals/references/Mitya/official.png",
+      "path": "art/sprites/2026-11-13-valeriy-mitya-dual-reference-poses/references/Mitya/official.png",
+      "sha256": "6dd129216edc01deb1ba37820283db48c5c3ee096ff95de48b315835782f25a6",
+      "role": "Official portrait: polished 2D illustration, character identity, costume, palette and character energy.",
+      "modification": "None; original bytes preserved."
+    },
+    {
+      "name": "Valeriy",
+      "original_path": "art/sprites/2026-11-13-valeriy-mitya-model-neutrals/references/Valeriy/game-model.png",
+      "path": "art/sprites/2026-11-13-valeriy-mitya-dual-reference-poses/references/Valeriy/game-model.png",
+      "sha256": "dcdadc76061fa2ab0261ea62b89e003fd07aa5e3b4525a1044d775cb15b7565c",
+      "role": "User in-game model: anatomy, face, construction, normal costume drape and asymmetric details.",
+      "modification": "None; original bytes preserved."
+    },
+    {
+      "name": "Valeriy",
+      "original_path": "art/sprites/2026-11-12-valeriy-mitya-neutrals/references/Valeriy/official.png",
+      "path": "art/sprites/2026-11-13-valeriy-mitya-dual-reference-poses/references/Valeriy/official.png",
+      "sha256": "05253e2735ef77b463339d5641feff48b029fa10574fcdeb45255ea567beae22",
+      "role": "Official portrait: polished 2D illustration, character identity, costume, palette and character energy.",
+      "modification": "None; original bytes preserved."
+    }
+  ],
+  "generations": [
+    {
+      "name": "Mitya",
+      "pose_intent": "A relaxed curious conversational lean, palm-up invitation and other hand behind his lower back.",
+      "tool": "built-in image_gen.imagegen",
+      "actual_arguments": {
+        "prompt": "Use case: stylized-concept. Create one new full-body NEUTRAL visual-novel sprite of Mitya from Genshin Impact using BOTH supplied references. Image 1 is the user's in-game model: authoritative for face, normal iris/pupil design, petite Medium Male proportions, anatomy, exact layered outfit construction and naturally hanging cloth. Image 2 is the official portrait: reference for polished 2D Genshin illustration, hair shape, character identity, palette, ornaments and lively elegance. Both inform the final drawing; do not simply cut out or retrace the model's idle pose. NEW CHARACTERFUL NEUTRAL POSE: Mitya stands at a gentle three-quarter angle toward the viewer, weight resting easily on his left leg, with a small forward conversational lean and slight friendly head tilt. His right elbow is bent, right hand held palm-up beside his lower chest in a relaxed explanatory invitation, close to the body and mostly in the image plane. Keep the palm softly curved, four relaxed naturally articulated fingers and a separate opposable thumb, without exaggerated finger splaying or foreshortening. His left arm rests behind his lower back, left elbow comfortably angled outward; any visible hand portion belongs naturally to that arm. Exactly two legs and two feet belonging to one pelvis, uncrossed and a little apart, right foot angled casually outward. An attentive, easygoing closed-mouth smile and bright but relaxed open violet eyes: charismatic and thoughtful everyday conversation, not an exaggerated emotion or combat pose. Preserve the slender compact anime build and youthful head-to-body proportions; do not lengthen torso or legs. Silver-white wavy hair with lavender shadows and its distinctive forelock. Preserve his navy and purple coat, high violet lapels, white cravat, gold atom pendant with amber and cyan gems, round gold shoulder fasteners, turquoise tassels, gold orbital motifs on the coat tails, turquoise lining, fitted dark trousers, high purple boot cuffs and black-gold boots. Resolve front costume detail from the model so the white cravat and atom pendant remain visible; any scarf sits behind the shoulders and hangs in gentle curves. Let coat tails respond subtly to his body turn rather than blowing in a storm. Match the official portrait's clean fine linework and soft cel-shaded painted anime finish, while keeping the model's costume construction. Entire isolated character silhouette from forelock through coat hems and both boot soles, about 94 percent canvas height with 2–4 percent top/bottom padding. Genuine transparent alpha background. No room, furniture, scenery, floor, cast shadow, labels, border, watermark, magic particles, floating effects, props or weapon. Only these two character references; no earlier generated sprites or TCG illustrations.",
+        "referenced_image_paths": [
+          "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-13-valeriy-mitya-dual-reference-poses/references/Mitya/game-model.png",
+          "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-13-valeriy-mitya-dual-reference-poses/references/Mitya/official.png"
+        ],
+        "transparent_background": true
+      },
+      "returned_result": {
+        "output_hint": "Generated images are saved to /Users/alexachan/.codex/generated_images/01a1d338-c611-7c50-9d89-98c76ede327d as /Users/alexachan/.codex/generated_images/01a1d338-c611-7c50-9d89-98c76ede327d/exec-17338449-08ad-4ba4-a1ff-f1ed685e2378.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.",
+        "original_output_path": "/Users/alexachan/.codex/generated_images/01a1d338-c611-7c50-9d89-98c76ede327d/exec-17338449-08ad-4ba4-a1ff-f1ed685e2378.png"
+      },
+      "raw": {
+        "path": "art/sprites/2026-11-13-valeriy-mitya-dual-reference-poses/raw/Mitya/neutral-v001.png",
+        "sha256": "8afc3dd1f90954240306f5f95e5362a59d7883d6a772629657bfe414978dd505",
+        "bytes": 1239811,
+        "dimensions": [
+          969,
+          1622
+        ],
+        "mode": "RGBA",
+        "alpha_extrema": [
+          0,
+          255
+        ]
+      },
+      "candidate": {
+        "path": "art/sprites/2026-11-13-valeriy-mitya-dual-reference-poses/candidates/Mitya/neutral-v001.png",
+        "sha256": "8afc3dd1f90954240306f5f95e5362a59d7883d6a772629657bfe414978dd505",
+        "bytes": 1239811,
+        "dimensions": [
+          969,
+          1622
+        ],
+        "mode": "RGBA",
+        "alpha_extrema": [
+          0,
+          255
+        ]
+      },
+      "approval": {
+        "state": "approved",
+        "date": "2026-11-13",
+        "message": "Both approved, generate a 22-sprite set for each based on these neutrals",
+        "approved_path": "art/sprites/2026-11-13-valeriy-mitya-dual-reference-poses/candidates/Mitya/neutral-v001.png",
+        "approved_sha256": "8afc3dd1f90954240306f5f95e5362a59d7883d6a772629657bfe414978dd505"
+      },
+      "framing_transform": null,
+      "references": [
+        {
+          "path": "art/sprites/2026-11-13-valeriy-mitya-dual-reference-poses/references/Mitya/game-model.png",
+          "sha256": "4f3ae80b52b699688aeafb9ff939ac909c4a26b5513de297c0a920a1932104ee",
+          "bytes": 1777341,
+          "dimensions": [
+            1000,
+            1800
+          ],
+          "mode": "RGB"
+        },
+        {
+          "path": "art/sprites/2026-11-13-valeriy-mitya-dual-reference-poses/references/Mitya/official.png",
+          "sha256": "6dd129216edc01deb1ba37820283db48c5c3ee096ff95de48b315835782f25a6",
+          "bytes": 200860,
+          "dimensions": [
+            1000,
+            1200
+          ],
+          "mode": "RGBA",
+          "alpha_extrema": [
+            0,
+            255
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Valeriy",
+      "pose_intent": "A poised three-quarter officer's stance, right hand over his chest in courteous acknowledgement and armored left hand at his belt.",
+      "tool": "built-in image_gen.imagegen",
+      "actual_arguments": {
+        "prompt": "Use case: stylized-concept. Create one new full-body NEUTRAL visual-novel sprite of Valeriy from Genshin Impact using BOTH supplied references. Image 1, the user's in-game model, guides face, violet eye design, tall male physique, exact asymmetric costume and normal resting garment drape. Image 2, his official portrait, guides polished 2D Genshin illustration, hair, identity, armor materials, gold/navy/purple palette, cape construction and dignified character presence. Combine them into a fresh characterful everyday pose, not a screenshot cutout and not the combat stance. NEW NEUTRAL POSE: a composed military officer receiving a visitor. He turns his torso gently three-quarter toward the viewer, head turned back to make direct calm eye contact, chin level and shoulders relaxed but assured. His weight is subtly shifted with his left foot half a step forward, both feet planted, legs uncrossed. His right arm bends upward, right gloved hand resting lightly over his upper chest beside the sash in a restrained courteous acknowledgement. The hand stays mostly in the image plane, palm against the uniform, four relaxed aligned fingers and a separate opposable thumb, clearly separate from collar and fur. His armored left arm bends comfortably, left hand resting naturally on the belt at his hip, with believable glove articulation and a natural separate thumb; do not grasp or overlap the other hand. Exactly two arms, two legs and two feet attached naturally to one pelvis. His expression is attentive and quietly confident, closed neutral mouth with a barely softened corner, open violet eyes; courteous authority without a broad smile, anger or battle exertion. Preserve Tall Male proportions and broad shoulders without exaggerating bulk or elongating limbs. Dark gray layered hair, navy long coat with gold piping, magenta-white-purple diagonal sash, hanging silver chain, two black waist belts with gold fittings, ornamental lower coat clasps, dark trousers and tall black boots with dark blue fur tufts. Keep the crucial asymmetric armor: his LEFT shoulder and arm have angular silver armor and gauntlet; his RIGHT shoulder has the dark featherlike fur and pale cape with purple lining and black fur hem. Do not mirror or duplicate the silver shoulder armor. Let the cape fall naturally and open slightly with his torso turn, showing both its pale outer surface and purple lining. Match the official portrait's clean refined contours, soft cel shading, controlled highlights and illustrated material detail, preserving the model's exact construction. No shield or weapon in this everyday greeting pose. Entire silhouette including hair, cloak, hands and both boot soles visible, about 94 percent canvas height with 2–4 percent head and foot padding. One isolated character on a genuinely transparent alpha background. No scenery, furniture, floor, cast shadow, border, text, watermark, floating effects or magic particles. Use only these two supplied character references, no earlier generated candidates or TCG artwork.",
+        "referenced_image_paths": [
+          "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-13-valeriy-mitya-dual-reference-poses/references/Valeriy/game-model.png",
+          "/Users/alexachan/Documents/Codex/silly-teyvat/art/sprites/2026-11-13-valeriy-mitya-dual-reference-poses/references/Valeriy/official.png"
+        ],
+        "transparent_background": true
+      },
+      "returned_result": {
+        "output_hint": "Generated images are saved to /Users/alexachan/.codex/generated_images/01a1d338-c611-7c50-9d89-98c76ede327d as /Users/alexachan/.codex/generated_images/01a1d338-c611-7c50-9d89-98c76ede327d/exec-2001b74c-a96f-49d7-a15a-a6c5ad941573.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.",
+        "original_output_path": "/Users/alexachan/.codex/generated_images/01a1d338-c611-7c50-9d89-98c76ede327d/exec-2001b74c-a96f-49d7-a15a-a6c5ad941573.png"
+      },
+      "raw": {
+        "path": "art/sprites/2026-11-13-valeriy-mitya-dual-reference-poses/raw/Valeriy/neutral-v001.png",
+        "sha256": "14481e6dccc092b8dfa03fd294f6dc1320d55fb1f137baa38733247c08c7ae9a",
+        "bytes": 1274715,
+        "dimensions": [
+          989,
+          1590
+        ],
+        "mode": "RGBA",
+        "alpha_extrema": [
+          0,
+          255
+        ]
+      },
+      "candidate": {
+        "path": "art/sprites/2026-11-13-valeriy-mitya-dual-reference-poses/candidates/Valeriy/neutral-v001.png",
+        "sha256": "14481e6dccc092b8dfa03fd294f6dc1320d55fb1f137baa38733247c08c7ae9a",
+        "bytes": 1274715,
+        "dimensions": [
+          989,
+          1590
+        ],
+        "mode": "RGBA",
+        "alpha_extrema": [
+          0,
+          255
+        ]
+      },
+      "approval": {
+        "state": "approved",
+        "date": "2026-11-13",
+        "message": "Both approved, generate a 22-sprite set for each based on these neutrals",
+        "approved_path": "art/sprites/2026-11-13-valeriy-mitya-dual-reference-poses/candidates/Valeriy/neutral-v001.png",
+        "approved_sha256": "14481e6dccc092b8dfa03fd294f6dc1320d55fb1f137baa38733247c08c7ae9a"
+      },
+      "framing_transform": null,
+      "references": [
+        {
+          "path": "art/sprites/2026-11-13-valeriy-mitya-dual-reference-poses/references/Valeriy/game-model.png",
+          "sha256": "dcdadc76061fa2ab0261ea62b89e003fd07aa5e3b4525a1044d775cb15b7565c",
+          "bytes": 2429412,
+          "dimensions": [
+            1200,
+            2160
+          ],
+          "mode": "RGB"
+        },
+        {
+          "path": "art/sprites/2026-11-13-valeriy-mitya-dual-reference-poses/references/Valeriy/official.png",
+          "sha256": "05253e2735ef77b463339d5641feff48b029fa10574fcdeb45255ea567beae22",
+          "bytes": 220156,
+          "dimensions": [
+            1000,
+            1200
+          ],
+          "mode": "RGBA",
+          "alpha_extrema": [
+            0,
+            255
+          ]
+        }
+      ]
+    }
+  ],
+  "expressions_generated": false,
+  "installed": false,
+  "accepted_tcg_manifest": "art/tcg/2026-11-13-valeriy-mitya-style-revision/generation.json",
+  "technical_checks": "PNG decoding, alpha, dimensions, source copies and output hashes only; no visual approval or autonomous repair.",
+  "user_approval_message": "Both approved, generate a 22-sprite set for each based on these neutrals"
+}
