@@ -42,7 +42,7 @@ Expressions use SillyTavern's **Character Expressions** classifier settings. Cha
 - Expressions are chosen for each page or message and remembered, so revisiting old dialogue shows the same scene without asking the model again.
 - **Scene CGs**: hundreds of official artworks, including every character birthday illustration, are offered to a classifier that picks one when a reply fits. CGs can replace the background or open in a frame, and can be images, GIFs or videos with their own sound. Scenes can require certain characters or a location. The **Gallery** collects every scene a chat has shown.
 - **Character Customization** (the Paimon menu's Characters screen) edits each card's name, card details and portrait, profile, outfits, expressions, scenes, staging, combat kit and starting Trust. You can upload your own sprite sets, expressions, voice clips and CGs.
-- Every card carries SillyTavern tags for its role (playable, NPC, enemy or boss), rarity, element, region, weapon, build, titles and nicknames, occupation, affiliation and personality, so the Character List's tag filter can show, say, every Pyro character, every Fatui or every 5★.
+- Every card carries a **Silly Teyvat** tag and SillyTavern tags for its role (playable, NPC, enemy or boss), rarity, element, region, weapon, build, titles and nicknames, occupation, affiliation and personality, so the Character List's tag filter can show, say, every Pyro character, every Fatui or every 5★.
 - Sprites can have voice clips, and Elemental Bursts play Japanese Burst voice lines. An outfit without its own clip for an expression speaks with that expression's clip from the character's other sprite sets, unless you turn that off for the sprite.
 
 ### Playing as anyone

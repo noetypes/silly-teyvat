@@ -98,7 +98,7 @@ record live in `content/character-cards/portrait-fixes-2026-11-14/`.
 
 ## Character tags
 
-`content/character-cards/card-tags.json` lists every card's SillyTavern tags: role, rarity, element, region,
+`content/character-cards/card-tags.json` lists every card's SillyTavern tags: Silly Teyvat, role, rarity, element, region,
 weapon, build and gender, then titles and nicknames, occupation, affiliation, species and personality. The game data
 export carries them to players (`tags` and `tagMap` in its manifest), and import adds them without removing a
 player's own. After adding a card or changing the file, run

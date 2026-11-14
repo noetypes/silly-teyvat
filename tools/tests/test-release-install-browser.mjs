@@ -56,12 +56,13 @@ try{
     const result=await page.evaluate(async()=>{
         const ctx=SillyTavern.getContext(),prefs=ctx.extensionSettings.genshin_dialogue_ui;
         const release=await (await fetch('/scripts/extensions/third-party/silly-teyvat-dist/game-data-release.json',{cache:'no-store'})).json();
-        return {release:release.version,host:new URL(release.url).host,cards:ctx.characters.length,gameData:prefs.gameData,enabled:prefs.enabled,regions:prefs.backgroundRegions.length,
+        const kleeTags=(ctx.tagMap?.['Klee.png'] || []).map(id=>ctx.tags.find(tag=>tag.id===id)?.name);
+        return {release:release.version,host:new URL(release.url).host,kleeTags,cards:ctx.characters.length,gameData:prefs.gameData,enabled:prefs.enabled,regions:prefs.backgroundRegions.length,
             waypoints:prefs.backgroundRegions.reduce((sum,region)=>sum+region.locations.length,0),outfits:Object.keys(prefs.outfits).length,
             sceneCharacters:Object.keys(prefs.characterCGs).length,music:prefs.musicLibrary.length,
             paths:prefs.backgroundRegions.flatMap(region=>region.locations.map(location=>location.path)),dialogs:[...document.querySelectorAll('dialog[open]')].map(dialog=>dialog.innerText)};
     });
-    assert.equal(result.gameData.version,result.release,'The installed game data is the release the extension names.');assert.ok(result.cards>=273);assert.equal(result.regions,8);assert.ok(result.waypoints>=260);
+    assert.equal(result.gameData.version,result.release,'The installed game data is the release the extension names.');assert.ok(result.cards>=273);assert.ok(['Silly Teyvat','Pyro'].every(tag=>result.kleeTags.includes(tag)),'Character tags arrive with the game data.');assert.equal(result.regions,8);assert.ok(result.waypoints>=260);
     assert.equal(result.enabled,true);assert.equal(result.dialogs.length,0);assert.ok(result.paths.every(value=>!value.includes('/genshin-dialogue-ui/')));
     await page.evaluate(async()=>{const ctx=SillyTavern.getContext();await ctx.selectCharacterById(ctx.characters.findIndex(card=>card.name==='Klee'));});
     await page.waitForTimeout(6000);

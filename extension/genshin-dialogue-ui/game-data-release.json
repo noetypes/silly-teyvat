@@ -1,9 +1,9 @@
 {
  "format": 1,
- "version": "1.85.0",
+ "version": "1.86.0",
  "url": "https://silly-teyvat-data.noetypes.workers.dev/v1.85.0/silly-teyvat-game-data-1.85.0-001.part",
- "bytes": 2137702353,
- "sha256": "103ad96e993e217d7e57c21d24b22a66b751924df3b608cff321c8fb824d1e4c",
+ "bytes": 2140277751,
+ "sha256": "6caf05d9925d09344e8f7ebdc6210b74abf1820c95459ceee296ba89f6278f90",
  "manifest": "silly-teyvat-game-data.json",
  "chunks": [
   {
@@ -263,6 +263,12 @@
    "offset": 2113929216,
    "size": 23773137,
    "sha256": "540a8842ac985e6e46be6c96e452b7f7e24361dc12a248f30e0f4b1d7fa95530"
+  },
+  {
+   "url": "https://silly-teyvat-data.noetypes.workers.dev/v1.86.0/silly-teyvat-game-data-1.86.0-001.part",
+   "offset": 2137702353,
+   "size": 2575398,
+   "sha256": "85c7db4b978be8e8db88d8a760dd2656f042ac0af9603d1d64ff3795e249ceb4"
   }
  ],
  "files": {
@@ -1502,7 +1508,7 @@
  "files/silly-teyvat-teyvat-mvvqohwl-1-ly8x4p9q.png": {"offset": 1029758385, "sha256": "6d2f4bd72a07b44a", "since": "1.77.0", "size": 4336447},
  "files/silly-teyvat-teyvat-mvvvf1cg-2-cd027g5r.png": {"offset": 1026417686, "sha256": "2fcc6b31bac3dabc", "since": "1.77.0", "size": 1706945},
  "files/silly-teyvat-teyvat-mvvvf6vj-4-blnuwste.png": {"offset": 1028124631, "sha256": "d988e89c9c170807", "since": "1.77.0", "size": 1633754},
- "silly-teyvat-game-data.json": {"offset": 2135420111, "sha256": "631ecfe2d412b40a", "since": "1.85.0", "size": 2282242},
+ "silly-teyvat-game-data.json": {"offset": 2137702353, "sha256": "85c7db4b978be8e8", "since": "1.86.0", "size": 2575398},
  "sprites/Abyss Herald Wicked Torrents/neutral.webp": {"offset": 218325415, "sha256": "c02fc73f7590c642", "since": "1.77.0", "size": 285010},
  "sprites/Abyss Lector Fathomless Flames/neutral.webp": {"offset": 218610425, "sha256": "c4e79a477f8474e3", "since": "1.77.0", "size": 270232},
  "sprites/Abyss Lector Violet Lightning/neutral.webp": {"offset": 218880657, "sha256": "a577ee86e355fd48", "since": "1.77.0", "size": 295784},
@@ -2440,28 +2446,6 @@
  "sprites/Hydro Slime/neutral.webp": {"offset": 478457655, "sha256": "2392d79cbc83a2de", "since": "1.77.0", "size": 175522},
  "sprites/Hydro Tulpa/Official Art/neutral.png": {"offset": 479003948, "sha256": "a62c1ee80712958e", "since": "1.77.0", "size": 1499012},
  "sprites/Hydro Tulpa/neutral.webp": {"offset": 478685476, "sha256": "0ea44ca6519ee81d", "since": "1.77.0", "size": 318472},
- "sprites/Iansan/Alternate Outfit 1/admiration.webp": {"offset": 970124791, "sha256": "b14607c982005e03", "since": "1.77.0", "size": 280860},
- "sprites/Iansan/Alternate Outfit 1/anger.webp": {"offset": 970405651, "sha256": "41fbb0b5e03109f4", "since": "1.77.0", "size": 278496},
- "sprites/Iansan/Alternate Outfit 1/annoyance.webp": {"offset": 970684147, "sha256": "946df26864bf4fe9", "since": "1.77.0", "size": 272638},
- "sprites/Iansan/Alternate Outfit 1/caring.webp": {"offset": 970956785, "sha256": "fa61ad45e57167d8", "since": "1.77.0", "size": 280066},
- "sprites/Iansan/Alternate Outfit 1/confusion.webp": {"offset": 971236851, "sha256": "32bf16757e246000", "since": "1.77.0", "size": 278328},
- "sprites/Iansan/Alternate Outfit 1/desire-1.webp": {"offset": 971515179, "sha256": "49e87fc462d204a8", "since": "1.77.0", "size": 279642},
- "sprites/Iansan/Alternate Outfit 1/desire.webp": {"offset": 971794821, "sha256": "4e2bd7e9f9f2b8c5", "since": "1.77.0", "size": 281750},
- "sprites/Iansan/Alternate Outfit 1/disappointment.webp": {"offset": 972076571, "sha256": "001877d679df3d5d", "since": "1.77.0", "size": 276788},
- "sprites/Iansan/Alternate Outfit 1/disgust.webp": {"offset": 972353359, "sha256": "0ac1eb28376e8d51", "since": "1.77.0", "size": 280420},
- "sprites/Iansan/Alternate Outfit 1/embarrassment.webp": {"offset": 972633779, "sha256": "ff214e1c0522f02b", "since": "1.77.0", "size": 282830},
- "sprites/Iansan/Alternate Outfit 1/excitement.webp": {"offset": 972916609, "sha256": "5d0906f5c19de612", "since": "1.77.0", "size": 278494},
- "sprites/Iansan/Alternate Outfit 1/fear.webp": {"offset": 973195103, "sha256": "6033d1c1e247a0c9", "since": "1.77.0", "size": 278138},
- "sprites/Iansan/Alternate Outfit 1/gratitude.webp": {"offset": 973473241, "sha256": "4e355e5d6adc8314", "since": "1.77.0", "size": 279758},
- "sprites/Iansan/Alternate Outfit 1/grief.webp": {"offset": 973752999, "sha256": "143cd98640451296", "since": "1.77.0", "size": 284756},
- "sprites/Iansan/Alternate Outfit 1/joy.webp": {"offset": 974037755, "sha256": "042c1cceac22b045", "since": "1.77.0", "size": 276650},
- "sprites/Iansan/Alternate Outfit 1/love-1.webp": {"offset": 974314405, "sha256": "6ca2b2394aad453f", "since": "1.77.0", "size": 276016},
- "sprites/Iansan/Alternate Outfit 1/love.webp": {"offset": 974590421, "sha256": "738bbe83074b9fb0", "since": "1.77.0", "size": 281178},
- "sprites/Iansan/Alternate Outfit 1/neutral.webp": {"offset": 974871599, "sha256": "446b4262fa2feea4", "since": "1.77.0", "size": 274458},
- "sprites/Iansan/Alternate Outfit 1/pride.webp": {"offset": 975146057, "sha256": "3f72f994db1f7f5d", "since": "1.77.0", "size": 281682},
- "sprites/Iansan/Alternate Outfit 1/relief.webp": {"offset": 975427739, "sha256": "27ad75412006bc8a", "since": "1.77.0", "size": 276692},
- "sprites/Iansan/Alternate Outfit 1/sadness.webp": {"offset": 975704431, "sha256": "aac61f847ad1073d", "since": "1.77.0", "size": 271770},
- "sprites/Iansan/Alternate Outfit 1/smug.webp": {"offset": 975976201, "sha256": "97be77c8939540b1", "since": "1.77.0", "size": 279604},
  "sprites/Iansan/Official Art/neutral.png": {"offset": 501923338, "sha256": "4864b2101ad1218d", "since": "1.77.0", "size": 1024481},
  "sprites/Iansan/admiration.webp": {"offset": 480502960, "sha256": "6cb6bb64e602571c", "since": "1.80.0", "size": 944610},
  "sprites/Iansan/anger.webp": {"offset": 481447570, "sha256": "d7b1ea22ec900a13", "since": "1.80.0", "size": 954206},

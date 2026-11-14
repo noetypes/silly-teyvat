@@ -17,7 +17,7 @@ if(!['localhost','127.0.0.1'].includes(server.hostname))throw new Error('Use a l
 const wanted=JSON.parse(fs.readFileSync(new URL('../content/character-cards/card-tags.json',import.meta.url),'utf8'));
 const COLORS={
     Pyro:'#b5452f',Hydro:'#2f74b5',Anemo:'#2f9e8a',Electro:'#7d4fb0',Dendro:'#4f9a2f',Cryo:'#5aa3c4',Geo:'#b8902a',
-    '5-Star':'#b8862f','4-Star':'#7a5aa8',Playable:'#3d6e4f',NPC:'#5a6470',Enemy:'#8a3a3a',Boss:'#5e1f1f',
+    'Silly Teyvat':'#2c4a6e','5-Star':'#b8862f','4-Star':'#7a5aa8',Playable:'#3d6e4f',NPC:'#5a6470',Enemy:'#8a3a3a',Boss:'#5e1f1f',
 };
 const {chromium}=createRequire(import.meta.url)('playwright');
 const browser=await chromium.launch({headless:true,executablePath:process.env.CHROME_PATH || '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome'});

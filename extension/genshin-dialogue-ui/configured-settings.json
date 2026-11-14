@@ -15185,10 +15185,6 @@
     {
      "label": "Official Art",
      "folder": "Iansan/Official Art"
-    },
-    {
-     "label": "Alternate Outfit 1",
-     "folder": "Iansan/Alternate Outfit 1"
     }
    ],
    "Ifa.png": [
@@ -30187,12 +30183,15 @@
       "candidate": false,
       "introducedVersion": 26,
       "imageReview": {
-       "reviewed": "2026-11-13",
+       "reviewed": "2026-11-14",
+       "userApproved": true,
        "playableCharacters": false,
        "gameUI": false,
        "captions": false,
-       "camera": "Genshin Impact Wiki in-game image of Glupov (File:Glupov.png), a ground-level view up the approach to the fortress. Reviewed in full and zoomed: three ordinary NPCs on the path and the game logo remain; no playable characters, HUD, UID or captions.",
-       "editing": "None; the wiki file’s original WebP bytes are kept unchanged (sha256 40ccda987568835cd9b6c020c86a1b011115466256bc5585bf744af172d85e42)."
+       "camera": "User-approved generated interpretation of the existing Glupov screenshot: empty snowy ground-level fortress approach, retaining the central tower, gate, purple/gold banners and blue daylight. No people, HUD, lettering or logos.",
+       "editing": "OpenAI built-in image_gen; approved generated PNG encoded to lossless WebP without resizing.",
+       "promptRecord": "art/location-backgrounds/2026-11-14-glupov/manifest.json",
+       "sha256": "b84d112cdb13b85a241a36f853e2b6b3d6640efcbd823291d6bb91f4c16a5331"
       },
       "musicResearch": {
        "recommended": [
@@ -30215,7 +30214,7 @@
     ]
    }
   ],
-  "starterLocationsVersion": 27,
+  "starterLocationsVersion": 28,
   "locationEncounters": true,
   "worldMap": {
    "metresPerUnit": 5,
