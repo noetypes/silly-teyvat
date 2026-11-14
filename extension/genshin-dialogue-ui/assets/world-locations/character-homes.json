@@ -1,6 +1,6 @@
 {
-  "version": 9,
-  "date": "2026-11-07",
+  "version": 10,
+  "date": "2026-11-13",
   "notes": "Default resident cap: 5. Bundled overfull locations redistributed to suitable meeting points. Existing user moves are respected by the one-time relocation migration. Prune remains at Mondstadt Fountain Plaza. Travelling companions do not consume resident slots.",
   "characters": [
     {
@@ -1019,8 +1019,8 @@
     },
     {
       "name": "Mitya",
-      "locationId": "home-glupov",
-      "rationale": "Mitya’s energy research brings him to the Royal Armory Palace in Glupov, where the Special Assignments Battalion keeps him safe; his greetings stay in neighbouring Snezhnograd.",
+      "locationId": "starter-snezhnograd",
+      "rationale": "Mitya’s research is at the Armory Palace, but he spends every hour he can steal in Snezhnograd: its theatre, its restaurants and its streets. His greetings open in the city.",
       "loreSource": "https://genshin-impact.fandom.com/wiki/Armory_Palace"
     },
     {
@@ -1232,16 +1232,16 @@
       "rationale": "Move the bundled assignment to the cathedral interior to match her new greetings."
     },
     {
-      "name": "Mitya",
+      "name": "Valeriy",
       "from": "starter-snezhnograd",
       "to": "home-glupov",
       "rationale": "Snezhnograd is a wilderness waypoint, and homes never share a waypoint with an enemy pool. Move the first bundled assignment to Glupov, home of the Armory Palace."
     },
     {
-      "name": "Valeriy",
-      "from": "starter-snezhnograd",
-      "to": "home-glupov",
-      "rationale": "Snezhnograd is a wilderness waypoint, and homes never share a waypoint with an enemy pool. Move the first bundled assignment to Glupov, home of the Armory Palace."
+      "name": "Mitya",
+      "from": "home-glupov",
+      "to": "starter-snezhnograd",
+      "rationale": "Snezhnograd is no longer wilderness, and Mitya’s greetings all open in the city he escapes to from his research."
     }
   ]
 }

@@ -75,3 +75,7 @@ Enemy and NPC circular portraits are non-generative crops recorded in
 `node tools/tests/test-sprite-head-icons-browser.mjs` checks full catalog coverage,
 transparency, card-name aliases and shared wardrobe/combat/map portraits; it uses
 the same Playwright setup and `IDENTITY_PREVIEW_URL` as the other browser checks.
+
+## Lorebook
+
+The Genshin Impact Lorebook lives in the live SillyTavern (`worlds/Genshin Impact Lorebook.json`) and ships in the game data export. After adding characters or waypoints, run `python3 tools/add-lorebook-entries.py --user-dir <SillyTavern>/data/default-user` to list cards and waypoints that no entry's key mentions yet, then add `--apply --backup DIR`. New entries come from the card descriptions and the location catalog; edit its `REWRITES` table for hand-written entries such as Mitya, Valeriy and the Armory Palace. A second run should report nothing to add.

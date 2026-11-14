@@ -8,6 +8,10 @@ Voice clips are at most six seconds (the current maximum is 5.604 seconds). Favo
 
 Music research distinguishes specific venue themes from containing-area ambience. The catalog marks custom meeting/scenery pins and area fallbacks. Do not mistake the first row of a region soundtrack table for ambient music throughout that region: those tables also contain city interiors, event music, boss cues and conditional tracks. Night Kingdom Causeway is a custom surface-access marker, so its selected ambience belongs to the Basin of Unnumbered Flames. Its pin is not an exact Night Kingdom music boundary. Do not apply Glupov's Fatui HQ music to Druzhna HQ.
 
+Mitya and Valeriy have their own catalog, `docs/research/music/2026-11-13-mitya-valeriy/assignments.json`: 31 English Serenitea Pot companion lines on 33 sprites, matched by their English transcripts. The wiki has no Japanese, combat or Elemental Burst voice-overs for either of them yet (their Voice-Overs pages are stubs), so they have no Burst audio. Replace these with Japanese lines when the wiki uploads them. Install it the same way as below, with `--media-root` pointing at the downloaded companion clips.
+
+Alternate outfits share voices. A sprite with no clips of its own plays the same expression's clips from the character's other sprite sets, its main set first, and a numbered variant (`love-1`) falls back to the plain expression (`sprite-files.js`, `spriteVoiceLines`). **Don't use here** in the sprite's Expression audio section stops that for one sprite (`spriteAudioMuted`); clips linked to the sprite itself always win.
+
 ## Reapplying the catalog
 
 The importer defaults to a dry run. Point it at the downloaded media root and the intended SillyTavern user directory:

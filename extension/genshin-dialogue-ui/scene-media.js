@@ -1,4 +1,4 @@
-import { mediaSettings, localMediaPath, spriteAudioKey, createMediaAdapter, isVideoCG, phoneLayout, cgDisplay, cgVolume } from './media-store.js';
+import { mediaSettings, localMediaPath, spriteAudioKey, spriteVoiceLines, createMediaAdapter, isVideoCG, phoneLayout, cgDisplay, cgVolume } from './media-store.js';
 import { pageSignature } from './page-sprites.js';
 import { speakerAvatar, roster } from './staging.js';
 import {personaCard} from './persona-wardrobe.js';
@@ -288,7 +288,7 @@ export function mountSceneMedia({host,getContext,adapter=createMediaAdapter(getC
             const avatar = speakerAvatar(ctx, message);
             const speaker = changed.find(s => s.avatar ? s.avatar === avatar : s.folder === message.name || s.folder?.startsWith(message.name + '/'));
             if (!speaker) return;
-            const files = prefs.spriteAudioFiles[spriteAudioKey(speaker.folder,speaker.src)];
+            const files = spriteVoiceLines(prefs,spriteAudioKey(speaker.folder,speaker.src)).files;
             if (!files?.length) return;
             let heard=spoken.get(message);if(!heard){heard={sprites:new Set(),lines:new Set()};spoken.set(message,heard);}
             const sprite=spriteAudioKey(speaker.folder,speaker.src),line=file=>/^(voice|burst)-ja-[a-f0-9]{20}$/.test(file.id || '')?file.id.replace(/^(voice|burst)-ja-/,'sha:'):localMediaPath(file.path).split('?')[0];

@@ -9,6 +9,14 @@
       "bytes": 22465,
       "sha256": "cf4625ca11fb7421dd6fc4a542fef6513dad42be304cc449687f38b92f8edb4f"
     },
+    "art/location-backgrounds/2026-11-14-glupov/glupov-generated-v1.png": {
+      "bytes": 2479710,
+      "sha256": "836fe737f7865be85fde9a56d17588f3b2e9dfc3f6df9394500d3f009e97a0d4"
+    },
+    "art/location-backgrounds/2026-11-14-glupov/reference-glupov.webp": {
+      "bytes": 345406,
+      "sha256": "40ccda987568835cd9b6c020c86a1b011115466256bc5585bf744af172d85e42"
+    },
     "art/sprites/2026-10-27-official-reference-restart/candidates/Furina/neutral-v001.png": {
       "bytes": 1296354,
       "sha256": "891712eb5b8756cf14d2fdee26dcdb6990794b72af125dca2e842fc9219e23d0"
@@ -8574,12 +8582,12 @@
       "sha256": "31de8ee7045dbe3248330a321502e1888cb708b3da415245e5ade9ce303d2dac"
     },
     "content/character-cards/snezhnaya-2026-11-12/Mitya.png": {
-      "bytes": 96421,
-      "sha256": "836c8075c2e98aa56832f27be5c19614975f62e74d69eab6324bd7dc70b59f06"
+      "bytes": 119114,
+      "sha256": "265f1648a0cad4792989bd61666237b10c42572d66310782d9a6bb6354fa26b7"
     },
     "content/character-cards/snezhnaya-2026-11-12/Valeriy.png": {
-      "bytes": 91986,
-      "sha256": "819bc2c567f4a54110230394d09afe0447b49f26e97fbea7ed1f1522aa917783"
+      "bytes": 111583,
+      "sha256": "f88a45ae8cb36aa6e5a5da52d487bc4b0e9bfbd4a73ebdde3aed1ff9697ae0f7"
     },
     "content/character-cards/snezhnaya-2026-11-12/supplied-artwork/Mitya_Icon.webp": {
       "bytes": 32380,
@@ -9825,6 +9833,10 @@
       "bytes": 21018,
       "sha256": "a35af4d9b9b555c6d2565a436c38829a29b333ddc1e5c8ba0561ddc70650a727"
     },
+    "extension/genshin-dialogue-ui/assets/avatar-icons/mitya-face-e9ba0bc817.webp": {
+      "bytes": 27282,
+      "sha256": "e9ba0bc8173e1c1d89cc3559eeb8a2e2083edc250c135cbe5277c1975c51e1ca"
+    },
     "extension/genshin-dialogue-ui/assets/avatar-icons/mitya-supplied-fe5a5d08ab.webp": {
       "bytes": 32380,
       "sha256": "fe5a5d08ab1b1c59e9775770b27f9c31442e8c5601d3bc5c5a54af6f4baa365d"
@@ -10821,6 +10833,10 @@
       "bytes": 16334,
       "sha256": "edbc3eb2f9c2855c87ffd0ab60c3f8a4f872023b371cf63fcb22fe500b935020"
     },
+    "extension/genshin-dialogue-ui/assets/avatar-icons/valeriy-face-0483f3bc05.webp": {
+      "bytes": 23384,
+      "sha256": "0483f3bc05eee11de00f705c7c197b78391820d9500b3bb9dec9bac6a531c5d4"
+    },
     "extension/genshin-dialogue-ui/assets/avatar-icons/valeriy-supplied-aec1f92760.webp": {
       "bytes": 30072,
       "sha256": "aec1f92760e95e7ccdbc21228e7303f1362880de2ecd27ff7ebdf429d6bb94a9"
@@ -11085,6 +11101,10 @@
       "bytes": 1308,
       "sha256": "26a2bec1dbe715fc47a30825431bd74a93c71e2b4dc55f7eb0cd5b4059f0cf47"
     },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/active-defense-bastion-charge.webp": {
+      "bytes": 1674,
+      "sha256": "c98f6e58e9e6fcab464a5b84d610b49ef747efea1a939fcccfd2e0d573172aee"
+    },
     "extension/genshin-dialogue-ui/assets/battle/glyphs/adagio-phantom-night-dancers.webp": {
       "bytes": 2172,
       "sha256": "a0094883a26e7ac05e1124f81beeff400b6ea68f5f7b9b37092b851d2d5004a0"
@@ -11124,6 +11144,10 @@
     "extension/genshin-dialogue-ui/assets/battle/glyphs/allegoria.webp": {
       "bytes": 1682,
       "sha256": "942c15ee5f0bcd87303c0659484e287a3e8af6c51d1126b251a23e9eee18f141"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/analysis-gradient-theory.webp": {
+      "bytes": 2174,
+      "sha256": "532581a11bd12e50f447784fc124e51360ae74e5c79f5df71965f7da6f8c7760"
     },
     "extension/genshin-dialogue-ui/assets/battle/glyphs/ancient-rite-arcane-light.webp": {
       "bytes": 1710,
@@ -11256,6 +11280,10 @@
     "extension/genshin-dialogue-ui/assets/battle/glyphs/ceremonial-crystalshot.webp": {
       "bytes": 1688,
       "sha256": "44d24350abd2e4d321c546e15b265ee6d5679889d9ecbbb289c995386161d8b0"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/chain-reaction.webp": {
+      "bytes": 1778,
+      "sha256": "d16c405830ac5b3cc6c79fe7ef1f9e3aa01f055be19879fb7fe2ea0df0a23ae3"
     },
     "extension/genshin-dialogue-ui/assets/battle/glyphs/chihayaburu.webp": {
       "bytes": 1084,
@@ -11465,6 +11493,10 @@
       "bytes": 1260,
       "sha256": "c9058357f576f1669898536ee33b4621fd16a1e78fbe5a69452d08c778d601ca"
     },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/flowfire-blade.webp": {
+      "bytes": 1514,
+      "sha256": "47ce7847ffa3f4d6ebfadad04a63363dbed84a9a1d786e7df40ed5394b4393f2"
+    },
     "extension/genshin-dialogue-ui/assets/battle/glyphs/flowing-eddies.webp": {
       "bytes": 2350,
       "sha256": "b090a277b6ec0d341fa459660d3d78fcd2630370b2f1d76f0af91ab1f77cac93"
@@ -11472,6 +11504,10 @@
     "extension/genshin-dialogue-ui/assets/battle/glyphs/fluttering-hasode.webp": {
       "bytes": 1578,
       "sha256": "ca7b00b036d2e89373ca15cded57f1bec04b3f9a6354f0df5aa8212a1a78971c"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/focused-fire-lightning-salvo.webp": {
+      "bytes": 1710,
+      "sha256": "1db0bd15fa0ba9aee2ff2f85cc76cdd76454150ec52ec4b833f191781232779c"
     },
     "extension/genshin-dialogue-ui/assets/battle/glyphs/for-the-tsaritsa.webp": {
       "bytes": 2170,
@@ -11552,6 +11588,10 @@
     "extension/genshin-dialogue-ui/assets/battle/glyphs/great-secret-art-tenko-kenshin.webp": {
       "bytes": 1892,
       "sha256": "bf10550f3890fe92897f1a557624c9e9e5a3b91a7ea769c0019a7fdabfb36ebf"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/guard-tactics-sword-and-shield.webp": {
+      "bytes": 2340,
+      "sha256": "6946bcdf32a0a82e730bf6c73ccb62ff806fd8ac20ca0aaf0ce3d7289187454c"
     },
     "extension/genshin-dialogue-ui/assets/battle/glyphs/guardian-vent.webp": {
       "bytes": 1934,
@@ -11937,6 +11977,10 @@
       "bytes": 1836,
       "sha256": "25e28ca9d78f54d5c609bebaa37a76f5369565be5af96980d82a6449169b8b38"
     },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/plains-scorcher.webp": {
+      "bytes": 1744,
+      "sha256": "3af45a6c64728c7360870f0b5aa93a101c703c17e0b15c201843a8d3d095360e"
+    },
     "extension/genshin-dialogue-ui/assets/battle/glyphs/planet-befall.webp": {
       "bytes": 1718,
       "sha256": "69fdf3d37e241a2f013c6a7948d5dfc83b04f611523440237b4ccaaa67bbf878"
@@ -11960,6 +12004,10 @@
     "extension/genshin-dialogue-ui/assets/battle/glyphs/principle-of-purity-as-the-light-shifts.webp": {
       "bytes": 1372,
       "sha256": "06711e67cd8f35ae8a2c3e96240a3dd651d0a7862261223e7b91b2a768bb2d67"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/glyphs/principle-variable-detection.webp": {
+      "bytes": 1740,
+      "sha256": "a39951c460f8ab3ad1d2e61bc1ffaca9c521587bb58933ca77e0e0cce3bf4b4a"
     },
     "extension/genshin-dialogue-ui/assets/battle/glyphs/prophecies-of-dawn.webp": {
       "bytes": 2486,
@@ -13169,6 +13217,10 @@
       "bytes": 7688,
       "sha256": "8dce999301f801a66bbc901a490630a5b5bf4d6e25b18bfe1df6e5016b7d3c80"
     },
+    "extension/genshin-dialogue-ui/assets/battle/icons/mitya.webp": {
+      "bytes": 9428,
+      "sha256": "7685b0e17a458cdec31a277789285bf3f675af8e4e891e2d6a5f827771542ada"
+    },
     "extension/genshin-dialogue-ui/assets/battle/icons/mona.webp": {
       "bytes": 10418,
       "sha256": "460c497e6286b9b5f81309ffcedd471bff703a3469aa0eb4bed697a03a11adff"
@@ -13369,6 +13421,10 @@
       "bytes": 6068,
       "sha256": "eefa1a47d046c34af308a785ea0a95e152a8f3b68d155191677c0f48f5ce8537"
     },
+    "extension/genshin-dialogue-ui/assets/battle/icons/valeriy.webp": {
+      "bytes": 7886,
+      "sha256": "499aaa0d1752435f634ed7feb89568dbd0a88cf7fc35174cf6972a054a697b45"
+    },
     "extension/genshin-dialogue-ui/assets/battle/icons/varesa.webp": {
       "bytes": 10058,
       "sha256": "ec2a4e007c650641998c1ab353ca7023cf0209efbf9a323cf3a477eb1594364f"
@@ -13529,6 +13585,10 @@
       "bytes": 4492,
       "sha256": "2ca2ffc6421adfae5a701812ff31e7ab67768fd449948f897bf41d1eba965778"
     },
+    "extension/genshin-dialogue-ui/assets/battle/skills/active-defense-bastion-charge.webp": {
+      "bytes": 3252,
+      "sha256": "d4cdfb8955d2bb35e6de8d1ebec968ffef22d6438fc29084752db3289ccff14e"
+    },
     "extension/genshin-dialogue-ui/assets/battle/skills/adagio-phantom-night-dancers.webp": {
       "bytes": 5908,
       "sha256": "52e2fc09da8b9995a0b7791dd00d63c9bf7ea91c2aa83b2d7595c90c2ba64c1c"
@@ -13572,6 +13632,10 @@
     "extension/genshin-dialogue-ui/assets/battle/skills/allegoria.webp": {
       "bytes": 4954,
       "sha256": "b164a7781ad1915e43871371bf8d5ac74547b0efdae05ae29243cea470ccbee1"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/skills/analysis-gradient-theory.webp": {
+      "bytes": 3142,
+      "sha256": "119d5a2d446d249cf72a1bf6f33410204ff3764801648605749460aca809e5ae"
     },
     "extension/genshin-dialogue-ui/assets/battle/skills/ancient-rite-arcane-light.webp": {
       "bytes": 5128,
@@ -13776,6 +13840,10 @@
     "extension/genshin-dialogue-ui/assets/battle/skills/ceremonial-crystalshot.webp": {
       "bytes": 5174,
       "sha256": "87bc44fdc369cd071b902646de4ae5bdceb2c6102e318084a3777504347417a7"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/skills/chain-reaction.webp": {
+      "bytes": 5176,
+      "sha256": "cb676f7c1af2c7e61b75e107a14363955fac3e3c3196b0302bc8f6f15c10c1e8"
     },
     "extension/genshin-dialogue-ui/assets/battle/skills/chihayaburu.webp": {
       "bytes": 4250,
@@ -14121,6 +14189,10 @@
       "bytes": 4628,
       "sha256": "ce1b1434d2a4fbd9d1c1716dac97c868d326bfd5173bda3a1f1aab726cef147b"
     },
+    "extension/genshin-dialogue-ui/assets/battle/skills/flowfire-blade.webp": {
+      "bytes": 5140,
+      "sha256": "7d43330849484a7e510e7ce6ff9bf13439dc778047034532701784686328243a"
+    },
     "extension/genshin-dialogue-ui/assets/battle/skills/flowing-eddies.webp": {
       "bytes": 5178,
       "sha256": "0184fbec40d8a950477afefdd20e3b0b891c61589ac9cb3a443ac726c5867cc7"
@@ -14132,6 +14204,10 @@
     "extension/genshin-dialogue-ui/assets/battle/skills/flying-fruit.webp": {
       "bytes": 5096,
       "sha256": "ecf4c4702c37e4c28db051ecb4302df8a9ff60f02be3ac2facde8100dd029255"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/skills/focused-fire-lightning-salvo.webp": {
+      "bytes": 2710,
+      "sha256": "35c8d08f9b003543a458880a58f7a515a73af895a65843c10e9a049bedcaff2b"
     },
     "extension/genshin-dialogue-ui/assets/battle/skills/fontemer-hoarthunder.webp": {
       "bytes": 4976,
@@ -14312,6 +14388,10 @@
     "extension/genshin-dialogue-ui/assets/battle/skills/guard-stance.webp": {
       "bytes": 5078,
       "sha256": "511ece8a3aafe8331534fd68255c9956113630bf60dbeb833ad4621335fd6e16"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/skills/guard-tactics-sword-and-shield.webp": {
+      "bytes": 4946,
+      "sha256": "068ee91944a1176a6dd458409070add635c5f37fe52e50fdc92591861c700605"
     },
     "extension/genshin-dialogue-ui/assets/battle/skills/guardian-vent.webp": {
       "bytes": 5802,
@@ -14817,6 +14897,10 @@
       "bytes": 4652,
       "sha256": "472262d615b51797c5020190f075c51954027e95634ea6b861864dbba59e1a2c"
     },
+    "extension/genshin-dialogue-ui/assets/battle/skills/plains-scorcher.webp": {
+      "bytes": 5414,
+      "sha256": "40d6dea79daecb59e5121c0634dad27f33e91335357618af4b50415e3249ecb6"
+    },
     "extension/genshin-dialogue-ui/assets/battle/skills/plama-lawa.webp": {
       "bytes": 4556,
       "sha256": "b114c4ef3d69b7eb2d613bf7a9cc3be84f964da520b0e14dd43951fa5fbaceb4"
@@ -14860,6 +14944,10 @@
     "extension/genshin-dialogue-ui/assets/battle/skills/principle-of-purity-as-the-light-shifts.webp": {
       "bytes": 5148,
       "sha256": "12381b88a8d2c4c395d096686942ca39a94032292b664e6fb3968920b3b15d08"
+    },
+    "extension/genshin-dialogue-ui/assets/battle/skills/principle-variable-detection.webp": {
+      "bytes": 3812,
+      "sha256": "7ef6c31f04a487e0f6f663fbe7bdea28f77c0f4b5a346500ba7e0c0f14a04238"
     },
     "extension/genshin-dialogue-ui/assets/battle/skills/prophecies-of-dawn.webp": {
       "bytes": 5764,
@@ -19633,6 +19721,10 @@
       "bytes": 12094,
       "sha256": "ff2d58a793c2ca4a9e94d4f9a6dee7d979a9a3f70171ddf927149452fbecb9a3"
     },
+    "extension/genshin-dialogue-ui/assets/namecards/achievement-stillness.webp": {
+      "bytes": 14122,
+      "sha256": "52f07160d67980ffc50edadf82ae4f41af000d7ca0c0aeb377a7e0dbacc9b51f"
+    },
     "extension/genshin-dialogue-ui/assets/namecards/achievement-stone-dragon.webp": {
       "bytes": 14870,
       "sha256": "ab2ba80309562b84c2ce3bcaf6dab8cea81149cf57532232e3c7a3855b226143"
@@ -20133,6 +20225,10 @@
       "bytes": 17708,
       "sha256": "1a643c007600a5805034b5310e425cfd7a3d84b1f59aa29f377d9dc7998485c4"
     },
+    "extension/genshin-dialogue-ui/assets/namecards/mitya-scarf.webp": {
+      "bytes": 22216,
+      "sha256": "ce2b8f67d90d5a089b7495e62dffd1f1a442a10f8251b193fa82f10a46f68e56"
+    },
     "extension/genshin-dialogue-ui/assets/namecards/mona-starry-sky.webp": {
       "bytes": 5880,
       "sha256": "bba1959dfcf53844d0d1823ad3c07256c2a2f67057c5c86f658fd33be3060de7"
@@ -20304,6 +20400,10 @@
     "extension/genshin-dialogue-ui/assets/namecards/snezhnaya-long-night.webp": {
       "bytes": 24538,
       "sha256": "202d15236729be9d411f322561cd1eb22ed3105545b8fce1a36f72597ed46b0e"
+    },
+    "extension/genshin-dialogue-ui/assets/namecards/snezhnaya-snow-wings.webp": {
+      "bytes": 17254,
+      "sha256": "7a4f9d726a00a3d8f932e141761f7580c7c1528d34d69dd06d0dd2d86d3e4bad"
     },
     "extension/genshin-dialogue-ui/assets/namecards/sucrose-bio-alchemy.webp": {
       "bytes": 7616,
@@ -20493,6 +20593,10 @@
       "bytes": 24758,
       "sha256": "e5df41a5d711ca41eaeec99da939a78f72d148458924f7ba01eaba7818e9bddb"
     },
+    "extension/genshin-dialogue-ui/assets/namecards/travel-notes-sacred-spirit.webp": {
+      "bytes": 25008,
+      "sha256": "36259b71ee8aff84aafa71646b38558cd2b10a1eacb8afcc2bef933da30c1c7d"
+    },
     "extension/genshin-dialogue-ui/assets/namecards/travel-notes-secrets.webp": {
       "bytes": 19364,
       "sha256": "37d980c05ad182bee20b8c4d773f304f254736b182c3a844cad31745cc02713a"
@@ -20556,6 +20660,10 @@
     "extension/genshin-dialogue-ui/assets/namecards/travel-notes-woodlands.webp": {
       "bytes": 26606,
       "sha256": "9df21f1bfd0612e95a9a352249984e172dbf37663e961791d2bdf361a94bb3a4"
+    },
+    "extension/genshin-dialogue-ui/assets/namecards/valeriy-rank.webp": {
+      "bytes": 20710,
+      "sha256": "bca537bedc8edb163c9f4cab652754ea2459a731f124b1050f0755e6df8671cf"
     },
     "extension/genshin-dialogue-ui/assets/namecards/varesa-powerhouse.webp": {
       "bytes": 16378,
@@ -24070,8 +24178,8 @@
       "sha256": "6c6eb5a9d9b8a3bb2d1e5b10aad98c32241ba9db0bb75fddbe191784cecee632"
     },
     "extension/genshin-dialogue-ui/assets/world-locations/glupov.webp": {
-      "bytes": 345406,
-      "sha256": "40ccda987568835cd9b6c020c86a1b011115466256bc5585bf744af172d85e42"
+      "bytes": 1810004,
+      "sha256": "b84d112cdb13b85a241a36f853e2b6b3d6640efcbd823291d6bb91f4c16a5331"
     },
     "extension/genshin-dialogue-ui/assets/world-locations/grand-narukami-shrine.png": {
       "bytes": 3882947,

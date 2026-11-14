@@ -412,6 +412,11 @@
   "file": "achievement-snowy-summit.webp"
  },
  {
+  "id": "achievement-stillness",
+  "name": "Achievement: Stillness",
+  "file": "achievement-stillness.webp"
+ },
+ {
   "id": "achievement-stone-dragon",
   "name": "Achievement: Stone Dragon",
   "file": "achievement-stone-dragon.webp"
@@ -991,6 +996,12 @@
   "character": "Lyney"
  },
  {
+  "id": "mitya-scarf",
+  "name": "Mitya: Scarf",
+  "file": "mitya-scarf.webp",
+  "character": "Mitya"
+ },
+ {
   "id": "mona-starry-sky",
   "name": "Mona: Starry Sky",
   "file": "mona-starry-sky.webp",
@@ -1185,6 +1196,11 @@
   "id": "snezhnaya-frostfall",
   "name": "Snezhnaya: Frostfall",
   "file": "snezhnaya-frostfall.webp"
+ },
+ {
+  "id": "snezhnaya-snow-wings",
+  "name": "Snezhnaya: Snow Wings",
+  "file": "snezhnaya-snow-wings.webp"
  },
  {
   "id": "sucrose-bio-alchemy",
@@ -1410,6 +1426,11 @@
   "file": "travel-notes-sabzeruz.webp"
  },
  {
+  "id": "travel-notes-sacred-spirit",
+  "name": "Travel Notes: Sacred Spirit",
+  "file": "travel-notes-sacred-spirit.webp"
+ },
+ {
   "id": "travel-notes-secrets",
   "name": "Travel Notes: Secrets",
   "file": "travel-notes-secrets.webp"
@@ -1483,6 +1504,12 @@
   "id": "travel-notes-woodlands",
   "name": "Travel Notes: Woodlands",
   "file": "travel-notes-woodlands.webp"
+ },
+ {
+  "id": "valeriy-rank",
+  "name": "Valeriy: Rank",
+  "file": "valeriy-rank.webp",
+  "character": "Valeriy"
  },
  {
   "id": "varesa-powerhouse",

@@ -1238,11 +1238,11 @@ Image review: Ground-level shoreline view across shallow water toward a wrecked 
 
 ### Glupov
 
-The Fatui’s satellite city within Snezhnograd and their headquarters, home of the Royal Armory Palace. Default characters: Mitya and Valeriy. The Armory Palace is not part of the open world, so the waypoint is the centre of HoYoLAB’s Glupov map label. Music borrows neighbouring Zapolyarny Palace’s tracks.
+The Fatui’s satellite city within Snezhnograd and their headquarters, home of the Royal Armory Palace. Default character: Valeriy. The Armory Palace is not part of the open world, so the waypoint is the centre of HoYoLAB’s Glupov map label. Music borrows neighbouring Zapolyarny Palace’s tracks.
 
 [Background](../../extension/genshin-dialogue-ui/assets/world-locations/glupov.webp) · [Image source](https://genshin-impact.fandom.com/wiki/File:Glupov.png) · [Lore](https://genshin-impact.fandom.com/wiki/Armory_Palace)
 
-Image review: the wiki’s in-game image, unchanged; a ground-level view up the approach to the fortress with three ordinary NPCs and the game logo, no playable characters, HUD or captions.
+Image review: user-approved generated interpretation of the previous wiki screenshot, installed on 2026-11-14. The empty snowy fortress approach retains the central tower, entrance, purple/gold banners and blue daylight, with no people, HUD, lettering or logos. The approved PNG was encoded to lossless WebP without resizing (1672×941). [Reference, prompt and approval record](../../art/location-backgrounds/2026-11-14-glupov/manifest.json).
 
 ### Morepesok
 
@@ -1330,9 +1330,9 @@ Image review: Ground-height view along a snow path toward an igloo doorway. Seve
 
 ### Snezhnograd
 
-Snezhnaya’s capital, with snowy lanes, residential streets, and warm-lit public spaces. It is the region’s main urban hub and a natural backdrop for everyday city scenes.
+Snezhnaya’s capital, with snowy lanes, residential streets, theatres and warm-lit public spaces. It is the region’s main urban hub and a natural backdrop for everyday city scenes.
 
-Default characters: None. Unoccupied location. Its wilderness enemy pool keeps it free of homes; Mitya and Valeriy live in neighbouring Glupov.
+Default character: Mitya, who escapes here from his research at the Armory Palace in neighbouring Glupov. Since catalog 27 the capital is a city waypoint with no enemy pool.
 
 [Background](../../extension/genshin-dialogue-ui/assets/world-locations/snezhnograd.jpg) · [Image source](https://www.rpgsite.net/news/21024-genshin-impact-version-7-0-snezhnaya-music-new-trailer) · [Lore](https://www.gamespress.com/Genshin-Impact-Finally-Lands-in-Snezhnaya-Teyvats-Seventh-Nation-on-Au)
 
@@ -1344,7 +1344,7 @@ Image review: Ground-level view down a snowy residential lane and plaza, with la
 
 Snezhnograd’s central rail hub and the largest station in the nation. Trains connect it to settlements across Snezhnaya, making the concourse a natural place for arrivals, departures, and chance encounters.
 
-Default characters: None. Unoccupied location.
+Default characters: None. A city waypoint with no enemy pool since catalog 27.
 
 [Background](../../extension/genshin-dialogue-ui/assets/world-locations/central-station.jpg) · [Image source](https://www.rpgsite.net/news/21024-genshin-impact-version-7-0-snezhnaya-music-new-trailer) · [Lore](https://www.hoyodex.com/wiki/genshin-impact/train)
 

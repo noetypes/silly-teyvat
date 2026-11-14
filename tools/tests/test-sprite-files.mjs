@@ -1,7 +1,7 @@
 // Unit checks for extension/genshin-dialogue-ui/sprite-files.js. Run: node tools/tests/test-sprite-files.mjs
 import assert from 'node:assert/strict';
 globalThis.location={href:'http://localhost:8000/'};
-const {spriteStem,spriteAudioKey,spriteLocation,normalizeSpriteKeys,healSceneSources}=await import('../../extension/genshin-dialogue-ui/sprite-files.js');
+const {spriteStem,spriteAudioKey,spriteLocation,normalizeSpriteKeys,healSceneSources,spriteVoiceLines}=await import('../../extension/genshin-dialogue-ui/sprite-files.js');
 let n=0;const ok=(name,fn)=>{fn();n++;console.log('PASS',name);};
 
 ok('the stem drops an image extension only',()=>{
@@ -38,5 +38,20 @@ ok('a saved scene follows a converted sprite, and waits for a folder it has not 
     assert.deepEqual(r.pending,['Aether']);
     assert.deepEqual(r.scene.map(s=>s.src),['/characters/Klee/neutral.webp?t=2','/characters/Klee/joy.png?t=2','/user/files/other.png','/characters/Klee/gone.png']);
     assert.equal(r.scene[0].x,.2);assert.equal(scene[0].src,'/characters/Klee/neutral.png?t=1');
+});
+ok('an outfit without its own voice lines borrows the same expression from another set',()=>{
+    const main=[{id:'joy'}],chibi=[{id:'chibi-joy'}],love=[{id:'love'}],own=[{id:'own'}];
+    const prefs={spriteAudioFiles:{'Klee/joy':main,'Klee/Chibi/joy':chibi,'Klee/love':love,'Klee/Blossoming Starlight/joy':[],'Klee/Blossoming Starlight/anger':own,'Barbara/joy':[{id:'b'}]}};
+    assert.deepEqual(spriteVoiceLines(prefs,'Klee/Blossoming Starlight/joy'),{files:main,from:'Klee/joy'});
+    assert.deepEqual(spriteVoiceLines(prefs,'Klee/joy'),{files:main,from:''});
+    assert.deepEqual(spriteVoiceLines(prefs,'Klee/Blossoming Starlight/anger'),{files:own,from:''});
+    assert.deepEqual(spriteVoiceLines(prefs,'Klee/Blossoming Starlight/love-1').from,'Klee/love');
+    assert.deepEqual(spriteVoiceLines(prefs,'Klee/Blossoming Starlight/fear').files,[]);
+    prefs.spriteAudioFiles['Klee/joy']=[];
+    assert.equal(spriteVoiceLines(prefs,'Klee/Blossoming Starlight/joy').from,'Klee/Chibi/joy');
+    prefs.spriteAudioMuted={'Klee/Blossoming Starlight/joy':true};
+    assert.deepEqual(spriteVoiceLines(prefs,'Klee/Blossoming Starlight/joy').files,[]);
+    assert.equal(spriteVoiceLines(prefs,'Klee/Blossoming Starlight/joy',{ignoreMuted:true}).from,'Klee/Chibi/joy');
+    assert.deepEqual(spriteVoiceLines({},'Klee/joy').files,[]);
 });
 console.log(`${n} passed`);

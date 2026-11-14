@@ -9,7 +9,7 @@ import {newLocalId} from './local-id.js';
 import {requiredCGTrust,TRUST_MAX} from './scene-trust.js';
 // Outfit registry uses native Character Expressions folder overrides. Sprite files
 // are managed through SillyTavern's existing authenticated upload/delete APIs.
-import { createMediaAdapter, mediaSettings, spriteAudioKey, localMediaPath, isVideoCG, registerExpression, syncExpressionControls } from './media-store.js';
+import { createMediaAdapter, mediaSettings, spriteAudioKey, spriteVoiceLines, localMediaPath, isVideoCG, registerExpression, syncExpressionControls } from './media-store.js';
 import { characterPreferences, bounded, roster } from './staging.js';
 import { nextSlotName, spriteDrafts, draftSprite } from './wardrobe-slots.js';
 import { backgroundRegions } from './backgrounds.js';
@@ -400,7 +400,22 @@ export function mountWardrobe({host, getContext, onChange = async () => {}, onMe
                 const files=audioFiles();files.splice(files.indexOf(file),1);getContext().saveSettingsDebounced();renderAudio();
             }));list.append(row);
         }
-        if (!list.children.length) list.textContent = 'No audio assigned.';
+        if (!list.children.length) sharedAudio(list);
+    }
+    // A sprite without its own lines speaks with the same expression's lines from another sprite set.
+    function sharedAudio(list){
+        const prefs=mediaSettings(getContext()),key=spriteAudioKey(folder(),selected.path);
+        const muted=Boolean(prefs.spriteAudioMuted?.[key]),shared=spriteVoiceLines(prefs,key,{ignoreMuted:true});
+        if(!shared.files.length){list.textContent='No audio assigned.';return;}
+        const set=shared.from.split('/').slice(1,-1).join('/') || 'main sprites';
+        const note=document.createElement('p');note.className='gi-audio-shared';
+        note.textContent=muted?`Not using the ${set} lines for this expression.`:`Using the ${set} lines for this expression:`;list.append(note);
+        if(!muted)for(const file of shared.files){const row=document.createElement('div');row.className='gi-wardrobe-row';row.append(makeButton(`Play ${file.name}`,()=>previewAudio([file]).catch(e=>status(e.message))));list.append(row);}
+        list.append(makeButton(muted?'Use shared lines':'Don\'t use here',()=>{
+            prefs.spriteAudioMuted ??= {};
+            if(muted)delete prefs.spriteAudioMuted[key];else prefs.spriteAudioMuted[key]=true;
+            getContext().saveSettingsDebounced();renderAudio();
+        }));
     }
     const cgs = () => character ? mediaSettings(getContext()).characterCGs[character.avatar] ??= [] : [];
     function renderCGAudio(){

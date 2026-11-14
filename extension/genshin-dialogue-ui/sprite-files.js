@@ -14,6 +14,26 @@ export function spriteAudioKey(folder,src){
     return `${folder}/${spriteStem(lastSegment(new URL(src,location.href).pathname))}`;
 }
 
+// The voice lines a sprite plays, by its key ("Klee/Blossoming Starlight/joy"). A sprite with none of its own
+// borrows the same expression's lines from the character's other sprite sets, its main set first, so a new
+// outfit speaks like the old one. A player who turned that off for the sprite (spriteAudioMuted) hears nothing.
+// Returns {files, from}: from is the key the lines were borrowed from, or '' for the sprite's own.
+// ignoreMuted finds the lines a muted sprite would borrow, for the wardrobe to offer them again.
+export function spriteVoiceLines(prefs,key,{ignoreMuted=false}={}){
+    const table=prefs?.spriteAudioFiles || {},own=table[key];
+    if(own?.length||!ignoreMuted&&prefs?.spriteAudioMuted?.[key])return {files:own || [],from:''};
+    const parts=key.split('/'),character=parts[0],stem=parts.at(-1);
+    if(parts.length<2)return {files:[],from:''};
+    const sets=Object.keys(table).filter(other=>other!==key&&other.split('/')[0]===character&&table[other]?.length)
+        .sort((a,b)=>a.split('/').length-b.split('/').length||a.localeCompare(b));
+    // An exact expression first, then the plain one for a numbered variant (love-1 borrows love).
+    for(const want of [stem,stem.replace(/-\d+$/,'')]){
+        const from=sets.find(other=>other.split('/').at(-1)===want);
+        if(from)return {files:table[from],from};
+    }
+    return {files:[],from:''};
+}
+
 // "/characters/Aether/Traveler%20Persona/neutral.png?t=1" -> {folder:'Aether/Traveler Persona', stem:'neutral'}, or null
 // when the address is not a sprite in SillyTavern's characters folder.
 export function spriteLocation(src){

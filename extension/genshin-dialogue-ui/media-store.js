@@ -3,7 +3,7 @@ import {newLocalId} from './local-id.js';
 // assignments only, so audio and CGs work on other devices using this server.
 import { finalizeChoiceRequest, finalizeReasoningRequest, preferReasoningOff } from './choices-api.js';
 import { defaultPrompt } from './prompt-templates.js';
-import { spriteAudioKey } from './sprite-files.js';
+import { spriteAudioKey, spriteVoiceLines } from './sprite-files.js';
 import {volumeLevel} from './audio-levels.js';
 export function mediaSettings(ctx) {
     const prefs = ctx.extensionSettings.genshin_dialogue_ui ??= {};
@@ -18,7 +18,7 @@ export function localMediaPath(value) {
     } catch { return ''; }
 }
 // Per-sprite settings are keyed by folder and name, not by file extension (sprite-files.js).
-export {spriteAudioKey};
+export {spriteAudioKey, spriteVoiceLines};
 const VIDEO_FILE=/\.(mp4|m4v|webm|mov)([?#]|$)/i,MEDIA_TYPES={audio:/^(mp3|wav|m4a|ogg|webm|aac|flac)$/,image:/^(png|webp|jpe?g|gif|avif)$/,cg:/^(png|webp|jpe?g|gif|avif|mp4|m4v|webm|mov)$/};
 export const isVideoCG=cg=>VIDEO_FILE.test(cg?.path || '');
 export const phoneLayout=()=>matchMedia('(max-width: 768px), (max-height: 500px)').matches;

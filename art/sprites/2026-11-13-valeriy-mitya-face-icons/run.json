@@ -1,0 +1,39 @@
+{
+  "method": "Non-generative circular face crops from the user-supplied official Icon art (content/character-cards/snezhnaya-2026-11-12/supplied-artwork), framed to match the wiki Avatar icons of other adult characters. Built by tools/build-supplied-face-icons.py with the ComfyUI Pillow 12 Python.",
+  "replaces": {
+    "Mitya": "mitya-supplied-fe5a5d08ab.webp",
+    "Valeriy": "valeriy-supplied-aec1f92760.webp"
+  },
+  "entries": [
+    {
+      "name": "Mitya",
+      "source": "content/character-cards/snezhnaya-2026-11-12/supplied-artwork/Mitya_Icon.webp",
+      "source_sha256": "fe5a5d08ab1b1c59e9775770b27f9c31442e8c5601d3bc5c5a54af6f4baa365d",
+      "crop_box_256": [
+        41,
+        26,
+        212,
+        196
+      ],
+      "zoom": 1.5,
+      "output": "mitya-face-e9ba0bc817.webp",
+      "output_sha256": "e9ba0bc8173e1c1d89cc3559eeb8a2e2083edc250c135cbe5277c1975c51e1ca",
+      "asset": "extension/genshin-dialogue-ui/assets/avatar-icons/mitya-face-e9ba0bc817.webp"
+    },
+    {
+      "name": "Valeriy",
+      "source": "content/character-cards/snezhnaya-2026-11-12/supplied-artwork/Valeriy_Icon.webp",
+      "source_sha256": "aec1f92760e95e7ccdbc21228e7303f1362880de2ecd27ff7ebdf429d6bb94a9",
+      "crop_box_256": [
+        42,
+        19,
+        222,
+        199
+      ],
+      "zoom": 1.42,
+      "output": "valeriy-face-0483f3bc05.webp",
+      "output_sha256": "0483f3bc05eee11de00f705c7c197b78391820d9500b3bb9dec9bac6a531c5d4",
+      "asset": "extension/genshin-dialogue-ui/assets/avatar-icons/valeriy-face-0483f3bc05.webp"
+    }
+  ]
+}

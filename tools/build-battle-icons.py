@@ -55,6 +55,8 @@ def resolve(titles, width=None):
     return found
 
 def save_png(url, target, size=None):
+    # A file already there is a pack link (or this run's own); writing through it would change the data pack.
+    if target.exists(): return 0
     image = Image.open(io.BytesIO(fetch(url))).convert('RGBA')
     if size and max(image.size) > size: image.thumbnail((size, size), Image.LANCZOS)
     target.parent.mkdir(parents=True, exist_ok=True)

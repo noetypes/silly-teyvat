@@ -1,0 +1,30 @@
+{
+  "date": "2026-11-14",
+  "tool": "OpenAI built-in image_gen.imagegen",
+  "useCase": "stylized-concept",
+  "status": "User-approved and installed as the Glupov map background.",
+  "userApproved": true,
+  "reference": "reference-glupov.webp",
+  "referenceAsset": "extension/genshin-dialogue-ui/assets/world-locations/glupov.webp",
+  "referenceSource": "https://genshin-impact.fandom.com/wiki/File:Glupov.png",
+  "output": "glupov-generated-v1.png",
+  "transform": "Lossless WebP encoding; pixel-identical RGB to the approved generated PNG.",
+  "prompt": "Use case: stylized-concept. Asset: wide 16:9 landscape visual novel location background for Silly Teyvat. Create a polished Genshin Impact style environment illustration of Glupov using the supplied current in-game image as the direct architectural, composition and lighting reference. Preserve the recognizable pale blue-gray stone fortress, tall central rectangular tower with long gold vertical ornament and four-point eye-like emblem, lower flanking towers, angular bastions, broad central staircase, recessed monumental entrance, purple and gold vertical banners, snow-covered ledges and icicles, warm small lanterns, frosted evergreen trees at the sides and the snowy low hedges bordering the paved approach. Match the reference's clear cold blue daylight and delicate luminous ice trails high in the blue sky. Maintain a natural near-ground-level view looking along the approach toward the fortress, its full central tower visible, with spacious uncluttered foreground pavement for separately rendered character sprites. Crisp elegant painterly anime game environment, rich architectural detail and coherent perspective; faithful to this location rather than inventing another palace. Empty environment only: no people, characters, creatures, interface, captions, lettering, signatures, logos or watermark.",
+  "referenceDimensions": [
+    1920,
+    1080
+  ],
+  "referenceSHA256": "40ccda987568835cd9b6c020c86a1b011115466256bc5585bf744af172d85e42",
+  "outputDimensions": [
+    1672,
+    941
+  ],
+  "outputSHA256": "836fe737f7865be85fde9a56d17588f3b2e9dfc3f6df9394500d3f009e97a0d4",
+  "approvalDate": "2026-11-14",
+  "asset": "extension/genshin-dialogue-ui/assets/world-locations/glupov.webp",
+  "assetSHA256": "b84d112cdb13b85a241a36f853e2b6b3d6640efcbd823291d6bb91f4c16a5331",
+  "assetDimensions": [
+    1672,
+    941
+  ]
+}
