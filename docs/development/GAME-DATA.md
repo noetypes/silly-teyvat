@@ -157,7 +157,13 @@ The assets repository holds the exported ZIP in 48 MiB parts, under an immutable
 The extension verifies and installs these parts one at a time on first install, keeping at most
 two parts in its download cache, and can read changed
 files by byte range across part boundaries on updates. No GitHub login or extra server plugin
-is needed. Keep old tags and their files available.
+is needed. Keep old tags and their files available: the extension downloads every release from its
+own tag, so never delete or move a tag. The `main` branch holds only the current release's parts.
+Once a new release is tagged, `git rm` the previous version's parts in the next assets commit, and
+delete its ZIP from `silly-teyvat-data/releases/`. Each release adds about 2 GB, and the parts under
+the tag can rebuild it exactly (`cat` the parts in order; the result matches `sha256` in the tag's
+`release.json`). Check a release before deleting its ZIP: the v1.79.0 tag's `release.json` still
+describes 1.78.0, because 1.79.0 was uploaded but never released to players.
 
 ```sh
 node tools/export-game-data.mjs --out ../silly-teyvat-data/releases/silly-teyvat-game-data-1.77.0.zip --version 1.77.0
