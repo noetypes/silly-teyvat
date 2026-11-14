@@ -96,6 +96,16 @@ PNG text chunk byte for byte after SillyTavern rewrites its legacy card format,
 and requests fresh thumbnails. Importable repaired cards and the installation
 record live in `content/character-cards/portrait-fixes-2026-11-14/`.
 
+## Character tags
+
+`content/character-cards/card-tags.json` lists every card's SillyTavern tags: role, rarity, element, region,
+weapon, build and gender, then titles and nicknames, occupation, affiliation, species and personality. The game data
+export carries them to players (`tags` and `tagMap` in its manifest), and import adds them without removing a
+player's own. After adding a card or changing the file, run
+`node tools/apply-card-tags.mjs` (Playwright on `NODE_PATH`; `--dry-run` first) against the live SillyTavern. It
+uses SillyTavern's own tag code, reuses tags by name and only adds; close or reload other SillyTavern tabs, since a
+tab that saves later would write its older tag list back.
+
 ## Lorebook
 
 The Genshin Impact Lorebook lives in the live SillyTavern (`worlds/Genshin Impact Lorebook.json`) and ships in the game data export. After adding characters or waypoints, run `python3 tools/add-lorebook-entries.py --user-dir <SillyTavern>/data/default-user` to list cards and waypoints that no entry's key mentions yet, then add `--apply --backup DIR`. New entries come from the card descriptions and the location catalog; edit its `REWRITES` table for hand-written entries such as Mitya, Valeriy and the Armory Palace. A second run should report nothing to add.
