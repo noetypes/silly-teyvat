@@ -68,8 +68,10 @@ export async function runActionCardTests(){
         switchTo(r,'x');check('Katheryne\'s switch keeps your turn',r.turn==='party'&&r.state.active.party==='x');
         switchTo(r,'k');check('only once a round',r.turn==='enemy');
         declareEnd(r,'enemy');r.turn='party';declareEnd(r,'party');
-        const hand=r.hand.length;endPhase(r);
+        const hand=r.hand.length,endEvents=endPhase(r).events;
         check('Liyue Harbor Wharf draws two more at the End Phase',r.hand.length===Math.min(10,hand+4));
+        {const draws=endEvents.filter(e=>e.type==='draw');
+        check('each End Phase draw carries the hand as it was then, so the board shows two draws, not the same cards twice',draws.length===2&&draws[0].hand.length===hand+2&&draws[1].hand.length===hand+4&&draws[1].hand.slice(-2).join()===draws[1].cards.join()&&draws[0].hand.slice(-2).join()===draws[0].cards.join()&&draws[0].deckLeft===draws[1].deckLeft+2);}
         const next=startRound(finishRound(r).state,{dice:omni(8),hand:r.hand,deck:r.deck,items:ITEMS,strikeBack:false});
         check('Paimon creates two Omni dice as the Action Phase begins',next.dice.length===10&&next.timeline.some(e=>e.type==='dice'&&e.source==='Paimon'));
         check('usages run down',next.state.supports.find(s=>s.item==='paimon-companion').uses===1&&next.state.supports.find(s=>s.item==='liyue-harbor-wharf').uses===1);

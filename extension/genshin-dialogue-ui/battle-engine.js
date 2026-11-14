@@ -485,7 +485,7 @@ function core(round){
         // Cards put in the deck are remembered (team.deckAdds), since each round deals the deck from the bag again.
         if(to==='deck'){const adds=state.team.party.deckAdds ??= [];for(const id of list){const i=at===null?Math.floor(rand()*(round.deck.length+1)):Math.min(round.deck.length,at);round.deck.splice(i,0,id);adds.push(id);}push({type:'deck-add',cards:list,step});return;}
         const room=Math.max(0,HAND_MAX-round.hand.length),kept=list.slice(0,room);round.hand.push(...kept);
-        if(kept.length)push({type:'draw',cards:kept,burned:[],source:'created',created:true,step});
+        if(kept.length)push({type:'draw',cards:kept,burned:[],source:'created',created:true,step,hand:[...round.hand],deckLeft:round.deck.length});
     }
     // Discard from hand: highest cost first, cards of a cost, or at random. A discarded card's own "after
     // you discard" effect fires (Flamestrider: Soaring Ascent).
@@ -764,7 +764,7 @@ function core(round){
         if(n<=0)return;
         const {drawn,deck}=drawCards(round.deck,n,forecast?()=>.5:rngOf(round));
         const kept=drawn.slice(0,Math.max(0,HAND_MAX-round.hand.length));round.hand.push(...kept);round.deck=[...deck,...drawn.slice(kept.length)];
-        if(drawn.length)push({type:'draw',cards:kept,burned:drawn.slice(kept.length),source:source || ''});
+        if(drawn.length)push({type:'draw',cards:kept,burned:drawn.slice(kept.length),source:source || '',hand:[...round.hand],deckLeft:round.deck.length});
         noteDrawn(drawn,round);drawnTriggers(kept);
     }
     // Cards that act the moment they are drawn (Sigewinne's Bolstering Bubblebalms), then leave the hand.
@@ -1181,9 +1181,11 @@ export function endPhase(round){
         planIntent(state,enemy,rngOf(round));
     }
     // Both sides draw two cards (Silly Teyvat's enemies have none). A full hand sends the rest back to the deck.
+    // Each draw records the hand as it is right after it: the board plays the End Phase back after all of
+    // it has been worked out, so an earlier draw (Liyue Harbor Wharf) must not already show these cards.
     const {drawn,deck}=drawCards(round.deck,HAND_DRAW,rngOf(round));
     const kept=drawn.slice(0,Math.max(0,HAND_MAX-round.hand.length));round.hand.push(...kept);round.deck=[...deck,...drawn.slice(kept.length)];
-    if(drawn.length)push({type:'draw',cards:kept,burned:drawn.slice(kept.length)});
+    if(drawn.length)push({type:'draw',cards:kept,burned:drawn.slice(kept.length),hand:[...round.hand],deckLeft:round.deck.length});
     noteDrawn(drawn,round);c.drawnTriggers(kept);
     push({type:'statuses',fields:structuredClone(state.fields),supports:structuredClone(state.supports || []),units:state.units.map(u=>({id:u.id,aura:auraList(u.aura),statuses:structuredClone(u.statuses || []),shield:u.shield || 0,energy:u.energy || 0,hp:u.hp,intent:u.intent || null,cooldowns:structuredClone(u.cooldowns || {}),enraged:Boolean(u.enraged),usedRage:Boolean(u.usedRage)}))});
     state.round++;round.phase='over';

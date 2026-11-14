@@ -518,9 +518,10 @@ export function mountBattle({host,sound=createBattleSound(),onBurst=()=>{},onSto
         $('.tb-dice-count').textContent=String(dice.length);$('.tb-dice-left').textContent=String(dice.length);
         $('.tb-foe-acts').textContent=String(round?Math.max(0,round.enemyActions):0);
     }
-    function paintHand(){
+    // shown: the hand at one moment of a playback (a draw event's own hand and deck) instead of the round's now.
+    function paintHand(shown=null,deckLeft=null){
         const hand=$('.tb-hand');hand.querySelectorAll('.tb-item').forEach(n=>n.remove());
-        const ids=round?.hand || state.hand || [];
+        const ids=shown || round?.hand || state.hand || [];
         hand.style.setProperty('--n',String(Math.max(1,ids.length)));
         ids.forEach((id,i)=>{
             const item=ITEMS[id];if(!item)return;
@@ -529,14 +530,14 @@ export function mountBattle({host,sound=createBattleSound(),onBurst=()=>{},onSto
             card.innerHTML=`<img alt="" loading="lazy" draggable="false"><b class="tb-item-cost${price<item.cost?' tb-cheaper':''}">${whole(price)}</b>`;
             card.querySelector('img').src=itemArt(id);card.setAttribute('aria-label',`${item.name}: ${item.text} Costs ${item.cost} dice.`);
             card.classList.toggle('tb-held',pick?.type==='card'&&pick.index===i);
-            if(round&&myTurn())card.classList.toggle('tb-unaffordable',!cardCheck(round,i,pick?.type==='card'&&pick.index===i?pick.target:party().find(u=>alive(u))?.id).ok&&!(item.target==='downed'));
+            if(round&&!shown&&myTurn())card.classList.toggle('tb-unaffordable',!cardCheck(round,i,pick?.type==='card'&&pick.index===i?pick.target:party().find(u=>alive(u))?.id).ok&&!(item.target==='downed'));
             on(card,'pointerdown',event=>cardPointerDown(event,card,i));
             on(card,'click',event=>{event.stopPropagation();if(suppressClick||!myTurn())return;if(pick?.type==='card'&&pick.index===i){if(!pick.needsTarget||pick.target)confirm();return;}select({type:'card',index:i});});
             on(card,'pointerenter',()=>{if(!pick)showTip(card,`<small>${escapeHtml(kindLabel(item))}</small><strong>${escapeHtml(item.name)}</strong>${hexCost(null,item.cost,'tb-any')}<p>${escapeHtml(item.text)}</p>`);});on(card,'pointerleave',hideTip);
             hand.append(card);
         });
         $('.tb-hand').setAttribute('aria-label',`Your hand: ${ids.length} card${ids.length===1?'':'s'}`);
-        $('.tb-deck b').textContent=String(round?round.deck.length:0);
+        $('.tb-deck b').textContent=String(deckLeft ?? (round?round.deck.length:0));
         const played=$('.tb-played');played.replaceChildren();
         (round?.played || []).slice(0,landing?-1:undefined).forEach(use=>{
             const item=ITEMS[use.id],card=el('span','tb-played-card');card.innerHTML=`<img alt="">${use.target?'<i></i>':''}`;card.querySelector('img').src=itemArt(use.id);
@@ -875,9 +876,9 @@ export function mountBattle({host,sound=createBattleSound(),onBurst=()=>{},onSto
                 }
                 case 'end-round':{banner(e.side==='party'?'Round ended':'I\'m ending my Round.','',null,'tb-banner-end');sound.endRound?.();paintPlates();await wait(900);break;}
                 case 'tune':paintDice();break;
-                case 'draw':{for(const id of e.cards || [])void id;paintHand();if((e.cards || []).length){const items=[...dialog.querySelectorAll('.tb-hand .tb-item')].slice(-e.cards.length);items.forEach((n,k)=>{n.style.setProperty('--d',`${k*110}ms`);n.classList.add('tb-drawn');});$('.tb-hand').classList.add('tb-open');setTimeout(()=>{$('.tb-hand').classList.remove('tb-open');items.forEach(n=>n.classList.remove('tb-drawn'));},900+e.cards.length*110);sound.draw?.(e.cards.length);const deck=$('.tb-deck');deck.classList.remove('tb-drawing');void deck.offsetWidth;deck.classList.add('tb-drawing');deck.addEventListener('animationend',()=>deck.classList.remove('tb-drawing'),{once:true});banner(`Drew ${e.cards.length} card${e.cards.length===1?'':'s'}`,'End Phase');await wait(700);}
+                case 'draw':{paintHand(e.hand,e.hand?e.deckLeft:null);if((e.cards || []).length){const items=[...dialog.querySelectorAll('.tb-hand .tb-item')].slice(-e.cards.length);items.forEach((n,k)=>{n.style.setProperty('--d',`${k*110}ms`);n.classList.add('tb-drawn');});$('.tb-hand').classList.add('tb-open');setTimeout(()=>{$('.tb-hand').classList.remove('tb-open');items.forEach(n=>n.classList.remove('tb-drawn'));},900+e.cards.length*110);sound.draw?.(e.cards.length);const deck=$('.tb-deck');deck.classList.remove('tb-drawing');void deck.offsetWidth;deck.classList.add('tb-drawing');deck.addEventListener('animationend',()=>deck.classList.remove('tb-drawing'),{once:true});banner(`Drew ${e.cards.length} card${e.cards.length===1?'':'s'}`,'End Phase');await wait(700);}
                     // Unlike the card game, cards that don't fit a full hand of 10 are not lost: they stay in the deck.
-                    if((e.burned || []).length){paintHand();banner('Hand full',`${e.burned.length} card${e.burned.length===1?' stays':'s stay'} in your deck`,'#ffe9a6');await wait(800);}break;}
+                    if((e.burned || []).length){banner('Hand full',`${e.burned.length} card${e.burned.length===1?' stays':'s stay'} in your deck`,'#ffe9a6');await wait(800);}break;}
                 case 'act':{
                     endBurst();for(const card of cards.values())card.classList.remove('tb-acting');cards.get(e.actor)?.classList.add('tb-acting');
                     const move=movesOf(actor).find(m=>m.name===e.name&&(m.kind===e.kind||e.kind==='technique')) || {name:e.name,kind:e.kind};
