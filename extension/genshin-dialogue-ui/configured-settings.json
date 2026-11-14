@@ -8471,7 +8471,8 @@
    "Kaedehara Kazuha/embarrassment": [],
    "Kaedehara Kazuha/desire": [],
    "Kaedehara Kazuha/confusion": [],
-   "Kaedehara Kazuha/annoyance": []
+   "Kaedehara Kazuha/annoyance": [],
+   "Klee/Blossoming Starlight/neutral": []
   },
   "characterCGs": {
    "Klee.png": [
@@ -8584,7 +8585,8 @@
      "audio": [],
      "path": "silly-teyvat:/assets/cgs/birthday/paimon-2023-2.webp",
      "requiredCharacters": [
-      "Paimon.png"
+      "Paimon.png",
+      "Lumine.png"
      ]
     },
     {
@@ -10286,7 +10288,11 @@
       "Celebrating Paimon"
      ],
      "audio": [],
-     "path": "silly-teyvat:/assets/cgs/birthday/paimon-2023-2.webp"
+     "path": "silly-teyvat:/assets/cgs/birthday/paimon-2023-2.webp",
+     "requiredCharacters": [
+      "Paimon.png",
+      "Aether.png"
+     ]
     },
     {
      "id": "teyvat-mw31bkmr-73-rkesdo7i",
@@ -10297,7 +10303,10 @@
       "Moonlit memories"
      ],
      "audio": [],
-     "path": "silly-teyvat:/assets/cgs/scenes/memories-of-the-moon-lumine.webp"
+     "path": "silly-teyvat:/assets/cgs/scenes/memories-of-the-moon-lumine.webp",
+     "requiredCharacters": [
+      "Columbina.png"
+     ]
     }
    ],
    "Raiden Shogun.png": [
@@ -10390,30 +10399,6 @@
      "display": "frame"
     },
     {
-     "id": "teyvat-mw31bkms-b3-i12ff0rp",
-     "starter": "birthday-venti-2020",
-     "label": "Lyre Song",
-     "description": "Venti winks and holds up his lyre with musical notes and flowers around him. Use when Venti plays music, sings a ballad or performs in Mondstadt.",
-     "classifications": [
-      "Playing the lyre"
-     ],
-     "audio": [],
-     "path": "silly-teyvat:/assets/cgs/birthday/venti-2020.webp",
-     "display": "frame"
-    },
-    {
-     "id": "teyvat-mw31bkms-b4-zp7d1cg8",
-     "starter": "birthday-venti-2021",
-     "label": "Apple Offering",
-     "description": "Venti floats gently and holds out a red apple in a pale, dreamy scene. Use when Venti offers someone an apple, appears as an Archon or has a wistful moment.",
-     "classifications": [
-      "Holding an apple"
-     ],
-     "audio": [],
-     "path": "silly-teyvat:/assets/cgs/birthday/venti-2021.webp",
-     "display": "frame"
-    },
-    {
      "id": "teyvat-mw31bkms-b5-7dzqbmnz",
      "starter": "birthday-venti-2022",
      "label": "Treetop Cider",
@@ -10435,19 +10420,10 @@
      ],
      "audio": [],
      "path": "silly-teyvat:/assets/cgs/birthday/venti-2023.webp",
-     "display": "frame"
-    },
-    {
-     "id": "teyvat-mw31bkms-b7-5wsqb3hs",
-     "starter": "birthday-venti-2023-2",
-     "label": "Chibi Tree Song",
-     "description": "A chibi Venti sits on a tree branch playing his lyre as little birds sing along. Use when Venti plays for animals, relaxes in nature or has a cute moment.",
-     "classifications": [
-      "Birds and music"
-     ],
-     "audio": [],
-     "path": "silly-teyvat:/assets/cgs/birthday/venti-2023-2.webp",
-     "display": "frame"
+     "display": "frame",
+     "requiredLocations": [
+      "home-prune-mondstadt-fountain"
+     ]
     },
     {
      "id": "teyvat-mw31bkms-b8-6r5bi48v",
@@ -15040,6 +15016,10 @@
     {
      "label": "Official Art",
      "folder": "Klee/Official Art"
+    },
+    {
+     "label": "Blossoming Starlight",
+     "folder": "Klee/Blossoming Starlight"
     }
    ],
    "Kujou Sara.png": [
@@ -16585,7 +16565,8 @@
    "Hydro Hilichurl Rogue": [],
    "Frost Operative": [],
    "Fatui Electro Cicin Mage": [],
-   "Eveliina": []
+   "Eveliina": [],
+   "Klee/Blossoming Starlight": []
   },
   "backgroundRegions": [
    {
@@ -20370,8 +20351,8 @@
       "description": "The Shogun’s seat of government above Inazuma City, central to the confrontation over the Vision Hunt Decree.",
       "waypoint": {
        "mapId": "teyvat",
-       "x": 3840,
-       "y": 5750
+       "x": 3859.5,
+       "y": 5737.5
       },
       "coordinateMethod": "Approximate building entrance on the shared surface map; interior height is not represented.",
       "source": "https://genshin-impact.fandom.com/wiki/Tenshukaku",
@@ -22149,8 +22130,8 @@
       "residents": [],
       "waypoint": {
        "mapId": "teyvat",
-       "x": 3840,
-       "y": 5750
+       "x": 3822.5,
+       "y": 5704
       },
       "coordinateMethod": "Approximate Tenshukaku entrance on the shared surface map; the interior arena is not separately represented.",
       "source": "https://genshin-impact.fandom.com/wiki/Narukami_Island%3A_Tenshukaku",
@@ -29918,11 +29899,67 @@
       },
       "path": "silly-teyvat:/assets/world-locations/statue-snezhnaya.webp",
       "blank": false
+     },
+     {
+      "id": "home-glupov",
+      "label": "Glupov",
+      "description": "The Fatui’s satellite city within Snezhnograd and their headquarters, with the Royal Armory Palace deep inside it. Mitya’s research brings him here, and Valeriy’s Special Assignments Battalion guards the Armory Palace and the people who work in it.",
+      "classifications": [
+       "Glupov",
+       "Armory Palace",
+       "Royal Armory Palace",
+       "Fatui headquarters",
+       "city of fools"
+      ],
+      "suggestedCharacters": [
+       "Mitya",
+       "Valeriy"
+      ],
+      "residents": [
+       "Mitya.png",
+       "Valeriy.png"
+      ],
+      "waypoint": {
+       "mapId": "teyvat",
+       "x": -7470,
+       "y": -7640.5
+      },
+      "coordinateMethod": "Center of the official HoYoLAB map label bounds for Glupov (label 378); native map units. A label box is not a surveyed outline. The Armory Palace itself is not part of the open world, so the waypoint is the city that houses it.",
+      "coordinateSource": "https://sg-public-api-static.hoyolab.com/common/map_user/ys_obc/v1/map/map_anchor/list?map_id=2&app_sn=ys_obc&lang=en-us",
+      "source": "https://genshin-impact.fandom.com/wiki/Glupov",
+      "loreSource": "https://genshin-impact.fandom.com/wiki/Armory_Palace",
+      "candidate": false,
+      "introducedVersion": 26,
+      "imageReview": {
+       "reviewed": "2026-11-13",
+       "playableCharacters": false,
+       "gameUI": false,
+       "captions": false,
+       "camera": "Genshin Impact Wiki in-game image of Glupov (File:Glupov.png), a ground-level view up the approach to the fortress. Reviewed in full and zoomed: three ordinary NPCs on the path and the game logo remain; no playable characters, HUD, UID or captions.",
+       "editing": "None; the wiki file’s original WebP bytes are kept unchanged (sha256 40ccda987568835cd9b6c020c86a1b011115466256bc5585bf744af172d85e42)."
+      },
+      "musicResearch": {
+       "recommended": [
+        "Heavy Is the Dew",
+        "Dream of the Black Snow Swan"
+       ],
+       "source": "https://genshin-impact.fandom.com/wiki/Glupov",
+       "note": "No Glupov soundtrack is documented; it uses the tracks of neighbouring Zapolyarny Palace in Snezhnograd."
+      },
+      "music": {
+       "tracks": [
+        "music-game-15f5e0811a6a64cfeb21",
+        "music-game-9b844f5de41a30a4753d"
+       ],
+       "combatTrack": "music-game-52c0f0a5702aeb40866c"
+      },
+      "path": "silly-teyvat:/assets/world-locations/glupov.webp",
+      "blank": false
      }
     ]
    }
   ],
-  "starterLocationsVersion": 25,
+  "starterLocationsVersion": 26,
   "locationEncounters": true,
   "worldMap": {
    "metresPerUnit": 5,
@@ -30097,12 +30134,14 @@
    "Mayskaya.png": "expansion-rankova-zorya",
    "Knyazev.png": "expansion-rankova-zorya",
    "Plate.png": "map14-snezhnaya-huntsman-s-cabin",
-   "Whistle.png": "map14-snezhnaya-huntsman-s-cabin"
+   "Whistle.png": "map14-snezhnaya-huntsman-s-cabin",
+   "Mitya.png": "home-glupov",
+   "Valeriy.png": "home-glupov"
   },
   "hideDialogueQuotes": true,
   "allowMainDeparture": true,
   "worldPromptAllRegions": false,
-  "homeBindingsVersion": 8,
+  "homeBindingsVersion": 9,
   "locationCharacterLimit": 5,
   "randomEncounters": true,
   "encounterRate": 50,
@@ -30377,7 +30416,7 @@
     "modelType": "custom",
     "region": "",
     "maxHp": "26",
-    "modelScale": "75",
+    "modelScale": "70",
     "deathMessage": "{name} falls still. The threat has passed.",
     "hpCustom": false
    },
@@ -30532,6 +30571,589 @@
      }
     ],
     "notes": [],
+    "hpCustom": false
+   },
+   "Consecrated Fanged Beast.png": {
+    "role": "enemy",
+    "playable": false,
+    "element": "Dendro",
+    "modelType": "custom",
+    "region": "",
+    "maxHp": "56",
+    "modelScale": "60",
+    "deathMessage": "{name} falls still. The threat has passed.",
+    "hpCustom": false
+   },
+   "All-Devouring Narwhal.png": {
+    "role": "enemy",
+    "playable": false,
+    "element": "Hydro",
+    "modelType": "custom",
+    "region": "Fontaine",
+    "maxHp": "77",
+    "modelScale": "90",
+    "deathMessage": "All-Devouring Narwhal falls still as its elemental power fades.",
+    "hpCustom": false
+   },
+   "Anemo Samachurl.png": {
+    "role": "enemy",
+    "playable": false,
+    "element": "Anemo",
+    "modelType": "custom",
+    "region": "",
+    "maxHp": "26",
+    "modelScale": "60",
+    "deathMessage": "{name} falls still. The threat has passed.",
+    "hpCustom": false
+   },
+   "Arithmetic Enhancer Mek - Ousia.png": {
+    "role": "enemy",
+    "playable": false,
+    "element": "None",
+    "modelType": "custom",
+    "region": "",
+    "maxHp": "26",
+    "modelScale": "50",
+    "deathMessage": "{name} falls still. The threat has passed.",
+    "hpCustom": false
+   },
+   "Arithmetic Enhancer Mek - Pneuma.png": {
+    "role": "enemy",
+    "playable": false,
+    "element": "None",
+    "modelType": "custom",
+    "region": "",
+    "maxHp": "26",
+    "modelScale": "50",
+    "deathMessage": "{name} falls still. The threat has passed.",
+    "hpCustom": false
+   },
+   "Assault Specialist Mek - Ousia.png": {
+    "role": "enemy",
+    "playable": false,
+    "element": "Electro",
+    "modelType": "custom",
+    "region": "",
+    "maxHp": "56",
+    "modelScale": "75",
+    "deathMessage": "{name} falls still. The threat has passed.",
+    "hpCustom": false
+   },
+   "Assault Specialist Mek - Pneuma.png": {
+    "role": "enemy",
+    "playable": false,
+    "element": "Pyro",
+    "modelType": "custom",
+    "region": "",
+    "maxHp": "56",
+    "modelScale": "75",
+    "deathMessage": "{name} falls still. The threat has passed.",
+    "hpCustom": false
+   },
+   "Azhdaha.png": {
+    "role": "enemy",
+    "playable": false,
+    "element": "Geo",
+    "modelType": "custom",
+    "region": "Liyue",
+    "maxHp": "83",
+    "modelScale": "80",
+    "deathMessage": "Azhdaha falls still as its elemental power fades.",
+    "hpCustom": false
+   },
+   "Consecrated Horned Crocodile.png": {
+    "role": "enemy",
+    "playable": false,
+    "element": "Hydro",
+    "modelType": "custom",
+    "region": "",
+    "maxHp": "61",
+    "modelScale": "70",
+    "deathMessage": "{name} falls still. The threat has passed.",
+    "hpCustom": false
+   },
+   "Consecrated Scorpion.png": {
+    "role": "enemy",
+    "playable": false,
+    "element": "Electro",
+    "modelType": "custom",
+    "region": "",
+    "maxHp": "56",
+    "modelScale": "60",
+    "deathMessage": "{name} falls still. The threat has passed.",
+    "hpCustom": false
+   },
+   "Cryo Abyss Mage.png": {
+    "role": "enemy",
+    "playable": false,
+    "element": "Cryo",
+    "modelType": "custom",
+    "region": "",
+    "maxHp": "26",
+    "modelScale": "65",
+    "deathMessage": "{name} falls still. The threat has passed.",
+    "hpCustom": false
+   },
+   "Cryo Slime.png": {
+    "role": "enemy",
+    "playable": false,
+    "element": "Cryo",
+    "modelType": "custom",
+    "region": "",
+    "maxHp": "26",
+    "modelScale": "30",
+    "deathMessage": "{name} falls still. The threat has passed.",
+    "hpCustom": false
+   },
+   "Cryo Hypostasis.png": {
+    "role": "enemy",
+    "playable": false,
+    "element": "Cryo",
+    "modelType": "custom",
+    "region": "Mondstadt",
+    "maxHp": "84",
+    "modelScale": "90",
+    "deathMessage": "Cryo Hypostasis falls still as its elemental power fades.",
+    "hpCustom": false
+   },
+   "Cryo Whopperflower.png": {
+    "role": "enemy",
+    "playable": false,
+    "element": "Cryo",
+    "modelType": "custom",
+    "region": "",
+    "maxHp": "56",
+    "modelScale": "50",
+    "deathMessage": "{name} falls still. The threat has passed.",
+    "hpCustom": false
+   },
+   "Dendro Samachurl.png": {
+    "role": "enemy",
+    "playable": false,
+    "element": "Dendro",
+    "modelType": "custom",
+    "region": "",
+    "maxHp": "26",
+    "modelScale": "60",
+    "deathMessage": "{name} falls still. The threat has passed.",
+    "hpCustom": false
+   },
+   "Dvalin.png": {
+    "role": "enemy",
+    "playable": false,
+    "element": "Anemo",
+    "modelType": "custom",
+    "region": "Mondstadt",
+    "maxHp": "69",
+    "modelScale": "100",
+    "deathMessage": "Dvalin falls still as its elemental power fades.",
+    "hpCustom": false
+   },
+   "Electro Abyss Mage.png": {
+    "role": "enemy",
+    "playable": false,
+    "element": "Electro",
+    "modelType": "custom",
+    "region": "",
+    "maxHp": "26",
+    "modelScale": "60",
+    "deathMessage": "{name} falls still. The threat has passed.",
+    "hpCustom": false
+   },
+   "Electro Hilichurl Shooter.png": {
+    "role": "enemy",
+    "playable": false,
+    "element": "Electro",
+    "modelType": "custom",
+    "region": "",
+    "maxHp": "21",
+    "modelScale": "62",
+    "deathMessage": "{name} falls still. The threat has passed.",
+    "hpCustom": false
+   },
+   "Electro Hypostasis.png": {
+    "role": "enemy",
+    "playable": false,
+    "element": "Electro",
+    "modelType": "custom",
+    "region": "Mondstadt",
+    "maxHp": "84",
+    "modelScale": "90",
+    "deathMessage": "Electro Hypostasis falls still as its elemental power fades.",
+    "hpCustom": false
+   },
+   "Electro Samachurl.png": {
+    "role": "enemy",
+    "playable": false,
+    "element": "Electro",
+    "modelType": "custom",
+    "region": "",
+    "maxHp": "26",
+    "modelScale": "60",
+    "deathMessage": "{name} falls still. The threat has passed.",
+    "hpCustom": false
+   },
+   "Electro Slime.png": {
+    "role": "enemy",
+    "playable": false,
+    "element": "Electro",
+    "modelType": "custom",
+    "region": "",
+    "maxHp": "26",
+    "modelScale": "30",
+    "deathMessage": "{name} falls still. The threat has passed.",
+    "hpCustom": false
+   },
+   "Emperor of Fire and Iron.png": {
+    "role": "enemy",
+    "playable": false,
+    "element": "Pyro",
+    "modelType": "custom",
+    "region": "Fontaine",
+    "maxHp": "73",
+    "modelScale": "50",
+    "deathMessage": "Emperor of Fire and Iron falls still as its elemental power fades.",
+    "hpCustom": false
+   },
+   "Eremite Daythunder.png": {
+    "role": "enemy",
+    "playable": false,
+    "element": "Electro",
+    "modelType": "custom",
+    "region": "",
+    "maxHp": "46",
+    "modelScale": "85",
+    "deathMessage": "{name} falls still. The threat has passed.",
+    "hpCustom": false
+   },
+   "Eremite Desert Clearwater.png": {
+    "role": "enemy",
+    "playable": false,
+    "element": "Hydro",
+    "modelType": "custom",
+    "region": "",
+    "maxHp": "46",
+    "modelScale": "75",
+    "deathMessage": "{name} falls still. The threat has passed.",
+    "hpCustom": false
+   },
+   "Eremite Floral Ring-Dancer.png": {
+    "role": "enemy",
+    "playable": false,
+    "element": "Dendro",
+    "modelType": "custom",
+    "region": "",
+    "maxHp": "56",
+    "modelScale": "100",
+    "deathMessage": "{name} falls still. The threat has passed.",
+    "hpCustom": false
+   },
+   "Eremite Scorching Loremaster.png": {
+    "role": "enemy",
+    "playable": false,
+    "element": "Pyro",
+    "modelType": "custom",
+    "region": "",
+    "maxHp": "56",
+    "modelScale": "90",
+    "deathMessage": "{name} falls still. The threat has passed.",
+    "hpCustom": false
+   },
+   "Eremite Stone Enchanter.png": {
+    "role": "enemy",
+    "playable": false,
+    "element": "Geo",
+    "modelType": "custom",
+    "region": "",
+    "maxHp": "56",
+    "modelScale": "90",
+    "deathMessage": "{name} falls still. The threat has passed.",
+    "hpCustom": false
+   },
+   "Eremite Sunfrost.png": {
+    "role": "enemy",
+    "playable": false,
+    "element": "Cryo",
+    "modelType": "custom",
+    "region": "",
+    "maxHp": "42",
+    "modelScale": "95",
+    "deathMessage": "{name} falls still. The threat has passed.",
+    "hpCustom": false
+   },
+   "Experimental Field Generator.png": {
+    "role": "enemy",
+    "playable": false,
+    "element": "Geo",
+    "modelType": "custom",
+    "region": "Fontaine",
+    "maxHp": "70",
+    "modelScale": "90",
+    "deathMessage": "Experimental Field Generator falls still as its elemental power fades.",
+    "hpCustom": false
+   },
+   "Fatui Cryo Cicin Mage.png": {
+    "role": "enemy",
+    "playable": false,
+    "element": "Cryo",
+    "modelType": "custom",
+    "region": "",
+    "maxHp": "36",
+    "modelScale": "70",
+    "deathMessage": "{name} falls still. The threat has passed.",
+    "hpCustom": false
+   },
+   "Fatui Pyro Agent.png": {
+    "role": "enemy",
+    "playable": false,
+    "element": "Pyro",
+    "modelType": "custom",
+    "region": "",
+    "maxHp": "40",
+    "modelScale": "90",
+    "deathMessage": "{name} falls still. The threat has passed.",
+    "hpCustom": false
+   },
+   "Fatui Skirmisher - Anemoboxer Vanguard.png": {
+    "role": "enemy",
+    "playable": false,
+    "element": "Anemo",
+    "modelType": "custom",
+    "region": "",
+    "maxHp": "40",
+    "modelScale": "95",
+    "deathMessage": "{name} falls still. The threat has passed.",
+    "hpCustom": false
+   },
+   "Fatui Skirmisher - Cryogunner Legionnaire.png": {
+    "role": "enemy",
+    "playable": false,
+    "element": "Cryo",
+    "modelType": "custom",
+    "region": "",
+    "maxHp": "56",
+    "modelScale": "92",
+    "deathMessage": "{name} falls still. The threat has passed.",
+    "hpCustom": false
+   },
+   "Fatui Skirmisher - Electrohammer Vanguard.png": {
+    "role": "enemy",
+    "playable": false,
+    "element": "Electro",
+    "modelType": "custom",
+    "region": "",
+    "maxHp": "56",
+    "modelScale": "95",
+    "deathMessage": "{name} falls still. The threat has passed.",
+    "hpCustom": false
+   },
+   "Fatui Skirmisher - Geochanter Bracer.png": {
+    "role": "enemy",
+    "playable": false,
+    "element": "Geo",
+    "modelType": "custom",
+    "region": "",
+    "maxHp": "56",
+    "modelScale": "90",
+    "deathMessage": "{name} falls still. The threat has passed.",
+    "hpCustom": false
+   },
+   "Fatui Skirmisher - Hydrogunner Legionnaire.png": {
+    "role": "enemy",
+    "playable": false,
+    "element": "Hydro",
+    "modelType": "custom",
+    "region": "",
+    "maxHp": "56",
+    "modelScale": "92",
+    "deathMessage": "{name} falls still. The threat has passed.",
+    "hpCustom": false
+   },
+   "Fatui Skirmisher - Pyroslinger Bracer.png": {
+    "role": "enemy",
+    "playable": false,
+    "element": "Pyro",
+    "modelType": "custom",
+    "region": "",
+    "maxHp": "38",
+    "modelScale": "90",
+    "deathMessage": "{name} falls still. The threat has passed.",
+    "hpCustom": false
+   },
+   "Frost Operative.png": {
+    "role": "enemy",
+    "playable": false,
+    "element": "Cryo",
+    "modelType": "custom",
+    "region": "",
+    "maxHp": "61",
+    "modelScale": "92",
+    "deathMessage": "{name} falls still. The threat has passed.",
+    "hpCustom": false
+   },
+   "Geo Slime.png": {
+    "role": "enemy",
+    "playable": false,
+    "element": "Geo",
+    "modelType": "custom",
+    "region": "",
+    "maxHp": "22",
+    "modelScale": "30",
+    "deathMessage": "{name} falls still. The threat has passed.",
+    "hpCustom": false
+   },
+   "Gluttonous Yumkasaur Mountain King.png": {
+    "role": "enemy",
+    "playable": false,
+    "element": "Dendro",
+    "modelType": "custom",
+    "region": "Natlan",
+    "maxHp": "103",
+    "modelScale": "90",
+    "deathMessage": "Gluttonous Yumkasaur Mountain King falls still as its elemental power fades.",
+    "hpCustom": false
+   },
+   "Golden Wolflord.png": {
+    "role": "enemy",
+    "playable": false,
+    "element": "Geo",
+    "modelType": "custom",
+    "region": "Inazuma",
+    "maxHp": "66",
+    "modelScale": "90",
+    "deathMessage": "Golden Wolflord falls still as its elemental power fades.",
+    "hpCustom": false
+   },
+   "Goldflame Qucusaur Tyrant.png": {
+    "role": "enemy",
+    "playable": false,
+    "element": "Pyro",
+    "modelType": "custom",
+    "region": "Natlan",
+    "maxHp": "66",
+    "modelScale": "90",
+    "deathMessage": "Goldflame Qucusaur Tyrant falls still as its elemental power fades.",
+    "hpCustom": false
+   },
+   "Grounded Geoshroom.png": {
+    "role": "enemy",
+    "playable": false,
+    "element": "Geo",
+    "modelType": "custom",
+    "region": "",
+    "maxHp": "41",
+    "modelScale": "35",
+    "deathMessage": "{name} falls still. The threat has passed.",
+    "hpCustom": false
+   },
+   "Grounded Hydroshroom.png": {
+    "role": "enemy",
+    "playable": false,
+    "element": "Hydro",
+    "modelType": "custom",
+    "region": "",
+    "maxHp": "41",
+    "modelScale": "35",
+    "deathMessage": "{name} falls still. The threat has passed.",
+    "hpCustom": false
+   },
+   "Guardian of Apep's Oasis.png": {
+    "role": "enemy",
+    "playable": false,
+    "element": "Dendro",
+    "modelType": "custom",
+    "region": "Sumeru",
+    "maxHp": "105",
+    "modelScale": "90",
+    "deathMessage": "Guardian of Apep's Oasis falls still as its elemental power fades.",
+    "hpCustom": false
+   },
+   "Hilichurl Berserker.png": {
+    "role": "enemy",
+    "playable": false,
+    "element": "Pyro",
+    "modelType": "custom",
+    "region": "",
+    "maxHp": "26",
+    "modelScale": "62",
+    "deathMessage": "{name} falls still. The threat has passed.",
+    "hpCustom": false
+   },
+   "Hilichurl Fighter.png": {
+    "role": "enemy",
+    "playable": false,
+    "element": "None",
+    "modelType": "custom",
+    "region": "",
+    "maxHp": "26",
+    "modelScale": "62",
+    "deathMessage": "{name} falls still. The threat has passed.",
+    "hpCustom": false
+   },
+   "Hilichurl Shooter.png": {
+    "role": "enemy",
+    "playable": false,
+    "element": "None",
+    "modelType": "custom",
+    "region": "",
+    "maxHp": "22",
+    "modelScale": "62",
+    "deathMessage": "{name} falls still. The threat has passed.",
+    "hpCustom": false
+   },
+   "Hydro Abyss Mage.png": {
+    "role": "enemy",
+    "playable": false,
+    "element": "Hydro",
+    "modelType": "custom",
+    "region": "",
+    "maxHp": "26",
+    "modelScale": "55",
+    "deathMessage": "{name} falls still. The threat has passed.",
+    "hpCustom": false
+   },
+   "Hydro Hilichurl Rogue.png": {
+    "role": "enemy",
+    "playable": false,
+    "element": "Hydro",
+    "modelType": "custom",
+    "region": "",
+    "maxHp": "61",
+    "modelScale": "80",
+    "deathMessage": "{name} falls still. The threat has passed.",
+    "hpCustom": false
+   },
+   "Hydro Hypostasis.png": {
+    "role": "enemy",
+    "playable": false,
+    "element": "Hydro",
+    "modelType": "custom",
+    "region": "Inazuma",
+    "maxHp": "84",
+    "modelScale": "90",
+    "deathMessage": "Hydro Hypostasis falls still as its elemental power fades.",
+    "hpCustom": false
+   },
+   "Hydro Samachurl.png": {
+    "role": "enemy",
+    "playable": false,
+    "element": "Hydro",
+    "modelType": "custom",
+    "region": "",
+    "maxHp": "24",
+    "modelScale": "60",
+    "deathMessage": "{name} falls still. The threat has passed.",
+    "hpCustom": false
+   },
+   "Hydro Tulpa.png": {
+    "role": "enemy",
+    "playable": false,
+    "element": "Hydro",
+    "modelType": "custom",
+    "region": "Fontaine",
+    "maxHp": "76",
+    "modelScale": "90",
+    "deathMessage": "Hydro Tulpa falls still as its elemental power fades.",
     "hpCustom": false
    }
   },
@@ -32804,7 +33426,7 @@
    "waypoints": 117
   },
   "hudAllButtons": false,
-  "namecard": "",
+  "namecard": "achievement-endpoint",
   "hudTopIcons": "auto",
   "personaIconMode": "auto",
   "burstAudio": true,
@@ -33433,10 +34055,10 @@
    "Wayward Hermetic Spiritspeaker"
   ],
   "cgFrame": {
-   "left": 265.4609375,
-   "top": 44.546875,
-   "width": 511,
-   "height": 547
+   "left": 268.0546875,
+   "top": 9.921875,
+   "width": 467.265625,
+   "height": 503.265625
   },
   "nameTagFilter": true,
   "nameTagScope": "all",
