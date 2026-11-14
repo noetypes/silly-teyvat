@@ -184,6 +184,57 @@ Exports store bundled media assignments as portable `silly-teyvat:/` paths. Impo
 to the actual extension folder, and also accepts old `genshin-dialogue-ui` paths. Custom uploads
 and native sprite paths retain their names.
 
+### Host on Cloudflare R2
+
+The GitHub assets repository grows by about 2 GB with every release. R2 stores the same parts
+without that history and with free downloads. The bucket stays private: a small Worker,
+[`tools/r2-worker/worker.js`](../../tools/r2-worker/worker.js), serves it at a free
+`workers.dev` address with the CORS headers and byte ranges the downloader needs. It serves only
+`v<version>/<file>` keys, and anything else in the bucket stays private. The extension takes any
+`https://` host, so switching needs no extension change: only the URLs in the release manifest
+change. `node tools/tests/test-r2-worker.mjs` runs the extension's own downloader against the
+Worker.
+
+One-time setup:
+
+1. In the Cloudflare dashboard, create the R2 bucket (Standard storage). Leave its public access
+   off; the Worker reads it directly. If its name is not `silly-teyvat-data`, change
+   `bucket_name` in [`tools/r2-worker/wrangler.toml`](../../tools/r2-worker/wrangler.toml).
+2. Under **Workers & Pages**, choose a `workers.dev` subdomain if the account has none yet.
+3. Deploy (wrangler comes from npm; it asks to sign in to Cloudflare in the browser the first time):
+   ```sh
+   cd tools/r2-worker && npx wrangler@4 deploy
+   ```
+   It prints the address, `https://silly-teyvat-data.<subdomain>.workers.dev`. The Worker's
+   `name` in `wrangler.toml` is part of every release URL, so do not rename it later.
+4. For uploads, create an R2 API token with **Object Read & Write** on this bucket only, then
+   `brew install rclone` and `rclone config` a remote named `r2`: type `s3`, provider `Cloudflare`,
+   the token's two keys, endpoint `https://<ACCOUNT_ID>.r2.cloudflarestorage.com`.
+
+Each release (with `W` the Worker address and `X.Y.Z` the game data version), after the export:
+
+```sh
+python3 tools/release-game-data.py ../silly-teyvat-data/releases/silly-teyvat-game-data-X.Y.Z.zip --version X.Y.Z \
+  --url W/vX.Y.Z/silly-teyvat-game-data-X.Y.Z-001.part \
+  --chunk-dir ../silly-teyvat-data/releases/parts/vX.Y.Z \
+  --chunk-base-url W/vX.Y.Z
+rclone copy ../silly-teyvat-data/releases/parts/vX.Y.Z r2:silly-teyvat-data/vX.Y.Z \
+  --immutable --s3-no-check-bucket
+curl -sI -H 'Origin: http://localhost:8000' -H 'Range: bytes=0-99' W/vX.Y.Z/silly-teyvat-game-data-X.Y.Z-001.part
+```
+
+`--immutable` refuses to replace a part that is already uploaded. The `curl` answer must be
+`206` with `Content-Range: bytes 0-99/…` and `Access-Control-Allow-Origin: *`; then run the
+[public install verification](DEVELOPMENT.md#public-install-verification) before committing the
+release manifest and building the distribution. Never delete an uploaded version while an
+extension release that names it may still be installed. Keep the GitHub assets repository and its
+tags too: players on releases that point there still download from it. After the switch, stop
+adding releases to it.
+
+The Workers free plan allows 100,000 requests a day, and one request is one part or one changed
+file. R2 storage beyond the free 10 GB-months costs about $0.015 per GB-month, and downloads are
+free. Each request reads R2 twice (size, then data), well within the free 10 million reads a month.
+
 ## Add or update media
 
 Create media at its usual workspace path, replacing an existing link with a new

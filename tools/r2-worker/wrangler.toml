@@ -1,0 +1,12 @@
+# Cloudflare Worker that serves the game-data download parts from R2 (see worker.js).
+# Deploy from this folder with `npx wrangler@4 deploy`. The Worker's address is
+# https://<name>.<your-subdomain>.workers.dev, so `name` appears in every release URL.
+name = "silly-teyvat-data"
+main = "worker.js"
+compatibility_date = "2025-06-01"
+workers_dev = true
+
+[[r2_buckets]]
+binding = "BUCKET"
+# The bucket created in the Cloudflare dashboard. Change this if yours has another name.
+bucket_name = "silly-teyvat-data"
