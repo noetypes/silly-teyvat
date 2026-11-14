@@ -5,6 +5,8 @@ name = "silly-teyvat-data"
 main = "worker.js"
 compatibility_date = "2025-06-01"
 workers_dev = true
+# No extra per-version addresses: players only ever use the workers.dev one.
+preview_urls = false
 
 [[r2_buckets]]
 binding = "BUCKET"

@@ -205,7 +205,9 @@ One-time setup:
    ```sh
    cd tools/r2-worker && npx wrangler@4 deploy
    ```
-   It prints the address, `https://silly-teyvat-data.<subdomain>.workers.dev`. The Worker's
+   It prints the address: the deployed Worker is `https://silly-teyvat-data.noetypes.workers.dev`
+   (deployed 14 November 2026). A first deploy can fail right after the upload with "This Worker
+   does not exist on your account" [code 10007]; run it again. The Worker's
    `name` in `wrangler.toml` is part of every release URL, so do not rename it later.
 4. For uploads, create an R2 API token with **Object Read & Write** on this bucket only, then
    `brew install rclone` and `rclone config` a remote named `r2`: type `s3`, provider `Cloudflare`,
