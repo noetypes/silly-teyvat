@@ -80,9 +80,32 @@ with tempfile.TemporaryDirectory() as temp:
     refuses('byte range', lambda: run(release, folder, Bucket(ranges_ok=False)))
     refuses('lists no download parts', lambda: run({'chunks': []}, folder, Bucket()))
 
+    # A later release lists the earlier parts too; only its own new part is local.
+    later = {'chunks': release['chunks'] + [{'url': f'{HOST}/v9.9.10/silly-teyvat-game-data-9.9.10-001.part', 'offset': 900,
+                                             'size': 5, 'sha256': hashlib.sha256(b'later').hexdigest()}]}
+    later_dir = folder / 'later'
+    later_dir.mkdir()
+    (later_dir / 'silly-teyvat-game-data-9.9.10-001.part').write_bytes(b'later')
+    run(later, later_dir, bucket)
+    assert bucket.puts[3:] == ['v9.9.10/silly-teyvat-game-data-9.9.10-001.part'], 'only the new part is uploaded'
+    refuses('neither in the bucket', lambda: run(later, later_dir, Bucket()))
+    resized = Bucket({key: data[:-1] for key, data in bucket.objects.items()})
+    refuses('different contents', lambda: run(later, later_dir, resized))
+
     (folder / 'silly-teyvat-game-data-9.9.9-002.part').write_bytes(b'y' * 300)
     refuses('does not match the release manifest', lambda: run(release, folder, Bucket()))
     (folder / 'silly-teyvat-game-data-9.9.9-002.part').unlink()
-    refuses('Missing part', lambda: run(release, folder, Bucket()))
+    refuses('neither in the bucket nor in', lambda: run(release, folder, Bucket()))
+
+# wrangler runs from tools/r2-worker, so the part's path must not be relative to where the tool was started.
+calls = []
+real_run = upload.subprocess.run
+upload.subprocess.run = lambda args, **options: calls.append((args, options))
+try:
+    upload.wrangler_put('sillyteyvat', 'v9.9.9/a.part', Path('relative/a.part'))
+finally:
+    upload.subprocess.run = real_run
+args, options = calls[0]
+assert Path(args[args.index('--file') + 1]).is_absolute() and options['cwd'] == upload.WORKER, args
 
 print('R2 upload: missing parts uploaded, finished ones skipped, changed or damaged parts refused, Worker range checked')

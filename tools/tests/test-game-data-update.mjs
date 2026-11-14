@@ -122,12 +122,15 @@ for(const [name,data] of Object.entries({'cards/Klee.png':changedKlee,'cards/Hu 
 }
 await assert.rejects(chunkedArchive({...multipart,chunks:[{...chunks[0],sha256:'0'.repeat(64)},...chunks.slice(1)]},Object.keys(two.files),{fetcher:multipartFetch}).read(streamed.entries.get('cards/Klee.png')),/checksum/);
 await assert.rejects(downloadRelease({...multipart,chunks:[{...chunks[0],sha256:'0'.repeat(64)},...chunks.slice(1)]},{fetcher:multipartFetch}),/checksum/);
-// The publisher produces byte-for-byte parts with matching offsets and hashes.
+// The publisher stores each file's bytes in parts at the offset the release names (tools/tests/test-incremental-release.mjs covers releases that build on earlier parts).
 const splitOutput=path.join(folder,'split-release.json'),splitDir=path.join(folder,'parts');
 execFileSync('python3',[tool,second,'--url','https://data.example/download.zip','--version','1.2.0','--output',splitOutput,'--chunk-dir',splitDir,'--chunk-base-url','https://data.example/v1.2.0','--chunk-mb','1']);
 const published=JSON.parse(fs.readFileSync(splitOutput));
 assert.ok(validRelease(published));
-assert.deepEqual(Buffer.concat(published.chunks.map(chunk=>fs.readFileSync(path.join(splitDir,new URL(chunk.url).pathname.split('/').at(-1))))),bytes);
+const hosted=Buffer.concat(published.chunks.map(chunk=>fs.readFileSync(path.join(splitDir,new URL(chunk.url).pathname.split('/').at(-1)))));
+assert.equal(hosted.length,published.bytes);
+for(const [name,entry] of Object.entries(published.files))
+    assert.equal(createHash('sha256').update(hosted.subarray(entry.offset,entry.offset+entry.size)).digest('hex').slice(0,16),entry.sha256,`${name} is where the release says`);
 
 // A re-zipped (compressed) copy cannot be read by range, so the tool refuses it.
 execFileSync('unzip',['-q',second,'-d',path.join(folder,'out')]);

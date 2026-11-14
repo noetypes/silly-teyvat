@@ -4,6 +4,9 @@
 Writes extension/genshin-dialogue-ui/game-data-release.json from the ZIP made by
 Export game data. Each file keeps the version in which it last changed, taken from
 the previous release file, so an update downloads only those files by byte range.
+
+With --chunk-dir, the files are stored as download parts and a release adds parts only for
+files whose contents the previous release's parts (on the same host) do not already hold.
 """
 import argparse
 import hashlib
@@ -11,7 +14,7 @@ import json
 from pathlib import Path
 import struct
 import zipfile
-from urllib.parse import quote
+from urllib.parse import quote, urlparse
 
 REPO = Path(__file__).resolve().parent.parent
 EXTENSION = REPO / 'extension/genshin-dialogue-ui'
@@ -103,24 +106,80 @@ def build(zip_path, url, version, previous):
     }
 
 
-def split_archive(zip_path, directory, base_url, chunk_bytes):
-    """Host an ordinary export on CORS-enabled static hosting with per-file size limits."""
+class PartWriter:
+    """Writes bytes into numbered download parts of at most chunk_bytes, starting at a given offset."""
+
+    def __init__(self, directory, stem, base_url, chunk_bytes, offset):
+        self.directory, self.stem, self.base_url, self.chunk_bytes = directory, stem, base_url.rstrip('/'), chunk_bytes
+        self.position, self.buffer, self.chunks = offset, bytearray(), []
+
+    def write(self, data):
+        while data:
+            room = self.chunk_bytes - len(self.buffer)
+            self.buffer += data[:room]
+            data = data[room:]
+            if len(self.buffer) == self.chunk_bytes:
+                self.flush()
+
+    def flush(self):
+        if not self.buffer:
+            return
+        block = bytes(self.buffer)
+        name = f'{self.stem}-{len(self.chunks) + 1:03d}.part'
+        target = self.directory / name
+        if target.exists() and target.read_bytes() != block:
+            raise ValueError(f'Refusing to overwrite a different download part: {target}')
+        if not target.exists():
+            target.write_bytes(block)
+        self.chunks.append({'url': f'{self.base_url}/{quote(name)}', 'offset': self.position,
+                            'size': len(block), 'sha256': hashlib.sha256(block).hexdigest()})
+        self.position += len(block)
+        self.buffer.clear()
+
+
+def pack_archive(zip_path, files, previous, directory, base_url, chunk_bytes, repack=False):
+    """Store the export's files as download parts that later releases keep using.
+
+    The parts hold file contents back to back, without the ZIP around them: the extension finds every
+    file by its offset in the release manifest and checks its SHA-256, and never reads the parts as a
+    ZIP (share-ui.js uses chunkedArchive and rangedArchive whenever a release has parts). A file whose
+    contents are already in the previous release's parts on the same host points there instead, so a
+    release uploads only new and changed files. Identical files within one export are stored once.
+    Changed and removed files leave unused bytes in old parts; repack starts a fresh set.
+    Rewrites each entry's offset in files and returns (chunks, bytes reused, bytes added).
+    """
     if not base_url.startswith('https://') or chunk_bytes <= 0:
         raise ValueError('Chunk hosting needs an https:// base URL and a positive chunk size.')
+    host = urlparse(base_url).netloc
+    old = (previous or {}).get('chunks') or []
+    reuse = bool(old) and not repack and all(urlparse(chunk['url']).netloc == host for chunk in old)
+    chunks, known = ([dict(chunk) for chunk in old], {}) if reuse else ([], {})
+    if reuse:
+        for entry in previous['files'].values():
+            known.setdefault((entry['sha256'], entry['size']), entry['offset'])
+    start = chunks[-1]['offset'] + chunks[-1]['size'] if chunks else 0
     directory.mkdir(parents=True, exist_ok=True)
-    chunks, offset = [], 0
+    writer = PartWriter(directory, zip_path.stem, base_url, chunk_bytes, start)
+    reused = 0
     with zip_path.open('rb') as raw:
-        while block := raw.read(chunk_bytes):
-            name = f'{zip_path.stem}-{len(chunks) + 1:03d}.part'
-            target = directory / name
-            if target.exists() and target.read_bytes() != block:
-                raise ValueError(f'Refusing to overwrite a different download part: {target}')
-            if not target.exists():
-                target.write_bytes(block)
-            chunks.append({'url': base_url.rstrip('/') + '/' + quote(name), 'offset': offset,
-                           'size': len(block), 'sha256': hashlib.sha256(block).hexdigest()})
-            offset += len(block)
-    return chunks
+        # Export order keeps a character's card and sprites together in the new parts.
+        for entry in sorted(files.values(), key=lambda item: item['offset']):
+            key = (entry['sha256'], entry['size'])
+            if key in known:
+                entry['offset'] = known[key]
+                reused += entry['size']
+                continue
+            raw.seek(entry['offset'])
+            entry['offset'] = known[key] = writer.position + len(writer.buffer)
+            left = entry['size']
+            while left:
+                block = raw.read(min(left, 1 << 20))
+                if not block:
+                    raise ValueError('The export ended in the middle of a file.')
+                writer.write(block)
+                left -= len(block)
+    writer.flush()
+    return chunks + writer.chunks, reused, writer.position - start
 
 
 def check_version(release, previous, force):
@@ -148,25 +207,38 @@ def dump(release):
 def main():
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument('zip', type=Path, help='the ZIP from Export game data, exactly as uploaded')
-    parser.add_argument('--url', required=True, help='https:// address of the uploaded ZIP; use a different address for every release')
+    parser.add_argument('--url', help='https:// address of the uploaded ZIP; use a different address for every release '
+                                      '(not needed with --chunk-dir: the first part is the address)')
     parser.add_argument('--version', required=True,
                         help='game data version, separate from the extension version (for example 1.78.0)')
     parser.add_argument('--output', type=Path, default=RELEASE)
     parser.add_argument('--settings-output', type=Path, help='first-run settings file (defaults to configured-settings.json beside the release manifest)')
     parser.add_argument('--force', action='store_true', help='replace a release of the same version')
-    parser.add_argument('--chunk-dir', type=Path, help='split the ZIP into static-hosted download parts in this directory')
-    parser.add_argument('--chunk-base-url', help='https:// directory containing the published parts (use an immutable version tag)')
-    parser.add_argument('--chunk-mb', type=int, default=48, help='maximum part size in MiB (default: 48, below GitHub file limits)')
+    parser.add_argument('--chunk-dir', type=Path, help='write the download parts this release adds into this directory')
+    parser.add_argument('--chunk-base-url', help='https:// directory the new parts are published in, one per release (for example …/v1.85.0)')
+    parser.add_argument('--chunk-mb', type=int, default=48, help='maximum part size in MiB (default: 48)')
+    parser.add_argument('--repack', action='store_true', help='store every file again in new parts instead of reusing earlier ones')
     args = parser.parse_args()
-    if not args.url.startswith('https://'):
-        raise SystemExit('The address must start with https://.')
+    if bool(args.chunk_dir) != bool(args.chunk_base_url):
+        raise ValueError('Use --chunk-dir and --chunk-base-url together.')
+    if not args.chunk_dir and not (args.url or '').startswith('https://'):
+        raise SystemExit('Give the https:// address of the uploaded ZIP with --url, or publish parts with --chunk-dir.')
     version = args.version
     previous = json.loads(args.output.read_text()) if args.output.is_file() else None
     release = build(args.zip.resolve(), args.url, version, previous)
-    if bool(args.chunk_dir) != bool(args.chunk_base_url):
-        raise ValueError('Use --chunk-dir and --chunk-base-url together.')
     if args.chunk_dir:
-        release['chunks'] = split_archive(args.zip.resolve(), args.chunk_dir, args.chunk_base_url, args.chunk_mb << 20)
+        chunks, reused, added = pack_archive(args.zip.resolve(), release['files'], previous, args.chunk_dir,
+                                             args.chunk_base_url, args.chunk_mb << 20, args.repack)
+        if not chunks:
+            raise ValueError('The export is empty.')
+        release.update(chunks=chunks, url=chunks[0]['url'], bytes=chunks[-1]['offset'] + chunks[-1]['size'])
+        live = sum(size for _, size in {(entry['offset'], entry['size']) for entry in release['files'].values()})
+        unused = release['bytes'] - live
+        print(f'Parts: {reused:,} bytes of files already stored in parts, {added:,} bytes in '
+              f'{sum(chunk["offset"] >= release["bytes"] - added for chunk in chunks)} '
+              f'new parts; {unused:,} bytes ({unused / release["bytes"]:.0%}) of all parts belong to replaced files.')
+        if unused > release['bytes'] // 3:
+            print('Over a third of the hosted bytes are no longer used: consider --repack for the next release.')
     check_version(release, previous, args.force)
     args.output.write_text(dump(release))
     with zipfile.ZipFile(args.zip) as archive:

@@ -2,7 +2,7 @@
 // tools/release-game-data.py, which names the hosted export, its size and the version in which
 // each file last changed. A first install downloads the whole export; an update reads only the
 // changed files from it with byte ranges, falling back to the whole file when the host refuses.
-import {readZip} from './zip-store.js';
+// Every file is found at the offset and checked against the checksum the release names.
 import {existingFiles,shippedEntry} from './share-package.js';
 export const RELEASE_FILE='game-data-release.json',FORMAT=1;
 const extensionRoot=new URL('./',import.meta.url),GROUP_BYTES=8<<20;
@@ -150,8 +150,10 @@ export async function downloadRelease(release,{fetcher=fetch,report=()=>{},signa
         blobs.push(blob);
     }
     if(received!==release.bytes)throw new Error(`The game data download was ${formatBytes(received)} instead of ${formatBytes(release.bytes)}. Try again later.`);
-    const zip=await readZip(new Blob(blobs,{type:'application/zip'}));
-    return {entries:zip.entries,read:async entry=>verified(release,entry.name,await zip.read(entry))};
+    // Files are read at the offsets the release names, never through the ZIP directory: download parts
+    // can hold bare file contents, some of them stored by earlier releases (tools/release-game-data.py).
+    const archive=new Blob(blobs),entries=new Map(Object.entries(release.files).map(([name,entry])=>[name,{name,...entry}]));
+    return {entries,read:async entry=>verified(release,entry.name,archive.slice(entry.offset,entry.offset+entry.size))};
 }
 
 // Where SillyTavern serves each kind of packaged file, so this player's copy can be compared.

@@ -3,8 +3,9 @@
 
 Reads the release manifest written by tools/release-game-data.py, checks every local part against
 the size and SHA-256 it records, and uploads each missing part with wrangler (`npx`, using the
-Cloudflare login from `wrangler deploy`; no API token or rclone). The bucket key is the part URL's
-path, for example `v1.85.0/silly-teyvat-game-data-1.85.0-001.part`.
+Cloudflare login from `wrangler deploy`; no API token or rclone). Parts an earlier release added are
+only checked: they must already be in the bucket with their recorded size. The bucket key is the
+part URL's path, for example `v1.85.0/silly-teyvat-game-data-1.85.0-001.part`.
 
 Published parts are immutable. A part already in the bucket with the same size and MD5 (R2's ETag)
 is skipped; a different one stops the upload, since players may have read its byte offsets. After
@@ -56,20 +57,23 @@ def head(url, headers=None):
 
 
 def wrangler_put(bucket, key, path):
-    subprocess.run(['npx', '--yes', WRANGLER, 'r2', 'object', 'put', f'{bucket}/{key}', '--file', str(path), '--remote',
+    subprocess.run(['npx', '--yes', WRANGLER, 'r2', 'object', 'put', f'{bucket}/{key}', '--file', str(path.resolve()), '--remote',
                     '--content-type', 'application/octet-stream', '--cache-control', CACHE],
                    cwd=WORKER, check=True, stdout=subprocess.DEVNULL)
 
 
 def plan(release, chunk_dir):
-    """Each part as (url, bucket key, local file, size, md5), after checking the local copy."""
+    """Each part as (url, bucket key, local file, size, md5), after checking the local copy. Parts that
+    an earlier release added, and that are not in chunk_dir, have no local file or MD5."""
     parts = []
     for chunk in release.get('chunks') or []:
         url = chunk['url']
         key = unquote(urlparse(url).path.lstrip('/'))
         path = chunk_dir / Path(key).name
         if not path.is_file():
-            raise ValueError(f'Missing part {path}')
+            # A part an earlier release added: it must already be in the bucket.
+            parts.append((url, key, None, chunk['size'], None))
+            continue
         sha, md5 = digests(path)
         if path.stat().st_size != chunk['size'] or sha != chunk['sha256']:
             raise ValueError(f'{path} does not match the release manifest.')
@@ -89,27 +93,36 @@ def hosted(url):
     return int(headers['Content-Length']), headers['ETag'].strip('"')
 
 
+def matches(found, size, md5):
+    return found is not None and found[0] == size and (md5 is None or found[1] == md5)
+
+
 def upload(release, chunk_dir, bucket, dry_run=False, put=wrangler_put, look=hosted, probe=head, log=print):
     parts = plan(release, chunk_dir)
     missing = []
     for url, key, path, size, md5 in parts:
         found = look(url)
+        if found is None and path is None:
+            raise ValueError(f'{key} is neither in the bucket nor in {chunk_dir}.')
         if found is None:
             missing.append((key, path))
-        elif found != (size, md5):
+        elif not matches(found, size, md5):
             raise ValueError(f'{key} is already in the bucket with different contents. Published parts never change; '
                              'publish a new version instead.')
-    log(f'{len(parts)} parts, {len(parts) - len(missing)} already uploaded, {len(missing)} to upload.')
+    earlier = sum(path is None for _, _, path, _, _ in parts)
+    log(f'{len(parts)} parts ({earlier} from earlier releases), {len(parts) - len(missing)} already uploaded, '
+        f'{len(missing)} to upload.')
     if dry_run:
         return
     for number, (key, path) in enumerate(missing, 1):
         log(f'[{number}/{len(missing)}] {key}')
         put(bucket, key, path)
     for url, key, _, size, md5 in parts:
-        if look(url) != (size, md5):
+        if not matches(look(url), size, md5):
             raise ValueError(f'{key} did not arrive intact. Run the upload again.')
-    status, headers, body = probe(parts[0][0], {'Origin': 'http://localhost:8000', 'Range': 'bytes=0-99'})
-    if status != 206 or len(body) != 100 or headers.get('Access-Control-Allow-Origin') != '*':
+    length = min(100, parts[0][3])
+    status, headers, body = probe(parts[0][0], {'Origin': 'http://localhost:8000', 'Range': f'bytes=0-{length - 1}'})
+    if status != 206 or len(body) != length or headers.get('Access-Control-Allow-Origin') != '*':
         raise ValueError(f'The Worker did not answer a cross-site byte range correctly (status {status}).')
     log(f'All {len(parts)} parts are in {bucket} and served by the Worker, with byte ranges and CORS.')
 

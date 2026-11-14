@@ -38,6 +38,16 @@
       ],
       "port": 8791,
       "autoPort": false
+    },
+    {
+      "name": "sillytavern-release-test",
+      "runtimeExecutable": "/bin/sh",
+      "runtimeArgs": [
+        "-c",
+        "cd /Users/alexachan/Documents/ChatGPT/Test/SillyTavern && exec node server.js --dataRoot /private/tmp/claude-501/st-release-test/data --port 8002 --listen false --browserLaunchEnabled false"
+      ],
+      "port": 8002,
+      "autoPort": false
     }
   ]
 }

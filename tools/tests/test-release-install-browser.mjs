@@ -1,5 +1,9 @@
 // Destructive only to an isolated test profile: installs the public extension and game data.
 // Start a separate SillyTavern with --dataRoot /tmp/teyvat-test/data --port 8002 first.
+// --install uses SillyTavern's GitHub installer (the published distribution). Without it, the test
+// uses whatever extension is already in the profile, so a release can be checked before it is
+// pushed: build it with `tools/build-dist.py --out <dataRoot>/default-user/extensions/silly-teyvat-dist`.
+// The game data comes from wherever that extension's game-data-release.json points.
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import path from 'node:path';
@@ -13,7 +17,7 @@ fs.mkdirSync(values.out,{recursive:true});
 const browser=await chromium.launch({headless:true,executablePath:process.env.CHROME_PATH || '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome'});
 const page=await browser.newPage({viewport:{width:1440,height:1000}}),errors=[],downloadParts=new Set();
 page.on('pageerror',error=>errors.push(error.message));
-page.on('response',response=>{if(response.url().includes('raw.githubusercontent.com')&&response.url().endsWith('.part'))downloadParts.add(response.url());});
+page.on('response',response=>{if(new URL(response.url()).pathname.endsWith('.part'))downloadParts.add(response.url());});
 try{
     await page.goto(url.href);
     await page.waitForTimeout(5000);
@@ -49,14 +53,15 @@ try{
     }
     await page.locator('dialog[open]').filter({hasText:'Reload SillyTavern now to finish?'}).getByText('Reload',{exact:true}).click();
     await page.waitForTimeout(8000);
-    const result=await page.evaluate(()=>{
+    const result=await page.evaluate(async()=>{
         const ctx=SillyTavern.getContext(),prefs=ctx.extensionSettings.genshin_dialogue_ui;
-        return {cards:ctx.characters.length,gameData:prefs.gameData,enabled:prefs.enabled,regions:prefs.backgroundRegions.length,
+        const release=await (await fetch('/scripts/extensions/third-party/silly-teyvat-dist/game-data-release.json',{cache:'no-store'})).json();
+        return {release:release.version,host:new URL(release.url).host,cards:ctx.characters.length,gameData:prefs.gameData,enabled:prefs.enabled,regions:prefs.backgroundRegions.length,
             waypoints:prefs.backgroundRegions.reduce((sum,region)=>sum+region.locations.length,0),outfits:Object.keys(prefs.outfits).length,
             sceneCharacters:Object.keys(prefs.characterCGs).length,music:prefs.musicLibrary.length,
             paths:prefs.backgroundRegions.flatMap(region=>region.locations.map(location=>location.path)),dialogs:[...document.querySelectorAll('dialog[open]')].map(dialog=>dialog.innerText)};
     });
-    assert.equal(result.gameData.version,'1.77.0');assert.ok(result.cards>=273);assert.equal(result.regions,8);assert.equal(result.waypoints,260);
+    assert.equal(result.gameData.version,result.release,'The installed game data is the release the extension names.');assert.ok(result.cards>=273);assert.equal(result.regions,8);assert.ok(result.waypoints>=260);
     assert.equal(result.enabled,true);assert.equal(result.dialogs.length,0);assert.ok(result.paths.every(value=>!value.includes('/genshin-dialogue-ui/')));
     await page.evaluate(async()=>{const ctx=SillyTavern.getContext();await ctx.selectCharacterById(ctx.characters.findIndex(card=>card.name==='Klee'));});
     await page.waitForTimeout(6000);

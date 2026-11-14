@@ -97,7 +97,7 @@ Guides: [Combat](docs/guides/COMBAT.md) · [Trust, gifts and scenes](docs/guides
 
 ## Source repository
 
-This repository holds the source. Players should install the [distribution](https://github.com/noetypes/silly-teyvat-dist); game downloads are published in [silly-teyvat-assets](https://github.com/noetypes/silly-teyvat-assets).
+This repository holds the source. Players should install the [distribution](https://github.com/noetypes/silly-teyvat-dist); the game data download is hosted on Cloudflare R2 (see [GAME-DATA.md](docs/development/GAME-DATA.md#host-on-cloudflare-r2)).
 
 ```text
 extension/genshin-dialogue-ui/   the SillyTavern extension, exactly as players install it

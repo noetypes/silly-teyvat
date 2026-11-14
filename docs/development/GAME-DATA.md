@@ -5,7 +5,7 @@ character cards and sprite art), audio, fonts and model buffers live outside the
 repository. Research downloads, caches and private task backups live there too.
 The developer data pack stays local. Players get the extension's media from the
 [distribution repository](#publish-the-extension), and a curated export of the finished game
-from the [public assets repository](https://github.com/noetypes/silly-teyvat-assets). Research,
+from a [Cloudflare R2 bucket](#host-on-cloudflare-r2). Research,
 backups and the art workspace are never uploaded.
 
 The default layout is:
@@ -119,66 +119,40 @@ already present and failed.
 file is checked against the release before it is installed. A development copy without a release file never asks. Published source checkouts include
 the manifest for reproducibility; the player install remains the distribution repository.
 
-To publish:
+To publish (with `X.Y.Z` the game data version, its own number such as `1.85.0`, never the
+extension's `0.NNa`, because it names the hosted files):
 
-1. In a SillyTavern with the finished game data, choose **Export game data**, or run
-   `node tools/export-game-data.mjs --out ../silly-teyvat-data/releases/silly-teyvat-game-data-VERSION.zip`.
-   The CLI uses the same exporter against localhost, fails on missing files and excludes private settings.
-   Only the Aether and Lumine personas are exported; personas made with Play as stay out.
-2. Upload the ZIP unchanged to a host that allows downloads from other sites (CORS) and byte ranges.
-   Use a new address for every release, for example a file named after the version. Players on
-   older versions read their offsets from the old address.
-3. Run `python3 tools/release-game-data.py path/to/export.zip --url https://… --version X.Y.Z`. The
-   game data version is its own number (`1.77.0`, then `1.78.0`, …), never the extension's `0.NNa`
-   version, because it names the hosted files. It writes
-   `extension/genshin-dialogue-ui/game-data-release.json` and keeps each unchanged file's version
-   from the previous release. It refuses a different file under an already-published version,
-   because players who have that version would never be offered it.
-4. Commit the release file, then push with the extension's release commit (the version moves only on a push to GitHub; see [AGENTS.md](../../AGENTS.md#versions-and-release-notes)) and publish the extension (above).
+1. In a SillyTavern with the finished game data, run
+   `node tools/export-game-data.mjs --out ../silly-teyvat-data/releases/silly-teyvat-game-data-X.Y.Z.zip --version X.Y.Z`
+   (or choose **Export game data**). The CLI uses the same exporter against localhost, fails on
+   missing files and excludes private settings. Only the Aether and Lumine personas are exported;
+   personas made with Play as stay out.
+2. Write the release manifest and the download parts this release adds, then upload them to R2
+   ([below](#host-on-cloudflare-r2)):
+   ```sh
+   python3 tools/release-game-data.py ../silly-teyvat-data/releases/silly-teyvat-game-data-X.Y.Z.zip --version X.Y.Z \
+     --chunk-dir ../silly-teyvat-data/releases/parts/vX.Y.Z \
+     --chunk-base-url https://silly-teyvat-data.noetypes.workers.dev/vX.Y.Z
+   python3 tools/upload-r2-parts.py extension/genshin-dialogue-ui/game-data-release.json \
+     --chunk-dir ../silly-teyvat-data/releases/parts/vX.Y.Z
+   ```
+   `release-game-data.py` writes `extension/genshin-dialogue-ui/game-data-release.json` and
+   `configured-settings.json`, keeps each unchanged file's `since` version, and refuses a different
+   file under an already-published version, because players who have that version would never be
+   offered it.
+3. Run the [public install verification](DEVELOPMENT.md#public-install-verification).
+4. Commit the release file, then push with the extension's release commit (the version moves only
+   on a push to GitHub; see [AGENTS.md](../../AGENTS.md#versions-and-release-notes)) and publish
+   the extension (above).
 
-GitHub release downloads cannot be used directly: their download host does not send the
-necessary CORS headers. Hugging Face (a dataset repository), Cloudflare R2 (with a CORS rule),
-and GitHub **raw files** support browser downloads.
-
-### Current GitHub assets hosting
+Without `--chunk-dir`, `--url` names one uploaded copy of the whole ZIP instead, for a host that
+allows downloads from other sites (CORS) and byte ranges. GitHub release downloads cannot be used
+for that: their download host does not send CORS headers.
 
 Publishing also writes `configured-settings.json` beside the release manifest. It enables story
 view and supplies game defaults on a new installation, strips private connection choices and
 signatures, and leaves existing extension preferences untouched. Choose an included persona
 for its own sprite; the developer's last active persona is never selected for the player.
-
-The first complete public game pack is **1.77.0** (2,088,135,982 bytes). It contains 273 cards,
-2,424 sprites, 928 uploaded files, 15 personas, two lorebooks, the theme and quick replies. Thirteen
-of those personas were made with Play as and should not have shipped; from 0.51a the extension
-installs only Aether and Lumine from it, and the next game data release leaves the others out.
-Map backgrounds and other extension-owned media ship in the distribution repository.
-
-The assets repository holds the exported ZIP in 48 MiB parts, under an immutable version tag.
-The extension verifies and installs these parts one at a time on first install, keeping at most
-two parts in its download cache, and can read changed
-files by byte range across part boundaries on updates. No GitHub login or extra server plugin
-is needed. Keep old tags and their files available: the extension downloads every release from its
-own tag, so never delete or move a tag. The `main` branch holds only the current release's parts.
-Once a new release is tagged, `git rm` the previous version's parts in the next assets commit, and
-delete its ZIP from `silly-teyvat-data/releases/`. Each release adds about 2 GB, and the parts under
-the tag can rebuild it exactly (`cat` the parts in order; the result matches `sha256` in the tag's
-`release.json`). Check a release before deleting its ZIP: the v1.79.0 tag's `release.json` still
-describes 1.78.0, because 1.79.0 was uploaded but never released to players.
-
-```sh
-node tools/export-game-data.mjs --out ../silly-teyvat-data/releases/silly-teyvat-game-data-1.77.0.zip --version 1.77.0
-python3 tools/release-game-data.py ../silly-teyvat-data/releases/silly-teyvat-game-data-1.77.0.zip --version 1.77.0 \
-  --url https://raw.githubusercontent.com/noetypes/silly-teyvat-assets/v1.77.0/silly-teyvat-game-data-1.77.0-001.part \
-  --chunk-dir ../silly-teyvat-assets \
-  --chunk-base-url https://raw.githubusercontent.com/noetypes/silly-teyvat-assets/v1.77.0
-```
-
-For future releases, make the extension's release commit (the version bump that goes with a push) first, replace the version in these commands,
-commit/tag/push the assets, then commit the source manifest and build/push the distribution.
-Verify an anonymous browser can fetch full parts and byte ranges from the tag's raw URLs.
-`--chunk-mb` controls the part size. The `--url` value names the first part; `chunks` in the release
-manifest describes the complete archive. Files with unchanged checksums retain their `since`
-version. Published chunks are immutable: the tool refuses to overwrite different existing parts.
 
 Exports store bundled media assignments as portable `silly-teyvat:/` paths. Import resolves them
 to the actual extension folder, and also accepts old `genshin-dialogue-ui` paths. Custom uploads
@@ -186,57 +160,65 @@ and native sprite paths retain their names.
 
 ### Host on Cloudflare R2
 
-The GitHub assets repository grows by about 2 GB with every release. R2 stores the same parts
-without that history and with free downloads. The bucket stays private: a small Worker,
-[`tools/r2-worker/worker.js`](../../tools/r2-worker/worker.js), serves it at a free
-`workers.dev` address with the CORS headers and byte ranges the downloader needs. It serves only
-`v<version>/<file>` keys, and anything else in the bucket stays private. The extension takes any
-`https://` host, so switching needs no extension change: only the URLs in the release manifest
-change. `node tools/tests/test-r2-worker.mjs` runs the extension's own downloader against the
-Worker.
+From 1.85.0, game data is hosted in the private R2 bucket `sillyteyvat`. A small Worker,
+[`tools/r2-worker/worker.js`](../../tools/r2-worker/worker.js), serves it at
+`https://silly-teyvat-data.noetypes.workers.dev` with the CORS headers and byte ranges the
+downloader needs. It serves only `v<version>/<file>` keys; anything else in the bucket stays
+private. `node tools/tests/test-r2-worker.mjs` runs the extension's own downloader against it.
+
+**Only new files are uploaded.** The download parts hold file contents back to back, without the
+ZIP around them, and the release manifest gives every file's offset and checksum; the extension
+reads files only that way (`chunkedArchive` on a first install, `rangedArchive` on an update, and
+offsets in `downloadRelease` too). When a release builds on a previous release whose parts are on
+the same host, a file whose contents those parts already hold points there, and only new and
+changed files go into the release's own `vX.Y.Z/` parts; identical files within an export are
+stored once. A release with nothing new adds no parts. Every release's manifest therefore lists
+the parts of all earlier releases it still uses, and `upload-r2-parts.py` checks those against the
+bucket instead of uploading them. `node tools/tests/test-incremental-release.mjs` installs and
+updates across old and new parts.
+
+A changed or removed file leaves its old bytes in an earlier part, where a first install still
+downloads them with the rest of that part. `release-game-data.py` reports how much of the hosted
+bytes that is and suggests `--repack` once it passes a third: the next release then stores every
+file once in new parts. After a repack, the older parts are needed only by players who have not
+updated; delete them from the bucket (Cloudflare dashboard, R2, the `v…` folders) once the
+testers have.
 
 One-time setup (done 14 November 2026):
 
 1. In the Cloudflare dashboard, create the R2 bucket (Standard storage). Leave its public access
    off and its CORS policy empty: the Worker reads the bucket directly and adds the CORS headers
-   itself. The bucket is `sillyteyvat`; if that ever changes, change `bucket_name` in
+   itself. If the bucket's name changes, change `bucket_name` in
    [`tools/r2-worker/wrangler.toml`](../../tools/r2-worker/wrangler.toml).
 2. Under **Workers & Pages**, choose a `workers.dev` subdomain if the account has none yet.
 3. Deploy (wrangler comes from npm; it asks to sign in to Cloudflare in the browser the first time):
    ```sh
    cd tools/r2-worker && npx wrangler@4 deploy
    ```
-   The deployed Worker is `https://silly-teyvat-data.noetypes.workers.dev`. A first deploy can
-   fail right after the upload with "This Worker does not exist on your account" [code 10007];
-   run it again. The Worker's `name` in `wrangler.toml` is part of every release URL, so do not
-   rename it later. Redeploy the same way after changing `worker.js`.
+   A first deploy can fail right after the upload with "This Worker does not exist on your
+   account" [code 10007]; run it again. The Worker's `name` in `wrangler.toml` is part of every
+   release URL, so do not rename it. Redeploy the same way after changing `worker.js`.
 
-Uploads use the same wrangler sign-in; no API token or other tool is needed. Each release, after
-the export (with `X.Y.Z` the game data version):
-
-```sh
-python3 tools/release-game-data.py ../silly-teyvat-data/releases/silly-teyvat-game-data-X.Y.Z.zip --version X.Y.Z \
-  --url https://silly-teyvat-data.noetypes.workers.dev/vX.Y.Z/silly-teyvat-game-data-X.Y.Z-001.part \
-  --chunk-dir ../silly-teyvat-data/releases/parts/vX.Y.Z \
-  --chunk-base-url https://silly-teyvat-data.noetypes.workers.dev/vX.Y.Z
-python3 tools/upload-r2-parts.py extension/genshin-dialogue-ui/game-data-release.json \
-  --chunk-dir ../silly-teyvat-data/releases/parts/vX.Y.Z
-```
-
-[`tools/upload-r2-parts.py`](../../tools/upload-r2-parts.py) checks each part against the release
-manifest, uploads only what the bucket lacks (an interrupted upload resumes), refuses to replace a
-part that is already there with different contents, then checks every part through the Worker and
-a cross-site byte range on the first. `--dry-run` reports what it would upload. Then run the
-[public install verification](DEVELOPMENT.md#public-install-verification) before committing the
-release manifest and building the distribution. Once the release is live, delete the local parts
-folder: the bucket and the ZIP in `releases/` hold the same bytes. Never delete an uploaded version
-while an extension release that names it may still be installed. Keep the GitHub assets repository
-and its tags too: players on releases that point there still download from it. After the switch,
-stop adding releases to it.
+Uploads use the same wrangler sign-in; no API token or other tool is needed.
+[`tools/upload-r2-parts.py`](../../tools/upload-r2-parts.py) checks each new part against the
+release manifest, uploads only what the bucket lacks (an interrupted upload resumes), refuses to
+replace a part that is already there with different contents, then checks every part through the
+Worker and a cross-site byte range on the first. `--dry-run` reports what it would upload. Keep the
+current release's ZIP in `silly-teyvat-data/releases/` (it can rebuild a fresh set with
+`--repack`); the uploaded parts folder can go once the release is live. Never delete an uploaded
+part while an extension release that names it may still be installed.
 
 The Workers free plan allows 100,000 requests a day, and one request is one part or one changed
 file. R2 storage beyond the free 10 GB-months costs about $0.015 per GB-month, and downloads are
 free. Each request reads R2 twice (size, then data), well within the free 10 million reads a month.
+
+### Earlier hosting on GitHub (1.77.0 to 1.84.0)
+
+Releases 1.77.0 to 1.84.0 were the whole export ZIP cut into 48 MiB parts in the
+`noetypes/silly-teyvat-assets` repository, each under an immutable version tag that extension
+releases up to 0.65a download from. Every release added about 2 GB to that repository's history.
+The v1.79.0 tag's `release.json` still describes 1.78.0, because 1.79.0 was uploaded but never
+released to players.
 
 ## Add or update media
 
