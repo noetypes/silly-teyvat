@@ -8,7 +8,7 @@
 ## Repository layout
 
 - Keep the layout described in the root `README.md`: the extension in `extension/genshin-dialogue-ui/`, SillyTavern content in `content/`, artwork runs in `art/`, scripts in `tools/` with checks in `tools/tests/`, and documentation in `docs/` (`guides/`, `development/`, `research/`, plus review and release records). Only `README.md`, `LICENSE`, `AGENTS.md`, `.gitignore` and `game-data.json` belong at the top level.
-- Every file inside `extension/genshin-dialogue-ui/` ships to players. Keep documentation in `docs/`, not in the extension folder, apart from its player `README.md`.
+- Every file inside `extension/genshin-dialogue-ui/` ships to players, except the CSS design layers listed in `tools/build-css.py`, which `style.css` already contains. Keep documentation in `docs/` and artwork provenance in `art/`, not in the extension folder, apart from its player `README.md`.
 - Media lives in the data pack, at the same relative path as in the repository. Moving a media file means moving it in the pack too, renaming its `game-data.json` entry and running `python3 tools/game-data.py link` and `check`.
 
 ## Personas

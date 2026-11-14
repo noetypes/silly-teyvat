@@ -268,6 +268,7 @@ document.addEventListener('click', async event => {
             case 'travel-tests': {const {runTravelTests}=await import('./preview-travel-tests.js');result(await runTravelTests());emit(eventTypes.SETTINGS_UPDATED);break;}
             case 'cast-tests': {const {runLocationCastTests}=await import('./preview-cast-tests.js');result(await runLocationCastTests());emit(eventTypes.SETTINGS_UPDATED);break;}
             case 'world-tests': {const {runWorldMapTests}=await import('./preview-world-tests.js');result(await runWorldMapTests());emit(eventTypes.SETTINGS_UPDATED);break;}
+            case 'enemy-region-tests': {const {runEnemyRegionTests}=await import('./preview-enemy-region-tests.js');result(await runEnemyRegionTests());break;}
             case 'staging-tests': {const {runStagingTests}=await import('./preview-staging-tests.js');result(await runStagingTests());emit(eventTypes.SETTINGS_UPDATED);break;}
             case 'trust-tests': {const {runTrustTests}=await import('./preview-trust-tests.js');result(await runTrustTests());break;}
             case 'scene-history-tests': {const {runSceneHistoryTests}=await import('./preview-scene-history-tests.js');result(await runSceneHistoryTests());break;}

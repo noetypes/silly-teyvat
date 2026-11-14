@@ -78,7 +78,9 @@ copied in by hand must be registered as a set. `tools/sync-live.sh` warns about 
 
 Players install from a separate distribution repository. SillyTavern installs an extension by
 cloning a repository with `manifest.json` at its root, so this one holds the installed extension:
-source files plus real copies of the extension's media from the pack (about 290 MB). It never
+source files plus real copies of the extension's media from the pack (about 780 MB, most of it TCG
+card animations, location backgrounds and birthday CGs). The CSS design layers stay out, since
+`style.css` already contains them. It never
 holds the art workspace, character cards or other game data. SillyTavern names the installed
 folder after the repository, and the extension works under any folder name.
 

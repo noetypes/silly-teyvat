@@ -24,12 +24,15 @@ def load(name):
 data = load('game-data')
 sync = load('sync-live')
 KEEP = {'.git'}
+# Build inputs that players never load: style.css already contains every CSS layer.
+BUILD_ONLY = set(load('build-css').LAYERS)
 
 
 def planned(root):
     source = data.REPO / sync.PREFIX
     code = {p.relative_to(source).as_posix(): p for p in source.rglob('*')
-            if p.is_file() and not p.is_symlink() and p.name != '.DS_Store' and '__pycache__' not in p.parts}
+            if p.is_file() and not p.is_symlink() and p.name != '.DS_Store' and '__pycache__' not in p.parts
+            and p.relative_to(source).as_posix() not in BUILD_ONLY}
     media = {name[len(sync.PREFIX):]: info for name, info in data.entries().items() if name.startswith(sync.PREFIX)}
     data.validate(root, {sync.PREFIX + name: info for name, info in media.items()})
     files = {name: path for name, path in code.items()}
