@@ -17,6 +17,7 @@ import {iconsReady} from './battle-icons.js';
 import {searchedCards,questCardsAt,questLabel,questMarkup,QUEST_MARKER} from './card-search.js';
 import {isStatue,statueElement,statueIcon,resonanceTravelers} from './statue-resonance.js';
 import {cardByAvatar} from './card-index.js';
+import {noChatOpen} from './party.js';
 
 const svg=path=>`<svg viewBox="0 0 24 24" aria-hidden="true">${path}</svg>`;
 const ICON={
@@ -48,7 +49,7 @@ const cameraRamp=.1,cameraDecay=7,cameraTail=(1-cameraRamp)/cameraDecay;
 const cameraArea=cameraRamp/2-cameraTail*Math.expm1(-cameraDecay);
 const cameraEasing=t=>(t<cameraRamp?t*t/(2*cameraRamp):cameraRamp/2-cameraTail*Math.expm1(-cameraDecay*(t-cameraRamp)/(1-cameraRamp)))/cameraArea;
 
-export function mountWorldMap({host,getContext,adapter=createMediaAdapter(getContext),onChange=()=>{},announce=()=>{},prepareTeleport=async()=>({decisions:[]}),commitTeleport=()=>true,onTeleport=()=>{},retryCast=()=>{},openMusic=()=>{},openMusicLibrary=()=>{},openCardSearch=()=>{},openStatue=()=>{},openJourney=id=>createJourneyLibraryAdapter().open(id)}){
+export function mountWorldMap({host,getContext,adapter=createMediaAdapter(getContext),onChange=()=>{},announce=()=>{},prepareTeleport=async()=>({decisions:[]}),commitTeleport=()=>true,onTeleport=()=>{},retryCast=()=>{},openMusic=()=>{},openMusicLibrary=()=>{},openCardSearch=()=>{},openStatue=()=>{},openJourney=id=>createJourneyLibraryAdapter().open(id),startJourney=null}){
     const mini=document.createElement('button');mini.id='gi-minimap';mini.type='button';mini.dataset.giSound='none';mini.hidden=true;mini.setAttribute('aria-label','Open world map');
     mini.innerHTML='<span class="gi-minimap-ring" aria-hidden="true"><span class="gi-minimap-glass"><span class="gi-minimap-canvas"></span><span class="gi-minimap-vignette"></span><span class="gi-minimap-player"><i class="gi-minimap-cone"></i><svg viewBox="0 0 24 24"><path d="M12 3 19 20l-7-4-7 4z"/></svg></span></span><span class="gi-minimap-north">N</span></span><span class="gi-minimap-label">World map</span>';
     const dialog=document.createElement('dialog');dialog.id='gi-world-map';dialog.setAttribute('aria-labelledby','gi-world-map-title');dialog.dataset.view='list';
@@ -87,6 +88,10 @@ export function mountWorldMap({host,getContext,adapter=createMediaAdapter(getCon
         teleport:{on:{DONE:'idle'}},save:{on:{DONE:'idle'}},journey:{on:{DONE:'idle'}},
     },onChange:state=>{if(state==='teleport')dialog.dataset.busy='teleport';else delete dialog.dataset.busy;}});
     const busy=()=>!task.is('idle');
+    // Opened from SillyTavern's welcome page, with no chat to travel in: the map only browses. Saved journeys can
+    // be resumed, and Teleport becomes "Start journey here", which starts a solo journey at that waypoint.
+    // Nothing that writes to the open chat is offered, since the welcome page's chat is never saved.
+    const browsing=()=>Boolean(startJourney)&&noChatOpen(getContext());
     const go=(event,payload)=>{const was=view.state,ok=view.send(event,payload);if(ok&&(was==='place'||was==='editor')&&!view.is('place','editor'))stopPlacing();return ok;};
     const rosterPicker=mountLocationRosterPicker({host,getContext,onChange:()=>{onChange();refresh({sidebarRefresh:true});}});
     const wildMenu=mountWildernessMenu({host:dialog,getContext,getLocation:()=>wildLocation,onChange:()=>{onChange();refresh({sidebarRefresh:true});},status:text=>status(text)});
@@ -373,15 +378,19 @@ export function mountWorldMap({host,getContext,adapter=createMediaAdapter(getCon
         const wild=document.createElement('section');wild.className='gi-map-music';wild.append(element('h4','Wilderness encounters'),element('p',wildernessSummary(getContext(),item.location)),button('Edit wilderness encounters','wilderness'));body.append(wild);
         const quest=questCardsAt(getContext(),item.location);
         if(quest.length){const q=document.createElement('section');q.className='gi-map-music gi-map-quest';q.append(element('h4','Card Search'),element('p',`${questLabel(quest).replace(/^Quest: /,'')} ${quest.length===1?'drops':'can drop'} here.`));body.append(q);}
-        const search=document.createElement('section');search.className='gi-map-music gi-map-quest';
-        search.append(element('h4','Card Search'),element('p','Choose Action cards to look for. Quest markers show where they drop.'),button('Open Card Search','card-search'));body.append(search);
+        const browse=browsing();
+        if(!browse){const search=document.createElement('section');search.className='gi-map-music gi-map-quest';
+        search.append(element('h4','Card Search'),element('p','Choose Action cards to look for. Quest markers show where they drop.'),button('Open Card Search','card-search'));body.append(search);}
         const cards=document.createElement('section');cards.className='gi-map-music';cards.append(element('h4','Card drops'),element('p',cardPoolSummary(locationCardPool(getContext(),item.location.id))),button('View card drops','card-drops'));body.append(cards);
         const music=document.createElement('section');music.className='gi-map-music';music.append(element('h4','Music'),element('p',musicSummary(item.location)),button('Choose music','music'));body.append(music);
         const actions=document.createElement('div');actions.className='gi-map-card-actions';
         const edit=button('','edit');edit.className='gi-map-round';edit.innerHTML=ICON.edit;edit.setAttribute('aria-label','Edit waypoint');edit.title='Edit waypoint';
-        const teleport=button('','teleport');teleport.className='gi-map-teleport';teleport.dataset.giSound='none';const glyph=document.createElement('img');glyph.src=waypointGlyph;glyph.alt='';teleport.append(glyph,element('span','Teleport'));
-        const bypass=button('Bypass Encounters','bypass');bypass.className='gi-map-bypass';bypass.setAttribute('aria-pressed',String(encountersBypassed(getContext(),item.location.id)));bypass.title='Arrive here without meeting any characters or enemies';
-        actions.append(bypass,edit,teleport);
+        const teleport=button('','teleport');teleport.className='gi-map-teleport';teleport.dataset.giSound='none';const glyph=document.createElement('img');glyph.src=waypointGlyph;glyph.alt='';teleport.append(glyph,element('span',browse?'Start journey here':'Teleport'));
+        if(browse){teleport.title='Start a new solo journey at this waypoint';actions.append(edit,teleport);}
+        else{
+            const bypass=button('Bypass Encounters','bypass');bypass.className='gi-map-bypass';bypass.setAttribute('aria-pressed',String(encountersBypassed(getContext(),item.location.id)));bypass.title='Arrive here without meeting any characters or enemies';
+            actions.append(bypass,edit,teleport);
+        }
         sidebar.replaceChildren(cardHead(item.location.label,item.region.name,presentations.get(item.location.id)?.glyph || true),body,actions);go('SELECT');
     }
     function regionChoices(select,selected){
@@ -486,6 +495,11 @@ export function mountWorldMap({host,getContext,adapter=createMediaAdapter(getCon
             if(item){showDetails(item);paintMarkers();renderList();map.setView(toLatLng(item.point),-1.5);flyTo(item.point,-1.5);}
             else if(options.locationId){if(current)map.setView(toLatLng(current.point),-1.5);startPlacement(options.locationId);}
             else {listWaypoints();status('');if(current){map.setView(toLatLng(current.point),from?-1.5:-2);if(from)setTimeout(()=>{if(dialog.open&&view.is('list'))map.flyTo(toLatLng(current.point),-2.5,{duration:.7});},180);}}
+            if(browsing()&&!item){
+                const saved=$('.gi-saved-journeys');saved.open=(getContext().groups || []).some(isJourneyGroup);
+                setPanel(true);if(saved.open)saved.scrollIntoView({block:'nearest'});
+                status(saved.open?'No journey is open. Resume a saved journey, or choose a waypoint to start a new one there.':'No journey is open. Choose a waypoint to start a new journey there.');
+            }
             updateScale();
         },
         sync({on,show=true,location,loading=false,generating=false}={}){
@@ -512,9 +526,21 @@ export function mountWorldMap({host,getContext,adapter=createMediaAdapter(getCon
         close,
         dispose(){if(disposed)return;disposed=true;enabled=false;api.syncPrompt(false);abort.abort();close();clearTimeout(veilTimer);clearTimeout(bannerTimer);veil?.remove();banner?.remove();rosterPicker.dispose();wildMenu.dispose();cardPoolMenu.dispose();removeMap(map);removeMap(minimap);markerCache.clear();listCache.clear();presentations.clear();residents=new Map();points=[];targetCache=null;mini.remove();dialog.remove();},
     };
+    // With no chat open, a solo journey is started at the waypoint instead of teleporting. The map closes first so
+    // the loading screen is not hidden behind it, and opens again on this waypoint if the journey could not start.
+    async function beginJourney(item){
+        // A start from the Backgrounds menu never had the map open, so a failure leaves it closed.
+        let started=false;const wasOpen=dialog.open;task.send('JOURNEY');
+        try{close();started=Boolean(await startJourney(item.location.id));}
+        catch(error){announce(error.message || 'The journey could not be started.');}
+        finally{task.send('DONE');}
+        if(!started&&wasOpen&&!disposed&&browsing())api.open({locationId:item.location.id});
+        return started;
+    }
     // Choose who comes along, wash the screen to light, move the party and record the journey. The map's Teleport
     // and a location chosen in SillyTavern's Backgrounds menu both come here.
     async function teleport(item){
+        if(browsing())return beginJourney(item);
         const ctx=getContext(),token=revision,startChat=identity(ctx);task.send('TELEPORT');
         try{
             const plan=await prepareTeleport(item.location);
@@ -564,7 +590,7 @@ export function mountWorldMap({host,getContext,adapter=createMediaAdapter(getCon
             if(name==='card-drops'&&item){wildLocation=item.location;cardPoolMenu.open();return;}
             if(name==='music-library'){openMusicLibrary();return;}
             if(name==='card-search'){openCardSearch();return;}
-            if(name==='retry-cast'){retryCast();status('Checking the current location’s guests again.');return;}
+            if(name==='retry-cast'){if(browsing()){status('Open a journey first. Location guests belong to the journey you are in.');return;}retryCast();status('Checking the current location’s guests again.');return;}
             if(name==='unpin'&&item){unpinWaypoint(ctx,item.location.id);selectedId=null;onChange();refresh();listWaypoints();status('Map pin removed. Its background picture and saved scenes remain.');return;}
             if(name==='scale'){
                 const metres=Number($('#gi-map-metres').value),speed=Number($('#gi-map-walking').value);if(!Number.isFinite(metres)||metres<.01||metres>10000||!Number.isFinite(speed)||speed<.1||speed>100)throw new Error('Choose a valid map scale and walking speed.');

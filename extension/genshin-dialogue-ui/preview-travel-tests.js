@@ -41,6 +41,25 @@ export async function runTravelTests(){
   mediaSettings(ctx).worldPromptAllRegions=true;check('entire-world option includes other regions',worldScalePrompt(ctx).includes('Bubu Pharmacy'));mediaSettings(ctx).worldPromptAllRegions=false;
   map=mountWorldMap({host,getContext:()=>ctx});map.sync({on:true});map.open();await pause();
   check('map settings expose main-departure and prompt-scope toggles',!!host.querySelector('#gi-map-main-departure')&&!!host.querySelector('#gi-map-world-scope'));map.dispose();map=null;
+  // SillyTavern's welcome page: no chat is open, so the map browses instead of starting a journey on its own.
+  const openChar=ctx.characterId,groupCount=ctx.groups.length,placeBefore=travelState(ctx).location?.id,started=[];let startResult=false;ctx.characterId=undefined;
+  ctx.groups.push({id:'saved',name:'Teyvat journey: Traveler',chat_id:'Silly-Teyvat-saved',chats:['Silly-Teyvat-saved'],members:[],silly_teyvat_journey:{version:1,managed:true}});
+  map=mountWorldMap({host,getContext:()=>ctx,startJourney:async id=>{started.push(id);return startResult;}});map.sync({on:true});map.open();await pause();
+  check('with no chat open the map opens on Saved journeys without starting one',host.querySelector('.gi-saved-journeys').open&&host.querySelector('.gi-saved-journeys select').value==='saved'&&!started.length);
+  host.querySelector('[data-map="select"][data-location="bubu"]').click();await pause();
+  const startButton=host.querySelector('.gi-map-sidebar [data-map="teleport"]');
+  check('a waypoint offers Start journey here and nothing that writes to a chat',startButton?.textContent==='Start journey here'&&!host.querySelector('.gi-map-sidebar [data-map="bypass"]')&&!host.querySelector('.gi-map-sidebar [data-map="card-search"]'));
+  startButton.click();await pause();
+  check('Start journey here asks for a journey at that waypoint and reopens on it if none started',started.join()==='bubu'&&host.querySelector('#gi-world-map').open&&host.querySelector('.gi-map-sidebar [data-map="teleport"]')?.textContent==='Start journey here'&&travelState(ctx).location?.id===placeBefore);
+  startResult=true;host.querySelector('.gi-map-sidebar [data-map="teleport"]').click();await pause();
+  check('once the journey starts the map stays closed',started.join()==='bubu,bubu'&&!host.querySelector('#gi-world-map').open);
+  startResult=false;await map.teleport('bubu');await pause();
+  check('a start from the Backgrounds menu that fails does not open the map',started.join()==='bubu,bubu,bubu'&&!host.querySelector('#gi-world-map').open);
+  map.dispose();map=null;ctx.characterId=openChar;ctx.groups.length=groupCount;
+  map=mountWorldMap({host,getContext:()=>ctx,startJourney:async id=>{started.push(id);return true;}});map.sync({on:true});map.open();await pause();
+  check('with a chat open the map keeps Teleport',!host.querySelector('.gi-saved-journeys').open);
+  host.querySelector('[data-map="select"][data-location="bubu"]').click();await pause();
+  check('and its usual waypoint actions',host.querySelector('.gi-map-sidebar [data-map="teleport"]')?.textContent==='Teleport'&&!!host.querySelector('.gi-map-sidebar [data-map="bypass"]'));map.dispose();map=null;
   ctx.chat=[{name:'Kachina',mes:'"We reached Bubu."'}];Object.assign(travelState(ctx),{regionId:'liyue',location:structuredClone(road),manualAt:null});
   background=mountBackgrounds({host,getContext:()=>ctx,adapter:{}});background.sync({on:true,id:0,generating:false});await pause();
   check('dialogue mentioning a place neither moves the party nor adds a travel record',ctx.chat.length===1&&travelState(ctx).location.id===road.id);

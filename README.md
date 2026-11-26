@@ -56,6 +56,7 @@ Expressions use SillyTavern's **Character Expressions** classifier settings. Cha
 
 - A full interactive map of Teyvat with **270 waypoints in eight regions**: Mondstadt, Liyue, Inazuma, Sumeru, Fontaine, Natlan, Nod-Krai and Snezhnaya. Each has its own background and music.
 - **Teleport** to any waypoint, from the map or from the **Teyvat** tab of SillyTavern's Backgrounds menu, which shows every location picture. Travel is recorded in the chat with real distances, and a classifier follows the party when the story moves somewhere within the current region.
+- With no chat open, opening the map starts nothing on its own: continue a journey from **Saved journeys**, or choose **Start journey here** on any waypoint to begin a solo journey there.
 - Characters live at the places they belong to, and you meet some of them when you arrive. Meet one alone at a place their card has a greeting for, and they greet you with it. When you leave, you choose who travels with you. Favourites are always there, and anyone left behind waits for you.
 - Wilderness waypoints have regional enemy pools, and **20 boss arenas** each hold one boss with its own music.
 - Every region has a **Statue of The Seven**, marked with the statue's own map icon (Nod-Krai's is a Statue of the New Moon). Arriving at one restores your party's HP. Arrive with Aether or Lumine in your party, or while playing one of them, to resonate with the region's element. Starfell Lake is a statue too, and the waypoint editor can make any waypoint one.

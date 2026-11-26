@@ -1,4 +1,4 @@
-import {activeGroup,inPartyChat} from './party.js';
+import {activeGroup,inPartyChat,noChatOpen} from './party.js';
 import {linkedCard,playedAvatars} from './persona-link.js';
 import {activePersonaAvatar,personaCard,personaPortrait} from './persona-wardrobe.js';
 import {castIdentity,createLocationCastAdapter,defaultCharacterLocation,locationCastState} from './location-cast.js';
@@ -71,15 +71,16 @@ export function enemyJourneyStart(ctx,random=Math.random){
     const start=enemyStartPoint(worldWaypoints(ctx),enemy.avatar,random);
     return start?{enemy,start}:null;
 }
-export function makeSoloJourney(ctx,random=Math.random){
+export function makeSoloJourney(ctx,random=Math.random,{startAt=''}={}){
     const card=personaCard(ctx),chatId='Silly-Teyvat-'+newLocalId('solo'),name=card?.name || ctx.name1 || 'Player';
     const metadata=structuredClone(ctx.chatMetadata || {});delete metadata.main_chat;
     metadata.silly_teyvat_cast={core:[],managed:[],placements:{},source:{avatar:card?.avatar || '__user__',chatId:'solo:'+chatId}};
     // A solo journey begins alone at the player's character's home. A persona with no card, or a card
     // with no home on the map, begins at the Adventurers' Guild of their region. The empty opening
     // scene is what keeps the people who live there out until the player comes back later.
-    const home=defaultCharacterLocation(ctx,card?.avatar),enemyStart=enemyJourneyStart(ctx,random);
-    const start=enemyStart?.start || worldWaypoints(ctx).find(w=>w.location.id===home?.id) || regionGuild(ctx,homeRegionName(ctx,linkedCard(ctx) || card));
+    // A waypoint chosen on the world map (startAt) is where the player asked to begin, so it comes first.
+    const home=defaultCharacterLocation(ctx,card?.avatar),chosen=startAt?worldWaypoints(ctx).find(w=>w.location.id===startAt):null,enemyStart=chosen?null:enemyJourneyStart(ctx,random);
+    const start=chosen || enemyStart?.start || worldWaypoints(ctx).find(w=>w.location.id===home?.id) || regionGuild(ctx,homeRegionName(ctx,linkedCard(ctx) || card));
     if(start){delete metadata.silly_teyvat_world;try{
         teleportTo({...ctx,chat:[],chatMetadata:metadata,saveMetadataDebounced:null,saveChat:null,setExtensionPrompt:null},start.location.id,{record:false});
         metadata.silly_teyvat_cast.encounter=rollLocationEncounter(ctx,start.location.id,[],{kind:'open'});
@@ -98,11 +99,11 @@ export function createPersonaSessionAdapter(getContext,{loadScript=()=>import('/
         async busy(){const script=await loadScript();return script.isGenerating();},
         apply:cast.apply,
         async reload(ctx){await ctx.reloadCurrentChat?.();},
-        async createSolo(ctx,isCurrent){
+        async createSolo(ctx,isCurrent,{startAt=''}={}){
             const script=await loadScript();
             if(script.isGenerating()||script.isChatSaving)throw new Error('Wait for the current chat operation to finish before starting a solo journey.');
             await loadCharacterHomes(ctx);await ensureNarrator(ctx);if(!isCurrent())return false;
-            const snapshot=makeSoloJourney(getContext());snapshot.group.avatar_url=await portraitData(snapshot.portrait);await post('/api/chats/group/save',{id:snapshot.chatId,chat:snapshot.chat});if(!isCurrent())return false;
+            const snapshot=makeSoloJourney(getContext(),Math.random,{startAt});snapshot.group.avatar_url=await portraitData(snapshot.portrait);await post('/api/chats/group/save',{id:snapshot.chatId,chat:snapshot.chat});if(!isCurrent())return false;
             const group=await post('/api/groups/create',snapshot.group);group.silly_teyvat_journey=snapshot.group.silly_teyvat_journey;await post('/api/groups/edit',group);
             if(!isCurrent())return false;await ctx.getCharacters();
             const native=await loadGroups();if(!isCurrent())return false;
@@ -112,7 +113,7 @@ export function createPersonaSessionAdapter(getContext,{loadScript=()=>import('/
     };
 }
 export function createPersonaSession({getContext,adapter=createPersonaSessionAdapter(getContext),onChange=()=>{},announce=()=>{}}){
-    let running=null,pending=false,start=false,disposed=false,failed='';
+    let running=null,pending=false,start=false,startPlace='',disposed=false,failed='';
     const key=()=>JSON.stringify([castIdentity(getContext()),activePersonaAvatar(getContext()),linkedCard(getContext())?.avatar]);
     async function reconcile(){
         for(let attempt=0;pending&&!disposed&&attempt<8;attempt++){
@@ -122,11 +123,13 @@ export function createPersonaSession({getContext,adapter=createPersonaSessionAda
             const kin=Boolean(playedEnemy(ctx));
             const history=card&&!kin&&(ctx.chat || []).some(m=>!m.is_user&&!m.is_system&&m.extra?.type!=='narrator'&&(m.original_avatar?m.original_avatar===card.avatar:m.name===card.name));
             const remove=card&&!kin&&group?.members?.includes(card.avatar);
-            const newJourney=start&&!inPartyChat(ctx)&&ctx.characterId==null;start=false;
+            const newJourney=start&&noChatOpen(ctx),place=startPlace;start=false;startPlace='';
             if(!ownSingle&&!history&&!remove&&!newJourney)continue;
-            if(await adapter.busy?.()){start=newJourney;return;}
+            // A journey asked for while SillyTavern is busy is dropped, not kept: nothing retries it, so a kept
+            // request would start a journey on some later, unrelated request. The player is told to ask again.
+            if(await adapter.busy?.()){if(newJourney)throw new Error('Wait for the current chat operation to finish before starting a solo journey.');return;}
             if(!valid())continue;
-            if(newJourney){if(await adapter.createSolo(ctx,valid)){pending=true;onChange({converted:true});}continue;}
+            if(newJourney){if(await adapter.createSolo(ctx,valid,{startAt:place})){pending=true;onChange({converted:true});}continue;}
             if(ownSingle){
                 const result=await adapter.apply(ctx,{members:[],core:[],managed:[],removed:[card.avatar],added:[],greetings:[]},valid);
                 if(result?.converted){pending=true;onChange({converted:true});}continue;
@@ -143,12 +146,13 @@ export function createPersonaSession({getContext,adapter=createPersonaSessionAda
     }
     const api={
         get busy(){return Boolean(running);},
-        request({startJourney=false}={}){
-            if(disposed)return;pending=true;start ||= startJourney;
+        // startAt: the waypoint a new solo journey begins at, instead of the player's home.
+        request({startJourney=false,startAt=''}={}){
+            if(disposed)return;pending=true;start ||= startJourney;if(startJourney&&startAt)startPlace=String(startAt);
             if(!running)running=reconcile().catch(error=>{const id=key()+':'+error.message;if(failed!==id){failed=id;announce(error.message);console.warn('[Silly Teyvat] Persona identity',error);}}).finally(()=>{running=null;if(pending&&!disposed)queueMicrotask(()=>api.request());});
         },
         async flush(options){api.request(options);while(running)await running;},
-        async ensureJourney(){const ctx=getContext();if(!ctx.groupId&&ctx.characterId==null)await api.flush({startJourney:true});else await api.flush();},
+        async ensureJourney(){await api.flush({startJourney:noChatOpen(getContext())});},
         dispose(){disposed=true;pending=false;},
     };return api;
 }

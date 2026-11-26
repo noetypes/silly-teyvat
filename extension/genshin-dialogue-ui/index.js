@@ -1,4 +1,4 @@
-import {activeGroup,inPartyChat} from './party.js';
+import {activeGroup,inPartyChat,noChatOpen} from './party.js';
 import {createMachine} from './machine.js';
 import {normalizeSpriteKeys} from './sprite-files.js';
 import {loadCharacterProperties,registerGenshinTags} from './character-properties.js';
@@ -299,8 +299,8 @@ function stopAuto() {
     timer = undefined;
 }
 // The loading screen names the place the chat will open at: its saved location, or the character's home.
-function loadingPlace(ctx,avatar){
-    const regions=backgroundRegions(ctx),savedId=avatar?'':travelState(ctx).location?.id;
+function loadingPlace(ctx,avatar,locationId=''){
+    const regions=backgroundRegions(ctx),savedId=locationId || (avatar?'':travelState(ctx).location?.id);
     const location=regions.flatMap(r=>r.locations).find(l=>l.id===savedId) || defaultCharacterLocation(ctx,avatar || ctx.characters?.[ctx.characterId]?.avatar) || null;
     return {region:regions.find(r=>r.locations.some(l=>l.id===location?.id))?.name || '',location};
 }
@@ -703,7 +703,17 @@ function queueAuto() {
         queueAuto();
     }, delay);
 }
-async function openWorldMap(options){await personaSession?.ensureJourney();worldMapUI?.open(options);}
+// With no chat open, the map opens without starting a journey, so a saved one can be resumed first. The map
+// then offers "Start journey here" on each waypoint (startSoloJourney below).
+async function openWorldMap(options){if(!noChatOpen(context()))await personaSession?.ensureJourney();worldMapUI?.open(options);}
+// The journey is saved and opened before CHAT_CHANGED takes its own hold, so cover the welcome page from the
+// click, showing the place the journey begins. Resolves true once the new journey is the open chat.
+async function startSoloJourney(locationId=''){
+    if(!personaSession)throw new Error('Silly Teyvat is still loading. Try again in a moment.');
+    const release=loadingUI?.hold(loadingPlace(context(),personaCard(context())?.avatar,locationId));
+    try{await personaSession.flush({startJourney:true,startAt:locationId});}finally{release?.();}
+    return !noChatOpen(context());
+}
 function toggleHistory() {
     if (inReview() && (editing() || deleting())) { announce('Finish or cancel message editing or deletion before closing Dialogue Review.'); return; }
     visit++;
@@ -764,8 +774,7 @@ function handleAction(event) {
             // The journey is saved and opened before CHAT_CHANGED takes its own hold, so cover the
             // welcome page from the click, showing the place the journey begins.
             menu.send('CLOSE'); refresh();
-            const release = loadingUI?.hold(loadingPlace(context(), personaCard(context())?.avatar));
-            void (personaSession?.flush({ startJourney: true }) || Promise.resolve()).finally(() => release?.());
+            void startSoloJourney().catch(fail);
             break;
         }
         case 'history': toggleHistory(); break;
@@ -977,7 +986,7 @@ export async function initialize(options = {}) {
     locationMusicUI=mountLocationMusic({host,getContext:context,adapter:mediaAdapter,announce,onChange:schedule});
     worldMapUI=mountWorldMap({host,getContext:context,adapter:mediaAdapter,announce,
         openMusic:id=>locationMusicUI.openLocation(id),openMusicLibrary:()=>locationMusicUI.openLibrary(),openCardSearch:()=>cardSearchUI?.open(),
-        openJourney:id=>journeyAdapter.open(id),
+        openJourney:id=>journeyAdapter.open(id),startJourney:id=>startSoloJourney(id),
         prepareTeleport:location=>locationCastUI.prepareTeleport(location),commitTeleport:plan=>locationCastUI.commitTeleport(plan),onTeleport:jumpToArrival,retryCast:()=>locationCastUI.retry(),
         openStatue:location=>statueUI?.open(location),
         onChange:schedule});
